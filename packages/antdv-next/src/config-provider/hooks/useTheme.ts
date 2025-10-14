@@ -6,8 +6,8 @@ import { defaultConfig } from '../../theme/context.ts'
 import useThemeKey from './useThemeKey.ts'
 
 export function useTheme(
-  theme?: Ref<ThemeConfig>,
-  parentTheme?: Ref<ThemeConfig>,
+  theme?: Ref<ThemeConfig | undefined>,
+  parentTheme?: Ref<ThemeConfig | undefined>,
   config?: Ref<{
     prefixCls?: string
   }>,

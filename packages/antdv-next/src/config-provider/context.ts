@@ -1,6 +1,7 @@
 import type { DerivativeFunc } from '@antdv-next/cssinjs'
 import type { CSSProperties, InjectionKey, Ref } from 'vue'
 import type { AliasToken, MapToken, OverrideToken, SeedToken } from '../theme/interface'
+import type { RenderEmptyHandler } from './defaultRenderEmpty.tsx'
 import { inject, provide, ref } from 'vue'
 
 export const defaultPrefixCls = 'ant'
@@ -117,7 +118,7 @@ export interface ConfigConsumerProps extends ConfigComponentProps {
   rootPrefixCls?: string
   iconPrefixCls: string
   getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => string
-  // renderEmpty?: RenderEmptyHandler
+  renderEmpty?: RenderEmptyHandler
   /**
    * @descCN 设置 [Content Security Policy](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CSP) 配置。
    * @descEN Set the [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) config.

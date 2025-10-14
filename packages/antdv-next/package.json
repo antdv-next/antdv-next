@@ -10,6 +10,7 @@
     "@ant-design/colors": "^7.2.1",
     "@ant-design/fast-color": "^3.0.0",
     "@antdv-next/cssinjs": "workspace:^",
-    "@v-c/util": "^0.0.7"
+    "@v-c/util": "^0.0.7",
+    "defu": "^6.1.4"
   }
 }

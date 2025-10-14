@@ -7,6 +7,7 @@ import type {
   Variant,
 } from './context.ts'
 import type { RenderEmptyHandler } from './defaultRenderEmpty'
+import type { SizeType } from './SizeContext.ts'
 
 export interface ConfigProviderProps {
   getTargetContainer?: () => HTMLElement | Window
@@ -26,7 +27,7 @@ export interface ConfigProviderProps {
    * @descEN Language package setting, you can find the packages in `antd/locale`.
    */
   // locale?: Locale
-  // componentSize?: SizeType
+  componentSize?: SizeType
   componentDisabled?: boolean
   /**
    * @descCN 设置布局展示方向。

@@ -6,7 +6,7 @@ import { computed } from 'vue'
 import { genIconStyle } from '../../style'
 import useToken from '../useToken'
 
-function useResetIconStyle(iconPrefixCls: Ref<string>, csp?: Ref<CSPConfig>) {
+function useResetIconStyle(iconPrefixCls: Ref<string>, csp?: Ref<CSPConfig | undefined>) {
   const [theme, token] = useToken()
 
   // Generate style for icons
