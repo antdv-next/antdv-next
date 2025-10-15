@@ -7,6 +7,7 @@ import { computed, defineComponent } from 'vue'
 import { defaultTheme, DesignTokenProvider } from '../theme/context.ts'
 import defaultSeedToken from '../theme/themes/seed'
 import { defaultIconPrefixCls, defaultPrefixCls, useConfig, useConfigProvider } from './context'
+import { DisabledContextProvider } from './DisabledContext.tsx'
 import { useTheme } from './hooks/useTheme.ts'
 import { SizeProvider } from './SizeContext.ts'
 import useStyle from './style'
@@ -192,6 +193,10 @@ const ProviderChildren = defineComponent<
       }
 
       // =================================== Render ===================================
+      if (props?.componentDisabled !== undefined) {
+        childNode = <DisabledContextProvider disabled={props.componentDisabled}>{childNode}</DisabledContextProvider>
+      }
+
       return childNode
     }
   },

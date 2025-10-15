@@ -75,9 +75,15 @@ importers:
       '@ant-design/fast-color':
         specifier: ^3.0.0
         version: 3.0.0
+      '@ant-design/icons-vue':
+        specifier: ^7.0.1
+        version: 7.0.1(vue@3.5.22(typescript@5.9.3))
       '@antdv-next/cssinjs':
         specifier: workspace:^
         version: link:../cssinjs
+      '@v-c/color-picker':
+        specifier: ^1.0.0
+        version: 1.0.0(vue@3.5.22(typescript@5.9.3))
       '@v-c/resize-observer':
         specifier: ^0.0.2
         version: 0.0.2(vue@3.5.22(typescript@5.9.3))
@@ -90,6 +96,9 @@ importers:
       defu:
         specifier: ^6.1.4
         version: 6.1.4
+      es-toolkit:
+        specifier: ^1.40.0
+        version: 1.40.0
 
   packages/cssinjs:
     dependencies:
@@ -157,6 +166,9 @@ packages:
   '@adobe/css-tools@4.4.4':
     resolution: {integrity: sha512-Elp+iwUx5rN5+Y8xLt5/GRoG20WGoDCQ/1Fb+1LiGtvwbDavuSk0jhD/eZdckHAuzcDzccnkv+rEjyWfRx18gg==}
 
+  '@ant-design/colors@6.0.0':
+    resolution: {integrity: sha512-qAZRvPzfdWHtfameEGP2Qvuf838NhergR35o+EuVyB5XvSA98xod5r4utvi4TJ3ywmevm290g9nsCG5MryrdWQ==}
+
   '@ant-design/colors@7.2.1':
     resolution: {integrity: sha512-lCHDcEzieu4GA3n8ELeZ5VQ8pKQAWcGGLRTQ50aQM2iqPpq2evTxER84jfdPvsPAtEcZ7m44NI45edFMo8oOYQ==}
 
@@ -167,6 +179,14 @@ packages:
   '@ant-design/fast-color@3.0.0':
     resolution: {integrity: sha512-eqvpP7xEDm2S7dUzl5srEQCBTXZMmY3ekf97zI+M2DHOYyKdJGH0qua0JACHTqbkRnD/KHFQP9J1uMJ/XWVzzA==}
     engines: {node: '>=8.x'}
+
+  '@ant-design/icons-svg@4.4.2':
+    resolution: {integrity: sha512-vHbT+zJEVzllwP+CM+ul7reTEfBR0vgxFe7+lREAsAA7YGsYpboiq2sQNeQeRvh09GfQgs/GyFEvZpJ9cLXpXA==}
+
+  '@ant-design/icons-vue@7.0.1':
+    resolution: {integrity: sha512-eCqY2unfZK6Fe02AwFlDHLfoyEFreP6rBwAZMIJ1LugmfMiVgwWDYlp1YsRugaPtICYOabV1iWxXdP12u9U43Q==}
+    peerDependencies:
+      vue: '>=3.0.3'
 
   '@antfu/eslint-config@5.4.1':
     resolution: {integrity: sha512-x7BiNkxJRlXXs8tIvg0CgMuNo5IZVWkGLMJotCtCtzWUHW78Pmm8PvtXhvLBbTc8683GGBK616MMztWLh4RNjA==}
@@ -395,6 +415,10 @@ packages:
   '@csstools/css-tokenizer@3.0.4':
     resolution: {integrity: sha512-Vd/9EVDiu6PPJt9yAh6roZP6El1xHrdvIVGjyBsHR0RYwNHgL7FJPyIIW4fANJNG6FtyZfvlRPpFI4ZM/lubvw==}
     engines: {node: '>=18'}
+
+  '@ctrl/tinycolor@3.6.1':
+    resolution: {integrity: sha512-SITSV6aIXsuVNV3f3O0f2n/cgyEDWoSqtZMYiAmcsYHydcKrOz3gUxB/iXd/Qf08+IZX4KpgNbvUdMBmWz+kcA==}
+    engines: {node: '>=10'}
 
   '@dprint/formatter@0.3.0':
     resolution: {integrity: sha512-N9fxCxbaBOrDkteSOzaCqwWjso5iAe+WJPsHC021JfHNj2ThInPNEF13ORDKta3llq5D1TlclODCvOvipH7bWQ==}
@@ -912,8 +936,23 @@ packages:
     resolution: {integrity: sha512-FrvMpAK+hTbFy7vH5j1+tMYHMSKLE6RzluFJlkFNKD0p9YsUT75JlBSmr5so3QRzvMwU5/bIEdeNrxm8du8l3Q==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
+  '@v-c/color-picker@1.0.0':
+    resolution: {integrity: sha512-5VneStzNoKa963vsvpMBlFUG/CEe6nmQGdRTPFSxK36589i1IEq6KU36vdYOxArWM5CWN3jxf2OgmrKRFF6Smg==}
+    peerDependencies:
+      vue: ^3.0.0
+
+  '@v-c/fast-color@1.0.0':
+    resolution: {integrity: sha512-Xp54NiFH4rvnqY2iW+HJKPN13V3oafmJHnu3CAl6mKrr7rPW3l2mo+079d/ZLlmIGO+OHBefeNov42BUCoif5g==}
+    peerDependencies:
+      vue: ^3.0.0
+
   '@v-c/resize-observer@0.0.2':
     resolution: {integrity: sha512-Indu06tNf2G5cFty3/QgMnirL8A6zq8dbkEPrbYEYMhAOxU9oEOJEfOu5rPxamPkkLlAVTEOZCBoGfWaQ5B/sw==}
+    peerDependencies:
+      vue: ^3.0.0
+
+  '@v-c/util@0.0.2':
+    resolution: {integrity: sha512-ue5wVsutSdkNPy4fffYTOgcGkHDD1b1smI745SqimveGqY3M40XZBniqUcg7OWJlQ+JwefPR1aKhmkJr+qHMtg==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -1410,6 +1449,9 @@ packages:
 
   es-module-lexer@1.7.0:
     resolution: {integrity: sha512-jEQoCwk8hyb2AZziIOLhDqpm5+2ww5uIE6lkO/6jcOCusfk6LhMHpXXfBLXTZ7Ydyt0j4VoUQv6uGNYbdW+kBA==}
+
+  es-toolkit@1.40.0:
+    resolution: {integrity: sha512-8o6w0KFmU0CiIl0/Q/BCEOabF2IJaELM1T2PWj6e8KqzHv1gdx+7JtFnDwOx1kJH/isJ5NwlDG1nCr1HrRF94Q==}
 
   escalade@3.2.0:
     resolution: {integrity: sha512-WUj2qlxaQtO4g6Pq5c29GTcWGDyd8itL8zTlipgECz3JesAiiOKotd8JU6otB3PACgG6xkJUyVhboMS+bje/jA==}
@@ -2988,6 +3030,10 @@ snapshots:
 
   '@adobe/css-tools@4.4.4': {}
 
+  '@ant-design/colors@6.0.0':
+    dependencies:
+      '@ctrl/tinycolor': 3.6.1
+
   '@ant-design/colors@7.2.1':
     dependencies:
       '@ant-design/fast-color': 2.0.6
@@ -2997,6 +3043,14 @@ snapshots:
       '@babel/runtime': 7.28.4
 
   '@ant-design/fast-color@3.0.0': {}
+
+  '@ant-design/icons-svg@4.4.2': {}
+
+  '@ant-design/icons-vue@7.0.1(vue@3.5.22(typescript@5.9.3))':
+    dependencies:
+      '@ant-design/colors': 6.0.0
+      '@ant-design/icons-svg': 4.4.2
+      vue: 3.5.22(typescript@5.9.3)
 
   '@antfu/eslint-config@5.4.1(@vue/compiler-sfc@3.5.22)(eslint-plugin-format@1.0.2(eslint@9.37.0(jiti@2.6.1)))(eslint@9.37.0(jiti@2.6.1))(typescript@5.9.3)(vitest@3.2.4(@types/debug@4.1.12)(@types/node@24.7.1)(jiti@2.6.1)(jsdom@27.0.0(postcss@8.5.6))(yaml@2.8.1))':
     dependencies:
@@ -3272,6 +3326,8 @@ snapshots:
       postcss: 8.5.6
 
   '@csstools/css-tokenizer@3.0.4': {}
+
+  '@ctrl/tinycolor@3.6.1': {}
 
   '@dprint/formatter@0.3.0': {}
 
@@ -3783,11 +3839,26 @@ snapshots:
       '@typescript-eslint/types': 8.46.0
       eslint-visitor-keys: 4.2.1
 
+  '@v-c/color-picker@1.0.0(vue@3.5.22(typescript@5.9.3))':
+    dependencies:
+      '@v-c/fast-color': 1.0.0(vue@3.5.22(typescript@5.9.3))
+      '@v-c/util': 0.0.2(vue@3.5.22(typescript@5.9.3))
+      classnames: 2.5.1
+      vue: 3.5.22(typescript@5.9.3)
+
+  '@v-c/fast-color@1.0.0(vue@3.5.22(typescript@5.9.3))':
+    dependencies:
+      vue: 3.5.22(typescript@5.9.3)
+
   '@v-c/resize-observer@0.0.2(vue@3.5.22(typescript@5.9.3))':
     dependencies:
       '@v-c/util': 0.0.4(vue@3.5.22(typescript@5.9.3))
       classnames: 2.5.1
       resize-observer-polyfill: 1.5.1
+      vue: 3.5.22(typescript@5.9.3)
+
+  '@v-c/util@0.0.2(vue@3.5.22(typescript@5.9.3))':
+    dependencies:
       vue: 3.5.22(typescript@5.9.3)
 
   '@v-c/util@0.0.4(vue@3.5.22(typescript@5.9.3))':
@@ -4279,6 +4350,8 @@ snapshots:
   error-stack-parser-es@1.0.5: {}
 
   es-module-lexer@1.7.0: {}
+
+  es-toolkit@1.40.0: {}
 
   escalade@3.2.0: {}
 

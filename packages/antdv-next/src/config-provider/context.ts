@@ -1,5 +1,6 @@
 import type { DerivativeFunc } from '@antdv-next/cssinjs'
 import type { CSSProperties, InjectionKey, Ref } from 'vue'
+import type { ButtonProps } from '../button/button.tsx'
 import type { SpaceProps } from '../space'
 import type { AliasToken, MapToken, OverrideToken, SeedToken } from '../theme/interface'
 import type { RenderEmptyHandler } from './defaultRenderEmpty.tsx'
@@ -139,8 +140,12 @@ export interface WaveConfig {
 
 export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'classes' | 'styles'>
 
+export type ButtonConfig = ComponentStyleConfig
+  & Pick<ButtonProps, 'classes' | 'styles' | 'autoInsertSpace' | 'variant' | 'color' | 'shape'>
+
 export interface ConfigComponentProps {
   space?: SpaceConfig
+  button?: ButtonConfig
 }
 
 export interface ConfigConsumerProps extends ConfigComponentProps {

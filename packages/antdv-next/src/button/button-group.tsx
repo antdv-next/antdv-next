@@ -1,0 +1,1 @@
+const GroupSizeContextKey = Symbol('GroupSizeContextKey')

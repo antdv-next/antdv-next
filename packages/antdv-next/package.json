@@ -9,10 +9,13 @@
   "dependencies": {
     "@ant-design/colors": "^7.2.1",
     "@ant-design/fast-color": "^3.0.0",
+    "@ant-design/icons-vue": "^7.0.1",
     "@antdv-next/cssinjs": "workspace:^",
+    "@v-c/color-picker": "^1.0.0",
     "@v-c/resize-observer": "^0.0.2",
     "@v-c/util": "^0.0.7",
     "@vueuse/core": "^13.9.0",
-    "defu": "^6.1.4"
+    "defu": "^6.1.4",
+    "es-toolkit": "^1.40.0"
   }
 }
