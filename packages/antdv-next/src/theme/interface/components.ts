@@ -21,7 +21,7 @@ import type { ComponentToken as ButtonComponentToken } from '../../button/style'
 // import type { ComponentToken as DrawerComponentToken } from '../../drawer/style';
 // import type { ComponentToken as DropdownComponentToken } from '../../dropdown/style';
 // import type { ComponentToken as EmptyComponentToken } from '../../empty/style';
-// import type { ComponentToken as FlexComponentToken } from '../../flex/style';
+import type { ComponentToken as FlexComponentToken } from '../../flex/style'
 // import type { ComponentToken as FloatButtonComponentToken } from '../../float-button/style';
 // import type { ComponentToken as FormComponentToken } from '../../form/style';
 // import type { ComponentToken as GridComponentToken } from '../../grid/style';
@@ -86,7 +86,7 @@ export interface ComponentTokenMap {
   // Drawer?: DrawerComponentToken;
   // Dropdown?: DropdownComponentToken;
   // Empty?: EmptyComponentToken;
-  // Flex?: FlexComponentToken;
+  Flex?: FlexComponentToken
   // FloatButton?: FloatButtonComponentToken;
   // Form?: FormComponentToken;
   // Grid?: GridComponentToken;

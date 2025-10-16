@@ -14,6 +14,7 @@ export const defaultConfig = {
   override: { override: defaultSeedToken },
   hashed: false,
   cssVar: {
+    prefix: 'ant',
     key: 'ant-css-var',
   },
 }

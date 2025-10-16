@@ -3,12 +3,13 @@ import type {
   CSPConfig,
   DirectionType,
   PopupOverflow,
+  SpaceConfig,
   ThemeConfig,
   Variant,
   WaveConfig,
 } from './context.ts'
 import type { RenderEmptyHandler } from './defaultRenderEmpty'
-import type { SizeType } from './SizeContext.ts'
+import type { SizeType } from './SizeContext'
 
 export interface ConfigProviderProps {
   getTargetContainer?: () => HTMLElement | Window
@@ -36,7 +37,7 @@ export interface ConfigProviderProps {
    * @default ltr
    */
   direction?: DirectionType
-  // space?: SpaceConfig
+  space?: SpaceConfig
   splitter?: ComponentStyleConfig
   /**
    * @descCN 设置 `false` 时关闭虚拟滚动。

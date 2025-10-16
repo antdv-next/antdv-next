@@ -1,6 +1,7 @@
 import type { Ref } from 'vue'
 import type { OverrideToken } from '../../theme/interface'
 import type { ThemeConfig } from '../context.ts'
+import defu from 'defu'
 import { computed } from 'vue'
 import { defaultConfig } from '../../theme/context.ts'
 import useThemeKey from './useThemeKey.ts'
@@ -14,12 +15,11 @@ export function useTheme(
 ) {
   const themeConfig = computed(() => theme?.value ?? {})
   const parentThemeConfig = computed<ThemeConfig>(() => {
-    if (themeConfig.value.inherit === false || !parentTheme || !parentTheme.value) {
-      return {
-        ...defaultConfig,
+    if (themeConfig.value.inherit === false || !parentTheme?.value) {
+      return defu({
         hashed: parentTheme?.value?.hashed ?? defaultConfig.hashed,
         cssVar: parentTheme?.value?.cssVar,
-      }
+      }, defaultConfig)
     }
     return parentTheme.value
   })
@@ -42,8 +42,7 @@ export function useTheme(
       } as any
     })
     const cssVarKey = `css-var-${themeKey.replace(/:/g, '')}`
-
-    const mergedCssVar = (themeConfig.value.cssVar ?? parentThemeConfig.value.cssVar) && {
+    const mergedCssVar = {
       prefix: config?.value?.prefixCls,
       ...(typeof parentThemeConfig.value.cssVar === 'object' && parentThemeConfig.value.cssVar),
       ...(typeof themeConfig.value.cssVar === 'object' && themeConfig.value.cssVar),

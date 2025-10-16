@@ -1,6 +1,6 @@
 import type { Ref } from 'vue'
 import { computed } from 'vue'
-import { useSizeContext } from '../SizeContext.ts'
+import { useSizeContext } from '../SizeContext'
 
 export function useSize<T extends string | undefined | number | object>(
   customSize?: Ref<T> | ((ctxSize: string) => T),

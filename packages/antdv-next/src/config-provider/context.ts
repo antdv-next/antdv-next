@@ -1,6 +1,8 @@
 import type { DerivativeFunc } from '@antdv-next/cssinjs'
 import type { CSSProperties, InjectionKey, Ref } from 'vue'
-import type { ButtonProps } from '../button/button.tsx'
+import type { ShowWaveEffect } from '../_util/wave/interface.ts'
+import type { ButtonProps } from '../button'
+import type { FlexProps } from '../flex/interface.ts'
 import type { SpaceProps } from '../space'
 import type { AliasToken, MapToken, OverrideToken, SeedToken } from '../theme/interface'
 import type { RenderEmptyHandler } from './defaultRenderEmpty.tsx'
@@ -116,6 +118,8 @@ export interface ThemeConfig {
 export interface ComponentStyleConfig {
   class?: string
   style?: CSSProperties
+  classes?: any
+  styles?: any
 }
 
 export type PopupOverflow = 'viewport' | 'scroll'
@@ -135,7 +139,7 @@ export interface WaveConfig {
    * @descCN 自定义水波纹效果。
    * @descEN Customized wave effect.
    */
-  // showEffect?: ShowWaveEffect;
+  showEffect?: ShowWaveEffect
 }
 
 export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'classes' | 'styles'>
@@ -143,9 +147,12 @@ export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'clas
 export type ButtonConfig = ComponentStyleConfig
   & Pick<ButtonProps, 'classes' | 'styles' | 'autoInsertSpace' | 'variant' | 'color' | 'shape'>
 
+export type FlexConfig = ComponentStyleConfig & Pick<FlexProps, 'vertical'>
+
 export interface ConfigComponentProps {
   space?: SpaceConfig
   button?: ButtonConfig
+  flex?: FlexConfig
 }
 
 export interface ConfigConsumerProps extends ConfigComponentProps {

@@ -1,7 +1,7 @@
 import type { App, CSSProperties, SlotsType } from 'vue'
 import type { RenderNodeFn } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
-import type { SizeType } from '../config-provider/SizeContext.ts'
+import type { SizeType } from '../config-provider/SizeContext'
 import type { ButtonColorType, ButtonHTMLType, ButtonShape, ButtonType, ButtonVariantType } from './buttonHelper.tsx'
 import { classNames } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
@@ -97,6 +97,7 @@ const defaultButtonProps = {
   htmlType: 'button',
   autoInsertSpace: undefined,
   disabled: undefined,
+  size: undefined,
 } as any
 
 const InternalCompoundedButton = defineComponent<

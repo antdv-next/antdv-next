@@ -106,7 +106,16 @@ export default function useToken(): [
   const designContext = useDesignToken()
   const salt = computed(() => `${version}-${designContext.value.hashed || ''}`)
   const mergedTheme = computed(() => designContext.value?.theme || defaultTheme)
-  const cssVar = computed(() => designContext.value.cssVar)
+  const cssVar = computed(() => {
+    const cssVar = designContext.value.cssVar
+    return cssVar && {
+      prefix: cssVar.prefix,
+      key: cssVar.key,
+      unitless,
+      ignore,
+      preserve,
+    }
+  })
   const cachedToken = useCacheToken<GlobalToken, SeedToken>(
     mergedTheme,
     computed(() => [defaultSeedToken, designContext.value.token]),

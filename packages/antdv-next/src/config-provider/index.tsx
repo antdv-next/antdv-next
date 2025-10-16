@@ -9,7 +9,7 @@ import defaultSeedToken from '../theme/themes/seed'
 import { defaultIconPrefixCls, defaultPrefixCls, useConfig, useConfigProvider } from './context'
 import { DisabledContextProvider } from './DisabledContext.tsx'
 import { useTheme } from './hooks/useTheme.ts'
-import { SizeProvider } from './SizeContext.ts'
+import { SizeProvider } from './SizeContext'
 import useStyle from './style'
 
 export type { CSPConfig } from './context'
@@ -116,6 +116,9 @@ const ProviderChildren = defineComponent<
       const baseConfig = {
         csp: csp.value,
         getPrefixCls,
+        theme: mergedTheme.value,
+        direction: props.direction,
+        space: props.space,
       } as ConfigConsumerProps
       const config = defu(parentConfig, baseConfig)
       // Pass the props used by `useContext` directly with child component.
@@ -139,7 +142,6 @@ const ProviderChildren = defineComponent<
     const memoTheme = computed(() => {
       const { algorithm, token, components, cssVar, ...rest } = mergedTheme.value ?? {}
       const themeObj = algorithm && (!Array.isArray(algorithm) || algorithm.length > 0) ? createTheme(algorithm) : defaultTheme
-
       const parsedComponents: any = {}
       Object.entries(components || {}).forEach(([componentName, componentToken]) => {
         const parsedToken: typeof componentToken & { theme?: typeof defaultTheme } = {

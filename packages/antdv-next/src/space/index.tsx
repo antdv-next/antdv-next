@@ -1,7 +1,7 @@
 import type { App, CSSProperties, SlotsType } from 'vue'
 import type { RenderNodeFn } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
-import type { SizeType } from '../config-provider/SizeContext.ts'
+import type { SizeType } from '../config-provider/SizeContext'
 import { classNames } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { computed, defineComponent, shallowRef } from 'vue'
