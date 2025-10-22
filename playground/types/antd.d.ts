@@ -21,5 +21,6 @@ declare module 'vue' {
         ARow: typeof import('antdv-next')['Row'];
         ABadge: typeof import('antdv-next')['Badge'];
         ABadgeRibbon: typeof import('antdv-next')['Badge']['Ribbon'];
+        ATag: typeof import('antdv-next')['Tag'];
     }
 }

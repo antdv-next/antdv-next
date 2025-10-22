@@ -90,7 +90,7 @@ const InternalTag = defineComponent<
   string,
   SlotsType<TagSlots>
 >(
-  (props = defaultProps as TagProps, { slots, attrs, emit, expose }) => {
+  (props = defaultProps, { slots, attrs, emit, expose }) => {
     const configContext = useConfig()
     const prefixCls = computed(() => configContext.value.getPrefixCls('tag', props.prefixCls))
     const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls.value)
