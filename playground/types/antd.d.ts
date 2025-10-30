@@ -26,5 +26,11 @@ declare module 'vue' {
     AEmpty: typeof import('antdv-next')['Empty']
     AResult: typeof import('antdv-next')['Result']
     ASpin: typeof import('antdv-next')['Spin']
+    ASkeleton: typeof import('antdv-next')['Skeleton']
+    ASkeletonButton: typeof import('antdv-next')['SkeletonButton']
+    ASkeletonAvatar: typeof import('antdv-next')['SkeletonAvatar']
+    ASkeletonInput: typeof import('antdv-next')['SkeletonInput']
+    ASkeletonImage: typeof import('antdv-next')['SkeletonImage']
+    ASkeletonNode: typeof import('antdv-next')['SkeletonNode']
   }
 }

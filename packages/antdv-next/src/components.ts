@@ -22,6 +22,8 @@ export { default as Layout, LayoutContent, LayoutFooter, LayoutHeader, LayoutSid
 export type { LayoutProps } from './layout'
 export { default as Result } from './result'
 export type { ResultProps } from './result'
+export { default as Skeleton, SkeletonAvatar, SkeletonButton, SkeletonImage, SkeletonInput, SkeletonNode } from './skeleton'
+export type { SkeletonProps } from './skeleton'
 export { default as Space, SpaceCompact } from './space'
 export type { SpaceProps, SpaceSize, SpaceSlots } from './space'
 export { default as Spin } from './spin'
