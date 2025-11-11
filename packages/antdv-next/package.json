@@ -13,7 +13,7 @@
     "@antdv-next/icons": "workspace:^",
     "@v-c/collapse": "catalog:",
     "@v-c/color-picker": "catalog:",
-    "@v-c/menu": "link:/Users/zhuzhengjian/workspace/gitea/antdv-next/vue-components/packages/menu",
+    "@v-c/menu": "link:/Users/yanyu/workspace/github/antdv-next/vue-components/packages/menu",
     "@v-c/mutate-observer": "catalog:",
     "@v-c/qrcode": "catalog:",
     "@v-c/resize-observer": "catalog:",
