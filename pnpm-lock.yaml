@@ -214,6 +214,9 @@ importers:
       '@antdv-next/icons':
         specifier: workspace:^
         version: link:../icons
+      '@v-c/async-validator':
+        specifier: ^0.0.1
+        version: 0.0.1
       '@v-c/collapse':
         specifier: 'catalog:'
         version: 0.0.5(vue@3.5.24(typescript@5.9.3))
@@ -1516,6 +1519,9 @@ packages:
     resolution: {integrity: sha512-NsDwkK8D64Rg+aYPVltBh+xnY0yMNEb7tqN+goOm3GwZkfOYqxJElTQ095T3Xe+kl1zk/RxFw4v85WETW3ivqA==}
     peerDependencies:
       vite: ^2.9.0 || ^3.0.0-0 || ^4.0.0 || ^5.0.0-0 || ^6.0.0-0 || ^7.0.0-0
+
+  '@v-c/async-validator@0.0.1':
+    resolution: {integrity: sha512-zVgjWy0+dbkuJI9SGum38j/Am5dJ4buza+DwxxLEl5jHqFGTl3JC/zTtydRxJMpLbNnPa1ID/2rnlqv4T6wzkg==}
 
   '@v-c/collapse@0.0.5':
     resolution: {integrity: sha512-PsPp+RCSQt/KQeFrjocNtVCos10q3sr96JRO+hjcopcmr/g5ZyKnXwzVPicSKuRxTueOic8tJTo5jyFWQv/UUQ==}
@@ -5005,6 +5011,8 @@ snapshots:
       tinyglobby: 0.2.15
       unplugin-utils: 0.3.1
       vite: 7.2.2(@types/node@24.10.0)(jiti@2.6.1)(lightningcss@1.30.2)(tsx@4.20.6)(yaml@2.8.1)
+
+  '@v-c/async-validator@0.0.1': {}
 
   '@v-c/collapse@0.0.5(vue@3.5.24(typescript@5.9.3))':
     dependencies:

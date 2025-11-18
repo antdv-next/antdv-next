@@ -1,0 +1,274 @@
+import type {
+  InternalNamePath,
+  InternalValidateOptions,
+  RuleError,
+  RuleObject,
+  StoreValue,
+} from '../types'
+import RawAsyncValidator from '@v-c/async-validator'
+import { merge } from '@v-c/util/dist/utils/set'
+import { warning } from '@v-c/util/dist/warning'
+import { createVNode, isVNode } from 'vue'
+import { defaultValidateMessages } from './messages'
+// Remove incorrect original ts define
+const AsyncValidator: any = RawAsyncValidator
+
+/**
+ * Replace with template.
+ *   `I'm ${name}` + { name: 'bamboo' } = I'm bamboo
+ */
+function replaceMessage(template: string, kv: Record<string, string>): string {
+  // @ts-expect-error this is fine
+  return template.replace(/\\?\$\{\w+\}/g, (str: string) => {
+    if (str.startsWith('\\')) {
+      return str.slice(1)
+    }
+    const key = str.slice(2, -1)
+    return kv[key]
+  })
+}
+
+const CODE_LOGIC_ERROR = 'CODE_LOGIC_ERROR'
+
+async function validateRule(
+  name: string,
+  value: StoreValue,
+  rule: RuleObject,
+  options: InternalValidateOptions,
+  messageVariables?: Record<string, string>,
+): Promise<string[]> {
+  const cloneRule = { ...rule }
+
+  // Bug of `async-validator`
+  // https://github.com/react-component/field-form/issues/316
+  // https://github.com/react-component/field-form/issues/313
+  delete (cloneRule as any).ruleIndex
+
+  // https://github.com/ant-design/ant-design/issues/40497#issuecomment-1422282378
+  AsyncValidator.warning = () => void 0
+
+  if (cloneRule.validator) {
+    const originValidator = cloneRule.validator
+    cloneRule.validator = (...args) => {
+      try {
+        return originValidator(...args)
+      }
+      catch (error) {
+        console.error(error)
+        return Promise.reject(CODE_LOGIC_ERROR)
+      }
+    }
+  }
+
+  // We should special handle array validate
+  let subRuleField: RuleObject | null = null
+  if (cloneRule && cloneRule.type === 'array' && cloneRule.defaultField) {
+    subRuleField = cloneRule.defaultField
+    delete cloneRule.defaultField
+  }
+
+  const validator = new AsyncValidator({
+    [name]: [cloneRule],
+  })
+
+  const messages = merge(defaultValidateMessages, options.validateMessages!)
+  validator.messages(messages)
+
+  let result = []
+
+  try {
+    await Promise.resolve(validator.validate({ [name]: value }, { ...options }))
+  }
+  catch (errObj: any) {
+    if (errObj.errors) {
+      result = errObj.errors.map(({ message }: any, index: number) => {
+        const mergedMessage = message === CODE_LOGIC_ERROR ? messages.default : message
+
+        return isVNode(mergedMessage)
+        // Wrap ReactNode with `key`
+          ? createVNode(mergedMessage, { key: `error_${index}` })
+          : mergedMessage
+      })
+    }
+  }
+
+  if (!result.length && subRuleField && Array.isArray(value) && value.length > 0) {
+    const subResults: string[][] = await Promise.all(
+      (value as StoreValue[]).map((subValue: StoreValue, i: number) =>
+        validateRule(`${name}.${i}`, subValue, subRuleField, options, messageVariables),
+      ),
+    )
+
+    return subResults.reduce((prev, errors) => [...prev, ...errors], [])
+  }
+
+  // Replace message with variables
+  const kv = {
+    ...(rule as Record<string, string | number>),
+    name,
+    enum: (rule.enum || []).join(', '),
+    ...messageVariables,
+  }
+
+  const fillVariableResult = result.map((error: any) => {
+    if (typeof error === 'string') {
+      return replaceMessage(error, kv)
+    }
+    return error
+  })
+
+  return fillVariableResult
+}
+
+/**
+ * We use `async-validator` to validate the value.
+ * But only check one value in a time to avoid namePath validate issue.
+ */
+export function validateRules(
+  namePath: InternalNamePath,
+  value: StoreValue,
+  rules: RuleObject[],
+  options: InternalValidateOptions,
+  validateFirst: boolean | 'parallel',
+  messageVariables?: Record<string, string>,
+) {
+  const name = namePath.join('.')
+
+  // Fill rule with context
+  const filledRules: RuleObject[] = rules
+    .map((currentRule, ruleIndex) => {
+      const originValidatorFunc = currentRule.validator
+      const cloneRule = {
+        ...currentRule,
+        ruleIndex,
+      }
+
+      // Replace validator if needed
+      if (originValidatorFunc) {
+        cloneRule.validator = (
+          rule: RuleObject,
+          val: StoreValue,
+          callback: (error?: string) => void,
+        ) => {
+          let hasPromise: any = false
+
+          // Wrap callback only accept when promise not provided
+          const wrappedCallback = (...args: string[]) => {
+            // Wait a tick to make sure return type is a promise
+            Promise.resolve().then(() => {
+              warning(
+                !hasPromise,
+                'Your validator function has already return a promise. `callback` will be ignored.',
+              )
+
+              if (!hasPromise) {
+                callback(...args)
+              }
+            })
+          }
+
+          // Get promise
+          const promise = originValidatorFunc(rule, val, wrappedCallback as any)
+          hasPromise = promise && typeof promise.then === 'function' && typeof promise.catch === 'function'
+
+          /**
+           * 1. Use promise as the first priority.
+           * 2. If promise not exist, use callback with warning instead
+           */
+          warning(hasPromise, '`callback` is deprecated. Please return a promise instead.')
+
+          if (hasPromise) {
+            (promise as Promise<void>)
+              .then(() => {
+                callback()
+              })
+              .catch((err) => {
+                callback(err || ' ')
+              })
+          }
+        }
+      }
+
+      return cloneRule
+    })
+    .sort(({ warningOnly: w1, ruleIndex: i1 }, { warningOnly: w2, ruleIndex: i2 }) => {
+      if (!!w1 === !!w2) {
+        // Let keep origin order
+        return i1 - i2
+      }
+
+      if (w1) {
+        return 1
+      }
+
+      return -1
+    })
+
+  // Do validate rules
+  let summaryPromise: Promise<RuleError[]>
+
+  if (validateFirst === true) {
+    // >>>>> Validate by serialization
+    // eslint-disable-next-line no-async-promise-executor
+    summaryPromise = new Promise(async (resolve, reject) => {
+      for (let i = 0; i < filledRules.length; i += 1) {
+        const rule = filledRules[i]
+        const errors = await validateRule(name, value, rule!, options, messageVariables)
+        if (errors.length) {
+          ;(reject as any)([{ errors, rule }])
+          return
+        }
+      }
+
+      resolve([])
+    })
+  }
+  else {
+    // >>>>> Validate by parallel
+    const rulePromises: Promise<RuleError>[] = filledRules.map(rule =>
+      validateRule(name, value, rule, options, messageVariables).then(errors => ({ errors, rule })),
+    )
+
+    summaryPromise = (
+      validateFirst ? finishOnFirstFailed(rulePromises) : finishOnAllFailed(rulePromises)
+    ).then((errors: RuleError[]): RuleError[] | Promise<RuleError[]> => {
+      // Always change to rejection for Field to catch
+      return Promise.reject<RuleError[]>(errors)
+    })
+  }
+
+  // Internal catch error to avoid console error log.
+  summaryPromise.catch(e => e)
+
+  return summaryPromise
+}
+
+async function finishOnAllFailed(rulePromises: Promise<RuleError>[]): Promise<RuleError[]> {
+  return Promise.all(rulePromises).then(
+    (errorsList: RuleError[]): RuleError[] | Promise<RuleError[]> => {
+      // @ts-expect-error this is fine
+      const errors: RuleError[] = [].concat(...errorsList)
+
+      return errors
+    },
+  )
+}
+
+async function finishOnFirstFailed(rulePromises: Promise<RuleError>[]): Promise<RuleError[]> {
+  let count = 0
+
+  return new Promise((resolve) => {
+    rulePromises.forEach((promise) => {
+      promise.then((ruleError) => {
+        if (ruleError.errors.length) {
+          resolve([ruleError])
+        }
+
+        count += 1
+        if (count === rulePromises.length) {
+          resolve([])
+        }
+      })
+    })
+  })
+}
