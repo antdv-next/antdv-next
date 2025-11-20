@@ -165,3 +165,19 @@ export const NoFormStyle = defineComponent<{
     }
   },
 )
+
+export interface FormItemProviderProps {
+  fieldId: Ref<string | undefined>
+  triggerFieldChange: () => void
+  triggerFieldBlur: () => void
+  clearValidate: () => void
+}
+
+const FormItemProviderContextKey: InjectionKey<FormItemProviderProps> = Symbol('FormItemProviderContextKey')
+export function useFormItemProvider(value: FormItemProviderProps) {
+  provide(FormItemProviderContextKey, value)
+}
+
+export function useFormItemContext() {
+  return inject(FormItemProviderContextKey, undefined)
+}

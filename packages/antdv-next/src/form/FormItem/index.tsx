@@ -10,7 +10,7 @@ import { filterEmpty } from '@v-c/util/dist/props-util'
 import { computed, createVNode, defineComponent, isVNode, onBeforeUnmount, shallowRef, watch } from 'vue'
 import { useComponentBaseConfig } from '../../config-provider/context'
 import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls'
-import { useFormContext, useNoStyleItemContext } from '../context.tsx'
+import { useFormContext, useFormItemProvider, useNoStyleItemContext } from '../context.tsx'
 import useStyle from '../style'
 import { getFieldId, initialValueFormat, toArray } from '../util.ts'
 import { validateRules } from '../utils/validateUtil.ts'
@@ -387,7 +387,12 @@ const InternalFormItem = defineComponent<
     //   updateMeta({ touched: true })
     //   triggerValidate('blur')
     // }
-
+    useFormItemProvider({
+      fieldId,
+      triggerFieldBlur: onFieldBlur,
+      triggerFieldChange: onFieldChange,
+      clearValidate,
+    })
     return () => {
       let children: any = filterEmpty(slots.default?.() ?? [])
       if (children.length > 0 && children.length === 1) {
