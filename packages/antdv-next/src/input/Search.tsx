@@ -282,8 +282,8 @@ const InternalSearch = defineComponent<
               emit('clear')
               handleSearch(undefined, { source: 'clear' })
             }}
-            onCompositionstart={handleCompositionStart}
-            onCompositionend={handleCompositionEnd}
+            onCompositionStart={handleCompositionStart}
+            onCompositionEnd={handleCompositionEnd}
             onPressEnter={handlePressEnter}
             v-slots={slots}
             {...{

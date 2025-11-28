@@ -148,8 +148,8 @@ const InternalPassword = defineComponent<
           onBlur={handleBlur}
           onPressEnter={e => emit('pressEnter', e)}
           onClear={() => emit('clear')}
-          onCompositionstart={e => emit('compositionStart', e)}
-          onCompositionend={e => emit('compositionEnd', e)}
+          onCompositionStart={e => emit('compositionStart', e)}
+          onCompositionEnd={e => emit('compositionEnd', e)}
           onKeydown={e => emit('keydown', e)}
           onKeyup={e => emit('keyup', e)}
           v-slots={slots}
