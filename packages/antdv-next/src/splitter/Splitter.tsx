@@ -100,8 +100,6 @@ const Splitter = defineComponent<
 
     const onInternalResizeStart = (index: number) => {
       onOffsetStart(index)
-      // props.onResizeStart?.(index)
-      // onRe
       emit('resizeStart', index)
     }
 
@@ -178,7 +176,6 @@ const Splitter = defineComponent<
 
       // Update items from slots in render function for reactivity
       items.value = convertChildrenToItems(slots?.default?.() ?? [])
-
       const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
       const containerClassName = clsx(
         prefixCls.value,
@@ -251,10 +248,11 @@ const Splitter = defineComponent<
                     showEndCollapsibleIcon={resizableInfo.showEndCollapsibleIcon}
                     onOffsetStart={onInternalResizeStart}
                     onOffsetUpdate={(index, offsetX, offsetY, lazyEnd) => {
-                      let offset = isVertical ? offsetY : offsetX
-                      if (reverse) {
+                      let offset = isVertical.value ? offsetY : offsetX
+                      if (reverse.value) {
                         offset = -offset
                       }
+
                       onInternalResizeUpdate(index, offset, lazyEnd)
                     }}
                     onOffsetEnd={onInternalResizeEnd}

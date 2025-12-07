@@ -2,8 +2,7 @@ import type { EmptyEmit } from '../../_util/type.ts'
 import type { AggregationColor } from '../color'
 import type { ColorFormatType } from '../interface'
 import { computed, defineComponent, shallowRef, watch } from 'vue'
-import Button from '../../button'
-import Dropdown from '../../dropdown'
+import Select from '../../select'
 import { FORMAT_HEX, FORMAT_HSB, FORMAT_RGB } from '../interface'
 import ColorAlphaInput from './ColorAlphaInput'
 import ColorHexInput from './ColorHexInput'
@@ -20,7 +19,10 @@ export interface ColorInputProps {
   disabledFormat?: boolean
 }
 
-const selectOptions: ColorFormatType[] = [FORMAT_HEX, FORMAT_HSB, FORMAT_RGB]
+const selectOptions = [FORMAT_HEX, FORMAT_HSB, FORMAT_RGB].map(format => ({
+  value: format,
+  label: format.toUpperCase(),
+}))
 
 export default defineComponent<
   ColorInputProps,
@@ -57,31 +59,21 @@ export default defineComponent<
 
     return () => {
       const prefixCls = props.prefixCls
-      const menuItems = selectOptions.map(opt => ({
-        key: opt,
-        label: opt.toUpperCase(),
-      }))
 
       return (
         <div class={`${prefixCls}-input-container`}>
           {!props.disabledFormat && (
-            <Dropdown
-              trigger={['click']}
+            <Select
+              value={colorFormat.value}
+              variant="borderless"
+              getPopupContainer={current => current}
+              popupMatchSelectWidth={68}
               placement="bottomRight"
-              menu={{
-                items: menuItems,
-                selectedKeys: [colorFormat.value],
-                onClick: ({ key }: any) => triggerFormatChange(key as ColorFormatType),
-              } as any}
-            >
-              <Button
-                size="small"
-                type="text"
-                class={`${prefixCls}-format-select`}
-              >
-                {colorFormat.value.toUpperCase()}
-              </Button>
-            </Dropdown>
+              onChange={triggerFormatChange}
+              class={`${prefixCls}-format-select`}
+              size="small"
+              options={selectOptions}
+            />
           )}
           <div class={`${prefixCls}-input`}>
             {steppersNode.value}
