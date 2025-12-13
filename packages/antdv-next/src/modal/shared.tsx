@@ -1,6 +1,5 @@
-import type { SlotsType } from 'vue'
 import type { VueNode } from '../_util/type.ts'
-import type { ModalEmits, ModalProps, ModalSlots } from './interface.ts'
+import type { ModalEmits, ModalProps } from './interface.ts'
 import { CloseOutlined } from '@antdv-next/icons'
 import { computed, defineComponent } from 'vue'
 import { getSlotPropsFnRun } from '../_util/tools.ts'
@@ -31,19 +30,16 @@ export interface FooterProps
 }
 
 export const Footer = defineComponent<
-  FooterProps,
-  {},
-  string,
-  SlotsType<Pick<ModalSlots, 'footer' | 'okText' | 'cancelText'>>
+  FooterProps
 >(
-  (props, { slots }) => {
+  (props) => {
     const [locale] = useLocale('Modal', getConfirmLocale())
 
     const okTextLocale = computed(() => {
-      return getSlotPropsFnRun(slots, props, 'okText') ?? props.okText ?? locale?.value?.okText
+      return props.okText ?? locale?.value?.okText
     })
     const cancelTextLocale = computed(() => {
-      return getSlotPropsFnRun(slots, props, 'cancelText') ?? props.cancelText ?? locale?.value?.cancelText
+      return props.cancelText ?? locale?.value?.cancelText
     })
 
     const memoizedValue = computed(() => ({
@@ -60,17 +56,23 @@ export const Footer = defineComponent<
     useModalProvider(memoizedValue as any)
 
     return () => {
+      const { footer } = props
       const defaultFooter = (
         <>
           <NormalCancelBtn />
           <NormalOkBtn />
         </>
       )
-
-      let footerNode = getSlotPropsFnRun(slots, props, 'footer', true, {
-        originNode: defaultFooter,
-        extra: { OkBtn: NormalOkBtn, CancelBtn: NormalCancelBtn },
-      })
+      let footerNode: any
+      if (typeof footer === 'function') {
+        footerNode = footer({
+          originNode: defaultFooter,
+          extra: { OkBtn: NormalOkBtn, CancelBtn: NormalCancelBtn },
+        })
+      }
+      else {
+        footerNode = footer
+      }
       if (footerNode === undefined) {
         footerNode = defaultFooter
       }

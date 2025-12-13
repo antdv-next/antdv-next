@@ -270,3 +270,6 @@ const actDestroy = _actDestroy
 export { actDestroy }
 
 export default staticMethods
+export {
+  useNotification,
+}

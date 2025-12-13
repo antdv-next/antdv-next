@@ -1,14 +1,14 @@
 import type { SlotsType } from 'vue'
-import type { ModalClassNamesType, ModalEmits, ModalProps, ModalSlots, MousePosition } from './interface'
 import type { Breakpoint } from '../_util/responsiveObserver'
-import Dialog from '@v-c/dialog'
+import type { ModalClassNamesType, ModalEmits, ModalProps, ModalSlots, ModalStylesType, MousePosition } from './interface'
 import { CloseOutlined } from '@antdv-next/icons'
+import Dialog from '@v-c/dialog'
 import { clsx } from '@v-c/util'
 import { getTransitionName } from '@v-c/util/dist/utils/transition'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent } from 'vue'
 import { ContextIsolator } from '../_util/ContextIsolator.tsx'
-import { getAttrStyleAndClass, useMergeSemantic, useMergedMask, useToArr, useToProps, useZIndex } from '../_util/hooks'
+import { getAttrStyleAndClass, useMergedMask, useMergeSemantic, useToArr, useToProps, useZIndex } from '../_util/hooks'
 import useClosable, { pickClosable } from '../_util/hooks/useClosable.tsx'
 import { canUseDocElement } from '../_util/styleChecker'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
@@ -96,25 +96,26 @@ const Modal = defineComponent<
     })
 
     const [mergedMask, maskBlurClassName] = useMergedMask(modalMask, contextMask, prefixCls)
+    const onClose = () => {
+      closableContext.value?.[1]?.()
+    }
 
     const handleCancel = (e: MouseEvent) => {
       if (props.confirmLoading) {
         return
       }
       emit('cancel', e)
-      closableContext.value[1]?.()
-      emit('close')
+      emit('update:open', false)
+      onClose()
     }
 
     const handleOk = (e: MouseEvent) => {
       emit('ok', e)
-      closableContext.value[1]?.()
-      emit('close')
+      onClose()
     }
 
     if (isDev) {
-      const warning = devUseWarning('Modal')
-
+      const warning = devUseWarning('Modal');
       [
         ['bodyStyle', 'styles.body'],
         ['maskStyle', 'styles.mask'],
@@ -130,7 +131,7 @@ const Modal = defineComponent<
 
     const closableProps = computed(() => ({
       ...props,
-      closeIcon: getSlotPropsFnRun(slots, props, 'closeIcon'),
+      closeIcon: getSlotPropsFnRun(slots, props, 'closeIcon', false),
     }))
 
     const closableIconContext = useClosable(
@@ -149,7 +150,6 @@ const Modal = defineComponent<
 
     const mergedProps = computed(() => ({
       ...props,
-      width: widthRef.value,
       mask: mergedMask.value,
       zIndex: zIndex.value,
     }) as ModalProps)
@@ -243,23 +243,22 @@ const Modal = defineComponent<
       const mergedOkButtonProps = { ...contextOkButtonProps.value, ...props.okButtonProps }
       const mergedCancelButtonProps = { ...contextCancelButtonProps.value, ...props.cancelButtonProps }
 
+      const footer = slots?.footer ?? props?.footer
+      const okText = slots?.okText ?? props?.okText
+      const cancelText = slots?.cancelText ?? props?.cancelText
+
       const dialogFooter = props.footer !== null && !loading
         ? (
             <Footer
               confirmLoading={confirmLoading}
               okType={props.okType}
-              okText={props.okText}
-              cancelText={props.cancelText}
+              okText={okText}
+              cancelText={cancelText}
               okButtonProps={mergedOkButtonProps}
               cancelButtonProps={mergedCancelButtonProps}
-              footer={props.footer}
+              footer={footer}
               onOk={handleOk}
               onCancel={handleCancel}
-              v-slots={{
-                footer: slots.footer,
-                okText: slots.okText,
-                cancelText: slots.cancelText,
-              }}
             />
           )
         : null
@@ -292,7 +291,7 @@ const Modal = defineComponent<
         'panelRef',
       ] as any)
 
-      const titleNode = getSlotPropsFnRun(slots, props, 'title') ?? props.title
+      const titleNode = getSlotPropsFnRun(slots, props, 'title')
       const mergedClassName = clsx(hashId.value, contextClassName.value, className)
       const mergedRootClassName = clsx(
         hashId.value,

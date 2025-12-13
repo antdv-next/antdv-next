@@ -35,6 +35,8 @@ interface ModalCommonProps
     | 'classNames'
     | 'styles'
     | 'modalRender'
+    | 'rootStyle'
+    | 'style'
   >
 {
   footer?: VueNode | ((params: { originNode: VueNode, extra: { OkBtn: any, CancelBtn: any } }) => any)
@@ -104,10 +106,10 @@ export interface ModalProps extends ModalCommonProps {
 
 export interface ModalEmits {
   /** Specify a function that will be called when a user clicks the OK button */
-  ok: (e: MouseEvent) => void
+  'ok': (e: MouseEvent) => void
   /** Specify a function that will be called when a user clicks mask, close button on top right or Cancel button */
-  cancel: (e: MouseEvent) => void
-  close: () => void
+  'cancel': (e: MouseEvent) => void
+  'update:open': (open: boolean) => void
   [key: string]: (...args: any[]) => void
 }
 
