@@ -3,7 +3,8 @@ import type { ConfigUpdate } from '../confirm'
 import type { ModalFuncProps } from '../interface.ts'
 import type { HookModalRef } from './interface'
 import type { HookAPI, ModalFuncWithPromise } from './types'
-import { defineComponent, shallowRef, watchEffect } from 'vue'
+import { defineComponent, shallowRef, watch } from 'vue'
+import { usePatchElement } from '../../_util/hooks/usePatchElement.ts'
 import { withConfirm, withError, withInfo, withSuccess, withWarn } from '../confirm'
 import destroyFns from '../destroyFns.ts'
 import HookModal from './HookModal'
@@ -17,36 +18,42 @@ interface ElementsHolderRef {
 }
 
 const ElementsHolder = defineComponent(
-  (_, { expose, slots }) => {
-    const elements = shallowRef<VNode[]>([])
-    const patchElement = (element: VNode) => {
-      elements.value = [...elements.value, element]
-      return () => {
-        elements.value = elements.value.filter(ele => ele !== element)
-      }
-    }
+  (_, { expose }) => {
+    const [elements, patchElement] = usePatchElement()
     expose({
       patchElement,
     })
-    return () => slots.default?.(elements.value)
+    return () => {
+      return <>{elements.value}</>
+    }
   },
   {
     name: 'ElementsHolder',
+    inheritAttrs: false,
   },
 )
 
 export default function useModal(): readonly [instance: HookAPI, contextHolder: () => VNode] {
   const holderRef = shallowRef<ElementsHolderRef>()
+
+  // ========================== Effect ==========================
   const actionQueue = shallowRef<VoidFunction[]>([])
 
-  watchEffect(() => {
-    if (actionQueue.value.length) {
-      const cloneQueue = [...actionQueue.value]
-      cloneQueue.forEach(action => action())
-      actionQueue.value = []
-    }
-  })
+  watch(
+    actionQueue,
+    () => {
+      if (actionQueue.value.length) {
+        const cloneQueue = [...actionQueue.value]
+        cloneQueue.forEach(action => action())
+        actionQueue.value = []
+      }
+    },
+    {
+      immediate: true,
+    },
+  )
 
+  // =========================== Hook ===========================
   const getConfirmFunc = (withFunc: (config: ModalFuncProps) => ModalFuncProps) =>
     function hookConfirm(config: ModalFuncProps) {
       uuid += 1
