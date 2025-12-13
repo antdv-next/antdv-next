@@ -100,9 +100,9 @@ const ConfirmContent = defineComponent<
         confirmPrefixCls,
         footer,
       } = props
-      const content = getSlotPropsFnRun({}, props, 'content')
-      const icon = getSlotPropsFnRun({}, props, 'icon')
-      const title = getSlotPropsFnRun({}, props, 'title')
+      const content = getSlotPropsFnRun({}, props, 'content', false)
+      const icon = getSlotPropsFnRun({}, props, 'icon', false)
+      const title = getSlotPropsFnRun({}, props, 'title', false)
       let mergedIcon = icon as any
       if (!icon && icon !== null) {
         switch (mergedType.value) {

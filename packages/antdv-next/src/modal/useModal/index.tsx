@@ -95,7 +95,6 @@ export default function useModal(): readonly [instance: HookAPI, contextHolder: 
       })
 
       const modal = <ModalWrapper key={`modal-${uuid}`} />
-
       closePatch = holderRef.value?.patchElement(modal as any)
       if (closePatch) {
         destroyFns.push(closeFunc)

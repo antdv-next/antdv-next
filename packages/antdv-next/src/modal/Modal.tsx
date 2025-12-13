@@ -227,7 +227,9 @@ const Modal = defineComponent<
         ? {
             disabled: closeBtnIsDisabled,
             closeIcon: mergedCloseIcon,
-            afterClose: closableAfterclose,
+            afterClose: () => {
+              closableAfterclose?.()
+            },
             ...ariaProps,
           }
         : false
@@ -306,7 +308,6 @@ const Modal = defineComponent<
         = customizeGetContainer === undefined
           ? getContextPopupContainer
           : customizeGetContainer
-
       return (
         <ContextIsolator form space>
           <ZIndexProvider value={contextZIndex.value}>

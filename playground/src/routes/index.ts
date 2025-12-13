@@ -7,7 +7,12 @@ export const router = createRouter({
   routes: [
     ...componentRoutes,
     ...pagesRoutes,
-    ...demoRoutes,
+    {
+      path: '/~demos',
+      redirect: '/~demos/affix-demo-basic',
+      component: () => import('@/pages/components/demo.vue'),
+      children: demoRoutes,
+    },
   ],
   history: createWebHistory(),
 })

@@ -54,21 +54,23 @@ const HookModal = defineComponent<
     const mergedOkCancel = computed(() => innerConfig.value.okCancel ?? innerConfig.value.type === 'confirm')
     const [contextLocale] = useLocale('Modal', defaultLocale.Modal)
 
-    return () => (
-      <ConfirmDialog
-        {...innerConfig.value}
-        close={close}
-        open={open.value}
-        afterClose={afterClose}
-        okText={innerConfig.value.okText ?? (mergedOkCancel.value ? contextLocale?.value?.okText : contextLocale?.value?.justOkText)}
-        direction={innerConfig.value.direction ?? direction.value}
-        cancelText={innerConfig.value.cancelText ?? contextLocale?.value?.cancelText}
-        prefixCls={prefixCls.value}
-        rootPrefixCls={rootPrefixCls.value}
-        onConfirm={props.onConfirm}
-        isSilent={props.isSilent}
-      />
-    )
+    return () => {
+      return (
+        <ConfirmDialog
+          {...innerConfig.value}
+          close={close}
+          open={open.value}
+          afterClose={afterClose}
+          okText={innerConfig.value.okText ?? (mergedOkCancel.value ? contextLocale?.value?.okText : contextLocale?.value?.justOkText)}
+          direction={innerConfig.value.direction ?? direction.value}
+          cancelText={innerConfig.value.cancelText ?? contextLocale?.value?.cancelText}
+          prefixCls={prefixCls.value}
+          rootPrefixCls={rootPrefixCls.value}
+          onConfirm={props.onConfirm}
+          isSilent={props.isSilent}
+        />
+      )
+    }
   },
   {
     name: 'HookModal',
