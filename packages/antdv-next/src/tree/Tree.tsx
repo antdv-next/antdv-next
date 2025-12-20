@@ -239,6 +239,7 @@ export interface TreeSlots {
   default: () => any
   draggableIcon: () => any
   icon: (props: AntdTreeNodeAttribute) => any
+  titleRender: VcTreeProps['titleRender']
 }
 
 const defaults = {
@@ -424,6 +425,7 @@ const Tree = defineComponent<
       }
 
       const icon = slots?.icon ?? props?.icon
+      const titleRender = slots?.titleRender ?? props?.titleRender
       return (
         <VcTree
           {...restAttrs}
@@ -433,6 +435,7 @@ const Tree = defineComponent<
           {...newProps as any}
           {...onAttrs}
           icon={icon}
+          titleRender={titleRender}
           motion={motion.value}
           prefixCls={prefixCls.value}
           className={clsx(

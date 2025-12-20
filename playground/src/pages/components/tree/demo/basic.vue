@@ -52,5 +52,11 @@ const onCheck: TreeEmits['check'] = (checkedKeys, info) => {
     :tree-data="treeData"
     @select="onSelect"
     @check="onCheck"
-  />
+  >
+    <template #titleRender="{ key, title }">
+      <template v-if="key === '0-0-1-0'">
+        <span style="color: #1677ff">{{ title }}</span>
+      </template>
+    </template>
+  </a-tree>
 </template>
