@@ -16,6 +16,7 @@ import type {
   InputConfig,
   InputNumberConfig,
   InputSearchConfig,
+  MentionsConfig,
   PaginationConfig,
   MenuConfig,
   NotificationConfig,
@@ -50,6 +51,7 @@ export interface ConfigProviderProps {
   input?: InputConfig
   inputNumber?: InputNumberConfig
   textArea?: TextAreaConfig
+  mentions?: MentionsConfig
   inputSearch?: InputSearchConfig
   otp?: OTPConfig
   select?: SelectConfig
@@ -98,7 +100,6 @@ export interface ConfigProviderProps {
   // image?: ImageConfig;
   layout?: ComponentStyleConfig
   // list?: ListConfig;
-  // mentions?: MentionsConfig;
   // modal?: ModalConfig;
   progress?: ComponentStyleConfig
   result?: ComponentStyleConfig

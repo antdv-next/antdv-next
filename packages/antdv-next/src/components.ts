@@ -71,6 +71,17 @@ export { default as Masonry } from './masonry'
 export type { MasonryEmits, MasonryProps, MasonryRef, MasonrySlots } from './masonry'
 export { default as Menu, MenuDivider, MenuItem, SubMenu } from './menu'
 export type { MenuEmits, MenuItemGroupProps, MenuItemProps, MenuItemType, MenuProps, MenuRef, MenuSlots, SubMenuProps } from './menu'
+export { default as Mentions, Option as MentionsOption } from './mentions'
+export type {
+  MentionPlacement,
+  MentionsClassNamesType,
+  MentionsEmits,
+  MentionsOptionProps,
+  MentionsProps,
+  MentionsRef,
+  MentionsSlots,
+  MentionsStylesType,
+} from './mentions'
 export { default as message, useMessage } from './message'
 export { default as Modal, useModal } from './modal'
 export type { ModalEmits, ModalProps, ModalSlots } from './modal'

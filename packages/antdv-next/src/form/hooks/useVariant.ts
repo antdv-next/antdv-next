@@ -10,7 +10,7 @@ type VariantComponents = keyof Pick<
   | 'input'
   | 'inputNumber'
   | 'textArea'
-  // | 'mentions'
+  | 'mentions'
   | 'select'
   // | 'cascader'
   | 'treeSelect'

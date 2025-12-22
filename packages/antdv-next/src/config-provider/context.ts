@@ -291,6 +291,9 @@ export type InputNumberConfig = ComponentStyleConfig
 export type TextAreaConfig = ComponentStyleConfig
   & Pick<TextAreaProps, 'classes' | 'styles' | 'allowClear' | 'variant'>
 
+export type MentionsConfig = ComponentStyleConfig
+  & Pick<TextAreaProps, 'classes' | 'styles' | 'allowClear' | 'variant'>
+
 export type InputSearchConfig = ComponentStyleConfig & Pick<SearchProps, 'classes' | 'styles'>
 
 export type OTPConfig = ComponentStyleConfig & Pick<OTPProps, 'classes' | 'styles' | 'variant'>
@@ -355,6 +358,7 @@ export interface ConfigComponentProps {
   input?: InputConfig
   inputNumber?: InputNumberConfig
   textArea?: TextAreaConfig
+  mentions?: MentionsConfig
   pagination?: PaginationConfig
   inputSearch?: InputSearchConfig
   otp?: OTPConfig
@@ -383,7 +387,6 @@ export interface ConfigComponentProps {
   image?: ImageConfig
   layout?: ComponentStyleConfig
   // list?: ListConfig;
-  // mentions?: MentionsConfig;
   modal?: ModalConfig
   progress?: ComponentStyleConfig
   result?: ResultConfig

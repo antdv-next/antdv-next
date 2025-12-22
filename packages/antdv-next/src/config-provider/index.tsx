@@ -36,6 +36,7 @@ const PASSED_PROPS: Exclude<
   // 'input',
   'pagination',
   'transfer',
+  'mentions',
   // 'form',
   // 'select',
   'button',
