@@ -10,12 +10,24 @@ const { src } = defineProps<{
 }>()
 const demo = computed(() => demos[src])
 const component = computed(() => typeof demo.value?.component === 'function' ? defineAsyncComponent(demo.value.component) : demo.value.component)
+const id = computed(() => {
+  if (!src)
+    return ''
+  let _src = src
+  if (_src.startsWith('/')) {
+    _src = _src.slice(1)
+  }
+  if (_src.endsWith('.vue')) {
+    _src = _src.slice(0, -4)
+  }
+  return _src.replace(/[/\\.]/g, '-')
+})
 </script>
 
 <template>
-  <div>
-    <component :is="component" v-if="demo.component" />
+  <div :id="id">
+    <component :is="component" v-if="demo?.component" />
     <slot />
-    <div v-html="demo.html" />
+    <div v-html="demo?.html" />
   </div>
 </template>

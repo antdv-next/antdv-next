@@ -2,6 +2,8 @@
 title: Button
 subtitle: 按钮
 description: 按钮用于开始一个即时操作。
+demo:
+  cols: 2
 ---
 
 <DocHeading :frontmatter></DocHeading>
@@ -30,4 +32,12 @@ description: 按钮用于开始一个即时操作。
 
 <demo-group>
   <demo src="./demo/basic.vue">语法糖</demo>
+  <demo src="./demo/color-variant.vue" version="5.21.0">颜色与变体</demo>
+  <demo src="./demo/icon.vue">按钮图标</demo>
+  <demo src="./demo/disabled.vue">不可用状态</demo>
+  <demo src="./demo/loading.vue">加载中状态</demo>
+  <demo src="./demo/ghost.vue">幽灵按钮</demo>
+  <demo src="./demo/danger.vue">危险按钮</demo>
+  <demo src="./demo/block.vue">Block 按钮</demo>
+  <demo src="./demo/chinese-space.vue" version="5.17.0">移除两个汉字之间的空格</demo>
 </demo-group>

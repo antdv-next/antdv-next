@@ -41,7 +41,7 @@ export function addScriptSetup(scriptTags: RegExpMatchArray | null, env: Markdow
   const pageData = formatPageData(env)
   const baseCode = `const __pageData = ${JSON.stringify(pageData)};\nconst frontmatter = ${JSON.stringify(env.frontmatter)};\n`
   const importsCode = `import { inject, provide, ref } from 'vue';\n`
-  const injectedCode = `const __parentPageData = ref({});provide('__pageData__',(data)=>{__parentPageData.value=data});const __pageDataFunc__ = inject('__pageData__',null);if(__pageDataFunc__)__pageDataFunc__(__pageData);`
+  const injectedCode = `const __parentPageData = ref({});provide('__pageData__',(data)=>{__parentPageData.value=data});const __pageDataFunc__ = inject('__pageData__',null);if(__pageDataFunc__)__pageDataFunc__(__pageData);provide('__pageInfo__',__pageData);`
   if (!scriptTags || !scriptTags.length) {
     return `<script setup lang="ts">\n${importsCode}${baseCode}${injectedCode}\n</script>\n`
   }

@@ -5,6 +5,9 @@ export interface Frontmatter {
   subtitle?: string
   description?: string
   tag?: string
+  demo?: {
+    cols?: number
+  }
   [key: string]: any
 }
 
@@ -26,7 +29,6 @@ export function useDocPage() {
   const pageData = shallowRef<DocPage>()
   const demosMap = new Map<string, any>()
   provide('__pageData__', (data: DocPage) => {
-    console.log(data)
     pageData.value = data
   })
 
