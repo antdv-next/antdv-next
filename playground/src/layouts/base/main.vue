@@ -17,7 +17,7 @@ const { anchorItems } = useDocPage()
     </a-col>
     <a-col :xxl="20" :xl="19" :lg="18" :md="18" :sm="24" :xs="24">
       <section class="ant-doc-main-section">
-        <a-anchor :items="anchorItems" class="ant-doc-main-sider-anchor" :affix="false" />
+        <a-anchor :items="anchorItems" class="ant-doc-main-sider-anchor" :offset-top="70" :affix="false" />
       </section>
       <article class="pl-48px pr-164px pb-32px">
         <slot />

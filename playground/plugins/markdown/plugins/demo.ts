@@ -18,7 +18,6 @@ export function replaceSrcPath(content: string, id: string, root: string, wrappe
   // const REGEX_TAG = new RegExp(`(<${wrapper}\\b[^>]*>)([\\s\\S]*?)<\\/${wrapper}>`, 'gi')
   const REGEX_TAG = new RegExp(`(<${wrapper}(?!-)\\b[^>]*>)([\\s\\S]*?)<\\/${wrapper}>`, 'gi')
   return content.replace(REGEX_TAG, (tagMatch, _, titleContent) => {
-    // console.log('tagMatch', tagMatch)
     return tagMatch.replace(/(\s|^)src=(['"])(.*?)\2/gi, (srcMatch, prefix, quote, srcValue) => {
       if (!srcValue)
         return srcMatch
@@ -26,10 +25,15 @@ export function replaceSrcPath(content: string, id: string, root: string, wrappe
       const dir = pathe.dirname(id)
       const filePath = pathe.resolve(dir, srcValue)
       const relative = pathe.relative(root, filePath)
+      const componentsArr = filePath.split('/')
+      const demoIndex = componentsArr.reverse().findIndex(dir => dir.toLowerCase() === 'demo')
+      const componentDemoPathArr = componentsArr.slice(0, demoIndex + 2)
+      const componentDemoPath = componentDemoPathArr.reverse().join('/')
+
       const newSrc = relative.startsWith('/') ? relative : `/${relative}`
       // 如果存在 when-to-use，则在路径后添加查询参数
       if (whenToUse) {
-        const slug = relative.replace(/\//g, '-').replace('.vue', '')
+        const slug = componentDemoPath.replace(/\//g, '-').replace('.vue', '')
         const title = titleContent
         const level = whenToUse.level + 1
         const link = `#${slug}`
