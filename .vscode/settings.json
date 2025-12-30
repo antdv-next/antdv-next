@@ -60,5 +60,29 @@
   "i18n-ally.enabledParsers": ["ts"],
   "i18n-ally.parsers.typescript.compilerOptions": {
     "moduleResolution": "node" // 配置解析策略
-  }
+  },
+  "markdownlint.config": {
+    "MD033": {
+      // markdownlint默认不允许在md文件内使用HTML标签
+      "allowed_elements": ["DocHeading","demo-group", "demo"]
+    }
+  },
+  "cSpell.ignoreWords": [
+    // 忽略的单词
+    "nuxt",
+    "nuxtjs",
+    "qrcode",
+    "axios",
+    "stylelint",
+    "pinia",
+    "vite",
+    "unplugin",
+    "sider",
+    "esbenp",
+    "shikijs",
+    "shiki",
+    "unocss",
+    "selicens",
+    "antdv-next"
+  ]
 }
