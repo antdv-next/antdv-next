@@ -1,17 +1,23 @@
 ---
+category: Components
+group: Data Display
 title: Carousel
 description: A set of carousel areas.
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*bPMSSqbaTMkAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*a-58QpYnqOsAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
 ---
 
-## When To Use
+<DocHeading></DocHeading>
+
+## When To Use {#when-to-use}
 
 - When there is a group of content on the same level.
 - When there is insufficient content space, it can be used to save space in the form of a revolving door.
 - Commonly used for a group of pictures/cards.
 
-## Examples
+## Examples {#examples}
 
 <demo-group>
   <demo src="./demo/basic.vue">Basic</demo>

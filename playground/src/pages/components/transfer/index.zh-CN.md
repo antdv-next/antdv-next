@@ -1,13 +1,21 @@
-# Transfer
+---
+category: Components
+group: 数据录入
+title: Transfer
+subtitle: 穿梭框
+description: 双栏穿梭选择框。
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*fkfzT5BbwNIAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*g9vUQq2nkpEAAAAAAAAAAAAADrJ8AQ/original
+---
 
-双栏穿梭选择框。
+<DocHeading></DocHeading>
 
-## 何时使用
+## 何时使用 {#when-to-use}
 
 - 需要在两个列表之间进行多选操作时。
 - 希望展示更多信息并提供更直观的选择体验时。
 
-## 示例
+## 示例 {#examples}
 
 <demo-group>
   <demo src="./demo/basic.vue">基本用法</demo>

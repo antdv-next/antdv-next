@@ -1,8 +1,16 @@
-# Table 表格
+---
+category: Components
+group: 数据展示
+title: Table
+subtitle: 表格
+description: 展示行列数据。
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*3yz3QqMlShYAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Sv8XQ50NB40AAAAAAAAAAAAADrJ8AQ/original
+---
 
-用于展示行列数据。
+<DocHeading></DocHeading>
 
-## 示例
+## 示例 {#examples}
 
 <demo-group>
   <demo src="./demo/basic.vue">基础用法</demo>

@@ -1,13 +1,20 @@
-# Pagination
+---
+category: Components
+group: Navigation
+title: Pagination
+description: A long list can be divided into several pages, and only one page will be loaded at a time.
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8y_iTJGY_aUAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAAAAAAAAAAAADrJ8AQ/original
+---
 
-A long list can be divided into several pages, and only one page will be loaded at a time.
+<DocHeading></DocHeading>
 
-## When To Use
+## When To Use {#when-to-use}
 
 - When it will take a long time to load/render all items.
 - If you want to browse the data by navigating through pages.
 
-## Examples
+## Examples {#examples}
 
 <demo-group>
   <demo src="./demo/basic.vue">Basic</demo>

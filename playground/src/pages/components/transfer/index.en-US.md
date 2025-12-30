@@ -1,13 +1,20 @@
-# Transfer
+---
+category: Components
+group: Data Entry
+title: Transfer
+description: Double column transfer choice box.
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*fkfzT5BbwNIAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*g9vUQq2nkpEAAAAAAAAAAAAADrJ8AQ/original
+---
 
-Double column transfer choice box.
+<DocHeading></DocHeading>
 
-## When To Use
+## When To Use {#when-to-use}
 
 - It is a select control essentially which can be use for selecting multiple items.
 - Transfer can display more information for items and take up more space.
 
-## Examples
+## Examples {#examples}
 
 <demo-group>
   <demo src="./demo/basic.vue">Basic</demo>

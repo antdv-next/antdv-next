@@ -1,13 +1,21 @@
-# Pagination 分页
+---
+category: Components
+group: 导航
+title: Pagination
+subtitle: 分页
+description: 分页器用于分隔长列表，每次只加载一个页面。
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8y_iTJGY_aUAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAAAAAAAAAAAADrJ8AQ/original
+---
 
-分页器用于分隔长列表，每次只加载一个页面。
+<DocHeading></DocHeading>
 
-## 何时使用
+## 何时使用 {#when-to-use}
 
 - 当加载/渲染所有数据将花费很多时间时；
 - 可切换页码浏览数据。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <demo-group>
   <demo src="./demo/basic.vue">基本</demo>

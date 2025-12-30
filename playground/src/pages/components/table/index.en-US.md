@@ -1,8 +1,15 @@
-# Table
+---
+category: Components
+group: Data Display
+title: Table
+description: A table displays rows of data.
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*3yz3QqMlShYAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Sv8XQ50NB40AAAAAAAAAAAAADrJ8AQ/original
+---
 
-A table displays data in rows and columns.
+<DocHeading></DocHeading>
 
-## Examples
+## Examples {#examples}
 
 <demo-group>
   <demo src="./demo/basic.vue">Basic</demo>

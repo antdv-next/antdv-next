@@ -1,8 +1,20 @@
-# Button
+---
+category: Components
+title: Button
+description: To trigger an operation.
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*7va7RKs3YzIAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*3T4cRqxH9-8AAAAAAAAAAAAADrJ8AQ/original
+designUrl: /docs/spec/buttons
+demo:
+  cols: 2
+group:
+  title: General
+  order: 1
+---
 
-To trigger an operation.
+<DocHeading></DocHeading>
 
-## When To Use
+## When To Use {#when-to-use}
 
 A button means an operation (or a series of operations). Clicking a button will trigger its corresponding business logic.
 
@@ -21,7 +33,7 @@ And 4 other properties additionally.
 - 🚫 `disabled`: used when actions are not available.
 - 🔃 `loading`: adds a loading spinner in button, avoids multiple submits too.
 
-## Examples
+## Examples {#examples}
 
 <demo-group>
   <demo src="./demo/basic.vue">Syntactic sugar</demo>
@@ -36,7 +48,7 @@ And 4 other properties additionally.
 
 ## API
 
-### Property
+### Property {#property}
 
 Common props ref：[Common props](/docs/vue/common-props)
 

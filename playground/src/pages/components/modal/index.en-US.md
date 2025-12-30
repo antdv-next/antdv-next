@@ -1,8 +1,19 @@
-# Modal
+---
+group: Feedback
+category: Components
+title: Modal
+description: Display a modal dialog box, providing a title, content area, and action buttons.
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Z9vzQZAdJDQAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WtgsSLPa1Z4AAAAAAAAAAAAADrJ8AQ/original
+demo:
+  cols: 2
+---
 
-Dialog for gathering information or showing extra content.
+<DocHeading></DocHeading>
 
-## Examples
+## When To Use {#when-to-use}
+
+## Examples {#examples}
 
 <demo-group>
   <demo src="./demo/basic.vue">Basic modal</demo>
