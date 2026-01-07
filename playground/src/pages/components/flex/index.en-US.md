@@ -11,9 +11,22 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*obM7S5lIxeMAAA
 
 ## When To Use {#when-to-use}
 
+- Good for setting spacing between elements.
+- Suitable for setting various horizontal and vertical alignments.
+
+### Difference with Space component
+
+- Space is used to set the spacing between inline elements. It will add a wrapper element for each child element for inline alignment. Suitable for equidistant arrangement of multiple child elements in rows and columns.
+- Flex is used to set the layout of block-level elements. It does not add a wrapper element. Suitable for layout of child elements in vertical or horizontal direction, and provides more flexibility and control.
+
 ## Examples {#examples}
 
 <demo-group>
+  <demo src="./demo/basic.vue">basic</demo>
+  <demo src="./demo/align.vue">align</demo>
+  <demo src="./demo/gap.vue">gap</demo>
+  <demo src="./demo/wrap.vue">wrap</demo>
+  <demo src="./demo/combination.vue">combination</demo>
 </demo-group>
 
 ## API
