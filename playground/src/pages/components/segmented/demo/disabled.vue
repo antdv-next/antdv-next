@@ -21,9 +21,9 @@ Disabled Segmented.
   const data = reactive(['Map', 'Transit', 'Satellite']);
   const data2 = reactive([
     'Daily',
-    { value: 'Weekly', disabled: true },
+    { label: 'Weekly', value: 'Weekly', disabled: true },
     'Monthly',
-    { value: 'Quarterly', disabled: true },
+    { label: 'Quarterly', value: 'Quarterly', disabled: true },
     'Yearly',
   ]);
   const value = ref(data[0]);
