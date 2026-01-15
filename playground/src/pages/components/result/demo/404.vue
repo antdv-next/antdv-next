@@ -1,3 +1,11 @@
+<docs lang="zh-CN">
+此页面未找到。
+</docs>
+
+<docs lang="en-US">
+The page you visited does not exist.
+</docs>
+
 <template>
   <a-result
     status="404"

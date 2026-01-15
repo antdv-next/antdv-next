@@ -1,3 +1,11 @@
+<docs lang="zh-CN">
+成功的结果。
+</docs>
+
+<docs lang="en-US">
+Show successful results.
+</docs>
+
 <template>
   <a-result
     status="success"

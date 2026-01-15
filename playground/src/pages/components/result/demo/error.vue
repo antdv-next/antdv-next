@@ -1,3 +1,11 @@
+<docs lang="zh-CN">
+复杂的错误反馈。
+</docs>
+
+<docs lang="en-US">
+Complex error feedback.
+</docs>
+
 <script lang="ts" setup>
 import { CloseCircleOutlined } from '@antdv-next/icons'
 </script>

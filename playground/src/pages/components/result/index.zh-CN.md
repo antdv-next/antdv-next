@@ -15,6 +15,15 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-0kxQrbHx2kAAA
 ## 示例 {#examples}
 
 <demo-group>
+  <demo src="./demo/success.vue">Success</demo>
+  <demo src="./demo/info.vue">Info</demo>
+  <demo src="./demo/warning.vue">Warning</demo>
+  <demo src="./demo/403.vue">403</demo>
+  <demo src="./demo/404.vue">404</demo>
+  <demo src="./demo/500.vue">500</demo>
+  <demo src="./demo/error.vue">Error</demo>
+  <demo src="./demo/customIcon.vue">自定义 icon</demo>
+  <demo src="./demo/style-class.vue">自定义语义结构的样式和类</demo>
 </demo-group>
 
 ## API

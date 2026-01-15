@@ -1,3 +1,11 @@
+<docs lang="zh-CN">
+你没有此页面的访问权限。
+</docs>
+
+<docs lang="en-US">
+you are not authorized to access this page.
+</docs>
+
 <template>
   <a-result
     status="403"
