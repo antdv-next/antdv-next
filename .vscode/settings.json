@@ -64,7 +64,7 @@
   "markdownlint.config": {
     "MD033": {
       // markdownlint默认不允许在md文件内使用HTML标签
-      "allowed_elements": ["DocHeading", "demo-group", "demo", "ComponentOverview"]
+      "allowed_elements": ["DocHeading", "demo-group", "demo", "ComponentOverview", "InstallDependencies", "IconSearch", "ComponentTokenTable"]
     }
   },
   "cSpell.ignoreWords": [
