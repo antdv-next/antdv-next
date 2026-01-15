@@ -65,6 +65,9 @@ const Icon = defineComponent<IconComponentProps>(
       warning(Boolean(component || children.length), 'Should have `component` prop or `children`.')
 
       const renderInnerNode = () => {
+        if (slots?.component) {
+          return slots.component()
+        }
         if (component) {
           return createVNode(component, innerSvgProps, slots)
         }
