@@ -1,3 +1,11 @@
+<docs lang="zh-CN">
+你可以通过 `icon` 插槽为标签添加自定义图标
+</docs>
+
+<docs lang="en-US">
+You can add a custom icon to the tag via the `icon` slot.
+</docs>
+
 <script setup lang="ts">
 import { FacebookOutlined, LinkedinOutlined, TwitterOutlined, YoutubeOutlined } from '@antdv-next/icons'
 import { ref } from 'vue'
@@ -10,10 +18,10 @@ function handleChange(index: number, value: boolean) {
 </script>
 
 <template>
-  <a-divider orientation="left">
+  <a-divider title-placement="start">
     Tag with icon
   </a-divider>
-  <a-flex gap="4px 0" wrap align="center">
+  <a-flex gap="small" wrap align="center">
     <a-tag color="#55acee">
       <template #icon>
         <TwitterOutlined />
@@ -39,10 +47,10 @@ function handleChange(index: number, value: boolean) {
       LinkedIn
     </a-tag>
   </a-flex>
-  <a-divider orientation="left">
+  <a-divider title-placement="start">
     CheckableTag with icon
   </a-divider>
-  <a-flex gap="4px 0" wrap align="center">
+  <a-flex gap="small" wrap align="center">
     <a-checkable-tag
       :checked="checked[0]"
       @change="(value: boolean) => handleChange(0, value)"

@@ -121,11 +121,11 @@ const CheckableTagGroup = defineComponent<
       <div
         {...ariaProps}
         class={clsx(
-          groupPrefixCls,
+          groupPrefixCls.value,
           rootClass,
           {
-            [`${groupPrefixCls}-disabled`]: disabled,
-            [`${groupPrefixCls}-rtl`]: direction.value === 'rtl',
+            [`${groupPrefixCls.value}-disabled`]: disabled,
+            [`${groupPrefixCls.value}-rtl`]: direction.value === 'rtl',
           },
           hashId.value,
           cssVarCls.value,

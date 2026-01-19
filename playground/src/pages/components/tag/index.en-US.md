@@ -13,9 +13,22 @@ demo:
 
 ## When To Use {#when-to-use}
 
+- It can be used to tag by dimension or property.
+
+- When categorizing.
+
 ## Examples {#examples}
 
 <demo-group>
+  <demo src="./demo/basic.vue">Basic</demo>
+  <demo src="./demo/colorful.vue">Colorful Tag</demo>
+  <demo src="./demo/control.vue">Add & Remove Dynamically</demo>
+  <demo src="./demo/checkable.vue">Checkable</demo>
+  <demo src="./demo/icon.vue">Icon</demo>
+  <demo src="./demo/status.vue">Status Tag</demo>
+  <demo src="./demo/customize.vue">Customize close</demo>
+  <demo src="./demo/disabled.vue">Disabled</demo>
+  <demo src="./demo/style-class.vue">Custom semantic dom styling</demo>
 </demo-group>
 
 ## API
@@ -34,7 +47,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 | Event | Description | Type | Version |
 | --- | --- | --- | --- |
-| close | Callback executed when tag is closed (can be prevented by `e.preventDefault()`) | (ev: MouseEvent) =&gt; void | - |
+| close | Callback executed when tag is closed (can be prevented by `e.preventDefault()`) | (e: MouseEvent) =&gt; void | - |
 
 ### Slots {#slots}
 

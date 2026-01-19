@@ -1,3 +1,11 @@
+<docs lang="zh-CN">
+无边框模式。
+</docs>
+
+<docs lang="en-US">
+Border less.
+</docs>
+
 <template>
   <a-flex gap="4px 0" wrap>
     <a-tag :bordered="false">
