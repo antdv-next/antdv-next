@@ -12,9 +12,22 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5WDvQp_H7LUAAA
 
 ## 何时使用 {#when-to-use}
 
+最基础的卡片容器，可承载文字、列表、图片、段落，常用于后台概览页面。
+
 ## 示例 {#examples}
 
 <demo-group>
+  <demo src="./demo/basic.vue">典型卡片</demo>
+  <demo src="./demo/border-less.vue" background="grey">无边框</demo>
+  <demo src="./demo/simple.vue">简洁卡片</demo>
+  <demo src="./demo/flexible-content.vue">更灵活的内容展示</demo>
+  <demo src="./demo/in-column.vue" background="grey">栅格卡片</demo>
+  <demo src="./demo/loading.vue">预加载的卡片</demo>
+  <demo src="./demo/grid-card.vue">网格型内嵌卡片</demo>
+  <demo src="./demo/inner.vue">内部卡片</demo>
+  <demo src="./demo/tabs.vue">带页签的卡片</demo>
+  <demo src="./demo/meta.vue">支持更多内容配置</demo>
+  <demo src="./demo/style-class.vue">自定义语义结构的样式和类</demo>
 </demo-group>
 
 ## API

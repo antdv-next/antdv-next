@@ -1,3 +1,11 @@
+<docs lang="zh-CN">
+数据读入前会有文本块样式。
+</docs>
+
+<docs lang="en-US">
+Shows a loading indicator while the contents of the card is being fetched.
+</docs>
+
 <script setup lang="ts">
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@antdv-next/icons'
 import { ref } from 'vue'

@@ -1,3 +1,11 @@
+<docs lang="zh-CN">
+一种支持封面、头像、标题和描述信息的卡片。
+</docs>
+
+<docs lang="en-US">
+A Card that supports `cover`, `avatar`, `title` and `description`.
+</docs>
+
 <script setup lang="ts">
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@antdv-next/icons'
 </script>

@@ -1,3 +1,11 @@
+<docs lang="zh-CN">
+只包含内容区域。
+</docs>
+
+<docs lang="en-US">
+A simple card only containing a content area.
+</docs>
+
 <template>
   <a-card style="width: 300px">
     <p>Card content</p>

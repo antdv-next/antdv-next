@@ -1,3 +1,11 @@
+<docs lang="zh-CN">
+可承载更多内容。
+</docs>
+
+<docs lang="en-US">
+More content can be hosted.
+</docs>
+
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 
