@@ -85,6 +85,9 @@ export interface ImageEmits {
 export interface ImageSlots {
   fallback: () => any
   placeholder: () => any
+  imageRender: () => any
+  cover: () => any
+  actionsRender: () => OriginPreviewConfig['actionsRender']
 }
 const Image = defineComponent<
   ImageProps,
@@ -217,6 +220,12 @@ const Image = defineComponent<
           emit('click', e)
         },
       } as Pick<VcImageProps, 'onError' | 'onClick'>
+      if (slots?.imageRender) {
+        mergedPreviewConfig.value.imageRender = slots.imageRender
+      }
+      if ((mergedPreviewConfig.value?.mask || typeof mergedPreviewConfig.value?.mask === 'boolean') && !mergedPreviewConfig.value.cover) {
+        mergedPreviewConfig.value.cover = slots?.cover?.()
+      }
       // ============================== Render ==============================
       return (
         <VcImage

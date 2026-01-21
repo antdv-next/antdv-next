@@ -47,7 +47,7 @@ function useMergedPreviewConfig<T extends PreviewConfig | GroupPreviewConfig>(
       rootClassName: clsx(mergedRootClassName.value, previewRootClassName),
       mask: mergedPreviewMask.value,
       blurClassName: blurClassName.value?.mask,
-    } as const
+    }
   })
 }
 

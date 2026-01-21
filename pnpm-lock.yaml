@@ -106,8 +106,8 @@ catalogs:
       specifier: ^1.0.1
       version: 1.0.1
     '@v-c/image':
-      specifier: ^0.0.1
-      version: 0.0.1
+      specifier: ^0.0.3
+      version: 0.0.3
     '@v-c/input':
       specifier: ^1.0.1
       version: 1.0.1
@@ -491,7 +491,7 @@ importers:
         version: 1.0.1(vue@3.5.25(typescript@5.9.3))
       '@v-c/image':
         specifier: 'catalog:'
-        version: 0.0.1(vue@3.5.25(typescript@5.9.3))
+        version: 0.0.3(vue@3.5.25(typescript@5.9.3))
       '@v-c/input':
         specifier: 'catalog:'
         version: 1.0.1(vue@3.5.25(typescript@5.9.3))
@@ -2223,8 +2223,8 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
-  '@v-c/image@0.0.1':
-    resolution: {integrity: sha512-IfPjQtvHSYPmU0h2e4jdfUzsKt4Jal71BB4MHWpkcSOIAw5mzxfyNRt5o0WdYlxk1YYxaXJq0HE+oeriNaMfkQ==}
+  '@v-c/image@0.0.3':
+    resolution: {integrity: sha512-z4RQkef0sX6Erq8cjV0CIps/oLNn6SHQJeEJtRlTrPgnm82lOEKcSIpzV3k8x22iRw9vE02XnELDfh3ojjsV1A==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -7022,9 +7022,9 @@ snapshots:
       '@v-c/util': 1.0.8(vue@3.5.25(typescript@5.9.3))
       vue: 3.5.25(typescript@5.9.3)
 
-  '@v-c/image@0.0.1(vue@3.5.25(typescript@5.9.3))':
+  '@v-c/image@0.0.3(vue@3.5.25(typescript@5.9.3))':
     dependencies:
-      '@v-c/portal': 1.0.2(vue@3.5.25(typescript@5.9.3))
+      '@v-c/portal': 1.0.4(vue@3.5.25(typescript@5.9.3))
       '@v-c/util': 1.0.8(vue@3.5.25(typescript@5.9.3))
       vue: 3.5.25(typescript@5.9.3)
 

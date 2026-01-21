@@ -1,3 +1,11 @@
+<docs lang="zh-CN">
+大图使用 placeholder 渐进加载。
+</docs>
+
+<docs lang="en-US">
+Progressive when large image loading.
+</docs>
+
 <script setup lang="ts">
 import { shallowRef } from 'vue'
 

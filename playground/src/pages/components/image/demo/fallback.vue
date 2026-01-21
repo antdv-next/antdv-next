@@ -1,3 +1,11 @@
+<docs lang="zh-CN">
+加载失败显示图像占位符。
+</docs>
+
+<docs lang="en-US">
+Load failed to display image placeholder.
+</docs>
+
 <template>
   <a-image
     alt="basic image"
