@@ -15,7 +15,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 - When you need to display pictures.
 - Display when loading a large image or fault tolerant handling when loading fail.
 
-## Examples {#examples}Basic Usage
+## Examples {#examples}
 
 <demo-group>
   <demo src="./demo/basic.vue">Basic Usage</demo>
