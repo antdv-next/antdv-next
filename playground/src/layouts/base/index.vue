@@ -43,6 +43,7 @@ const algorithm = computed(() => {
       :locale="antdLocale"
       :theme="{
         algorithm,
+        zeroRuntime: true,
       }"
     >
       <a-app>

@@ -23,7 +23,7 @@ export const { genComponentStyleHook, genStyleHooks, genSubStyleComponent } = ge
     })
   },
   useToken() {
-    const [theme, realToken, hashId, token, cssVar] = useLocalToken()
+    const [theme, realToken, hashId, token, cssVar, zeroRuntime] = useLocalToken()
     return {
       theme,
       realToken,
@@ -33,6 +33,7 @@ export const { genComponentStyleHook, genStyleHooks, genSubStyleComponent } = ge
         prefix: '',
         key: '',
       }),
+      zeroRuntime,
     }
   },
   useCSP: () => {

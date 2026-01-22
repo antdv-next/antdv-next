@@ -12,15 +12,18 @@ import type {
   CSPConfig,
   DatePickerConfig,
   DirectionType,
+  DrawerConfig,
   EmptyConfig,
   FlexConfig,
   FloatButtonConfig,
   FloatButtonGroupConfig,
+  ImageConfig,
   InputConfig,
   InputNumberConfig,
   InputSearchConfig,
   MentionsConfig,
   MenuConfig,
+  ModalConfig,
   NotificationConfig,
   OTPConfig,
   PaginationConfig,
@@ -31,14 +34,17 @@ import type {
   SelectConfig,
   SpaceConfig,
   SpinConfig,
+  TableConfig,
   TabsConfig,
   TagConfig,
   TextAreaConfig,
   ThemeConfig,
   TimePickerConfig,
   TooltipConfig,
+  TourConfig,
   TransferConfig,
   TreeSelectConfig,
+  UploadConfig,
   Variant,
   WaveConfig,
 } from './context.ts'
@@ -96,17 +102,17 @@ export interface ConfigProviderProps {
   treeSelect?: TreeSelectConfig
   collapse?: CollapseConfig
   divider?: ComponentStyleConfig
-  // drawer?: DrawerConfig;
+  drawer?: DrawerConfig
   typography?: ComponentStyleConfig
   skeleton?: ComponentStyleConfig
   spin?: SpinConfig
   segmented?: ComponentStyleConfig
   statistic?: ComponentStyleConfig
   steps?: ComponentStyleConfig
-  // image?: ImageConfig;
+  image?: ImageConfig
   layout?: ComponentStyleConfig
   // list?: ListConfig;
-  // modal?: ModalConfig;
+  modal?: ModalConfig
   progress?: ComponentStyleConfig
   result?: ComponentStyleConfig
   slider?: ComponentStyleConfig
@@ -125,12 +131,12 @@ export interface ConfigProviderProps {
   avatar?: ComponentStyleConfig
   message?: ComponentStyleConfig
   tag?: TagConfig
-  // table?: TableConfig;
+  table?: TableConfig
   card?: CardConfig
   tabs?: TabsConfig
   timeline?: ComponentStyleConfig
   timePicker?: TimePickerConfig
-  // upload?: UploadConfig;
+  upload?: UploadConfig
   notification?: NotificationConfig
   tree?: ComponentStyleConfig
   colorPicker?: ComponentStyleConfig
@@ -142,7 +148,7 @@ export interface ConfigProviderProps {
   //  * Wave is special component which only patch on the effect of component interaction.
   //  */
   wave?: WaveConfig
-  // tour?: TourConfig;
+  tour?: TourConfig
   tooltip?: TooltipConfig
   popover?: PopoverConfig
   popconfirm?: PopconfirmConfig

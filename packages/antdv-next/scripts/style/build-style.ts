@@ -122,15 +122,85 @@ function normalizeRender(node: RenderNode): ReturnType<typeof h>[] {
     : [node]
 }
 
+const notHas = [
+  'AutoCompleteOption',
+  'AvatarGroup',
+  'BadgeRibbon',
+  'CardGrid',
+  'CardMeta',
+  'CascaderPanel',
+  'CheckboxGroup',
+  'Color',
+  'DateMonthPicker',
+  'DateQuarterPicker',
+  'DateRangePicker',
+  'DateWeekPicker',
+  'DateYearPicker',
+  'BackTop',
+  'FloatButtonGroup',
+  'FormItem',
+  'Col',
+  'Row',
+  'ImagePreviewGroup',
+  'InputGroup',
+  'InputOTP',
+  'InputPassword',
+  'InputSearch',
+  'TextArea',
+  'LayoutContent',
+  'LayoutFooter',
+  'LayoutHeader',
+  'LayoutSider',
+  'useLayoutSider',
+  'MentionsOption',
+  'MenuDivider',
+  'MenuItem',
+  'SubMenu',
+  'useMessage',
+  'useModal',
+  'useNotification',
+  'Progress',
+  'RadioButton',
+  'RadioGroup',
+  'Segmented',
+  'SelectOptGroup',
+  'SelectOption',
+  'SkeletonAvatar',
+  'SkeletonButton',
+  'SkeletonImage',
+  'SkeletonInput',
+  'SkeletonNode',
+  'SpaceAddon',
+  'SpaceCompact',
+  'SplitterPanel',
+  'StatisticTimer',
+  'TableColumn',
+  'TableColumnGroup',
+  'TableSummary',
+  'TableSummaryCell',
+  'TableSummaryRow',
+  'TabPane',
+  'CheckableTag',
+  'CheckableTagGroup',
+  'TimeRangePicker',
+  'TypographyLink',
+  'TypographyParagraph',
+  'TypographyText',
+  'TypographyTitle',
+  'UploadDragger',
+  'DirectoryTree',
+  'UniqueProvider',
+]
+
 function defaultNode() {
-  const nodes = Object.keys(antd)
-    .filter(name => isRenderableComponent(name, (antd as any)[name]) || ComponentCustomizeRender[name])
-    .map((compName) => {
-      const Comp = (antd as any)[compName]
-      const renderFunc = ComponentCustomizeRender[compName]
-      const rendered = renderFunc ? renderFunc(Comp) : h(Comp)
-      return h(Fragment, { key: compName }, normalizeRender(rendered))
-    })
+  const nodes = Object.keys(antd).filter((name) => {
+    return !notHas.includes(name)
+  }).filter(name => isRenderableComponent(name, (antd as any)[name]) || ComponentCustomizeRender[name]).map((compName) => {
+    const Comp = (antd as any)[compName]
+    const renderFunc = ComponentCustomizeRender[compName]
+    const rendered = renderFunc ? renderFunc(Comp) : h(Comp)
+    return h(Fragment, { key: compName }, normalizeRender(rendered))
+  })
 
   return h(Fragment, null, nodes)
 }

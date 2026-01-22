@@ -15,6 +15,7 @@ import 'uno.css'
 import './assets/styles/layout/index.css'
 import './assets/styles/markdown/index.css'
 import './assets/styles/common.css'
+import './assets/antd.css'
 
 const app = createApp(App)
 app.use(router)

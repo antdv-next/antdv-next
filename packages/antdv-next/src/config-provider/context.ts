@@ -154,21 +154,37 @@ export interface ThemeConfig {
    * @default false
    * @since 5.12.0
    */
-  cssVar?:
-    | {
-      /**
-       * @descCN css 变量的前缀
-       * @descEN Prefix for css variable.
-       * @default ant
-       */
-      prefix?: string
-      /**
-       * @descCN 主题的唯一 key，版本低于 react@18 时需要手动设置。
-       * @descEN Unique key for theme, should be set manually < react@18.
-       */
-      key?: string
-    }
-    | boolean
+  cssVar?: {
+    /**
+     * @descCN css 变量的前缀
+     * @descEN Prefix for css variable.
+     * @default ant
+     */
+    prefix?: string
+    /**
+     * @descCN 主题的唯一 key，版本低于 react@18 时需要手动设置。
+     * @descEN Unique key for theme, should be set manually < react@18.
+     */
+    key?: string
+  }
+  /**
+   * @descCN 开启零运行时模式，不会在运行时产生样式，需要手动引入 CSS 文件。
+   * @descEN Enable zero-runtime mode, which will not generate style at runtime, need to import additional CSS file.
+   * @default true
+   * @since 6.0.0
+   * @example
+   * ```tsx
+   * import { ConfigProvider } from 'antd';
+   * import 'antdv-next/dist/antd.css';
+   *
+   * const Demo = () => (
+   *   <ConfigProvider theme={{ zeroRuntime: true }}>
+   *     <App />
+   *   </ConfigProvider>
+   *);
+   * ```
+   */
+  zeroRuntime?: boolean
 }
 
 export interface ComponentStyleConfig {
