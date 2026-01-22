@@ -6,12 +6,10 @@ import type { HashPriority } from '../StyleContext'
 import type Theme from '../theme/Theme'
 import type { Transformer } from '../transformers/interface.ts'
 import type { ExtractStyle } from './useGlobalCache'
-// @ts-expect-error this is a valid package
-import unitless from '@emotion/unitless'
-
 import { removeCSS, updateCSS } from '@v-c/util/dist/Dom/dynamicCSS'
 
 import { compile, middleware, prefixer, serialize, stringify } from 'stylis'
+
 import { computed } from 'vue'
 import { contentQuotesLinter, hashedAnimationLinter } from '../linters'
 import {
@@ -27,6 +25,7 @@ import {
   getStyleAndHash,
 } from '../util/cacheMapUtil'
 import hash from '../util/resolveHash'
+import unitless from '../util/resolveUnitless'
 import { useGlobalCache } from './useGlobalCache'
 
 // @ts-expect-error // FIXME:
@@ -550,7 +549,6 @@ export const extract: ExtractStyle<StyleCacheValue> = (
   const [styleStr, styleId, effectStyle, clientOnly, order]: StyleCacheValue
     = cache
   const { plain, autoPrefix } = options || {}
-
   // Skip client only style
   if (clientOnly) {
     return null
