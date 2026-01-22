@@ -40,12 +40,12 @@
     "vue": ">=3.2.0"
   },
   "dependencies": {
-    "@ant-design/colors": "catalog:",
-    "@ant-design/icons-svg": "catalog:",
-    "@v-c/util": "catalog:",
-    "es-toolkit": "catalog:"
+    "@ant-design/colors": "catalog:prod",
+    "@ant-design/icons-svg": "catalog:prod",
+    "@v-c/util": "catalog:vc",
+    "es-toolkit": "catalog:prod"
   },
   "devDependencies": {
-    "pkg-types": "catalog:"
+    "pkg-types": "catalog:prod"
   }
 }

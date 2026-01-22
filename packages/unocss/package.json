@@ -27,6 +27,6 @@
     "unocss": ">=66.0.0"
   },
   "devDependencies": {
-    "unocss": "catalog:"
+    "unocss": "catalog:dev"
   }
 }

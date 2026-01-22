@@ -38,19 +38,19 @@
     "vue": ">=3.2.0"
   },
   "dependencies": {
-    "@emotion/hash": "catalog:",
-    "@emotion/unitless": "catalog:",
-    "@v-c/util": "catalog:",
-    "csstype": "catalog:",
-    "defu": "catalog:",
-    "stylis": "catalog:"
+    "@emotion/hash": "catalog:prod",
+    "@emotion/unitless": "catalog:prod",
+    "@v-c/util": "catalog:vc",
+    "csstype": "catalog:prod",
+    "defu": "catalog:prod",
+    "stylis": "catalog:prod"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "catalog:",
-    "@types/node": "catalog:",
-    "@types/stylis": "catalog:",
-    "@types/testing-library__jest-dom": "catalog:",
-    "@vue/test-utils": "catalog:",
-    "vue": "catalog:"
+    "@testing-library/jest-dom": "catalog:dev",
+    "@types/node": "catalog:types",
+    "@types/stylis": "catalog:types",
+    "@types/testing-library__jest-dom": "catalog:types",
+    "@vue/test-utils": "catalog:dev",
+    "vue": "catalog:prod"
   }
 }
