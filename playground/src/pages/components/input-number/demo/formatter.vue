@@ -1,3 +1,11 @@
+<docs lang="zh-CN">
+通过 `formatter` 格式化数字，以展示具有具体含义的数据，往往需要配合 `parser` 一起使用。
+</docs>
+
+<docs lang="en-US">
+Display value within it's situation with `formatter`, and we usually use `parser` at the same time.
+</docs>
+
 <script setup lang="ts">
 import type { InputNumberProps } from 'antdv-next'
 import { ref } from 'vue'

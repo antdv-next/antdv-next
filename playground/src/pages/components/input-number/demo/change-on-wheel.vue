@@ -1,3 +1,11 @@
+<docs lang="zh-CN">
+启用鼠标滚轮控制。
+</docs>
+
+<docs lang="en-US">
+Control with mouse wheel.
+</docs>
+
 <script setup lang="ts">
 import { ref } from 'vue'
 

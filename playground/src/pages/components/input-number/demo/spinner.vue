@@ -1,3 +1,11 @@
+<docs lang="zh-CN">
+数字拨轮。
+</docs>
+
+<docs lang="en-US">
+Digit spinner.
+</docs>
+
 <script setup lang="ts">
 import { ref } from 'vue'
 

@@ -13,9 +13,25 @@ demo:
 
 ## When To Use {#when-to-use}
 
+When a numeric value needs to be provided.
+
 ## Examples {#examples}
 
 <demo-group>
+  <demo src="./demo/basic.vue">Basic</demo>
+  <demo src="./demo/size.vue">Sizes</demo>
+  <demo src="./demo/disabled.vue">Disabled</demo>
+  <demo src="./demo/digit.vue">High precision decimals</demo>
+  <demo src="./demo/formatter.vue">Formatter</demo>
+  <demo src="./demo/keyboard.vue">Keyboard</demo>
+  <demo src="./demo/change-on-wheel.vue">Wheel</demo>
+  <demo src="./demo/variant.vue">Variants</demo>
+  <demo src="./demo/spinner.vue">Spinner</demo>
+  <demo src="./demo/out-of-range.vue">Out of range</demo>
+  <demo src="./demo/presuffix.vue">Prefix / Suffix</demo>
+  <demo src="./demo/status.vue">Status</demo>
+  <demo src="./demo/focus.vue">Focus</demo>
+  <demo src="./demo/style-class.vue">Custom semantic dom styling</demo>
 </demo-group>
 
 ## API
@@ -32,9 +48,9 @@ Common props ref：[Common props](/docs/vue/common-props)
 | addonBefore | The label text displayed before (on the left side of) the input field, please use Space.Compact instead | VueNode | - | - |
 | addonAfter | The label text displayed after (on the right side of) the input field, please use Space.Compact instead | VueNode | - | - |
 | prefix | The prefix icon for the Input | VueNode | - | - |
-| suffix | The suffix icon for the Input | VueNode | - | 5.20.0 |
+| suffix | The suffix icon for the Input | VueNode | - | - |
 | bordered | Deprecated. | boolean | - | - |
-| variant | Variants of Input | Variant | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
+| variant | Variants of Input | Variant | `outlined` | - |
 | classes | Customize class for each semantic structure inside the component. Supports object or function. | InputNumberClassNamesType | - | - |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | InputNumberStylesType | - | - |
 | controls | Whether to show `+-` controls, or set custom arrow icons | boolean \| &#123; upIcon?: VueNode, downIcon?: VueNode &#125; | - | - |
@@ -69,6 +85,6 @@ Common props ref：[Common props](/docs/vue/common-props)
 | Slot | Description | Type | Version |
 | --- | --- | --- | --- |
 | prefix | The prefix icon for the Input | () =&gt; any | - |
-| suffix | The suffix icon for the Input | () =&gt; any | 5.20.0 |
+| suffix | The suffix icon for the Input | () =&gt; any | - |
 | addonBefore | The label text displayed before (on the left side of) the input field, please use Space.Compact instead | () =&gt; any | - |
 | addonAfter | The label text displayed after (on the right side of) the input field, please use Space.Compact instead | () =&gt; any | - |

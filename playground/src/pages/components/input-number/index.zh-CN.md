@@ -14,9 +14,25 @@ demo:
 
 ## 何时使用 {#when-to-use}
 
+当需要获取标准数值时。
+
 ## 示例 {#examples}
 
 <demo-group>
+  <demo src="./demo/basic.vue">基本</demo>
+  <demo src="./demo/size.vue">三种大小</demo>
+  <demo src="./demo/disabled.vue">不可用</demo>
+  <demo src="./demo/digit.vue">高精度小数</demo>
+  <demo src="./demo/formatter.vue">格式化展示</demo>
+  <demo src="./demo/keyboard.vue">键盘行为</demo>
+  <demo src="./demo/change-on-wheel.vue">鼠标滚轮</demo>
+  <demo src="./demo/variant.vue">形态变体</demo>
+  <demo src="./demo/spinner.vue">拨轮</demo>
+  <demo src="./demo/out-of-range.vue">超出边界</demo>
+  <demo src="./demo/presuffix.vue">前缀/后缀</demo>
+  <demo src="./demo/status.vue">自定义状态</demo>
+  <demo src="./demo/focus.vue">聚焦</demo>
+  <demo src="./demo/style-class.vue">自定义语义结构的样式和类</demo>
 </demo-group>
 
 ## API
@@ -30,12 +46,12 @@ demo:
 | size | 输入框大小 | SizeType | - | - |
 | status | 设置校验状态 | InputStatus | - | - |
 | disabled | 禁用 | boolean | false | - |
-| addonBefore | 带标签的 input，设置前置标签，请使用 Space.Compact 替换 | VueNode | - | 4.17.0 |
-| addonAfter | 带标签的 input，设置后置标签，请使用 Space.Compact 替换 | VueNode | - | 4.17.0 |
+| addonBefore | 带标签的 input，设置前置标签，请使用 Space.Compact 替换 | VueNode | - | - |
+| addonAfter | 带标签的 input，设置后置标签，请使用 Space.Compact 替换 | VueNode | - | - |
 | prefix | 带有前缀图标的 input | VueNode | - | - |
-| suffix | 带有后缀图标的 input | VueNode | - | 5.20.0 |
+| suffix | 带有后缀图标的 input | VueNode | - | - |
 | bordered | Deprecated. | boolean | - | - |
-| variant | 形态变体 | Variant | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
+| variant | 形态变体 | Variant | `outlined` | - |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | InputNumberClassNamesType | - | - |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | InputNumberStylesType | - | - |
 | controls | 是否显示增减按钮，也可设置自定义箭头图标 | boolean \| &#123; upIcon?: VueNode, downIcon?: VueNode &#125; | - | - |
@@ -70,6 +86,6 @@ demo:
 | 插槽 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
 | prefix | 带有前缀图标的 input | () =&gt; any | - |
-| suffix | 带有后缀图标的 input | () =&gt; any | 5.20.0 |
-| addonBefore | 带标签的 input，设置前置标签，请使用 Space.Compact 替换 | () =&gt; any | 4.17.0 |
-| addonAfter | 带标签的 input，设置后置标签，请使用 Space.Compact 替换 | () =&gt; any | 4.17.0 |
+| suffix | 带有后缀图标的 input | () =&gt; any | - |
+| addonBefore | 带标签的 input，设置前置标签，请使用 Space.Compact 替换 | () =&gt; any | - |
+| addonAfter | 带标签的 input，设置后置标签，请使用 Space.Compact 替换 | () =&gt; any | - |

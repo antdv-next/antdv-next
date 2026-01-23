@@ -1,3 +1,11 @@
+<docs lang="zh-CN">
+数字输入框。
+</docs>
+
+<docs lang="en-US">
+Numeric-only input box.
+</docs>
+
 <script setup lang="ts">
 import { ref } from 'vue'
 

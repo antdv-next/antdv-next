@@ -1,3 +1,11 @@
+<docs lang="zh-CN">
+点击按钮切换可用状态。
+</docs>
+
+<docs lang="en-US">
+Click the button to toggle between available and disabled states.
+</docs>
+
 <script setup lang="ts">
 import { ref } from 'vue'
 

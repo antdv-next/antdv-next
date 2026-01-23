@@ -1,3 +1,11 @@
+<docs lang="zh-CN">
+使用 `keyboard` 属性可以控制键盘行为。
+</docs>
+
+<docs lang="en-US">
+Control keyboard behavior by `keyboard`.
+</docs>
+
 <script setup lang="ts">
 import { ref } from 'vue'
 
