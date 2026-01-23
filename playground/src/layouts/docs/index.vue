@@ -6,4 +6,5 @@ import Main from '../base/main.vue'
   <Main>
     <router-view />
   </Main>
+  <a-float-back-top />
 </template>
