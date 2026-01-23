@@ -119,7 +119,7 @@ catalogs:
     '@v-c/rate': ^0.0.2
     '@v-c/resize-observer': ^1.0.7
     '@v-c/segmented': ^0.0.8
-    '@v-c/select': ^1.0.6
+    '@v-c/select': ^1.0.7
     '@v-c/slick': ^0.0.1
     '@v-c/slider': ^1.0.9
     '@v-c/steps': ^0.0.1

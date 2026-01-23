@@ -335,8 +335,8 @@ catalogs:
       specifier: ^0.0.8
       version: 0.0.8
     '@v-c/select':
-      specifier: ^1.0.6
-      version: 1.0.6
+      specifier: ^1.0.7
+      version: 1.0.7
     '@v-c/slick':
       specifier: ^0.0.1
       version: 0.0.1
@@ -592,7 +592,7 @@ importers:
         version: 0.0.8(vue@3.5.27(typescript@5.9.3))
       '@v-c/select':
         specifier: catalog:vc
-        version: 1.0.6(vue@3.5.27(typescript@5.9.3))
+        version: 1.0.7(vue@3.5.27(typescript@5.9.3))
       '@v-c/slick':
         specifier: catalog:vc
         version: 0.0.1(vue@3.5.27(typescript@5.9.3))
@@ -2259,8 +2259,8 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
-  '@v-c/select@1.0.6':
-    resolution: {integrity: sha512-BRVlOzZGvvXaUOyTgUpWAfUX5O1iSMoE9JZgtKn0LAXw4iN/crCpe2PWNgezObMCjm+ja6nCm2zOeGimT5AdgQ==}
+  '@v-c/select@1.0.7':
+    resolution: {integrity: sha512-FBamrdDrNG9rPjLN46gr17hlvVW3WIc0g4cTZXS5aWvQlYQZ6QR2DlXaaTv0odcpXeMS+nbDYphtI+foMTuv7w==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -6940,7 +6940,7 @@ snapshots:
 
   '@v-c/cascader@0.0.1(vue@3.5.27(typescript@5.9.3))':
     dependencies:
-      '@v-c/select': 1.0.6(vue@3.5.27(typescript@5.9.3))
+      '@v-c/select': 1.0.7(vue@3.5.27(typescript@5.9.3))
       '@v-c/tree': 0.0.1(vue@3.5.27(typescript@5.9.3))
       '@v-c/util': 1.0.8(vue@3.5.27(typescript@5.9.3))
       vue: 3.5.27(typescript@5.9.3)
@@ -7092,7 +7092,7 @@ snapshots:
       '@v-c/util': 1.0.8(vue@3.5.27(typescript@5.9.3))
       vue: 3.5.27(typescript@5.9.3)
 
-  '@v-c/select@1.0.6(vue@3.5.27(typescript@5.9.3))':
+  '@v-c/select@1.0.7(vue@3.5.27(typescript@5.9.3))':
     dependencies:
       '@v-c/overflow': 1.0.1(vue@3.5.27(typescript@5.9.3))
       '@v-c/trigger': 1.0.5(vue@3.5.27(typescript@5.9.3))
@@ -7159,7 +7159,7 @@ snapshots:
 
   '@v-c/tree-select@0.0.1(vue@3.5.27(typescript@5.9.3))':
     dependencies:
-      '@v-c/select': 1.0.6(vue@3.5.27(typescript@5.9.3))
+      '@v-c/select': 1.0.7(vue@3.5.27(typescript@5.9.3))
       '@v-c/tree': 0.0.1(vue@3.5.27(typescript@5.9.3))
       '@v-c/util': 1.0.8(vue@3.5.27(typescript@5.9.3))
       vue: 3.5.27(typescript@5.9.3)
