@@ -1,3 +1,11 @@
+<docs lang="zh-CN">
+使用 `status` 为 Input 添加状态，可选 `error` 或者 `warning`。
+</docs>
+
+<docs lang="en-US">
+Add status to Input with `status`, which could be `error` or `warning`.
+</docs>
+
 <script setup lang="ts">
 import { ClockCircleOutlined } from '@antdv-next/icons'
 </script>

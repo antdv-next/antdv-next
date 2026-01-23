@@ -1,3 +1,11 @@
+<docs lang="zh-CN">
+一次性密码输入框。
+</docs>
+
+<docs lang="en-US">
+One time password input.
+</docs>
+
 <script setup lang="ts">
 function onChange(text: string) {
   console.log('onChange:', text)

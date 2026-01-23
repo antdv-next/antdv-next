@@ -1,3 +1,11 @@
+<docs lang="zh-CN">
+结合 [Tooltip](/components/tooltip-cn) 组件，实现一个数值输入框，方便内容超长时的全量展现。
+</docs>
+
+<docs lang="en-US">
+You can use the Input in conjunction with [Tooltip](/components/tooltip) component to create a Numeric Input, which can provide a good experience for extra-long content display.
+</docs>
+
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
 

@@ -1,3 +1,11 @@
+<docs lang="zh-CN">
+带有搜索按钮的输入框。
+</docs>
+
+<docs lang="en-US">
+Example of creating a search box by grouping a standard input with a search button.
+</docs>
+
 <script setup lang="ts">
 import { AudioOutlined } from '@antdv-next/icons'
 

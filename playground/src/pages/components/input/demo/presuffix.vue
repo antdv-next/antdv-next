@@ -1,3 +1,11 @@
+<docs lang="zh-CN">
+在输入框上添加前缀或后缀图标。
+</docs>
+
+<docs lang="en-US">
+Add a prefix or suffix icons inside input.
+</docs>
+
 <script setup lang="ts">
 import { InfoCircleOutlined, LockOutlined, UserOutlined } from '@antdv-next/icons'
 </script>

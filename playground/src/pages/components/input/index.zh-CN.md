@@ -14,9 +14,30 @@ demo:
 
 ## 何时使用 {#when-to-use}
 
+- 需要用户输入表单域内容时。
+- 提供组合型输入框，带搜索的输入框，还可以进行大小选择。
+
 ## 示例 {#examples}
 
 <demo-group>
+  <demo src="./demo/basic.vue">基本使用</demo>
+  <demo src="./demo/size.vue">三种大小</demo>
+  <demo src="./demo/variant.vue" >形态变体</demo>
+  <demo src="./demo/compact-style.vue">紧凑模式</demo>
+  <demo src="./demo/search-input.vue">搜索框</demo>
+  <demo src="./demo/search-input-loading.vue">搜索框 loading</demo>
+  <demo src="./demo/textarea.vue">文本域</demo>
+  <demo src="./demo/autosize-textarea.vue">适应文本高度的文本域</demo>
+  <demo src="./demo/otp.vue">一次性密码框</demo>
+  <demo src="./demo/tooltip.vue">输入时格式化展示</demo>
+  <demo src="./demo/presuffix.vue">前缀和后缀</demo>
+  <demo src="./demo/password-input.vue">密码框</demo>
+  <demo src="./demo/allowClear.vue">带移除图标</demo>
+  <demo src="./demo/show-count.vue">带字数提示</demo>
+  <demo src="./demo/advance-count.vue">定制计数能力</demo>
+  <demo src="./demo/status.vue">自定义状态</demo>
+  <demo src="./demo/focus.vue">聚焦</demo>
+  <demo src="./demo/style-class.vue">自定义语义结构的样式和类</demo>
 </demo-group>
 
 ## API

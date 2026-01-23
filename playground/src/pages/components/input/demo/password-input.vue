@@ -1,3 +1,11 @@
+<docs lang="zh-CN">
+密码框。
+</docs>
+
+<docs lang="en-US">
+Input type of password.
+</docs>
+
 <script setup lang="ts">
 import { EyeInvisibleOutlined, EyeTwoTone } from '@antdv-next/icons'
 import { ref } from 'vue'

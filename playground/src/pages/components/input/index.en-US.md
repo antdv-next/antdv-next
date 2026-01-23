@@ -13,9 +13,30 @@ demo:
 
 ## When To Use {#when-to-use}
 
+- A user input in a form field is needed.
+- A search input is required.
+
 ## Examples {#examples}
 
 <demo-group>
+  <demo src="./demo/basic.vue">Basic usage</demo>
+  <demo src="./demo/size.vue">Three sizes of Input</demo>
+  <demo src="./demo/variant.vue" >Variants</demo>
+  <demo src="./demo/compact-style.vue">Compact Style</demo>
+  <demo src="./demo/search-input.vue">Search box</demo>
+  <demo src="./demo/search-input-loading.vue">Search box with loading</demo>
+  <demo src="./demo/textarea.vue">TextArea</demo>
+  <demo src="./demo/autosize-textarea.vue">Autosizing the height to fit the content</demo>
+  <demo src="./demo/otp.vue">OTP</demo>
+  <demo src="./demo/tooltip.vue">Format Tooltip Input</demo>
+  <demo src="./demo/presuffix.vue">prefix and suffix</demo>
+  <demo src="./demo/password-input.vue">Password box</demo>
+  <demo src="./demo/allowClear.vue">With clear icon</demo>
+  <demo src="./demo/show-count.vue">With character counting</demo>
+  <demo src="./demo/advance-count.vue">Custom count logic</demo>
+  <demo src="./demo/status.vue">Status</demo>
+  <demo src="./demo/focus.vue">Focus</demo>
+  <demo src="./demo/style-class.vue">Custom semantic dom styling</demo>
 </demo-group>
 
 ## API

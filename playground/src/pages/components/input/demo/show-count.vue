@@ -1,3 +1,11 @@
+<docs lang="zh-CN">
+展示字数提示。
+</docs>
+
+<docs lang="en-US">
+Show character counting.
+</docs>
+
 <script setup lang="ts">
 function onChange(e: Event) {
   const target = e.target as HTMLInputElement | HTMLTextAreaElement

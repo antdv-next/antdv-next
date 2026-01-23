@@ -1,5 +1,10 @@
-<script setup lang="ts">
-</script>
+<docs lang="zh-CN">
+用于 `onSearch` 的时候展示 `loading`。
+</docs>
+
+<docs lang="en-US">
+Search loading when onSearch.
+</docs>
 
 <template>
   <div>
