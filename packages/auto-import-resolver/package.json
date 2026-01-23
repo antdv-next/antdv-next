@@ -18,12 +18,17 @@
   "files": [
     "dist"
   ],
-  "scripts": {
-    "build": "tsdown"
+  "engines": {
+    "node": ">=20.19.0"
   },
-  "devDependencies": {
-    "@vue/tsconfig": "^0.8.1",
-    "tsdown": "^0.20.1",
-    "typescript": "^5.9.3"
+  "scripts": {
+    "build": "tsdown",
+    "prebuild": "esno ./scripts/generate.ts && eslint src --fix",
+    "test": "vitest run",
+    "prepublish": "pnpm build",
+    "bump": "bumpp --commit \"chore(release): @antdv-next/auto-import-resolver %s\" --push --tag \"@antdv-next/auto-import-resolver@%s\""
+  },
+  "peerDependencies": {
+    "unplugin-vue-components": ">=28.0.0"
   }
 }

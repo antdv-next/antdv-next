@@ -2,13 +2,11 @@
 
 [English](./README.md) | 简体中文
 
-`@antdv-next/auto-import-resolver` 是 [unplugin-vue-components](https://github.com/unplugin/unplugin-vue-components) 的一个解析器，用于实现 Antdv-next 按需引入。
+`@antdv-next/auto-import-resolver` 是 [unplugin-vue-components](https://github.com/unplugin/unplugin-vue-components) 的一个解析器，用于实现 [Antdv Next](https://antdv-next.com) 按需引入。
 
 ### 特性
 
 - 支持 `Vite`, `Webpack`, `Rspack`, `Vue CLI`, `Rollup`, `esbuild` 等
-- 支持自动引入组件对应的 CSS 样式
-- 支持 SSR（服务端渲染）
 
 ### 安装
 
@@ -31,9 +29,9 @@ bun add @antdv-next/auto-import-resolver unplugin-vue-components unplugin-auto-i
 ### Vite
 
 ```ts
+import { AntdvNextResolver } from '@antdv-next/auto-import-resolver'
 // vite.config.ts
-import Components from 'unplugin-vue-components/vite';
-import { AntdvNextResolver } from '@antdv-next/auto-import-resolver';
+import Components from 'unplugin-vue-components/vite'
 
 export default defineConfig({
   plugins: [
@@ -41,15 +39,15 @@ export default defineConfig({
       resolvers: [AntdvNextResolver()],
     }),
   ],
-});
+})
 ```
 
 ### Rollup
 
 ```ts
+import { AntdvNextResolver } from '@antdv-next/auto-import-resolver'
 // rollup.config.js
-import Components from 'unplugin-vue-components/rollup';
-import { AntdvNextResolver } from '@antdv-next/auto-import-resolver';
+import Components from 'unplugin-vue-components/rollup'
 
 export default {
   plugins: [
@@ -57,15 +55,15 @@ export default {
       resolvers: [AntdvNextResolver()],
     }),
   ],
-};
+}
 ```
 
 ### Webpack
 
 ```ts
+import { AntdvNextResolver } from '@antdv-next/auto-import-resolver'
 // webpack.config.js
-import Components from 'unplugin-vue-components/webpack';
-import { AntdvNextResolver } from '@antdv-next/auto-import-resolver';
+import Components from 'unplugin-vue-components/webpack'
 
 module.exports = {
   plugins: [
@@ -73,15 +71,15 @@ module.exports = {
       resolvers: [AntdvNextResolver()],
     }),
   ],
-};
+}
 ```
 
 ### Rspack
 
 ```ts
+import { AntdvNextResolver } from '@antdv-next/auto-import-resolver'
 // rspack.config.js
-import Components from 'unplugin-vue-components/rspack';
-import { AntdvNextResolver } from '@antdv-next/auto-import-resolver';
+import Components from 'unplugin-vue-components/rspack'
 
 module.exports = {
   plugins: [
@@ -89,15 +87,15 @@ module.exports = {
       resolvers: [AntdvNextResolver()],
     }),
   ],
-};
+}
 ```
 
 ### Vue CLI
 
 ```ts
+import { AntdvNextResolver } from '@antdv-next/auto-import-resolver'
 // vue.config.js
-import Components from 'unplugin-vue-components/webpack';
-import { AntdvNextResolver } from '@antdv-next/auto-import-resolver';
+import Components from 'unplugin-vue-components/webpack'
 
 module.exports = {
   configureWebpack: {
@@ -107,15 +105,15 @@ module.exports = {
       }),
     ],
   },
-};
+}
 ```
 
 ### esbuild
 
 ```ts
+import { AntdvNextResolver } from '@antdv-next/auto-import-resolver'
 // esbuild.config.js
-import Components from 'unplugin-vue-components/esbuild';
-import { AntdvNextResolver } from '@antdv-next/auto-import-resolver';
+import Components from 'unplugin-vue-components/esbuild'
 
 build({
   plugins: [
@@ -123,6 +121,43 @@ build({
       resolvers: [AntdvNextResolver()],
     }),
   ],
-});
+})
 ```
 
+## 选项
+
+### resolveIcons
+
+自动引入 [@antdv-next/icons](https://www.antdv-next.com/components/icon-cn) 图标库
+
+- **Type：** `boolean`
+- **Default：** `false`
+- **Example：**
+
+```ts
+Components({
+  resolvers: [
+    AntdvNextResolver({
+      resolveIcons: true,
+    })
+  ]
+})
+```
+
+### exclude
+
+设置不自动引入的组件或图标。
+
+- **Type：** `string[]`
+- **Default：** `[]`
+- **Example：**
+
+```ts
+Components({
+  resolvers: [
+    AntdvNextResolver({
+      exclude: ['Button'],
+    }),
+  ],
+})
+```

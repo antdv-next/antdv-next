@@ -1,53 +1,74 @@
+import type { ComponentResolver } from 'unplugin-vue-components'
+import componentMap from './components'
+import icons from './icons'
+
 export interface AntdvNextResolverOptions {
   /**
-   * exclude components that do not require automatic import
+   * Set the components or icons that do not require automatic import.
    *
    * @default []
    */
-  exclude?: string[]
+  exclude?: FilterPattern
   /**
-   * resolve `antdv-next' icons
+   * Automatically import [@antdv-next/icons](https://www.antdv-next.com/components/icon-cn) icons library.
    *
    * requires package `@antdv-next/icons`
    *
    * @default false
    */
   resolveIcons?: boolean
-  /**
-   * rename package
-   *
-   * @default 'antdv-next'
-   */
-  packageName?: string
-  /**
-   * customize prefix of component
-   * @default 'A'
-   */
-  prefix?: string
 }
+
+export type FilterPattern = ReadonlyArray<string | RegExp> | string | RegExp | null
+
+function isExclude(name: string, exclude?: FilterPattern): boolean {
+  if (!exclude)
+    return false
+
+  if (typeof exclude === 'string')
+    return name === exclude
+
+  if (exclude instanceof RegExp)
+    return !!name.match(exclude)
+
+  if (Array.isArray(exclude)) {
+    for (const item of exclude) {
+      if (name === item || name.match(item))
+        return true
+    }
+  }
+  return false
+}
+
 /**
- * Resolver for Ant Design Vue
+ * Resolver for [Antdv Next](https://antdv-next.com)
  */
-export function AntdvNextResolver(options: AntdvNextResolverOptions = {}) {
-  const originPrefix = options.prefix ?? 'A'
+export function AntdvNextResolver(options?: AntdvNextResolverOptions): ComponentResolver {
   return {
-    type: 'component' as const,
+    type: 'component',
     resolve: (name: string) => {
-      if (options.resolveIcons && name.match(/(Outlined|Filled|TwoTone)$/)) {
+      const opts = Object.assign({}, options)
+
+      if (isExclude(name, opts.exclude)) {
+        return
+      }
+
+      if (opts.resolveIcons && icons.includes(name)) {
         return {
           name,
           from: '@antdv-next/icons',
         }
       }
 
-      const [compName, prefix] = [name.slice(originPrefix.length), name.slice(0, originPrefix.length)]
-      if (prefix === originPrefix && !options?.exclude?.includes(compName)) {
-        const { packageName = 'antdv-next' } = options
-        const path = `${packageName}`
+      const importName = componentMap[name]
+      if (importName) {
+        if (isExclude(importName, opts.exclude)) {
+          return
+        }
+
         return {
-          name: compName,
-          from: path,
-          sideEffects: '',
+          name: importName,
+          from: 'antdv-next',
         }
       }
     },

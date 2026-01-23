@@ -2,13 +2,11 @@
 
 English | [简体中文](./README.zh-CN.md)
 
-`@antdv-next/auto-import-resolver` is a resolver for [unplugin-vue-components](https://github.com/unplugin/unplugin-vue-components) that enables on-demand importing of Antdv-next components.
+`@antdv-next/auto-import-resolver` is a resolver for [unplugin-vue-components](https://github.com/unplugin/unplugin-vue-components) that enables on-demand importing of [Antdv Next](https://antdv-next.com) components.
 
 ### Features
 
 - Supports `Vite`, `Webpack`, `Rspack`, `Vue CLI`, `Rollup`, `esbuild`, and more.
-- Automatically imports the corresponding CSS styles for the components.
-- Supports SSR (Server-Side Rendering).
 
 ### Installation
 
@@ -32,8 +30,8 @@ bun add @antdv-next/auto-import-resolver unplugin-vue-components unplugin-auto-i
 
 ```ts
 // vite.config.ts
-import Components from 'unplugin-vue-components/vite';
-import { AntdvNextResolver } from '@antdv-next/auto-import-resolver';
+import { AntdvNextResolver } from '@antdv-next/auto-import-resolver'
+import Components from 'unplugin-vue-components/vite'
 
 export default defineConfig({
   plugins: [
@@ -41,15 +39,15 @@ export default defineConfig({
       resolvers: [AntdvNextResolver()],
     }),
   ],
-});
+})
 ```
 
 ### Rollup
 
 ```ts
 // rollup.config.js
-import Components from 'unplugin-vue-components/rollup';
-import { AntdvNextResolver } from '@antdv-next/auto-import-resolver';
+import { AntdvNextResolver } from '@antdv-next/auto-import-resolver'
+import Components from 'unplugin-vue-components/rollup'
 
 export default {
   plugins: [
@@ -57,15 +55,15 @@ export default {
       resolvers: [AntdvNextResolver()],
     }),
   ],
-};
+}
 ```
 
 ### Webpack
 
 ```ts
 // webpack.config.js
-import Components from 'unplugin-vue-components/webpack';
-import { AntdvNextResolver } from '@antdv-next/auto-import-resolver';
+import { AntdvNextResolver } from '@antdv-next/auto-import-resolver'
+import Components from 'unplugin-vue-components/webpack'
 
 module.exports = {
   plugins: [
@@ -73,15 +71,15 @@ module.exports = {
       resolvers: [AntdvNextResolver()],
     }),
   ],
-};
+}
 ```
 
 ### Rspack
 
 ```ts
 // rspack.config.js
-import Components from 'unplugin-vue-components/rspack';
-import { AntdvNextResolver } from '@antdv-next/auto-import-resolver';
+import { AntdvNextResolver } from '@antdv-next/auto-import-resolver'
+import Components from 'unplugin-vue-components/rspack'
 
 module.exports = {
   plugins: [
@@ -89,15 +87,15 @@ module.exports = {
       resolvers: [AntdvNextResolver()],
     }),
   ],
-};
+}
 ```
 
 ### Vue CLI
 
 ```ts
 // vue.config.js
-import Components from 'unplugin-vue-components/webpack';
-import { AntdvNextResolver } from '@antdv-next/auto-import-resolver';
+import { AntdvNextResolver } from '@antdv-next/auto-import-resolver'
+import Components from 'unplugin-vue-components/webpack'
 
 module.exports = {
   configureWebpack: {
@@ -107,15 +105,15 @@ module.exports = {
       }),
     ],
   },
-};
+}
 ```
 
 ### esbuild
 
 ```ts
 // esbuild.config.js
-import Components from 'unplugin-vue-components/esbuild';
-import { AntdvNextResolver } from '@antdv-next/auto-import-resolver';
+import { AntdvNextResolver } from '@antdv-next/auto-import-resolver'
+import Components from 'unplugin-vue-components/esbuild'
 
 build({
   plugins: [
@@ -123,5 +121,43 @@ build({
       resolvers: [AntdvNextResolver()],
     }),
   ],
-});
+})
+```
+
+## Options
+
+### resolveIcons
+
+Automatically import [@antdv-next/icons](https://www.antdv-next.com/components/icon-cn) icons library.
+
+- **Type：** `boolean`
+- **Default：** `false`
+- **Example：**
+
+```ts
+Components({
+  resolvers: [
+    AntdvNextResolver({
+      resolveIcons: true,
+    })
+  ]
+})
+```
+
+### exclude
+
+Set the components or icons that do not require automatic import.
+
+- **Type:** `string[]`
+- **Default:** `[]`
+- **Example:**
+
+```ts
+Components({
+  resolvers: [
+    AntdvNextResolver({
+      exclude: ['Button'],
+    }),
+  ],
+})
 ```
