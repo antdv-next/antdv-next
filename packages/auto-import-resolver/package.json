@@ -1,0 +1,29 @@
+{
+  "name": "@antdv-next/auto-import-resolver",
+  "type": "module",
+  "version": "1.0.0-beta.2",
+  "description": "antdv-next auto import resolver based on unplugin-vue-components",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/antdv-next/antdv-next.git"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs",
+      "default": "./dist/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown"
+  },
+  "devDependencies": {
+    "@vue/tsconfig": "^0.8.1",
+    "tsdown": "^0.20.1",
+    "typescript": "^5.9.3"
+  }
+}
