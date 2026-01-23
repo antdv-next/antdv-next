@@ -46,7 +46,6 @@ demo:
   <demo src="./demo/big-data.vue">大数据</demo>
   <demo src="./demo/status.vue">自定义状态</demo>
   <demo src="./demo/placement.vue">弹出位置</demo>
-  <demo src="./demo/option-label-center.vue" debug>选项文本居中</demo>
   <demo src="./demo/maxCount.vue">最大选中数量</demo>
   <demo src="./demo/style-class.vue">自定义语义结构的样式和类</demo>
 </demo-group>

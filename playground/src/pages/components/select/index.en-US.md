@@ -45,7 +45,6 @@ demo:
   <demo src="./demo/big-data.vue">Big Data</demo>
   <demo src="./demo/status.vue">Status</demo>
   <demo src="./demo/placement.vue">Placement</demo>
-  <demo src="./demo/option-label-center.vue" debug>Options label Centered</demo>
   <demo src="./demo/maxCount.vue">Max Count</demo>
   <demo src="./demo/style-class.vue">Custom semantic dom styling</demo>
 </demo-group>
