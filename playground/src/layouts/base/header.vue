@@ -14,7 +14,7 @@ import { useAppStore } from '@/stores/app.ts'
 
 const route = useRoute()
 const appStore = useAppStore()
-const { headerKey, locale } = storeToRefs(appStore)
+const { headerKey, locale, direction } = storeToRefs(appStore)
 const versions = ref([
   {
     label: version,
@@ -88,6 +88,14 @@ function changeLocale(value: 1 | 2) {
 const localeValue = computed(() => {
   return locale.value === 'zh-CN' ? 1 : 2
 })
+
+const directionValue = computed(() => {
+  return direction.value === 'ltr' ? 1 : 2
+})
+
+function changeDirection(value: 1 | 2) {
+  appStore.toggleDirection(value === 1 ? 'ltr' : 'rtl')
+}
 </script>
 
 <template>
@@ -106,8 +114,8 @@ const localeValue = computed(() => {
         </h1>
       </a-col>
       <a-col :xxl="20" :xl="19" :lg="18" :md="18" :sm="0" :xs="0">
-        <div class="ant-doc-header-right flex items-center pr-[var(--ant-padding)] gap-sm h-full">
-          <div class="b-l-1 b-l-solid b-l-black/6 flex items-center m-0" style="flex: auto">
+        <div class="ant-doc-header-right flex items-center gap-sm h-full" :class="[direction === 'ltr' ? 'pr-(--ant-padding)' : 'pl-(--ant-padding)']">
+          <div class="flex items-center m-0" :class="[direction === 'ltr' ? 'b-l-1 b-l-solid b-l-black/6' : 'b-r-1 b-r-solid b-r-black/6']" style="flex: auto">
             <SearchIcon class="ant-doc-search-bar-svg" />
             <input v-model="searchValue" class="ant-doc-search-bar-input" placeholder="输入关键字搜索...">
           </div>
@@ -148,11 +156,12 @@ const localeValue = computed(() => {
             </SwitchBtn>
             <SwitchBtn
               key="direction"
-              :value="1"
+              :value="directionValue"
               tooltip1="LTR"
               tooltip2="RTL"
               pure
               aria-label="RTL Switch Button"
+              @click="changeDirection"
             >
               <template #label1>
                 <DirectionIcon class="w-20px" direction="ltr" />

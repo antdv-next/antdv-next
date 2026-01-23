@@ -10,7 +10,7 @@ import 'dayjs/locale/zh-cn'
 import 'dayjs/locale/en'
 
 const appStore = useAppStore()
-const { locale, darkMode, compactMode } = storeToRefs(appStore)
+const { locale, darkMode, compactMode, direction } = storeToRefs(appStore)
 
 const antdLocale = shallowRef(cn)
 watch(
@@ -43,6 +43,7 @@ const zeroRuntime = import.meta.env.PROD === true
   <a-style-provider>
     <a-config-provider
       :locale="antdLocale"
+      :direction="direction"
       :theme="{
         algorithm,
         zeroRuntime,

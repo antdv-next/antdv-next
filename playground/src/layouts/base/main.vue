@@ -8,7 +8,7 @@ import { useAppStore } from '@/stores/app'
 
 const { isMobile } = useMobile()
 const appStore = useAppStore()
-const { siderMenus, siderKey, siderOpenKeys, siderLocales, locale } = storeToRefs(appStore)
+const { siderMenus, siderKey, siderOpenKeys, siderLocales, locale, direction } = storeToRefs(appStore)
 const { anchorItems } = useDocPage()
 const router = useRouter()
 const handleChangeMenu: MenuEmits['click'] = (info) => {
@@ -56,7 +56,7 @@ const handleChangeMenu: MenuEmits['click'] = (info) => {
       <section class="ant-doc-main-section">
         <a-anchor :items="anchorItems" class="ant-doc-main-sider-anchor" :offset-top="70" :affix="false" />
       </section>
-      <article class="pl-48px pr-164px pb-32px mt--16px">
+      <article class="pb-32px mt--16px" :class="[direction === 'ltr' ? 'pl-48px pr-164px' : 'pr-48px pl-164px']">
         <slot />
       </article>
     </a-col>
