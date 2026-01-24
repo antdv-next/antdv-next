@@ -12,10 +12,25 @@ const search = ref('')
 const inputRef = useTemplateRef('searchInput')
 const searchBarAffixed = ref(false)
 
-const { siderMenus, siderLocales, locale } = storeToRefs(useAppStore())
+const { siderMenus, siderLocales, locale, darkMode } = storeToRefs(useAppStore())
 
-const baseMenus = siderMenus.value.slice(2)
-const searchMenus = ref(baseMenus)
+interface ComponentItem {
+  key: string
+  label: string
+}
+
+interface MenuGroup {
+  key: string
+  label: string
+  children: ComponentItem[]
+}
+
+const baseMenus = (siderMenus.value.slice(2) as unknown as MenuGroup[]).map(group => ({
+  ...group,
+  children: group.children.filter(item => !('type' in item && item.type === 'divider')),
+}))
+
+const searchMenus = ref<MenuGroup[]>(baseMenus)
 
 function handleAffixChange(affixed?: boolean) {
   searchBarAffixed.value = affixed ?? false
@@ -25,7 +40,7 @@ function handleSearchChange(e: Event) {
   const value = (e.target as HTMLInputElement).value.trim()
   if (value) {
     searchMenus.value = baseMenus.map((group) => {
-      const filteredChildren = group.children.filter((comp: any) =>
+      const filteredChildren = group.children.filter(comp =>
         comp.label.toLowerCase().includes(value.toLowerCase()),
       )
       return {
@@ -77,7 +92,7 @@ onMounted(() => {
                   </template>
                   <div class="components-overview-img">
                     <img
-                      :src="covers?.[comp.label]?.cover"
+                      :src="darkMode ? covers?.[comp.label]?.coverDark : covers?.[comp.label]?.cover"
                       :alt="comp.label"
                     >
                   </div>
@@ -130,10 +145,8 @@ onMounted(() => {
     margin: -8px;
     border-radius: 6px;
     border: 0 solid;
-    background-color: rgb(255, 255, 255);
-    box-shadow:
-      rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-      rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    background-color: var(--ant-color-bg-elevated);
+    box-shadow: var(--ant-box-shadow-secondary);
   }
 }
 
@@ -149,7 +162,7 @@ onMounted(() => {
   }
 
   .anticon {
-    color: #bbb;
+    color: var(--ant-color-text-placeholder);
   }
 }
 
