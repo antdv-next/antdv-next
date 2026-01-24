@@ -11,6 +11,7 @@ import { useMobile } from '@/composables/mobile'
 import { docsMenus } from '@/config/menu/docs'
 import { headerItems, headerLocales } from '@/config/menu/header'
 import SwitchBtn from '@/layouts/base/components/switch-btn.vue'
+import ThemeBtn from '@/layouts/base/components/theme-btn.vue'
 import { useAppStore } from '@/stores/app.ts'
 
 const route = useRoute()
@@ -175,6 +176,7 @@ function changeDirection(value: 1 | 2) {
                 <DirectionIcon class="w-20px" direction="rtl" />
               </template>
             </SwitchBtn>
+            <ThemeBtn />
             <a
               key="github"
               href="https://github.com/antdv-next/antdv-next"
@@ -199,7 +201,7 @@ function changeDirection(value: 1 | 2) {
 <style lang="less">
 .ant-doc-header {
   height: var(--ant-doc-header-height);
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: color-mix(in srgb, var(--ant-color-bg-container), transparent 20%);
 }
 .ant-doc-header a {
   white-space: nowrap;
@@ -250,7 +252,7 @@ function changeDirection(value: 1 | 2) {
     box-sizing: border-box;
     outline: none;
     transition: all 0.3s;
-    color: rgba(0, 0, 0, 0.88);
+    color: var(--ant-color-text);
     background: transparent;
   }
 }

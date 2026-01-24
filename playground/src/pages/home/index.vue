@@ -174,12 +174,12 @@ const currentLocale = computed(() => locales[locale.value])
   backdrop-filter: blur(2px);
   opacity: 1;
   background-color: rgba(255, 255, 255, 0.2);
-  transition: all 1s ease;
+  transition: opacity 1s ease;
   pointer-events: none;
 }
 
-[data-prefers-color='dark'] .antdv-home-preview-banner-mask-layer {
-  background-color: rgba(0, 0, 0, 0.2);
+html.dark .antdv-home-preview-banner-mask-layer {
+  background-color: rgba(0, 0, 0, 0.2) !important;
 }
 
 .antdv-home-preview-banner-holder:hover .antdv-home-preview-banner-mask-layer {

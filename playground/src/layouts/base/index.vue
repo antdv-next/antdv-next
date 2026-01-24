@@ -4,13 +4,24 @@ import en from 'antdv-next/locale/en_US'
 import cn from 'antdv-next/locale/zh_CN'
 import dayjs from 'dayjs'
 import { storeToRefs } from 'pinia'
-import { computed, shallowRef, watch } from 'vue'
+import { computed, onMounted, shallowRef, watch } from 'vue'
+import { themeModeStore } from '@/composables/local-store'
+import { applyThemeToDOM, useTheme } from '@/composables/theme'
 import { useAppStore } from '@/stores/app'
 import 'dayjs/locale/zh-cn'
 import 'dayjs/locale/en'
 
 const appStore = useAppStore()
 const { locale, darkMode, compactMode, direction } = storeToRefs(appStore)
+const { setThemeMode } = useTheme()
+
+watch(darkMode, (val) => {
+  applyThemeToDOM(val)
+}, { immediate: true })
+
+onMounted(() => {
+  setThemeMode(themeModeStore.value)
+})
 
 const antdLocale = shallowRef(cn)
 watch(
