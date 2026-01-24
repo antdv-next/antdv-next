@@ -1,5 +1,5 @@
 <docs lang="zh-CN">
-带边框和背景颜色列表。
+垂直带边框和背景颜色的列表。
 </docs>
 
 <docs lang="en-US">
@@ -62,7 +62,7 @@ Descriptions with border and background color.
 </script>
 
 <template>
-  <a-descriptions title="User Info" :items="items" bordered>
+  <a-descriptions title="User Info" :items="items" bordered layout="vertical">
     <template #contentRender="{ index, item }">
       <template v-if="index === 5">
         <a-badge status="processing" text="running" />

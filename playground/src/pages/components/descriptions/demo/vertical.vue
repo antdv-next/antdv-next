@@ -1,9 +1,9 @@
 <docs lang="zh-CN">
-最简单的用法，在浮层中可以选择或者输入日期。
+垂直的列表。
 </docs>
 
 <docs lang="en-US">
-Basic use case. Users can select or input a date in a panel.
+Simplest Usage.
 </docs>
 
 <script setup lang="ts">
@@ -25,17 +25,18 @@ Basic use case. Users can select or input a date in a panel.
     },
     {
       key: '4',
-      label: 'Remark',
-      content: 'empty',
+      label: 'Address',
+      span: 2,
+      content: 'No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China',
     },
     {
       key: '5',
-      label: 'Address',
-      content: 'No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China',
+      label: 'Remark',
+      content: 'empty',
     },
   ]
 </script>
 
 <template>
-  <a-descriptions title="User Info" :items="items" />
+  <a-descriptions title="User Info" :items="items" layout="vertical" />
 </template>

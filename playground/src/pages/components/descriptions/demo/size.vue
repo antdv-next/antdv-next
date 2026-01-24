@@ -1,13 +1,16 @@
 <docs lang="zh-CN">
-带边框和背景颜色列表。
+自定义尺寸，适应在各种容器中展示。
 </docs>
 
 <docs lang="en-US">
-Descriptions with border and background color.
+Custom sizes to fit in a variety of containers.
 </docs>
 
 <script setup lang="ts">
-  const items = [
+  import { ref } from 'vue'
+
+  const size = ref<'default' | 'middle' | 'small'>('default')
+  const borderItems = [
     {
       key: '1',
       label: 'Product',
@@ -59,10 +62,50 @@ Descriptions with border and background color.
       label: 'Config Info',
     },
   ]
+
+  const items = [
+    {
+      key: '1',
+      label: 'Product',
+      content: 'Cloud Database',
+    },
+    {
+      key: '2',
+      label: 'Billing',
+      content: 'Prepaid',
+    },
+    {
+      key: '3',
+      label: 'Time',
+      content: '18:00:00',
+    },
+    {
+      key: '4',
+      label: 'Amount',
+      content: '$80.00',
+    },
+    {
+      key: '5',
+      label: 'Discount',
+      content: '$20.00',
+    },
+    {
+      key: '6',
+      label: 'Official',
+      content: '$60.00',
+    },
+  ]
 </script>
 
 <template>
-  <a-descriptions title="User Info" :items="items" bordered>
+  <a-radio-group v-model:value="size">
+    <a-radio value="default">default</a-radio>
+    <a-radio value="middle">middle</a-radio>
+    <a-radio value="small">small</a-radio>
+  </a-radio-group>
+  <br>
+  <br>
+  <a-descriptions title="User Info" :items="borderItems" bordered :size="size">
     <template #contentRender="{ index, item }">
       <template v-if="index === 5">
         <a-badge status="processing" text="running" />
@@ -81,6 +124,13 @@ Descriptions with border and background color.
         Region: East China 1
         <br>
       </template>
+    </template>
+  </a-descriptions>
+  <br>
+  <br>
+  <a-descriptions title="Custom Size" :items="items" :size="size">
+    <template #extra>
+      <a-button type="primary">Edit</a-button>
     </template>
   </a-descriptions>
 </template>

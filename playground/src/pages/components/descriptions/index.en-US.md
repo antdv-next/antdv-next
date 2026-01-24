@@ -11,14 +11,25 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*d27AQJrowGAAAA
 
 ## When To Use
 
+Commonly displayed on the details page.
+
 ## Examples
 
 <demo-group>
+  <demo src="./demo/basic.vue">Basic</demo>
+  <demo src="./demo/border.vue">border</demo>
+  <demo src="./demo/size.vue">Custom size</demo>
+  <demo src="./demo/responsive.vue">responsive</demo>
+  <demo src="./demo/vertical.vue">Vertical</demo>
+  <demo src="./demo/vertical-border.vue">Vertical border</demo>
+  <demo src="./demo/style-class.vue">Custom semantic dom styling</demo>
+  <demo src="./demo/block.vue">row</demo>
 </demo-group>
 
 ## API
 
 ### Props
+
 Common props ref：[Common props](/docs/vue/common-props)
 
 | Property | Description | Type | Default | Version |
@@ -26,7 +37,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | bordered | Whether to display the border | boolean | false | - |
 | size | Set the size of the list. Can be set to `middle`,`small`, or not filled | 'middle' \| 'small' \| 'default' | - | - |
 | title | The title of the description list, placed at the top | VueNode | - | - |
-| extra | The action area of the description list, placed at the top-right | VueNode | - | 4.5.0 |
+| extra | The action area of the description list, placed at the top-right | VueNode | - | - |
 | labelRender | - | RenderDescriptionsItem | - | - |
 | contentRender | - | RenderDescriptionsItem | - | - |
 | column | The number of `DescriptionItems` in a row, could be an object (like `&#123; xs: 8, sm: 16, md: 24&#125;`, but must have `bordered=&#123;true&#125;`) or a number | number \| Partial&lt;Record&lt;Breakpoint, number&gt;&gt; | 3 | - |
@@ -42,6 +53,6 @@ Common props ref：[Common props](/docs/vue/common-props)
 | Slot | Description | Type | Version |
 | --- | --- | --- | --- |
 | title | The title of the description list, placed at the top | () =&gt; any | - |
-| extra | The action area of the description list, placed at the top-right | () =&gt; any | 4.5.0 |
+| extra | The action area of the description list, placed at the top-right | () =&gt; any | - |
 | labelRender | - | RenderDescriptionsItem | - |
 | contentRender | - | RenderDescriptionsItem | - |
