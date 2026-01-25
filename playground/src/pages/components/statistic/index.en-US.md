@@ -21,7 +21,7 @@ demo:
 <demo-group>
   <demo src="./demo/basic.vue">Basic</demo>
   <demo src="./demo/unit.vue">Unit</demo>
-  <demo src="./demo/card.vue">In Card</demo>
+  <demo src="./demo/card.vue" background="grey">In Card</demo>
   <demo src="./demo/timer.vue">Timer</demo>
   <demo src="./demo/style-class.vue">Custom semantic dom styling</demo>
 </demo-group>
