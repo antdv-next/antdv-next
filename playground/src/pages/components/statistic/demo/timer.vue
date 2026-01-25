@@ -1,3 +1,11 @@
+<docs lang="zh-CN">
+计时器组件。
+</docs>
+
+<docs lang="en-US">
+Timer component.
+</docs>
+
 <script setup lang="ts">
 const deadline = Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30 // Dayjs is also OK
 const before = Date.now() - 1000 * 60 * 60 * 24 * 2 + 1000 * 30

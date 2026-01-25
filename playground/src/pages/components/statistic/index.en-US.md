@@ -22,7 +22,7 @@ demo:
   <demo src="./demo/basic.vue">Basic</demo>
   <demo src="./demo/unit.vue">Unit</demo>
   <demo src="./demo/card.vue">In Card</demo>
-  <demo src="./demo/countdown.vue">Countdown</demo>
+  <demo src="./demo/timer.vue">Timer</demo>
   <demo src="./demo/style-class.vue">Custom semantic dom styling</demo>
 </demo-group>
 
@@ -40,7 +40,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | decimalSeparator | The decimal separator | string | `.` | - |
 | formatter | Customize value display logic | (value: number \| string) =&gt; VueNode | - | - |
 | groupSeparator | Group separator | string | `,` | - |
-| loading | Loading status of Statistic | boolean | false | 4.8.0 |
+| loading | Loading status of Statistic | boolean | false | - |
 | precision | The precision of input value | number | - | - |
 | prefix | The prefix node of value | VueNode | - | - |
 | styles | Customize inline style for each semantic structure inside the Statistic component. Supports object or function | StatisticStylesType | - | - |

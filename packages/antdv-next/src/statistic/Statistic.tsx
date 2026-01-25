@@ -157,7 +157,7 @@ const Statistic = defineComponent<
         >
           {!!title && (
             <div class={headerClassNames} style={mergedStyles.value.header}>
-              <div class={titleClassNames} style={mergedStyles.value.header}>{title}</div>
+              <div class={titleClassNames} style={mergedStyles.value.title}>{title}</div>
             </div>
           )}
           <Skeleton paragraph={false} loading={loading} class={`${prefixCls.value}-skeleton`} active>

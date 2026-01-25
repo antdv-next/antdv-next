@@ -1,3 +1,11 @@
+<docs lang="zh-CN">
+简单的展示。
+</docs>
+
+<docs lang="en-US">
+Simplest Usage.
+</docs>
+
 <template>
   <a-row :gutter="16">
     <a-col :span="12">

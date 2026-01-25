@@ -22,8 +22,8 @@ demo:
 <demo-group>
   <demo src="./demo/basic.vue">基本</demo>
   <demo src="./demo/unit.vue">单位</demo>
-  <demo src="./demo/card.vue">在卡片中使用</demo>
-  <demo src="./demo/countdown.vue">倒计时</demo>
+  <demo src="./demo/card.vue" background="grey">在卡片中使用</demo>
+  <demo src="./demo/timer.vue">计时器</demo>
   <demo src="./demo/style-class.vue">自定义语义结构的样式和类</demo>
 </demo-group>
 
@@ -41,7 +41,7 @@ demo:
 | decimalSeparator | 设置小数点 | string | `.` | - |
 | formatter | 自定义数值展示 | (value: number \| string) =&gt; VueNode | - | - |
 | groupSeparator | 设置千分位标识符 | string | `,` | - |
-| loading | 数值是否加载中 | boolean | false | 4.8.0 |
+| loading | 数值是否加载中 | boolean | false | - |
 | precision | 数值精度 | number | - | - |
 | prefix | 设置数值的前缀 | VueNode | - | - |
 | styles | 用于自定义 Statistic 组件内部各语义化结构的行内 style，支持对象或函数 | StatisticStylesType | - | - |

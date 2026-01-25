@@ -1,3 +1,11 @@
+<docs lang="zh-CN">
+通过前缀和后缀添加单位。
+</docs>
+
+<docs lang="en-US">
+Add unit through `prefix` and `suffix`.
+</docs>
+
 <script lang="ts" setup>
 import { LikeOutlined } from '@antdv-next/icons'
 </script>
