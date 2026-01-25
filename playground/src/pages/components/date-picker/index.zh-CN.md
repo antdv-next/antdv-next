@@ -10,8 +10,6 @@ demo:
   cols: 2
 ---
 
-
-
 ## 何时使用 {#when-to-use}
 
 当用户需要输入一个日期，可以点击标准输入框，弹出日期面板进行选择。
@@ -81,10 +79,6 @@ dayjs.locale('zh-cn')
   </a-config-provider>
 </template>
 ```
-
-:::warning
-在搭配 Next.js 的 App Router 使用时，注意在引入 dayjs 的 locale 文件时加上 `'use client'`。这是由于 Ant Design 的组件都是客户端组件，在 RSC 中引入 dayjs 的 locale 文件将不会在客户端生效。
-:::
 
 ### 共同的 API {#common-api}
 

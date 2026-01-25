@@ -9,8 +9,6 @@ demo:
   cols: 2
 ---
 
-
-
 ## When To Use
 By clicking the input box, you can select a date from a popup calendar.
 
@@ -79,10 +77,6 @@ dayjs.locale('zh-cn')
   </a-config-provider>
 </template>
 ```
-
-:::warning
-When use with Next.js App Router, make sure to add `'use client'` before import locale file of dayjs. It's because all components of Ant Design only works in client, importing locale in RSC will not work.
-:::
 
 ### Common API
 
