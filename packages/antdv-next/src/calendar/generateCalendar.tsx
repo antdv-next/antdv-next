@@ -132,7 +132,7 @@ function generateCalendar<DateType extends AnyObject>(generateConfig: GenerateCo
     string,
     SlotsType<CalendarSlots>
   >(
-    (props, { slots, attrs, emit }) => {
+    (props = { fullscreen: true }, { slots, attrs, emit }) => {
       const {
         prefixCls,
         direction,

@@ -58,6 +58,7 @@
     "tinyglobby": "catalog:dev",
     "unocss": "catalog:dev",
     "vite": "catalog:dev",
-    "vite-plugin-dayjs": "catalog:dev"
+    "vite-plugin-dayjs": "catalog:dev",
+    "lunar-typescript": "catalog:dev" 
   }
 }

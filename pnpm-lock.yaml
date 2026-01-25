@@ -60,6 +60,9 @@ catalogs:
     less:
       specifier: ^4.5.1
       version: 4.5.1
+    lunar-typescript:
+      specifier: ^1.8.6
+      version: 1.8.6
     npm-run-all:
       specifier: ^4.1.5
       version: 4.1.5
@@ -831,6 +834,9 @@ importers:
       lru-cache:
         specifier: catalog:prod
         version: 11.2.4
+      lunar-typescript:
+        specifier: catalog:dev
+        version: 1.8.6
       markdown-it:
         specifier: catalog:docs
         version: 14.1.0
@@ -4066,6 +4072,9 @@ packages:
 
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
+
+  lunar-typescript@1.8.6:
+    resolution: {integrity: sha512-5Eo4T/cnuXfrgO4k5LCpOGHIUOuz5hCF/IfNv0T29WY2shR36Hiz+ecN9WjnUuxUKhql9gbOkPaQoqLFKtPRNA==}
 
   lunr@2.3.9:
     resolution: {integrity: sha512-zTU3DaZaF3Rt9rhN3uBMGQD3dD2/vFQqnvZCDv4dl5iOzq2IZQqTxu90r4E5J+nP70J3ilqVCrbho2eWaeW8Ow==}
@@ -9171,6 +9180,8 @@ snapshots:
   lru-cache@5.1.1:
     dependencies:
       yallist: 3.1.1
+
+  lunar-typescript@1.8.6: {}
 
   lunr@2.3.9: {}
 

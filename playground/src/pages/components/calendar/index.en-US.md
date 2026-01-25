@@ -11,9 +11,19 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-p-wQLik200AAA
 
 ## When To Use {#when-to-use}
 
+When data is in the form of dates, such as schedules, timetables, prices calendar, lunar calendar. This component also supports Year/Month switch.
+
 ## Examples {#examples}
 
 <demo-group>
+  <demo src="./demo/basic.vue" clientOnly>Basic</demo>
+  <demo src="./demo/notice-calendar.vue" clientOnly>Notice Calendar</demo>
+  <demo src="./demo/card.vue" clientOnly>Card</demo>
+  <demo src="./demo/select.vue" clientOnly>Selectable Calendar</demo>
+  <demo src="./demo/lunar.vue" clientOnly>Lunar Calendar</demo>
+  <demo src="./demo/week.vue" clientOnly>Show Week</demo>
+  <demo src="./demo/customize-header.vue" clientOnly>Customize Header</demo>
+  <demo src="./demo/style-class.vue" clientOnly>Custom semantic dom styling</demo>
 </demo-group>
 
 ## API
@@ -30,7 +40,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | CalendarStylesType&lt;DateType&gt; | - | - |
 | locale | The calendar's locale | typeof enUS | [(default)](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) | - |
 | validRange | To set valid range | [DateType, DateType] | - | - |
-| disabledDate | Function that specifies the dates that cannot be selected, `currentDate` is same dayjs object as `value` prop which you shouldn't mutate it](https://github.com/ant-design/ant-design/issues/30987) | (date: DateType) =&gt; boolean | - | - |
+| disabledDate | Function that specifies the dates that cannot be selected, `currentDate` is same dayjs object as `value` prop which you [shouldn't mutate it](https://github.com/ant-design/ant-design/issues/30987) | (date: DateType) =&gt; boolean | - | - |
 | dateFullCellRender | Customize the display of the date cell, the returned content will override the cell | (date: DateType) =&gt; VueNode | - | - |
 | dateCellRender | Deprecated. | (date: DateType) =&gt; VueNode | - | - |
 | monthFullCellRender | Deprecated. | (date: DateType) =&gt; VueNode | - | - |

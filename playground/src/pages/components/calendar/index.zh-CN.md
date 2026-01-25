@@ -12,9 +12,19 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-p-wQLik200AAA
 
 ## 何时使用 {#when-to-use}
 
+当数据是日期或按照日期划分时，例如日程、课表、价格日历等，农历等。目前支持年/月切换。
+
 ## 示例 {#examples}
 
 <demo-group>
+  <demo src="./demo/basic.vue" clientOnly>基本</demo>
+  <demo src="./demo/notice-calendar.vue" clientOnly>通知事项日历</demo>
+  <demo src="./demo/card.vue" clientOnly>卡片模式</demo>
+  <demo src="./demo/select.vue" clientOnly>选择功能</demo>
+  <demo src="./demo/lunar.vue" clientOnly>农历日历</demo>
+  <demo src="./demo/week.vue" clientOnly>周数</demo>
+  <demo src="./demo/customize-header.vue" clientOnly>自定义头部</demo>
+  <demo src="./demo/style-class.vue" clientOnly>自定义语义结构的样式和类</demo>
 </demo-group>
 
 ## API
