@@ -14,9 +14,10 @@ import {
   Typography,
 } from 'antdv-next'
 import useLocale from 'antdv-next/locale/useLocale'
-import { computed, ref } from 'vue'
+import { computed, h, ref } from 'vue'
 import tokenMetaRes from '../../assets/token-meta.json'
 import tokenDataRes from '../../assets/token.json'
+import ColorChunk from '../color-chunk/index.vue'
 
 defineOptions({
   name: 'ComponentTokenTable',
@@ -107,12 +108,6 @@ const columns = computed(() => [
     title: locale.value.value,
     dataIndex: 'value',
     key: 'value',
-    customRender: ({ text }: { text: any }) => {
-      if (typeof text !== 'string')
-        return text
-      // Color handling or other formatting could go here
-      return text
-    },
   },
 ])
 
@@ -257,7 +252,33 @@ const globalCode = computed(() => {
             :style="{ marginBottom: `${tokenState.margin}px` }"
             :pagination="false"
             row-key="name"
-          />
+          >
+            <template #bodyCell="{ column, text, record }">
+              <span
+                v-if="column.key === 'type'" :style="{
+                  margin: '0 1px',
+                  padding: '0.2em 0.4em',
+                  fontSize: '0.9em',
+                  background: tokenState.colorFillQuaternary,
+                  border: `1px solid ${tokenState.colorSplit}`,
+                  borderRadius: `${tokenState.borderRadiusSM}px`,
+                  fontFamily: 'monospace',
+                }"
+              >{{ record.type }}</span>
+              <template v-if="column.key === 'value'">
+                <ColorChunk
+                  v-if="typeof text === 'string' && (text.startsWith('#') || text.startsWith('rgb') || text.startsWith('rgba'))"
+                  :value="text"
+                  enable-popover
+                >
+                  {{ text }}
+                </ColorChunk>
+                <template v-else>
+                  {{ text }}
+                </template>
+              </template>
+            </template>
+          </Table>
         </ConfigProvider>
       </div>
     </div>
@@ -302,7 +323,33 @@ const globalCode = computed(() => {
             :style="{ marginBottom: `${tokenState.margin}px` }"
             :pagination="false"
             row-key="name"
-          />
+          >
+            <template #bodyCell="{ column, text, record }">
+              <span
+                v-if="column.key === 'type'" :style="{
+                  margin: '0 1px',
+                  padding: '0.2em 0.4em',
+                  fontSize: '0.9em',
+                  background: tokenState.colorFillQuaternary,
+                  border: `1px solid ${tokenState.colorSplit}`,
+                  borderRadius: `${tokenState.borderRadiusSM}px`,
+                  fontFamily: 'monospace',
+                }"
+              >{{ record.type }}</span>
+              <template v-if="column.key === 'value'">
+                <ColorChunk
+                  v-if="typeof text === 'string' && (text.startsWith('#') || text.startsWith('rgb') || text.startsWith('rgba'))"
+                  :value="text"
+                  enable-popover
+                >
+                  {{ text }}
+                </ColorChunk>
+                <template v-else>
+                  {{ text }}
+                </template>
+              </template>
+            </template>
+          </Table>
         </ConfigProvider>
       </div>
     </div>
