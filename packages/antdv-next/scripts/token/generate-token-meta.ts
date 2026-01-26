@@ -3,6 +3,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import fs from 'fs-extra'
 import { Application, TSConfigReader, TypeDocReader } from 'typedoc'
+import { normalizePath } from 'vite'
 
 interface TokenMeta {
   seed: ReturnType<typeof getTokenList>
@@ -20,10 +21,6 @@ const output = path.resolve(playgroundDir, 'src/assets/token-meta.json')
 
 const specialComponentNames: Record<string, string> = {
   qrcode: 'QRCode',
-}
-
-function normalizePath(value: string) {
-  return value.split(path.sep).join('/')
 }
 
 function getEntryModuleName(file: any) {
@@ -89,7 +86,7 @@ async function main() {
         path.resolve(srcRoot, '*/style/index.tsx'),
         path.resolve(srcRoot, '*/style/token.ts'),
         path.resolve(srcRoot, '*/style/token.tsx'),
-      ],
+      ].map(target => normalizePath(target)),
       entryPointStrategy: 'expand',
       tsconfig: path.resolve(packageRoot, 'tsconfig.json'),
       skipErrorChecking: true,
