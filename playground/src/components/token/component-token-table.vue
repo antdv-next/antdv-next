@@ -14,7 +14,7 @@ import {
   Typography,
 } from 'antdv-next'
 import useLocale from 'antdv-next/locale/useLocale'
-import { computed, h, ref } from 'vue'
+import { computed, ref } from 'vue'
 import tokenMetaRes from '../../assets/token-meta.json'
 import tokenDataRes from '../../assets/token.json'
 import ColorChunk from '../color-chunk/index.vue'
