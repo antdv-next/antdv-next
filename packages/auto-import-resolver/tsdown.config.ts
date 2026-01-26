@@ -6,4 +6,5 @@ export default defineConfig({
   entry: [
     'src/index.ts',
   ],
+  skipNodeModulesBundle: true,
 })

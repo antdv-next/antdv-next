@@ -11,4 +11,5 @@ export default defineConfig({
   ],
   format: 'esm',
   unbundle: true,
+  skipNodeModulesBundle: true,
 })

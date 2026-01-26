@@ -12,4 +12,5 @@ export default defineConfig({
     'vue',
   ],
   unbundle: true,
+  skipNodeModulesBundle: true,
 })
