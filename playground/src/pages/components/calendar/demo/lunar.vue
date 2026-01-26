@@ -7,85 +7,85 @@ Display lunar calendar, solar terms and other information.
 </docs>
 
 <script setup lang="ts">
-  import type { CalendarProps } from 'antdv-next'
-  import type { Dayjs } from 'dayjs'
-  import dayjs from 'dayjs';
-  import { HolidayUtil, Lunar } from 'lunar-typescript'
-  import { ref } from 'vue'
+import type { CalendarProps } from 'antdv-next'
+import type { Dayjs } from 'dayjs'
+import dayjs from 'dayjs'
+import { HolidayUtil, Lunar } from 'lunar-typescript'
+import { ref } from 'vue'
 
-  const selectDate = ref<Dayjs>(dayjs())
-  const panelDate = ref<Dayjs>(dayjs())
-  function getYearLabel(year: number) {
-    const d = Lunar.fromDate(new Date(year + 1, 0));
-    return `${d.getYearInChinese()}年（${d.getYearInGanZhi()}${d.getYearShengXiao()}年）`;
+const selectDate = ref<Dayjs>(dayjs())
+const panelDate = ref<Dayjs>(dayjs())
+function getYearLabel(year: number) {
+  const d = Lunar.fromDate(new Date(year + 1, 0))
+  return `${d.getYearInChinese()}年（${d.getYearInGanZhi()}${d.getYearShengXiao()}年）`
+}
+
+function getMonthLabel(month: number, value: Dayjs) {
+  const d = Lunar.fromDate(new Date(value.year(), month))
+  const lunar = d.getMonthInChinese()
+  return `${month + 1}月（${lunar}月）`
+}
+
+function getCellDate(date) {
+  const d = Lunar.fromDate(date.toDate())
+  const lunar = d.getDayInChinese()
+  const solarTerm = d.getJieQi()
+  const isWeekend = date.day() === 6 || date.day() === 0
+  const h = HolidayUtil.getHoliday(date.get('year'), date.get('month') + 1, date.get('date'))
+  const displayHoliday = h?.getTarget() === h?.getDay() ? h?.getName() : undefined
+  return { lunar, solarTerm, displayHoliday, isWeekend }
+}
+
+function getCellMonth(date) {
+  const d2 = Lunar.fromDate(new Date(date.get('year'), date.get('month')))
+  const month = d2.getMonthInChinese()
+  return month
+}
+
+function getMonthOptions(value) {
+  const start = 0
+  const end = 12
+  const monthOptions = []
+
+  let current = value.clone()
+  const localeData = value.localeData()
+  const months = []
+  for (let i = 0; i < 12; i++) {
+    current = current.month(i)
+    months.push(localeData.monthsShort(current))
   }
 
-  function getMonthLabel(month: number, value: Dayjs) {
-    const d = Lunar.fromDate(new Date(value.year(), month));
-    const lunar = d.getMonthInChinese();
-    return `${month + 1}月（${lunar}月）`;
+  for (let i = start; i < end; i++) {
+    monthOptions.push({
+      label: getMonthLabel(i, value),
+      value: i,
+    })
   }
+  return monthOptions
+}
 
-  function getCellDate(date) {
-    const d = Lunar.fromDate(date.toDate());
-    const lunar = d.getDayInChinese();
-    const solarTerm = d.getJieQi();
-    const isWeekend = date.day() === 6 || date.day() === 0;
-    const h = HolidayUtil.getHoliday(date.get('year'), date.get('month') + 1, date.get('date'));
-    const displayHoliday = h?.getTarget() === h?.getDay() ? h?.getName() : undefined;
-    return { lunar, solarTerm, displayHoliday, isWeekend };
+function getOptions(value) {
+  const year = value.year()
+  const options = []
+  for (let i = year - 10; i < year + 10; i += 1) {
+    options.push({
+      label: getYearLabel(i),
+      value: i,
+    })
   }
+  return options
+}
 
-  function getCellMonth(date) {
-    const d2 = Lunar.fromDate(new Date(date.get('year'), date.get('month')))
-    const month = d2.getMonthInChinese()
-    return month
+function onPanelChange(value: Dayjs, mode: CalendarProps<Dayjs>['mode']) {
+  console.log(value.format('YYYY-MM-DD'), mode)
+  panelDate.value = value
+}
+
+function onSelect(value, selectInfo) {
+  if (selectInfo.source === 'date') {
+    selectDate.value = value
   }
-
-  function getMonthOptions(value) {
-    const start = 0;
-    const end = 12;
-    const monthOptions = [];
-
-    let current = value.clone();
-    const localeData = value.localeData();
-    const months = [];
-    for (let i = 0; i < 12; i++) {
-      current = current.month(i);
-      months.push(localeData.monthsShort(current));
-    }
-
-    for (let i = start; i < end; i++) {
-      monthOptions.push({
-        label: getMonthLabel(i, value),
-        value: i,
-      });
-    }
-    return monthOptions
-  }
-
-  function getOptions(value) {
-    const year = value.year();
-    const options = [];
-    for (let i = year - 10; i < year + 10; i += 1) {
-      options.push({
-        label: getYearLabel(i),
-        value: i,
-      });
-    }
-    return options
-  }
-
-  function onPanelChange(value: Dayjs, mode: CalendarProps<Dayjs>['mode']) {
-    console.log(value.format('YYYY-MM-DD'), mode);
-    panelDate.value = value
-  }
-
-  function onSelect(value, selectInfo) {
-    if (selectInfo.source === 'date') {
-      selectDate.value = value;
-    }
-  }
+}
 </script>
 
 <template>
@@ -99,15 +99,18 @@ Display lunar calendar, solar terms and other information.
                 {{ date.get('date') }}
               </span>
               <template v-if="info.type === 'date'">
-                <div class="lunar">{{ getCellDate(date).displayHoliday || getCellDate(date).solarTerm || getCellDate(date).lunar }}
+                <div class="lunar">
+                  {{ getCellDate(date).displayHoliday || getCellDate(date).solarTerm || getCellDate(date).lunar }}
                 </div>
               </template>
             </div>
           </div>
         </template>
         <template v-else-if="info.type === 'month'">
-          <div class="monthCell" :class="{ monthCellCurrent: selectDate.isSame(date, 'month') }">{{ date.get('month') + 1 }}月（{{ getCellMonth(date) }} 月）</div>
-        </template>  
+          <div class="monthCell" :class="{ monthCellCurrent: selectDate.isSame(date, 'month') }">
+            {{ date.get('month') + 1 }}月（{{ getCellMonth(date) }} 月）
+          </div>
+        </template>
       </template>
       <template #headerRender="{ value, type, onChange, onTypeChange }">
         <a-row justify="end" :gutter="8" style="padding: 8px;">
@@ -119,8 +122,12 @@ Display lunar calendar, solar terms and other information.
           </a-col>
           <a-col>
             <a-radio-group size="small" :value="type" @change="(e) => onTypeChange(e.target.value)">
-              <a-radio-button value="month">月</a-radio-button>
-              <a-radio-button value="year">年</a-radio-button>
+              <a-radio-button value="month">
+                月
+              </a-radio-button>
+              <a-radio-button value="year">
+                年
+              </a-radio-button>
             </a-radio-group>
           </a-col>
         </a-row>
