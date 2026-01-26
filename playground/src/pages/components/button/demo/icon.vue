@@ -13,13 +13,11 @@ import { SearchOutlined } from '@antdv-next/icons'
 <template>
   <a-flex gap="small" vertical>
     <a-flex wrap gap="small">
-      <!--      <Tooltip title="search"> -->
       <a-button type="primary" shape="circle">
         <template #icon>
           <SearchOutlined />
         </template>
       </a-button>
-      <!--      </Tooltip> -->
       <a-button type="primary" shape="circle">
         A
       </a-button>
@@ -29,13 +27,11 @@ import { SearchOutlined } from '@antdv-next/icons'
         </template>
         Search
       </a-button>
-      <!--      <Tooltip title="search"> -->
       <a-button shape="circle">
         <template #icon>
           <SearchOutlined />
         </template>
       </a-button>
-      <!--      </Tooltip> -->
       <a-button>
         <template #icon>
           <SearchOutlined />
@@ -44,26 +40,22 @@ import { SearchOutlined } from '@antdv-next/icons'
       </a-button>
     </a-flex>
     <a-flex wrap gap="small">
-      <!--      <Tooltip title="search"> -->
       <a-button shape="circle">
         <template #icon>
           <SearchOutlined />
         </template>
       </a-button>
-      <!--      </Tooltip> -->
       <a-button>
         <template #icon>
           <SearchOutlined />
         </template>
         Search
       </a-button>
-      <!--      <Tooltip title="search"> -->
       <a-button type="dashed" shape="circle">
         <template #icon>
           <SearchOutlined />
         </template>
       </a-button>
-      <!--      </Tooltip> -->
       <a-button type="dashed">
         <template #icon>
           <SearchOutlined />

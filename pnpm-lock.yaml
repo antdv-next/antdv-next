@@ -133,6 +133,9 @@ catalogs:
     '@shikijs/twoslash':
       specifier: ^3.20.0
       version: 3.20.0
+    '@stackblitz/sdk':
+      specifier: ^1.11.0
+      version: 1.11.0
     markdown-it:
       specifier: 14.1.0
       version: 14.1.0
@@ -807,6 +810,9 @@ importers:
       '@shikijs/twoslash':
         specifier: catalog:docs
         version: 3.20.0(typescript@5.9.3)
+      '@stackblitz/sdk':
+        specifier: catalog:docs
+        version: 1.11.0
       '@types/markdown-it':
         specifier: catalog:types
         version: 14.1.2
@@ -1870,6 +1876,9 @@ packages:
   '@sindresorhus/base62@1.0.0':
     resolution: {integrity: sha512-TeheYy0ILzBEI/CO55CP6zJCSdSWeRtGnHy8U8dWSUH4I68iqTsy7HkMktR4xakThc9jotkPQUXT4ITdbV7cHA==}
     engines: {node: '>=18'}
+
+  '@stackblitz/sdk@1.11.0':
+    resolution: {integrity: sha512-DFQGANNkEZRzFk1/rDP6TcFdM82ycHE+zfl9C/M/jXlH68jiqHWHFMQURLELoD8koxvu/eW5uhg94NSAZlYrUQ==}
 
   '@standard-schema/spec@1.1.0':
     resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
@@ -6616,6 +6625,8 @@ snapshots:
   '@sinclair/typebox@0.34.41': {}
 
   '@sindresorhus/base62@1.0.0': {}
+
+  '@stackblitz/sdk@1.11.0': {}
 
   '@standard-schema/spec@1.1.0': {}
 

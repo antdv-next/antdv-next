@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { CSSProperties } from 'vue'
-import { EditOutlined, LinkOutlined } from '@antdv-next/icons'
+import { EditOutlined, ThunderboltOutlined } from '@antdv-next/icons'
 import { storeToRefs } from 'pinia'
 import demos from 'virtual:demos'
 import { computed, defineAsyncComponent, shallowRef } from 'vue'
@@ -10,6 +10,8 @@ import CodeIframe from '@/components/code-demo/iframe.vue'
 import { getId } from '@/components/code-demo/utils/getId'
 import ExternalLink from '@/components/icons/external-link.vue'
 import { useAppStore } from '@/stores/app.ts'
+import antdvPkg from '../../../../packages/antdv-next/package.json'
+import { openStackBlitz } from './utils/stackblitz'
 
 defineOptions({
   name: 'Demo',
@@ -42,7 +44,6 @@ function handleShowCode() {
   showCode.value = !showCode.value
 }
 const active = computed(() => route.hash === `#${id.value}`)
-const domRef = shallowRef<HTMLDivElement>()
 function handleScroll(e: Event) {
   e.preventDefault()
   e.stopPropagation()
@@ -51,19 +52,31 @@ function handleScroll(e: Event) {
     hash: `#${id.value}`,
   })
 }
-const locales = {
-  'en-Us': {
+
+const titleRef = shallowRef<HTMLElement>()
+
+function handleStackBlitz() {
+  if (demo.value?.source) {
+    const title = `${titleRef.value?.textContent || 'Ant Design Vue Demo'} - antdv-next@${antdvPkg.version}`
+    openStackBlitz(title, demo.value.source)
+  }
+}
+
+const locales: Record<string, any> = {
+  'en-US': {
     action: {
       externalLink: 'Open in new window',
       expandCode: 'Expand Code',
       expandedCode: 'Collapse Code',
+      stackblitz: 'Open in StackBlitz',
     },
   },
   'zh-CN': {
     action: {
-      externalLink: '在新窗口打开',
+      externalLink: '在新窗口中打开',
       expandCode: '展开代码',
       expandedCode: '收起代码',
+      stackblitz: '在 StackBlitz 中打开',
     },
   },
 }
@@ -84,7 +97,7 @@ const demoStyle = computed(() => {
 </script>
 
 <template>
-  <section :id="id" ref="domRef" class="ant-doc-demo-box border-1 border-solid border-color-split" :class="active ? 'border-primary' : ''">
+  <section :id="id" class="ant-doc-demo-box border border-solid border-color-split" :class="active ? 'border-primary' : ''">
     <section v-if="!iframe" class="vp-raw ant-doc-demo-box-demo" :style="demoStyle">
       <Suspense>
         <component :is="component" v-if="demo?.component" />
@@ -98,7 +111,7 @@ const demoStyle = computed(() => {
     </template>
     <section class="ant-doc-demo-box-meta markdown">
       <div class="ant-doc-demo-box-title">
-        <a :href="`#${id}`" @click="handleScroll">
+        <a ref="titleRef" :href="`#${id}`" @click="handleScroll">
           <slot />
         </a>
         <a target="_blank" rel="noopener norreferrer" class="ml-xs">
@@ -109,16 +122,18 @@ const demoStyle = computed(() => {
         <div v-html="description" />
       </div>
       <a-flex class="ant-doc-demo-box-actions " wrap gap="middle">
-        <a class="ant-doc-demo-box-code-action">
-          <LinkOutlined />
+        <a class="ant-doc-demo-box-code-action" @click="handleStackBlitz">
+          <a-tooltip :title="locales[locale]?.action?.stackblitz">
+            <ThunderboltOutlined />
+          </a-tooltip>
         </a>
         <a class="ant-doc-demo-box-code-action" :href="`/~demos/${id}`" target="_blank" rel="noopener norreferrer">
-          <a-tooltip :title="locales[locale]?.action?.externalLink || 'Open in new window'">
+          <a-tooltip :title="locales[locale]?.action?.externalLink">
             <ExternalLink />
           </a-tooltip>
         </a>
         <div class="ant-doc-demo-box-expand-icon ant-doc-demo-box-code-action" @click="handleShowCode">
-          <a-tooltip :title="locales[locale]?.action?.[showCode ? 'expandedCode' : 'expandCode'] || (showCode ? 'Collapse Code' : 'Expand Code')">
+          <a-tooltip :title="locales[locale]?.action?.[showCode ? 'expandedCode' : 'expandCode']">
             <ExpandIcon :expanded="showCode" />
           </a-tooltip>
         </div>

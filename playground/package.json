@@ -32,6 +32,7 @@
     "@shikijs/markdown-it": "catalog:docs",
     "@shikijs/transformers": "catalog:docs",
     "@shikijs/twoslash": "catalog:docs",
+    "@stackblitz/sdk": "catalog:docs",
     "@types/markdown-it": "catalog:types",
     "@types/markdown-it-attrs": "catalog:types",
     "@types/markdown-it-container": "catalog:types",
@@ -41,6 +42,7 @@
     "htmlparser2": "catalog:prod",
     "less": "catalog:dev",
     "lru-cache": "catalog:prod",
+    "lunar-typescript": "catalog:dev",
     "markdown-it": "catalog:docs",
     "markdown-it-anchor": "catalog:docs",
     "markdown-it-async": "catalog:docs",
@@ -58,7 +60,6 @@
     "tinyglobby": "catalog:dev",
     "unocss": "catalog:dev",
     "vite": "catalog:dev",
-    "vite-plugin-dayjs": "catalog:dev",
-    "lunar-typescript": "catalog:dev" 
+    "vite-plugin-dayjs": "catalog:dev"
   }
 }
