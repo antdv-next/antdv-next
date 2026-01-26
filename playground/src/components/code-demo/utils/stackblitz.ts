@@ -117,5 +117,9 @@ export function iframeStackBlitz(
     files,
   }, {
     openFile: 'src/Demo.vue',
+    showSidebar: false,
+    hideNavigation: true,
+    hideExplorer: true,
+    height: 500,
   })
 }

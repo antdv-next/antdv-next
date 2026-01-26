@@ -9,6 +9,7 @@ import CodeDemo from './components/code-demo'
 import ComponentOverview from './components/component-overview/index.vue'
 import IconSearch from './components/icon-search/index.vue'
 import InstallDependencies from './components/install-dependencies/index.vue'
+import StackBlitz from './components/stackblitz/index.vue'
 import ComponentTokenTable from './components/token/component-token-table.vue'
 import 'antdv-next/style/reset.css'
 import 'uno.css'
@@ -31,5 +32,6 @@ app.component('ComponentOverview', ComponentOverview)
 app.component('ComponentTokenTable', ComponentTokenTable)
 app.component('InstallDependencies', InstallDependencies)
 app.component('IconSearch', IconSearch)
+app.component('stackblitz', StackBlitz)
 app.use(createPinia())
 app.mount('#app')

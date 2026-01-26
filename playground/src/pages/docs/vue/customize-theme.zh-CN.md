@@ -27,3 +27,114 @@ Antdv Next 设计规范和技术上支持灵活的样式定制，以满足业务
 
 
 通过 `theme` 中的 `token` 属性，可以修改一些主题变量。部分主题变量会引起其他主题变量的变化，我们把这些主题变量称为 Seed Token。
+
+```stackblitz {title="修改主题变量"}                                                                                                                                                                                                
+<template>
+  <a-config-provider
+    :theme="{
+      token: {
+        colorPrimary: '#00b96b',
+        borderRadius: 2,
+        colorBgContainer: '#f6ffed',
+      },
+    }"
+  >
+    <a-space>
+      <a-button type="primary">Primary</a-button>
+      <a-button>Default</a-button>
+    </a-space>
+  </a-config-provider>
+</template>
+```
+
+### 使用预设算法
+
+
+通过修改算法可以快速生成风格迥异的主题，我们默认提供三套预设算法，分别是:
+
+- 默认算法 `theme.defaultAlgorithm`
+- 暗色算法 `theme.darkAlgorithm`
+- 紧凑算法 `theme.compactAlgorithm`
+
+你可以通过 `theme` 中的 `algorithm` 属性来切换算法，并且支持配置多种算法，将会依次生效。
+
+
+```stackblitz {title="使用预设算法"}
+<template>
+  <a-config-provider
+    :theme="{
+      algorithm: theme.darkAlgorithm,
+      // 或者组合算法：
+      // algorithm: [theme.darkAlgorithm, theme.compactAlgorithm],
+    }"
+  >
+    <a-space>
+      <a-input placeholder="Please Input" />
+      <a-button type="primary">Submit</a-button>
+    </a-space>
+  </a-config-provider>
+</template>
+
+<script setup lang="ts">
+import { theme } from 'antdv-next'
+</script>
+```
+
+### 修改组件变量
+
+
+除了整体的 Design Token，各个组件也会开放自己的 Component Token 来实现针对组件的样式定制能力，不同的组件之间不会相互影响。同样地，也可以通过这种方式来覆盖组件的其他 Design Token。
+
+
+:::info 组件级别的主题算法
+默认情况下，所有组件变量都仅仅是覆盖，不会基于 Seed Token 计算派生变量。
+
+在 `>= 1.0.0` 版本中，组件变量支持传入 `algorithm` 属性，可以开启派生计算或者传入其他算法。
+:::
+
+
+```stackblitz {title="修改组件变量"}
+<template>
+  <a-config-provider
+    :theme="{
+      components: {
+        Button: {
+          colorPrimary: '#00b96b',
+          algorithm: true,
+        },
+        Input: {
+          colorPrimary: '#eb2f96',
+          algorithm: true,
+        },
+      },
+    }"
+  >
+    <a-space>
+      <div style="font-size: 14px">开启算法：</div>
+      <a-input placeholder="Please Input" />
+      <a-button type="primary">Submit</a-button>
+    </a-space>
+  </a-config-provider>
+
+  <a-divider />
+
+  <a-config-provider
+    :theme="{
+      components: {
+        Button: {
+          colorPrimary: '#00b96b',
+        },
+        Input: {
+          colorPrimary: '#eb2f96',
+        },
+      },
+    }"
+  >
+    <a-space>
+      <div style="font-size: 14px">禁用算法：</div>
+      <a-input placeholder="Please Input" />
+      <a-button type="primary">Submit</a-button>
+    </a-space>
+  </a-config-provider>
+</template>
+```

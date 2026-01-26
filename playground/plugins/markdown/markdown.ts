@@ -25,6 +25,7 @@ import { demoPlugin } from './plugins/demo'
 import { gitHubAlertsPlugin } from './plugins/github-alerts'
 import { imagePlugin } from './plugins/image'
 import { preWrapperPlugin } from './plugins/pre-wrapper'
+import { stackblitzPlugin } from './plugins/stackblitz'
 import { tablePlugin } from './plugins/table'
 
 export function loadShiki(md: MarkdownItAsync, cls: string = 'ant-doc-code') {
@@ -120,6 +121,8 @@ function withPlugins(md: MarkdownItAsync, options: CreateMarkdownOptions) {
   })
   // 加载表格插件，为 Api 区域的表格添加属性
   md.use(tablePlugin)
+  // 加载 StackBlitz 代码块插件
+  md.use(stackblitzPlugin)
 
   // 禁用markdown自动识别链接
   md.linkify.set({ fuzzyLink: false })
