@@ -10,6 +10,7 @@ export default defineConfig({
   format: 'es',
   // minify: true,
   clean: true,
+  skipNodeModulesBundle: true,
   copy: [
     { from: 'src/style/reset.css', to: 'dist' },
   ],
