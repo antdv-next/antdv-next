@@ -12,11 +12,8 @@ import tsconfigApp from '../../../../tsconfig.app.json?raw'
 import tsconfig from '../../../../tsconfig.json?raw'
 import tsconfigNode from '../../../../tsconfig.node.json?raw'
 
-export function openStackBlitz(
-  title: string,
-  code: string,
-) {
-  const files: Record<string, string> = {
+function genFilesMap(title: string, code: string) {
+  return {
     'package.json': JSON.stringify({
       name: 'antdv-next-demo',
       version: antdvPkg.version,
@@ -89,8 +86,31 @@ import Demo from './Demo.vue'
     'tsconfig.app.json': tsconfigApp,
     'tsconfig.node.json': tsconfigNode,
   }
+}
+
+export function openStackBlitz(
+  title: string,
+  code: string,
+) {
+  const files = genFilesMap(title, code)
 
   sdk.openProject({
+    title,
+    description: 'Ant Design Vue Next Demo',
+    template: 'node',
+    files,
+  }, {
+    openFile: 'src/Demo.vue',
+  })
+}
+
+export function iframeStackBlitz(
+  elementId: string | HTMLElement,
+  title: string,
+  code: string,
+) {
+  const files = genFilesMap(title, code)
+  return sdk.embedProject(elementId, {
     title,
     description: 'Ant Design Vue Next Demo',
     template: 'node',

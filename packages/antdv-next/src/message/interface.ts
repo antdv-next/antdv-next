@@ -65,6 +65,11 @@ export interface ArgsProps {
    * @descEN keep the timer running or not on hover
    */
   pauseOnHover?: boolean
+  /**
+   * @descCN 消息通知的应用上下文
+   * @descEN The application context of the message notification
+   */
+  appContext?: any
 }
 
 export type JointContent = VueNode | ArgsProps

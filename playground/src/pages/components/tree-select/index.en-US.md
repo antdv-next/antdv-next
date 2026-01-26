@@ -37,7 +37,7 @@ demo:
 
 ### TreeSelect Props {#props}
 
-Common props ref：[Common props](/docs/react/common-props)
+Common props ref：[Common props](/docs/vue/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
