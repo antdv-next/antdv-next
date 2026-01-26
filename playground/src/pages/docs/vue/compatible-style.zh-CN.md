@@ -26,16 +26,14 @@ Antdv Next 支持[最近 2 个版本的现代浏览器](https://browsersl.ist/#q
 
 Antdv Next 的 CSS-in-JS 默认通过 `:where` 选择器降低 CSS Selector 优先级，以减少用户升级时额外调整自定义样式的成本，不过 `:where` 语法的[兼容性](https://developer.mozilla.org/en-US/docs/Web/CSS/:where#browser_compatibility)在低版本浏览器比较差。在某些场景下你如果需要支持旧版浏览器，你可以使用 `@antdv-next/cssinjs` 取消默认的降权操作（请注意版本保持与 antd 一致）：
 
-```tsx
-import { StyleProvider } from '@antdv-next/cssinjs';
-
-// `hashPriority` 默认为 `low`，配置为 `high` 后，
-// 会移除 `:where` 选择器封装
-export default () => (
-  <StyleProvider hashPriority="high">
+```vue
+<template>
+  <!-- `hashPriority` 默认为 `low`，配置为 `high` 后，-->
+  <!-- 会移除 `:where` 选择器封装-->
+  <a-style-provider hashPriority="high">
     <MyApp />
-  </StyleProvider>
-);
+  </a-style-provider>
+</template>
 ```
 
 切换后，样式将从 `:where` 切换为类选择器：
@@ -64,7 +62,7 @@ export default () => (
 
 ## CSS 逻辑属性
 
-- 支持版本：`>=5.0.0`
+- 支持版本：`>=1.0.0`
 - MDN 文档：[CSS Logical Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties)
 - 浏览器兼容性：[caniuse](https://caniuse.com/css-logical-props)
 - Chrome 最低支持版本：89
@@ -72,15 +70,18 @@ export default () => (
 
 为了统一 LTR 和 RTL 样式，Antdv Next 使用了 CSS 逻辑属性。例如原 `margin-left` 使用 `margin-inline-start` 代替，使其在 LTR 和 RTL 下都为起始位置间距。如果你需要兼容旧版浏览器（如 360 浏览器、QQ 浏览器 等等），可以通过 `@antdv-next/cssinjs` 的 `StyleProvider` 配置 `transformers` 将其转换：
 
-```tsx | pure
-import { legacyLogicalPropertiesTransformer, StyleProvider } from '@antdv-next/cssinjs';
+```vue
+<script lang="ts" setup>
+  import { legacyLogicalPropertiesTransformer } from '@antdv-next/cssinjs';
+</script>
 
-// `transformers` 提供预处理功能将样式进行转换
-export default () => (
-  <StyleProvider transformers={[legacyLogicalPropertiesTransformer]}>
+<template>
+<!--  `transformers` 提供预处理功能将样式进行转换-->
+  <a-style-provider :transformers="[legacyLogicalPropertiesTransformer]">
     <MyApp />
-  </StyleProvider>
-);
+  </a-style-provider>
+</template>
+
 ```
 
 切换后，样式将降级 CSS 逻辑属性：
@@ -103,14 +104,16 @@ export default () => (
 
 部分样式依赖于浏览器前缀来实现兼容性。`autoPrefixer` 转换器可以自动为样式添加浏览器前缀，确保在不同浏览器中都能正常工作。
 
-```tsx | pure
-import { autoPrefixTransformer, StyleProvider } from '@antdv-next/cssinjs';
+```vue
+<script lang="ts" setup>
+  import { autoPrefixTransformer } from '@antdv-next/cssinjs';
+</script>
 
-export default () => (
-  <StyleProvider transformers={[autoPrefixTransformer]}>
-    <MyApp />
-  </StyleProvider>
-);
+<template>
+    <a-style-provider :transformers="[autoPrefixTransformer]">
+        <MyApp />
+    </a-style-provider>
+</template>
 ```
 
 最终转换后的样式：
@@ -135,17 +138,14 @@ export default () => (
 
 Antdv Next 从 `1.0.0` 起支持配置 `layer` 进行统一降权。经过降权后，antd 的样式将始终低于默认的 CSS 选择器优先级，以便于用户进行样式覆盖（请务必注意检查 `@layer` 浏览器兼容性）。StyleProvider 开启 `layer` 时，子元素**必须**包裹 ConfigProvider 以更新图标相关样式：
 
-```tsx | pure
-import { StyleProvider } from '@antdv-next/cssinjs';
-import { ConfigProvider } from 'antd';
-
-export default () => (
-  <StyleProvider layer>
-    <ConfigProvider>
+```vue
+<template>
+  <a-style-provider layer>
+    <a-config-provider>
       <MyApp />
-    </ConfigProvider>
-  </StyleProvider>
-);
+    </a-config-provider>
+  </a-style-provider>
+</template>
 ```
 
 antd 的样式会被封装在 `@layer` 中，以降低优先级：
@@ -182,18 +182,20 @@ antd 的样式会被封装在 `@layer` 中，以降低优先级：
 
 在响应式网页开发中，需要一种方便且灵活的方式来实现页面的适配和响应式设计。`px2remTransformer` 转换器可以快速而准确地将样式表中的像素单位转换为相对于根元素（HTML 标签）的 rem 单位，实现页面的自适应和响应式布局。
 
-```tsx | pure
-import { px2remTransformer, StyleProvider } from '@antdv-next/cssinjs';
+```vue
+<script lang="ts" setup>
+  import { px2remTransformer } from '@antdv-next/cssinjs';
+  const px2rem = px2remTransformer({
+    rootValue: 32, // 32px = 1rem; @default 16
+  });
+</script>
 
-const px2rem = px2remTransformer({
-  rootValue: 32, // 32px = 1rem; @default 16
-});
 
-export default () => (
-  <StyleProvider transformers={[px2rem]}>
-    <MyApp />
-  </StyleProvider>
-);
+<template>
+    <a-style-provider :transformers="[px2rem]">
+        <MyApp />
+    </a-style-provider>
+</template>
 ```
 
 最终转换后的样式：
@@ -234,17 +236,16 @@ export default () => (
 
 ```tsx
 import { StyleProvider } from '@antdv-next/cssinjs';
-import { createRoot } from 'react-dom/client';
-
+import { render } from "vue"
 const shadowRoot = someEle.attachShadow({ mode: 'open' });
 const container = document.createElement('div');
 shadowRoot.appendChild(container);
-const root = createRoot(container);
 
-root.render(
+render(
   <StyleProvider container={shadowRoot}>
     <MyApp />
   </StyleProvider>,
+  container
 );
 ```
 
@@ -256,16 +257,14 @@ root.render(
 
 如前所述，使用 StyleProvider 时必须包裹 ConfigProvider 以更新图标相关样式：
 
-```tsx
-import { StyleProvider } from '@antdv-next/cssinjs';
-
-export default () => (
-  <StyleProvider layer>
-    <ConfigProvider>
+```vue
+<template>
+  <a-style-provider layer>
+    <a-config-provider>
       <MyApp />
-    </ConfigProvider>
-  </StyleProvider>
-);
+    </a-config-provider>
+  </a-style-provider>
+</template>
 ```
 
 ### TailwindCSS 排布 `@layer`

@@ -7,18 +7,18 @@ title: CSS Compatible
 
 ## Default Style Compatibility
 
-Antdv Next supports the [last 2 versions of modern browsers](https://browsersl.ist/#q=defaults). If you need to be compatible with legacy browsers, please perform downgrade processing according to actual needs:
+Antdv Next supports the [last 2 versions of modern browsers](https://browsersl.ist/#q=defaults). By default, we use some modern CSS features to improve style maintainability and extensibility. These features may not be supported in older browsers, but we can solve this through some compatibility solutions.
 
-| Feature | antd-next version | Compatibility | Minimum Chrome Version | Compatibility workaround |
+| Feature | antdv-next version | Compatibility | Minimum Chrome Version | Compatibility workaround |
 | --- |-------------------| --- | --- | --- |
 | [:where Selector](https://developer.mozilla.org/en-US/docs/Web/CSS/:where) | `>=1.0.0`         | [caniuse](https://caniuse.com/?search=%3Awhere) | Chrome 88 | `<StyleProvider hashPriority="high">` |
 | [CSS Logical Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties) | `>=1.0.0`         | [caniuse](https://caniuse.com/css-logical-props) | Chrome 89 | `<StyleProvider transformers={[legacyLogicalPropertiesTransformer]}>` |
 
 If you need to support older browsers, please use `@antdv-next/cssinjs` [StyleProvider](https://github.com/ant-design/cssinjs#styleprovider) for degradation handling according to your actual requirements.
 
-## `:where` in selector
+## `:where` Selector
 
-- antdv-next version: `>=1.0.0`
+- Support Version: `>=1.0.0`
 - MDN: [:where](https://developer.mozilla.org/en-US/docs/Web/CSS/:where)
 - Browser Compatibility: [caniuse](https://caniuse.com/?search=%3Awhere)
 - Minimum Chrome Version Supported: 88
@@ -26,16 +26,14 @@ If you need to support older browsers, please use `@antdv-next/cssinjs` [StylePr
 
 The CSS-in-JS feature of Antdv Next uses the ":where" selector by default to lower the CSS selector specificity, reducing the additional cost of adjusting custom styles when upgrading for users. However, the compatibility of the ":where" syntax is relatively poor in older browsers ([compatibility](https://developer.mozilla.org/en-US/docs/Web/CSS/:where#browser_compatibility)). In certain scenarios, if you need to support older browsers, you can use `@antdv-next/cssinjs` to disable the default lowering of specificity (please ensure version consistency with antd).
 
-```tsx
-import { StyleProvider } from '@antdv-next/cssinjs';
-
-// Config `hashPriority` to `high` instead of default `low`
-// Which will remove `:where` wrapper
-export default () => (
-  <StyleProvider hashPriority="high">
+```vue
+<template>
+  <!-- `hashPriority` defaults to `low`, when set to `high`, -->
+  <!-- it will remove the `:where` selector wrapper -->
+  <a-style-provider hashPriority="high">
     <MyApp />
-  </StyleProvider>
-);
+  </a-style-provider>
+</template>
 ```
 
 It will turn `:where` to class selector:
@@ -64,23 +62,25 @@ Raise priority through plugin:
 
 ## CSS Logical Properties
 
-- antdv-next version: `>=1.0.0`
-- MDN：[CSS Logical Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties)
+- Support Version: `>=1.0.0`
+- MDN: [CSS Logical Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties)
 - Browser Compatibility: [caniuse](https://caniuse.com/css-logical-props)
 - Minimum Chrome Version Supported: 89
 - Default Enabled: Yes
 
-To unify LTR and RTL styles, Antdv Next uses CSS logical properties. For example, the original `margin-left` is replaced by `margin-inline-start`, so that it is the starting position spacing under both LTR and RTL. If you need to be compatible with older browsers, you can configure `transformers` through the `StyleProvider` of `@antdv-next/cssinjs`:
+To unify LTR and RTL styles, Antdv Next uses CSS logical properties. For example, the original `margin-left` is replaced by `margin-inline-start`, so that it is the starting position spacing under both LTR and RTL. If you need to be compatible with older browsers (such as 360 Browser, QQ Browser, etc.), you can configure `transformers` through the `StyleProvider` of `@antdv-next/cssinjs`:
 
-```tsx
-import { legacyLogicalPropertiesTransformer, StyleProvider } from '@antdv-next/cssinjs';
+```vue
+<script lang="ts" setup>
+  import { legacyLogicalPropertiesTransformer } from '@antdv-next/cssinjs';
+</script>
 
-// `transformers` provides a way to transform CSS properties
-export default () => (
-  <StyleProvider transformers={[legacyLogicalPropertiesTransformer]}>
+<template>
+  <!-- `transformers` provides preprocessing to transform styles -->
+  <a-style-provider :transformers="[legacyLogicalPropertiesTransformer]">
     <MyApp />
-  </StyleProvider>
-);
+  </a-style-provider>
+</template>
 ```
 
 When toggled, styles will downgrade CSS logical properties:
@@ -95,27 +95,24 @@ When toggled, styles will downgrade CSS logical properties:
 }
 ```
 
-## `@layer`
+## `@layer` Specificity Lowering
 
-- antd version: `>=5.17.0`
-- MDN：[CSS @layer](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer)
-- Browser Compatibility: [caniuse](https://caniuse.com/css-at-rule-layer)
+- Support Version: `>=1.0.0`
+- MDN: [@layer](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer)
+- Browser Compatibility: [caniuse](https://caniuse.com/?search=%40layer)
 - Minimum Chrome Version Supported: 99
 - Default Enabled: No
 
-Antdv Next supports configuring `@layer` for unified css priority downgrade since `5.17.0`. After the downgrade, the style of antd will always be lower than the default CSS selector priority, so that users can override the style (please be sure to check the browser compatibility of `@layer`).When enable `layer`, the child element **must** wrap `ConfigProvider` to update the icon-related styles:
+Antdv Next supports configuring `@layer` for unified specificity lowering since `1.0.0`. After the downgrade, the style of antd will always be lower than the default CSS selector priority, so that users can override the style (please be sure to check the browser compatibility of `@layer`). When enable `layer`, the child element **must** wrap ConfigProvider to update the icon-related styles:
 
-```tsx
-import { StyleProvider } from '@antdv-next/cssinjs';
-import { ConfigProvider } from 'antd';
-
-export default () => (
-  <StyleProvider layer>
-    <ConfigProvider>
+```vue
+<template>
+  <a-style-provider layer>
+    <a-config-provider>
       <MyApp />
-    </ConfigProvider>
-  </StyleProvider>
-);
+    </a-config-provider>
+  </a-style-provider>
+</template>
 ```
 
 antd styles will be encapsulated in `@layer` to lower the priority:
@@ -150,20 +147,22 @@ If you cannot use the `@import ... layer()` syntax, you may wrap the content dur
 
 ## autoPrefixer
 
-- antd-next version: `>=1.0.0`
+- Support Version: `>=1.0.0`
 - Browser Compatibility: Automatically adds browser prefixes for wider browser support
 - Default Enabled: No
 
 Some styles rely on browser prefixes for compatibility. The `autoPrefixer` transformer can automatically add browser prefixes to styles, ensuring they work properly across different browsers.
 
-```tsx | pure
-import { autoPrefixTransformer, StyleProvider } from '@antdv-next/cssinjs';
+```vue
+<script lang="ts" setup>
+  import { autoPrefixTransformer } from '@antdv-next/cssinjs';
+</script>
 
-export default () => (
-  <StyleProvider transformers={[autoPrefixTransformer]}>
+<template>
+  <a-style-provider :transformers="[autoPrefixTransformer]">
     <MyApp />
-  </StyleProvider>
-);
+  </a-style-provider>
+</template>
 ```
 
 The final transformed styles:
@@ -182,18 +181,19 @@ The final transformed styles:
 
 In responsive web development, there is a need for a convenient and flexible way to achieve page adaptation and responsive design. The `px2remTransformer` transformer can quickly and accurately convert pixel units in style sheets to rem units relative to the root element (HTML tag), enabling the implementation of adaptive and responsive layouts.
 
-```tsx
-import { px2remTransformer, StyleProvider } from '@antdv-next/cssinjs';
+```vue
+<script lang="ts" setup>
+  import { px2remTransformer } from '@antdv-next/cssinjs';
+  const px2rem = px2remTransformer({
+    rootValue: 32, // 32px = 1rem; @default 16
+  });
+</script>
 
-const px2rem = px2remTransformer({
-  rootValue: 32, // 32px = 1rem; @default 16
-});
-
-export default () => (
-  <StyleProvider transformers={[px2rem]}>
+<template>
+  <a-style-provider :transformers="[px2rem]">
     <MyApp />
-  </StyleProvider>
-);
+  </a-style-provider>
+</template>
 ```
 
 The resulting transformed styles:
@@ -234,17 +234,16 @@ Since `<style />` tag insertion is different from normal DOM in Shadow DOM scena
 
 ```tsx
 import { StyleProvider } from '@antdv-next/cssinjs';
-import { createRoot } from 'react-dom/client';
-
+import { render } from "vue"
 const shadowRoot = someEle.attachShadow({ mode: 'open' });
 const container = document.createElement('div');
 shadowRoot.appendChild(container);
-const root = createRoot(container);
 
-root.render(
+render(
   <StyleProvider container={shadowRoot}>
     <MyApp />
   </StyleProvider>,
+  container
 );
 ```
 
@@ -256,16 +255,14 @@ In some cases, you may need antd to coexist with other style libraries, such as 
 
 As mentioned earlier, when using StyleProvider, you must wrap ConfigProvider to update icon-related styles:
 
-```tsx
-import { StyleProvider } from '@antdv-next/cssinjs';
-
-export default () => (
-  <StyleProvider layer>
-    <ConfigProvider>
+```vue
+<template>
+  <a-style-provider layer>
+    <a-config-provider>
       <MyApp />
-    </ConfigProvider>
-  </StyleProvider>
-);
+    </a-config-provider>
+  </a-style-provider>
+</template>
 ```
 
 ### TailwindCSS Arrange `@layer`
