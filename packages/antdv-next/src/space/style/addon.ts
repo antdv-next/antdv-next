@@ -131,14 +131,11 @@ const genSpaceAddonStyle: GenerateStyle<SpaceToken> = (token) => {
         '&-status-error': {
           [varName('addon-border-color-outlined')]: token.colorError,
           [varName('addon-background-filled')]: token.colorErrorBg,
-
           color: token.colorError,
         },
-
         '&-status-warning': {
           [varName('addon-border-color-outlined')]: token.colorWarning,
           [varName('addon-background-filled')]: token.colorWarningBg,
-
           color: token.colorWarning,
         },
       },

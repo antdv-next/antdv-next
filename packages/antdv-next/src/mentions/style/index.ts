@@ -111,7 +111,7 @@ const genDropdownStyle: GenerateStyle<MentionsToken> = (token) => {
             'fontWeight': 'normal',
             lineHeight,
             'cursor': 'pointer',
-            'transition': `background ${motionDurationSlow} ease`,
+            'transition': `background-color ${motionDurationSlow} ease`,
 
             '&:hover': {
               backgroundColor: controlItemBgHover,
@@ -145,9 +145,8 @@ const genDropdownStyle: GenerateStyle<MentionsToken> = (token) => {
 }
 
 const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
-  const { componentCls, calc, colorText, antCls, colorTextDisabled } = token
+  const { componentCls, colorText, antCls, colorTextDisabled, calc } = token
   const [varName, varRef] = genCssVar(antCls, 'cmp-mentions')
-
   return {
     [componentCls]: [
       // =========================== Common ===========================
@@ -304,7 +303,6 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
           },
         },
       },
-      // ============================ Size ============================
       {
         '&-lg': {
           [varName('padding-inline')]: token.paddingInlineLG,

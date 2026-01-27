@@ -213,7 +213,7 @@ export const useColStyle = genStyleHooks(
       genGridStyle(gridToken, ''),
       genGridStyle(gridToken, '-xs'),
       Object.keys(gridMediaSizesMap)
-        .map(key => genGridMediaStyle(gridToken, gridMediaSizesMap[key!]!, `-${key}`))
+        .map(key => genGridMediaStyle(gridToken, gridMediaSizesMap[key]!, `-${key}`))
         .reduce<CSSObject>((pre, cur) => ({ ...pre, ...cur }), {}),
     ]
   },

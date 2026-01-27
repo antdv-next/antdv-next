@@ -31,39 +31,6 @@ export interface ComponentToken {
 
 interface SplitterToken extends FullToken<'Splitter'> {}
 
-function genRtlStyle(token: SplitterToken): CSSObject {
-  const { componentCls } = token
-  return {
-    [`&-rtl${componentCls}-horizontal`]: {
-      [`> ${componentCls}-bar`]: {
-        [`${componentCls}-bar-collapse-previous`]: {
-          insetInlineEnd: 0,
-          insetInlineStart: 'unset',
-        },
-
-        [`${componentCls}-bar-collapse-next`]: {
-          insetInlineEnd: 'unset',
-          insetInlineStart: 0,
-        },
-      },
-    },
-
-    [`&-rtl${componentCls}-vertical`]: {
-      [`> ${componentCls}-bar`]: {
-        [`${componentCls}-bar-collapse-previous`]: {
-          insetInlineEnd: '50%',
-          insetInlineStart: 'unset',
-        },
-
-        [`${componentCls}-bar-collapse-next`]: {
-          insetInlineEnd: '50%',
-          insetInlineStart: 'unset',
-        },
-      },
-    },
-  }
-}
-
 const centerStyle: CSSObject = {
   position: 'absolute',
   top: '50%',
@@ -89,11 +56,11 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
     calc,
   } = token
 
+  const [, varRef] = genCssVar(antCls, 'splitter')
+
   const splitBarCls = `${componentCls}-bar`
   const splitMaskCls = `${componentCls}-mask`
   const splitPanelCls = `${componentCls}-panel`
-
-  const [, varRef] = genCssVar(antCls, 'splitter')
 
   const halfTriggerSize = calc(splitTriggerSize).div(2).equal()
 
@@ -408,8 +375,6 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
           overflow: 'hidden',
         },
       },
-
-      ...genRtlStyle(token),
     },
   }
 }

@@ -285,12 +285,12 @@ export default genStyleHooks(
   'Tour',
   (token) => {
     const { borderRadiusLG } = token
-    const TourToken = mergeToken<TourToken>(token, {
+    const tourToken = mergeToken<TourToken>(token, {
       indicatorWidth: 6,
       indicatorHeight: 6,
       tourBorderRadius: borderRadiusLG,
     })
-    return genBaseStyle(TourToken)
+    return genBaseStyle(tourToken)
   },
   prepareComponentToken,
 )

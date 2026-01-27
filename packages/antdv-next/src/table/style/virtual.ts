@@ -17,7 +17,7 @@ const genVirtualStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       [`${componentCls}-tbody-virtual`]: {
         [`${componentCls}-tbody-virtual-holder-inner`]: {
           [`
-            & > ${componentCls}-row, 
+            & > ${componentCls}-row,
             & > div:not(${componentCls}-row) > ${componentCls}-row
           `]: {
             display: 'flex',

@@ -156,20 +156,11 @@ export function genNoticeStyle(token: NotificationToken): CSSObject {
       'wordWrap': 'break-word',
       'borderRadius': borderRadiusLG,
       'overflow': 'hidden',
-
       // Type-specific background colors
-      '&-success': {
-        background: colorSuccessBg,
-      },
-      '&-error': {
-        background: colorErrorBg,
-      },
-      '&-info': {
-        background: colorInfoBg,
-      },
-      '&-warning': {
-        background: colorWarningBg,
-      },
+      '&-success': colorSuccessBg ? { background: colorSuccessBg } : {},
+      '&-error': colorErrorBg ? { background: colorErrorBg } : {},
+      '&-info': colorInfoBg ? { background: colorInfoBg } : {},
+      '&-warning': colorWarningBg ? { background: colorWarningBg } : {},
     },
 
     [`${noticeCls}-title`]: {
@@ -390,10 +381,13 @@ export function prepareComponentToken(token: AliasToken) {
     zIndexPopup: token.zIndexPopupBase + CONTAINER_MAX_OFFSET + 50,
     width: 384,
     progressBg: `linear-gradient(90deg, ${token.colorPrimaryBorderHover}, ${token.colorPrimary})`,
-    colorSuccessBg: token.colorSuccessBg,
-    colorErrorBg: token.colorErrorBg,
-    colorInfoBg: token.colorInfoBg,
-    colorWarningBg: token.colorWarningBg,
+    // Fix notification background color issue
+    // https://github.com/ant-design/ant-design/issues/55649
+    // https://github.com/ant-design/ant-design/issues/56055
+    colorSuccessBg: undefined,
+    colorErrorBg: undefined,
+    colorInfoBg: undefined,
+    colorWarningBg: undefined,
   }
 }
 

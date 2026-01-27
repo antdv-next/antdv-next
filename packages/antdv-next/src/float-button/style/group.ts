@@ -106,8 +106,7 @@ const genGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
 
         '&-bottom': {
           [listCls]: {
-            [varName('list-transform-start')]:
-              `translate(0, calc(${unit(floatButtonSize)} * -1))`,
+            [varName('list-transform-start')]: `translate(0, calc(${unit(floatButtonSize)} * -1))`,
             top: varRef('list-trigger-offset'),
           },
         },
@@ -121,8 +120,7 @@ const genGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
 
         '&-right': {
           [listCls]: {
-            [varName('list-transform-start')]:
-              `translate(calc(${unit(floatButtonSize)} * -1), 0)`,
+            [varName('list-transform-start')]: `translate(calc(${unit(floatButtonSize)} * -1), 0)`,
             left: varRef('list-trigger-offset'),
           },
         },

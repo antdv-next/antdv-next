@@ -1,5 +1,5 @@
 import type { CSSObject } from '@antdv-next/cssinjs'
-import type { CSSProperties, Ref } from 'vue'
+import type { ComputedRef, CSSProperties, Ref } from 'vue'
 import type { CssUtil } from '../../_util/motion.ts'
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal'
 import { FastColor } from '@ant-design/fast-color'
@@ -11,6 +11,7 @@ import getHorizontalStyle from './horizontal'
 import getRTLStyle from './rtl'
 import getThemeStyle from './theme'
 import getVerticalStyle from './vertical'
+
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
   /**
@@ -975,7 +976,7 @@ export const prepareComponentToken: GetDefaultToken<'Menu'> = (token) => {
 }
 
 // ============================== Export ==============================
-export default (prefixCls: Ref<string>, rootCls: Ref<string> = prefixCls, injectStyle = true) => {
+export default (prefixCls: ComputedRef<string>, rootCls: ComputedRef<string> = prefixCls, injectStyle = true) => {
   const useStyle = genStyleHooks(
     'Menu',
     (token) => {

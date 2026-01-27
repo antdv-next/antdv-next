@@ -155,7 +155,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
     },
 
     // Arrow Style
-    getArrowStyle(token, varRef('arrow-background-color')),
+    getArrowStyle<PopoverToken>(token, varRef('arrow-background-color')),
 
     // Pure Render
     {
@@ -172,7 +172,6 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
 const genColorStyle: GenerateStyle<PopoverToken> = (token) => {
   const { componentCls, antCls } = token
   const [varName] = genCssVar(antCls, 'tooltip')
-
   return {
     [componentCls]: PresetColors.map((colorKey: keyof PresetColorType) => {
       const lightColor = token[`${colorKey}6`]

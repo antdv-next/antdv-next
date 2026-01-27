@@ -10,7 +10,7 @@ import type {
 } from '../../theme/internal'
 import { unit } from '@antdv-next/cssinjs'
 import { getMediaSize } from '../../grid/style'
-import { genFocusStyle, resetComponent } from '../../style'
+import { genFocusOutline, genFocusStyle, resetComponent } from '../../style'
 import { initFadeMotion, initZoomMotion } from '../../style/motion'
 import { genStyleHooks, mergeToken } from '../../theme/internal'
 
@@ -231,13 +231,17 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
     {
       [componentCls]: {
         ...resetComponent(token),
-        pointerEvents: 'none',
-        position: 'relative',
-        top: 100,
-        width: 'auto',
-        maxWidth: `calc(100vw - ${unit(token.calc(token.margin).mul(2).equal())})`,
-        margin: '0 auto',
-        paddingBottom: token.paddingLG,
+        'pointerEvents': 'none',
+        'position': 'relative',
+        'top': 100,
+        'width': 'auto',
+        'maxWidth': `calc(100vw - ${unit(token.calc(token.margin).mul(2).equal())})`,
+        'margin': '0 auto',
+
+        '&:focus-visible': {
+          borderRadius: token.borderRadiusLG,
+          ...genFocusOutline(token),
+        },
 
         [`${componentCls}-title`]: {
           margin: 0,

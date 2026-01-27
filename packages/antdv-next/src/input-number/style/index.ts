@@ -17,7 +17,7 @@ import { prepareComponentToken } from './token'
 
 export type { ComponentToken }
 
-const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumberToken) => {
+const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
   const {
     componentCls,
     lineWidth,

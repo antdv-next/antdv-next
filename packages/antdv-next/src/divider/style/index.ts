@@ -201,34 +201,34 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
       },
 
       [`&-horizontal${componentCls}-with-text-start${componentCls}-no-default-orientation-margin-start`]:
-                {
-                  [`${railCls}-start`]: {
-                    width: 0,
-                  },
+        {
+          [`${railCls}-start`]: {
+            width: 0,
+          },
 
-                  [`${railCls}-end`]: {
-                    width: '100%',
-                  },
+          [`${railCls}-end`]: {
+            width: '100%',
+          },
 
-                  [`${componentCls}-inner-text`]: {
-                    paddingInlineStart: sizePaddingEdgeHorizontal,
-                  },
-                },
+          [`${componentCls}-inner-text`]: {
+            paddingInlineStart: sizePaddingEdgeHorizontal,
+          },
+        },
 
       [`&-horizontal${componentCls}-with-text-end${componentCls}-no-default-orientation-margin-end`]:
-                {
-                  [`${railCls}-start`]: {
-                    width: '100%',
-                  },
+        {
+          [`${railCls}-start`]: {
+            width: '100%',
+          },
 
-                  [`${railCls}-end`]: {
-                    width: 0,
-                  },
+          [`${railCls}-end`]: {
+            width: 0,
+          },
 
-                  [`${componentCls}-inner-text`]: {
-                    paddingInlineEnd: sizePaddingEdgeHorizontal,
-                  },
-                },
+          [`${componentCls}-inner-text`]: {
+            paddingInlineEnd: sizePaddingEdgeHorizontal,
+          },
+        },
     },
   }
 }
