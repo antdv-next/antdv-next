@@ -1,6 +1,9 @@
 export type InnerLocale = 'zh-CN' | 'en-US'
 
 export function detectInnerLocale(fallback: InnerLocale = 'zh-CN'): InnerLocale {
+  if (typeof navigator === 'undefined') {
+    return fallback
+  }
   const langs = [
     ...(navigator.languages ?? []),
     navigator.language,
