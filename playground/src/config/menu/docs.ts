@@ -50,6 +50,30 @@ export const docsMenuLocales = {
     'zh-CN': '通用属性',
     'en-US': 'Common Props',
   },
+  '/docs/vue/migration': {
+    'zh-CN': '迁移',
+    'en-US': 'Migration',
+  },
+  '/docs/vue/migration-antdv-next': {
+    'zh-CN': '从 Antdv 迁移到 Antdv Next',
+    'en-US': 'Migrating from Antdv to Antdv Next',
+  },
+  '/docs/vue/other': {
+    'zh-CN': '其他',
+    'en-US': 'Others',
+  },
+  '/docs/vue/awesome': {
+    'zh-CN': '社区生态',
+    'en-US': 'Awesome',
+  },
+  '/docs/vue/fqa': {
+    'zh-CN': '常见问题',
+    'en-US': 'FQA',
+  },
+  '/docs/vue/contributing': {
+    'zh-CN': '贡献指南',
+    'en-US': 'Contributing',
+  },
 }
 
 export const docsMenus: Record<string, AntdvMenuItem[]> = {
@@ -104,6 +128,36 @@ export const docsMenus: Record<string, AntdvMenuItem[]> = {
         {
           key: '/docs/vue/common-props',
           label: '通用属性',
+        },
+      ],
+    },
+    {
+      key: '/docs/vue/migration',
+      label: '迁移',
+      type: 'group',
+      children: [
+        {
+          key: '/docs/vue/migration-antdv-next',
+          label: '从 Antdv 迁移到 Antdv Next',
+        },
+      ],
+    },
+    {
+      key: '/docs/vue/other',
+      label: '其他',
+      type: 'group',
+      children: [
+        {
+          key: '/docs/vue/awesome',
+          label: '社区生态',
+        },
+        {
+          key: '/docs/vue/contributing',
+          label: '贡献指南',
+        },
+        {
+          key: '/docs/vue/fqa',
+          label: '常见问题',
         },
       ],
     },

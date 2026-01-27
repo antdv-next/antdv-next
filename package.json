@@ -8,6 +8,7 @@
     "lint": "eslint . --fix",
     "ci:publish": "pnpm publish -r --access=public",
     "bump": "pnpm changeset version",
+    "build:antdv": "pnpm -F antdv-next build",
     "build:llm": "pnpm -F antdv-next run build:llm",
     "build": "run-s build:llm build:site",
     "build:site": "cross-env NODE_OPTIONS=--max-old-space-size=8192 turbo build --filter playground"
