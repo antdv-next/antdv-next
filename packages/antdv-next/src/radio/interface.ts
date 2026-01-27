@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'vue'
 import type { Orientation, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { AbstractCheckboxProps, CheckboxEmits } from '../checkbox/Checkbox.tsx'
 import type { AbstractCheckboxGroupProps, CheckboxOptionType } from '../checkbox/Group.tsx'
@@ -50,9 +51,24 @@ export interface RadioGroupContextProps {
   optionType?: RadioGroupOptionType
   block?: boolean
 }
-type RadioSemanticName = 'root' | 'icon' | 'label'
-export type RadioClassNamesType = SemanticClassNamesType<RadioProps, RadioSemanticName>
-export type RadioStylesType = SemanticStylesType<RadioProps, RadioSemanticName>
+
+export type RadioSemanticName = keyof RadioSemanticClassNames & keyof RadioSemanticStyles
+
+export interface RadioSemanticClassNames {
+  root?: string
+  icon?: string
+  label?: string
+}
+
+export interface RadioSemanticStyles {
+  root?: CSSProperties
+  icon?: CSSProperties
+  label?: CSSProperties
+}
+
+export type RadioClassNamesType = SemanticClassNamesType<RadioProps, RadioSemanticClassNames>
+
+export type RadioStylesType = SemanticStylesType<RadioProps, RadioSemanticStyles>
 
 export interface RadioProps extends AbstractCheckboxProps {
   /**

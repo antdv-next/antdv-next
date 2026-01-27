@@ -1,9 +1,7 @@
 import type { PickerMode, PickerRef } from '@v-c/picker'
 import type { App, CSSProperties, SlotsType } from 'vue'
 import type {
-  SemanticClassNames,
   SemanticClassNamesType,
-  SemanticStyles,
   SemanticStylesType,
 } from '../_util/hooks'
 import type { InputStatus } from '../_util/statusUtils'
@@ -20,20 +18,54 @@ import DatePicker from '../date-picker'
 import useMergedPickerSemantic from '../date-picker/hooks/useMergedPickerSemantic'
 import { useVariants } from '../form/hooks/useVariant'
 
-export type PanelSemanticName = 'root' | 'content' | 'item' | 'footer' | 'container'
+export type TimePickerSemanticName = keyof TimePickerSemanticClassNames
+  & keyof TimePickerSemanticStyles
 
-type PickerSemanticName = 'root' | 'prefix' | 'input' | 'suffix'
+// import type { SemanticName } from '@rc-component/picker/interface';
+export interface TimePickerSemanticClassNames {
+  root?: string
+  prefix?: string
+  input?: string
+  suffix?: string
+}
+
+// import type { SemanticName } from '@rc-component/picker/interface';
+export interface TimePickerSemanticStyles {
+  root?: CSSProperties
+  prefix?: CSSProperties
+  input?: CSSProperties
+  suffix?: CSSProperties
+}
+
+export type TimePickerPanelSemanticName = keyof TimePickerPanelSemanticClassNames
+  & keyof TimePickerPanelSemanticStyles
+
+export interface TimePickerPanelSemanticClassNames {
+  root?: string
+  content?: string
+  item?: string
+  footer?: string
+  container?: string
+}
+
+export interface TimePickerPanelSemanticStyles {
+  root?: CSSProperties
+  content?: CSSProperties
+  item?: CSSProperties
+  footer?: CSSProperties
+  container?: CSSProperties
+}
 
 export type TimePickerClassNames = SemanticClassNamesType<
   TimePickerProps,
-  PickerSemanticName,
-  { popup?: string | SemanticClassNames<PanelSemanticName> }
+  TimePickerSemanticClassNames,
+  { popup?: string | TimePickerPanelSemanticClassNames }
 >
 
 export type TimePickerStyles = SemanticStylesType<
   TimePickerProps,
-  PickerSemanticName,
-  { popup?: SemanticStyles<PanelSemanticName> }
+  TimePickerSemanticStyles,
+  { popup?: TimePickerPanelSemanticStyles }
 >
 
 export interface PickerTimeProps<DateType extends AnyObject> extends Omit<PickerProps<DateType>, 'picker' | 'showTime'> {

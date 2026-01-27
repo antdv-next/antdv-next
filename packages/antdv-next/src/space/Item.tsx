@@ -1,5 +1,4 @@
-import type { SlotsType } from 'vue'
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks'
+import type { CSSProperties, SlotsType } from 'vue'
 import type { EmptyEmit } from '../_util/type.ts'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { defineComponent } from 'vue'
@@ -8,8 +7,12 @@ import { useSpaceContext } from './context.ts'
 export interface ItemProps {
   index: number
   className: string
-  classes: SemanticClassNames<'separator'>
-  styles: SemanticStyles<'separator'>
+  classes: {
+    separator?: string
+  }
+  styles: {
+    separator?: CSSProperties
+  }
 }
 
 export interface ItemSlots {

@@ -1,9 +1,14 @@
 import type { SelectProps as VcSelectProps } from '@v-c/select'
 import type { App, CSSProperties, SlotsType } from 'vue'
-import type { SemanticClassNames, SemanticClassNamesType, SemanticStyles, SemanticStylesType } from '../_util/hooks'
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { InputStatus } from '../_util/statusUtils'
 import type { VueNode } from '../_util/type'
-import type { InternalSelectProps, SelectProps } from '../select'
+import type {
+  InternalSelectProps,
+  SelectPopupSemanticClassNames,
+  SelectPopupSemanticStyles,
+  SelectProps,
+} from '../select'
 import { Option } from '@v-c/select'
 import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
@@ -19,7 +24,21 @@ import Select from '../select'
 
 export type AutoCompleteSemanticName = 'root' | 'prefix' | 'input' | 'placeholder' | 'content'
 
-type PopupSemantic = 'root' | 'listItem' | 'list'
+export interface AutoCompleteSemanticClassNames {
+  root?: string
+  prefix?: string
+  input?: string
+  placeholder?: string
+  content?: string
+}
+
+export interface AutoCompleteSemanticStyles {
+  root?: CSSProperties
+  prefix?: CSSProperties
+  input?: CSSProperties
+  placeholder?: CSSProperties
+  content?: CSSProperties
+}
 
 export interface DataSourceItemObject {
   value: string
@@ -30,14 +49,14 @@ export type DataSourceItemType = DataSourceItemObject | VueNode
 
 export type AutoCompleteClassNamesType = SemanticClassNamesType<
   AutoCompleteProps,
-  AutoCompleteSemanticName,
-  { popup?: SemanticClassNames<PopupSemantic> }
+  AutoCompleteSemanticClassNames,
+  { popup?: SelectPopupSemanticClassNames }
 >
 
 export type AutoCompleteStylesType = SemanticStylesType<
   AutoCompleteProps,
-  AutoCompleteSemanticName,
-  { popup?: SemanticStyles<PopupSemantic> }
+  AutoCompleteSemanticStyles,
+  { popup?: SelectPopupSemanticStyles }
 >
 
 type RcEventKeys
@@ -273,7 +292,7 @@ const InternalAutoComplete = defineComponent<
         popup: {
           root: {
             ...props.dropdownStyle,
-            ...mergedStyles.value.popup?.root,
+            ...mergedStyles?.value?.popup?.root,
           },
           list: mergedStyles.value.popup?.list,
           listItem: mergedStyles.value.popup?.listItem,

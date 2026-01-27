@@ -1,11 +1,11 @@
 import type { TableProps as VcTableProps } from '@v-c/table'
-import type { SlotsType } from 'vue'
-import type { SemanticClassNames, SemanticClassNamesType, SemanticStyles, SemanticStylesType } from '../_util/hooks'
+import type { CSSProperties, SlotsType } from 'vue'
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { Breakpoint } from '../_util/responsiveObserver.ts'
 import type { AnyObject, VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
 import type { SizeType } from '../config-provider/SizeContext'
-import type { PaginationSemanticName } from '../pagination/interface.ts'
+import type { PaginationSemanticClassNames, PaginationSemanticStyles } from '../pagination/interface.ts'
 import type { SpinProps } from '../spin'
 import type { FilterState } from './hooks/useFilter'
 import type { SortState } from './hooks/useSorter'
@@ -58,27 +58,56 @@ import { convertColumnsToColumnProps } from './utils.ts'
 
 const EMPTY_LIST: AnyObject[] = []
 
-export type TableSemanticName = 'section' | 'title' | 'footer' | 'content' | 'root'
+export type TableSemanticName = keyof TableSemanticClassNames & keyof TableSemanticStyles
 
-export type ComponentsSemantic = 'wrapper' | 'cell' | 'row'
+export interface TableSemanticClassNames {
+  root?: string
+  section?: string
+  title?: string
+  footer?: string
+  content?: string
+}
+
+export interface TableSemanticStyles {
+  root?: CSSProperties
+  section?: CSSProperties
+  title?: CSSProperties
+  footer?: CSSProperties
+  content?: CSSProperties
+}
+
+export type ComponentsSemantic = keyof ComponentsSemanticClassNames
+  & keyof ComponentsSemanticStyles
+
+export interface ComponentsSemanticClassNames {
+  wrapper?: string
+  cell?: string
+  row?: string
+}
+
+export interface ComponentsSemanticStyles {
+  wrapper?: CSSProperties
+  cell?: CSSProperties
+  row?: CSSProperties
+}
 
 export type TableClassNamesType<RecordType = AnyObject> = SemanticClassNamesType<
   TableProps<RecordType>,
-  TableSemanticName,
+  TableSemanticClassNames,
   {
-    body?: SemanticClassNames<ComponentsSemantic>
-    header?: SemanticClassNames<ComponentsSemantic>
-    pagination?: SemanticClassNames<PaginationSemanticName>
+    body?: ComponentsSemanticClassNames
+    header?: ComponentsSemanticClassNames
+    pagination?: PaginationSemanticClassNames
   }
 >
 
 export type TableStylesType<RecordType = AnyObject> = SemanticStylesType<
   TableProps<RecordType>,
-  TableSemanticName,
+  TableSemanticStyles,
   {
-    body?: SemanticStyles<ComponentsSemantic>
-    header?: SemanticStyles<ComponentsSemantic>
-    pagination?: SemanticStyles<PaginationSemanticName>
+    body?: ComponentsSemanticStyles
+    header?: ComponentsSemanticStyles
+    pagination?: PaginationSemanticStyles
   }
 >
 

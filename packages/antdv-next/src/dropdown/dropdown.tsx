@@ -1,6 +1,6 @@
 import type { MenuProps as VcMenuProps } from '@v-c/menu'
 import type { AlignType } from '@v-c/trigger'
-import type { App, SlotsType } from 'vue'
+import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { AdjustOverflow } from '../_util/placements'
 import type { ComponentBaseProps } from '../config-provider/context'
@@ -43,10 +43,30 @@ export interface DropdownArrowOptions {
   pointAtCenter?: boolean
 }
 
-type SemanticName = 'root' | 'item' | 'itemTitle' | 'itemIcon' | 'itemContent'
+export type DropdownSemanticName = keyof DropdownSemanticClassNames & keyof DropdownSemanticStyles
 
-export type DropdownClassNamesType = SemanticClassNamesType<DropdownProps, SemanticName>
-export type DropdownStylesType = SemanticStylesType<DropdownProps, SemanticName>
+export interface DropdownSemanticClassNames {
+  root?: string
+  item?: string
+  itemTitle?: string
+  itemIcon?: string
+  itemContent?: string
+}
+
+export interface DropdownSemanticStyles {
+  root?: CSSProperties
+  item?: CSSProperties
+  itemTitle?: CSSProperties
+  itemIcon?: CSSProperties
+  itemContent?: CSSProperties
+}
+
+export type DropdownClassNamesType = SemanticClassNamesType<
+  DropdownProps,
+  DropdownSemanticClassNames
+>
+
+export type DropdownStylesType = SemanticStylesType<DropdownProps, DropdownSemanticStyles>
 
 export interface DropdownProps extends ComponentBaseProps {
   classes?: DropdownClassNamesType
@@ -71,7 +91,7 @@ export interface DropdownProps extends ComponentBaseProps {
   mouseEnterDelay?: number
   mouseLeaveDelay?: number
   openClassName?: string
-  // children?: React.ReactNode;
+  // children?: ReactNode;
   autoAdjustOverflow?: boolean | AdjustOverflow
 }
 

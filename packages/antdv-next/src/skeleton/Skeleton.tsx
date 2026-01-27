@@ -1,4 +1,4 @@
-import type { App, SlotsType } from 'vue'
+import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { EmptyEmit } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context'
@@ -23,10 +23,33 @@ import Title from './Title'
 
 /* This only for skeleton internal. */
 type SkeletonAvatarProps = Omit<AvatarProps, 'active'>
-export type SemanticName = 'root' | 'header' | 'section' | 'avatar' | 'title' | 'paragraph'
 
-export type SkeletonClassNamesType = SemanticClassNamesType<SkeletonProps, SemanticName>
-export type SkeletonStylesType = SemanticStylesType<SkeletonProps, SemanticName>
+export type SkeletonSemanticName = keyof SkeletonSemanticClassNames & keyof SkeletonSemanticStyles
+
+export interface SkeletonSemanticClassNames {
+  root?: string
+  header?: string
+  section?: string
+  avatar?: string
+  title?: string
+  paragraph?: string
+}
+
+export interface SkeletonSemanticStyles {
+  root?: CSSProperties
+  header?: CSSProperties
+  section?: CSSProperties
+  avatar?: CSSProperties
+  title?: CSSProperties
+  paragraph?: CSSProperties
+}
+
+export type SkeletonClassNamesType = SemanticClassNamesType<
+  SkeletonProps,
+  SkeletonSemanticClassNames
+>
+
+export type SkeletonStylesType = SemanticStylesType<SkeletonProps, SkeletonSemanticStyles>
 
 export interface SkeletonProps extends ComponentBaseProps {
   active?: boolean

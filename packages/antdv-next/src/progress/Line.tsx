@@ -1,12 +1,12 @@
 import type { SlotsType } from 'vue'
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks'
 import type { EmptyEmit } from '../_util/type.ts'
 import type { DirectionType } from '../config-provider/context'
 import type {
   PercentPositionType,
   ProgressGradient,
   ProgressProps,
-  SemanticName,
+  ProgressSemanticClassNames,
+  ProgressSemanticStyles,
   StringGradients,
 } from './progress'
 import { presetPrimaryColors } from '@ant-design/colors'
@@ -21,8 +21,8 @@ export interface LineProps extends Omit<ProgressProps, 'classes' | 'styles'> {
   direction?: DirectionType
   strokeColor?: string | ProgressGradient
   percentPosition: PercentPositionType
-  classes: SemanticClassNames<SemanticName>
-  styles: SemanticStyles<SemanticName>
+  classes: ProgressSemanticClassNames
+  styles: ProgressSemanticStyles
 }
 
 /**

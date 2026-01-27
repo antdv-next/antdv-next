@@ -1,6 +1,6 @@
 import type { BasicDataNode, DataNode, TreeRef, TreeProps as VcTreeProps } from '@v-c/tree'
 import type { Key } from '@v-c/util/dist/type'
-import type { SlotsType } from 'vue'
+import type { CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { VueNode } from '../_util/type.ts'
 import { HolderOutlined } from '@antdv-next/icons'
@@ -119,9 +119,25 @@ interface DraggableConfig {
   nodeDraggable?: DraggableFn
 }
 
-export type TreeSemanticName = 'root' | 'item' | 'itemIcon' | 'itemTitle'
-export type TreeClassNamesType = SemanticClassNamesType<TreeProps, TreeSemanticName>
-export type TreeStylesType = SemanticStylesType<TreeProps, TreeSemanticName>
+export type TreeSemanticName = keyof TreeSemanticClassNames & keyof TreeSemanticStyles
+
+export interface TreeSemanticClassNames {
+  root?: string
+  item?: string
+  itemIcon?: string
+  itemTitle?: string
+}
+
+export interface TreeSemanticStyles {
+  root?: CSSProperties
+  item?: CSSProperties
+  itemIcon?: CSSProperties
+  itemTitle?: CSSProperties
+}
+
+export type TreeClassNamesType = SemanticClassNamesType<TreeProps, TreeSemanticClassNames>
+
+export type TreeStylesType = SemanticStylesType<TreeProps, TreeSemanticStyles>
 
 export interface TreeProps<T extends BasicDataNode = DataNode>
   extends Omit<

@@ -1,7 +1,8 @@
-import type { SlotsType } from 'vue'
+import type { CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNames, SemanticClassNamesType, SemanticSchema, SemanticStyles, SemanticStylesType } from '../_util/hooks'
 import type { VueNode } from '../_util/type'
 import type { ButtonSemanticName } from '../button'
+import type { ButtonSemanticClassNames, ButtonSemanticStyles } from '../button/Button.tsx'
 import type { ComponentBaseProps } from '../config-provider/context'
 import type { SizeType } from '../config-provider/SizeContext'
 import type { InputClassNamesType as BaseInputClassNamesType, InputEmits as BaseInputEmits, InputProps as BaseInputProps, InputStylesType as BaseInputStylesType, InputRef } from './Input'
@@ -26,14 +27,34 @@ const schema: SemanticSchema = {
   },
 }
 
-type SemanticName = 'root' | 'prefix' | 'suffix' | 'input' | 'count'
+export type InputSearchSemanticName = keyof InputSearchSemanticClassNames
+  & keyof InputSearchSemanticStyles
 
-export type InputSearchClassNamesType = SemanticClassNamesType<SearchProps, SemanticName> & {
-  button?: SemanticClassNames<ButtonSemanticName>
+export interface InputSearchSemanticClassNames {
+  root?: string
+  input?: string
+  prefix?: string
+  suffix?: string
+  count?: string
 }
 
-export type InputSearchStylesType = SemanticStylesType<SearchProps, SemanticName> & {
-  button?: SemanticStyles<ButtonSemanticName>
+export interface InputSearchSemanticStyles {
+  root?: CSSProperties
+  input?: CSSProperties
+  prefix?: CSSProperties
+  suffix?: CSSProperties
+  count?: CSSProperties
+}
+
+export type InputSearchClassNamesType = SemanticClassNamesType<
+  SearchProps,
+  InputSearchSemanticClassNames
+> & {
+  button?: ButtonSemanticClassNames
+}
+
+export type InputSearchStylesType = SemanticStylesType<SearchProps, InputSearchSemanticStyles> & {
+  button?: ButtonSemanticStyles
 }
 
 export interface SearchProps extends Omit<BaseInputProps, 'class' | 'style' | 'rootClass'>, ComponentBaseProps {

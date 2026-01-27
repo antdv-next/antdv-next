@@ -18,11 +18,23 @@ import useStyle from './style'
 
 export type SpaceSize = SizeType | number
 
-type SemanticName = 'root' | 'item' | 'separator'
+export type SpaceSemanticName = keyof SpaceSemanticClassNames & keyof SpaceSemanticStyles
 
-export type SpaceClassNamesType = SemanticClassNamesType<SpaceProps, SemanticName>
+export interface SpaceSemanticClassNames {
+  root?: string
+  item?: string
+  separator?: string
+}
 
-export type SpaceStylesType = SemanticStylesType<SpaceProps, SemanticName>
+export interface SpaceSemanticStyles {
+  root?: CSSProperties
+  item?: CSSProperties
+  separator?: CSSProperties
+}
+
+export type SpaceClassNamesType = SemanticClassNamesType<SpaceProps, SpaceSemanticClassNames>
+
+export type SpaceStylesType = SemanticStylesType<SpaceProps, SpaceSemanticStyles>
 
 export interface SpaceProps extends ComponentBaseProps {
   size?: SpaceSize | [SpaceSize, SpaceSize]

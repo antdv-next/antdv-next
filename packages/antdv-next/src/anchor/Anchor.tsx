@@ -1,5 +1,5 @@
 import type { Key } from '@v-c/util/dist/type'
-import type { App, SlotsType, VNodeChild } from 'vue'
+import type { App, CSSProperties, SlotsType, VNodeChild } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { SlotsDefineType } from '../_util/type.ts'
 import type { AffixProps } from '../affix'
@@ -41,9 +41,23 @@ interface Section {
 
 export type AnchorDirection = 'vertical' | 'horizontal'
 
-export type SemanticName = 'root' | 'item' | 'itemTitle' | 'indicator'
-export type AnchorClassNamesType = SemanticClassNamesType<AnchorProps, SemanticName>
-export type AnchorStylesType = SemanticStylesType<AnchorProps, SemanticName>
+export interface AnchorSemanticClassNames {
+  root?: string
+  item?: string
+  itemTitle?: string
+  indicator?: string
+}
+
+export interface AnchorSemanticStyles {
+  root?: CSSProperties
+  item?: CSSProperties
+  itemTitle?: CSSProperties
+  indicator?: CSSProperties
+}
+
+export type AnchorClassNamesType = SemanticClassNamesType<AnchorProps, AnchorSemanticClassNames>
+
+export type AnchorStylesType = SemanticStylesType<AnchorProps, AnchorSemanticStyles>
 
 export interface AnchorProps extends ComponentBaseProps {
   classes?: AnchorClassNamesType

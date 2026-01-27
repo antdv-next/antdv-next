@@ -1,5 +1,5 @@
 import type { ValueType, InputNumberProps as VcInputNumberProps, InputNumberRef as VcInputNumberRef } from '@v-c/input-number'
-import type { App, SlotsType } from 'vue'
+import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { InputStatus } from '../_util/statusUtils'
 import type { VueNode } from '../_util/type'
@@ -25,15 +25,33 @@ import { SpaceAddon, SpaceCompact } from '../space'
 import { useCompactItemContext } from '../space/Compact.tsx'
 import useStyle from './style'
 
-type SemanticName = 'root' | 'prefix' | 'suffix' | 'input' | 'actions'
+export type InputNumberSemanticName = keyof InputNumberSemanticClassNames
+  & keyof InputNumberSemanticStyles
+
+export interface InputNumberSemanticClassNames {
+  root?: string
+  prefix?: string
+  suffix?: string
+  input?: string
+  actions?: string
+}
+
+export interface InputNumberSemanticStyles {
+  root?: CSSProperties
+  prefix?: CSSProperties
+  suffix?: CSSProperties
+  input?: CSSProperties
+  actions?: CSSProperties
+}
 
 export type InputNumberClassNamesType = SemanticClassNamesType<
   InputNumberProps,
-  SemanticName
+  InputNumberSemanticClassNames
 >
+
 export type InputNumberStylesType = SemanticStylesType<
   InputNumberProps,
-  SemanticName
+  InputNumberSemanticStyles
 >
 
 export interface InputNumberStepContext {

@@ -1,7 +1,7 @@
 import type { placements as Placements, TooltipProps as VcTooltipProps } from '@v-c/tooltip'
 import type { ActionType, AlignType } from '@v-c/trigger'
 import type { LiteralUnion } from '@v-c/util/dist/type'
-import type { App, SlotsType } from 'vue'
+import type { App, CSSProperties, SlotsType } from 'vue'
 import type { PresetColorType } from '../_util/colors.ts'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { AdjustOverflow } from '../_util/placements.ts'
@@ -13,8 +13,7 @@ import { filterEmpty, removeUndefined } from '@v-c/util/dist/props-util'
 import { getTransitionName } from '@v-c/util/dist/utils/transition'
 import { computed, createVNode, defineComponent, isVNode, shallowRef, watchEffect } from 'vue'
 import { ContextIsolator } from '../_util/ContextIsolator.tsx'
-import { useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
-import { useZIndex } from '../_util/hooks/useZIndex.ts'
+import { useMergeSemantic, useToArr, useToProps, useZIndex } from '../_util/hooks'
 import getPlacements from '../_util/placements.ts'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { ZIndexProvider } from '../_util/zindexContext.ts'
@@ -63,11 +62,23 @@ export interface TooltipAlignConfig {
   useCssTransform?: boolean
 }
 
-export type SemanticName = 'root' | 'container' | 'arrow'
+export type TooltipSemanticName = keyof TooltipSemanticClassNames & keyof TooltipSemanticStyles
 
-export type TooltipClassNamesType = SemanticClassNamesType<TooltipProps, SemanticName>
+export interface TooltipSemanticClassNames {
+  root?: string
+  container?: string
+  arrow?: string
+}
 
-export type TooltipStylesType = SemanticStylesType<TooltipProps, SemanticName>
+export interface TooltipSemanticStyles {
+  root?: CSSProperties
+  container?: CSSProperties
+  arrow?: CSSProperties
+}
+
+export type TooltipClassNamesType = SemanticClassNamesType<TooltipProps, TooltipSemanticClassNames>
+
+export type TooltipStylesType = SemanticStylesType<TooltipProps, TooltipSemanticStyles>
 
 export interface TriggerCommonApi extends ComponentBaseProps {
   align?: AlignType
@@ -141,8 +152,9 @@ const InternalTooltip = defineComponent<
       style: contextStyle,
       classes: contextClassNames,
       styles: contextStyles,
+      trigger: contextTrigger,
       getPopupContainer: getContextPopupContainer,
-    } = useComponentBaseConfig('tooltip', props, ['arrow'])
+    } = useComponentBaseConfig('tooltip', props, ['arrow', 'trigger'])
     const {
       arrow: tooltipArrow,
       builtinPlacements,
@@ -151,6 +163,7 @@ const InternalTooltip = defineComponent<
       styles,
     } = toPropsRefs(props, 'arrow', 'builtinPlacements', 'autoAdjustOverflow', 'classes', 'styles')
     const mergedArrow = useMergedArrow(tooltipArrow, contextArrow)
+    const mergedTrigger = computed(() => props?.trigger ?? contextTrigger.value ?? 'hover')
     const mergedShowArrow = computed(() => mergedArrow.value?.show)
     // ============================== Ref ===============================
     const tooltipRef = shallowRef()
@@ -198,7 +211,10 @@ const InternalTooltip = defineComponent<
 
     // =========== Merged Props for Semantic ===========
     const mergedProps = computed(() => {
-      return props
+      return {
+        ...props,
+        trigger: mergedTrigger.value,
+      } as TooltipProps
     })
 
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
@@ -269,6 +285,7 @@ const InternalTooltip = defineComponent<
           unique
           {...removeUndefined(restProps)}
           {...attrs}
+          trigger={contextTrigger.value}
           zIndex={zIndex.value}
           showArrow={mergedShowArrow.value}
           placement={placement}

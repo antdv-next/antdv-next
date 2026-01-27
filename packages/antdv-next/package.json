@@ -155,6 +155,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@types/throttle-debounce": "catalog:types"
+    "@types/throttle-debounce": "catalog:types",
+    "csstype": "catalog:prod"
   }
 }

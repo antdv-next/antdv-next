@@ -1,6 +1,6 @@
 import type { SelectProps as VcSelectProps } from '@v-c/select'
 import type { App, CSSProperties, SlotsType } from 'vue'
-import type { SemanticClassNames, SemanticClassNamesType, SemanticStyles, SemanticStylesType } from '../_util/hooks'
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { SelectCommonPlacement } from '../_util/motion'
 import type { InputStatus } from '../_util/statusUtils'
 import type { VueNode } from '../_util/type'
@@ -66,25 +66,60 @@ export interface InternalSelectProps
    * @default "outlined"
    */
   variant?: Variant
-  classes?: SemanticClassNames<SemanticName> & { popup?: SemanticClassNames<PopupSemantic> }
-  styles?: SemanticStyles<SemanticName> & { popup?: SemanticStyles<PopupSemantic> }
+  styles?: SelectStylesType
+  classes?: SelectClassNamesType
 }
 
-type SemanticName = 'root' | 'prefix' | 'suffix'
+export interface SelectSemanticClassNames {
+  root?: string
+  prefix?: string
+  suffix?: string
+  input?: string
+  placeholder?: string
+  content?: string
+  item?: string
+  itemContent?: string
+  itemRemove?: string
+  clear?: string
+}
 
-type PopupSemantic = 'root' | 'listItem' | 'list'
+export interface SelectSemanticStyles {
+  root?: CSSProperties
+  prefix?: CSSProperties
+  suffix?: CSSProperties
+  input?: CSSProperties
+  placeholder?: CSSProperties
+  content?: CSSProperties
+  item?: CSSProperties
+  itemContent?: CSSProperties
+  itemRemove?: CSSProperties
+  clear?: CSSProperties
+}
+
+export interface SelectPopupSemanticClassNames {
+  root?: string
+  listItem?: string
+  list?: string
+}
+
+export interface SelectPopupSemanticStyles {
+  root?: CSSProperties
+  listItem?: CSSProperties
+  list?: CSSProperties
+}
 
 export type SelectClassNamesType = SemanticClassNamesType<
   SelectProps,
-  SemanticName,
-  { popup?: SemanticClassNames<PopupSemantic> }
+  SelectSemanticClassNames,
+  { popup?: SelectPopupSemanticClassNames }
 >
 
 export type SelectStylesType = SemanticStylesType<
   SelectProps,
-  SemanticName,
-  { popup?: SemanticStyles<PopupSemantic> }
+  SelectSemanticStyles,
+  { popup?: SelectPopupSemanticStyles }
 >
+
 type RcEventKeys
   = | 'onClear'
     | 'onKeyUp'
@@ -112,6 +147,8 @@ export interface SelectProps
     | 'placement'
     | 'dropdownClassName'
     | 'dropdownStyle'
+    | 'classes'
+    | 'styles'
     | RcEventKeys>
 {
   placement?: SelectCommonPlacement

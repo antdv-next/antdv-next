@@ -26,21 +26,37 @@ type RcIconRenderTypeInfo = Parameters<NonNullable<VcStepsProps['iconRender']>>[
 
 export type IconRenderType = (params: { oriNode: any, info: Pick<RcIconRenderTypeInfo, 'index' | 'active' | 'item' | 'components'> }) => any
 
-export type StepsSemanticName
-  = | 'root'
-    | 'item'
-    | 'itemWrapper'
-    | 'itemIcon'
-    | 'itemSection'
-    | 'itemHeader'
-    | 'itemTitle'
-    | 'itemSubtitle'
-    | 'itemContent'
-    | 'itemRail'
+export type StepsSemanticName = keyof StepsSemanticClassNames & keyof StepsSemanticStyles
 
-export type StepsClassNamesType = SemanticClassNamesType<StepsProps, StepsSemanticName>
+export interface StepsSemanticClassNames {
+  root?: string
+  item?: string
+  itemWrapper?: string
+  itemIcon?: string
+  itemSection?: string
+  itemHeader?: string
+  itemTitle?: string
+  itemSubtitle?: string
+  itemContent?: string
+  itemRail?: string
+}
 
-export type StepsStylesType = SemanticStylesType<StepsProps, StepsSemanticName>
+export interface StepsSemanticStyles {
+  root?: CSSProperties
+  item?: CSSProperties
+  itemWrapper?: CSSProperties
+  itemIcon?: CSSProperties
+  itemSection?: CSSProperties
+  itemHeader?: CSSProperties
+  itemTitle?: CSSProperties
+  itemSubtitle?: CSSProperties
+  itemContent?: CSSProperties
+  itemRail?: CSSProperties
+}
+
+export type StepsClassNamesType = SemanticClassNamesType<StepsProps, StepsSemanticClassNames>
+
+export type StepsStylesType = SemanticStylesType<StepsProps, StepsSemanticStyles>
 
 export interface StepItem {
   class?: string

@@ -1,4 +1,4 @@
-import type { HTMLAttributes, SlotsType } from 'vue'
+import type { CSSProperties, HTMLAttributes, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../../_util/hooks'
 import type { InputStatus } from '../../_util/statusUtils'
 import type { VueNode } from '../../_util/type'
@@ -19,10 +19,21 @@ import OTPInput from './OTPInput'
 
 const strToArr = (str: string) => (str || '').split('')
 
-export type OTPSemanticName = 'root' | 'input' | 'separator'
+export interface OTPSemanticClassNames {
+  root?: string
+  input?: string
+  separator?: string
+}
 
-export type OTPClassNamesType = SemanticClassNamesType<OTPProps, OTPSemanticName>
-export type OTPStylesType = SemanticStylesType<OTPProps, OTPSemanticName>
+export interface OTPSemanticStyles {
+  root?: CSSProperties
+  input?: CSSProperties
+  separator?: CSSProperties
+}
+
+export type OTPClassNamesType = SemanticClassNamesType<OTPProps, OTPSemanticClassNames>
+
+export type OTPStylesType = SemanticStylesType<OTPProps, OTPSemanticStyles>
 
 export interface OTPProps extends ComponentBaseProps,
   /* @vue-ignore */

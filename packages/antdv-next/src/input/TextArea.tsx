@@ -1,6 +1,6 @@
 import type { InputProps } from '@v-c/input'
 import type { TextAreaProps as VcTextAreaProps } from '@v-c/textarea'
-import type { SlotsType } from 'vue'
+import type { CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { InputStatus } from '../_util/statusUtils'
 import type { ComponentBaseProps, Variant } from '../config-provider/context'
@@ -24,10 +24,26 @@ import { useCompactItemContext } from '../space/Compact.tsx'
 import { useSharedStyle } from './style'
 import useStyle from './style/textarea'
 
-type SemanticName = 'root' | 'textarea' | 'count'
+export type TextAreaSemanticName = keyof TextAreaSemanticClassNames & keyof TextAreaSemanticStyles
 
-export type TextAreaClassNamesType = SemanticClassNamesType<TextAreaProps, SemanticName>
-export type TextAreaStylesType = SemanticStylesType<TextAreaProps, SemanticName>
+export interface TextAreaSemanticClassNames {
+  root?: string
+  textarea?: string
+  count?: string
+}
+
+export interface TextAreaSemanticStyles {
+  root?: CSSProperties
+  textarea?: CSSProperties
+  count?: CSSProperties
+}
+
+export type TextAreaClassNamesType = SemanticClassNamesType<
+  TextAreaProps,
+  TextAreaSemanticClassNames
+>
+
+export type TextAreaStylesType = SemanticStylesType<TextAreaProps, TextAreaSemanticStyles>
 
 export interface TextAreaRef {
   resizableTextArea?: any

@@ -1,4 +1,4 @@
-import type { SlotsType } from 'vue'
+import type { CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { ComponentBaseProps, Variant } from '../config-provider/context'
 import type { SizeType } from '../config-provider/SizeContext.tsx'
@@ -43,10 +43,23 @@ export type FormItemLayout = 'horizontal' | 'vertical'
 
 export type { ScrollFocusOptions }
 
-export type FormSemanticName = 'root' | 'label' | 'content'
+export type FormSemanticName = keyof FormSemanticClassNames & keyof FormSemanticStyles
 
-export type FormClassNamesType = SemanticClassNamesType<FormProps, FormSemanticName>
-export type FormStylesType = SemanticStylesType<FormProps, FormSemanticName>
+export interface FormSemanticClassNames {
+  root?: string
+  label?: string
+  content?: string
+}
+
+export interface FormSemanticStyles {
+  root?: CSSProperties
+  label?: CSSProperties
+  content?: CSSProperties
+}
+
+export type FormClassNamesType = SemanticClassNamesType<FormProps, FormSemanticClassNames>
+
+export type FormStylesType = SemanticStylesType<FormProps, FormSemanticStyles>
 
 export interface FormProps extends ComponentBaseProps {
   classes?: FormClassNamesType

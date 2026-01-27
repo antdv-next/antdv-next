@@ -10,8 +10,10 @@ Auto adjust Popup and arrow position when Popover is close to the edge of the sc
 import { onMounted } from 'vue'
 
 onMounted(() => {
-  document.documentElement.scrollTop = document.documentElement.clientHeight
-  document.documentElement.scrollLeft = document.documentElement.clientWidth
+  setTimeout(() => {
+    document.documentElement.scrollTop = document.documentElement.clientHeight
+    document.documentElement.scrollLeft = document.documentElement.clientWidth
+  }, 10)
 })
 </script>
 

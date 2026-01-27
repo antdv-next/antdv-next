@@ -2,18 +2,36 @@ import type { CSSProperties } from 'vue'
 // ================ outside ================
 import type {
   Orientation,
-  SemanticClassNames,
   SemanticClassNamesType,
-  SemanticStyles,
   SemanticStylesType,
 } from '../_util/hooks'
 import type { VueNode } from '../_util/type'
 import type { ComponentBaseProps } from '../config-provider/context'
 import type { ShowCollapsibleIconMode } from './SplitBar'
 
-export type DraggerSemantic = 'default' | 'active'
+export type SplitterSemanticName = keyof SplitterSemanticClassNames & keyof SplitterSemanticStyles
 
-export type SplitterSemanticName = 'root' | 'panel'
+export interface SplitterSemanticClassNames {
+  root?: string
+  panel?: string
+}
+
+export interface SplitterSemanticStyles {
+  root?: CSSProperties
+  panel?: CSSProperties
+}
+
+export type DraggerSemantic = keyof DraggerSemanticClassNames & keyof DraggerSemanticStyles
+
+export interface DraggerSemanticClassNames {
+  default?: string
+  active?: string
+}
+
+export interface DraggerSemanticStyles {
+  default?: CSSProperties
+  active?: CSSProperties
+}
 
 export interface SplitterSemanticDraggerClassNames {
   default?: string
@@ -22,14 +40,14 @@ export interface SplitterSemanticDraggerClassNames {
 
 export type SplitterClassNamesType = SemanticClassNamesType<
   SplitterProps,
-  SplitterSemanticName,
-  { dragger?: string | SemanticClassNames<DraggerSemantic> }
+  SplitterSemanticClassNames,
+  { dragger?: string | DraggerSemanticClassNames }
 >
 
 export type SplitterStylesType = SemanticStylesType<
   SplitterProps,
-  SplitterSemanticName,
-  { dragger?: CSSProperties | SemanticStyles<DraggerSemantic> }
+  SplitterSemanticStyles,
+  { dragger?: CSSProperties | DraggerSemanticStyles }
 >
 
 export interface SplitterProps extends ComponentBaseProps {

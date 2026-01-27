@@ -24,10 +24,23 @@ import StatusCmp from './style/statusCmp.ts'
 
 export type { CheckableTagProps } from './CheckableTag.tsx'
 
-export type TagSemanticName = 'root' | 'icon' | 'content'
+export type TagSemanticName = keyof TagSemanticClassNames & keyof TagSemanticStyles
 
-export type TagClassNamesType = SemanticClassNamesType<TagProps, TagSemanticName>
-export type TagStylesType = SemanticStylesType<TagProps, TagSemanticName>
+export interface TagSemanticClassNames {
+  root?: string
+  icon?: string
+  content?: string
+}
+
+export interface TagSemanticStyles {
+  root?: CSSProperties
+  icon?: CSSProperties
+  content?: CSSProperties
+}
+
+export type TagClassNamesType = SemanticClassNamesType<TagProps, TagSemanticClassNames>
+
+export type TagStylesType = SemanticStylesType<TagProps, TagSemanticStyles>
 
 export interface TagProps extends ComponentBaseProps {
   color?: LiteralUnion<PresetColorType | PresetStatusColorType>

@@ -1,4 +1,3 @@
-import type { CSSProperties } from 'vue'
 import { classNames } from '@v-c/util'
 import { omit } from 'es-toolkit'
 import { defineComponent } from 'vue'

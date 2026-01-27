@@ -1,7 +1,7 @@
-import type { App, SlotsType } from 'vue'
+import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { VueNode } from '../_util/type'
-import type { TooltipEmits, TooltipProps, TooltipRef, SemanticName as TooltipSemanticName } from '../tooltip'
+import type { TooltipEmits, TooltipProps, TooltipRef, TooltipSemanticClassNames, TooltipSemanticStyles } from '../tooltip'
 import { clsx } from '@v-c/util'
 import KeyCode from '@v-c/util/dist/KeyCode'
 import { filterEmpty, removeUndefined } from '@v-c/util/dist/props-util'
@@ -21,11 +21,21 @@ import PurePanel, { Overlay } from './PurePanel.tsx'
 // CSSINJS
 import useStyle from './style'
 
-export type PopoverSemanticName = TooltipSemanticName | 'title' | 'content'
+export type PopoverSemanticName = keyof PopoverSemanticClassNames & keyof PopoverSemanticStyles
 
-export type PopoverClassNamesType = SemanticClassNamesType<PopoverProps, PopoverSemanticName>
+export type PopoverSemanticClassNames = TooltipSemanticClassNames & {
+  title?: string
+  content?: string
+}
 
-export type PopoverStylesType = SemanticStylesType<PopoverProps, PopoverSemanticName>
+export type PopoverSemanticStyles = TooltipSemanticStyles & {
+  title?: CSSProperties
+  content?: CSSProperties
+}
+
+export type PopoverClassNamesType = SemanticClassNamesType<PopoverProps, PopoverSemanticClassNames>
+
+export type PopoverStylesType = SemanticStylesType<PopoverProps, PopoverSemanticStyles>
 
 export interface PopoverProps extends TooltipProps {
   title?: VueNode
@@ -49,7 +59,6 @@ export interface PopoverSlots {
 
 const defaults = {
   placement: 'top',
-  trigger: 'hover',
   mouseEnterDelay: 0.1,
   mouseLeaveDelay: 0.1,
 } as any
@@ -67,12 +76,14 @@ const InternalPopover = defineComponent<
       classes: contextClassNames,
       styles: contextStyles,
       arrow: contextArrow,
+      trigger: contextTrigger,
       prefixCls,
-    } = useComponentBaseConfig('popover', props, ['arrow'])
+    } = useComponentBaseConfig('popover', props, ['arrow', 'trigger'])
     const { arrow: popoverArrow, classes, styles } = toPropsRefs(props, 'arrow', 'classes', 'styles')
     const rootCls = computed(() => getPrefixCls())
     const [hashId, cssVarCls] = useStyle(prefixCls)
     const mergedArrow = useMergedArrow(popoverArrow, contextArrow)
+    const mergedTrigger = computed(() => props?.trigger ?? contextTrigger.value ?? 'hover')
     const popoverRef = shallowRef()
 
     const forceAlign = () => {
@@ -87,6 +98,7 @@ const InternalPopover = defineComponent<
     // ============================= Styles =============================
     const mergedProps = computed(() => ({
       ...props,
+      trigger: mergedTrigger.value,
     }))
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       PopoverClassNamesType,
@@ -123,7 +135,6 @@ const InternalPopover = defineComponent<
       const children = filterEmpty(slots?.default?.() ?? [])?.[0]
       const {
         placement,
-        trigger,
         mouseLeaveDelay,
         mouseEnterDelay,
         motion,
@@ -143,7 +154,7 @@ const InternalPopover = defineComponent<
           unique={false}
           arrow={mergedArrow.value}
           placement={placement}
-          trigger={trigger}
+          trigger={mergedTrigger.value}
           mouseLeaveDelay={mouseLeaveDelay}
           mouseEnterDelay={mouseEnterDelay}
           {...removeUndefined(restProps)}

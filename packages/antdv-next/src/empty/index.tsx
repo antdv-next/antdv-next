@@ -1,4 +1,4 @@
-import type { App, SlotsType } from 'vue'
+import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { EmptyEmit, VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
@@ -20,11 +20,28 @@ export interface TransferLocale {
 const defaultEmptyImg = <DefaultEmptyImg />
 const simpleEmptyImg = <SimpleEmptyImg />
 
-export type SemanticName = 'root' | 'image' | 'description' | 'footer'
-export type EmptySemanticName = 'root' | 'image' | 'description' | 'footer'
+export type EmptySemanticName = keyof EmptySemanticClassNames & keyof EmptySemanticStyles
 
-export type EmptyClassNamesType = SemanticClassNamesType<EmptyProps, EmptySemanticName>
-export type EmptyStylesType = SemanticStylesType<EmptyProps, EmptySemanticName>
+export interface EmptySemanticClassNames {
+  root?: string
+  image?: string
+  description?: string
+  footer?: string
+}
+
+export interface EmptySemanticStyles {
+  root?: CSSProperties
+  image?: CSSProperties
+  description?: CSSProperties
+  footer?: CSSProperties
+}
+
+export type EmptyClassNamesType = SemanticClassNamesType<EmptyProps, EmptySemanticClassNames>
+
+export type EmptyStylesType = SemanticStylesType<EmptyProps, EmptySemanticStyles>
+
+// For backward compatibility
+export type SemanticName = EmptySemanticName
 
 export interface EmptyProps extends ComponentBaseProps {
   classes?: EmptyClassNamesType

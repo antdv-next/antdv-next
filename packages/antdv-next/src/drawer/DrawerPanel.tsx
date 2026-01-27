@@ -12,22 +12,39 @@ import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { useComponentBaseConfig } from '../config-provider/context'
 import Skeleton from '../skeleton'
 
-export type SemanticName
-  = | 'root'
-    | 'mask'
-    | 'header'
-    | 'title'
-    | 'extra'
-    | 'section'
-    | 'body'
-    | 'footer'
-    | 'wrapper'
-    | 'dragger'
-    | 'close'
+export type DrawerSemanticName = keyof DrawerSemanticClassNames & keyof DrawerSemanticStyles
 
-export type DrawerClassNamesType = SemanticClassNamesType<DrawerProps, SemanticName>
+export interface DrawerSemanticClassNames {
+  root?: string
+  mask?: string
+  header?: string
+  title?: string
+  extra?: string
+  section?: string
+  body?: string
+  footer?: string
+  wrapper?: string
+  dragger?: string
+  close?: string
+}
 
-export type DrawerStylesType = SemanticStylesType<DrawerProps, SemanticName>
+export interface DrawerSemanticStyles {
+  root?: CSSProperties
+  mask?: CSSProperties
+  header?: CSSProperties
+  title?: CSSProperties
+  extra?: CSSProperties
+  section?: CSSProperties
+  body?: CSSProperties
+  footer?: CSSProperties
+  wrapper?: CSSProperties
+  dragger?: CSSProperties
+  close?: CSSProperties
+}
+
+export type DrawerClassNamesType = SemanticClassNamesType<DrawerProps, DrawerSemanticClassNames>
+
+export type DrawerStylesType = SemanticStylesType<DrawerProps, DrawerSemanticStyles>
 
 export interface DrawerPanelProps {
   prefixCls: string
@@ -93,11 +110,11 @@ const DrawerPanel = defineComponent<DrawerPanelProps>(
 
     const closablePlacement = computed<'start' | 'end' | undefined>(
       () => {
-        const mergedClosableVal = props?.closable ?? contextClosable.value
-        if (mergedClosableVal === false) {
+        const merged = props?.closable ?? contextClosable.value
+        if (merged === false) {
           return undefined
         }
-        if (typeof mergedClosableVal === 'object' && mergedClosableVal && mergedClosableVal.placement === 'end') {
+        if (typeof merged === 'object' && merged.placement === 'end') {
           return 'end'
         }
         return 'start'
@@ -125,22 +142,30 @@ const DrawerPanel = defineComponent<DrawerPanelProps>(
       )
     }
 
-    const closableInfo = useClosable(pickClosable(computed(() => {
-      return {
-        closable: props.closable,
-        closeIcon: slots?.closeIcon ?? props.closeIcon,
-      }
-    })) as any, pickClosable(computed(() => {
-      return {
-        closable: contextClosable.value,
-        closeIcon: contextCloseIcon.value,
-      }
-    })) as any, computed(() => {
-      return {
-        closable: true,
-        closeIconRender: customCloseIconRender,
-      }
-    }) as any)
+    const closableInfo = useClosable(
+      pickClosable(
+        computed(() => {
+          return {
+            closable: props.closable,
+            closeIcon: slots?.closeIcon ?? props.closeIcon,
+          }
+        }),
+      ) as any,
+      pickClosable(
+        computed(() => {
+          return {
+            closable: contextClosable.value,
+            closeIcon: contextCloseIcon.value,
+          }
+        }),
+      ) as any,
+      computed(() => {
+        return {
+          closable: true,
+          closeIconRender: customCloseIconRender,
+        }
+      }) as any,
+    )
     return () => {
       const {
         headerStyle,

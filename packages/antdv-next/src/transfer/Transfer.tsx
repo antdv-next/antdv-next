@@ -1,5 +1,13 @@
 import type { SlotsType } from 'vue'
-import type { TransferDirection, TransferEmits, TransferKey, TransferProps, TransferSlots } from './interface'
+import type {
+  TransferClassNamesType,
+  TransferDirection,
+  TransferEmits,
+  TransferKey,
+  TransferProps,
+  TransferSlots,
+  TransferStylesType,
+} from './interface'
 import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { computed, defineComponent } from 'vue'
@@ -295,7 +303,11 @@ const Transfer = defineComponent<
     const hasFeedback = computed(() => formItemInputContext.value.hasFeedback)
     const mergedStatus = computed(() => getMergedStatus(formItemInputContext.value.status, props.status))
 
-    const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    const [mergedClassNames, mergedStyles] = useMergeSemantic<
+      TransferClassNamesType,
+      TransferStylesType,
+      TransferProps
+    >(
       useToArr(contextClassNames, classes),
       useToArr(contextStyles, styles),
       useToProps(mergedProps),
@@ -404,7 +416,7 @@ const Transfer = defineComponent<
           <Section
             prefixCls={prefixCls.value}
             style={handleListStyle('left')}
-            classNames={mergedClassNames.value}
+            classes={mergedClassNames.value}
             styles={mergedStyles.value}
             titleText={leftTitle}
             dataSource={leftDataSource.value as any}

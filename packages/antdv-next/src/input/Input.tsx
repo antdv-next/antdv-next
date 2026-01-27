@@ -1,5 +1,5 @@
 import type { InputProps as VcInputProps, InputRef as VcInputRef } from '@v-c/input'
-import type { SlotsType } from 'vue'
+import type { CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { InputStatus } from '../_util/statusUtils'
 import type { VueNode } from '../_util/type'
@@ -30,10 +30,28 @@ import { useCompactItemContext } from '../space/Compact.tsx'
 import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout'
 import useStyle, { useSharedStyle } from './style'
 
-type SemanticName = 'root' | 'prefix' | 'suffix' | 'input' | 'count'
+export type InputSemanticName = keyof InputSemanticClassNames & keyof InputSemanticStyles
 
-export type InputClassNamesType = SemanticClassNamesType<InputProps, SemanticName>
-export type InputStylesType = SemanticStylesType<InputProps, SemanticName>
+export interface InputSemanticClassNames {
+  root?: string
+  prefix?: string
+  suffix?: string
+  input?: string
+  count?: string
+}
+
+export interface InputSemanticStyles {
+  root?: CSSProperties
+  prefix?: CSSProperties
+  suffix?: CSSProperties
+  input?: CSSProperties
+  count?: CSSProperties
+}
+
+export type InputClassNamesType = SemanticClassNamesType<InputProps, InputSemanticClassNames>
+
+export type InputStylesType = SemanticStylesType<InputProps, InputSemanticStyles>
+
 export type InputRef = VcInputRef
 
 interface BaseVcInputProps {

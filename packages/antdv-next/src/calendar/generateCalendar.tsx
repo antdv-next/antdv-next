@@ -1,6 +1,6 @@
 import type { BasePickerPanelProps, Locale } from '@v-c/picker'
 import type { GenerateConfig } from '@v-c/picker/generate/index'
-import type { SlotsType } from 'vue'
+import type { CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { AnyObject, VueNode } from '../_util/type'
 import { PickerPanel } from '@v-c/picker'
@@ -28,16 +28,32 @@ export interface SelectInfo {
   source: 'year' | 'month' | 'date' | 'customize'
 }
 
-type SemanticName = 'root' | 'header' | 'body' | 'content' | 'item'
+export type CalendarSemanticName = keyof CalendarSemanticClassNames & keyof CalendarSemanticStyles
+
+export interface CalendarSemanticClassNames {
+  root?: string
+  header?: string
+  body?: string
+  content?: string
+  item?: string
+}
+
+export interface CalendarSemanticStyles {
+  root?: CSSProperties
+  header?: CSSProperties
+  body?: CSSProperties
+  content?: CSSProperties
+  item?: CSSProperties
+}
 
 export type CalendarClassNamesType<DateType> = SemanticClassNamesType<
   CalendarProps<DateType>,
-  SemanticName
+  CalendarSemanticClassNames
 >
 
 export type CalendarStylesType<DateType> = SemanticStylesType<
   CalendarProps<DateType>,
-  SemanticName
+  CalendarSemanticStyles
 >
 
 export interface CalendarProps<DateType> {

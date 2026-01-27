@@ -27,10 +27,31 @@ export interface CardTabListType extends Omit<Tab, 'label'> {
   label?: VueNode
 }
 
-type SemanticName = 'root' | 'header' | 'body' | 'extra' | 'title' | 'actions' | 'cover'
+export type CardSemanticName = keyof CardSemanticClassNames & keyof CardSemanticStyles
 
-export type CardClassNamesType = SemanticClassNamesType<CardProps, SemanticName>
-export type CardStylesType = SemanticStylesType<CardProps, SemanticName>
+export interface CardSemanticClassNames {
+  root?: string
+  header?: string
+  body?: string
+  extra?: string
+  title?: string
+  actions?: string
+  cover?: string
+}
+
+export interface CardSemanticStyles {
+  root?: CSSProperties
+  header?: CSSProperties
+  body?: CSSProperties
+  extra?: CSSProperties
+  title?: CSSProperties
+  actions?: CSSProperties
+  cover?: CSSProperties
+}
+
+export type CardClassNamesType = SemanticClassNamesType<CardProps, CardSemanticClassNames>
+
+export type CardStylesType = SemanticStylesType<CardProps, CardSemanticStyles>
 
 export interface CardProps extends ComponentBaseProps {
   title?: VueNode

@@ -4,11 +4,9 @@ import type {
   PickerProps as VcPickerProps,
   RangePickerProps as VcRangePickerProps,
 } from '@v-c/picker'
-import type { CSSProperties } from 'vue'
+import type { CSSProperties, Ref } from 'vue'
 import type {
-  SemanticClassNames,
   SemanticClassNamesType,
-  SemanticStyles,
   SemanticStylesType,
 } from '../../_util/hooks'
 import type { InputStatus } from '../../_util/statusUtils'
@@ -21,22 +19,57 @@ const _DataPickerPlacements = ['bottomLeft', 'bottomRight', 'topLeft', 'topRight
 
 type DataPickerPlacement = (typeof _DataPickerPlacements)[number]
 
-type PickerSemanticName = 'root' | 'prefix' | 'input' | 'suffix'
+export type DatePickerSemanticName = keyof DatePickerSemanticClassNames
+  & keyof DatePickerSemanticStyles
 
-type PopupSemanticName = 'root' | 'header' | 'body' | 'content' | 'item' | 'footer' | 'container'
+export type DatePickerPanelSemanticName = keyof DatePickerPanelSemanticClassNames
+  & keyof DatePickerPanelSemanticStyles
+
+export interface DatePickerSemanticClassNames {
+  root?: string
+  prefix?: string
+  input?: string
+  suffix?: string
+}
+
+export interface DatePickerSemanticStyles {
+  root?: CSSProperties
+  prefix?: CSSProperties
+  input?: CSSProperties
+  suffix?: CSSProperties
+}
+
+export interface DatePickerPanelSemanticClassNames {
+  root?: string
+  header?: string
+  body?: string
+  content?: string
+  item?: string
+  footer?: string
+  container?: string
+}
+
+export interface DatePickerPanelSemanticStyles {
+  root?: CSSProperties
+  header?: CSSProperties
+  body?: CSSProperties
+  content?: CSSProperties
+  item?: CSSProperties
+  footer?: CSSProperties
+  container?: CSSProperties
+}
 
 export type DatePickerClassNamesType<P> = SemanticClassNamesType<
   InjectDefaultProps<P>,
-  PickerSemanticName,
-  { popup?: string | SemanticClassNames<PopupSemanticName> }
+  DatePickerSemanticClassNames,
+  { popup?: string | DatePickerPanelSemanticClassNames }
 >
 
 export type DatePickerStylesType<P> = SemanticStylesType<
   InjectDefaultProps<P>,
-  PickerSemanticName,
-  { popup?: SemanticStyles<PopupSemanticName> }
+  DatePickerSemanticStyles,
+  { popup?: DatePickerPanelSemanticStyles }
 >
-
 export type PickerLocale = {
   lang: VcPickerLocale & AdditionalPickerLocaleLangProps
   timePickerLocale: TimePickerLocale
@@ -81,11 +114,10 @@ export interface AdditionalPickerLocaleLangProps {
 
 export type RequiredSemanticPicker = Readonly<
   [
-    classNames: SemanticClassNames<PickerSemanticName> & { popup: SemanticClassNames<PopupSemanticName> },
-    styles: SemanticStyles<PickerSemanticName> & { popup: SemanticStyles<PopupSemanticName> },
+      classes: Ref<DatePickerSemanticClassNames & { popup: DatePickerPanelSemanticClassNames }>,
+      styles: Ref<DatePickerSemanticStyles & { popup: DatePickerPanelSemanticStyles }>,
   ]
 >
-
 type RcEventKeys
   = | 'onChange'
     | 'onCalendarChange'

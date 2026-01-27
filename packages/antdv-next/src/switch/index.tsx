@@ -1,5 +1,5 @@
 import type { SwitchChangeEventHandler, SwitchClickEventHandler } from '@v-c/switch'
-import type { App, SlotsType } from 'vue'
+import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { VueNode } from '../_util/type'
 import type { ComponentBaseProps } from '../config-provider/context'
@@ -18,10 +18,21 @@ import useStyle from './style'
 
 export type SwitchSize = 'small' | 'default'
 
-type SemanticName = 'root' | 'content'
+export type SwitchSemanticName = keyof SwitchSemanticClassNames & keyof SwitchSemanticStyles
 
-export type SwitchClassNamesType = SemanticClassNamesType<SwitchProps, SemanticName>
-export type SwitchStylesType = SemanticStylesType<SwitchProps, SemanticName>
+export interface SwitchSemanticClassNames {
+  root?: string
+  content?: string
+}
+
+export interface SwitchSemanticStyles {
+  root?: CSSProperties
+  content?: CSSProperties
+}
+
+export type SwitchClassNamesType = SemanticClassNamesType<SwitchProps, SwitchSemanticClassNames>
+
+export type SwitchStylesType = SemanticStylesType<SwitchProps, SwitchSemanticStyles>
 
 export interface SwitchProps extends ComponentBaseProps {
   size?: SwitchSize

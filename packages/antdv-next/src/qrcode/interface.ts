@@ -1,4 +1,5 @@
 import type { QRProps } from '@v-c/qrcode'
+import type { CSSProperties } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
 import type { Locale } from '../locale'
@@ -17,10 +18,21 @@ export type { ImageSettings, QRProps }
 export type QRPropsCanvas = QRProps
 export type QRPropsSvg = QRProps
 
-export type QRCodeSemanticName = 'root' | 'cover'
+export type QRCodeSemanticName = keyof QRCodeSemanticClassNames & keyof QRCodeSemanticStyles
 
-export type QRCodeClassNamesType = SemanticClassNamesType<QRCodeProps, QRCodeSemanticName>
-export type QRCodeStylesType = SemanticStylesType<QRCodeProps, QRCodeSemanticName>
+export interface QRCodeSemanticClassNames {
+  root?: string
+  cover?: string
+}
+
+export interface QRCodeSemanticStyles {
+  root?: CSSProperties
+  cover?: CSSProperties
+}
+
+export type QRCodeClassNamesType = SemanticClassNamesType<QRCodeProps, QRCodeSemanticClassNames>
+
+export type QRCodeStylesType = SemanticStylesType<QRCodeProps, QRCodeSemanticStyles>
 
 export interface QRCodeProps extends QRProps, ComponentBaseProps {
   type?: 'canvas' | 'svg'

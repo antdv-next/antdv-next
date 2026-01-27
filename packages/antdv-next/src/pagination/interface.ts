@@ -1,4 +1,5 @@
 import type { PaginationProps as VcPaginationProps } from '@v-c/pagination'
+import type { CSSProperties } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { VueNode } from '../_util/type'
 import type { SelectProps } from '../select'
@@ -20,17 +21,26 @@ export interface PaginationLocale {
   page_size?: string
 }
 
-export type PaginationSemanticName = 'root' | 'item'
+export type SemanticName = keyof PaginationSemanticClassNames & keyof PaginationSemanticStyles
+
+export type PaginationSemanticName = SemanticName
+
+export interface PaginationSemanticClassNames {
+  root?: string
+  item?: string
+}
+
+export interface PaginationSemanticStyles {
+  root?: CSSProperties
+  item?: CSSProperties
+}
 
 export type PaginationClassNamesType = SemanticClassNamesType<
   PaginationProps,
-  PaginationSemanticName
+  PaginationSemanticClassNames
 >
 
-export type PaginationStylesType = SemanticStylesType<
-  PaginationProps,
-  PaginationSemanticName
->
+export type PaginationStylesType = SemanticStylesType<PaginationProps, PaginationSemanticStyles>
 
 export interface PaginationProps extends Omit<VcPaginationProps, | 'className'
   | 'style'

@@ -38,7 +38,7 @@ function getShowCollapsibleIcon(prev: Option, next: Option) {
 export default function useResizable(
   items: Ref<ItemType[]>,
   pxSizes: Ref<number[]>,
-  isRTL: Ref<boolean>,
+  reverse: Ref<boolean>,
 ) {
   return computed(() => {
     const resizeInfos: ResizableInfo[] = []
@@ -100,10 +100,10 @@ export default function useResizable(
 
       resizeInfos[i] = {
         resizable: mergedResizable,
-        startCollapsible: !!(isRTL.value ? endCollapsible : startCollapsible),
-        endCollapsible: !!(isRTL.value ? startCollapsible : endCollapsible),
-        showStartCollapsibleIcon: isRTL.value ? showEndCollapsibleIcon : showStartCollapsibleIcon,
-        showEndCollapsibleIcon: isRTL.value ? showStartCollapsibleIcon : showEndCollapsibleIcon,
+        startCollapsible: !!(reverse.value ? endCollapsible : startCollapsible),
+        endCollapsible: !!(reverse.value ? startCollapsible : endCollapsible),
+        showStartCollapsibleIcon: reverse.value ? showEndCollapsibleIcon : showStartCollapsibleIcon,
+        showEndCollapsibleIcon: reverse.value ? showStartCollapsibleIcon : showEndCollapsibleIcon,
       }
     }
     return resizeInfos

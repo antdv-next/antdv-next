@@ -1,6 +1,6 @@
 import type { ImageProps as VcImageProps } from '@v-c/image'
 import type { App, CSSProperties, SlotsType } from 'vue'
-import type { MaskType, SemanticClassNames, SemanticClassNamesType, SemanticStyles, SemanticStylesType } from '../_util/hooks'
+import type { MaskType, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { VueNode } from '../_util/type'
 import type { PreviewGroupProps } from './PreviewGroup'
 import VcImage from '@v-c/image'
@@ -40,22 +40,50 @@ export interface DeprecatedPreviewConfig {
   toolbarRender?: OriginPreviewConfig['actionsRender']
 }
 
-export type ImageSemanticName = 'root' | 'image' | 'cover'
+export type ImageSemanticName = keyof ImageSemanticClassNames & keyof ImageSemanticStyles
 
-export type PopupSemantic = 'root' | 'mask' | 'body' | 'footer' | 'actions'
+export interface ImageSemanticClassNames {
+  root?: string
+  image?: string
+  cover?: string
+}
+
+export interface ImageSemanticStyles {
+  root?: CSSProperties
+  image?: CSSProperties
+  cover?: CSSProperties
+}
+
+export type ImagePopupSemanticName = keyof ImagePopupSemanticClassNames
+  & keyof ImagePopupSemanticStyles
+
+export interface ImagePopupSemanticClassNames {
+  root?: string
+  mask?: string
+  body?: string
+  footer?: string
+  actions?: string
+}
+
+export interface ImagePopupSemanticStyles {
+  root?: CSSProperties
+  mask?: CSSProperties
+  body?: CSSProperties
+  footer?: CSSProperties
+  actions?: CSSProperties
+}
 
 export type ImageClassNamesType = SemanticClassNamesType<
   ImageProps,
-  ImageSemanticName,
-  { popup?: SemanticClassNames<PopupSemantic> }
+  ImageSemanticClassNames,
+  { popup?: ImagePopupSemanticClassNames }
 >
 
 export type ImageStylesType = SemanticStylesType<
   ImageProps,
-  ImageSemanticName,
-  { popup?: SemanticStyles<PopupSemantic> }
+  ImageSemanticStyles,
+  { popup?: ImagePopupSemanticStyles }
 >
-
 export type PreviewConfig = OriginPreviewConfig
   & DeprecatedPreviewConfig & {
     /** @deprecated Use `onOpenChange` instead */

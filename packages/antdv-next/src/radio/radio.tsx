@@ -1,6 +1,13 @@
 import type { SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
-import type { RadioChangeEvent, RadioEmits, RadioProps, RadioSlots } from './interface'
+import type {
+  RadioChangeEvent,
+  RadioEmits,
+  RadioProps,
+  RadioSemanticClassNames,
+  RadioSemanticStyles,
+  RadioSlots,
+} from './interface'
 import VcCheckbox from '@v-c/checkbox'
 import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
@@ -85,8 +92,8 @@ const InternalRadio = defineComponent<
     })
 
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
-      SemanticClassNamesType<RadioProps, 'root' | 'icon' | 'label'>,
-      SemanticStylesType<RadioProps, 'root' | 'icon' | 'label'>,
+      SemanticClassNamesType<RadioProps, RadioSemanticClassNames>,
+      SemanticStylesType<RadioProps, RadioSemanticStyles>,
       RadioProps
     >(useToArr(contextClassNames, classes), useToArr(contextStyles, styles), useToProps(mergedProps))
 

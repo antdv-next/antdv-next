@@ -1,5 +1,6 @@
 import type { CSSProperties, Ref } from 'vue'
 import type { AnyObject } from '../../_util/type'
+import type { RequiredSemanticPicker } from '../generatePicker/interface'
 import { clsx } from '@v-c/util'
 import { computed, unref } from 'vue'
 import { useMergeSemantic, useToArr, useToProps } from '../../_util/hooks'
@@ -53,5 +54,5 @@ export default function useMergedPickerSemantic<P extends AnyObject = AnyObject>
     }
   })
 
-  return [filledClassNames, filledStyles] as const
+  return [filledClassNames, filledStyles] as unknown as RequiredSemanticPicker
 }

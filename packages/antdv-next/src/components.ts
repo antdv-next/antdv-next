@@ -211,7 +211,6 @@ export type {
   TransferSearchOption,
   TransferSearchProps,
   TransferSearchSlots,
-  TransferSemanticName,
   TransferSlots,
   TransferStylesType,
 } from './transfer'

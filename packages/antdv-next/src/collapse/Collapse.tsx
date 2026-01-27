@@ -23,10 +23,30 @@ import useStyle from './style'
 
 export type ExpandIconPlacement = 'start' | 'end'
 
-export type CollapseSemanticName = 'root' | 'header' | 'title' | 'body' | 'icon'
+export type CollapseSemanticName = keyof CollapseSemanticClassNames & keyof CollapseSemanticStyles
 
-export type CollapseClassNamesType = SemanticClassNamesType<CollapseProps, CollapseSemanticName>
-export type CollapseStylesType = SemanticStylesType<CollapseProps, CollapseSemanticName>
+export interface CollapseSemanticClassNames {
+  root?: string
+  header?: string
+  title?: string
+  body?: string
+  icon?: string
+}
+
+export interface CollapseSemanticStyles {
+  root?: CSSProperties
+  header?: CSSProperties
+  title?: CSSProperties
+  body?: CSSProperties
+  icon?: CSSProperties
+}
+
+export type CollapseClassNamesType = SemanticClassNamesType<
+  CollapseProps,
+  CollapseSemanticClassNames
+>
+
+export type CollapseStylesType = SemanticStylesType<CollapseProps, CollapseSemanticStyles>
 
 export type CollapseItemType = Omit<ItemType, 'children'> & {
   content?: ItemType['children']

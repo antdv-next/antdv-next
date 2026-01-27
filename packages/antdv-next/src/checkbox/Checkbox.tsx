@@ -1,5 +1,5 @@
 import type { CheckboxChangeEvent } from '@v-c/checkbox'
-import type { SlotsType } from 'vue'
+import type { CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { ComponentBaseProps } from '../config-provider/context'
 import VcCheckbox from '@v-c/checkbox'
@@ -54,10 +54,26 @@ export interface CheckboxSlots {
   default?: () => any
 }
 
-type SemanticName = 'root' | 'icon' | 'label'
+export type CheckboxSemanticName = keyof CheckboxSemanticClassNames & keyof CheckboxSemanticStyles
 
-export type CheckboxClassNamesType = SemanticClassNamesType<CheckboxProps, SemanticName>
-export type CheckboxStylesType = SemanticStylesType<CheckboxProps, SemanticName>
+export interface CheckboxSemanticClassNames {
+  root?: string
+  icon?: string
+  label?: string
+}
+
+export interface CheckboxSemanticStyles {
+  root?: CSSProperties
+  icon?: CSSProperties
+  label?: CSSProperties
+}
+
+export type CheckboxClassNamesType = SemanticClassNamesType<
+  CheckboxProps,
+  CheckboxSemanticClassNames
+>
+
+export type CheckboxStylesType = SemanticStylesType<CheckboxProps, CheckboxSemanticStyles>
 
 export interface CheckboxProps extends AbstractCheckboxProps {
   indeterminate?: boolean

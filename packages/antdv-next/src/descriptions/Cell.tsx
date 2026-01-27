@@ -1,6 +1,5 @@
-import type { CSSProperties } from 'vue'
 import type { VueNode } from '../_util/type.ts'
-import type { SemanticName } from './DescriptionsContext'
+import type { CellSemanticClassNames, CellSemanticStyles } from './DescriptionsContext'
 import { classNames } from '@v-c/util'
 import { defineComponent } from 'vue'
 import { getSlotPropsFnRun } from '../_util/tools.ts'
@@ -14,8 +13,8 @@ export interface CellProps {
   itemPrefixCls: string
   span: number
   component: string
-  styles?: Partial<Record<SemanticName, CSSProperties>>
-  classes?: Partial<Record<SemanticName, string>>
+  classes?: CellSemanticClassNames
+  styles?: CellSemanticStyles
   bordered?: boolean
   label?: VueNode
   content?: VueNode

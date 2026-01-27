@@ -1,7 +1,6 @@
 import type { SlotsType } from 'vue'
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks'
 import type { EmptyEmit } from '../_util/type.ts'
-import type { ProgressProps, SemanticName } from './progress'
+import type { ProgressProps, ProgressSemanticClassNames, ProgressSemanticStyles } from './progress'
 import { clsx } from '@v-c/util'
 import { defineComponent } from 'vue'
 import { getSize } from './utils.ts'
@@ -12,8 +11,8 @@ export interface ProgressStepsProps extends Omit<ProgressProps, 'classes' | 'sty
   railColor?: string
   /** @deprecated Please use `railColor` instead */
   trailColor?: string
-  classes: SemanticClassNames<SemanticName>
-  styles: SemanticStyles<SemanticName>
+  classes: ProgressSemanticClassNames
+  styles: ProgressSemanticStyles
 }
 
 export interface ProgressStepsSlots {

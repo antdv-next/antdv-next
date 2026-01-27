@@ -666,6 +666,9 @@ importers:
       '@types/throttle-debounce':
         specifier: catalog:types
         version: 5.0.2
+      csstype:
+        specifier: ^3.2.3
+        version: 3.2.3
 
   packages/auto-import-resolver:
     dependencies:

@@ -1,4 +1,4 @@
-import type { App, SlotsType } from 'vue'
+import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { RenderNodeFn, VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
@@ -32,11 +32,25 @@ import CompactStyle from './style/compact.ts'
 
 export type LegacyButtonType = ButtonType | 'danger'
 
-export type ButtonSemanticName = 'root' | 'icon' | 'content'
+export type ButtonSemanticName = keyof ButtonSemanticClassNames & keyof ButtonSemanticStyles
 
-export type ButtonClassNamesType = SemanticClassNamesType<BaseButtonProps, ButtonSemanticName>
+export interface ButtonSemanticClassNames {
+  root?: string
+  icon?: string
+  content?: string
+}
 
-export type ButtonStylesType = SemanticStylesType<BaseButtonProps, ButtonSemanticName>
+export interface ButtonSemanticStyles {
+  root?: CSSProperties
+  icon?: CSSProperties
+  content?: CSSProperties
+}
+
+export type ButtonClassNamesType = SemanticClassNamesType<
+  BaseButtonProps,
+  ButtonSemanticClassNames
+>
+export type ButtonStylesType = SemanticStylesType<BaseButtonProps, ButtonSemanticStyles>
 
 export interface BaseButtonProps extends ComponentBaseProps {
   type?: ButtonType

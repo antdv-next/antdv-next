@@ -1,11 +1,11 @@
-import type { AriaAttributes, SlotsType } from 'vue'
+import type { AriaAttributes, SlotsType, StyleValue } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { ClosableType } from '../_util/hooks/useClosable'
 import type { SlotsDefineType, VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context'
 import { CheckCircleFilled, CloseCircleFilled, CloseOutlined, ExclamationCircleFilled, InfoCircleFilled } from '@antdv-next/icons'
-import { classNames } from '@v-c/util'
-import { filterEmpty } from '@v-c/util/dist/props-util'
+import { classNames, clsx } from '@v-c/util'
+import { filterEmpty, getAttrStyleAndClass } from '@v-c/util/dist/props-util'
 import { computed, createVNode, defineComponent, shallowRef, Transition } from 'vue'
 import { pureAttrs, useMergeSemanticNoRef } from '../_util/hooks'
 import { getSlotPropFn, getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
@@ -13,10 +13,29 @@ import { replaceElement } from '../_util/vueNode'
 import { useComponentBaseConfig } from '../config-provider/context'
 import useStyle from './style'
 
-export type AlertSemanticName = 'root' | 'icon' | 'section' | 'title' | 'description' | 'actions'
+export interface AlertSemanticClassNames {
+  root?: string
+  icon?: string
+  section?: string
+  title?: string
+  description?: string
+  actions?: string
+  close?: string
+}
 
-export type AlertClassNamesType = SemanticClassNamesType<AlertProps, AlertSemanticName>
-export type AlertStylesType = SemanticStylesType<AlertProps, AlertSemanticName>
+export interface AlertSemanticStyles {
+  root?: StyleValue
+  icon?: StyleValue
+  section?: StyleValue
+  title?: StyleValue
+  description?: StyleValue
+  actions?: StyleValue
+  close?: StyleValue
+}
+
+export type AlertClassNamesType = SemanticClassNamesType<AlertProps, AlertSemanticClassNames>
+
+export type AlertStylesType = SemanticStylesType<AlertProps, AlertSemanticStyles>
 
 export interface AlertProps extends ComponentBaseProps {
   /** Type of Alert styles, options:`success`, `info`, `warning`, `error` */
@@ -111,9 +130,10 @@ interface CloseIconProps {
 }
 
 const CloseIconNode = defineComponent<CloseIconProps>(
-  (props, { slots }) => {
+  (props, { slots, attrs }) => {
     return () => {
       const { isClosable, prefixCls, handleClose, ariaProps } = props
+      const { className, style } = getAttrStyleAndClass(attrs)
       const closeIcon = getSlotPropsFnRun(slots, props, 'closeIcon')
       const mergedCloseIcon = !closeIcon ? <CloseOutlined /> : closeIcon
       return isClosable
@@ -121,8 +141,9 @@ const CloseIconNode = defineComponent<CloseIconProps>(
             <button
               type="button"
               onClick={handleClose}
-              class={`${prefixCls}-close-icon`}
+              class={clsx(`${prefixCls}-close-icon`, className)}
               tabindex={0}
+              style={style}
               {...ariaProps}
             >
               {mergedCloseIcon}
@@ -173,6 +194,7 @@ const Alert = defineComponent<
     }
     return () => {
       const { closable, banner, showIcon, rootClass } = props
+      const { className, style } = getAttrStyleAndClass(attrs)
       // closeable when closeText or closeIcon is assigned
       const isClosableFn = () => {
         const closeIcon = getSlotPropsFnRun(slots, props, 'closeIcon')
@@ -232,7 +254,7 @@ const Alert = defineComponent<
           [`${prefixCls.value}-rtl`]: direction.value === 'rtl',
         },
         contextClassName.value,
-        (attrs as any).class,
+        className,
         rootClass,
         mergedClassNames.root,
         cssVarCls.value,
@@ -283,7 +305,7 @@ const Alert = defineComponent<
                   style={[
                     mergedStyles.root,
                     contextStyle.value,
-                    (attrs as any).style,
+                    style,
                   ]}
                   {...pureAttrs(attrs)}
                 >
@@ -335,6 +357,8 @@ const Alert = defineComponent<
                       )
                     : null}
                   <CloseIconNode
+                    class={mergedClassNames.close}
+                    style={mergedStyles.close}
                     isClosable={isClosable}
                     prefixCls={prefixCls.value}
                     ariaProps={mergedAriaProps}

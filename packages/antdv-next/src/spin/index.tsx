@@ -18,15 +18,30 @@ import usePercent from './usePercent.ts'
 const _SpinSizes = ['small', 'default', 'large'] as const
 export type SpinSize = (typeof _SpinSizes)[number]
 
-type SemanticName = 'root' | 'wrapper' | 'mask' | 'indicator' | 'tip'
+export type SpinSemanticName = keyof SpinSemanticClassNames & keyof SpinSemanticStyles
 
-export type SpinClassNamesType = SemanticClassNamesType<SpinProps, SemanticName>
+export interface SpinSemanticClassNames {
+  root?: string
+  wrapper?: string
+  mask?: string
+  indicator?: string
+  tip?: string
+}
+
+export interface SpinSemanticStyles {
+  root?: CSSProperties
+  wrapper?: CSSProperties
+  mask?: CSSProperties
+  indicator?: CSSProperties
+  tip?: CSSProperties
+}
+
+export type SpinClassNamesType = SemanticClassNamesType<SpinProps, SpinSemanticClassNames>
+
 export type SpinStylesType = SemanticStylesType<
   SpinProps,
-  SemanticName,
-  {
-    wrapper?: CSSProperties
-  }
+  SpinSemanticStyles,
+  { wrapper?: CSSProperties }
 >
 
 export interface SpinProps extends ComponentBaseProps {

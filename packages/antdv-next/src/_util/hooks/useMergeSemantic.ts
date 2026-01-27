@@ -16,16 +16,17 @@ export type Resolvable<T, P extends AnyObject> = T | ((info: { props: P }) => T)
 
 export type SemanticClassNamesType<
   Props extends AnyObject,
-  SemanticName extends string,
+  SemanticClassNames extends { [K in keyof SemanticClassNames]?: string },
   NestedStructure extends EmptyObject = EmptyObject,
-> = Resolvable<Readonly<SemanticClassNames<SemanticName>>, Props> & NestedStructure
+> = Resolvable<Readonly<SemanticClassNames>, Props>
+  & NestedStructure
 
 export type SemanticStylesType<
   Props extends AnyObject,
-  SemanticName extends string,
+  SemanticStyles extends { [K in keyof SemanticStyles]?: CSSProperties },
   NestedStructure extends EmptyObject = EmptyObject,
-> = Resolvable<Readonly<SemanticStyles<SemanticName>>, Props> & NestedStructure
-
+> = Resolvable<Readonly<SemanticStyles>, Props>
+  & NestedStructure
 // ========================= ClassNames =========================
 
 // ========================= ClassNames =========================

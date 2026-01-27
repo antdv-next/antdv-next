@@ -1,8 +1,10 @@
 {
   "extends": "@vue/tsconfig/tsconfig.dom.json",
   "compilerOptions": {
+    "paths": {
+      "csstype": ["./node_modules/csstype"]
+    },
     "types": ["vite/client"],
-
     /* Linting */
     "strict": true,
     "noFallthroughCasesInSwitch": true,

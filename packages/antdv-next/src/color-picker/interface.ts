@@ -5,7 +5,7 @@ import type {
 
 import type { Key } from '@v-c/util/dist/type'
 import type { CSSProperties } from 'vue'
-import type { SemanticClassNames, SemanticClassNamesType, SemanticStyles, SemanticStylesType } from '../_util/hooks'
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { VueNode } from '../_util/type.ts'
 import type { SizeType } from '../config-provider/SizeContext'
 import type { PopoverProps } from '../popover'
@@ -56,21 +56,27 @@ export type ColorValueType = SingleValueType | null | LineGradientType
 
 export type ModeType = 'single' | 'gradient'
 
-type SemanticName = 'root'
+export type ColorPickerSemanticName = keyof ColorPickerSemanticClassNames & keyof ColorPickerSemanticStyles
 
-type PopupSemantic = 'root'
+export interface ColorPickerSemanticClassNames {
+  root?: string
+}
+
+export interface ColorPickerSemanticStyles {
+  root?: CSSProperties
+}
 
 export type ColorPickerClassNamesType = SemanticClassNamesType<
   ColorPickerProps,
-  SemanticName,
-  { popup?: SemanticClassNames<PopupSemantic> }
+  ColorPickerSemanticClassNames,
+  { popup?: { root?: string } }
 >
 
 export type ColorPickerStylesType = SemanticStylesType<
   ColorPickerProps,
-  SemanticName,
+  ColorPickerSemanticStyles,
   {
-    popup?: SemanticStyles<PopupSemantic>
+    popup?: { root?: CSSProperties }
     popupOverlayInner?: CSSProperties
   }
 >

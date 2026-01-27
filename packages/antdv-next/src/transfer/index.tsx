@@ -25,7 +25,6 @@ export type {
   TransferProps,
   TransferRender,
   TransferSearchOption,
-  TransferSemanticName,
   TransferSlots,
   TransferStylesType,
 } from './interface'

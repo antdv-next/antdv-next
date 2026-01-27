@@ -10,8 +10,10 @@ Auto adjust Popup and arrow position when Popconfirm is close to the edge of the
 import { onMounted } from 'vue'
 
 onMounted(() => {
-  document.documentElement.scrollTop = document.documentElement.clientHeight
-  document.documentElement.scrollLeft = document.documentElement.clientWidth
+  setTimeout(() => {
+    document.documentElement.scrollTop = document.documentElement.clientHeight
+    document.documentElement.scrollLeft = document.documentElement.clientWidth
+  }, 10)
 })
 </script>
 

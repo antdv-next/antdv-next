@@ -1,5 +1,10 @@
-import type { PopoverClassNamesType, PopoverProps, PopoverSemanticName, PopoverStylesType } from '.'
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks'
+import type {
+  PopoverClassNamesType,
+  PopoverProps,
+  PopoverSemanticClassNames,
+  PopoverSemanticStyles,
+  PopoverStylesType,
+} from '.'
 import type { VueNode } from '../_util/type.ts'
 import { Popup } from '@v-c/tooltip'
 import { clsx } from '@v-c/util'
@@ -15,8 +20,8 @@ interface OverlayProps {
   prefixCls?: string
   title?: VueNode
   content?: VueNode
-  classes?: SemanticClassNames<PopoverSemanticName>
-  styles?: SemanticStyles<PopoverSemanticName>
+  classes?: PopoverSemanticClassNames
+  styles?: PopoverSemanticStyles
 }
 
 export const Overlay = defineComponent<OverlayProps>(

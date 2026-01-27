@@ -11,8 +11,6 @@ import { useComponentBaseConfig } from '../config-provider/context.ts'
 import { useSize } from '../config-provider/hooks/useSize.ts'
 import useStyle from './style'
 
-type SemanticName = 'root' | 'rail' | 'content'
-
 export type TitlePlacement
   = | 'left'
     | 'right'
@@ -22,8 +20,23 @@ export type TitlePlacement
 
 const titlePlacementList = ['left', 'right', 'center', 'start', 'end']
 
-export type DividerClassNamesType = SemanticClassNamesType<DividerProps, SemanticName>
-export type DividerStylesType = SemanticStylesType<DividerProps, SemanticName>
+export type DividerSemanticName = keyof DividerSemanticClassNames & keyof DividerSemanticStyles
+
+export interface DividerSemanticClassNames {
+  root?: string
+  rail?: string
+  content?: string
+}
+
+export interface DividerSemanticStyles {
+  root?: CSSProperties
+  rail?: CSSProperties
+  content?: CSSProperties
+}
+
+export type DividerClassNamesType = SemanticClassNamesType<DividerProps, DividerSemanticClassNames>
+
+export type DividerStylesType = SemanticStylesType<DividerProps, DividerSemanticStyles>
 
 export interface DividerProps extends ComponentBaseProps {
   /**  @deprecated please use `orientation` */

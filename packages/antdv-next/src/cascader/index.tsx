@@ -1,11 +1,12 @@
 import type { DefaultOptionType, FieldNames, SearchConfig, CascaderProps as VcCascaderProps } from '@v-c/cascader'
 import type { App, CSSProperties, SlotsType } from 'vue'
-import type { SemanticClassNames, SemanticClassNamesType, SemanticStyles, SemanticStylesType } from '../_util/hooks'
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { SelectCommonPlacement } from '../_util/motion'
 import type { InputStatus } from '../_util/statusUtils'
 import type { VueNode } from '../_util/type'
 import type { Variant } from '../config-provider/context'
 import type { SizeType } from '../config-provider/SizeContext'
+import type { SelectPopupSemanticClassNames, SelectPopupSemanticStyles } from '../select'
 import VcCascader, { SHOW_CHILD, SHOW_PARENT } from '@v-c/cascader'
 import { clsx } from '@v-c/util'
 import { getTransitionName } from '@v-c/util/dist/utils/transition'
@@ -45,17 +46,31 @@ export type FieldNamesType = FieldNames
 
 export type FilledFieldNamesType = Required<FieldNamesType>
 
-type SemanticName
-  = | 'root'
-    | 'prefix'
-    | 'suffix'
-    | 'input'
-    | 'placeholder'
-    | 'content'
-    | 'item'
-    | 'itemContent'
-    | 'itemRemove'
-type PopupSemantic = 'root' | 'listItem' | 'list'
+export type CascaderSemanticName = keyof CascaderSemanticClassNames & keyof CascaderSemanticStyles
+
+export interface CascaderSemanticClassNames {
+  root?: string
+  prefix?: string
+  suffix?: string
+  input?: string
+  placeholder?: string
+  content?: string
+  item?: string
+  itemContent?: string
+  itemRemove?: string
+}
+
+export interface CascaderSemanticStyles {
+  root?: CSSProperties
+  prefix?: CSSProperties
+  suffix?: CSSProperties
+  input?: CSSProperties
+  placeholder?: CSSProperties
+  content?: CSSProperties
+  item?: CSSProperties
+  itemContent?: CSSProperties
+  itemRemove?: CSSProperties
+}
 
 function highlightKeyword(str: string, lowerKeyword: string, prefixCls?: string) {
   const cells = str
@@ -111,14 +126,14 @@ const defaultSearchRender: SearchConfig['render'] = (inputValue, path, prefixCls
 
 export type CascaderClassNamesType = SemanticClassNamesType<
   CascaderProps,
-  SemanticName,
-  { popup?: SemanticClassNames<PopupSemantic> }
+  CascaderSemanticClassNames,
+  { popup?: SelectPopupSemanticClassNames }
 >
 
 export type CascaderStylesType = SemanticStylesType<
   CascaderProps,
-  SemanticName,
-  { popup?: SemanticStyles<PopupSemantic> }
+  CascaderSemanticStyles,
+  { popup?: SelectPopupSemanticStyles }
 >
 
 export interface CascaderProps<

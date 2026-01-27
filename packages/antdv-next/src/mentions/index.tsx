@@ -3,7 +3,7 @@ import type {
   MentionsProps as VcMentionsProps,
   MentionsRef as VcMentionsRef,
 } from '@v-c/mentions'
-import type { App, SlotsType } from 'vue'
+import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { InputStatus } from '../_util/statusUtils'
 import type { VueNode } from '../_util/type.ts'
@@ -43,15 +43,33 @@ export type MentionPlacement = 'top' | 'bottom'
 
 export interface OptionProps {
   value: string
-  // children: React.ReactNode;
+  // children: ReactNode;
   content?: VueNode
   [key: string]: any
 }
 
-type SemanticName = 'root' | 'textarea' | 'popup' | 'suffix'
+export type MentionSemanticName = keyof MentionSemanticClassNames & keyof MentionSemanticStyles
 
-export type MentionsClassNamesType = SemanticClassNamesType<MentionProps, SemanticName>
-export type MentionsStylesType = SemanticStylesType<MentionProps, SemanticName>
+export interface MentionSemanticClassNames {
+  root?: string
+  textarea?: string
+  popup?: string
+  suffix?: string
+}
+
+export interface MentionSemanticStyles {
+  root?: CSSProperties
+  textarea?: CSSProperties
+  popup?: CSSProperties
+  suffix?: CSSProperties
+}
+
+export type MentionsClassNamesType = SemanticClassNamesType<
+  MentionProps,
+  MentionSemanticClassNames
+>
+
+export type MentionsStylesType = SemanticStylesType<MentionProps, MentionSemanticStyles>
 
 export interface MentionsOptionProps extends VcMentionsOptionProps {
   content?: VueNode

@@ -1,8 +1,7 @@
 import type { CSSProperties } from 'vue'
 import type { PopconfirmProps } from '.'
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks'
 import type { ButtonProps } from '../button'
-import type { PopoverSemanticName } from '../popover'
+import type { PopoverSemanticClassNames, PopoverSemanticStyles } from '../popover'
 import { ExclamationCircleFilled } from '@antdv-next/icons'
 import { clsx } from '@v-c/util'
 import { computed, defineComponent } from 'vue'
@@ -37,8 +36,8 @@ export interface OverlayProps
   onConfirm?: (e?: MouseEvent) => void
   onCancel?: (e?: MouseEvent) => void
   onPopupClick?: (e: MouseEvent) => void
-  classes?: SemanticClassNames<PopoverSemanticName>
-  styles?: SemanticStyles<PopoverSemanticName>
+  classes?: PopoverSemanticClassNames
+  styles?: PopoverSemanticStyles
 }
 
 export const Overlay = defineComponent<OverlayProps>(

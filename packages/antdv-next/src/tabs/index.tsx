@@ -1,6 +1,6 @@
 import type { GetIndicatorSize, MoreProps, TabsProps as VcTabsProps, Tab as VcTabType } from '@v-c/tabs'
-import type { App, SlotsType } from 'vue'
-import type { SemanticClassNames, SemanticClassNamesType, SemanticStyles, SemanticStylesType } from '../_util/hooks'
+import type { App, CSSProperties, SlotsType } from 'vue'
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
 import type { SizeType } from '../config-provider/SizeContext.tsx'
@@ -27,20 +27,38 @@ export type TabPosition = 'top' | 'right' | 'bottom' | 'left'
 
 export type TabPlacement = 'top' | 'end' | 'bottom' | 'start'
 
-export type TabsSemanticName = 'root' | 'item' | 'indicator' | 'content' | 'header'
+export type TabsSemanticName = keyof TabsSemanticClassNames & keyof TabsSemanticStyles
 
-type PopupSemantic = 'root'
+export interface TabsSemanticClassNames {
+  root?: string
+  item?: string
+  indicator?: string
+  content?: string
+  header?: string
+}
+
+export interface TabsSemanticStyles {
+  root?: CSSProperties
+  item?: CSSProperties
+  indicator?: CSSProperties
+  content?: CSSProperties
+  header?: CSSProperties
+}
 
 export type TabsClassNamesType = SemanticClassNamesType<
   TabsProps,
-  TabsSemanticName,
-  { popup?: SemanticClassNames<PopupSemantic> }
+  TabsSemanticClassNames,
+  {
+    popup?: { root?: string }
+  }
 >
 
 export type TabsStylesType = SemanticStylesType<
   TabsProps,
-  TabsSemanticName,
-  { popup?: SemanticStyles<PopupSemantic> }
+  TabsSemanticStyles,
+  {
+    popup?: { root?: CSSProperties }
+  }
 >
 
 export interface CompatibilityProps {

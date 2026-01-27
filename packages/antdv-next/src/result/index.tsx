@@ -1,13 +1,13 @@
-import type { App, SlotsType } from 'vue'
+import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { EmptyEmit, VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
 import { CheckCircleFilled, CloseCircleFilled, ExclamationCircleFilled, WarningFilled } from '@antdv-next/icons'
 import { classNames } from '@v-c/util'
-import { filterEmpty } from '@v-c/util/dist/props-util'
+import pickAttrs from '@v-c/util/dist/pickAttrs'
+import { filterEmpty, getAttrStyleAndClass } from '@v-c/util/dist/props-util'
 import { computed, createVNode, defineComponent } from 'vue'
 import {
-
   useMergeSemantic,
   useToArr,
   useToProps,
@@ -35,11 +35,29 @@ export const ExceptionMap = {
 export type ExceptionStatusType = 403 | 404 | 500 | '403' | '404' | '500'
 export type ResultStatusType = ExceptionStatusType | keyof typeof IconMap
 
-type SemanticName = 'root' | 'title' | 'subTitle' | 'body' | 'extra' | 'icon'
+export type ResultSemanticName = keyof ResultSemanticClassNames & keyof ResultSemanticStyles
 
-export type ResultClassNamesType = SemanticClassNamesType<ResultProps, SemanticName>
+export interface ResultSemanticClassNames {
+  root?: string
+  title?: string
+  subTitle?: string
+  body?: string
+  extra?: string
+  icon?: string
+}
 
-export type ResultStylesType = SemanticStylesType<ResultProps, SemanticName>
+export interface ResultSemanticStyles {
+  root?: CSSProperties
+  title?: CSSProperties
+  subTitle?: CSSProperties
+  body?: CSSProperties
+  extra?: CSSProperties
+  icon?: CSSProperties
+}
+
+export type ResultClassNamesType = SemanticClassNamesType<ResultProps, ResultSemanticClassNames>
+
+export type ResultStylesType = SemanticStylesType<ResultProps, ResultSemanticStyles>
 
 export interface ResultProps extends ComponentBaseProps {
   icon?: VueNode
@@ -169,10 +187,11 @@ const Result = defineComponent<
 
     return () => {
       const { status, rootClass } = props
+      const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
       const rootClassNames = classNames(
         prefixCls.value,
         `${prefixCls.value}-${status}`,
-        (attrs as any).class,
+        className,
         contextClassName.value,
         rootClass,
         { [`${prefixCls.value}-rtl`]: direction.value === 'rtl' },
@@ -185,7 +204,7 @@ const Result = defineComponent<
       const extra = getSlotPropsFnRun(slots, props, 'extra')
       const icon = getSlotPropsFnRun(slots, props, 'icon', false)
       const children = filterEmpty(slots?.default?.())
-      const rootStyles = [mergedStyles.value.root, contextStyle.value, (attrs as any).style]
+      const rootStyles = [mergedStyles.value.root, contextStyle.value, style]
 
       const titleClassNames = clsx(`${prefixCls.value}-title`, mergedClassNames.value.title)
 
@@ -201,8 +220,10 @@ const Result = defineComponent<
         mergedClassNames.value.icon,
       )
 
+      const restProps = pickAttrs(restAttrs, { aria: true, data: true })
+
       return (
-        <div class={rootClassNames} style={rootStyles}>
+        <div {...restProps} class={rootClassNames} style={rootStyles}>
           <Icon class={iconClassNames} status={status!} icon={icon} style={mergedStyles.value.icon} />
           <div class={titleClassNames} style={mergedStyles.value.title}>{title}</div>
           {!!subTitle && <div class={subTitleClassNames} style={mergedStyles.value.subTitle}>{subTitle}</div>}

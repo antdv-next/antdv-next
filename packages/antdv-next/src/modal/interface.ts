@@ -8,19 +8,33 @@ import type { ButtonProps, LegacyButtonType } from '../button'
 import type { DirectionType } from '../config-provider/context'
 import type { FocusableConfig, OmitFocusType } from '../drawer/useFocusable.ts'
 
-export type SemanticName
-  = | 'root'
-    | 'header'
-    | 'body'
-    | 'footer'
-    | 'container'
-    | 'title'
-    | 'wrapper'
-    | 'mask'
+export type ModalSemanticName = keyof ModalSemanticClassNames & keyof ModalSemanticStyles
 
-export type ModalClassNamesType = SemanticClassNamesType<ModalProps, SemanticName>
+export interface ModalSemanticClassNames {
+  root?: string
+  header?: string
+  body?: string
+  footer?: string
+  container?: string
+  title?: string
+  wrapper?: string
+  mask?: string
+}
 
-export type ModalStylesType = SemanticStylesType<ModalProps, SemanticName>
+export interface ModalSemanticStyles {
+  root?: CSSProperties
+  header?: CSSProperties
+  body?: CSSProperties
+  footer?: CSSProperties
+  container?: CSSProperties
+  title?: CSSProperties
+  wrapper?: CSSProperties
+  mask?: CSSProperties
+}
+
+export type ModalClassNamesType = SemanticClassNamesType<ModalProps, ModalSemanticClassNames>
+
+export type ModalStylesType = SemanticStylesType<ModalProps, ModalSemanticStyles>
 
 interface ModalCommonProps
   extends Omit<

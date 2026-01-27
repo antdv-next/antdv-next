@@ -1,9 +1,9 @@
 import type { LiteralUnion } from '@v-c/util/dist/type'
 import type { App, CSSProperties, Ref, SlotsType } from 'vue'
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { EmptyEmit, VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
-import type { StepItem, StepsProps } from '../steps'
-import type { TimelineItemProps } from './TimelineItem.tsx'
+import type { StepItem, StepsProps, StepsSemanticClassNames, StepsSemanticName, StepsSemanticStyles } from '../steps'
 import { useUnstableProvider } from '@v-c/steps/dist/UnstableContext.js'
 import { classNames as clsx } from '@v-c/util'
 import { omit } from 'es-toolkit'
@@ -26,8 +26,8 @@ export interface TimelineItemType {
   color?: LiteralUnion<Color>
   className?: string
   style?: CSSProperties
-  classes?: string
-  styles?: CSSProperties
+  classes?: NonNullable<StepItem['classes']>
+  styles?: NonNullable<StepItem['styles']>
 
   // Design
   placement?: ItemPlacement
@@ -50,6 +50,17 @@ export interface TimelineItemType {
   dot?: VueNode
 }
 
+export type TimelineSemanticName = StepsSemanticName
+
+export type TimelineSemanticClassNames = StepsSemanticClassNames
+
+export type TimelineSemanticStyles = StepsSemanticStyles
+
+export type TimelineClassNamesType = SemanticClassNamesType<
+  TimelineProps,
+  TimelineSemanticClassNames
+>
+
 export type TimelineMode = ItemPosition | 'alternate'
 
 export interface TimelineProps extends ComponentBaseProps {
@@ -58,19 +69,23 @@ export interface TimelineProps extends ComponentBaseProps {
   reverse?: boolean
   mode?: 'left' | 'alternate' | 'right' | 'start' | 'end'
   items?: TimelineItemType[]
-  dotRender?: (params: { item: TimelineItemProps, index: number }) => void
-  labelRender?: (params: { item: TimelineItemProps, index: number }) => void
-  contentRender?: (params: { item: TimelineItemProps, index: number }) => void
+  dotRender?: (params: { item: TimelineItemType, index: number }) => void
+  labelRender?: (params: { item: TimelineItemType, index: number }) => void
+  contentRender?: (params: { item: TimelineItemType, index: number }) => void
   orientation?: 'horizontal' | 'vertical'
   variant?: StepsProps['variant']
+  classes?: TimelineClassNamesType
+  styles?: TimelineStylesType
 }
+
+export type TimelineStylesType = SemanticStylesType<TimelineProps, TimelineSemanticStyles>
 
 export interface TimelineSlots {
   pending?: () => void
   pendingDot?: () => void
-  dotRender?: (params: { item: TimelineItemProps, index: number }) => void
-  labelRender?: (params: { item: TimelineItemProps, index: number }) => void
-  contentRender?: (params: { item: TimelineItemProps, index: number }) => void
+  dotRender?: (params: { item: TimelineItemType, index: number }) => void
+  labelRender?: (params: { item: TimelineItemType, index: number }) => void
+  contentRender?: (params: { item: TimelineItemType, index: number }) => void
 }
 
 const Timeline = defineComponent<

@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'vue'
-import type { SemanticClassNames, SemanticClassNamesType, SemanticStyles, SemanticStylesType } from '../_util/hooks'
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { InputStatus } from '../_util/statusUtils'
 import type { VueNode } from '../_util/type'
 import type { ComponentBaseProps } from '../config-provider/context'
@@ -62,28 +62,46 @@ export interface TransferSearchOption {
   defaultValue?: string
 }
 
-export type TransferSemanticName
-  = | 'root'
-    | 'section'
-    | 'header'
-    | 'title'
-    | 'body'
-    | 'list'
-    | 'item'
-    | 'itemIcon'
-    | 'itemContent'
-    | 'footer'
-    | 'actions'
+export interface TransferSemanticClassNames {
+  root?: string
+  section?: string
+  header?: string
+  title?: string
+  body?: string
+  list?: string
+  item?: string
+  itemIcon?: string
+  itemContent?: string
+  footer?: string
+  actions?: string
+}
 
-export type TransferClassNamesType = SemanticClassNamesType<TransferProps, TransferSemanticName>
+export interface TransferSemanticStyles {
+  root?: CSSProperties
+  section?: CSSProperties
+  header?: CSSProperties
+  title?: CSSProperties
+  body?: CSSProperties
+  list?: CSSProperties
+  item?: CSSProperties
+  itemIcon?: CSSProperties
+  itemContent?: CSSProperties
+  footer?: CSSProperties
+  actions?: CSSProperties
+}
 
-export type TransferStylesType = SemanticStylesType<TransferProps, TransferSemanticName>
+export type TransferClassNamesType = SemanticClassNamesType<
+  TransferProps,
+  TransferSemanticClassNames
+>
+
+export type TransferStylesType = SemanticStylesType<TransferProps, TransferSemanticStyles>
 
 export interface TransferListProps<RecordType> extends TransferLocale {
   prefixCls: string
   style?: CSSProperties
-  classes?: SemanticClassNames<TransferSemanticName>
-  styles?: SemanticStyles<TransferSemanticName>
+  classes?: TransferSemanticClassNames
+  styles?: TransferSemanticStyles
 
   titleText: VueNode
   dataSource: RecordType[]

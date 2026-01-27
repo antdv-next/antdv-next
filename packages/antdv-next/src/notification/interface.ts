@@ -21,11 +21,31 @@ export type NotificationPlacement = (typeof NotificationPlacements)[number]
 
 export type IconType = 'success' | 'info' | 'error' | 'warning'
 
-export type NotificationSemantic = 'root' | 'title' | 'description' | 'actions' | 'icon'
+export type NotificationSemanticName = keyof NotificationSemanticClassNames
+  & keyof NotificationSemanticStyles
 
-export type NotificationClassNamesType = SemanticClassNamesType<ArgsProps, NotificationSemantic>
+export interface NotificationSemanticClassNames {
+  root?: string
+  title?: string
+  description?: string
+  actions?: string
+  icon?: string
+}
 
-export type NotificationStylesType = SemanticStylesType<ArgsProps, NotificationSemantic>
+export interface NotificationSemanticStyles {
+  root?: CSSProperties
+  title?: CSSProperties
+  description?: CSSProperties
+  actions?: CSSProperties
+  icon?: CSSProperties
+}
+
+export type NotificationClassNamesType = SemanticClassNamesType<
+  ArgsProps,
+  NotificationSemanticClassNames
+>
+
+export type NotificationStylesType = SemanticStylesType<ArgsProps, NotificationSemanticStyles>
 
 export interface ArgsProps {
   title: VueNode

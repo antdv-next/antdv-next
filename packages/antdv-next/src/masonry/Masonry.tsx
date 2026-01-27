@@ -29,10 +29,21 @@ import useStyle from './style'
 export type Gap = number | undefined
 export type Key = string | number
 
-export type SemanticName = 'root' | 'item'
+export type MasonrySemanticName = keyof MasonrySemanticClassNames & keyof MasonrySemanticStyles
 
-export type MasonryClassNamesType = SemanticClassNamesType<MasonryProps, SemanticName>
-export type MasonryStylesType = SemanticStylesType<MasonryProps, SemanticName>
+export interface MasonrySemanticClassNames {
+  root?: string
+  item?: string
+}
+
+export interface MasonrySemanticStyles {
+  root?: CSSProperties
+  item?: CSSProperties
+}
+
+export type MasonryClassNamesType = SemanticClassNamesType<MasonryProps, MasonrySemanticClassNames>
+
+export type MasonryStylesType = SemanticStylesType<MasonryProps, MasonrySemanticStyles>
 
 export interface MasonryProps extends ComponentBaseProps {
   classes?: MasonryClassNamesType
@@ -49,7 +60,7 @@ export interface MasonryProps extends ComponentBaseProps {
   columns?: number | Partial<Record<Breakpoint, number>>
 
   /** Trigger when item layout order changed */
-  // onLayoutChange?: (sortInfo: { key: React.Key; column: number }[]) => void;
+  // onLayoutChange?: (sortInfo: { key: Key; column: number }[]) => void;
 
   fresh?: boolean
 

@@ -1,6 +1,9 @@
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks'
 import type { VueNode } from '../_util/type'
-import type { KeyWiseTransferItem, TransferSemanticName } from './interface'
+import type {
+  KeyWiseTransferItem,
+  TransferSemanticClassNames,
+  TransferSemanticStyles,
+} from './interface'
 import { DeleteOutlined } from '@antdv-next/icons'
 import { clsx } from '@v-c/util'
 import { defineComponent } from 'vue'
@@ -10,8 +13,8 @@ import useLocale from '../locale/useLocale'
 
 interface ListItemProps<RecordType> {
   prefixCls: string
-  classes: SemanticClassNames<TransferSemanticName>
-  styles: SemanticStyles<TransferSemanticName>
+  classes: TransferSemanticClassNames
+  styles: TransferSemanticStyles
   renderedText?: string | number
   renderedEl: VueNode
   disabled?: boolean

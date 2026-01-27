@@ -25,10 +25,21 @@ import Ribbon from './Ribbon.tsx'
 import ScrollNumber from './ScrollNumber.tsx'
 import useStyle from './style'
 
-type SemanticName = 'root' | 'indicator'
+export type BadgeSemanticName = keyof BadgeSemanticClassNames & keyof BadgeSemanticStyles
 
-export type BadgeClassNamesType = SemanticClassNamesType<BadgeProps, SemanticName>
-export type BadgeStylesType = SemanticStylesType<BadgeProps, SemanticName>
+export interface BadgeSemanticClassNames {
+  root?: string
+  indicator?: string
+}
+
+export interface BadgeSemanticStyles {
+  root?: CSSProperties
+  indicator?: CSSProperties
+}
+
+export type BadgeClassNamesType = SemanticClassNamesType<BadgeProps, BadgeSemanticClassNames>
+
+export type BadgeStylesType = SemanticStylesType<BadgeProps, BadgeSemanticStyles>
 
 export interface BadgeProps extends ComponentBaseProps {
   /** Number to show in badge */

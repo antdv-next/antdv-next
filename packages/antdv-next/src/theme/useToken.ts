@@ -110,8 +110,8 @@ export default function useToken(): [
   const cssVar = computed(() => {
     const cssVar = designContext.value.cssVar
     return {
-      prefix: cssVar?.prefix || 'ant',
-      key: cssVar?.key || 'css-var-root',
+      prefix: cssVar?.prefix ?? 'ant',
+      key: cssVar?.key ?? 'css-var-root',
     }
   })
   const cachedToken = useCacheToken<GlobalToken, SeedToken>(

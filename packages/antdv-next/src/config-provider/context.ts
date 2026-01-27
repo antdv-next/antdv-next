@@ -7,6 +7,7 @@ import type { ShowWaveEffect } from '../_util/wave/interface.ts'
 import type { AlertProps } from '../alert'
 import type { AnchorProps } from '../anchor'
 import type { BadgeProps } from '../badge'
+import type { RibbonProps } from '../badge/Ribbon.tsx'
 import type { BreadcrumbProps } from '../breadcrumb/Breadcrumb.tsx'
 import type { ButtonProps } from '../button'
 import type { CardProps } from '../card/Card.tsx'
@@ -259,7 +260,7 @@ export type FloatButtonGroupConfig = ComponentStyleConfig & Pick<FloatButtonGrou
   closeIcon?: VueNode
 }
 
-export type TooltipConfig = ComponentStyleConfig & Pick<TooltipProps, 'styles' | 'classes' | 'arrow'> & {
+export type TooltipConfig = ComponentStyleConfig & Pick<TooltipProps, 'styles' | 'classes' | 'arrow' | 'trigger'> & {
   /**
    * @descCN 是否开启 Tooltip 流畅过渡动画
    * @descEN Whether to enable smooth transition for tooltips
@@ -268,9 +269,9 @@ export type TooltipConfig = ComponentStyleConfig & Pick<TooltipProps, 'styles' |
   unique?: boolean
 }
 
-export type PopoverConfig = ComponentStyleConfig & Pick<PopoverProps, 'classes' | 'styles' | 'arrow'>
+export type PopoverConfig = ComponentStyleConfig & Pick<PopoverProps, 'classes' | 'styles' | 'arrow' | 'trigger'>
 
-export type PopconfirmConfig = ComponentStyleConfig & Pick<PopconfirmProps, 'classes' | 'styles' | 'arrow'>
+export type PopconfirmConfig = ComponentStyleConfig & Pick<PopconfirmProps, 'classes' | 'styles' | 'arrow' | 'trigger'>
 
 export type SegmentedConfig = ComponentStyleConfig & Pick<SegmentedProps, 'classes' | 'styles'>
 
@@ -398,6 +399,8 @@ export interface TableConfig<RecordType extends AnyObject = AnyObject>
   bodyCell?: TableProps['bodyCell']
   headerCell?: TableProps['headerCell']
 }
+
+export type RibbonConfig = ComponentStyleConfig & Pick<RibbonProps, 'classes' | 'styles'>
 export interface ConfigComponentProps {
   input?: InputConfig
   inputNumber?: InputNumberConfig
@@ -464,6 +467,7 @@ export interface ConfigComponentProps {
   tree?: TreeConfig
   colorPicker?: ComponentStyleConfig
   datePicker?: DatePickerConfig
+  ribbon?: RibbonConfig
   rangePicker?: RangePickerConfig
   dropdown?: ComponentStyleConfig
   flex?: FlexConfig

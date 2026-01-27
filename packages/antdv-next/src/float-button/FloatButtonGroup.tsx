@@ -23,23 +23,39 @@ import useStyle from './style'
 
 const VALID_PLACEMENTS = ['top', 'bottom', 'left', 'right'] as const
 
-export type InternalFloatButtonGroupSemanticName = 'root'
-  | 'list'
-  | 'item'
-  | 'itemIcon'
-  | 'itemContent'
-  | 'trigger'
-  | 'triggerIcon'
-  | 'triggerContent'
+export type FloatButtonGroupSemanticName = keyof FloatButtonGroupSemanticClassNames
+  & keyof FloatButtonGroupSemanticStyles
+
+export interface FloatButtonGroupSemanticClassNames {
+  root?: string
+  list?: string
+  item?: string
+  itemIcon?: string
+  itemContent?: string
+  trigger?: string
+  triggerIcon?: string
+  triggerContent?: string
+}
+
+export interface FloatButtonGroupSemanticStyles {
+  root?: CSSProperties
+  list?: CSSProperties
+  item?: CSSProperties
+  itemIcon?: CSSProperties
+  itemContent?: CSSProperties
+  trigger?: CSSProperties
+  triggerIcon?: CSSProperties
+  triggerContent?: CSSProperties
+}
 
 export type FloatButtonGroupClassNamesType = SemanticClassNamesType<
   FloatButtonGroupProps,
-  InternalFloatButtonGroupSemanticName
+  FloatButtonGroupSemanticClassNames
 >
 
 export type FloatButtonGroupStylesType = SemanticStylesType<
   FloatButtonGroupProps,
-  InternalFloatButtonGroupSemanticName
+  FloatButtonGroupSemanticStyles
 >
 
 export interface FloatButtonGroupProps extends Omit<FloatButtonProps, 'classes' | 'styles'>, ComponentBaseProps {

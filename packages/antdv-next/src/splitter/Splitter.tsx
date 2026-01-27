@@ -1,5 +1,5 @@
 import type { SizeInfo } from '@v-c/resize-observer'
-import type { SlotsType } from 'vue'
+import type { CSSProperties, SlotsType } from 'vue'
 import type {
   SplitterClassNamesType,
   SplitterEmits,
@@ -87,7 +87,7 @@ const Splitter = defineComponent<
     const [panelSizes, itemPxSizes, itemPtgSizes, itemPtgMinSizes, itemPtgMaxSizes, updateSizes] = useSizes(items, containerSize as any)
 
     // ====================== Resizable =======================
-    const resizableInfos = useResizable(items, itemPxSizes, isRTL)
+    const resizableInfos = useResizable(items, itemPxSizes, reverse)
     const [onOffsetStart, onOffsetUpdate, onOffsetEnd, onCollapse, movingIndex] = useResize(
       items,
       resizableInfos,
@@ -236,7 +236,7 @@ const Splitter = defineComponent<
                     rootPrefixCls={rootPrefixCls.value}
                     vertical={isVertical.value}
                     resizable={resizableInfo.resizable}
-                    draggerStyle={mergedStyles.value.dragger}
+                    draggerStyle={mergedStyles.value.dragger as CSSProperties}
                     draggerClassName={mergedClassNames.value.dragger as SplitterSemanticDraggerClassNames}
                     draggerIcon={draggerIcon}
                     collapsibleIcon={collapsibleIcon}

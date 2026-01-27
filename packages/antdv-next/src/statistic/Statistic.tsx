@@ -18,9 +18,33 @@ import Skeleton from '../skeleton'
 import StatisticNumber from './Number.tsx'
 import useStyle from './style'
 
-export type SemanticName = 'root' | 'content' | 'title' | 'header' | 'prefix' | 'suffix'
-export type StatisticClassNamesType = SemanticClassNamesType<StatisticProps, SemanticName>
-export type StatisticStylesType = SemanticStylesType<StatisticProps, SemanticName>
+export type StatisticSemanticName = keyof StatisticSemanticClassNames
+  & keyof StatisticSemanticStyles
+
+export interface StatisticSemanticClassNames {
+  root?: string
+  content?: string
+  title?: string
+  header?: string
+  prefix?: string
+  suffix?: string
+}
+
+export interface StatisticSemanticStyles {
+  root?: CSSProperties
+  content?: CSSProperties
+  title?: CSSProperties
+  header?: CSSProperties
+  prefix?: CSSProperties
+  suffix?: CSSProperties
+}
+
+export type StatisticClassNamesType = SemanticClassNamesType<
+  StatisticProps,
+  StatisticSemanticClassNames
+>
+
+export type StatisticStylesType = SemanticStylesType<StatisticProps, StatisticSemanticStyles>
 
 type StatisticRectProps = FormatConfig & ComponentBaseProps & {
   value?: valueType

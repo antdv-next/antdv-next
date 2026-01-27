@@ -12,21 +12,39 @@ import type {
 import type { VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
 
-export type TourSemanticName
-  = | 'root'
-    | 'cover'
-    | 'mask'
-    | 'section'
-    | 'footer'
-    | 'actions'
-    | 'indicator'
-    | 'indicators'
-    | 'header'
-    | 'title'
-    | 'description'
+export type TourSemanticName = keyof TourSemanticClassNames & keyof TourSemanticStyles
 
-export type TourClassNamesType = SemanticClassNamesType<TourProps, TourSemanticName>
-export type TourStylesType = SemanticStylesType<TourProps, TourSemanticName>
+export interface TourSemanticClassNames {
+  root?: string
+  cover?: string
+  mask?: string
+  section?: string
+  footer?: string
+  actions?: string
+  indicator?: string
+  indicators?: string
+  header?: string
+  title?: string
+  description?: string
+}
+
+export interface TourSemanticStyles {
+  root?: CSSProperties
+  cover?: CSSProperties
+  mask?: CSSProperties
+  section?: CSSProperties
+  footer?: CSSProperties
+  actions?: CSSProperties
+  indicator?: CSSProperties
+  indicators?: CSSProperties
+  header?: CSSProperties
+  title?: CSSProperties
+  description?: CSSProperties
+}
+
+export type TourClassNamesType = SemanticClassNamesType<TourProps, TourSemanticClassNames>
+
+export type TourStylesType = SemanticStylesType<TourProps, TourSemanticStyles>
 
 export interface TourProps extends ComponentBaseProps, Omit<
   VcTourProps,

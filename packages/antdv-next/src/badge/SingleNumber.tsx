@@ -67,9 +67,11 @@ export default defineComponent<SingleNumberProps>(
               left: 0,
             } as CSSProperties)
           : undefined
+
+        const spanKey = Number.isNaN(key) ? unitValue : key ?? unitValue
         return (
           <span
-            key={key ?? unitValue}
+            key={spanKey}
             class={classNames(`${prefixCls}-only-unit`, { current })}
             style={style}
           >

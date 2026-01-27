@@ -2,7 +2,7 @@ import type { App, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { VueNode } from '../_util/type'
 import type { ButtonProps, LegacyButtonType } from '../button'
-import type { PopoverProps, PopoverSemanticName } from '../popover'
+import type { PopoverProps, PopoverSemanticClassNames, PopoverSemanticName, PopoverSemanticStyles } from '../popover'
 import type { TooltipEmits, TooltipRef } from '../tooltip'
 import { ExclamationCircleFilled } from '@antdv-next/icons'
 import { clsx } from '@v-c/util'
@@ -17,9 +17,18 @@ import useMergedArrow from '../tooltip/hooks/useMergedArrow'
 import PurePanel, { Overlay } from './PurePanel'
 import useStyle from './style'
 
-export type PopconfirmClassNamesType = SemanticClassNamesType<PopconfirmProps, PopoverSemanticName>
+export type PopconfirmSemanticName = PopoverSemanticName
 
-export type PopconfirmStylesType = SemanticStylesType<PopconfirmProps, PopoverSemanticName>
+export type PopconfirmSemanticClassNames = PopoverSemanticClassNames
+
+export type PopconfirmSemanticStyles = PopoverSemanticStyles
+
+export type PopconfirmClassNamesType = SemanticClassNamesType<
+  PopconfirmProps,
+  PopconfirmSemanticClassNames
+>
+
+export type PopconfirmStylesType = SemanticStylesType<PopconfirmProps, PopconfirmSemanticStyles>
 
 export interface PopconfirmProps extends Omit<PopoverProps, 'title' | 'content' | 'classes' | 'styles'> {
   title?: VueNode
@@ -75,7 +84,6 @@ const defaultIcon = <ExclamationCircleFilled />
 
 const defaults = {
   placement: 'top',
-  trigger: 'click',
   okType: 'primary',
 } as any
 
@@ -92,11 +100,13 @@ const InternalPopconfirm = defineComponent<
       classes: contextClassNames,
       styles: contextStyles,
       arrow: contextArrow,
+      trigger: contextTrigger,
       prefixCls,
-    } = useComponentBaseConfig('popconfirm', props, ['arrow'])
+    } = useComponentBaseConfig('popconfirm', props, ['arrow', 'trigger'])
     const { arrow: arrowProp, classes, styles } = toPropsRefs(props, 'arrow', 'classes', 'styles')
     const [hashId, cssVarCls] = useStyle(prefixCls)
     const mergedArrow = useMergedArrow(arrowProp, contextArrow)
+    const mergedTrigger = computed(() => props?.trigger ?? contextTrigger.value ?? 'click')
     const popoverRef = shallowRef<TooltipRef>()
 
     const open = shallowRef(props.open ?? props.defaultOpen ?? false)
@@ -146,6 +156,7 @@ const InternalPopconfirm = defineComponent<
 
     const mergedProps = computed(() => ({
       ...props,
+      trigger: mergedTrigger.value,
     }))
 
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
@@ -197,6 +208,7 @@ const InternalPopconfirm = defineComponent<
         <Popover
           {...attrs}
           {...removeUndefined(restProps)}
+          trigger={mergedTrigger.value}
           ref={popoverRef as any}
           open={open.value}
           arrow={mergedArrow.value}

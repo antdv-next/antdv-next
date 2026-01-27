@@ -1,6 +1,10 @@
-import type { SemanticClassNames, SemanticClassNamesType, SemanticStyles, SemanticStylesType } from '../_util/hooks'
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { VueNode } from '../_util/type'
-import type { IconType, NotificationSemantic } from './interface'
+import type {
+  IconType,
+  NotificationSemanticClassNames,
+  NotificationSemanticStyles,
+} from './interface'
 import { CheckCircleFilled, CloseCircleFilled, CloseOutlined, ExclamationCircleFilled, InfoCircleFilled } from '@antdv-next/icons'
 import { Notice } from '@v-c/notification'
 import { clsx } from '@v-c/util'
@@ -11,7 +15,6 @@ import {
   useMergeSemantic,
   useToArr,
   useToProps,
-
 } from '../_util/hooks'
 import useClosable, { pickClosable } from '../_util/hooks/useClosable'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
@@ -20,9 +23,12 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
 import useStyle from './style'
 import PurePanelStyle from './style/pure-panel'
 
-export type PurePanelClassNamesType = SemanticClassNamesType<PurePanelProps, NotificationSemantic>
+export type PurePanelClassNamesType = SemanticClassNamesType<
+  PurePanelProps,
+  NotificationSemanticClassNames
+>
 
-export type PurePanelStylesType = SemanticStylesType<PurePanelProps, NotificationSemantic>
+export type PurePanelStylesType = SemanticStylesType<PurePanelProps, NotificationSemanticStyles>
 
 export function getCloseIcon(prefixCls: string, closeIcon?: VueNode): VueNode {
   if (closeIcon === null || closeIcon === false) {
@@ -39,8 +45,8 @@ export interface PureContentProps {
   actions?: VueNode
   type?: IconType
   role?: 'alert' | 'status'
-  classes: SemanticClassNames<NotificationSemantic>
-  styles: SemanticStyles<NotificationSemantic>
+  classes: NotificationSemanticClassNames
+  styles: NotificationSemanticStyles
 }
 
 const typeToIcon = {

@@ -24,10 +24,31 @@ import useRafLock from './useRafLock'
 
 export type SliderMarks = VcSliderProps['marks']
 
-export type SemanticName = 'root' | 'tracks' | 'track' | 'rail' | 'handle'
+export type SliderSemanticName = keyof SliderSemanticClassNames & keyof SliderSemanticStyles
 
-export type SliderClassNamesType = SemanticClassNamesType<SliderBaseProps, SemanticName>
-export type SliderStylesType = SemanticStylesType<SliderBaseProps, SemanticName>
+export interface SliderSemanticClassNames {
+  root?: string
+  tracks?: string
+  track?: string
+  rail?: string
+  handle?: string
+}
+
+export interface SliderSemanticStyles {
+  root?: CSSProperties
+  tracks?: CSSProperties
+  track?: CSSProperties
+  rail?: CSSProperties
+  handle?: CSSProperties
+}
+
+export type SliderClassNamesType = SemanticClassNamesType<
+  SliderBaseProps,
+  SliderSemanticClassNames
+>
+
+export type SliderStylesType = SemanticStylesType<SliderBaseProps, SliderSemanticStyles>
+
 export interface SliderProps extends Omit<VcSliderProps, 'styles' | 'classNames'> {
   classes?: SliderClassNamesType
   styles?: SliderStylesType
@@ -72,14 +93,14 @@ export interface SliderBaseProps {
   // className?: string
   rootClass?: string
   id?: string
-  // style?: React.CSSProperties;
+  // style?: CSSProperties;
   tooltip?: SliderTooltipProps
   autoFocus?: boolean
 
   styles?: SliderStylesType
   classes?: SliderClassNamesType
-  // onFocus?: React.FocusEventHandler<HTMLDivElement>;
-  // onBlur?: React.FocusEventHandler<HTMLDivElement>;
+  // onFocus?: FocusEventHandler<HTMLDivElement>;
+  // onBlur?: FocusEventHandler<HTMLDivElement>;
 
   // Accessibility
   tabindex?: SliderProps['tabIndex']

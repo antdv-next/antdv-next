@@ -3,7 +3,7 @@ import type {
   VcFile as OriVcFile,
   UploadRequestOption as VcCustomRequestOptions,
 } from '@v-c/upload'
-import type { ImgHTMLAttributes } from 'vue'
+import type { CSSProperties, ImgHTMLAttributes } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { ProgressAriaProps, ProgressProps } from '../progress'
 
@@ -84,9 +84,27 @@ export type ItemRender<T = any> = (
 type PreviewFileHandler = (file: File | Blob) => PromiseLike<string>
 type BeforeUploadValueType = void | boolean | string | Blob | File
 
-export type SemanticName = 'root' | 'list' | 'item'
-export type UploadClassNamesType = SemanticClassNamesType<UploadProps, SemanticName>
-export type UploadStylesType = SemanticStylesType<UploadProps, SemanticName>
+export type UploadSemanticName = keyof UploadSemanticClassNames & keyof UploadSemanticStyles
+
+export interface UploadSemanticClassNames {
+  root?: string
+  list?: string
+  item?: string
+}
+
+export interface UploadSemanticStyles {
+  root?: CSSProperties
+  list?: CSSProperties
+  item?: CSSProperties
+}
+
+export type UploadClassNamesType<T = any> = SemanticClassNamesType<
+  UploadProps<T>,
+  UploadSemanticClassNames
+>
+
+export type UploadStylesType<T = any> = SemanticStylesType<UploadProps<T>, UploadSemanticStyles>
+
 export interface UploadProps<T = any> {
   type?: UploadType
   name?: string

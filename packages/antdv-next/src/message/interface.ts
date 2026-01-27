@@ -5,11 +5,23 @@ import type { VueNode } from '../_util/type'
 
 export type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading'
 
-export type SemanticName = 'root' | 'icon' | 'content'
+export type MessageSemanticName = keyof MessageSemanticClassNames & keyof MessageSemanticStyles
 
-export type ArgsClassNamesType = SemanticClassNamesType<ArgsProps, SemanticName>
+export interface MessageSemanticClassNames {
+  root?: string
+  icon?: string
+  content?: string
+}
 
-export type ArgsStylesType = SemanticStylesType<ArgsProps, SemanticName>
+export interface MessageSemanticStyles {
+  root?: CSSProperties
+  icon?: CSSProperties
+  content?: CSSProperties
+}
+
+export type ArgsClassNamesType = SemanticClassNamesType<ArgsProps, MessageSemanticClassNames>
+
+export type ArgsStylesType = SemanticStylesType<ArgsProps, MessageSemanticStyles>
 
 export interface ConfigOptions {
   top?: string | number

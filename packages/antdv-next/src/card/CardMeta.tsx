@@ -1,4 +1,4 @@
-import type { SlotsType } from 'vue'
+import type { CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { EmptyEmit, VueNode } from '../_util/type.ts'
 import { clsx } from '@v-c/util'
@@ -7,9 +7,30 @@ import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '..
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { useComponentBaseConfig } from '../config-provider/context.ts'
 
-export type SemanticName = 'root' | 'section' | 'avatar' | 'title' | 'description'
-export type CardMetaClassNamesType = SemanticClassNamesType<CardMetaProps, SemanticName>
-export type CardMetaStylesType = SemanticStylesType<CardMetaProps, SemanticName>
+export type CardMetaSemanticName = keyof CardMetaSemanticClassNames & keyof CardMetaSemanticStyles
+
+export interface CardMetaSemanticClassNames {
+  root?: string
+  section?: string
+  avatar?: string
+  title?: string
+  description?: string
+}
+
+export interface CardMetaSemanticStyles {
+  root?: CSSProperties
+  section?: CSSProperties
+  avatar?: CSSProperties
+  title?: CSSProperties
+  description?: CSSProperties
+}
+
+export type CardMetaClassNamesType = SemanticClassNamesType<
+  CardMetaProps,
+  CardMetaSemanticClassNames
+>
+
+export type CardMetaStylesType = SemanticStylesType<CardMetaProps, CardMetaSemanticStyles>
 
 export interface CardMetaProps {
   prefixCls?: string

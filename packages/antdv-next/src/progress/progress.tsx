@@ -1,4 +1,4 @@
-import type { App, AriaAttributes, SlotsType } from 'vue'
+import type { App, AriaAttributes, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { EmptyEmit } from '../_util/type'
 import type { ComponentBaseProps } from '../config-provider/context'
@@ -20,11 +20,30 @@ import Steps from './Steps'
 import useStyle from './style'
 import { getSize, getSuccessPercent, validProgress } from './utils'
 
-export type SemanticName = 'root' | 'body' | 'rail' | 'track' | 'indicator'
+export type ProgressSemanticName = keyof ProgressSemanticClassNames & keyof ProgressSemanticStyles
 
-export type ProgressClassNamesType = SemanticClassNamesType<ProgressProps, SemanticName>
+export interface ProgressSemanticClassNames {
+  root?: string
+  body?: string
+  rail?: string
+  track?: string
+  indicator?: string
+}
 
-export type ProgressStylesType = SemanticStylesType<ProgressProps, SemanticName>
+export interface ProgressSemanticStyles {
+  root?: CSSProperties
+  body?: CSSProperties
+  rail?: CSSProperties
+  track?: CSSProperties
+  indicator?: CSSProperties
+}
+
+export type ProgressClassNamesType = SemanticClassNamesType<
+  ProgressProps,
+  ProgressSemanticClassNames
+>
+
+export type ProgressStylesType = SemanticStylesType<ProgressProps, ProgressSemanticStyles>
 
 export const ProgressTypes = ['line', 'circle', 'dashboard'] as const
 export type ProgressType = (typeof ProgressTypes)[number]

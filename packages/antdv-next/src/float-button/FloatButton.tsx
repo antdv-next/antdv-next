@@ -3,6 +3,7 @@ import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { VueNode } from '../_util/type'
 import type { BadgeProps } from '../badge'
 import type { ButtonHTMLType, ButtonSemanticName } from '../button'
+import type { ButtonSemanticClassNames, ButtonSemanticStyles } from '../button/Button.tsx'
 import type { ComponentBaseProps } from '../config-provider/context'
 import type { TooltipProps } from '../tooltip'
 import { FileTextOutlined } from '@antdv-next/icons'
@@ -37,8 +38,12 @@ export type FloatButtonBadgeProps = Omit<BadgeProps, 'status' | 'text' | 'title'
 
 export type FloatButtonSemanticName = ButtonSemanticName
 
-export type FloatButtonClassNamesType = SemanticClassNamesType<FloatButtonProps, FloatButtonSemanticName>
-export type FloatButtonStylesType = SemanticStylesType<FloatButtonProps, FloatButtonSemanticName>
+export type FloatButtonClassNamesType = SemanticClassNamesType<
+  FloatButtonProps,
+  ButtonSemanticClassNames
+>
+
+export type FloatButtonStylesType = SemanticStylesType<FloatButtonProps, ButtonSemanticStyles>
 
 export interface FloatButtonProps extends ComponentBaseProps {
   icon?: VueNode

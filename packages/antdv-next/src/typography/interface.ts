@@ -92,7 +92,7 @@ export interface TypographyBaseProps extends ComponentBaseProps {
   rootClass?: string
   component?: keyof HTMLElementTagNameMap | string
   direction?: DirectionType
-  classes?: TypographyClassNamesType
-  styles?: TypographyStylesType
+  // classes?: TypographyClassNamesType
+  // styles?: TypographyStylesType
   title?: string
 }

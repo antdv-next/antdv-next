@@ -1,6 +1,5 @@
 import type { MenuInfo, MenuItemProps, RenderIconInfo, SelectInfo, MenuProps as VcMenuProps } from '@v-c/menu'
 import type { CSSProperties, SlotsType } from 'vue'
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks'
 import type { VueNode } from '../_util/type.ts'
 import type { ItemType } from './interface.ts'
 import type { MenuContextProps, MenuTheme } from './MenuContext'
@@ -49,18 +48,64 @@ const MENU_COMPONENTS: any = {
 function isEmptyIcon(icon?: VueNode) {
   return icon === null || icon === false
 }
-export type SemanticName = 'root' | 'itemTitle' | 'list' | 'item' | 'itemIcon' | 'itemContent'
 
-export type SubMenuSemanticName = 'item' | 'itemTitle' | 'list' | 'itemContent' | 'itemIcon'
+export type MenuSemanticName = keyof MenuSemanticClassNames & keyof MenuSemanticStyles
 
-type MenuClassNamesSchemaType = SemanticClassNames<SemanticName> & {
-  popup?: SemanticClassNames<'root'> | string
-  subMenu?: SemanticClassNames<SubMenuSemanticName>
+export interface MenuSemanticClassNames {
+  root?: string
+  itemTitle?: string
+  list?: string
+  item?: string
+  itemIcon?: string
+  itemContent?: string
 }
 
-type MenuStylesSchemaType = SemanticStyles<SemanticName> & {
-  popup?: SemanticStyles<'root'> | CSSProperties
-  subMenu?: SemanticStyles<SubMenuSemanticName>
+export interface MenuSemanticStyles {
+  root?: CSSProperties
+  itemTitle?: CSSProperties
+  list?: CSSProperties
+  item?: CSSProperties
+  itemIcon?: CSSProperties
+  itemContent?: CSSProperties
+}
+
+export type SubMenuSemanticName = keyof SubMenuSemanticClassNames & keyof SubMenuSemanticStyles
+
+export interface SubMenuSemanticClassNames {
+  item?: string
+  itemTitle?: string
+  list?: string
+  itemContent?: string
+  itemIcon?: string
+}
+
+export interface SubMenuSemanticStyles {
+  item?: CSSProperties
+  itemTitle?: CSSProperties
+  list?: CSSProperties
+  itemContent?: CSSProperties
+  itemIcon?: CSSProperties
+}
+
+export type MenuPopupSemanticName = keyof MenuPopupSemanticClassNames
+  & keyof MenuPopupSemanticStyles
+
+export interface MenuPopupSemanticClassNames {
+  root?: string
+}
+
+export interface MenuPopupSemanticStyles {
+  root?: CSSProperties
+}
+
+type MenuClassNamesSchemaType = MenuSemanticClassNames & {
+  popup?: MenuPopupSemanticClassNames | string
+  subMenu?: SubMenuSemanticClassNames
+}
+
+type MenuStylesSchemaType = MenuSemanticStyles & {
+  popup?: MenuPopupSemanticStyles | CSSProperties
+  subMenu?: SubMenuSemanticStyles
 }
 
 export type MenuClassNamesType

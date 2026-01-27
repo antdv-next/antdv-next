@@ -1,5 +1,5 @@
 import type { Key } from '@v-c/util/dist/type'
-import type { App, SlotsType } from 'vue'
+import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { Breakpoint } from '../_util/responsiveObserver.ts'
 import type { EmptyEmit, VueNode } from '../_util/type.ts'
@@ -26,12 +26,36 @@ import useRow from './hooks/useRow.ts'
 import Row from './Row.tsx'
 import useStyle from './style'
 
-type SemanticName = 'root' | 'header' | 'title' | 'extra' | 'label' | 'content'
+export type DescriptionsSemanticName = keyof DescriptionsSemanticClassNames
+  & keyof DescriptionsSemanticStyles
 
-export type DescriptionsClassNamesType = SemanticClassNamesType<DescriptionsProps, SemanticName>
+export interface DescriptionsSemanticClassNames {
+  root?: string
+  header?: string
+  title?: string
+  extra?: string
+  label?: string
+  content?: string
+}
 
-export type DescriptionsStylesType = SemanticStylesType<DescriptionsProps, SemanticName>
+export interface DescriptionsSemanticStyles {
+  root?: CSSProperties
+  header?: CSSProperties
+  title?: CSSProperties
+  extra?: CSSProperties
+  label?: CSSProperties
+  content?: CSSProperties
+}
 
+export type DescriptionsClassNamesType = SemanticClassNamesType<
+  DescriptionsProps,
+  DescriptionsSemanticClassNames
+>
+
+export type DescriptionsStylesType = SemanticStylesType<
+  DescriptionsProps,
+  DescriptionsSemanticStyles
+>
 export interface InternalDescriptionsItemType extends Omit<DescriptionsItemProps, 'span'> {
   key?: Key
   filled?: boolean

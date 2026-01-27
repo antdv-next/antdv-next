@@ -1,7 +1,6 @@
 import type { SlotsType } from 'vue'
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks'
 import type { EmptyEmit } from '../_util/type.ts'
-import type { ProgressProps, SemanticName } from './progress'
+import type { ProgressProps, ProgressSemanticClassNames, ProgressSemanticStyles } from './progress'
 import { Circle as VCCircle } from '@v-c/progress'
 import { clsx } from '@v-c/util'
 import { omit } from 'es-toolkit'
@@ -21,8 +20,8 @@ export interface CircleProps extends Omit<ProgressProps, 'classes' | 'styles'> {
   prefixCls: string
   progressStatus: string
   strokeColor?: string | Record<string, string>
-  classes: SemanticClassNames<SemanticName>
-  styles: SemanticStyles<SemanticName>
+  classes: ProgressSemanticClassNames
+  styles: ProgressSemanticStyles
 }
 
 const defaults = {

@@ -20,7 +20,22 @@ import { useSize } from '../config-provider/hooks/useSize.ts'
 import Tooltip from '../tooltip'
 import useStyle from './style'
 
-export type SemanticName = 'root' | 'icon' | 'label' | 'item'
+export type SegmentedSemanticName = keyof SegmentedSemanticClassNames
+  & keyof SegmentedSemanticStyles
+
+export interface SegmentedSemanticClassNames {
+  root?: string
+  icon?: string
+  label?: string
+  item?: string
+}
+
+export interface SegmentedSemanticStyles {
+  root?: CSSProperties
+  icon?: CSSProperties
+  label?: CSSProperties
+  item?: CSSProperties
+}
 interface SegmentedLabeledOptionWithoutIcon<ValueType = RcSegmentedValue>
   extends RcSegmentedLabeledOption<ValueType> {
   label: RcSegmentedLabeledOption['label']
@@ -48,8 +63,12 @@ export type SegmentedLabeledOption<ValueType = RcSegmentedValue>
 
 export type SegmentedOptions<T = SegmentedRawOption> = (T | SegmentedLabeledOption<T>)[]
 
-export type SegmentedClassNamesType = SemanticClassNamesType<SegmentedProps, SemanticName>
-export type SegmentedStylesType = SemanticStylesType<SegmentedProps, SemanticName>
+export type SegmentedClassNamesType = SemanticClassNamesType<
+  SegmentedProps,
+  SegmentedSemanticClassNames
+>
+
+export type SegmentedStylesType = SemanticStylesType<SegmentedProps, SegmentedSemanticStyles>
 
 export interface SegmentedProps extends Omit<RCSegmentedProps, 'size' | 'options' | 'itemRender' | 'styles' | 'classNames' | 'onChange'> {
   options: SegmentedOptions
