@@ -4,7 +4,7 @@ import type { EmptyEmit, VueNode } from '../_util/type.ts'
 import type { TooltipProps } from '../tooltip'
 import { Item } from '@v-c/menu'
 import { clsx } from '@v-c/util'
-import { filterEmpty } from '@v-c/util/dist/props-util'
+import { filterEmpty, getAttrStyleAndClass } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { createVNode, defineComponent, isVNode } from 'vue'
 import { pureAttrs } from '../_util/hooks'
@@ -51,6 +51,7 @@ const MenuItem = defineComponent<
       const extra = getSlotPropsFnRun(slots, props, 'extra')
       const icon = getSlotPropsFnRun(slots, props, 'icon')
       const title = getSlotPropsFnRun(slots, props, 'title')
+      const { className, style } = getAttrStyleAndClass(attrs)
       const { danger } = props
       const { prefixCls, firstLevel, direction, disableMenuItemTitleTooltip, inlineCollapsed: isInlineCollapsed, styles, classes } = menuContext.value
       const children = filterEmpty(slots?.default?.())
@@ -108,9 +109,9 @@ const MenuItem = defineComponent<
               [`${prefixCls}-item-danger`]: !!danger,
               [`${prefixCls}-item-only-child`]: (icon ? childrenLength + 1 : childrenLength) === 1,
             },
-            (attrs as any).class,
+            className,
           )}
-          style={[(attrs as any).style, firstLevel ? styles?.item : styles?.subMenu?.item] as any}
+          style={[firstLevel ? styles?.item : styles?.subMenu?.item, style] as any}
           title={typeof title === 'string' ? title : undefined}
         >
           {

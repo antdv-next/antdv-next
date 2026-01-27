@@ -48,7 +48,7 @@ export type NotificationClassNamesType = SemanticClassNamesType<
 export type NotificationStylesType = SemanticStylesType<ArgsProps, NotificationSemanticStyles>
 
 export interface ArgsProps {
-  title: VueNode
+  title?: VueNode
   description?: VueNode
   actions?: VueNode
   key?: Key

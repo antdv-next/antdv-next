@@ -229,7 +229,8 @@ const InternalTable = defineComponent<
       virtual: contextVirtual,
       bodyCell: contextBodyCell,
       headerCell: contextHeaderCell,
-    } = useComponentBaseConfig('table', props, ['bodyCell', 'headerCell'])
+      rowKey: contextRowKey,
+    } = useComponentBaseConfig('table', props, ['bodyCell', 'headerCell', 'rowKey'])
 
     const configCtx = useConfig()
 
@@ -344,7 +345,10 @@ const InternalTable = defineComponent<
       if (typeof props.rowKey === 'function') {
         return props.rowKey
       }
-      const rowKey = props.rowKey || 'key'
+      if (!props.rowKey && contextRowKey.value && typeof contextRowKey.value === 'function') {
+        return contextRowKey.value
+      }
+      const rowKey = props.rowKey || contextRowKey.value as string || 'key'
       return (record: any) => record?.[rowKey]
     })
 
