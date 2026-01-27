@@ -5,10 +5,10 @@ import { unit } from '@antdv-next/cssinjs'
 import { clearFix, textEllipsis } from '../../style'
 
 const genListStyle: GenerateStyle<UploadToken> = (token) => {
-  const { componentCls, iconCls, fontSize, lineHeight, calc } = token;
-  const itemCls = `${componentCls}-list-item`;
-  const actionsCls = `${itemCls}-actions`;
-  const actionCls = `${itemCls}-action`;
+  const { componentCls, iconCls, fontSize, lineHeight, calc } = token
+  const itemCls = `${componentCls}-list-item`
+  const actionsCls = `${itemCls}-actions`
+  const actionCls = `${itemCls}-action`
 
   return {
     [`${componentCls}-wrapper`]: {
@@ -17,14 +17,14 @@ const genListStyle: GenerateStyle<UploadToken> = (token) => {
         lineHeight: token.lineHeight,
 
         [itemCls]: {
-          position: 'relative',
-          height: calc(token.lineHeight).mul(fontSize).equal(),
-          marginTop: token.marginXS,
+          'position': 'relative',
+          'height': calc(token.lineHeight).mul(fontSize).equal(),
+          'marginTop': token.marginXS,
           fontSize,
-          display: 'flex',
-          alignItems: 'center',
-          transition: `background-color ${token.motionDurationSlow}`,
-          borderRadius: token.borderRadiusSM,
+          'display': 'flex',
+          'alignItems': 'center',
+          'transition': `background-color ${token.motionDurationSlow}`,
+          'borderRadius': token.borderRadiusSM,
 
           '&:hover': {
             backgroundColor: token.controlItemBgHover,
@@ -64,13 +64,13 @@ const genListStyle: GenerateStyle<UploadToken> = (token) => {
           },
 
           [`${itemCls}-progress`]: {
-            position: 'absolute',
-            bottom: token.calc(token.uploadProgressOffset).mul(-1).equal(),
-            width: '100%',
-            paddingInlineStart: calc(fontSize).add(token.paddingXS).equal(),
+            'position': 'absolute',
+            'bottom': token.calc(token.uploadProgressOffset).mul(-1).equal(),
+            'width': '100%',
+            'paddingInlineStart': calc(fontSize).add(token.paddingXS).equal(),
             fontSize,
-            lineHeight: 0,
-            pointerEvents: 'none',
+            'lineHeight': 0,
+            'pointerEvents': 'none',
 
             '> div': {
               margin: 0,
@@ -100,7 +100,7 @@ const genListStyle: GenerateStyle<UploadToken> = (token) => {
         },
 
         [`${componentCls}-list-item-container`]: {
-          transition: `opacity ${token.motionDurationSlow}, height ${token.motionDurationSlow}`,
+          'transition': `opacity ${token.motionDurationSlow}, height ${token.motionDurationSlow}`,
 
           // For smooth removing animation
           '&::before': {
@@ -112,7 +112,7 @@ const genListStyle: GenerateStyle<UploadToken> = (token) => {
         },
       },
     },
-  };
-};
+  }
+}
 
-export default genListStyle;
+export default genListStyle
