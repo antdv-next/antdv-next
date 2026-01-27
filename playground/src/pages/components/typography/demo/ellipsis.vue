@@ -16,7 +16,7 @@ const ellipsis = ref(true)
   <a-switch v-model:checked="ellipsis" />
 
   <a-typography-paragraph :ellipsis="ellipsis">
-    Ant Design, a design language for background applications, is refined by Ant UED Team. Ant
+    Antdv Next, a design language for background applications, is refined by Ant UED Team. Ant
     Design, a design language for background applications, is refined by Ant UED Team. Ant
     Design, a design language for background applications, is refined by Ant UED Team. Ant
     Design, a design language for background applications, is refined by Ant UED Team. Ant
@@ -25,7 +25,7 @@ const ellipsis = ref(true)
   </a-typography-paragraph>
 
   <a-typography-paragraph :ellipsis="ellipsis ? { rows: 2, expandable: true, symbol: 'more' } : false">
-    Ant Design, a design language for background applications, is refined by Ant UED Team. Ant
+    Antdv Next, a design language for background applications, is refined by Ant UED Team. Ant
     Design, a design language for background applications, is refined by Ant UED Team. Ant
     Design, a design language for background applications, is refined by Ant UED Team. Ant
     Design, a design language for background applications, is refined by Ant UED Team. Ant
@@ -37,7 +37,7 @@ const ellipsis = ref(true)
     :style="ellipsis ? { width: '200px' } : undefined"
     :ellipsis="ellipsis ? { tooltip: 'I am ellipsis now!' } : false"
   >
-    Ant Design, a design language for background applications, is refined by Ant UED Team.
+    Antdv Next, a design language for background applications, is refined by Ant UED Team.
   </a-typography-text>
 
   <a-typography-text
@@ -45,6 +45,6 @@ const ellipsis = ref(true)
     :style="ellipsis ? { width: '200px' } : undefined"
     :ellipsis="ellipsis ? { tooltip: 'I am ellipsis now!' } : false"
   >
-    Ant Design, a design language for background applications, is refined by Ant UED Team.
+    Antdv Next, a design language for background applications, is refined by Ant UED Team.
   </a-typography-text>
 </template>

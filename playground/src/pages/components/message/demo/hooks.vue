@@ -12,7 +12,7 @@ import { message } from 'antdv-next'
 const [messageApi, ContextHolder] = message.useMessage()
 
 function info() {
-  messageApi.info('Hello, Ant Design!')
+  messageApi.info('Hello, Antdv Next!')
 }
 </script>
 

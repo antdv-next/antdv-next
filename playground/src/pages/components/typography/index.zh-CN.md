@@ -8,8 +8,6 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*MLt3R6m9huoAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAAAAAAAAAAAADrJ8AQ/original
 ---
 
-
-
 ## 何时使用 {#when-to-use}
 
 - 当需要展示标题、段落、列表内容时使用，如文章/博客/日志的文本样式。
@@ -37,11 +35,11 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 
 #### 属性 {#typography-props}
 
-| 参数 | 说明   | 类型 | 默认值 | 版本 |
-| --- |------|  | --- | --- |
-| direction | 方向控制 | 'ltr' \| 'rtl' | false |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| direction | 方向控制 | 'ltr' \| 'rtl' | - | - |
 
-### TypographyText 
+### TypographyText
 
 #### 属性 {#typographytext-props}
 
@@ -91,7 +89,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | --- | --- | --- |
 | click | 点击时的回调 | (event: MouseEvent) =&gt; void |
 
-### TypographyParagraph 
+### TypographyParagraph
 
 #### 属性 {#typographyparagraph-props}
 

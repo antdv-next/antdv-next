@@ -7,11 +7,9 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*72NDQqXkyOEAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8HMoTZUoSGoAAAAAAAAAAAAADrJ8AQ/original
 ---
 
-
-
 ## When To Use {#when-to-use}
 
-Ant Design has 3 types of Tabs for different situations.
+Antdv Next has 3 types of Tabs for different situations.
 
 - Card Tabs: for managing too many closeable views.
 - Normal Tabs: for functional aspects of a page.

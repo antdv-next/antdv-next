@@ -23,20 +23,20 @@ const items = [
 ]
 const data = [
   {
-    title: 'Ant Design Title 1',
+    title: 'Antdv Next Title 1',
     current: 0,
   },
   {
-    title: 'Ant Design Title 2',
+    title: 'Antdv Next Title 2',
     current: 1,
     status: 'error',
   },
   {
-    title: 'Ant Design Title 3',
+    title: 'Antdv Next Title 3',
     current: 2,
   },
   {
-    title: 'Ant Design Title 4',
+    title: 'Antdv Next Title 4',
     current: 1,
   },
 ]
@@ -55,10 +55,10 @@ const data = [
         </div>
         <div class="min-w-0">
           <div class="mb-1">
-            <a href="https://ant.design">{{ item.title }}</a>
+            <a href="https://antdv-next.com">{{ item.title }}</a>
           </div>
           <div class="text-[var(--ant-color-text-secondary)]">
-            Ant Design, a design language for background applications, is refined by Ant UED Team
+            Antdv Next, a design language for background applications, is refined by Ant UED Team
           </div>
         </div>
       </div>

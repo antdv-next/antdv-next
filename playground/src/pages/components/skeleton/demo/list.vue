@@ -7,28 +7,28 @@ Use skeleton in list component.
 </docs>
 
 <script setup lang="ts">
-  import { LikeOutlined, MessageOutlined, StarOutlined } from '@antdv-next/icons'
-  import { ref } from 'vue'
+import { LikeOutlined, MessageOutlined, StarOutlined } from '@antdv-next/icons'
+import { ref } from 'vue'
 
-  interface ListItem {
-    href: string
-    title: string
-    avatar: string
-    description: string
-    content: string
-  }
+interface ListItem {
+  href: string
+  title: string
+  avatar: string
+  description: string
+  content: string
+}
 
-  const listData: ListItem[] = Array.from({ length: 3 }).map((_, i) => ({
-    href: 'https://ant.design',
-    title: `ant design part ${i + 1}`,
-    avatar: `https://api.dicebear.com/7.x/miniavs/svg?seed=${i}`,
-    description:
-      'Ant Design, a design language for background applications, is refined by Ant UED Team.',
-    content:
+const listData: ListItem[] = Array.from({ length: 3 }).map((_, i) => ({
+  href: 'https://ant.design',
+  title: `antdv-next part ${i + 1}`,
+  avatar: `https://api.dicebear.com/7.x/miniavs/svg?seed=${i}`,
+  description:
+      'Antdv Next, a design language for background applications, is refined by Ant UED Team.',
+  content:
       'We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.',
-  }))
+}))
 
-  const loading = ref(false)
+const loading = ref(false)
 </script>
 
 <template>

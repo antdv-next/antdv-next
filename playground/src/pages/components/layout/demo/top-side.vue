@@ -78,7 +78,7 @@ const breadcrumbItems: BreadcrumbItemType[] = [
       </a-layout>
     </div>
     <a-layout-footer class="demo-footer">
-      Ant Design ©{{ year }} Created by Ant UED
+      Antdv Next ©{{ year }} Created by Ant UED
     </a-layout-footer>
   </a-layout>
 </template>

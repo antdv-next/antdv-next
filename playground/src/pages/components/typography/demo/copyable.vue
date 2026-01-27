@@ -29,7 +29,7 @@ const asyncCopyConfig = {
   <a-typography-paragraph copyable>
     This is a copyable text.
   </a-typography-paragraph>
-  <a-typography-paragraph :copyable="{ text: 'Hello, Ant Design!' }">
+  <a-typography-paragraph :copyable="{ text: 'Hello, Antdv Next!' }">
     Replace copy text.
   </a-typography-paragraph>
   <a-typography-paragraph :copyable="customCopyConfig">

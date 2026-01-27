@@ -8,7 +8,6 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*3yz3QqMlShYAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Sv8XQ50NB40AAAAAAAAAAAAADrJ8AQ/original
 ---
 
-
 ## 何时使用 {#when-to-use}
 
 - 当有大量结构化的数据需要展现时；
@@ -33,7 +32,7 @@ const dataSource = [
     age: 42,
     address: '10 Downing Street',
   },
-];
+]
 
 const columns = [
   {
@@ -51,18 +50,13 @@ const columns = [
     dataIndex: 'address',
     key: 'address',
   },
-];
+]
 </script>
 
 <template>
   <a-table :data-source="dataSource" :columns="columns" />
 </template>
 ```
-
-## 相关推荐 {#promotion}
-
-- [Kitchen Sketch 插件 💎](https://kitchen.alipay.com/)：设计师神器，两步自动生成 Ant Design 表格组件。
-- [S2](https://s2.antv.vision/zh) 多维交叉分析表格：[AntV S2 和 Antd Table 有什么区别？](https://zhuanlan.zhihu.com/p/494995642)
 
 ## 代码演示 {#examples}
 

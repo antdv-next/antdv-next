@@ -12,7 +12,7 @@ import { ref } from 'vue'
 const rows = ref(2)
 const expanded = ref(false)
 
-const text = 'Ant Design, a design language for background applications, is refined by Ant UED Team.'.repeat(20)
+const text = 'Antdv Next, a design language for background applications, is refined by Ant UED Team.'.repeat(20)
 
 function handleExpand(_: MouseEvent, info: { expanded: boolean }) {
   expanded.value = info.expanded

@@ -9,8 +9,6 @@ demo:
   cols: 2
 ---
 
-
-
 ## When To Use {#when-to-use}
 
 - Provide reset styles based on `.ant-app` element.
@@ -52,7 +50,7 @@ demo:
   const showNotification = () => {
     notification.info({
       message: `Notification topLeft`,
-      description: 'Hello, Ant Design Vue!!',
+      description: 'Hello, Antdv Next!!',
       placement: 'topLeft',
     });
   };
@@ -73,7 +71,7 @@ demo:
   const showNotification = () => {
     notification.info({
       title: 'Notification',
-      description: 'Hello, Ant Design!!',
+      description: 'Hello, Antdv Next!!',
     });
   };
 </script>

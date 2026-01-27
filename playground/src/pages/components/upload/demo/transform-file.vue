@@ -30,7 +30,7 @@ const beforeUpload: UploadProps['beforeUpload'] = (file) => {
         ctx.fillStyle = 'red'
         ctx.textBaseline = 'middle'
         ctx.font = '33px Arial'
-        ctx.fillText('Ant Design', 20, 20)
+        ctx.fillText('Antdv Next', 20, 20)
         canvas.toBlob((result) => {
           if (result) {
             resolve(result)

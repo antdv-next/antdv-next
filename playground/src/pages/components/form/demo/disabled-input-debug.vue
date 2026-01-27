@@ -10,7 +10,7 @@ Disabled state debug.
 import { reactive } from 'vue'
 
 const model = reactive({
-  username: 'Ant Design',
+  username: 'Antdv Next',
   level: 'normal',
   count: 2,
 })

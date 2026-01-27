@@ -7,8 +7,6 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*3yz3QqMlShYAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Sv8XQ50NB40AAAAAAAAAAAAADrJ8AQ/original
 ---
 
-
-
 ## When To Use
 
 - To display a collection of structured data.
@@ -33,7 +31,7 @@ const dataSource = [
     age: 42,
     address: '10 Downing Street',
   },
-];
+]
 
 const columns = [
   {
@@ -51,19 +49,13 @@ const columns = [
     dataIndex: 'address',
     key: 'address',
   },
-];
+]
 </script>
 
 <template>
   <a-table :data-source="dataSource" :columns="columns" />
 </template>
 ```
-
-## Promotion
-
-- [Kitchen Sketch Plugin 💎](https://kitchen.alipay.com)
-- [ProTable - Advanced Tables](https://procomponents.ant.design/en-US/components/table)
-- [S2 - Analytical Tables](https://github.com/antvis/s2/)
 
 ## Examples {#examples}
 

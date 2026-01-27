@@ -8,17 +8,11 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*PdAYS7anRpoAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*xEDOTJx2DEkAAAAAAAAAAAAADrJ8AQ/original
 ---
 
-
-
 ## 使用方法 {#how-to-use}
 
 使用图标组件，你需要安装 [@antdv-next/icons](https://www.npmjs.com/package/@antdv-next/icons) 图标组件包：
 
 <InstallDependencies npm='npm install @antdv-next/icons' yarn='yarn add @antdv-next/icons' pnpm='pnpm install @antdv-next/icons' bun='bun add @antdv-next/icons'></InstallDependencies>
-
-## 设计师专属 {#designers-exclusive}
-
-安装 [Kitchen Sketch 插件 💎](https://kitchen.alipay.com)，就可以一键拖拽使用 Ant Design 和 Iconfont 的海量图标，还可以关联自有项目。
 
 ## 图标列表 {#list-of-icons}
 

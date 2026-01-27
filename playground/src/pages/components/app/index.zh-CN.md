@@ -10,8 +10,6 @@ demo:
   cols: 2
 ---
 
-
-
 ## 何时使用 {#when-to-use}
 
 - 提供可消费 provider/inject 的 `message.xxx`、`Modal.xxx`、`notification.xxx` 的静态方法，可以简化 useMessage 等方法需要手动植入 `contextHolder` 的问题。
@@ -53,7 +51,7 @@ demo:
   const showNotification = () => {
     notification.info({
       message: `Notification topLeft`,
-      description: 'Hello, Ant Design Vue!!',
+      description: 'Hello, Antdv Next!!',
       placement: 'topLeft',
     });
   };
@@ -74,7 +72,7 @@ demo:
   const showNotification = () => {
     notification.info({
       title: 'Notification',
-      description: 'Hello, Ant Design!!',
+      description: 'Hello, Antdv Next!!',
     });
   };
 </script>

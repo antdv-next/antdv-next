@@ -68,7 +68,7 @@ function handleCollapse(collapsed: boolean, type: string) {
         </div>
       </a-layout-content>
       <a-layout-footer class="responsive-footer">
-        Ant Design ©{{ year }} Created by Ant UED
+        Antdv Next ©{{ year }} Created by Ant UED
       </a-layout-footer>
     </a-layout>
   </a-layout>

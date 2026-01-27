@@ -1,27 +1,26 @@
 <script setup lang="ts">
-  import { App } from 'antdv-next'
-  
+import { App } from 'antdv-next'
 
-  const { message, modal, notification } = App.useApp();
+const { message, modal, notification } = App.useApp()
 
-  const showMessage = () => {
-    message.success('Success!');
-  };
+function showMessage() {
+  message.success('Success!')
+}
 
-  const showModal = () => {
-    modal.warning({
-      title: 'This is a warning message',
-      content: 'some messages...some messages...',
-    });
-  };
+function showModal() {
+  modal.warning({
+    title: 'This is a warning message',
+    content: 'some messages...some messages...',
+  })
+}
 
-  const showNotification = () => {
-    notification.info({
-      title: 'Notification topLeft',
-      description: 'Hello, Ant Design!!',
-      placement: 'topLeft',
-    });
-  };
+function showNotification() {
+  notification.info({
+    title: 'Notification topLeft',
+    description: 'Hello, Antdv Next!!',
+    placement: 'topLeft',
+  })
+}
 </script>
 
 <template>

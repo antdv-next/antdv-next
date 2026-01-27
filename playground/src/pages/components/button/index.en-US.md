@@ -12,13 +12,11 @@ group:
   order: 1
 ---
 
-
-
 ## When To Use {#when-to-use}
 
 A button means an operation (or a series of operations). Clicking a button will trigger its corresponding business logic.
 
-In Ant Design we provide 5 types of button.
+In Antdv Next we provide 5 types of button.
 
 - 🔵 Primary button: used for the main action, there can be at most one primary button in a section.
 - ⚪️ Default button: used for a series of actions without priority.

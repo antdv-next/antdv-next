@@ -7,8 +7,6 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*PdAYS7anRpoAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*xEDOTJx2DEkAAAAAAAAAAAAADrJ8AQ/original
 ---
 
-
-
 ## How to use
 
 Before using icons, you need to install the [@antdv-next/icons](https://www.npmjs.com/package/@antdv-next/icons) package:
@@ -76,9 +74,9 @@ More discussion of SVG icon reference at [#10353](https://github.com/ant-design/
 All the icons will render to `<svg>`. You can still set `style` and `class` for size and color of icons.
 
 ```jsx
-import { MessageOutlined } from '@antdv-next/icons';
+import { MessageOutlined } from '@antdv-next/icons'
 
-<MessageOutlined style="fontSize: 16px; color: #08c" />;
+<MessageOutlined style="fontSize: 16px; color: #08c" />
 ```
 
 ### Set TwoTone Color
@@ -86,10 +84,10 @@ import { MessageOutlined } from '@antdv-next/icons';
 When using the two-tone icons, you can use the static methods `getTwoToneColor()` and `setTwoToneColor(colorString)` to specify the primary color.
 
 ```jsx
-import { getTwoToneColor, setTwoToneColor } from '@antdv-next/icons';
+import { getTwoToneColor, setTwoToneColor } from '@antdv-next/icons'
 
-setTwoToneColor('#eb2f96');
-getTwoToneColor(); // #eb2f96
+setTwoToneColor('#eb2f96')
+getTwoToneColor() // #eb2f96
 ```
 
 ### Custom Font Icon
@@ -140,7 +138,7 @@ module.exports = {
       },
     },
   ],
-};
+}
 ```
 
 The following properties are available for the component:

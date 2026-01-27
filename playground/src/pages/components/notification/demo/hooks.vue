@@ -17,7 +17,7 @@ import { notification } from 'antdv-next'
 import { defineComponent, h, inject, provide, reactive } from 'vue'
 
 const ContextKey = Symbol('notification-context')
-const contextValue = reactive({ name: 'Ant Design' })
+const contextValue = reactive({ name: 'Antdv Next' })
 
 provide(ContextKey, contextValue)
 

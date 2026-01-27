@@ -1,5 +1,5 @@
 <docs lang="zh-CN">
-此处列出 Ant Design 中需要国际化支持的组件，你可以在演示里切换语言。
+此处列出 Antv Next 中需要国际化支持的组件，你可以在演示里切换语言。
 </docs>
 
 <docs lang="en-US">

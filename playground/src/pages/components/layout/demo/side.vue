@@ -92,7 +92,7 @@ const breadcrumbItems: BreadcrumbItemType[] = [
         </div>
       </a-layout-content>
       <a-layout-footer class="side-footer">
-        Ant Design ©{{ year }} Created by Ant UED
+        Antdv Next ©{{ year }} Created by Ant UED
       </a-layout-footer>
     </a-layout>
   </a-layout>

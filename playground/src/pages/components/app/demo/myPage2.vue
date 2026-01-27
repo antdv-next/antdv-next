@@ -1,18 +1,18 @@
 <script setup lang="ts">
-  import { App } from 'antdv-next'
+import { App } from 'antdv-next'
 
-  const { message, modal, notification } = App.useApp();
+const { message, notification } = App.useApp()
 
-  const showMessage = () => {
-    message.success('Success!');
-  };
+function showMessage() {
+  message.success('Success!')
+}
 
-  const showNotification = () => {
-    notification.info({
-      title: 'Notification',
-      description: 'Hello, Ant Design!!',
-    });
-  };
+function showNotification() {
+  notification.info({
+    title: 'Notification',
+    description: 'Hello, Antdv Next!!',
+  })
+}
 </script>
 
 <template>

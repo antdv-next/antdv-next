@@ -5,7 +5,7 @@
 </docs>
 
 <docs lang="en-US">
-Ant Design supports three sizes of buttons: small, default and large.
+Antdv Next supports three sizes of buttons: small, default and large.
 
 If a large or small button is desired, set the `size` property to either `large` or `small` respectively. Omit the `size` property for a button with the default size.
 </docs>

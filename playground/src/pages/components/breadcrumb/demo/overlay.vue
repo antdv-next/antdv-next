@@ -26,7 +26,7 @@ const menuItems = [
 
 const items = [
   {
-    title: 'Ant Design',
+    title: 'Antdv Next',
   },
   {
     title: 'Component',

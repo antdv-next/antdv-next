@@ -7,7 +7,7 @@ withDefaults(defineProps<{
 </script>
 
 <template>
-  <a-tooltip title="Hello, Ant Design!" :placement="placement">
+  <a-tooltip title="Hello, Antdv Next!" :placement="placement">
     <a-button type="primary">
       Button
     </a-button>

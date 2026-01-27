@@ -33,7 +33,7 @@ const stylesFn: BreadcrumbProps['styles'] = (info) => {
 }
 
 const items = [
-  { title: 'Ant Design' },
+  { title: 'Antdv Next' },
   { title: 'Component' },
   { title: 'Breadcrumb' },
 ]

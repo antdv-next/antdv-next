@@ -69,7 +69,7 @@ const items: MenuItemType[] = [
         target: '_blank',
         rel: 'noopener noreferrer',
       },
-      'Ant Design',
+      'Antdv Next',
     ),
   },
 ]

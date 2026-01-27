@@ -15,20 +15,17 @@ Antdv Next 设计规范和技术上支持灵活的样式定制，以满足业务
 
 我们把影响主题的最小元素称为 **Design Token**。通过修改 Design Token，我们可以呈现出各种各样的主题或者组件。通过在 `ConfigProvider` 中传入 `theme` 属性，可以配置主题。
 
-
 :::warning
 `ConfigProvider` 对 `message.xxx`、`Modal.xxx`、`notification.xxx` 等静态方法不会生效，原因是在这些方法中，antdv-next 会通过 `render` 动态创建新的 Vue 实体。其 context 与当前代码所在 context 并不相同，因而无法获取 context 信息。
 
 当你需要 context 信息（例如 ConfigProvider 配置的内容）时，可以通过 `Modal.useModal` 方法返回 modal 实体以及 contextHolder 节点，将其插入到你需要获取 context 位置即可。也可通过 [App 包裹组件](/components/app-cn) 简化 useModal 等方法需要手动植入 contextHolder 的问题。
 :::
 
-
 ### 修改主题变量
-
 
 通过 `theme` 中的 `token` 属性，可以修改一些主题变量。部分主题变量会引起其他主题变量的变化，我们把这些主题变量称为 Seed Token。
 
-```stackblitz {title="修改主题变量"}                                                                                                                                                                                                
+```stackblitz {title="修改主题变量"}
 <template>
   <a-config-provider
     :theme="{
@@ -49,7 +46,6 @@ Antdv Next 设计规范和技术上支持灵活的样式定制，以满足业务
 
 ### 使用预设算法
 
-
 通过修改算法可以快速生成风格迥异的主题，我们默认提供三套预设算法，分别是:
 
 - 默认算法 `theme.defaultAlgorithm`
@@ -57,7 +53,6 @@ Antdv Next 设计规范和技术上支持灵活的样式定制，以满足业务
 - 紧凑算法 `theme.compactAlgorithm`
 
 你可以通过 `theme` 中的 `algorithm` 属性来切换算法，并且支持配置多种算法，将会依次生效。
-
 
 ```stackblitz {title="使用预设算法"}
 <template>
@@ -82,16 +77,13 @@ import { theme } from 'antdv-next'
 
 ### 修改组件变量
 
-
 除了整体的 Design Token，各个组件也会开放自己的 Component Token 来实现针对组件的样式定制能力，不同的组件之间不会相互影响。同样地，也可以通过这种方式来覆盖组件的其他 Design Token。
-
 
 :::info 组件级别的主题算法
 默认情况下，所有组件变量都仅仅是覆盖，不会基于 Seed Token 计算派生变量。
 
 在 `>= 1.0.0` 版本中，组件变量支持传入 `algorithm` 属性，可以开启派生计算或者传入其他算法。
 :::
-
 
 ```stackblitz {title="修改组件变量"}
 <template>
@@ -141,7 +133,6 @@ import { theme } from 'antdv-next'
 
 ### 禁用动画
 
-
 antdv-next 默认内置了一些组件交互动效让企业级页面更加富有细节，在一些极端场景可能会影响页面交互性能，如需关闭动画可以 `token` 中的 `motion` 修改为 `false`：
 
 ```stackblitz {title="禁用动画"}
@@ -186,7 +177,6 @@ onBeforeUnmount(() => {
 </script>
 ```
 
-
 ## 进阶使用
 
 ### 零运行时 zeroRuntime {#zero-runtime}
@@ -200,18 +190,17 @@ onBeforeUnmount(() => {
 在`main.ts`中导入样式文件：
 
 ```ts
-import "antdv-next/dist/antd.css"
+import 'antdv-next/dist/antd.css'
 ```
 
 在`App.vue`中配置主题：
 ```vue
 <template>
-  <a-config-provider :theme="{zeroRuntime: true}">
+  <a-config-provider :theme="{ zeroRuntime: true }">
     <MyApp />
   </a-config-provider>
 </template>
 ```
-
 
 `antdv-next/dist/antd.css` 包含了所有 antdv-next 组件的样式，但是不会包含 hashed class。
 
@@ -324,12 +313,12 @@ pnpm add -D @antdv-next/unocss
 在`uno.config.ts`中引入插件：
 ```ts
 import { presetAntd } from '@antdv-next/unocss'
+
 export default defineConfig({
   presets: [
     presetAntd(),
   ]
 })
-
 ```
 
 #### 使用
@@ -347,12 +336,9 @@ export default defineConfig({
     使用 Design Token 原子化 CSS（无前缀）
   </div>
 </template>
-
 ```
 
 这两种用法我们都支持，由于我们在插件中提供了补全，所以这里我们不再赘述。
-
-
 
 ## 基本概念
 
@@ -371,7 +357,7 @@ const theme = {
   token: {
     colorPrimary: '#1890ff',
   },
-};
+}
 ```
 
 ### 梯度变量（Map Token）
@@ -383,7 +369,7 @@ const theme = {
   token: {
     colorPrimaryBg: '#e6f7ff',
   },
-};
+}
 ```
 
 ### 别名变量（Alias Token）
@@ -395,7 +381,7 @@ const theme = {
   token: {
     colorLink: '#1890ff',
   },
-};
+}
 ```
 
 ### 基本算法（algorithm)
@@ -403,13 +389,13 @@ const theme = {
 基本算法用于将 Seed Token 展开为 Map Token，比如由一个基本色算出一个梯度色板，或者由一个基本的圆角算出各种大小的圆角。算法可以单独使用，也可以任意地组合使用，比如可以将暗色算法和紧凑算法组合使用，得到一个暗色和紧凑相结合的主题。
 
 ```tsx
-import { theme } from 'antdv-next';
+import { theme } from 'antdv-next'
 
-const { darkAlgorithm, compactAlgorithm } = theme;
+const { darkAlgorithm, compactAlgorithm } = theme
 
 const theme = {
   algorithm: [darkAlgorithm, compactAlgorithm],
-};
+}
 ```
 
 ## API
@@ -440,7 +426,6 @@ const theme = {
 | --- | --- | --- |------------------| --- |
 | prefix | CSS 变量的前缀，默认与 ConfigProvider 上配置的 `prefixCls` 相同 | string | `ant`            |  |
 | key | 当前主题的唯一识别 key，默认用 `useId` 填充 | string | `useId` in Vue 3 |  |
-
 
 ### SeedToken
 
