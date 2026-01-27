@@ -66,9 +66,9 @@ export const docsMenuLocales = {
     'zh-CN': '社区生态',
     'en-US': 'Awesome',
   },
-  '/docs/vue/fqa': {
+  '/docs/vue/faq': {
     'zh-CN': '常见问题',
-    'en-US': 'FQA',
+    'en-US': 'FAQ',
   },
   '/docs/vue/contributing': {
     'zh-CN': '贡献指南',
@@ -156,7 +156,7 @@ export const docsMenus: Record<string, AntdvMenuItem[]> = {
           label: '贡献指南',
         },
         {
-          key: '/docs/vue/fqa',
+          key: '/docs/vue/faq',
           label: '常见问题',
         },
       ],
