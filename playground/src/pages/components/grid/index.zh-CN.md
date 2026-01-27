@@ -86,3 +86,9 @@ demo:
 | lg | `窗口宽度 ≥ 992px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - |  |
 | xl | `窗口宽度 ≥ 1200px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - |  |
 | xxl | `窗口宽度 ≥ 1600px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - |  |
+
+## 主题变量（Design Token）
+
+<ComponentTokenTable component="Grid" />
+
+查看 [定制主题](/docs/vue/customize-theme) 了解如何使用主题变量。

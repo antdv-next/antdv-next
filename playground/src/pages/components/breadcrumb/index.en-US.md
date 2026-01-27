@@ -138,3 +138,7 @@ const items: BreadcrumbProps['items'] = [
 | separator | Separator element with margin and color styles for the divider | - |
 
 ## Design Token {#design-token}
+
+<ComponentTokenTable component="Breadcrumb" />
+
+See [Customize Theme](/docs/vue/customize-theme) to learn how to use Design Token.

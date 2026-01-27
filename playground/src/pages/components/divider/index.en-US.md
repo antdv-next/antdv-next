@@ -19,6 +19,7 @@ group:
 - Divide inline text and links such as the operation column of table.
 
 ## Examples
+
 <demo-group>
   <demo src="./demo/horizontal.vue">Horizontal</demo>
   <demo src="./demo/with-text.vue">Divider with title</demo>
@@ -57,3 +58,9 @@ Container element and its child elements' className and style.
 | root | Root element |
 | content | Content element (title) |
 | rail | Divider line element |
+
+## Design Token
+
+<ComponentTokenTable component="Divider" />
+
+See [Customize Theme](/docs/vue/customize-theme) to learn how to use Design Token.

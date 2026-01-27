@@ -72,3 +72,9 @@ Common props ref：[Common props](/docs/vue/common-props)
 | Slot | Description | Type | Version |
 | --- | --- | --- | --- |
 | labelRender | - | (params: &#123; item: CheckboxOptionType, index: number &#125;) =&gt; any | - |
+
+## Design Token
+
+<ComponentTokenTable component="Checkbox" />
+
+See [Customize Theme](/docs/vue/customize-theme) to learn how to use Design Token.

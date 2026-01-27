@@ -99,6 +99,10 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 ## Design Token
 
+<ComponentTokenTable component="Select" />
+
+See [Customize Theme](/docs/vue/customize-theme) to learn how to use Design Token.
+
 ## FAQ
 
 ### Why doesn't the text composition system work well with onSearch in controlled mode? {#faq-controlled-onsearch-composition}

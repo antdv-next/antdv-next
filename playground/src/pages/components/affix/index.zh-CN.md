@@ -40,11 +40,10 @@ group:
 | offsetBottom | 距离窗口底部达到指定偏移量后触发 | number | - | - |
 | target | 设置 `Affix` 需要监听其滚动事件的元素，值为一个返回对应 DOM 元素的函数 | () =&gt; Window \| HTMLElement \| null | () =&gt; window | - |
 
-
 ### 事件 {#events}
 
-| 事件名    | 说明 | 类型 | 版本 |
-|--------| --- | --- | --- |
+| 事件名 | 说明 | 类型 | 版本 |
+| ----- | --- | --- | --- |
 | change | 固定状态改变时触发的回调函数 | (affixed?: boolean) =&gt; void | - |
 
 ### 方法 {#methods}
@@ -53,15 +52,17 @@ group:
 | --- | --- | --- | --- |
 | updatePosition | - | ReturnType&lt;typeof throttleByAnimationFrame&gt; | - |
 
-
-
 **注意：**`Affix` 内的元素不要使用绝对定位，如需要绝对定位的效果，可以直接设置 `Affix` 为绝对定位：
 
 ```html
 <a-affix style="position: absolute;top: y; left: x">...</a-affix>
 ```
 
+## 主题变量（Design Token）{#design-token}
 
+<ComponentTokenTable component="Affix"></ComponentTokenTable>
+
+查看 [定制主题](/docs/vue/customize-theme) 了解如何使用主题变量。
 
 ## FAQ
 

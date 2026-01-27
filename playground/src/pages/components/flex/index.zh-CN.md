@@ -45,3 +45,9 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8yArQ43EGccAAA
 | flex | flex CSS 简写属性 | CSSProperties['flex'] | normal | - |
 | gap | 设置网格之间的间隙 | CSSProperties['gap'] \| SizeType | - | - |
 | component | 自定义元素类型 | any | `div` | - |
+
+## 主题变量（Design Token）
+
+<ComponentTokenTable component="Flex" />
+
+查看 [定制主题](/docs/vue/customize-theme) 了解如何使用主题变量。

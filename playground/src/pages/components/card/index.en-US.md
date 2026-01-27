@@ -78,6 +78,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | tabContentRender | - | TabsSlots['contentRender'] | - |
 | tabLabelRender | - | TabsSlots['labelRender'] | - |
 | tabBarExtraContent | Extra content in tab bar | () =&gt; any | - |
+
 ### CardGrid
 
 #### Props {#card-grid-props}
@@ -107,3 +108,9 @@ Common props ref：[Common props](/docs/vue/common-props)
 | avatar | Avatar | () =&gt; any | - |
 | title | Title | () =&gt; any | - |
 | description | Description | () =&gt; any | - |
+
+## Design Token
+
+<ComponentTokenTable component="Card" />
+
+See [Customize Theme](/docs/vue/customize-theme) to learn how to use Design Token.

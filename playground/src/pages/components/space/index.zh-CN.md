@@ -89,4 +89,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 
 ## Semantic DOM
 
-## Design Token
+## 主题变量（Design Token）
+
+<ComponentTokenTable component="Space" />
+
+查看 [定制主题](/docs/vue/customize-theme) 了解如何使用主题变量。

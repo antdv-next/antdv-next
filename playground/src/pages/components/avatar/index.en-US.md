@@ -59,6 +59,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | --- | --- | --- | --- |
 | icon | Custom icon type for an icon avatar | () =&gt; any | - |
 | src | The address of the image for an image avatar or image element | () =&gt; any | - |
+
 ### AvatarGroup
 
 #### Props {#avatar-group-props}
@@ -69,3 +70,9 @@ Common props ref：[Common props](/docs/vue/common-props)
 | max | - | &#123;     count?: number     style?: CSSProperties     popover?: PopoverProps   &#125; | - | - |
 | size | The size of the avatar | AvatarSize | `default` | - |
 | shape | The shape of avatar | 'circle' \| 'square' | `circle` | - |
+
+## Design Token
+
+<ComponentTokenTable component="Avatar" />
+
+See [Customize Theme](/docs/vue/customize-theme) to learn how to use Design Token.

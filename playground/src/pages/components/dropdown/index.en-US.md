@@ -75,9 +75,9 @@ Common props ref：[Common props](/docs/vue/common-props)
 ### Slots
 
 | Slot        | Description             | Type                      | Version |
-|-------------|-------------------------|---------------------------| --- |
-| popupRender | Customize popup content | (menu: VueNode) =&gt; any | - |
-| labelRender | Customize label content | (item: Item) =&gt; any    | - |
+|-------------|-------------------------|---------------------------| ---     |
+| popupRender | Customize popup content | (menu: VueNode) =&gt; any | -       |
+| labelRender | Customize label content | (item: Item) =&gt; any    | -       |
 
 Dropdown also supports Menu slots (such as `labelRender`) via the Dropdown slots.
 
@@ -96,6 +96,8 @@ Please ensure that the child node of `Dropdown` accepts `mouseenter`, `mouseleav
 | itemContent | Menu item content |
 
 ## Design Token
+
+<ComponentTokenTable component="Dropdown" />
 
 See [Customize Theme](/docs/vue/customize-theme) to learn how to use Design Token.
 

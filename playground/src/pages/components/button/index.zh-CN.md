@@ -83,14 +83,14 @@ group:
 
 ### 事件 {#events}
 
-| 事件 | 说明 | 类型  | 版本 |
-| --- | --- | ---  | --- |
+| 事件 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
 | `click` | 点击按钮时的回调 | (event: React.MouseEvent&lt;HTMLElement, MouseEvent&gt;) =&gt; void | - |
 
 ### 插槽 {#slots}
 
 | 插槽 | 说明 | 类型 | 版本 |
-| --- | --- |----| --- |
+| --- | --- | ---- | --- |
 | `icon` | 设置按钮的图标组件 | - | - |
 | `loadingIcon` | 设置按钮载入的图标组件 | - | - |
 
@@ -101,6 +101,12 @@ group:
 > type PresetColors = 'blue' | 'purple' | 'cyan' | 'green' | 'magenta' | 'pink' | 'red' | 'orange' | 'yellow' | 'volcano' | 'geekblue' | 'lime' | 'gold';
 
 ## Semantic DOM
+
+## 主题变量（Design Token）
+
+<ComponentTokenTable component="Button" />
+
+查看 [定制主题](/docs/vue/customize-theme) 了解如何使用主题变量。
 
 ## FAQ
 

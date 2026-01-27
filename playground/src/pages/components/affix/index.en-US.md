@@ -51,12 +51,17 @@ Common props ref：[Common props](/docs/vue/common-props)
 | --- | --- | --- | --- |
 | updatePosition | - | ReturnType&lt;typeof throttleByAnimationFrame&gt; | - |
 
-
 **Note:** Children of `Affix` must not have the property `position: absolute`, but you can set `position: absolute` on `Affix` itself:
 
 ```html
 <a-affix style="position: absolute;top: y; left: x">...</a-affix>
 ```
+
+## Design Token {#design-token}
+
+<ComponentTokenTable component="Affix"></ComponentTokenTable>
+
+See [Customize Theme](/docs/vue/customize-theme) to learn how to use Design Token.
 
 ## FAQ
 

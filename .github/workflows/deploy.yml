@@ -1,0 +1,69 @@
+name: deploy-site
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build site
+        run: |
+          pnpm build
+          rm -rf dist
+          cp -r playground/dist dist
+
+      - name: Scp dir to server
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USERNAME }}
+          password: ${{ secrets.DEPLOY_PASSWORD }}
+          port: ${{ secrets.DEPLOY_PORT }}
+          source: "dist"
+          target: ${{ secrets.DEPLOY_TARGET_PATH }}
+
+      - name: ssh command
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USERNAME }}
+          password: ${{ secrets.DEPLOY_PASSWORD }}
+          port: ${{ secrets.DEPLOY_PORT }}
+          script: |
+            set -e
+            TARGET="${{ secrets.DEPLOY_TARGET_PATH }}"
+
+            mkdir -p "$TARGET/index" "$TARGET/index.bak"
+
+            if [ "$(ls -A "$TARGET/index" 2>/dev/null)" ]; then
+              rm -rf "$TARGET/index.bak"/*
+              mv "$TARGET/index"/* "$TARGET/index.bak"/
+            fi
+
+            if [ ! -d "$TARGET/dist" ] || [ -z "$(ls -A "$TARGET/dist" 2>/dev/null)" ]; then
+              echo "No dist files uploaded; abort."
+              exit 1
+            fi
+
+            rm -rf "$TARGET/index"/*
+            mv "$TARGET/dist"/* "$TARGET/index"/
+
+
+      - name: Deployment completed
+        run: echo "Deployment to server completed successfully."

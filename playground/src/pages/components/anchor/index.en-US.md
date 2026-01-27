@@ -107,6 +107,10 @@ We recommend using the items form instead.
 
 ## Design Token {#design-token}
 
+<ComponentTokenTable component="Anchor" />
+
+See [Customize Theme](/docs/vue/customize-theme) to learn how to use Design Token.
+
 ## FAQ
 
 ### In version `5.25.0+`, the `:target` pseudo-class of the destination element does not take effect as expected after anchor navigation. {#faq-target-pseudo-class}

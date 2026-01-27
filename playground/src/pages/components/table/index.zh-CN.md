@@ -158,3 +158,9 @@ const columns = [
 | bodyCell | - | (ctx: &#123; column: ColumnType&lt;RecordType&gt;, index: number, text: any, record: RecordType &#125;) =&gt; any | - |
 | filterDropdown | - | (ctx: FilterDropdownProps & &#123; column: ColumnType&lt;RecordType&gt; &#125;) =&gt; any | - |
 | filterIcon | - | (ctx: &#123; column: ColumnType&lt;RecordType&gt;, filtered: boolean &#125;) =&gt; any | - |
+
+## 主题变量（Design Token）
+
+<ComponentTokenTable component="Table" />
+
+查看 [定制主题](/docs/vue/customize-theme) 了解如何使用主题变量。

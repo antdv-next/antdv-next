@@ -128,4 +128,6 @@ Refer to [Semantic DOM](#semantic-dom) for detailed semantic structure informati
 
 ## Design Token
 
+<ComponentTokenTable component="FloatButton" />
+
 See [Customize Theme](/docs/vue/customize-theme) to learn how to use Design Token.

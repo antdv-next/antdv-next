@@ -70,3 +70,9 @@ Common props ref：[Common props](/docs/vue/common-props)
 | --- | --- | --- | --- |
 | suffix | - | () =&gt; any | - |
 | labelRender | - | (ctx: &#123; option: MentionsOptionProps, index: number &#125;) =&gt; any | - |
+
+## Design Token
+
+<ComponentTokenTable component="Mentions" />
+
+See [Customize Theme](/docs/vue/customize-theme) to learn how to use Design Token.

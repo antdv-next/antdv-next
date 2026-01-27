@@ -87,3 +87,9 @@ Common props ref：[Common props](/docs/vue/common-props)
 | lg | `screen ≥ 992px`, could be a `span` value or an object containing above props | number \| object | - |  |
 | xl | `screen ≥ 1200px`, could be a `span` value or an object containing above props | number \| object | - |  |
 | xxl | `screen ≥ 1600px`, could be a `span` value or an object containing above props | number \| object | - |  |
+
+## Design Token
+
+<ComponentTokenTable component="Grid" />
+
+See [Customize Theme](/docs/vue/customize-theme) to learn how to use Design Token.

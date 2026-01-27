@@ -139,3 +139,7 @@ const items: BreadcrumbProps['items'] = [
 | separator | 分隔符元素，包含分隔符的外边距和颜色样式 | - |
 
 ## 主题变量（Design Token） {#design-token}
+
+<ComponentTokenTable component="Breadcrumb" />
+
+查看 [定制主题](/docs/vue/customize-theme) 了解如何使用主题变量。

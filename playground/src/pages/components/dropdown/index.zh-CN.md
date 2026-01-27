@@ -101,6 +101,8 @@ Dropdown 会透传 Menu 的插槽（例如 `labelRender`）。
 
 ## 主题变量（Design Token）{#design-token}
 
+<ComponentTokenTable component="Dropdown" />
+
 参考 [定制主题](/docs/vue/customize-theme) 了解如何使用主题变量。
 
 ## FAQ

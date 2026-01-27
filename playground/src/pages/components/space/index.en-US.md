@@ -89,3 +89,7 @@ Use Space.Compact when child form components are compactly connected and the bor
 ## Semantic DOM
 
 ## Design Token
+
+<ComponentTokenTable component="Space" />
+
+See [Customize Theme](/docs/vue/customize-theme) to learn how to use Design Token.

@@ -83,3 +83,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 ## Semantic DOM
 
 ## Design Token
+
+<ComponentTokenTable component="Splitter" />
+
+See [Customize Theme](/docs/vue/customize-theme) to learn how to use Design Token.

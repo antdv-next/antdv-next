@@ -73,3 +73,9 @@ demo:
 | 插槽 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
 | labelRender | - | (params: &#123; item: CheckboxOptionType, index: number &#125;) =&gt; any | - |
+
+## 主题变量（Design Token）
+
+<ComponentTokenTable component="Checkbox" />
+
+查看 [定制主题](/docs/vue/customize-theme) 了解如何使用主题变量。

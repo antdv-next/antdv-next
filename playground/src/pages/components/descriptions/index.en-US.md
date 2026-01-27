@@ -56,3 +56,9 @@ Common props ref：[Common props](/docs/vue/common-props)
 | extra | The action area of the description list, placed at the top-right | () =&gt; any | - |
 | labelRender | - | RenderDescriptionsItem | - |
 | contentRender | - | RenderDescriptionsItem | - |
+
+## Design Token
+
+<ComponentTokenTable component="Descriptions" />
+
+See [Customize Theme](/docs/vue/customize-theme) to learn how to use Design Token.

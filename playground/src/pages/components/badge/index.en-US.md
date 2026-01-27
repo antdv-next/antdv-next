@@ -59,3 +59,9 @@ Common props ref：[Common props](/docs/vue/common-props)
 | --- | --- | --- | --- |
 | count | Number to show in badge | () =&gt; any | - |
 | text | If `status` is set, `text` sets the display text of the status `dot` | () =&gt; any | - |
+
+## Design Token
+
+<ComponentTokenTable component="Badge" />
+
+See [Customize Theme](/docs/vue/customize-theme) to learn how to use Design Token.

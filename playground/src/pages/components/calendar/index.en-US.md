@@ -74,3 +74,9 @@ Common props ref：[Common props](/docs/vue/common-props)
 | cellRender | Customize cell content | (ctx: &#123; date: AnyObject, info: any &#125;) =&gt; any | - |
 | fullCellRender | Customize cell content | (ctx: &#123; date: AnyObject, info: any &#125;) =&gt; any | - |
 | headerRender | Render custom header in panel | (config: &#123; value: AnyObject, type: CalendarMode, onChange: (date: AnyObject) =&gt; void, onTypeChange: (type: CalendarMode) =&gt; void &#125;) =&gt; any | - |
+
+## Design Token
+
+<ComponentTokenTable component="Calendar" />
+
+See [Customize Theme](/docs/vue/customize-theme) to learn how to use Design Token.

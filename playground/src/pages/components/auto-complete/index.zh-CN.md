@@ -92,7 +92,11 @@ demo:
 
 ## Semantic DOM
 
-## Design Token
+## 主题变量（Design Token）
+
+<ComponentTokenTable component="Select" />
+
+查看 [定制主题](/docs/vue/customize-theme) 了解如何使用主题变量。
 
 ## FAQ
 

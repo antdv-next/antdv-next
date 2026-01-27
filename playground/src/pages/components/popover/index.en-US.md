@@ -74,6 +74,7 @@ Please ensure that the child node of `Popover` can accept `mouseenter`, `mousele
 
 ## Design Token {#design-token}
 
+<ComponentTokenTable component="Popover" />
 
 See [Customize Theme](/docs/vue/customize-theme) to learn how to use Design Token.
 

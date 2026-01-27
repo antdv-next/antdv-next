@@ -129,4 +129,6 @@ demo:
 
 ## 主题变量（Design Token）{#design-token}
 
+<ComponentTokenTable component="FloatButton" />
+
 查看 [定制主题](/docs/vue/customize-theme) 了解如何使用主题变量。

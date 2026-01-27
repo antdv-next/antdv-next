@@ -88,3 +88,9 @@ Common props ref：[Common props](/docs/vue/common-props)
 | suffix | The suffix icon for the Input | () =&gt; any | - |
 | addonBefore | The label text displayed before (on the left side of) the input field, please use Space.Compact instead | () =&gt; any | - |
 | addonAfter | The label text displayed after (on the right side of) the input field, please use Space.Compact instead | () =&gt; any | - |
+
+## Design Token
+
+<ComponentTokenTable component="InputNumber" />
+
+See [Customize Theme](/docs/vue/customize-theme) to learn how to use Design Token.

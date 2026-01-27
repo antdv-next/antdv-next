@@ -75,3 +75,9 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-p-wQLik200AAA
 | cellRender | 自定义单元格的内容 | (ctx: &#123; date: AnyObject, info: any &#125;) =&gt; any | - |
 | fullCellRender | 自定义单元格的内容 | (ctx: &#123; date: AnyObject, info: any &#125;) =&gt; any | - |
 | headerRender | 自定义头部内容 | (config: &#123; value: AnyObject, type: CalendarMode, onChange: (date: AnyObject) =&gt; void, onTypeChange: (type: CalendarMode) =&gt; void &#125;) =&gt; any | - |
+
+## 主题变量（Design Token）
+
+<ComponentTokenTable component="Calendar" />
+
+查看 [定制主题](/docs/vue/customize-theme) 了解如何使用主题变量。

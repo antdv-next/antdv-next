@@ -57,3 +57,9 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*d27AQJrowGAAAA
 | extra | 描述列表的操作区域，显示在右上方 | () =&gt; any | - |
 | labelRender | - | RenderDescriptionsItem | - |
 | contentRender | - | RenderDescriptionsItem | - |
+
+## 主题变量（Design Token）
+
+<ComponentTokenTable component="Descriptions" />
+
+查看 [定制主题](/docs/vue/customize-theme) 了解如何使用主题变量。

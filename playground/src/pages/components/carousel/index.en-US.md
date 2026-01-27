@@ -75,3 +75,9 @@ Common props ref：[Common props](/docs/vue/common-props)
 | prev | - | () =&gt; void | - |
 | autoPlay | - | (playType?: 'update' \| 'leave' \| 'blur') =&gt; void | - |
 | innerSlider | - | any | - |
+
+## Design Token
+
+<ComponentTokenTable component="Carousel" />
+
+See [Customize Theme](/docs/vue/customize-theme) to learn how to use Design Token.

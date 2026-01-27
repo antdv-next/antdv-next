@@ -75,6 +75,7 @@ Popover 还支持 Tooltip 的所有属性，详见 [Tooltip](/components/tooltip
 
 ## 主题变量（Design Token）{#design-token}
 
+<ComponentTokenTable component="Popover" />
 
 参考 [定制主题](/docs/vue/customize-theme) 了解如何使用主题变量。
 

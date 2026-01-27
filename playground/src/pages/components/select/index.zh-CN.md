@@ -186,6 +186,12 @@ demo:
 | popup.list | 弹出层列表 | - |
 | popup.listItem | 弹出层列表项 | - |
 
+## 主题变量（Design Token）
+
+<ComponentTokenTable component="Select" />
+
+查看 [定制主题](/docs/vue/customize-theme) 了解如何使用主题变量。
+
 ## FAQ
 
 ### `mode="tags"` 模式下为何搜索有时会出现两个相同选项？ {#faq-tags-mode-duplicate}

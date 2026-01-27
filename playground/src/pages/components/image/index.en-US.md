@@ -201,3 +201,9 @@ interface CoverConfig {
 ```
 
 ## Semantic DOM
+
+## Design Token
+
+<ComponentTokenTable component="Image" />
+
+See [Customize Theme](/docs/vue/customize-theme) to learn how to use Design Token.

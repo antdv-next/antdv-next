@@ -118,7 +118,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | click | 点击时的回调 | (event: MouseEvent) =&gt; void |
 | copy | 拷贝成功的回调函数 | (event: MouseEvent) =&gt; void |
 
-
 ## 类型 {#types}
 
 ### copyable
@@ -137,7 +136,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | --- | --- | --- |
 | copy | 拷贝成功的回调函数 | (event: MouseEvent) =&gt; void |
 
-### editable 
+### editable
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -180,5 +179,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | expand | 点击展开或收起时的回调 | (event: MouseEvent, info: &#123; expanded: boolean &#125;) =&gt; void |
 
 ## 主题变量（Design Token）{#design-token}
+
+<ComponentTokenTable component="Typography" />
 
 查看 [定制主题](/docs/vue/customize-theme) 了解如何使用主题变量。

@@ -102,6 +102,10 @@ group:
 
 ## 主题变量（Design Token） {#design-token}
 
+<ComponentTokenTable component="Anchor" />
+
+查看 [定制主题](/docs/vue/customize-theme) 了解如何使用主题变量。
+
 ## FAQ
 
 ### 在 `5.25.0+` 版本中，锚点跳转后，目标元素的 `:target` 伪类未按预期生效 {#faq-target-pseudo-class}

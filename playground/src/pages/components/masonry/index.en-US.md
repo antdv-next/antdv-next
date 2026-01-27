@@ -45,7 +45,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | items | Masonry items | [MasonryItem](#masonryitem)[] | - | - |
 | itemRender | Custom item rendering function | (item: MasonryItem) =&gt; VueNode | - | - |
 
-### Events 
+### Events
 
 | Event | Description | Type | Version |
 | --- | --- | --- | --- |
@@ -56,7 +56,6 @@ Common props ref：[Common props](/docs/vue/common-props)
 | Slot | Description | Type | Version |
 | --- | --- | --- | --- |
 | itemRender | Custom item rendering slot | (itemInfo: MasonryItem & &#123; index: number &#125;) =&gt; VueNode | - |
-
 
 ## Types
 
@@ -81,3 +80,7 @@ type Gap = undefined | number | Partial<Record<'xs' | 'sm' | 'md' | 'lg' | 'xl' 
 ## Semantic DOM
 
 ## Design Token
+
+<ComponentTokenTable component="Masonry" />
+
+See [Customize Theme](/docs/vue/customize-theme) to learn how to use Design Token.

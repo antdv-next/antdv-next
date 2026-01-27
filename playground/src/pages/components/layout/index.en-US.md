@@ -136,3 +136,9 @@ The sidebar.
   xxl: '1600px',
 }
 ```
+
+## Design Token
+
+<ComponentTokenTable component="Layout" />
+
+See [Customize Theme](/docs/vue/customize-theme) to learn how to use Design Token.

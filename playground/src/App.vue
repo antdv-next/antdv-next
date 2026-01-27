@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import { useCopyCode } from '@/components/code-demo/copy-code'
 import BaseConfig from './layouts/base/index.vue'
+
+useCopyCode()
 </script>
 
 <template>

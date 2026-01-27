@@ -44,3 +44,9 @@ Common props ref：[Common props](/docs/vue/common-props)
 | flex | flex CSS shorthand properties | CSSProperties['flex'] | normal | - |
 | gap | Sets the gap between grids | CSSProperties['gap'] \| SizeType | - | - |
 | component | custom element type | any | `div` | - |
+
+## Design Token
+
+<ComponentTokenTable component="Flex" />
+
+See [Customize Theme](/docs/vue/customize-theme) to learn how to use Design Token.

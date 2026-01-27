@@ -182,4 +182,6 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 ## Design Token {#design-token}
 
+<ComponentTokenTable component="Typography" />
+
 See [Customize Theme](/docs/vue/customize-theme) to learn how to use Design Token.

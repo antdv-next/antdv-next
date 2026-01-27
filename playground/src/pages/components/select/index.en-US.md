@@ -185,7 +185,11 @@ Common props ref：[Common props](/docs/vue/common-props)
 | popup.list | Popup list | - |
 | popup.listItem | Popup list item | - |
 
+## Design Token
+
 <ComponentTokenTable component="Select"></ComponentTokenTable>
+
+See [Customize Theme](/docs/vue/customize-theme) to learn how to use Design Token.
 
 ## FAQ
 

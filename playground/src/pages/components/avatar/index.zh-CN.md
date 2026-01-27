@@ -71,3 +71,9 @@ group:
 | max | - | &#123;     count?: number     style?: CSSProperties     popover?: PopoverProps   &#125; | - | - |
 | size | 设置头像的大小 | AvatarSize | `default` | - |
 | shape | 指定头像的形状 | 'circle' \| 'square' | `circle` | - |
+
+## 主题变量（Design Token）
+
+<ComponentTokenTable component="Avatar" />
+
+查看 [定制主题](/docs/vue/customize-theme) 了解如何使用主题变量。

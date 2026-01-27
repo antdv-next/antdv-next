@@ -86,6 +86,7 @@ Popconfirm 还支持 Popover 的所有属性，详见 [Popover](/components/popo
 
 ## 主题变量（Design Token）{#design-token}
 
+<ComponentTokenTable component="Popconfirm" />
 
 参考 [定制主题](/docs/vue/customize-theme) 了解如何使用主题变量。
 

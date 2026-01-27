@@ -159,3 +159,9 @@ Common props ref：[Common props](/docs/vue/common-props)
 | bodyCell | - | (ctx: &#123; column: ColumnType&lt;RecordType&gt;, index: number, text: any, record: RecordType &#125;) =&gt; any | - |
 | filterDropdown | - | (ctx: FilterDropdownProps & &#123; column: ColumnType&lt;RecordType&gt; &#125;) =&gt; any | - |
 | filterIcon | - | (ctx: &#123; column: ColumnType&lt;RecordType&gt;, filtered: boolean &#125;) =&gt; any | - |
+
+## Design Token
+
+<ComponentTokenTable component="Table" />
+
+See [Customize Theme](/docs/vue/customize-theme) to learn how to use Design Token.

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { CSSProperties } from 'vue'
-import { EditOutlined, ThunderboltOutlined } from '@antdv-next/icons'
+import { CheckOutlined, CopyOutlined, EditOutlined, ThunderboltOutlined } from '@antdv-next/icons'
+import { useClipboard } from '@vueuse/core'
 import { storeToRefs } from 'pinia'
 import demos from 'virtual:demos'
 import { computed, defineAsyncComponent, shallowRef } from 'vue'
@@ -57,7 +58,7 @@ const titleRef = shallowRef<HTMLElement>()
 
 function handleStackBlitz() {
   if (demo.value?.source) {
-    const title = `${titleRef.value?.textContent || 'Ant Design Vue Demo'} - antdv-next@${antdvPkg.version}`
+    const title = `${titleRef.value?.textContent || 'Antdv Next Demo'} - antdv-next@${antdvPkg.version}`
     openStackBlitz(title, demo.value.source)
   }
 }
@@ -69,6 +70,8 @@ const locales: Record<string, any> = {
       expandCode: 'Expand Code',
       expandedCode: 'Collapse Code',
       stackblitz: 'Open in StackBlitz',
+      copied: 'Copied Success',
+      copy: 'Copy Code',
     },
   },
   'zh-CN': {
@@ -77,6 +80,8 @@ const locales: Record<string, any> = {
       expandCode: '展开代码',
       expandedCode: '收起代码',
       stackblitz: '在 StackBlitz 中打开',
+      copied: '复制成功',
+      copy: '复制代码',
     },
   },
 }
@@ -93,6 +98,11 @@ const demoStyle = computed(() => {
     }
   }
   return styles
+})
+
+const { copied, copy } = useClipboard({
+  source: computed(() => demo.value?.source ?? ''),
+  legacy: true,
 })
 </script>
 
@@ -139,7 +149,15 @@ const demoStyle = computed(() => {
         </div>
       </a-flex>
     </section>
-    <div v-if="showCode" class="ant-doc-demo-box-code" v-html="demo?.html" />
+    <div v-if="showCode" class="ant-doc-demo-box-code">
+      <a-tooltip :title="locales[locale]?.action?.[copied ? 'copied' : 'copy']">
+        <div class="ant-doc-demo-box-code-copy" :class="copied ? 'ant-doc-demo-box-code-copied' : ''" @click="copy()">
+          <CopyOutlined v-if="!copied" />
+          <CheckOutlined v-else />
+        </div>
+      </a-tooltip>
+      <div v-html="demo?.html" />
+    </div>
   </section>
 </template>
 
@@ -209,9 +227,22 @@ const demoStyle = computed(() => {
   }
 
   &-code {
+    position: relative;
     line-height: 2;
     padding: var(--ant-padding-sm) var(--ant-padding);
     border-top: 1px solid var(--ant-color-split);
+
+    &-copy {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      cursor: pointer;
+      color: var(--ant-color-icon);
+    }
+
+    &-copied {
+      color: var(--ant-color-success);
+    }
   }
 }
 </style>

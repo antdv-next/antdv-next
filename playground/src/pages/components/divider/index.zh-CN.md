@@ -59,3 +59,9 @@ group:
 | root | 根元素 |
 | content | 内容元素（标题） |
 | rail | 分割线元素 |
+
+## 主题变量（Design Token）
+
+<ComponentTokenTable component="Divider" />
+
+查看 [定制主题](/docs/vue/customize-theme) 了解如何使用主题变量。

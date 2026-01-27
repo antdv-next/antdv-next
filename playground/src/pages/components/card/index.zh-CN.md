@@ -109,3 +109,9 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5WDvQp_H7LUAAA
 | avatar | 头像 | () =&gt; any | - |
 | title | 标题 | () =&gt; any | - |
 | description | 描述 | () =&gt; any | - |
+
+## 主题变量（Design Token）
+
+<ComponentTokenTable component="Card" />
+
+查看 [定制主题](/docs/vue/customize-theme) 了解如何使用主题变量。
