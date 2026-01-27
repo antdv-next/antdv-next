@@ -9,7 +9,6 @@ import { getAttrStyleAndClass } from '@v-c/util/dist/props-util'
 import { computed, defineComponent } from 'vue'
 import { isPresetColor } from '../_util/colors.ts'
 import {
-
   useMergeSemantic,
   useToArr,
   useToProps,
@@ -39,7 +38,6 @@ export type RibbonClassNamesType = SemanticClassNamesType<RibbonProps, RibbonSem
 export type RibbonStylesType = SemanticStylesType<RibbonProps, RibbonSemanticStyles>
 
 export interface RibbonProps extends ComponentBaseProps {
-  style?: CSSProperties
   text?: VueNode
   color?: LiteralUnion<PresetColorType>
   placement?: RibbonPlacement

@@ -285,7 +285,7 @@ const InternalTooltip = defineComponent<
           unique
           {...removeUndefined(restProps)}
           {...attrs}
-          trigger={contextTrigger.value}
+          trigger={mergedTrigger.value}
           zIndex={zIndex.value}
           showArrow={mergedShowArrow.value}
           placement={placement}
