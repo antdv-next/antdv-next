@@ -11,6 +11,7 @@ import IconSearch from './components/icon-search/index.vue'
 import InstallDependencies from './components/install-dependencies/index.vue'
 import StackBlitz from './components/stackblitz/index.vue'
 import ComponentTokenTable from './components/token/component-token-table.vue'
+import TokenTable from './components/token/token-table.vue'
 import 'antdv-next/style/reset.css'
 import 'uno.css'
 import './assets/styles/layout/index.css'
@@ -33,5 +34,6 @@ app.component('ComponentTokenTable', ComponentTokenTable)
 app.component('InstallDependencies', InstallDependencies)
 app.component('IconSearch', IconSearch)
 app.component('stackblitz', StackBlitz)
+app.component('TokenTable', TokenTable)
 app.use(createPinia())
 app.mount('#app')
