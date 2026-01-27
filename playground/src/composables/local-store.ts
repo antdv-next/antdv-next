@@ -1,6 +1,8 @@
+import type { InnerLocale } from '@/utils/locale'
 import { useStorage } from '@vueuse/core'
+import { detectInnerLocale } from '@/utils/locale'
 
-export const localeStore = useStorage<'zh-CN' | 'en-US'>('locale', 'zh-CN')
+export const localeStore = useStorage<InnerLocale>('locale', detectInnerLocale())
 
 export const darkModeStore = useStorage<boolean>('dark-mode', false)
 
