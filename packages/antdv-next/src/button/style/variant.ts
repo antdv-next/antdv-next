@@ -178,6 +178,12 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
           [varName('color-light-active')]: token.colorPrimaryBorder,
 
           [varName('shadow')]: token.primaryShadow,
+
+          [`&${componentCls}-variant-solid`]: {
+            [varName('text-color')]: token.primaryColor,
+            [varName('text-color-hover')]: varRef('text-color'),
+            [varName('text-color-active')]: varRef('text-color'),
+          },
         },
 
         // >>>>> Danger
@@ -190,6 +196,12 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
           [varName('color-light-active')]: token.colorErrorBgActive,
 
           [varName('shadow')]: token.dangerShadow,
+
+          [`&${componentCls}-variant-solid`]: {
+            [varName('text-color')]: token.dangerColor,
+            [varName('text-color-hover')]: varRef('text-color'),
+            [varName('text-color-active')]: varRef('text-color'),
+          },
         },
 
         // >>>>> Default
@@ -209,16 +221,22 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
           [varName('text-color')]: token.colorText,
           [varName('text-color-hover')]: token.defaultHoverBorderColor,
           [varName('text-color-active')]: token.defaultActiveBorderColor,
-
           [varName('shadow')]: token.defaultShadow,
 
           [`&${componentCls}-variant-solid`]: {
             [varName('text-color')]: token.solidTextColor,
+            [varName('text-color-hover')]: varRef('text-color'),
+            [varName('text-color-active')]: varRef('text-color'),
           },
 
           [`&${componentCls}-variant-filled, &${componentCls}-variant-text`]: {
             [varName('text-color-hover')]: varRef('text-color'),
             [varName('text-color-active')]: varRef('text-color'),
+          },
+
+          [`&${componentCls}-variant-outlined, &${componentCls}-variant-dashed`]: {
+            [varName('bg-color-hover')]: token.defaultHoverBg,
+            [varName('bg-color-active')]: token.defaultActiveBg,
           },
 
           [`&${componentCls}-background-ghost`]: {
