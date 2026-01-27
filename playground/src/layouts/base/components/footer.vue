@@ -56,7 +56,9 @@ const footerLocales = {
         <div style="opacity: 0.4;">
           Made with <span style="color: rgb(255, 255, 255);">❤</span> by
         </div>
-        <div>Antdv Next Team</div>
+        <div style="color: var(--ant-color-text-secondary);">
+          Antdv Next Team
+        </div>
       </div>
     </div>
   </footer>
@@ -129,7 +131,7 @@ const footerLocales = {
       max-width: 1200px;
       margin: 0 auto;
       padding: 16px 0;
-      font-size: 16px;
+      font-size: 14px;
       line-height: 32px;
       text-align: center;
       border-top: 1px solid rgba(255, 255, 255, 0.25);

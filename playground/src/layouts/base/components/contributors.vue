@@ -1,94 +1,96 @@
 <script setup lang="ts">
-  import { storeToRefs } from 'pinia'
-  import { computed, ref, watchEffect } from 'vue'
-  import { useRoute } from 'vue-router'
-  import { useAppStore } from '@/stores/app'
+import { storeToRefs } from 'pinia'
+import { computed, ref, watchEffect } from 'vue'
+import { useRoute } from 'vue-router'
+import { useAppStore } from '@/stores/app'
 
-  interface Author {
-    login?: string
-    id?: number
-    'avatar_url'?: string
-    'html_url'?: string
+interface Author {
+  login?: string
+  id?: number
+  avatar_url?: string
+  html_url?: string
+}
+
+interface Committer {
+  author: {
+    date: string
   }
+}
 
-  interface Committer {
-    author: {
-      date: string
+interface CommitsData {
+  sha: string
+  node_id: string
+  commit: Committer
+  url: string
+  html_url: string
+  comments_url: string
+  author: Author
+  committer: object
+  parents: []
+}
+
+interface ResultData {
+  login?: string
+  url?: string
+  avatar?: string
+}
+
+defineOptions({ name: 'Contributors' })
+
+const REPO_OWNER = 'antdv-next'
+const REPO_NAME = 'antdv-next'
+const REPO_PATH = `${REPO_OWNER}/${REPO_NAME}`
+
+const { locale } = storeToRefs(useAppStore())
+const route = useRoute()
+const contributors = ref<ResultData[]>([])
+const isZn = computed(() => locale.value === 'zh-CN')
+
+function filterData(data: CommitsData[]) {
+  const arr: ResultData[] = []
+  data.forEach((item) => {
+    if (!!item.author?.login || !!item.author?.html_url || !!item.author?.avatar_url) {
+      arr.push({
+        login: item.author.login,
+        url: item.author.html_url,
+        avatar: item.author.avatar_url,
+      })
+    }
+  })
+  contributors.value = arr.reduce<ResultData[]>((acc, curr) => {
+    if (!acc.find(item => item.login === curr.login)) {
+      acc.push(curr)
+    }
+    return acc
+  }, [])
+};
+async function getContributors() {
+  const path = route.path
+  const parts = path.split('/')
+  const name = parts[2]
+  if (name) {
+    const componentName = name.includes('-') ? name.replace('-cn', '') : name
+    const url = `https://api.github.com/repos/${REPO_PATH}/commits?path=/playground/src/pages/${parts[1]}/${componentName}`
+    try {
+      const req = await fetch(url)
+      const res = await req.json()
+      filterData(res)
+    }
+    catch {
+      return null
     }
   }
-
-  interface CommitsData {
-    sha: string
-    'node_id': string
-    commit: Committer
-    url: string
-    'html_url': string
-    'comments_url': string
-    author: Author
-    committer: object
-    parents: []
-  }
-
-  interface ResultData {
-    login?: string
-    url?: string
-    avatar?: string
-  }
-
-  defineOptions({ name: 'Contributors' })
-
-  const REPO_OWNER = 'antdv-next';
-  const REPO_NAME = 'antdv-next';
-  const REPO_PATH = `${REPO_OWNER}/${REPO_NAME}`;
-
-  const { locale } = storeToRefs(useAppStore())
-  const route = useRoute();
-  const contributors = ref<ResultData[]>([]);
-  const isZn = computed(() => locale.value === 'zh-CN')
-
-  function filterData(data: CommitsData[]) {
-    const arr: ResultData[] = [];
-    data.forEach(item => {
-      if (!!item.author?.login || !!item.author?.html_url || !!item.author?.avatar_url) {
-
-        arr.push({
-          login: item.author.login,
-          url: item.author.html_url,
-          avatar: item.author.avatar_url,
-        });
-      }
-    });
-    contributors.value = arr.reduce((acc, curr) => {
-      if (!acc.find(item => item.login === curr.login)) {
-        acc.push(curr);
-      }
-      return acc;
-    }, []);
-  };
-  async function getContributors() {
-    const path = route.path;
-    const parts = path.split('/');
-    const name = parts[2];
-    if (name) {
-      const componentName = name.includes('-') ? name.replace('-cn', '') : name;
-      const url = `https://api.github.com/repos/${REPO_PATH}/commits?path=/playground/src/pages/${parts[1]}/${componentName}`;
-      try {
-        const req = await fetch(url);
-        const res = await req.json();
-        filterData(res);
-      } catch {
-        return null;
-      }
-    }
-  };
-  watchEffect(() => {
-    getContributors();
-  });
+};
+watchEffect(() => {
+  getContributors()
+})
 </script>
 
 <template>
   <div v-if="contributors.length > 0" class="contributors-container">
-    <div class="title">{{ isZn ? '文档贡献者' : 'contributors' }}</div>
+    <div class="title">
+      {{ isZn ? '文档贡献者' : 'contributors' }}
+    </div>
     <div class="contributors-list">
       <ul class="contributors" style="margin-left: 0; padding-left: 0;">
         <li v-for="item in contributors" :key="item.login">
@@ -104,57 +106,57 @@
 </template>
 
 <style scoped>
- .contributors-container {
-    margin-top: 120px !important;
- }
+.contributors-container {
+  margin-top: 120px !important;
+}
 
- .title {
-    font-size: var(--ant-font-size-sm);
-    opacity: 0.5;
-    margin-bottom: var(--ant-margin-xs);
- }
+.title {
+  font-size: var(--ant-font-size-sm);
+  opacity: 0.5;
+  margin-bottom: var(--ant-margin-xs);
+}
 
- .contributors-list {
-    display: flex;
-    gap: 8px;
-  }
+.contributors-list {
+  display: flex;
+  gap: 8px;
+}
 
-  .contributors-list span {
-    color: var(--ant-color-primary);
-  }
+.contributors-list span {
+  color: var(--ant-color-primary);
+}
 
-  .contributors {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-flex-wrap: wrap;
-    -webkit-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    clear: both;
-    flex: 1;
-  }
+.contributors {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  clear: both;
+  flex: 1;
+}
 
-  .contributors li {
-    height: 24px;
-  }
+.contributors li {
+  height: 24px;
+}
 
-  .contributors li,
-  .contributors .ant-avatar + .ant-avatar {
-    -webkit-transition: all 0.3s;
-    transition: all 0.3s;
-    -webkit-margin-end: -8px;
-    margin-inline-end: -8px;
-  }
+.contributors li,
+.contributors .ant-avatar + .ant-avatar {
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  -webkit-margin-end: -8px;
+  margin-inline-end: -8px;
+}
 
-  .contributors:hover li,
-  .contributors:hover .ant-avatar {
-    -webkit-margin-end: 0;
-    margin-inline-end: 0;
-  }
+.contributors:hover li,
+.contributors:hover .ant-avatar {
+  -webkit-margin-end: 0;
+  margin-inline-end: 0;
+}
 
-  li {
-    list-style: none;
-  }
+li {
+  list-style: none;
+}
 </style>
