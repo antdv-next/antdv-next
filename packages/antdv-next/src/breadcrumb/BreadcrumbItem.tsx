@@ -3,6 +3,7 @@ import type { CSSProperties } from 'vue'
 import type { VueNode } from '../_util/type'
 import type { DropdownProps } from '../dropdown'
 import type { ItemType } from './Breadcrumb'
+import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { defineComponent } from 'vue'
 import isNonNullable from '../_util/isNonNullable'
@@ -89,7 +90,7 @@ export const InternalBreadcrumbItem = defineComponent<
       return breadcrumbItem
     }
     return () => {
-      const { separator = '/' } = props
+      const { separator = '/', prefixCls } = props
       const children = checkRenderNode(filterEmpty(slots?.default?.() ?? []))
       const { classes: mergedClassNames, styles: mergedStyles } = breadcrumbContext.value
       // wrap to dropDown
@@ -98,7 +99,7 @@ export const InternalBreadcrumbItem = defineComponent<
       if (isNonNullable(link)) {
         return (
           <>
-            <li class={mergedClassNames?.item} style={mergedStyles?.item}>
+            <li class={clsx(`${prefixCls}-item`, mergedClassNames?.item)} style={mergedStyles?.item}>
               {link}
             </li>
             {!!separator && <BreadcrumbSeparator>{separator}</BreadcrumbSeparator>}
