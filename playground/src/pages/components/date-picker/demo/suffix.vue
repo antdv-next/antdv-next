@@ -7,8 +7,8 @@ Custom `prefix` and `suffixIcon`.
 </docs>
 
 <script setup lang="ts">
-import { SmileOutlined } from '@antdv-next/icons'
 import type { Dayjs } from 'dayjs'
+import { SmileOutlined } from '@antdv-next/icons'
 import { h } from 'vue'
 
 const smileIcon = h(SmileOutlined)

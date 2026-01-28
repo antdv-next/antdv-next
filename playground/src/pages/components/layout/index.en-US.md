@@ -7,8 +7,6 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*4i58ToAcxaYAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAAAAAAAAAAAADrJ8AQ/original
 ---
 
-
-
 ## Specification
 
 ### Size
@@ -126,8 +124,8 @@ The sidebar.
 
 ### Breakpoint width
 
-```js
-{
+```ts
+const breakpointWidth = {
   xs: '480px',
   sm: '576px',
   md: '768px',

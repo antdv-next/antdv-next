@@ -11,7 +11,7 @@ import { ref } from 'vue'
 
 const open = ref(false)
 
-const hide = () => {
+function hide() {
   open.value = false
 }
 </script>

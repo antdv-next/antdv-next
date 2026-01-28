@@ -9,8 +9,6 @@ demo:
   cols: 2
 ---
 
-
-
 ## When To Use {#when-to-use}
 
 - The tip is shown on mouse enter, and is hidden on mouse leave. The Tooltip doesn't support complex text or operations.

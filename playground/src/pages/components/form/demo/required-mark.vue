@@ -48,8 +48,9 @@ const customizeRequiredMark: NonNullable<FormProps['requiredMark']> = (labelNode
   )
 }
 
-const formRequiredMark = (value: string | boolean) =>
-  value === 'customize' ? customizeRequiredMark : value
+function formRequiredMark(value: string | boolean) {
+  return value === 'customize' ? customizeRequiredMark : value
+}
 </script>
 
 <template>

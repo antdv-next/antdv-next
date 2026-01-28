@@ -9,8 +9,6 @@ demo:
   cols: 2
 ---
 
-
-
 ## When To Use {#when-to-use}
 
 - When you need to select from a set of associated data set. Such as province/city/district, company level, things classification.

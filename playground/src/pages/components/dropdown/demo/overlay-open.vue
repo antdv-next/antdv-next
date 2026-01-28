@@ -28,13 +28,13 @@ const items: MenuItemType[] = [
   },
 ]
 
-const handleMenuClick = (info: { key: string }) => {
+function handleMenuClick(info: { key: string }) {
   if (info.key === '3') {
     open.value = false
   }
 }
 
-const handleOpenChange = (nextOpen: boolean, info: { source: 'trigger' | 'menu' }) => {
+function handleOpenChange(nextOpen: boolean, info: { source: 'trigger' | 'menu' }) {
   if (info.source === 'trigger' || nextOpen) {
     open.value = nextOpen
   }
@@ -45,7 +45,7 @@ const handleOpenChange = (nextOpen: boolean, info: { source: 'trigger' | 'menu' 
   <a-dropdown
     :menu="{ items, onClick: handleMenuClick }"
     :open="open"
-    @openChange="handleOpenChange"
+    @open-change="handleOpenChange"
   >
     <a @click.prevent>
       <a-space>

@@ -80,15 +80,15 @@ demo:
 
 ```typescript
 type DisabledTime = (now: Dayjs) => {
-  disabledHours?: () => number[];
-  disabledMinutes?: (selectedHour: number) => number[];
-  disabledSeconds?: (selectedHour: number, selectedMinute: number) => number[];
+  disabledHours?: () => number[]
+  disabledMinutes?: (selectedHour: number) => number[]
+  disabledSeconds?: (selectedHour: number, selectedMinute: number) => number[]
   disabledMilliseconds?: (
     selectedHour: number,
     selectedMinute: number,
     selectedSecond: number,
-  ) => number[];
-};
+  ) => number[]
+}
 ```
 
 注意：`disabledMilliseconds` 为 `5.14.0` 新增。
@@ -116,10 +116,10 @@ type RangeDisabledTime = (
   now: Dayjs,
   type = 'start' | 'end',
 ) => {
-  disabledHours?: () => number[];
-  disabledMinutes?: (selectedHour: number) => number[];
-  disabledSeconds?: (selectedHour: number, selectedMinute: number) => number[];
-};
+  disabledHours?: () => number[]
+  disabledMinutes?: (selectedHour: number) => number[]
+  disabledSeconds?: (selectedHour: number, selectedMinute: number) => number[]
+}
 ```
 
 ## Semantic DOM

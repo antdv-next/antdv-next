@@ -12,4 +12,3 @@ Input box with the remove icon, click the icon to delete everything.
   <br>
   <a-textarea allow-clear placeholder="textarea with clear icon" />
 </template>
-

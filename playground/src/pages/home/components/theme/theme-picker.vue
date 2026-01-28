@@ -4,7 +4,7 @@ import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 import { useAppStore } from '@/stores/app.ts'
 
-const props = defineProps<{
+defineProps<{
   id?: string
   modelValue?: THEME
 }>()

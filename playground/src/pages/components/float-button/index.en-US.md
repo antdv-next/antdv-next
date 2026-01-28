@@ -9,8 +9,6 @@ demo:
   cols: 2
 ---
 
-
-
 ## When To Use
 
 - For global functionality on the site.

@@ -92,9 +92,15 @@ function handleFinish(values: any) {
 
     <a-form-item name="radioGroup" label="Radio.Group">
       <a-radio-group v-model:value="model.radioGroup">
-        <a-radio value="a">item 1</a-radio>
-        <a-radio value="b">item 2</a-radio>
-        <a-radio value="c">item 3</a-radio>
+        <a-radio value="a">
+          item 1
+        </a-radio>
+        <a-radio value="b">
+          item 2
+        </a-radio>
+        <a-radio value="c">
+          item 3
+        </a-radio>
       </a-radio-group>
     </a-form-item>
 
@@ -104,9 +110,15 @@ function handleFinish(values: any) {
       :rules="[{ required: true, message: 'Please pick an item!' }]"
     >
       <a-radio-group v-model:value="model.radioButton">
-        <a-radio-button value="a">item 1</a-radio-button>
-        <a-radio-button value="b">item 2</a-radio-button>
-        <a-radio-button value="c">item 3</a-radio-button>
+        <a-radio-button value="a">
+          item 1
+        </a-radio-button>
+        <a-radio-button value="b">
+          item 2
+        </a-radio-button>
+        <a-radio-button value="c">
+          item 3
+        </a-radio-button>
       </a-radio-group>
     </a-form-item>
 

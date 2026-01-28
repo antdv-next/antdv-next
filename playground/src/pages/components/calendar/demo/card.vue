@@ -7,12 +7,12 @@ Nested inside a container element for rendering in limited space.
 </docs>
 
 <script setup lang="ts">
-  import type { CalendarProps } from 'antdv-next'
-  import type { Dayjs } from 'dayjs'
+import type { CalendarProps } from 'antdv-next'
+import type { Dayjs } from 'dayjs'
 
-  function onPanelChange(value: Dayjs, mode: CalendarProps<Dayjs>['mode']) {
-    console.log(value.format('YYYY-MM-DD'), mode);
-  }
+function onPanelChange(value: Dayjs, mode: CalendarProps<Dayjs>['mode']) {
+  console.log(value.format('YYYY-MM-DD'), mode)
+}
 </script>
 
 <template>

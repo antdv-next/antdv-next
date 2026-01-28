@@ -9,8 +9,6 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*FbOCS6aFMeUAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAAAAAAAAAAAADrJ8AQ/original
 ---
 
-
-
 ## 何时使用 {#when-to-use}
 
 - 需要展示图片时使用。
@@ -124,33 +122,33 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 
 ```typescript
 {
-  x: number;
-  y: number;
-  rotate: number;
-  scale: number;
-  flipX: boolean;
-  flipY: boolean;
+  x: number
+  y: number
+  rotate: number
+  scale: number
+  flipX: boolean
+  flipY: boolean
 }
 ```
 
 ### TransformAction
 
 ```typescript
-type TransformAction =
-  | 'flipY'
-  | 'flipX'
-  | 'rotateLeft'
-  | 'rotateRight'
-  | 'zoomIn'
-  | 'zoomOut'
-  | 'close'
-  | 'prev'
-  | 'next'
-  | 'wheel'
-  | 'doubleClick'
-  | 'move'
-  | 'dragRebound'
-  | 'reset';
+type TransformAction
+  = | 'flipY'
+    | 'flipX'
+    | 'rotateLeft'
+    | 'rotateRight'
+    | 'zoomIn'
+    | 'zoomOut'
+    | 'close'
+    | 'prev'
+    | 'next'
+    | 'wheel'
+    | 'doubleClick'
+    | 'move'
+    | 'dragRebound'
+    | 'reset'
 ```
 
 ### ToolbarRenderInfoType
@@ -187,10 +185,10 @@ type TransformAction =
 
 ```typescript
 {
-  url: string;
-  alt: string;
-  width: string | number;
-  height: string | number;
+  url: string
+  alt: string
+  width: string | number
+  height: string | number
 }
 ```
 
@@ -198,8 +196,8 @@ type TransformAction =
 
 ```typescript
 interface CoverConfig {
-  coverNode?: VNode; // 自定义遮罩元素
-  placement?: 'top' | 'bottom' | 'center'; // 设置预览遮罩显示的位置
+  coverNode?: VNode // 自定义遮罩元素
+  placement?: 'top' | 'bottom' | 'center' // 设置预览遮罩显示的位置
 };
 ```
 

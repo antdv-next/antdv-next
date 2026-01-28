@@ -9,8 +9,6 @@ demo:
   cols: 2
 ---
 
-
-
 ## When To Use {#when-to-use}
 
 - A user input in a form field is needed.

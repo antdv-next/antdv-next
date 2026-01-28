@@ -40,7 +40,9 @@ const styles = {
       <a-input v-model:value="model.email" />
     </a-form-item>
     <a-form-item :label="null">
-      <a-button type="primary">Submit</a-button>
+      <a-button type="primary">
+        Submit
+      </a-button>
     </a-form-item>
   </a-form>
 </template>

@@ -7,9 +7,9 @@ The icon can be customized to any VueNode.
 </docs>
 
 <script setup lang="ts">
-import { h } from 'vue'
-import { notification } from 'antdv-next'
 import { SmileOutlined } from '@antdv-next/icons'
+import { notification } from 'antdv-next'
+import { h } from 'vue'
 
 const [api, ContextHolder] = notification.useNotification()
 

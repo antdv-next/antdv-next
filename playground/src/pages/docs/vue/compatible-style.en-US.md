@@ -30,7 +30,7 @@ The CSS-in-JS feature of Antdv Next uses the ":where" selector by default to low
 <template>
   <!-- `hashPriority` defaults to `low`, when set to `high`, -->
   <!-- it will remove the `:where` selector wrapper -->
-  <a-style-provider hashPriority="high">
+  <a-style-provider hash-priority="high">
     <MyApp />
   </a-style-provider>
 </template>
@@ -72,7 +72,7 @@ To unify LTR and RTL styles, Antdv Next uses CSS logical properties. For example
 
 ```vue
 <script lang="ts" setup>
-  import { legacyLogicalPropertiesTransformer } from '@antdv-next/cssinjs';
+import { legacyLogicalPropertiesTransformer } from '@antdv-next/cssinjs'
 </script>
 
 <template>
@@ -155,7 +155,7 @@ Some styles rely on browser prefixes for compatibility. The `autoPrefixer` trans
 
 ```vue
 <script lang="ts" setup>
-  import { autoPrefixTransformer } from '@antdv-next/cssinjs';
+import { autoPrefixTransformer } from '@antdv-next/cssinjs'
 </script>
 
 <template>
@@ -183,10 +183,11 @@ In responsive web development, there is a need for a convenient and flexible way
 
 ```vue
 <script lang="ts" setup>
-  import { px2remTransformer } from '@antdv-next/cssinjs';
-  const px2rem = px2remTransformer({
-    rootValue: 32, // 32px = 1rem; @default 16
-  });
+import { px2remTransformer } from '@antdv-next/cssinjs'
+
+const px2rem = px2remTransformer({
+  rootValue: 32, // 32px = 1rem; @default 16
+})
 </script>
 
 <template>
@@ -233,18 +234,19 @@ For more details, please refer to: [px2rem.ts#Options](https://github.com/ant-de
 Since `<style />` tag insertion is different from normal DOM in Shadow DOM scenario, you need to use `StyleProvider` of `@antdv-next/cssinjs` to configure the `container` property to set the insertion position:
 
 ```tsx
-import { StyleProvider } from '@antdv-next/cssinjs';
-import { render } from "vue"
-const shadowRoot = someEle.attachShadow({ mode: 'open' });
-const container = document.createElement('div');
-shadowRoot.appendChild(container);
+import { StyleProvider } from '@antdv-next/cssinjs'
+import { render } from 'vue'
+
+const shadowRoot = someEle.attachShadow({ mode: 'open' })
+const container = document.createElement('div')
+shadowRoot.appendChild(container)
 
 render(
   <StyleProvider container={shadowRoot}>
     <MyApp />
   </StyleProvider>,
   container
-);
+)
 ```
 
 ## Compatible with Third-party Style Libraries

@@ -9,9 +9,7 @@ demo:
   cols: 2
 ---
 
-
-
-## When To Use 
+## When To Use
 
 A simple and compact dialog used for asking for user confirmation.
 

@@ -12,7 +12,6 @@ Following the Ant Design specification, we developed a Vue UI library `antdv-nex
   <img width="190" draggable="false" src="../../../assets/antdv-next.svg"/>
 </div>
 
-
 ---
 
 ## ✨ Features
@@ -40,7 +39,6 @@ Following the Ant Design specification, we developed a Vue UI library `antdv-nex
 
 - Stable: [![npm package](https://img.shields.io/npm/v/antdv-next.svg?style=flat-square)](https://www.npmjs.org/package/antdv-next)
 
-
 ## Installation
 
 ### Using npm or yarn or pnpm or bun
@@ -65,7 +63,7 @@ We provide `antd.js` and `reset.css` under the `dist` folder in antdv-next's npm
 
 ```vue
 <template>
-  <a-date-picker></a-date-picker>
+  <a-date-picker />
 </template>
 ```
 

@@ -17,7 +17,7 @@ const styles = {
   },
 }
 
-const stylesFn = (info: any) => {
+function stylesFn(info: any) {
   if (info.props.orientation === 'vertical') {
     return {
       root: {

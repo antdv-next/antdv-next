@@ -7,8 +7,6 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*B7HKR5OBe8gAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sir-TK0HkWcAAAAAAAAAAAAADrJ8AQ/original
 ---
 
-
-
 ## When To Use {#when-to-use}
 
 - Can be used to group or hide complex regions to keep the page clean.
@@ -84,9 +82,9 @@ Deprecated: when using items, prefer configuring panels with `items`.
 | extra | - | VueNode | - | - |
 | collapsible | Specify how to trigger Collapse. Either by clicking icon or by clicking any area in header or disable collapse functionality itself | CollapsibleType | - | - |
 
-## Types 
+## Types
 
-### ItemType 
+### ItemType
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |

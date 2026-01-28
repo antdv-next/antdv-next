@@ -34,7 +34,7 @@ const steps: TourStepItem[] = [
   },
 ]
 
-const indicatorsRender = (current: number, total: number) => {
+function indicatorsRender(current: number, total: number) {
   return `${current + 1} / ${total}`
 }
 </script>

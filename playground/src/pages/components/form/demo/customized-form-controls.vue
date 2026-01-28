@@ -69,15 +69,15 @@ const PriceInput = defineComponent({
       { style: { display: 'inline-flex', alignItems: 'center' } },
       [
         h(InputNumber, {
-          value: props.value?.number ?? number.value,
+          'value': props.value?.number ?? number.value,
           'onUpdate:value': onNumberChange,
-          style: { width: '100px' },
+          'style': { width: '100px' },
         }),
         h(Select, {
-          value: props.value?.currency ?? currency.value,
+          'value': props.value?.currency ?? currency.value,
           'onUpdate:value': onCurrencyChange,
-          style: { width: '80px', margin: '0 8px' },
-          options: [
+          'style': { width: '80px', margin: '0 8px' },
+          'options': [
             { label: 'RMB', value: 'rmb' },
             { label: 'Dollar', value: 'dollar' },
           ],
@@ -91,7 +91,7 @@ const model = reactive({
   price: { number: 0, currency: 'rmb' as Currency },
 })
 
-const checkPrice = (_rule: any, value: PriceValue) => {
+function checkPrice(_rule: any, value: PriceValue) {
   if ((value?.number ?? 0) > 0) {
     return Promise.resolve()
   }

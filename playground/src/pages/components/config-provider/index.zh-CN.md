@@ -8,8 +8,6 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*NVKORa7BCVwAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*YC4ERpGAddoAAAAAAAAAAAAADrJ8AQ/original
 ---
 
-
-
 ## 何时使用 {#when-to-use}
 
 为应用内组件提供统一配置，例如国际化、方向、尺寸、主题或波纹效果。

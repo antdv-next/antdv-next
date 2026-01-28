@@ -6,7 +6,6 @@
 Separator between adjacent components.
 </docs>
 
-
 <template>
   <a-space>
     <template #separator>

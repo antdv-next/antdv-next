@@ -9,8 +9,6 @@ demo:
   cols: 2
 ---
 
-
-
 ## When To Use {#when-to-use}
 
 - When a series of information needs to be ordered by time (ascending or descending).

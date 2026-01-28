@@ -53,7 +53,6 @@ Antdv Next is inspired by and built upon the following open-source projects.
 - [Vue.js](https://vuejs.org/)
 - [Vite](https://vitejs.dev/)
 
-
 ## Contribute
 
 We are very welcome to have you participate in our open source project.

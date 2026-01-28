@@ -11,7 +11,7 @@ import { ref } from 'vue'
 
 const disabled = ref(true)
 
-const toggleDisabled = () => {
+function toggleDisabled() {
   disabled.value = !disabled.value
 }
 </script>

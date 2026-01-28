@@ -11,8 +11,6 @@ group:
   order: 6
 ---
 
-
-
 ## When To Use {#when-to-use}
 
 - When you need to show alert messages to users.

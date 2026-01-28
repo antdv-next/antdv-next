@@ -1,12 +1,27 @@
+cleanupUnusedCatalogs: true
+
+shellEmulator: true
+
+trustPolicy: no-downgrade
 packages:
   - packages/*
   - playground
 
+overrides:
+  '@v-c/portal': catalog:vc
+  '@v-c/resize-observer': catalog:vc
+  '@v-c/trigger': catalog:vc
+  '@v-c/util': catalog:vc
+  vite: catalog:dev
+
+catalog:
+  mockdate: ^3.0.5
+  pretty-format: ^30.2.0
 catalogs:
   dev:
     '@antfu/eslint-config': ^7.2.0
     '@changesets/cli': ^2.29.8
-    '@testing-library/jest-dom': ^5.17.0
+    '@testing-library/jest-dom': ^6.9.1
     '@vitejs/plugin-vue': ^6.0.3
     '@vitejs/plugin-vue-jsx': ^5.1.3
     '@vue/test-utils': ^2.4.6
@@ -137,25 +152,6 @@ catalogs:
     '@v-c/upload': ^0.0.1
     '@v-c/util': ^1.0.8
     '@v-c/virtual-list': ^1.0.5
-  conflicts_dev_h6_9_1:
-    '@testing-library/jest-dom': ^6.9.1
-
-cleanupUnusedCatalogs: true
-
 onlyBuiltDependencies:
   - esbuild
   - less
-
-overrides:
-  '@v-c/portal': catalog:vc
-  '@v-c/resize-observer': catalog:vc
-  '@v-c/trigger': catalog:vc
-  '@v-c/util': catalog:vc
-  vite: catalog:dev
-
-shellEmulator: true
-
-trustPolicy: no-downgrade
-catalog:
-  mockdate: ^3.0.5
-  pretty-format: ^30.2.0

@@ -4,31 +4,30 @@
 
 <docs lang="en-US">
 You can customize the [semantic dom](#semantic-dom) style of the Statistic by passing objects/functions through `classes` and `styles`.
-
 </docs>
 
 <script setup lang="ts">
-import type { StatisticProps } from 'antdv-next';
-  import { ArrowDownOutlined, ArrowUpOutlined } from '@antdv-next/icons'
+import type { StatisticProps } from 'antdv-next'
+import { ArrowDownOutlined, ArrowUpOutlined } from '@antdv-next/icons'
 
-  const classes = {
-    root: 'custom-statistic-root',
+const classes = {
+  root: 'custom-statistic-root',
+}
+const styleFn: StatisticProps['styles'] = ({ props }) => {
+  const numValue = Number(props.value ?? 0)
+  const isNegative = Number.isFinite(numValue) && numValue < 0
+  if (isNegative) {
+    return {
+      title: {
+        color: '#ff4d4f',
+      },
+      content: {
+        color: '#ff7875',
+      },
+    } satisfies StatisticProps['styles']
   }
-  const styleFn: StatisticProps['styles'] = ({ props }) => {
-    const numValue = Number(props.value ?? 0);
-    const isNegative = Number.isFinite(numValue) && numValue < 0;
-    if (isNegative) {
-      return {
-        title: {
-          color: '#ff4d4f',
-        },
-        content: {
-          color: '#ff7875',
-        },
-      } satisfies StatisticProps['styles'];
-    }
-    return {};
-  }
+  return {}
+}
 </script>
 
 <template>

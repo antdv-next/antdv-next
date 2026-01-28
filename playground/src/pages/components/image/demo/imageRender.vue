@@ -7,14 +7,14 @@ You can customize the preview content.
 </docs>
 
 <script setup lang="ts">
-  import { h } from 'vue'
+import { h } from 'vue'
 
-  const imageRender = h('video', {
-    muted: true,
-    width: '100%',
-    controls: true,
-    src: 'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*uYT7SZwhJnUAAAAAAAAAAAAADgCCAQ',
-  })
+const imageRender = h('video', {
+  muted: true,
+  width: '100%',
+  controls: true,
+  src: 'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/file/A*uYT7SZwhJnUAAAAAAAAAAAAADgCCAQ',
+})
 </script>
 
 <template>
@@ -35,8 +35,7 @@ You can customize the preview content.
     src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
     :preview="{
       imageRender: () => imageRender,
-      actionsRender: () => null
+      actionsRender: () => null,
     }"
   />
 </template>
-

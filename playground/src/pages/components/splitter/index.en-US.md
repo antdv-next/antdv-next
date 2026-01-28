@@ -10,8 +10,6 @@ demo:
 tag: 5.21.0
 ---
 
-
-
 ## When To Use
 
 Provide a draggable split panel for creating complex multi-column or multi-row layouts.

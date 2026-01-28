@@ -65,8 +65,8 @@ export function getClosetColor(colorPrimary?: string | null): string | null {
     const colorObj = generateColor(color).toRgb()
     const dist = Math.sqrt(
       (colorObj.r - colorPrimaryRGB.r) ** 2
-        + (colorObj.g - colorPrimaryRGB.g) ** 2
-        + (colorObj.b - colorPrimaryRGB.b) ** 2,
+      + (colorObj.g - colorPrimaryRGB.g) ** 2
+      + (colorObj.b - colorPrimaryRGB.b) ** 2,
     )
 
     return { color, dist }

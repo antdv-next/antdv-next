@@ -7,7 +7,7 @@ Get instance for `message`, `notification`, `modal`.
 </docs>
 
 <script setup lang="ts">
-  import MyPage from "./myPage.vue";
+import MyPage from './myPage.vue'
 </script>
 
 <template>

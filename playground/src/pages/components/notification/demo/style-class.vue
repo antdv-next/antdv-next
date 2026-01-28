@@ -15,7 +15,7 @@ const classes = {
   root: 'custom-notification-root',
 }
 
-const styleFn = (info: any) => {
+function styleFn(info: any) {
   if (info.props.type === 'error') {
     return {
       root: {

@@ -9,8 +9,6 @@ demo:
   cols: 2
 ---
 
-
-
 ## When To Use {#when-to-use}
 
 When requiring users to interact with the application, but without jumping to a new page and interrupting the user's workflow, you can use `Modal` to create a new floating layer over the current page to get user feedback or display information.
@@ -168,7 +166,7 @@ modal.update({
   content: 'Updated content',
 })
 
-modal.update((prevConfig) => ({
+modal.update(prevConfig => ({
   ...prevConfig,
   title: `${prevConfig.title} (New)`,
 }))

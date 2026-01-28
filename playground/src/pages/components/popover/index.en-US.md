@@ -9,15 +9,13 @@ demo:
   cols: 2
 ---
 
-
-
-## When To Use 
+## When To Use
 
 A simple popup card to provide extra information or operations.
 
 Comparing with `Tooltip`, besides information `Popover` card can also provide action elements like links and buttons.
 
-## Examples 
+## Examples
 
 <demo-group>
   <demo src="./demo/basic.vue">Basic</demo>
@@ -45,20 +43,20 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 Popover also supports all Tooltip props. See [Tooltip](/components/tooltip#api).
 
-### Events 
+### Events
 
 | Event | Description | Type | Version |
 | --- | --- | --- | --- |
 | openChange | Callback when popover visibility changes | (open: boolean, e?: MouseEvent \| KeyboardEvent) =&gt; void | - |
 
-### Slots 
+### Slots
 
 | Slot | Description | Type | Version |
 | --- | --- | --- | --- |
 | title | Title of the card | () =&gt; any | - |
 | content | Content of the card | () =&gt; any | - |
 
-## Note 
+## Note
 
 Please ensure that the child node of `Popover` can accept `mouseenter`, `mouseleave`, `focus`, `click` events.
 

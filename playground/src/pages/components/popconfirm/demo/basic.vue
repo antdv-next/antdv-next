@@ -11,12 +11,12 @@ import { message } from 'antdv-next'
 
 const [messageApi, ContextHolder] = message.useMessage()
 
-const confirm = (e?: MouseEvent) => {
+function confirm(e?: MouseEvent) {
   console.log(e)
   messageApi.success('Click on Yes')
 }
 
-const cancel = (e?: MouseEvent) => {
+function cancel(e?: MouseEvent) {
   console.log(e)
   messageApi.error('Click on No')
 }

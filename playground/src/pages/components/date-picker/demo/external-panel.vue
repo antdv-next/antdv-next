@@ -138,7 +138,8 @@ const rangeMenuItems = computed<MenuItemType[]>(() => [
               onChange: (ranges: [Dayjs, Dayjs] | null) => {
                 if (ranges?.[0] && ranges?.[1]) {
                   rangeValue.value = [ranges[0], ranges[1]]
-                } else {
+                }
+                else {
                   rangeValue.value = null
                 }
                 rangeDropdownOpen.value = false
@@ -173,14 +174,16 @@ function handleRangeOpenChange(nextOpen: boolean) {
 <template>
   <div style="display: flex; gap: 20%;">
     <div>
-      <div style="margin-bottom: 12px;">DatePicker</div>
+      <div style="margin-bottom: 12px;">
+        DatePicker
+      </div>
       <a-dropdown
         arrow
         :open="dateDropdownOpen"
         :menu="dateMenu"
         :trigger="['click']"
         destroy-on-hidden
-        @openChange="handleDateOpenChange"
+        @open-change="handleDateOpenChange"
       >
         <a @click.prevent>
           <a-space>
@@ -192,14 +195,16 @@ function handleRangeOpenChange(nextOpen: boolean) {
     </div>
 
     <div>
-      <div style="margin-bottom: 12px;">RangePicker</div>
+      <div style="margin-bottom: 12px;">
+        RangePicker
+      </div>
       <a-dropdown
         arrow
         :open="rangeDropdownOpen"
         :menu="rangeMenu"
         :trigger="['click']"
         destroy-on-hidden
-        @openChange="handleRangeOpenChange"
+        @open-change="handleRangeOpenChange"
       >
         <a @click.prevent>
           <a-space>

@@ -22,7 +22,8 @@ const rangePresets: RangePickerProps['presets'] = [
 function handleChange(date: Dayjs | null) {
   if (date) {
     console.log('Date: ', date)
-  } else {
+  }
+  else {
     console.log('Clear')
   }
 }
@@ -31,7 +32,8 @@ function handleRangeChange(dates: null | (Dayjs | null)[], dateStrings: string[]
   if (dates) {
     console.log('From: ', dates[0], ', to: ', dates[1])
     console.log('From: ', dateStrings[0], ', to: ', dateStrings[1])
-  } else {
+  }
+  else {
     console.log('Clear')
   }
 }

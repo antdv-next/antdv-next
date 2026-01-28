@@ -10,7 +10,7 @@
 
 3. **Typed Contracts:**
    Every component must define explicit `Props`, `Emits`, and `SlotsType` using the pattern:
-   ```ts
+   ```
    defineComponent<Props, Emits, string, SlotsType<Slots>>(...)
    ```
 

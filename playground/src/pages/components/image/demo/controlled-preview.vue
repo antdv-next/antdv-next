@@ -7,10 +7,10 @@ You can make preview controlled.
 </docs>
 
 <script setup lang="ts">
-  import { ref } from 'vue'
+import { ref } from 'vue'
 
-  const open = ref(false)
-  const scaleStep = ref(0.5)
+const open = ref(false)
+const scaleStep = ref(0.5)
 </script>
 
 <template>
@@ -19,7 +19,9 @@ You can make preview controlled.
     <a-input-number v-model:value="scaleStep" min="0.1" max="5" step="0.1" />
   </div>
   <br>
-  <a-button type="primary" @click="open = true">show image preview</a-button>
+  <a-button type="primary" @click="open = true">
+    show image preview
+  </a-button>
   <a-image
     alt="basic image"
     :width="200"
@@ -33,6 +35,5 @@ You can make preview controlled.
         open = val
       },
     }"
-  ></a-image>
+  />
 </template>
-

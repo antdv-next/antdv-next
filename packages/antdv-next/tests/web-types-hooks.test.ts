@@ -1,6 +1,6 @@
+import type { ComponentApiData, MarkdownHooks } from '../scripts/web-types/types'
 import { describe, expect, it } from 'vitest'
 import { applyMarkdownHooks } from '../scripts/web-types/hooks'
-import type { ComponentApiData, MarkdownHooks } from '../scripts/web-types/types'
 
 describe('web-types hooks', () => {
   it('applies props/events/slots hooks', () => {

@@ -1,5 +1,5 @@
 import type { CSSObject } from '@antdv-next/cssinjs'
-import type { ComputedRef, CSSProperties, Ref } from 'vue'
+import type { ComputedRef, CSSProperties } from 'vue'
 import type { CssUtil } from '../../_util/motion.ts'
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal'
 import { FastColor } from '@ant-design/fast-color'

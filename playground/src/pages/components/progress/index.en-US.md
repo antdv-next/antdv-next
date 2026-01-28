@@ -9,8 +9,6 @@ demo:
   cols: 2
 ---
 
-
-
 ## When To Use {#when-to-use}
 
 If it will take a long time to complete an operation, you can use `Progress` to show the current progress and status.

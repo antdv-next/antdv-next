@@ -7,60 +7,60 @@ You can customize the [semantic dom](#semantic-dom) style of Segmented by passin
 </docs>
 
 <script setup lang="ts">
-  import type { SegmentedProps } from 'antdv-next'
-  import { CloudOutlined, RocketOutlined, ThunderboltOutlined } from '@antdv-next/icons'
-  import { h } from 'vue'
+import type { SegmentedProps } from 'antdv-next'
+import { CloudOutlined, RocketOutlined, ThunderboltOutlined } from '@antdv-next/icons'
+import { h } from 'vue'
 
-  const classes: SegmentedProps['classes'] = {
-    root: 'custom-segmented-root'
+const classes: SegmentedProps['classes'] = {
+  root: 'custom-segmented-root',
+}
+const styleFn: SegmentedProps['styles'] = (info) => {
+  if (info.props.vertical) {
+    return {
+      root: {
+        border: '1px solid #77BEF0',
+        padding: '4px',
+        width: '100px',
+      },
+      icon: {
+        color: '#77BEF0',
+      },
+      item: {
+        textAlign: 'start',
+      },
+    } satisfies SegmentedProps['styles']
   }
-  const styleFn: SegmentedProps['styles'] = (info) => {
-    if (info.props.vertical) {
-      return {
-        root: {
-          border: '1px solid #77BEF0',
-          padding: '4px',
-          width: '100px',
-        },
-        icon: {
-          color: '#77BEF0',
-        },
-        item: {
-          textAlign: 'start',
-        },
-      } satisfies SegmentedProps['styles'];
-    }
-    return {};
-  };
+  return {}
+}
 
-  const styles: SegmentedProps['styles'] = {
-    root: {
-      padding: '4px',
-      width: '260px',
-    },
-  };
+const styles: SegmentedProps['styles'] = {
+  root: {
+    padding: '4px',
+    width: '260px',
+  },
+}
 
-  const options: SegmentedProps['options'] = [
-    {
-      label: 'Boost',
-      value: 'boost',
-      icon: h(RocketOutlined)
-    },
-    {
-      label: 'Stream',
-      value: 'stream',
-      icon: h(ThunderboltOutlined)
-    },
-    {
-      label: 'Cloud',
-      value: 'cloud',
-      icon: h(CloudOutlined)
-    },
-  ];
-  const segmentedSharedProps: SegmentedProps = {
-    options,
-    classes,
-  }
+const options: SegmentedProps['options'] = [
+  {
+    label: 'Boost',
+    value: 'boost',
+    icon: h(RocketOutlined),
+  },
+  {
+    label: 'Stream',
+    value: 'stream',
+    icon: h(ThunderboltOutlined),
+  },
+  {
+    label: 'Cloud',
+    value: 'cloud',
+    icon: h(CloudOutlined),
+  },
+]
+const segmentedSharedProps: SegmentedProps = {
+  options,
+  classes,
+}
 </script>
 
 <template>

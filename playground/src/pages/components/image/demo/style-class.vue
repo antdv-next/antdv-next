@@ -3,16 +3,15 @@
 </docs>
 
 <docs lang="en-US">
-You can customize the [semantic dom](#semantic-dom) style of Image by passing objects/functions through `classes` and `styles`. 
+You can customize the [semantic dom](#semantic-dom) style of Image by passing objects/functions through `classes` and `styles`.
 </docs>
 
 <script setup lang="ts">
-
 const sharedProps = {
   src: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
   width: 160,
   alt: '示例图片',
-};
+}
 
 const imageStyles = {
   root: {
@@ -23,7 +22,7 @@ const imageStyles = {
   image: {
     borderRadius: '4px',
   },
-};
+}
 
 const previewImageStyles = {
   root: {
@@ -36,7 +35,7 @@ const previewImageStyles = {
     borderRadius: '4px',
     filter: 'grayscale(50%)',
   },
-};
+}
 </script>
 
 <template>

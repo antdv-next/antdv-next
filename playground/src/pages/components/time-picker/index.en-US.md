@@ -79,15 +79,15 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 ```typescript
 type DisabledTime = (now: Dayjs) => {
-  disabledHours?: () => number[];
-  disabledMinutes?: (selectedHour: number) => number[];
-  disabledSeconds?: (selectedHour: number, selectedMinute: number) => number[];
+  disabledHours?: () => number[]
+  disabledMinutes?: (selectedHour: number) => number[]
+  disabledSeconds?: (selectedHour: number, selectedMinute: number) => number[]
   disabledMilliseconds?: (
     selectedHour: number,
     selectedMinute: number,
     selectedSecond: number,
-  ) => number[];
-};
+  ) => number[]
+}
 ```
 
 Note: `disabledMilliseconds` is added in `5.14.0`.
@@ -115,10 +115,10 @@ type RangeDisabledTime = (
   now: Dayjs,
   type = 'start' | 'end',
 ) => {
-  disabledHours?: () => number[];
-  disabledMinutes?: (selectedHour: number) => number[];
-  disabledSeconds?: (selectedHour: number, selectedMinute: number) => number[];
-};
+  disabledHours?: () => number[]
+  disabledMinutes?: (selectedHour: number) => number[]
+  disabledSeconds?: (selectedHour: number, selectedMinute: number) => number[]
+}
 ```
 
 ## Semantic DOM

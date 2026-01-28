@@ -18,8 +18,9 @@ const model = reactive({
   test3: '@mention1',
 })
 
-const renderErrors = (errors?: string[]) =>
-  (errors || []).map((error, index) => h('div', { key: index }, error))
+function renderErrors(errors?: string[]) {
+  return (errors || []).map((error, index) => h('div', { key: index }, error))
+}
 
 const feedbackIcons: FormProps['feedbackIcons'] = ({ errors }) => ({
   error: h(
@@ -34,19 +35,21 @@ const feedbackIcons: FormProps['feedbackIcons'] = ({ errors }) => ({
   ),
 })
 
-const customItemIcons = ({ errors }: { errors?: string[] }) => ({
-  error: h(
-    Tooltip,
-    {
-      color: 'pink',
-      title: renderErrors(errors),
-    },
-    {
-      default: () => h(AlertFilled),
-    },
-  ),
-  success: false,
-})
+function customItemIcons({ errors }: { errors?: string[] }) {
+  return {
+    error: h(
+      Tooltip,
+      {
+        color: 'pink',
+        title: renderErrors(errors),
+      },
+      {
+        default: () => h(AlertFilled),
+      },
+    ),
+    success: false,
+  }
+}
 </script>
 
 <template>

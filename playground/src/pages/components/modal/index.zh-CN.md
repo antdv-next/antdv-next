@@ -10,8 +10,6 @@ demo:
   cols: 2
 ---
 
-
-
 ## 何时使用 {#when-to-use}
 
 需要用户处理事务，又不希望跳转页面以致打断工作流程时，可以使用 `Modal` 在当前页面正中打开一个浮层，承载相应的操作。
@@ -83,7 +81,6 @@ demo:
 | wrapProps | 对话框外层容器属性 | Record<string, any> | - | - |
 | zIndex | 设置 Modal 的 `z-index` | number | 1000 | - |
 
-
 ### 事件 {#events}
 
 | 事件 | 说明 | 类型 | 版本 |
@@ -103,7 +100,6 @@ demo:
 | cancelText | 取消按钮文字 | () => any | - |
 | closeIcon | 自定义关闭图标 | () => any | - |
 | modalRender | 自定义渲染内容 | (node: any) => any | - |
-
 
 ### 注意
 
@@ -172,7 +168,7 @@ modal.update({
   content: '修改的内容',
 })
 
-modal.update((prevConfig) => ({
+modal.update(prevConfig => ({
   ...prevConfig,
   title: `${prevConfig.title}（新）`,
 }))
@@ -215,7 +211,7 @@ onMounted(() => {
 - `then`：Promise 链式调用，支持 `await` 操作（Hooks only）
 
 ```ts
-const confirmed = await modal.confirm({ ... })
+const confirmed = await modal.confirm({ ...options })
 ```
 
 ## 语义化结构 {#semantic-dom}

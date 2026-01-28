@@ -11,8 +11,6 @@ group:
   order: 2
 ---
 
-
-
 ## When To Use
 
 - Divide sections of an article.

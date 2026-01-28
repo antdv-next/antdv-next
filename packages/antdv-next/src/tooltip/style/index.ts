@@ -1,5 +1,5 @@
 import type { CSSObject } from '@antdv-next/cssinjs'
-import type { ComputedRef, Ref } from 'vue'
+import type { ComputedRef } from 'vue'
 
 import type { ArrowOffsetToken } from '../../style/placementArrow'
 import type { ArrowToken } from '../../style/roundedArrow'

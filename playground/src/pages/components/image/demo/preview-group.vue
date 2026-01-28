@@ -3,7 +3,7 @@
 </docs>
 
 <docs lang="en-US">
-Click the left and right switch buttons to preview multiple images. 
+Click the left and right switch buttons to preview multiple images.
 </docs>
 
 <template>

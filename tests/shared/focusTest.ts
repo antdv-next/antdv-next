@@ -1,6 +1,6 @@
 import type { Component } from 'vue'
-import { h } from 'vue'
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
+import { h } from 'vue'
 
 import { mount, sleep } from '../utils'
 
@@ -9,8 +9,8 @@ import { mount, sleep } from '../utils'
  * Vue equivalent of ant-design's focusTest.
  *
  * @param Comp - The Vue component to test
- * @param options.refFocus - If true, tests focus/blur via exposed ref methods
- * @param options.blurDelay - Delay (ms) to wait after blur event
+ * @param refFocus
+ * @param blurDelay
  */
 function focusTest(
   Comp: Component,

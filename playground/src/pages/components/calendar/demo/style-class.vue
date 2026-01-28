@@ -7,31 +7,31 @@ You can customize the [semantic dom](#semantic-dom) style of Calendar by passing
 </docs>
 
 <script setup lang="ts">
-  import type { CalendarProps } from 'antdv-next'
-  import type { Dayjs } from 'dayjs'
+import type { CalendarProps } from 'antdv-next'
+import type { Dayjs } from 'dayjs'
 
-  const classes = {
-    root: 'custom-calendar-root',
-  };
+const classes = {
+  root: 'custom-calendar-root',
+}
 
-  const stylesObject: CalendarProps<Dayjs>['styles'] = {
-    root: {
-      borderRadius: '8px',
-      width: '600px',
-    },
-  };
+const stylesObject: CalendarProps<Dayjs>['styles'] = {
+  root: {
+    borderRadius: '8px',
+    width: '600px',
+  },
+}
 
-  const stylesFunction: CalendarProps<Dayjs>['styles'] = (info) => {
-    if (info.props.fullscreen) {
-      return {
-        root: {
-          border: '2px solid #BDE3C3',
-          borderRadius: '10px',
-          backgroundColor: 'rgba(189,227,195, 0.3)',
-        },
-      } satisfies CalendarProps<Dayjs>['styles'];
-    }
-  };
+const stylesFunction: CalendarProps<Dayjs>['styles'] = (info) => {
+  if (info.props.fullscreen) {
+    return {
+      root: {
+        border: '2px solid #BDE3C3',
+        borderRadius: '10px',
+        backgroundColor: 'rgba(189,227,195, 0.3)',
+      },
+    } satisfies CalendarProps<Dayjs>['styles']
+  }
+}
 </script>
 
 <template>

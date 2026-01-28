@@ -8,8 +8,6 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*fkfzT5BbwNIAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*g9vUQq2nkpEAAAAAAAAAAAAADrJ8AQ/original
 ---
 
-
-
 ## 何时使用 {#when-to-use}
 
 - 需要在多个可选项中进行多选时。

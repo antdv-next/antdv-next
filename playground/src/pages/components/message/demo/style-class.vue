@@ -20,7 +20,7 @@ const stylesObject = {
   icon: { fontSize: '20px' },
 }
 
-const stylesFn = (info: any) => {
+function stylesFn(info: any) {
   if (info.props.type === 'success') {
     return {
       root: {

@@ -6,7 +6,6 @@
 Set alignment.
 </docs>
 
-
 <template>
   <div class="flex flex-wrap items-start">
     <div class="flex-none my-2 mx-1 p-1 border border-solid border-[#40a9ff]">

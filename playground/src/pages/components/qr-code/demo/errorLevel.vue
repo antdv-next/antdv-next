@@ -17,4 +17,3 @@ const level = ref<QRCodeProps['errorLevel']>('M')
   <a-qrcode style="margin-bottom: 16px;" :error-level="level" value="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" />
   <a-segmented v-model:value="level" :options="['L', 'M', 'Q', 'H']" />
 </template>
-

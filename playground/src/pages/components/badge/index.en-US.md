@@ -7,8 +7,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*v8EQT7KoGbcAAA
 group: Data Display
 ---
 
-
-
 ## When To Use {#when-to-use}
 
 Badge normally appears in proximity to notifications or user avatars with eye-catching appeal, typically displaying unread messages count.

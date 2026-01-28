@@ -9,8 +9,6 @@ demo:
   cols: 2
 ---
 
-
-
 ## When To Use {#when-to-use}
 
 - A dropdown menu for displaying choices - an elegant alternative to the native `<select>` element.

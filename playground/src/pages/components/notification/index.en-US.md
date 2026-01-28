@@ -10,8 +10,6 @@ demo:
   cols: 2
 ---
 
-
-
 ## When To Use {#when-to-use}
 
 To display a notification message at any of the four corners of the viewport. Typically it can be used in the following cases:

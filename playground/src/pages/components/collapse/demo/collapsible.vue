@@ -34,7 +34,7 @@ const iconItems = [
 const disabledItems = [
   {
     key: '1',
-    label: "This panel can't be collapsed",
+    label: 'This panel can\'t be collapsed',
     content: h('p', text),
   },
 ]

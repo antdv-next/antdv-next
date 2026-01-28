@@ -7,11 +7,11 @@ Customize the background, border, margin styles and icon for each panel.
 </docs>
 
 <script setup lang="ts">
-import type { CSSProperties } from 'vue'
 import type { CollapseProps } from 'antdv-next'
-import { h, computed } from 'vue'
+import type { CSSProperties } from 'vue'
 import { CaretRightOutlined } from '@antdv-next/icons'
 import { theme } from 'antdv-next'
+import { computed, h } from 'vue'
 
 const text = `
   A dog is a type of domesticated animal.

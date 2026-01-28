@@ -1,7 +1,13 @@
 import type { InjectionKey, Ref } from 'vue'
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks'
 import type { DirectionType } from '../config-provider/context'
-import type { SemanticName, SubMenuSemanticName } from './menu'
+import type {
+  MenuPopupSemanticClassNames,
+  MenuPopupSemanticStyles,
+  MenuSemanticClassNames,
+  MenuSemanticStyles,
+  SubMenuSemanticClassNames,
+  SubMenuSemanticStyles,
+} from './menu.tsx'
 import { computed, defineComponent, inject, provide, ref } from 'vue'
 
 export type MenuTheme = 'light' | 'dark'
@@ -14,13 +20,13 @@ export interface MenuContextProps {
   firstLevel: boolean
   /** @internal Safe to remove */
   disableMenuItemTitleTooltip?: boolean
-  classes: SemanticClassNames<SemanticName> & {
-    popup: SemanticClassNames<'root'>
-    subMenu: SemanticClassNames<SubMenuSemanticName>
+  classes: MenuSemanticClassNames & {
+    popup?: MenuPopupSemanticClassNames
+    subMenu?: SubMenuSemanticClassNames
   }
-  styles: SemanticStyles<SemanticName> & {
-    popup: SemanticStyles<'root'>
-    subMenu: SemanticStyles<SubMenuSemanticName>
+  styles?: MenuSemanticStyles & {
+    popup?: MenuPopupSemanticStyles
+    subMenu?: SubMenuSemanticStyles
   }
 }
 

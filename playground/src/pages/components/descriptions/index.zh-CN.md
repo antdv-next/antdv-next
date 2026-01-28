@@ -8,8 +8,6 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*fHdlTpif6XQAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*d27AQJrowGAAAAAAAAAAAAAADrJ8AQ/original
 ---
 
-
-
 ## 何时使用 {#when-to-use}
 
 常见于详情页的信息展示。

@@ -1,7 +1,12 @@
 import type { NoticeProps } from '@v-c/notification'
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks'
 import type { VueNode } from '../_util/type'
-import type { ArgsClassNamesType, ArgsStylesType, NoticeType, SemanticName } from './interface'
+import type {
+  ArgsClassNamesType,
+  ArgsStylesType,
+  MessageSemanticClassNames,
+  MessageSemanticStyles,
+  NoticeType,
+} from './interface'
 import { CheckCircleFilled, CloseCircleFilled, ExclamationCircleFilled, InfoCircleFilled, LoadingOutlined } from '@antdv-next/icons'
 import { Notice } from '@v-c/notification'
 import { clsx } from '@v-c/util'
@@ -17,8 +22,8 @@ export interface PureContentProps {
   prefixCls: string
   type?: NoticeType
   icon?: VueNode
-  classNames?: SemanticClassNames<SemanticName>
-  styles?: SemanticStyles<SemanticName>
+  classNames?: MessageSemanticClassNames
+  styles?: MessageSemanticStyles
 }
 
 const TypeIcon = {

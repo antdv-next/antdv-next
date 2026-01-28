@@ -24,15 +24,14 @@ Replace the contents of `App.vue` with the following code. As you can see, you c
 
 ```vue
 <script setup lang="ts">
-import { ref } from "vue"
+import { ref } from 'vue'
 
 const value = ref()
 </script>
 
 <template>
-  <a-date-picker need-confirm v-model:value="value" />
+  <a-date-picker v-model:value="value" need-confirm />
 </template>
-
 ```
 
 ### 3. Explore More Components

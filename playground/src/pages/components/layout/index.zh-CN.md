@@ -8,8 +8,6 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*4i58ToAcxaYAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAAAAAAAAAAAADrJ8AQ/original
 ---
 
-
-
 ## 设计规则
 
 ### 尺寸
@@ -131,8 +129,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAA
 
 ### breakpoint width
 
-```js
-{
+```ts
+const breakpointWidth = {
   xs: '480px',
   sm: '576px',
   md: '768px',

@@ -11,9 +11,7 @@ import { notification } from 'antdv-next'
 
 const [api, ContextHolder] = notification.useNotification()
 
-const types = ['success', 'info', 'warning', 'error'] as const
-
-type NotificationType = (typeof types)[number]
+type NotificationType = 'success' | 'info' | 'warning' | 'error'
 
 function openNotificationWithIcon(type: NotificationType) {
   api[type]({

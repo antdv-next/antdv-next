@@ -9,8 +9,6 @@ demo:
   cols: 1
 ---
 
-
-
 瀑布流布局组件，用于展示不同高度的内容。
 
 ## 何时使用 {#when-to-use}
@@ -32,7 +30,6 @@ demo:
 ## API
 
 通用属性参考：[通用属性](/docs/vue/common-props)
-
 
 ### 属性 {#props}
 

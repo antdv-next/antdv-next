@@ -3,31 +3,31 @@
 </docs>
 
 <docs lang="en-US">
-You can customize the [semantic dom](#semantic-dom) style of the InputNumber by passing objects/functions through 
+You can customize the [semantic dom](#semantic-dom) style of the InputNumber by passing objects/functions through
 </docs>
 
 <script setup lang="ts">
-  import type { InputNumberProps } from 'antdv-next'
+import type { InputNumberProps } from 'antdv-next'
 
-  const shardStyle = {
-    root: 'shard'
+const shardStyle = {
+  root: 'shard',
+}
+const styleObject: InputNumberProps['styles'] = {
+  input: {
+    fontSize: '14px',
+  },
+}
+const styleFn: InputNumberProps['styles'] = ({ props }) => {
+  if (props.size === 'large') {
+    return {
+      root: {
+        backgroundColor: 'rgba(250,250,250, 0.5)',
+        borderColor: '#722ed1',
+      },
+    } satisfies InputNumberProps['styles']
   }
-  const styleObject: InputNumberProps['styles'] = {
-    input: {
-      fontSize: '14px'
-    }
-  }
-  const styleFn: InputNumberProps['styles'] = ({ props }) => {
-    if (props.size === 'large') {
-      return {
-        root: {
-          backgroundColor: 'rgba(250,250,250, 0.5)',
-          borderColor: '#722ed1',
-        },
-      } satisfies InputNumberProps['styles'];
-    }
-    return {};
-  }
+  return {}
+}
 </script>
 
 <template>

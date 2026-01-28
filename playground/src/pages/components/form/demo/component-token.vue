@@ -34,7 +34,9 @@ const model = reactive({
         <a-input-password v-model:value="model.password" />
       </a-form-item>
       <a-form-item :label="null">
-        <a-button type="primary">Submit</a-button>
+        <a-button type="primary">
+          Submit
+        </a-button>
       </a-form-item>
     </a-form>
   </a-config-provider>

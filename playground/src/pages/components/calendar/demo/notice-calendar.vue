@@ -7,44 +7,44 @@ This component can be rendered by using `dateCellRender` and `monthCellRender` w
 </docs>
 
 <script setup lang="ts">
-  import type { BadgeProps} from 'antdv-next'
+import type { BadgeProps } from 'antdv-next'
 
-  function getListData(value: any) {
-    let listData: { type: string; content: string }[] = []; // Specify the type of listData
-    switch (value.date()) {
-      case 8:
-        listData = [
-          { type: 'warning', content: 'This is warning event.' },
-          { type: 'success', content: 'This is usual event.' },
-        ];
-        break;
-      case 10:
-        listData = [
-          { type: 'warning', content: 'This is warning event.' },
-          { type: 'success', content: 'This is usual event.' },
-          { type: 'error', content: 'This is error event.' },
-        ];
-        break;
-      case 15:
-        listData = [
-          { type: 'warning', content: 'This is warning event' },
-          { type: 'success', content: 'This is very long usual event......' },
-          { type: 'error', content: 'This is error event 1.' },
-          { type: 'error', content: 'This is error event 2.' },
-          { type: 'error', content: 'This is error event 3.' },
-          { type: 'error', content: 'This is error event 4.' },
-        ];
-        break;
-      default:
-    }
-    return listData || [];
+function getListData(value: any) {
+  let listData: { type: string, content: string }[] = [] // Specify the type of listData
+  switch (value.date()) {
+    case 8:
+      listData = [
+        { type: 'warning', content: 'This is warning event.' },
+        { type: 'success', content: 'This is usual event.' },
+      ]
+      break
+    case 10:
+      listData = [
+        { type: 'warning', content: 'This is warning event.' },
+        { type: 'success', content: 'This is usual event.' },
+        { type: 'error', content: 'This is error event.' },
+      ]
+      break
+    case 15:
+      listData = [
+        { type: 'warning', content: 'This is warning event' },
+        { type: 'success', content: 'This is very long usual event......' },
+        { type: 'error', content: 'This is error event 1.' },
+        { type: 'error', content: 'This is error event 2.' },
+        { type: 'error', content: 'This is error event 3.' },
+        { type: 'error', content: 'This is error event 4.' },
+      ]
+      break
+    default:
   }
+  return listData || []
+}
 
-  function getMonthData(value: any) {
-    if (value.month() === 8) {
-      return 1394;
-    }
+function getMonthData(value: any) {
+  if (value.month() === 8) {
+    return 1394
   }
+}
 </script>
 
 <template>
@@ -62,7 +62,7 @@ This component can be rendered by using `dateCellRender` and `monthCellRender` w
           <section>{{ getMonthData(date) }}</section>
           <span>Backlog number</span>
         </div>
-      </template>  
+      </template>
     </template>
   </a-calendar>
 </template>

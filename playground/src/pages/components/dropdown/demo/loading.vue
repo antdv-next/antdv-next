@@ -20,7 +20,7 @@ const items: MenuItemType[] = [
 
 const loadings = ref<boolean[]>([])
 
-const enterLoading = (index: number) => {
+function enterLoading(index: number) {
   const nextLoadings = [...loadings.value]
   nextLoadings[index] = true
   loadings.value = nextLoadings

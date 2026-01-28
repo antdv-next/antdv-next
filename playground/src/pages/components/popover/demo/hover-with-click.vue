@@ -12,19 +12,19 @@ import { ref } from 'vue'
 const clicked = ref(false)
 const hovered = ref(false)
 
-const hide = () => {
+function hide() {
   clicked.value = false
   hovered.value = false
 }
 
-const handleHoverChange = (value: boolean) => {
+function handleHoverChange(value: boolean) {
   hovered.value = value
   if (value) {
     clicked.value = false
   }
 }
 
-const handleClickChange = (value: boolean) => {
+function handleClickChange(value: boolean) {
   clicked.value = value
   if (value) {
     hovered.value = false
@@ -38,7 +38,7 @@ const handleClickChange = (value: boolean) => {
     trigger="hover"
     :open="hovered"
     :style="{ width: '500px' }"
-    @openChange="handleHoverChange"
+    @open-change="handleHoverChange"
   >
     <template #content>
       <div>This is hover content.</div>
@@ -47,7 +47,7 @@ const handleClickChange = (value: boolean) => {
       title="Click title"
       trigger="click"
       :open="clicked"
-      @openChange="handleClickChange"
+      @open-change="handleClickChange"
     >
       <template #content>
         <div>

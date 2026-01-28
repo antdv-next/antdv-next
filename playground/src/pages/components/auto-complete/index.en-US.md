@@ -11,8 +11,6 @@ demo:
   cols: 2
 ---
 
-
-
 ## When To Use {#when-to-use}
 
 - When you need an input box instead of a selector.

@@ -7,15 +7,15 @@ Nested in the modal.
 </docs>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref } from 'vue'
 
-const show1 = ref(false);
-const show2 = ref(false);
-const show3 = ref(false);
+const show1 = ref(false)
+const show2 = ref(false)
+const show3 = ref(false)
 
-const handlePreviewGroupChange = (current: number, prev: number) => {
-  console.log(`current index: ${current}, prev index: ${prev}`);
-};
+function handlePreviewGroupChange(current: number, prev: number) {
+  console.log(`current index: ${current}, prev index: ${prev}`)
+}
 </script>
 
 <template>

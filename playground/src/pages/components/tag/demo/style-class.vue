@@ -7,7 +7,7 @@ You can customize the [semantic dom](#semantic-dom) style of Tag by passing obje
 </docs>
 
 <script setup lang="ts">
-import { CheckCircleOutlined, CloseCircleOutlined } from '@antdv-next/icons';
+import { CheckCircleOutlined, CloseCircleOutlined } from '@antdv-next/icons'
 
 const tagStyles = {
   root: {
@@ -19,7 +19,7 @@ const tagStyles = {
   content: {
     color: '#262626',
   },
-};
+}
 
 const filledTagStyles = {
   root: {
@@ -31,7 +31,7 @@ const filledTagStyles = {
   content: {
     color: '#8F87F1',
   },
-};
+}
 
 const groupStyles = {
   root: {
@@ -45,7 +45,7 @@ const groupStyles = {
     borderColor: 'rgba(82, 196, 26, 0.3)',
     color: '#52c41a',
   },
-};
+}
 
 const multipleGroupStyles = {
   root: {
@@ -60,10 +60,10 @@ const multipleGroupStyles = {
     color: '#8F87F1',
     fontWeight: 500,
   },
-};
+}
 
-const options1 = ['React', 'Vue', 'Angular'];
-const options2 = ['meet-student', 'thinkasany'];
+const options1 = ['React', 'Vue', 'Angular']
+const options2 = ['meet-student', 'thinkasany']
 </script>
 
 <template>

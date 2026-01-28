@@ -471,8 +471,8 @@ const handleTreeSelectScroll: TreeSelectEmits['popupScroll'] = (e) => {
                 Open Modal
               </a-button>
               <a-modal
-                title="پنچره ساده"
                 v-model:open="modalOpen"
+                title="پنچره ساده"
                 @ok="handleModalOk"
                 @cancel="handleModalCancel"
               >
@@ -574,19 +574,33 @@ const handleTreeSelectScroll: TreeSelectEmits['popupScroll'] = (e) => {
                 (offset, push, etc.)
               </p>
               <a-row>
-                <a-col :span="8">col-8</a-col>
-                <a-col :span="8" :offset="8">col-8</a-col>
+                <a-col :span="8">
+                  col-8
+                </a-col>
+                <a-col :span="8" :offset="8">
+                  col-8
+                </a-col>
               </a-row>
               <a-row>
-                <a-col :span="6" :offset="6">col-6 col-offset-6</a-col>
-                <a-col :span="6" :offset="6">col-6 col-offset-6</a-col>
+                <a-col :span="6" :offset="6">
+                  col-6 col-offset-6
+                </a-col>
+                <a-col :span="6" :offset="6">
+                  col-6 col-offset-6
+                </a-col>
               </a-row>
               <a-row>
-                <a-col :span="12" :offset="6">col-12 col-offset-6</a-col>
+                <a-col :span="12" :offset="6">
+                  col-12 col-offset-6
+                </a-col>
               </a-row>
               <a-row>
-                <a-col :span="18" :push="6">col-18 col-push-6</a-col>
-                <a-col :span="6" :pull="18">col-6 col-pull-18</a-col>
+                <a-col :span="18" :push="6">
+                  col-18 col-push-6
+                </a-col>
+                <a-col :span="6" :pull="18">
+                  col-6 col-pull-18
+                </a-col>
               </a-row>
             </div>
           </div>

@@ -7,8 +7,8 @@ A relevant icon makes information clearer and more friendly.
 </docs>
 
 <script setup lang="ts">
-import { h } from 'vue'
 import { SmileOutlined } from '@antdv-next/icons'
+import { h } from 'vue'
 
 const icon = () => h(SmileOutlined)
 </script>

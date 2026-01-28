@@ -7,9 +7,9 @@ Using pre & post tabs example.
 </docs>
 
 <script setup lang="ts">
-  import { ref } from 'vue'
+import { ref } from 'vue'
 
-  const value1 = ref(100)
+const value1 = ref(100)
 </script>
 
 <template>

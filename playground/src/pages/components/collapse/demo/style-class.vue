@@ -10,8 +10,8 @@ You can customize the [semantic dom](#semantic-dom) style of Collapse by passing
 import type { CollapseProps } from 'antdv-next'
 import { h } from 'vue'
 
-const text =
-  'A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.'
+const text
+  = 'A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many households across the world.'
 
 const element = h('p', text)
 

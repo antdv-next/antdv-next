@@ -6,7 +6,6 @@
 Vertical compact button group.
 </docs>
 
-
 <template>
   <a-space>
     <a-space-compact orientation="vertical">

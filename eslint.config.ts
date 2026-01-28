@@ -1,6 +1,7 @@
 import antfu from '@antfu/eslint-config'
 
 export default antfu({
+  markdown: false,
   formatters: {
     css: true,
   },
@@ -9,6 +10,8 @@ export default antfu({
     'node/prefer-global/process': 0,
     'regexp/no-unused-capturing-group': 0,
     'no-template-curly-in-string': 0,
+    'vue/no-template-shadow': 0,
+    'vue/one-component-per-file': 0,
   },
 }, {
   ignores: [
@@ -23,5 +26,6 @@ export default antfu({
   rules: {
     'no-console': 0,
     'no-restricted-globals': 0,
+    'no-irregular-whitespace': 0,
   },
 })

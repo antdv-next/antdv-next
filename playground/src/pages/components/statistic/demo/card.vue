@@ -7,7 +7,7 @@ Display statistic data in Card.
 </docs>
 
 <script setup lang="ts">
-  import { ArrowDownOutlined, ArrowUpOutlined } from '@antdv-next/icons'
+import { ArrowDownOutlined, ArrowUpOutlined } from '@antdv-next/icons'
 </script>
 
 <template>

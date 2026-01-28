@@ -1,6 +1,6 @@
+import type { ComponentApiData } from '../scripts/web-types/types'
 import { describe, expect, it } from 'vitest'
 import { applyDefaults } from '../scripts/web-types/apply-defaults'
-import type { ComponentApiData } from '../scripts/web-types/types'
 
 describe('web-types defaults', () => {
   it('adds default components for missing docs', () => {

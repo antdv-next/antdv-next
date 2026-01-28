@@ -7,8 +7,8 @@
 </docs>
 
 <script setup lang="ts">
-import { h } from 'vue'
 import { Collapse } from 'antdv-next'
+import { h } from 'vue'
 
 const text = `
   A dog is a type of domesticated animal.

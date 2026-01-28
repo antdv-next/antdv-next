@@ -73,10 +73,13 @@ More discussion of SVG icon reference at [#10353](https://github.com/ant-design/
 
 All the icons will render to `<svg>`. You can still set `style` and `class` for size and color of icons.
 
-```jsx
-import { MessageOutlined } from '@antdv-next/icons'
-
-<MessageOutlined style="fontSize: 16px; color: #08c" />
+```vue
+<script lang="ts" setup>
+  import { MessageOutlined } from '@antdv-next/icons'
+</script>
+<template>
+  <MessageOutlined style="fontSize: 16px; color: #08c" />
+</template>
 ```
 
 ### Set TwoTone Color

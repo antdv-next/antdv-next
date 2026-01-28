@@ -7,8 +7,8 @@ Transform values with computed getters/setters.
 </docs>
 
 <script setup lang="ts">
-import dayjs from 'dayjs'
 import type { Dayjs } from 'dayjs'
+import dayjs from 'dayjs'
 import { computed, reactive } from 'vue'
 
 const dateTimestamp = dayjs('2024-01-01').valueOf()

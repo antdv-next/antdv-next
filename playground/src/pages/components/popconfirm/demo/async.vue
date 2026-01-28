@@ -12,11 +12,11 @@ import { ref } from 'vue'
 const open = ref(false)
 const confirmLoading = ref(false)
 
-const showPopconfirm = () => {
+function showPopconfirm() {
   open.value = true
 }
 
-const handleOk = () => {
+function handleOk() {
   confirmLoading.value = true
   setTimeout(() => {
     open.value = false
@@ -24,7 +24,7 @@ const handleOk = () => {
   }, 2000)
 }
 
-const handleCancel = () => {
+function handleCancel() {
   console.log('Clicked cancel button')
   open.value = false
 }

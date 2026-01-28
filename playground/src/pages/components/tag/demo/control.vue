@@ -7,59 +7,59 @@ Generating a set of Tags by array, you can add and remove dynamically.
 </docs>
 
 <script setup lang="ts">
-  import type { CSSProperties } from 'vue';
-  import { PlusOutlined } from '@antdv-next/icons';
-  import { theme } from 'antdv-next'
-  import { ref, watch } from 'vue'
+import type { CSSProperties } from 'vue'
+import { PlusOutlined } from '@antdv-next/icons'
+import { theme } from 'antdv-next'
+import { ref, watch } from 'vue'
 
-  const tagInputStyle: CSSProperties = {
-    width: '64px',
-    height: '22px',
-    marginInlineEnd: '8px',
-    verticalAlign: 'top',
-  }
-  const { token } = theme.useToken()
-  const tags = ref<string[]>(['Unremovable', 'Tag 2', 'Tag 3'])
-  const inputVisible = ref(false)
-  const inputValue = ref('')
-  const editInputIndex = ref(-1)
-  const editInputValue = ref('')
-  const inputRef = ref()
-  const editInputRef = ref()
+const tagInputStyle: CSSProperties = {
+  width: '64px',
+  height: '22px',
+  marginInlineEnd: '8px',
+  verticalAlign: 'top',
+}
+const { token } = theme.useToken()
+const tags = ref<string[]>(['Unremovable', 'Tag 2', 'Tag 3'])
+const inputVisible = ref(false)
+const inputValue = ref('')
+const editInputIndex = ref(-1)
+const editInputValue = ref('')
+const inputRef = ref()
+const editInputRef = ref()
 
-  watch(inputVisible, (val: boolean) => {
-    if (val) {
-      inputRef.value?.$el?.focus()
-    }
-  })
-  watch(editInputIndex, () => {
-    editInputRef.value?.$el?.focus()
-  })
-  function handleClose(removedTag: string) {
-    tags.value = tags.value.filter(tag => tag !== removedTag)
+watch(inputVisible, (val: boolean) => {
+  if (val) {
+    inputRef.value?.$el?.focus()
   }
-  function showInput() {
-    inputVisible.value = true
+})
+watch(editInputIndex, () => {
+  editInputRef.value?.$el?.focus()
+})
+function handleClose(removedTag: string) {
+  tags.value = tags.value.filter(tag => tag !== removedTag)
+}
+function showInput() {
+  inputVisible.value = true
+}
+function handleInputConfirm() {
+  if (inputValue.value && !tags.value.includes(inputValue.value)) {
+    tags.value = [...tags.value, inputValue.value]
   }
-  function handleInputConfirm() {
-    if (inputValue.value && !tags.value.includes(inputValue.value)) {
-      tags.value = [...tags.value, inputValue.value]
-    }
-    inputVisible.value = false
-    inputValue.value = ''
-  }
-  function handleEditInputConfirm() {
-    const newTags = [...tags.value];
-    newTags[editInputIndex.value] = editInputValue.value;
-    tags.value = newTags;
-    editInputIndex.value = -1;
-    editInputValue.value = '';
-  }
-  const tagPlusStyle:CSSProperties = {
-    height: '22px',
-    background: token.value?.colorBgContainer,
-    borderStyle: 'dashed',
-  }
+  inputVisible.value = false
+  inputValue.value = ''
+}
+function handleEditInputConfirm() {
+  const newTags = [...tags.value]
+  newTags[editInputIndex.value] = editInputValue.value
+  tags.value = newTags
+  editInputIndex.value = -1
+  editInputValue.value = ''
+}
+const tagPlusStyle: CSSProperties = {
+  height: '22px',
+  background: token.value?.colorBgContainer,
+  borderStyle: 'dashed',
+}
 </script>
 
 <template>
@@ -71,35 +71,37 @@ Generating a set of Tags by array, you can add and remove dynamically.
           ref="editInputRef"
           v-model:value="editInputValue"
           size="small"
+          :style="tagInputStyle"
           @blur="handleEditInputConfirm"
           @press.enter="handleEditInputConfirm"
-          :style="tagInputStyle"
         />
       </template>
       <template v-if="tag.length > 20">
-        <a-tooltip :title="tag" :key="tag">
-          <a-tag :key="tag" :closable="index !== 0" @close="handleClose(tag)" style="user-select: none;">
+        <a-tooltip :key="tag" :title="tag">
+          <a-tag :key="tag" :closable="index !== 0" style="user-select: none;" @close="handleClose(tag)">
             <span
-             @doubleClick="(e: MouseEvent) => {
+              @doubleClick="(e: MouseEvent) => {
+                if (index !== 0) {
+                  editInputIndex = index
+                  editInputValue = tag
+                  e.preventDefault()
+                }
+              }"
+            >{{ `${tag.slice(0, 20)}...` }}</span>
+          </a-tag>
+        </a-tooltip>
+      </template>
+      <template v-else>
+        <a-tag :key="tag" :closable="index !== 0" style="user-select: none;" @close="handleClose(tag)">
+          <span
+            @doubleClick="(e: MouseEvent) => {
               if (index !== 0) {
                 editInputIndex = index
                 editInputValue = tag
                 e.preventDefault()
               }
-            }">{{ `${tag.slice(0, 20)}...` }}</span>
-          </a-tag>
-        </a-tooltip>
-      </template>
-      <template v-else>
-        <a-tag :key="tag" :closable="index !== 0" @close="handleClose(tag)" style="user-select: none;">
-          <span
-           @doubleClick="(e: MouseEvent) => {
-            if (index !== 0) {
-              editInputIndex = index
-              editInputValue = tag
-              e.preventDefault()
-            }
-          }">{{ tag }}</span>
+            }"
+          >{{ tag }}</span>
         </a-tag>
       </template>
     </template>
@@ -108,9 +110,9 @@ Generating a set of Tags by array, you can add and remove dynamically.
         ref="inputRef"
         v-model:value="inputValue"
         type="text" size="small"
+        :style="tagInputStyle"
         @blur="handleInputConfirm"
         @press.enter="handleInputConfirm"
-        :style="tagInputStyle"
       />
     </template>
     <template v-else>
@@ -121,4 +123,3 @@ Generating a set of Tags by array, you can add and remove dynamically.
     </template>
   </a-flex>
 </template>
-

@@ -12,7 +12,7 @@ import customParseFormat from 'dayjs/plugin/customParseFormat'
 
 dayjs.extend(customParseFormat)
 
-const range = (start: number, end: number) => {
+function range(start: number, end: number) {
   const result: number[] = []
   for (let i = start; i < end; i++) {
     result.push(i)
@@ -20,21 +20,23 @@ const range = (start: number, end: number) => {
   return result
 }
 
-const disabledDate = (current: any) => {
+function disabledDate(current: any) {
   return current && current < dayjs().endOf('day')
 }
 
-const disabledDateForMonth = (current: any) => {
+function disabledDateForMonth(current: any) {
   return current && current < dayjs().startOf('month')
 }
 
-const disabledDateTime = () => ({
-  disabledHours: () => range(0, 24).splice(4, 20),
-  disabledMinutes: () => range(30, 60),
-  disabledSeconds: () => [55, 56],
-})
+function disabledDateTime() {
+  return {
+    disabledHours: () => range(0, 24).splice(4, 20),
+    disabledMinutes: () => range(30, 60),
+    disabledSeconds: () => [55, 56],
+  }
+}
 
-const disabledRangeTime = (_: any, type: 'start' | 'end') => {
+function disabledRangeTime(_: any, type: 'start' | 'end') {
   if (type === 'start') {
     return {
       disabledHours: () => range(0, 60).splice(4, 20),

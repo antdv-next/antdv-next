@@ -17,7 +17,7 @@ Standalone badge with status.
     <a-badge status="processing" />
     <a-badge status="warning" />
   </a-space>
-  <br />
+  <br>
   <a-space vertical>
     <a-badge status="success" text="Success" />
     <a-badge status="error" text="Error" />

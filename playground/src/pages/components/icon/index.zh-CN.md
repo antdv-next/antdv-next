@@ -74,10 +74,13 @@ import { StarFilled, StarOutlined, StarTwoTone } from '@antdv-next/icons'
 
 所有的图标都会以 `<svg>` 标签渲染，可以使用 `style` 和 `class` 设置图标的大小和单色图标的颜色。例如：
 
-```js
-import { MessageOutlined } from '@antdv-next/icons'
-
-<MessageOutlined style="fontSize: 16px; color: #08c" />
+```vue
+<script lang="ts" setup>
+    import { MessageOutlined } from '@antdv-next/icons'
+</script>
+<template>
+    <MessageOutlined style="fontSize: 16px; color: #08c" />
+</template>
 ```
 
 ### 双色图标主色 {#set-two-tone-color}

@@ -12,7 +12,6 @@ title: Ant Design of Vue
   <img width="190" draggable="false" src="../../../assets/antdv-next.svg"/>
 </div>
 
-
 ---
 
 ## ✨ 特性
@@ -40,7 +39,6 @@ title: Ant Design of Vue
 
 - 稳定版：[![npm package](https://img.shields.io/npm/v/antdv-next.svg?style=flat-square)](https://www.npmjs.org/package/antdv-next)
 
-
 ## 安装
 
 ### 使用 npm 或 yarn 或 pnpm 或 bun 安装
@@ -65,7 +63,7 @@ title: Ant Design of Vue
 
 ```vue
 <template>
-  <a-date-picker></a-date-picker>
+  <a-date-picker />
 </template>
 ```
 

@@ -7,46 +7,46 @@ You can customize the toolbar and add a button for downloading the original imag
 </docs>
 
 <script setup lang="ts">
-  import {
-    DownloadOutlined,
-    LeftOutlined,
-    RightOutlined,
-    RotateLeftOutlined,
-    RotateRightOutlined,
-    SwapOutlined,
-    UndoOutlined,
-    ZoomInOutlined,
-    ZoomOutOutlined,
-  } from '@antdv-next/icons'
-  import { ref } from 'vue'
+import {
+  DownloadOutlined,
+  LeftOutlined,
+  RightOutlined,
+  RotateLeftOutlined,
+  RotateRightOutlined,
+  SwapOutlined,
+  UndoOutlined,
+  ZoomInOutlined,
+  ZoomOutOutlined,
+} from '@antdv-next/icons'
+import { ref } from 'vue'
 
-  const imageList = [
-    'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
-    'https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg',
-  ]
-  const current = ref(0)
-  function handlePreviewChange(val: number) {
-    console.log('current', current.value, val)
-    current.value = val
-  }
-  function onDownload() {
-    const url = imageList[current.value];
-    const suffix = url!.slice(url!.lastIndexOf('.'));
-    const filename = Date.now() + suffix;
+const imageList = [
+  'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+  'https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg',
+]
+const current = ref(0)
+function handlePreviewChange(val: number) {
+  console.log('current', current.value, val)
+  current.value = val
+}
+function onDownload() {
+  const url = imageList[current.value]
+  const suffix = url!.slice(url!.lastIndexOf('.'))
+  const filename = Date.now() + suffix
 
-    fetch(url!)
-      .then((response) => response.blob())
-      .then((blob) => {
-        const blobUrl = URL.createObjectURL(new Blob([blob]));
-        const link = document.createElement('a');
-        link.href = blobUrl;
-        link.download = filename;
-        document.body.appendChild(link);
-        link.click();
-        URL.revokeObjectURL(blobUrl);
-        link.remove();
-      });
-  }
+  fetch(url!)
+    .then(response => response.blob())
+    .then((blob) => {
+      const blobUrl = URL.createObjectURL(new Blob([blob]))
+      const link = document.createElement('a')
+      link.href = blobUrl
+      link.download = filename
+      document.body.appendChild(link)
+      link.click()
+      URL.revokeObjectURL(blobUrl)
+      link.remove()
+    })
+}
 </script>
 
 <template>
@@ -77,24 +77,24 @@ You can customize the toolbar and add a button for downloading the original imag
 
 <style scoped>
   .toolbar-wrapper {
-    padding: 0px 24px;
-    color: #fff;
-    font-size: 20px;
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: 100px;
-  }
+  padding: 0px 24px;
+  color: #fff;
+  font-size: 20px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 100px;
+}
 
-  .toolbar-wrapper .anticon {
-    padding: 12px;
-    cursor: pointer;
-  }
+.toolbar-wrapper .anticon {
+  padding: 12px;
+  cursor: pointer;
+}
 
-  .toolbar-wrapper .anticon[disabled='true'] {
-    cursor: not-allowed;
-    opacity: 0.3;
-  }
+.toolbar-wrapper .anticon[disabled='true'] {
+  cursor: not-allowed;
+  opacity: 0.3;
+}
 
-  .toolbar-wrapper .anticon:hover {
-    opacity: 0.3;
-  }
+.toolbar-wrapper .anticon:hover {
+  opacity: 0.3;
+}
 </style>

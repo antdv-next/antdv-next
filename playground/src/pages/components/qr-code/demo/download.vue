@@ -49,4 +49,3 @@ function downloadSvgQRCode() {
     </div>
   </a-space>
 </template>
-

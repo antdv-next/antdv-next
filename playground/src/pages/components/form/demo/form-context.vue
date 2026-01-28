@@ -11,7 +11,7 @@ import type { FormInstance } from 'antdv-next'
 import { SmileOutlined, UserOutlined } from '@antdv-next/icons'
 import { reactive, ref, shallowRef } from 'vue'
 
-type UserType = { name: string, age: number }
+interface UserType { name: string, age: number }
 
 const open = ref(false)
 const users = ref<UserType[]>([])

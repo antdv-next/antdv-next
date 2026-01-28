@@ -7,46 +7,46 @@ Responsive configuration enables perfect presentation on small screen devices.
 </docs>
 
 <script setup lang="ts">
-  const items = [
-    {
-      label: 'Product',
-      content: 'Cloud Database',
-    },
-    {
-      label: 'Billing',
-      content: 'Prepaid',
-    },
-    {
-      label: 'Time',
-      content: '18:00:00',
-    },
-    {
-      label: 'Amount',
-      content: '$80.00',
-    },
-    {
-      label: 'Discount',
-      span: { xl: 2, xxl: 2 },
-      content: '$20.00',
-    },
-    {
-      label: 'Official',
-      span: { xl: 2, xxl: 2 },
-      content: '$60.00',
-    },
-    {
-      label: 'Config Info',
-      span: { xs: 1, sm: 2, md: 3, lg: 3, xl: 2, xxl: 2 },
-    },
-    {
-      label: 'Hardware Info',
-      span: { xs: 1, sm: 2, md: 3, lg: 3, xl: 2, xxl: 2 },
-    },
-  ]
+const items = [
+  {
+    label: 'Product',
+    content: 'Cloud Database',
+  },
+  {
+    label: 'Billing',
+    content: 'Prepaid',
+  },
+  {
+    label: 'Time',
+    content: '18:00:00',
+  },
+  {
+    label: 'Amount',
+    content: '$80.00',
+  },
+  {
+    label: 'Discount',
+    span: { xl: 2, xxl: 2 },
+    content: '$20.00',
+  },
+  {
+    label: 'Official',
+    span: { xl: 2, xxl: 2 },
+    content: '$60.00',
+  },
+  {
+    label: 'Config Info',
+    span: { xs: 1, sm: 2, md: 3, lg: 3, xl: 2, xxl: 2 },
+  },
+  {
+    label: 'Hardware Info',
+    span: { xs: 1, sm: 2, md: 3, lg: 3, xl: 2, xxl: 2 },
+  },
+]
 </script>
 
 <template>
-  <a-descriptions title="Responsive Descriptions" bordered  :column="{ xs: 1, sm: 2, md: 3, lg: 3, xl: 4, xxl: 4 }" :items="items">
+  <a-descriptions title="Responsive Descriptions" bordered :column="{ xs: 1, sm: 2, md: 3, lg: 3, xl: 4, xxl: 4 }" :items="items">
     <template #contentRender="{ item }">
       <template v-if="item.label === 'Config Info'">
         Data disk type: MongoDB
@@ -63,8 +63,7 @@ Responsive configuration enables perfect presentation on small screen devices.
         Replication factor: 3
         <br>
         Region: East China 1
-      </template>  
-    </template>  
+      </template>
+    </template>
   </a-descriptions>
 </template>
-

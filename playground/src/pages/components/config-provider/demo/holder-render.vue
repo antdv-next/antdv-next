@@ -9,10 +9,10 @@ Use `holderRender` to set the `Provider` for the static methods `message`,`modal
 <script setup lang="ts">
 import { StyleProvider } from '@antdv-next/cssinjs'
 import { ExclamationCircleFilled } from '@antdv-next/icons'
-import { App, ConfigProvider, Modal, message, notification } from 'antdv-next'
+import { App, ConfigProvider, message, Modal, notification } from 'antdv-next'
 import { h, onBeforeUnmount, onMounted } from 'vue'
 
-const holderRender = (children: any) => {
+function holderRender(children: any) {
   return h(
     StyleProvider,
     { hashPriority: 'high' },

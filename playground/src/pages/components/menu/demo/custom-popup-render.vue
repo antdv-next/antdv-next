@@ -37,11 +37,12 @@ const cardItemStyle = computed(() => ({
   cursor: 'pointer',
 }))
 
-const renderMenuCard = (title: string, description: string) =>
-  h('div', { class: 'menu-card', style: cardStyle.value }, [
+function renderMenuCard(title: string, description: string) {
+  return h('div', { class: 'menu-card', style: cardStyle.value }, [
     h('div', { class: 'menu-card-title' }, title),
     h('div', { class: 'menu-card-desc' }, description),
   ])
+}
 
 const menuItems = computed<MenuItemType[]>(() => [
   {

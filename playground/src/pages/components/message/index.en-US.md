@@ -10,8 +10,6 @@ demo:
   cols: 2
 ---
 
-
-
 ## When To Use {#when-to-use}
 
 - To provide feedback such as success, warning, error etc.

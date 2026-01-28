@@ -11,7 +11,7 @@ import { h, ref } from 'vue'
 
 const open = ref(false)
 
-const renderModal = (node: any) => {
+function renderModal(node: any) {
   return h('div', { class: 'modal-render-wrapper' }, [node])
 }
 </script>

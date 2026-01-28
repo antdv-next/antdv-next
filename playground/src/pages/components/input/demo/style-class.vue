@@ -7,73 +7,73 @@ You can customize the [semantic dom](#semantic-input) style of Input by passing 
 </docs>
 
 <script setup lang="ts">
-  import type { InputOTPProps, InputPasswordProps, InputProps, InputSearchProps, TextAreaProps } from 'antdv-next'
+import type { InputOTPProps, InputPasswordProps, InputProps, InputSearchProps, TextAreaProps } from 'antdv-next'
 
-  const classes: InputProps['classes'] = {
-    root: 'effect',
-  };
+const classes: InputProps['classes'] = {
+  root: 'effect',
+}
 
-  const stylesFn: InputProps['styles'] = (info) => {
-    if (info.props.size === 'middle') {
-      return {
-        root: {
-          borderColor: '#696FC7',
-        },
-      } satisfies InputProps['styles'];
-    }
-    return {};
-  };
+const stylesFn: InputProps['styles'] = (info) => {
+  if (info.props.size === 'middle') {
+    return {
+      root: {
+        borderColor: '#696FC7',
+      },
+    } satisfies InputProps['styles']
+  }
+  return {}
+}
 
-  const stylesFnTextArea: TextAreaProps['styles'] = (info) => {
-    if (info.props.showCount) {
-      return {
-        root: { borderColor: '#BDE3C3' },
-        textarea: { resize: 'none' },
-        count: { color: '#BDE3C3' },
-      } satisfies TextAreaProps['styles'];
-    }
-    return {};
-  };
+const stylesFnTextArea: TextAreaProps['styles'] = (info) => {
+  if (info.props.showCount) {
+    return {
+      root: { borderColor: '#BDE3C3' },
+      textarea: { resize: 'none' },
+      count: { color: '#BDE3C3' },
+    } satisfies TextAreaProps['styles']
+  }
+  return {}
+}
 
-  const stylesFnPassword: InputPasswordProps['styles'] = (info) => {
-    if (info.props.size === 'middle') {
-      return {
-        root: {
-          borderColor: '#F5D3C4',
-        },
-      } satisfies InputPasswordProps['styles'];
-    }
-    return {};
-  };
+const stylesFnPassword: InputPasswordProps['styles'] = (info) => {
+  if (info.props.size === 'middle') {
+    return {
+      root: {
+        borderColor: '#F5D3C4',
+      },
+    } satisfies InputPasswordProps['styles']
+  }
+  return {}
+}
 
-  const stylesFnOTP: InputOTPProps['styles'] = (info) => {
-    if (info.props.size === 'middle') {
-      return {
-        input: {
-          borderColor: '#6E8CFB',
-          width: '32px',
-        },
-      } satisfies InputOTPProps['styles'];
-    }
-    return {};
-  };
+const stylesFnOTP: InputOTPProps['styles'] = (info) => {
+  if (info.props.size === 'middle') {
+    return {
+      input: {
+        borderColor: '#6E8CFB',
+        width: '32px',
+      },
+    } satisfies InputOTPProps['styles']
+  }
+  return {}
+}
 
-  const stylesFnSearch: InputSearchProps['styles'] = (info) => {
-    if (info.props.size === 'large') {
-      return {
-        root: { color: '#4DA8DA' },
-        input: { color: '#4DA8DA', borderColor: '#4DA8DA' },
-        prefix: { color: '#4DA8DA' },
-        suffix: { color: '#4DA8DA' },
-        count: { color: '#4DA8DA' },
-        button: {
-          root: { color: '#4DA8DA', borderColor: '#4DA8DA' },
-          icon: { color: '#4DA8DA' },
-        },
-      } satisfies InputSearchProps['styles'];
-    }
-    return {};
-  };
+const stylesFnSearch: InputSearchProps['styles'] = (info) => {
+  if (info.props.size === 'large') {
+    return {
+      root: { color: '#4DA8DA' },
+      input: { color: '#4DA8DA', borderColor: '#4DA8DA' },
+      prefix: { color: '#4DA8DA' },
+      suffix: { color: '#4DA8DA' },
+      count: { color: '#4DA8DA' },
+      button: {
+        root: { color: '#4DA8DA', borderColor: '#4DA8DA' },
+        icon: { color: '#4DA8DA' },
+      },
+    } satisfies InputSearchProps['styles']
+  }
+  return {}
+}
 </script>
 
 <template>

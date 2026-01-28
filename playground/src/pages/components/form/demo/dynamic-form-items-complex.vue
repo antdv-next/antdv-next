@@ -10,9 +10,9 @@ Complex nested dynamic form items.
 import { CloseOutlined } from '@antdv-next/icons'
 import { reactive } from 'vue'
 
-type SubItem = { first: string, second: string }
+interface SubItem { first: string, second: string }
 
-type Item = { name: string, list: SubItem[] }
+interface Item { name: string, list: SubItem[] }
 
 const model = reactive<{ items: Item[] }>({
   items: [

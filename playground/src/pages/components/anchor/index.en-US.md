@@ -10,8 +10,6 @@ group:
   order: 3
 ---
 
-
-
 ## When To Use {#when-to-use}
 
 For displaying anchor hyperlinks on page and jumping between them.
@@ -70,7 +68,6 @@ Common props ref：[Common props](/docs/vue/common-props)
 | --- | --- | --- | --- |
 | item | Customize anchor item rendering | (item: AnchorItem) =&gt; any | - |
 
-
 ## Types
 
 ### AnchorItem
@@ -93,7 +90,6 @@ We recommend using the items form instead.
 | href | The target of hyperlink | string | - | - |
 | target | Specifies where to display the linked URL | string | - | - |
 | title | The content of hyperlink | VueNode | - | - |
-
 
 ## Semantic DOM {#semantic-dom}
 

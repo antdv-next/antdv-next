@@ -20,7 +20,7 @@ const model = reactive({
     <a-form-item
       name="blurInput"
       label="Validate on Blur"
-      :validate-trigger="'blur'"
+      validate-trigger="blur"
       :rules="[{ required: true, message: 'Please input on blur.' }]"
     >
       <a-input v-model:value="model.blurInput" placeholder="blur to validate" />
@@ -28,7 +28,7 @@ const model = reactive({
     <a-form-item
       name="changeInput"
       label="Validate on Change"
-      :validate-trigger="'change'"
+      validate-trigger="change"
       :rules="[{ required: true, message: 'Please input on change.' }]"
     >
       <a-input v-model:value="model.changeInput" placeholder="change to validate" />

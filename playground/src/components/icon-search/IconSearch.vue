@@ -154,9 +154,9 @@ function onChangeTheme(val: ThemeType) {
           @change="onChangeTheme"
         />
         <a-input-search
+          v-model:value="searchKey"
           :placeholder="`Search icons (${all.length})`"
           style="flex: 1; margin-inline-start: 16px"
-          v-model:value="searchKey"
           allow-clear
           auto-focus
           size="large"

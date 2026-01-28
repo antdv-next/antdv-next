@@ -9,8 +9,6 @@ demo:
   cols: 1
 ---
 
-
-
 ## When To Use {#when-to-use}
 
 - Use when the page needs to be watermarked to identify the copyright.

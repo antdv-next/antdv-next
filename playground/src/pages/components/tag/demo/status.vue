@@ -7,22 +7,22 @@ We preset five different colors, you can set color property such as `success`,`p
 </docs>
 
 <script setup lang="ts">
-  import {
-    CheckCircleOutlined,
-    ClockCircleOutlined,
-    CloseCircleOutlined,
-    ExclamationCircleOutlined,
-    SyncOutlined,
-  } from '@antdv-next/icons'
+import {
+  CheckCircleOutlined,
+  ClockCircleOutlined,
+  CloseCircleOutlined,
+  ExclamationCircleOutlined,
+  SyncOutlined,
+} from '@antdv-next/icons'
 
-  const variants = ['filled', 'solid', 'outlined'] as const
-  const presets = [
-    { status: 'success', icon: CheckCircleOutlined },
-    { status: 'processing', icon: SyncOutlined },
-    { status: 'warning', icon: ExclamationCircleOutlined },
-    { status: 'error', icon: CloseCircleOutlined },
-    { status: 'default', icon: ClockCircleOutlined },
-  ]
+const variants = ['filled', 'solid', 'outlined'] as const
+const presets = [
+  { status: 'success', icon: CheckCircleOutlined },
+  { status: 'processing', icon: SyncOutlined },
+  { status: 'warning', icon: ExclamationCircleOutlined },
+  { status: 'error', icon: CloseCircleOutlined },
+  { status: 'default', icon: ClockCircleOutlined },
+]
 </script>
 
 <template>
@@ -42,4 +42,3 @@ We preset five different colors, you can set color property such as `success`,`p
     </a-flex>
   </div>
 </template>
-

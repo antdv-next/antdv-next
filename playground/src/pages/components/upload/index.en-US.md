@@ -9,8 +9,6 @@ demo:
   cols: 2
 ---
 
-
-
 ## When To Use {#when-to-use}
 
 Uploading is the process of publishing information (web pages, text, pictures, video, etc.) to a remote server via a web page or upload tool.
@@ -156,7 +154,7 @@ When uploading state change, it returns:
 
    ```ts
    {
-      uid: 'uid',      // unique identifier, negative is recommended, to prevent interference with internally generated id
+      uid: 'uid',      // unique identifier, negative is recommended, // to prevent interference with internally generated id
       name: 'xx.png',   // file name
       status: 'done' | 'uploading' | 'error' | 'removed', // Intercepted file by beforeUpload doesn't have a status field.
       response: '{"status": "success"}', // response from server

@@ -9,37 +9,37 @@ You can customize the [semantic dom](#semantic-dom) style of Badge by passing ob
 <script setup lang="ts">
 const badgeClasses = {
   indicator: 'custom-badge-indicator',
-};
+}
 
 const ribbonClasses = {
   root: 'custom-ribbon-root',
-};
+}
 
 const badgeStyles = {
   root: {
     borderRadius: '8px',
   },
-};
+}
 
 const ribbonStyles = {
   indicator: {
     boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
   },
-};
+}
 
-const badgeStylesFn = (info: any) => {
+function badgeStylesFn(info: any) {
   if (info.props.size === 'default') {
     return {
       indicator: {
         fontSize: '14px',
         backgroundColor: '#696FC7',
       },
-    };
+    }
   }
-  return {};
-};
+  return {}
+}
 
-const ribbonStylesFn = (info: any) => {
+function ribbonStylesFn(info: any) {
   if (info.props.color === '#696FC7') {
     return {
       content: {
@@ -48,10 +48,10 @@ const ribbonStylesFn = (info: any) => {
       indicator: {
         boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
       },
-    };
+    }
   }
-  return {};
-};
+  return {}
+}
 </script>
 
 <template>

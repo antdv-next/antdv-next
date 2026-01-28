@@ -10,8 +10,6 @@ group:
   title: Data Entry
 ---
 
-
-
 ## When To Use {#when-to-use}
 
 Used when the user needs to make a customized color selection.

@@ -15,17 +15,17 @@ const [messageApi, ContextHolder] = message.useMessage()
 const open = ref(false)
 const condition = ref(true)
 
-const confirm = () => {
+function confirm() {
   open.value = false
   messageApi.success('Next step.')
 }
 
-const cancel = () => {
+function cancel() {
   open.value = false
   messageApi.error('Click on cancel.')
 }
 
-const handleOpenChange = (value: boolean) => {
+function handleOpenChange(value: boolean) {
   if (!value) {
     open.value = value
     return
@@ -47,7 +47,7 @@ const handleOpenChange = (value: boolean) => {
     :open="open"
     ok-text="Yes"
     cancel-text="No"
-    @openChange="handleOpenChange"
+    @open-change="handleOpenChange"
     @confirm="confirm"
     @cancel="cancel"
   >

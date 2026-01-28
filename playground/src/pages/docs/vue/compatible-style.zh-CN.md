@@ -28,9 +28,9 @@ Antdv Next 的 CSS-in-JS 默认通过 `:where` 选择器降低 CSS Selector 优�
 
 ```vue
 <template>
-  <!-- `hashPriority` 默认为 `low`，配置为 `high` 后，-->
-  <!-- 会移除 `:where` 选择器封装-->
-  <a-style-provider hashPriority="high">
+  <!-- `hashPriority` 默认为 `low`，配置为 `high` 后， -->
+  <!-- 会移除 `:where` 选择器封装 -->
+  <a-style-provider hash-priority="high">
     <MyApp />
   </a-style-provider>
 </template>
@@ -72,16 +72,15 @@ Antdv Next 的 CSS-in-JS 默认通过 `:where` 选择器降低 CSS Selector 优�
 
 ```vue
 <script lang="ts" setup>
-  import { legacyLogicalPropertiesTransformer } from '@antdv-next/cssinjs';
+import { legacyLogicalPropertiesTransformer } from '@antdv-next/cssinjs'
 </script>
 
 <template>
-<!--  `transformers` 提供预处理功能将样式进行转换-->
+  <!--  `transformers` 提供预处理功能将样式进行转换 -->
   <a-style-provider :transformers="[legacyLogicalPropertiesTransformer]">
     <MyApp />
   </a-style-provider>
 </template>
-
 ```
 
 切换后，样式将降级 CSS 逻辑属性：
@@ -106,13 +105,13 @@ Antdv Next 的 CSS-in-JS 默认通过 `:where` 选择器降低 CSS Selector 优�
 
 ```vue
 <script lang="ts" setup>
-  import { autoPrefixTransformer } from '@antdv-next/cssinjs';
+import { autoPrefixTransformer } from '@antdv-next/cssinjs'
 </script>
 
 <template>
-    <a-style-provider :transformers="[autoPrefixTransformer]">
-        <MyApp />
-    </a-style-provider>
+  <a-style-provider :transformers="[autoPrefixTransformer]">
+    <MyApp />
+  </a-style-provider>
 </template>
 ```
 
@@ -184,17 +183,17 @@ antd 的样式会被封装在 `@layer` 中，以降低优先级：
 
 ```vue
 <script lang="ts" setup>
-  import { px2remTransformer } from '@antdv-next/cssinjs';
-  const px2rem = px2remTransformer({
-    rootValue: 32, // 32px = 1rem; @default 16
-  });
+import { px2remTransformer } from '@antdv-next/cssinjs'
+
+const px2rem = px2remTransformer({
+  rootValue: 32, // 32px = 1rem; @default 16
+})
 </script>
 
-
 <template>
-    <a-style-provider :transformers="[px2rem]">
-        <MyApp />
-    </a-style-provider>
+  <a-style-provider :transformers="[px2rem]">
+    <MyApp />
+  </a-style-provider>
 </template>
 ```
 
@@ -235,18 +234,19 @@ antd 的样式会被封装在 `@layer` 中，以降低优先级：
 在 Shadow DOM 场景中，由于其添加 `<style />` 标签的方式与普通 DOM 不同，所以需要使用 `@antdv-next/cssinjs` 的 `StyleProvider` 配置 `container` 属性用于设置插入位置：
 
 ```tsx
-import { StyleProvider } from '@antdv-next/cssinjs';
-import { render } from "vue"
-const shadowRoot = someEle.attachShadow({ mode: 'open' });
-const container = document.createElement('div');
-shadowRoot.appendChild(container);
+import { StyleProvider } from '@antdv-next/cssinjs'
+import { render } from 'vue'
+
+const shadowRoot = someEle.attachShadow({ mode: 'open' })
+const container = document.createElement('div')
+shadowRoot.appendChild(container)
 
 render(
   <StyleProvider container={shadowRoot}>
     <MyApp />
   </StyleProvider>,
   container
-);
+)
 ```
 
 ## 兼容三方样式库

@@ -8,8 +8,8 @@ Render extra element in the top-right corner of each panel.
 
 <script setup lang="ts">
 import type { CollapseProps } from 'antdv-next'
-import { h, ref } from 'vue'
 import { SettingOutlined } from '@antdv-next/icons'
+import { h, ref } from 'vue'
 
 const text = `
   A dog is a type of domesticated animal.

@@ -9,7 +9,7 @@ Wave effect brings dynamic. Use `component` to determine which component use it.
 <script setup lang="ts">
 import type { ConfigProviderProps } from 'antdv-next'
 
-const createHolder = (node: HTMLElement) => {
+function createHolder(node: HTMLElement) {
   const { borderWidth } = getComputedStyle(node)
   const borderWidthNum = Number.parseInt(borderWidth, 10)
 
@@ -26,7 +26,7 @@ const createHolder = (node: HTMLElement) => {
   return div
 }
 
-const createDot = (holder: HTMLElement, color: string, left: number, top: number, size = 0) => {
+function createDot(holder: HTMLElement, color: string, left: number, top: number, size = 0) {
   const dot = document.createElement('div')
   dot.style.position = 'absolute'
   dot.style.left = `${left}px`
@@ -124,7 +124,7 @@ const showHappyEffect: WaveConfig['showEffect'] = (node, { event, component }) =
   })
 }
 
-const configs: Array<{ name: string; wave: WaveConfig }> = [
+const configs: Array<{ name: string, wave: WaveConfig }> = [
   { name: 'Disabled', wave: { disabled: true } },
   { name: 'Default', wave: {} },
   { name: 'Inset', wave: { showEffect: showInsetEffect } },

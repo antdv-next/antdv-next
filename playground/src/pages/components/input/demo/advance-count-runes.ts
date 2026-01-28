@@ -1,21 +1,21 @@
-const HIGH_SURROGATE_START = 0xd800
-const HIGH_SURROGATE_END = 0xdbff
+const HIGH_SURROGATE_START = 0xD800
+const HIGH_SURROGATE_END = 0xDBFF
 
-const LOW_SURROGATE_START = 0xdc00
+const LOW_SURROGATE_START = 0xDC00
 
-const REGIONAL_INDICATOR_START = 0x1f1e6
-const REGIONAL_INDICATOR_END = 0x1f1ff
+const REGIONAL_INDICATOR_START = 0x1F1E6
+const REGIONAL_INDICATOR_END = 0x1F1FF
 
-const FITZPATRICK_MODIFIER_START = 0x1f3fb
-const FITZPATRICK_MODIFIER_END = 0x1f3ff
+const FITZPATRICK_MODIFIER_START = 0x1F3FB
+const FITZPATRICK_MODIFIER_END = 0x1F3FF
 
-const VARIATION_MODIFIER_START = 0xfe00
-const VARIATION_MODIFIER_END = 0xfe0f
+const VARIATION_MODIFIER_START = 0xFE00
+const VARIATION_MODIFIER_END = 0xFE0F
 
-const DIACRITICAL_MARKS_START = 0x20d0
-const DIACRITICAL_MARKS_END = 0x20ff
+const DIACRITICAL_MARKS_START = 0x20D0
+const DIACRITICAL_MARKS_END = 0x20FF
 
-const ZWJ = 0x200d
+const ZWJ = 0x200D
 
 const GRAPHEMS = [
   0x0308, // ( ◌̈ ) COMBINING DIAERESIS
@@ -32,12 +32,12 @@ const GRAPHEMS = [
   0x0E49, // ( เ ) THAI CHARACTER MAI THO
   0x1100, // ( ᄀ ) HANGUL CHOSEONG KIYEOK
   0x1161, // ( ᅡ ) HANGUL JUNGSEONG A
-  0x11A8 // ( ᆨ ) HANGUL JONGSEONG KIYEOK
+  0x11A8, // ( ᆨ ) HANGUL JONGSEONG KIYEOK
 ]
 
-export default function runes (string) {
+export default function runes(string) {
   if (typeof string !== 'string') {
-    throw new Error('string cannot be undefined or null')
+    throw new TypeError('string cannot be undefined or null')
   }
   const result = []
   let i = 0
@@ -70,7 +70,7 @@ export default function runes (string) {
 // Emoji with skin-tone modifiers: 4 code units (2 code points)
 // Country flags: 4 code units (2 code points)
 // Variations: 2 code units
-function nextUnits (i, string) {
+function nextUnits(i, string) {
   const current = string[i]
   // If we don't have a value that is part of a surrogate pair, or we're at
   // the end, only take the value at i
@@ -79,7 +79,7 @@ function nextUnits (i, string) {
   }
 
   const currentPair = current + string[i + 1]
-  let nextPair = string.substring(i + 2, i + 5)
+  const nextPair = string.substring(i + 2, i + 5)
 
   // Country flags are comprised of two regional indicator symbols,
   // each represented by a surrogate pair.
@@ -102,45 +102,45 @@ function nextUnits (i, string) {
   return 2
 }
 
-function isFirstOfSurrogatePair (string) {
+function isFirstOfSurrogatePair(string) {
   return string && betweenInclusive(string[0].charCodeAt(0), HIGH_SURROGATE_START, HIGH_SURROGATE_END)
 }
 
-function isRegionalIndicator (string) {
+function isRegionalIndicator(string) {
   return betweenInclusive(codePointFromSurrogatePair(string), REGIONAL_INDICATOR_START, REGIONAL_INDICATOR_END)
 }
 
-function isFitzpatrickModifier (string) {
+function isFitzpatrickModifier(string) {
   return betweenInclusive(codePointFromSurrogatePair(string), FITZPATRICK_MODIFIER_START, FITZPATRICK_MODIFIER_END)
 }
 
-function isVariationSelector (string) {
+function isVariationSelector(string) {
   return typeof string === 'string' && betweenInclusive(string.charCodeAt(0), VARIATION_MODIFIER_START, VARIATION_MODIFIER_END)
 }
 
-function isDiacriticalMark (string) {
+function isDiacriticalMark(string) {
   return typeof string === 'string' && betweenInclusive(string.charCodeAt(0), DIACRITICAL_MARKS_START, DIACRITICAL_MARKS_END)
 }
 
-function isGraphem (string) {
-  return typeof string === 'string' && GRAPHEMS.indexOf(string.charCodeAt(0)) !== -1
+function isGraphem(string) {
+  return typeof string === 'string' && GRAPHEMS.includes(string.charCodeAt(0))
 }
 
-function isZeroWidthJoiner (string) {
+function isZeroWidthJoiner(string) {
   return typeof string === 'string' && string.charCodeAt(0) === ZWJ
 }
 
-function codePointFromSurrogatePair (pair) {
+function codePointFromSurrogatePair(pair) {
   const highOffset = pair.charCodeAt(0) - HIGH_SURROGATE_START
   const lowOffset = pair.charCodeAt(1) - LOW_SURROGATE_START
   return (highOffset << 10) + lowOffset + 0x10000
 }
 
-function betweenInclusive (value, lower, upper) {
+function betweenInclusive(value, lower, upper) {
   return value >= lower && value <= upper
 }
 
-export function substring (string, start, width) {
+export function substring(string, start, width) {
   const chars = runes(string)
   if (start === undefined) {
     return string

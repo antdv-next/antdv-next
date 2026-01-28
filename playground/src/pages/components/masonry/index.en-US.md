@@ -10,8 +10,6 @@ demo:
 tag: 6.0.0
 ---
 
-
-
 ## When To Use
 
 - When displaying images or cards with irregular heights.

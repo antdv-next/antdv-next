@@ -11,8 +11,6 @@ group:
   order: 7
 ---
 
-
-
 ## When To Use {#when-to-use}
 
 On longer web pages, it's helpful to stick component into the viewport. This is common for menus and actions.

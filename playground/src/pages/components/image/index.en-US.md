@@ -8,8 +8,6 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*FbOCS6aFMeUAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAAAAAAAAAAAADrJ8AQ/original
 ---
 
-
-
 ## When To Use {#when-to-use}
 
 - When you need to display pictures.
@@ -123,37 +121,37 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 
 ```typescript
 {
-  x: number;
-  y: number;
-  rotate: number;
-  scale: number;
-  flipX: boolean;
-  flipY: boolean;
+  x: number
+  y: number
+  rotate: number
+  scale: number
+  flipX: boolean
+  flipY: boolean
 }
 ```
 
 ### TransformAction
 
 ```typescript
-type TransformAction =
-  | 'flipY'
-  | 'flipX'
-  | 'rotateLeft'
-  | 'rotateRight'
-  | 'zoomIn'
-  | 'zoomOut'
-  | 'close'
-  | 'prev'
-  | 'next'
-  | 'wheel'
-  | 'doubleClick'
-  | 'move'
-  | 'dragRebound';
+type TransformAction
+  = | 'flipY'
+    | 'flipX'
+    | 'rotateLeft'
+    | 'rotateRight'
+    | 'zoomIn'
+    | 'zoomOut'
+    | 'close'
+    | 'prev'
+    | 'next'
+    | 'wheel'
+    | 'doubleClick'
+    | 'move'
+    | 'dragRebound'
 ```
 
 ### ToolbarRenderInfoType
 
-```typescript
+```ts
 {
   icons: {
     flipYIcon: VNode;
@@ -182,21 +180,21 @@ type TransformAction =
 
 ### ImgInfo
 
-```typescript
+```ts
 {
-  url: string;
-  alt: string;
-  width: string | number;
-  height: string | number;
+  url: string
+  alt: string
+  width: string | number
+  height: string | number
 }
 ```
 
 ### CoverConfig
 
-```typescript
+```ts
 interface CoverConfig {
-  coverNode?: VNode; // The custom node of preview mask
-  placement?: 'top' | 'bottom' | 'center'; // Set the position of the preview mask display.
+  coverNode?: VNode // The custom node of preview mask
+  placement?: 'top' | 'bottom' | 'center' // Set the position of the preview mask display.
 };
 ```
 

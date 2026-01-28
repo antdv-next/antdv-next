@@ -1,5 +1,5 @@
-import { describe, expect, it } from 'vitest'
 import { genCalc } from '@antdv-next/cssinjs'
+import { describe, expect, it } from 'vitest'
 
 import { genCompactItemStyle } from '../src/style/compact-item'
 import getArrowStyle, { getArrowOffsetToken } from '../src/style/placementArrow'

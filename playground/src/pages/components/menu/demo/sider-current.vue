@@ -68,7 +68,7 @@ interface LevelKeysProps {
   children?: LevelKeysProps[]
 }
 
-const getLevelKeys = (itemList: LevelKeysProps[]) => {
+function getLevelKeys(itemList: LevelKeysProps[]) {
   const keyLevelMap: Record<string, number> = {}
   const func = (list: LevelKeysProps[], level = 1) => {
     list.forEach((item) => {
@@ -87,17 +87,18 @@ const getLevelKeys = (itemList: LevelKeysProps[]) => {
 const levelKeys = getLevelKeys(items as LevelKeysProps[])
 const stateOpenKeys = ref<string[]>(['2', '23'])
 
-const onOpenChange = (openKeys: string[]) => {
-  const currentOpenKey = openKeys.find((key) => !stateOpenKeys.value.includes(key))
+function onOpenChange(openKeys: string[]) {
+  const currentOpenKey = openKeys.find(key => !stateOpenKeys.value.includes(key))
   if (currentOpenKey !== undefined) {
     const repeatIndex = openKeys
-      .filter((key) => key !== currentOpenKey)
-      .findIndex((key) => levelKeys[key] === levelKeys[currentOpenKey])
+      .filter(key => key !== currentOpenKey)
+      .findIndex(key => levelKeys[key] === levelKeys[currentOpenKey])
 
     stateOpenKeys.value = openKeys
       .filter((_, index) => index !== repeatIndex)
-      .filter((key) => levelKeys[key] <= levelKeys[currentOpenKey])
-  } else {
+      .filter(key => levelKeys[key] <= levelKeys[currentOpenKey])
+  }
+  else {
     stateOpenKeys.value = openKeys
   }
 }
@@ -110,6 +111,6 @@ const onOpenChange = (openKeys: string[]) => {
     :default-selected-keys="['231']"
     :open-keys="stateOpenKeys"
     :items="items"
-    @openChange="onOpenChange"
+    @open-change="onOpenChange"
   />
 </template>

@@ -21,10 +21,10 @@ const dateFormatList = ['DD/MM/YYYY', 'DD/MM/YY', 'DD-MM-YYYY', 'DD-MM-YY']
 
 dayjs.extend(customParseFormat)
 
-const customFormat: DatePickerProps['format'] = (value) =>
+const customFormat: DatePickerProps['format'] = value =>
   `custom format: ${value.format(dateFormat)}`
 
-const customWeekStartEndFormat: DatePickerProps['format'] = (value) =>
+const customWeekStartEndFormat: DatePickerProps['format'] = value =>
   `${dayjs(value).startOf('week').format(weekFormat)} ~ ${dayjs(value)
     .endOf('week')
     .format(weekFormat)}`
@@ -45,11 +45,11 @@ const customValue = shallowRef(dayjs('2015/01/01', dateFormat))
     <a-date-picker v-model:value="basicValue" :format="dateFormat" />
     <a-date-picker v-model:value="listValue" :format="dateFormatList" />
     <a-date-picker
-      picker="month"
       v-model:value="monthValue"
+      picker="month"
       :format="monthFormat"
     />
-    <a-date-picker picker="week" v-model:value="weekValue" :format="customWeekStartEndFormat" />
+    <a-date-picker v-model:value="weekValue" picker="week" :format="customWeekStartEndFormat" />
     <a-range-picker
       v-model:value="rangeValue"
       :format="dateFormat"

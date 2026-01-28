@@ -6,7 +6,6 @@
 Vertical spacing between adjacent components.
 </docs>
 
-
 <template>
   <a-space orientation="vertical" size="middle" style="display: flex;">
     <a-card title="Card" size="small">

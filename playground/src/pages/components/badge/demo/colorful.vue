@@ -21,15 +21,19 @@ const colors = [
   'volcano',
   'gold',
   'lime',
-];
+]
 </script>
 
 <template>
-  <a-divider orientation="left">Presets</a-divider>
+  <a-divider orientation="left">
+    Presets
+  </a-divider>
   <a-space vertical>
     <a-badge v-for="color in colors" :key="color" :color="color" :text="color" />
   </a-space>
-  <a-divider orientation="left">Custom</a-divider>
+  <a-divider orientation="left">
+    Custom
+  </a-divider>
   <a-space vertical>
     <a-badge color="#f50" text="#f50" />
     <a-badge color="rgb(45, 183, 245)" text="rgb(45, 183, 245)" />
