@@ -1,6 +1,10 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "/@tests/*": ["./tests/*"]
+    },
     "types": ["@testing-library/jest-dom/vitest"]
   },
   "include": [

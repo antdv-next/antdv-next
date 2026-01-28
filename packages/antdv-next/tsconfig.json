@@ -2,9 +2,10 @@
   "extends": "@vue/tsconfig/tsconfig.dom.json",
   "compilerOptions": {
     "paths": {
-      "csstype": ["./node_modules/csstype"]
+      "csstype": ["./node_modules/csstype"],
+      "/@tests/*": ["../../tests/*"]
     },
-    "types": ["vite/client"],
+    "types": ["vite/client", "@testing-library/jest-dom/vitest"],
     /* Linting */
     "strict": true,
     "noFallthroughCasesInSwitch": true,
@@ -17,8 +18,5 @@
     "src/**/*.ts",
     "src/**/*.tsx",
     "src/**/*.vue"
-  ],
-  "exclude": [
-    "src/**/tests/**"
   ]
 }

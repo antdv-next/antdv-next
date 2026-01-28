@@ -2,9 +2,9 @@ import type { CSSProperties } from 'vue'
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 import { defineComponent, h, onMounted, shallowRef } from 'vue'
 import Affix from '..'
-import rtlTest from '../../../../../tests/shared/rtlTest'
-import { mount, triggerResize, waitFakeTimer } from '../../../../../tests/utils'
 import Button from '../../button'
+import rtlTest from '/@tests/shared/rtlTest'
+import { mount, triggerResize, waitFakeTimer } from '/@tests/utils'
 
 const events: Partial<Record<keyof HTMLElementEventMap, (ev: Partial<Event>) => void>> = {}
 

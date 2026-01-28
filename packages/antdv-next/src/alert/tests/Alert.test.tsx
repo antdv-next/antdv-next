@@ -2,8 +2,8 @@ import { SmileOutlined } from '@antdv-next/icons'
 import { describe, expect, it, vi } from 'vitest'
 import { h } from 'vue'
 import Alert from '..'
-import rtlTest from '../../../../../tests/shared/rtlTest'
-import { mount } from '../../../../../tests/utils'
+import rtlTest from '/@tests/shared/rtlTest'
+import { mount } from '/@tests/utils'
 
 describe('alert', () => {
   rtlTest(() => h(Alert, null, { message: () => 'test' }))

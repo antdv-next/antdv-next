@@ -38,6 +38,10 @@ export default defineConfig({
         find: /^@antdv-next\/icons/,
         replacement: path.resolve(baseUrl, './packages/icons/src'),
       },
+      {
+        find: /^\/@tests/,
+        replacement: path.resolve(baseUrl, './tests'),
+      },
     ],
   },
 })
