@@ -14,14 +14,10 @@ import ComponentTokenTable from './components/token/component-token-table.vue'
 import TokenTable from './components/token/token-table.vue'
 import 'antdv-next/style/reset.css'
 import 'uno.css'
+import 'antd.css'
 import './assets/styles/layout/index.css'
 import './assets/styles/markdown/index.css'
 import './assets/styles/common.css'
-
-if (import.meta.env.PROD) {
-  console.log('sd')
-  import('./assets/antd.css')
-}
 
 const app = createApp(App)
 app.use(router)

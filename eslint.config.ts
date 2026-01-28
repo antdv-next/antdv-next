@@ -16,6 +16,7 @@ export default antfu({
 }, {
   ignores: [
     'packages/icons/src/icons',
+    'playground/src/assets/antd.css',
   ],
 }, {
   files: [
