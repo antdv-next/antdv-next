@@ -6,7 +6,17 @@ import rtlTest from '../../../../../tests/shared/rtlTest'
 import { mount } from '../../../../../tests/utils'
 
 describe('alert', () => {
-  rtlTest(() => h(Alert, null, { default: () => 'test' }))
+  rtlTest(() => h(Alert, null, { message: () => 'test' }))
+
+  it('should render title correctly', () => {
+    const wrapper = mount(Alert, {
+      props: {
+        title: 'Title Text',
+        type: 'success',
+      },
+    })
+    expect(wrapper.find('.ant-alert-title').text()).toBe('Title Text')
+  })
 
   it('should render description correctly', () => {
     const wrapper = mount(Alert, {

@@ -67,7 +67,7 @@ exports[`alert demo > renders action correctly 1`] = `
             <!---->
           </transition-stub>
           <span>
-             UNDO
+             UNDO 
           </span>
           <!---->
         </button>
@@ -169,7 +169,7 @@ exports[`alert demo > renders action correctly 1`] = `
             <!---->
           </transition-stub>
           <span>
-             Detail
+             Detail 
           </span>
           <!---->
         </button>
@@ -225,7 +225,7 @@ exports[`alert demo > renders action correctly 1`] = `
                 <!---->
               </transition-stub>
               <span>
-                 Done
+                 Done 
               </span>
               <!---->
             </button>
@@ -313,7 +313,7 @@ exports[`alert demo > renders action correctly 1`] = `
                 <!---->
               </transition-stub>
               <span>
-                 Accept
+                 Accept 
               </span>
               <!---->
             </button>
@@ -335,7 +335,7 @@ exports[`alert demo > renders action correctly 1`] = `
                 <!---->
               </transition-stub>
               <span>
-                 Decline
+                 Decline 
               </span>
               <!---->
             </button>
@@ -1965,7 +1965,7 @@ exports[`alert demo > renders loop-banner correctly 1`] = `
             class="alert-marquee__content"
             data-v-deb306fb=""
           >
-             I can be a Vue component, multiple components, or just some text.
+             I can be a Vue component, multiple components, or just some text. 
           </div>
         </div>
       </div>
@@ -2264,7 +2264,7 @@ exports[`alert demo > renders style-class correctly 1`] = `
             <!---->
           </transition-stub>
           <span>
-             Action
+             Action 
           </span>
           <!---->
         </button>

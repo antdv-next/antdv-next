@@ -22,7 +22,11 @@ exports[`alert > rtl render > component should be rendered correctly in RTL dire
       <div
         class="ant-alert-section"
       >
-        <!---->
+        <div
+          class="ant-alert-title"
+        >
+          test
+        </div>
         <!---->
       </div>
       <!---->
