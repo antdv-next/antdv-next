@@ -137,6 +137,8 @@ catalogs:
     '@v-c/upload': ^0.0.1
     '@v-c/util': ^1.0.8
     '@v-c/virtual-list': ^1.0.5
+  conflicts_dev_h6_9_1:
+    '@testing-library/jest-dom': ^6.9.1
 
 cleanupUnusedCatalogs: true
 
@@ -154,3 +156,6 @@ overrides:
 shellEmulator: true
 
 trustPolicy: no-downgrade
+catalog:
+  mockdate: ^3.0.5
+  pretty-format: ^30.2.0

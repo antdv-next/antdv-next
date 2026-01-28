@@ -11,7 +11,8 @@
     "build:antdv": "pnpm -F antdv-next build",
     "build:llm": "pnpm -F antdv-next run build:llm",
     "build": "run-s build:llm build:site",
-    "build:site": "cross-env NODE_OPTIONS=--max-old-space-size=8192 turbo build --filter playground"
+    "build:site": "cross-env NODE_OPTIONS=--max-old-space-size=8192 turbo build --filter playground",
+    "test": "pnpm vitest run"
   },
   "dependencies": {
     "vue": "catalog:prod"
@@ -21,7 +22,7 @@
     "@changesets/cli": "catalog:dev",
     "@mdit-vue/plugin-frontmatter": "catalog:docs",
     "@mdit-vue/shared": "catalog:docs",
-    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/jest-dom": "catalog:conflicts_dev_h6_9_1",
     "@types/cli-progress": "catalog:types",
     "@types/fs-extra": "catalog:types",
     "@types/jsdom": "catalog:types",
@@ -33,7 +34,7 @@
     "@v-c/util": "catalog:vc",
     "@vitejs/plugin-vue": "catalog:dev",
     "@vitejs/plugin-vue-jsx": "catalog:dev",
-    "@vue/test-utils": "^2.4.6",
+    "@vue/test-utils": "catalog:dev",
     "@vue/tsconfig": "catalog:dev",
     "bumpp": "catalog:dev",
     "chalk": "catalog:dev",
@@ -46,9 +47,9 @@
     "jiti": "catalog:dev",
     "jsdom": "catalog:dev",
     "markdown-it": "catalog:docs",
-    "mockdate": "^3.0.5",
+    "mockdate": "catalog:",
     "npm-run-all": "catalog:dev",
-    "pretty-format": "^30.2.0",
+    "pretty-format": "catalog:",
     "tinyglobby": "catalog:dev",
     "tsdown": "catalog:dev",
     "turbo": "catalog:dev",

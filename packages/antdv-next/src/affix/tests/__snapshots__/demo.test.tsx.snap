@@ -1,0 +1,119 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`affix demo > renders basic correctly 1`] = `
+<div
+  data-v-app=""
+>
+  <div>
+    <!---->
+    <div
+      class=""
+    >
+      <button
+        class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        type="button"
+      >
+        <transition-stub
+          appear="false"
+          css="true"
+          name="ant-btn-loading-icon-motion"
+          persisted="false"
+        >
+          <!---->
+        </transition-stub>
+        <span>
+           Affix top 
+        </span>
+        <!---->
+      </button>
+    </div>
+  </div>
+  <br />
+  <div>
+    <!---->
+    <div
+      class=""
+    >
+      <button
+        class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        type="button"
+      >
+        <transition-stub
+          appear="false"
+          css="true"
+          name="ant-btn-loading-icon-motion"
+          persisted="false"
+        >
+          <!---->
+        </transition-stub>
+        <span>
+           Affix bottom 
+        </span>
+        <!---->
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`affix demo > renders on-change correctly 1`] = `
+<div>
+  <!---->
+  <div
+    class=""
+  >
+    <button
+      class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ant-btn-loading-icon-motion"
+        persisted="false"
+      >
+        <!---->
+      </transition-stub>
+      <span>
+         120px to affix top 
+      </span>
+      <!---->
+    </button>
+  </div>
+</div>
+`;
+
+exports[`affix demo > renders target correctly 1`] = `
+<div
+  style="width: 100%; height: 100px; overflow: auto; box-shadow: 0 0 0 1px #1677ff; scrollbar-width: thin; scrollbar-gutter: stable;"
+>
+  <div
+    style="width: 100%; height: 1000px;"
+  >
+    <div>
+      <!---->
+      <div
+        class=""
+      >
+        <button
+          class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+          type="button"
+        >
+          <transition-stub
+            appear="false"
+            css="true"
+            name="ant-btn-loading-icon-motion"
+            persisted="false"
+          >
+            <!---->
+          </transition-stub>
+          <span>
+             Fixed at the top of container 
+          </span>
+          <!---->
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

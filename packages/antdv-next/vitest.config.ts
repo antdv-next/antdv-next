@@ -12,5 +12,10 @@ export default mergeConfig(vitestPlugin, defineProject({
       '../../tests/setup.ts',
       '../../tests/setupAfterEnv.ts',
     ],
+    server: {
+      deps: {
+        inline: [/@v-c\//],
+      },
+    },
   },
 }))
