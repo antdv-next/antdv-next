@@ -2,6 +2,7 @@ import type { PaginationProps as VcPaginationProps } from '@v-c/pagination'
 import type { CSSProperties } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { VueNode } from '../_util/type'
+import type { SizeType } from '../config-provider/SizeContext'
 import type { SelectProps } from '../select'
 
 export interface PaginationLocale {
@@ -56,7 +57,7 @@ export interface PaginationProps extends Omit<VcPaginationProps, | 'className'
   | 'onChange'
   | 'onShowSizeChange'> {
   showQuickJumper?: boolean | { goButton?: VueNode }
-  size?: 'default' | 'small'
+  size?: SizeType
   responsive?: boolean
   totalBoundaryShowSizeChanger?: number
   rootClass?: string

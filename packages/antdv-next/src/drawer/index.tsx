@@ -40,7 +40,7 @@ export interface DrawerProps
   >,
   Omit<DrawerPanelProps, 'prefixCls' | 'ariaId' | 'onClose'>
 {
-  size?: sizeType | number
+  size?: sizeType | number | string
   resizable?: boolean | DrawerResizableConfig
   rootClass?: string
   open?: boolean
@@ -148,12 +148,21 @@ const Drawer = defineComponent<
       if (size === 'large') {
         return 736
       }
+
       if (size === 'default') {
         return DEFAULT_SIZE
+      }
+
+      if (typeof size === 'string') {
+        if (/^\d+(\.\d+)?$/.test(size)) {
+          return Number(size)
+        }
+        return size
       }
       if (!placement || placement === 'left' || placement === 'right') {
         return width
       }
+
       return height
     })
 

@@ -54,6 +54,7 @@ import useSelection from './hooks/useSelection.tsx'
 import useSorter, { getSortData } from './hooks/useSorter.tsx'
 import useTitleColumns from './hooks/useTitleColumns.ts'
 import useStyle from './style'
+import { TableMeasureRowContextProvider } from './TableMeasureRowContext.ts'
 import { convertColumnsToColumnProps } from './utils.ts'
 
 const EMPTY_LIST: AnyObject[] = []
@@ -813,9 +814,11 @@ const InternalTable = defineComponent<
               getContainerWidth={getContainerWidth}
               scroll={mergedScroll.value as any}
               measureRowRender={(measureRow: any) => (
-                <ConfigProvider getPopupContainer={node => node as HTMLElement}>
-                  {measureRow}
-                </ConfigProvider>
+                <TableMeasureRowContextProvider value={true}>
+                  <ConfigProvider getPopupContainer={node => node as HTMLElement}>
+                    {measureRow}
+                  </ConfigProvider>
+                </TableMeasureRowContextProvider>
               )}
               title={title as any}
               footer={footer as any}

@@ -34,6 +34,7 @@ import Menu from '../../../menu'
 import { OverrideProvider } from '../../../menu/OverrideContext.tsx'
 import Radio from '../../../radio'
 import Tree from '../../../tree'
+import { useTableMeasureRowContext } from '../../TableMeasureRowContext.ts'
 import FilterSearch from './FilterSearch'
 import FilterDropdownMenuWrapper from './FilterWrapper'
 
@@ -173,6 +174,7 @@ const FilterDropdown = defineComponent<
     const filterDropdownProps = computed<Record<string, any>>(() => column?.value?.filterDropdownProps ?? {})
 
     const visible = shallowRef(false)
+    const inMeasureRow = useTableMeasureRowContext()
     const filtered = computed(() => {
       const filterState = props.filterState
       return !!(
@@ -374,12 +376,13 @@ const FilterDropdown = defineComponent<
     })
 
     return () => {
+      const { dropdownPrefixCls, prefixCls, tablePrefixCls } = props
       const renderEmpty = config.value.renderEmpty
 
       const getDropdownContent = () => {
         let dropdownContent: any
         const baseDropdownProps = {
-          prefixCls: `${props.dropdownPrefixCls}-custom`,
+          prefixCls: `${dropdownPrefixCls}-custom`,
           setSelectedKeys: (selectedKeys: any) => onSelectKeys({ selectedKeys: selectedKeys as string[] }),
           selectedKeys: filteredKeysSync.value,
           confirm: doFilter,
@@ -592,6 +595,16 @@ const FilterDropdown = defineComponent<
 
       const getTitle = () => slots.default?.() ?? (props as any).children
 
+      const triggerNode = getDropdownTrigger()
+      // MeasureRow：仅渲染静态 trigger，不渲染 Dropdown 实例
+      if (inMeasureRow.value) {
+        return (
+          <div class={`${prefixCls}-column`}>
+            <span class={`${tablePrefixCls}-column-title`}>{getTitle()}</span>
+            {triggerNode}
+          </div>
+        )
+      }
       const dropdownContent = getDropdownContent()
       const dropdownRootClassName = clsx(
         props.rootClassName,
@@ -621,10 +634,9 @@ const FilterDropdown = defineComponent<
           },
         },
       )
-
       return (
-        <div class={`${props.prefixCls}-column`}>
-          <span class={`${props.tablePrefixCls}-column-title`}>{getTitle()}</span>
+        <div class={`${prefixCls}-column`}>
+          <span class={`${tablePrefixCls}-column-title`}>{getTitle()}</span>
           <Dropdown {...mergedDropdownProps as any}>
             {getDropdownTrigger()}
           </Dropdown>

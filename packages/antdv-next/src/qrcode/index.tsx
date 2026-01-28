@@ -95,6 +95,7 @@ const QRCode = defineComponent<
         bordered,
         rootClass,
         status,
+        marginSize,
       } = props
       const statusRender = slots?.statusRender ?? props?.statusRender
       const a11yProps = pickAttrs(attrs, true)
@@ -111,6 +112,7 @@ const QRCode = defineComponent<
         style: { width: style?.width, height: style?.height },
         imageSettings: icon ? imageSettings.value : undefined,
         boostLevel,
+        marginSize,
         ...a11yProps,
       }
       if (isDev) {

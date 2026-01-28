@@ -1,4 +1,4 @@
-import type { AriaAttributes, SlotsType, StyleValue } from 'vue'
+import type { AriaAttributes, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { ClosableType } from '../_util/hooks/useClosable'
 import type { SlotsDefineType, VueNode } from '../_util/type.ts'
@@ -6,10 +6,9 @@ import type { ComponentBaseProps } from '../config-provider/context'
 import { CheckCircleFilled, CloseCircleFilled, CloseOutlined, ExclamationCircleFilled, InfoCircleFilled } from '@antdv-next/icons'
 import { classNames, clsx } from '@v-c/util'
 import { filterEmpty, getAttrStyleAndClass } from '@v-c/util/dist/props-util'
-import { computed, createVNode, defineComponent, shallowRef, Transition } from 'vue'
+import { computed, defineComponent, shallowRef, Transition } from 'vue'
 import { pureAttrs, useMergeSemanticNoRef } from '../_util/hooks'
 import { getSlotPropFn, getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
-import { replaceElement } from '../_util/vueNode'
 import { useComponentBaseConfig } from '../config-provider/context'
 import useStyle from './style'
 
@@ -24,13 +23,13 @@ export interface AlertSemanticClassNames {
 }
 
 export interface AlertSemanticStyles {
-  root?: StyleValue
-  icon?: StyleValue
-  section?: StyleValue
-  title?: StyleValue
-  description?: StyleValue
-  actions?: StyleValue
-  close?: StyleValue
+  root?: CSSProperties
+  icon?: CSSProperties
+  section?: CSSProperties
+  title?: CSSProperties
+  description?: CSSProperties
+  actions?: CSSProperties
+  close?: CSSProperties
 }
 
 export type AlertClassNamesType = SemanticClassNamesType<AlertProps, AlertSemanticClassNames>
@@ -83,19 +82,15 @@ export interface AlertEmits {
   click: (e: any) => any
   [key: string]: (e: any) => any
 }
-
-const iconMapFilled = {
-  success: CheckCircleFilled,
-  info: InfoCircleFilled,
-  error: CloseCircleFilled,
-  warning: ExclamationCircleFilled,
-}
-
 interface IconNodeProps {
   type: AlertProps['type']
   icon?: AlertProps['icon']
   prefixCls: AlertProps['prefixCls']
   description: AlertProps['description']
+  successIcon?: VueNode
+  infoIcon?: VueNode
+  warningIcon?: VueNode
+  errorIcon?: VueNode
 }
 const alertDefaultProps = {
   showIcon: undefined,
@@ -104,18 +99,23 @@ const alertDefaultProps = {
 const IconNode = defineComponent<IconNodeProps>(
   (props, { attrs }) => {
     return () => {
-      const { type, prefixCls, icon } = props
-      const iconType = iconMapFilled[type!] || null
-      const iconNode = filterEmpty(typeof icon === 'function' ? icon() : icon)[0]
-      if (iconNode) {
-        return replaceElement(iconNode, <span class={[`${prefixCls}-icon`]}>{iconNode}</span>, () => ({
-          class: classNames(iconNode?.props?.class, `${prefixCls}-icon`, (attrs as any).class),
-          style: attrs.style,
-        }))
+      const { type } = props
+      const successIcon = getSlotPropsFnRun({}, props, 'successIcon')
+      const icon = getSlotPropsFnRun({}, props, 'icon')
+      const infoIcon = getSlotPropsFnRun({}, props, 'infoIcon')
+      const warningIcon = getSlotPropsFnRun({}, props, 'warningIcon')
+      const errorIcon = getSlotPropsFnRun({}, props, 'errorIcon')
+      const { className, style } = getAttrStyleAndClass(attrs)
+      const iconMapFilled = {
+        success: successIcon ?? <CheckCircleFilled />,
+        info: infoIcon ?? <InfoCircleFilled />,
+        error: errorIcon ?? <CloseCircleFilled />,
+        warning: warningIcon ?? <ExclamationCircleFilled />,
       }
-      return createVNode(
-        iconType,
-        { class: `${prefixCls}-icon`, style: attrs.style },
+      return (
+        <span class={className} style={style}>
+          {icon ?? iconMapFilled[type!]}
+        </span>
       )
     }
   },
@@ -169,7 +169,11 @@ const Alert = defineComponent<
       styles: contextStyles,
       direction,
       prefixCls,
-    } = useComponentBaseConfig('alert', props, ['closable', 'closeIcon'])
+      successIcon,
+      errorIcon,
+      infoIcon,
+      warningIcon,
+    } = useComponentBaseConfig('alert', props, ['closable', 'closeIcon', 'successIcon', 'errorIcon', 'infoIcon', 'warningIcon'])
     const { classes, styles } = toPropsRefs(props, 'classes', 'styles')
     const closed = shallowRef(false)
     const internalRef = shallowRef<HTMLDivElement>()
@@ -318,6 +322,10 @@ const Alert = defineComponent<
                           icon={props.icon}
                           prefixCls={prefixCls.value}
                           type={type.value}
+                          successIcon={successIcon.value}
+                          infoIcon={infoIcon.value}
+                          warningIcon={warningIcon.value}
+                          errorIcon={errorIcon.value}
                         />
                       )
                     : null}

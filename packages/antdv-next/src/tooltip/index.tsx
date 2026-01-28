@@ -250,7 +250,7 @@ const InternalTooltip = defineComponent<
       noTitle = !title && !overlay && title !== 0 // overlay for old version compatibility
       const memoOverlay = title === 0 ? title : (overlay || title || '')
       const memoOverlayWrapper = (
-        <ContextIsolator space>{memoOverlay}</ContextIsolator>
+        <ContextIsolator space form>{memoOverlay}</ContextIsolator>
       )
       const children = filterEmpty(slots.default?.())
       let child = children?.[0]

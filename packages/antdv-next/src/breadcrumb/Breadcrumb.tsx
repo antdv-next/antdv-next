@@ -4,6 +4,7 @@ import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { AnyObject, VueNode } from '../_util/type'
 import type { DropdownProps } from '../dropdown'
 import type { BreadcrumbItemProps, MenuItem } from './BreadcrumbItem'
+import { DownOutlined } from '@antdv-next/icons'
 import { clsx } from '@v-c/util'
 import pickAttrs from '@v-c/util/dist/pickAttrs'
 import { filterEmpty } from '@v-c/util/dist/props-util'
@@ -11,8 +12,8 @@ import { computed, createVNode, defineComponent, isVNode } from 'vue'
 import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { useComponentBaseConfig } from '../config-provider/context'
-import { useBreadcrumbProvider } from './BreadcrumbContext.ts'
 
+import { useBreadcrumbProvider } from './BreadcrumbContext.ts'
 import BreadcrumbItem, { InternalBreadcrumbItem } from './BreadcrumbItem'
 import BreadcrumbSeparator from './BreadcrumbSeparator'
 import useStyle from './style'
@@ -81,6 +82,7 @@ export interface BreadcrumbProps<T extends AnyObject = AnyObject> {
   classes?: BreadcrumbClassNamesType<T>
   styles?: BreadcrumbStylesType<T>
 
+  dropdownIcon?: VueNode
   itemRender?: (route: ItemType, params: T, routes: ItemType[], paths: string[]) => any
   titleRender?: (params: { item: ItemType, index: number }) => any
   // render by menu
@@ -99,6 +101,7 @@ export interface BreadcrumbSlots {
   separator: () => any
   default: () => any
   // render by menu
+  dropdownIcon: () => any
   menuLabelRender?: (params: { item: ItemType, index: number, menu: MenuItem }) => any
   menuExtraRender?: (params: { item: ItemType, index: number, menu: MenuItem }) => any
 }
@@ -129,7 +132,8 @@ const Breadcrumb = defineComponent<
       classes: contextClassNames,
       styles: contextStyles,
       separator: contextSeparator,
-    } = useComponentBaseConfig('breadcrumb', props, ['separator'])
+      dropdownIcon: contextDropdownIcon,
+    } = useComponentBaseConfig('breadcrumb', props, ['separator', 'dropdownIcon'])
     const { classes, styles } = toPropsRefs(props, 'classes', 'styles')
     const mergedSeparator = computed(() => {
       const separator = getSlotPropsFnRun(slots, props, 'separator')
@@ -169,6 +173,8 @@ const Breadcrumb = defineComponent<
         rootClass,
       } = props
       const itemRender = slots?.itemRender ?? props?.itemRender
+      const mergedDropdownIcon = getSlotPropsFnRun(slots, props, 'dropdownIcon') ?? contextDropdownIcon.value ?? <DownOutlined />
+
       const children = filterEmpty(slots?.default?.() ?? [])
       let crumbs: any
 
@@ -237,6 +243,7 @@ const Breadcrumb = defineComponent<
               class={itemClassName}
               style={style}
               dropdownProps={dropdownProps}
+              dropdownIcon={mergedDropdownIcon}
               href={href}
               separator={isLastItem ? '' : mergedSeparator.value}
               onClick={handleClick}

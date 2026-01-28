@@ -137,7 +137,7 @@ const Pagination = defineComponent<
             onSizeChange?.(nextSize)
             propSelectOnChange?.(nextSize, option)
           }}
-          size={isSmall.value ? 'small' : 'middle'}
+          size={mergedSize.value}
           class={clsx(sizeChangerClassName, propSelectClass)}
         />
       )
@@ -233,20 +233,24 @@ const Pagination = defineComponent<
     }
 
     return () => {
+      const { rootClass, align } = props
       const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
-      const mergedClassName = clsx(
-        contextClassName.value,
-        props.rootClass,
-        mergedClassNames.value?.root,
-        hashId.value,
-        cssVarCls.value,
-        rootCls.value,
+
+      const extendedClassName = clsx(
         {
+          [`${prefixCls.value}-${align}`]: !!align,
+          [`${prefixCls.value}-${mergedSize.value}`]: mergedSize.value,
+          /** @deprecated Should be removed in v2 */
           [`${prefixCls.value}-mini`]: isSmall.value,
           [`${prefixCls.value}-rtl`]: direction.value === 'rtl',
           [`${prefixCls.value}-bordered`]: token.value.wireframe,
         },
+        contextClassName.value,
         className,
+        rootClass,
+        mergedClassNames.value.root,
+        hashId.value,
+        cssVarCls.value,
       )
 
       const mergedStyle = {
@@ -265,7 +269,7 @@ const Pagination = defineComponent<
             {...restAttrs}
             prefixCls={prefixCls.value}
             selectPrefixCls={selectPrefixCls.value}
-            class={mergedClassName}
+            class={extendedClassName}
             style={mergedStyle}
             classNames={mergedClassNames.value}
             styles={mergedStyles.value as any}

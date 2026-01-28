@@ -35,6 +35,7 @@ export interface CheckboxGroupProps extends AbstractCheckboxGroupProps {
   defaultValue?: any[]
   value?: any[]
   labelRender?: (params: { item: CheckboxOptionType, index: number }) => any
+  role?: string
 }
 
 export interface CheckboxGroupEmits {
@@ -52,6 +53,7 @@ export interface CheckboxGroupSlots {
 // type InternalCheckboxValueType = string | number | boolean
 const defaults = {
   options: [],
+  role: 'group',
 } as any
 const CheckboxGroup = defineComponent<
   CheckboxGroupProps,
@@ -126,7 +128,7 @@ const CheckboxGroup = defineComponent<
 
     useGroupContextProvider(memoizedContext)
     return () => {
-      const { options = [], rootClass } = props
+      const { options = [], rootClass, role } = props
       const restProps = omit(props, ['options', 'rootClass', 'defaultValue', 'prefixCls'])
       const children = slots?.default?.()
       const { restAttrs, className, style } = getAttrStyleAndClass(attrs)
@@ -171,7 +173,7 @@ const CheckboxGroup = defineComponent<
         hashId.value,
       )
       return (
-        <div class={classString} style={style} {...restAttrs}>
+        <div class={classString} role={role} style={style} {...restAttrs}>
           {childrenNode}
         </div>
       )

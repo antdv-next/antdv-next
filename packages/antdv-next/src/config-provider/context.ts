@@ -222,7 +222,12 @@ export type ButtonConfig = ComponentStyleConfig
 
 export type FlexConfig = ComponentStyleConfig & Pick<FlexProps, 'vertical'>
 
-export type AlertConfig = ComponentStyleConfig & Pick<AlertProps, 'closable' | 'closeIcon' | 'classes' | 'styles'>
+export type AlertConfig = ComponentStyleConfig & Pick<AlertProps, 'closable' | 'closeIcon' | 'classes' | 'styles'> & {
+  successIcon?: VueNode
+  infoIcon?: VueNode
+  warningIcon?: VueNode
+  errorIcon?: VueNode
+}
 
 export type BadgeConfig = ComponentStyleConfig & Pick<BadgeProps, 'classes' | 'styles'>
 
@@ -281,7 +286,7 @@ export type TourConfig = ComponentStyleConfig & Pick<TourProps, 'closeIcon' | 'c
 
 export type NotificationConfig = ComponentStyleConfig & Pick<NotificationProps, 'closeIcon' | 'classes' | 'styles'>
 
-export type BreadcrumbConfig = ComponentStyleConfig & Pick<BreadcrumbProps, 'classes' | 'styles' | 'separator'>
+export type BreadcrumbConfig = ComponentStyleConfig & Pick<BreadcrumbProps, 'classes' | 'styles' | 'separator' | 'dropdownIcon'>
 
 export type MasonryConfig = ComponentStyleConfig & Pick<MasonryProps, 'classes' | 'styles'>
 

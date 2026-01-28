@@ -3,7 +3,6 @@ import type { CSSProperties } from 'vue'
 import type { VueNode } from '../_util/type'
 import type { DropdownProps } from '../dropdown'
 import type { ItemType } from './Breadcrumb'
-import { DownOutlined } from '@antdv-next/icons'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { defineComponent } from 'vue'
 import isNonNullable from '../_util/isNonNullable'
@@ -36,6 +35,7 @@ export interface BreadcrumbItemProps extends SeparatorType {
     items?: MenuItem[]
   }
   dropdownProps?: DropdownProps
+  dropdownIcon?: VueNode
   onClick?: (event: MouseEvent) => void
   class?: string
   style?: CSSProperties
@@ -51,7 +51,7 @@ export const InternalBreadcrumbItem = defineComponent<
     /** If overlay is have Wrap a Dropdown */
     const renderBreadcrumbNode = (breadcrumbItem: any) => {
       const { prefixCls, menu, dropdownProps, href } = props
-
+      const dropdownIcon = getSlotPropsFnRun({}, props, 'dropdownIcon')
       if (menu) {
         const mergeDropDownProps: DropdownProps = {
           ...dropdownProps,
@@ -81,7 +81,7 @@ export const InternalBreadcrumbItem = defineComponent<
           <Dropdown placement="bottom" {...mergeDropDownProps}>
             <span class={`${prefixCls}-overlay-link`}>
               {breadcrumbItem}
-              <DownOutlined />
+              {dropdownIcon}
             </span>
           </Dropdown>
         )
