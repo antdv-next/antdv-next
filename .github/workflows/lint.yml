@@ -38,7 +38,7 @@ jobs:
             BASE_SHA="${{ github.event.pull_request.base.sha }}"
             HEAD_SHA="${{ github.sha }}"
 
-            FILES=$(git diff --name-only --diff-filter=d "$BASE_SHA" "$HEAD_SHA" \
+            FILES=$(git diff --name-only --diff-filter=ACMR "$BASE_SHA" "$HEAD_SHA" \
               | grep -E '\.(js|jsx|ts|tsx|vue)$' || true)
 
             if [ -z "$FILES" ]; then
