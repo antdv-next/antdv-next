@@ -113,7 +113,7 @@ const IconNode = defineComponent<IconNodeProps>(
         warning: warningIcon ?? <ExclamationCircleFilled />,
       }
       return (
-        <span class={className} style={style}>
+        <span class={clsx(`${props.prefixCls}-icon`, className)} style={style}>
           {icon ?? iconMapFilled[type!]}
         </span>
       )
