@@ -1,0 +1,33 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`alert > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<div
+  data-v-app=""
+>
+  <transition-stub
+    appear="false"
+    css="true"
+    leaveactiveclass="ant-alert-motion-leave ant-alert-motion-leave-active"
+    leavefromclass="ant-alert-motion-leave"
+    leavetoclass="ant-alert-motion-leave ant-alert-motion-leave-active"
+    name="ant-alert-motion"
+    persisted="false"
+  >
+    <div
+      class="ant-alert ant-alert-info ant-alert-no-icon ant-alert-rtl css-var-root"
+      data-show="true"
+      role="alert"
+    >
+      <!---->
+      <div
+        class="ant-alert-section"
+      >
+        <!---->
+        <!---->
+      </div>
+      <!---->
+      <!---->
+    </div>
+  </transition-stub>
+</div>
+`;
