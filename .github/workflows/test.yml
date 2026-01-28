@@ -5,8 +5,12 @@ on:
   pull_request: {}
   workflow_dispatch: {}
 
+permissions:
+  contents: read
+  pull-requests: read
+
 concurrency:
-  group: test-${{ github.event_name }}-${{ github.ref }}
+  group: test-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -14,6 +18,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Skip push if branch has open PR
+        if: ${{ github.event_name == 'push' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          BRANCH="${GITHUB_REF_NAME}"
+          echo "Checking open PRs for branch: $BRANCH"
+
+          PR_COUNT=$(gh pr list \
+            --head "$BRANCH" \
+            --state open \
+            --json number \
+            --jq 'length')
+
+          echo "Open PR count: $PR_COUNT"
+
+          if [ "$PR_COUNT" -gt 0 ]; then
+            echo "Open PR exists for this branch. Skipping push workflow."
+            exit 0
+          fi
+
       - uses: actions/checkout@v4
 
       - name: Setup pnpm
