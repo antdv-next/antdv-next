@@ -5,6 +5,7 @@ export default antfu({
   formatters: {
     css: true,
   },
+  pnpm: true,
   rules: {
     'jsdoc/empty-tags': 0,
     'node/prefer-global/process': 0,

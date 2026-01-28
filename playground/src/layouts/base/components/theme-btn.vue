@@ -91,7 +91,7 @@ function handleMenuClick(info: { key: string, domEvent: MouseEvent }) {
 <template>
   <a-dropdown
     :menu="{ items: themeMenuItems }"
-    :trigger="['click']"
+    :trigger="['hover']"
     placement="bottomRight"
     @menu-click="handleMenuClick"
   >

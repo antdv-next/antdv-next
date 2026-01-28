@@ -13,7 +13,9 @@
     "build:llm": "pnpm -F antdv-next run build:llm",
     "build": "run-s build:llm build:site",
     "build:site": "cross-env NODE_OPTIONS=--max-old-space-size=8192 turbo build --filter playground",
-    "test": "vitest run"
+    "test": "vitest run",
+    "prepare": "simple-git-hooks",
+    "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
     "vue": "catalog:prod"
@@ -48,9 +50,11 @@
     "jiti": "catalog:dev",
     "jsdom": "catalog:dev",
     "markdown-it": "catalog:docs",
-    "mockdate": "catalog:",
+    "mockdate": "catalog:dev",
     "npm-run-all": "catalog:dev",
-    "pretty-format": "catalog:",
+    "picocolors": "catalog:dev",
+    "pretty-format": "catalog:dev",
+    "simple-git-hooks": "catalog:dev",
     "tinyglobby": "catalog:dev",
     "tsdown": "catalog:dev",
     "turbo": "catalog:dev",
@@ -62,5 +66,14 @@
     "vite-plugin-tsx-resolve-types": "catalog:dev",
     "vitest": "catalog:dev",
     "vue-tsc": "catalog:dev"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged",
+    "commit-msg": "node scripts/verify-commit.js"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,vue,json}": [
+      "eslint . --fix"
+    ]
   }
 }

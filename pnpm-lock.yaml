@@ -5,13 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 catalogs:
-  default:
-    mockdate:
-      specifier: ^3.0.5
-      version: 3.0.5
-    pretty-format:
-      specifier: ^30.2.0
-      version: 30.2.0
   dev:
     '@antfu/eslint-config':
       specifier: ^7.2.0
@@ -70,15 +63,27 @@ catalogs:
     lunar-typescript:
       specifier: ^1.8.6
       version: 1.8.6
+    mockdate:
+      specifier: ^3.0.5
+      version: 3.0.5
     npm-run-all:
       specifier: ^4.1.5
       version: 4.1.5
+    picocolors:
+      specifier: ^1.1.1
+      version: 1.1.1
     postcss:
       specifier: ^8.5.6
       version: 8.5.6
     postcss-selector-parser:
       specifier: ^7.1.1
       version: 7.1.1
+    pretty-format:
+      specifier: ^30.2.0
+      version: 30.2.0
+    simple-git-hooks:
+      specifier: ^2.8.0
+      version: 2.13.1
     tinyglobby:
       specifier: 0.2.15
       version: 0.2.15
@@ -493,14 +498,20 @@ importers:
         specifier: catalog:docs
         version: 14.1.0
       mockdate:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 3.0.5
       npm-run-all:
         specifier: catalog:dev
         version: 4.1.5
+      picocolors:
+        specifier: catalog:dev
+        version: 1.1.1
       pretty-format:
-        specifier: 'catalog:'
+        specifier: catalog:dev
         version: 30.2.0
+      simple-git-hooks:
+        specifier: catalog:dev
+        version: 2.13.1
       tinyglobby:
         specifier: catalog:dev
         version: 0.2.15
@@ -4832,6 +4843,10 @@ packages:
   signal-exit@4.1.0:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
+
+  simple-git-hooks@2.13.1:
+    resolution: {integrity: sha512-WszCLXwT4h2k1ufIXAgsbiTOazqqevFCIncOuUBZJ91DdvWcC5+OFkluWRQPrcuSYd8fjq+o2y1QfWqYMoAToQ==}
+    hasBin: true
 
   sirv@3.0.2:
     resolution: {integrity: sha512-2wcC/oGxHis/BoHkkPwldgiPSYcpZK3JU28WoMVv55yHJgcZ8rlXvuG9iZggz+sU1d4bRgIGASwyWqjxu3FM0g==}
@@ -10065,6 +10080,8 @@ snapshots:
   siginfo@2.0.0: {}
 
   signal-exit@4.1.0: {}
+
+  simple-git-hooks@2.13.1: {}
 
   sirv@3.0.2:
     dependencies:
