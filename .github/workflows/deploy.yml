@@ -2,7 +2,7 @@ name: deploy-site
 
 on:
   workflow_run:
-    workflows: ["Test"]
+    workflows: [Test]
     types: [completed]
 
 concurrency:

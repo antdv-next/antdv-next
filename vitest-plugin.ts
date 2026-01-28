@@ -34,6 +34,10 @@ export default defineConfig({
         find: /^@antdv-next\/cssinjs/,
         replacement: path.resolve(baseUrl, './packages/cssinjs/src'),
       },
+      {
+        find: /^@antdv-next\/icons/,
+        replacement: path.resolve(baseUrl, './packages/icons/src'),
+      },
     ],
   },
 })
