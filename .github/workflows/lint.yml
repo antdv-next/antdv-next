@@ -18,6 +18,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Skip push if branch has open PR
         if: ${{ github.event_name == 'push' }}
         env:
@@ -39,10 +43,6 @@ jobs:
             echo "Open PR exists for this branch. Skipping push workflow."
             exit 0
           fi
-
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
