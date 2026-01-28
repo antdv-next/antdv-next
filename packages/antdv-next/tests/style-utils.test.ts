@@ -1,8 +1,11 @@
 import { describe, expect, it } from 'vitest'
+import { genCalc } from '@antdv-next/cssinjs'
 
 import { genCompactItemStyle } from '../src/style/compact-item'
 import getArrowStyle, { getArrowOffsetToken } from '../src/style/placementArrow'
 import { genRoundedArrow, getArrowToken } from '../src/style/roundedArrow'
+
+const calc = genCalc('js', new Set())
 
 const mockToken = {
   componentCls: '.ant-btn',
@@ -21,6 +24,7 @@ const mockToken = {
   borderRadiusXS: 2,
   borderRadiusOuter: 4,
   boxShadowPopoverArrow: '0 0 4px rgba(0,0,0,0.2)',
+  calc,
 } as any
 
 describe('style helpers', () => {

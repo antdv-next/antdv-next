@@ -187,7 +187,7 @@ describe('styleContext', () => {
 
       expect(contextValue.cache).toBe(cache)
       expect(contextValue.hashPriority).toBe('high')
-      expect(contextValue.defaultCache).toBe(true)
+      expect(contextValue.defaultCache).toBe(false)
     })
 
     it('should be reactive', async () => {
