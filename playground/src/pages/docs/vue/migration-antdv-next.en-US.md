@@ -43,7 +43,7 @@ yarn add @antdv-next/icons
 
 ### API Adjustments
 
-⚠️ The following APIs have been marked as **Deprecated**. Although these properties can still be used currently, the console will show deprecation warnings, and they will be removed in 7.0. To maintain code maintainability and compatibility, **it is recommended to migrate to the corresponding replacement properties as soon as possible**.
+⚠️ The following APIs have been marked as **Deprecated**. Although these properties can still be used currently, the console will show deprecation warnings, and they will be removed in 2.0. To maintain code maintainability and compatibility, **it is recommended to migrate to the corresponding replacement properties as soon as possible**.
 
 - `Alert`
     - `closeText` deprecated, changed to `closable.closeIcon`.
