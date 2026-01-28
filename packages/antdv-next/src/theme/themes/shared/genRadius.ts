@@ -2,7 +2,7 @@ import type { MapToken } from '../../interface'
 
 function genRadius(radiusBase: number): Pick<
   MapToken,
-    'borderRadiusXS' | 'borderRadiusSM' | 'borderRadiusLG' | 'borderRadius' | 'borderRadiusOuter'
+  'borderRadiusXS' | 'borderRadiusSM' | 'borderRadiusLG' | 'borderRadius' | 'borderRadiusOuter'
 > {
   let radiusLG = radiusBase
   let radiusSM = radiusBase

@@ -19,7 +19,6 @@ import { useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { devUseWarning, isDev } from '../_util/warning'
 import { useComponentBaseConfig } from '../config-provider/context'
-import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
 import { useSize } from '../config-provider/hooks/useSize'
 import useBreakpoint from '../grid/hooks/useBreakpoint'
 import useLocale from '../locale/useLocale'
@@ -66,8 +65,7 @@ const Pagination = defineComponent<
       showSizeChanger,
     } = toPropsRefs(props, 'size', 'responsive', 'classes', 'styles', 'showSizeChanger')
 
-    const rootCls = useCSSVarCls(prefixCls)
-    const [hashId, cssVarCls] = useStyle(prefixCls, rootCls)
+    const [hashId, cssVarCls] = useStyle(prefixCls, prefixCls)
     const [, token] = useToken()
 
     // ============================== Size ==============================
