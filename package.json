@@ -7,7 +7,7 @@
     "dev": "turbo dev --filter playground",
     "lint": "eslint . --fix",
     "ci:publish": "pnpm publish -r --access=public",
-    "ci:lint": "eslint .",
+    "ci:lint": "eslint",
     "bump": "pnpm changeset version",
     "build:antdv": "pnpm -F antdv-next build",
     "build:llm": "pnpm -F antdv-next run build:llm",

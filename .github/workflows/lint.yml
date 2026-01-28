@@ -1,0 +1,52 @@
+name: Lint
+
+on:
+  push: {}
+  pull_request: {}
+  workflow_dispatch: {}
+
+concurrency:
+  group: lint-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run lint
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BASE_SHA="${{ github.event.pull_request.base.sha }}"
+            HEAD_SHA="${{ github.sha }}"
+
+            FILES=$(git diff --name-only "$BASE_SHA" "$HEAD_SHA" \
+              | grep -E '\.(js|jsx|ts|tsx|vue)$' || true)
+
+            if [ -z "$FILES" ]; then
+              echo "No lintable files changed."
+              exit 0
+            fi
+
+            pnpm ci:lint $FILES
+          else
+            pnpm ci:lint .
+          fi
