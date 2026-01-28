@@ -1,6 +1,6 @@
 import type { Plugin, ResolvedConfig } from 'vite'
 
-const VIRTUAL_ID = 'virtual:antd.css'
+const VIRTUAL_ID = 'antd.css'
 const RESOLVED_VIRTUAL_ID = `\0${VIRTUAL_ID}`
 
 export interface VirtualAntdCssOptions {
@@ -34,7 +34,7 @@ export default function virtualAntdCss(
       if (config?.mode !== 'production') {
         return ''
       }
-      return `import '${cssPath}'`
+      return `@import '${cssPath}';`
     },
   }
 }
