@@ -1,14 +1,22 @@
-import { beforeEach, describe, expect, it } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { defineComponent, h, nextTick, ref } from 'vue'
 import useCSSVarRegister, { extract } from '../src/hooks/useCSSVarRegister'
 import { ATTR_MARK } from '../src/StyleContext'
 import { mountWithStyleProvider } from './utils'
 
+// 延迟移除的时间，需要与 useGlobalCache.ts 中的 REMOVE_STYLE_DELAY 保持一致
+const REMOVE_STYLE_DELAY = 500
+
 describe('useCSSVarRegister', () => {
   beforeEach(() => {
+    vi.useFakeTimers()
     document
       .querySelectorAll(`style[${ATTR_MARK}]`)
       .forEach(style => style.parentNode?.removeChild(style))
+  })
+
+  afterEach(() => {
+    vi.useRealTimers()
   })
 
   it('registers css vars and cleans up on unmount', async () => {
@@ -47,6 +55,10 @@ describe('useCSSVarRegister', () => {
     expect(style?.innerHTML).toContain('--comp-padding:8px;')
 
     wrapper.unmount()
+    await nextTick()
+
+    // 样式延迟移除，需要等待延迟时间
+    vi.advanceTimersByTime(REMOVE_STYLE_DELAY)
     await nextTick()
 
     expect(document.querySelector(`style[${ATTR_MARK}="${styleId}"]`)).toBeNull()

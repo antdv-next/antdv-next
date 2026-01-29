@@ -16,6 +16,15 @@ export type ExtractStyle<CacheValue> = (
 const effectMap = new Map<string, boolean>()
 
 /**
+ * 延迟移除样式的时间（毫秒）
+ * 用于解决 Vue Transition 动画期间样式被过早移除的问题
+ */
+const REMOVE_STYLE_DELAY = 500
+
+// 用于存储延迟移除的定时器，以便在重新挂载时取消
+const delayedRemoveTimers = new Map<string, ReturnType<typeof setTimeout>>()
+
+/**
  * Global cache for CSS-in-JS styles
  *
  * This hook manages a reference-counted cache to ensure styles are properly
@@ -49,23 +58,48 @@ export function useGlobalCache<CacheType>(
     : !isClientSide
 
   // 清理缓存的函数
-  const clearCache = (pathStr: string) => {
+  const clearCache = (pathStr: string, immediate = false) => {
     if (isServerSide()) {
       return
     }
-    globalCache().opUpdate(pathStr, (prevCache) => {
-      const [times = 0, cache] = prevCache || []
-      const nextCount = times - 1
 
-      if (nextCount === 0) {
-        // Last reference, remove cache
-        onCacheRemove?.(cache, false)
-        effectMap.delete(pathStr)
-        return null
-      }
+    // 取消之前可能存在的延迟移除定时器
+    const existingTimer = delayedRemoveTimers.get(pathStr)
+    if (existingTimer) {
+      clearTimeout(existingTimer)
+      delayedRemoveTimers.delete(pathStr)
+    }
 
-      return [times - 1, cache]
-    })
+    const doCleanup = () => {
+      globalCache().opUpdate(pathStr, (prevCache) => {
+        const [times = 0, cache] = prevCache || []
+        const nextCount = times - 1
+
+        if (nextCount === 0) {
+          // Last reference, remove cache
+          onCacheRemove?.(cache, false)
+          effectMap.delete(pathStr)
+          return null
+        }
+
+        return [times - 1, cache]
+      })
+    }
+
+    if (immediate || !isClientSide) {
+      // 立即清理：
+      // 1. path 变化时清理旧缓存
+      // 2. 服务端渲染时不需要延迟（没有 Transition 动画）
+      doCleanup()
+    }
+    else {
+      // 延迟清理（用于客户端组件卸载时，等待可能的 Transition 动画完成）
+      const timer = setTimeout(() => {
+        delayedRemoveTimers.delete(pathStr)
+        doCleanup()
+      }, REMOVE_STYLE_DELAY)
+      delayedRemoveTimers.set(pathStr, timer)
+    }
   }
 
   const cacheContent = computed(() => {
@@ -88,13 +122,21 @@ export function useGlobalCache<CacheType>(
   watch(
     fullPathStr,
     (newPath, oldPath) => {
-      // 如果 path 变化了，先清理旧的缓存
+      // 如果 path 变化了，先清理旧的缓存（立即清理，不需要延迟）
       if (oldPath) {
-        clearCache(oldPath)
+        clearCache(oldPath, true)
       }
 
       // 更新当前 path 引用
       currentPathRef.value = newPath
+
+      // 如果存在延迟移除定时器，说明之前的组件刚卸载还在等待移除
+      // 此时取消定时器，复用之前的缓存
+      const existingTimer = delayedRemoveTimers.get(newPath)
+      if (existingTimer) {
+        clearTimeout(existingTimer)
+        delayedRemoveTimers.delete(newPath)
+      }
 
       // 创建或增加新缓存的引用计数
       globalCache().opUpdate(newPath, (prevCache) => {
