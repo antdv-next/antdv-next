@@ -118,6 +118,15 @@ Antdv Next 仍然完整支持通过 props 传递节点内容，你可以继续�
 文档本身仍然在持续完善中，如果你在使用过程中发现任何问题，
 欢迎通过 [Issue](https://github.com/antdv-next/antdv-next/issues) 或 [PR](https://github.com/antdv-next/antdv-next/pulls) 的方式参与共建，我们非常乐意一起把这套文档打磨得更好。
 
+## AI 支持
+
+本次我们对文档系统增加了对 AI 的支持能力。
+
+1. llm.txt 集成，默认集成了 llm.txt 支持，方便用户通过本地或远程 LLM 模型进行离线问答。
+2. skills 支持，目前比较流行的本地的技能库，配合 [Antfu Skills 集合](https://github.com/antfu/skills) 一起使用，可以减少 AI 幻觉导致的一些问题。
+
+
+
 ## 致谢
 
 感谢所有在过去一年多时间里，为 Antdv Next 贡献代码、文档和建议的社区伙伴们。

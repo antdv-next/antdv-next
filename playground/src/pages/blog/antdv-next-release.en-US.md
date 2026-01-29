@@ -115,6 +115,17 @@ The documentation is still continuously evolving. If you encounter any issues wh
 feel free to contribute via [Issue](https://github.com/antdv-next/antdv-next/issues) or [PR](https://github.com/antdv-next/antdv-next/pulls).
 We would be more than happy to improve this documentation together with the community.
 
+## AI Support
+
+In this release, we have added AI support to the documentation system.
+
+1. **llm.txt integration**  
+   Built-in support for `llm.txt` is enabled by default, making it easy to use local or remote LLM models for offline Q&A.
+
+2. **Skills support**  
+   We now support popular local skills libraries. When used together with the [Antfu Skills collection](https://github.com/antfu/skills), this can help reduce issues caused by AI hallucinations.
+
+
 ## Acknowledgements
 
 We would like to sincerely thank all community contributors who have provided code, documentation, and valuable feedback over the past year.
