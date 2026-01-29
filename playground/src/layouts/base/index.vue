@@ -53,7 +53,7 @@ const algorithm = computed(() => {
   return algorithms
 })
 
-const zeroRuntime = import.meta.env.PROD === true
+const zeroRuntime = import.meta.env.PROD || import.meta.env.ANTDV_VIRTUAL_CSS_ENABLED
 
 const themeConfig = computed(() => {
   return {

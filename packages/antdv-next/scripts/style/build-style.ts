@@ -68,15 +68,18 @@ const ComponentCustomizeRender: Record<string, RenderFn> = {
       OTP ? h(OTP) : null,
     ])
   },
-  Modal: Modal => h(Fragment, null, [
-    h(Modal),
-    (Modal as any)._InternalPanelDoNotUseOrYouWillBeFired
-      ? h((Modal as any)._InternalPanelDoNotUseOrYouWillBeFired)
-      : null,
-    (Modal as any)._InternalPanelDoNotUseOrYouWillBeFired
-      ? h((Modal as any)._InternalPanelDoNotUseOrYouWillBeFired, { type: 'confirm' })
-      : null,
-  ]),
+  Modal: (Modal) => {
+    const PureModal = (Modal as any)._InternalPanelDoNotUseOrYouWillBeFired
+    return h(Fragment, null, [
+      h(Modal),
+      PureModal
+        ? h(PureModal)
+        : null,
+      PureModal
+        ? h(PureModal, { type: 'confirm' })
+        : null,
+    ])
+  },
   message: (message: any) => {
     const PurePanel = message._InternalPanelDoNotUseOrYouWillBeFired
     return PurePanel ? h(PurePanel) : null

@@ -9,6 +9,10 @@ export interface VirtualAntdCssOptions {
    * '/src/assets/antd.css'
    */
   cssPath?: string
+  /**
+   * @desc 默认开发环境也打开
+   */
+  development?: boolean
 }
 
 export default function virtualAntdCss(
@@ -20,6 +24,18 @@ export default function virtualAntdCss(
 
   return {
     name: 'vite-plugin-virtual-antd-css',
+    config() {
+      if (options.development) {
+        return {
+          define: {
+            'import.meta.env.ANTDV_VIRTUAL_CSS_ENABLED': true,
+          },
+        }
+      }
+      return {
+        'import.meta.env.ANTDV_VIRTUAL_CSS_ENABLED': false,
+      }
+    },
     configResolved(_config) {
       config = _config
     },
@@ -31,7 +47,7 @@ export default function virtualAntdCss(
     load(id) {
       if (id !== RESOLVED_VIRTUAL_ID)
         return
-      if (config?.mode !== 'production') {
+      if (config?.mode !== 'production' && !options.development) {
         return ''
       }
       return `@import '${cssPath}';`

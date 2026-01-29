@@ -34,8 +34,7 @@ const PurePanel = defineComponent<
   SlotsType<PurePanelSlots>
 >(
   (props, { slots, attrs }) => {
-    const { getPrefixCls } = useComponentBaseConfig('modal', props, [])
-    const prefixCls = computed(() => props.prefixCls || getPrefixCls())
+    const { prefixCls, getPrefixCls } = useComponentBaseConfig('modal', props, [])
     const rootPrefixCls = computed(() => getPrefixCls(undefined, ''))
     const rootCls = useCSSVarCls(rootPrefixCls)
     const [hashId, cssVarCls] = useStyle(prefixCls, rootCls)
