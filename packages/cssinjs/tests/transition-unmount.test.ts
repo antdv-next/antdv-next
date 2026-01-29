@@ -158,6 +158,142 @@ describe('transition unmount timing', () => {
     wrapper.unmount()
   })
 
+  /**
+   * 测试快速切换时引用计数正确性
+   * Bug: 当组件卸载后快速重新挂载时，如果取消了延迟定时器但仍然执行 increment，
+   * 会导致引用计数多 1，最终样式永远不会被移除
+   */
+  it('should maintain correct ref count during rapid toggle (fix ref count leak)', async () => {
+    const onRemove = vi.fn()
+
+    const ComponentA = defineComponent({
+      name: 'RefCountTest',
+      setup() {
+        const prefix = ref('style')
+        const keyPath = ref(['RefCountTest'])
+
+        useGlobalCache(
+          prefix,
+          keyPath,
+          () => ({ style: `.RefCountTest { color: blue; }` }),
+          onRemove,
+        )
+
+        return () => h('div', { class: 'RefCountTest' }, 'RefCount Test')
+      },
+    })
+
+    const show = ref(true)
+
+    const App = defineComponent({
+      setup() {
+        return () => h(
+          StyleProvider,
+          { cache },
+          () => show.value ? h(ComponentA) : null,
+        )
+      },
+    })
+
+    const wrapper = mount(App)
+    await nextTick()
+
+    // 初始状态：引用计数 = 1
+    expect(onRemove).not.toHaveBeenCalled()
+
+    // 快速切换多次（模拟 Transition 动画期间的快速切换）
+    for (let i = 0; i < 5; i++) {
+      // 卸载
+      show.value = false
+      await nextTick()
+
+      // 在延迟期间快速重新挂载
+      vi.advanceTimersByTime(REMOVE_STYLE_DELAY / 4)
+      show.value = true
+      await nextTick()
+    }
+
+    // 经过多次快速切换后，样式仍然不应该被移除
+    expect(onRemove).not.toHaveBeenCalled()
+
+    // 最终卸载
+    show.value = false
+    await nextTick()
+
+    // 等待延迟时间
+    vi.advanceTimersByTime(REMOVE_STYLE_DELAY)
+    await nextTick()
+
+    // 关键断言：引用计数应该正确归零，样式应该被移除
+    // 如果存在 bug（引用计数多加了 1），onRemove 不会被调用
+    expect(onRemove).toHaveBeenCalledTimes(1)
+
+    wrapper.unmount()
+  })
+
+  /**
+   * 测试连续快速切换后再完全卸载的场景
+   */
+  it('should correctly clean up after multiple rapid mount/unmount cycles', async () => {
+    const onRemove = vi.fn()
+
+    const TestComponent = defineComponent({
+      name: 'RapidCycleTest',
+      setup() {
+        const prefix = ref('rapid')
+        const keyPath = ref(['RapidCycleTest'])
+
+        useGlobalCache(
+          prefix,
+          keyPath,
+          () => ({ style: `.RapidCycleTest { color: purple; }` }),
+          onRemove,
+        )
+
+        return () => h('div', 'Rapid Cycle Test')
+      },
+    })
+
+    const show = ref(false)
+
+    const App = defineComponent({
+      setup() {
+        return () => h(
+          StyleProvider,
+          { cache },
+          () => show.value ? h(TestComponent) : null,
+        )
+      },
+    })
+
+    const wrapper = mount(App)
+    await nextTick()
+
+    // 进行 10 次快速挂载/卸载循环
+    for (let i = 0; i < 10; i++) {
+      show.value = true
+      await nextTick()
+
+      show.value = false
+      await nextTick()
+
+      // 只等一小段时间，不足以触发延迟移除
+      vi.advanceTimersByTime(REMOVE_STYLE_DELAY / 10)
+    }
+
+    // 所有循环完成后，组件处于卸载状态
+    expect(onRemove).not.toHaveBeenCalled()
+
+    // 等待完整的延迟时间
+    vi.advanceTimersByTime(REMOVE_STYLE_DELAY)
+    await nextTick()
+
+    // 样式应该被正确移除（引用计数应该是 0）
+    expect(onRemove).toHaveBeenCalledTimes(1)
+
+    wrapper.unmount()
+  })
+
   it('should handle multiple components sharing same style', async () => {
     const onRemove = vi.fn()
 

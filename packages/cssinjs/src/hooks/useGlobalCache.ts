@@ -132,18 +132,23 @@ export function useGlobalCache<CacheType>(
 
       // 如果存在延迟移除定时器，说明之前的组件刚卸载还在等待移除
       // 此时取消定时器，复用之前的缓存
+      // 注意：此时不需要增加引用计数，因为定时器被取消意味着之前的 decrement 不会执行，
+      // 而之前 mount 时的 increment 已经执行过了，所以引用计数已经是正确的
       const existingTimer = delayedRemoveTimers.get(newPath)
       if (existingTimer) {
         clearTimeout(existingTimer)
         delayedRemoveTimers.delete(newPath)
+        // 跳过 increment，直接触发 effect
       }
-
-      // 创建或增加新缓存的引用计数
-      globalCache().opUpdate(newPath, (prevCache) => {
-        const [times = 0, cache] = prevCache || [undefined, undefined]
-        const mergedCache = cache || cacheFn()
-        return [times + 1, mergedCache]
-      })
+      else {
+        // 创建或增加新缓存的引用计数
+        // 只有在没有 pending 的延迟移除时才增加计数
+        globalCache().opUpdate(newPath, (prevCache) => {
+          const [times = 0, cache] = prevCache || [undefined, undefined]
+          const mergedCache = cache || cacheFn()
+          return [times + 1, mergedCache]
+        })
+      }
 
       // 触发 effect
       if (!effectMap.has(newPath)) {
