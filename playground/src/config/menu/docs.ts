@@ -105,6 +105,7 @@ export const docsMenus: Record<string, AntdvMenuItem[]> = {
         {
           key: '/docs/vue/skills',
           label: 'Skills',
+          tag: 'New',
         },
       ],
     },
