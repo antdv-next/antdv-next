@@ -124,9 +124,7 @@ describe('anchor Render', () => {
     await waitFakeTimer()
 
     expect(wrapper.element.querySelectorAll('.ant-anchor .ant-anchor-link')).toHaveLength(3)
-    const linkTitles = Array.from(
-      wrapper.element.querySelectorAll<HTMLAnchorElement>('.ant-anchor-link-title'),
-    )
+    const linkTitles = Array.from(wrapper.element.querySelectorAll('.ant-anchor-link-title')) as HTMLAnchorElement[]
     expect(linkTitles[0]?.href).toContain('#anchor-demo-basic')
     expect(linkTitles[1]?.href).toContain('#anchor-demo-static')
     expect(linkTitles[2]?.href).toContain('#api')
@@ -135,6 +133,7 @@ describe('anchor Render', () => {
 
   it('actives the target when clicking a link', async () => {
     const hash = getHashUrl()
+    const href = `http://www.example.com/#${hash}`
     const pushStateSpy = vi.spyOn(window.history, 'pushState').mockImplementation(() => {})
     const wrapper = mount(Anchor, {
       props: {
@@ -144,19 +143,19 @@ describe('anchor Render', () => {
           {
             key: hash,
             title: hash,
-            href: `http://www.example.com/#${hash}`,
+            href,
           },
         ],
       },
       attachTo: document.body,
     })
-    const link = wrapper.element.querySelector<HTMLAnchorElement>(
-      `a[href="http://www.example.com/#${hash}"]`,
-    )
-    expect(link).toBeTruthy()
-    await wrapper.find(`a[href="http://www.example.com/#${hash}"]`).trigger('click')
     await waitFakeTimer()
-    expect(link).toHaveClass('ant-anchor-link-title-active')
+    expect(wrapper.element.querySelector(`a[href="${href}"]`)).toBeTruthy()
+    await wrapper.find(`a[href="${href}"]`).trigger('click')
+    await waitFakeTimer()
+    const activeLink = wrapper.element.querySelector('.ant-anchor-link-title-active')
+    expect(activeLink).toBeTruthy()
+    expect(activeLink?.getAttribute('href')).toBe(href)
     pushStateSpy.mockRestore()
     wrapper.unmount()
   })
@@ -745,8 +744,8 @@ describe('anchor Render', () => {
     await waitFakeTimer()
     await wrapper.find('a[href="part-1"]').trigger('click')
     await waitFakeTimer()
-    const inkElement = wrapper.element.querySelector<HTMLSpanElement>('.ant-anchor-ink')
-    const toggleButton = wrapper.element.querySelector<HTMLElement>('button')
+    const inkElement = wrapper.element.querySelector('.ant-anchor-ink')
+    const toggleButton = wrapper.element.querySelector('button')
 
     expect(toggleButton).toBeInTheDocument()
 
