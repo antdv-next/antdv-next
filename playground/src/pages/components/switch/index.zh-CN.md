@@ -36,17 +36,19 @@ demo:
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | autoFocus | 组件挂载时自动获取焦点 | boolean | false | - |
-| checked | 指定当前是否选中 | boolean | false | - |
+| checked | 指定当前是否选中 | string \| number \| boolean \| object | false | - |
 | checkedChildren | 选中时的内容 | VueNode | - | - |
+| checkedValue | 选中时的值 | string \| number \| boolean \| object | true | - |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | SwitchClassNamesType | - | - |
-| defaultChecked | 初始是否选中 | boolean | false | - |
-| defaultValue | `defaultChecked` 的别名 | boolean | - | 5.12.0 |
+| defaultChecked | 初始是否选中 | string \| number \| boolean \| object | false | - |
+| defaultValue | `defaultChecked` 的别名 | string \| number \| boolean \| object | - | 5.12.0 |
 | disabled | 是否禁用 | boolean | false | - |
 | loading | 加载中的开关 | boolean | false | - |
 | size | 开关大小，可选值：`default` `small` | `default` \| `small` | `default` | - |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | SwitchStylesType | - | - |
 | unCheckedChildren | 非选中时的内容 | VueNode | - | - |
-| value | `checked` 的别名 | boolean | - | 5.12.0 |
+| unCheckedValue | 非选中时的值 | string \| number \| boolean \| object | false | - |
+| value | `checked` 的别名 | string \| number \| boolean \| object | - | 5.12.0 |
 
 ### 事件 {#events}
 

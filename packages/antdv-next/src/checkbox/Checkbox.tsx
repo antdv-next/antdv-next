@@ -8,6 +8,7 @@ import { filterEmpty } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, nextTick, onBeforeUnmount, shallowRef, watch } from 'vue'
 import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { isValueEqual } from '../_util/isEqual'
 import isNonNullable from '../_util/isNonNullable.ts'
 import { toPropsRefs } from '../_util/tools'
 import { checkRenderNode } from '../_util/vueNode.ts'
@@ -22,9 +23,11 @@ import { useGroupContext } from './GroupContext'
 import useStyle from './style'
 import useBubbleLock from './useBubbleLock.ts'
 
+export type CheckedValueType = string | number | boolean | object
+
 export interface AbstractCheckboxProps extends ComponentBaseProps {
-  defaultChecked?: boolean
-  checked?: boolean
+  defaultChecked?: CheckedValueType
+  checked?: CheckedValueType
   disabled?: boolean
   title?: string
   value?: any
@@ -35,6 +38,14 @@ export interface AbstractCheckboxProps extends ComponentBaseProps {
   type?: string
   skipGroup?: boolean
   required?: boolean
+  /**
+   * 选中时的值
+   */
+  checkedValue?: CheckedValueType
+  /**
+   * 非选中时的值
+   */
+  unCheckedValue?: CheckedValueType
 }
 
 export interface CheckboxEmits {
@@ -85,6 +96,7 @@ const defaults = {
   indeterminate: false,
   skipGroup: false,
 }
+
 const InternalCheckbox = defineComponent<
   CheckboxProps,
   CheckboxEmits,
@@ -106,6 +118,27 @@ const InternalCheckbox = defineComponent<
     const formItemContext = useFormItemContext()
     const contextDisabled = useDisabledContext()
     const mergedDisabled = computed(() => (checkboxGroup?.value?.disabled || props?.disabled) ?? contextDisabled.value)
+
+    // ===================== Checked Value =====================
+    // 获取选中和非选中的值，默认为 true/false
+    const mergedCheckedValue = computed(() => props.checkedValue ?? true)
+    const mergedUnCheckedValue = computed(() => props.unCheckedValue ?? false)
+
+    // 当前值（用于单独使用时，不在 Group 中）
+    const currentValue = shallowRef<CheckedValueType>(
+      props?.checked ?? props?.defaultChecked ?? mergedUnCheckedValue.value,
+    )
+    watch(
+      () => props.checked,
+      (newChecked) => {
+        if (newChecked !== undefined) {
+          currentValue.value = newChecked
+        }
+      },
+    )
+
+    // 计算是否选中（用于单独使用时）
+    const isChecked = computed(() => isValueEqual(currentValue.value, mergedCheckedValue.value))
     // =========== Merged Props for Semantic ==========
     const mergedProps = computed(() => {
       return {
@@ -171,6 +204,8 @@ const InternalCheckbox = defineComponent<
       'disabled',
       'classes',
       'styles',
+      'checkedValue',
+      'unCheckedValue',
     ] as const
     expose({
       blur: () => checkboxRef.value?.blur?.(),
@@ -185,7 +220,10 @@ const InternalCheckbox = defineComponent<
         ...omit(props, keys),
       }
 
-      if (checkboxGroup?.value && !skipGroup) {
+      // 是否在 Group 中使用
+      const inGroup = checkboxGroup?.value && !skipGroup
+
+      if (inGroup) {
         checkboxProps.onChange = (...args: any[]) => {
           emit('change', ...args)
           if (checkboxGroup.value.toggleOption) {
@@ -194,6 +232,10 @@ const InternalCheckbox = defineComponent<
         }
         checkboxProps.name = checkboxGroup.value?.name
         checkboxProps.checked = checkboxGroup?.value?.value.includes?.(props.value)
+      }
+      else {
+        // 单独使用时，使用 isChecked 判断选中状态
+        checkboxProps.checked = isChecked.value
       }
 
       const classString = clsx(
@@ -240,8 +282,17 @@ const InternalCheckbox = defineComponent<
                     }
                     checkboxProps?.onChange?.(e)
                   },
-                  'onUpdate:checked': (checked: any) => {
-                    emit('update:checked', checked)
+                  'onUpdate:checked': (checked: boolean) => {
+                    if (inGroup) {
+                      // 在 Group 中使用时，保持原有行为
+                      emit('update:checked', checked)
+                    }
+                    else {
+                      // 单独使用时，返回自定义值
+                      const newValue = checked ? mergedCheckedValue.value : mergedUnCheckedValue.value
+                      currentValue.value = newValue
+                      emit('update:checked', newValue)
+                    }
                   },
                 } as any
               }
