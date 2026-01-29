@@ -7,7 +7,7 @@ import type {
   NoticeType,
   TypeOpen,
 } from './interface'
-import { createVNode, defineComponent, onMounted, render, shallowRef, watch } from 'vue'
+import { createVNode, defineComponent, getCurrentInstance, onMounted, render, shallowRef, watch } from 'vue'
 import { useAppConfig } from '../app/context.ts'
 import { useBaseConfig } from '../config-provider/context.ts'
 import ConfigProvider, { globalConfig } from '../config-provider/index.tsx'
@@ -62,6 +62,14 @@ function getGlobalContext() {
   const { getContainer, duration, rtl, maxCount, top, pauseOnHover } = defaultGlobalConfig
   const mergedContainer = getContainer?.() || document.body
 
+  let appContext = defaultGlobalConfig.appContext
+  const instance = getCurrentInstance()
+  if (instance && !appContext) {
+    appContext = instance.appContext
+  }
+  else if (!appContext) {
+    appContext = globalConfig().appContext
+  }
   return {
     getContainer: () => mergedContainer,
     duration,
@@ -69,6 +77,7 @@ function getGlobalContext() {
     maxCount,
     top,
     pauseOnHover,
+    appContext,
   }
 }
 
@@ -182,6 +191,11 @@ function flushMessageQueue() {
           })
         },
       })
+
+      const globalContext = getGlobalContext()
+      if (globalContext.appContext) {
+        vnode.appContext = globalContext.appContext
+      }
       render(vnode, holderFragment as any)
     })
     return

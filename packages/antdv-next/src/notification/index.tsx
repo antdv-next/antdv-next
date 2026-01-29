@@ -1,6 +1,6 @@
 import type { Key } from '@v-c/util/dist/type'
 import type { ArgsProps, GlobalConfigProps, NotificationInstance } from './interface'
-import { createVNode, defineComponent, onMounted, render, shallowRef, watch } from 'vue'
+import { createVNode, defineComponent, getCurrentInstance, onMounted, render, shallowRef, watch } from 'vue'
 import { useAppConfig } from '../app/context.ts'
 import { useBaseConfig } from '../config-provider/context.ts'
 import ConfigProvider, { globalConfig } from '../config-provider/index.tsx'
@@ -39,6 +39,15 @@ function getGlobalContext() {
   const { getContainer, rtl, maxCount, top, bottom, showProgress, pauseOnHover } = defaultGlobalConfig
   const mergedContainer = getContainer?.() || document.body
 
+  let appContext = defaultGlobalConfig.appContext
+  const instance = getCurrentInstance()
+  if (instance && !appContext) {
+    appContext = instance.appContext
+  }
+  else if (!appContext) {
+    appContext = globalConfig().appContext
+  }
+
   return {
     getContainer: () => mergedContainer,
     rtl,
@@ -47,6 +56,7 @@ function getGlobalContext() {
     bottom,
     showProgress,
     pauseOnHover,
+    appContext,
   }
 }
 
@@ -160,6 +170,10 @@ function flushNotificationQueue() {
           })
         },
       })
+      const globalCtx = getGlobalContext()
+      if (globalCtx.appContext) {
+        vnode.appContext = globalCtx.appContext
+      }
       render(vnode, holderFragment as any)
     })
     return

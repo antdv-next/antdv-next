@@ -1,5 +1,5 @@
 import type { DialogProps } from '@v-c/dialog'
-import type { CSSProperties } from 'vue'
+import type { AppContext, CSSProperties } from 'vue'
 import type { MaskType, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { ClosableType } from '../_util/hooks/useClosable'
 import type { Breakpoint } from '../_util/responsiveObserver'
@@ -181,6 +181,7 @@ export interface ModalFuncProps extends ModalCommonProps {
   footer?: ModalProps['footer']
   modalRender?: ModalProps['modalRender']
   focusTriggerAfterClose?: boolean
+  appContext?: AppContext
 }
 export interface ModalLocale {
   okText: string

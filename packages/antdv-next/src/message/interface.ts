@@ -1,5 +1,5 @@
 import type { Key } from '@v-c/util/dist/type'
-import type { CSSProperties } from 'vue'
+import type { AppContext, CSSProperties } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { VueNode } from '../_util/type'
 
@@ -38,6 +38,7 @@ export interface ConfigOptions {
   pauseOnHover?: boolean
   classes?: ArgsClassNamesType
   styles?: ArgsStylesType
+  appContext?: AppContext
 }
 
 export interface ArgsProps {

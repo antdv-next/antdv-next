@@ -1,5 +1,5 @@
 import type { Key } from '@v-c/util/dist/type'
-import type { CSSProperties, HTMLAttributes } from 'vue'
+import type { AppContext, CSSProperties, HTMLAttributes } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { ClosableType } from '../_util/hooks/useClosable'
 import type { VueNode } from '../_util/type'
@@ -115,4 +115,5 @@ export interface GlobalConfigProps {
   rtl?: boolean
   maxCount?: number
   props?: DivProps
+  appContext?: AppContext
 }
