@@ -1,6 +1,6 @@
 import type { Ref } from 'vue'
 import type { KeyType } from '../Cache'
-import { computed, watch } from 'vue'
+import { computed, onBeforeUnmount, shallowRef, watch } from 'vue'
 import { pathKey } from '../Cache'
 import { useStyleContext } from '../StyleContext'
 import { isClientSide } from '../util'
@@ -25,7 +25,8 @@ const effectMap = new Map<string, boolean>()
  * - No useInsertionEffect needed - Vue's watchEffect handles timing naturally
  * - No StrictMode double-mounting issues - Vue doesn't double-mount
  * - HMR handling is simpler - can rely on Vue's reactivity system
- * - No need for cleanup register pattern - onBeforeUnmount is sufficient
+ * - Uses onBeforeUnmount for cleanup instead of watch's onCleanup to have
+ *   better control over cleanup timing (important for Transition animations)
  */
 export function useGlobalCache<CacheType>(
   prefix: Ref<string>,
@@ -39,80 +40,88 @@ export function useGlobalCache<CacheType>(
   const fullPath = computed(() => [prefix.value, ...keyPath.value])
   const fullPathStr = computed(() => pathKey(fullPath.value))
 
-  type UpdaterArgs = [times: number, cache: CacheType]
+  // 记录当前的 path，用于在 onBeforeUnmount 中清理
+  const currentPathRef = shallowRef(fullPathStr.value)
 
-  const buildCache = (updater?: (data: UpdaterArgs) => UpdaterArgs) => {
-    const globalCache = styleContext.value.cache
-    globalCache.opUpdate(fullPathStr.value, (prevCache) => {
-      const [times = 0, cache] = prevCache || [undefined, undefined]
-      const mergedCache = cache || cacheFn()
-      const data: UpdaterArgs = [times, mergedCache]
+  const globalCache = () => styleContext.value.cache
+  const isServerSide = () => styleContext.value.mock !== undefined
+    ? styleContext.value.mock === 'server'
+    : !isClientSide
 
-      return updater ? updater(data) : data
+  // 清理缓存的函数
+  const clearCache = (pathStr: string) => {
+    if (isServerSide()) {
+      return
+    }
+    globalCache().opUpdate(pathStr, (prevCache) => {
+      const [times = 0, cache] = prevCache || []
+      const nextCount = times - 1
+
+      if (nextCount === 0) {
+        // Last reference, remove cache
+        onCacheRemove?.(cache, false)
+        effectMap.delete(pathStr)
+        return null
+      }
+
+      return [times - 1, cache]
     })
   }
 
-  const getCacheEntity = () => styleContext.value.cache.opGet(fullPathStr.value)
-
-  buildCache()
-
   const cacheContent = computed(() => {
-    let entity = styleContext.value.cache.opGet(fullPathStr.value)
+    let entity = globalCache().opGet(fullPathStr.value)
 
     // 在所有环境下检查 entity 是否存在，避免生产环境下主题切换时缓存为空导致的错误
     if (!entity) {
-      buildCache()
-      entity = getCacheEntity()
+      globalCache().opUpdate(fullPathStr.value, (prevCache) => {
+        const [times = 0, cache] = prevCache || [undefined, undefined]
+        const mergedCache = cache || cacheFn()
+        return [times, mergedCache]
+      })
+      entity = globalCache().opGet(fullPathStr.value)
     }
 
     return entity![1]!
   })
 
-  // Initial cache creation - watch for keyPath changes
+  // Watch for keyPath changes
   watch(
     fullPathStr,
-    (_, _1, onCleanup) => {
-      const currentPath = fullPathStr.value
-      buildCache(([times, cache]) => [times + 1, cache])
-      if (!effectMap.has(currentPath)) {
+    (newPath, oldPath) => {
+      // 如果 path 变化了，先清理旧的缓存
+      if (oldPath) {
+        clearCache(oldPath)
+      }
+
+      // 更新当前 path 引用
+      currentPathRef.value = newPath
+
+      // 创建或增加新缓存的引用计数
+      globalCache().opUpdate(newPath, (prevCache) => {
+        const [times = 0, cache] = prevCache || [undefined, undefined]
+        const mergedCache = cache || cacheFn()
+        return [times + 1, mergedCache]
+      })
+
+      // 触发 effect
+      if (!effectMap.has(newPath)) {
         onCacheEffect?.(cacheContent.value)
-        effectMap.set(currentPath, true)
-        // 微任务清理混存，可以认为是单次 batch render 中只触发一次 effect
+        effectMap.set(newPath, true)
+        // 微任务清理缓存，可以认为是单次 batch render 中只触发一次 effect
         Promise.resolve().then(() => {
-          effectMap.delete(currentPath)
+          effectMap.delete(newPath)
         })
       }
-      const globalCache = styleContext.value.cache
-      const isServerSide = styleContext.value.mock !== undefined
-        ? styleContext.value.mock === 'server'
-        : !isClientSide
-
-      // Cleanup on unmount or when fullPathStr changes
-      onCleanup(() => {
-        if (isServerSide) {
-          return
-        }
-        globalCache.opUpdate(currentPath, (prevCache) => {
-          // if (!prevCache)
-          //   return null
-          const [times = 0, cache] = prevCache || []
-          const nextCount = times - 1
-
-          if (nextCount === 0) {
-          // Last reference, remove cache
-            onCacheRemove?.(cache, false)
-            effectMap.delete(currentPath)
-            return null
-          }
-
-          return [times - 1, cache]
-        })
-      })
     },
-    {
-      immediate: true,
-    },
+    { immediate: true },
   )
+
+  // 组件卸载时清理缓存
+  // 使用 onBeforeUnmount 而不是 watch 的 onCleanup，
+  // 这样可以更好地控制清理时机（对 Transition 动画很重要）
+  onBeforeUnmount(() => {
+    clearCache(currentPathRef.value)
+  })
 
   return cacheContent
 }
