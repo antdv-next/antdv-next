@@ -76,7 +76,7 @@ function getGlobalIconPrefixCls() {
 }
 
 function setGlobalConfig(props: GlobalConfigProps) {
-  const { prefixCls, iconPrefixCls, theme, holderRender } = props
+  const { prefixCls, iconPrefixCls, theme, holderRender, appContext } = props
   if (prefixCls !== undefined) {
     globalPrefixCls = prefixCls
     globalConfigData.prefixCls = prefixCls
@@ -84,6 +84,9 @@ function setGlobalConfig(props: GlobalConfigProps) {
   if (iconPrefixCls !== undefined) {
     globalIconPrefixCls = iconPrefixCls
     globalConfigData.iconPrefixCls = iconPrefixCls
+  }
+  if (appContext) {
+    globalConfigData.appContext = appContext
   }
   if ('holderRender' in props) {
     globalHolderRender = holderRender
