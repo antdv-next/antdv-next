@@ -1,0 +1,32 @@
+name: Publish Preview
+
+on:
+  pull_request: {}
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - run: corepack enable
+
+      - uses: actions/setup-node@v4
+        with:
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Build workspace
+        run: pnpm -r --filter "./packages/*" run build
+
+      - name: Publish preview packages
+        run: pnpx pkg-pr-new publish './packages/*'
