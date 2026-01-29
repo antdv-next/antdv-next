@@ -484,10 +484,13 @@ describe('anchor Render', () => {
       },
       attachTo: document.body,
     })
+    await waitFakeTimer()
 
     await wrapper.find(`a[href="nonexistent"]`).trigger('click')
     await waitFakeTimer()
-    expect(wrapper.element.querySelector(`.ant-anchor-link-title-active`)?.textContent).toBe('title')
+    // Check that the link with href "nonexistent" has the active class
+    const link = wrapper.element.querySelector(`a[href="nonexistent"]`)
+    expect(link).toHaveClass('ant-anchor-link-title-active')
     wrapper.unmount()
   })
 
