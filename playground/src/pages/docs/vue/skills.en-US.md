@@ -36,7 +36,7 @@ Skills can contain three types of content, each loaded at different times:
 
 **What does this mean?**
 - AI Agent only knows at startup that "there's an Antdv Next Skill available to help with components"
-- When you request "create a Button component", the AI loads the complete Button documentation
+- When you request "use Button component", the AI loads the complete Button documentation
 - If documentation references example code, AI reads those files on-demand
 - Unused component documentation doesn't consume any context
 

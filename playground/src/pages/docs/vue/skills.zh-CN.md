@@ -36,7 +36,7 @@ Skills 可以包含三种类型的内容，每种在不同时间加载：
 
 **这意味着什么？**
 - AI Agent 启动时只知道「有一个 Antdv Next Skill 可以帮助处理组件」
-- 当你请求「创建一个 Button 组件」时，AI 才加载 Button 的完整文档
+- 当你请求「使用 Button 组件」时，AI 才加载 Button 的完整文档
 - 如果文档引用了示例代码，AI 会按需读取这些文件
 - 未使用的组件文档不会消耗任何上下文
 
@@ -46,7 +46,7 @@ Skills 可以包含三种类型的内容，每种在不同时间加载：
 
 ::: tip 需要注意的是
 
-我们建议不要单独食用 Antdv Next Skill 配合[Antfu Skills集合](https://github.com/antfu/skills)来使用更佳，如果你使用`vue`可以将`vue`的skill以及相关的`skills`全都导入以减少`AI`幻觉，让他的输出更为标准！
+我们建议不要单独食用 Antdv Next Skill 配合 [Antfu Skills 集合](https://github.com/antfu/skills) 来使用更佳，如果你使用 `vue` 可以将 `vue` 的skill以及相关的 `skills` 全都导入以减少 `AI` 幻觉，让他的输出更为标准！
 
 :::
 
