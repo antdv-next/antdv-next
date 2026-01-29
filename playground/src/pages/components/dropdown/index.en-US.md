@@ -47,7 +47,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | menu | The menu props | MenuProps & &#123; activeKey?: VcMenuProps['activeKey'], onClick?: MenuEmits['click'] &#125; | - | - |
 | autoFocus | Focus the first menu item when opened | boolean | - | - |
 | arrow | Whether the dropdown arrow should be visible. Supports `pointAtCenter` | boolean \| DropdownArrowOptions | false | - |
-| trigger | The trigger mode which executes the dropdown action. Note that hover can't be used on touchscreens | ('click' \| 'hover' \| 'contextMenu')[] | ['hover'] | - |
+| trigger | The trigger mode which executes the dropdown action. Note that hover can't be used on touchscreens | ('click' \| 'hover' \| 'contextmenu')[] | ['hover'] | - |
 | popupRender | Customize popup content | (menu: VueNode) =&gt; VueNode | - | - |
 | open | Whether the dropdown menu is currently open | boolean | - | - |
 | disabled | Whether the dropdown menu is disabled | boolean | - | - |

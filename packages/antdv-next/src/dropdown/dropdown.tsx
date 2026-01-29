@@ -74,7 +74,7 @@ export interface DropdownProps extends ComponentBaseProps {
   menu?: MenuProps & { activeKey?: VcMenuProps['activeKey'], onClick?: MenuEmits['click'] }
   autoFocus?: boolean
   arrow?: boolean | DropdownArrowOptions
-  trigger?: ('click' | 'hover' | 'contextMenu')[]
+  trigger?: ('click' | 'hover' | 'contextmenu' | 'contextMenu')[]
   popupRender?: (Vnode: any) => any
   // onOpenChange?: (open: boolean, info: { source: 'trigger' | 'menu' }) => void;
   open?: boolean
@@ -160,9 +160,14 @@ const Dropdown = defineComponent<
     // =================== Warning =====================
     const warning = devUseWarning('Dropdown')
 
-    const triggerActions = computed(() => props.disabled ? [] : props.trigger)
+    const triggerActions = computed(() => {
+      if (props.disabled)
+        return []
+      // 兼容处理：将 contextMenu 转换为 contextmenu
+      return props.trigger?.map(t => (t === 'contextMenu' ? 'contextmenu' : t) as 'click' | 'hover' | 'contextmenu')
+    })
 
-    const alignPoint = computed(() => !!triggerActions.value?.includes('contextMenu'))
+    const alignPoint = computed(() => !!triggerActions.value?.includes('contextmenu'))
 
     // =========================== Open ============================
     const mergedOpen = shallowRef(props.open ?? false)
