@@ -21,8 +21,21 @@ const effectMap = new Map<string, boolean>()
  */
 const REMOVE_STYLE_DELAY = 500
 
-// 用于存储延迟移除的定时器，以便在重新挂载时取消
-const delayedRemoveTimers = new Map<string, ReturnType<typeof setTimeout>>()
+/**
+ * 延迟移除信息
+ * - timer: 延迟定时器
+ * - pendingDecrements: 待执行的 decrement 次数
+ *
+ * 这个设计解决了两个问题：
+ * 1. 组件快速重新挂载时，通过减少 pendingDecrements 来抵消，而不是简单取消定时器
+ * 2. 多个共享样式的组件卸载时，累加 pendingDecrements，确保每个卸载都被正确计数
+ */
+interface DelayedRemoveInfo {
+  timer: ReturnType<typeof setTimeout>
+  pendingDecrements: number
+}
+
+const delayedRemoveInfo = new Map<string, DelayedRemoveInfo>()
 
 /**
  * Global cache for CSS-in-JS styles
@@ -63,14 +76,8 @@ export function useGlobalCache<CacheType>(
       return
     }
 
-    // 取消之前可能存在的延迟移除定时器
-    const existingTimer = delayedRemoveTimers.get(pathStr)
-    if (existingTimer) {
-      clearTimeout(existingTimer)
-      delayedRemoveTimers.delete(pathStr)
-    }
-
-    const doCleanup = () => {
+    // 执行单次 decrement
+    const doSingleDecrement = () => {
       globalCache().opUpdate(pathStr, (prevCache) => {
         const [times = 0, cache] = prevCache || []
         const nextCount = times - 1
@@ -82,23 +89,54 @@ export function useGlobalCache<CacheType>(
           return null
         }
 
-        return [times - 1, cache]
+        return [nextCount, cache]
       })
+    }
+
+    // 执行所有 pending 的 decrements
+    const doAllPendingDecrements = (count: number) => {
+      for (let i = 0; i < count; i++) {
+        doSingleDecrement()
+      }
     }
 
     if (immediate || !isClientSide) {
       // 立即清理：
       // 1. path 变化时清理旧缓存
       // 2. 服务端渲染时不需要延迟（没有 Transition 动画）
-      doCleanup()
+      doSingleDecrement()
     }
     else {
       // 延迟清理（用于客户端组件卸载时，等待可能的 Transition 动画完成）
-      const timer = setTimeout(() => {
-        delayedRemoveTimers.delete(pathStr)
-        doCleanup()
-      }, REMOVE_STYLE_DELAY)
-      delayedRemoveTimers.set(pathStr, timer)
+      const existingInfo = delayedRemoveInfo.get(pathStr)
+
+      if (existingInfo) {
+        // 已有 pending info，增加 pendingDecrements 并重置定时器
+        clearTimeout(existingInfo.timer)
+        const newPendingDecrements = existingInfo.pendingDecrements + 1
+
+        const timer = setTimeout(() => {
+          delayedRemoveInfo.delete(pathStr)
+          doAllPendingDecrements(newPendingDecrements)
+        }, REMOVE_STYLE_DELAY)
+
+        delayedRemoveInfo.set(pathStr, {
+          timer,
+          pendingDecrements: newPendingDecrements,
+        })
+      }
+      else {
+        // 创建新的 pending info
+        const timer = setTimeout(() => {
+          delayedRemoveInfo.delete(pathStr)
+          doSingleDecrement()
+        }, REMOVE_STYLE_DELAY)
+
+        delayedRemoveInfo.set(pathStr, {
+          timer,
+          pendingDecrements: 1,
+        })
+      }
     }
   }
 
@@ -130,19 +168,50 @@ export function useGlobalCache<CacheType>(
       // 更新当前 path 引用
       currentPathRef.value = newPath
 
-      // 如果存在延迟移除定时器，说明之前的组件刚卸载还在等待移除
-      // 此时取消定时器，复用之前的缓存
-      // 注意：此时不需要增加引用计数，因为定时器被取消意味着之前的 decrement 不会执行，
-      // 而之前 mount 时的 increment 已经执行过了，所以引用计数已经是正确的
-      const existingTimer = delayedRemoveTimers.get(newPath)
-      if (existingTimer) {
-        clearTimeout(existingTimer)
-        delayedRemoveTimers.delete(newPath)
-        // 跳过 increment，直接触发 effect
+      // 检查是否有 pending 的延迟移除
+      const existingInfo = delayedRemoveInfo.get(newPath)
+
+      if (existingInfo) {
+        // 存在 pending 的延迟移除，说明之前有组件卸载还在等待
+        // 减少 pendingDecrements，因为这次挂载抵消了一次卸载
+        const newPendingDecrements = existingInfo.pendingDecrements - 1
+
+        if (newPendingDecrements <= 0) {
+          // 所有 pending decrements 都被抵消了，取消定时器
+          clearTimeout(existingInfo.timer)
+          delayedRemoveInfo.delete(newPath)
+          // 不需要增加引用计数，因为之前的 mount 已经增加过了
+        }
+        else {
+          // 还有其他 pending decrements，更新计数但保持定时器
+          // 重置定时器以延长等待时间
+          clearTimeout(existingInfo.timer)
+          const timer = setTimeout(() => {
+            delayedRemoveInfo.delete(newPath)
+            // 执行剩余的 decrements
+            for (let i = 0; i < newPendingDecrements; i++) {
+              globalCache().opUpdate(newPath, (prevCache) => {
+                const [times = 0, cache] = prevCache || []
+                const nextCount = times - 1
+                if (nextCount === 0) {
+                  onCacheRemove?.(cache, false)
+                  effectMap.delete(newPath)
+                  return null
+                }
+                return [nextCount, cache]
+              })
+            }
+          }, REMOVE_STYLE_DELAY)
+
+          delayedRemoveInfo.set(newPath, {
+            timer,
+            pendingDecrements: newPendingDecrements,
+          })
+          // 不需要增加引用计数，因为之前的 mount 已经增加过了
+        }
       }
       else {
-        // 创建或增加新缓存的引用计数
-        // 只有在没有 pending 的延迟移除时才增加计数
+        // 没有 pending 的延迟移除，正常增加引用计数
         globalCache().opUpdate(newPath, (prevCache) => {
           const [times = 0, cache] = prevCache || [undefined, undefined]
           const mergedCache = cache || cacheFn()

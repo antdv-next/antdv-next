@@ -363,4 +363,161 @@ describe('transition unmount timing', () => {
 
     wrapper.unmount()
   })
+
+  /**
+   * 测试多个共享样式的组件在延迟期间同时卸载
+   * Bug: 当两个组件共享同一样式并在 500ms 内都卸载时，
+   * 第一个卸载的 pending decrement 被取消，只执行一次 decrement，
+   * 导致引用计数泄漏
+   */
+  it('should correctly decrement ref count when multiple shared components unmount within delay period', async () => {
+    const onRemove = vi.fn()
+
+    const SharedComponent = defineComponent({
+      name: 'SharedUnmount',
+      setup() {
+        const prefix = ref('shared-unmount')
+        const keyPath = ref(['SharedUnmountStyle'])
+
+        useGlobalCache(
+          prefix,
+          keyPath,
+          () => ({ style: `.SharedUnmount { color: red; }` }),
+          onRemove,
+        )
+
+        return () => h('div', 'Shared Unmount')
+      },
+    })
+
+    const showFirst = ref(true)
+    const showSecond = ref(true)
+
+    const App = defineComponent({
+      setup() {
+        return () => h(
+          StyleProvider,
+          { cache },
+          () => [
+            showFirst.value ? h(SharedComponent, { key: 'first' }) : null,
+            showSecond.value ? h(SharedComponent, { key: 'second' }) : null,
+          ],
+        )
+      },
+    })
+
+    const wrapper = mount(App)
+    await nextTick()
+
+    // 两个组件共享同一个样式，引用计数为 2
+    expect(onRemove).not.toHaveBeenCalled()
+
+    // 在延迟期间同时卸载两个组件（不等待延迟时间）
+    showFirst.value = false
+    await nextTick()
+
+    // 第一个卸载后，立即卸载第二个（在延迟期间内）
+    vi.advanceTimersByTime(REMOVE_STYLE_DELAY / 4) // 只等 1/4 时间
+    showSecond.value = false
+    await nextTick()
+
+    // 两个组件都卸载了，但还在延迟中
+    expect(onRemove).not.toHaveBeenCalled()
+
+    // 等待完整的延迟时间
+    vi.advanceTimersByTime(REMOVE_STYLE_DELAY)
+    await nextTick()
+
+    // 关键断言：两个 decrement 都应该执行，引用计数归零，样式被移除
+    // 如果存在 bug（第一个 decrement 被取消），onRemove 不会被调用
+    expect(onRemove).toHaveBeenCalledTimes(1)
+
+    wrapper.unmount()
+  })
+
+  /**
+   * 测试更复杂的场景：多个组件快速挂载/卸载混合操作
+   */
+  it('should handle complex mount/unmount interleaving with shared styles', async () => {
+    const onRemove = vi.fn()
+
+    const SharedComponent = defineComponent({
+      name: 'ComplexShared',
+      setup() {
+        const prefix = ref('complex')
+        const keyPath = ref(['ComplexSharedStyle'])
+
+        useGlobalCache(
+          prefix,
+          keyPath,
+          () => ({ style: `.ComplexShared { color: orange; }` }),
+          onRemove,
+        )
+
+        return () => h('div', 'Complex Shared')
+      },
+    })
+
+    const showA = ref(true)
+    const showB = ref(true)
+    const showC = ref(false)
+
+    const App = defineComponent({
+      setup() {
+        return () => h(
+          StyleProvider,
+          { cache },
+          () => [
+            showA.value ? h(SharedComponent, { key: 'a' }) : null,
+            showB.value ? h(SharedComponent, { key: 'b' }) : null,
+            showC.value ? h(SharedComponent, { key: 'c' }) : null,
+          ],
+        )
+      },
+    })
+
+    const wrapper = mount(App)
+    await nextTick()
+
+    // 初始状态：A 和 B 挂载，引用计数 = 2
+    expect(onRemove).not.toHaveBeenCalled()
+
+    // 卸载 A
+    showA.value = false
+    await nextTick()
+    vi.advanceTimersByTime(REMOVE_STYLE_DELAY / 4)
+
+    // 卸载 B（在 A 的延迟期间）
+    showB.value = false
+    await nextTick()
+    vi.advanceTimersByTime(REMOVE_STYLE_DELAY / 4)
+
+    // 挂载 C（在延迟期间，应该抵消一次 decrement）
+    showC.value = true
+    await nextTick()
+    vi.advanceTimersByTime(REMOVE_STYLE_DELAY / 4)
+
+    // 此时：2 次卸载 + 1 次挂载抵消 = 1 次 pending decrement
+    // 引用计数应该从 2 变成 1（2 - 2 + 1 = 1）
+
+    // 等待延迟完成
+    vi.advanceTimersByTime(REMOVE_STYLE_DELAY)
+    await nextTick()
+
+    // 样式不应该被移除，因为 C 还在使用
+    expect(onRemove).not.toHaveBeenCalled()
+
+    // 卸载 C
+    showC.value = false
+    await nextTick()
+
+    // 等待延迟时间
+    vi.advanceTimersByTime(REMOVE_STYLE_DELAY)
+    await nextTick()
+
+    // 现在样式应该被移除
+    expect(onRemove).toHaveBeenCalledTimes(1)
+
+    wrapper.unmount()
+  })
 })
