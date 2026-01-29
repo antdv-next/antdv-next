@@ -36,10 +36,12 @@ const Menu = defineComponent<
     })
     return () => {
       const events = {
-        onClick: (...args: any[]) => emit('click', ...args),
-        onSelect: (...args: any[]) => emit('select', ...args),
-        onDeselect: (...args: any[]) => emit('deselect', ...args),
-        onOpenChange: (...args: any[]) => emit('openChange', ...args),
+        'onClick': (...args: any[]) => emit('click', ...args),
+        'onSelect': (...args: any[]) => emit('select', ...args),
+        'onDeselect': (...args: any[]) => emit('deselect', ...args),
+        'onOpenChange': (...args: any[]) => emit('openChange', ...args),
+        'onUpdate:openKeys': (...args: any[]) => emit('update:openKeys', ...args),
+        'onUpdate:selectedKeys': (...args: any[]) => emit('update:selectedKeys', ...args),
       }
       return (
         <InternalMenu

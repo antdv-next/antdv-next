@@ -123,13 +123,15 @@ export interface TabsProps extends BaseTabsProps, CompatibilityProps, Omit<
   renderTabBar?: (args: { props: any, TabNavListComponent: any }) => any
 }
 
+export type TabItem = Tab & Record<string, any>
+
 export interface TabsSlots {
   default: () => any
   addIcon: () => any
   moreIcon: () => any
   removeIcon: () => any
-  labelRender: (args: { item: Tab, index: number }) => any
-  contentRender: (args: { item: Tab, index: number }) => any
+  labelRender: (args: { item: TabItem, index: number }) => any
+  contentRender: (args: { item: TabItem, index: number }) => any
   renderTabBar?: (args: { props: any, TabNavListComponent: any }) => any
   rightExtra?: () => any
   leftExtra?: () => any
