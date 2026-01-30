@@ -1,0 +1,273 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`app demo > renders basic correctly 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-app css-var-root"
+  >
+    <!---->
+    <!---->
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"
+      style="flex-wrap: wrap;"
+    >
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+          type="button"
+        >
+          <transition-stub
+            appear="false"
+            css="true"
+            name="ant-btn-loading-icon-motion"
+            persisted="false"
+          >
+            <!---->
+          </transition-stub>
+          <span>
+             Open message 
+          </span>
+          <!---->
+        </button>
+      </div>
+      <!---->
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+          type="button"
+        >
+          <transition-stub
+            appear="false"
+            css="true"
+            name="ant-btn-loading-icon-motion"
+            persisted="false"
+          >
+            <!---->
+          </transition-stub>
+          <span>
+             Open modal 
+          </span>
+          <!---->
+        </button>
+      </div>
+      <!---->
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+          type="button"
+        >
+          <transition-stub
+            appear="false"
+            css="true"
+            name="ant-btn-loading-icon-motion"
+            persisted="false"
+          >
+            <!---->
+          </transition-stub>
+          <span>
+             Open notification 
+          </span>
+          <!---->
+        </button>
+      </div>
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`app demo > renders config correctly 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-app css-var-root"
+  >
+    <!---->
+    <!---->
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"
+      style="flex-wrap: wrap;"
+    >
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+          type="button"
+        >
+          <transition-stub
+            appear="false"
+            css="true"
+            name="ant-btn-loading-icon-motion"
+            persisted="false"
+          >
+            <!---->
+          </transition-stub>
+          <span>
+             Message for only one 
+          </span>
+          <!---->
+        </button>
+      </div>
+      <!---->
+      <div
+        class="ant-space-item"
+      >
+        <button
+          class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+          type="button"
+        >
+          <transition-stub
+            appear="false"
+            css="true"
+            name="ant-btn-loading-icon-motion"
+            persisted="false"
+          >
+            <!---->
+          </transition-stub>
+          <span>
+             Notification for bottomLeft 
+          </span>
+          <!---->
+        </button>
+      </div>
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`app demo > renders myPage correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"
+  style="flex-wrap: wrap;"
+>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ant-btn-loading-icon-motion"
+        persisted="false"
+      >
+        <!---->
+      </transition-stub>
+      <span>
+         Open message 
+      </span>
+      <!---->
+    </button>
+  </div>
+  <!---->
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ant-btn-loading-icon-motion"
+        persisted="false"
+      >
+        <!---->
+      </transition-stub>
+      <span>
+         Open modal 
+      </span>
+      <!---->
+    </button>
+  </div>
+  <!---->
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ant-btn-loading-icon-motion"
+        persisted="false"
+      >
+        <!---->
+      </transition-stub>
+      <span>
+         Open notification 
+      </span>
+      <!---->
+    </button>
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`app demo > renders myPage2 correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"
+  style="flex-wrap: wrap;"
+>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ant-btn-loading-icon-motion"
+        persisted="false"
+      >
+        <!---->
+      </transition-stub>
+      <span>
+         Message for only one 
+      </span>
+      <!---->
+    </button>
+  </div>
+  <!---->
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ant-btn-loading-icon-motion"
+        persisted="false"
+      >
+        <!---->
+      </transition-stub>
+      <span>
+         Notification for bottomLeft 
+      </span>
+      <!---->
+    </button>
+  </div>
+  <!---->
+</div>
+`;
