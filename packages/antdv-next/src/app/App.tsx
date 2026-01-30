@@ -60,7 +60,7 @@ const App = defineComponent<AppProps>(
       devUseWarning('App')(
         !(cssVarCls.value && component === false),
         'usage',
-        'When using cssVar, ensure `component` is assigned a valid React component string.',
+        'When using cssVar, ensure `component` is assigned a valid Vue component string.',
       )
       // ============================ Render ============================
       const Component = component === false ? Fragment : component

@@ -264,7 +264,7 @@ describe('app', () => {
       ))
 
       expect(errorSpy).toHaveBeenCalledWith(
-        'Warning: [antd: App] When using cssVar, ensure `component` is assigned a valid React component string.',
+        'Warning: [antd: App] When using cssVar, ensure `component` is assigned a valid Vue component string.',
       )
       wrapper.unmount()
     })
