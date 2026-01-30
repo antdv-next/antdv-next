@@ -1,14 +1,16 @@
-/**
- * 判断两个值是否相等（支持对象比较）
- * @param val1 第一个值
- * @param val2 第二个值
- * @returns 是否相等
- */
-export function isValueEqual<T>(val1: T, val2: T): boolean {
-  if (val1 === val2)
+export function isValueEqual<T>(a: T, b: T): boolean {
+  if (Object.is(a, b))
     return true
-  if (typeof val1 === 'object' && typeof val2 === 'object' && val1 !== null && val2 !== null) {
-    return JSON.stringify(val1) === JSON.stringify(val2)
+
+  // 不同类型，直接不等
+  if (typeof a !== typeof b)
+    return false
+
+  // 对象 / 函数：只认同一引用
+  if ((typeof a === 'object' && a !== null) || typeof a === 'function') {
+    return false
   }
+
+  // 其他原始类型已经在 Object.is 里处理过
   return false
 }
