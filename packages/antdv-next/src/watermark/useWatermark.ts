@@ -1,4 +1,4 @@
-import type { CSSProperties, Ref } from 'vue'
+import type { ComputedRef, CSSProperties, Ref } from 'vue'
 import { reactive } from 'vue'
 import { getStyleStr } from './utils.ts'
 
@@ -20,7 +20,7 @@ export type AppendWatermark = (
   container: HTMLElement,
 ) => void
 
-export default function useWatermark(markStyle: Ref<CSSProperties>): [
+export default function useWatermark(markStyle: Ref<CSSProperties>, onRemove?: ComputedRef<(() => void) | undefined>): [
     appendWatermark: AppendWatermark,
     removeWatermark: (container: HTMLElement) => void,
     isWatermarkEle: (ele: Node) => boolean,
@@ -28,10 +28,13 @@ export default function useWatermark(markStyle: Ref<CSSProperties>): [
   const watermarkMap = reactive(new Map<HTMLElement, HTMLDivElement>())
   const appendWatermark = (base64Url: string, markWidth: number, container: HTMLElement) => {
     if (container) {
-      if (!watermarkMap.get(container)) {
+      const exist = watermarkMap.get(container)
+
+      if (!exist) {
         const newWatermarkEle = document.createElement('div')
         watermarkMap.set(container, newWatermarkEle)
       }
+
       const watermarkEle = watermarkMap.get(container)!
       watermarkEle.setAttribute('style', getStyleStr({
         ...markStyle.value,
@@ -44,6 +47,9 @@ export default function useWatermark(markStyle: Ref<CSSProperties>): [
       watermarkEle.removeAttribute('hidden')
 
       if (watermarkEle.parentElement !== container) {
+        if (exist && typeof onRemove?.value === 'function') {
+          onRemove.value?.()
+        }
         container.append(watermarkEle)
       }
     }

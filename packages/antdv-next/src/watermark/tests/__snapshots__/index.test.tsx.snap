@@ -1,0 +1,63 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`watermark > image watermark snapshot 1`] = `
+"<div class="" style="position: relative; overflow: hidden;">
+  <!---->
+  <div style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,mock'); background-size: 470px; visibility: visible !important;"></div>
+</div>"
+`;
+
+exports[`watermark > interleaved watermark backgroundSize is correct 1`] = `
+"<div class="watermark watermark" style="position: relative; overflow: hidden;">
+  <!---->
+  <div style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,mock'); background-size: 720px; visibility: visible !important;"></div>
+</div>"
+`;
+
+exports[`watermark > invalid image watermark 1`] = `
+"<div class="watermark watermark" style="position: relative; overflow: hidden;">
+  <!---->
+  <div style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,mock'); background-size: 470px; visibility: visible !important;"></div>
+</div>"
+`;
+
+exports[`watermark > mutationObserver should work properly 1`] = `
+"<div class="watermark watermark" style="position: relative; overflow: hidden;">
+  <!---->
+  <div style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,mock'); background-size: 301px; visibility: visible !important;"></div>
+</div>"
+`;
+
+exports[`watermark > observe the modification of style > watermark 1`] = `
+"<div class="watermark watermark" style="position: relative; overflow: hidden;">
+  <!---->
+  <div style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: -250px -250px; background-image: url('data:image/png;base64,mock'); background-size: 301px; visibility: visible !important;"></div>
+</div>"
+`;
+
+exports[`watermark > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class=""
+    style="position: relative; overflow: hidden;"
+  >
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`watermark > the offset should be correct 1`] = `
+"<div class="watermark watermark" style="position: relative; overflow: hidden;">
+  <!---->
+  <div style="z-index: 9; position: absolute; left: 150px; top: 150px; width: calc(100% - 150px); height: calc(100% - 150px); pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,mock'); background-size: 312px; visibility: visible !important;"></div>
+</div>"
+`;
+
+exports[`watermark > the watermark should render successfully 1`] = `
+"<div class="watermark watermark" style="position: relative; overflow: hidden;">
+  <!---->
+  <div style="z-index: 9; position: absolute; left: 0; top: 0; width: 100%; height: 100%; pointer-events: none; background-repeat: repeat; background-position: 0px 0px; background-image: url('data:image/png;base64,mock'); background-size: 301px; visibility: visible !important;"></div>
+</div>"
+`;

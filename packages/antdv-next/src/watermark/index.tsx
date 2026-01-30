@@ -32,6 +32,7 @@ export interface WatermarkProps {
   gap?: [number, number]
   offset?: [number, number]
   inherit?: boolean
+  onRemove?: (() => void) | undefined
 }
 
 /**
@@ -65,6 +66,7 @@ const defaults = {
 const Watermark = defineComponent<WatermarkProps>(
   (props = defaults, { slots, attrs }) => {
     const [,token] = useToken()
+    const onRemove = computed(() => props.onRemove)
     const color = computed(() => props.font?.color ?? token.value.colorFill)
     const fontSize = computed(() => props?.font?.fontSize ?? token.value?.fontSizeLG)
     const fontWeight = computed(() => props?.font?.fontWeight ?? 'normal')
@@ -209,7 +211,7 @@ const Watermark = defineComponent<WatermarkProps>(
     const syncWatermark = useRafDebounce(renderWatermark)
     // ============================= Effect =============================
     // Append watermark to the container
-    const [appendWatermark, removeWatermark, isWatermarkEle] = useWatermark(markStyle)
+    const [appendWatermark, removeWatermark, isWatermarkEle] = useWatermark(markStyle, onRemove)
 
     watch([watermarkInfo, targetElements], ([watermarkInfo, targetElements]) => {
       if (watermarkInfo) {
