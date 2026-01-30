@@ -55,8 +55,8 @@ yarn add @antdv-next/icons
 - `AutoComplete`
     - `dropdownMatchSelectWidth` 弃用，变为 `popupMatchSelectWidth`。
     - `dropdownStyle` 弃用，变为 `styles.popup.root`。
-    - `dropdownClassName` 弃用，变为 `classNames.popup.root`。
-    - `popupClassName` 弃用，变为 `classNames.popup.root`。
+    - `dropdownClassName` 弃用，变为 `classes.popup.root`。
+    - `popupClassName` 弃用，变为 `classes.popup.root`。
     - `dropdownRender` 弃用，变为 `popupRender`。
     - `onDropdownVisibleChange` 弃用，变为 `onOpenChange`。
     - `dataSource` 弃用，变为 `options`。
@@ -95,7 +95,7 @@ yarn add @antdv-next/icons
     - `dotPosition` 弃用，变为 `dotPlacement`。
 
 - `Cascader`
-    - `dropdownClassName` 弃用，变为 `classNames.popup.root`。
+    - `dropdownClassName` 弃用，变为 `classes.popup.root`。
     - `dropdownStyle` 弃用，变为 `styles.popup.root`。
     - `dropdownRender` 弃用，变为 `popupRender`。
     - `dropdownMenuColumnStyle` 弃用，变为 `popupMenuColumnStyle`。
@@ -114,15 +114,15 @@ yarn add @antdv-next/icons
     - `dropdownMatchSelectWidth` 弃用，变为 `popupMatchSelectWidth`。
 
 - `DatePicker.RangePicker`
-    - `dropdownClassName` 弃用，变为 `classNames.popup.root`。
-    - `popupClassName` 弃用，变为 `classNames.popup.root`。
+    - `dropdownClassName` 弃用，变为 `classes.popup.root`。
+    - `popupClassName` 弃用，变为 `classes.popup.root`。
     - `popupStyle` 弃用，变为 `styles.popup.root`。
     - `bordered` 弃用，变为 `variant`。
     - `onSelect` 弃用，变为 `onCalendarChange`。
 
 - `DatePicker`
-    - `dropdownClassName` 弃用，变为 `classNames.popup.root`。
-    - `popupClassName` 弃用，变为 `classNames.popup.root`。
+    - `dropdownClassName` 弃用，变为 `classes.popup.root`。
+    - `popupClassName` 弃用，变为 `classes.popup.root`。
     - `popupStyle` 弃用，变为 `styles.popup.root`。
     - `bordered` 弃用，变为 `variant`。
     - `onSelect` 弃用，变为 `onCalendarChange`。
@@ -152,7 +152,7 @@ yarn add @antdv-next/icons
 - `Dropdown`
     - `dropdownRender` 弃用，变为 `popupRender`。
     - `destroyPopupOnHide` 弃用，变为 `destroyOnHidden`。
-    - `overlayClassName` 弃用，变为 `classNames.root`。
+    - `overlayClassName` 弃用，变为 `classes.root`。
     - `overlayStyle` 弃用，变为 `styles.root`。
     - `placement: xxxCenter` 弃用，变为 `placement: xxx`。
 
@@ -166,8 +166,8 @@ yarn add @antdv-next/icons
     - `wrapperStyle` 弃用，变为 `styles.root`。
     - `visible` 弃用，变为 `open`。
     - `onVisibleChange` 弃用，变为 `onOpenChange`。
-    - `maskClassName` 弃用，变为 `classNames.cover`。
-    - `rootClassName` 弃用，变为 `classNames.root`。
+    - `maskClassName` 弃用，变为 `classes.cover`。
+    - `rootClassName` 弃用，变为 `classes.root`。
     - `toolbarRender` 弃用，变为 `actionsRender`。
 
 - `Input.Group`
@@ -202,8 +202,8 @@ yarn add @antdv-next/icons
 - `Select`
     - `dropdownMatchSelectWidth` 弃用，变为 `popupMatchSelectWidth`。
     - `dropdownStyle` 弃用，变为 `styles.popup.root`。
-    - `dropdownClassName` 弃用，变为 `classNames.popup.root`。
-    - `popupClassName` 弃用，变为 `classNames.popup.root`。
+    - `dropdownClassName` 弃用，变为 `classes.popup.root`。
+    - `popupClassName` 弃用，变为 `classes.popup.root`。
     - `dropdownRender` 弃用，变为 `popupRender`。
     - `onDropdownVisibleChange` 弃用，变为 `onOpenChange`。
     - `bordered` 弃用，变为 `variant`。
@@ -226,7 +226,7 @@ yarn add @antdv-next/icons
     - `layout` 弃用，变为 `orientation`。
 
 - `Countdown`
-    - `<Statistic.Countdown />` 弃用，变为 `<Statistic.Timer type="countdown" />`。
+    - `<a-statistic-countdown />` 弃用，变为 `<a-statistic-timer type="countdown" />`。
 
 - `Statistic`
     - `valueStyle` 弃用，变为 `styles.content`。
@@ -245,7 +245,7 @@ yarn add @antdv-next/icons
     - `filterCheckall` 弃用，变为 `locale.filterCheckAll`。
 
 - `Tabs`
-    - `popupClassName` 弃用，变为 `classNames.popup`。
+    - `popupClassName` 弃用，变为 `classes.popup`。
     - `tabPosition` 弃用，变为 `tabPlacement`。
     - `destroyInactiveTabPane` 弃用，变为 `destroyOnHidden`。
     - `Tabs.TabPane` 弃用，变为 `items`。
@@ -266,7 +266,7 @@ yarn add @antdv-next/icons
 - `Tooltip`
     - `overlayStyle` 弃用，变为 `styles.root`。
     - `overlayInnerStyle` 弃用，变为 `styles.container`。
-    - `overlayClassName` 弃用，变为 `classNames.root`。
+    - `overlayClassName` 弃用，变为 `classes.root`。
     - `destroyTooltipOnHide` 弃用，变为 `destroyOnHidden`。
 
 - `Transfer`
@@ -277,8 +277,8 @@ yarn add @antdv-next/icons
 - `TreeSelect`
     - `dropdownMatchSelectWidth` 弃用，变为 `popupMatchSelectWidth`。
     - `dropdownStyle` 弃用，变为 `styles.popup.root`。
-    - `dropdownClassName` 弃用，变为 `classNames.popup.root`。
-    - `popupClassName` 弃用，变为 `classNames.popup.root`。
+    - `dropdownClassName` 弃用，变为 `classes.popup.root`。
+    - `popupClassName` 弃用，变为 `classes.popup.root`。
     - `dropdownRender` 弃用，变为 `popupRender`。
     - `onDropdownVisibleChange` 弃用，变为 `onOpenChange`。
     - `bordered` 弃用，变为 `variant`。
@@ -330,9 +330,12 @@ yarn add @antdv-next/icons
 </template>
 ```
 
+### Tooltip调整
+
+插槽`overlay`已被移除，改为使用`popupRender`来代替。
+
 ### Form 调整
 
-- 去掉了`rules`中配置`trigger`的规则，统一和Ant Design 规范保持一致，采用在`a-form-item`上添加`validate-trigger`属性控制
 - 去掉了`a-form-rest`取消被动收集的组件，默认情况下我们不会主动收集`a-form-item`内的组件作为表单域，需要手动通过`name`属性指定。
 
 ## 升级影响排查 Checklist

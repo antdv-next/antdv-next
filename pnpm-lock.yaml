@@ -374,8 +374,8 @@ catalogs:
       specifier: ^1.0.0
       version: 1.0.0
     '@v-c/tabs':
-      specifier: ^1.0.0
-      version: 1.0.0
+      specifier: ^1.0.1
+      version: 1.0.1
     '@v-c/textarea':
       specifier: ^1.0.3
       version: 1.0.3
@@ -652,7 +652,7 @@ importers:
         version: 1.0.0(vue@3.5.27(typescript@5.9.3))
       '@v-c/tabs':
         specifier: catalog:vc
-        version: 1.0.0(vue@3.5.27(typescript@5.9.3))
+        version: 1.0.1(vue@3.5.27(typescript@5.9.3))
       '@v-c/textarea':
         specifier: catalog:vc
         version: 1.0.3(vue@3.5.27(typescript@5.9.3))
@@ -2329,8 +2329,8 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
-  '@v-c/tabs@1.0.0':
-    resolution: {integrity: sha512-vKadsGv0EeRtJf6xomyAk0EODUpWIeLb+OIJMZQEyRBYEXywoYg5jjR86Rxo1sHJRkxQ6gMy1+52O0NZMOGRyQ==}
+  '@v-c/tabs@1.0.1':
+    resolution: {integrity: sha512-6G6cWKdxb8l3IuR802mZGV+l8GAvCEJCoVQcyG3BwiBYOeOii6eyET5D+yMp7mC7dsFRxc2y7q0krxyo97CosQ==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -7208,7 +7208,7 @@ snapshots:
       '@v-c/virtual-list': 1.0.5(vue@3.5.27(typescript@5.9.3))
       vue: 3.5.27(typescript@5.9.3)
 
-  '@v-c/tabs@1.0.0(vue@3.5.27(typescript@5.9.3))':
+  '@v-c/tabs@1.0.1(vue@3.5.27(typescript@5.9.3))':
     dependencies:
       '@v-c/dropdown': 1.0.2(vue@3.5.27(typescript@5.9.3))
       '@v-c/menu': 1.0.7(vue@3.5.27(typescript@5.9.3))

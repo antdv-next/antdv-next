@@ -8,6 +8,7 @@
     "lint": "eslint . --fix",
     "ci:publish": "pnpm publish -r --access=public",
     "ci:lint": "eslint",
+    "lint:fix": "eslint --fix",
     "bump": "pnpm changeset version",
     "build:antdv": "pnpm -F antdv-next build",
     "build:llm": "pnpm -F antdv-next run build:llm",
@@ -74,7 +75,7 @@
   },
   "lint-staged": {
     "*.{js,ts,tsx,vue,json}": [
-      "eslint . --fix"
+      "pnpm run lint:fix"
     ]
   }
 }

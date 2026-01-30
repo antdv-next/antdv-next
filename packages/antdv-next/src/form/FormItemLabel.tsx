@@ -20,7 +20,7 @@ export type WrapperTooltipProps = TooltipProps & {
 
 export type LabelTooltipType = WrapperTooltipProps | VueNode
 
-export type ColPropsWithClass = ColProps & { class: string }
+export type ColPropsWithClass = ColProps & { class?: string }
 
 export interface FormItemLabelProps {
   colon?: boolean

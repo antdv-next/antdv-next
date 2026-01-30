@@ -4,7 +4,7 @@ import en from 'antdv-next/locale/en_US'
 import cn from 'antdv-next/locale/zh_CN'
 import dayjs from 'dayjs'
 import { storeToRefs } from 'pinia'
-import { computed, onMounted, shallowRef, watch } from 'vue'
+import { computed, getCurrentInstance, onMounted, shallowRef, watch } from 'vue'
 import { themeModeStore } from '@/composables/local-store'
 import { applyThemeToDOM, useTheme } from '@/composables/theme'
 import { useAppStore } from '@/stores/app'
@@ -61,12 +61,14 @@ const themeConfig = computed(() => {
     zeroRuntime,
   } as any
 })
+const instance = getCurrentInstance()
 
 watch(
   themeConfig,
   () => {
-    ;(ConfigProvider as any).config({
+    ConfigProvider.config({
       theme: themeConfig.value,
+      appContext: instance?.appContext,
     })
   },
   {

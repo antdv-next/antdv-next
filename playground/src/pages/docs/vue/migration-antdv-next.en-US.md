@@ -55,8 +55,8 @@ yarn add @antdv-next/icons
 - `AutoComplete`
     - `dropdownMatchSelectWidth` deprecated, changed to `popupMatchSelectWidth`.
     - `dropdownStyle` deprecated, changed to `styles.popup.root`.
-    - `dropdownClassName` deprecated, changed to `classNames.popup.root`.
-    - `popupClassName` deprecated, changed to `classNames.popup.root`.
+    - `dropdownClassName` deprecated, changed to `classes.popup.root`.
+    - `popupClassName` deprecated, changed to `classes.popup.root`.
     - `dropdownRender` deprecated, changed to `popupRender`.
     - `onDropdownVisibleChange` deprecated, changed to `onOpenChange`.
     - `dataSource` deprecated, changed to `options`.
@@ -95,7 +95,7 @@ yarn add @antdv-next/icons
     - `dotPosition` deprecated, changed to `dotPlacement`.
 
 - `Cascader`
-    - `dropdownClassName` deprecated, changed to `classNames.popup.root`.
+    - `dropdownClassName` deprecated, changed to `classes.popup.root`.
     - `dropdownStyle` deprecated, changed to `styles.popup.root`.
     - `dropdownRender` deprecated, changed to `popupRender`.
     - `dropdownMenuColumnStyle` deprecated, changed to `popupMenuColumnStyle`.
@@ -114,15 +114,15 @@ yarn add @antdv-next/icons
     - `dropdownMatchSelectWidth` deprecated, changed to `popupMatchSelectWidth`.
 
 - `DatePicker.RangePicker`
-    - `dropdownClassName` deprecated, changed to `classNames.popup.root`.
-    - `popupClassName` deprecated, changed to `classNames.popup.root`.
+    - `dropdownClassName` deprecated, changed to `classes.popup.root`.
+    - `popupClassName` deprecated, changed to `classes.popup.root`.
     - `popupStyle` deprecated, changed to `styles.popup.root`.
     - `bordered` deprecated, changed to `variant`.
     - `onSelect` deprecated, changed to `onCalendarChange`.
 
 - `DatePicker`
-    - `dropdownClassName` deprecated, changed to `classNames.popup.root`.
-    - `popupClassName` deprecated, changed to `classNames.popup.root`.
+    - `dropdownClassName` deprecated, changed to `classes.popup.root`.
+    - `popupClassName` deprecated, changed to `classes.popup.root`.
     - `popupStyle` deprecated, changed to `styles.popup.root`.
     - `bordered` deprecated, changed to `variant`.
     - `onSelect` deprecated, changed to `onCalendarChange`.
@@ -152,7 +152,7 @@ yarn add @antdv-next/icons
 - `Dropdown`
     - `dropdownRender` deprecated, changed to `popupRender`.
     - `destroyPopupOnHide` deprecated, changed to `destroyOnHidden`.
-    - `overlayClassName` deprecated, changed to `classNames.root`.
+    - `overlayClassName` deprecated, changed to `classes.root`.
     - `overlayStyle` deprecated, changed to `styles.root`.
     - `placement: xxxCenter` deprecated, changed to `placement: xxx`.
 
@@ -166,8 +166,8 @@ yarn add @antdv-next/icons
     - `wrapperStyle` deprecated, changed to `styles.root`.
     - `visible` deprecated, changed to `open`.
     - `onVisibleChange` deprecated, changed to `onOpenChange`.
-    - `maskClassName` deprecated, changed to `classNames.cover`.
-    - `rootClassName` deprecated, changed to `classNames.root`.
+    - `maskClassName` deprecated, changed to `classes.cover`.
+    - `rootClassName` deprecated, changed to `classes.root`.
     - `toolbarRender` deprecated, changed to `actionsRender`.
 
 - `Input.Group`
@@ -202,8 +202,8 @@ yarn add @antdv-next/icons
 - `Select`
     - `dropdownMatchSelectWidth` deprecated, changed to `popupMatchSelectWidth`.
     - `dropdownStyle` deprecated, changed to `styles.popup.root`.
-    - `dropdownClassName` deprecated, changed to `classNames.popup.root`.
-    - `popupClassName` deprecated, changed to `classNames.popup.root`.
+    - `dropdownClassName` deprecated, changed to `classes.popup.root`.
+    - `popupClassName` deprecated, changed to `classes.popup.root`.
     - `dropdownRender` deprecated, changed to `popupRender`.
     - `onDropdownVisibleChange` deprecated, changed to `onOpenChange`.
     - `bordered` deprecated, changed to `variant`.
@@ -226,7 +226,7 @@ yarn add @antdv-next/icons
     - `layout` deprecated, changed to `orientation`.
 
 - `Countdown`
-    - `<Statistic.Countdown />` deprecated, changed to `<Statistic.Timer type="countdown" />`.
+    - `<a-statistic-countdown />` deprecated, changed to `<a-statistic-timer type="countdown" />`.
 
 - `Statistic`
     - `valueStyle` deprecated, changed to `styles.content`.
@@ -245,7 +245,7 @@ yarn add @antdv-next/icons
     - `filterCheckall` deprecated, changed to `locale.filterCheckAll`.
 
 - `Tabs`
-    - `popupClassName` deprecated, changed to `classNames.popup`.
+    - `popupClassName` deprecated, changed to `classes.popup`.
     - `tabPosition` deprecated, changed to `tabPlacement`.
     - `destroyInactiveTabPane` deprecated, changed to `destroyOnHidden`.
     - `Tabs.TabPane` deprecated, changed to `items`.
@@ -266,7 +266,7 @@ yarn add @antdv-next/icons
 - `Tooltip`
     - `overlayStyle` deprecated, changed to `styles.root`.
     - `overlayInnerStyle` deprecated, changed to `styles.container`.
-    - `overlayClassName` deprecated, changed to `classNames.root`.
+    - `overlayClassName` deprecated, changed to `classes.root`.
     - `destroyTooltipOnHide` deprecated, changed to `destroyOnHidden`.
 
 - `Transfer`
@@ -277,8 +277,8 @@ yarn add @antdv-next/icons
 - `TreeSelect`
     - `dropdownMatchSelectWidth` deprecated, changed to `popupMatchSelectWidth`.
     - `dropdownStyle` deprecated, changed to `styles.popup.root`.
-    - `dropdownClassName` deprecated, changed to `classNames.popup.root`.
-    - `popupClassName` deprecated, changed to `classNames.popup.root`.
+    - `dropdownClassName` deprecated, changed to `classes.popup.root`.
+    - `popupClassName` deprecated, changed to `classes.popup.root`.
     - `dropdownRender` deprecated, changed to `popupRender`.
     - `onDropdownVisibleChange` deprecated, changed to `onOpenChange`.
     - `bordered` deprecated, changed to `variant`.
@@ -330,9 +330,12 @@ yarn add @antdv-next/icons
 </template>
 ```
 
+### Tooltip Adjustments
+
+The `overlay` slot has been removed. Use `popupRender` instead.
+
 ### Form Adjustments
 
-- Removed the `trigger` configuration in `rules`. Now uniformly aligned with Ant Design standards, using the `validate-trigger` attribute on `a-form-item` to control validation timing.
 - Removed `a-form-rest` to cancel passive collection of components. By default, we do not actively collect components inside `a-form-item` as form fields, and you need to manually specify them through the `name` attribute.
 
 ## Upgrade Impact Investigation Checklist

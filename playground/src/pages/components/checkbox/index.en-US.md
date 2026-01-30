@@ -33,9 +33,12 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| checked | Specifies whether the checkbox is selected | boolean | false | - |
+| checked | Specifies whether the checkbox is selected | string \| number \| boolean \| object | false | - |
+| checkedValue | The value when checked | string \| number \| boolean \| object | true | - |
+| defaultChecked | Whether to set the initial state | string \| number \| boolean \| object | false | - |
 | disabled | If disable checkbox | boolean | false | - |
 | indeterminate | The indeterminate checked state of checkbox | boolean | false | - |
+| unCheckedValue | The value when unchecked | string \| number \| boolean \| object | false | - |
 | classes | Customize class for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: \{ props \})=&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: \{ props \})=&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - |
 

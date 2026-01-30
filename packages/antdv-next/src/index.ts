@@ -4,12 +4,16 @@ import { StyleProvider } from '@antdv-next/cssinjs'
 import * as components from './components'
 import version from './version'
 
+export { useResponsive } from './_util/hooks/useResponsive'
+
+export * from './components'
+
 export type {
   SizeType,
 }
-export { useResponsive } from './_util/hooks/useResponsive'
+export type { ThemeConfig } from './config-provider/context'
 let prefix = 'A'
-export * from './components'
+export { useBreakpoint } from './grid'
 export default {
   setPrefix(newPrefix: string) {
     prefix = newPrefix
@@ -27,7 +31,7 @@ export default {
   version,
 } as Plugin
 
-export { useBreakpoint } from './grid'
+export type { GlobalToken } from './theme'
 
 export { default as theme } from './theme'
 

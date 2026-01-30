@@ -125,9 +125,27 @@ const InternalFormItem = defineComponent<
         collectedRules.push(...props.rules)
       }
       if (props.required !== undefined) {
+        // 继承已有规则中的 type，避免 InputNumber 等组件的类型验证冲突
+        let ruleType = collectedRules.find(r => (r as RuleObject).type)?.type
+        // 如果没有已定义的 type，则根据当前值的类型推断
+        if (!ruleType) {
+          const currentValue = hasName.value
+            ? (formContext.value?.getFieldValue?.(namePath.value) ?? getValue(formContext.value?.model ?? {}, namePath.value))
+            : undefined
+          if (typeof currentValue === 'number') {
+            ruleType = 'number'
+          }
+          else if (typeof currentValue === 'boolean') {
+            ruleType = 'boolean'
+          }
+          else if (Array.isArray(currentValue)) {
+            ruleType = 'array'
+          }
+        }
         collectedRules.push({
           required: !!props.required,
           trigger: mergedValidateTrigger.value || [],
+          ...(ruleType ? { type: ruleType } : {}),
         } as RuleObject)
       }
       return collectedRules as RuleObject[]
@@ -173,7 +191,6 @@ const InternalFormItem = defineComponent<
       }
       let filteredRules = mergedRules.value
       const { triggerName } = options
-
       if (triggerName) {
         filteredRules = filteredRules.filter((rule) => {
           const ruleTrigger = (rule as any).trigger

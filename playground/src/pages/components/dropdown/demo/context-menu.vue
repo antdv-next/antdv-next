@@ -29,7 +29,7 @@ const { token } = theme.useToken()
 </script>
 
 <template>
-  <a-dropdown :menu="{ items }" :trigger="['contextMenu']">
+  <a-dropdown :menu="{ items }" :trigger="['contextmenu']">
     <div
       :style="{
         color: token.colorTextTertiary,

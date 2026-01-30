@@ -80,7 +80,7 @@ const ExceptionStatus = Object.keys(ExceptionMap)
  */
 
 interface IconProps {
-  icon: VueNode
+  icon?: VueNode
   status: ResultStatusType
 }
 const defaultIconProps = {

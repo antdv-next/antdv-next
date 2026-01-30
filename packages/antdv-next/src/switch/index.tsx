@@ -9,6 +9,7 @@ import { clsx } from '@v-c/util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, shallowRef, watch } from 'vue'
 import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { isValueEqual } from '../_util/isEqual'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import Wave from '../_util/wave'
 import { useComponentBaseConfig } from '../config-provider/context'
@@ -34,20 +35,30 @@ export type SwitchClassNamesType = SemanticClassNamesType<SwitchProps, SwitchSem
 
 export type SwitchStylesType = SemanticStylesType<SwitchProps, SwitchSemanticStyles>
 
+export type CheckedValueType = string | number | boolean | object
+
 export interface SwitchProps extends ComponentBaseProps {
   size?: SwitchSize
-  checked?: boolean
-  defaultChecked?: boolean
+  checked?: CheckedValueType
+  defaultChecked?: CheckedValueType
   /**
    * Alias for `checked`.
    * @since 5.12.0
    */
-  value?: boolean
+  value?: CheckedValueType
   /**
    * Alias for `defaultChecked`.
    * @since 5.12.0
    */
-  defaultValue?: boolean
+  defaultValue?: CheckedValueType
+  /**
+   * 选中时的值
+   */
+  checkedValue?: CheckedValueType
+  /**
+   * 非选中时的值
+   */
+  unCheckedValue?: CheckedValueType
   // 这两个给插槽
   checkedChildren?: VueNode
   unCheckedChildren?: VueNode
@@ -64,8 +75,8 @@ export interface SwitchProps extends ComponentBaseProps {
 export interface SwitchEmits {
   'change': SwitchChangeEventHandler
   'click': SwitchClickEventHandler
-  'update:checked': (checked: boolean) => void
-  'update:value': (checked: boolean) => void
+  'update:checked': (checked: CheckedValueType) => void
+  'update:value': (checked: CheckedValueType) => void
   [key: string]: (...args: any[]) => any
 }
 
@@ -85,6 +96,8 @@ const keys = [
   'value',
   'defaultChecked',
   'defaultValue',
+  'checkedValue',
+  'unCheckedValue',
   'styles',
   'classes',
   'checkedChildren',
@@ -98,13 +111,29 @@ const Switch = defineComponent<
   SlotsType<SwitchSlots>
 >(
   (props, { slots, emit, attrs }) => {
-    const checked = shallowRef(props?.checked ?? props?.value ?? props?.defaultChecked ?? props?.defaultValue ?? false)
+    // 获取选中和非选中的值，默认为 true/false
+    const mergedCheckedValue = computed(() => props.checkedValue ?? true)
+    const mergedUnCheckedValue = computed(() => props.unCheckedValue ?? false)
+
+    // 获取当前值
+    const currentValue = shallowRef<CheckedValueType>(
+      props?.checked ?? props?.value ?? props?.defaultChecked ?? props?.defaultValue ?? mergedUnCheckedValue.value,
+    )
     watch(
       [() => props.checked, () => props.value],
       ([newChecked, newValue]) => {
-        checked.value = newChecked ?? newValue ?? false
+        if (newChecked !== undefined) {
+          currentValue.value = newChecked
+        }
+        else if (newValue !== undefined) {
+          currentValue.value = newValue
+        }
       },
     )
+
+    // 计算是否选中（用于传递给底层 VcSwitch）
+    const isChecked = computed(() => isValueEqual(currentValue.value, mergedCheckedValue.value))
+
     const {
       prefixCls,
       direction,
@@ -140,12 +169,13 @@ const Switch = defineComponent<
 
     const changeHandler: SwitchChangeEventHandler = (...args) => {
       emit('change', ...args)
-      // emit('update:checked', args[0])
-      // emit('update:value', args[0])
     }
-    const handleVMHandler = (value: boolean) => {
-      emit('update:checked', value)
-      emit('update:value', value)
+    const handleVMHandler = (checked: boolean) => {
+      // 根据 checked 状态返回对应的自定义值
+      const newValue = checked ? mergedCheckedValue.value : mergedUnCheckedValue.value
+      currentValue.value = newValue
+      emit('update:checked', newValue)
+      emit('update:value', newValue)
     }
     return () => {
       const {
@@ -186,10 +216,10 @@ const Switch = defineComponent<
         <Wave component="Switch" disabled={mergedDisabled.value}>
           <VcSwitch
             {...restAttrs}
-            {...restProps}
+            {...restProps as any}
             classNames={mergedClassNames.value}
             styles={mergedStyles.value}
-            checked={checked.value}
+            checked={isChecked.value}
             onChange={changeHandler}
             prefixCls={prefixCls.value}
             className={classes}

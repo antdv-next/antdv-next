@@ -172,7 +172,7 @@ function handleFinish(values: any) {
       />
     </a-form-item>
 
-    <a-form-item name="age" label="Age" :rules="[{ type: 'number', min: 0, max: 120 }]">
+    <a-form-item name="age" :required="true" label="Age" :rules="[{ type: 'number', min: 0, max: 120 }]">
       <a-input-number v-model:value="model.age" style="width: 100%" />
     </a-form-item>
 

@@ -6,7 +6,7 @@ export type EmptyObject = Record<never, never>
 
 export type RenderNodeFn<Args extends any[] = any[]> = (...args: Args) => VNodeChild
 
-export type VueNode<Args extends any[] = any[]> = RenderNodeFn<Args> | boolean | string | number | null | undefined | VNode
+export type VueNode<Args extends any[] = any[]> = RenderNodeFn<Args> | string | number | null | undefined | VNode | boolean
 
 export type EmitsArrToEvent<T extends Record<string, any>> = {
   [K in keyof T]: T[K] extends any[] ? (...args: T[K]) => void : T[K]

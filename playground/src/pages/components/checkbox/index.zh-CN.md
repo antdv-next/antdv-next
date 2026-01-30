@@ -34,9 +34,12 @@ demo:
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| checked | 指定当前是否选中 | boolean | false | - |
+| checked | 指定当前是否选中 | string \| number \| boolean \| object | false | - |
+| checkedValue | 选中时的值 | string \| number \| boolean \| object | true | - |
+| defaultChecked | 初始是否选中 | string \| number \| boolean \| object | false | - |
 | disabled | 失效状态 | boolean | false | - |
 | indeterminate | 设置 indeterminate 状态，只负责样式控制 | boolean | false | - |
+| unCheckedValue | 非选中时的值 | string \| number \| boolean \| object | false | - |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: \{ props \})=&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: \{ props \})=&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - |
 
