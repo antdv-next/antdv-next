@@ -96,7 +96,7 @@ function onOpenChange(openKeys: string[]) {
 
     stateOpenKeys.value = openKeys
       .filter((_, index) => index !== repeatIndex)
-      .filter(key => levelKeys[key] <= levelKeys[currentOpenKey])
+      .filter(key => levelKeys[key]! <= levelKeys[currentOpenKey]!)
   }
   else {
     stateOpenKeys.value = openKeys

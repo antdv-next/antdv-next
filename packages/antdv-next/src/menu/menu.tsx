@@ -143,6 +143,7 @@ export interface MenuProps extends Omit<
   | 'labelRender'
   | 'extraRender'
   | 'itemIcon'
+  | 'iconRender'
 > {
   theme?: MenuTheme
   inlineIndent?: number
@@ -159,6 +160,7 @@ export interface MenuProps extends Omit<
   rootClass?: string
   labelRender?: (item: RenderItem) => any
   extraRender?: (item: RenderItem) => any
+  iconRender?: (item: RenderItem) => any
   itemIcon?: (props: MenuItemProps & RenderIconInfo) => any
 }
 
@@ -183,6 +185,7 @@ export interface MenuSlots {
   expandIcon: () => any
   labelRender: (item: RenderItem) => any
   extraRender: (item: RenderItem) => any
+  iconRender?: (item: RenderItem) => any
   itemIcon: (props: MenuItemProps & RenderIconInfo) => any
 }
 
@@ -338,6 +341,7 @@ const InternalMenu = defineComponent<
       const itemIcon = slots?.itemIcon ?? props?.itemIcon
       const labelRender = slots?.labelRender ?? props?.labelRender
       const extraRender = slots?.extraRender ?? props?.extraRender
+      const iconRender = slots?.iconRender ?? props?.iconRender
       // ========================= Render ==========================
       return (
         <OverrideProvider value={null}>
@@ -399,6 +403,7 @@ const InternalMenu = defineComponent<
               itemIcon={itemIcon}
               labelRender={labelRender as any}
               extraRender={extraRender as any}
+              iconRender={iconRender as any}
               _internalComponents={MENU_COMPONENTS}
             />
           </MenuContextProvider>

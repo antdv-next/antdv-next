@@ -91,7 +91,7 @@ function handleAfterOpenChange(visible: boolean) {
     v-model:file-list="fileList"
     action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
     list-type="picture-card"
-    :on-preview="handlePreview"
+    @preview="handlePreview"
     @change="handleChange"
   >
     <template v-if="fileList.length < 8">

@@ -46,6 +46,7 @@ function getBase64(file: FileType) {
 }
 
 async function handlePreview(file: UploadFile) {
+  console.log('file', file)
   if (!file.url && !file.preview && file.originFileObj) {
     file.preview = await getBase64(file.originFileObj as FileType)
   }
@@ -73,7 +74,7 @@ function handleAfterOpenChange(visible: boolean) {
     v-model:file-list="fileList"
     action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
     list-type="picture-circle"
-    :on-preview="handlePreview"
+    @preview="handlePreview"
     @change="handleChange"
   >
     <template v-if="fileList.length < 8">

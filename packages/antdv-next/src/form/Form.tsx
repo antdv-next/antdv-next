@@ -1,4 +1,4 @@
-import type { CSSProperties, SlotsType } from 'vue'
+import type { CSSProperties, HTMLAttributes, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { ComponentBaseProps, Variant } from '../config-provider/context'
 import type { SizeType } from '../config-provider/SizeContext.tsx'
@@ -69,8 +69,8 @@ export interface FormProps extends ComponentBaseProps {
   layout?: FormLayout
   labelAlign?: FormLabelAlign
   labelWrap?: boolean
-  labelCol?: ColProps
-  wrapperCol?: ColProps
+  labelCol?: ColProps & Partial<HTMLAttributes>
+  wrapperCol?: ColProps & Partial<HTMLAttributes>
   feedbackIcons?: FeedbackIcons
   size?: SizeType
   disabled?: boolean

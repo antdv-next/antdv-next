@@ -1,13 +1,13 @@
 import type { SlotsType } from 'vue'
-import type { SemanticClassNames, SemanticStyles } from '../../_util/hooks'
 import type { EmptyEmit } from '../../_util/type.ts'
 import type {
   ItemRender,
-  SemanticName,
   UploadFile,
   UploadListProgressProps,
   UploadListType,
   UploadLocale,
+  UploadSemanticClassNames,
+  UploadSemanticStyles,
 } from '../interface'
 import { DeleteOutlined, DownloadOutlined, EyeOutlined } from '@antdv-next/icons'
 import { clsx } from '@v-c/util'
@@ -20,8 +20,8 @@ import Tooltip from '../../tooltip'
 
 export interface ListItemProps {
   prefixCls: string
-  classes?: SemanticClassNames<SemanticName>
-  styles?: SemanticStyles<SemanticName>
+  classes?: UploadSemanticClassNames
+  styles?: UploadSemanticStyles
   locale: UploadLocale
   file: UploadFile
   items: UploadFile[]

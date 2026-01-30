@@ -169,31 +169,39 @@ const InternalCompoundedButton = defineComponent<
 
     const shape = computed(() => props.shape || button?.shape.value || 'default')
 
-    const mergedColorVariant = computed<ColorVariantPairType>(
-      () => {
-        const { color, variant, type, danger } = props
-        // >>>>> Local
-        // Color & Variant
-        if (color && variant) {
-          return [color, variant]
+    const parsedColorVariant = computed<ColorVariantPairType>(() => {
+      const { color, variant, type, danger } = props
+      // >>>>> Local
+      // Color & Variant
+      if (color && variant) {
+        return [color, variant]
+      }
+      // Sugar syntax
+      if (type || danger) {
+        const colorVariantPair = ButtonTypeMap[mergedType.value] || []
+        if (danger) {
+          return ['danger', colorVariantPair[1]]
         }
-        // Sugar syntax
-        if (type || danger) {
-          const colorVariantPair = ButtonTypeMap[mergedType.value] || []
-          if (danger) {
-            return ['danger', colorVariantPair[1]]
-          }
-          return colorVariantPair
-        }
-        // >>> Context fallback
-        if (button?.color?.value && button?.variant?.value) {
-          return [button.color.value, button.variant.value]
-        }
-        return ['default', 'outlined']
-      },
-    )
+        return colorVariantPair
+      }
+      // >>> Context fallback
+      if (button?.color?.value && button?.variant?.value) {
+        return [button.color.value, button.variant.value]
+      }
+      return ['default', 'outlined']
+    })
+
+    const mergedColorVariant = computed<ColorVariantPairType>(() => {
+      const [parsedColor, parsedVariant] = parsedColorVariant.value
+      if (props.ghost && parsedVariant === 'solid') {
+        return [parsedColor, 'outlined']
+      }
+      return [parsedColor, parsedVariant]
+    })
+
     const mergedColor = computed(() => mergedColorVariant.value[0])
     const mergedVariant = computed(() => mergedColorVariant.value[1])
+
     const isDanger = computed(() => mergedColor.value === 'danger')
     const mergedColorText = computed(() => isDanger.value ? 'dangerous' : mergedColor.value)
     const mergedInsertSpace = computed(() => {

@@ -14,6 +14,7 @@ export interface MenuItemType extends VcMenuItemType, DataAttributes {
   danger?: boolean
   icon?: any
   title?: string
+  [key: string]: any
 }
 
 export interface SubMenuType<T extends MenuItemType = MenuItemType>
@@ -21,12 +22,14 @@ export interface SubMenuType<T extends MenuItemType = MenuItemType>
   icon?: any
   theme?: 'dark' | 'light'
   children: ItemType<T>[]
+  [key: string]: any
 }
 
 export interface MenuItemGroupType<T extends MenuItemType = MenuItemType>
   extends Omit<VcMenuItemGroupType, 'children'> {
   children?: ItemType<T>[]
   key?: Key
+  [key: string]: any
 }
 
 export interface MenuDividerType extends VcMenuDividerType {

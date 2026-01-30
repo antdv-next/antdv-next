@@ -317,20 +317,20 @@ catalogs:
       specifier: ^1.0.2
       version: 1.0.2
     '@v-c/image':
-      specifier: ^1.0.1
-      version: 1.0.1
+      specifier: ^1.0.2
+      version: 1.0.2
     '@v-c/input':
       specifier: ^1.0.2
       version: 1.0.2
     '@v-c/input-number':
-      specifier: ^1.0.1
-      version: 1.0.1
+      specifier: ^1.0.2
+      version: 1.0.2
     '@v-c/mentions':
       specifier: ^1.0.0
       version: 1.0.0
     '@v-c/menu':
-      specifier: ^1.0.7
-      version: 1.0.7
+      specifier: ^1.0.8
+      version: 1.0.8
     '@v-c/mutate-observer':
       specifier: ^1.0.1
       version: 1.0.1
@@ -592,19 +592,19 @@ importers:
         version: 1.0.2(vue@3.5.27(typescript@5.9.3))
       '@v-c/image':
         specifier: catalog:vc
-        version: 1.0.1(vue@3.5.27(typescript@5.9.3))
+        version: 1.0.2(vue@3.5.27(typescript@5.9.3))
       '@v-c/input':
         specifier: catalog:vc
         version: 1.0.2(vue@3.5.27(typescript@5.9.3))
       '@v-c/input-number':
         specifier: catalog:vc
-        version: 1.0.1(vue@3.5.27(typescript@5.9.3))
+        version: 1.0.2(vue@3.5.27(typescript@5.9.3))
       '@v-c/mentions':
         specifier: catalog:vc
         version: 1.0.0(vue@3.5.27(typescript@5.9.3))
       '@v-c/menu':
         specifier: catalog:vc
-        version: 1.0.7(vue@3.5.27(typescript@5.9.3))
+        version: 1.0.8(vue@3.5.27(typescript@5.9.3))
       '@v-c/mutate-observer':
         specifier: catalog:vc
         version: 1.0.1(vue@3.5.27(typescript@5.9.3))
@@ -2200,13 +2200,13 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
-  '@v-c/image@1.0.1':
-    resolution: {integrity: sha512-QmtkLBZ38IKRoXWRLMoae91I6awOl0iqguRIT8kInEXhzxv4s5iurl8h+bBGJzM+OKthcOny6TxmrY7llZvusA==}
+  '@v-c/image@1.0.2':
+    resolution: {integrity: sha512-uTAhX+SRWjQHIUPJ0DAYUSzOEVnVDAmZazJNP5OqCqLuncrS7hUN37CQ1XgNKaF2Dt8b1aPFZlpXYb/zXfQdXw==}
     peerDependencies:
       vue: ^3.0.0
 
-  '@v-c/input-number@1.0.1':
-    resolution: {integrity: sha512-ro1rZwnUNP3BuOV/Uw++eixGfCO5sWVi7G4wsAX0kUo0ISZi30U3TI0ipXNzhIB2E3c2neqSYX9V+zHkcvw0fA==}
+  '@v-c/input-number@1.0.2':
+    resolution: {integrity: sha512-9wbAmdC0Nt18XlLLgfVbmulY50K7tc5RZsNeZuWnmqluTK3JTgZRSbPdRkzl308x8vtGyCOufnepsMrFei1NoQ==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -2220,8 +2220,8 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
-  '@v-c/menu@1.0.7':
-    resolution: {integrity: sha512-GwwPtyrCT/g46aSfS4KDRP6oVTsq0wzW6FlVAwJrOQEbWfOSTnfa7Wf6dv01muw1rHh5I9zCqaX8K+5GNMfMKw==}
+  '@v-c/menu@1.0.8':
+    resolution: {integrity: sha512-kLguW2dkWSOjn1BUaKbhd9Bp+5sxnu9qqPVohvdp/TixjYGntTztx59nzdeBdw/8T8ssNs8JBAQ1ttxQx2xyXQ==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -7059,13 +7059,13 @@ snapshots:
       '@v-c/util': 1.0.9(vue@3.5.27(typescript@5.9.3))
       vue: 3.5.27(typescript@5.9.3)
 
-  '@v-c/image@1.0.1(vue@3.5.27(typescript@5.9.3))':
+  '@v-c/image@1.0.2(vue@3.5.27(typescript@5.9.3))':
     dependencies:
       '@v-c/portal': 1.0.6(vue@3.5.27(typescript@5.9.3))
       '@v-c/util': 1.0.9(vue@3.5.27(typescript@5.9.3))
       vue: 3.5.27(typescript@5.9.3)
 
-  '@v-c/input-number@1.0.1(vue@3.5.27(typescript@5.9.3))':
+  '@v-c/input-number@1.0.2(vue@3.5.27(typescript@5.9.3))':
     dependencies:
       '@v-c/input': 1.0.2(vue@3.5.27(typescript@5.9.3))
       '@v-c/mini-decimal': 1.0.1
@@ -7080,13 +7080,13 @@ snapshots:
   '@v-c/mentions@1.0.0(vue@3.5.27(typescript@5.9.3))':
     dependencies:
       '@v-c/input': 1.0.2(vue@3.5.27(typescript@5.9.3))
-      '@v-c/menu': 1.0.7(vue@3.5.27(typescript@5.9.3))
+      '@v-c/menu': 1.0.8(vue@3.5.27(typescript@5.9.3))
       '@v-c/textarea': 1.0.3(vue@3.5.27(typescript@5.9.3))
       '@v-c/trigger': 1.0.6(vue@3.5.27(typescript@5.9.3))
       '@v-c/util': 1.0.9(vue@3.5.27(typescript@5.9.3))
       vue: 3.5.27(typescript@5.9.3)
 
-  '@v-c/menu@1.0.7(vue@3.5.27(typescript@5.9.3))':
+  '@v-c/menu@1.0.8(vue@3.5.27(typescript@5.9.3))':
     dependencies:
       '@v-c/overflow': 1.0.3(vue@3.5.27(typescript@5.9.3))
       '@v-c/trigger': 1.0.6(vue@3.5.27(typescript@5.9.3))
@@ -7211,7 +7211,7 @@ snapshots:
   '@v-c/tabs@1.0.1(vue@3.5.27(typescript@5.9.3))':
     dependencies:
       '@v-c/dropdown': 1.0.2(vue@3.5.27(typescript@5.9.3))
-      '@v-c/menu': 1.0.7(vue@3.5.27(typescript@5.9.3))
+      '@v-c/menu': 1.0.8(vue@3.5.27(typescript@5.9.3))
       '@v-c/overflow': 1.0.3(vue@3.5.27(typescript@5.9.3))
       '@v-c/resize-observer': 1.0.8(vue@3.5.27(typescript@5.9.3))
       '@v-c/util': 1.0.9(vue@3.5.27(typescript@5.9.3))
