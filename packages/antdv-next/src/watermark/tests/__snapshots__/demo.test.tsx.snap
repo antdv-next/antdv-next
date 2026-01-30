@@ -156,7 +156,6 @@ exports[`watermark demo > renders custom correctly 1`] = `
               class="ant-form-item-control-input-content"
             >
               <div
-                aria-describedby="test-id"
                 class="ant-color-picker-trigger css-var-root ant-color-picker-css-var"
               >
                 <div
@@ -236,7 +235,6 @@ exports[`watermark demo > renders custom correctly 1`] = `
                   class="ant-slider-step"
                 />
                 <div
-                  aria-describedby="test-id"
                   aria-disabled="false"
                   aria-orientation="horizontal"
                   aria-valuemax="100"
@@ -318,7 +316,6 @@ exports[`watermark demo > renders custom correctly 1`] = `
                   class="ant-slider-step"
                 />
                 <div
-                  aria-describedby="test-id"
                   aria-disabled="false"
                   aria-orientation="horizontal"
                   aria-valuemax="100"
@@ -400,7 +397,6 @@ exports[`watermark demo > renders custom correctly 1`] = `
                   class="ant-slider-step"
                 />
                 <div
-                  aria-describedby="test-id"
                   aria-disabled="false"
                   aria-orientation="horizontal"
                   aria-valuemax="180"
