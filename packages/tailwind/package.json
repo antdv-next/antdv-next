@@ -1,0 +1,32 @@
+{
+  "name": "@antdv-next/tailwind",
+  "type": "module",
+  "version": "1.0.0-rc.1",
+  "description": "antd-unocss preset for Ant Design Vue Next",
+  "repository": {
+    "type": "git",
+    "url": "https://git.lingyu.org.cn/antdv-next/ui.git"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs",
+      "default": "./dist/index.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "prepublish": "pnpm build",
+    "bump": "bumpp --commit \"chore(release): @antdv-next/tailwind %s\" --push --tag \"@antdv-next/tailwind@%s\""
+  },
+  "peerDependencies": {
+    "unocss": ">=66.0.0"
+  },
+  "devDependencies": {
+    "unocss": "catalog:dev"
+  }
+}

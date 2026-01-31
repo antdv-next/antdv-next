@@ -1,11 +1,18 @@
 {
-  "extends": "./tsconfig.base.json",
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
       "/@tests/*": ["./tests/*"]
     },
-    "types": ["@testing-library/jest-dom/vitest"]
+    "types": ["@testing-library/jest-dom/vitest"],
+    /* Linting */
+    "strict": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "erasableSyntaxOnly": true,
+    "noUncheckedSideEffectImports": true
   },
   "include": [
     "tests/**/*.ts",
