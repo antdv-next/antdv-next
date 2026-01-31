@@ -1,173 +1,136 @@
 import type { AntdvMenuItem } from './interface'
+import type { InnerLocale } from '@/utils/locale'
+import locales from '@/locales'
 import { components } from './components'
 
-export const docsMenuLocales = {
-  '/docs/vue/introduce': {
-    'zh-CN': 'Ant Design of Vue',
-    'en-US': 'Ant Design of Vue',
-  },
-  '/docs/vue/use': {
-    'zh-CN': '如何使用',
-    'en-US': 'How to Use',
-  },
-  '/docs/vue/getting-started': {
-    'zh-CN': '快速上手',
-    'en-US': 'Getting Started',
-  },
-  '/blog/antdv-next-release': {
-    'en-US': 'Antdv Next Release v1',
-    'zh-CN': 'Antdv Next v1 发布啦！',
-  },
-  '/docs/vue/ai': {
-    'zh-CN': 'AI',
-    'en-US': 'AI',
-  },
-  '/docs/vue/llms': {
-    'zh-CN': 'LLMs.txt',
-    'en-US': 'LLMs.txt',
-  },
-  '/docs/vue/skills': {
-    'zh-CN': '技能',
-    'en-US': 'Skills',
-  },
-  '/docs/vue/advanced/use': {
-    'zh-CN': '进阶使用',
-    'en-US': 'Advanced Usage',
-  },
-  '/docs/vue/customize-theme': {
-    'zh-CN': '定制主题',
-    'en-US': 'Customize Theme',
-  },
-  '/docs/vue/compatible-style': {
-    'zh-CN': '样式兼容',
-    'en-US': 'Compatible Style',
-  },
-  '/docs/vue/i18n': {
-    'zh-CN': '国际化',
-    'en-US': 'I18n',
-  },
-  '/docs/vue/common-props': {
-    'zh-CN': '通用属性',
-    'en-US': 'Common Props',
-  },
-  '/docs/vue/migration': {
-    'zh-CN': '迁移',
-    'en-US': 'Migration',
-  },
-  '/docs/vue/migration-antdv-next': {
-    'zh-CN': '从 Antdv 迁移到 Antdv Next',
-    'en-US': 'Migrating from Antdv to Antdv Next',
-  },
-  '/docs/vue/other': {
-    'zh-CN': '其他',
-    'en-US': 'Others',
-  },
-  '/docs/vue/awesome': {
-    'zh-CN': '社区生态',
-    'en-US': 'Awesome',
-  },
-  '/docs/vue/faq': {
-    'zh-CN': '常见问题',
-    'en-US': 'FAQ',
-  },
-  '/docs/vue/contributing': {
-    'zh-CN': '贡献指南',
-    'en-US': 'Contributing',
-  },
+// Helper to flatten nested docs locales
+function flattenDocsLocales(nestedLocales: typeof locales['zh-CN']['menuDocs']) {
+  const vue = nestedLocales.docs.vue
+  return {
+    '/docs/vue/introduce': vue.introduce,
+    '/docs/vue/use': vue.use,
+    '/docs/vue/getting-started': vue.gettingStarted,
+    '/docs/vue/ai': vue.ai,
+    '/docs/vue/llms': vue.llms,
+    '/docs/vue/skills': vue.skills,
+    '/docs/vue/advanced/use': vue.advancedUse,
+    '/docs/vue/customize-theme': vue.customizeTheme,
+    '/docs/vue/compatible-style': vue.compatibleStyle,
+    '/docs/vue/i18n': vue.i18n,
+    '/docs/vue/common-props': vue.commonProps,
+    '/docs/vue/migration': vue.migration,
+    '/docs/vue/migration-antdv-next': vue.migrationAntdvNext,
+    '/docs/vue/other': vue.other,
+    '/docs/vue/awesome': vue.awesome,
+    '/docs/vue/contributing': vue.contributing,
+    '/docs/vue/faq': vue.faq,
+  }
 }
+
+// Export locale map by converting centralized locales to the expected format
+export const docsMenuLocales: Record<string, Record<InnerLocale, string>> = (() => {
+  const zhFlat = flattenDocsLocales(locales['zh-CN'].menuDocs)
+  const enFlat = flattenDocsLocales(locales['en-US'].menuDocs)
+
+  const result: Record<string, Record<InnerLocale, string>> = {}
+
+  for (const key of Object.keys(zhFlat)) {
+    result[key] = {
+      'zh-CN': zhFlat[key],
+      'en-US': enFlat[key],
+    }
+  }
+
+  return result
+})()
 
 export const docsMenus: Record<string, AntdvMenuItem[]> = {
   '/docs/vue': [
     {
       key: '/docs/vue/introduce',
-      label: '介绍',
+      label: '/docs/vue/introduce',
     },
     {
       key: '/docs/vue/use',
-      label: '如何使用',
+      label: '/docs/vue/use',
       type: 'group',
       children: [
         {
           key: '/docs/vue/getting-started',
-          label: '快速上手',
+          label: '/docs/vue/getting-started',
         },
       ],
     },
     {
       key: '/docs/vue/ai',
-      label: 'AI',
+      label: '/docs/vue/ai',
       type: 'group',
       children: [
         {
           key: '/docs/vue/llms',
-          label: 'LLMs.txt',
+          label: '/docs/vue/llms',
         },
         {
           key: '/docs/vue/skills',
-          label: 'Skills',
+          label: '/docs/vue/skills',
           tag: 'New',
         },
       ],
     },
     {
       key: '/docs/vue/advanced/use',
-      label: '进阶使用',
+      label: '/docs/vue/advanced/use',
       type: 'group',
       children: [
         {
           key: '/docs/vue/customize-theme',
-          label: '定制主题',
+          label: '/docs/vue/customize-theme',
         },
         {
           key: '/docs/vue/compatible-style',
-          label: '样式兼容',
+          label: '/docs/vue/compatible-style',
         },
         {
           key: '/docs/vue/i18n',
-          label: '国际化',
+          label: '/docs/vue/i18n',
         },
         {
           key: '/docs/vue/common-props',
-          label: '通用属性',
+          label: '/docs/vue/common-props',
         },
       ],
     },
     {
       key: '/docs/vue/migration',
-      label: '迁移',
+      label: '/docs/vue/migration',
       type: 'group',
       children: [
         {
           key: '/docs/vue/migration-antdv-next',
-          label: '从 Antdv 迁移到 Antdv Next',
+          label: '/docs/vue/migration-antdv-next',
         },
       ],
     },
     {
       key: '/docs/vue/other',
-      label: '其他',
+      label: '/docs/vue/other',
       type: 'group',
       children: [
         {
           key: '/docs/vue/awesome',
-          label: '社区生态',
+          label: '/docs/vue/awesome',
         },
         {
           key: '/docs/vue/contributing',
-          label: '贡献指南',
+          label: '/docs/vue/contributing',
         },
         {
           key: '/docs/vue/faq',
-          label: '常见问题',
+          label: '/docs/vue/faq',
         },
       ],
     },
   ],
   '/components': components,
-  '/blog': [
-    // {
-    //   key: '/blog/antdv-next-release',
-    //   label: 'Antdv Next Release v1',
-    // },
-  ],
+  '/blog': [],
 }

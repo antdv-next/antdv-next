@@ -5,6 +5,7 @@ import { computed, h } from 'vue'
 import ThemeIcon from '@/components/icons/theme.vue'
 import { themeModeStore } from '@/composables/local-store'
 import { useTheme } from '@/composables/theme'
+import { useThemeBtnLocale } from '@/composables/use-theme-btn-locale'
 
 defineOptions({
   name: 'ThemeBtn',
@@ -13,6 +14,7 @@ defineOptions({
 const { setThemeMode } = useTheme()
 
 const themeMode = themeModeStore
+const t = useThemeBtnLocale()
 
 const BlueDot = h('span', {
   style: {
@@ -27,19 +29,19 @@ const BlueDot = h('span', {
 const themeMenuItems = computed<MenuProps['items']>(() => [
   {
     key: 'system',
-    label: '跟随系统',
+    label: t.value.system,
     icon: h(SyncOutlined),
     extra: themeMode.value === 'system' ? BlueDot : undefined,
   },
   {
     key: 'light',
-    label: '浅色主题',
+    label: t.value.light,
     icon: h(SunOutlined),
     extra: themeMode.value === 'light' ? BlueDot : undefined,
   },
   {
     key: 'dark',
-    label: '暗黑主题',
+    label: t.value.dark,
     icon: h(MoonOutlined),
     extra: themeMode.value === 'dark' ? BlueDot : undefined,
   },
@@ -48,7 +50,7 @@ const themeMenuItems = computed<MenuProps['items']>(() => [
   },
   {
     key: 'compact',
-    label: '紧凑主题',
+    label: t.value.compact,
     icon: h(CompressOutlined),
     disabled: true,
   },
@@ -57,7 +59,7 @@ const themeMenuItems = computed<MenuProps['items']>(() => [
   },
   {
     key: 'happy',
-    label: '快乐工作特效',
+    label: t.value.happy,
     icon: h(SmileOutlined),
     disabled: true,
   },
@@ -66,13 +68,13 @@ const themeMenuItems = computed<MenuProps['items']>(() => [
   },
   {
     key: 'ai-theme',
-    label: 'AI 生成主题',
+    label: t.value.aiTheme,
     icon: h(ShopOutlined),
     disabled: true,
   },
   {
     key: 'theme-editor',
-    label: '主题编辑器',
+    label: t.value.themeEditor,
     icon: h(BgColorsOutlined),
     extra: h(LinkOutlined),
     disabled: true,

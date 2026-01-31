@@ -2,7 +2,6 @@
 import type { CSSProperties } from 'vue'
 import { CheckOutlined, CopyOutlined, EditOutlined, ThunderboltOutlined } from '@antdv-next/icons'
 import { useClipboard } from '@vueuse/core'
-import { storeToRefs } from 'pinia'
 import demos from 'virtual:demos'
 import { computed, defineAsyncComponent, shallowRef } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
@@ -10,6 +9,7 @@ import ExpandIcon from '@/components/code-demo/expand-icon.vue'
 import CodeIframe from '@/components/code-demo/iframe.vue'
 import { getId } from '@/components/code-demo/utils/getId'
 import ExternalLink from '@/components/icons/external-link.vue'
+import { useLocaleNamespace } from '@/composables/use-locale'
 import { useAppStore } from '@/stores/app.ts'
 import antdvPkg from '../../../../packages/antdv-next/package.json'
 import { openStackBlitz } from './utils/stackblitz'
@@ -27,7 +27,6 @@ const demo = computed(() => demos[src])
 const route = useRoute()
 const router = useRouter()
 const appStore = useAppStore()
-const { locale } = storeToRefs(appStore)
 const description = computed(() => {
   const locales = demo.value?.locales ?? {}
   const localeData = locales[appStore.locale] || {}
@@ -63,28 +62,7 @@ function handleStackBlitz() {
   }
 }
 
-const locales: Record<string, any> = {
-  'en-US': {
-    action: {
-      externalLink: 'Open in new window',
-      expandCode: 'Expand Code',
-      expandedCode: 'Collapse Code',
-      stackblitz: 'Open in StackBlitz',
-      copied: 'Copied Success',
-      copy: 'Copy Code',
-    },
-  },
-  'zh-CN': {
-    action: {
-      externalLink: '在新窗口中打开',
-      expandCode: '展开代码',
-      expandedCode: '收起代码',
-      stackblitz: '在 StackBlitz 中打开',
-      copied: '复制成功',
-      copy: '复制代码',
-    },
-  },
-}
+const locales = useLocaleNamespace('codeDemo')
 
 const demoStyle = computed(() => {
   const styles: CSSProperties = {}
@@ -133,24 +111,24 @@ const { copied, copy } = useClipboard({
       </div>
       <a-flex class="ant-doc-demo-box-actions " wrap gap="middle">
         <a class="ant-doc-demo-box-code-action" @click="handleStackBlitz">
-          <a-tooltip :title="locales[locale]?.action?.stackblitz">
+          <a-tooltip :title="locales.action.stackblitz">
             <ThunderboltOutlined />
           </a-tooltip>
         </a>
         <a class="ant-doc-demo-box-code-action" :href="`/~demos/${id}`" target="_blank" rel="noopener norreferrer">
-          <a-tooltip :title="locales[locale]?.action?.externalLink">
+          <a-tooltip :title="locales.action.externalLink">
             <ExternalLink />
           </a-tooltip>
         </a>
         <div class="ant-doc-demo-box-expand-icon ant-doc-demo-box-code-action" @click="handleShowCode">
-          <a-tooltip :title="locales[locale]?.action?.[showCode ? 'expandedCode' : 'expandCode']">
+          <a-tooltip :title="locales.action[showCode ? 'expandedCode' : 'expandCode']">
             <ExpandIcon :expanded="showCode" />
           </a-tooltip>
         </div>
       </a-flex>
     </section>
     <div v-if="showCode" class="ant-doc-demo-box-code">
-      <a-tooltip :title="locales[locale]?.action?.[copied ? 'copied' : 'copy']">
+      <a-tooltip :title="locales.action[copied ? 'copied' : 'copy']">
         <div class="ant-doc-demo-box-code-copy" :class="copied ? 'ant-doc-demo-box-code-copied' : ''" @click="copy()">
           <CopyOutlined v-if="!copied" />
           <CheckOutlined v-else />

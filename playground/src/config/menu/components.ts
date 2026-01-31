@@ -1,217 +1,173 @@
 import type { AntdvMenuItem } from './interface'
-
+import type { InnerLocale } from '@/utils/locale'
 import { version } from 'antdv-next'
+import locales from '@/locales'
 
-export const componentLocales = {
-  '/components/overview': { 'zh-CN': '组件总览', 'en-US': 'Overview' },
-  '/components/changelog': { 'zh-CN': '更新日志', 'en-US': 'Changelog' },
-  // General
-  'general': { 'zh-CN': '通用', 'en-US': 'General' },
-  '/components/button': { 'zh-CN': 'Button 按钮', 'en-US': 'Button' },
-  '/components/float-button': { 'zh-CN': 'FloatButton 悬浮按钮', 'en-US': 'FloatButton' },
-  '/components/icon': { 'zh-CN': 'Icon 图标', 'en-US': 'Icon' },
-  '/components/typography': { 'zh-CN': 'Typography 排版', 'en-US': 'Typography' },
-  // Layout
-  'layout': { 'zh-CN': '布局', 'en-US': 'Layout' },
-  '/components/divider': { 'zh-CN': 'Divider 分割线', 'en-US': 'Divider' },
-  '/components/flex': { 'zh-CN': 'Flex 弹性布局', 'en-US': 'Flex' },
-  '/components/grid': { 'zh-CN': 'Grid 栅格', 'en-US': 'Grid' },
-  '/components/layout': { 'zh-CN': 'Layout 布局', 'en-US': 'Layout' },
-  '/components/masonry': { 'zh-CN': 'Masonry 瀑布流', 'en-US': 'Masonry' },
-  '/components/space': { 'zh-CN': 'Space 间距', 'en-US': 'Space' },
-  '/components/splitter': { 'zh-CN': 'Splitter 面板分割', 'en-US': 'Splitter' },
-  // Navigation
-  'navigation': { 'zh-CN': '导航', 'en-US': 'Navigation' },
-  '/components/anchor': { 'zh-CN': 'Anchor 锚点', 'en-US': 'Anchor' },
-  '/components/breadcrumb': { 'zh-CN': 'Breadcrumb 面包屑', 'en-US': 'Breadcrumb' },
-  '/components/dropdown': { 'zh-CN': 'Dropdown 下拉菜单', 'en-US': 'Dropdown' },
-  '/components/menu': { 'zh-CN': 'Menu 导航菜单', 'en-US': 'Menu' },
-  '/components/pagination': { 'zh-CN': 'Pagination 分页', 'en-US': 'Pagination' },
-  '/components/steps': { 'zh-CN': 'Steps 步骤条', 'en-US': 'Steps' },
-  '/components/tabs': { 'zh-CN': 'Tabs 标签页', 'en-US': 'Tabs' },
-  // Data Entry
-  'data-entry': { 'zh-CN': '数据录入', 'en-US': 'Data Entry' },
-  '/components/auto-complete': { 'zh-CN': 'AutoComplete 自动完成', 'en-US': 'AutoComplete' },
-  '/components/cascader': { 'zh-CN': 'Cascader 级联选择', 'en-US': 'Cascader' },
-  '/components/checkbox': { 'zh-CN': 'Checkbox 多选框', 'en-US': 'Checkbox' },
-  '/components/color-picker': { 'zh-CN': 'ColorPicker 颜色选择器', 'en-US': 'ColorPicker' },
-  '/components/date-picker': { 'zh-CN': 'DatePicker 日期选择器', 'en-US': 'DatePicker' },
-  '/components/form': { 'zh-CN': 'Form 表单', 'en-US': 'Form' },
-  '/components/input': { 'zh-CN': 'Input 输入框', 'en-US': 'Input' },
-  '/components/input-number': { 'zh-CN': 'InputNumber 数字输入框', 'en-US': 'InputNumber' },
-  '/components/mentions': { 'zh-CN': 'Mentions 提及', 'en-US': 'Mentions' },
-  '/components/radio': { 'zh-CN': 'Radio 单选框', 'en-US': 'Radio' },
-  '/components/rate': { 'zh-CN': 'Rate 评分', 'en-US': 'Rate' },
-  '/components/select': { 'zh-CN': 'Select 选择器', 'en-US': 'Select' },
-  '/components/slider': { 'zh-CN': 'Slider 滑动输入条', 'en-US': 'Slider' },
-  '/components/switch': { 'zh-CN': 'Switch 开关', 'en-US': 'Switch' },
-  '/components/time-picker': { 'zh-CN': 'TimePicker 时间选择器', 'en-US': 'TimePicker' },
-  '/components/transfer': { 'zh-CN': 'Transfer 穿梭框', 'en-US': 'Transfer' },
-  '/components/tree-select': { 'zh-CN': 'TreeSelect 树选择', 'en-US': 'TreeSelect' },
-  '/components/upload': { 'zh-CN': 'Upload 上传', 'en-US': 'Upload' },
-  // Data Display
-  'data-display': { 'zh-CN': '数据展示', 'en-US': 'Data Display' },
-  '/components/avatar': { 'zh-CN': 'Avatar 头像', 'en-US': 'Avatar' },
-  '/components/badge': { 'zh-CN': 'Badge 徽标数', 'en-US': 'Badge' },
-  '/components/calendar': { 'zh-CN': 'Calendar 日历', 'en-US': 'Calendar' },
-  '/components/card': { 'zh-CN': 'Card 卡片', 'en-US': 'Card' },
-  '/components/carousel': { 'zh-CN': 'Carousel 走马灯', 'en-US': 'Carousel' },
-  '/components/collapse': { 'zh-CN': 'Collapse 折叠面板', 'en-US': 'Collapse' },
-  '/components/descriptions': { 'zh-CN': 'Descriptions 描述列表', 'en-US': 'Descriptions' },
-  '/components/empty': { 'zh-CN': 'Empty 空状态', 'en-US': 'Empty' },
-  '/components/image': { 'zh-CN': 'Image 图片', 'en-US': 'Image' },
-  '/components/list': { 'zh-CN': 'List 列表', 'en-US': 'List' },
-  '/components/popover': { 'zh-CN': 'Popover 气泡卡片', 'en-US': 'Popover' },
-  '/components/qr-code': { 'zh-CN': 'QRCode 二维码', 'en-US': 'QRCode' },
-  '/components/segmented': { 'zh-CN': 'Segmented 分段控制器', 'en-US': 'Segmented' },
-  '/components/statistic': { 'zh-CN': 'Statistic 统计数值', 'en-US': 'Statistic' },
-  '/components/table': { 'zh-CN': 'Table 表格', 'en-US': 'Table' },
-  '/components/tag': { 'zh-CN': 'Tag 标签', 'en-US': 'Tag' },
-  '/components/timeline': { 'zh-CN': 'Timeline 时间轴', 'en-US': 'Timeline' },
-  '/components/tooltip': { 'zh-CN': 'Tooltip 文字提示', 'en-US': 'Tooltip' },
-  '/components/tour': { 'zh-CN': 'Tour 漫游导览', 'en-US': 'Tour' },
-  '/components/tree': { 'zh-CN': 'Tree 树形控件', 'en-US': 'Tree' },
-  // Feedback
-  'feedback': { 'zh-CN': '反馈', 'en-US': 'Feedback' },
-  '/components/alert': { 'zh-CN': 'Alert 警告提示', 'en-US': 'Alert' },
-  '/components/drawer': { 'zh-CN': 'Drawer 抽屉', 'en-US': 'Drawer' },
-  '/components/message': { 'zh-CN': 'Message 全局提示', 'en-US': 'Message' },
-  '/components/modal': { 'zh-CN': 'Modal 对话框', 'en-US': 'Modal' },
-  '/components/notification': { 'zh-CN': 'Notification 通知提醒框', 'en-US': 'Notification' },
-  '/components/popconfirm': { 'zh-CN': 'Popconfirm 气泡确认框', 'en-US': 'Popconfirm' },
-  '/components/progress': { 'zh-CN': 'Progress 进度条', 'en-US': 'Progress' },
-  '/components/result': { 'zh-CN': 'Result 结果', 'en-US': 'Result' },
-  '/components/skeleton': { 'zh-CN': 'Skeleton 骨架屏', 'en-US': 'Skeleton' },
-  '/components/spin': { 'zh-CN': 'Spin 加载中', 'en-US': 'Spin' },
-  '/components/watermark': { 'zh-CN': 'Watermark 水印', 'en-US': 'Watermark' },
-  // Other
-  'other': { 'zh-CN': '其他', 'en-US': 'Other' },
-  '/components/affix': { 'zh-CN': 'Affix 固钉', 'en-US': 'Affix' },
-  '/components/app': { 'zh-CN': 'App 应用配置', 'en-US': 'App' },
-  '/components/config-provider': { 'zh-CN': 'ConfigProvider 全局化配置', 'en-US': 'ConfigProvider' },
-  '/components/_util': { 'zh-CN': 'Util 工具', 'en-US': 'Util' },
+// Helper function to convert nested component locales to flat structure
+// e.g., { components: { button: 'Button' } } -> { '/components/button': 'Button', 'general': '通用' }
+function flattenComponentLocales(nestedLocales: { components: Record<string, string> }) {
+  const flattened: Record<string, string> = {}
+  const components = nestedLocales.components
+
+  for (const [key, value] of Object.entries(components)) {
+    // Group labels (general, layout, navigation, etc.) don't have /components/ prefix
+    if (key === 'general' || key === 'layout' || key === 'navigation'
+      || key === 'dataEntry' || key === 'dataDisplay' || key === 'feedback' || key === 'other') {
+      // Convert camelCase to kebab-case for consistency
+      const kebabKey = key.replace(/([A-Z])/g, '-$1').toLowerCase()
+      flattened[kebabKey] = value
+    }
+    else {
+      // Component paths get /components/ prefix
+      const kebabKey = key.replace(/([A-Z])/g, '-$1').toLowerCase()
+      flattened[`/components/${kebabKey}`] = value
+    }
+  }
+
+  return flattened
 }
 
+// Export locale map by converting centralized locales to the expected format
+export const componentLocales: Record<string, Record<InnerLocale, string>> = (() => {
+  const zhFlat = flattenComponentLocales(locales['zh-CN'].menuComponents)
+  const enFlat = flattenComponentLocales(locales['en-US'].menuComponents)
+
+  const result: Record<string, Record<InnerLocale, string>> = {}
+
+  for (const key of Object.keys(zhFlat)) {
+    const zhValue = zhFlat[key]
+    const enValue = enFlat[key]
+    if (zhValue && enValue) {
+      result[key] = {
+        'zh-CN': zhValue,
+        'en-US': enValue,
+      }
+    }
+  }
+
+  return result
+})()
+
 export const components: AntdvMenuItem[] = [
-  { key: '/components/overview', label: 'Overview' },
-  { key: '/components/changelog', label: 'Changelog', tag: `v${version}` },
+  { key: '/components/overview', label: '/components/overview' },
+  { key: '/components/changelog', label: '/components/changelog', tag: `v${version}` },
   {
     key: 'general',
-    label: 'General',
+    label: 'general',
     type: 'group',
     children: [
-      { key: '/components/button', label: 'Button' },
-      { key: '/components/float-button', label: 'FloatButton' },
-      { key: '/components/icon', label: 'Icon' },
-      { key: '/components/typography', label: 'Typography' },
+      { key: '/components/button', label: '/components/button' },
+      { key: '/components/float-button', label: '/components/float-button' },
+      { key: '/components/icon', label: '/components/icon' },
+      { key: '/components/typography', label: '/components/typography' },
     ],
   },
   {
     key: 'layout',
-    label: 'Layout',
+    label: 'layout',
     type: 'group',
     children: [
-      { key: '/components/divider', label: 'Divider' },
-      { key: '/components/flex', label: 'Flex' },
-      { key: '/components/grid', label: 'Grid' },
-      { key: '/components/layout', label: 'Layout' },
-      { key: '/components/masonry', label: 'Masonry' },
-      { key: '/components/space', label: 'Space' },
-      { key: '/components/splitter', label: 'Splitter' },
+      { key: '/components/divider', label: '/components/divider' },
+      { key: '/components/flex', label: '/components/flex' },
+      { key: '/components/grid', label: '/components/grid' },
+      { key: '/components/layout', label: '/components/layout' },
+      { key: '/components/masonry', label: '/components/masonry' },
+      { key: '/components/space', label: '/components/space' },
+      { key: '/components/splitter', label: '/components/splitter' },
     ],
   },
   {
     key: 'navigation',
-    label: 'Navigation',
+    label: 'navigation',
     type: 'group',
     children: [
-      { key: '/components/anchor', label: 'Anchor' },
-      { key: '/components/breadcrumb', label: 'Breadcrumb' },
-      { key: '/components/dropdown', label: 'Dropdown' },
-      { key: '/components/menu', label: 'Menu' },
-      { key: '/components/pagination', label: 'Pagination' },
-      { key: '/components/steps', label: 'Steps' },
-      { key: '/components/tabs', label: 'Tabs' },
+      { key: '/components/anchor', label: '/components/anchor' },
+      { key: '/components/breadcrumb', label: '/components/breadcrumb' },
+      { key: '/components/dropdown', label: '/components/dropdown' },
+      { key: '/components/menu', label: '/components/menu' },
+      { key: '/components/pagination', label: '/components/pagination' },
+      { key: '/components/steps', label: '/components/steps' },
+      { key: '/components/tabs', label: '/components/tabs' },
     ],
   },
   {
     key: 'data-entry',
-    label: 'Data Entry',
+    label: 'data-entry',
     type: 'group',
     children: [
-      { key: '/components/auto-complete', label: 'AutoComplete' },
-      { key: '/components/cascader', label: 'Cascader' },
-      { key: '/components/checkbox', label: 'Checkbox' },
-      { key: '/components/color-picker', label: 'ColorPicker' },
-      { key: '/components/date-picker', label: 'DatePicker' },
-      { key: '/components/form', label: 'Form' },
-      { key: '/components/input', label: 'Input' },
-      { key: '/components/input-number', label: 'InputNumber' },
-      { key: '/components/mentions', label: 'Mentions' },
-      { key: '/components/radio', label: 'Radio' },
-      { key: '/components/rate', label: 'Rate' },
-      { key: '/components/select', label: 'Select' },
-      { key: '/components/slider', label: 'Slider' },
-      { key: '/components/switch', label: 'Switch' },
-      { key: '/components/time-picker', label: 'TimePicker' },
-      { key: '/components/transfer', label: 'Transfer' },
-      { key: '/components/tree-select', label: 'TreeSelect' },
-      { key: '/components/upload', label: 'Upload' },
+      { key: '/components/auto-complete', label: '/components/auto-complete' },
+      { key: '/components/cascader', label: '/components/cascader' },
+      { key: '/components/checkbox', label: '/components/checkbox' },
+      { key: '/components/color-picker', label: '/components/color-picker' },
+      { key: '/components/date-picker', label: '/components/date-picker' },
+      { key: '/components/form', label: '/components/form' },
+      { key: '/components/input', label: '/components/input' },
+      { key: '/components/input-number', label: '/components/input-number' },
+      { key: '/components/mentions', label: '/components/mentions' },
+      { key: '/components/radio', label: '/components/radio' },
+      { key: '/components/rate', label: '/components/rate' },
+      { key: '/components/select', label: '/components/select' },
+      { key: '/components/slider', label: '/components/slider' },
+      { key: '/components/switch', label: '/components/switch' },
+      { key: '/components/time-picker', label: '/components/time-picker' },
+      { key: '/components/transfer', label: '/components/transfer' },
+      { key: '/components/tree-select', label: '/components/tree-select' },
+      { key: '/components/upload', label: '/components/upload' },
     ],
   },
   {
     key: 'data-display',
-    label: 'Data Display',
+    label: 'data-display',
     type: 'group',
     children: [
-      { key: '/components/avatar', label: 'Avatar' },
-      { key: '/components/badge', label: 'Badge' },
-      { key: '/components/calendar', label: 'Calendar' },
-      { key: '/components/card', label: 'Card' },
-      { key: '/components/carousel', label: 'Carousel' },
-      { key: '/components/collapse', label: 'Collapse' },
-      { key: '/components/descriptions', label: 'Descriptions' },
-      { key: '/components/empty', label: 'Empty' },
-      { key: '/components/image', label: 'Image' },
-      // { key: '/components/list', label: 'List', tag: 'DEPRECATED' },
-      { key: '/components/popover', label: 'Popover' },
-      { key: '/components/qr-code', label: 'QRCode' },
-      { key: '/components/segmented', label: 'Segmented' },
-      { key: '/components/statistic', label: 'Statistic' },
-      { key: '/components/table', label: 'Table' },
-      { key: '/components/tag', label: 'Tag' },
-      { key: '/components/timeline', label: 'Timeline' },
-      { key: '/components/tooltip', label: 'Tooltip' },
-      { key: '/components/tour', label: 'Tour' },
-      { key: '/components/tree', label: 'Tree' },
+      { key: '/components/avatar', label: '/components/avatar' },
+      { key: '/components/badge', label: '/components/badge' },
+      { key: '/components/calendar', label: '/components/calendar' },
+      { key: '/components/card', label: '/components/card' },
+      { key: '/components/carousel', label: '/components/carousel' },
+      { key: '/components/collapse', label: '/components/collapse' },
+      { key: '/components/descriptions', label: '/components/descriptions' },
+      { key: '/components/empty', label: '/components/empty' },
+      { key: '/components/image', label: '/components/image' },
+      // { key: '/components/list', label: '/components/list', tag: 'DEPRECATED' },
+      { key: '/components/popover', label: '/components/popover' },
+      { key: '/components/qr-code', label: '/components/qr-code' },
+      { key: '/components/segmented', label: '/components/segmented' },
+      { key: '/components/statistic', label: '/components/statistic' },
+      { key: '/components/table', label: '/components/table' },
+      { key: '/components/tag', label: '/components/tag' },
+      { key: '/components/timeline', label: '/components/timeline' },
+      { key: '/components/tooltip', label: '/components/tooltip' },
+      { key: '/components/tour', label: '/components/tour' },
+      { key: '/components/tree', label: '/components/tree' },
     ],
   },
   {
     key: 'feedback',
-    label: 'Feedback',
+    label: 'feedback',
     type: 'group',
     children: [
-      { key: '/components/alert', label: 'Alert' },
-      { key: '/components/drawer', label: 'Drawer' },
-      { key: '/components/message', label: 'Message' },
-      { key: '/components/modal', label: 'Modal' },
-      { key: '/components/notification', label: 'Notification' },
-      { key: '/components/popconfirm', label: 'Popconfirm' },
-      { key: '/components/progress', label: 'Progress' },
-      { key: '/components/result', label: 'Result' },
-      { key: '/components/skeleton', label: 'Skeleton' },
-      { key: '/components/spin', label: 'Spin' },
-      { key: '/components/watermark', label: 'Watermark' },
+      { key: '/components/alert', label: '/components/alert' },
+      { key: '/components/drawer', label: '/components/drawer' },
+      { key: '/components/message', label: '/components/message' },
+      { key: '/components/modal', label: '/components/modal' },
+      { key: '/components/notification', label: '/components/notification' },
+      { key: '/components/popconfirm', label: '/components/popconfirm' },
+      { key: '/components/progress', label: '/components/progress' },
+      { key: '/components/result', label: '/components/result' },
+      { key: '/components/skeleton', label: '/components/skeleton' },
+      { key: '/components/spin', label: '/components/spin' },
+      { key: '/components/watermark', label: '/components/watermark' },
     ],
   },
   {
     key: 'other',
-    label: 'Other',
+    label: 'other',
     type: 'group',
     children: [
-      { key: '/components/affix', label: 'Affix' },
-      { key: '/components/app', label: 'App' },
-      { key: '/components/config-provider', label: 'ConfigProvider' },
+      { key: '/components/affix', label: '/components/affix' },
+      { key: '/components/app', label: '/components/app' },
+      { key: '/components/config-provider', label: '/components/config-provider' },
     ],
   },
 ]

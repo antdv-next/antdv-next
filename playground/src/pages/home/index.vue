@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import { computed, defineAsyncComponent } from 'vue'
+import { defineAsyncComponent } from 'vue'
+import { useLocaleNamespace } from '@/composables/use-locale'
 import { useAppStore } from '@/stores/app.ts'
 
 const ComponentsBlock = defineAsyncComponent(() => import('./components/preview-banner/components-block.vue'))
@@ -9,32 +10,10 @@ const Group = defineAsyncComponent(() => import('./components/group/index.vue'))
 const ComponentsList = defineAsyncComponent(() => import('./components/components-list/index.vue'))
 const DesignFramework = defineAsyncComponent(() => import('./components/design-framework/index.vue'))
 
-const locales = {
-  'zh-CN': {
-    slogan: '助力设计开发者「更灵活」地搭建出「更美」的产品，让用户「快乐工作」～',
-    start: '开始使用',
-    designLanguage: '仓库地址',
-    assetsTitle: '组件丰富，选用自如',
-    assetsDesc: '大量实用组件满足你的需求，灵活定制与拓展',
-    designTitle: '设计语言与研发框架',
-    designDesc: '配套生态，让你快速搭建网站应用',
-  },
-  'en-US': {
-    slogan:
-        'Help designers/developers building beautiful products more flexible and working with happiness',
-    start: 'Getting Started',
-    designLanguage: 'GitHub Repo',
-    assetsTitle: 'Rich components',
-    assetsDesc: 'Practical components to meet your needs, flexible customization and expansion',
-    designTitle: 'Design and framework',
-    designDesc: 'Supporting ecology, allowing you to quickly build website applications',
-  },
-}
-
 const appStore = useAppStore()
-const { locale, darkMode } = storeToRefs(appStore)
+const { darkMode } = storeToRefs(appStore)
 
-const currentLocale = computed(() => locales[locale.value])
+const currentLocale = useLocaleNamespace('home')
 </script>
 
 <template>

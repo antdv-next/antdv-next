@@ -54,6 +54,20 @@ function handleSearchChange(e: Event) {
   }
 }
 
+// Helper function to extract component name from key
+// e.g., '/components/button' -> 'Button'
+function getComponentName(key: string): string {
+  const parts = key.split('/')
+  const name = parts[parts.length - 1]
+  if (!name)
+    return ''
+  // Convert kebab-case to PascalCase
+  return name
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join('')
+}
+
 onMounted(() => {
   ;(inputRef.value as any)?.focus()
 })
@@ -92,8 +106,8 @@ onMounted(() => {
                   </template>
                   <div class="components-overview-img">
                     <img
-                      :src="darkMode ? covers?.[comp.label]?.coverDark : covers?.[comp.label]?.cover"
-                      :alt="comp.label"
+                      :src="darkMode ? covers?.[getComponentName(comp.key)]?.coverDark : covers?.[getComponentName(comp.key)]?.cover"
+                      :alt="siderLocales?.[comp.key]?.[locale] ?? comp.label"
                     >
                   </div>
                 </a-card>
