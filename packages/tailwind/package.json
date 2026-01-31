@@ -1,7 +1,7 @@
 {
   "name": "@antdv-next/tailwind",
   "type": "module",
-  "version": "1.0.0-rc.1",
+  "version": "1.0.0-beta.0",
   "description": "Tailwind CSS plugin for Ant Design Vue Next",
   "repository": {
     "type": "git",
