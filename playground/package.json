@@ -2,6 +2,11 @@
   "name": "playground",
   "type": "module",
   "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antdv-next/antdv-next.git",
+    "directory": "playground"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",

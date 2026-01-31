@@ -3,6 +3,10 @@
   "type": "module",
   "version": "0.0.0",
   "packageManager": "pnpm@10.18.3",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antdv-next/antdv-next.git"
+  },
   "scripts": {
     "dev": "turbo dev --filter playground",
     "lint": "eslint . --fix",
