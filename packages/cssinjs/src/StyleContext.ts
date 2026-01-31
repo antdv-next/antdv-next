@@ -1,4 +1,4 @@
-import type { App, InjectionKey, Ref } from 'vue'
+import type { App, InjectionKey, PropType, Ref } from 'vue'
 import type { Linter } from './linters'
 import { computed, defineComponent, inject, markRaw, provide, ref } from 'vue'
 
@@ -109,6 +109,62 @@ export interface StyleContextProps {
   autoPrefix?: boolean
 }
 
+export const styleContextProps = {
+  autoClear: {
+    type: Boolean,
+    default: undefined,
+  },
+
+  mock: {
+    type: String as PropType<'server' | 'client'>,
+    default: undefined,
+  },
+
+  cache: {
+    type: Object as PropType<CacheEntity>,
+    required: true,
+  },
+
+  defaultCache: {
+    type: Boolean,
+    required: true,
+  },
+
+  hashPriority: {
+    type: String as PropType<HashPriority>,
+    default: undefined,
+  },
+
+  container: {
+    type: [Object] as PropType<Element | ShadowRoot>,
+    default: undefined,
+  },
+
+  ssrInline: {
+    type: Boolean,
+    default: undefined,
+  },
+
+  transformers: {
+    type: Array as PropType<Transformer[]>,
+    default: undefined,
+  },
+
+  linters: {
+    type: Array as PropType<Linter[]>,
+    default: undefined,
+  },
+
+  layer: {
+    type: Boolean,
+    default: undefined,
+  },
+
+  autoPrefix: {
+    type: Boolean,
+    default: undefined,
+  },
+}
 export type StyleProviderProps = StyleContextProps
 
 export const StyleProvider = defineComponent<Partial<StyleContextProps>>(
@@ -146,17 +202,6 @@ export const StyleProvider = defineComponent<Partial<StyleContextProps>>(
     }
   },
   {
-    props: [
-      'cache',
-      'hashPriority',
-      'defaultCache',
-      'autoClear',
-      'layer',
-      'linters',
-      'container',
-      'mock',
-      'ssrInline',
-      'transformers',
-    ],
+    props: styleContextProps,
   },
 )
