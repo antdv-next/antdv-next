@@ -8,6 +8,11 @@
     "name": "aibayanyu20"
   },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antdv-next/antdv-next.git",
+    "directory": "packages/antdv-next"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.mts",

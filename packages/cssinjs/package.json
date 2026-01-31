@@ -3,6 +3,11 @@
   "type": "module",
   "version": "1.0.0-rc.3",
   "description": "cssinjs solution for ant-design-vue",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antdv-next/antdv-next.git",
+    "directory": "packages/cssinjs"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.mts",

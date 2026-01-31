@@ -5,7 +5,8 @@
   "description": "antdv-next auto import resolver based on unplugin-vue-components",
   "repository": {
     "type": "git",
-    "url": "https://github.com/antdv-next/antdv-next.git"
+    "url": "git+https://github.com/antdv-next/antdv-next.git",
+    "directory": "packages/auto-import-resolver"
   },
   "exports": {
     ".": {

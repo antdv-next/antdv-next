@@ -5,7 +5,8 @@
   "description": "",
   "repository": {
     "type": "git",
-    "url": "https://git.lingyu.org.cn/antdv-next/ui.git"
+    "url": "git+https://github.com/antdv-next/antdv-next.git",
+    "directory": "packages/icons"
   },
   "exports": {
     ".": {
