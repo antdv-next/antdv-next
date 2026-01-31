@@ -46,6 +46,7 @@ export function buildColorsTheme(antPrefix: string, builtPalettes: Record<string
     'text-secondary': `var(--${antPrefix}-color-text-secondary)`,
     'text-tertiary': `var(--${antPrefix}-color-text-tertiary)`,
     'text-quat': `var(--${antPrefix}-color-text-quaternary)`,
+    'text-quaternary': `var(--${antPrefix}-color-text-quaternary)`,
 
     // 中性色
     'white': `var(--${antPrefix}-color-white)`,
@@ -123,5 +124,9 @@ export function buildShadowTheme(antPrefix: string) {
     'drawer-l': `var(--${antPrefix}-box-shadow-drawer-left)`,
     'drawer-u': `var(--${antPrefix}-box-shadow-drawer-up)`,
     'drawer-d': `var(--${antPrefix}-box-shadow-drawer-down)`,
+    'drawer-right': `var(--${antPrefix}-box-shadow-drawer-right)`,
+    'drawer-left': `var(--${antPrefix}-box-shadow-drawer-left)`,
+    'drawer-up': `var(--${antPrefix}-box-shadow-drawer-up)`,
+    'drawer-down': `var(--${antPrefix}-box-shadow-drawer-down)`,
   }
 }

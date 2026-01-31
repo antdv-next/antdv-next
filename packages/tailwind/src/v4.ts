@@ -89,6 +89,10 @@ export function generateThemeCSS(options: AntdPluginOptions = {}): string {
   lines.push(`  --color-text-secondary: var(--${antPrefix}-color-text-secondary);`)
   lines.push(`  --color-text-tertiary: var(--${antPrefix}-color-text-tertiary);`)
   lines.push(`  --color-text-quaternary: var(--${antPrefix}-color-text-quaternary);`)
+  lines.push(`  --color-text-quat: var(--${antPrefix}-color-text-quaternary);`)
+  lines.push(`  --color-main: var(--${antPrefix}-color-text);`)
+  lines.push(`  --color-sec: var(--${antPrefix}-color-text-secondary);`)
+  lines.push(`  --color-quat: var(--${antPrefix}-color-text-quaternary);`)
 
   lines.push('')
   lines.push('  /* Background Colors */')
@@ -104,6 +108,7 @@ export function generateThemeCSS(options: AntdPluginOptions = {}): string {
   lines.push('  /* Border Colors */')
   lines.push(`  --color-border: var(--${antPrefix}-color-border);`)
   lines.push(`  --color-border-secondary: var(--${antPrefix}-color-border-secondary);`)
+  lines.push(`  --color-border-sec: var(--${antPrefix}-color-border-secondary);`)
 
   // 间距变量 --spacing-*
   lines.push('')
@@ -111,6 +116,7 @@ export function generateThemeCSS(options: AntdPluginOptions = {}): string {
   lines.push(`  --spacing-xxs: var(--${antPrefix}-padding-xxs);`)
   lines.push(`  --spacing-xs: var(--${antPrefix}-padding-xs);`)
   lines.push(`  --spacing-sm: var(--${antPrefix}-padding-sm);`)
+  lines.push(`  --spacing-DEFAULT: var(--${antPrefix}-padding);`)
   lines.push(`  --spacing-md: var(--${antPrefix}-padding-md);`)
   lines.push(`  --spacing-lg: var(--${antPrefix}-padding-lg);`)
   lines.push(`  --spacing-xl: var(--${antPrefix}-padding-xl);`)
@@ -139,13 +145,19 @@ export function generateThemeCSS(options: AntdPluginOptions = {}): string {
   lines.push('  /* Box Shadow */')
   lines.push(`  --shadow-DEFAULT: var(--${antPrefix}-box-shadow);`)
   lines.push(`  --shadow-secondary: var(--${antPrefix}-box-shadow-secondary);`)
+  lines.push(`  --shadow-sec: var(--${antPrefix}-box-shadow-secondary);`)
   lines.push(`  --shadow-tertiary: var(--${antPrefix}-box-shadow-tertiary);`)
+  lines.push(`  --shadow-ter: var(--${antPrefix}-box-shadow-tertiary);`)
   lines.push(`  --shadow-card: var(--${antPrefix}-box-shadow-card);`)
   lines.push(`  --shadow-arrow: var(--${antPrefix}-box-shadow-popover-arrow);`)
   lines.push(`  --shadow-drawer-right: var(--${antPrefix}-box-shadow-drawer-right);`)
   lines.push(`  --shadow-drawer-left: var(--${antPrefix}-box-shadow-drawer-left);`)
   lines.push(`  --shadow-drawer-up: var(--${antPrefix}-box-shadow-drawer-up);`)
   lines.push(`  --shadow-drawer-down: var(--${antPrefix}-box-shadow-drawer-down);`)
+  lines.push(`  --shadow-drawer-r: var(--${antPrefix}-box-shadow-drawer-right);`)
+  lines.push(`  --shadow-drawer-l: var(--${antPrefix}-box-shadow-drawer-left);`)
+  lines.push(`  --shadow-drawer-u: var(--${antPrefix}-box-shadow-drawer-up);`)
+  lines.push(`  --shadow-drawer-d: var(--${antPrefix}-box-shadow-drawer-down);`)
 
   lines.push('}')
 
