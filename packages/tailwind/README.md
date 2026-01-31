@@ -7,7 +7,7 @@ Ant Design Vue Tailwind CSS Plugin - 将 Ant Design Vue 的设计系统集成到
 ## Features
 
 - 🎨 **Design Tokens**: 基于 Ant Design Vue CSS 变量系统
-- 🔧 **完全兼容**: 与 Tailwind CSS 无缝集成
+- 🔧 **完全兼容**: 与 Tailwind CSS v3 和 v4 无缝集成
 - 📦 **开箱即用**: 零配置启动
 - 🎯 **TypeScript**: 完整的类型支持
 - ⚡️ **按需生成**: 只生成使用的样式
@@ -22,7 +22,45 @@ pnpm add @antdv-next/tailwind
 yarn add @antdv-next/tailwind
 ```
 
-## Usage
+## Tailwind CSS v4 Usage (Recommended)
+
+Tailwind CSS v4 使用 `@theme` 指令在 CSS 中定义主题变量。
+
+### 方式 1: 直接导入 CSS 文件
+
+在你的 CSS 文件中：
+
+```css
+@import "tailwindcss";
+@import "@antdv-next/tailwind/theme.css";
+```
+
+### 方式 2: 使用 JS 动态生成
+
+```ts
+import { generateThemeCSS } from '@antdv-next/tailwind/v4'
+
+// 使用默认配置
+const css = generateThemeCSS()
+
+// 自定义配置
+const customCss = generateThemeCSS({ antPrefix: 'my-app' })
+```
+
+### Tailwind v4 使用示例
+
+```vue
+<template>
+  <div class="bg-primary text-white p-lg rounded-lg shadow-card">
+    <h1 class="text-h1 text-primary">Hello Ant Design Vue</h1>
+    <p class="text-text-secondary mt-sm">
+      使用 Tailwind CSS v4 工具类
+    </p>
+  </div>
+</template>
+```
+
+## Tailwind CSS v3 Usage
 
 ### Basic Setup
 

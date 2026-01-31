@@ -5,9 +5,11 @@ export default defineConfig({
   format: 'es',
   entry: [
     'src/index.ts',
+    'src/v4.ts',
   ],
   external: [
-    'unocss',
+    'tailwindcss',
+    'tailwindcss/plugin',
   ],
   skipNodeModulesBundle: true,
 })

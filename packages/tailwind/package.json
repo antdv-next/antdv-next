@@ -10,6 +10,7 @@
   "keywords": [
     "tailwindcss",
     "tailwind-plugin",
+    "tailwindcss-v4",
     "ant-design",
     "antdv",
     "vue",
@@ -21,6 +22,12 @@
       "import": "./dist/index.mjs",
       "default": "./dist/index.mjs"
     },
+    "./v4": {
+      "types": "./dist/v4.d.mts",
+      "import": "./dist/v4.mjs",
+      "default": "./dist/v4.mjs"
+    },
+    "./theme.css": "./theme.css",
     "./package.json": "./package.json"
   },
   "main": "./dist/index.mjs",
@@ -28,7 +35,8 @@
   "files": [
     "README.md",
     "README.zh-CN.md",
-    "dist"
+    "dist",
+    "theme.css"
   ],
   "scripts": {
     "build": "tsdown",

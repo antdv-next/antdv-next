@@ -7,7 +7,7 @@ Ant Design Vue Tailwind CSS 插件 - 将 Ant Design Vue 的设计系统集成到
 ## 特性
 
 - 🎨 **设计令牌**: 基于 Ant Design Vue CSS 变量系统
-- 🔧 **完全兼容**: 与 Tailwind CSS 无缝集成
+- 🔧 **完全兼容**: 与 Tailwind CSS v3 和 v4 无缝集成
 - 📦 **开箱即用**: 零配置启动
 - 🎯 **TypeScript**: 完整的类型支持
 - ⚡️ **按需生成**: 只生成使用的样式
@@ -22,7 +22,66 @@ pnpm add @antdv-next/tailwind
 yarn add @antdv-next/tailwind
 ```
 
-## 使用
+## Tailwind CSS v4 用法（推荐）
+
+Tailwind CSS v4 使用 `@theme` 指令在 CSS 中定义主题变量，这是一种更现代的方式。
+
+### 方式 1: 直接导入 CSS 文件
+
+在你的 CSS 入口文件中：
+
+```css
+@import "tailwindcss";
+@import "@antdv-next/tailwind/theme.css";
+```
+
+这是最简单的方式，主题文件会自动将 Ant Design Vue 的 CSS 变量映射到 Tailwind v4 的主题变量命名空间。
+
+### 方式 2: 使用 JS 动态生成
+
+如果你需要自定义 CSS 变量前缀，可以使用 JS 动态生成：
+
+```ts
+import { generateThemeCSS } from '@antdv-next/tailwind/v4'
+
+// 使用默认配置 (antPrefix: 'ant')
+const css = generateThemeCSS()
+
+// 自定义前缀
+const customCss = generateThemeCSS({ antPrefix: 'my-app' })
+```
+
+### Tailwind v4 工具类映射
+
+Tailwind v4 的主题变量命名约定：
+
+| 命名空间 | 工具类示例 | Ant Design 变量 |
+|---------|-----------|----------------|
+| `--color-*` | `bg-primary`, `text-blue-5` | `--ant-color-*`, `--ant-blue-*` |
+| `--spacing-*` | `p-lg`, `m-sm` | `--ant-padding-*` |
+| `--radius-*` | `rounded-lg` | `--ant-border-radius-*` |
+| `--text-*` | `text-h1` | `--ant-font-size-*` |
+| `--shadow-*` | `shadow-card` | `--ant-box-shadow-*` |
+
+### Tailwind v4 使用示例
+
+```vue
+<template>
+  <div class="bg-primary text-white p-lg rounded-lg shadow-card">
+    <h1 class="text-h1 text-primary">你好 Ant Design Vue</h1>
+    <p class="text-text-secondary mt-sm">
+      使用 Tailwind CSS v4 工具类
+    </p>
+    <button class="bg-success hover:bg-success-hover px-md py-sm rounded-sm">
+      成功按钮
+    </button>
+  </div>
+</template>
+```
+
+---
+
+## Tailwind CSS v3 用法
 
 ### 基础配置
 

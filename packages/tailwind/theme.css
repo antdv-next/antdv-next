@@ -1,0 +1,272 @@
+/**
+ * Ant Design Vue Tailwind CSS v4 Theme
+ *
+ * 使用 @theme 指令定义主题变量，适用于 Tailwind CSS v4+
+ *
+ * 使用方法：
+ * @import "tailwindcss";
+ * @import "@antdv-next/tailwind/theme.css";
+ */
+
+@theme inline {
+  /* ==================== Ant Design Palette Colors ==================== */
+
+  /* Blue */
+  --color-blue: var(--ant-blue);
+  --color-blue-1: var(--ant-blue-1);
+  --color-blue-2: var(--ant-blue-2);
+  --color-blue-3: var(--ant-blue-3);
+  --color-blue-4: var(--ant-blue-4);
+  --color-blue-5: var(--ant-blue-5);
+  --color-blue-6: var(--ant-blue-6);
+  --color-blue-7: var(--ant-blue-7);
+  --color-blue-8: var(--ant-blue-8);
+  --color-blue-9: var(--ant-blue-9);
+  --color-blue-10: var(--ant-blue-10);
+
+  /* Purple */
+  --color-purple: var(--ant-purple);
+  --color-purple-1: var(--ant-purple-1);
+  --color-purple-2: var(--ant-purple-2);
+  --color-purple-3: var(--ant-purple-3);
+  --color-purple-4: var(--ant-purple-4);
+  --color-purple-5: var(--ant-purple-5);
+  --color-purple-6: var(--ant-purple-6);
+  --color-purple-7: var(--ant-purple-7);
+  --color-purple-8: var(--ant-purple-8);
+  --color-purple-9: var(--ant-purple-9);
+  --color-purple-10: var(--ant-purple-10);
+
+  /* Cyan */
+  --color-cyan: var(--ant-cyan);
+  --color-cyan-1: var(--ant-cyan-1);
+  --color-cyan-2: var(--ant-cyan-2);
+  --color-cyan-3: var(--ant-cyan-3);
+  --color-cyan-4: var(--ant-cyan-4);
+  --color-cyan-5: var(--ant-cyan-5);
+  --color-cyan-6: var(--ant-cyan-6);
+  --color-cyan-7: var(--ant-cyan-7);
+  --color-cyan-8: var(--ant-cyan-8);
+  --color-cyan-9: var(--ant-cyan-9);
+  --color-cyan-10: var(--ant-cyan-10);
+
+  /* Green */
+  --color-green: var(--ant-green);
+  --color-green-1: var(--ant-green-1);
+  --color-green-2: var(--ant-green-2);
+  --color-green-3: var(--ant-green-3);
+  --color-green-4: var(--ant-green-4);
+  --color-green-5: var(--ant-green-5);
+  --color-green-6: var(--ant-green-6);
+  --color-green-7: var(--ant-green-7);
+  --color-green-8: var(--ant-green-8);
+  --color-green-9: var(--ant-green-9);
+  --color-green-10: var(--ant-green-10);
+
+  /* Magenta */
+  --color-magenta: var(--ant-magenta);
+  --color-magenta-1: var(--ant-magenta-1);
+  --color-magenta-2: var(--ant-magenta-2);
+  --color-magenta-3: var(--ant-magenta-3);
+  --color-magenta-4: var(--ant-magenta-4);
+  --color-magenta-5: var(--ant-magenta-5);
+  --color-magenta-6: var(--ant-magenta-6);
+  --color-magenta-7: var(--ant-magenta-7);
+  --color-magenta-8: var(--ant-magenta-8);
+  --color-magenta-9: var(--ant-magenta-9);
+  --color-magenta-10: var(--ant-magenta-10);
+
+  /* Pink */
+  --color-pink: var(--ant-pink);
+  --color-pink-1: var(--ant-pink-1);
+  --color-pink-2: var(--ant-pink-2);
+  --color-pink-3: var(--ant-pink-3);
+  --color-pink-4: var(--ant-pink-4);
+  --color-pink-5: var(--ant-pink-5);
+  --color-pink-6: var(--ant-pink-6);
+  --color-pink-7: var(--ant-pink-7);
+  --color-pink-8: var(--ant-pink-8);
+  --color-pink-9: var(--ant-pink-9);
+  --color-pink-10: var(--ant-pink-10);
+
+  /* Red */
+  --color-red: var(--ant-red);
+  --color-red-1: var(--ant-red-1);
+  --color-red-2: var(--ant-red-2);
+  --color-red-3: var(--ant-red-3);
+  --color-red-4: var(--ant-red-4);
+  --color-red-5: var(--ant-red-5);
+  --color-red-6: var(--ant-red-6);
+  --color-red-7: var(--ant-red-7);
+  --color-red-8: var(--ant-red-8);
+  --color-red-9: var(--ant-red-9);
+  --color-red-10: var(--ant-red-10);
+
+  /* Orange */
+  --color-orange: var(--ant-orange);
+  --color-orange-1: var(--ant-orange-1);
+  --color-orange-2: var(--ant-orange-2);
+  --color-orange-3: var(--ant-orange-3);
+  --color-orange-4: var(--ant-orange-4);
+  --color-orange-5: var(--ant-orange-5);
+  --color-orange-6: var(--ant-orange-6);
+  --color-orange-7: var(--ant-orange-7);
+  --color-orange-8: var(--ant-orange-8);
+  --color-orange-9: var(--ant-orange-9);
+  --color-orange-10: var(--ant-orange-10);
+
+  /* Yellow */
+  --color-yellow: var(--ant-yellow);
+  --color-yellow-1: var(--ant-yellow-1);
+  --color-yellow-2: var(--ant-yellow-2);
+  --color-yellow-3: var(--ant-yellow-3);
+  --color-yellow-4: var(--ant-yellow-4);
+  --color-yellow-5: var(--ant-yellow-5);
+  --color-yellow-6: var(--ant-yellow-6);
+  --color-yellow-7: var(--ant-yellow-7);
+  --color-yellow-8: var(--ant-yellow-8);
+  --color-yellow-9: var(--ant-yellow-9);
+  --color-yellow-10: var(--ant-yellow-10);
+
+  /* Volcano */
+  --color-volcano: var(--ant-volcano);
+  --color-volcano-1: var(--ant-volcano-1);
+  --color-volcano-2: var(--ant-volcano-2);
+  --color-volcano-3: var(--ant-volcano-3);
+  --color-volcano-4: var(--ant-volcano-4);
+  --color-volcano-5: var(--ant-volcano-5);
+  --color-volcano-6: var(--ant-volcano-6);
+  --color-volcano-7: var(--ant-volcano-7);
+  --color-volcano-8: var(--ant-volcano-8);
+  --color-volcano-9: var(--ant-volcano-9);
+  --color-volcano-10: var(--ant-volcano-10);
+
+  /* Geekblue */
+  --color-geekblue: var(--ant-geekblue);
+  --color-geekblue-1: var(--ant-geekblue-1);
+  --color-geekblue-2: var(--ant-geekblue-2);
+  --color-geekblue-3: var(--ant-geekblue-3);
+  --color-geekblue-4: var(--ant-geekblue-4);
+  --color-geekblue-5: var(--ant-geekblue-5);
+  --color-geekblue-6: var(--ant-geekblue-6);
+  --color-geekblue-7: var(--ant-geekblue-7);
+  --color-geekblue-8: var(--ant-geekblue-8);
+  --color-geekblue-9: var(--ant-geekblue-9);
+  --color-geekblue-10: var(--ant-geekblue-10);
+
+  /* Lime */
+  --color-lime: var(--ant-lime);
+  --color-lime-1: var(--ant-lime-1);
+  --color-lime-2: var(--ant-lime-2);
+  --color-lime-3: var(--ant-lime-3);
+  --color-lime-4: var(--ant-lime-4);
+  --color-lime-5: var(--ant-lime-5);
+  --color-lime-6: var(--ant-lime-6);
+  --color-lime-7: var(--ant-lime-7);
+  --color-lime-8: var(--ant-lime-8);
+  --color-lime-9: var(--ant-lime-9);
+  --color-lime-10: var(--ant-lime-10);
+
+  /* Gold */
+  --color-gold: var(--ant-gold);
+  --color-gold-1: var(--ant-gold-1);
+  --color-gold-2: var(--ant-gold-2);
+  --color-gold-3: var(--ant-gold-3);
+  --color-gold-4: var(--ant-gold-4);
+  --color-gold-5: var(--ant-gold-5);
+  --color-gold-6: var(--ant-gold-6);
+  --color-gold-7: var(--ant-gold-7);
+  --color-gold-8: var(--ant-gold-8);
+  --color-gold-9: var(--ant-gold-9);
+  --color-gold-10: var(--ant-gold-10);
+
+  /* ==================== Brand / Primary Colors ==================== */
+  --color-primary: var(--ant-color-primary);
+  --color-primary-hover: var(--ant-color-primary-hover);
+  --color-primary-active: var(--ant-color-primary-active);
+  --color-primary-bg: var(--ant-color-primary-bg);
+  --color-primary-bg-hover: var(--ant-color-primary-bg-hover);
+
+  /* ==================== Functional Colors ==================== */
+
+  /* Success */
+  --color-success: var(--ant-color-success);
+  --color-success-bg: var(--ant-color-success-bg);
+  --color-success-border: var(--ant-color-success-border);
+  --color-success-hover: var(--ant-color-success-hover);
+
+  /* Warning */
+  --color-warning: var(--ant-color-warning);
+  --color-warning-bg: var(--ant-color-warning-bg);
+  --color-warning-border: var(--ant-color-warning-border);
+  --color-warning-hover: var(--ant-color-warning-hover);
+
+  /* Error */
+  --color-error: var(--ant-color-error);
+  --color-error-bg: var(--ant-color-error-bg);
+  --color-error-border: var(--ant-color-error-border);
+  --color-error-hover: var(--ant-color-error-hover);
+
+  /* Info */
+  --color-info: var(--ant-color-info);
+  --color-info-bg: var(--ant-color-info-bg);
+  --color-info-border: var(--ant-color-info-border);
+
+  /* Link */
+  --color-link: var(--ant-color-link);
+  --color-link-hover: var(--ant-color-link-hover);
+  --color-link-active: var(--ant-color-link-active);
+
+  /* ==================== Text Colors ==================== */
+  --color-text: var(--ant-color-text);
+  --color-text-secondary: var(--ant-color-text-secondary);
+  --color-text-tertiary: var(--ant-color-text-tertiary);
+  --color-text-quaternary: var(--ant-color-text-quaternary);
+
+  /* ==================== Background Colors ==================== */
+  --color-white: var(--ant-color-white);
+  --color-base: var(--ant-color-bg-base);
+  --color-container: var(--ant-color-bg-container);
+  --color-layout: var(--ant-color-bg-layout);
+  --color-elevated: var(--ant-color-bg-elevated);
+  --color-mask: var(--ant-color-bg-mask);
+  --color-split: var(--ant-color-split);
+
+  /* ==================== Border Colors ==================== */
+  --color-border: var(--ant-color-border);
+  --color-border-secondary: var(--ant-color-border-secondary);
+
+  /* ==================== Spacing ==================== */
+  --spacing-xxs: var(--ant-padding-xxs);
+  --spacing-xs: var(--ant-padding-xs);
+  --spacing-sm: var(--ant-padding-sm);
+  --spacing-md: var(--ant-padding-md);
+  --spacing-lg: var(--ant-padding-lg);
+  --spacing-xl: var(--ant-padding-xl);
+
+  /* ==================== Border Radius ==================== */
+  --radius-xs: var(--ant-border-radius-xs);
+  --radius-sm: var(--ant-border-radius-sm);
+  --radius-DEFAULT: var(--ant-border-radius);
+  --radius-lg: var(--ant-border-radius-lg);
+
+  /* ==================== Font Size ==================== */
+  --text-sm: var(--ant-font-size-sm);
+  --text-DEFAULT: var(--ant-font-size);
+  --text-lg: var(--ant-font-size-lg);
+  --text-xl: var(--ant-font-size-xl);
+  --text-h1: var(--ant-font-size-heading-1);
+  --text-h2: var(--ant-font-size-heading-2);
+  --text-h3: var(--ant-font-size-heading-3);
+
+  /* ==================== Box Shadow ==================== */
+  --shadow-DEFAULT: var(--ant-box-shadow);
+  --shadow-secondary: var(--ant-box-shadow-secondary);
+  --shadow-tertiary: var(--ant-box-shadow-tertiary);
+  --shadow-card: var(--ant-box-shadow-card);
+  --shadow-arrow: var(--ant-box-shadow-popover-arrow);
+  --shadow-drawer-right: var(--ant-box-shadow-drawer-right);
+  --shadow-drawer-left: var(--ant-box-shadow-drawer-left);
+  --shadow-drawer-up: var(--ant-box-shadow-drawer-up);
+  --shadow-drawer-down: var(--ant-box-shadow-drawer-down);
+}
