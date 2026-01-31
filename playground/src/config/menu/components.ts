@@ -70,7 +70,7 @@ export const components: AntdvMenuItem[] = [
       { key: '/components/divider', label: '/components/divider' },
       { key: '/components/flex', label: '/components/flex' },
       { key: '/components/grid', label: '/components/grid' },
-      { key: '/components/layout', label: '/components/layout' },
+      { key: '/components/layout-component', label: '/components/layout' },
       { key: '/components/masonry', label: '/components/masonry' },
       { key: '/components/space', label: '/components/space' },
       { key: '/components/splitter', label: '/components/splitter' },

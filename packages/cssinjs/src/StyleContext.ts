@@ -122,12 +122,10 @@ export const styleContextProps = {
 
   cache: {
     type: Object as PropType<CacheEntity>,
-    required: true,
   },
 
   defaultCache: {
     type: Boolean,
-    required: true,
   },
 
   hashPriority: {
