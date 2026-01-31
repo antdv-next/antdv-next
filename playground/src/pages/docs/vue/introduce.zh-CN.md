@@ -19,7 +19,7 @@ title: Ant Design of Vue
 - 🌈 提炼自企业级中后台产品的交互语言和视觉风格。
 - 📦 开箱即用的高质量 Vue3 组件。
 - 🛡 使用 TypeScript 开发，提供完整的类型定义文件。
-- ⚙️ 共享<a href="https://ant.design/docs/resources-cn" target="_blank" rel="noopener noreferrer">Ant Design of React</a>设计资源体系。
+- ⚙️ 共享<a href="https://ant.design/docs/resources-cn" target="_blank" rel="noopener noreferrer"> Ant Design of React </a>设计资源体系。
 - 🌍 数十个国际化语言支持。
 - 🎨 深入每个细节的主题定制能力。
 
