@@ -87,6 +87,9 @@ catalogs:
     simple-git-hooks:
       specifier: ^2.8.0
       version: 2.13.1
+    tailwindcss:
+      specifier: ^3.4.17
+      version: 3.4.19
     tinyglobby:
       specifier: 0.2.15
       version: 0.2.15
@@ -777,7 +780,7 @@ importers:
   packages/tailwind:
     devDependencies:
       tailwindcss:
-        specifier: ^3.4.17
+        specifier: catalog:dev
         version: 3.4.19(tsx@4.21.0)(yaml@2.8.2)
 
   packages/unocss:
