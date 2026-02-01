@@ -1,7 +1,6 @@
 import type { PropType } from 'vue'
 import type { UploadFile } from '../interface'
 
-// @vitest-environment happy-dom
 import { mount } from '@vue/test-utils'
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 import { defineComponent, nextTick, ref } from 'vue'

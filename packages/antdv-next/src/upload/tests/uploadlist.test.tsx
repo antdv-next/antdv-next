@@ -1,5 +1,5 @@
 import type { UploadEmits, UploadFile, UploadProps } from '../interface'
-// @vitest-environment happy-dom
+
 import { mount } from '@vue/test-utils'
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 import { nextTick } from 'vue'
@@ -42,6 +42,7 @@ describe('upload List', () => {
   }
   const mockWidthGet = vi.spyOn(Image.prototype, 'width', 'get')
   const mockHeightGet = vi.spyOn(Image.prototype, 'height', 'get')
+  const originalSrcDescriptor = Object.getOwnPropertyDescriptor(HTMLImageElement.prototype, 'src')
   const mockSrcSet = vi.spyOn(Image.prototype, 'src', 'set')
 
   let drawImageCallback: any = null
@@ -58,7 +59,10 @@ describe('upload List', () => {
     open = vi.spyOn(window, 'open').mockImplementation(() => null)
     mockWidthGet.mockImplementation(() => size.width)
     mockHeightGet.mockImplementation(() => size.height)
-    mockSrcSet.mockImplementation(function fn(this: any) {
+    mockSrcSet.mockImplementation(function fn(this: any, val: string) {
+      if (originalSrcDescriptor?.set) {
+        originalSrcDescriptor.set.call(this, val)
+      }
       this.onload?.()
     })
 

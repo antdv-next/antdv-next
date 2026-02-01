@@ -1,7 +1,6 @@
 import type { DraggerProps } from '../Dragger'
 import type { UploadFile, UploadListProps, UploadProps } from '../interface'
 
-// @vitest-environment happy-dom
 import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
 import Upload from '..'
