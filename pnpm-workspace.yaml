@@ -1,17 +1,6 @@
-cleanupUnusedCatalogs: true
-
-shellEmulator: true
-
-trustPolicy: no-downgrade
 packages:
   - packages/*
   - playground
-overrides:
-  '@v-c/portal': catalog:vc
-  '@v-c/resize-observer': catalog:vc
-  '@v-c/trigger': catalog:vc
-  '@v-c/util': catalog:vc
-  vite: catalog:dev
 
 catalogs:
   dev:
@@ -42,7 +31,6 @@ catalogs:
     postcss-selector-parser: ^7.1.1
     pretty-format: ^30.2.0
     simple-git-hooks: ^2.8.0
-    tailwindcss: ^3.4.17
     tinyglobby: 0.2.15
     tsdown: ^0.20.1
     turbo: ^2.7.2
@@ -56,6 +44,7 @@ catalogs:
     vitest: ^4.0.17
     vue-tsc: ^3.1.8
   docs:
+    '@antdv-next/unocss': ^1.0.0-rc.1
     '@mdit-vue/plugin-frontmatter': 3.0.2
     '@mdit-vue/plugin-headers': ^3.0.2
     '@mdit-vue/plugin-title': ^3.0.2
@@ -77,7 +66,7 @@ catalogs:
   prod:
     '@ant-design/colors': 7.2.1
     '@ant-design/fast-color': ^3.0.0
-    '@ant-design/icons-svg': ^4.4.2
+    '@antdv-next/icons': ^1.0.0-rc.1
     '@emotion/hash': ^0.8.0
     '@emotion/unitless': ^0.7.5
     '@vueuse/core': 14.1.0
@@ -94,7 +83,6 @@ catalogs:
     pathe: ^2.0.3
     picomatch: ^4.0.3
     pinia: ^3.0.4
-    pkg-types: ^2.3.0
     scroll-into-view-if-needed: ^3.1.0
     stylis: ^4.3.6
     throttle-debounce: ^5.0.2
@@ -154,6 +142,20 @@ catalogs:
     '@v-c/upload': ^1.0.0
     '@v-c/util': ^1.0.9
     '@v-c/virtual-list': ^1.0.5
+
+cleanupUnusedCatalogs: true
+
 onlyBuiltDependencies:
   - esbuild
   - less
+
+overrides:
+  '@v-c/portal': catalog:vc
+  '@v-c/resize-observer': catalog:vc
+  '@v-c/trigger': catalog:vc
+  '@v-c/util': catalog:vc
+  vite: catalog:dev
+
+shellEmulator: true
+
+trustPolicy: no-downgrade

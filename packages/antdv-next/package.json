@@ -108,7 +108,7 @@
     "@ant-design/colors": "catalog:prod",
     "@ant-design/fast-color": "catalog:prod",
     "@antdv-next/cssinjs": "workspace:^",
-    "@antdv-next/icons": "workspace:^",
+    "@antdv-next/icons": "catalog:prod",
     "@v-c/async-validator": "catalog:vc",
     "@v-c/cascader": "catalog:vc",
     "@v-c/checkbox": "catalog:vc",
