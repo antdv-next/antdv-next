@@ -1,6 +1,17 @@
+cleanupUnusedCatalogs: true
+
+shellEmulator: true
+
+trustPolicy: no-downgrade
 packages:
   - packages/*
   - playground
+overrides:
+  '@v-c/portal': catalog:vc
+  '@v-c/resize-observer': catalog:vc
+  '@v-c/trigger': catalog:vc
+  '@v-c/util': catalog:vc
+  vite: catalog:dev
 
 catalogs:
   dev:
@@ -142,22 +153,6 @@ catalogs:
     '@v-c/upload': ^1.0.0
     '@v-c/util': ^1.0.11
     '@v-c/virtual-list': ^1.0.5
-  conflicts_vc_h1_0_9:
-    '@v-c/util': ^1.0.9
-
-cleanupUnusedCatalogs: true
-
 onlyBuiltDependencies:
   - esbuild
   - less
-
-overrides:
-  '@v-c/portal': catalog:vc
-  '@v-c/resize-observer': catalog:vc
-  '@v-c/trigger': catalog:vc
-  '@v-c/util': catalog:vc
-  vite: catalog:dev
-
-shellEmulator: true
-
-trustPolicy: no-downgrade

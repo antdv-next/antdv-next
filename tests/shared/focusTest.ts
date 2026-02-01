@@ -9,8 +9,9 @@ import { mount, sleep } from '../utils'
  * Vue equivalent of ant-design's focusTest.
  *
  * @param Comp - The Vue component to test
- * @param refFocus
- * @param blurDelay
+ * @param options - Configuration options
+ * @param options.refFocus - Whether the component exposes focus/blur methods via ref
+ * @param options.blurDelay - Delay in ms to wait after blur event before assertions
  */
 function focusTest(
   Comp: Component,
