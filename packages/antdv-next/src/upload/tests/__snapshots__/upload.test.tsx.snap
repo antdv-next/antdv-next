@@ -1,0 +1,47 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`upload > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<div
+  data-v-app=""
+>
+  <span
+    class="ant-upload-wrapper css-var-root ant-upload-css-var ant-upload-rtl"
+  >
+    <div
+      class="ant-upload ant-upload-select ant-upload-hidden"
+    >
+      <span
+        class="ant-upload"
+        listtype="text"
+        showuploadlist="true"
+        supportserverrender="true"
+        type="select"
+      >
+        <input
+          accept=""
+          name="file"
+          style="display: none;"
+          type="file"
+        />
+      </span>
+    </div>
+    <transition-group-stub
+      appear="false"
+      class="ant-upload-list ant-upload-list-text"
+      css="true"
+      enteractiveclass="ant-upload-animate ant-upload-animate-enter ant-upload-animate-appear ant-upload-animate-appear-prepare ant-upload-animate-enter-prepare"
+      enterfromclass="ant-upload-animate ant-upload-animate-enter ant-upload-animate-appear ant-upload-animate-appear-prepare ant-upload-animate-appear-start ant-upload-animate-enter-prepare ant-upload-animate-enter-start"
+      entertoclass="ant-upload-animate ant-upload-animate-enter ant-upload-animate-appear ant-upload-animate-appear-active ant-upload-animate-enter-active"
+      leaveactiveclass="ant-upload-animate ant-upload-animate-leave ant-upload-animate-leave-active"
+      leavefromclass="ant-upload-animate ant-upload-animate-leave"
+      leavetoclass="ant-upload-animate ant-upload-animate-leave ant-upload-animate-leave-active"
+      moveclass="ant-upload-animate ant-upload-animate-move"
+      name="ant-upload-animate"
+      persisted="false"
+      tag="div"
+    >
+      <!---->
+    </transition-group-stub>
+  </span>
+</div>
+`;

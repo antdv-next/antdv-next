@@ -3,7 +3,7 @@ import type {
   VcFile as OriVcFile,
   UploadRequestOption as VcCustomRequestOptions,
 } from '@v-c/upload'
-import type { CSSProperties, ImgHTMLAttributes } from 'vue'
+import type { CSSProperties, ImgHTMLAttributes, VNodeChild } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { ProgressAriaProps, ProgressProps } from '../progress'
 
@@ -49,13 +49,13 @@ export interface UploadChangeParam<T = UploadFile> {
 }
 
 export interface ShowUploadListInterface<T = any> {
-  extra?: any | ((file: UploadFile<T>) => any)
+  extra?: VNodeChild | ((file: UploadFile<T>) => VNodeChild)
   showRemoveIcon?: boolean | ((file: UploadFile<T>) => boolean)
   showPreviewIcon?: boolean | ((file: UploadFile<T>) => boolean)
   showDownloadIcon?: boolean | ((file: UploadFile<T>) => boolean)
-  removeIcon?: any | ((file: UploadFile<T>) => any)
-  downloadIcon?: any | ((file: UploadFile<T>) => any)
-  previewIcon?: any | ((file: UploadFile<T>) => any)
+  removeIcon?: VNodeChild | ((file: UploadFile<T>) => VNodeChild)
+  downloadIcon?: VNodeChild | ((file: UploadFile<T>) => VNodeChild)
+  previewIcon?: VNodeChild | ((file: UploadFile<T>) => VNodeChild)
 }
 
 export interface UploadLocale {
@@ -71,7 +71,7 @@ export type UploadListType = 'text' | 'picture' | 'picture-card' | 'picture-circ
 export type UploadListProgressProps = Omit<ProgressProps, 'percent' | 'type'>
 
 export type ItemRender<T = any> = (
-  originNode: any,
+  originNode: VNodeChild,
   file: UploadFile<T>,
   fileList: Array<UploadFile<T>>,
   actions: {
@@ -79,7 +79,7 @@ export type ItemRender<T = any> = (
     preview: () => void
     remove: () => void
   },
-) => any
+) => VNodeChild
 
 type PreviewFileHandler = (file: File | Blob) => PromiseLike<string>
 type BeforeUploadValueType = void | boolean | string | Blob | File
@@ -145,7 +145,7 @@ export interface UploadProps<T = any> {
   locale?: UploadLocale
   id?: string
   previewFile?: PreviewFileHandler
-  iconRender?: (file: UploadFile<T>, listType?: UploadListType) => any
+  iconRender?: (file: UploadFile<T>, listType?: UploadListType) => VNodeChild
   isImageUrl?: (file: UploadFile<T>) => boolean
   progress?: UploadListProgressProps
   itemRender?: ItemRender<T>
@@ -178,9 +178,9 @@ export interface UploadEmits<T = any> {
 
 export interface UploadSlots<T = any> {
   default?: () => any
-  iconRender?: (props: { file: UploadFile<T>, listType?: UploadListType }) => any
+  iconRender?: (props: { file: UploadFile<T>, listType?: UploadListType }) => VNodeChild
   itemRender?: (props: {
-    originNode: any
+    originNode: VNodeChild
     file: UploadFile<T>
     fileList: Array<UploadFile<T>>
     actions: {
@@ -188,7 +188,7 @@ export interface UploadSlots<T = any> {
       preview: () => void
       remove: () => void
     }
-  }) => any
+  }) => VNodeChild
 }
 
 export interface UploadState<T = any> {
@@ -206,13 +206,13 @@ export interface UploadListProps<T = any> {
   showRemoveIcon?: boolean | ((file: UploadFile<T>) => boolean)
   showDownloadIcon?: boolean | ((file: UploadFile<T>) => boolean)
   showPreviewIcon?: boolean | ((file: UploadFile<T>) => boolean)
-  removeIcon?: any | ((file: UploadFile<T>) => any)
-  downloadIcon?: any | ((file: UploadFile<T>) => any)
-  previewIcon?: any | ((file: UploadFile<T>) => any)
-  extra?: any | ((file: UploadFile<T>) => any)
+  removeIcon?: VNodeChild | ((file: UploadFile<T>) => VNodeChild)
+  downloadIcon?: VNodeChild | ((file: UploadFile<T>) => VNodeChild)
+  previewIcon?: VNodeChild | ((file: UploadFile<T>) => VNodeChild)
+  extra?: VNodeChild | ((file: UploadFile<T>) => VNodeChild)
   locale: UploadLocale
   previewFile?: PreviewFileHandler
-  iconRender?: (file: UploadFile<T>, listType?: UploadListType) => any
+  iconRender?: (file: UploadFile<T>, listType?: UploadListType) => VNodeChild
   isImageUrl?: (file: UploadFile<T>) => boolean
   appendAction?: any
   appendActionVisible?: boolean
@@ -231,9 +231,9 @@ export interface UploadListEmits {
 }
 
 export interface UploadListSlots<T = any> {
-  iconRender?: (props: { file: UploadFile<T>, listType?: UploadListType }) => any
+  iconRender?: (props: { file: UploadFile<T>, listType?: UploadListType }) => VNodeChild
   itemRender?: (props: {
-    originNode: any
+    originNode: VNodeChild
     file: UploadFile<T>
     fileList: Array<UploadFile<T>>
     actions: {
@@ -241,8 +241,8 @@ export interface UploadListSlots<T = any> {
       preview: () => void
       remove: () => void
     }
-  }) => any
-  removeIcon?: (props: { file: UploadFile<T> }) => any
-  downloadIcon?: (props: { file: UploadFile<T> }) => any
-  previewIcon?: (props: { file: UploadFile<T> }) => any
+  }) => VNodeChild
+  removeIcon?: (props: { file: UploadFile<T> }) => VNodeChild
+  downloadIcon?: (props: { file: UploadFile<T> }) => VNodeChild
+  previewIcon?: (props: { file: UploadFile<T> }) => VNodeChild
 }
