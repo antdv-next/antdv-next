@@ -74,7 +74,7 @@
     "vue-tsc": "catalog:dev"
   },
   "simple-git-hooks": {
-    "pre-commit": "lint-staged",
+    "pre-commit": "npx lint-staged",
     "commit-msg": "node scripts/verify-commit.js"
   },
   "lint-staged": {

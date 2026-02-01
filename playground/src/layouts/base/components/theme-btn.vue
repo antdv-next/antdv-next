@@ -1,17 +1,22 @@
 <script setup lang="ts">
 import type { MenuProps } from 'antdv-next'
 import { BgColorsOutlined, CompressOutlined, LinkOutlined, MoonOutlined, ShopOutlined, SmileOutlined, SunOutlined, SyncOutlined } from '@antdv-next/icons'
+import { storeToRefs } from 'pinia'
 import { computed, h } from 'vue'
 import ThemeIcon from '@/components/icons/theme.vue'
 import { themeModeStore } from '@/composables/local-store'
 import { useTheme } from '@/composables/theme'
 import { useThemeBtnLocale } from '@/composables/use-theme-btn-locale'
+import { useAppStore } from '@/stores/app'
 
 defineOptions({
   name: 'ThemeBtn',
 })
 
 const { setThemeMode } = useTheme()
+
+const appStore = useAppStore()
+const { compactMode } = storeToRefs(appStore)
 
 const themeMode = themeModeStore
 const t = useThemeBtnLocale()
@@ -52,7 +57,7 @@ const themeMenuItems = computed<MenuProps['items']>(() => [
     key: 'compact',
     label: t.value.compact,
     icon: h(CompressOutlined),
-    disabled: true,
+    extra: compactMode.value ? BlueDot : undefined,
   },
   {
     type: 'divider',
@@ -86,6 +91,9 @@ function handleMenuClick(info: { key: string, domEvent: MouseEvent }) {
   if (key === 'system' || key === 'light' || key === 'dark') {
     themeMode.value = key
     setThemeMode(key, domEvent)
+  }
+  else if (key === 'compact') {
+    appStore.toggleCompactMode()
   }
 }
 </script>
