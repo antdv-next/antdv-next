@@ -24,6 +24,9 @@ export default defineConfig({
       },
     },
   ],
+  optimizeDeps: {
+    include: ['@antdv-next/icons', '@antdv-next/icons > @ant-design/icons-svg'],
+  },
   resolve: {
     alias: [
       {

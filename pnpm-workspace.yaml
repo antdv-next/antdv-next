@@ -66,7 +66,7 @@ catalogs:
   prod:
     '@ant-design/colors': 7.2.1
     '@ant-design/fast-color': ^3.0.0
-    '@antdv-next/icons': ^1.0.0-rc.1
+    '@antdv-next/icons': ^1.0.0-rc.2
     '@emotion/hash': ^0.8.0
     '@emotion/unitless': ^0.7.5
     '@vueuse/core': 14.1.0
@@ -140,7 +140,7 @@ catalogs:
     '@v-c/tree-select': ^1.0.0
     '@v-c/trigger': ^1.0.6
     '@v-c/upload': ^1.0.0
-    '@v-c/util': ^1.0.9
+    '@v-c/util': ^1.0.11
     '@v-c/virtual-list': ^1.0.5
 
 cleanupUnusedCatalogs: true
