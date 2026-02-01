@@ -1,16 +1,12 @@
+import iconsPkg from '@antdv-next/icons/package.json'
 import sdk from '@stackblitz/sdk'
 import vitePluginVuePkg from '@vitejs/plugin-vue/package.json'
 import vueTsconfigPkg from '@vue/tsconfig/package.json'
 import dayjsPkg from 'dayjs/package.json'
 import typescriptPkg from 'typescript/package.json'
-import vitePkg from 'vite/package.json'
 import vueTscPkg from 'vue-tsc/package.json'
 import vuePkg from 'vue/package.json'
 import antdvPkg from '../../../../../packages/antdv-next/package.json'
-import iconsPkg from '../../../../../packages/icons/package.json'
-import tsconfigApp from '../../../../tsconfig.app.json?raw'
-import tsconfig from '../../../../tsconfig.json?raw'
-import tsconfigNode from '../../../../tsconfig.node.json?raw'
 
 function genFilesMap(title: string, code: string) {
   return {
@@ -28,7 +24,7 @@ function genFilesMap(title: string, code: string) {
         '@vitejs/plugin-vue': `^${vitePluginVuePkg.version}`,
         '@vue/tsconfig': `^${vueTsconfigPkg.version}`,
         'typescript': `^${typescriptPkg.version}`,
-        'vite': `^${vitePkg.version}`,
+        'vite': `^7.3.1`,
         'vue-tsc': `^${vueTscPkg.version}`,
       },
       scripts: {
@@ -82,9 +78,20 @@ import Demo from './Demo.vue'
 }
 </style>`,
     'src/vite-env.d.ts': '/// <reference types="vite/client" />',
-    'tsconfig.json': tsconfig,
-    'tsconfig.app.json': tsconfigApp,
-    'tsconfig.node.json': tsconfigNode,
+    'tsconfig.json': JSON.stringify({
+      extends: '@vue/tsconfig/tsconfig.dom.json',
+      compilerOptions: {
+        baseUrl: '.',
+        types: ['vite/client', '@antdv-next/global'],
+        strict: true,
+        noFallthroughCasesInSwitch: true,
+        noUnusedLocals: true,
+        noUnusedParameters: true,
+        erasableSyntaxOnly: true,
+        noUncheckedSideEffectImports: true,
+      },
+      include: ['src/**/*.ts', 'src/**/*.vue'],
+    }, null, 2),
   }
 }
 
