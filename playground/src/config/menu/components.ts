@@ -8,14 +8,20 @@ import locales from '@/locales'
 function flattenComponentLocales(nestedLocales: { components: Record<string, string> }) {
   const flattened: Record<string, string> = {}
   const components = nestedLocales.components
+  const groupKeyMap: Record<string, string> = {
+    general: 'general',
+    layoutGroup: 'layoutGroup',
+    navigation: 'navigation',
+    dataEntry: 'data-entry',
+    dataDisplay: 'data-display',
+    feedback: 'feedback',
+    other: 'other',
+  }
 
   for (const [key, value] of Object.entries(components)) {
-    // Group labels (general, layout, navigation, etc.) don't have /components/ prefix
-    if (key === 'general' || key === 'layout' || key === 'navigation'
-      || key === 'dataEntry' || key === 'dataDisplay' || key === 'feedback' || key === 'other') {
-      // Convert camelCase to kebab-case for consistency
-      const kebabKey = key.replace(/([A-Z])/g, '-$1').toLowerCase()
-      flattened[kebabKey] = value
+    // Group labels (general, layoutGroup, navigation, etc.) don't have /components/ prefix
+    if (groupKeyMap[key]) {
+      flattened[groupKeyMap[key]] = value
     }
     else {
       // Component paths get /components/ prefix
@@ -63,14 +69,14 @@ export const components: AntdvMenuItem[] = [
     ],
   },
   {
-    key: 'layout',
+    key: 'layoutGroup',
     label: 'layout',
     type: 'group',
     children: [
       { key: '/components/divider', label: '/components/divider' },
       { key: '/components/flex', label: '/components/flex' },
       { key: '/components/grid', label: '/components/grid' },
-      { key: '/components/layout-component', label: '/components/layout' },
+      { key: '/components/layout', label: '/components/layout' },
       { key: '/components/masonry', label: '/components/masonry' },
       { key: '/components/space', label: '/components/space' },
       { key: '/components/splitter', label: '/components/splitter' },

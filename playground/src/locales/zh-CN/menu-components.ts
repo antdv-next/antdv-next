@@ -10,11 +10,11 @@ export default {
     icon: 'Icon 图标',
     typography: 'Typography 排版',
     // Layout
-    layout: '布局',
+    layoutGroup: '布局',
     divider: 'Divider 分割线',
     flex: 'Flex 弹性布局',
     grid: 'Grid 栅格',
-    layoutComponent: 'Layout 布局',
+    layout: 'Layout 布局',
     masonry: 'Masonry 瀑布流',
     space: 'Space 间距',
     splitter: 'Splitter 面板分割',

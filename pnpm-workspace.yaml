@@ -142,6 +142,8 @@ catalogs:
     '@v-c/upload': ^1.0.0
     '@v-c/util': ^1.0.11
     '@v-c/virtual-list': ^1.0.5
+  conflicts_vc_h1_0_9:
+    '@v-c/util': ^1.0.9
 
 cleanupUnusedCatalogs: true
 

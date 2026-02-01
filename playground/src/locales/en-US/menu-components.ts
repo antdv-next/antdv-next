@@ -10,11 +10,11 @@ export default {
     icon: 'Icon',
     typography: 'Typography',
     // Layout
-    layout: 'Layout',
+    layoutGroup: 'Layout',
     divider: 'Divider',
     flex: 'Flex',
     grid: 'Grid',
-    layoutComponent: 'Layout',
+    layout: 'Layout',
     masonry: 'Masonry',
     space: 'Space',
     splitter: 'Splitter',
