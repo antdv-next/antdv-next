@@ -33,6 +33,7 @@ interface ResultData {
   login?: string
   url?: string
   avatar?: string
+  count?: number
 }
 
 defineOptions({ name: 'Contributors' })
@@ -47,22 +48,29 @@ const contributors = ref<ResultData[]>([])
 const isZn = computed(() => locale.value === 'zh-CN')
 
 function filterData(data: CommitsData[]) {
-  const arr: ResultData[] = []
+  const contributorMap = new Map<string, ResultData>()
+
   data.forEach((item) => {
-    if (!!item.author?.login || !!item.author?.html_url || !!item.author?.avatar_url) {
-      arr.push({
-        login: item.author.login,
-        url: item.author.html_url,
-        avatar: item.author.avatar_url,
-      })
+    if (item.author?.login) {
+      const login = item.author.login
+      if (contributorMap.has(login)) {
+        const existing = contributorMap.get(login)!
+        existing.count = (existing.count || 0) + 1
+      }
+      else {
+        contributorMap.set(login, {
+          login: item.author.login,
+          url: item.author.html_url,
+          avatar: item.author.avatar_url,
+          count: 1,
+        })
+      }
     }
   })
-  contributors.value = arr.reduce<ResultData[]>((acc, curr) => {
-    if (!acc.find(item => item.login === curr.login)) {
-      acc.push(curr)
-    }
-    return acc
-  }, [])
+  contributors.value = Array.from(contributorMap.values())
+    .sort((a, b) => (b.count || 0) - (a.count || 0))
+
+  console.log(contributors.value)
 };
 async function getContributors() {
   const path = route.path
