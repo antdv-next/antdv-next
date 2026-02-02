@@ -41,9 +41,9 @@ function createDot(holder: HTMLElement, color: string, left: number, top: number
   return dot
 }
 
-type WaveConfig = ConfigProviderProps['wave']
+type WaveConfig = NonNullable<ConfigProviderProps['wave']>
 
-const showInsetEffect: WaveConfig['showEffect'] = (node, { event, component }) => {
+const showInsetEffect: WaveConfig['showEffect'] = (node: HTMLElement, { event, component }: { event: MouseEvent, component?: string }) => {
   if (component !== 'Button') {
     return
   }
@@ -66,7 +66,7 @@ const showInsetEffect: WaveConfig['showEffect'] = (node, { event, component }) =
   })
 }
 
-const showShakeEffect: WaveConfig['showEffect'] = (node, { component }) => {
+const showShakeEffect: WaveConfig['showEffect'] = (node: HTMLElement, { component }: { component?: string }) => {
   if (component !== 'Button') {
     return
   }
@@ -82,7 +82,7 @@ const showShakeEffect: WaveConfig['showEffect'] = (node, { component }) => {
       const current = seq[currentStep]
       const next = seq[currentStep + 1]
 
-      if (next === undefined || next === null) {
+      if (current === undefined || next === undefined || next === null) {
         node.style.transform = ''
         node.style.transition = ''
         return
@@ -101,7 +101,7 @@ const showShakeEffect: WaveConfig['showEffect'] = (node, { component }) => {
   loop()
 }
 
-const showHappyEffect: WaveConfig['showEffect'] = (node, { event, component }) => {
+const showHappyEffect: WaveConfig['showEffect'] = (node: HTMLElement, { event, component }: { event: MouseEvent, component?: string }) => {
   if (component !== 'Button') {
     return
   }
