@@ -77,7 +77,7 @@ const defaults = {
   gutter: 0,
   align: 'top',
   justify: 'start',
-  wrap: true,
+  wrap: false,
 } as any
 
 const Row = defineComponent<RowProps>(
