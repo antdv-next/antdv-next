@@ -99,15 +99,7 @@ demo:
 
 ## 语义化 DOM {#semantic-dom}
 
-| 名称 | 说明 | 版本 |
-| --- | --- | --- |
-| root | 根元素 | - |
-| track | 轨道元素 | - |
-| tracks | 轨道容器 | - |
-| rail | 滑轨元素 | - |
-| handle | 滑块元素 | - |
-| mark | 刻度元素 | - |
-| markText | 刻度文本元素 | - |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## 主题变量（Design Token）{#design-token}
 

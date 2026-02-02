@@ -119,12 +119,9 @@ interface PresetsItem {
 | toRgb | 转换成 `rgb` 对象 | () => &#123; r: number, g: number, b: number, a: number &#125; | - |
 | toRgbString | 转换成 `rgb` 格式颜色字符串，返回格式如：`rgb(22, 119, 255)` | () => string | - |
 
-## 语义化结构 {#semantic-dom}
+## 语义化 DOM {#semantic-dom}
 
-| 名称 | 说明 |
-| --- | --- |
-| root | 触发器容器，包含边框样式、过渡动画、尺寸控制等样式，显示颜色块和文本内容 |
-| popup.root | 弹出面板根容器，包含背景色、阴影效果、色彩选择面板、滑块控制和预设颜色等样式 |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## 主题变量（Design Token）{#design-token}
 

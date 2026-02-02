@@ -259,7 +259,9 @@ export type FormatType
 | dateRender | 自定义日期单元格的内容，>= 5.4.0 起用 `cellRender` 代替 | (ctx: { date: AnyObject, today: AnyObject }) => any | - |
 | monthCellRender | - | (ctx: { date: AnyObject, locale: any }) => any | - |
 
-## Semantic DOM {#semantic-dom}
+## Semantic DOM
+
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## Design Token
 

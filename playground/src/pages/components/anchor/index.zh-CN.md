@@ -90,13 +90,7 @@ group:
 
 ## 语义化 DOM {#semantic-dom}
 
-| 属性 | 说明 | 版本 |
-| --- | --- | --- |
-| root | 根节点 | - |
-| ink | 锚点滚动区域 | - |
-| item | 锚点项 | - |
-| itemTitle | 锚点项标题 | - |
-| indicator | 锚点指示器 | - |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## 主题变量（Design Token） {#design-token}
 

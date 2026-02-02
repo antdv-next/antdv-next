@@ -185,11 +185,7 @@ demo:
 
 ## 语义化 DOM {#semantic-dom}
 
-| 名称 | 说明 |
-| --- | --- |
-| root | 根节点 |
-| list | 上传列表节点 |
-| item | 上传项节点 |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## 主题变量（Design Token）{#design-token}
 

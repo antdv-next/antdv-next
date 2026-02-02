@@ -136,6 +136,8 @@ Radio group can wrap a group of `Radio`.
 
 ## Semantic DOM
 
+<demo src="./demo/_semantic.vue" simplify></demo>
+
 ## Design Token
 
 <ComponentTokenTable component="Radio"></ComponentTokenTable>

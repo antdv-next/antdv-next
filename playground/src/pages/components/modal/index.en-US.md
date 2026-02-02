@@ -212,20 +212,11 @@ onMounted(() => {
 const confirmed = await modal.confirm({ ... })
 ```
 
-## Semantic DOM {#semantic-dom}
+## Semantic DOM
 
-| Name | Description |
-| --- | --- |
-| root | Root element |
-| mask | Mask element |
-| wrapper | Wrapper element |
-| container | Modal content wrapper |
-| header | Header element |
-| title | Title element |
-| body | Body element |
-| footer | Footer element |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
-## Design Token {#design-token}
+## Design Token
 
 <ComponentTokenTable component="Modal"></ComponentTokenTable>
 

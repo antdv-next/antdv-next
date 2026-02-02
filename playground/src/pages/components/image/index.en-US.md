@@ -200,6 +200,8 @@ interface CoverConfig {
 
 ## Semantic DOM
 
+<demo src="./demo/_semantic.vue" simplify></demo>
+
 ## Design Token
 
 <ComponentTokenTable component="Image" />

@@ -80,7 +80,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 ## Semantic DOM
 
-<!-- <code src="./demo/_semantic.tsx" simplify="true"></code> -->
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## Design Token
 

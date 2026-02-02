@@ -193,11 +193,8 @@ ConfigProvider also provides a global configuration scheme that allows for unifo
 
 ## Semantic DOM {#semantic-dom}
 
-| Name | Description |
-| --- | --- |
-| root | Root element |
-| label | Label element |
-| content | Content element |
+<demo src="./demo/_semantic.vue" simplify></demo>
+
 
 ## Design Token {#design-token}
 

@@ -90,6 +90,8 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 ## Semantic DOM {#semantic-dom}
 
+<demo src="./demo/_semantic.vue" simplify></demo>
+
 | Name | Description |
 | --- | --- |
 | root | Root element, set flex layout, alignment, wrap and list styles |

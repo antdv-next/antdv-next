@@ -50,13 +50,7 @@ group:
 
 ## 语义化 DOM 结构 {#semantic-dom}
 
-容器元素及其各个子元素的类名和 style。
-
-| 名称 | 说明 |
-| --- | --- |
-| root | 根元素 |
-| content | 内容元素（标题） |
-| rail | 分割线元素 |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## 主题变量（Design Token）
 

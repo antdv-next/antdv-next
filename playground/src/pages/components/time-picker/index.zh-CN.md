@@ -122,9 +122,9 @@ type RangeDisabledTime = (
 }
 ```
 
-## Semantic DOM
+## 语义化 DOM {#semantic-dom}
 
-<code src="./demo/_semantic.tsx" simplify="true"></code>
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## 主题变量（Design Token）{#design-token}
 

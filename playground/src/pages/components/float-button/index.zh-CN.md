@@ -121,9 +121,20 @@ demo:
 | --- | --- | --- | --- |
 | click | 点击按钮的回调函数 | () =&gt; void | - |
 
-## Semantic DOM
+
+## 语义化 DOM {#semantic-dom}
+
+### FloatButton
+
+<demo src="./demo/_semantic.vue" simplify></demo>
+
+
+### FloatButtonGroup
+
+<demo src="./demo/_semantic_group.vue" simplify></demo>
 
 查看 [Semantic DOM](#semantic-dom) 说明以了解语义化结构的详细信息。
+
 
 ## 主题变量（Design Token）{#design-token}
 

@@ -136,17 +136,11 @@ notification.config({
 | maxCount | Max Notification show, drop oldest if exceed limit | number | - | - |
 | props | Props passed to the notification `div`, supports `data-testid`, `aria-*`, or `role` | DivProps | - | - |
 
-## Semantic DOM {#semantic-dom}
+## Semantic DOM
 
-| Name | Description |
-| --- | --- |
-| root | Root element |
-| title | Title element |
-| description | Description element |
-| actions | Actions element |
-| icon | Icon element |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
-## Design Token {#design-token}
+## Design Token
 
 <ComponentTokenTable component="Notification"></ComponentTokenTable>
 

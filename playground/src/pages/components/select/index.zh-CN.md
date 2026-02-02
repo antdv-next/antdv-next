@@ -171,18 +171,7 @@ demo:
 
 ## 语义化 DOM {#semantic-dom}
 
-| 语义 | 描述 | 版本 |
-| --- | --- | --- |
-| root | 根元素 | - |
-| prefix | 前缀元素 | - |
-| content | 多选容器 | - |
-| placeholder | 占位符元素 | - |
-| clear | 清除按钮 | - |
-| input | 输入元素 | - |
-| suffix | 后缀元素 | - |
-| popup.root | 弹出层根元素 | - |
-| popup.list | 弹出层列表 | - |
-| popup.listItem | 弹出层列表项 | - |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## 主题变量（Design Token）
 

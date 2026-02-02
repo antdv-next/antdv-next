@@ -132,14 +132,9 @@ demo:
 | --- | --- | --- | --- |
 | expandAction | 目录展开逻辑，可选：false \| `click` \| `doubleClick` | string \| boolean | `click` |
 
-## Semantic DOM {#semantic-dom}
+## 语义化 DOM {#semantic-dom}
 
-| 名称 | 说明 |
-| --- | --- |
-| root | 根元素 |
-| item | 树节点 |
-| itemIcon | 节点图标 |
-| itemTitle | 节点标题 |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## 主题变量（Design Token）{#design-token}
 

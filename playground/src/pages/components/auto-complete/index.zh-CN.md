@@ -88,7 +88,9 @@ demo:
 | filterOption | 是否根据输入项进行筛选。当其为一个函数时，会接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 true，反之则返回 false | boolean \| (inputValue: string, option?: Option) =&gt; boolean | true | - |
 | onSearch | 搜索补全项的时候调用 | (value: string) =&gt; void | - | - |
 
-## Semantic DOM
+## 语义化 DOM {#semantic-dom}
+
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## 主题变量（Design Token）
 

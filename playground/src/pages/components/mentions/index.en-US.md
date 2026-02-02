@@ -69,6 +69,10 @@ Common props ref：[Common props](/docs/vue/common-props)
 | suffix | - | () =&gt; any | - |
 | labelRender | - | (ctx: &#123; option: MentionsOptionProps, index: number &#125;) =&gt; any | - |
 
+## Semantic DOM {#semantic-dom}
+
+<demo src="./demo/_semantic.vue" simplify></demo>
+
 ## Design Token
 
 <ComponentTokenTable component="Mentions" />

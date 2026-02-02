@@ -92,21 +92,9 @@ demo:
 | prevButtonProps | 上一步按钮的属性 | &#123; children?: VueNode; onClick?: () =&gt; void; class?: string; style?: CSSProperties &#125; | - | - |
 | scrollIntoViewOptions | 是否支持当前元素滚动到视窗内，也可传入配置指定滚动视窗的相关参数，默认跟随 Tour 的 `scrollIntoViewOptions` 属性 | boolean \| ScrollIntoViewOptions | true | - |
 
-## Semantic DOM {#semantic-dom}
+## 语义化 DOM {#semantic-dom}
 
-| 名称 | 说明 |
-| --- | --- |
-| root | 根元素 |
-| cover | 封面元素 |
-| mask | 蒙层元素 |
-| section | 卡片内容区 |
-| footer | 底部区域 |
-| actions | 操作区域 |
-| indicators | 指示器容器 |
-| indicator | 指示器项 |
-| header | 头部区域 |
-| title | 标题 |
-| description | 描述 |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## 主题变量（Design Token）{#design-token}
 

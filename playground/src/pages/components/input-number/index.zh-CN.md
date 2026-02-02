@@ -88,6 +88,10 @@ demo:
 | addonBefore | 带标签的 input，设置前置标签，请使用 Space.Compact 替换 | () =&gt; any | - |
 | addonAfter | 带标签的 input，设置后置标签，请使用 Space.Compact 替换 | () =&gt; any | - |
 
+## 语义化 DOM {#semantic-dom}
+
+<demo src="./demo/_semantic.vue" simplify></demo>
+
 ## 主题变量（Design Token）
 
 <ComponentTokenTable component="InputNumber" />

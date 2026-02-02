@@ -17,7 +17,7 @@ import { useComponentBaseConfig } from '../config-provider/context'
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
 import Flex from '../flex'
 import { SpaceCompact } from '../space'
-import { GroupContextProvider, useGroupContextProvider } from './context'
+import { GroupContextProvider } from './context'
 import FloatButton, { floatButtonPrefixCls } from './FloatButton'
 import useStyle from './style'
 
@@ -261,7 +261,6 @@ const InternalFloatButtonGroup = defineComponent<
       },
     }))
 
-    useGroupContextProvider(listContext)
     const triggerContext = computed<GroupContextProps>(() => ({
       shape: mergedShape.value,
       individual: true,
@@ -327,7 +326,7 @@ const InternalFloatButtonGroup = defineComponent<
           return null
         }
         return (
-          <GroupContextProvider value={triggerContext}>
+          <GroupContextProvider value={triggerContext.value}>
             <FloatButton
               {...restButtonProps.value}
               type={mergedType.value}
@@ -348,44 +347,46 @@ const InternalFloatButtonGroup = defineComponent<
         )
       }
       return (
-        <div
-          {...pureAttrs(attrs)}
-          ref={groupRef as any}
-          class={classNames(
-            groupPrefixCls.value,
-            hashId.value,
-            cssVarCls.value,
-            rootCls.value,
-            contextClassName.value,
-            mergedClassNames.value.root,
-            props.rootClass,
-            (attrs as any).class,
-            {
-              [`${groupPrefixCls.value}-rtl`]: direction.value === 'rtl',
-              [`${groupPrefixCls.value}-individual`]: individual.value,
-              [`${groupPrefixCls.value}-${mergedPlacement.value}`]: !!triggerMode.value,
-              [`${groupPrefixCls.value}-menu-mode`]: !!triggerMode.value,
-            },
-          )}
-          style={[
-            contextStyle.value,
-            mergedStyles.value.root,
-            props.style,
-            (attrs as any).style,
-            zIndexStyle.value,
-          ]}
-          onMouseenter={onMouseEnter}
-          onMouseleave={onMouseLeave}
-        >
-          {triggerMode.value
-            ? (
-                <Transition {...transitionProps}>
-                  {open.value ? renderList() : null}
-                </Transition>
-              )
-            : renderList()}
-          {renderTrigger()}
-        </div>
+        <GroupContextProvider value={listContext.value}>
+          <div
+            {...pureAttrs(attrs)}
+            ref={groupRef as any}
+            class={classNames(
+              groupPrefixCls.value,
+              hashId.value,
+              cssVarCls.value,
+              rootCls.value,
+              contextClassName.value,
+              mergedClassNames.value.root,
+              props.rootClass,
+              (attrs as any).class,
+              {
+                [`${groupPrefixCls.value}-rtl`]: direction.value === 'rtl',
+                [`${groupPrefixCls.value}-individual`]: individual.value,
+                [`${groupPrefixCls.value}-${mergedPlacement.value}`]: !!triggerMode.value,
+                [`${groupPrefixCls.value}-menu-mode`]: !!triggerMode.value,
+              },
+            )}
+            style={[
+              contextStyle.value,
+              mergedStyles.value.root,
+              props.style,
+              (attrs as any).style,
+              zIndexStyle.value,
+            ]}
+            onMouseenter={onMouseEnter}
+            onMouseleave={onMouseLeave}
+          >
+            {triggerMode.value
+              ? (
+                  <Transition {...transitionProps}>
+                    {open.value ? renderList() : null}
+                  </Transition>
+                )
+              : renderList()}
+            {renderTrigger()}
+          </div>
+        </GroupContextProvider>
       )
     }
   },

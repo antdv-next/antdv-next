@@ -73,11 +73,7 @@ demo:
 
 ## 语义化 DOM {#semantic-dom}
 
-| 名称 | 说明 | 版本 |
-| --- | --- | --- |
-| root | 根元素 | - |
-| handle | 滑块元素 | - |
-| inner | 内部元素 | - |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## 主题变量（Design Token）{#design-token}
 

@@ -93,13 +93,8 @@ Properties shared by all types.
 
 ## Semantic DOM {#semantic-dom}
 
-| Name | Description |
-| --- | --- |
-| root | Root element |
-| body | Body element |
-| rail | Rail element |
-| track | Track element |
-| indicator | Indicator element |
+<demo src="./demo/_semantic.vue" simplify></demo>
+
 
 ## Design Token {#design-token}
 

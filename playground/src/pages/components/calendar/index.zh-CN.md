@@ -74,6 +74,10 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-p-wQLik200AAA
 | fullCellRender | 自定义单元格的内容 | (ctx: &#123; date: AnyObject, info: any &#125;) =&gt; any | - |
 | headerRender | 自定义头部内容 | (config: &#123; value: AnyObject, type: CalendarMode, onChange: (date: AnyObject) =&gt; void, onTypeChange: (type: CalendarMode) =&gt; void &#125;) =&gt; any | - |
 
+## 语义化 DOM {#semantic-dom}
+
+<demo src="./demo/_semantic.vue" simplify></demo>
+
 ## 主题变量（Design Token）
 
 <ComponentTokenTable component="Calendar" />

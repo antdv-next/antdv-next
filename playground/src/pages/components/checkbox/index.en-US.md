@@ -74,6 +74,10 @@ Common props ref：[Common props](/docs/vue/common-props)
 | --- | --- | --- | --- |
 | labelRender | - | (params: &#123; item: CheckboxOptionType, index: number &#125;) =&gt; any | - |
 
+## Semantic DOM {#semantic-dom}
+
+<demo src="./demo/_semantic.vue" simplify></demo>
+
 ## Design Token
 
 <ComponentTokenTable component="Checkbox" />

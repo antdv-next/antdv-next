@@ -6,8 +6,8 @@ import {
   RightOutlined,
 } from '@antdv-next/icons'
 import { theme } from 'antdv-next'
-import useLocale from 'antdv-next/locale/useLocale'
 import { computed, ref } from 'vue'
+import { useSemanticLocale } from '@/composables/use-locale'
 import tokenMetaRes from '../../assets/token-meta.json'
 import tokenDataRes from '../../assets/token.json'
 import ColorChunk from '../color-chunk/index.vue'
@@ -49,10 +49,7 @@ const locales = {
   },
 }
 
-const [, lang] = useLocale('Table')
-const locale = computed(() => {
-  return lang?.value.toLowerCase() === 'zh-cn' ? locales.cn : locales.en
-})
+const locale = useSemanticLocale(locales)
 
 const { token: tokenState } = theme.useToken()
 
@@ -218,7 +215,7 @@ function useSubTableData(
 
         return {
           name,
-          desc: lang?.value === 'zh-cn' ? meta.desc : meta.descEn,
+          desc: locale.value === locales.cn ? meta.desc : meta.descEn,
           type: meta.type,
           value: component ? resolveValue(rawValue) : rawValue,
         }

@@ -194,11 +194,8 @@ ConfigProvider 也支持统一配置校验文案：
 
 ## 语义化 DOM {#semantic-dom}
 
-| 名称 | 说明 |
-| --- | --- |
-| root | 根元素 |
-| label | 标签元素 |
-| content | 内容元素 |
+<demo src="./demo/_semantic.vue" simplify></demo>
+
 
 ## 主题变量（Design Token）{#design-token}
 

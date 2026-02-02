@@ -6,21 +6,27 @@ import { classNames as clsx } from '@v-c/util'
 import { computed } from 'vue'
 import { genCssVar } from '../theme/util/genStyleUtils'
 
-function useItems(rootPrefixCls: ComputedRef<string>, prefixCls: ComputedRef<string>, mode: ComputedRef<TimelineMode>, items?: ComputedRef<TimelineItemType[] | undefined>, pending?: ComputedRef<TimelineProps['pending']>, pendingDot?: ComputedRef<TimelineProps['pendingDot']>) {
+function useItems(
+  rootPrefixCls: ComputedRef<string>,
+  prefixCls: ComputedRef<string>,
+  mode: ComputedRef<TimelineMode>,
+  items?: ComputedRef<TimelineItemType[] | undefined>,
+  pending?: ComputedRef<TimelineProps['pending']>,
+  pendingDot?: ComputedRef<TimelineProps['pendingDot']>,
+) {
+  const itemCls = computed(() => `${prefixCls.value}-item`)
+
+  const [varName] = genCssVar(rootPrefixCls.value, 'cmp-steps')
+
+  // Merge items and children
+  const parseItems = computed<TimelineItemType[]>(() => {
+    return items && Array.isArray(items.value)
+      ? items.value
+      : []
+  })
+
   // convert legacy type
   return computed(() => {
-    const itemCls = `${prefixCls.value}-item`
-
-    const [varName] = genCssVar(rootPrefixCls.value, 'cmp-steps')
-
-    // Merge items and children
-    const parseItems = computed<TimelineItemType[]>(() => {
-      return items && Array.isArray(items.value)
-        ? items.value
-        // no children
-        : []
-    })
-
     const mergedItems = parseItems.value.map<TimelineItemType>((item, index) => {
       const {
         label,
@@ -28,7 +34,7 @@ function useItems(rootPrefixCls: ComputedRef<string>, prefixCls: ComputedRef<str
         title,
         content,
         color,
-        classes,
+        className,
         style,
         icon,
         dot,
@@ -39,11 +45,11 @@ function useItems(rootPrefixCls: ComputedRef<string>, prefixCls: ComputedRef<str
       } = item
 
       let mergedStyle = style
-      let mergedClassName = classes
+      let mergedClass = className
 
       if (color) {
         if (['blue', 'red', 'green', 'gray'].includes(color)) {
-          mergedClassName = clsx(classes, `${itemCls}-color-${color}`)
+          mergedClass = clsx(className, `${itemCls.value}-color-${color}`)
         }
         else {
           mergedStyle = {
@@ -59,7 +65,7 @@ function useItems(rootPrefixCls: ComputedRef<string>, prefixCls: ComputedRef<str
           ?? position
           ?? (mode.value === 'alternate' ? (index % 2 === 0 ? 'start' : 'end') : mode.value)
 
-      mergedClassName = clsx(mergedClassName, `${itemCls}-placement-${mergedPlacement}`)
+      mergedClass = clsx(mergedClass, `${itemCls.value}-placement-${mergedPlacement}`)
 
       // Icon
       let mergedIcon = icon ?? dot
@@ -72,7 +78,7 @@ function useItems(rootPrefixCls: ComputedRef<string>, prefixCls: ComputedRef<str
         title: title ?? label,
         content: content ?? children,
         style: mergedStyle,
-        class: mergedClassName,
+        class: mergedClass,
         icon: mergedIcon,
         status: loading ? 'process' : 'finish',
       }

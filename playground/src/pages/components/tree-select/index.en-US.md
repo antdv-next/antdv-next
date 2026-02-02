@@ -142,24 +142,11 @@ Common props ref：[Common props](/docs/vue/common-props)
 | title | Content showed on the treeNodes | VueNode | `---` | - |
 | value | Will be treated as `treeNodeFilterProp` by default, should be unique in the tree | Key | - | - |
 
-## Semantic DOM {#semantic-dom}
+## Semantic DOM
 
-| Name | Description |
-| --- | --- |
-| root | Root element |
-| prefix | Prefix element |
-| input | Input element |
-| suffix | Suffix element |
-| content | Multiple selection container |
-| placeholder | Placeholder element |
-| item | Selected item |
-| itemContent | Selected item content |
-| itemRemove | Selected item remove icon |
-| popup.root | Popup root element |
-| popup.item | Popup list item |
-| popup.itemTitle | Popup list item title |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
-## Design Token {#design-token}
+## Design Token
 
 <ComponentTokenTable component="TreeSelect"></ComponentTokenTable>
 

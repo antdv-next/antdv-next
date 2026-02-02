@@ -47,15 +47,9 @@ Common props ref：[Common props](/docs/vue/common-props)
 | classes | Customize class for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - |
 
-## Semantic DOM {#semantic-dom}
+## Semantic DOM
 
-Container element and its child elements' className and style.
-
-| Name | Description |
-| --- | --- |
-| root | Root element |
-| content | Content element (title) |
-| rail | Divider line element |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## Design Token
 

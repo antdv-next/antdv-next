@@ -2,6 +2,7 @@
 import type { LiteralUnion } from '@v-c/util/dist/type'
 import type { App, CSSProperties } from 'vue'
 import { classNames } from '@v-c/util'
+import { getAttrStyleAndClass } from '@v-c/util/dist/props-util'
 import { computed, defineComponent } from 'vue'
 import { useConfig } from '../config-provider/context.ts'
 import { genCssVar } from '../theme/util/genStyleUtils.ts'
@@ -67,6 +68,8 @@ const Col = defineComponent<ColProps>(
 
     return () => {
       const { span, order, offset, push, pull, flex } = props
+      const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
+
       // ===================== Size ======================
       const sizeStyle: Record<string, string> = {}
 
@@ -114,6 +117,7 @@ const Col = defineComponent<ColProps>(
         sizeClassObj,
         hashId.value,
         cssVarCls.value,
+        className,
       )
       const mergedStyle: CSSProperties = {}
 
@@ -136,9 +140,9 @@ const Col = defineComponent<ColProps>(
 
       return (
         <div
-          {...attrs}
+          {...restAttrs}
           class={classes}
-          style={[mergedStyle, (attrs as any).style, sizeStyle]}
+          style={[mergedStyle, style, sizeStyle]}
         >
           {slots.default?.()}
         </div>

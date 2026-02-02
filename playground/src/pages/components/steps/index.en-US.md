@@ -82,8 +82,10 @@ A single step in the step bar.
 | subTitle | Subtitle of the step | VueNode | - | - |
 | title | Title of the step | VueNode | - | - |
 
-## Semantic DOM {#semantic-dom}
+## Semantic DOM
 
-## Design Token {#design-token}
+<demo src="./demo/_semantic.vue" simplify></demo>
+
+## Design Token
 
 <ComponentTokenTable component="Steps"></ComponentTokenTable>

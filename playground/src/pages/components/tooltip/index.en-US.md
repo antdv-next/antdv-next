@@ -105,15 +105,11 @@ Note: After configuration, properties like `getPopupContainer`, `arrow` etc. wil
 </template>
 ```
 
-## Semantic DOM {#semantic-dom}
+## Semantic DOM
 
-| Name | Description |
-| --- | --- |
-| root | Root element |
-| container | Tooltip content wrapper |
-| arrow | Arrow element |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
-## Design Token {#design-token}
+## Design Token
 
 <ComponentTokenTable component="Tooltip"></ComponentTokenTable>
 

@@ -61,15 +61,9 @@ Popover 还支持 Tooltip 的所有属性，详见 [Tooltip](/components/tooltip
 
 请确保 `Popover` 的子元素能接受 `mouseenter`、`mouseleave`、`focus`、`click` 事件。
 
-## Semantic DOM {#semantic-dom}
+## 语义化 DOM {#semantic-dom}
 
-| 名称 | 说明 |
-| --- | --- |
-| root | 根元素 |
-| container | 内容容器 |
-| arrow | 箭头元素 |
-| title | 标题元素 |
-| content | 内容元素 |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## 主题变量（Design Token）{#design-token}
 

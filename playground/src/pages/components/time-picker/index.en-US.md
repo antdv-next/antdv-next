@@ -123,7 +123,7 @@ type RangeDisabledTime = (
 
 ## Semantic DOM
 
-<code src="./demo/_semantic.tsx" simplify="true"></code>
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## Design Token
 

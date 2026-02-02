@@ -70,15 +70,11 @@ Common props ref：[Common props](/docs/vue/common-props)
 | blur() | Remove focus | - |
 | focus() | Get focus | - |
 
-## Semantic DOM {#semantic-dom}
+## Semantic DOM
 
-| Name | Description | Version |
-| --- | --- | --- |
-| root | Root element | - |
-| handle | Handle element | - |
-| inner | Inner element | - |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
-## Design Token {#design-token}
+## Design Token
 
 <ComponentTokenTable component="Switch"></ComponentTokenTable>
 

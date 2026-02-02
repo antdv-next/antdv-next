@@ -76,12 +76,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*obM7S5lIxeMAAA
 
 ## 语义化结构 {#semantic-dom}
 
-| 名称 | 说明 |
-| --- | --- |
-| root | 根元素 |
-| image | 图片区域 |
-| description | 描述区域 |
-| footer | 底部操作区域 |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## 设计变量 {#design-token}
 

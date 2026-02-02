@@ -41,6 +41,10 @@ export default defineConfig({
         find: /^\/@tests/,
         replacement: path.resolve(baseUrl, './tests'),
       },
+      {
+        find: '@',
+        replacement: path.resolve(baseUrl, './playground/src'),
+      },
     ],
   },
 })

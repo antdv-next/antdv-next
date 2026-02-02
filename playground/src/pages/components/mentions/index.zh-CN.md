@@ -70,6 +70,10 @@ demo:
 | suffix | - | () =&gt; any | - |
 | labelRender | - | (ctx: &#123; option: MentionsOptionProps, index: number &#125;) =&gt; any | - |
 
+## 语义化 DOM {#semantic-dom}
+
+<demo src="./demo/_semantic.vue" simplify></demo>
+
 ## 主题变量（Design Token）
 
 <ComponentTokenTable component="Mentions" />

@@ -118,14 +118,11 @@ interface PresetsItem {
 | toRgb | Convert to `rgb` object | () => &#123; r: number, g: number, b: number, a: number &#125; | - |
 | toRgbString | Convert to `rgb` format color string, the return type like: `rgb(22, 119, 255)` | () => string | - |
 
-## Semantic DOM {#semantic-dom}
+## Semantic DOM
 
-| Name | Description |
-| --- | --- |
-| root | Trigger container with border styles, transition animations, size controls, displaying color block and text content |
-| popup.root | Popup panel root container with background color, shadow effects, color selection panel, slider controls and preset colors |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
-## Design Token {#design-token}
+## Design Token
 
 <ComponentTokenTable component="ColorPicker"></ComponentTokenTable>
 

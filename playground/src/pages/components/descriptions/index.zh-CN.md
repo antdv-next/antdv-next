@@ -56,6 +56,10 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*d27AQJrowGAAAA
 | labelRender | - | RenderDescriptionsItem | - |
 | contentRender | - | RenderDescriptionsItem | - |
 
+## 语义化 DOM {#semantic-dom}
+
+<demo src="./demo/_semantic.vue" simplify></demo>
+
 ## 主题变量（Design Token）
 
 <ComponentTokenTable component="Descriptions" />

@@ -26,3 +26,11 @@ export function useLocaleNamespace<K extends keyof LocaleMessages>(namespace: K)
     return localeData[namespace]
   })
 }
+
+export function useSemanticLocale(locales: Record<'cn' | 'en', Record<string, any>>) {
+  return computed(() => {
+    const currentLocale = localeStore.value
+    const lang = currentLocale.startsWith('zh') ? 'cn' : 'en'
+    return locales[lang]
+  })
+}

@@ -79,7 +79,9 @@ tag: 5.21.0
 | resizable | 是否启用拉伸 | boolean | true | - |
 | size | 受控面板大小，支持像素和百分比 | number \| string | - | - |
 
-## Semantic DOM
+## 语义化 DOM {#semantic-dom}
+
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## 主题变量（Design Token）
 

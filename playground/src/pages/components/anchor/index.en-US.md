@@ -91,17 +91,11 @@ We recommend using the items form instead.
 | target | Specifies where to display the linked URL | string | - | - |
 | title | The content of hyperlink | VueNode | - | - |
 
-## Semantic DOM {#semantic-dom}
+## Semantic DOM
 
-| Property | Description | Version |
-| --- | --- | --- |
-| root | Root node | - |
-| ink | Anchor scroll area | - |
-| item | Anchor item | - |
-| itemTitle | Anchor item title | - |
-| indicator | Anchor indicator | - |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
-## Design Token {#design-token}
+## Design Token
 
 <ComponentTokenTable component="Anchor" />
 

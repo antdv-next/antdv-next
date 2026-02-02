@@ -107,6 +107,10 @@ Common props ref：[Common props](/docs/vue/common-props)
 | title | Title | () =&gt; any | - |
 | description | Description | () =&gt; any | - |
 
+## Semantic DOM {#semantic-dom}
+
+<demo src="./demo/_semantic.vue" simplify></demo>
+
 ## Design Token
 
 <ComponentTokenTable component="Card" />

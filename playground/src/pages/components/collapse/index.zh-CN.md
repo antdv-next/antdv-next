@@ -106,15 +106,9 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sir-TK0HkWcAAA
 | showArrow | 是否展示当前面板上的箭头（为 false 时，collapsible 不能设为 icon） | boolean | true |  |
 | styles | 语义化结构 style | [`Record<header \| body, CSSProperties>`](#semantic-dom) | - | - |
 
-## Semantic DOM {#semantic-dom}
+## 语义化 DOM {#semantic-dom}
 
-| 名称 | 说明 |
-| --- | --- |
-| root | 根元素 |
-| header | 标题栏 |
-| title | 标题 |
-| body | 内容区域 |
-| icon | 图标 |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## 主题变量（Design Token）{#design-token}
 

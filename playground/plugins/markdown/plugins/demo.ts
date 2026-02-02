@@ -15,11 +15,14 @@ function checkWrapper(content: string, wrapper = 'demo'): boolean {
 }
 
 export function replaceSrcPath(content: string, id: string, root: string, wrapper = 'demo', examples?: MarkdownItHeader) {
-  // const REGEX_TAG = new RegExp(`(<${wrapper}\\b[^>]*>)([\\s\\S]*?)<\\/${wrapper}>`, 'gi')
-  const REGEX_TAG = new RegExp(`(<${wrapper}(?!-)\\b[^>]*>)([\\s\\S]*?)<\\/${wrapper}>`, 'gi')
-  return content.replace(REGEX_TAG, (tagMatch, _, titleContent) => {
+  // Helper function to replace src path in a tag
+  function replaceSrcInTag(tagMatch: string, titleContent?: string) {
     return tagMatch.replace(/(\s|^)src=(['"])(.*?)\2/gi, (srcMatch, prefix, quote, srcValue) => {
       if (!srcValue)
+        return srcMatch
+
+      // Skip if already an absolute path (already processed)
+      if (srcValue.startsWith('/'))
         return srcMatch
 
       const dir = pathe.dirname(id)
@@ -31,8 +34,8 @@ export function replaceSrcPath(content: string, id: string, root: string, wrappe
       const componentDemoPath = componentDemoPathArr.reverse().join('/')
 
       const newSrc = relative.startsWith('/') ? relative : `/${relative}`
-      // 如果存在 when-to-use，则在路径后添加查询参数
-      if (examples) {
+      // 如果存在 examples header，则在其 children 中添加 demo 项
+      if (examples && titleContent) {
         const slug = componentDemoPath.replace(/\//g, '-').replace('.vue', '')
         const title = titleContent
         const level = examples.level + 1
@@ -54,7 +57,29 @@ export function replaceSrcPath(content: string, id: string, root: string, wrappe
 
       return `${prefix}src=${quote}${newSrc}${quote}`
     })
+  }
+
+  // 1. First, match closed tags <demo>Title</demo> to extract title content
+  const REGEX_CLOSED_TAG = new RegExp(`(<${wrapper}(?!-)\\b[^>]*>)([\\s\\S]*?)<\\/${wrapper}>`, 'gi')
+  let result = content.replace(REGEX_CLOSED_TAG, (tagMatch, openTag, titleContent) => {
+    // Replace src in the open tag part, passing titleContent for header generation
+    const replacedOpenTag = replaceSrcInTag(openTag, titleContent?.trim())
+    return tagMatch.replace(openTag, replacedOpenTag)
   })
+
+  // 2. Then, match self-closing tags <demo ... />
+  const REGEX_SELF_CLOSING_TAG = new RegExp(`<${wrapper}(?!-)\\b[^>]*/\\s*>`, 'gi')
+  result = result.replace(REGEX_SELF_CLOSING_TAG, (tagMatch) => {
+    return replaceSrcInTag(tagMatch)
+  })
+
+  // 3. Finally, match standalone open tags <demo ...> (when parsed separately from closing tag)
+  const REGEX_OPEN_TAG = new RegExp(`<${wrapper}(?!-)\\b[^>]*>`, 'gi')
+  result = result.replace(REGEX_OPEN_TAG, (tagMatch) => {
+    return replaceSrcInTag(tagMatch)
+  })
+
+  return result
 }
 
 export function demoPlugin(md: MarkdownIt, config: { root?: string } = {}) {
@@ -66,20 +91,29 @@ export function demoPlugin(md: MarkdownIt, config: { root?: string } = {}) {
     const currentId = env.id || ''
     const headers = env.headers
     const examples = headers?.find(item => item.slug === 'examples')
-    // 遍历所有 token
-    for (const token of tokens) {
+
+    // 递归处理 token 及其 children
+    function processToken(token: any) {
       // 1. 处理块级 HTML (html_block)
       if (token.type === 'html_block' && checkWrapper(token.content)) {
         token.content = replaceSrcPath(token.content, currentId, root, undefined, examples)
       }
+      // 2. 处理内联 HTML (html_inline)
+      else if (token.type === 'html_inline' && checkWrapper(token.content)) {
+        token.content = replaceSrcPath(token.content, currentId, root, undefined, examples)
+      }
 
-      else if (token.type === 'inline' && token.children) {
+      // 3. 递归处理 children
+      if (token.children) {
         for (const child of token.children) {
-          if (child.type === 'html_inline' && checkWrapper(child.content)) {
-            child.content = replaceSrcPath(child.content, currentId, root, undefined, examples)
-          }
+          processToken(child)
         }
       }
+    }
+
+    // 遍历所有 token
+    for (const token of tokens) {
+      processToken(token)
     }
 
     return originalRender.call(this, tokens, options, env)

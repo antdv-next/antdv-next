@@ -122,6 +122,15 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 ## Semantic DOM
 
+### FloatButton
+
+<demo src="./demo/_semantic.vue" simplify></demo>
+
+
+### FloatButtonGroup
+
+<demo src="./demo/_semantic_group.vue" simplify></demo>
+
 Refer to [Semantic DOM](#semantic-dom) for detailed semantic structure information.
 
 ## Design Token

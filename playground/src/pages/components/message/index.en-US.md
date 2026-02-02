@@ -106,15 +106,11 @@ message.config({
 | classes | Customize class for each semantic structure inside the component. Supports object or function. | ArgsClassNamesType | - | - |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | ArgsStylesType | - | - |
 
-## Semantic DOM {#semantic-dom}
+## Semantic DOM
 
-| Name | Description |
-| --- | --- |
-| root | Root element |
-| icon | Icon element |
-| content | Content element |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
-## Design Token {#design-token}
+## Design Token
 
 <ComponentTokenTable component="Message"></ComponentTokenTable>
 

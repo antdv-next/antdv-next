@@ -86,7 +86,9 @@ demo:
 | suffix | 设置数值的后缀 | () =&gt; VueNode | - |
 | title | 数值的标题 | () =&gt; VueNode | - |
 
-## Semantic DOM {#semantic-dom}
+## 语义化 DOM {#semantic-dom}
+
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## 主题变量（Design Token）{#design-token}
 

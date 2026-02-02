@@ -109,7 +109,9 @@ Transfer 支持接收 `children` 自定义渲染列表，并返回以下参数�
 <a-transfer :row-key="(record) => record.uid" />
 ```
 
-## Semantic DOM {#semantic-dom}
+## 语义化 DOM {#semantic-dom}
+
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## 主题变量（Design Token）{#design-token}
 

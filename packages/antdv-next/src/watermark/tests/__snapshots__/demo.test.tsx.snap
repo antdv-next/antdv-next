@@ -77,10 +77,10 @@ exports[`watermark demo > renders custom correctly 1`] = `
       class="ant-form-item css-var-root ant-form-css-var ant-form-item-vertical"
     >
       <div
-        class="ant-row ant-row-start ant-row-top css-var-root ant-form-item-row"
+        class="ant-row css-var-root ant-form-item-row"
       >
         <div
-          class="ant-form-item-label ant-col css-var-root"
+          class="ant-col css-var-root ant-form-item-label"
         >
           <label
             class=""
@@ -90,7 +90,7 @@ exports[`watermark demo > renders custom correctly 1`] = `
           </label>
         </div>
         <div
-          class="ant-form-item-control ant-col css-var-root"
+          class="ant-col css-var-root ant-form-item-control"
         >
           <div
             class="ant-form-item-control-input"
@@ -134,10 +134,10 @@ exports[`watermark demo > renders custom correctly 1`] = `
       class="ant-form-item css-var-root ant-form-css-var ant-form-item-vertical"
     >
       <div
-        class="ant-row ant-row-start ant-row-top css-var-root ant-form-item-row"
+        class="ant-row css-var-root ant-form-item-row"
       >
         <div
-          class="ant-form-item-label ant-col css-var-root"
+          class="ant-col css-var-root ant-form-item-label"
         >
           <label
             class=""
@@ -147,7 +147,7 @@ exports[`watermark demo > renders custom correctly 1`] = `
           </label>
         </div>
         <div
-          class="ant-form-item-control ant-col css-var-root"
+          class="ant-col css-var-root ant-form-item-control"
         >
           <div
             class="ant-form-item-control-input"
@@ -199,10 +199,10 @@ exports[`watermark demo > renders custom correctly 1`] = `
       class="ant-form-item css-var-root ant-form-css-var ant-form-item-vertical"
     >
       <div
-        class="ant-row ant-row-start ant-row-top css-var-root ant-form-item-row"
+        class="ant-row css-var-root ant-form-item-row"
       >
         <div
-          class="ant-form-item-label ant-col css-var-root"
+          class="ant-col css-var-root ant-form-item-label"
         >
           <label
             class=""
@@ -212,7 +212,7 @@ exports[`watermark demo > renders custom correctly 1`] = `
           </label>
         </div>
         <div
-          class="ant-form-item-control ant-col css-var-root"
+          class="ant-col css-var-root ant-form-item-control"
         >
           <div
             class="ant-form-item-control-input"
@@ -280,10 +280,10 @@ exports[`watermark demo > renders custom correctly 1`] = `
       class="ant-form-item css-var-root ant-form-css-var ant-form-item-vertical"
     >
       <div
-        class="ant-row ant-row-start ant-row-top css-var-root ant-form-item-row"
+        class="ant-row css-var-root ant-form-item-row"
       >
         <div
-          class="ant-form-item-label ant-col css-var-root"
+          class="ant-col css-var-root ant-form-item-label"
         >
           <label
             class=""
@@ -293,7 +293,7 @@ exports[`watermark demo > renders custom correctly 1`] = `
           </label>
         </div>
         <div
-          class="ant-form-item-control ant-col css-var-root"
+          class="ant-col css-var-root ant-form-item-control"
         >
           <div
             class="ant-form-item-control-input"
@@ -361,10 +361,10 @@ exports[`watermark demo > renders custom correctly 1`] = `
       class="ant-form-item css-var-root ant-form-css-var ant-form-item-vertical"
     >
       <div
-        class="ant-row ant-row-start ant-row-top css-var-root ant-form-item-row"
+        class="ant-row css-var-root ant-form-item-row"
       >
         <div
-          class="ant-form-item-label ant-col css-var-root"
+          class="ant-col css-var-root ant-form-item-label"
         >
           <label
             class=""
@@ -374,7 +374,7 @@ exports[`watermark demo > renders custom correctly 1`] = `
           </label>
         </div>
         <div
-          class="ant-form-item-control ant-col css-var-root"
+          class="ant-col css-var-root ant-form-item-control"
         >
           <div
             class="ant-form-item-control-input"
@@ -443,10 +443,10 @@ exports[`watermark demo > renders custom correctly 1`] = `
       style="margin-bottom: 0px;"
     >
       <div
-        class="ant-row ant-row-start ant-row-top css-var-root ant-form-item-row"
+        class="ant-row css-var-root ant-form-item-row"
       >
         <div
-          class="ant-form-item-label ant-col css-var-root"
+          class="ant-col css-var-root ant-form-item-label"
         >
           <label
             class=""
@@ -456,7 +456,7 @@ exports[`watermark demo > renders custom correctly 1`] = `
           </label>
         </div>
         <div
-          class="ant-form-item-control ant-col css-var-root"
+          class="ant-col css-var-root ant-form-item-control"
         >
           <div
             class="ant-form-item-control-input"
@@ -472,11 +472,11 @@ exports[`watermark demo > renders custom correctly 1`] = `
                   style="flex: 1 1 0%;"
                 >
                   <div
-                    class="ant-row ant-row-start ant-row-top css-var-root ant-form-item-row"
+                    class="ant-row css-var-root ant-form-item-row"
                   >
                     <!---->
                     <div
-                      class="ant-form-item-control ant-col css-var-root"
+                      class="ant-col css-var-root ant-form-item-control"
                     >
                       <div
                         class="ant-form-item-control-input"
@@ -591,11 +591,11 @@ exports[`watermark demo > renders custom correctly 1`] = `
                   style="flex: 1 1 0%;"
                 >
                   <div
-                    class="ant-row ant-row-start ant-row-top css-var-root ant-form-item-row"
+                    class="ant-row css-var-root ant-form-item-row"
                   >
                     <!---->
                     <div
-                      class="ant-form-item-control ant-col css-var-root"
+                      class="ant-col css-var-root ant-form-item-control"
                     >
                       <div
                         class="ant-form-item-control-input"
@@ -737,10 +737,10 @@ exports[`watermark demo > renders custom correctly 1`] = `
       style="margin-bottom: 0px;"
     >
       <div
-        class="ant-row ant-row-start ant-row-top css-var-root ant-form-item-row"
+        class="ant-row css-var-root ant-form-item-row"
       >
         <div
-          class="ant-form-item-label ant-col css-var-root"
+          class="ant-col css-var-root ant-form-item-label"
         >
           <label
             class=""
@@ -750,7 +750,7 @@ exports[`watermark demo > renders custom correctly 1`] = `
           </label>
         </div>
         <div
-          class="ant-form-item-control ant-col css-var-root"
+          class="ant-col css-var-root ant-form-item-control"
         >
           <div
             class="ant-form-item-control-input"
@@ -766,11 +766,11 @@ exports[`watermark demo > renders custom correctly 1`] = `
                   style="flex: 1 1 0%;"
                 >
                   <div
-                    class="ant-row ant-row-start ant-row-top css-var-root ant-form-item-row"
+                    class="ant-row css-var-root ant-form-item-row"
                   >
                     <!---->
                     <div
-                      class="ant-form-item-control ant-col css-var-root"
+                      class="ant-col css-var-root ant-form-item-control"
                     >
                       <div
                         class="ant-form-item-control-input"
@@ -884,11 +884,11 @@ exports[`watermark demo > renders custom correctly 1`] = `
                   style="flex: 1 1 0%;"
                 >
                   <div
-                    class="ant-row ant-row-start ant-row-top css-var-root ant-form-item-row"
+                    class="ant-row css-var-root ant-form-item-row"
                   >
                     <!---->
                     <div
-                      class="ant-form-item-control ant-col css-var-root"
+                      class="ant-col css-var-root ant-form-item-control"
                     >
                       <div
                         class="ant-form-item-control-input"

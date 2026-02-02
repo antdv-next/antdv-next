@@ -173,20 +173,11 @@ Menu will render fully item in flex layout and then collapse it. You need tell f
 </div>
 ```
 
-## Semantic DOM {#semantic-dom}
+## Semantic DOM
 
-| Name | Description |
-| --- | --- |
-| root | Root menu element |
-| list | Menu list element |
-| item | Menu item |
-| itemTitle | Menu item title |
-| itemIcon | Menu item icon |
-| itemContent | Menu item content |
-| popup | Submenu popup container |
-| subMenu | Submenu semantic structure, with `item`, `itemTitle`, `list`, `itemContent`, `itemIcon` |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
-## Design Token {#design-token}
+## Design Token
 
 <ComponentTokenTable component="Menu"></ComponentTokenTable>
 

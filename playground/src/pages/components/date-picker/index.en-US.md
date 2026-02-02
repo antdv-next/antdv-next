@@ -259,6 +259,8 @@ export type FormatType
 
 ## Semantic DOM {#semantic-dom}
 
+<demo src="./demo/_semantic.vue" simplify></demo>
+
 ## Design Token
 
 <ComponentTokenTable component="DatePicker"></ComponentTokenTable>

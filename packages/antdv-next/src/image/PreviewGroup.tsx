@@ -75,8 +75,14 @@ const InternalPreviewGroup = defineComponent<PreviewGroupProps>(
     const mergedRootClassName = computed(() => clsx(hashId.value, cssVarCls.value, rootCls.value))
 
     // ============================= Preview ==============================
-    const previewConfig = usePreviewConfig(preview)
-    const contextPreviewConfig = usePreviewConfig(contextPreview)
+    const previewConfigCtx = usePreviewConfig(preview)
+    const previewConfig = computed(() => previewConfigCtx.value?.[0])
+    const previewRootClassName = computed(() => previewConfigCtx.value?.[1])
+    const previewMaskClassName = computed(() => previewConfigCtx.value?.[2])
+    const contextPreviewConfigCtx = usePreviewConfig(contextPreview)
+    const contextPreviewConfig = computed(() => contextPreviewConfigCtx.value?.[0])
+    const contextPreviewRootClassName = computed(() => contextPreviewConfigCtx.value?.[1])
+    const contextPreviewMaskClassName = computed(() => contextPreviewConfigCtx.value?.[2])
 
     // ============================ Semantics =============================
     const memoizedIcons = computed(() => {
@@ -118,12 +124,10 @@ const InternalPreviewGroup = defineComponent<PreviewGroupProps>(
         contextClassNames,
         classes,
         computed(() => {
-          const [, previewRootClassName, previewMaskClassName] = previewConfig?.value ?? []
-          const [, contextPreviewRootClassName, contextPreviewMaskClassName] = contextPreviewConfig.value ?? []
           return {
-            cover: clsx(contextPreviewMaskClassName, previewMaskClassName),
+            cover: clsx(contextPreviewMaskClassName.value, previewMaskClassName.value),
             popup: {
-              root: clsx(contextPreviewRootClassName, previewRootClassName),
+              root: clsx(contextPreviewRootClassName.value, previewRootClassName.value),
               mask: clsx(
                 {
                   [`${prefixCls.value}-preview-mask-hidden`]: !mergedMask.value,

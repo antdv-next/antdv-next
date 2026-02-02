@@ -55,6 +55,10 @@ Common props ref：[Common props](/docs/vue/common-props)
 | labelRender | - | RenderDescriptionsItem | - |
 | contentRender | - | RenderDescriptionsItem | - |
 
+## Semantic DOM
+
+<demo src="./demo/_semantic.vue" simplify></demo>
+
 ## Design Token
 
 <ComponentTokenTable component="Descriptions" />

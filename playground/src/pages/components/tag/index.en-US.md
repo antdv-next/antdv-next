@@ -97,8 +97,10 @@ Common props ref：[Common props](/docs/vue/common-props)
 | --- | --- | --- | --- |
 | change | Callback when Tag is checked/unchecked | (value: string \| number \| Array&lt;string \| number&gt; \| null) =&gt; void | - |
 
-## Semantic DOM {#semantic-dom}
+## Semantic DOM
 
-## Design Token {#design-token}
+<demo src="./demo/_semantic.vue" simplify></demo>
+
+## Design Token
 
 <ComponentTokenTable component="Tag"></ComponentTokenTable>

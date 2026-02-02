@@ -51,12 +51,16 @@ Common props ref：[Common props](/docs/vue/common-props)
 | classes | Customize class for each semantic structure inside the component. Supports object or function. | BadgeClassNamesType | - | - |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | BadgeStylesType | - | - |
 
-### Slots {#slots}
+### Slots
 
 | Slot | Description | Type | Version |
 | --- | --- | --- | --- |
 | count | Number to show in badge | () =&gt; any | - |
 | text | If `status` is set, `text` sets the display text of the status `dot` | () =&gt; any | - |
+
+## Semantic DOM
+
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## Design Token
 

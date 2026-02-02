@@ -89,12 +89,9 @@ demo:
 | jumpPrevIcon | 自定义向前跳转图标 | () => any | - |
 | jumpNextIcon | 自定义向后跳转图标 | () => any | - |
 
-## 语义化结构 {#semantic-dom}
+## 语义化 DOM {#semantic-dom}
 
-| 名称 | 说明 |
-| --- | --- |
-| root | 根元素，设置布局、对齐、换行与列表样式 |
-| item | 页码元素，设置尺寸、内边距、边框、背景色、悬停与激活态样式 |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## 主题变量（Design Token）{#design-token}
 

@@ -8,7 +8,7 @@ import { classNames } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { toArray } from 'es-toolkit/compat'
-import { computed, defineComponent, nextTick, onBeforeUnmount, onMounted, shallowRef, watch } from 'vue'
+import { computed, defineComponent, nextTick, onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue'
 import {
   useMergeSemantic,
   useToArr,
@@ -317,8 +317,8 @@ const InternalCompoundedButton = defineComponent<
       ButtonStylesType,
       ButtonProps
     >(
-      useToArr(...(props._skipSemantic ? [] : [contextClassNames, classes])),
-      useToArr(...(props._skipSemantic ? [] : [contextStyles, styles])),
+      useToArr(...(props._skipSemantic ? [ref(), classes] : [contextClassNames, classes])),
+      useToArr(...(props._skipSemantic ? [ref(), styles] : [contextStyles, styles])),
       useToProps(mergedProps),
     )
     return () => {

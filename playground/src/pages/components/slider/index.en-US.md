@@ -96,18 +96,10 @@ Common props ref：[Common props](/docs/vue/common-props)
 | blur() | Remove focus | - |
 | focus() | Get focus | - |
 
-## Semantic DOM {#semantic-dom}
+## Semantic DOM
 
-| Name | Description | Version |
-| --- | --- | --- |
-| root | Root element | - |
-| track | Track element | - |
-| tracks | Tracks container | - |
-| rail | Rail element | - |
-| handle | Handle element | - |
-| mark | Mark element | - |
-| markText | Mark text element | - |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
-## Design Token {#design-token}
+## Design Token
 
 <ComponentTokenTable component="Slider"></ComponentTokenTable>

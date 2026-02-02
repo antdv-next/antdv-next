@@ -135,7 +135,9 @@ const value = ref()
 | onChange | 当 Radio Group 的值发送改变时触发 | `(e: CheckboxChangeEvent) => void;` | - | - |
 | required | 指定 Radio 选项是否必填 | `boolean` | `false` | - |
 
-## Semantic DOM
+## 语义化 DOM {#semantic-dom}
+
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## 主题变量（Design Token）{#design-token}
 

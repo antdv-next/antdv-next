@@ -144,22 +144,9 @@ demo:
 | title | 树节点显示的内容 | VueNode | `---` | - |
 | value | 默认根据此属性值进行筛选（其值在整个树范围内唯一） | Key | - | - |
 
-## Semantic DOM {#semantic-dom}
+## 语义化 DOM {#semantic-dom}
 
-| 名称 | 说明 |
-| --- | --- |
-| root | 根元素 |
-| prefix | 前缀元素 |
-| input | 输入元素 |
-| suffix | 后缀元素 |
-| content | 多选容器 |
-| placeholder | 占位符元素 |
-| item | 选中项 |
-| itemContent | 选中项内容 |
-| itemRemove | 选中项移除按钮 |
-| popup.root | 弹出层根元素 |
-| popup.item | 弹出层列表项 |
-| popup.itemTitle | 弹出层列表项标题 |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## 主题变量（Design Token）{#design-token}
 

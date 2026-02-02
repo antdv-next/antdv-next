@@ -105,7 +105,6 @@ const InternalPopover = defineComponent<
       PopoverStylesType,
       PopoverProps
     >(useToArr(contextClassNames, classes), useToArr(contextStyles, styles), useToProps(mergedProps))
-
     const open = shallowRef(props?.open ?? props?.defaultOpen ?? false)
     watchEffect(() => {
       if (props.open !== undefined) {
@@ -194,7 +193,7 @@ const InternalPopover = defineComponent<
           dataPopoverInject={true}
           ref={popoverRef}
         >
-          {createVNode(children, { onKeydown: onKeyDown })}
+          { children ? createVNode(children, { onKeydown: onKeyDown }) : null}
         </Tooltip>
       )
     }

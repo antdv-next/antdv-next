@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { theme } from 'antdv-next'
-import useLocale from 'antdv-next/locale/useLocale'
 import { computed } from 'vue'
+import { useSemanticLocale } from '@/composables/use-locale'
 import tokenMetaRes from '../../assets/token-meta.json'
 import BezierVisualizer from '../bezier-visualizer/index.vue'
 import ColorChunk from '../color-chunk/index.vue'
@@ -29,10 +29,7 @@ const locales = {
   },
 }
 
-const [, lang] = useLocale('Table')
-const locale = computed(() => {
-  return lang?.value.toLowerCase() === 'zh-cn' ? locales.cn : locales.en
-})
+const locale = useSemanticLocale(locales)
 
 const { token: tokenState } = theme.useToken()
 
@@ -83,7 +80,7 @@ const data = computed<TokenData[]>(() => {
     .filter(([, meta]) => meta.source === props.type)
     .map(([token, meta]) => ({
       name: token,
-      desc: lang?.value.toLowerCase() === 'zh-cn' ? meta.desc : meta.descEn,
+      desc: locale.value === locales.cn ? meta.desc : meta.descEn,
       type: meta.type,
       value: (defaultToken as Record<string, any>)[token],
     }))

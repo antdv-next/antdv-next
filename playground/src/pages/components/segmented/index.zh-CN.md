@@ -79,7 +79,9 @@ demo:
 | tooltip | 分段项的工具提示 | string \| [TooltipProps](../tooltip#api) | - | - |
 | value | 分段项的值 | string \| number | - | - |
 
-## Semantic DOM
+## 语义化 DOM {#semantic-dom}
+
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## 主题变量（Design Token）{#design-token}
 

@@ -17,11 +17,12 @@ import { openStackBlitz } from './utils/stackblitz'
 defineOptions({
   name: 'Demo',
 })
-const { src, compact, background } = defineProps<{
+const { src, compact, background, simplify } = defineProps<{
   src: string
   iframe?: string
   compact?: boolean
   background?: string
+  simplify?: boolean
 }>()
 const demo = computed(() => demos[src])
 const route = useRoute()
@@ -82,60 +83,78 @@ const { copied, copy } = useClipboard({
   source: computed(() => demo.value?.source ?? ''),
   legacy: true,
 })
+
+const cls = computed(() => {
+  const cls: string[] = []
+  if (active.value) {
+    cls.push('border-primary')
+  }
+  if (simplify) {
+    cls.push('ant-doc-demo-box-simplify')
+  }
+  return cls
+})
 </script>
 
 <template>
-  <section :id="id" class="ant-doc-demo-box border border-solid border-color-split" :class="active ? 'border-primary' : ''">
-    <section v-if="!iframe" class="vp-raw ant-doc-demo-box-demo" :style="demoStyle">
-      <Suspense>
+  <section :id="id" class="ant-doc-demo-box border border-solid border-color-split" :class="cls">
+    <template v-if="simplify">
+      <section class="vp-raw ant-doc-demo-box-demo">
         <component :is="component" v-if="demo?.component" />
-        <template #fallback>
-          <a-skeleton active :paragraph="{ rows: 5 }" />
-        </template>
-      </Suspense>
-    </section>
-    <template v-else>
-      <CodeIframe :src="id" :height="iframe" />
+      </section>
     </template>
-    <section class="ant-doc-demo-box-meta markdown">
-      <div class="ant-doc-demo-box-title">
-        <a ref="titleRef" :href="`#${id}`" @click="handleScroll">
-          <slot />
-        </a>
-        <a target="_blank" rel="noopener norreferrer" class="ml-xs">
-          <EditOutlined class="color-text-tertiary" />
-        </a>
-      </div>
-      <div v-if="description" class="pt-18px pb-24px px-12px ant-doc-demo-box-meta-description">
-        <div v-html="description" />
-      </div>
-      <a-flex class="ant-doc-demo-box-actions " wrap gap="middle">
-        <a class="ant-doc-demo-box-code-action" @click="handleStackBlitz">
-          <a-tooltip :title="locales.action.stackblitz">
-            <ThunderboltOutlined />
-          </a-tooltip>
-        </a>
-        <a class="ant-doc-demo-box-code-action" :href="`/~demos/${id}`" target="_blank" rel="noopener norreferrer">
-          <a-tooltip :title="locales.action.externalLink">
-            <ExternalLink />
-          </a-tooltip>
-        </a>
-        <div class="ant-doc-demo-box-expand-icon ant-doc-demo-box-code-action" @click="handleShowCode">
-          <a-tooltip :title="locales.action[showCode ? 'expandedCode' : 'expandCode']">
-            <ExpandIcon :expanded="showCode" />
-          </a-tooltip>
+    <template v-else>
+      <section v-if="!iframe" class="vp-raw ant-doc-demo-box-demo" :style="demoStyle">
+        <Suspense>
+          <component :is="component" v-if="demo?.component" />
+          <template #fallback>
+            <a-skeleton active :paragraph="{ rows: 5 }" />
+          </template>
+        </Suspense>
+      </section>
+      <template v-else>
+        <CodeIframe :src="id" :height="iframe" />
+      </template>
+      <section class="ant-doc-demo-box-meta markdown">
+        <div class="ant-doc-demo-box-title">
+          <a ref="titleRef" :href="`#${id}`" @click="handleScroll">
+            <slot />
+          </a>
+          <a target="_blank" rel="noopener norreferrer" class="ml-xs">
+            <EditOutlined class="color-text-tertiary" />
+          </a>
         </div>
-      </a-flex>
-    </section>
-    <div v-if="showCode" class="ant-doc-demo-box-code">
-      <a-tooltip :title="locales.action[copied ? 'copied' : 'copy']">
-        <div class="ant-doc-demo-box-code-copy" :class="copied ? 'ant-doc-demo-box-code-copied' : ''" @click="copy()">
-          <CopyOutlined v-if="!copied" />
-          <CheckOutlined v-else />
+        <div v-if="description" class="pt-18px pb-24px px-12px ant-doc-demo-box-meta-description">
+          <div v-html="description" />
         </div>
-      </a-tooltip>
-      <div v-html="demo?.html" />
-    </div>
+        <a-flex class="ant-doc-demo-box-actions " wrap gap="middle">
+          <a class="ant-doc-demo-box-code-action" @click="handleStackBlitz">
+            <a-tooltip :title="locales.action.stackblitz">
+              <ThunderboltOutlined />
+            </a-tooltip>
+          </a>
+          <a class="ant-doc-demo-box-code-action" :href="`/~demos/${id}`" target="_blank" rel="noopener norreferrer">
+            <a-tooltip :title="locales.action.externalLink">
+              <ExternalLink />
+            </a-tooltip>
+          </a>
+          <div class="ant-doc-demo-box-expand-icon ant-doc-demo-box-code-action" @click="handleShowCode">
+            <a-tooltip :title="locales.action[showCode ? 'expandedCode' : 'expandCode']">
+              <ExpandIcon :expanded="showCode" />
+            </a-tooltip>
+          </div>
+        </a-flex>
+      </section>
+      <div v-if="showCode" class="ant-doc-demo-box-code">
+        <a-tooltip :title="locales.action[copied ? 'copied' : 'copy']">
+          <div class="ant-doc-demo-box-code-copy" :class="copied ? 'ant-doc-demo-box-code-copied' : ''" @click="copy()">
+            <CopyOutlined v-if="!copied" />
+            <CheckOutlined v-else />
+          </div>
+        </a-tooltip>
+        <div v-html="demo?.html" />
+      </div>
+    </template>
   </section>
 </template>
 
@@ -155,6 +174,19 @@ const { copied, copy } = useClipboard({
     padding: 42px 24px 50px;
     border-radius: 8px 8px 0 0;
     border-bottom: 1px solid var(--ant-color-split);
+  }
+
+  &-simplify {
+    border-radius: 0;
+    margin-bottom: 0;
+    border: none;
+    background: transparent;
+
+    .ant-doc-demo-box-demo {
+      padding: 0;
+      border-bottom: 0;
+      background: transparent;
+    }
   }
 
   &-meta.markdown {

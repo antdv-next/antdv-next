@@ -695,7 +695,7 @@ const InternalTable = defineComponent<
       const renderPagination = (placement: 'start' | 'end' | 'center' = 'end') => (
         <Pagination
           {...mergedPagination.value as any}
-          classNames={mergedClassNames.value.pagination}
+          classes={mergedClassNames.value.pagination}
           styles={mergedStyles.value.pagination}
           class={clsx(
             `${prefixCls.value}-pagination ${prefixCls.value}-pagination-${placement}`,

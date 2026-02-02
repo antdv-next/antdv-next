@@ -62,15 +62,9 @@ demo:
 
   你可以自定义全局默认 Spin 的元素。
 
-## Semantic DOM {#semantic-dom}
+## 语义化 DOM {#semantic-dom}
 
-| Name | Description |
-| --- | --- |
-| root | 根元素 |
-| wrapper | 内嵌加载的容器 |
-| mask | 全屏遮罩层 |
-| indicator | 指示符 |
-| tip | 描述文案 |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## 主题变量（Design Token）{#design-token}
 

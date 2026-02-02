@@ -75,7 +75,9 @@ demo:
 | pending | 是否为待定状态 | boolean | false | - |
 | position | 自定义节点位置 | `left` \| `right` | - | - |
 
-## Semantic DOM {#semantic-dom}
+## 语义化 DOM {#semantic-dom}
+
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## 主题变量（Design Token）{#design-token}
 

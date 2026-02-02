@@ -336,7 +336,6 @@ const Dropdown = defineComponent<
         mergedClassNames.value?.root,
         { [`${prefixCls.value}-rtl`]: direction.value === 'rtl' },
       )
-
       // ============================ Render ============================
       let renderNode = (
         <VcDropdown
@@ -355,7 +354,7 @@ const Dropdown = defineComponent<
           overlay={renderOverlay}
           placement={memoPlacement.value}
           onVisibleChange={onInnerOpenChange}
-          overlayStyle={{ ...mergedStyles.value, zIndex: zIndex.value }}
+          overlayStyle={{ ...mergedStyles.value?.root, zIndex: zIndex.value }}
           overlayClassName={overlayClassNameCustomized}
           autoDestroy={destroyOnHidden}
         >

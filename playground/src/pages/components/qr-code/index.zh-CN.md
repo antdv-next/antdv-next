@@ -67,7 +67,10 @@ group:
 | 插槽 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
 | statusRender | 自定义状态渲染器 | (info: StatusRenderInfo) =&gt; any | - |
-## Semantic DOM
+
+## 语义化 DOM {#semantic-dom}
+
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## 主题变量（Design Token）{#design-token}
 

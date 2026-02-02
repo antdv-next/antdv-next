@@ -85,13 +85,7 @@ Please ensure that the child node of `Dropdown` accepts `mouseenter`, `mouseleav
 
 ## Semantic DOM
 
-| Name | Description |
-| --- | --- |
-| root | Dropdown popup container |
-| item | Menu item |
-| itemTitle | Menu item title |
-| itemIcon | Menu item icon |
-| itemContent | Menu item content |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## Design Token
 

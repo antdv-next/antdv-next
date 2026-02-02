@@ -89,13 +89,7 @@ Dropdown 会透传 Menu 的插槽（例如 `labelRender`）。
 
 ## 语义化 DOM {#semantic-dom}
 
-| 名称 | 说明 |
-| --- | --- |
-| root | 下拉菜单容器 |
-| item | 菜单项 |
-| itemTitle | 菜单项标题 |
-| itemIcon | 菜单项图标 |
-| itemContent | 菜单项内容 |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## 主题变量（Design Token）{#design-token}
 

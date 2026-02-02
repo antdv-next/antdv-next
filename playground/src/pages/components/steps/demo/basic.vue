@@ -11,16 +11,16 @@ const content = 'This is a content.'
 const items = [
   {
     title: 'Finished',
-    description: content,
+    content,
   },
   {
     title: 'In Progress',
-    description: content,
+    content,
     subTitle: 'Left 00:00:08',
   },
   {
     title: 'Waiting',
-    description: content,
+    content,
   },
 ]
 </script>

@@ -75,9 +75,6 @@ function useMergedPropByScreen(
 }
 const defaults = {
   gutter: 0,
-  align: 'top',
-  justify: 'start',
-  wrap: true,
 } as any
 
 const Row = defineComponent<RowProps>(
@@ -94,7 +91,7 @@ const Row = defineComponent<RowProps>(
 
     useRowContextProvider({
       gutter: gutters as Ref<[number, number]>,
-      wrap: computed(() => !!props.wrap),
+      wrap: computed(() => props.wrap),
     })
 
     return () => {

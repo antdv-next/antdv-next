@@ -85,7 +85,9 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 | size | 设置子组件大小 | `large` \| `middle` \| `small` | `middle` | 4.24.0 |
 | vertical | 是否垂直，和 `orientation` 同时配置以 `orientation` 优先 | boolean | false | - |
 
-## Semantic DOM
+## 语义化 DOM {#semantic-dom}
+
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## 主题变量（Design Token）
 

@@ -52,6 +52,8 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 ## Semantic DOM
 
+<demo src="./demo/_semantic.vue" simplify></demo>
+
 ## Design Token
 
 <ComponentTokenTable component="Result"></ComponentTokenTable>

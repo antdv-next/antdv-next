@@ -48,7 +48,7 @@ catalogs:
     typedoc: ^0.28.16
     typescript: ~5.9.3
     unocss: ^66.5.10
-    vite: ^8.0.0-beta.8
+    vite: ^8.0.0-beta.11
     vite-plugin-dayjs: ^1.0.1
     vite-plugin-inspect: ^11.3.3
     vite-plugin-tsx-resolve-types: ^1.0.1-beta.5
@@ -62,7 +62,9 @@ catalogs:
     '@mdit-vue/plugin-toc': ^3.0.2
     '@mdit-vue/shared': ^3.0.2
     '@mdit-vue/types': ^3.0.2
+    '@shikijs/langs': ^3.22.0
     '@shikijs/markdown-it': ^3.20.0
+    '@shikijs/themes': ^3.22.0
     '@shikijs/transformers': ^3.20.0
     '@shikijs/twoslash': ^3.20.0
     '@stackblitz/sdk': ^1.11.0
@@ -73,6 +75,7 @@ catalogs:
     markdown-it-container: ^4.0.0
     markdown-it-emoji: ^3.0.0
     markdown-it-ts: 0.0.2
+    prismjs: ^1.30.0
     shiki: ^3.20.0
   prod:
     '@ant-design/colors': 7.2.1
@@ -131,8 +134,8 @@ catalogs:
     '@v-c/mutate-observer': ^1.0.1
     '@v-c/notification': ^1.0.0
     '@v-c/pagination': ^1.0.0
-    '@v-c/picker': ^1.0.0
-    '@v-c/portal': ^1.0.6
+    '@v-c/picker': ^1.0.1
+    '@v-c/portal': ^1.0.7
     '@v-c/progress': ^1.0.0
     '@v-c/qrcode': ^1.0.0
     '@v-c/rate': ^1.0.0
@@ -150,7 +153,7 @@ catalogs:
     '@v-c/tour': ^1.0.3
     '@v-c/tree': ^1.0.1
     '@v-c/tree-select': ^1.0.0
-    '@v-c/trigger': ^1.0.6
+    '@v-c/trigger': ^1.0.9
     '@v-c/upload': ^1.0.0
     '@v-c/util': ^1.0.11
     '@v-c/virtual-list': ^1.0.5

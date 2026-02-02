@@ -98,16 +98,10 @@ Deprecated: when using items, prefer configuring panels with `items`.
 | showArrow | If false, panel will not show arrow icon. If false, collapsible can't be set as icon | boolean | true | - |
 | styles | Semantic structure style | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - |
 
-## Semantic DOM {#semantic-dom}
+## Semantic DOM
 
-| Name | Description |
-| --- | --- |
-| root | Root element |
-| header | Header element |
-| title | Title element |
-| body | Body element |
-| icon | Icon element |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
-## Design Token {#design-token}
+## Design Token
 
 <ComponentTokenTable component="Collapse"></ComponentTokenTable>

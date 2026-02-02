@@ -77,18 +77,11 @@ Common props ref：[Common props](/docs/vue/common-props)
 | closeIcon   | - | () =&gt; any | - |
 | action      | The action of Alert | () =&gt; any | 4.9.0 |
 
-## Semantic DOM {#semantic-dom}
+## Semantic DOM
 
-| Name | Description |
-| --- | --- |
-| root | Root element |
-| icon | Icon element |
-| section | Content wrapper |
-| title | Title element |
-| description | Description element |
-| actions | Action element |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
-## Design Token {#design-token}
+## Design Token
 
 <ComponentTokenTable component="Alert"></ComponentTokenTable>
 

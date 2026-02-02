@@ -86,6 +86,8 @@ Use Space.Compact when child form components are compactly connected and the bor
 
 ## Semantic DOM
 
+<demo src="./demo/_semantic.vue" simplify></demo>
+
 ## Design Token
 
 <ComponentTokenTable component="Space" />

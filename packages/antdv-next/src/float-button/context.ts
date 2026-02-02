@@ -1,6 +1,6 @@
 import type { InjectionKey, Ref } from 'vue'
 import type { FloatButtonProps, FloatButtonShape } from './FloatButton'
-import { defineComponent, inject, provide } from 'vue'
+import { computed, defineComponent, inject, provide } from 'vue'
 
 export interface GroupContextProps {
   shape?: FloatButtonShape
@@ -20,14 +20,15 @@ export function useGroupContextProvider(value: Ref<GroupContextProps | null>) {
 }
 
 export const GroupContextProvider = defineComponent<{
-  value: Ref<GroupContextProps | null>
+  value: GroupContextProps
 }>(
   (props, { slots }) => {
-    useGroupContextProvider(props.value)
+    useGroupContextProvider(computed(() => props.value))
     return () => slots.default?.()
   },
   {
     name: 'AFloatButtonGroupContextProvider',
     inheritAttrs: false,
+    props: ['value'],
   },
 )

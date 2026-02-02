@@ -45,7 +45,9 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VcjGQLSrYdcAAA
 | classes | 用于自定义组件内部各语义化结构的 class | SkeletonClassNamesType | - | - |
 | styles | 用于自定义组件内部各语义化结构的行内 style | SkeletonStylesType | - | - |
 
-### SkeletonAvatarProps
+### SkeletonAvatar
+
+#### 属性 {#skeletonavatar-props}
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -53,20 +55,26 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VcjGQLSrYdcAAA
 | shape | 指定头像的形状 | `circle` \| `square` | `circle` | - |
 | size | 设置头像占位图的大小 | number \| `large` \| `small` \| `default` | `default` | - |
 
-### SkeletonTitleProps
+### SkeletonTitle
+
+#### 属性 {#skeletontitle-props}
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | width | 设置标题占位图的宽度 | number \| string | - | - |
 
-### SkeletonParagraphProps
+### SkeletonParagraph
+
+#### 属性 {#skeletonparagraph-props}
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | rows | 设置段落占位图的行数 | number | - | - |
 | width | 设置段落占位图的宽度，若为数组时则为对应的每行宽度，反之则是最后一行的宽度 | number \| string \| Array&lt;number \| string&gt; | - | - |
 
-### Skeleton.Avatar
+### SkeletonAvatar
+
+#### 属性 {#skeletonavatar-avatar}
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -76,7 +84,9 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VcjGQLSrYdcAAA
 | classes | 用于自定义组件内部各语义化结构的 class | SkeletonClassNamesType | - | - |
 | styles | 用于自定义组件内部各语义化结构的行内 style | SkeletonStylesType | - | - |
 
-### Skeleton.Button
+### SkeletonButton
+
+#### 属性 {#skeletonbutton-props}
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -87,7 +97,9 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VcjGQLSrYdcAAA
 | classes | 用于自定义组件内部各语义化结构的 class | SkeletonClassNamesType | - | - |
 | styles | 用于自定义组件内部各语义化结构的行内 style | SkeletonStylesType | - | - |
 
-### Skeleton.Input
+### SkeletonInput
+
+#### 属性 {#skeletoninput-props}
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -96,7 +108,9 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VcjGQLSrYdcAAA
 | classes | 用于自定义组件内部各语义化结构的 class | SkeletonClassNamesType | - | - |
 | styles | 用于自定义组件内部各语义化结构的行内 style | SkeletonStylesType | - | - |
 
-### Skeleton.Image
+### SkeletonImage
+
+#### 属性 {#skeletonimage-props}
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -104,13 +118,19 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VcjGQLSrYdcAAA
 | classes | 用于自定义组件内部各语义化结构的 class | SkeletonClassNamesType | - | - |
 | styles | 用于自定义组件内部各语义化结构的行内 style | SkeletonStylesType | - | - |
 
-### Skeleton.Node
+### SkeletonNode
+
+#### 属性 {#skeletonnode-props}
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | active | 是否展示动画效果 | boolean | false | - |
 | classes | 用于自定义组件内部各语义化结构的 class | SkeletonClassNamesType | - | - |
 | styles | 用于自定义组件内部各语义化结构的行内 style | SkeletonStylesType | - | - |
+
+## 语义化 DOM {#semantic-dom}
+
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## 主题变量（Design Token）{#design-token}
 

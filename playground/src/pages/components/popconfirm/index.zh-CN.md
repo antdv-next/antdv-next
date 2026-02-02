@@ -72,15 +72,10 @@ Popconfirm 还支持 Popover 的所有属性，详见 [Popover](/components/popo
 | okText | 确认按钮文字 | () =&gt; any | - |
 | cancelText | 取消按钮文字 | () =&gt; any | - |
 
-## Semantic DOM {#semantic-dom}
 
-| 名称 | 说明 |
-| --- | --- |
-| root | 根元素 |
-| container | 弹出内容容器 |
-| arrow | 箭头元素 |
-| title | 标题元素 |
-| content | 描述元素 |
+## 语义化 DOM {#semantic-dom}
+
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## 主题变量（Design Token）{#design-token}
 

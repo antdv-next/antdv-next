@@ -170,18 +170,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 ## Semantic DOM {#semantic-dom}
 
-| Semantic | Description | Version |
-| --- | --- | --- |
-| root | Root element | - |
-| prefix | Prefix element | - |
-| content | Multiple selection container | - |
-| placeholder | Placeholder element | - |
-| clear | Clear button | - |
-| input | Input element | - |
-| suffix | Suffix element | - |
-| popup.root | Popup root element | - |
-| popup.list | Popup list | - |
-| popup.listItem | Popup list item | - |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## Design Token
 

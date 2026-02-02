@@ -127,15 +127,11 @@ const items: BreadcrumbProps['items'] = [
 </template>
 ```
 
-## Semantic DOM {#semantic-dom}
+## Semantic DOM
 
-| Property | Description | Version |
-| --- | --- | --- |
-| root | Root element with text color, font size, icon size and other basic styles, using flex layout with ordered list | - |
-| item | Item element with text color, link color transitions, hover effects, padding, border-radius, height, and margin styles | - |
-| separator | Separator element with margin and color styles for the divider | - |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
-## Design Token {#design-token}
+## Design Token
 
 <ComponentTokenTable component="Breadcrumb" />
 

@@ -108,9 +108,11 @@ If there's no `key` in your data, you should use `rowKey` to specify the key tha
 <a-transfer :row-key="(record) => record.uid" />
 ```
 
-## Semantic DOM {#semantic-dom}
+## Semantic DOM
 
-## Design Token {#design-token}
+<demo src="./demo/_semantic.vue" simplify></demo>
+
+## Design Token
 
 <ComponentTokenTable component="Transfer"></ComponentTokenTable>
 

@@ -114,18 +114,11 @@ Common props ref：[Common props](/docs/vue/common-props)
 | --- | --- | --- | --- |
 | nativeElement | Root element | any | - |
 
-## Semantic DOM {#semantic-dom}
+## Semantic DOM
 
-| Name | Description |
-| --- | --- |
-| root | Root element with layout and direction styles |
-| header | Header element for tab navigation layout and borders |
-| item | Tab item element with padding, colors, transitions and states |
-| indicator | Indicator element for active state bar |
-| content | Content element for tab panel layout |
-| popup | Popup menu element for collapsed tabs |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
-## Design Token {#design-token}
+## Design Token
 
 <ComponentTokenTable component="Tabs"></ComponentTokenTable>
 

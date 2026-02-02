@@ -137,15 +137,9 @@ notification.config({
 | maxCount | 最大显示数，超过限制时，最早的消息会被自动关闭 | number | - | - |
 | props | 透传至通知 `div` 的 props，支持 `data-testid`、`aria-*` 或 `role` | DivProps | - | - |
 
-## Semantic DOM {#semantic-dom}
+## 语义化 DOM {#semantic-dom}
 
-| 名称 | 说明 |
-| --- | --- |
-| root | 根元素 |
-| title | 标题 |
-| description | 描述 |
-| actions | 操作区域 |
-| icon | 图标 |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## 主题变量（Design Token）{#design-token}
 

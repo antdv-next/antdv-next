@@ -131,6 +131,8 @@ interface Option {
 
 ## Semantic DOM
 
+<demo src="./demo/_semantic.vue" simplify></demo>
+
 ## Design Token
 
 <ComponentTokenTable component="Cascader"></ComponentTokenTable>

@@ -107,13 +107,9 @@ message.config({
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | ArgsClassNamesType | - | - |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | ArgsStylesType | - | - |
 
-## Semantic DOM {#semantic-dom}
+## 语义化 DOM {#semantic-dom}
 
-| 名称 | 说明 |
-| --- | --- |
-| root | 根元素 |
-| icon | 图标 |
-| content | 内容 |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## 主题变量（Design Token）{#design-token}
 

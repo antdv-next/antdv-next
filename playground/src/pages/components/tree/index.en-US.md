@@ -133,12 +133,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 ## Semantic DOM {#semantic-dom}
 
-| Name | Description |
-| --- | --- |
-| root | Root element |
-| item | Tree node item |
-| itemIcon | Tree node icon |
-| itemTitle | Tree node title |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## Design Token {#design-token}
 

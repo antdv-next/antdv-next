@@ -92,22 +92,10 @@ Common props ref：[Comon props](/docs/vue/common-props)
 | prevButtonProps | Properties of the previous button | &#123; children?: VueNode; onClick?: () =&gt; void; class?: string; style?: CSSProperties &#125; | - | - |
 | scrollIntoViewOptions | support pass custom scrollIntoView options, the default follows the `scrollIntoViewOptions` property of Tour | boolean \| ScrollIntoViewOptions | true | - |
 
-## Semantic DOM {#semantic-dom}
+## Semantic DOM
 
-| Name | Description |
-| --- | --- |
-| root | Root element |
-| cover | Cover element |
-| mask | Mask element |
-| section | Card section element |
-| footer | Footer element |
-| actions | Actions container |
-| indicators | Indicators container |
-| indicator | Indicator item |
-| header | Header element |
-| title | Title element |
-| description | Description element |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
-## Design Token {#design-token}
+## Design Token
 
 <ComponentTokenTable component="Tour"></ComponentTokenTable>

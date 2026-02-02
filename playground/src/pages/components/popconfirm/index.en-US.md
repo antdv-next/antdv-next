@@ -71,17 +71,11 @@ Popconfirm also supports all Popover props. See [Popover](/components/popover#ap
 | okText | The text of the Confirm button | () =&gt; any | - |
 | cancelText | The text of the Cancel button | () =&gt; any | - |
 
-## Semantic DOM {#semantic-dom}
+## Semantic DOM
 
-| Name | Description |
-| --- | --- |
-| root | Root element |
-| container | Popup content wrapper |
-| arrow | Arrow element |
-| title | Title element |
-| content | Description element |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
-## Design Token {#design-token}
+## Design Token
 
 <ComponentTokenTable component="Popconfirm"></ComponentTokenTable>
 

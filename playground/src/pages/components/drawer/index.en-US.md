@@ -107,19 +107,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 ## Semantic DOM {#semantic-dom}
 
-| Name | Description |
-| --- | --- |
-| root | Root element |
-| mask | Mask element |
-| wrapper | Wrapper element |
-| section | Drawer section |
-| header | Header element |
-| title | Title element |
-| extra | Extra actions element |
-| body | Body element |
-| footer | Footer element |
-| dragger | Dragger element |
-| close | Close button element |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## Design Token {#design-token}
 

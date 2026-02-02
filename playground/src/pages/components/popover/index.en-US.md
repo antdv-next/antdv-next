@@ -60,17 +60,11 @@ Popover also supports all Tooltip props. See [Tooltip](/components/tooltip#api).
 
 Please ensure that the child node of `Popover` can accept `mouseenter`, `mouseleave`, `focus`, `click` events.
 
-## Semantic DOM {#semantic-dom}
+## Semantic DOM
 
-| Name | Description |
-| --- | --- |
-| root | Root element |
-| container | Popover content wrapper |
-| arrow | Arrow element |
-| title | Title element |
-| content | Content element |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
-## Design Token {#design-token}
+## Design Token
 
 <ComponentTokenTable component="Popover" />
 

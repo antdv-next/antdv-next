@@ -117,16 +117,9 @@ Antdv Next 依次提供了三级选项卡，分别用于不同的场景。
 | --- | --- | --- | --- |
 | nativeElement | 根节点 | any | - |
 
-## 语义化结构 {#semantic-dom}
+## 语义化 DOM {#semantic-dom}
 
-| 名称 | 说明 |
-| --- | --- |
-| root | 根元素，包含布局、方向等基础样式 |
-| header | 头部元素，控制导航布局与边框样式 |
-| item | 标签项元素，包含间距、颜色、交互状态样式 |
-| indicator | 指示器元素，用于激活状态展示 |
-| content | 内容区域元素，用于面板布局 |
-| popup | 折叠菜单弹出层 |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## 主题变量（Design Token）{#design-token}
 

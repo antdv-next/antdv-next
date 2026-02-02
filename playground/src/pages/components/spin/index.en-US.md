@@ -61,16 +61,10 @@ Common props ref：[Common props](/docs/vue/common-props)
 
   You can define default spin element globally.
 
-## Semantic DOM {#semantic-dom}
+## Semantic DOM
 
-| Name | Description |
-| --- | --- |
-| root | Root element |
-| wrapper | Wrapper element for nested loading |
-| mask | Fullscreen mask element |
-| indicator | Indicator element |
-| tip | Description element |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
-## Design Token {#design-token}
+## Design Token
 
 <ComponentTokenTable component="Spin"></ComponentTokenTable>

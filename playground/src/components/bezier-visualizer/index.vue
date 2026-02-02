@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { LinkOutlined } from '@antdv-next/icons'
 import { theme } from 'antdv-next'
-import useLocale from 'antdv-next/locale/useLocale'
 import { computed } from 'vue'
+import { useSemanticLocale } from '@/composables/use-locale'
 
 defineOptions({
   name: 'BezierVisualizer',
@@ -26,10 +26,7 @@ const locales = {
   },
 }
 
-const [, lang] = useLocale('Table')
-const locale = computed(() => {
-  return lang?.value.toLowerCase() === 'zh-cn' ? locales.cn : locales.en
-})
+const locale = useSemanticLocale(locales)
 
 const { token } = theme.useToken()
 

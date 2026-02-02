@@ -98,7 +98,9 @@ demo:
 | --- | --- | --- | --- |
 | change | 点击标签时触发的回调 | (value: string \| number \| Array&lt;string \| number&gt; \| null) =&gt; void | - |
 
-## Semantic DOM {#semantic-dom}
+## 语义化 DOM {#semantic-dom}
+
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## 主题变量（Design Token）{#design-token}
 

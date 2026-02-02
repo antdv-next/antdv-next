@@ -174,18 +174,9 @@ Menu 初始化时会先全部渲染，然后根据宽度裁剪内容。当处于
 </div>
 ```
 
-## 语义化结构 {#semantic-dom}
+## 语义化 DOM {#semantic-dom}
 
-| 名称 | 说明 |
-| --- | --- |
-| root | 根节点 |
-| list | 菜单列表元素 |
-| item | 菜单项 |
-| itemTitle | 菜单项标题 |
-| itemIcon | 菜单项图标 |
-| itemContent | 菜单项内容 |
-| popup | 子菜单弹出层容器 |
-| subMenu | 子菜单语义结构，包含 `item`、`itemTitle`、`list`、`itemContent`、`itemIcon` |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## 主题变量（Design Token）{#design-token}
 

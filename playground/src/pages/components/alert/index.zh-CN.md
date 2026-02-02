@@ -80,14 +80,7 @@ group:
 
 ## 语义化 DOM {#semantic-dom}
 
-| 名称 | 说明 |
-| --- | --- |
-| root | 根元素 |
-| icon | 图标元素 |
-| section | 内容容器 |
-| title | 标题元素 |
-| description | 描述元素 |
-| actions | 操作区域 |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## 主题变量（Design Token）{#design-token}
 

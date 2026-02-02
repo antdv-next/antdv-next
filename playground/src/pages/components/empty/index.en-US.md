@@ -73,14 +73,9 @@ Common props ref：[Common props](/docs/vue/common-props)
   }
 </style>
 
-## Semantic DOM {#semantic-dom}
+## Semantic DOM
 
-| Name | Description |
-| --- | --- |
-| root | Root element |
-| image | Image wrapper |
-| description | Description element |
-| footer | Footer element |
+<demo src="./demo/_semantic.vue" simplify></demo>
 
 ## Design Token {#design-token}
 
