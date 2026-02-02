@@ -761,15 +761,6 @@ importers:
         specifier: catalog:prod
         version: 3.5.27(typescript@5.9.3)
 
-  packages/happy-work-theme:
-    dependencies:
-      antdv-next:
-        specifier: workspace:*
-        version: link:../antdv-next
-      vue:
-        specifier: catalog:prod
-        version: 3.5.27(typescript@5.9.3)
-
   playground:
     dependencies:
       '@ant-design/colors':
@@ -7569,7 +7560,7 @@ snapshots:
       '@v-c/mutate-observer': 1.0.1(vue@3.5.27(typescript@5.9.3))
       '@v-c/notification': 1.0.0(vue@3.5.27(typescript@5.9.3))
       '@v-c/pagination': 1.0.0(vue@3.5.27(typescript@5.9.3))
-      '@v-c/picker': 1.0.0(dayjs@1.11.19)(vue@3.5.27(typescript@5.9.3))
+      '@v-c/picker': 1.0.1(dayjs@1.11.19)(vue@3.5.27(typescript@5.9.3))
       '@v-c/progress': 1.0.0(vue@3.5.27(typescript@5.9.3))
       '@v-c/qrcode': 1.0.0(vue@3.5.27(typescript@5.9.3))
       '@v-c/rate': 1.0.0(vue@3.5.27(typescript@5.9.3))
@@ -7587,7 +7578,7 @@ snapshots:
       '@v-c/tour': 1.0.3(vue@3.5.27(typescript@5.9.3))
       '@v-c/tree': 1.0.1(vue@3.5.27(typescript@5.9.3))
       '@v-c/tree-select': 1.0.0(vue@3.5.27(typescript@5.9.3))
-      '@v-c/trigger': 1.0.6(vue@3.5.27(typescript@5.9.3))
+      '@v-c/trigger': 1.0.9(vue@3.5.27(typescript@5.9.3))
       '@v-c/upload': 1.0.0(vue@3.5.27(typescript@5.9.3))
       '@v-c/util': 1.0.11(vue@3.5.27(typescript@5.9.3))
       '@v-c/virtual-list': 1.0.5(vue@3.5.27(typescript@5.9.3))
