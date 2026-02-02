@@ -318,3 +318,5 @@ export function globalConfig() {
     },
   }
 }
+
+export { useConfig }
