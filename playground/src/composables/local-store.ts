@@ -8,6 +8,8 @@ export const darkModeStore = useStorage<boolean>('dark-mode', false)
 
 export const compactModeStore = useStorage<boolean>('compact-mode', false)
 
+export const happyModeStore = useStorage<boolean>('happy-mode', false)
+
 export const directionStore = useStorage<'ltr' | 'rtl'>('direction', 'ltr')
 
 export type ThemeMode = 'light' | 'dark' | 'system'
