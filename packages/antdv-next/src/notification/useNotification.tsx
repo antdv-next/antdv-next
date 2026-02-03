@@ -1,6 +1,5 @@
 import type { NotificationAPI, NotificationConfig as VcNotificationConfig } from '@v-c/notification'
 import type { Key, MaybeRef } from '@v-c/util/dist/type'
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks'
 import type { NotificationConfig as CPNotificationConfig } from '../config-provider/context'
 import type {
   ArgsProps,
@@ -8,7 +7,8 @@ import type {
   NotificationConfig,
   NotificationInstance,
   NotificationPlacement,
-  NotificationSemantic,
+  NotificationSemanticClassNames,
+  NotificationSemanticStyles,
   NotificationStylesType,
 } from './interface'
 import type { PureContentProps } from './PurePanel.tsx'
@@ -40,8 +40,8 @@ type HolderProps = NotificationConfig & {
 interface HolderRef extends NotificationAPI {
   prefixCls: string
   notification?: CPNotificationConfig
-  classNames: SemanticClassNames<NotificationSemantic>
-  styles: SemanticStyles<NotificationSemantic>
+  classNames: NotificationSemanticClassNames
+  styles: NotificationSemanticStyles
 }
 
 const Wrapper = defineComponent<{
@@ -227,13 +227,13 @@ export function useInternalNotification(
       const semanticClassNames = resolveStyleOrClass(configClassNames, { props: config })
       const semanticStyles = resolveStyleOrClass(styles, { props: config })
 
-      const mergedClassNames: SemanticClassNames<NotificationSemantic> = mergeClassNames(
+      const mergedClassNames = mergeClassNames(
         undefined,
         originClassNames,
         semanticClassNames,
       )
 
-      const mergedStyles: SemanticStyles<NotificationSemantic> = mergeStyles(
+      const mergedStyles = mergeStyles(
         originStyles,
         semanticStyles,
       )
