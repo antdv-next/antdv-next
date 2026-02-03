@@ -1,4 +1,4 @@
-import type { CategoriesKeys } from '../fields'
+import type { CategoriesKeys } from '../field'
 
 export type IconMetaSchema = Readonly<{
   contributors: string[]
