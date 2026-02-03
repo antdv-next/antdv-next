@@ -1,16 +1,16 @@
 import type { NotificationAPI, NotificationConfig as VcNotificationConfig } from '@v-c/notification'
 import type { Key, MaybeRef } from '@v-c/util/dist/type'
 import type { CSSProperties } from 'vue'
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks'
 import type {
   ArgsClassNamesType,
   ArgsProps,
   ArgsStylesType,
   ConfigOptions,
   MessageInstance,
+  MessageSemanticClassNames,
+  MessageSemanticStyles,
   MessageType,
   NoticeType,
-  SemanticName,
   TypeOpen,
 } from './interface'
 import type { PureContentProps } from './PurePanel'
@@ -42,8 +42,8 @@ interface HolderRef extends NotificationAPI {
   contextStyle?: CSSProperties
   contextClasses?: ArgsClassNamesType
   contextStyles?: ArgsStylesType
-  classNames?: SemanticClassNames<SemanticName>
-  styles?: SemanticStyles<SemanticName>
+  classNames?: MessageSemanticClassNames
+  styles?: MessageSemanticStyles
 }
 
 const Wrapper = defineComponent<{ prefixCls: string }>(
@@ -216,14 +216,14 @@ export function useInternalMessage(messageConfig?: MaybeRef<HolderProps>) {
       const resolvedContextStyles = resolveStyleOrClass(contextStyles!, { props: contextConfig })
       const semanticStyles = resolveStyleOrClass(styles, { props: contextConfig })
 
-      const mergedClassNames: SemanticClassNames<SemanticName> = mergeClassNames(
+      const mergedClassNames = mergeClassNames(
         undefined,
         resolvedContextClassNames,
         semanticClassNames,
         originClassNames,
       )
 
-      const mergedStyles: SemanticStyles<SemanticName> = mergeStyles(
+      const mergedStyles = mergeStyles(
         resolvedContextStyles,
         semanticStyles,
         originStyles,
@@ -305,9 +305,9 @@ export function useInternalMessage(messageConfig?: MaybeRef<HolderProps>) {
         }
 
         return open({
-          ...config,
           onClose: mergedOnClose,
           duration: mergedDuration,
+          ...config,
           type,
         })
       }
