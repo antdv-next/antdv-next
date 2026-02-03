@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { HappyProvider } from '@antdv-next/happy-work-theme'
 import { ConfigProvider, theme } from 'antdv-next'
 import en from 'antdv-next/locale/en_US'
 import cn from 'antdv-next/locale/zh_CN'
@@ -12,7 +13,7 @@ import 'dayjs/locale/zh-cn'
 import 'dayjs/locale/en'
 
 const appStore = useAppStore()
-const { locale, darkMode, compactMode, direction } = storeToRefs(appStore)
+const { locale, darkMode, compactMode, happyMode, direction } = storeToRefs(appStore)
 const { setThemeMode } = useTheme()
 
 watch(
@@ -79,14 +80,17 @@ watch(
 
 <template>
   <a-style-provider>
-    <a-config-provider
-      :locale="antdLocale"
-      :direction="direction"
-      :theme="themeConfig"
-    >
-      <a-app>
-        <slot />
-      </a-app>
-    </a-config-provider>
+    <HappyProvider v-slot="{ wave }" :enabled="happyMode">
+      <a-config-provider
+        :locale="antdLocale"
+        :direction="direction"
+        :theme="themeConfig"
+        :wave="wave"
+      >
+        <a-app>
+          <slot />
+        </a-app>
+      </a-config-provider>
+    </HappyProvider>
   </a-style-provider>
 </template>

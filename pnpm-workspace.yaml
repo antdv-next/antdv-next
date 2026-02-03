@@ -80,6 +80,7 @@ catalogs:
   prod:
     '@ant-design/colors': 7.2.1
     '@ant-design/fast-color': ^3.0.0
+    '@antdv-next/happy-work-theme': ^1.0.0-rc.1
     '@antdv-next/icons': ^1.0.0-rc.2
     '@emotion/hash': ^0.8.0
     '@emotion/unitless': ^0.7.5

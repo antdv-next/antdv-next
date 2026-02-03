@@ -42,7 +42,7 @@ const divRef = ref<HTMLDivElement | null>(null)
     :semantics="semantics"
   >
     <template #default="{ classes }">
-      <div ref="divRef" :style="{ position: 'absolute', height: '200px', overflow: 'hidden' }">
+      <div ref="divRef" :style="{ position: 'absolute', height: '200px' }">
         <a-auto-complete
           prefix="prefix"
           :style="{ width: '200px' }"
@@ -50,7 +50,6 @@ const divRef = ref<HTMLDivElement | null>(null)
           placeholder="input here"
           open
           :get-popup-container="() => divRef!"
-          :styles="{ popup: { zIndex: 1 } }"
           :classes="classes"
         />
       </div>

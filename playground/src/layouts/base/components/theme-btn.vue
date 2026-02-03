@@ -16,7 +16,7 @@ defineOptions({
 const { setThemeMode } = useTheme()
 
 const appStore = useAppStore()
-const { compactMode } = storeToRefs(appStore)
+const { compactMode, happyMode } = storeToRefs(appStore)
 
 const themeMode = themeModeStore
 const t = useThemeBtnLocale()
@@ -66,7 +66,7 @@ const themeMenuItems = computed<MenuProps['items']>(() => [
     key: 'happy',
     label: t.value.happy,
     icon: h(SmileOutlined),
-    disabled: true,
+    extra: happyMode.value ? BlueDot : undefined,
   },
   {
     type: 'divider',
@@ -94,6 +94,9 @@ function handleMenuClick(info: { key: string, domEvent: MouseEvent }) {
   }
   else if (key === 'compact') {
     appStore.toggleCompactMode()
+  }
+  else if (key === 'happy') {
+    appStore.toggleHappyMode()
   }
 }
 </script>

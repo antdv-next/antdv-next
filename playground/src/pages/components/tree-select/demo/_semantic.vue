@@ -54,7 +54,7 @@ const treeData = [
     :semantics="semantics"
   >
     <template #default="{ classes }">
-      <div ref="divRef" :style="{ position: 'absolute', height: '200px', overflow: 'hidden' }">
+      <div ref="divRef" :style="{ position: 'absolute', height: '200px' }">
         <a-tree-select
           prefix="prefix"
           :style="{ width: '300px' }"
@@ -64,7 +64,6 @@ const treeData = [
           allow-clear
           open
           :get-popup-container="() => divRef!"
-          :styles="{ popup: { zIndex: 1 } }"
           :classes="classes"
         />
       </div>

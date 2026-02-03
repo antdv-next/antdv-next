@@ -1,7 +1,7 @@
 {
   "name": "antdv-next",
   "type": "module",
-  "version": "1.0.0-rc.8",
+  "version": "1.0.0",
   "description": "Ant Design Vue3 Component Library",
   "author": {
     "email": "aibayanyu@gamil.com",

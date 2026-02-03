@@ -54,7 +54,7 @@ const options = [
     :semantics="semantics"
   >
     <template #default="{ classes }">
-      <div ref="divRef" :style="{ position: 'absolute', height: '200px', overflow: 'hidden' }">
+      <div ref="divRef" :style="{ position: 'absolute', height: '200px' }">
         <a-cascader
           prefix="prefix"
           :style="{ width: '200px' }"
@@ -62,7 +62,6 @@ const options = [
           :default-value="['contributors', 'thinkasany']"
           open
           :get-popup-container="() => divRef!"
-          :styles="{ popup: { zIndex: 1 } }"
           :classes="classes"
         />
       </div>

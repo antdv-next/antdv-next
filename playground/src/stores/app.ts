@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { compactModeStore, darkModeStore, directionStore, localeStore } from '@/composables/local-store'
+import { compactModeStore, darkModeStore, directionStore, happyModeStore, localeStore } from '@/composables/local-store'
 import { menusMap } from '@/config/menu'
 
 export interface AppState {
@@ -9,6 +9,7 @@ export interface AppState {
   locale: 'zh-CN' | 'en-US'
   darkMode: boolean
   compactMode: boolean
+  happyMode: boolean
   direction: 'ltr' | 'rtl'
 }
 
@@ -21,6 +22,7 @@ export const useAppStore = defineStore('app', {
       locale: localeStore.value,
       darkMode: darkModeStore.value ?? false,
       compactMode: compactModeStore.value ?? false,
+      happyMode: happyModeStore.value ?? false,
       direction: directionStore.value ?? 'ltr',
     }
   },
@@ -45,6 +47,10 @@ export const useAppStore = defineStore('app', {
     toggleCompactMode(compactMode?: boolean) {
       this.compactMode = compactMode || !this.compactMode
       compactModeStore.value = this.compactMode
+    },
+    toggleHappyMode(happyMode?: boolean) {
+      this.happyMode = happyMode !== undefined ? happyMode : !this.happyMode
+      happyModeStore.value = this.happyMode
     },
     toggleDirection(direction?: 'ltr' | 'rtl') {
       this.direction = direction || (this.direction === 'ltr' ? 'rtl' : 'ltr')
