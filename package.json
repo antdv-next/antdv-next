@@ -2,7 +2,7 @@
   "name": "antdv-next-workspace",
   "type": "module",
   "version": "0.0.0",
-  "packageManager": "pnpm@10.18.3",
+  "packageManager": "pnpm@10.28.2",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/antdv-next/antdv-next.git"
@@ -50,7 +50,6 @@
     "cross-env": "catalog:dev",
     "eslint": "catalog:dev",
     "eslint-plugin-format": "catalog:dev",
-    "esno": "catalog:dev",
     "fs-extra": "catalog:dev",
     "jiti": "catalog:dev",
     "jsdom": "catalog:dev",
@@ -64,6 +63,7 @@
     "simple-git-hooks": "catalog:dev",
     "tinyglobby": "catalog:dev",
     "tsdown": "catalog:dev",
+    "tsx": "catalog:dev",
     "turbo": "catalog:dev",
     "typedoc": "catalog:dev",
     "typescript": "catalog:dev",
