@@ -15,54 +15,54 @@
   },
   "exports": {
     ".": {
-      "types": "./dist/index.d.mts",
-      "import": "./dist/index.mjs",
-      "default": "./dist/index.mjs"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
     },
     "./dist/*": {
-      "types": "./dist/*.d.mts",
-      "import": "./dist/*.mjs",
-      "default": "./dist/*.mjs"
+      "types": "./dist/*.d.ts",
+      "import": "./dist/*.js",
+      "default": "./dist/*.js"
     },
     "./dist/locale/*": {
-      "types": "./dist/locale/*.d.mts",
-      "import": "./dist/locale/*.mjs",
-      "default": "./dist/locale/*.mjs"
+      "types": "./dist/locale/*.d.ts",
+      "import": "./dist/locale/*.js",
+      "default": "./dist/locale/*.js"
     },
     "./locale/*": {
-      "types": "./dist/locale/*.d.mts",
-      "import": "./dist/locale/*.mjs",
-      "default": "./dist/locale/*.mjs"
+      "types": "./dist/locale/*.d.ts",
+      "import": "./dist/locale/*.js",
+      "default": "./dist/locale/*.js"
     },
     "./date-picker/*": {
-      "types": "./dist/date-picker/*.d.mts",
-      "import": "./dist/date-picker/*.mjs",
-      "default": "./dist/date-picker/*.mjs"
+      "types": "./dist/date-picker/*.d.ts",
+      "import": "./dist/date-picker/*.js",
+      "default": "./dist/date-picker/*.js"
     },
     "./date-picker/locale/*": {
-      "types": "./dist/date-picker/locale/*.d.mts",
-      "import": "./dist/date-picker/locale/*.mjs",
-      "default": "./dist/date-picker/locale/*.mjs"
+      "types": "./dist/date-picker/locale/*.d.ts",
+      "import": "./dist/date-picker/locale/*.js",
+      "default": "./dist/date-picker/locale/*.js"
     },
     "./time-picker/*": {
-      "types": "./dist/time-picker/*.d.mts",
-      "import": "./dist/time-picker/*.mjs",
-      "default": "./dist/time-picker/*.mjs"
+      "types": "./dist/time-picker/*.d.ts",
+      "import": "./dist/time-picker/*.js",
+      "default": "./dist/time-picker/*.js"
     },
     "./time-picker/locale/*": {
-      "types": "./dist/date-picker/locale/*.d.mts",
-      "import": "./dist/date-picker/locale/*.mjs",
-      "default": "./dist/date-picker/locale/*.mjs"
+      "types": "./dist/date-picker/locale/*.d.ts",
+      "import": "./dist/date-picker/locale/*.js",
+      "default": "./dist/date-picker/locale/*.js"
     },
     "./date-picker/generate": {
-      "types": "./dist/date-picker/generate/index.d.mts",
-      "import": "./dist/date-picker/generate/index.mjs",
-      "default": "./dist/date-picker/generate/index.mjs"
+      "types": "./dist/date-picker/generate/index.d.ts",
+      "import": "./dist/date-picker/generate/index.js",
+      "default": "./dist/date-picker/generate/index.js"
     },
     "./date-picker/generate/*": {
-      "types": "./dist/date-picker/generate/*.d.mts",
-      "import": "./dist/date-picker/generate/*.mjs",
-      "default": "./dist/date-picker/generate/*.mjs"
+      "types": "./dist/date-picker/generate/*.d.ts",
+      "import": "./dist/date-picker/generate/*.js",
+      "default": "./dist/date-picker/generate/*.js"
     },
     "./global.d.ts": "./global.d.ts",
     "./global": "./global.d.ts",

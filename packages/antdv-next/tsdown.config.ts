@@ -12,6 +12,12 @@ export default defineConfig({
   unbundle: true,
   format: 'es',
   inlineOnly: false,
+  outExtensions() {
+    return {
+      js: '.js',
+      dts: '.d.ts',
+    }
+  },
   // minify: true,
   clean: true,
   skipNodeModulesBundle: true,

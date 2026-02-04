@@ -10,19 +10,19 @@
   },
   "exports": {
     ".": {
-      "types": "./dist/index.d.mts",
-      "import": "./dist/index.mjs",
-      "default": "./dist/index.mjs"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
     },
     "./cssinjs-utils": {
-      "types": "./dist/cssinjs-utils/index.d.mts",
-      "import": "./dist/cssinjs-utils/index.mjs",
-      "default": "./dist/cssinjs-utils/index.mjs"
+      "types": "./dist/cssinjs-utils/index.d.ts",
+      "import": "./dist/cssinjs-utils/index.js",
+      "default": "./dist/cssinjs-utils/index.js"
     },
     "./dist/*": {
-      "types": "./dist/*.d.mts",
-      "import": "./dist/*.mjs",
-      "default": "./dist/*.mjs"
+      "types": "./dist/*.d.ts",
+      "import": "./dist/*.js",
+      "default": "./dist/*.js"
     }
   },
   "files": [
