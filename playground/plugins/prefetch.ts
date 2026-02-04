@@ -100,6 +100,24 @@ function prefetch(config: PrefetchConfig = { concurrency: 2 }): Plugin {
         htmlAsset.source = htmlAsset.source.replace('</body>', `${scriptTag}</body>`)
       }
     },
+    transformIndexHtml: {
+      order: 'post',
+      handler(html) {
+        return {
+          html,
+          tags: [
+            {
+              tag: 'script',
+              attrs: {
+                'defer': true,
+                'src': 'https://static.cloudflareinsights.com/beacon.min.js',
+                'data-cf-beacon': '{"token": "6b0750c8a044412cb1993ad5c4524a61"}',
+              },
+            },
+          ],
+        }
+      },
+    },
   }
 }
 
