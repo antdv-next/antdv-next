@@ -293,7 +293,7 @@ const ConfigProvider = defineComponent<
 
 export default ConfigProvider as typeof ConfigProvider & {
   config: (props: GlobalConfigProps) => void
-  useConfig: ReturnType<typeof useExportConfig>
+  useConfig: typeof useExportConfig
 }
 
 export function globalConfig() {
