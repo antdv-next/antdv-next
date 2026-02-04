@@ -111,7 +111,7 @@ const Editable = defineComponent<
 
     const [hashId, cssVarCls] = useStyle(prefixCls)
 
-    const icon = props.enterIcon ?? <EnterOutlined />
+    const icon = props.enterIcon === undefined ? <EnterOutlined /> : props.enterIcon
 
     return () => {
       const { component, className } = props

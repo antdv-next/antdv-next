@@ -107,8 +107,7 @@ export interface FilterDropdownProps {
   visible: boolean
 }
 
-// Non-essential exports are avoided
-interface CoverableDropdownProps extends DropdownProps {
+export interface CoverableDropdownProps extends DropdownProps {
   onOpenChange?: (open: boolean) => void
 }
 

@@ -3,8 +3,11 @@ import { defineConfig } from 'tsdown'
 export default defineConfig({
   fromVite: true,
   entry: [
-    'src/index.ts',
-    'src/locale/*.ts',
+    'src/**/*.ts',
+    'src/**/*.tsx',
+    '!src/**/tests/*',
+    '!src/**/*.test.ts',
+    '!src/**/*.test.tsx',
   ],
   unbundle: true,
   format: 'es',

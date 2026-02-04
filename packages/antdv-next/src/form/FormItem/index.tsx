@@ -35,7 +35,7 @@ export type FeedbackIcons = (itemStatus: {
   warnings?: any[]
 }) => { [key in ValidateStatus]?: any }
 
-interface BaseFormItemProps {
+export interface BaseFormItemProps {
   name?: NamePath
   rules?: Rule[]
   trigger?: string

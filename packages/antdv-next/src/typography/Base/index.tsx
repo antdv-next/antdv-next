@@ -15,7 +15,6 @@ import {
   watchEffect,
 } from 'vue'
 import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '../../_util/hooks'
-import isNonNullable from '../../_util/isNonNullable'
 import { isStyleSupport } from '../../_util/styleChecker'
 import { toPropsRefs } from '../../_util/tools'
 import { useComponentBaseConfig } from '../../config-provider/context'
@@ -147,8 +146,6 @@ const Base = defineComponent<
 
     const onEditClick = (e?: MouseEvent) => {
       e?.preventDefault()
-      if (props.disabled)
-        return
       triggerEdit(true)
     }
 
@@ -175,8 +172,6 @@ const Base = defineComponent<
     })
 
     const handleCopyClick = async (e?: MouseEvent) => {
-      if (props.disabled)
-        return
       await onCopyClick(e)
       emit('copy', e as any)
     }
@@ -337,8 +332,6 @@ const Base = defineComponent<
     // Expand
     const renderExpand = () => {
       const { expandable, symbol } = ellipsisConfig.value
-      if (props.disabled)
-        return null
       return expandable
         ? (
             <button
@@ -357,13 +350,13 @@ const Base = defineComponent<
 
     // Edit
     const renderEdit = () => {
-      if (!enableEdit.value || props.disabled)
+      if (!enableEdit.value)
         return null
 
       const { icon, tooltip, tabIndex } = editConfig.value
       const tooltipNodes = toList(tooltip as any)
 
-      const editTitle = tooltip === false ? '' : (tooltipNodes[0] ?? textLocale?.value?.edit)
+      const editTitle = tooltipNodes[0] || textLocale?.value?.edit
       const ariaLabel = typeof editTitle === 'string' ? editTitle : ''
 
       return triggerType.value.includes('icon')
@@ -387,7 +380,7 @@ const Base = defineComponent<
 
     // Copy
     const renderCopy = () => {
-      if (!enableCopy.value || props.disabled)
+      if (!enableCopy.value)
         return null
 
       return (
@@ -399,7 +392,7 @@ const Base = defineComponent<
           locale={textLocale?.value}
           onCopy={handleCopyClick}
           loading={copyLoading.value}
-          iconOnly={!isNonNullable(getChildrenText.value)}
+          iconOnly={childrenNodes.value.length === 0}
           className={mergedClassNames.value.copy as any}
           style={mergedStyles.value.copy as any}
         />
@@ -433,6 +426,7 @@ const Base = defineComponent<
         [`${prefixCls.value}-ellipsis`]: enableEllipsis.value,
         [`${prefixCls.value}-ellipsis-single-line`]: cssTextOverflow.value,
         [`${prefixCls.value}-ellipsis-multiple-line`]: cssLineClamp.value,
+        [`${prefixCls.value}-link`]: props.component === 'a',
       },
       mergedClassNames.value.root,
     ))
@@ -511,8 +505,6 @@ const Base = defineComponent<
                   enableEdit.value,
                   enableCopy.value,
                   textLocale?.value,
-                  ellipsisConfig.value.suffix,
-                  ellipsisConfig.value.symbol,
                   ...DECORATION_PROPS.map(key => (props as any)[key]),
                 ]}
               >

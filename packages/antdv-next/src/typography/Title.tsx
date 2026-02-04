@@ -26,7 +26,7 @@ const Title = defineComponent<
         warning(
           TITLE_ELE_LIST.includes(level.value as any),
           'usage',
-          'Title only accept `1 | 2 | 3 | 4 | 5` as `level` value.',
+          'Title only accept `1 | 2 | 3 | 4 | 5` as `level` value. And `5` need 4.6.0+ version.',
         )
       })
     }

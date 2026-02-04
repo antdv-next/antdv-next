@@ -162,6 +162,7 @@
   ],
   "devDependencies": {
     "@types/throttle-debounce": "catalog:types",
+    "@v-c/portal": "catalog:vc",
     "csstype": "catalog:prod"
   }
 }

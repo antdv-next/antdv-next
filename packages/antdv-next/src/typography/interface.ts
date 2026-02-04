@@ -1,4 +1,5 @@
 import type { TextAreaProps as VcTextAreaProps } from '@v-c/textarea'
+import type { CSSProperties } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { VueNode } from '../_util/type'
 import type { ComponentBaseProps, DirectionType } from '../config-provider/context'
@@ -43,10 +44,24 @@ export interface EllipsisConfig {
   tooltip?: VueNode | TooltipProps
 }
 
-export type TypographySemantic = 'root' | 'copy' | 'edit' | 'expand' | 'content'
+export interface TypographySemanticClassNames {
+  root?: string
+  copy?: string
+  edit?: string
+  expand?: string
+  content?: string
+}
 
-export type TypographyClassNamesType = SemanticClassNamesType<BlockProps, TypographySemantic>
-export type TypographyStylesType = SemanticStylesType<BlockProps, TypographySemantic>
+export interface TypographySemanticStyles {
+  root?: CSSProperties
+  copy?: CSSProperties
+  edit?: CSSProperties
+  expand?: CSSProperties
+  content?: CSSProperties
+}
+
+export type TypographyClassNamesType = SemanticClassNamesType<BlockProps, TypographySemanticClassNames>
+export type TypographyStylesType = SemanticStylesType<BlockProps, TypographySemanticStyles>
 
 export interface BlockProps extends ComponentBaseProps {
   title?: string

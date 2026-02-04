@@ -355,6 +355,9 @@ catalogs:
     '@v-c/picker':
       specifier: ^1.0.1
       version: 1.0.1
+    '@v-c/portal':
+      specifier: ^1.0.7
+      version: 1.0.7
     '@v-c/progress':
       specifier: ^1.0.0
       version: 1.0.0
@@ -717,6 +720,9 @@ importers:
       '@types/throttle-debounce':
         specifier: catalog:types
         version: 5.0.2
+      '@v-c/portal':
+        specifier: catalog:vc
+        version: 1.0.7(vue@3.5.27(typescript@5.9.3))
       csstype:
         specifier: catalog:prod
         version: 3.2.3
@@ -2207,11 +2213,6 @@ packages:
 
   '@v-c/color-picker@1.0.4':
     resolution: {integrity: sha512-VwNowJREYp25C6M39EHyTQ1nrxN2Usg96xGPupV2XiZs6wyKpXpXSjMbDXzD5/NKW1PKu/BTZOnrdLsrmY0mxg==}
-    peerDependencies:
-      vue: ^3.0.0
-
-  '@v-c/dialog@1.0.0':
-    resolution: {integrity: sha512-cC2JsmpqDxM2a5yq3f4tjA4OKlLOkQDij8LurkvlZBZ2g4v/+EdWU5VaZymaaiydZQMFgvjcmWDZqn297wGSIA==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -7059,12 +7060,6 @@ snapshots:
       '@v-c/util': 1.0.12(vue@3.5.27(typescript@5.9.3))
       vue: 3.5.27(typescript@5.9.3)
 
-  '@v-c/dialog@1.0.0(vue@3.5.27(typescript@5.9.3))':
-    dependencies:
-      '@v-c/portal': 1.0.7(vue@3.5.27(typescript@5.9.3))
-      '@v-c/util': 1.0.12(vue@3.5.27(typescript@5.9.3))
-      vue: 3.5.27(typescript@5.9.3)
-
   '@v-c/dialog@1.0.1(vue@3.5.27(typescript@5.9.3))':
     dependencies:
       '@v-c/portal': 1.0.7(vue@3.5.27(typescript@5.9.3))
@@ -7568,7 +7563,7 @@ snapshots:
       '@v-c/checkbox': 1.0.0(vue@3.5.27(typescript@5.9.3))
       '@v-c/collapse': 1.0.0(vue@3.5.27(typescript@5.9.3))
       '@v-c/color-picker': 1.0.4(vue@3.5.27(typescript@5.9.3))
-      '@v-c/dialog': 1.0.0(vue@3.5.27(typescript@5.9.3))
+      '@v-c/dialog': 1.0.1(vue@3.5.27(typescript@5.9.3))
       '@v-c/drawer': 1.0.0(vue@3.5.27(typescript@5.9.3))
       '@v-c/dropdown': 1.0.2(vue@3.5.27(typescript@5.9.3))
       '@v-c/image': 1.0.2(vue@3.5.27(typescript@5.9.3))

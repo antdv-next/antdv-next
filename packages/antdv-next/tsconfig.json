@@ -3,7 +3,9 @@
   "compilerOptions": {
     "paths": {
       "csstype": ["./node_modules/csstype"],
-      "/@tests/*": ["../../tests/*"]
+      "/@tests/*": ["../../tests/*"],
+      "@v-c/portal": ["./node_modules/@v-c/portal"],
+      "@v-c/portal/*": ["./node_modules/@v-c/portal/*"]
     },
     "types": ["vite/client", "@testing-library/jest-dom/vitest"],
     /* Linting */
