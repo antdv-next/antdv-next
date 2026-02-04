@@ -355,9 +355,6 @@ catalogs:
     '@v-c/picker':
       specifier: ^1.0.1
       version: 1.0.1
-    '@v-c/portal':
-      specifier: ^1.0.7
-      version: 1.0.7
     '@v-c/progress':
       specifier: ^1.0.0
       version: 1.0.0
@@ -721,7 +718,7 @@ importers:
         specifier: catalog:types
         version: 5.0.2
       '@v-c/portal':
-        specifier: catalog:vc
+        specifier: ^1.0.7
         version: 1.0.7(vue@3.5.27(typescript@5.9.3))
       csstype:
         specifier: catalog:prod
