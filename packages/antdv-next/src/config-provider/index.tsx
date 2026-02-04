@@ -45,6 +45,7 @@ const PASSED_PROPS: Exclude<
   'select',
   'button',
   'alert',
+  'transformCellText',
 ]
 
 const providerDefaultProps: any = {
