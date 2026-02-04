@@ -56,7 +56,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | defaultValue | The initial input content | string | - | - |
 | disabled | Whether the input is disabled | boolean | false | - |
 | id | The ID for input | string | - | - |
-| maxLength | The maximum number of characters in Input | number | - | - |
+| maxlength | The maximum number of characters in Input | number | - | - |
 | prefix | The prefix icon for the Input | VueNode | - | - |
 | showCount | Whether to show character count | boolean \| &#123; formatter: (info: &#123; value: string, count: number, maxLength?: number &#125;) =&gt; VueNode &#125; | false | - |
 | status | Set validation status | 'error' \| 'warning' | - | - |

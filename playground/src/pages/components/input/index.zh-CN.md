@@ -56,7 +56,7 @@ demo:
 | count | 字符计数配置 | [CountConfig](#countconfig) | - | - |
 | disabled | 是否禁用状态，默认为 false | boolean | false | - |
 | id | 输入框的 id | string | - | - |
-| maxLength | 最大长度 | number | - | - |
+| maxlength | 最大长度 | number | - | - |
 | prefix | 带有前缀图标的 input | VueNode | - | - |
 | showCount | 是否展示字数 | boolean \| &#123; formatter: (info: &#123; value: string, count: number, maxLength?: number &#125;) =&gt; VueNode &#125; | false | - |
 | status | 设置校验状态 | 'error' \| 'warning' | - | - |

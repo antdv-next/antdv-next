@@ -143,7 +143,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | autoSize | `autoSize` attribute of textarea | boolean \| &#123; minRows: number, maxRows: number &#125; | - | - |
 | editing | Whether to be editable | boolean | false | - |
 | icon | Custom editable icon | VueNode | &lt;EditOutlined /&gt; | - |
-| maxLength | `maxLength` attribute of textarea | number | - | - |
+| maxlength | `maxLength` attribute of textarea | number | - | - |
 | tooltip | Custom tooltip text, hide when it is false | VueNode | `Edit` | - |
 | text | Edit text, specify the editing content instead of using the children implicitly | string | - | - |
 | triggerType | Edit mode trigger - icon, text or both (not specifying icon as trigger hides it) | Array&lt;`icon`\|`text`&gt; | \[`icon`] | - |
