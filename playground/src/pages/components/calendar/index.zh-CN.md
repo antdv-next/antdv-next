@@ -47,7 +47,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-p-wQLik200AAA
 | cellRender | 自定义单元格的内容 | (date: DateType, info: any) =&gt; VueNode | - | - |
 | fullCellRender | 自定义单元格的内容 | (date: DateType, info: any) =&gt; VueNode | - | - |
 | headerRender | 自定义头部内容 | HeaderRender&lt;DateType&gt; | - | - |
-| value | 展示日期 | DateType | - | - |
+| value | 展示日期，支持 `v-model:value` | DateType | - | - |
 | defaultValue | 默认展示的日期 | DateType | - | - |
 | mode | 初始模式 | CalendarMode | `month` | - |
 | fullscreen | 是否全屏显示 | boolean | true | - |

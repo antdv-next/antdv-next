@@ -68,7 +68,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | okButtonProps | The ok button props | ButtonProps | - | - |
 | okText | Text of the OK button | VueNode | `OK` | - |
 | okType | Button `type` of the OK button | LegacyButtonType | `primary` | - |
-| open | Whether the modal dialog is visible or not | boolean | false | - |
+| open | Whether the modal dialog is visible or not, support `v-model:open` | boolean | false | - |
 | rootClass | Root container class | string | - | - |
 | rootStyle | Root container style | CSSProperties | - | - |
 | styles | Customize inline style for each semantic structure inside the Modal component. Supports object or function. | ModalStylesType | - | - |

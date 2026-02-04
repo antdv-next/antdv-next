@@ -54,13 +54,13 @@ Common props ref：[Common props](/docs/vue/common-props)
 | render | The function to generate the item shown on a column. Based on an record (element of the dataSource array), this function should return a VueNode which is generated from that record. Also, it can return a plain object with `value` and `label`, `label` is a VueNode and `value` is for title | (record: TransferItem) =&gt; VueNode | - | - |
 | rowKey | Specify the key that will be used for uniquely identify each element | (record: TransferItem) =&gt; string | - | - |
 | selectAllLabels | A set of customized labels for select all checkboxes on the header | (VueNode \| (info: &#123; selectedCount: number; totalCount: number &#125;) =&gt; VueNode)[] | - | - |
-| selectedKeys | A set of keys of selected items | string[] | [] | - |
+| selectedKeys | A set of keys of selected items, support `v-model:selected-keys` | string[] | [] | - |
 | selectionsIcon | Custom dropdown icon | VueNode | - | - |
 | showSearch | If included, a search box is shown on each column | boolean \| &#123; placeholder?: string; defaultValue?: string &#125; | false | - |
 | showSelectAll | Show select all checkbox on the header | boolean | true | - |
 | status | Set validation status | `error` \| `warning` | - | - |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function | TransferStylesType | - | - |
-| targetKeys | A set of keys of elements that are listed on the right column | string[] | [] | - |
+| targetKeys | A set of keys of elements that are listed on the right column, support `v-model:target-keys` | string[] | [] | - |
 | titles | A set of titles that are sorted from left to right | VueNode[] | - | - |
 
 ### Events

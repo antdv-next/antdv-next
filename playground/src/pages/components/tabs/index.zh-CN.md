@@ -46,7 +46,7 @@ Antdv Next 依次提供了三级选项卡，分别用于不同的场景。
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| activeKey | 当前激活 tab 面板的 key | string | - | - |
+| activeKey | 当前激活 tab 面板的 key，支持 `v-model:active-key` | string | - | - |
 | addIcon | 自定义添加按钮，设置 `type="editable-card"` 时有效 | VueNode | `<PlusOutlined />` | - |
 | animated | 是否使用动画切换 Tabs | boolean \| { inkBar: boolean, tabPane: boolean } | { inkBar: true, tabPane: false } | - |
 | centered | 标签居中展示 | boolean | false | - |

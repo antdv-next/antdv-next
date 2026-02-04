@@ -98,7 +98,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | tagRender | Customize tag render, only applies when `mode` is set to `multiple` or `tags` | (props) =&gt; VueNode | - | - |
 | labelRender | Customize selected label render | (props: LabelInValueType) =&gt; VueNode | - | - |
 | tokenSeparators | Separator used to tokenize, only applies when `mode="tags"` | string[] | - | - |
-| value | Current selected option (considered as a immutable array) | string \| string[] \| number \| number[] | - | - |
+| value | Current selected option (considered as a immutable array), support `v-model:value` | string \ | string[] \ | number \ | number[] | - | - |
 | variant | Variants of selector | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - |
 | virtual | Disable virtual scroll when set to false | boolean | true | - |
 

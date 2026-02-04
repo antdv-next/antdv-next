@@ -47,7 +47,7 @@ demo:
 | autoExpandParent | 是否自动展开父节点 | boolean | false | - |
 | blockNode | 是否节点占据一行 | boolean | false | - |
 | checkable | 节点前添加 Checkbox 复选框 | boolean | false | - |
-| checkedKeys | （受控）选中复选框的树节点（注意：父子节点有关联，如果传入父节点 key，则子节点自动选中；相应当子节点 key 都传入，父节点也自动选中。当设置 `checkable` 和 `checkStrictly`，它是一个有`checked`和`halfChecked`属性的对象，并且父子节点的选中与否不再关联 | string[] \| &#123;checked: string[], halfChecked: string[]&#125; | [] | - |
+| checkedKeys | （受控）选中复选框的树节点（注意：父子节点有关联，如果传入父节点 key，则子节点自动选中；相应当子节点 key 都传入，父节点也自动选中。当设置 `checkable` 和 `checkStrictly`，它是一个有`checked`和`halfChecked`属性的对象，并且父子节点的选中与否不再关联，支持 `v-model:checked-keys` | string[] \ | &#123;checked: string[], halfChecked: string[]&#125; | [] | - |
 | checkStrictly | checkable 状态下节点选择完全受控（父子节点选中状态不再关联） | boolean | false | - |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | - |
 | defaultCheckedKeys | 默认选中复选框的树节点 | string[] | [] | - |
@@ -57,7 +57,7 @@ demo:
 | defaultSelectedKeys | 默认选中的树节点 | string[] | [] | - |
 | disabled | 将树禁用 | boolean | false | - |
 | draggable | 设置节点可拖拽，可以通过 `icon: false` 关闭拖拽提示图标 | boolean \| ((node: DataNode) =&gt; boolean) \| &#123; icon?: VueNode \| false, nodeDraggable?: (node: DataNode) =&gt; boolean &#125; | false | - |
-| expandedKeys | （受控）展开指定的树节点 | string[] | [] | - |
+| expandedKeys | （受控）展开指定的树节点，支持 `v-model:expanded-keys` | string[] | [] | - |
 | fieldNames | 自定义节点 title、key、children 的字段 | object | &#123; title: `title`, key: `key`, children: `children` &#125; | - |
 | filterAntTreeNode | 按需筛选树节点（高亮），返回 true | function(node) | - | - |
 | height | 设置虚拟滚动容器高度，设置后内部节点不再支持横向滚动 | number | - | - |
@@ -67,7 +67,7 @@ demo:
 | multiple | 支持点选多个节点（节点本身） | boolean | false | - |
 | rootStyle | 添加在 Tree 最外层的 style | CSSProperties | - | - |
 | selectable | 是否可选中 | boolean | true | - |
-| selectedKeys | （受控）设置选中的树节点，多选需设置 `multiple` 为 true | string[] | - | - |
+| selectedKeys | （受控）设置选中的树节点，多选需设置 `multiple` 为 true，支持 `v-model:selected-keys` | string[] | - | - |
 | showIcon | 控制是否展示 `icon` 节点，没有默认样式 | boolean | false | - |
 | showLine | 是否展示连接线 | boolean \| &#123; showLeafIcon: VueNode \| ((props: AntTreeNodeProps) =&gt; VueNode) &#125; | false | - |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | - |

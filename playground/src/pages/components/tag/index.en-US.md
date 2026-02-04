@@ -89,7 +89,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | multiple | Multiple select mode | boolean | false | - |
 | options | Option list | Array&lt;&#123; label: VueNode; value: string \| number &#125; \| string \| number&gt; | - | - |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function | Record&lt;SemanticDOM, CSSProperties&gt; | - | - |
-| value | Value of checked tag(s) | string \| number \| Array&lt;string \| number&gt; \| null | - | - |
+| value | Value of checked tag(s), support `v-model:value` | string \ | number \ | Array&lt;string \ | number&gt; \ | null | - | - |
 
 #### Events {#checkable-tag-group-events}
 

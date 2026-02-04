@@ -52,10 +52,10 @@ group:
 | disabled | 禁用颜色选择器 | boolean | false | - |
 | disabledAlpha | 禁用透明度 | boolean | false | - |
 | disabledFormat | 禁用选择颜色格式 | boolean | false | - |
-| format | 颜色格式 | ColorFormatType | - | - |
+| format | 颜色格式，支持 `v-model:format` | ColorFormatType | - | - |
 | getPopupContainer | 指定弹层挂载的节点 | (triggerNode: HTMLElement) => HTMLElement | - | - |
 | mode | 选择器模式，用于配置单色与渐变 | ModeType \| ModeType[] | `single` | - |
-| open | 是否显示弹出窗口 | boolean | - | - |
+| open | 是否显示弹出窗口，支持 `v-model:open` | boolean | - | - |
 | placement | 弹出窗口的位置 | TriggerPlacement | `bottomLeft` | - |
 | presets | 预设的颜色 | [PresetsItem](#presetsitem)[] | - | - |
 | panelRender | 自定义渲染面板 | (params: &#123; panel: any, extra: &#123; components: &#123; Picker: any, Presets: any &#125; &#125; &#125;) => any | - | - |
@@ -64,7 +64,7 @@ group:
 | size | 设置触发器大小 | SizeType | `middle` | - |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | ColorPickerStylesType | - | - |
 | trigger | 颜色选择器的触发模式 | TriggerType | `click` | - |
-| value | 颜色的值 | [ColorValueType](#colorvaluetype) | - | - |
+| value | 颜色的值，支持 `v-model:value` | [ColorValueType](#colorvaluetype) | - | - |
 
 ### 事件 {#events}
 

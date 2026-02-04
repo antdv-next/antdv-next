@@ -34,7 +34,7 @@ demo:
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| checked | 指定当前是否选中 | string \| number \| boolean \| object | false | - |
+| checked | 指定当前是否选中，支持 `v-model:checked` | string \ | number \ | boolean \ | object | false | - |
 | checkedValue | 选中时的值 | string \| number \| boolean \| object | true | - |
 | defaultChecked | 初始是否选中 | string \| number \| boolean \| object | false | - |
 | disabled | 失效状态 | boolean | false | - |
@@ -60,7 +60,7 @@ demo:
 | options | 指定可选项 | string\[] \| number\[] \| Option\[] | \[] | - |
 | disabled | 整组失效 | boolean | false | - |
 | name | CheckboxGroup 下所有 `input[type="checkbox"]` 的 `name` 属性 | string | - | - |
-| value | 指定选中的选项 | (string \| number \| boolean)\[] | \[] | - |
+| value | 指定选中的选项，支持 `v-model:value` | (string \ | number \ | boolean)\[] | \[] | - |
 | labelRender | - | (params: &#123; item: CheckboxOptionType, index: number &#125;) =&gt; any | - | - |
 
 #### 事件 {#checkboxgroup-events}

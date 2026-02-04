@@ -40,7 +40,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cFsBQLA0b7UAAA
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | StepsClassNamesType | - | - |
-| current | 指定当前步骤，从 0 开始记数。在子 Step 元素中，可以通过 `status` 属性覆盖状态 | number | 0 | - |
+| current | 指定当前步骤，从 0 开始记数。在子 Step 元素中，可以通过 `status` 属性覆盖状态，支持 `v-model:current` | number | 0 | - |
 | iconRender | 自定义渲染图标，请优先使用 `items.icon` | (oriNode, info: &#123; index, active, item &#125;) =&gt; VueNode | - | - |
 | initial | 起始序号，从 0 开始记数 | number | 0 | - |
 | items | 配置选项卡内容 | [StepItem](#stepitem)[] | [] | 4.24.0 |

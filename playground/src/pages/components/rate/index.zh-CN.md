@@ -48,7 +48,7 @@ demo:
 | size | 星星尺寸 | 'small' \| 'middle' \| 'large' | 'middle' |  |
 | style | 自定义样式对象 | CSSProperties | - |  |
 | tooltips | 自定义每项的提示信息 | [TooltipProps](/components/tooltip-cn#api)[\] \| string\[] | - |  |
-| value | 当前数，受控值 | number | - |  |
+| value | 当前数，受控值，支持 `v-model:value` | number | - |  |
 
 ### 事件 {#events}
 

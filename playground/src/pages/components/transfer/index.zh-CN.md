@@ -55,13 +55,13 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*g9vUQq2nkpEAAA
 | render | 每行数据渲染函数，该函数的入参为 `dataSource` 中的项，返回值为 VueNode。或者返回一个普通对象，其中 `label` 字段为 VueNode，`value` 字段为 title | (record: TransferItem) =&gt; VueNode | - | - |
 | rowKey | 数据列的主键 | (record: TransferItem) =&gt; string | - | - |
 | selectAllLabels | 自定义顶部多选框标题的集合 | (VueNode \| (info: &#123; selectedCount: number; totalCount: number &#125;) =&gt; VueNode)[] | - | - |
-| selectedKeys | 设置哪些项应该被选中 | string[] | [] | - |
+| selectedKeys | 设置哪些项应该被选中，支持 `v-model:selected-keys` | string[] | [] | - |
 | selectionsIcon | 自定义下拉菜单图标 | VueNode | - | - |
 | showSearch | 是否显示搜索框，或可对两侧搜索框进行配置 | boolean \| &#123; placeholder?: string; defaultValue?: string &#125; | false | - |
 | showSelectAll | 是否展示全选勾选框 | boolean | true | - |
 | status | 设置校验状态 | `error` \| `warning` | - | - |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | TransferStylesType | - | - |
-| targetKeys | 显示在右侧框数据的 key 集合 | string[] | [] | - |
+| targetKeys | 显示在右侧框数据的 key 集合，支持 `v-model:target-keys` | string[] | [] | - |
 | titles | 标题集合，顺序从左至右 | VueNode[] | - | - |
 
 ### 事件 {#events}

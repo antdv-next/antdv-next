@@ -33,7 +33,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| checked | Specifies whether the checkbox is selected | string \| number \| boolean \| object | false | - |
+| checked | Specifies whether the checkbox is selected, support `v-model:checked` | string \ | number \ | boolean \ | object | false | - |
 | checkedValue | The value when checked | string \| number \| boolean \| object | true | - |
 | defaultChecked | Whether to set the initial state | string \| number \| boolean \| object | false | - |
 | disabled | If disable checkbox | boolean | false | - |
@@ -59,7 +59,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | options | Specifies options | string\[] \| number\[] \| Option\[] | \[] | - |
 | disabled | If disable all checkboxes | boolean | false | - |
 | name | The `name` property of all `input[type="checkbox"]` children | string | - | - |
-| value | Used for setting the currently selected value | (string \| number \| boolean)\[] | \[] | - |
+| value | Used for setting the currently selected value, support `v-model:value` | (string \ | number \ | boolean)\[] | \[] | - |
 | labelRender | - | (params: &#123; item: CheckboxOptionType, index: number &#125;) =&gt; any | - | - |
 
 #### Events {#checkboxgroup-events}

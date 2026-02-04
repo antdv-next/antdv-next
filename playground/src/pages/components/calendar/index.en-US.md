@@ -46,7 +46,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | cellRender | Customize cell content | (date: DateType, info: any) =&gt; VueNode | - | - |
 | fullCellRender | Customize cell content | (date: DateType, info: any) =&gt; VueNode | - | - |
 | headerRender | Render custom header in panel | HeaderRender&lt;DateType&gt; | - | - |
-| value | The current selected date | DateType | - | - |
+| value | The current selected date, support `v-model:value` | DateType | - | - |
 | defaultValue | The date selected by default | DateType | - | - |
 | mode | The display mode of the calendar | CalendarMode | `month` | - |
 | fullscreen | Whether to display in full-screen | boolean | true | - |

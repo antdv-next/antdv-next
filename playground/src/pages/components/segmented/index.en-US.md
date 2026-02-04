@@ -48,7 +48,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | size | The size of the Segmented. | `large` \| `middle` \| `small` | `middle` |  |
 | styles | Customize inline style for each semantic structure inside the Segmented component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | vertical | Orientation，Simultaneously existing with `orientation`, `orientation` takes priority | boolean | `false` | - |
-| value | Currently selected value | string \| number |  |  |
+| value | Currently selected value, support `v-model:value` | string \ | number |  |  |
 | shape | shape of Segmented | `default` \| `round` | `default` | - |
 | name | The `name` property of all `input[type="radio"]` children. if not set, it will fallback to a randomly generated name | string |  |- |
 

@@ -90,7 +90,7 @@ demo:
 | multiple | 多选模式 | boolean | false | - |
 | options | 选项列表 | Array&lt;&#123; label: VueNode; value: string \| number &#125; \| string \| number&gt; | - | - |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;SemanticDOM, CSSProperties&gt; | - | - |
-| value | 选中值 | string \| number \| Array&lt;string \| number&gt; \| null | - | - |
+| value | 选中值，支持 `v-model:value` | string \ | number \ | Array&lt;string \ | number&gt; \ | null | - | - |
 
 #### 事件 {#checkable-tag-group-events}
 

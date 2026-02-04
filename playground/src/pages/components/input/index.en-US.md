@@ -47,10 +47,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| ~~addonAfter~~ | The label text displayed after (on the right side of) the input field, please use Space.Compact instead | VueNode | - | - |
-| ~~addonBefore~~ | The label text displayed before (on the left side of) the input field, please use Space.Compact instead | VueNode | - | - |
 | allowClear | If allow to remove input content with clear icon | boolean \| &#123; clearIcon: VueNode &#125; | false | - |
-| ~~bordered~~ | Whether has border style, please use `variant` instead | boolean | true | - |
 | classes | Customize class for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-input), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-input), string&gt; | - | - |
 | count | Character count config | [CountConfig](#countconfig) | - | - |
 | defaultValue | The initial input content | string | - | - |
@@ -64,7 +61,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | size | The size of the input box. Note: in the context of a form, the `middle` size is used | `large` \| `middle` \| `small` | - | - |
 | suffix | The suffix icon for the Input | VueNode | - | - |
 | type | The type of input, see: [MDN](https://developer.mozilla.org/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types)( use `Input.TextArea` instead of `type="textarea"`) | string | `text` | - |
-| value | The input content value | string | - | - |
+| value | The input content value, support `v-model:value` | string | - | - |
 | variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - |
 
 > When `Input` is used in a `Form.Item` context, if the `Form.Item` has the `id` props defined then `value`, `defaultValue`, and `id` props of `Input` are automatically set.

@@ -55,7 +55,7 @@ demo:
 | step | 步长，取值必须大于 0，并且可被 (max - min) 整除。当 `marks` 不为空对象时，可以设置 `step` 为 null，此时 Slider 的可选值仅有 `marks`、`min` 和 `max` | number \| null | 1 | - |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - |
 | tooltip | 设置 Tooltip 相关属性 | [TooltipConfig](#tooltipconfig) | - | 4.23.0 |
-| value | 设置当前取值。当 `range` 为 false 时，使用 number，否则用 [number, number] | number \| [number, number] | - | - |
+| value | 设置当前取值。当 `range` 为 false 时，使用 number，否则用 [number, number]，支持 `v-model:value` | number \ | [number, number] | - | - |
 | vertical | 值为 true 时，Slider 为垂直方向。与 `orientation` 同时存在，以 `orientation` 优先 | boolean | false | - |
 
 ### RangeConfig

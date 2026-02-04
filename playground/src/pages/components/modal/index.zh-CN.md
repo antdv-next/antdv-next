@@ -69,7 +69,7 @@ demo:
 | okButtonProps | ok 按钮 props | ButtonProps | - | - |
 | okText | 确认按钮文字 | VueNode | `确定` | - |
 | okType | 确认按钮类型 | LegacyButtonType | `primary` | - |
-| open | 对话框是否可见 | boolean | false | - |
+| open | 对话框是否可见，支持 `v-model:open` | boolean | false | - |
 | rootClass | 根容器 class | string | - | - |
 | rootStyle | 根容器样式 | CSSProperties | - | - |
 | styles | 用于自定义 Modal 组件内部各语义化结构的行内 style，支持对象或函数 | ModalStylesType | - | - |

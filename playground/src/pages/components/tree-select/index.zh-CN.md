@@ -85,7 +85,7 @@ demo:
 | treeLine | 是否展示线条样式，请参考 [Tree - showLine](/components/tree-cn#tree-demo-line) | boolean \| object | false | - |
 | treeLoadedKeys | （受控）已经加载的节点，需要配合 `loadData` 使用 | Key[] | [] | - |
 | treeNodeLabelProp | 作为显示的 prop 设置 | string | `title` | - |
-| value | 指定当前选中的条目 | string \| string[] | - | - |
+| value | 指定当前选中的条目，支持 `v-model:value` | string \ | string[] | - | - |
 | virtual | 设置 false 时关闭虚拟滚动 | boolean | true | - |
 | bordered | 已废弃。请使用 `variant` | boolean | - | - |
 | showArrow | 已废弃，设置 `suffixIcon` 为 null 可隐藏 | boolean | - | - |

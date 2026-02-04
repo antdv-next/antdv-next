@@ -69,7 +69,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | size | Preset size of drawer, default `378px` and large `736px`, or a custom number | 'default' \| 'large' \| number | 'default' | - |
 | styles | Customize inline style for each semantic structure inside the Drawer component. Supports object or function. | DrawerStylesType | - | - |
 | title | The title for Drawer | VueNode | - | - |
-| open | Whether the Drawer dialog is visible or not | boolean | false | - |
+| open | Whether the Drawer dialog is visible or not, support `v-model:open` | boolean | false | - |
 | zIndex | The `z-index` of the Drawer | number | 1000 | - |
 
 ### Events

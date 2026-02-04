@@ -83,7 +83,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | treeLine | Show the line. Ref [Tree - showLine](/components/tree/#tree-demo-line) | boolean \| object | false | - |
 | treeLoadedKeys | (Controlled) Set loaded tree nodes, work with `loadData` only | string[] | [] | - |
 | treeNodeLabelProp | Will render as content of select | string | `title` | - |
-| value | To set the current selected treeNode(s) | string \| string[] | - | - |
+| value | To set the current selected treeNode(s), support `v-model:value` | string \ | string[] | - | - |
 | virtual | Disable virtual scroll when set to false | boolean | true | - |
 | bordered | Deprecated. Use `variant` instead | boolean | - | - |
 | showArrow | Deprecated. Set `suffixIcon` to null to hide | boolean | - | - |

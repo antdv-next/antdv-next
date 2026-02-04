@@ -35,7 +35,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | autoFocus | Auto focus when component mounted | boolean | false | - |
-| checked | Determine whether the Switch is checked | string \| number \| boolean \| object | false | - |
+| checked | Determine whether the Switch is checked, support `v-model:checked` | string \ | number \ | boolean \ | object | false | - |
 | checkedChildren | The content to be shown when the state is checked | VueNode | - | - |
 | checkedValue | The value when checked | string \| number \| boolean \| object | true | - |
 | classes | Customize class for each semantic structure inside the component. Supports object or function | SwitchClassNamesType | - | - |
@@ -47,7 +47,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function | SwitchStylesType | - | - |
 | unCheckedChildren | The content to be shown when the state is unchecked | VueNode | - | - |
 | unCheckedValue | The value when unchecked | string \| number \| boolean \| object | false | - |
-| value | Alias for `checked` | string \| number \| boolean \| object | - | 5.12.0 |
+| value | Alias for `checked`, support `v-model:value` | string \ | number \ | boolean \ | object | - | 5.12.0 |
 
 ### Events {#events}
 

@@ -43,7 +43,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| activeKey | Current TabPane's key | string | - | - |
+| activeKey | Current TabPane's key, support `v-model:active-key` | string | - | - |
 | addIcon | Customize add icon, only works with `type="editable-card"` | VueNode | `<PlusOutlined />` | - |
 | animated | Whether to change tabs with animation | boolean \| { inkBar: boolean, tabPane: boolean } | { inkBar: true, tabPane: false } | - |
 | centered | Centers tabs | boolean | false | - |

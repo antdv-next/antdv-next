@@ -35,7 +35,7 @@ Common props ref：[Comon props](/docs/vue/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | steps | Tour steps | TourStepItem[\] | - | - |
-| open | Open tour | boolean | false | - |
+| open | Open tour, support `v-model:open` | boolean | false | - |
 | current | What is the current step | number | - | - |
 | arrow | Whether to show the arrow, including the configuration whether to point to the center of the element | boolean \| &#123; pointAtCenter: boolean &#125; | true | - |
 | closeIcon | Customize close icon | VueNode | true | - |

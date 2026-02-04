@@ -49,7 +49,7 @@ demo:
 | size | 控件尺寸 | `large` \| `middle` \| `small` | `middle` | - |
 | styles | 用于自定义 Segmented 组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - |
 | vertical | 排列方向，与 `orientation` 同时存在，以 `orientation` 优先 | boolean | `false` | - |
-| value | 当前选中的值 | string \| number | - | - |
+| value | 当前选中的值，支持 `v-model:value` | string \ | number | - | - |
 | shape | 形状 | `default` \| `round` | `default` | - |
 | name | Segmented 下所有 `input[type="radio"]` 的 `name` 属性。若未设置，则将回退到随机生成的名称 | string | - | - |
 

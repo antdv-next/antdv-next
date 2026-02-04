@@ -71,7 +71,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| checked | Specifies whether the radio is selected | boolean | false |  |
+| checked | Specifies whether the radio is selected, support `v-model:checked` | boolean | false |  |
 | classes | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | -|
 | disabled | Disable radio | boolean | false |  |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | - |
@@ -103,7 +103,7 @@ Radio group can wrap a group of `Radio`.
 | orientation | Orientation | `horizontal` \| `vertical` | `horizontal` |  |
 | size | The size of radio button style | `large` \| `middle` \| `small` | - |  |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | - |
-| value | Used for setting the currently selected value | any | - |  |
+| value | Used for setting the currently selected value, support `v-model:value` | any | - |  |
 | vertical | If true, the Radio group will be vertical. Simultaneously existing with `orientation`, `orientation` takes priority | boolean | false |  |
 
 #### Events {#radiogroup-events}

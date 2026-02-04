@@ -65,7 +65,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | size | The input size | `large` \| `middle` \| `small` | - | - |
 | status | Set validation status | 'error' \| 'warning' | - | - |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: \{ props \})=&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - |
-| value | The selected value | string\[] \| number\[] | - | - |
+| value | The selected value, support `v-model:value` | string\[] \ | number\[] | - | - |
 | variant | Variants of selector | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - |
 
 ### Events

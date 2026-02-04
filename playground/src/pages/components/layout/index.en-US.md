@@ -104,7 +104,7 @@ The sidebar.
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | breakpoint | [Breakpoints](/components/grid/#col) of the responsive layout | `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `xxl` | - |
-| collapsed | To set the current status | boolean | - |
+| collapsed | To set the current status, support `v-model:collapsed` | boolean | - |
 | collapsedWidth | Width of the collapsed sidebar, by setting to 0 a special trigger will appear | number | 80 |
 | collapsible | Whether can be collapsed | boolean | false |
 | reverseArrow | Reverse direction of arrow, for a sider that expands from the right | boolean | false |

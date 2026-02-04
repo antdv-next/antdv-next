@@ -103,7 +103,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAA
 | 参数 | 说明 | 类型                                            | 默认值 |
 | --- | --- |-----------------------------------------------| --- |
 | breakpoint | 触发响应式布局的[断点](/components/grid-cn#col) | `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `xxl` | - |
-| collapsed | 当前收起状态 | boolean                                       | - |
+| collapsed | 当前收起状态，支持 `v-model:collapsed` | boolean | - |
 | collapsedWidth | 收缩宽度，设置为 0 会出现特殊 trigger | number                                        | 80 |
 | collapsible | 是否可收起 | boolean                                       | false |
 | reverseArrow | 翻转折叠提示箭头的方向，当 Sider 在右边时可以使用 | boolean                                       | false |

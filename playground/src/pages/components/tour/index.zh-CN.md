@@ -36,7 +36,7 @@ demo:
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | steps | 引导步骤配置 | TourStepItem[\] | - | - |
-| open | 打开引导 | boolean | false | - |
+| open | 打开引导，支持 `v-model:open` | boolean | false | - |
 | current | 当前处于哪一步 | number | - | - |
 | arrow | 是否显示箭头，包含是否指向元素中心的配置 | boolean \| &#123; pointAtCenter: boolean &#125; | true | - |
 | closeIcon | 自定义关闭按钮 | VueNode | true | - |

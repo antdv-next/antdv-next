@@ -99,7 +99,7 @@ demo:
 | tagRender | 自定义 tag 内容 render，仅在 `mode` 为 `multiple` 或 `tags` 时生效 | (props) =&gt; VueNode | - | - |
 | labelRender | 自定义当前选中的 label 内容 render | (props: LabelInValueType) =&gt; VueNode | - | - |
 | tokenSeparators | 自动分词的分隔符，仅在 `mode="tags"` 时生效 | string[] | - | - |
-| value | 指定当前选中的条目，多选时为数组 | string \| string[] \| number \| number[] | - | - |
+| value | 指定当前选中的条目，多选时为数组，支持 `v-model:value` | string \ | string[] \ | number \ | number[] | - | - |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - |
 | virtual | 设置 false 时关闭虚拟滚动 | boolean | true | - |
 

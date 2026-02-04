@@ -54,7 +54,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | step | The granularity the slider can step through values. Must be greater than 0, and be divisible by (max - min). When `step` is `null` and `marks` exist, valid points will only be marks, `min` and `max` | number \| null | 1 | - |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - |
 | tooltip | The tooltip related props | [TooltipConfig](#tooltipconfig) | - | 4.23.0 |
-| value | The value of slider. When `range` is false, use number, otherwise, use [number, number] | number \| [number, number] | - | - |
+| value | The value of slider. When `range` is false, use number, otherwise, use [number, number], support `v-model:value` | number \ | [number, number] | - | - |
 | vertical | If true, the slider will be vertical. Simultaneously existing with `orientation`, `orientation` takes priority | boolean | false | - |
 
 ### RangeConfig

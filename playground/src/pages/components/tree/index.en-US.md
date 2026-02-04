@@ -46,7 +46,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | autoExpandParent | Whether to automatically expand a parent treeNode | boolean | false | - |
 | blockNode | Whether treeNode fill remaining horizontal space | boolean | false | - |
 | checkable | Add a Checkbox before the treeNodes | boolean | false | - |
-| checkedKeys | (Controlled) Specifies the keys of the checked treeNodes (PS: When this specifies the key of a treeNode which is also a parent treeNode, all the children treeNodes of will be checked; and vice versa, when it specifies the key of a treeNode which is a child treeNode, its parent treeNode will also be checked. When `checkable` and `checkStrictly` is true, its object has `checked` and `halfChecked` property. Regardless of whether the child or parent treeNode is checked, they won't impact each other | string[] \| &#123;checked: string[], halfChecked: string[]&#125; | [] | - |
+| checkedKeys | (Controlled) Specifies the keys of the checked treeNodes (PS: When this specifies the key of a treeNode which is also a parent treeNode, all the children treeNodes of will be checked; and vice versa, when it specifies the key of a treeNode which is a child treeNode, its parent treeNode will also be checked. When `checkable` and `checkStrictly` is true, its object has `checked` and `halfChecked` property. Regardless of whether the child or parent treeNode is checked, they won't impact each other, support `v-model:checked-keys` | string[] \ | &#123;checked: string[], halfChecked: string[]&#125; | [] | - |
 | checkStrictly | Check treeNode precisely; parent treeNode and children treeNodes are not associated | boolean | false | - |
 | classes | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | - |
 | defaultCheckedKeys | Specifies the keys of the default checked treeNodes | string[] | [] | - |
@@ -56,7 +56,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | defaultSelectedKeys | Specifies the keys of the default selected treeNodes | string[] | [] | - |
 | disabled | Whether the tree is disabled | boolean | false | - |
 | draggable | Specifies whether this Tree or the node is draggable. Use `icon: false` to disable drag handler icon | boolean \| ((node: DataNode) =&gt; boolean) \| &#123; icon?: VueNode \| false, nodeDraggable?: (node: DataNode) =&gt; boolean &#125; | false | - |
-| expandedKeys | (Controlled) Specifies the keys of the expanded treeNodes | string[] | [] | - |
+| expandedKeys | (Controlled) Specifies the keys of the expanded treeNodes, support `v-model:expanded-keys` | string[] | [] | - |
 | fieldNames | Customize node title, key, children field name | object | &#123; title: `title`, key: `key`, children: `children` &#125; | - |
 | filterAntTreeNode | Defines a function to filter (highlight) treeNodes. When the function returns `true`, the corresponding treeNode will be highlighted | function(node) | - | - |
 | height | Config virtual scroll height. Will not support horizontal scroll when enabled | number | - | - |
@@ -66,7 +66,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | multiple | Allows selecting multiple treeNodes | boolean | false | - |
 | rootStyle | Style on the root element | CSSProperties | - | - |
 | selectable | Whether it can be selected | boolean | true | - |
-| selectedKeys | (Controlled) Specifies the keys of the selected treeNodes, multiple selection needs to set `multiple` to true | string[] | - | - |
+| selectedKeys | (Controlled) Specifies the keys of the selected treeNodes, multiple selection needs to set `multiple` to true, support `v-model:selected-keys` | string[] | - | - |
 | showIcon | Controls whether to display the `icon` node (no default style) | boolean | false | - |
 | showLine | Shows a connecting line | boolean \| &#123;showLeafIcon: VueNode \| ((props: AntTreeNodeProps) =&gt; VueNode)&#125; | false | - |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | - |

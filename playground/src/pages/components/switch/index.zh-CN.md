@@ -36,7 +36,7 @@ demo:
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | autoFocus | 组件挂载时自动获取焦点 | boolean | false | - |
-| checked | 指定当前是否选中 | string \| number \| boolean \| object | false | - |
+| checked | 指定当前是否选中，支持 `v-model:checked` | string \ | number \ | boolean \ | object | false | - |
 | checkedChildren | 选中时的内容 | VueNode | - | - |
 | checkedValue | 选中时的值 | string \| number \| boolean \| object | true | - |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | SwitchClassNamesType | - | - |
@@ -48,7 +48,7 @@ demo:
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | SwitchStylesType | - | - |
 | unCheckedChildren | 非选中时的内容 | VueNode | - | - |
 | unCheckedValue | 非选中时的值 | string \| number \| boolean \| object | false | - |
-| value | `checked` 的别名 | string \| number \| boolean \| object | - | 5.12.0 |
+| value | `checked` 的别名，支持 `v-model:value` | string \ | number \ | boolean \ | object | - | 5.12.0 |
 
 ### 事件 {#events}
 

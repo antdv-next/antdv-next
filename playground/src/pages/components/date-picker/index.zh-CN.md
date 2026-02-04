@@ -147,7 +147,7 @@ dayjs.locale('zh-cn')
 | ~~showTime.defaultValue~~ | 请使用 `showTime.defaultOpenValue` | [dayjs](https://day.js.org/) | dayjs() | - |
 | showTime.defaultOpenValue | 设置用户选择日期时默认的时分秒，[例子](#date-picker-demo-disabled-date) | [dayjs](https://day.js.org/) | dayjs() | - |
 | showWeek | DatePicker 下展示当前周 | boolean | false | - |
-| value | 日期 | [dayjs](https://day.js.org/) | - | - |
+| value | 日期，支持 `v-model:value` | [dayjs](https://day.js.org/) | - | - |
 
 ### DatePicker[picker=year] {#date-picker-picker-year}
 
@@ -157,7 +157,7 @@ dayjs.locale('zh-cn')
 | format | 展示的日期格式，配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)。 | [formatType](#formattype) | `YYYY` | - |
 | multiple | 是否为多选 | boolean | false | - |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => VueNode | - | - |
-| value | 日期 | [dayjs](https://day.js.org/) | - | - |
+| value | 日期，支持 `v-model:value` | [dayjs](https://day.js.org/) | - | - |
 
 ### DatePicker[picker=quarter] {#date-picker-picker-quarter}
 
@@ -169,7 +169,7 @@ dayjs.locale('zh-cn')
 | format | 展示的日期格式，配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)。 | [formatType](#formattype) | `YYYY-\QQ` | - |
 | multiple | 是否为多选 | boolean | false | - |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => VueNode | - | - |
-| value | 日期 | [dayjs](https://day.js.org/) | - | - |
+| value | 日期，支持 `v-model:value` | [dayjs](https://day.js.org/) | - | - |
 
 ### DatePicker[picker=month] {#date-picker-picker-month}
 
@@ -179,7 +179,7 @@ dayjs.locale('zh-cn')
 | format | 展示的日期格式，配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)。 | [formatType](#formattype) | `YYYY-MM` | - |
 | multiple | 是否为多选 | boolean | false | - |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => VueNode | - | - |
-| value | 日期 | [dayjs](https://day.js.org/) | - | - |
+| value | 日期，支持 `v-model:value` | [dayjs](https://day.js.org/) | - | - |
 
 ### DatePicker[picker=week] {#date-picker-picker-week}
 
@@ -189,7 +189,7 @@ dayjs.locale('zh-cn')
 | format | 展示的日期格式，配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)。 | [formatType](#formattype) | `YYYY-wo` | - |
 | multiple | 是否为多选 | boolean | false | - |
 | renderExtraFooter | 在面板中添加额外的页脚 | (mode) => VueNode | - | - |
-| value | 日期 | [dayjs](https://day.js.org/) | - | - |
+| value | 日期，支持 `v-model:value` | [dayjs](https://day.js.org/) | - | - |
 | showWeek | DatePicker 下展示当前周 | boolean | true | - |
 
 ### RangePicker
@@ -212,7 +212,7 @@ dayjs.locale('zh-cn')
 | showTime | 增加时间选择功能 | Object\|boolean | [TimePicker Options](/components/time-picker-cn#api) | - |
 | ~~showTime.defaultValue~~ | 请使用 `showTime.defaultOpenValue` | [dayjs](https://day.js.org/)[] | [dayjs(), dayjs()] | - |
 | showTime.defaultOpenValue | 设置用户选择日期时默认的时分秒，[例子](#date-picker-demo-disabled-date) | [dayjs](https://day.js.org/)[] | [dayjs(), dayjs()] | - |
-| value | 日期 | [dayjs](https://day.js.org/)[] | - | - |
+| value | 日期，支持 `v-model:value` | [dayjs](https://day.js.org/)[] | - | - |
 
 #### formatType
 

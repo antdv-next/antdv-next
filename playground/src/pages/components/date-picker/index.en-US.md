@@ -145,7 +145,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | ~~showTime.defaultValue~~ | Use `showTime.defaultOpenValue` instead | [dayjs](https://day.js.org/) | dayjs() | - |
 | showTime.defaultOpenValue | To set default time of selected date, [demo](#date-picker-demo-disabled-date) | [dayjs](https://day.js.org/) | dayjs() | - |
 | showWeek | Show week info when in DatePicker | boolean | false | - |
-| value | To set date | [dayjs](https://day.js.org/) | - | - |
+| value | To set date, support `v-model:value` | [dayjs](https://day.js.org/) | - | - |
 
 ### DatePicker[picker=year]
 
@@ -155,7 +155,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY` | - |
 | multiple | Enable multiple selection | boolean | false | - |
 | renderExtraFooter | Render extra footer in panel | () => VueNode | - | - |
-| value | To set date | [dayjs](https://day.js.org/) | - | - |
+| value | To set date, support `v-model:value` | [dayjs](https://day.js.org/) | - | - |
 
 ### DatePicker[picker=quarter]
 
@@ -167,7 +167,7 @@ Added in `4.1.0`.
 | format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY-\QQ` | - |
 | multiple | Enable multiple selection | boolean | false | - |
 | renderExtraFooter | Render extra footer in panel | () => VueNode | - | - |
-| value | To set date | [dayjs](https://day.js.org/) | - | - |
+| value | To set date, support `v-model:value` | [dayjs](https://day.js.org/) | - | - |
 
 ### DatePicker[picker=month]
 
@@ -177,7 +177,7 @@ Added in `4.1.0`.
 | format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY-MM` | - |
 | multiple | Enable multiple selection | boolean | false | - |
 | renderExtraFooter | Render extra footer in panel | () => VueNode | - | - |
-| value | To set date | [dayjs](https://day.js.org/) | - | - |
+| value | To set date, support `v-model:value` | [dayjs](https://day.js.org/) | - | - |
 
 ### DatePicker[picker=week]
 
@@ -187,7 +187,7 @@ Added in `4.1.0`.
 | format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY-wo` | - |
 | multiple | Enable multiple selection | boolean | false | - |
 | renderExtraFooter | Render extra footer in panel | (mode) => VueNode | - | - |
-| value | To set date | [dayjs](https://day.js.org/) | - | - |
+| value | To set date, support `v-model:value` | [dayjs](https://day.js.org/) | - | - |
 | showWeek | Show week info when in DatePicker | boolean | true | - |
 
 ### RangePicker
@@ -210,7 +210,7 @@ Added in `4.1.0`.
 | showTime | To provide an additional time selection | object \| boolean | [TimePicker Options](/components/time-picker/#api) | - |
 | ~~showTime.defaultValue~~ | Use `showTime.defaultOpenValue` instead | [dayjs](https://day.js.org/)[] | [dayjs(), dayjs()] | - |
 | showTime.defaultOpenValue | To set default time of selected date, [demo](#date-picker-demo-disabled-date) | [dayjs](https://day.js.org/)[] | [dayjs(), dayjs()] | - |
-| value | To set date | [dayjs](https://day.js.org/)[] | - | - |
+| value | To set date, support `v-model:value` | [dayjs](https://day.js.org/)[] | - | - |
 
 #### formatType
 

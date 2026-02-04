@@ -71,7 +71,7 @@ demo:
 | size | 输入框大小 | `large` \| `middle` \| `small` | - | - |
 | status | 设置校验状态 | 'error' \| 'warning' | - | - |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: \{ props \})=&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - |
-| value | 指定选中项 | string\[] \| number\[] | - | - |
+| value | 指定选中项，支持 `v-model:value` | string\[] \ | number\[] | - | - |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - |
 
 ### 事件 {#events}

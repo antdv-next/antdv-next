@@ -72,7 +72,7 @@ const value = ref()
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| checked | 指定当前是否选中 | boolean | false | - |
+| checked | 指定当前是否选中，支持 `v-model:checked` | boolean | false | - |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - |
 | disabled | 禁用 Radio | boolean | false | - |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - |
@@ -104,7 +104,7 @@ const value = ref()
 | orientation | 排列方向 | `horizontal` \| `vertical` | `horizontal` | - |
 | size | 大小，只对按钮样式生效 | `large` \| `middle` \| `small` | - | - |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - |
-| value | 用于设置当前选中的值 | any | - | - |
+| value | 用于设置当前选中的值，支持 `v-model:value` | any | - | - |
 | vertical | 值为 true，Radio Group 为垂直方向。与 `orientation` 同时存在，以 `orientation` 优先 | boolean | false | - |
 
 #### Events {#radiogroup-events}

@@ -61,7 +61,7 @@ demo:
 | size | 控件大小 | `large` \| `middle` \| `small` | - | - |
 | status | 设置校验状态 | `error` \| `warning` | - | - |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - |
-| value | 指定当前选中的条目 | string | - | - |
+| value | 指定当前选中的条目，支持 `v-model:value` | string | - | - |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - |
 | virtual | 设置 false 时关闭虚拟滚动 | boolean | true | - |
 

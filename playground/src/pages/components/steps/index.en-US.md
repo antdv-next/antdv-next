@@ -39,7 +39,7 @@ The whole of the step bar.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | classes | Customize class for each semantic structure inside the component. Supports object or function | StepsClassNamesType | - | - |
-| current | To set the current step, counting from 0. You can overwrite this state by using `status` of `Step` | number | 0 | - |
+| current | To set the current step, counting from 0. You can overwrite this state by using `status` of `Step`, support `v-model:current` | number | 0 | - |
 | iconRender | Custom render icon, please use `items.icon` first | (oriNode, info: &#123; index, active, item &#125;) =&gt; VueNode | - | - |
 | initial | Set the initial step, counting from 0 | number | 0 | - |
 | items | StepItem content | [StepItem](#stepitem)[] | [] | 4.24.0 |

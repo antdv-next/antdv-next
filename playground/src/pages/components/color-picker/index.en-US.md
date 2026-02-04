@@ -51,10 +51,10 @@ Common props ref：[Common props](/docs/vue/common-props)
 | disabled | Disable ColorPicker | boolean | false | - |
 | disabledAlpha | Disable Alpha | boolean | false | - |
 | disabledFormat | Disable format of color | boolean | false | - |
-| format | Format of color | ColorFormatType | - | - |
+| format | Format of color, support `v-model:format` | ColorFormatType | - | - |
 | getPopupContainer | Specify container for popup | (triggerNode: HTMLElement) => HTMLElement | - | - |
 | mode | Configure single or gradient color | ModeType \| ModeType[] | `single` | - |
-| open | Whether to show popup | boolean | - | - |
+| open | Whether to show popup, support `v-model:open` | boolean | - | - |
 | placement | Placement of popup | TriggerPlacement | `bottomLeft` | - |
 | presets | Preset colors | [PresetsItem](#presetsitem)[] | - | - |
 | panelRender | Custom Render Panel | (params: &#123; panel: any, extra: &#123; components: &#123; Picker: any, Presets: any &#125; &#125; &#125;) => any | - | - |
@@ -63,7 +63,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | size | Setting the trigger size | SizeType | `middle` | - |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | ColorPickerStylesType | - | - |
 | trigger | ColorPicker trigger mode | TriggerType | `click` | - |
-| value | Value of color | [ColorValueType](#colorvaluetype) | - | - |
+| value | Value of color, support `v-model:value` | [ColorValueType](#colorvaluetype) | - | - |
 
 ### Events
 

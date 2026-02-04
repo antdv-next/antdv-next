@@ -46,7 +46,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | size | Star size | 'small' \| 'middle' \| 'large' | 'middle' |  |
 | style | The custom style object of rate | CSSProperties | - |  |
 | tooltips | Customize tooltip by each character | [TooltipProps](/components/tooltip#api)[\] \| string\[] | - |  |
-| value | The current value | number | - |  |
+| value | The current value, support `v-model:value` | number | - |  |
 
 ### Events
 

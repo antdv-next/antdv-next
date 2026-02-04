@@ -70,7 +70,7 @@ demo:
 | size | 预设尺寸，默认 `378px` 和大号 `736px`，也支持自定义数字 | 'default' \| 'large' \| number | 'default' | - |
 | styles | 用于自定义 Drawer 组件内部各语义化结构的行内 style，支持对象或函数 | DrawerStylesType | - | - |
 | title | 标题 | VueNode | - | - |
-| open | 抽屉是否可见 | boolean | false | - |
+| open | 抽屉是否可见，支持 `v-model:open` | boolean | false | - |
 | zIndex | 设置 Drawer 的 `z-index` | number | 1000 | - |
 
 ### 事件 {#events}
