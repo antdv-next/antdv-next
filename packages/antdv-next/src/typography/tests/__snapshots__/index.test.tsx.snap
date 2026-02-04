@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Typography > rtl render > component should be rendered correctly in RTL direction 1`] = `<!--[object Object]-->`;
+
+exports[`Typography > rtl render > component should be rendered correctly in RTL direction 2`] = `<!--[object Object]-->`;
+
+exports[`Typography > rtl render > component should be rendered correctly in RTL direction 3`] = `<!--[object Object]-->`;
+
+exports[`Typography > rtl render > component should be rendered correctly in RTL direction 4`] = `<!--[object Object]-->`;
