@@ -187,7 +187,7 @@ async function main() {
   const cssinjsUtils = await import('@antdv-next/cssinjs/cssinjs-utils')
   statistic = cssinjsUtils.statistic
 
-  const antdModule = await import('../../dist/components.mjs')
+  const antdModule = await import('../../dist/components.js')
   antd = (antdModule as any).components_exports ?? antdModule
 
   resetStatistic()

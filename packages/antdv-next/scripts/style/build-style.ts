@@ -5,7 +5,7 @@ import { createCache, extractStyle, StyleProvider } from '@antdv-next/cssinjs'
 import { createSSRApp, Fragment, h } from 'vue'
 import { renderToString } from 'vue/server-renderer'
 // eslint-disable-next-line antfu/no-import-dist
-import * as _antd from '../../dist/components.mjs'
+import * as _antd from '../../dist/components.js'
 
 const antd = (_antd as any).components_exports ?? _antd
 

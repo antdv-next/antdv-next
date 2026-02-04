@@ -5,6 +5,8 @@ description: Small numerical value or status descriptor for UI elements.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*e0qITYqF394AAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*v8EQT7KoGbcAAAAAAAAAAAAADrJ8AQ/original
 group: Data Display
+demo:
+  cols: 2
 ---
 
 ## When To Use {#when-to-use}
