@@ -13,6 +13,7 @@ import defaultSeedToken from '../theme/themes/seed'
 import { UniqueProvider } from '../tooltip'
 import { defaultIconPrefixCls, defaultPrefixCls, useConfig, useConfigProvider } from './context'
 import { DisabledContextProvider } from './DisabledContext.tsx'
+import { useExportConfig } from './hooks/useConfig.ts'
 import { useTheme } from './hooks/useTheme.ts'
 import { SizeProvider } from './SizeContext'
 import useStyle from './style'
@@ -284,6 +285,7 @@ const ConfigProvider = defineComponent<
 )
 
 ;(ConfigProvider as any).config = setGlobalConfig
+;(ConfigProvider as any).useConfig = useExportConfig
 
 ;(ConfigProvider as any).install = (app: App) => {
   app.component(ConfigProvider.name, ConfigProvider)
@@ -291,6 +293,7 @@ const ConfigProvider = defineComponent<
 
 export default ConfigProvider as typeof ConfigProvider & {
   config: (props: GlobalConfigProps) => void
+  useConfig: ReturnType<typeof useExportConfig>
 }
 
 export function globalConfig() {
@@ -320,4 +323,4 @@ export function globalConfig() {
   }
 }
 
-export { useConfig }
+export { useConfig, useExportConfig }

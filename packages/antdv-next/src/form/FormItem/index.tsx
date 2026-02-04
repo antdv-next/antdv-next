@@ -126,7 +126,7 @@ const InternalFormItem = defineComponent<
       }
       if (props.required !== undefined) {
         // 继承已有规则中的 type，避免 InputNumber 等组件的类型验证冲突
-        let ruleType = collectedRules.find(r => (r as RuleObject).type)?.type
+        let ruleType = (collectedRules.find(r => (r as RuleObject).type) as any)?.type
         // 如果没有已定义的 type，则根据当前值的类型推断
         if (!ruleType) {
           const currentValue = hasName.value

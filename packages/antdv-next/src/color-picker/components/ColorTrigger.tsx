@@ -37,7 +37,7 @@ export default defineComponent<
       if (!showText)
         return ''
       if (typeof showText === 'function')
-        return showText(color)
+        return showText({ color })
       if (color.cleared)
         return locale?.value?.transparent
       if (color.isGradient()) {
