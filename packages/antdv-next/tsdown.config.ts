@@ -11,6 +11,7 @@ export default defineConfig({
   ],
   unbundle: true,
   format: 'es',
+  inlineOnly: false,
   // minify: true,
   clean: true,
   skipNodeModulesBundle: true,
@@ -22,5 +23,7 @@ export default defineConfig({
     '@antdv-next/icons',
     '@antdv-next/cssinjs/cssinjs-utils',
     '@antdv-next/cssinjs',
+    'csstype',
+    '@v-c/util',
   ],
 })
