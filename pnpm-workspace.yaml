@@ -155,7 +155,7 @@ catalogs:
     '@v-c/tree-select': ^1.0.0
     '@v-c/trigger': ^1.0.9
     '@v-c/upload': ^1.0.0
-    '@v-c/util': ^1.0.12
+    '@v-c/util': ^1.0.13
     '@v-c/virtual-list': ^1.0.5
 onlyBuiltDependencies:
   - esbuild
