@@ -4,10 +4,10 @@ import type { FlexProps } from './interface.ts'
 import { classNames } from '@v-c/util'
 import { omit } from 'es-toolkit'
 import { computed, createVNode, defineComponent } from 'vue'
-import { isPresetSize } from '../_util/gapSize.ts'
-import { useConfig } from '../config-provider/context.ts'
+import { isPresetSize } from '../_util/gapSize'
+import { useConfig } from '../config-provider'
 import useStyle from './style'
-import createFlexClassNames from './utils.ts'
+import createFlexClassNames from './utils'
 
 const defaultFlexProps = {
   vertical: undefined,
@@ -40,7 +40,7 @@ const Flex = defineComponent<FlexProps, EmptyEmit, string, SlotsType<FlexSlots>>
         prefixCls.value,
         hashId.value,
         cssVarCls.value,
-        createFlexClassNames(prefixCls.value, props),
+        createFlexClassNames(prefixCls.value, { ...props, vertical: mergedVertical }),
         {
           [`${prefixCls.value}-rtl`]: ctxDirection === 'rtl',
           [`${prefixCls.value}-gap-${gap}`]: isPresetSize(gap),

@@ -49,6 +49,7 @@ export interface TextAreaRef {
   resizableTextArea?: any
   focus: (...args: any[]) => void
   blur: () => void
+  nativeElement: HTMLElement | null
 }
 
 export interface TextAreaProps
@@ -218,6 +219,7 @@ const InternalTextArea = defineComponent<
       resizableTextArea: computed(() => textAreaRef.value?.resizableTextArea),
       focus: () => textAreaRef.value?.focus?.(),
       blur: () => textAreaRef.value?.blur?.(),
+      nativeElement: computed(() => textAreaRef.value?.nativeElement),
     })
 
     const handlePressEnter: TextAreaEmits['pressEnter'] = (e) => {
