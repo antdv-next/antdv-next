@@ -53,6 +53,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | InputNumberStylesType | - | - |
 | controls | Whether to show `+-` controls, or set custom arrow icons | boolean \| &#123; upIcon?: VueNode, downIcon?: VueNode &#125; | - | - |
 | type | - | 'number' \| 'text' | - | - |
+| step | The number to which the current value is increased or decreased. It can be an integer or decimal | 'number' \| 'string' | 1 | - |
 
 ### Events {#events}
 
@@ -62,7 +63,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | update:value | - | (value: any) =&gt; void | - |
 | input | - | (text: string) =&gt; void | - |
 | pressEnter | The callback function that is triggered when Enter key is pressed | (e: KeyboardEvent) =&gt; void | - |
-| step | The number to which the current value is increased or decreased. It can be an integer or decimal | (value: any, info: InputNumberStepContext) =&gt; void | - |
+| step | `@step`The callback function that is triggered when click up or down buttons / Keyboard / Wheel | (value: any, info: InputNumberStepContext) =&gt; void | - |
 | mousedown | - | (e: MouseEvent) =&gt; void | - |
 | click | - | (e: MouseEvent) =&gt; void | - |
 | mouseup | - | (e: MouseEvent) =&gt; void | - |
