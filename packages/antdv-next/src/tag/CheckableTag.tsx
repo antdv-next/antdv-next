@@ -26,7 +26,6 @@ export interface CheckableTagEmits {
   'change': (checked: boolean) => void
   'update:checked': (checked: boolean) => void
   'click': (e: MouseEvent) => void
-  [key: string]: (...args: any[]) => any
 }
 
 export interface CheckableTagSlots {

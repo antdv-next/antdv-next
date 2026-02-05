@@ -77,7 +77,6 @@ export interface CollapseProps {
 
 export interface CollapseEmits {
   change: (key: string[]) => void
-  [key: string]: (...args: any[]) => void
 }
 
 interface PanelProps {

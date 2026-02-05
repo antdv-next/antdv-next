@@ -21,7 +21,6 @@ export interface StatisticTimeEmits {
    */
   finish: () => void
   change: (value?: valueType) => void
-  [key: string]: (...args: any[]) => any
 }
 
 function getTime(value?: valueType) {

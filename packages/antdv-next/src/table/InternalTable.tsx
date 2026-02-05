@@ -179,7 +179,6 @@ export interface TableEmits<RecordType = AnyObject> {
   ) => void
   'update:expandedRowKeys': (keys: readonly Key[]) => void
   'scroll': NonNullable<VcTableProps['onScroll']>
-  [key: string]: (...args: any[]) => void
 }
 
 export interface TableSlots<RecordType = AnyObject> {

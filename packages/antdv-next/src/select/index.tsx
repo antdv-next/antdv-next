@@ -215,7 +215,6 @@ export interface SelectEmits {
   'focus': NonNullable<VcSelectProps['onFocus']>
   'popupScroll': NonNullable<VcSelectProps['onPopupScroll']>
   'select': NonNullable<VcSelectProps['onSelect']>
-  [key: string]: (...args: any[]) => void
 }
 
 type OptionParams = Parameters<NonNullable<VcSelectProps['optionRender']>>

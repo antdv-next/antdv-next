@@ -113,7 +113,6 @@ export interface TooltipProps extends TriggerCommonApi {
 export interface TooltipEmits {
   'openChange': (open: boolean) => void
   'update:open': (open: boolean) => void
-  [key: string]: (...args: any[]) => void
 }
 
 export interface TooltipSlots {

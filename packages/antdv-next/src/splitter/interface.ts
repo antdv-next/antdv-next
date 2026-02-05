@@ -74,7 +74,6 @@ export interface SplitterEmits {
   'resizeEnd': (sizes: number[]) => void
   'collapse': (collapsed: boolean[], sizes: number[]) => void
   'update:collapse': (collapsed: boolean[]) => void
-  [key: string]: (...args: any[]) => void
 }
 export interface SplitterSlots {
   draggerIcon?: () => any

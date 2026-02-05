@@ -65,7 +65,6 @@ export interface DrawerEmits {
   'mouseleave': (e: MouseEvent) => void
   'mouseover': (e: MouseEvent) => void
   'click': (e: MouseEvent) => void
-  [key: string]: (...args: any[]) => void
 }
 
 export interface DrawerSlots {

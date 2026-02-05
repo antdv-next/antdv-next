@@ -130,7 +130,6 @@ export interface AutoCompleteEmits {
   'popupScroll': NonNullable<VcSelectProps['onPopupScroll']>
   'select': NonNullable<VcSelectProps['onSelect']>
   'search': NonNullable<VcSelectProps['onSearch']>
-  [key: string]: (...args: any[]) => void
 }
 
 export interface AutoCompleteSlots {

@@ -99,7 +99,6 @@ export interface DropdownEmits {
   'update:open': (open: boolean) => void
   'openChange': (open: boolean, info: { source: 'trigger' | 'menu' }) => void
   'menuClick': MenuEmits['click']
-  [key: string]: (...args: any[]) => void
 }
 
 export interface DropdownSlots extends MenuSlots {

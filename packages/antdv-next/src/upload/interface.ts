@@ -173,7 +173,6 @@ export interface UploadEmits<T = any> {
   // 'preview': (file: UploadFile<T>) => void
   // 'download': (file: UploadFile<T>) => void
   'update:fileList': (fileList: UploadFile<T>[]) => void
-  [key: string]: (...args: any[]) => void
 }
 
 export interface UploadSlots<T = any> {
@@ -227,7 +226,6 @@ export interface UploadListProps<T = any> {
 }
 
 export interface UploadListEmits {
-  [key: string]: (...args: any[]) => void
 }
 
 export interface UploadListSlots<T = any> {

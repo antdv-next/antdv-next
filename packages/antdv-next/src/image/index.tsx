@@ -107,7 +107,6 @@ export interface ImageProps extends Omit<
 export interface ImageEmits {
   error: NonNullable<VcImageProps['onError']>
   click: NonNullable<VcImageProps['onClick']>
-  [key: string]: (...args: any[]) => void
 }
 
 export interface ImageSlots {

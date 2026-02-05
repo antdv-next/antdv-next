@@ -61,7 +61,6 @@ export type FormItemProps = BaseFormItemProps
   }
 
 export interface FormItemEmits {
-  [key: string]: (...args: any[]) => void
 }
 export interface FormItemSlots {
   default: () => any

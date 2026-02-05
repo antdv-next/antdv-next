@@ -59,7 +59,6 @@ export interface CheckboxEmits {
   'focus': (event: FocusEvent) => void
   'blur': (event: FocusEvent) => void
   'click': (event: MouseEvent) => void
-  [key: string]: (...args: any[]) => void
 }
 export interface CheckboxSlots {
   default?: () => any

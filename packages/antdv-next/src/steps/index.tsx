@@ -133,7 +133,6 @@ export interface StepsProps extends BaseStepsProps {
 
 export interface StepsEmits {
   'update:current': (current: number) => void
-  [key: string]: (...args: any[]) => void
 }
 
 const waveEffectClassNames: StepsProps['classes'] = {

@@ -77,7 +77,6 @@ export interface SwitchEmits {
   'click': SwitchClickEventHandler
   'update:checked': (checked: CheckedValueType) => void
   'update:value': (checked: CheckedValueType) => void
-  [key: string]: (...args: any[]) => any
 }
 
 export interface SwitchSlots {

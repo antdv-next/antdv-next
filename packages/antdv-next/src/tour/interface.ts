@@ -79,7 +79,6 @@ export interface TourEmits {
   'update:current': (current: number) => void
   // @ts-expect-error this is defined in VcTourProps
   'popupAlign': VcTourProps['onPopupAlign']
-  [key: string]: (...args: any[]) => void
 }
 
 export interface TourSlots {

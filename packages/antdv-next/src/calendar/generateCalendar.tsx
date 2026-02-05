@@ -123,7 +123,6 @@ export interface CalendarEmits<DateType = AnyObject> {
   'update:value': (date: DateType) => void
   'panelChange': (date: DateType, mode: CalendarMode) => void
   'select': (date: DateType, selectInfo: SelectInfo) => void
-  [key: string]: (...args: any[]) => void
 }
 
 function isSameYear<T extends AnyObject>(date1: T, date2: T, config: GenerateConfig<T>) {

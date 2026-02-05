@@ -103,7 +103,6 @@ export interface InputNumberEmits {
   'compositionstart': (e: CompositionEvent) => void
   'compositionend': (e: CompositionEvent) => void
   'beforeinput': (e: InputEvent) => void
-  [key: string]: (...args: any[]) => any
 }
 
 export interface InputNumberSlots {

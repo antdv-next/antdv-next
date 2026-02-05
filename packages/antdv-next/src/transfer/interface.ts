@@ -184,7 +184,6 @@ export interface TransferEmits {
   'scroll': (direction: TransferDirection, e: Event) => void
   'update:targetKeys': (targetKeys: TransferKey[]) => void
   'update:selectedKeys': (selectedKeys: TransferKey[]) => void
-  [key: string]: (...args: any[]) => void
 }
 
 export interface TransferSlots<RecordType = any> {

@@ -63,7 +63,6 @@ export type StatisticProps = StatisticRectProps
 export interface StatisticEmits {
   mouseenter: (e: MouseEvent) => void
   mouseleave: (e: MouseEvent) => void
-  [key: string]: (...args: any[]) => void
 }
 
 export interface StatisticSlots {

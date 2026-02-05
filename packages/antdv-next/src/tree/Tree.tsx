@@ -249,7 +249,6 @@ export interface TreeEmits {
   'update:checkedKeys': (keys: Key[] | { checked: Key[], halfChecked: Key[] }) => void
   'update:selectedKeys': (keys: Key[]) => void
   'update:activeKey': (key: Key) => void
-  [key: string]: (...args: any) => void
 }
 
 export interface TreeSlots {

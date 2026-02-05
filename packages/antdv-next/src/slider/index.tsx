@@ -131,7 +131,6 @@ export interface SliderEmits {
   'afterChange': (value: any) => void
   'update:value': (value: any) => void
   'changeComplete': (value: any) => void
-  [key: string]: (...args: any) => void
 }
 
 export interface SliderSlots {

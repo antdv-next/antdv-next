@@ -37,7 +37,6 @@ export interface RateEmits {
   'blur': () => void
   'keydown': (e: KeyboardEvent) => void
   'mouseleave': (e: FocusEvent) => void
-  [key: string]: (...args: any[]) => void
 }
 
 const Rate = defineComponent<

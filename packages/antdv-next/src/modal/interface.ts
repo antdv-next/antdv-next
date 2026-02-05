@@ -127,7 +127,6 @@ export interface ModalEmits {
   /** Specify a function that will be called when a user clicks mask, close button on top right or Cancel button */
   'cancel': (e: MouseEvent) => void
   'update:open': (open: boolean) => void
-  [key: string]: (...args: any[]) => void
 }
 
 export interface ModalSlots {

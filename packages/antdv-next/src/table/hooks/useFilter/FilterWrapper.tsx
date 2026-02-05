@@ -1,4 +1,5 @@
 import type { SlotsType } from 'vue'
+import type { EmptyEmit } from '../../../_util/type.ts'
 import KeyCode from '@v-c/util/dist/KeyCode'
 import { defineComponent } from 'vue'
 
@@ -9,9 +10,7 @@ export interface FilterDropdownMenuWrapperProps {
 
 const FilterDropdownMenuWrapper = defineComponent<
   FilterDropdownMenuWrapperProps,
-  {
-    [key: string]: (...args: any[]) => void
-  },
+  EmptyEmit,
   string,
   SlotsType<{ default?: () => any }>
 >(

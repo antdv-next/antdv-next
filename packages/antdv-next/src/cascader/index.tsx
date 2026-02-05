@@ -208,7 +208,6 @@ export interface CascaderEmits {
   'change': NonNullable<VcCascaderProps['onChange']>
   'update:value': (value: any) => void
   'search': NonNullable<VcCascaderProps['onSearch']>
-  [key: string]: (...args: any[]) => void
 }
 
 const InternalCascader = defineComponent<

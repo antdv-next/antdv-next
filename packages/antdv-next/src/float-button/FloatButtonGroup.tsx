@@ -83,7 +83,6 @@ export interface FloatButtonGroupEmits {
   'openChange': (open: boolean) => void
   'update:open': (open: boolean) => void
   'click': (e: MouseEvent) => void
-  [key: string]: (...args: any[]) => void
 }
 
 const groupOmittedProps: (keyof FloatButtonGroupProps)[] = [

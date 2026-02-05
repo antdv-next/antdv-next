@@ -48,7 +48,6 @@ export interface CheckableTagGroupRef {
 export interface CheckableTagGroupEmits<CheckableTagValue = CheckableTagDefaultValue> {
   'change': (value: CheckableTagValue | CheckableTagValue[] | null) => void
   'update:value': (value: CheckableTagValue | CheckableTagValue[] | null) => void
-  [key: string]: (...args: any[]) => any
 }
 
 const CheckableTagGroup = defineComponent<

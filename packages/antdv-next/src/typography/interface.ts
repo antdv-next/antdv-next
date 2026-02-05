@@ -99,7 +99,6 @@ export interface TypographyBaseEmits {
   'edit:end': () => void
   'update:expanded': (expanded: boolean) => void
   'update:editing': (editing: boolean) => void
-  [key: string]: (...args: any[]) => any
 }
 
 export interface TypographyBaseProps extends ComponentBaseProps {

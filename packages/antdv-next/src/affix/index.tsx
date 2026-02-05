@@ -36,7 +36,6 @@ export interface AffixProps extends ComponentBaseProps {
 
 export interface AffixEmits {
   change: (affixed: boolean) => void
-  [key: string]: (...args: any[]) => void
 }
 
 const AFFIX_STATUS_NONE = 0

@@ -96,7 +96,6 @@ export interface TextAreaEmits {
   'compositionend': (e: CompositionEvent) => void
   'mousedown': (e: MouseEvent) => void
   'update:value': (value?: string | number) => void
-  [key: string]: (...args: any[]) => any
 }
 
 export interface TextAreaSlots {

@@ -46,7 +46,6 @@ export interface AvatarEmits {
   click: (e: MouseEvent) => void
 
   // error: () => boolean
-  [key: string]: (...args: any[]) => any
 }
 
 export interface AvatarSlots {

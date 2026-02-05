@@ -19,7 +19,6 @@ export interface CopyBtnProps extends Omit<CopyConfig, 'onCopy'> {
 
 export interface CopyBtnEmits {
   copy: (e: MouseEvent) => void
-  [key: string]: (...args: any[]) => any
 }
 
 const CopyBtn = defineComponent<
