@@ -64,3 +64,7 @@ export function getTextNodeArr(nodes: any[]) {
   }
   return res
 }
+
+export type EmitToProps<T extends Record<string, any>> = {
+  [K in keyof T as `on${Capitalize<K & string>}`]: T[K]
+}

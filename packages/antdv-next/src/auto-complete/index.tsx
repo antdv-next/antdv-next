@@ -300,53 +300,53 @@ const InternalAutoComplete = defineComponent<
 
       const selectProps: Record<string, any> = omit(props, omitKeys)
       const onAttrs = {
-        onSelect: (...args: any[]) => {
-          emit('select', ...args)
+        onSelect: (value: any, option: any) => {
+          emit('select', value, option)
         },
-        onClear: (...args: any[]) => {
-          emit('clear', ...args)
+        onClear: () => {
+          emit('clear')
         },
-        onKeydown: (...args: any[]) => {
-          emit('keydown', ...args)
+        onKeydown: (e: any) => {
+          emit('keydown', e)
         },
-        onKeyup: (...args: any[]) => {
-          emit('keyup', ...args)
+        onKeyup: (e: any) => {
+          emit('keyup', e)
         },
-        onBlur: (...args: any[]) => {
-          emit('blur', ...args)
+        onBlur: (e: any) => {
+          emit('blur', e)
         },
-        onFocus: (...args: any[]) => {
-          emit('focus', ...args)
+        onFocus: (e: any) => {
+          emit('focus', e)
         },
-        onClick: (...args: any[]) => {
-          emit('click', ...args)
+        onClick: (e: any) => {
+          emit('click', e)
         },
-        onActive: (...args: any[]) => {
-          emit('active', ...args)
+        onActive: (value: any) => {
+          emit('active', value)
         },
-        onChange: (...args: any[]) => {
-          emit('change', ...args)
+        onChange: (value: any, option: any) => {
+          emit('change', value, option)
         },
-        onDeselect: (...args: any[]) => {
-          emit('deselect', ...args)
+        onDeselect: (value: any, option: any) => {
+          emit('deselect', value, option)
         },
-        onInputKeydown: (...args: any[]) => {
-          emit('inputKeydown', ...args)
+        onInputKeydown: (e: any) => {
+          emit('inputKeydown', e)
         },
-        onMousedown: (...args: any[]) => {
-          emit('mousedown', ...args)
+        onMousedown: (e: any) => {
+          emit('mousedown', e)
         },
-        onMouseleave: (...args: any[]) => {
-          emit('mouseleave', ...args)
+        onMouseleave: (e: any) => {
+          emit('mouseleave', e)
         },
-        onMouseenter: (...args: any[]) => {
-          emit('mouseenter', ...args)
+        onMouseenter: (e: any) => {
+          emit('mouseenter', e)
         },
-        onPopupScroll: (...args: any[]) => {
-          emit('popupScroll', ...args)
+        onPopupScroll: (e: any) => {
+          emit('popupScroll', e)
         },
-        onSearch: (...args: any[]) => {
-          emit('search', ...args)
+        onSearch: (value: any) => {
+          emit('search', value)
         },
         onOpenChange: (open: boolean) => {
           emit('openChange', open)

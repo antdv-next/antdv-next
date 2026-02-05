@@ -245,6 +245,7 @@ export interface TreeEmits {
   'mouseenter': NonNullable<VcTreeProps['onMouseEnter']>
   'scroll': NonNullable<VcTreeProps['onScroll']>
   'activeChange': NonNullable<VcTreeProps['onActiveChange']>
+  'keydown': NonNullable<VcTreeProps['onKeyDown']>
   'update:expandedKeys': (keys: Key[]) => void
   'update:checkedKeys': (keys: Key[] | { checked: Key[], halfChecked: Key[] }) => void
   'update:selectedKeys': (keys: Key[]) => void
@@ -394,7 +395,7 @@ const Tree = defineComponent<
         },
         onActiveChange(key) {
           emit('activeChange', key)
-          emit('update:activeKey', key)
+          emit('update:activeKey', key!)
         },
         onDrop(info) {
           emit('drop', info)
@@ -411,9 +412,9 @@ const Tree = defineComponent<
         onDragOver(info) {
           emit('dragover', info)
         },
-        onDoubleClick(e) {
-          emit('doubleClick', e)
-          emit('dblclick', e)
+        onDoubleClick(...args) {
+          emit('doubleClick', ...args)
+          emit('dblclick', ...args)
         },
         onContextMenu(e) {
           emit('contextmenu', e)
