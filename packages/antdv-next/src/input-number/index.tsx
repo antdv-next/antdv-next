@@ -338,6 +338,7 @@ const InputNumber = defineComponent<
     const handleBeforeInput: InputNumberEmits['beforeinput'] = e => emit('beforeinput', e)
 
     return () => {
+      const { min, max } = props
       const prefixNode = getSlotPropsFnRun(slots, props, 'prefix')
       const suffixSlot = getSlotPropsFnRun(slots, props, 'suffix')
       const mergedSuffixFn = () => {
@@ -370,6 +371,8 @@ const InputNumber = defineComponent<
           downHandler={downIcon.value}
           prefix={prefixNode}
           suffix={mergedSuffix}
+          min={min}
+          max={max}
           onChange={handleChange}
           {
             ...{

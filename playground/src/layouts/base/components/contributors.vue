@@ -69,8 +69,6 @@ function filterData(data: CommitsData[]) {
   })
   contributors.value = Array.from(contributorMap.values())
     .sort((a, b) => (b.count || 0) - (a.count || 0))
-
-  console.log(contributors.value)
 };
 async function getContributors() {
   const path = route.path
