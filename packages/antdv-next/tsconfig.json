@@ -16,6 +16,9 @@
     "erasableSyntaxOnly": true,
     "noUncheckedSideEffectImports": true
   },
+  "files": [
+    "./vue.d.ts"
+  ],
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",

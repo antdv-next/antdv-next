@@ -129,7 +129,6 @@ const ButtonTypeMap: Partial<Record<ButtonType, ColorVariantPairType>> = {
 
 export interface ButtonEmits {
   click: (e: MouseEvent) => void
-  [key: string]: (...args: any[]) => any
 }
 
 export interface ButtonSlots {
