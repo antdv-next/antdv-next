@@ -1,4 +1,4 @@
-import type { MenuItemGroupProps, MenuRef as VcMenuRef } from '@v-c/menu'
+import type { MenuInfo, MenuItemGroupProps, SelectInfo, MenuRef as VcMenuRef } from '@v-c/menu'
 import type { App, SlotsType } from 'vue'
 import type { ItemType } from './interface.ts'
 import type { MenuEmits, MenuProps, MenuSlots } from './menu'
@@ -36,12 +36,12 @@ const Menu = defineComponent<
     })
     return () => {
       const events = {
-        'onClick': (...args: any[]) => emit('click', ...args),
-        'onSelect': (...args: any[]) => emit('select', ...args),
-        'onDeselect': (...args: any[]) => emit('deselect', ...args),
-        'onOpenChange': (...args: any[]) => emit('openChange', ...args),
-        'onUpdate:openKeys': (...args: any[]) => emit('update:openKeys', ...args),
-        'onUpdate:selectedKeys': (...args: any[]) => emit('update:selectedKeys', ...args),
+        'onClick': (info: MenuInfo) => emit('click', info),
+        'onSelect': (info: SelectInfo) => emit('select', info),
+        'onDeselect': (info: SelectInfo) => emit('deselect', info),
+        'onOpenChange': (openKeys: string[]) => emit('openChange', openKeys),
+        'onUpdate:openKeys': (openKeys: string[]) => emit('update:openKeys', openKeys),
+        'onUpdate:selectedKeys': (selectedKeys: string[]) => emit('update:selectedKeys', selectedKeys),
       }
       return (
         <InternalMenu

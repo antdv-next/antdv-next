@@ -53,7 +53,7 @@ const InternalRadio = defineComponent<
     }
 
     const onChange = (e: RadioChangeEvent) => {
-      emit('change', e)
+      emit('change', e as any)
       groupContext?.value?.onChange?.(e)
     }
 
@@ -99,7 +99,7 @@ const InternalRadio = defineComponent<
 
     // ============================ Event Lock ============================
     const [onLabelClick, onInputClick] = useBubbleLock((e) => {
-      emit('click', e)
+      emit('click', e as MouseEvent)
     })
     expose({
       blur: () => innerRef.value?.blur?.(),

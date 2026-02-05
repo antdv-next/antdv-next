@@ -244,7 +244,7 @@ const Image = defineComponent<
           emit('error', e)
         },
         onClick: (e: Event) => {
-          emit('click', e)
+          emit('click', e as MouseEvent)
         },
       } as Pick<VcImageProps, 'onError' | 'onClick'>
       if (slots?.imageRender) {

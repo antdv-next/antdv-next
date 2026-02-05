@@ -320,7 +320,11 @@ const Masonry = defineComponent<
                     index={itemIndex}
                     itemRender={itemRender}
                     column={columnIndex}
-                    onResize={fresh ? collectItemSize : null}
+                    {
+                      ...{
+                        onResize: fresh ? collectItemSize : null,
+                      } as any
+                    }
                   />
                 )
               })}

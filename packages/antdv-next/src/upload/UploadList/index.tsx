@@ -28,7 +28,7 @@ const UploadList = defineComponent<
   string,
   SlotsType<UploadListSlots>
 >(
-  (props = defaults, { slots, emit }) => {
+  (props = defaults, { slots }) => {
     const forceUpdate = shallowRef(0)
     const motionAppear = shallowRef(false)
     const instance = getCurrentInstance()
@@ -88,11 +88,11 @@ const UploadList = defineComponent<
         return
       }
       e?.preventDefault?.()
-      emit('preview', file)
+      props?.onPreview?.(file)
     }
 
     const onInternalDownload = (file: UploadFile) => {
-      emit('download', file)
+      props?.onDownload?.(file)
     }
 
     const onInternalClose = (file: UploadFile) => {

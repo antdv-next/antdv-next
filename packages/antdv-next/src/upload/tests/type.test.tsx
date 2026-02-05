@@ -22,7 +22,7 @@ describe('upload.typescript', () => {
   it('onChange', () => {
     const wrapper = mount({
       render: () => (
-        <Upload onChange={({ file }) => file}>
+        <Upload onChange={({ file }: any) => file}>
           <span>click to upload</span>
         </Upload>
       ),
@@ -34,7 +34,7 @@ describe('upload.typescript', () => {
   it('onChange params', () => {
     const wrapper = mount({
       render: () => (
-        <Upload onChange={({ file }) => file.response?.customFile}>
+        <Upload onChange={({ file }: any) => file.response?.customFile}>
           <span>click to upload</span>
         </Upload>
       ),

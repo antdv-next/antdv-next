@@ -519,9 +519,9 @@ const InternalCascader = defineComponent<
           optionRender={mergedOptionRender}
           disabled={mergedDisabled.value}
           onPopupVisibleChange={onPopupVisibleChange}
-          onChange={(...args: any[]) => {
-            emit('change', ...args)
-            emit('update:value', args[0])
+          onChange={(value: any, selectOptions: any) => {
+            emit('change', value, selectOptions)
+            emit('update:value', value)
           }}
           v-slots={{
             default: slots?.default,

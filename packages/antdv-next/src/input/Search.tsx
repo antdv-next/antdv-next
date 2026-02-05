@@ -154,12 +154,12 @@ const InternalSearch = defineComponent<
       emit('change', e)
     }
 
-    const handleCompositionStart: BaseInputEmits['compositionStart'] = (e) => {
+    const handleCompositionStart: BaseInputEmits['compositionstart'] = (e) => {
       composedRef.value = true
       emit('compositionstart', e)
     }
 
-    const handleCompositionEnd: BaseInputEmits['compositionEnd'] = (e) => {
+    const handleCompositionEnd: BaseInputEmits['compositionend'] = (e) => {
       composedRef.value = false
       emit('compositionend', e)
     }
@@ -302,10 +302,10 @@ const InternalSearch = defineComponent<
             styles={inputStyles}
             variant={variant.value}
             onChange={handleChange}
-            onFocus={e => emit('focus', e)}
-            onBlur={e => emit('blur', e)}
-            onKeydown={e => emit('keydown', e)}
-            onKeyup={e => emit('keyup', e)}
+            onFocus={(e: any) => emit('focus', e)}
+            onBlur={(e: any) => emit('blur', e)}
+            onKeydown={(e: any) => emit('keydown', e)}
+            onKeyup={(e: any) => emit('keyup', e)}
             onClear={() => {
               emit('clear')
               handleSearch(undefined, { source: 'clear' })

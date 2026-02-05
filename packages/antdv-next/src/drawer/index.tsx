@@ -249,9 +249,9 @@ const Drawer = defineComponent<
               {...restAttrs as any}
               {...rest as any}
               prefixCls={prefixCls.value}
-              onClose={() => {
+              onClose={(e) => {
                 emit('update:open', false)
-                emit('close')
+                emit('close', e)
               }}
               onClick={(e) => {
                 emit('click', e)
@@ -315,9 +315,9 @@ const Drawer = defineComponent<
                 size={size}
                 ariaId={ariaId}
                 v-slots={slots}
-                onClose={() => {
+                onClose={(e) => {
                   emit('update:open', false)
-                  emit('close')
+                  emit('close', e)
                 }}
               />
             </VcDrawer>

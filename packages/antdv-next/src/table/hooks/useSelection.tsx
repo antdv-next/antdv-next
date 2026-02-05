@@ -442,7 +442,7 @@ export default function useSelection<RecordType extends AnyObject = AnyObject>(
               ? !checkedCurrentAll && checkedCurrentSome
               : !allDisabledAndChecked && allDisabledSomeChecked
           }
-          onChange={(e) => {
+          onChange={(e: any) => {
             onSelectAllChange()
             onChange?.(e)
           }}
@@ -475,11 +475,11 @@ export default function useSelection<RecordType extends AnyObject = AnyObject>(
             <Radio
               {...checkboxProps as any}
               checked={checked}
-              onClick={(e) => {
+              onClick={(e: any) => {
                 e.stopPropagation()
                 checkboxProps?.onClick?.(e)
               }}
-              onChange={(event) => {
+              onChange={(event: any) => {
                 if (!keySet.has(key)) {
                   triggerSingleSelection(key, true, [key], (event as any).nativeEvent)
                 }
@@ -517,7 +517,7 @@ export default function useSelection<RecordType extends AnyObject = AnyObject>(
               indeterminate={mergedIndeterminate}
               checked={checked}
               skipGroup
-              onClick={(e) => {
+              onClick={(e: any) => {
                 e.stopPropagation()
                 checkboxProps?.onClick?.(e)
               }}

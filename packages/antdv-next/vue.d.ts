@@ -14,7 +14,6 @@ import type {
 
 type PublicProps = VNodeProps & AllowedComponentProps & ComponentCustomProps
 
-// 从你们的 interface emits 里提取精确 emit 调用
 type EmitFnFromRecord<E> = <
   K extends Extract<keyof E, string>,
 >(
@@ -22,14 +21,12 @@ type EmitFnFromRecord<E> = <
   ...args: E[K] extends (...a: infer A) => any ? A : never
 ) => void
 
-// 把 emits record 映射成 onXxx props（给 TSX/工具链用）
 type EmitsToPropsLoose<E> = {
   [K in Extract<keyof E, string> as `on${Capitalize<K>}`]?: (
     ...args: E[K] extends (...a: infer A) => any ? A : any[]
   ) => any
 }
 
-// 给返回组件“补”精确的 $emit + $props（不引入 string 索引签名）
 interface WithTypedEmits<Props, E> {
   new (): ComponentPublicInstance & {
     $emit: EmitFnFromRecord<E>
@@ -37,13 +34,11 @@ interface WithTypedEmits<Props, E> {
   }
 }
 
-// setup ctx：不要再走 Vue 的 E extends EmitsOptions 约束链，直接替换 emit
 type SetupContextLoose<E, S extends SlotsType>
   = Omit<SetupContext<EmitsOptions, S>, 'emit'> & { emit: EmitFnFromRecord<E> }
 
 declare module 'vue' {
   /**
-   * 你们子集专用 overload：
    * - E 不要求 EmitsOptions（无需索引签名）
    * - 用 __typeEmits 把“真实事件类型”喂给 language-tools
    * - 返回仍保持 DefineSetupFnComponent<Props, EmitsOptions, S>，不破坏既有提示
@@ -63,6 +58,7 @@ declare module 'vue' {
        * @private for language-tools use only
        */
       __typeEmits?: E
+      __typeProps?: Props
     },
   ): DefineSetupFnComponent<Props, EmitsOptions, S> & WithTypedEmits<Props, E>
 
@@ -81,6 +77,7 @@ declare module 'vue' {
        * @private for language-tools use only
        */
       __typeEmits?: E
+      __typeProps?: Props
     },
   ): DefineSetupFnComponent<Props, EmitsOptions, S> & WithTypedEmits<Props, E>
 }
