@@ -294,7 +294,7 @@ function genStyleUtils<
 
     // Return new style hook
     return (prefixCls: Ref<string>, rootCls?: Ref<string | undefined>) => {
-      const { theme, hashId, token, cssVar, zeroRuntime } = useToken()
+      const { theme, hashId, token, realToken, cssVar, zeroRuntime } = useToken()
 
       // Update of `disabledRuntimeStyle` would cause React hook error, so memoized it and never update.
       const mergedZeroRuntime = computed(() => {
@@ -375,17 +375,17 @@ function genStyleUtils<
           }
 
           const { token: proxyToken, flush } = statisticToken(token.value)
-
+          const tokenForCalc = realToken?.value || proxyToken
           const defaultComponentToken = getDefaultComponentToken<CompTokenMap, AliasToken, C>(
             component,
-            proxyToken,
+            tokenForCalc,
             getDefaultToken as any,
           )
 
           const componentCls = `.${prefixCls.value}`
           const componentToken = getComponentToken<CompTokenMap, AliasToken, C>(
             component,
-            proxyToken,
+            tokenForCalc,
             defaultComponentToken as any,
             { deprecatedTokens: options.deprecatedTokens },
           )
