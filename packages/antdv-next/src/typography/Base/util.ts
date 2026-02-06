@@ -10,7 +10,7 @@ export function toList<T>(val: T | T[]): T[] {
 }
 
 export function getNode(dom: VueNode, defaultNode: VueNode, needDom?: boolean) {
-  dom = getSlotPropsFnRun({}, { dom }, 'dom')
+  dom = getSlotPropsFnRun({}, { dom }, 'dom', false)
   defaultNode = getSlotPropsFnRun({}, { defaultNode }, 'defaultNode')
   if (dom === true || dom === undefined) {
     return defaultNode

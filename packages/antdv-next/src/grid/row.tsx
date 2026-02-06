@@ -120,7 +120,9 @@ const Row = defineComponent<RowProps>(
       // "gutters" is a new array in each rendering phase, it'll make 'React.useMemo' effectless.
       // So we deconstruct "gutters" variable here.
       const [_, gutterV] = gutters.value
-      rowStyle.rowGap = `${gutterV}px`
+      if (gutterV) {
+        rowStyle.rowGap = `${gutterV}px`
+      }
 
       return (
         <div {...restAttrs} class={classes} style={[rowStyle, style]}>
