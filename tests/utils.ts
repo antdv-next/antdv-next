@@ -96,5 +96,21 @@ export async function waitFakeTimer(advanceTime = 1000, times = 20) {
   }
 }
 
+export async function waitFor(callback: () => void | Promise<void>, timeout = 1000) {
+  let elapsed = 0
+  const interval = 50
+  while (elapsed < timeout) {
+    try {
+      await callback()
+      return
+    }
+    catch {
+      await vi.advanceTimersByTimeAsync(interval)
+      elapsed += interval
+    }
+  }
+  await callback()
+}
+
 // Re-export commonly used utilities from @vue/test-utils
 export { config, DOMWrapper, enableAutoUnmount, flushPromises, mount, shallowMount, VueWrapper } from '@vue/test-utils'

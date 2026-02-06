@@ -1,4 +1,5 @@
-import { afterAll, afterEach, describe, expect, it, vi } from 'vitest'
+import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from 'vitest'
+import Base from '../Base'
 import Paragraph from '../Paragraph'
 import { mount } from '/@tests/utils'
 
@@ -8,7 +9,34 @@ vi.mock('../../_util/styleChecker', () => ({
 }))
 
 describe('typography.Editable', () => {
+  const LINE_STR_COUNT = 20
   const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
+  const fullStr
+    = 'Bamboo is Little Light Bamboo is Little Light Bamboo is Little Light Bamboo is Little Light Bamboo is Little Light'
+
+  // Mock offsetHeight
+  const originOffsetHeight = Object.getOwnPropertyDescriptor(
+    HTMLElement.prototype,
+    'offsetHeight',
+  )?.get
+  const mockGetBoundingClientRect = vi.spyOn(HTMLElement.prototype, 'getBoundingClientRect')
+
+  beforeAll(() => {
+    Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
+      get() {
+        let html = this.innerHTML
+        html = html.replace(/<[^>]*>/g, '')
+        const lines = Math.ceil(html.length / LINE_STR_COUNT)
+        return lines * 16
+      },
+    })
+    mockGetBoundingClientRect.mockImplementation(function fn(this: HTMLElement) {
+      let html = this.innerHTML
+      html = html.replace(/<[^>]*>/g, '')
+      const lines = Math.ceil(html.length / LINE_STR_COUNT)
+      return { height: lines * 16 } as DOMRect
+    })
+  })
 
   afterEach(() => {
     errorSpy.mockReset()
@@ -16,6 +44,82 @@ describe('typography.Editable', () => {
 
   afterAll(() => {
     errorSpy.mockRestore()
+    Object.defineProperty(HTMLElement.prototype, 'offsetHeight', {
+      get: originOffsetHeight,
+    })
+    mockGetBoundingClientRect.mockRestore()
+  })
+
+  it('should use editConfig.text over children in editing mode', async () => {
+    const suffix = '--The information is very important'
+    const wrapper = mount(Base, {
+      props: {
+        ellipsis: { rows: 1, suffix },
+        component: 'p',
+        editable: { text: fullStr + suffix },
+      },
+      slots: {
+        default: () => fullStr,
+      },
+    })
+
+    await wrapper.find('.ant-typography-edit').trigger('click')
+    const textarea = wrapper.find('textarea')
+    expect(textarea.exists()).toBe(true)
+    expect((textarea.element as HTMLTextAreaElement).value).toEqual(fullStr + suffix)
+  })
+
+  it('should use children as the fallback of editConfig.text in editing mode', async () => {
+    const suffix = '--The information is very important'
+    const wrapper = mount(Base, {
+      props: {
+        ellipsis: { rows: 1, suffix },
+        component: 'p',
+        editable: true,
+      },
+      slots: {
+        default: () => fullStr,
+      },
+    })
+
+    await wrapper.find('.ant-typography-edit').trigger('click')
+    const textarea = wrapper.find('textarea')
+    expect(textarea.exists()).toBe(true)
+    expect((textarea.element as HTMLTextAreaElement).value).toEqual(fullStr)
+  })
+
+  it('dynamic set editable', async () => {
+    const wrapper = mount(Base, {
+      props: {
+        component: 'p',
+      },
+      slots: {
+        default: () => 'test',
+      },
+    })
+    expect(wrapper.find('.ant-typography-edit').exists()).toBe(false)
+
+    await wrapper.setProps({
+      editable: true,
+    })
+    expect(wrapper.find('.ant-typography-edit').exists()).toBe(true)
+  })
+
+  it('tabIndex of edit button', async () => {
+    const wrapper = mount(Base, {
+      props: {
+        component: 'p',
+      },
+      slots: {
+        default: () => 'test',
+      },
+    })
+    expect(wrapper.find('.ant-typography-edit').exists()).toBe(false)
+
+    await wrapper.setProps({
+      editable: { tabIndex: -1 },
+    })
+    expect(wrapper.find('.ant-typography-edit').attributes('tabindex')).toBe('-1')
   })
 
   it('should trigger onStart', async () => {
