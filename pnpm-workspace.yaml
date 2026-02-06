@@ -134,7 +134,7 @@ catalogs:
     '@v-c/mutate-observer': ^1.0.1
     '@v-c/notification': ^1.0.0
     '@v-c/pagination': ^1.0.0
-    '@v-c/picker': ^1.0.1
+    '@v-c/picker': ^1.0.2
     '@v-c/portal': ^1.0.7
     '@v-c/progress': ^1.0.0
     '@v-c/qrcode': ^1.0.0
