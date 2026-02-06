@@ -2,7 +2,7 @@ import type { ColorGenInput, Colors } from './interface'
 import { Color as VcColor } from '@v-c/color-picker'
 
 export function toHexFormat(value?: string, alpha?: boolean) {
-  return value?.replace(/[^\w/]/g, '').slice(0, alpha ? 8 : 6) || ''
+  return value?.replace(/[^0-9a-f]/gi, '').slice(0, alpha ? 8 : 6) || ''
 }
 
 export const getHex = (value?: string, alpha?: boolean) => (value ? toHexFormat(value, alpha) : '')

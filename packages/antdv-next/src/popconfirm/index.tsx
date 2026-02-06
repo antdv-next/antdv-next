@@ -43,6 +43,7 @@ export interface PopconfirmProps extends Omit<PopoverProps, 'title' | 'content' 
   icon?: VueNode
   classes?: PopconfirmClassNamesType
   styles?: PopconfirmStylesType
+  onConfirm?: (e?: MouseEvent) => void
 }
 
 export interface PopconfirmRef extends TooltipRef {}
@@ -128,10 +129,6 @@ const InternalPopconfirm = defineComponent<
       settingOpen(false, e)
     }
 
-    const onConfirm = (e?: MouseEvent) => {
-      emit('confirm', e)
-    }
-
     const onCancel = (e?: MouseEvent) => {
       emit('cancel', e)
       settingOpen(false, e)
@@ -196,7 +193,7 @@ const InternalPopconfirm = defineComponent<
           okButtonProps={props.okButtonProps}
           cancelButtonProps={props.cancelButtonProps}
           close={close}
-          onConfirm={onConfirm}
+          onConfirm={props.onConfirm}
           onCancel={onCancel}
           onPopupClick={handlePopupClick}
           classes={mergedClassNames.value}

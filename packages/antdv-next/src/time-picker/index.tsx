@@ -106,7 +106,6 @@ export interface TimeRangePickerEmits<DateType = AnyObject> {
   'focus': (e: FocusEvent, info: any) => void
   'blur': (e: FocusEvent, info: any) => void
   'keydown': (e: KeyboardEvent, preventDefault: VoidFunction) => void
-  [key: string]: (...args: any[]) => void
 }
 
 const RangePicker = defineComponent<
@@ -214,7 +213,6 @@ export interface TimePickerEmits<DateType = AnyObject> {
   'focus': (e: FocusEvent, info: any) => void
   'blur': (e: FocusEvent, info: any) => void
   'keydown': (e: KeyboardEvent, preventDefault: VoidFunction) => void
-  [key: string]: (...args: any[]) => void
 }
 
 const TimePicker = defineComponent<

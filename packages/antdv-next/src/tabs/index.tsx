@@ -95,7 +95,6 @@ export interface TabsEmits {
   'tabClick': NonNullable<VcTabsProps['onTabClick']>
   'tabScroll': NonNullable<VcTabsProps['onTabScroll']>
   'update:activeKey': (activeKey: string) => void
-  [key: string]: (...args: any[]) => void
 }
 
 export interface TabsProps extends BaseTabsProps, CompatibilityProps, Omit<

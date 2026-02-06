@@ -80,7 +80,6 @@ export interface AlertEmits {
   mouseenter: (e: any) => any
   mouseleave: (e: any) => any
   click: (e: any) => any
-  [key: string]: (e: any) => any
 }
 interface IconNodeProps {
   type: AlertProps['type']

@@ -53,5 +53,4 @@ export interface QRCodeSlots {
 
 export interface QRCodeEmits {
   refresh: () => void
-  [key: string]: () => any
 }

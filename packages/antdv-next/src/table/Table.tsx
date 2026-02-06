@@ -35,11 +35,11 @@ const Table = defineComponent<
       <InternalTable
         {...omit(props, ['onUpdate:expandedRowKeys', 'onChange'])}
         {...attrs}
-        onChange={(...args) => {
-          emit('change', ...args)
+        onChange={(pagination: any, filters: any, sorter: any, extra: any) => {
+          emit('change', pagination, filters, sorter, extra)
         }}
-        onUpdate:expandedRowKeys={(...args) => {
-          emit('update:expandedRowKeys', ...args)
+        onUpdate:expandedRowKeys={(keys: any) => {
+          emit('update:expandedRowKeys', keys)
         }}
         _renderTimes={renderTimesRef.value}
         ref={tableRef}

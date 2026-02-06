@@ -107,7 +107,6 @@ export interface ImageProps extends Omit<
 export interface ImageEmits {
   error: NonNullable<VcImageProps['onError']>
   click: NonNullable<VcImageProps['onClick']>
-  [key: string]: (...args: any[]) => void
 }
 
 export interface ImageSlots {
@@ -245,7 +244,7 @@ const Image = defineComponent<
           emit('error', e)
         },
         onClick: (e: Event) => {
-          emit('click', e)
+          emit('click', e as MouseEvent)
         },
       } as Pick<VcImageProps, 'onError' | 'onClick'>
       if (slots?.imageRender) {

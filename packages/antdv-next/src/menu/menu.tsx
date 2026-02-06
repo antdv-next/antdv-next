@@ -177,7 +177,6 @@ export interface MenuEmits {
   'openChange': (openKeys: string[]) => void
   'update:openKeys': (openKeys: string[]) => void
   'update:selectedKeys': (selectedKeys: string[]) => void
-  [key: string]: (...args: any[]) => void
 }
 
 export interface MenuSlots {

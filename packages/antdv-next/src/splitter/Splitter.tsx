@@ -101,16 +101,16 @@ const Splitter = defineComponent<
 
     const onInternalResizeStart = (index: number) => {
       onOffsetStart(index)
-      emit('resizeStart', index)
+      emit('resizeStart', itemPxSizes.value)
     }
 
     const onInternalResizeUpdate = (index: number, offset: number, lazyEnd?: boolean) => {
-      const nextSize = onOffsetUpdate(index, offset)
+      const nextSizes = onOffsetUpdate(index, offset)
       if (lazyEnd) {
-        emit('resizeEnd', index)
+        emit('resizeEnd', nextSizes)
       }
       else {
-        emit('resize', nextSize)
+        emit('resize', nextSizes)
       }
     }
 

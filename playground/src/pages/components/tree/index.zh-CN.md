@@ -47,7 +47,7 @@ demo:
 | autoExpandParent | 是否自动展开父节点 | boolean | false | - |
 | blockNode | 是否节点占据一行 | boolean | false | - |
 | checkable | 节点前添加 Checkbox 复选框 | boolean | false | - |
-| checkedKeys | （受控）选中复选框的树节点（注意：父子节点有关联，如果传入父节点 key，则子节点自动选中；相应当子节点 key 都传入，父节点也自动选中。当设置 `checkable` 和 `checkStrictly`，它是一个有`checked`和`halfChecked`属性的对象，并且父子节点的选中与否不再关联，支持 `v-model:checked-keys` | string[] \ | &#123;checked: string[], halfChecked: string[]&#125; | [] | - |
+| checkedKeys | （受控）选中复选框的树节点（注意：父子节点有关联，如果传入父节点 key，则子节点自动选中；相应当子节点 key 都传入，父节点也自动选中。当设置 `checkable` 和 `checkStrictly`，它是一个有`checked`和`halfChecked`属性的对象，并且父子节点的选中与否不再关联，支持 `v-model:checked-keys` | string[] \| &#123;checked: string[], halfChecked: string[]&#125; | [] | - |
 | checkStrictly | checkable 状态下节点选择完全受控（父子节点选中状态不再关联） | boolean | false | - |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | - |
 | defaultCheckedKeys | 默认选中复选框的树节点 | string[] | [] | - |

@@ -77,9 +77,7 @@ export interface TourEmits {
   'finish': () => void
   'update:open': (open: boolean) => void
   'update:current': (current: number) => void
-  // @ts-expect-error this is defined in VcTourProps
-  'popupAlign': VcTourProps['onPopupAlign']
-  [key: string]: (...args: any[]) => void
+  'popupAlign': (el: HTMLElement, info: any) => void
 }
 
 export interface TourSlots {

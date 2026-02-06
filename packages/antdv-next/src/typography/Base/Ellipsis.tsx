@@ -21,21 +21,18 @@ const MeasureText = defineComponent<
   EmptyEmit,
   string,
   SlotsType<{ default?: () => any }>
->({
-  name: 'TypographyMeasureText',
-  inheritAttrs: false,
-  setup(props, { slots, expose }) {
-    const spanRef = shallowRef<HTMLSpanElement>()
+>((props, { slots, expose }) => {
+  const spanRef = shallowRef<HTMLSpanElement>()
+  expose({
+    isExceed: () => {
+      const span = spanRef.value!
+      return span.scrollHeight > span.clientHeight
+    },
+    getHeight: () => spanRef.value?.clientHeight || 0,
+  })
 
-    expose({
-      isExceed: () => {
-        const span = spanRef.value!
-        return span.scrollHeight > span.clientHeight
-      },
-      getHeight: () => spanRef.value?.clientHeight || 0,
-    })
-
-    return () => (
+  return () => {
+    return (
       <span
         aria-hidden
         ref={spanRef}
@@ -52,7 +49,10 @@ const MeasureText = defineComponent<
         {slots.default?.()}
       </span>
     )
-  },
+  }
+}, {
+  name: 'TypographyMeasureText',
+  inheritAttrs: false,
 })
 
 function getNodesLen(nodeList: any[]) {

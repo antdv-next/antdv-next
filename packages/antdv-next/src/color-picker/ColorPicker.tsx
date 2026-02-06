@@ -137,7 +137,7 @@ const ColorPicker = defineComponent<
       formatValue.value = newFormat
       if (prev !== newFormat) {
         emit('formatChange', newFormat)
-        emit('update:format', newFormat)
+        emit('update:format', newFormat!)
       }
     }
 

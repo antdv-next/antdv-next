@@ -59,7 +59,6 @@ export interface OTPEmits {
   'change': (value: string) => void
   'input': (cells: string[]) => void
   'update:value': (value: string) => void
-  [key: string]: (...args: any[]) => any
 }
 
 export interface OPTSlots {

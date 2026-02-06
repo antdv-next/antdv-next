@@ -89,7 +89,6 @@ export interface SegmentedProps extends Omit<RCSegmentedProps, 'size' | 'options
 export interface SegmentedEmits {
   'change': (value: RcSegmentedValue) => void
   'update:value': (value: RcSegmentedValue) => void
-  [key: string]: (...args: any[]) => any
 }
 
 export interface SegmentedSlots {

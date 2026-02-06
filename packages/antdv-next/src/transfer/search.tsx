@@ -14,7 +14,6 @@ export interface TransferSearchProps {
 export interface TransferSearchEmits {
   change: (e: Event) => void
   clear: () => void
-  [key: string]: (...args: any[]) => void
 }
 
 export interface TransferSearchSlots {

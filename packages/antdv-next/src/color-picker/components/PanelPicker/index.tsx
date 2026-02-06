@@ -148,7 +148,7 @@ export default defineComponent(
                   size="small"
                   options={modeOptions}
                   value={mode}
-                  onChange={val => onModeChange(val as any)}
+                  onChange={(val: any) => onModeChange(val as any)}
                 />
               )}
               <ColorClear

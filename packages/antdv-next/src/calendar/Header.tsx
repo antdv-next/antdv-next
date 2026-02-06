@@ -1,5 +1,5 @@
 import type { Locale } from '@v-c/picker'
-import type { GenerateConfig } from '@v-c/picker/generate/index'
+import type { GenerateConfig } from '@v-c/picker/generate'
 import type { CSSProperties, Ref } from 'vue'
 import type { CalendarMode, SelectInfo } from './generateCalendar'
 import { clsx } from '@v-c/util'
@@ -49,7 +49,7 @@ const YearSelect = defineComponent<SharedProps<any>>(
           options={options}
           value={year}
           class={`${prefixCls}-year-select`}
-          onChange={(numYear) => {
+          onChange={(numYear: any) => {
             let newDate = generateConfig.setYear(value, numYear)
 
             if (validRange) {
@@ -118,7 +118,7 @@ const MonthSelect = defineComponent<SharedProps<any>>(
           class={`${prefixCls}-month-select`}
           value={month}
           options={options}
-          onChange={(newMonth) => {
+          onChange={(newMonth: any) => {
             onChange(generateConfig.setMonth(value, newMonth))
           }}
           getPopupContainer={() => divRef.value!}

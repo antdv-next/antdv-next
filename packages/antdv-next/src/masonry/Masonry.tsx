@@ -68,7 +68,6 @@ export interface MasonryProps extends ComponentBaseProps {
 
 export interface MasonryEmits {
   layoutChange: (sortInfo: { key: Key, column: number }[]) => void
-  [key: string]: (...args: any[]) => void
 }
 
 export interface MasonrySlots {
@@ -321,7 +320,11 @@ const Masonry = defineComponent<
                     index={itemIndex}
                     itemRender={itemRender}
                     column={columnIndex}
-                    onResize={fresh ? collectItemSize : null}
+                    {
+                      ...{
+                        onResize: fresh ? collectItemSize : null,
+                      } as any
+                    }
                   />
                 )
               })}

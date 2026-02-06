@@ -41,7 +41,6 @@ export interface CheckboxGroupProps extends AbstractCheckboxGroupProps {
 export interface CheckboxGroupEmits {
   'update:value': (value: any[]) => void
   'change': (checkedValue: any[]) => void
-  [key: string]: (...args: any[]) => void
 }
 
 export interface CheckboxGroupSlots {

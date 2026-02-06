@@ -51,7 +51,6 @@ export interface DatePickerEmits<DateType = AnyObject> {
   'focus': (e: FocusEvent, info: any) => void
   'blur': (e: FocusEvent, info: any) => void
   'keydown': (e: KeyboardEvent, preventDefault: VoidFunction) => void
-  [key: string]: (...args: any[]) => void
 }
 
 export interface DatePickerSlots {

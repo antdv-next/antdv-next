@@ -75,7 +75,6 @@ export interface FloatButtonEmits {
   mouseleave: (e: MouseEvent) => void
   focus: (e: FocusEvent) => void
   blur: (e: FocusEvent) => void
-  [key: string]: (...args: any[]) => void
 }
 
 export const floatButtonPrefixCls = 'float-btn'

@@ -49,6 +49,7 @@ export interface TextAreaRef {
   resizableTextArea?: any
   focus: (...args: any[]) => void
   blur: () => void
+  nativeElement: HTMLElement | null
 }
 
 export interface TextAreaProps
@@ -95,7 +96,6 @@ export interface TextAreaEmits {
   'compositionend': (e: CompositionEvent) => void
   'mousedown': (e: MouseEvent) => void
   'update:value': (value?: string | number) => void
-  [key: string]: (...args: any[]) => any
 }
 
 export interface TextAreaSlots {
@@ -218,6 +218,7 @@ const InternalTextArea = defineComponent<
       resizableTextArea: computed(() => textAreaRef.value?.resizableTextArea),
       focus: () => textAreaRef.value?.focus?.(),
       blur: () => textAreaRef.value?.blur?.(),
+      nativeElement: computed(() => textAreaRef.value?.nativeElement),
     })
 
     const handlePressEnter: TextAreaEmits['pressEnter'] = (e) => {

@@ -79,7 +79,6 @@ export interface AnchorProps extends ComponentBaseProps {
 export interface AnchorEmits {
   click: (e: MouseEvent, link: { title: VNodeChild, href: string }) => any
   change: (currentActiveLink: string) => any
-  [key: string]: (...args: any[]) => any
 }
 
 export type AnchorSlots = SlotsDefineType<{

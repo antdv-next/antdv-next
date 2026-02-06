@@ -213,7 +213,7 @@ const DirectoryTree = defineComponent<
         },
         onActiveChange(key) {
           emit('activeChange', key)
-          emit('update:activeKey', key)
+          emit('update:activeKey', key!)
         },
         onDrop(info) {
           emit('drop', info)
@@ -230,9 +230,9 @@ const DirectoryTree = defineComponent<
         onDragover(info) {
           emit('dragover', info)
         },
-        onDoubleClick(e) {
-          emit('doubleClick', e)
-          emit('dblclick', e)
+        onDoubleClick(...args) {
+          emit('doubleClick', ...args)
+          emit('dblclick', ...args)
         },
         onContextmenu(e) {
           emit('contextmenu', e)

@@ -1,4 +1,4 @@
-import type { MenuProps as VcMenuProps } from '@v-c/menu'
+import type { MenuInfo, MenuProps as VcMenuProps } from '@v-c/menu'
 import type { AlignType } from '@v-c/trigger'
 import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
@@ -99,7 +99,6 @@ export interface DropdownEmits {
   'update:open': (open: boolean) => void
   'openChange': (open: boolean, info: { source: 'trigger' | 'menu' }) => void
   'menuClick': MenuEmits['click']
-  [key: string]: (...args: any[]) => void
 }
 
 export interface DropdownSlots extends MenuSlots {
@@ -269,8 +268,8 @@ const Dropdown = defineComponent<
           overlayNode = (
             <Menu
               {...menu}
-              onClick={(...args) => {
-                emit('menuClick', ...args)
+              onClick={(menu: MenuInfo) => {
+                emit('menuClick', menu)
               }}
               classes={{
                 ...menuClassNames,

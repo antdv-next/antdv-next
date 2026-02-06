@@ -185,7 +185,6 @@ export interface TreeSelectEmits {
   'deselect': NonNullable<VcTreeSelectProps['onDeselect']>
   'popupScroll': NonNullable<VcTreeSelectProps['onPopupScroll']>
   'search': NonNullable<VcTreeSelectProps['onSearch']>
-  [key: string]: (...args: any[]) => void
 }
 
 export interface TreeSelectSlots {

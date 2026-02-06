@@ -15,7 +15,6 @@ export interface WaveProps {
 }
 
 export interface WaveEmits {
-  [key: string]: any
 }
 
 export interface WaveSlots {

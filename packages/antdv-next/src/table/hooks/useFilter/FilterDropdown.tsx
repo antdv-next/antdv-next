@@ -1,7 +1,7 @@
 import type { CheckboxChangeEvent } from '@v-c/checkbox'
 import type { EventDataNode, DataNode as FieldDataNode } from '@v-c/tree'
 import type { SlotsType } from 'vue'
-import type { AnyObject } from '../../../_util/type.ts'
+import type { AnyObject, EmptyEmit } from '../../../_util/type.ts'
 import type { DropdownEmits } from '../../../dropdown'
 
 import type { MenuProps } from '../../../menu'
@@ -163,9 +163,7 @@ const defaults = {
 
 const FilterDropdown = defineComponent<
   FilterDropdownProps,
-  {
-    [key: string]: (...args: any[]) => void
-  },
+  EmptyEmit,
   string,
   SlotsType<{ default?: () => any }>
 >(

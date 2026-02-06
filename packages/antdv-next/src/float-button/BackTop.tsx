@@ -23,7 +23,6 @@ export interface BackTopProps extends Omit<FloatButtonProps, 'target'>, Componen
 
 export interface BackTopEmits {
   click: (e: MouseEvent) => void
-  [key: string]: (...args: any[]) => void
 }
 
 export interface BackTopSlots {

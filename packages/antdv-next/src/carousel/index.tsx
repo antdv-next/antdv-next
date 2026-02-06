@@ -43,7 +43,6 @@ export interface CarouselEmits {
   swipe: NonNullable<Settings['onSwipe']>
   lazyLoad: NonNullable<Settings['onLazyLoad']>
   lazyLoadError: NonNullable<Settings['onLazyLoadError']>
-  [key: string]: (...args: any[]) => void
 }
 
 export interface CarouselRef {

@@ -1,7 +1,7 @@
 {
   "name": "@antdv-next/cssinjs",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "cssinjs solution for ant-design-vue",
   "repository": {
     "type": "git",
@@ -34,6 +34,7 @@
     "test:watch": "vitest watch",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage",
+    "prepare": "pnpm build",
     "prepublish": "pnpm build",
     "build": "tsdown",
     "dev": "tsdown --watch",

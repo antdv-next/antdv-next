@@ -37,7 +37,7 @@ export default defineComponent<ColorSteppersProps>(
           value={stepValue.value as number | undefined}
           formatter={formatter as any}
           size="small"
-          onChange={(step) => {
+          onChange={(step: any) => {
             internalValue.value = (step ?? 0) as number
             onChange?.(step ?? null)
           }}

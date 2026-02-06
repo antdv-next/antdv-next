@@ -54,6 +54,7 @@ demo:
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | InputNumberStylesType | - | - |
 | controls | 是否显示增减按钮，也可设置自定义箭头图标 | boolean \| &#123; upIcon?: VueNode, downIcon?: VueNode &#125; | - | - |
 | type | - | 'number' \| 'text' | - | - |
+| step | 每次改变步数，可以为小数 | 'number' \| 'string' | 1 | - |
 
 ### 事件 {#events}
 
@@ -63,7 +64,7 @@ demo:
 | update:value | - | (value: any) =&gt; void | - |
 | input | - | (text: string) =&gt; void | - |
 | pressEnter | 按下回车的回调 | (e: KeyboardEvent) =&gt; void | - |
-| step | 每次改变步数，可以为小数 | (value: any, info: InputNumberStepContext) =&gt; void | - |
+| step | `@step`点击上下箭头、键盘、滚轮的回调 | (value: any, info: InputNumberStepContext) =&gt; void | - |
 | mousedown | - | (e: MouseEvent) =&gt; void | - |
 | click | - | (e: MouseEvent) =&gt; void | - |
 | mouseup | - | (e: MouseEvent) =&gt; void | - |

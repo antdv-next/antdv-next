@@ -85,7 +85,6 @@ export interface PaginationEmits {
   'showSizeChange': (current: number, size: number) => void
   'update:current': (page: number) => void
   'update:pageSize': (size: number) => void
-  [key: string]: (...args: any[]) => void
 }
 
 export interface PaginationSlots {

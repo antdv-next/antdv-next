@@ -62,12 +62,12 @@ const ActionButton = defineComponent<
       props.close?.(...args)
     }
 
-    const handlePromiseOnOk = (returnValue?: PromiseLike<any>) => {
-      if (!isThenable(returnValue)) {
+    const handlePromiseOnOk = (returnValueOfOnOk?: PromiseLike<any>) => {
+      if (!isThenable(returnValueOfOnOk)) {
         return
       }
       loading.value = true
-      returnValue.then(
+      returnValueOfOnOk.then(
         (...args: any[]) => {
           loading.value = false
           clicked.value = false
@@ -96,28 +96,28 @@ const ActionButton = defineComponent<
         return
       }
 
-      let returnValue: any
+      let returnValueOfOnOk: PromiseLike<any>
       if (props.emitEvent) {
-        returnValue = actionFn(e)
-        if (props.quitOnNullishReturnValue && !isThenable(returnValue)) {
+        returnValueOfOnOk = actionFn(e)
+        if (props.quitOnNullishReturnValue && !isThenable(returnValueOfOnOk)) {
           clicked.value = false
           onInternalClose(e)
           return
         }
       }
       else if (actionFn.length) {
-        returnValue = actionFn(onInternalClose)
+        returnValueOfOnOk = actionFn(onInternalClose)
         clicked.value = false
       }
       else {
-        returnValue = actionFn()
-        if (!isThenable(returnValue)) {
+        returnValueOfOnOk = actionFn()
+        if (!isThenable(returnValueOfOnOk)) {
           onInternalClose()
           return
         }
       }
 
-      handlePromiseOnOk(returnValue)
+      handlePromiseOnOk(returnValueOfOnOk)
     }
 
     return () => {

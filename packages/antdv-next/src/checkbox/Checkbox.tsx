@@ -59,7 +59,6 @@ export interface CheckboxEmits {
   'focus': (event: FocusEvent) => void
   'blur': (event: FocusEvent) => void
   'click': (event: MouseEvent) => void
-  [key: string]: (...args: any[]) => void
 }
 export interface CheckboxSlots {
   default?: () => any
@@ -194,7 +193,7 @@ const InternalCheckbox = defineComponent<
     const [hashId, cssVarCls] = useStyle(prefixCls, rootCls)
     // ============================ Event Lock ============================
     const [onLabelClick, onInputClick] = useBubbleLock((e) => {
-      emit('click', e)
+      emit('click', e as MouseEvent)
     })
     const keys = [
       'prefixCls',
@@ -224,8 +223,8 @@ const InternalCheckbox = defineComponent<
       const inGroup = checkboxGroup?.value && !skipGroup
 
       if (inGroup) {
-        checkboxProps.onChange = (...args: any[]) => {
-          emit('change', ...args)
+        checkboxProps.onChange = (checked: any) => {
+          emit('change', checked)
           if (checkboxGroup.value.toggleOption) {
             checkboxGroup.value.toggleOption({ label: children, value: props.value })
           }

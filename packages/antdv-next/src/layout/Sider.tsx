@@ -61,7 +61,6 @@ export interface SiderEmits {
   'collapse': (collapsed: boolean, type: CollapseType) => void
   'update:collapsed': (collapsed: boolean) => void
   'breakpoint': (broken: boolean) => void
-  [key: string]: (...args: any[]) => any
 }
 
 export interface SiderSlots {

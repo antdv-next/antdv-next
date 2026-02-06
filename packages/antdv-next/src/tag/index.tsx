@@ -66,7 +66,6 @@ export interface TagSlots {
 
 export interface TagEmits {
   close: (ev: MouseEvent) => void
-  [key: string]: (...args: any[]) => any
 }
 
 const defaultProps: Partial<TagProps> = {

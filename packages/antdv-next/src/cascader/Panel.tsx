@@ -43,7 +43,6 @@ export interface CascaderPanelProps<
 export interface CascaderPanelEmits {
   'change': NonNullable<VcCascaderProps['onChange']>
   'update:value': (value: any) => void
-  [key: string]: (...args: any[]) => void
 }
 
 export interface CascaderPanelSlots {

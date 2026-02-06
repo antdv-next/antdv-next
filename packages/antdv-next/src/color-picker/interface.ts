@@ -122,7 +122,6 @@ export interface ColorPickerEmits {
   'formatChange': (format?: ColorFormatType) => void
   'update:value': (value: ColorValueType) => void
   'update:format': (format: ColorFormatType) => void
-  [key: string]: (...args: any[]) => void
 }
 
 export interface ColorPickerSlots {

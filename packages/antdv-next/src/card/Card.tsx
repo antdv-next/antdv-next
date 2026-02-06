@@ -83,7 +83,6 @@ export interface CardProps extends ComponentBaseProps {
 export interface CardEmits {
   'tabChange': (key: string) => void
   'update:activeTabKey': (key: string) => void
-  [key: string]: (...args: any[]) => void
 }
 
 export interface CardSlots {

@@ -95,7 +95,6 @@ export interface FormEmits {
   validate: (name: InternalNamePath, status: boolean, errors: any[] | null) => void
   valuesChange: (changedValues: Record<string, any>, values: Record<string, any>) => void
   fieldsChange: (changedFields: FieldData[], allFields: FieldData[]) => void
-  [key: string]: (...args: any[]) => void
 }
 
 export interface FormSlots {

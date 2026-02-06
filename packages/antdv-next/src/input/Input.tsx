@@ -102,7 +102,6 @@ export interface InputEmits {
   'compositionstart': NonNullable<VcInputProps['onCompositionStart']>
   'compositionend': NonNullable<VcInputProps['onCompositionEnd']>
   'update:value': (value: VcInputProps['value']) => void
-  [key: string]: (...args: any[]) => any
 }
 
 export interface InputSlots {
@@ -274,11 +273,11 @@ const InternalInput = defineComponent<
       emit('keyup', e)
     }
 
-    const handleCompositionStart: InputEmits['compositionStart'] = (e) => {
+    const handleCompositionStart: InputEmits['compositionstart'] = (e) => {
       emit('compositionstart', e)
     }
 
-    const handleCompositionEnd: InputEmits['compositionEnd'] = (e) => {
+    const handleCompositionEnd: InputEmits['compositionend'] = (e) => {
       emit('compositionend', e)
     }
 

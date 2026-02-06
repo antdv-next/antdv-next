@@ -103,7 +103,6 @@ export interface InputNumberEmits {
   'compositionstart': (e: CompositionEvent) => void
   'compositionend': (e: CompositionEvent) => void
   'beforeinput': (e: InputEvent) => void
-  [key: string]: (...args: any[]) => any
 }
 
 export interface InputNumberSlots {
@@ -338,6 +337,7 @@ const InputNumber = defineComponent<
     const handleBeforeInput: InputNumberEmits['beforeinput'] = e => emit('beforeinput', e)
 
     return () => {
+      const { min, max, step } = props
       const prefixNode = getSlotPropsFnRun(slots, props, 'prefix')
       const suffixSlot = getSlotPropsFnRun(slots, props, 'suffix')
       const mergedSuffixFn = () => {
@@ -370,6 +370,9 @@ const InputNumber = defineComponent<
           downHandler={downIcon.value}
           prefix={prefixNode}
           suffix={mergedSuffix}
+          min={min}
+          max={max}
+          step={step}
           onChange={handleChange}
           {
             ...{

@@ -29,7 +29,6 @@ export interface RadioGroupEmits {
   'focus': (e: FocusEvent) => void
   'blur': (e: FocusEvent) => void
   'update:value': (value: any) => void
-  [key: string]: (...args: any[]) => void
 }
 
 export interface RadioGroupSlots {
