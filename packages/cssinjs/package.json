@@ -34,6 +34,7 @@
     "test:watch": "vitest watch",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage",
+    "prepare": "pnpm build",
     "prepublish": "pnpm build",
     "build": "tsdown",
     "dev": "tsdown --watch",
