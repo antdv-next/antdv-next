@@ -85,7 +85,7 @@ export interface ArgsProps {
   appContext?: any
 }
 
-export type JointContent = VueNode | ArgsProps
+export type JointContent = ArgsProps | string | any
 
 export interface MessageType extends PromiseLike<boolean> {
   (): void
