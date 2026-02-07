@@ -70,7 +70,7 @@ bun add @antdv-next/auto-import-resolver unplugin-vue-components unplugin-auto-i
 
 #### 使用
 
-> 这里值介绍vite的使用方式，具体的请参考[@antdv-next/auto-import-resolver](https://www.npmjs.com/package/@antdv-next/auto-import-resolver)
+> 这里只介绍vite的使用方式，具体的请参考[@antdv-next/auto-import-resolver](https://www.npmjs.com/package/@antdv-next/auto-import-resolver)
 
 ```ts
 import { AntdvNextResolver } from '@antdv-next/auto-import-resolver'
