@@ -18,7 +18,7 @@ export type {
 } from './auto-complete'
 export { default as Avatar, AvatarGroup } from './avatar'
 export type { AvatarEmits, AvatarGroupProps, AvatarProps, AvatarSlots } from './avatar'
-export { default as Badge } from './badge'
+export { default as Badge, BadgeRibbon } from './badge'
 export type { BadgeProps, BadgeSlots } from './badge'
 export type { RibbonProps as BadgeRibbonProps } from './badge/Ribbon'
 export { default as Breadcrumb } from './breadcrumb'

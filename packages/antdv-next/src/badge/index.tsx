@@ -326,6 +326,8 @@ const Badge = InternalBadge as typeof InternalBadge & {
 
 Badge.Ribbon = Ribbon
 
+export const BadgeRibbon = Ribbon
+
 ;(Badge as any).install = (app: App) => {
   app.component(InternalBadge.name, Badge)
   app.component(Ribbon.name, Ribbon)
