@@ -8,6 +8,7 @@ import { storeToRefs } from 'pinia'
 import { computed, markRaw, nextTick, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import SearchIcon from '@/components/icons/search.vue'
+import { useLocale } from '@/composables/use-locale'
 import { useAppStore } from '@/stores/app'
 
 type Locale = 'en-US' | 'zh-CN'
@@ -46,6 +47,7 @@ const appStore = useAppStore()
 const { locale } = storeToRefs(appStore)
 const router = useRouter()
 const route = useRoute()
+const { t } = useLocale()
 
 const wrapperRef = ref<HTMLElement | null>(null)
 const searchValue = ref('')
@@ -56,32 +58,6 @@ const activeIndex = ref(-1)
 const itemRefs = ref<Array<HTMLElement | null>>([])
 const indexCache = new Map<Locale, Document<SearchDocument>>()
 const indexLoading = new Map<Locale, Promise<Document<SearchDocument>>>()
-
-const placeholder = computed(() => {
-  return locale.value === 'zh-CN' ? '输入关键字搜索...' : 'Search docs and components...'
-})
-
-const emptyText = computed(() => {
-  return locale.value === 'zh-CN' ? '暂无匹配结果' : 'No results found'
-})
-
-const loadingText = computed(() => {
-  return locale.value === 'zh-CN' ? '正在加载索引...' : 'Loading search index...'
-})
-
-const sectionLabels = computed(() => {
-  return locale.value === 'zh-CN'
-    ? {
-        components: '组件',
-        docs: '文档',
-        blog: '博客',
-      }
-    : {
-        components: 'Components',
-        docs: 'Docs',
-        blog: 'Blog',
-      }
-})
 
 const sectionIcons = {
   components: AppstoreOutlined,
@@ -183,7 +159,7 @@ const groupedResults = computed(() => {
   const order = ['components', 'docs', 'blog']
   const grouped = Array.from(groups.entries()).map(([key, items]) => ({
     key,
-    title: sectionLabels.value[key as keyof typeof sectionLabels.value] ?? key,
+    title: t(`ui.docSearch.sections.${key}`) || key,
     items,
   }))
 
@@ -478,7 +454,7 @@ watch(
     <input
       :value="searchValue"
       class="ant-doc-search-bar-input"
-      :placeholder="placeholder"
+      :placeholder="t('ui.docSearch.placeholder')"
       @input="handleInput(($event.target as HTMLInputElement).value)"
       @focus="handleFocus"
       @keydown="handleKeydown"
@@ -486,10 +462,10 @@ watch(
     <div v-if="open" class="ant-doc-search-panel">
       <div v-if="loading" class="ant-doc-search-panel-state">
         <a-spin size="small" />
-        <span>{{ loadingText }}</span>
+        <span>{{ t('ui.docSearch.loadingText') }}</span>
       </div>
       <div v-else-if="!results.length" class="ant-doc-search-panel-state">
-        <span>{{ emptyText }}</span>
+        <span>{{ t('ui.docSearch.emptyText') }}</span>
       </div>
       <div v-else class="ant-doc-search-panel-list">
         <div

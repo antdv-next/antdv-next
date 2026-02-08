@@ -1,33 +1,17 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { SemanticPreview } from '@/components/semantic'
-import { useSemanticLocale } from '@/composables/use-locale'
+import { useComponentLocale } from '@/composables/use-locale'
+import { locales } from '../locales'
 
-const locales = {
-  cn: {
-    root: '根元素，设置相对定位、高度、边距、内边距、光标样式和触摸事件控制',
-    track: '轨道选取条元素，设置绝对定位、背景色、圆角和过渡动画样式',
-    tracks: '多段轨道容器元素，设置绝对定位和过渡动画样式',
-    rail: '背景轨道元素，设置绝对定位、背景色、圆角和过渡动画样式',
-    handle: '滑块控制点元素，设置绝对定位、尺寸、轮廓线、用户选择、背景色、边框阴影、圆角、光标样式和过渡动画',
-  },
-  en: {
-    root: 'Root element with relative positioning, height, margin, padding, cursor style and touch action control',
-    track: 'Track selection bar element with absolute positioning, background color, border radius and transition animation styles',
-    tracks: 'Multi-segment track container element with absolute positioning and transition animation styles',
-    rail: 'Background rail element with absolute positioning, background color, border radius and transition animation styles',
-    handle: 'Slider handle control element with absolute positioning, size, outline, user selection, background color, border shadow, border radius, cursor style and transition animation',
-  },
-}
-
-const locale = useSemanticLocale(locales)
+const { t } = useComponentLocale(locales)
 
 const semantics = computed(() => [
-  { name: 'root', desc: locale.value.root, version: '1.0.0' },
-  { name: 'track', desc: locale.value.track, version: '1.0.0' },
-  { name: 'tracks', desc: locale.value.tracks, version: '1.0.0' },
-  { name: 'rail', desc: locale.value.rail, version: '1.0.0' },
-  { name: 'handle', desc: locale.value.handle, version: '1.0.0' },
+  { name: 'root', desc: t('root'), version: '1.0.0' },
+  { name: 'track', desc: t('track'), version: '1.0.0' },
+  { name: 'tracks', desc: t('tracks'), version: '1.0.0' },
+  { name: 'rail', desc: t('rail'), version: '1.0.0' },
+  { name: 'handle', desc: t('handle'), version: '1.0.0' },
 ])
 </script>
 
