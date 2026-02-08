@@ -87,7 +87,7 @@ catalogs:
     '@antdv-next/icons': ^1.0.0-rc.2
     '@emotion/hash': ^0.8.0
     '@emotion/unitless': ^0.7.5
-    '@vueuse/core': catalog:prod
+    '@vueuse/core': ^14.2.0
     csstype: ^3.2.3
     dayjs: ^1.11.19
     defu: ^6.1.4

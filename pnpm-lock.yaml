@@ -211,8 +211,8 @@ catalogs:
       specifier: ^0.7.5
       version: 0.7.5
     '@vueuse/core':
-      specifier: catalog:prod
-      version: 14.1.0
+      specifier: ^14.2.0
+      version: 14.2.0
     csstype:
       specifier: ^3.2.3
       version: 3.2.3
@@ -701,7 +701,7 @@ importers:
         version: 1.0.5(vue@3.5.27(typescript@5.9.3))
       '@vueuse/core':
         specifier: catalog:prod
-        version: 14.1.0(vue@3.5.27(typescript@5.9.3))
+        version: 14.2.0(vue@3.5.27(typescript@5.9.3))
       dayjs:
         specifier: catalog:prod
         version: 1.11.19
@@ -790,7 +790,7 @@ importers:
         version: 1.0.0-rc.1(unocss@66.5.10(postcss@8.5.6)(vite@8.0.0-beta.11(@types/node@25.0.10)(esbuild@0.27.1)(jiti@2.6.1)(less@4.5.1)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2)))
       '@vueuse/core':
         specifier: catalog:prod
-        version: 14.1.0(vue@3.5.27(typescript@5.9.3))
+        version: 14.2.0(vue@3.5.27(typescript@5.9.3))
       dayjs:
         specifier: catalog:prod
         version: 1.11.19
@@ -2283,24 +2283,6 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
-  '@v-c/picker@1.0.1':
-    resolution: {integrity: sha512-nrUTy3J4TV+OtogQPf1+TVhcPFbqQ6340nO1R42JbaDpKfSGiTKvaRniCli2r+nIDd4X5p09S6tAp5yzr+JiDA==}
-    peerDependencies:
-      date-fns: '>= 2.x'
-      dayjs: '>= 1.x'
-      luxon: '>= 3.x'
-      moment: '>= 2.x'
-      vue: ^3.0.0
-    peerDependenciesMeta:
-      date-fns:
-        optional: true
-      dayjs:
-        optional: true
-      luxon:
-        optional: true
-      moment:
-        optional: true
-
   '@v-c/picker@1.0.2':
     resolution: {integrity: sha512-Lf9qPZ/hODaIBEoXpkpGmHK5oXubquia8bYN8zVWigr312jbl/bI6txRF4p+zci0UTtJQsOX1zp9fqX8rg0vSA==}
     peerDependencies:
@@ -2581,11 +2563,24 @@ packages:
     peerDependencies:
       vue: ^3.5.0
 
+  '@vueuse/core@14.2.0':
+    resolution: {integrity: sha512-tpjzVl7KCQNVd/qcaCE9XbejL38V6KJAEq/tVXj7mDPtl6JtzmUdnXelSS+ULRkkrDgzYVK7EerQJvd2jR794Q==}
+    peerDependencies:
+      vue: ^3.5.0
+
   '@vueuse/metadata@14.1.0':
     resolution: {integrity: sha512-7hK4g015rWn2PhKcZ99NyT+ZD9sbwm7SGvp7k+k+rKGWnLjS/oQozoIZzWfCewSUeBmnJkIb+CNr7Zc/EyRnnA==}
 
+  '@vueuse/metadata@14.2.0':
+    resolution: {integrity: sha512-i3axTGjU8b13FtyR4Keeama+43iD+BwX9C2TmzBVKqjSHArF03hjkp2SBZ1m72Jk2UtrX0aYCugBq2R1fhkuAQ==}
+
   '@vueuse/shared@14.1.0':
     resolution: {integrity: sha512-EcKxtYvn6gx1F8z9J5/rsg3+lTQnvOruQd8fUecW99DCK04BkWD7z5KQ/wTAx+DazyoEE9dJt/zV8OIEQbM6kw==}
+    peerDependencies:
+      vue: ^3.5.0
+
+  '@vueuse/shared@14.2.0':
+    resolution: {integrity: sha512-Z0bmluZTlAXgUcJ4uAFaML16JcD8V0QG00Db3quR642I99JXIDRa2MI2LGxiLVhcBjVnL1jOzIvT5TT2lqJlkA==}
     peerDependencies:
       vue: ^3.5.0
 
@@ -7161,16 +7156,6 @@ snapshots:
       '@v-c/util': 1.0.13(vue@3.5.27(typescript@5.9.3))
       vue: 3.5.27(typescript@5.9.3)
 
-  '@v-c/picker@1.0.1(dayjs@1.11.19)(vue@3.5.27(typescript@5.9.3))':
-    dependencies:
-      '@v-c/overflow': 1.0.3(vue@3.5.27(typescript@5.9.3))
-      '@v-c/resize-observer': 1.0.8(vue@3.5.27(typescript@5.9.3))
-      '@v-c/trigger': 1.0.10(vue@3.5.27(typescript@5.9.3))
-      '@v-c/util': 1.0.13(vue@3.5.27(typescript@5.9.3))
-      vue: 3.5.27(typescript@5.9.3)
-    optionalDependencies:
-      dayjs: 1.11.19
-
   '@v-c/picker@1.0.2(dayjs@1.11.19)(vue@3.5.27(typescript@5.9.3))':
     dependencies:
       '@v-c/overflow': 1.0.3(vue@3.5.27(typescript@5.9.3))
@@ -7538,9 +7523,22 @@ snapshots:
       '@vueuse/shared': 14.1.0(vue@3.5.27(typescript@5.9.3))
       vue: 3.5.27(typescript@5.9.3)
 
+  '@vueuse/core@14.2.0(vue@3.5.27(typescript@5.9.3))':
+    dependencies:
+      '@types/web-bluetooth': 0.0.21
+      '@vueuse/metadata': 14.2.0
+      '@vueuse/shared': 14.2.0(vue@3.5.27(typescript@5.9.3))
+      vue: 3.5.27(typescript@5.9.3)
+
   '@vueuse/metadata@14.1.0': {}
 
+  '@vueuse/metadata@14.2.0': {}
+
   '@vueuse/shared@14.1.0(vue@3.5.27(typescript@5.9.3))':
+    dependencies:
+      vue: 3.5.27(typescript@5.9.3)
+
+  '@vueuse/shared@14.2.0(vue@3.5.27(typescript@5.9.3))':
     dependencies:
       vue: 3.5.27(typescript@5.9.3)
 
@@ -7609,7 +7607,7 @@ snapshots:
       '@v-c/mutate-observer': 1.0.1(vue@3.5.27(typescript@5.9.3))
       '@v-c/notification': 1.0.0(vue@3.5.27(typescript@5.9.3))
       '@v-c/pagination': 1.0.0(vue@3.5.27(typescript@5.9.3))
-      '@v-c/picker': 1.0.1(dayjs@1.11.19)(vue@3.5.27(typescript@5.9.3))
+      '@v-c/picker': 1.0.2(dayjs@1.11.19)(vue@3.5.27(typescript@5.9.3))
       '@v-c/progress': 1.0.0(vue@3.5.27(typescript@5.9.3))
       '@v-c/qrcode': 1.0.0(vue@3.5.27(typescript@5.9.3))
       '@v-c/rate': 1.0.0(vue@3.5.27(typescript@5.9.3))
