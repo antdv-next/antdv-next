@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest'
 import { h, nextTick, ref } from 'vue'
 import Divider from '..'
-import mountTest from '../../../../../tests/shared/mountTest'
-import rtlTest from '../../../../../tests/shared/rtlTest'
-import { mount } from '../../../../../tests/utils'
 import ConfigProvider from '../../config-provider'
+import mountTest from '/@tests/shared/mountTest'
+import rtlTest from '/@tests/shared/rtlTest'
+import { mount } from '/@tests/utils'
 
 describe('divider', () => {
   mountTest(Divider)
