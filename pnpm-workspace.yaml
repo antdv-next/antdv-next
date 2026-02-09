@@ -152,11 +152,11 @@ catalogs:
     '@v-c/table': ^1.0.0
     '@v-c/tabs': ^1.0.1
     '@v-c/textarea': ^1.0.3
-    '@v-c/tooltip': ^1.0.2
+    '@v-c/tooltip': ^1.0.3
     '@v-c/tour': ^1.0.3
     '@v-c/tree': ^1.0.2
     '@v-c/tree-select': ^1.0.0
-    '@v-c/trigger': ^1.0.10
+    '@v-c/trigger': ^1.0.11
     '@v-c/upload': ^1.0.0
     '@v-c/util': ^1.0.13
     '@v-c/virtual-list': ^1.0.5
