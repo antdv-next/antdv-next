@@ -2267,7 +2267,7 @@ exports[`tree demo > renders customized-icon correctly 1`] = `
 
 exports[`tree demo > renders directory correctly 1`] = `
 <div
-  class="ant-tree ant-tree-block-node [object Object]-directory css-var-root"
+  class="ant-tree ant-tree-block-node ant-tree-directory css-var-root"
 >
   <div
     aria-hidden="true"
