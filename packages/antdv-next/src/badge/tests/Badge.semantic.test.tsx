@@ -19,6 +19,10 @@ describe('badge.Semantic', () => {
     const rootElement = wrapper.find('.ant-badge')
     expect(rootElement.classes()).toContain('custom-root')
     expect(rootElement.attributes('style')).toContain('margin: 10px')
+
+    const indicatorElement = wrapper.find('.ant-badge-count')
+    expect(indicatorElement.classes()).toContain('custom-indicator')
+    expect(indicatorElement.attributes('style')).toContain('font-size: 16px')
   })
 
   it('should support classNames and styles as functions', async () => {

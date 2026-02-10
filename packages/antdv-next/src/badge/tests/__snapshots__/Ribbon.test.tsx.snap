@@ -1,0 +1,36 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`badge.Ribbon > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-ribbon-wrapper css-var-root"
+  >
+    <div>
+      Content
+    </div>
+    <div
+      class="ant-ribbon ant-ribbon-placement-end ant-ribbon-rtl"
+    >
+      <span
+        class="ant-ribbon-content"
+      >
+        test
+      </span>
+      <div
+        class="ant-ribbon-corner"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`badge.Ribbon > should match ribbon snapshot 1`] = `
+"<div class="ant-ribbon-wrapper css-var-root">
+  <div style="height: 100px;">Content</div>
+  <div class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-pink"><span class="ant-ribbon-content">Hippies</span>
+    <div class="ant-ribbon-corner"></div>
+  </div>
+</div>"
+`;

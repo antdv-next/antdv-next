@@ -176,20 +176,6 @@ describe('badge', () => {
     expect(wrapper.find('[data-test="badge-test"]').exists()).toBe(true)
   })
 
-  it('should apply custom classes and styles', () => {
-    const wrapper = mount(() => (
-      <Badge
-        count={5}
-        classes={{ root: 'custom-badge-root', indicator: 'custom-badge-indicator' }}
-        styles={{ root: { margin: '10px' }, indicator: { fontSize: '16px' } }}
-      >
-        <span>test</span>
-      </Badge>
-    ))
-    expect(wrapper.find('.ant-badge').classes()).toContain('custom-badge-root')
-    expect(wrapper.find('.ant-badge').attributes('style')).toContain('margin: 10px')
-  })
-
   it('should match snapshot', () => {
     const wrapper = mount(() => (
       <Badge count={5}>
@@ -217,75 +203,6 @@ describe('badge', () => {
         <Badge status="warning" text="Warning" />
         <Badge status="default" text="Default" />
       </div>
-    ))
-    expect(wrapper.html()).toMatchSnapshot()
-  })
-})
-
-describe('badge.Ribbon', () => {
-  it('should render ribbon', () => {
-    const wrapper = mount(() => (
-      <Badge.Ribbon text="Hippies">
-        <div>Content</div>
-      </Badge.Ribbon>
-    ))
-    expect(wrapper.find('.ant-ribbon-wrapper').exists()).toBe(true)
-    expect(wrapper.find('.ant-ribbon').exists()).toBe(true)
-    expect(wrapper.find('.ant-ribbon').text()).toContain('Hippies')
-  })
-
-  it('should render ribbon at start placement', () => {
-    const wrapper = mount(() => (
-      <Badge.Ribbon text="Start" placement="start">
-        <div>Content</div>
-      </Badge.Ribbon>
-    ))
-    expect(wrapper.find('.ant-ribbon-placement-start').exists()).toBe(true)
-  })
-
-  it('should render ribbon at end placement by default', () => {
-    const wrapper = mount(() => (
-      <Badge.Ribbon text="End">
-        <div>Content</div>
-      </Badge.Ribbon>
-    ))
-    expect(wrapper.find('.ant-ribbon-placement-end').exists()).toBe(true)
-  })
-
-  it('should render ribbon with preset color', () => {
-    const wrapper = mount(() => (
-      <Badge.Ribbon text="Green" color="green">
-        <div>Content</div>
-      </Badge.Ribbon>
-    ))
-    expect(wrapper.find('.ant-ribbon-color-green').exists()).toBe(true)
-  })
-
-  it('should render ribbon with custom color', () => {
-    const wrapper = mount(() => (
-      <Badge.Ribbon text="Custom" color="#f50">
-        <div>Content</div>
-      </Badge.Ribbon>
-    ))
-    const ribbon = wrapper.find('.ant-ribbon')
-    expect(ribbon.attributes('style')).toContain('background')
-  })
-
-  it('should render ribbon text slot', () => {
-    const wrapper = mount(() => (
-      <Badge.Ribbon v-slots={{ text: () => <span class="custom-text">Slot Text</span> }}>
-        <div>Content</div>
-      </Badge.Ribbon>
-    ))
-    expect(wrapper.find('.custom-text').exists()).toBe(true)
-    expect(wrapper.find('.custom-text').text()).toBe('Slot Text')
-  })
-
-  it('should match ribbon snapshot', () => {
-    const wrapper = mount(() => (
-      <Badge.Ribbon text="Hippies" color="pink">
-        <div style={{ height: '100px' }}>Content</div>
-      </Badge.Ribbon>
     ))
     expect(wrapper.html()).toMatchSnapshot()
   })

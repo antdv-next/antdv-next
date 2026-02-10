@@ -59,12 +59,3 @@ exports[`badge > should match snapshot 1`] = `
 `;
 
 exports[`badge > should match status snapshot 1`] = `"<div><span class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-root"><span class="ant-badge-status-dot ant-badge-status-success"></span><span class="ant-badge-status-text">Success</span></span><span class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-root"><span class="ant-badge-status-dot ant-badge-status-error"></span><span class="ant-badge-status-text">Error</span></span><span class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-root"><span class="ant-badge-status-dot ant-badge-status-processing"></span><span class="ant-badge-status-text">Processing</span></span><span class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-root"><span class="ant-badge-status-dot ant-badge-status-warning"></span><span class="ant-badge-status-text">Warning</span></span><span class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-root"><span class="ant-badge-status-dot ant-badge-status-default"></span><span class="ant-badge-status-text">Default</span></span></div>"`;
-
-exports[`badge.Ribbon > should match ribbon snapshot 1`] = `
-"<div class="ant-ribbon-wrapper css-var-root">
-  <div style="height: 100px;">Content</div>
-  <div class="ant-ribbon ant-ribbon-placement-end ant-ribbon-color-pink"><span class="ant-ribbon-content">Hippies</span>
-    <div class="ant-ribbon-corner"></div>
-  </div>
-</div>"
-`;
