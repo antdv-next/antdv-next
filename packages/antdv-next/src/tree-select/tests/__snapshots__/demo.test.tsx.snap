@@ -16,6 +16,58 @@ exports[`tree-select demo > renders _semantic correctly 1`] = `
       <div
         style="position: absolute; height: 200px;"
       >
+        <div
+          style="display: flex; justify-content: center; margin-bottom: 12px;"
+        >
+          <div
+            aria-label="segmented control"
+            class="ant-segmented css-var-v-0 css-var-v-0"
+            role="radiogroup"
+            size="middle"
+            tabindex="0"
+          >
+            <div
+              class="ant-segmented-group"
+            >
+              <!---->
+              <label
+                class="ant-segmented-item ant-segmented-item-selected"
+              >
+                <input
+                  checked=""
+                  class="ant-segmented-item-input"
+                  name="v-1"
+                  type="radio"
+                />
+                <div
+                  aria-checked="true"
+                  class="ant-segmented-item-label"
+                  role="radio"
+                  title="single"
+                >
+                  single
+                </div>
+              </label>
+              <label
+                class="ant-segmented-item"
+              >
+                <input
+                  class="ant-segmented-item-input"
+                  name="v-1"
+                  type="radio"
+                />
+                <div
+                  aria-checked="false"
+                  class="ant-segmented-item-label"
+                  role="radio"
+                  title="multiple"
+                >
+                  multiple
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
         <!---->
         <div
           class="ant-select ant-tree-select ant-select-outlined semantic-mark-root css-var-v-0 ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow ant-select-open ant-select-show-search"
@@ -27,13 +79,13 @@ exports[`tree-select demo > renders _semantic correctly 1`] = `
             prefix
           </div>
           <div
-            class="ant-select-content semantic-mark-content"
+            class="ant-select-content"
           >
             <div
-              class="ant-select-placeholder"
+              class="ant-select-placeholder semantic-mark-placeholder"
               style="visibility: visible;"
             >
-              <!---->
+              Please select
             </div>
             <input
               aria-autocomplete="list"
@@ -42,7 +94,7 @@ exports[`tree-select demo > renders _semantic correctly 1`] = `
               aria-haspopup="listbox"
               aria-owns="test-id_list"
               autocomplete="off"
-              class="ant-select-input"
+              class="ant-select-input semantic-mark-input"
               id="test-id"
               role="combobox"
               type="search"
@@ -356,7 +408,7 @@ exports[`tree-select demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
-                  selector
+                  placeholder
                   <!---->
                   <!---->
                   <!---->
@@ -447,6 +499,131 @@ exports[`tree-select demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              Placeholder element with font styles and colors for placeholder text
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+        <li
+          class="semantic-list-item"
+          data-v-0e8f6da1=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-0e8f6da1=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-0e8f6da1=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-0e8f6da1=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  input
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <!--v-if-->
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-0e8f6da1=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-0e8f6da1=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-0e8f6da1=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-0e8f6da1=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-0e8f6da1=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              Input element with text input, search, selected value display and other input core interaction styles
               <!---->
               <!---->
               <!---->
@@ -603,7 +780,7 @@ exports[`tree-select demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
-                  popup
+                  popup.root
                   <!---->
                   <!---->
                   <!---->
@@ -694,6 +871,7 @@ exports[`tree-select demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              Popup element with dropdown tree selection panel positioning, z-index, background, border, shadow and other popup layer styles
               <!---->
               <!---->
               <!---->
@@ -726,7 +904,7 @@ exports[`tree-select demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
-                  item
+                  popup.item
                   <!---->
                   <!---->
                   <!---->
@@ -817,379 +995,7 @@ exports[`tree-select demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
-              Multiple selection item element with border, background, padding, and margin styles
-              <!---->
-              <!---->
-              <!---->
-              <!---->
-              <!---->
-              <!---->
-              <!---->
-              <!---->
-            </div>
-          </div>
-        </li>
-        <li
-          class="semantic-list-item"
-          data-v-0e8f6da1=""
-        >
-          <div
-            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
-            data-v-0e8f6da1=""
-          >
-            <div
-              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
-              data-v-0e8f6da1=""
-            >
-              <!-- Title + Version -->
-              <div
-                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
-                data-v-0e8f6da1=""
-              >
-                <h5
-                  class="ant-typography css-var-root"
-                  style="margin: 0px;"
-                >
-                  itemContent
-                  <!---->
-                  <!---->
-                  <!---->
-                  <!---->
-                  <!---->
-                  <!---->
-                  <!---->
-                  <!---->
-                </h5>
-                <!--v-if-->
-              </div>
-              <!-- Pin + Sample -->
-              <div
-                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
-                data-v-0e8f6da1=""
-              >
-                <button
-                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
-                  data-v-0e8f6da1=""
-                  type="button"
-                >
-                  <span
-                    class="ant-btn-icon"
-                  >
-                    <span
-                      aria-label="pushpin"
-                      class="anticon anticon-pushpin"
-                      data-v-0e8f6da1=""
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="pushpin"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                  <!---->
-                  <!---->
-                </button>
-                <button
-                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
-                  data-v-0e8f6da1=""
-                  type="button"
-                >
-                  <span
-                    class="ant-btn-icon"
-                  >
-                    <span
-                      aria-label="info-circle"
-                      class="anticon anticon-info-circle"
-                      data-v-0e8f6da1=""
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="info-circle"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-                        />
-                        <path
-                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                  <!---->
-                  <!---->
-                </button>
-                <!---->
-              </div>
-            </div>
-            <div
-              class="ant-typography css-var-root"
-              style="margin: 0px; font-size: 12px;"
-            >
-              Multiple selection item content area with text ellipsis styles
-              <!---->
-              <!---->
-              <!---->
-              <!---->
-              <!---->
-              <!---->
-              <!---->
-              <!---->
-            </div>
-          </div>
-        </li>
-        <li
-          class="semantic-list-item"
-          data-v-0e8f6da1=""
-        >
-          <div
-            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
-            data-v-0e8f6da1=""
-          >
-            <div
-              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
-              data-v-0e8f6da1=""
-            >
-              <!-- Title + Version -->
-              <div
-                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
-                data-v-0e8f6da1=""
-              >
-                <h5
-                  class="ant-typography css-var-root"
-                  style="margin: 0px;"
-                >
-                  itemRemove
-                  <!---->
-                  <!---->
-                  <!---->
-                  <!---->
-                  <!---->
-                  <!---->
-                  <!---->
-                  <!---->
-                </h5>
-                <!--v-if-->
-              </div>
-              <!-- Pin + Sample -->
-              <div
-                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
-                data-v-0e8f6da1=""
-              >
-                <button
-                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
-                  data-v-0e8f6da1=""
-                  type="button"
-                >
-                  <span
-                    class="ant-btn-icon"
-                  >
-                    <span
-                      aria-label="pushpin"
-                      class="anticon anticon-pushpin"
-                      data-v-0e8f6da1=""
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="pushpin"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                  <!---->
-                  <!---->
-                </button>
-                <button
-                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
-                  data-v-0e8f6da1=""
-                  type="button"
-                >
-                  <span
-                    class="ant-btn-icon"
-                  >
-                    <span
-                      aria-label="info-circle"
-                      class="anticon anticon-info-circle"
-                      data-v-0e8f6da1=""
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="info-circle"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-                        />
-                        <path
-                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                  <!---->
-                  <!---->
-                </button>
-                <!---->
-              </div>
-            </div>
-            <div
-              class="ant-typography css-var-root"
-              style="margin: 0px; font-size: 12px;"
-            >
-              Multiple selection item remove button with font-related styles
-              <!---->
-              <!---->
-              <!---->
-              <!---->
-              <!---->
-              <!---->
-              <!---->
-              <!---->
-            </div>
-          </div>
-        </li>
-        <li
-          class="semantic-list-item"
-          data-v-0e8f6da1=""
-        >
-          <div
-            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
-            data-v-0e8f6da1=""
-          >
-            <div
-              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
-              data-v-0e8f6da1=""
-            >
-              <!-- Title + Version -->
-              <div
-                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
-                data-v-0e8f6da1=""
-              >
-                <h5
-                  class="ant-typography css-var-root"
-                  style="margin: 0px;"
-                >
-                  content
-                  <!---->
-                  <!---->
-                  <!---->
-                  <!---->
-                  <!---->
-                  <!---->
-                  <!---->
-                  <!---->
-                </h5>
-                <!--v-if-->
-              </div>
-              <!-- Pin + Sample -->
-              <div
-                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
-                data-v-0e8f6da1=""
-              >
-                <button
-                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
-                  data-v-0e8f6da1=""
-                  type="button"
-                >
-                  <span
-                    class="ant-btn-icon"
-                  >
-                    <span
-                      aria-label="pushpin"
-                      class="anticon anticon-pushpin"
-                      data-v-0e8f6da1=""
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="pushpin"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                  <!---->
-                  <!---->
-                </button>
-                <button
-                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
-                  data-v-0e8f6da1=""
-                  type="button"
-                >
-                  <span
-                    class="ant-btn-icon"
-                  >
-                    <span
-                      aria-label="info-circle"
-                      class="anticon anticon-info-circle"
-                      data-v-0e8f6da1=""
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="info-circle"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-                        />
-                        <path
-                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                  <!---->
-                  <!---->
-                </button>
-                <!---->
-              </div>
-            </div>
-            <div
-              class="ant-typography css-var-root"
-              style="margin: 0px; font-size: 12px;"
-            >
-              Multiple selection container with layout, spacing, and wrapping styles for selected items
+              Popup item element with tree node option styles, hover state, selected state and other interaction states
               <!---->
               <!---->
               <!---->
@@ -1313,252 +1119,7 @@ exports[`tree-select demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
-              <!---->
-              <!---->
-              <!---->
-              <!---->
-              <!---->
-              <!---->
-              <!---->
-              <!---->
-            </div>
-          </div>
-        </li>
-        <li
-          class="semantic-list-item"
-          data-v-0e8f6da1=""
-        >
-          <div
-            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
-            data-v-0e8f6da1=""
-          >
-            <div
-              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
-              data-v-0e8f6da1=""
-            >
-              <!-- Title + Version -->
-              <div
-                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
-                data-v-0e8f6da1=""
-              >
-                <h5
-                  class="ant-typography css-var-root"
-                  style="margin: 0px;"
-                >
-                  popup.itemTitleContent
-                  <!---->
-                  <!---->
-                  <!---->
-                  <!---->
-                  <!---->
-                  <!---->
-                  <!---->
-                  <!---->
-                </h5>
-                <!--v-if-->
-              </div>
-              <!-- Pin + Sample -->
-              <div
-                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
-                data-v-0e8f6da1=""
-              >
-                <button
-                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
-                  data-v-0e8f6da1=""
-                  type="button"
-                >
-                  <span
-                    class="ant-btn-icon"
-                  >
-                    <span
-                      aria-label="pushpin"
-                      class="anticon anticon-pushpin"
-                      data-v-0e8f6da1=""
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="pushpin"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                  <!---->
-                  <!---->
-                </button>
-                <button
-                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
-                  data-v-0e8f6da1=""
-                  type="button"
-                >
-                  <span
-                    class="ant-btn-icon"
-                  >
-                    <span
-                      aria-label="info-circle"
-                      class="anticon anticon-info-circle"
-                      data-v-0e8f6da1=""
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="info-circle"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-                        />
-                        <path
-                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                  <!---->
-                  <!---->
-                </button>
-                <!---->
-              </div>
-            </div>
-            <div
-              class="ant-typography css-var-root"
-              style="margin: 0px; font-size: 12px;"
-            >
-              <!---->
-              <!---->
-              <!---->
-              <!---->
-              <!---->
-              <!---->
-              <!---->
-              <!---->
-            </div>
-          </div>
-        </li>
-        <li
-          class="semantic-list-item"
-          data-v-0e8f6da1=""
-        >
-          <div
-            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
-            data-v-0e8f6da1=""
-          >
-            <div
-              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
-              data-v-0e8f6da1=""
-            >
-              <!-- Title + Version -->
-              <div
-                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
-                data-v-0e8f6da1=""
-              >
-                <h5
-                  class="ant-typography css-var-root"
-                  style="margin: 0px;"
-                >
-                  popup.itemTitleRemove
-                  <!---->
-                  <!---->
-                  <!---->
-                  <!---->
-                  <!---->
-                  <!---->
-                  <!---->
-                  <!---->
-                </h5>
-                <!--v-if-->
-              </div>
-              <!-- Pin + Sample -->
-              <div
-                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
-                data-v-0e8f6da1=""
-              >
-                <button
-                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
-                  data-v-0e8f6da1=""
-                  type="button"
-                >
-                  <span
-                    class="ant-btn-icon"
-                  >
-                    <span
-                      aria-label="pushpin"
-                      class="anticon anticon-pushpin"
-                      data-v-0e8f6da1=""
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="pushpin"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                  <!---->
-                  <!---->
-                </button>
-                <button
-                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
-                  data-v-0e8f6da1=""
-                  type="button"
-                >
-                  <span
-                    class="ant-btn-icon"
-                  >
-                    <span
-                      aria-label="info-circle"
-                      class="anticon anticon-info-circle"
-                      data-v-0e8f6da1=""
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="info-circle"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-                        />
-                        <path
-                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                  <!---->
-                  <!---->
-                </button>
-                <!---->
-              </div>
-            </div>
-            <div
-              class="ant-typography css-var-root"
-              style="margin: 0px; font-size: 12px;"
-            >
+              Popup title element with tree node title text display styles
               <!---->
               <!---->
               <!---->
