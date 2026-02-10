@@ -247,6 +247,10 @@ type ShadowColorMap = {
   [Key in `${PresetColorKey}ShadowColor`]: string;
 }
 
+type PresetColorHoverActiveMap = {
+  [Key in `${PresetColorKey}Hover` | `${PresetColorKey}Active`]: string;
+}
+
 interface GroupToken {
   /**
    * @desc 按钮组边框颜色
@@ -257,7 +261,11 @@ interface GroupToken {
   groupBorderColor: string
 }
 
-export interface ButtonToken extends FullToken<'Button'>, ShadowColorMap, GroupToken {
+export interface ButtonToken
+  extends FullToken<'Button'>,
+  ShadowColorMap,
+  PresetColorHoverActiveMap,
+  GroupToken {
   /**
    * @desc 按钮横向内边距
    * @descEN Horizontal padding of button

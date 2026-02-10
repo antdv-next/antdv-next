@@ -29,11 +29,11 @@ const genSelectInputMultipleStyle: GenerateStyle<SelectToken> = (token) => {
       [varName('multi-item-border-radius')]: token.borderRadiusSM,
       [varName('multi-item-height')]: token.multipleItemHeight,
       [varName('multi-padding-base')]:
-        `calc((${varRef('height')} - ${varRef('multi-item-height')}) / 2)`,
+          `calc((${varRef('height')} - ${varRef('multi-item-height')}) / 2)`,
       [varName('multi-padding-vertical')]:
-        `calc(${varRef('multi-padding-base')} - ${INTERNAL_FIXED_ITEM_MARGIN} - ${lineWidth})`,
+          `calc(${varRef('multi-padding-base')} - ${INTERNAL_FIXED_ITEM_MARGIN} - ${lineWidth})`,
       [varName('multi-item-padding-horizontal')]:
-        `calc(${inputPaddingHorizontalBase} - ${varRef('multi-padding-vertical')} - ${lineWidth} * 2)`,
+          `calc(${inputPaddingHorizontalBase} - ${varRef('multi-padding-vertical')} - ${lineWidth} * 2)`,
 
       // ========================================================
       // ==                        Base                        ==

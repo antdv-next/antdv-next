@@ -104,7 +104,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
 
         [varName('padding-horizontal')]: calc(token.paddingSM).sub(token.lineWidth).equal(),
         [varName('padding-vertical')]:
-          `calc((${varRef('height')} - ${varRef('font-height')}) / 2 - ${varRef('border-size')})`,
+            `calc((${varRef('height')} - ${varRef('font-height')}) / 2 - ${varRef('border-size')})`,
 
         // ==========================================================
         // ==                         Base                         ==
@@ -166,13 +166,6 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
             overflow: 'hidden',
           },
 
-          // >>> Value
-          '&-value': {
-            ...textEllipsis,
-            transition: `all ${token.motionDurationMid} ${token.motionEaseInOut}`,
-            zIndex: 1,
-          },
-
           // >>> Input: should only take effect for not customize mode
 
           // input element with readOnly use cursor pointer
@@ -180,10 +173,6 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
             cursor: 'inherit',
             caretColor: 'transparent',
           },
-        },
-
-        [`&-open ${componentCls}-content-value`]: {
-          color: token.colorTextPlaceholder,
         },
 
         // ========================= Suffix =========================
@@ -253,7 +242,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
             'border': 0,
             'margin': 0,
             'padding': 0,
-            'color': 'inherit',
+            'color': varRef('color'),
 
             '&::-webkit-search-cancel-button': {
               display: 'none',
@@ -277,7 +266,30 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
 
           // Content center align
           [`${componentCls}-content`]: {
-            alignSelf: 'center',
+            ...textEllipsis,
+            'alignSelf': 'center',
+
+            '&-has-value': {
+              'display': 'block',
+
+              '&:before': {
+                display: 'none',
+              },
+            },
+
+            '&-has-search-value': {
+              color: 'transparent',
+            },
+
+            // >>> Value
+            '&-value': {
+              transition: `all ${token.motionDurationMid} ${token.motionEaseInOut}`,
+              zIndex: 1,
+            },
+          },
+
+          [`&${componentCls}-open ${componentCls}-content`]: {
+            color: token.colorTextPlaceholder,
           },
         },
       },
