@@ -2,7 +2,7 @@
 
 exports[`tree > icon and switcherIcon of Tree with showLine should render correctly 1`] = `
 "<div class="ant-tree css-var-root ant-tree-show-line">
-  <div class="ant-tree-treenode" aria-hidden="true" style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; padding: 0px; border: 0px;">
+  <div class="ant-tree-treenode" aria-hidden="true" style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;">
     <div class="ant-tree-indent">
       <div class="ant-tree-indent-unit"></div>
     </div>
@@ -83,7 +83,7 @@ exports[`tree > rtl render > component should be rendered correctly in RTL direc
 
 exports[`tree > showLine is object type should render correctly 1`] = `
 "<div class="ant-tree ant-tree-icon-hide css-var-root ant-tree-show-line">
-  <div class="ant-tree-treenode" aria-hidden="true" style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; padding: 0px; border: 0px;">
+  <div class="ant-tree-treenode" aria-hidden="true" style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;">
     <div class="ant-tree-indent">
       <div class="ant-tree-indent-unit"></div>
     </div>
@@ -109,7 +109,7 @@ exports[`tree > showLine is object type should render correctly 1`] = `
 
 exports[`tree > switcherIcon in Tree could be string 1`] = `
 "<div class="ant-tree ant-tree-icon-hide css-var-root">
-  <div class="ant-tree-treenode" aria-hidden="true" style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; padding: 0px; border: 0px;">
+  <div class="ant-tree-treenode" aria-hidden="true" style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;">
     <div class="ant-tree-indent">
       <div class="ant-tree-indent-unit"></div>
     </div>
