@@ -77,17 +77,25 @@ const InternalRadio = defineComponent<
       if (groupContext?.value) {
         _radioProps.name = groupContext.value.name
         _radioProps.checked = props.value === groupContext.value.value
-        _radioProps.disabled = _radioProps.disabled ?? _radioProps.disabled
+        _radioProps.disabled = _radioProps.disabled ?? groupContext.value.disabled
       }
       _radioProps.disabled = _radioProps.disabled ?? disabled.value
 
       return _radioProps
+    })
+
+    const mergedChecked = computed(() => {
+      if (groupContext?.value) {
+        return props.value === groupContext.value?.value
+      }
+      return radioProps.value.checked
     })
     // =========== Merged Props for Semantic ===========
     const mergedProps = computed(() => {
       return {
         ...props,
         ...radioProps.value,
+        disabled: mergedChecked.value,
       }
     })
 
@@ -112,7 +120,7 @@ const InternalRadio = defineComponent<
       const wrapperClassString = clsx(
         `${prefixCls.value}-wrapper`,
         {
-          [`${prefixCls.value}-wrapper-checked`]: radioProps.value.checked,
+          [`${prefixCls.value}-wrapper-checked`]: mergedChecked.value,
           [`${prefixCls.value}-wrapper-disabled`]: radioProps.value.disabled,
           [`${prefixCls.value}-wrapper-rtl`]: direction.value === 'rtl',
           [`${prefixCls.value}-wrapper-in-form-item`]: formItemInputContext?.value?.isFormItemInput,
@@ -148,6 +156,7 @@ const InternalRadio = defineComponent<
               class={clsx(mergedClassNames.value.icon, {
                 [TARGET_CLS]: !isButtonType.value,
               })}
+              checked={mergedChecked.value}
               style={mergedStyles.value.icon}
               type="radio"
               prefixCls={prefixCls.value}

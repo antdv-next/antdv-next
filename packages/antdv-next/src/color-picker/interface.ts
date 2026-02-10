@@ -60,10 +60,16 @@ export type ColorPickerSemanticName = keyof ColorPickerSemanticClassNames & keyo
 
 export interface ColorPickerSemanticClassNames {
   root?: string
+  body?: string
+  content?: string
+  description?: string
 }
 
 export interface ColorPickerSemanticStyles {
   root?: CSSProperties
+  body?: CSSProperties
+  content?: CSSProperties
+  description?: CSSProperties
 }
 
 export type ColorPickerClassNamesType = SemanticClassNamesType<

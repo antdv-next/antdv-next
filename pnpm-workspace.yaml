@@ -123,9 +123,9 @@ catalogs:
   vc:
     '@v-c/async-validator': ^1.0.0
     '@v-c/cascader': ^1.0.0
-    '@v-c/checkbox': ^1.0.0
+    '@v-c/checkbox': ^1.0.1
     '@v-c/collapse': ^1.0.0
-    '@v-c/color-picker': ^1.0.4
+    '@v-c/color-picker': ^1.0.5
     '@v-c/dialog': ^1.0.1
     '@v-c/drawer': ^1.0.0
     '@v-c/dropdown': ^1.0.2

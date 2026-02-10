@@ -257,7 +257,7 @@ const ColorPicker = defineComponent<
       const rtlCls = {
         [`${prefixCls.value}-rtl`]: direction.value === 'rtl',
       }
-      const mergedRootCls = clsx(mergedClassNames.value.root, rootClass, cssVarCls.value, rootCls.value, rtlCls)
+      const mergedRootCls = clsx(rootClass, cssVarCls.value, rootCls.value, rtlCls)
 
       const mergedCls = clsx(
         getStatusClassNames(prefixCls.value, contextStatus.value),
@@ -283,7 +283,6 @@ const ColorPicker = defineComponent<
         destroyOnHidden,
       }
       const mergedStyle = {
-        ...mergedStyles.value.root,
         ...contextStyle.value,
         ...style,
       }
@@ -335,6 +334,8 @@ const ColorPicker = defineComponent<
               showText={mergedShowText as any}
               format={formatValue.value}
               color={mergedColor.value as any}
+              classes={mergedClassNames.value}
+              styles={mergedStyles.value}
             />
           )
       return (

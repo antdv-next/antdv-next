@@ -293,7 +293,7 @@ const InternalCompoundedButton = defineComponent<
     // ========================== Size ==========================
     const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction)
 
-    const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined }
+    const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined, medium: undefined }
     const sizeFullName = useSize<SizeType>(ctxSize => (props?.size ?? compactSize.value ?? ctxSize) as SizeType)
     const mergedIconPlacement = computed(() => props?.iconPlacement ?? 'start')
     // =========== Merged Props for Semantic ===========

@@ -315,14 +315,14 @@ catalogs:
       specifier: ^1.0.0
       version: 1.0.0
     '@v-c/checkbox':
-      specifier: ^1.0.0
-      version: 1.0.0
+      specifier: ^1.0.1
+      version: 1.0.1
     '@v-c/collapse':
       specifier: ^1.0.0
       version: 1.0.0
     '@v-c/color-picker':
-      specifier: ^1.0.4
-      version: 1.0.4
+      specifier: ^1.0.5
+      version: 1.0.5
     '@v-c/dialog':
       specifier: ^1.0.1
       version: 1.0.1
@@ -593,13 +593,13 @@ importers:
         version: 1.0.0(vue@3.5.27(typescript@5.9.3))
       '@v-c/checkbox':
         specifier: catalog:vc
-        version: 1.0.0(vue@3.5.27(typescript@5.9.3))
+        version: 1.0.1(vue@3.5.27(typescript@5.9.3))
       '@v-c/collapse':
         specifier: catalog:vc
         version: 1.0.0(vue@3.5.27(typescript@5.9.3))
       '@v-c/color-picker':
         specifier: catalog:vc
-        version: 1.0.4(vue@3.5.27(typescript@5.9.3))
+        version: 1.0.5(vue@3.5.27(typescript@5.9.3))
       '@v-c/dialog':
         specifier: catalog:vc
         version: 1.0.1(vue@3.5.27(typescript@5.9.3))
@@ -2205,8 +2205,8 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
-  '@v-c/checkbox@1.0.0':
-    resolution: {integrity: sha512-2abQmtpdYpQjb9+Xe9w1iPjdgSKDyQ1TpVq2QfTMdcj656S9npfDT2AH6HOgQV76oezV86dxgi1QG+lmXnDm0Q==}
+  '@v-c/checkbox@1.0.1':
+    resolution: {integrity: sha512-+QsE/0VfU6oeglwuHWYxRNTn3+eV08iG0uN/upDmqSGznezInzfUClh+t4acd/OxyJVtuob0WKsg/vPlT6WRWw==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -2217,6 +2217,11 @@ packages:
 
   '@v-c/color-picker@1.0.4':
     resolution: {integrity: sha512-VwNowJREYp25C6M39EHyTQ1nrxN2Usg96xGPupV2XiZs6wyKpXpXSjMbDXzD5/NKW1PKu/BTZOnrdLsrmY0mxg==}
+    peerDependencies:
+      vue: ^3.0.0
+
+  '@v-c/color-picker@1.0.5':
+    resolution: {integrity: sha512-n8wydSJExOwvPR4mqW/xmQb9FUFIaA87u0PlcZoJnW8craJtU2+iYm9BlgzGhSm+Nu3Dx9TYypO+xJ4pwhnuPg==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -2371,11 +2376,6 @@ packages:
 
   '@v-c/textarea@1.0.3':
     resolution: {integrity: sha512-oCpqdOyiNPFgLRUw913IjTdIMVtryy9maJEaSz+ledn/cVO4OJ44dEP8eCnhxlHTfduLKesKIlDoRIBhLu4qqQ==}
-    peerDependencies:
-      vue: ^3.0.0
-
-  '@v-c/tooltip@1.0.2':
-    resolution: {integrity: sha512-EwKbftSPCBrp+D40qMXV0/IzOIshQ6Wm5a+yYBZKJxF03uR0sUkQP+/cj7V55Gr9rDJ5G1EaxQjCuQAezwhzig==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -7069,7 +7069,7 @@ snapshots:
       '@v-c/util': 1.0.13(vue@3.5.27(typescript@5.9.3))
       vue: 3.5.27(typescript@5.9.3)
 
-  '@v-c/checkbox@1.0.0(vue@3.5.27(typescript@5.9.3))':
+  '@v-c/checkbox@1.0.1(vue@3.5.27(typescript@5.9.3))':
     dependencies:
       '@v-c/util': 1.0.13(vue@3.5.27(typescript@5.9.3))
       vue: 3.5.27(typescript@5.9.3)
@@ -7080,6 +7080,12 @@ snapshots:
       vue: 3.5.27(typescript@5.9.3)
 
   '@v-c/color-picker@1.0.4(vue@3.5.27(typescript@5.9.3))':
+    dependencies:
+      '@ant-design/fast-color': 3.0.0
+      '@v-c/util': 1.0.13(vue@3.5.27(typescript@5.9.3))
+      vue: 3.5.27(typescript@5.9.3)
+
+  '@v-c/color-picker@1.0.5(vue@3.5.27(typescript@5.9.3))':
     dependencies:
       '@ant-design/fast-color': 3.0.0
       '@v-c/util': 1.0.13(vue@3.5.27(typescript@5.9.3))
@@ -7265,12 +7271,6 @@ snapshots:
     dependencies:
       '@v-c/input': 1.0.2(vue@3.5.27(typescript@5.9.3))
       '@v-c/resize-observer': 1.0.8(vue@3.5.27(typescript@5.9.3))
-      '@v-c/util': 1.0.13(vue@3.5.27(typescript@5.9.3))
-      vue: 3.5.27(typescript@5.9.3)
-
-  '@v-c/tooltip@1.0.2(vue@3.5.27(typescript@5.9.3))':
-    dependencies:
-      '@v-c/trigger': 1.0.11(vue@3.5.27(typescript@5.9.3))
       '@v-c/util': 1.0.13(vue@3.5.27(typescript@5.9.3))
       vue: 3.5.27(typescript@5.9.3)
 
@@ -7604,7 +7604,7 @@ snapshots:
       '@antdv-next/icons': 1.0.0-rc.2(vue@3.5.27(typescript@5.9.3))
       '@v-c/async-validator': 1.0.0
       '@v-c/cascader': 1.0.0(vue@3.5.27(typescript@5.9.3))
-      '@v-c/checkbox': 1.0.0(vue@3.5.27(typescript@5.9.3))
+      '@v-c/checkbox': 1.0.1(vue@3.5.27(typescript@5.9.3))
       '@v-c/collapse': 1.0.0(vue@3.5.27(typescript@5.9.3))
       '@v-c/color-picker': 1.0.4(vue@3.5.27(typescript@5.9.3))
       '@v-c/dialog': 1.0.1(vue@3.5.27(typescript@5.9.3))
@@ -7632,7 +7632,7 @@ snapshots:
       '@v-c/table': 1.0.0(vue@3.5.27(typescript@5.9.3))
       '@v-c/tabs': 1.0.1(vue@3.5.27(typescript@5.9.3))
       '@v-c/textarea': 1.0.3(vue@3.5.27(typescript@5.9.3))
-      '@v-c/tooltip': 1.0.2(vue@3.5.27(typescript@5.9.3))
+      '@v-c/tooltip': 1.0.3(vue@3.5.27(typescript@5.9.3))
       '@v-c/tour': 1.0.3(vue@3.5.27(typescript@5.9.3))
       '@v-c/tree': 1.0.2(vue@3.5.27(typescript@5.9.3))
       '@v-c/tree-select': 1.0.0(vue@3.5.27(typescript@5.9.3))

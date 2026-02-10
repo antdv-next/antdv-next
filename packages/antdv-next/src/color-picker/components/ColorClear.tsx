@@ -1,18 +1,18 @@
 import type { AggregationColor } from '../color'
+import { getAttrStyleAndClass } from '@v-c/util/dist/props-util'
 import { defineComponent } from 'vue'
 import { generateColor } from '../util'
 
 export interface ColorClearProps {
   prefixCls: string
   value?: AggregationColor
-  disabled?: boolean
   onChange?: (value: AggregationColor) => void
 }
 
 export default defineComponent<ColorClearProps>(
-  (props) => {
+  (props, { attrs }) => {
     const handleClick = () => {
-      if (props.disabled || !props.onChange || !props.value || props.value.cleared) {
+      if (!props.onChange || !props.value || props.value.cleared) {
         return
       }
       const hsba = props.value.toHsb()
@@ -22,7 +22,10 @@ export default defineComponent<ColorClearProps>(
       props.onChange(genColor)
     }
 
-    return () => <div class={`${props.prefixCls}-clear`} onClick={handleClick} />
+    return () => {
+      const { className, style } = getAttrStyleAndClass(attrs)
+      return <div class={[`${props.prefixCls}-clear`, className]} style={style} onClick={handleClick} />
+    }
   },
   {
     name: 'ColorClear',

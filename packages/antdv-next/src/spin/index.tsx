@@ -22,27 +22,35 @@ export type SpinSemanticName = keyof SpinSemanticClassNames & keyof SpinSemantic
 
 export interface SpinSemanticClassNames {
   root?: string
-  wrapper?: string
-  mask?: string
+  section?: string
   indicator?: string
+  description?: string
+
+  container?: string
+
+  /** @deprecated Please use `description` instead */
   tip?: string
+  /** @deprecated Please use `root` instead */
+  mask?: string
 }
 
 export interface SpinSemanticStyles {
   root?: CSSProperties
-  wrapper?: CSSProperties
-  mask?: CSSProperties
+  section?: CSSProperties
   indicator?: CSSProperties
+  description?: CSSProperties
+
+  container?: CSSProperties
+
+  /** @deprecated Please use `description` instead */
   tip?: CSSProperties
+  /** @deprecated Please use `root` instead */
+  mask?: CSSProperties
 }
 
 export type SpinClassNamesType = SemanticClassNamesType<SpinProps, SpinSemanticClassNames>
 
-export type SpinStylesType = SemanticStylesType<
-  SpinProps,
-  SpinSemanticStyles,
-  { wrapper?: CSSProperties }
->
+export type SpinStylesType = SemanticStylesType<SpinProps, SpinSemanticStyles>
 
 export interface SpinProps extends ComponentBaseProps {
   /** Whether Spin is spinning */
@@ -81,8 +89,7 @@ const defaultSpinProps = {
   spinning: true,
   delay: 0,
   size: 'default',
-  tip: undefined,
-  indicator: undefined,
+  fullscreen: false,
 } as any
 
 const Spin = defineComponent<
