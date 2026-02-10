@@ -1,0 +1,33 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`divider > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-divider css-var-root ant-divider-horizontal ant-divider-rtl ant-divider-rail"
+    role="separator"
+  >
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`divider > should render correct snapshot 1`] = `
+<div
+  class="ant-divider css-var-root ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start ant-divider-dashed"
+  role="separator"
+>
+  <div
+    class="ant-divider-rail ant-divider-rail-start"
+  />
+  <span
+    class="ant-divider-inner-text"
+  >
+    Section Title
+  </span>
+  <div
+    class="ant-divider-rail ant-divider-rail-end"
+  />
+</div>
+`;

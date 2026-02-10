@@ -8,7 +8,6 @@ import { filterEmpty, removeUndefined } from '@v-c/util/dist/props-util'
 import { getTransitionName } from '@v-c/util/dist/utils/transition'
 import { computed, createVNode, defineComponent, shallowRef, watchEffect } from 'vue'
 import {
-
   useMergeSemantic,
   useToArr,
   useToProps,
