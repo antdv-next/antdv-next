@@ -62,7 +62,13 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 ## Semantic DOM
 
+### Badge
+
 <demo src="./demo/_semantic.vue" simplify></demo>
+
+### BadgeRibbon
+
+<demo src="./demo/_semantic_ribbon.vue" simplify></demo>
 
 ## Design Token
 
