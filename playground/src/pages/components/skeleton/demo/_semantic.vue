@@ -1,36 +1,18 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { SemanticPreview } from '@/components/semantic'
-import { useSemanticLocale } from '@/composables/use-locale'
+import { useComponentLocale } from '@/composables/use-locale'
+import { locales } from '../locales'
 
-const locales = {
-  cn: {
-    root: '根元素，包含表格显示、宽度、动画效果、圆角等骨架屏容器的基础样式',
-    header: '头部元素，包含表格单元格、内边距、垂直对齐等头像占位区域的布局样式',
-    section: '区块元素，包含骨架屏内容区域的布局样式',
-    avatar: '头像元素，包含行内块显示、垂直对齐、背景色、尺寸、圆角等头像占位的样式',
-    title: '标题元素，包含宽度、高度、背景色、圆角等标题占位的样式',
-    paragraph: '段落元素，包含内边距、列表项样式、背景色、圆角等段落占位的样式',
-  },
-  en: {
-    root: 'Root element with table display, width, animation effects, border radius and other skeleton container basic styles',
-    header: 'Header element with table cell, padding, vertical alignment and other avatar placeholder area layout styles',
-    section: 'Section element with skeleton content area layout styles',
-    avatar: 'Avatar element with inline-block display, vertical alignment, background color, size, border radius and other avatar placeholder styles',
-    title: 'Title element with width, height, background color, border radius and other title placeholder styles',
-    paragraph: 'Paragraph element with padding, list item styles, background color, border radius and other paragraph placeholder styles',
-  },
-}
-
-const locale = useSemanticLocale(locales)
+const { t } = useComponentLocale(locales)
 
 const semantics = computed(() => [
-  { name: 'root', desc: locale.value.root, version: '1.0.0' },
-  { name: 'header', desc: locale.value.header, version: '1.0.0' },
-  { name: 'section', desc: locale.value.section, version: '1.0.0' },
-  { name: 'avatar', desc: locale.value.avatar, version: '1.0.0' },
-  { name: 'title', desc: locale.value.title, version: '1.0.0' },
-  { name: 'paragraph', desc: locale.value.paragraph, version: '1.0.0' },
+  { name: 'root', desc: t('root'), version: '1.0.0' },
+  { name: 'header', desc: t('header'), version: '1.0.0' },
+  { name: 'section', desc: t('section'), version: '1.0.0' },
+  { name: 'avatar', desc: t('avatar'), version: '1.0.0' },
+  { name: 'title', desc: t('title'), version: '1.0.0' },
+  { name: 'paragraph', desc: t('paragraph'), version: '1.0.0' },
 ])
 </script>
 

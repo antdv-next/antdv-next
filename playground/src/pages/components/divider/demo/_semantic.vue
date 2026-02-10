@@ -1,27 +1,15 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { SemanticPreview } from '@/components/semantic'
-import { useSemanticLocale } from '@/composables/use-locale'
+import { useComponentLocale } from '@/composables/use-locale'
+import { locales } from '../locales'
 
-const locales = {
-  cn: {
-    root: '根元素，包含边框顶部样式、分隔线样式等分割线容器的基础样式',
-    content: '内容元素，包含行内块显示、内边距等分割线文本内容的样式',
-    rail: '背景条元素，包含边框顶部样式等分割线连接条的样式',
-  },
-  en: {
-    root: 'Root element with border-top style, divider styling and other basic divider container styles',
-    content: 'Content element with inline-block display, padding and other divider text content styles',
-    rail: 'Background rail element with border-top style and other divider connection line styles',
-  },
-}
-
-const locale = useSemanticLocale(locales)
+const { t } = useComponentLocale(locales)
 
 const semantics = computed(() => [
-  { name: 'root', desc: locale.value.root },
-  { name: 'rail', desc: locale.value.rail },
-  { name: 'content', desc: locale.value.content },
+  { name: 'root', desc: t('root') },
+  { name: 'rail', desc: t('rail') },
+  { name: 'content', desc: t('content') },
 ])
 </script>
 

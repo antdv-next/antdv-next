@@ -95,7 +95,7 @@ demo:
 | size | 选择框大小 | `large` \| `middle` \| `small` | - | - |
 | status | 设置校验状态 | 'error' \| 'warning' | - | - |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - |
-| suffixIcon | 自定义的选择框后缀图标。以防止图标被用于其他交互，替换的图标默认不会响应展开、收缩事件，可以通过添加 `pointer-events: none` 样式透传 | VueNode | `&lt;DownOutlined /&gt;` | - |
+| suffixIcon | 自定义的选择框后缀图标。以防止图标被用于其他交互，替换的图标默认不会响应展开、收缩事件，可以通过添加 `pointer-events: none` 样式透传 | VueNode | `<DownOutlined />` | - |
 | tagRender | 自定义 tag 内容 render，仅在 `mode` 为 `multiple` 或 `tags` 时生效 | (props) =&gt; VueNode | - | - |
 | labelRender | 自定义当前选中的 label 内容 render | (props: LabelInValueType) =&gt; VueNode | - | - |
 | tokenSeparators | 自动分词的分隔符，仅在 `mode="tags"` 时生效 | string[] | - | - |

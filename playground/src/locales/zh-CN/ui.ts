@@ -39,4 +39,15 @@ export default {
     searchPlaceholder: '搜索图标',
     copiedMessage: '复制成功 🎉',
   },
+
+  docSearch: {
+    placeholder: '输入关键字搜索...',
+    emptyText: '暂无匹配结果',
+    loadingText: '正在加载索引...',
+    sections: {
+      components: '组件',
+      docs: '文档',
+      blog: '博客',
+    },
+  },
 } as const

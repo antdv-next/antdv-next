@@ -37,23 +37,23 @@ export function useLocale() {
   return { messages, t }
 }
 
-/**
- * Get a specific namespace from the locale
- * @param namespace - The namespace to access (e.g., 'themeBtn', 'home', 'codeDemo')
- * @returns Reactive locale messages for the specified namespace
- */
-export function useLocaleNamespace<K extends keyof LocaleMessages>(namespace: K) {
-  return computed(() => {
-    const currentLocale = localeStore.value
-    const localeData = locales[currentLocale] || locales['zh-CN']
-    return localeData[namespace]
-  })
-}
-
 export function useSemanticLocale(locales: Record<'cn' | 'en', Record<string, any>>) {
   return computed(() => {
     const currentLocale = localeStore.value
     const lang = currentLocale.startsWith('zh') ? 'cn' : 'en'
     return locales[lang]
   })
+}
+
+export function useComponentLocale<T extends Record<string, string>>(locales: Record<'cn' | 'en', T>) {
+  const messages = computed(() => {
+    const lang = localeStore.value.startsWith('zh') ? 'cn' : 'en'
+    return locales[lang]
+  })
+
+  function t(key: keyof T): string {
+    return messages.value[key] || String(key)
+  }
+
+  return { t }
 }

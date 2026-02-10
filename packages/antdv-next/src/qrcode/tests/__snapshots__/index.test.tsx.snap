@@ -1,0 +1,37 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`qrcode test > custom status render 1`] = `
+"<div class="qrcode-expired ant-qrcode qrcode-expired css-var-root" style="background-color: transparent; width: 160px; height: 160px;">
+  <div class="ant-qrcode-cover">
+    <div class="custom-expired"><span>QR code expired</span><button id="refresh" type="button">refresh</button></div>
+  </div><canvas role="img" height="160" width="160"></canvas>
+  <!---->
+</div>
+<div class="qrcode-loading ant-qrcode qrcode-loading css-var-root" style="background-color: transparent; width: 160px; height: 160px;">
+  <div class="ant-qrcode-cover">
+    <div class="custom-loading">Loading</div>
+  </div><canvas role="img" height="160" width="160"></canvas>
+  <!---->
+</div>
+<div class="qrcode-scanned ant-qrcode qrcode-scanned css-var-root" style="background-color: transparent; width: 160px; height: 160px;">
+  <div class="ant-qrcode-cover">
+    <div class="custom-scanned">Scanned</div>
+  </div><canvas role="img" height="160" width="160"></canvas>
+  <!---->
+</div>"
+`;
+
+exports[`qrcode test > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<div
+  data-v-app=""
+>
+  <!---->
+</div>
+`;
+
+exports[`qrcode test > should correct render 1`] = `
+"<div class="ant-qrcode css-var-root" style="background-color: transparent; width: 160px; height: 160px;">
+  <!----><canvas role="img" height="160" width="160"></canvas>
+  <!---->
+</div>"
+`;

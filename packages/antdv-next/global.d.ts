@@ -16,7 +16,7 @@ declare module 'vue' {
     ACol: typeof import('antdv-next')['Col']
     ARow: typeof import('antdv-next')['Row']
     ABadge: typeof import('antdv-next')['Badge']
-    ABadgeRibbon: typeof import('antdv-next')['Badge']['Ribbon']
+    ABadgeRibbon: typeof import('antdv-next')['BadgeRibbon']
     ATag: typeof import('antdv-next')['Tag']
     ACheckableTag: typeof import('antdv-next')['CheckableTag']
     ALayout: typeof import('antdv-next')['Layout']

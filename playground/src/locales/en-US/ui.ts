@@ -39,4 +39,15 @@ export default {
     searchPlaceholder: 'Search icons',
     copiedMessage: 'copied 🎉',
   },
+
+  docSearch: {
+    placeholder: 'Search docs and components...',
+    emptyText: 'No results found',
+    loadingText: 'Loading search index...',
+    sections: {
+      components: 'Components',
+      docs: 'Docs',
+      blog: 'Blog',
+    },
+  },
 } as const
