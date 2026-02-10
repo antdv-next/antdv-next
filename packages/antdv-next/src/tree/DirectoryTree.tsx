@@ -189,7 +189,7 @@ const DirectoryTree = defineComponent<
       const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
 
       const connectClassName = clsx(
-        `${prefixCls}-directory`,
+        `${prefixCls.value}-directory`,
         {
           [`${prefixCls.value}-directory-rtl`]: direction.value === 'rtl',
         },

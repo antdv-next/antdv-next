@@ -1,7 +1,7 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`directory Tree > defaultExpandAll 1`] = `
-"<div class="ant-tree ant-tree-block-node [object Object]-directory css-var-root">
+"<div class="ant-tree ant-tree-block-node ant-tree-directory css-var-root">
   <div class="ant-tree-treenode" aria-hidden="true" style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; padding: 0px; border: 0px;">
     <div class="ant-tree-indent">
       <div class="ant-tree-indent-unit"></div>
@@ -32,7 +32,7 @@ exports[`directory Tree > defaultExpandAll 1`] = `
 `;
 
 exports[`directory Tree > defaultExpandParent 1`] = `
-"<div class="ant-tree ant-tree-block-node [object Object]-directory css-var-root">
+"<div class="ant-tree ant-tree-block-node ant-tree-directory css-var-root">
   <div class="ant-tree-treenode" aria-hidden="true" style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; padding: 0px; border: 0px;">
     <div class="ant-tree-indent">
       <div class="ant-tree-indent-unit"></div>
@@ -63,7 +63,7 @@ exports[`directory Tree > defaultExpandParent 1`] = `
 `;
 
 exports[`directory Tree > directoryTree should expend all when use treeData and defaultExpandAll is true 1`] = `
-"<div class="ant-tree ant-tree-block-node [object Object]-directory css-var-root">
+"<div class="ant-tree ant-tree-block-node ant-tree-directory css-var-root">
   <div class="ant-tree-treenode" aria-hidden="true" style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;">
     <div class="ant-tree-indent">
       <div class="ant-tree-indent-unit"></div>
@@ -99,7 +99,7 @@ exports[`directory Tree > directoryTree should expend all when use treeData and 
 `;
 
 exports[`directory Tree > expand > with state control > click 1`] = `
-"<div class="ant-tree ant-tree-block-node [object Object]-directory css-var-root">
+"<div class="ant-tree ant-tree-block-node ant-tree-directory css-var-root">
   <div class="ant-tree-treenode" aria-hidden="true" style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; padding: 0px; border: 0px;">
     <div class="ant-tree-indent">
       <div class="ant-tree-indent-unit"></div>
@@ -134,7 +134,7 @@ exports[`directory Tree > expand > with state control > click 1`] = `
 `;
 
 exports[`directory Tree > expand > with state control > doubleClick 1`] = `
-"<div class="ant-tree ant-tree-block-node [object Object]-directory css-var-root">
+"<div class="ant-tree ant-tree-block-node ant-tree-directory css-var-root">
   <div class="ant-tree-treenode" aria-hidden="true" style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; padding: 0px; border: 0px;">
     <div class="ant-tree-indent">
       <div class="ant-tree-indent-unit"></div>
@@ -169,7 +169,7 @@ exports[`directory Tree > expand > with state control > doubleClick 1`] = `
 `;
 
 exports[`directory Tree > expandedKeys update 1`] = `
-"<div class="ant-tree ant-tree-block-node [object Object]-directory css-var-root">
+"<div class="ant-tree ant-tree-block-node ant-tree-directory css-var-root">
   <div class="ant-tree-treenode" aria-hidden="true" style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; padding: 0px; border: 0px;">
     <div class="ant-tree-indent">
       <div class="ant-tree-indent-unit"></div>
@@ -214,7 +214,7 @@ exports[`directory Tree > expandedKeys update 1`] = `
 `;
 
 exports[`directory Tree > group select 1`] = `
-"<div class="ant-tree ant-tree-block-node [object Object]-directory css-var-root">
+"<div class="ant-tree ant-tree-block-node ant-tree-directory css-var-root">
   <div class="ant-tree-treenode" aria-hidden="true" style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; padding: 0px; border: 0px;">
     <div class="ant-tree-indent">
       <div class="ant-tree-indent-unit"></div>
@@ -265,7 +265,7 @@ exports[`directory Tree > group select 1`] = `
 `;
 
 exports[`directory Tree > group select 2`] = `
-"<div class="ant-tree ant-tree-block-node [object Object]-directory css-var-root">
+"<div class="ant-tree ant-tree-block-node ant-tree-directory css-var-root">
   <div class="ant-tree-treenode" aria-hidden="true" style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; padding: 0px; border: 0px;">
     <div class="ant-tree-indent">
       <div class="ant-tree-indent-unit"></div>
@@ -320,7 +320,7 @@ exports[`directory Tree > rtl render > component should be rendered correctly in
   data-v-app=""
 >
   <div
-    class="ant-tree ant-tree-block-node ant-tree-rtl [object Object]-directory ant-tree-directory-rtl css-var-root"
+    class="ant-tree ant-tree-block-node ant-tree-rtl ant-tree-directory ant-tree-directory-rtl css-var-root"
   >
     <div
       aria-hidden="true"
@@ -361,7 +361,7 @@ exports[`directory Tree > rtl render > component should be rendered correctly in
 `;
 
 exports[`directory Tree > selectedKeys update 1`] = `
-"<div class="ant-tree ant-tree-block-node [object Object]-directory css-var-root">
+"<div class="ant-tree ant-tree-block-node ant-tree-directory css-var-root">
   <div class="ant-tree-treenode" aria-hidden="true" style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; padding: 0px; border: 0px;">
     <div class="ant-tree-indent">
       <div class="ant-tree-indent-unit"></div>
