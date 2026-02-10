@@ -6,7 +6,7 @@ import VcCheckbox from '@v-c/checkbox'
 import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
-import { computed, defineComponent, nextTick, onBeforeUnmount, shallowRef, watch } from 'vue'
+import { computed, defineComponent, nextTick, shallowRef, watch } from 'vue'
 import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
 import { isValueEqual } from '../_util/isEqual'
 import isNonNullable from '../_util/isNonNullable.ts'
@@ -164,30 +164,34 @@ const InternalCheckbox = defineComponent<
       )
     }
     checkboxGroup?.value?.registerValue?.(prevValue.value)
-    watch(() => props.value, (_n, _o, onCleanup) => {
-      if (props.skipGroup) {
-        return
-      }
-      if (prevValue.value !== props.value) {
-        checkboxGroup?.value?.cancelValue?.(prevValue.value)
-        checkboxGroup?.value?.registerValue?.(props.value)
-        prevValue.value = props.value
-      }
-      onCleanup(() => {
-        checkboxGroup?.value?.cancelValue?.(prevValue.value)
-      })
-    })
-    onBeforeUnmount(() => {
-      checkboxGroup?.value?.cancelValue?.(prevValue.value)
-    })
-    watch(() => props.indeterminate, async () => {
-      await nextTick()
-      if (checkboxRef.value) {
-        if (checkboxRef.value?.input) {
-          checkboxRef.value.input.indeterminate = props.indeterminate
+    watch(
+      [() => props.value, () => checkboxGroup?.value],
+      (_n, _o, onCleanup) => {
+        if (props.skipGroup || !checkboxGroup?.value) {
+          return
         }
-      }
-    })
+        if (prevValue.value !== props.value) {
+          checkboxGroup?.value?.registerValue?.(props.value)
+          prevValue.value = props.value
+        }
+        onCleanup(() => {
+          checkboxGroup?.value?.cancelValue?.(prevValue.value)
+        })
+      },
+    )
+
+    watch(
+      () => props.indeterminate,
+      async () => {
+        await nextTick()
+        if (checkboxRef.value) {
+          if (checkboxRef.value?.input) {
+            checkboxRef.value.input.indeterminate = props.indeterminate
+          }
+        }
+      },
+      { immediate: true },
+    )
 
     const rootCls = useCSSVarCls(prefixCls)
     const [hashId, cssVarCls] = useStyle(prefixCls, rootCls)

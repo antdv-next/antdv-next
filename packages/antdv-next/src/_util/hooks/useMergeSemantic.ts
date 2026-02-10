@@ -14,6 +14,8 @@ export type SemanticStyles<Name extends string> = Partial<Record<Name, CSSProper
 
 export type Resolvable<T, P extends AnyObject> = T | ((info: { props: P }) => T)
 
+export type SemanticType<P = any, T = any> = T | ((info: { props: P }) => T)
+
 export type SemanticClassNamesType<
   Props extends AnyObject,
   SemanticClassNames extends { [K in keyof SemanticClassNames]?: string },
