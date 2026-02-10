@@ -1,5 +1,5 @@
 import type { Key } from '@v-c/tree'
-import type { DirectoryTreeProps, TreeRef } from '..'
+import type { DirectoryTreeProps } from '..'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { defineComponent, ref } from 'vue'
 import Tree from '..'
@@ -23,7 +23,7 @@ function renderTreeNodes() {
   )
 }
 
-function mountDirectoryTree(props?: DirectoryTreeProps) {
+function mountDirectoryTree(props?: DirectoryTreeProps & { [prop: string]: unknown }) {
   return mount(DirectoryTree, {
     props,
     slots: {
@@ -144,15 +144,15 @@ describe('directory Tree', () => {
     expect(nodes).toHaveLength(4)
     expect(wrapper.findAll('.ant-tree-node-selected')).toHaveLength(0)
 
-    await nodes[2].trigger('click')
+    await nodes[2]!.trigger('click')
     await waitFakeTimer(0, 1)
-    await nodes[0].trigger('click', { shiftKey: true })
+    await nodes[0]!.trigger('click', { shiftKey: true })
     await waitFakeTimer(0, 1)
 
-    expect(nodes[0].classes()).toContain('ant-tree-node-selected')
-    expect(nodes[1].classes()).toContain('ant-tree-node-selected')
-    expect(nodes[2].classes()).toContain('ant-tree-node-selected')
-    expect(nodes[3].classes()).not.toContain('ant-tree-node-selected')
+    expect(nodes[0]!.classes()).toContain('ant-tree-node-selected')
+    expect(nodes[1]!.classes()).toContain('ant-tree-node-selected')
+    expect(nodes[2]!.classes()).toContain('ant-tree-node-selected')
+    expect(nodes[3]!.classes()).not.toContain('ant-tree-node-selected')
     wrapper.unmount()
   })
 
@@ -240,30 +240,30 @@ describe('directory Tree', () => {
 
     const nodes = wrapper.findAll('.ant-tree-node-content-wrapper')
 
-    await nodes[0].trigger('click')
+    await nodes[0]!.trigger('click')
     await waitFakeTimer(0, 1)
-    expect(onSelect.mock.calls[0][1].selected).toBeTruthy()
-    expect(onSelect.mock.calls[0][1].selectedNodes.length).toBe(1)
+    expect(onSelect.mock.calls[0]![1].selected).toBeTruthy()
+    expect(onSelect.mock.calls[0]![1].selectedNodes.length).toBe(1)
 
-    await nodes[0].trigger('click')
+    await nodes[0]!.trigger('click')
     await waitFakeTimer(0, 1)
-    expect(onSelect.mock.calls[1][1].selected).toBeTruthy()
-    expect(onSelect.mock.calls[0][0]).toEqual(onSelect.mock.calls[1][0])
-    expect(onSelect.mock.calls[1][1].selectedNodes.length).toBe(1)
+    expect(onSelect.mock.calls[1]![1].selected).toBeTruthy()
+    expect(onSelect.mock.calls[0]![0]).toEqual(onSelect.mock.calls[1]![0])
+    expect(onSelect.mock.calls[1]![1].selectedNodes.length).toBe(1)
 
-    await nodes[1].trigger('click', { ctrlKey: true })
+    await nodes[1]!.trigger('click', { ctrlKey: true })
     await waitFakeTimer(0, 1)
     expect(wrapper.html()).toMatchSnapshot()
-    expect(onSelect.mock.calls[2][0].length).toBe(2)
-    expect(onSelect.mock.calls[2][1].selected).toBeTruthy()
-    expect(onSelect.mock.calls[2][1].selectedNodes.length).toBe(2)
+    expect(onSelect.mock.calls[2]![0].length).toBe(2)
+    expect(onSelect.mock.calls[2]![1].selected).toBeTruthy()
+    expect(onSelect.mock.calls[2]![1].selectedNodes.length).toBe(2)
 
-    await nodes[4].trigger('click', { shiftKey: true })
+    await nodes[4]!.trigger('click', { shiftKey: true })
     await waitFakeTimer(0, 1)
     expect(wrapper.html()).toMatchSnapshot()
-    expect(onSelect.mock.calls[3][0].length).toBe(5)
-    expect(onSelect.mock.calls[3][1].selected).toBeTruthy()
-    expect(onSelect.mock.calls[3][1].selectedNodes.length).toBe(5)
+    expect(onSelect.mock.calls[3]![0].length).toBe(5)
+    expect(onSelect.mock.calls[3]![1].selected).toBeTruthy()
+    expect(onSelect.mock.calls[3]![1].selectedNodes.length).toBe(5)
     wrapper.unmount()
   })
 
@@ -320,7 +320,7 @@ describe('directory Tree', () => {
     await waitFakeTimer(0, 1)
 
     const nodeList = wrapper.findAll('.ant-tree-node-content-wrapper')
-    await nodeList[nodeList.length - 1].trigger('click')
+    await nodeList[nodeList.length - 1]!.trigger('click')
     await waitFakeTimer(0, 1)
     expect(onExpand).not.toHaveBeenCalled()
     expect(onSelect).toHaveBeenCalledWith(
@@ -331,7 +331,7 @@ describe('directory Tree', () => {
   })
 
   it('ref support', async () => {
-    const treeRef = ref<TreeRef>()
+    const treeRef = ref()
     mount(() => (
       <DirectoryTree ref={treeRef}>
         {renderTreeNodes()}
@@ -375,9 +375,9 @@ describe('directory Tree', () => {
 
     expect(wrapper.findAll('.ant-tree-node-content-wrapper-open')).toHaveLength(2)
 
-    await wrapper.findAll('.ant-tree-node-content-wrapper')[0].trigger('click')
+    await wrapper.findAll('.ant-tree-node-content-wrapper')[0]!.trigger('click')
     await waitFakeTimer(0, 1)
-    expect(onSelect.mock.calls[0][1].selectedNodes.length).toBe(1)
+    expect(onSelect.mock.calls[0]![1].selectedNodes.length).toBe(1)
     wrapper.unmount()
   })
 })

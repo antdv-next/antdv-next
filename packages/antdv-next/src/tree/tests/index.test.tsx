@@ -272,7 +272,7 @@ describe('tree', () => {
         },
       })
       expect(nodeDraggable).toHaveBeenCalled()
-      expect(nodeDraggable.mock.calls[0][0]).toMatchObject(dragTreeData[0])
+      expect((nodeDraggable.mock.calls as Array<Array<unknown>>)[0]![0]).toMatchObject(dragTreeData[0]!)
     })
 
     it('nodeDraggable func', () => {
@@ -284,7 +284,8 @@ describe('tree', () => {
         },
       })
       expect(nodeDraggable).toHaveBeenCalled()
-      expect(nodeDraggable.mock.calls[0][0]).toMatchObject(dragTreeData[0])
+
+      expect((nodeDraggable.mock.calls as Array<Array<unknown>>)[0]![0]).toMatchObject(dragTreeData[0]!)
     })
   })
 
@@ -422,8 +423,8 @@ describe('tree', () => {
       })
 
       const trees = wrapper.findAll('.ant-tree')
-      expect(trees[0].classes()).not.toContain('ant-tree-disabled')
-      expect(trees[1].classes()).toContain('ant-tree-disabled')
+      expect(trees[0]!.classes()).not.toContain('ant-tree-disabled')
+      expect(trees[1]!.classes()).toContain('ant-tree-disabled')
     })
   })
 })

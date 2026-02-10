@@ -90,7 +90,7 @@ describe('tree.Semantic', () => {
     let root = wrapper.find('.ant-tree')
     expect(root.classes()).toContain('dynamic-tree-root')
     expect(root.classes()).toContain('with-icon')
-    expect(stylesFn.mock.calls[0][0].props.disabled).toBeFalsy()
+    expect(stylesFn.mock.calls[0]![0].props.disabled).toBeFalsy()
 
     await wrapper.setProps({
       disabled: true,
