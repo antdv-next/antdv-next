@@ -168,7 +168,8 @@ const DirectoryTree = defineComponent<
         cachedSelectedKeys.value = newSelectedKeys
         newEvent.selectedNodes = convertDirectoryKeysToNodes(treeData, newSelectedKeys, fieldNames)
       }
-      emit('update:expandedKeys', newSelectedKeys)
+      selectedKeys.value = newSelectedKeys
+      emit('update:selectedKeys', newSelectedKeys)
       emit('select', newSelectedKeys, newEvent)
     }
     const { prefixCls, direction } = useComponentBaseConfig('tree', props)
