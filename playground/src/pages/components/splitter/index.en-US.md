@@ -26,7 +26,7 @@ Provide a draggable split panel for creating complex multi-column or multi-row l
   <demo src="./demo/group.vue">Layout Group</demo>
   <demo src="./demo/size-mix.vue">Size Mix</demo>
   <demo src="./demo/lazy.vue">Lazy</demo>
-  <demo src="./demo/nested-in-tabs.vue" debug>Nested In Tabs</demo>
+  <demo src="./demo/reset.vue" version="1.0.3">Double-clicked reset</demo>
   <demo src="./demo/style-class.vue">Custom semantic dom styling</demo>
 </demo-group>
 

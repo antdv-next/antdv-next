@@ -15,6 +15,7 @@ const config = antfu(
       'no-template-curly-in-string': 0,
       'vue/no-template-shadow': 0,
       'vue/one-component-per-file': 0,
+      'style/quote-props': 0,
     },
   },
   {

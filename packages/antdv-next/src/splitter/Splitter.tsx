@@ -31,7 +31,7 @@ const Splitter = defineComponent<
   string,
   SlotsType<SplitterSlots>
 >(
-  (props, { slots, emit, attrs }) => {
+  (props, { slots, attrs }) => {
     const {
       prefixCls,
       rootPrefixCls,
@@ -101,33 +101,33 @@ const Splitter = defineComponent<
 
     const onInternalResizeStart = (index: number) => {
       onOffsetStart(index)
-      emit('resizeStart', itemPxSizes.value)
+      props?.onResizeStart?.(itemPxSizes.value)
     }
 
     const onInternalResizeUpdate = (index: number, offset: number, lazyEnd?: boolean) => {
       const nextSizes = onOffsetUpdate(index, offset)
       if (lazyEnd) {
-        emit('resizeEnd', nextSizes)
+        props?.onResizeEnd?.(nextSizes)
       }
       else {
-        emit('resize', nextSizes)
+        props?.onResize?.(nextSizes)
       }
     }
 
     const onInternalResizeEnd = (lazyEnd?: boolean) => {
       onOffsetEnd()
       if (!lazyEnd) {
-        emit('resizeEnd', itemPxSizes.value)
+        props?.onResizeEnd?.(itemPxSizes.value)
       }
     }
 
     const onInternalCollapse = (index: number, type: 'start' | 'end') => {
       const nextSizes = onCollapse(index, type)
-      emit('resize', nextSizes)
-      emit('resizeEnd', nextSizes)
+      props?.onResize?.(nextSizes)
+      props?.onResizeEnd?.(nextSizes)
       const collapsed = nextSizes.map(size => Math.abs(size) < Number.EPSILON)
-      emit('collapse', collapsed, nextSizes)
-      emit('update:collapse', collapsed)
+      props?.onCollapse?.(collapsed, nextSizes)
+      props?.['onUpdate:collapse']?.(collapsed)
     }
 
     // =========== Merged Props for Semantic ==========
@@ -248,6 +248,7 @@ const Splitter = defineComponent<
                     endCollapsible={resizableInfo.endCollapsible}
                     showStartCollapsibleIcon={resizableInfo.showStartCollapsibleIcon}
                     showEndCollapsibleIcon={resizableInfo.showEndCollapsibleIcon}
+                    onDraggerDoubleClick={props?.onDraggerDoubleClick}
                     onOffsetStart={onInternalResizeStart}
                     onOffsetUpdate={(index, offsetX, offsetY, lazyEnd) => {
                       let offset = isVertical.value ? offsetY : offsetX
