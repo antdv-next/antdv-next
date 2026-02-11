@@ -797,6 +797,7 @@ describe('transfer', () => {
           {selectedCount}
           {' '}
           of
+          {' '}
           {totalCount}
         </span>
       ),

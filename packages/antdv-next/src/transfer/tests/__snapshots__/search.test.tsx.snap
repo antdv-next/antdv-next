@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Transfer.Search > should show cross icon when input value exists 1`] = `
+exports[`transfer.Search > should show cross icon when input value exists 1`] = `
 <span
   class="ant-input-affix-wrapper ant-input-outlined css-var-root ant-input-css-var"
 >
@@ -67,7 +67,7 @@ exports[`Transfer.Search > should show cross icon when input value exists 1`] = 
 </span>
 `;
 
-exports[`Transfer.Search > should show cross icon when input value exists 2`] = `
+exports[`transfer.Search > should show cross icon when input value exists 2`] = `
 <span
   class="ant-input-affix-wrapper ant-input-outlined css-var-root ant-input-css-var"
 >
