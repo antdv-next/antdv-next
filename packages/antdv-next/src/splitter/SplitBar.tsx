@@ -149,6 +149,7 @@ const SplitBar = defineComponent<SplitBarProps>(
           const { pageX, pageY } = e
           const offsetX = pageX - startPos.value![0]!
           const offsetY = pageY - startPos.value![1]!
+
           if (lazy.value) {
             handleLazyMove(offsetX, offsetY)
           }
