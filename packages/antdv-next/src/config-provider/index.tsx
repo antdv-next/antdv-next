@@ -44,6 +44,7 @@ const PASSED_PROPS: Exclude<
   'mentions',
   'form',
   'select',
+  'treeSelect',
   'button',
   'alert',
   'transformCellText',

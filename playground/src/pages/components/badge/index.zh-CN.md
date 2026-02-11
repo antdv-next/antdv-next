@@ -63,7 +63,13 @@ demo:
 
 ## 语义化 DOM
 
+### Badge
+
 <demo src="./demo/_semantic.vue" simplify></demo>
+
+### BadgeRibbon
+
+<demo src="./demo/_semantic_ribbon.vue" simplify></demo>
 
 ## 主题变量（Design Token）
 

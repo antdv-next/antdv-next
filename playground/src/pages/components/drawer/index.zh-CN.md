@@ -50,7 +50,7 @@ demo:
 | --- | --- | --- | --- | --- |
 | afterOpenChange | 切换抽屉时动画结束后的回调 | (open: boolean) => void | - | - |
 | classes | 用于自定义 Drawer 组件内部各语义化结构的 class，支持对象或函数 | DrawerClassNamesType | - | - |
-| closable | 是否展示关闭按钮，可通过 `placement` 设置位置 | boolean \| { closeIcon?: VueNode; disabled?: boolean; placement?: 'start' \| 'end' } | true | - |
+| closable | 是否展示关闭按钮，可通过 `placement` 设置位置 | boolean \| \{ closeIcon?: VueNode, disabled?: boolean, placement?: 'start' \| 'end' \} | true | - |
 | closeIcon | 自定义关闭图标 | VueNode | - | - |
 | ~~destroyOnClose~~ | 关闭时销毁 Drawer 里的子元素 | boolean | false | - |
 | destroyOnHidden | 关闭时销毁 Drawer 里的子元素 | boolean | false | - |

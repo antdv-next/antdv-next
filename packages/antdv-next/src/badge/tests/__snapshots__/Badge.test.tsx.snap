@@ -1,0 +1,61 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`badge > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<div
+  data-v-app=""
+>
+  <span
+    class="ant-badge ant-badge-rtl css-var-root"
+  >
+    <span>
+      test
+    </span>
+    <transition-stub
+      appear="false"
+      css="true"
+      enteractiveclass="ant-badge-zoom ant-badge-zoom-enter ant-badge-zoom-appear ant-badge-zoom-appear-prepare ant-badge-zoom-enter-prepare "
+      enterfromclass="ant-badge-zoom ant-badge-zoom-enter ant-badge-zoom-appear ant-badge-zoom-appear-prepare ant-badge-zoom-enter-prepare ant-badge-zoom-enter-start"
+      entertoclass="ant-badge-zoom ant-badge-zoom-enter ant-badge-zoom-appear ant-badge-zoom-appear-active ant-badge-zoom-enter-active"
+      leaveactiveclass="ant-badge-zoom ant-badge-zoom-leave ant-badge-zoom-leave-active"
+      leavefromclass="ant-badge-zoom ant-badge-zoom-leave"
+      leavetoclass="ant-badge-zoom ant-badge-zoom-leave ant-badge-zoom-leave-active"
+      name="ant-badge-zoom"
+      persisted="false"
+    >
+      <sup
+        class="ant-scroll-number ant-badge-count"
+        data-show="true"
+        title="5"
+      >
+        <bdi>
+          <span
+            class="ant-scroll-number-only"
+            style="transition: none;"
+          >
+            <span
+              class="ant-scroll-number-only-unit current"
+            >
+              5
+            </span>
+          </span>
+        </bdi>
+      </sup>
+    </transition-stub>
+    <!---->
+  </span>
+</div>
+`;
+
+exports[`badge > should match dot snapshot 1`] = `
+"<span class="ant-badge css-var-root"><span class="ant-avatar ant-avatar-lg ant-avatar-square css-var-root ant-avatar-css-var"><span class="ant-avatar-string" style="opacity: 0;"></span></span>
+<transition-stub name="ant-badge-zoom" enterfromclass="ant-badge-zoom ant-badge-zoom-enter ant-badge-zoom-appear ant-badge-zoom-appear-prepare ant-badge-zoom-enter-prepare ant-badge-zoom-enter-start" enteractiveclass="ant-badge-zoom ant-badge-zoom-enter ant-badge-zoom-appear ant-badge-zoom-appear-prepare ant-badge-zoom-enter-prepare " entertoclass="ant-badge-zoom ant-badge-zoom-enter ant-badge-zoom-appear ant-badge-zoom-appear-active ant-badge-zoom-enter-active" leavefromclass="ant-badge-zoom ant-badge-zoom-leave" leaveactiveclass="ant-badge-zoom ant-badge-zoom-leave ant-badge-zoom-leave-active" leavetoclass="ant-badge-zoom ant-badge-zoom-leave ant-badge-zoom-leave-active" appear="false" persisted="false" css="true"><sup data-show="true" class="ant-scroll-number ant-badge-dot"><bdi></bdi></sup></transition-stub>
+<!----></span>"
+`;
+
+exports[`badge > should match snapshot 1`] = `
+"<span class="ant-badge css-var-root"><span class="ant-avatar ant-avatar-lg ant-avatar-square css-var-root ant-avatar-css-var"><span class="ant-avatar-string" style="opacity: 0;"></span></span>
+<transition-stub name="ant-badge-zoom" enterfromclass="ant-badge-zoom ant-badge-zoom-enter ant-badge-zoom-appear ant-badge-zoom-appear-prepare ant-badge-zoom-enter-prepare ant-badge-zoom-enter-start" enteractiveclass="ant-badge-zoom ant-badge-zoom-enter ant-badge-zoom-appear ant-badge-zoom-appear-prepare ant-badge-zoom-enter-prepare " entertoclass="ant-badge-zoom ant-badge-zoom-enter ant-badge-zoom-appear ant-badge-zoom-appear-active ant-badge-zoom-enter-active" leavefromclass="ant-badge-zoom ant-badge-zoom-leave" leaveactiveclass="ant-badge-zoom ant-badge-zoom-leave ant-badge-zoom-leave-active" leavetoclass="ant-badge-zoom ant-badge-zoom-leave ant-badge-zoom-leave-active" appear="false" persisted="false" css="true"><sup data-show="true" class="ant-scroll-number ant-badge-count" title="5"><bdi><span class="ant-scroll-number-only" style="transition: none;"><span class="ant-scroll-number-only-unit current">5</span></span></bdi></sup></transition-stub>
+<!----></span>"
+`;
+
+exports[`badge > should match status snapshot 1`] = `"<div><span class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-root"><span class="ant-badge-status-dot ant-badge-status-success"></span><span class="ant-badge-status-text">Success</span></span><span class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-root"><span class="ant-badge-status-dot ant-badge-status-error"></span><span class="ant-badge-status-text">Error</span></span><span class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-root"><span class="ant-badge-status-dot ant-badge-status-processing"></span><span class="ant-badge-status-text">Processing</span></span><span class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-root"><span class="ant-badge-status-dot ant-badge-status-warning"></span><span class="ant-badge-status-text">Warning</span></span><span class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-root"><span class="ant-badge-status-dot ant-badge-status-default"></span><span class="ant-badge-status-text">Default</span></span></div>"`;

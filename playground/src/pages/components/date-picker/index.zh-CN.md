@@ -86,7 +86,7 @@ dayjs.locale('zh-cn')
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| allowClear | 自定义清除按钮 | boolean \| { clearIcon?: VueNode } | true | - |
+| allowClear | 自定义清除按钮 | boolean \| \{ clearIcon?: VueNode \} | true | - |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | - |
 | dateRender | 自定义日期单元格的内容，>= 5.4.0 起用 `cellRender` 代替 | function(currentDate: dayjs, today: dayjs) => VueNode | - | - |
 | cellRender | 自定义单元格的内容 | (current: dayjs, info: { originNode: VueNode, today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => VueNode | - | - |

@@ -1,0 +1,987 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`flex demo > renders align correctly 1`] = `
+<div
+  class="ant-flex css-var-root ant-flex-align-start ant-flex-gap-middle ant-flex-vertical"
+>
+  <p>
+    Select justify :
+  </p>
+  <div
+    aria-label="segmented control"
+    class="ant-segmented css-var-root css-var-root"
+    role="radiogroup"
+    size="middle"
+    tabindex="0"
+  >
+    <div
+      class="ant-segmented-group"
+    >
+      <!---->
+      <label
+        class="ant-segmented-item ant-segmented-item-selected"
+      >
+        <input
+          checked=""
+          class="ant-segmented-item-input"
+          name="v-0"
+          type="radio"
+        />
+        <div
+          aria-checked="true"
+          class="ant-segmented-item-label"
+          role="radio"
+          title="flex-start"
+        >
+          flex-start
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="v-0"
+          type="radio"
+        />
+        <div
+          aria-checked="false"
+          class="ant-segmented-item-label"
+          role="radio"
+          title="center"
+        >
+          center
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="v-0"
+          type="radio"
+        />
+        <div
+          aria-checked="false"
+          class="ant-segmented-item-label"
+          role="radio"
+          title="flex-end"
+        >
+          flex-end
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="v-0"
+          type="radio"
+        />
+        <div
+          aria-checked="false"
+          class="ant-segmented-item-label"
+          role="radio"
+          title="space-between"
+        >
+          space-between
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="v-0"
+          type="radio"
+        />
+        <div
+          aria-checked="false"
+          class="ant-segmented-item-label"
+          role="radio"
+          title="space-around"
+        >
+          space-around
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="v-0"
+          type="radio"
+        />
+        <div
+          aria-checked="false"
+          class="ant-segmented-item-label"
+          role="radio"
+          title="space-evenly"
+        >
+          space-evenly
+        </div>
+      </label>
+    </div>
+  </div>
+  <p>
+    Select align :
+  </p>
+  <div
+    aria-label="segmented control"
+    class="ant-segmented css-var-root css-var-root"
+    role="radiogroup"
+    size="middle"
+    tabindex="0"
+  >
+    <div
+      class="ant-segmented-group"
+    >
+      <!---->
+      <label
+        class="ant-segmented-item ant-segmented-item-selected"
+      >
+        <input
+          checked=""
+          class="ant-segmented-item-input"
+          name="v-1"
+          type="radio"
+        />
+        <div
+          aria-checked="true"
+          class="ant-segmented-item-label"
+          role="radio"
+          title="flex-start"
+        >
+          flex-start
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="v-1"
+          type="radio"
+        />
+        <div
+          aria-checked="false"
+          class="ant-segmented-item-label"
+          role="radio"
+          title="center"
+        >
+          center
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="v-1"
+          type="radio"
+        />
+        <div
+          aria-checked="false"
+          class="ant-segmented-item-label"
+          role="radio"
+          title="flex-end"
+        >
+          flex-end
+        </div>
+      </label>
+    </div>
+  </div>
+  <div
+    class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-justify-flex-start"
+    style="width: 100%; height: 120px; border-radius: 6px; border: 1px solid rgb(64, 169, 255);"
+  >
+    <button
+      class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ant-btn-loading-icon-motion"
+        persisted="false"
+      >
+        <!---->
+      </transition-stub>
+      <span>
+         Primary 
+      </span>
+      <!---->
+    </button>
+    <button
+      class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ant-btn-loading-icon-motion"
+        persisted="false"
+      >
+        <!---->
+      </transition-stub>
+      <span>
+         Primary 
+      </span>
+      <!---->
+    </button>
+    <button
+      class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ant-btn-loading-icon-motion"
+        persisted="false"
+      >
+        <!---->
+      </transition-stub>
+      <span>
+         Primary 
+      </span>
+      <!---->
+    </button>
+    <button
+      class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ant-btn-loading-icon-motion"
+        persisted="false"
+      >
+        <!---->
+      </transition-stub>
+      <span>
+         Primary 
+      </span>
+      <!---->
+    </button>
+  </div>
+</div>
+`;
+
+exports[`flex demo > renders basic correctly 1`] = `
+<div
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <div
+    class="ant-radio-group ant-radio-group-outline css-var-root ant-radio-css-var"
+  >
+    <label
+      class="ant-radio-wrapper ant-radio-wrapper-checked css-var-root ant-radio-css-var"
+    >
+      <span
+        class="ant-radio ant-wave-target ant-radio-checked ant-wave-target"
+        name="v-0"
+      >
+        <input
+          checked=""
+          class="ant-radio-input"
+          type="radio"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span
+        class="ant-radio-label"
+      >
+         horizontal 
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper css-var-root ant-radio-css-var"
+    >
+      <span
+        class="ant-radio ant-wave-target ant-wave-target"
+        name="v-0"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span
+        class="ant-radio-label"
+      >
+         vertical 
+      </span>
+    </label>
+  </div>
+  <div
+    class="ant-flex css-var-root"
+  >
+    <div
+      style="width: 25%; height: 54px; background: rgba(22, 119, 255, 0.75);"
+    />
+    <div
+      style="width: 25%; height: 54px; background: rgb(22, 119, 255);"
+    />
+    <div
+      style="width: 25%; height: 54px; background: rgba(22, 119, 255, 0.75);"
+    />
+    <div
+      style="width: 25%; height: 54px; background: rgb(22, 119, 255);"
+    />
+  </div>
+</div>
+`;
+
+exports[`flex demo > renders combination correctly 1`] = `
+<div
+  class="ant-card ant-card-bordered css-var-root"
+  style="width: 620px;"
+>
+  <!---->
+  <!---->
+  <div
+    class="ant-card-body"
+    style="padding: 0px; overflow: hidden;"
+  >
+    <div
+      class="ant-flex css-var-root ant-flex-justify-space-between"
+    >
+      <img
+        alt="avatar"
+        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+        style="display: block; width: 273px;"
+      />
+      <div
+        class="ant-flex css-var-root ant-flex-align-flex-end ant-flex-justify-space-between ant-flex-vertical"
+        style="padding: 32px;"
+      >
+        <article
+          class="ant-typography css-var-root"
+        >
+          <h3
+            class="ant-typography css-var-root"
+          >
+             “antd is an enterprise-class UI design language and Vue UI library.” 
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+          </h3>
+        </article>
+        <a
+          aria-disabled="false"
+          class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+          href="https://antdv.com"
+          target="_blank"
+        >
+          <transition-stub
+            appear="false"
+            css="true"
+            name="ant-btn-loading-icon-motion"
+            persisted="false"
+          >
+            <!---->
+          </transition-stub>
+          <span>
+             Get Start 
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`flex demo > renders gap correctly 1`] = `
+<div
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <div
+    class="ant-radio-group ant-radio-group-outline css-var-root ant-radio-css-var"
+  >
+    <label
+      class="ant-radio-wrapper ant-radio-wrapper-checked css-var-root ant-radio-css-var"
+    >
+      <span
+        class="ant-radio ant-wave-target ant-radio-checked ant-wave-target"
+        name="v-0"
+      >
+        <input
+          checked=""
+          class="ant-radio-input"
+          type="radio"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span
+        class="ant-radio-label"
+      >
+         small 
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper css-var-root ant-radio-css-var"
+    >
+      <span
+        class="ant-radio ant-wave-target ant-wave-target"
+        name="v-0"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span
+        class="ant-radio-label"
+      >
+         middle 
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper css-var-root ant-radio-css-var"
+    >
+      <span
+        class="ant-radio ant-wave-target ant-wave-target"
+        name="v-0"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span
+        class="ant-radio-label"
+      >
+         large 
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper css-var-root ant-radio-css-var"
+    >
+      <span
+        class="ant-radio ant-wave-target ant-wave-target"
+        name="v-0"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+        />
+        <span
+          class="ant-radio-inner"
+        />
+      </span>
+      <span
+        class="ant-radio-label"
+      >
+         customize 
+      </span>
+    </label>
+  </div>
+  <!--v-if-->
+  <div
+    class="ant-flex css-var-root ant-flex-gap-small"
+  >
+    <button
+      class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ant-btn-loading-icon-motion"
+        persisted="false"
+      >
+        <!---->
+      </transition-stub>
+      <span>
+         Primary 
+      </span>
+      <!---->
+    </button>
+    <button
+      class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ant-btn-loading-icon-motion"
+        persisted="false"
+      >
+        <!---->
+      </transition-stub>
+      <span>
+        Default
+      </span>
+      <!---->
+    </button>
+    <button
+      class="ant-btn css-var-root ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
+      type="button"
+    >
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ant-btn-loading-icon-motion"
+        persisted="false"
+      >
+        <!---->
+      </transition-stub>
+      <span>
+         Dashed 
+      </span>
+      <!---->
+    </button>
+    <button
+      class="ant-btn css-var-root ant-btn-link ant-btn-color-link ant-btn-variant-link"
+      type="button"
+    >
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ant-btn-loading-icon-motion"
+        persisted="false"
+      >
+        <!---->
+      </transition-stub>
+      <span>
+         Link 
+      </span>
+      <!---->
+    </button>
+  </div>
+</div>
+`;
+
+exports[`flex demo > renders wrap correctly 1`] = `
+<div
+  class="ant-flex css-var-root ant-flex-wrap-wrap ant-flex-gap-small"
+>
+  <button
+    class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <transition-stub
+      appear="false"
+      css="true"
+      name="ant-btn-loading-icon-motion"
+      persisted="false"
+    >
+      <!---->
+    </transition-stub>
+    <span>
+       Button 
+    </span>
+    <!---->
+  </button>
+  <button
+    class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <transition-stub
+      appear="false"
+      css="true"
+      name="ant-btn-loading-icon-motion"
+      persisted="false"
+    >
+      <!---->
+    </transition-stub>
+    <span>
+       Button 
+    </span>
+    <!---->
+  </button>
+  <button
+    class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <transition-stub
+      appear="false"
+      css="true"
+      name="ant-btn-loading-icon-motion"
+      persisted="false"
+    >
+      <!---->
+    </transition-stub>
+    <span>
+       Button 
+    </span>
+    <!---->
+  </button>
+  <button
+    class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <transition-stub
+      appear="false"
+      css="true"
+      name="ant-btn-loading-icon-motion"
+      persisted="false"
+    >
+      <!---->
+    </transition-stub>
+    <span>
+       Button 
+    </span>
+    <!---->
+  </button>
+  <button
+    class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <transition-stub
+      appear="false"
+      css="true"
+      name="ant-btn-loading-icon-motion"
+      persisted="false"
+    >
+      <!---->
+    </transition-stub>
+    <span>
+       Button 
+    </span>
+    <!---->
+  </button>
+  <button
+    class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <transition-stub
+      appear="false"
+      css="true"
+      name="ant-btn-loading-icon-motion"
+      persisted="false"
+    >
+      <!---->
+    </transition-stub>
+    <span>
+       Button 
+    </span>
+    <!---->
+  </button>
+  <button
+    class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <transition-stub
+      appear="false"
+      css="true"
+      name="ant-btn-loading-icon-motion"
+      persisted="false"
+    >
+      <!---->
+    </transition-stub>
+    <span>
+       Button 
+    </span>
+    <!---->
+  </button>
+  <button
+    class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <transition-stub
+      appear="false"
+      css="true"
+      name="ant-btn-loading-icon-motion"
+      persisted="false"
+    >
+      <!---->
+    </transition-stub>
+    <span>
+       Button 
+    </span>
+    <!---->
+  </button>
+  <button
+    class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <transition-stub
+      appear="false"
+      css="true"
+      name="ant-btn-loading-icon-motion"
+      persisted="false"
+    >
+      <!---->
+    </transition-stub>
+    <span>
+       Button 
+    </span>
+    <!---->
+  </button>
+  <button
+    class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <transition-stub
+      appear="false"
+      css="true"
+      name="ant-btn-loading-icon-motion"
+      persisted="false"
+    >
+      <!---->
+    </transition-stub>
+    <span>
+       Button 
+    </span>
+    <!---->
+  </button>
+  <button
+    class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <transition-stub
+      appear="false"
+      css="true"
+      name="ant-btn-loading-icon-motion"
+      persisted="false"
+    >
+      <!---->
+    </transition-stub>
+    <span>
+       Button 
+    </span>
+    <!---->
+  </button>
+  <button
+    class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <transition-stub
+      appear="false"
+      css="true"
+      name="ant-btn-loading-icon-motion"
+      persisted="false"
+    >
+      <!---->
+    </transition-stub>
+    <span>
+       Button 
+    </span>
+    <!---->
+  </button>
+  <button
+    class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <transition-stub
+      appear="false"
+      css="true"
+      name="ant-btn-loading-icon-motion"
+      persisted="false"
+    >
+      <!---->
+    </transition-stub>
+    <span>
+       Button 
+    </span>
+    <!---->
+  </button>
+  <button
+    class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <transition-stub
+      appear="false"
+      css="true"
+      name="ant-btn-loading-icon-motion"
+      persisted="false"
+    >
+      <!---->
+    </transition-stub>
+    <span>
+       Button 
+    </span>
+    <!---->
+  </button>
+  <button
+    class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <transition-stub
+      appear="false"
+      css="true"
+      name="ant-btn-loading-icon-motion"
+      persisted="false"
+    >
+      <!---->
+    </transition-stub>
+    <span>
+       Button 
+    </span>
+    <!---->
+  </button>
+  <button
+    class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <transition-stub
+      appear="false"
+      css="true"
+      name="ant-btn-loading-icon-motion"
+      persisted="false"
+    >
+      <!---->
+    </transition-stub>
+    <span>
+       Button 
+    </span>
+    <!---->
+  </button>
+  <button
+    class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <transition-stub
+      appear="false"
+      css="true"
+      name="ant-btn-loading-icon-motion"
+      persisted="false"
+    >
+      <!---->
+    </transition-stub>
+    <span>
+       Button 
+    </span>
+    <!---->
+  </button>
+  <button
+    class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <transition-stub
+      appear="false"
+      css="true"
+      name="ant-btn-loading-icon-motion"
+      persisted="false"
+    >
+      <!---->
+    </transition-stub>
+    <span>
+       Button 
+    </span>
+    <!---->
+  </button>
+  <button
+    class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <transition-stub
+      appear="false"
+      css="true"
+      name="ant-btn-loading-icon-motion"
+      persisted="false"
+    >
+      <!---->
+    </transition-stub>
+    <span>
+       Button 
+    </span>
+    <!---->
+  </button>
+  <button
+    class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <transition-stub
+      appear="false"
+      css="true"
+      name="ant-btn-loading-icon-motion"
+      persisted="false"
+    >
+      <!---->
+    </transition-stub>
+    <span>
+       Button 
+    </span>
+    <!---->
+  </button>
+  <button
+    class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <transition-stub
+      appear="false"
+      css="true"
+      name="ant-btn-loading-icon-motion"
+      persisted="false"
+    >
+      <!---->
+    </transition-stub>
+    <span>
+       Button 
+    </span>
+    <!---->
+  </button>
+  <button
+    class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <transition-stub
+      appear="false"
+      css="true"
+      name="ant-btn-loading-icon-motion"
+      persisted="false"
+    >
+      <!---->
+    </transition-stub>
+    <span>
+       Button 
+    </span>
+    <!---->
+  </button>
+  <button
+    class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <transition-stub
+      appear="false"
+      css="true"
+      name="ant-btn-loading-icon-motion"
+      persisted="false"
+    >
+      <!---->
+    </transition-stub>
+    <span>
+       Button 
+    </span>
+    <!---->
+  </button>
+  <button
+    class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <transition-stub
+      appear="false"
+      css="true"
+      name="ant-btn-loading-icon-motion"
+      persisted="false"
+    >
+      <!---->
+    </transition-stub>
+    <span>
+       Button 
+    </span>
+    <!---->
+  </button>
+</div>
+`;

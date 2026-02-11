@@ -175,6 +175,8 @@ export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = 
 }
 
 export interface TreeSelectEmits {
+  'focus': (e: FocusEvent) => void
+  'blur': (e: FocusEvent) => void
   'openChange': (open: boolean) => void
   'dropdownVisibleChange': (open: boolean) => void
   'select': NonNullable<VcTreeSelectProps['onSelect']>
@@ -515,6 +517,12 @@ const InternalTreeSelect = defineComponent<
       const tagRender = slots?.tagRender ?? props?.tagRender
 
       const onAttrs: Partial<VcTreeSelectProps> = {
+        onFocus(e) {
+          emit('focus', e)
+        },
+        onBlur(e) {
+          emit('blur', e)
+        },
         onSelect(value, option) {
           emit('select', value, option)
         },

@@ -1,0 +1,134 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`tree > icon and switcherIcon of Tree with showLine should render correctly 1`] = `
+"<div class="ant-tree css-var-root ant-tree-show-line">
+  <div class="ant-tree-treenode" aria-hidden="true" style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;">
+    <div class="ant-tree-indent">
+      <div class="ant-tree-indent-unit"></div>
+    </div>
+  </div>
+  <div role="tree" tabindex="0" style="position: relative;" class="ant-tree-list">
+    <div class="ant-tree-list-holder">
+      <div>
+        <div style="display: flex; flex-direction: column;" class="ant-tree-list-holder-inner">
+          <div role="treeitem" id="test-id-0-0" aria-selected="false" aria-disabled="false" class="ant-tree-treenode ant-tree-treenode-switcher-close" draggable="false" aria-expanded="false"><span aria-hidden="true" class="ant-tree-indent"></span>
+            <!----><span class="ant-tree-switcher ant-tree-switcher_close">switcherIcon</span>
+            <!----><span title="---" class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"><span class="ant-tree-iconEle ant-tree-icon__customize">icon</span><span class="ant-tree-title">---</span>
+            <!----></span>
+          </div>
+          <div role="treeitem" id="test-id-0-1" aria-selected="false" aria-disabled="false" class="ant-tree-treenode ant-tree-treenode-switcher-close" draggable="false" aria-expanded="false"><span aria-hidden="true" class="ant-tree-indent"></span>
+            <!----><span class="ant-tree-switcher ant-tree-switcher_close">switcherIcon</span>
+            <!----><span title="---" class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"><span class="ant-tree-iconEle ant-tree-icon__close"></span><span class="ant-tree-title">---</span>
+            <!----></span>
+          </div>
+          <div role="treeitem" id="test-id-0-2" aria-selected="false" aria-disabled="false" class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last" draggable="false" aria-expanded="false"><span aria-hidden="true" class="ant-tree-indent"></span>
+            <!----><span class="ant-tree-switcher ant-tree-switcher_close"><span role="img" aria-label="plus-square" class="anticon anticon-plus-square ant-tree-switcher-line-icon"><svg data-icon="plus-square" width="1em" height="1em" fill="currentColor" aria-hidden="true" viewBox="64 64 896 896" focusable="false"><path d="M328 544h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"></path><path d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"></path></svg></span></span>
+            <!----><span title="---" class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"><span class="ant-tree-iconEle ant-tree-icon__close"></span><span class="ant-tree-title">---</span>
+            <!----></span>
+          </div>
+          <!---->
+        </div>
+      </div>
+    </div>
+    <!---->
+    <!---->
+  </div>
+</div>"
+`;
+
+exports[`tree > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-tree ant-tree-icon-hide ant-tree-rtl css-var-root"
+  >
+    <div
+      aria-hidden="true"
+      class="ant-tree-treenode"
+      style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+    >
+      <div
+        class="ant-tree-indent"
+      >
+        <div
+          class="ant-tree-indent-unit"
+        />
+      </div>
+    </div>
+    <div
+      class="ant-tree-list"
+      role="tree"
+      style="position: relative;"
+      tabindex="0"
+    >
+      <div
+        class="ant-tree-list-holder"
+      >
+        <div>
+          <div
+            class="ant-tree-list-holder-inner"
+            style="display: flex; flex-direction: column;"
+          >
+            <!---->
+          </div>
+        </div>
+      </div>
+      <!---->
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`tree > showLine is object type should render correctly 1`] = `
+"<div class="ant-tree ant-tree-icon-hide css-var-root ant-tree-show-line">
+  <div class="ant-tree-treenode" aria-hidden="true" style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;">
+    <div class="ant-tree-indent">
+      <div class="ant-tree-indent-unit"></div>
+    </div>
+  </div>
+  <div role="tree" tabindex="0" style="position: relative;" class="ant-tree-list">
+    <div class="ant-tree-list-holder">
+      <div>
+        <div style="display: flex; flex-direction: column;" class="ant-tree-list-holder-inner">
+          <div role="treeitem" id="test-id-0-0" aria-selected="false" aria-disabled="false" class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last" draggable="false" aria-expanded="false"><span aria-hidden="true" class="ant-tree-indent"></span>
+            <!----><span class="ant-tree-switcher ant-tree-switcher_close"><span role="img" aria-label="plus-square" class="anticon anticon-plus-square ant-tree-switcher-line-icon"><svg data-icon="plus-square" width="1em" height="1em" fill="currentColor" aria-hidden="true" viewBox="64 64 896 896" focusable="false"><path d="M328 544h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8z"></path><path d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656z"></path></svg></span></span>
+            <!----><span title="parent 1" class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"><!----><span class="ant-tree-title">parent 1</span>
+            <!----></span>
+          </div>
+          <!---->
+        </div>
+      </div>
+    </div>
+    <!---->
+    <!---->
+  </div>
+</div>"
+`;
+
+exports[`tree > switcherIcon in Tree could be string 1`] = `
+"<div class="ant-tree ant-tree-icon-hide css-var-root">
+  <div class="ant-tree-treenode" aria-hidden="true" style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;">
+    <div class="ant-tree-indent">
+      <div class="ant-tree-indent-unit"></div>
+    </div>
+  </div>
+  <div role="tree" tabindex="0" style="position: relative;" class="ant-tree-list">
+    <div class="ant-tree-list-holder">
+      <div>
+        <div style="display: flex; flex-direction: column;" class="ant-tree-list-holder-inner">
+          <div role="treeitem" id="test-id-0-0" aria-selected="false" aria-disabled="false" class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last" draggable="false" aria-expanded="false"><span aria-hidden="true" class="ant-tree-indent"></span>
+            <!----><span class="ant-tree-switcher ant-tree-switcher_close">switcherIcon</span>
+            <!----><span title="parent" class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-close"><!----><span class="ant-tree-title">parent</span>
+            <!----></span>
+          </div>
+          <!---->
+        </div>
+      </div>
+    </div>
+    <!---->
+    <!---->
+  </div>
+</div>"
+`;

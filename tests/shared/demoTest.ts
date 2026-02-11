@@ -1,7 +1,7 @@
 import { readdirSync } from 'node:fs'
 import { basename, dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { describe, expect, it } from 'vitest'
+import { beforeAll, describe, expect, it } from 'vitest'
 import { mount } from '../utils'
 
 const testDir = dirname(fileURLToPath(import.meta.url))
@@ -31,16 +31,19 @@ export default function demoTest(component: string, options: DemoTestOptions = {
   }
 
   describe(`${component} demo`, () => {
+    let antd: any
+    beforeAll(async () => {
+      const mod = await import('../../packages/antdv-next/src/index')
+      antd = mod.default
+    }, 60000)
+
     files.forEach((file) => {
       const name = basename(file, '.vue')
       const shouldSkip = Array.isArray(options.skip) && options.skip.includes(name)
       const testFn = shouldSkip ? it.skip : it
 
       testFn(`renders ${name} correctly`, async () => {
-        const [{ default: antd }, { default: Demo }] = await Promise.all([
-          import('../../packages/antdv-next/src/index'),
-          import(/* @vite-ignore */ resolve(demoDir, file)),
-        ])
+        const { default: Demo } = await import(/* @vite-ignore */ resolve(demoDir, file))
 
         const wrapper = mount(Demo, {
           global: {

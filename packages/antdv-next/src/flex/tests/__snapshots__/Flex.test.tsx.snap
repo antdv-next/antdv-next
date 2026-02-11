@@ -1,0 +1,31 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`flex > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-flex css-var-root ant-flex-rtl"
+  >
+    <div>
+      test
+    </div>
+  </div>
+</div>
+`;
+
+exports[`flex > should render correct snapshot 1`] = `
+<div
+  class="ant-flex css-var-root ant-flex-wrap-wrap ant-flex-align-center ant-flex-justify-center ant-flex-gap-small"
+>
+  <div>
+    1
+  </div>
+  <div>
+    2
+  </div>
+  <div>
+    3
+  </div>
+</div>
+`;

@@ -1,0 +1,103 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`space > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"
+  >
+    <div
+      class="ant-space-item"
+    >
+      <span>
+        1
+      </span>
+    </div>
+    <!---->
+    <div
+      class="ant-space-item"
+    >
+      <span>
+        2
+      </span>
+    </div>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`space > should render correct snapshot 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+  style="flex-wrap: wrap;"
+>
+  <div
+    class="ant-space-item"
+  >
+    <span>
+      1
+    </span>
+  </div>
+  <!---->
+  <div
+    class="ant-space-item"
+  >
+    <span>
+      2
+    </span>
+  </div>
+  <!---->
+  <div
+    class="ant-space-item"
+  >
+    <span>
+      3
+    </span>
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`space > should render correct snapshot with separator 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"
+>
+  <div
+    class="ant-space-item"
+  >
+    <span>
+      1
+    </span>
+  </div>
+  <span
+    class="ant-space-item-item-separator"
+  >
+    <span>
+      |
+    </span>
+  </span>
+  <div
+    class="ant-space-item"
+  >
+    <span>
+      2
+    </span>
+  </div>
+  <span
+    class="ant-space-item-item-separator"
+  >
+    <span>
+      |
+    </span>
+  </span>
+  <div
+    class="ant-space-item"
+  >
+    <span>
+      3
+    </span>
+  </div>
+  <!---->
+</div>
+`;

@@ -73,7 +73,7 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | cover | Custom preview mask | VNode \| [CoverConfig](#coverconfig) | - | CoverConfig support after v6.0 |
 | getContainer | Specify container for preview mounting; still full screen; false mounts at current location | string \| HTMLElement \| (() => HTMLElement) \| false | - | - |
 | imageRender | Custom preview content | (originalNode: VNode, info: { transform: [TransformType](#transformtype), image: [ImgInfo](#imginfo) }) => VNode | - | - |
-| mask | preview mask effect | boolean \| { enabled?: boolean, blur?: boolean } | true | - |
+| mask | preview mask effect | boolean \| \{ enabled?: boolean, blur?: boolean \} | true | - |
 | maxScale | Maximum zoom scale | number | 50 | - |
 | minScale | Minimum zoom scale | number | 1 | - |
 | movable | Whether it is movable | boolean | true | - |
@@ -104,7 +104,7 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | current | Index of the current preview image | number | - | - |
 | getContainer | Specify container for preview mounting; still full screen; false mounts at current location | string \| HTMLElement \| (() => HTMLElement) \| false | - | - |
 | imageRender | Custom preview content | (originalNode: VNode, info: { transform: [TransformType](#transformtype), image: [ImgInfo](#imginfo), current: number }) => VNode | - | - |
-| mask | preview mask effect | boolean \| { enabled?: boolean, blur?: boolean } | true | - |
+| mask | preview mask effect | boolean \| \{ enabled?: boolean, blur?: boolean \} | true | - |
 | minScale | Minimum zoom scale | number | 1 | - |
 | maxScale | Maximum zoom scale | number | 50 | - |
 | movable | Whether movable | boolean | true | - |
