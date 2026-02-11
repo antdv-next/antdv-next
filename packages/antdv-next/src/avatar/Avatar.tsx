@@ -117,7 +117,7 @@ const Avatar = defineComponent<
       ctxSize => props?.size ?? avatarCtx.value?.size ?? ctxSize ?? 'medium',
     )
     const needResponsive = computed(() => {
-      return Object.keys(typeof size.value === 'object' ? size.value || {} : {}).some(key => ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].includes(key))
+      return Object.keys(typeof size.value === 'object' ? size.value || {} : {}).some(key => responsiveArray.includes(key as Breakpoint))
     })
     const screens = useBreakpoint(needResponsive)
 

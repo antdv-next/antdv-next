@@ -1,4 +1,5 @@
 import type { CSSProperties } from 'vue'
+
 import type { MapToken } from './maps'
 
 // ======================================================================
@@ -112,7 +113,7 @@ export interface AliasToken extends MapToken {
   colorTextLightSolid: string
 
   /**
-     /**
+  /**
    * @nameZH 弱操作图标颜色
    * @nameEN Weak action icon color
    * @desc 控制弱操作图标的颜色，例如 allowClear 或 Alert 关闭按钮。
@@ -578,6 +579,27 @@ export interface AliasToken extends MapToken {
    * @descEN Control the minimum width of extra extra large screens.
    */
   screenXXLMin: number
+  /**
+   * @nameZH 屏幕宽度（像素） - 超超大屏幕最大值
+   * @nameEN Screen width (pixels) - Extra extra large screens maximum value
+   * @desc 控制超超大屏幕的最大宽度。
+   * @descEN Control the maximum width of extra extra large screens.
+   */
+  screenXXLMax: number
+  /**
+   * @nameZH 屏幕宽度（像素） - 超超超大屏幕
+   * @nameEN Screen width (pixels) - XXXL screens
+   * @desc 控制超超超大屏幕的屏幕宽度。
+   * @descEN Control the screen width of XXXL screens.
+   */
+  screenXXXL: number
+  /**
+   * @nameZH 屏幕宽度（像素） - 超超超大屏幕最小值
+   * @nameEN Screen width (pixels) - XXXL screens minimum value
+   * @desc 控制超超超大屏幕的最小宽度。
+   * @descEN Control the minimum width of XXXL screens.
+   */
+  screenXXXLMin: number
 
   /**
    * @deprecated

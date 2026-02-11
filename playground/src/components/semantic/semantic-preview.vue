@@ -21,10 +21,12 @@ const props = withDefaults(defineProps<{
   itemsAPI?: string
   height?: number
   padding?: boolean
+  motion?: boolean
 }>(), {
   componentName: 'Component',
   semantics: () => [],
   padding: true,
+  motion: false,
 })
 
 const shiki = createHighlighterCoreSync({
@@ -158,7 +160,7 @@ function togglePin(semanticName: string) {
         class="semantic-preview-col"
         :class="{ 'semantic-preview-col-no-padding': !padding }"
       >
-        <a-config-provider :theme="{ token: { motion: false } }">
+        <a-config-provider :theme="{ token: { motion } }">
           <slot :classes="hoveredSemanticClasses" />
         </a-config-provider>
       </a-col>

@@ -1,5 +1,5 @@
 import type { CSSProperties, InjectionKey, Ref, SlotsType } from 'vue'
-
+import type { Breakpoint } from '../_util/responsiveObserver'
 import { BarsOutlined, LeftOutlined, RightOutlined } from '@antdv-next/icons'
 import { classNames } from '@v-c/util'
 import canUseDom from '@v-c/util/dist/Dom/canUseDom'
@@ -11,13 +11,14 @@ import { useBaseConfig } from '../config-provider/context.ts'
 import { useLayoutCtx } from './context.ts'
 import useStyle from './style/sider'
 
-const dimensionMaxMap = {
+const dimensionMaxMap: Record<Breakpoint, string> = {
   xs: '479.98px',
   sm: '575.98px',
   md: '767.98px',
   lg: '991.98px',
   xl: '1199.98px',
   xxl: '1599.98px',
+  xxxl: `1839.98px`,
 }
 
 function isNumeric(val: any) {
@@ -53,7 +54,7 @@ export interface SiderProps {
   zeroWidthTriggerStyle?: CSSProperties
   width?: number | string
   collapsedWidth?: number | string
-  breakpoint?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl'
+  breakpoint?: Breakpoint
   theme?: SiderTheme
 }
 

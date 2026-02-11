@@ -24,11 +24,13 @@ export type SwitchSemanticName = keyof SwitchSemanticClassNames & keyof SwitchSe
 export interface SwitchSemanticClassNames {
   root?: string
   content?: string
+  indicator?: string
 }
 
 export interface SwitchSemanticStyles {
   root?: CSSProperties
   content?: CSSProperties
+  indicator?: CSSProperties
 }
 
 export type SwitchClassNamesType = SemanticClassNamesType<SwitchProps, SwitchSemanticClassNames>
@@ -185,7 +187,10 @@ const Switch = defineComponent<
       const unCheckedChildren = getSlotPropsFnRun(slots, props, 'unCheckedChildren')
       const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
       const loadingIcon = (
-        <div class={`${prefixCls.value}-handle`}>
+        <div
+          class={clsx(`${prefixCls.value}-handle`, mergedClassNames.value.indicator)}
+          style={mergedStyles.value.indicator}
+        >
           {loading && <LoadingOutlined class={`${prefixCls.value}-loading-icon`} />}
         </div>
       )

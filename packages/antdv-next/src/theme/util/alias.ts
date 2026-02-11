@@ -1,7 +1,6 @@
 import type { AliasToken, MapToken, OverrideToken, SeedToken } from '../interface'
 
 import { FastColor } from '@ant-design/fast-color'
-
 import seedToken from '../themes/seed'
 import getAlphaColor from './getAlphaColor'
 
@@ -32,6 +31,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
   const screenLG = 992
   const screenXL = 1200
   const screenXXL = 1600
+  const screenXXXL = 1920
 
   // Motion
   if (mergedToken.motion === false) {
@@ -165,6 +165,9 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     screenXLMax: screenXXL - 1,
     screenXXL,
     screenXXLMin: screenXXL,
+    screenXXLMax: screenXXXL - 1,
+    screenXXXL,
+    screenXXXLMin: screenXXXL,
 
     boxShadowPopoverArrow: '2px 2px 5px rgba(0, 0, 0, 0.05)',
     boxShadowCard: `

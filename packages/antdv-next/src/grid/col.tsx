@@ -4,6 +4,7 @@ import type { App, CSSProperties } from 'vue'
 import { classNames } from '@v-c/util'
 import { getAttrStyleAndClass } from '@v-c/util/dist/props-util'
 import { computed, defineComponent } from 'vue'
+import { responsiveArrayReversed } from '../_util/responsiveObserver'
 import { useConfig } from '../config-provider/context.ts'
 import { genCssVar } from '../theme/util/genStyleUtils.ts'
 import { useRowContext } from './RowContext.ts'
@@ -36,6 +37,7 @@ export interface ColProps {
   lg?: ColSpanType | ColSize
   xl?: ColSpanType | ColSize
   xxl?: ColSpanType | ColSize
+  xxxl?: ColSpanType | ColSize
 }
 
 function isNumber(value: any): value is number {
@@ -53,7 +55,6 @@ function parseFlex(flex: FlexType): string {
 
   return flex
 }
-const sizes = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const
 
 const Col = defineComponent<ColProps>(
   (props, { slots, attrs }) => {
@@ -74,7 +75,7 @@ const Col = defineComponent<ColProps>(
       const sizeStyle: Record<string, string> = {}
 
       let sizeClassObj: Record<string, boolean | ColSpanType> = {}
-      sizes.forEach((size) => {
+      responsiveArrayReversed.forEach((size) => {
         let sizeProps: ColSize = {}
         const propSize = props[size]
         if (typeof propSize === 'number') {

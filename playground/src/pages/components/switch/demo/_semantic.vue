@@ -9,6 +9,7 @@ const { t } = useComponentLocale(locales)
 const semantics = computed(() => [
   { name: 'root', desc: t('root'), version: '1.0.0' },
   { name: 'content', desc: t('content'), version: '1.0.0' },
+  { name: 'indicator', desc: t('indicator'), version: '1.0.3' },
 ])
 </script>
 
