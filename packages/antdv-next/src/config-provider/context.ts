@@ -15,10 +15,12 @@ import type { CardMetaProps } from '../card/CardMeta.tsx'
 import type { CascaderProps } from '../cascader'
 import type { CheckboxProps } from '../checkbox'
 import type { CollapseProps } from '../collapse'
+import type { ColorPickerProps } from '../color-picker'
 import type { DatePickerProps, RangePickerProps } from '../date-picker'
 import type { DescriptionsProps } from '../descriptions'
 import type { DividerProps } from '../divider'
 import type { DrawerProps } from '../drawer'
+import type { DropdownProps } from '../dropdown'
 import type { EmptyProps } from '../empty'
 import type { FlexProps } from '../flex'
 import type { FloatButtonGroupProps, FloatButtonProps } from '../float-button'
@@ -37,6 +39,7 @@ import type { ArgsProps as NotificationProps } from '../notification'
 import type { PaginationProps } from '../pagination/interface.ts'
 import type { PopconfirmProps } from '../popconfirm'
 import type { PopoverProps } from '../popover'
+import type { ProgressProps } from '../progress'
 import type { QRCodeProps } from '../qrcode'
 import type { RadioProps } from '../radio/interface.ts'
 import type { ResultProps } from '../result'
@@ -218,7 +221,9 @@ export interface WaveConfig {
 export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'classes' | 'styles'>
 
 export type ButtonConfig = ComponentStyleConfig
-  & Pick<ButtonProps, 'classes' | 'styles' | 'autoInsertSpace' | 'variant' | 'color' | 'shape'>
+  & Pick<ButtonProps, 'classes' | 'styles' | 'autoInsertSpace' | 'variant' | 'color' | 'shape'> & {
+    loadingIcon?: VueNode
+  }
 
 export type FlexConfig = ComponentStyleConfig & Pick<FlexProps, 'vertical'>
 
@@ -407,6 +412,13 @@ export interface TableConfig<RecordType extends AnyObject = AnyObject>
 }
 
 export type RibbonConfig = ComponentStyleConfig & Pick<RibbonProps, 'classes' | 'styles'>
+
+export type ColorPickerConfig = ComponentStyleConfig & Pick<ColorPickerProps, 'classes' | 'styles' | 'arrow'>
+
+export type DropdownConfig = ComponentStyleConfig & Pick<DropdownProps, 'classes' | 'styles'>
+
+export type ProgressConfig = ComponentStyleConfig & Pick<ProgressProps, 'classes' | 'styles'>
+
 export interface ConfigComponentProps {
   input?: InputConfig
   inputNumber?: InputNumberConfig
@@ -419,6 +431,7 @@ export interface ConfigComponentProps {
   splitter?: ComponentStyleConfig
   form?: FormConfig
   select?: SelectConfig
+  app?: ComponentStyleConfig
   alert?: AlertConfig
   anchor?: AnchorStyleConfig
   button?: ButtonConfig
@@ -441,7 +454,7 @@ export interface ConfigComponentProps {
   layout?: ComponentStyleConfig
   // list?: ListConfig;
   modal?: ModalConfig
-  progress?: ComponentStyleConfig
+  progress?: ProgressConfig
   result?: ResultConfig
   slider?: SliderConfig
   breadcrumb?: BreadcrumbConfig
@@ -471,15 +484,14 @@ export interface ConfigComponentProps {
   upload?: UploadConfig
   notification?: NotificationConfig
   tree?: TreeConfig
-  colorPicker?: ComponentStyleConfig
+  colorPicker?: ColorPickerConfig
   datePicker?: DatePickerConfig
   ribbon?: RibbonConfig
   rangePicker?: RangePickerConfig
-  dropdown?: ComponentStyleConfig
+  dropdown?: DropdownConfig
   flex?: FlexConfig
   qrcode?: QRcodeConfig
   wave?: WaveConfig
-  app?: ComponentStyleConfig
 }
 
 export interface ConfigConsumerProps extends ConfigComponentProps {

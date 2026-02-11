@@ -23,6 +23,7 @@ import { useSize } from '../config-provider/hooks/useSize'
 import { useFormItemInputContext } from '../form/context'
 import Popover from '../popover'
 import { useCompactItemContext } from '../space/Compact'
+import useMergedArrow from '../tooltip/hooks/useMergedArrow'
 import { AggregationColor } from './color'
 import ColorPickerPanel from './ColorPickerPanel'
 import ColorTrigger from './components/ColorTrigger'
@@ -54,6 +55,7 @@ const ColorPicker = defineComponent<
       style: contextStyle,
       classes: contextClassNames,
       styles: contextStyles,
+      arrow: contextArrow,
     } = useComponentBaseConfig('colorPicker', props, [], 'color-picker')
     const {
       size: customizeSize,
@@ -66,6 +68,7 @@ const ColorPicker = defineComponent<
       presets,
       disabledAlpha,
       disabledFormat,
+      arrow,
     } = toPropsRefs(
       props,
       'size',
@@ -78,6 +81,7 @@ const ColorPicker = defineComponent<
       'presets',
       'disabledAlpha',
       'disabledFormat',
+      'arrow',
     )
     const contextDisabled = useDisabledContext()
     const mergedDisabled = computed(() => props.disabled ?? contextDisabled.value)
@@ -85,6 +89,7 @@ const ColorPicker = defineComponent<
     // ================== Size ==================
     const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction)
     const mergedSize = useSize(ctx => customizeSize.value ?? compactSize.value ?? ctx)
+    const mergedArrow = useMergedArrow(arrow, contextArrow)
 
     // =========== Merged Props for Semantic ===========
     const mergedProps = computed(() => {
@@ -94,7 +99,7 @@ const ColorPicker = defineComponent<
         allowClear: props.allowClear ?? false,
         autoAdjustOverflow: props.autoAdjustOverflow ?? true,
         disabledAlpha: props.disabledAlpha ?? false,
-        arrow: props.arrow ?? true,
+        arrow: mergedArrow.value,
         placement: props.placement ?? 'bottomLeft',
         disabled: mergedDisabled.value,
         size: mergedSize.value,
@@ -245,7 +250,6 @@ const ColorPicker = defineComponent<
         rootClass,
         trigger,
         placement,
-        arrow,
         getPopupContainer,
         autoAdjustOverflow,
         destroyOnHidden,
@@ -276,7 +280,7 @@ const ColorPicker = defineComponent<
         open: popupOpen.value,
         trigger,
         placement,
-        arrow,
+        arrow: mergedArrow.value,
         rootClass,
         getPopupContainer,
         autoAdjustOverflow,

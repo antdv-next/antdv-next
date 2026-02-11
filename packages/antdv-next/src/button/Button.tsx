@@ -162,11 +162,15 @@ const InternalCompoundedButton = defineComponent<
       style: contextStyle,
       classes: contextClassNames,
       styles: contextStyles,
-      ...button
-    } = useComponentBaseConfig('button', props, ['autoInsertSpace', 'variant', 'shape', 'color'], 'btn')
+      loadingIcon: contextLoadingIcon,
+      shape: contextShape,
+      color: contextColor,
+      variant: contextVariant,
+      autoInsertSpace: contextAutoInsertSpace,
+    } = useComponentBaseConfig('button', props, ['autoInsertSpace', 'variant', 'shape', 'color', 'loadingIcon'], 'btn')
     const { classes, styles } = toPropsRefs(props, 'classes', 'styles')
 
-    const shape = computed(() => props.shape || button?.shape.value || 'default')
+    const mergedShape = computed(() => props.shape || contextShape.value || 'default')
 
     const parsedColorVariant = computed<ColorVariantPairType>(() => {
       const { color, variant, type, danger } = props
@@ -184,8 +188,8 @@ const InternalCompoundedButton = defineComponent<
         return colorVariantPair
       }
       // >>> Context fallback
-      if (button?.color?.value && button?.variant?.value) {
-        return [button.color.value, button.variant.value]
+      if (contextColor?.value && contextVariant?.value) {
+        return [contextColor.value, contextVariant.value]
       }
       return ['default', 'outlined']
     })
@@ -204,7 +208,7 @@ const InternalCompoundedButton = defineComponent<
     const isDanger = computed(() => mergedColor.value === 'danger')
     const mergedColorText = computed(() => isDanger.value ? 'dangerous' : mergedColor.value)
     const mergedInsertSpace = computed(() => {
-      return props?.autoInsertSpace ?? button.autoInsertSpace?.value ?? true
+      return props?.autoInsertSpace ?? contextAutoInsertSpace?.value ?? true
     })
     const [hashId, cssVarCls] = useStyle(prefixCls)
     const disabled = useDisabledContext()
@@ -303,7 +307,7 @@ const InternalCompoundedButton = defineComponent<
         type: mergedType.value,
         color: mergedColor.value,
         danger: isDanger.value,
-        shape: shape.value,
+        shape: mergedShape.value,
         size: sizeFullName.value,
         disabled: mergedDisabled.value,
         loading: innerLoading.value,
@@ -342,7 +346,7 @@ const InternalCompoundedButton = defineComponent<
         hashId.value,
         cssVarCls.value,
         {
-          [`${prefixCls.value}-${shape.value}`]: shape.value !== 'default' && shape.value,
+          [`${prefixCls.value}-${mergedShape.value}`]: mergedShape.value !== 'default' && mergedShape.value,
           // Compatible with versions earlier than 5.21.0
           [`${prefixCls.value}-${mergedType.value}`]: mergedType.value,
           [`${prefixCls.value}-dangerous`]: props.danger,
@@ -371,14 +375,17 @@ const InternalCompoundedButton = defineComponent<
         (attrs as any).style,
       ]
       let loadingIconNode = null
-      const iconNodes = filterEmpty(slots?.loadingIcon?.())
-      if (iconNodes.length) {
+      const iconNodes = getSlotPropsFnRun(slots, {}, 'loadingIcon')
+      const contextLoadingIconNode = getSlotPropsFnRun({}, {
+        loadingIcon: contextLoadingIcon.value,
+      }, 'loadingIcon')
+      if (iconNodes) {
         loadingIconNode = innerLoading.value && iconNodes
       }
       else {
         loadingIconNode = innerLoading.value && typeof loading === 'object' && loading.icon
-          ? (typeof loading.icon === 'function' ? loading.icon() : loading.icon)
-          : null
+          ? (typeof loading.icon === 'function' ? loading.icon() : loading.icon) || contextLoadingIconNode
+          : contextLoadingIconNode
       }
       const iconSharedProps = {
         class: mergedClassNames.value.icon,
