@@ -50,6 +50,7 @@ const TransferSection = defineComponent<
   (props) => {
     const sectionPrefixCls = computed(() => `${props.prefixCls}-section`)
     const listPrefixCls = computed(() => `${props.prefixCls}-list`)
+    const dataSource = computed(() => props.dataSource || [])
 
     const searchOptions = getShowSearchOption(props.showSearch || false)
     const filterValue = ref(searchOptions.defaultValue)
@@ -106,7 +107,7 @@ const TransferSection = defineComponent<
     const filteredItems = computed(() => {
       const filterItems: KeyWiseTransferItem[] = []
       const filterRenderItems: any[] = []
-      props.dataSource.forEach((item) => {
+      dataSource.value.forEach((item) => {
         const renderedItem = renderItem(item)
         if (filterValue.value && !matchFilter(renderedItem.renderedText, item)) {
           return
@@ -210,7 +211,7 @@ const TransferSection = defineComponent<
     return () => {
       const checkBox = (
         <Checkbox
-          disabled={props.dataSource.filter(d => !d.disabled).length === 0 || props.disabled}
+          disabled={dataSource.value.filter(d => !d.disabled).length === 0 || props.disabled}
           checked={checkStatus.value === 'all'}
           indeterminate={checkStatus.value === 'part'}
           class={`${listPrefixCls.value}-checkbox`}
