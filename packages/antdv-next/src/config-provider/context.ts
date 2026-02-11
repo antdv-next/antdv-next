@@ -344,7 +344,7 @@ export type SelectConfig = ComponentStyleConfig
   & Pick<SelectProps, 'showSearch' | 'variant' | 'classes' | 'styles'>
 
 export type CascaderConfig = ComponentStyleConfig
-  & Pick<CascaderProps, 'variant' | 'classes' | 'styles'>
+  & Pick<CascaderProps, 'variant' | 'classes' | 'styles' | 'expandIcon' | 'loadingIcon'>
 
 export type CardMetaConfig = ComponentStyleConfig & Pick<CardMetaProps, 'classes' | 'styles'>
 
@@ -385,13 +385,13 @@ export type UploadConfig = ComponentStyleConfig
   & Pick<UploadProps, 'classes' | 'styles' | 'customRequest'>
 
 export type DatePickerConfig = ComponentStyleConfig
-  & Pick<DatePickerProps, 'classes' | 'styles' | 'variant'>
+  & Pick<DatePickerProps, 'classes' | 'styles' | 'variant' | 'suffixIcon'>
 
 export type RangePickerConfig = ComponentStyleConfig
   & Pick<RangePickerProps, 'classes' | 'styles' | 'variant'>
 
 export type TimePickerConfig = ComponentStyleConfig
-  & Pick<TimePickerProps, 'classes' | 'styles' | 'variant'>
+  & Pick<TimePickerProps, 'classes' | 'styles' | 'variant' | 'suffixIcon'>
 
 export interface TableConfig<RecordType extends AnyObject = AnyObject>
   extends ComponentStyleConfig {
@@ -401,6 +401,7 @@ export interface TableConfig<RecordType extends AnyObject = AnyObject>
   rowKey?: TableProps<RecordType>['rowKey']
   classes?: TableProps['classes']
   styles?: TableProps['styles']
+  scroll?: TableProps<RecordType>['scroll']
   bodyCell?: TableProps['bodyCell']
   headerCell?: TableProps['headerCell']
 }
@@ -478,6 +479,7 @@ export interface ConfigComponentProps {
   flex?: FlexConfig
   qrcode?: QRcodeConfig
   wave?: WaveConfig
+  app?: ComponentStyleConfig
 }
 
 export interface ConfigConsumerProps extends ConfigComponentProps {

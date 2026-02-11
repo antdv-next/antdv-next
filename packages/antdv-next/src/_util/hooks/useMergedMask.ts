@@ -8,7 +8,7 @@ export interface MaskConfig {
 }
 export type MaskType = MaskConfig | boolean
 
-function normalizeMaskConfig(mask?: MaskType, maskClosable?: boolean): MaskConfig {
+export function normalizeMaskConfig(mask?: MaskType, maskClosable?: boolean): MaskConfig {
   let maskConfig: MaskConfig = {}
 
   if (mask && typeof mask === 'object') {

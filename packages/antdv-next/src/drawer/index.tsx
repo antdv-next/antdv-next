@@ -36,7 +36,7 @@ export interface DrawerResizableConfig {
 export interface DrawerProps
   extends Omit<
     VcDrawerProps,
-'maskStyle' | 'destroyOnHidden' | 'rootClassName' | 'mask' | 'resizable' | 'classNames' | 'styles' | 'onClose' | 'onKeyUp' | 'onKeyDown' | 'onMouseEnter' | 'onMouseLeave' | 'onMouseOver' | 'onClick' | OmitFocusType
+'maskStyle' | 'destroyOnHidden' | 'rootClassName' | 'mask' | 'resizable' | 'classNames' | 'styles' | 'onClose' | 'onKeyUp' | 'onKeyDown' | 'onMouseEnter' | 'onMouseLeave' | 'onMouseOver' | 'onClick' | 'maskClosable' | OmitFocusType
   >,
   Omit<DrawerPanelProps, 'prefixCls' | 'ariaId' | 'onClose'>
 {
@@ -52,6 +52,8 @@ export interface DrawerProps
    */
   destroyOnHidden?: boolean
   mask?: MaskType
+  /** @deprecated Please use `mask.closable` instead */
+  maskClosable?: boolean
   focusable?: FocusableConfig
 }
 

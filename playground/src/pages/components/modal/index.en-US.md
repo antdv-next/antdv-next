@@ -61,8 +61,8 @@ Common props ref：[Common props](/docs/vue/common-props)
 | getContainer | The mounted node for Modal but still display at fullscreen | string \| HTMLElement \| (() => HTMLElement) \| false | document.body | - |
 | keyboard | Whether support press esc to close | boolean | true | - |
 | loading | Show the skeleton | boolean | false | - |
-| mask | Mask effect | MaskType | true | - |
-| maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | boolean | true | - |
+| mask | Mask effect | boolean \| `{enabled?: boolean, blur?: boolean, closable?: boolean}` | true | mask.closable: 1.0.3 |
+| ~~maskClosable~~ | Whether to close the modal dialog when the mask (area outside the modal) is clicked | boolean | true |  |
 | modalRender | Custom modal content render | (node: any) => any | - | - |
 | mousePosition | Set animation start position | MousePosition | - | - |
 | okButtonProps | The ok button props | ButtonProps | - | - |

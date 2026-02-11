@@ -83,8 +83,6 @@ export interface ModalProps extends ModalCommonProps {
   okType?: LegacyButtonType
   /** Text of the Cancel button */
   cancelText?: VueNode
-  /** Whether to close the modal dialog when the mask (area outside the modal) is clicked */
-  maskClosable?: boolean
   /** Force render Modal */
   forceRender?: boolean
   okButtonProps?: ButtonProps
@@ -107,6 +105,11 @@ export interface ModalProps extends ModalCommonProps {
   /** @deprecated Please use `styles.mask` instead */
   maskStyle?: CSSProperties
   mask?: MaskType
+  /**
+   * @deprecated Please use `mask.closable` instead
+   * @description Whether to close the modal dialog when the mask (area outside the modal) is clicked
+   */
+  maskClosable?: boolean
   keyboard?: boolean
   wrapProps?: any
   prefixCls?: string
