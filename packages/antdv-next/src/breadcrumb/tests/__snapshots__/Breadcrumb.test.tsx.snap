@@ -1,0 +1,62 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`breadcrumb > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<div
+  data-v-app=""
+>
+  <nav
+    class="ant-breadcrumb [object Object]-rtl css-var-root"
+  >
+    <ol>
+      <li
+        class="ant-breadcrumb-item"
+      >
+        <span
+          class="ant-breadcrumb-link"
+        >
+          Home
+        </span>
+      </li>
+      <li
+        class="ant-breadcrumb-separator"
+      >
+        /
+      </li>
+      <li
+        class="ant-breadcrumb-item"
+      >
+        <span
+          class="ant-breadcrumb-link"
+        >
+          Current
+        </span>
+      </li>
+      <!---->
+    </ol>
+  </nav>
+</div>
+`;
+
+exports[`breadcrumb > should match separator snapshot 1`] = `
+"<nav class="ant-breadcrumb css-var-root">
+  <ol>
+    <li class="ant-breadcrumb-item"><span class="ant-breadcrumb-link">Home</span></li>
+    <li class="ant-breadcrumb-separator">&gt;</li>
+    <li class="ant-breadcrumb-item"><span class="ant-breadcrumb-link">Current</span></li>
+    <!---->
+  </ol>
+</nav>"
+`;
+
+exports[`breadcrumb > should match snapshot 1`] = `
+"<nav class="ant-breadcrumb css-var-root">
+  <ol>
+    <li class="ant-breadcrumb-item"><a class="ant-breadcrumb-link" href="/">Home</a></li>
+    <li class="ant-breadcrumb-separator">/</li>
+    <li class="ant-breadcrumb-item"><a class="ant-breadcrumb-link" href="/app">Application</a></li>
+    <li class="ant-breadcrumb-separator">/</li>
+    <li class="ant-breadcrumb-item"><span class="ant-breadcrumb-link">Current</span></li>
+    <!---->
+  </ol>
+</nav>"
+`;
