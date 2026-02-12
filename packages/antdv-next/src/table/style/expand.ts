@@ -53,16 +53,16 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
 
       [`${componentCls}-row-expand-icon`]: {
         ...operationUnit(token),
-        'position': 'relative',
-        'float': 'left',
-        'width': expandIconSize,
-        'height': expandIconSize,
-        'color': 'inherit',
-        'lineHeight': unit(expandIconSize),
-        'background': tableExpandIconBg,
-        'border': tableBorder,
+        position: 'relative',
+        float: 'left',
+        width: expandIconSize,
+        height: expandIconSize,
+        color: 'inherit',
+        lineHeight: unit(expandIconSize),
+        background: tableExpandIconBg,
+        border: tableBorder,
         borderRadius,
-        'transform': `scale(${expandIconScale})`,
+        transform: `scale(${expandIconScale})`,
 
         '&:focus, &:hover, &:active': {
           borderColor: 'currentcolor',
@@ -104,9 +104,9 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
             display: 'none',
             content: 'none',
           },
-          'background': 'transparent',
-          'border': 0,
-          'visibility': 'hidden',
+          background: 'transparent',
+          border: 0,
+          visibility: 'hidden',
         },
       },
 

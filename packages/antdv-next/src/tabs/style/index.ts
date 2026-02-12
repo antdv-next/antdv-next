@@ -278,49 +278,49 @@ const genDropdownStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
     [`${componentCls}-dropdown`]: {
       ...resetComponent(token),
 
-      'position': 'absolute',
-      'top': -9999,
-      'left': {
+      position: 'absolute',
+      top: -9999,
+      left: {
         _skip_check_: true,
         value: -9999,
       },
-      'zIndex': token.zIndexPopup,
-      'display': 'block',
+      zIndex: token.zIndexPopup,
+      display: 'block',
 
       '&-hidden': {
         display: 'none',
       },
 
       [`${componentCls}-dropdown-menu`]: {
-        'maxHeight': token.tabsDropdownHeight,
-        'margin': 0,
-        'padding': `${unit(dropdownEdgeChildVerticalPadding)} 0`,
-        'overflowX': 'hidden',
-        'overflowY': 'auto',
-        'textAlign': {
+        maxHeight: token.tabsDropdownHeight,
+        margin: 0,
+        padding: `${unit(dropdownEdgeChildVerticalPadding)} 0`,
+        overflowX: 'hidden',
+        overflowY: 'auto',
+        textAlign: {
           _skip_check_: true,
           value: 'left',
         },
-        'listStyleType': 'none',
-        'backgroundColor': token.colorBgContainer,
-        'backgroundClip': 'padding-box',
-        'borderRadius': token.borderRadiusLG,
-        'outline': 'none',
-        'boxShadow': token.boxShadowSecondary,
+        listStyleType: 'none',
+        backgroundColor: token.colorBgContainer,
+        backgroundClip: 'padding-box',
+        borderRadius: token.borderRadiusLG,
+        outline: 'none',
+        boxShadow: token.boxShadowSecondary,
 
         '&-item': {
           ...textEllipsis,
-          'display': 'flex',
-          'alignItems': 'center',
-          'minWidth': token.tabsDropdownWidth,
-          'margin': 0,
-          'padding': `${unit(token.paddingXXS)} ${unit(token.paddingSM)}`,
-          'color': token.colorText,
-          'fontWeight': 'normal',
-          'fontSize': token.fontSize,
-          'lineHeight': token.lineHeight,
-          'cursor': 'pointer',
-          'transition': `all ${token.motionDurationSlow}`,
+          display: 'flex',
+          alignItems: 'center',
+          minWidth: token.tabsDropdownWidth,
+          margin: 0,
+          padding: `${unit(token.paddingXXS)} ${unit(token.paddingSM)}`,
+          color: token.colorText,
+          fontWeight: 'normal',
+          fontSize: token.fontSize,
+          lineHeight: token.lineHeight,
+          cursor: 'pointer',
+          transition: `all ${token.motionDurationSlow}`,
 
           '> span': {
             flex: 1,
@@ -328,16 +328,16 @@ const genDropdownStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
           },
 
           '&-remove': {
-            'flex': 'none',
-            'marginLeft': {
+            flex: 'none',
+            marginLeft: {
               _skip_check_: true,
               value: token.marginSM,
             },
-            'color': token.colorIcon,
-            'fontSize': token.fontSizeSM,
-            'background': 'transparent',
-            'border': 0,
-            'cursor': 'pointer',
+            color: token.colorIcon,
+            fontSize: token.fontSizeSM,
+            background: 'transparent',
+            border: 0,
+            cursor: 'pointer',
 
             '&:hover': {
               color: itemHoverColor,
@@ -369,6 +369,7 @@ const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
     horizontalMargin,
     verticalItemPadding,
     verticalItemMargin,
+    motionDurationSlow,
     calc,
   } = token
   return {
@@ -377,7 +378,7 @@ const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
       flexDirection: 'column',
 
       [`> ${componentCls}-nav, > div > ${componentCls}-nav`]: {
-        'margin': horizontalMargin,
+        margin: horizontalMargin,
 
         '&::before': {
           position: 'absolute',
@@ -394,11 +395,12 @@ const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
         },
 
         [`${componentCls}-ink-bar`]: {
-          'height': token.lineWidthBold,
+          height: token.lineWidthBold,
 
           '&-animated': {
-            transition: `width ${token.motionDurationSlow}, left ${token.motionDurationSlow},
-            right ${token.motionDurationSlow}`,
+            transition: ['width', 'left', 'right']
+              .map(prop => `${prop} ${motionDurationSlow}`)
+              .join(', '),
           },
         },
 
@@ -450,9 +452,9 @@ const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
 
     [`${componentCls}-bottom`]: {
       [`> ${componentCls}-nav, > div > ${componentCls}-nav`]: {
-        'order': 1,
-        'marginTop': margin,
-        'marginBottom': 0,
+        order: 1,
+        marginTop: margin,
+        marginBottom: 0,
 
         '&::before': {
           top: 0,
@@ -486,7 +488,7 @@ const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
 
         // >>>>>>>>>>> Nav
         [`${componentCls}-nav-wrap`]: {
-          'flexDirection': 'column',
+          flexDirection: 'column',
 
           '&::before, &::after': {
             right: {
@@ -521,10 +523,10 @@ const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
 
         // >>>>>>>>>>> Ink Bar
         [`${componentCls}-ink-bar`]: {
-          'width': token.lineWidthBold,
+          width: token.lineWidthBold,
 
           '&-animated': {
-            transition: `height ${token.motionDurationSlow}, top ${token.motionDurationSlow}`,
+            transition: ['height', 'top'].map(prop => `${prop} ${motionDurationSlow}`).join(', '),
           },
         },
 
@@ -704,18 +706,18 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
 
   return {
     [tabCls]: {
-      'position': 'relative',
-      'WebkitTouchCallout': 'none',
-      'WebkitTapHighlightColor': 'transparent',
-      'display': 'inline-flex',
-      'alignItems': 'center',
-      'padding': horizontalItemPadding,
-      'fontSize': token.titleFontSize,
-      'background': 'transparent',
-      'border': 0,
-      'outline': 'none',
-      'cursor': 'pointer',
-      'color': itemColor,
+      position: 'relative',
+      WebkitTouchCallout: 'none',
+      WebkitTapHighlightColor: 'transparent',
+      display: 'inline-flex',
+      alignItems: 'center',
+      padding: horizontalItemPadding,
+      fontSize: token.titleFontSize,
+      background: 'transparent',
+      border: 0,
+      outline: 'none',
+      cursor: 'pointer',
+      color: itemColor,
 
       '&-btn, &-remove': {
         '&:focus:not(:focus-visible), &:active': {
@@ -732,23 +734,23 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
       },
 
       '&-remove': {
-        'flex': 'none',
-        'lineHeight': 1,
-        'marginRight': {
+        flex: 'none',
+        lineHeight: 1,
+        marginRight: {
           _skip_check_: true,
           value: token.calc(token.marginXXS).mul(-1).equal(),
         },
-        'marginLeft': {
+        marginLeft: {
           _skip_check_: true,
           value: token.marginXS,
         },
-        'color': token.colorIcon,
-        'fontSize': token.fontSizeSM,
-        'background': 'transparent',
-        'border': 'none',
-        'outline': 'none',
-        'cursor': 'pointer',
-        'transition': `all ${token.motionDurationSlow}`,
+        color: token.colorIcon,
+        fontSize: token.fontSizeSM,
+        background: 'transparent',
+        border: 'none',
+        outline: 'none',
+        cursor: 'pointer',
+        transition: `all ${token.motionDurationSlow}`,
         '&:hover': {
           color: token.colorTextHeading,
         },
@@ -920,13 +922,13 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
         alignItems: 'center',
 
         [`${componentCls}-nav-wrap`]: {
-          'position': 'relative',
-          'display': 'flex',
-          'flex': 'auto',
-          'alignSelf': 'stretch',
-          'overflow': 'hidden',
-          'whiteSpace': 'nowrap',
-          'transform': 'translate(0)', // Fix chrome render bug
+          position: 'relative',
+          display: 'flex',
+          flex: 'auto',
+          alignSelf: 'stretch',
+          overflow: 'hidden',
+          whiteSpace: 'nowrap',
+          transform: 'translate(0)', // Fix chrome render bug
 
           // >>>>> Ping shadow
           '&::before, &::after': {
@@ -958,11 +960,11 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
         },
 
         [`${componentCls}-nav-more`]: {
-          'position': 'relative',
-          'padding': tabsCardPadding,
-          'background': 'transparent',
-          'border': 0,
-          'color': token.colorText,
+          position: 'relative',
+          padding: tabsCardPadding,
+          background: 'transparent',
+          border: 0,
+          color: token.colorText,
 
           '&::after': {
             position: 'absolute',
@@ -982,19 +984,19 @@ const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
         },
 
         [`${componentCls}-nav-add`]: {
-          'minWidth': cardHeight,
-          'minHeight': cardHeight,
-          'marginLeft': {
+          minWidth: cardHeight,
+          minHeight: cardHeight,
+          marginLeft: {
             _skip_check_: true,
             value: cardGutter,
           },
-          'background': 'transparent',
-          'border': `${unit(token.lineWidth)} ${token.lineType} ${colorBorderSecondary}`,
-          'borderRadius': `${unit(token.borderRadiusLG)} ${unit(token.borderRadiusLG)} 0 0`,
-          'outline': 'none',
-          'cursor': 'pointer',
-          'color': token.colorText,
-          'transition': `all ${token.motionDurationSlow} ${token.motionEaseInOut}`,
+          background: 'transparent',
+          border: `${unit(token.lineWidth)} ${token.lineType} ${colorBorderSecondary}`,
+          borderRadius: `${unit(token.borderRadiusLG)} ${unit(token.borderRadiusLG)} 0 0`,
+          outline: 'none',
+          cursor: 'pointer',
+          color: token.colorText,
+          transition: `all ${token.motionDurationSlow} ${token.motionEaseInOut}`,
 
           '&:hover': {
             color: itemHoverColor,

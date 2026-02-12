@@ -115,17 +115,17 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
   const operationBgHover = operationBg.clone().setA(0.2)
 
   const singleBtn: CSSObject = {
-    'position': 'absolute',
-    'color': colorTextLightSolid,
-    'backgroundColor': operationBg.toRgbString(),
-    'borderRadius': '50%',
-    'padding': paddingSM,
-    'outline': 0,
-    'border': 0,
-    'cursor': 'pointer',
-    'transition': `all ${motionDurationSlow}`,
-    'display': 'flex',
-    'fontSize': previewOperationSize,
+    position: 'absolute',
+    color: colorTextLightSolid,
+    backgroundColor: operationBg.toRgbString(),
+    borderRadius: '50%',
+    padding: paddingSM,
+    outline: 0,
+    border: 0,
+    cursor: 'pointer',
+    transition: `all ${motionDurationSlow}`,
+    display: 'flex',
+    fontSize: previewOperationSize,
 
     '&:hover': {
       backgroundColor: operationBgHover.toRgbString(),
@@ -160,9 +160,9 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
       [`${previewCls}-body`]: {
         ...genBoxStyle(),
         'pointer-events': 'none',
-        'display': 'flex',
-        'alignItems': 'center',
-        'justifyContent': 'center',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
 
         '> *': {
           pointerEvents: 'auto',
@@ -194,8 +194,8 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
       // ================ Switch ================
       [`${previewCls}-switch`]: {
         ...singleBtn,
-        'top': '50%',
-        'transform': `translateY(-50%)`,
+        top: '50%',
+        transform: `translateY(-50%)`,
 
         '&-disabled': {
           '&, &:hover, &:active': {
@@ -231,18 +231,18 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
 
       // =============== Actions ================
       [`${previewCls}-actions`]: {
-        'display': 'flex',
-        'gap': paddingSM,
-        'padding': `0 ${unit(paddingLG)}`,
-        'backgroundColor': operationBg.toRgbString(),
-        'borderRadius': 100,
-        'fontSize': previewOperationSize,
+        display: 'flex',
+        gap: paddingSM,
+        padding: `0 ${unit(paddingLG)}`,
+        backgroundColor: operationBg.toRgbString(),
+        borderRadius: 100,
+        fontSize: previewOperationSize,
 
         '&-action': {
-          'padding': paddingSM,
-          'cursor': 'pointer',
-          'transition': `all ${motionDurationSlow}`,
-          'display': 'flex',
+          padding: paddingSM,
+          cursor: 'pointer',
+          transition: `all ${motionDurationSlow}`,
+          display: 'flex',
 
           [`&:not(${previewCls}-actions-action-disabled):hover`]: {
             color: previewOperationHoverColor,
@@ -272,7 +272,7 @@ const genImageStyle: GenerateStyle<ImageToken> = (token: ImageToken) => {
       [`${componentCls}-img-placeholder`]: {
         backgroundColor: token.colorBgContainerDisabled,
         backgroundImage:
-          'url(\'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTQuNSAyLjVoLTEzQS41LjUgMCAwIDAgMSAzdjEwYS41LjUgMCAwIDAgLjUuNWgxM2EuNS41IDAgMCAwIC41LS41VjNhLjUuNSAwIDAgMC0uNS0uNXpNNS4yODEgNC43NWExIDEgMCAwIDEgMCAyIDEgMSAwIDAgMSAwLTJ6bTguMDMgNi44M2EuMTI3LjEyNyAwIDAgMS0uMDgxLjAzSDIuNzY5YS4xMjUuMTI1IDAgMCAxLS4wOTYtLjIwN2wyLjY2MS0zLjE1NmEuMTI2LjEyNiAwIDAgMSAuMTc3LS4wMTZsLjAxNi4wMTZMNy4wOCAxMC4wOWwyLjQ3LTIuOTNhLjEyNi4xMjYgMCAwIDEgLjE3Ny0uMDE2bC4wMTUuMDE2IDMuNTg4IDQuMjQ0YS4xMjcuMTI3IDAgMCAxLS4wMi4xNzV6IiBmaWxsPSIjOEM4QzhDIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48L3N2Zz4=\')',
+            'url(\'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTQuNSAyLjVoLTEzQS41LjUgMCAwIDAgMSAzdjEwYS41LjUgMCAwIDAgLjUuNWgxM2EuNS41IDAgMCAwIC41LS41VjNhLjUuNSAwIDAgMC0uNS0uNXpNNS4yODEgNC43NWExIDEgMCAwIDEgMCAyIDEgMSAwIDAgMSAwLTJ6bTguMDMgNi44M2EuMTI3LjEyNyAwIDAgMS0uMDgxLjAzSDIuNzY5YS4xMjUuMTI1IDAgMCAxLS4wOTYtLjIwN2wyLjY2MS0zLjE1NmEuMTI2LjEyNiAwIDAgMSAuMTc3LS4wMTZsLjAxNi4wMTZMNy4wOCAxMC4wOWwyLjQ3LTIuOTNhLjEyNi4xMjYgMCAwIDEgLjE3Ny0uMDE2bC4wMTUuMDE2IDMuNTg4IDQuMjQ0YS4xMjcuMTI3IDAgMCAxLS4wMi4xNzV6IiBmaWxsPSIjOEM4QzhDIiBmaWxsLXJ1bGU9Im5vbnplcm8iLz48L3N2Zz4=\')',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center center',
         backgroundSize: '30%',
@@ -290,10 +290,10 @@ const genPreviewMotion: GenerateStyle<ImageToken> = (token) => {
   return {
     [previewCls]: {
       '&-fade': {
-        'transition': `opacity ${motionDurationSlow}`,
+        transition: `opacity ${motionDurationSlow}`,
 
         '&-enter, &-appear': {
-          'opacity': 0,
+          opacity: 0,
 
           [`${previewCls}-body`]: {
             transform: 'scale(0)',
@@ -310,7 +310,7 @@ const genPreviewMotion: GenerateStyle<ImageToken> = (token) => {
         },
 
         '&-leave': {
-          'opacity': 1,
+          opacity: 1,
 
           '&-active': {
             opacity: 0,

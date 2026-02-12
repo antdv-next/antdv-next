@@ -124,8 +124,8 @@ function genPickerCellInnerStyle(token: SharedPickerToken): CSSObject {
 
     // >>> Disabled
     '&-disabled': {
-      'color': colorTextDisabled,
-      'cursor': 'not-allowed',
+      color: colorTextDisabled,
+      cursor: 'not-allowed',
 
       [pickerCellInnerCls]: {
         background: 'transparent',
@@ -194,12 +194,12 @@ export function genPanelStyle(token: SharedPickerToken): CSSObject {
   return {
     [componentCls]: {
       '&-panel': {
-        'display': 'inline-flex',
-        'flexDirection': 'column',
-        'textAlign': 'center',
-        'background': colorBgContainer,
-        'borderRadius': borderRadiusLG,
-        'outline': 'none',
+        display: 'inline-flex',
+        flexDirection: 'column',
+        textAlign: 'center',
+        background: colorBgContainer,
+        borderRadius: borderRadiusLG,
+        outline: 'none',
 
         '&-focused': {
           borderColor: colorPrimary,
@@ -218,7 +218,7 @@ export function genPanelStyle(token: SharedPickerToken): CSSObject {
 
           [`${componentCls}-time-panel`]: {
             [`${componentCls}-content`]: {
-              'direction': 'ltr',
+              direction: 'ltr',
               '> *': {
                 direction: 'rtl',
               },
@@ -244,27 +244,27 @@ export function genPanelStyle(token: SharedPickerToken): CSSObject {
 
       // ======================= Header =======================
       '&-header': {
-        'display': 'flex',
-        'padding': `0 ${unit(paddingXS)}`,
-        'color': colorTextHeading,
-        'borderBottom': `${unit(lineWidth)} ${lineType} ${colorSplit}`,
+        display: 'flex',
+        padding: `0 ${unit(paddingXS)}`,
+        color: colorTextHeading,
+        borderBottom: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
 
         '> *': {
           flex: 'none',
         },
 
-        'button': {
-          'padding': 0,
-          'color': colorIcon,
-          'lineHeight': unit(textHeight),
-          'background': 'transparent',
-          'border': 0,
-          'cursor': 'pointer',
-          'transition': `color ${motionDurationMid}`,
-          'fontSize': 'inherit',
-          'display': 'inline-flex',
-          'alignItems': 'center',
-          'justifyContent': 'center',
+        button: {
+          padding: 0,
+          color: colorIcon,
+          lineHeight: unit(textHeight),
+          background: 'transparent',
+          border: 0,
+          cursor: 'pointer',
+          transition: `color ${motionDurationMid}`,
+          fontSize: 'inherit',
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
 
           '&:empty': {
             display: 'none',
@@ -272,7 +272,7 @@ export function genPanelStyle(token: SharedPickerToken): CSSObject {
         },
 
         '> button': {
-          'minWidth': '1.6em',
+          minWidth: '1.6em',
           fontSize,
 
           '&:hover': {
@@ -286,14 +286,14 @@ export function genPanelStyle(token: SharedPickerToken): CSSObject {
         },
 
         '&-view': {
-          'flex': 'auto',
-          'fontWeight': fontWeightStrong,
-          'lineHeight': unit(textHeight),
+          flex: 'auto',
+          fontWeight: fontWeightStrong,
+          lineHeight: unit(textHeight),
 
           '> button': {
-            'color': 'inherit',
-            'fontWeight': 'inherit',
-            'verticalAlign': 'top',
+            color: 'inherit',
+            fontWeight: 'inherit',
+            verticalAlign: 'top',
 
             '&:not(:first-child)': {
               marginInlineStart: paddingXS,
@@ -310,9 +310,9 @@ export function genPanelStyle(token: SharedPickerToken): CSSObject {
         &-next-icon,
         &-super-prev-icon,
         &-super-next-icon`]: {
-        'position': 'relative',
-        'width': pickerControlIconSize,
-        'height': pickerControlIconSize,
+        position: 'relative',
+        width: pickerControlIconSize,
+        height: pickerControlIconSize,
 
         '&::before': {
           position: 'absolute',
@@ -353,9 +353,9 @@ export function genPanelStyle(token: SharedPickerToken): CSSObject {
 
       // ======================== Body ========================
       '&-content': {
-        'width': '100%',
-        'tableLayout': 'fixed',
-        'borderCollapse': 'collapse',
+        width: '100%',
+        tableLayout: 'fixed',
+        borderCollapse: 'collapse',
 
         'th, td': {
           position: 'relative',
@@ -363,7 +363,7 @@ export function genPanelStyle(token: SharedPickerToken): CSSObject {
           fontWeight: 'normal',
         },
 
-        'th': {
+        th: {
           height: token.calc(cellHeight).add(token.calc(pickerCellPaddingVertical).mul(2)).equal(),
           color: colorText,
           verticalAlign: 'middle',
@@ -371,9 +371,9 @@ export function genPanelStyle(token: SharedPickerToken): CSSObject {
       },
 
       '&-cell': {
-        'padding': `${unit(pickerCellPaddingVertical)} 0`,
-        'color': colorTextDisabled,
-        'cursor': 'pointer',
+        padding: `${unit(pickerCellPaddingVertical)} 0`,
+        color: colorTextDisabled,
+        cursor: 'pointer',
 
         // In view
         '&-in-view': {
@@ -444,7 +444,7 @@ export function genPanelStyle(token: SharedPickerToken): CSSObject {
 
       // ====================== Week Panel ======================
       '&-week-panel-row': {
-        'td': {
+        td: {
           '&:before': {
             transition: `background-color ${motionDurationMid}`,
           },
@@ -499,7 +499,7 @@ export function genPanelStyle(token: SharedPickerToken): CSSObject {
 
       // ==================== Datetime Panel ====================
       '&-datetime-panel': {
-        'display': 'flex',
+        display: 'flex',
 
         [`${componentCls}-time-panel`]: {
           borderInlineStart: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
@@ -514,7 +514,7 @@ export function genPanelStyle(token: SharedPickerToken): CSSObject {
         '&-active': {
           [`${componentCls}-date-panel,
             ${componentCls}-time-panel`]: {
-            'opacity': 0.3,
+            opacity: 0.3,
 
             '&-active': {
               opacity: 1,
@@ -525,8 +525,8 @@ export function genPanelStyle(token: SharedPickerToken): CSSObject {
 
       // ====================== Time Panel ======================
       '&-time-panel': {
-        'width': 'auto',
-        'minWidth': 'auto',
+        width: 'auto',
+        minWidth: 'auto',
 
         [`${componentCls}-content`]: {
           display: 'flex',
@@ -535,15 +535,15 @@ export function genPanelStyle(token: SharedPickerToken): CSSObject {
         },
 
         '&-column': {
-          'flex': '1 0 auto',
-          'width': timeColumnWidth,
-          'margin': `${unit(paddingXXS)} 0`,
-          'padding': 0,
-          'overflowY': 'hidden',
-          'textAlign': 'start',
-          'listStyle': 'none',
-          'transition': `background-color ${motionDurationMid}`,
-          'overflowX': 'hidden',
+          flex: '1 0 auto',
+          width: timeColumnWidth,
+          margin: `${unit(paddingXXS)} 0`,
+          padding: 0,
+          overflowY: 'hidden',
+          textAlign: 'start',
+          listStyle: 'none',
+          transition: `background-color ${motionDurationMid}`,
+          overflowX: 'hidden',
 
           '&::-webkit-scrollbar': {
             width: 8,
@@ -584,20 +584,20 @@ export function genPanelStyle(token: SharedPickerToken): CSSObject {
             padding: 0,
 
             [`&${componentCls}-time-panel-cell`]: {
-              'marginInline': marginXXS,
+              marginInline: marginXXS,
               [`${componentCls}-time-panel-cell-inner`]: {
-                'display': 'block',
-                'width': token.calc(timeColumnWidth).sub(token.calc(marginXXS).mul(2)).equal(),
-                'height': timeCellHeight,
-                'margin': 0,
-                'paddingBlock': 0,
-                'paddingInlineEnd': 0,
-                'paddingInlineStart': token.calc(timeColumnWidth).sub(timeCellHeight).div(2).equal(),
-                'color': colorText,
-                'lineHeight': unit(timeCellHeight),
-                'borderRadius': borderRadiusSM,
-                'cursor': 'pointer',
-                'transition': `background-color ${motionDurationMid}`,
+                display: 'block',
+                width: token.calc(timeColumnWidth).sub(token.calc(marginXXS).mul(2)).equal(),
+                height: timeCellHeight,
+                margin: 0,
+                paddingBlock: 0,
+                paddingInlineEnd: 0,
+                paddingInlineStart: token.calc(timeColumnWidth).sub(timeCellHeight).div(2).equal(),
+                color: colorText,
+                lineHeight: unit(timeCellHeight),
+                borderRadius: borderRadiusSM,
+                cursor: 'pointer',
+                transition: `background-color ${motionDurationMid}`,
 
                 '&:hover': {
                   background: cellHoverBg,
@@ -643,12 +643,12 @@ const genPickerPanelStyle: GenerateStyle<PickerToken> = (token) => {
     [`${componentCls}-dropdown`]: {
       // ======================== Footer ========================
       [`${componentCls}-footer`]: {
-        'borderTop': `${unit(lineWidth)} ${lineType} ${colorSplit}`,
+        borderTop: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
 
         '&-extra': {
-          'padding': `0 ${unit(paddingSM)}`,
-          'lineHeight': unit(token.calc(textHeight).sub(token.calc(lineWidth).mul(2)).equal()),
-          'textAlign': 'start',
+          padding: `0 ${unit(paddingSM)}`,
+          lineHeight: unit(token.calc(textHeight).sub(token.calc(lineWidth).mul(2)).equal()),
+          textAlign: 'start',
 
           '&:not(:last-child)': {
             borderBottom: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
@@ -662,14 +662,14 @@ const genPickerPanelStyle: GenerateStyle<PickerToken> = (token) => {
       },
 
       [`${componentCls}-ranges`]: {
-        'marginBlock': 0,
-        'paddingInline': unit(paddingSM),
-        'overflow': 'hidden',
-        'textAlign': 'start',
-        'listStyle': 'none',
-        'display': 'flex',
-        'justifyContent': 'center',
-        'alignItems': 'center',
+        marginBlock: 0,
+        paddingInline: unit(paddingSM),
+        overflow: 'hidden',
+        textAlign: 'start',
+        listStyle: 'none',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
 
         '> li': {
           lineHeight: unit(token.calc(textHeight).sub(token.calc(lineWidth).mul(2)).equal()),

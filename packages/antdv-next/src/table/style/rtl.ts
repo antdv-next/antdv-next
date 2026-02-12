@@ -17,7 +17,7 @@ const genStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       },
 
       [`${componentCls}-row-expand-icon`]: {
-        'float': 'right',
+        float: 'right',
 
         '&::after': {
           transform: 'rotate(-90deg)',

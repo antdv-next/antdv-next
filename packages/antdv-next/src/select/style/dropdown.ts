@@ -46,21 +46,21 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
         // ========================== Popup ==========================
         ...resetComponent(token),
 
-        'position': 'absolute',
-        'top': -9999,
-        'zIndex': token.zIndexPopup,
-        'boxSizing': 'border-box',
-        'padding': token.paddingXXS,
-        'overflow': 'hidden',
-        'fontSize': token.fontSize,
+        position: 'absolute',
+        top: -9999,
+        zIndex: token.zIndexPopup,
+        boxSizing: 'border-box',
+        padding: token.paddingXXS,
+        overflow: 'hidden',
+        fontSize: token.fontSize,
         // Fix select render lag of long text in chrome
         // https://github.com/ant-design/ant-design/issues/11456
         // https://github.com/ant-design/ant-design/issues/11843
-        'fontVariant': 'initial',
-        'backgroundColor': token.colorBgElevated,
-        'borderRadius': token.borderRadiusLG,
-        'outline': 'none',
-        'boxShadow': token.boxShadowSecondary,
+        fontVariant: 'initial',
+        backgroundColor: token.colorBgElevated,
+        borderRadius: token.borderRadiusLG,
+        outline: 'none',
+        boxShadow: token.boxShadowSecondary,
 
         [`
           ${slideUpEnterActive}${dropdownPlacementCls}bottomLeft,
@@ -95,9 +95,9 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
 
         [selectItemCls]: {
           ...genItemStyle(token),
-          'cursor': 'pointer',
-          'transition': `background-color ${token.motionDurationSlow} ease`,
-          'borderRadius': token.borderRadiusSM,
+          cursor: 'pointer',
+          transition: `background-color ${token.motionDurationSlow} ease`,
+          borderRadius: token.borderRadiusSM,
 
           // =========== Group ============
           '&-group': {
@@ -108,7 +108,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
 
           // =========== Option ===========
           '&-option': {
-            'display': 'flex',
+            display: 'flex',
 
             '&-content': {
               flex: 'auto',

@@ -22,6 +22,7 @@ export interface SplitBarProps {
   collapsibleIcon?: SplitterProps['collapsibleIcon']
   showStartCollapsibleIcon: ShowCollapsibleIconMode
   showEndCollapsibleIcon: ShowCollapsibleIconMode
+  onDraggerDoubleClick?: (index: number) => void
   onOffsetStart: (index: number) => void
   onOffsetUpdate: (index: number, offsetX: number, offsetY: number, lazyEnd?: boolean) => void
   onOffsetEnd: (lazyEnd?: boolean) => void
@@ -39,6 +40,8 @@ function getValidNumber(num?: number): number {
     ? Math.round(num)
     : 0
 }
+
+const DOUBLE_CLICK_TIME_GAP = 300
 
 const SplitBar = defineComponent<SplitBarProps>(
   (props, { slots, attrs }) => {
@@ -68,6 +71,7 @@ const SplitBar = defineComponent<SplitBarProps>(
     )
 
     const splitBarPrefixCls = computed(() => `${prefixCls.value}-bar`)
+    const lastClickTimeRef = shallowRef<number>(0)
     const barVarName = computed(() => genCssVar(rootPrefixCls.value, 'splitter')[0])
     // ======================== Resize ========================
     const startPos = shallowRef<[x: number, y: number]>()
@@ -76,6 +80,16 @@ const SplitBar = defineComponent<SplitBarProps>(
     const constrainedOffsetX = computed(() => vertical.value ? 0 : constrainedOffset.value)
     const constrainedOffsetY = computed(() => vertical.value ? constrainedOffset.value : 0)
     const onMouseDown = (event: MouseEvent) => {
+      event.stopPropagation()
+      const currentTime = Date.now()
+      const timeGap = currentTime - lastClickTimeRef.value
+
+      if (timeGap > 0 && timeGap < DOUBLE_CLICK_TIME_GAP) {
+      // Prevent drag start if it's a double-click action
+        return
+      }
+
+      lastClickTimeRef.value = currentTime
       if (resizable.value && event.currentTarget) {
         startPos.value = [event.pageX, event.pageY]
         props?.onOffsetStart?.(index.value)
@@ -135,6 +149,7 @@ const SplitBar = defineComponent<SplitBarProps>(
           const { pageX, pageY } = e
           const offsetX = pageX - startPos.value![0]!
           const offsetY = pageY - startPos.value![1]!
+
           if (lazy.value) {
             handleLazyMove(offsetX, offsetY)
           }
@@ -270,6 +285,7 @@ const SplitBar = defineComponent<SplitBarProps>(
             )}
             onMousedown={onMouseDown}
             onTouchstart={onTouchStart}
+            onDblclick={() => props?.onDraggerDoubleClick?.(index.value)}
           >
             {draggerIcon !== undefined
               ? (

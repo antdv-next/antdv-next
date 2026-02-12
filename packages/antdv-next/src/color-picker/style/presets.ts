@@ -51,10 +51,10 @@ const genPresetsStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
         flexWrap: 'wrap',
         gap: token.calc(marginXXS).mul(1.5).equal(),
         [`${componentCls}-presets-color`]: {
-          'position': 'relative',
-          'cursor': 'pointer',
-          'width': colorPickerPresetColorSize,
-          'height': colorPickerPresetColorSize,
+          position: 'relative',
+          cursor: 'pointer',
+          width: colorPickerPresetColorSize,
+          height: colorPickerPresetColorSize,
 
           '&::before': {
             content: '""',

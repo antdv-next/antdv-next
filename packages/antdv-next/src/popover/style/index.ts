@@ -93,30 +93,30 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
     {
       [componentCls]: {
         ...resetComponent(token),
-        'position': 'absolute',
-        'top': 0,
+        position: 'absolute',
+        top: 0,
         // use `left` to fix https://github.com/ant-design/ant-design/issues/39195
-        'left': {
+        left: {
           _skip_check_: true,
           value: 0,
         },
-        'zIndex': zIndexPopup,
-        'fontWeight': 'normal',
-        'whiteSpace': 'normal',
-        'textAlign': 'start',
-        'cursor': 'auto',
-        'userSelect': 'text',
+        zIndex: zIndexPopup,
+        fontWeight: 'normal',
+        whiteSpace: 'normal',
+        textAlign: 'start',
+        cursor: 'auto',
+        userSelect: 'text',
 
         // When use `autoArrow`, origin will follow the arrow position
-        [varName('valid-offset-x')]: varRef('arrow-offset-horizontal', 'var(--arrow-x)'),
-        'transformOrigin': [
+        [varName('valid-offset-x')]: varRef('arrow-offset-x', 'var(--arrow-x)'),
+        transformOrigin: [
           varRef('valid-offset-x', FALL_BACK_ORIGIN),
           `var(--arrow-y, ${FALL_BACK_ORIGIN})`,
         ].join(' '),
 
         [varName('arrow-background-color')]: colorBgElevated,
-        'width': 'max-content',
-        'maxWidth': '100vw',
+        width: 'max-content',
+        maxWidth: '100vw',
 
         '&-rtl': {
           direction: 'rtl',

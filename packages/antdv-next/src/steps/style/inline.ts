@@ -17,7 +17,7 @@ const genInlineStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       [varName('items-offset')]: '0',
       [varName('item-wrapper-padding-top')]: containerPaddingTop,
 
-      'display': 'inline-flex',
+      display: 'inline-flex',
 
       '&:before': {
         content: '""',
@@ -44,14 +44,14 @@ const genInlineStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         [varName('rail-size')]: token.lineWidth,
         [varName('title-horizontal-rail-gap')]: '0px',
         // ========================== Styles ==========================
-        'flex': 1,
+        flex: 1,
 
         '&-wrapper': {
-          'paddingInline': token.paddingXXS,
-          'marginInline': token.calc(token.marginXXS).div(2).equal(),
-          'borderRadius': token.borderRadiusSM,
-          'cursor': 'pointer',
-          'transition': `background-color ${token.motionDurationMid}`,
+          paddingInline: token.paddingXXS,
+          marginInline: token.calc(token.marginXXS).div(2).equal(),
+          borderRadius: token.borderRadiusSM,
+          cursor: 'pointer',
+          transition: `background-color ${token.motionDurationMid}`,
           '&:hover': {
             background: token.controlItemBgHover,
           },

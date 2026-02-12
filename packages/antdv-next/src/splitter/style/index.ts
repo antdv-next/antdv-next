@@ -77,22 +77,22 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
   return {
     [componentCls]: {
       ...resetComponent(token),
-      'display': 'flex',
-      'width': '100%',
-      'height': '100%',
-      'alignItems': 'stretch',
+      display: 'flex',
+      width: '100%',
+      height: '100%',
+      alignItems: 'stretch',
 
       // ======================== SplitBar ========================
       // Use `>` to avoid conflict with mix layout
       [`> ${splitBarCls}`]: {
-        'flex': 'none',
-        'position': 'relative',
-        'userSelect': 'none',
+        flex: 'none',
+        position: 'relative',
+        userSelect: 'none',
 
         // ======================= Dragger =======================
         [`${splitBarCls}-dragger`]: {
           ...centerStyle,
-          'zIndex': 1,
+          zIndex: 1,
 
           // Hover background
           '&::before': {
@@ -117,7 +117,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
           // Active
           '&-active': {
-            'zIndex': 2,
+            zIndex: 2,
 
             '&::before': {
               background: controlItemBgActiveHover,
@@ -131,10 +131,10 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
           // Disabled, not use `pointer-events: none` since still need trigger collapse
           [`&-disabled${splitBarCls}-dragger`]: {
-            'zIndex': 0,
+            zIndex: 0,
 
             '&, &:hover, &-active': {
-              'cursor': 'default',
+              cursor: 'default',
               '&::before': {
                 background: controlItemBgHover,
               },
@@ -221,9 +221,9 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
       // =========================== Mask =========================
       // Util dom for handle cursor
       [splitMaskCls]: {
-        'position': 'fixed',
-        'zIndex': token.zIndexPopupBase,
-        'inset': 0,
+        position: 'fixed',
+        zIndex: token.zIndexPopupBase,
+        inset: 0,
 
         '&-horizontal': {
           cursor: 'col-resize',
@@ -257,9 +257,9 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
           // ======================= Dragger =======================
           [`${splitBarCls}-dragger`]: {
-            'cursor': 'col-resize',
-            'height': '100%',
-            'width': splitTriggerSize,
+            cursor: 'col-resize',
+            height: '100%',
+            width: splitTriggerSize,
 
             '&::before': {
               height: '100%',
@@ -274,8 +274,8 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
           // ======================= Collapse =======================
           [`${splitBarCls}-collapse-bar`]: {
-            'width': token.fontSizeSM,
-            'height': token.controlHeightSM,
+            width: token.fontSizeSM,
+            height: token.controlHeightSM,
 
             '&-start': {
               left: {
@@ -324,9 +324,9 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
           // ======================= Dragger =======================
           [`${splitBarCls}-dragger`]: {
-            'cursor': 'row-resize',
-            'width': '100%',
-            'height': splitTriggerSize,
+            cursor: 'row-resize',
+            width: '100%',
+            height: splitTriggerSize,
 
             '&::before': {
               width: '100%',
@@ -341,8 +341,8 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
           // ======================= Collapse =======================
           [`${splitBarCls}-collapse-bar`]: {
-            'height': token.fontSizeSM,
-            'width': token.controlHeightSM,
+            height: token.fontSizeSM,
+            width: token.controlHeightSM,
 
             '&-start': {
               top: 'auto',
@@ -361,10 +361,10 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
       // ========================= Panels =========================
       [splitPanelCls]: {
-        'overflow': 'auto',
-        'padding': '0 1px',
-        'scrollbarWidth': 'thin',
-        'boxSizing': 'border-box',
+        overflow: 'auto',
+        padding: '0 1px',
+        scrollbarWidth: 'thin',
+        boxSizing: 'border-box',
 
         '&-hidden': {
           padding: 0,

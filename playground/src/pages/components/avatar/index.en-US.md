@@ -33,17 +33,17 @@ group:
 Common props ref：[Common props](/docs/vue/common-props)
 
 | Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| shape | The shape of avatar | 'circle' \| 'square' | `circle` | - |
-| size | The size of the avatar | AvatarSize | `default` | - |
-| gap | Letter type unit distance between left and right sides | number | 4 | - |
-| src | The address of the image for an image avatar or image element | VueNode | - | - |
-| srcSet | A list of sources to use for different screen resolutions | string | - | - |
-| draggable | Whether the picture is allowed to be dragged | boolean \| 'true' \| 'false' | true | - |
-| icon | Custom icon type for an icon avatar | VueNode | - | - |
-| alt | This attribute defines the alternative text describing the image | string | - | - |
-| crossOrigin | CORS settings attributes | '' \| 'anonymous' \| 'use-credentials' | - | - |
-| onError | Handler when img load error, return false to prevent default fallback behavior | () =&gt; boolean | - | - |
+| --- | --- | --- | --- |-------|
+| shape | The shape of avatar | `circle` \| `square` | `circle` |  |
+| size | The size of the avatar | number \| `large` \| `medium` \| `small` \| `{ xs: number, sm: number, ... }` | `medium` | - |
+| gap | Letter type unit distance between left and right sides | number | 4 | -     |
+| src | The address of the image for an image avatar or image element | VueNode | - | -     |
+| srcSet | A list of sources to use for different screen resolutions | string | - | -     |
+| draggable | Whether the picture is allowed to be dragged | boolean \| `'true'` \| `'false'` | true |  |
+| icon | Custom icon type for an icon avatar | VueNode | - | -     |
+| alt | This attribute defines the alternative text describing the image | string | - | -     |
+| crossOrigin | CORS settings attributes | '' \| 'anonymous' \| 'use-credentials' | - | -     |
+| onError | Handler when img load error, return false to prevent default fallback behavior | () =&gt; boolean | - | -     |
 
 #### Events {#avatar-events}
 

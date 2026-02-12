@@ -59,12 +59,13 @@ demo:
 
 #### 属性 {#row-props}
 
+
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| align | 垂直对齐方式 | `top` \| `middle` \| `bottom` \| `stretch` \| `{ [key in 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'xxl']: 'top' \| 'middle' \| 'bottom' \| 'stretch' }` | `top` |  |
-| gutter | 栅格间隔，可以写成[字符串CSS单位](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Values_and_Units)或支持响应式的对象写法来设置水平间隔 &#123; xs: 8, sm: 16, md: 24&#125;。或者使用数组形式同时设置 `[水平间距, 垂直间距]` | number \| string \| object \| array | 0 |  |
-| justify | 水平排列方式 | `start` \| `end` \| `center` \| `space-around` \| `space-between` \| `space-evenly` \| `{ [key in 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'xxl']: 'start' \| 'end' \| 'center' \| 'space-around' \| 'space-between' \| 'space-evenly' }` | `start` |  |
-| wrap | 是否自动换行 | boolean | true |  |
+| align | 垂直对齐方式 | `top` \| `middle` \| `bottom` \| `stretch` \| `{[key in 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'xxl' \| 'xxxl']: 'top' \| 'middle' \| 'bottom' \| 'stretch'}` | `top` | |
+| gutter | 栅格间隔，可以写成[字符串CSS单位](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Values_and_Units)或支持响应式的对象写法来设置水平间隔 { xs: 8, sm: 16, md: 24}。或者使用数组形式同时设置 `[水平间距, 垂直间距]` | number \| string \| object \| array | 0 |  |
+| justify | 水平排列方式 | `start` \| `end` \| `center` \| `space-around` \| `space-between` \| `space-evenly` \| `{[key in 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'xxl' \| 'xxxl']: 'start' \| 'end' \| 'center' \| 'space-around' \| 'space-between' \| 'space-evenly'}` | `start` |  |
+| wrap | 是否自动换行 | boolean | true | |
 
 ### Col
 
@@ -78,12 +79,13 @@ demo:
 | pull | 栅格向左移动格数 | number | 0 |  |
 | push | 栅格向右移动格数 | number | 0 |  |
 | span | 栅格占位格数，为 0 时相当于 `display: none` | number | - |  |
-| xs | `窗口宽度 &lt; 576px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - |  |
+| xs | `窗口宽度 < 576px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - |  |
 | sm | `窗口宽度 ≥ 576px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - |  |
 | md | `窗口宽度 ≥ 768px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - |  |
 | lg | `窗口宽度 ≥ 992px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - |  |
 | xl | `窗口宽度 ≥ 1200px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - |  |
 | xxl | `窗口宽度 ≥ 1600px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - |  |
+| xxxl | `窗口宽度 ≥ 1920px` 响应式栈格，可为栈格数或一个包含其他属性的对象 | number \| object | - | 1.0.3 |
 
 ## 主题变量（Design Token）
 

@@ -1,0 +1,102 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`otp > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-otp css-var-root ant-otp-rtl"
+    role="group"
+  >
+    <span
+      class="ant-otp-input-wrapper"
+      role="presentation"
+    >
+      <!---->
+      <input
+        aria-label="OTP Input 1"
+        class="ant-input ant-input-rtl ant-input-outlined ant-otp-input ant-otp-input css-var-root ant-input-css-var"
+        size="1"
+        type="text"
+        value=""
+      />
+    </span>
+    <!---->
+    <span
+      class="ant-otp-input-wrapper"
+      role="presentation"
+    >
+      <!---->
+      <input
+        aria-label="OTP Input 2"
+        autofocus="false"
+        class="ant-input ant-input-rtl ant-input-outlined ant-otp-input ant-otp-input css-var-root ant-input-css-var"
+        size="1"
+        type="text"
+        value=""
+      />
+    </span>
+    <!---->
+    <span
+      class="ant-otp-input-wrapper"
+      role="presentation"
+    >
+      <!---->
+      <input
+        aria-label="OTP Input 3"
+        autofocus="false"
+        class="ant-input ant-input-rtl ant-input-outlined ant-otp-input ant-otp-input css-var-root ant-input-css-var"
+        size="1"
+        type="text"
+        value=""
+      />
+    </span>
+    <!---->
+    <span
+      class="ant-otp-input-wrapper"
+      role="presentation"
+    >
+      <!---->
+      <input
+        aria-label="OTP Input 4"
+        autofocus="false"
+        class="ant-input ant-input-rtl ant-input-outlined ant-otp-input ant-otp-input css-var-root ant-input-css-var"
+        size="1"
+        type="text"
+        value=""
+      />
+    </span>
+    <!---->
+    <span
+      class="ant-otp-input-wrapper"
+      role="presentation"
+    >
+      <!---->
+      <input
+        aria-label="OTP Input 5"
+        autofocus="false"
+        class="ant-input ant-input-rtl ant-input-outlined ant-otp-input ant-otp-input css-var-root ant-input-css-var"
+        size="1"
+        type="text"
+        value=""
+      />
+    </span>
+    <!---->
+    <span
+      class="ant-otp-input-wrapper"
+      role="presentation"
+    >
+      <!---->
+      <input
+        aria-label="OTP Input 6"
+        autofocus="false"
+        class="ant-input ant-input-rtl ant-input-outlined ant-otp-input ant-otp-input css-var-root ant-input-css-var"
+        size="1"
+        type="text"
+        value=""
+      />
+    </span>
+    <!---->
+  </div>
+</div>
+`;

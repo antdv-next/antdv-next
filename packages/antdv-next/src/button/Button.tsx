@@ -162,11 +162,15 @@ const InternalCompoundedButton = defineComponent<
       style: contextStyle,
       classes: contextClassNames,
       styles: contextStyles,
-      ...button
-    } = useComponentBaseConfig('button', props, ['autoInsertSpace', 'variant', 'shape', 'color'], 'btn')
+      loadingIcon: contextLoadingIcon,
+      shape: contextShape,
+      color: contextColor,
+      variant: contextVariant,
+      autoInsertSpace: contextAutoInsertSpace,
+    } = useComponentBaseConfig('button', props, ['autoInsertSpace', 'variant', 'shape', 'color', 'loadingIcon'], 'btn')
     const { classes, styles } = toPropsRefs(props, 'classes', 'styles')
 
-    const shape = computed(() => props.shape || button?.shape.value || 'default')
+    const mergedShape = computed(() => props.shape || contextShape.value || 'default')
 
     const parsedColorVariant = computed<ColorVariantPairType>(() => {
       const { color, variant, type, danger } = props
@@ -184,8 +188,8 @@ const InternalCompoundedButton = defineComponent<
         return colorVariantPair
       }
       // >>> Context fallback
-      if (button?.color?.value && button?.variant?.value) {
-        return [button.color.value, button.variant.value]
+      if (contextColor?.value && contextVariant?.value) {
+        return [contextColor.value, contextVariant.value]
       }
       return ['default', 'outlined']
     })
@@ -204,7 +208,7 @@ const InternalCompoundedButton = defineComponent<
     const isDanger = computed(() => mergedColor.value === 'danger')
     const mergedColorText = computed(() => isDanger.value ? 'dangerous' : mergedColor.value)
     const mergedInsertSpace = computed(() => {
-      return props?.autoInsertSpace ?? button.autoInsertSpace?.value ?? true
+      return props?.autoInsertSpace ?? contextAutoInsertSpace?.value ?? true
     })
     const [hashId, cssVarCls] = useStyle(prefixCls)
     const disabled = useDisabledContext()
@@ -293,7 +297,7 @@ const InternalCompoundedButton = defineComponent<
     // ========================== Size ==========================
     const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction)
 
-    const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined }
+    const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined, medium: undefined }
     const sizeFullName = useSize<SizeType>(ctxSize => (props?.size ?? compactSize.value ?? ctxSize) as SizeType)
     const mergedIconPlacement = computed(() => props?.iconPlacement ?? 'start')
     // =========== Merged Props for Semantic ===========
@@ -303,7 +307,7 @@ const InternalCompoundedButton = defineComponent<
         type: mergedType.value,
         color: mergedColor.value,
         danger: isDanger.value,
-        shape: shape.value,
+        shape: mergedShape.value,
         size: sizeFullName.value,
         disabled: mergedDisabled.value,
         loading: innerLoading.value,
@@ -342,7 +346,7 @@ const InternalCompoundedButton = defineComponent<
         hashId.value,
         cssVarCls.value,
         {
-          [`${prefixCls.value}-${shape.value}`]: shape.value !== 'default' && shape.value,
+          [`${prefixCls.value}-${mergedShape.value}`]: mergedShape.value !== 'default' && mergedShape.value,
           // Compatible with versions earlier than 5.21.0
           [`${prefixCls.value}-${mergedType.value}`]: mergedType.value,
           [`${prefixCls.value}-dangerous`]: props.danger,
@@ -370,48 +374,54 @@ const InternalCompoundedButton = defineComponent<
         contextStyle.value,
         (attrs as any).style,
       ]
-      let loadingIconNode = null
-      const iconNodes = filterEmpty(slots?.loadingIcon?.())
-      if (iconNodes.length) {
-        loadingIconNode = innerLoading.value && iconNodes
-      }
-      else {
-        loadingIconNode = innerLoading.value && typeof loading === 'object' && loading.icon
-          ? (typeof loading.icon === 'function' ? loading.icon() : loading.icon)
-          : null
-      }
       const iconSharedProps = {
         class: mergedClassNames.value.icon,
         style: mergedStyles.value.icon,
       }
-      const iconNode = hasIcon && !innerLoading.value
-        ? (
-            <IconWrapper
-              prefixCls={prefixCls.value}
-              {...iconSharedProps}
-            >
-              {iconChildren}
-            </IconWrapper>
-          )
-        : (loadingIconNode
-            ? (
-                <IconWrapper
-                  prefixCls={prefixCls.value}
-                  {...iconSharedProps}
-                >
-                  {loadingIconNode}
-                </IconWrapper>
-              )
-            : (
-                <DefaultLoadingIcon
-                  existIcon={hasIcon}
-                  prefixCls={prefixCls.value}
-                  loading={innerLoading.value}
-                  mount={isMountRef.value}
-                  {...iconSharedProps}
-                />
-              )
-          )
+
+      /**
+       * Extract icon node.
+       * If there is a custom icon and not in loading state: show custom icon
+       */
+      const iconWrapperElement = (child: any) => (
+        <IconWrapper prefixCls={prefixCls.value} {...iconSharedProps}>
+          {child}
+        </IconWrapper>
+      )
+
+      const defaultLoadingIconElement = (
+        <DefaultLoadingIcon
+          existIcon={hasIcon}
+          prefixCls={prefixCls.value}
+          loading={innerLoading.value}
+          mount={isMountRef.value}
+          {...iconSharedProps}
+        />
+      )
+
+      // Resolve merged loading icon: slot > loading.icon > context loadingIcon
+      const slotLoadingIcon = getSlotPropsFnRun(slots, {}, 'loadingIcon')
+      const propLoadingIcon = loading && typeof loading === 'object' && loading.icon
+        ? (typeof loading.icon === 'function' ? loading.icon() : loading.icon)
+        : null
+      const contextLoadingIconNode = getSlotPropsFnRun({}, {
+        loadingIcon: contextLoadingIcon.value,
+      }, 'loadingIcon')
+      const mergedLoadingIcon = slotLoadingIcon || propLoadingIcon || contextLoadingIconNode
+
+      /**
+       * Using if-else statements can improve code readability without affecting future expansion.
+       */
+      let iconNode: any
+      if (hasIcon && !innerLoading.value) {
+        iconNode = iconWrapperElement(iconChildren)
+      }
+      else if (innerLoading.value && mergedLoadingIcon) {
+        iconNode = iconWrapperElement(mergedLoadingIcon)
+      }
+      else {
+        iconNode = defaultLoadingIconElement
+      }
       const mergedHref = props.href
       const htmlType = props.htmlType ?? 'button'
 

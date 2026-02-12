@@ -822,9 +822,6 @@ exports[`typography demo > renders editable correctly 1`] = `
           class="ant-radio-input"
           type="radio"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -843,9 +840,6 @@ exports[`typography demo > renders editable correctly 1`] = `
           class="ant-radio-input"
           type="radio"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -863,9 +857,6 @@ exports[`typography demo > renders editable correctly 1`] = `
         <input
           class="ant-radio-input"
           type="radio"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span

@@ -5,7 +5,7 @@ exports[`app demo > renders basic correctly 1`] = `
   data-v-app=""
 >
   <div
-    class="ant-app css-var-root"
+    class="fn dep __v_isRef flags effect __v_isReadonly ant-app css-var-root"
   >
     <!---->
     <!---->
@@ -89,7 +89,7 @@ exports[`app demo > renders config correctly 1`] = `
   data-v-app=""
 >
   <div
-    class="ant-app css-var-root"
+    class="fn dep __v_isRef flags globalVersion effect __v_isReadonly ant-app css-var-root"
   >
     <!---->
     <!---->

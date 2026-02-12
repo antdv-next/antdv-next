@@ -1,7 +1,7 @@
 export { default as Affix } from './affix'
 export type { AffixProps } from './affix'
 export { default as Alert } from './alert'
-export type { AlertEmits, AlertProps, AlertSlots } from './alert'
+export type { AlertEmits, AlertProps, AlertSemanticType, AlertSlots } from './alert'
 export { default as Anchor } from './anchor'
 export type { AnchorLinkProps, AnchorProps } from './anchor'
 export { default as App } from './app'

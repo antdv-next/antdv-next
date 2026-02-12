@@ -3699,14 +3699,10 @@ exports[`tree demo > renders line correctly 1`] = `
     >
       <!---->
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="True"
       >
-        <div
-          class="ant-select-content-value"
-          title="True"
-        >
-          True
-        </div>
+        True
         <input
           aria-autocomplete="list"
           aria-controls="test-id_list"

@@ -14,7 +14,7 @@ const genSpaceCompactStyle: GenerateStyle<SpaceToken> = (token) => {
 
   return {
     [componentCls]: {
-      'display': 'inline-flex',
+      display: 'inline-flex',
 
       '&-block': {
         display: 'flex',

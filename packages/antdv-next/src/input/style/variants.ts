@@ -13,12 +13,12 @@ export function genHoverStyle(token: InputToken): CSSObject {
 
 export function genDisabledStyle(token: InputToken): CSSObject {
   return {
-    'color': token.colorTextDisabled,
-    'backgroundColor': token.colorBgContainerDisabled,
-    'borderColor': token.colorBorder,
-    'boxShadow': 'none',
-    'cursor': 'not-allowed',
-    'opacity': 1,
+    color: token.colorTextDisabled,
+    backgroundColor: token.colorBgContainerDisabled,
+    borderColor: token.colorBorder,
+    boxShadow: 'none',
+    cursor: 'not-allowed',
+    opacity: 1,
 
     'input[disabled], textarea[disabled]': {
       cursor: 'not-allowed',
@@ -43,10 +43,10 @@ export function genBaseOutlinedStyle(token: InputToken, options: {
   activeShadow: string
 }): CSSObject {
   return {
-    'background': token.colorBgContainer,
-    'borderWidth': token.lineWidth,
-    'borderStyle': token.lineType,
-    'borderColor': options.borderColor,
+    background: token.colorBgContainer,
+    borderWidth: token.lineWidth,
+    borderStyle: token.lineType,
+    borderColor: options.borderColor,
 
     '&:hover': {
       borderColor: options.hoverBorderColor,
@@ -181,8 +181,8 @@ export function genBorderlessStyle(token: InputToken, extraStyles?: CSSObject): 
 
   return {
     '&-borderless': {
-      'background': 'transparent',
-      'border': 'none',
+      background: 'transparent',
+      border: 'none',
 
       '&:focus, &:focus-within': {
         outline: 'none',
@@ -220,10 +220,10 @@ function genBaseFilledStyle(token: InputToken, options: {
   inputColor?: string
 }) {
   return {
-    'background': options.bg,
-    'borderWidth': token.lineWidth,
-    'borderStyle': token.lineType,
-    'borderColor': 'transparent',
+    background: options.bg,
+    borderWidth: token.lineWidth,
+    borderStyle: token.lineType,
+    borderColor: 'transparent',
 
     'input&, & input, textarea&, & textarea': {
       color: options?.inputColor ?? 'unset',
@@ -316,7 +316,7 @@ export function genFilledGroupStyle(token: InputToken): CSSObject {
   return {
     '&-filled': {
       [`${token.componentCls}-group-addon`]: {
-        'background': token.colorFillTertiary,
+        background: token.colorFillTertiary,
 
         '&:last-child': {
           position: 'static',
@@ -368,11 +368,11 @@ export function genBaseUnderlinedStyle(token: InputToken, options: {
   activeShadow: string
 }): CSSObject {
   return {
-    'background': token.colorBgContainer,
-    'borderWidth': `${unit(token.lineWidth)} 0`,
-    'borderStyle': `${token.lineType} none`,
-    'borderColor': `transparent transparent ${options.borderColor} transparent`,
-    'borderRadius': 0,
+    background: token.colorBgContainer,
+    borderWidth: `${unit(token.lineWidth)} 0`,
+    borderStyle: `${token.lineType} none`,
+    borderColor: `transparent transparent ${options.borderColor} transparent`,
+    borderRadius: 0,
     '&:hover': {
       borderColor: `transparent transparent ${options.hoverBorderColor} transparent`,
       backgroundColor: token.hoverBg,
@@ -420,9 +420,9 @@ export function genUnderlinedStyle(token: InputToken, extraStyles?: CSSObject): 
 
       // >>>>> Disabled
       [`&${token.componentCls}-disabled, &[disabled]`]: {
-        'color': token.colorTextDisabled,
-        'boxShadow': 'none',
-        'cursor': 'not-allowed',
+        color: token.colorTextDisabled,
+        boxShadow: 'none',
+        cursor: 'not-allowed',
         '&:hover': {
           borderColor: `transparent transparent ${token.colorBorder} transparent`,
         },

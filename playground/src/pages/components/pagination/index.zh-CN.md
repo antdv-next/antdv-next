@@ -53,12 +53,12 @@ demo:
 | responsive | 当 size 未指定时，根据屏幕宽度自动调整尺寸 | boolean | - | - |
 | rootClass | 根节点样式类 | string | - | - |
 | showLessItems | 是否显示较少页面内容 | boolean | false | - |
-| showQuickJumper | 是否可以快速跳转至某页 | boolean \| { goButton?: VueNode } | false | - |
+| showQuickJumper | 是否可以快速跳转至某页 | boolean \| \{ goButton?: VueNode \} | false | - |
 | showSizeChanger | 是否展示 `pageSize` 切换器 | boolean \| SelectProps | - | - |
 | totalBoundaryShowSizeChanger | 当 `total` 大于该值时，`showSizeChanger` 默认为 true | number | 50 | - |
 | showTitle | 是否显示原生 tooltip 页码提示 | boolean | true | - |
 | showTotal | 用于显示数据总量和当前数据顺序 | (total: number, range: [number, number]) => VueNode | - | - |
-| simple | 当添加该属性时，显示为简单分页 | boolean \| { readOnly?: boolean } | - | - |
+| simple | 当添加该属性时，显示为简单分页 | boolean \| \{ readOnly?: boolean \} | - | - |
 | size | 当为 `small` 时，是小尺寸分页 | `default` \| `small` | `default` | - |
 | styles | 自定义组件内部各语义化结构的内联样式，支持对象或函数 | PaginationStylesType | - | - |
 | total | 数据总数 | number | 0 | - |

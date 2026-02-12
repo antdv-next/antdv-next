@@ -30,15 +30,15 @@ const genQRCodeStyle: GenerateStyle<QRCodeToken> = (token) => {
   return {
     [componentCls]: {
       ...resetComponent(token),
-      'display': 'flex',
-      'justifyContent': 'center',
-      'alignItems': 'center',
-      'padding': token.paddingSM,
-      'backgroundColor': token.colorWhite,
-      'borderRadius': token.borderRadiusLG,
-      'border': `${unit(lineWidth)} ${lineType} ${colorSplit}`,
-      'position': 'relative',
-      'overflow': 'hidden',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      padding: token.paddingSM,
+      backgroundColor: token.colorWhite,
+      borderRadius: token.borderRadiusLG,
+      border: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
+      position: 'relative',
+      overflow: 'hidden',
 
       [`& > ${componentCls}-cover`]: {
         position: 'absolute',

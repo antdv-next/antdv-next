@@ -3,12 +3,14 @@ import { computed } from 'vue'
 import { useToken } from '../theme/internal.ts'
 import { addMediaQueryListener, removeMediaQueryListener } from './mediaQueryUtil.ts'
 
-export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs'
+export const responsiveArray = ['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs'] as const
+export const responsiveArrayReversed = [...responsiveArray].reverse()
+
+export type Breakpoint = (typeof responsiveArray)[number]
 export type BreakpointMap = Record<Breakpoint, string>
 export type ScreenMap = Partial<Record<Breakpoint, boolean>>
 export type ScreenSizeMap = Partial<Record<Breakpoint, number>>
 
-export const responsiveArray: Breakpoint[] = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs']
 type SubscribeFunc = (screens: ScreenMap) => void
 
 function getResponsiveMap(token: GlobalToken): BreakpointMap {
@@ -19,9 +21,9 @@ function getResponsiveMap(token: GlobalToken): BreakpointMap {
     lg: `(min-width: ${token.screenLG}px)`,
     xl: `(min-width: ${token.screenXL}px)`,
     xxl: `(min-width: ${token.screenXXL}px)`,
+    xxxl: `(min-width: ${token.screenXXXL}px)`,
   }
 }
-
 /**
  * Ensures that the breakpoints token are valid, in good order
  * For each breakpoint : screenMin <= screen <= screenMax and screenMax <= nextScreenMin

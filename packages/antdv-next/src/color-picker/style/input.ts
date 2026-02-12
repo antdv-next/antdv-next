@@ -44,8 +44,8 @@ const genInputStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
       },
 
       [`${componentCls}-format-select${antCls}-select`]: {
-        'marginInlineEnd': marginXS,
-        'width': 'auto',
+        marginInlineEnd: marginXS,
+        width: 'auto',
         '&-single': {
           [`${antCls}-select-selector`]: {
             padding: 0,

@@ -84,7 +84,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
 
   const sharedTransformOrigin: CSSObject = {
     // When use `autoArrow`, origin will follow the arrow position
-    [varName('valid-offset-x')]: varRef('arrow-offset-horizontal', 'var(--arrow-x)'),
+    [varName('valid-offset-x')]: varRef('arrow-offset-x', 'var(--arrow-x)'),
     transformOrigin: [
       varRef('valid-offset-x', FALL_BACK_ORIGIN),
       `var(--arrow-y, ${FALL_BACK_ORIGIN})`,
@@ -95,12 +95,12 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
     {
       [componentCls]: {
         ...resetComponent(token),
-        'position': 'absolute',
-        'zIndex': zIndexPopup,
-        'display': 'block',
-        'width': 'max-content',
-        'maxWidth': tooltipMaxWidth,
-        'visibility': 'visible',
+        position: 'absolute',
+        zIndex: zIndexPopup,
+        display: 'block',
+        width: 'max-content',
+        maxWidth: tooltipMaxWidth,
+        visibility: 'visible',
 
         ...sharedTransformOrigin,
 
@@ -185,8 +185,8 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
       [`${componentCls}-unique-container`]: {
         ...sharedBodyStyle,
         ...sharedTransformOrigin,
-        'position': 'absolute',
-        'zIndex': calc(zIndexPopup).sub(1).equal(),
+        position: 'absolute',
+        zIndex: calc(zIndexPopup).sub(1).equal(),
 
         '&-hidden': {
           display: 'none',
@@ -214,7 +214,6 @@ export const prepareComponentToken: GetDefaultToken<'Tooltip'> = token => ({
     }),
   ),
 })
-
 export default (prefixCls: ComputedRef<string>, rootCls: ComputedRef<string>, injectStyle = true) => {
   const useStyle = genStyleHooks(
     'Tooltip',

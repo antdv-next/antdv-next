@@ -31,16 +31,16 @@ const genFloatButtonStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) 
       // ==                         Template                         ==
       // ==============================================================
       {
-        'flexDirection': 'column',
-        'margin': 0,
-        'padding': `${unit(token.paddingXXS)} 0`,
+        flexDirection: 'column',
+        margin: 0,
+        padding: `${unit(token.paddingXXS)} 0`,
 
-        'width': varRef('size'),
-        'minHeight': varRef('size'),
-        'height': 'auto',
-        'wordBreak': 'break-word',
-        'whiteSpace': 'normal',
-        'gap': token.calc(token.paddingXXS).div(2).equal(),
+        width: varRef('size'),
+        minHeight: varRef('size'),
+        height: 'auto',
+        wordBreak: 'break-word',
+        whiteSpace: 'normal',
+        gap: token.calc(token.paddingXXS).div(2).equal(),
 
         '&-rtl': {
           direction: 'rtl',

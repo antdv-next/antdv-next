@@ -31,9 +31,9 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = (token) => {
 
   return {
     [componentCls]: {
-      'color': token.colorText,
-      'wordBreak': 'break-word',
-      'lineHeight': token.lineHeight,
+      color: token.colorText,
+      wordBreak: 'break-word',
+      lineHeight: token.lineHeight,
       [`&${componentCls}-secondary, &${componentCls}-link${componentCls}-secondary`]: {
         color: token.colorTextDescription,
       },

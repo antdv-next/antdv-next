@@ -49,15 +49,15 @@ const getColumnsStyle: GenerateStyle<CascaderToken> = (token: CascaderToken): CS
 
         // >>> Menu
         '&-menu': {
-          'flexGrow': 1,
-          'flexShrink': 0,
-          'minWidth': token.controlItemWidth,
-          'height': token.dropdownHeight,
-          'margin': 0,
-          'padding': token.menuPadding,
-          'overflow': 'auto',
-          'verticalAlign': 'top',
-          'listStyle': 'none',
+          flexGrow: 1,
+          flexShrink: 0,
+          minWidth: token.controlItemWidth,
+          height: token.dropdownHeight,
+          margin: 0,
+          padding: token.menuPadding,
+          overflow: 'auto',
+          verticalAlign: 'top',
+          listStyle: 'none',
           '-ms-overflow-style': '-ms-autohiding-scrollbar', // https://github.com/ant-design/ant-design/issues/11857
 
           '&:not(:last-child)': {
@@ -66,21 +66,21 @@ const getColumnsStyle: GenerateStyle<CascaderToken> = (token: CascaderToken): CS
 
           '&-item': {
             ...textEllipsis,
-            'display': 'flex',
-            'flexWrap': 'nowrap',
-            'alignItems': 'center',
-            'padding': token.optionPadding,
-            'lineHeight': token.lineHeight,
-            'cursor': 'pointer',
-            'transition': `all ${token.motionDurationMid}`,
-            'borderRadius': token.borderRadiusSM,
+            display: 'flex',
+            flexWrap: 'nowrap',
+            alignItems: 'center',
+            padding: token.optionPadding,
+            lineHeight: token.lineHeight,
+            cursor: 'pointer',
+            transition: `all ${token.motionDurationMid}`,
+            borderRadius: token.borderRadiusSM,
 
             '&:hover': {
               background: token.controlItemBgHover,
             },
             '&-disabled': {
-              'color': token.colorTextDisabled,
-              'cursor': 'not-allowed',
+              color: token.colorTextDisabled,
+              cursor: 'not-allowed',
 
               '&:hover': {
                 background: 'transparent',

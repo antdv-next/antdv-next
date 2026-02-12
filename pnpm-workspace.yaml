@@ -14,6 +14,7 @@ overrides:
   '@v-c/util': catalog:vc
   vite: catalog:dev
 catalog:
+  '@vitest/coverage-v8': ^4.0.18
   flexsearch: ^0.8.212
 
 catalogs:
@@ -122,10 +123,10 @@ catalogs:
     '@types/throttle-debounce': ^5.0.2
   vc:
     '@v-c/async-validator': ^1.0.0
-    '@v-c/cascader': ^1.0.0
-    '@v-c/checkbox': ^1.0.0
+    '@v-c/cascader': ^1.0.1
+    '@v-c/checkbox': ^1.0.1
     '@v-c/collapse': ^1.0.0
-    '@v-c/color-picker': ^1.0.4
+    '@v-c/color-picker': ^1.0.5
     '@v-c/dialog': ^1.0.1
     '@v-c/drawer': ^1.0.0
     '@v-c/dropdown': ^1.0.2
@@ -144,22 +145,22 @@ catalogs:
     '@v-c/rate': ^1.0.0
     '@v-c/resize-observer': ^1.0.8
     '@v-c/segmented': ^1.0.0
-    '@v-c/select': ^1.0.9
+    '@v-c/select': ^1.0.11
     '@v-c/slick': ^1.0.0
     '@v-c/slider': ^1.0.10
     '@v-c/steps': ^1.0.0
     '@v-c/switch': ^1.0.0
-    '@v-c/table': ^1.0.0
+    '@v-c/table': ^1.0.1
     '@v-c/tabs': ^1.0.1
     '@v-c/textarea': ^1.0.3
     '@v-c/tooltip': ^1.0.3
     '@v-c/tour': ^1.0.3
-    '@v-c/tree': ^1.0.2
-    '@v-c/tree-select': ^1.0.0
+    '@v-c/tree': ^1.0.4
+    '@v-c/tree-select': ^1.0.2
     '@v-c/trigger': ^1.0.11
     '@v-c/upload': ^1.0.0
-    '@v-c/util': ^1.0.13
-    '@v-c/virtual-list': ^1.0.5
+    '@v-c/util': ^1.0.14
+    '@v-c/virtual-list': ^1.0.6
 
 onlyBuiltDependencies:
   - esbuild

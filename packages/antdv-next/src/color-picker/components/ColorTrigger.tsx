@@ -1,7 +1,12 @@
 import type { CSSProperties } from 'vue'
 import type { EmptyEmit } from '../../_util/type.ts'
 import type { AggregationColor } from '../color'
-import type { ColorFormatType, ColorPickerProps } from '../interface'
+import type {
+  ColorFormatType,
+  ColorPickerProps,
+  ColorPickerSemanticClassNames,
+  ColorPickerSemanticStyles,
+} from '../interface'
 import { ColorBlock } from '@v-c/color-picker'
 import { clsx } from '@v-c/util'
 import { computed, defineComponent } from 'vue'
@@ -19,6 +24,8 @@ export interface ColorTriggerProps {
   className?: string
   style?: CSSProperties
   activeIndex: number
+  classes: ColorPickerSemanticClassNames
+  styles: ColorPickerSemanticStyles
 }
 
 export default defineComponent<
@@ -69,29 +76,55 @@ export default defineComponent<
     })
 
     const containerNode = computed(() => {
-      const { color, prefixCls } = props
+      const { color, prefixCls, classes, styles } = props
       return color?.cleared
-        ? <ColorClear prefixCls={prefixCls} />
-        : <ColorBlock prefixCls={prefixCls} color={color.toCssString()} />
+        ? (
+            <ColorClear
+              prefixCls={prefixCls}
+              class={classes.body}
+              style={styles.body}
+            />
+          )
+        : (
+            <ColorBlock
+              innerClassName={classes.content}
+              innerStyle={styles.content}
+              class={classes.body}
+              style={styles.body}
+              prefixCls={prefixCls}
+              color={color.toCssString()}
+            />
+          )
     })
 
     return () => {
-      const { open, disabled, style, className } = props
+      const { open, disabled, style, className, classes, styles } = props
       return (
         <div
           {...attrs}
           class={clsx(
             colorTriggerPrefixCls.value,
             className,
+            classes.root,
             {
               [`${colorTriggerPrefixCls.value}-active`]: open,
               [`${colorTriggerPrefixCls.value}-disabled`]: disabled,
             },
           )}
-          style={style}
+          style={[
+            styles.root,
+            style,
+          ]}
         >
           {containerNode.value}
-          {props.showText && <div class={colorTextPrefixCls.value}>{desc.value}</div>}
+          {props.showText && (
+            <div
+              class={[colorTextPrefixCls.value, classes.description]}
+              style={classes.description}
+            >
+              {desc.value}
+            </div>
+          )}
         </div>
       )
     }

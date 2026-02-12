@@ -97,14 +97,14 @@ function genClearStyle(token: ColorPickerToken, size: number, extraStyle?: CSSOb
 
   return {
     [`${componentCls}-clear`]: {
-      'width': size,
-      'height': size,
-      'borderRadius': borderRadiusSM,
-      'border': `${unit(lineWidth)} solid ${colorSplit}`,
-      'position': 'relative',
-      'overflow': 'hidden',
-      'cursor': 'inherit',
-      'transition': `all ${token.motionDurationFast}`,
+      width: size,
+      height: size,
+      borderRadius: borderRadiusSM,
+      border: `${unit(lineWidth)} solid ${colorSplit}`,
+      position: 'relative',
+      overflow: 'hidden',
+      cursor: 'inherit',
+      transition: `all ${token.motionDurationFast}`,
 
       ...extraStyle,
       '&::after': {
@@ -139,7 +139,7 @@ function genStatusStyle(token: ColorPickerToken): CSSObject {
   } = token
   return {
     [`&${componentCls}-status-error`]: {
-      'borderColor': colorError,
+      borderColor: colorError,
       '&:hover': {
         borderColor: colorErrorHover,
       },
@@ -148,7 +148,7 @@ function genStatusStyle(token: ColorPickerToken): CSSObject {
       },
     },
     [`&${componentCls}-status-warning`]: {
-      'borderColor': colorWarning,
+      borderColor: colorWarning,
       '&:hover': {
         borderColor: colorWarningHover,
       },
@@ -263,26 +263,26 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
         },
 
         '&-trigger': {
-          'minWidth': controlHeight,
-          'minHeight': controlHeight,
+          minWidth: controlHeight,
+          minHeight: controlHeight,
           borderRadius,
-          'border': `${unit(lineWidth)} solid ${colorBorder}`,
-          'cursor': 'pointer',
-          'display': 'inline-flex',
-          'alignItems': 'flex-start',
-          'justifyContent': 'center',
-          'transition': `all ${motionDurationMid}`,
-          'background': colorBgElevated,
-          'padding': token.calc(paddingXXS).sub(lineWidth).equal(),
+          border: `${unit(lineWidth)} solid ${colorBorder}`,
+          cursor: 'pointer',
+          display: 'inline-flex',
+          alignItems: 'flex-start',
+          justifyContent: 'center',
+          transition: `all ${motionDurationMid}`,
+          background: colorBgElevated,
+          padding: token.calc(paddingXXS).sub(lineWidth).equal(),
           [`${componentCls}-trigger-text`]: {
-            'marginInlineStart': marginXS,
-            'marginInlineEnd': token
+            marginInlineStart: marginXS,
+            marginInlineEnd: token
               .calc(marginXS)
               .sub(token.calc(paddingXXS).sub(lineWidth))
               .equal(),
             fontSize,
-            'color': colorText,
-            'alignSelf': 'center',
+            color: colorText,
+            alignSelf: 'center',
 
             '&-cell': {
               '&:not(:last-child):after': {
@@ -301,9 +301,9 @@ const genColorPickerStyle: GenerateStyle<ColorPickerToken> = (token) => {
             ...genActiveStyle(token, colorPrimary, controlOutline),
           },
           '&-disabled': {
-            'color': colorTextDisabled,
-            'background': colorBgContainerDisabled,
-            'cursor': 'not-allowed',
+            color: colorTextDisabled,
+            background: colorBgContainerDisabled,
+            cursor: 'not-allowed',
             '&:hover': {
               borderColor: colorBgTextActive,
             },

@@ -28,12 +28,12 @@ const genSiderStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
 
   return {
     [componentCls]: {
-      'position': 'relative',
+      position: 'relative',
 
       // fix firefox can't set width smaller than content on flex item
-      'minWidth': 0,
-      'background': siderBg,
-      'transition': `all ${motionDurationMid}, background 0s`,
+      minWidth: 0,
+      background: siderBg,
+      transition: `all ${motionDurationMid}, background 0s`,
 
       '&-has-trigger': {
         paddingBottom: triggerHeight,
@@ -74,21 +74,21 @@ const genSiderStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
       },
 
       [`${componentCls}-zero-width-trigger`]: {
-        'position': 'absolute',
-        'top': headerHeight,
-        'insetInlineEnd': token.calc(zeroTriggerWidth).mul(-1).equal(),
-        'zIndex': 1,
-        'width': zeroTriggerWidth,
-        'height': zeroTriggerHeight,
-        'color': triggerColor,
-        'fontSize': token.fontSizeXL,
-        'display': 'flex',
-        'alignItems': 'center',
-        'justifyContent': 'center',
-        'background': siderBg,
-        'borderRadius': `0 ${unit(borderRadiusLG)} ${unit(borderRadiusLG)} 0`,
-        'cursor': 'pointer',
-        'transition': `background-color ${motionDurationSlow} ease`,
+        position: 'absolute',
+        top: headerHeight,
+        insetInlineEnd: token.calc(zeroTriggerWidth).mul(-1).equal(),
+        zIndex: 1,
+        width: zeroTriggerWidth,
+        height: zeroTriggerHeight,
+        color: triggerColor,
+        fontSize: token.fontSizeXL,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: siderBg,
+        borderRadius: `0 ${unit(borderRadiusLG)} ${unit(borderRadiusLG)} 0`,
+        cursor: 'pointer',
+        transition: `background-color ${motionDurationSlow} ease`,
 
         '&::after': {
           position: 'absolute',

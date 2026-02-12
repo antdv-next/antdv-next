@@ -6,6 +6,7 @@ import { clsx, get, set } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, nextTick, shallowRef, watch } from 'vue'
+import { responsiveArrayReversed } from '../_util/responsiveObserver'
 import { getSlotPropsFnRun } from '../_util/tools'
 import { Col } from '../grid'
 import { FormItemPrefixContextProvider, useFormContext, useFormContextProvider } from './context'
@@ -82,7 +83,7 @@ const FormItemInput = defineComponent<
       const mergedWrapperColFn = () => {
         let mergedWrapper: ColPropsWithClass = { ...(wrapperCol || formContext.value?.wrapperCol || {}) } as ColPropsWithClass
         if (label === null && !labelCol && !wrapperCol && formContext.value?.labelCol) {
-          const list = [undefined, 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const
+          const list = [undefined, ...responsiveArrayReversed] as const
           list.forEach((size) => {
             const _size = size ? [size] : []
             const formLabel = get(formContext?.value?.labelCol, _size)

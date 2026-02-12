@@ -24,6 +24,7 @@
     "build": "run-s build:p build:site",
     "build:site": "cross-env NODE_OPTIONS=--max-old-space-size=8192 turbo build --filter playground",
     "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
     "prepare": "simple-git-hooks",
     "preinstall": "npx only-allow pnpm"
   },
@@ -47,6 +48,7 @@
     "@v-c/util": "catalog:vc",
     "@vitejs/plugin-vue": "catalog:dev",
     "@vitejs/plugin-vue-jsx": "catalog:dev",
+    "@vitest/coverage-v8": "catalog:",
     "@vue/test-utils": "catalog:dev",
     "@vue/tsconfig": "catalog:dev",
     "bumpp": "catalog:dev",

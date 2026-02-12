@@ -1,0 +1,76 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`layout > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-layout ant-layout-rtl css-var-root"
+  />
+</div>
+`;
+
+exports[`layout > rtl render > component should be rendered correctly in RTL direction 2`] = `
+<div
+  data-v-app=""
+>
+  <main
+    class="ant-layout-content css-var-root"
+  />
+</div>
+`;
+
+exports[`layout > rtl render > component should be rendered correctly in RTL direction 3`] = `
+<div
+  data-v-app=""
+>
+  <aside
+    class="ant-layout-sider ant-layout-sider-dark css-var-root"
+    style="flex: 0 0 200px; max-width: 200px; min-width: 200px; width: 200px;"
+  >
+    <div
+      class="ant-layout-sider-children"
+    >
+      <!---->
+    </div>
+    <!---->
+  </aside>
+</div>
+`;
+
+exports[`layout > should render correct snapshot 1`] = `
+<div
+  class="ant-layout css-var-root"
+>
+  <header
+    class="ant-layout-header css-var-root"
+  >
+    Header
+  </header>
+  <div
+    class="ant-layout ant-layout-has-sider css-var-root"
+  >
+    <aside
+      class="ant-layout-sider ant-layout-sider-dark css-var-root"
+      style="flex: 0 0 200px; max-width: 200px; min-width: 200px; width: 200px;"
+    >
+      <div
+        class="ant-layout-sider-children"
+      >
+        Sider
+      </div>
+      <!---->
+    </aside>
+    <main
+      class="ant-layout-content css-var-root"
+    >
+      Content
+    </main>
+  </div>
+  <footer
+    class="ant-layout-footer css-var-root"
+  >
+    Footer
+  </footer>
+</div>
+`;

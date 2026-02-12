@@ -319,13 +319,13 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken) => {
 
         // paragraph
         [skeletonParagraphCls]: {
-          'padding': 0,
+          padding: 0,
           '> li': {
-            'width': '100%',
-            'height': paragraphLiHeight,
-            'listStyle': 'none',
-            'background': gradientFromColor,
-            'borderRadius': blockRadius,
+            width: '100%',
+            height: paragraphLiHeight,
+            listStyle: 'none',
+            background: gradientFromColor,
+            borderRadius: blockRadius,
             '+ li': {
               marginBlockStart: controlHeightXS,
             },

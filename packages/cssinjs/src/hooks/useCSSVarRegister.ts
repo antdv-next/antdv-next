@@ -26,7 +26,7 @@ export interface CSSVarRegisterConfig {
   prefix?: string
   unitless?: Record<string, boolean>
   ignore?: Record<string, boolean>
-  scope?: string
+  scope?: string | string[]
   token: any
   hashId?: string
 }
@@ -70,12 +70,13 @@ export default function useCSSVarRegister<V, T extends Record<string, V>>(
   const styleContext = useStyleContext()
 
   const stylePath = computed<any[]>(() => {
-    const { key, scope = '', token } = config.value
+    const { key, scope, token } = config.value
     const tokenKey = token?._tokenKey
+    const scopeKey = Array.isArray(scope) ? scope.join('@@') : scope
     return [
       ...config.value.path,
       key,
-      scope,
+      scopeKey,
       tokenKey,
     ]
   })
@@ -85,7 +86,7 @@ export default function useCSSVarRegister<V, T extends Record<string, V>>(
     stylePath,
     () => {
       const originToken = fn()
-      const { key, prefix, unitless, ignore, hashId, scope = '' } = config.value
+      const { key, prefix, unitless, ignore, hashId, scope } = config.value
       const hashPriority = styleContext.value.hashPriority!
       const [mergedToken, cssVarsStr] = transformToken<V, T>(originToken, key, {
         prefix,

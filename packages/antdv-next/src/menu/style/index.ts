@@ -432,9 +432,9 @@ function genMenuItemStyle(token: MenuToken): CSSObject {
       ].join(','),
 
       [`${componentCls}-item-icon, ${iconCls}`]: {
-        'minWidth': iconSize,
-        'fontSize': iconSize,
-        'transition': [
+        minWidth: iconSize,
+        fontSize: iconSize,
+        transition: [
           `font-size ${motionDurationMid} ${motionEaseOut}`,
           `margin ${motionDurationSlow} ${motionEaseInOut}`,
           `color ${motionDurationSlow}`,
@@ -464,14 +464,14 @@ function genMenuItemStyle(token: MenuToken): CSSObject {
 
     // Disabled state sets text to gray and nukes hover/tab effects
     [`${componentCls}-item-disabled, ${componentCls}-submenu-disabled`]: {
-      'background': 'none !important',
-      'cursor': 'not-allowed',
+      background: 'none !important',
+      cursor: 'not-allowed',
 
       '&::after': {
         borderColor: 'transparent !important',
       },
 
-      'a': {
+      a: {
         color: 'inherit !important',
         cursor: 'not-allowed',
         pointerEvents: 'none',
@@ -504,7 +504,9 @@ function genSubMenuArrowStyle(token: MenuToken): CSSObject {
         width: menuArrowSize,
         color: 'currentcolor',
         transform: 'translateY(-50%)',
-        transition: `transform ${motionDurationSlow} ${motionEaseInOut}, opacity ${motionDurationSlow}`,
+        transition: ['transform', 'opacity']
+          .map(prop => `${prop} ${motionDurationSlow}`)
+          .join(','),
       },
 
       '&-arrow': {
@@ -515,12 +517,9 @@ function genSubMenuArrowStyle(token: MenuToken): CSSObject {
           height: token.calc(menuArrowSize).mul(0.15).equal(),
           backgroundColor: 'currentcolor',
           borderRadius,
-          transition: [
-            `background-color ${motionDurationSlow} ${motionEaseInOut}`,
-            `transform ${motionDurationSlow} ${motionEaseInOut}`,
-            `top ${motionDurationSlow} ${motionEaseInOut}`,
-            `color ${motionDurationSlow} ${motionEaseInOut}`,
-          ].join(','),
+          transition: [`background-color`, `transform`, `top`, `color`]
+            .map(prop => `${prop} ${motionDurationSlow} ${motionEaseInOut}`)
+            .join(','),
           content: '""',
         },
 
@@ -583,14 +582,14 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
         ...resetComponent(token),
         ...clearFix(),
 
-        'marginBottom': 0,
-        'paddingInlineStart': 0, // Override default ul/ol
+        marginBottom: 0,
+        paddingInlineStart: 0, // Override default ul/ol
         fontSize,
-        'lineHeight': 0, // Fix display inline-block gap
-        'listStyle': 'none',
-        'outline': 'none',
+        lineHeight: 0, // Fix display inline-block gap
+        listStyle: 'none',
+        outline: 'none',
         // Magic cubic here but smooth transition
-        'transition': `width ${motionDurationSlow} cubic-bezier(0.2, 0, 0, 1) 0s`,
+        transition: `width ${motionDurationSlow} cubic-bezier(0.2, 0, 0, 1) 0s`,
 
         'ul, ol': {
           margin: 0,
@@ -618,30 +617,30 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
         },
 
         [`&-horizontal ${componentCls}-submenu`]: {
-          transition: [
-            `border-color ${motionDurationSlow} ${motionEaseInOut}`,
-            `background-color ${motionDurationSlow} ${motionEaseInOut}`,
-          ].join(','),
+          transition: [`border-color`, `background-color`]
+            .map(prop => `${prop} ${motionDurationSlow} ${motionEaseInOut}`)
+            .join(','),
         },
 
         [`${componentCls}-submenu, ${componentCls}-submenu-inline`]: {
           transition: [
-            `border-color ${motionDurationSlow} ${motionEaseInOut}`,
-            `background-color ${motionDurationSlow} ${motionEaseInOut}`,
-            `padding ${motionDurationMid} ${motionEaseInOut}`,
-          ].join(','),
+            `border-color ${motionDurationSlow}`,
+            `background-color ${motionDurationSlow}`,
+            `padding ${motionDurationMid}`,
+          ]
+            .map(prop => `${prop} ${motionEaseInOut}`)
+            .join(','),
         },
 
         [`${componentCls}-submenu ${componentCls}-sub`]: {
           cursor: 'initial',
-          transition: [
-            `background-color ${motionDurationSlow} ${motionEaseInOut}`,
-            `padding ${motionDurationSlow} ${motionEaseInOut}`,
-          ].join(','),
+          transition: [`background-color`, `padding`]
+            .map(prop => `${prop} ${motionDurationSlow} ${motionEaseInOut}`)
+            .join(','),
         },
 
         [`${componentCls}-title-content`]: {
-          'transition': `color ${motionDurationSlow}`,
+          transition: `color ${motionDurationSlow}`,
 
           '&-with-extra': {
             display: 'inline-flex',
@@ -675,14 +674,14 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
 
         // >>>>> Divider
         [`${componentCls}-item-divider`]: {
-          'overflow': 'hidden',
-          'lineHeight': 0,
-          'borderColor': colorSplit,
-          'borderStyle': lineType,
-          'borderWidth': 0,
-          'borderTopWidth': lineWidth,
-          'marginBlock': lineWidth,
-          'padding': 0,
+          overflow: 'hidden',
+          lineHeight: 0,
+          borderColor: colorSplit,
+          borderStyle: lineType,
+          borderWidth: 0,
+          borderTopWidth: lineWidth,
+          marginBlock: lineWidth,
+          padding: 0,
 
           '&-dashed': {
             borderStyle: 'dashed',
@@ -706,11 +705,11 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
         // ======================= Sub Menu =======================
         '&-submenu': {
           '&-popup': {
-            'position': 'absolute',
-            'zIndex': zIndexPopup,
-            'borderRadius': borderRadiusLG,
-            'boxShadow': 'none',
-            'transformOrigin': '0 0',
+            position: 'absolute',
+            zIndex: zIndexPopup,
+            borderRadius: borderRadiusLG,
+            boxShadow: 'none',
+            transformOrigin: '0 0',
 
             [`&${componentCls}-submenu`]: {
               background: 'transparent',
@@ -819,7 +818,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
         [`${componentCls}-submenu-open${componentCls}-submenu-inline > ${componentCls}-submenu-title > ${componentCls}-submenu-arrow`]:
           {
             // ↑
-            'transform': `translateY(${unit(token.calc(menuArrowSize).mul(0.2).mul(-1).equal())})`,
+            transform: `translateY(${unit(token.calc(menuArrowSize).mul(0.2).mul(-1).equal())})`,
 
             '&::after': {
               transform: `rotate(-45deg) translateX(${unit(

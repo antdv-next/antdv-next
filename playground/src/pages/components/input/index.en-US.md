@@ -186,3 +186,25 @@ interface VisibilityToggle {
   onVisibleChange?: (visible: boolean) => void
 }
 ```
+
+## Semantic DOM
+
+### Input {#semantic-input}
+
+<demo src="./demo/_semantic.vue" simplify></demo>
+
+### TextArea {#semantic-textarea}
+
+<demo src="./demo/_semantic-textarea.vue" simplify></demo>
+
+### InputSearch {#semantic-search}
+
+<demo src="./demo/_semantic-search.vue" simplify></demo>
+
+### InputPassword {#semantic-password}
+
+<demo src="./demo/_semantic-password.vue" simplify></demo>
+
+### InputOTP {#semantic-otp}
+
+<demo src="./demo/_semantic-otp.vue" simplify></demo>

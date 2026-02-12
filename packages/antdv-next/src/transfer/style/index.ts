@@ -142,12 +142,12 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
   const contentBorderRadius = unit(token.calc(borderRadiusLG).sub(lineWidth).equal())
 
   return {
-    'display': 'flex',
-    'flexDirection': 'column',
-    'width': listWidth,
-    'height': listHeight,
-    'border': `${unit(lineWidth)} ${lineType} ${colorBorder}`,
-    'borderRadius': token.borderRadiusLG,
+    display: 'flex',
+    flexDirection: 'column',
+    width: listWidth,
+    height: listHeight,
+    border: `${unit(lineWidth)} ${lineType} ${colorBorder}`,
+    borderRadius: token.borderRadiusLG,
 
     '&-with-pagination': {
       width: listWidthLG,
@@ -162,18 +162,18 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       },
 
       '&-header': {
-        'display': 'flex',
-        'flex': 'none',
-        'alignItems': 'center',
-        'height': headerHeight,
+        display: 'flex',
+        flex: 'none',
+        alignItems: 'center',
+        height: headerHeight,
         // border-top is on the transfer dom. We should minus 1px for this
-        'padding': `${unit(token.calc(transferHeaderVerticalPadding).sub(lineWidth).equal())} ${unit(
+        padding: `${unit(token.calc(transferHeaderVerticalPadding).sub(lineWidth).equal())} ${unit(
           paddingSM,
         )} ${unit(transferHeaderVerticalPadding)}`,
-        'color': colorText,
-        'background': colorBgContainer,
-        'borderBottom': `${unit(lineWidth)} ${lineType} ${colorSplit}`,
-        'borderRadius': `${unit(borderRadiusLG)} ${unit(borderRadiusLG)} 0 0`,
+        color: colorText,
+        background: colorBgContainer,
+        borderBottom: `${unit(lineWidth)} ${lineType} ${colorSplit}`,
+        borderRadius: `${unit(borderRadiusLG)} ${unit(borderRadiusLG)} 0 0`,
 
         '> *:not(:last-child)': {
           marginInlineEnd: 4, // This is magic and fixed number, DO NOT use token since it may change.
@@ -193,9 +193,9 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
         '&-dropdown': {
           ...resetIcon(),
 
-          'fontSize': fontSizeIcon,
-          'transform': 'translateY(10%)',
-          'cursor': 'pointer',
+          fontSize: fontSizeIcon,
+          transform: 'translateY(10%)',
+          cursor: 'pointer',
 
           '&[disabled]': {
             cursor: 'not-allowed',
@@ -204,12 +204,12 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       },
 
       '&-body': {
-        'display': 'flex',
-        'flex': 'auto',
-        'flexDirection': 'column',
-        'fontSize': token.fontSize,
+        display: 'flex',
+        flex: 'auto',
+        flexDirection: 'column',
+        fontSize: token.fontSize,
         // https://blog.csdn.net/qq449245884/article/details/107373672/
-        'minHeight': 0,
+        minHeight: 0,
 
         '&-search-wrapper': {
           position: 'relative',
@@ -219,19 +219,19 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
       },
 
       '&-content': {
-        'flex': 'auto',
-        'margin': 0,
-        'padding': 0,
-        'overflow': 'auto',
-        'listStyle': 'none',
-        'borderRadius': `0 0 ${contentBorderRadius} ${contentBorderRadius}`,
+        flex: 'auto',
+        margin: 0,
+        padding: 0,
+        overflow: 'auto',
+        listStyle: 'none',
+        borderRadius: `0 0 ${contentBorderRadius} ${contentBorderRadius}`,
 
         '&-item': {
-          'display': 'flex',
-          'alignItems': 'center',
-          'minHeight': itemHeight,
-          'padding': `${unit(itemPaddingBlock)} ${unit(paddingSM)}`,
-          'transition': `all ${motionDurationSlow}`,
+          display: 'flex',
+          alignItems: 'center',
+          minHeight: itemHeight,
+          padding: `${unit(itemPaddingBlock)} ${unit(paddingSM)}`,
+          transition: `all ${motionDurationSlow}`,
 
           '> *:not(:last-child)': {
             marginInlineEnd: marginXS,
@@ -248,7 +248,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
 
           '&-remove': {
             ...operationUnit(token),
-            'color': colorBorder,
+            color: colorBorder,
 
             '&:hover, &:focus': {
               color: colorTextSecondary,
@@ -278,10 +278,10 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
 
         // Do not change hover style when `oneWay` mode
         [`&-show-remove ${componentCls}-list-content-item:not(${componentCls}-list-content-item-disabled):hover`]:
-          {
-            background: 'transparent',
-            cursor: 'default',
-          },
+            {
+              background: 'transparent',
+              cursor: 'default',
+            },
       },
 
       '&-pagination': {

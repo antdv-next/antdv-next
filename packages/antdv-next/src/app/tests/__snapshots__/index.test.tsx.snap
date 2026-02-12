@@ -5,7 +5,7 @@ exports[`app > rtl render > component should be rendered correctly in RTL direct
   data-v-app=""
 >
   <div
-    class="ant-app css-var-root ant-app-rtl"
+    class="fn dep __v_isRef flags globalVersion effect __v_isReadonly ant-app css-var-root ant-app-rtl"
   >
     <!---->
     <!---->
@@ -15,7 +15,7 @@ exports[`app > rtl render > component should be rendered correctly in RTL direct
 `;
 
 exports[`app > single 1`] = `
-"<div class="ant-app css-var-root">
+"<div class="fn dep __v_isRef flags globalVersion effect __v_isReadonly ant-app css-var-root">
   <!---->
   <!---->
   <div>Hello World</div>

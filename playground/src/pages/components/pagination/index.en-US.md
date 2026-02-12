@@ -52,12 +52,12 @@ Common props ref：[Common props](/docs/vue/common-props)
 | responsive | If `size` is not specified, `Pagination` would resize according to the width of the window | boolean | - | - |
 | rootClass | Root container class | string | - | - |
 | showLessItems | Show less page items | boolean | false | - |
-| showQuickJumper | Determine whether you can jump to pages directly | boolean \| { goButton?: VueNode } | false | - |
+| showQuickJumper | Determine whether you can jump to pages directly | boolean \| \{ goButton?: VueNode \} | false | - |
 | showSizeChanger | Determine whether to show `pageSize` select | boolean \| SelectProps | - | - |
 | totalBoundaryShowSizeChanger | When `total` larger than it, `showSizeChanger` will be true | number | 50 | - |
 | showTitle | Show page item's title | boolean | true | - |
 | showTotal | To display the total number and range | (total: number, range: [number, number]) => VueNode | - | - |
-| simple | Whether to use simple mode | boolean \| { readOnly?: boolean } | - | - |
+| simple | Whether to use simple mode | boolean \| \{ readOnly?: boolean \} | - | - |
 | size | Specify the size of `Pagination`, can be set to `small` | `default` \| `small` | `default` | - |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function | PaginationStylesType | - | - |
 | total | Total number of data items | number | 0 | - |

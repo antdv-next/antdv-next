@@ -5,7 +5,7 @@ import { clsx } from '@v-c/util'
 import { getAttrStyleAndClass } from '@v-c/util/dist/props-util'
 import { computed, defineComponent, Fragment } from 'vue'
 import { devUseWarning } from '../_util/warning'
-import { useBaseConfig } from '../config-provider/context'
+import { useComponentBaseConfig } from '../config-provider/context'
 import { useMessage } from '../message'
 import { useModal } from '../modal'
 import { useNotification } from '../notification'
@@ -18,7 +18,12 @@ export interface AppProps extends ComponentBaseProps, AppConfig {
 
 const App = defineComponent<AppProps>(
   (props, { slots, attrs }) => {
-    const { prefixCls, direction } = useBaseConfig('app', props)
+    const {
+      direction,
+      prefixCls,
+      class: contextClassName,
+      style: contextStyle,
+    } = useComponentBaseConfig('app', props)
     const [hashId, cssVarCls] = useStyle(prefixCls)
 
     const appConfig = useAppConfig()
@@ -66,8 +71,8 @@ const App = defineComponent<AppProps>(
       const Component = component === false ? Fragment : component
       const rootProps = {
         ...restAttrs,
-        class: customClassName,
-        style,
+        class: clsx(contextClassName, customClassName),
+        style: { ...contextStyle, ...style },
       }
       return (
         <AppConfigProvider {...mergedAppConfig.value}>

@@ -6,9 +6,6 @@
 Lazy rendering mode, only updates panel size when mouse moves. Suitable for large pages to avoid frequent re-rendering causing lag.
 </docs>
 
-<script setup lang="ts">
-</script>
-
 <template>
   <a-space vertical style="width: 100%">
     <a-splitter lazy style="height: 200px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)">

@@ -96,12 +96,14 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
       [componentCls]: {
         ...resetComponent(token),
         ...genPickerPadding(token.paddingBlock, token.paddingInline),
-        'position': 'relative',
-        'display': 'inline-flex',
-        'alignItems': 'center',
-        'lineHeight': 1,
+        position: 'relative',
+        display: 'inline-flex',
+        alignItems: 'center',
+        lineHeight: 1,
         borderRadius,
-        'transition': `border ${motionDurationMid}, box-shadow ${motionDurationMid}, background ${motionDurationMid}`,
+        transition: [`border`, `box-shadow`, `background-color`]
+          .map(prop => `${prop} ${motionDurationMid}`)
+          .join(', '),
 
         [`${componentCls}-prefix`]: {
           flex: '0 0 auto',
@@ -110,30 +112,30 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
 
         // ======================== Input =========================
         [`${componentCls}-input`]: {
-          'position': 'relative',
-          'display': 'inline-flex',
-          'alignItems': 'center',
-          'width': '100%',
+          position: 'relative',
+          display: 'inline-flex',
+          alignItems: 'center',
+          width: '100%',
 
           '> input': {
-            'position': 'relative',
-            'display': 'inline-block',
-            'width': '100%',
-            'color': 'inherit',
-            'fontSize': token.inputFontSize ?? token.fontSize,
-            'lineHeight': token.lineHeight,
-            'transition': `all ${motionDurationMid}`,
+            position: 'relative',
+            display: 'inline-block',
+            width: '100%',
+            color: 'inherit',
+            fontSize: token.inputFontSize ?? token.fontSize,
+            lineHeight: token.lineHeight,
+            transition: `all ${motionDurationMid}`,
             ...genPlaceholderStyle(colorTextPlaceholder),
-            'flex': 'auto',
+            flex: 'auto',
 
             // Fix Firefox flex not correct:
             // https://github.com/ant-design/ant-design/pull/20023#issuecomment-564389553
-            'minWidth': 1,
-            'height': 'auto',
-            'padding': 0,
-            'background': 'transparent',
-            'border': 0,
-            'fontFamily': 'inherit',
+            minWidth: 1,
+            height: 'auto',
+            padding: 0,
+            background: 'transparent',
+            border: 0,
+            fontFamily: 'inherit',
 
             '&:focus': {
               boxShadow: 'none',
@@ -173,17 +175,17 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
         },
 
         [`${componentCls}-suffix`]: {
-          'display': 'flex',
-          'flex': 'none',
-          'alignSelf': 'center',
-          'marginInlineStart': token.calc(paddingXS).div(2).equal(),
-          'color': colorTextQuaternary,
-          'lineHeight': 1,
-          'pointerEvents': 'none',
-          'transition': `opacity ${motionDurationMid}, color ${motionDurationMid}`,
+          display: 'flex',
+          flex: 'none',
+          alignSelf: 'center',
+          marginInlineStart: token.calc(paddingXS).div(2).equal(),
+          color: colorTextQuaternary,
+          lineHeight: 1,
+          pointerEvents: 'none',
+          transition: ['opacity', 'color'].map(prop => `${prop} ${motionDurationMid}`).join(', '),
 
           '> *': {
-            'verticalAlign': 'top',
+            verticalAlign: 'top',
 
             '&:not(:last-child)': {
               marginInlineEnd: marginXS,
@@ -192,15 +194,15 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
         },
 
         [`${componentCls}-clear`]: {
-          'position': 'absolute',
-          'top': '50%',
-          'insetInlineEnd': 0,
-          'color': colorTextQuaternary,
-          'lineHeight': 1,
-          'transform': 'translateY(-50%)',
-          'cursor': 'pointer',
-          'opacity': 0,
-          'transition': `opacity ${motionDurationMid}, color ${motionDurationMid}`,
+          position: 'absolute',
+          top: '50%',
+          insetInlineEnd: 0,
+          color: colorTextQuaternary,
+          lineHeight: 1,
+          transform: 'translateY(-50%)',
+          cursor: 'pointer',
+          opacity: 0,
+          transition: ['opacity', 'color'].map(prop => `${prop} ${motionDurationMid}`).join(', '),
 
           '> *': {
             verticalAlign: 'top',
@@ -290,16 +292,16 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
         '&-dropdown': {
           ...resetComponent(token),
           ...genPanelStyle(token),
-          'pointerEvents': 'none',
-          'position': 'absolute',
+          pointerEvents: 'none',
+          position: 'absolute',
           // Fix incorrect position of picker popup
           // https://github.com/ant-design/ant-design/issues/35590
-          'top': -9999,
-          'left': {
+          top: -9999,
+          left: {
             _skip_check_: true,
             value: -9999,
           },
-          'zIndex': zIndexPopup,
+          zIndex: zIndexPopup,
 
           [`&${componentCls}-dropdown-hidden`]: {
             display: 'none',
@@ -379,12 +381,12 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           },
 
           [`${componentCls}-range-arrow`]: {
-            'position': 'absolute',
-            'zIndex': 1,
-            'display': 'none',
-            'paddingInline': token.calc(paddingInline).mul(1.5).equal(),
-            'boxSizing': 'content-box',
-            'transition': `all ${motionDurationSlow} ease-out`,
+            position: 'absolute',
+            zIndex: 1,
+            display: 'none',
+            paddingInline: token.calc(paddingInline).mul(1.5).equal(),
+            boxSizing: 'content-box',
+            transition: `all ${motionDurationSlow} ease-out`,
             ...genRoundedArrow(token, colorBgElevated, boxShadowPopoverArrow),
 
             '&:before': {
@@ -427,11 +429,11 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
 
                 li: {
                   ...textEllipsis,
-                  'borderRadius': borderRadiusSM,
-                  'paddingInline': paddingXS,
-                  'paddingBlock': token.calc(controlHeightSM).sub(fontHeight).div(2).equal(),
-                  'cursor': 'pointer',
-                  'transition': `all ${motionDurationSlow}`,
+                  borderRadius: borderRadiusSM,
+                  paddingInline: paddingXS,
+                  paddingBlock: token.calc(controlHeightSM).sub(fontHeight).div(2).equal(),
+                  cursor: 'pointer',
+                  transition: `all ${motionDurationSlow}`,
 
                   '+ li': {
                     marginTop: marginXS,
@@ -446,8 +448,8 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
 
             // ======================== Panels ========================
             [`${componentCls}-panels`]: {
-              'display': 'inline-flex',
-              'flexWrap': 'nowrap',
+              display: 'inline-flex',
+              flexWrap: 'nowrap',
 
               // [`${componentCls}-panel`]: {
               //   borderWidth: `0 0 ${unit(lineWidth)}`,
@@ -461,10 +463,10 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
             },
 
             [`${componentCls}-panel`]: {
-              'verticalAlign': 'top',
-              'background': 'transparent',
-              'borderRadius': 0,
-              'borderWidth': 0,
+              verticalAlign: 'top',
+              background: 'transparent',
+              borderRadius: 0,
+              borderWidth: 0,
 
               [`${componentCls}-content, table`]: {
                 textAlign: 'center',
@@ -478,7 +480,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
         },
 
         '&-dropdown-range': {
-          'padding': `${unit(token.calc(sizePopupArrow).mul(2).div(3).equal())} 0`,
+          padding: `${unit(token.calc(sizePopupArrow).mul(2).div(3).equal())} 0`,
 
           '&-hidden': {
             display: 'none',

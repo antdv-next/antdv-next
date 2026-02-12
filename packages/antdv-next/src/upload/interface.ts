@@ -90,12 +90,14 @@ export interface UploadSemanticClassNames {
   root?: string
   list?: string
   item?: string
+  trigger?: string
 }
 
 export interface UploadSemanticStyles {
   root?: CSSProperties
   list?: CSSProperties
   item?: CSSProperties
+  trigger?: CSSProperties
 }
 
 export type UploadClassNamesType<T = any> = SemanticClassNamesType<

@@ -36,7 +36,7 @@ export interface DrawerResizableConfig {
 export interface DrawerProps
   extends Omit<
     VcDrawerProps,
-'maskStyle' | 'destroyOnHidden' | 'rootClassName' | 'mask' | 'resizable' | 'classNames' | 'styles' | 'onClose' | 'onKeyUp' | 'onKeyDown' | 'onMouseEnter' | 'onMouseLeave' | 'onMouseOver' | 'onClick' | OmitFocusType
+'maskStyle' | 'destroyOnHidden' | 'rootClassName' | 'mask' | 'resizable' | 'classNames' | 'styles' | 'onClose' | 'onKeyUp' | 'onKeyDown' | 'onMouseEnter' | 'onMouseLeave' | 'onMouseOver' | 'onClick' | 'maskClosable' | OmitFocusType
   >,
   Omit<DrawerPanelProps, 'prefixCls' | 'ariaId' | 'onClose'>
 {
@@ -52,6 +52,8 @@ export interface DrawerProps
    */
   destroyOnHidden?: boolean
   mask?: MaskType
+  /** @deprecated Please use `mask.closable` instead */
+  maskClosable?: boolean
   focusable?: FocusableConfig
 }
 
@@ -110,6 +112,7 @@ const Drawer = defineComponent<
       classes,
       styles,
       focusable,
+      maskClosable,
     } = toPropsRefs(
       props,
       'zIndex',
@@ -117,6 +120,7 @@ const Drawer = defineComponent<
       'classes',
       'styles',
       'focusable',
+      'maskClosable',
     )
 
     const [hashId, cssVarCls] = useStyle(prefixCls)
@@ -174,7 +178,7 @@ const Drawer = defineComponent<
     const [zIndex, contextZIndex] = useZIndex('Drawer', customZIndex)
 
     // ============================ Mask ============================
-    const [mergedMask, maskBlurClassName] = useMergedMask(drawerMask, contextMask, prefixCls)
+    const [mergedMask, maskBlurClassName, mergedMaskClosable] = useMergedMask(drawerMask, contextMask, prefixCls, maskClosable)
     // ========================== Focusable =========================
     const mergedFocusable = useFocusable(focusable, computed(() => {
       return props?.getContainer !== false && mergedMask.value
@@ -185,6 +189,7 @@ const Drawer = defineComponent<
         zIndex: zIndex.value,
         mask: mergedMask.value,
         focusable: mergedFocusable.value,
+        maskClosable: mergedMaskClosable.value,
       } as DrawerProps
     })
 
@@ -287,6 +292,7 @@ const Drawer = defineComponent<
               }}
               open={open}
               mask={mergedMask.value}
+              maskClosable={mergedMaskClosable.value}
               push={push}
               size={drawerSize.value}
               defaultSize={defaultSize}

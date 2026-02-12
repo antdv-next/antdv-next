@@ -27,9 +27,9 @@ const genGridRowStyle: GenerateStyle<GridRowToken> = (token): CSSObject => {
   return {
     // Grid system
     [componentCls]: {
-      'display': 'flex',
-      'flexFlow': 'row wrap',
-      'minWidth': 0,
+      display: 'flex',
+      flexFlow: 'row wrap',
+      minWidth: 0,
 
       '&::before, &::after': {
         display: 'flex',

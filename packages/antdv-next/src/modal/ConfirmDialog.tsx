@@ -6,7 +6,7 @@ import { CheckCircleFilled, CloseCircleFilled, ExclamationCircleFilled, InfoCirc
 import { clsx } from '@v-c/util'
 import { getTransitionName } from '@v-c/util/dist/utils/transition'
 import { computed, defineComponent } from 'vue'
-import { CONTAINER_MAX_OFFSET } from '../_util/hooks'
+import { CONTAINER_MAX_OFFSET, normalizeMaskConfig } from '../_util/hooks'
 import { getSlotPropsFnRun } from '../_util/tools.ts'
 import { devUseWarning, isDev } from '../_util/warning'
 import { useComponentBaseConfig } from '../config-provider/context'
@@ -78,7 +78,7 @@ export const ConfirmContent = defineComponent<
 
     const [locale] = useLocale('Modal', getConfirmLocale())
     const mergedLocale = computed(() => props.locale || locale?.value)
-    const okTextLocale = computed(() => props?.okText ?? (mergedOkCancel ? mergedLocale.value?.okText : mergedLocale.value?.justOkText))
+    const okTextLocale = computed(() => props?.okText ?? (mergedOkCancel.value ? mergedLocale.value?.okText : mergedLocale.value?.justOkText))
     const cancelTextLocale = computed(() => props?.cancelText ?? mergedLocale.value?.cancelText)
 
     const { closable } = props
@@ -88,7 +88,7 @@ export const ConfirmContent = defineComponent<
       autoFocusButton,
       cancelTextLocale: cancelTextLocale.value,
       okTextLocale: okTextLocale.value,
-      mergedOkCancel,
+      mergedOkCancel: mergedOkCancel.value,
       onClose,
       ...props,
     }))
@@ -198,11 +198,19 @@ const ConfirmDialog = defineComponent<ConfirmDialogProps>(
         width = 416,
         type,
         maskClosable: customMaskClosable,
+        mask,
         ...restProps
       } = props
 
       const confirmPrefixCls = `${prefixCls}-confirm`
-      const maskClosable = customMaskClosable === undefined ? false : customMaskClosable
+
+      const mergedMaskFn = () => {
+        const nextMaskConfig = normalizeMaskConfig(mask, customMaskClosable)
+        nextMaskConfig.closable ??= false
+        return nextMaskConfig
+      }
+
+      const mergedMask = mergedMaskFn()
 
       const mergedType = type || 'confirm'
       const classString = clsx(
@@ -225,7 +233,7 @@ const ConfirmDialog = defineComponent<ConfirmDialogProps>(
           footer={null}
           transitionName={getTransitionName(rootPrefixCls || '', 'zoom', props.transitionName)}
           maskTransitionName={getTransitionName(rootPrefixCls || '', 'fade', props.maskTransitionName)}
-          maskClosable={maskClosable}
+          mask={mergedMask}
           style={style as any}
           styles={{ body: bodyStyle, mask: maskStyle, ...styles }}
           width={width}

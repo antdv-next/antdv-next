@@ -968,9 +968,6 @@ exports[`empty demo > renders config-provider correctly 1`] = `
                   disabled=""
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <!---->
             </label>
@@ -1125,9 +1122,6 @@ exports[`empty demo > renders config-provider correctly 1`] = `
                   disabled=""
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <!---->
             </label>
@@ -1218,7 +1212,9 @@ exports[`empty demo > renders config-provider correctly 1`] = `
         style="margin-top: 8px;"
       >
         <div
-          class="ant-spin-nested-loading css-var-root"
+          aria-busy="false"
+          aria-live="polite"
+          class="ant-spin css-var-root"
         >
           <!---->
           <div

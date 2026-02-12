@@ -38,7 +38,7 @@ const genDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       },
 
       [`${itemCls}-icon`]: {
-        'position': 'relative',
+        position: 'relative',
 
         '&:after': {
           content: '""',

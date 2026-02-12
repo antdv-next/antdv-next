@@ -121,7 +121,7 @@ function getComponentToken() {
   }
 }
 
-function useStyle() {
+function useStyle(componentScope?: string | string[]) {
   const context = useDesignTokenContext()
 
   const mergedToken = computed<DesignToken>(() => ({
@@ -171,7 +171,7 @@ function useStyle() {
       key: cssVarKey.value,
       prefix: 'rc-box',
       token: baseToken.value,
-      scope: 'box',
+      scope: componentScope ?? 'box',
     })),
     () => (cssVarKey.value ? getComponentToken() : {}),
   )
@@ -246,9 +246,13 @@ const Box = defineComponent({
       type: String,
       default: '',
     },
+    componentScope: {
+      type: [String, Array] as PropType<string | string[]>,
+      default: undefined,
+    },
   },
   setup(props) {
-    const { cls } = useStyle()
+    const { cls } = useStyle(props.componentScope)
     return () =>
       h('div', {
         class: [cls.value, props.className].filter(Boolean).join(' '),
@@ -503,6 +507,58 @@ describe('css variables', () => {
     expect(cssVarStyle).toContain('--rc-line-height:1.5;')
     expect(cssVarStyle).not.toContain('line-height:var(--rc-line-height)')
     expect(styleStyle).toContain('line-height:var(--rc-line-height)')
+
+    wrapper.unmount()
+  })
+
+  it('supports multiple scope', async () => {
+    const App = defineComponent({
+      setup() {
+        return () =>
+          h(DesignTokenProvider, { theme: { cssVar: { key: 'apple' } } }, () =>
+            h(Box, { className: 'target', componentScope: ['box', 'container'] }))
+      },
+    })
+
+    const wrapper = mountWithStyleProvider(App)
+    await nextTick()
+
+    const styles = Array.from(document.querySelectorAll(`style[${ATTR_MARK}]`))
+    expect(styles.length).toBe(3)
+
+    const cssVarStyle = styles.find(style => style.innerHTML.includes('--rc-box-box-color'))
+    const cssVarText = cssVarStyle?.innerHTML ?? ''
+
+    expect(cssVarStyle).toBeDefined()
+    expect(cssVarText).toContain('--rc-box-box-color:#5c21ff')
+    expect(cssVarText).toMatch(/\.apple\.box/)
+    expect(cssVarText).toMatch(/\.apple\.container/)
+    expect(cssVarText).toMatch(/\.apple\.box\s*,[^{}]*\.apple\.container/)
+
+    wrapper.unmount()
+  })
+
+  it('filters empty scopes', async () => {
+    const App = defineComponent({
+      setup() {
+        return () =>
+          h(DesignTokenProvider, { theme: { cssVar: { key: 'orange' } } }, () =>
+            h(Box, { className: 'target', componentScope: ['box', '', 'container'] }))
+      },
+    })
+
+    const wrapper = mountWithStyleProvider(App)
+    await nextTick()
+
+    const styles = Array.from(document.querySelectorAll(`style[${ATTR_MARK}]`))
+    const cssVarStyle = styles.find(style => style.innerHTML.includes('--rc-box-box-color'))
+    const cssVarText = cssVarStyle?.innerHTML ?? ''
+
+    expect(cssVarStyle).toBeDefined()
+    expect(cssVarText).not.toMatch(/\.orange\.\{/)
+    expect(cssVarText).toMatch(/\.orange\.box/)
+    expect(cssVarText).toMatch(/\.orange\.container/)
+    expect(cssVarText).toMatch(/\.orange\.box\s*,[^{}]*\.orange\.container/)
 
     wrapper.unmount()
   })

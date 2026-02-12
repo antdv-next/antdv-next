@@ -45,7 +45,7 @@ demo:
 | shape | 设置包含的 FloatButton 按钮形状 | `circle` \| `square` | `circle` | - |
 | trigger | 触发方式（有触发方式为菜单模式） | `click` \| `hover` | - | - |
 | open | 受控展开，需配合 trigger 一起使用 | boolean | - | - |
-| closeIcon | 自定义关闭按钮 | VueNode | `&lt;CloseOutlined /&gt;` | - |
+| closeIcon | 自定义关闭按钮 | VueNode | `<CloseOutlined />` | - |
 | placement | 自定义菜单弹出位置 | `top` \| `left` \| `right` \| `bottom` | `top` | - |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: &#123; props &#125;)=&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;)=&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - |

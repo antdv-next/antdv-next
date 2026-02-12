@@ -32,13 +32,13 @@ import { useFormItemInputContext } from '../form/context'
 import { useVariants } from '../form/hooks/useVariant'
 import mergedBuiltinPlacements from '../select/mergedBuiltinPlacements'
 import useSelectStyle from '../select/style'
-import useIcons from '../select/useIcons'
+import useSelectIcons from '../select/useIcons'
 import usePopupRender from '../select/usePopupRender'
 import useShowArrow from '../select/useShowArrow'
 import { useCompactItemContext } from '../space/Compact'
 import useBase from './hooks/useBase'
 import useCheckable from './hooks/useCheckable'
-import useColumnIcons from './hooks/useColumnIcons'
+import useIcons from './hooks/useIcons.tsx'
 import CascaderPanel from './Panel'
 import useStyle from './style'
 
@@ -225,7 +225,9 @@ const InternalCascader = defineComponent<
       classes: contextClassNames,
       styles: contextStyles,
       getPrefixCls,
-    } = useComponentBaseConfig('cascader', props)
+      expandIcon: contextExpandIcon,
+      loadingIcon: contextLoadingIcon,
+    } = useComponentBaseConfig('cascader', props, ['expandIcon', 'loadingIcon'])
     const {
       prefixCls: customizePrefixCls,
       direction: propDirection,
@@ -418,7 +420,7 @@ const InternalCascader = defineComponent<
         isFormItemInput,
         feedbackIcon,
       } = formItemInputContext.value || {}
-      const { suffixIcon, removeIcon, clearIcon } = useIcons({
+      const { suffixIcon, removeIcon, clearIcon } = useSelectIcons({
         ...rest,
         multiple,
         hasFeedback,
@@ -435,7 +437,13 @@ const InternalCascader = defineComponent<
       const mergedPopupMenuColumnStyle = popupMenuColumnStyle ?? dropdownMenuColumnStyle
 
       const customExpandIcon = getSlotPropsFnRun(slots, props, 'expandIcon', false) ?? expandIcon
-      const [mergedExpandIcon, loadingIcon] = useColumnIcons(isRtl.value, customExpandIcon)
+      const { expandIcon: mergedExpandIcon, loadingIcon: mergedLoadingIcon } = useIcons({
+        contextExpandIcon: contextExpandIcon.value,
+        contextLoadingIcon: contextLoadingIcon.value,
+        expandIcon: customExpandIcon,
+        loadingIcon: undefined,
+        isRtl: isRtl.value,
+      })
 
       const checkable = useCheckable(cascaderPrefixCls.value, multiple)
 
@@ -507,7 +515,7 @@ const InternalCascader = defineComponent<
           showSearch={mergedShowSearch.value}
           notFoundContent={mergedNotFoundContent}
           expandIcon={mergedExpandIcon}
-          loadingIcon={loadingIcon}
+          loadingIcon={mergedLoadingIcon}
           checkable={checkable}
           suffixIcon={suffixIcon}
           removeIcon={removeIcon}

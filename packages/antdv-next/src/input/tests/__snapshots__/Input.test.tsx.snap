@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`input > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<div
+  data-v-app=""
+>
+  <input
+    class="ant-input ant-input-rtl ant-input-outlined css-var-root ant-input-css-var"
+    type="text"
+    value=""
+  />
+</div>
+`;

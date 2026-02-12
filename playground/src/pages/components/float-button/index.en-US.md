@@ -44,7 +44,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | shape | Setting button shape of children | `circle` \| `square` | `circle` | - |
 | trigger | Which action can trigger menu open/close | `click` \| `hover` | - | - |
 | open | Whether the menu is visible or not, use it with trigger | boolean | - | - |
-| closeIcon | Customize close button icon | VueNode | `&lt;CloseOutlined /&gt;` | - |
+| closeIcon | Customize close button icon | VueNode | `<CloseOutlined />` | - |
 | placement | Customize menu animation placement | `top` \| `left` \| `right` \| `bottom` | `top` | - |
 | classes | Customize class for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: &#123; props &#125;)=&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;)=&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - |

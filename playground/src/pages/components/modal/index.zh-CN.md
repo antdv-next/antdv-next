@@ -135,8 +135,8 @@ demo:
 | getContainer | 指定 Modal 挂载的 HTML 节点，false 为挂载在当前 dom | string \| HTMLElement \| (() => HTMLElement) \| false | document.body | - |
 | icon | 自定义图标 | VueNode | &lt;ExclamationCircleFilled /> | - |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true | - |
-| mask | 遮罩效果 | MaskType | true | - |
-| maskClosable | 点击蒙层是否允许关闭 | boolean | false | - |
+| mask | 遮罩效果 | boolean \| `{enabled?: boolean, blur?: boolean, closable?: boolean, closable?: true}` | true |  |
+| ~~maskClosable~~ | 点击蒙层是否允许关闭 | boolean | false |  |
 | okButtonProps | ok 按钮 props | ButtonProps | - | - |
 | okText | 确认按钮文字 | string | `确定` | - |
 | okType | 确认按钮类型 | LegacyButtonType | `primary` | - |

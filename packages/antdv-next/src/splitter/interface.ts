@@ -65,15 +65,21 @@ export interface SplitterProps extends ComponentBaseProps {
     start?: VueNode
     end?: VueNode
   }
+  onDraggerDoubleClick?: (index: number) => void
+  onResizeStart?: (sizes: number[]) => void
+  onResize?: (sizes: number[]) => void
+  onResizeEnd?: (sizes: number[]) => void
+  onCollapse?: (collapsed: boolean[], sizes: number[]) => void
+  'onUpdate:collapse'?: (collapsed: boolean[]) => void
   lazy?: boolean
 }
 
 export interface SplitterEmits {
-  'resizeStart': (sizes: number[]) => void
-  'resize': (sizes: number[]) => void
-  'resizeEnd': (sizes: number[]) => void
-  'collapse': (collapsed: boolean[], sizes: number[]) => void
-  'update:collapse': (collapsed: boolean[]) => void
+  // 'resizeStart': (sizes: number[]) => void
+  // 'resize': (sizes: number[]) => void
+  // 'resizeEnd': (sizes: number[]) => void
+  // 'collapse': (collapsed: boolean[], sizes: number[]) => void
+  // 'update:collapse': (collapsed: boolean[]) => void
 }
 export interface SplitterSlots {
   draggerIcon?: () => any

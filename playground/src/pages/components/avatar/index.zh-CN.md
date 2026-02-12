@@ -34,13 +34,13 @@ group:
 通用属性参考：[通用属性](/docs/vue/common-props)
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| shape | 指定头像的形状 | 'circle' \| 'square' | `circle` | - |
-| size | 设置头像的大小 | AvatarSize | `default` | - |
+| --- | --- | --- | --- |  |
+| shape | 指定头像的形状 | `circle` \| `square` | `circle` |  |
+| size | 设置头像的大小 | number \| `large` \| `medium` \| `small` \| `{ xs: number, sm: number, ... }` | `medium` | - |
 | gap | 字符类型距离左右两侧边界单位像素 | number | 4 | - |
 | src | 图片类头像的资源地址或者图片元素 | VueNode | - | - |
 | srcSet | 设置图片类头像响应式资源地址 | string | - | - |
-| draggable | 图片是否允许拖动 | boolean \| 'true' \| 'false' | true | - |
+| draggable | 图片是否允许拖动 | boolean \| `'true'` \| `'false'` | true |  |
 | icon | 设置头像的自定义图标 | VueNode | - | - |
 | alt | 图像无法显示时的替代文本 | string | - | - |
 | crossOrigin | CORS 属性设置 | '' \| 'anonymous' \| 'use-credentials' | - | - |

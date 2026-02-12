@@ -5,7 +5,8 @@ import type { RequiredMark } from './Form'
 import type { FormLabelAlign } from './interface'
 import { QuestionCircleFilled } from '@antdv-next/icons'
 import { clsx } from '@v-c/util'
-import { createVNode, defineComponent } from 'vue'
+import { omit } from 'es-toolkit'
+import { defineComponent } from 'vue'
 import convertToTooltipProps from '../_util/convertToTooltipProps.ts'
 import { getSlotPropsFnRun } from '../_util/tools.ts'
 import { Col } from '../grid'
@@ -14,11 +15,11 @@ import useLocale from '../locale/useLocale.ts'
 import Tooltip from '../tooltip'
 import { useFormContext } from './context.tsx'
 
-export type WrapperTooltipProps = TooltipProps & {
-  icon?: any
+export type FormTooltipProps = TooltipProps & {
+  icon?: VueNode
 }
 
-export type LabelTooltipType = WrapperTooltipProps | VueNode
+export type FormItemTooltipType = FormTooltipProps | VueNode
 
 export type ColPropsWithClass = ColProps & { class?: string }
 
@@ -32,7 +33,7 @@ export interface FormItemLabelProps {
    * @internal Used for pass `requiredMark` from `<Form />`
    */
   requiredMark?: RequiredMark
-  tooltip?: LabelTooltipType
+  tooltip?: FormItemTooltipType
   vertical?: boolean
 }
 
@@ -61,6 +62,7 @@ const FormItemLabel = defineComponent<
         colon: contextColon,
         classes: contextClassNames,
         styles: contextStyles,
+        tooltip: contextTooltip,
       } = formContext.value
       const label = getSlotPropsFnRun(slots, props, 'label')
       if (!label) {
@@ -88,19 +90,21 @@ const FormItemLabel = defineComponent<
       }
 
       // Tooltip
-      const tooltipProps = convertToTooltipProps(tooltip)
+      const tooltipProps = convertToTooltipProps(tooltip, contextTooltip)
       if (tooltipProps) {
-        const { icon = <QuestionCircleFilled />, ...restTooltipProps } = tooltipProps
+        const { ...restTooltipProps } = tooltipProps
+        const icon = getSlotPropsFnRun({}, tooltipProps, 'icon') ?? <QuestionCircleFilled />
         const tooltipNode = (
-          <Tooltip {...restTooltipProps}>
-            {
-              createVNode(icon, {
-                class: `${prefixCls}-item-tooltip-icon`,
-                title: '',
-                onClick: (e: Event) => e.stopPropagation(),
-                tabIndex: null,
-              })
-            }
+          <Tooltip {...omit(restTooltipProps, ['icon'])}>
+            <span
+              class={`${prefixCls}-item-tooltip`}
+              onClick={(e) => {
+                e.preventDefault()
+              }}
+              tabindex={-1}
+            >
+              {icon}
+            </span>
           </Tooltip>
         )
         labelChildren = (

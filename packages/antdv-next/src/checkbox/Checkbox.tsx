@@ -6,7 +6,7 @@ import VcCheckbox from '@v-c/checkbox'
 import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
-import { computed, defineComponent, nextTick, onBeforeUnmount, shallowRef, watch } from 'vue'
+import { computed, defineComponent, nextTick, shallowRef, watch } from 'vue'
 import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
 import { isValueEqual } from '../_util/isEqual'
 import isNonNullable from '../_util/isNonNullable.ts'
@@ -138,11 +138,19 @@ const InternalCheckbox = defineComponent<
 
     // 计算是否选中（用于单独使用时）
     const isChecked = computed(() => isValueEqual(currentValue.value, mergedCheckedValue.value))
+    const mergedChecked = computed(() => {
+      if (checkboxGroup?.value && !props.skipGroup) {
+        return checkboxGroup.value.value.includes?.(props.value)
+      }
+      return isChecked.value
+    })
+
     // =========== Merged Props for Semantic ==========
     const mergedProps = computed(() => {
       return {
         ...props,
         disabled: mergedDisabled.value,
+        checked: mergedChecked.value,
       } as CheckboxProps
     })
 
@@ -163,31 +171,37 @@ const InternalCheckbox = defineComponent<
         '`value` is not a valid prop, do you mean `checked`?',
       )
     }
-    checkboxGroup?.value?.registerValue?.(prevValue.value)
-    watch(() => props.value, (_n, _o, onCleanup) => {
-      if (props.skipGroup) {
-        return
-      }
-      if (prevValue.value !== props.value) {
-        checkboxGroup?.value?.cancelValue?.(prevValue.value)
-        checkboxGroup?.value?.registerValue?.(props.value)
-        prevValue.value = props.value
-      }
-      onCleanup(() => {
-        checkboxGroup?.value?.cancelValue?.(prevValue.value)
-      })
-    })
-    onBeforeUnmount(() => {
-      checkboxGroup?.value?.cancelValue?.(prevValue.value)
-    })
-    watch(() => props.indeterminate, async () => {
-      await nextTick()
-      if (checkboxRef.value) {
-        if (checkboxRef.value?.input) {
-          checkboxRef.value.input.indeterminate = props.indeterminate
+    watch(
+      [() => props.value, () => props?.skipGroup],
+      (_n, _o, onCleanup) => {
+        if (props.skipGroup || !checkboxGroup?.value) {
+          return
         }
-      }
-    })
+        if (prevValue.value !== props.value) {
+          checkboxGroup?.value?.registerValue?.(props.value)
+          prevValue.value = props.value
+        }
+        onCleanup(() => {
+          checkboxGroup?.value?.cancelValue?.(prevValue.value)
+        })
+      },
+    )
+    if (checkboxGroup?.value) {
+      checkboxGroup?.value?.registerValue?.(prevValue.value)
+    }
+
+    watch(
+      () => props.indeterminate,
+      async () => {
+        await nextTick()
+        if (checkboxRef.value) {
+          if (checkboxRef.value?.input) {
+            checkboxRef.value.input.indeterminate = props.indeterminate
+          }
+        }
+      },
+      { immediate: true },
+    )
 
     const rootCls = useCSSVarCls(prefixCls)
     const [hashId, cssVarCls] = useStyle(prefixCls, rootCls)
@@ -225,18 +239,14 @@ const InternalCheckbox = defineComponent<
       if (inGroup) {
         checkboxProps.onChange = (checked: any) => {
           emit('change', checked)
-          if (checkboxGroup.value.toggleOption) {
-            checkboxGroup.value.toggleOption({ label: children, value: props.value })
-          }
         }
         checkboxProps.name = checkboxGroup.value?.name
-        checkboxProps.checked = checkboxGroup?.value?.value.includes?.(props.value)
+        checkboxProps.checked = mergedChecked.value
       }
       else {
         // 单独使用时，使用 isChecked 判断选中状态
-        checkboxProps.checked = isChecked.value
+        checkboxProps.checked = mergedChecked.value
       }
-
       const classString = clsx(
         `${prefixCls.value}-wrapper`,
         {
@@ -285,6 +295,9 @@ const InternalCheckbox = defineComponent<
                     if (inGroup) {
                       // 在 Group 中使用时，保持原有行为
                       emit('update:checked', checked)
+                      if (!skipGroup && checkboxGroup?.value?.toggleOption) {
+                        checkboxGroup.value.toggleOption({ label: children, value: props.value })
+                      }
                     }
                     else {
                       // 单独使用时，返回自定义值
@@ -295,7 +308,9 @@ const InternalCheckbox = defineComponent<
                   },
                 } as any
               }
+              name={!skipGroup && checkboxGroup?.value ? checkboxGroup.value?.name : props.name}
               onClick={onInputClick}
+              checked={mergedChecked.value}
               prefixCls={prefixCls.value}
               class={checkboxClass}
               style={mergedStyles.value.icon}
@@ -305,6 +320,7 @@ const InternalCheckbox = defineComponent<
                 emit('blur', e)
               }}
               ref={checkboxRef}
+              value={props.value}
             />
             {isNonNullable(children) && (
               <span

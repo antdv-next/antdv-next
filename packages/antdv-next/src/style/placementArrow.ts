@@ -32,21 +32,17 @@ function isInject(valid: boolean, code: CSSObject): CSSObject {
   return code
 }
 
-export default function getArrowStyle<
+function getArrowStyle<
   Token extends TokenWithCommonCls<AliasToken> & ArrowOffsetToken & ArrowToken,
->(
-  token: Token,
-  colorBg: string,
-  options?: {
-    arrowDistance?: number
-    arrowPlacement?: {
-      left?: boolean
-      right?: boolean
-      top?: boolean
-      bottom?: boolean
-    }
-  },
-): CSSInterpolation {
+>(token: Token, colorBg: string, options?: {
+  arrowDistance?: number
+  arrowPlacement?: {
+    left?: boolean
+    right?: boolean
+    top?: boolean
+    bottom?: boolean
+  }
+}): CSSInterpolation {
   const {
     componentCls,
     boxShadowPopoverArrow,
@@ -106,7 +102,7 @@ export default function getArrowStyle<
         },
 
         '&-placement-topLeft': {
-          [varName('arrow-offset-horizontal')]: arrowOffsetHorizontal,
+          [varName('arrow-offset-x')]: arrowOffsetHorizontal,
 
           [`> ${componentCls}-arrow`]: {
             left: {
@@ -117,7 +113,7 @@ export default function getArrowStyle<
         },
 
         '&-placement-topRight': {
-          [varName('arrow-offset-horizontal')]: `calc(100% - ${unit(arrowOffsetHorizontal)})`,
+          [varName('arrow-offset-x')]: `calc(100% - ${unit(arrowOffsetHorizontal)})`,
 
           [`> ${componentCls}-arrow`]: {
             right: {
@@ -148,7 +144,7 @@ export default function getArrowStyle<
         },
 
         '&-placement-bottomLeft': {
-          [varName('arrow-offset-horizontal')]: arrowOffsetHorizontal,
+          [varName('arrow-offset-x')]: arrowOffsetHorizontal,
 
           [`> ${componentCls}-arrow`]: {
             left: {
@@ -159,7 +155,7 @@ export default function getArrowStyle<
         },
 
         '&-placement-bottomRight': {
-          [varName('arrow-offset-horizontal')]: `calc(100% - ${unit(arrowOffsetHorizontal)})`,
+          [varName('arrow-offset-x')]: `calc(100% - ${unit(arrowOffsetHorizontal)})`,
 
           [`> ${componentCls}-arrow`]: {
             right: {
@@ -234,3 +230,5 @@ export default function getArrowStyle<
     },
   }
 }
+
+export default getArrowStyle

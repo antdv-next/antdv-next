@@ -45,17 +45,17 @@ const genRateStarStyle: GenerateStyle<RateToken, CSSObject> = (token) => {
 
   return {
     [`${componentCls}-star`]: {
-      'position': 'relative',
-      'display': 'inline-block',
-      'color': 'inherit',
-      'cursor': 'pointer',
+      position: 'relative',
+      display: 'inline-block',
+      color: 'inherit',
+      cursor: 'pointer',
 
       '&:not(:last-child)': {
         marginInlineEnd: token.marginXS,
       },
 
       '> div': {
-        'transition': `all ${token.motionDurationMid}, outline 0s`,
+        transition: `all ${token.motionDurationMid}, outline 0s`,
 
         '&:hover': {
           transform: token.starHoverScale,
@@ -113,14 +113,14 @@ const genRateStyle: GenerateStyle<RateToken> = (token) => {
     [componentCls]: {
       ...resetComponent(token),
 
-      'display': 'inline-block',
-      'margin': 0,
-      'padding': 0,
-      'color': token.starColor,
-      'fontSize': token.starSize,
-      'lineHeight': 1,
-      'listStyle': 'none',
-      'outline': 'none',
+      display: 'inline-block',
+      margin: 0,
+      padding: 0,
+      color: token.starColor,
+      fontSize: token.starSize,
+      lineHeight: 1,
+      listStyle: 'none',
+      outline: 'none',
 
       '&-small': {
         fontSize: token.starSizeSM,
@@ -132,7 +132,7 @@ const genRateStyle: GenerateStyle<RateToken> = (token) => {
 
       // disable styles
       [`&-disabled${componentCls} ${componentCls}-star`]: {
-        'cursor': 'default',
+        cursor: 'default',
 
         '> div:hover': {
           transform: 'scale(1)',

@@ -19,6 +19,7 @@ export default function useIcons({
   menuItemSelectedIcon,
   removeIcon,
   loading,
+  loadingIcon,
   multiple,
   hasFeedback,
   showSuffixIcon,
@@ -31,6 +32,7 @@ export default function useIcons({
   menuItemSelectedIcon?: RenderNode
   removeIcon?: RenderNode
   loading?: boolean
+  loadingIcon?: any
   multiple?: boolean
   hasFeedback?: boolean
   feedbackIcon?: VueNode
@@ -68,7 +70,7 @@ export default function useIcons({
     mergedSuffixIcon = getSuffixIconNode(suffixIcon)
   }
   else if (loading) {
-    mergedSuffixIcon = getSuffixIconNode(<LoadingOutlined spin />)
+    mergedSuffixIcon = getSuffixIconNode(loadingIcon ?? <LoadingOutlined spin />)
   }
   else {
     mergedSuffixIcon = ({ open, showSearch }: { open: boolean, showSearch: boolean }) => {

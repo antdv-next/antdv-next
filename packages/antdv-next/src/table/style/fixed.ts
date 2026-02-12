@@ -42,8 +42,8 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       },
 
       [fixCellCls]: {
-        'zIndex': `calc(var(--z-offset-reverse) + ${zIndexTableFixed})`,
-        'background': tableBg,
+        zIndex: `calc(var(--z-offset-reverse) + ${zIndexTableFixed})`,
+        background: tableBg,
 
         '&:after': sharedShadowStyle,
 
@@ -63,7 +63,7 @@ const genFixedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
 
       // =================== Container ====================
       [`${componentCls}-container`]: {
-        'position': 'relative',
+        position: 'relative',
 
         '&:before, &:after': {
           ...sharedShadowStyle,

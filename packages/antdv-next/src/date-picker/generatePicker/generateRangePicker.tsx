@@ -61,54 +61,7 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
     string,
     SlotsType<RangePickerSlots>
   >(
-    (props = {
-      'bordered': undefined,
-      'disabled': undefined,
-      'allowEmpty': undefined,
-      'showTime': undefined,
-      'showWeek': undefined,
-      'allowClear': undefined,
-      'inputReadOnly': undefined,
-      'order': undefined,
-      'defaultOpen': undefined,
-      'open': undefined,
-      'needConfirm': undefined,
-      'changeOnBlur': undefined,
-      'preserveInvalidOnBlur': undefined,
-      'previewValue': undefined,
-      'showNow': undefined,
-      'showToday': undefined,
-      'contenteditable': undefined,
-      'draggable': undefined,
-      'hidden': undefined,
-      'inert': undefined,
-      'spellcheck': undefined,
-      'itemscope': undefined,
-      'aria-atomic': undefined,
-      'aria-busy': undefined,
-      'aria-checked': undefined,
-      'aria-current': undefined,
-      'aria-disabled': undefined,
-      'aria-expanded': undefined,
-      'aria-grabbed': undefined,
-      'aria-haspopup': undefined,
-      'aria-hidden': undefined,
-      'aria-invalid': undefined,
-      'aria-modal': undefined,
-      'aria-multiline': undefined,
-      'aria-multiselectable': undefined,
-      'aria-pressed': undefined,
-      'aria-readonly': undefined,
-      'aria-required': undefined,
-      'aria-selected': undefined,
-      'showHour': undefined,
-      'showMinute': undefined,
-      'showSecond': undefined,
-      'showMillisecond': undefined,
-      'use12Hours': undefined,
-      'hideDisabledOptions': undefined,
-      'changeOnScroll': undefined,
-    }, { slots, attrs, emit, expose }) => {
+    (props, { slots, attrs, emit, expose }) => {
       const {
         size: customizeSize,
         disabled: customDisabled,
@@ -128,6 +81,7 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
         'styles',
         'rootClass',
         'bordered',
+        'separator',
       )
 
       const pickerType = computed(() => (props.picker === TIME ? 'timePicker' : 'datePicker'))
@@ -139,7 +93,8 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
         rootPrefixCls,
         class: contextClassName,
         style: contextStyle,
-      } = useComponentBaseConfig('rangePicker' as any, props as any, [], 'picker')
+        separator: contextSeparator,
+      } = useComponentBaseConfig('rangePicker' as any, props as any, ['separator'], 'picker')
 
       const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction)
       const mergedSize = useSize(ctx => customizeSize.value ?? compactSize.value ?? ctx)
@@ -343,6 +298,11 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
         const inputRender = slots.inputRender || (props as any).inputRender
           ? (inputProps: Record<string, any>) => resolveRender('inputRender', [inputProps], inputProps)
           : undefined
+        const _contextSeparator = getSlotPropsFnRun({}, {
+          separator: contextSeparator?.value,
+        }, 'separator', false)
+        const separator = getSlotPropsFnRun(slots, props, 'separator', false) || _contextSeparator
+        const mergedSeparator = separator ?? _contextSeparator
 
         return (
           <ContextIsolator space>
@@ -352,7 +312,7 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
               ref={innerRef as any}
               separator={(
                 <span aria-label="to" class={`${prefixCls.value}-separator`}>
-                  <SwapRightOutlined />
+                  { mergedSeparator ?? <SwapRightOutlined />}
                 </span>
               )}
               disabled={mergedDisabled.value}

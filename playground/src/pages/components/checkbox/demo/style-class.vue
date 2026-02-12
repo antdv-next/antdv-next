@@ -14,44 +14,44 @@ import { ref } from 'vue'
 const checked = ref(true)
 const { token } = theme.useToken()
 
-const classes: CheckboxProps['classes'] = {
-  root: 'checkbox-demo-root',
-}
-
+// Object styles — 静态样式对象
 const stylesObject: CheckboxProps['styles'] = {
-  root: {
-    padding: '8px',
-    borderRadius: '4px',
-    borderColor: '#ccc',
+  icon: {
+    borderRadius: '6px',
+  },
+  label: {
+    color: 'blue',
   },
 }
 
-const stylesFn: CheckboxProps['styles'] = (info) => {
+// Function classes — 根据 checked 状态动态返回类名
+const classesFn: CheckboxProps['classes'] = (info) => {
+  const base: Record<string, string> = {
+    root: 'checkbox-demo-root',
+    icon: 'checkbox-demo-icon',
+    label: 'checkbox-demo-label',
+  }
   if (info.props.checked) {
     return {
-      root: { padding: '8px', borderRadius: '4px' },
-      label: { fontWeight: 'bold', color: '#333' },
+      root: base.root,
+      icon: `${base.icon} checkbox-demo-icon-checked`,
+      label: `${base.label} checkbox-demo-label-checked`,
     }
   }
-  return {}
-}
-
-const fnClasses = {
-  root: 'checkbox-demo-fn-root',
+  return base
 }
 </script>
 
 <template>
   <a-flex vertical gap="middle">
-    <a-checkbox :classes="classes" :styles="stylesObject">
-      Object
+    <a-checkbox :styles="stylesObject">
+      Object styles
     </a-checkbox>
     <a-checkbox
       v-model:checked="checked"
-      :classes="fnClasses"
-      :styles="stylesFn"
+      :classes="classesFn"
     >
-      Function
+      Function classes
     </a-checkbox>
   </a-flex>
 </template>
@@ -59,26 +59,24 @@ const fnClasses = {
 <style>
 .checkbox-demo-root {
   border-radius: v-bind('`${token.borderRadius}px`');
-  width: 300px;
+  background-color: v-bind('token.colorBgContainer');
 }
 
-.checkbox-demo-fn-root {
-  border-radius: v-bind('`${token.borderRadius}px`');
-  width: 300px;
+.checkbox-demo-icon {
+  border-color: v-bind('token.colorWarning') !important;
 }
 
-.checkbox-demo-fn-root:not(.ant-checkbox-wrapper-disabled):hover .ant-checkbox.ant-wave-target .ant-checkbox-inner,
-.checkbox-demo-fn-root .ant-checkbox-checked:not(.ant-checkbox-disabled):hover .ant-checkbox-inner {
-  border-color: #161616;
-  background-color: #161616;
+.checkbox-demo-icon-checked {
+  background-color: v-bind('token.colorWarning') !important;
+  border-color: v-bind('token.colorWarning') !important;
 }
 
-.checkbox-demo-fn-root .ant-checkbox-checked .ant-checkbox-inner {
-  border-color: #161616;
-  background-color: #161616;
+.checkbox-demo-label {
+  color: v-bind('token.colorTextDisabled') !important;
+  font-weight: bold;
 }
 
-.checkbox-demo-fn-root:hover .ant-checkbox-inner {
-  border-color: #d9d9d9;
+.checkbox-demo-label-checked {
+  color: v-bind('token.colorWarning') !important;
 }
 </style>

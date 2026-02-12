@@ -16,7 +16,7 @@ const genSpaceStyle: GenerateStyle<SpaceToken> = (token) => {
 
   return {
     [componentCls]: {
-      'display': 'inline-flex',
+      display: 'inline-flex',
       '&-rtl': {
         direction: 'rtl',
       },
@@ -24,7 +24,7 @@ const genSpaceStyle: GenerateStyle<SpaceToken> = (token) => {
         flexDirection: 'column',
       },
       '&-align': {
-        'flexDirection': 'column',
+        flexDirection: 'column',
         '&-center': {
           alignItems: 'center',
         },

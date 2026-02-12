@@ -15,7 +15,7 @@ export function genDirectoryStyle({
     [`${treeCls}${treeCls}-directory ${treeNodeCls}`]: {
     // >>> Title
       [`${treeCls}-node-content-wrapper`]: {
-        'position': 'static',
+        position: 'static',
 
         [`&:has(${treeCls}-drop-indicator)`]: {
           position: 'relative',
@@ -58,8 +58,8 @@ export function genDirectoryStyle({
 
         // >>> Title
         [`${treeCls}-node-content-wrapper`]: {
-          'color': directoryNodeSelectedColor,
-          'background': 'transparent',
+          color: directoryNodeSelectedColor,
+          background: 'transparent',
           '&, &:hover': {
             color: directoryNodeSelectedColor,
           },

@@ -111,33 +111,33 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
         // ==========================================================
         ...resetComponent(token, true),
 
-        'display': 'inline-flex',
+        display: 'inline-flex',
         // gap: calc(token.paddingXXS).mul(1.5).equal(),
-        'flexWrap': 'nowrap',
-        'position': 'relative',
-        'transition': `all ${token.motionDurationSlow}`,
-        'alignItems': 'flex-start',
-        'outline': 0,
+        flexWrap: 'nowrap',
+        position: 'relative',
+        transition: `all ${token.motionDurationSlow}`,
+        alignItems: 'flex-start',
+        outline: 0,
 
-        'cursor': 'pointer',
+        cursor: 'pointer',
 
         // Border
-        'borderRadius': varRef('border-radius'),
-        'borderWidth': varRef('border-size'),
-        'borderStyle': token.lineType,
-        'borderColor': varRef('border-color'),
+        borderRadius: varRef('border-radius'),
+        borderWidth: varRef('border-size'),
+        borderStyle: token.lineType,
+        borderColor: varRef('border-color'),
 
         // Background
-        'background': varRef('background-color'),
+        background: varRef('background-color'),
 
         // Font
-        'fontSize': varRef('font-size'),
-        'lineHeight': varRef('line-height'),
-        'color': varRef('color'),
+        fontSize: varRef('font-size'),
+        lineHeight: varRef('line-height'),
+        color: varRef('color'),
 
         // Padding
-        'paddingInline': varRef('padding-horizontal'),
-        'paddingBlock': varRef('padding-vertical'),
+        paddingInline: varRef('padding-horizontal'),
+        paddingBlock: varRef('padding-vertical'),
         // ========================= Prefix =========================
         [`${componentCls}-prefix`]: {
           flex: 'none',
@@ -154,23 +154,16 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
 
         // ======================== Content =========================
         [`${componentCls}-content`]: {
-          'flex': 'auto',
-          'minWidth': 0,
-          'position': 'relative',
-          'display': 'flex',
-          'marginInlineEnd': calc(token.paddingXXS).mul(1.5).equal(),
+          flex: 'auto',
+          minWidth: 0,
+          position: 'relative',
+          display: 'flex',
+          marginInlineEnd: calc(token.paddingXXS).mul(1.5).equal(),
 
           '&:before': {
             content: '"\\a0"',
             width: 0,
             overflow: 'hidden',
-          },
-
-          // >>> Value
-          '&-value': {
-            ...textEllipsis,
-            transition: `all ${token.motionDurationMid} ${token.motionEaseInOut}`,
-            zIndex: 1,
           },
 
           // >>> Input: should only take effect for not customize mode
@@ -182,16 +175,12 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
           },
         },
 
-        [`&-open ${componentCls}-content-value`]: {
-          color: token.colorTextPlaceholder,
-        },
-
         // ========================= Suffix =========================
         [`${componentCls}-suffix`]: {
-          'flex': 'none',
-          'color': token.colorTextQuaternary,
-          'fontSize': token.fontSizeIcon,
-          'lineHeight': 1,
+          flex: 'none',
+          color: token.colorTextQuaternary,
+          fontSize: token.fontSizeIcon,
+          lineHeight: 1,
 
           '> :not(:last-child)': {
             marginInlineEnd: token.marginXS,
@@ -247,13 +236,13 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
       {
         [`&:not(${componentCls}-customize)`]: {
           [`${componentCls}-input`]: {
-            'outline': 'none',
-            'background': 'transparent',
-            'appearance': 'none',
-            'border': 0,
-            'margin': 0,
-            'padding': 0,
-            'color': 'inherit',
+            outline: 'none',
+            background: 'transparent',
+            appearance: 'none',
+            border: 0,
+            margin: 0,
+            padding: 0,
+            color: varRef('color'),
 
             '&::-webkit-search-cancel-button': {
               display: 'none',
@@ -277,7 +266,34 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
 
           // Content center align
           [`${componentCls}-content`]: {
+            ...textEllipsis,
             alignSelf: 'center',
+
+            '&-has-value': {
+              display: 'block',
+
+              '&:before': {
+                display: 'none',
+              },
+            },
+
+            '&-has-search-value': {
+              color: 'transparent',
+            },
+
+            // >>> Value
+            '&-value': {
+              transition: `all ${token.motionDurationMid} ${token.motionEaseInOut}`,
+              zIndex: 1,
+            },
+          },
+
+          [`&${componentCls}-open ${componentCls}-content`]: {
+            color: token.colorTextPlaceholder,
+
+            '&-has-search-value': {
+              color: 'transparent',
+            },
           },
         },
       },

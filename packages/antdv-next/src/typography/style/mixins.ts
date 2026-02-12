@@ -58,8 +58,8 @@ export const getLinkStyles: GenerateStyle<TypographyToken, CSSObject> = (token) 
       userSelect: 'text',
 
       [`&[disabled], &${componentCls}-disabled`]: {
-        'color': token.colorTextDisabled,
-        'cursor': 'not-allowed',
+        color: token.colorTextDisabled,
+        cursor: 'not-allowed',
 
         '&:active, &:hover': {
           color: token.colorTextDisabled,
@@ -74,7 +74,7 @@ export const getLinkStyles: GenerateStyle<TypographyToken, CSSObject> = (token) 
 }
 
 export const getResetStyles: GenerateStyle<TypographyToken, CSSObject> = (token): CSSObject => ({
-  'code': {
+  code: {
     margin: '0 0.2em',
     paddingInline: '0.4em',
     paddingBlock: '0.2em 0.1em',
@@ -85,7 +85,7 @@ export const getResetStyles: GenerateStyle<TypographyToken, CSSObject> = (token)
     borderRadius: 3,
   },
 
-  'kbd': {
+  kbd: {
     margin: '0 0.2em',
     paddingInline: '0.4em',
     paddingBlock: '0.15em 0.1em',
@@ -97,7 +97,7 @@ export const getResetStyles: GenerateStyle<TypographyToken, CSSObject> = (token)
     borderRadius: 3,
   },
 
-  'mark': {
+  mark: {
     padding: 0,
     // FIXME hardcode in v4
     backgroundColor: gold[2],
@@ -112,7 +112,7 @@ export const getResetStyles: GenerateStyle<TypographyToken, CSSObject> = (token)
     textDecoration: 'line-through',
   },
 
-  'strong': {
+  strong: {
     fontWeight: token.fontWeightStrong,
   },
 
@@ -130,7 +130,7 @@ export const getResetStyles: GenerateStyle<TypographyToken, CSSObject> = (token)
     },
   },
 
-  'ul': {
+  ul: {
     listStyleType: 'circle',
 
     ul: {
@@ -138,7 +138,7 @@ export const getResetStyles: GenerateStyle<TypographyToken, CSSObject> = (token)
     },
   },
 
-  'ol': {
+  ol: {
     listStyleType: 'decimal',
   },
 
@@ -147,7 +147,7 @@ export const getResetStyles: GenerateStyle<TypographyToken, CSSObject> = (token)
     margin: '1em 0',
   },
 
-  'pre': {
+  pre: {
     padding: '0.4em 0.6em',
     whiteSpace: 'pre-wrap',
     wordWrap: 'break-word',
@@ -168,7 +168,7 @@ export const getResetStyles: GenerateStyle<TypographyToken, CSSObject> = (token)
     },
   },
 
-  'blockquote': {
+  blockquote: {
     paddingInline: '0.6em 0',
     paddingBlock: 0,
     borderInlineStart: '4px solid rgba(100, 100, 100, 0.2)',
@@ -182,7 +182,7 @@ export const getEditableStyles: GenerateStyle<TypographyToken, CSSObject> = (tok
   const inputShift = paddingSM
   return {
     '&-edit-content': {
-      'position': 'relative',
+      position: 'relative',
 
       'div&': {
         insetInlineStart: token.calc(token.paddingSM).mul(-1).equal(),
@@ -202,7 +202,7 @@ export const getEditableStyles: GenerateStyle<TypographyToken, CSSObject> = (tok
         pointerEvents: 'none',
       },
 
-      'textarea': {
+      textarea: {
         margin: '0!important',
         // Fix Editable Textarea flash in Firefox
         MozTransition: 'none',
@@ -237,9 +237,9 @@ export function getEllipsisStyles(): CSSObject {
     },
 
     '&-ellipsis-single-line': {
-      'whiteSpace': 'nowrap',
-      'overflow': 'hidden',
-      'textOverflow': 'ellipsis',
+      whiteSpace: 'nowrap',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
 
       // https://blog.csdn.net/iefreer/article/details/50421025
       'a&, span&': {

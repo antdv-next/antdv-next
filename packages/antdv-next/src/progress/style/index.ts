@@ -73,7 +73,7 @@ function genAntProgressActive(isRtl?: boolean) {
       transform: `translateX(${direction}) scaleX(0)`,
       opacity: 0.5,
     },
-    'to': {
+    to: {
       transform: 'translateX(0) scaleX(1)',
       opacity: 0,
     },
@@ -90,7 +90,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
     [progressCls]: {
       ...resetComponent(token),
 
-      'display': 'inline-flex',
+      display: 'inline-flex',
 
       '&-rtl': {
         direction: 'rtl',
@@ -165,15 +165,15 @@ const genLineStyle: GenerateStyle<ProgressToken> = (token) => {
       },
 
       [`${componentCls}-track`]: {
-        'position': 'absolute',
-        'insetInlineStart': 0,
-        'insetBlock': 0,
-        'borderRadius': 'inherit',
-        'background': token.defaultColor,
-        'transition': `all ${token.motionDurationSlow} ${token.motionEaseInOutCirc}`,
-        'minWidth': 'max-content',
-        'display': 'flex',
-        'alignItems': 'center',
+        position: 'absolute',
+        insetInlineStart: 0,
+        insetBlock: 0,
+        borderRadius: 'inherit',
+        background: token.defaultColor,
+        transition: `all ${token.motionDurationSlow} ${token.motionEaseInOutCirc}`,
+        minWidth: 'max-content',
+        display: 'flex',
+        alignItems: 'center',
 
         '&-success': {
           background: token.colorSuccess,
@@ -307,7 +307,7 @@ const genStepStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSOb
   return {
     [progressCls]: {
       [`${progressCls}-steps`]: {
-        'display': 'inline-block',
+        display: 'inline-block',
         '&-body': {
           display: 'flex',
           flexDirection: 'row',
@@ -319,10 +319,10 @@ const genStepStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSOb
           },
         },
         '&-item': {
-          'flexShrink': 0,
-          'minWidth': token.progressStepMinWidth,
-          'backgroundColor': token.remainingColor,
-          'transition': `all ${token.motionDurationSlow}`,
+          flexShrink: 0,
+          minWidth: token.progressStepMinWidth,
+          backgroundColor: token.remainingColor,
+          transition: `all ${token.motionDurationSlow}`,
 
           '&-active': {
             backgroundColor: token.defaultColor,
@@ -342,9 +342,9 @@ const genSmallLine: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSOb
   return {
     [progressCls]: {
       [`${progressCls}-small&-line, ${progressCls}-small&-line ${progressCls}-indicator ${iconPrefixCls}`]:
-        {
-          fontSize: token.fontSizeSM,
-        },
+          {
+            fontSize: token.fontSizeSM,
+          },
     },
   }
 }

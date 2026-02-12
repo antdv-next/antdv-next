@@ -1,9 +1,9 @@
 <docs lang="zh-CN">
-参照 Bootstrap 的响应式设计，预设六个响应尺寸：`xs` `sm` `md` `lg` `xl` `xxl`。
+参照 Bootstrap 的 [响应式设计](http://getbootstrap.com/css/#grid-media-queries)，预设七个响应尺寸：`xs` `sm` `md` `lg` `xl` `xxl` `xxxl`。
 </docs>
 
 <docs lang="en-US">
-Referring to Bootstrap responsive design, we preset six dimensions: `xs` `sm` `md` `lg` `xl` `xxl`.
+Referring to the Bootstrap [responsive design](http://getbootstrap.com/css/#grid-media-queries), here preset seven dimensions: `xs` `sm` `md` `lg` `xl` `xxl` `xxxl`.
 </docs>
 
 <template>
