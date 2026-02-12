@@ -70,55 +70,70 @@ export function useGlobalCache<CacheType>(
     ? styleContext.value.mock === 'server'
     : !isClientSide
 
+  const applyDecrement = (pathStr: string, decrementCount = 1) => {
+    if (decrementCount <= 0) {
+      return
+    }
+
+    globalCache().opUpdate(pathStr, (prevCache) => {
+      if (!prevCache) {
+        return null
+      }
+
+      const [times = 0, cache] = prevCache
+      const nextCount = times - decrementCount
+
+      if (nextCount <= 0) {
+        // Last reference, remove cache
+        onCacheRemove?.(cache, false)
+        effectMap.delete(pathStr)
+        return null
+      }
+
+      return [nextCount, cache]
+    })
+  }
+
+  const createDelayedRemoveTimer = (pathStr: string) => setTimeout(() => {
+    const info = delayedRemoveInfo.get(pathStr)
+    if (!info) {
+      return
+    }
+    delayedRemoveInfo.delete(pathStr)
+    applyDecrement(pathStr, info.pendingDecrements)
+  }, REMOVE_STYLE_DELAY)
+
   // 清理缓存的函数
   const clearCache = (pathStr: string, immediate = false) => {
     if (isServerSide()) {
       return
     }
 
-    // 执行单次 decrement
-    const doSingleDecrement = () => {
-      globalCache().opUpdate(pathStr, (prevCache) => {
-        const [times = 0, cache] = prevCache || []
-        const nextCount = times - 1
-
-        if (nextCount === 0) {
-          // Last reference, remove cache
-          onCacheRemove?.(cache, false)
-          effectMap.delete(pathStr)
-          return null
-        }
-
-        return [nextCount, cache]
-      })
-    }
-
-    // 执行所有 pending 的 decrements
-    const doAllPendingDecrements = (count: number) => {
-      for (let i = 0; i < count; i++) {
-        doSingleDecrement()
-      }
-    }
-
     if (immediate || !isClientSide) {
       // 立即清理：
       // 1. path 变化时清理旧缓存
       // 2. 服务端渲染时不需要延迟（没有 Transition 动画）
-      doSingleDecrement()
+      applyDecrement(pathStr)
     }
     else {
       // 延迟清理（用于客户端组件卸载时，等待可能的 Transition 动画完成）
       const existingInfo = delayedRemoveInfo.get(pathStr)
+      const currentCache = globalCache().opGet(pathStr)
+      const currentRefCount = currentCache?.[0] ?? 0
+
+      // 仍有其他实例在使用同一路径时，不需要延迟移除，直接递减引用计数。
+      // 这样可以避免虚拟滚动场景里高频 clear/setTimeout 抖动。
+      if (!existingInfo && currentRefCount > 1) {
+        applyDecrement(pathStr)
+        return
+      }
 
       if (existingInfo) {
         // 已有 pending info，增加 pendingDecrements 并重置定时器
         clearTimeout(existingInfo.timer)
         const newPendingDecrements = existingInfo.pendingDecrements + 1
 
-        const timer = setTimeout(() => {
-          delayedRemoveInfo.delete(pathStr)
-          doAllPendingDecrements(newPendingDecrements)
-        }, REMOVE_STYLE_DELAY)
+        const timer = createDelayedRemoveTimer(pathStr)
 
         delayedRemoveInfo.set(pathStr, {
           timer,
@@ -127,10 +142,7 @@ export function useGlobalCache<CacheType>(
       }
       else {
         // 创建新的 pending info
-        const timer = setTimeout(() => {
-          delayedRemoveInfo.delete(pathStr)
-          doSingleDecrement()
-        }, REMOVE_STYLE_DELAY)
+        const timer = createDelayedRemoveTimer(pathStr)
 
         delayedRemoveInfo.set(pathStr, {
           timer,
@@ -183,28 +195,9 @@ export function useGlobalCache<CacheType>(
           // 不需要增加引用计数，因为之前的 mount 已经增加过了
         }
         else {
-          // 还有其他 pending decrements，更新计数但保持定时器
-          // 重置定时器以延长等待时间
-          clearTimeout(existingInfo.timer)
-          const timer = setTimeout(() => {
-            delayedRemoveInfo.delete(newPath)
-            // 执行剩余的 decrements
-            for (let i = 0; i < newPendingDecrements; i++) {
-              globalCache().opUpdate(newPath, (prevCache) => {
-                const [times = 0, cache] = prevCache || []
-                const nextCount = times - 1
-                if (nextCount === 0) {
-                  onCacheRemove?.(cache, false)
-                  effectMap.delete(newPath)
-                  return null
-                }
-                return [nextCount, cache]
-              })
-            }
-          }, REMOVE_STYLE_DELAY)
-
+          // 还有其他 pending decrements，更新计数并复用当前定时器，避免频繁 clear/set
           delayedRemoveInfo.set(newPath, {
-            timer,
+            timer: existingInfo.timer,
             pendingDecrements: newPendingDecrements,
           })
           // 不需要增加引用计数，因为之前的 mount 已经增加过了
