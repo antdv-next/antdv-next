@@ -12,7 +12,7 @@ export interface SkeletonButtonProps extends Omit<SkeletonElementProps, 'size'> 
 }
 
 const defaults = {
-  size: 'small',
+  size: 'default',
 } as any
 const SkeletonButton = defineComponent<SkeletonButtonProps>(
   (props = defaults, { attrs }) => {

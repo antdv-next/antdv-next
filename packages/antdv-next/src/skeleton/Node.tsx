@@ -2,12 +2,14 @@ import type { SlotsType } from 'vue'
 import type { EmptyEmit } from '../_util/type.ts'
 import type { SkeletonElementProps } from './Element'
 import { classNames } from '@v-c/util'
+import { omit } from 'es-toolkit'
 import { defineComponent } from 'vue'
 import { useBaseConfig } from '../config-provider/context'
 import useStyle from './style'
 
 export interface SkeletonNodeProps extends Omit<SkeletonElementProps, 'size' | 'shape'> {
   fullSize?: boolean
+  internalClassName?: string
 }
 
 export interface SkeletonNodeSlots {
@@ -20,7 +22,7 @@ const SkeletonNode = defineComponent<SkeletonNodeProps, EmptyEmit, string, Slots
     const [hashId, cssVarCls] = useStyle(prefixCls)
 
     return () => {
-      const { active, rootClass } = props
+      const { active, rootClass, internalClassName } = props
       const cls = classNames(
         prefixCls.value,
         `${prefixCls.value}-element`,
@@ -34,9 +36,9 @@ const SkeletonNode = defineComponent<SkeletonNodeProps, EmptyEmit, string, Slots
       )
 
       return (
-        <div class={cls}>
+        <div class={cls} {...omit(attrs, ['class', 'style'])}>
           <div
-            class={classNames(`${prefixCls.value}-image`, (attrs as any)?.class)}
+            class={internalClassName || `${prefixCls.value}-node`}
             style={(attrs as any)?.style}
           >
             {slots.default?.()}
