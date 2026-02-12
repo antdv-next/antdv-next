@@ -4,7 +4,7 @@ import type { SemanticClassNames, SemanticStyles } from '../_util/hooks'
 import type { Variant } from '../config-provider/context'
 import type { FormLayout, FormSemanticName, RequiredMark } from './Form'
 import type { FeedbackIcons, ValidateStatus } from './FormItem'
-import type { ColPropsWithClass } from './FormItemLabel.tsx'
+import type { ColPropsWithClass, FormTooltipProps } from './FormItemLabel'
 import type { FormLabelAlign } from './interface'
 import type { InternalNamePath, Meta, NamePath, Rule, ValidateMessages } from './types.ts'
 import { computed, defineComponent, inject, provide, ref } from 'vue'
@@ -46,6 +46,7 @@ export interface FormContextProps {
   triggerFieldsChange?: (namePathList?: InternalNamePath[]) => void
   getFieldValue?: (namePath: InternalNamePath) => any
   getFieldsValue?: (nameList?: InternalNamePath[] | true) => any
+  tooltip?: FormTooltipProps
 }
 
 const FormContextKey = Symbol('FormContextKey')

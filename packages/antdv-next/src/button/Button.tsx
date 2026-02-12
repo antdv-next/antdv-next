@@ -374,51 +374,54 @@ const InternalCompoundedButton = defineComponent<
         contextStyle.value,
         (attrs as any).style,
       ]
-      let loadingIconNode = null
-      const iconNodes = getSlotPropsFnRun(slots, {}, 'loadingIcon')
-      const contextLoadingIconNode = getSlotPropsFnRun({}, {
-        loadingIcon: contextLoadingIcon.value,
-      }, 'loadingIcon')
-      if (iconNodes) {
-        loadingIconNode = innerLoading.value && iconNodes
-      }
-      else {
-        loadingIconNode = innerLoading.value && typeof loading === 'object' && loading.icon
-          ? (typeof loading.icon === 'function' ? loading.icon() : loading.icon) || contextLoadingIconNode
-          : contextLoadingIconNode
-      }
       const iconSharedProps = {
         class: mergedClassNames.value.icon,
         style: mergedStyles.value.icon,
       }
-      const iconNode = hasIcon && !innerLoading.value
-        ? (
-            <IconWrapper
-              prefixCls={prefixCls.value}
-              {...iconSharedProps}
-            >
-              {iconChildren}
-            </IconWrapper>
-          )
-        : (loadingIconNode
-            ? (
-                <IconWrapper
-                  prefixCls={prefixCls.value}
-                  {...iconSharedProps}
-                >
-                  {loadingIconNode}
-                </IconWrapper>
-              )
-            : (
-                <DefaultLoadingIcon
-                  existIcon={hasIcon}
-                  prefixCls={prefixCls.value}
-                  loading={innerLoading.value}
-                  mount={isMountRef.value}
-                  {...iconSharedProps}
-                />
-              )
-          )
+
+      /**
+       * Extract icon node.
+       * If there is a custom icon and not in loading state: show custom icon
+       */
+      const iconWrapperElement = (child: any) => (
+        <IconWrapper prefixCls={prefixCls.value} {...iconSharedProps}>
+          {child}
+        </IconWrapper>
+      )
+
+      const defaultLoadingIconElement = (
+        <DefaultLoadingIcon
+          existIcon={hasIcon}
+          prefixCls={prefixCls.value}
+          loading={innerLoading.value}
+          mount={isMountRef.value}
+          {...iconSharedProps}
+        />
+      )
+
+      // Resolve merged loading icon: slot > loading.icon > context loadingIcon
+      const slotLoadingIcon = getSlotPropsFnRun(slots, {}, 'loadingIcon')
+      const propLoadingIcon = loading && typeof loading === 'object' && loading.icon
+        ? (typeof loading.icon === 'function' ? loading.icon() : loading.icon)
+        : null
+      const contextLoadingIconNode = getSlotPropsFnRun({}, {
+        loadingIcon: contextLoadingIcon.value,
+      }, 'loadingIcon')
+      const mergedLoadingIcon = slotLoadingIcon || propLoadingIcon || contextLoadingIconNode
+
+      /**
+       * Using if-else statements can improve code readability without affecting future expansion.
+       */
+      let iconNode: any
+      if (hasIcon && !innerLoading.value) {
+        iconNode = iconWrapperElement(iconChildren)
+      }
+      else if (innerLoading.value && mergedLoadingIcon) {
+        iconNode = iconWrapperElement(mergedLoadingIcon)
+      }
+      else {
+        iconNode = defaultLoadingIconElement
+      }
       const mergedHref = props.href
       const htmlType = props.htmlType ?? 'button'
 

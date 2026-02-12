@@ -305,6 +305,7 @@ export type FormConfig = ComponentStyleConfig
     | 'variant'
     | 'classes'
     | 'styles'
+    | 'tooltip'
   >
 export type RadioConfig = ComponentStyleConfig & Pick<RadioProps, 'classes' | 'styles'>
 
@@ -393,7 +394,7 @@ export type DatePickerConfig = ComponentStyleConfig
   & Pick<DatePickerProps, 'classes' | 'styles' | 'variant' | 'suffixIcon'>
 
 export type RangePickerConfig = ComponentStyleConfig
-  & Pick<RangePickerProps, 'classes' | 'styles' | 'variant'>
+  & Pick<RangePickerProps, 'classes' | 'styles' | 'variant' | 'separator'>
 
 export type TimePickerConfig = ComponentStyleConfig
   & Pick<TimePickerProps, 'classes' | 'styles' | 'variant' | 'suffixIcon'>
