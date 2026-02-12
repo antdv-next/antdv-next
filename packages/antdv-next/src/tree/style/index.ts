@@ -213,9 +213,9 @@ export function genBaseStyle(prefixCls: string, token: TreeToken): CSSObject {
         },
 
         [`${treeCls}-checkbox-disabled + ${treeCls}-node-selected,&${treeNodeCls}-disabled${treeNodeCls}-selected ${treeCls}-node-content-wrapper`]:
-          {
-            backgroundColor: controlItemBgActiveDisabled,
-          },
+            {
+              backgroundColor: controlItemBgActiveDisabled,
+            },
 
         // we can not set pointer-events to none for checkbox in tree
         // ref: https://github.com/ant-design/ant-design/issues/39822#issuecomment-2605234058
@@ -282,6 +282,12 @@ export function genBaseStyle(prefixCls: string, token: TreeToken): CSSObject {
           .calc(token.calc(titleHeight).sub(token.controlInteractiveSize))
           .div(2)
           .equal(),
+      },
+
+      // >>> Checkbox
+      // https://github.com/ant-design/ant-design/issues/56957
+      [`${treeCls}-checkbox`]: {
+        flexShrink: 0,
       },
 
       // >>> Switcher
