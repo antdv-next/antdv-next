@@ -35,7 +35,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- |-------|
 | shape | The shape of avatar | `circle` \| `square` | `circle` |  |
-| size | The size of the avatar | number \| `large` \| `medium` \| `small` \| { xs: number, sm: number, ...} | `medium` | - |
+| size | The size of the avatar | number \| `large` \| `medium` \| `small` \| `{ xs: number, sm: number, ... }` | `medium` | - |
 | gap | Letter type unit distance between left and right sides | number | 4 | -     |
 | src | The address of the image for an image avatar or image element | VueNode | - | -     |
 | srcSet | A list of sources to use for different screen resolutions | string | - | -     |

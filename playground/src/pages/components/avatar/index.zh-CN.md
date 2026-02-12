@@ -36,7 +36,7 @@ group:
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- |  |
 | shape | 指定头像的形状 | `circle` \| `square` | `circle` |  |
-| size | 设置头像的大小 | number \| `large` \| `medium` \| `small` \| { xs: number, sm: number, ...} | `medium` | - |
+| size | 设置头像的大小 | number \| `large` \| `medium` \| `small` \| `{ xs: number, sm: number, ... }` | `medium` | - |
 | gap | 字符类型距离左右两侧边界单位像素 | number | 4 | - |
 | src | 图片类头像的资源地址或者图片元素 | VueNode | - | - |
 | srcSet | 设置图片类头像响应式资源地址 | string | - | - |
