@@ -1663,9 +1663,6 @@ exports[`tree-select demo > renders placement correctly 1`] = `
           class="ant-radio-button-input"
           type="radio"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -1683,9 +1680,6 @@ exports[`tree-select demo > renders placement correctly 1`] = `
         <input
           class="ant-radio-button-input"
           type="radio"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -1705,9 +1699,6 @@ exports[`tree-select demo > renders placement correctly 1`] = `
           class="ant-radio-button-input"
           type="radio"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -1725,9 +1716,6 @@ exports[`tree-select demo > renders placement correctly 1`] = `
         <input
           class="ant-radio-button-input"
           type="radio"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span

@@ -148,7 +148,7 @@ const InternalForm = defineComponent<
       styles: contextStyles,
       classes: contextClassNames,
       tooltip: contextTooltip,
-    } = useComponentBaseConfig('form', props, ['scrollToFirstError', 'colon', 'requiredMark'])
+    } = useComponentBaseConfig('form', props, ['scrollToFirstError', 'colon', 'requiredMark', 'tooltip'])
     const {
       size,
       styles,

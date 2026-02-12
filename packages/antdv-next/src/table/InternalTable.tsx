@@ -779,7 +779,7 @@ const InternalTable = defineComponent<
       const virtualProps = mergedVirtual.value ? { listItemHeight: listItemHeight.value } : {}
 
       // ============================ Scroll ============================
-      const mergedScroll = scroll ?? contextScroll.value
+      const mergedScroll = props.scroll ?? contextScroll.value
 
       return (
         <div ref={rootRef} class={wrapperCls} style={mergedStyle}>

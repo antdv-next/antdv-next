@@ -242,7 +242,7 @@ describe('select', () => {
         options: [{ value: 'test', label: 'Test' }],
       },
     })
-    expect(wrapper.find('.ant-select-content-value').text()).toBe('Test')
+    expect(wrapper.find('.ant-select-content-has-value').text()).toBe('Test')
   })
 
   it('should support id prop', () => {

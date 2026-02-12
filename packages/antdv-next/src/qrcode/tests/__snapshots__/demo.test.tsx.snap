@@ -23,7 +23,7 @@ exports[`qr-code demo > renders _semantic correctly 1`] = `
           <div
             aria-busy="true"
             aria-live="polite"
-            class="ant-spin ant-spin-spinning css-var-v-0"
+            class="ant-spin ant-spin-spinning ant-spin-section css-var-v-0"
           >
             <span
               class="ant-spin-dot-holder"
@@ -45,6 +45,7 @@ exports[`qr-code demo > renders _semantic correctly 1`] = `
                 />
               </span>
             </span>
+            <!---->
             <!---->
             <!---->
           </div>
@@ -535,7 +536,7 @@ exports[`qr-code demo > renders customStatusRender correctly 1`] = `
           <div
             aria-busy="true"
             aria-live="polite"
-            class="ant-spin ant-spin-spinning css-var-root"
+            class="ant-spin ant-spin-spinning ant-spin-section css-var-root"
           >
             <span
               class="ant-spin-dot-holder"
@@ -557,6 +558,7 @@ exports[`qr-code demo > renders customStatusRender correctly 1`] = `
                 />
               </span>
             </span>
+            <!---->
             <!---->
             <!---->
           </div>
@@ -931,7 +933,7 @@ exports[`qr-code demo > renders status correctly 1`] = `
       <div
         aria-busy="true"
         aria-live="polite"
-        class="ant-spin ant-spin-spinning css-var-root"
+        class="ant-spin ant-spin-spinning ant-spin-section css-var-root"
       >
         <span
           class="ant-spin-dot-holder"
@@ -953,6 +955,7 @@ exports[`qr-code demo > renders status correctly 1`] = `
             />
           </span>
         </span>
+        <!---->
         <!---->
         <!---->
       </div>

@@ -5,5 +5,12 @@ export default defineConfig({
     projects: [
       './packages/*',
     ],
+    coverage: {
+      provider: 'v8',
+      include: [
+        'packages/antdv-next/src/**/*.{ts,tsx}',
+        'packages/cssinjs/src/**/*.{ts,tsx}',
+      ],
+    },
   },
 })

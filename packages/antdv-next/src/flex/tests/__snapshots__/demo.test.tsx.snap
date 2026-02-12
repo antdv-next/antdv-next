@@ -286,9 +286,6 @@ exports[`flex demo > renders basic correctly 1`] = `
           class="ant-radio-input"
           type="radio"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -306,9 +303,6 @@ exports[`flex demo > renders basic correctly 1`] = `
         <input
           class="ant-radio-input"
           type="radio"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span
@@ -421,9 +415,6 @@ exports[`flex demo > renders gap correctly 1`] = `
           class="ant-radio-input"
           type="radio"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -441,9 +432,6 @@ exports[`flex demo > renders gap correctly 1`] = `
         <input
           class="ant-radio-input"
           type="radio"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span
@@ -463,9 +451,6 @@ exports[`flex demo > renders gap correctly 1`] = `
           class="ant-radio-input"
           type="radio"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -483,9 +468,6 @@ exports[`flex demo > renders gap correctly 1`] = `
         <input
           class="ant-radio-input"
           type="radio"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span

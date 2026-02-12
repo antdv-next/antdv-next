@@ -49,17 +49,17 @@ export interface FormContextProps {
   tooltip?: FormTooltipProps
 }
 
-const FormContextKey = Symbol('FormContextKey')
+const FormContextKey: InjectionKey<Ref<FormContextProps>> = Symbol('FormContextKey')
 
 export function useFormContextProvider(value: Ref<FormContextProps>) {
   provide(FormContextKey, value)
 }
 
 export function useFormContext() {
-  return inject(FormContextKey, ref({
+  return inject(FormContextKey, ref<FormContextProps>({
     labelAlign: 'right',
     layout: 'horizontal',
-  } as FormContextProps))
+  })) as Ref<FormContextProps>
 }
 
 const FormItemPrefixContextKey: InjectionKey<Ref<FormItemPrefixContextProps>> = Symbol('FormItemPrefixContextKey')
