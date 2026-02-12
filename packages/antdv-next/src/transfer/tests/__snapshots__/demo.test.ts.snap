@@ -33,9 +33,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <!---->
             </label>
@@ -159,9 +156,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                       class="ant-checkbox-input"
                       type="checkbox"
                     />
-                    <span
-                      class="ant-checkbox-inner"
-                    />
                   </span>
                   <!---->
                 </label>
@@ -184,9 +178,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                     <input
                       class="ant-checkbox-input"
                       type="checkbox"
-                    />
-                    <span
-                      class="ant-checkbox-inner"
                     />
                   </span>
                   <!---->
@@ -211,9 +202,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                       class="ant-checkbox-input"
                       type="checkbox"
                     />
-                    <span
-                      class="ant-checkbox-inner"
-                    />
                   </span>
                   <!---->
                 </label>
@@ -236,9 +224,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                     <input
                       class="ant-checkbox-input"
                       type="checkbox"
-                    />
-                    <span
-                      class="ant-checkbox-inner"
                     />
                   </span>
                   <!---->
@@ -263,9 +248,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                       class="ant-checkbox-input"
                       type="checkbox"
                     />
-                    <span
-                      class="ant-checkbox-inner"
-                    />
                   </span>
                   <!---->
                 </label>
@@ -288,9 +270,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                     <input
                       class="ant-checkbox-input"
                       type="checkbox"
-                    />
-                    <span
-                      class="ant-checkbox-inner"
                     />
                   </span>
                   <!---->
@@ -315,9 +294,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                       class="ant-checkbox-input"
                       type="checkbox"
                     />
-                    <span
-                      class="ant-checkbox-inner"
-                    />
                   </span>
                   <!---->
                 </label>
@@ -340,9 +316,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                     <input
                       class="ant-checkbox-input"
                       type="checkbox"
-                    />
-                    <span
-                      class="ant-checkbox-inner"
                     />
                   </span>
                   <!---->
@@ -367,9 +340,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                       class="ant-checkbox-input"
                       type="checkbox"
                     />
-                    <span
-                      class="ant-checkbox-inner"
-                    />
                   </span>
                   <!---->
                 </label>
@@ -392,9 +362,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                     <input
                       class="ant-checkbox-input"
                       type="checkbox"
-                    />
-                    <span
-                      class="ant-checkbox-inner"
                     />
                   </span>
                   <!---->
@@ -419,9 +386,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                       class="ant-checkbox-input"
                       type="checkbox"
                     />
-                    <span
-                      class="ant-checkbox-inner"
-                    />
                   </span>
                   <!---->
                 </label>
@@ -444,9 +408,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                     <input
                       class="ant-checkbox-input"
                       type="checkbox"
-                    />
-                    <span
-                      class="ant-checkbox-inner"
                     />
                   </span>
                   <!---->
@@ -471,9 +432,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                       class="ant-checkbox-input"
                       type="checkbox"
                     />
-                    <span
-                      class="ant-checkbox-inner"
-                    />
                   </span>
                   <!---->
                 </label>
@@ -496,9 +454,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                     <input
                       class="ant-checkbox-input"
                       type="checkbox"
-                    />
-                    <span
-                      class="ant-checkbox-inner"
                     />
                   </span>
                   <!---->
@@ -523,9 +478,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                       class="ant-checkbox-input"
                       type="checkbox"
                     />
-                    <span
-                      class="ant-checkbox-inner"
-                    />
                   </span>
                   <!---->
                 </label>
@@ -548,9 +500,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                     <input
                       class="ant-checkbox-input"
                       type="checkbox"
-                    />
-                    <span
-                      class="ant-checkbox-inner"
                     />
                   </span>
                   <!---->
@@ -575,9 +524,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                       class="ant-checkbox-input"
                       type="checkbox"
                     />
-                    <span
-                      class="ant-checkbox-inner"
-                    />
                   </span>
                   <!---->
                 </label>
@@ -600,9 +546,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                     <input
                       class="ant-checkbox-input"
                       type="checkbox"
-                    />
-                    <span
-                      class="ant-checkbox-inner"
                     />
                   </span>
                   <!---->
@@ -708,9 +651,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
               <!---->
@@ -835,9 +775,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                       class="ant-checkbox-input"
                       type="checkbox"
                     />
-                    <span
-                      class="ant-checkbox-inner"
-                    />
                   </span>
                   <!---->
                 </label>
@@ -860,9 +797,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                     <input
                       class="ant-checkbox-input"
                       type="checkbox"
-                    />
-                    <span
-                      class="ant-checkbox-inner"
                     />
                   </span>
                   <!---->
@@ -2286,9 +2220,6 @@ exports[`transfer demo > renders actions correctly 1`] = `
             class="ant-checkbox-input"
             type="checkbox"
           />
-          <span
-            class="ant-checkbox-inner"
-          />
         </span>
         <!---->
       </label>
@@ -2343,9 +2274,6 @@ exports[`transfer demo > renders actions correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
             <!---->
           </label>
@@ -2368,9 +2296,6 @@ exports[`transfer demo > renders actions correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
             <!---->
@@ -2395,9 +2320,6 @@ exports[`transfer demo > renders actions correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
             <!---->
           </label>
@@ -2420,9 +2342,6 @@ exports[`transfer demo > renders actions correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
             <!---->
@@ -2447,9 +2366,6 @@ exports[`transfer demo > renders actions correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
             <!---->
           </label>
@@ -2472,9 +2388,6 @@ exports[`transfer demo > renders actions correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
             <!---->
@@ -2499,9 +2412,6 @@ exports[`transfer demo > renders actions correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
             <!---->
           </label>
@@ -2524,9 +2434,6 @@ exports[`transfer demo > renders actions correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
             <!---->
@@ -2551,9 +2458,6 @@ exports[`transfer demo > renders actions correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
             <!---->
           </label>
@@ -2577,9 +2481,6 @@ exports[`transfer demo > renders actions correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
             <!---->
           </label>
@@ -2602,9 +2503,6 @@ exports[`transfer demo > renders actions correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
             <!---->
@@ -2706,9 +2604,6 @@ exports[`transfer demo > renders actions correctly 1`] = `
             class="ant-checkbox-input"
             type="checkbox"
           />
-          <span
-            class="ant-checkbox-inner"
-          />
         </span>
         <!---->
       </label>
@@ -2763,9 +2658,6 @@ exports[`transfer demo > renders actions correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
             <!---->
           </label>
@@ -2788,9 +2680,6 @@ exports[`transfer demo > renders actions correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
             <!---->
@@ -2815,9 +2704,6 @@ exports[`transfer demo > renders actions correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
             <!---->
           </label>
@@ -2840,9 +2726,6 @@ exports[`transfer demo > renders actions correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
             <!---->
@@ -2867,9 +2750,6 @@ exports[`transfer demo > renders actions correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
             <!---->
           </label>
@@ -2892,9 +2772,6 @@ exports[`transfer demo > renders actions correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
             <!---->
@@ -2919,9 +2796,6 @@ exports[`transfer demo > renders actions correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
             <!---->
           </label>
@@ -2945,9 +2819,6 @@ exports[`transfer demo > renders actions correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
             <!---->
           </label>
@@ -2970,9 +2841,6 @@ exports[`transfer demo > renders actions correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
             <!---->
@@ -3011,9 +2879,6 @@ exports[`transfer demo > renders advanced correctly 1`] = `
             class="ant-checkbox-input"
             disabled=""
             type="checkbox"
-          />
-          <span
-            class="ant-checkbox-inner"
           />
         </span>
         <!---->
@@ -3283,9 +3148,6 @@ exports[`transfer demo > renders advanced correctly 1`] = `
             disabled=""
             type="checkbox"
           />
-          <span
-            class="ant-checkbox-inner"
-          />
         </span>
         <!---->
       </label>
@@ -3490,9 +3352,6 @@ exports[`transfer demo > renders basic correctly 1`] = `
             class="ant-checkbox-input"
             type="checkbox"
           />
-          <span
-            class="ant-checkbox-inner"
-          />
         </span>
         <!---->
       </label>
@@ -3549,9 +3408,6 @@ exports[`transfer demo > renders basic correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
             <!---->
           </label>
@@ -3574,9 +3430,6 @@ exports[`transfer demo > renders basic correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
             <!---->
@@ -3601,9 +3454,6 @@ exports[`transfer demo > renders basic correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
             <!---->
           </label>
@@ -3626,9 +3476,6 @@ exports[`transfer demo > renders basic correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
             <!---->
@@ -3653,9 +3500,6 @@ exports[`transfer demo > renders basic correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
             <!---->
           </label>
@@ -3678,9 +3522,6 @@ exports[`transfer demo > renders basic correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
             <!---->
@@ -3705,9 +3546,6 @@ exports[`transfer demo > renders basic correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
             <!---->
           </label>
@@ -3730,9 +3568,6 @@ exports[`transfer demo > renders basic correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
             <!---->
@@ -3757,9 +3592,6 @@ exports[`transfer demo > renders basic correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
             <!---->
           </label>
@@ -3783,9 +3615,6 @@ exports[`transfer demo > renders basic correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
             <!---->
           </label>
@@ -3808,9 +3637,6 @@ exports[`transfer demo > renders basic correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
             <!---->
@@ -3908,9 +3734,6 @@ exports[`transfer demo > renders basic correctly 1`] = `
             class="ant-checkbox-input"
             type="checkbox"
           />
-          <span
-            class="ant-checkbox-inner"
-          />
         </span>
         <!---->
       </label>
@@ -3967,9 +3790,6 @@ exports[`transfer demo > renders basic correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
             <!---->
           </label>
@@ -3992,9 +3812,6 @@ exports[`transfer demo > renders basic correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
             <!---->
@@ -4019,9 +3836,6 @@ exports[`transfer demo > renders basic correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
             <!---->
           </label>
@@ -4044,9 +3858,6 @@ exports[`transfer demo > renders basic correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
             <!---->
@@ -4071,9 +3882,6 @@ exports[`transfer demo > renders basic correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
             <!---->
           </label>
@@ -4096,9 +3904,6 @@ exports[`transfer demo > renders basic correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
             <!---->
@@ -4123,9 +3928,6 @@ exports[`transfer demo > renders basic correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
             <!---->
           </label>
@@ -4149,9 +3951,6 @@ exports[`transfer demo > renders basic correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
             <!---->
           </label>
@@ -4174,9 +3973,6 @@ exports[`transfer demo > renders basic correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
             <!---->
@@ -4217,9 +4013,6 @@ exports[`transfer demo > renders custom-item correctly 1`] = `
             class="ant-checkbox-input"
             disabled=""
             type="checkbox"
-          />
-          <span
-            class="ant-checkbox-inner"
           />
         </span>
         <!---->
@@ -4397,9 +4190,6 @@ exports[`transfer demo > renders custom-item correctly 1`] = `
             class="ant-checkbox-input"
             disabled=""
             type="checkbox"
-          />
-          <span
-            class="ant-checkbox-inner"
           />
         </span>
         <!---->
@@ -4517,9 +4307,6 @@ exports[`transfer demo > renders custom-select-all-labels correctly 1`] = `
             class="ant-checkbox-input"
             type="checkbox"
           />
-          <span
-            class="ant-checkbox-inner"
-          />
         </span>
         <!---->
       </label>
@@ -4574,9 +4361,6 @@ exports[`transfer demo > renders custom-select-all-labels correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
             <!---->
           </label>
@@ -4599,9 +4383,6 @@ exports[`transfer demo > renders custom-select-all-labels correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
             <!---->
@@ -4626,9 +4407,6 @@ exports[`transfer demo > renders custom-select-all-labels correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
             <!---->
           </label>
@@ -4651,9 +4429,6 @@ exports[`transfer demo > renders custom-select-all-labels correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
             <!---->
@@ -4678,9 +4453,6 @@ exports[`transfer demo > renders custom-select-all-labels correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
             <!---->
           </label>
@@ -4704,9 +4476,6 @@ exports[`transfer demo > renders custom-select-all-labels correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
             <!---->
           </label>
@@ -4729,9 +4498,6 @@ exports[`transfer demo > renders custom-select-all-labels correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
             <!---->
@@ -4829,9 +4595,6 @@ exports[`transfer demo > renders custom-select-all-labels correctly 1`] = `
             class="ant-checkbox-input"
             type="checkbox"
           />
-          <span
-            class="ant-checkbox-inner"
-          />
         </span>
         <!---->
       </label>
@@ -4886,9 +4649,6 @@ exports[`transfer demo > renders custom-select-all-labels correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
             <!---->
           </label>
@@ -4912,9 +4672,6 @@ exports[`transfer demo > renders custom-select-all-labels correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
             <!---->
           </label>
@@ -4937,9 +4694,6 @@ exports[`transfer demo > renders custom-select-all-labels correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
             <!---->
@@ -5276,9 +5030,6 @@ exports[`transfer demo > renders oneWay correctly 1`] = `
               class="ant-checkbox-input"
               type="checkbox"
             />
-            <span
-              class="ant-checkbox-inner"
-            />
           </span>
           <!---->
         </label>
@@ -5336,9 +5087,6 @@ exports[`transfer demo > renders oneWay correctly 1`] = `
                   disabled=""
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <!---->
             </label>
@@ -5361,9 +5109,6 @@ exports[`transfer demo > renders oneWay correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
               <!---->
@@ -5389,9 +5134,6 @@ exports[`transfer demo > renders oneWay correctly 1`] = `
                   disabled=""
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <!---->
             </label>
@@ -5414,9 +5156,6 @@ exports[`transfer demo > renders oneWay correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
               <!---->
@@ -5442,9 +5181,6 @@ exports[`transfer demo > renders oneWay correctly 1`] = `
                   disabled=""
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <!---->
             </label>
@@ -5467,9 +5203,6 @@ exports[`transfer demo > renders oneWay correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
               <!---->
@@ -5495,9 +5228,6 @@ exports[`transfer demo > renders oneWay correctly 1`] = `
                   disabled=""
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <!---->
             </label>
@@ -5520,9 +5250,6 @@ exports[`transfer demo > renders oneWay correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
               <!---->
@@ -5548,9 +5275,6 @@ exports[`transfer demo > renders oneWay correctly 1`] = `
                   disabled=""
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <!---->
             </label>
@@ -5573,9 +5297,6 @@ exports[`transfer demo > renders oneWay correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
               <!---->
@@ -5601,9 +5322,6 @@ exports[`transfer demo > renders oneWay correctly 1`] = `
                   disabled=""
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <!---->
             </label>
@@ -5626,9 +5344,6 @@ exports[`transfer demo > renders oneWay correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
               <!---->
@@ -5654,9 +5369,6 @@ exports[`transfer demo > renders oneWay correctly 1`] = `
                   disabled=""
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <!---->
             </label>
@@ -5679,9 +5391,6 @@ exports[`transfer demo > renders oneWay correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
               <!---->
@@ -6047,9 +5756,6 @@ exports[`transfer demo > renders search correctly 1`] = `
             disabled=""
             type="checkbox"
           />
-          <span
-            class="ant-checkbox-inner"
-          />
         </span>
         <!---->
       </label>
@@ -6293,9 +5999,6 @@ exports[`transfer demo > renders search correctly 1`] = `
             disabled=""
             type="checkbox"
           />
-          <span
-            class="ant-checkbox-inner"
-          />
         </span>
         <!---->
       </label>
@@ -6483,9 +6186,6 @@ exports[`transfer demo > renders status correctly 1`] = `
               disabled=""
               type="checkbox"
             />
-            <span
-              class="ant-checkbox-inner"
-            />
           </span>
           <!---->
         </label>
@@ -6662,9 +6362,6 @@ exports[`transfer demo > renders status correctly 1`] = `
               disabled=""
               type="checkbox"
             />
-            <span
-              class="ant-checkbox-inner"
-            />
           </span>
           <!---->
         </label>
@@ -6778,9 +6475,6 @@ exports[`transfer demo > renders status correctly 1`] = `
               class="ant-checkbox-input"
               disabled=""
               type="checkbox"
-            />
-            <span
-              class="ant-checkbox-inner"
             />
           </span>
           <!---->
@@ -7024,9 +6718,6 @@ exports[`transfer demo > renders status correctly 1`] = `
               class="ant-checkbox-input"
               disabled=""
               type="checkbox"
-            />
-            <span
-              class="ant-checkbox-inner"
             />
           </span>
           <!---->
@@ -7219,9 +6910,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
               class="ant-checkbox-input"
               type="checkbox"
             />
-            <span
-              class="ant-checkbox-inner"
-            />
           </span>
           <!---->
         </label>
@@ -7276,9 +6964,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <!---->
             </label>
@@ -7301,9 +6986,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
               <!---->
@@ -7328,9 +7010,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <!---->
             </label>
@@ -7353,9 +7032,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
               <!---->
@@ -7380,9 +7056,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <!---->
             </label>
@@ -7405,9 +7078,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
               <!---->
@@ -7432,9 +7102,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <!---->
             </label>
@@ -7457,9 +7124,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
               <!---->
@@ -7484,9 +7148,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <!---->
             </label>
@@ -7510,9 +7171,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <!---->
             </label>
@@ -7535,9 +7193,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
               <!---->
@@ -7636,9 +7291,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
               class="ant-checkbox-input"
               type="checkbox"
             />
-            <span
-              class="ant-checkbox-inner"
-            />
           </span>
           <!---->
         </label>
@@ -7693,9 +7345,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <!---->
             </label>
@@ -7718,9 +7367,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
               <!---->
@@ -7745,9 +7391,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <!---->
             </label>
@@ -7770,9 +7413,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
               <!---->
@@ -7797,9 +7437,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <!---->
             </label>
@@ -7822,9 +7459,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
               <!---->
@@ -7849,9 +7483,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <!---->
             </label>
@@ -7875,9 +7506,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <!---->
             </label>
@@ -7900,9 +7528,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
               <!---->
@@ -7940,9 +7565,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
             <input
               class="ant-checkbox-input"
               type="checkbox"
-            />
-            <span
-              class="ant-checkbox-inner"
             />
           </span>
           <!---->
@@ -7998,9 +7620,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <!---->
             </label>
@@ -8023,9 +7642,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
               <!---->
@@ -8050,9 +7666,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <!---->
             </label>
@@ -8075,9 +7688,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
               <!---->
@@ -8102,9 +7712,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <!---->
             </label>
@@ -8127,9 +7734,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
               <!---->
@@ -8154,9 +7758,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <!---->
             </label>
@@ -8179,9 +7780,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
               <!---->
@@ -8206,9 +7804,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <!---->
             </label>
@@ -8232,9 +7827,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <!---->
             </label>
@@ -8257,9 +7849,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
               <!---->
@@ -8359,9 +7948,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
               class="ant-checkbox-input"
               type="checkbox"
             />
-            <span
-              class="ant-checkbox-inner"
-            />
           </span>
           <!---->
         </label>
@@ -8416,9 +8002,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <!---->
             </label>
@@ -8441,9 +8024,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
               <!---->
@@ -8468,9 +8048,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <!---->
             </label>
@@ -8493,9 +8070,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
               <!---->
@@ -8520,9 +8094,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <!---->
             </label>
@@ -8545,9 +8116,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
               <!---->
@@ -8572,9 +8140,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <!---->
             </label>
@@ -8598,9 +8163,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <!---->
             </label>
@@ -8623,9 +8185,6 @@ exports[`transfer demo > renders style-class correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
               <!---->

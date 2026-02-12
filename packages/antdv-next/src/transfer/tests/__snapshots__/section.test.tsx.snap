@@ -17,9 +17,6 @@ exports[`transfer.Section > should render correctly 1`] = `
           class="ant-checkbox-input"
           type="checkbox"
         />
-        <span
-          class="ant-checkbox-inner"
-        />
       </span>
       <!---->
     </label>
@@ -77,9 +74,6 @@ exports[`transfer.Section > should render correctly 1`] = `
               class="ant-checkbox-input"
               type="checkbox"
             />
-            <span
-              class="ant-checkbox-inner"
-            />
           </span>
           <!---->
         </label>
@@ -102,9 +96,6 @@ exports[`transfer.Section > should render correctly 1`] = `
             <input
               class="ant-checkbox-input"
               type="checkbox"
-            />
-            <span
-              class="ant-checkbox-inner"
             />
           </span>
           <!---->
@@ -129,9 +120,6 @@ exports[`transfer.Section > should render correctly 1`] = `
               class="ant-checkbox-input"
               disabled=""
               type="checkbox"
-            />
-            <span
-              class="ant-checkbox-inner"
             />
           </span>
           <!---->
