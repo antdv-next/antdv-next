@@ -168,7 +168,8 @@ const DirectoryTree = defineComponent<
         cachedSelectedKeys.value = newSelectedKeys
         newEvent.selectedNodes = convertDirectoryKeysToNodes(treeData, newSelectedKeys, fieldNames)
       }
-      emit('update:expandedKeys', newSelectedKeys)
+      selectedKeys.value = newSelectedKeys
+      emit('update:selectedKeys', newSelectedKeys)
       emit('select', newSelectedKeys, newEvent)
     }
     const { prefixCls, direction } = useComponentBaseConfig('tree', props)
@@ -188,7 +189,7 @@ const DirectoryTree = defineComponent<
       const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
 
       const connectClassName = clsx(
-        `${prefixCls}-directory`,
+        `${prefixCls.value}-directory`,
         {
           [`${prefixCls.value}-directory-rtl`]: direction.value === 'rtl',
         },

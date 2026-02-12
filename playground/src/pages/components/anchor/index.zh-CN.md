@@ -45,7 +45,7 @@ group:
 | getContainer | 指定滚动的容器 | () =&gt; HTMLElement | () =&gt; window | - |
 | getCurrentAnchor | 自定义高亮的锚点 | (activeLink: string) =&gt; string | - | - |
 | offsetTop | 距离窗口顶部达到指定偏移量后触发 | number | - | - |
-| showInkInFixed | `affix=&#123;false&#125;` 时是否显示小方块 | boolean | false | - |
+| showInkInFixed | `affix={false}` 时是否显示小方块 | boolean | false | - |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;)=&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - |
 | targetOffset | 锚点滚动偏移量，默认与 offsetTop 相同，[例子](#anchor-demo-targetoffset) | number | - | - |
 | items | 数据化配置选项内容，支持通过 children 嵌套 | &#123; key, href, title, target, children &#125;\[] [具体见](#anchoritem) | - | |
