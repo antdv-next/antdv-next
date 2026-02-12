@@ -83,13 +83,13 @@ function getSwitchStyle(prefixCls: string, token: AliasToken): CSSObject {
 function getDropIndicatorStyle(prefixCls: string, token: AliasToken) {
   return {
     [`.${prefixCls}-drop-indicator`]: {
-      'position': 'absolute',
+      position: 'absolute',
       // it should displayed over the following node
-      'zIndex': 1,
-      'height': 2,
-      'backgroundColor': token.colorPrimary,
-      'borderRadius': 1,
-      'pointerEvents': 'none',
+      zIndex: 1,
+      height: 2,
+      backgroundColor: token.colorPrimary,
+      borderRadius: 1,
+      pointerEvents: 'none',
 
       '&:after': {
         position: 'absolute',
@@ -120,6 +120,7 @@ export function genBaseStyle(prefixCls: string, token: TreeToken): CSSObject {
     treeNodePadding,
     titleHeight,
     indentSize,
+    motionDurationMid,
     nodeSelectedBg,
     nodeHoverBg,
     colorTextQuaternary,
@@ -129,10 +130,10 @@ export function genBaseStyle(prefixCls: string, token: TreeToken): CSSObject {
     [treeCls]: {
       ...resetComponent(token),
       // fix https://github.com/ant-design/ant-design/issues/50316
-      ['--vc-virtual-list-scrollbar-bg' as const]: token.colorSplit,
-      'background': token.colorBgContainer,
-      'borderRadius': token.borderRadius,
-      'transition': `background-color ${token.motionDurationSlow}`,
+      ['--rc-virtual-list-scrollbar-bg' as const]: token.colorSplit,
+      background: token.colorBgContainer,
+      borderRadius: token.borderRadius,
+      transition: `background-color ${token.motionDurationSlow}`,
 
       '&-rtl': {
         direction: 'rtl',
@@ -142,9 +143,17 @@ export function genBaseStyle(prefixCls: string, token: TreeToken): CSSObject {
         transform: 'rotate(90deg)',
       },
 
-      [`&-focused:not(:hover):not(${treeCls}-active-focused)`]: genFocusOutline(token),
-
       // =================== Virtual List ===================
+      [`${treeCls}-list`]: {
+        '&:focus-visible': {
+          outline: 'none',
+
+          [`${treeNodeCls}-active ${treeCls}-node-content-wrapper`]: {
+            ...genFocusOutline(token),
+          },
+        },
+      },
+
       [`${treeCls}-list-holder-inner`]: {
         alignItems: 'flex-start',
       },
@@ -177,11 +186,11 @@ export function genBaseStyle(prefixCls: string, token: TreeToken): CSSObject {
 
       // ===================== TreeNode =====================
       [treeNodeCls]: {
-        'display': 'flex',
-        'alignItems': 'flex-start',
-        'marginBottom': treeNodePadding,
-        'lineHeight': unit(titleHeight),
-        'position': 'relative',
+        display: 'flex',
+        alignItems: 'flex-start',
+        marginBottom: treeNodePadding,
+        lineHeight: unit(titleHeight),
+        position: 'relative',
 
         // 非常重要，避免 drop-indicator 在拖拽过程中闪烁
         '&:before': {
@@ -196,8 +205,8 @@ export function genBaseStyle(prefixCls: string, token: TreeToken): CSSObject {
 
         // Disabled
         [`&-disabled ${treeCls}-node-content-wrapper`]: {
-          'color': token.colorTextDisabled,
-          'cursor': 'not-allowed',
+          color: token.colorTextDisabled,
+          cursor: 'not-allowed',
           '&:hover': {
             background: 'transparent',
           },
@@ -253,9 +262,9 @@ export function genBaseStyle(prefixCls: string, token: TreeToken): CSSObject {
 
       // >>> Indent
       [`${treeCls}-indent`]: {
-        'alignSelf': 'stretch',
-        'whiteSpace': 'nowrap',
-        'userSelect': 'none',
+        alignSelf: 'stretch',
+        whiteSpace: 'nowrap',
+        userSelect: 'none',
         '&-unit': {
           display: 'inline-block',
           width: indentSize,
@@ -278,14 +287,14 @@ export function genBaseStyle(prefixCls: string, token: TreeToken): CSSObject {
       // >>> Switcher
       [`${treeCls}-switcher`]: {
         ...getSwitchStyle(prefixCls, token),
-        'position': 'relative',
-        'flex': 'none',
-        'alignSelf': 'stretch',
-        'width': titleHeight,
-        'textAlign': 'center',
-        'cursor': 'pointer',
-        'userSelect': 'none',
-        'transition': `all ${token.motionDurationSlow}`,
+        position: 'relative',
+        flex: 'none',
+        alignSelf: 'stretch',
+        width: titleHeight,
+        textAlign: 'center',
+        cursor: 'pointer',
+        userSelect: 'none',
+        transition: `all ${token.motionDurationSlow}`,
 
         '&-noop': {
           cursor: 'unset',
@@ -319,11 +328,11 @@ export function genBaseStyle(prefixCls: string, token: TreeToken): CSSObject {
         },
 
         '&-leaf-line': {
-          'position': 'relative',
-          'zIndex': 1,
-          'display': 'inline-block',
-          'width': '100%',
-          'height': '100%',
+          position: 'relative',
+          zIndex: 1,
+          display: 'inline-block',
+          width: '100%',
+          height: '100%',
 
           // https://github.com/ant-design/ant-design/issues/31884
           '&:before': {
@@ -349,14 +358,20 @@ export function genBaseStyle(prefixCls: string, token: TreeToken): CSSObject {
       // >>> Title
       // add `${treeCls}-checkbox + span` to cover checkbox `${checkboxCls} + span`
       [`${treeCls}-node-content-wrapper`]: {
-        'position': 'relative',
-        'minHeight': titleHeight,
-        'paddingBlock': 0,
-        'paddingInline': token.paddingXS,
-        'background': 'transparent',
-        'borderRadius': token.borderRadius,
-        'cursor': 'pointer',
-        'transition': `all ${token.motionDurationMid}, border 0s, line-height 0s, box-shadow 0s`,
+        position: 'relative',
+        minHeight: titleHeight,
+        paddingBlock: 0,
+        paddingInline: token.paddingXS,
+        background: 'transparent',
+        borderRadius: token.borderRadius,
+        cursor: 'pointer',
+        transition: [
+          `all ${motionDurationMid}`,
+          'border 0s',
+          'line-height 0s',
+          'box-shadow 0s',
+        ].join(', '),
+
         ...getDropIndicatorStyle(prefixCls, token),
 
         '&:hover': {
@@ -370,11 +385,11 @@ export function genBaseStyle(prefixCls: string, token: TreeToken): CSSObject {
 
         // Icon
         [`${treeCls}-iconEle`]: {
-          'display': 'inline-block',
-          'width': titleHeight,
-          'height': titleHeight,
-          'textAlign': 'center',
-          'verticalAlign': 'top',
+          display: 'inline-block',
+          width: titleHeight,
+          height: titleHeight,
+          textAlign: 'center',
+          verticalAlign: 'top',
 
           '&:empty': {
             display: 'none',
@@ -395,8 +410,8 @@ export function genBaseStyle(prefixCls: string, token: TreeToken): CSSObject {
       '&-show-line': {
         // ================ Indent lines ================
         [`${treeCls}-indent-unit`]: {
-          'position': 'relative',
-          'height': '100%',
+          position: 'relative',
+          height: '100%',
 
           '&:before': {
             position: 'absolute',
@@ -414,7 +429,7 @@ export function genBaseStyle(prefixCls: string, token: TreeToken): CSSObject {
 
         // ============== Cover Background ==============
         [`${treeCls}-switcher`]: {
-          'background': 'transparent',
+          background: 'transparent',
 
           '&-line-icon': {
             // https://github.com/ant-design/ant-design/issues/32813
