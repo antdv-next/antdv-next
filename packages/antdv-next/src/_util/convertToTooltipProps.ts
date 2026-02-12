@@ -7,7 +7,7 @@ export default function convertToTooltipProps<P extends TooltipProps>(tooltip?: 
     return null
   }
   if (typeof tooltip === 'object' && !Array.isArray(tooltip) && !isVNode(tooltip)) {
-    return { ...(context as any), tooltip } as P
+    return { ...context, ...tooltip } as P
   }
   return {
     ...context,

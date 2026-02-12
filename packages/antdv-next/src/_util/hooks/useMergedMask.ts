@@ -43,7 +43,7 @@ export function useMergedMask(
       closable: maskConfig.closable ?? unref(maskClosable) ?? contextMaskConfig.closable ?? true,
     }
 
-    const className = mergedConfig.blur ? `${prefixCls}-mask-blur` : undefined
+    const className = mergedConfig.blur ? `${prefixCls.value}-mask-blur` : undefined
     return {
       enabled: mergedConfig.enabled !== false,
       classNames: { mask: className },
