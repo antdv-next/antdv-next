@@ -20,7 +20,7 @@ import { createTheme, genCalc, Theme } from './theme'
 import autoPrefixTransformer from './transformers/autoPrefix'
 import legacyLogicalPropertiesTransformer from './transformers/legacyLogicalProperties'
 import px2remTransformer from './transformers/px2rem'
-import { supportLogicProps, supportWhere, token2CSSVar, unit } from './util'
+import { hash, supportLogicProps, supportWhere, token2CSSVar, unit } from './util'
 
 export {
   // Transformer
@@ -31,20 +31,21 @@ export {
   extractStyle,
   genCalc,
   getComputedToken,
+  hash,
   Keyframes,
   legacyLogicalPropertiesTransformer,
   legacyNotSelectorLinter,
   // Linters
   logicalPropertiesLinter,
-  NaNLinter,
 
+  NaNLinter,
   parentSelectorLinter,
   provideStyleContext,
   px2remTransformer,
   setStyleCollector,
   StyleProvider,
-  Theme,
 
+  Theme,
   // util
   token2CSSVar,
   unit,
