@@ -78,7 +78,7 @@ export const ConfirmContent = defineComponent<
 
     const [locale] = useLocale('Modal', getConfirmLocale())
     const mergedLocale = computed(() => props.locale || locale?.value)
-    const okTextLocale = computed(() => props?.okText ?? (mergedOkCancel ? mergedLocale.value?.okText : mergedLocale.value?.justOkText))
+    const okTextLocale = computed(() => props?.okText ?? (mergedOkCancel.value ? mergedLocale.value?.okText : mergedLocale.value?.justOkText))
     const cancelTextLocale = computed(() => props?.cancelText ?? mergedLocale.value?.cancelText)
 
     const { closable } = props
@@ -88,7 +88,7 @@ export const ConfirmContent = defineComponent<
       autoFocusButton,
       cancelTextLocale: cancelTextLocale.value,
       okTextLocale: okTextLocale.value,
-      mergedOkCancel,
+      mergedOkCancel: mergedOkCancel.value,
       onClose,
       ...props,
     }))
