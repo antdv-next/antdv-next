@@ -60,11 +60,11 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
   return {
     [componentCls]: {
       ...resetComponent(token),
-      'position': 'relative',
-      'display': 'flex',
-      'alignItems': 'center',
-      'padding': defaultPadding,
-      'wordWrap': 'break-word',
+      position: 'relative',
+      display: 'flex',
+      alignItems: 'center',
+      padding: defaultPadding,
+      wordWrap: 'break-word',
       borderRadius,
 
       [`&${componentCls}-rtl`]: {
@@ -94,9 +94,9 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
       [`&${componentCls}-motion-leave`]: {
         overflow: 'hidden',
         opacity: 1,
-        transition: `max-height ${duration} ${motionEaseInOutCirc}, opacity ${duration} ${motionEaseInOutCirc},
-        padding-top ${duration} ${motionEaseInOutCirc}, padding-bottom ${duration} ${motionEaseInOutCirc},
-        margin-bottom ${duration} ${motionEaseInOutCirc}`,
+        transition: [`max-height`, `opacity`, `padding-top`, `padding-bottom`, `margin-bottom`]
+          .map(prop => `${prop} ${duration} ${motionEaseInOutCirc}`)
+          .join(', '),
       },
 
       [`&${componentCls}-motion-leave-active`]: {
@@ -216,8 +216,8 @@ export const genActionStyle: GenerateStyle<AlertToken> = (token: AlertToken): CS
         cursor: 'pointer',
 
         [`${iconCls}-close`]: {
-          'color': colorIcon,
-          'transition': `color ${motionDurationMid}`,
+          color: colorIcon,
+          transition: `color ${motionDurationMid}`,
           '&:hover': {
             color: colorIconHover,
           },
@@ -225,8 +225,8 @@ export const genActionStyle: GenerateStyle<AlertToken> = (token: AlertToken): CS
       },
 
       '&-close-text': {
-        'color': colorIcon,
-        'transition': `color ${motionDurationMid}`,
+        color: colorIcon,
+        transition: `color ${motionDurationMid}`,
         '&:hover': {
           color: colorIconHover,
         },

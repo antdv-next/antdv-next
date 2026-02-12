@@ -84,9 +84,9 @@ const genSelectionStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         paddingInlineStart: unit(calc(tablePaddingHorizontal).div(4).equal()),
 
         [iconCls]: {
-          'color': headerIconColor,
-          'fontSize': fontSizeIcon,
-          'verticalAlign': 'baseline',
+          color: headerIconColor,
+          fontSize: fontSizeIcon,
+          verticalAlign: 'baseline',
 
           '&:hover': {
             color: headerIconHoverColor,
@@ -99,7 +99,7 @@ const genSelectionStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         [`${componentCls}-row`]: {
           [`&${componentCls}-row-selected`]: {
             [`> ${componentCls}-cell`]: {
-              'background': tableSelectedRowBg,
+              background: tableSelectedRowBg,
 
               '&-row-hover': {
                 background: tableSelectedRowHoverBg,

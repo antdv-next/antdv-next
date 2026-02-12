@@ -10,7 +10,7 @@ const genMotionStyle: GenerateStyle<TabsToken> = (token) => {
       [componentCls]: {
         [`${componentCls}-switch`]: {
           '&-appear, &-enter': {
-            'transition': 'none',
+            transition: 'none',
 
             '&-start': {
               opacity: 0,
@@ -22,9 +22,9 @@ const genMotionStyle: GenerateStyle<TabsToken> = (token) => {
           },
 
           '&-leave': {
-            'position': 'absolute',
-            'transition': 'none',
-            'inset': 0,
+            position: 'absolute',
+            transition: 'none',
+            inset: 0,
 
             '&-start': {
               opacity: 1,

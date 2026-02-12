@@ -67,6 +67,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
     motionDurationSlow,
     antCls,
     primaryPrevBtnBg,
+    motionDurationMid,
   } = token
 
   const [varName, varRef] = genCssVar(antCls, 'tooltip')
@@ -76,11 +77,11 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
       [componentCls]: {
         ...resetComponent(token),
 
-        'position': 'absolute',
-        'zIndex': zIndexPopup,
-        'maxWidth': 'fit-content',
-        'visibility': 'visible',
-        'width': 520,
+        position: 'absolute',
+        zIndex: zIndexPopup,
+        maxWidth: 'fit-content',
+        visibility: 'visible',
+        width: 520,
         [varName('arrow-background-color')]: colorBgElevated,
 
         '&-pure': {
@@ -108,20 +109,24 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
           backgroundClip: 'padding-box',
 
           [`${componentCls}-close`]: {
-            'position': 'absolute',
-            'top': padding,
-            'insetInlineEnd': padding,
-            'color': token.colorIcon,
-            'background': 'none',
-            'border': 'none',
-            'width': closeBtnSize,
-            'height': closeBtnSize,
-            'borderRadius': token.borderRadiusSM,
-            'transition': `background-color ${token.motionDurationMid}, color ${token.motionDurationMid}`,
-            'display': 'flex',
-            'alignItems': 'center',
-            'justifyContent': 'center',
-            'cursor': 'pointer',
+            position: 'absolute',
+            top: padding,
+            insetInlineEnd: padding,
+            color: token.colorIcon,
+            background: 'none',
+            border: 'none',
+            width: closeBtnSize,
+            height: closeBtnSize,
+            borderRadius: token.borderRadiusSM,
+
+            transition: ['color', 'background-color']
+              .map(prop => `${prop} ${motionDurationMid}`)
+              .join(', '),
+
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            cursor: 'pointer',
 
             '&:hover': {
               color: token.colorIconHover,
@@ -167,11 +172,11 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
               display: 'inline-block',
 
               [`${componentCls}-indicator`]: {
-                'width': indicatorWidth,
-                'height': indicatorHeight,
-                'display': 'inline-block',
-                'borderRadius': '50%',
-                'background': colorFill,
+                width: indicatorWidth,
+                height: indicatorHeight,
+                display: 'inline-block',
+                borderRadius: '50%',
+                background: colorFill,
                 '&:not(:last-child)': {
                   marginInlineEnd: indicatorHeight,
                 },
@@ -208,7 +213,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
 
             [`${componentCls}-indicators`]: {
               [`${componentCls}-indicator`]: {
-                'background': primaryPrevBtnBg,
+                background: primaryPrevBtnBg,
                 '&-active': {
                   background: colorTextLightSolid,
                 },
@@ -216,9 +221,9 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
             },
 
             [`${componentCls}-prev-btn`]: {
-              'color': colorTextLightSolid,
-              'borderColor': primaryPrevBtnBg,
-              'backgroundColor': colorPrimary,
+              color: colorTextLightSolid,
+              borderColor: primaryPrevBtnBg,
+              backgroundColor: colorPrimary,
 
               '&:hover': {
                 backgroundColor: primaryPrevBtnBg,
@@ -227,9 +232,9 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
             },
 
             [`${componentCls}-next-btn`]: {
-              'color': colorPrimary,
-              'borderColor': 'transparent',
-              'background': colorWhite,
+              color: colorPrimary,
+              borderColor: 'transparent',
+              background: colorWhite,
 
               '&:hover': {
                 background: primaryNextBtnHoverBg,

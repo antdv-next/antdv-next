@@ -14,9 +14,9 @@ const genPaginationStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       },
 
       [`${componentCls}-pagination`]: {
-        'display': 'flex',
-        'flexWrap': 'wrap',
-        'rowGap': token.paddingXS,
+        display: 'flex',
+        flexWrap: 'wrap',
+        rowGap: token.paddingXS,
 
         '> *': {
           flex: 'none',

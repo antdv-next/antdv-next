@@ -310,13 +310,13 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           > tr > th,
           > tr > td
         `]: {
-          'position': 'relative',
-          'color': tableHeaderTextColor,
-          'fontWeight': fontWeightStrong,
-          'textAlign': 'start',
-          'background': tableHeaderBg,
-          'borderBottom': tableBorder,
-          'transition': `background-color ${motionDurationMid} ease`,
+          position: 'relative',
+          color: tableHeaderTextColor,
+          fontWeight: fontWeightStrong,
+          textAlign: 'start',
+          background: tableHeaderBg,
+          borderBottom: tableBorder,
+          transition: `background-color ${motionDurationMid} ease`,
 
           '&[colspan]:not([colspan=\'1\'])': {
             textAlign: 'center',
@@ -345,8 +345,10 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       [`${componentCls}-tbody`]: {
         '> tr': {
           '> th, > td': {
-            transition: `background-color ${motionDurationMid}, border-color ${motionDurationMid}`,
             borderBottom: tableBorder,
+            transition: [`background-color`, `border-color`]
+              .map(prop => `${prop} ${motionDurationMid}`)
+              .join(', '),
 
             // ========================= Nest Table ===========================
             [`
@@ -360,7 +362,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
                 )}
                 ${unit(calc(tablePaddingHorizontal).mul(-1).equal())}`,
                 [`${componentCls}-tbody > tr:last-child > td`]: {
-                  'borderBottomWidth': 0,
+                  borderBottomWidth: 0,
                   '&:first-child, &:last-child': {
                     borderRadius: 0,
                   },

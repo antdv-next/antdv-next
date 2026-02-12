@@ -29,15 +29,15 @@ const genStickyStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         },
 
         '&-scroll': {
-          'position': 'sticky',
-          'bottom': 0,
-          'height': `${unit(tableScrollThumbSize)} !important`,
-          'zIndex': `calc(var(--columns-count) * 2 + ${zIndexTableFixed} + 1)`,
-          'display': 'flex',
-          'alignItems': 'center',
-          'background': tableScrollBg,
-          'borderTop': tableBorder,
-          'opacity': opacityLoading,
+          position: 'sticky',
+          bottom: 0,
+          height: `${unit(tableScrollThumbSize)} !important`,
+          zIndex: `calc(var(--columns-count) * 2 + ${zIndexTableFixed} + 1)`,
+          display: 'flex',
+          alignItems: 'center',
+          background: tableScrollBg,
+          borderTop: tableBorder,
+          opacity: opacityLoading,
 
           '&:hover': {
             transformOrigin: 'center bottom',
@@ -45,12 +45,12 @@ const genStickyStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
 
           // fake scrollbar style of sticky
           '&-bar': {
-            'height': tableScrollThumbSize,
-            'backgroundColor': tableScrollThumbBg,
-            'borderRadius': stickyScrollBarBorderRadius,
-            'transition': `all ${token.motionDurationSlow}, transform 0s`,
-            'position': 'absolute',
-            'bottom': 0,
+            height: tableScrollThumbSize,
+            backgroundColor: tableScrollThumbBg,
+            borderRadius: stickyScrollBarBorderRadius,
+            transition: `all ${token.motionDurationSlow}, transform 0s`,
+            position: 'absolute',
+            bottom: 0,
 
             '&:hover, &-active': {
               backgroundColor: tableScrollThumbBgHover,

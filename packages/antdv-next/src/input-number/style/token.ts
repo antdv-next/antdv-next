@@ -2,7 +2,7 @@ import type { SharedComponentToken, SharedInputToken } from '../../input/style/t
 
 import type { FullToken, GetDefaultToken } from '../../theme/internal'
 import { FastColor } from '@ant-design/fast-color'
-import { initComponentToken } from '../../input/style'
+import { initComponentToken } from '../../input/style/token'
 
 export interface ComponentToken extends SharedComponentToken {
   /**

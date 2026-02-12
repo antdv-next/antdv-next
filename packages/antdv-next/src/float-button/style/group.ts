@@ -29,11 +29,11 @@ const genGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
       // ==============================================================
       {
         ...resetComponent(token),
-        'position': 'fixed',
-        'zIndex': token.zIndexPopupBase,
-        'insetInlineEnd': token.floatButtonInsetInlineEnd,
-        'bottom': token.floatButtonInsetBlockEnd,
-        'gap': padding,
+        position: 'fixed',
+        zIndex: token.zIndexPopupBase,
+        insetInlineEnd: token.floatButtonInsetInlineEnd,
+        bottom: token.floatButtonInsetBlockEnd,
+        gap: padding,
 
         '&-rtl': {
           direction: 'rtl',
@@ -73,14 +73,14 @@ const genGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
 
         // ========================== Motion ==========================
         [listCls]: {
-          'borderRadius': token.borderRadiusLG,
+          borderRadius: token.borderRadiusLG,
 
           '&-motion': {
-            'transition': `all ${token.motionDurationSlow}`,
+            transition: `all ${token.motionDurationSlow}`,
 
             '&-enter, &-appear': {
-              'opacity': 0,
-              'transform': varRef('list-transform-start'),
+              opacity: 0,
+              transform: varRef('list-transform-start'),
 
               '&-active': {
                 opacity: 1,

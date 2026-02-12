@@ -75,51 +75,51 @@ const genDropdownStyle: GenerateStyle<MentionsToken> = (token) => {
         // Ref select dropdown style
         ...resetComponent(token),
 
-        'position': 'absolute',
-        'top': -9999,
-        'insetInlineStart': -9999,
-        'zIndex': token.zIndexPopup,
-        'boxSizing': 'border-box',
+        position: 'absolute',
+        top: -9999,
+        insetInlineStart: -9999,
+        zIndex: token.zIndexPopup,
+        boxSizing: 'border-box',
         fontSize,
-        'fontVariant': 'initial',
-        'padding': paddingXXS,
-        'backgroundColor': colorBgElevated,
-        'borderRadius': borderRadiusLG,
-        'outline': 'none',
-        'boxShadow': boxShadowSecondary,
+        fontVariant: 'initial',
+        padding: paddingXXS,
+        backgroundColor: colorBgElevated,
+        borderRadius: borderRadiusLG,
+        outline: 'none',
+        boxShadow: boxShadowSecondary,
 
         '&-hidden': {
           display: 'none',
         },
 
         [`${componentCls}-dropdown-menu`]: {
-          'maxHeight': token.dropdownHeight,
-          'margin': 0,
-          'paddingInlineStart': 0, // Override default ul/ol
-          'overflow': 'auto',
-          'listStyle': 'none',
-          'outline': 'none',
+          maxHeight: token.dropdownHeight,
+          margin: 0,
+          paddingInlineStart: 0, // Override default ul/ol
+          overflow: 'auto',
+          listStyle: 'none',
+          outline: 'none',
 
           '&-item': {
             ...textEllipsis,
-            'position': 'relative',
-            'display': 'block',
-            'minWidth': token.controlItemWidth,
-            'padding': `${unit(itemPaddingVertical)} ${unit(controlPaddingHorizontal)}`,
-            'color': colorText,
+            position: 'relative',
+            display: 'block',
+            minWidth: token.controlItemWidth,
+            padding: `${unit(itemPaddingVertical)} ${unit(controlPaddingHorizontal)}`,
+            color: colorText,
             borderRadius,
-            'fontWeight': 'normal',
+            fontWeight: 'normal',
             lineHeight,
-            'cursor': 'pointer',
-            'transition': `background-color ${motionDurationSlow} ease`,
+            cursor: 'pointer',
+            transition: `background-color ${motionDurationSlow} ease`,
 
             '&:hover': {
               backgroundColor: controlItemBgHover,
             },
 
             '&-disabled': {
-              'color': colorTextDisabled,
-              'cursor': 'not-allowed',
+              color: colorTextDisabled,
+              cursor: 'not-allowed',
 
               '&:hover': {
                 color: colorTextDisabled,
@@ -172,9 +172,9 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
         [varName('padding-block')]: token.paddingBlock,
         [varName('control-height')]: token.controlHeight,
 
-        'display': 'flex',
-        'padding': 0,
-        'whiteSpace': 'pre-wrap',
+        display: 'flex',
+        padding: 0,
+        whiteSpace: 'pre-wrap',
 
         // ========================= Textarea =========================
         '> textarea': [
@@ -182,13 +182,13 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
           genPlaceholderStyle(token.colorTextPlaceholder),
 
           {
-            'background': 'transparent',
-            'border': 'none',
-            'borderRadius': 'inherit',
-            'outline': 'none',
-            'flex': 'auto',
-            'minWidth': 0,
-            'resize': 'none',
+            background: 'transparent',
+            border: 'none',
+            borderRadius: 'inherit',
+            outline: 'none',
+            flex: 'auto',
+            minWidth: 0,
+            resize: 'none',
 
             '&:disabled': {
               color: colorTextDisabled,
@@ -228,11 +228,11 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
 
         // ========================= Measure ==========================
         [`${componentCls}-measure`]: {
-          'position': 'absolute',
-          'inset': 0,
-          'zIndex': -1,
-          'color': 'transparent',
-          'pointerEvents': 'none',
+          position: 'absolute',
+          inset: 0,
+          zIndex: -1,
+          color: 'transparent',
+          pointerEvents: 'none',
 
           '> span': {
             display: 'inline-block',
@@ -257,9 +257,9 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
           [`${componentCls}-clear-icon`]: {
             // https://github.com/ant-design/ant-design/pull/18151
             // https://codesandbox.io/s/wizardly-sun-u10br
-            'cursor': 'pointer',
-            'border': 0,
-            'background': 'transparent',
+            cursor: 'pointer',
+            border: 0,
+            background: 'transparent',
 
             '&:hover': {
               color: token.colorIcon,

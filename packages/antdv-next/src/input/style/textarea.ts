@@ -32,7 +32,7 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
     },
 
     [textareaPrefixCls]: {
-      'position': 'relative',
+      position: 'relative',
 
       '&-show-count': {
         [`${componentCls}-data-count`]: {
@@ -56,11 +56,11 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
         padding: 0,
 
         [`> textarea${componentCls}`]: {
-          'fontSize': 'inherit',
-          'border': 'none',
-          'outline': 'none',
-          'background': 'transparent',
-          'minHeight': token
+          fontSize: 'inherit',
+          border: 'none',
+          outline: 'none',
+          background: 'transparent',
+          minHeight: token
             .calc(token.controlHeight)
             .sub(token.calc(token.lineWidth).mul(2))
             .equal(),
@@ -71,7 +71,7 @@ const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
         },
 
         [`${componentCls}-suffix`]: {
-          'margin': 0,
+          margin: 0,
 
           '> *:not(:last-child)': {
             marginInline: 0,

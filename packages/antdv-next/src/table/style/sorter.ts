@@ -8,14 +8,14 @@ const genSorterStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
   return {
     [`${componentCls}-wrapper`]: {
       [`${componentCls}-thead th${componentCls}-column-has-sorters`]: {
-        'outline': 'none',
-        'cursor': 'pointer',
+        outline: 'none',
+        cursor: 'pointer',
         // why left 0s? Avoid column header move with transition when left is changed
         // https://github.com/ant-design/ant-design/issues/50588
-        'transition': `all ${token.motionDurationSlow}, left 0s`,
+        transition: `all ${token.motionDurationSlow}, left 0s`,
 
         '&:hover': {
-          'background': token.tableHeaderSortHoverBg,
+          background: token.tableHeaderSortHoverBg,
 
           '&::before': {
             backgroundColor: 'transparent !important',
@@ -36,7 +36,7 @@ const genSorterStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       },
 
       [`${componentCls}-thead th${componentCls}-column-sort`]: {
-        'background': token.tableHeaderSortBg,
+        background: token.tableHeaderSortBg,
 
         '&::before': {
           backgroundColor: 'transparent !important',
@@ -55,10 +55,10 @@ const genSorterStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       },
 
       [`${componentCls}-column-sorters`]: {
-        'display': 'flex',
-        'flex': 'auto',
-        'alignItems': 'center',
-        'justifyContent': 'space-between',
+        display: 'flex',
+        flex: 'auto',
+        alignItems: 'center',
+        justifyContent: 'space-between',
 
         '&::after': {
           position: 'absolute',
@@ -76,10 +76,10 @@ const genSorterStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       },
 
       [`${componentCls}-column-sorter`]: {
-        'marginInlineStart': marginXXS,
-        'color': headerIconColor,
-        'fontSize': 0,
-        'transition': `color ${token.motionDurationSlow}`,
+        marginInlineStart: marginXXS,
+        color: headerIconColor,
+        fontSize: 0,
+        transition: `color ${token.motionDurationSlow}`,
 
         '&-inner': {
           display: 'inline-flex',
@@ -88,7 +88,7 @@ const genSorterStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         },
 
         '&-up, &-down': {
-          'fontSize': fontSizeIcon,
+          fontSize: fontSizeIcon,
 
           '&.active': {
             color: token.colorPrimary,

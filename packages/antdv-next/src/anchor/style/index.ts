@@ -71,16 +71,16 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token) => {
         paddingInlineStart: lineWidthBold,
 
         [`${componentCls}-link`]: {
-          'paddingBlock': token.linkPaddingBlock,
-          'paddingInline': `${unit(token.linkPaddingInlineStart)} 0`,
+          paddingBlock: token.linkPaddingBlock,
+          paddingInline: `${unit(token.linkPaddingInlineStart)} 0`,
 
           '&-title': {
             ...textEllipsis,
-            'position': 'relative',
-            'display': 'block',
-            'marginBlockEnd': token.anchorTitleBlock,
-            'color': token.colorText,
-            'transition': `all ${token.motionDurationSlow}`,
+            position: 'relative',
+            display: 'block',
+            marginBlockEnd: token.anchorTitleBlock,
+            color: token.colorText,
+            transition: `all ${token.motionDurationSlow}`,
 
             '&:only-child': {
               marginBlockEnd: 0,
@@ -136,7 +136,7 @@ const genSharedAnchorHorizontalStyle: GenerateStyle<AnchorToken> = (token) => {
 
   return {
     [`${componentCls}-wrapper-horizontal`]: {
-      'position': 'relative',
+      position: 'relative',
 
       '&::before': {
         position: 'absolute',
@@ -154,10 +154,10 @@ const genSharedAnchorHorizontalStyle: GenerateStyle<AnchorToken> = (token) => {
       },
 
       [componentCls]: {
-        'overflowX': 'scroll',
-        'position': 'relative',
-        'display': 'flex',
-        'scrollbarWidth': 'none' /* Firefox */,
+        overflowX: 'scroll',
+        position: 'relative',
+        display: 'flex',
+        scrollbarWidth: 'none' /* Firefox */,
 
         '&::-webkit-scrollbar': {
           display: 'none' /* Safari and Chrome */,
@@ -170,7 +170,9 @@ const genSharedAnchorHorizontalStyle: GenerateStyle<AnchorToken> = (token) => {
         [`${componentCls}-ink`]: {
           position: 'absolute',
           bottom: 0,
-          transition: `left ${motionDurationSlow} ease-in-out, width ${motionDurationSlow} ease-in-out`,
+          transition: [`left`, `width`]
+            .map(prop => `${prop} ${motionDurationSlow} ease-in-out`)
+            .join(', '),
           height: lineWidthBold,
           backgroundColor: colorPrimary,
         },

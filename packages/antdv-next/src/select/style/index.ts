@@ -49,30 +49,30 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
 
       // ========================== Clear ==========================
       [`${componentCls}-clear`]: {
-        'position': 'absolute',
-        'top': '50%',
-        'insetInlineStart': 'auto',
-        'insetInlineEnd': inputPaddingHorizontalBase,
-        'zIndex': 1,
-        'display': 'inline-block',
-        'width': token.fontSizeIcon,
-        'height': token.fontSizeIcon,
-        'marginTop': token.calc(token.fontSizeIcon).mul(-1).div(2).equal(),
-        'color': token.colorTextQuaternary,
-        'fontSize': token.fontSizeIcon,
-        'fontStyle': 'normal',
-        'lineHeight': 1,
-        'textAlign': 'center',
-        'textTransform': 'none',
-        'cursor': 'pointer',
-        'opacity': 0,
-        'transition': ['color', 'opacity']
+        position: 'absolute',
+        top: '50%',
+        insetInlineStart: 'auto',
+        insetInlineEnd: inputPaddingHorizontalBase,
+        zIndex: 1,
+        display: 'inline-block',
+        width: token.fontSizeIcon,
+        height: token.fontSizeIcon,
+        marginTop: token.calc(token.fontSizeIcon).mul(-1).div(2).equal(),
+        color: token.colorTextQuaternary,
+        fontSize: token.fontSizeIcon,
+        fontStyle: 'normal',
+        lineHeight: 1,
+        textAlign: 'center',
+        textTransform: 'none',
+        cursor: 'pointer',
+        opacity: 0,
+        transition: ['color', 'opacity']
           .map(prop => `${prop} ${motionDurationMid} ease`)
           .join(', '),
-        'textRendering': 'auto',
+        textRendering: 'auto',
         // https://github.com/ant-design/ant-design/issues/54205
         // Force GPU compositing on Safari to prevent flickering on opacity/transform transitions
-        'transform': 'translateZ(0)',
+        transform: 'translateZ(0)',
 
         '&:before': {
           display: 'block',

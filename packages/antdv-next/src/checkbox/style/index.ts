@@ -50,9 +50,9 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
       [wrapperCls]: {
         ...resetComponent(token),
 
-        'display': 'inline-flex',
-        'alignItems': 'baseline',
-        'cursor': 'pointer',
+        display: 'inline-flex',
+        alignItems: 'baseline',
+        cursor: 'pointer',
 
         // Fix checkbox & radio in flex align #30260
         '&:after': {
@@ -79,26 +79,26 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
       [checkboxCls]: {
         ...resetComponent(token),
 
-        'position': 'relative',
-        'whiteSpace': 'nowrap',
-        'lineHeight': 1,
-        'cursor': 'pointer',
+        position: 'relative',
+        whiteSpace: 'nowrap',
+        lineHeight: 1,
+        cursor: 'pointer',
 
         // To make alignment right when `controlHeight` is changed
         // Ref: https://github.com/ant-design/ant-design/issues/41564
-        'alignSelf': 'center',
+        alignSelf: 'center',
 
         // Styles moved from inner
-        'boxSizing': 'border-box',
-        'display': 'block',
-        'width': checkboxSize,
-        'height': checkboxSize,
-        'direction': 'ltr',
-        'backgroundColor': token.colorBgContainer,
-        'border': `${unit(lineWidth)} ${token.lineType} ${token.colorBorder}`,
-        'borderRadius': token.borderRadiusSM,
-        'borderCollapse': 'separate',
-        'transition': `all ${token.motionDurationSlow}`,
+        boxSizing: 'border-box',
+        display: 'block',
+        width: checkboxSize,
+        height: checkboxSize,
+        direction: 'ltr',
+        backgroundColor: token.colorBgContainer,
+        border: `${unit(lineWidth)} ${token.lineType} ${token.colorBorder}`,
+        borderRadius: token.borderRadiusSM,
+        borderCollapse: 'separate',
+        transition: `all ${token.motionDurationSlow}`,
 
         // Checkmark
         '&:after': {
@@ -166,8 +166,8 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
     {
       // Wrapper > Checkbox
       [`${checkboxCls}-checked`]: {
-        'backgroundColor': token.colorPrimary,
-        'borderColor': token.colorPrimary,
+        backgroundColor: token.colorPrimary,
+        borderColor: token.colorPrimary,
 
         '&:after': {
           opacity: 1,
@@ -187,8 +187,8 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
     {
       [checkboxCls]: {
         '&-indeterminate': {
-          'backgroundColor': token.colorBgContainer,
-          'borderColor': token.colorBorder,
+          backgroundColor: token.colorBgContainer,
+          borderColor: token.colorBorder,
 
           '&:after': {
             top: '50%',
@@ -229,8 +229,8 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
         },
 
         // Disabled checkbox styles
-        'background': token.colorBgContainerDisabled,
-        'borderColor': token.colorBorder,
+        background: token.colorBgContainerDisabled,
+        borderColor: token.colorBorder,
 
         '&:after': {
           borderColor: token.colorTextDisabled,

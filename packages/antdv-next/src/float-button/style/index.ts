@@ -1,5 +1,5 @@
 import type { FullToken, GetDefaultToken } from '../../theme/internal'
-import { initFadeMotion } from '../../style/motion'
+import { initFadeMotion } from '../../style/motion/fade'
 import { genStyleHooks, mergeToken } from '../../theme/internal'
 import genFloatButtonStyle from './button'
 import genGroupStyle from './group'

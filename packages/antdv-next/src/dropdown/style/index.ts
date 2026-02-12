@@ -77,14 +77,14 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
   return [
     {
       [componentCls]: {
-        'position': 'absolute',
-        'top': -9999,
-        'left': {
+        position: 'absolute',
+        top: -9999,
+        left: {
           _skip_check_: true,
           value: -9999,
         },
-        'zIndex': zIndexPopup,
-        'display': 'block',
+        zIndex: zIndexPopup,
+        display: 'block',
 
         // A placeholder out of dropdown visible range to avoid close when user moving
         '&::before': {
@@ -192,11 +192,11 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
       },
 
       [`${menuCls}-submenu-popup`]: {
-        'position': 'absolute',
-        'zIndex': zIndexPopup,
-        'background': 'transparent',
-        'boxShadow': 'none',
-        'transformOrigin': '0 0',
+        position: 'absolute',
+        zIndex: zIndexPopup,
+        background: 'transparent',
+        boxShadow: 'none',
+        transformOrigin: '0 0',
 
         'ul, li': {
           listStyle: 'none',
@@ -208,13 +208,13 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
         ...resetComponent(token),
 
         [menuCls]: {
-          'padding': dropdownEdgeChildPadding,
-          'listStyleType': 'none',
-          'backgroundColor': colorBgElevated,
-          'backgroundClip': 'padding-box',
-          'borderRadius': token.borderRadiusLG,
-          'outline': 'none',
-          'boxShadow': token.boxShadowSecondary,
+          padding: dropdownEdgeChildPadding,
+          listStyleType: 'none',
+          backgroundColor: colorBgElevated,
+          backgroundClip: 'padding-box',
+          borderRadius: token.borderRadiusLG,
+          outline: 'none',
+          boxShadow: token.boxShadowSecondary,
           ...genFocusStyle(token),
 
           '&:empty': {
@@ -242,7 +242,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
           },
 
           [`${menuCls}-title-content`]: {
-            'flex': 'auto',
+            flex: 'auto',
 
             '&-with-extra': {
               display: 'inline-flex',
@@ -251,8 +251,8 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
             },
 
             '> a': {
-              'color': 'inherit',
-              'transition': `all ${motionDurationMid}`,
+              color: 'inherit',
+              transition: `all ${motionDurationMid}`,
 
               '&:hover': {
                 color: 'inherit',
@@ -275,16 +275,16 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
 
           // =========================== Item ===========================
           [`${menuCls}-item, ${menuCls}-submenu-title`]: {
-            'display': 'flex',
-            'margin': 0,
-            'padding': `${unit(paddingBlock!)} ${unit(controlPaddingHorizontal)}`,
-            'color': token.colorText,
-            'fontWeight': 'normal',
+            display: 'flex',
+            margin: 0,
+            padding: `${unit(paddingBlock!)} ${unit(controlPaddingHorizontal)}`,
+            color: token.colorText,
+            fontWeight: 'normal',
             fontSize,
-            'lineHeight': token.lineHeight,
-            'cursor': 'pointer',
-            'transition': `all ${motionDurationMid}`,
-            'borderRadius': token.borderRadiusSM,
+            lineHeight: token.lineHeight,
+            cursor: 'pointer',
+            transition: `all ${motionDurationMid}`,
+            borderRadius: token.borderRadiusSM,
 
             '&:hover, &-active': {
               backgroundColor: token.controlItemBgHover,
@@ -293,16 +293,16 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
             ...genFocusStyle(token),
 
             '&-selected': {
-              'color': token.colorPrimary,
-              'backgroundColor': token.controlItemBgActive,
+              color: token.colorPrimary,
+              backgroundColor: token.controlItemBgActive,
               '&:hover, &-active': {
                 backgroundColor: token.controlItemBgActiveHover,
               },
             },
 
             '&-disabled': {
-              'color': colorTextDisabled,
-              'cursor': 'not-allowed',
+              color: colorTextDisabled,
+              cursor: 'not-allowed',
 
               '&:hover': {
                 color: colorTextDisabled,
@@ -310,7 +310,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
                 cursor: 'not-allowed',
               },
 
-              'a': {
+              a: {
                 pointerEvents: 'none',
               },
             },

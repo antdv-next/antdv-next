@@ -160,14 +160,14 @@ const genPaginationDisabledStyle: GenerateStyle<PaginationToken, CSSObject> = (t
     [`&${componentCls}-disabled`]: {
       cursor: 'not-allowed',
       [`${componentCls}-item`]: {
-        'cursor': 'not-allowed',
-        'backgroundColor': 'transparent',
+        cursor: 'not-allowed',
+        backgroundColor: 'transparent',
 
         '&:hover, &:active': {
           backgroundColor: 'transparent',
         },
 
-        'a': {
+        a: {
           color: token.colorTextDisabled,
           backgroundColor: 'transparent',
           border: 'none',
@@ -175,27 +175,27 @@ const genPaginationDisabledStyle: GenerateStyle<PaginationToken, CSSObject> = (t
         },
 
         '&-active': {
-          'borderColor': token.colorBorder,
-          'backgroundColor': token.itemActiveBgDisabled,
+          borderColor: token.colorBorder,
+          backgroundColor: token.itemActiveBgDisabled,
 
           '&:hover, &:active': {
             backgroundColor: token.itemActiveBgDisabled,
           },
 
-          'a': {
+          a: {
             color: token.itemActiveColorDisabled,
           },
         },
       },
 
       [`${componentCls}-item-link`]: {
-        'color': token.colorTextDisabled,
-        'cursor': 'not-allowed',
+        color: token.colorTextDisabled,
+        cursor: 'not-allowed',
         '&:hover, &:active': {
           backgroundColor: 'transparent',
         },
         [`${componentCls}-simple&`]: {
-          'backgroundColor': 'transparent',
+          backgroundColor: 'transparent',
           '&:hover, &:active': {
             backgroundColor: 'transparent',
           },
@@ -224,7 +224,7 @@ const genPaginationSmallStyle: GenerateStyle<PaginationToken, CSSObject> = (toke
 
   return {
     [`&${componentCls}-small ${componentCls}-options`]: {
-      'marginInlineStart': token.paginationMiniOptionsMarginInlineStart,
+      marginInlineStart: token.paginationMiniOptionsMarginInlineStart,
 
       '&-quick-jumper': {
         input: {
@@ -263,9 +263,9 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = (tok
         lineHeight: varRef(`item-size-actual`),
         verticalAlign: 'top',
         [`${componentCls}-item-link`]: {
-          'height': varRef(`item-size-actual`),
-          'backgroundColor': 'transparent',
-          'border': 0,
+          height: varRef(`item-size-actual`),
+          backgroundColor: 'transparent',
+          border: 0,
           '&:hover': {
             backgroundColor: token.colorBgTextHover,
           },
@@ -286,17 +286,17 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = (tok
         marginInlineEnd: varRef(`item-spacing-actual`),
 
         input: {
-          'boxSizing': 'border-box',
-          'height': '100%',
-          'width': token.quickJumperInputWidth,
-          'padding': `0 ${unit(token.paginationItemPaddingInline)}`,
-          'textAlign': 'center',
-          'backgroundColor': token.itemInputBg,
-          'border': `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
-          'borderRadius': token.borderRadius,
-          'outline': 'none',
-          'transition': `border-color ${token.motionDurationMid}`,
-          'color': 'inherit',
+          boxSizing: 'border-box',
+          height: '100%',
+          width: token.quickJumperInputWidth,
+          padding: `0 ${unit(token.paginationItemPaddingInline)}`,
+          textAlign: 'center',
+          backgroundColor: token.itemInputBg,
+          border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
+          borderRadius: token.borderRadius,
+          outline: 'none',
+          transition: `border-color ${token.motionDurationMid}`,
+          color: 'inherit',
 
           '&:hover': {
             borderColor: token.colorPrimary,
@@ -346,16 +346,16 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
 
   return {
     [`${componentCls}-jump-prev, ${componentCls}-jump-next`]: {
-      'outline': 0,
+      outline: 0,
 
       [`${componentCls}-item-container`]: {
         position: 'relative',
 
         [`${componentCls}-item-link-icon`]: {
-          'color': token.colorPrimary,
-          'fontSize': token.fontSizeSM,
-          'opacity': 0,
-          'transition': `all ${token.motionDurationMid}`,
+          color: token.colorPrimary,
+          fontSize: token.fontSizeSM,
+          opacity: 0,
+          transition: `all ${token.motionDurationMid}`,
 
           '&-svg': {
             top: 0,
@@ -465,9 +465,9 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
     },
 
     [`${componentCls}-options`]: {
-      'display': 'inline-block',
-      'marginInlineStart': token.margin,
-      'verticalAlign': 'middle',
+      display: 'inline-block',
+      marginInlineStart: token.margin,
+      verticalAlign: 'middle',
 
       '&-size-changer': {
         width: 'auto',
@@ -492,12 +492,12 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
             ...genDisabledStyle(token),
           },
 
-          'width': token.quickJumperInputWidth,
-          'height': varRef(`item-size-actual`),
-          'boxSizing': 'border-box',
-          'margin': 0,
-          'marginInlineStart': varRef(`item-spacing-actual`),
-          'marginInlineEnd': varRef(`item-spacing-actual`),
+          width: token.quickJumperInputWidth,
+          height: varRef(`item-size-actual`),
+          boxSizing: 'border-box',
+          margin: 0,
+          marginInlineStart: varRef(`item-spacing-actual`),
+          marginInlineEnd: varRef(`item-spacing-actual`),
         },
       },
     },
@@ -511,26 +511,26 @@ const genPaginationItemStyle: GenerateStyle<PaginationToken, CSSObject> = (token
 
   return {
     [`${componentCls}-item`]: {
-      'display': 'inline-block',
-      'minWidth': varRef(`item-size-actual`),
-      'height': varRef(`item-size-actual`),
-      'marginInlineEnd': varRef(`item-spacing-actual`),
-      'fontFamily': token.fontFamily,
-      'lineHeight': unit(token.calc(varRef('item-size-actual')).sub(2).equal()),
-      'textAlign': 'center',
-      'verticalAlign': 'middle',
-      'listStyle': 'none',
-      'backgroundColor': token.itemBg,
-      'border': `${unit(token.lineWidth)} ${token.lineType} transparent`,
-      'borderRadius': token.borderRadius,
-      'outline': 0,
-      'cursor': 'pointer',
-      'userSelect': 'none',
+      display: 'inline-block',
+      minWidth: varRef(`item-size-actual`),
+      height: varRef(`item-size-actual`),
+      marginInlineEnd: varRef(`item-spacing-actual`),
+      fontFamily: token.fontFamily,
+      lineHeight: unit(token.calc(varRef('item-size-actual')).sub(2).equal()),
+      textAlign: 'center',
+      verticalAlign: 'middle',
+      listStyle: 'none',
+      backgroundColor: token.itemBg,
+      border: `${unit(token.lineWidth)} ${token.lineType} transparent`,
+      borderRadius: token.borderRadius,
+      outline: 0,
+      cursor: 'pointer',
+      userSelect: 'none',
 
-      'a': {
-        'display': 'block',
-        'padding': `0 ${unit(token.paginationItemPaddingInline)}`,
-        'color': token.colorText,
+      a: {
+        display: 'block',
+        padding: `0 ${unit(token.paginationItemPaddingInline)}`,
+        color: token.colorText,
 
         '&:hover': {
           textDecoration: 'none',
@@ -549,11 +549,11 @@ const genPaginationItemStyle: GenerateStyle<PaginationToken, CSSObject> = (token
       },
 
       '&-active': {
-        'fontWeight': token.fontWeightStrong,
-        'backgroundColor': token.itemActiveBg,
-        'borderColor': token.colorPrimary,
+        fontWeight: token.fontWeightStrong,
+        backgroundColor: token.itemActiveBg,
+        borderColor: token.colorPrimary,
 
-        'a': {
+        a: {
           color: token.itemActiveColor,
         },
 
@@ -588,8 +588,8 @@ const genPaginationStyle: GenerateStyle<PaginationToken, CSSObject> = (token) =>
       },
 
       ...resetComponent(token),
-      'display': 'flex',
-      'alignItems': 'center',
+      display: 'flex',
+      alignItems: 'center',
 
       '&-start': {
         justifyContent: 'start',

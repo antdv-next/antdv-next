@@ -134,7 +134,7 @@ function getThemeStyle(token: MenuToken, themeSuffix: string): CSSInterpolation 
       },
 
       [`${componentCls}-item-selected`]: {
-        'color': itemSelectedColor,
+        color: itemSelectedColor,
 
         // Danger
         [`&${componentCls}-item-danger`]: {
@@ -179,10 +179,10 @@ function getThemeStyle(token: MenuToken, themeSuffix: string): CSSInterpolation 
           : {}),
 
         [`> ${componentCls}-item, > ${componentCls}-submenu`]: {
-          'top': activeBarBorderWidth,
-          'marginTop': token.calc(activeBarBorderWidth).mul(-1).equal(),
-          'marginBottom': 0,
-          'borderRadius': horizontalItemBorderRadius,
+          top: activeBarBorderWidth,
+          marginTop: token.calc(activeBarBorderWidth).mul(-1).equal(),
+          marginBottom: 0,
+          borderRadius: horizontalItemBorderRadius,
 
           '&::after': {
             position: 'absolute',
@@ -194,15 +194,15 @@ function getThemeStyle(token: MenuToken, themeSuffix: string): CSSInterpolation 
           },
 
           '&:hover, &-active, &-open': {
-            'background': horizontalItemHoverBg,
+            background: horizontalItemHoverBg,
             '&::after': {
               borderBottomWidth: activeBarHeight,
               borderBottomColor: horizontalItemSelectedColor,
             },
           },
           '&-selected': {
-            'color': horizontalItemSelectedColor,
-            'backgroundColor': horizontalItemSelectedBg,
+            color: horizontalItemSelectedColor,
+            backgroundColor: horizontalItemSelectedBg,
             '&:hover': {
               backgroundColor: horizontalItemSelectedBg,
             },
@@ -230,7 +230,7 @@ function getThemeStyle(token: MenuToken, themeSuffix: string): CSSInterpolation 
         },
 
         [`${componentCls}-item`]: {
-          'position': 'relative',
+          position: 'relative',
 
           '&::after': {
             position: 'absolute',
@@ -239,10 +239,9 @@ function getThemeStyle(token: MenuToken, themeSuffix: string): CSSInterpolation 
             borderInlineEnd: `${unit(activeBarWidth)} solid ${itemSelectedColor}`,
             transform: 'scaleY(0.0001)',
             opacity: 0,
-            transition: [
-              `transform ${motionDurationMid} ${motionEaseOut}`,
-              `opacity ${motionDurationMid} ${motionEaseOut}`,
-            ].join(','),
+            transition: [`transform`, `opacity`]
+              .map(prop => `${prop} ${motionDurationMid} ${motionEaseOut}`)
+              .join(','),
             content: '""',
           },
 
@@ -258,10 +257,9 @@ function getThemeStyle(token: MenuToken, themeSuffix: string): CSSInterpolation 
           '&::after': {
             transform: 'scaleY(1)',
             opacity: 1,
-            transition: [
-              `transform ${motionDurationMid} ${motionEaseInOut}`,
-              `opacity ${motionDurationMid} ${motionEaseInOut}`,
-            ].join(','),
+            transition: [`transform`, `opacity`]
+              .map(prop => `${prop} ${motionDurationMid} ${motionEaseInOut}`)
+              .join(','),
           },
         },
       },

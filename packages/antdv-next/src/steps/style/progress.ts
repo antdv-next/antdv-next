@@ -37,18 +37,18 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         },
 
         '&-circle': {
-          'lineHeight': varRef('icon-size-ptg-unitless'),
-          'strokeWidth': calc(varRef('icon-size-ptg-unitless')).mul(lineWidthBold).equal(),
+          lineHeight: varRef('icon-size-ptg-unitless'),
+          strokeWidth: calc(varRef('icon-size-ptg-unitless')).mul(lineWidthBold).equal(),
           [varName('progress-radius')]: calc(varRef('svg-size'))
             .sub(lineWidthBold)
             .mul(varRef('icon-size-ptg-unitless'))
             .div(2)
             .equal(),
-          'r': varRef('progress-radius'),
-          'fill': 'none',
-          'cx': 50,
-          'cy': 50,
-          'transition': `all ${motionDurationSlow} ease-in-out`,
+          r: varRef('progress-radius'),
+          fill: 'none',
+          cx: 50,
+          cy: 50,
+          transition: `all ${motionDurationSlow} ease-in-out`,
 
           '&-rail': {
             stroke: token.colorSplit,

@@ -100,7 +100,7 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
                 > tbody > tr > td
               `]: {
                 [`> ${componentCls}-expanded-row-fixed`]: {
-                  'margin': `${unit(calc(tablePaddingVertical).mul(-1).equal())} ${unit(
+                  margin: `${unit(calc(tablePaddingVertical).mul(-1).equal())} ${unit(
                     calc(calc(tablePaddingHorizontal).add(lineWidth)).mul(-1).equal(),
                   )}`,
                   '&::after': {

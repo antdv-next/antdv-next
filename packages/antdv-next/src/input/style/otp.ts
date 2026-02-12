@@ -9,10 +9,10 @@ const genOTPStyle: GenerateStyle<InputToken> = (token) => {
 
   return {
     [componentCls]: {
-      'display': 'inline-flex',
-      'alignItems': 'center',
-      'flexWrap': 'nowrap',
-      'columnGap': paddingXS,
+      display: 'inline-flex',
+      alignItems: 'center',
+      flexWrap: 'nowrap',
+      columnGap: paddingXS,
 
       [`${componentCls}-input-wrapper`]: {
         position: 'relative',
@@ -30,7 +30,7 @@ const genOTPStyle: GenerateStyle<InputToken> = (token) => {
         },
         [`${componentCls}-mask-input[type=number]::-webkit-inner-spin-button`]: {
           '-webkit-appearance': 'none',
-          'margin': 0,
+          margin: 0,
         },
         [`${componentCls}-mask-input[type=number]`]: {
           '-moz-appearance': 'textfield',

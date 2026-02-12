@@ -53,8 +53,8 @@ const genBaseStyle: GenerateStyle<PopconfirmToken> = (token) => {
         },
 
         [`${componentCls}-title`]: {
-          'fontWeight': fontWeightStrong,
-          'color': colorTextHeading,
+          fontWeight: fontWeightStrong,
+          color: colorTextHeading,
 
           '&:only-child': {
             fontWeight: 'normal',

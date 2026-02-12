@@ -15,8 +15,8 @@ const genRadiusStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         },
 
         [`${componentCls}-title + ${componentCls}-container`]: {
-          'borderStartStartRadius': 0,
-          'borderStartEndRadius': 0,
+          borderStartStartRadius: 0,
+          borderStartEndRadius: 0,
 
           // https://github.com/ant-design/ant-design/issues/41975
           [`${componentCls}-header, table`]: {
@@ -31,8 +31,8 @@ const genRadiusStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         },
 
         '&-container': {
-          'borderStartStartRadius': tableRadius,
-          'borderStartEndRadius': tableRadius,
+          borderStartStartRadius: tableRadius,
+          borderStartEndRadius: tableRadius,
 
           '&::before': {
             borderStartStartRadius: tableRadius,

@@ -17,8 +17,8 @@ const genVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
       // Item
       [`> ${itemCls}`]: {
-        'minHeight': calc(controlHeight).mul(1.5).equal(),
-        'paddingBottom': paddingSM,
+        minHeight: calc(controlHeight).mul(1.5).equal(),
+        paddingBottom: paddingSM,
 
         '&:last-child': {
           paddingBottom: 0,

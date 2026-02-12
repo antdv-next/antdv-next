@@ -40,10 +40,10 @@ const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
 
   return {
     [componentCls]: {
-      'marginInline': marginXS,
+      marginInline: marginXS,
       fontSize,
       lineHeight,
-      'textAlign': 'center',
+      textAlign: 'center',
 
       // 原来 &-image 没有父子结构，现在为了外层承担我们的 hashId，改成父子结构
       [`${componentCls}-image`]: {

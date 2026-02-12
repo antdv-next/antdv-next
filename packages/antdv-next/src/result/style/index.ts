@@ -54,7 +54,7 @@ const genBaseStyle: GenerateStyle<ResultToken> = (token): CSSObject => {
   return {
     // Result
     [componentCls]: {
-      'padding': `${unit(token.calc(paddingLG).mul(2).equal())} ${unit(paddingXL)}`,
+      padding: `${unit(token.calc(paddingLG).mul(2).equal())} ${unit(paddingXL)}`,
 
       // RTL
       '&-rtl': {
@@ -100,11 +100,11 @@ const genBaseStyle: GenerateStyle<ResultToken> = (token): CSSObject => {
     },
 
     [`${componentCls} ${componentCls}-extra`]: {
-      'margin': token.extraMargin,
-      'textAlign': 'center',
+      margin: token.extraMargin,
+      textAlign: 'center',
 
       '& > *': {
-        'marginInlineEnd': paddingXS,
+        marginInlineEnd: paddingXS,
 
         '&:last-child': {
           marginInlineEnd: 0,

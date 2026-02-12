@@ -16,8 +16,8 @@ const genSelectInputCustomizeStyle: GenerateStyle<SelectToken> = (token) => {
       },
 
       [`${componentCls}-content`]: {
-        'margin': 0,
-        'padding': 0,
+        margin: 0,
+        padding: 0,
 
         '&-value': {
           display: 'none',

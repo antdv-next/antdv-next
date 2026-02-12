@@ -88,11 +88,11 @@ export function genOverflowStyle(token: Pick<
      */
     // =========================== Overflow ===========================
     [selectOverflowPrefixCls]: {
-      'position': 'relative',
-      'display': 'flex',
-      'flex': 'auto',
-      'flexWrap': 'wrap',
-      'maxWidth': '100%',
+      position: 'relative',
+      display: 'flex',
+      flex: 'auto',
+      flexWrap: 'wrap',
+      maxWidth: '100%',
 
       '&-item': {
         flex: 'none',
@@ -104,18 +104,20 @@ export function genOverflowStyle(token: Pick<
 
       // ======================== Selections ==========================
       [`${componentCls}-selection-item`]: {
-        'display': 'flex',
-        'alignSelf': 'center',
-        'flex': 'none',
-        'boxSizing': 'border-box',
-        'maxWidth': '100%',
-        'marginBlock': INTERNAL_FIXED_ITEM_MARGIN,
-        'borderRadius': borderRadiusSM,
-        'cursor': 'default',
-        'transition': `font-size ${motionDurationSlow}, line-height ${motionDurationSlow}, height ${motionDurationSlow}`,
-        'marginInlineEnd': token.calc(INTERNAL_FIXED_ITEM_MARGIN).mul(2).equal(),
-        'paddingInlineStart': paddingXS,
-        'paddingInlineEnd': token.calc(paddingXS).div(2).equal(),
+        display: 'flex',
+        alignSelf: 'center',
+        flex: 'none',
+        boxSizing: 'border-box',
+        maxWidth: '100%',
+        marginBlock: INTERNAL_FIXED_ITEM_MARGIN,
+        borderRadius: borderRadiusSM,
+        cursor: 'default',
+        transition: [`font-size`, `line-height`, `height`]
+          .map(prop => `${prop} ${motionDurationSlow}`)
+          .join(', '),
+        marginInlineEnd: token.calc(INTERNAL_FIXED_ITEM_MARGIN).mul(2).equal(),
+        paddingInlineStart: paddingXS,
+        paddingInlineEnd: token.calc(paddingXS).div(2).equal(),
 
         [`${componentCls}-disabled&`]: {
           color: multipleItemColorDisabled,
@@ -135,13 +137,13 @@ export function genOverflowStyle(token: Pick<
         '&-remove': {
           ...resetIcon(),
 
-          'display': 'inline-flex',
-          'alignItems': 'center',
-          'color': colorIcon,
-          'fontWeight': 'bold',
-          'fontSize': 10,
-          'lineHeight': 'inherit',
-          'cursor': 'pointer',
+          display: 'inline-flex',
+          alignItems: 'center',
+          color: colorIcon,
+          fontWeight: 'bold',
+          fontSize: 10,
+          lineHeight: 'inherit',
+          cursor: 'pointer',
 
           [`> ${iconCls}`]: {
             verticalAlign: '-0.2em',

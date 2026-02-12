@@ -40,10 +40,10 @@ const genSliderStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
     [`${componentCls}-slider`]: [
       getTransBg(unit(colorPickerSliderHeight), token.colorFillSecondary),
       {
-        'margin': 0,
-        'padding': 0,
-        'height': colorPickerSliderHeight,
-        'borderRadius': token.calc(colorPickerSliderHeight).div(2).equal(),
+        margin: 0,
+        padding: 0,
+        height: colorPickerSliderHeight,
+        borderRadius: token.calc(colorPickerSliderHeight).div(2).equal(),
 
         '&-rail': {
           height: colorPickerSliderHeight,
@@ -52,10 +52,10 @@ const genSliderStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
         },
 
         [`& ${componentCls}-slider-handle`]: {
-          'width': handleInnerSize,
-          'height': handleInnerSize,
-          'top': 0,
-          'borderRadius': '100%',
+          width: handleInnerSize,
+          height: handleInnerSize,
+          top: 0,
+          borderRadius: '100%',
 
           '&:before': {
             display: 'block',
@@ -97,10 +97,10 @@ const genSliderStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
 
       // Group
       [`${componentCls}-slider-group`]: {
-        'flex': 1,
-        'flexDirection': 'column',
-        'justifyContent': 'space-between',
-        'display': 'flex',
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        display: 'flex',
 
         '&-disabled-alpha': {
           justifyContent: 'center',

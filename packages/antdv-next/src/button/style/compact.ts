@@ -26,7 +26,7 @@ const genButtonCompactStyle: GenerateStyle<ButtonToken> = (token) => {
         [varName('compact-connect-border-color')]: varRef('bg-color-hover'),
 
         [`&${solidSelector}`]: {
-          'transition': `none`,
+          transition: `none`,
 
           [`& + ${solidSelector}:before`]: [
             {
@@ -62,7 +62,7 @@ const genButtonCompactStyle: GenerateStyle<ButtonToken> = (token) => {
     {
       [`${solidSelector}${componentCls}-color-default`]: {
         [varName('compact-connect-border-color')]:
-            `color-mix(in srgb, ${varRef('bg-color-hover')} 75%, ${colorBgContainer})`,
+          `color-mix(in srgb, ${varRef('bg-color-hover')} 75%, ${colorBgContainer})`,
       },
     },
   ]

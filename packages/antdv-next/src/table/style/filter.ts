@@ -48,19 +48,19 @@ const genFilterStyle: GenerateStyle<TableToken> = (token) => {
         },
 
         [`${componentCls}-filter-trigger`]: {
-          'position': 'relative',
-          'display': 'flex',
-          'alignItems': 'center',
-          'marginBlock': calc(paddingXXS).mul(-1).equal(),
-          'marginInline': `${unit(paddingXXS)} ${unit(
+          position: 'relative',
+          display: 'flex',
+          alignItems: 'center',
+          marginBlock: calc(paddingXXS).mul(-1).equal(),
+          marginInline: `${unit(paddingXXS)} ${unit(
             calc(tablePaddingHorizontal).div(2).mul(-1).equal(),
           )}`,
-          'padding': `0 ${unit(paddingXXS)}`,
-          'color': headerIconColor,
-          'fontSize': fontSizeSM,
+          padding: `0 ${unit(paddingXXS)}`,
+          color: headerIconColor,
+          fontSize: fontSizeSM,
           borderRadius,
-          'cursor': 'pointer',
-          'transition': `all ${motionDurationSlow}`,
+          cursor: 'pointer',
+          transition: `all ${motionDurationSlow}`,
 
           '&:hover': {
             color: colorIcon,
@@ -89,12 +89,12 @@ const genFilterStyle: GenerateStyle<TableToken> = (token) => {
           [`${dropdownPrefixCls}-menu`]: {
             // https://github.com/ant-design/ant-design/issues/4916
             // https://github.com/ant-design/ant-design/issues/19542
-            'maxHeight': tableFilterDropdownHeight,
-            'overflowX': 'hidden',
-            'border': 0,
-            'boxShadow': 'none',
-            'borderRadius': 'unset',
-            'backgroundColor': filterDropdownMenuBg,
+            maxHeight: tableFilterDropdownHeight,
+            overflowX: 'hidden',
+            border: 0,
+            boxShadow: 'none',
+            borderRadius: 'unset',
+            backgroundColor: filterDropdownMenuBg,
 
             '&:empty::after': {
               display: 'block',
@@ -126,8 +126,8 @@ const genFilterStyle: GenerateStyle<TableToken> = (token) => {
           },
 
           [`${tableFilterDropdownPrefixCls}-search`]: {
-            'padding': paddingXS,
-            'borderBottom': tableBorder,
+            padding: paddingXS,
+            borderBottom: tableBorder,
 
             '&-input': {
               input: {

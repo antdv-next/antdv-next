@@ -112,8 +112,8 @@ const getGroupRadioStyle: GenerateStyle<RadioToken> = (token) => {
   return {
     [groupPrefixCls]: {
       ...resetComponent(token),
-      'display': 'inline-block',
-      'fontSize': 0,
+      display: 'inline-block',
+      fontSize: 0,
 
       // RTL
       [`&${groupPrefixCls}-rtl`]: {
@@ -172,11 +172,11 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
   return {
     [`${componentCls}-wrapper`]: {
       ...resetComponent(token),
-      'display': 'inline-flex',
-      'alignItems': 'baseline',
-      'marginInlineStart': 0,
-      'marginInlineEnd': wrapperMarginInlineEnd,
-      'cursor': 'pointer',
+      display: 'inline-flex',
+      alignItems: 'baseline',
+      marginInlineStart: 0,
+      marginInlineEnd: wrapperMarginInlineEnd,
+      cursor: 'pointer',
 
       '&:last-child': {
         marginInlineEnd: 0,
@@ -207,21 +207,21 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
       // ===================== Radio =====================
       [componentCls]: {
         ...resetComponent(token),
-        'position': 'relative',
-        'whiteSpace': 'nowrap',
-        'lineHeight': 1,
-        'cursor': 'pointer',
-        'alignSelf': 'center',
+        position: 'relative',
+        whiteSpace: 'nowrap',
+        lineHeight: 1,
+        cursor: 'pointer',
+        alignSelf: 'center',
 
         // Styles moved from inner
-        'boxSizing': 'border-box',
-        'display': 'block',
-        'width': `calc(${radioSize} * 1px)`,
-        'height': `calc(${radioSize} * 1px)`,
-        'backgroundColor': colorBgContainer,
-        'border': `${unit(lineWidth)} ${lineType} ${colorBorder}`,
-        'borderRadius': '50%',
-        'transition': `all ${motionDurationMid}`,
+        boxSizing: 'border-box',
+        display: 'block',
+        width: `calc(${radioSize} * 1px)`,
+        height: `calc(${radioSize} * 1px)`,
+        backgroundColor: colorBgContainer,
+        border: `${unit(lineWidth)} ${lineType} ${colorBorder}`,
+        borderRadius: '50%',
+        transition: `all ${motionDurationMid}`,
 
         // Dot
         '&:after': {
@@ -265,8 +265,8 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
 
       // ==================== Checked ====================
       [`${componentCls}-checked`]: {
-        'backgroundColor': radioBgColor,
-        'borderColor': colorPrimary,
+        backgroundColor: radioBgColor,
+        borderColor: colorPrimary,
 
         '&::after': {
           transform: `translate(-50%, -50%)`,
@@ -284,8 +284,8 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
         },
 
         // Disabled radio styles
-        'background': colorBgContainerDisabled,
-        'borderColor': colorBorder,
+        background: colorBgContainerDisabled,
+        borderColor: colorBorder,
 
         '&::after': {
           backgroundColor: dotColorDisabled,
@@ -341,27 +341,27 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
   } = token
   return {
     [`${componentCls}-button-wrapper`]: {
-      'position': 'relative',
-      'display': 'inline-block',
-      'height': controlHeight,
-      'margin': 0,
-      'paddingInline': buttonPaddingInline,
-      'paddingBlock': 0,
-      'color': buttonColor,
+      position: 'relative',
+      display: 'inline-block',
+      height: controlHeight,
+      margin: 0,
+      paddingInline: buttonPaddingInline,
+      paddingBlock: 0,
+      color: buttonColor,
       fontSize,
-      'lineHeight': unit(calc(controlHeight).sub(calc(lineWidth).mul(2)).equal()),
-      'background': buttonBg,
-      'border': `${unit(lineWidth)} ${lineType} ${colorBorder}`,
+      lineHeight: unit(calc(controlHeight).sub(calc(lineWidth).mul(2)).equal()),
+      background: buttonBg,
+      border: `${unit(lineWidth)} ${lineType} ${colorBorder}`,
       // strange align fix for chrome but works
       // https://gw.alipayobjects.com/zos/rmsportal/VFTfKXJuogBAXcvfAUWJ.gif
-      'borderBlockStartWidth': calc(lineWidth).add(0.02).equal(),
-      'borderInlineEndWidth': lineWidth,
-      'cursor': 'pointer',
-      'transition': [`color`, `background-color`, `box-shadow`]
+      borderBlockStartWidth: calc(lineWidth).add(0.02).equal(),
+      borderInlineEndWidth: lineWidth,
+      cursor: 'pointer',
+      transition: [`color`, `background-color`, `box-shadow`]
         .map(prop => `${prop} ${motionDurationMid}`)
         .join(','),
 
-      'a': {
+      a: {
         color: buttonColor,
       },
 
@@ -394,9 +394,9 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
       },
 
       [`${componentCls}-group-large &`]: {
-        'height': controlHeightLG,
-        'fontSize': fontSizeLG,
-        'lineHeight': unit(calc(controlHeightLG).sub(calc(lineWidth).mul(2)).equal()),
+        height: controlHeightLG,
+        fontSize: fontSizeLG,
+        lineHeight: unit(calc(controlHeightLG).sub(calc(lineWidth).mul(2)).equal()),
 
         '&:first-child': {
           borderStartStartRadius: borderRadiusLG,
@@ -410,10 +410,10 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
       },
 
       [`${componentCls}-group-small &`]: {
-        'height': controlHeightSM,
-        'paddingInline': calc(paddingXS).sub(lineWidth).equal(),
-        'paddingBlock': 0,
-        'lineHeight': unit(calc(controlHeightSM).sub(calc(lineWidth).mul(2)).equal()),
+        height: controlHeightSM,
+        paddingInline: calc(paddingXS).sub(lineWidth).equal(),
+        paddingBlock: 0,
+        lineHeight: unit(calc(controlHeightSM).sub(calc(lineWidth).mul(2)).equal()),
 
         '&:first-child': {
           borderStartStartRadius: borderRadiusSM,
@@ -441,10 +441,10 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
       },
 
       [`&-checked:not(${componentCls}-button-wrapper-disabled)`]: {
-        'zIndex': 1,
-        'color': colorPrimary,
-        'background': buttonCheckedBg,
-        'borderColor': colorPrimary,
+        zIndex: 1,
+        color: colorPrimary,
+        background: buttonCheckedBg,
+        borderColor: colorPrimary,
 
         '&::before': {
           backgroundColor: colorPrimary,
@@ -455,8 +455,8 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
         },
 
         '&:hover': {
-          'color': colorPrimaryHover,
-          'borderColor': colorPrimaryHover,
+          color: colorPrimaryHover,
+          borderColor: colorPrimaryHover,
 
           '&::before': {
             backgroundColor: colorPrimaryHover,
@@ -464,8 +464,8 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
         },
 
         '&:active': {
-          'color': colorPrimaryActive,
-          'borderColor': colorPrimaryActive,
+          color: colorPrimaryActive,
+          borderColor: colorPrimaryActive,
 
           '&::before': {
             backgroundColor: colorPrimaryActive,
@@ -474,9 +474,9 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
       },
 
       [`${componentCls}-group-solid &-checked:not(${componentCls}-button-wrapper-disabled)`]: {
-        'color': buttonSolidCheckedColor,
-        'background': buttonSolidCheckedBg,
-        'borderColor': buttonSolidCheckedBg,
+        color: buttonSolidCheckedColor,
+        background: buttonSolidCheckedBg,
+        borderColor: buttonSolidCheckedBg,
 
         '&:hover': {
           color: buttonSolidCheckedColor,
@@ -492,10 +492,10 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
       },
 
       '&-disabled': {
-        'color': colorTextDisabled,
-        'backgroundColor': colorBgContainerDisabled,
-        'borderColor': colorBorder,
-        'cursor': 'not-allowed',
+        color: colorTextDisabled,
+        backgroundColor: colorBgContainerDisabled,
+        borderColor: colorBorder,
+        cursor: 'not-allowed',
 
         '&:first-child, &:hover': {
           color: colorTextDisabled,

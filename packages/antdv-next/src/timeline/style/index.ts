@@ -1,4 +1,5 @@
 import type { CSSObject } from '@antdv-next/cssinjs'
+
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal'
 import { resetComponent } from '../../style'
 import { genStyleHooks, mergeToken } from '../../theme/internal'
@@ -171,8 +172,8 @@ const genVerticalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
             .add(stepsVarRef('dot-icon-size'))
             .equal(),
 
-          'minHeight': 'auto',
-          'paddingBottom': itemPaddingBottom,
+          minHeight: 'auto',
+          paddingBottom: itemPaddingBottom,
 
           // Icon & Rail
           [`${itemCls}-icon, ${itemCls}-rail`]: {

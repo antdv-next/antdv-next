@@ -100,11 +100,11 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
     // Vertical only
     {
       [`${componentCls}-submenu-popup ${componentCls}-vertical${componentCls}-sub`]: {
-        'minWidth': dropdownWidth,
-        'maxHeight': `calc(100vh - ${unit(token.calc(controlHeightLG).mul(2.5).equal())})`,
-        'padding': '0',
-        'overflow': 'hidden',
-        'borderInlineEnd': 0,
+        minWidth: dropdownWidth,
+        maxHeight: `calc(100vh - ${unit(token.calc(controlHeightLG).mul(2.5).equal())})`,
+        padding: '0',
+        overflow: 'hidden',
+        borderInlineEnd: 0,
 
         // https://github.com/ant-design/ant-design/issues/22244
         // https://github.com/ant-design/ant-design/issues/26812
@@ -123,9 +123,9 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
         // Motion enhance for first level
         [`&${componentCls}-root`]: {
           [`${componentCls}-item, ${componentCls}-submenu-title`]: {
-            'display': 'flex',
-            'alignItems': 'center',
-            'transition': [
+            display: 'flex',
+            alignItems: 'center',
+            transition: [
               `border-color ${motionDurationSlow}`,
               `background-color ${motionDurationSlow}`,
               `padding ${motionDurationFast} ${motionEaseOut}`,
@@ -166,7 +166,7 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
     // Inline Collapse Only
     {
       [`${componentCls}-inline-collapsed`]: {
-        'width': collapsedWidth,
+        width: collapsedWidth,
 
         [`&${componentCls}-root`]: {
           [`${componentCls}-item, ${componentCls}-submenu ${componentCls}-submenu-title`]: {
@@ -195,9 +195,9 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
           },
 
           [`${componentCls}-item-icon, ${iconCls}`]: {
-            'margin': 0,
-            'fontSize': collapsedIconSize,
-            'lineHeight': unit(itemHeight),
+            margin: 0,
+            fontSize: collapsedIconSize,
+            lineHeight: unit(itemHeight),
 
             '+ span': {
               display: 'inline-block',
@@ -211,7 +211,7 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
         },
 
         '&-tooltip': {
-          'pointerEvents': 'none',
+          pointerEvents: 'none',
 
           [`${componentCls}-item-icon, ${iconCls}`]: {
             display: 'none',

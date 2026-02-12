@@ -95,16 +95,16 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
   return {
     [componentCls]: {
       ...resetComponent(token),
-      'backgroundColor': headerBg,
-      'border': borderBase,
-      'borderRadius': collapsePanelBorderRadius,
+      backgroundColor: headerBg,
+      border: borderBase,
+      borderRadius: collapsePanelBorderRadius,
 
       '&-rtl': {
         direction: 'rtl',
       },
 
       [`& > ${componentCls}-item`]: {
-        'borderBottom': borderBase,
+        borderBottom: borderBase,
         '&:first-child': {
           [`
             &,
@@ -185,9 +185,9 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
       },
 
       [`${componentCls}-panel`]: {
-        'color': colorText,
-        'backgroundColor': contentBg,
-        'borderTop': borderBase,
+        color: colorText,
+        backgroundColor: contentBg,
+        borderTop: borderBase,
 
         [`& > ${componentCls}-body`]: {
           padding: contentPadding,

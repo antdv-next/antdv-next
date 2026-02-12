@@ -81,8 +81,8 @@ const genBorderedStyle: GenerateStyle<PaginationToken> = (token) => {
       },
 
       [`${componentCls}-item`]: {
-        'backgroundColor': token.itemBg,
-        'border': `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
+        backgroundColor: token.itemBg,
+        border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
 
         [`&:hover:not(${componentCls}-item-active)`]: {
           borderColor: token.colorPrimary,

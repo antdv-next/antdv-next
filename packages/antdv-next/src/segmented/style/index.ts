@@ -78,7 +78,7 @@ const segmentedTextEllipsisCss: CSSObject = {
 
 // ============================== Styles ==============================
 const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken) => {
-  const { componentCls } = token
+  const { componentCls, motionDurationSlow, motionEaseInOut, motionDurationMid } = token
 
   const labelHeight = token
     .calc(token.controlHeight)
@@ -102,7 +102,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       color: token.itemColor,
       background: token.trackBg,
       borderRadius: token.borderRadius,
-      transition: `all ${token.motionDurationMid}`,
+      transition: `all ${motionDurationMid}`,
       ...genFocusStyle(token),
 
       [`${componentCls}-group`]: {
@@ -143,14 +143,14 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
 
       // item styles
       [`${componentCls}-item`]: {
-        'position': 'relative',
-        'textAlign': 'center',
-        'cursor': 'pointer',
-        'transition': `color ${token.motionDurationMid}`,
-        'borderRadius': token.borderRadiusSM,
+        position: 'relative',
+        textAlign: 'center',
+        cursor: 'pointer',
+        transition: `color ${motionDurationMid}`,
+        borderRadius: token.borderRadiusSM,
         // Fix Safari render bug
         // https://github.com/ant-design/ant-design/issues/45250
-        'transform': 'translateZ(0)',
+        transform: 'translateZ(0)',
 
         '&-selected': {
           ...getItemSelectedStyle(token),
@@ -169,10 +169,12 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
           insetInlineStart: 0,
           borderRadius: 'inherit',
           opacity: 0,
-          transition: `opacity ${token.motionDurationMid}, background-color ${token.motionDurationMid}`,
           // This is mandatory to make it not clickable or hoverable
           // Ref: https://github.com/ant-design/ant-design/issues/40888
           pointerEvents: 'none',
+          transition: ['opacity', 'background-color']
+            .map(prop => `${prop} ${motionDurationMid}`)
+            .join(', '),
         },
 
         [`&:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)`]: {
@@ -225,9 +227,9 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         borderRadius: token.borderRadiusSM,
 
         [`& ~ ${componentCls}-item:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)::after`]:
-          {
-            backgroundColor: 'transparent',
-          },
+            {
+              backgroundColor: 'transparent',
+            },
       },
 
       // size styles
@@ -261,10 +263,11 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       ...getItemDisabledStyle(`${componentCls}-item-disabled`, token),
 
       // transition effect when `appear-active`
-      // vue is using `appear` instead of `appear-active`
       [`${componentCls}-thumb-motion-appear`]: {
-        transition: `transform ${token.motionDurationSlow} ${token.motionEaseInOut}, width ${token.motionDurationSlow} ${token.motionEaseInOut}`,
         willChange: 'transform, width',
+        transition: [`transform`, `width`]
+          .map(prop => `${prop} ${motionDurationSlow} ${motionEaseInOut}`)
+          .join(', '),
       },
 
       [`&${componentCls}-shape-round`]: {

@@ -136,6 +136,7 @@ export function genNoticeStyle(token: NotificationToken): CSSObject {
     colorErrorBg,
     colorInfoBg,
     colorWarningBg,
+    motionDurationMid,
   } = token
 
   const noticeCls = `${componentCls}-notice`
@@ -149,13 +150,13 @@ export function genNoticeStyle(token: NotificationToken): CSSObject {
     boxShadow,
 
     [noticeCls]: {
-      'padding': notificationPadding,
+      padding: notificationPadding,
       width,
-      'maxWidth': `calc(100vw - ${unit(token.calc(notificationMarginEdge).mul(2).equal())})`,
+      maxWidth: `calc(100vw - ${unit(token.calc(notificationMarginEdge).mul(2).equal())})`,
       lineHeight,
-      'wordWrap': 'break-word',
-      'borderRadius': borderRadiusLG,
-      'overflow': 'hidden',
+      wordWrap: 'break-word',
+      borderRadius: borderRadiusLG,
+      overflow: 'hidden',
       // Type-specific background colors
       '&-success': colorSuccessBg ? { background: colorSuccessBg } : {},
       '&-error': colorErrorBg ? { background: colorErrorBg } : {},
@@ -215,20 +216,23 @@ export function genNoticeStyle(token: NotificationToken): CSSObject {
     },
 
     [`${noticeCls}-close`]: {
-      'position': 'absolute',
-      'top': token.notificationPaddingVertical,
-      'insetInlineEnd': token.notificationPaddingHorizontal,
-      'color': token.colorIcon,
-      'outline': 'none',
-      'width': token.notificationCloseButtonSize,
-      'height': token.notificationCloseButtonSize,
-      'borderRadius': token.borderRadiusSM,
-      'transition': `background-color ${token.motionDurationMid}, color ${token.motionDurationMid}`,
-      'display': 'flex',
-      'alignItems': 'center',
-      'justifyContent': 'center',
-      'background': 'none',
-      'border': 'none',
+      position: 'absolute',
+      top: token.notificationPaddingVertical,
+      insetInlineEnd: token.notificationPaddingHorizontal,
+      color: token.colorIcon,
+      outline: 'none',
+      width: token.notificationCloseButtonSize,
+      height: token.notificationCloseButtonSize,
+      borderRadius: token.borderRadiusSM,
+
+      transition: ['color', 'background-color']
+        .map(prop => `${prop} ${motionDurationMid}`)
+        .join(', '),
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      background: 'none',
+      border: 'none',
 
       '&:hover': {
         color: token.colorIconHover,
@@ -243,21 +247,21 @@ export function genNoticeStyle(token: NotificationToken): CSSObject {
     },
 
     [`${noticeCls}-progress`]: {
-      'position': 'absolute',
-      'display': 'block',
-      'appearance': 'none',
-      'inlineSize': `calc(100% - ${unit(borderRadiusLG)} * 2)`,
-      'left': {
+      position: 'absolute',
+      display: 'block',
+      appearance: 'none',
+      inlineSize: `calc(100% - ${unit(borderRadiusLG)} * 2)`,
+      left: {
         _skip_check_: true,
         value: borderRadiusLG,
       },
-      'right': {
+      right: {
         _skip_check_: true,
         value: borderRadiusLG,
       },
-      'bottom': 0,
-      'blockSize': notificationProgressHeight,
-      'border': 0,
+      bottom: 0,
+      blockSize: notificationProgressHeight,
+      border: 0,
 
       '&, &::-webkit-progress-bar': {
         borderRadius: borderRadiusLG,
@@ -313,9 +317,9 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
       [componentCls]: {
         ...resetComponent(token),
 
-        'position': 'fixed',
-        'zIndex': token.zIndexPopup,
-        'marginRight': {
+        position: 'fixed',
+        zIndex: token.zIndexPopup,
+        marginRight: {
           value: notificationMarginEdge,
           _skip_check_: true,
         },

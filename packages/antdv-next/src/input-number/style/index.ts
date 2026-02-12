@@ -63,10 +63,10 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
         [varName('input-padding-block')]: unit(paddingBlock),
         [varName('input-padding-inline')]: unit(paddingInline),
 
-        'display': 'inline-flex',
-        'width': controlWidth,
-        'margin': 0,
-        'paddingBlock': 0,
+        display: 'inline-flex',
+        width: controlWidth,
+        margin: 0,
+        paddingBlock: 0,
         borderRadius,
 
         // ======================= Variants =======================
@@ -120,17 +120,17 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
         // ======================== Input =========================
         [`${componentCls}-input`]: {
           ...resetComponent(token),
-          'width': '100%',
-          'paddingBlock': varRef('input-padding-block'),
-          'textAlign': 'start',
-          'backgroundColor': 'transparent',
-          'border': 0,
+          width: '100%',
+          paddingBlock: varRef('input-padding-block'),
+          textAlign: 'start',
+          backgroundColor: 'transparent',
+          border: 0,
           borderRadius,
-          'outline': 0,
-          'transition': `all ${motionDurationMid} linear`,
-          'appearance': 'textfield',
-          'fontSize': 'inherit',
-          'lineHeight': 'inherit',
+          outline: 0,
+          transition: `all ${motionDurationMid} linear`,
+          appearance: 'textfield',
+          fontSize: 'inherit',
+          lineHeight: 'inherit',
           ...genPlaceholderStyle(token.colorTextPlaceholder),
 
           '&[type="number"]::-webkit-inner-spin-button, &[type="number"]::-webkit-outer-spin-button':
@@ -168,13 +168,13 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
         [`${componentCls}-action`]: {
           ...resetIcon(),
 
-          'userSelect': 'none',
-          'overflow': 'hidden',
-          'fontWeight': 'bold',
-          'lineHeight': 0,
-          'textAlign': 'center',
-          'cursor': 'pointer',
-          'transition': `all ${motionDurationMid} linear`,
+          userSelect: 'none',
+          overflow: 'hidden',
+          fontWeight: 'bold',
+          lineHeight: 0,
+          textAlign: 'center',
+          cursor: 'pointer',
+          transition: `all ${motionDurationMid} linear`,
 
           '&:active': {
             background: handleActiveBg,
@@ -223,9 +223,9 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
           },
 
           [`${componentCls}-action`]: {
-            'color': colorIcon,
-            'height': '50%',
-            'borderInlineStart': borderStyle,
+            color: colorIcon,
+            height: '50%',
+            borderInlineStart: borderStyle,
 
             // Hover
             '&:hover': {
@@ -246,8 +246,8 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
           width: 'auto',
 
           [`${componentCls}-action`]: {
-            'flex': 'none',
-            'paddingInline': varRef('input-padding-inline'),
+            flex: 'none',
+            paddingInline: varRef('input-padding-inline'),
 
             '&-up': {
               borderInlineStart: borderStyle,

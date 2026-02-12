@@ -73,7 +73,7 @@ export function genCalendarStyles(token: CalendarToken): CSSObject {
     [calendarCls]: {
       ...genPanelStyle(token),
       ...resetComponent(token),
-      'background': fullBg,
+      background: fullBg,
       '&-rtl': {
         direction: 'rtl',
       },
@@ -141,7 +141,7 @@ export function genCalendarStyles(token: CalendarToken): CSSObject {
           'th, td': {
             padding: 0,
           },
-          'th': {
+          th: {
             height: 'auto',
             paddingInlineEnd: token.paddingSM,
             paddingBottom: token.paddingXXS,
@@ -188,15 +188,15 @@ export function genCalendarStyles(token: CalendarToken): CSSObject {
         },
       },
       [`${calendarCls}-date`]: {
-        'display': 'block',
-        'width': 'auto',
-        'height': 'auto',
-        'margin': `0 ${unit(token.calc(token.marginXS).div(2).equal())}`,
-        'padding': `${unit(token.calc(token.paddingXS).div(2).equal())} ${unit(token.paddingXS)} 0`,
-        'border': 0,
-        'borderTop': `${unit(token.lineWidthBold)} ${token.lineType} ${token.colorSplit}`,
-        'borderRadius': 0,
-        'transition': `background-color ${token.motionDurationSlow}`,
+        display: 'block',
+        width: 'auto',
+        height: 'auto',
+        margin: `0 ${unit(token.calc(token.marginXS).div(2).equal())}`,
+        padding: `${unit(token.calc(token.paddingXS).div(2).equal())} ${unit(token.paddingXS)} 0`,
+        border: 0,
+        borderTop: `${unit(token.lineWidthBold)} ${token.lineType} ${token.colorSplit}`,
+        borderRadius: 0,
+        transition: `background-color ${token.motionDurationSlow}`,
         '&-value': {
           lineHeight: unit(token.dateValueHeight),
           transition: `color ${token.motionDurationSlow}`,
@@ -229,9 +229,9 @@ export function genCalendarStyles(token: CalendarToken): CSSObject {
             width: `calc(50% - ${unit(token.paddingXS)})`,
           },
           [`${calendarCls}-mode-switch`]: {
-            'width': '100%',
-            'marginTop': token.marginXS,
-            'marginInlineStart': 0,
+            width: '100%',
+            marginTop: token.marginXS,
+            marginInlineStart: 0,
             '> label': {
               width: '50%',
               textAlign: 'center',

@@ -35,7 +35,7 @@ const genBaseStyle: GenerateStyle<UploadToken> = (token) => {
       ...resetComponent(token),
 
       [componentCls]: {
-        'outline': 0,
+        outline: 0,
         'input[type=\'file\']': {
           cursor: 'pointer',
         },

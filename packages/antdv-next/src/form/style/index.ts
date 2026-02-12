@@ -87,7 +87,7 @@ export interface FormToken extends FullToken<'Form'> {
 
 function resetForm(token: AliasToken): CSSObject {
   return {
-    'legend': {
+    legend: {
       display: 'block',
       width: '100%',
       marginBottom: token.marginLG,
@@ -132,7 +132,7 @@ function resetForm(token: AliasToken): CSSObject {
     },
 
     // Adjust output element
-    'output': {
+    output: {
       display: 'block',
       paddingTop: 15,
       color: token.colorText,
@@ -206,8 +206,8 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
     [formItemCls]: {
       ...resetComponent(token),
 
-      'marginBottom': itemMarginBottom,
-      'verticalAlign': 'top',
+      marginBottom: itemMarginBottom,
+      verticalAlign: 'top',
 
       '&-with-help': {
         transition: 'none',
@@ -235,20 +235,20 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
       // =                            Label                           =
       // ==============================================================
       [`${formItemCls}-label`]: {
-        'flexGrow': 0,
-        'overflow': 'hidden',
-        'whiteSpace': 'nowrap',
-        'textAlign': 'end',
-        'verticalAlign': 'middle',
+        flexGrow: 0,
+        overflow: 'hidden',
+        whiteSpace: 'nowrap',
+        textAlign: 'end',
+        verticalAlign: 'middle',
 
         '&-left': {
           textAlign: 'start',
         },
 
         '&-wrap': {
-          'overflow': 'unset',
-          'lineHeight': token.lineHeight,
-          'whiteSpace': 'unset',
+          overflow: 'unset',
+          lineHeight: token.lineHeight,
+          whiteSpace: 'unset',
 
           '> label': {
             verticalAlign: 'middle',
@@ -257,13 +257,13 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
         },
 
         '> label': {
-          'position': 'relative',
-          'display': 'inline-flex',
-          'alignItems': 'center',
-          'maxWidth': '100%',
-          'height': labelHeight,
-          'color': labelColor,
-          'fontSize': labelFontSize,
+          position: 'relative',
+          display: 'inline-flex',
+          alignItems: 'center',
+          maxWidth: '100%',
+          height: labelHeight,
+          color: labelColor,
+          fontSize: labelFontSize,
 
           [`> ${iconCls}`]: {
             fontSize: token.fontSize,
@@ -325,8 +325,8 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
       // ==============================================================
       [`${formItemCls}-control`]: {
         [varName('display')]: 'flex',
-        'flexDirection': 'column',
-        'flexGrow': 1,
+        flexDirection: 'column',
+        flexGrow: 1,
 
         [`&:first-child:not([class^="'${rootPrefixCls}-col-'"]):not([class*="' ${rootPrefixCls}-col-'"])`]:
           {
@@ -334,10 +334,10 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
           },
 
         '&-input': {
-          'position': 'relative',
-          'display': 'flex',
-          'alignItems': 'center',
-          'minHeight': token.controlHeight,
+          position: 'relative',
+          display: 'flex',
+          alignItems: 'center',
+          minHeight: token.controlHeight,
 
           '&-content': {
             flex: 'auto',
@@ -398,13 +398,13 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
       // =                        Feedback Icon                       =
       // ==============================================================
       [`${formItemCls}-feedback-icon`]: {
-        'fontSize': token.fontSize,
-        'textAlign': 'center',
-        'visibility': 'visible',
-        'animationName': zoomIn,
-        'animationDuration': token.motionDurationMid,
-        'animationTimingFunction': token.motionEaseOutBack,
-        'pointerEvents': 'none',
+        fontSize: token.fontSize,
+        textAlign: 'center',
+        visibility: 'visible',
+        animationName: zoomIn,
+        animationDuration: token.motionDurationMid,
+        animationTimingFunction: token.motionEaseOutBack,
+        pointerEvents: 'none',
 
         '&-success': {
           color: token.colorSuccess,
@@ -428,13 +428,13 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
 
 function makeVerticalLayoutLabel(token: FormToken): CSSObject {
   return {
-    'padding': token.verticalLabelPadding,
-    'margin': token.verticalLabelMargin,
-    'whiteSpace': 'initial',
-    'textAlign': 'start',
+    padding: token.verticalLabelPadding,
+    margin: token.verticalLabelMargin,
+    whiteSpace: 'initial',
+    textAlign: 'start',
 
     '> label': {
-      'margin': 0,
+      margin: 0,
 
       '&::after': {
       // https://github.com/ant-design/ant-design/issues/43538
@@ -484,9 +484,9 @@ const genInlineStyle: GenerateStyle<FormToken> = (token) => {
       flexWrap: 'wrap',
 
       [`${formItemCls}-inline`]: {
-        'flex': 'none',
-        'marginInlineEnd': token.margin,
-        'marginBottom': inlineItemMarginBottom,
+        flex: 'none',
+        marginInlineEnd: token.margin,
+        marginBottom: inlineItemMarginBottom,
 
         '&-row': {
           flexWrap: 'nowrap',

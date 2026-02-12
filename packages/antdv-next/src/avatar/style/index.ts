@@ -128,17 +128,17 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
   return {
     [componentCls]: {
       ...resetComponent(token),
-      'position': 'relative',
-      'display': 'inline-flex',
-      'justifyContent': 'center',
-      'alignItems': 'center',
-      'overflow': 'hidden',
-      'color': avatarColor,
-      'whiteSpace': 'nowrap',
-      'textAlign': 'center',
-      'verticalAlign': 'middle',
-      'background': avatarBg,
-      'border': `${unit(lineWidth)} ${lineType} transparent`,
+      position: 'relative',
+      display: 'inline-flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      overflow: 'hidden',
+      color: avatarColor,
+      whiteSpace: 'nowrap',
+      textAlign: 'center',
+      verticalAlign: 'middle',
+      background: avatarBg,
+      border: `${unit(lineWidth)} ${lineType} transparent`,
 
       '&-image': {
         background: 'transparent',
@@ -173,7 +173,7 @@ const genGroupStyle: GenerateStyle<AvatarToken> = (token) => {
 
   return {
     [`${componentCls}-group`]: {
-      'display': 'inline-flex',
+      display: 'inline-flex',
 
       [componentCls]: {
         borderColor: groupBorderColor,

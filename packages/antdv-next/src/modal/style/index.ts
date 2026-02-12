@@ -1,5 +1,4 @@
 import type { CSSProperties } from 'vue'
-
 import type {
   AliasToken,
   FullToken,
@@ -8,6 +7,7 @@ import type {
   GlobalToken,
   TokenWithCommonCls,
 } from '../../theme/internal'
+
 import { unit } from '@antdv-next/cssinjs'
 import { getMediaSize } from '../../grid/style'
 import { genFocusOutline, genFocusStyle, resetComponent } from '../../style'
@@ -184,7 +184,7 @@ export const genModalMaskStyle: GenerateStyle<TokenWithCommonCls<AliasToken>> = 
 }
 
 const genModalStyle: GenerateStyle<ModalToken> = (token) => {
-  const { componentCls } = token
+  const { componentCls, motionDurationMid } = token
 
   return [
     // ======================== Root =========================
@@ -195,7 +195,7 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
         },
 
         [`${componentCls}-centered`]: {
-          'textAlign': 'center',
+          textAlign: 'center',
 
           '&::before': {
             display: 'inline-block',
@@ -231,12 +231,12 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
     {
       [componentCls]: {
         ...resetComponent(token),
-        'pointerEvents': 'none',
-        'position': 'relative',
-        'top': 100,
-        'width': 'auto',
-        'maxWidth': `calc(100vw - ${unit(token.calc(token.margin).mul(2).equal())})`,
-        'margin': '0 auto',
+        pointerEvents: 'none',
+        position: 'relative',
+        top: 100,
+        width: 'auto',
+        maxWidth: `calc(100vw - ${unit(token.calc(token.margin).mul(2).equal())})`,
+        margin: '0 auto',
 
         '&:focus-visible': {
           borderRadius: token.borderRadiusLG,
@@ -264,28 +264,29 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
         },
 
         [`${componentCls}-close`]: {
-          'position': 'absolute',
-          'top': token.calc(token.modalHeaderHeight).sub(token.modalCloseBtnSize).div(2).equal(),
-          'insetInlineEnd': token
+          position: 'absolute',
+          top: token.calc(token.modalHeaderHeight).sub(token.modalCloseBtnSize).div(2).equal(),
+          insetInlineEnd: token
             .calc(token.modalHeaderHeight)
             .sub(token.modalCloseBtnSize)
             .div(2)
             .equal(),
-          'zIndex': token.calc(token.zIndexPopupBase).add(10).equal(),
-          'padding': 0,
-          'color': token.modalCloseIconColor,
-          'fontWeight': token.fontWeightStrong,
-          'lineHeight': 1,
-          'textDecoration': 'none',
-          'background': 'transparent',
-          'borderRadius': token.borderRadiusSM,
-          'width': token.modalCloseBtnSize,
-          'height': token.modalCloseBtnSize,
-          'border': 0,
-          'outline': 0,
-          'cursor': 'pointer',
-          'transition': `color ${token.motionDurationMid}, background-color ${token.motionDurationMid}`,
-
+          zIndex: token.calc(token.zIndexPopupBase).add(10).equal(),
+          padding: 0,
+          color: token.modalCloseIconColor,
+          fontWeight: token.fontWeightStrong,
+          lineHeight: 1,
+          textDecoration: 'none',
+          background: 'transparent',
+          borderRadius: token.borderRadiusSM,
+          width: token.modalCloseBtnSize,
+          height: token.modalCloseBtnSize,
+          border: 0,
+          outline: 0,
+          cursor: 'pointer',
+          transition: ['color', 'background-color']
+            .map(prop => `${prop} ${motionDurationMid}`)
+            .join(', '),
           '&-x': {
             display: 'flex',
             fontSize: token.fontSizeLG,

@@ -1,8 +1,8 @@
 import type { CSSInterpolation } from '@antdv-next/cssinjs'
 import type { CSSProperties } from 'vue'
 import type { FullToken, GenStyleFn, GetDefaultToken } from '../../theme/internal'
-
 import { FastColor } from '@ant-design/fast-color'
+
 import { unit } from '@antdv-next/cssinjs'
 import { AggregationColor } from '../../color-picker/color'
 import { isBright } from '../../color-picker/components/ColorPresets'
@@ -47,19 +47,19 @@ function genBaseStyle(token: TagToken): CSSInterpolation {
     // Result
     [componentCls]: {
       ...resetComponent(token),
-      'display': 'inline-block',
-      'height': 'auto',
+      display: 'inline-block',
+      height: 'auto',
       paddingInline,
-      'fontSize': token.tagFontSize,
-      'lineHeight': token.tagLineHeight,
-      'whiteSpace': 'nowrap',
-      'backgroundColor': token.defaultBg,
-      'border': `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
-      'borderRadius': token.borderRadiusSM,
-      'opacity': 1,
-      'transition': `all ${token.motionDurationMid}`,
-      'textAlign': 'start',
-      'position': 'relative',
+      fontSize: token.tagFontSize,
+      lineHeight: token.tagLineHeight,
+      whiteSpace: 'nowrap',
+      backgroundColor: token.defaultBg,
+      border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
+      borderRadius: token.borderRadiusSM,
+      opacity: 1,
+      transition: `all ${token.motionDurationMid}`,
+      textAlign: 'start',
+      position: 'relative',
 
       // RTL
       [`&${componentCls}-rtl`]: {
@@ -71,11 +71,11 @@ function genBaseStyle(token: TagToken): CSSInterpolation {
       },
 
       [`${componentCls}-close-icon`]: {
-        'marginInlineStart': iconMarginInline,
-        'fontSize': token.tagIconSize,
-        'color': token.colorIcon,
-        'cursor': 'pointer',
-        'transition': `all ${token.motionDurationMid}`,
+        marginInlineStart: iconMarginInline,
+        fontSize: token.tagIconSize,
+        color: token.colorIcon,
+        cursor: 'pointer',
+        transition: `all ${token.motionDurationMid}`,
 
         '&:hover': {
           color: token.colorTextHeading,
@@ -83,9 +83,9 @@ function genBaseStyle(token: TagToken): CSSInterpolation {
       },
 
       '&-checkable': {
-        'backgroundColor': 'transparent',
-        'borderColor': 'transparent',
-        'cursor': 'pointer',
+        backgroundColor: 'transparent',
+        borderColor: 'transparent',
+        cursor: 'pointer',
 
         [`&:not(${componentCls}-checkable-checked):hover`]: {
           color: token.colorPrimary,
@@ -97,7 +97,7 @@ function genBaseStyle(token: TagToken): CSSInterpolation {
         },
 
         '&-checked': {
-          'backgroundColor': token.colorPrimary,
+          backgroundColor: token.colorPrimary,
           '&:hover': {
             backgroundColor: token.colorPrimaryHover,
           },
@@ -108,10 +108,10 @@ function genBaseStyle(token: TagToken): CSSInterpolation {
         },
 
         '&-disabled': {
-          'cursor': 'not-allowed',
+          cursor: 'not-allowed',
 
           [`&:not(${componentCls}-checkable-checked)`]: {
-            'color': token.colorTextDisabled,
+            color: token.colorTextDisabled,
             '&:hover': {
               backgroundColor: 'transparent',
             },
@@ -165,13 +165,13 @@ function genBaseStyle(token: TagToken): CSSInterpolation {
     },
 
     [`&${componentCls}-disabled`]: {
-      'color': token.colorTextDisabled,
-      'cursor': 'not-allowed',
-      'backgroundColor': token.colorBgContainerDisabled,
-      'a': {
-        'cursor': 'not-allowed',
-        'pointerEvents': 'none',
-        'color': token.colorTextDisabled,
+      color: token.colorTextDisabled,
+      cursor: 'not-allowed',
+      backgroundColor: token.colorBgContainerDisabled,
+      a: {
+        cursor: 'not-allowed',
+        pointerEvents: 'none',
+        color: token.colorTextDisabled,
         '&:hover': {
           color: token.colorTextDisabled,
         },
@@ -195,8 +195,8 @@ function genBaseStyle(token: TagToken): CSSInterpolation {
       },
 
       [`${componentCls}-close-icon`]: {
-        'cursor': 'not-allowed',
-        'color': token.colorTextDisabled,
+        cursor: 'not-allowed',
+        color: token.colorTextDisabled,
         '&:hover': {
           color: token.colorTextDisabled,
         },

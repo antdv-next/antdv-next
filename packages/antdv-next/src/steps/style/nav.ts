@@ -30,11 +30,11 @@ const genLegacyNavStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       // ==========================================================
       // ========================== Item ==========================
       [itemCls.repeat(4)]: {
-        'display': 'flex',
-        'justifyContent': 'center',
-        'position': 'relative',
-        'flex': 1,
-        'marginInlineStart': 0,
+        display: 'flex',
+        justifyContent: 'center',
+        position: 'relative',
+        flex: 1,
+        marginInlineStart: 0,
 
         [`${itemCls}-wrapper`]: {
           paddingBlock: token.paddingSM,

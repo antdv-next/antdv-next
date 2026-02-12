@@ -30,7 +30,7 @@ const genHorizontalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
         [itemCls]: {
           [`${itemCls}-wrapper`]: {
             [timelineVarName('alternate-content-offset')]:
-              `calc(${timelineVarRef('content-height')} + ${stepsVarRef('title-vertical-row-gap')} * 2 + ${stepsVarRef('icon-size-max')})`,
+                `calc(${timelineVarRef('content-height')} + ${stepsVarRef('title-vertical-row-gap')} * 2 + ${stepsVarRef('icon-size-max')})`,
             height: `calc(${timelineVarRef('content-height')} * 2 + ${stepsVarRef('title-vertical-row-gap')} * 2 + ${stepsVarRef('icon-size-max')})`,
           },
 

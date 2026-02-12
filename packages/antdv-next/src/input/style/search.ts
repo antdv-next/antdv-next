@@ -13,7 +13,7 @@ const genSearchStyle: GenerateStyle<FullToken<'Input'>> = (token) => {
       // =========================== Button ===========================
       [btnCls]: {
         '&-filled': {
-          'background': token.colorFillTertiary,
+          background: token.colorFillTertiary,
 
           '&:not(:disabled)': {
             '&:hover': {

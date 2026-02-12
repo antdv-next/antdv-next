@@ -26,20 +26,20 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
 
   return {
     [componentCls]: {
-      'outline': 'none',
-      'position': 'relative',
-      'display': 'inline-flex',
-      'gap': iconGap,
-      'alignItems': 'center',
-      'justifyContent': 'center',
+      outline: 'none',
+      position: 'relative',
+      display: 'inline-flex',
+      gap: iconGap,
+      alignItems: 'center',
+      justifyContent: 'center',
       fontWeight,
-      'whiteSpace': 'nowrap',
-      'textAlign': 'center',
-      'backgroundImage': 'none',
-      'cursor': 'pointer',
-      'transition': `all ${token.motionDurationMid} ${token.motionEaseInOut}`,
-      'userSelect': 'none',
-      'touchAction': 'manipulation',
+      whiteSpace: 'nowrap',
+      textAlign: 'center',
+      backgroundImage: 'none',
+      cursor: 'pointer',
+      transition: `all ${token.motionDurationMid} ${token.motionEaseInOut}`,
+      userSelect: 'none',
+      touchAction: 'manipulation',
 
       '&:disabled > *': {
         pointerEvents: 'none',

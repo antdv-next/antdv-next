@@ -49,7 +49,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token) => {
   return {
     [componentCls]: {
       ...resetComponent(token),
-      'position': 'relative',
+      position: 'relative',
 
       '&-rtl': {
         direction: 'rtl',
@@ -86,8 +86,8 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token) => {
 
       // ========================= Container ==========================
       [`${componentCls}-container`]: {
-        'position': 'relative',
-        'transition': `opacity ${token.motionDurationSlow}`,
+        position: 'relative',
+        transition: `opacity ${token.motionDurationSlow}`,
 
         '&::after': {
           position: 'absolute',
@@ -113,10 +113,10 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token) => {
         },
 
         [`${componentCls}-container`]: {
-          'clear': 'both',
-          'opacity': 0.5,
-          'userSelect': 'none',
-          'pointerEvents': 'none',
+          clear: 'both',
+          opacity: 0.5,
+          userSelect: 'none',
+          pointerEvents: 'none',
 
           '&::after': {
             opacity: 0.4,
@@ -167,15 +167,15 @@ const genIndicatorStyle: GenerateStyle<SpinToken> = (token) => {
       [`${componentCls}-dot`]: {
         // >>> holder
         '&-holder': {
-          'width': '1em',
-          'height': '1em',
-          'fontSize': varRef('dot-holder-size'),
-          'display': 'inline-block',
-          'transition': ['transform', 'opacity']
+          width: '1em',
+          height: '1em',
+          fontSize: varRef('dot-holder-size'),
+          display: 'inline-block',
+          transition: ['transform', 'opacity']
             .map(prop => `${prop} ${motionDurationSlow} ease`)
             .join(', '),
-          'transformOrigin': '50% 50%',
-          'lineHeight': 1,
+          transformOrigin: '50% 50%',
+          lineHeight: 1,
 
           '&-hidden': {
             transform: 'scale(0.3)',
@@ -184,11 +184,11 @@ const genIndicatorStyle: GenerateStyle<SpinToken> = (token) => {
         },
 
         // >>> holder > dot
-        'position': 'relative',
-        'display': 'inline-block',
-        'fontSize': varRef('dot-holder-size'),
-        'width': '1em',
-        'height': '1em',
+        position: 'relative',
+        display: 'inline-block',
+        fontSize: varRef('dot-holder-size'),
+        width: '1em',
+        height: '1em',
 
         '&-spin': {
           transform: 'rotate(45deg)',
@@ -200,20 +200,20 @@ const genIndicatorStyle: GenerateStyle<SpinToken> = (token) => {
 
         // >>> holder > dot > item
         '&-item': {
-          'position': 'absolute',
-          'display': 'block',
-          'width': varRef('dot-item-size'),
-          'height': varRef('dot-item-size'),
-          'background': 'currentColor',
-          'borderRadius': '100%',
-          'transform': 'scale(0.75)',
-          'transformOrigin': '50% 50%',
-          'opacity': 0.3,
-          'animationName': antSpinMove,
-          'animationDuration': '1s',
-          'animationIterationCount': 'infinite',
-          'animationTimingFunction': 'linear',
-          'animationDirection': 'alternate',
+          position: 'absolute',
+          display: 'block',
+          width: varRef('dot-item-size'),
+          height: varRef('dot-item-size'),
+          background: 'currentColor',
+          borderRadius: '100%',
+          transform: 'scale(0.75)',
+          transformOrigin: '50% 50%',
+          opacity: 0.3,
+          animationName: antSpinMove,
+          animationDuration: '1s',
+          animationIterationCount: 'infinite',
+          animationTimingFunction: 'linear',
+          animationDirection: 'alternate',
 
           '&:nth-child(1)': {
             top: 0,

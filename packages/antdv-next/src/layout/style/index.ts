@@ -114,13 +114,13 @@ const genLayoutStyle: GenerateStyle<LayoutToken, CSSObject> = (token) => {
 
   return {
     [componentCls]: {
-      'display': 'flex',
-      'flex': 'auto',
-      'flexDirection': 'column',
+      display: 'flex',
+      flex: 'auto',
+      flexDirection: 'column',
 
       /* fix firefox can't set height smaller than content on flex item */
-      'minHeight': 0,
-      'background': bodyBg,
+      minHeight: 0,
+      background: bodyBg,
 
       '&, *': {
         boxSizing: 'border-box',

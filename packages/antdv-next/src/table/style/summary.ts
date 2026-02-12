@@ -10,9 +10,9 @@ const genSummaryStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
   return {
     [`${componentCls}-wrapper`]: {
       [`${componentCls}-summary`]: {
-        'position': 'relative',
-        'zIndex': token.zIndexTableFixed,
-        'background': token.tableBg,
+        position: 'relative',
+        zIndex: token.zIndexTableFixed,
+        background: token.tableBg,
         '> tr': {
           '> th, > td': {
             borderBottom: tableBorder,

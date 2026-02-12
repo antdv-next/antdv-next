@@ -112,10 +112,10 @@ const genPanelStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
         // ======================= Item =======================
         [itemCls]: {
-          'padding': varRef('panel-padding'),
-          'background': varRef('panel-bg-color'),
-          'position': 'relative',
-          'borderBlock': borderStyle,
+          padding: varRef('panel-padding'),
+          background: varRef('panel-bg-color'),
+          position: 'relative',
+          borderBlock: borderStyle,
 
           '&:not(:first-child)': {
             paddingInlineStart: `calc(${varRef('panel-padding')} + ${varRef('item-base-width')})`,
