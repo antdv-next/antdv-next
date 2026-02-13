@@ -4,6 +4,7 @@ import pm from 'picomatch'
 import { normalizePath } from 'vite'
 import { parse } from 'vue/compiler-sfc'
 import { createMarkdown, loadBaseMd, loadShiki } from '../markdown'
+import { tsToJs } from './tsToJs'
 
 /**
  * 将绝对路径转换为相对于项目根目录的路径
@@ -44,12 +45,16 @@ async function parseDemoFile(filePath: string, md: any) {
   }))
 
   const sourceCode = code.replace(/<docs[^>]*>[\s\S]*?<\/docs>/g, '').trim()
+  const jsSourceCode = tsToJs(sourceCode)
   const sourceHtml = await md.renderAsync(`\`\`\`vue\n${sourceCode}\n\`\`\``)
+  const jsSourceHtml = await md.renderAsync(`\`\`\`vue\n${jsSourceCode}\n\`\`\``)
 
   return {
     locales,
     sourceCode,
+    jsSourceCode,
     sourceHtml,
+    jsSourceHtml,
   }
 }
 
@@ -103,7 +108,7 @@ export function demoPlugin(): PluginOption {
         this.addWatchFile(filePath)
 
         // 解析 demo 文件
-        const { locales, sourceCode, sourceHtml } = await parseDemoFile(filePath, md)
+        const { locales, sourceCode, jsSourceCode, sourceHtml, jsSourceHtml } = await parseDemoFile(filePath, md)
 
         // 注入带 HMR 的代码
         return {
@@ -112,13 +117,17 @@ import { ref } from 'vue'
 
 const localesRef = ref(${JSON.stringify(locales)})
 const sourceRef = ref(${JSON.stringify(sourceCode)})
+const jsSourceRef = ref(${JSON.stringify(jsSourceCode)})
 const htmlRef = ref(${JSON.stringify(sourceHtml)})
+const jsHtmlRef = ref(${JSON.stringify(jsSourceHtml)})
 
 const demoData = {
   component: () => import('${filePath}'),
   get locales() { return localesRef.value },
   get source() { return sourceRef.value },
-  get html() { return htmlRef.value }
+  get jsSource() { return jsSourceRef.value },
+  get html() { return htmlRef.value },
+  get jsHtml() { return jsHtmlRef.value }
 }
 
 // HMR 支持
@@ -126,9 +135,11 @@ if (import.meta.hot) {
   import.meta.hot.accept()
   
   import.meta.hot.on('demo-update:${normalizedFile.replace(/\\/g, '/')}', (data) => {
-    if (data.locales) localesRef.value = data.locales
-    if (data.source) sourceRef.value = data.source
-    if (data.html) htmlRef.value = data.html
+    if ('locales' in data) localesRef.value = data.locales
+    if ('source' in data) sourceRef.value = data.source
+    if ('jsSource' in data) jsSourceRef.value = data.jsSource
+    if ('html' in data) htmlRef.value = data.html
+    if ('jsHtml' in data) jsHtmlRef.value = data.jsHtml
   })
 }
 
@@ -146,7 +157,7 @@ export default demoData
         const server = ctx.server
 
         // 重新解析文件获取最新内容
-        const { locales, sourceCode, sourceHtml } = await parseDemoFile(ctx.file, md)
+        const { locales, sourceCode, jsSourceCode, sourceHtml, jsSourceHtml } = await parseDemoFile(ctx.file, md)
 
         // 发送自定义 HMR 事件更新数据
         server.ws.send({
@@ -155,7 +166,9 @@ export default demoData
           data: {
             locales,
             source: sourceCode,
+            jsSource: jsSourceCode,
             html: sourceHtml,
+            jsHtml: jsSourceHtml,
           },
         })
 

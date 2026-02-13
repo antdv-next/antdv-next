@@ -15,3 +15,7 @@ export const directionStore = useStorage<'ltr' | 'rtl'>('direction', 'ltr')
 export type ThemeMode = 'light' | 'dark' | 'system'
 
 export const themeModeStore = useStorage<ThemeMode>('theme-mode', 'light')
+
+export type DemoCodeType = 'ts' | 'js'
+
+export const demoCodeTypeStore = useStorage<DemoCodeType>('demo-code-type', 'ts')

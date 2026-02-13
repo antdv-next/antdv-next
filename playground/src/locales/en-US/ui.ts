@@ -10,6 +10,10 @@ export default {
   },
 
   codeDemo: {
+    type: {
+      typescript: 'TypeScript',
+      javascript: 'JavaScript',
+    },
     action: {
       externalLink: 'Open in new window',
       expandCode: 'Expand Code',

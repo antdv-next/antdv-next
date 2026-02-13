@@ -14,6 +14,20 @@ import { useAppStore } from '@/stores/app.ts'
 import antdvPkg from '../../../../packages/antdv-next/package.json'
 import { openStackBlitz } from './utils/stackblitz'
 
+type DemoCodeType = 'ts' | 'js'
+
+interface DemoMeta {
+  component?: any
+  locales?: Record<string, {
+    html?: string
+    title?: string
+  }>
+  source?: string
+  jsSource?: string
+  html?: string
+  jsHtml?: string
+}
+
 defineOptions({
   name: 'Demo',
 })
@@ -24,16 +38,55 @@ const { src, compact, background, simplify } = defineProps<{
   background?: string
   simplify?: boolean
 }>()
-const demo = computed(() => demos[src])
+const demo = computed<DemoMeta | undefined>(() => demos[src])
 const route = useRoute()
 const router = useRouter()
 const appStore = useAppStore()
+const { t } = useLocale()
+
+const codeType = computed<DemoCodeType>({
+  get() {
+    return appStore.demoCodeType
+  },
+  set(value) {
+    appStore.setDemoCodeType(value)
+  },
+})
+
+const hasJsSource = computed(() => {
+  const jsSource = demo.value?.jsSource?.trim()
+  return Boolean(jsSource)
+})
+
+const activeCodeType = computed<DemoCodeType>({
+  get() {
+    if (codeType.value === 'js' && hasJsSource.value)
+      return 'js'
+    return 'ts'
+  },
+  set(value) {
+    codeType.value = value
+  },
+})
+
+const activeSourceCode = computed(() => {
+  if (activeCodeType.value === 'js')
+    return demo.value?.jsSource ?? demo.value?.source ?? ''
+  return demo.value?.source ?? ''
+})
+
+const activeSourceHtml = computed(() => {
+  if (activeCodeType.value === 'js')
+    return demo.value?.jsHtml ?? demo.value?.html ?? ''
+  return demo.value?.html ?? ''
+})
+
 const description = computed(() => {
   const locales = demo.value?.locales ?? {}
   const localeData = locales[appStore.locale] || {}
   return localeData?.html ?? ''
 })
-const component = computed(() => typeof demo.value?.component === 'function' ? defineAsyncComponent(demo.value.component) : demo.value.component)
+const component = computed(() => typeof demo.value?.component === 'function' ? defineAsyncComponent(demo.value.component) : demo.value?.component)
 const id = computed(() => {
   if (!src)
     return ''
@@ -57,13 +110,11 @@ function handleScroll(e: Event) {
 const titleRef = shallowRef<HTMLElement>()
 
 function handleStackBlitz() {
-  if (demo.value?.source) {
+  if (activeSourceCode.value) {
     const title = `${titleRef.value?.textContent || 'Antdv Next Demo'} - antdv-next@${antdvPkg.version}`
-    openStackBlitz(title, demo.value.source)
+    openStackBlitz(title, activeSourceCode.value)
   }
 }
-
-const { t } = useLocale()
 
 const demoStyle = computed(() => {
   const styles: CSSProperties = {}
@@ -80,7 +131,7 @@ const demoStyle = computed(() => {
 })
 
 const { copied, copy } = useClipboard({
-  source: computed(() => demo.value?.source ?? ''),
+  source: activeSourceCode,
   legacy: true,
 })
 
@@ -145,15 +196,31 @@ const cls = computed(() => {
           </div>
         </a-flex>
       </section>
-      <div v-if="showCode" class="ant-doc-demo-box-code">
-        <a-tooltip :title="t(`ui.codeDemo.action.${copied ? 'copied' : 'copy'}`)">
-          <div class="ant-doc-demo-box-code-copy" :class="copied ? 'ant-doc-demo-box-code-copied' : ''" @click="copy()">
-            <CopyOutlined v-if="!copied" />
-            <CheckOutlined v-else />
-          </div>
-        </a-tooltip>
-        <div v-html="demo?.html" />
-      </div>
+      <template v-if="showCode">
+        <div
+          class="ant-doc-demo-box-code-tabs"
+        >
+          <a-tabs
+            v-model:active-key="activeCodeType"
+            centered
+            size="small"
+          >
+            <a-tab-pane key="ts" :tab="t('ui.codeDemo.type.typescript')" />
+            <a-tab-pane key="js" :tab="t('ui.codeDemo.type.javascript')" />
+          </a-tabs>
+        </div>
+        <div
+          class="ant-doc-demo-box-code"
+        >
+          <a-tooltip :title="t(`ui.codeDemo.action.${copied ? 'copied' : 'copy'}`)">
+            <div class="ant-doc-demo-box-code-copy" :class="copied ? 'ant-doc-demo-box-code-copied' : ''" @click="copy()">
+              <CopyOutlined v-if="!copied" />
+              <CheckOutlined v-else />
+            </div>
+          </a-tooltip>
+          <div v-html="activeSourceHtml" />
+        </div>
+      </template>
     </template>
   </section>
 </template>
@@ -240,7 +307,14 @@ const cls = computed(() => {
     position: relative;
     line-height: 2;
     padding: var(--ant-padding-sm) var(--ant-padding);
-    border-top: 1px solid var(--ant-color-split);
+
+    &-tabs {
+      border-top: 1px dashed var(--ant-color-split);
+
+      :deep(.ant-tabs-nav) {
+        @apply mb-0;
+      }
+    }
 
     &-copy {
       position: absolute;

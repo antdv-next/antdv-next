@@ -10,6 +10,10 @@ export default {
   },
 
   codeDemo: {
+    type: {
+      typescript: 'TypeScript',
+      javascript: 'JavaScript',
+    },
     action: {
       externalLink: '在新窗口中打开',
       expandCode: '展开代码',

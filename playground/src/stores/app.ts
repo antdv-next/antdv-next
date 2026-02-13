@@ -1,5 +1,13 @@
+import type { DemoCodeType } from '@/composables/local-store'
 import { defineStore } from 'pinia'
-import { compactModeStore, darkModeStore, directionStore, happyModeStore, localeStore } from '@/composables/local-store'
+import {
+  compactModeStore,
+  darkModeStore,
+  demoCodeTypeStore,
+  directionStore,
+  happyModeStore,
+  localeStore,
+} from '@/composables/local-store'
 import { menusMap } from '@/config/menu'
 
 export interface AppState {
@@ -11,6 +19,7 @@ export interface AppState {
   compactMode: boolean
   happyMode: boolean
   direction: 'ltr' | 'rtl'
+  demoCodeType: DemoCodeType
 }
 
 export const useAppStore = defineStore('app', {
@@ -24,6 +33,7 @@ export const useAppStore = defineStore('app', {
       compactMode: compactModeStore.value ?? false,
       happyMode: happyModeStore.value ?? false,
       direction: directionStore.value ?? 'ltr',
+      demoCodeType: demoCodeTypeStore.value ?? 'ts',
     }
   },
   actions: {
@@ -55,6 +65,10 @@ export const useAppStore = defineStore('app', {
     toggleDirection(direction?: 'ltr' | 'rtl') {
       this.direction = direction || (this.direction === 'ltr' ? 'rtl' : 'ltr')
       directionStore.value = this.direction
+    },
+    setDemoCodeType(type: DemoCodeType) {
+      this.demoCodeType = type
+      demoCodeTypeStore.value = type
     },
   },
   getters: {
