@@ -196,10 +196,10 @@ exports[`calendar demo > renders _semantic correctly 1`] = `
               class="ant-picker-body semantic-mark-body"
               generateconfig="[object Object]"
               locale="[object Object]"
-              pickervalue="Thu, 12 Feb 2026 10:06:05 GMT"
+              pickervalue="Fri, 13 Feb 2026 01:06:43 GMT"
               prefixcls="ant-picker"
-              value="Thu, 12 Feb 2026 10:06:05 GMT"
-              values="Thu, 12 Feb 2026 10:06:05 GMT"
+              value="Fri, 13 Feb 2026 01:06:43 GMT"
+              values="Fri, 13 Feb 2026 01:06:43 GMT"
             >
               <table
                 class="ant-picker-content semantic-mark-content"
@@ -443,11 +443,11 @@ exports[`calendar demo > renders _semantic correctly 1`] = `
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell semantic-mark-item ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
+                      class="ant-picker-cell semantic-mark-item ant-picker-cell-in-view"
                       title="2026-02-12"
                     >
                       <div
-                        class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
+                        class="ant-picker-cell-inner ant-picker-calendar-date"
                       >
                         <div
                           class="ant-picker-calendar-date-value"
@@ -462,11 +462,11 @@ exports[`calendar demo > renders _semantic correctly 1`] = `
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell semantic-mark-item ant-picker-cell-in-view"
+                      class="ant-picker-cell semantic-mark-item ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                       title="2026-02-13"
                     >
                       <div
-                        class="ant-picker-cell-inner ant-picker-calendar-date"
+                        class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
                       >
                         <div
                           class="ant-picker-calendar-date-value"
@@ -1905,10 +1905,10 @@ exports[`calendar demo > renders basic correctly 1`] = `
         class="ant-picker-body"
         generateconfig="[object Object]"
         locale="[object Object]"
-        pickervalue="Thu, 12 Feb 2026 10:06:05 GMT"
+        pickervalue="Fri, 13 Feb 2026 01:06:43 GMT"
         prefixcls="ant-picker"
-        value="Thu, 12 Feb 2026 10:06:05 GMT"
-        values="Thu, 12 Feb 2026 10:06:05 GMT"
+        value="Fri, 13 Feb 2026 01:06:43 GMT"
+        values="Fri, 13 Feb 2026 01:06:43 GMT"
       >
         <table
           class="ant-picker-content"
@@ -2152,11 +2152,11 @@ exports[`calendar demo > renders basic correctly 1`] = `
                 </div>
               </td>
               <td
-                class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
+                class="ant-picker-cell ant-picker-cell-in-view"
                 title="2026-02-12"
               >
                 <div
-                  class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
                   <div
                     class="ant-picker-calendar-date-value"
@@ -2171,11 +2171,11 @@ exports[`calendar demo > renders basic correctly 1`] = `
                 </div>
               </td>
               <td
-                class="ant-picker-cell ant-picker-cell-in-view"
+                class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                 title="2026-02-13"
               >
                 <div
-                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                  class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
                 >
                   <div
                     class="ant-picker-calendar-date-value"
@@ -2948,10 +2948,10 @@ exports[`calendar demo > renders card correctly 1`] = `
           class="ant-picker-body"
           generateconfig="[object Object]"
           locale="[object Object]"
-          pickervalue="Thu, 12 Feb 2026 10:06:05 GMT"
+          pickervalue="Fri, 13 Feb 2026 01:06:43 GMT"
           prefixcls="ant-picker"
-          value="Thu, 12 Feb 2026 10:06:05 GMT"
-          values="Thu, 12 Feb 2026 10:06:05 GMT"
+          value="Fri, 13 Feb 2026 01:06:43 GMT"
+          values="Fri, 13 Feb 2026 01:06:43 GMT"
         >
           <table
             class="ant-picker-content"
@@ -3195,11 +3195,11 @@ exports[`calendar demo > renders card correctly 1`] = `
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2026-02-12"
                 >
                   <div
-                    class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
                     <div
                       class="ant-picker-calendar-date-value"
@@ -3214,11 +3214,11 @@ exports[`calendar demo > renders card correctly 1`] = `
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                   title="2026-02-13"
                 >
                   <div
-                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                    class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
                   >
                     <div
                       class="ant-picker-calendar-date-value"
@@ -4015,10 +4015,10 @@ exports[`calendar demo > renders customize-header correctly 1`] = `
           class="ant-picker-body"
           generateconfig="[object Object]"
           locale="[object Object]"
-          pickervalue="Thu, 12 Feb 2026 10:06:05 GMT"
+          pickervalue="Fri, 13 Feb 2026 01:06:44 GMT"
           prefixcls="ant-picker"
-          value="Thu, 12 Feb 2026 10:06:05 GMT"
-          values="Thu, 12 Feb 2026 10:06:05 GMT"
+          value="Fri, 13 Feb 2026 01:06:44 GMT"
+          values="Fri, 13 Feb 2026 01:06:44 GMT"
         >
           <table
             class="ant-picker-content"
@@ -4262,11 +4262,11 @@ exports[`calendar demo > renders customize-header correctly 1`] = `
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2026-02-12"
                 >
                   <div
-                    class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
                     <div
                       class="ant-picker-calendar-date-value"
@@ -4281,11 +4281,11 @@ exports[`calendar demo > renders customize-header correctly 1`] = `
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                   title="2026-02-13"
                 >
                   <div
-                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                    class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
                   >
                     <div
                       class="ant-picker-calendar-date-value"
@@ -5082,10 +5082,10 @@ exports[`calendar demo > renders lunar correctly 1`] = `
           class="ant-picker-body"
           generateconfig="[object Object]"
           locale="[object Object]"
-          pickervalue="Thu, 12 Feb 2026 10:06:05 GMT"
+          pickervalue="Fri, 13 Feb 2026 01:06:44 GMT"
           prefixcls="ant-picker"
-          value="Thu, 12 Feb 2026 10:06:05 GMT"
-          values="Thu, 12 Feb 2026 10:06:05 GMT"
+          value="Fri, 13 Feb 2026 01:06:44 GMT"
+          values="Fri, 13 Feb 2026 01:06:44 GMT"
         >
           <table
             class="ant-picker-content"
@@ -5417,11 +5417,11 @@ exports[`calendar demo > renders lunar correctly 1`] = `
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2026-02-12"
                 >
                   <div
-                    class="dateCell current today"
+                    class="dateCell"
                     data-v-3925b29d=""
                   >
                     <div
@@ -5444,11 +5444,11 @@ exports[`calendar demo > renders lunar correctly 1`] = `
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                   title="2026-02-13"
                 >
                   <div
-                    class="dateCell"
+                    class="dateCell current today"
                     data-v-3925b29d=""
                   >
                     <div
@@ -6456,10 +6456,10 @@ exports[`calendar demo > renders notice-calendar correctly 1`] = `
         class="ant-picker-body"
         generateconfig="[object Object]"
         locale="[object Object]"
-        pickervalue="Thu, 12 Feb 2026 10:06:05 GMT"
+        pickervalue="Fri, 13 Feb 2026 01:06:44 GMT"
         prefixcls="ant-picker"
-        value="Thu, 12 Feb 2026 10:06:05 GMT"
-        values="Thu, 12 Feb 2026 10:06:05 GMT"
+        value="Fri, 13 Feb 2026 01:06:44 GMT"
+        values="Fri, 13 Feb 2026 01:06:44 GMT"
       >
         <table
           class="ant-picker-content"
@@ -6823,11 +6823,11 @@ exports[`calendar demo > renders notice-calendar correctly 1`] = `
                 </div>
               </td>
               <td
-                class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
+                class="ant-picker-cell ant-picker-cell-in-view"
                 title="2026-02-12"
               >
                 <div
-                  class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
                   <div
                     class="ant-picker-calendar-date-value"
@@ -6845,11 +6845,11 @@ exports[`calendar demo > renders notice-calendar correctly 1`] = `
                 </div>
               </td>
               <td
-                class="ant-picker-cell ant-picker-cell-in-view"
+                class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                 title="2026-02-13"
               >
                 <div
-                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                  class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
                 >
                   <div
                     class="ant-picker-calendar-date-value"
@@ -7928,10 +7928,10 @@ exports[`calendar demo > renders select correctly 1`] = `
           class="ant-picker-body"
           generateconfig="[object Object]"
           locale="[object Object]"
-          pickervalue="Thu, 12 Feb 2026 10:06:05 GMT"
+          pickervalue="Fri, 13 Feb 2026 01:06:44 GMT"
           prefixcls="ant-picker"
-          value="Thu, 12 Feb 2026 10:06:05 GMT"
-          values="Thu, 12 Feb 2026 10:06:05 GMT"
+          value="Fri, 13 Feb 2026 01:06:44 GMT"
+          values="Fri, 13 Feb 2026 01:06:44 GMT"
         >
           <table
             class="ant-picker-content"
@@ -8175,11 +8175,11 @@ exports[`calendar demo > renders select correctly 1`] = `
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2026-02-12"
                 >
                   <div
-                    class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
                     <div
                       class="ant-picker-calendar-date-value"
@@ -8194,11 +8194,11 @@ exports[`calendar demo > renders select correctly 1`] = `
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                   title="2026-02-13"
                 >
                   <div
-                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                    class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
                   >
                     <div
                       class="ant-picker-calendar-date-value"
@@ -8973,10 +8973,10 @@ exports[`calendar demo > renders style-class correctly 1`] = `
           class="ant-picker-body"
           generateconfig="[object Object]"
           locale="[object Object]"
-          pickervalue="Thu, 12 Feb 2026 10:06:05 GMT"
+          pickervalue="Fri, 13 Feb 2026 01:06:44 GMT"
           prefixcls="ant-picker"
-          value="Thu, 12 Feb 2026 10:06:05 GMT"
-          values="Thu, 12 Feb 2026 10:06:05 GMT"
+          value="Fri, 13 Feb 2026 01:06:44 GMT"
+          values="Fri, 13 Feb 2026 01:06:44 GMT"
         >
           <table
             class="ant-picker-content"
@@ -9220,11 +9220,11 @@ exports[`calendar demo > renders style-class correctly 1`] = `
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2026-02-12"
                 >
                   <div
-                    class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
                     <div
                       class="ant-picker-calendar-date-value"
@@ -9239,11 +9239,11 @@ exports[`calendar demo > renders style-class correctly 1`] = `
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                   title="2026-02-13"
                 >
                   <div
-                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                    class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
                   >
                     <div
                       class="ant-picker-calendar-date-value"
@@ -10008,10 +10008,10 @@ exports[`calendar demo > renders style-class correctly 1`] = `
           class="ant-picker-body"
           generateconfig="[object Object]"
           locale="[object Object]"
-          pickervalue="Thu, 12 Feb 2026 10:06:05 GMT"
+          pickervalue="Fri, 13 Feb 2026 01:06:44 GMT"
           prefixcls="ant-picker"
-          value="Thu, 12 Feb 2026 10:06:05 GMT"
-          values="Thu, 12 Feb 2026 10:06:05 GMT"
+          value="Fri, 13 Feb 2026 01:06:44 GMT"
+          values="Fri, 13 Feb 2026 01:06:44 GMT"
         >
           <table
             class="ant-picker-content"
@@ -10255,11 +10255,11 @@ exports[`calendar demo > renders style-class correctly 1`] = `
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2026-02-12"
                 >
                   <div
-                    class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
                     <div
                       class="ant-picker-calendar-date-value"
@@ -10274,11 +10274,11 @@ exports[`calendar demo > renders style-class correctly 1`] = `
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                   title="2026-02-13"
                 >
                   <div
-                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                    class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
                   >
                     <div
                       class="ant-picker-calendar-date-value"
@@ -11048,11 +11048,11 @@ exports[`calendar demo > renders week correctly 1`] = `
           class="ant-picker-body"
           generateconfig="[object Object]"
           locale="[object Object]"
-          pickervalue="Thu, 12 Feb 2026 10:06:05 GMT"
+          pickervalue="Fri, 13 Feb 2026 01:06:44 GMT"
           prefixcls="ant-picker"
           showweek="true"
-          value="Thu, 12 Feb 2026 10:06:05 GMT"
-          values="Thu, 12 Feb 2026 10:06:05 GMT"
+          value="Fri, 13 Feb 2026 01:06:44 GMT"
+          values="Fri, 13 Feb 2026 01:06:44 GMT"
         >
           <table
             class="ant-picker-content"
@@ -11321,11 +11321,11 @@ exports[`calendar demo > renders week correctly 1`] = `
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2026-02-12"
                 >
                   <div
-                    class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
                     <div
                       class="ant-picker-calendar-date-value"
@@ -11340,11 +11340,11 @@ exports[`calendar demo > renders week correctly 1`] = `
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                   title="2026-02-13"
                 >
                   <div
-                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                    class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
                   >
                     <div
                       class="ant-picker-calendar-date-value"
@@ -12146,11 +12146,11 @@ exports[`calendar demo > renders week correctly 1`] = `
           class="ant-picker-body"
           generateconfig="[object Object]"
           locale="[object Object]"
-          pickervalue="Thu, 12 Feb 2026 10:06:05 GMT"
+          pickervalue="Fri, 13 Feb 2026 01:06:44 GMT"
           prefixcls="ant-picker"
           showweek="true"
-          value="Thu, 12 Feb 2026 10:06:05 GMT"
-          values="Thu, 12 Feb 2026 10:06:05 GMT"
+          value="Fri, 13 Feb 2026 01:06:44 GMT"
+          values="Fri, 13 Feb 2026 01:06:44 GMT"
         >
           <table
             class="ant-picker-content"
@@ -12419,11 +12419,11 @@ exports[`calendar demo > renders week correctly 1`] = `
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2026-02-12"
                 >
                   <div
-                    class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
                     <div
                       class="ant-picker-calendar-date-value"
@@ -12438,11 +12438,11 @@ exports[`calendar demo > renders week correctly 1`] = `
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                   title="2026-02-13"
                 >
                   <div
-                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                    class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
                   >
                     <div
                       class="ant-picker-calendar-date-value"
