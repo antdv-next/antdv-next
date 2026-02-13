@@ -45,7 +45,7 @@ async function parseDemoFile(filePath: string, md: any) {
   }))
 
   const sourceCode = code.replace(/<docs[^>]*>[\s\S]*?<\/docs>/g, '').trim()
-  const jsSourceCode = tsToJs(sourceCode)
+  const jsSourceCode = await tsToJs(sourceCode)
   const sourceHtml = await md.renderAsync(`\`\`\`vue\n${sourceCode}\n\`\`\``)
   const jsSourceHtml = await md.renderAsync(`\`\`\`vue\n${jsSourceCode}\n\`\`\``)
 

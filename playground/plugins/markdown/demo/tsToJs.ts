@@ -1,41 +1,89 @@
-import * as ts from 'typescript'
+import type { ESLint } from 'eslint'
+import { transformWithOxc } from 'vite'
 
 const SCRIPT_BLOCK_REGEX = /<script\b([^>]*)>([\s\S]*?)<\/script>/gi
 const SCRIPT_LANG_REGEX = /\blang\s*=\s*(['"]?)([\w-]+)\1/i
 const TS_LANGS = new Set(['ts', 'tsx', 'mts', 'cts'])
 
-function transpileScript(code: string) {
-  const output = ts.transpileModule(code, {
-    compilerOptions: {
-      target: ts.ScriptTarget.ES2020,
-      module: ts.ModuleKind.ESNext,
-      jsx: ts.JsxEmit.Preserve,
-      esModuleInterop: true,
-      verbatimModuleSyntax: true,
-      removeComments: false,
-      isolatedModules: true,
-      declaration: false,
-      noEmitHelpers: true,
-      importHelpers: false,
-      downlevelIteration: false,
-    },
-  }).outputText
+const EXPORT_MARKER_REGEX = /\n?export\s*\{\s*\};?\s*$/u
+let eslintPromise: Promise<ESLint | null> | null = null
 
-  // TypeScript may append this marker when type-only imports are erased.
-  return output.replace(/\n?export\s*\{\s*\};?\s*$/u, '')
+async function getEslint() {
+  if (!eslintPromise) {
+    eslintPromise = (async () => {
+      try {
+        const { ESLint } = await import('eslint')
+        return new ESLint({
+          fix: true,
+          fixTypes: ['layout'],
+        })
+      }
+      catch {
+        return null
+      }
+    })()
+  }
+  return eslintPromise
 }
 
-export function tsToJs(sourceCode: string) {
-  return sourceCode.replace(SCRIPT_BLOCK_REGEX, (fullMatch, attrs: string, code: string) => {
+async function formatScript(code: string, lang: string) {
+  try {
+    const eslint = await getEslint()
+    if (!eslint) {
+      return code
+    }
+
+    const filePath = `virtual-demo-script.${lang === 'tsx' ? 'jsx' : 'js'}`
+    const [result] = await eslint.lintText(code, { filePath })
+    return result?.output ?? code
+  }
+  catch {
+    return code
+  }
+}
+
+async function transpileScript(code: string, lang: string) {
+  const oxcLang = lang === 'tsx' ? 'tsx' : 'ts'
+  const result = await transformWithOxc(code, `virtual-demo-script.${oxcLang}`, {
+    lang: oxcLang,
+    sourceType: 'module',
+    target: 'es2020',
+    jsx: oxcLang === 'tsx' ? 'preserve' : undefined,
+    typescript: {
+      onlyRemoveTypeImports: true,
+    },
+    sourcemap: false,
+  })
+
+  const output = result.code
+  // remove `export {}`
+  const withoutExportMarker = output.replace(EXPORT_MARKER_REGEX, '')
+  return formatScript(withoutExportMarker, oxcLang)
+}
+
+export async function tsToJs(sourceCode: string) {
+  let nextSourceCode = ''
+  let lastIndex = 0
+  SCRIPT_BLOCK_REGEX.lastIndex = 0
+
+  for (const match of sourceCode.matchAll(SCRIPT_BLOCK_REGEX)) {
+    const [fullMatch, attrs = '', code = ''] = match
+    const startIndex = match.index ?? 0
+    nextSourceCode += sourceCode.slice(lastIndex, startIndex)
+
     const langMatch = attrs.match(SCRIPT_LANG_REGEX)
     if (!langMatch) {
-      return fullMatch
+      nextSourceCode += fullMatch
+      lastIndex = startIndex + fullMatch.length
+      continue
     }
 
     const [, quote, lang = ''] = langMatch
     const normalizedLang = lang.toLowerCase()
     if (!TS_LANGS.has(normalizedLang)) {
-      return fullMatch
+      nextSourceCode += fullMatch
+      lastIndex = startIndex + fullMatch.length
+      continue
     }
 
     const nextLang = normalizedLang === 'tsx' ? 'jsx' : 'js'
@@ -46,12 +94,17 @@ export function tsToJs(sourceCode: string) {
     )
 
     try {
-      const transpiledCode = transpileScript(code)
+      const transpiledCode = await transpileScript(code, normalizedLang)
       const normalizedCode = transpiledCode.trim()
-      return `<script${nextAttrs}>\n${normalizedCode}\n</script>`
+      nextSourceCode += `<script${nextAttrs}>\n${normalizedCode}\n</script>`
     }
     catch {
-      return fullMatch
+      nextSourceCode += fullMatch
     }
-  })
+
+    lastIndex = startIndex + fullMatch.length
+  }
+
+  nextSourceCode += sourceCode.slice(lastIndex)
+  return nextSourceCode
 }
