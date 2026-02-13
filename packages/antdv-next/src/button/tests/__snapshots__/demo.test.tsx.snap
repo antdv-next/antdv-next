@@ -1999,7 +1999,7 @@ exports[`button demo > renders disabled correctly 1`] = `
     <a
       aria-disabled="false"
       class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-      href="https://ant.design/index-cn"
+      href="https://antdv-next.com/index-cn"
     >
       <transition-stub
         appear="false"
