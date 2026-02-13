@@ -124,6 +124,7 @@ const useGlassTheme: UseTheme = () => {
       },
     },
     colorPicker: {
+      arrow: false,
       classes: {},
     },
     dropdown: {
@@ -141,7 +142,7 @@ const useGlassTheme: UseTheme = () => {
     },
     popover: {
       classes: {
-        root: styles.glassBox,
+        container: styles.glassBox,
       },
     },
     switch: {

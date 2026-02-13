@@ -119,11 +119,11 @@ const useGeekTheme: UseTheme = () => {
       },
     },
     colorPicker: {
+      arrow: false,
       classes: {
         root: styles.lightBorder,
         body: styles.colorPickerBody,
       },
-      arrow: false,
     },
     select: {
       classes: {
@@ -144,7 +144,7 @@ const useGeekTheme: UseTheme = () => {
       arrow: false,
       classes: {
         root: styles.tooltipRoot,
-        popup: styles.tooltipContainer,
+        container: styles.tooltipContainer,
       },
     },
     progress: {

@@ -76,10 +76,12 @@ const useCartoonTheme: UseTheme = () => {
         container: styles.sharedBorder,
       },
     },
-    // colorPicker: {
-    //   arrow: false,
-    // },
+    colorPicker: {
+      arrow: false,
+      classes: {},
+    },
     popover: {
+      arrow: false,
       classes: {
         root: styles.sharedBorder,
       },

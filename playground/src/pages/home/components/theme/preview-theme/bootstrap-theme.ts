@@ -6,8 +6,6 @@ import { computed } from 'vue'
 import { createStyles } from '../hooks'
 
 const useStyles = createStyles(({ css, cssVar }) => {
-  console.log(cssVar, 'cssVar')
-
   return {
     boxBorder: css({
       border: `${cssVar.lineWidth} ${cssVar.lineType} color-mix(in srgb,${cssVar.colorBorder} 80%, #000)`,
@@ -137,13 +135,13 @@ const useBootstrapTheme: UseTheme = () => {
       classes: styles.alertRoot,
     },
     colorPicker: {
+      arrow: false,
       classes: {
         root: styles.boxBorder,
         popup: {
           root: clsx(styles.boxBorder, styles.popupBox),
         },
       },
-      arrow: false,
     },
     checkbox: {
       classes: {},

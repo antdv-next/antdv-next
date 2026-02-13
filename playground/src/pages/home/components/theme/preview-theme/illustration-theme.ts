@@ -121,19 +121,22 @@ const useIllustrationTheme: UseTheme = () => {
       },
     },
     colorPicker: {
+      arrow: false,
       classes: {
         root: styles.illustrationBox,
       },
     },
     popover: {
+      arrow: false,
       classes: {
-        root: styles.illustrationBox,
+        container: styles.illustrationBox,
       },
     },
     tooltip: {
+      arrow: false,
       classes: {
         root: styles.tooltipRoot,
-        inner: styles.illustrationBox,
+        container: styles.illustrationBox,
       },
     },
     dropdown: {
