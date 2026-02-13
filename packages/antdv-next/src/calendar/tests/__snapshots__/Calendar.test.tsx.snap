@@ -16,14 +16,10 @@ exports[`calendar > rtl render > component should be rendered correctly in RTL d
       >
         <!---->
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="2017"
         >
-          <div
-            class="ant-select-content-value"
-            title="2017"
-          >
-            2017
-          </div>
+          2017
           <input
             aria-autocomplete="list"
             aria-controls="test-id_list"
@@ -73,14 +69,10 @@ exports[`calendar > rtl render > component should be rendered correctly in RTL d
       >
         <!---->
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Sep"
         >
-          <div
-            class="ant-select-content-value"
-            title="Sep"
-          >
-            Sep
-          </div>
+          Sep
           <input
             aria-autocomplete="list"
             aria-controls="test-id_list"
@@ -139,9 +131,6 @@ exports[`calendar > rtl render > component should be rendered correctly in RTL d
               class="ant-radio-button-input"
               type="radio"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -159,9 +148,6 @@ exports[`calendar > rtl render > component should be rendered correctly in RTL d
             <input
               class="ant-radio-button-input"
               type="radio"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -1046,9 +1032,7 @@ exports[`calendar > should match default snapshot 1`] = `
     <!---->
     <div class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow">
       <!---->
-      <div class="ant-select-content">
-        <div class="ant-select-content-value" title="2025">2025</div><input id="test-id" type="search" readonly="" autocomplete="off" class="ant-select-input" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-owns="test-id_list" aria-autocomplete="list" aria-controls="test-id_list" value="">
-      </div>
+      <div class="ant-select-content ant-select-content-has-value" title="2025">2025<input id="test-id" type="search" readonly="" autocomplete="off" class="ant-select-input" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-owns="test-id_list" aria-autocomplete="list" aria-controls="test-id_list" value=""></div>
       <div class="ant-select-suffix"><span role="img" aria-label="down" class="anticon anticon-down"><svg data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true" viewBox="64 64 896 896" focusable="false"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path></svg></span>
         <!---->
       </div>
@@ -1059,9 +1043,7 @@ exports[`calendar > should match default snapshot 1`] = `
     <!---->
     <div class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow">
       <!---->
-      <div class="ant-select-content">
-        <div class="ant-select-content-value" title="Jan">Jan</div><input id="test-id" type="search" readonly="" autocomplete="off" class="ant-select-input" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-owns="test-id_list" aria-autocomplete="list" aria-controls="test-id_list" value="">
-      </div>
+      <div class="ant-select-content ant-select-content-has-value" title="Jan">Jan<input id="test-id" type="search" readonly="" autocomplete="off" class="ant-select-input" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-owns="test-id_list" aria-autocomplete="list" aria-controls="test-id_list" value=""></div>
       <div class="ant-select-suffix"><span role="img" aria-label="down" class="anticon anticon-down"><svg data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true" viewBox="64 64 896 896" focusable="false"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path></svg></span>
         <!---->
       </div>
@@ -1069,7 +1051,7 @@ exports[`calendar > should match default snapshot 1`] = `
       <!---->
     </div>
     <!---->
-    <div class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-root ant-radio-css-var"><label class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-root ant-radio-css-var"><span class="ant-radio-button ant-radio-button-checked" name="v-4"><input class="ant-radio-button-input" checked="" type="radio"><span class="ant-radio-button-inner"></span></span><span class="ant-radio-button-label">Month</span></label><label class="ant-radio-button-wrapper css-var-root ant-radio-css-var"><span class="ant-radio-button" name="v-4"><input class="ant-radio-button-input" type="radio"><span class="ant-radio-button-inner"></span></span><span class="ant-radio-button-label">Year</span></label></div>
+    <div class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-root ant-radio-css-var"><label class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-root ant-radio-css-var"><span class="ant-radio-button ant-radio-button-checked" name="v-4"><input class="ant-radio-button-input" checked="" type="radio"></span><span class="ant-radio-button-label">Month</span></label><label class="ant-radio-button-wrapper css-var-root ant-radio-css-var"><span class="ant-radio-button" name="v-4"><input class="ant-radio-button-input" type="radio"></span><span class="ant-radio-button-label">Year</span></label></div>
   </div>
   <div class="ant-picker-panel">
     <div class="ant-picker-date-panel">
@@ -1453,9 +1435,7 @@ exports[`calendar > should match mini snapshot 1`] = `
     <!---->
     <div size="small" class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-year-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow">
       <!---->
-      <div class="ant-select-content">
-        <div class="ant-select-content-value" title="2025">2025</div><input id="test-id" type="search" readonly="" autocomplete="off" class="ant-select-input" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-owns="test-id_list" aria-autocomplete="list" aria-controls="test-id_list" value="">
-      </div>
+      <div class="ant-select-content ant-select-content-has-value" title="2025">2025<input id="test-id" type="search" readonly="" autocomplete="off" class="ant-select-input" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-owns="test-id_list" aria-autocomplete="list" aria-controls="test-id_list" value=""></div>
       <div class="ant-select-suffix"><span role="img" aria-label="down" class="anticon anticon-down"><svg data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true" viewBox="64 64 896 896" focusable="false"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path></svg></span>
         <!---->
       </div>
@@ -1466,9 +1446,7 @@ exports[`calendar > should match mini snapshot 1`] = `
     <!---->
     <div size="small" class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-month-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow">
       <!---->
-      <div class="ant-select-content">
-        <div class="ant-select-content-value" title="Jan">Jan</div><input id="test-id" type="search" readonly="" autocomplete="off" class="ant-select-input" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-owns="test-id_list" aria-autocomplete="list" aria-controls="test-id_list" value="">
-      </div>
+      <div class="ant-select-content ant-select-content-has-value" title="Jan">Jan<input id="test-id" type="search" readonly="" autocomplete="off" class="ant-select-input" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-owns="test-id_list" aria-autocomplete="list" aria-controls="test-id_list" value=""></div>
       <div class="ant-select-suffix"><span role="img" aria-label="down" class="anticon anticon-down"><svg data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true" viewBox="64 64 896 896" focusable="false"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path></svg></span>
         <!---->
       </div>
@@ -1476,7 +1454,7 @@ exports[`calendar > should match mini snapshot 1`] = `
       <!---->
     </div>
     <!---->
-    <div class="ant-radio-group ant-radio-group-outline ant-radio-group-small ant-picker-calendar-mode-switch css-var-root ant-radio-css-var"><label class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-root ant-radio-css-var"><span class="ant-radio-button ant-radio-button-checked" name="v-4"><input class="ant-radio-button-input" checked="" type="radio"><span class="ant-radio-button-inner"></span></span><span class="ant-radio-button-label">Month</span></label><label class="ant-radio-button-wrapper css-var-root ant-radio-css-var"><span class="ant-radio-button" name="v-4"><input class="ant-radio-button-input" type="radio"><span class="ant-radio-button-inner"></span></span><span class="ant-radio-button-label">Year</span></label></div>
+    <div class="ant-radio-group ant-radio-group-outline ant-radio-group-small ant-picker-calendar-mode-switch css-var-root ant-radio-css-var"><label class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-root ant-radio-css-var"><span class="ant-radio-button ant-radio-button-checked" name="v-4"><input class="ant-radio-button-input" checked="" type="radio"></span><span class="ant-radio-button-label">Month</span></label><label class="ant-radio-button-wrapper css-var-root ant-radio-css-var"><span class="ant-radio-button" name="v-4"><input class="ant-radio-button-input" type="radio"></span><span class="ant-radio-button-label">Year</span></label></div>
   </div>
   <div class="ant-picker-panel">
     <div class="ant-picker-date-panel">

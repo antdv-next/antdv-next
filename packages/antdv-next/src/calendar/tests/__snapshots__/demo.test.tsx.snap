@@ -25,14 +25,10 @@ exports[`calendar demo > renders _semantic correctly 1`] = `
           >
             <!---->
             <div
-              class="ant-select-content"
+              class="ant-select-content ant-select-content-has-value"
+              title="2026"
             >
-              <div
-                class="ant-select-content-value"
-                title="2026"
-              >
-                2026
-              </div>
+              2026
               <input
                 aria-autocomplete="list"
                 aria-controls="test-id_list"
@@ -82,14 +78,10 @@ exports[`calendar demo > renders _semantic correctly 1`] = `
           >
             <!---->
             <div
-              class="ant-select-content"
+              class="ant-select-content ant-select-content-has-value"
+              title="Feb"
             >
-              <div
-                class="ant-select-content-value"
-                title="Feb"
-              >
-                Feb
-              </div>
+              Feb
               <input
                 aria-autocomplete="list"
                 aria-controls="test-id_list"
@@ -148,9 +140,6 @@ exports[`calendar demo > renders _semantic correctly 1`] = `
                   class="ant-radio-button-input"
                   type="radio"
                 />
-                <span
-                  class="ant-radio-button-inner"
-                />
               </span>
               <span
                 class="ant-radio-button-label"
@@ -168,9 +157,6 @@ exports[`calendar demo > renders _semantic correctly 1`] = `
                 <input
                   class="ant-radio-button-input"
                   type="radio"
-                />
-                <span
-                  class="ant-radio-button-inner"
                 />
               </span>
               <span
@@ -196,10 +182,10 @@ exports[`calendar demo > renders _semantic correctly 1`] = `
               class="ant-picker-body semantic-mark-body"
               generateconfig="[object Object]"
               locale="[object Object]"
-              pickervalue="Fri, 13 Feb 2026 01:06:43 GMT"
+              pickervalue="Fri, 13 Feb 2026 01:13:14 GMT"
               prefixcls="ant-picker"
-              value="Fri, 13 Feb 2026 01:06:43 GMT"
-              values="Fri, 13 Feb 2026 01:06:43 GMT"
+              value="Fri, 13 Feb 2026 01:13:14 GMT"
+              values="Fri, 13 Feb 2026 01:13:14 GMT"
             >
               <table
                 class="ant-picker-content semantic-mark-content"
@@ -1734,14 +1720,10 @@ exports[`calendar demo > renders basic correctly 1`] = `
     >
       <!---->
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="2026"
       >
-        <div
-          class="ant-select-content-value"
-          title="2026"
-        >
-          2026
-        </div>
+        2026
         <input
           aria-autocomplete="list"
           aria-controls="test-id_list"
@@ -1791,14 +1773,10 @@ exports[`calendar demo > renders basic correctly 1`] = `
     >
       <!---->
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Feb"
       >
-        <div
-          class="ant-select-content-value"
-          title="Feb"
-        >
-          Feb
-        </div>
+        Feb
         <input
           aria-autocomplete="list"
           aria-controls="test-id_list"
@@ -1857,9 +1835,6 @@ exports[`calendar demo > renders basic correctly 1`] = `
             class="ant-radio-button-input"
             type="radio"
           />
-          <span
-            class="ant-radio-button-inner"
-          />
         </span>
         <span
           class="ant-radio-button-label"
@@ -1877,9 +1852,6 @@ exports[`calendar demo > renders basic correctly 1`] = `
           <input
             class="ant-radio-button-input"
             type="radio"
-          />
-          <span
-            class="ant-radio-button-inner"
           />
         </span>
         <span
@@ -1905,10 +1877,10 @@ exports[`calendar demo > renders basic correctly 1`] = `
         class="ant-picker-body"
         generateconfig="[object Object]"
         locale="[object Object]"
-        pickervalue="Fri, 13 Feb 2026 01:06:43 GMT"
+        pickervalue="Fri, 13 Feb 2026 01:13:14 GMT"
         prefixcls="ant-picker"
-        value="Fri, 13 Feb 2026 01:06:43 GMT"
-        values="Fri, 13 Feb 2026 01:06:43 GMT"
+        value="Fri, 13 Feb 2026 01:13:14 GMT"
+        values="Fri, 13 Feb 2026 01:13:14 GMT"
       >
         <table
           class="ant-picker-content"
@@ -2776,14 +2748,10 @@ exports[`calendar demo > renders card correctly 1`] = `
       >
         <!---->
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="2026"
         >
-          <div
-            class="ant-select-content-value"
-            title="2026"
-          >
-            2026
-          </div>
+          2026
           <input
             aria-autocomplete="list"
             aria-controls="test-id_list"
@@ -2834,14 +2802,10 @@ exports[`calendar demo > renders card correctly 1`] = `
       >
         <!---->
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Feb"
         >
-          <div
-            class="ant-select-content-value"
-            title="Feb"
-          >
-            Feb
-          </div>
+          Feb
           <input
             aria-autocomplete="list"
             aria-controls="test-id_list"
@@ -2900,9 +2864,6 @@ exports[`calendar demo > renders card correctly 1`] = `
               class="ant-radio-button-input"
               type="radio"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -2920,9 +2881,6 @@ exports[`calendar demo > renders card correctly 1`] = `
             <input
               class="ant-radio-button-input"
               type="radio"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -2948,10 +2906,10 @@ exports[`calendar demo > renders card correctly 1`] = `
           class="ant-picker-body"
           generateconfig="[object Object]"
           locale="[object Object]"
-          pickervalue="Fri, 13 Feb 2026 01:06:43 GMT"
+          pickervalue="Fri, 13 Feb 2026 01:13:14 GMT"
           prefixcls="ant-picker"
-          value="Fri, 13 Feb 2026 01:06:43 GMT"
-          values="Fri, 13 Feb 2026 01:06:43 GMT"
+          value="Fri, 13 Feb 2026 01:13:14 GMT"
+          values="Fri, 13 Feb 2026 01:13:14 GMT"
         >
           <table
             class="ant-picker-content"
@@ -3849,9 +3807,6 @@ exports[`calendar demo > renders customize-header correctly 1`] = `
                 class="ant-radio-button-input"
                 type="radio"
               />
-              <span
-                class="ant-radio-button-inner"
-              />
             </span>
             <span
               class="ant-radio-button-label"
@@ -3871,9 +3826,6 @@ exports[`calendar demo > renders customize-header correctly 1`] = `
                 class="ant-radio-button-input"
                 type="radio"
               />
-              <span
-                class="ant-radio-button-inner"
-              />
             </span>
             <span
               class="ant-radio-button-label"
@@ -3889,14 +3841,10 @@ exports[`calendar demo > renders customize-header correctly 1`] = `
         >
           <!---->
           <div
-            class="ant-select-content"
+            class="ant-select-content ant-select-content-has-value"
+            title="2026"
           >
-            <div
-              class="ant-select-content-value"
-              title="2026"
-            >
-              2026
-            </div>
+            2026
             <input
               aria-autocomplete="list"
               aria-controls="test-id_list"
@@ -3947,14 +3895,10 @@ exports[`calendar demo > renders customize-header correctly 1`] = `
         >
           <!---->
           <div
-            class="ant-select-content"
+            class="ant-select-content ant-select-content-has-value"
+            title="Feb"
           >
-            <div
-              class="ant-select-content-value"
-              title="Feb"
-            >
-              Feb
-            </div>
+            Feb
             <input
               aria-autocomplete="list"
               aria-controls="test-id_list"
@@ -4015,10 +3959,10 @@ exports[`calendar demo > renders customize-header correctly 1`] = `
           class="ant-picker-body"
           generateconfig="[object Object]"
           locale="[object Object]"
-          pickervalue="Fri, 13 Feb 2026 01:06:44 GMT"
+          pickervalue="Fri, 13 Feb 2026 01:13:14 GMT"
           prefixcls="ant-picker"
-          value="Fri, 13 Feb 2026 01:06:44 GMT"
-          values="Fri, 13 Feb 2026 01:06:44 GMT"
+          value="Fri, 13 Feb 2026 01:13:14 GMT"
+          values="Fri, 13 Feb 2026 01:13:14 GMT"
         >
           <table
             class="ant-picker-content"
@@ -4894,14 +4838,10 @@ exports[`calendar demo > renders lunar correctly 1`] = `
         >
           <!---->
           <div
-            class="ant-select-content"
+            class="ant-select-content ant-select-content-has-value"
+            title="二〇二六年（丙午马年）"
           >
-            <div
-              class="ant-select-content-value"
-              title="二〇二六年（丙午马年）"
-            >
-              二〇二六年（丙午马年）
-            </div>
+            二〇二六年（丙午马年）
             <input
               aria-autocomplete="list"
               aria-controls="test-id_list"
@@ -4958,14 +4898,10 @@ exports[`calendar demo > renders lunar correctly 1`] = `
         >
           <!---->
           <div
-            class="ant-select-content"
+            class="ant-select-content ant-select-content-has-value"
+            title="2月（腊月）"
           >
-            <div
-              class="ant-select-content-value"
-              title="2月（腊月）"
-            >
-              2月（腊月）
-            </div>
+            2月（腊月）
             <input
               aria-autocomplete="list"
               aria-controls="test-id_list"
@@ -5032,9 +4968,6 @@ exports[`calendar demo > renders lunar correctly 1`] = `
                 class="ant-radio-button-input"
                 type="radio"
               />
-              <span
-                class="ant-radio-button-inner"
-              />
             </span>
             <span
               class="ant-radio-button-label"
@@ -5053,9 +4986,6 @@ exports[`calendar demo > renders lunar correctly 1`] = `
               <input
                 class="ant-radio-button-input"
                 type="radio"
-              />
-              <span
-                class="ant-radio-button-inner"
               />
             </span>
             <span
@@ -5082,10 +5012,10 @@ exports[`calendar demo > renders lunar correctly 1`] = `
           class="ant-picker-body"
           generateconfig="[object Object]"
           locale="[object Object]"
-          pickervalue="Fri, 13 Feb 2026 01:06:44 GMT"
+          pickervalue="Fri, 13 Feb 2026 01:13:14 GMT"
           prefixcls="ant-picker"
-          value="Fri, 13 Feb 2026 01:06:44 GMT"
-          values="Fri, 13 Feb 2026 01:06:44 GMT"
+          value="Fri, 13 Feb 2026 01:13:14 GMT"
+          values="Fri, 13 Feb 2026 01:13:14 GMT"
         >
           <table
             class="ant-picker-content"
@@ -6285,14 +6215,10 @@ exports[`calendar demo > renders notice-calendar correctly 1`] = `
     >
       <!---->
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="2026"
       >
-        <div
-          class="ant-select-content-value"
-          title="2026"
-        >
-          2026
-        </div>
+        2026
         <input
           aria-autocomplete="list"
           aria-controls="test-id_list"
@@ -6342,14 +6268,10 @@ exports[`calendar demo > renders notice-calendar correctly 1`] = `
     >
       <!---->
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Feb"
       >
-        <div
-          class="ant-select-content-value"
-          title="Feb"
-        >
-          Feb
-        </div>
+        Feb
         <input
           aria-autocomplete="list"
           aria-controls="test-id_list"
@@ -6408,9 +6330,6 @@ exports[`calendar demo > renders notice-calendar correctly 1`] = `
             class="ant-radio-button-input"
             type="radio"
           />
-          <span
-            class="ant-radio-button-inner"
-          />
         </span>
         <span
           class="ant-radio-button-label"
@@ -6428,9 +6347,6 @@ exports[`calendar demo > renders notice-calendar correctly 1`] = `
           <input
             class="ant-radio-button-input"
             type="radio"
-          />
-          <span
-            class="ant-radio-button-inner"
           />
         </span>
         <span
@@ -6456,10 +6372,10 @@ exports[`calendar demo > renders notice-calendar correctly 1`] = `
         class="ant-picker-body"
         generateconfig="[object Object]"
         locale="[object Object]"
-        pickervalue="Fri, 13 Feb 2026 01:06:44 GMT"
+        pickervalue="Fri, 13 Feb 2026 01:13:14 GMT"
         prefixcls="ant-picker"
-        value="Fri, 13 Feb 2026 01:06:44 GMT"
-        values="Fri, 13 Feb 2026 01:06:44 GMT"
+        value="Fri, 13 Feb 2026 01:13:14 GMT"
+        values="Fri, 13 Feb 2026 01:13:14 GMT"
       >
         <table
           class="ant-picker-content"
@@ -7757,14 +7673,10 @@ exports[`calendar demo > renders select correctly 1`] = `
       >
         <!---->
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="2026"
         >
-          <div
-            class="ant-select-content-value"
-            title="2026"
-          >
-            2026
-          </div>
+          2026
           <input
             aria-autocomplete="list"
             aria-controls="test-id_list"
@@ -7814,14 +7726,10 @@ exports[`calendar demo > renders select correctly 1`] = `
       >
         <!---->
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Feb"
         >
-          <div
-            class="ant-select-content-value"
-            title="Feb"
-          >
-            Feb
-          </div>
+          Feb
           <input
             aria-autocomplete="list"
             aria-controls="test-id_list"
@@ -7880,9 +7788,6 @@ exports[`calendar demo > renders select correctly 1`] = `
               class="ant-radio-button-input"
               type="radio"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -7900,9 +7805,6 @@ exports[`calendar demo > renders select correctly 1`] = `
             <input
               class="ant-radio-button-input"
               type="radio"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -7928,10 +7830,10 @@ exports[`calendar demo > renders select correctly 1`] = `
           class="ant-picker-body"
           generateconfig="[object Object]"
           locale="[object Object]"
-          pickervalue="Fri, 13 Feb 2026 01:06:44 GMT"
+          pickervalue="Fri, 13 Feb 2026 01:13:14 GMT"
           prefixcls="ant-picker"
-          value="Fri, 13 Feb 2026 01:06:44 GMT"
-          values="Fri, 13 Feb 2026 01:06:44 GMT"
+          value="Fri, 13 Feb 2026 01:13:14 GMT"
+          values="Fri, 13 Feb 2026 01:13:14 GMT"
         >
           <table
             class="ant-picker-content"
@@ -8801,14 +8703,10 @@ exports[`calendar demo > renders style-class correctly 1`] = `
       >
         <!---->
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="2026"
         >
-          <div
-            class="ant-select-content-value"
-            title="2026"
-          >
-            2026
-          </div>
+          2026
           <input
             aria-autocomplete="list"
             aria-controls="test-id_list"
@@ -8859,14 +8757,10 @@ exports[`calendar demo > renders style-class correctly 1`] = `
       >
         <!---->
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Feb"
         >
-          <div
-            class="ant-select-content-value"
-            title="Feb"
-          >
-            Feb
-          </div>
+          Feb
           <input
             aria-autocomplete="list"
             aria-controls="test-id_list"
@@ -8925,9 +8819,6 @@ exports[`calendar demo > renders style-class correctly 1`] = `
               class="ant-radio-button-input"
               type="radio"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -8945,9 +8836,6 @@ exports[`calendar demo > renders style-class correctly 1`] = `
             <input
               class="ant-radio-button-input"
               type="radio"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -8973,10 +8861,10 @@ exports[`calendar demo > renders style-class correctly 1`] = `
           class="ant-picker-body"
           generateconfig="[object Object]"
           locale="[object Object]"
-          pickervalue="Fri, 13 Feb 2026 01:06:44 GMT"
+          pickervalue="Fri, 13 Feb 2026 01:13:14 GMT"
           prefixcls="ant-picker"
-          value="Fri, 13 Feb 2026 01:06:44 GMT"
-          values="Fri, 13 Feb 2026 01:06:44 GMT"
+          value="Fri, 13 Feb 2026 01:13:14 GMT"
+          values="Fri, 13 Feb 2026 01:13:14 GMT"
         >
           <table
             class="ant-picker-content"
@@ -9837,14 +9725,10 @@ exports[`calendar demo > renders style-class correctly 1`] = `
       >
         <!---->
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="2026"
         >
-          <div
-            class="ant-select-content-value"
-            title="2026"
-          >
-            2026
-          </div>
+          2026
           <input
             aria-autocomplete="list"
             aria-controls="test-id_list"
@@ -9894,14 +9778,10 @@ exports[`calendar demo > renders style-class correctly 1`] = `
       >
         <!---->
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Feb"
         >
-          <div
-            class="ant-select-content-value"
-            title="Feb"
-          >
-            Feb
-          </div>
+          Feb
           <input
             aria-autocomplete="list"
             aria-controls="test-id_list"
@@ -9960,9 +9840,6 @@ exports[`calendar demo > renders style-class correctly 1`] = `
               class="ant-radio-button-input"
               type="radio"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -9980,9 +9857,6 @@ exports[`calendar demo > renders style-class correctly 1`] = `
             <input
               class="ant-radio-button-input"
               type="radio"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -10008,10 +9882,10 @@ exports[`calendar demo > renders style-class correctly 1`] = `
           class="ant-picker-body"
           generateconfig="[object Object]"
           locale="[object Object]"
-          pickervalue="Fri, 13 Feb 2026 01:06:44 GMT"
+          pickervalue="Fri, 13 Feb 2026 01:13:14 GMT"
           prefixcls="ant-picker"
-          value="Fri, 13 Feb 2026 01:06:44 GMT"
-          values="Fri, 13 Feb 2026 01:06:44 GMT"
+          value="Fri, 13 Feb 2026 01:13:14 GMT"
+          values="Fri, 13 Feb 2026 01:13:14 GMT"
         >
           <table
             class="ant-picker-content"
@@ -10877,14 +10751,10 @@ exports[`calendar demo > renders week correctly 1`] = `
       >
         <!---->
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="2026"
         >
-          <div
-            class="ant-select-content-value"
-            title="2026"
-          >
-            2026
-          </div>
+          2026
           <input
             aria-autocomplete="list"
             aria-controls="test-id_list"
@@ -10934,14 +10804,10 @@ exports[`calendar demo > renders week correctly 1`] = `
       >
         <!---->
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Feb"
         >
-          <div
-            class="ant-select-content-value"
-            title="Feb"
-          >
-            Feb
-          </div>
+          Feb
           <input
             aria-autocomplete="list"
             aria-controls="test-id_list"
@@ -11000,9 +10866,6 @@ exports[`calendar demo > renders week correctly 1`] = `
               class="ant-radio-button-input"
               type="radio"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -11020,9 +10883,6 @@ exports[`calendar demo > renders week correctly 1`] = `
             <input
               class="ant-radio-button-input"
               type="radio"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -11048,11 +10908,11 @@ exports[`calendar demo > renders week correctly 1`] = `
           class="ant-picker-body"
           generateconfig="[object Object]"
           locale="[object Object]"
-          pickervalue="Fri, 13 Feb 2026 01:06:44 GMT"
+          pickervalue="Fri, 13 Feb 2026 01:13:14 GMT"
           prefixcls="ant-picker"
           showweek="true"
-          value="Fri, 13 Feb 2026 01:06:44 GMT"
-          values="Fri, 13 Feb 2026 01:06:44 GMT"
+          value="Fri, 13 Feb 2026 01:13:14 GMT"
+          values="Fri, 13 Feb 2026 01:13:14 GMT"
         >
           <table
             class="ant-picker-content"
@@ -11974,14 +11834,10 @@ exports[`calendar demo > renders week correctly 1`] = `
       >
         <!---->
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="2026"
         >
-          <div
-            class="ant-select-content-value"
-            title="2026"
-          >
-            2026
-          </div>
+          2026
           <input
             aria-autocomplete="list"
             aria-controls="test-id_list"
@@ -12032,14 +11888,10 @@ exports[`calendar demo > renders week correctly 1`] = `
       >
         <!---->
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Feb"
         >
-          <div
-            class="ant-select-content-value"
-            title="Feb"
-          >
-            Feb
-          </div>
+          Feb
           <input
             aria-autocomplete="list"
             aria-controls="test-id_list"
@@ -12098,9 +11950,6 @@ exports[`calendar demo > renders week correctly 1`] = `
               class="ant-radio-button-input"
               type="radio"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -12118,9 +11967,6 @@ exports[`calendar demo > renders week correctly 1`] = `
             <input
               class="ant-radio-button-input"
               type="radio"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -12146,11 +11992,11 @@ exports[`calendar demo > renders week correctly 1`] = `
           class="ant-picker-body"
           generateconfig="[object Object]"
           locale="[object Object]"
-          pickervalue="Fri, 13 Feb 2026 01:06:44 GMT"
+          pickervalue="Fri, 13 Feb 2026 01:13:14 GMT"
           prefixcls="ant-picker"
           showweek="true"
-          value="Fri, 13 Feb 2026 01:06:44 GMT"
-          values="Fri, 13 Feb 2026 01:06:44 GMT"
+          value="Fri, 13 Feb 2026 01:13:14 GMT"
+          values="Fri, 13 Feb 2026 01:13:14 GMT"
         >
           <table
             class="ant-picker-content"
