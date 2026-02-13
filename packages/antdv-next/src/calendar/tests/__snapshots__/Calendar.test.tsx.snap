@@ -1056,10 +1056,10 @@ exports[`calendar > should match default snapshot 1`] = `
   <div class="ant-picker-panel">
     <div class="ant-picker-date-panel">
       <!---->
-      <div class="ant-picker-body" prefixcls="ant-picker" locale="[object Object]" generateconfig="[object Object]" pickervalue="Tue, 14 Jan 2025 16:00:00 GMT" values="Tue, 14 Jan 2025 16:00:00 GMT" cellrender="(date, info) => mergedCellRender(date, {
+      <div class="ant-picker-body" prefixcls="ant-picker" locale="[object Object]" generateconfig="[object Object]" pickervalue="Wed, 15 Jan 2025 00:00:00 GMT" values="Wed, 15 Jan 2025 00:00:00 GMT" cellrender="(date, info) => mergedCellRender(date, {
 		...info,
 		range: range?.value
-	})" value="Tue, 14 Jan 2025 16:00:00 GMT">
+	})" value="Wed, 15 Jan 2025 00:00:00 GMT">
         <table class="ant-picker-content">
           <thead>
             <tr>
@@ -1459,10 +1459,10 @@ exports[`calendar > should match mini snapshot 1`] = `
   <div class="ant-picker-panel">
     <div class="ant-picker-date-panel">
       <!---->
-      <div class="ant-picker-body" prefixcls="ant-picker" locale="[object Object]" generateconfig="[object Object]" pickervalue="Tue, 14 Jan 2025 16:00:00 GMT" values="Tue, 14 Jan 2025 16:00:00 GMT" cellrender="(date, info) => mergedCellRender(date, {
+      <div class="ant-picker-body" prefixcls="ant-picker" locale="[object Object]" generateconfig="[object Object]" pickervalue="Wed, 15 Jan 2025 00:00:00 GMT" values="Wed, 15 Jan 2025 00:00:00 GMT" cellrender="(date, info) => mergedCellRender(date, {
 		...info,
 		range: range?.value
-	})" value="Tue, 14 Jan 2025 16:00:00 GMT">
+	})" value="Wed, 15 Jan 2025 00:00:00 GMT">
         <table class="ant-picker-content">
           <thead>
             <tr>

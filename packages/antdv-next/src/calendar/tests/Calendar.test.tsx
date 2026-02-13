@@ -32,7 +32,7 @@ describe('calendar', () => {
 
   it('should render with defaultValue', () => {
     const wrapper = mount(Calendar, {
-      props: { defaultValue: dayjs('2025-06-15') },
+      props: { defaultValue: dayjs('2025-06-15T00:00:00Z') },
     })
     expect(wrapper.find('.ant-picker-calendar').exists()).toBe(true)
     const selectedCell = wrapper.find('.ant-picker-cell-selected')
@@ -42,7 +42,7 @@ describe('calendar', () => {
 
   it('should render with controlled value', () => {
     const wrapper = mount(Calendar, {
-      props: { value: dayjs('2025-03-20') },
+      props: { value: dayjs('2025-03-20T00:00:00Z') },
     })
     expect(wrapper.find('.ant-picker-calendar').exists()).toBe(true)
     const selectedCell = wrapper.find('.ant-picker-cell-selected')
@@ -75,7 +75,7 @@ describe('calendar', () => {
     // Use controlled value so onChange fires correctly
     // (uncontrolled mode has a bug: innerValue is updated before the comparison)
     const wrapper = mount(Calendar, {
-      props: { value: dayjs('2017-09-18'), onSelect, onChange },
+      props: { value: dayjs('2017-09-18T00:00:00Z'), onSelect, onChange },
     })
     // Click a date cell that is different from the current value
     const cells = wrapper.findAll('.ant-picker-cell')
@@ -88,8 +88,8 @@ describe('calendar', () => {
   it('should respect validRange boundaries', () => {
     const wrapper = mount(Calendar, {
       props: {
-        value: dayjs('2025-04-15'),
-        validRange: [dayjs('2025-04-10'), dayjs('2025-04-20')],
+        value: dayjs('2025-04-15T00:00:00Z'),
+        validRange: [dayjs('2025-04-10T00:00:00Z'), dayjs('2025-04-20T00:00:00Z')],
       },
     })
     // Dates outside range (e.g. Apr 1-9, Apr 21-30, spillover dates) should be disabled
@@ -194,14 +194,14 @@ describe('calendar', () => {
 
   it('should match default snapshot', () => {
     const wrapper = mount(() => (
-      <Calendar value={dayjs('2025-01-15')} />
+      <Calendar value={dayjs('2025-01-15T00:00:00Z')} />
     ))
     expect(wrapper.html()).toMatchSnapshot()
   })
 
   it('should match mini snapshot', () => {
     const wrapper = mount(() => (
-      <Calendar value={dayjs('2025-01-15')} fullscreen={false} />
+      <Calendar value={dayjs('2025-01-15T00:00:00Z')} fullscreen={false} />
     ))
     expect(wrapper.html()).toMatchSnapshot()
   })

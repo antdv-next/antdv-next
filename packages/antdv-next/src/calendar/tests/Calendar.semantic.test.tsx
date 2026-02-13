@@ -16,7 +16,7 @@ describe('calendar.Semantic', () => {
   it('should support classNames and styles', () => {
     const wrapper = mount(Calendar, {
       props: {
-        value: dayjs('2025-01-15'),
+        value: dayjs('2025-01-15T00:00:00Z'),
         classes: {
           root: 'custom-root',
           header: 'custom-header',
@@ -83,7 +83,7 @@ describe('calendar.Semantic', () => {
 
     const wrapper = mount(Calendar, {
       props: {
-        value: dayjs('2025-01-15'),
+        value: dayjs('2025-01-15T00:00:00Z'),
         fullscreen: true,
         classes: classNamesFn,
         styles: stylesFn,
