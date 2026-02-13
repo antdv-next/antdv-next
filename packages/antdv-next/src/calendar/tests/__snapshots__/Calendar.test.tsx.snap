@@ -173,10 +173,10 @@ exports[`calendar > rtl render > component should be rendered correctly in RTL d
           class="ant-picker-body"
           generateconfig="[object Object]"
           locale="[object Object]"
-          pickervalue="Sun, 17 Sep 2017 19:30:07 GMT"
+          pickervalue="Mon, 18 Sep 2017 03:30:07 GMT"
           prefixcls="ant-picker"
-          value="Sun, 17 Sep 2017 19:30:07 GMT"
-          values="Sun, 17 Sep 2017 19:30:07 GMT"
+          value="Mon, 18 Sep 2017 03:30:07 GMT"
+          values="Mon, 18 Sep 2017 03:30:07 GMT"
         >
           <table
             class="ant-picker-content"

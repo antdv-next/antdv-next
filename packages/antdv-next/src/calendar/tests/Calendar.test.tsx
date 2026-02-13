@@ -7,7 +7,7 @@ import { mount, resetMockDate, setMockDate } from '../../../../../tests/utils'
 
 describe('calendar', () => {
   beforeEach(() => {
-    setMockDate()
+    setMockDate('2017-09-18T03:30:07.795Z')
   })
 
   afterEach(() => {
