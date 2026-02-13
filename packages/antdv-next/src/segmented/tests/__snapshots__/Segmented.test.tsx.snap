@@ -1,0 +1,447 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`segmented > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    aria-label="segmented control"
+    class="ant-segmented ant-segmented-rtl css-var-root css-var-root"
+    role="radiogroup"
+    size="middle"
+    tabindex="0"
+  >
+    <div
+      class="ant-segmented-group"
+    >
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`segmented > should render empty segmented 1`] = `
+<div
+  aria-label="segmented control"
+  class="ant-segmented css-var-root css-var-root"
+  role="radiogroup"
+  size="middle"
+  tabindex="0"
+>
+  <div
+    class="ant-segmented-group"
+  >
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`segmented > should render segmented with mixed options 1`] = `
+<div
+  aria-label="segmented control"
+  class="ant-segmented css-var-root css-var-root"
+  role="radiogroup"
+  size="middle"
+  tabindex="0"
+>
+  <div
+    class="ant-segmented-group"
+  >
+    <!---->
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        name="v-0"
+        type="radio"
+      />
+      <div
+        aria-checked="false"
+        class="ant-segmented-item-label"
+        role="radio"
+        title="Daily"
+      >
+        Daily
+      </div>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        name="v-0"
+        type="radio"
+      />
+      <div
+        aria-checked="false"
+        class="ant-segmented-item-label"
+        role="radio"
+      >
+        <span
+          class="ant-segmented-item-icon"
+        >
+          <!---->
+        </span>
+        <span>
+          Weekly
+        </span>
+      </div>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        name="v-0"
+        type="radio"
+      />
+      <div
+        aria-checked="false"
+        class="ant-segmented-item-label"
+        role="radio"
+        title="Monthly"
+      >
+        Monthly
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`segmented > should render segmented with string options 1`] = `
+<div
+  aria-label="segmented control"
+  class="ant-segmented css-var-root css-var-root"
+  role="radiogroup"
+  size="middle"
+  tabindex="0"
+>
+  <div
+    class="ant-segmented-group"
+  >
+    <!---->
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        name="v-0"
+        type="radio"
+      />
+      <div
+        aria-checked="false"
+        class="ant-segmented-item-label"
+        role="radio"
+        title="Daily"
+      >
+        Daily
+      </div>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        name="v-0"
+        type="radio"
+      />
+      <div
+        aria-checked="false"
+        class="ant-segmented-item-label"
+        role="radio"
+        title="Weekly"
+      >
+        Weekly
+      </div>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        name="v-0"
+        type="radio"
+      />
+      <div
+        aria-checked="false"
+        class="ant-segmented-item-label"
+        role="radio"
+        title="Monthly"
+      >
+        Monthly
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`segmented > snapshot > should match snapshot with block and size 1`] = `
+<div
+  aria-label="segmented control"
+  class="ant-segmented ant-segmented-block ant-segmented-sm css-var-root ant-segmented-block ant-segmented-sm css-var-root"
+  role="radiogroup"
+  size="small"
+  tabindex="0"
+>
+  <div
+    class="ant-segmented-group"
+  >
+    <!---->
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        name="v-0"
+        type="radio"
+      />
+      <div
+        aria-checked="false"
+        class="ant-segmented-item-label"
+        role="radio"
+        title="A"
+      >
+        A
+      </div>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        name="v-0"
+        type="radio"
+      />
+      <div
+        aria-checked="false"
+        class="ant-segmented-item-label"
+        role="radio"
+        title="B"
+      >
+        B
+      </div>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        name="v-0"
+        type="radio"
+      />
+      <div
+        aria-checked="false"
+        class="ant-segmented-item-label"
+        role="radio"
+        title="C"
+      >
+        C
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`segmented > snapshot > should match snapshot with icon options 1`] = `
+<div
+  aria-label="segmented control"
+  class="ant-segmented css-var-root css-var-root"
+  role="radiogroup"
+  size="middle"
+  tabindex="0"
+>
+  <div
+    class="ant-segmented-group"
+  >
+    <!---->
+    <label
+      class="ant-segmented-item ant-segmented-item-selected"
+      icon="[object Object]"
+    >
+      <input
+        checked=""
+        class="ant-segmented-item-input"
+        name="v-0"
+        type="radio"
+      />
+      <div
+        aria-checked="true"
+        class="ant-segmented-item-label"
+        role="radio"
+      >
+        <span
+          class="ant-segmented-item-icon"
+        >
+          <span
+            class="icon-list"
+          >
+            L
+          </span>
+        </span>
+        <span>
+          List
+        </span>
+      </div>
+    </label>
+    <label
+      class="ant-segmented-item"
+      icon="[object Object]"
+    >
+      <input
+        class="ant-segmented-item-input"
+        name="v-0"
+        type="radio"
+      />
+      <div
+        aria-checked="false"
+        class="ant-segmented-item-label"
+        role="radio"
+      >
+        <span
+          class="ant-segmented-item-icon"
+        >
+          <span
+            class="icon-grid"
+          >
+            G
+          </span>
+        </span>
+        <span>
+          Grid
+        </span>
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`segmented > snapshot > should match snapshot with round shape 1`] = `
+<div
+  aria-label="segmented control"
+  class="ant-segmented ant-segmented-shape-round css-var-root ant-segmented-shape-round css-var-root"
+  role="radiogroup"
+  size="middle"
+  tabindex="0"
+>
+  <div
+    class="ant-segmented-group"
+  >
+    <!---->
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        name="v-0"
+        type="radio"
+      />
+      <div
+        aria-checked="false"
+        class="ant-segmented-item-label"
+        role="radio"
+        title="A"
+      >
+        A
+      </div>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        name="v-0"
+        type="radio"
+      />
+      <div
+        aria-checked="false"
+        class="ant-segmented-item-label"
+        role="radio"
+        title="B"
+      >
+        B
+      </div>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`segmented > snapshot > should match snapshot with various options 1`] = `
+<div
+  aria-label="segmented control"
+  class="ant-segmented css-var-root css-var-root"
+  role="radiogroup"
+  size="middle"
+  tabindex="0"
+>
+  <div
+    class="ant-segmented-group"
+  >
+    <!---->
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        name="v-0"
+        type="radio"
+      />
+      <div
+        aria-checked="false"
+        class="ant-segmented-item-label"
+        role="radio"
+        title="Daily"
+      >
+        Daily
+      </div>
+    </label>
+    <label
+      class="ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        name="v-0"
+        type="radio"
+      />
+      <div
+        aria-checked="false"
+        class="ant-segmented-item-label"
+        role="radio"
+      >
+        <span
+          class="ant-segmented-item-icon"
+        >
+          <!---->
+        </span>
+        <span>
+          Weekly
+        </span>
+      </div>
+    </label>
+    <label
+      class="ant-segmented-item ant-segmented-item-disabled ant-segmented-item"
+    >
+      <input
+        class="ant-segmented-item-input"
+        disabled=""
+        name="v-0"
+        type="radio"
+      />
+      <div
+        aria-checked="false"
+        class="ant-segmented-item-label"
+        role="radio"
+      >
+        <span
+          class="ant-segmented-item-icon"
+        >
+          <!---->
+        </span>
+        <span>
+          Monthly
+        </span>
+      </div>
+    </label>
+  </div>
+</div>
+`;
