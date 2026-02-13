@@ -1,14 +1,13 @@
 import type { ConfigProviderProps } from 'antdv-next'
-import type { CSSProperties } from 'vue'
 import type { UseTheme } from '.'
-import type { CSSVar, StylesResult } from './types.ts'
+import { clsx } from '@v-c/util'
 import { theme } from 'antdv-next'
-import { useToken } from 'antdv-next/theme/internal'
 import { computed } from 'vue'
+import { createStyles } from '../hooks'
 
-function createStyles(cssVar: CSSVar): StylesResult {
-  const glassBorder: CSSProperties = {
-    border: `${cssVar.lineWidth} solid rgba(255,255,255,0.3)`,
+const useStyles = createStyles(({ css, cssVar }) => {
+  const glassBorder = {
+    border: `${cssVar.lineWidth}px solid rgba(255,255,255,0.3)`,
     boxShadow: [
       `${cssVar.boxShadowSecondary}`,
       `inset 0 0 5px 2px rgba(255, 255, 255, 0.3)`,
@@ -16,62 +15,69 @@ function createStyles(cssVar: CSSVar): StylesResult {
     ].join(','),
   }
 
-  const glassBox: CSSProperties = {
+  const glassBox = {
     ...glassBorder,
     background: `color-mix(in srgb, ${cssVar.colorBgContainer} 15%, transparent)`,
     backdropFilter: 'blur(12px)',
   }
 
-  const glassBoxNoBackdrop: CSSProperties = {
+  const glassBoxNoBackdrop = {
     ...glassBox,
     backdropFilter: 'none',
   }
 
   return {
-    glassBorder,
-    glassBox,
-    glassBoxNoBackdrop,
-    app: {
+    app: css({
       textShadow: '0 1px rgba(0,0,0,0.1)',
-    },
-    cardRoot: {
+    }),
+    cardRoot: css({
       ...glassBox,
       backgroundColor: `color-mix(in srgb, ${cssVar.colorBgContainer} 40%, transparent)`,
-    },
-    modalContainer: {
+    }),
+    modalContainer: css({
       ...glassBox,
       backdropFilter: 'none',
-    },
-    buttonRoot: {
+    }),
+    buttonRoot: css({
       ...glassBorder,
-    },
-    buttonRootDefaultColor: {
+    }),
+    buttonRootDefaultColor: css({
       background: 'transparent',
       color: cssVar.colorText,
-    },
-    dropdownRoot: {
+
+      '&:hover': {
+        background: 'rgba(255,255,255,0.2)',
+        color: `color-mix(in srgb, ${cssVar.colorText} 90%, transparent)`,
+      },
+
+      '&:active': {
+        background: 'rgba(255,255,255,0.1)',
+        color: `color-mix(in srgb, ${cssVar.colorText} 80%, transparent)`,
+      },
+    }),
+    glassBoxNoBackdrop: css({
+      ...glassBoxNoBackdrop,
+    }),
+    glassBox: css({
+      ...glassBox,
+    }),
+    dropdownRoot: css({
       ...glassBox,
       borderRadius: cssVar.borderRadiusLG,
-    },
-    switchRoot: {
+    }),
+    switchRoot: css({
       ...glassBorder,
       border: 'none',
-    },
-    progressTrack: {
+    }),
+    progressTrack: css({
       ...glassBorder,
       height: '12px',
-    },
-    progressRail: {
+    }),
+    progressRail: css({
       height: '12px',
-    },
+    }),
   }
-}
-
-function useStyles() {
-  const [, , , token] = useToken()
-  const styles = computed(() => createStyles(token.value))
-  return { styles }
-}
+})
 
 const useGlassTheme: UseTheme = () => {
   const { styles } = useStyles()
@@ -90,58 +96,71 @@ const useGlassTheme: UseTheme = () => {
       },
     },
     app: {
-      styles: {
-        root: styles.value.app,
+      classes: {
+        root: styles.app,
       },
     },
+    wave: {
+      showEffect: () => {},
+    },
     card: {
-      styles: {
-        root: styles.value.cardRoot,
+      classes: {
+        root: styles.cardRoot,
       },
     },
     modal: {
-      styles: {
-        container: styles.value.modalContainer,
+      classes: {
+        container: styles.modalContainer,
       },
     },
     button: {
-      styles: {
-        root: styles.value.buttonRoot,
-      },
+      classes: ({ props }) => ({
+        root: clsx(styles.buttonRoot, props.color === 'default' && styles.buttonRootDefaultColor),
+      }),
     },
     alert: {
-      styles: {
-        root: styles.value.glassBoxNoBackdrop,
+      classes: {
+        root: styles.glassBoxNoBackdrop,
       },
     },
     colorPicker: {
-      styles: {},
+      classes: {},
     },
     dropdown: {
-      styles: {
-        root: styles.value.dropdownRoot,
+      classes: {
+        root: styles.dropdownRoot,
       },
     },
     select: {
-      styles: {
-        root: styles.value.glassBoxNoBackdrop,
-        popup: styles.value.glassBox,
+      classes: {
+        root: styles.glassBoxNoBackdrop,
+        popup: {
+          root: styles.glassBox,
+        },
       },
     },
     popover: {
-      styles: {
-        root: styles.value.glassBox,
+      classes: {
+        root: styles.glassBox,
       },
     },
     switch: {
-      styles: {
-        root: styles.value.switchRoot,
+      classes: {
+        root: styles.switchRoot,
       },
     },
     progress: {
+      classes: {
+        track: styles.progressTrack,
+        rail: styles.progressRail,
+      },
       styles: {
-        track: styles.value.progressTrack,
-        rail: styles.value.progressRail,
+        rail: {
+          height: '12px',
+        },
+        track: {
+          height: '12px',
+        },
       },
     },
   }))

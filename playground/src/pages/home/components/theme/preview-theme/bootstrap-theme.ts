@@ -1,80 +1,92 @@
-import type { ConfigProviderProps, GlobalToken } from 'antdv-next'
+import type { ConfigProviderProps } from 'antdv-next'
 import type { UseTheme } from '.'
-import type { StylesResult } from './types.ts'
+import { clsx } from '@v-c/util'
 import { theme } from 'antdv-next'
-import { useToken } from 'antdv-next/theme/internal'
 import { computed } from 'vue'
+import { createStyles } from '../hooks'
 
-function createStyles(cssVar: GlobalToken): StylesResult {
+const useStyles = createStyles(({ css, cssVar }) => {
+  console.log(cssVar, 'cssVar')
+
   return {
-    boxBorder: {
-      border: `${cssVar.lineWidth} ${cssVar.lineType} color-mix(in srgb, ${cssVar.colorBorder} 80%, #000)`,
-    },
-    alertRoot: {
+    boxBorder: css({
+      border: `${cssVar.lineWidth} ${cssVar.lineType} color-mix(in srgb,${cssVar.colorBorder} 80%, #000)`,
+    }),
+    alertRoot: css({
       color: cssVar.colorInfoText,
       textShadow: '0 1px 0 rgba(255, 255, 255, 0.8)',
-    },
-    modalContainer: {
+    }),
+
+    modalContainer: css({
       padding: 0,
       borderRadius: cssVar.borderRadiusLG,
-    },
-    modalHeader: {
+    }),
+    modalHeader: css({
       borderBottom: `${cssVar.lineWidth} ${cssVar.lineType} ${cssVar.colorSplit}`,
       padding: `${cssVar.padding} ${cssVar.paddingLG}`,
-    },
-    modalBody: {
+    }),
+    modalBody: css({
       padding: `${cssVar.padding} ${cssVar.paddingLG}`,
-    },
-    modalFooter: {
+    }),
+    modalFooter: css({
       borderTop: `${cssVar.lineWidth} ${cssVar.lineType} ${cssVar.colorSplit}`,
       padding: `${cssVar.padding} ${cssVar.paddingLG}`,
       backgroundColor: cssVar.colorBgContainerDisabled,
       boxShadow: `inset 0 1px 0 ${cssVar.colorBgContainer}`,
-    },
-    buttonRoot: {
+    }),
+    buttonRoot: css({
       backgroundImage: 'linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.2))',
       boxShadow: 'inset 0 1px 0 rgba(255, 255, 255, 0.15)',
       transition: 'none',
       borderColor: 'rgba(0, 0, 0, 0.3)',
       textShadow: '0 -1px 0 rgba(0, 0, 0, 0.2)',
-    },
-    buttonColorDefault: {
+      '&:hover, &:active': {
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.15) 100%)`,
+      },
+
+      '&:active': {
+        boxShadow: `inset 0 1px 3px rgba(0, 0, 0, 0.15)`,
+      },
+    }),
+    buttonColorDefault: css({
       textShadow: 'none',
       color: cssVar.colorText,
       borderBottomColor: 'rgba(0, 0, 0, 0.5)',
-    },
-    popupBox: {
+    }),
+    popupBox: css({
       borderRadius: cssVar.borderRadiusLG,
       backgroundColor: cssVar.colorBgContainer,
-    },
-    dropdownItem: {
+
+      ul: {
+        paddingInline: 0,
+      },
+    }),
+    dropdownItem: css({
       borderRadius: 0,
       transition: 'none',
       paddingBlock: cssVar.paddingXXS,
       paddingInline: cssVar.padding,
-    },
-    selectPopupRoot: {
+
+      '&:hover, &:active, &:focus': {
+        backgroundImage: `linear-gradient(to bottom, ${cssVar.colorPrimaryHover}, ${cssVar.colorPrimary})`,
+        color: cssVar.colorTextLightSolid,
+      },
+    }),
+    selectPopupRoot: css({
       paddingInline: 0,
-    },
-    switchRoot: {
+    }),
+    switchRoot: css({
       boxShadow: 'inset 0 1px 3px rgba(0, 0, 0, 0.4)',
-    },
-    progressTrack: {
+    }),
+    progressTrack: css({
       backgroundImage: `linear-gradient(to bottom, ${cssVar.colorPrimaryHover}, ${cssVar.colorPrimary})`,
       borderRadius: cssVar.borderRadiusSM,
-    },
-    progressRail: {
+    }),
+    progressRail: css({
       borderRadius: cssVar.borderRadiusSM,
-    },
+    }),
   }
-}
-
-function useStyles() {
-  const [, , , token] = useToken()
-  const styles = computed(() => createStyles(token.value))
-
-  return { styles }
-}
+})
 
 const useBootstrapTheme: UseTheme = () => {
   const { styles } = useStyles()
@@ -106,54 +118,68 @@ const useBootstrapTheme: UseTheme = () => {
     wave: {
       showEffect: () => {},
     },
+
     modal: {
-      styles: {
-        container: styles.value.boxBorder,
-        content: styles.value.modalContainer,
-        header: styles.value.modalHeader,
-        body: styles.value.modalBody,
-        footer: styles.value.modalFooter,
+      classes: {
+        container: clsx(styles.boxBorder, styles.modalContainer),
+        header: styles.modalHeader,
+        body: styles.modalBody,
+        footer: styles.modalFooter,
       },
     },
     button: {
-      styles: {
-        root: styles.value.buttonRoot,
-      },
+      classes: ({ props }) => ({
+        root: clsx(styles.buttonRoot, props.color === 'default' && styles.buttonColorDefault),
+      }),
     },
+
     alert: {
-      styles: {
-        root: styles.value.alertRoot,
-      },
+      classes: styles.alertRoot,
     },
     colorPicker: {
-      styles: {
-        root: styles.value.boxBorder,
-        popup: styles.value.popupBox,
+      classes: {
+        root: styles.boxBorder,
+        popup: {
+          root: clsx(styles.boxBorder, styles.popupBox),
+        },
       },
+      arrow: false,
+    },
+    checkbox: {
+      classes: {},
     },
     dropdown: {
-      styles: {
-        root: styles.value.popupBox,
+      classes: {
+        root: clsx(styles.boxBorder, styles.popupBox),
+        item: styles.dropdownItem,
       },
     },
     select: {
-      styles: {
-        root: styles.value.boxBorder,
-        popup: styles.value.selectPopupRoot,
+      classes: {
+        root: styles.boxBorder,
+        popup: {
+          root: clsx(styles.boxBorder, styles.selectPopupRoot),
+          listItem: styles.dropdownItem,
+        },
       },
     },
     switch: {
-      styles: {
-        root: styles.value.switchRoot,
+      classes: {
+        root: styles.switchRoot,
       },
     },
     progress: {
+      classes: {
+        track: styles.progressTrack,
+        rail: styles.progressRail,
+      },
       styles: {
-        track: { ...styles.value.progressTrack, height: '20px' },
-        rail: { ...styles.value.progressRail, height: '20px' },
+        rail: {
+          height: '20px',
+        },
+        track: { height: '20px' },
       },
     },
   }))
 }
-
 export default useBootstrapTheme

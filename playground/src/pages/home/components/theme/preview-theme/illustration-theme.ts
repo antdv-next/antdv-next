@@ -1,61 +1,51 @@
 import type { ConfigProviderProps } from 'antdv-next'
-import type { CSSProperties } from 'vue'
 import type { UseTheme } from '.'
-import type { CSSVar, StylesResult } from './types.ts'
 import { theme } from 'antdv-next'
-import { useToken } from 'antdv-next/theme/internal'
 import { computed } from 'vue'
+import { createStyles } from '../hooks'
 
-function createStyles(cssVar: CSSVar): StylesResult {
-  const illustrationBorder: CSSProperties = {
+const useStyles = createStyles(({ css, cssVar }) => {
+  const illustrationBorder = {
     border: `${cssVar.lineWidth} solid ${cssVar.colorBorder}`,
   }
 
-  const illustrationBox: CSSProperties = {
+  const illustrationBox = {
     ...illustrationBorder,
     boxShadow: `4px 4px 0 ${cssVar.colorBorder}`,
   }
 
   return {
-    illustrationBorder,
-    illustrationBox,
-    buttonRoot: {
+    illustrationBorder: css(illustrationBorder),
+    illustrationBox: css(illustrationBox),
+    buttonRoot: css({
       ...illustrationBox,
       fontWeight: 600,
       textTransform: 'uppercase',
       letterSpacing: '0.5px',
-    },
-    modalContainer: {
+    }),
+    modalContainer: css({
       ...illustrationBox,
-    },
-    tooltipRoot: {
+    }),
+    tooltipRoot: css({
       padding: cssVar.padding,
-    },
-    popupBox: {
+    }),
+    popupBox: css({
       ...illustrationBox,
       borderRadius: cssVar.borderRadiusLG,
       backgroundColor: cssVar.colorBgContainer,
-    },
-    progressRail: {
+    }),
+    progressRail: css({
       border: `${cssVar.lineWidth} solid ${cssVar.colorBorder}`,
       boxShadow: `2px 2px 0 ${cssVar.colorBorder}`,
-      height: '16px',
-    },
-    progressTrack: {
+    }),
+    progressTrack: css({
       border: 'none',
-      height: '10px',
-    },
-    inputNumberActions: {
+    }),
+    inputNumberActions: css({
       width: '12px',
-    },
+    }),
   }
-}
-
-function useStyles() {
-  const [, , , token] = useToken()
-  const styles = computed(() => createStyles(token.value))
-  return { styles }
-}
+})
 
 const useIllustrationTheme: UseTheme = () => {
   const { styles } = useStyles()
@@ -116,62 +106,72 @@ const useIllustrationTheme: UseTheme = () => {
       },
     },
     button: {
-      styles: {
-        root: styles.value.buttonRoot,
+      classes: {
+        root: styles.buttonRoot,
       },
     },
     modal: {
-      styles: {
-        container: styles.value.modalContainer,
+      classes: {
+        container: styles.modalContainer,
       },
     },
     alert: {
-      styles: {
-        root: styles.value.illustrationBorder,
+      classes: {
+        root: styles.illustrationBorder,
       },
     },
     colorPicker: {
-      styles: {
-        root: styles.value.illustrationBox,
+      classes: {
+        root: styles.illustrationBox,
       },
     },
     popover: {
-      styles: {
-        root: styles.value.illustrationBox,
+      classes: {
+        root: styles.illustrationBox,
       },
     },
     tooltip: {
-      styles: {
-        root: styles.value.tooltipRoot,
-        inner: styles.value.illustrationBox,
+      classes: {
+        root: styles.tooltipRoot,
+        inner: styles.illustrationBox,
       },
     },
     dropdown: {
-      styles: {
-        root: styles.value.popupBox,
+      classes: {
+        root: styles.popupBox,
       },
     },
     select: {
-      styles: {
-        root: styles.value.illustrationBox,
-        popup: styles.value.popupBox,
+      classes: {
+        root: styles.illustrationBox,
+        popup: {
+          root: styles.popupBox,
+        },
       },
     },
     input: {
-      styles: {
-        root: styles.value.illustrationBox,
+      classes: {
+        root: styles.illustrationBox,
       },
     },
     inputNumber: {
-      styles: {
-        root: styles.value.illustrationBox,
-        actions: styles.value.inputNumberActions,
+      classes: {
+        root: styles.illustrationBox,
+        actions: styles.inputNumberActions,
       },
     },
     progress: {
+      classes: {
+        rail: styles.progressRail,
+        track: styles.progressTrack,
+      },
       styles: {
-        rail: styles.value.progressRail,
-        track: styles.value.progressTrack,
+        rail: {
+          height: '16px',
+        },
+        track: {
+          height: '10px',
+        },
       },
     },
   }))

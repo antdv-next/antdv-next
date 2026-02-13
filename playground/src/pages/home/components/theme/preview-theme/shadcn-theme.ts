@@ -1,57 +1,51 @@
 import type { ConfigProviderProps } from 'antdv-next'
 import type { UseTheme } from '.'
-import type { CSSVar, StylesResult } from './types'
+import { clsx } from '@v-c/util'
 import { theme } from 'antdv-next'
-import { useToken } from 'antdv-next/theme/internal.ts'
 import { computed } from 'vue'
+import { createStyles } from '../hooks'
 
-function createStyles(_cssVar: CSSVar): StylesResult {
+const useStyles = createStyles(({ css }) => {
   return {
-    buttonPrimary: {
+    buttonPrimary: css({
       backgroundColor: '#18181b',
       color: '#ffffff',
       border: '1px solid #18181b',
       fontWeight: 500,
       transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
-    },
-    buttonDefault: {
+    }),
+    buttonDefault: css({
       backgroundColor: '#ffffff',
       color: '#18181b',
       border: '1px solid #e4e4e7',
       fontWeight: 500,
       transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
-    },
-    buttonDanger: {
+    }),
+    buttonDanger: css({
       backgroundColor: '#dc2626',
       color: '#ffffff',
       border: '1px solid #dc2626',
       fontWeight: 500,
-    },
-    inputRoot: {
+    }),
+    inputRoot: css({
       borderColor: '#e4e4e7',
       transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
-    },
-    inputElement: {
+    }),
+    inputElement: css({
       color: '#18181b',
-    },
-    inputError: {
+    }),
+    inputError: css({
       borderColor: '#dc2626',
-    },
-    selectRoot: {
+    }),
+    selectRoot: css({
       borderColor: '#e4e4e7',
-    },
-    selectPopup: {
+    }),
+    selectPopup: css({
       borderRadius: '8px',
       boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)',
-    },
+    }),
   }
-}
-
-function useStyles() {
-  const [, , , token] = useToken()
-  const styles = computed(() => createStyles(token.value))
-  return { styles }
-}
+})
 
 const useShadcnTheme: UseTheme = () => {
   const { styles } = useStyles()
@@ -200,15 +194,24 @@ const useShadcnTheme: UseTheme = () => {
         },
       },
     },
+    button: {
+      classes: ({ props }) => ({
+        root: clsx(
+          styles.buttonPrimary,
+          props.color === 'default' && styles.buttonDefault,
+          props.color === 'danger' && styles.buttonDanger,
+        ),
+      }),
+    },
     input: {
-      styles: {
-        root: styles.value.inputRoot,
-        input: styles.value.inputElement,
+      classes: {
+        root: styles.inputRoot,
+        input: styles.inputElement,
       },
     },
     select: {
-      styles: {
-        root: styles.value.selectRoot,
+      classes: {
+        root: styles.selectRoot,
       },
     },
   }))

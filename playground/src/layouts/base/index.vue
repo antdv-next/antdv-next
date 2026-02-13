@@ -79,7 +79,7 @@ watch(
 </script>
 
 <template>
-  <a-style-provider>
+  <a-style-provider layer>
     <HappyProvider v-slot="{ wave }" :enabled="happyMode">
       <a-config-provider
         :locale="antdLocale"

@@ -1,74 +1,79 @@
 import type { ConfigProviderProps } from 'antdv-next'
-import type { CSSProperties } from 'vue'
 import type { UseTheme } from '.'
-import type { CSSVar, StylesResult } from './types.ts'
+import { clsx } from '@v-c/util'
 import { theme } from 'antdv-next'
-import { useToken } from 'antdv-next/theme/internal'
 import { computed } from 'vue'
+import { createStyles } from '../hooks'
 
-function createStyles(cssVar: CSSVar): StylesResult {
-  const lightBorder: CSSProperties = {
+const useStyles = createStyles(({ css, cssVar }) => {
+  const lightBorder = {
     border: `${cssVar.lineWidth} solid ${cssVar.colorPrimary}`,
     boxShadow: `0 0 3px ${cssVar.colorPrimary}, inset 0 0 10px ${cssVar.colorPrimary}`,
   }
 
   return {
-    lightBorder,
-    app: {
-      textShadow: `0 0 5px color-mix(in srgb, currentColor 50%, transparent)`,
-    },
-    modalContainer: {
+    lightBorder: css(lightBorder),
+    app: css({
+      textShadow: '0 0 5px color-mix(in srgb, currentColor 50%, transparent)',
+    }),
+    modalContainer: css({
       ...lightBorder,
       padding: 0,
-      backgroundColor: '#1F1F1F',
-    },
-    modalHeader: {
+    }),
+    modalHeader: css({
       padding: `${cssVar.padding} ${cssVar.paddingLG}`,
       margin: 0,
       position: 'relative',
-    },
-    modalBody: {
+
+      '&:after': {
+        ...lightBorder,
+        content: '""',
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        bottom: 0,
+        border: 0,
+        height: `${cssVar.lineWidth}px`,
+        background: cssVar.colorPrimary,
+      },
+    }),
+    modalBody: css({
       padding: `${cssVar.padding} ${cssVar.paddingLG}`,
-    },
-    modalFooter: {
+    }),
+    modalFooter: css({
       padding: `${cssVar.padding} ${cssVar.paddingLG}`,
-    },
-    buttonRoot: {
+    }),
+
+    buttonRoot: css({
       ...lightBorder,
-      border: undefined,
-      borderWidth: cssVar.lineWidth,
+      // border: undefined, // Not supported in this object spread context directly to unset
+      borderWidth: `${cssVar.lineWidth}`,
       borderColor: cssVar.colorPrimary,
-    },
-    buttonRootSolid: {
+    }),
+    buttonRootSolid: css({
       color: cssVar.colorBgContainer,
       border: 'none',
       fontWeight: 'bolder',
-    },
-    buttonRootSolidDanger: {
+    }),
+    buttonRootSolidDanger: css({
       boxShadow: `0 0 5px ${cssVar.colorError}`,
-    },
-    colorPickerBody: {
+    }),
+
+    colorPickerBody: css({
       pointerEvents: 'none',
-    },
-    tooltipRoot: {
-      padding: cssVar.padding,
-    },
-    tooltipContainer: {
+    }),
+    tooltipRoot: css({
+      padding: `${cssVar.padding}`,
+    }),
+    tooltipContainer: css({
       ...lightBorder,
       color: cssVar.colorPrimary,
-    },
-    progressTrack: {
+    }),
+    progressTrack: css({
       backgroundColor: cssVar.colorPrimary,
-      height: '8px',
-    },
+    }),
   }
-}
-
-function useStyles() {
-  const [, , , token] = useToken()
-  const styles = computed(() => createStyles(token.value))
-  return { styles }
-}
+})
 
 const useGeekTheme: UseTheme = () => {
   const { styles } = useStyles()
@@ -84,66 +89,67 @@ const useGeekTheme: UseTheme = () => {
         controlHeightSM: 26,
         controlHeight: 34,
       },
-      // components: {
-      //   Button: {
-      //     colorPrimary: '#39ff14',
-      //     colorText: '#39ff14',
-      //   },
-      // },
     },
     app: {
-      styles: {
-        root: styles.value.app,
+      classes: {
+        root: styles.app,
       },
     },
     modal: {
-      styles: {
-        container: styles.value.modalContainer,
-        header: styles.value.modalHeader,
-        body: styles.value.modalBody,
-        footer: styles.value.modalFooter,
+      classes: {
+        container: styles.modalContainer,
+        header: styles.modalHeader,
+        body: styles.modalBody,
+        footer: styles.modalFooter,
       },
     },
     button: {
-      styles: {
-        root: styles.value.buttonRoot,
-      },
+      classes: ({ props }) => ({
+        root: clsx(
+          styles.buttonRoot,
+          props.variant === 'solid' && styles.buttonRootSolid,
+          props.variant === 'solid' && props.danger && styles.buttonRootSolidDanger,
+        ),
+      }),
     },
+
     alert: {
-      styles: {
-        root: styles.value.lightBorder,
+      classes: {
+        root: styles.lightBorder,
       },
     },
     colorPicker: {
-      styles: {
-        root: styles.value.lightBorder,
-        body: styles.value.colorPickerBody,
+      classes: {
+        root: styles.lightBorder,
+        body: styles.colorPickerBody,
       },
+      arrow: false,
     },
     select: {
-      styles: {
-        root: styles.value.lightBorder,
+      classes: {
+        root: styles.lightBorder,
       },
     },
     input: {
-      styles: {
-        root: styles.value.lightBorder,
+      classes: {
+        root: styles.lightBorder,
       },
     },
     inputNumber: {
-      styles: {
-        root: styles.value.lightBorder,
+      classes: {
+        root: styles.lightBorder,
       },
     },
     tooltip: {
-      styles: {
-        root: styles.value.tooltipRoot,
-        inner: styles.value.tooltipContainer,
+      arrow: false,
+      classes: {
+        root: styles.tooltipRoot,
+        popup: styles.tooltipContainer,
       },
     },
     progress: {
-      styles: {
-        track: styles.value.progressTrack,
+      classes: {
+        track: styles.progressTrack,
       },
     },
   }))

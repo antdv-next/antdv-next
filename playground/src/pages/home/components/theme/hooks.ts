@@ -1,25 +1,25 @@
 import type { CSSObject } from '@antdv-next/cssinjs'
+import type { GlobalToken } from 'antdv-next'
 import { hash, useStyleRegister } from '@antdv-next/cssinjs'
 import { useToken } from 'antdv-next/theme/internal'
 import { computed, reactive, watchEffect } from 'vue'
 
 export function createStyles(
   styleFn: (args: {
-    token: any
+    realToken: GlobalToken
     css: (style: CSSObject) => CSSObject
-    cssVar: any
+    cssVar: GlobalToken
   }) => Record<string, CSSObject>,
 ) {
   const scopeId = `acss-${hash(styleFn.toString())}`
 
   return () => {
-    const [theme, token, hashId] = useToken()
-
+    const [theme, , hashId, realToken] = useToken()
     const stylesInfo = computed(() => {
       const styles = styleFn({
-        token: token.value,
+        realToken: realToken.value,
         css: (s: CSSObject) => s,
-        cssVar: token.value,
+        cssVar: realToken.value,
       })
       return styles
     })
@@ -30,7 +30,7 @@ export function createStyles(
       const cssObj: Record<string, CSSObject> = {}
 
       Object.keys(styles).forEach((key) => {
-        const cls = `css-${hash(`${scopeId}-${key}`)}`
+        const cls = `acss-${hash(`${scopeId}-${key}`)}`
         classNames[key] = cls
         cssObj[`.${cls}`] = styles[key]!
       })
@@ -41,7 +41,7 @@ export function createStyles(
     useStyleRegister(
       computed(() => ({
         theme: theme.value,
-        token: token.value,
+        token: realToken.value,
         hashId: hashId.value,
         path: [scopeId],
       })),
@@ -63,7 +63,7 @@ export function createStyles(
     return {
       styles,
       theme,
-      token,
+      realToken,
       hashId,
     }
   }

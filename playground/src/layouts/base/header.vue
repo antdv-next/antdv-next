@@ -121,7 +121,7 @@ function changeDirection(value: 1 | 2) {
         </h1>
       </a-col>
       <a-col :xxl="20" :xl="19" :lg="18" :md="18" :sm="0" :xs="0">
-        <div class="ant-doc-header-right flex items-center gap-sm h-full" :class="[direction === 'ltr' ? 'pr-[var(--ant-padding)]' : 'pl-[var(--ant-padding)]']">
+        <div class="ant-doc-header-right flex items-center gap-sm" :class="[direction === 'ltr' ? 'pr-[var(--ant-padding)]' : 'pl-[var(--ant-padding)]']">
           <div class="flex items-center m-0" :class="[direction === 'ltr' ? 'b-l-1 b-l-solid b-l-black/6' : 'b-r-1 b-r-solid b-r-black/6']" style="flex: auto">
             <DocSearch />
           </div>

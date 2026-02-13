@@ -1,13 +1,13 @@
 import type { ConfigProviderProps } from 'antdv-next'
 import type { UseTheme } from '.'
-import type { CSSVar, StylesResult } from './types.ts'
+import { clsx } from '@v-c/util'
 import { theme } from 'antdv-next'
-import { useToken } from 'antdv-next/theme/internal'
 import { computed } from 'vue'
+import { createStyles } from '../hooks'
 
-function createStyles(_cssVar: CSSVar): StylesResult {
+const useStyles = createStyles(({ css }) => {
   return {
-    buttonPrimary: {
+    buttonPrimary: css({
       backgroundColor: '#1976d2',
       color: '#ffffff',
       border: 'none',
@@ -17,8 +17,8 @@ function createStyles(_cssVar: CSSVar): StylesResult {
       boxShadow:
         '0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12)',
       transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
-    },
-    buttonDefault: {
+    }),
+    buttonDefault: css({
       backgroundColor: '#ffffff',
       color: 'rgba(0, 0, 0, 0.87)',
       border: '1px solid rgba(0, 0, 0, 0.23)',
@@ -26,8 +26,8 @@ function createStyles(_cssVar: CSSVar): StylesResult {
       textTransform: 'uppercase',
       letterSpacing: '0.02857em',
       transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
-    },
-    buttonDanger: {
+    }),
+    buttonDanger: css({
       backgroundColor: '#d32f2f',
       color: '#ffffff',
       border: 'none',
@@ -36,35 +36,29 @@ function createStyles(_cssVar: CSSVar): StylesResult {
       letterSpacing: '0.02857em',
       boxShadow:
         '0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12)',
-    },
-    inputRoot: {
+    }),
+    inputRoot: css({
       borderColor: 'rgba(0, 0, 0, 0.23)',
       transition: 'all 0.2s cubic-bezier(0.4, 0, 0.2, 1)',
-    },
-    inputElement: {
+    }),
+    inputElement: css({
       color: 'rgba(0, 0, 0, 0.87)',
       fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-    },
-    inputError: {
+    }),
+    inputError: css({
       borderColor: '#d32f2f',
-    },
-    selectRoot: {
+    }),
+    selectRoot: css({
       borderColor: 'rgba(0, 0, 0, 0.23)',
       fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
-    },
-    selectPopup: {
+    }),
+    selectPopup: css({
       borderRadius: '4px',
       boxShadow:
         '0px 5px 5px -3px rgba(0,0,0,0.2), 0px 8px 10px 1px rgba(0,0,0,0.14), 0px 3px 14px 2px rgba(0,0,0,0.12)',
-    },
+    }),
   }
-}
-
-function useStyles() {
-  const [, , , token] = useToken()
-  const styles = computed(() => createStyles(token.value))
-  return { styles }
-}
+})
 
 const useMuiTheme: UseTheme = () => {
   const { styles } = useStyles()
@@ -200,19 +194,23 @@ const useMuiTheme: UseTheme = () => {
       },
     },
     button: {
-      styles: {
-        root: styles.value.buttonPrimary,
-      },
+      classes: ({ props }) => ({
+        root: clsx(
+          styles.buttonPrimary,
+          props.color === 'default' && styles.buttonDefault,
+          props.color === 'danger' && styles.buttonDanger,
+        ),
+      }),
     },
     input: {
-      styles: {
-        root: styles.value.inputRoot,
-        input: styles.value.inputElement,
+      classes: {
+        root: styles.inputRoot,
+        input: styles.inputElement,
       },
     },
     select: {
-      styles: {
-        root: styles.value.selectRoot,
+      classes: {
+        root: styles.selectRoot,
       },
     },
   }))

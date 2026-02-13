@@ -10,6 +10,7 @@ import {
 } from 'unocss'
 
 export default defineConfig({
+  outputToCssLayers: true,
   safelist: [
   ],
   theme: {

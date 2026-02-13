@@ -1,36 +1,23 @@
 import type { ConfigProviderProps } from 'antdv-next'
-import type { CSSProperties } from 'vue'
 import type { UseTheme } from '.'
-import type { CSSVar, StylesResult } from './types.ts'
 import { theme } from 'antdv-next'
-import { useToken } from 'antdv-next/theme/internal'
 import { computed } from 'vue'
+import { createStyles } from '../hooks'
 
-function createStyles(cssVar: CSSVar): StylesResult {
-  const sharedBorder: CSSProperties = {
-    border: `${cssVar.lineWidth} ${cssVar.lineType} ${cssVar.colorBorder}`,
+const useStyles = createStyles(({ css, cssVar }) => {
+  const sharedBorder = {
+    border: `${cssVar.lineWidth}px ${cssVar.lineType} ${cssVar.colorBorder}`,
   }
 
   return {
-    sharedBorder,
-    progressRail: {
-      ...sharedBorder,
-      height: '16px',
-    },
-    progressTrack: {
-      ...sharedBorder,
+    sharedBorder: css(sharedBorder),
+    progressTrack: css({
+      border: `${cssVar.lineWidth} ${cssVar.lineType} ${cssVar.colorBorder}`,
       marginInlineStart: `calc(-1 * ${cssVar.lineWidth})`,
       marginBlockStart: `calc(-1 * ${cssVar.lineWidth})`,
-      height: '16px',
-    },
+    }),
   }
-}
-
-function useStyles() {
-  const [, , , token] = useToken()
-  const styles = computed(() => createStyles(token.value))
-  return { styles }
-}
+})
 
 const useCartoonTheme: UseTheme = () => {
   const { styles } = useStyles()
@@ -60,6 +47,13 @@ const useCartoonTheme: UseTheme = () => {
           primaryShadow: 'none',
           dangerShadow: 'none',
           defaultShadow: 'none',
+          colorText: '#51463B',
+          colorPrimary: '#225555',
+          colorError: '#DA8787',
+          colorInfo: '#9CD3D3',
+          colorInfoBorder: '#225555',
+          colorBorder: '#225555',
+          colorBorderSecondary: '#225555',
         },
         Modal: {
           boxShadow: 'none',
@@ -78,22 +72,30 @@ const useCartoonTheme: UseTheme = () => {
       },
     },
     modal: {
-      styles: {
-        container: styles.value.sharedBorder,
+      classes: {
+        container: styles.sharedBorder,
       },
     },
-    colorPicker: {
-      styles: {},
-    },
+    // colorPicker: {
+    //   arrow: false,
+    // },
     popover: {
-      styles: {
-        root: styles.value.sharedBorder,
+      classes: {
+        root: styles.sharedBorder,
       },
     },
     progress: {
+      classes: {
+        rail: styles.sharedBorder,
+        track: styles.progressTrack,
+      },
       styles: {
-        rail: styles.value.progressRail,
-        track: styles.value.progressTrack,
+        rail: {
+          height: '16px',
+        },
+        track: {
+          height: '16px',
+        },
       },
     },
   }))

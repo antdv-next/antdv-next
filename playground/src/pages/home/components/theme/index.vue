@@ -117,7 +117,7 @@ const memoThemeProps = computed(() => activeTheme.value?.props)
         >
           <a-flex vertical gap="middle">
             <!-- Modal Panel -->
-            <ModalPanel title="Ant Design">
+            <ModalPanel title="Antdv Next">
               {{ t('homePage.componentsBlock.text') }}
             </ModalPanel>
 
