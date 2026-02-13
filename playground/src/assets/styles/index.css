@@ -1,7 +1,7 @@
 @layer reset, antd, layout, markdown, common;
 
 @import 'antdv-next/style/reset.css' layer(reset);
-@import 'antd.css' layer(antd);
+@import '../antd.css' layer(antd);
 @import './layout/index.css' layer(layout);
 @import './markdown/index.css' layer(markdown);
 @import './common.css' layer(common);
