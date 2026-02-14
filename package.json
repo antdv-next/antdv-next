@@ -12,6 +12,7 @@
   },
   "scripts": {
     "dev": "turbo dev --filter playground",
+    "dev:play": "pnpm -F @antdv-next/playground dev",
     "lint": "eslint . --fix",
     "ci:publish": "pnpm publish -r --access=public",
     "ci:lint": "eslint",
