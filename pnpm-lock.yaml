@@ -765,6 +765,43 @@ importers:
         specifier: catalog:prod
         version: 3.5.27(typescript@5.9.3)
 
+  packages/playground:
+    dependencies:
+      '@antdv-next/icons':
+        specifier: catalog:prod
+        version: 1.0.1(vue@3.5.27(typescript@5.9.3))
+      dayjs:
+        specifier: catalog:prod
+        version: 1.11.19
+      vue:
+        specifier: catalog:prod
+        version: 3.5.27(typescript@5.9.3)
+    devDependencies:
+      '@types/node':
+        specifier: catalog:types
+        version: 25.0.10
+      '@vitejs/plugin-vue':
+        specifier: catalog:dev
+        version: 6.0.3(vite@8.0.0-beta.11(@types/node@25.0.10)(esbuild@0.27.1)(jiti@2.6.1)(less@4.5.1)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2))(vue@3.5.27(typescript@5.9.3))
+      '@vitejs/plugin-vue-jsx':
+        specifier: catalog:dev
+        version: 5.1.3(vite@8.0.0-beta.11(@types/node@25.0.10)(esbuild@0.27.1)(jiti@2.6.1)(less@4.5.1)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2))(vue@3.5.27(typescript@5.9.3))
+      '@vue/tsconfig':
+        specifier: catalog:dev
+        version: 0.8.1(typescript@5.9.3)(vue@3.5.27(typescript@5.9.3))
+      less:
+        specifier: catalog:dev
+        version: 4.5.1
+      typescript:
+        specifier: catalog:dev
+        version: 5.9.3
+      vite:
+        specifier: ^8.0.0-beta.11
+        version: 8.0.0-beta.11(@types/node@25.0.10)(esbuild@0.27.1)(jiti@2.6.1)(less@4.5.1)(terser@5.44.1)(tsx@4.21.0)(yaml@2.8.2)
+      vue-tsc:
+        specifier: catalog:dev
+        version: 3.1.8(typescript@5.9.3)
+
   playground:
     dependencies:
       '@ant-design/colors':
@@ -966,11 +1003,6 @@ packages:
     peerDependencies:
       antdv-next: ^1.0.0
       vue: ^3.5.0
-
-  '@antdv-next/icons@1.0.0-rc.2':
-    resolution: {integrity: sha512-BvExw357GukPumdVaE58859rCVlrc0TtnFgEi4gcyH0NGvPHrj2WqrLcxHi/DWbAkH4G3qYxadtzS4fvolN2rw==}
-    peerDependencies:
-      vue: '>=3.2.0'
 
   '@antdv-next/icons@1.0.1':
     resolution: {integrity: sha512-E4EpR8yQVkfE9VQafxaer2llZJwQRX3Tk/0smFZrlQENvAebj6HInDLQ9iaH6gd+a5g9mPsq18tZLCboEA2X/w==}
@@ -2328,11 +2360,6 @@ packages:
 
   '@v-c/qrcode@1.0.0':
     resolution: {integrity: sha512-OSMrYDhP/NQiUcO6J0X2X8BskHPRqX/E/F9npH3oayZgjCo5Aom+63Ja3J0u6SOmKP1JgLSgjrm5karc0671jw==}
-    peerDependencies:
-      vue: ^3.0.0
-
-  '@v-c/rate@1.0.0':
-    resolution: {integrity: sha512-H2cj/dS3guxq9s79HlTzu8uUzH/dQM8Ko5zlPosWrBI33YvySqoxcShY8cZS/tcq8I4xDE/SjeAmBe7rHd9VEA==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -5730,14 +5757,6 @@ snapshots:
       antdv-next: 1.0.0-rc.8(vue@3.5.27(typescript@5.9.3))
       vue: 3.5.27(typescript@5.9.3)
 
-  '@antdv-next/icons@1.0.0-rc.2(vue@3.5.27(typescript@5.9.3))':
-    dependencies:
-      '@ant-design/colors': 7.2.1
-      '@ant-design/icons-svg': 4.4.2
-      '@v-c/util': 1.0.14(vue@3.5.27(typescript@5.9.3))
-      es-toolkit: 1.43.0
-      vue: 3.5.27(typescript@5.9.3)
-
   '@antdv-next/icons@1.0.1(vue@3.5.27(typescript@5.9.3))':
     dependencies:
       '@ant-design/colors': 7.2.1
@@ -7263,11 +7282,6 @@ snapshots:
       '@v-c/util': 1.0.14(vue@3.5.27(typescript@5.9.3))
       vue: 3.5.27(typescript@5.9.3)
 
-  '@v-c/rate@1.0.0(vue@3.5.27(typescript@5.9.3))':
-    dependencies:
-      '@v-c/util': 1.0.14(vue@3.5.27(typescript@5.9.3))
-      vue: 3.5.27(typescript@5.9.3)
-
   '@v-c/rate@1.0.1(vue@3.5.27(typescript@5.9.3))':
     dependencies:
       '@v-c/util': 1.0.14(vue@3.5.27(typescript@5.9.3))
@@ -7700,7 +7714,7 @@ snapshots:
       '@ant-design/colors': 7.2.1
       '@ant-design/fast-color': 3.0.0
       '@antdv-next/cssinjs': 1.0.0-rc.3(vue@3.5.27(typescript@5.9.3))
-      '@antdv-next/icons': 1.0.0-rc.2(vue@3.5.27(typescript@5.9.3))
+      '@antdv-next/icons': 1.0.1(vue@3.5.27(typescript@5.9.3))
       '@v-c/async-validator': 1.0.0
       '@v-c/cascader': 1.0.1(vue@3.5.27(typescript@5.9.3))
       '@v-c/checkbox': 1.0.1(vue@3.5.27(typescript@5.9.3))
@@ -7720,7 +7734,7 @@ snapshots:
       '@v-c/picker': 1.0.3(dayjs@1.11.19)(vue@3.5.27(typescript@5.9.3))
       '@v-c/progress': 1.0.0(vue@3.5.27(typescript@5.9.3))
       '@v-c/qrcode': 1.0.0(vue@3.5.27(typescript@5.9.3))
-      '@v-c/rate': 1.0.0(vue@3.5.27(typescript@5.9.3))
+      '@v-c/rate': 1.0.1(vue@3.5.27(typescript@5.9.3))
       '@v-c/resize-observer': 1.0.8(vue@3.5.27(typescript@5.9.3))
       '@v-c/segmented': 1.0.0(vue@3.5.27(typescript@5.9.3))
       '@v-c/select': 1.0.11(vue@3.5.27(typescript@5.9.3))
