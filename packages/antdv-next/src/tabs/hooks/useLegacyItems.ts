@@ -7,13 +7,20 @@ import TabPane from '../TabPane'
 
 function convertItem(item: Tab, index: number, slots?: any): VcTab {
   const { ...rest } = item
-  const contentRender = filterEmpty(slots?.contentRender?.({ item, index }) ?? [])
   const labelRender = filterEmpty(slots?.labelRender?.({ item, index }) ?? [])
-  const content = contentRender.length ? contentRender : getSlotPropsFnRun(item, {}, 'content')
   const label = labelRender.length ? labelRender : getSlotPropsFnRun(item, {}, 'label')
+  const childrenRender = () => {
+    if (slots?.contentRender) {
+      const vnode = filterEmpty(slots?.contentRender?.({ item, index }) ?? [])
+      if (vnode.length) {
+        return vnode
+      }
+    }
+    return getSlotPropsFnRun(item, {}, 'content')
+  }
   return {
     ...rest,
-    children: content,
+    children: childrenRender,
     label,
     className: rest.class,
     destroyOnHidden: rest.destroyOnHidden,
