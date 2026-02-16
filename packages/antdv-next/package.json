@@ -76,8 +76,11 @@
     "./web-tags.json": "./web-tags.json",
     "./package.json": "./package.json"
   },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "unpkg": "dist/antd.js",
   "jsdelivr": "dist/antd.js",
+  "types": "./dist/index.d.ts",
   "files": [
     "README.md",
     "dist",

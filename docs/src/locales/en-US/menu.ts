@@ -6,6 +6,7 @@ const menuLocales = {
     components: 'Components',
     blog: 'Blog',
     resources: 'Resources',
+    sponsor: 'Sponsor',
   },
 
   docs: {
