@@ -472,6 +472,37 @@ const InternalTreeSelect = defineComponent<
       }
 
       // ==================== Render =====================
+      const onAttrs: Partial<VcTreeSelectProps> = {
+        onFocus(e) {
+          emit('focus', e)
+        },
+        onBlur(e) {
+          emit('blur', e)
+        },
+        onSelect(value, option) {
+          emit('select', value, option)
+        },
+        onChange(value, labelList, extra) {
+          emit('change', value, labelList, extra)
+          emit('update:value', value)
+        },
+        onDeselect(value, option) {
+          emit('deselect', value, option)
+        },
+        onTreeExpand(expandedKeys) {
+          emit('treeExpand', expandedKeys)
+        },
+        onTreeLoad(loadedKeys) {
+          emit('treeLoad', loadedKeys)
+        },
+        onPopupScroll(e) {
+          emit('popupScroll', e)
+        },
+        onSearch(value) {
+          emit('search', value)
+        },
+      }
+
       const selectProps = omit(restProps, [
         'suffixIcon',
         'removeIcon',
@@ -480,6 +511,8 @@ const InternalTreeSelect = defineComponent<
         'switcherIcon',
         'classes',
         'styles',
+        // #209，事件重复传递
+        ...Object.keys(onAttrs),
       ])
 
       const mergedClassName = clsx(
@@ -516,36 +549,6 @@ const InternalTreeSelect = defineComponent<
 
       const tagRender = slots?.tagRender ?? props?.tagRender
 
-      const onAttrs: Partial<VcTreeSelectProps> = {
-        onFocus(e) {
-          emit('focus', e)
-        },
-        onBlur(e) {
-          emit('blur', e)
-        },
-        onSelect(value, option) {
-          emit('select', value, option)
-        },
-        onChange(value, labelList, extra) {
-          emit('change', value, labelList, extra)
-          emit('update:value', value)
-        },
-        onDeselect(value, option) {
-          emit('deselect', value, option)
-        },
-        onTreeExpand(expandedKeys) {
-          emit('treeExpand', expandedKeys)
-        },
-        onTreeLoad(loadedKeys) {
-          emit('treeLoad', loadedKeys)
-        },
-        onPopupScroll(e) {
-          emit('popupScroll', e)
-        },
-        onSearch(value) {
-          emit('search', value)
-        },
-      }
       return (
         <VcTreeSelect
           {...restAttrs}
