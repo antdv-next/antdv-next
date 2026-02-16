@@ -9,7 +9,6 @@ import DocSearch from '@/components/doc-search/index.vue'
 import DirectionIcon from '@/components/icons/directionIcon.vue'
 import { useMobile } from '@/composables/mobile'
 import { useLocale } from '@/composables/use-locale'
-import { docsMenus } from '@/config/menu/docs'
 import { headerItems, headerLocales } from '@/config/menu/header'
 import SwitchBtn from '@/layouts/base/components/switch-btn.vue'
 import ThemeBtn from '@/layouts/base/components/theme-btn.vue'
@@ -35,7 +34,7 @@ const handleHeaderChange: MenuEmits['click'] = (info) => {
 }
 
 const itemKeys = headerItems.map(item => item?.key).filter(Boolean) as string[]
-const menuPrefixes = Object.keys(docsMenus)
+const headerPrefixes = [...itemKeys].sort((a, b) => b.length - a.length)
 watch(
   () => route.path,
   () => {
@@ -53,9 +52,11 @@ watch(
     else {
       appStore.setSiderKey([route.path])
     }
-    const matchedPrefix = menuPrefixes.find(prefix => normalizedPath.startsWith(prefix))
-    if (matchedPrefix) {
-      appStore.setHeaderKey([matchedPrefix])
+    const matchedHeaderPrefix = headerPrefixes.find(prefix =>
+      normalizedPath === prefix || normalizedPath.startsWith(`${prefix}/`),
+    )
+    if (matchedHeaderPrefix) {
+      appStore.setHeaderKey([matchedHeaderPrefix])
       return
     }
     const foundKey = itemKeys.find(v => matched?.includes?.(v))
