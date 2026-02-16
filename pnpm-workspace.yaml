@@ -145,7 +145,7 @@ catalogs:
     '@v-c/rate': ^1.0.1
     '@v-c/resize-observer': ^1.0.8
     '@v-c/segmented': ^1.0.0
-    '@v-c/select': ^1.0.11
+    '@v-c/select': ^1.0.12
     '@v-c/slick': ^1.0.0
     '@v-c/slider': ^1.0.10
     '@v-c/steps': ^1.0.0

@@ -372,8 +372,8 @@ catalogs:
       specifier: ^1.0.0
       version: 1.0.0
     '@v-c/select':
-      specifier: ^1.0.11
-      version: 1.0.11
+      specifier: ^1.0.12
+      version: 1.0.12
     '@v-c/slick':
       specifier: ^1.0.0
       version: 1.0.0
@@ -825,7 +825,7 @@ importers:
         version: 1.0.0(vue@3.5.27(typescript@5.9.3))
       '@v-c/select':
         specifier: catalog:vc
-        version: 1.0.11(vue@3.5.27(typescript@5.9.3))
+        version: 1.0.12(vue@3.5.27(typescript@5.9.3))
       '@v-c/slick':
         specifier: catalog:vc
         version: 1.0.0(vue@3.5.27(typescript@5.9.3))
@@ -2383,6 +2383,11 @@ packages:
 
   '@v-c/select@1.0.11':
     resolution: {integrity: sha512-NENOdEKQMhYja+gqnr//pt6D/mT9c9e0CUZbLX5MAdYv4HAOcxkOHWDFTTAE/e/krK/ZMvz7QEyPogtvXGv5Mw==}
+    peerDependencies:
+      vue: ^3.0.0
+
+  '@v-c/select@1.0.12':
+    resolution: {integrity: sha512-gniOdNKPYV4Ag6D3aka919dZ9JUDqjX6k35mKaRdyWVlTx/seNiwpWgB05fb8y0FUtWEJOihkHu03cB1lYyjaw==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -7146,7 +7151,7 @@ snapshots:
 
   '@v-c/cascader@1.0.1(vue@3.5.27(typescript@5.9.3))':
     dependencies:
-      '@v-c/select': 1.0.11(vue@3.5.27(typescript@5.9.3))
+      '@v-c/select': 1.0.12(vue@3.5.27(typescript@5.9.3))
       '@v-c/tree': 1.0.4(vue@3.5.27(typescript@5.9.3))
       '@v-c/util': 1.0.14(vue@3.5.27(typescript@5.9.3))
       vue: 3.5.27(typescript@5.9.3)
@@ -7306,6 +7311,14 @@ snapshots:
       '@v-c/virtual-list': 1.0.6(vue@3.5.27(typescript@5.9.3))
       vue: 3.5.27(typescript@5.9.3)
 
+  '@v-c/select@1.0.12(vue@3.5.27(typescript@5.9.3))':
+    dependencies:
+      '@v-c/overflow': 1.0.3(vue@3.5.27(typescript@5.9.3))
+      '@v-c/trigger': 1.0.11(vue@3.5.27(typescript@5.9.3))
+      '@v-c/util': 1.0.14(vue@3.5.27(typescript@5.9.3))
+      '@v-c/virtual-list': 1.0.6(vue@3.5.27(typescript@5.9.3))
+      vue: 3.5.27(typescript@5.9.3)
+
   '@v-c/slick@1.0.0(vue@3.5.27(typescript@5.9.3))':
     dependencies:
       '@v-c/util': 1.0.14(vue@3.5.27(typescript@5.9.3))
@@ -7365,7 +7378,7 @@ snapshots:
 
   '@v-c/tree-select@1.0.2(vue@3.5.27(typescript@5.9.3))':
     dependencies:
-      '@v-c/select': 1.0.11(vue@3.5.27(typescript@5.9.3))
+      '@v-c/select': 1.0.12(vue@3.5.27(typescript@5.9.3))
       '@v-c/tree': 1.0.4(vue@3.5.27(typescript@5.9.3))
       '@v-c/util': 1.0.14(vue@3.5.27(typescript@5.9.3))
       vue: 3.5.27(typescript@5.9.3)
