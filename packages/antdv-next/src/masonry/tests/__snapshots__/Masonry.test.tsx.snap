@@ -1,0 +1,101 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`masonry > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-masonry css-var-root ant-masonry-rtl"
+    style="height: 0px;"
+  >
+    <transition-group-stub
+      appear="true"
+      css="true"
+      enteractiveclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-enter-prepare"
+      enterfromclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-appear-start ant-masonry-item-fade-enter-prepare ant-masonry-item-fade-enter-start"
+      entertoclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-active ant-masonry-item-fade-enter-active"
+      leaveactiveclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
+      leavefromclass="ant-masonry-item-fade ant-masonry-item-fade-leave"
+      leavetoclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
+      moveclass="ant-masonry-item-fade ant-masonry-item-fade-move"
+      name="ant-masonry-item-fade"
+      persisted="false"
+    />
+  </div>
+</div>
+`;
+
+exports[`masonry > should render correct snapshot 1`] = `
+<div
+  style="width: 600px;"
+>
+  <div
+    class="ant-masonry css-var-root"
+    style="height: 200px;"
+  >
+    <transition-group-stub
+      appear="true"
+      css="true"
+      enteractiveclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-enter-prepare"
+      enterfromclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-appear-start ant-masonry-item-fade-enter-prepare ant-masonry-item-fade-enter-start"
+      entertoclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-active ant-masonry-item-fade-enter-active"
+      leaveactiveclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
+      leavefromclass="ant-masonry-item-fade ant-masonry-item-fade-leave"
+      leavetoclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
+      moveclass="ant-masonry-item-fade ant-masonry-item-fade-move"
+      name="ant-masonry-item-fade"
+      persisted="false"
+    >
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 0px) / 2); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute; top: 0px;"
+      >
+        <div
+          class="bamboo"
+          data-height="100"
+          style="height: 100px;"
+        >
+          0
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 0px) / 2); inset-inline-start: calc(var(--ant-masonry-item-width) * 1); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute; top: 0px;"
+      >
+        <div
+          class="bamboo"
+          data-height="200"
+          style="height: 200px;"
+        >
+          1
+        </div>
+      </div>
+    </transition-group-stub>
+  </div>
+</div>
+`;
+
+exports[`masonry > should render empty masonry snapshot 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-masonry css-var-root"
+    style="height: 0px;"
+  >
+    <transition-group-stub
+      appear="true"
+      css="true"
+      enteractiveclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-enter-prepare"
+      enterfromclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-appear-start ant-masonry-item-fade-enter-prepare ant-masonry-item-fade-enter-start"
+      entertoclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-active ant-masonry-item-fade-enter-active"
+      leaveactiveclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
+      leavefromclass="ant-masonry-item-fade ant-masonry-item-fade-leave"
+      leavetoclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
+      moveclass="ant-masonry-item-fade ant-masonry-item-fade-move"
+      name="ant-masonry-item-fade"
+      persisted="false"
+    />
+  </div>
+</div>
+`;

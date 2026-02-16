@@ -1,0 +1,2661 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`masonry demo > renders _semantic correctly 1`] = `
+<div
+  class="semantic-preview-container"
+  data-v-dfc8ebef=""
+>
+  <div
+    class="ant-row css-var-root semantic-preview-row"
+    data-v-dfc8ebef=""
+  >
+    <div
+      class="ant-col ant-col-16 css-var-root semantic-preview-col"
+      data-v-dfc8ebef=""
+    >
+      <div
+        class="ant-masonry semantic-mark-root css-var-v-0"
+        style="height: 0px; width: 100%;"
+      >
+        <transition-group-stub
+          appear="true"
+          css="true"
+          enteractiveclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-enter-prepare"
+          enterfromclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-appear-start ant-masonry-item-fade-enter-prepare ant-masonry-item-fade-enter-start"
+          entertoclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-active ant-masonry-item-fade-enter-active"
+          leaveactiveclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
+          leavefromclass="ant-masonry-item-fade ant-masonry-item-fade-leave"
+          leavetoclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
+          moveclass="ant-masonry-item-fade ant-masonry-item-fade-move"
+          name="ant-masonry-item-fade"
+          persisted="false"
+        >
+          <div
+            class="ant-masonry-item semantic-mark-item"
+            style="--ant-masonry-item-width: calc((100% + 16px) / 3); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+          >
+            <div
+              class="ant-card ant-card-bordered ant-card-small css-var-v-0"
+            >
+              <!---->
+              <!---->
+              <div
+                class="ant-card-body"
+              >
+                1
+              </div>
+              <!---->
+            </div>
+          </div>
+          <div
+            class="ant-masonry-item semantic-mark-item"
+            style="--ant-masonry-item-width: calc((100% + 16px) / 3); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+          >
+            <div
+              class="ant-card ant-card-bordered ant-card-small css-var-v-0"
+            >
+              <!---->
+              <!---->
+              <div
+                class="ant-card-body"
+              >
+                2
+              </div>
+              <!---->
+            </div>
+          </div>
+          <div
+            class="ant-masonry-item semantic-mark-item"
+            style="--ant-masonry-item-width: calc((100% + 16px) / 3); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+          >
+            <div
+              class="ant-card ant-card-bordered ant-card-small css-var-v-0"
+            >
+              <!---->
+              <!---->
+              <div
+                class="ant-card-body"
+              >
+                3
+              </div>
+              <!---->
+            </div>
+          </div>
+          <div
+            class="ant-masonry-item semantic-mark-item"
+            style="--ant-masonry-item-width: calc((100% + 16px) / 3); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+          >
+            <div
+              class="ant-card ant-card-bordered ant-card-small css-var-v-0"
+            >
+              <!---->
+              <!---->
+              <div
+                class="ant-card-body"
+              >
+                4
+              </div>
+              <!---->
+            </div>
+          </div>
+          <div
+            class="ant-masonry-item semantic-mark-item"
+            style="--ant-masonry-item-width: calc((100% + 16px) / 3); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+          >
+            <div
+              class="ant-card ant-card-bordered ant-card-small css-var-v-0"
+            >
+              <!---->
+              <!---->
+              <div
+                class="ant-card-body"
+              >
+                5
+              </div>
+              <!---->
+            </div>
+          </div>
+          <div
+            class="ant-masonry-item semantic-mark-item"
+            style="--ant-masonry-item-width: calc((100% + 16px) / 3); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+          >
+            <div
+              class="ant-card ant-card-bordered ant-card-small css-var-v-0"
+            >
+              <!---->
+              <!---->
+              <div
+                class="ant-card-body"
+              >
+                6
+              </div>
+              <!---->
+            </div>
+          </div>
+          <div
+            class="ant-masonry-item semantic-mark-item"
+            style="--ant-masonry-item-width: calc((100% + 16px) / 3); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+          >
+            <div
+              class="ant-card ant-card-bordered ant-card-small css-var-v-0"
+            >
+              <!---->
+              <!---->
+              <div
+                class="ant-card-body"
+              >
+                7
+              </div>
+              <!---->
+            </div>
+          </div>
+        </transition-group-stub>
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-8 css-var-root"
+      data-v-dfc8ebef=""
+    >
+      <ul
+        class="semantic-list"
+        data-v-dfc8ebef=""
+      >
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  root
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <!--v-if-->
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              Root element, sets relative positioning, flex layout and masonry container styles
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  item
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <!--v-if-->
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              Item element, sets absolute positioning, width calculation, transition animation and masonry item styles
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`masonry demo > renders basic correctly 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-masonry css-var-root"
+    style="height: 0px;"
+  >
+    <transition-group-stub
+      appear="true"
+      css="true"
+      enteractiveclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-enter-prepare"
+      enterfromclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-appear-start ant-masonry-item-fade-enter-prepare ant-masonry-item-fade-enter-start"
+      entertoclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-active ant-masonry-item-fade-enter-active"
+      leaveactiveclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
+      leavefromclass="ant-masonry-item-fade ant-masonry-item-fade-leave"
+      leavetoclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
+      moveclass="ant-masonry-item-fade ant-masonry-item-fade-move"
+      name="ant-masonry-item-fade"
+      persisted="false"
+    >
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 150px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            1
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 50px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            2
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 90px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            3
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 70px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            4
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+        >
+          <!---->
+          <div
+            class="ant-card-cover"
+          >
+            <img
+              alt="food"
+              src="https://images.unsplash.com/photo-1491961865842-98f7befd1a60?w=523&auto=format"
+            />
+          </div>
+          <div
+            class="ant-card-body"
+          >
+            <div
+              class="ant-card-meta"
+            >
+              <!---->
+              <div
+                class="ant-card-meta-section"
+              >
+                <div
+                  class="ant-card-meta-title"
+                >
+                  I'm Special
+                </div>
+                <div
+                  class="ant-card-meta-description"
+                >
+                  Let's have a meal
+                </div>
+              </div>
+            </div>
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 150px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            6
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 130px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            7
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 80px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            8
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 50px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            9
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 90px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            10
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 100px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            11
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 150px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            12
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 60px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            13
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 50px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            14
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 80px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            15
+          </div>
+          <!---->
+        </div>
+      </div>
+    </transition-group-stub>
+  </div>
+</div>
+`;
+
+exports[`masonry demo > renders dynamic correctly 1`] = `
+<div
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-vertical"
+  style="gap: 16px;"
+>
+  <div
+    class="ant-masonry css-var-root"
+    style="height: 0px;"
+  >
+    <transition-group-stub
+      appear="true"
+      css="true"
+      enteractiveclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-enter-prepare"
+      enterfromclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-appear-start ant-masonry-item-fade-enter-prepare ant-masonry-item-fade-enter-start"
+      entertoclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-active ant-masonry-item-fade-enter-active"
+      leaveactiveclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
+      leavefromclass="ant-masonry-item-fade ant-masonry-item-fade-leave"
+      leavetoclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
+      moveclass="ant-masonry-item-fade ant-masonry-item-fade-move"
+      name="ant-masonry-item-fade"
+      persisted="false"
+    >
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 150px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            1 
+            <button
+              class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-btn-icon-only"
+              style="position: absolute; inset-block-start: 12px; inset-inline-end: 12px;"
+              type="button"
+            >
+              <span
+                class="ant-btn-icon"
+              >
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <!---->
+              <!---->
+            </button>
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 50px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            2 
+            <button
+              class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-btn-icon-only"
+              style="position: absolute; inset-block-start: 12px; inset-inline-end: 12px;"
+              type="button"
+            >
+              <span
+                class="ant-btn-icon"
+              >
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <!---->
+              <!---->
+            </button>
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 90px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            3 
+            <button
+              class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-btn-icon-only"
+              style="position: absolute; inset-block-start: 12px; inset-inline-end: 12px;"
+              type="button"
+            >
+              <span
+                class="ant-btn-icon"
+              >
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <!---->
+              <!---->
+            </button>
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 70px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            4 
+            <button
+              class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-btn-icon-only"
+              style="position: absolute; inset-block-start: 12px; inset-inline-end: 12px;"
+              type="button"
+            >
+              <span
+                class="ant-btn-icon"
+              >
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <!---->
+              <!---->
+            </button>
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 110px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            5 
+            <button
+              class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-btn-icon-only"
+              style="position: absolute; inset-block-start: 12px; inset-inline-end: 12px;"
+              type="button"
+            >
+              <span
+                class="ant-btn-icon"
+              >
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <!---->
+              <!---->
+            </button>
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 150px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            6 
+            <button
+              class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-btn-icon-only"
+              style="position: absolute; inset-block-start: 12px; inset-inline-end: 12px;"
+              type="button"
+            >
+              <span
+                class="ant-btn-icon"
+              >
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <!---->
+              <!---->
+            </button>
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 130px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            7 
+            <button
+              class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-btn-icon-only"
+              style="position: absolute; inset-block-start: 12px; inset-inline-end: 12px;"
+              type="button"
+            >
+              <span
+                class="ant-btn-icon"
+              >
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <!---->
+              <!---->
+            </button>
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 80px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            8 
+            <button
+              class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-btn-icon-only"
+              style="position: absolute; inset-block-start: 12px; inset-inline-end: 12px;"
+              type="button"
+            >
+              <span
+                class="ant-btn-icon"
+              >
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <!---->
+              <!---->
+            </button>
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 50px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            9 
+            <button
+              class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-btn-icon-only"
+              style="position: absolute; inset-block-start: 12px; inset-inline-end: 12px;"
+              type="button"
+            >
+              <span
+                class="ant-btn-icon"
+              >
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <!---->
+              <!---->
+            </button>
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 90px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            10 
+            <button
+              class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-btn-icon-only"
+              style="position: absolute; inset-block-start: 12px; inset-inline-end: 12px;"
+              type="button"
+            >
+              <span
+                class="ant-btn-icon"
+              >
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <!---->
+              <!---->
+            </button>
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 100px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            11 
+            <button
+              class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-btn-icon-only"
+              style="position: absolute; inset-block-start: 12px; inset-inline-end: 12px;"
+              type="button"
+            >
+              <span
+                class="ant-btn-icon"
+              >
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <!---->
+              <!---->
+            </button>
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 150px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            12 
+            <button
+              class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-btn-icon-only"
+              style="position: absolute; inset-block-start: 12px; inset-inline-end: 12px;"
+              type="button"
+            >
+              <span
+                class="ant-btn-icon"
+              >
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <!---->
+              <!---->
+            </button>
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 70px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            13 
+            <button
+              class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-btn-icon-only"
+              style="position: absolute; inset-block-start: 12px; inset-inline-end: 12px;"
+              type="button"
+            >
+              <span
+                class="ant-btn-icon"
+              >
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <!---->
+              <!---->
+            </button>
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 50px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            14 
+            <button
+              class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-btn-icon-only"
+              style="position: absolute; inset-block-start: 12px; inset-inline-end: 12px;"
+              type="button"
+            >
+              <span
+                class="ant-btn-icon"
+              >
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <!---->
+              <!---->
+            </button>
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 80px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            15 
+            <button
+              class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-sm ant-btn-icon-only"
+              style="position: absolute; inset-block-start: 12px; inset-inline-end: 12px;"
+              type="button"
+            >
+              <span
+                class="ant-btn-icon"
+              >
+                <span
+                  aria-label="close"
+                  class="anticon anticon-close"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="close"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <!---->
+              <!---->
+            </button>
+          </div>
+          <!---->
+        </div>
+      </div>
+    </transition-group-stub>
+  </div>
+  <button
+    class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-block"
+    type="button"
+  >
+    <transition-stub
+      appear="false"
+      css="true"
+      name="ant-btn-loading-icon-motion"
+      persisted="false"
+    >
+      <!---->
+    </transition-stub>
+    <span>
+       Add Item 
+    </span>
+    <!---->
+  </button>
+</div>
+`;
+
+exports[`masonry demo > renders fresh correctly 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-masonry css-var-root"
+    style="height: 0px;"
+  >
+    <transition-group-stub
+      appear="true"
+      css="true"
+      enteractiveclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-enter-prepare"
+      enterfromclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-appear-start ant-masonry-item-fade-enter-prepare ant-masonry-item-fade-enter-start"
+      entertoclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-active ant-masonry-item-fade-enter-active"
+      leaveactiveclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
+      leavefromclass="ant-masonry-item-fade ant-masonry-item-fade-leave"
+      leavetoclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
+      moveclass="ant-masonry-item-fade ant-masonry-item-fade-move"
+      name="ant-masonry-item-fade"
+      persisted="false"
+    >
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 150px; transition: height 0.3s;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            1 - Click
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 50px; transition: height 0.3s;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            2 - Click
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 90px; transition: height 0.3s;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            3 - Click
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 70px; transition: height 0.3s;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            4 - Click
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 110px; transition: height 0.3s;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            5 - Click
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 150px; transition: height 0.3s;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            6 - Click
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 130px; transition: height 0.3s;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            7 - Click
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 80px; transition: height 0.3s;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            8 - Click
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 50px; transition: height 0.3s;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            9 - Click
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 90px; transition: height 0.3s;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            10 - Click
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 100px; transition: height 0.3s;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            11 - Click
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 150px; transition: height 0.3s;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            12 - Click
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 60px; transition: height 0.3s;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            13 - Click
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 50px; transition: height 0.3s;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            14 - Click
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 80px; transition: height 0.3s;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            15 - Click
+          </div>
+          <!---->
+        </div>
+      </div>
+    </transition-group-stub>
+  </div>
+</div>
+`;
+
+exports[`masonry demo > renders image correctly 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-masonry css-var-root"
+    style="height: 0px;"
+  >
+    <transition-group-stub
+      appear="true"
+      css="true"
+      enteractiveclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-enter-prepare"
+      enterfromclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-appear-start ant-masonry-item-fade-enter-prepare ant-masonry-item-fade-enter-start"
+      entertoclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-active ant-masonry-item-fade-enter-active"
+      leaveactiveclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
+      leavefromclass="ant-masonry-item-fade ant-masonry-item-fade-leave"
+      leavetoclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
+      moveclass="ant-masonry-item-fade ant-masonry-item-fade-move"
+      name="ant-masonry-item-fade"
+      persisted="false"
+    >
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <img
+          alt="sample"
+          src="https://images.unsplash.com/photo-1510001618818-4b4e3d86bf0f?w=523&auto=format"
+          style="width: 100%;"
+        />
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <img
+          alt="sample"
+          src="https://images.unsplash.com/photo-1507513319174-e556268bb244?w=523&auto=format"
+          style="width: 100%;"
+        />
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <img
+          alt="sample"
+          src="https://images.unsplash.com/photo-1474181487882-5abf3f0ba6c2?w=523&auto=format"
+          style="width: 100%;"
+        />
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <img
+          alt="sample"
+          src="https://images.unsplash.com/photo-1492778297155-7be4c83960c7?w=523&auto=format"
+          style="width: 100%;"
+        />
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <img
+          alt="sample"
+          src="https://images.unsplash.com/photo-1508062878650-88b52897f298?w=523&auto=format"
+          style="width: 100%;"
+        />
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <img
+          alt="sample"
+          src="https://images.unsplash.com/photo-1506158278516-d720e72406fc?w=523&auto=format"
+          style="width: 100%;"
+        />
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <img
+          alt="sample"
+          src="https://images.unsplash.com/photo-1552203274-e3c7bd771d26?w=523&auto=format"
+          style="width: 100%;"
+        />
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <img
+          alt="sample"
+          src="https://images.unsplash.com/photo-1528163186890-de9b86b54b51?w=523&auto=format"
+          style="width: 100%;"
+        />
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <img
+          alt="sample"
+          src="https://images.unsplash.com/photo-1727423304224-6d2fd99b864c?w=523&auto=format"
+          style="width: 100%;"
+        />
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <img
+          alt="sample"
+          src="https://images.unsplash.com/photo-1675090391405-432434e23595?w=523&auto=format"
+          style="width: 100%;"
+        />
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <img
+          alt="sample"
+          src="https://images.unsplash.com/photo-1554196967-97a8602084d9?w=523&auto=format"
+          style="width: 100%;"
+        />
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <img
+          alt="sample"
+          src="https://images.unsplash.com/photo-1491961865842-98f7befd1a60?w=523&auto=format"
+          style="width: 100%;"
+        />
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <img
+          alt="sample"
+          src="https://images.unsplash.com/photo-1721728613411-d56d2ddda959?w=523&auto=format"
+          style="width: 100%;"
+        />
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <img
+          alt="sample"
+          src="https://images.unsplash.com/photo-1731901245099-20ac7f85dbaa?w=523&auto=format"
+          style="width: 100%;"
+        />
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <img
+          alt="sample"
+          src="https://images.unsplash.com/photo-1617694455303-59af55af7e58?w=523&auto=format"
+          style="width: 100%;"
+        />
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+      >
+        <img
+          alt="sample"
+          src="https://images.unsplash.com/photo-1709198165282-1dab551df890?w=523&auto=format"
+          style="width: 100%;"
+        />
+      </div>
+    </transition-group-stub>
+  </div>
+</div>
+`;
+
+exports[`masonry demo > renders responsive correctly 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-masonry css-var-root"
+    style="height: 0px;"
+  >
+    <transition-group-stub
+      appear="true"
+      css="true"
+      enteractiveclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-enter-prepare"
+      enterfromclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-appear-start ant-masonry-item-fade-enter-prepare ant-masonry-item-fade-enter-start"
+      entertoclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-active ant-masonry-item-fade-enter-active"
+      leaveactiveclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
+      leavefromclass="ant-masonry-item-fade ant-masonry-item-fade-leave"
+      leavetoclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
+      moveclass="ant-masonry-item-fade ant-masonry-item-fade-move"
+      name="ant-masonry-item-fade"
+      persisted="false"
+    >
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 120px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            1
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 55px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            2
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 85px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            3
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 160px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            4
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 95px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            5
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 140px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            6
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 75px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            7
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 110px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            8
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 65px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            9
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 130px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            10
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 90px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            11
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 145px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            12
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 55px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            13
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 100px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            14
+          </div>
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-masonry-item"
+        style="--ant-masonry-item-width: calc((100% + 0px) / 1); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 0px); position: absolute;"
+      >
+        <div
+          class="ant-card ant-card-bordered ant-card-small css-var-root"
+          style="height: 80px;"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-card-body"
+          >
+            15
+          </div>
+          <!---->
+        </div>
+      </div>
+    </transition-group-stub>
+  </div>
+</div>
+`;
+
+exports[`masonry demo > renders style-class correctly 1`] = `
+<div
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-vertical"
+  data-v-79026958=""
+  style="gap: 24px;"
+>
+  <div
+    data-v-79026958=""
+  >
+    <h4
+      class="ant-typography css-var-root"
+    >
+       classNames and styles Object 
+      <!---->
+      <!---->
+      <!---->
+      <!---->
+      <!---->
+      <!---->
+      <!---->
+      <!---->
+    </h4>
+    <div
+      class="ant-masonry custom-masonry-root css-var-root"
+      style="height: 0px;"
+    >
+      <transition-group-stub
+        appear="true"
+        css="true"
+        enteractiveclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-enter-prepare"
+        enterfromclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-appear-start ant-masonry-item-fade-enter-prepare ant-masonry-item-fade-enter-start"
+        entertoclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-active ant-masonry-item-fade-enter-active"
+        leaveactiveclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
+        leavefromclass="ant-masonry-item-fade ant-masonry-item-fade-leave"
+        leavetoclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
+        moveclass="ant-masonry-item-fade ant-masonry-item-fade-move"
+        name="ant-masonry-item-fade"
+        persisted="false"
+      >
+        <div
+          class="ant-masonry-item custom-masonry-item"
+          style="transform: scale(0.98); transition: transform 0.2s ease; border: 1px solid rgb(204, 204, 204); --ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        >
+          <div
+            class="ant-card ant-card-bordered ant-card-small css-var-root"
+            data-v-79026958=""
+            style="height: 120px;"
+          >
+            <!---->
+            <!---->
+            <div
+              class="ant-card-body"
+            >
+              1
+            </div>
+            <!---->
+          </div>
+        </div>
+        <div
+          class="ant-masonry-item custom-masonry-item"
+          style="transform: scale(0.98); transition: transform 0.2s ease; border: 1px solid rgb(204, 204, 204); --ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        >
+          <div
+            class="ant-card ant-card-bordered ant-card-small css-var-root"
+            data-v-79026958=""
+            style="height: 80px;"
+          >
+            <!---->
+            <!---->
+            <div
+              class="ant-card-body"
+            >
+              2
+            </div>
+            <!---->
+          </div>
+        </div>
+        <div
+          class="ant-masonry-item custom-masonry-item"
+          style="transform: scale(0.98); transition: transform 0.2s ease; border: 1px solid rgb(204, 204, 204); --ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        >
+          <div
+            class="ant-card ant-card-bordered ant-card-small css-var-root"
+            data-v-79026958=""
+            style="height: 100px;"
+          >
+            <!---->
+            <!---->
+            <div
+              class="ant-card-body"
+            >
+              3
+            </div>
+            <!---->
+          </div>
+        </div>
+        <div
+          class="ant-masonry-item custom-masonry-item"
+          style="transform: scale(0.98); transition: transform 0.2s ease; border: 1px solid rgb(204, 204, 204); --ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        >
+          <div
+            class="ant-card ant-card-bordered ant-card-small css-var-root"
+            data-v-79026958=""
+            style="height: 60px;"
+          >
+            <!---->
+            <!---->
+            <div
+              class="ant-card-body"
+            >
+              4
+            </div>
+            <!---->
+          </div>
+        </div>
+        <div
+          class="ant-masonry-item custom-masonry-item"
+          style="transform: scale(0.98); transition: transform 0.2s ease; border: 1px solid rgb(204, 204, 204); --ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        >
+          <div
+            class="ant-card ant-card-bordered ant-card-small css-var-root"
+            data-v-79026958=""
+            style="height: 140px;"
+          >
+            <!---->
+            <!---->
+            <div
+              class="ant-card-body"
+            >
+              5
+            </div>
+            <!---->
+          </div>
+        </div>
+        <div
+          class="ant-masonry-item custom-masonry-item"
+          style="transform: scale(0.98); transition: transform 0.2s ease; border: 1px solid rgb(204, 204, 204); --ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        >
+          <div
+            class="ant-card ant-card-bordered ant-card-small css-var-root"
+            data-v-79026958=""
+            style="height: 90px;"
+          >
+            <!---->
+            <!---->
+            <div
+              class="ant-card-body"
+            >
+              6
+            </div>
+            <!---->
+          </div>
+        </div>
+        <div
+          class="ant-masonry-item custom-masonry-item"
+          style="transform: scale(0.98); transition: transform 0.2s ease; border: 1px solid rgb(204, 204, 204); --ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        >
+          <div
+            class="ant-card ant-card-bordered ant-card-small css-var-root"
+            data-v-79026958=""
+            style="height: 110px;"
+          >
+            <!---->
+            <!---->
+            <div
+              class="ant-card-body"
+            >
+              7
+            </div>
+            <!---->
+          </div>
+        </div>
+        <div
+          class="ant-masonry-item custom-masonry-item"
+          style="transform: scale(0.98); transition: transform 0.2s ease; border: 1px solid rgb(204, 204, 204); --ant-masonry-item-width: calc((100% + 16px) / 4); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 16px); position: absolute;"
+        >
+          <div
+            class="ant-card ant-card-bordered ant-card-small css-var-root"
+            data-v-79026958=""
+            style="height: 70px;"
+          >
+            <!---->
+            <!---->
+            <div
+              class="ant-card-body"
+            >
+              8
+            </div>
+            <!---->
+          </div>
+        </div>
+      </transition-group-stub>
+    </div>
+  </div>
+  <div
+    class="ant-divider css-var-root ant-divider-horizontal ant-divider-rail"
+    data-v-79026958=""
+    role="separator"
+  >
+    <!---->
+  </div>
+  <div
+    data-v-79026958=""
+  >
+    <h4
+      class="ant-typography css-var-root"
+    >
+       classNames and styles Function 
+      <!---->
+      <!---->
+      <!---->
+      <!---->
+      <!---->
+      <!---->
+      <!---->
+      <!---->
+    </h4>
+    <div
+      class="ant-masonry custom-masonry-root css-var-root"
+      style="height: 0px;"
+    >
+      <transition-group-stub
+        appear="true"
+        css="true"
+        enteractiveclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-enter-prepare"
+        enterfromclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-prepare ant-masonry-item-fade-appear-start ant-masonry-item-fade-enter-prepare ant-masonry-item-fade-enter-start"
+        entertoclass="ant-masonry-item-fade ant-masonry-item-fade-enter ant-masonry-item-fade-appear ant-masonry-item-fade-appear-active ant-masonry-item-fade-enter-active"
+        leaveactiveclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
+        leavefromclass="ant-masonry-item-fade ant-masonry-item-fade-leave"
+        leavetoclass="ant-masonry-item-fade ant-masonry-item-fade-leave ant-masonry-item-fade-leave-active"
+        moveclass="ant-masonry-item-fade ant-masonry-item-fade-move"
+        name="ant-masonry-item-fade"
+        persisted="false"
+      >
+        <div
+          class="ant-masonry-item custom-masonry-item"
+          style="box-shadow: 0 2px 8px rgba(0,0,0,0.1); border: 1px solid rgb(24, 144, 255); --ant-masonry-item-width: calc((100% + 12px) / 3); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 12px); position: absolute;"
+        >
+          <div
+            class="ant-card ant-card-bordered ant-card-small css-var-root"
+            data-v-79026958=""
+            style="height: 120px;"
+          >
+            <!---->
+            <!---->
+            <div
+              class="ant-card-body"
+            >
+              1
+            </div>
+            <!---->
+          </div>
+        </div>
+        <div
+          class="ant-masonry-item custom-masonry-item"
+          style="box-shadow: 0 2px 8px rgba(0,0,0,0.1); border: 1px solid rgb(24, 144, 255); --ant-masonry-item-width: calc((100% + 12px) / 3); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 12px); position: absolute;"
+        >
+          <div
+            class="ant-card ant-card-bordered ant-card-small css-var-root"
+            data-v-79026958=""
+            style="height: 80px;"
+          >
+            <!---->
+            <!---->
+            <div
+              class="ant-card-body"
+            >
+              2
+            </div>
+            <!---->
+          </div>
+        </div>
+        <div
+          class="ant-masonry-item custom-masonry-item"
+          style="box-shadow: 0 2px 8px rgba(0,0,0,0.1); border: 1px solid rgb(24, 144, 255); --ant-masonry-item-width: calc((100% + 12px) / 3); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 12px); position: absolute;"
+        >
+          <div
+            class="ant-card ant-card-bordered ant-card-small css-var-root"
+            data-v-79026958=""
+            style="height: 100px;"
+          >
+            <!---->
+            <!---->
+            <div
+              class="ant-card-body"
+            >
+              3
+            </div>
+            <!---->
+          </div>
+        </div>
+        <div
+          class="ant-masonry-item custom-masonry-item"
+          style="box-shadow: 0 2px 8px rgba(0,0,0,0.1); border: 1px solid rgb(24, 144, 255); --ant-masonry-item-width: calc((100% + 12px) / 3); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 12px); position: absolute;"
+        >
+          <div
+            class="ant-card ant-card-bordered ant-card-small css-var-root"
+            data-v-79026958=""
+            style="height: 60px;"
+          >
+            <!---->
+            <!---->
+            <div
+              class="ant-card-body"
+            >
+              4
+            </div>
+            <!---->
+          </div>
+        </div>
+        <div
+          class="ant-masonry-item custom-masonry-item"
+          style="box-shadow: 0 2px 8px rgba(0,0,0,0.1); border: 1px solid rgb(24, 144, 255); --ant-masonry-item-width: calc((100% + 12px) / 3); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 12px); position: absolute;"
+        >
+          <div
+            class="ant-card ant-card-bordered ant-card-small css-var-root"
+            data-v-79026958=""
+            style="height: 140px;"
+          >
+            <!---->
+            <!---->
+            <div
+              class="ant-card-body"
+            >
+              5
+            </div>
+            <!---->
+          </div>
+        </div>
+        <div
+          class="ant-masonry-item custom-masonry-item"
+          style="box-shadow: 0 2px 8px rgba(0,0,0,0.1); border: 1px solid rgb(24, 144, 255); --ant-masonry-item-width: calc((100% + 12px) / 3); inset-inline-start: calc(var(--ant-masonry-item-width) * 0); width: calc(var(--ant-masonry-item-width) - 12px); position: absolute;"
+        >
+          <div
+            class="ant-card ant-card-bordered ant-card-small css-var-root"
+            data-v-79026958=""
+            style="height: 90px;"
+          >
+            <!---->
+            <!---->
+            <div
+              class="ant-card-body"
+            >
+              6
+            </div>
+            <!---->
+          </div>
+        </div>
+      </transition-group-stub>
+    </div>
+  </div>
+</div>
+`;
