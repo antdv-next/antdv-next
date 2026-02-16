@@ -1,0 +1,4054 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`timeline demo > renders _semantic correctly 1`] = `
+<div
+  class="semantic-preview-container"
+  data-v-dfc8ebef=""
+>
+  <div
+    class="ant-row css-var-root semantic-preview-row"
+    data-v-dfc8ebef=""
+  >
+    <div
+      class="ant-col ant-col-16 css-var-root semantic-preview-col"
+      data-v-dfc8ebef=""
+    >
+      <ol
+        class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-v-0 ant-timeline ant-timeline-layout-alternate css-var-v-0 semantic-mark-root"
+        classes="[object Object]"
+        responsive="true"
+        style="--ant-cmp-steps-items-offset: 0;"
+        type="dot"
+      >
+        <li
+          class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item semantic-mark-item"
+          role="button"
+          tabindex="0"
+        >
+          <div
+            class="ant-steps-item-wrapper ant-timeline-item-wrapper semantic-mark-itemWrapper"
+          >
+            <div
+              class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon semantic-mark-itemIcon"
+            >
+              <!---->
+            </div>
+            <div
+              class="ant-steps-item-section ant-timeline-item-section semantic-mark-itemSection"
+            >
+              <div
+                class="ant-steps-item-header ant-timeline-item-header semantic-mark-itemHeader"
+              >
+                <div
+                  class="ant-steps-item-title ant-timeline-item-title semantic-mark-itemTitle"
+                >
+                  2015-09-01
+                </div>
+                <!---->
+                <div
+                  class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail semantic-mark-itemRail"
+                />
+              </div>
+              <div
+                class="ant-steps-item-content ant-timeline-item-content semantic-mark-itemContent"
+              >
+                Create a services
+              </div>
+            </div>
+          </div>
+        </li>
+        <li
+          class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item semantic-mark-item"
+          role="button"
+          tabindex="0"
+        >
+          <div
+            class="ant-steps-item-wrapper ant-timeline-item-wrapper semantic-mark-itemWrapper"
+          >
+            <div
+              class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon semantic-mark-itemIcon"
+            >
+              <!---->
+            </div>
+            <div
+              class="ant-steps-item-section ant-timeline-item-section semantic-mark-itemSection"
+            >
+              <div
+                class="ant-steps-item-header ant-timeline-item-header semantic-mark-itemHeader"
+              >
+                <div
+                  class="ant-steps-item-title ant-timeline-item-title semantic-mark-itemTitle"
+                >
+                  2015-09-01 09:12:11
+                </div>
+                <!---->
+                <div
+                  class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail semantic-mark-itemRail"
+                />
+              </div>
+              <div
+                class="ant-steps-item-content ant-timeline-item-content semantic-mark-itemContent"
+              >
+                Solve initial network problems
+              </div>
+            </div>
+          </div>
+        </li>
+        <li
+          class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item semantic-mark-item"
+          role="button"
+          tabindex="0"
+        >
+          <div
+            class="ant-steps-item-wrapper ant-timeline-item-wrapper semantic-mark-itemWrapper"
+          >
+            <div
+              class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon semantic-mark-itemIcon"
+            >
+              <!---->
+            </div>
+            <div
+              class="ant-steps-item-section ant-timeline-item-section semantic-mark-itemSection"
+            >
+              <div
+                class="ant-steps-item-header ant-timeline-item-header semantic-mark-itemHeader"
+              >
+                <!---->
+                <!---->
+                <div
+                  class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail semantic-mark-itemRail"
+                />
+              </div>
+              <div
+                class="ant-steps-item-content ant-timeline-item-content semantic-mark-itemContent"
+              >
+                Technical testing
+              </div>
+            </div>
+          </div>
+        </li>
+        <li
+          class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-timeline-item-placement-start ant-timeline-item semantic-mark-item"
+          role="button"
+          tabindex="0"
+        >
+          <div
+            class="ant-steps-item-wrapper ant-timeline-item-wrapper semantic-mark-itemWrapper"
+          >
+            <div
+              class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon semantic-mark-itemIcon"
+            >
+              <!---->
+            </div>
+            <div
+              class="ant-steps-item-section ant-timeline-item-section semantic-mark-itemSection"
+            >
+              <div
+                class="ant-steps-item-header ant-timeline-item-header semantic-mark-itemHeader"
+              >
+                <div
+                  class="ant-steps-item-title ant-timeline-item-title semantic-mark-itemTitle"
+                >
+                  2015-09-01 09:12:11
+                </div>
+                <!---->
+                <!---->
+              </div>
+              <div
+                class="ant-steps-item-content ant-timeline-item-content semantic-mark-itemContent"
+              >
+                Network problems being solved
+              </div>
+            </div>
+          </div>
+        </li>
+      </ol>
+    </div>
+    <div
+      class="ant-col ant-col-8 css-var-root"
+      data-v-dfc8ebef=""
+    >
+      <ul
+        class="semantic-list"
+        data-v-dfc8ebef=""
+      >
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  root
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <!--v-if-->
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              Root element with timeline container list style reset, vertical layout, dot icon, outlined style, alternate layout and other basic container styles
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  item
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <!--v-if-->
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              Item element with single timeline node relative positioning, margin, padding, font size, finish state, color theme, layout direction and other node basic styles
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  itemWrapper
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <!--v-if-->
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              Item wrapper element with timeline node content wrapping container styles
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  itemIcon
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <!--v-if-->
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              Item icon element with node head icon absolute positioning, width/height size, background color, border, border radius, wave animation and other icon styles
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  itemSection
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <!--v-if-->
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              Item section element with section container containing header and content flex layout, wrap, gap and other layout styles
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  itemHeader
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <!--v-if-->
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              Item header element with header area layout containing title and rail, alignment, text direction and other styles
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  itemTitle
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <!--v-if-->
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              Item title element with node title text font size, line height, color and other text styles
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  itemContent
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <!--v-if-->
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              Item content element with node detail content relative positioning, top offset, left margin, text color, word break and other content styles
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  itemRail
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <!--v-if-->
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              Item rail element with timeline node connection track line absolute positioning, top offset, left offset, height, border color, width, style and other connection line styles
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`timeline demo > renders alternate correctly 1`] = `
+<ol
+  class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline ant-timeline-layout-alternate css-var-root"
+  classes="[object Object]"
+  mode="alternate"
+  responsive="true"
+  style="--ant-cmp-steps-items-offset: 0;"
+  type="dot"
+>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      >
+        <!---->
+      </div>
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Create a services site 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-color-green ant-timeline-item-placement-end ant-timeline-item"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      >
+        <!---->
+      </div>
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Solve initial network problems 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-custom ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      >
+        <span
+          aria-label="clock-circle"
+          class="anticon anticon-clock-circle"
+          role="img"
+          style="font-size: 16px;"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="clock-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+            />
+            <path
+              d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-color-red ant-timeline-item-placement-end ant-timeline-item"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      >
+        <!---->
+      </div>
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Network problems being solved 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      >
+        <!---->
+      </div>
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Create a services site 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-custom ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      >
+        <span
+          aria-label="clock-circle"
+          class="anticon anticon-clock-circle"
+          role="img"
+          style="font-size: 16px;"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="clock-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+            />
+            <path
+              d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <!---->
+          <!---->
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Technical testing 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+</ol>
+`;
+
+exports[`timeline demo > renders basic correctly 1`] = `
+<ol
+  class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline css-var-root"
+  classes="[object Object]"
+  responsive="true"
+  style="--ant-cmp-steps-items-offset: 0;"
+  type="dot"
+>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      >
+        <!---->
+      </div>
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Create a services site 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      >
+        <!---->
+      </div>
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Solve initial network problems 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      >
+        <!---->
+      </div>
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Technical testing 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      >
+        <!---->
+      </div>
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <!---->
+          <!---->
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Network problems being solved 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+</ol>
+`;
+
+exports[`timeline demo > renders component-token correctly 1`] = `
+<div
+  data-v-app=""
+>
+  <ol
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-v-0 ant-timeline css-var-v-0"
+    classes="[object Object]"
+    responsive="true"
+    style="--ant-cmp-steps-items-offset: 0;"
+    type="dot"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <!---->
+            <!---->
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Create a services site 2015-09-01
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <!---->
+            <!---->
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Solve initial network problems 2015-09-01
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <!---->
+            <!---->
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Technical testing 2015-09-01
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <!---->
+            <!---->
+            <!---->
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Network problems being solved 2015-09-01
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+</div>
+`;
+
+exports[`timeline demo > renders custom correctly 1`] = `
+<ol
+  class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline css-var-root"
+  classes="[object Object]"
+  responsive="true"
+  style="--ant-cmp-steps-items-offset: 0;"
+  type="dot"
+>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      >
+        <!---->
+      </div>
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Create a services site 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      >
+        <!---->
+      </div>
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Solve initial network problems 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-custom ant-steps-item-empty-header ant-timeline-item-color-red ant-timeline-item-placement-start ant-timeline-item"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      >
+        <span
+          aria-label="clock-circle"
+          class="anticon anticon-clock-circle"
+          role="img"
+          style="font-size: 20px; background: rgb(255, 255, 255);"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="clock-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+            />
+            <path
+              d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Technical testing 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      >
+        <!---->
+      </div>
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <!---->
+          <!---->
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Network problems being solved 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+</ol>
+`;
+
+exports[`timeline demo > renders end correctly 1`] = `
+<ol
+  class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline css-var-root"
+  classes="[object Object]"
+  mode="right"
+  responsive="true"
+  style="--ant-cmp-steps-items-offset: 0;"
+  type="dot"
+>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      >
+        <!---->
+      </div>
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Create a services site 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      >
+        <!---->
+      </div>
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Solve initial network problems 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-custom ant-steps-item-empty-header ant-timeline-item-color-red ant-timeline-item-placement-end ant-timeline-item"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      >
+        <span
+          aria-label="clock-circle"
+          class="anticon anticon-clock-circle"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="clock-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+            />
+            <path
+              d="M686.7 638.6L544.1 535.5V288c0-4.4-3.6-8-8-8H488c-4.4 0-8 3.6-8 8v275.4c0 2.6 1.2 5 3.3 6.5l165.4 120.6c3.6 2.6 8.6 1.8 11.2-1.7l28.6-39c2.6-3.7 1.8-8.7-1.8-11.2z"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Technical testing 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      >
+        <!---->
+      </div>
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <!---->
+          <!---->
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Network problems being solved 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+</ol>
+`;
+
+exports[`timeline demo > renders horizontal correctly 1`] = `
+<div
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-vertical"
+>
+  <ol
+    class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline ant-timeline-horizontal css-var-root"
+    classes="[object Object]"
+    mode="start"
+    responsive="true"
+    style="--ant-cmp-steps-items-offset: 0;"
+    type="dot"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <!---->
+            <!---->
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Init
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <!---->
+            <!---->
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Start
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <!---->
+            <!---->
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Pending
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <!---->
+            <!---->
+            <!---->
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Complete
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+  <div
+    class="ant-divider css-var-root ant-divider-horizontal ant-divider-rail"
+    role="separator"
+  >
+    <!---->
+  </div>
+  <ol
+    class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline ant-timeline-horizontal css-var-root"
+    classes="[object Object]"
+    mode="right"
+    responsive="true"
+    style="--ant-cmp-steps-items-offset: 0;"
+    type="dot"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <!---->
+            <!---->
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Init
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <!---->
+            <!---->
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Start
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <!---->
+            <!---->
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Pending
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <!---->
+            <!---->
+            <!---->
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Complete
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+  <div
+    class="ant-divider css-var-root ant-divider-horizontal ant-divider-rail"
+    role="separator"
+  >
+    <!---->
+  </div>
+  <ol
+    class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline ant-timeline-horizontal ant-timeline-layout-alternate css-var-root"
+    classes="[object Object]"
+    mode="alternate"
+    responsive="true"
+    style="--ant-cmp-steps-items-offset: 0;"
+    type="dot"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <!---->
+            <!---->
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Init
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <!---->
+            <!---->
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Start
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <!---->
+            <!---->
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Pending
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <!---->
+            <!---->
+            <!---->
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Complete
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+</div>
+`;
+
+exports[`timeline demo > renders pending correctly 1`] = `
+<div
+  class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-middle ant-flex-vertical"
+>
+  <ol
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline css-var-root"
+    classes="[object Object]"
+    responsive="true"
+    reverse="false"
+    style="--ant-cmp-steps-items-offset: 0;"
+    type="dot"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <!---->
+            <!---->
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Create a services site 2015-09-01
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <!---->
+            <!---->
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Solve initial network problems 2015-09-01
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <!---->
+            <!---->
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-process ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Technical testing 2015-09-01
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-process ant-steps-item-custom ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <span
+            aria-label="loading"
+            class="anticon anticon-loading anticon-spin"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="loading"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="0 0 1024 1024"
+              width="1em"
+            >
+              <path
+                d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <!---->
+            <!---->
+            <!---->
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Recording...
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+  <button
+    class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <transition-stub
+      appear="false"
+      css="true"
+      name="ant-btn-loading-icon-motion"
+      persisted="false"
+    >
+      <!---->
+    </transition-stub>
+    <span>
+       Toggle Reverse 
+    </span>
+    <!---->
+  </button>
+</div>
+`;
+
+exports[`timeline demo > renders semantic correctly 1`] = `
+<ol
+  class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline css-var-root"
+  classes="[object Object]"
+  responsive="true"
+  style="--ant-cmp-steps-items-offset: 0;"
+  type="dot"
+>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      >
+        <!---->
+      </div>
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Create a services site 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    role="button"
+    style="height: 100px;"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      >
+        <!---->
+      </div>
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            style="border-style: dashed;"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Solve initial network problems 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    role="button"
+    style="height: 100px;"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      >
+        <!---->
+      </div>
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            style="border-style: dashed;"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+          style="opacity: 0.45;"
+        >
+          ...for a long time...
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      >
+        <!---->
+      </div>
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Technical testing 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      >
+        <!---->
+      </div>
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <!---->
+          <!---->
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Network problems being solved 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+</ol>
+`;
+
+exports[`timeline demo > renders style-class correctly 1`] = `
+<div
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  data-v-7ce82335=""
+>
+  <ol
+    class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline ant-timeline-horizontal css-var-root custom-timeline-root"
+    classes="[object Object]"
+    data-v-7ce82335=""
+    responsive="true"
+    style="--ant-cmp-steps-items-offset: 0;"
+    type="dot"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+          style="border-color: rgb(24, 144, 255);"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              2015-09-01
+            </div>
+            <!---->
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Create a services site
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+          style="border-color: rgb(24, 144, 255);"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              2015-09-01 09:12:11
+            </div>
+            <!---->
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Solve initial network problems
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+          style="border-color: rgb(24, 144, 255);"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <!---->
+            <!---->
+            <!---->
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Technical testing
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+  <ol
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline ant-timeline-layout-alternate css-var-root custom-timeline-root"
+    classes="[object Object]"
+    data-v-7ce82335=""
+    responsive="true"
+    style="--ant-cmp-steps-items-offset: 0; padding: 10px 6px; border: 1px solid rgb(162, 148, 249);"
+    type="dot"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+          style="border-color: rgb(162, 148, 249);"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              2015-09-01
+            </div>
+            <!---->
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Create a services site
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+          style="border-color: rgb(162, 148, 249);"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              2015-09-01 09:12:11
+            </div>
+            <!---->
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Solve initial network problems
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+          style="border-color: rgb(162, 148, 249);"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <!---->
+            <!---->
+            <!---->
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Technical testing
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+</div>
+`;
+
+exports[`timeline demo > renders title correctly 1`] = `
+<div>
+  <div
+    class="ant-radio-group ant-radio-group-outline css-var-root ant-radio-css-var"
+    style="margin-bottom: 20px;"
+  >
+    <label
+      class="ant-radio-wrapper ant-radio-wrapper-checked css-var-root ant-radio-css-var"
+    >
+      <span
+        class="ant-radio ant-wave-target ant-radio-checked ant-wave-target"
+        name="v-0"
+      >
+        <input
+          checked=""
+          class="ant-radio-input"
+          type="radio"
+        />
+      </span>
+      <span
+        class="ant-radio-label"
+      >
+         Start 
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper css-var-root ant-radio-css-var"
+    >
+      <span
+        class="ant-radio ant-wave-target ant-wave-target"
+        name="v-0"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+        />
+      </span>
+      <span
+        class="ant-radio-label"
+      >
+         End 
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper css-var-root ant-radio-css-var"
+    >
+      <span
+        class="ant-radio ant-wave-target ant-wave-target"
+        name="v-0"
+      >
+        <input
+          class="ant-radio-input"
+          type="radio"
+        />
+      </span>
+      <span
+        class="ant-radio-label"
+      >
+         Alternate 
+      </span>
+    </label>
+  </div>
+  <ol
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline ant-timeline-layout-alternate css-var-root"
+    classes="[object Object]"
+    mode="start"
+    responsive="true"
+    style="--ant-cmp-steps-items-offset: 0;"
+    type="dot"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              2015-09-01
+            </div>
+            <!---->
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Create a services
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              2015-09-01 09:12:11
+            </div>
+            <!---->
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Solve initial network problems
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <!---->
+            <!---->
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Technical testing
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-timeline-item-placement-start ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              2015-09-01 09:12:11
+            </div>
+            <!---->
+            <!---->
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Network problems being solved
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+</div>
+`;
+
+exports[`timeline demo > renders title-span correctly 1`] = `
+<div
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <h5
+    class="ant-typography css-var-root"
+    style="margin: 0px;"
+  >
+     titleSpan = 100px 
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+  </h5>
+  <ol
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline ant-timeline-layout-alternate css-var-root"
+    classes="[object Object]"
+    responsive="true"
+    style="--ant-cmp-steps-items-offset: 0; --ant-timeline-head-span-ptg: 100px;"
+    type="dot"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              05:10
+            </div>
+            <!---->
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Create a services
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              09:03
+            </div>
+            <!---->
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Solve initial network problems
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <!---->
+            <!---->
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Technical testing
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-timeline-item-placement-start ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              11:28
+            </div>
+            <!---->
+            <!---->
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Network problems being solved
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+  <h5
+    class="ant-typography css-var-root"
+    style="margin: 0px;"
+  >
+     titleSpan = 25% 
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+  </h5>
+  <ol
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline ant-timeline-layout-alternate css-var-root"
+    classes="[object Object]"
+    responsive="true"
+    style="--ant-cmp-steps-items-offset: 0; --ant-timeline-head-span-ptg: 25%;"
+    type="dot"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              05:10
+            </div>
+            <!---->
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Create a services
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              09:03
+            </div>
+            <!---->
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Solve initial network problems
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <!---->
+            <!---->
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Technical testing
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-timeline-item-placement-start ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              11:28
+            </div>
+            <!---->
+            <!---->
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Network problems being solved
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+  <h5
+    class="ant-typography css-var-root"
+    style="margin: 0px;"
+  >
+     titleSpan = 18, mode = end 
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+  </h5>
+  <ol
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline ant-timeline-layout-alternate css-var-root"
+    classes="[object Object]"
+    mode="end"
+    responsive="true"
+    style="--ant-cmp-steps-items-offset: 0; --ant-timeline-head-span: 18;"
+    type="dot"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-end ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              05:10
+            </div>
+            <!---->
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Create a services
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-end ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              09:03
+            </div>
+            <!---->
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Solve initial network problems
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <!---->
+            <!---->
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Technical testing
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-timeline-item-placement-end ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <div
+              class="ant-steps-item-title ant-timeline-item-title"
+            >
+              11:28
+            </div>
+            <!---->
+            <!---->
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            Network problems being solved
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+</div>
+`;
+
+exports[`timeline demo > renders variant correctly 1`] = `
+<ol
+  class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled ant-steps-dot ant-timeline-css-var css-var-root ant-timeline css-var-root"
+  classes="[object Object]"
+  responsive="true"
+  style="--ant-cmp-steps-items-offset: 0;"
+  type="dot"
+>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      >
+        <!---->
+      </div>
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Create a services site 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      >
+        <!---->
+      </div>
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Solve initial network problems 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      >
+        <!---->
+      </div>
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <!---->
+          <!---->
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Technical testing 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      >
+        <!---->
+      </div>
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <!---->
+          <!---->
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Network problems being solved 2015-09-01
+        </div>
+      </div>
+    </div>
+  </li>
+</ol>
+`;

@@ -1,0 +1,153 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`timeline > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<div
+  data-v-app=""
+>
+  <ol
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-steps-rtl ant-timeline-css-var css-var-root ant-timeline ant-timeline-rtl css-var-root"
+    classes="[object Object]"
+    responsive="true"
+    style="--ant-cmp-steps-items-offset: 0;"
+    type="dot"
+  />
+</div>
+`;
+
+exports[`timeline > should render correct snapshot 1`] = `
+<ol
+  class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline ant-timeline-layout-alternate css-var-root"
+  classes="[object Object]"
+  responsive="true"
+  style="--ant-cmp-steps-items-offset: 0;"
+  type="dot"
+>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-timeline-item-color-green ant-timeline-item-placement-start ant-timeline-item"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      >
+        <!---->
+      </div>
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <div
+            class="ant-steps-item-title ant-timeline-item-title"
+          >
+            2024-01-01
+          </div>
+          <!---->
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Created
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-finish ant-timeline-item-color-blue ant-timeline-item-placement-start ant-timeline-item"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      >
+        <!---->
+      </div>
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <div
+            class="ant-steps-item-title ant-timeline-item-title"
+          >
+            2024-01-02
+          </div>
+          <!---->
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-process ant-timeline-item-rail"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          In progress
+        </div>
+      </div>
+    </div>
+  </li>
+  <li
+    class="ant-steps-item ant-steps-item-process ant-steps-item-custom ant-steps-item-active ant-timeline-item-placement-start ant-timeline-item"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+      >
+        <span
+          aria-label="loading"
+          class="anticon anticon-loading anticon-spin"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="loading"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="0 0 1024 1024"
+            width="1em"
+          >
+            <path
+              d="M988 548c-19.9 0-36-16.1-36-36 0-59.4-11.6-117-34.6-171.3a440.45 440.45 0 00-94.3-139.9 437.71 437.71 0 00-139.9-94.3C629 83.6 571.4 72 512 72c-19.9 0-36-16.1-36-36s16.1-36 36-36c69.1 0 136.2 13.5 199.3 40.3C772.3 66 827 103 874 150c47 47 83.9 101.8 109.7 162.7 26.7 63.1 40.2 130.2 40.2 199.3.1 19.9-16 36-35.9 36z"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        class="ant-steps-item-section ant-timeline-item-section"
+      >
+        <div
+          class="ant-steps-item-header ant-timeline-item-header"
+        >
+          <div
+            class="ant-steps-item-title ant-timeline-item-title"
+          >
+            2024-01-03
+          </div>
+          <!---->
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-content ant-timeline-item-content"
+        >
+          Pending
+        </div>
+      </div>
+    </div>
+  </li>
+</ol>
+`;
