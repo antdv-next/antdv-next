@@ -5,6 +5,7 @@ import TreeSelect from '..'
 import { resetWarned } from '../../_util/warning'
 import Button from '../../button'
 import ConfigProvider from '../../config-provider'
+import Form, { FormItem } from '../../form'
 import Input from '../../input'
 import Compact from '../../space/Compact'
 import { mountTest, rtlTest } from '/@tests/shared'
@@ -562,5 +563,80 @@ describe('tree-select', () => {
     await nextTick()
 
     wrapper.unmount()
+  })
+
+  it('should not have any console warnings or errors with events', async () => {
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {})
+    const treeData = [
+      {
+        value: 'parent 1',
+        title: 'parent 1',
+        children: [
+          {
+            value: 'parent 1-0',
+            title: 'parent 1-0',
+            children: [
+              { value: 'leaf1', title: 'my leaf' },
+              { value: 'leaf2', title: 'your leaf' },
+            ],
+          },
+        ],
+      },
+    ]
+
+    const handleFocus = vi.fn()
+    const handleFormFocus = vi.fn()
+    const open = ref(true)
+    const wrapper = mount(
+      <TreeSelect
+        onFocus={handleFocus}
+        open={open.value}
+        showSearch={true}
+        placeholder="Please select"
+        treeData={treeData}
+      />,
+    )
+    const formWrapper = mount(
+      <Form>
+        <FormItem>
+          <TreeSelect
+            onFocus={handleFormFocus}
+            open={open.value}
+            showSearch={true}
+            placeholder="Please select"
+            treeData={treeData}
+          />
+        </FormItem>
+      </Form>,
+    )
+
+    await nextTick()
+
+    // 触发focus
+    const select = wrapper.find('.ant-tree-select')
+    await select.trigger('focus')
+
+    const formSelect = formWrapper.find('.ant-tree-select')
+    await formSelect.trigger('focus')
+
+    // 确保控制台没有警告
+    expect(errSpy).not.toHaveBeenCalled()
+    expect(warnSpy).not.toHaveBeenCalled()
+    // 事件是否正确触发
+    expect(handleFocus).toHaveBeenCalled()
+    // 确保正确渲染
+    expect(
+      wrapper.find('.ant-select-dropdown'),
+    ).toBeTruthy()
+    expect(
+      formWrapper.find('.ant-select-dropdown'),
+    ).toBeTruthy()
+    // 清理
+    await nextTick()
+    errSpy.mockRestore()
+    warnSpy.mockRestore()
+    wrapper.unmount()
+    formWrapper.unmount()
   })
 })

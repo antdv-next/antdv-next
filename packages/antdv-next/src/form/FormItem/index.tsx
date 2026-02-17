@@ -7,7 +7,7 @@ import type { InternalNamePath, Meta, NamePath, Rule, RuleError, RuleObject, Val
 import type { ItemHolderProps } from './ItemHolder.tsx'
 import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
-import { cloneVNode, computed, defineComponent, isVNode, onBeforeUnmount, shallowRef, watch } from 'vue'
+import { computed, createVNode, defineComponent, isVNode, onBeforeUnmount, shallowRef, watch } from 'vue'
 import { checkRenderNode } from '../../_util/vueNode.ts'
 import { useComponentBaseConfig } from '../../config-provider/context'
 import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls'
@@ -450,7 +450,7 @@ const InternalFormItem = defineComponent<
           },
 
         }
-        baseChildren = cloneVNode(child, newChildProps)
+        baseChildren = createVNode(child.type, newChildProps, child.children)
       }
       if (props.noStyle && !props.hidden) {
         return (
