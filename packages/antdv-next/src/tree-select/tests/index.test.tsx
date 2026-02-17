@@ -625,6 +625,7 @@ describe('tree-select', () => {
     expect(warnSpy).not.toHaveBeenCalled()
     // 事件是否正确触发
     expect(handleFocus).toHaveBeenCalled()
+    expect(handleFormFocus).toHaveBeenCalled()
     // 确保正确渲染
     expect(
       wrapper.find('.ant-select-dropdown'),
