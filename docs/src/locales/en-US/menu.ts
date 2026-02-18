@@ -17,6 +17,7 @@ const menuLocales = {
       ai: 'AI',
       llms: 'LLMs.txt',
       skills: 'Skills',
+      nuxt: 'Nuxt',
       advancedUse: 'Advanced Usage',
       customizeTheme: 'Customize Theme',
       compatibleStyle: 'Compatible Style',

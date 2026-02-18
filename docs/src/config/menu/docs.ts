@@ -15,6 +15,7 @@ function flattenDocsLocales(nestedLocales: Menu) {
     '/docs/vue/ai': vue.ai,
     '/docs/vue/llms': vue.llms,
     '/docs/vue/skills': vue.skills,
+    '/docs/vue/nuxt': vue.nuxt,
     '/docs/vue/advanced/use': vue.advancedUse,
     '/docs/vue/customize-theme': vue.customizeTheme,
     '/docs/vue/compatible-style': vue.compatibleStyle,
@@ -100,6 +101,11 @@ export const docsMenus: Record<string, AntdvMenuItem[]> = {
         {
           key: '/docs/vue/common-props',
           label: '/docs/vue/common-props',
+        },
+        {
+          key: '/docs/vue/nuxt',
+          label: '/docs/vue/nuxt',
+          tag: 'New',
         },
       ],
     },
