@@ -559,8 +559,8 @@ export const extract: ExtractStyle<StyleCacheValue> = (
   // ====================== Share ======================
   // Used for rc-util
   const sharedAttrs = {
-    'data-rc-order': 'prependQueue',
-    'data-rc-priority': `${order}`,
+    'data-vc-order': 'prependQueue',
+    'data-vc-priority': `${order}`,
   }
 
   // ====================== Style ======================

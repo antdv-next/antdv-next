@@ -155,8 +155,8 @@ export const extract: ExtractStyle<TokenCacheValue<any>> = (
   const order = -999
 
   const sharedAttrs = {
-    'data-rc-order': 'prependQueue',
-    'data-rc-priority': `${order}`,
+    'data-vc-order': 'prependQueue',
+    'data-vc-priority': `${order}`,
   }
 
   const styleText = toStyleStr(
