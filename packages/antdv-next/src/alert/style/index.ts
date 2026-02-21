@@ -39,7 +39,7 @@ function genAlertTypeStyle(bgColor: string, borderColor: string, iconColor: stri
   }
 }
 
-export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSObject => {
+export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
   const {
     componentCls,
     motionDurationSlow: duration,
@@ -138,7 +138,7 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
   }
 }
 
-export const genTypeStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSObject => {
+export const genTypeStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
   const {
     componentCls,
 
@@ -187,7 +187,7 @@ export const genTypeStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
   }
 }
 
-export const genActionStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSObject => {
+export const genActionStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
   const {
     componentCls,
     iconCls,
