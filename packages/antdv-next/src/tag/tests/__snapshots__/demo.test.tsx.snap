@@ -1374,7 +1374,7 @@ exports[`tag demo > renders colorful correctly 1`] = `
       </span>
       <span
         class="ant-tag ant-tag-filled css-var-root"
-        style="background-color: rgb(232, 246, 253); color: rgb(45, 183, 245);"
+        style="background-color: rgb(231, 246, 254); color: rgb(45, 183, 245);"
       >
         #2db7f5
         <!---->
@@ -1392,7 +1392,7 @@ exports[`tag demo > renders colorful correctly 1`] = `
       </span>
       <span
         class="ant-tag ant-tag-filled css-var-root"
-        style="background-color: rgb(230, 244, 254); color: rgb(16, 142, 233);"
+        style="background-color: rgb(231, 244, 253); color: rgb(16, 142, 233);"
       >
         #108ee9
         <!---->
@@ -1490,7 +1490,7 @@ exports[`tag demo > renders colorful correctly 1`] = `
       </span>
       <span
         class="ant-tag ant-tag-outlined css-var-root"
-        style="background-color: rgb(232, 246, 253); color: rgb(45, 183, 245); border-color: rgb(45, 183, 245);"
+        style="background-color: rgb(231, 246, 254); color: rgb(45, 183, 245); border-color: rgb(45, 183, 245);"
       >
         #2db7f5
         <!---->
@@ -1508,7 +1508,7 @@ exports[`tag demo > renders colorful correctly 1`] = `
       </span>
       <span
         class="ant-tag ant-tag-outlined css-var-root"
-        style="background-color: rgb(230, 244, 254); color: rgb(16, 142, 233); border-color: rgb(16, 142, 233);"
+        style="background-color: rgb(231, 244, 253); color: rgb(16, 142, 233); border-color: rgb(16, 142, 233);"
       >
         #108ee9
         <!---->
@@ -2041,7 +2041,7 @@ exports[`tag demo > renders icon correctly 1`] = `
   >
     <span
       class="ant-tag ant-tag-filled css-var-root"
-      style="background-color: rgb(234, 243, 250); color: rgb(85, 172, 238);"
+      style="background-color: rgb(232, 244, 253); color: rgb(85, 172, 238);"
     >
       <span
         aria-label="twitter"
@@ -2071,7 +2071,7 @@ exports[`tag demo > renders icon correctly 1`] = `
     </span>
     <span
       class="ant-tag ant-tag-filled css-var-root"
-      style="background-color: rgb(253, 231, 231); color: rgb(205, 32, 31);"
+      style="background-color: rgb(252, 233, 233); color: rgb(205, 32, 31);"
     >
       <span
         aria-label="youtube"
@@ -2101,7 +2101,7 @@ exports[`tag demo > renders icon correctly 1`] = `
     </span>
     <span
       class="ant-tag ant-tag-filled css-var-root"
-      style="background-color: rgb(234, 239, 250); color: rgb(59, 89, 153);"
+      style="background-color: rgb(237, 240, 248); color: rgb(59, 89, 153);"
     >
       <span
         aria-label="facebook"
@@ -2131,7 +2131,7 @@ exports[`tag demo > renders icon correctly 1`] = `
     </span>
     <span
       class="ant-tag ant-tag-filled css-var-root"
-      style="background-color: rgb(234, 243, 250); color: rgb(85, 172, 238);"
+      style="background-color: rgb(232, 244, 253); color: rgb(85, 172, 238);"
     >
       <span
         aria-label="linkedin"
