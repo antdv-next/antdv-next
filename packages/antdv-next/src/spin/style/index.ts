@@ -1,3 +1,4 @@
+import type { CSSObject } from '@antdv-next/cssinjs'
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal'
 
 import { Keyframes } from '@antdv-next/cssinjs'
@@ -41,7 +42,7 @@ const antRotate = new Keyframes('antRotate', {
 })
 
 // =============================== Spin ===============================
-const genSpinStyle: GenerateStyle<SpinToken> = (token) => {
+const genSpinStyle: GenerateStyle<SpinToken, CSSObject> = (token) => {
   const { componentCls } = token
 
   const sectionCls = `${componentCls}-section`
@@ -153,7 +154,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token) => {
 }
 
 // ============================ Indicator =============================
-const genIndicatorStyle: GenerateStyle<SpinToken> = (token) => {
+const genIndicatorStyle: GenerateStyle<SpinToken, CSSObject> = (token) => {
   const { componentCls, antCls, motionDurationSlow } = token
 
   const [varName, varRef] = genCssVar(antCls, 'spin')
@@ -162,7 +163,7 @@ const genIndicatorStyle: GenerateStyle<SpinToken> = (token) => {
     [componentCls]: {
       [varName('dot-holder-size')]: token.dotSize,
       [varName('dot-item-size')]:
-          `calc((${varRef('dot-holder-size')} - ${token.marginXXS} / 2) / 2)`,
+        `calc((${varRef('dot-holder-size')} - ${token.marginXXS} / 2) / 2)`,
 
       [`${componentCls}-dot`]: {
         // >>> holder
@@ -266,7 +267,7 @@ const genIndicatorStyle: GenerateStyle<SpinToken> = (token) => {
 }
 
 // =============================== Size ===============================
-const genSizeStyle: GenerateStyle<SpinToken> = (token) => {
+const genSizeStyle: GenerateStyle<SpinToken, CSSObject> = (token) => {
   const { componentCls } = token
 
   const [varName] = genCssVar(token.antCls, 'spin')

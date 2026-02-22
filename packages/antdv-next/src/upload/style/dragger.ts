@@ -1,9 +1,10 @@
+import type { CSSObject } from '@antdv-next/cssinjs'
 import type { UploadToken } from '.'
 
 import type { GenerateStyle } from '../../theme/internal'
 import { unit } from '@antdv-next/cssinjs'
 
-const genDraggerStyle: GenerateStyle<UploadToken> = (token) => {
+const genDraggerStyle: GenerateStyle<UploadToken, CSSObject> = (token) => {
   const { componentCls, iconCls } = token
 
   return {

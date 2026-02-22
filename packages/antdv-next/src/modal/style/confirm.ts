@@ -1,15 +1,15 @@
+// Style as confirm component
+import type { CSSObject } from '@antdv-next/cssinjs'
 import type { ModalToken } from '.'
 
 import type { GenerateStyle } from '../../theme/internal'
-// Style as confirm component
 import { unit } from '@antdv-next/cssinjs'
 import { prepareComponentToken, prepareToken } from '.'
 import { clearFix } from '../../style'
 import { genSubStyleComponent } from '../../theme/internal'
 
 // ============================= Confirm ==============================
-
-const genModalConfirmStyle: GenerateStyle<ModalToken> = (token) => {
+const genModalConfirmStyle: GenerateStyle<ModalToken, CSSObject> = (token) => {
   const {
     componentCls,
     titleFontSize,

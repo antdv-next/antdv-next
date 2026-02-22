@@ -1,5 +1,6 @@
 import type { CSSObject } from '@antdv-next/cssinjs'
 import type { GenerateStyle } from '../../theme/internal'
+
 import type { ComponentToken, InputToken } from './token'
 import { unit } from '@antdv-next/cssinjs'
 import { clearFix, resetComponent } from '../../style'
@@ -34,18 +35,15 @@ export function genPlaceholderStyle(color: string): CSSObject {
   }
 }
 
-export function genActiveStyle(token: InputToken) {
-  return {
-    borderColor: token.activeBorderColor,
-    boxShadow: token.activeShadow,
-    outline: 0,
-    backgroundColor: token.activeBg,
-  }
-}
+export const genActiveStyle: GenerateStyle<InputToken, CSSObject> = token => ({
+  borderColor: token.activeBorderColor,
+  boxShadow: token.activeShadow,
+  outline: 0,
+  backgroundColor: token.activeBg,
+})
 
-export function genInputLargeStyle(token: InputToken): CSSObject {
+export const genInputLargeStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
   const { paddingBlockLG, lineHeightLG, borderRadiusLG, paddingInlineLG } = token
-
   return {
     padding: `${unit(paddingBlockLG)} ${unit(paddingInlineLG)}`,
     fontSize: token.inputFontSizeLG,
@@ -54,13 +52,11 @@ export function genInputLargeStyle(token: InputToken): CSSObject {
   }
 }
 
-export function genInputSmallStyle(token: InputToken): CSSObject {
-  return {
-    padding: `${unit(token.paddingBlockSM)} ${unit(token.paddingInlineSM)}`,
-    fontSize: token.inputFontSizeSM,
-    borderRadius: token.borderRadiusSM,
-  }
-}
+export const genInputSmallStyle: GenerateStyle<InputToken, CSSObject> = token => ({
+  padding: `${unit(token.paddingBlockSM)} ${unit(token.paddingInlineSM)}`,
+  fontSize: token.inputFontSizeSM,
+  borderRadius: token.borderRadiusSM,
+})
 
 export function genBasicInputStyle(token: InputToken, option: {
   largeStyle?: CSSObject
@@ -96,7 +92,7 @@ export function genBasicInputStyle(token: InputToken, option: {
   }
 }
 
-export function genInputGroupStyle(token: InputToken): CSSObject {
+export const genInputGroupStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
   const { componentCls, antCls } = token
 
   return {
@@ -351,7 +347,7 @@ export function genInputGroupStyle(token: InputToken): CSSObject {
   }
 }
 
-export const genInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
+export const genInputStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
   const { componentCls, controlHeightSM, lineWidth, calc } = token
 
   const FIXED_CHROME_COLOR_HEIGHT = 16
@@ -393,7 +389,7 @@ export const genInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
   }
 }
 
-function genAllowClearStyle(token: InputToken): CSSObject {
+const genAllowClearStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
   const { componentCls } = token
   return {
     // ========================= Input =========================
@@ -430,7 +426,7 @@ function genAllowClearStyle(token: InputToken): CSSObject {
   }
 }
 
-export const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
+export const genAffixStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
   const {
     componentCls,
     inputAffixPadding,
@@ -543,7 +539,7 @@ export const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
   }
 }
 
-const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
+const genGroupStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
   const { componentCls, borderRadiusLG, borderRadiusSM } = token
 
   return {
@@ -634,7 +630,7 @@ const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 }
 
 // ============================== Range ===============================
-const genRangeStyle: GenerateStyle<InputToken> = (token) => {
+const genRangeStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
   const { componentCls } = token
 
   return {

@@ -1,9 +1,11 @@
+import type { CSSObject } from '@antdv-next/cssinjs'
+
 import type { GenerateStyle } from '../../theme/interface'
 import type { ButtonToken } from './token'
 import { PresetColors } from '../../theme/interface'
 import { genCssVar } from '../../theme/util/genStyleUtils'
 
-const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
+const genVariantStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => {
   const { componentCls, antCls, lineWidth } = token
 
   const [varName, varRef] = genCssVar(antCls, 'btn')

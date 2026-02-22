@@ -4,6 +4,7 @@ import { FastColor } from '@ant-design/fast-color'
 
 import { unit } from '@antdv-next/cssinjs'
 import { genFocusStyle, resetComponent } from '../../style'
+import { genNoMotionStyle } from '../../style/motion'
 import { genStyleHooks, mergeToken } from '../../theme/internal'
 
 export interface ComponentToken {
@@ -208,6 +209,7 @@ const genSwitchHandleStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
         width: handleSize,
         height: handleSize,
         transition: `all ${token.switchDuration} ease-in-out`,
+        ...genNoMotionStyle(),
 
         '&::before': {
           position: 'absolute',
@@ -220,6 +222,7 @@ const genSwitchHandleStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
           boxShadow: handleShadow,
           transition: `all ${token.switchDuration} ease-in-out`,
           content: '""',
+          ...genNoMotionStyle(),
         },
       },
 
@@ -270,7 +273,7 @@ const genSwitchInnerStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
         transition: [`padding-inline-start`, `padding-inline-end`]
           .map(prop => `${prop} ${switchDuration} ease-in-out`)
           .join(', '),
-
+        ...genNoMotionStyle(),
         [`${switchInnerCls}-checked, ${switchInnerCls}-unchecked`]: {
           display: 'block',
           color: token.colorTextLightSolid,
@@ -280,6 +283,7 @@ const genSwitchInnerStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
           transition: [`margin-inline-start`, `margin-inline-end`]
             .map(prop => `${prop} ${switchDuration} ease-in-out`)
             .join(', '),
+          ...genNoMotionStyle(),
         },
 
         [`${switchInnerCls}-checked`]: {
@@ -327,7 +331,7 @@ const genSwitchInnerStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
   }
 }
 
-function genSwitchStyle(token: SwitchToken): CSSObject {
+const genSwitchStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
   const { componentCls, trackHeight, trackMinWidth } = token
 
   return {
@@ -347,7 +351,7 @@ function genSwitchStyle(token: SwitchToken): CSSObject {
       cursor: 'pointer',
       transition: `all ${token.motionDurationMid}`,
       userSelect: 'none',
-
+      ...genNoMotionStyle(),
       [`&:hover:not(${componentCls}-disabled)`]: {
         background: token.colorTextTertiary,
       },

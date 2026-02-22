@@ -5,7 +5,7 @@ import type { PickerToken, SharedPickerToken } from './token'
 import { FastColor } from '@ant-design/fast-color'
 import { unit } from '@antdv-next/cssinjs'
 
-function genPickerCellInnerStyle(token: SharedPickerToken): CSSObject {
+const genPickerCellInnerStyle: GenerateStyle<SharedPickerToken, CSSObject> = (token) => {
   const {
     pickerCellCls,
     pickerCellInnerCls,
@@ -141,7 +141,7 @@ function genPickerCellInnerStyle(token: SharedPickerToken): CSSObject {
   }
 }
 
-export function genPanelStyle(token: SharedPickerToken): CSSObject {
+export const genPanelStyle: GenerateStyle<SharedPickerToken, CSSObject> = (token) => {
   const {
     componentCls,
     pickerCellCls,
@@ -625,7 +625,7 @@ export function genPanelStyle(token: SharedPickerToken): CSSObject {
   }
 }
 
-const genPickerPanelStyle: GenerateStyle<PickerToken> = (token) => {
+const genPickerPanelStyle: GenerateStyle<PickerToken, CSSObject> = (token) => {
   const {
     componentCls,
     textHeight,

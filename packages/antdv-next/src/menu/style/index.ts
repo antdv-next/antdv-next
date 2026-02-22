@@ -3,6 +3,7 @@ import type { ComputedRef, CSSProperties } from 'vue'
 import type { CssUtil } from '../../_util/motion.ts'
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal'
 import { FastColor } from '@ant-design/fast-color'
+
 import { unit } from '@antdv-next/cssinjs'
 import { clearFix, resetComponent, resetIcon } from '../../style'
 import { genCollapseMotion, initSlideMotion, initZoomMotion } from '../../style/motion'
@@ -405,7 +406,7 @@ export interface MenuToken extends FullToken<'Menu'> {
   darkPopupBg: string
 }
 
-function genMenuItemStyle(token: MenuToken): CSSObject {
+const genMenuItemStyle: GenerateStyle<MenuToken, CSSObject> = (token) => {
   const {
     componentCls,
     motionDurationSlow,
@@ -485,7 +486,7 @@ function genMenuItemStyle(token: MenuToken): CSSObject {
   }
 }
 
-function genSubMenuArrowStyle(token: MenuToken): CSSObject {
+const genSubMenuArrowStyle: GenerateStyle<MenuToken, CSSObject> = (token) => {
   const {
     componentCls,
     motionDurationSlow,

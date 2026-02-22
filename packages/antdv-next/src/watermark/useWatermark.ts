@@ -23,7 +23,7 @@ export type AppendWatermark = (
 export default function useWatermark(markStyle: Ref<CSSProperties>, onRemove?: ComputedRef<(() => void) | undefined>): [
     appendWatermark: AppendWatermark,
     removeWatermark: (container: HTMLElement) => void,
-    isWatermarkEle: (ele: Node) => boolean,
+    isWatermarkEle: (ele: Node, index?: number) => boolean,
 ] {
   const watermarkMap = reactive(new Map<HTMLElement, HTMLDivElement>())
   const appendWatermark = (base64Url: string, markWidth: number, container: HTMLElement) => {
@@ -64,6 +64,6 @@ export default function useWatermark(markStyle: Ref<CSSProperties>, onRemove?: C
     watermarkMap.delete(container)
   }
 
-  const isWatermarkEle = (ele: any) => Array.from(watermarkMap.values()).includes(ele)
-  return [appendWatermark, removeWatermark, isWatermarkEle]
+  const isWatermarkEle = (ele: Node) => Array.from(watermarkMap.values()).includes(ele as any)
+  return [appendWatermark, removeWatermark, isWatermarkEle] as const
 }

@@ -1,3 +1,4 @@
+import type { CSSObject } from '@antdv-next/cssinjs'
 import type { UploadToken } from '.'
 import type { GenerateStyle } from '../../theme/internal'
 
@@ -5,7 +6,7 @@ import { blue } from '@ant-design/colors'
 import { unit } from '@antdv-next/cssinjs'
 import { clearFix, textEllipsis } from '../../style'
 
-const genPictureStyle: GenerateStyle<UploadToken> = (token) => {
+const genPictureStyle: GenerateStyle<UploadToken, CSSObject> = (token) => {
   const { componentCls, iconCls, uploadThumbnailSize, uploadProgressOffset, calc } = token
   const listCls = `${componentCls}-list`
   const itemCls = `${listCls}-item`
@@ -97,7 +98,7 @@ const genPictureStyle: GenerateStyle<UploadToken> = (token) => {
   }
 }
 
-const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
+const genPictureCardStyle: GenerateStyle<UploadToken, CSSObject> = (token) => {
   const { componentCls, iconCls, fontSizeLG, colorTextLightSolid, calc } = token
 
   const listCls = `${componentCls}-list`

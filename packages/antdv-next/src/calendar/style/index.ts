@@ -1,7 +1,7 @@
 import type { CSSObject } from '@antdv-next/cssinjs'
 import type { PanelComponentToken, PickerPanelToken } from '../../date-picker/style'
 
-import type { FullToken, GetDefaultToken } from '../../theme/internal'
+import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal'
 import { unit } from '@antdv-next/cssinjs'
 import {
   genPanelStyle,
@@ -67,7 +67,7 @@ interface CalendarToken extends FullToken<'Calendar'>, PickerPanelToken, PanelCo
   dateContentHeight: number | string
 }
 
-export function genCalendarStyles(token: CalendarToken): CSSObject {
+export const genCalendarStyles: GenerateStyle<CalendarToken, CSSObject> = (token) => {
   const { calendarCls, componentCls, fullBg, fullPanelBg, itemActiveBg } = token
   return {
     [calendarCls]: {

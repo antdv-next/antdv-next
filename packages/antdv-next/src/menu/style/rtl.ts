@@ -1,10 +1,11 @@
+import type { CSSObject } from '@antdv-next/cssinjs'
 import type { MenuToken } from '.'
 import type { CssUtil } from '../../_util/motion.ts'
 
 import type { GenerateStyle } from '../../theme/internal'
 import { unit } from '@antdv-next/cssinjs'
 
-const getRTLStyle: GenerateStyle<MenuToken & CssUtil> = ({
+const getRTLStyle: GenerateStyle<MenuToken & CssUtil, CSSObject> = ({
   componentCls,
   menuArrowOffset,
   calc,

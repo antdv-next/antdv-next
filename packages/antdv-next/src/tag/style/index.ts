@@ -1,6 +1,6 @@
 import type { CSSInterpolation } from '@antdv-next/cssinjs'
 import type { CSSProperties } from 'vue'
-import type { FullToken, GenStyleFn, GetDefaultToken } from '../../theme/internal'
+import type { FullToken, GenerateStyle, GenStyleFn, GetDefaultToken } from '../../theme/internal'
 import { FastColor } from '@ant-design/fast-color'
 
 import { unit } from '@antdv-next/cssinjs'
@@ -38,7 +38,7 @@ export interface TagToken extends FullToken<'Tag'> {
 
 // ============================== Styles ==============================
 
-function genBaseStyle(token: TagToken): CSSInterpolation {
+const genBaseStyle: GenerateStyle<TagToken, CSSInterpolation> = (token) => {
   const { paddingXXS, lineWidth, tagPaddingHorizontal, componentCls, calc } = token
   const paddingInline = calc(tagPaddingHorizontal).sub(lineWidth).equal()
   const iconMarginInline = calc(paddingXXS).sub(lineWidth).equal()
@@ -206,7 +206,7 @@ function genBaseStyle(token: TagToken): CSSInterpolation {
 }
 
 // ============================== Export ==============================
-export const prepareToken: (token: Parameters<GenStyleFn<'Tag'>>[0]) => TagToken = (token) => {
+export function prepareToken(token: Parameters<GenStyleFn<'Tag'>>[0]) {
   const { lineWidth, fontSizeIcon, calc } = token
   const tagFontSize = token.fontSizeSM
   const tagToken = mergeToken<TagToken>(token, {
