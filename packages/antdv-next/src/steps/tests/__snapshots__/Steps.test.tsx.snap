@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Steps > rtl render > component should be rendered correctly in RTL direction 1`] = `
+exports[`steps > rtl render > component should be rendered correctly in RTL direction 1`] = `
 <div
   data-v-app=""
 >
@@ -85,7 +85,7 @@ exports[`Steps > rtl render > component should be rendered correctly in RTL dire
 </div>
 `;
 
-exports[`Steps > should match snapshot with default config 1`] = `
+exports[`steps > should match snapshot with default config 1`] = `
 <div
   class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled css-var-root"
   responsive="true"
@@ -215,7 +215,7 @@ exports[`Steps > should match snapshot with default config 1`] = `
 </div>
 `;
 
-exports[`Steps > should match snapshot with dot type 1`] = `
+exports[`steps > should match snapshot with dot type 1`] = `
 <div
   class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-filled ant-steps-dot css-var-root"
   responsive="true"
@@ -297,7 +297,7 @@ exports[`Steps > should match snapshot with dot type 1`] = `
 </div>
 `;
 
-exports[`Steps > should match snapshot with navigation type 1`] = `
+exports[`steps > should match snapshot with navigation type 1`] = `
 <div
   class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled ant-steps-navigation css-var-root"
   responsive="true"
@@ -430,7 +430,7 @@ exports[`Steps > should match snapshot with navigation type 1`] = `
 </div>
 `;
 
-exports[`Steps > should match snapshot with progress 1`] = `
+exports[`steps > should match snapshot with progress 1`] = `
 <div
   class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled ant-steps-with-progress css-var-root"
   percent="60"

@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ProgressIcon > should match snapshot 1`] = `
+exports[`progressIcon > should match snapshot 1`] = `
 <div
   data-v-app=""
 >

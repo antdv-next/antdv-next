@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`PanelArrow > should match snapshot 1`] = `
+exports[`panelArrow > should match snapshot 1`] = `
 <svg
   class="ant-steps-panel-arrow"
   preserveAspectRatio="none"
