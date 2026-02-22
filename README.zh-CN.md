@@ -6,6 +6,12 @@
 
 一套基于 Ant Design 设计体系的 Vue 3 企业级组件库 —— Antdv Next。
 
+[![CI status][github-action-image]][github-action-url]
+[![codecov][codecov-image]][codecov-url]
+[![NPM version][npm-image]][npm-url]
+[![NPM downloads][download-image]][download-url]
+[![][jsdelivr-image]][jsdelivr-url]
+
 [English](./README.md) · 中文
 
 </div>
@@ -49,6 +55,12 @@ pnpm add antdv-next
 bun add antdv-next
 ```
 
+## ✅ 单元测试覆盖率
+
+- 本地生成覆盖率：`pnpm test:coverage`
+- 覆盖率输出目录：`coverage/`
+- 在 GitHub 发布 Release（`release.published`）时，CI 会运行带覆盖率的单元测试，并通过 `Unit Test Upload` workflow 上传 `coverage/` 制品（artifact）。
+
 ## 鸣谢
 
 Antdv Next 在设计与实现过程中参考、借鉴并使用了以下优秀的开源项目，在此表示感谢。
@@ -74,3 +86,14 @@ Antdv Next 在设计与实现过程中参考、借鉴并使用了以下优秀的
 <a href="https://github.com/antdv-next/antdv-next/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=antdv-next/antdv-next&max=100&columns=15" />
 </a>
+
+[github-action-image]: https://github.com/antdv-next/antdv-next/actions/workflows/test.yml/badge.svg
+[github-action-url]: https://github.com/antdv-next/antdv-next/actions/workflows/test.yml
+[codecov-image]: https://img.shields.io/codecov/c/github/antdv-next/antdv-next?style=flat-square
+[codecov-url]: https://codecov.io/gh/antdv-next/antdv-next
+[npm-image]: https://img.shields.io/npm/v/antdv-next.svg?style=flat-square
+[npm-url]: https://www.npmjs.com/package/antdv-next
+[download-image]: https://img.shields.io/npm/dm/antdv-next.svg?style=flat-square
+[download-url]: https://www.npmjs.com/package/antdv-next
+[jsdelivr-image]: https://data.jsdelivr.com/v1/package/npm/antdv-next/badge
+[jsdelivr-url]: https://www.jsdelivr.com/package/npm/antdv-next
