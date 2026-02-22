@@ -138,8 +138,6 @@ exports[`space demo > renders _semantic correctly 1`] = `
                   <!---->
                   <!---->
                   <!---->
-                  <!---->
-                  <!---->
                 </h5>
                 <!--v-if-->
               </div>
@@ -229,8 +227,6 @@ exports[`space demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -256,8 +252,6 @@ exports[`space demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   item
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -353,8 +347,6 @@ exports[`space demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -380,8 +372,6 @@ exports[`space demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   separator
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -471,8 +461,6 @@ exports[`space demo > renders _semantic correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               Separator element with divider styling
-              <!---->
-              <!---->
               <!---->
               <!---->
               <!---->
@@ -3374,8 +3362,6 @@ exports[`space demo > renders separator correctly 1`] = `
       <!---->
       <!---->
       <!---->
-      <!---->
-      <!---->
     </a>
   </div>
   <span
@@ -3401,8 +3387,6 @@ exports[`space demo > renders separator correctly 1`] = `
       <!---->
       <!---->
       <!---->
-      <!---->
-      <!---->
     </a>
   </div>
   <span
@@ -3422,8 +3406,6 @@ exports[`space demo > renders separator correctly 1`] = `
       class="ant-typography ant-typography-link css-var-root"
     >
        Link 
-      <!---->
-      <!---->
       <!---->
       <!---->
       <!---->

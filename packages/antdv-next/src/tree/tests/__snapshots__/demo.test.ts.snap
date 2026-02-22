@@ -277,8 +277,6 @@ exports[`tree demo > renders _semantic correctly 1`] = `
                   <!---->
                   <!---->
                   <!---->
-                  <!---->
-                  <!---->
                 </h5>
                 <span
                   class="ant-tag ant-tag-filled ant-tag-blue css-var-root"
@@ -376,8 +374,6 @@ exports[`tree demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -403,8 +399,6 @@ exports[`tree demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   item
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -508,8 +502,6 @@ exports[`tree demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -535,8 +527,6 @@ exports[`tree demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   itemIcon
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -640,8 +630,6 @@ exports[`tree demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -667,8 +655,6 @@ exports[`tree demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   itemTitle
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -766,8 +752,6 @@ exports[`tree demo > renders _semantic correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               Title element with tree node title text display styles and text content
-              <!---->
-              <!---->
               <!---->
               <!---->
               <!---->

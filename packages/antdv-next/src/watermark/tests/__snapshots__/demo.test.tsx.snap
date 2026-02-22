@@ -32,8 +32,6 @@ exports[`watermark demo > renders custom correctly 1`] = `
         <!---->
         <!---->
         <!---->
-        <!---->
-        <!---->
       </div>
       <div
         class="ant-typography css-var-root"
@@ -45,15 +43,11 @@ exports[`watermark demo > renders custom correctly 1`] = `
         <!---->
         <!---->
         <!---->
-        <!---->
-        <!---->
       </div>
       <div
         class="ant-typography css-var-root"
       >
          Natural user behavior: In the interaction with the system, the designer should fully understand the relationship between users, system roles, and task objectives, and also contextually organize system functions and services. At the same time, a series of methods such as behavior analysis, artificial intelligence and sensors could be applied to assist users to make effective decisions and reduce extra operations of users, to save users' mental and physical resources and make human-computer interaction more natural. 
-        <!---->
-        <!---->
         <!---->
         <!---->
         <!---->

@@ -135,8 +135,6 @@ exports[`breadcrumb demo > renders _semantic correctly 1`] = `
                   <!---->
                   <!---->
                   <!---->
-                  <!---->
-                  <!---->
                 </h5>
                 <span
                   class="ant-tag ant-tag-filled ant-tag-blue css-var-root"
@@ -234,8 +232,6 @@ exports[`breadcrumb demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -261,8 +257,6 @@ exports[`breadcrumb demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   item
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -366,8 +360,6 @@ exports[`breadcrumb demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -393,8 +385,6 @@ exports[`breadcrumb demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   separator
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -492,8 +482,6 @@ exports[`breadcrumb demo > renders _semantic correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               Separator element with margin and color styles for the divider
-              <!---->
-              <!---->
               <!---->
               <!---->
               <!---->

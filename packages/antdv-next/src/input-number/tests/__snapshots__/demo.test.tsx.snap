@@ -210,8 +210,6 @@ exports[`input-number demo > renders _semantic correctly 1`] = `
                   <!---->
                   <!---->
                   <!---->
-                  <!---->
-                  <!---->
                 </h5>
                 <!--v-if-->
               </div>
@@ -301,8 +299,6 @@ exports[`input-number demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -328,8 +324,6 @@ exports[`input-number demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   prefix
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -425,8 +419,6 @@ exports[`input-number demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -452,8 +444,6 @@ exports[`input-number demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   input
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -549,8 +539,6 @@ exports[`input-number demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -576,8 +564,6 @@ exports[`input-number demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   suffix
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -673,8 +659,6 @@ exports[`input-number demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -700,8 +684,6 @@ exports[`input-number demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   actions
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -797,8 +779,6 @@ exports[`input-number demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -824,8 +804,6 @@ exports[`input-number demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   action
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -915,8 +893,6 @@ exports[`input-number demo > renders _semantic correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               Single action button element, sets button styling, hover effects and click interactions
-              <!---->
-              <!---->
               <!---->
               <!---->
               <!---->

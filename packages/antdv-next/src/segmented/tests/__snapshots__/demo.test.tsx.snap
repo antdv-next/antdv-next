@@ -149,8 +149,6 @@ exports[`segmented demo > renders _semantic correctly 1`] = `
                   <!---->
                   <!---->
                   <!---->
-                  <!---->
-                  <!---->
                 </h5>
                 <span
                   class="ant-tag ant-tag-filled ant-tag-blue css-var-root"
@@ -248,8 +246,6 @@ exports[`segmented demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -275,8 +271,6 @@ exports[`segmented demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   item
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -380,8 +374,6 @@ exports[`segmented demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -407,8 +399,6 @@ exports[`segmented demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   label
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -512,8 +502,6 @@ exports[`segmented demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -539,8 +527,6 @@ exports[`segmented demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   icon
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -638,8 +624,6 @@ exports[`segmented demo > renders _semantic correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               Icon element with icon size, color and text spacing styles
-              <!---->
-              <!---->
               <!---->
               <!---->
               <!---->

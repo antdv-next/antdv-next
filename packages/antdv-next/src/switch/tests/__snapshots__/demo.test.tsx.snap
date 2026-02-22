@@ -78,8 +78,6 @@ exports[`switch demo > renders _semantic correctly 1`] = `
                   <!---->
                   <!---->
                   <!---->
-                  <!---->
-                  <!---->
                 </h5>
                 <span
                   class="ant-tag ant-tag-filled ant-tag-blue css-var-root"
@@ -177,8 +175,6 @@ exports[`switch demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -204,8 +200,6 @@ exports[`switch demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   content
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -309,8 +303,6 @@ exports[`switch demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -336,8 +328,6 @@ exports[`switch demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   indicator
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -435,8 +425,6 @@ exports[`switch demo > renders _semantic correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               Indicator element with absolute positioning, width, height, background color, border radius, shadow, transition animations and other switch handle styles and interactive effects
-              <!---->
-              <!---->
               <!---->
               <!---->
               <!---->

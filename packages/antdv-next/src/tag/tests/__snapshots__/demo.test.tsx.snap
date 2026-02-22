@@ -81,8 +81,6 @@ exports[`tag demo > renders _semantic correctly 1`] = `
                   <!---->
                   <!---->
                   <!---->
-                  <!---->
-                  <!---->
                 </h5>
                 <span
                   class="ant-tag ant-tag-filled ant-tag-blue css-var-root"
@@ -180,8 +178,6 @@ exports[`tag demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -207,8 +203,6 @@ exports[`tag demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   icon
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -312,8 +306,6 @@ exports[`tag demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -339,8 +331,6 @@ exports[`tag demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   content
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -438,8 +428,6 @@ exports[`tag demo > renders _semantic correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               Content element with text content color, font styles and other content area styles
-              <!---->
-              <!---->
               <!---->
               <!---->
               <!---->

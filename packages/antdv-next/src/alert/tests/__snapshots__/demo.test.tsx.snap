@@ -181,8 +181,6 @@ exports[`alert demo > renders _semantic correctly 1`] = `
                   <!---->
                   <!---->
                   <!---->
-                  <!---->
-                  <!---->
                 </h5>
                 <span
                   class="ant-tag ant-tag-filled ant-tag-blue css-var-root"
@@ -280,8 +278,6 @@ exports[`alert demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -307,8 +303,6 @@ exports[`alert demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   icon
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -412,8 +406,6 @@ exports[`alert demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -439,8 +431,6 @@ exports[`alert demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   section
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -544,8 +534,6 @@ exports[`alert demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -571,8 +559,6 @@ exports[`alert demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   title
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -676,8 +662,6 @@ exports[`alert demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -703,8 +687,6 @@ exports[`alert demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   description
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -808,8 +790,6 @@ exports[`alert demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -835,8 +815,6 @@ exports[`alert demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   actions
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -940,8 +918,6 @@ exports[`alert demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -967,8 +943,6 @@ exports[`alert demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   close
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -1066,8 +1040,6 @@ exports[`alert demo > renders _semantic correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               Close button element with basic button styling
-              <!---->
-              <!---->
               <!---->
               <!---->
               <!---->

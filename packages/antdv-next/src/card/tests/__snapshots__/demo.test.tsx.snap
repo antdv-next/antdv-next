@@ -199,8 +199,6 @@ exports[`card demo > renders _semantic correctly 1`] = `
                   <!---->
                   <!---->
                   <!---->
-                  <!---->
-                  <!---->
                 </h5>
                 <span
                   class="ant-tag ant-tag-filled ant-tag-blue css-var-root"
@@ -298,8 +296,6 @@ exports[`card demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -325,8 +321,6 @@ exports[`card demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   header
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -430,8 +424,6 @@ exports[`card demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -457,8 +449,6 @@ exports[`card demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   title
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -562,8 +552,6 @@ exports[`card demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -589,8 +577,6 @@ exports[`card demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   extra
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -694,8 +680,6 @@ exports[`card demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -721,8 +705,6 @@ exports[`card demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   cover
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -826,8 +808,6 @@ exports[`card demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -853,8 +833,6 @@ exports[`card demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   body
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -958,8 +936,6 @@ exports[`card demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -985,8 +961,6 @@ exports[`card demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   actions
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -1084,8 +1058,6 @@ exports[`card demo > renders _semantic correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               Card bottom action group with flex layout, list-style reset, background, top border and bottom border-radius for action buttons container
-              <!---->
-              <!---->
               <!---->
               <!---->
               <!---->

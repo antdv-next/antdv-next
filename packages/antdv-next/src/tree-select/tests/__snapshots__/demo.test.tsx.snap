@@ -167,8 +167,6 @@ exports[`tree-select demo > renders _semantic correctly 1`] = `
                   <!---->
                   <!---->
                   <!---->
-                  <!---->
-                  <!---->
                 </h5>
                 <!--v-if-->
               </div>
@@ -258,8 +256,6 @@ exports[`tree-select demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -285,8 +281,6 @@ exports[`tree-select demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   prefix
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -382,8 +376,6 @@ exports[`tree-select demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -409,8 +401,6 @@ exports[`tree-select demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   placeholder
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -506,8 +496,6 @@ exports[`tree-select demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -533,8 +521,6 @@ exports[`tree-select demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   input
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -630,8 +616,6 @@ exports[`tree-select demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -657,8 +641,6 @@ exports[`tree-select demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   suffix
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -754,8 +736,6 @@ exports[`tree-select demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -781,8 +761,6 @@ exports[`tree-select demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   popup.root
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -878,8 +856,6 @@ exports[`tree-select demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -905,8 +881,6 @@ exports[`tree-select demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   popup.item
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -1002,8 +976,6 @@ exports[`tree-select demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -1029,8 +1001,6 @@ exports[`tree-select demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   popup.itemTitle
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -1120,8 +1090,6 @@ exports[`tree-select demo > renders _semantic correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               Popup title element with tree node title text display styles
-              <!---->
-              <!---->
               <!---->
               <!---->
               <!---->

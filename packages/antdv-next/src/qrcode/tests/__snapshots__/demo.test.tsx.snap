@@ -94,8 +94,6 @@ exports[`qr-code demo > renders _semantic correctly 1`] = `
                   <!---->
                   <!---->
                   <!---->
-                  <!---->
-                  <!---->
                 </h5>
                 <!--v-if-->
               </div>
@@ -185,8 +183,6 @@ exports[`qr-code demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -212,8 +208,6 @@ exports[`qr-code demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   cover
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -303,8 +297,6 @@ exports[`qr-code demo > renders _semantic correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               Cover element, set absolute positioning, z-index, background color and loading state overlay styles
-              <!---->
-              <!---->
               <!---->
               <!---->
               <!---->

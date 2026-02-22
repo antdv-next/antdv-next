@@ -13,8 +13,6 @@ exports[`typography > rtl render > component should be rendered correctly in RTL
     <!---->
     <!---->
     <!---->
-    <!---->
-    <!---->
   </div>
 </div>
 `;
@@ -26,8 +24,6 @@ exports[`typography > rtl render > component should be rendered correctly in RTL
   <article
     class="ant-typography ant-typography-rtl css-var-root"
   >
-    <!---->
-    <!---->
     <!---->
     <!---->
     <!---->
@@ -51,8 +47,6 @@ exports[`typography > rtl render > component should be rendered correctly in RTL
     <!---->
     <!---->
     <!---->
-    <!---->
-    <!---->
   </h1>
 </div>
 `;
@@ -64,8 +58,6 @@ exports[`typography > rtl render > component should be rendered correctly in RTL
   <a
     class="ant-typography ant-typography-rtl ant-typography-link css-var-root"
   >
-    <!---->
-    <!---->
     <!---->
     <!---->
     <!---->
