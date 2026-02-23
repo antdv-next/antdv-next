@@ -1,5 +1,6 @@
 import type { PickerMode } from '@v-c/picker'
 import type { PickerLocale, PickerProps } from './generatePicker'
+import { cloneVNode, isVNode } from 'vue'
 import useSelectIcons from '../select/useIcons'
 
 export function getPlaceholder(
@@ -73,10 +74,11 @@ export function useIcons(
   }
 
   const allowClearConfig = allowClear === true ? {} : allowClear
+  const mergedClearIcon = isVNode(clearIcon) ? cloneVNode(clearIcon) : clearIcon
 
   return [
     {
-      clearIcon,
+      clearIcon: mergedClearIcon,
       ...allowClearConfig,
     },
     removeIcon,
