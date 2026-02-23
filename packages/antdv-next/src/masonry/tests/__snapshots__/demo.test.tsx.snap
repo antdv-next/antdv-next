@@ -188,8 +188,6 @@ exports[`masonry demo > renders _semantic correctly 1`] = `
                   <!---->
                   <!---->
                   <!---->
-                  <!---->
-                  <!---->
                 </h5>
                 <!--v-if-->
               </div>
@@ -279,8 +277,6 @@ exports[`masonry demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -306,8 +302,6 @@ exports[`masonry demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   item
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -397,8 +391,6 @@ exports[`masonry demo > renders _semantic correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               Item element, sets absolute positioning, width calculation, transition animation and masonry item styles
-              <!---->
-              <!---->
               <!---->
               <!---->
               <!---->
@@ -2325,8 +2317,6 @@ exports[`masonry demo > renders style-class correctly 1`] = `
       <!---->
       <!---->
       <!---->
-      <!---->
-      <!---->
     </h4>
     <div
       class="ant-masonry custom-masonry-root css-var-root"
@@ -2514,8 +2504,6 @@ exports[`masonry demo > renders style-class correctly 1`] = `
       class="ant-typography css-var-root"
     >
        classNames and styles Function 
-      <!---->
-      <!---->
       <!---->
       <!---->
       <!---->

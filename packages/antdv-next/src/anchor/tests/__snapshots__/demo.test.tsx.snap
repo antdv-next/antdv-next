@@ -121,8 +121,6 @@ exports[`anchor demo > renders _semantic correctly 1`] = `
                   <!---->
                   <!---->
                   <!---->
-                  <!---->
-                  <!---->
                 </h5>
                 <span
                   class="ant-tag ant-tag-filled ant-tag-blue css-var-root"
@@ -220,8 +218,6 @@ exports[`anchor demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -247,8 +243,6 @@ exports[`anchor demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   item
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -352,8 +346,6 @@ exports[`anchor demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -379,8 +371,6 @@ exports[`anchor demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   itemTitle
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -484,8 +474,6 @@ exports[`anchor demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -511,8 +499,6 @@ exports[`anchor demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   indicator
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -610,8 +596,6 @@ exports[`anchor demo > renders _semantic correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               Indicator element with width, height, background color, position changes, transition animations and other styles
-              <!---->
-              <!---->
               <!---->
               <!---->
               <!---->

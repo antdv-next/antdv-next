@@ -1,3 +1,5 @@
+import type { CSSObject } from '@antdv-next/cssinjs'
+
 import type { ArrowOffsetToken } from '../../style/placementArrow'
 import type { ArrowToken } from '../../style/roundedArrow'
 import type {
@@ -169,7 +171,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
   ]
 }
 
-const genColorStyle: GenerateStyle<PopoverToken> = (token) => {
+const genColorStyle: GenerateStyle<PopoverToken, CSSObject> = (token) => {
   const { componentCls, antCls } = token
   const [varName] = genCssVar(antCls, 'tooltip')
   return {

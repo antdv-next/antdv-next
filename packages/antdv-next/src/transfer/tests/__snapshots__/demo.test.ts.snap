@@ -858,8 +858,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                   <!---->
                   <!---->
                   <!---->
-                  <!---->
-                  <!---->
                 </h5>
                 <!--v-if-->
               </div>
@@ -949,8 +947,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -976,8 +972,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   section
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -1073,8 +1067,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -1100,8 +1092,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   header
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -1197,8 +1187,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -1224,8 +1212,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   title
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -1321,8 +1307,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -1348,8 +1332,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   body
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -1445,8 +1427,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -1472,8 +1452,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   list
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -1569,8 +1547,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -1596,8 +1572,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   item
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -1693,8 +1667,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -1720,8 +1692,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   itemIcon
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -1817,8 +1787,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -1844,8 +1812,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   itemContent
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -1941,8 +1907,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -1968,8 +1932,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   footer
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -2065,8 +2027,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -2092,8 +2052,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   actions
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -2183,8 +2141,6 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               Actions element with transfer button group styles, layout and interaction states
-              <!---->
-              <!---->
               <!---->
               <!---->
               <!---->

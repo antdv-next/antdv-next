@@ -98,15 +98,13 @@ const genRateStarStyle: GenerateStyle<RateToken, CSSObject> = (token) => {
   }
 }
 
-function genRateRtlStyle(token: RateToken): CSSObject {
-  return {
-    [`&-rtl${token.componentCls}`]: {
-      direction: 'rtl',
-    },
-  }
-}
+const genRateRtlStyle: GenerateStyle<RateToken, CSSObject> = token => ({
+  [`&-rtl${token.componentCls}`]: {
+    direction: 'rtl',
+  },
+})
 
-const genRateStyle: GenerateStyle<RateToken> = (token) => {
+const genRateStyle: GenerateStyle<RateToken, CSSObject> = (token) => {
   const { componentCls } = token
 
   return {

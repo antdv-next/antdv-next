@@ -1,10 +1,11 @@
+import type { CSSObject } from '@antdv-next/cssinjs'
 import type { UploadToken } from '.'
 
 import type { GenerateStyle } from '../../theme/internal'
 import { unit } from '@antdv-next/cssinjs'
 import { clearFix, textEllipsis } from '../../style'
 
-const genListStyle: GenerateStyle<UploadToken> = (token) => {
+const genListStyle: GenerateStyle<UploadToken, CSSObject> = (token) => {
   const { componentCls, iconCls, fontSize, lineHeight, motionDurationSlow, calc } = token
   const itemCls = `${componentCls}-list-item`
   const actionsCls = `${itemCls}-actions`

@@ -162,8 +162,9 @@ type ZoomMotionTypes
     | 'zoom-right'
     | 'zoom-up'
     | 'zoom-down'
+
 const zoomMotion: Record<ZoomMotionTypes, { inKeyframes: Keyframes, outKeyframes: Keyframes }> = {
-  'zoom': {
+  zoom: {
     inKeyframes: zoomIn,
     outKeyframes: zoomOut,
   },
@@ -210,9 +211,9 @@ export function initZoomMotion(token: TokenWithCommonCls<AliasToken>, motionName
         ${motionCls}-enter,
         ${motionCls}-appear
       `]: {
-        'transform': 'scale(0)',
-        'opacity': 0,
-        'animationTimingFunction': token.motionEaseOutCirc,
+        transform: 'scale(0)',
+        opacity: 0,
+        animationTimingFunction: token.motionEaseOutCirc,
 
         '&-prepare': {
           transform: 'none',

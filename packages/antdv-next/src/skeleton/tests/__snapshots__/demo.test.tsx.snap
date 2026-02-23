@@ -77,8 +77,6 @@ exports[`skeleton demo > renders _semantic correctly 1`] = `
                   <!---->
                   <!---->
                   <!---->
-                  <!---->
-                  <!---->
                 </h5>
                 <span
                   class="ant-tag ant-tag-filled ant-tag-blue css-var-root"
@@ -176,8 +174,6 @@ exports[`skeleton demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -203,8 +199,6 @@ exports[`skeleton demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   header
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -308,8 +302,6 @@ exports[`skeleton demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -335,8 +327,6 @@ exports[`skeleton demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   section
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -440,8 +430,6 @@ exports[`skeleton demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -467,8 +455,6 @@ exports[`skeleton demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   avatar
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -572,8 +558,6 @@ exports[`skeleton demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -599,8 +583,6 @@ exports[`skeleton demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   title
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -704,8 +686,6 @@ exports[`skeleton demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -731,8 +711,6 @@ exports[`skeleton demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   paragraph
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -830,8 +808,6 @@ exports[`skeleton demo > renders _semantic correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               Paragraph element with padding, list item styles, background color, border radius and other paragraph placeholder styles
-              <!---->
-              <!---->
               <!---->
               <!---->
               <!---->

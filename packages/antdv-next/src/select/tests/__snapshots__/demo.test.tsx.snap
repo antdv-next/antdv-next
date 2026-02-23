@@ -174,8 +174,6 @@ exports[`select demo > renders _semantic correctly 1`] = `
                   <!---->
                   <!---->
                   <!---->
-                  <!---->
-                  <!---->
                 </h5>
                 <!--v-if-->
               </div>
@@ -265,8 +263,6 @@ exports[`select demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -292,8 +288,6 @@ exports[`select demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   prefix
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -389,8 +383,6 @@ exports[`select demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -416,8 +408,6 @@ exports[`select demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   content
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -513,8 +503,6 @@ exports[`select demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -540,8 +528,6 @@ exports[`select demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   placeholder
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -637,8 +623,6 @@ exports[`select demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -664,8 +648,6 @@ exports[`select demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   clear
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -761,8 +743,6 @@ exports[`select demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -788,8 +768,6 @@ exports[`select demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   input
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -885,8 +863,6 @@ exports[`select demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -912,8 +888,6 @@ exports[`select demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   suffix
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -1009,8 +983,6 @@ exports[`select demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -1036,8 +1008,6 @@ exports[`select demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   popup.root
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -1133,8 +1103,6 @@ exports[`select demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -1160,8 +1128,6 @@ exports[`select demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   popup.list
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -1257,8 +1223,6 @@ exports[`select demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -1284,8 +1248,6 @@ exports[`select demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   popup.listItem
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -1375,8 +1337,6 @@ exports[`select demo > renders _semantic correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               Popup item element with option item padding, hover effects, selected states, disabled states and other option interactive styles
-              <!---->
-              <!---->
               <!---->
               <!---->
               <!---->
@@ -1611,8 +1571,6 @@ exports[`select demo > renders big-data correctly 1`] = `
     class="ant-typography css-var-root"
   >
     100000 Items 
-    <!---->
-    <!---->
     <!---->
     <!---->
     <!---->

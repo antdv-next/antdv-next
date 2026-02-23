@@ -63,7 +63,7 @@ function getItemDisabledStyle(cls: string, token: SegmentedToken): CSSObject {
   }
 }
 
-function getItemSelectedStyle(token: SegmentedToken): CSSObject {
+const getItemSelectedStyle: GenerateStyle<SegmentedToken, CSSObject> = (token) => {
   return {
     background: token.itemSelectedBg,
     boxShadow: token.boxShadowTertiary,
@@ -77,7 +77,7 @@ const segmentedTextEllipsisCss: CSSObject = {
 }
 
 // ============================== Styles ==============================
-const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken) => {
+const genSegmentedStyle: GenerateStyle<SegmentedToken, CSSObject> = (token) => {
   const { componentCls, motionDurationSlow, motionEaseInOut, motionDurationMid } = token
 
   const labelHeight = token
@@ -227,9 +227,9 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         borderRadius: token.borderRadiusSM,
 
         [`& ~ ${componentCls}-item:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)::after`]:
-            {
-              backgroundColor: 'transparent',
-            },
+          {
+            backgroundColor: 'transparent',
+          },
       },
 
       // size styles
@@ -263,7 +263,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       ...getItemDisabledStyle(`${componentCls}-item-disabled`, token),
 
       // transition effect when `appear-active`
-      [`${componentCls}-thumb-motion-appear`]: {
+      [`${componentCls}-thumb-motion-appear-active`]: {
         willChange: 'transform, width',
         transition: [`transform`, `width`]
           .map(prop => `${prop} ${motionDurationSlow} ${motionEaseInOut}`)

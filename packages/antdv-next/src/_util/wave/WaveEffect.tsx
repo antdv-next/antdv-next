@@ -3,7 +3,7 @@ import type { WaveProps } from './index.tsx'
 import type { ShowWaveEffect, WaveComponent } from './interface'
 import { classNames } from '@v-c/util'
 import raf from '@v-c/util/dist/raf'
-import { computed, createVNode, defineComponent, nextTick, onBeforeUnmount, onMounted, ref, render, shallowRef, watch } from 'vue'
+import { computed, createVNode, defineComponent, nextTick, onBeforeUnmount, ref, render, shallowRef, watch } from 'vue'
 import { useConfig } from '../../config-provider/context.ts'
 import { genCssVar } from '../../theme/util/genStyleUtils'
 import { TARGET_CLS } from './interface'
@@ -41,7 +41,7 @@ export const WaveEffect = defineComponent({
     const waveVarName = computed(() => genCssVar(rootPrefixCls.value, 'wave')[0])
     const divRef = shallowRef<HTMLDivElement>()
     const waveColor = ref<string | null>(null)
-    const borderRadius = ref<number[]>([0, 0, 0, 0])
+    const borderRadius = ref<number[]>([])
     const left = ref(0)
     const top = ref(0)
     const width = ref(0)
@@ -82,8 +82,7 @@ export const WaveEffect = defineComponent({
       emit('finish')
     }
 
-    function syncPos() {
-      const { target } = props
+    function syncPos(target = props.target) {
       if (!target) {
         return
       }
@@ -147,35 +146,62 @@ export const WaveEffect = defineComponent({
       { immediate: true },
     )
 
-    onMounted(() => {
-      rafId.value = raf(() => {
-        syncPos()
-        enabled.value = true
-
-        nextTick(() => {
-          triggerEffect()
-          deadlineId = window.setTimeout(() => {
-            emitFinish()
-          }, 5000)
-        })
-      })
-
-      if (typeof ResizeObserver !== 'undefined') {
-        resizeObserver = new ResizeObserver(() => {
-          syncPos()
-        })
-        resizeObserver.observe(props.target)
-      }
-    })
-
-    onBeforeUnmount(() => {
+    function stopEffectSync() {
       if (rafId.value !== undefined) {
         raf.cancel(rafId.value)
+        rafId.value = undefined
       }
       resizeObserver?.disconnect()
+      resizeObserver = undefined
       if (deadlineId !== undefined) {
         window.clearTimeout(deadlineId)
+        deadlineId = undefined
       }
+    }
+
+    watch(
+      () => props.target,
+      (target, _, onCleanup) => {
+        if (!target) {
+          return
+        }
+        let active = true
+
+        rafId.value = raf(() => {
+          if (!active) {
+            return
+          }
+          syncPos(target)
+          enabled.value = true
+
+          nextTick(() => {
+            if (!active) {
+              return
+            }
+            triggerEffect()
+            deadlineId = window.setTimeout(() => {
+              emitFinish()
+            }, 5000)
+          })
+        })
+
+        if (typeof ResizeObserver !== 'undefined') {
+          resizeObserver = new ResizeObserver(() => {
+            syncPos(target)
+          })
+          resizeObserver.observe(target)
+        }
+
+        onCleanup(() => {
+          active = false
+          stopEffectSync()
+        })
+      },
+      { immediate: true },
+    )
+
+    onBeforeUnmount(() => {
+      stopEffectSync()
       emitFinish()
     })
 
@@ -192,11 +218,8 @@ export const WaveEffect = defineComponent({
 const showWaveEffect: ShowWaveEffect = (target, info) => {
   const { component } = info
 
-  if (component === 'Checkbox') {
-    const input = target.querySelector<HTMLInputElement>('input')
-    if (input && !input.checked) {
-      return
-    }
+  if (component === 'Checkbox' && !target.querySelector<HTMLInputElement>('input')?.checked) {
+    return
   }
 
   const holder = (target.ownerDocument ?? document).createElement('div')
@@ -220,6 +243,7 @@ const showWaveEffect: ShowWaveEffect = (target, info) => {
     className: info.className,
     target,
     component,
+    colorSource: info.colorSource,
     onFinish: destroy,
   })
 

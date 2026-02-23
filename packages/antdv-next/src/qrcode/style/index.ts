@@ -1,3 +1,4 @@
+import type { CSSObject } from '@antdv-next/cssinjs'
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal'
 import { FastColor } from '@ant-design/fast-color'
 
@@ -25,7 +26,7 @@ interface QRCodeToken extends FullToken<'QRCode'> {
   QRCodeCoverBackgroundColor: string
 }
 
-const genQRCodeStyle: GenerateStyle<QRCodeToken> = (token) => {
+const genQRCodeStyle: GenerateStyle<QRCodeToken, CSSObject> = (token) => {
   const { componentCls, lineWidth, lineType, colorSplit } = token
   return {
     [componentCls]: {

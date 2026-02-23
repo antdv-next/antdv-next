@@ -1,3 +1,4 @@
+import type { CSSObject } from '@antdv-next/cssinjs'
 import type { BadgeToken } from '.'
 
 import type { GenerateStyle } from '../../theme/internal'
@@ -7,7 +8,7 @@ import { resetComponent } from '../../style'
 import { genPresetColor, genStyleHooks } from '../../theme/internal'
 
 // ============================== Ribbon ==============================
-const genRibbonStyle: GenerateStyle<BadgeToken> = (token) => {
+const genRibbonStyle: GenerateStyle<BadgeToken, CSSObject> = (token) => {
   const { antCls, badgeFontHeight, marginXS, badgeRibbonOffset, calc } = token
   const ribbonPrefixCls = `${antCls}-ribbon`
   const ribbonWrapperPrefixCls = `${antCls}-ribbon-wrapper`

@@ -233,7 +233,7 @@
 .vp-doc hr {
   margin: 16px 0;
   border: none;
-  border-top: 1px solid var(--vp-c-divider);
+  border-top: 1px solid var(--ant-color-split, var(--vp-c-divider));
 }
 
 /**

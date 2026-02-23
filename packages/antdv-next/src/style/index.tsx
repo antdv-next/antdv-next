@@ -1,5 +1,5 @@
 import type { CSSObject } from '@antdv-next/cssinjs'
-import type { AliasToken } from '../theme/internal'
+import type { AliasToken, GenerateStyle } from '../theme/internal'
 
 import { unit } from '@antdv-next/cssinjs'
 
@@ -26,16 +26,16 @@ export function resetComponent(token: AliasToken, needInheritFontFamily = false)
 
 export function resetIcon(): CSSObject {
   return {
-    'display': 'inline-flex',
-    'alignItems': 'center',
-    'color': 'inherit',
-    'fontStyle': 'normal',
-    'lineHeight': 0,
-    'textAlign': 'center',
-    'textTransform': 'none',
+    display: 'inline-flex',
+    alignItems: 'center',
+    color: 'inherit',
+    fontStyle: 'normal',
+    lineHeight: 0,
+    textAlign: 'center',
+    textTransform: 'none',
     // for SVG icon, see https://blog.prototypr.io/align-svg-icons-to-text-and-say-goodbye-to-font-icons-d44b3d7b26b4
-    'verticalAlign': '-0.125em',
-    'textRendering': 'optimizeLegibility',
+    verticalAlign: '-0.125em',
+    textRendering: 'optimizeLegibility',
     '-webkit-font-smoothing': 'antialiased',
     '-moz-osx-font-smoothing': 'grayscale',
 
@@ -43,7 +43,7 @@ export function resetIcon(): CSSObject {
       lineHeight: 1,
     },
 
-    'svg': {
+    svg: {
       display: 'inline-block',
     },
   }
@@ -66,50 +66,48 @@ export function clearFix(): CSSObject {
   }
 }
 
-export function genLinkStyle(token: AliasToken): CSSObject {
-  return {
-    a: {
-      'color': token.colorLink,
-      'textDecoration': token.linkDecoration,
-      'backgroundColor': 'transparent', // remove the gray background on active links in IE 10.
-      'outline': 'none',
-      'cursor': 'pointer',
-      'transition': `color ${token.motionDurationSlow}`,
-      '-webkit-text-decoration-skip': 'objects', // remove gaps in links underline in iOS 8+ and Safari 8+.
+export const genLinkStyle: GenerateStyle<AliasToken, CSSObject> = token => ({
+  a: {
+    color: token.colorLink,
+    textDecoration: token.linkDecoration,
+    backgroundColor: 'transparent', // remove the gray background on active links in IE 10.
+    outline: 'none',
+    cursor: 'pointer',
+    transition: `color ${token.motionDurationSlow}`,
+    '-webkit-text-decoration-skip': 'objects', // remove gaps in links underline in iOS 8+ and Safari 8+.
 
-      '&:hover': {
-        color: token.colorLinkHover,
-      },
-
-      '&:active': {
-        color: token.colorLinkActive,
-      },
-
-      '&:active, &:hover': {
-        textDecoration: token.linkHoverDecoration,
-        outline: 0,
-      },
-
-      // https://github.com/ant-design/ant-design/issues/22503
-      '&:focus': {
-        textDecoration: token.linkFocusDecoration,
-        outline: 0,
-      },
-
-      '&[disabled]': {
-        color: token.colorTextDisabled,
-        cursor: 'not-allowed',
-      },
+    '&:hover': {
+      color: token.colorLinkHover,
     },
-  }
-}
+
+    '&:active': {
+      color: token.colorLinkActive,
+    },
+
+    '&:active, &:hover': {
+      textDecoration: token.linkHoverDecoration,
+      outline: 0,
+    },
+
+    // https://github.com/ant-design/ant-design/issues/22503
+    '&:focus': {
+      textDecoration: token.linkFocusDecoration,
+      outline: 0,
+    },
+
+    '&[disabled]': {
+      color: token.colorTextDisabled,
+      cursor: 'not-allowed',
+    },
+  },
+})
 
 export function genCommonStyle(token: AliasToken, componentPrefixCls: string, rootCls?: string, resetFont?: boolean): CSSObject {
   const prefixSelector = `[class^="${componentPrefixCls}"], [class*=" ${componentPrefixCls}"]`
   const rootPrefixSelector = rootCls ? `.${rootCls}` : prefixSelector
 
   const resetStyle: CSSObject = {
-    'boxSizing': 'border-box',
+    boxSizing: 'border-box',
 
     '&::before, &::after': {
       boxSizing: 'border-box',
@@ -139,7 +137,7 @@ export function genFocusOutline(token: AliasToken, offset?: number): CSSObject {
   return {
     outline: `${unit(token.lineWidthFocus)} solid ${token.colorPrimaryBorder}`,
     outlineOffset: offset ?? 1,
-    transition: 'outline-offset 0s, outline 0s',
+    transition: [`outline-offset`, `outline`].map(prop => `${prop} 0s`).join(', '),
   }
 }
 
@@ -160,35 +158,33 @@ export function genIconStyle(iconPrefixCls: string): CSSObject {
   }
 }
 
-export function operationUnit(token: AliasToken): CSSObject {
-  return {
+export const operationUnit: GenerateStyle<AliasToken, CSSObject> = token => ({
   // FIXME: This use link but is a operation unit. Seems should be a colorPrimary.
   // And Typography use this to generate link style which should not do this.
-    'color': token.colorLink,
-    'textDecoration': token.linkDecoration,
-    'outline': 'none',
-    'cursor': 'pointer',
-    'transition': `all ${token.motionDurationSlow}`,
-    'border': 0,
-    'padding': 0,
-    'background': 'none',
-    'userSelect': 'none',
+  color: token.colorLink,
+  textDecoration: token.linkDecoration,
+  outline: 'none',
+  cursor: 'pointer',
+  transition: `all ${token.motionDurationSlow}`,
+  border: 0,
+  padding: 0,
+  background: 'none',
+  userSelect: 'none',
 
-    ...genFocusStyle(token),
+  ...genFocusStyle(token),
 
-    '&:hover': {
-      color: token.colorLinkHover,
-      textDecoration: token.linkHoverDecoration,
-    },
+  '&:hover': {
+    color: token.colorLinkHover,
+    textDecoration: token.linkHoverDecoration,
+  },
 
-    '&:focus': {
-      color: token.colorLinkHover,
-      textDecoration: token.linkFocusDecoration,
-    },
+  '&:focus': {
+    color: token.colorLinkHover,
+    textDecoration: token.linkFocusDecoration,
+  },
 
-    '&:active': {
-      color: token.colorLinkActive,
-      textDecoration: token.linkHoverDecoration,
-    },
-  }
-}
+  '&:active': {
+    color: token.colorLinkActive,
+    textDecoration: token.linkHoverDecoration,
+  },
+})

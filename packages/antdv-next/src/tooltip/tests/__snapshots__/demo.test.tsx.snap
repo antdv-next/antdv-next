@@ -61,8 +61,6 @@ exports[`tooltip demo > renders _semantic correctly 1`] = `
                   <!---->
                   <!---->
                   <!---->
-                  <!---->
-                  <!---->
                 </h5>
                 <!--v-if-->
               </div>
@@ -152,8 +150,6 @@ exports[`tooltip demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -179,8 +175,6 @@ exports[`tooltip demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   container
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -276,8 +270,6 @@ exports[`tooltip demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -303,8 +295,6 @@ exports[`tooltip demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   arrow
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -394,8 +384,6 @@ exports[`tooltip demo > renders _semantic correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               Arrow element with width, height, position, color and border styles
-              <!---->
-              <!---->
               <!---->
               <!---->
               <!---->
@@ -754,8 +742,6 @@ exports[`tooltip demo > renders auto-adjust-overflow correctly 1`] = `
     <!---->
     <!---->
     <!---->
-    <!---->
-    <!---->
   </h5>
   <div
     class="tooltip-overflow-container"
@@ -809,8 +795,6 @@ exports[`tooltip demo > renders auto-adjust-overflow correctly 1`] = `
     class="ant-typography css-var-root"
   >
      Without \`getPopupContainer\` 
-    <!---->
-    <!---->
     <!---->
     <!---->
     <!---->

@@ -94,8 +94,6 @@ exports[`auto-complete demo > renders _semantic correctly 1`] = `
                   <!---->
                   <!---->
                   <!---->
-                  <!---->
-                  <!---->
                 </h5>
                 <!--v-if-->
               </div>
@@ -185,8 +183,6 @@ exports[`auto-complete demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -212,8 +208,6 @@ exports[`auto-complete demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   prefix
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -309,8 +303,6 @@ exports[`auto-complete demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -336,8 +328,6 @@ exports[`auto-complete demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   input
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -433,8 +423,6 @@ exports[`auto-complete demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -460,8 +448,6 @@ exports[`auto-complete demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   placeholder
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -557,8 +543,6 @@ exports[`auto-complete demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -584,8 +568,6 @@ exports[`auto-complete demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   content
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -681,8 +663,6 @@ exports[`auto-complete demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -708,8 +688,6 @@ exports[`auto-complete demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   clear
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -805,8 +783,6 @@ exports[`auto-complete demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -832,8 +808,6 @@ exports[`auto-complete demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   popup.root
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -929,8 +903,6 @@ exports[`auto-complete demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -956,8 +928,6 @@ exports[`auto-complete demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   popup.list
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -1053,8 +1023,6 @@ exports[`auto-complete demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -1080,8 +1048,6 @@ exports[`auto-complete demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   popup.listItem
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -1171,8 +1137,6 @@ exports[`auto-complete demo > renders _semantic correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               Popup item element with option item padding, hover effects, selected states, disabled states and other option interactive styles
-              <!---->
-              <!---->
               <!---->
               <!---->
               <!---->

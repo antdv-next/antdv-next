@@ -2,6 +2,7 @@ import type { CSSObject } from '@antdv-next/cssinjs'
 import type { CSSProperties } from 'vue'
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal'
 import { FastColor } from '@ant-design/fast-color'
+
 import { unit } from '@antdv-next/cssinjs'
 import { resetComponent } from '../../style'
 import { genStyleHooks, mergeToken } from '../../theme/internal'
@@ -112,7 +113,7 @@ interface SliderToken extends FullToken<'Slider'> {
 }
 
 // =============================== Base ===============================
-const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
+const genBaseStyle: GenerateStyle<SliderToken, CSSObject> = (token) => {
   const {
     componentCls,
     antCls,
@@ -432,13 +433,11 @@ function genDirectionStyle(token: SliderToken, horizontal: boolean): CSSObject {
   }
 }
 // ============================ Horizontal ============================
-const genHorizontalStyle: GenerateStyle<SliderToken> = (token) => {
+const genHorizontalStyle: GenerateStyle<SliderToken, CSSObject> = (token) => {
   const { componentCls, marginPartWithMark } = token
-
   return {
     [`${componentCls}-horizontal`]: {
       ...genDirectionStyle(token, true),
-
       [`&${componentCls}-with-marks`]: {
         marginBottom: marginPartWithMark,
       },
@@ -447,9 +446,8 @@ const genHorizontalStyle: GenerateStyle<SliderToken> = (token) => {
 }
 
 // ============================= Vertical =============================
-const genVerticalStyle: GenerateStyle<SliderToken> = (token) => {
+const genVerticalStyle: GenerateStyle<SliderToken, CSSObject> = (token) => {
   const { componentCls } = token
-
   return {
     [`${componentCls}-vertical`]: {
       ...genDirectionStyle(token, false),

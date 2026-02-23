@@ -1,5 +1,5 @@
 import type { SlotsType, VNode, VNodeChild } from 'vue'
-import type { WaveComponent } from './interface'
+import type { WaveColorSource, WaveComponent } from './interface'
 import { classNames } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { unrefElement } from '@vueuse/core'
@@ -11,7 +11,7 @@ import useWave from './useWave'
 export interface WaveProps {
   disabled?: boolean
   component?: WaveComponent
-  colorSource?: 'color' | 'backgroundColor' | 'borderColor' | null
+  colorSource?: WaveColorSource
 }
 
 export interface WaveEmits {

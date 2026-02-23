@@ -1,3 +1,5 @@
+import type { CSSObject } from '@antdv-next/cssinjs'
+
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal'
 import { resetComponent } from '../../style'
 import { genCollapseMotion } from '../../style/motion'
@@ -27,7 +29,7 @@ export interface UploadToken extends FullToken<'Upload'> {
   uploadPicCardSize: number | string
 }
 
-const genBaseStyle: GenerateStyle<UploadToken> = (token) => {
+const genBaseStyle: GenerateStyle<UploadToken, CSSObject> = (token) => {
   const { componentCls, colorTextDisabled } = token
 
   return {

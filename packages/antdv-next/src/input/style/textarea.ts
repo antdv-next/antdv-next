@@ -1,3 +1,5 @@
+import type { CSSObject } from '@antdv-next/cssinjs'
+
 import type { GenerateStyle } from '../../theme/internal'
 import type { ComponentToken, InputToken } from './token'
 import { genStyleHooks, mergeToken } from '../../theme/internal'
@@ -6,7 +8,7 @@ import { initComponentToken, initInputToken } from './token'
 export type { ComponentToken }
 export { initComponentToken, initInputToken }
 
-const genTextAreaStyle: GenerateStyle<InputToken> = (token) => {
+const genTextAreaStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
   const { componentCls, paddingLG } = token
   const textareaPrefixCls = `${componentCls}-textarea`
 

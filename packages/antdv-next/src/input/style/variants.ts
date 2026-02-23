@@ -1,39 +1,36 @@
 import type { CSSObject } from '@antdv-next/cssinjs'
-import type { InputToken } from './token'
+import type { GenerateStyle } from '../../theme/internal'
 
+import type { InputToken } from './token'
 import { unit } from '@antdv-next/cssinjs'
 import { mergeToken } from '../../theme/internal'
 
-export function genHoverStyle(token: InputToken): CSSObject {
-  return {
-    borderColor: token.hoverBorderColor,
-    backgroundColor: token.hoverBg,
-  }
-}
+export const genHoverStyle: GenerateStyle<InputToken, CSSObject> = token => ({
+  borderColor: token.hoverBorderColor,
+  backgroundColor: token.hoverBg,
+})
 
-export function genDisabledStyle(token: InputToken): CSSObject {
-  return {
-    color: token.colorTextDisabled,
-    backgroundColor: token.colorBgContainerDisabled,
-    borderColor: token.colorBorder,
-    boxShadow: 'none',
+export const genDisabledStyle: GenerateStyle<InputToken, CSSObject> = token => ({
+  color: token.colorTextDisabled,
+  backgroundColor: token.colorBgContainerDisabled,
+  borderColor: token.colorBorder,
+  boxShadow: 'none',
+  cursor: 'not-allowed',
+  opacity: 1,
+
+  'input[disabled], textarea[disabled]': {
     cursor: 'not-allowed',
-    opacity: 1,
+  },
 
-    'input[disabled], textarea[disabled]': {
-      cursor: 'not-allowed',
-    },
-
-    '&:hover:not([disabled])': {
-      ...genHoverStyle(
-        mergeToken<InputToken>(token, {
-          hoverBorderColor: token.colorBorder,
-          hoverBg: token.colorBgContainerDisabled,
-        }),
-      ),
-    },
-  }
-}
+  '&:hover:not([disabled])': {
+    ...genHoverStyle(
+      mergeToken<InputToken>(token, {
+        hoverBorderColor: token.colorBorder,
+        hoverBg: token.colorBgContainerDisabled,
+      }),
+    ),
+  },
+})
 
 /* ============== Outlined ============== */
 export function genBaseOutlinedStyle(token: InputToken, options: {
@@ -136,44 +133,42 @@ function genOutlinedGroupStatusStyle(token: InputToken, options: {
   }
 }
 
-export function genOutlinedGroupStyle(token: InputToken): CSSObject {
-  return {
-    '&-outlined': {
-      [`${token.componentCls}-group`]: {
-        '&-addon': {
-          background: token.addonBg,
-          border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
-        },
-
-        '&-addon:first-child': {
-          borderInlineEnd: 0,
-        },
-
-        '&-addon:last-child': {
-          borderInlineStart: 0,
-        },
+export const genOutlinedGroupStyle: GenerateStyle<InputToken, CSSObject> = token => ({
+  '&-outlined': {
+    [`${token.componentCls}-group`]: {
+      '&-addon': {
+        background: token.addonBg,
+        border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
       },
 
-      ...genOutlinedGroupStatusStyle(token, {
-        status: 'error',
-        addonBorderColor: token.colorError,
-        addonColor: token.colorErrorText,
-      }),
+      '&-addon:first-child': {
+        borderInlineEnd: 0,
+      },
 
-      ...genOutlinedGroupStatusStyle(token, {
-        status: 'warning',
-        addonBorderColor: token.colorWarning,
-        addonColor: token.colorWarningText,
-      }),
-
-      [`&${token.componentCls}-group-wrapper-disabled`]: {
-        [`${token.componentCls}-group-addon`]: {
-          ...genDisabledStyle(token),
-        },
+      '&-addon:last-child': {
+        borderInlineStart: 0,
       },
     },
-  }
-}
+
+    ...genOutlinedGroupStatusStyle(token, {
+      status: 'error',
+      addonBorderColor: token.colorError,
+      addonColor: token.colorErrorText,
+    }),
+
+    ...genOutlinedGroupStatusStyle(token, {
+      status: 'warning',
+      addonBorderColor: token.colorWarning,
+      addonColor: token.colorWarningText,
+    }),
+
+    [`&${token.componentCls}-group-wrapper-disabled`]: {
+      [`${token.componentCls}-group-addon`]: {
+        ...genDisabledStyle(token),
+      },
+    },
+  },
+})
 
 /* ============ Borderless ============ */
 export function genBorderlessStyle(token: InputToken, extraStyles?: CSSObject): CSSObject {
@@ -312,52 +307,50 @@ function genFilledGroupStatusStyle(token: InputToken, options: {
   }
 }
 
-export function genFilledGroupStyle(token: InputToken): CSSObject {
-  return {
-    '&-filled': {
-      [`${token.componentCls}-group-addon`]: {
-        background: token.colorFillTertiary,
+export const genFilledGroupStyle: GenerateStyle<InputToken, CSSObject> = token => ({
+  '&-filled': {
+    [`${token.componentCls}-group-addon`]: {
+      background: token.colorFillTertiary,
 
-        '&:last-child': {
-          position: 'static',
-        },
+      '&:last-child': {
+        position: 'static',
       },
+    },
 
-      ...genFilledGroupStatusStyle(token, {
-        status: 'error',
-        addonBg: token.colorErrorBg,
-        addonColor: token.colorErrorText,
-      }),
+    ...genFilledGroupStatusStyle(token, {
+      status: 'error',
+      addonBg: token.colorErrorBg,
+      addonColor: token.colorErrorText,
+    }),
 
-      ...genFilledGroupStatusStyle(token, {
-        status: 'warning',
-        addonBg: token.colorWarningBg,
-        addonColor: token.colorWarningText,
-      }),
+    ...genFilledGroupStatusStyle(token, {
+      status: 'warning',
+      addonBg: token.colorWarningBg,
+      addonColor: token.colorWarningText,
+    }),
 
-      [`&${token.componentCls}-group-wrapper-disabled`]: {
-        [`${token.componentCls}-group`]: {
-          '&-addon': {
-            background: token.colorFillTertiary,
-            color: token.colorTextDisabled,
-          },
+    [`&${token.componentCls}-group-wrapper-disabled`]: {
+      [`${token.componentCls}-group`]: {
+        '&-addon': {
+          background: token.colorFillTertiary,
+          color: token.colorTextDisabled,
+        },
 
-          '&-addon:first-child': {
-            borderInlineStart: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
-            borderTop: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
-            borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
-          },
+        '&-addon:first-child': {
+          borderInlineStart: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
+          borderTop: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
+          borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
+        },
 
-          '&-addon:last-child': {
-            borderInlineEnd: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
-            borderTop: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
-            borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
-          },
+        '&-addon:last-child': {
+          borderInlineEnd: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
+          borderTop: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
+          borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
         },
       },
     },
-  }
-}
+  },
+})
 
 /* ============== Underlined ============== */
 // https://github.com/ant-design/ant-design/issues/51379

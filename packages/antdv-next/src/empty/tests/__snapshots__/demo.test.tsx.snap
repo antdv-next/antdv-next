@@ -36,8 +36,6 @@ exports[`empty demo > renders _semantic correctly 1`] = `
             <!---->
             <!---->
             <!---->
-            <!---->
-            <!---->
           </span>
         </div>
         <div
@@ -93,8 +91,6 @@ exports[`empty demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   root
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -198,8 +194,6 @@ exports[`empty demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -225,8 +219,6 @@ exports[`empty demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   image
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -330,8 +322,6 @@ exports[`empty demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -357,8 +347,6 @@ exports[`empty demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   description
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -462,8 +450,6 @@ exports[`empty demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -489,8 +475,6 @@ exports[`empty demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   footer
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -588,8 +572,6 @@ exports[`empty demo > renders _semantic correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               Footer element, sets top margin and action button styles
-              <!---->
-              <!---->
               <!---->
               <!---->
               <!---->

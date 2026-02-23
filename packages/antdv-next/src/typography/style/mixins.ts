@@ -29,7 +29,7 @@ function getTitleStyle(fontSize: number, lineHeight: number, color: string, toke
 export const getTitleStyles: GenerateStyle<TypographyToken, CSSObject> = (token) => {
   const headings = [1, 2, 3, 4, 5] as const
 
-  const styles = {} as CSSObject
+  const styles: CSSObject = {}
   headings.forEach((headingLevel) => {
     styles[
       `
@@ -73,7 +73,7 @@ export const getLinkStyles: GenerateStyle<TypographyToken, CSSObject> = (token) 
   }
 }
 
-export const getResetStyles: GenerateStyle<TypographyToken, CSSObject> = (token): CSSObject => ({
+export const getResetStyles: GenerateStyle<TypographyToken, CSSObject> = token => ({
   code: {
     margin: '0 0.2em',
     paddingInline: '0.4em',

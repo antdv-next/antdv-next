@@ -7,6 +7,7 @@ export interface EllipsisTooltipProps {
   tooltipProps?: TooltipProps
   enableEllipsis: boolean
   isEllipsis?: boolean
+  open: boolean
 }
 
 export interface EllipsisTooltipSlots {
@@ -27,8 +28,9 @@ const EllipsisTooltip = defineComponent<
         return slots.default?.()
       }
 
+      const mergedOpen = props.open && props.isEllipsis
       return (
-        <Tooltip open={props.isEllipsis ? undefined : false} {...props.tooltipProps}>
+        <Tooltip open={mergedOpen} {...props.tooltipProps}>
           {slots.default?.()}
         </Tooltip>
       )

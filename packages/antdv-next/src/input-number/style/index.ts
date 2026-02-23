@@ -1,3 +1,4 @@
+import type { CSSObject } from '@antdv-next/cssinjs'
 import type { GenerateStyle } from '../../theme/internal'
 
 import type { ComponentToken, InputNumberToken } from './token'
@@ -324,7 +325,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
   ]
 }
 
-const genCompatibleStyles: GenerateStyle<InputNumberToken> = (token: InputNumberToken) => {
+const genCompatibleStyles: GenerateStyle<InputNumberToken, CSSObject> = (token) => {
   const { componentCls, antCls } = token
 
   return {

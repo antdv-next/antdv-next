@@ -114,8 +114,6 @@ exports[`statistic demo > renders _semantic correctly 1`] = `
                   <!---->
                   <!---->
                   <!---->
-                  <!---->
-                  <!---->
                 </h5>
                 <span
                   class="ant-tag ant-tag-filled ant-tag-blue css-var-root"
@@ -213,8 +211,6 @@ exports[`statistic demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -240,8 +236,6 @@ exports[`statistic demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   header
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -345,8 +339,6 @@ exports[`statistic demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -372,8 +364,6 @@ exports[`statistic demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   title
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -477,8 +467,6 @@ exports[`statistic demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -504,8 +492,6 @@ exports[`statistic demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   prefix
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -609,8 +595,6 @@ exports[`statistic demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -636,8 +620,6 @@ exports[`statistic demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   content
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -741,8 +723,6 @@ exports[`statistic demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -768,8 +748,6 @@ exports[`statistic demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   suffix
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -867,8 +845,6 @@ exports[`statistic demo > renders _semantic correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               Suffix element with inline-block display, left margin and other suffix content layout styles
-              <!---->
-              <!---->
               <!---->
               <!---->
               <!---->

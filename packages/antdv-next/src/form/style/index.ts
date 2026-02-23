@@ -85,62 +85,60 @@ export interface FormToken extends FullToken<'Form'> {
   rootPrefixCls: string
 }
 
-function resetForm(token: AliasToken): CSSObject {
-  return {
-    legend: {
-      display: 'block',
-      width: '100%',
-      marginBottom: token.marginLG,
-      padding: 0,
-      color: token.colorTextDescription,
-      fontSize: token.fontSizeLG,
-      lineHeight: 'inherit',
-      border: 0,
-      borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
-    },
+const resetForm: GenerateStyle<AliasToken, CSSObject> = token => ({
+  legend: {
+    display: 'block',
+    width: '100%',
+    marginBottom: token.marginLG,
+    padding: 0,
+    color: token.colorTextDescription,
+    fontSize: token.fontSizeLG,
+    lineHeight: 'inherit',
+    border: 0,
+    borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
+  },
 
-    'input[type="search"]': {
-      boxSizing: 'border-box',
-    },
+  'input[type="search"]': {
+    boxSizing: 'border-box',
+  },
 
-    // Position radios and checkboxes better
-    'input[type="radio"], input[type="checkbox"]': {
-      lineHeight: 'normal',
-    },
+  // Position radios and checkboxes better
+  'input[type="radio"], input[type="checkbox"]': {
+    lineHeight: 'normal',
+  },
 
-    'input[type="file"]': {
-      display: 'block',
-    },
+  'input[type="file"]': {
+    display: 'block',
+  },
 
-    // Make range inputs behave like textual form controls
-    'input[type="range"]': {
-      display: 'block',
-      width: '100%',
-    },
+  // Make range inputs behave like textual form controls
+  'input[type="range"]': {
+    display: 'block',
+    width: '100%',
+  },
 
-    // Make multiple select elements height not fixed
-    'select[multiple], select[size]': {
-      height: 'auto',
-    },
+  // Make multiple select elements height not fixed
+  'select[multiple], select[size]': {
+    height: 'auto',
+  },
 
-    // Focus for file, radio, and checkbox
-    [`input[type='file']:focus,
+  // Focus for file, radio, and checkbox
+  [`input[type='file']:focus,
   input[type='radio']:focus,
   input[type='checkbox']:focus`]: {
-      outline: 0,
-      boxShadow: `0 0 0 ${unit(token.controlOutlineWidth)} ${token.controlOutline}`,
-    },
+    outline: 0,
+    boxShadow: `0 0 0 ${unit(token.controlOutlineWidth)} ${token.controlOutline}`,
+  },
 
-    // Adjust output element
-    output: {
-      display: 'block',
-      paddingTop: 15,
-      color: token.colorText,
-      fontSize: token.fontSize,
-      lineHeight: token.lineHeight,
-    },
-  }
-}
+  // Adjust output element
+  output: {
+    display: 'block',
+    paddingTop: 15,
+    color: token.colorText,
+    fontSize: token.fontSize,
+    lineHeight: token.lineHeight,
+  },
+})
 
 function genFormSize(token: FormToken, height: number): CSSObject {
   const { formItemCls } = token
@@ -158,11 +156,10 @@ function genFormSize(token: FormToken, height: number): CSSObject {
   }
 }
 
-const genFormStyle: GenerateStyle<FormToken> = (token) => {
+const genFormStyle: GenerateStyle<FormToken, CSSObject> = (token) => {
   const { componentCls } = token
-
   return {
-    [token.componentCls]: {
+    [componentCls]: {
       ...resetComponent(token),
       ...resetForm(token),
 
@@ -185,7 +182,7 @@ const genFormStyle: GenerateStyle<FormToken> = (token) => {
   }
 }
 
-const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
+const genFormItemStyle: GenerateStyle<FormToken, CSSObject> = (token) => {
   const {
     formItemCls,
     iconCls,
@@ -426,25 +423,23 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
   }
 }
 
-function makeVerticalLayoutLabel(token: FormToken): CSSObject {
-  return {
-    padding: token.verticalLabelPadding,
-    margin: token.verticalLabelMargin,
-    whiteSpace: 'initial',
-    textAlign: 'start',
+const makeVerticalLayoutLabel: GenerateStyle<FormToken, CSSObject> = token => ({
+  padding: token.verticalLabelPadding,
+  margin: token.verticalLabelMargin,
+  whiteSpace: 'initial',
+  textAlign: 'start',
 
-    '> label': {
-      margin: 0,
+  '> label': {
+    margin: 0,
 
-      '&::after': {
+    '&::after': {
       // https://github.com/ant-design/ant-design/issues/43538
-        visibility: 'hidden',
-      },
+      visibility: 'hidden',
     },
-  }
-}
+  },
+})
 
-function genHorizontalStyle(token: FormToken): CSSObject {
+const genHorizontalStyle: GenerateStyle<FormToken, CSSObject> = (token) => {
   const { antCls, formItemCls } = token
 
   return {
@@ -475,7 +470,7 @@ function genHorizontalStyle(token: FormToken): CSSObject {
   }
 }
 
-const genInlineStyle: GenerateStyle<FormToken> = (token) => {
+const genInlineStyle: GenerateStyle<FormToken, CSSObject> = (token) => {
   const { componentCls, formItemCls, inlineItemMarginBottom } = token
 
   return {
@@ -514,7 +509,7 @@ const genInlineStyle: GenerateStyle<FormToken> = (token) => {
   }
 }
 
-function makeVerticalLayout(token: FormToken): CSSObject {
+const makeVerticalLayout: GenerateStyle<FormToken, CSSObject> = (token) => {
   const { componentCls, formItemCls, rootPrefixCls } = token
 
   return {
@@ -538,7 +533,7 @@ function makeVerticalLayout(token: FormToken): CSSObject {
   }
 }
 
-const genVerticalStyle: GenerateStyle<FormToken> = (token) => {
+const genVerticalStyle: GenerateStyle<FormToken, CSSObject> = (token) => {
   const { componentCls, formItemCls, antCls } = token
 
   return {
@@ -610,10 +605,7 @@ export const prepareComponentToken: GetDefaultToken<'Form'> = token => ({
   inlineItemMarginBottom: 0,
 })
 
-export const prepareToken: (
-  token: Parameters<GenStyleFn<'Form'>>[0],
-  rootPrefixCls: string,
-) => FormToken = (token, rootPrefixCls) => {
+export function prepareToken(token: Parameters<GenStyleFn<'Form'>>[0], rootPrefixCls: string) {
   const formToken = mergeToken<FormToken>(token, {
     formItemCls: `${token.componentCls}-item`,
     rootPrefixCls,

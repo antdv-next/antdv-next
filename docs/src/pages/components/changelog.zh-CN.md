@@ -2,6 +2,69 @@
 title: 组件更新日志
 ---
 
+## V1.0.4
+
+本次版本主要聚焦于 **单元测试覆盖率提升**、**组件行为问题修复**，以及 **文档 / Playground 工具链改进**，同时包含样式同步、项目结构优化，并增强了 **Nuxt 兼容性**。
+
+**✨ 新功能 Features**
+
+* feat：新增 TS / JS 代码源码展示 by @cc-hearts [#187](https://github.com/antdv-next/antdv-next/pull/187)
+* feat(playground)：新增用于调试的 playground by @cc-hearts [#192](https://github.com/antdv-next/antdv-next/pull/192)
+* feat：同步 antd 样式 by @aibayanyu20 [#223](https://github.com/antdv-next/antdv-next/pull/223)
+* 增强 Nuxt 兼容性（修复 cssinjs priority / order attr 异常）by @aibayanyu20 [#217](https://github.com/antdv-next/antdv-next/pull/217)
+
+**🐞 问题修复 Fixes**
+
+* fix(colorPicker)：修复 `arrow` 属性无效问题 by @ffgenius [#182](https://github.com/antdv-next/antdv-next/pull/182)
+* fix：修复 git worktrees 下 `verify-commit.js` 执行失败 by @shiqkuangsan [#193](https://github.com/antdv-next/antdv-next/pull/193)
+* fix(config-provider)：为 `PASSED_PROPS` 补充缺失的 masonry 配置 by @shiqkuangsan [#198](https://github.com/antdv-next/antdv-next/pull/198)
+* fix(tabs)：修复 `content` 与 slot `content` 不响应问题 by @ming4762 [#197](https://github.com/antdv-next/antdv-next/pull/197)
+* fix：playground 重构后更新 `demoTest` 路径 by @shiqkuangsan [#201](https://github.com/antdv-next/antdv-next/pull/201)
+* fix(calendar)：在 select demo 中使用正确的 `Dayjs` 类型与 `v-model:value` by @shiqkuangsan [#202](https://github.com/antdv-next/antdv-next/pull/202)
+* fix：修复 Select hover range 问题 by @aibayanyu20 [#207](https://github.com/antdv-next/antdv-next/pull/207)
+* fix(card)：补充 `update:activeTabKey` 事件并新增单元测试 by @darkingtail [#213](https://github.com/antdv-next/antdv-next/pull/213)
+* fix(tree-select)：修复事件重复透传问题 by @ming4762 [#210](https://github.com/antdv-next/antdv-next/pull/210)
+
+**🧪 单元测试 Tests**
+
+本版本为多个组件补充并扩展了单元测试，进一步提升测试覆盖率与回归保护能力。
+
+* test(skeleton)：新增单元测试 by @shiqkuangsan [#183](https://github.com/antdv-next/antdv-next/pull/183)
+* test(typography)：新增 wrapper 与语义化测试 by @shiqkuangsan [#194](https://github.com/antdv-next/antdv-next/pull/194)
+* test(statistic)：新增单元测试 by @shiqkuangsan [#191](https://github.com/antdv-next/antdv-next/pull/191)
+* test(spin)：新增单元测试 by @shiqkuangsan [#189](https://github.com/antdv-next/antdv-next/pull/189)
+* test(tag)：新增单元测试 by @shiqkuangsan [#190](https://github.com/antdv-next/antdv-next/pull/190)
+* test(masonry)：新增单元测试 by @shiqkuangsan [#204](https://github.com/antdv-next/antdv-next/pull/204)
+* test(timeline)：新增单元测试 by @shiqkuangsan [#205](https://github.com/antdv-next/antdv-next/pull/205)
+* test(tooltip)：新增 Tooltip 单元测试 by @cc-hearts [#211](https://github.com/antdv-next/antdv-next/pull/211)
+* test(checkbox)：为 Checkbox 与 CheckboxGroup 新增单元测试 by @darkingtail [#216](https://github.com/antdv-next/antdv-next/pull/216)
+* test(cascader)：为 Cascader 与 CascaderPanel 新增单元测试 by @darkingtail [#215](https://github.com/antdv-next/antdv-next/pull/215)
+* test(carousel)：为 Carousel 新增单元测试 by @darkingtail [#214](https://github.com/antdv-next/antdv-next/pull/214)
+* test(grid)：为 Row 与 Col 组件新增单元测试 by @shiqkuangsan [#218](https://github.com/antdv-next/antdv-next/pull/218)
+* test(radio)：为 Radio / RadioGroup / RadioButton 新增单元测试 by @shiqkuangsan [#219](https://github.com/antdv-next/antdv-next/pull/219)
+* test(descriptions)：为 Descriptions 组件新增单元测试 by @shiqkuangsan [#220](https://github.com/antdv-next/antdv-next/pull/220)
+
+**📝 文档更新 Documentation**
+
+* docs：支持 layer mode by @aibayanyu20 [#186](https://github.com/antdv-next/antdv-next/pull/186)
+* docs：支持 sponsor 展示 by @aibayanyu20 [#208](https://github.com/antdv-next/antdv-next/pull/208)
+
+**🛠 重构与维护 Refactor & Maintenance**
+
+* refactor：优化项目结构 by @ffgenius [#195](https://github.com/antdv-next/antdv-next/pull/195)
+
+---
+
+**👏 新贡献者 New Contributors**
+
+感谢以下社区贡献者的首次参与：
+
+* @ming4762（[#197](https://github.com/antdv-next/antdv-next/pull/197)）
+
+**Full Changelog**
+https://github.com/antdv-next/antdv-next/compare/antdv-next@1.0.3...antdv-next@1.0.4
+
+
 ## V1.0.3
 
 本次版本以 **测试覆盖率提升、文档修复以及稳定性优化** 为主，同时同步了 antd v6.3.0，并对 css-in-js 进行了性能优化。

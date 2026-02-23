@@ -1,6 +1,7 @@
 import type { CSSObject } from '@antdv-next/cssinjs'
-import type { PickerToken } from './token'
+import type { GenerateStyle } from '../../theme/interface'
 
+import type { PickerToken } from './token'
 import { unit } from '@antdv-next/cssinjs'
 import {
   genBorderlessStyle,
@@ -9,7 +10,7 @@ import {
   genUnderlinedStyle,
 } from '../../input/style/variants'
 
-function genVariantsStyle(token: PickerToken): CSSObject {
+const genVariantsStyle: GenerateStyle<PickerToken, CSSObject> = (token) => {
   const { componentCls } = token
 
   return {

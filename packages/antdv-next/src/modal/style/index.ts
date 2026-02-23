@@ -1,3 +1,4 @@
+import type { CSSObject } from '@antdv-next/cssinjs'
 import type { CSSProperties } from 'vue'
 import type {
   AliasToken,
@@ -381,13 +382,12 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
   ]
 }
 
-const genRTLStyle: GenerateStyle<ModalToken> = (token) => {
+const genRTLStyle: GenerateStyle<ModalToken, CSSObject> = (token) => {
   const { componentCls } = token
   return {
     [`${componentCls}-root`]: {
       [`${componentCls}-wrap-rtl`]: {
         direction: 'rtl',
-
         [`${componentCls}-confirm-body`]: {
           direction: 'rtl',
         },
@@ -396,7 +396,7 @@ const genRTLStyle: GenerateStyle<ModalToken> = (token) => {
   }
 }
 
-const genResponsiveWidthStyle: GenerateStyle<ModalToken> = (token) => {
+const genResponsiveWidthStyle: GenerateStyle<ModalToken, CSSObject> = (token) => {
   const { componentCls } = token
 
   const oriGridMediaSizesMap: Record<string, number> = getMediaSize(token)
@@ -434,7 +434,7 @@ const genResponsiveWidthStyle: GenerateStyle<ModalToken> = (token) => {
 }
 
 // ============================== Export ==============================
-export const prepareToken: (token: Parameters<GenStyleFn<'Modal'>>[0]) => ModalToken = (token) => {
+export function prepareToken(token: Parameters<GenStyleFn<'Modal'>>[0]) {
   const headerPaddingVertical = token.padding
   const headerFontSize = token.fontSizeHeading5
   const headerLineHeight = token.lineHeightHeading5

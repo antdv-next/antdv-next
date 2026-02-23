@@ -1,0 +1,2076 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`splitter demo > renders _semantic correctly 1`] = `
+<div
+  class="semantic-preview-container"
+  data-v-dfc8ebef=""
+>
+  <div
+    class="ant-row css-var-root semantic-preview-row"
+    data-v-dfc8ebef=""
+  >
+    <div
+      class="ant-col ant-col-16 css-var-root semantic-preview-col"
+      data-v-dfc8ebef=""
+    >
+      <div
+        class="ant-splitter ant-splitter-horizontal semantic-mark-root css-var-v-0 ant-splitter-css-var"
+        style="height: 200px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);"
+      >
+        <div
+          class="ant-splitter-panel semantic-mark-panel"
+          style="flex-basis: auto; flex-grow: 1;"
+        >
+          <div
+            style="display: flex; height: 100%; align-items: center; justify-content: center;"
+          >
+             First 
+          </div>
+        </div>
+        <div
+          aria-valuemax="0"
+          aria-valuemin="0"
+          aria-valuenow="50"
+          class="ant-splitter-bar"
+          role="separator"
+        >
+          <!---->
+          <div
+            class="ant-splitter-bar-dragger semantic-mark-dragger"
+          >
+            <!---->
+          </div>
+          <!---->
+          <!---->
+        </div>
+        <div
+          class="ant-splitter-panel semantic-mark-panel"
+          style="flex-basis: auto; flex-grow: 1;"
+        >
+          <div
+            style="display: flex; height: 100%; align-items: center; justify-content: center;"
+          >
+             Second 
+          </div>
+        </div>
+        <!---->
+        <!---->
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-8 css-var-root"
+      data-v-dfc8ebef=""
+    >
+      <ul
+        class="semantic-list"
+        data-v-dfc8ebef=""
+      >
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  root
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <span
+                  class="ant-tag ant-tag-filled ant-tag-blue css-var-root"
+                  data-v-dfc8ebef=""
+                >
+                  1.0.0
+                  <!---->
+                  <!---->
+                  <!---->
+                </span>
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              Root element with flex layout, width and height, alignment and stretch styles
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  panel
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <span
+                  class="ant-tag ant-tag-filled ant-tag-blue css-var-root"
+                  data-v-dfc8ebef=""
+                >
+                  1.0.0
+                  <!---->
+                  <!---->
+                  <!---->
+                </span>
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              Panel element with flex basis, grow ratio and panel container styles
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  dragger
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <span
+                  class="ant-tag ant-tag-filled ant-tag-blue css-var-root"
+                  data-v-dfc8ebef=""
+                >
+                  1.0.0
+                  <!---->
+                  <!---->
+                  <!---->
+                </span>
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              Drag control element with absolute positioning, user selection, z-index, center alignment, background color, hover and active states styles
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`splitter demo > renders collapsible correctly 1`] = `
+<div
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <div
+    class="ant-splitter ant-splitter-horizontal css-var-root ant-splitter-css-var"
+    style="height: 200px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);"
+  >
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: auto; flex-grow: 1;"
+    >
+      <div
+        class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+        style="height: 100%;"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-root"
+          style="white-space: nowrap;"
+        >
+           First 
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </h5>
+      </div>
+    </div>
+    <div
+      aria-valuemax="0"
+      aria-valuemin="0"
+      aria-valuenow="50"
+      class="ant-splitter-bar"
+      role="separator"
+    >
+      <!---->
+      <div
+        class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled"
+      >
+        <!---->
+      </div>
+      <!---->
+      <!---->
+    </div>
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: auto; flex-grow: 1;"
+    >
+      <div
+        class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+        style="height: 100%;"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-root"
+          style="white-space: nowrap;"
+        >
+           Second 
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </h5>
+      </div>
+    </div>
+    <!---->
+    <!---->
+  </div>
+  <div
+    class="ant-splitter ant-splitter-vertical css-var-root ant-splitter-css-var"
+    style="height: 300px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);"
+  >
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: auto; flex-grow: 1;"
+    >
+      <div
+        class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+        style="height: 100%;"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-root"
+          style="white-space: nowrap;"
+        >
+           First 
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </h5>
+      </div>
+    </div>
+    <div
+      aria-valuemax="0"
+      aria-valuemin="0"
+      aria-valuenow="50"
+      class="ant-splitter-bar"
+      role="separator"
+    >
+      <!---->
+      <div
+        class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled"
+      >
+        <!---->
+      </div>
+      <!---->
+      <!---->
+    </div>
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: auto; flex-grow: 1;"
+    >
+      <div
+        class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+        style="height: 100%;"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-root"
+          style="white-space: nowrap;"
+        >
+           Second 
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </h5>
+      </div>
+    </div>
+    <!---->
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`splitter demo > renders collapsibleIcon correctly 1`] = `
+<div
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-vertical"
+  style="gap: 20px;"
+>
+  <div
+    class="ant-flex css-var-root"
+    style="gap: 5px;"
+  >
+    <p>
+      ShowCollapsibleIcon:
+    </p>
+    <div
+      class="ant-radio-group ant-radio-group-outline css-var-root ant-radio-css-var"
+    >
+      <label
+        class="ant-radio-wrapper css-var-root ant-radio-css-var"
+      >
+        <span
+          class="ant-radio ant-wave-target ant-wave-target"
+          name="v-0"
+        >
+          <input
+            class="ant-radio-input"
+            type="radio"
+          />
+        </span>
+        <span
+          class="ant-radio-label"
+        >
+          Auto
+        </span>
+      </label>
+      <label
+        class="ant-radio-wrapper ant-radio-wrapper-checked css-var-root ant-radio-css-var"
+      >
+        <span
+          class="ant-radio ant-wave-target ant-radio-checked ant-wave-target"
+          name="v-0"
+        >
+          <input
+            checked=""
+            class="ant-radio-input"
+            type="radio"
+          />
+        </span>
+        <span
+          class="ant-radio-label"
+        >
+          True
+        </span>
+      </label>
+      <label
+        class="ant-radio-wrapper css-var-root ant-radio-css-var"
+      >
+        <span
+          class="ant-radio ant-wave-target ant-wave-target"
+          name="v-0"
+        >
+          <input
+            class="ant-radio-input"
+            type="radio"
+          />
+        </span>
+        <span
+          class="ant-radio-label"
+        >
+          False
+        </span>
+      </label>
+    </div>
+  </div>
+  <div
+    class="ant-splitter ant-splitter-horizontal css-var-root ant-splitter-css-var"
+    style="height: 200px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);"
+  >
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: auto; flex-grow: 1;"
+    >
+      <div
+        class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+        style="height: 100%;"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-root"
+          style="white-space: nowrap;"
+        >
+           First 
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </h5>
+      </div>
+    </div>
+    <div
+      aria-valuemax="0"
+      aria-valuemin="0"
+      aria-valuenow="33"
+      class="ant-splitter-bar"
+      role="separator"
+    >
+      <!---->
+      <div
+        class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled"
+      >
+        <!---->
+      </div>
+      <!---->
+      <!---->
+    </div>
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: auto; flex-grow: 1;"
+    >
+      <div
+        class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+        style="height: 100%;"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-root"
+          style="white-space: nowrap;"
+        >
+           Second 
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </h5>
+      </div>
+    </div>
+    <div
+      aria-valuemax="0"
+      aria-valuemin="0"
+      aria-valuenow="67"
+      class="ant-splitter-bar"
+      role="separator"
+    >
+      <!---->
+      <div
+        class="ant-splitter-bar-dragger"
+      >
+        <!---->
+      </div>
+      <!---->
+      <!---->
+    </div>
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: auto; flex-grow: 1;"
+    >
+      <div
+        class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+        style="height: 100%;"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-root"
+          style="white-space: nowrap;"
+        >
+           Third 
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </h5>
+      </div>
+    </div>
+    <!---->
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`splitter demo > renders control correctly 1`] = `
+<div
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <div
+    class="ant-splitter ant-splitter-horizontal css-var-root ant-splitter-css-var"
+    style="height: 200px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);"
+  >
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: 50%; flex-grow: 0;"
+    >
+      <div
+        class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+        style="height: 100%;"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-root"
+          style="white-space: nowrap;"
+        >
+           First 
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </h5>
+      </div>
+    </div>
+    <div
+      aria-valuemax="0"
+      aria-valuemin="0"
+      aria-valuenow="50"
+      class="ant-splitter-bar"
+      role="separator"
+    >
+      <!---->
+      <div
+        class="ant-splitter-bar-dragger"
+      >
+        <!---->
+      </div>
+      <!---->
+      <!---->
+    </div>
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: 50%; flex-grow: 0;"
+    >
+      <div
+        class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+        style="height: 100%;"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-root"
+          style="white-space: nowrap;"
+        >
+           Second 
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </h5>
+      </div>
+    </div>
+    <!---->
+    <!---->
+  </div>
+  <div
+    class="ant-flex css-var-root ant-flex-justify-space-between ant-flex-gap-middle"
+  >
+    <button
+      aria-checked="true"
+      checked="true"
+      class="ant-switch css-var-root ant-switch-checked"
+      role="switch"
+      type="button"
+    >
+      <div
+        class="ant-switch-handle"
+      >
+        <!---->
+      </div>
+      <span
+        class="ant-switch-inner"
+      >
+        <span
+          class="ant-switch-inner-checked"
+        >
+          Enabled
+        </span>
+        <span
+          class="ant-switch-inner-unchecked"
+        >
+          Disabled
+        </span>
+      </span>
+    </button>
+    <button
+      class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ant-btn-loading-icon-motion"
+        persisted="false"
+      >
+        <!---->
+      </transition-stub>
+      <span>
+         Reset 
+      </span>
+      <!---->
+    </button>
+  </div>
+</div>
+`;
+
+exports[`splitter demo > renders group correctly 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-splitter ant-splitter-horizontal css-var-root ant-splitter-css-var"
+    style="height: 300px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);"
+  >
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: auto; flex-grow: 1;"
+    >
+      <div
+        class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+        style="height: 100%;"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-root"
+          style="white-space: nowrap;"
+        >
+           Left 
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </h5>
+      </div>
+    </div>
+    <div
+      aria-valuemax="0"
+      aria-valuemin="0"
+      aria-valuenow="50"
+      class="ant-splitter-bar"
+      role="separator"
+    >
+      <!---->
+      <div
+        class="ant-splitter-bar-dragger"
+      >
+        <!---->
+      </div>
+      <!---->
+      <!---->
+    </div>
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: auto; flex-grow: 1;"
+    >
+      <div
+        class="ant-splitter ant-splitter-vertical css-var-root ant-splitter-css-var"
+      >
+        <div
+          class="ant-splitter-panel"
+          style="flex-basis: auto; flex-grow: 1;"
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+            style="height: 100%;"
+          >
+            <h5
+              class="ant-typography ant-typography-secondary css-var-root"
+              style="white-space: nowrap;"
+            >
+               Top 
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </h5>
+          </div>
+        </div>
+        <div
+          aria-valuemax="0"
+          aria-valuemin="0"
+          aria-valuenow="50"
+          class="ant-splitter-bar"
+          role="separator"
+        >
+          <!---->
+          <div
+            class="ant-splitter-bar-dragger"
+          >
+            <!---->
+          </div>
+          <!---->
+          <!---->
+        </div>
+        <div
+          class="ant-splitter-panel"
+          style="flex-basis: auto; flex-grow: 1;"
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+            style="height: 100%;"
+          >
+            <h5
+              class="ant-typography ant-typography-secondary css-var-root"
+              style="white-space: nowrap;"
+            >
+               Bottom 
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </h5>
+          </div>
+        </div>
+        <!---->
+        <!---->
+      </div>
+    </div>
+    <!---->
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`splitter demo > renders lazy correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-root"
+  style="width: 100%;"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-splitter ant-splitter-horizontal css-var-root ant-splitter-css-var"
+      style="height: 200px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);"
+    >
+      <div
+        class="ant-splitter-panel"
+        style="flex-basis: 40%; flex-grow: 0;"
+      >
+        <div
+          class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+          style="height: 100%;"
+        >
+          <h5
+            class="ant-typography ant-typography-secondary css-var-root"
+            style="white-space: nowrap;"
+          >
+             First 
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+          </h5>
+        </div>
+      </div>
+      <div
+        aria-valuemax="0"
+        aria-valuemin="0"
+        aria-valuenow="40"
+        class="ant-splitter-bar"
+        role="separator"
+      >
+        <div
+          class="ant-splitter-bar-preview"
+          style="--ant-splitter-bar-preview-offset: 0px;"
+        />
+        <div
+          class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled"
+        >
+          <!---->
+        </div>
+        <!---->
+        <!---->
+      </div>
+      <div
+        class="ant-splitter-panel"
+        style="flex-basis: auto; flex-grow: 1;"
+      >
+        <div
+          class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+          style="height: 100%;"
+        >
+          <h5
+            class="ant-typography ant-typography-secondary css-var-root"
+            style="white-space: nowrap;"
+          >
+             Second 
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+          </h5>
+        </div>
+      </div>
+      <!---->
+      <!---->
+    </div>
+  </div>
+  <!---->
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-splitter ant-splitter-vertical css-var-root ant-splitter-css-var"
+      style="height: 200px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);"
+    >
+      <div
+        class="ant-splitter-panel"
+        style="flex-basis: 40%; flex-grow: 0;"
+      >
+        <div
+          class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+          style="height: 100%;"
+        >
+          <h5
+            class="ant-typography ant-typography-secondary css-var-root"
+            style="white-space: nowrap;"
+          >
+             First 
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+          </h5>
+        </div>
+      </div>
+      <div
+        aria-valuemax="0"
+        aria-valuemin="0"
+        aria-valuenow="40"
+        class="ant-splitter-bar"
+        role="separator"
+      >
+        <div
+          class="ant-splitter-bar-preview"
+          style="--ant-splitter-bar-preview-offset: 0px;"
+        />
+        <div
+          class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled"
+        >
+          <!---->
+        </div>
+        <!---->
+        <!---->
+      </div>
+      <div
+        class="ant-splitter-panel"
+        style="flex-basis: auto; flex-grow: 1;"
+      >
+        <div
+          class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+          style="height: 100%;"
+        >
+          <h5
+            class="ant-typography ant-typography-secondary css-var-root"
+            style="white-space: nowrap;"
+          >
+             Second 
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+          </h5>
+        </div>
+      </div>
+      <!---->
+      <!---->
+    </div>
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`splitter demo > renders multiple correctly 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-splitter ant-splitter-horizontal css-var-root ant-splitter-css-var"
+    style="height: 200px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);"
+  >
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: auto; flex-grow: 1;"
+    >
+      <div
+        class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+        style="height: 100%;"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-root"
+          style="white-space: nowrap;"
+        >
+           Panel 1 
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </h5>
+      </div>
+    </div>
+    <div
+      aria-valuemax="0"
+      aria-valuemin="0"
+      aria-valuenow="33"
+      class="ant-splitter-bar"
+      role="separator"
+    >
+      <!---->
+      <div
+        class="ant-splitter-bar-dragger"
+      >
+        <!---->
+      </div>
+      <!---->
+      <!---->
+    </div>
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: auto; flex-grow: 1;"
+    >
+      <div
+        class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+        style="height: 100%;"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-root"
+          style="white-space: nowrap;"
+        >
+           Panel 2 
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </h5>
+      </div>
+    </div>
+    <div
+      aria-valuemax="0"
+      aria-valuemin="0"
+      aria-valuenow="67"
+      class="ant-splitter-bar"
+      role="separator"
+    >
+      <!---->
+      <div
+        class="ant-splitter-bar-dragger"
+      >
+        <!---->
+      </div>
+      <!---->
+      <!---->
+    </div>
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: auto; flex-grow: 1;"
+    >
+      <div
+        class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+        style="height: 100%;"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-root"
+          style="white-space: nowrap;"
+        >
+           Panel 3 
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </h5>
+      </div>
+    </div>
+    <!---->
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`splitter demo > renders nested-in-tabs correctly 1`] = `
+<div
+  class="ant-tabs ant-tabs-top css-var-root ant-tabs-css-var"
+>
+  <div
+    aria-orientation="horizontal"
+    class="ant-tabs-nav"
+    role="tablist"
+  >
+    <!---->
+    <div
+      class="ant-tabs-nav-wrap"
+    >
+      <div
+        class="ant-tabs-nav-list"
+        style="transform: translate(0px, 0px);"
+      >
+        <div
+          class="ant-tabs-tab ant-tabs-tab-active"
+          data-node-key="1"
+        >
+          <div
+            aria-selected="true"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="0"
+          >
+            <span>
+              General
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="2"
+        >
+          <div
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="-1"
+          >
+            <span>
+              Splitter Tab
+            </span>
+          </div>
+        </div>
+        <!---->
+        <div
+          class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+        />
+      </div>
+    </div>
+    <div
+      class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+    >
+      <button
+        aria-controls="null-more-popup"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        class="ant-tabs-nav-more"
+        id="null-more"
+        style="margin-inline-start: 0px; visibility: hidden; order: 1;"
+        type="button"
+      >
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
+      </button>
+      <!---->
+      <!---->
+    </div>
+    <!---->
+    <!---->
+  </div>
+  <div
+    class="ant-tabs-content-holder"
+    mobile="false"
+    rtl="false"
+  >
+    <div
+      class="ant-tabs-content ant-tabs-content-top"
+    >
+      <!---->
+      <div
+        aria-hidden="false"
+        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        role="tabpanel"
+        tabindex="0"
+      >
+        Content of Tab Pane 1
+      </div>
+      <!---->
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+        role="tabpanel"
+        style="display: none;"
+        tabindex="-1"
+      >
+        <div
+          class="ant-splitter ant-splitter-horizontal css-var-root ant-splitter-css-var"
+          style="height: 200px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);"
+        >
+          <div
+            class="ant-splitter-panel"
+            style="flex-basis: auto; flex-grow: 1;"
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+              style="height: 100%;"
+            >
+              <h5
+                class="ant-typography ant-typography-secondary css-var-root"
+                style="white-space: nowrap;"
+              >
+                 1 
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+              </h5>
+            </div>
+          </div>
+          <div
+            aria-valuemax="0"
+            aria-valuemin="0"
+            aria-valuenow="33"
+            class="ant-splitter-bar"
+            role="separator"
+          >
+            <!---->
+            <div
+              class="ant-splitter-bar-dragger"
+            >
+              <!---->
+            </div>
+            <!---->
+            <!---->
+          </div>
+          <div
+            class="ant-splitter-panel"
+            style="flex-basis: auto; flex-grow: 1;"
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+              style="height: 100%;"
+            >
+              <h5
+                class="ant-typography ant-typography-secondary css-var-root"
+                style="white-space: nowrap;"
+              >
+                 2 
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+              </h5>
+            </div>
+          </div>
+          <div
+            aria-valuemax="0"
+            aria-valuemin="0"
+            aria-valuenow="67"
+            class="ant-splitter-bar"
+            role="separator"
+          >
+            <!---->
+            <div
+              class="ant-splitter-bar-dragger"
+            >
+              <!---->
+            </div>
+            <!---->
+            <!---->
+          </div>
+          <div
+            class="ant-splitter-panel"
+            style="flex-basis: auto; flex-grow: 1;"
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+              style="height: 100%;"
+            >
+              <h5
+                class="ant-typography ant-typography-secondary css-var-root"
+                style="white-space: nowrap;"
+              >
+                 3 
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+              </h5>
+            </div>
+          </div>
+          <!---->
+          <!---->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`splitter demo > renders reset correctly 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-splitter ant-splitter-horizontal css-var-root ant-splitter-css-var"
+    style="height: 200px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);"
+  >
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: 30%; flex-grow: 0;"
+    >
+      <div
+        class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+        style="height: 100%;"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-root"
+          style="white-space: nowrap;"
+        >
+           Panel 1 
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </h5>
+      </div>
+    </div>
+    <div
+      aria-valuemax="0"
+      aria-valuemin="0"
+      aria-valuenow="30"
+      class="ant-splitter-bar"
+      role="separator"
+    >
+      <!---->
+      <div
+        class="ant-splitter-bar-dragger"
+      >
+        <!---->
+      </div>
+      <!---->
+      <!---->
+    </div>
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: 40%; flex-grow: 0;"
+    >
+      <div
+        class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+        style="height: 100%;"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-root"
+          style="white-space: nowrap;"
+        >
+           Panel 2 
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </h5>
+      </div>
+    </div>
+    <div
+      aria-valuemax="0"
+      aria-valuemin="0"
+      aria-valuenow="70"
+      class="ant-splitter-bar"
+      role="separator"
+    >
+      <!---->
+      <div
+        class="ant-splitter-bar-dragger"
+      >
+        <!---->
+      </div>
+      <!---->
+      <!---->
+    </div>
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: 30%; flex-grow: 0;"
+    >
+      <div
+        class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+        style="height: 100%;"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-root"
+          style="white-space: nowrap;"
+        >
+           Panel 3 
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </h5>
+      </div>
+    </div>
+    <!---->
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`splitter demo > renders size correctly 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-splitter ant-splitter-horizontal css-var-root ant-splitter-css-var"
+    style="height: 200px; box-shadow: 0 0 10px rgba(0,0,0,0.1);"
+  >
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: 40%; flex-grow: 0;"
+    >
+      <div
+        class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+        style="height: 100%;"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-root"
+          style="white-space: nowrap;"
+        >
+           First 
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </h5>
+      </div>
+    </div>
+    <div
+      aria-valuemax="0"
+      aria-valuemin="0"
+      aria-valuenow="40"
+      class="ant-splitter-bar"
+      role="separator"
+    >
+      <!---->
+      <div
+        class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled"
+      >
+        <!---->
+      </div>
+      <!---->
+      <!---->
+    </div>
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: auto; flex-grow: 1;"
+    >
+      <div
+        class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+        style="height: 100%;"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-root"
+          style="white-space: nowrap;"
+        >
+           Second 
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </h5>
+      </div>
+    </div>
+    <!---->
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`splitter demo > renders size-mix correctly 1`] = `
+<div>
+  <div
+    class="ant-radio-group ant-radio-group-outline css-var-root ant-radio-css-var"
+    style="margin-bottom: 16px;"
+  >
+    <label
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-root ant-radio-css-var"
+    >
+      <span
+        class="ant-radio-button ant-radio-button-checked"
+        name="v-0"
+      >
+        <input
+          checked=""
+          class="ant-radio-button-input"
+          type="radio"
+        />
+      </span>
+      <span
+        class="ant-radio-button-label"
+      >
+         Size Bucket 1 
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper css-var-root ant-radio-css-var"
+    >
+      <span
+        class="ant-radio-button"
+        name="v-0"
+      >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+        />
+      </span>
+      <span
+        class="ant-radio-button-label"
+      >
+         Size Bucket 2 
+      </span>
+    </label>
+  </div>
+  <div
+    class="ant-splitter ant-splitter-horizontal css-var-root ant-splitter-css-var"
+    style="height: 300px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);"
+  >
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: 100px; flex-grow: 0;"
+    >
+      <div
+        class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+        style="height: 100%;"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-root"
+          style="white-space: nowrap;"
+        >
+           First 
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </h5>
+      </div>
+    </div>
+    <div
+      aria-valuemax="0"
+      aria-valuemin="0"
+      aria-valuenow="0"
+      class="ant-splitter-bar"
+      role="separator"
+    >
+      <!---->
+      <div
+        class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled"
+      >
+        <!---->
+      </div>
+      <!---->
+      <!---->
+    </div>
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: auto; flex-grow: 1;"
+    >
+      <div
+        class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+        style="height: 100%;"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-root"
+          style="white-space: nowrap;"
+        >
+           Second 
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </h5>
+      </div>
+    </div>
+    <div
+      aria-valuemax="9980"
+      aria-valuemin="0"
+      aria-valuenow="0"
+      class="ant-splitter-bar"
+      role="separator"
+    >
+      <!---->
+      <div
+        class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled"
+      >
+        <!---->
+      </div>
+      <!---->
+      <!---->
+    </div>
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: auto; flex-grow: 1;"
+    >
+      <div
+        class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+        style="height: 100%;"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-root"
+          style="white-space: nowrap;"
+        >
+           Third 
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </h5>
+      </div>
+    </div>
+    <!---->
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`splitter demo > renders style-class correctly 1`] = `
+<div
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-large ant-flex-vertical"
+  data-v-f2134a41=""
+>
+  <div
+    class="ant-splitter ant-splitter-horizontal shadow-secondary css-var-root ant-splitter-css-var"
+    style="background-color: rgb(255, 251, 230); height: 200px;"
+  >
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: auto; flex-grow: 1;"
+    >
+      <div
+        class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+        data-v-f2134a41=""
+        style="height: 100%;"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-root"
+          style="color: rgb(0, 0, 0);"
+        >
+           First 
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </h5>
+      </div>
+    </div>
+    <div
+      aria-valuemax="0"
+      aria-valuemin="0"
+      aria-valuenow="50"
+      class="ant-splitter-bar"
+      role="separator"
+    >
+      <!---->
+      <div
+        class="ant-splitter-bar-dragger"
+        style="background-color: rgba(194, 223, 252, 0.4);"
+      >
+        <!---->
+      </div>
+      <!---->
+      <!---->
+    </div>
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: auto; flex-grow: 1;"
+    >
+      <div
+        class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+        data-v-f2134a41=""
+        style="height: 100%;"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-root"
+          style="color: rgb(0, 0, 0);"
+        >
+           Second 
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </h5>
+      </div>
+    </div>
+    <!---->
+    <!---->
+  </div>
+  <div
+    class="ant-splitter ant-splitter-horizontal shadow-secondary css-var-root ant-splitter-css-var"
+    style="border-width: 2px; border-style: dashed; margin-bottom: 10px; height: 200px;"
+  >
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: auto; flex-grow: 1;"
+    >
+      <div
+        class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+        data-v-f2134a41=""
+        style="height: 100%;"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-root"
+        >
+           First 
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </h5>
+      </div>
+    </div>
+    <div
+      aria-valuemax="0"
+      aria-valuemin="0"
+      aria-valuenow="50"
+      class="ant-splitter-bar"
+      role="separator"
+    >
+      <!---->
+      <div
+        class="ant-splitter-bar-dragger"
+      >
+        <!---->
+      </div>
+      <!---->
+      <!---->
+    </div>
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: auto; flex-grow: 1;"
+    >
+      <div
+        class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+        data-v-f2134a41=""
+        style="height: 100%;"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-root"
+        >
+           Second 
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </h5>
+      </div>
+    </div>
+    <!---->
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`splitter demo > renders vertical correctly 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-splitter ant-splitter-vertical css-var-root ant-splitter-css-var"
+    style="height: 300px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);"
+  >
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: auto; flex-grow: 1;"
+    >
+      <div
+        class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+        style="height: 100%;"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-root"
+          style="white-space: nowrap;"
+        >
+           First 
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </h5>
+      </div>
+    </div>
+    <div
+      aria-valuemax="0"
+      aria-valuemin="0"
+      aria-valuenow="50"
+      class="ant-splitter-bar"
+      role="separator"
+    >
+      <!---->
+      <div
+        class="ant-splitter-bar-dragger"
+      >
+        <!---->
+      </div>
+      <!---->
+      <!---->
+    </div>
+    <div
+      class="ant-splitter-panel"
+      style="flex-basis: auto; flex-grow: 1;"
+    >
+      <div
+        class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+        style="height: 100%;"
+      >
+        <h5
+          class="ant-typography ant-typography-secondary css-var-root"
+          style="white-space: nowrap;"
+        >
+           Second 
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </h5>
+      </div>
+    </div>
+    <!---->
+    <!---->
+  </div>
+</div>
+`;

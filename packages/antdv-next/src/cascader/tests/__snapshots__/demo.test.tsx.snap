@@ -135,8 +135,6 @@ exports[`cascader demo > renders _semantic correctly 1`] = `
                   <!---->
                   <!---->
                   <!---->
-                  <!---->
-                  <!---->
                 </h5>
                 <!--v-if-->
               </div>
@@ -226,8 +224,6 @@ exports[`cascader demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -253,8 +249,6 @@ exports[`cascader demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   prefix
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -350,8 +344,6 @@ exports[`cascader demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -377,8 +369,6 @@ exports[`cascader demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   selector
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -474,8 +464,6 @@ exports[`cascader demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -501,8 +489,6 @@ exports[`cascader demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   suffix
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -598,8 +584,6 @@ exports[`cascader demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -625,8 +609,6 @@ exports[`cascader demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   popup
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -722,8 +704,6 @@ exports[`cascader demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -749,8 +729,6 @@ exports[`cascader demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   item
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -840,8 +818,6 @@ exports[`cascader demo > renders _semantic correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               Option element, set padding, background color, hover state and selected state styles
-              <!---->
-              <!---->
               <!---->
               <!---->
               <!---->

@@ -21,7 +21,7 @@ import { convertChildrenToItems } from './hooks/useItems.ts'
 import useResizable from './hooks/useResizable.ts'
 import useResize from './hooks/useResize.ts'
 import useSizes from './hooks/useSizes.ts'
-import InternalPanel from './Panel.tsx'
+import { InternalPanel } from './Panel.tsx'
 import SplitBar from './SplitBar.tsx'
 import useStyle from './style'
 

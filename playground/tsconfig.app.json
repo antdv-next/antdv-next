@@ -10,7 +10,7 @@
       "antdv-next": ["../packages/antdv-next/src/index.ts"],
       "antdv-next/*": ["../packages/antdv-next/src/*"]
     },
-    "types": ["vite/client"],
+    "types": ["vite/client", "../packages/antdv-next/global.d.ts"],
     "strict": true,
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,

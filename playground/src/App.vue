@@ -9,11 +9,11 @@ import { version } from 'antdv-next'
       antdv next version {{ version }}
       <JavaScriptOutlined />
     </header>
-    <body>
+    <section>
       <a-button type="primary">
         test
       </a-button>
-    </body>
+    </section>
   </main>
 </template>
 

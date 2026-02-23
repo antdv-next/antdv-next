@@ -1,3 +1,4 @@
+import type { CSSObject } from '@antdv-next/cssinjs'
 import type { PaginationToken } from '.'
 
 import type { GenerateStyle } from '../../theme/interface'
@@ -5,7 +6,7 @@ import { unit } from '@antdv-next/cssinjs'
 import { prepareComponentToken, prepareToken } from '.'
 import { genSubStyleComponent } from '../../theme/internal'
 
-const genBorderedStyle: GenerateStyle<PaginationToken> = (token) => {
+const genBorderedStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
   const { componentCls } = token
 
   return {

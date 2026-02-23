@@ -3,14 +3,16 @@
  * Safe to remove.
  */
 
+// Style as inline component
+import type { CSSObject } from '@antdv-next/cssinjs'
+
 import type { FormToken } from '.'
 import type { GenerateStyle } from '../../theme/internal'
-// Style as inline component
 import { prepareToken } from '.'
 import { genSubStyleComponent } from '../../theme/internal'
 
 // ============================= Fallback =============================
-const genFallbackStyle: GenerateStyle<FormToken> = (token) => {
+const genFallbackStyle: GenerateStyle<FormToken, CSSObject> = (token) => {
   const { formItemCls } = token
 
   return {

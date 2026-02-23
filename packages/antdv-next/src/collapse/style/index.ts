@@ -1,3 +1,4 @@
+import type { CSSObject } from '@antdv-next/cssinjs'
 import type { CSSProperties } from 'vue'
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal'
 
@@ -59,7 +60,7 @@ type CollapseToken = FullToken<'Collapse'> & {
   collapsePanelBorderRadius: number
 }
 
-export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
+export const genBaseStyle: GenerateStyle<CollapseToken, CSSObject> = (token) => {
   const {
     componentCls,
     contentBg,
@@ -269,7 +270,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken> = (token) => {
   }
 }
 
-const genArrowStyle: GenerateStyle<CollapseToken> = (token) => {
+const genArrowStyle: GenerateStyle<CollapseToken, CSSObject> = (token) => {
   const { componentCls } = token
 
   const fixedSelector = `> ${componentCls}-item > ${componentCls}-header ${componentCls}-arrow`
@@ -283,7 +284,7 @@ const genArrowStyle: GenerateStyle<CollapseToken> = (token) => {
   }
 }
 
-const genBorderlessStyle: GenerateStyle<CollapseToken> = (token) => {
+const genBorderlessStyle: GenerateStyle<CollapseToken, CSSObject> = (token) => {
   const { componentCls, headerBg, borderlessContentPadding, borderlessContentBg, colorBorder }
     = token
 
@@ -319,7 +320,7 @@ const genBorderlessStyle: GenerateStyle<CollapseToken> = (token) => {
   }
 }
 
-const genGhostStyle: GenerateStyle<CollapseToken> = (token) => {
+const genGhostStyle: GenerateStyle<CollapseToken, CSSObject> = (token) => {
   const { componentCls, paddingSM } = token
 
   return {

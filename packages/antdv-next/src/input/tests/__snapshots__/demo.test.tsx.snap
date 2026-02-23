@@ -116,8 +116,6 @@ exports[`input demo > renders _semantic correctly 1`] = `
                   <!---->
                   <!---->
                   <!---->
-                  <!---->
-                  <!---->
                 </h5>
                 <!--v-if-->
               </div>
@@ -207,8 +205,6 @@ exports[`input demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -234,8 +230,6 @@ exports[`input demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   prefix
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -331,8 +325,6 @@ exports[`input demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -358,8 +350,6 @@ exports[`input demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   input
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -455,8 +445,6 @@ exports[`input demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -482,8 +470,6 @@ exports[`input demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   suffix
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -579,8 +565,6 @@ exports[`input demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -606,8 +590,6 @@ exports[`input demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   count
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -697,8 +679,6 @@ exports[`input demo > renders _semantic correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               Character count element with font and color styles for count display
-              <!---->
-              <!---->
               <!---->
               <!---->
               <!---->
@@ -878,8 +858,6 @@ exports[`input demo > renders _semantic-otp correctly 1`] = `
                   <!---->
                   <!---->
                   <!---->
-                  <!---->
-                  <!---->
                 </h5>
                 <!--v-if-->
               </div>
@@ -969,8 +947,6 @@ exports[`input demo > renders _semantic-otp correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -996,8 +972,6 @@ exports[`input demo > renders _semantic-otp correctly 1`] = `
                   style="margin: 0px;"
                 >
                   input
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -1093,8 +1067,6 @@ exports[`input demo > renders _semantic-otp correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -1120,8 +1092,6 @@ exports[`input demo > renders _semantic-otp correctly 1`] = `
                   style="margin: 0px;"
                 >
                   separator
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -1211,8 +1181,6 @@ exports[`input demo > renders _semantic-otp correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               Separator element, set separator display styles between OTP input boxes
-              <!---->
-              <!---->
               <!---->
               <!---->
               <!---->
@@ -1367,8 +1335,6 @@ exports[`input demo > renders _semantic-password correctly 1`] = `
                   <!---->
                   <!---->
                   <!---->
-                  <!---->
-                  <!---->
                 </h5>
                 <!--v-if-->
               </div>
@@ -1458,8 +1424,6 @@ exports[`input demo > renders _semantic-password correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -1485,8 +1449,6 @@ exports[`input demo > renders _semantic-password correctly 1`] = `
                   style="margin: 0px;"
                 >
                   prefix
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -1582,8 +1544,6 @@ exports[`input demo > renders _semantic-password correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -1609,8 +1569,6 @@ exports[`input demo > renders _semantic-password correctly 1`] = `
                   style="margin: 0px;"
                 >
                   input
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -1706,8 +1664,6 @@ exports[`input demo > renders _semantic-password correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -1733,8 +1689,6 @@ exports[`input demo > renders _semantic-password correctly 1`] = `
                   style="margin: 0px;"
                 >
                   suffix
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -1830,8 +1784,6 @@ exports[`input demo > renders _semantic-password correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -1857,8 +1809,6 @@ exports[`input demo > renders _semantic-password correctly 1`] = `
                   style="margin: 0px;"
                 >
                   count
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -1948,8 +1898,6 @@ exports[`input demo > renders _semantic-password correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               Character count element with font and color styles for count display
-              <!---->
-              <!---->
               <!---->
               <!---->
               <!---->
@@ -2127,8 +2075,6 @@ exports[`input demo > renders _semantic-search correctly 1`] = `
                   <!---->
                   <!---->
                   <!---->
-                  <!---->
-                  <!---->
                 </h5>
                 <!--v-if-->
               </div>
@@ -2218,8 +2164,6 @@ exports[`input demo > renders _semantic-search correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -2245,8 +2189,6 @@ exports[`input demo > renders _semantic-search correctly 1`] = `
                   style="margin: 0px;"
                 >
                   prefix
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -2342,8 +2284,6 @@ exports[`input demo > renders _semantic-search correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -2369,8 +2309,6 @@ exports[`input demo > renders _semantic-search correctly 1`] = `
                   style="margin: 0px;"
                 >
                   input
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -2466,8 +2404,6 @@ exports[`input demo > renders _semantic-search correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -2493,8 +2429,6 @@ exports[`input demo > renders _semantic-search correctly 1`] = `
                   style="margin: 0px;"
                 >
                   suffix
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -2590,8 +2524,6 @@ exports[`input demo > renders _semantic-search correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -2617,8 +2549,6 @@ exports[`input demo > renders _semantic-search correctly 1`] = `
                   style="margin: 0px;"
                 >
                   count
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -2714,8 +2644,6 @@ exports[`input demo > renders _semantic-search correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -2741,8 +2669,6 @@ exports[`input demo > renders _semantic-search correctly 1`] = `
                   style="margin: 0px;"
                 >
                   button.root
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -2838,8 +2764,6 @@ exports[`input demo > renders _semantic-search correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -2865,8 +2789,6 @@ exports[`input demo > renders _semantic-search correctly 1`] = `
                   style="margin: 0px;"
                 >
                   button.icon
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -2962,8 +2884,6 @@ exports[`input demo > renders _semantic-search correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -2989,8 +2909,6 @@ exports[`input demo > renders _semantic-search correctly 1`] = `
                   style="margin: 0px;"
                 >
                   button.content
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -3086,8 +3004,6 @@ exports[`input demo > renders _semantic-search correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -3169,8 +3085,6 @@ exports[`input demo > renders _semantic-textarea correctly 1`] = `
                   style="margin: 0px;"
                 >
                   root
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -3266,8 +3180,6 @@ exports[`input demo > renders _semantic-textarea correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -3293,8 +3205,6 @@ exports[`input demo > renders _semantic-textarea correctly 1`] = `
                   style="margin: 0px;"
                 >
                   textarea
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -3390,8 +3300,6 @@ exports[`input demo > renders _semantic-textarea correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -3417,8 +3325,6 @@ exports[`input demo > renders _semantic-textarea correctly 1`] = `
                   style="margin: 0px;"
                 >
                   count
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -3514,8 +3420,6 @@ exports[`input demo > renders _semantic-textarea correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -3538,8 +3442,6 @@ exports[`input demo > renders advance-count correctly 1`] = `
         class="ant-typography css-var-root"
       >
          Exceed Max 
-        <!---->
-        <!---->
         <!---->
         <!---->
         <!---->
@@ -3584,8 +3486,6 @@ exports[`input demo > renders advance-count correctly 1`] = `
         <!---->
         <!---->
         <!---->
-        <!---->
-        <!---->
       </h5>
     </article>
     <span
@@ -3618,8 +3518,6 @@ exports[`input demo > renders advance-count correctly 1`] = `
         class="ant-typography css-var-root"
       >
          Exceed Max 
-        <!---->
-        <!---->
         <!---->
         <!---->
         <!---->
@@ -4188,8 +4086,6 @@ exports[`input demo > renders otp correctly 1`] = `
     <!---->
     <!---->
     <!---->
-    <!---->
-    <!---->
   </h5>
   <div
     class="ant-otp css-var-root"
@@ -4289,8 +4185,6 @@ exports[`input demo > renders otp correctly 1`] = `
     class="ant-typography css-var-root"
   >
      With Disabled 
-    <!---->
-    <!---->
     <!---->
     <!---->
     <!---->
@@ -4402,8 +4296,6 @@ exports[`input demo > renders otp correctly 1`] = `
     class="ant-typography css-var-root"
   >
      With Length (8) 
-    <!---->
-    <!---->
     <!---->
     <!---->
     <!---->
@@ -4545,8 +4437,6 @@ exports[`input demo > renders otp correctly 1`] = `
     <!---->
     <!---->
     <!---->
-    <!---->
-    <!---->
   </h5>
   <div
     class="ant-otp css-var-root"
@@ -4652,8 +4542,6 @@ exports[`input demo > renders otp correctly 1`] = `
     <!---->
     <!---->
     <!---->
-    <!---->
-    <!---->
   </h5>
   <div
     class="ant-otp css-var-root"
@@ -4753,8 +4641,6 @@ exports[`input demo > renders otp correctly 1`] = `
     class="ant-typography css-var-root"
   >
      With custom ReactNode separator 
-    <!---->
-    <!---->
     <!---->
     <!---->
     <!---->
@@ -4890,8 +4776,6 @@ exports[`input demo > renders otp correctly 1`] = `
     class="ant-typography css-var-root"
   >
      With custom function separator 
-    <!---->
-    <!---->
     <!---->
     <!---->
     <!---->

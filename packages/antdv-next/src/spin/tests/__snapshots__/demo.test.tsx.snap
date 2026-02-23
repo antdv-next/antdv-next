@@ -83,8 +83,6 @@ exports[`spin demo > renders _semantic correctly 1`] = `
                   <!---->
                   <!---->
                   <!---->
-                  <!---->
-                  <!---->
                 </h5>
                 <span
                   class="ant-tag ant-tag-filled ant-tag-blue css-var-root"
@@ -182,8 +180,6 @@ exports[`spin demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -209,8 +205,6 @@ exports[`spin demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   indicator
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -308,8 +302,6 @@ exports[`spin demo > renders _semantic correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               Indicator element with width, height, font size, inline-block display, transition animation, transform origin, line height and color
-              <!---->
-              <!---->
               <!---->
               <!---->
               <!---->

@@ -117,8 +117,6 @@ exports[`result demo > renders _semantic correctly 1`] = `
                   <!---->
                   <!---->
                   <!---->
-                  <!---->
-                  <!---->
                 </h5>
                 <span
                   class="ant-tag ant-tag-filled ant-tag-blue css-var-root"
@@ -216,8 +214,6 @@ exports[`result demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -243,8 +239,6 @@ exports[`result demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   icon
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -348,8 +342,6 @@ exports[`result demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -375,8 +367,6 @@ exports[`result demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   title
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -480,8 +470,6 @@ exports[`result demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -507,8 +495,6 @@ exports[`result demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   subTitle
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -612,8 +598,6 @@ exports[`result demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -639,8 +623,6 @@ exports[`result demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   extra
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -744,8 +726,6 @@ exports[`result demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -771,8 +751,6 @@ exports[`result demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   body
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -870,8 +848,6 @@ exports[`result demo > renders _semantic correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               Content element with margin, padding, background color and other content area styles
-              <!---->
-              <!---->
               <!---->
               <!---->
               <!---->

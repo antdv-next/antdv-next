@@ -140,8 +140,6 @@ exports[`divider demo > renders _semantic correctly 1`] = `
                   <!---->
                   <!---->
                   <!---->
-                  <!---->
-                  <!---->
                 </h5>
                 <!--v-if-->
               </div>
@@ -231,8 +229,6 @@ exports[`divider demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -258,8 +254,6 @@ exports[`divider demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   rail
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -355,8 +349,6 @@ exports[`divider demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -382,8 +374,6 @@ exports[`divider demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   content
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -473,8 +463,6 @@ exports[`divider demo > renders _semantic correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               Content element with inline-block display, padding and other divider text content styles
-              <!---->
-              <!---->
               <!---->
               <!---->
               <!---->

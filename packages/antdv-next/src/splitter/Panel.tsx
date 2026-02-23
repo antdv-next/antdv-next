@@ -1,4 +1,4 @@
-import type { InternalPanelProps } from './interface'
+import type { InternalPanelProps, PanelProps } from './interface'
 import { clsx } from '@v-c/util'
 import { defineComponent } from 'vue'
 
@@ -37,4 +37,11 @@ export const InternalPanel = defineComponent<InternalPanelProps>(
   },
 )
 
-export default InternalPanel
+const Panel = defineComponent<PanelProps>(
+  () => () => null,
+  {
+    name: 'ASplitterPanel',
+  },
+)
+
+export default Panel

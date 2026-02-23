@@ -1069,8 +1069,6 @@ exports[`calendar demo > renders _semantic correctly 1`] = `
                   <!---->
                   <!---->
                   <!---->
-                  <!---->
-                  <!---->
                 </h5>
                 <span
                   class="ant-tag ant-tag-filled ant-tag-blue css-var-root"
@@ -1168,8 +1166,6 @@ exports[`calendar demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -1195,8 +1191,6 @@ exports[`calendar demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   header
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -1300,8 +1294,6 @@ exports[`calendar demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -1327,8 +1319,6 @@ exports[`calendar demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   body
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -1432,8 +1422,6 @@ exports[`calendar demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -1459,8 +1447,6 @@ exports[`calendar demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   content
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -1564,8 +1550,6 @@ exports[`calendar demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -1591,8 +1575,6 @@ exports[`calendar demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   item
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -1690,8 +1672,6 @@ exports[`calendar demo > renders _semantic correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               Item element with background, border, hover state, selected state and other interactive styles for calendar cells
-              <!---->
-              <!---->
               <!---->
               <!---->
               <!---->
@@ -3776,8 +3756,6 @@ exports[`calendar demo > renders customize-header correctly 1`] = `
         class="ant-typography css-var-root"
       >
          Custom header 
-        <!---->
-        <!---->
         <!---->
         <!---->
         <!---->

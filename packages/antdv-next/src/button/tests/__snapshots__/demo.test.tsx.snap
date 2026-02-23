@@ -84,8 +84,6 @@ exports[`button demo > renders _semantic correctly 1`] = `
                   <!---->
                   <!---->
                   <!---->
-                  <!---->
-                  <!---->
                 </h5>
                 <span
                   class="ant-tag ant-tag-filled ant-tag-blue css-var-root"
@@ -183,8 +181,6 @@ exports[`button demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -210,8 +206,6 @@ exports[`button demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   icon
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -315,8 +309,6 @@ exports[`button demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -342,8 +334,6 @@ exports[`button demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   content
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -441,8 +431,6 @@ exports[`button demo > renders _semantic correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               Content element that wraps button text with typography styles including nowrap, text-align center, and Chinese character spacing optimization
-              <!---->
-              <!---->
               <!---->
               <!---->
               <!---->

@@ -43,7 +43,7 @@ interface DividerToken extends FullToken<'Divider'> {
 }
 
 // ============================== Size ================================
-const genSizeDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject => {
+const genSizeDividerStyle: GenerateStyle<DividerToken, CSSObject> = (token) => {
   const { componentCls } = token
 
   return {
@@ -63,7 +63,7 @@ const genSizeDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject => {
 }
 
 // ============================== Shared ==============================
-const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject => {
+const genSharedDividerStyle: GenerateStyle<DividerToken, CSSObject> = (token) => {
   const {
     componentCls,
     sizePaddingEdgeHorizontal,
@@ -201,34 +201,34 @@ const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject =>
       },
 
       [`&-horizontal${componentCls}-with-text-start${componentCls}-no-default-orientation-margin-start`]:
-          {
-            [`${railCls}-start`]: {
-              width: 0,
-            },
-
-            [`${railCls}-end`]: {
-              width: '100%',
-            },
-
-            [`${componentCls}-inner-text`]: {
-              paddingInlineStart: sizePaddingEdgeHorizontal,
-            },
+        {
+          [`${railCls}-start`]: {
+            width: 0,
           },
+
+          [`${railCls}-end`]: {
+            width: '100%',
+          },
+
+          [`${componentCls}-inner-text`]: {
+            paddingInlineStart: sizePaddingEdgeHorizontal,
+          },
+        },
 
       [`&-horizontal${componentCls}-with-text-end${componentCls}-no-default-orientation-margin-end`]:
-          {
-            [`${railCls}-start`]: {
-              width: '100%',
-            },
-
-            [`${railCls}-end`]: {
-              width: 0,
-            },
-
-            [`${componentCls}-inner-text`]: {
-              paddingInlineEnd: sizePaddingEdgeHorizontal,
-            },
+        {
+          [`${railCls}-start`]: {
+            width: '100%',
           },
+
+          [`${railCls}-end`]: {
+            width: 0,
+          },
+
+          [`${componentCls}-inner-text`]: {
+            paddingInlineEnd: sizePaddingEdgeHorizontal,
+          },
+        },
     },
   }
 }

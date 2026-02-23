@@ -149,8 +149,6 @@ exports[`descriptions demo > renders _semantic correctly 1`] = `
                   <!---->
                   <!---->
                   <!---->
-                  <!---->
-                  <!---->
                 </h5>
                 <span
                   class="ant-tag ant-tag-filled ant-tag-blue css-var-root"
@@ -248,8 +246,6 @@ exports[`descriptions demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -275,8 +271,6 @@ exports[`descriptions demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   header
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -380,8 +374,6 @@ exports[`descriptions demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -407,8 +399,6 @@ exports[`descriptions demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   title
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -512,8 +502,6 @@ exports[`descriptions demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -539,8 +527,6 @@ exports[`descriptions demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   extra
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -644,8 +630,6 @@ exports[`descriptions demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -671,8 +655,6 @@ exports[`descriptions demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   label
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -776,8 +758,6 @@ exports[`descriptions demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -803,8 +783,6 @@ exports[`descriptions demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   content
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -902,8 +880,6 @@ exports[`descriptions demo > renders _semantic correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               Content element with table cell layout, color, font size, line height, word break and other content display styles
-              <!---->
-              <!---->
               <!---->
               <!---->
               <!---->

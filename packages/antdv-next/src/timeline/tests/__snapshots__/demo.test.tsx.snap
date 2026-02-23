@@ -200,8 +200,6 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
                   <!---->
                   <!---->
                   <!---->
-                  <!---->
-                  <!---->
                 </h5>
                 <!--v-if-->
               </div>
@@ -291,8 +289,6 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -318,8 +314,6 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   item
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -415,8 +409,6 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -442,8 +434,6 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   itemWrapper
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -539,8 +529,6 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -566,8 +554,6 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   itemIcon
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -663,8 +649,6 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -690,8 +674,6 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   itemSection
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -787,8 +769,6 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -814,8 +794,6 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   itemHeader
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -911,8 +889,6 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -938,8 +914,6 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   itemTitle
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -1035,8 +1009,6 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -1062,8 +1034,6 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   itemContent
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -1159,8 +1129,6 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -1186,8 +1154,6 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   itemRail
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -1277,8 +1243,6 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               Item rail element with timeline node connection track line absolute positioning, top offset, left offset, height, border color, width, style and other connection line styles
-              <!---->
-              <!---->
               <!---->
               <!---->
               <!---->
@@ -3427,8 +3391,6 @@ exports[`timeline demo > renders title-span correctly 1`] = `
     <!---->
     <!---->
     <!---->
-    <!---->
-    <!---->
   </h5>
   <ol
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline ant-timeline-layout-alternate css-var-root"
@@ -3591,8 +3553,6 @@ exports[`timeline demo > renders title-span correctly 1`] = `
     <!---->
     <!---->
     <!---->
-    <!---->
-    <!---->
   </h5>
   <ol
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline ant-timeline-layout-alternate css-var-root"
@@ -3749,8 +3709,6 @@ exports[`timeline demo > renders title-span correctly 1`] = `
     style="margin: 0px;"
   >
      titleSpan = 18, mode = end 
-    <!---->
-    <!---->
     <!---->
     <!---->
     <!---->
