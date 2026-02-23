@@ -1,0 +1,14 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`popover > matches snapshot with title and content 1`] = `"<div class="ant-popover ant-popover-css-var css-var-root css-var-root ant-popover-placement-bottom" style="--arrow-x: 0px; --arrow-y: -6px; left: 0px; top: 12px; right: auto; bottom: auto; box-sizing: border-box;"><div class="ant-popover-arrow" style="position: absolute; left: 0px; top: 0px;"><span class="ant-popover-arrow-content"></span></div><div id="test-id" class="ant-popover-container" role="tooltip"><div class="ant-popover-title">Snapshot Title</div><div class="ant-popover-content">Snapshot Content</div></div></div>"`;
+
+exports[`popover > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<div
+  data-v-app=""
+>
+  <span>
+    <!---->
+  </span>
+  <!---->
+</div>
+`;

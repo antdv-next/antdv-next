@@ -1,0 +1,888 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`popover demo > renders arrow correctly 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    aria-label="segmented control"
+    class="ant-segmented css-var-root css-var-root"
+    role="radiogroup"
+    size="middle"
+    style="margin-bottom: 24px;"
+    tabindex="0"
+  >
+    <div
+      class="ant-segmented-group"
+    >
+      <!---->
+      <label
+        class="ant-segmented-item ant-segmented-item-selected"
+      >
+        <input
+          checked=""
+          class="ant-segmented-item-input"
+          name="v-1"
+          type="radio"
+        />
+        <div
+          aria-checked="true"
+          class="ant-segmented-item-label"
+          role="radio"
+          title="Show"
+        >
+          Show
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="v-1"
+          type="radio"
+        />
+        <div
+          aria-checked="false"
+          class="ant-segmented-item-label"
+          role="radio"
+          title="Hide"
+        >
+          Hide
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="v-1"
+          type="radio"
+        />
+        <div
+          aria-checked="false"
+          class="ant-segmented-item-label"
+          role="radio"
+          title="Center"
+        >
+          Center
+        </div>
+      </label>
+    </div>
+  </div>
+  <div
+    class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center ant-flex-vertical demo"
+  >
+    <div
+      class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+      style="white-space: nowrap;"
+    >
+      <button
+        class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        style="width: 80px; margin: 4px;"
+        type="button"
+      >
+        <transition-stub
+          appear="false"
+          css="true"
+          name="ant-btn-loading-icon-motion"
+          persisted="false"
+        >
+          <!---->
+        </transition-stub>
+        <span>
+          TL
+        </span>
+        <!---->
+      </button>
+      <!---->
+      <button
+        class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        style="width: 80px; margin: 4px;"
+        type="button"
+      >
+        <transition-stub
+          appear="false"
+          css="true"
+          name="ant-btn-loading-icon-motion"
+          persisted="false"
+        >
+          <!---->
+        </transition-stub>
+        <span>
+          Top
+        </span>
+        <!---->
+      </button>
+      <!---->
+      <button
+        class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        style="width: 80px; margin: 4px;"
+        type="button"
+      >
+        <transition-stub
+          appear="false"
+          css="true"
+          name="ant-btn-loading-icon-motion"
+          persisted="false"
+        >
+          <!---->
+        </transition-stub>
+        <span>
+          TR
+        </span>
+        <!---->
+      </button>
+      <!---->
+    </div>
+    <div
+      class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between"
+      style="width: 432px;"
+    >
+      <div
+        class="ant-flex css-var-root ant-flex-align-center ant-flex-vertical"
+      >
+        <button
+          class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          style="width: 80px; margin: 4px;"
+          type="button"
+        >
+          <transition-stub
+            appear="false"
+            css="true"
+            name="ant-btn-loading-icon-motion"
+            persisted="false"
+          >
+            <!---->
+          </transition-stub>
+          <span>
+            LT
+          </span>
+          <!---->
+        </button>
+        <!---->
+        <button
+          class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          style="width: 80px; margin: 4px;"
+          type="button"
+        >
+          <transition-stub
+            appear="false"
+            css="true"
+            name="ant-btn-loading-icon-motion"
+            persisted="false"
+          >
+            <!---->
+          </transition-stub>
+          <span>
+            Left
+          </span>
+          <!---->
+        </button>
+        <!---->
+        <button
+          class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          style="width: 80px; margin: 4px;"
+          type="button"
+        >
+          <transition-stub
+            appear="false"
+            css="true"
+            name="ant-btn-loading-icon-motion"
+            persisted="false"
+          >
+            <!---->
+          </transition-stub>
+          <span>
+            LB
+          </span>
+          <!---->
+        </button>
+        <!---->
+      </div>
+      <div
+        class="ant-flex css-var-root ant-flex-align-center ant-flex-vertical"
+      >
+        <button
+          class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          style="width: 80px; margin: 4px;"
+          type="button"
+        >
+          <transition-stub
+            appear="false"
+            css="true"
+            name="ant-btn-loading-icon-motion"
+            persisted="false"
+          >
+            <!---->
+          </transition-stub>
+          <span>
+            RT
+          </span>
+          <!---->
+        </button>
+        <!---->
+        <button
+          class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          style="width: 80px; margin: 4px;"
+          type="button"
+        >
+          <transition-stub
+            appear="false"
+            css="true"
+            name="ant-btn-loading-icon-motion"
+            persisted="false"
+          >
+            <!---->
+          </transition-stub>
+          <span>
+            Right
+          </span>
+          <!---->
+        </button>
+        <!---->
+        <button
+          class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          style="width: 80px; margin: 4px;"
+          type="button"
+        >
+          <transition-stub
+            appear="false"
+            css="true"
+            name="ant-btn-loading-icon-motion"
+            persisted="false"
+          >
+            <!---->
+          </transition-stub>
+          <span>
+            RB
+          </span>
+          <!---->
+        </button>
+        <!---->
+      </div>
+    </div>
+    <div
+      class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+      style="white-space: nowrap;"
+    >
+      <button
+        class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        style="width: 80px; margin: 4px;"
+        type="button"
+      >
+        <transition-stub
+          appear="false"
+          css="true"
+          name="ant-btn-loading-icon-motion"
+          persisted="false"
+        >
+          <!---->
+        </transition-stub>
+        <span>
+          BL
+        </span>
+        <!---->
+      </button>
+      <!---->
+      <button
+        class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        style="width: 80px; margin: 4px;"
+        type="button"
+      >
+        <transition-stub
+          appear="false"
+          css="true"
+          name="ant-btn-loading-icon-motion"
+          persisted="false"
+        >
+          <!---->
+        </transition-stub>
+        <span>
+          Bottom
+        </span>
+        <!---->
+      </button>
+      <!---->
+      <button
+        class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        style="width: 80px; margin: 4px;"
+        type="button"
+      >
+        <transition-stub
+          appear="false"
+          css="true"
+          name="ant-btn-loading-icon-motion"
+          persisted="false"
+        >
+          <!---->
+        </transition-stub>
+        <span>
+          BR
+        </span>
+        <!---->
+      </button>
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`popover demo > renders basic correctly 1`] = `
+<div
+  data-v-app=""
+>
+  <button
+    class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    data-v-d5c2808f=""
+    type="button"
+  >
+    <transition-stub
+      appear="false"
+      css="true"
+      name="ant-btn-loading-icon-motion"
+      persisted="false"
+    >
+      <!---->
+    </transition-stub>
+    <span>
+       Hover me 
+    </span>
+    <!---->
+  </button>
+  <!---->
+</div>
+`;
+
+exports[`popover demo > renders control correctly 1`] = `
+<div
+  data-v-app=""
+>
+  <button
+    class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <transition-stub
+      appear="false"
+      css="true"
+      name="ant-btn-loading-icon-motion"
+      persisted="false"
+    >
+      <!---->
+    </transition-stub>
+    <span>
+       Click me 
+    </span>
+    <!---->
+  </button>
+  <!---->
+</div>
+`;
+
+exports[`popover demo > renders hover-with-click correctly 1`] = `
+<div
+  data-v-app=""
+>
+  <button
+    class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+    type="button"
+  >
+    <transition-stub
+      appear="false"
+      css="true"
+      name="ant-btn-loading-icon-motion"
+      persisted="false"
+    >
+      <!---->
+    </transition-stub>
+    <span>
+      Hover and click
+    </span>
+    <!---->
+  </button>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`popover demo > renders placement correctly 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center ant-flex-vertical demo"
+  >
+    <div
+      class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+      style="white-space: nowrap;"
+    >
+      <button
+        class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        style="width: 80px; margin: 4px;"
+        type="button"
+      >
+        <transition-stub
+          appear="false"
+          css="true"
+          name="ant-btn-loading-icon-motion"
+          persisted="false"
+        >
+          <!---->
+        </transition-stub>
+        <span>
+          TL
+        </span>
+        <!---->
+      </button>
+      <!---->
+      <button
+        class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        style="width: 80px; margin: 4px;"
+        type="button"
+      >
+        <transition-stub
+          appear="false"
+          css="true"
+          name="ant-btn-loading-icon-motion"
+          persisted="false"
+        >
+          <!---->
+        </transition-stub>
+        <span>
+          Top
+        </span>
+        <!---->
+      </button>
+      <!---->
+      <button
+        class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        style="width: 80px; margin: 4px;"
+        type="button"
+      >
+        <transition-stub
+          appear="false"
+          css="true"
+          name="ant-btn-loading-icon-motion"
+          persisted="false"
+        >
+          <!---->
+        </transition-stub>
+        <span>
+          TR
+        </span>
+        <!---->
+      </button>
+      <!---->
+    </div>
+    <div
+      class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between"
+      style="width: 432px;"
+    >
+      <div
+        class="ant-flex css-var-root ant-flex-align-center ant-flex-vertical"
+      >
+        <button
+          class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          style="width: 80px; margin: 4px;"
+          type="button"
+        >
+          <transition-stub
+            appear="false"
+            css="true"
+            name="ant-btn-loading-icon-motion"
+            persisted="false"
+          >
+            <!---->
+          </transition-stub>
+          <span>
+            LT
+          </span>
+          <!---->
+        </button>
+        <!---->
+        <button
+          class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          style="width: 80px; margin: 4px;"
+          type="button"
+        >
+          <transition-stub
+            appear="false"
+            css="true"
+            name="ant-btn-loading-icon-motion"
+            persisted="false"
+          >
+            <!---->
+          </transition-stub>
+          <span>
+            Left
+          </span>
+          <!---->
+        </button>
+        <!---->
+        <button
+          class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          style="width: 80px; margin: 4px;"
+          type="button"
+        >
+          <transition-stub
+            appear="false"
+            css="true"
+            name="ant-btn-loading-icon-motion"
+            persisted="false"
+          >
+            <!---->
+          </transition-stub>
+          <span>
+            LB
+          </span>
+          <!---->
+        </button>
+        <!---->
+      </div>
+      <div
+        class="ant-flex css-var-root ant-flex-align-center ant-flex-vertical"
+      >
+        <button
+          class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          style="width: 80px; margin: 4px;"
+          type="button"
+        >
+          <transition-stub
+            appear="false"
+            css="true"
+            name="ant-btn-loading-icon-motion"
+            persisted="false"
+          >
+            <!---->
+          </transition-stub>
+          <span>
+            RT
+          </span>
+          <!---->
+        </button>
+        <!---->
+        <button
+          class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          style="width: 80px; margin: 4px;"
+          type="button"
+        >
+          <transition-stub
+            appear="false"
+            css="true"
+            name="ant-btn-loading-icon-motion"
+            persisted="false"
+          >
+            <!---->
+          </transition-stub>
+          <span>
+            Right
+          </span>
+          <!---->
+        </button>
+        <!---->
+        <button
+          class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          style="width: 80px; margin: 4px;"
+          type="button"
+        >
+          <transition-stub
+            appear="false"
+            css="true"
+            name="ant-btn-loading-icon-motion"
+            persisted="false"
+          >
+            <!---->
+          </transition-stub>
+          <span>
+            RB
+          </span>
+          <!---->
+        </button>
+        <!---->
+      </div>
+    </div>
+    <div
+      class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+      style="white-space: nowrap;"
+    >
+      <button
+        class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        style="width: 80px; margin: 4px;"
+        type="button"
+      >
+        <transition-stub
+          appear="false"
+          css="true"
+          name="ant-btn-loading-icon-motion"
+          persisted="false"
+        >
+          <!---->
+        </transition-stub>
+        <span>
+          BL
+        </span>
+        <!---->
+      </button>
+      <!---->
+      <button
+        class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        style="width: 80px; margin: 4px;"
+        type="button"
+      >
+        <transition-stub
+          appear="false"
+          css="true"
+          name="ant-btn-loading-icon-motion"
+          persisted="false"
+        >
+          <!---->
+        </transition-stub>
+        <span>
+          Bottom
+        </span>
+        <!---->
+      </button>
+      <!---->
+      <button
+        class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        style="width: 80px; margin: 4px;"
+        type="button"
+      >
+        <transition-stub
+          appear="false"
+          css="true"
+          name="ant-btn-loading-icon-motion"
+          persisted="false"
+        >
+          <!---->
+        </transition-stub>
+        <span>
+          BR
+        </span>
+        <!---->
+      </button>
+      <!---->
+    </div>
+  </div>
+</div>
+`;
+
+exports[`popover demo > renders render-panel correctly 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-popover ant-popover-pure ant-popover-placement-top css-var-root"
+  >
+    <div
+      class="ant-popover-arrow"
+    />
+    <div
+      class="ant-popover-container"
+      content="[object Object]"
+      hashid=""
+      placement="top"
+      role="tooltip"
+      title="Title"
+    >
+      <div
+        class="ant-popover-title"
+      >
+        Title
+      </div>
+      <div
+        class="ant-popover-content"
+      >
+        <div>
+          <p>
+            Content
+          </p>
+          <p>
+            Content
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-popover ant-popover-pure ant-popover-placement-bottomLeft css-var-root"
+    style="width: 250px;"
+  >
+    <div
+      class="ant-popover-arrow"
+    />
+    <div
+      class="ant-popover-container"
+      content="[object Object]"
+      hashid=""
+      placement="bottomLeft"
+      role="tooltip"
+      title="Title"
+    >
+      <div
+        class="ant-popover-title"
+      >
+        Title
+      </div>
+      <div
+        class="ant-popover-content"
+      >
+        <div>
+          <p>
+            Content
+          </p>
+          <p>
+            Content
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`popover demo > renders shift correctly 1`] = `
+<div
+  class="h-300vh w-300vw flex items-center justify-center"
+>
+  <button
+    aria-describedby="test-id"
+    class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-popover-open"
+    type="button"
+  >
+    <transition-stub
+      appear="false"
+      css="true"
+      name="ant-btn-loading-icon-motion"
+      persisted="false"
+    >
+      <!---->
+    </transition-stub>
+    <span>
+       Scroll The Window 
+    </span>
+    <!---->
+  </button>
+  <!---->
+</div>
+`;
+
+exports[`popover demo > renders style-class correctly 1`] = `
+<div
+  class="ant-flex css-var-root ant-flex-gap-middle"
+>
+  <button
+    class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+    type="button"
+  >
+    <transition-stub
+      appear="false"
+      css="true"
+      name="ant-btn-loading-icon-motion"
+      persisted="false"
+    >
+      <!---->
+    </transition-stub>
+    <span>
+      Object Style
+    </span>
+    <!---->
+  </button>
+  <!---->
+  <button
+    class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <transition-stub
+      appear="false"
+      css="true"
+      name="ant-btn-loading-icon-motion"
+      persisted="false"
+    >
+      <!---->
+    </transition-stub>
+    <span>
+       Function Style 
+    </span>
+    <!---->
+  </button>
+  <!---->
+</div>
+`;
+
+exports[`popover demo > renders trigger-type correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"
+  style="flex-wrap: wrap;"
+>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ant-btn-loading-icon-motion"
+        persisted="false"
+      >
+        <!---->
+      </transition-stub>
+      <span>
+        Hover me
+      </span>
+      <!---->
+    </button>
+    <!---->
+  </div>
+  <!---->
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ant-btn-loading-icon-motion"
+        persisted="false"
+      >
+        <!---->
+      </transition-stub>
+      <span>
+        Focus me
+      </span>
+      <!---->
+    </button>
+    <!---->
+  </div>
+  <!---->
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ant-btn-loading-icon-motion"
+        persisted="false"
+      >
+        <!---->
+      </transition-stub>
+      <span>
+        Click me
+      </span>
+      <!---->
+    </button>
+    <!---->
+  </div>
+  <!---->
+</div>
+`;
