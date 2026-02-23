@@ -410,8 +410,6 @@ exports[`steps demo > renders _semantic correctly 1`] = `
                   <!---->
                   <!---->
                   <!---->
-                  <!---->
-                  <!---->
                 </h5>
                 <!--v-if-->
               </div>
@@ -501,8 +499,6 @@ exports[`steps demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -528,8 +524,6 @@ exports[`steps demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   item
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -625,8 +619,6 @@ exports[`steps demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -652,8 +644,6 @@ exports[`steps demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   itemWrapper
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -749,8 +739,6 @@ exports[`steps demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -776,8 +764,6 @@ exports[`steps demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   itemIcon
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -873,8 +859,6 @@ exports[`steps demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -900,8 +884,6 @@ exports[`steps demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   itemHeader
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -997,8 +979,6 @@ exports[`steps demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -1024,8 +1004,6 @@ exports[`steps demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   itemTitle
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -1121,8 +1099,6 @@ exports[`steps demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -1148,8 +1124,6 @@ exports[`steps demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   itemSubtitle
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -1245,8 +1219,6 @@ exports[`steps demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -1272,8 +1244,6 @@ exports[`steps demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   itemSection
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -1369,8 +1339,6 @@ exports[`steps demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -1396,8 +1364,6 @@ exports[`steps demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   itemContent
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -1493,8 +1459,6 @@ exports[`steps demo > renders _semantic correctly 1`] = `
               <!---->
               <!---->
               <!---->
-              <!---->
-              <!---->
             </div>
           </div>
         </li>
@@ -1520,8 +1484,6 @@ exports[`steps demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   itemRail
-                  <!---->
-                  <!---->
                   <!---->
                   <!---->
                   <!---->
@@ -1611,8 +1573,6 @@ exports[`steps demo > renders _semantic correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               Step item rail element with border-style, border-width, transitions and other connecting line styles
-              <!---->
-              <!---->
               <!---->
               <!---->
               <!---->
