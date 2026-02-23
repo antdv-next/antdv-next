@@ -64,7 +64,7 @@ exports[`tooltip > support arrow props pass false to hide arrow 1`] = `
   </div>
   <div
     class="ant-tooltip ant-tooltip-css-var css-var-root ant-tooltip-placement-bottom"
-    style="--arrow-x: 0px; --arrow-y: -6px; left: 0px; top: 12px; right: auto; bottom: auto; box-sizing: border-box;"
+    style="--arrow-x: 0px; --arrow-y: -2px; left: 0px; top: 4px; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <!---->
     <div

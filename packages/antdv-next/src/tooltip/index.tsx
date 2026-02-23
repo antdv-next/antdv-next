@@ -200,7 +200,7 @@ const InternalTooltip = defineComponent<
         || getPlacements({
           arrowPointAtCenter: mergedArrow?.value?.pointAtCenter ?? false,
           autoAdjustOverflow: autoAdjustOverflow.value,
-          arrowWidth: mergedShowArrow ? token.value.sizePopupArrow : 0,
+          arrowWidth: mergedShowArrow.value ? token.value.sizePopupArrow : 0,
           borderRadius: token.value.borderRadius,
           offset: token.value.marginXXS,
           visibleFirst: true,
