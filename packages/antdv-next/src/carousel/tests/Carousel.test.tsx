@@ -1,9 +1,9 @@
 import { describe, expect, it } from 'vitest'
 import { h } from 'vue'
 import Carousel from '..'
-import rtlTest from '../../../../../tests/shared/rtlTest'
-import { mount } from '../../../../../tests/utils'
 import ConfigProvider from '../../config-provider'
+import rtlTest from '/@tests/shared/rtlTest'
+import { mount } from '/@tests/utils'
 
 function createSlides(count = 4) {
   return Array.from({ length: count }, (_, i) =>

@@ -1,7 +1,7 @@
 import type { RibbonProps } from '../Ribbon'
 import { describe, expect, it, vi } from 'vitest'
 import Badge from '..'
-import { mount } from '../../../../../tests/utils'
+import { mount } from '/@tests/utils'
 
 describe('ribbon.Semantic', () => {
   it('should support classNames and styles', () => {

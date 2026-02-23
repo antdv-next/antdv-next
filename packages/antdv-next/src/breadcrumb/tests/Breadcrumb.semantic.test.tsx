@@ -1,7 +1,7 @@
 import type { BreadcrumbProps } from '..'
 import { describe, expect, it, vi } from 'vitest'
 import Breadcrumb from '..'
-import { mount } from '../../../../../tests/utils'
+import { mount } from '/@tests/utils'
 
 describe('breadcrumb.Semantic', () => {
   it('should support classNames and styles', () => {

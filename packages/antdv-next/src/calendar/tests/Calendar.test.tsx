@@ -2,8 +2,8 @@ import dayjs from 'dayjs'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { h } from 'vue'
 import Calendar from '..'
-import rtlTest from '../../../../../tests/shared/rtlTest'
-import { mount, resetMockDate, setMockDate } from '../../../../../tests/utils'
+import rtlTest from '/@tests/shared/rtlTest'
+import { mount, resetMockDate, setMockDate } from '/@tests/utils'
 
 describe('calendar', () => {
   beforeEach(() => {

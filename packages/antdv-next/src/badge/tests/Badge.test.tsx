@@ -2,9 +2,9 @@ import { ClockCircleOutlined, NotificationOutlined } from '@antdv-next/icons'
 import { describe, expect, it } from 'vitest'
 import { h } from 'vue'
 import Badge from '..'
-import rtlTest from '../../../../../tests/shared/rtlTest'
-import { mount } from '../../../../../tests/utils'
 import Avatar from '../../avatar'
+import rtlTest from '/@tests/shared/rtlTest'
+import { mount } from '/@tests/utils'
 
 describe('badge', () => {
   rtlTest(() => h(Badge, { count: 5 }, { default: () => h('span', 'test') }))

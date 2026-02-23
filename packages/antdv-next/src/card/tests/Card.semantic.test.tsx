@@ -2,8 +2,8 @@ import type { CardProps } from '..'
 import { describe, expect, it, vi } from 'vitest'
 import { h } from 'vue'
 import Card from '..'
-import { mount } from '../../../../../tests/utils'
 import ConfigProvider from '../../config-provider'
+import { mount } from '/@tests/utils'
 
 describe('card semantic DOM', () => {
   it('should support classNames and styles', () => {

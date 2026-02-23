@@ -2,7 +2,7 @@ import type { CalendarProps } from '..'
 import dayjs from 'dayjs'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import Calendar from '..'
-import { mount, resetMockDate, setMockDate } from '../../../../../tests/utils'
+import { mount, resetMockDate, setMockDate } from '/@tests/utils'
 
 describe('calendar.Semantic', () => {
   beforeEach(() => {

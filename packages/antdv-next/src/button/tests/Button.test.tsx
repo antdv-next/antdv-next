@@ -2,8 +2,8 @@ import { SearchOutlined } from '@antdv-next/icons'
 import { describe, expect, it, vi } from 'vitest'
 import { h } from 'vue'
 import Button from '..'
-import rtlTest from '../../../../../tests/shared/rtlTest'
-import { mount } from '../../../../../tests/utils'
+import rtlTest from '/@tests/shared/rtlTest'
+import { mount } from '/@tests/utils'
 
 describe('button', () => {
   rtlTest(() => h(Button, null, { default: () => 'test' }))

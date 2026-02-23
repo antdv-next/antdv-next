@@ -3,8 +3,8 @@ import { SearchOutlined } from '@antdv-next/icons'
 import { describe, expect, it, vi } from 'vitest'
 import { h } from 'vue'
 import Button from '..'
-import { mount } from '../../../../../tests/utils'
 import ConfigProvider from '../../config-provider'
+import { mount } from '/@tests/utils'
 
 describe('button.Semantic', () => {
   it('should support classNames and styles', () => {

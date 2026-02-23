@@ -2,8 +2,8 @@ import { UserOutlined } from '@antdv-next/icons'
 import { describe, expect, it, vi } from 'vitest'
 import { h, nextTick, ref } from 'vue'
 import Avatar from '..'
-import rtlTest from '../../../../../tests/shared/rtlTest'
-import { mount } from '../../../../../tests/utils'
+import rtlTest from '/@tests/shared/rtlTest'
+import { mount } from '/@tests/utils'
 
 describe('avatar', () => {
   rtlTest(() => h(Avatar, null, { default: () => 'test' }))

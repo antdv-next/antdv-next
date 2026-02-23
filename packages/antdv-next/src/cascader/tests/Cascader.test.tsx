@@ -1,9 +1,9 @@
 import { describe, expect, it, vi } from 'vitest'
 import { h, nextTick } from 'vue'
 import Cascader, { CascaderPanel } from '..'
-import rtlTest from '../../../../../tests/shared/rtlTest'
-import { mount } from '../../../../../tests/utils'
 import ConfigProvider from '../../config-provider'
+import rtlTest from '/@tests/shared/rtlTest'
+import { mount } from '/@tests/utils'
 
 const options = [
   {

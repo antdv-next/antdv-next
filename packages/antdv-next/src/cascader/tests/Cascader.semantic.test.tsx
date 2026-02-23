@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest'
 import { nextTick } from 'vue'
 import Cascader from '..'
-import { mount } from '../../../../../tests/utils'
+import { mount } from '/@tests/utils'
 
 const options = [
   {

@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest'
 import { h } from 'vue'
 import Badge from '..'
-import rtlTest from '../../../../../tests/shared/rtlTest'
-import { mount } from '../../../../../tests/utils'
+import rtlTest from '/@tests/shared/rtlTest'
+import { mount } from '/@tests/utils'
 
 describe('badge.Ribbon', () => {
   rtlTest(() => h(Badge.Ribbon, { text: 'test' }, { default: () => h('div', 'Content') }))

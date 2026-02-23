@@ -1,9 +1,9 @@
 import { describe, expect, it, vi } from 'vitest'
 import { h, nextTick, ref } from 'vue'
 import Checkbox, { CheckboxGroup } from '..'
-import rtlTest from '../../../../../tests/shared/rtlTest'
-import { mount } from '../../../../../tests/utils'
 import ConfigProvider from '../../config-provider'
+import rtlTest from '/@tests/shared/rtlTest'
+import { mount } from '/@tests/utils'
 
 describe('checkbox', () => {
   rtlTest(() => h(Checkbox))
@@ -152,13 +152,13 @@ describe('checkbox', () => {
   // ============ Expose ============
 
   it('should expose focus and blur methods', () => {
-    const wrapper = mount(Checkbox)
+    const wrapper: any = mount(Checkbox)
     expect(typeof wrapper.vm.focus).toBe('function')
     expect(typeof wrapper.vm.blur).toBe('function')
   })
 
   it('should expose input ref', () => {
-    const wrapper = mount(Checkbox)
+    const wrapper: any = mount(Checkbox)
     expect(wrapper.vm.input).toBeDefined()
   })
 
@@ -225,7 +225,7 @@ describe('checkboxGroup', () => {
     })
     const items = wrapper.findAll('.ant-checkbox-wrapper')
     expect(items.length).toBe(3)
-    expect(items[0].text()).toBe('Apple')
+    expect(items![0]!.text()).toBe('Apple')
   })
 
   it('should render number options', () => {
@@ -234,7 +234,7 @@ describe('checkboxGroup', () => {
     })
     const items = wrapper.findAll('.ant-checkbox-wrapper')
     expect(items.length).toBe(3)
-    expect(items[0].text()).toBe('1')
+    expect(items![0]!.text()).toBe('1')
   })
 
   it('should support value prop', () => {
@@ -285,7 +285,7 @@ describe('checkboxGroup', () => {
     })
 
     const inputs = wrapper.findAll('input')
-    await inputs[0].trigger('change')
+    await inputs![0]!.trigger('change')
     await nextTick()
 
     expect(onUpdateValue).toHaveBeenCalled()
@@ -298,7 +298,7 @@ describe('checkboxGroup', () => {
     })
 
     const inputs = wrapper.findAll('input')
-    await inputs[0].trigger('change')
+    await inputs![0]!.trigger('change')
     await nextTick()
 
     expect(onChange).toHaveBeenCalled()
@@ -348,7 +348,7 @@ describe('checkboxGroup', () => {
     expect(wrapper.findAll('.ant-checkbox-wrapper-checked').length).toBe(0)
 
     const inputs = wrapper.findAll('input')
-    await inputs[1].trigger('change')
+    await inputs![1]!.trigger('change')
     await nextTick()
 
     expect(wrapper.findAll('.ant-checkbox-wrapper-checked').length).toBe(1)

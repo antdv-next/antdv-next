@@ -2,8 +2,8 @@ import { HomeOutlined } from '@antdv-next/icons'
 import { describe, expect, it, vi } from 'vitest'
 import { h } from 'vue'
 import Breadcrumb from '..'
-import rtlTest from '../../../../../tests/shared/rtlTest'
-import { mount } from '../../../../../tests/utils'
+import rtlTest from '/@tests/shared/rtlTest'
+import { mount } from '/@tests/utils'
 
 describe('breadcrumb', () => {
   rtlTest(() => h(Breadcrumb, { items: [{ title: 'Home' }, { title: 'Current' }] }))

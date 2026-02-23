@@ -1,7 +1,7 @@
 import type { BadgeProps } from '..'
 import { describe, expect, it, vi } from 'vitest'
 import Badge from '..'
-import { mount } from '../../../../../tests/utils'
+import { mount } from '/@tests/utils'
 
 describe('badge.Semantic', () => {
   it('should support classNames and styles', () => {

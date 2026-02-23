@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest'
 import Checkbox from '..'
-import { mount } from '../../../../../tests/utils'
+import { mount } from '/@tests/utils'
 
 describe('checkbox semantic DOM', () => {
   it('should support object classNames and styles', () => {

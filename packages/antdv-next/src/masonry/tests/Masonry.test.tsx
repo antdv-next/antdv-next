@@ -2,10 +2,10 @@ import type { MasonryProps } from '..'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { h, nextTick, ref } from 'vue'
 import Masonry from '..'
-import mountTest from '../../../../../tests/shared/mountTest'
-import rtlTest from '../../../../../tests/shared/rtlTest'
-import { mount, triggerResize, waitFakeTimer } from '../../../../../tests/utils'
 import ConfigProvider from '../../config-provider'
+import mountTest from '/@tests/shared/mountTest'
+import rtlTest from '/@tests/shared/rtlTest'
+import { mount, triggerResize, waitFakeTimer } from '/@tests/utils'
 
 function createItems(heights: number[]) {
   return heights.map((height, index) => ({

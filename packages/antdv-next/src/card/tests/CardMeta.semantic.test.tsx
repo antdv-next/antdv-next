@@ -2,7 +2,7 @@ import type { CardMetaProps } from '../CardMeta'
 import { describe, expect, it, vi } from 'vitest'
 import { h } from 'vue'
 import { CardMeta } from '..'
-import { mount } from '../../../../../tests/utils'
+import { mount } from '/@tests/utils'
 
 describe('cardMeta semantic DOM', () => {
   it('should support classNames and styles', () => {

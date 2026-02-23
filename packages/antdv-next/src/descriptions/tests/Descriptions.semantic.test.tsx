@@ -1,8 +1,8 @@
 import type { DescriptionsProps } from '../index'
 import { describe, expect, it, vi } from 'vitest'
 import Descriptions from '..'
-import { mount } from '../../../../../tests/utils'
 import ConfigProvider from '../../config-provider'
+import { mount } from '/@tests/utils'
 
 const basicItems = [
   { key: '1', label: 'Product', content: 'Cloud Database' },

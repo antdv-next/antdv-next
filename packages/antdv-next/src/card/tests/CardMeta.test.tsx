@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { h } from 'vue'
 import { CardMeta } from '..'
-import { mount } from '../../../../../tests/utils'
+import { mount } from '/@tests/utils'
 
 describe('cardMeta', () => {
   it('should render basic CardMeta', () => {

@@ -1,8 +1,8 @@
 import { describe, expect, it, vi } from 'vitest'
 import { h } from 'vue'
 import Card, { CardGrid, CardMeta } from '..'
-import rtlTest from '../../../../../tests/shared/rtlTest'
-import { mount } from '../../../../../tests/utils'
+import rtlTest from '/@tests/shared/rtlTest'
+import { mount } from '/@tests/utils'
 
 describe('card', () => {
   rtlTest(() => h(Card, null, { default: () => 'Card content' }))
