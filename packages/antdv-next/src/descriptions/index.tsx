@@ -189,6 +189,7 @@ const Descriptions = defineComponent<
             hashId.value,
             cssVarCls.value,
           )}
+          id={props.id}
           style={[contextStyle, mergedStyles.value.root, (attrs as any).style]}
           {...omit(attrs, ['class', 'style'])}
         >
