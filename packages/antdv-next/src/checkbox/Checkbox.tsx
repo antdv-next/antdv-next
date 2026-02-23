@@ -130,9 +130,7 @@ const InternalCheckbox = defineComponent<
     watch(
       () => props.checked,
       (newChecked) => {
-        if (newChecked !== undefined) {
-          currentValue.value = newChecked
-        }
+        currentValue.value = newChecked ?? mergedUnCheckedValue.value
       },
     )
 

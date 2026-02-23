@@ -378,6 +378,28 @@ describe('switch', () => {
     expect(wrapper.find('button').attributes('aria-checked')).toBe('true')
   })
 
+  it('should clear checked state when controlled checked path becomes undefined without reusing defaultChecked', async () => {
+    const data = ref<Record<string, any>>({ checked: true })
+    const wrapper = mount({
+      render() {
+        return h(Switch, {
+          checked: data.value.checked,
+          defaultChecked: true,
+          'onUpdate:checked': (val: any) => {
+            data.value.checked = val
+          },
+        })
+      },
+    })
+
+    expect(wrapper.find('button').attributes('aria-checked')).toBe('true')
+
+    data.value = {}
+    await nextTick()
+
+    expect(wrapper.find('button').attributes('aria-checked')).toBe('false')
+  })
+
   // ===================== semantic classes/styles (basic) =====================
 
   it('should apply semantic classes and styles', () => {

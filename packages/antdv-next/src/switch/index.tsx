@@ -129,6 +129,9 @@ const Switch = defineComponent<
         else if (newValue !== undefined) {
           currentValue.value = newValue
         }
+        else {
+          currentValue.value = mergedUnCheckedValue.value
+        }
       },
     )
 

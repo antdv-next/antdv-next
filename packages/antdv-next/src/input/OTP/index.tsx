@@ -123,9 +123,7 @@ const OTP = defineComponent<
     const initialValue = internalFormatter(props.value ?? props.defaultValue ?? '')
     const valueCells = shallowRef<string[]>(strToArr(initialValue))
     watch(() => props.value, (newValue) => {
-      if (typeof newValue !== 'undefined') {
-        valueCells.value = strToArr(internalFormatter(newValue))
-      }
+      valueCells.value = strToArr(internalFormatter(newValue ?? ''))
     })
 
     const triggerValueCellsChange = (nextValueCells: string[]) => {

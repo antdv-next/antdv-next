@@ -310,6 +310,24 @@ describe('layout', () => {
         await wrapper.find('.ant-layout-sider-trigger').trigger('click')
         expect(wrapper.find('.ant-layout-sider-collapsed').exists()).toBe(false)
       })
+
+      it('should not reapply defaultCollapsed when controlled collapsed becomes undefined', async () => {
+        const state = ref<Record<string, any>>({ collapsed: false })
+        const wrapper = mount(() => (
+          <Layout>
+            <LayoutSider collapsed={state.value.collapsed} defaultCollapsed>
+              Sider
+            </LayoutSider>
+          </Layout>
+        ))
+
+        expect(wrapper.find('.ant-layout-sider-collapsed').exists()).toBe(false)
+
+        state.value = {}
+        await nextTick()
+
+        expect(wrapper.find('.ant-layout-sider-collapsed').exists()).toBe(false)
+      })
     })
 
     it('should support defaultCollapsed', () => {

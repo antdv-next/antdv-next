@@ -116,10 +116,7 @@ const Base = defineComponent<
     // ========================== Editable ==========================
     const [enableEdit, editConfig] = useMergedConfig<EditConfig>(computed(() => props.editable))
     const editing = shallowRef(editConfig.value.editing ?? false)
-    watch(editConfig, (config) => {
-      if (config.editing !== undefined)
-        editing.value = !!config.editing
-    })
+    watch(() => editConfig.value.editing, val => (editing.value = !!val))
     const triggerType = computed(() => editConfig.value.triggerType ?? ['icon'])
 
     const triggerEdit = (edit: boolean) => {
@@ -197,8 +194,7 @@ const Base = defineComponent<
     watch(
       () => ellipsisConfig.value.expanded,
       (val) => {
-        if (val !== undefined)
-          expanded.value = val
+        expanded.value = !!val
       },
     )
 

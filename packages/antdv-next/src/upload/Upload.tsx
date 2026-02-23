@@ -87,9 +87,7 @@ const InternalUpload = defineComponent<
     watch(
       () => props.fileList,
       () => {
-        if (props.fileList !== undefined) {
-          internalFileList.value = props?.fileList ?? []
-        }
+        internalFileList.value = props?.fileList ?? []
       },
     )
     const mergedFileList = computed(() => props?.fileList ?? internalFileList.value ?? [])

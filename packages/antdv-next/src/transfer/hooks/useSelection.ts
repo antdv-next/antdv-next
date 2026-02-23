@@ -30,9 +30,7 @@ function useSelection<T extends { key: TransferKey }>(
   watch(
     () => unref(selectedKeys),
     (nextKeys) => {
-      if (nextKeys !== undefined) {
-        mergedSelectedKeys.value = nextKeys
-      }
+      mergedSelectedKeys.value = nextKeys ?? EMPTY_KEYS
     },
   )
 

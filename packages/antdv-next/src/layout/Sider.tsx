@@ -4,7 +4,7 @@ import { BarsOutlined, LeftOutlined, RightOutlined } from '@antdv-next/icons'
 import { classNames } from '@v-c/util'
 import canUseDom from '@v-c/util/dist/Dom/canUseDom'
 import { omit } from 'es-toolkit'
-import { computed, defineComponent, inject, onBeforeUnmount, provide, ref, shallowRef, watch, watchEffect } from 'vue'
+import { computed, defineComponent, inject, onBeforeUnmount, provide, ref, shallowRef, watch } from 'vue'
 import { addMediaQueryListener, removeMediaQueryListener } from '../_util/mediaQueryUtil.ts'
 import { getSlotPropsFnRun } from '../_util/tools.ts'
 import { useBaseConfig } from '../config-provider/context.ts'
@@ -96,10 +96,15 @@ const Sider = defineComponent<
   SlotsType<SiderSlots>
 >((props = defaultProps, { emit, slots, attrs }) => {
   const { siderHook } = useLayoutCtx()
-  const collapsed = shallowRef(false)
-  watchEffect(() => {
-    collapsed.value = !!(props.collapsed === undefined ? props.defaultCollapsed : props.collapsed)
-  })
+  const collapsed = shallowRef(!!(props.collapsed === undefined ? props.defaultCollapsed : props.collapsed))
+  watch(
+    () => props.collapsed,
+    (value) => {
+      if (value !== undefined) {
+        collapsed.value = !!value
+      }
+    },
+  )
   const below = shallowRef(false)
 
   const handleSetCollapsed = (value: boolean, type: CollapseType) => {

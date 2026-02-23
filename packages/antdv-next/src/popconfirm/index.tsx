@@ -8,7 +8,7 @@ import { ExclamationCircleFilled } from '@antdv-next/icons'
 import { clsx } from '@v-c/util'
 import { removeUndefined } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
-import { computed, defineComponent, shallowRef, watchEffect } from 'vue'
+import { computed, defineComponent, shallowRef, watch } from 'vue'
 import { useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { useComponentBaseConfig } from '../config-provider/context'
@@ -111,11 +111,18 @@ const InternalPopconfirm = defineComponent<
     const popoverRef = shallowRef<TooltipRef>()
 
     const open = shallowRef(props.open ?? props.defaultOpen ?? false)
-    watchEffect(() => {
-      if (props.open !== undefined) {
-        open.value = props.open
-      }
-    })
+    watch(
+      () => props.open,
+      (val, prevVal) => {
+        if (val !== undefined) {
+          open.value = val
+        }
+        else if (prevVal !== undefined) {
+          open.value = false
+        }
+      },
+      { immediate: true },
+    )
 
     const settingOpen = (value: boolean, e?: MouseEvent | KeyboardEvent) => {
       if (props.open === undefined) {

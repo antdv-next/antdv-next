@@ -6,7 +6,7 @@ import { clsx } from '@v-c/util'
 import KeyCode from '@v-c/util/dist/KeyCode'
 import { filterEmpty, removeUndefined } from '@v-c/util/dist/props-util'
 import { getTransitionName } from '@v-c/util/dist/utils/transition'
-import { computed, createVNode, defineComponent, shallowRef, watchEffect } from 'vue'
+import { computed, createVNode, defineComponent, shallowRef, watch } from 'vue'
 import {
   useMergeSemantic,
   useToArr,
@@ -105,11 +105,18 @@ const InternalPopover = defineComponent<
       PopoverProps
     >(useToArr(contextClassNames, classes), useToArr(contextStyles, styles), useToProps(mergedProps))
     const open = shallowRef(props?.open ?? props?.defaultOpen ?? false)
-    watchEffect(() => {
-      if (props.open !== undefined) {
-        open.value = props.open
-      }
-    })
+    watch(
+      () => props.open,
+      (val, prevVal) => {
+        if (val !== undefined) {
+          open.value = val
+        }
+        else if (prevVal !== undefined) {
+          open.value = false
+        }
+      },
+      { immediate: true },
+    )
 
     const settingOpen = (value: boolean, e?: MouseEvent | KeyboardEvent) => {
       if (props.open === undefined) {

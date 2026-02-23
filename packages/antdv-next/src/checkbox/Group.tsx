@@ -36,7 +36,7 @@ export interface CheckboxGroupProps extends AbstractCheckboxGroupProps {
   value?: any[]
   labelRender?: (params: { item: CheckboxOptionType, index: number }) => any
   role?: string
-  'onUpdate:value': (value: any[]) => void
+  'onUpdate:value'?: (value: any[]) => void
 }
 
 export interface CheckboxGroupEmits {

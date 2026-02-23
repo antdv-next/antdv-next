@@ -11,7 +11,7 @@ import VcTooltip from '@v-c/tooltip'
 import { clsx } from '@v-c/util'
 import { filterEmpty, removeUndefined } from '@v-c/util/dist/props-util'
 import { getTransitionName } from '@v-c/util/dist/utils/transition'
-import { computed, createVNode, defineComponent, isVNode, shallowRef, watchEffect } from 'vue'
+import { computed, createVNode, defineComponent, isVNode, shallowRef, watch } from 'vue'
 import { ContextIsolator } from '../_util/ContextIsolator.tsx'
 import { useMergeSemantic, useToArr, useToProps, useZIndex } from '../_util/hooks'
 import getPlacements from '../_util/placements.ts'
@@ -178,11 +178,18 @@ const InternalTooltip = defineComponent<
 
     // ============================== Open ==============================
     const open = shallowRef(props?.defaultOpen ?? false)
-    watchEffect(() => {
-      if (props.open !== undefined) {
-        open.value = props.open
-      }
-    })
+    watch(
+      () => props.open,
+      (val, prevVal) => {
+        if (val !== undefined) {
+          open.value = val
+        }
+        else if (prevVal !== undefined) {
+          open.value = false
+        }
+      },
+      { immediate: true },
+    )
     let noTitle = false
     const onInternalOpenChange = (vis: boolean) => {
       if (props.open === undefined) {

@@ -153,9 +153,7 @@ const InternalFloatButtonGroup = defineComponent<
 
     const open = shallowRef(props.open ?? props.defaultOpen ?? false)
     watch(() => props.open, (val) => {
-      if (val !== undefined) {
-        open.value = !!val
-      }
+      open.value = !!val
     })
 
     const triggerMode = computed(() => trigger.value && ['click', 'hover'].includes(trigger.value))

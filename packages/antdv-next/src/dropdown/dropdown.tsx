@@ -181,9 +181,7 @@ const Dropdown = defineComponent<
     watch(
       () => props.open,
       (value) => {
-        if (value !== undefined) {
-          mergedOpen.value = value
-        }
+        mergedOpen.value = value ?? false
       },
     )
     const onInnerOpenChange = (nextOpen: boolean) => {

@@ -127,8 +127,7 @@ const ColorPicker = defineComponent<
     watch(
       open,
       (val) => {
-        if (val !== undefined)
-          internalPopupOpen.value = val
+        internalPopupOpen.value = val ?? false
       },
     )
 

@@ -20,7 +20,7 @@ export interface RadioGroupProps extends AbstractCheckboxGroupProps {
   block?: boolean
   vertical?: boolean
   labelRender?: (params: { item: CheckboxOptionType, index: number }) => any
-  'onUpdate:value': (value: any) => void
+  'onUpdate:value'?: (value: any) => void
 }
 
 export interface RadioGroupEmits {

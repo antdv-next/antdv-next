@@ -300,8 +300,9 @@ describe('radio group', () => {
 
   it('should emit change and update:value when selecting a different radio', async () => {
     const onChange = vi.fn()
+    const onUpdateValue = vi.fn()
     const wrapper = mount(RadioGroup, {
-      props: { value: 'A', onChange },
+      props: { value: 'A', onChange, 'onUpdate:value': onUpdateValue },
       slots: {
         default: () => [
           <Radio value="A">A</Radio>,
@@ -312,8 +313,7 @@ describe('radio group', () => {
     const inputs = wrapper.findAll('input')
     await inputs[1].trigger('change')
     expect(onChange).toHaveBeenCalledTimes(1)
-    expect(wrapper.emitted('update:value')).toBeTruthy()
-    expect(wrapper.emitted('update:value')![0]).toEqual(['B'])
+    expect(onUpdateValue).toHaveBeenCalledWith('B')
   })
 
   it('should not emit change when selecting the already selected radio', async () => {
@@ -348,6 +348,35 @@ describe('radio group', () => {
     await inputs[1].trigger('change')
     await nextTick()
     expect(labels[1].classes()).toContain(`${prefixCls}-wrapper-checked`)
+  })
+
+  it('should clear checked state when controlled value path becomes undefined', async () => {
+    const data = ref<Record<string, any>>({ test: '1' })
+    const wrapper = mount(() => (
+      <RadioGroup
+        value={data.value.test}
+        defaultValue="1"
+        {...{
+          'onUpdate:value': (val: any) => {
+            data.value.test = val
+          },
+        }}
+      >
+        <Radio value="1">One</Radio>
+        <Radio value="2">Two</Radio>
+      </RadioGroup>
+    ))
+
+    let labels = wrapper.findAll('label')
+    expect(labels[0].classes()).toContain(`${prefixCls}-wrapper-checked`)
+    expect(labels[1].classes()).not.toContain(`${prefixCls}-wrapper-checked`)
+
+    data.value = {}
+    await nextTick()
+
+    labels = wrapper.findAll('label')
+    expect(labels[0].classes()).not.toContain(`${prefixCls}-wrapper-checked`)
+    expect(labels[1].classes()).not.toContain(`${prefixCls}-wrapper-checked`)
   })
 
   // ===================== disabled =====================

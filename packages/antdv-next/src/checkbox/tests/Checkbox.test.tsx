@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest'
-import { h, nextTick } from 'vue'
+import { h, nextTick, ref } from 'vue'
 import Checkbox, { CheckboxGroup } from '..'
 import rtlTest from '../../../../../tests/shared/rtlTest'
 import { mount } from '../../../../../tests/utils'
@@ -70,6 +70,30 @@ describe('checkbox', () => {
     await wrapper.find('input').trigger('change')
     await nextTick()
     expect(onChange).toHaveBeenCalled()
+  })
+
+  it('should clear checked state when controlled checked path becomes undefined', async () => {
+    const data = ref<Record<string, any>>({ checked: true })
+    const wrapper = mount(() => (
+      <Checkbox
+        checked={data.value.checked}
+        defaultChecked
+        {...{
+          'onUpdate:checked': (val: any) => {
+            data.value.checked = val
+          },
+        }}
+      >
+        Checkbox
+      </Checkbox>
+    ))
+
+    expect(wrapper.find('.ant-checkbox-wrapper-checked').exists()).toBe(true)
+
+    data.value = {}
+    await nextTick()
+
+    expect(wrapper.find('.ant-checkbox-wrapper-checked').exists()).toBe(false)
   })
 
   // ============ Disabled ============
@@ -278,6 +302,29 @@ describe('checkboxGroup', () => {
     await nextTick()
 
     expect(onChange).toHaveBeenCalled()
+  })
+
+  it('should clear checked values when controlled value path becomes undefined', async () => {
+    const data = ref<Record<string, any>>({ value: ['Apple'] })
+    const wrapper = mount(() => (
+      <CheckboxGroup
+        options={options}
+        value={data.value.value}
+        defaultValue={['Apple']}
+        {...{
+          'onUpdate:value': (val: any[]) => {
+            data.value.value = val
+          },
+        }}
+      />
+    ))
+
+    expect(wrapper.findAll('.ant-checkbox-wrapper-checked').length).toBe(1)
+
+    data.value = {}
+    await nextTick()
+
+    expect(wrapper.findAll('.ant-checkbox-wrapper-checked').length).toBe(0)
   })
 
   it('should support name prop', () => {
