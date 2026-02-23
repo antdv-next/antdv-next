@@ -115,7 +115,7 @@ function changeDirection(value: 1 | 2) {
         <h1 class="m-0 p-0">
           <router-link class="inline-flex items-center pl-40px h-(--ant-doc-header-height) line-height-[var(--ant-doc-header-height)] text-18px font-bold a-color-text hover:a-color-text of-hidden" to="/">
             <img src="../../assets/antdv-next.svg" class="w-36px h-36px inline-block align-middle" draggable="false" alt="logo">
-            <span class="ml-2">
+            <span class="ml-2 c-text">
               Antdv Next
             </span>
           </router-link>

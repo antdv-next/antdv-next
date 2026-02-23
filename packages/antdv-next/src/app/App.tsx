@@ -71,8 +71,8 @@ const App = defineComponent<AppProps>(
       const Component = component === false ? Fragment : component
       const rootProps = {
         ...restAttrs,
-        class: clsx(contextClassName, customClassName),
-        style: { ...contextStyle, ...style },
+        class: clsx(contextClassName.value, customClassName),
+        style: { ...contextStyle.value, ...style },
       }
       return (
         <AppConfigProvider {...mergedAppConfig.value}>
