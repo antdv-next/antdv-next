@@ -1,24 +1,26 @@
 <script setup lang="ts">
-import { JavaScriptOutlined } from '@antdv-next/icons'
-import { version } from 'antdv-next'
+import { ref } from 'vue'
+
+const data = ref<Record<string, any>>({ test: '1' })
+
+function handleClick() {
+  data.value = {}
+}
 </script>
 
 <template>
-  <main>
-    <header class="header">
-      antdv next version {{ version }}
-      <JavaScriptOutlined />
-    </header>
-    <section>
-      <a-button type="primary">
-        test
-      </a-button>
-    </section>
-  </main>
+  <a-radio-group v-model:value="data.test">
+    <a-radio value="1">
+      测试1
+    </a-radio>
+    <a-radio value="2">
+      测试2
+    </a-radio>
+  </a-radio-group>
+  <div>
+    <a-button @click="handleClick">
+      点击触发bug
+    </a-button>
+  </div>
+  {{ data }}
 </template>
-
-<style scoped>
-.header {
-  text-align: center;
-}
-</style>

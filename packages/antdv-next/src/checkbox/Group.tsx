@@ -36,10 +36,10 @@ export interface CheckboxGroupProps extends AbstractCheckboxGroupProps {
   value?: any[]
   labelRender?: (params: { item: CheckboxOptionType, index: number }) => any
   role?: string
+  'onUpdate:value': (value: any[]) => void
 }
 
 export interface CheckboxGroupEmits {
-  'update:value': (value: any[]) => void
   'change': (checkedValue: any[]) => void
 }
 
@@ -67,9 +67,7 @@ const CheckboxGroup = defineComponent<
     watch(
       () => props.value,
       () => {
-        if (props.value !== undefined) {
-          value.value = props?.value ?? []
-        }
+        value.value = props?.value ?? []
       },
     )
     const memoizedOptions = computed(() => {
@@ -108,8 +106,10 @@ const CheckboxGroup = defineComponent<
           return indexA - indexB
         })
       emit('change', sortVals)
-      emit('update:value', sortVals)
-      if (props.value === undefined) {
+      if (props?.['onUpdate:value']) {
+        props['onUpdate:value'](sortVals)
+      }
+      else {
         value.value = newValue
       }
     }

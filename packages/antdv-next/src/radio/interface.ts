@@ -20,6 +20,7 @@ export interface RadioGroupProps extends AbstractCheckboxGroupProps {
   block?: boolean
   vertical?: boolean
   labelRender?: (params: { item: CheckboxOptionType, index: number }) => any
+  'onUpdate:value': (value: any) => void
 }
 
 export interface RadioGroupEmits {
@@ -28,7 +29,6 @@ export interface RadioGroupEmits {
   'mouseleave': (e: MouseEvent) => void
   'focus': (e: FocusEvent) => void
   'blur': (e: FocusEvent) => void
-  'update:value': (value: any) => void
 }
 
 export interface RadioGroupSlots {
