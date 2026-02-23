@@ -277,6 +277,13 @@ describe('descriptions', () => {
   })
 
   // ==================== Attrs Passthrough ====================
+  it('renders id prop on root element', () => {
+    const wrapper = mount(Descriptions, {
+      props: { id: 'my-desc', items: basicItems },
+    })
+    expect(wrapper.find('.ant-descriptions').attributes('id')).toBe('my-desc')
+  })
+
   it('passes data-* attributes to root', () => {
     const wrapper = mount(Descriptions, {
       attrs: {
