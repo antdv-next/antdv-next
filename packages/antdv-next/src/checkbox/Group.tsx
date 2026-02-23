@@ -106,10 +106,8 @@ const CheckboxGroup = defineComponent<
           return indexA - indexB
         })
       emit('change', sortVals)
-      if (props?.['onUpdate:value']) {
-        props['onUpdate:value'](sortVals)
-      }
-      else {
+      props?.['onUpdate:value']?.(sortVals)
+      if (props.value === undefined) {
         value.value = newValue
       }
     }

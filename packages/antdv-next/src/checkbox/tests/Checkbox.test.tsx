@@ -327,6 +327,34 @@ describe('checkboxGroup', () => {
     expect(wrapper.findAll('.ant-checkbox-wrapper-checked').length).toBe(0)
   })
 
+  it('should still toggle using internal state when onUpdate:value exists but value becomes undefined', async () => {
+    const data = ref<Record<string, any>>({ value: ['Apple'] })
+    const wrapper = mount(() => (
+      <CheckboxGroup
+        options={options}
+        value={data.value.value}
+        {...{
+          'onUpdate:value': (val: any[]) => {
+            data.value.value = val
+          },
+        }}
+      />
+    ))
+
+    expect(wrapper.findAll('.ant-checkbox-wrapper-checked').length).toBe(1)
+
+    data.value = {}
+    await nextTick()
+    expect(wrapper.findAll('.ant-checkbox-wrapper-checked').length).toBe(0)
+
+    const inputs = wrapper.findAll('input')
+    await inputs[1].trigger('change')
+    await nextTick()
+
+    expect(wrapper.findAll('.ant-checkbox-wrapper-checked').length).toBe(1)
+    expect(wrapper.findAll('.ant-checkbox-wrapper-checked')[0]?.text()).toContain('Pear')
+  })
+
   it('should support name prop', () => {
     const wrapper = mount(CheckboxGroup, {
       props: { options, name: 'fruits' },
