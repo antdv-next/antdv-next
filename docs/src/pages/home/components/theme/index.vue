@@ -15,6 +15,14 @@ const { darkMode } = storeToRefs(appStore)
 const previewThemes = usePreviewThemes()
 const activeName = ref('')
 
+function getModeDefaultTheme(themes = previewThemes.value) {
+  if (!themes.length)
+    return undefined
+
+  const defaultThemeKey = darkMode.value ? 'dark' : 'light'
+  return themes.find(item => item.key === defaultThemeKey) ?? themes[0]
+}
+
 const activeTheme = computed(() => {
   return previewThemes.value.find(item => item.name === activeName.value) ?? previewThemes.value[0]
 })
@@ -34,12 +42,7 @@ watch(
       return
     }
 
-    const defaultThemeName = darkMode.value ? 'dark' : 'light'
-    const targetTheme = import.meta.env.DEV
-      ? themes[themes.length - 1]
-      : themes.find(item => item.key === defaultThemeName) ?? themes[0]
-
-    activeName.value = targetTheme?.name ?? themes[0]!.name
+    activeName.value = getModeDefaultTheme(themes)?.name ?? themes[0]!.name
   },
   { immediate: true },
 )
@@ -53,8 +56,7 @@ watch(
     }
 
     if (!themes.some(item => item.name === activeName.value)) {
-      const defaultThemeName = darkMode.value ? 'dark' : 'light'
-      activeName.value = (themes.find(item => item.key === defaultThemeName) ?? themes[0])!.name
+      activeName.value = getModeDefaultTheme(themes)?.name ?? themes[0]!.name
     }
   },
   { immediate: true },
