@@ -162,6 +162,50 @@ describe('tooltip', () => {
     expect(wrapper.find('.ant-tooltip-open').exists()).toBe(false)
   })
 
+  it('should switch to uncontrolled mode when controlled open path becomes undefined', async () => {
+    const state = ref<Record<string, any>>({ open: true })
+
+    const wrapper = mount({
+      render() {
+        return (
+          <Tooltip
+            title="Have a nice day!"
+            mouseEnterDelay={0}
+            mouseLeaveDelay={0}
+            open={state.value.open}
+            {...{
+              'onUpdate:open': (val: boolean) => {
+                state.value.open = val
+              },
+            }}
+          >
+            <div id="tooltip-open-switch">Hello world!</div>
+          </Tooltip>
+        )
+      },
+    }, {
+      attachTo: document.body,
+    })
+
+    await flushTooltipTimer()
+    expect(isTooltipOpen()).toBeTruthy()
+    expect(wrapper.find('.ant-tooltip-open').exists()).toBe(true)
+
+    state.value = {}
+    await nextTick()
+    await flushTooltipTimer()
+    expect(isTooltipOpen()).toBeFalsy()
+    expect(wrapper.find('.ant-tooltip-open').exists()).toBe(false)
+
+    const target = wrapper.find('#tooltip-open-switch')
+    await triggerEnter(target)
+    await flushTooltipTimer()
+
+    expect(isTooltipOpen()).toBeTruthy()
+    expect(wrapper.find('.ant-tooltip-open').exists()).toBe(true)
+    expect(state.value.open).toBe(true)
+  })
+
   it('should hide when mouse leave native disabled button', async () => {
     const onOpenChange = vi.fn()
 

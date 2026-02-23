@@ -212,6 +212,42 @@ describe('transfer', () => {
     expect(handleSelectChange).toHaveBeenLastCalledWith(['a'], ['b'])
   })
 
+  it('should clear internal selected state when controlled selectedKeys path becomes undefined', async () => {
+    const state = ref<Record<string, any>>({ selectedKeys: ['a'] })
+    const Demo = defineComponent(() => {
+      return () => (
+        <Transfer
+          dataSource={listCommonProps.dataSource}
+          targetKeys={[]}
+          selectedKeys={state.value.selectedKeys}
+          render={item => item.title}
+          {...{
+            'onUpdate:selectedKeys': (keys: string[]) => {
+              state.value.selectedKeys = keys
+            },
+          }}
+        />
+      )
+    })
+
+    const wrapper = mount(Demo)
+
+    const itemACheckbox = getTransferItemByTitle(wrapper, 'a')?.querySelector('input[type="checkbox"]') as HTMLInputElement
+    expect(itemACheckbox.checked).toBe(true)
+
+    state.value = {}
+    await nextTick()
+
+    expect(itemACheckbox.checked).toBe(false)
+
+    clickElement(getTransferItemByTitle(wrapper, 'b'))
+    await nextTick()
+
+    expect(state.value.selectedKeys).toEqual(['b'])
+    const itemBCheckbox = getTransferItemByTitle(wrapper, 'b')?.querySelector('input[type="checkbox"]') as HTMLInputElement
+    expect(itemBCheckbox.checked).toBe(true)
+  })
+
   it('multiple select/deselect by hold down the shift key', () => {
     const handleSelectChange = vi.fn()
     const wrapper = mount(Transfer, {
