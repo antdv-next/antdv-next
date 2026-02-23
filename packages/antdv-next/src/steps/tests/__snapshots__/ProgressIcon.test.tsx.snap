@@ -1,0 +1,33 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`progressIcon > should match snapshot 1`] = `
+<div
+  data-v-app=""
+>
+  <svg
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="60"
+    class="ant-steps-item-progress-icon-svg"
+    height="100%"
+    viewBox="0 0 100 100"
+    width="100%"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <title>
+      Progress
+    </title>
+    <circle
+      class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-rail"
+    />
+    <circle
+      class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-ptg"
+      stroke-dasharray="calc(var(--ant-cmp-steps-progress-radius) * 2 * 1.8849555921538756) 9999"
+      transform="rotate(-90 50 50)"
+    />
+  </svg>
+  <span>
+    2
+  </span>
+</div>
+`;

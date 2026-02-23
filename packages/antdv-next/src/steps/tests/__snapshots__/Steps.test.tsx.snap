@@ -1,0 +1,586 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`steps > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled ant-steps-rtl css-var-root"
+    responsive="true"
+    style="--ant-cmp-steps-items-offset: 0;"
+  >
+    <div
+      class="ant-steps-item ant-steps-item-process ant-steps-item-active"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target"
+        >
+          <span
+            class="ant-steps-item-icon-number"
+          >
+            1
+          </span>
+        </div>
+        <div
+          class="ant-steps-item-section"
+        >
+          <div
+            class="ant-steps-item-header"
+          >
+            <div
+              class="ant-steps-item-title"
+            >
+              Step 1
+            </div>
+            <!---->
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-wait"
+            />
+          </div>
+          <!---->
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-steps-item ant-steps-item-wait"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target"
+        >
+          <span
+            class="ant-steps-item-icon-number"
+          >
+            2
+          </span>
+        </div>
+        <div
+          class="ant-steps-item-section"
+        >
+          <div
+            class="ant-steps-item-header"
+          >
+            <div
+              class="ant-steps-item-title"
+            >
+              Step 2
+            </div>
+            <!---->
+            <!---->
+          </div>
+          <!---->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`steps > should match snapshot with default config 1`] = `
+<div
+  class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled css-var-root"
+  responsive="true"
+  style="--ant-cmp-steps-items-offset: 0;"
+>
+  <div
+    class="ant-steps-item ant-steps-item-process ant-steps-item-active"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target"
+      >
+        <span
+          class="ant-steps-item-icon-number"
+        >
+          1
+        </span>
+      </div>
+      <div
+        class="ant-steps-item-section"
+      >
+        <div
+          class="ant-steps-item-header"
+        >
+          <div
+            class="ant-steps-item-title"
+          >
+            Step 1
+          </div>
+          <!---->
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-wait"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content"
+        >
+          Description 1
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-steps-item ant-steps-item-wait"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target"
+      >
+        <span
+          class="ant-steps-item-icon-number"
+        >
+          2
+        </span>
+      </div>
+      <div
+        class="ant-steps-item-section"
+      >
+        <div
+          class="ant-steps-item-header"
+        >
+          <div
+            class="ant-steps-item-title"
+          >
+            Step 2
+          </div>
+          <!---->
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-wait"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content"
+        >
+          Description 2
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-steps-item ant-steps-item-wait"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target"
+      >
+        <span
+          class="ant-steps-item-icon-number"
+        >
+          3
+        </span>
+      </div>
+      <div
+        class="ant-steps-item-section"
+      >
+        <div
+          class="ant-steps-item-header"
+        >
+          <div
+            class="ant-steps-item-title"
+          >
+            Step 3
+          </div>
+          <!---->
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-content"
+        >
+          Description 3
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`steps > should match snapshot with dot type 1`] = `
+<div
+  class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-filled ant-steps-dot css-var-root"
+  responsive="true"
+  style="--ant-cmp-steps-items-offset: 0;"
+  type="dot"
+>
+  <div
+    class="ant-steps-item ant-steps-item-finish"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target"
+      >
+        <!---->
+      </div>
+      <div
+        class="ant-steps-item-section"
+      >
+        <div
+          class="ant-steps-item-header"
+        >
+          <div
+            class="ant-steps-item-title"
+          >
+            Step 1
+          </div>
+          <!---->
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-process"
+          />
+        </div>
+        <div
+          class="ant-steps-item-content"
+        >
+          Description 1
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-steps-item ant-steps-item-process ant-steps-item-active"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target"
+      >
+        <!---->
+      </div>
+      <div
+        class="ant-steps-item-section"
+      >
+        <div
+          class="ant-steps-item-header"
+        >
+          <div
+            class="ant-steps-item-title"
+          >
+            Step 2
+          </div>
+          <!---->
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-content"
+        >
+          Description 2
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`steps > should match snapshot with navigation type 1`] = `
+<div
+  class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled ant-steps-navigation css-var-root"
+  responsive="true"
+  style="--ant-cmp-steps-items-offset: 0;"
+  type="navigation"
+>
+  <div
+    class="ant-steps-item ant-steps-item-finish"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target"
+      >
+        <span
+          aria-label="check"
+          class="anticon anticon-check ant-steps-item-icon-finish"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="check"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        class="ant-steps-item-section"
+      >
+        <div
+          class="ant-steps-item-header"
+        >
+          <div
+            class="ant-steps-item-title"
+          >
+            Step 1
+          </div>
+          <!---->
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-process"
+          />
+        </div>
+        <!---->
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-steps-item ant-steps-item-process ant-steps-item-active"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target"
+      >
+        <span
+          class="ant-steps-item-icon-number"
+        >
+          2
+        </span>
+      </div>
+      <div
+        class="ant-steps-item-section"
+      >
+        <div
+          class="ant-steps-item-header"
+        >
+          <div
+            class="ant-steps-item-title"
+          >
+            Step 2
+          </div>
+          <!---->
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-wait"
+          />
+        </div>
+        <!---->
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-steps-item ant-steps-item-wait"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target"
+      >
+        <span
+          class="ant-steps-item-icon-number"
+        >
+          3
+        </span>
+      </div>
+      <div
+        class="ant-steps-item-section"
+      >
+        <div
+          class="ant-steps-item-header"
+        >
+          <div
+            class="ant-steps-item-title"
+          >
+            Step 3
+          </div>
+          <!---->
+          <!---->
+        </div>
+        <!---->
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`steps > should match snapshot with progress 1`] = `
+<div
+  class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled ant-steps-with-progress css-var-root"
+  percent="60"
+  responsive="true"
+  style="--ant-cmp-steps-items-offset: 0;"
+>
+  <div
+    class="ant-steps-item ant-steps-item-finish"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target"
+      >
+        <span
+          aria-label="check"
+          class="anticon anticon-check ant-steps-item-icon-finish"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="check"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 00-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        class="ant-steps-item-section"
+      >
+        <div
+          class="ant-steps-item-header"
+        >
+          <div
+            class="ant-steps-item-title"
+          >
+            Step 1
+          </div>
+          <!---->
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-process"
+          />
+        </div>
+        <!---->
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-steps-item ant-steps-item-process ant-steps-item-active"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target"
+      >
+        <svg
+          aria-valuemax="100"
+          aria-valuemin="0"
+          aria-valuenow="60"
+          class="ant-steps-item-progress-icon-svg"
+          height="100%"
+          viewBox="0 0 100 100"
+          width="100%"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>
+            Progress
+          </title>
+          <circle
+            class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-rail"
+          />
+          <circle
+            class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-ptg"
+            stroke-dasharray="calc(var(--ant-cmp-steps-progress-radius) * 2 * 1.8849555921538756) 9999"
+            transform="rotate(-90 50 50)"
+          />
+        </svg>
+        <span
+          class="ant-steps-item-icon-number"
+        >
+          2
+        </span>
+      </div>
+      <div
+        class="ant-steps-item-section"
+      >
+        <div
+          class="ant-steps-item-header"
+        >
+          <div
+            class="ant-steps-item-title"
+          >
+            Step 2
+          </div>
+          <!---->
+          <div
+            class="ant-steps-item-rail ant-steps-item-rail-wait"
+          />
+        </div>
+        <!---->
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-steps-item ant-steps-item-wait"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-steps-item-wrapper"
+    >
+      <div
+        class="ant-steps-item-icon ant-wave-target"
+      >
+        <span
+          class="ant-steps-item-icon-number"
+        >
+          3
+        </span>
+      </div>
+      <div
+        class="ant-steps-item-section"
+      >
+        <div
+          class="ant-steps-item-header"
+        >
+          <div
+            class="ant-steps-item-title"
+          >
+            Step 3
+          </div>
+          <!---->
+          <!---->
+        </div>
+        <!---->
+      </div>
+    </div>
+  </div>
+</div>
+`;
