@@ -456,7 +456,7 @@ const Select = defineComponent<
 
       const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear
 
-      const selectProps: Record<string, any> = omit(rest, ['suffixIcon', 'itemIcon', 'value', ...omitKeys])
+      const selectProps: Record<string, any> = omit(rest, ['suffixIcon', 'itemIcon', 'value', 'showSearch', ...omitKeys])
       const mergedPopupClassName = clsx(
         mergedClassNames.value?.popup?.root,
         popupClassName,
@@ -555,7 +555,7 @@ const Select = defineComponent<
           virtual={virtual.value}
           classNames={mergedClassNames.value}
           styles={mergedStyles.value as any}
-          showSearch={showSearch.value}
+          showSearch={props?.showSearch ?? showSearch.value}
           {...selectProps}
           maxTagPlaceholder={slots.maxTagPlaceholder}
           labelRender={labelRender}

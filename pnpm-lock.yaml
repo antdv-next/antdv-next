@@ -372,8 +372,8 @@ catalogs:
       specifier: ^1.0.0
       version: 1.0.0
     '@v-c/select':
-      specifier: ^1.0.13
-      version: 1.0.13
+      specifier: ^1.0.14
+      version: 1.0.14
     '@v-c/slick':
       specifier: ^1.0.0
       version: 1.0.0
@@ -825,7 +825,7 @@ importers:
         version: 1.0.0(vue@3.5.28(typescript@5.9.3))
       '@v-c/select':
         specifier: catalog:vc
-        version: 1.0.13(vue@3.5.28(typescript@5.9.3))
+        version: 1.0.14(vue@3.5.28(typescript@5.9.3))
       '@v-c/slick':
         specifier: catalog:vc
         version: 1.0.0(vue@3.5.28(typescript@5.9.3))
@@ -2459,24 +2459,6 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
-  '@v-c/picker@1.0.3':
-    resolution: {integrity: sha512-ELnKQ5msaPMKs2T1PSqz1MNQ7p0Hr4tXZD5JGPBYCxG+LOzwSu46q0UlfhoPIJ+1pttjyR5rztMrDA3/Qzmvmw==}
-    peerDependencies:
-      date-fns: '>= 2.x'
-      dayjs: '>= 1.x'
-      luxon: '>= 3.x'
-      moment: '>= 2.x'
-      vue: ^3.0.0
-    peerDependenciesMeta:
-      date-fns:
-        optional: true
-      dayjs:
-        optional: true
-      luxon:
-        optional: true
-      moment:
-        optional: true
-
   '@v-c/picker@1.0.4':
     resolution: {integrity: sha512-B98FSgE+Kh6lNwa5msySFL8NNiF3fFkmFuuL14WEdb4f6q47XYH7YvcQa2jySXnbYPKHdykZMFo37f/0BzFaPw==}
     peerDependencies:
@@ -2530,6 +2512,11 @@ packages:
 
   '@v-c/select@1.0.13':
     resolution: {integrity: sha512-iYoFzKZQ4ixrt+1WgCl5zpMtllM/8qTF2on6IgAeK8d5aqWPggPWc5vgUUqX9ceIQ5UxclsStG0nKl2LOwoSxg==}
+    peerDependencies:
+      vue: ^3.0.0
+
+  '@v-c/select@1.0.14':
+    resolution: {integrity: sha512-Y/E7wfuMO0mi5PP4WGORWS3c19OSVOh4sFv0i9dBFK2jDwGfH0yspavVBMk8ZQKM/vIHJGrwQjX5I1IKSZ1ukQ==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -7383,7 +7370,7 @@ snapshots:
 
   '@v-c/cascader@1.0.1(vue@3.5.28(typescript@5.9.3))':
     dependencies:
-      '@v-c/select': 1.0.13(vue@3.5.28(typescript@5.9.3))
+      '@v-c/select': 1.0.14(vue@3.5.28(typescript@5.9.3))
       '@v-c/tree': 1.0.4(vue@3.5.28(typescript@5.9.3))
       '@v-c/util': 1.0.14(vue@3.5.28(typescript@5.9.3))
       vue: 3.5.28(typescript@5.9.3)
@@ -7480,16 +7467,6 @@ snapshots:
       '@v-c/util': 1.0.14(vue@3.5.28(typescript@5.9.3))
       vue: 3.5.28(typescript@5.9.3)
 
-  '@v-c/picker@1.0.3(dayjs@1.11.19)(vue@3.5.28(typescript@5.9.3))':
-    dependencies:
-      '@v-c/overflow': 1.0.3(vue@3.5.28(typescript@5.9.3))
-      '@v-c/resize-observer': 1.0.8(vue@3.5.28(typescript@5.9.3))
-      '@v-c/trigger': 1.0.11(vue@3.5.28(typescript@5.9.3))
-      '@v-c/util': 1.0.14(vue@3.5.28(typescript@5.9.3))
-      vue: 3.5.28(typescript@5.9.3)
-    optionalDependencies:
-      dayjs: 1.11.19
-
   '@v-c/picker@1.0.4(dayjs@1.11.19)(vue@3.5.28(typescript@5.9.3))':
     dependencies:
       '@v-c/overflow': 1.0.3(vue@3.5.28(typescript@5.9.3))
@@ -7546,6 +7523,14 @@ snapshots:
       vue: 3.5.28(typescript@5.9.3)
 
   '@v-c/select@1.0.13(vue@3.5.28(typescript@5.9.3))':
+    dependencies:
+      '@v-c/overflow': 1.0.3(vue@3.5.28(typescript@5.9.3))
+      '@v-c/trigger': 1.0.11(vue@3.5.28(typescript@5.9.3))
+      '@v-c/util': 1.0.14(vue@3.5.28(typescript@5.9.3))
+      '@v-c/virtual-list': 1.0.6(vue@3.5.28(typescript@5.9.3))
+      vue: 3.5.28(typescript@5.9.3)
+
+  '@v-c/select@1.0.14(vue@3.5.28(typescript@5.9.3))':
     dependencies:
       '@v-c/overflow': 1.0.3(vue@3.5.28(typescript@5.9.3))
       '@v-c/trigger': 1.0.11(vue@3.5.28(typescript@5.9.3))
@@ -7612,7 +7597,7 @@ snapshots:
 
   '@v-c/tree-select@1.0.2(vue@3.5.28(typescript@5.9.3))':
     dependencies:
-      '@v-c/select': 1.0.13(vue@3.5.28(typescript@5.9.3))
+      '@v-c/select': 1.0.14(vue@3.5.28(typescript@5.9.3))
       '@v-c/tree': 1.0.4(vue@3.5.28(typescript@5.9.3))
       '@v-c/util': 1.0.14(vue@3.5.28(typescript@5.9.3))
       vue: 3.5.28(typescript@5.9.3)
@@ -7972,7 +7957,7 @@ snapshots:
       '@v-c/mutate-observer': 1.0.1(vue@3.5.28(typescript@5.9.3))
       '@v-c/notification': 1.0.0(vue@3.5.28(typescript@5.9.3))
       '@v-c/pagination': 1.0.0(vue@3.5.28(typescript@5.9.3))
-      '@v-c/picker': 1.0.3(dayjs@1.11.19)(vue@3.5.28(typescript@5.9.3))
+      '@v-c/picker': 1.0.4(dayjs@1.11.19)(vue@3.5.28(typescript@5.9.3))
       '@v-c/progress': 1.0.0(vue@3.5.28(typescript@5.9.3))
       '@v-c/qrcode': 1.0.0(vue@3.5.28(typescript@5.9.3))
       '@v-c/rate': 1.0.1(vue@3.5.28(typescript@5.9.3))
