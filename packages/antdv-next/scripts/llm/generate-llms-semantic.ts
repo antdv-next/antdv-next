@@ -64,13 +64,17 @@ function generateMarkdownStructure(obj: Record<string, any>, indent = 0): string
   return result
 }
 
-function extractLocaleBlock(content: string, locale: string) {
-  const localesMatch = content.match(/const\s+locales\s*=\s*\{([\s\S]*?)\};/)
-  if (!localesMatch)
-    return ''
+function extractLocaleInfo(content: string) {
+  const cnMatch = content.match(/cn:\s*\{([\s\S]*?)\}\s*,\s*en\s*:/)
+  const enMatch = content.match(/en:\s*\{([\s\S]*?)\}\s*[,}]/)
 
-  const match = content.match(new RegExp(`${locale}:\\s*\\{([\\s\\S]*?)\\}\\s*,?\\s*(en:|cn:|$)`))
-  return match?.[1] || ''
+  if (!cnMatch && !enMatch)
+    return null
+
+  return {
+    cn: cnMatch?.[1] || '',
+    en: enMatch?.[1] || '',
+  }
 }
 
 function extractFlatSemantics(localeContent: string) {
@@ -84,12 +88,114 @@ function extractFlatSemantics(localeContent: string) {
   return flat
 }
 
+async function resolveLocalImportFile(fromFile: string, importPath: string) {
+  const basePath = path.resolve(path.dirname(fromFile), importPath)
+  const candidates = [
+    basePath,
+    `${basePath}.ts`,
+    `${basePath}.tsx`,
+    `${basePath}.js`,
+    `${basePath}.jsx`,
+    path.join(basePath, 'index.ts'),
+    path.join(basePath, 'index.tsx'),
+    path.join(basePath, 'index.js'),
+    path.join(basePath, 'index.jsx'),
+  ]
+
+  for (const candidate of candidates) {
+    try {
+      await fs.access(candidate)
+      return candidate
+    }
+    catch {}
+  }
+
+  return null
+}
+
+async function loadLocaleSourceContent(docPath: string, content: string) {
+  const inlineLocaleInfo = extractLocaleInfo(content)
+  if (inlineLocaleInfo)
+    return { content, localeInfo: inlineLocaleInfo }
+
+  const importMatch = content.match(/import\s+\{\s*locales\s*\}\s+from\s+['"]([^'"]+)['"]/)
+  const importPath = importMatch?.[1]
+  if (!importPath?.startsWith('.'))
+    return null
+
+  const localeFilePath = await resolveLocalImportFile(docPath, importPath)
+  if (!localeFilePath)
+    return null
+
+  const localeFileContent = await fs.readFile(localeFilePath, 'utf-8')
+  const localeInfo = extractLocaleInfo(localeFileContent)
+  if (!localeInfo)
+    return null
+
+  return {
+    content: localeFileContent,
+    localeInfo,
+  }
+}
+
+function extractSemanticNameLocaleKeyPairs(content: string) {
+  const pairs: Array<{ name: string, localeKey: string }> = []
+  const matches = content.matchAll(/\{\s*name\s*:\s*['"]([^'"]+)['"]\s*,\s*desc\s*:\s*t\(\s*['"]([^'"]+)['"]\s*\)[\s\S]*?\}/g)
+
+  for (const match of matches) {
+    const [, name, localeKey] = match
+    if (!name || !localeKey)
+      continue
+    pairs.push({ name, localeKey })
+  }
+
+  return pairs
+}
+
+function pickSemanticEntries(
+  localeSemantics: Record<string, string>,
+  semanticPairs: Array<{ name: string, localeKey: string }>,
+) {
+  if (!semanticPairs.length)
+    return localeSemantics
+
+  return semanticPairs.reduce<Record<string, string>>((acc, { name, localeKey }) => {
+    const desc = localeSemantics[localeKey]
+    if (desc)
+      acc[name] = desc
+    return acc
+  }, {})
+}
+
+function renderSemanticMarkdown(
+  semanticDescriptions: Record<string, any>,
+  options: {
+    title: string
+    intro: string
+    totalLabel: string
+  },
+) {
+  let markdownContent = `${options.title}\n\n`
+  markdownContent += `${options.intro}\n\n`
+  markdownContent += `> ${options.totalLabel.replace('{count}', String(Object.keys(semanticDescriptions).length))}\n\n`
+  markdownContent += '## Component List\n\n'
+
+  const sortedComponents = Object.keys(semanticDescriptions).sort()
+  sortedComponents.forEach((componentName) => {
+    markdownContent += `### ${componentName}\n\n`
+    markdownContent += generateMarkdownStructure(semanticDescriptions[componentName])
+    markdownContent += '\n'
+  })
+
+  return markdownContent
+}
+
 async function generateSemanticDesc() {
   const repoRoot = getRepoRoot()
   const componentsDir = path.resolve(repoRoot, 'docs', 'src', 'pages', 'components')
   const siteDir = OUTPUT_DIR
     ? path.resolve(repoRoot, OUTPUT_DIR)
-    : path.resolve(repoRoot, 'docs', 'dist')
+    : path.resolve(repoRoot, 'docs', 'public')
 
   await fs.mkdir(siteDir, { recursive: true })
 
@@ -98,7 +204,8 @@ async function generateSemanticDesc() {
     absolute: true,
   })
 
-  const semanticDescriptions: Record<string, any> = {}
+  const semanticDescriptionsEn: Record<string, any> = {}
+  const semanticDescriptionsCn: Record<string, any> = {}
 
   for (const docPath of docs) {
     try {
@@ -117,37 +224,42 @@ async function generateSemanticDesc() {
       if (ConvertMap[semanticKey])
         semanticKey = ConvertMap[semanticKey]!
 
-      const cnContent = extractLocaleBlock(content, 'cn')
-      const localeContent = cnContent || extractLocaleBlock(content, 'en')
-      if (!localeContent)
+      const localeSource = await loadLocaleSourceContent(docPath, content)
+      if (!localeSource)
         continue
 
-      const flatSemantics = extractFlatSemantics(localeContent)
-      if (!Object.keys(flatSemantics).length)
-        continue
+      const semanticPairs = extractSemanticNameLocaleKeyPairs(content)
+      const cnSemantics = pickSemanticEntries(extractFlatSemantics(localeSource.localeInfo.cn), semanticPairs)
+      const enSemantics = pickSemanticEntries(extractFlatSemantics(localeSource.localeInfo.en), semanticPairs)
 
-      semanticDescriptions[semanticKey] = buildNestedStructure(flatSemantics)
+      if (Object.keys(cnSemantics).length)
+        semanticDescriptionsCn[semanticKey] = buildNestedStructure(cnSemantics)
+
+      if (Object.keys(enSemantics).length)
+        semanticDescriptionsEn[semanticKey] = buildNestedStructure(enSemantics)
     }
     catch (error) {
       console.error(`Error processing ${docPath}:`, error)
     }
   }
 
-  let markdownContent = '# Antdv Next Component Semantic Descriptions\n\n'
-  markdownContent += 'This document contains semantic DOM descriptions for Antdv Next components.\n\n'
-  markdownContent += `> Total ${Object.keys(semanticDescriptions).length} components with semantic descriptions\n\n`
-  markdownContent += '## Component List\n\n'
-
-  const sortedComponents = Object.keys(semanticDescriptions).sort()
-  sortedComponents.forEach((componentName) => {
-    markdownContent += `### ${componentName}\n\n`
-    markdownContent += generateMarkdownStructure(semanticDescriptions[componentName])
-    markdownContent += '\n'
+  const markdownContentEn = renderSemanticMarkdown(semanticDescriptionsEn, {
+    title: '# Antdv Next Component Semantic Descriptions',
+    intro: 'This document contains semantic DOM descriptions for Antdv Next components.',
+    totalLabel: 'Total {count} components with semantic descriptions',
   })
 
-  const outputPath = path.join(siteDir, 'llms-semantic.md')
-  await fs.writeFile(outputPath, markdownContent, 'utf-8')
-  console.log(`Semantic descriptions saved to: ${outputPath}`)
+  const markdownContentCn = renderSemanticMarkdown(semanticDescriptionsCn, {
+    title: '# Antdv Next 组件语义化描述',
+    intro: '本文档包含 Antdv Next 组件的语义化 DOM 描述信息。',
+    totalLabel: '总计 {count} 个组件包含语义化描述',
+  })
+
+  const outputPathEn = path.join(siteDir, 'llms-semantic.md')
+  const outputPathCn = path.join(siteDir, 'llms-semantic-cn.md')
+  await fs.writeFile(outputPathEn, markdownContentEn, 'utf-8')
+  await fs.writeFile(outputPathCn, markdownContentCn, 'utf-8')
+  console.log(`Semantic descriptions saved to: ${outputPathEn}, ${outputPathCn}`)
 }
 
 async function main() {
