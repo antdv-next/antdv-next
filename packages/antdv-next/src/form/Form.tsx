@@ -558,6 +558,7 @@ const InternalForm = defineComponent<
       validate: () => validateFields(),
       submit,
       nativeElement: nativeElementRef,
+      el: nativeElementRef,
       scrollToField: (name: NamePath, options: ScrollFocusOptions | boolean = {}) => {
         scrollToField(getNamePath(name), options)
       },
@@ -636,20 +637,20 @@ const InternalForm = defineComponent<
         mergedClassNames.value.root,
       )
       return (
-        <NoFormStyle status>
-          <form
-            id={name}
-            {...restAttrs}
-            name={name}
-            ref={nativeElementRef}
-            style={[mergedStyles.value.root, contextStyle.value, style]}
-            class={formClassName}
-            onSubmit={handleSubmit}
-            onReset={handleReset}
-          >
+        <form
+          id={name}
+          {...restAttrs}
+          name={name}
+          ref={nativeElementRef}
+          style={[mergedStyles.value.root, contextStyle.value, style]}
+          class={formClassName}
+          onSubmit={handleSubmit}
+          onReset={handleReset}
+        >
+          <NoFormStyle status>
             {slots?.default?.()}
-          </form>
-        </NoFormStyle>
+          </NoFormStyle>
+        </form>
       )
     }
   },

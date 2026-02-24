@@ -100,7 +100,20 @@ const InternalFormItem = defineComponent<
     const [hashId, cssVarCls] = useStyle(prefixCls, rootCls)
 
     const meta = shallowRef<Meta>({ ...genEmptyMeta(), name: namePath.value })
-    watch(namePath, (val) => {
+    watch(namePath, (val, prev) => {
+      // In array/list-style fields, index shifts can change the path without unmounting.
+      // Notify parent noStyle aggregator to remove stale error buckets keyed by the old path.
+      if (
+        props.noStyle
+        && notifyParentMetaChange
+        && prev?.length
+        && (prev.length !== val.length || prev.some((seg, index) => seg !== val[index]))
+      ) {
+        notifyParentMetaChange(
+          { ...meta.value, name: prev, destroy: true } as Meta & { destroy: boolean },
+          prev,
+        )
+      }
       meta.value = { ...meta.value, name: val }
     })
 
@@ -405,6 +418,12 @@ const InternalFormItem = defineComponent<
     )
 
     onBeforeUnmount(() => {
+      if (props.noStyle && notifyParentMetaChange) {
+        notifyParentMetaChange(
+          { ...meta.value, destroy: true } as Meta & { destroy: boolean },
+          meta.value.name,
+        )
+      }
       formContext.value?.removeField?.(eventKey.value)
     })
 
