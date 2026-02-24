@@ -9,10 +9,10 @@ const OUTPUT_DIR = process.env.LLM_OUTPUT_DIR
 
 async function generateLlms() {
   const repoRoot = getRepoRoot()
-  const pagesDir = path.resolve(repoRoot, 'playground', 'src', 'pages')
+  const pagesDir = path.resolve(repoRoot, 'docs', 'src', 'pages')
   const siteDir = OUTPUT_DIR
     ? path.resolve(repoRoot, OUTPUT_DIR)
-    : path.resolve(repoRoot, 'playground', 'public')
+    : path.resolve(repoRoot, 'docs', 'public')
 
   const docsDirs = ['components', 'vue']
   const matchSuffix = '.en-US.md'

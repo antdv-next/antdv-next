@@ -86,10 +86,10 @@ function extractFlatSemantics(localeContent: string) {
 
 async function generateSemanticDesc() {
   const repoRoot = getRepoRoot()
-  const componentsDir = path.resolve(repoRoot, 'playground', 'src', 'pages', 'components')
+  const componentsDir = path.resolve(repoRoot, 'docs', 'src', 'pages', 'components')
   const siteDir = OUTPUT_DIR
     ? path.resolve(repoRoot, OUTPUT_DIR)
-    : path.resolve(repoRoot, 'playground', 'dist')
+    : path.resolve(repoRoot, 'docs', 'dist')
 
   await fs.mkdir(siteDir, { recursive: true })
 

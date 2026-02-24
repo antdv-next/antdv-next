@@ -14,7 +14,7 @@ interface TokenMeta {
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const repoRoot = path.resolve(__dirname, '../../../../')
-const playgroundDir = path.resolve(repoRoot, 'playground')
+const playgroundDir = path.resolve(repoRoot, 'docs')
 const packageRoot = path.resolve(repoRoot, 'packages/antdv-next')
 const srcRoot = path.resolve(packageRoot, 'src')
 const output = path.resolve(playgroundDir, 'src/assets/token-meta.json')
