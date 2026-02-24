@@ -21,7 +21,7 @@ const markdowns = [
   './src/pages/components/*/index.en-US.md',
 ]
 
-const baseUrl = fileURLToPath(new URL('../../../../playground', import.meta.url))
+const baseUrl = fileURLToPath(new URL('../../../../docs', import.meta.url))
 const uiBaseUrl = fileURLToPath(new URL('../../', import.meta.url))
 
 async function run() {
