@@ -754,247 +754,243 @@ exports[`tag demo > renders borderless correctly 1`] = `
 `;
 
 exports[`tag demo > renders checkable correctly 1`] = `
-<div
-  data-v-app=""
+<form
+  class="ant-form ant-form-horizontal css-var-root ant-form-css-var"
 >
-  <form
-    class="ant-form ant-form-horizontal css-var-root ant-form-css-var"
+  <div
+    class="ant-form-item css-var-root ant-form-css-var ant-form-item-horizontal"
   >
     <div
-      class="ant-form-item css-var-root ant-form-css-var ant-form-item-horizontal"
+      class="ant-row css-var-root ant-form-item-row"
     >
       <div
-        class="ant-row css-var-root ant-form-item-row"
+        class="ant-col ant-col-6 css-var-root ant-form-item-label"
+      >
+        <label
+          class=""
+          title="Checkable"
+        >
+          Checkable
+        </label>
+      </div>
+      <div
+        class="ant-col css-var-root ant-form-item-control"
       >
         <div
-          class="ant-col ant-col-6 css-var-root ant-form-item-label"
-        >
-          <label
-            class=""
-            title="Checkable"
-          >
-            Checkable
-          </label>
-        </div>
-        <div
-          class="ant-col css-var-root ant-form-item-control"
+          class="ant-form-item-control-input"
         >
           <div
-            class="ant-form-item-control-input"
+            class="ant-form-item-control-input-content"
+          >
+            <span
+              class="ant-tag ant-tag-checkable ant-tag-checkable-checked css-var-root"
+            >
+              <!---->
+              <span>
+                 Yes 
+              </span>
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-form-item-additional"
+        >
+          <transition-stub
+            appear="true"
+            css="true"
+            enteractiveclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-prepare ant-form-show-help-enter-prepare "
+            enterfromclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-prepare ant-form-show-help-enter-prepare ant-form-show-help-enter-start"
+            entertoclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-active ant-form-show-help-enter-active"
+            leaveactiveclass="ant-form-show-help ant-form-show-help-leave ant-form-show-help-leave-active"
+            leavefromclass="ant-form-show-help ant-form-show-help-leave"
+            leavetoclass="ant-form-show-help ant-form-show-help-leave ant-form-show-help-leave-active"
+            name="ant-form-show-help"
+            persisted="false"
+          >
+            <!---->
+          </transition-stub>
+          <!---->
+        </div>
+      </div>
+      <!---->
+    </div>
+    <!---->
+  </div>
+  <div
+    class="ant-form-item css-var-root ant-form-css-var ant-form-item-horizontal"
+  >
+    <div
+      class="ant-row css-var-root ant-form-item-row"
+    >
+      <div
+        class="ant-col ant-col-6 css-var-root ant-form-item-label"
+      >
+        <label
+          class=""
+          title="Single"
+        >
+          Single
+        </label>
+      </div>
+      <div
+        class="ant-col css-var-root ant-form-item-control"
+      >
+        <div
+          class="ant-form-item-control-input"
+        >
+          <div
+            class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-form-item-control-input-content"
+              class="ant-tag-checkable-group css-var-root"
             >
               <span
-                class="ant-tag ant-tag-checkable ant-tag-checkable-checked css-var-root"
+                class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-root"
               >
                 <!---->
                 <span>
-                   Yes 
+                  Movies
+                </span>
+              </span>
+              <span
+                class="ant-tag ant-tag-checkable ant-tag-checkable-checked ant-tag-checkable-group-item css-var-root"
+              >
+                <!---->
+                <span>
+                  Books
+                </span>
+              </span>
+              <span
+                class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-root"
+              >
+                <!---->
+                <span>
+                  Music
+                </span>
+              </span>
+              <span
+                class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-root"
+              >
+                <!---->
+                <span>
+                  Sports
                 </span>
               </span>
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          >
-            <transition-stub
-              appear="true"
-              css="true"
-              enteractiveclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-prepare ant-form-show-help-enter-prepare "
-              enterfromclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-prepare ant-form-show-help-enter-prepare ant-form-show-help-enter-start"
-              entertoclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-active ant-form-show-help-enter-active"
-              leaveactiveclass="ant-form-show-help ant-form-show-help-leave ant-form-show-help-leave-active"
-              leavefromclass="ant-form-show-help ant-form-show-help-leave"
-              leavetoclass="ant-form-show-help ant-form-show-help-leave ant-form-show-help-leave-active"
-              name="ant-form-show-help"
-              persisted="false"
-            >
-              <!---->
-            </transition-stub>
-            <!---->
-          </div>
         </div>
-        <!---->
+        <div
+          class="ant-form-item-additional"
+        >
+          <transition-stub
+            appear="true"
+            css="true"
+            enteractiveclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-prepare ant-form-show-help-enter-prepare "
+            enterfromclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-prepare ant-form-show-help-enter-prepare ant-form-show-help-enter-start"
+            entertoclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-active ant-form-show-help-enter-active"
+            leaveactiveclass="ant-form-show-help ant-form-show-help-leave ant-form-show-help-leave-active"
+            leavefromclass="ant-form-show-help ant-form-show-help-leave"
+            leavetoclass="ant-form-show-help ant-form-show-help-leave ant-form-show-help-leave-active"
+            name="ant-form-show-help"
+            persisted="false"
+          >
+            <!---->
+          </transition-stub>
+          <!---->
+        </div>
       </div>
       <!---->
     </div>
+    <!---->
+  </div>
+  <div
+    class="ant-form-item css-var-root ant-form-css-var ant-form-item-horizontal"
+  >
     <div
-      class="ant-form-item css-var-root ant-form-css-var ant-form-item-horizontal"
+      class="ant-row css-var-root ant-form-item-row"
     >
       <div
-        class="ant-row css-var-root ant-form-item-row"
+        class="ant-col ant-col-6 css-var-root ant-form-item-label"
       >
-        <div
-          class="ant-col ant-col-6 css-var-root ant-form-item-label"
+        <label
+          class=""
+          title="Multiple"
         >
-          <label
-            class=""
-            title="Single"
-          >
-            Single
-          </label>
-        </div>
-        <div
-          class="ant-col css-var-root ant-form-item-control"
-        >
-          <div
-            class="ant-form-item-control-input"
-          >
-            <div
-              class="ant-form-item-control-input-content"
-            >
-              <div
-                class="ant-tag-checkable-group css-var-root"
-              >
-                <span
-                  class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-root"
-                >
-                  <!---->
-                  <span>
-                    Movies
-                  </span>
-                </span>
-                <span
-                  class="ant-tag ant-tag-checkable ant-tag-checkable-checked ant-tag-checkable-group-item css-var-root"
-                >
-                  <!---->
-                  <span>
-                    Books
-                  </span>
-                </span>
-                <span
-                  class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-root"
-                >
-                  <!---->
-                  <span>
-                    Music
-                  </span>
-                </span>
-                <span
-                  class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-root"
-                >
-                  <!---->
-                  <span>
-                    Sports
-                  </span>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div
-            class="ant-form-item-additional"
-          >
-            <transition-stub
-              appear="true"
-              css="true"
-              enteractiveclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-prepare ant-form-show-help-enter-prepare "
-              enterfromclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-prepare ant-form-show-help-enter-prepare ant-form-show-help-enter-start"
-              entertoclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-active ant-form-show-help-enter-active"
-              leaveactiveclass="ant-form-show-help ant-form-show-help-leave ant-form-show-help-leave-active"
-              leavefromclass="ant-form-show-help ant-form-show-help-leave"
-              leavetoclass="ant-form-show-help ant-form-show-help-leave ant-form-show-help-leave-active"
-              name="ant-form-show-help"
-              persisted="false"
-            >
-              <!---->
-            </transition-stub>
-            <!---->
-          </div>
-        </div>
-        <!---->
+          Multiple
+        </label>
       </div>
-      <!---->
-    </div>
-    <div
-      class="ant-form-item css-var-root ant-form-css-var ant-form-item-horizontal"
-    >
       <div
-        class="ant-row css-var-root ant-form-item-row"
+        class="ant-col css-var-root ant-form-item-control"
       >
         <div
-          class="ant-col ant-col-6 css-var-root ant-form-item-label"
-        >
-          <label
-            class=""
-            title="Multiple"
-          >
-            Multiple
-          </label>
-        </div>
-        <div
-          class="ant-col css-var-root ant-form-item-control"
+          class="ant-form-item-control-input"
         >
           <div
-            class="ant-form-item-control-input"
+            class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-form-item-control-input-content"
+              class="ant-tag-checkable-group css-var-root"
             >
-              <div
-                class="ant-tag-checkable-group css-var-root"
+              <span
+                class="ant-tag ant-tag-checkable ant-tag-checkable-checked ant-tag-checkable-group-item css-var-root"
               >
-                <span
-                  class="ant-tag ant-tag-checkable ant-tag-checkable-checked ant-tag-checkable-group-item css-var-root"
-                >
-                  <!---->
-                  <span>
-                    Movies
-                  </span>
+                <!---->
+                <span>
+                  Movies
                 </span>
-                <span
-                  class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-root"
-                >
-                  <!---->
-                  <span>
-                    Books
-                  </span>
+              </span>
+              <span
+                class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-root"
+              >
+                <!---->
+                <span>
+                  Books
                 </span>
-                <span
-                  class="ant-tag ant-tag-checkable ant-tag-checkable-checked ant-tag-checkable-group-item css-var-root"
-                >
-                  <!---->
-                  <span>
-                    Music
-                  </span>
+              </span>
+              <span
+                class="ant-tag ant-tag-checkable ant-tag-checkable-checked ant-tag-checkable-group-item css-var-root"
+              >
+                <!---->
+                <span>
+                  Music
                 </span>
-                <span
-                  class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-root"
-                >
-                  <!---->
-                  <span>
-                    Sports
-                  </span>
+              </span>
+              <span
+                class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-root"
+              >
+                <!---->
+                <span>
+                  Sports
                 </span>
-              </div>
+              </span>
             </div>
           </div>
-          <div
-            class="ant-form-item-additional"
-          >
-            <transition-stub
-              appear="true"
-              css="true"
-              enteractiveclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-prepare ant-form-show-help-enter-prepare "
-              enterfromclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-prepare ant-form-show-help-enter-prepare ant-form-show-help-enter-start"
-              entertoclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-active ant-form-show-help-enter-active"
-              leaveactiveclass="ant-form-show-help ant-form-show-help-leave ant-form-show-help-leave-active"
-              leavefromclass="ant-form-show-help ant-form-show-help-leave"
-              leavetoclass="ant-form-show-help ant-form-show-help-leave ant-form-show-help-leave-active"
-              name="ant-form-show-help"
-              persisted="false"
-            >
-              <!---->
-            </transition-stub>
-            <!---->
-          </div>
         </div>
-        <!---->
+        <div
+          class="ant-form-item-additional"
+        >
+          <transition-stub
+            appear="true"
+            css="true"
+            enteractiveclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-prepare ant-form-show-help-enter-prepare "
+            enterfromclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-prepare ant-form-show-help-enter-prepare ant-form-show-help-enter-start"
+            entertoclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-active ant-form-show-help-enter-active"
+            leaveactiveclass="ant-form-show-help ant-form-show-help-leave ant-form-show-help-leave-active"
+            leavefromclass="ant-form-show-help ant-form-show-help-leave"
+            leavetoclass="ant-form-show-help ant-form-show-help-leave ant-form-show-help-leave-active"
+            name="ant-form-show-help"
+            persisted="false"
+          >
+            <!---->
+          </transition-stub>
+          <!---->
+        </div>
       </div>
       <!---->
     </div>
-  </form>
-</div>
+    <!---->
+  </div>
+</form>
 `;
 
 exports[`tag demo > renders colorful correctly 1`] = `
