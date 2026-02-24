@@ -165,7 +165,7 @@ catalogs:
     '@v-c/tree-select': ^1.0.2
     '@v-c/trigger': ^1.0.11
     '@v-c/upload': ^1.0.0
-    '@v-c/util': ^1.0.14
+    '@v-c/util': ^1.0.15
     '@v-c/virtual-list': ^1.0.6
 
 onlyBuiltDependencies:
