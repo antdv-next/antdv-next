@@ -30,7 +30,7 @@ const CollapsePanel = defineComponent<CollapsePanelProps>(
       const { showArrow = true } = props
       const collapsePanelClassName = classNames(
         {
-          [`${prefixCls}-no-arrow`]: !showArrow,
+          [`${prefixCls.value}-no-arrow`]: !showArrow,
         },
         (attrs as any).class,
       )
