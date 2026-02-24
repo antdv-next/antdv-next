@@ -103,18 +103,25 @@ const InternalFormItem = defineComponent<
     watch(namePath, (val, prev) => {
       // In array/list-style fields, index shifts can change the path without unmounting.
       // Notify parent noStyle aggregator to remove stale error buckets keyed by the old path.
-      if (
+      const pathChanged = !!(
         props.noStyle
         && notifyParentMetaChange
         && prev?.length
         && (prev.length !== val.length || prev.some((seg, index) => seg !== val[index]))
-      ) {
+      )
+      if (pathChanged) {
         notifyParentMetaChange(
           { ...meta.value, name: prev, destroy: true } as Meta & { destroy: boolean },
           prev,
         )
       }
-      meta.value = { ...meta.value, name: val }
+      const nextMeta = { ...meta.value, name: val }
+      meta.value = nextMeta
+      if (pathChanged) {
+        // Re-register current validation state under the new path immediately,
+        // otherwise existing errors/warnings can disappear until the next meta update.
+        notifyParentMetaChange!(nextMeta, val)
+      }
     })
 
     const errors = shallowRef<any[]>([])

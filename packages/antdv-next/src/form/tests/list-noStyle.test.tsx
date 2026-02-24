@@ -60,6 +60,9 @@ describe('form list noStyle', () => {
 
     await wrapper.find('.remove-0').trigger('click')
     await flushForm()
+    // Error should remain visible immediately after index shift without waiting for re-validate.
+    expect(wrapper.findAll('.ant-form-item-explain-error')).toHaveLength(1)
+
     await wrapper.find('form').trigger('submit')
     await flushForm()
 
