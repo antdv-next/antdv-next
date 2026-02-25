@@ -44,7 +44,6 @@ describe('tree.TypeScript', () => {
       ],
     }
 
-    // @ts-expect-error: Tree not support generic
     const wrapper = mount(Tree, { props })
     expect(wrapper.exists()).toBeTruthy()
   })
@@ -68,7 +67,6 @@ describe('tree.TypeScript', () => {
       ],
     }
 
-    // @ts-expect-error: Tree not support generic
     const wrapper = mount(DirectoryTree, { props })
     expect(wrapper.exists()).toBeTruthy()
   })

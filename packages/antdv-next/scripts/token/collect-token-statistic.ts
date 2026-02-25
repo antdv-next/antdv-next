@@ -11,7 +11,7 @@ type RenderFn = (component: any) => RenderNode
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const repoRoot = path.resolve(__dirname, '../../../../')
-const output = path.resolve(repoRoot, 'playground/src/assets/token.json')
+const output = path.resolve(repoRoot, 'docs/src/assets/token.json')
 
 let antd: Record<string, any> = {}
 let statistic: Record<string, { global: string[], component: Record<string, string | number> }> = {}

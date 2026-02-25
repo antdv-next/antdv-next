@@ -53,11 +53,55 @@ title: Ant Design of Vue
 
 在浏览器中使用 `script` 和 `link` 标签直接引入文件，并使用全局变量 `antd`。
 
-我们在 npm 发布包内的 dist 目录下提供了 `antd.js`  和 `reset.css`。你也可以通过 [![CDNJS](https://img.shields.io/cdnjs/v/antdv-next.svg?style=flat-square)](https://cdnjs.com/libraries/antdv-next)，[![](https://data.jsdelivr.com/v1/package/npm/antdv-next/badge)](https://www.jsdelivr.com/package/npm/antdv-next) 或 [UNPKG](https://unpkg.com/antdv-next/dist/) 进行下载。
+我们在 npm 发布包内的 dist 目录下提供了 `antd.js`  和 `reset.css`。你也可以通过 <!--[![CDNJS](https://img.shields.io/cdnjs/v/antdv-next.svg?style=flat-square)](https://cdnjs.com/libraries/antdv-next)，--> [![](https://data.jsdelivr.com/v1/package/npm/antdv-next/badge)](https://www.jsdelivr.com/package/npm/antdv-next) 或 [UNPKG](https://unpkg.com/antdv-next/dist/) 进行下载。
 
 > **强烈不推荐使用已构建文件**，这样无法按需加载，而且难以获得底层依赖模块的 bug 快速修复支持。
 
 > 注意：`antd.js`  依赖 `vue`、`dayjs`，请确保提前引入这些文件。
+
+```html
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>浏览器引入 Demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/antdv-next@1.0.5/dist/reset.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/antdv-next@1.0.5/dist/antd.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div id="app">
+      {{msg}}
+      <a-button type="primary">点击</a-button>
+    </div>
+
+    <script>window.process = { env: { NODE_ENV: 'production' } }</script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.global.js"></script>
+    <!-- dayjs + 所有依赖插件必须在 antdv-next 之前加载 -->
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.9/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.9/plugin/advancedFormat.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.9/plugin/customParseFormat.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.9/plugin/localeData.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.9/plugin/weekday.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.9/plugin/weekOfYear.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.9/plugin/weekYear.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/antdv-next@1.0.5/dist/antd.js"></script>
+    <script>
+      const { createApp } = Vue;
+      const app = createApp({
+        setup() {
+          return {
+            msg: "hello antdv-next",
+          };
+        },
+      });
+      app.use(antd.default);
+      app.mount("#app");
+    </script>
+  </body>
+</html>
+```
 
 ## 示例
 

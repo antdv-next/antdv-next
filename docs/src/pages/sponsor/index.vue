@@ -94,6 +94,14 @@ const orgSponsorForm = reactive<SponsorForm>({
   invoiceEmail: '',
 })
 
+const customInputStyles = {
+  input: {
+    textAlign: 'center',
+    fontWeight: 700,
+    fontSize: '16px',
+  },
+}
+
 // 赞助列表
 const sponsorList = shallowRef<any[]>([])
 const sponsorTotal = shallowRef(0)
@@ -209,7 +217,7 @@ const amountOptions = [
           <!-- 组织赞助内容 -->
           <div v-if="item.key === 'org'" class="tab-content">
             <div class="content-card">
-              <a-alert class="mb-24px" type="info" show-icon>
+              <a-alert class="mb-24px!" type="info" show-icon>
                 <template #message>
                   所有赞助资金将优先投入服务器等运营成本，结余部分将以公开透明的方式用于团队支持及社区贡献激励。
                 </template>
@@ -228,15 +236,19 @@ const amountOptions = [
                       {{ opt.label }}
                     </button>
                   </div>
-                  <a-input-number
-                    v-model:value="orgSponsorForm.amount"
-                    :min="1"
-                    :step="1"
-                    prefix="¥"
-                    suffix="元"
-                    class="w-full mt-12px"
-                    placeholder="也可以自定义金额，多少都是心意~"
-                  />
+                  <div class="amount-grid mt-12px">
+                    <a-input-number
+                      v-model:value="orgSponsorForm.amount"
+                      :min="1"
+                      :step="1"
+                      :controls="false"
+                      prefix="¥"
+                      suffix="元"
+                      :styles="customInputStyles"
+                      class="custom-amount-input"
+                      placeholder="自定义金额"
+                    />
+                  </div>
                 </a-form-item>
 
                 <a-form-item label="赞助人">
@@ -355,7 +367,7 @@ const amountOptions = [
               <a-alert
                 type="info"
                 show-icon
-                class="mb-24px"
+                class="mb-24px!"
                 message="个人赞助将直接归属于被赞助者本人，组织仅提供平台支持，不参与任何个人赞助资金的管理与分配。"
               />
 
@@ -497,6 +509,20 @@ const amountOptions = [
   border-color: var(--ant-color-primary);
   background: var(--ant-color-primary-bg);
   color: var(--ant-color-primary);
+}
+
+.custom-amount-input {
+  width: 100%;
+  padding: 10px 8px;
+  border: 2px solid var(--ant-color-border);
+  border-radius: 16px;
+  background: transparent;
+  transition: all 0.2s;
+}
+
+.custom-amount-input:hover,
+.custom-amount-input:focus-within {
+  border-color: var(--ant-color-primary);
 }
 
 .invoice-section {

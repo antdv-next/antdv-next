@@ -4,16 +4,35 @@ import { SemanticPreview } from '@/components/semantic'
 import { useComponentLocale } from '@/composables/use-locale'
 import { locales } from '../locales'
 
+const mode = ref<'single' | 'multiple'>('single')
+
 const { t } = useComponentLocale(locales)
 
-const semantics = computed(() => [
-  { name: 'root', desc: t('root') },
-  { name: 'prefix', desc: t('prefix') },
-  { name: 'selector', desc: t('selector') },
-  { name: 'suffix', desc: t('suffix') },
-  { name: 'popup', desc: t('popup') },
-  { name: 'item', desc: t('item') },
-])
+const semantics = computed(() => {
+  const base = [
+    { name: 'root', desc: t('root') },
+    { name: 'prefix', desc: t('prefix') },
+    { name: 'content', desc: t('content') },
+    { name: 'placeholder', desc: t('placeholder') },
+    { name: 'clear', desc: t('clear') },
+    { name: 'input', desc: t('input') },
+    { name: 'suffix', desc: t('suffix') },
+    { name: 'popup.root', desc: t('popup.root') },
+    { name: 'popup.list', desc: t('popup.list') },
+    { name: 'popup.listItem', desc: t('popup.listItem') },
+  ]
+
+  if (mode.value === 'multiple') {
+    return [
+      ...base,
+      { name: 'item', desc: t('item') },
+      { name: 'itemContent', desc: t('itemContent') },
+      { name: 'itemRemove', desc: t('itemRemove') },
+    ]
+  }
+
+  return base
+})
 
 const divRef = ref<HTMLDivElement | null>(null)
 
@@ -28,6 +47,13 @@ const options = [
     ],
   },
 ]
+
+const value = computed(() => {
+  if (mode.value !== 'multiple')
+    return ['contributors', 'thinkasany']
+
+  return [['contributors', 'aojunhao123']]
+})
 </script>
 
 <template>
@@ -37,15 +63,21 @@ const options = [
   >
     <template #default="{ classes }">
       <div ref="divRef" :style="{ position: 'absolute', height: '200px' }">
-        <a-cascader
-          prefix="prefix"
-          :style="{ width: '200px' }"
-          :options="options"
-          :default-value="['contributors', 'thinkasany']"
-          open
-          :get-popup-container="() => divRef!"
-          :classes="classes"
-        />
+        <div :style="{ display: 'flex', justifyContent: 'center', marginBottom: '12px' }">
+          <a-segmented v-model:value="mode" :options="['single', 'multiple']" />
+        </div>
+        <div :style="{ display: 'flex', flexDirection: 'column', gap: '12px' }">
+          <a-cascader
+            prefix="prefix"
+            :style="{ width: '300px' }"
+            :options="options"
+            :value="value"
+            :multiple="mode === 'multiple'"
+            open
+            :get-popup-container="() => divRef!"
+            :classes="classes"
+          />
+        </div>
       </div>
     </template>
   </SemanticPreview>

@@ -145,7 +145,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | tooltip | 自定义提示文本，为 false 时关闭 | VueNode | `编辑` |
 | text | 显式地指定编辑文案，为空时将隐式地使用 children | string | - |
 | triggerType | 编辑模式触发器类型，图标、文本或者两者都设置（不设置图标作为触发器时它会隐藏） | Array&lt;`icon`\|`text`&gt; | \[`icon`] |
-| enterIcon | 在编辑段中自定义"enter"图标（传递"null"将删除图标） | VueNode | `&lt;EnterOutlined /&gt;` |
+| enterIcon | 在编辑段中自定义"enter"图标（传递"null"将删除图标） | VueNode | &lt;EnterOutlined /&gt; |
 | tabIndex | 自定义编辑按钮的 tabIndex | number | 0 |
 
 #### 事件

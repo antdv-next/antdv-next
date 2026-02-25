@@ -41,7 +41,7 @@ function getTreeData({ treeData, children }: DirectoryTreeProps & { children: an
 }
 
 const DirectoryTree = defineComponent<
-  DirectoryTreeProps,
+  DirectoryTreeProps<BasicDataNode>,
   DirectoryTreeEmits,
   string,
   SlotsType<DirectoryTreeSlots>

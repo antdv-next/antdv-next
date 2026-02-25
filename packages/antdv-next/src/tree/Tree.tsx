@@ -269,7 +269,7 @@ const defaults = {
 } as any
 
 const Tree = defineComponent<
-  TreeProps,
+  TreeProps<BasicDataNode>,
   TreeEmits,
   string,
   SlotsType<TreeSlots>
