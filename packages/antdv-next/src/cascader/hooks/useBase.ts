@@ -1,7 +1,7 @@
 import type { Ref } from 'vue'
 import type { DirectionType } from '../../config-provider/context'
 import { computed } from 'vue'
-import { useConfig } from '../../config-provider/context'
+import { useConfig } from '../../config-provider'
 
 export default function useBase(
   customizePrefixCls: Ref<string | undefined>,
