@@ -29,5 +29,7 @@ const items: TabsProps['items'] = [
 </script>
 
 <template>
-  <a-tabs :items="items" />
+  <a-tabs
+    :items="items"
+  />
 </template>

@@ -106,9 +106,6 @@ export interface TabsProps extends BaseTabsProps, CompatibilityProps, Omit<
   | 'popupClassName'
   | 'styles'
   | 'style'
-  | 'onChange'
-  | 'onTabScroll'
-  | 'onTabClick'
   | 'renderTabBar'
 > {
   addIcon?: VueNode
@@ -120,6 +117,8 @@ export interface TabsProps extends BaseTabsProps, CompatibilityProps, Omit<
   /** @deprecated Please use `classNames.popup` instead */
   popupClassName?: string
   renderTabBar?: (args: { props: any, TabNavListComponent: any }) => any
+  onEdit?: (e: MouseEvent | KeyboardEvent | string, action: 'add' | 'remove') => void
+  'onUpdate:activeKey'?: (activeKey: string) => void
 }
 
 export type TabItem = Tab & Record<string, any>
@@ -142,7 +141,7 @@ const InternalTabs = defineComponent<
   string,
   SlotsType<TabsSlots>
 >(
-  (props, { attrs, slots, emit, expose }) => {
+  (props, { attrs, slots, expose }) => {
     const {
       classes,
       styles,
@@ -258,14 +257,8 @@ const InternalTabs = defineComponent<
     const [hashId, cssVarCls] = useStyle(prefixCls, rootCls)
 
     const onInternalChange: VcTabsProps['onChange'] = (activeKey) => {
-      emit('update:activeKey', activeKey)
-      emit('change', activeKey)
-    }
-    const onInternalTabClick: VcTabsProps['onTabClick'] = (activeKey, e) => {
-      emit('tabClick', activeKey, e)
-    }
-    const onInternalTabScroll: VcTabsProps['onTabScroll'] = (info) => {
-      emit('tabScroll', info)
+      props?.['onUpdate:activeKey']?.(activeKey)
+      props?.onChange?.(activeKey)
     }
 
     return () => {
@@ -279,7 +272,7 @@ const InternalTabs = defineComponent<
         }
         return {
           onEdit: (editType: 'add' | 'remove', { key, event }: { key?: string, event: MouseEvent | KeyboardEvent }) => {
-            emit('edit', editType === 'add' ? event : key ?? '', editType)
+            props?.onEdit?.(editType === 'add' ? event : key ?? '', editType)
           },
           removeIcon,
           addIcon,
@@ -415,8 +408,6 @@ const InternalTabs = defineComponent<
           destroyOnHidden={props.destroyOnHidden ?? props.destroyInactiveTabPane}
           tabPosition={mergedPlacement.value}
           onChange={onInternalChange}
-          onTabClick={onInternalTabClick}
-          onTabScroll={onInternalTabScroll}
         />
       )
     }
