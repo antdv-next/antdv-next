@@ -67,6 +67,12 @@ export interface TourProps extends ComponentBaseProps, Omit<
   type?: 'default' | 'primary'
   classes?: TourClassNamesType
   styles?: TourStylesType
+  onClose?: TourEmits['close']
+  onFinish?: TourEmits['finish']
+  onChange?: TourEmits['change']
+  onPopupAlign?: TourEmits['popupAlign']
+  'onUpdate:open'?: TourEmits['update:open']
+  'onUpdate:current'?: TourEmits['update:current']
   // className?: string
   // style?: CSSProperties
 }

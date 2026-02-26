@@ -46,7 +46,7 @@ const InternalPassword = defineComponent<
   string,
   SlotsType<PasswordSlots>
 >(
-  (props, { slots, attrs, emit, expose }) => {
+  (props, { slots, attrs, expose }) => {
     const { disabled: customDisabled, inputPrefixCls: customizeInputPrefixCls } = toPropsRefs(props, 'disabled', 'inputPrefixCls')
     const {
       getPrefixCls,
@@ -116,15 +116,15 @@ const InternalPassword = defineComponent<
     }
 
     const handleUpdateValue = (value: any) => {
-      emit('update:value', value)
+      props?.['onUpdate:value']?.(value)
     }
 
     const handleChange: PasswordEmits['change'] = (e) => {
-      emit('change', e)
+      props?.onChange?.(e)
     }
 
-    const handleFocus: PasswordEmits['focus'] = e => emit('focus', e)
-    const handleBlur: PasswordEmits['blur'] = e => emit('blur', e)
+    const handleFocus: PasswordEmits['focus'] = e => props?.onFocus?.(e)
+    const handleBlur: PasswordEmits['blur'] = e => props?.onBlur?.(e)
 
     expose({
       focus: (...args: Parameters<NonNullable<InputRef['focus']>>) => inputRef.value?.focus?.(...args),
@@ -133,7 +133,26 @@ const InternalPassword = defineComponent<
     })
 
     return () => {
-      const restInputProps = omit(props, ['iconRender', 'visibilityToggle', 'action', 'suffix', 'inputPrefixCls', 'rootClass', 'prefixCls'])
+      const restInputProps = omit(props, [
+        'iconRender',
+        'visibilityToggle',
+        'action',
+        'suffix',
+        'inputPrefixCls',
+        'rootClass',
+        'prefixCls',
+        'onChange',
+        'onFocus',
+        'onBlur',
+        'onPressEnter',
+        'onClear',
+        'onCompositionstart',
+        'onCompositionend',
+        'onKeydown',
+        'onKeyup',
+        'onUpdate:value',
+        'onUpdate:iconVisible',
+      ])
       const suffixSlot = getSlotPropsFnRun(slots, props, 'suffix')
       const visibilityIcon = getIcon()
       const mergedSuffix = visibilityToggle.value && visibilityIcon
@@ -158,12 +177,12 @@ const InternalPassword = defineComponent<
           onChange={handleChange}
           onFocus={handleFocus}
           onBlur={handleBlur}
-          onPressEnter={(e: any) => emit('pressEnter', e)}
-          onClear={() => emit('clear')}
-          onCompositionstart={(e: any) => emit('compositionstart', e)}
-          onCompositionend={(e: any) => emit('compositionend', e)}
-          onKeydown={(e: any) => emit('keydown', e)}
-          onKeyup={(e: any) => emit('keyup', e)}
+          onPressEnter={(e: any) => props?.onPressEnter?.(e)}
+          onClear={() => props?.onClear?.()}
+          onCompositionstart={(e: any) => props?.onCompositionstart?.(e)}
+          onCompositionend={(e: any) => props?.onCompositionend?.(e)}
+          onKeydown={(e: any) => props?.onKeydown?.(e)}
+          onKeyup={(e: any) => props?.onKeyup?.(e)}
           v-slots={{
             ...omit(slots, ['suffix', 'iconRender']),
           }}

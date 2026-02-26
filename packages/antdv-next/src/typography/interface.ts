@@ -82,6 +82,15 @@ export interface BlockProps extends ComponentBaseProps {
   classes?: TypographyClassNamesType
   styles?: TypographyStylesType
   id?: string
+  onClick?: (e: MouseEvent) => void
+  onExpand?: (expanded: boolean, e: MouseEvent) => void
+  onCopy?: (e?: MouseEvent) => void
+  onEditStart?: () => void
+  onEditChange?: (value: string) => void
+  onEditCancel?: () => void
+  onEditEnd?: () => void
+  'onUpdate:expanded'?: (expanded: boolean) => void
+  'onUpdate:editing'?: (editing: boolean) => void
   [key: `data-${string}`]: string | number | undefined
 }
 
@@ -100,6 +109,18 @@ export interface TypographyBaseEmits {
   'update:expanded': (expanded: boolean) => void
   'update:editing': (editing: boolean) => void
 }
+
+export const typographyBaseCallbackPropKeys = [
+  'onClick',
+  'onExpand',
+  'onCopy',
+  'onEditStart',
+  'onEditChange',
+  'onEditCancel',
+  'onEditEnd',
+  'onUpdate:expanded',
+  'onUpdate:editing',
+] as const
 
 export interface TypographyBaseProps extends ComponentBaseProps {
   prefixCls?: string

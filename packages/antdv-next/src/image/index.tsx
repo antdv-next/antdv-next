@@ -102,6 +102,8 @@ export interface ImageProps extends Omit<
   classes?: ImageClassNamesType
   styles?: ImageStylesType
   rootClass?: string
+  onError?: NonNullable<VcImageProps['onError']>
+  onClick?: NonNullable<VcImageProps['onClick']>
 }
 
 export interface ImageEmits {
@@ -122,7 +124,7 @@ const Image = defineComponent<
   string,
   SlotsType<ImageSlots>
 >(
-  (props, { slots, emit, attrs }) => {
+  (props, { slots, attrs }) => {
     const { preview, classes, styles } = toPropsRefs(props, 'preview', 'classes', 'styles')
     // =============================== MISC ===============================
     // Context
@@ -237,14 +239,16 @@ const Image = defineComponent<
         'rootClass',
         'wrapperStyle',
         'fallback',
+        'onError',
+        'onClick',
       ])
 
       const onEvents = {
         onError: (e: Event) => {
-          emit('error', e)
+          props?.onError?.(e)
         },
         onClick: (e: Event) => {
-          emit('click', e as MouseEvent)
+          props?.onClick?.(e as MouseEvent)
         },
       } as Pick<VcImageProps, 'onError' | 'onClick'>
       if (slots?.imageRender) {

@@ -8,7 +8,7 @@ import VcTree from '@v-c/tree'
 import { clsx } from '@v-c/util'
 import { getAttrStyleAndClass } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
-import { computed, defineComponent, shallowRef } from 'vue'
+import { computed, defineComponent, getCurrentInstance, shallowRef } from 'vue'
 import {
   useMergeSemantic,
   useToArr,
@@ -261,6 +261,35 @@ export interface TreeSlots {
   titleRender: VcTreeProps['titleRender']
 }
 
+export const treeCallbackPropKeys = [
+  'onClick',
+  'onCheck',
+  'onExpand',
+  'onSelect',
+  'onBlur',
+  'onFocus',
+  'onRightClick',
+  'onDblclick',
+  'onDoubleClick',
+  'onContextmenu',
+  'onDragstart',
+  'onDragenter',
+  'onDragover',
+  'onDragleave',
+  'onDrop',
+  'onDragend',
+  'onLoad',
+  'onMouseleave',
+  'onMouseenter',
+  'onScroll',
+  'onActiveChange',
+  'onKeydown',
+  'onUpdate:expandedKeys',
+  'onUpdate:checkedKeys',
+  'onUpdate:selectedKeys',
+  'onUpdate:activeKey',
+] as const
+
 const defaults = {
   showIcon: false,
   blockNode: false,
@@ -274,7 +303,7 @@ const Tree = defineComponent<
   string,
   SlotsType<TreeSlots>
 >(
-  (props = defaults, { slots, emit, expose, attrs }) => {
+  (props = defaults, { slots, expose, attrs }) => {
     const {
       virtual,
       prefixCls,
@@ -293,6 +322,7 @@ const Tree = defineComponent<
       ...initCollapseMotion(rootPrefixCls.value),
       appear: false,
     })
+    const instance = getCurrentInstance()
 
     // =========== Merged Props for Semantic ==========
     const mergedProps = computed(() => {
@@ -367,79 +397,100 @@ const Tree = defineComponent<
         />
       )
       const newProps = {
-        ...omit(props, ['icon']),
+        ...omit(props, ['icon', ...treeCallbackPropKeys]),
         disabled: mergedDisabled.value,
         showLine: Boolean(showLine),
         dropIndicatorRender,
       }
       const onAttrs: Partial<VcTreeProps> = {
         onCheck(checked, info) {
-          emit('check', checked, info)
-          emit('update:checkedKeys', checked)
+          const callbackProps = (instance?.vnode.props ?? {}) as any
+          callbackProps?.onCheck?.(checked, info)
+          callbackProps?.['onUpdate:checkedKeys']?.(checked)
         },
         onClick(...args) {
-          emit('click', ...args)
+          const callbackProps = (instance?.vnode.props ?? {}) as any
+          callbackProps?.onClick?.(...args)
         },
         onExpand(expandKeys, info) {
-          emit('expand', expandKeys, info)
-          emit('update:expandedKeys', expandKeys)
+          const callbackProps = (instance?.vnode.props ?? {}) as any
+          callbackProps?.onExpand?.(expandKeys, info)
+          callbackProps?.['onUpdate:expandedKeys']?.(expandKeys)
         },
         onBlur(e) {
-          emit('blur', e)
+          const callbackProps = (instance?.vnode.props ?? {}) as any
+          callbackProps?.onBlur?.(e)
         },
         onLoad(loadKeys, info) {
-          emit('load', loadKeys, info)
+          const callbackProps = (instance?.vnode.props ?? {}) as any
+          callbackProps?.onLoad?.(loadKeys, info)
         },
         onFocus(e) {
-          emit('focus', e)
+          const callbackProps = (instance?.vnode.props ?? {}) as any
+          callbackProps?.onFocus?.(e)
         },
         onActiveChange(key) {
-          emit('activeChange', key)
-          emit('update:activeKey', key!)
+          const callbackProps = (instance?.vnode.props ?? {}) as any
+          callbackProps?.onActiveChange?.(key)
+          callbackProps?.['onUpdate:activeKey']?.(key!)
         },
         onDrop(info) {
-          emit('drop', info)
+          const callbackProps = (instance?.vnode.props ?? {}) as any
+          callbackProps?.onDrop?.(info)
         },
         onDragEnd(info) {
-          emit('dragend', info)
+          const callbackProps = (instance?.vnode.props ?? {}) as any
+          callbackProps?.onDragend?.(info)
         },
         onDragEnter(info) {
-          emit('dragenter', info)
+          const callbackProps = (instance?.vnode.props ?? {}) as any
+          callbackProps?.onDragenter?.(info)
         },
         onDragLeave(info) {
-          emit('dragleave', info)
+          const callbackProps = (instance?.vnode.props ?? {}) as any
+          callbackProps?.onDragleave?.(info)
         },
         onDragOver(info) {
-          emit('dragover', info)
+          const callbackProps = (instance?.vnode.props ?? {}) as any
+          callbackProps?.onDragover?.(info)
         },
         onDoubleClick(...args) {
-          emit('doubleClick', ...args)
-          emit('dblclick', ...args)
+          const callbackProps = (instance?.vnode.props ?? {}) as any
+          callbackProps?.onDoubleClick?.(...args)
+          callbackProps?.onDblclick?.(...args)
         },
         onContextMenu(e) {
-          emit('contextmenu', e)
+          const callbackProps = (instance?.vnode.props ?? {}) as any
+          callbackProps?.onContextmenu?.(e)
         },
         onKeyDown(e) {
-          emit('keydown', e)
+          const callbackProps = (instance?.vnode.props ?? {}) as any
+          callbackProps?.onKeydown?.(e)
         },
         onScroll(e) {
-          emit('scroll', e)
+          const callbackProps = (instance?.vnode.props ?? {}) as any
+          callbackProps?.onScroll?.(e)
         },
         onRightClick(info) {
-          emit('rightClick', info)
+          const callbackProps = (instance?.vnode.props ?? {}) as any
+          callbackProps?.onRightClick?.(info)
         },
         onSelect(keys, info) {
-          emit('select', keys, info)
-          emit('update:selectedKeys', keys)
+          const callbackProps = (instance?.vnode.props ?? {}) as any
+          callbackProps?.onSelect?.(keys, info)
+          callbackProps?.['onUpdate:selectedKeys']?.(keys)
         },
         onDragStart(info) {
-          emit('dragstart', info)
+          const callbackProps = (instance?.vnode.props ?? {}) as any
+          callbackProps?.onDragstart?.(info)
         },
         onMouseEnter(e) {
-          emit('mouseenter', e)
+          const callbackProps = (instance?.vnode.props ?? {}) as any
+          callbackProps?.onMouseenter?.(e)
         },
         onMouseLeave(e) {
-          emit('mouseleave', e)
+          const callbackProps = (instance?.vnode.props ?? {}) as any
+          callbackProps?.onMouseleave?.(e)
         },
       }
 

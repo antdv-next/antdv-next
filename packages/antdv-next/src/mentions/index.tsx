@@ -95,6 +95,13 @@ export interface MentionProps extends
     clearIcon?: VueNode
   }
   disabled?: boolean
+  onFocus?: MentionsEmits['focus']
+  onBlur?: MentionsEmits['blur']
+  onChange?: MentionsEmits['change']
+  onSelect?: MentionsEmits['select']
+  onPopupScroll?: MentionsEmits['popupScroll']
+  onSearch?: MentionsEmits['search']
+  'onUpdate:value'?: MentionsEmits['update:value']
 }
 
 export interface MentionsEmits {
@@ -143,6 +150,13 @@ const omitKeys: string[] = [
   'popupClassName',
   'options',
   'notFoundContent',
+  'onFocus',
+  'onBlur',
+  'onChange',
+  'onSelect',
+  'onPopupScroll',
+  'onSearch',
+  'onUpdate:value',
 ]
 
 const InternalMentions = defineComponent<
@@ -151,7 +165,7 @@ const InternalMentions = defineComponent<
   string,
   SlotsType<MentionsSlots>
 >(
-  (props, { slots, emit, expose, attrs }) => {
+  (props, { slots, expose, attrs }) => {
     if (isDev) {
       const warning = devUseWarning('Mentions')
       warning.deprecated(!slots.default, 'Mentions.Option', 'options')
@@ -220,29 +234,29 @@ const InternalMentions = defineComponent<
 
     const handleFocus = (event: FocusEvent) => {
       setFocusState(true)
-      emit('focus', event)
+      props?.onFocus?.(event)
     }
 
     const handleBlur = (event: FocusEvent) => {
       setFocusState(false)
-      emit('blur', event)
+      props?.onBlur?.(event)
     }
 
     const handleChange = (value: string) => {
-      emit('update:value', value)
-      emit('change', value)
+      props?.['onUpdate:value']?.(value)
+      props?.onChange?.(value)
     }
 
     const handleSelect = (option: VcMentionsOptionProps, prefix: string) => {
-      emit('select', option as MentionsOptionProps, prefix)
+      props?.onSelect?.(option as MentionsOptionProps, prefix)
     }
 
     const handleSearch = (text: string, prefix: string) => {
-      emit('search', text, prefix)
+      props?.onSearch?.(text, prefix)
     }
 
     const handlePopupScroll = (event: Event) => {
-      emit('popupScroll', event)
+      props?.onPopupScroll?.(event)
     }
 
     const notFoundContent = computed(() => {

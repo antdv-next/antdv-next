@@ -1,8 +1,9 @@
 import type { SlotsType } from 'vue'
 import type { BlockProps, TypographyBaseEmits, TypographySlots } from './interface'
 import { omit } from 'es-toolkit'
-import { defineComponent } from 'vue'
+import { defineComponent, getCurrentInstance } from 'vue'
 import Base from './Base'
+import { typographyBaseCallbackPropKeys } from './interface'
 
 export interface ParagraphProps extends BlockProps {}
 
@@ -12,17 +13,19 @@ const Paragraph = defineComponent<
   string,
   SlotsType<TypographySlots>
 >(
-  (props, { slots, attrs, emit }) => {
+  (props, { slots, attrs }) => {
+    const instance = getCurrentInstance()
+    const getCallbackProps = () => (instance?.vnode.props ?? {}) as any
     const listeners = {
-      'onClick': (e: MouseEvent) => emit('click', e),
-      'onCopy': (e?: MouseEvent) => emit('copy', e as any),
-      'onExpand': (expanded: boolean, e: MouseEvent) => emit('expand', expanded, e),
-      'onEditStart': () => emit('edit:start'),
-      'onEditChange': (val: string) => emit('edit:change', val),
-      'onEditCancel': () => emit('edit:cancel'),
-      'onEditEnd': () => emit('edit:end'),
-      'onUpdate:expanded': (val: boolean) => emit('update:expanded', val),
-      'onUpdate:editing': (val: boolean) => emit('update:editing', val),
+      'onClick': (e: MouseEvent) => getCallbackProps()?.onClick?.(e),
+      'onCopy': (e?: MouseEvent) => getCallbackProps()?.onCopy?.(e as any),
+      'onExpand': (expanded: boolean, e: MouseEvent) => getCallbackProps()?.onExpand?.(expanded, e),
+      'onEditStart': () => getCallbackProps()?.onEditStart?.(),
+      'onEditChange': (val: string) => getCallbackProps()?.onEditChange?.(val),
+      'onEditCancel': () => getCallbackProps()?.onEditCancel?.(),
+      'onEditEnd': () => getCallbackProps()?.onEditEnd?.(),
+      'onUpdate:expanded': (val: boolean) => getCallbackProps()?.['onUpdate:expanded']?.(val),
+      'onUpdate:editing': (val: boolean) => getCallbackProps()?.['onUpdate:editing']?.(val),
     }
 
     return () => {
@@ -40,10 +43,11 @@ const Paragraph = defineComponent<
           'onUpdate:editing',
         ],
       )
+      const restProps = omit(props, [...typographyBaseCallbackPropKeys]) as Record<string, any>
       return (
         <Base
           {...(restAttrs as any)}
-          {...props}
+          {...restProps}
           component="div"
           v-slots={slots}
           {...listeners}

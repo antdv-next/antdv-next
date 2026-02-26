@@ -108,6 +108,8 @@ export interface TooltipProps extends TriggerCommonApi {
   overlay?: VueNode
   openClass?: string
   unique?: boolean
+  onOpenChange?: TooltipEmits['openChange']
+  'onUpdate:open'?: TooltipEmits['update:open']
 }
 
 export interface TooltipEmits {
@@ -140,7 +142,7 @@ const InternalTooltip = defineComponent<
   string,
   SlotsType<TooltipSlots>
 >(
-  (props = defaults, { slots, attrs, expose, emit }) => {
+  (props = defaults, { slots, attrs, expose }) => {
     const [,token] = useToken()
     const {
       prefixCls,
@@ -196,8 +198,8 @@ const InternalTooltip = defineComponent<
         open.value = noTitle ? false : vis
       }
       if (!noTitle) {
-        emit('openChange', vis)
-        emit('update:open', vis)
+        props?.onOpenChange?.(vis)
+        props?.['onUpdate:open']?.(vis)
       }
     }
 
@@ -249,6 +251,8 @@ const InternalTooltip = defineComponent<
         motion,
         destroyOnHidden,
         openClass,
+        onOpenChange: _onOpenChange,
+        'onUpdate:open': _onUpdateOpen,
         arrow: _arrow,
         ...restProps
       } = props

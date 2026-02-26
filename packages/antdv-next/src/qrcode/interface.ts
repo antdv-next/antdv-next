@@ -42,6 +42,7 @@ export interface QRCodeProps extends QRProps, ComponentBaseProps {
   errorLevel?: 'L' | 'M' | 'Q' | 'H'
   status?: QRStatus
   statusRender?: (info: StatusRenderInfo) => any
+  onRefresh?: () => void
   color?: any
   classes?: QRCodeClassNamesType
   styles?: QRCodeStylesType

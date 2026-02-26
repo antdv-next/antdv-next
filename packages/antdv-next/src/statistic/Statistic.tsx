@@ -56,6 +56,8 @@ type StatisticRectProps = FormatConfig & ComponentBaseProps & {
   loading?: boolean
   classes?: StatisticClassNamesType
   styles?: StatisticStylesType
+  onMouseenter?: (e: MouseEvent) => void
+  onMouseleave?: (e: MouseEvent) => void
 }
 
 export type StatisticProps = StatisticRectProps
@@ -88,7 +90,7 @@ const Statistic = defineComponent<
   string,
   SlotsType<StatisticSlots>
 >(
-  (props = defaults, { slots, attrs, emit, expose }) => {
+  (props = defaults, { slots, attrs, expose }) => {
     const {
       direction,
       prefixCls,
@@ -115,10 +117,10 @@ const Statistic = defineComponent<
       nativeElement: internalRef,
     })
     const handleMouseEnter = (e: MouseEvent) => {
-      emit('mouseenter', e)
+      props?.onMouseenter?.(e)
     }
     const handleMouseLeave = (e: MouseEvent) => {
-      emit('mouseleave', e)
+      props?.onMouseleave?.(e)
     }
     return () => {
       const {

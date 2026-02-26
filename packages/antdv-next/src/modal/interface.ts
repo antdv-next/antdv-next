@@ -122,6 +122,9 @@ export interface ModalProps extends ModalCommonProps {
    */
   loading?: boolean
   focusable?: FocusableConfig
+  onOk?: ModalEmits['ok']
+  onCancel?: ModalEmits['cancel']
+  'onUpdate:open'?: ModalEmits['update:open']
 }
 
 export interface ModalEmits {

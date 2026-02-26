@@ -37,6 +37,10 @@ const omitKeys = [
   'showSizeChanger',
   'pageSizeOptions',
   'selectComponentClass',
+  'onChange',
+  'onShowSizeChange',
+  'onUpdate:current',
+  'onUpdate:pageSize',
 ] as const
 
 const Pagination = defineComponent<
@@ -45,7 +49,7 @@ const Pagination = defineComponent<
   string,
   SlotsType<PaginationSlots>
 >(
-  (props, { slots, attrs, emit }) => {
+  (props, { slots, attrs }) => {
     const {
       getPrefixCls,
       prefixCls,
@@ -217,17 +221,17 @@ const Pagination = defineComponent<
     })
 
     const handleChange: NonNullable<VcPaginationProps['onChange']> = (page, pageSize) => {
-      emit('change', page, pageSize)
+      props?.onChange?.(page, pageSize)
       if (props.current !== page) {
-        emit('update:current', page)
+        props?.['onUpdate:current']?.(page)
       }
       else if (props.pageSize !== pageSize) {
-        emit('update:pageSize', pageSize)
+        props?.['onUpdate:pageSize']?.(pageSize)
       }
     }
 
     const handleShowSizeChange: NonNullable<VcPaginationProps['onShowSizeChange']> = (current, size) => {
-      emit('showSizeChange', current, size)
+      props?.onShowSizeChange?.(current, size)
     }
 
     return () => {

@@ -87,6 +87,13 @@ export interface FormProps extends ComponentBaseProps {
   validateOnRuleChange?: boolean
   autoComplete?: string | undefined
   tooltip?: FormTooltipProps
+  onFinish?: FormEmits['finish']
+  onFinishFailed?: FormEmits['finishFailed']
+  onSubmit?: FormEmits['submit']
+  onReset?: FormEmits['reset']
+  onValidate?: FormEmits['validate']
+  onValuesChange?: FormEmits['valuesChange']
+  onFieldsChange?: FormEmits['fieldsChange']
 }
 
 export interface FormEmits {
@@ -135,7 +142,7 @@ const InternalForm = defineComponent<
   string,
   SlotsType<FormSlots>
 >(
-  (props = defaults, { slots, expose, emit, attrs }) => {
+  (props = defaults, { slots, expose, attrs }) => {
     const contextDisabled = useDisabledContext()
     const {
       prefixCls,
@@ -264,19 +271,19 @@ const InternalForm = defineComponent<
     }
 
     const triggerFieldsChange = (namePathList?: InternalNamePath[]) => {
-      emit('fieldsChange', getFields(namePathList), getFields())
+      props?.onFieldsChange?.(getFields(namePathList), getFields())
     }
 
     const triggerValuesChange = (namePath: InternalNamePath, value: any) => {
       if (model.value) {
         const changedValues = setValue({}, namePath, value)
-        emit('valuesChange', changedValues, model.value)
+        props?.onValuesChange?.(changedValues, model.value)
       }
       triggerFieldsChange([namePath])
     }
 
     const onValidate = (name: InternalNamePath, status: boolean, errors: any[] | null) => {
-      emit('validate', name, status, errors)
+      props?.onValidate?.(name, status, errors)
     }
 
     const resetFields = (nameList?: NamePath[] | InternalNamePath[]) => {
@@ -419,7 +426,7 @@ const InternalForm = defineComponent<
     }
 
     const onInternalFinishFailed = (errorInfo: ValidateErrorEntity) => {
-      emit('finishFailed', errorInfo)
+      props?.onFinishFailed?.(errorInfo)
       if (errorInfo.errorFields?.length) {
         const fieldName = errorInfo.errorFields?.[0]?.name
         if (props.scrollToFirstError !== undefined) {
@@ -595,11 +602,11 @@ const InternalForm = defineComponent<
     function handleSubmit(e: Event) {
       e.preventDefault()
       e.stopPropagation()
-      emit('submit', e)
+      props?.onSubmit?.(e)
       if (props.model) {
         validateFields()
           .then((values) => {
-            emit('finish', values)
+            props?.onFinish?.(values)
           })
           .catch((errors) => {
             onInternalFinishFailed(errors)
@@ -609,7 +616,7 @@ const InternalForm = defineComponent<
 
     const handleReset = (e: Event) => {
       e.preventDefault()
-      emit('reset', e)
+      props?.onReset?.(e)
       resetFields()
     }
 

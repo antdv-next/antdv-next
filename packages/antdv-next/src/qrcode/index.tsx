@@ -42,7 +42,7 @@ const QRCode = defineComponent<
   string,
   SlotsType<QRCodeSlots>
 >(
-  (props = defaults, { emit, attrs, slots }) => {
+  (props = defaults, { attrs, slots }) => {
     const {
       prefixCls,
       class: contextClassName,
@@ -171,7 +171,7 @@ const QRCode = defineComponent<
                 locale={locale!.value!}
                 status={status!}
                 onRefresh={() => {
-                  emit('refresh')
+                  props?.onRefresh?.()
                 }}
                 statusRender={statusRender}
               />

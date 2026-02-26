@@ -54,7 +54,7 @@ const Modal = defineComponent<
   string,
   SlotsType<ModalSlots>
 >(
-  (props = defaults, { slots, attrs, emit }) => {
+  (props = defaults, { slots, attrs }) => {
     const {
       getPopupContainer: getContextPopupContainer,
       getPrefixCls,
@@ -125,13 +125,13 @@ const Modal = defineComponent<
       if (props.confirmLoading) {
         return
       }
-      emit('cancel', e)
-      emit('update:open', false)
+      props?.onCancel?.(e)
+      props?.['onUpdate:open']?.(false)
       onClose()
     }
 
     const handleOk = (e: MouseEvent) => {
-      emit('ok', e)
+      props?.onOk?.(e)
       onClose()
     }
 
@@ -316,6 +316,9 @@ const Modal = defineComponent<
         'focusTriggerAfterClose',
         'panelRef',
         'focusable',
+        'onOk',
+        'onCancel',
+        'onUpdate:open',
       ] as any)
 
       const titleNode = getSlotPropsFnRun(slots, props, 'title')

@@ -116,6 +116,14 @@ export type ColorPickerProps
     rootClass?: string
     disabledAlpha?: boolean
     disabledFormat?: boolean
+    onChange?: (value: AggregationColor, css: string) => void
+    onClear?: () => void
+    onChangeComplete?: (value: AggregationColor) => void
+    onOpenChange?: (open: boolean) => void
+    onFormatChange?: (format?: ColorFormatType) => void
+    'onUpdate:open'?: (open: boolean) => void
+    'onUpdate:value'?: (value: ColorValueType) => void
+    'onUpdate:format'?: (format: ColorFormatType) => void
     [key: `data-${string}`]: string
   } & Pick<
     PopoverProps,

@@ -129,6 +129,7 @@ export interface BaseStepsProps {
 
 export interface StepsProps extends BaseStepsProps {
   prefixCls?: string
+  'onUpdate:current'?: (current: number) => void
 }
 
 export interface StepsEmits {
@@ -157,7 +158,7 @@ const Steps = defineComponent<
   string,
   SlotsType<StepsSlots>
 >(
-  (props = defaults, { slots, attrs, emit }) => {
+  (props = defaults, { slots, attrs }) => {
     const internalContent = useInternalContext()
     const {
       direction: rtlDirection,
@@ -263,6 +264,7 @@ const Steps = defineComponent<
       const {
         variant,
         onChange,
+        'onUpdate:current': onUpdateCurrent,
         offset,
         ellipsis,
         rootClass,
@@ -425,7 +427,7 @@ const Steps = defineComponent<
           items={mergedItems.value as any}
           onChange={(current) => {
             onChange?.(current)
-            emit('update:current', current)
+            onUpdateCurrent?.(current)
           }}
           // Render
           iconRender={internalIconRender}

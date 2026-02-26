@@ -2,7 +2,7 @@ import type { SlotsType } from 'vue'
 import type { TableEmits, TableProps, TableSlots } from './InternalTable.tsx'
 import { EXPAND_COLUMN, Summary } from '@v-c/table'
 import { omit } from 'es-toolkit'
-import { defineComponent, shallowRef } from 'vue'
+import { defineComponent, getCurrentInstance, shallowRef } from 'vue'
 import Column from './Column.tsx'
 import ColumnGroup from './ColumnGroup.tsx'
 import {
@@ -19,7 +19,9 @@ const Table = defineComponent<
   string,
   SlotsType<TableSlots>
 >(
-  (props, { slots, attrs, expose, emit }) => {
+  (props, { slots, attrs, expose }) => {
+    const instance = getCurrentInstance()
+    const getCallbackProps = () => (instance?.vnode.props ?? {}) as any
     const renderTimesRef = shallowRef(0)
     renderTimesRef.value += 1
     const tableRef = shallowRef<any>(null)
@@ -36,10 +38,10 @@ const Table = defineComponent<
         {...omit(props, ['onUpdate:expandedRowKeys', 'onChange'])}
         {...attrs}
         onChange={(pagination: any, filters: any, sorter: any, extra: any) => {
-          emit('change', pagination, filters, sorter, extra)
+          getCallbackProps()?.onChange?.(pagination, filters, sorter, extra)
         }}
         onUpdate:expandedRowKeys={(keys: any) => {
-          emit('update:expandedRowKeys', keys)
+          getCallbackProps()?.['onUpdate:expandedRowKeys']?.(keys)
         }}
         _renderTimes={renderTimesRef.value}
         ref={tableRef}

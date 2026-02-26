@@ -23,7 +23,7 @@ const Tour = defineComponent<
   string,
   SlotsType<TourSlots>
 >(
-  (props, { slots, emit, attrs }) => {
+  (props, { slots, attrs }) => {
     const {
       prefixCls,
       direction,
@@ -150,6 +150,12 @@ const Tour = defineComponent<
         'steps',
         'closeIcon',
         'styles',
+        'onClose',
+        'onFinish',
+        'onChange',
+        'onPopupAlign',
+        'onUpdate:open',
+        'onUpdate:current',
       ])
       return (
         <ZIndexProvider value={contextZIndex.value}>
@@ -167,19 +173,19 @@ const Tour = defineComponent<
             builtinPlacements={builtinPlacements}
             steps={vcSteps.value}
             onClose={(current) => {
-              emit('close', current)
-              emit('update:open', false)
+              props?.onClose?.(current)
+              props?.['onUpdate:open']?.(false)
             }}
             onChange={(current) => {
-              emit('update:current', current)
-              emit('change', current)
+              props?.['onUpdate:current']?.(current)
+              props?.onChange?.(current)
             }}
             onFinish={() => {
-              emit('finish')
-              emit('update:open', false)
+              props?.onFinish?.()
+              props?.['onUpdate:open']?.(false)
             }}
             onPopupAlign={(el, info) => {
-              emit('popupAlign', el, info)
+              props?.onPopupAlign?.(el, info)
             }}
           />
         </ZIndexProvider>

@@ -32,6 +32,7 @@ export interface AffixProps extends ComponentBaseProps {
   offsetBottom?: number
   /** Set the element that Affix needs to listen to its scroll event, the value is a function that returns the corresponding DOM element */
   target?: () => Window | HTMLElement | null
+  onChange?: (affixed: boolean) => void
 }
 
 export interface AffixEmits {
@@ -64,7 +65,7 @@ export const Affix = defineComponent<
   AffixEmits,
   string
 >(
-  (props = affixDefaultProps, { slots, attrs, expose, emit }) => {
+  (props = affixDefaultProps, { slots, attrs, expose }) => {
     const configContext = useConfig()
 
     const affixPrefixCls = computed(() => configContext.value.getPrefixCls('affix', props.prefixCls))
@@ -148,7 +149,7 @@ export const Affix = defineComponent<
         newState.lastAffix = !!newState.affixStyle
 
         if (lastAffix.value !== newState.lastAffix) {
-          emit('change', newState.lastAffix)
+          props?.onChange?.(newState.lastAffix)
         }
 
         status.value = newState.status!

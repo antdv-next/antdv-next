@@ -93,6 +93,7 @@ export interface ButtonProps extends BaseButtonProps {
   htmlType?: ButtonHTMLType
   target?: '_self' | '_blank' | '_parent' | '_top' | string
   autoInsertSpace?: boolean
+  onClick?: (e: MouseEvent) => void
 }
 
 interface LoadingConfigType {
@@ -151,7 +152,7 @@ const InternalCompoundedButton = defineComponent<
   string,
   SlotsType<ButtonSlots>
 >(
-  (props = defaultButtonProps, { slots, attrs, emit }) => {
+  (props = defaultButtonProps, { slots, attrs }) => {
     // https://github.com/ant-design/ant-design/issues/47605
     // Compatible with original `type` behavior
     const mergedType = computed(() => props.type || 'default')
@@ -291,7 +292,12 @@ const InternalCompoundedButton = defineComponent<
         e.preventDefault()
         return
       }
-      emit('click', e)
+      const clickHandler = (props as any)?.onClick
+      if (Array.isArray(clickHandler)) {
+        clickHandler.forEach(handler => handler?.(e))
+        return
+      }
+      clickHandler?.(e)
     }
 
     // ========================== Size ==========================

@@ -13,6 +13,8 @@ export type TimerType = 'countdown' | 'countup'
 export type StatisticTimerProps = FormatConfig & StatisticProps & {
   type: TimerType
   format?: string
+  onFinish?: () => void
+  onChange?: (value?: valueType) => void
 }
 
 export interface StatisticTimeEmits {
@@ -43,7 +45,7 @@ const StatisticTimer = defineComponent<
   string,
   SlotsType<StatisticSlots>
 >(
-  (props = defaults, { slots, attrs, emit }) => {
+  (props = defaults, { slots, attrs }) => {
     const down = computed(() => props.type === 'countdown')
     // We reuse state here to do same as `forceUpdate`
     const showTime = shallowRef<null | object>(null)
@@ -54,10 +56,10 @@ const StatisticTimer = defineComponent<
       const timestamp = getTime(value)
       showTime.value = {}
       const timeDiff = !down.value ? now - timestamp : timestamp - now
-      emit('change', timeDiff)
+      props?.onChange?.(timeDiff)
       // Only countdown will trigger `onFinish`
       if (down.value && timestamp < now) {
-        emit('finish')
+        props?.onFinish?.()
         return false
       }
       return true

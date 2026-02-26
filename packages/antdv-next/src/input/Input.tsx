@@ -89,6 +89,16 @@ export interface InputProps extends ComponentBaseProps, BaseVcInputProps {
   variant?: Variant
   classes?: InputClassNamesType
   styles?: InputStylesType
+  onPressEnter?: InputEmits['pressEnter']
+  onClear?: InputEmits['clear']
+  onChange?: InputEmits['change']
+  onBlur?: InputEmits['blur']
+  onFocus?: InputEmits['focus']
+  onKeydown?: InputEmits['keydown']
+  onKeyup?: InputEmits['keyup']
+  onCompositionstart?: InputEmits['compositionstart']
+  onCompositionend?: InputEmits['compositionend']
+  'onUpdate:value'?: InputEmits['update:value']
 }
 
 export interface InputEmits {
@@ -131,6 +141,16 @@ const omitKeys: (keyof InputProps)[] = [
   'suffix',
   'maxlength',
   'readonly',
+  'onPressEnter',
+  'onClear',
+  'onChange',
+  'onBlur',
+  'onFocus',
+  'onKeydown',
+  'onKeyup',
+  'onCompositionstart',
+  'onCompositionend',
+  'onUpdate:value',
 ]
 
 const InternalInput = defineComponent<
@@ -139,7 +159,7 @@ const InternalInput = defineComponent<
   string,
   SlotsType<InputSlots>
 >(
-  (props, { slots, expose, emit, attrs }) => {
+  (props, { slots, expose, attrs }) => {
     if (isDev) {
       const warning = devUseWarning('Input')
       ;[
@@ -242,43 +262,43 @@ const InternalInput = defineComponent<
     })
 
     const handlePressEnter: InputEmits['pressEnter'] = (e) => {
-      emit('pressEnter', e)
+      props?.onPressEnter?.(e)
     }
 
     const triggerChange = (e: any) => {
       const target = e?.target as HTMLInputElement | undefined
-      emit('update:value', target?.value)
-      emit('change', e)
+      props?.['onUpdate:value']?.(target?.value)
+      props?.onChange?.(e)
     }
 
     const handleClear = () => {
-      emit('clear')
+      props?.onClear?.()
     }
 
     const handleFocus: InputEmits['focus'] = (e) => {
       removePasswordTimeout()
-      emit('focus', e)
+      props?.onFocus?.(e)
     }
 
     const handleBlur: InputEmits['blur'] = (e) => {
       removePasswordTimeout()
-      emit('blur', e)
+      props?.onBlur?.(e)
     }
 
     const handleKeyDown: InputEmits['keydown'] = (e) => {
-      emit('keydown', e)
+      props?.onKeydown?.(e)
     }
 
     const handleKeyUp: InputEmits['keyup'] = (e) => {
-      emit('keyup', e)
+      props?.onKeyup?.(e)
     }
 
     const handleCompositionStart: InputEmits['compositionstart'] = (e) => {
-      emit('compositionstart', e)
+      props?.onCompositionstart?.(e)
     }
 
     const handleCompositionEnd: InputEmits['compositionend'] = (e) => {
-      emit('compositionend', e)
+      props?.onCompositionend?.(e)
     }
 
     return () => {

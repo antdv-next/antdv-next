@@ -263,18 +263,17 @@ describe('layout', () => {
 
       it('should emit collapse and update:collapsed on trigger click', async () => {
         const onCollapse = vi.fn()
+        const onUpdateCollapsed = vi.fn()
         const wrapper = mount(() => (
           <Layout>
-            <LayoutSider collapsible onCollapse={onCollapse}>
+            <LayoutSider collapsible onCollapse={onCollapse} onUpdate:collapsed={onUpdateCollapsed}>
               {{ default: () => 'Sider', trigger: () => <span>T</span> }}
             </LayoutSider>
           </Layout>
         ))
         await wrapper.find('.ant-layout-sider-trigger').trigger('click')
         expect(onCollapse).toHaveBeenCalledWith(true, 'clickTrigger')
-
-        const sider = wrapper.findComponent(LayoutSider)
-        expect(sider.emitted('update:collapsed')![0]).toEqual([true])
+        expect(onUpdateCollapsed).toHaveBeenCalledWith(true)
       })
 
       it('should hide trigger when trigger slot returns null', () => {

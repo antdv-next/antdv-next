@@ -27,7 +27,7 @@ const RadioGroup = defineComponent<
   string,
   SlotsType<RadioGroupSlots>
 >(
-  (props = defaults, { slots, attrs, emit }) => {
+  (props = defaults, { slots, attrs }) => {
     const { prefixCls, direction } = useComponentBaseConfig('radio', props)
     const formItemInputContext = useFormItemInputContext()
     const defaultName = computed(() => toNamePathStr(formItemInputContext.value?.name ?? '') || useId())
@@ -42,7 +42,7 @@ const RadioGroup = defineComponent<
       const val = e.target.value
       props?.['onUpdate:value']?.(val)
       if (val !== lastValue) {
-        emit('change', e)
+        props?.onChange?.(e)
       }
       if (props.value === undefined) {
         value.value = val
@@ -142,16 +142,16 @@ const RadioGroup = defineComponent<
           })}
           style={style}
           onMouseenter={(e) => {
-            emit('mouseenter', e)
+            props?.onMouseenter?.(e)
           }}
           onMouseleave={(e) => {
-            emit('mouseleave', e)
+            props?.onMouseleave?.(e)
           }}
           onFocus={(e) => {
-            emit('focus', e)
+            props?.onFocus?.(e)
           }}
           onBlur={(e) => {
-            emit('blur', e)
+            props?.onBlur?.(e)
             formItemContext?.triggerBlur?.()
           }}
           id={id}

@@ -175,6 +175,12 @@ export interface TransferProps<RecordType = any> extends ComponentBaseProps {
   pagination?: PaginationType
   status?: InputStatus
   selectionsIcon?: VueNode
+  onChange?: (targetKeys: TransferKey[], direction: TransferDirection, moveKeys: TransferKey[]) => void
+  onSelectChange?: (sourceSelectedKeys: TransferKey[], targetSelectedKeys: TransferKey[]) => void
+  onSearch?: (direction: TransferDirection, value: string) => void
+  onScroll?: (direction: TransferDirection, e: Event) => void
+  'onUpdate:targetKeys'?: (targetKeys: TransferKey[]) => void
+  'onUpdate:selectedKeys'?: (selectedKeys: TransferKey[]) => void
 }
 
 export interface TransferEmits {

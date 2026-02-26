@@ -79,7 +79,7 @@ function generatePicker<DateType extends AnyObject = AnyObject>(generateConfig: 
       string,
       SlotsType<DatePickerSlots>
     >(
-      (props, { slots, attrs, emit, expose }) => {
+      (props, { slots, attrs, expose }) => {
         const {
           getPopupContainer: customGetPopupContainer,
           size: customizeSize,
@@ -168,44 +168,45 @@ function generatePicker<DateType extends AnyObject = AnyObject>(generateConfig: 
         }))
 
         const [zIndex] = useZIndex('DatePicker', computed(() => mergedStyles.value?.popup?.root?.zIndex as number))
+        const callbackProps = props as any
 
         const triggerChange = (date: DateType | DateType[] | null, dateStr: string | string[]) => {
-          emit('update:value', date)
-          emit('change', date, dateStr)
+          callbackProps?.['onUpdate:value']?.(date)
+          callbackProps?.onChange?.(date, dateStr)
         }
 
         const handleCalendarChange = (date: DateType | DateType[], dateStr: string | string[], info: any) => {
-          emit('calendarChange', date, dateStr, info)
+          callbackProps?.onCalendarChange?.(date, dateStr, info)
           if ((props as any).multiple && !(props as any).needConfirm) {
             triggerChange(date as DateType[], dateStr as string[])
           }
           if (picker === TIME && !(props as any).multiple) {
-            emit('select', (date as DateType[])[0] ?? (date as DateType))
+            callbackProps?.onSelect?.((date as DateType[])[0] ?? (date as DateType))
           }
         }
 
         const handlePanelChange = (value: DateType, mode: PickerMode) => {
-          emit('panelChange', value, mode)
+          callbackProps?.onPanelChange?.(value, mode)
         }
 
         const handleOpenChange = (open: boolean) => {
-          emit('openChange', open)
+          callbackProps?.onOpenChange?.(open)
         }
 
         const handleOk = (value: DateType | DateType[]) => {
-          emit('ok', value)
+          callbackProps?.onOk?.(value)
         }
 
         const handleFocus = (e: FocusEvent, info: any) => {
-          emit('focus', e, info)
+          callbackProps?.onFocus?.(e, info)
         }
 
         const handleBlur = (e: FocusEvent, info: any) => {
-          emit('blur', e, info)
+          callbackProps?.onBlur?.(e, info)
         }
 
         const handleKeyDown = (e: KeyboardEvent, preventDefault: VoidFunction) => {
-          emit('keydown', e, preventDefault)
+          callbackProps?.onKeydown?.(e, preventDefault)
         }
 
         const resolveRender = (
@@ -347,7 +348,19 @@ function generatePicker<DateType extends AnyObject = AnyObject>(generateConfig: 
               <Picker
                 {...restAttrs}
                 {...additionalProps}
-                {...omit(restProps, ['onKeydown']) as any}
+                {...omit(restProps, [
+                  'onChange',
+                  'onUpdate:value',
+                  'onCalendarChange',
+                  'onPanelChange',
+                  'onOpenChange',
+                  'onOk',
+                  'onSelect',
+                  'onFocus',
+                  'onBlur',
+                  'onKeydown',
+                  'onKeyDown',
+                ]) as any}
                 ref={innerRef}
                 placeholder={getPlaceholder(locale.value, mergedPicker.value, placeholder)}
                 suffixIcon={suffixNode}

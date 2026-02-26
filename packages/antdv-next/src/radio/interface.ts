@@ -20,6 +20,11 @@ export interface RadioGroupProps extends AbstractCheckboxGroupProps {
   block?: boolean
   vertical?: boolean
   labelRender?: (params: { item: CheckboxOptionType, index: number }) => any
+  onChange?: RadioGroupEmits['change']
+  onMouseenter?: RadioGroupEmits['mouseenter']
+  onMouseleave?: RadioGroupEmits['mouseleave']
+  onFocus?: RadioGroupEmits['focus']
+  onBlur?: RadioGroupEmits['blur']
   'onUpdate:value'?: (value: any) => void
 }
 
@@ -79,6 +84,11 @@ export interface RadioProps extends AbstractCheckboxProps {
   optionType?: RadioGroupOptionType
   classes?: RadioClassNamesType
   styles?: RadioStylesType
+  onChange?: RadioEmits['change']
+  'onUpdate:checked'?: RadioEmits['update:checked']
+  onMouseenter?: RadioEmits['mouseenter']
+  onMouseleave?: RadioEmits['mouseleave']
+  onClick?: RadioEmits['click']
 }
 
 export interface RadioEmits extends CheckboxEmits {

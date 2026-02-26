@@ -72,6 +72,10 @@ export interface PaginationProps extends Omit<VcPaginationProps, | 'className'
   jumpNextIcon?: VueNode
   /** @deprecated Not official support. Will be removed in next major version. */
   selectComponentClass?: any
+  onChange?: PaginationEmits['change']
+  onShowSizeChange?: PaginationEmits['showSizeChange']
+  'onUpdate:current'?: PaginationEmits['update:current']
+  'onUpdate:pageSize'?: PaginationEmits['update:pageSize']
 }
 
 export type PaginationPosition = 'top' | 'bottom' | 'both'

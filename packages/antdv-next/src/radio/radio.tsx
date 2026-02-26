@@ -33,7 +33,7 @@ const InternalRadio = defineComponent<
   string,
   SlotsType<RadioSlots>
 >(
-  (props, { slots, expose, attrs, emit }) => {
+  (props, { slots, expose, attrs }) => {
     const groupContext = useRadioGroupContext()
     const radioOptionTypeContext = useRadioOptionTypeContext()
     const {
@@ -53,7 +53,7 @@ const InternalRadio = defineComponent<
     }
 
     const onChange = (e: RadioChangeEvent) => {
-      emit('change', e as any)
+      props?.onChange?.(e as any)
       groupContext?.value?.onChange?.(e)
     }
 
@@ -71,7 +71,7 @@ const InternalRadio = defineComponent<
 
     const radioProps = computed(() => {
       const _radioProps: any = {
-        ...omit(props, ['prefixCls', 'classes', 'styles', 'title', 'rootClass']),
+        ...omit(props, ['prefixCls', 'classes', 'styles', 'title', 'rootClass', 'onClick', 'onUpdate:checked', 'onMouseenter', 'onMouseleave']),
       }
       _radioProps.onChange = onChange
       if (groupContext?.value) {
@@ -107,7 +107,7 @@ const InternalRadio = defineComponent<
 
     // ============================ Event Lock ============================
     const [onLabelClick, onInputClick] = useBubbleLock((e) => {
-      emit('click', e as MouseEvent)
+      props?.onClick?.(e as MouseEvent)
     })
     expose({
       blur: () => innerRef.value?.blur?.(),
@@ -143,10 +143,10 @@ const InternalRadio = defineComponent<
             class={wrapperClassString}
             style={{ ...mergedStyles.value.root, ...contextStyle.value, ...style }}
             onMouseenter={(e) => {
-              emit('mouseenter', e)
+              props?.onMouseenter?.(e)
             }}
             onMouseleave={(e) => {
-              emit('mouseleave', e)
+              props?.onMouseleave?.(e)
             }}
             title={title}
             onClick={onLabelClick}
@@ -165,7 +165,7 @@ const InternalRadio = defineComponent<
               {
                 ...{
                   'onUpdate:checked': (checked: boolean) => {
-                    emit('update:checked', checked)
+                    props?.['onUpdate:checked']?.(checked)
                   },
                 }
               }

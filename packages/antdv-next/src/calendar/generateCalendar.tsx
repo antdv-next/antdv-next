@@ -80,9 +80,10 @@ export interface CalendarProps<DateType> {
   mode?: CalendarMode
   fullscreen?: boolean
   showWeek?: boolean
-  // onChange?: (date: DateType) => void
-  // onPanelChange?: (date: DateType, mode: CalendarMode) => void
-  // onSelect?: (date: DateType, selectInfo: SelectInfo) => void
+  onChange?: (date: DateType) => void
+  onPanelChange?: (date: DateType, mode: CalendarMode) => void
+  onSelect?: (date: DateType, selectInfo: SelectInfo) => void
+  'onUpdate:value'?: (date: DateType) => void
 }
 
 export const calendarProps = [
@@ -147,7 +148,7 @@ function generateCalendar<DateType extends AnyObject>(generateConfig: GenerateCo
     string,
     SlotsType<CalendarSlots>
   >(
-    (props = { fullscreen: true }, { slots, attrs, emit }) => {
+    (props = { fullscreen: true }, { slots, attrs }) => {
       const {
         prefixCls,
         direction,
@@ -228,7 +229,7 @@ function generateCalendar<DateType extends AnyObject>(generateConfig: GenerateCo
       })
 
       const triggerPanelChange = (date: DateType, newMode: CalendarMode) => {
-        emit('panelChange', date, newMode)
+        props?.onPanelChange?.(date, newMode)
       }
 
       const triggerChange = (date: DateType) => {
@@ -244,8 +245,8 @@ function generateCalendar<DateType extends AnyObject>(generateConfig: GenerateCo
             triggerPanelChange(date, mergedMode.value)
           }
 
-          emit('update:value', date)
-          emit('change', date)
+          props?.['onUpdate:value']?.(date)
+          props?.onChange?.(date)
         }
       }
 
@@ -258,7 +259,7 @@ function generateCalendar<DateType extends AnyObject>(generateConfig: GenerateCo
 
       const onInternalSelect = (date: DateType, source: SelectInfo['source']) => {
         triggerChange(date)
-        emit('select', date, { source })
+        props?.onSelect?.(date, { source })
       }
 
       const resolveRender = (

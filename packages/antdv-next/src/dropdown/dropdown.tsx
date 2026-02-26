@@ -79,6 +79,9 @@ export interface DropdownProps extends ComponentBaseProps {
   // onOpenChange?: (open: boolean, info: { source: 'trigger' | 'menu' }) => void;
   open?: boolean
   disabled?: boolean
+  onOpenChange?: (open: boolean, info: { source: 'trigger' | 'menu' }) => void
+  'onUpdate:open'?: (open: boolean) => void
+  onMenuClick?: MenuEmits['click']
 
   destroyOnHidden?: boolean
   align?: AlignType
@@ -118,7 +121,7 @@ const Dropdown = defineComponent<
   string,
   SlotsType<DropdownSlots>
 >(
-  (props = defaults, { slots, emit, attrs }) => {
+  (props = defaults, { slots, attrs }) => {
     const {
       getPrefixCls,
       prefixCls,
@@ -155,6 +158,7 @@ const Dropdown = defineComponent<
     const rootCls = useCSSVarCls(prefixCls)
     const [hashId, cssVarCls] = useStyle(prefixCls, rootCls)
     const [,token] = useToken()
+    const callbackProps = props as any
 
     // =================== Warning =====================
     const warning = devUseWarning('Dropdown')
@@ -188,8 +192,8 @@ const Dropdown = defineComponent<
       if (props.open === undefined) {
         mergedOpen.value = nextOpen
       }
-      emit('openChange', nextOpen, { source: 'trigger' })
-      emit('update:open', nextOpen)
+      callbackProps?.onOpenChange?.(nextOpen, { source: 'trigger' })
+      callbackProps?.['onUpdate:open']?.(nextOpen)
     }
 
     const builtinPlacements = computed(() => getPlacements({
@@ -208,8 +212,8 @@ const Dropdown = defineComponent<
       if (props.open === undefined) {
         mergedOpen.value = false
       }
-      emit('update:open', false)
-      emit('openChange', false, { source: 'menu' })
+      callbackProps?.['onUpdate:open']?.(false)
+      callbackProps?.onOpenChange?.(false, { source: 'menu' })
     }
     const mergedRootStyles = computed(() => {
       return {
@@ -267,7 +271,7 @@ const Dropdown = defineComponent<
             <Menu
               {...menu}
               onClick={(menu: MenuInfo) => {
-                emit('menuClick', menu)
+                callbackProps?.onMenuClick?.(menu)
               }}
               classes={{
                 ...menuClassNames,
@@ -338,7 +342,7 @@ const Dropdown = defineComponent<
         <VcDropdown
           alignPoint={alignPoint.value}
           {...attrs}
-          {...omit(props, ['rootClass']) as any}
+          {...omit(props, ['rootClass', 'onOpenChange', 'onUpdate:open', 'onMenuClick']) as any}
           mouseEnterDelay={mouseEnterDelay}
           mouseLeaveDelay={mouseLeaveDelay}
           visible={mergedOpen.value}

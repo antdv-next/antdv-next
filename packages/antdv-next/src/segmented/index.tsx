@@ -84,6 +84,8 @@ export interface SegmentedProps extends Omit<RCSegmentedProps, 'size' | 'options
   shape?: 'default' | 'round'
   iconRender?: (option: SegmentedLabeledOption) => any
   labelRender?: (option: SegmentedLabeledOption) => any
+  onChange?: SegmentedEmits['change']
+  'onUpdate:value'?: SegmentedEmits['update:value']
 }
 
 export interface SegmentedEmits {
@@ -109,7 +111,7 @@ const InternalSegmented = defineComponent<
   string,
   SlotsType<SegmentedSlots>
 >(
-  (props = defaults, { attrs, emit, slots }) => {
+  (props = defaults, { attrs, slots }) => {
     const defaultName = useId()
     const {
       prefixCls,
@@ -182,6 +184,8 @@ const InternalSegmented = defineComponent<
         rootClass,
         block,
         shape,
+        onChange: _onChange,
+        'onUpdate:value': _onUpdateValue,
         ...restProps
       } = props
       const cls = clsx(
@@ -226,8 +230,8 @@ const InternalSegmented = defineComponent<
           direction={direction.value}
           vertical={mergedVertical.value}
           onChange={(value) => {
-            emit('change', value)
-            emit('update:value', value)
+            props?.onChange?.(value)
+            props?.['onUpdate:value']?.(value)
           }}
         />
       )

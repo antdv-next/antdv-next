@@ -1,4 +1,4 @@
-import type { MenuInfo, MenuItemGroupProps, SelectInfo, MenuRef as VcMenuRef } from '@v-c/menu'
+import type { MenuItemGroupProps, MenuRef as VcMenuRef } from '@v-c/menu'
 import type { App, SlotsType } from 'vue'
 import type { ItemType } from './interface.ts'
 import type { MenuEmits, MenuProps, MenuSlots } from './menu'
@@ -25,7 +25,7 @@ const Menu = defineComponent<
   string,
   SlotsType<MenuSlots>
 >(
-  (props, { slots, attrs, emit, expose }) => {
+  (props, { slots, attrs, expose }) => {
     const menuRef = shallowRef()
     const { siderCollapsed } = useSiderCtx()
     expose({
@@ -35,20 +35,11 @@ const Menu = defineComponent<
       },
     })
     return () => {
-      const events = {
-        'onClick': (info: MenuInfo) => emit('click', info),
-        'onSelect': (info: SelectInfo) => emit('select', info),
-        'onDeselect': (info: SelectInfo) => emit('deselect', info),
-        'onOpenChange': (openKeys: string[]) => emit('openChange', openKeys),
-        'onUpdate:openKeys': (openKeys: string[]) => emit('update:openKeys', openKeys),
-        'onUpdate:selectedKeys': (selectedKeys: string[]) => emit('update:selectedKeys', selectedKeys),
-      }
       return (
         <InternalMenu
           ref={menuRef}
           {...attrs}
           {...props}
-          {...events}
           siderCollapsed={siderCollapsed?.value as any}
           v-slots={slots}
         />

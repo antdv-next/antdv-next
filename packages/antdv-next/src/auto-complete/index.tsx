@@ -110,6 +110,25 @@ export interface AutoCompleteProps extends
   popupRender?: (menu: VueNode) => any
   /** @deprecated Please use `styles.popup.root` instead */
   dropdownStyle?: CSSProperties
+  onOpenChange?: (open: boolean) => void
+  onDropdownVisibleChange?: (open: boolean) => void
+  onClear?: NonNullable<VcSelectProps['onClear']>
+  onKeydown?: NonNullable<VcSelectProps['onKeyDown']>
+  onKeyup?: NonNullable<VcSelectProps['onKeyUp']>
+  onBlur?: NonNullable<VcSelectProps['onBlur']>
+  'onUpdate:value'?: (value: any) => void
+  onClick?: NonNullable<VcSelectProps['onClick']>
+  onActive?: NonNullable<VcSelectProps['onActive']>
+  onChange?: NonNullable<VcSelectProps['onChange']>
+  onDeselect?: NonNullable<VcSelectProps['onDeselect']>
+  onInputKeydown?: NonNullable<VcSelectProps['onInputKeyDown']>
+  onMousedown?: NonNullable<VcSelectProps['onMouseDown']>
+  onMouseleave?: NonNullable<VcSelectProps['onMouseLeave']>
+  onMouseenter?: NonNullable<VcSelectProps['onMouseEnter']>
+  onFocus?: NonNullable<VcSelectProps['onFocus']>
+  onPopupScroll?: NonNullable<VcSelectProps['onPopupScroll']>
+  onSelect?: NonNullable<VcSelectProps['onSelect']>
+  onSearch?: NonNullable<VcSelectProps['onSearch']>
 }
 
 export interface AutoCompleteEmits {
@@ -152,6 +171,25 @@ const omitKeys: (keyof AutoCompleteProps)[] = [
   'classes',
   'styles',
   'popupRender',
+  'onSelect',
+  'onClear',
+  'onKeydown',
+  'onKeyup',
+  'onBlur',
+  'onFocus',
+  'onClick',
+  'onActive',
+  'onChange',
+  'onDeselect',
+  'onInputKeydown',
+  'onMousedown',
+  'onMouseleave',
+  'onMouseenter',
+  'onPopupScroll',
+  'onSearch',
+  'onOpenChange',
+  'onDropdownVisibleChange',
+  'onUpdate:value',
 ]
 
 const InternalAutoComplete = defineComponent<
@@ -160,8 +198,9 @@ const InternalAutoComplete = defineComponent<
   string,
   SlotsType<AutoCompleteSlots>
 >(
-  (props, { slots, emit, attrs }) => {
+  (props, { slots, attrs }) => {
     const { prefixCls } = useComponentBaseConfig('select', props)
+    const callbackProps = props as any
     const { classes, styles } = toPropsRefs(props, 'classes', 'styles')
 
     const mergedProps = computed(() => {
@@ -305,58 +344,58 @@ const InternalAutoComplete = defineComponent<
       const selectProps: Record<string, any> = omit(props, omitKeys)
       const onAttrs = {
         onSelect: (value: any, option: any) => {
-          emit('select', value, option)
+          callbackProps?.onSelect?.(value, option)
         },
         onClear: () => {
-          emit('clear')
+          callbackProps?.onClear?.()
         },
         onKeydown: (e: any) => {
-          emit('keydown', e)
+          callbackProps?.onKeydown?.(e)
         },
         onKeyup: (e: any) => {
-          emit('keyup', e)
+          callbackProps?.onKeyup?.(e)
         },
         onBlur: (e: any) => {
-          emit('blur', e)
+          callbackProps?.onBlur?.(e)
         },
         onFocus: (e: any) => {
-          emit('focus', e)
+          callbackProps?.onFocus?.(e)
         },
         onClick: (e: any) => {
-          emit('click', e)
+          callbackProps?.onClick?.(e)
         },
         onActive: (value: any) => {
-          emit('active', value)
+          callbackProps?.onActive?.(value)
         },
         onChange: (value: any, option: any) => {
-          emit('change', value, option)
+          callbackProps?.onChange?.(value, option)
         },
         onDeselect: (value: any, option: any) => {
-          emit('deselect', value, option)
+          callbackProps?.onDeselect?.(value, option)
         },
         onInputKeydown: (e: any) => {
-          emit('inputKeydown', e)
+          callbackProps?.onInputKeydown?.(e)
         },
         onMousedown: (e: any) => {
-          emit('mousedown', e)
+          callbackProps?.onMousedown?.(e)
         },
         onMouseleave: (e: any) => {
-          emit('mouseleave', e)
+          callbackProps?.onMouseleave?.(e)
         },
         onMouseenter: (e: any) => {
-          emit('mouseenter', e)
+          callbackProps?.onMouseenter?.(e)
         },
         onPopupScroll: (e: any) => {
-          emit('popupScroll', e)
+          callbackProps?.onPopupScroll?.(e)
         },
         onSearch: (value: any) => {
-          emit('search', value)
+          callbackProps?.onSearch?.(value)
         },
         onOpenChange: (open: boolean) => {
-          emit('openChange', open)
+          callbackProps?.onOpenChange?.(open)
         },
         onDropdownVisibleChange: (open: boolean) => {
-          emit('dropdownVisibleChange', open)
+          callbackProps?.onDropdownVisibleChange?.(open)
         },
       }
 
@@ -376,7 +415,7 @@ const InternalAutoComplete = defineComponent<
           mode={(Select as any).SECRET_COMBOBOX_MODE_DO_NOT_USE as SelectProps['mode']}
           suffixIcon={null}
           {...{
-            'onUpdate:value': (value: any) => emit('update:value', value),
+            'onUpdate:value': (value: any) => callbackProps?.['onUpdate:value']?.(value),
           }}
         >
           {optionChildren}

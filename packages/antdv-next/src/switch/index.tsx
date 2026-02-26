@@ -72,6 +72,10 @@ export interface SwitchProps extends ComponentBaseProps {
   id?: string
   classes?: SwitchClassNamesType
   styles?: SwitchStylesType
+  onChange?: SwitchEmits['change']
+  onClick?: SwitchEmits['click']
+  'onUpdate:checked'?: SwitchEmits['update:checked']
+  'onUpdate:value'?: SwitchEmits['update:value']
 }
 
 export interface SwitchEmits {
@@ -103,6 +107,9 @@ const keys = [
   'classes',
   'checkedChildren',
   'unCheckedChildren',
+  'onChange',
+  'onUpdate:checked',
+  'onUpdate:value',
 ]
 
 const Switch = defineComponent<
@@ -111,7 +118,7 @@ const Switch = defineComponent<
   string,
   SlotsType<SwitchSlots>
 >(
-  (props, { slots, emit, attrs }) => {
+  (props, { slots, attrs }) => {
     // 获取选中和非选中的值，默认为 true/false
     const mergedCheckedValue = computed(() => props.checkedValue ?? true)
     const mergedUnCheckedValue = computed(() => props.unCheckedValue ?? false)
@@ -172,14 +179,14 @@ const Switch = defineComponent<
     >(useToArr(contextClassNames, classes), useToArr(contextStyles, styles), useToProps(mergedProps))
 
     const changeHandler: SwitchChangeEventHandler = (...args) => {
-      emit('change', ...args)
+      props?.onChange?.(...args)
     }
     const handleVMHandler = (checked: boolean) => {
       // 根据 checked 状态返回对应的自定义值
       const newValue = checked ? mergedCheckedValue.value : mergedUnCheckedValue.value
       currentValue.value = newValue
-      emit('update:checked', newValue)
-      emit('update:value', newValue)
+      props?.['onUpdate:checked']?.(newValue)
+      props?.['onUpdate:value']?.(newValue)
     }
     return () => {
       const {

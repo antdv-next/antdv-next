@@ -33,9 +33,12 @@ export const WaveEffect = defineComponent({
       type: String as PropType<WaveProps['colorSource']>,
       required: false,
     },
+    onFinish: {
+      type: Function as PropType<() => void>,
+      required: false,
+    },
   },
-  emits: ['finish'],
-  setup(props, { emit }) {
+  setup(props) {
     const configCtx = useConfig()
     const rootPrefixCls = computed(() => configCtx.value.getPrefixCls())
     const waveVarName = computed(() => genCssVar(rootPrefixCls.value, 'wave')[0])
@@ -79,7 +82,7 @@ export const WaveEffect = defineComponent({
         return
       }
       finished.value = true
-      emit('finish')
+      props?.onFinish?.()
     }
 
     function syncPos(target = props.target) {

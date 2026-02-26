@@ -7,6 +7,7 @@ import type { FocusableConfig, OmitFocusType } from './useFocusable.ts'
 import VcDrawer from '@v-c/drawer'
 import { clsx } from '@v-c/util'
 import { getTransitionName } from '@v-c/util/dist/utils/transition'
+import { omit } from 'es-toolkit'
 import { computed, defineComponent, shallowRef, useId } from 'vue'
 import { ContextIsolator } from '../_util/ContextIsolator.tsx'
 import { getAttrStyleAndClass, useMergedMask, useMergeSemantic, useToArr, useToProps, useZIndex } from '../_util/hooks'
@@ -55,6 +56,14 @@ export interface DrawerProps
   /** @deprecated Please use `mask.closable` instead */
   maskClosable?: boolean
   focusable?: FocusableConfig
+  'onUpdate:open'?: (open: boolean) => void
+  onClose?: (e: MouseEvent | KeyboardEvent) => void
+  onKeydown?: (e: KeyboardEvent) => void
+  onKeyup?: (e: KeyboardEvent) => void
+  onMouseenter?: (e: MouseEvent) => void
+  onMouseleave?: (e: MouseEvent) => void
+  onMouseover?: (e: MouseEvent) => void
+  onClick?: (e: MouseEvent) => void
 }
 
 export interface DrawerEmits {
@@ -93,8 +102,9 @@ const Drawer = defineComponent<
   string,
   SlotsType<DrawerSlots>
 >(
-  (props = defaults, { slots, emit, attrs }) => {
+  (props = defaults, { slots, attrs }) => {
     const id = useId()
+    const callbackProps = props as any
 
     const {
       getPopupContainer,
@@ -252,29 +262,38 @@ const Drawer = defineComponent<
           <ZIndexProvider value={contextZIndex.value}>
             <VcDrawer
               {...restAttrs as any}
-              {...rest as any}
+              {...omit(rest as any, [
+                'onClose',
+                'onClick',
+                'onKeydown',
+                'onKeyup',
+                'onMouseenter',
+                'onMouseleave',
+                'onMouseover',
+                'onUpdate:open',
+              ]) as any}
               prefixCls={prefixCls.value}
               onClose={(e) => {
-                emit('update:open', false)
-                emit('close', e)
+                callbackProps?.['onUpdate:open']?.(false)
+                callbackProps?.onClose?.(e)
               }}
               onClick={(e) => {
-                emit('click', e)
+                callbackProps?.onClick?.(e)
               }}
               onKeyUp={(e) => {
-                emit('keyup', e)
+                callbackProps?.onKeyup?.(e)
               }}
               onKeyDown={(e) => {
-                emit('keydown', e)
+                callbackProps?.onKeydown?.(e)
               }}
               onMouseEnter={(e) => {
-                emit('mouseenter', e)
+                callbackProps?.onMouseenter?.(e)
               }}
               onMouseLeave={(e) => {
-                emit('mouseleave', e)
+                callbackProps?.onMouseleave?.(e)
               }}
               onMouseOver={(e) => {
-                emit('mouseover', e)
+                callbackProps?.onMouseover?.(e)
               }}
               maskMotion={maskMotion}
               motion={panelMotion}
@@ -316,14 +335,23 @@ const Drawer = defineComponent<
               focusTrap={mergedFocusable.value.trap}
             >
               <DrawerPanel
-                {...rest}
+                {...omit(rest as any, [
+                  'onClose',
+                  'onClick',
+                  'onKeydown',
+                  'onKeyup',
+                  'onMouseenter',
+                  'onMouseleave',
+                  'onMouseover',
+                  'onUpdate:open',
+                ]) as any}
                 prefixCls={prefixCls.value}
                 size={size}
                 ariaId={ariaId}
                 v-slots={slots}
                 onClose={(e) => {
-                  emit('update:open', false)
-                  emit('close', e)
+                  callbackProps?.['onUpdate:open']?.(false)
+                  callbackProps?.onClose?.(e)
                 }}
               />
             </VcDrawer>

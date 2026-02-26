@@ -71,9 +71,10 @@ export interface CardProps extends ComponentBaseProps {
   actions?: VueNode[]
   tabList?: CardTabListType[]
   tabBarExtraContent?: VueNode | { [key: string]: VueNode }
-  // onTabChange?: (key: string) => void
+  onTabChange?: (key: string) => void
   activeTabKey?: string
   defaultActiveTabKey?: string
+  'onUpdate:activeTabKey'?: (key: string) => void
   tabProps?: Record<string, any>
   classes?: CardClassNamesType
   styles?: CardStylesType
@@ -129,7 +130,7 @@ const Card = defineComponent<
   string,
   SlotsType<CardSlots>
 >(
-  (props, { slots, emit, attrs }) => {
+  (props, { slots, attrs }) => {
     const {
       prefixCls,
       direction,
@@ -177,8 +178,8 @@ const Card = defineComponent<
     }
 
     const onTabChange = (key: string) => {
-      emit('tabChange', key)
-      emit('update:activeTabKey', key)
+      props?.onTabChange?.(key)
+      props?.['onUpdate:activeTabKey']?.(key)
     }
 
     const [hashId, cssVarCls] = useStyle(prefixCls)

@@ -33,6 +33,11 @@ const omitPropKeys = [
   'mode',
   'selectable',
   'onClick',
+  'onSelect',
+  'onDeselect',
+  'onOpenChange',
+  'onUpdate:openKeys',
+  'onUpdate:selectedKeys',
   'overflowedIndicatorPopupClassName',
   'classes',
   'styles',
@@ -197,8 +202,9 @@ const InternalMenu = defineComponent<
   string,
   SlotsType<MenuSlots>
 >(
-  (props = defaults, { slots, emit, attrs, expose }) => {
+  (props = defaults, { slots, attrs, expose }) => {
     const override = useOverrideContext()
+    const callbackProps = props as any
     const overrideObj = computed(() => {
       if (!override?.value) {
         return {}
@@ -235,7 +241,7 @@ const InternalMenu = defineComponent<
     // ========================== Click ==========================
     // Tell dropdown that item clicked
     const onItemClick: VcMenuProps['onClick'] = (...args) => {
-      emit('click', ...args)
+      callbackProps?.onClick?.(...args)
       overrideObj?.value?.onClick?.()
     }
     // ========================== Mode ===========================
@@ -388,16 +394,16 @@ const InternalMenu = defineComponent<
               )}
               onClick={onItemClick}
               onDeselect={(info) => {
-                emit('deselect', info)
-                emit('update:selectedKeys', info.selectedKeys)
+                callbackProps?.onDeselect?.(info)
+                callbackProps?.['onUpdate:selectedKeys']?.(info.selectedKeys)
               }}
               onSelect={(info) => {
-                emit('select', info)
-                emit('update:selectedKeys', info.selectedKeys)
+                callbackProps?.onSelect?.(info)
+                callbackProps?.['onUpdate:selectedKeys']?.(info.selectedKeys)
               }}
               onOpenChange={(...args) => {
-                emit('openChange', ...args)
-                emit('update:openKeys', ...args)
+                callbackProps?.onOpenChange?.(...args)
+                callbackProps?.['onUpdate:openKeys']?.(...args)
               }}
               itemIcon={itemIcon}
               labelRender={labelRender as any}

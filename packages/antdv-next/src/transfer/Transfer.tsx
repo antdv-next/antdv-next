@@ -45,7 +45,7 @@ const Transfer = defineComponent<
   string,
   SlotsType<TransferSlots>
 >(
-  (props = defaults, { slots, attrs, emit }) => {
+  (props = defaults, { slots, attrs }) => {
     const {
       prefixCls,
       direction,
@@ -56,6 +56,7 @@ const Transfer = defineComponent<
       selectionsIcon: contextSelectionsIcon,
       renderEmpty,
     } = useComponentBaseConfig('transfer', props, ['selectionsIcon'])
+    const callbackProps = props as any
 
     const { disabled, classes, styles, rootClass } = toPropsRefs(props, 'disabled', 'classes', 'styles', 'rootClass')
 
@@ -129,25 +130,25 @@ const Transfer = defineComponent<
 
     const handleSelectChange = (directionValue: TransferDirection, holder: TransferKey[]) => {
       if (directionValue === 'left') {
-        emit('selectChange', holder, targetSelectedKeys.value)
+        callbackProps?.onSelectChange?.(holder, targetSelectedKeys.value)
       }
       else {
-        emit('selectChange', sourceSelectedKeys.value, holder)
+        callbackProps?.onSelectChange?.(sourceSelectedKeys.value, holder)
       }
     }
 
     const emitSelectedKeysUpdate = (sourceKeys: TransferKey[], targetKeysValue: TransferKey[]) => {
-      emit('update:selectedKeys', [...sourceKeys, ...targetKeysValue])
+      callbackProps?.['onUpdate:selectedKeys']?.([...sourceKeys, ...targetKeysValue])
     }
 
     const getTitles = (transferLocale: any) => props.titles ?? transferLocale.titles ?? []
 
     const handleLeftScroll = (e: Event) => {
-      emit('scroll', 'left', e)
+      callbackProps?.onScroll?.('left', e)
     }
 
     const handleRightScroll = (e: Event) => {
-      emit('scroll', 'right', e)
+      callbackProps?.onScroll?.('right', e)
     }
 
     const moveTo = (directionValue: TransferDirection) => {
@@ -170,8 +171,8 @@ const Transfer = defineComponent<
         emitSelectedKeysUpdate(sourceSelectedKeys.value, [])
       }
 
-      emit('update:targetKeys', newTargetKeys)
-      emit('change', newTargetKeys, directionValue, newMoveKeys)
+      callbackProps?.['onUpdate:targetKeys']?.(newTargetKeys)
+      callbackProps?.onChange?.(newTargetKeys, directionValue, newMoveKeys)
     }
 
     const moveToLeft = () => {
@@ -288,8 +289,8 @@ const Transfer = defineComponent<
       setStateKeys('right', [])
       emitSelectedKeysUpdate(sourceSelectedKeys.value, [])
       const nextTargetKeys = targetKeys.value.filter(key => !keys.includes(key))
-      emit('update:targetKeys', nextTargetKeys)
-      emit('change', nextTargetKeys, 'left', [...keys])
+      callbackProps?.['onUpdate:targetKeys']?.(nextTargetKeys)
+      callbackProps?.onChange?.(nextTargetKeys, 'left', [...keys])
     }
 
     const handleListStyle = (directionValue: TransferDirection) => {
@@ -422,8 +423,8 @@ const Transfer = defineComponent<
             dataSource={leftDataSource.value as any}
             filterOption={props.filterOption}
             checkedKeys={sourceSelectedKeys.value}
-            handleFilter={(e: Event) => emit('search', 'left', (e.target as HTMLInputElement)?.value || '')}
-            handleClear={() => emit('search', 'left', '')}
+            handleFilter={(e: Event) => callbackProps?.onSearch?.('left', (e.target as HTMLInputElement)?.value || '')}
+            handleClear={() => callbackProps?.onSearch?.('left', '')}
             onItemSelect={onLeftItemSelect}
             onItemSelectAll={onLeftItemSelectAll as any}
             render={mergedRender.value}
@@ -464,8 +465,8 @@ const Transfer = defineComponent<
             dataSource={rightDataSource.value as any}
             filterOption={props.filterOption}
             checkedKeys={targetSelectedKeys.value}
-            handleFilter={(e: Event) => emit('search', 'right', (e.target as HTMLInputElement)?.value || '')}
-            handleClear={() => emit('search', 'right', '')}
+            handleFilter={(e: Event) => callbackProps?.onSearch?.('right', (e.target as HTMLInputElement)?.value || '')}
+            handleClear={() => callbackProps?.onSearch?.('right', '')}
             onItemSelect={onRightItemSelect}
             onItemSelectAll={onRightItemSelectAll as any}
             onItemRemove={onRightItemRemove}

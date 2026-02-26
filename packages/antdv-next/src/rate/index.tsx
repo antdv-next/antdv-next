@@ -27,6 +27,13 @@ export interface RateProps extends Omit<
   rootClass?: string
   size?: 'small' | 'middle' | 'large'
   tooltips?: (TooltipProps | string)[]
+  'onUpdate:value'?: RateEmits['update:value']
+  onChange?: RateEmits['change']
+  onHoverChange?: RateEmits['hoverChange']
+  onFocus?: RateEmits['focus']
+  onBlur?: RateEmits['blur']
+  onKeydown?: RateEmits['keydown']
+  onMouseleave?: RateEmits['mouseleave']
 }
 
 export interface RateEmits {
@@ -44,7 +51,7 @@ const Rate = defineComponent<
   RateEmits,
   string
 >(
-  (props = defaults, { attrs, emit, expose }) => {
+  (props = defaults, { attrs, expose }) => {
     const rateRef = shallowRef()
     const characterRender: VcRateProps['characterRender'] = (node, { index }) => {
       const { tooltips } = props
@@ -95,7 +102,16 @@ const Rate = defineComponent<
           disabled={mergedDisabled}
           characterRender={characterRender}
           {...restAttrs}
-          {...omit(restProps, ['characterRender'])}
+          {...omit(restProps, [
+            'characterRender',
+            'onChange',
+            'onHoverChange',
+            'onFocus',
+            'onBlur',
+            'onKeydown',
+            'onMouseleave',
+            'onUpdate:value',
+          ])}
           class={clsx(
             `${ratePrefixCls.value}-${size}`,
             className,
@@ -111,23 +127,23 @@ const Rate = defineComponent<
           prefixCls={ratePrefixCls.value}
           direction={direction.value}
           onFocus={() => {
-            emit('focus')
+            props?.onFocus?.()
           }}
           onBlur={() => {
-            emit('blur')
+            props?.onBlur?.()
           }}
           onChange={(...args) => {
-            emit('change', ...args)
-            emit('update:value', ...args)
+            props?.onChange?.(...args)
+            props?.['onUpdate:value']?.(...args)
           }}
           onKeyDown={(e) => {
-            emit('keydown', e)
+            props?.onKeydown?.(e)
           }}
           onMouseLeave={(e) => {
-            emit('mouseleave', e)
+            props?.onMouseleave?.(e)
           }}
           onHoverChange={(...args) => {
-            emit('hoverChange', ...args)
+            props?.onHoverChange?.(...args)
           }}
         />
       )

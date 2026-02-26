@@ -21,13 +21,15 @@ interface CheckableTagGroupSingleProps<CheckableTagValue = CheckableTagDefaultVa
   value?: CheckableTagValue | null
   defaultValue?: CheckableTagValue | null
   onChange?: (value: CheckableTagValue | null) => void
+  'onUpdate:value'?: (value: CheckableTagValue | null) => void
 }
 
 interface CheckableTagGroupMultipleProps<CheckableTagValue = CheckableTagDefaultValue> {
   multiple: true
   value?: CheckableTagValue[]
   defaultValue?: CheckableTagValue[]
-  // onChange?: (value: CheckableTagValue[]) => void
+  onChange?: (value: CheckableTagValue[]) => void
+  'onUpdate:value'?: (value: CheckableTagValue[]) => void
 }
 
 export type SemanticName = 'root' | 'item'
@@ -56,7 +58,7 @@ const CheckableTagGroup = defineComponent<
   string
 >((
   props: CheckableTagGroupProps,
-  { emit, attrs, expose },
+  { attrs, expose },
 ) => {
   const { prefixCls, direction } = useComponentBaseConfig('tag', props)
   const groupPrefixCls = computed(() => `${prefixCls.value}-checkable-group`)
@@ -83,7 +85,7 @@ const CheckableTagGroup = defineComponent<
   const mergedValue = computed({
     set(value: CheckableTagDefaultValue | null | CheckableTagDefaultValue[]) {
       _mergedValue.value = value
-      emit('update:value', value)
+      ;(props as any)?.['onUpdate:value']?.(value)
     },
     get() {
       return props.value ?? _mergedValue.value
@@ -99,7 +101,7 @@ const CheckableTagGroup = defineComponent<
       newValue = checked ? option.value : null
     }
     mergedValue.value = newValue
-    emit('change', newValue)
+    ;(props as any)?.onChange?.(newValue)
   }
 
   // ================================ Refs ================================

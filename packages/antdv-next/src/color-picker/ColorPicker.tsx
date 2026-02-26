@@ -46,7 +46,7 @@ const ColorPicker = defineComponent<
   string,
   SlotsType<ColorPickerSlots>
 >(
-  (props = defaults, { slots, expose, emit, attrs }) => {
+  (props = defaults, { slots, expose, attrs }) => {
     const {
       prefixCls,
       direction,
@@ -142,21 +142,21 @@ const ColorPicker = defineComponent<
       const prev = formatValue.value
       formatValue.value = newFormat
       if (prev !== newFormat) {
-        emit('formatChange', newFormat)
-        emit('update:format', newFormat!)
+        props?.onFormatChange?.(newFormat)
+        props?.['onUpdate:format']?.(newFormat!)
       }
     }
 
     const triggerOpenChange = (visible: boolean) => {
       if (open.value !== undefined) {
-        emit('openChange', visible)
-        emit('update:open', visible)
+        props?.onOpenChange?.(visible)
+        props?.['onUpdate:open']?.(visible)
         return
       }
       if (!visible || !mergedDisabled.value) {
         internalPopupOpen.value = visible
-        emit('openChange', visible)
-        emit('update:open', visible)
+        props?.onOpenChange?.(visible)
+        props?.['onUpdate:open']?.(visible)
       }
     }
 
@@ -177,7 +177,7 @@ const ColorPicker = defineComponent<
       if (props?.disabledAlpha && isAlphaColor.value) {
         changeColor = genAlphaColor(color)
       }
-      emit('changeComplete', changeColor)
+      props?.onChangeComplete?.(changeColor)
     }
 
     const onInternalChange = (data?: AggregationColor, changeFromPickerDrag?: boolean) => {
@@ -189,8 +189,8 @@ const ColorPicker = defineComponent<
       setColor(color)
       cachedGradientColor.value = undefined
 
-      emit('change', color, color.toCssString())
-      emit('update:value', formatColorValue(color, valueFormat.value))
+      props?.onChange?.(color, color.toCssString())
+      props?.['onUpdate:value']?.(formatColorValue(color, valueFormat.value))
 
       if (!changeFromPickerDrag) {
         onInternalChangeComplete(color)
@@ -232,10 +232,9 @@ const ColorPicker = defineComponent<
     const handleClear = () => {
       const cleared = new AggregationColor('')
       setColor(cleared)
-      emit('clear')
-      emit('change', cleared, cleared.toCssString())
-      emit(
-        'update:value',
+      props?.onClear?.()
+      props?.onChange?.(cleared, cleared.toCssString())
+      props?.['onUpdate:value']?.(
         valueFormat.value
           ? formatColorValue(cleared, valueFormat.value)
           : cleared.toCssString(),

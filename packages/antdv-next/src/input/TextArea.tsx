@@ -83,6 +83,16 @@ export interface TextAreaProps
   minlength?: number
   readonly?: boolean
   showCount?: InputProps['showCount']
+  onPressEnter?: TextAreaEmits['pressEnter']
+  onChange?: TextAreaEmits['change']
+  onFocus?: TextAreaEmits['focus']
+  onBlur?: TextAreaEmits['blur']
+  onResize?: TextAreaEmits['resize']
+  onKeydown?: TextAreaEmits['keydown']
+  onCompositionstart?: TextAreaEmits['compositionstart']
+  onCompositionend?: TextAreaEmits['compositionend']
+  onMousedown?: TextAreaEmits['mousedown']
+  'onUpdate:value'?: TextAreaEmits['update:value']
 }
 
 export interface TextAreaEmits {
@@ -114,6 +124,15 @@ const omitKeys: string[] = [
   'prefixCls',
   'allowClear',
   'onKeydown',
+  'onPressEnter',
+  'onChange',
+  'onFocus',
+  'onBlur',
+  'onResize',
+  'onCompositionstart',
+  'onCompositionend',
+  'onMousedown',
+  'onUpdate:value',
 ]
 
 const InternalTextArea = defineComponent<
@@ -122,7 +141,7 @@ const InternalTextArea = defineComponent<
   string,
   SlotsType<TextAreaSlots>
 >(
-  (props, { attrs, emit, expose }) => {
+  (props, { attrs, expose }) => {
     if (isDev) {
       const warning = devUseWarning('TextArea')
       warning.deprecated(props.bordered === undefined, 'bordered', 'variant')
@@ -192,7 +211,7 @@ const InternalTextArea = defineComponent<
 
     const handleMouseDown = (e: MouseEvent) => {
       isMouseDown.value = true
-      emit('mousedown', e)
+      props?.onMousedown?.(e)
       const onMouseUp = () => {
         isMouseDown.value = false
         document.removeEventListener('mouseup', onMouseUp)
@@ -205,7 +224,7 @@ const InternalTextArea = defineComponent<
     })
 
     const handleResize: NonNullable<VcTextAreaProps['onResize']> = (size) => {
-      emit('resize', size)
+      props?.onResize?.(size)
       if (isMouseDown.value && typeof getComputedStyle === 'function') {
         const ele = textAreaRef.value?.resizableTextArea?.textArea
         if (ele && getComputedStyle(ele).resize === 'both') {
@@ -222,22 +241,22 @@ const InternalTextArea = defineComponent<
     })
 
     const handlePressEnter: TextAreaEmits['pressEnter'] = (e) => {
-      emit('pressEnter', e)
+      props?.onPressEnter?.(e)
     }
 
     const handleChange: TextAreaEmits['change'] = (e) => {
       const target = e?.target as HTMLTextAreaElement | undefined
-      emit('update:value', target?.value)
-      emit('change', e)
+      props?.['onUpdate:value']?.(target?.value)
+      props?.onChange?.(e)
     }
 
-    const handleFocus: TextAreaEmits['focus'] = e => emit('focus', e)
-    const handleBlur: TextAreaEmits['blur'] = e => emit('blur', e)
+    const handleFocus: TextAreaEmits['focus'] = e => props?.onFocus?.(e)
+    const handleBlur: TextAreaEmits['blur'] = e => props?.onBlur?.(e)
     const handleKeyDown: TextAreaEmits['keydown'] = (e) => {
-      emit('keydown', e)
+      props?.onKeydown?.(e)
     }
-    const handleCompositionStart: TextAreaEmits['compositionstart'] = e => emit('compositionstart', e)
-    const handleCompositionEnd: TextAreaEmits['compositionend'] = e => emit('compositionend', e)
+    const handleCompositionStart: TextAreaEmits['compositionstart'] = e => props?.onCompositionstart?.(e)
+    const handleCompositionEnd: TextAreaEmits['compositionend'] = e => props?.onCompositionend?.(e)
 
     return () => {
       const { className, style, restAttrs } = getAttrStyleAndClass(attrs)

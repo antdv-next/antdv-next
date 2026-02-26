@@ -73,6 +73,7 @@ export interface CollapseProps {
   classes?: CollapseClassNamesType
   styles?: CollapseStylesType
   items?: CollapseItemType[]
+  onChange?: (key: string[]) => void
 }
 
 export interface CollapseEmits {
@@ -106,7 +107,7 @@ const Collapse = defineComponent<
   string,
   SlotsType<CollapseSlots>
 >(
-  (props = defaults, { attrs, emit, slots }) => {
+  (props = defaults, { attrs, slots }) => {
     const {
       class: contextClassName,
       style: contextStyle,
@@ -195,14 +196,14 @@ const Collapse = defineComponent<
         <VcCollapse
           openMotion={openMotion.value}
           {...omit(attrs, ['class', 'style'])}
-          {...omit(props, ['rootClass', 'items', 'expandIconPlacement', 'classes', 'styles']) as any}
+          {...omit(props, ['rootClass', 'items', 'expandIconPlacement', 'classes', 'styles', 'onChange']) as any}
           class={collapseClassName}
           prefixCls={prefixCls.value}
           style={[mergedStyles.value.root, contextStyle.value, (attrs as any).style]}
           expandIcon={renderExpandIcon}
           classNames={mergedClassNames.value}
           styles={mergedStyles.value}
-          onChange={key => emit('change', key)}
+          onChange={key => props?.onChange?.(key)}
           destroyOnHidden={destroyOnHidden}
           items={items}
         />

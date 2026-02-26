@@ -170,6 +170,24 @@ export interface SelectProps
   styles?: SelectStylesType
   classes?: SelectClassNamesType
   optionRender?: (params: { option: OptionParams[0], info: OptionParams[1] }) => any
+  onOpenChange?: (open: boolean) => void
+  onDropdownVisibleChange?: (open: boolean) => void
+  onClear?: NonNullable<VcSelectProps['onClear']>
+  onKeydown?: NonNullable<VcSelectProps['onKeyDown']>
+  onKeyup?: NonNullable<VcSelectProps['onKeyUp']>
+  onBlur?: NonNullable<VcSelectProps['onBlur']>
+  'onUpdate:value'?: (value: SelectValue) => void
+  onClick?: NonNullable<VcSelectProps['onClick']>
+  onActive?: NonNullable<VcSelectProps['onActive']>
+  onChange?: NonNullable<VcSelectProps['onChange']>
+  onDeselect?: NonNullable<VcSelectProps['onDeselect']>
+  onInputKeydown?: NonNullable<VcSelectProps['onInputKeyDown']>
+  onMousedown?: NonNullable<VcSelectProps['onMouseDown']>
+  onMouseleave?: NonNullable<VcSelectProps['onMouseLeave']>
+  onMouseenter?: NonNullable<VcSelectProps['onMouseEnter']>
+  onFocus?: NonNullable<VcSelectProps['onFocus']>
+  onPopupScroll?: NonNullable<VcSelectProps['onPopupScroll']>
+  onSelect?: NonNullable<VcSelectProps['onSelect']>
 }
 
 const omitKeys = [
@@ -189,6 +207,9 @@ const omitKeys = [
   'onPopupScroll',
   'onPopupVisibleChange',
   'onSelect',
+  'onOpenChange',
+  'onDropdownVisibleChange',
+  'onUpdate:value',
   'popupRender',
   'labelRender',
   'optionRender',
@@ -241,7 +262,7 @@ const Select = defineComponent<
   string,
   SlotsType<SelectSlots>
 >(
-  (props = defaults, { slots, emit, expose, attrs }) => {
+  (props = defaults, { slots, expose, attrs }) => {
     const {
       getTargetContainer: getContextPopupContainer,
       getPrefixCls,
@@ -267,6 +288,7 @@ const Select = defineComponent<
       styles,
     } = toPropsRefs(props, 'listItemHeight', 'direction', 'variant', 'bordered', 'size', 'classes', 'styles')
     const [,token] = useToken()
+    const callbackProps = props as any
 
     const value = shallowRef(props.value ?? props?.defaultValue)
     watch(
@@ -300,8 +322,8 @@ const Select = defineComponent<
     const isMultiple = computed(() => mode.value === 'multiple' || mode.value === 'tags')
 
     const mergedOnOpenChange = (open: boolean) => {
-      emit('openChange', open)
-      emit('dropdownVisibleChange', open)
+      callbackProps?.onOpenChange?.(open)
+      callbackProps?.onDropdownVisibleChange?.(open)
     }
 
     // ===================== Form Status =====================
@@ -492,50 +514,50 @@ const Select = defineComponent<
       const prefix = getSlotPropsFnRun(slots, props, 'prefix')
       const onAttrs = {
         onSelect: (value: any, option: any) => {
-          emit('select', value, option)
+          callbackProps?.onSelect?.(value, option)
         },
         onClear: () => {
-          emit('clear')
+          callbackProps?.onClear?.()
         },
         onKeyDown: (e: any) => {
-          emit('keydown', e)
+          callbackProps?.onKeydown?.(e)
         },
         onKeyUp: (e: any) => {
-          emit('keyup', e)
+          callbackProps?.onKeyup?.(e)
         },
         onBlur: (e: any) => {
-          emit('blur', e)
+          callbackProps?.onBlur?.(e)
         },
         onFocus: (e: any) => {
-          emit('focus', e)
+          callbackProps?.onFocus?.(e)
         },
         onClick: (e: any) => {
-          emit('click', e)
+          callbackProps?.onClick?.(e)
         },
         onActive: (value: any) => {
-          emit('active', value)
+          callbackProps?.onActive?.(value)
         },
         onChange: (value: any, option: any) => {
-          emit('update:value', value)
-          emit('change', value, option)
+          callbackProps?.['onUpdate:value']?.(value)
+          callbackProps?.onChange?.(value, option)
         },
         onDeselect: (value: any, option: any) => {
-          emit('deselect', value, option)
+          callbackProps?.onDeselect?.(value, option)
         },
         onInputKeyDown: (e: any) => {
-          emit('inputKeydown', e)
+          callbackProps?.onInputKeydown?.(e)
         },
         onMouseDown: (e: any) => {
-          emit('mousedown', e)
+          callbackProps?.onMousedown?.(e)
         },
         onMouseLeave: (e: any) => {
-          emit('mouseleave', e)
+          callbackProps?.onMouseleave?.(e)
         },
         onMouseEnter: (e: any) => {
-          emit('mouseenter', e)
+          callbackProps?.onMouseenter?.(e)
         },
         onPopupScroll: (e: any) => {
-          emit('popupScroll', e)
+          callbackProps?.onPopupScroll?.(e)
         },
       }
       const labelRender = slots?.labelRender ?? props?.labelRender

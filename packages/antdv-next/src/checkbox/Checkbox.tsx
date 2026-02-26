@@ -89,6 +89,12 @@ export interface CheckboxProps extends AbstractCheckboxProps {
   indeterminate?: boolean
   classes?: CheckboxClassNamesType
   styles?: CheckboxStylesType
+  onChange?: CheckboxEmits['change']
+  'onUpdate:checked'?: CheckboxEmits['update:checked']
+  onMouseenter?: CheckboxEmits['mouseenter']
+  onMouseleave?: CheckboxEmits['mouseleave']
+  onBlur?: CheckboxEmits['blur']
+  onClick?: CheckboxEmits['click']
 }
 
 const defaults = {
@@ -102,7 +108,7 @@ const InternalCheckbox = defineComponent<
   string,
   SlotsType<CheckboxSlots>
 >(
-  (props = defaults, { slots, emit, attrs, expose }) => {
+  (props = defaults, { slots, attrs, expose }) => {
     const {
       direction,
       class: contextClassName,
@@ -205,7 +211,7 @@ const InternalCheckbox = defineComponent<
     const [hashId, cssVarCls] = useStyle(prefixCls, rootCls)
     // ============================ Event Lock ============================
     const [onLabelClick, onInputClick] = useBubbleLock((e) => {
-      emit('click', e as MouseEvent)
+      props?.onClick?.(e as MouseEvent)
     })
     const keys = [
       'prefixCls',
@@ -236,7 +242,7 @@ const InternalCheckbox = defineComponent<
 
       if (inGroup) {
         checkboxProps.onChange = (checked: any) => {
-          emit('change', checked)
+          props?.onChange?.(checked)
         }
         checkboxProps.name = checkboxGroup.value?.name
         checkboxProps.checked = mergedChecked.value
@@ -274,25 +280,25 @@ const InternalCheckbox = defineComponent<
           <label
             class={classString}
             style={[mergedStyles.value.root, contextStyle.value, style]}
-            onMouseenter={e => emit('mouseenter', e)}
-            onMouseleave={e => emit('mouseleave', e)}
+            onMouseenter={e => props?.onMouseenter?.(e)}
+            onMouseleave={e => props?.onMouseleave?.(e)}
             onClick={onLabelClick}
             {...restAttrs}
           >
             <VcCheckbox
-              {...omit(checkboxProps, ['onChange'])}
+              {...omit(checkboxProps, ['onChange', 'onUpdate:checked', 'onClick', 'onBlur', 'onMouseenter', 'onMouseleave'])}
               {
                 ...{
                   'onChange': (e: any) => {
                     if (!checkboxProps.onChange) {
-                      emit('change', e)
+                      props?.onChange?.(e)
                     }
                     checkboxProps?.onChange?.(e)
                   },
                   'onUpdate:checked': (checked: boolean) => {
                     if (inGroup) {
                       // 在 Group 中使用时，保持原有行为
-                      emit('update:checked', checked)
+                      props?.['onUpdate:checked']?.(checked)
                       if (!skipGroup && checkboxGroup?.value?.toggleOption) {
                         checkboxGroup.value.toggleOption({ label: children, value: props.value })
                       }
@@ -301,7 +307,7 @@ const InternalCheckbox = defineComponent<
                       // 单独使用时，返回自定义值
                       const newValue = checked ? mergedCheckedValue.value : mergedUnCheckedValue.value
                       currentValue.value = newValue
-                      emit('update:checked', newValue)
+                      props?.['onUpdate:checked']?.(newValue)
                     }
                   },
                 } as any
@@ -315,7 +321,7 @@ const InternalCheckbox = defineComponent<
               disabled={mergedDisabled.value}
               onBlur={(e: any) => {
                 formItemContext?.triggerBlur?.()
-                emit('blur', e)
+                props?.onBlur?.(e)
               }}
               ref={checkboxRef}
               value={props.value}

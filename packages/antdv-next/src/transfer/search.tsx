@@ -9,6 +9,8 @@ export interface TransferSearchProps {
   placeholder?: string
   value?: string
   disabled?: boolean
+  onChange?: (e: Event) => void
+  onClear?: () => void
 }
 
 export interface TransferSearchEmits {
@@ -26,12 +28,12 @@ const Search = defineComponent<
   string,
   SlotsType<TransferSearchSlots>
 >(
-  (props, { emit, slots }) => {
+  (props, { slots }) => {
     const handleChange = (e: Event) => {
-      emit('change', e)
+      props?.onChange?.(e)
       const target = e?.target as HTMLInputElement | null
       if (!target?.value) {
-        emit('clear')
+        props?.onClear?.()
       }
     }
 

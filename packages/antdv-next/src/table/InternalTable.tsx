@@ -29,7 +29,7 @@ import VcTable, { INTERNAL_HOOKS, VirtualTable as VcVirtualTable } from '@v-c/ta
 import { clsx } from '@v-c/util'
 import { getAttrStyleAndClass } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
-import { computed, defineComponent, shallowRef, watch, watchEffect } from 'vue'
+import { computed, defineComponent, getCurrentInstance, shallowRef, watch, watchEffect } from 'vue'
 import { useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
 import scrollTo from '../_util/scrollTo.ts'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
@@ -215,7 +215,9 @@ const InternalTable = defineComponent<
   string,
   SlotsType<TableSlots>
 >(
-  (props = defaults, { slots, emit, attrs, expose }) => {
+  (props = defaults, { slots, attrs, expose }) => {
+    const instance = getCurrentInstance()
+    const getCallbackProps = () => (instance?.vnode.props ?? {}) as any
     const {
       prefixCls,
       direction,
@@ -312,6 +314,8 @@ const InternalTable = defineComponent<
         'showSorterTooltip',
         'virtual',
         '_renderTimes',
+        'onChange',
+        'onUpdate:expandedRowKeys',
       ]),
     )
 
@@ -385,7 +389,7 @@ const InternalTable = defineComponent<
           getContainer: () => internalRefs.body.value!,
         })
       }
-      emit('change', changeInfo.pagination!, changeInfo.filters!, changeInfo.sorter!, {
+      getCallbackProps()?.onChange?.(changeInfo.pagination!, changeInfo.filters!, changeInfo.sorter!, {
         currentDataSource: getFilterData(
           getSortData(rawData.value as any, changeInfo.sorterStates!, childrenColumnName.value),
           changeInfo.filterStates!,
@@ -818,7 +822,7 @@ const InternalTable = defineComponent<
               title={title as any}
               footer={footer as any}
               summary={summary as any}
-              onUpdate:expandedRowKeys={(keys: readonly Key[]) => emit('update:expandedRowKeys', keys)}
+              onUpdate:expandedRowKeys={(keys: readonly Key[]) => getCallbackProps()?.['onUpdate:expandedRowKeys']?.(keys)}
             />
             {paginationNodes.bottom}
           </Spin>

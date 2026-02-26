@@ -74,6 +74,8 @@ export interface AnchorProps extends ComponentBaseProps {
   items?: AnchorLinkItemProps[]
   direction?: AnchorDirection
   replace?: boolean
+  onClick?: (e: MouseEvent, link: { title: VNodeChild, href: string }) => any
+  onChange?: (currentActiveLink: string) => any
 }
 
 export interface AnchorEmits {
@@ -125,7 +127,7 @@ const Anchor = defineComponent<
   string,
   SlotsType<AnchorSlots>
 >(
-  (props = defaultProps, { slots, emit, attrs }) => {
+  (props = defaultProps, { slots, attrs }) => {
     const links = ref<string[]>([])
     const activeLink = shallowRef()
     const _activeLink = shallowRef(activeLink.value)
@@ -223,7 +225,7 @@ const Anchor = defineComponent<
 
       // onChange should respect the original link (which may caused by
       // window scroll or user click), not the new link
-      emit('change', link)
+      props?.onChange?.(link)
     }
 
     const handleScroll = () => {
@@ -285,7 +287,7 @@ const Anchor = defineComponent<
       registerLink,
       scrollTo: handleScrollTo,
       onClick: (e, link) => {
-        emit('click', e, link)
+        props?.onClick?.(e, link)
       },
       activeLink,
       classes: mergedClassNames,

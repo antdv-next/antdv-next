@@ -7,6 +7,7 @@ import { filterEmpty } from '@v-c/util/dist/props-util'
 import {
   computed,
   defineComponent,
+  getCurrentInstance,
   h,
   nextTick,
   onBeforeUnmount,
@@ -71,7 +72,9 @@ const Base = defineComponent<
   string,
   SlotsType<TypographySlots>
 >(
-  (props, { slots, attrs, emit }) => {
+  (props, { slots, attrs }) => {
+    const instance = getCurrentInstance()
+    const getCallbackProps = () => (instance?.vnode.props ?? {}) as any
     const typographyRef = shallowRef<HTMLElement | { el?: HTMLElement }>()
     const typographyDom = computed(() => {
       const val = typographyRef.value as any
@@ -124,9 +127,9 @@ const Base = defineComponent<
         editConfig.value.onStart?.()
 
       editing.value = edit
-      emit('update:editing', edit)
+      getCallbackProps()?.['onUpdate:editing']?.(edit)
       if (edit)
-        emit('edit:start')
+        getCallbackProps()?.onEditStart?.()
     }
 
     const prevEditing = usePrevious(() => editing.value)
@@ -149,13 +152,13 @@ const Base = defineComponent<
 
     const onEditChange = (value: string) => {
       editConfig.value.onChange?.(value)
-      emit('edit:change', value)
+      getCallbackProps()?.onEditChange?.(value)
       triggerEdit(false)
     }
 
     const onEditCancel = () => {
       editConfig.value.onCancel?.()
-      emit('edit:cancel')
+      getCallbackProps()?.onEditCancel?.()
       triggerEdit(false)
     }
 
@@ -171,7 +174,7 @@ const Base = defineComponent<
 
     const handleCopyClick = async (e?: MouseEvent) => {
       await onCopyClick(e)
-      emit('copy', e as any)
+      getCallbackProps()?.onCopy?.(e as any)
     }
 
     // ========================== Ellipsis ==========================
@@ -256,8 +259,8 @@ const Base = defineComponent<
 
     const onExpandClick: EllipsisConfig['onExpand'] = (e, info) => {
       expanded.value = info.expanded
-      emit('update:expanded', info.expanded)
-      emit('expand', info.expanded, e as any)
+      getCallbackProps()?.['onUpdate:expanded']?.(info.expanded)
+      getCallbackProps()?.onExpand?.(info.expanded, e as any)
       ellipsisConfig.value.onExpand?.(e, info)
     }
 
@@ -389,11 +392,12 @@ const Base = defineComponent<
     const renderCopy = () => {
       if (!enableCopy.value)
         return null
+      const { onCopy: _configOnCopy, ...restCopyConfig } = copyConfig.value as any
 
       return (
         <CopyBtn
           key="copy"
-          {...copyConfig.value}
+          {...restCopyConfig}
           prefixCls={prefixCls.value}
           copied={copied.value}
           locale={textLocale?.value}
@@ -469,7 +473,7 @@ const Base = defineComponent<
       childrenNodes.value = children
       const clickHandler = triggerType.value.includes('text')
         ? onEditClick
-        : (e: MouseEvent) => emit('click', e)
+        : (e: MouseEvent) => getCallbackProps()?.onClick?.(e)
       const mergedClassName = classNames(componentCls.value, attrClass)
       const mergedStyle = [
         mergedStyles.value.root,
@@ -486,7 +490,7 @@ const Base = defineComponent<
             onCancel={onEditCancel}
             onEnd={() => {
               editConfig.value.onEnd?.()
-              emit('edit:end')
+              getCallbackProps()?.onEditEnd?.()
             }}
             prefixCls={prefixCls.value}
             className={classNames(attrClass, mergedClassNames.value.root, props.rootClass, contextClassName.value)}

@@ -38,7 +38,7 @@ const BackTop = defineComponent<
   string,
   SlotsType<BackTopSlots>
 >(
-  (props, { attrs, slots, emit, expose }) => {
+  (props, { attrs, slots, expose }) => {
     const { backTopIcon } = useComponentBaseConfig('floatButton', props, ['backTopIcon'], floatButtonPrefixCls)
     const globalConfig = useConfig()
     const groupContext = useGroupContext()
@@ -120,7 +120,7 @@ const BackTop = defineComponent<
         getContainer: (target.value || getDefaultTarget) as any,
         duration: duration.value ?? 450,
       })
-      emit('click', e)
+      props?.onClick?.(e)
     }
 
     return () => {
@@ -134,7 +134,7 @@ const BackTop = defineComponent<
                 ? (
                     <FloatButton
                       {...pureAttrs(attrs)}
-                      {...omit(props, ['visibilityHeight', 'target', 'duration'])}
+                      {...omit(props, ['visibilityHeight', 'target', 'duration', 'onClick'])}
                       ref={floatButtonRef as any}
                       class={className}
                       style={style}

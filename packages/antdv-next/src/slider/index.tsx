@@ -114,6 +114,9 @@ export interface SliderInternalProps extends SliderBaseProps {
   range?: boolean | SliderRange
   value?: number | number[]
   defaultValue?: number | number[]
+  onChange?: SliderEmits['change']
+  onChangeComplete?: SliderEmits['changeComplete']
+  'onUpdate:value'?: SliderEmits['update:value']
   // onChange?: (value: number) => void
   // /** @deprecated Please use `onChangeComplete` instead */
   // onAfterChange?: (value: number) => void
@@ -154,7 +157,7 @@ const Slider = defineComponent<
   string,
   SlotsType<SliderSlots>
 >(
-  (props, { attrs, emit, expose }) => {
+  (props, { attrs, expose }) => {
     const { classes, styles, vertical, orientation } = toPropsRefs(props, 'classes', 'styles', 'vertical', 'orientation')
     const [, mergedVertical] = useOrientation(orientation, vertical)
     const sliderRef = shallowRef()
@@ -210,7 +213,7 @@ const Slider = defineComponent<
     const [dragging, setDragging] = useRafLock()
 
     const onInternalChangeComplete: VcSliderProps['onChangeComplete'] = (nextValues) => {
-      emit('changeComplete', nextValues)
+      props?.onChangeComplete?.(nextValues)
       setDragging(false)
     }
 
@@ -280,6 +283,9 @@ const Slider = defineComponent<
           'styles',
           'vertical',
           'orientation',
+          'onChange',
+          'onChangeComplete',
+          'onUpdate:value',
         ]),
         ...restAttrs,
       }
@@ -399,8 +405,8 @@ const Slider = defineComponent<
           activeHandleRender={activeHandleRender}
           onChangeComplete={onInternalChangeComplete}
           onChange={(...args) => {
-            emit('change', ...args)
-            emit('update:value', ...args)
+            props?.onChange?.(...args)
+            props?.['onUpdate:value']?.(...args)
           }}
           ref={sliderRef}
         />

@@ -88,6 +88,7 @@ export interface BreadcrumbProps<T extends AnyObject = AnyObject> {
   // render by menu
   menuLabelRender?: (params: { item: ItemType, index: number, menu: MenuItem }) => any
   menuExtraRender?: (params: { item: ItemType, index: number, menu: MenuItem }) => any
+  onClickItem?: (item: ItemType, event: MouseEvent) => void
 }
 
 export interface BreadcrumbEmits {
@@ -123,7 +124,7 @@ const Breadcrumb = defineComponent<
   string,
   SlotsType<BreadcrumbSlots>
 >(
-  (props, { slots, attrs, emit }) => {
+  (props, { slots, attrs }) => {
     const {
       prefixCls,
       direction,
@@ -200,7 +201,7 @@ const Breadcrumb = defineComponent<
 
           const handleClick = (event: MouseEvent) => {
             onClick?.(event)
-            emit('clickItem', item, event)
+            props?.onClickItem?.(item, event)
           }
           const itemSeparator = getSlotPropsFnRun({}, { separator: item.separator }, 'separator')
           const mergedPath = getPath(params || {}, path)

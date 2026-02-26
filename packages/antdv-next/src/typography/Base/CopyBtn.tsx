@@ -15,7 +15,10 @@ export interface CopyBtnProps extends Omit<CopyConfig, 'onCopy'> {
   loading: boolean
   className?: string
   style?: CSSProperties
+  onCopy?: CopyBtnEmits['copy']
 }
+
+type CopyBtnOnCopy = CopyBtnEmits['copy'] | CopyBtnEmits['copy'][]
 
 export interface CopyBtnEmits {
   copy: (e: MouseEvent) => void
@@ -27,9 +30,14 @@ const CopyBtn = defineComponent<
   string,
   SlotsType<Record<string, never>>
 >(
-  (props, { emit }) => {
+  (props) => {
     const handleCopy = (e: MouseEvent) => {
-      emit('copy', e)
+      const onCopy = props?.onCopy as CopyBtnOnCopy | undefined
+      if (Array.isArray(onCopy)) {
+        onCopy.forEach(fn => fn?.(e))
+        return
+      }
+      onCopy?.(e)
     }
 
     return () => {

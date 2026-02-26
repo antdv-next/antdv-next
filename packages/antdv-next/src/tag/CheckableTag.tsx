@@ -20,6 +20,9 @@ export interface CheckableTagProps extends ComponentBaseProps {
    */
   icon?: VueNode
   disabled?: boolean
+  onChange?: CheckableTagEmits['change']
+  'onUpdate:checked'?: CheckableTagEmits['update:checked']
+  onClick?: CheckableTagEmits['click']
 }
 
 export interface CheckableTagEmits {
@@ -39,7 +42,7 @@ const CheckableTag = defineComponent<
   string,
   SlotsType<CheckableTagSlots>
 >(
-  (props, { slots, emit, attrs }) => {
+  (props, { slots, attrs }) => {
     const configCtx = useConfig()
     const { prefixCls } = useComponentBaseConfig('tag', props)
     const { disabled: customDisabled } = toPropsRefs(props, 'disabled')
@@ -51,9 +54,9 @@ const CheckableTag = defineComponent<
         return
       }
       const checked = !props.checked
-      emit('change', checked)
-      emit('update:checked', checked)
-      emit('click', e)
+      props?.onChange?.(checked)
+      props?.['onUpdate:checked']?.(checked)
+      props?.onClick?.(e)
     }
     const [hashId, cssVarCls] = useStyle(prefixCls)
 

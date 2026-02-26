@@ -43,7 +43,9 @@ export interface PopconfirmProps extends Omit<PopoverProps, 'title' | 'content' 
   icon?: VueNode
   classes?: PopconfirmClassNamesType
   styles?: PopconfirmStylesType
-  onConfirm?: (e?: MouseEvent) => void
+  onConfirm?: PopconfirmEmits['confirm']
+  onCancel?: PopconfirmEmits['cancel']
+  onPopupClick?: PopconfirmEmits['popupClick']
 }
 
 export interface PopconfirmRef extends TooltipRef {}
@@ -75,6 +77,11 @@ const OMITTED_PROP_KEYS: (keyof PopconfirmProps)[] = [
   'showCancel',
   'icon',
   'disabled',
+  'onConfirm',
+  'onCancel',
+  'onPopupClick',
+  'onOpenChange',
+  'onUpdate:open',
   'classes',
   'styles',
   'prefixCls',
@@ -94,7 +101,7 @@ const InternalPopconfirm = defineComponent<
   string,
   SlotsType<PopconfirmSlots>
 >(
-  (props = defaults, { slots, attrs, expose, emit }) => {
+  (props = defaults, { slots, attrs, expose }) => {
     const {
       class: contextClassName,
       style: contextStyle,
@@ -128,8 +135,8 @@ const InternalPopconfirm = defineComponent<
       if (props.open === undefined) {
         open.value = value
       }
-      emit('openChange', value, e)
-      emit('update:open', value)
+      props?.onOpenChange?.(value, e)
+      props?.['onUpdate:open']?.(value)
     }
 
     const close = (e?: MouseEvent) => {
@@ -137,12 +144,12 @@ const InternalPopconfirm = defineComponent<
     }
 
     const onCancel = (e?: MouseEvent) => {
-      emit('cancel', e)
+      props?.onCancel?.(e)
       settingOpen(false, e)
     }
 
     const handlePopupClick = (e: MouseEvent) => {
-      emit('popupClick', e)
+      props?.onPopupClick?.(e)
     }
 
     const onInternalOpenChange = (value: boolean, e?: MouseEvent | KeyboardEvent) => {

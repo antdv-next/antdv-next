@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import { h, nextTick, ref } from 'vue'
 import Rate from '..'
 import ConfigProvider from '../../config-provider'
@@ -108,37 +108,46 @@ describe('rate', () => {
 
   describe('events', () => {
     it('should emit change and update:value when star is clicked', async () => {
-      const wrapper = mount(Rate)
+      const onChange = vi.fn()
+      const onUpdateValue = vi.fn()
+      const wrapper = mount(Rate, {
+        props: {
+          onChange,
+          'onUpdate:value': onUpdateValue,
+        },
+      })
       const stars = wrapper.findAll('[role="radio"]')
-      await stars[2].trigger('click')
-      expect(wrapper.emitted('change')).toBeTruthy()
-      expect(wrapper.emitted('change')![0]).toEqual([3])
-      expect(wrapper.emitted('update:value')).toBeTruthy()
-      expect(wrapper.emitted('update:value')![0]).toEqual([3])
+      await stars[2]!.trigger('click')
+      expect(onChange).toHaveBeenCalledWith(3)
+      expect(onUpdateValue).toHaveBeenCalledWith(3)
     })
 
     it('should emit focus event', async () => {
-      const wrapper = mount(Rate)
+      const onFocus = vi.fn()
+      const wrapper = mount(Rate, { props: { onFocus } })
       await wrapper.find('.ant-rate').trigger('focus')
-      expect(wrapper.emitted('focus')).toBeTruthy()
+      expect(onFocus).toHaveBeenCalled()
     })
 
     it('should emit blur event', async () => {
-      const wrapper = mount(Rate)
+      const onBlur = vi.fn()
+      const wrapper = mount(Rate, { props: { onBlur } })
       await wrapper.find('.ant-rate').trigger('blur')
-      expect(wrapper.emitted('blur')).toBeTruthy()
+      expect(onBlur).toHaveBeenCalled()
     })
 
     it('should emit keydown event', async () => {
-      const wrapper = mount(Rate)
+      const onKeydown = vi.fn()
+      const wrapper = mount(Rate, { props: { onKeydown } })
       await wrapper.find('.ant-rate').trigger('keydown', { key: 'ArrowRight' })
-      expect(wrapper.emitted('keydown')).toBeTruthy()
+      expect(onKeydown).toHaveBeenCalled()
     })
 
     it('should emit mouseleave event', async () => {
-      const wrapper = mount(Rate)
+      const onMouseleave = vi.fn()
+      const wrapper = mount(Rate, { props: { onMouseleave } })
       await wrapper.find('.ant-rate').trigger('mouseleave')
-      expect(wrapper.emitted('mouseleave')).toBeTruthy()
+      expect(onMouseleave).toHaveBeenCalled()
     })
   })
 

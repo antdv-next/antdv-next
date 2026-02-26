@@ -56,6 +56,7 @@ export interface TagProps extends ComponentBaseProps {
   styles?: TagStylesType
   classes?: TagClassNamesType
   variant?: 'filled' | 'solid' | 'outlined'
+  onClose?: TagEmits['close']
 }
 
 export interface TagSlots {
@@ -78,7 +79,7 @@ const InternalTag = defineComponent<
   string,
   SlotsType<TagSlots>
 >(
-  (props = defaultProps, { slots, attrs, emit, expose }) => {
+  (props = defaultProps, { slots, attrs, expose }) => {
     const configContext = useConfig()
     const {
       prefixCls,
@@ -131,7 +132,7 @@ const InternalTag = defineComponent<
         return
       }
       e.stopPropagation()
-      emit('close', e)
+      props?.onClose?.(e)
       if (e.defaultPrevented) {
         return
       }

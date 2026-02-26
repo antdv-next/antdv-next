@@ -3,6 +3,7 @@ import type { SlotsType } from 'vue'
 import type { CascaderProps } from './index'
 import { Panel as VcCascaderPanel } from '@v-c/cascader'
 import { clsx } from '@v-c/util'
+import { omit } from 'es-toolkit'
 import { computed, defineComponent } from 'vue'
 import { getAttrStyleAndClass } from '../_util/hooks'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
@@ -34,6 +35,8 @@ export type PanelPickType
     | 'optionRender'
     | 'multiple'
     | 'rootClass'
+    | 'onChange'
+    | 'onUpdate:value'
 
 export interface CascaderPanelProps<
   OptionType extends DefaultOptionType = DefaultOptionType,
@@ -58,7 +61,7 @@ const CascaderPanel = defineComponent<
   string,
   SlotsType<CascaderPanelSlots>
 >(
-  (props, { attrs, emit, slots }) => {
+  (props, { attrs, slots }) => {
     const {
       prefixCls: customizePrefixCls,
       direction: propDirection,
@@ -77,10 +80,11 @@ const CascaderPanel = defineComponent<
 
     const disabled = useDisabledContext()
     const mergedDisabled = computed(() => props.disabled ?? disabled.value)
+    const callbackProps = props as any
 
     const onChange: VcCascaderProps['onChange'] = (value, selectedOptions) => {
-      emit('change', value, selectedOptions)
-      emit('update:value', value)
+      callbackProps?.onChange?.(value, selectedOptions)
+      callbackProps?.['onUpdate:value']?.(value)
     }
 
     return () => {
@@ -118,7 +122,7 @@ const CascaderPanel = defineComponent<
       return (
         <VcCascaderPanel
           {...restAttrs}
-          {...rest as any}
+          {...omit(rest as any, ['onChange', 'onUpdate:value']) as any}
           checkable={checkable}
           prefixCls={cascaderPrefixCls.value}
           className={clsx(

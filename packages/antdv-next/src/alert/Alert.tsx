@@ -50,6 +50,8 @@ export interface AlertProps extends ComponentBaseProps {
   description?: VueNode
   /** Trigger when animation ending of Alert */
   afterClose?: () => void
+  /** Callback when close Alert */
+  onClose?: (e: any) => any
   /** Whether to show icon */
   showIcon?: boolean
   /** https://www.w3.org/TR/2014/REC-html5-20141028/dom.html#aria-role-attribute */
@@ -157,7 +159,7 @@ const Alert = defineComponent<
   string,
   SlotsType<AlertSlots>
 >(
-  (props = alertDefaultProps, { slots, emit, attrs }) => {
+  (props = alertDefaultProps, { slots, attrs }) => {
     const {
       closable: contextClosable,
       closeIcon: contextCloseIcon,
@@ -178,7 +180,7 @@ const Alert = defineComponent<
     const [hashId, cssVarCls] = useStyle(prefixCls)
     const handleClose = (e?: MouseEvent) => {
       closed.value = true
-      emit('close', e)
+      props?.onClose?.(e)
     }
 
     const type = computed(() => {

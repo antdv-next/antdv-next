@@ -36,6 +36,7 @@ export interface CheckboxGroupProps extends AbstractCheckboxGroupProps {
   value?: any[]
   labelRender?: (params: { item: CheckboxOptionType, index: number }) => any
   role?: string
+  onChange?: CheckboxGroupEmits['change']
   'onUpdate:value'?: (value: any[]) => void
 }
 
@@ -60,7 +61,7 @@ const CheckboxGroup = defineComponent<
   string,
   SlotsType<CheckboxGroupSlots>
 >(
-  (props = defaults, { slots, emit, attrs }) => {
+  (props = defaults, { slots, attrs }) => {
     const { prefixCls, direction } = useBaseConfig('checkbox', props)
     const value = shallowRef(props?.value ?? props?.defaultValue ?? [])
     const registeredValues = shallowRef<any[]>([])
@@ -105,7 +106,7 @@ const CheckboxGroup = defineComponent<
           const indexB = memoizedOptions.value.findIndex(opt => opt.value === b)
           return indexA - indexB
         })
-      emit('change', sortVals)
+      props?.onChange?.(sortVals)
       props?.['onUpdate:value']?.(sortVals)
       if (props.value === undefined) {
         value.value = newValue

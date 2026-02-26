@@ -71,6 +71,9 @@ export interface FloatButtonGroupProps extends Omit<FloatButtonProps, 'classes' 
   closeIcon?: VueNode
   placement?: 'top' | 'left' | 'right' | 'bottom'
   style?: CSSProperties
+  onOpenChange?: FloatButtonGroupEmits['openChange']
+  'onUpdate:open'?: FloatButtonGroupEmits['update:open']
+  onClick?: FloatButtonGroupEmits['click']
 }
 
 export interface FloatButtonGroupSlots {
@@ -95,6 +98,9 @@ const groupOmittedProps: (keyof FloatButtonGroupProps)[] = [
   'placement',
   'style',
   'rootClass',
+  'onOpenChange',
+  'onUpdate:open',
+  'onClick',
 ]
 
 const defaults = {
@@ -109,7 +115,7 @@ const InternalFloatButtonGroup = defineComponent<
   string,
   SlotsType<FloatButtonGroupSlots>
 >(
-  (props = defaults, { slots, attrs, emit }) => {
+  (props = defaults, { slots, attrs }) => {
     const componentConfig = useComponentBaseConfig('floatButtonGroup', props, ['closeIcon'], floatButtonPrefixCls)
     const {
       class: contextClassName,
@@ -161,7 +167,7 @@ const InternalFloatButtonGroup = defineComponent<
     const clickTrigger = computed(() => trigger.value === 'click')
 
     const triggerOpen = (nextOpen: boolean) => {
-      emit('update:open', nextOpen)
+      props?.['onUpdate:open']?.(nextOpen)
       if (props.open !== undefined) {
         return
       }
@@ -169,7 +175,7 @@ const InternalFloatButtonGroup = defineComponent<
         return
       }
       open.value = nextOpen
-      emit('openChange', nextOpen)
+      props?.onOpenChange?.(nextOpen)
     }
 
     const groupRef = shallowRef<HTMLElement>()
@@ -336,7 +342,7 @@ const InternalFloatButtonGroup = defineComponent<
                 if (clickTrigger.value) {
                   triggerOpen(!open.value)
                 }
-                emit('click', e)
+                props?.onClick?.(e)
               }}
               ariaLabel={props.ariaLabel}
             />

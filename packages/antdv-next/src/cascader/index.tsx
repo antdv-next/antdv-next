@@ -189,6 +189,12 @@ export interface CascaderProps<
   variant?: Variant
   classes?: CascaderClassNamesType
   styles?: CascaderStylesType
+  onOpenChange?: (visible: boolean) => void
+  onDropdownVisibleChange?: (visible: boolean) => void
+  onPopupVisibleChange?: (visible: boolean) => void
+  onChange?: NonNullable<VcCascaderProps<OptionType, ValueField, Multiple>['onChange']>
+  'onUpdate:value'?: (value: any) => void
+  onSearch?: NonNullable<VcCascaderProps<OptionType, ValueField, Multiple>['onSearch']>
 }
 
 export interface CascaderSlots {
@@ -216,7 +222,7 @@ const InternalCascader = defineComponent<
   string,
   SlotsType<CascaderSlots>
 >(
-  (props, { attrs, emit, slots, expose }) => {
+  (props, { attrs, slots, expose }) => {
     const {
       getPopupContainer: getContextPopupContainer,
       popupOverflow,
@@ -336,6 +342,7 @@ const InternalCascader = defineComponent<
       'SelectLike',
       computed(() => (mergedStyles.value?.popup?.root?.zIndex as number) ?? (mergedPopupStyle.value?.zIndex as number)),
     )
+    const callbackProps = props as any
 
     const mergedShowSearch = computed(() => {
       if (!props.showSearch) {
@@ -345,7 +352,7 @@ const InternalCascader = defineComponent<
       let searchConfig: SearchConfig = {
         render: defaultSearchRender,
         onSearch: (...args: Parameters<NonNullable<SearchConfig['onSearch']>>) => {
-          emit('search', ...args)
+          callbackProps?.onSearch?.(...args)
         },
       }
 
@@ -355,7 +362,7 @@ const InternalCascader = defineComponent<
           ...searchConfig,
           ...props.showSearch,
           onSearch: (...args: Parameters<NonNullable<SearchConfig['onSearch']>>) => {
-            emit('search', ...args)
+            callbackProps?.onSearch?.(...args)
             onSearch?.(...args)
           },
         }
@@ -372,9 +379,9 @@ const InternalCascader = defineComponent<
     })
 
     const onPopupVisibleChange = (open: boolean) => {
-      emit('openChange', open)
-      emit('dropdownVisibleChange', open)
-      emit('popupVisibleChange', open)
+      callbackProps?.onOpenChange?.(open)
+      callbackProps?.onDropdownVisibleChange?.(open)
+      callbackProps?.onPopupVisibleChange?.(open)
     }
 
     const cascaderRef = shallowRef()
@@ -498,7 +505,15 @@ const InternalCascader = defineComponent<
       return (
         <VcCascader
           {...restAttrs as any}
-          {...omit(rest, ['suffixIcon'])}
+          {...omit(rest, [
+            'suffixIcon',
+            'onChange',
+            'onSearch',
+            'onOpenChange',
+            'onDropdownVisibleChange',
+            'onPopupVisibleChange',
+            'onUpdate:value',
+          ])}
           ref={cascaderRef}
           classNames={mergedClassNames.value}
           styles={mergedStyles.value as any}
@@ -529,8 +544,8 @@ const InternalCascader = defineComponent<
           disabled={mergedDisabled.value}
           onPopupVisibleChange={onPopupVisibleChange}
           onChange={(value: any, selectOptions: any) => {
-            emit('change', value, selectOptions)
-            emit('update:value', value)
+            callbackProps?.onChange?.(value, selectOptions)
+            callbackProps?.['onUpdate:value']?.(value)
           }}
           v-slots={{
             default: slots?.default,

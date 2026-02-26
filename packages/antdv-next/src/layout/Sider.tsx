@@ -56,6 +56,9 @@ export interface SiderProps {
   collapsedWidth?: number | string
   breakpoint?: Breakpoint
   theme?: SiderTheme
+  onCollapse?: (collapsed: boolean, type: CollapseType) => void
+  'onUpdate:collapsed'?: (collapsed: boolean) => void
+  onBreakpoint?: (broken: boolean) => void
 }
 
 export interface SiderEmits {
@@ -94,7 +97,7 @@ const Sider = defineComponent<
   SiderEmits,
   string,
   SlotsType<SiderSlots>
->((props = defaultProps, { emit, slots, attrs }) => {
+>((props = defaultProps, { slots, attrs }) => {
   const { siderHook } = useLayoutCtx()
   const collapsed = shallowRef(!!(props.collapsed === undefined ? props.defaultCollapsed : props.collapsed))
   watch(
@@ -111,8 +114,8 @@ const Sider = defineComponent<
     if (props.collapsed === undefined) {
       collapsed.value = value
     }
-    emit('collapse', value, type)
-    emit('update:collapsed', value)
+    props?.onCollapse?.(value, type)
+    props?.['onUpdate:collapsed']?.(value)
   }
   // =========================== Prefix ===========================
   const { prefixCls, direction } = useBaseConfig('layout-sider', props)
@@ -122,7 +125,7 @@ const Sider = defineComponent<
   // ========================= Responsive =========================
   const responsiveHandler: (mql: MediaQueryListEvent | MediaQueryList) => void = (mql) => {
     below.value = mql.matches
-    emit('breakpoint', mql.matches)
+    props?.onBreakpoint?.(mql.matches)
     if (collapsed.value !== mql.matches) {
       handleSetCollapsed(mql.matches, 'responsive')
     }

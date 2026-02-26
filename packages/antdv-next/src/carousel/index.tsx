@@ -28,6 +28,12 @@ export interface CarouselProps extends
   autoplay?: boolean | { dotDuration?: boolean }
   prevArrow?: VueNode
   nextArrow?: VueNode
+  onInit?: CarouselEmits['init']
+  onReInit?: CarouselEmits['reInit']
+  onEdge?: CarouselEmits['edge']
+  onSwipe?: CarouselEmits['swipe']
+  onLazyLoad?: CarouselEmits['lazyLoad']
+  onLazyLoadError?: CarouselEmits['lazyLoadError']
 }
 
 export interface CarouselSlots {
@@ -68,6 +74,12 @@ const omitKeys = [
   'autoplay',
   'autoplaySpeed',
   'rtl',
+  'onInit',
+  'onReInit',
+  'onEdge',
+  'onSwipe',
+  'onLazyLoad',
+  'onLazyLoadError',
 ] as string[]
 
 const dotsClass = 'slick-dots'
@@ -110,7 +122,7 @@ const Carousel = defineComponent<
   string,
   SlotsType<CarouselSlots>
 >(
-  (props = defaults, { slots, emit, expose, attrs }) => {
+  (props = defaults, { slots, expose, attrs }) => {
     const mergedDotPlacement = computed(() => {
       const { dotPlacement, dotPosition } = props
       const placement: DotPlacement | 'left' | 'right' = dotPlacement ?? dotPosition ?? 'bottom'
@@ -170,22 +182,22 @@ const Carousel = defineComponent<
 
     const onAttrs: Partial<Settings> = {
       onSwipe(...args) {
-        emit('swipe', ...args)
+        props?.onSwipe?.(...args)
       },
       onInit() {
-        emit('init')
+        props?.onInit?.()
       },
       onEdge(...args) {
-        emit('edge', ...args)
+        props?.onEdge?.(...args)
       },
       onReInit() {
-        emit('reInit')
+        props?.onReInit?.()
       },
       onLazyLoad(...args) {
-        emit('lazyLoad', ...args)
+        props?.onLazyLoad?.(...args)
       },
       onLazyLoadError() {
-        emit('lazyLoadError')
+        props?.onLazyLoadError?.()
       },
     }
     return () => {

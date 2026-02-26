@@ -66,6 +66,7 @@ export interface SearchProps extends Omit<BaseInputProps, 'class' | 'style' | 'r
   hidden?: boolean
   classes?: InputSearchClassNamesType
   styles?: InputSearchStylesType
+  onSearch?: SearchEmits['search']
 }
 
 export interface SearchEmits extends BaseInputEmits {
@@ -80,6 +81,17 @@ const omitInputKeys: (keyof SearchProps)[] = [
   'rootClass',
   'prefixCls',
   'inputPrefixCls',
+  'onSearch',
+  'onChange',
+  'onFocus',
+  'onBlur',
+  'onKeydown',
+  'onKeyup',
+  'onClear',
+  'onCompositionstart',
+  'onCompositionend',
+  'onPressEnter',
+  'onUpdate:value',
 ]
 
 export interface SearchSlots {
@@ -97,7 +109,7 @@ const InternalSearch = defineComponent<
   string,
   SlotsType<SearchSlots>
 >(
-  (props, { slots, attrs, emit, expose }) => {
+  (props, { slots, attrs, expose }) => {
     const composedRef = shallowRef(false)
     const inputRef = shallowRef<InputRef>()
 
@@ -144,31 +156,31 @@ const InternalSearch = defineComponent<
       info?: { source?: 'clear' | 'input' },
     ) => {
       const value = inputRef.value?.input?.value ?? ''
-      emit('search', value, event, info ?? { source: 'input' })
+      props?.onSearch?.(value, event, info ?? { source: 'input' })
     }
 
     const handleChange: BaseInputEmits['change'] = (e) => {
       if ((e as MouseEvent)?.type === 'click' && (e?.target as HTMLInputElement | undefined)?.value !== undefined) {
         handleSearch(e as MouseEvent, { source: 'clear' })
       }
-      emit('change', e)
+      props?.onChange?.(e)
     }
 
     const handleCompositionStart: BaseInputEmits['compositionstart'] = (e) => {
       composedRef.value = true
-      emit('compositionstart', e)
+      props?.onCompositionstart?.(e)
     }
 
     const handleCompositionEnd: BaseInputEmits['compositionend'] = (e) => {
       composedRef.value = false
-      emit('compositionend', e)
+      props?.onCompositionend?.(e)
     }
 
     const handlePressEnter: BaseInputEmits['pressEnter'] = (e) => {
       if (composedRef.value || props.loading) {
         return
       }
-      emit('pressEnter', e)
+      props?.onPressEnter?.(e)
       handleSearch(e)
     }
 
@@ -302,12 +314,12 @@ const InternalSearch = defineComponent<
             styles={inputStyles}
             variant={variant.value}
             onChange={handleChange}
-            onFocus={(e: any) => emit('focus', e)}
-            onBlur={(e: any) => emit('blur', e)}
-            onKeydown={(e: any) => emit('keydown', e)}
-            onKeyup={(e: any) => emit('keyup', e)}
+            onFocus={(e: any) => props?.onFocus?.(e)}
+            onBlur={(e: any) => props?.onBlur?.(e)}
+            onKeydown={(e: any) => props?.onKeydown?.(e)}
+            onKeyup={(e: any) => props?.onKeyup?.(e)}
             onClear={() => {
-              emit('clear')
+              props?.onClear?.()
               handleSearch(undefined, { source: 'clear' })
             }}
             onCompositionstart={handleCompositionStart}
@@ -315,7 +327,7 @@ const InternalSearch = defineComponent<
             onPressEnter={handlePressEnter}
             v-slots={slots}
             {...{
-              'onUpdate:value': (value: any) => emit('update:value', value),
+              'onUpdate:value': (value: any) => props?.['onUpdate:value']?.(value),
             }}
           />
           {buttonNode}

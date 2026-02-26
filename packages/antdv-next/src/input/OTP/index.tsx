@@ -53,6 +53,9 @@ export interface OTPProps extends ComponentBaseProps,
   autoFocus?: boolean
   classes?: OTPClassNamesType
   styles?: OTPStylesType
+  onChange?: OTPEmits['change']
+  onInput?: OTPEmits['input']
+  'onUpdate:value'?: OTPEmits['update:value']
 }
 
 export interface OTPEmits {
@@ -72,7 +75,7 @@ const OTP = defineComponent<
   string,
   SlotsType<OPTSlots>
 >(
-  (props, { attrs, emit, slots }) => {
+  (props, { attrs, slots }) => {
     if (isDev) {
       const warning = devUseWarning('InputOTP')
       warning(!(typeof props.mask === 'string' && props.mask.length > 1), 'usage', '`mask` prop should be a single character.')
@@ -129,15 +132,15 @@ const OTP = defineComponent<
     const triggerValueCellsChange = (nextValueCells: string[]) => {
       const prevValue = valueCells.value.join('')
       valueCells.value = nextValueCells
-      emit('input', [...nextValueCells])
+      props?.onInput?.([...nextValueCells])
       const nextValue = nextValueCells.join('')
-      emit('update:value', nextValue)
+      props?.['onUpdate:value']?.(nextValue)
       if (
         nextValueCells.length === mergedLength.value
         && nextValueCells.every(cell => cell)
         && nextValue !== prevValue
       ) {
-        emit('change', nextValue)
+        props?.onChange?.(nextValue)
       }
     }
 

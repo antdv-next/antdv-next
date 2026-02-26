@@ -61,6 +61,11 @@ export interface FloatButtonProps extends ComponentBaseProps {
   style?: CSSProperties
   classes?: FloatButtonClassNamesType
   styles?: FloatButtonStylesType
+  onClick?: FloatButtonEmits['click']
+  onMouseenter?: FloatButtonEmits['mouseenter']
+  onMouseleave?: FloatButtonEmits['mouseleave']
+  onFocus?: FloatButtonEmits['focus']
+  onBlur?: FloatButtonEmits['blur']
 }
 
 export interface FloatButtonSlots {
@@ -90,7 +95,7 @@ const InternalFloatButton = defineComponent<
   string,
   SlotsType<FloatButtonSlots>
 >(
-  (props = defaultProps, { slots, attrs, emit, expose }) => {
+  (props = defaultProps, { slots, attrs, expose }) => {
     const {
       prefixCls,
       class: contextClassName,
@@ -248,11 +253,11 @@ const InternalFloatButton = defineComponent<
           htmlType={props.htmlType as ButtonHTMLType | undefined}
           aria-label={props.ariaLabel}
           _skipSemantic
-          onClick={(e: MouseEvent) => emit('click', e)}
-          onMouseenter={(e: MouseEvent) => emit('mouseenter', e)}
-          onMouseleave={(e: MouseEvent) => emit('mouseleave', e)}
-          onFocus={(e: FocusEvent) => emit('focus', e)}
-          onBlur={(e: FocusEvent) => emit('blur', e)}
+          onClick={(e: MouseEvent) => props?.onClick?.(e)}
+          onMouseenter={(e: MouseEvent) => props?.onMouseenter?.(e)}
+          onMouseleave={(e: MouseEvent) => props?.onMouseleave?.(e)}
+          onFocus={(e: FocusEvent) => props?.onFocus?.(e)}
+          onBlur={(e: FocusEvent) => props?.onBlur?.(e)}
           v-slots={buttonSlots}
         />
       )

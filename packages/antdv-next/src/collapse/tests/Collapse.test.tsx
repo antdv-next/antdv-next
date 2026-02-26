@@ -281,7 +281,7 @@ describe('collapse', () => {
     expect(wrapper.find('.ant-collapse-expand-icon').exists()).toBe(true)
   })
 
-  // ==================== change emit ====================
+  // ==================== change callback ====================
   it('should emit change when panel is toggled', async () => {
     const onChange = vi.fn()
     const wrapper = mount(Collapse, {
@@ -291,11 +291,12 @@ describe('collapse', () => {
     expect(onChange).toHaveBeenCalledWith(['1'])
   })
 
-  it('should emit change via v-on:change', async () => {
-    const wrapper = mount(Collapse, { props: { items: basicItems } })
+  it('should trigger change via onChange prop (v-on:change)', async () => {
+    const onChange = vi.fn()
+    const wrapper = mount(Collapse, { props: { items: basicItems, onChange } })
     await wrapper.find('.ant-collapse-header').trigger('click')
-    expect(wrapper.emitted('change')).toBeTruthy()
-    expect(wrapper.emitted('change')![0]).toEqual([['1']])
+    expect(onChange).toHaveBeenCalledTimes(1)
+    expect(onChange).toHaveBeenCalledWith(['1'])
   })
 
   // ==================== rootClass ====================

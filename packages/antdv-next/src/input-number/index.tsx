@@ -83,6 +83,25 @@ export interface InputNumberProps
   styles?: InputNumberStylesType
   controls?: boolean | { upIcon?: VueNode, downIcon?: VueNode }
   type?: 'number' | 'text'
+  onChange?: InputNumberEmits['change']
+  'onUpdate:value'?: InputNumberEmits['update:value']
+  onInput?: InputNumberEmits['input']
+  onPressEnter?: InputNumberEmits['pressEnter']
+  onStep?: InputNumberEmits['step']
+  onMousedown?: InputNumberEmits['mousedown']
+  onClick?: InputNumberEmits['click']
+  onMouseup?: InputNumberEmits['mouseup']
+  onMouseleave?: InputNumberEmits['mouseleave']
+  onMousemove?: InputNumberEmits['mousemove']
+  onMouseenter?: InputNumberEmits['mouseenter']
+  onMouseout?: InputNumberEmits['mouseout']
+  onFocus?: InputNumberEmits['focus']
+  onBlur?: InputNumberEmits['blur']
+  onKeydown?: InputNumberEmits['keydown']
+  onKeyup?: InputNumberEmits['keyup']
+  onCompositionstart?: InputNumberEmits['compositionstart']
+  onCompositionend?: InputNumberEmits['compositionend']
+  onBeforeinput?: InputNumberEmits['beforeinput']
 }
 
 export interface InputNumberEmits {
@@ -146,6 +165,19 @@ const omitKeys: string[] = [
   'value',
   'defaultValue',
   'onChange',
+  'onBlur',
+  'onKeydown',
+  'onKeyup',
+  'onCompositionstart',
+  'onCompositionend',
+  'onBeforeinput',
+  'onMousedown',
+  'onMouseup',
+  'onMouseleave',
+  'onMousemove',
+  'onMouseenter',
+  'onMouseout',
+  'onUpdate:value',
 ]
 
 const InputNumber = defineComponent<
@@ -154,7 +186,7 @@ const InputNumber = defineComponent<
   string,
   SlotsType<InputNumberSlots>
 >(
-  (props, { slots, attrs, emit, expose }) => {
+  (props, { slots, attrs, expose }) => {
     if (isDev) {
       const warning = devUseWarning('InputNumber')
       ;[
@@ -322,21 +354,30 @@ const InputNumber = defineComponent<
     }
 
     const handleChange: InputNumberEmits['change'] = (value) => {
-      emit('change', value as any)
+      props?.onChange?.(value as any)
     }
     const handleUpdateValue: InputNumberEmits['update:value'] = (value) => {
-      emit('update:value', value as any)
+      props?.['onUpdate:value']?.(value as any)
     }
     const handleInput: InputNumberEmits['input'] = (text) => {
-      emit('input', text)
+      props?.onInput?.(text)
     }
-    const handlePressEnter: InputNumberEmits['pressEnter'] = e => emit('pressEnter', e)
-    const handleStep: InputNumberEmits['step'] = (value, info) => emit('step', value as any, info as InputNumberStepContext)
-    const handleMouseEvent = (eventName: keyof InputNumberEmits) => (e: MouseEvent) => emit(eventName as any, e)
-    const handleKeyboardEvent = (eventName: keyof InputNumberEmits) => (e: KeyboardEvent) => emit(eventName as any, e)
-    const handleFocusEvent = (eventName: keyof InputNumberEmits) => (e: FocusEvent) => emit(eventName as any, e)
-    const handleCompositionEvent = (eventName: keyof InputNumberEmits) => (e: CompositionEvent) => emit(eventName as any, e)
-    const handleBeforeInput: InputNumberEmits['beforeinput'] = e => emit('beforeinput', e)
+    const handlePressEnter: InputNumberEmits['pressEnter'] = e => props?.onPressEnter?.(e)
+    const handleStep: InputNumberEmits['step'] = (value, info) => props?.onStep?.(value as any, info as InputNumberStepContext)
+    const getCallbackKey = (eventName: string) => `on${eventName.slice(0, 1).toUpperCase()}${eventName.slice(1)}`
+    const handleMouseEvent = (eventName: keyof Pick<InputNumberEmits, 'mousedown' | 'click' | 'mouseup' | 'mouseleave' | 'mousemove' | 'mouseenter' | 'mouseout'>) => (e: MouseEvent) => {
+      ;(props as any)?.[getCallbackKey(eventName)]?.(e)
+    }
+    const handleKeyboardEvent = (eventName: keyof Pick<InputNumberEmits, 'keydown' | 'keyup'>) => (e: KeyboardEvent) => {
+      ;(props as any)?.[getCallbackKey(eventName)]?.(e)
+    }
+    const handleFocusEvent = (eventName: keyof Pick<InputNumberEmits, 'focus' | 'blur'>) => (e: FocusEvent) => {
+      ;(props as any)?.[getCallbackKey(eventName)]?.(e)
+    }
+    const handleCompositionEvent = (eventName: keyof Pick<InputNumberEmits, 'compositionstart' | 'compositionend'>) => (e: CompositionEvent) => {
+      ;(props as any)?.[getCallbackKey(eventName)]?.(e)
+    }
+    const handleBeforeInput: InputNumberEmits['beforeinput'] = e => props?.onBeforeinput?.(e)
 
     return () => {
       const { min, max, step } = props

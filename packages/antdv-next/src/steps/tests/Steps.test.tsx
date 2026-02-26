@@ -245,10 +245,12 @@ describe('steps', () => {
     expect(onChange).toHaveBeenCalledWith(1)
   })
 
-  it('should trigger update:current event', async () => {
+  it('should trigger onUpdate:current callback (v-model)', async () => {
+    const onUpdateCurrent = vi.fn()
     const wrapper = mount(Steps, {
       props: {
         current: 0,
+        'onUpdate:current': onUpdateCurrent,
         items: [
           { title: 'Step 1' },
           { title: 'Step 2' },
@@ -256,7 +258,7 @@ describe('steps', () => {
       },
     })
     await wrapper.findAll('.ant-steps-item')[1]!.trigger('click')
-    expect(wrapper.emitted('update:current')?.[0]).toEqual([1])
+    expect(onUpdateCurrent).toHaveBeenCalledWith(1)
   })
 
   it('should not trigger onChange when disabled', async () => {

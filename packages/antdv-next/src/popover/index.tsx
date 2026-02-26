@@ -41,6 +41,8 @@ export interface PopoverProps extends TooltipProps {
   content?: VueNode
   classes?: PopoverClassNamesType
   styles?: PopoverStylesType
+  onOpenChange?: PopoverEmits['openChange']
+  'onUpdate:open'?: PopoverEmits['update:open']
 }
 
 export interface PopoverRef extends TooltipRef {
@@ -67,7 +69,7 @@ const InternalPopover = defineComponent<
   string,
   SlotsType<PopoverSlots>
 >(
-  (props = defaults, { slots, attrs, expose, emit }) => {
+  (props = defaults, { slots, attrs, expose }) => {
     const {
       getPrefixCls,
       class: contextClassName,
@@ -122,8 +124,8 @@ const InternalPopover = defineComponent<
       if (props.open === undefined) {
         open.value = value
       }
-      emit('openChange', value, e)
-      emit('update:open', value)
+      props?.onOpenChange?.(value, e)
+      props?.['onUpdate:open']?.(value)
     }
 
     const onKeyDown = (e: KeyboardEvent) => {
@@ -143,6 +145,8 @@ const InternalPopover = defineComponent<
         mouseLeaveDelay,
         mouseEnterDelay,
         motion,
+        onOpenChange: _onOpenChange,
+        'onUpdate:open': _onUpdateOpen,
         ...restProps
       } = props
       const titleNode = getSlotPropsFnRun(slots, props, 'title')

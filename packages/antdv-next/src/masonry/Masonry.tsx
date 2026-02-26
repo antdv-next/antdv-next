@@ -60,7 +60,7 @@ export interface MasonryProps extends ComponentBaseProps {
   columns?: number | Partial<Record<Breakpoint, number>>
 
   /** Trigger when item layout order changed */
-  // onLayoutChange?: (sortInfo: { key: Key; column: number }[]) => void;
+  onLayoutChange?: (sortInfo: { key: Key, column: number }[]) => void
 
   fresh?: boolean
 
@@ -90,7 +90,7 @@ const Masonry = defineComponent<
   string,
   SlotsType<MasonrySlots>
 >(
-  (props = defaults, { expose, emit, attrs, slots }) => {
+  (props = defaults, { expose, attrs, slots }) => {
     const {
       direction,
       class: contextClassName,
@@ -248,7 +248,7 @@ const Masonry = defineComponent<
           return
         }
         const items = itemColumns.value.map(([item, column]) => ({ ...item, column }))
-        emit('layoutChange', items)
+        props?.onLayoutChange?.(items)
       },
       {
         immediate: true,

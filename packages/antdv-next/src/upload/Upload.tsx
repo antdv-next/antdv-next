@@ -60,7 +60,7 @@ const InternalUpload = defineComponent<
   string,
   SlotsType<UploadSlots>
 >(
-  (props = defaults, { slots, attrs, expose, emit }) => {
+  (props = defaults, { slots, attrs, expose }) => {
     const {
       prefixCls,
       direction,
@@ -140,7 +140,7 @@ const InternalUpload = defineComponent<
       }
 
       nextTick(() => {
-        emit('update:fileList', cloneList)
+        ;(props as any)?.['onUpdate:fileList']?.(cloneList)
       })
 
       const changeInfo: UploadChangeParam<UploadFile> = {
@@ -157,7 +157,7 @@ const InternalUpload = defineComponent<
         || cloneList.some(f => f.uid === file.uid)
       ) {
         nextTick(() => {
-          emit('change', changeInfo)
+          ;(props as any)?.onChange?.(changeInfo)
         })
       }
     }
@@ -333,7 +333,7 @@ const InternalUpload = defineComponent<
       dragState.value = e.type
 
       if (e.type === 'drop') {
-        emit('drop', e)
+        ;(props as any)?.onDrop?.(e)
       }
     }
 
@@ -419,7 +419,7 @@ const InternalUpload = defineComponent<
           previewFile={props.previewFile}
           onPreview={(file: UploadFile) => {
             if (props?.onPreview) {
-              // emit('preview', file)
+              // preview callback is handled via props.onPreview
               props?.onPreview?.(file)
             }
           }}
@@ -476,7 +476,7 @@ const InternalUpload = defineComponent<
         onError,
         onProgress,
         onSuccess,
-        ...omit(props, ['classes', 'styles', 'rootClass', 'locale', 'maxCount', 'beforeUpload', 'onRemove', 'onPreview', 'onDownload']),
+        ...omit(props, ['classes', 'styles', 'rootClass', 'locale', 'maxCount', 'beforeUpload', 'onRemove', 'onPreview', 'onDownload', 'onChange', 'onDrop', 'onUpdate:fileList']),
         customRequest: customRequest.value,
         data: props.data ?? {},
         multiple: multiple ?? false,

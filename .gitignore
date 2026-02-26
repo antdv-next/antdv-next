@@ -38,3 +38,4 @@ docs/public/llms-semantic-cn.md
 docs/public/search.cn.json
 docs/public/search.en.json
 coverage
+EMIT_TO_PROPS_MIGRATION.md

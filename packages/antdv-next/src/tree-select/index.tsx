@@ -172,6 +172,18 @@ export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = 
    * @default "outlined"
    */
   variant?: Variant
+  onFocus?: (e: FocusEvent) => void
+  onBlur?: (e: FocusEvent) => void
+  onOpenChange?: (open: boolean) => void
+  onDropdownVisibleChange?: (open: boolean) => void
+  onSelect?: NonNullable<VcTreeSelectProps<ValueType, OptionType>['onSelect']>
+  onTreeExpand?: NonNullable<VcTreeSelectProps<ValueType, OptionType>['onTreeExpand']>
+  onTreeLoad?: NonNullable<VcTreeSelectProps<ValueType, OptionType>['onTreeLoad']>
+  onChange?: NonNullable<VcTreeSelectProps<ValueType, OptionType>['onChange']>
+  'onUpdate:value'?: (value: any) => void
+  onDeselect?: NonNullable<VcTreeSelectProps<ValueType, OptionType>['onDeselect']>
+  onPopupScroll?: NonNullable<VcTreeSelectProps<ValueType, OptionType>['onPopupScroll']>
+  onSearch?: NonNullable<VcTreeSelectProps<ValueType, OptionType>['onSearch']>
 }
 
 export interface TreeSelectEmits {
@@ -242,6 +254,9 @@ const omitKeys = [
   'treeCheckStrictly',
   'styles',
   'classes',
+  'onOpenChange',
+  'onDropdownVisibleChange',
+  'onUpdate:value',
 ]
 
 const InternalTreeSelect = defineComponent<
@@ -250,7 +265,7 @@ const InternalTreeSelect = defineComponent<
   string,
   SlotsType<TreeSelectSlots>
 >(
-  (props = defaults, { slots, expose, emit, attrs }) => {
+  (props = defaults, { slots, expose, attrs }) => {
     const {
       prefixCls: treeSelectPrefixCls,
       getPopupContainer: getContextPopupContainer,
@@ -366,9 +381,10 @@ const InternalTreeSelect = defineComponent<
         }
       }),
     )
+    const callbackProps = props as any
     const mergedOnOpenChange = (open: boolean) => {
-      emit('openChange', open)
-      emit('dropdownVisibleChange', open)
+      callbackProps?.onOpenChange?.(open)
+      callbackProps?.onDropdownVisibleChange?.(open)
     }
 
     const mergedMaxCount = computed(() => {
@@ -474,32 +490,32 @@ const InternalTreeSelect = defineComponent<
       // ==================== Render =====================
       const onAttrs: Partial<VcTreeSelectProps> = {
         onFocus(e) {
-          emit('focus', e)
+          callbackProps?.onFocus?.(e)
         },
         onBlur(e) {
-          emit('blur', e)
+          callbackProps?.onBlur?.(e)
         },
         onSelect(value, option) {
-          emit('select', value, option)
+          callbackProps?.onSelect?.(value, option)
         },
         onChange(value, labelList, extra) {
-          emit('change', value, labelList, extra)
-          emit('update:value', value)
+          callbackProps?.onChange?.(value, labelList, extra)
+          callbackProps?.['onUpdate:value']?.(value)
         },
         onDeselect(value, option) {
-          emit('deselect', value, option)
+          callbackProps?.onDeselect?.(value, option)
         },
         onTreeExpand(expandedKeys) {
-          emit('treeExpand', expandedKeys)
+          callbackProps?.onTreeExpand?.(expandedKeys)
         },
         onTreeLoad(loadedKeys) {
-          emit('treeLoad', loadedKeys)
+          callbackProps?.onTreeLoad?.(loadedKeys)
         },
         onPopupScroll(e) {
-          emit('popupScroll', e)
+          callbackProps?.onPopupScroll?.(e)
         },
         onSearch(value) {
-          emit('search', value)
+          callbackProps?.onSearch?.(value)
         },
       }
 

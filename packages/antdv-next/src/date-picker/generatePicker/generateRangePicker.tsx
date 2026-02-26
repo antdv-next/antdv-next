@@ -7,6 +7,7 @@ import { SwapRightOutlined } from '@antdv-next/icons'
 import { RangePicker } from '@v-c/picker'
 import { clsx } from '@v-c/util'
 import { getTransitionName } from '@v-c/util/dist/utils/transition'
+import { omit } from 'es-toolkit'
 import { computed, defineComponent, shallowRef } from 'vue'
 import { ContextIsolator } from '../../_util/ContextIsolator'
 import { getAttrStyleAndClass, useZIndex } from '../../_util/hooks'
@@ -61,7 +62,7 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
     string,
     SlotsType<RangePickerSlots>
   >(
-    (props, { slots, attrs, emit, expose }) => {
+    (props, { slots, attrs, expose }) => {
       const {
         size: customizeSize,
         disabled: customDisabled,
@@ -143,38 +144,39 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
       }))
 
       const [zIndex] = useZIndex('DatePicker', computed(() => mergedStyles.value?.popup?.root?.zIndex as number))
+      const callbackProps = props as any
 
       const triggerChange = (dates: DateType[] | null, dateStrings: [string, string]) => {
-        emit('update:value', dates)
-        emit('change', dates, dateStrings)
+        callbackProps?.['onUpdate:value']?.(dates)
+        callbackProps?.onChange?.(dates, dateStrings)
       }
 
       const handleCalendarChange = (dates: DateType[], dateStrings: [string, string], info: any) => {
-        emit('calendarChange', dates, dateStrings, info)
+        callbackProps?.onCalendarChange?.(dates, dateStrings, info)
       }
 
       const handlePanelChange = (values: DateType[], modes: [PickerMode, PickerMode]) => {
-        emit('panelChange', values, modes)
+        callbackProps?.onPanelChange?.(values, modes)
       }
 
       const handleOpenChange = (open: boolean) => {
-        emit('openChange', open)
+        callbackProps?.onOpenChange?.(open)
       }
 
       const handleOk = (values: DateType[]) => {
-        emit('ok', values)
+        callbackProps?.onOk?.(values)
       }
 
       const handleFocus = (e: FocusEvent, info: any) => {
-        emit('focus', e, info)
+        callbackProps?.onFocus?.(e, info)
       }
 
       const handleBlur = (e: FocusEvent, info: any) => {
-        emit('blur', e, info)
+        callbackProps?.onBlur?.(e, info)
       }
 
       const handleKeyDown = (e: KeyboardEvent, preventDefault: VoidFunction) => {
-        emit('keydown', e, preventDefault)
+        callbackProps?.onKeydown?.(e, preventDefault)
       }
 
       const resolveRender = (
@@ -308,7 +310,18 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
           <ContextIsolator space>
             <RangePicker
               {...restAttrs}
-              {...restProps}
+              {...omit(restProps, [
+                'onChange',
+                'onUpdate:value',
+                'onCalendarChange',
+                'onPanelChange',
+                'onOpenChange',
+                'onOk',
+                'onFocus',
+                'onBlur',
+                'onKeydown',
+                'onKeyDown',
+              ]) as any}
               ref={innerRef as any}
               separator={(
                 <span aria-label="to" class={`${prefixCls.value}-separator`}>
