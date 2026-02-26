@@ -250,8 +250,8 @@ const Image = defineComponent<
       if (slots?.imageRender) {
         mergedPreviewConfig.value.imageRender = slots.imageRender
       }
-      if ((mergedPreviewConfig.value?.mask || typeof mergedPreviewConfig.value?.mask === 'boolean') && !mergedPreviewConfig.value.cover) {
-        mergedPreviewConfig.value.cover = slots?.cover?.()
+      if (slots?.cover && (mergedPreviewConfig.value?.mask || typeof mergedPreviewConfig.value?.mask === 'boolean')) {
+        mergedPreviewConfig.value.cover = slots.cover()
       }
       // ============================== Render ==============================
       return (
