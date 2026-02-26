@@ -62,8 +62,8 @@ const teamMembers = [
     github: 'shiqkuangsan',
     name: 'shiqkuangsan',
     avatar: 'https://avatars.githubusercontent.com/u/18481623?v=4',
-    wxCode: '',
-    alipayCode: '',
+    wxCode: 'wxp://f2f0D7y2n_8NxFIDidgAElzg901GrmtaCaGPELRzYx_EkA8',
+    alipayCode: 'https://qr.alipay.com/fkx16811xjmckbz86jyoa62',
   },
 ]
 

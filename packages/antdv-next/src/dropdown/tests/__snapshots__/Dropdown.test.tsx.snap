@@ -1,0 +1,16 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`dropdown > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<div
+  data-v-app=""
+>
+  <span
+    class="ant-dropdown-trigger ant-dropdown-rtl"
+  >
+    trigger
+  </span>
+  <!---->
+</div>
+`;
+
+exports[`dropdown > should match snapshot 1`] = `"<div class="ant-dropdown css-var-root ant-dropdown-css-var ant-dropdown-placement-topLeft" style="--arrow-x: 0px; --arrow-y: 2px; left: 0px; top: auto; right: auto; bottom: 4px; box-sizing: border-box;"><!----><!----><ul class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-root ant-dropdown-css-var css-var-root ant-dropdown-menu-css-var" role="menu" tabindex="0" data-menu-list="true"><!----><li class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child" role="menuitem" tabindex="-1" data-menu-id="vc-menu-uuid-1" label="Item 1"><!----><span class="ant-dropdown-menu-title-content">Item 1</span><!----></li><!----><li class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child" role="menuitem" tabindex="-1" data-menu-id="vc-menu-uuid-2" label="Item 2"><!----><span class="ant-dropdown-menu-title-content">Item 2</span><!----></li><!----><li class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child" role="menuitem" tabindex="-1" data-menu-id="vc-menu-uuid-3" label="Item 3"><!----><span class="ant-dropdown-menu-title-content">Item 3</span><!----></li><!----><!----><!----><!----></ul><div style="display: none;" aria-hidden="true"><!----><!----><!----></div></div>"`;
