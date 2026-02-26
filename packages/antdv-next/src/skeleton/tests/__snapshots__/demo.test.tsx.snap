@@ -989,7 +989,6 @@ exports[`skeleton demo > renders element correctly 1`] = `
         class="ant-skeleton ant-skeleton-element css-var-root"
       >
         <span
-          block="false"
           class="ant-skeleton-button"
         />
       </div>
@@ -1024,7 +1023,6 @@ exports[`skeleton demo > renders element correctly 1`] = `
     class="ant-skeleton ant-skeleton-element css-var-root"
   >
     <span
-      block="false"
       class="ant-skeleton-button"
     />
   </div>
@@ -1032,7 +1030,6 @@ exports[`skeleton demo > renders element correctly 1`] = `
     class="ant-skeleton ant-skeleton-element css-var-root"
   >
     <span
-      block="false"
       class="ant-skeleton-input"
     />
   </div>
