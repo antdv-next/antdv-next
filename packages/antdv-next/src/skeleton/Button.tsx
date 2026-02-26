@@ -30,6 +30,7 @@ const SkeletonButton = defineComponent<SkeletonButtonProps>(
           [`${prefixCls.value}-block`]: block,
         },
         (attrs as any)?.class,
+        classes?.root,
         rootClass,
         hashId.value,
         cssVarCls.value,
