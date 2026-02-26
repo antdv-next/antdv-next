@@ -2,8 +2,8 @@ import type { SlotsType } from 'vue'
 import type { EmptyEmit } from '../_util/type.ts'
 import type { SkeletonElementProps } from './Element'
 import { classNames } from '@v-c/util'
-import { omit } from 'es-toolkit'
 import { defineComponent } from 'vue'
+import { getAttrStyleAndClass } from '../_util/hooks'
 import { useBaseConfig } from '../config-provider/context'
 import useStyle from './style'
 
@@ -22,7 +22,8 @@ const SkeletonNode = defineComponent<SkeletonNodeProps, EmptyEmit, string, Slots
     const [hashId, cssVarCls] = useStyle(prefixCls)
 
     return () => {
-      const { active, rootClass, internalClassName } = props
+      const { active, rootClass, internalClassName, classes, styles } = props
+      const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
       const cls = classNames(
         prefixCls.value,
         `${prefixCls.value}-element`,
@@ -30,16 +31,17 @@ const SkeletonNode = defineComponent<SkeletonNodeProps, EmptyEmit, string, Slots
           [`${prefixCls.value}-active`]: active,
         },
         hashId.value,
-        (attrs as any)?.class,
+        classes?.root,
         rootClass,
         cssVarCls.value,
+        className,
       )
 
       return (
-        <div class={cls} {...omit(attrs, ['class', 'style'])}>
+        <div {...restAttrs} class={cls} style={styles?.root}>
           <div
-            class={internalClassName || `${prefixCls.value}-node`}
-            style={(attrs as any)?.style}
+            class={classNames(internalClassName || `${prefixCls.value}-node`, classes?.content)}
+            style={[styles?.content, style]}
           >
             {slots.default?.()}
           </div>

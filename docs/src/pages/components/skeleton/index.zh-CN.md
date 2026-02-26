@@ -132,6 +132,10 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VcjGQLSrYdcAAA
 
 <demo src="./demo/_semantic.vue" simplify></demo>
 
+### Skeleton.Element
+
+<demo src="./demo/_semantic_element.vue" simplify="true"></demo>
+
 ## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Skeleton"></ComponentTokenTable>

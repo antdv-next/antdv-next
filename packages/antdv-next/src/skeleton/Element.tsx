@@ -25,7 +25,7 @@ export interface SkeletonElementProps extends ComponentBaseProps {
 const Element = defineComponent<SkeletonElementProps>(
   (props, { attrs }) => {
     return () => {
-      const { prefixCls, size, shape } = props
+      const { prefixCls, size, shape, classes, styles } = props
       const { className, style } = getAttrStyleAndClass(attrs)
       const sizeCls = classNames({
         [`${prefixCls}-lg`]: size === 'large',
@@ -46,8 +46,8 @@ const Element = defineComponent<SkeletonElementProps>(
         : {}
       return (
         <span
-          class={classNames(prefixCls, sizeCls, shapeCls, className)}
-          style={[sizeStyle, style]}
+          class={classNames(prefixCls, sizeCls, shapeCls, classes?.root, classes?.content, className)}
+          style={[sizeStyle, styles?.root, styles?.content, style]}
         />
       )
     }

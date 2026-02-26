@@ -131,6 +131,10 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 <demo src="./demo/_semantic.vue" simplify></demo>
 
+### Skeleton.Element
+
+<demo src="./demo/_semantic_element.vue" simplify="true"></demo>
+
 ## Design Token
 
 <ComponentTokenTable component="Skeleton"></ComponentTokenTable>
