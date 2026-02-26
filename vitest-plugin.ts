@@ -10,7 +10,8 @@ const baseUrl = fileURLToPath(new URL('.', import.meta.url))
 export default defineConfig({
   plugins: [
     tsxResolveTypes({
-      defaultPropsToUndefined: true,
+      defaultPropsToUndefined: ['Boolean'],
+      emits: false,
     }),
     vue(),
     vueJsx({

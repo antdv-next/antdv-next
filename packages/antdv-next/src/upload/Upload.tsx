@@ -122,6 +122,15 @@ const InternalUpload = defineComponent<
       },
     )
 
+    const callListener = (name: string, ...args: any[]) => {
+      const listener = (props as any)?.[name]
+      if (Array.isArray(listener)) {
+        listener.forEach(fn => fn?.(...args))
+        return
+      }
+      listener?.(...args)
+    }
+
     const onInternalChange = (file: UploadFile, changedFileList: UploadFile[], event?: { percent: number }) => {
       const { maxCount } = props
       let cloneList = [...changedFileList]
@@ -140,7 +149,7 @@ const InternalUpload = defineComponent<
       }
 
       nextTick(() => {
-        ;(props as any)?.['onUpdate:fileList']?.(cloneList)
+        callListener('onUpdate:fileList', cloneList)
       })
 
       const changeInfo: UploadChangeParam<UploadFile> = {
@@ -157,7 +166,7 @@ const InternalUpload = defineComponent<
         || cloneList.some(f => f.uid === file.uid)
       ) {
         nextTick(() => {
-          ;(props as any)?.onChange?.(changeInfo)
+          callListener('onChange', changeInfo)
         })
       }
     }
@@ -333,7 +342,7 @@ const InternalUpload = defineComponent<
       dragState.value = e.type
 
       if (e.type === 'drop') {
-        ;(props as any)?.onDrop?.(e)
+        callListener('onDrop', e)
       }
     }
 

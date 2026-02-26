@@ -1,4 +1,5 @@
 import type { App, CSSProperties, SlotsType } from 'vue'
+import type { EventProp } from '../_util/eventRun.ts'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { RenderNodeFn, VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
@@ -9,6 +10,7 @@ import { filterEmpty } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { toArray } from 'es-toolkit/compat'
 import { computed, defineComponent, nextTick, onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue'
+import { runEvents } from '../_util/eventRun.ts'
 import {
   useMergeSemantic,
   useToArr,
@@ -93,7 +95,7 @@ export interface ButtonProps extends BaseButtonProps {
   htmlType?: ButtonHTMLType
   target?: '_self' | '_blank' | '_parent' | '_top' | string
   autoInsertSpace?: boolean
-  onClick?: (e: MouseEvent) => void
+  onClick?: EventProp<(e: MouseEvent) => void>
 }
 
 interface LoadingConfigType {
@@ -292,12 +294,8 @@ const InternalCompoundedButton = defineComponent<
         e.preventDefault()
         return
       }
-      const clickHandler = (props as any)?.onClick
-      if (Array.isArray(clickHandler)) {
-        clickHandler.forEach(handler => handler?.(e))
-        return
-      }
-      clickHandler?.(e)
+
+      runEvents(props, 'onClick', e)
     }
 
     // ========================== Size ==========================

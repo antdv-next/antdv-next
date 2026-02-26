@@ -159,6 +159,9 @@ export interface UploadProps<T = any> {
   capture?: string | boolean
   hasControlInside?: boolean
   pastable?: boolean
+  onChange?: (info: UploadChangeParam<UploadFile<T>>) => void
+  onDrop?: (event: DragEvent) => void
+  'onUpdate:fileList'?: (fileList: UploadFile<T>[]) => void
 }
 
 // click: VcUploadProps['onClick']
