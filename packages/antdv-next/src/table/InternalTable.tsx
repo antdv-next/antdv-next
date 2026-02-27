@@ -1,5 +1,6 @@
 import type { TableProps as VcTableProps } from '@v-c/table'
 import type { CSSProperties, SlotsType } from 'vue'
+import type { EventProp } from '../_util/eventRun.ts'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { Breakpoint } from '../_util/responsiveObserver.ts'
 import type { AnyObject, VueNode } from '../_util/type.ts'
@@ -29,7 +30,8 @@ import VcTable, { INTERNAL_HOOKS, VirtualTable as VcVirtualTable } from '@v-c/ta
 import { clsx } from '@v-c/util'
 import { getAttrStyleAndClass } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
-import { computed, defineComponent, getCurrentInstance, shallowRef, watch, watchEffect } from 'vue'
+import { computed, defineComponent, shallowRef, watch, watchEffect } from 'vue'
+import { runEvents } from '../_util/eventRun.ts'
 import { useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
 import scrollTo from '../_util/scrollTo.ts'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
@@ -143,8 +145,6 @@ export interface TableProps<RecordType = AnyObject>
     | 'classNames'
     | 'styles'
     | 'getPopupContainer'
-    | 'onUpdate:expandedRowKeys'
-    | 'onScroll'
   > {
   classes?: TableClassNamesType<RecordType>
   styles?: TableStylesType<RecordType>
@@ -164,6 +164,12 @@ export interface TableProps<RecordType = AnyObject>
   sortDirections?: SortOrder[]
   showSorterTooltip?: boolean | SorterTooltipProps
   virtual?: boolean
+  onChange?: EventProp<(
+    pagination: TablePaginationConfig,
+    filters: Record<string, FilterValue | null>,
+    sorter: SorterResult<RecordType> | SorterResult<RecordType>[],
+    extra: TableCurrentDataSource<RecordType>,
+  ) => void>
 }
 
 export interface InternalTableProps<RecordType = AnyObject> extends TableProps<RecordType> {
@@ -216,8 +222,6 @@ const InternalTable = defineComponent<
   SlotsType<TableSlots>
 >(
   (props = defaults, { slots, attrs, expose }) => {
-    const instance = getCurrentInstance()
-    const getCallbackProps = () => (instance?.vnode.props ?? {}) as any
     const {
       prefixCls,
       direction,
@@ -315,7 +319,6 @@ const InternalTable = defineComponent<
         'virtual',
         '_renderTimes',
         'onChange',
-        'onUpdate:expandedRowKeys',
       ]),
     )
 
@@ -389,7 +392,7 @@ const InternalTable = defineComponent<
           getContainer: () => internalRefs.body.value!,
         })
       }
-      getCallbackProps()?.onChange?.(changeInfo.pagination!, changeInfo.filters!, changeInfo.sorter!, {
+      runEvents(props, 'onChange', changeInfo.pagination!, changeInfo.filters!, changeInfo.sorter!, {
         currentDataSource: getFilterData(
           getSortData(rawData.value as any, changeInfo.sorterStates!, childrenColumnName.value),
           changeInfo.filterStates!,
@@ -822,7 +825,6 @@ const InternalTable = defineComponent<
               title={title as any}
               footer={footer as any}
               summary={summary as any}
-              onUpdate:expandedRowKeys={(keys: readonly Key[]) => getCallbackProps()?.['onUpdate:expandedRowKeys']?.(keys)}
             />
             {paginationNodes.bottom}
           </Spin>

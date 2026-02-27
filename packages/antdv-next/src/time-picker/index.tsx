@@ -12,6 +12,7 @@ import type {
 } from '../date-picker/generatePicker'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, shallowRef } from 'vue'
+import { runEvents } from '../_util/eventRun.ts'
 import genPurePanel from '../_util/PurePanel.tsx'
 import { toPropsRefs } from '../_util/tools'
 import { devUseWarning, isDev } from '../_util/warning'
@@ -116,38 +117,50 @@ const RangePicker = defineComponent<
   (props, { slots, expose, attrs }) => {
     const rangeRef = shallowRef<PickerRef>()
     const callbackProps = props as any
+    const eventAttrKeys = [
+      'onChange',
+      'onUpdate:value',
+      'onCalendarChange',
+      'onPanelChange',
+      'onOpenChange',
+      'onOk',
+      'onFocus',
+      'onBlur',
+      'onKeydown',
+      'onKeyDown',
+    ] as const
 
     const onChange = (dates: AnyObject[] | null, dateStrings: [string, string]) => {
-      callbackProps?.['onUpdate:value']?.(dates)
-      callbackProps?.onChange?.(dates, dateStrings)
+      runEvents(callbackProps, 'onUpdate:value', dates)
+      runEvents(callbackProps, 'onChange', dates, dateStrings)
     }
 
     const onCalendarChange = (dates: AnyObject[], dateStrings: [string, string], info: any) => {
-      callbackProps?.onCalendarChange?.(dates, dateStrings, info)
+      runEvents(callbackProps, 'onCalendarChange', dates, dateStrings, info)
     }
 
     const onPanelChange = (dates: AnyObject[], modes: [PickerMode, PickerMode]) => {
-      callbackProps?.onPanelChange?.(dates, modes)
+      runEvents(callbackProps, 'onPanelChange', dates, modes)
     }
 
     const onOpenChange = (open: boolean) => {
-      callbackProps?.onOpenChange?.(open)
+      runEvents(callbackProps, 'onOpenChange', open)
     }
 
     const onOk = (dates: AnyObject[]) => {
-      callbackProps?.onOk?.(dates)
+      runEvents(callbackProps, 'onOk', dates)
     }
 
     const onFocus = (e: FocusEvent, info: any) => {
-      callbackProps?.onFocus?.(e, info)
+      runEvents(callbackProps, 'onFocus', e, info)
     }
 
     const onBlur = (e: FocusEvent, info: any) => {
-      callbackProps?.onBlur?.(e, info)
+      runEvents(callbackProps, 'onBlur', e, info)
     }
 
     const onKeyDown = (e: KeyboardEvent, preventDefault: VoidFunction) => {
-      callbackProps?.onKeydown?.(e, preventDefault)
+      runEvents(callbackProps, 'onKeydown', e, preventDefault)
     }
 
     expose({
@@ -157,9 +170,10 @@ const RangePicker = defineComponent<
     })
 
     return () => {
+      const rangePickerAttrs = omit(attrs as any, eventAttrKeys as unknown as string[])
       return (
         <InternalRangePicker
-          {...attrs}
+          {...rangePickerAttrs}
           {...omit(props as any, [
             'onChange',
             'onUpdate:value',
@@ -275,42 +289,55 @@ const TimePicker = defineComponent<
 
     const pickerRef = shallowRef<PickerRef>()
     const callbackProps = props as any
+    const eventAttrKeys = [
+      'onChange',
+      'onUpdate:value',
+      'onCalendarChange',
+      'onPanelChange',
+      'onOpenChange',
+      'onOk',
+      'onSelect',
+      'onFocus',
+      'onBlur',
+      'onKeydown',
+      'onKeyDown',
+    ] as const
 
     const onChange = (date: AnyObject | AnyObject[] | null, dateString: string | string[]) => {
-      callbackProps?.['onUpdate:value']?.(date)
-      callbackProps?.onChange?.(date, dateString)
+      runEvents(callbackProps, 'onUpdate:value', date)
+      runEvents(callbackProps, 'onChange', date, dateString)
     }
 
     const onCalendarChange = (date: AnyObject | AnyObject[], dateString: string | string[], info: any) => {
-      callbackProps?.onCalendarChange?.(date, dateString, info)
+      runEvents(callbackProps, 'onCalendarChange', date, dateString, info)
     }
 
     const onPanelChange = (date: AnyObject, mode: PickerMode) => {
-      callbackProps?.onPanelChange?.(date, mode)
+      runEvents(callbackProps, 'onPanelChange', date, mode)
     }
 
     const onOpenChange = (open: boolean) => {
-      callbackProps?.onOpenChange?.(open)
+      runEvents(callbackProps, 'onOpenChange', open)
     }
 
     const onOk = (date: AnyObject | AnyObject[]) => {
-      callbackProps?.onOk?.(date)
+      runEvents(callbackProps, 'onOk', date)
     }
 
     const onSelect = (date: AnyObject) => {
-      callbackProps?.onSelect?.(date)
+      runEvents(callbackProps, 'onSelect', date)
     }
 
     const onFocus = (e: FocusEvent, info: any) => {
-      callbackProps?.onFocus?.(e, info)
+      runEvents(callbackProps, 'onFocus', e, info)
     }
 
     const onBlur = (e: FocusEvent, info: any) => {
-      callbackProps?.onBlur?.(e, info)
+      runEvents(callbackProps, 'onBlur', e, info)
     }
 
     const onKeyDown = (e: KeyboardEvent, preventDefault: VoidFunction) => {
-      callbackProps?.onKeydown?.(e, preventDefault)
+      runEvents(callbackProps, 'onKeydown', e, preventDefault)
     }
 
     const internalRenderExtraFooter = (mode: PickerMode) => {
@@ -351,10 +378,11 @@ const TimePicker = defineComponent<
         bordered,
         ...restProps
       } = props
+      const pickerAttrs = omit(attrs as any, eventAttrKeys as unknown as string[])
 
       return (
         <InternalTimePicker
-          {...attrs}
+          {...pickerAttrs}
           {...omit(restProps, [
             'onChange',
             'onUpdate:value',

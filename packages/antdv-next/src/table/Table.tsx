@@ -2,7 +2,8 @@ import type { SlotsType } from 'vue'
 import type { TableEmits, TableProps, TableSlots } from './InternalTable.tsx'
 import { EXPAND_COLUMN, Summary } from '@v-c/table'
 import { omit } from 'es-toolkit'
-import { defineComponent, getCurrentInstance, shallowRef } from 'vue'
+import { defineComponent, shallowRef } from 'vue'
+import { runEvents } from '../_util/eventRun.ts'
 import Column from './Column.tsx'
 import ColumnGroup from './ColumnGroup.tsx'
 import {
@@ -20,8 +21,6 @@ const Table = defineComponent<
   SlotsType<TableSlots>
 >(
   (props, { slots, attrs, expose }) => {
-    const instance = getCurrentInstance()
-    const getCallbackProps = () => (instance?.vnode.props ?? {}) as any
     const renderTimesRef = shallowRef(0)
     renderTimesRef.value += 1
     const tableRef = shallowRef<any>(null)
@@ -35,13 +34,13 @@ const Table = defineComponent<
 
     return () => (
       <InternalTable
-        {...omit(props, ['onUpdate:expandedRowKeys', 'onChange'])}
         {...attrs}
+        {...omit(props, ['onUpdate:expandedRowKeys', 'onChange'])}
         onChange={(pagination: any, filters: any, sorter: any, extra: any) => {
-          getCallbackProps()?.onChange?.(pagination, filters, sorter, extra)
+          runEvents(props, 'onChange', pagination, filters, sorter, extra)
         }}
         onUpdate:expandedRowKeys={(keys: any) => {
-          getCallbackProps()?.['onUpdate:expandedRowKeys']?.(keys)
+          runEvents(props, 'onUpdate:expandedRowKeys', keys)
         }}
         _renderTimes={renderTimesRef.value}
         ref={tableRef}

@@ -1,0 +1,15 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`skeleton.button > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-skeleton ant-skeleton-element css-var-root"
+  >
+    <span
+      class="ant-skeleton-button"
+    />
+  </div>
+</div>
+`;

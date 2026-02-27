@@ -6,6 +6,9 @@ export const locales = {
     avatar: '头像元素，包含行内块显示、垂直对齐、背景色、尺寸、圆角等头像占位的样式',
     title: '标题元素，包含宽度、高度、背景色、圆角等标题占位的样式',
     paragraph: '段落元素，包含内边距、列表项样式、背景色、圆角等段落占位的样式',
+    'element.root': '根元素',
+    'element.content': '内容元素',
+    'element.preview': '预览',
   },
   en: {
     root: 'Root element with table display, width, animation effects, border radius and other skeleton container basic styles',
@@ -14,5 +17,8 @@ export const locales = {
     avatar: 'Avatar element with inline-block display, vertical alignment, background color, size, border radius and other avatar placeholder styles',
     title: 'Title element with width, height, background color, border radius and other title placeholder styles',
     paragraph: 'Paragraph element with padding, list item styles, background color, border radius and other paragraph placeholder styles',
+    'element.root': 'Root element',
+    'element.content': 'Content element',
+    'element.preview': 'Preview',
   },
 }

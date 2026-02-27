@@ -7,8 +7,9 @@ import { clsx } from '@v-c/util'
 import { filterEmpty, getAttrStyleAndClass } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, getCurrentInstance, shallowRef, watch } from 'vue'
+import { runEvents } from '../_util/eventRun.ts'
 import { useComponentBaseConfig } from '../config-provider/context.ts'
-import Tree, { treeCallbackPropKeys } from './Tree.tsx'
+import Tree from './Tree.tsx'
 import { calcRangeKeys, convertDirectoryKeysToNodes } from './utils/dictUtil.ts'
 
 export type ExpandAction = false | 'click' | 'doubleClick'
@@ -109,8 +110,8 @@ const DirectoryTree = defineComponent<
       },
     ) => {
       const callbackProps = getCallbackProps()
-      callbackProps?.['onUpdate:expandedKeys']?.(keys)
-      callbackProps?.onExpand?.(keys, info)
+      runEvents(callbackProps, 'onUpdate:expandedKeys', keys)
+      runEvents(callbackProps, 'onExpand', keys, info)
     }
 
     const onSelect = (keys: Key[], event: {
@@ -173,8 +174,8 @@ const DirectoryTree = defineComponent<
       }
       selectedKeys.value = newSelectedKeys
       const callbackProps = getCallbackProps()
-      callbackProps?.['onUpdate:selectedKeys']?.(newSelectedKeys)
-      callbackProps?.onSelect?.(newSelectedKeys, newEvent)
+      runEvents(callbackProps, 'onUpdate:selectedKeys', newSelectedKeys)
+      runEvents(callbackProps, 'onSelect', newSelectedKeys, newEvent)
     }
     const { prefixCls, direction } = useComponentBaseConfig('tree', props)
     const treeRef = shallowRef()
@@ -202,91 +203,97 @@ const DirectoryTree = defineComponent<
       const onAttrs: Partial<DirectoryTreeEmitsType> = {
         onCheck(checked, info) {
           const callbackProps = getCallbackProps()
-          callbackProps?.onCheck?.(checked, info)
-          callbackProps?.['onUpdate:checkedKeys']?.(checked)
+          runEvents(callbackProps, 'onCheck', checked, info)
+          runEvents(callbackProps, 'onUpdate:checkedKeys', checked)
         },
         onClick(...args) {
           const callbackProps = getCallbackProps()
-          callbackProps?.onClick?.(...args)
+          runEvents(callbackProps, 'onClick', ...args)
         },
         onBlur(e) {
           const callbackProps = getCallbackProps()
-          callbackProps?.onBlur?.(e)
+          runEvents(callbackProps, 'onBlur', e)
         },
         onLoad(loadKeys, info) {
           const callbackProps = getCallbackProps()
-          callbackProps?.onLoad?.(loadKeys, info)
+          runEvents(callbackProps, 'onLoad', loadKeys, info)
         },
         onFocus(e) {
           const callbackProps = getCallbackProps()
-          callbackProps?.onFocus?.(e)
+          runEvents(callbackProps, 'onFocus', e)
         },
         onActiveChange(key) {
           const callbackProps = getCallbackProps()
-          callbackProps?.onActiveChange?.(key)
-          callbackProps?.['onUpdate:activeKey']?.(key!)
+          runEvents(callbackProps, 'onActiveChange', key)
+          runEvents(callbackProps, 'onUpdate:activeKey', key!)
         },
         onDrop(info) {
           const callbackProps = getCallbackProps()
-          callbackProps?.onDrop?.(info)
+          runEvents(callbackProps, 'onDrop', info)
         },
         onDragend(info) {
           const callbackProps = getCallbackProps()
-          callbackProps?.onDragend?.(info)
+          runEvents(callbackProps, 'onDragend', info)
         },
         onDragenter(info) {
           const callbackProps = getCallbackProps()
-          callbackProps?.onDragenter?.(info)
+          runEvents(callbackProps, 'onDragenter', info)
         },
         onDragleave(info) {
           const callbackProps = getCallbackProps()
-          callbackProps?.onDragleave?.(info)
+          runEvents(callbackProps, 'onDragleave', info)
         },
         onDragover(info) {
           const callbackProps = getCallbackProps()
-          callbackProps?.onDragover?.(info)
+          runEvents(callbackProps, 'onDragover', info)
         },
         onDoubleClick(...args) {
           const callbackProps = getCallbackProps()
-          callbackProps?.onDoubleClick?.(...args)
-          callbackProps?.onDblclick?.(...args)
+          runEvents(callbackProps, 'onDoubleClick', ...args)
+          runEvents(callbackProps, 'onDblclick', ...args)
         },
         onContextmenu(e) {
           const callbackProps = getCallbackProps()
-          callbackProps?.onContextmenu?.(e)
+          runEvents(callbackProps, 'onContextmenu', e)
         },
         onKeydown(e) {
           const callbackProps = getCallbackProps()
-          callbackProps?.onKeydown?.(e)
+          runEvents(callbackProps, 'onKeydown', e)
         },
         onScroll(e) {
           const callbackProps = getCallbackProps()
-          callbackProps?.onScroll?.(e)
+          runEvents(callbackProps, 'onScroll', e)
         },
         onRightClick(info) {
           const callbackProps = getCallbackProps()
-          callbackProps?.onRightClick?.(info)
+          runEvents(callbackProps, 'onRightClick', info)
         },
         onDragstart(info) {
           const callbackProps = getCallbackProps()
-          callbackProps?.onDragstart?.(info)
+          runEvents(callbackProps, 'onDragstart', info)
         },
         onMouseenter(e) {
           const callbackProps = getCallbackProps()
-          callbackProps?.onMouseenter?.(e)
+          runEvents(callbackProps, 'onMouseenter', e)
         },
         onMouseleave(e) {
           const callbackProps = getCallbackProps()
-          callbackProps?.onMouseleave?.(e)
+          runEvents(callbackProps, 'onMouseleave', e)
         },
+        onSelect,
+        onExpand,
       }
 
       return (
         <Tree
           ref={treeRef}
-          {...restAttrs}
-          {...omit(otherProps, ['prefixCls', ...treeCallbackPropKeys])}
-          {...onAttrs as any}
+          {
+            ...{
+              ...restAttrs,
+              ...omit(otherProps, ['prefixCls']),
+              ...onAttrs,
+            } as any
+          }
           icon={props?.icon ?? getIcon}
           blockNode={props?.blockNode ?? true}
           showIcon={showIcon}
@@ -296,8 +303,6 @@ const DirectoryTree = defineComponent<
           style={style}
           expandedKeys={expandedKeys.value}
           selectedKeys={selectedKeys.value}
-          onSelect={onSelect}
-          onExpand={onExpand}
           v-slots={slots}
         />
       )

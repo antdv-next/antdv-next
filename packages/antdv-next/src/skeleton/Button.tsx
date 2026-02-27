@@ -1,7 +1,7 @@
 import type { SkeletonElementProps } from './Element'
 import { classNames } from '@v-c/util'
-import { omit } from 'es-toolkit'
 import { defineComponent } from 'vue'
+import { getAttrStyleAndClass } from '../_util/hooks'
 import { useBaseConfig } from '../config-provider/context'
 import Element from './Element'
 import useStyle from './style'
@@ -20,7 +20,8 @@ const SkeletonButton = defineComponent<SkeletonButtonProps>(
     const [hashId, cssVarCls] = useStyle(prefixCls)
 
     return () => {
-      const { active, rootClass, block, size } = props
+      const { active, rootClass, block, size, shape, classes, styles } = props
+      const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
       const cls = classNames(
         prefixCls.value,
         `${prefixCls.value}-element`,
@@ -28,18 +29,20 @@ const SkeletonButton = defineComponent<SkeletonButtonProps>(
           [`${prefixCls.value}-active`]: active,
           [`${prefixCls.value}-block`]: block,
         },
-        (attrs as any)?.class,
+        classes?.root,
         rootClass,
         hashId.value,
         cssVarCls.value,
+        className,
       )
-      const otherProps = omit(props, ['prefixCls'])
       return (
-        <div class={cls} {...omit(attrs, ['class'])}>
+        <div {...restAttrs} class={cls} style={styles?.root}>
           <Element
             prefixCls={`${prefixCls.value}-button`}
             size={size}
-            {...otherProps}
+            shape={shape}
+            class={classes?.content}
+            style={[styles?.content, style]}
           />
         </div>
       )

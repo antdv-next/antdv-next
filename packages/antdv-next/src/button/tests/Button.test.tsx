@@ -216,6 +216,19 @@ describe('button', () => {
     expect(onClick).toHaveBeenCalled()
   })
 
+  it('should trigger all click handlers when onClick is array', async () => {
+    const onClick1 = vi.fn()
+    const onClick2 = vi.fn()
+    const wrapper = mount(Button, {
+      props: { onClick: [onClick1, onClick2] as any },
+      slots: { default: () => 'Click' },
+    })
+
+    await wrapper.find('.ant-btn').trigger('click')
+    expect(onClick1).toHaveBeenCalledTimes(1)
+    expect(onClick2).toHaveBeenCalledTimes(1)
+  })
+
   it('should not trigger click when loading', async () => {
     const onClick = vi.fn()
     const wrapper = mount(Button, {

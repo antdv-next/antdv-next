@@ -118,24 +118,10 @@ export type RequiredSemanticPicker = Readonly<
       styles: Ref<DatePickerSemanticStyles & { popup: DatePickerPanelSemanticStyles }>,
   ]
 >
-type RcEventKeys
-  = | 'onChange'
-    | 'onCalendarChange'
-    | 'onPanelChange'
-    | 'onOpenChange'
-    | 'onOk'
-    | 'onSelect'
-    | 'onFocus'
-    | 'onBlur'
-    | 'onKeyDown'
-    | 'onClick'
-    | 'onMouseDown'
-    | 'onMouseEnter'
-    | 'onMouseLeave'
 
 export type InjectDefaultProps<Props> = Omit<
   Props,
-  'locale' | 'generateConfig' | 'hideHeader' | 'classNames' | 'styles' | RcEventKeys | 'className' | 'style' | 'rootClassName'
+  'locale' | 'generateConfig' | 'hideHeader' | 'classNames' | 'styles' | 'className' | 'style' | 'rootClassName'
 > & {
   locale?: PickerLocale
   size?: SizeType
@@ -198,14 +184,14 @@ export interface BaseDefaultProps<Props> {
 /** Base Single Picker props */
 // export type PickerProps<DateType extends AnyObject = any> = VcPickerProps<DateType> & BaseDefaultProps<VcPickerProps<DateType>>
 
-export interface PickerProps<DateType extends AnyObject = any> extends BaseDefaultProps<DateType>, Omit<VcPickerProps, 'placement' | 'locale' | 'generateConfig' | 'hideHeader' | 'classNames' | 'styles' | RcEventKeys | 'className' | 'style' | 'rootClassName'> {
+export interface PickerProps<DateType extends AnyObject = any> extends BaseDefaultProps<DateType>, Omit<VcPickerProps, 'placement' | 'locale' | 'generateConfig' | 'hideHeader' | 'classNames' | 'styles' | 'className' | 'style' | 'rootClassName'> {
 
 }
 
 /** Base Range Picker props */
 export interface RangePickerProps<DateType extends AnyObject = any>
   extends BaseDefaultProps<DateType>,
-  Omit<VcRangePickerProps<DateType>, 'placement' | 'locale' | 'generateConfig' | 'hideHeader' | 'classNames' | 'styles' | RcEventKeys | 'className' | 'style' | 'rootClassName'> {
+  Omit<VcRangePickerProps<DateType>, 'placement' | 'locale' | 'generateConfig' | 'hideHeader' | 'classNames' | 'styles' | 'className' | 'style' | 'rootClassName'> {
 
 }
 

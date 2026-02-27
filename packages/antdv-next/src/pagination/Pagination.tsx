@@ -15,6 +15,7 @@ import { clsx } from '@v-c/util'
 import { getAttrStyleAndClass } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent } from 'vue'
+import { runEvents } from '../_util/eventRun.ts'
 import { useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { devUseWarning, isDev } from '../_util/warning'
@@ -221,13 +222,13 @@ const Pagination = defineComponent<
     })
 
     const handleChange: NonNullable<VcPaginationProps['onChange']> = (page, pageSize) => {
-      props?.onChange?.(page, pageSize)
       if (props.current !== page) {
-        props?.['onUpdate:current']?.(page)
+        runEvents(props, 'onUpdate:current', page)
       }
       else if (props.pageSize !== pageSize) {
-        props?.['onUpdate:pageSize']?.(pageSize)
+        runEvents(props, 'onUpdate:pageSize', pageSize)
       }
+      runEvents(props, 'onChange', page, pageSize)
     }
 
     const handleShowSizeChange: NonNullable<VcPaginationProps['onShowSizeChange']> = (current, size) => {
