@@ -1,6 +1,6 @@
 import type { CSSProperties, SlotsType, VNodeChild } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
-import type { VueNode } from '../_util/type.ts'
+import type { EmitsMap, VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
 import type { FormatConfig, valueType } from './utils.ts'
 import { classNames } from '@v-c/util'
@@ -82,8 +82,12 @@ const defaults = {
   prefix: undefined,
 } as any
 
+interface InternalStatisticProps extends StatisticProps,
+  /* @vue-ignore */
+  EmitsMap<StatisticEmits> {}
+
 const Statistic = defineComponent<
-  StatisticProps,
+  InternalStatisticProps,
   StatisticEmits,
   string,
   SlotsType<StatisticSlots>

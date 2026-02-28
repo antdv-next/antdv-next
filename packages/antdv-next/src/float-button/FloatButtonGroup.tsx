@@ -1,6 +1,6 @@
 import type { CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
-import type { VueNode } from '../_util/type'
+import type { EmitsMap, VueNode } from '../_util/type'
 import type { ComponentBaseProps } from '../config-provider/context'
 import type { GroupContextProps } from './context'
 import type { FloatButtonGroupTrigger, FloatButtonProps, FloatButtonShape } from './FloatButton'
@@ -58,7 +58,9 @@ export type FloatButtonGroupStylesType = SemanticStylesType<
   FloatButtonGroupSemanticStyles
 >
 
-export interface FloatButtonGroupProps extends Omit<FloatButtonProps, 'classes' | 'styles'>, ComponentBaseProps {
+export interface FloatButtonGroupProps extends Omit<FloatButtonProps, 'classes' | 'styles'>, ComponentBaseProps,
+  /* @vue-ignore */
+  EmitsMap<FloatButtonGroupEmits> {
   // Styles
   classes?: FloatButtonGroupClassNamesType
   styles?: FloatButtonGroupStylesType

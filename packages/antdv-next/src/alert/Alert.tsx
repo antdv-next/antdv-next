@@ -1,7 +1,7 @@
 import type { AriaAttributes, CSSProperties, SlotsType } from 'vue'
 import type { SemanticType } from '../_util/hooks'
 import type { ClosableType } from '../_util/hooks/useClosable'
-import type { SlotsDefineType, VueNode } from '../_util/type.ts'
+import type { EmitsMap, SlotsDefineType, VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context'
 import { CheckCircleFilled, CloseCircleFilled, CloseOutlined, ExclamationCircleFilled, InfoCircleFilled } from '@antdv-next/icons'
 import { classNames, clsx } from '@v-c/util'
@@ -35,7 +35,9 @@ export interface AlertSemanticType {
 export type AlertClassNamesType = SemanticType<AlertProps, AlertSemanticType['classes']>
 export type AlertStylesType = SemanticType<AlertProps, AlertSemanticType['styles']>
 
-export interface AlertProps extends ComponentBaseProps {
+export interface AlertProps extends ComponentBaseProps,
+  /* @vue-ignore */
+  EmitsMap<AlertEmits> {
   /** Type of Alert styles, options:`success`, `info`, `warning`, `error` */
   type?: 'success' | 'info' | 'warning' | 'error'
   /** Whether Alert can be closed */

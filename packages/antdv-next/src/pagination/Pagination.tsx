@@ -1,6 +1,6 @@
 import type { PaginationProps as VcPaginationProps } from '@v-c/pagination'
 import type { App, SlotsType } from 'vue'
-import type { VueNode } from '../_util/type'
+import type { EmitsMap, VueNode } from '../_util/type'
 import type {
   PaginationClassNamesType,
   PaginationEmits,
@@ -39,8 +39,12 @@ const omitKeys = [
   'selectComponentClass',
 ] as const
 
+interface InternalPaginationProps extends PaginationProps,
+  /* @vue-ignore */
+  EmitsMap<PaginationEmits> {}
+
 const Pagination = defineComponent<
-  PaginationProps,
+  InternalPaginationProps,
   PaginationEmits,
   string,
   SlotsType<PaginationSlots>

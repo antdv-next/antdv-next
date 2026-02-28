@@ -2,7 +2,7 @@ import type { BasePickerPanelProps, Locale } from '@v-c/picker'
 import type { GenerateConfig } from '@v-c/picker/generate/index'
 import type { CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
-import type { AnyObject, VueNode } from '../_util/type'
+import type { AnyObject, EmitsMap, VueNode } from '../_util/type'
 import { PickerPanel } from '@v-c/picker'
 import { clsx } from '@v-c/util'
 import { computed, defineComponent, ref, watch } from 'vue'
@@ -56,7 +56,9 @@ export type CalendarStylesType<DateType> = SemanticStylesType<
   CalendarSemanticStyles
 >
 
-export interface CalendarProps<DateType> {
+export interface CalendarProps<DateType> extends
+  /* @vue-ignore */
+  EmitsMap<CalendarEmits<DateType>> {
   prefixCls?: string
   rootClass?: string
   classes?: CalendarClassNamesType<DateType>

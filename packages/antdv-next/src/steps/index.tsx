@@ -1,7 +1,7 @@
 import type { StepsProps as VcStepsProps } from '@v-c/steps'
 import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
-import type { VueNode } from '../_util/type'
+import type { EmitsMap, VueNode } from '../_util/type'
 import { CheckOutlined } from '@antdv-next/icons'
 import VcSteps from '@v-c/steps'
 import { clsx } from '@v-c/util'
@@ -127,7 +127,9 @@ export interface BaseStepsProps {
   onChange?: (current: number) => void
 }
 
-export interface StepsProps extends BaseStepsProps {
+export interface StepsProps extends BaseStepsProps,
+  /* @vue-ignore */
+  EmitsMap<StepsEmits> {
   prefixCls?: string
 }
 

@@ -1,5 +1,6 @@
 import type { SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
+import type { EmitsMap } from '../_util/type'
 import type {
   RadioChangeEvent,
   RadioEmits,
@@ -25,10 +26,15 @@ import { useDisabledContext } from '../config-provider/DisabledContext.tsx'
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
 import { useFormItemInputContext } from '../form/context.tsx'
 import { useRadioGroupContext, useRadioOptionTypeContext } from './context'
+
 import useStyle from './style'
 
+interface InternalRadioProps extends RadioProps,
+  /* @vue-ignore */
+  EmitsMap<RadioEmits> {}
+
 const InternalRadio = defineComponent<
-  RadioProps,
+  InternalRadioProps,
   RadioEmits,
   string,
   SlotsType<RadioSlots>

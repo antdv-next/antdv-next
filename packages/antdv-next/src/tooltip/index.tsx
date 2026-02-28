@@ -5,7 +5,7 @@ import type { App, CSSProperties, SlotsType } from 'vue'
 import type { PresetColorType } from '../_util/colors.ts'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { AdjustOverflow } from '../_util/placements.ts'
-import type { VueNode } from '../_util/type.ts'
+import type { EmitsMap, VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
 import VcTooltip from '@v-c/tooltip'
 import { clsx } from '@v-c/util'
@@ -124,7 +124,9 @@ export interface TooltipSlots {
  * @internal
  * Internal props type with hidden properties
  */
-interface InternalTooltipProps extends TooltipProps {
+interface InternalTooltipProps extends TooltipProps,
+  /* @vue-ignore */
+  EmitsMap<TooltipEmits> {
   dataPopoverInject?: boolean
 }
 

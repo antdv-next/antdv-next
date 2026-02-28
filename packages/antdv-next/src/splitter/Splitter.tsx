@@ -1,5 +1,6 @@
 import type { SizeInfo } from '@v-c/resize-observer'
 import type { CSSProperties, SlotsType } from 'vue'
+import type { EmitsMap } from '../_util/type'
 import type {
   SplitterClassNamesType,
   SplitterEmits,
@@ -23,10 +24,15 @@ import useResize from './hooks/useResize.ts'
 import useSizes from './hooks/useSizes.ts'
 import { InternalPanel } from './Panel.tsx'
 import SplitBar from './SplitBar.tsx'
+
 import useStyle from './style'
 
+interface InternalSplitterProps extends SplitterProps,
+  /* @vue-ignore */
+  EmitsMap<SplitterEmits> {}
+
 const Splitter = defineComponent<
-  SplitterProps,
+  InternalSplitterProps,
   SplitterEmits,
   string,
   SlotsType<SplitterSlots>

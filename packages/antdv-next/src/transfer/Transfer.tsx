@@ -1,4 +1,5 @@
 import type { SlotsType } from 'vue'
+import type { EmitsMap } from '../_util/type'
 import type {
   TransferClassNamesType,
   TransferDirection,
@@ -27,6 +28,7 @@ import Actions from './Actions'
 import useData from './hooks/useData'
 import useSelection from './hooks/useSelection'
 import Section from './Section'
+
 import useStyle from './style'
 
 const defaults = {
@@ -39,8 +41,12 @@ const defaults = {
   oneWay: false,
 } as any
 
+interface InternalTransferProps extends TransferProps,
+  /* @vue-ignore */
+  EmitsMap<TransferEmits> {}
+
 const Transfer = defineComponent<
-  TransferProps,
+  InternalTransferProps,
   TransferEmits,
   string,
   SlotsType<TransferSlots>

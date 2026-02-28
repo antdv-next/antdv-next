@@ -1,6 +1,6 @@
 import type { CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNames, SemanticClassNamesType, SemanticSchema, SemanticStyles, SemanticStylesType } from '../_util/hooks'
-import type { VueNode } from '../_util/type'
+import type { EmitsMap, VueNode } from '../_util/type'
 import type { ButtonSemanticName } from '../button'
 import type { ButtonSemanticClassNames, ButtonSemanticStyles } from '../button/Button.tsx'
 import type { ComponentBaseProps } from '../config-provider/context'
@@ -57,7 +57,9 @@ export type InputSearchStylesType = SemanticStylesType<SearchProps, InputSearchS
   button?: ButtonSemanticStyles
 }
 
-export interface SearchProps extends Omit<BaseInputProps, 'class' | 'style' | 'rootClass'>, ComponentBaseProps {
+export interface SearchProps extends Omit<BaseInputProps, 'class' | 'style' | 'rootClass'>, ComponentBaseProps,
+  /* @vue-ignore */
+  EmitsMap<SearchEmits> {
   inputPrefixCls?: string
   on?: never
   enterButton?: boolean | VueNode

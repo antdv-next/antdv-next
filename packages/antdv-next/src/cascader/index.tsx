@@ -3,7 +3,7 @@ import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { SelectCommonPlacement } from '../_util/motion'
 import type { InputStatus } from '../_util/statusUtils'
-import type { VueNode } from '../_util/type'
+import type { EmitsMap, VueNode } from '../_util/type'
 import type { Variant } from '../config-provider/context'
 import type { SizeType } from '../config-provider/SizeContext'
 import type { SelectPopupSemanticClassNames, SelectPopupSemanticStyles } from '../select'
@@ -152,7 +152,9 @@ export interface CascaderProps<
     | 'onPopupVisibleChange'
     | 'multiple'
     | 'value'
-  > {
+  >,
+  /* @vue-ignore */
+  EmitsMap<CascaderEmits> {
   value?: any
   multiple?: boolean
   size?: SizeType

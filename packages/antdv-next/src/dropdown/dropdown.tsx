@@ -3,6 +3,7 @@ import type { AlignType } from '@v-c/trigger'
 import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { AdjustOverflow } from '../_util/placements'
+import type { EmitsMap } from '../_util/type'
 import type { ComponentBaseProps } from '../config-provider/context'
 import type { MenuEmits, MenuProps, MenuSlots } from '../menu'
 import { LeftOutlined, RightOutlined } from '@antdv-next/icons'
@@ -22,6 +23,7 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
 import Menu from '../menu'
 import { OverrideProvider } from '../menu/OverrideContext.tsx'
 import { useToken } from '../theme/internal'
+
 import useStyle from './style'
 
 const _Placements = [
@@ -68,7 +70,9 @@ export type DropdownClassNamesType = SemanticClassNamesType<
 
 export type DropdownStylesType = SemanticStylesType<DropdownProps, DropdownSemanticStyles>
 
-export interface DropdownProps extends ComponentBaseProps {
+export interface DropdownProps extends ComponentBaseProps,
+  /* @vue-ignore */
+  EmitsMap<DropdownEmits> {
   classes?: DropdownClassNamesType
   styles?: DropdownStylesType
   menu?: MenuProps & { activeKey?: VcMenuProps['activeKey'], onClick?: MenuEmits['click'] }

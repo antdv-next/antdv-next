@@ -1,5 +1,6 @@
 import type { DialogProps } from '@v-c/dialog'
 import type { SlotsType } from 'vue'
+import type { EmitsMap } from '../_util/type'
 import type { ModalClassNamesType, ModalFuncProps, ModalStylesType } from './interface'
 import { Panel } from '@v-c/dialog'
 import { clsx } from '@v-c/util'
@@ -12,11 +13,14 @@ import { useComponentBaseConfig } from '../config-provider/context'
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
 import { ConfirmContent } from './ConfirmDialog'
 import { Footer, renderCloseIcon } from './shared'
+
 import useStyle from './style'
 
 export interface PurePanelProps
   extends Omit<DialogProps, 'prefixCls' | 'footer' | 'visible' | 'classNames' | 'styles' | 'style'>,
-  Pick<ModalFuncProps, 'type' | 'footer'> {
+  Pick<ModalFuncProps, 'type' | 'footer'>,
+  /* @vue-ignore */
+  EmitsMap<Record<string, never>> {
   prefixCls?: string
   rootClass?: string
   classes?: ModalClassNamesType

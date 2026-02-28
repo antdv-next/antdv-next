@@ -1,6 +1,7 @@
 import type { SliderProps as VcSliderProps } from '@v-c/slider'
 import type { App, CSSProperties, SlotsType } from 'vue'
 import type { Orientation, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
+import type { EmitsMap } from '../_util/type'
 import type { TooltipPlacement, TriggerCommonApi } from '../tooltip'
 import VcSlider from '@v-c/slider'
 import { clsx } from '@v-c/util'
@@ -20,6 +21,7 @@ import { useDisabledContext } from '../config-provider/DisabledContext.tsx'
 import { useSliderInternalContext } from './Context'
 import SliderTooltip from './SliderTooltip.tsx'
 import useStyle from './style'
+
 import useRafLock from './useRafLock'
 
 export type SliderMarks = VcSliderProps['marks']
@@ -110,7 +112,9 @@ export interface SliderBaseProps {
   ariaValueTextFormatterForHandle?: SliderProps['ariaValueTextFormatterForHandle']
 }
 
-export interface SliderInternalProps extends SliderBaseProps {
+export interface SliderInternalProps extends SliderBaseProps,
+  /* @vue-ignore */
+  EmitsMap<SliderEmits> {
   range?: boolean | SliderRange
   value?: number | number[]
   defaultValue?: number | number[]

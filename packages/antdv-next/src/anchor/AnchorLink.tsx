@@ -1,4 +1,4 @@
-import type { VueNode } from '../_util/type.ts'
+import type { EmitsMap, VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
 import { classNames } from '@v-c/util'
 import { computed, defineComponent, nextTick, watch } from 'vue'
@@ -19,8 +19,12 @@ export interface AnchorLinkEmits {
 
 export type AnchorLinkProps = AnchorLinkBaseProps
 
+interface InternalAnchorLinkProps extends AnchorLinkProps,
+  /* @vue-ignore */
+  EmitsMap<AnchorLinkEmits> {}
+
 const AnchorLink = defineComponent<
-  AnchorLinkProps,
+  InternalAnchorLinkProps,
   AnchorLinkEmits,
   string
 >(

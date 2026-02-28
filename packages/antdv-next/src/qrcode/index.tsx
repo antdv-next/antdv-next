@@ -1,4 +1,5 @@
 import type { App, CSSProperties, SlotsType } from 'vue'
+import type { EmitsMap } from '../_util/type'
 import type {
   ImageSettings,
   QRCodeClassNamesType,
@@ -19,6 +20,7 @@ import { useComponentBaseConfig } from '../config-provider/context'
 import useLocale from '../locale/useLocale.ts'
 import { useToken } from '../theme/internal.ts'
 import QRcodeStatus from './QrcodeStatus.tsx'
+
 import useStyle from './style/index'
 
 export type {
@@ -36,8 +38,12 @@ const defaults = {
   bgColor: 'transparent',
 } as any
 
+interface InternalQRCodeProps extends QRCodeProps,
+  /* @vue-ignore */
+  EmitsMap<QRCodeEmits> {}
+
 const QRCode = defineComponent<
-  QRCodeProps,
+  InternalQRCodeProps,
   QRCodeEmits,
   string,
   SlotsType<QRCodeSlots>

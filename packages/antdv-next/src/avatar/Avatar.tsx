@@ -1,6 +1,6 @@
 import type { App, CSSProperties, SlotsType } from 'vue'
 import type { Breakpoint } from '../_util/responsiveObserver'
-import type { VueNode } from '../_util/type'
+import type { EmitsMap, VueNode } from '../_util/type'
 import type { ComponentBaseProps } from '../config-provider/context'
 import type { AvatarSize } from './AvatarContext'
 import ResizeObserver from '@v-c/resize-observer'
@@ -17,7 +17,9 @@ import useBreakpoint from '../grid/hooks/useBreakpoint'
 import { useAvatarContext } from './AvatarContext'
 import useStyle from './style'
 
-export interface AvatarProps extends ComponentBaseProps {
+export interface AvatarProps extends ComponentBaseProps,
+  /* @vue-ignore */
+  EmitsMap<AvatarEmits> {
   /** Shape of avatar, options: `circle`, `square` */
   shape?: 'circle' | 'square'
   /**

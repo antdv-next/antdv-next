@@ -2,7 +2,7 @@ import type { BasicDataNode, DataNode, TreeRef, TreeProps as VcTreeProps } from 
 import type { Key } from '@v-c/util/dist/type'
 import type { CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
-import type { VueNode } from '../_util/type.ts'
+import type { EmitsMap, VueNode } from '../_util/type.ts'
 import { HolderOutlined } from '@antdv-next/icons'
 import VcTree from '@v-c/tree'
 import { clsx } from '@v-c/util'
@@ -175,7 +175,9 @@ export interface TreeProps<T extends BasicDataNode = DataNode>
     | 'onRightClick'
     | 'onScroll'
     | 'style'
-  > {
+  >,
+  /* @vue-ignore */
+  EmitsMap<TreeEmits> {
   rootClass?: string
   showLine?: boolean | { showLeafIcon: boolean | TreeLeafIcon }
   classes?: TreeClassNamesType

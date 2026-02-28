@@ -1,7 +1,7 @@
 import type { GetIndicatorSize, MoreProps, TabsProps as VcTabsProps, Tab as VcTabType } from '@v-c/tabs'
 import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
-import type { VueNode } from '../_util/type.ts'
+import type { EmitsMap, VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
 import type { SizeType } from '../config-provider/SizeContext.tsx'
 import { CloseOutlined, EllipsisOutlined, PlusOutlined } from '@antdv-next/icons'
@@ -110,7 +110,9 @@ export interface TabsProps extends BaseTabsProps, CompatibilityProps, Omit<
   | 'onTabScroll'
   | 'onTabClick'
   | 'renderTabBar'
-> {
+>,
+  /* @vue-ignore */
+  EmitsMap<TabsEmits> {
   addIcon?: VueNode
   moreIcon?: VueNode
   more?: MoreProps

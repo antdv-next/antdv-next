@@ -3,6 +3,7 @@ import type { TextAreaProps as VcTextAreaProps } from '@v-c/textarea'
 import type { CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { InputStatus } from '../_util/statusUtils'
+import type { EmitsMap } from '../_util/type'
 import type { ComponentBaseProps, Variant } from '../config-provider/context'
 import type { SizeType } from '../config-provider/SizeContext'
 import VcTextArea from '@v-c/textarea'
@@ -22,6 +23,7 @@ import { useFormItemInputContext } from '../form/context.tsx'
 import useVariant from '../form/hooks/useVariant'
 import { useCompactItemContext } from '../space/Compact.tsx'
 import { useSharedStyle } from './style'
+
 import useStyle from './style/textarea'
 
 export type TextAreaSemanticName = keyof TextAreaSemanticClassNames & keyof TextAreaSemanticStyles
@@ -69,7 +71,9 @@ export interface TextAreaProps
     | 'maxLength'
     | 'readOnly'
     | 'minLength'
-  > {
+  >,
+  /* @vue-ignore */
+  EmitsMap<TextAreaEmits> {
   /** @deprecated Use `variant` instead */
   bordered?: boolean
   size?: SizeType

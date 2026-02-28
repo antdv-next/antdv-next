@@ -1,4 +1,5 @@
 import type { SlotsType } from 'vue'
+import type { EmitsMap } from '../../_util/type'
 import type { ComponentBaseProps } from '../../config-provider/context'
 import type { FormItemLayout } from '../Form'
 import type { FormItemInputProps } from '../FormItemInput'
@@ -17,6 +18,7 @@ import { getFieldId, initialValueFormat, toArray } from '../util.ts'
 import { validateRules } from '../utils/validateUtil.ts'
 import { getNamePath, getValue, setValue } from '../utils/valueUtil.ts'
 import ItemHolder from './ItemHolder.tsx'
+
 import StatusProvider from './StatusProvider.tsx'
 
 const NAME_SPLIT = '__SPLIT__'
@@ -76,8 +78,12 @@ function genEmptyMeta(): Meta {
   }
 }
 
+interface InternalFormItemProps extends FormItemProps,
+  /* @vue-ignore */
+  EmitsMap<FormItemEmits> {}
+
 const InternalFormItem = defineComponent<
-  FormItemProps,
+  InternalFormItemProps,
   FormItemEmits,
   string,
   SlotsType<FormItemSlots>

@@ -2,6 +2,7 @@ import type { DrawerProps as VcDrawerProps } from '@v-c/drawer'
 import type { CSSMotionProps } from '@v-c/util/dist/utils/transition'
 import type { App, SlotsType } from 'vue'
 import type { MaskType } from '../_util/hooks'
+import type { EmitsMap } from '../_util/type'
 import type { DrawerClassNamesType, DrawerPanelProps, DrawerStylesType } from './DrawerPanel'
 import type { FocusableConfig, OmitFocusType } from './useFocusable.ts'
 import VcDrawer from '@v-c/drawer'
@@ -17,6 +18,7 @@ import { useComponentBaseConfig } from '../config-provider/context'
 import { usePanelRef } from '../watermark/context.ts'
 import DrawerPanel from './DrawerPanel'
 import useStyle from './style'
+
 import useFocusable from './useFocusable.ts'
 
 const _SizeTypes = ['default', 'large'] as const
@@ -38,8 +40,9 @@ export interface DrawerProps
     VcDrawerProps,
 'maskStyle' | 'destroyOnHidden' | 'rootClassName' | 'mask' | 'resizable' | 'classNames' | 'styles' | 'onClose' | 'onKeyUp' | 'onKeyDown' | 'onMouseEnter' | 'onMouseLeave' | 'onMouseOver' | 'onClick' | 'maskClosable' | OmitFocusType
   >,
-  Omit<DrawerPanelProps, 'prefixCls' | 'ariaId' | 'onClose'>
-{
+  Omit<DrawerPanelProps, 'prefixCls' | 'ariaId' | 'onClose'>,
+  /* @vue-ignore */
+  EmitsMap<DrawerEmits> {
   size?: sizeType | number | string
   resizable?: boolean | DrawerResizableConfig
   rootClass?: string

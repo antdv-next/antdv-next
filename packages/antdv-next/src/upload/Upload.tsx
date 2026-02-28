@@ -1,5 +1,6 @@
 import type { UploadProps as VcUploadProps } from '@v-c/upload'
 import type { SlotsType } from 'vue'
+import type { EmitsMap } from '../_util/type'
 import type {
   ShowUploadListInterface,
   UploadChangeParam,
@@ -25,6 +26,7 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
 import useLocale from '../locale/useLocale'
 import useStyle from './style'
 import UploadList from './UploadList'
+
 import { file2Obj, getFileItem, removeFileItem, updateFileList } from './utils'
 
 export const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`
@@ -54,8 +56,12 @@ const defaults = {
   supportServerRender: true,
 } as any
 
+interface InternalUploadProps extends UploadProps,
+  /* @vue-ignore */
+  EmitsMap<UploadEmits> {}
+
 const InternalUpload = defineComponent<
-  UploadProps,
+  InternalUploadProps,
   UploadEmits,
   string,
   SlotsType<UploadSlots>

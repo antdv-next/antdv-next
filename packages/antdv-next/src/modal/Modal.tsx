@@ -1,5 +1,6 @@
 import type { SlotsType } from 'vue'
 import type { Breakpoint } from '../_util/responsiveObserver'
+import type { EmitsMap } from '../_util/type'
 import type { ModalClassNamesType, ModalEmits, ModalProps, ModalSlots, ModalStylesType, MousePosition } from './interface'
 import { CloseOutlined } from '@antdv-next/icons'
 import Dialog from '@v-c/dialog'
@@ -20,6 +21,7 @@ import useFocusable from '../drawer/useFocusable.ts'
 import Skeleton from '../skeleton'
 import { usePanelRef } from '../watermark/context.ts'
 import { Footer, renderCloseIcon } from './shared.tsx'
+
 import useStyle from './style'
 
 let mousePosition: MousePosition
@@ -48,8 +50,12 @@ const defaults = {
   width: 520,
 } as any
 
+interface InternalModalProps extends ModalProps,
+  /* @vue-ignore */
+  EmitsMap<ModalEmits> {}
+
 const Modal = defineComponent<
-  ModalProps,
+  InternalModalProps,
   ModalEmits,
   string,
   SlotsType<ModalSlots>

@@ -1,7 +1,7 @@
 import type { CSSProperties, HTMLAttributes, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../../_util/hooks'
 import type { InputStatus } from '../../_util/statusUtils'
-import type { VueNode } from '../../_util/type'
+import type { EmitsMap, VueNode } from '../../_util/type'
 import type { ComponentBaseProps, Variant } from '../../config-provider/context'
 import type { SizeType } from '../../config-provider/SizeContext'
 import type { InputRef } from '../Input'
@@ -37,7 +37,9 @@ export type OTPStylesType = SemanticStylesType<OTPProps, OTPSemanticStyles>
 
 export interface OTPProps extends ComponentBaseProps,
   /* @vue-ignore */
-  Omit<HTMLAttributes, 'onChange' | 'onInput'> {
+  Omit<HTMLAttributes, 'onChange' | 'onInput'>,
+  /* @vue-ignore */
+  EmitsMap<OTPEmits> {
   length?: number
   variant?: Variant
   size?: SizeType

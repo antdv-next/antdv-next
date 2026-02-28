@@ -2,7 +2,7 @@ import type { SelectProps as VcSelectProps } from '@v-c/select'
 import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { InputStatus } from '../_util/statusUtils'
-import type { VueNode } from '../_util/type'
+import type { EmitsMap, VueNode } from '../_util/type'
 import type {
   InternalSelectProps,
   SelectPopupSemanticClassNames,
@@ -92,7 +92,9 @@ export interface AutoCompleteProps extends
     | 'getInputElement'
     | 'getRawInputElement'
     | RcEventKeys
-  > {
+  >,
+  /* @vue-ignore */
+  EmitsMap<AutoCompleteEmits> {
   /** @deprecated Please use `options` instead */
   dataSource?: DataSourceItemType[]
   status?: InputStatus

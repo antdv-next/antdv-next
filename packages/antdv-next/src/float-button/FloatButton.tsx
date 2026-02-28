@@ -1,6 +1,6 @@
 import type { CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
-import type { VueNode } from '../_util/type'
+import type { EmitsMap, VueNode } from '../_util/type'
 import type { BadgeProps } from '../badge'
 import type { ButtonHTMLType, ButtonSemanticName } from '../button'
 import type { ButtonSemanticClassNames, ButtonSemanticStyles } from '../button/Button.tsx'
@@ -45,7 +45,9 @@ export type FloatButtonClassNamesType = SemanticClassNamesType<
 
 export type FloatButtonStylesType = SemanticStylesType<FloatButtonProps, ButtonSemanticStyles>
 
-export interface FloatButtonProps extends ComponentBaseProps {
+export interface FloatButtonProps extends ComponentBaseProps,
+  /* @vue-ignore */
+  EmitsMap<FloatButtonEmits> {
   icon?: VueNode
   /** @deprecated Use `content` instead */
   description?: VueNode

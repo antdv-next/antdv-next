@@ -1,6 +1,6 @@
 import type { MenuInfo, MenuItemProps, RenderIconInfo, SelectInfo, MenuProps as VcMenuProps } from '@v-c/menu'
 import type { CSSProperties, SlotsType } from 'vue'
-import type { VueNode } from '../_util/type.ts'
+import type { EmitsMap, VueNode } from '../_util/type.ts'
 import type { ItemType } from './interface.ts'
 import type { MenuContextProps, MenuTheme } from './MenuContext'
 import { EllipsisOutlined } from '@antdv-next/icons'
@@ -191,8 +191,12 @@ export interface MenuSlots {
 const defaults = {
   theme: 'light',
 } as any
+interface InternalMenuRuntimeProps extends InternalMenuProps,
+  /* @vue-ignore */
+  EmitsMap<MenuEmits> {}
+
 const InternalMenu = defineComponent<
-  InternalMenuProps,
+  InternalMenuRuntimeProps,
   MenuEmits,
   string,
   SlotsType<MenuSlots>

@@ -1,4 +1,5 @@
 import type { SlotsType } from 'vue'
+import type { EmitsMap } from '../../_util/type'
 import type { UploadFile, UploadListEmits, UploadListProps, UploadListSlots, UploadLocale } from '../interface'
 import { FileTwoTone, LoadingOutlined, PaperClipOutlined, PictureTwoTone } from '@antdv-next/icons'
 import { clsx } from '@v-c/util'
@@ -7,6 +8,7 @@ import { cloneVNode, computed, defineComponent, getCurrentInstance, isVNode, onM
 import { resolveStyleOrClass } from '../../_util/hooks'
 import Button from '../../button'
 import { isImageUrl, previewImage } from '../utils'
+
 import ListItem from './ListItem'
 
 const APPEND_ACTION_KEY = '__upload_append_action__'
@@ -22,8 +24,12 @@ const defaults = {
   appendActionVisible: true,
 } as any
 
+interface InternalUploadListProps extends UploadListProps,
+  /* @vue-ignore */
+  EmitsMap<UploadListEmits> {}
+
 const UploadList = defineComponent<
-  UploadListProps,
+  InternalUploadListProps,
   UploadListEmits,
   string,
   SlotsType<UploadListSlots>

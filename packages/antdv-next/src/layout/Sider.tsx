@@ -1,5 +1,6 @@
 import type { CSSProperties, InjectionKey, Ref, SlotsType } from 'vue'
 import type { Breakpoint } from '../_util/responsiveObserver'
+import type { EmitsMap } from '../_util/type'
 import { BarsOutlined, LeftOutlined, RightOutlined } from '@antdv-next/icons'
 import { classNames } from '@v-c/util'
 import canUseDom from '@v-c/util/dist/Dom/canUseDom'
@@ -9,6 +10,7 @@ import { addMediaQueryListener, removeMediaQueryListener } from '../_util/mediaQ
 import { getSlotPropsFnRun } from '../_util/tools.ts'
 import { useBaseConfig } from '../config-provider/context.ts'
 import { useLayoutCtx } from './context.ts'
+
 import useStyle from './style/sider'
 
 const dimensionMaxMap: Record<Breakpoint, string> = {
@@ -45,7 +47,9 @@ export type CollapseType = 'clickTrigger' | 'responsive'
 
 export type SiderTheme = 'light' | 'dark'
 
-export interface SiderProps {
+export interface SiderProps extends
+  /* @vue-ignore */
+  EmitsMap<SiderEmits> {
   prefixCls?: string
   collapsible?: boolean
   collapsed?: boolean

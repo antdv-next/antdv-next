@@ -1,6 +1,7 @@
 import type { CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { Breakpoint } from '../_util/responsiveObserver'
+import type { EmitsMap } from '../_util/type'
 import type { ComponentBaseProps } from '../config-provider/context'
 import type { RowProps } from '../grid'
 import type { ItemHeightData } from './hooks/usePositions'
@@ -24,6 +25,7 @@ import useDelay from './hooks/useDelay'
 import usePositions from './hooks/usePositions'
 import useRefs from './hooks/useRefs'
 import MasonryItem from './MasonryItem'
+
 import useStyle from './style'
 
 export type Gap = number | undefined
@@ -45,7 +47,9 @@ export type MasonryClassNamesType = SemanticClassNamesType<MasonryProps, Masonry
 
 export type MasonryStylesType = SemanticStylesType<MasonryProps, MasonrySemanticStyles>
 
-export interface MasonryProps extends ComponentBaseProps {
+export interface MasonryProps extends ComponentBaseProps,
+  /* @vue-ignore */
+  EmitsMap<MasonryEmits> {
   classes?: MasonryClassNamesType
   styles?: MasonryStylesType
   /** Spacing between items */

@@ -2,7 +2,7 @@ import type { ValueType, InputNumberProps as VcInputNumberProps, InputNumberRef 
 import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { InputStatus } from '../_util/statusUtils'
-import type { VueNode } from '../_util/type'
+import type { EmitsMap, VueNode } from '../_util/type'
 import type { ComponentBaseProps, Variant } from '../config-provider/context'
 import type { SizeType } from '../config-provider/SizeContext'
 import { DownOutlined, MinusOutlined, PlusOutlined, UpOutlined } from '@antdv-next/icons'
@@ -64,7 +64,9 @@ export interface InputNumberStepContext {
 
 export interface InputNumberProps
   extends ComponentBaseProps,
-  Omit<VcInputNumberProps, 'class' | 'controls' | 'className' | 'style' | 'prefixCls' | 'classNames' | 'styles' | 'prefix' | 'suffix' | 'onChange' | 'onClick' | 'onInput' | 'onBeforeInput' | 'onBlur' | 'onCompositionEnd' | 'onCompositionStart' | 'onKeyDown' | 'onKeyUp' | 'onMouseDown' | 'onMouseEnter' | 'onPressEnter' | 'onMouseUp' | 'onMouseMove' | 'onFocus'> {
+  Omit<VcInputNumberProps, 'class' | 'controls' | 'className' | 'style' | 'prefixCls' | 'classNames' | 'styles' | 'prefix' | 'suffix' | 'onChange' | 'onClick' | 'onInput' | 'onBeforeInput' | 'onBlur' | 'onCompositionEnd' | 'onCompositionStart' | 'onKeyDown' | 'onKeyUp' | 'onMouseDown' | 'onMouseEnter' | 'onPressEnter' | 'onMouseUp' | 'onMouseMove' | 'onFocus'>,
+  /* @vue-ignore */
+  EmitsMap<InputNumberEmits> {
   size?: SizeType
   status?: InputStatus
   disabled?: boolean

@@ -1,6 +1,6 @@
 import type { CheckboxChangeEvent } from '@v-c/checkbox'
 import type { CSSProperties, SlotsType } from 'vue'
-import type { VueNode } from '../_util/type.ts'
+import type { EmitsMap, VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
 import type { CheckboxGroupContext } from './GroupContext.tsx'
 import { clsx } from '@v-c/util'
@@ -30,7 +30,9 @@ export interface AbstractCheckboxGroupProps extends ComponentBaseProps {
   disabled?: boolean
 }
 
-export interface CheckboxGroupProps extends AbstractCheckboxGroupProps {
+export interface CheckboxGroupProps extends AbstractCheckboxGroupProps,
+  /* @vue-ignore */
+  EmitsMap<CheckboxGroupEmits> {
   name?: string
   defaultValue?: any[]
   value?: any[]

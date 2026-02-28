@@ -5,7 +5,7 @@ import type {
   SemanticStylesType,
 } from '../_util/hooks'
 import type { InputStatus } from '../_util/statusUtils'
-import type { AnyObject, VueNode } from '../_util/type'
+import type { AnyObject, EmitsMap, VueNode } from '../_util/type'
 import type {
   PickerProps,
   RangePickerProps,
@@ -89,7 +89,9 @@ export interface TimePickerLocale {
   rangePlaceholder?: [string, string]
 }
 
-export interface TimeRangePickerProps extends Omit<RangePickerTimeProps<AnyObject>, 'picker'> {
+export interface TimeRangePickerProps extends Omit<RangePickerTimeProps<AnyObject>, 'picker'>,
+  /* @vue-ignore */
+  EmitsMap<TimeRangePickerEmits> {
   /** @deprecated Please use `classes.popup` instead */
   popupClassName?: string
   /** @deprecated Please use `styles.popup` instead */
@@ -182,7 +184,9 @@ const RangePicker = defineComponent<
 )
 
 export interface TimePickerProps
-  extends Omit<PickerTimeProps<AnyObject>, 'picker' | 'classes' | 'styles'> {
+  extends Omit<PickerTimeProps<AnyObject>, 'picker' | 'classes' | 'styles'>,
+  /* @vue-ignore */
+  EmitsMap<TimePickerEmits> {
   addon?: () => VueNode
   status?: InputStatus
   /** @deprecated Please use `classes.popup` instead */

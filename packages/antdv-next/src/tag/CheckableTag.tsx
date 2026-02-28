@@ -1,5 +1,5 @@
 import type { SlotsType } from 'vue'
-import type { VueNode } from '../_util/type.ts'
+import type { EmitsMap, VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
 import { computed, defineComponent } from 'vue'
 import { pureAttrs } from '../_util/hooks'
@@ -8,7 +8,9 @@ import { useComponentBaseConfig, useConfig } from '../config-provider/context.ts
 import { useDisabledContext } from '../config-provider/DisabledContext.tsx'
 import useStyle from './style'
 
-export interface CheckableTagProps extends ComponentBaseProps {
+export interface CheckableTagProps extends ComponentBaseProps,
+  /* @vue-ignore */
+  EmitsMap<CheckableTagEmits> {
   /**
    * It is an absolute controlled component and has no uncontrolled mode.
    *

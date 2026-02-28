@@ -1,5 +1,6 @@
 import type { CSSProperties, HTMLAttributes, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
+import type { EmitsMap } from '../_util/type'
 import type { ComponentBaseProps, Variant } from '../config-provider/context'
 import type { SizeType } from '../config-provider/SizeContext.tsx'
 import type { ColProps } from '../grid'
@@ -33,6 +34,7 @@ import { getFieldId, toArray } from './util.ts'
 import { allPromiseFinish } from './utils/asyncUtil'
 import { defaultValidateMessages } from './utils/messages'
 import { cloneByNamePathList, containsNamePath, getNamePath, setValue } from './utils/valueUtil.ts'
+
 import { useValidateMessagesContext, useValidateMessagesProvider } from './validateMessagesContext.tsx'
 
 export type RequiredMark
@@ -62,7 +64,9 @@ export type FormClassNamesType = SemanticClassNamesType<FormProps, FormSemanticC
 
 export type FormStylesType = SemanticStylesType<FormProps, FormSemanticStyles>
 
-export interface FormProps extends ComponentBaseProps {
+export interface FormProps extends ComponentBaseProps,
+  /* @vue-ignore */
+  EmitsMap<FormEmits> {
   classes?: FormClassNamesType
   styles?: FormStylesType
   colon?: boolean

@@ -1,10 +1,14 @@
 import type { SlotsType } from 'vue'
+import type { EmitsMap } from '../_util/type'
 import type { BlockProps, TypographyBaseEmits, TypographySlots } from './interface'
 import { omit } from 'es-toolkit'
 import { defineComponent } from 'vue'
+
 import Base from './Base'
 
-export interface ParagraphProps extends BlockProps {}
+export interface ParagraphProps extends BlockProps,
+  /* @vue-ignore */
+  EmitsMap<TypographyBaseEmits> {}
 
 const Paragraph = defineComponent<
   ParagraphProps,

@@ -1,6 +1,6 @@
 import type { SlickProps as Settings } from '@v-c/slick'
 import type { App, ButtonHTMLAttributes, CSSProperties, SlotsType } from 'vue'
-import type { VueNode } from '../_util/type.ts'
+import type { EmitsMap, VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
 import SlickCarousel from '@v-c/slick'
 import { clsx } from '@v-c/util'
@@ -16,7 +16,9 @@ import useStyle, { DotDuration } from './style'
 export type CarouselEffect = 'scrollx' | 'fade'
 export type DotPlacement = 'top' | 'bottom' | 'start' | 'end'
 export interface CarouselProps extends
-  Omit<Settings, 'prevArrow' | 'nextArrow' | 'dots' | 'className' | 'style' | 'dotsClass' | 'autoplay' | 'onInit' | 'onReInit' | 'onEdge' | 'onSwipe' | 'onLazyLoad' | 'onLazyLoadError'>, ComponentBaseProps {
+  Omit<Settings, 'prevArrow' | 'nextArrow' | 'dots' | 'className' | 'style' | 'dotsClass' | 'autoplay' | 'onInit' | 'onReInit' | 'onEdge' | 'onSwipe' | 'onLazyLoad' | 'onLazyLoadError'>, ComponentBaseProps,
+  /* @vue-ignore */
+  EmitsMap<CarouselEmits> {
   effect?: CarouselEffect
   id?: string
   slickGoTo?: number

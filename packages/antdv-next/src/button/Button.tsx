@@ -1,6 +1,6 @@
 import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
-import type { RenderNodeFn, VueNode } from '../_util/type.ts'
+import type { EmitsMap, RenderNodeFn, VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
 import type { SizeType } from '../config-provider/SizeContext'
 import type { ButtonColorType, ButtonHTMLType, ButtonShape, ButtonType, ButtonVariantType } from './buttonHelper.tsx'
@@ -88,7 +88,9 @@ export function convertLegacyProps(
   return {}
 }
 
-export interface ButtonProps extends BaseButtonProps {
+export interface ButtonProps extends BaseButtonProps,
+  /* @vue-ignore */
+  EmitsMap<ButtonEmits> {
   href?: string
   htmlType?: ButtonHTMLType
   target?: '_self' | '_blank' | '_parent' | '_top' | string

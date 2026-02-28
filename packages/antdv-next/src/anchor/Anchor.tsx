@@ -1,7 +1,7 @@
 import type { Key } from '@v-c/util/dist/type'
 import type { App, CSSProperties, SlotsType, VNodeChild } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
-import type { SlotsDefineType } from '../_util/type.ts'
+import type { EmitsMap, SlotsDefineType } from '../_util/type.ts'
 import type { AffixProps } from '../affix'
 import type { ComponentBaseProps } from '../config-provider/context'
 import type { AnchorLinkBaseProps } from './AnchorLink'
@@ -59,7 +59,9 @@ export type AnchorClassNamesType = SemanticClassNamesType<AnchorProps, AnchorSem
 
 export type AnchorStylesType = SemanticStylesType<AnchorProps, AnchorSemanticStyles>
 
-export interface AnchorProps extends ComponentBaseProps {
+export interface AnchorProps extends ComponentBaseProps,
+  /* @vue-ignore */
+  EmitsMap<AnchorEmits> {
   classes?: AnchorClassNamesType
   styles?: AnchorStylesType
   offsetTop?: number

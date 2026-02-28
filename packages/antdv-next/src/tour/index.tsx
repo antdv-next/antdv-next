@@ -1,5 +1,6 @@
 import type { TourProps as VcTourProps } from '@v-c/tour'
 import type { App, SlotsType } from 'vue'
+import type { EmitsMap } from '../_util/type'
 import type { TourClassNamesType, TourEmits, TourProps, TourSlots, TourStepProps, TourStylesType } from './interface'
 import VcTour from '@v-c/tour'
 import { clsx } from '@v-c/util'
@@ -15,10 +16,15 @@ import { useComponentBaseConfig } from '../config-provider/context'
 import { useToken } from '../theme/internal'
 import TourPanel from './panelRender'
 import PurePanel from './PurePanel.tsx'
+
 import useStyle from './style'
 
+interface InternalTourProps extends TourProps,
+  /* @vue-ignore */
+  EmitsMap<TourEmits> {}
+
 const Tour = defineComponent<
-  TourProps,
+  InternalTourProps,
   TourEmits,
   string,
   SlotsType<TourSlots>

@@ -62,7 +62,7 @@ catalogs:
     vite: ^8.0.0-beta.15
     vite-plugin-dayjs: ^1.0.1
     vite-plugin-inspect: ^11.3.3
-    vite-plugin-tsx-resolve-types: ^1.0.1-beta.5
+    vite-plugin-tsx-resolve-types: ^1.0.1
     vitest: ^4.0.18
     vue-tsc: ^3.2.5
   docs:

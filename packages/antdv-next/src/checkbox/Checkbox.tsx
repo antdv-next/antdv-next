@@ -1,6 +1,7 @@
 import type { CheckboxChangeEvent } from '@v-c/checkbox'
 import type { CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
+import type { EmitsMap } from '../_util/type'
 import type { ComponentBaseProps } from '../config-provider/context'
 import VcCheckbox from '@v-c/checkbox'
 import { clsx } from '@v-c/util'
@@ -21,6 +22,7 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
 import { useFormItemContext, useFormItemInputContext } from '../form/context'
 import { useGroupContext } from './GroupContext'
 import useStyle from './style'
+
 import useBubbleLock from './useBubbleLock.ts'
 
 export type CheckedValueType = string | number | boolean | object
@@ -85,7 +87,9 @@ export type CheckboxClassNamesType = SemanticClassNamesType<
 
 export type CheckboxStylesType = SemanticStylesType<CheckboxProps, CheckboxSemanticStyles>
 
-export interface CheckboxProps extends AbstractCheckboxProps {
+export interface CheckboxProps extends AbstractCheckboxProps,
+  /* @vue-ignore */
+  EmitsMap<CheckboxEmits> {
   indeterminate?: boolean
   classes?: CheckboxClassNamesType
   styles?: CheckboxStylesType

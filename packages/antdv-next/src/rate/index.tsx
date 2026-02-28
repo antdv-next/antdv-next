@@ -1,5 +1,6 @@
 import type { RateProps as VcRateProps } from '@v-c/rate'
 import type { App } from 'vue'
+import type { EmitsMap } from '../_util/type'
 import type { TooltipProps } from '../tooltip'
 import { StarFilled } from '@antdv-next/icons'
 import VcRate from '@v-c/rate'
@@ -10,6 +11,7 @@ import { getAttrStyleAndClass } from '../_util/hooks'
 import { useComponentBaseConfig } from '../config-provider/context.ts'
 import { useDisabledContext } from '../config-provider/DisabledContext.tsx'
 import Tooltip from '../tooltip'
+
 import useStyle from './style'
 
 function isTooltipProps(item: TooltipProps | string): item is TooltipProps {
@@ -23,7 +25,9 @@ const defaults = {
 export interface RateProps extends Omit<
   VcRateProps,
 'onChange' | 'onHoverChange' | 'onFocus' | 'onBlur' | 'onKeyDown' | 'onMouseLeave' | 'onUpdate:value'
-> {
+>,
+  /* @vue-ignore */
+  EmitsMap<RateEmits> {
   rootClass?: string
   size?: 'small' | 'middle' | 'large'
   tooltips?: (TooltipProps | string)[]

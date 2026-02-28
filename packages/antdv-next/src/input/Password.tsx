@@ -1,5 +1,5 @@
 import type { SlotsType } from 'vue'
-import type { VueNode } from '../_util/type'
+import type { EmitsMap, VueNode } from '../_util/type'
 import type { InputEmits as BaseInputEmits, InputProps as BaseInputProps, InputRef } from './Input'
 import { EyeInvisibleOutlined, EyeOutlined } from '@antdv-next/icons'
 import { clsx } from '@v-c/util'
@@ -15,7 +15,9 @@ type VisibilityToggle = boolean | { visible?: boolean, onVisibleChange?: (visibl
 
 type PasswordAction = 'click' | 'hover'
 
-export interface PasswordProps extends Omit<BaseInputProps, 'type'> {
+export interface PasswordProps extends Omit<BaseInputProps, 'type'>,
+  /* @vue-ignore */
+  EmitsMap<PasswordEmits> {
   inputPrefixCls?: string
   action?: PasswordAction
   visibilityToggle?: VisibilityToggle

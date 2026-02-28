@@ -1,7 +1,7 @@
 import type { PickerMode, PickerRef } from '@v-c/picker'
 import type { GenerateConfig } from '@v-c/picker/generate'
 import type { SlotsType } from 'vue'
-import type { AnyObject, VueNode } from '../../_util/type'
+import type { AnyObject, EmitsMap, VueNode } from '../../_util/type'
 import type { RangePickerProps } from './interface'
 import { SwapRightOutlined } from '@antdv-next/icons'
 import { RangePicker } from '@v-c/picker'
@@ -52,11 +52,15 @@ export interface RangePickerSlots {
   [key: string]: any
 }
 
+interface InternalRangePickerProps<DateType extends AnyObject = AnyObject> extends RangePickerProps<DateType>,
+  /* @vue-ignore */
+  EmitsMap<RangePickerEmits<DateType>> {}
+
 function generateRangePicker<DateType extends AnyObject = AnyObject>(generateConfig: GenerateConfig<DateType>) {
   type DateRangePickerProps = RangePickerProps<DateType>
 
   const RangePickerComponent = defineComponent<
-    RangePickerProps<DateType>,
+    InternalRangePickerProps<DateType>,
     RangePickerEmits<DateType>,
     string,
     SlotsType<RangePickerSlots>

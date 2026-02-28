@@ -2,7 +2,7 @@ import type { TableProps as VcTableProps } from '@v-c/table'
 import type { CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { Breakpoint } from '../_util/responsiveObserver.ts'
-import type { AnyObject, VueNode } from '../_util/type.ts'
+import type { AnyObject, EmitsMap, VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
 import type { SizeType } from '../config-provider/SizeContext'
 import type { PaginationSemanticClassNames, PaginationSemanticStyles } from '../pagination/interface.ts'
@@ -166,7 +166,9 @@ export interface TableProps<RecordType = AnyObject>
   virtual?: boolean
 }
 
-export interface InternalTableProps<RecordType = AnyObject> extends TableProps<RecordType> {
+export interface InternalTableProps<RecordType = AnyObject> extends TableProps<RecordType>,
+  /* @vue-ignore */
+  EmitsMap<TableEmits> {
   _renderTimes: number
 }
 

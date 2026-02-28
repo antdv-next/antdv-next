@@ -3,7 +3,7 @@ import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { SelectCommonPlacement } from '../_util/motion'
 import type { InputStatus } from '../_util/statusUtils'
-import type { VueNode } from '../_util/type'
+import type { EmitsMap, VueNode } from '../_util/type'
 import type { ComponentBaseProps, Variant } from '../config-provider/context'
 import type { SizeType } from '../config-provider/SizeContext'
 import VcSelect, { OptGroup, Option } from '@v-c/select'
@@ -149,8 +149,9 @@ export interface SelectProps
     | 'dropdownStyle'
     | 'classes'
     | 'styles'
-    | RcEventKeys>
-{
+    | RcEventKeys>,
+  /* @vue-ignore */
+  EmitsMap<SelectEmits> {
   placement?: SelectCommonPlacement
   mode?: 'multiple' | 'tags'
   status?: InputStatus

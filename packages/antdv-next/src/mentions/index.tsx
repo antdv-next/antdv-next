@@ -6,7 +6,7 @@ import type {
 import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { InputStatus } from '../_util/statusUtils'
-import type { VueNode } from '../_util/type.ts'
+import type { EmitsMap, VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps, Variant } from '../config-provider/context'
 import type { SizeType } from '../config-provider/SizeContext'
 import VcMentions, { Option } from '@v-c/mentions'
@@ -77,7 +77,9 @@ export interface MentionsOptionProps extends VcMentionsOptionProps {
 
 export interface MentionProps extends
   Omit<VcMentionsProps, 'suffix' | 'classNames' | 'className' | 'styles' | 'onFocus' | 'onChange' | 'onBlur' | 'onSelect' | 'onPopupScroll' | 'onSearch'>,
-  ComponentBaseProps {
+  ComponentBaseProps,
+  /* @vue-ignore */
+  EmitsMap<MentionsEmits> {
   loading?: boolean
   status?: InputStatus
   options?: MentionsOptionProps[]

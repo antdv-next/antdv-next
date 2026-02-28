@@ -1,4 +1,5 @@
 import type { App, SlotsType } from 'vue'
+import type { EmitsMap } from '../_util/type'
 import type { PopoverProps } from '../popover'
 import type {
   ColorFormatType,
@@ -29,6 +30,7 @@ import ColorPickerPanel from './ColorPickerPanel'
 import ColorTrigger from './components/ColorTrigger'
 import useModeColor from './hooks/useModeColor'
 import useStyle from './style'
+
 import { formatColorValue, genAlphaColor, generateColor, getColorAlpha } from './util'
 
 const defaults = {
@@ -40,8 +42,12 @@ const defaults = {
   destroyOnHidden: false,
 } as any
 
+interface InternalColorPickerProps extends ColorPickerProps,
+  /* @vue-ignore */
+  EmitsMap<ColorPickerEmits> {}
+
 const ColorPicker = defineComponent<
-  ColorPickerProps,
+  InternalColorPickerProps,
   ColorPickerEmits,
   string,
   SlotsType<ColorPickerSlots>

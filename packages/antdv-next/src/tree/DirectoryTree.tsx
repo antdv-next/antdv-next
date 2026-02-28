@@ -1,5 +1,6 @@
 import type { BasicDataNode, DataNode, EventDataNode, Key } from '@v-c/tree'
 import type { SlotsType } from 'vue'
+import type { EmitsMap } from '../_util/type'
 import type { AntdTreeNodeAttribute, TreeEmits, TreeProps, TreeSlots } from './Tree.tsx'
 import { FileOutlined, FolderOpenOutlined, FolderOutlined } from '@antdv-next/icons'
 import { conductExpandParent, convertDataToEntities, convertTreeToData } from '@v-c/tree'
@@ -9,11 +10,14 @@ import { omit } from 'es-toolkit'
 import { computed, defineComponent, shallowRef, watch } from 'vue'
 import { useComponentBaseConfig } from '../config-provider/context.ts'
 import Tree from './Tree.tsx'
+
 import { calcRangeKeys, convertDirectoryKeysToNodes } from './utils/dictUtil.ts'
 
 export type ExpandAction = false | 'click' | 'doubleClick'
 
-export interface DirectoryTreeProps<T extends BasicDataNode = DataNode> extends TreeProps<T> {
+export interface DirectoryTreeProps<T extends BasicDataNode = DataNode> extends TreeProps<T>,
+  /* @vue-ignore */
+  EmitsMap<DirectoryTreeEmits> {
   expandAction?: ExpandAction
 }
 

@@ -1,4 +1,5 @@
 import type { SlotsType } from 'vue'
+import type { EmitsMap } from '../_util/type'
 import type { RadioChangeEvent, RadioGroupEmits, RadioGroupProps, RadioGroupSlots } from './interface'
 import { clsx } from '@v-c/util'
 import pickAttrs from '@v-c/util/dist/pickAttrs'
@@ -21,8 +22,12 @@ const defaults = {
   block: false,
 } as any
 
+interface InternalRadioGroupProps extends RadioGroupProps,
+  /* @vue-ignore */
+  EmitsMap<RadioGroupEmits> {}
+
 const RadioGroup = defineComponent<
-  RadioGroupProps,
+  InternalRadioGroupProps,
   RadioGroupEmits,
   string,
   SlotsType<RadioGroupSlots>

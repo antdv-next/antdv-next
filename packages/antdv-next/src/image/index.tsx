@@ -1,7 +1,7 @@
 import type { ImageProps as VcImageProps } from '@v-c/image'
 import type { App, CSSProperties, SlotsType } from 'vue'
 import type { MaskType, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
-import type { VueNode } from '../_util/type'
+import type { EmitsMap, VueNode } from '../_util/type'
 import type { PreviewGroupProps } from './PreviewGroup'
 import VcImage from '@v-c/image'
 import { clsx } from '@v-c/util'
@@ -95,7 +95,9 @@ export type PreviewConfig = OriginPreviewConfig
 export interface ImageProps extends Omit<
   VcImageProps,
 'preview' | 'classNames' | 'styles' | 'rootClassName' | 'onError' | 'onClick'
-> {
+>,
+  /* @vue-ignore */
+  EmitsMap<ImageEmits> {
   preview?: boolean | PreviewConfig
   /** @deprecated Use `styles.root` instead */
   wrapperStyle?: CSSProperties

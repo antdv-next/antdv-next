@@ -2,7 +2,7 @@ import type { InputProps as VcInputProps, InputRef as VcInputRef } from '@v-c/in
 import type { CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { InputStatus } from '../_util/statusUtils'
-import type { VueNode } from '../_util/type'
+import type { EmitsMap, VueNode } from '../_util/type'
 import type { ComponentBaseProps, Variant } from '../config-provider/context'
 import type { SizeType } from '../config-provider/SizeContext'
 import VcInput from '@v-c/input'
@@ -75,7 +75,9 @@ interface BaseVcInputProps {
   inputMode?: string
 }
 
-export interface InputProps extends ComponentBaseProps, BaseVcInputProps {
+export interface InputProps extends ComponentBaseProps, BaseVcInputProps,
+  /* @vue-ignore */
+  EmitsMap<InputEmits> {
   size?: SizeType
   disabled?: boolean
   status?: InputStatus

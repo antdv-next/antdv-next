@@ -1,4 +1,5 @@
 import type { SlotsType } from 'vue'
+import type { EmitsMap } from '../_util/type'
 import type { TableEmits, TableProps, TableSlots } from './InternalTable.tsx'
 import { EXPAND_COLUMN, Summary } from '@v-c/table'
 import { omit } from 'es-toolkit'
@@ -11,10 +12,15 @@ import {
   SELECTION_INVERT,
   SELECTION_NONE,
 } from './hooks/useSelection.tsx'
+
 import InternalTable from './InternalTable.tsx'
 
+interface InternalTableProps extends TableProps,
+  /* @vue-ignore */
+  EmitsMap<TableEmits> {}
+
 const Table = defineComponent<
-  TableProps,
+  InternalTableProps,
   TableEmits,
   string,
   SlotsType<TableSlots>

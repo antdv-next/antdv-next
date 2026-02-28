@@ -1,6 +1,6 @@
 import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
-import type { VueNode } from '../_util/type'
+import type { EmitsMap, VueNode } from '../_util/type'
 import type { TooltipEmits, TooltipProps, TooltipRef, TooltipSemanticClassNames, TooltipSemanticStyles } from '../tooltip'
 import { clsx } from '@v-c/util'
 import KeyCode from '@v-c/util/dist/KeyCode'
@@ -36,7 +36,9 @@ export type PopoverClassNamesType = SemanticClassNamesType<PopoverProps, Popover
 
 export type PopoverStylesType = SemanticStylesType<PopoverProps, PopoverSemanticStyles>
 
-export interface PopoverProps extends TooltipProps {
+export interface PopoverProps extends TooltipProps,
+  /* @vue-ignore */
+  EmitsMap<PopoverEmits> {
   title?: VueNode
   content?: VueNode
   classes?: PopoverClassNamesType

@@ -1,4 +1,5 @@
 import type { App, AppContext, SlotsType, VNodeChild } from 'vue'
+import type { EmitsMap } from '../_util/type'
 import type { Locale } from '../locale'
 import type { ConfigConsumerProps, Theme, ThemeConfig } from './context'
 import type { ConfigProviderEmits, ConfigProviderProps, ConfigProviderSlots } from './define'
@@ -15,6 +16,7 @@ import { DisabledContextProvider } from './DisabledContext.tsx'
 import { useExportConfig } from './hooks/useConfig.ts'
 import { useTheme } from './hooks/useTheme.ts'
 import { SizeProvider } from './SizeContext'
+
 import useStyle from './style'
 
 export type { CSPConfig } from './context'
@@ -23,7 +25,9 @@ export type {
   ConfigProviderProps,
 }
 
-interface ProviderChildrenProps extends ConfigProviderProps {
+interface ProviderChildrenProps extends ConfigProviderProps,
+  /* @vue-ignore */
+  EmitsMap<ConfigProviderEmits> {
   parentContext: ConfigConsumerProps
   legacyLocale?: Locale
 }
@@ -309,8 +313,12 @@ const ProviderChildren = defineComponent<
   },
 )
 
+interface InternalConfigProviderProps extends ConfigProviderProps,
+  /* @vue-ignore */
+  EmitsMap<ConfigProviderEmits> {}
+
 const ConfigProvider = defineComponent<
-  ConfigProviderProps,
+  InternalConfigProviderProps,
   ConfigProviderEmits,
   string,
   SlotsType<ConfigProviderSlots>

@@ -13,7 +13,6 @@ export type {
   RadioGroupSlots,
   RadioProps,
   RadioSlots,
-
 } from './interface'
 
 export type RadioOptionType = CheckboxOptionType

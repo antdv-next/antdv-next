@@ -1,4 +1,5 @@
 import type { SlotsType } from 'vue'
+import type { EmitsMap } from '../../_util/type'
 import type { BlockProps, CopyConfig, EditConfig, EllipsisConfig, TypographyBaseEmits, TypographyClassNamesType, TypographySlots, TypographyStylesType } from '../interface'
 import { EditOutlined } from '@antdv-next/icons'
 import ResizeObserver from '@v-c/resize-observer'
@@ -30,6 +31,7 @@ import Typography from '../Typography'
 import CopyBtn from './CopyBtn'
 import Ellipsis from './Ellipsis'
 import EllipsisTooltip from './EllipsisTooltip'
+
 import { isEleEllipsis, isValidText, toList } from './util'
 
 const ELLIPSIS_STR = '...'
@@ -65,8 +67,12 @@ function wrapperDecorations(props: BlockProps, content: any) {
   return currentContent
 }
 
+interface InternalBlockProps extends BlockProps,
+  /* @vue-ignore */
+  EmitsMap<TypographyBaseEmits> {}
+
 const Base = defineComponent<
-  BlockProps,
+  InternalBlockProps,
   TypographyBaseEmits,
   string,
   SlotsType<TypographySlots>

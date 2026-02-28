@@ -1,14 +1,20 @@
 import type { SlotsType } from 'vue'
+import type { EmitsMap } from '../_util/type'
 import type { AbstractCheckboxProps, CheckboxEmits, CheckboxSlots } from '../checkbox/Checkbox'
 import { defineComponent, ref } from 'vue'
 import { useComponentBaseConfig } from '../config-provider/context'
 import { useRadioOptionTypeContextProvider } from './context'
+
 import Radio from './radio'
 
 export type RadioButtonProps = AbstractCheckboxProps
 
+interface InternalRadioButtonProps extends RadioButtonProps,
+  /* @vue-ignore */
+  EmitsMap<CheckboxEmits> {}
+
 const RadioButton = defineComponent<
-  RadioButtonProps,
+  InternalRadioButtonProps,
   CheckboxEmits,
   string,
   SlotsType<CheckboxSlots>
