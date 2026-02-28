@@ -1600,12 +1600,7 @@ exports[`auto-complete demo > renders certain-category correctly 1`] = `
     <div
       class="ant-select-content"
     >
-      <div
-        class="ant-select-placeholder"
-        style="visibility: visible;"
-      >
-        <!---->
-      </div>
+      <!---->
       <div
         class="ant-space-compact css-var-root ant-input-search css-var-root ant-input-search-large ant-select-input"
       >
@@ -1675,12 +1670,7 @@ exports[`auto-complete demo > renders custom correctly 1`] = `
     <div
       class="ant-select-content"
     >
-      <div
-        class="ant-select-placeholder"
-        style="visibility: visible;"
-      >
-        <!---->
-      </div>
+      <!---->
       <textarea
         aria-autocomplete="list"
         aria-controls="test-id_list"
@@ -2039,12 +2029,7 @@ exports[`auto-complete demo > renders uncertain-category correctly 1`] = `
     <div
       class="ant-select-content"
     >
-      <div
-        class="ant-select-placeholder"
-        style="visibility: visible;"
-      >
-        <!---->
-      </div>
+      <!---->
       <div
         class="ant-space-compact css-var-root ant-input-search css-var-root ant-input-search-large ant-input-search-with-button ant-select-input"
       >
