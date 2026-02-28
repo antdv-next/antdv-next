@@ -11,6 +11,7 @@ import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { computed, createVNode, defineComponent, isVNode, shallowRef, watch } from 'vue'
+import { runEvents } from '../_util/eventRun.ts'
 import { useMergeSemantic, useToArr, useToProps, useZIndex } from '../_util/hooks'
 import getPlacements from '../_util/placements'
 import genPurePanel from '../_util/PurePanel.tsx'
@@ -209,11 +210,13 @@ const Dropdown = defineComponent<
       if (menu?.selectable && menu?.multiple) {
         return
       }
+
+      runEvents(props, 'onMenuClick')
       if (props.open === undefined) {
         mergedOpen.value = false
       }
-      callbackProps?.['onUpdate:open']?.(false)
-      callbackProps?.onOpenChange?.(false, { source: 'menu' })
+      runEvents(props, 'onUpdate:open', false)
+      runEvents(props, 'onOpenChange', false, { source: 'menu' })
     }
     const mergedRootStyles = computed(() => {
       return {

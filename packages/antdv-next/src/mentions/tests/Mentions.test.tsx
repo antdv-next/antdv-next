@@ -143,26 +143,28 @@ describe('mentions', () => {
 
   describe('focus and blur', () => {
     it('emits focus event', async () => {
+      const onFocus = vi.fn()
       const wrapper = mount(Mentions, {
         attachTo: document.body,
-        props: { options: defaultOptions },
+        props: { options: defaultOptions, onFocus },
       })
       await wrapper.find('textarea').trigger('focus')
       await flushMentionsTimer()
-      expect(wrapper.emitted('focus')).toBeTruthy()
+      expect(onFocus).toHaveBeenCalled()
     })
 
     it('emits blur event', async () => {
+      const onBlur = vi.fn()
       const wrapper = mount(Mentions, {
         attachTo: document.body,
-        props: { options: defaultOptions },
+        props: { options: defaultOptions, onBlur },
       })
       await wrapper.find('textarea').trigger('focus')
       await flushMentionsTimer()
       await wrapper.find('textarea').trigger('blur')
       // VcMentions delays blur with setTimeout(0)
       await flushMentionsTimer()
-      expect(wrapper.emitted('blur')).toBeTruthy()
+      expect(onBlur).toHaveBeenCalled()
     })
 
     it('toggles focused class on focus/blur', async () => {
@@ -184,20 +186,22 @@ describe('mentions', () => {
   // === Change ===
 
   it('emits change and update:value on input', async () => {
+    const onChange = vi.fn()
+    const onUpdateValue = vi.fn()
     const wrapper = mount(Mentions, {
       attachTo: document.body,
-      props: { options: defaultOptions },
+      props: {
+        options: defaultOptions,
+        onChange,
+        'onUpdate:value': onUpdateValue,
+      },
     })
     const textarea = wrapper.find('textarea')
     await textarea.setValue('hello')
     await flushMentionsTimer()
 
-    const changeEvents = wrapper.emitted('change')
-    const updateEvents = wrapper.emitted('update:value')
-    expect(changeEvents).toBeDefined()
-    expect(updateEvents).toBeDefined()
-    expect(changeEvents?.[0]?.[0]).toBe('hello')
-    expect(updateEvents?.[0]?.[0]).toBe('hello')
+    expect(onChange).toHaveBeenCalledWith('hello')
+    expect(onUpdateValue).toHaveBeenCalledWith('hello')
   })
 
   // === getMentions static method ===
@@ -268,9 +272,10 @@ describe('mentions', () => {
     })
 
     it('clears value on clear click', async () => {
-      const wrapper = mount(Mentions, {
+      const onChange = vi.fn()
+      mount(Mentions, {
         attachTo: document.body,
-        props: { options: defaultOptions, allowClear: true, value: 'test' },
+        props: { options: defaultOptions, allowClear: true, value: 'test', onChange },
       })
       await flushMentionsTimer()
       const clearIcon = document.querySelector('.ant-mentions-clear-icon')
@@ -278,10 +283,9 @@ describe('mentions', () => {
       clearIcon!.dispatchEvent(new MouseEvent('click', { bubbles: true }))
       await flushMentionsTimer()
 
-      const changeEvents = wrapper.emitted('change')
-      expect(changeEvents).toBeDefined()
-      const lastEvent = changeEvents?.[changeEvents.length - 1]
-      expect(lastEvent?.[0]).toBe('')
+      expect(onChange).toHaveBeenCalled()
+      const lastCall = onChange.mock.calls[onChange.mock.calls.length - 1]
+      expect(lastCall?.[0]).toBe('')
     })
 
     it('supports custom clearIcon', async () => {
