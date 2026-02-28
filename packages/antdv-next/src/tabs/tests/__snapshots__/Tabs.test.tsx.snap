@@ -1,0 +1,192 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`tabs > matches snapshot 1`] = `
+"<div class="ant-tabs ant-tabs-top css-var-root ant-tabs-css-var">
+  <div class="ant-tabs-nav" role="tablist" aria-orientation="horizontal">
+    <!---->
+    <div class="ant-tabs-nav-wrap">
+      <div class="ant-tabs-nav-list" style="transform: translate(0px, 0px);">
+        <div data-node-key="1" class="ant-tabs-tab ant-tabs-tab-active">
+          <div role="tab" aria-selected="true" class="ant-tabs-tab-btn" tabindex="0"><span>Tab 1</span></div>
+        </div>
+        <div data-node-key="2" class="ant-tabs-tab">
+          <div role="tab" aria-selected="false" class="ant-tabs-tab-btn" tabindex="-1"><span>Tab 2</span></div>
+        </div>
+        <div data-node-key="3" class="ant-tabs-tab">
+          <div role="tab" aria-selected="false" class="ant-tabs-tab-btn" tabindex="-1"><span>Tab 3</span></div>
+        </div>
+        <!---->
+        <div class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"></div>
+      </div>
+    </div>
+    <div class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"><button id="null-more" type="button" class="ant-tabs-nav-more" style="margin-inline-start: 0px; visibility: hidden; order: 1;" aria-haspopup="listbox" aria-controls="null-more-popup" aria-expanded="false"><span role="img" aria-label="ellipsis" class="anticon anticon-ellipsis"><svg data-icon="ellipsis" width="1em" height="1em" fill="currentColor" aria-hidden="true" viewBox="64 64 896 896" focusable="false"><path d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"></path></svg></span></button>
+      <!---->
+      <!---->
+    </div>
+    <!---->
+    <!---->
+  </div>
+  <div class="ant-tabs-content-holder" rtl="false" mobile="false">
+    <div class="ant-tabs-content ant-tabs-content-top">
+      <!---->
+      <div role="tabpanel" tabindex="0" aria-hidden="false" class="ant-tabs-tabpane ant-tabs-tabpane-active">Content 1</div>
+      <!---->
+      <div role="tabpanel" tabindex="-1" aria-hidden="true" class="ant-tabs-tabpane ant-tabs-tabpane-hidden" style="display: none;">Content 2</div>
+      <!---->
+      <div role="tabpanel" tabindex="-1" aria-hidden="true" class="ant-tabs-tabpane ant-tabs-tabpane-hidden" style="display: none;">Content 3</div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`tabs > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-tabs ant-tabs-top css-var-root ant-tabs-css-var"
+  >
+    <div
+      aria-orientation="horizontal"
+      class="ant-tabs-nav"
+      role="tablist"
+    >
+      <!---->
+      <div
+        class="ant-tabs-nav-wrap"
+      >
+        <div
+          class="ant-tabs-nav-list"
+          style="transform: translate(0px, 0px);"
+        >
+          <div
+            class="ant-tabs-tab ant-tabs-tab-active"
+            data-node-key="1"
+          >
+            <div
+              aria-selected="true"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="0"
+            >
+              <span>
+                Tab 1
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="2"
+          >
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab 2
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="3"
+          >
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab 3
+              </span>
+            </div>
+          </div>
+          <!---->
+          <div
+            class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+      >
+        <button
+          aria-controls="null-more-popup"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          class="ant-tabs-nav-more"
+          id="null-more"
+          style="margin-inline-start: 0px; visibility: hidden; order: 1;"
+          type="button"
+        >
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
+        </button>
+        <!---->
+        <!---->
+      </div>
+      <!---->
+      <!---->
+    </div>
+    <div
+      class="ant-tabs-content-holder"
+      mobile="false"
+      rtl="false"
+    >
+      <div
+        class="ant-tabs-content ant-tabs-content-top"
+      >
+        <!---->
+        <div
+          aria-hidden="false"
+          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          role="tabpanel"
+          tabindex="0"
+        >
+          Content 1
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content 2
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content 3
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

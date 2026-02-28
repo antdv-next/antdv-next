@@ -1,0 +1,6308 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`tabs demo > renders _semantic correctly 1`] = `
+<div
+  class="semantic-preview-container"
+  data-v-dfc8ebef=""
+>
+  <div
+    class="ant-row css-var-root semantic-preview-row"
+    data-v-dfc8ebef=""
+  >
+    <div
+      class="ant-col ant-col-16 css-var-root semantic-preview-col"
+      data-v-dfc8ebef=""
+    >
+      <div
+        class="ant-tabs ant-tabs-top semantic-mark-root semantic-mark-root css-var-v-0 ant-tabs-css-var"
+        style="height: 220px; width: 100%;"
+      >
+        <div
+          aria-orientation="horizontal"
+          class="ant-tabs-nav semantic-mark-header semantic-mark-header"
+          role="tablist"
+        >
+          <!---->
+          <div
+            class="ant-tabs-nav-wrap"
+          >
+            <div
+              class="ant-tabs-nav-list"
+              style="transform: translate(0px, 0px);"
+            >
+              <div
+                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                data-node-key="0"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  <span>
+                    Tab-0
+                  </span>
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item semantic-mark-item ant-tabs-tab-active"
+                data-node-key="1"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-selected="true"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                  tabindex="0"
+                >
+                  <span>
+                    Tab-1
+                  </span>
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                data-node-key="2"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  <span>
+                    Tab-2
+                  </span>
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                data-node-key="3"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  <span>
+                    Tab-3
+                  </span>
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                data-node-key="4"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  <span>
+                    Tab-4
+                  </span>
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                data-node-key="5"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  <span>
+                    Tab-5
+                  </span>
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                data-node-key="6"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  <span>
+                    Tab-6
+                  </span>
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                data-node-key="7"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  <span>
+                    Tab-7
+                  </span>
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                data-node-key="8"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  <span>
+                    Tab-8
+                  </span>
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                data-node-key="9"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  <span>
+                    Tab-9
+                  </span>
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                data-node-key="10"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  <span>
+                    Tab-10
+                  </span>
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                data-node-key="11"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  <span>
+                    Tab-11
+                  </span>
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                data-node-key="12"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  <span>
+                    Tab-12
+                  </span>
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                data-node-key="13"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  <span>
+                    Tab-13
+                  </span>
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                data-node-key="14"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  <span>
+                    Tab-14
+                  </span>
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                data-node-key="15"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  <span>
+                    Tab-15
+                  </span>
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                data-node-key="16"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  <span>
+                    Tab-16
+                  </span>
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                data-node-key="17"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  <span>
+                    Tab-17
+                  </span>
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                data-node-key="18"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  <span>
+                    Tab-18
+                  </span>
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                data-node-key="19"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  <span>
+                    Tab-19
+                  </span>
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                data-node-key="20"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  <span>
+                    Tab-20
+                  </span>
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                data-node-key="21"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  <span>
+                    Tab-21
+                  </span>
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                data-node-key="22"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  <span>
+                    Tab-22
+                  </span>
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                data-node-key="23"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  <span>
+                    Tab-23
+                  </span>
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                data-node-key="24"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  <span>
+                    Tab-24
+                  </span>
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                data-node-key="25"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  <span>
+                    Tab-25
+                  </span>
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                data-node-key="26"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  <span>
+                    Tab-26
+                  </span>
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                data-node-key="27"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  <span>
+                    Tab-27
+                  </span>
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item semantic-mark-item ant-tabs-tab-disabled"
+                data-node-key="28"
+              >
+                <div
+                  aria-disabled="true"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                >
+                  <span>
+                    Tab-28
+                  </span>
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                data-node-key="29"
+              >
+                <div
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  <span>
+                    Tab-29
+                  </span>
+                </div>
+              </div>
+              <!---->
+              <div
+                class="ant-tabs-ink-bar semantic-mark-indicator semantic-mark-indicator ant-tabs-ink-bar-animated"
+              />
+            </div>
+          </div>
+          <div
+            class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+          >
+            <button
+              aria-controls="null-more-popup"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              class="ant-tabs-nav-more"
+              id="null-more"
+              style="margin-inline-start: 0px; visibility: hidden; order: 1;"
+              type="button"
+            >
+              <span
+                aria-label="ellipsis"
+                class="anticon anticon-ellipsis"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="ellipsis"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                  />
+                </svg>
+              </span>
+            </button>
+            <!---->
+            <!---->
+          </div>
+          <!---->
+          <!---->
+        </div>
+        <div
+          class="ant-tabs-content-holder"
+          mobile="false"
+          rtl="false"
+        >
+          <div
+            class="ant-tabs-content ant-tabs-content-top"
+          >
+            <!---->
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              role="tabpanel"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <!---->
+            </div>
+            <!---->
+            <div
+              aria-hidden="false"
+              class="ant-tabs-tabpane ant-tabs-tabpane-active semantic-mark-content semantic-mark-content"
+              role="tabpanel"
+              tabindex="0"
+            >
+              <!---->
+            </div>
+            <!---->
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              role="tabpanel"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <!---->
+            </div>
+            <!---->
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              role="tabpanel"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <!---->
+            </div>
+            <!---->
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              role="tabpanel"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <!---->
+            </div>
+            <!---->
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              role="tabpanel"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <!---->
+            </div>
+            <!---->
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              role="tabpanel"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <!---->
+            </div>
+            <!---->
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              role="tabpanel"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <!---->
+            </div>
+            <!---->
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              role="tabpanel"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <!---->
+            </div>
+            <!---->
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              role="tabpanel"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <!---->
+            </div>
+            <!---->
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              role="tabpanel"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <!---->
+            </div>
+            <!---->
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              role="tabpanel"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <!---->
+            </div>
+            <!---->
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              role="tabpanel"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <!---->
+            </div>
+            <!---->
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              role="tabpanel"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <!---->
+            </div>
+            <!---->
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              role="tabpanel"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <!---->
+            </div>
+            <!---->
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              role="tabpanel"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <!---->
+            </div>
+            <!---->
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              role="tabpanel"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <!---->
+            </div>
+            <!---->
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              role="tabpanel"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <!---->
+            </div>
+            <!---->
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              role="tabpanel"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <!---->
+            </div>
+            <!---->
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              role="tabpanel"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <!---->
+            </div>
+            <!---->
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              role="tabpanel"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <!---->
+            </div>
+            <!---->
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              role="tabpanel"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <!---->
+            </div>
+            <!---->
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              role="tabpanel"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <!---->
+            </div>
+            <!---->
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              role="tabpanel"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <!---->
+            </div>
+            <!---->
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              role="tabpanel"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <!---->
+            </div>
+            <!---->
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              role="tabpanel"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <!---->
+            </div>
+            <!---->
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              role="tabpanel"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <!---->
+            </div>
+            <!---->
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              role="tabpanel"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <!---->
+            </div>
+            <!---->
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              role="tabpanel"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <!---->
+            </div>
+            <!---->
+            <div
+              aria-hidden="true"
+              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              role="tabpanel"
+              style="display: none;"
+              tabindex="-1"
+            >
+              <!---->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-8 css-var-root"
+      data-v-dfc8ebef=""
+    >
+      <ul
+        class="semantic-list"
+        data-v-dfc8ebef=""
+      >
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  root
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <!--v-if-->
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              Root element with basic tab container styles, layout and direction control
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  header
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <!--v-if-->
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              Header element with tab navigation header layout, background, borders and other styles
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  item
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <!--v-if-->
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              Item element with relative positioning, padding, colors, text ellipsis, border-radius, transitions and other tab item styles and interactive effects
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  indicator
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <!--v-if-->
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              Indicator element with indicator bar color, position, dimensions, transitions and other active state indication styles
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  content
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <!--v-if-->
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              Content element with tab content panel layout, padding and other content display styles
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  popup.root
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <!--v-if-->
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              Popup menu element with dropdown absolute positioning, z-index, display control, max-height, scrolling and other styles
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`tabs demo > renders animated correctly 1`] = `
+<div>
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"
+  >
+    <div
+      class="ant-space-item"
+    >
+      <button
+        aria-checked="true"
+        checked="true"
+        class="ant-switch css-var-root ant-switch-checked"
+        role="switch"
+        type="button"
+      >
+        <div
+          class="ant-switch-handle"
+        >
+          <!---->
+        </div>
+        <span
+          class="ant-switch-inner"
+        >
+          <span
+            class="ant-switch-inner-checked"
+          >
+            inkBar
+          </span>
+          <span
+            class="ant-switch-inner-unchecked"
+          >
+            inkBar
+          </span>
+        </span>
+      </button>
+    </div>
+    <!---->
+    <div
+      class="ant-space-item"
+    >
+      <button
+        aria-checked="true"
+        checked="true"
+        class="ant-switch css-var-root ant-switch-checked"
+        role="switch"
+        type="button"
+      >
+        <div
+          class="ant-switch-handle"
+        >
+          <!---->
+        </div>
+        <span
+          class="ant-switch-inner"
+        >
+          <span
+            class="ant-switch-inner-checked"
+          >
+            tabPane
+          </span>
+          <span
+            class="ant-switch-inner-unchecked"
+          >
+            tabPane
+          </span>
+        </span>
+      </button>
+    </div>
+    <!---->
+  </div>
+  <div
+    class="ant-tabs ant-tabs-top css-var-root ant-tabs-css-var"
+  >
+    <div
+      aria-orientation="horizontal"
+      class="ant-tabs-nav"
+      role="tablist"
+    >
+      <!---->
+      <div
+        class="ant-tabs-nav-wrap"
+      >
+        <div
+          class="ant-tabs-nav-list"
+          style="transform: translate(0px, 0px);"
+        >
+          <div
+            class="ant-tabs-tab ant-tabs-tab-active"
+            data-node-key="1"
+          >
+            <div
+              aria-selected="true"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="0"
+            >
+              <span>
+                Bamboo
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="2"
+          >
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Little
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="3"
+          >
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Light
+              </span>
+            </div>
+          </div>
+          <!---->
+          <div
+            class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+      >
+        <button
+          aria-controls="null-more-popup"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          class="ant-tabs-nav-more"
+          id="null-more"
+          style="margin-inline-start: 0px; visibility: hidden; order: 1;"
+          type="button"
+        >
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
+        </button>
+        <!---->
+        <!---->
+      </div>
+      <!---->
+      <!---->
+    </div>
+    <div
+      class="ant-tabs-content-holder"
+      mobile="false"
+      rtl="false"
+    >
+      <div
+        class="ant-tabs-content ant-tabs-content-top ant-tabs-content-animated"
+      >
+        <transition-stub
+          appear="false"
+          css="true"
+          enteractiveclass="ant-tabs-switch ant-tabs-switch-enter ant-tabs-switch-appear ant-tabs-switch-appear-prepare ant-tabs-switch-enter-prepare "
+          enterfromclass="ant-tabs-switch ant-tabs-switch-enter ant-tabs-switch-appear ant-tabs-switch-appear-prepare ant-tabs-switch-enter-prepare ant-tabs-switch-enter-start"
+          entertoclass="ant-tabs-switch ant-tabs-switch-enter ant-tabs-switch-appear ant-tabs-switch-appear-active ant-tabs-switch-enter-active"
+          leaveactiveclass="ant-tabs-switch ant-tabs-switch-leave ant-tabs-switch-leave-active"
+          leavefromclass="ant-tabs-switch ant-tabs-switch-leave"
+          leavetoclass="ant-tabs-switch ant-tabs-switch-leave ant-tabs-switch-leave-active"
+          name="ant-tabs-switch"
+          persisted="false"
+        >
+          <div
+            aria-hidden="false"
+            class="ant-tabs-tabpane ant-tabs-tabpane-active"
+            role="tabpanel"
+            style="height: 200px; box-shadow: 0 0 3px rgba(255, 0, 0, 0.5);"
+            tabindex="0"
+          >
+            Hello Bamboo!
+          </div>
+        </transition-stub>
+        <!---->
+        <transition-stub
+          appear="false"
+          css="true"
+          enteractiveclass="ant-tabs-switch ant-tabs-switch-enter ant-tabs-switch-appear ant-tabs-switch-appear-prepare ant-tabs-switch-enter-prepare "
+          enterfromclass="ant-tabs-switch ant-tabs-switch-enter ant-tabs-switch-appear ant-tabs-switch-appear-prepare ant-tabs-switch-enter-prepare ant-tabs-switch-enter-start"
+          entertoclass="ant-tabs-switch ant-tabs-switch-enter ant-tabs-switch-appear ant-tabs-switch-appear-active ant-tabs-switch-enter-active"
+          leaveactiveclass="ant-tabs-switch ant-tabs-switch-leave ant-tabs-switch-leave-active"
+          leavefromclass="ant-tabs-switch ant-tabs-switch-leave"
+          leavetoclass="ant-tabs-switch ant-tabs-switch-leave ant-tabs-switch-leave-active"
+          name="ant-tabs-switch"
+          persisted="false"
+        >
+          <div
+            aria-hidden="true"
+            class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+            role="tabpanel"
+            style="height: 300px; box-shadow: 0 0 3px rgba(0, 255, 0, 0.5); display: none;"
+            tabindex="-1"
+          >
+            Hi Little!
+          </div>
+        </transition-stub>
+        <!---->
+        <transition-stub
+          appear="false"
+          css="true"
+          enteractiveclass="ant-tabs-switch ant-tabs-switch-enter ant-tabs-switch-appear ant-tabs-switch-appear-prepare ant-tabs-switch-enter-prepare "
+          enterfromclass="ant-tabs-switch ant-tabs-switch-enter ant-tabs-switch-appear ant-tabs-switch-appear-prepare ant-tabs-switch-enter-prepare ant-tabs-switch-enter-start"
+          entertoclass="ant-tabs-switch ant-tabs-switch-enter ant-tabs-switch-appear ant-tabs-switch-appear-active ant-tabs-switch-enter-active"
+          leaveactiveclass="ant-tabs-switch ant-tabs-switch-leave ant-tabs-switch-leave-active"
+          leavefromclass="ant-tabs-switch ant-tabs-switch-leave"
+          leavetoclass="ant-tabs-switch ant-tabs-switch-leave ant-tabs-switch-leave-active"
+          name="ant-tabs-switch"
+          persisted="false"
+        >
+          <div
+            aria-hidden="true"
+            class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+            role="tabpanel"
+            style="height: 100px; box-shadow: 0 0 3px rgba(0, 0, 255, 0.5); display: none;"
+            tabindex="-1"
+          >
+            Welcome Light!
+          </div>
+        </transition-stub>
+        <!---->
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`tabs demo > renders basic correctly 1`] = `
+<div
+  class="ant-tabs ant-tabs-top css-var-root ant-tabs-css-var"
+>
+  <div
+    aria-orientation="horizontal"
+    class="ant-tabs-nav"
+    role="tablist"
+  >
+    <!---->
+    <div
+      class="ant-tabs-nav-wrap"
+    >
+      <div
+        class="ant-tabs-nav-list"
+        style="transform: translate(0px, 0px);"
+      >
+        <div
+          class="ant-tabs-tab ant-tabs-tab-active"
+          data-node-key="1"
+        >
+          <div
+            aria-selected="true"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="0"
+          >
+            <span>
+              Tab 1
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="2"
+        >
+          <div
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="-1"
+          >
+            <span>
+              Tab 2
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="3"
+        >
+          <div
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="-1"
+          >
+            <span>
+              Tab 3
+            </span>
+          </div>
+        </div>
+        <!---->
+        <div
+          class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+        />
+      </div>
+    </div>
+    <div
+      class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+    >
+      <button
+        aria-controls="null-more-popup"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        class="ant-tabs-nav-more"
+        id="null-more"
+        style="margin-inline-start: 0px; visibility: hidden; order: 1;"
+        type="button"
+      >
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
+      </button>
+      <!---->
+      <!---->
+    </div>
+    <!---->
+    <!---->
+  </div>
+  <div
+    class="ant-tabs-content-holder"
+    mobile="false"
+    rtl="false"
+  >
+    <div
+      class="ant-tabs-content ant-tabs-content-top"
+    >
+      <!---->
+      <div
+        aria-hidden="false"
+        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        role="tabpanel"
+        tabindex="0"
+      >
+        Content of Tab Pane 1
+      </div>
+      <!---->
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+        role="tabpanel"
+        style="display: none;"
+        tabindex="-1"
+      >
+        Content of Tab Pane 2
+      </div>
+      <!---->
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+        role="tabpanel"
+        style="display: none;"
+        tabindex="-1"
+      >
+        Content of Tab Pane 3
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`tabs demo > renders card correctly 1`] = `
+<div
+  class="ant-tabs ant-tabs-top ant-tabs-card css-var-root ant-tabs-css-var"
+>
+  <div
+    aria-orientation="horizontal"
+    class="ant-tabs-nav"
+    role="tablist"
+  >
+    <!---->
+    <div
+      class="ant-tabs-nav-wrap"
+    >
+      <div
+        class="ant-tabs-nav-list"
+        style="transform: translate(0px, 0px);"
+      >
+        <div
+          class="ant-tabs-tab ant-tabs-tab-active"
+          data-node-key="1"
+        >
+          <div
+            aria-selected="true"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="0"
+          >
+            <span>
+              Tab 1
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="2"
+        >
+          <div
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="-1"
+          >
+            <span>
+              Tab 2
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="3"
+        >
+          <div
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="-1"
+          >
+            <span>
+              Tab 3
+            </span>
+          </div>
+        </div>
+        <!---->
+        <div
+          class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+        />
+      </div>
+    </div>
+    <div
+      class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+    >
+      <button
+        aria-controls="null-more-popup"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        class="ant-tabs-nav-more"
+        id="null-more"
+        style="margin-inline-start: 0px; visibility: hidden; order: 1;"
+        type="button"
+      >
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
+      </button>
+      <!---->
+      <!---->
+    </div>
+    <!---->
+    <!---->
+  </div>
+  <div
+    class="ant-tabs-content-holder"
+    mobile="false"
+    rtl="false"
+  >
+    <div
+      class="ant-tabs-content ant-tabs-content-top"
+    >
+      <!---->
+      <div
+        aria-hidden="false"
+        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        role="tabpanel"
+        tabindex="0"
+      >
+        Content of Tab Pane 1
+      </div>
+      <!---->
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+        role="tabpanel"
+        style="display: none;"
+        tabindex="-1"
+      >
+        Content of Tab Pane 2
+      </div>
+      <!---->
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+        role="tabpanel"
+        style="display: none;"
+        tabindex="-1"
+      >
+        Content of Tab Pane 3
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`tabs demo > renders card-top correctly 1`] = `
+<div
+  class="card-top-tabs"
+  data-v-c7c4141d=""
+>
+  <div
+    class="ant-tabs ant-tabs-top ant-tabs-card css-var-root ant-tabs-css-var"
+    data-v-c7c4141d=""
+  >
+    <div
+      aria-orientation="horizontal"
+      class="ant-tabs-nav"
+      role="tablist"
+    >
+      <!---->
+      <div
+        class="ant-tabs-nav-wrap"
+      >
+        <div
+          class="ant-tabs-nav-list"
+          style="transform: translate(0px, 0px);"
+        >
+          <div
+            class="ant-tabs-tab ant-tabs-tab-active"
+            data-node-key="1"
+          >
+            <div
+              aria-selected="true"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="0"
+            >
+              <span>
+                Tab Title 1
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="2"
+          >
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab Title 2
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="3"
+          >
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab Title 3
+              </span>
+            </div>
+          </div>
+          <!---->
+          <div
+            class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+      >
+        <button
+          aria-controls="null-more-popup"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          class="ant-tabs-nav-more"
+          id="null-more"
+          style="margin-inline-start: 0px; visibility: hidden; order: 1;"
+          type="button"
+        >
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
+        </button>
+        <!---->
+        <!---->
+      </div>
+      <!---->
+      <!---->
+    </div>
+    <div
+      class="ant-tabs-content-holder"
+      mobile="false"
+      rtl="false"
+    >
+      <div
+        class="ant-tabs-content ant-tabs-content-top"
+      >
+        <!---->
+        <div
+          aria-hidden="false"
+          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          role="tabpanel"
+          tabindex="0"
+        >
+          <p
+            data-v-c7c4141d=""
+          >
+            Content of Tab Pane 1
+          </p>
+          <p
+            data-v-c7c4141d=""
+          >
+            Content of Tab Pane 1
+          </p>
+          <p
+            data-v-c7c4141d=""
+          >
+            Content of Tab Pane 1
+          </p>
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          <p
+            data-v-c7c4141d=""
+          >
+            Content of Tab Pane 2
+          </p>
+          <p
+            data-v-c7c4141d=""
+          >
+            Content of Tab Pane 2
+          </p>
+          <p
+            data-v-c7c4141d=""
+          >
+            Content of Tab Pane 2
+          </p>
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          <p
+            data-v-c7c4141d=""
+          >
+            Content of Tab Pane 3
+          </p>
+          <p
+            data-v-c7c4141d=""
+          >
+            Content of Tab Pane 3
+          </p>
+          <p
+            data-v-c7c4141d=""
+          >
+            Content of Tab Pane 3
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`tabs demo > renders centered correctly 1`] = `
+<div
+  class="ant-tabs ant-tabs-top ant-tabs-centered css-var-root ant-tabs-css-var"
+>
+  <div
+    aria-orientation="horizontal"
+    class="ant-tabs-nav"
+    role="tablist"
+  >
+    <!---->
+    <div
+      class="ant-tabs-nav-wrap"
+    >
+      <div
+        class="ant-tabs-nav-list"
+        style="transform: translate(0px, 0px);"
+      >
+        <div
+          class="ant-tabs-tab ant-tabs-tab-active"
+          data-node-key="1"
+        >
+          <div
+            aria-selected="true"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="0"
+          >
+            <span>
+              Tab 1
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="2"
+        >
+          <div
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="-1"
+          >
+            <span>
+              Tab 2
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="3"
+        >
+          <div
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="-1"
+          >
+            <span>
+              Tab 3
+            </span>
+          </div>
+        </div>
+        <!---->
+        <div
+          class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+        />
+      </div>
+    </div>
+    <div
+      class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+    >
+      <button
+        aria-controls="null-more-popup"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        class="ant-tabs-nav-more"
+        id="null-more"
+        style="margin-inline-start: 0px; visibility: hidden; order: 1;"
+        type="button"
+      >
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
+      </button>
+      <!---->
+      <!---->
+    </div>
+    <!---->
+    <!---->
+  </div>
+  <div
+    class="ant-tabs-content-holder"
+    mobile="false"
+    rtl="false"
+  >
+    <div
+      class="ant-tabs-content ant-tabs-content-top"
+    >
+      <!---->
+      <div
+        aria-hidden="false"
+        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        role="tabpanel"
+        tabindex="0"
+      >
+        Content of Tab Pane 1
+      </div>
+      <!---->
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+        role="tabpanel"
+        style="display: none;"
+        tabindex="-1"
+      >
+        Content of Tab Pane 2
+      </div>
+      <!---->
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+        role="tabpanel"
+        style="display: none;"
+        tabindex="-1"
+      >
+        Content of Tab Pane 3
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`tabs demo > renders custom-add-trigger correctly 1`] = `
+<div>
+  <div
+    style="margin-bottom: 16px;"
+  >
+    <button
+      class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <transition-stub
+        appear="false"
+        css="true"
+        name="ant-btn-loading-icon-motion"
+        persisted="false"
+      >
+        <!---->
+      </transition-stub>
+      <span>
+         ADD 
+      </span>
+      <!---->
+    </button>
+  </div>
+  <div
+    class="ant-tabs ant-tabs-top ant-tabs-editable ant-tabs-card ant-tabs-editable-card css-var-root ant-tabs-css-var"
+  >
+    <div
+      aria-orientation="horizontal"
+      class="ant-tabs-nav"
+      role="tablist"
+    >
+      <!---->
+      <div
+        class="ant-tabs-nav-wrap"
+      >
+        <div
+          class="ant-tabs-nav-list"
+          style="transform: translate(0px, 0px);"
+        >
+          <div
+            class="ant-tabs-tab ant-tabs-tab-with-remove ant-tabs-tab-active"
+            data-node-key="1"
+          >
+            <div
+              aria-selected="true"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="0"
+            >
+              <span>
+                Tab 1
+              </span>
+            </div>
+            <button
+              aria-label="remove"
+              class="ant-tabs-tab-remove"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-tabs-tab ant-tabs-tab-with-remove"
+            data-node-key="2"
+          >
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab 2
+              </span>
+            </div>
+            <button
+              aria-label="remove"
+              class="ant-tabs-tab-remove"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+          <!---->
+          <div
+            class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+      >
+        <button
+          aria-controls="null-more-popup"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          class="ant-tabs-nav-more"
+          id="null-more"
+          style="margin-inline-start: 0px; visibility: hidden; order: 1;"
+          type="button"
+        >
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
+        </button>
+        <!---->
+        <!---->
+      </div>
+      <!---->
+      <!---->
+    </div>
+    <div
+      class="ant-tabs-content-holder"
+      mobile="false"
+      rtl="false"
+    >
+      <div
+        class="ant-tabs-content ant-tabs-content-top"
+      >
+        <!---->
+        <div
+          aria-hidden="false"
+          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          role="tabpanel"
+          tabindex="0"
+        >
+          Content of Tab Pane 1
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of Tab Pane 2
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`tabs demo > renders custom-indicator correctly 1`] = `
+<div>
+  <div
+    aria-label="segmented control"
+    class="ant-segmented css-var-root css-var-root"
+    role="radiogroup"
+    size="middle"
+    style="margin-bottom: 8px;"
+    tabindex="0"
+  >
+    <div
+      class="ant-segmented-group"
+    >
+      <!---->
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="v-0"
+          type="radio"
+        />
+        <div
+          aria-checked="false"
+          class="ant-segmented-item-label"
+          role="radio"
+          title="start"
+        >
+          start
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item ant-segmented-item-selected"
+      >
+        <input
+          checked=""
+          class="ant-segmented-item-input"
+          name="v-0"
+          type="radio"
+        />
+        <div
+          aria-checked="true"
+          class="ant-segmented-item-label"
+          role="radio"
+          title="center"
+        >
+          center
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="v-0"
+          type="radio"
+        />
+        <div
+          aria-checked="false"
+          class="ant-segmented-item-label"
+          role="radio"
+          title="end"
+        >
+          end
+        </div>
+      </label>
+    </div>
+  </div>
+  <div
+    class="ant-tabs ant-tabs-top css-var-root ant-tabs-css-var"
+  >
+    <div
+      aria-orientation="horizontal"
+      class="ant-tabs-nav"
+      role="tablist"
+    >
+      <!---->
+      <div
+        class="ant-tabs-nav-wrap"
+      >
+        <div
+          class="ant-tabs-nav-list"
+          style="transform: translate(0px, 0px);"
+        >
+          <div
+            class="ant-tabs-tab ant-tabs-tab-active"
+            data-node-key="1"
+          >
+            <div
+              aria-selected="true"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="0"
+            >
+              <span>
+                Tab 1
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="2"
+          >
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab 2
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="3"
+          >
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab 3
+              </span>
+            </div>
+          </div>
+          <!---->
+          <div
+            class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+      >
+        <button
+          aria-controls="null-more-popup"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          class="ant-tabs-nav-more"
+          id="null-more"
+          style="margin-inline-start: 0px; visibility: hidden; order: 1;"
+          type="button"
+        >
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
+        </button>
+        <!---->
+        <!---->
+      </div>
+      <!---->
+      <!---->
+    </div>
+    <div
+      class="ant-tabs-content-holder"
+      mobile="false"
+      rtl="false"
+    >
+      <div
+        class="ant-tabs-content ant-tabs-content-top"
+      >
+        <!---->
+        <div
+          aria-hidden="false"
+          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          role="tabpanel"
+          tabindex="0"
+        >
+          Content of Tab Pane 1
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of Tab Pane 2
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of Tab Pane 3
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`tabs demo > renders custom-tab-bar correctly 1`] = `
+<div
+  class="ant-tabs ant-tabs-top css-var-root ant-tabs-css-var"
+>
+  <div
+    style="position: sticky; top: 64px; z-index: 1; background: rgb(255, 255, 255);"
+  >
+    <div
+      aria-orientation="horizontal"
+      class="ant-tabs-nav"
+      role="tablist"
+    >
+      <!---->
+      <div
+        class="ant-tabs-nav-wrap"
+      >
+        <div
+          class="ant-tabs-nav-list"
+          style="transform: translate(0px, 0px);"
+        >
+          <div
+            class="ant-tabs-tab ant-tabs-tab-active"
+            data-node-key="1"
+          >
+            <div
+              aria-selected="true"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="0"
+            >
+              <span>
+                Tab 1
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="2"
+          >
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab 2
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="3"
+          >
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab 3
+              </span>
+            </div>
+          </div>
+          <!---->
+          <div
+            class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+      >
+        <button
+          aria-controls="null-more-popup"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          class="ant-tabs-nav-more"
+          id="null-more"
+          style="margin-inline-start: 0px; visibility: hidden; order: 1;"
+          type="button"
+        >
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
+        </button>
+        <!---->
+        <!---->
+      </div>
+      <!---->
+      <!---->
+    </div>
+  </div>
+  <div
+    class="ant-tabs-content-holder"
+    mobile="false"
+    rtl="false"
+  >
+    <div
+      class="ant-tabs-content ant-tabs-content-top"
+    >
+      <!---->
+      <div
+        aria-hidden="false"
+        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        role="tabpanel"
+        style="height: 200px;"
+        tabindex="0"
+      >
+        Content of Tab Pane 1
+      </div>
+      <!---->
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+        role="tabpanel"
+        style="display: none;"
+        tabindex="-1"
+      >
+        Content of Tab Pane 2
+      </div>
+      <!---->
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+        role="tabpanel"
+        style="display: none;"
+        tabindex="-1"
+      >
+        Content of Tab Pane 3
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`tabs demo > renders custom-tab-bar-node correctly 1`] = `
+<div
+  class="ant-tabs ant-tabs-top css-var-root ant-tabs-css-var"
+  data-v-042b8168=""
+>
+  <div
+    aria-orientation="horizontal"
+    class="ant-tabs-nav"
+    role="tablist"
+  >
+    <!---->
+    <div
+      class="ant-tabs-nav-wrap"
+    >
+      <div
+        class="ant-tabs-nav-list"
+        style="transform: translate(0px, 0px);"
+      >
+        <div
+          class="ant-tabs-tab ant-tabs-tab-active"
+          data-node-key="1"
+        >
+          <div
+            aria-selected="true"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="0"
+          >
+            <span>
+              Tab 1
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="2"
+        >
+          <div
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="-1"
+          >
+            <span>
+              Tab 2
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="3"
+        >
+          <div
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="-1"
+          >
+            <span>
+              Tab 3
+            </span>
+          </div>
+        </div>
+        <!---->
+        <div
+          class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+        />
+      </div>
+    </div>
+    <div
+      class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+    >
+      <button
+        aria-controls="null-more-popup"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        class="ant-tabs-nav-more"
+        id="null-more"
+        style="margin-inline-start: 0px; visibility: hidden; order: 1;"
+        type="button"
+      >
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
+      </button>
+      <!---->
+      <!---->
+    </div>
+    <!---->
+    <!---->
+  </div>
+  <div
+    class="ant-tabs-content-holder"
+    mobile="false"
+    rtl="false"
+  >
+    <div
+      class="ant-tabs-content ant-tabs-content-top"
+    >
+      <!---->
+      <div
+        aria-hidden="false"
+        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        role="tabpanel"
+        tabindex="0"
+      >
+        Content of Tab Pane 1
+      </div>
+      <!---->
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+        role="tabpanel"
+        style="display: none;"
+        tabindex="-1"
+      >
+        Content of Tab Pane 2
+      </div>
+      <!---->
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+        role="tabpanel"
+        style="display: none;"
+        tabindex="-1"
+      >
+        Content of Tab Pane 3
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`tabs demo > renders disabled correctly 1`] = `
+<div
+  class="ant-tabs ant-tabs-top css-var-root ant-tabs-css-var"
+>
+  <div
+    aria-orientation="horizontal"
+    class="ant-tabs-nav"
+    role="tablist"
+  >
+    <!---->
+    <div
+      class="ant-tabs-nav-wrap"
+    >
+      <div
+        class="ant-tabs-nav-list"
+        style="transform: translate(0px, 0px);"
+      >
+        <div
+          class="ant-tabs-tab ant-tabs-tab-active"
+          data-node-key="1"
+        >
+          <div
+            aria-selected="true"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="0"
+          >
+            <span>
+              Tab 1
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab ant-tabs-tab-disabled"
+          data-node-key="2"
+        >
+          <div
+            aria-disabled="true"
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            role="tab"
+          >
+            <span>
+              Tab 2
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="3"
+        >
+          <div
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="-1"
+          >
+            <span>
+              Tab 3
+            </span>
+          </div>
+        </div>
+        <!---->
+        <div
+          class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+        />
+      </div>
+    </div>
+    <div
+      class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+    >
+      <button
+        aria-controls="null-more-popup"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        class="ant-tabs-nav-more"
+        id="null-more"
+        style="margin-inline-start: 0px; visibility: hidden; order: 1;"
+        type="button"
+      >
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
+      </button>
+      <!---->
+      <!---->
+    </div>
+    <!---->
+    <!---->
+  </div>
+  <div
+    class="ant-tabs-content-holder"
+    mobile="false"
+    rtl="false"
+  >
+    <div
+      class="ant-tabs-content ant-tabs-content-top"
+    >
+      <!---->
+      <div
+        aria-hidden="false"
+        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        role="tabpanel"
+        tabindex="0"
+      >
+        Tab 1
+      </div>
+      <!---->
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+        role="tabpanel"
+        style="display: none;"
+        tabindex="-1"
+      >
+        Tab 2
+      </div>
+      <!---->
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+        role="tabpanel"
+        style="display: none;"
+        tabindex="-1"
+      >
+        Tab 3
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`tabs demo > renders editable-card correctly 1`] = `
+<div
+  class="ant-tabs ant-tabs-top ant-tabs-editable ant-tabs-card ant-tabs-editable-card css-var-root ant-tabs-css-var"
+>
+  <div
+    aria-orientation="horizontal"
+    class="ant-tabs-nav"
+    role="tablist"
+  >
+    <!---->
+    <div
+      class="ant-tabs-nav-wrap"
+    >
+      <div
+        class="ant-tabs-nav-list"
+        style="transform: translate(0px, 0px);"
+      >
+        <div
+          class="ant-tabs-tab ant-tabs-tab-with-remove ant-tabs-tab-active"
+          data-node-key="1"
+        >
+          <div
+            aria-selected="true"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="0"
+          >
+            <span>
+              Tab 1
+            </span>
+          </div>
+          <button
+            aria-label="remove"
+            class="ant-tabs-tab-remove"
+            tabindex="0"
+            type="button"
+          >
+            <span
+              aria-label="close"
+              class="anticon anticon-close"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="close"
+                fill="currentColor"
+                fill-rule="evenodd"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+        <div
+          class="ant-tabs-tab ant-tabs-tab-with-remove"
+          data-node-key="2"
+        >
+          <div
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="-1"
+          >
+            <span>
+              Tab 2
+            </span>
+          </div>
+          <button
+            aria-label="remove"
+            class="ant-tabs-tab-remove"
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="close"
+              class="anticon anticon-close"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="close"
+                fill="currentColor"
+                fill-rule="evenodd"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+        <div
+          class="ant-tabs-tab"
+          data-node-key="3"
+        >
+          <div
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="-1"
+          >
+            <span>
+              Tab 3
+            </span>
+          </div>
+        </div>
+        <button
+          aria-label="Add tab"
+          class="ant-tabs-nav-add"
+          type="button"
+        >
+          <span
+            aria-label="plus"
+            class="anticon anticon-plus"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="plus"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+              />
+              <path
+                d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
+              />
+            </svg>
+          </span>
+        </button>
+        <div
+          class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+        />
+      </div>
+    </div>
+    <div
+      class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+    >
+      <button
+        aria-controls="null-more-popup"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        class="ant-tabs-nav-more"
+        id="null-more"
+        style="margin-inline-start: 0px; visibility: hidden; order: 1;"
+        type="button"
+      >
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
+      </button>
+      <!---->
+      <button
+        aria-label="Add tab"
+        class="ant-tabs-nav-add"
+        type="button"
+      >
+        <span
+          aria-label="plus"
+          class="anticon anticon-plus"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="plus"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+            />
+            <path
+              d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+    <!---->
+    <!---->
+  </div>
+  <div
+    class="ant-tabs-content-holder"
+    mobile="false"
+    rtl="false"
+  >
+    <div
+      class="ant-tabs-content ant-tabs-content-top"
+    >
+      <!---->
+      <div
+        aria-hidden="false"
+        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        role="tabpanel"
+        tabindex="0"
+      >
+        Content of Tab 1
+      </div>
+      <!---->
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+        role="tabpanel"
+        style="display: none;"
+        tabindex="-1"
+      >
+        Content of Tab 2
+      </div>
+      <!---->
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+        role="tabpanel"
+        style="display: none;"
+        tabindex="-1"
+      >
+        Content of Tab 3
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`tabs demo > renders extra correctly 1`] = `
+<div
+  data-v-fe478bb4=""
+>
+  <div
+    class="ant-tabs ant-tabs-top css-var-root ant-tabs-css-var"
+    data-v-fe478bb4=""
+  >
+    <div
+      aria-orientation="horizontal"
+      class="ant-tabs-nav"
+      role="tablist"
+    >
+      <div
+        class="ant-tabs-extra-content"
+      >
+        <!---->
+      </div>
+      <div
+        class="ant-tabs-nav-wrap"
+      >
+        <div
+          class="ant-tabs-nav-list"
+          style="transform: translate(0px, 0px);"
+        >
+          <div
+            class="ant-tabs-tab ant-tabs-tab-active"
+            data-node-key="1"
+          >
+            <div
+              aria-selected="true"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="0"
+            >
+              <span>
+                Tab 1
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="2"
+          >
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab 2
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="3"
+          >
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab 3
+              </span>
+            </div>
+          </div>
+          <!---->
+          <div
+            class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+      >
+        <button
+          aria-controls="null-more-popup"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          class="ant-tabs-nav-more"
+          id="null-more"
+          style="margin-inline-start: 0px; visibility: hidden; order: 1;"
+          type="button"
+        >
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
+        </button>
+        <!---->
+        <!---->
+      </div>
+      <div
+        class="ant-tabs-extra-content"
+      >
+        <button
+          class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          data-v-fe478bb4=""
+          type="button"
+        >
+          <transition-stub
+            appear="false"
+            css="true"
+            name="ant-btn-loading-icon-motion"
+            persisted="false"
+          >
+            <!---->
+          </transition-stub>
+          <span>
+            Extra Action
+          </span>
+          <!---->
+        </button>
+      </div>
+      <!---->
+    </div>
+    <div
+      class="ant-tabs-content-holder"
+      mobile="false"
+      rtl="false"
+    >
+      <div
+        class="ant-tabs-content ant-tabs-content-top"
+      >
+        <!---->
+        <div
+          aria-hidden="false"
+          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          role="tabpanel"
+          tabindex="0"
+        >
+          Content of tab 1
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of tab 2
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of tab 3
+        </div>
+      </div>
+    </div>
+  </div>
+  <br
+    data-v-fe478bb4=""
+  />
+  <br
+    data-v-fe478bb4=""
+  />
+  <br
+    data-v-fe478bb4=""
+  />
+  <div
+    data-v-fe478bb4=""
+  >
+    You can also specify its direction or both side
+  </div>
+  <div
+    class="ant-divider css-var-root ant-divider-horizontal ant-divider-rail"
+    data-v-fe478bb4=""
+    role="separator"
+  >
+    <!---->
+  </div>
+  <div
+    class="ant-checkbox-group css-var-root ant-checkbox-css-var"
+    data-v-fe478bb4=""
+    role="group"
+  >
+    <label
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item css-var-root ant-checkbox-css-var"
+    >
+      <span
+        class="ant-checkbox ant-wave-target ant-checkbox-checked ant-wave-target"
+      >
+        <input
+          checked=""
+          class="ant-checkbox-input"
+          type="checkbox"
+        />
+      </span>
+      <span
+        class="ant-checkbox-label"
+      >
+        left
+      </span>
+    </label>
+    <label
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item css-var-root ant-checkbox-css-var"
+    >
+      <span
+        class="ant-checkbox ant-wave-target ant-checkbox-checked ant-wave-target"
+      >
+        <input
+          checked=""
+          class="ant-checkbox-input"
+          type="checkbox"
+        />
+      </span>
+      <span
+        class="ant-checkbox-label"
+      >
+        right
+      </span>
+    </label>
+  </div>
+  <br
+    data-v-fe478bb4=""
+  />
+  <br
+    data-v-fe478bb4=""
+  />
+  <div
+    class="ant-tabs ant-tabs-top css-var-root ant-tabs-css-var"
+    data-v-fe478bb4=""
+  >
+    <div
+      aria-orientation="horizontal"
+      class="ant-tabs-nav"
+      role="tablist"
+    >
+      <div
+        class="ant-tabs-extra-content"
+      >
+        <button
+          class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined tabs-extra-demo-button"
+          data-v-fe478bb4=""
+          type="button"
+        >
+          <transition-stub
+            appear="false"
+            css="true"
+            name="ant-btn-loading-icon-motion"
+            persisted="false"
+          >
+            <!---->
+          </transition-stub>
+          <span>
+             Left Extra Action 
+          </span>
+          <!---->
+        </button>
+      </div>
+      <div
+        class="ant-tabs-nav-wrap"
+      >
+        <div
+          class="ant-tabs-nav-list"
+          style="transform: translate(0px, 0px);"
+        >
+          <div
+            class="ant-tabs-tab ant-tabs-tab-active"
+            data-node-key="1"
+          >
+            <div
+              aria-selected="true"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="0"
+            >
+              <span>
+                Tab 1
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="2"
+          >
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab 2
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="3"
+          >
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab 3
+              </span>
+            </div>
+          </div>
+          <!---->
+          <div
+            class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+      >
+        <button
+          aria-controls="null-more-popup"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          class="ant-tabs-nav-more"
+          id="null-more"
+          style="margin-inline-start: 0px; visibility: hidden; order: 1;"
+          type="button"
+        >
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
+        </button>
+        <!---->
+        <!---->
+      </div>
+      <div
+        class="ant-tabs-extra-content"
+      >
+        <button
+          class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          data-v-fe478bb4=""
+          type="button"
+        >
+          <transition-stub
+            appear="false"
+            css="true"
+            name="ant-btn-loading-icon-motion"
+            persisted="false"
+          >
+            <!---->
+          </transition-stub>
+          <span>
+            Right Extra Action
+          </span>
+          <!---->
+        </button>
+      </div>
+      <!---->
+    </div>
+    <div
+      class="ant-tabs-content-holder"
+      mobile="false"
+      rtl="false"
+    >
+      <div
+        class="ant-tabs-content ant-tabs-content-top"
+      >
+        <!---->
+        <div
+          aria-hidden="false"
+          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          role="tabpanel"
+          tabindex="0"
+        >
+          Content of tab 1
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of tab 2
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of tab 3
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`tabs demo > renders icon correctly 1`] = `
+<div
+  class="ant-tabs ant-tabs-top css-var-root ant-tabs-css-var"
+>
+  <div
+    aria-orientation="horizontal"
+    class="ant-tabs-nav"
+    role="tablist"
+  >
+    <!---->
+    <div
+      class="ant-tabs-nav-wrap"
+    >
+      <div
+        class="ant-tabs-nav-list"
+        style="transform: translate(0px, 0px);"
+      >
+        <div
+          class="ant-tabs-tab"
+          data-node-key="1"
+        >
+          <div
+            aria-selected="false"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="-1"
+          >
+            <span
+              class="ant-tabs-tab-icon"
+            >
+              <span
+                aria-label="apple"
+                class="anticon anticon-apple"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="apple"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M747.4 535.7c-.4-68.2 30.5-119.6 92.9-157.5-34.9-50-87.7-77.5-157.3-82.8-65.9-5.2-138 38.4-164.4 38.4-27.9 0-91.7-36.6-141.9-36.6C273.1 298.8 163 379.8 163 544.6c0 48.7 8.9 99 26.7 150.8 23.8 68.2 109.6 235.3 199.1 232.6 46.8-1.1 79.9-33.2 140.8-33.2 59.1 0 89.7 33.2 141.9 33.2 90.3-1.3 167.9-153.2 190.5-221.6-121.1-57.1-114.6-167.2-114.6-170.7zm-10.6 267c-14.3 19.9-28.7 35.6-41.9 45.7-10.5 8-18.6 11.4-24 11.6-9-.1-17.7-2.3-34.7-8.8-1.2-.5-2.5-1-4.2-1.6l-4.4-1.7c-17.4-6.7-27.8-10.3-41.1-13.8-18.6-4.8-37.1-7.4-56.9-7.4-20.2 0-39.2 2.5-58.1 7.2-13.9 3.5-25.6 7.4-42.7 13.8-.7.3-8.1 3.1-10.2 3.9-3.5 1.3-6.2 2.3-8.7 3.2-10.4 3.6-17 5.1-22.9 5.2-.7 0-1.3-.1-1.8-.2-1.1-.2-2.5-.6-4.1-1.3-4.5-1.8-9.9-5.1-16-9.8-14-10.9-29.4-28-45.1-49.9-27.5-38.6-53.5-89.8-66-125.7-15.4-44.8-23-87.7-23-128.6 0-60.2 17.8-106 48.4-137.1 26.3-26.6 61.7-41.5 97.8-42.3 5.9.1 14.5 1.5 25.4 4.5 8.6 2.3 18 5.4 30.7 9.9 3.8 1.4 16.9 6.1 18.5 6.7 7.7 2.8 13.5 4.8 19.2 6.6 18.2 5.8 32.3 9 47.6 9 15.5 0 28.8-3.3 47.7-9.8 7.1-2.4 32.9-12 37.5-13.6 25.6-9.1 44.5-14 60.8-15.2 4.8-.4 9.1-.4 13.2-.1 22.7 1.8 42.1 6.3 58.6 13.8-37.6 43.4-57 96.5-56.9 158.4-.3 14.7.9 31.7 5.1 51.8 6.4 30.5 18.6 60.7 37.9 89 14.7 21.5 32.9 40.9 54.7 57.8-11.5 23.7-25.6 48.2-40.4 68.8zm-94.5-572c50.7-60.2 46.1-115 44.6-134.7-44.8 2.6-96.6 30.5-126.1 64.8-32.5 36.8-51.6 82.3-47.5 133.6 48.4 3.7 92.6-21.2 129-63.7z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span>
+              Tab 1
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-tabs-tab ant-tabs-tab-active"
+          data-node-key="2"
+        >
+          <div
+            aria-selected="true"
+            class="ant-tabs-tab-btn"
+            role="tab"
+            tabindex="0"
+          >
+            <span
+              class="ant-tabs-tab-icon"
+            >
+              <span
+                aria-label="android"
+                class="anticon anticon-android"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="android"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M448.3 225.2c-18.6 0-32 13.4-32 31.9s13.5 31.9 32 31.9c18.6 0 32-13.4 32-31.9.1-18.4-13.4-31.9-32-31.9zm393.9 96.4c-13.8-13.8-32.7-21.5-53.2-21.5-3.9 0-7.4.4-10.7 1v-1h-3.6c-5.5-30.6-18.6-60.5-38.1-87.4-18.7-25.7-43-47.9-70.8-64.9l25.1-35.8v-3.3c0-.8.4-2.3.7-3.8.6-2.4 1.4-5.5 1.4-8.9 0-18.5-13.5-31.9-32-31.9-9.8 0-19.5 5.7-25.9 15.4l-29.3 42.1c-30-9.8-62.4-15-93.8-15-31.3 0-63.7 5.2-93.8 15L389 79.4c-6.6-9.6-16.1-15.4-26-15.4-18.6 0-32 13.4-32 31.9 0 6.2 2.5 12.8 6.7 17.4l22.6 32.3c-28.7 17-53.5 39.4-72.2 65.1-19.4 26.9-32 56.8-36.7 87.4h-5.5v1c-3.2-.6-6.7-1-10.7-1-20.3 0-39.2 7.5-53.1 21.3-13.8 13.8-21.5 32.6-21.5 53v235c0 20.3 7.5 39.1 21.4 52.9 13.8 13.8 32.8 21.5 53.2 21.5 3.9 0 7.4-.4 10.7-1v93.5c0 29.2 23.9 53.1 53.2 53.1H331v58.3c0 20.3 7.5 39.1 21.4 52.9 13.8 13.8 32.8 21.5 53.2 21.5 20.3 0 39.2-7.5 53.1-21.3 13.8-13.8 21.5-32.6 21.5-53v-58.2H544v58.1c0 20.3 7.5 39.1 21.4 52.9 13.8 13.8 32.8 21.5 53.2 21.5 20.4 0 39.2-7.5 53.1-21.6 13.8-13.8 21.5-32.6 21.5-53v-58.2h31.9c29.3 0 53.2-23.8 53.2-53.1v-91.4c3.2.6 6.7 1 10.7 1 20.3 0 39.2-7.5 53.1-21.3 13.8-13.8 21.5-32.6 21.5-53v-235c-.1-20.3-7.6-39-21.4-52.9zM246 609.6c0 6.8-3.9 10.6-10.7 10.6-6.8 0-10.7-3.8-10.7-10.6V374.5c0-6.8 3.9-10.6 10.7-10.6 6.8 0 10.7 3.8 10.7 10.6v235.1zm131.1-396.8c37.5-27.3 85.3-42.3 135-42.3s97.5 15.1 135 42.5c32.4 23.7 54.2 54.2 62.7 87.5H314.4c8.5-33.4 30.5-64 62.7-87.7zm39.3 674.7c-.6 5.6-4.4 8.7-10.5 8.7-6.8 0-10.7-3.8-10.7-10.6v-58.2h21.2v60.1zm202.3 8.7c-6.8 0-10.7-3.8-10.7-10.6v-58.2h21.2v60.1c-.6 5.6-4.3 8.7-10.5 8.7zm95.8-132.6H309.9V364h404.6v399.6zm85.2-154c0 6.8-3.9 10.6-10.7 10.6-6.8 0-10.7-3.8-10.7-10.6V374.5c0-6.8 3.9-10.6 10.7-10.6 6.8 0 10.7 3.8 10.7 10.6v235.1zM576.1 225.2c-18.6 0-32 13.4-32 31.9s13.5 31.9 32 31.9c18.6 0 32.1-13.4 32.1-32-.1-18.6-13.4-31.8-32.1-31.8z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span>
+              Tab 2
+            </span>
+          </div>
+        </div>
+        <!---->
+        <div
+          class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+        />
+      </div>
+    </div>
+    <div
+      class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+    >
+      <button
+        aria-controls="null-more-popup"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        class="ant-tabs-nav-more"
+        id="null-more"
+        style="margin-inline-start: 0px; visibility: hidden; order: 1;"
+        type="button"
+      >
+        <span
+          aria-label="ellipsis"
+          class="anticon anticon-ellipsis"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="ellipsis"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+            />
+          </svg>
+        </span>
+      </button>
+      <!---->
+      <!---->
+    </div>
+    <!---->
+    <!---->
+  </div>
+  <div
+    class="ant-tabs-content-holder"
+    mobile="false"
+    rtl="false"
+  >
+    <div
+      class="ant-tabs-content ant-tabs-content-top"
+    >
+      <!---->
+      <div
+        aria-hidden="true"
+        class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+        role="tabpanel"
+        style="display: none;"
+        tabindex="-1"
+      >
+        Tab 1
+      </div>
+      <!---->
+      <div
+        aria-hidden="false"
+        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        role="tabpanel"
+        tabindex="0"
+      >
+        Tab 2
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`tabs demo > renders placement correctly 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"
+    style="margin-bottom: 24px;"
+  >
+    <div
+      class="ant-space-item"
+    >
+       Tab placement: 
+    </div>
+    <!---->
+    <div
+      class="ant-space-item"
+    >
+      <div
+        class="ant-radio-group ant-radio-group-outline css-var-root ant-radio-css-var"
+      >
+        <label
+          class="ant-radio-button-wrapper css-var-root ant-radio-css-var"
+        >
+          <span
+            class="ant-radio-button"
+            name="v-0"
+          >
+            <input
+              class="ant-radio-button-input"
+              type="radio"
+            />
+          </span>
+          <span
+            class="ant-radio-button-label"
+          >
+             top 
+          </span>
+        </label>
+        <label
+          class="ant-radio-button-wrapper css-var-root ant-radio-css-var"
+        >
+          <span
+            class="ant-radio-button"
+            name="v-0"
+          >
+            <input
+              class="ant-radio-button-input"
+              type="radio"
+            />
+          </span>
+          <span
+            class="ant-radio-button-label"
+          >
+             bottom 
+          </span>
+        </label>
+        <label
+          class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-root ant-radio-css-var"
+        >
+          <span
+            class="ant-radio-button ant-radio-button-checked"
+            name="v-0"
+          >
+            <input
+              checked=""
+              class="ant-radio-button-input"
+              type="radio"
+            />
+          </span>
+          <span
+            class="ant-radio-button-label"
+          >
+             start 
+          </span>
+        </label>
+        <label
+          class="ant-radio-button-wrapper css-var-root ant-radio-css-var"
+        >
+          <span
+            class="ant-radio-button"
+            name="v-0"
+          >
+            <input
+              class="ant-radio-button-input"
+              type="radio"
+            />
+          </span>
+          <span
+            class="ant-radio-button-label"
+          >
+             end 
+          </span>
+        </label>
+      </div>
+    </div>
+    <!---->
+  </div>
+  <div
+    class="ant-tabs ant-tabs-left css-var-root ant-tabs-css-var"
+  >
+    <div
+      aria-orientation="vertical"
+      class="ant-tabs-nav"
+      role="tablist"
+    >
+      <!---->
+      <div
+        class="ant-tabs-nav-wrap"
+      >
+        <div
+          class="ant-tabs-nav-list"
+          style="transform: translate(0px, 0px);"
+        >
+          <div
+            class="ant-tabs-tab ant-tabs-tab-active"
+            data-node-key="1"
+          >
+            <div
+              aria-selected="true"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="0"
+            >
+              <span>
+                Tab 1
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="2"
+          >
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab 2
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="3"
+          >
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab 3
+              </span>
+            </div>
+          </div>
+          <!---->
+          <div
+            class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+      >
+        <button
+          aria-controls="null-more-popup"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          class="ant-tabs-nav-more"
+          id="null-more"
+          style="margin-inline-start: 0px; visibility: hidden; order: 1;"
+          type="button"
+        >
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
+        </button>
+        <!---->
+        <!---->
+      </div>
+      <!---->
+      <!---->
+    </div>
+    <div
+      class="ant-tabs-content-holder"
+      mobile="false"
+      rtl="false"
+    >
+      <div
+        class="ant-tabs-content ant-tabs-content-left"
+      >
+        <!---->
+        <div
+          aria-hidden="false"
+          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          role="tabpanel"
+          tabindex="0"
+        >
+          Content of Tab 1
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of Tab 2
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of Tab 3
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`tabs demo > renders size correctly 1`] = `
+<div>
+  <div
+    class="ant-radio-group ant-radio-group-outline css-var-root ant-radio-css-var"
+    style="margin-bottom: 16px;"
+  >
+    <label
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-root ant-radio-css-var"
+    >
+      <span
+        class="ant-radio-button ant-radio-button-checked"
+        name="v-0"
+      >
+        <input
+          checked=""
+          class="ant-radio-button-input"
+          type="radio"
+        />
+      </span>
+      <span
+        class="ant-radio-button-label"
+      >
+         Small 
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper css-var-root ant-radio-css-var"
+    >
+      <span
+        class="ant-radio-button"
+        name="v-0"
+      >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+        />
+      </span>
+      <span
+        class="ant-radio-button-label"
+      >
+         Middle 
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper css-var-root ant-radio-css-var"
+    >
+      <span
+        class="ant-radio-button"
+        name="v-0"
+      >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+        />
+      </span>
+      <span
+        class="ant-radio-button-label"
+      >
+         Large 
+      </span>
+    </label>
+  </div>
+  <div
+    class="ant-tabs ant-tabs-top ant-tabs-small css-var-root ant-tabs-css-var"
+    style="margin-bottom: 32px;"
+  >
+    <div
+      aria-orientation="horizontal"
+      class="ant-tabs-nav"
+      role="tablist"
+    >
+      <!---->
+      <div
+        class="ant-tabs-nav-wrap"
+      >
+        <div
+          class="ant-tabs-nav-list"
+          style="transform: translate(0px, 0px);"
+        >
+          <div
+            class="ant-tabs-tab ant-tabs-tab-active"
+            data-node-key="1"
+          >
+            <div
+              aria-selected="true"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="0"
+            >
+              <span>
+                Tab 1
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="2"
+          >
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab 2
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="3"
+          >
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab 3
+              </span>
+            </div>
+          </div>
+          <!---->
+          <div
+            class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+      >
+        <button
+          aria-controls="null-more-popup"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          class="ant-tabs-nav-more"
+          id="null-more"
+          style="margin-inline-start: 0px; visibility: hidden; order: 1;"
+          type="button"
+        >
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
+        </button>
+        <!---->
+        <!---->
+      </div>
+      <!---->
+      <!---->
+    </div>
+    <div
+      class="ant-tabs-content-holder"
+      mobile="false"
+      rtl="false"
+    >
+      <div
+        class="ant-tabs-content ant-tabs-content-top"
+      >
+        <!---->
+        <div
+          aria-hidden="false"
+          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          role="tabpanel"
+          tabindex="0"
+        >
+          Content of tab 1
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of tab 2
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of tab 3
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-tabs ant-tabs-top ant-tabs-small ant-tabs-card css-var-root ant-tabs-css-var"
+    style="margin-bottom: 32px;"
+  >
+    <div
+      aria-orientation="horizontal"
+      class="ant-tabs-nav"
+      role="tablist"
+    >
+      <!---->
+      <div
+        class="ant-tabs-nav-wrap"
+      >
+        <div
+          class="ant-tabs-nav-list"
+          style="transform: translate(0px, 0px);"
+        >
+          <div
+            class="ant-tabs-tab ant-tabs-tab-active"
+            data-node-key="1"
+          >
+            <div
+              aria-selected="true"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="0"
+            >
+              <span>
+                Card Tab 1
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="2"
+          >
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Card Tab 2
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="3"
+          >
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Card Tab 3
+              </span>
+            </div>
+          </div>
+          <!---->
+          <div
+            class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+      >
+        <button
+          aria-controls="null-more-popup"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          class="ant-tabs-nav-more"
+          id="null-more"
+          style="margin-inline-start: 0px; visibility: hidden; order: 1;"
+          type="button"
+        >
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
+        </button>
+        <!---->
+        <!---->
+      </div>
+      <!---->
+      <!---->
+    </div>
+    <div
+      class="ant-tabs-content-holder"
+      mobile="false"
+      rtl="false"
+    >
+      <div
+        class="ant-tabs-content ant-tabs-content-top"
+      >
+        <!---->
+        <div
+          aria-hidden="false"
+          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          role="tabpanel"
+          tabindex="0"
+        >
+          Content of card tab 1
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of card tab 2
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of card tab 3
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-tabs ant-tabs-top ant-tabs-editable ant-tabs-small ant-tabs-card ant-tabs-editable-card css-var-root ant-tabs-css-var"
+  >
+    <div
+      aria-orientation="horizontal"
+      class="ant-tabs-nav"
+      role="tablist"
+    >
+      <!---->
+      <div
+        class="ant-tabs-nav-wrap"
+      >
+        <div
+          class="ant-tabs-nav-list"
+          style="transform: translate(0px, 0px);"
+        >
+          <div
+            class="ant-tabs-tab ant-tabs-tab-with-remove ant-tabs-tab-active"
+            data-node-key="1"
+          >
+            <div
+              aria-selected="true"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="0"
+            >
+              <span>
+                Tab 1
+              </span>
+            </div>
+            <button
+              aria-label="remove"
+              class="ant-tabs-tab-remove"
+              tabindex="0"
+              type="button"
+            >
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-tabs-tab ant-tabs-tab-with-remove"
+            data-node-key="2"
+          >
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab 2
+              </span>
+            </div>
+            <button
+              aria-label="remove"
+              class="ant-tabs-tab-remove"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+          <div
+            class="ant-tabs-tab ant-tabs-tab-with-remove"
+            data-node-key="3"
+          >
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab 3
+              </span>
+            </div>
+            <button
+              aria-label="remove"
+              class="ant-tabs-tab-remove"
+              tabindex="-1"
+              type="button"
+            >
+              <span
+                aria-label="close"
+                class="anticon anticon-close"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+          <button
+            aria-label="Add tab"
+            class="ant-tabs-nav-add"
+            type="button"
+          >
+            <span
+              aria-label="plus"
+              class="anticon anticon-plus"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="plus"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+                />
+                <path
+                  d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
+                />
+              </svg>
+            </span>
+          </button>
+          <div
+            class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+      >
+        <button
+          aria-controls="null-more-popup"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          class="ant-tabs-nav-more"
+          id="null-more"
+          style="margin-inline-start: 0px; visibility: hidden; order: 1;"
+          type="button"
+        >
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
+        </button>
+        <!---->
+        <button
+          aria-label="Add tab"
+          class="ant-tabs-nav-add"
+          type="button"
+        >
+          <span
+            aria-label="plus"
+            class="anticon anticon-plus"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="plus"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"
+              />
+              <path
+                d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
+      <!---->
+      <!---->
+    </div>
+    <div
+      class="ant-tabs-content-holder"
+      mobile="false"
+      rtl="false"
+    >
+      <div
+        class="ant-tabs-content ant-tabs-content-top"
+      >
+        <!---->
+        <div
+          aria-hidden="false"
+          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          role="tabpanel"
+          tabindex="0"
+        >
+          Content of editable tab 1
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of editable tab 2
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of editable tab 3
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`tabs demo > renders slide correctly 1`] = `
+<div>
+  <div
+    class="ant-radio-group ant-radio-group-outline css-var-root ant-radio-css-var"
+    style="margin-bottom: 8px;"
+  >
+    <label
+      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-root ant-radio-css-var"
+    >
+      <span
+        class="ant-radio-button ant-radio-button-checked"
+        name="v-0"
+      >
+        <input
+          checked=""
+          class="ant-radio-button-input"
+          type="radio"
+        />
+      </span>
+      <span
+        class="ant-radio-button-label"
+      >
+         Horizontal 
+      </span>
+    </label>
+    <label
+      class="ant-radio-button-wrapper css-var-root ant-radio-css-var"
+    >
+      <span
+        class="ant-radio-button"
+        name="v-0"
+      >
+        <input
+          class="ant-radio-button-input"
+          type="radio"
+        />
+      </span>
+      <span
+        class="ant-radio-button-label"
+      >
+         Vertical 
+      </span>
+    </label>
+  </div>
+  <div
+    class="ant-tabs ant-tabs-top css-var-root ant-tabs-css-var"
+    style="height: 220px;"
+  >
+    <div
+      aria-orientation="horizontal"
+      class="ant-tabs-nav"
+      role="tablist"
+    >
+      <!---->
+      <div
+        class="ant-tabs-nav-wrap"
+      >
+        <div
+          class="ant-tabs-nav-list"
+          style="transform: translate(0px, 0px);"
+        >
+          <div
+            class="ant-tabs-tab ant-tabs-tab-active"
+            data-node-key="0"
+          >
+            <div
+              aria-disabled="false"
+              aria-selected="true"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="0"
+            >
+              <span>
+                Tab-0
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="1"
+          >
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab-1
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="2"
+          >
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab-2
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="3"
+          >
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab-3
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="4"
+          >
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab-4
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="5"
+          >
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab-5
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="6"
+          >
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab-6
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="7"
+          >
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab-7
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="8"
+          >
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab-8
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="9"
+          >
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab-9
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="10"
+          >
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab-10
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="11"
+          >
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab-11
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="12"
+          >
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab-12
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="13"
+          >
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab-13
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="14"
+          >
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab-14
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="15"
+          >
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab-15
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="16"
+          >
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab-16
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="17"
+          >
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab-17
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="18"
+          >
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab-18
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="19"
+          >
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab-19
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="20"
+          >
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab-20
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="21"
+          >
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab-21
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="22"
+          >
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab-22
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="23"
+          >
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab-23
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="24"
+          >
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab-24
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="25"
+          >
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab-25
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="26"
+          >
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab-26
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="27"
+          >
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab-27
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab ant-tabs-tab-disabled"
+            data-node-key="28"
+          >
+            <div
+              aria-disabled="true"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+            >
+              <span>
+                Tab-28
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="29"
+          >
+            <div
+              aria-disabled="false"
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab-29
+              </span>
+            </div>
+          </div>
+          <!---->
+          <div
+            class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+      >
+        <button
+          aria-controls="null-more-popup"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          class="ant-tabs-nav-more"
+          id="null-more"
+          style="margin-inline-start: 0px; visibility: hidden; order: 1;"
+          type="button"
+        >
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
+        </button>
+        <!---->
+        <!---->
+      </div>
+      <!---->
+      <!---->
+    </div>
+    <div
+      class="ant-tabs-content-holder"
+      mobile="false"
+      rtl="false"
+    >
+      <div
+        class="ant-tabs-content ant-tabs-content-top"
+      >
+        <!---->
+        <div
+          aria-hidden="false"
+          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          role="tabpanel"
+          tabindex="0"
+        >
+          Content of tab 0
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of tab 1
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of tab 2
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of tab 3
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of tab 4
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of tab 5
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of tab 6
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of tab 7
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of tab 8
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of tab 9
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of tab 10
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of tab 11
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of tab 12
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of tab 13
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of tab 14
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of tab 15
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of tab 16
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of tab 17
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of tab 18
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of tab 19
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of tab 20
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of tab 21
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of tab 22
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of tab 23
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of tab 24
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of tab 25
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of tab 26
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of tab 27
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of tab 28
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of tab 29
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`tabs demo > renders style-class correctly 1`] = `
+<div
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <div
+    class="ant-tabs ant-tabs-top custom-tabs-root custom-tabs-root css-var-root ant-tabs-css-var"
+    style="border-width: 2px; border-style: dashed; padding: 16px; margin-bottom: 10px;"
+  >
+    <div
+      aria-orientation="horizontal"
+      class="ant-tabs-nav"
+      role="tablist"
+      style="background-color: rgba(245, 245, 245, 0.5);"
+    >
+      <!---->
+      <div
+        class="ant-tabs-nav-wrap"
+      >
+        <div
+          class="ant-tabs-nav-list"
+          style="transform: translate(0px, 0px);"
+        >
+          <div
+            class="ant-tabs-tab ant-tabs-tab-active"
+            data-node-key="1"
+            style="font-weight: bold; color: rgb(24, 144, 255); padding: 6px 10px;"
+          >
+            <div
+              aria-selected="true"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="0"
+            >
+              <span>
+                Tab 1
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="2"
+            style="font-weight: bold; color: rgb(24, 144, 255); padding: 6px 10px;"
+          >
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab 2
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="3"
+            style="font-weight: bold; color: rgb(24, 144, 255); padding: 6px 10px;"
+          >
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab 3
+              </span>
+            </div>
+          </div>
+          <!---->
+          <div
+            class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+            style="background-color: rgba(255, 77, 79, 0.3); height: 4px;"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+      >
+        <button
+          aria-controls="null-more-popup"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          class="ant-tabs-nav-more"
+          id="null-more"
+          style="margin-inline-start: 0px; visibility: hidden; order: 1;"
+          type="button"
+        >
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
+        </button>
+        <!---->
+        <!---->
+      </div>
+      <!---->
+      <!---->
+    </div>
+    <div
+      class="ant-tabs-content-holder"
+      mobile="false"
+      rtl="false"
+    >
+      <div
+        class="ant-tabs-content ant-tabs-content-top"
+      >
+        <!---->
+        <div
+          aria-hidden="false"
+          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          role="tabpanel"
+          style="background-color: rgba(230, 247, 255, 0.8); padding: 16px;"
+          tabindex="0"
+        >
+          Content of Tab Pane 1
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="background-color: rgba(230, 247, 255, 0.8); padding: 16px; display: none;"
+          tabindex="-1"
+        >
+          Content of Tab Pane 2
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="background-color: rgba(230, 247, 255, 0.8); padding: 16px; display: none;"
+          tabindex="-1"
+        >
+          Content of Tab Pane 3
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-tabs ant-tabs-top custom-tabs-root custom-tabs-root ant-tabs-card css-var-root ant-tabs-css-var"
+    style="background-color: rgba(250, 250, 250, 0.8); border-color: rgb(217, 217, 217);"
+  >
+    <div
+      aria-orientation="horizontal"
+      class="ant-tabs-nav"
+      role="tablist"
+      style="text-align: start;"
+    >
+      <!---->
+      <div
+        class="ant-tabs-nav-wrap"
+      >
+        <div
+          class="ant-tabs-nav-list"
+          style="transform: translate(0px, 0px);"
+        >
+          <div
+            class="ant-tabs-tab ant-tabs-tab-active"
+            data-node-key="1"
+          >
+            <div
+              aria-selected="true"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="0"
+            >
+              <span>
+                Tab 1
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="2"
+          >
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab 2
+              </span>
+            </div>
+          </div>
+          <div
+            class="ant-tabs-tab"
+            data-node-key="3"
+          >
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab 3
+              </span>
+            </div>
+          </div>
+          <!---->
+          <div
+            class="ant-tabs-ink-bar ant-tabs-ink-bar-animated"
+          />
+        </div>
+      </div>
+      <div
+        class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+      >
+        <button
+          aria-controls="null-more-popup"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          class="ant-tabs-nav-more"
+          id="null-more"
+          style="margin-inline-start: 0px; visibility: hidden; order: 1;"
+          type="button"
+        >
+          <span
+            aria-label="ellipsis"
+            class="anticon anticon-ellipsis"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="ellipsis"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+              />
+            </svg>
+          </span>
+        </button>
+        <!---->
+        <!---->
+      </div>
+      <!---->
+      <!---->
+    </div>
+    <div
+      class="ant-tabs-content-holder"
+      mobile="false"
+      rtl="false"
+    >
+      <div
+        class="ant-tabs-content ant-tabs-content-top"
+      >
+        <!---->
+        <div
+          aria-hidden="false"
+          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          role="tabpanel"
+          tabindex="0"
+        >
+          Content of Tab Pane 1
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of Tab Pane 2
+        </div>
+        <!---->
+        <div
+          aria-hidden="true"
+          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
+          role="tabpanel"
+          style="display: none;"
+          tabindex="-1"
+        >
+          Content of Tab Pane 3
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
