@@ -70,11 +70,3 @@ watch(
     </a-config-provider>
   </a-style-provider>
 </template>
-
-<style>
-/* demo 页面默认样式 */
-body {
-  margin: 0;
-  padding: 16px;
-}
-</style>
