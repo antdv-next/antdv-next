@@ -137,7 +137,7 @@ const Holder = defineComponent<HolderProps>(
       ...api,
       prefixCls,
       notification,
-      classes: mergedClassNames,
+      classNames: mergedClassNames,
       styles: mergedStyles,
     })
     return () => {
