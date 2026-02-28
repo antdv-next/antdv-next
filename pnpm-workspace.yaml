@@ -136,7 +136,7 @@ catalogs:
     '@v-c/dialog': ^1.0.1
     '@v-c/drawer': ^1.0.0
     '@v-c/dropdown': ^1.0.2
-    '@v-c/image': ^1.0.2
+    '@v-c/image': ^1.0.4
     '@v-c/input': ^1.0.2
     '@v-c/input-number': ^1.0.2
     '@v-c/mentions': ^1.0.0
@@ -151,7 +151,7 @@ catalogs:
     '@v-c/rate': ^1.0.1
     '@v-c/resize-observer': ^1.0.8
     '@v-c/segmented': ^1.0.0
-    '@v-c/select': ^1.0.14
+    '@v-c/select': ^1.0.16
     '@v-c/slick': ^1.0.0
     '@v-c/slider': ^1.0.10
     '@v-c/steps': ^1.0.0
@@ -165,7 +165,7 @@ catalogs:
     '@v-c/tree-select': ^1.0.2
     '@v-c/trigger': ^1.0.11
     '@v-c/upload': ^1.0.0
-    '@v-c/util': ^1.0.15
+    '@v-c/util': ^1.0.17
     '@v-c/virtual-list': ^1.0.6
 
 onlyBuiltDependencies:

@@ -60,6 +60,7 @@ function handleSelect(value: string) {
     :popup-match-select-width="252"
     style="width: 300px"
     :options="options"
+    placeholder="input here"
     :show-search="{ onSearch: handleSearch }"
     @select="handleSelect"
   >

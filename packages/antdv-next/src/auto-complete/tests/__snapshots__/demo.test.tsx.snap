@@ -1600,12 +1600,7 @@ exports[`auto-complete demo > renders certain-category correctly 1`] = `
     <div
       class="ant-select-content"
     >
-      <div
-        class="ant-select-placeholder"
-        style="visibility: visible;"
-      >
-        <!---->
-      </div>
+      <!---->
       <div
         class="ant-space-compact css-var-root ant-input-search css-var-root ant-input-search-large ant-select-input"
       >
@@ -1617,6 +1612,7 @@ exports[`auto-complete demo > renders certain-category correctly 1`] = `
           aria-owns="test-id_list"
           class="ant-input ant-input-lg ant-input-outlined ant-input-compact-item ant-input-compact-first-item css-var-root ant-input-css-var"
           id="test-id"
+          placeholder="input here"
           role="combobox"
           type="text"
           value=""
@@ -1675,12 +1671,7 @@ exports[`auto-complete demo > renders custom correctly 1`] = `
     <div
       class="ant-select-content"
     >
-      <div
-        class="ant-select-placeholder"
-        style="visibility: visible;"
-      >
-        <!---->
-      </div>
+      <!---->
       <textarea
         aria-autocomplete="list"
         aria-controls="test-id_list"
@@ -2039,12 +2030,7 @@ exports[`auto-complete demo > renders uncertain-category correctly 1`] = `
     <div
       class="ant-select-content"
     >
-      <div
-        class="ant-select-placeholder"
-        style="visibility: visible;"
-      >
-        <!---->
-      </div>
+      <!---->
       <div
         class="ant-space-compact css-var-root ant-input-search css-var-root ant-input-search-large ant-input-search-with-button ant-select-input"
       >
@@ -2056,6 +2042,7 @@ exports[`auto-complete demo > renders uncertain-category correctly 1`] = `
           aria-owns="test-id_list"
           class="ant-input ant-input-lg ant-input-outlined ant-input-compact-item ant-input-compact-first-item css-var-root ant-input-css-var"
           id="test-id"
+          placeholder="input here"
           role="combobox"
           type="text"
           value=""
