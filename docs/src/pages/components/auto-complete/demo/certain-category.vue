@@ -86,6 +86,7 @@ const options = [
     :classes="{ popup: { root: 'certain-category-search-dropdown' } }"
     :popup-match-select-width="500"
     style="width: 250px"
+    placeholder="input here"
     :options="options"
   >
     <a-input-search size="large" placeholder="input here" />
