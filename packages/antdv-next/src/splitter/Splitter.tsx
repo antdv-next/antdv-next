@@ -27,7 +27,7 @@ import SplitBar from './SplitBar.tsx'
 
 import useStyle from './style'
 
-interface InternalSplitterProps extends SplitterProps,
+export interface InternalSplitterProps extends SplitterProps,
   /* @vue-ignore */
   EmitsMap<SplitterEmits> {}
 

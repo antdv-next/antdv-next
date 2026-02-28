@@ -19,7 +19,7 @@ import PurePanel from './PurePanel.tsx'
 
 import useStyle from './style'
 
-interface InternalTourProps extends TourProps,
+export interface InternalTourProps extends TourProps,
   /* @vue-ignore */
   EmitsMap<TourEmits> {}
 
@@ -205,11 +205,11 @@ const Tour = defineComponent<
 export type {
   TourEmits,
   TourLocale,
-  TourProps,
   TourSemanticName,
   TourSlots,
   TourStylesType,
 } from './interface'
+export type { InternalTourProps as TourProps }
 
 ;(Tour as any)._InternalPanelDoNotUseOrYouWillBeFired = PurePanel
 

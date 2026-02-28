@@ -56,7 +56,7 @@ const defaults = {
   supportServerRender: true,
 } as any
 
-interface InternalUploadProps extends UploadProps,
+export interface InternalUploadProps extends UploadProps,
   /* @vue-ignore */
   EmitsMap<UploadEmits> {}
 

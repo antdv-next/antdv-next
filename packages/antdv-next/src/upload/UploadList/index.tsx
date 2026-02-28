@@ -24,7 +24,7 @@ const defaults = {
   appendActionVisible: true,
 } as any
 
-interface InternalUploadListProps extends UploadListProps,
+export interface InternalUploadListProps extends UploadListProps,
   /* @vue-ignore */
   EmitsMap<UploadListEmits> {}
 

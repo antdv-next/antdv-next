@@ -25,7 +25,6 @@ import useStyle from './style/index'
 
 export type {
   QRCodeEmits,
-  QRCodeProps,
 }
 
 const defaults = {
@@ -38,7 +37,7 @@ const defaults = {
   bgColor: 'transparent',
 } as any
 
-interface InternalQRCodeProps extends QRCodeProps,
+export interface InternalQRCodeProps extends QRCodeProps,
   /* @vue-ignore */
   EmitsMap<QRCodeEmits> {}
 
@@ -196,5 +195,7 @@ const QRCode = defineComponent<
 ;(QRCode as any).install = (app: App) => {
   app.component(QRCode.name, QRCode)
 }
+
+export type { InternalQRCodeProps as QRCodeProps }
 
 export default QRCode

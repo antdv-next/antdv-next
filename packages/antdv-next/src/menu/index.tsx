@@ -14,16 +14,18 @@ import Item from './MenuItem'
 import SubMenu from './SubMenu'
 
 export type MenuItemType = ItemType
-export type { MenuEmits, MenuItemGroupProps, MenuItemProps, MenuProps, MenuSlots, SubMenuProps }
+export type { MenuEmits, MenuItemGroupProps, MenuItemProps, MenuSlots, SubMenuProps }
 
 export interface MenuRef {
   menu: VcMenuRef | null
   focus: (options?: FocusOptions) => void
 }
 
-interface InternalMenuProps extends MenuProps,
+export interface InternalMenuProps extends MenuProps,
   /* @vue-ignore */
   EmitsMap<MenuEmits> {}
+
+export type { InternalMenuProps as MenuProps }
 
 const Menu = defineComponent<
   InternalMenuProps,

@@ -41,7 +41,7 @@ const defaults = {
   oneWay: false,
 } as any
 
-interface InternalTransferProps extends TransferProps,
+export interface InternalTransferProps extends TransferProps,
   /* @vue-ignore */
   EmitsMap<TransferEmits> {}
 

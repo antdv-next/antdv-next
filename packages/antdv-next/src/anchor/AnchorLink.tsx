@@ -17,14 +17,12 @@ export interface AnchorLinkEmits {
   click: (e: MouseEvent, params: { title: any, href: any }) => any
 }
 
-export type AnchorLinkProps = AnchorLinkBaseProps
-
-interface InternalAnchorLinkProps extends AnchorLinkProps,
+export interface AnchorLinkProps extends AnchorLinkBaseProps,
   /* @vue-ignore */
   EmitsMap<AnchorLinkEmits> {}
 
 const AnchorLink = defineComponent<
-  InternalAnchorLinkProps,
+  AnchorLinkProps,
   AnchorLinkEmits,
   string
 >(

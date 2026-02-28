@@ -7,10 +7,10 @@ export type {
   UploadChangeParam,
   UploadEmits,
   UploadFile,
-  UploadListProps,
-  UploadProps,
   UploadSlots,
 } from './interface'
+export type { InternalUploadProps as UploadProps } from './Upload'
+export type { InternalUploadListProps as UploadListProps } from './UploadList'
 
 const Upload = InternalUpload as typeof InternalUpload & {
   install: (app: App) => void

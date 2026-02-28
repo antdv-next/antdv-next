@@ -1,6 +1,7 @@
 import ColorPicker from './ColorPicker'
 
 export type { AggregationColor as Color } from './color'
-export type { ColorPickerEmits, ColorPickerProps, ColorPickerSlots, ColorValueType } from './interface'
+export type { InternalColorPickerProps as ColorPickerProps } from './ColorPicker'
+export type { ColorPickerEmits, ColorPickerSlots, ColorValueType } from './interface'
 
 export default ColorPicker

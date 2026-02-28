@@ -42,7 +42,7 @@ const defaults = {
   destroyOnHidden: false,
 } as any
 
-interface InternalColorPickerProps extends ColorPickerProps,
+export interface InternalColorPickerProps extends ColorPickerProps,
   /* @vue-ignore */
   EmitsMap<ColorPickerEmits> {}
 

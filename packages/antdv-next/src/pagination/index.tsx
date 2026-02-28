@@ -6,9 +6,9 @@ export type {
   PaginationEmits,
   PaginationLocale,
   PaginationPosition,
-  PaginationProps,
   PaginationSlots,
   PaginationStylesType,
 } from './interface'
+export type { InternalPaginationProps as PaginationProps } from './Pagination'
 
 export default Pagination

@@ -4,16 +4,16 @@ import Group from './group'
 import Radio from './radio'
 import Button from './radioButton'
 
+export type { InternalRadioGroupProps as RadioGroupProps } from './group'
 export type {
   RadioChangeEvent,
   RadioEmits,
   RadioGroupEmits,
   RadioGroupOptionType,
-  RadioGroupProps,
   RadioGroupSlots,
-  RadioProps,
   RadioSlots,
 } from './interface'
+export type { InternalRadioProps as RadioProps } from './radio'
 
 export type RadioOptionType = CheckboxOptionType
 export const RadioGroup = Group

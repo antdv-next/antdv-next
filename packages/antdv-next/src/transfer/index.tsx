@@ -22,13 +22,13 @@ export type {
   TransferListBodyProps,
   TransferListProps,
   TransferLocale,
-  TransferProps,
   TransferRender,
   TransferSearchOption,
   TransferSlots,
   TransferStylesType,
 } from './interface'
 export type { TransferSearchEmits, TransferSearchProps, TransferSearchSlots } from './search'
+export type { InternalTransferProps as TransferProps } from './Transfer'
 
 const InternalTransfer = Transfer as typeof Transfer & {
   install: (app: App) => void

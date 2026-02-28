@@ -29,7 +29,7 @@ import { useRadioGroupContext, useRadioOptionTypeContext } from './context'
 
 import useStyle from './style'
 
-interface InternalRadioProps extends RadioProps,
+export interface InternalRadioProps extends RadioProps,
   /* @vue-ignore */
   EmitsMap<RadioEmits> {}
 

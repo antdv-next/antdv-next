@@ -21,10 +21,6 @@ import useStyle from './style'
 
 export type { CSPConfig } from './context'
 
-export type {
-  ConfigProviderProps,
-}
-
 interface ProviderChildrenProps extends ConfigProviderProps,
   /* @vue-ignore */
   EmitsMap<ConfigProviderEmits> {
@@ -313,7 +309,7 @@ const ProviderChildren = defineComponent<
   },
 )
 
-interface InternalConfigProviderProps extends ConfigProviderProps,
+export interface InternalConfigProviderProps extends ConfigProviderProps,
   /* @vue-ignore */
   EmitsMap<ConfigProviderEmits> {}
 
@@ -358,6 +354,8 @@ export default ConfigProvider as typeof ConfigProvider & {
   config: (props: GlobalConfigProps) => void
   useConfig: typeof useExportConfig
 }
+
+export type { InternalConfigProviderProps as ConfigProviderProps }
 
 export function globalConfig() {
   return {

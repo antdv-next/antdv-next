@@ -1,9 +1,8 @@
 import type { Dayjs } from 'dayjs'
 import type { App } from 'vue'
-import type { DatePickerEmits, DatePickerSlots } from './generatePicker/generateSinglePicker'
+import type { InternalRangePickerProps } from './generatePicker/generateRangePicker'
+import type { DatePickerEmits, DatePickerSlots, InternalPickerProps } from './generatePicker/generateSinglePicker'
 import type {
-  RangePickerProps as BaseRangePickerProps,
-  PickerProps,
   PickerPropsWithMultiple,
 } from './generatePicker/interface'
 import dayjsGenerateConfig from '@v-c/picker/generate/dayjs'
@@ -20,7 +19,7 @@ export type {
 export type DatePickerProps<
   ValueType = Dayjs,
   IsMultiple extends boolean = boolean,
-> = PickerPropsWithMultiple<Dayjs, PickerProps<Dayjs>, ValueType, IsMultiple>
+> = PickerPropsWithMultiple<Dayjs, InternalPickerProps<Dayjs>, ValueType, IsMultiple>
 
 export type MonthPickerProps<ValueType = Dayjs | Dayjs> = Omit<
   DatePickerProps<ValueType>,
@@ -32,7 +31,7 @@ export type WeekPickerProps<ValueType = Dayjs | Dayjs> = Omit<
   'picker'
 >
 
-export type RangePickerProps = BaseRangePickerProps<Dayjs>
+export type RangePickerProps = InternalRangePickerProps<Dayjs>
 
 const DatePicker = generatePicker<Dayjs>(dayjsGenerateConfig)
 

@@ -101,7 +101,9 @@ export interface TriggerCommonApi extends ComponentBaseProps {
   motion?: VcTooltipProps['motion']
 }
 
-export interface TooltipProps extends TriggerCommonApi {
+export interface TooltipProps extends TriggerCommonApi,
+  /* @vue-ignore */
+  EmitsMap<TooltipEmits> {
   afterOpenChange?: (open: boolean) => void
   builtinPlacements?: typeof Placements
   title?: VueNode
@@ -124,9 +126,7 @@ export interface TooltipSlots {
  * @internal
  * Internal props type with hidden properties
  */
-interface InternalTooltipProps extends TooltipProps,
-  /* @vue-ignore */
-  EmitsMap<TooltipEmits> {
+interface InternalTooltipProps extends TooltipProps {
   dataPopoverInject?: boolean
 }
 

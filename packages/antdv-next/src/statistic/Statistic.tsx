@@ -82,7 +82,7 @@ const defaults = {
   prefix: undefined,
 } as any
 
-interface InternalStatisticProps extends StatisticProps,
+export interface InternalStatisticProps extends StatisticProps,
   /* @vue-ignore */
   EmitsMap<StatisticEmits> {}
 

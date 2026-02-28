@@ -50,7 +50,7 @@ const defaults = {
   width: 520,
 } as any
 
-interface InternalModalProps extends ModalProps,
+export interface InternalModalProps extends ModalProps,
   /* @vue-ignore */
   EmitsMap<ModalEmits> {}
 

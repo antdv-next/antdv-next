@@ -39,7 +39,7 @@ const omitKeys = [
   'selectComponentClass',
 ] as const
 
-interface InternalPaginationProps extends PaginationProps,
+export interface InternalPaginationProps extends PaginationProps,
   /* @vue-ignore */
   EmitsMap<PaginationEmits> {}
 
