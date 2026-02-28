@@ -387,8 +387,8 @@ catalogs:
       specifier: ^1.0.0
       version: 1.0.0
     '@v-c/table':
-      specifier: ^1.0.1
-      version: 1.0.1
+      specifier: ^1.0.2
+      version: 1.0.2
     '@v-c/tabs':
       specifier: ^1.0.1
       version: 1.0.1
@@ -840,7 +840,7 @@ importers:
         version: 1.0.0(vue@3.5.28(typescript@5.9.3))
       '@v-c/table':
         specifier: catalog:vc
-        version: 1.0.1(vue@3.5.28(typescript@5.9.3))
+        version: 1.0.2(vue@3.5.28(typescript@5.9.3))
       '@v-c/tabs':
         specifier: catalog:vc
         version: 1.0.1(vue@3.5.28(typescript@5.9.3))
@@ -2645,11 +2645,6 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
-  '@v-c/slick@1.0.1':
-    resolution: {integrity: sha512-BJwOmPDV8cBvn2zx8K1x/X3FpSs9SSAWP9bfJWeHHD0H0wGARhldcKWnUM83bobz/khYIldUQUo9BMndxFoIKw==}
-    peerDependencies:
-      vue: ^3.0.0
-
   '@v-c/slick@1.0.2':
     resolution: {integrity: sha512-8BbPxJgYST+tio9jyeFQgJb/3XSFhfWZN8Am7YVYeqsYsvn3g8wu61UZNSjlkp9ArOEe+ujOgX4izfDHeXh4RA==}
     peerDependencies:
@@ -2670,8 +2665,8 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
-  '@v-c/table@1.0.1':
-    resolution: {integrity: sha512-PoVjtyp/R4Fp6k2pLujgHLzfIJdXan0t7JOhRlVQPfMckAhmiCCdUDziR51qn0RcwTOYGa0KSplWHWth1f3D2A==}
+  '@v-c/table@1.0.2':
+    resolution: {integrity: sha512-o90S2syEk4MT0OWiHmeOf9xStnMQqEJ5AlNBUrxCLHzM830Rk+EwTwjwnz8vLXlcM0Jn9zag+92uFfwUMYcksw==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -7746,12 +7741,6 @@ snapshots:
       '@v-c/virtual-list': 1.0.6(vue@3.5.28(typescript@5.9.3))
       vue: 3.5.28(typescript@5.9.3)
 
-  '@v-c/slick@1.0.1(vue@3.5.28(typescript@5.9.3))':
-    dependencies:
-      '@v-c/util': 1.0.17(vue@3.5.28(typescript@5.9.3))
-      es-toolkit: 1.44.0
-      vue: 3.5.28(typescript@5.9.3)
-
   '@v-c/slick@1.0.2(vue@3.5.28(typescript@5.9.3))':
     dependencies:
       '@v-c/util': 1.0.17(vue@3.5.28(typescript@5.9.3))
@@ -7773,7 +7762,7 @@ snapshots:
       '@v-c/util': 1.0.17(vue@3.5.28(typescript@5.9.3))
       vue: 3.5.28(typescript@5.9.3)
 
-  '@v-c/table@1.0.1(vue@3.5.28(typescript@5.9.3))':
+  '@v-c/table@1.0.2(vue@3.5.28(typescript@5.9.3))':
     dependencies:
       '@v-c/resize-observer': 1.0.8(vue@3.5.28(typescript@5.9.3))
       '@v-c/util': 1.0.17(vue@3.5.28(typescript@5.9.3))
@@ -8178,11 +8167,11 @@ snapshots:
       '@v-c/resize-observer': 1.0.8(vue@3.5.28(typescript@5.9.3))
       '@v-c/segmented': 1.0.0(vue@3.5.28(typescript@5.9.3))
       '@v-c/select': 1.0.16(vue@3.5.28(typescript@5.9.3))
-      '@v-c/slick': 1.0.1(vue@3.5.28(typescript@5.9.3))
+      '@v-c/slick': 1.0.2(vue@3.5.28(typescript@5.9.3))
       '@v-c/slider': 1.0.10(vue@3.5.28(typescript@5.9.3))
       '@v-c/steps': 1.0.0(vue@3.5.28(typescript@5.9.3))
       '@v-c/switch': 1.0.0(vue@3.5.28(typescript@5.9.3))
-      '@v-c/table': 1.0.1(vue@3.5.28(typescript@5.9.3))
+      '@v-c/table': 1.0.2(vue@3.5.28(typescript@5.9.3))
       '@v-c/tabs': 1.0.1(vue@3.5.28(typescript@5.9.3))
       '@v-c/textarea': 1.0.3(vue@3.5.28(typescript@5.9.3))
       '@v-c/tooltip': 1.0.3(vue@3.5.28(typescript@5.9.3))

@@ -4,11 +4,6 @@ shellEmulator: true
 
 trustPolicy: no-downgrade
 
-trustPolicyExclude:
-  - semver@6.3.1
-  - semver@5.7.3
-  - semver@5.7.2
-
 packages:
   - packages/*
   - playground
@@ -156,7 +151,7 @@ catalogs:
     '@v-c/slider': ^1.0.10
     '@v-c/steps': ^1.0.0
     '@v-c/switch': ^1.0.0
-    '@v-c/table': ^1.0.1
+    '@v-c/table': ^1.0.2
     '@v-c/tabs': ^1.0.1
     '@v-c/textarea': ^1.0.3
     '@v-c/tooltip': ^1.0.3
