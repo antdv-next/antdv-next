@@ -1681,6 +1681,7 @@ exports[`auto-complete demo > renders custom correctly 1`] = `
         autocomplete="off"
         class="ant-input ant-input-outlined css-var-root ant-input-css-var custom ant-select-input"
         id="test-id"
+        placeholder="input here"
         role="combobox"
         style="height: 50px;"
         type="text"
