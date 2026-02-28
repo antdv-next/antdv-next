@@ -200,6 +200,15 @@ describe('autoComplete', () => {
     expect(wrapper.find('.ant-select-customize').exists()).toBe(true)
   })
 
+  it('should preserve placeholder for custom textarea', () => {
+    const wrapper = mount(AutoComplete, {
+      slots: {
+        default: () => <textarea placeholder="input here" />,
+      },
+    })
+    expect(wrapper.find('textarea').attributes('placeholder')).toBe('input here')
+  })
+
   it('should support Option children', () => {
     const { Option } = AutoComplete
     const wrapper = mount(AutoComplete, {
