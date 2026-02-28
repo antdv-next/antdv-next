@@ -83,7 +83,7 @@ We are very welcome to have you participate in our open source project.
 Thank you to all the people who already contributed to Antdv Next!
 
 <a href="https://github.com/antdv-next/antdv-next/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=antdv-next/antdv-next&max=100&columns=15" />
+  <img src="https://opencollective.com/antdv-next/contributors.svg?width=890&limit=500" />
 </a>
 
 [github-action-image]: https://github.com/antdv-next/antdv-next/actions/workflows/test.yml/badge.svg

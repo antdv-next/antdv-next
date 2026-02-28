@@ -48,8 +48,8 @@ const teamMembers = [
     github: 'ffgenius',
     name: 'ffgenius',
     avatar: 'https://avatars.githubusercontent.com/u/106022674?v=4',
-    wxCode: '',
-    alipayCode: '',
+    wxCode: 'wxp://f2f0WLYuzNeJ37fJ8ggT1-a3KwOGGIm4kM3mQ7Ti6dhEvuw',
+    alipayCode: 'https://qr.alipay.com/fkx16048xvbk55pvxz8ev6b',
   },
   {
     github: 'Darkingtail',
