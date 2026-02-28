@@ -31,6 +31,8 @@
     ol,
     li,
     table,
+    tbody,
+    thead,
     tr,
     th,
     td,
@@ -43,5 +45,10 @@
     .custom-block *,
     .header-anchor
   ) {
+  all: revert-layer;
+}
+
+/* Hover-state table rows need an explicit override because :where(...) has zero specificity. */
+.vp-doc .vp-raw tbody tr:hover {
   all: revert-layer;
 }
