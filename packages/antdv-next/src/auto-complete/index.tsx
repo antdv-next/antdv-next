@@ -226,6 +226,7 @@ const InternalAutoComplete = defineComponent<
       }
 
       const getInputElement = customizeInput ? () => customizeInput : undefined
+      const customizeInputPlaceholder = customizeInput?.props?.placeholder
 
       let optionChildren: any = []
       if (hasSelectOptions) {
@@ -326,6 +327,9 @@ const InternalAutoComplete = defineComponent<
       }
 
       const selectProps: Record<string, any> = omit(props, omitKeys)
+      if (selectProps.placeholder === undefined && customizeInputPlaceholder !== undefined) {
+        selectProps.placeholder = customizeInputPlaceholder
+      }
       const onAttrs = {
         onSelect: (value: any, option: any) => {
           emit('select', value, option)

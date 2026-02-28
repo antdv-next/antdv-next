@@ -247,7 +247,7 @@ const InternalTabs = defineComponent<
       warning.deprecated(!popupClassName.value, 'popupClassName', 'classNames.popup')
       warning.deprecated(!tabPosition.value, 'tabPosition', 'tabPlacement')
       warning(
-        !((props as any).onPrevClick || (props as any).onNextClick),
+        !((attrs as any).onPrevClick || (attrs as any).onNextClick),
         'breaking',
         '`onPrevClick` and `onNextClick` has been removed. Please use `onTabScroll` instead.',
       )
@@ -373,8 +373,8 @@ const InternalTabs = defineComponent<
       }
       let renderTabBar: any | undefined
       if (slots.renderTabBar || props.renderTabBar) {
-        renderTabBar = (props: any, TabNavListComponent: any) => {
-          return getSlotPropsFnRun(slots, props, 'renderTabBar', true, { props, TabNavListComponent })
+        renderTabBar = (tabBarProps: any, TabNavListComponent: any) => {
+          return getSlotPropsFnRun(slots, props, 'renderTabBar', true, { props: tabBarProps, TabNavListComponent })
         }
       }
       let tabBarExtraContent: any
