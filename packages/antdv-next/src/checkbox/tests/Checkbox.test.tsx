@@ -72,6 +72,51 @@ describe('checkbox', () => {
     expect(onChange).toHaveBeenCalled()
   })
 
+  it('should keep checked state when controlled checked is provided', async () => {
+    const onUpdateChecked = vi.fn()
+    const wrapper = mount(Checkbox, {
+      props: {
+        checked: true,
+        'onUpdate:checked': onUpdateChecked,
+      },
+      slots: { default: () => 'Checkbox' },
+    })
+
+    expect(wrapper.find('.ant-checkbox-wrapper-checked').exists()).toBe(true)
+
+    const input = wrapper.find('input').element as HTMLInputElement
+    input.checked = false
+    await wrapper.find('input').trigger('change')
+    await nextTick()
+
+    expect(wrapper.find('.ant-checkbox-wrapper-checked').exists()).toBe(true)
+    expect(onUpdateChecked).toHaveBeenCalled()
+  })
+
+  it('should manage checked state internally when checked is undefined', async () => {
+    const wrapper = mount(Checkbox, {
+      props: {
+        checked: undefined,
+      },
+      slots: { default: () => 'Checkbox' },
+    })
+
+    expect(wrapper.find('.ant-checkbox-wrapper-checked').exists()).toBe(false)
+
+    const input = wrapper.find('input').element as HTMLInputElement
+    input.checked = true
+    await wrapper.find('input').trigger('change')
+    await nextTick()
+
+    expect(wrapper.find('.ant-checkbox-wrapper-checked').exists()).toBe(true)
+
+    input.checked = false
+    await wrapper.find('input').trigger('change')
+    await nextTick()
+
+    expect(wrapper.find('.ant-checkbox-wrapper-checked').exists()).toBe(false)
+  })
+
   it('should clear checked state when controlled checked path becomes undefined', async () => {
     const data = ref<Record<string, any>>({ checked: true })
     const wrapper = mount(() => (

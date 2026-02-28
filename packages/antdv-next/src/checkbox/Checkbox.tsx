@@ -208,6 +208,10 @@ const InternalCheckbox = defineComponent<
     )
 
     const rootCls = useCSSVarCls(prefixCls)
+
+    // checkbox is controlled when checked prop is defined
+    const isControlled = computed(() => props.checked !== undefined)
+
     const [hashId, cssVarCls] = useStyle(prefixCls, rootCls)
     // ============================ Event Lock ============================
     const [onLabelClick, onInputClick] = useBubbleLock((e) => {
@@ -307,6 +311,9 @@ const InternalCheckbox = defineComponent<
                       // 单独使用时，返回自定义值
                       const newValue = checked ? mergedCheckedValue.value : mergedUnCheckedValue.value
                       currentValue.value = newValue
+                      if (!isControlled.value) {
+                        currentValue.value = newValue
+                      }
                       props?.['onUpdate:checked']?.(newValue)
                     }
                   },
