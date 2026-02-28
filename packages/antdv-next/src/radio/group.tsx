@@ -22,7 +22,7 @@ const defaults = {
   block: false,
 } as any
 
-interface InternalRadioGroupProps extends RadioGroupProps,
+export interface InternalRadioGroupProps extends RadioGroupProps,
   /* @vue-ignore */
   EmitsMap<RadioGroupEmits> {}
 

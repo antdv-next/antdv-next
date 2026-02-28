@@ -52,9 +52,9 @@ export interface RangePickerSlots {
   [key: string]: any
 }
 
-interface InternalRangePickerProps<DateType extends AnyObject = AnyObject> extends RangePickerProps<DateType>,
+export interface InternalRangePickerProps<DateType extends AnyObject = AnyObject> extends RangePickerProps<DateType>,
   /* @vue-ignore */
-  EmitsMap<RangePickerEmits<DateType>> {}
+  Omit<EmitsMap<RangePickerEmits<DateType>>, keyof RangePickerProps<DateType>> {}
 
 function generateRangePicker<DateType extends AnyObject = AnyObject>(generateConfig: GenerateConfig<DateType>) {
   type DateRangePickerProps = RangePickerProps<DateType>

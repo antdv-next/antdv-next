@@ -39,7 +39,7 @@ const defaults = {
   suffix: undefined,
   prefix: undefined,
 } as any
-interface InternalStatisticTimerProps extends StatisticTimerProps,
+export interface InternalStatisticTimerProps extends StatisticTimerProps,
   /* @vue-ignore */
   EmitsMap<StatisticTimeEmits> {}
 

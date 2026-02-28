@@ -64,9 +64,9 @@ export interface DatePickerSlots {
   [key: string]: any
 }
 
-interface InternalPickerProps<DateType extends AnyObject = AnyObject> extends PickerProps<DateType>,
+export interface InternalPickerProps<DateType extends AnyObject = AnyObject> extends PickerProps<DateType>,
   /* @vue-ignore */
-  EmitsMap<DatePickerEmits<DateType>> {}
+  Omit<EmitsMap<DatePickerEmits<DateType>>, keyof PickerProps<DateType>> {}
 
 function generatePicker<DateType extends AnyObject = AnyObject>(generateConfig: GenerateConfig<DateType>) {
   type DatePickerProps = PickerProps<DateType>

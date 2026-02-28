@@ -9,7 +9,7 @@ import Radio from './radio'
 
 export type RadioButtonProps = AbstractCheckboxProps
 
-interface InternalRadioButtonProps extends RadioButtonProps,
+export interface InternalRadioButtonProps extends RadioButtonProps,
   /* @vue-ignore */
   EmitsMap<CheckboxEmits> {}
 

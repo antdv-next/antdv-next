@@ -53,5 +53,5 @@ export type ValidChar
  */
 
 export type EmitsMap<T extends Record<string, any>> = {
-  [K in keyof T as `on${Capitalize<string & K>}`]: T[K] extends any[] ? (...args: T[K]) => void : T[K]
+  [K in keyof T as `on${Capitalize<string & K>}`]?: T[K] extends any[] ? (...args: T[K]) => void : T[K]
 }
