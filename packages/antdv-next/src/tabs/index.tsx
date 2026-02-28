@@ -373,8 +373,8 @@ const InternalTabs = defineComponent<
       }
       let renderTabBar: any | undefined
       if (slots.renderTabBar || props.renderTabBar) {
-        renderTabBar = (props: any, TabNavListComponent: any) => {
-          return getSlotPropsFnRun(slots, props, 'renderTabBar', true, { props, TabNavListComponent })
+        renderTabBar = (tabBarProps: any, TabNavListComponent: any) => {
+          return getSlotPropsFnRun(slots, props, 'renderTabBar', true, { props: tabBarProps, TabNavListComponent })
         }
       }
       let tabBarExtraContent: any
