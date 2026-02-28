@@ -1,5 +1,4 @@
 import type { App, SlotsType } from 'vue'
-import type { EmitsMap } from '../_util/type'
 import type { PopoverProps } from '../popover'
 import type {
   ColorFormatType,
@@ -44,7 +43,18 @@ const defaults = {
 
 export interface InternalColorPickerProps extends ColorPickerProps,
   /* @vue-ignore */
-  EmitsMap<ColorPickerEmits> {}
+  ColorPickerEmitsProps {}
+
+export interface ColorPickerEmitsProps {
+  onChange?: ColorPickerEmits['change']
+  onClear?: ColorPickerEmits['clear']
+  onChangeComplete?: ColorPickerEmits['changeComplete']
+  onOpenChange?: ColorPickerEmits['openChange']
+  'onUpdate:open'?: ColorPickerEmits['update:open']
+  onFormatChange?: ColorPickerEmits['formatChange']
+  'onUpdate:value'?: ColorPickerEmits['update:value']
+  'onUpdate:format'?: ColorPickerEmits['update:format']
+}
 
 const ColorPicker = defineComponent<
   InternalColorPickerProps,

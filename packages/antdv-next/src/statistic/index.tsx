@@ -1,9 +1,11 @@
 import type { App } from 'vue'
+import type { InternalStatisticProps } from './Statistic'
+import type { InternalStatisticTimerProps } from './Timer'
 import Statistic from './Statistic'
 import Timer from './Timer'
 
-export type { InternalStatisticProps as StatisticProps } from './Statistic'
-export type { InternalStatisticTimerProps as StatisticTimerProps } from './Timer'
+export type StatisticProps = InternalStatisticProps
+export type StatisticTimerProps = InternalStatisticTimerProps
 export const StatisticTimer = Timer
 
 ;(Statistic as any).install = (app: App) => {

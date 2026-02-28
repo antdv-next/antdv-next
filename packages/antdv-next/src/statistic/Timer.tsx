@@ -1,5 +1,4 @@
 import type { SlotsType } from 'vue'
-import type { EmitsMap } from '../_util/type'
 import type { StatisticProps, StatisticSlots } from './Statistic.tsx'
 import type { FormatConfig, valueType } from './utils.ts'
 import raf from '@v-c/util/dist/raf'
@@ -41,7 +40,12 @@ const defaults = {
 } as any
 export interface InternalStatisticTimerProps extends StatisticTimerProps,
   /* @vue-ignore */
-  EmitsMap<StatisticTimeEmits> {}
+  StatisticTimeEmitsProps {}
+
+export interface StatisticTimeEmitsProps {
+  onFinish?: StatisticTimeEmits['finish']
+  onChange?: StatisticTimeEmits['change']
+}
 
 const StatisticTimer = defineComponent<
   InternalStatisticTimerProps,

@@ -1,4 +1,6 @@
 import type { App } from 'vue'
+import type { InternalUploadProps } from './Upload'
+import type { InternalUploadListProps } from './UploadList'
 import Dragger from './Dragger'
 import InternalUpload, { LIST_IGNORE } from './Upload'
 
@@ -9,8 +11,8 @@ export type {
   UploadFile,
   UploadSlots,
 } from './interface'
-export type { InternalUploadProps as UploadProps } from './Upload'
-export type { InternalUploadListProps as UploadListProps } from './UploadList'
+export type UploadProps = InternalUploadProps
+export type UploadListProps = InternalUploadListProps
 
 const Upload = InternalUpload as typeof InternalUpload & {
   install: (app: App) => void

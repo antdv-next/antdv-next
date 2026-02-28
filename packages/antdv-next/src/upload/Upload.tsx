@@ -1,6 +1,5 @@
 import type { UploadProps as VcUploadProps } from '@v-c/upload'
 import type { SlotsType } from 'vue'
-import type { EmitsMap } from '../_util/type'
 import type {
   ShowUploadListInterface,
   UploadChangeParam,
@@ -58,7 +57,13 @@ const defaults = {
 
 export interface InternalUploadProps extends UploadProps,
   /* @vue-ignore */
-  EmitsMap<UploadEmits> {}
+  UploadEmitsProps {}
+
+export interface UploadEmitsProps {
+  onChange?: UploadEmits['change']
+  onDrop?: UploadEmits['drop']
+  'onUpdate:fileList'?: UploadEmits['update:fileList']
+}
 
 const InternalUpload = defineComponent<
   InternalUploadProps,

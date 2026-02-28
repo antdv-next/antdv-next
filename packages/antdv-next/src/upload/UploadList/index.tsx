@@ -1,5 +1,4 @@
 import type { SlotsType } from 'vue'
-import type { EmitsMap } from '../../_util/type'
 import type { UploadFile, UploadListEmits, UploadListProps, UploadListSlots, UploadLocale } from '../interface'
 import { FileTwoTone, LoadingOutlined, PaperClipOutlined, PictureTwoTone } from '@antdv-next/icons'
 import { clsx } from '@v-c/util'
@@ -26,7 +25,9 @@ const defaults = {
 
 export interface InternalUploadListProps extends UploadListProps,
   /* @vue-ignore */
-  EmitsMap<UploadListEmits> {}
+  UploadListEmitsProps {}
+
+export interface UploadListEmitsProps {}
 
 const UploadList = defineComponent<
   InternalUploadListProps,

@@ -1,6 +1,5 @@
 import type { SizeInfo } from '@v-c/resize-observer'
 import type { CSSProperties, SlotsType } from 'vue'
-import type { EmitsMap } from '../_util/type'
 import type {
   SplitterClassNamesType,
   SplitterEmits,
@@ -29,7 +28,9 @@ import useStyle from './style'
 
 export interface InternalSplitterProps extends SplitterProps,
   /* @vue-ignore */
-  EmitsMap<SplitterEmits> {}
+  SplitterEmitsProps {}
+
+export interface SplitterEmitsProps {}
 
 const Splitter = defineComponent<
   InternalSplitterProps,

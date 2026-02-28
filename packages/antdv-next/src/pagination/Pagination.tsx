@@ -1,6 +1,6 @@
 import type { PaginationProps as VcPaginationProps } from '@v-c/pagination'
 import type { App, SlotsType } from 'vue'
-import type { EmitsMap, VueNode } from '../_util/type'
+import type { VueNode } from '../_util/type'
 import type {
   PaginationClassNamesType,
   PaginationEmits,
@@ -41,7 +41,14 @@ const omitKeys = [
 
 export interface InternalPaginationProps extends PaginationProps,
   /* @vue-ignore */
-  EmitsMap<PaginationEmits> {}
+  PaginationEmitsProps {}
+
+export interface PaginationEmitsProps {
+  onChange?: PaginationEmits['change']
+  onShowSizeChange?: PaginationEmits['showSizeChange']
+  'onUpdate:current'?: PaginationEmits['update:current']
+  'onUpdate:pageSize'?: PaginationEmits['update:pageSize']
+}
 
 const Pagination = defineComponent<
   InternalPaginationProps,

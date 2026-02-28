@@ -1,6 +1,5 @@
 import type { SlotsType } from 'vue'
 import type { Breakpoint } from '../_util/responsiveObserver'
-import type { EmitsMap } from '../_util/type'
 import type { ModalClassNamesType, ModalEmits, ModalProps, ModalSlots, ModalStylesType, MousePosition } from './interface'
 import { CloseOutlined } from '@antdv-next/icons'
 import Dialog from '@v-c/dialog'
@@ -52,7 +51,13 @@ const defaults = {
 
 export interface InternalModalProps extends ModalProps,
   /* @vue-ignore */
-  EmitsMap<ModalEmits> {}
+  ModalEmitsProps {}
+
+export interface ModalEmitsProps {
+  onOk?: ModalEmits['ok']
+  onCancel?: ModalEmits['cancel']
+  'onUpdate:open'?: ModalEmits['update:open']
+}
 
 const Modal = defineComponent<
   InternalModalProps,

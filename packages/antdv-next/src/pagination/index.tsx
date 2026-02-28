@@ -1,3 +1,4 @@
+import type { InternalPaginationProps } from './Pagination'
 import Pagination from './Pagination'
 
 export type {
@@ -9,6 +10,6 @@ export type {
   PaginationSlots,
   PaginationStylesType,
 } from './interface'
-export type { InternalPaginationProps as PaginationProps } from './Pagination'
+export type PaginationProps = InternalPaginationProps
 
 export default Pagination

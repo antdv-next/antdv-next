@@ -1,7 +1,7 @@
 import type { PickerMode, PickerRef } from '@v-c/picker'
 import type { GenerateConfig } from '@v-c/picker/generate'
 import type { SlotsType } from 'vue'
-import type { AnyObject, EmitsMap, VueNode } from '../../_util/type'
+import type { AnyObject, VueNode } from '../../_util/type'
 import type { GenericTimePickerProps, PickerProps } from './interface'
 import Picker from '@v-c/picker'
 import { clsx } from '@v-c/util'
@@ -64,9 +64,22 @@ export interface DatePickerSlots {
   [key: string]: any
 }
 
+export interface DatePickerEmitsProps<DateType = AnyObject> {
+  onChange?: DatePickerEmits<DateType>['change']
+  'onUpdate:value'?: DatePickerEmits<DateType>['update:value']
+  onCalendarChange?: DatePickerEmits<DateType>['calendarChange']
+  onPanelChange?: DatePickerEmits<DateType>['panelChange']
+  onOpenChange?: DatePickerEmits<DateType>['openChange']
+  onOk?: DatePickerEmits<DateType>['ok']
+  onSelect?: DatePickerEmits<DateType>['select']
+  onFocus?: DatePickerEmits<DateType>['focus']
+  onBlur?: DatePickerEmits<DateType>['blur']
+  onKeydown?: DatePickerEmits<DateType>['keydown']
+}
+
 export interface InternalPickerProps<DateType extends AnyObject = AnyObject> extends PickerProps<DateType>,
   /* @vue-ignore */
-  Omit<EmitsMap<DatePickerEmits<DateType>>, keyof PickerProps<DateType>> {}
+  Omit<DatePickerEmitsProps<DateType>, keyof PickerProps<DateType>> {}
 
 function generatePicker<DateType extends AnyObject = AnyObject>(generateConfig: GenerateConfig<DateType>) {
   type DatePickerProps = PickerProps<DateType>

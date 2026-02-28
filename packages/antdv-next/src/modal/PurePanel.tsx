@@ -1,6 +1,5 @@
 import type { DialogProps } from '@v-c/dialog'
 import type { SlotsType } from 'vue'
-import type { EmitsMap } from '../_util/type'
 import type { ModalClassNamesType, ModalFuncProps, ModalStylesType } from './interface'
 import { Panel } from '@v-c/dialog'
 import { clsx } from '@v-c/util'
@@ -20,12 +19,14 @@ export interface PurePanelProps
   extends Omit<DialogProps, 'prefixCls' | 'footer' | 'visible' | 'classNames' | 'styles' | 'style'>,
   Pick<ModalFuncProps, 'type' | 'footer'>,
   /* @vue-ignore */
-  EmitsMap<Record<string, never>> {
+  PurePanelEmitsProps {
   prefixCls?: string
   rootClass?: string
   classes?: ModalClassNamesType
   styles?: ModalStylesType
 }
+
+export interface PurePanelEmitsProps {}
 
 export interface PurePanelSlots {
   default?: () => any

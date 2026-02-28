@@ -1,5 +1,4 @@
 import type { SlotsType } from 'vue'
-import type { EmitsMap } from '../_util/type'
 import type {
   TransferClassNamesType,
   TransferDirection,
@@ -43,7 +42,16 @@ const defaults = {
 
 export interface InternalTransferProps extends TransferProps,
   /* @vue-ignore */
-  EmitsMap<TransferEmits> {}
+  TransferEmitsProps {}
+
+export interface TransferEmitsProps {
+  onChange?: TransferEmits['change']
+  onSelectChange?: TransferEmits['selectChange']
+  onSearch?: TransferEmits['search']
+  onScroll?: TransferEmits['scroll']
+  'onUpdate:targetKeys'?: TransferEmits['update:targetKeys']
+  'onUpdate:selectedKeys'?: TransferEmits['update:selectedKeys']
+}
 
 const Transfer = defineComponent<
   InternalTransferProps,

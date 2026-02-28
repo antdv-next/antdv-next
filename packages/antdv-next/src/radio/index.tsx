@@ -1,10 +1,11 @@
 import type { App } from 'vue'
 import type { CheckboxOptionType } from '../checkbox'
+import type { InternalRadioGroupProps } from './group'
+import type { InternalRadioProps } from './radio'
 import Group from './group'
 import Radio from './radio'
 import Button from './radioButton'
 
-export type { InternalRadioGroupProps as RadioGroupProps } from './group'
 export type {
   RadioChangeEvent,
   RadioEmits,
@@ -13,7 +14,8 @@ export type {
   RadioGroupSlots,
   RadioSlots,
 } from './interface'
-export type { InternalRadioProps as RadioProps } from './radio'
+export type RadioGroupProps = InternalRadioGroupProps
+export type RadioProps = InternalRadioProps
 
 export type RadioOptionType = CheckboxOptionType
 export const RadioGroup = Group

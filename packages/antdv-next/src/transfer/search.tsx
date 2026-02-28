@@ -1,12 +1,12 @@
 import type { SlotsType } from 'vue'
-import type { EmitsMap, VueNode } from '../_util/type'
+import type { VueNode } from '../_util/type'
 import { SearchOutlined } from '@antdv-next/icons'
 import { defineComponent } from 'vue'
 import Input from '../input/Input'
 
 export interface TransferSearchProps extends
   /* @vue-ignore */
-  EmitsMap<TransferSearchEmits> {
+  TransferSearchEmitsProps {
   prefixCls?: string
   placeholder?: string
   value?: string
@@ -16,6 +16,11 @@ export interface TransferSearchProps extends
 export interface TransferSearchEmits {
   change: (e: Event) => void
   clear: () => void
+}
+
+export interface TransferSearchEmitsProps {
+  onChange?: TransferSearchEmits['change']
+  onClear?: TransferSearchEmits['clear']
 }
 
 export interface TransferSearchSlots {

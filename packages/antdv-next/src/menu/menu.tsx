@@ -1,6 +1,6 @@
 import type { MenuInfo, MenuItemProps, RenderIconInfo, SelectInfo, MenuProps as VcMenuProps } from '@v-c/menu'
 import type { CSSProperties, SlotsType } from 'vue'
-import type { EmitsMap, VueNode } from '../_util/type.ts'
+import type { VueNode } from '../_util/type.ts'
 import type { ItemType } from './interface.ts'
 import type { MenuContextProps, MenuTheme } from './MenuContext'
 import { EllipsisOutlined } from '@antdv-next/icons'
@@ -179,6 +179,15 @@ export interface MenuEmits {
   'update:selectedKeys': (selectedKeys: string[]) => void
 }
 
+export interface MenuEmitsProps {
+  onClick?: MenuEmits['click']
+  onSelect?: MenuEmits['select']
+  onDeselect?: MenuEmits['deselect']
+  onOpenChange?: MenuEmits['openChange']
+  'onUpdate:openKeys'?: MenuEmits['update:openKeys']
+  'onUpdate:selectedKeys'?: MenuEmits['update:selectedKeys']
+}
+
 export interface MenuSlots {
   default: () => any
   expandIcon: () => any
@@ -193,7 +202,7 @@ const defaults = {
 } as any
 interface InternalMenuRuntimeProps extends InternalMenuProps,
   /* @vue-ignore */
-  EmitsMap<MenuEmits> {}
+  MenuEmitsProps {}
 
 const InternalMenu = defineComponent<
   InternalMenuRuntimeProps,

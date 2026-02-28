@@ -5,7 +5,7 @@ import type { App, CSSProperties, SlotsType } from 'vue'
 import type { PresetColorType } from '../_util/colors.ts'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { AdjustOverflow } from '../_util/placements.ts'
-import type { EmitsMap, VueNode } from '../_util/type.ts'
+import type { VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
 import VcTooltip from '@v-c/tooltip'
 import { clsx } from '@v-c/util'
@@ -103,7 +103,7 @@ export interface TriggerCommonApi extends ComponentBaseProps {
 
 export interface TooltipProps extends TriggerCommonApi,
   /* @vue-ignore */
-  EmitsMap<TooltipEmits> {
+  TooltipEmitsProps {
   afterOpenChange?: (open: boolean) => void
   builtinPlacements?: typeof Placements
   title?: VueNode
@@ -115,6 +115,11 @@ export interface TooltipProps extends TriggerCommonApi,
 export interface TooltipEmits {
   'openChange': (open: boolean) => void
   'update:open': (open: boolean) => void
+}
+
+export interface TooltipEmitsProps {
+  onOpenChange?: TooltipEmits['openChange']
+  'onUpdate:open'?: TooltipEmits['update:open']
 }
 
 export interface TooltipSlots {

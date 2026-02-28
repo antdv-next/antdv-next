@@ -1,7 +1,6 @@
 import type { TourProps as VcTourProps } from '@v-c/tour'
 import type { App, SlotsType } from 'vue'
-import type { EmitsMap } from '../_util/type'
-import type { TourClassNamesType, TourEmits, TourProps, TourSlots, TourStepProps, TourStylesType } from './interface'
+import type { TourProps as BaseTourProps, TourClassNamesType, TourEmits, TourSlots, TourStepProps, TourStylesType } from './interface'
 import VcTour from '@v-c/tour'
 import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
@@ -19,9 +18,18 @@ import PurePanel from './PurePanel.tsx'
 
 import useStyle from './style'
 
-export interface InternalTourProps extends TourProps,
+export interface InternalTourProps extends BaseTourProps,
   /* @vue-ignore */
-  EmitsMap<TourEmits> {}
+  TourEmitsProps {}
+
+export interface TourEmitsProps {
+  onChange?: TourEmits['change']
+  onClose?: TourEmits['close']
+  onFinish?: TourEmits['finish']
+  'onUpdate:open'?: TourEmits['update:open']
+  'onUpdate:current'?: TourEmits['update:current']
+  onPopupAlign?: TourEmits['popupAlign']
+}
 
 const Tour = defineComponent<
   InternalTourProps,
@@ -81,16 +89,16 @@ const Tour = defineComponent<
       return {
         ...props,
         steps: mergedSteps.value,
-      } as TourProps
+      } as BaseTourProps
     })
 
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       TourClassNamesType,
       TourStylesType,
-      TourProps
+      BaseTourProps
     >(useToArr(contextClassNames, classes), useToArr(contextStyles, styles), useToProps(mergedProps))
 
-    const builtinPlacements: TourProps['builtinPlacements'] = config => getPlacements({
+    const builtinPlacements: BaseTourProps['builtinPlacements'] = config => getPlacements({
       arrowPointAtCenter: config?.arrowPointAtCenter ?? true,
       autoAdjustOverflow: true,
       offset: token.value.marginXXS,
@@ -209,7 +217,7 @@ export type {
   TourSlots,
   TourStylesType,
 } from './interface'
-export type { InternalTourProps as TourProps }
+export type TourProps = InternalTourProps
 
 ;(Tour as any)._InternalPanelDoNotUseOrYouWillBeFired = PurePanel
 

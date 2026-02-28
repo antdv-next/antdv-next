@@ -1,8 +1,7 @@
 import type { MenuInfo, MenuItemGroupProps, SelectInfo, MenuRef as VcMenuRef } from '@v-c/menu'
 import type { App, SlotsType } from 'vue'
-import type { EmitsMap } from '../_util/type'
 import type { ItemType } from './interface.ts'
-import type { MenuEmits, MenuProps, MenuSlots } from './menu'
+import type { MenuProps as BaseMenuProps, MenuEmits, MenuEmitsProps, MenuSlots } from './menu'
 import type { MenuItemProps } from './MenuItem'
 import type { SubMenuProps } from './SubMenu'
 import { computed, defineComponent, shallowRef } from 'vue'
@@ -21,11 +20,11 @@ export interface MenuRef {
   focus: (options?: FocusOptions) => void
 }
 
-export interface InternalMenuProps extends MenuProps,
+export interface InternalMenuProps extends BaseMenuProps,
   /* @vue-ignore */
-  EmitsMap<MenuEmits> {}
+  MenuEmitsProps {}
 
-export type { InternalMenuProps as MenuProps }
+export type MenuProps = InternalMenuProps
 
 const Menu = defineComponent<
   InternalMenuProps,

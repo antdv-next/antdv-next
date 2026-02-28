@@ -1,6 +1,5 @@
 import type { SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
-import type { EmitsMap } from '../_util/type'
 import type {
   RadioChangeEvent,
   RadioEmits,
@@ -31,7 +30,20 @@ import useStyle from './style'
 
 export interface InternalRadioProps extends RadioProps,
   /* @vue-ignore */
-  EmitsMap<RadioEmits> {}
+  RadioEmitsProps {}
+
+export interface RadioEmitsProps {
+  onChange?: RadioEmits['change']
+  'onUpdate:checked'?: RadioEmits['update:checked']
+  'onUpdate:value'?: RadioEmits['update:value']
+  onMouseenter?: RadioEmits['mouseenter']
+  onMouseleave?: RadioEmits['mouseleave']
+  onKeypress?: RadioEmits['keypress']
+  onKeydown?: RadioEmits['keydown']
+  onFocus?: RadioEmits['focus']
+  onBlur?: RadioEmits['blur']
+  onClick?: RadioEmits['click']
+}
 
 const InternalRadio = defineComponent<
   InternalRadioProps,

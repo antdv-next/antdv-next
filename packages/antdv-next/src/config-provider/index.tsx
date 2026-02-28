@@ -1,8 +1,7 @@
 import type { App, AppContext, SlotsType, VNodeChild } from 'vue'
-import type { EmitsMap } from '../_util/type'
 import type { Locale } from '../locale'
 import type { ConfigConsumerProps, Theme, ThemeConfig } from './context'
-import type { ConfigProviderEmits, ConfigProviderProps, ConfigProviderSlots } from './define'
+import type { ConfigProviderProps as BaseConfigProviderProps, ConfigProviderEmits, ConfigProviderSlots } from './define'
 import { createTheme, useStyleContext } from '@antdv-next/cssinjs'
 import { IconContextProvider } from '@antdv-next/icons'
 import { computed, defineComponent, shallowReactive } from 'vue'
@@ -21,9 +20,13 @@ import useStyle from './style'
 
 export type { CSPConfig } from './context'
 
-interface ProviderChildrenProps extends ConfigProviderProps,
+interface ConfigProviderEmitsProps {
+  [key: string]: ConfigProviderEmits[string]
+}
+
+interface ProviderChildrenProps extends BaseConfigProviderProps,
   /* @vue-ignore */
-  EmitsMap<ConfigProviderEmits> {
+  ConfigProviderEmitsProps {
   parentContext: ConfigConsumerProps
   legacyLocale?: Locale
 }
@@ -309,9 +312,9 @@ const ProviderChildren = defineComponent<
   },
 )
 
-export interface InternalConfigProviderProps extends ConfigProviderProps,
+export interface InternalConfigProviderProps extends BaseConfigProviderProps,
   /* @vue-ignore */
-  EmitsMap<ConfigProviderEmits> {}
+  ConfigProviderEmitsProps {}
 
 const ConfigProvider = defineComponent<
   InternalConfigProviderProps,
@@ -355,7 +358,7 @@ export default ConfigProvider as typeof ConfigProvider & {
   useConfig: typeof useExportConfig
 }
 
-export type { InternalConfigProviderProps as ConfigProviderProps }
+export type ConfigProviderProps = InternalConfigProviderProps
 
 export function globalConfig() {
   return {

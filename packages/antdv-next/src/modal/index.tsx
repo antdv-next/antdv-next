@@ -1,4 +1,5 @@
 import type { App } from 'vue'
+import type { InternalModalProps } from './Modal'
 import type useModal from './useModal'
 import confirm, { modalGlobalConfig, withError, withInfo, withSuccess, withWarn } from './confirm'
 import destroyFns from './destroyFns'
@@ -40,7 +41,7 @@ Modal.config = modalGlobalConfig
 }
 
 export type { ModalEmits, ModalSlots } from './interface'
-export type { InternalModalProps as ModalProps } from './Modal'
+export type ModalProps = InternalModalProps
 export { useModalHook as useModal }
 
 export default Modal as typeof ModalComponent & StaticModal

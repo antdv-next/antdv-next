@@ -1,6 +1,6 @@
 import type { CSSProperties, SlotsType, VNodeChild } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
-import type { EmitsMap, VueNode } from '../_util/type.ts'
+import type { VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
 import type { FormatConfig, valueType } from './utils.ts'
 import { classNames } from '@v-c/util'
@@ -84,7 +84,12 @@ const defaults = {
 
 export interface InternalStatisticProps extends StatisticProps,
   /* @vue-ignore */
-  EmitsMap<StatisticEmits> {}
+  StatisticEmitsProps {}
+
+export interface StatisticEmitsProps {
+  onMouseenter?: StatisticEmits['mouseenter']
+  onMouseleave?: StatisticEmits['mouseleave']
+}
 
 const Statistic = defineComponent<
   InternalStatisticProps,

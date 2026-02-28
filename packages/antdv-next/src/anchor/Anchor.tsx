@@ -1,7 +1,7 @@
 import type { Key } from '@v-c/util/dist/type'
 import type { App, CSSProperties, SlotsType, VNodeChild } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
-import type { EmitsMap, SlotsDefineType } from '../_util/type.ts'
+import type { SlotsDefineType } from '../_util/type.ts'
 import type { AffixProps } from '../affix'
 import type { ComponentBaseProps } from '../config-provider/context'
 import type { AnchorLinkBaseProps } from './AnchorLink'
@@ -61,7 +61,7 @@ export type AnchorStylesType = SemanticStylesType<AnchorProps, AnchorSemanticSty
 
 export interface AnchorProps extends ComponentBaseProps,
   /* @vue-ignore */
-  EmitsMap<AnchorEmits> {
+  AnchorEmitsProps {
   classes?: AnchorClassNamesType
   styles?: AnchorStylesType
   offsetTop?: number
@@ -81,6 +81,11 @@ export interface AnchorProps extends ComponentBaseProps,
 export interface AnchorEmits {
   click: (e: MouseEvent, link: { title: VNodeChild, href: string }) => any
   change: (currentActiveLink: string) => any
+}
+
+export interface AnchorEmitsProps {
+  onClick?: AnchorEmits['click']
+  onChange?: AnchorEmits['change']
 }
 
 export type AnchorSlots = SlotsDefineType<{

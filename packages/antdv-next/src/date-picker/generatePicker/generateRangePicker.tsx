@@ -1,7 +1,7 @@
 import type { PickerMode, PickerRef } from '@v-c/picker'
 import type { GenerateConfig } from '@v-c/picker/generate'
 import type { SlotsType } from 'vue'
-import type { AnyObject, EmitsMap, VueNode } from '../../_util/type'
+import type { AnyObject, VueNode } from '../../_util/type'
 import type { RangePickerProps } from './interface'
 import { SwapRightOutlined } from '@antdv-next/icons'
 import { RangePicker } from '@v-c/picker'
@@ -52,9 +52,21 @@ export interface RangePickerSlots {
   [key: string]: any
 }
 
+export interface RangePickerEmitsProps<DateType = AnyObject> {
+  onChange?: RangePickerEmits<DateType>['change']
+  'onUpdate:value'?: RangePickerEmits<DateType>['update:value']
+  onCalendarChange?: RangePickerEmits<DateType>['calendarChange']
+  onPanelChange?: RangePickerEmits<DateType>['panelChange']
+  onOpenChange?: RangePickerEmits<DateType>['openChange']
+  onOk?: RangePickerEmits<DateType>['ok']
+  onFocus?: RangePickerEmits<DateType>['focus']
+  onBlur?: RangePickerEmits<DateType>['blur']
+  onKeydown?: RangePickerEmits<DateType>['keydown']
+}
+
 export interface InternalRangePickerProps<DateType extends AnyObject = AnyObject> extends RangePickerProps<DateType>,
   /* @vue-ignore */
-  Omit<EmitsMap<RangePickerEmits<DateType>>, keyof RangePickerProps<DateType>> {}
+  Omit<RangePickerEmitsProps<DateType>, keyof RangePickerProps<DateType>> {}
 
 function generateRangePicker<DateType extends AnyObject = AnyObject>(generateConfig: GenerateConfig<DateType>) {
   type DateRangePickerProps = RangePickerProps<DateType>
