@@ -1,6 +1,6 @@
 import type { CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
-import type { EmitsMap, VueNode } from '../_util/type'
+import type { VueNode } from '../_util/type'
 import type { ComponentBaseProps } from '../config-provider/context'
 import type { GroupContextProps } from './context'
 import type { FloatButtonGroupTrigger, FloatButtonProps, FloatButtonShape } from './FloatButton'
@@ -60,7 +60,7 @@ export type FloatButtonGroupStylesType = SemanticStylesType<
 
 export interface FloatButtonGroupProps extends Omit<FloatButtonProps, 'classes' | 'styles'>, ComponentBaseProps,
   /* @vue-ignore */
-  EmitsMap<FloatButtonGroupEmits> {
+  FloatButtonGroupEmitsProps {
   // Styles
   classes?: FloatButtonGroupClassNamesType
   styles?: FloatButtonGroupStylesType
@@ -85,6 +85,11 @@ export interface FloatButtonGroupEmits {
   'openChange': (open: boolean) => void
   'update:open': (open: boolean) => void
   'click': (e: MouseEvent) => void
+}
+export interface FloatButtonGroupEmitsProps {
+  onOpenChange?: FloatButtonGroupEmits['openChange']
+  'onUpdate:open'?: FloatButtonGroupEmits['update:open']
+  onClick?: FloatButtonGroupEmits['click']
 }
 
 const groupOmittedProps: (keyof FloatButtonGroupProps)[] = [

@@ -1,6 +1,5 @@
 import type { DefaultOptionType, CascaderProps as VcCascaderProps } from '@v-c/cascader'
 import type { SlotsType } from 'vue'
-import type { EmitsMap } from '../_util/type'
 import type { CascaderProps } from './index'
 import { Panel as VcCascaderPanel } from '@v-c/cascader'
 import { clsx } from '@v-c/util'
@@ -43,11 +42,15 @@ export interface CascaderPanelProps<
   Multiple extends boolean = boolean,
 > extends Pick<CascaderProps<OptionType, ValueField, Multiple>, PanelPickType>,
   /* @vue-ignore */
-  EmitsMap<CascaderPanelEmits> {}
+  CascaderPanelEmitsProps {}
 
 export interface CascaderPanelEmits {
   'change': NonNullable<VcCascaderProps['onChange']>
   'update:value': (value: any) => void
+}
+export interface CascaderPanelEmitsProps {
+  onChange?: CascaderPanelEmits['change']
+  'onUpdate:value'?: CascaderPanelEmits['update:value']
 }
 
 export interface CascaderPanelSlots {

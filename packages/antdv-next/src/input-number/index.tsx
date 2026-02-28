@@ -2,7 +2,7 @@ import type { ValueType, InputNumberProps as VcInputNumberProps, InputNumberRef 
 import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { InputStatus } from '../_util/statusUtils'
-import type { EmitsMap, VueNode } from '../_util/type'
+import type { VueNode } from '../_util/type'
 import type { ComponentBaseProps, Variant } from '../config-provider/context'
 import type { SizeType } from '../config-provider/SizeContext'
 import { DownOutlined, MinusOutlined, PlusOutlined, UpOutlined } from '@antdv-next/icons'
@@ -66,7 +66,7 @@ export interface InputNumberProps
   extends ComponentBaseProps,
   Omit<VcInputNumberProps, 'class' | 'controls' | 'className' | 'style' | 'prefixCls' | 'classNames' | 'styles' | 'prefix' | 'suffix' | 'onChange' | 'onClick' | 'onInput' | 'onBeforeInput' | 'onBlur' | 'onCompositionEnd' | 'onCompositionStart' | 'onKeyDown' | 'onKeyUp' | 'onMouseDown' | 'onMouseEnter' | 'onPressEnter' | 'onMouseUp' | 'onMouseMove' | 'onFocus'>,
   /* @vue-ignore */
-  EmitsMap<InputNumberEmits> {
+  InputNumberEmitsProps {
   size?: SizeType
   status?: InputStatus
   disabled?: boolean
@@ -107,6 +107,27 @@ export interface InputNumberEmits {
   'compositionstart': (e: CompositionEvent) => void
   'compositionend': (e: CompositionEvent) => void
   'beforeinput': (e: InputEvent) => void
+}
+export interface InputNumberEmitsProps {
+  onChange?: InputNumberEmits['change']
+  'onUpdate:value'?: InputNumberEmits['update:value']
+  onInput?: InputNumberEmits['input']
+  onPressEnter?: InputNumberEmits['pressEnter']
+  onStep?: InputNumberEmits['step']
+  onMousedown?: InputNumberEmits['mousedown']
+  onClick?: InputNumberEmits['click']
+  onMouseup?: InputNumberEmits['mouseup']
+  onMouseleave?: InputNumberEmits['mouseleave']
+  onMousemove?: InputNumberEmits['mousemove']
+  onMouseenter?: InputNumberEmits['mouseenter']
+  onMouseout?: InputNumberEmits['mouseout']
+  onFocus?: InputNumberEmits['focus']
+  onBlur?: InputNumberEmits['blur']
+  onKeydown?: InputNumberEmits['keydown']
+  onKeyup?: InputNumberEmits['keyup']
+  onCompositionstart?: InputNumberEmits['compositionstart']
+  onCompositionend?: InputNumberEmits['compositionend']
+  onBeforeinput?: InputNumberEmits['beforeinput']
 }
 
 export interface InputNumberSlots {

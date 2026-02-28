@@ -3,7 +3,7 @@ import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { SelectCommonPlacement } from '../_util/motion'
 import type { InputStatus } from '../_util/statusUtils'
-import type { EmitsMap, VueNode } from '../_util/type'
+import type { VueNode } from '../_util/type'
 import type { ComponentBaseProps, Variant } from '../config-provider/context'
 import type { SizeType } from '../config-provider/SizeContext'
 import VcSelect, { OptGroup, Option } from '@v-c/select'
@@ -151,7 +151,7 @@ export interface SelectProps
     | 'styles'
     | RcEventKeys>,
   /* @vue-ignore */
-  EmitsMap<SelectEmits> {
+  SelectEmitsProps {
   placement?: SelectCommonPlacement
   mode?: 'multiple' | 'tags'
   status?: InputStatus
@@ -216,6 +216,26 @@ export interface SelectEmits {
   'focus': NonNullable<VcSelectProps['onFocus']>
   'popupScroll': NonNullable<VcSelectProps['onPopupScroll']>
   'select': NonNullable<VcSelectProps['onSelect']>
+}
+export interface SelectEmitsProps {
+  onOpenChange?: SelectEmits['openChange']
+  onDropdownVisibleChange?: SelectEmits['dropdownVisibleChange']
+  onClear?: SelectEmits['clear']
+  onKeydown?: SelectEmits['keydown']
+  onKeyup?: SelectEmits['keyup']
+  onBlur?: SelectEmits['blur']
+  'onUpdate:value'?: SelectEmits['update:value']
+  onClick?: SelectEmits['click']
+  onActive?: SelectEmits['active']
+  onChange?: SelectEmits['change']
+  onDeselect?: SelectEmits['deselect']
+  onInputKeydown?: SelectEmits['inputKeydown']
+  onMousedown?: SelectEmits['mousedown']
+  onMouseleave?: SelectEmits['mouseleave']
+  onMouseenter?: SelectEmits['mouseenter']
+  onFocus?: SelectEmits['focus']
+  onPopupScroll?: SelectEmits['popupScroll']
+  onSelect?: SelectEmits['select']
 }
 
 type OptionParams = Parameters<NonNullable<VcSelectProps['optionRender']>>

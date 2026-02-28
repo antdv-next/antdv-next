@@ -5,7 +5,7 @@ import type {
   SemanticStylesType,
 } from '../_util/hooks'
 import type { InputStatus } from '../_util/statusUtils'
-import type { AnyObject, EmitsMap, VueNode } from '../_util/type'
+import type { AnyObject, VueNode } from '../_util/type'
 import type {
   PickerProps,
   RangePickerProps,
@@ -91,7 +91,7 @@ export interface TimePickerLocale {
 
 export interface TimeRangePickerProps extends Omit<RangePickerTimeProps<AnyObject>, 'picker'>,
   /* @vue-ignore */
-  EmitsMap<TimeRangePickerEmits> {
+  TimeRangePickerEmitsProps {
   /** @deprecated Please use `classes.popup` instead */
   popupClassName?: string
   /** @deprecated Please use `styles.popup` instead */
@@ -186,7 +186,7 @@ const RangePicker = defineComponent<
 export interface TimePickerProps
   extends Omit<PickerTimeProps<AnyObject>, 'picker' | 'classes' | 'styles'>,
   /* @vue-ignore */
-  EmitsMap<TimePickerEmits> {
+  TimePickerEmitsProps {
   addon?: () => VueNode
   status?: InputStatus
   /** @deprecated Please use `classes.popup` instead */
@@ -217,6 +217,30 @@ export interface TimePickerEmits<DateType = AnyObject> {
   'focus': (e: FocusEvent, info: any) => void
   'blur': (e: FocusEvent, info: any) => void
   'keydown': (e: KeyboardEvent, preventDefault: VoidFunction) => void
+}
+export interface TimeRangePickerEmitsProps<DateType = AnyObject> {
+  onChange?: TimeRangePickerEmits<DateType>['change']
+  'onUpdate:value'?: TimeRangePickerEmits<DateType>['update:value']
+  onCalendarChange?: TimeRangePickerEmits<DateType>['calendarChange']
+  onPanelChange?: TimeRangePickerEmits<DateType>['panelChange']
+  onOpenChange?: TimeRangePickerEmits<DateType>['openChange']
+  onOk?: TimeRangePickerEmits<DateType>['ok']
+  onFocus?: TimeRangePickerEmits<DateType>['focus']
+  onBlur?: TimeRangePickerEmits<DateType>['blur']
+  onKeydown?: TimeRangePickerEmits<DateType>['keydown']
+}
+
+export interface TimePickerEmitsProps<DateType = AnyObject> {
+  onChange?: TimePickerEmits<DateType>['change']
+  'onUpdate:value'?: TimePickerEmits<DateType>['update:value']
+  onCalendarChange?: TimePickerEmits<DateType>['calendarChange']
+  onPanelChange?: TimePickerEmits<DateType>['panelChange']
+  onOpenChange?: TimePickerEmits<DateType>['openChange']
+  onOk?: TimePickerEmits<DateType>['ok']
+  onSelect?: TimePickerEmits<DateType>['select']
+  onFocus?: TimePickerEmits<DateType>['focus']
+  onBlur?: TimePickerEmits<DateType>['blur']
+  onKeydown?: TimePickerEmits<DateType>['keydown']
 }
 
 const TimePicker = defineComponent<

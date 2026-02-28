@@ -2,7 +2,7 @@ import type { TableProps as VcTableProps } from '@v-c/table'
 import type { CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { Breakpoint } from '../_util/responsiveObserver.ts'
-import type { AnyObject, EmitsMap, VueNode } from '../_util/type.ts'
+import type { AnyObject, VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
 import type { SizeType } from '../config-provider/SizeContext'
 import type { PaginationSemanticClassNames, PaginationSemanticStyles } from '../pagination/interface.ts'
@@ -168,7 +168,7 @@ export interface TableProps<RecordType = AnyObject>
 
 export interface InternalTableProps<RecordType = AnyObject> extends TableProps<RecordType>,
   /* @vue-ignore */
-  EmitsMap<TableEmits> {
+  TableEmitsProps {
   _renderTimes: number
 }
 
@@ -181,6 +181,11 @@ export interface TableEmits<RecordType = AnyObject> {
   ) => void
   'update:expandedRowKeys': (keys: readonly Key[]) => void
   'scroll': NonNullable<VcTableProps['onScroll']>
+}
+export interface TableEmitsProps<RecordType = AnyObject> {
+  onChange?: TableEmits<RecordType>['change']
+  'onUpdate:expandedRowKeys'?: TableEmits<RecordType>['update:expandedRowKeys']
+  onScroll?: TableEmits<RecordType>['scroll']
 }
 
 export interface TableSlots<RecordType = AnyObject> {

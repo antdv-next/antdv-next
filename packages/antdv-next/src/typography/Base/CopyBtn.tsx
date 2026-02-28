@@ -1,5 +1,4 @@
 import type { App, CSSProperties, SlotsType } from 'vue'
-import type { EmitsMap } from '../../_util/type'
 import type { Locale } from '../../locale'
 import type { CopyConfig } from '../interface'
 import { CheckOutlined, CopyOutlined, LoadingOutlined } from '@antdv-next/icons'
@@ -11,7 +10,7 @@ import { getNode, toList } from './util'
 
 export interface CopyBtnProps extends Omit<CopyConfig, 'onCopy'>,
   /* @vue-ignore */
-  EmitsMap<CopyBtnEmits> {
+  CopyBtnEmitsProps {
   prefixCls: string
   copied: boolean
   locale: Locale['Text']
@@ -23,6 +22,9 @@ export interface CopyBtnProps extends Omit<CopyConfig, 'onCopy'>,
 
 export interface CopyBtnEmits {
   copy: (e: MouseEvent) => void
+}
+export interface CopyBtnEmitsProps {
+  onCopy?: CopyBtnEmits['copy']
 }
 
 const CopyBtn = defineComponent<

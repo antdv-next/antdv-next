@@ -2,7 +2,7 @@ import type { SelectProps as VcSelectProps } from '@v-c/select'
 import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { InputStatus } from '../_util/statusUtils'
-import type { EmitsMap, VueNode } from '../_util/type'
+import type { VueNode } from '../_util/type'
 import type {
   InternalSelectProps,
   SelectPopupSemanticClassNames,
@@ -94,7 +94,7 @@ export interface AutoCompleteProps extends
     | RcEventKeys
   >,
   /* @vue-ignore */
-  EmitsMap<AutoCompleteEmits> {
+  AutoCompleteEmitsProps {
   /** @deprecated Please use `options` instead */
   dataSource?: DataSourceItemType[]
   status?: InputStatus
@@ -134,6 +134,27 @@ export interface AutoCompleteEmits {
   'popupScroll': NonNullable<VcSelectProps['onPopupScroll']>
   'select': NonNullable<VcSelectProps['onSelect']>
   'search': NonNullable<VcSelectProps['onSearch']>
+}
+export interface AutoCompleteEmitsProps {
+  onOpenChange?: AutoCompleteEmits['openChange']
+  onDropdownVisibleChange?: AutoCompleteEmits['dropdownVisibleChange']
+  onClear?: AutoCompleteEmits['clear']
+  onKeydown?: AutoCompleteEmits['keydown']
+  onKeyup?: AutoCompleteEmits['keyup']
+  onBlur?: AutoCompleteEmits['blur']
+  'onUpdate:value'?: AutoCompleteEmits['update:value']
+  onClick?: AutoCompleteEmits['click']
+  onActive?: AutoCompleteEmits['active']
+  onChange?: AutoCompleteEmits['change']
+  onDeselect?: AutoCompleteEmits['deselect']
+  onInputKeydown?: AutoCompleteEmits['inputKeydown']
+  onMousedown?: AutoCompleteEmits['mousedown']
+  onMouseleave?: AutoCompleteEmits['mouseleave']
+  onMouseenter?: AutoCompleteEmits['mouseenter']
+  onFocus?: AutoCompleteEmits['focus']
+  onPopupScroll?: AutoCompleteEmits['popupScroll']
+  onSelect?: AutoCompleteEmits['select']
+  onSearch?: AutoCompleteEmits['search']
 }
 
 export interface AutoCompleteSlots {

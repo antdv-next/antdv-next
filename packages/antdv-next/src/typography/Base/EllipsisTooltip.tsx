@@ -1,13 +1,15 @@
 import type { SlotsType } from 'vue'
-import type { EmitsMap } from '../../_util/type'
 import type { TooltipProps } from '../../tooltip'
 import { defineComponent } from 'vue'
 
 import Tooltip from '../../tooltip'
 
+export interface EmptyEmitsProps {
+}
+
 export interface EllipsisTooltipProps extends
   /* @vue-ignore */
-  EmitsMap<Record<string, never>> {
+  EmptyEmitsProps {
   tooltipProps?: TooltipProps
   enableEllipsis: boolean
   isEllipsis?: boolean

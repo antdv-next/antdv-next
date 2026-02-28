@@ -1,5 +1,4 @@
 import type { SlotsType } from 'vue'
-import type { EmitsMap } from '../_util/type'
 import type { TableEmits, TableProps, TableSlots } from './InternalTable.tsx'
 import { EXPAND_COLUMN, Summary } from '@v-c/table'
 import { omit } from 'es-toolkit'
@@ -15,9 +14,13 @@ import {
 
 import InternalTable from './InternalTable.tsx'
 
+export type TableEmitsProps = {
+  [K in keyof TableEmits as `on${Capitalize<string & K>}`]?: TableEmits[K]
+}
+
 interface InternalTableProps extends TableProps,
   /* @vue-ignore */
-  EmitsMap<TableEmits> {}
+  TableEmitsProps {}
 
 const Table = defineComponent<
   InternalTableProps,

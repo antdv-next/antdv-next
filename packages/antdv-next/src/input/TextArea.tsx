@@ -3,7 +3,6 @@ import type { TextAreaProps as VcTextAreaProps } from '@v-c/textarea'
 import type { CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { InputStatus } from '../_util/statusUtils'
-import type { EmitsMap } from '../_util/type'
 import type { ComponentBaseProps, Variant } from '../config-provider/context'
 import type { SizeType } from '../config-provider/SizeContext'
 import VcTextArea from '@v-c/textarea'
@@ -73,7 +72,7 @@ export interface TextAreaProps
     | 'minLength'
   >,
   /* @vue-ignore */
-  EmitsMap<TextAreaEmits> {
+  TextAreaEmitsProps {
   /** @deprecated Use `variant` instead */
   bordered?: boolean
   size?: SizeType
@@ -100,6 +99,18 @@ export interface TextAreaEmits {
   'compositionend': (e: CompositionEvent) => void
   'mousedown': (e: MouseEvent) => void
   'update:value': (value?: string | number) => void
+}
+export interface TextAreaEmitsProps {
+  onPressEnter?: TextAreaEmits['pressEnter']
+  onChange?: TextAreaEmits['change']
+  onFocus?: TextAreaEmits['focus']
+  onBlur?: TextAreaEmits['blur']
+  onResize?: TextAreaEmits['resize']
+  onKeydown?: TextAreaEmits['keydown']
+  onCompositionstart?: TextAreaEmits['compositionstart']
+  onCompositionend?: TextAreaEmits['compositionend']
+  onMousedown?: TextAreaEmits['mousedown']
+  'onUpdate:value'?: TextAreaEmits['update:value']
 }
 
 export interface TextAreaSlots {

@@ -3,7 +3,7 @@ import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { SelectCommonPlacement } from '../_util/motion'
 import type { InputStatus } from '../_util/statusUtils'
-import type { EmitsMap, VueNode } from '../_util/type'
+import type { VueNode } from '../_util/type'
 import type { Variant } from '../config-provider/context'
 import type { SizeType } from '../config-provider/SizeContext'
 import type { SelectPopupSemanticClassNames, SelectPopupSemanticStyles } from '../select'
@@ -154,7 +154,7 @@ export interface CascaderProps<
     | 'value'
   >,
   /* @vue-ignore */
-  EmitsMap<CascaderEmits> {
+  CascaderEmitsProps {
   value?: any
   multiple?: boolean
   size?: SizeType
@@ -210,6 +210,14 @@ export interface CascaderEmits {
   'change': NonNullable<VcCascaderProps['onChange']>
   'update:value': (value: any) => void
   'search': NonNullable<VcCascaderProps['onSearch']>
+}
+export interface CascaderEmitsProps {
+  onOpenChange?: CascaderEmits['openChange']
+  onDropdownVisibleChange?: CascaderEmits['dropdownVisibleChange']
+  onPopupVisibleChange?: CascaderEmits['popupVisibleChange']
+  onChange?: CascaderEmits['change']
+  'onUpdate:value'?: CascaderEmits['update:value']
+  onSearch?: CascaderEmits['search']
 }
 
 const InternalCascader = defineComponent<

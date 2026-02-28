@@ -1,7 +1,6 @@
 import type { CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { Breakpoint } from '../_util/responsiveObserver'
-import type { EmitsMap } from '../_util/type'
 import type { ComponentBaseProps } from '../config-provider/context'
 import type { RowProps } from '../grid'
 import type { ItemHeightData } from './hooks/usePositions'
@@ -49,7 +48,7 @@ export type MasonryStylesType = SemanticStylesType<MasonryProps, MasonrySemantic
 
 export interface MasonryProps extends ComponentBaseProps,
   /* @vue-ignore */
-  EmitsMap<MasonryEmits> {
+  MasonryEmitsProps {
   classes?: MasonryClassNamesType
   styles?: MasonryStylesType
   /** Spacing between items */
@@ -72,6 +71,9 @@ export interface MasonryProps extends ComponentBaseProps,
 
 export interface MasonryEmits {
   layoutChange: (sortInfo: { key: Key, column: number }[]) => void
+}
+export interface MasonryEmitsProps {
+  onLayoutChange?: MasonryEmits['layoutChange']
 }
 
 export interface MasonrySlots {

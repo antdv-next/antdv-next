@@ -3,7 +3,7 @@ import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { SelectCommonPlacement } from '../_util/motion'
 import type { InputStatus } from '../_util/statusUtils'
-import type { EmitsMap, VueNode } from '../_util/type'
+import type { VueNode } from '../_util/type'
 import type { Variant } from '../config-provider/context'
 import type { SizeType } from '../config-provider/SizeContext'
 import type { AntTreeNodeProps, TreeProps } from '../tree'
@@ -134,7 +134,7 @@ interface BaseTreeSelectProps<ValueType = any, OptionType extends DataNode = Dat
 export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = DataNode>
   extends BaseTreeSelectProps<ValueType, OptionType>,
   /* @vue-ignore */
-  EmitsMap<TreeSelectEmits> {
+  TreeSelectEmitsProps {
   styles?: TreeSelectStylesType
   classes?: TreeSelectClassNamesType
   suffixIcon?: VueNode
@@ -189,6 +189,20 @@ export interface TreeSelectEmits {
   'deselect': NonNullable<VcTreeSelectProps['onDeselect']>
   'popupScroll': NonNullable<VcTreeSelectProps['onPopupScroll']>
   'search': NonNullable<VcTreeSelectProps['onSearch']>
+}
+export interface TreeSelectEmitsProps {
+  onFocus?: TreeSelectEmits['focus']
+  onBlur?: TreeSelectEmits['blur']
+  onOpenChange?: TreeSelectEmits['openChange']
+  onDropdownVisibleChange?: TreeSelectEmits['dropdownVisibleChange']
+  onSelect?: TreeSelectEmits['select']
+  onTreeExpand?: TreeSelectEmits['treeExpand']
+  onTreeLoad?: TreeSelectEmits['treeLoad']
+  onChange?: TreeSelectEmits['change']
+  'onUpdate:value'?: TreeSelectEmits['update:value']
+  onDeselect?: TreeSelectEmits['deselect']
+  onPopupScroll?: TreeSelectEmits['popupScroll']
+  onSearch?: TreeSelectEmits['search']
 }
 
 export interface TreeSelectSlots {

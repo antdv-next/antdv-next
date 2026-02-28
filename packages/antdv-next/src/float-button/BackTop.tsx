@@ -1,5 +1,4 @@
 import type { SlotsType } from 'vue'
-import type { EmitsMap } from '../_util/type'
 import type { ComponentBaseProps } from '../config-provider/context'
 import type { FloatButtonProps, FloatButtonRef, FloatButtonShape } from './FloatButton'
 import { VerticalAlignTopOutlined } from '@antdv-next/icons'
@@ -19,7 +18,7 @@ import FloatButton, { floatButtonPrefixCls } from './FloatButton'
 
 export interface BackTopProps extends Omit<FloatButtonProps, 'target'>, ComponentBaseProps,
   /* @vue-ignore */
-  EmitsMap<BackTopEmits> {
+  BackTopEmitsProps {
   visibilityHeight?: number
   target?: () => HTMLElement | Window | Document
   duration?: number
@@ -27,6 +26,9 @@ export interface BackTopProps extends Omit<FloatButtonProps, 'target'>, Componen
 
 export interface BackTopEmits {
   click: (e: MouseEvent) => void
+}
+export interface BackTopEmitsProps {
+  onClick?: BackTopEmits['click']
 }
 
 export interface BackTopSlots {

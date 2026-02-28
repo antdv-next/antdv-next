@@ -2,7 +2,6 @@ import type { DrawerProps as VcDrawerProps } from '@v-c/drawer'
 import type { CSSMotionProps } from '@v-c/util/dist/utils/transition'
 import type { App, SlotsType } from 'vue'
 import type { MaskType } from '../_util/hooks'
-import type { EmitsMap } from '../_util/type'
 import type { DrawerClassNamesType, DrawerPanelProps, DrawerStylesType } from './DrawerPanel'
 import type { FocusableConfig, OmitFocusType } from './useFocusable.ts'
 import VcDrawer from '@v-c/drawer'
@@ -42,7 +41,7 @@ export interface DrawerProps
   >,
   Omit<DrawerPanelProps, 'prefixCls' | 'ariaId' | 'onClose'>,
   /* @vue-ignore */
-  EmitsMap<DrawerEmits> {
+  DrawerEmitsProps {
   size?: sizeType | number | string
   resizable?: boolean | DrawerResizableConfig
   rootClass?: string
@@ -70,6 +69,17 @@ export interface DrawerEmits {
   'mouseleave': (e: MouseEvent) => void
   'mouseover': (e: MouseEvent) => void
   'click': (e: MouseEvent) => void
+}
+export interface DrawerEmitsProps {
+  'onUpdate:open'?: DrawerEmits['update:open']
+  onAfterOpenChange?: DrawerEmits['afterOpenChange']
+  onClose?: DrawerEmits['close']
+  onKeydown?: DrawerEmits['keydown']
+  onKeyup?: DrawerEmits['keyup']
+  onMouseenter?: DrawerEmits['mouseenter']
+  onMouseleave?: DrawerEmits['mouseleave']
+  onMouseover?: DrawerEmits['mouseover']
+  onClick?: DrawerEmits['click']
 }
 
 export interface DrawerSlots {

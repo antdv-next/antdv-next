@@ -1,6 +1,5 @@
 import type { CSSProperties, InjectionKey, Ref, SlotsType } from 'vue'
 import type { Breakpoint } from '../_util/responsiveObserver'
-import type { EmitsMap } from '../_util/type'
 import { BarsOutlined, LeftOutlined, RightOutlined } from '@antdv-next/icons'
 import { classNames } from '@v-c/util'
 import canUseDom from '@v-c/util/dist/Dom/canUseDom'
@@ -49,7 +48,7 @@ export type SiderTheme = 'light' | 'dark'
 
 export interface SiderProps extends
   /* @vue-ignore */
-  EmitsMap<SiderEmits> {
+  SiderEmitsProps {
   prefixCls?: string
   collapsible?: boolean
   collapsed?: boolean
@@ -66,6 +65,11 @@ export interface SiderEmits {
   'collapse': (collapsed: boolean, type: CollapseType) => void
   'update:collapsed': (collapsed: boolean) => void
   'breakpoint': (broken: boolean) => void
+}
+export interface SiderEmitsProps {
+  onCollapse?: SiderEmits['collapse']
+  'onUpdate:collapsed'?: SiderEmits['update:collapsed']
+  onBreakpoint?: SiderEmits['breakpoint']
 }
 
 export interface SiderSlots {

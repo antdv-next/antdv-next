@@ -1,6 +1,6 @@
 import type { CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
-import type { EmitsMap, VueNode } from '../_util/type'
+import type { VueNode } from '../_util/type'
 import type { BadgeProps } from '../badge'
 import type { ButtonHTMLType, ButtonSemanticName } from '../button'
 import type { ButtonSemanticClassNames, ButtonSemanticStyles } from '../button/Button.tsx'
@@ -47,7 +47,7 @@ export type FloatButtonStylesType = SemanticStylesType<FloatButtonProps, ButtonS
 
 export interface FloatButtonProps extends ComponentBaseProps,
   /* @vue-ignore */
-  EmitsMap<FloatButtonEmits> {
+  FloatButtonEmitsProps {
   icon?: VueNode
   /** @deprecated Use `content` instead */
   description?: VueNode
@@ -77,6 +77,13 @@ export interface FloatButtonEmits {
   mouseleave: (e: MouseEvent) => void
   focus: (e: FocusEvent) => void
   blur: (e: FocusEvent) => void
+}
+export interface FloatButtonEmitsProps {
+  onClick?: FloatButtonEmits['click']
+  onMouseenter?: FloatButtonEmits['mouseenter']
+  onMouseleave?: FloatButtonEmits['mouseleave']
+  onFocus?: FloatButtonEmits['focus']
+  onBlur?: FloatButtonEmits['blur']
 }
 
 export const floatButtonPrefixCls = 'float-btn'

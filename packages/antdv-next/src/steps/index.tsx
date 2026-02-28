@@ -1,7 +1,7 @@
 import type { StepsProps as VcStepsProps } from '@v-c/steps'
 import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
-import type { EmitsMap, VueNode } from '../_util/type'
+import type { VueNode } from '../_util/type'
 import { CheckOutlined } from '@antdv-next/icons'
 import VcSteps from '@v-c/steps'
 import { clsx } from '@v-c/util'
@@ -129,12 +129,15 @@ export interface BaseStepsProps {
 
 export interface StepsProps extends BaseStepsProps,
   /* @vue-ignore */
-  EmitsMap<StepsEmits> {
+  StepsEmitsProps {
   prefixCls?: string
 }
 
 export interface StepsEmits {
   'update:current': (current: number) => void
+}
+export interface StepsEmitsProps {
+  'onUpdate:current'?: StepsEmits['update:current']
 }
 
 const waveEffectClassNames: StepsProps['classes'] = {

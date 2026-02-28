@@ -1,6 +1,5 @@
 import type { CSSProperties, HTMLAttributes, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
-import type { EmitsMap } from '../_util/type'
 import type { ComponentBaseProps, Variant } from '../config-provider/context'
 import type { SizeType } from '../config-provider/SizeContext.tsx'
 import type { ColProps } from '../grid'
@@ -66,7 +65,7 @@ export type FormStylesType = SemanticStylesType<FormProps, FormSemanticStyles>
 
 export interface FormProps extends ComponentBaseProps,
   /* @vue-ignore */
-  EmitsMap<FormEmits> {
+  FormEmitsProps {
   classes?: FormClassNamesType
   styles?: FormStylesType
   colon?: boolean
@@ -101,6 +100,15 @@ export interface FormEmits {
   validate: (name: InternalNamePath, status: boolean, errors: any[] | null) => void
   valuesChange: (changedValues: Record<string, any>, values: Record<string, any>) => void
   fieldsChange: (changedFields: FieldData[], allFields: FieldData[]) => void
+}
+export interface FormEmitsProps {
+  onFinish?: FormEmits['finish']
+  onFinishFailed?: FormEmits['finishFailed']
+  onSubmit?: FormEmits['submit']
+  onReset?: FormEmits['reset']
+  onValidate?: FormEmits['validate']
+  onValuesChange?: FormEmits['valuesChange']
+  onFieldsChange?: FormEmits['fieldsChange']
 }
 
 export interface FormSlots {

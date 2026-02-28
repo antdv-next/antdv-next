@@ -1,7 +1,7 @@
 import type { ItemType } from '@v-c/collapse'
 import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
-import type { EmitsMap, VueNode } from '../_util/type.ts'
+import type { VueNode } from '../_util/type.ts'
 import type { SizeType } from '../config-provider/SizeContext.tsx'
 import type { CollapsibleType } from './CollapsePanel.tsx'
 import { RightOutlined } from '@antdv-next/icons'
@@ -53,7 +53,7 @@ export type CollapseItemType = Omit<ItemType, 'children'> & {
 }
 export interface CollapseProps extends
   /* @vue-ignore */
-  EmitsMap<CollapseEmits> {
+  CollapseEmitsProps {
   activeKey?: Array<string | number> | string | number
   defaultActiveKey?: Array<string | number> | string | number
   /** 手风琴效果 */
@@ -79,6 +79,9 @@ export interface CollapseProps extends
 
 export interface CollapseEmits {
   change: (key: string[]) => void
+}
+export interface CollapseEmitsProps {
+  onChange?: CollapseEmits['change']
 }
 
 interface PanelProps {

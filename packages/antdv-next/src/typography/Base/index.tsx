@@ -1,5 +1,4 @@
 import type { SlotsType } from 'vue'
-import type { EmitsMap } from '../../_util/type'
 import type { BlockProps, CopyConfig, EditConfig, EllipsisConfig, TypographyBaseEmits, TypographyClassNamesType, TypographySlots, TypographyStylesType } from '../interface'
 import { EditOutlined } from '@antdv-next/icons'
 import ResizeObserver from '@v-c/resize-observer'
@@ -67,9 +66,13 @@ function wrapperDecorations(props: BlockProps, content: any) {
   return currentContent
 }
 
+export type TypographyBaseEmitsProps = {
+  [K in keyof TypographyBaseEmits as `on${Capitalize<string & K>}`]?: TypographyBaseEmits[K]
+}
+
 interface InternalBlockProps extends BlockProps,
   /* @vue-ignore */
-  EmitsMap<TypographyBaseEmits> {}
+  TypographyBaseEmitsProps {}
 
 const Base = defineComponent<
   InternalBlockProps,

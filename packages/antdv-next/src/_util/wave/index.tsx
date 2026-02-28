@@ -1,5 +1,4 @@
 import type { SlotsType, VNode, VNodeChild } from 'vue'
-import type { EmitsMap } from '../type'
 import type { WaveColorSource, WaveComponent } from './interface'
 import { classNames } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
@@ -12,13 +11,15 @@ import useWave from './useWave'
 
 export interface WaveProps extends
   /* @vue-ignore */
-  EmitsMap<WaveEmits> {
+  WaveEmitsProps {
   disabled?: boolean
   component?: WaveComponent
   colorSource?: WaveColorSource
 }
 
 export interface WaveEmits {
+}
+export interface WaveEmitsProps {
 }
 
 export interface WaveSlots {

@@ -1,6 +1,5 @@
 import type { RateProps as VcRateProps } from '@v-c/rate'
 import type { App } from 'vue'
-import type { EmitsMap } from '../_util/type'
 import type { TooltipProps } from '../tooltip'
 import { StarFilled } from '@antdv-next/icons'
 import VcRate from '@v-c/rate'
@@ -27,7 +26,7 @@ export interface RateProps extends Omit<
 'onChange' | 'onHoverChange' | 'onFocus' | 'onBlur' | 'onKeyDown' | 'onMouseLeave' | 'onUpdate:value'
 >,
   /* @vue-ignore */
-  EmitsMap<RateEmits> {
+  RateEmitsProps {
   rootClass?: string
   size?: 'small' | 'middle' | 'large'
   tooltips?: (TooltipProps | string)[]
@@ -41,6 +40,15 @@ export interface RateEmits {
   'blur': () => void
   'keydown': (e: KeyboardEvent) => void
   'mouseleave': (e: FocusEvent) => void
+}
+export interface RateEmitsProps {
+  'onUpdate:value'?: RateEmits['update:value']
+  onChange?: RateEmits['change']
+  onHoverChange?: RateEmits['hoverChange']
+  onFocus?: RateEmits['focus']
+  onBlur?: RateEmits['blur']
+  onKeydown?: RateEmits['keydown']
+  onMouseleave?: RateEmits['mouseleave']
 }
 
 const Rate = defineComponent<

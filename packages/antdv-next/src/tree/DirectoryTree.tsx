@@ -1,6 +1,5 @@
 import type { BasicDataNode, DataNode, EventDataNode, Key } from '@v-c/tree'
 import type { SlotsType } from 'vue'
-import type { EmitsMap } from '../_util/type'
 import type { AntdTreeNodeAttribute, TreeEmits, TreeProps, TreeSlots } from './Tree.tsx'
 import { FileOutlined, FolderOpenOutlined, FolderOutlined } from '@antdv-next/icons'
 import { conductExpandParent, convertDataToEntities, convertTreeToData } from '@v-c/tree'
@@ -17,19 +16,17 @@ export type ExpandAction = false | 'click' | 'doubleClick'
 
 export interface DirectoryTreeProps<T extends BasicDataNode = DataNode> extends TreeProps<T>,
   /* @vue-ignore */
-  EmitsMap<DirectoryTreeEmits> {
+  DirectoryTreeEmitsProps {
   expandAction?: ExpandAction
 }
 
 export interface DirectoryTreeEmits extends TreeEmits {
 
 }
-
-export type DirectoryTreeEmitsMap<T extends Record<string, any>> = {
-  [K in keyof T as `on${Capitalize<K & string>}`]: T[K]
+export type DirectoryTreeEmitsProps = {
+  [K in keyof DirectoryTreeEmits as `on${Capitalize<string & K>}`]?: DirectoryTreeEmits[K]
 }
-
-export type DirectoryTreeEmitsType = DirectoryTreeEmitsMap<DirectoryTreeEmits>
+export type DirectoryTreeEmitsType = DirectoryTreeEmitsProps
 export interface DirectoryTreeSlots extends TreeSlots {}
 
 function getIcon(props: AntdTreeNodeAttribute) {

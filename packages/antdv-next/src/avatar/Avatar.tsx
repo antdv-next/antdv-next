@@ -1,6 +1,6 @@
 import type { App, CSSProperties, SlotsType } from 'vue'
 import type { Breakpoint } from '../_util/responsiveObserver'
-import type { EmitsMap, VueNode } from '../_util/type'
+import type { VueNode } from '../_util/type'
 import type { ComponentBaseProps } from '../config-provider/context'
 import type { AvatarSize } from './AvatarContext'
 import ResizeObserver from '@v-c/resize-observer'
@@ -19,7 +19,7 @@ import useStyle from './style'
 
 export interface AvatarProps extends ComponentBaseProps,
   /* @vue-ignore */
-  EmitsMap<AvatarEmits> {
+  AvatarEmitsProps {
   /** Shape of avatar, options: `circle`, `square` */
   shape?: 'circle' | 'square'
   /**
@@ -47,6 +47,9 @@ export interface AvatarEmits {
   click: (e: MouseEvent) => void
 
   // error: () => boolean
+}
+export interface AvatarEmitsProps {
+  onClick?: AvatarEmits['click']
 }
 
 export interface AvatarSlots {

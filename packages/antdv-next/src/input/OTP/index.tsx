@@ -1,7 +1,7 @@
 import type { CSSProperties, HTMLAttributes, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../../_util/hooks'
 import type { InputStatus } from '../../_util/statusUtils'
-import type { EmitsMap, VueNode } from '../../_util/type'
+import type { VueNode } from '../../_util/type'
 import type { ComponentBaseProps, Variant } from '../../config-provider/context'
 import type { SizeType } from '../../config-provider/SizeContext'
 import type { InputRef } from '../Input'
@@ -39,7 +39,7 @@ export interface OTPProps extends ComponentBaseProps,
   /* @vue-ignore */
   Omit<HTMLAttributes, 'onChange' | 'onInput'>,
   /* @vue-ignore */
-  EmitsMap<OTPEmits> {
+  OTPEmitsProps {
   length?: number
   variant?: Variant
   size?: SizeType
@@ -61,6 +61,11 @@ export interface OTPEmits {
   'change': (value: string) => void
   'input': (cells: string[]) => void
   'update:value': (value: string) => void
+}
+export interface OTPEmitsProps {
+  onChange?: OTPEmits['change']
+  onInput?: OTPEmits['input']
+  'onUpdate:value'?: OTPEmits['update:value']
 }
 
 export interface OPTSlots {

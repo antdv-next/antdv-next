@@ -1,7 +1,7 @@
 import type { Key } from '@v-c/util/dist/type'
 import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
-import type { AnyObject, EmitsMap, VueNode } from '../_util/type'
+import type { AnyObject, VueNode } from '../_util/type'
 import type { DropdownProps } from '../dropdown'
 import type { BreadcrumbItemProps, MenuItem } from './BreadcrumbItem'
 import { DownOutlined } from '@antdv-next/icons'
@@ -74,7 +74,7 @@ export type BreadcrumbStylesType<T extends AnyObject = AnyObject> = SemanticStyl
 
 export interface BreadcrumbProps<T extends AnyObject = AnyObject> extends
   /* @vue-ignore */
-  EmitsMap<BreadcrumbEmits> {
+  BreadcrumbEmitsProps {
   prefixCls?: string
   params?: T
   separator?: any
@@ -95,6 +95,9 @@ export interface BreadcrumbProps<T extends AnyObject = AnyObject> extends
 export interface BreadcrumbEmits {
   clickItem: (item: ItemType, event: MouseEvent) => void
   [keys: string]: (...args: any[]) => any
+}
+export interface BreadcrumbEmitsProps {
+  onClickItem?: BreadcrumbEmits['clickItem']
 }
 
 export interface BreadcrumbSlots {

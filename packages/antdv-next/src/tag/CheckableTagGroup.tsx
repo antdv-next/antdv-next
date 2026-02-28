@@ -1,5 +1,5 @@
 import type { SemanticClassNames, SemanticStyles } from '../_util/hooks'
-import type { EmitsMap, VueNode } from '../_util/type.ts'
+import type { VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
 import pickAttrs from '@v-c/util/dist/pickAttrs'
 import { computed, defineComponent, shallowRef } from 'vue'
@@ -49,10 +49,14 @@ export interface CheckableTagGroupEmits<CheckableTagValue = CheckableTagDefaultV
   'change': (value: CheckableTagValue | CheckableTagValue[] | null) => void
   'update:value': (value: CheckableTagValue | CheckableTagValue[] | null) => void
 }
+export interface CheckableTagGroupEmitsProps<CheckableTagValue = CheckableTagDefaultValue> {
+  onChange?: CheckableTagGroupEmits<CheckableTagValue>['change']
+  'onUpdate:value'?: CheckableTagGroupEmits<CheckableTagValue>['update:value']
+}
 
 interface InternalCheckableTagGroupProps extends CheckableTagGroupProps,
   /* @vue-ignore */
-  EmitsMap<CheckableTagGroupEmits> {}
+  CheckableTagGroupEmitsProps {}
 
 const CheckableTagGroup = defineComponent<
   InternalCheckableTagGroupProps,

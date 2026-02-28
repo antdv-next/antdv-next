@@ -2,7 +2,7 @@ import type { BasePickerPanelProps, Locale } from '@v-c/picker'
 import type { GenerateConfig } from '@v-c/picker/generate/index'
 import type { CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
-import type { AnyObject, EmitsMap, VueNode } from '../_util/type'
+import type { AnyObject, VueNode } from '../_util/type'
 import { PickerPanel } from '@v-c/picker'
 import { clsx } from '@v-c/util'
 import { computed, defineComponent, ref, watch } from 'vue'
@@ -58,7 +58,7 @@ export type CalendarStylesType<DateType> = SemanticStylesType<
 
 export interface CalendarProps<DateType> extends
   /* @vue-ignore */
-  EmitsMap<CalendarEmits<DateType>> {
+  CalendarEmitsProps<DateType> {
   prefixCls?: string
   rootClass?: string
   classes?: CalendarClassNamesType<DateType>
@@ -125,6 +125,12 @@ export interface CalendarEmits<DateType = AnyObject> {
   'update:value': (date: DateType) => void
   'panelChange': (date: DateType, mode: CalendarMode) => void
   'select': (date: DateType, selectInfo: SelectInfo) => void
+}
+export interface CalendarEmitsProps<DateType = AnyObject> {
+  onChange?: CalendarEmits<DateType>['change']
+  'onUpdate:value'?: CalendarEmits<DateType>['update:value']
+  onPanelChange?: CalendarEmits<DateType>['panelChange']
+  onSelect?: CalendarEmits<DateType>['select']
 }
 
 function isSameYear<T extends AnyObject>(date1: T, date2: T, config: GenerateConfig<T>) {

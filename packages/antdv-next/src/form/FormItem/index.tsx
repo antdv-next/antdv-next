@@ -1,5 +1,4 @@
 import type { SlotsType } from 'vue'
-import type { EmitsMap } from '../../_util/type'
 import type { ComponentBaseProps } from '../../config-provider/context'
 import type { FormItemLayout } from '../Form'
 import type { FormItemInputProps } from '../FormItemInput'
@@ -63,6 +62,9 @@ export type FormItemProps = BaseFormItemProps
 
 export interface FormItemEmits {
 }
+export interface FormItemEmitsProps {
+}
+
 export interface FormItemSlots {
   default: () => any
 }
@@ -80,7 +82,7 @@ function genEmptyMeta(): Meta {
 
 interface InternalFormItemProps extends FormItemProps,
   /* @vue-ignore */
-  EmitsMap<FormItemEmits> {}
+  FormItemEmitsProps {}
 
 const InternalFormItem = defineComponent<
   InternalFormItemProps,

@@ -1,7 +1,6 @@
 import type { SliderProps as VcSliderProps } from '@v-c/slider'
 import type { App, CSSProperties, SlotsType } from 'vue'
 import type { Orientation, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
-import type { EmitsMap } from '../_util/type'
 import type { TooltipPlacement, TriggerCommonApi } from '../tooltip'
 import VcSlider from '@v-c/slider'
 import { clsx } from '@v-c/util'
@@ -114,7 +113,7 @@ export interface SliderBaseProps {
 
 export interface SliderInternalProps extends SliderBaseProps,
   /* @vue-ignore */
-  EmitsMap<SliderEmits> {
+  SliderEmitsProps {
   range?: boolean | SliderRange
   value?: number | number[]
   defaultValue?: number | number[]
@@ -135,6 +134,12 @@ export interface SliderEmits {
   'afterChange': (value: any) => void
   'update:value': (value: any) => void
   'changeComplete': (value: any) => void
+}
+export interface SliderEmitsProps {
+  onChange?: SliderEmits['change']
+  onAfterChange?: SliderEmits['afterChange']
+  'onUpdate:value'?: SliderEmits['update:value']
+  onChangeComplete?: SliderEmits['changeComplete']
 }
 
 export interface SliderSlots {

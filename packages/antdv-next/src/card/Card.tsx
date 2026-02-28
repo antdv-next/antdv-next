@@ -1,6 +1,6 @@
 import type { CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
-import type { EmitsMap, VueNode } from '../_util/type'
+import type { VueNode } from '../_util/type'
 import type { ComponentBaseProps } from '../config-provider/context'
 import type { Tab, TabsSlots } from '../tabs'
 import { clsx } from '@v-c/util'
@@ -55,7 +55,7 @@ export type CardStylesType = SemanticStylesType<CardProps, CardSemanticStyles>
 
 export interface CardProps extends ComponentBaseProps,
   /* @vue-ignore */
-  EmitsMap<CardEmits> {
+  CardEmitsProps {
   title?: VueNode
   extra?: VueNode
   /** @deprecated Please use `variant` instead */
@@ -85,6 +85,10 @@ export interface CardProps extends ComponentBaseProps,
 export interface CardEmits {
   'tabChange': (key: string) => void
   'update:activeTabKey': (key: string) => void
+}
+export interface CardEmitsProps {
+  onTabChange?: CardEmits['tabChange']
+  'onUpdate:activeTabKey'?: CardEmits['update:activeTabKey']
 }
 
 export interface CardSlots {

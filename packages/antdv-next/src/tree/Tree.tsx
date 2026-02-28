@@ -2,7 +2,7 @@ import type { BasicDataNode, DataNode, TreeRef, TreeProps as VcTreeProps } from 
 import type { Key } from '@v-c/util/dist/type'
 import type { CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
-import type { EmitsMap, VueNode } from '../_util/type.ts'
+import type { VueNode } from '../_util/type.ts'
 import { HolderOutlined } from '@antdv-next/icons'
 import VcTree from '@v-c/tree'
 import { clsx } from '@v-c/util'
@@ -177,7 +177,7 @@ export interface TreeProps<T extends BasicDataNode = DataNode>
     | 'style'
   >,
   /* @vue-ignore */
-  EmitsMap<TreeEmits> {
+  TreeEmitsProps {
   rootClass?: string
   showLine?: boolean | { showLeafIcon: boolean | TreeLeafIcon }
   classes?: TreeClassNamesType
@@ -252,6 +252,34 @@ export interface TreeEmits {
   'update:checkedKeys': (keys: Key[] | { checked: Key[], halfChecked: Key[] }) => void
   'update:selectedKeys': (keys: Key[]) => void
   'update:activeKey': (key: Key) => void
+}
+export interface TreeEmitsProps {
+  onClick?: TreeEmits['click']
+  onCheck?: TreeEmits['check']
+  onExpand?: TreeEmits['expand']
+  onSelect?: TreeEmits['select']
+  onBlur?: TreeEmits['blur']
+  onFocus?: TreeEmits['focus']
+  onRightClick?: TreeEmits['rightClick']
+  onDblclick?: TreeEmits['dblclick']
+  onDoubleClick?: TreeEmits['doubleClick']
+  onContextmenu?: TreeEmits['contextmenu']
+  onDragstart?: TreeEmits['dragstart']
+  onDragenter?: TreeEmits['dragenter']
+  onDragover?: TreeEmits['dragover']
+  onDragleave?: TreeEmits['dragleave']
+  onDrop?: TreeEmits['drop']
+  onDragend?: TreeEmits['dragend']
+  onLoad?: TreeEmits['load']
+  onMouseleave?: TreeEmits['mouseleave']
+  onMouseenter?: TreeEmits['mouseenter']
+  onScroll?: TreeEmits['scroll']
+  onActiveChange?: TreeEmits['activeChange']
+  onKeydown?: TreeEmits['keydown']
+  'onUpdate:expandedKeys'?: TreeEmits['update:expandedKeys']
+  'onUpdate:checkedKeys'?: TreeEmits['update:checkedKeys']
+  'onUpdate:selectedKeys'?: TreeEmits['update:selectedKeys']
+  'onUpdate:activeKey'?: TreeEmits['update:activeKey']
 }
 
 export interface TreeSlots {

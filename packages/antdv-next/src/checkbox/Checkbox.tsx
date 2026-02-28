@@ -1,7 +1,6 @@
 import type { CheckboxChangeEvent } from '@v-c/checkbox'
 import type { CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
-import type { EmitsMap } from '../_util/type'
 import type { ComponentBaseProps } from '../config-provider/context'
 import VcCheckbox from '@v-c/checkbox'
 import { clsx } from '@v-c/util'
@@ -62,6 +61,19 @@ export interface CheckboxEmits {
   'blur': (event: FocusEvent) => void
   'click': (event: MouseEvent) => void
 }
+export interface CheckboxEmitsProps {
+  onChange?: CheckboxEmits['change']
+  'onUpdate:checked'?: CheckboxEmits['update:checked']
+  'onUpdate:value'?: CheckboxEmits['update:value']
+  onMouseenter?: CheckboxEmits['mouseenter']
+  onMouseleave?: CheckboxEmits['mouseleave']
+  onKeypress?: CheckboxEmits['keypress']
+  onKeydown?: CheckboxEmits['keydown']
+  onFocus?: CheckboxEmits['focus']
+  onBlur?: CheckboxEmits['blur']
+  onClick?: CheckboxEmits['click']
+}
+
 export interface CheckboxSlots {
   default?: () => any
 }
@@ -89,7 +101,7 @@ export type CheckboxStylesType = SemanticStylesType<CheckboxProps, CheckboxSeman
 
 export interface CheckboxProps extends AbstractCheckboxProps,
   /* @vue-ignore */
-  EmitsMap<CheckboxEmits> {
+  CheckboxEmitsProps {
   indeterminate?: boolean
   classes?: CheckboxClassNamesType
   styles?: CheckboxStylesType

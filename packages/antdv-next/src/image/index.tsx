@@ -1,7 +1,7 @@
 import type { ImageProps as VcImageProps } from '@v-c/image'
 import type { App, CSSProperties, SlotsType } from 'vue'
 import type { MaskType, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
-import type { EmitsMap, VueNode } from '../_util/type'
+import type { VueNode } from '../_util/type'
 import type { PreviewGroupProps } from './PreviewGroup'
 import VcImage from '@v-c/image'
 import { clsx } from '@v-c/util'
@@ -97,7 +97,7 @@ export interface ImageProps extends Omit<
 'preview' | 'classNames' | 'styles' | 'rootClassName' | 'onError' | 'onClick'
 >,
   /* @vue-ignore */
-  EmitsMap<ImageEmits> {
+  ImageEmitsProps {
   preview?: boolean | PreviewConfig
   /** @deprecated Use `styles.root` instead */
   wrapperStyle?: CSSProperties
@@ -109,6 +109,10 @@ export interface ImageProps extends Omit<
 export interface ImageEmits {
   error: NonNullable<VcImageProps['onError']>
   click: NonNullable<VcImageProps['onClick']>
+}
+export interface ImageEmitsProps {
+  onError?: ImageEmits['error']
+  onClick?: ImageEmits['click']
 }
 
 export interface ImageSlots {

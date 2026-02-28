@@ -3,7 +3,7 @@ import type { App, CSSProperties, SlotsType } from 'vue'
 import type { PresetColorType, PresetStatusColorType } from '../_util/colors.ts'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { ClosableType } from '../_util/hooks/useClosable.tsx'
-import type { EmitsMap, VueNode } from '../_util/type.ts'
+import type { VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
 import { classNames } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
@@ -44,7 +44,7 @@ export type TagStylesType = SemanticStylesType<TagProps, TagSemanticStyles>
 
 export interface TagProps extends ComponentBaseProps,
   /* @vue-ignore */
-  EmitsMap<TagEmits> {
+  TagEmitsProps {
   color?: LiteralUnion<PresetColorType | PresetStatusColorType>
   /** Advised to use closeIcon instead. */
   closable?: ClosableType
@@ -68,6 +68,9 @@ export interface TagSlots {
 
 export interface TagEmits {
   close: (ev: MouseEvent) => void
+}
+export interface TagEmitsProps {
+  onClose?: TagEmits['close']
 }
 
 const defaultProps: Partial<TagProps> = {

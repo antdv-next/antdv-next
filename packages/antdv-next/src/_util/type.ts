@@ -47,11 +47,3 @@ export type ValidChar
     | 'x'
     | 'y'
     | 'z'
-
-/**
- * 类型转换，给类型添加一个on并且首字母大写
- */
-
-export type EmitsMap<T extends Record<string, any>> = {
-  [K in keyof T as `on${Capitalize<string & K>}`]?: T[K] extends any[] ? (...args: T[K]) => void : T[K]
-}

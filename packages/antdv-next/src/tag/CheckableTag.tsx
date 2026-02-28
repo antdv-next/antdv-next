@@ -1,5 +1,5 @@
 import type { SlotsType } from 'vue'
-import type { EmitsMap, VueNode } from '../_util/type.ts'
+import type { VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
 import { computed, defineComponent } from 'vue'
 import { pureAttrs } from '../_util/hooks'
@@ -10,7 +10,7 @@ import useStyle from './style'
 
 export interface CheckableTagProps extends ComponentBaseProps,
   /* @vue-ignore */
-  EmitsMap<CheckableTagEmits> {
+  CheckableTagEmitsProps {
   /**
    * It is an absolute controlled component and has no uncontrolled mode.
    *
@@ -28,6 +28,11 @@ export interface CheckableTagEmits {
   'change': (checked: boolean) => void
   'update:checked': (checked: boolean) => void
   'click': (e: MouseEvent) => void
+}
+export interface CheckableTagEmitsProps {
+  onChange?: CheckableTagEmits['change']
+  'onUpdate:checked'?: CheckableTagEmits['update:checked']
+  onClick?: CheckableTagEmits['click']
 }
 
 export interface CheckableTagSlots {

@@ -1,6 +1,6 @@
 import type { App, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
-import type { EmitsMap, VueNode } from '../_util/type'
+import type { VueNode } from '../_util/type'
 import type { ButtonProps, LegacyButtonType } from '../button'
 import type { PopoverProps, PopoverSemanticClassNames, PopoverSemanticName, PopoverSemanticStyles } from '../popover'
 import type { TooltipEmits, TooltipRef } from '../tooltip'
@@ -32,7 +32,7 @@ export type PopconfirmStylesType = SemanticStylesType<PopconfirmProps, Popconfir
 
 export interface PopconfirmProps extends Omit<PopoverProps, 'title' | 'content' | 'classes' | 'styles'>,
   /* @vue-ignore */
-  EmitsMap<PopconfirmEmits> {
+  PopconfirmEmitsProps {
   title?: VueNode
   description?: VueNode
   disabled?: boolean
@@ -55,6 +55,12 @@ export interface PopconfirmEmits extends TooltipEmits {
   confirm: (e?: MouseEvent) => void
   cancel: (e?: MouseEvent) => void
   popupClick: (e: MouseEvent) => void
+}
+export interface PopconfirmEmitsProps {
+  onOpenChange?: PopconfirmEmits['openChange']
+  onConfirm?: PopconfirmEmits['confirm']
+  onCancel?: PopconfirmEmits['cancel']
+  onPopupClick?: PopconfirmEmits['popupClick']
 }
 
 export interface PopconfirmSlots {

@@ -3,7 +3,6 @@ import type { AlignType } from '@v-c/trigger'
 import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { AdjustOverflow } from '../_util/placements'
-import type { EmitsMap } from '../_util/type'
 import type { ComponentBaseProps } from '../config-provider/context'
 import type { MenuEmits, MenuProps, MenuSlots } from '../menu'
 import { LeftOutlined, RightOutlined } from '@antdv-next/icons'
@@ -72,7 +71,7 @@ export type DropdownStylesType = SemanticStylesType<DropdownProps, DropdownSeman
 
 export interface DropdownProps extends ComponentBaseProps,
   /* @vue-ignore */
-  EmitsMap<DropdownEmits> {
+  DropdownEmitsProps {
   classes?: DropdownClassNamesType
   styles?: DropdownStylesType
   menu?: MenuProps & { activeKey?: VcMenuProps['activeKey'], onClick?: MenuEmits['click'] }
@@ -103,6 +102,11 @@ export interface DropdownEmits {
   'update:open': (open: boolean) => void
   'openChange': (open: boolean, info: { source: 'trigger' | 'menu' }) => void
   'menuClick': MenuEmits['click']
+}
+export interface DropdownEmitsProps {
+  'onUpdate:open'?: DropdownEmits['update:open']
+  onOpenChange?: DropdownEmits['openChange']
+  onMenuClick?: DropdownEmits['menuClick']
 }
 
 export interface DropdownSlots extends MenuSlots {

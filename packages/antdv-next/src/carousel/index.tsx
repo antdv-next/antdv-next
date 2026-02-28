@@ -1,6 +1,6 @@
 import type { SlickProps as Settings } from '@v-c/slick'
 import type { App, ButtonHTMLAttributes, CSSProperties, SlotsType } from 'vue'
-import type { EmitsMap, VueNode } from '../_util/type.ts'
+import type { VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
 import SlickCarousel from '@v-c/slick'
 import { clsx } from '@v-c/util'
@@ -18,7 +18,7 @@ export type DotPlacement = 'top' | 'bottom' | 'start' | 'end'
 export interface CarouselProps extends
   Omit<Settings, 'prevArrow' | 'nextArrow' | 'dots' | 'className' | 'style' | 'dotsClass' | 'autoplay' | 'onInit' | 'onReInit' | 'onEdge' | 'onSwipe' | 'onLazyLoad' | 'onLazyLoadError'>, ComponentBaseProps,
   /* @vue-ignore */
-  EmitsMap<CarouselEmits> {
+  CarouselEmitsProps {
   effect?: CarouselEffect
   id?: string
   slickGoTo?: number
@@ -45,6 +45,14 @@ export interface CarouselEmits {
   swipe: NonNullable<Settings['onSwipe']>
   lazyLoad: NonNullable<Settings['onLazyLoad']>
   lazyLoadError: NonNullable<Settings['onLazyLoadError']>
+}
+export interface CarouselEmitsProps {
+  onInit?: CarouselEmits['init']
+  onReInit?: CarouselEmits['reInit']
+  onEdge?: CarouselEmits['edge']
+  onSwipe?: CarouselEmits['swipe']
+  onLazyLoad?: CarouselEmits['lazyLoad']
+  onLazyLoadError?: CarouselEmits['lazyLoadError']
 }
 
 export interface CarouselRef {

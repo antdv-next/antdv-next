@@ -1,6 +1,5 @@
 import type { App, CSSProperties } from 'vue'
 import type throttleByAnimationFrame from '../_util/throttleByAnimationFrame'
-import type { EmitsMap } from '../_util/type'
 import type { ComponentBaseProps } from '../config-provider/context'
 import { classNames } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
@@ -28,7 +27,7 @@ function getDefaultTarget() {
 // Affix
 export interface AffixProps extends ComponentBaseProps,
   /* @vue-ignore */
-  EmitsMap<AffixEmits> {
+  AffixEmitsProps {
   /** Triggered when the specified offset is reached from the top of the window */
   offsetTop?: number
   /** Triggered when the specified offset is reached from the bottom of the window */
@@ -39,6 +38,9 @@ export interface AffixProps extends ComponentBaseProps,
 
 export interface AffixEmits {
   change: (affixed: boolean) => void
+}
+export interface AffixEmitsProps {
+  onChange?: AffixEmits['change']
 }
 
 const AFFIX_STATUS_NONE = 0

@@ -1,6 +1,6 @@
 import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
-import type { EmitsMap, VueNode } from '../_util/type'
+import type { VueNode } from '../_util/type'
 import type { TooltipEmits, TooltipProps, TooltipRef, TooltipSemanticClassNames, TooltipSemanticStyles } from '../tooltip'
 import { clsx } from '@v-c/util'
 import KeyCode from '@v-c/util/dist/KeyCode'
@@ -38,7 +38,7 @@ export type PopoverStylesType = SemanticStylesType<PopoverProps, PopoverSemantic
 
 export interface PopoverProps extends TooltipProps,
   /* @vue-ignore */
-  EmitsMap<PopoverEmits> {
+  PopoverEmitsProps {
   title?: VueNode
   content?: VueNode
   classes?: PopoverClassNamesType
@@ -50,6 +50,9 @@ export interface PopoverRef extends TooltipRef {
 }
 export interface PopoverEmits extends TooltipEmits {
   openChange: (open: boolean, e?: MouseEvent | KeyboardEvent) => void
+}
+export interface PopoverEmitsProps {
+  onOpenChange?: PopoverEmits['openChange']
 }
 
 export interface PopoverSlots {

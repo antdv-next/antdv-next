@@ -1,5 +1,4 @@
 import type { SlotsType } from 'vue'
-import type { EmitsMap } from '../_util/type'
 import type { BlockProps, EllipsisConfig, TypographyBaseEmits, TypographySlots } from './interface'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, watchEffect } from 'vue'
@@ -7,9 +6,13 @@ import { devUseWarning, isDev } from '../_util/warning'
 
 import Base from './Base'
 
+export type TypographyBaseEmitsProps = {
+  [K in keyof TypographyBaseEmits as `on${Capitalize<string & K>}`]?: TypographyBaseEmits[K]
+}
+
 export interface TextProps extends BlockProps,
   /* @vue-ignore */
-  EmitsMap<TypographyBaseEmits> {
+  TypographyBaseEmitsProps {
   ellipsis?: boolean | Omit<EllipsisConfig, 'expandable' | 'rows' | 'onExpand'>
 }
 

@@ -6,7 +6,7 @@ import type {
 } from '@v-c/segmented'
 import type { App, CSSProperties, SlotsType } from 'vue'
 import type { Orientation, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
-import type { EmitsMap, VueNode } from '../_util/type.ts'
+import type { VueNode } from '../_util/type.ts'
 import type { SizeType } from '../config-provider/SizeContext.tsx'
 import type { TooltipProps } from '../tooltip'
 import VcSegmented from '@v-c/segmented'
@@ -72,7 +72,7 @@ export type SegmentedStylesType = SemanticStylesType<SegmentedProps, SegmentedSe
 
 export interface SegmentedProps extends Omit<RCSegmentedProps, 'size' | 'options' | 'itemRender' | 'styles' | 'classNames' | 'onChange'>,
   /* @vue-ignore */
-  EmitsMap<SegmentedEmits> {
+  SegmentedEmitsProps {
   options: SegmentedOptions
   rootClass?: string
   /** Option to fit width to its parent's width */
@@ -91,6 +91,10 @@ export interface SegmentedProps extends Omit<RCSegmentedProps, 'size' | 'options
 export interface SegmentedEmits {
   'change': (value: RcSegmentedValue) => void
   'update:value': (value: RcSegmentedValue) => void
+}
+export interface SegmentedEmitsProps {
+  onChange?: SegmentedEmits['change']
+  'onUpdate:value'?: SegmentedEmits['update:value']
 }
 
 export interface SegmentedSlots {

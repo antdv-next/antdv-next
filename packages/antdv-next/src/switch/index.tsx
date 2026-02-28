@@ -1,7 +1,7 @@
 import type { SwitchChangeEventHandler, SwitchClickEventHandler } from '@v-c/switch'
 import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
-import type { EmitsMap, VueNode } from '../_util/type'
+import type { VueNode } from '../_util/type'
 import type { ComponentBaseProps } from '../config-provider/context'
 import { LoadingOutlined } from '@antdv-next/icons'
 import VcSwitch from '@v-c/switch'
@@ -41,7 +41,7 @@ export type CheckedValueType = string | number | boolean | object
 
 export interface SwitchProps extends ComponentBaseProps,
   /* @vue-ignore */
-  EmitsMap<SwitchEmits> {
+  SwitchEmitsProps {
   size?: SwitchSize
   checked?: CheckedValueType
   defaultChecked?: CheckedValueType
@@ -81,6 +81,12 @@ export interface SwitchEmits {
   'click': SwitchClickEventHandler
   'update:checked': (checked: CheckedValueType) => void
   'update:value': (checked: CheckedValueType) => void
+}
+export interface SwitchEmitsProps {
+  onChange?: SwitchEmits['change']
+  onClick?: SwitchEmits['click']
+  'onUpdate:checked'?: SwitchEmits['update:checked']
+  'onUpdate:value'?: SwitchEmits['update:value']
 }
 
 export interface SwitchSlots {
