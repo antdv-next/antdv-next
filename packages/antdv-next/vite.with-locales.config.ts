@@ -11,7 +11,7 @@ export default defineConfig(
     return {
       plugins: [
         tsxResolveTypes({
-          defaultPropsToUndefined: true,
+          defaultPropsToUndefined: ['Boolean'],
         }),
         vueJsx(),
       ],

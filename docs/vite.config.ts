@@ -23,7 +23,7 @@ export default defineConfig({
     dayjsPlugin(),
     mdPlugin(),
     tsxResolveTypes({
-      defaultPropsToUndefined: true,
+      defaultPropsToUndefined: ['Boolean'],
     }),
     vueJsx(),
     vue({
