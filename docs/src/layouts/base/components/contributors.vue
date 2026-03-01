@@ -74,7 +74,7 @@ async function getContributors() {
   const name = parts[2]
   if (name) {
     const componentName = name.includes('-') ? name.replace('-cn', '') : name
-    const url = `https://api.github.com/repos/${REPO_PATH}/commits?path=/playground/src/pages/${parts[1]}/${componentName}`
+    const url = `https://api.github.com/repos/${REPO_PATH}/commits?path=/docs/src/pages/${parts[1]}/${componentName}`
     try {
       const req = await fetch(url)
       const res = await req.json()

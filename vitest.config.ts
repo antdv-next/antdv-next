@@ -13,7 +13,6 @@ export default defineConfig({
       ],
       exclude: [
         'packages/**/locale/*.{ts,tsx}',
-        'packages/antdv-next/src/components.ts',
       ],
     },
   },
