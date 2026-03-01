@@ -21,7 +21,7 @@ export type { AvatarEmits, AvatarGroupProps, AvatarProps, AvatarSlots } from './
 export { default as Badge, BadgeRibbon } from './badge'
 export type { BadgeProps, BadgeSlots } from './badge'
 export type { RibbonProps as BadgeRibbonProps } from './badge/Ribbon'
-export { default as Breadcrumb } from './breadcrumb'
+export { default as Breadcrumb, BreadcrumbItem, BreadcrumbSeparator } from './breadcrumb'
 export type { BreadcrumbEmits, BreadcrumbItemProps, BreadcrumbItemType, BreadcrumbProps, BreadcrumbSlots } from './breadcrumb'
 export { default as Button } from './button'
 export type { ButtonColorType, ButtonHTMLType, ButtonProps, ButtonShape, ButtonSize, ButtonType, ButtonVariantType } from './button'

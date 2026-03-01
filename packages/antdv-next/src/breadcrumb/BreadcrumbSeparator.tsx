@@ -26,7 +26,7 @@ const BreadcrumbSeparator = defineComponent(
     }
   },
   {
-    name: 'BreadcrumbSeparator',
+    name: 'ABreadcrumbSeparator',
     inheritAttrs: false,
   },
 )

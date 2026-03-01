@@ -124,7 +124,7 @@ const BreadcrumbItem = defineComponent<Omit<BreadcrumbItemProps, 'key'>>(
       const children = checkRenderNode(filterEmpty(slots?.default?.() ?? []))
 
       return (
-        <InternalBreadcrumbItem {...restProps}>
+        <InternalBreadcrumbItem {...restProps} prefixCls={prefixCls.value}>
           {renderItem(prefixCls.value, restProps as ItemType, children, href)}
         </InternalBreadcrumbItem>
       )

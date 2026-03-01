@@ -8,7 +8,7 @@ import { DownOutlined } from '@antdv-next/icons'
 import { clsx } from '@v-c/util'
 import pickAttrs from '@v-c/util/dist/pickAttrs'
 import { filterEmpty } from '@v-c/util/dist/props-util'
-import { computed, createVNode, defineComponent, isVNode } from 'vue'
+import { cloneVNode, computed, defineComponent, isVNode } from 'vue'
 import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { useComponentBaseConfig } from '../config-provider/context'
@@ -267,8 +267,10 @@ const Breadcrumb = defineComponent<
           }
 
           const isLastItem = index === childrenLength - 1
-          return createVNode(element, {
+          const isBreadcrumbItem = Boolean((element.type as any)?.__ANT_BREADCRUMB_ITEM)
+          return cloneVNode(element, {
             separator: isLastItem ? '' : mergedSeparator.value,
+            ...(isBreadcrumbItem ? { dropdownIcon: mergedDropdownIcon } : {}),
             key: index,
           })
         })
@@ -311,6 +313,11 @@ const Breadcrumb = defineComponent<
   app.component(Breadcrumb.name, Breadcrumb)
   app.component(BreadcrumbItem.name, BreadcrumbItem)
   app.component(BreadcrumbSeparator.name, BreadcrumbSeparator)
+}
+
+export {
+  BreadcrumbItem,
+  BreadcrumbSeparator,
 }
 
 export default Breadcrumb

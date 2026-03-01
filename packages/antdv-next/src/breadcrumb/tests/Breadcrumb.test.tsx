@@ -99,6 +99,8 @@ describe('breadcrumb', () => {
       </Breadcrumb>
     ))
     expect(wrapper.find('.ant-breadcrumb').exists()).toBe(true)
+    expect(wrapper.findAll('li.ant-breadcrumb-item')).toHaveLength(2)
+    expect(wrapper.find('li.undefined-item').exists()).toBe(false)
   })
 
   it('should render with custom BreadcrumbSeparator', () => {
@@ -159,6 +161,26 @@ describe('breadcrumb', () => {
     })
     expect(wrapper.find('.ant-breadcrumb').exists()).toBe(true)
     expect(wrapper.findAll('.ant-breadcrumb-link').length).toBe(3)
+  })
+
+  it('should render dropdown icon when using BreadcrumbItem children with menu', () => {
+    const wrapper = mount(() => (
+      <Breadcrumb>
+        <Breadcrumb.Item
+          menu={{
+            items: [
+              { key: '1', label: 'General' },
+            ],
+          }}
+        >
+          General
+        </Breadcrumb.Item>
+        <Breadcrumb.Item>Button</Breadcrumb.Item>
+      </Breadcrumb>
+    ))
+
+    expect(wrapper.find('.ant-breadcrumb-overlay-link').exists()).toBe(true)
+    expect(wrapper.find('.anticon-down').exists()).toBe(true)
   })
 
   it('should support data attributes', () => {
