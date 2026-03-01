@@ -1,8 +1,12 @@
 <script setup lang="ts">
 import type { Frontmatter } from '@/composables/doc-page.ts'
-import { shallowRef } from 'vue'
+import { shallowRef, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import DocHeading from '@/components/docs/heading.vue'
+import { applyRouteSeo } from '@/composables/seo.ts'
 import Main from '../base/main.vue'
+
+const route = useRoute()
 
 const docRef = shallowRef<{
   frontmatter?: Frontmatter
@@ -11,6 +15,23 @@ const docRef = shallowRef<{
 function setDocRef(el: any) {
   docRef.value = el
 }
+
+watch(
+  () => route.fullPath,
+  () => {
+    docRef.value = undefined
+    applyRouteSeo(route)
+  },
+  { immediate: true },
+)
+
+watch(
+  () => docRef.value?.frontmatter,
+  (frontmatter) => {
+    applyRouteSeo(route, { frontmatter })
+  },
+  { immediate: true },
+)
 </script>
 
 <template>

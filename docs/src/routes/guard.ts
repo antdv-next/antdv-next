@@ -1,4 +1,5 @@
 import type { Router } from 'vue-router'
+import { applyRouteSeo } from '@/composables/seo.ts'
 import { useAppStore } from '@/stores/app.ts'
 
 export function setupRouterGuard(router: Router) {
@@ -41,4 +42,9 @@ export function setupRouterGuard(router: Router) {
       return true
     },
   )
+
+  router.afterEach((to) => {
+    if (!to.path.startsWith('/~demos'))
+      applyRouteSeo(to)
+  })
 }
