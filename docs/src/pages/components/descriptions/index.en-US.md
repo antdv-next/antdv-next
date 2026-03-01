@@ -20,6 +20,7 @@ Commonly displayed on the details page.
   <demo src="./demo/responsive.vue">responsive</demo>
   <demo src="./demo/vertical.vue">Vertical</demo>
   <demo src="./demo/vertical-border.vue">Vertical border</demo>
+  <demo src="./demo/sfc.vue">SFC Mode</demo>
   <demo src="./demo/style-class.vue">Custom semantic dom styling</demo>
   <demo src="./demo/block.vue">row</demo>
 </demo-group>

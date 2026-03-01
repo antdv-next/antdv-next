@@ -30,6 +30,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Vn4XSqJFAxcAAA
   <demo src="./demo/theme.vue">主题</demo>
   <demo src="./demo/submenu-theme.vue">子菜单主题</demo>
   <demo src="./demo/switch-mode.vue">切换菜单类型</demo>
+  <demo src="./demo/slot-render.vue">插槽渲染（items 模式）</demo>
   <demo src="./demo/style-class.vue">自定义语义结构的样式和类</demo>
   <demo src="./demo/custom-popup-render.vue">自定义弹出框</demo>
 </demo-group>
@@ -65,6 +66,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Vn4XSqJFAxcAAA
 | getPopupContainer | 菜单弹出层渲染容器，默认渲染到 body | (triggerNode: HTMLElement) => HTMLElement | () => document.body | - |
 | itemIcon | 自定义菜单项图标渲染 | (props: MenuItemProps & RenderIconInfo) => any | - | - |
 | labelRender | 自定义菜单项标签渲染 | (item: RenderItem) => any | - | - |
+| iconRender | 自定义菜单项图标渲染（items 模式） | (item: RenderItem) => any | - | - |
 | extraRender | 自定义菜单项额外内容渲染 | (item: RenderItem) => any | - | - |
 | popupRender | 自定义子菜单的弹出框 | (node: VueNode, info: { item: SubMenuProps; keys: string[] }) => VueNode | - | - |
 
@@ -83,6 +85,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Vn4XSqJFAxcAAA
 | --- | --- | --- | --- |
 | expandIcon | 自定义展开图标 | () => any | - |
 | labelRender | 自定义菜单项标签 | (item: RenderItem) => any | - |
+| iconRender | 自定义菜单项图标（items 模式） | (item: RenderItem) => any | - |
 | extraRender | 自定义菜单项额外内容 | (item: RenderItem) => any | - |
 | itemIcon | 自定义菜单项图标 | (props: MenuItemProps & RenderIconInfo) => any | - |
 

@@ -24,6 +24,7 @@ demo:
   <demo src="./demo/separator.vue">Configuring the Separator</demo>
   <demo src="./demo/overlay.vue">Bread crumbs with drop down menu</demo>
   <demo src="./demo/separator-component.vue">Configuring the Separator Independently</demo>
+  <demo src="./demo/sfc.vue">SFC Mode</demo>
   <demo src="./demo/style-class.vue">Custom semantic dom styling</demo>
 </demo-group>
 

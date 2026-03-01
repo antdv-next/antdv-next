@@ -25,6 +25,7 @@ demo:
   <demo src="./demo/separator.vue">分隔符</demo>
   <demo src="./demo/overlay.vue">带下拉菜单的面包屑</demo>
   <demo src="./demo/separator-component.vue">独立的分隔符</demo>
+  <demo src="./demo/sfc.vue">SFC 模式</demo>
   <demo src="./demo/style-class.vue">自定义语义结构的样式和类</demo>
 </demo-group>
 

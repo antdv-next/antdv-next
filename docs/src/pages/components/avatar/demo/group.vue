@@ -1,3 +1,11 @@
+<docs lang="zh-CN">
+头像组合展现。
+</docs>
+
+<docs lang="en-US">
+Avatar group display.
+</docs>
+
 <script setup lang="ts">
 import { AntDesignOutlined, UserOutlined } from '@antdv-next/icons'
 </script>

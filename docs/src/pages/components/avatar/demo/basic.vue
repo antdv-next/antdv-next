@@ -1,3 +1,11 @@
+<docs lang="zh-CN">
+头像有三种尺寸，两种形状可选。
+</docs>
+
+<docs lang="en-US">
+Three sizes and two shapes are available.
+</docs>
+
 <script setup lang="ts">
 import { UserOutlined } from '@antdv-next/icons'
 </script>

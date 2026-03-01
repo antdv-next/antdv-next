@@ -1,3 +1,11 @@
+<docs lang="zh-CN">
+头像大小可以根据屏幕大小自动调整。
+</docs>
+
+<docs lang="en-US">
+Avatar size can be automatically adjusted based on the screen size.
+</docs>
+
 <script setup lang="ts">
 import { AntDesignOutlined } from '@antdv-next/icons'
 </script>

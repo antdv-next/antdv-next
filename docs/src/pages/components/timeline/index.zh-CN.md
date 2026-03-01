@@ -24,6 +24,7 @@ demo:
 <demo src="./demo/alternate.vue">交替展现</demo>
 <demo src="./demo/horizontal.vue">水平布局</demo>
 <demo src="./demo/custom.vue">自定义时间轴点</demo>
+<demo src="./demo/sfc.vue">SFC 模式</demo>
 <demo src="./demo/end.vue">另一侧时间轴点</demo>
 <demo src="./demo/title.vue">标题</demo>
 <demo src="./demo/title-span.vue">标题占比</demo>

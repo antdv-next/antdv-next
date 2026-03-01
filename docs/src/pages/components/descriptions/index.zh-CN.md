@@ -21,6 +21,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*d27AQJrowGAAAA
   <demo src="./demo/responsive.vue">响应式</demo>
   <demo src="./demo/vertical.vue">垂直</demo>
   <demo src="./demo/vertical-border.vue">垂直带边框的</demo>
+  <demo src="./demo/sfc.vue">SFC 模式</demo>
   <demo src="./demo/style-class.vue">自定义语义结构的样式和类</demo>
   <demo src="./demo/block.vue">整行</demo>
 </demo-group>

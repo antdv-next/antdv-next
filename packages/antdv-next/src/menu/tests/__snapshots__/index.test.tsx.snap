@@ -1,0 +1,24 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`menu > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<div
+  data-v-app=""
+>
+  <ul
+    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light ant-menu-rtl css-var-root ant-menu-css-var"
+    data-menu-list="true"
+    dir="rtl"
+    role="menu"
+    tabindex="0"
+  >
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+  </ul>
+  <div
+    aria-hidden="true"
+    style="display: none;"
+  />
+</div>
+`;

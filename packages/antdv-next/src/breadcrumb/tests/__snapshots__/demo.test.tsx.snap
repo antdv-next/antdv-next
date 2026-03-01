@@ -853,7 +853,7 @@ exports[`breadcrumb demo > renders sfc correctly 1`] = `
     <li
       class="ant-breadcrumb-separator"
     >
-      /
+       &gt; 
     </li>
     <li
       class="ant-breadcrumb-item"

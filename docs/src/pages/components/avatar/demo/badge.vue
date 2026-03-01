@@ -1,3 +1,11 @@
+<docs lang="zh-CN">
+通常用于消息提示。
+</docs>
+
+<docs lang="en-US">
+Usually used for reminders and notifications.
+</docs>
+
 <script setup lang="ts">
 import { UserOutlined } from '@antdv-next/icons'
 </script>

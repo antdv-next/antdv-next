@@ -1704,7 +1704,20 @@ exports[`descriptions demo > renders sfc correctly 1`] = `
             colspan="5"
           >
             <!---->
-            <!---->
+            <span>
+              <span
+                class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-root"
+              >
+                <span
+                  class="ant-badge-status-dot ant-badge-status-processing"
+                />
+                <span
+                  class="ant-badge-status-text"
+                >
+                  running
+                </span>
+              </span>
+            </span>
           </td>
         </tr>
         <tr

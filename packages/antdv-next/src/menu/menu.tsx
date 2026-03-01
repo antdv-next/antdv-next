@@ -191,10 +191,10 @@ export interface MenuEmitsProps {
 export interface MenuSlots {
   default: () => any
   expandIcon: () => any
-  labelRender: (item: RenderItem) => any
-  extraRender: (item: RenderItem) => any
+  labelRender?: (item: RenderItem) => any
+  extraRender?: (item: RenderItem) => any
   iconRender?: (item: RenderItem) => any
-  itemIcon: (props: MenuItemProps & RenderIconInfo) => any
+  itemIcon?: (props: MenuItemProps & RenderIconInfo) => any
 }
 
 const defaults = {

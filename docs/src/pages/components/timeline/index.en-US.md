@@ -20,6 +20,7 @@ demo:
 <demo src="./demo/basic.vue">Basic</demo>
 <demo src="./demo/alternate.vue">Alternate</demo>
 <demo src="./demo/custom.vue">Custom</demo>
+<demo src="./demo/sfc.vue">SFC Mode</demo>
 <demo src="./demo/pending.vue">Pending</demo>
 <demo src="./demo/title.vue">Label</demo>
 <demo src="./demo/variant.vue">Variant</demo>
