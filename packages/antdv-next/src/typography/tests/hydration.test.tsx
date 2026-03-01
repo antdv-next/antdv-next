@@ -11,7 +11,7 @@ vi.mock('../../_util/styleChecker', () => ({
 
 describe('typography hydration', () => {
   it('should avoid ellipsis class mismatch during hydration', async () => {
-    const demoPath = '/Users/yanyu/workspace/gitea/antdv-next/antdv-next/playground/src/pages/components/carousel/demo/basic.vue'
+    const demoPath = 'docs/src/pages/components/carousel/demo/basic.vue'
     const Demo = defineComponent({
       setup() {
         return () => h(

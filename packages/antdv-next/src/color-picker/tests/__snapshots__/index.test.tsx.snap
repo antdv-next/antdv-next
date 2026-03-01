@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`color-picker > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-color-picker-trigger css-var-root ant-color-picker-css-var ant-color-picker-rtl"
+  >
+    <div
+      class="ant-color-picker-clear"
+    />
+    <!---->
+  </div>
+  <!---->
+</div>
+`;

@@ -1,0 +1,1594 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`color-picker demo > renders _semantic correctly 1`] = `
+<div
+  class="semantic-preview-container"
+  data-v-dfc8ebef=""
+>
+  <div
+    class="ant-row css-var-root semantic-preview-row"
+    data-v-dfc8ebef=""
+  >
+    <div
+      class="ant-col ant-col-16 css-var-root semantic-preview-col"
+      data-v-dfc8ebef=""
+    >
+      <div
+        class="ant-flex css-var-v-0 ant-flex-align-flex-start ant-flex-gap-small"
+        style="height: 300px;"
+      >
+        <div
+          aria-describedby="test-id"
+          class="ant-popover-open ant-color-picker-trigger css-var-v-0 ant-color-picker-css-var semantic-mark-root ant-color-picker-trigger-active"
+        >
+          <div
+            class="ant-color-picker-color-block semantic-mark-body"
+          >
+            <div
+              class="ant-color-picker-color-block-inner semantic-mark-content"
+              style="background: rgb(22, 119, 255);"
+            />
+          </div>
+          <div
+            class="ant-color-picker-trigger-text semantic-mark-description"
+            style=""
+          >
+            #1677FF
+          </div>
+        </div>
+        <!---->
+        <div
+          class="ant-color-picker-trigger css-var-v-0 ant-color-picker-css-var semantic-mark-root"
+        >
+          <div
+            class="ant-color-picker-clear semantic-mark-body"
+          />
+          <!---->
+        </div>
+        <!---->
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-8 css-var-root"
+      data-v-dfc8ebef=""
+    >
+      <ul
+        class="semantic-list"
+        data-v-dfc8ebef=""
+      >
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  root
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <!--v-if-->
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              Trigger container with border styles, transition animations, size controls, displaying color block and text content
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  body
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <!--v-if-->
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              Color block container with background color, border styles
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  content
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <!--v-if-->
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              Color block element with actual selected color styles
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  description
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <!--v-if-->
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              Description text content with font styles and color
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  popup.root
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <!--v-if-->
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              Popup panel root container with background color, shadow effects, color selection panel, slider controls and preset colors
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`color-picker demo > renders allow-clear correctly 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-color-picker-trigger css-var-root ant-color-picker-css-var"
+  >
+    <div
+      class="ant-color-picker-color-block"
+    >
+      <div
+        class="ant-color-picker-color-block-inner"
+        style="background: rgb(22, 119, 255);"
+      />
+    </div>
+    <!---->
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`color-picker demo > renders basic correctly 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-color-picker-trigger css-var-root ant-color-picker-css-var"
+  >
+    <div
+      class="ant-color-picker-color-block"
+    >
+      <div
+        class="ant-color-picker-color-block-inner"
+        style="background: rgb(22, 119, 255);"
+      />
+    </div>
+    <!---->
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`color-picker demo > renders controlled correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-color-picker-trigger css-var-root ant-color-picker-css-var"
+    >
+      <div
+        class="ant-color-picker-color-block"
+      >
+        <div
+          class="ant-color-picker-color-block-inner"
+          style="background: rgb(22, 119, 255);"
+        />
+      </div>
+      <!---->
+    </div>
+    <!---->
+  </div>
+  <!---->
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-color-picker-trigger css-var-root ant-color-picker-css-var"
+    >
+      <div
+        class="ant-color-picker-color-block"
+      >
+        <div
+          class="ant-color-picker-color-block-inner"
+          style="background: rgb(22, 119, 255);"
+        />
+      </div>
+      <!---->
+    </div>
+    <!---->
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`color-picker demo > renders disabled correctly 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-color-picker-trigger css-var-root ant-color-picker-css-var ant-color-picker-trigger-disabled"
+  >
+    <div
+      class="ant-color-picker-color-block"
+    >
+      <div
+        class="ant-color-picker-color-block-inner"
+        style="background: rgb(22, 119, 255);"
+      />
+    </div>
+    <div
+      class="ant-color-picker-trigger-text"
+    >
+      #1677FF
+    </div>
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`color-picker demo > renders disabled-alpha correctly 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-color-picker-trigger css-var-root ant-color-picker-css-var"
+  >
+    <div
+      class="ant-color-picker-color-block"
+    >
+      <div
+        class="ant-color-picker-color-block-inner"
+        style="background: rgb(22, 119, 255);"
+      />
+    </div>
+    <!---->
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`color-picker demo > renders format correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+  style="display: flex;"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"
+    >
+      <div
+        class="ant-space-item"
+      >
+        <div
+          class="ant-color-picker-trigger css-var-root ant-color-picker-css-var"
+        >
+          <div
+            class="ant-color-picker-color-block"
+          >
+            <div
+              class="ant-color-picker-color-block-inner"
+              style="background: rgb(22, 119, 255);"
+            />
+          </div>
+          <!---->
+        </div>
+        <!---->
+      </div>
+      <!---->
+      <div
+        class="ant-space-item"
+      >
+        <span>
+          HEX: #1677ff
+        </span>
+      </div>
+      <!---->
+    </div>
+  </div>
+  <!---->
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"
+    >
+      <div
+        class="ant-space-item"
+      >
+        <div
+          class="ant-color-picker-trigger css-var-root ant-color-picker-css-var"
+        >
+          <div
+            class="ant-color-picker-color-block"
+          >
+            <div
+              class="ant-color-picker-color-block-inner"
+              style="background: rgb(23, 120, 255);"
+            />
+          </div>
+          <!---->
+        </div>
+        <!---->
+      </div>
+      <!---->
+      <div
+        class="ant-space-item"
+      >
+        <span>
+          HSB: hsb(215, 91%, 100%)
+        </span>
+      </div>
+      <!---->
+    </div>
+  </div>
+  <!---->
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"
+    >
+      <div
+        class="ant-space-item"
+      >
+        <div
+          class="ant-color-picker-trigger css-var-root ant-color-picker-css-var"
+        >
+          <div
+            class="ant-color-picker-color-block"
+          >
+            <div
+              class="ant-color-picker-color-block-inner"
+              style="background: rgb(22, 119, 255);"
+            />
+          </div>
+          <!---->
+        </div>
+        <!---->
+      </div>
+      <!---->
+      <div
+        class="ant-space-item"
+      >
+        <span>
+          RGB: rgb(22, 119, 255)
+        </span>
+      </div>
+      <!---->
+    </div>
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`color-picker demo > renders line-gradient correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-root"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-color-picker-trigger css-var-root ant-color-picker-css-var"
+    >
+      <div
+        class="ant-color-picker-color-block"
+      >
+        <div
+          class="ant-color-picker-color-block-inner"
+          style="background: linear-gradient(90deg, rgb(16, 142, 233) 0%, rgb(135, 208, 104) 100%);"
+        />
+      </div>
+      <div
+        class="ant-color-picker-trigger-text"
+      >
+        <span
+          class="ant-color-picker-trigger-text-cell"
+        >
+          rgb(16,142,233) 0%
+        </span>
+        <span
+          class="ant-color-picker-trigger-text-cell"
+        >
+          rgb(135,208,104) 100%
+        </span>
+      </div>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-color-picker-trigger css-var-root ant-color-picker-css-var"
+    >
+      <div
+        class="ant-color-picker-color-block"
+      >
+        <div
+          class="ant-color-picker-color-block-inner"
+          style="background: linear-gradient(90deg, rgb(16, 142, 233) 0%, rgb(135, 208, 104) 100%);"
+        />
+      </div>
+      <div
+        class="ant-color-picker-trigger-text"
+      >
+        <span
+          class="ant-color-picker-trigger-text-cell"
+        >
+          rgb(16,142,233) 0%
+        </span>
+        <span
+          class="ant-color-picker-trigger-text-cell"
+        >
+          rgb(135,208,104) 100%
+        </span>
+      </div>
+    </div>
+    <!---->
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`color-picker demo > renders panel-render correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-root"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"
+    >
+      <div
+        class="ant-space-item"
+      >
+        <span>
+          Add title:
+        </span>
+      </div>
+      <!---->
+      <div
+        class="ant-space-item"
+      >
+        <div
+          class="ant-color-picker-trigger css-var-root ant-color-picker-css-var"
+        >
+          <div
+            class="ant-color-picker-color-block"
+          >
+            <div
+              class="ant-color-picker-color-block-inner"
+              style="background: rgb(22, 119, 255);"
+            />
+          </div>
+          <!---->
+        </div>
+        <!---->
+      </div>
+      <!---->
+    </div>
+  </div>
+  <!---->
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"
+    >
+      <div
+        class="ant-space-item"
+      >
+        <span>
+          Horizontal layout:
+        </span>
+      </div>
+      <!---->
+      <div
+        class="ant-space-item"
+      >
+        <div
+          class="ant-color-picker-trigger css-var-root ant-color-picker-css-var"
+        >
+          <div
+            class="ant-color-picker-color-block"
+          >
+            <div
+              class="ant-color-picker-color-block-inner"
+              style="background: rgb(22, 119, 255);"
+            />
+          </div>
+          <!---->
+        </div>
+        <!---->
+      </div>
+      <!---->
+    </div>
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`color-picker demo > renders presets correctly 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-color-picker-trigger css-var-root ant-color-picker-css-var"
+  >
+    <div
+      class="ant-color-picker-color-block"
+    >
+      <div
+        class="ant-color-picker-color-block-inner"
+        style="background: rgb(22, 119, 255);"
+      />
+    </div>
+    <!---->
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`color-picker demo > renders pure-panel correctly 1`] = `
+<div
+  class="ml-100px"
+>
+  <div
+    style="padding-bottom: 0px; position: relative; min-width: 0px;"
+    value="#1677ff"
+  >
+    <div
+      aria-describedby="test-id"
+      class="ant-popover-open ant-color-picker-trigger css-var-v-0 ant-color-picker-css-var ant-color-picker-trigger-active"
+    >
+      <div
+        class="ant-color-picker-color-block"
+      >
+        <div
+          class="ant-color-picker-color-block-inner"
+          style="background: rgb(22, 119, 255);"
+        />
+      </div>
+      <!---->
+    </div>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`color-picker demo > renders size correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-root"
+    >
+      <div
+        class="ant-space-item"
+      >
+        <div
+          class="ant-color-picker-trigger ant-color-picker-sm css-var-root ant-color-picker-css-var"
+        >
+          <div
+            class="ant-color-picker-color-block"
+          >
+            <div
+              class="ant-color-picker-color-block-inner"
+              style="background: rgb(22, 119, 255);"
+            />
+          </div>
+          <!---->
+        </div>
+        <!---->
+      </div>
+      <!---->
+      <div
+        class="ant-space-item"
+      >
+        <div
+          class="ant-color-picker-trigger css-var-root ant-color-picker-css-var"
+        >
+          <div
+            class="ant-color-picker-color-block"
+          >
+            <div
+              class="ant-color-picker-color-block-inner"
+              style="background: rgb(22, 119, 255);"
+            />
+          </div>
+          <!---->
+        </div>
+        <!---->
+      </div>
+      <!---->
+      <div
+        class="ant-space-item"
+      >
+        <div
+          class="ant-color-picker-trigger ant-color-picker-lg css-var-root ant-color-picker-css-var"
+        >
+          <div
+            class="ant-color-picker-color-block"
+          >
+            <div
+              class="ant-color-picker-color-block-inner"
+              style="background: rgb(22, 119, 255);"
+            />
+          </div>
+          <!---->
+        </div>
+        <!---->
+      </div>
+      <!---->
+    </div>
+  </div>
+  <!---->
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-root"
+    >
+      <div
+        class="ant-space-item"
+      >
+        <div
+          class="ant-color-picker-trigger ant-color-picker-sm css-var-root ant-color-picker-css-var"
+        >
+          <div
+            class="ant-color-picker-color-block"
+          >
+            <div
+              class="ant-color-picker-color-block-inner"
+              style="background: rgb(22, 119, 255);"
+            />
+          </div>
+          <div
+            class="ant-color-picker-trigger-text"
+          >
+            #1677FF
+          </div>
+        </div>
+        <!---->
+      </div>
+      <!---->
+      <div
+        class="ant-space-item"
+      >
+        <div
+          class="ant-color-picker-trigger css-var-root ant-color-picker-css-var"
+        >
+          <div
+            class="ant-color-picker-color-block"
+          >
+            <div
+              class="ant-color-picker-color-block-inner"
+              style="background: rgb(22, 119, 255);"
+            />
+          </div>
+          <div
+            class="ant-color-picker-trigger-text"
+          >
+            #1677FF
+          </div>
+        </div>
+        <!---->
+      </div>
+      <!---->
+      <div
+        class="ant-space-item"
+      >
+        <div
+          class="ant-color-picker-trigger ant-color-picker-lg css-var-root ant-color-picker-css-var"
+        >
+          <div
+            class="ant-color-picker-color-block"
+          >
+            <div
+              class="ant-color-picker-color-block-inner"
+              style="background: rgb(22, 119, 255);"
+            />
+          </div>
+          <div
+            class="ant-color-picker-trigger-text"
+          >
+            #1677FF
+          </div>
+        </div>
+        <!---->
+      </div>
+      <!---->
+    </div>
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`color-picker demo > renders style-class correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+  style="flex-wrap: wrap;"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-color-picker-trigger css-var-root ant-color-picker-css-var custom-color-picker"
+    >
+      <div
+        class="ant-color-picker-color-block"
+      >
+        <div
+          class="ant-color-picker-color-block-inner"
+          style="background: rgb(22, 119, 255);"
+        />
+      </div>
+      <!---->
+    </div>
+    <!---->
+  </div>
+  <!---->
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-color-picker-trigger ant-color-picker-lg css-var-root ant-color-picker-css-var custom-color-picker"
+    >
+      <div
+        class="ant-color-picker-color-block"
+      >
+        <div
+          class="ant-color-picker-color-block-inner"
+          style="background: rgb(114, 46, 209);"
+        />
+      </div>
+      <!---->
+    </div>
+    <!---->
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`color-picker demo > renders text-render correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-root"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-color-picker-trigger css-var-root ant-color-picker-css-var"
+    >
+      <div
+        class="ant-color-picker-color-block"
+      >
+        <div
+          class="ant-color-picker-color-block-inner"
+          style="background: rgb(22, 119, 255);"
+        />
+      </div>
+      <div
+        class="ant-color-picker-trigger-text"
+      >
+        #1677FF
+      </div>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-color-picker-trigger css-var-root ant-color-picker-css-var"
+    >
+      <div
+        class="ant-color-picker-color-block"
+      >
+        <div
+          class="ant-color-picker-color-block-inner"
+          style="background: rgb(22, 119, 255);"
+        />
+      </div>
+      <div
+        class="ant-color-picker-trigger-text"
+      >
+        <span>
+          Custom Text ()
+        </span>
+      </div>
+    </div>
+    <!---->
+  </div>
+  <!---->
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-color-picker-trigger css-var-root ant-color-picker-css-var"
+    >
+      <div
+        class="ant-color-picker-color-block"
+      >
+        <div
+          class="ant-color-picker-color-block-inner"
+          style="background: rgb(22, 119, 255);"
+        />
+      </div>
+      <div
+        class="ant-color-picker-trigger-text"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down"
+          role="img"
+          style="color: rgba(0, 0, 0, 0.25);"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </div>
+    </div>
+    <!---->
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`color-picker demo > renders trigger correctly 1`] = `
+<div
+  data-v-app=""
+>
+  <button
+    class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    style="background-color: rgb(22, 119, 255);"
+    type="button"
+  >
+    <transition-stub
+      appear="false"
+      css="true"
+      name="ant-btn-loading-icon-motion"
+      persisted="false"
+    >
+      <!---->
+    </transition-stub>
+    <span>
+       open 
+    </span>
+    <!---->
+  </button>
+  <!---->
+</div>
+`;
+
+exports[`color-picker demo > renders trigger-event correctly 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-color-picker-trigger css-var-root ant-color-picker-css-var"
+  >
+    <div
+      class="ant-color-picker-color-block"
+    >
+      <div
+        class="ant-color-picker-color-block-inner"
+        style="background: rgb(22, 119, 255);"
+      />
+    </div>
+    <!---->
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`color-picker demo > renders value-format correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large css-var-root"
+  style="flex-wrap: wrap;"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space ant-space-vertical css-var-root"
+      style="column-gap: 8px; row-gap: 8px;"
+    >
+      <div
+        class="ant-space-item"
+      >
+        <span>
+          HEX String
+        </span>
+      </div>
+      <!---->
+      <div
+        class="ant-space-item"
+      >
+        <div
+          class="ant-color-picker-trigger css-var-root ant-color-picker-css-var"
+        >
+          <div
+            class="ant-color-picker-color-block"
+          >
+            <div
+              class="ant-color-picker-color-block-inner"
+              style="background: rgb(22, 119, 255);"
+            />
+          </div>
+          <!---->
+        </div>
+        <!---->
+      </div>
+      <!---->
+      <div
+        class="ant-space-item"
+      >
+        <span>
+          value: #1677ff
+        </span>
+      </div>
+      <!---->
+    </div>
+  </div>
+  <!---->
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space ant-space-vertical css-var-root"
+      style="column-gap: 8px; row-gap: 8px;"
+    >
+      <div
+        class="ant-space-item"
+      >
+        <span>
+          RGB String
+        </span>
+      </div>
+      <!---->
+      <div
+        class="ant-space-item"
+      >
+        <div
+          class="ant-color-picker-trigger css-var-root ant-color-picker-css-var"
+        >
+          <div
+            class="ant-color-picker-color-block"
+          >
+            <div
+              class="ant-color-picker-color-block-inner"
+              style="background: rgb(22, 119, 255);"
+            />
+          </div>
+          <!---->
+        </div>
+        <!---->
+      </div>
+      <!---->
+      <div
+        class="ant-space-item"
+      >
+        <span>
+          value: rgb(22, 119, 255)
+        </span>
+      </div>
+      <!---->
+    </div>
+  </div>
+  <!---->
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space ant-space-vertical css-var-root"
+      style="column-gap: 8px; row-gap: 8px;"
+    >
+      <div
+        class="ant-space-item"
+      >
+        <span>
+          HSB String
+        </span>
+      </div>
+      <!---->
+      <div
+        class="ant-space-item"
+      >
+        <div
+          class="ant-color-picker-trigger css-var-root ant-color-picker-css-var"
+        >
+          <div
+            class="ant-color-picker-color-block"
+          >
+            <div
+              class="ant-color-picker-color-block-inner"
+              style="background: rgb(23, 120, 255);"
+            />
+          </div>
+          <!---->
+        </div>
+        <!---->
+      </div>
+      <!---->
+      <div
+        class="ant-space-item"
+      >
+        <span>
+          value: hsb(215, 91%, 100%)
+        </span>
+      </div>
+      <!---->
+    </div>
+  </div>
+  <!---->
+</div>
+`;

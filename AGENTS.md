@@ -16,14 +16,14 @@
 
 ## 🏗 Project Architecture
 
-| Layer | Module | Description |
-|-------|---------|-------------|
-| **Core** | `Vue3 + TypeScript + Vite` | Development environment and runtime |
-| **Styling** | `@antdv-next/cssinjs` | CSS-in-JS runtime matching Ant Design v5 |
+| Layer | Module                                 | Description |
+|-------|----------------------------------------|-------------|
+| **Core** | `Vue3 + TypeScript + Vite`             | Development environment and runtime |
+| **Styling** | `@antdv-next/cssinjs`                  | CSS-in-JS runtime matching Ant Design v5 |
 | **Utilities** | `_util/`, `config-provider/`, `hooks/` | Shared helpers and context providers |
-| **Components** | `packages/antdv-next/src/` | Main component source |
-| **Playground** | `playground/` | Vite demo environment for live validation |
-| **Tooling** | `tsdown`, `vitest`, `eslint`, `pnpm` | Build and test infrastructure |
+| **Components** | `packages/antdv-next/src/`             | Main component source |
+| **Playground** | `docs/`                                | Vite demo environment for live validation |
+| **Tooling** | `tsdown`, `vitest`, `eslint`, `pnpm`   | Build and test infrastructure |
 
 ## 🧩 Props / Attrs / Class Mapping
 
@@ -161,7 +161,7 @@ export default defineComponent<
 - Directory: `packages/*/tests/`
 
 ### Playground Demos
-Each component must include a demo under `playground/src/demos/`:
+Each component must include a demo under `docs/src/demos/`:
 
 | Case | Required Demo                            |
 |-------|------------------------------------------|

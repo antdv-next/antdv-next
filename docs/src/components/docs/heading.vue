@@ -28,7 +28,7 @@ const githubUrl = computed(() => {
   else {
     mdFile = 'index.en-US.md'
   }
-  return `https://github.com/antdv-next/antdv-next/edit/main/playground/src/pages${docPath}/${mdFile}`
+  return `https://github.com/antdv-next/antdv-next/edit/main/docs/src/pages${docPath}/${mdFile}`
 })
 </script>
 

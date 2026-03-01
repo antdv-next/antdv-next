@@ -16,6 +16,7 @@ const config = antfu(
       'vue/no-template-shadow': 0,
       'vue/one-component-per-file': 0,
       'style/quote-props': 0,
+      'test/prefer-lowercase-title': 0,
     },
   },
   {
