@@ -1,9 +1,18 @@
+import type { TimelineItemProps, TimelineItemSlots } from './TimelineItem'
 import Timeline from './Timeline'
+import { TimelineItem } from './TimelineItem'
 
 export default Timeline
+export {
+  TimelineItem,
+}
 
 export type {
-  TimelineItemType as TimelineItemProps,
+  TimelineItemProps,
+  TimelineItemSlots,
+}
+export type {
+  TimelineItemType,
   TimelineProps,
   TimelineSemanticClassNames,
   TimelineSemanticName,

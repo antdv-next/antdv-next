@@ -2918,6 +2918,87 @@ exports[`timeline demo > renders semantic correctly 1`] = `
 </ol>
 `;
 
+exports[`timeline demo > renders sfc correctly 1`] = `
+<div>
+  <ol
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline css-var-root"
+    classes="[object Object]"
+    responsive="true"
+    style="--ant-cmp-steps-items-offset: 0;"
+    type="dot"
+  >
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <!---->
+            <!---->
+            <div
+              class="ant-steps-item-rail ant-steps-item-rail-finish ant-timeline-item-rail"
+            />
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+             测试 
+          </div>
+        </div>
+      </div>
+    </li>
+    <li
+      class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
+      role="button"
+      tabindex="0"
+    >
+      <div
+        class="ant-steps-item-wrapper ant-timeline-item-wrapper"
+      >
+        <div
+          class="ant-steps-item-icon ant-wave-target ant-timeline-item-icon"
+        >
+          <!---->
+        </div>
+        <div
+          class="ant-steps-item-section ant-timeline-item-section"
+        >
+          <div
+            class="ant-steps-item-header ant-timeline-item-header"
+          >
+            <!---->
+            <!---->
+            <!---->
+          </div>
+          <div
+            class="ant-steps-item-content ant-timeline-item-content"
+          >
+            <div
+              class="c-primary"
+            >
+               测试 
+            </div>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+</div>
+`;
+
 exports[`timeline demo > renders style-class correctly 1`] = `
 <div
   class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"

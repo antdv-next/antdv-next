@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { h, nextTick, ref } from 'vue'
-import Timeline from '..'
+import Timeline, { TimelineItem } from '..'
 import ConfigProvider from '../../config-provider'
 import mountTest from '/@tests/shared/mountTest'
 import rtlTest from '/@tests/shared/rtlTest'
@@ -35,6 +35,49 @@ describe('timeline', () => {
     const wrapper = mount(() => <Timeline />)
     expect(wrapper.find('.ant-timeline').exists()).toBe(true)
     expect(wrapper.findAll('li.ant-timeline-item')).toHaveLength(0)
+  })
+
+  it('should resolve timeline item props from default slot nodes', () => {
+    const wrapper = mount(() => (
+      <Timeline>
+        <TimelineItem title="slot-title-1">
+          slot-content-1
+        </TimelineItem>
+        <TimelineItem color="green">
+          <span class="slot-content-2">slot-content-2</span>
+        </TimelineItem>
+      </Timeline>
+    ))
+
+    expect(wrapper.findAll('li.ant-timeline-item')).toHaveLength(2)
+    expect(wrapper.find('.ant-timeline-item-title').text()).toBe('slot-title-1')
+    expect(wrapper.find('.slot-content-2').exists()).toBe(true)
+    expect(wrapper.findAll('li.ant-timeline-item')[1].classes()).toContain('ant-timeline-item-color-green')
+  })
+
+  it('should resolve loading boolean prop from timeline item slot', () => {
+    const wrapper = mount(() => (
+      <Timeline>
+        <TimelineItem loading>
+          loading-item
+        </TimelineItem>
+      </Timeline>
+    ))
+
+    expect(wrapper.find('li.ant-timeline-item').classes()).toContain('ant-steps-item-process')
+    expect(wrapper.find('.anticon-loading').exists()).toBe(true)
+  })
+
+  it('should only treat timeline-item marked nodes as timeline items', () => {
+    const wrapper = mount(() => (
+      <Timeline>
+        <TimelineItem>slot-item</TimelineItem>
+        <div class="plain-node">plain-node</div>
+      </Timeline>
+    ))
+
+    expect(wrapper.findAll('li.ant-timeline-item')).toHaveLength(1)
+    expect(wrapper.find('.plain-node').exists()).toBe(false)
   })
 
   // ============================ Title & Content ============================

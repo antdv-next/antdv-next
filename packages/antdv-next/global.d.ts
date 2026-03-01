@@ -37,6 +37,7 @@ declare module 'vue' {
     AStatisticTimer: typeof import('antdv-next')['StatisticTimer']
     ADescriptions: typeof import('antdv-next')['Descriptions']
     ATimeline: typeof import('antdv-next')['Timeline']
+    ATimelineItem: typeof import('antdv-next')['TimelineItem']
     AWatermark: typeof import('antdv-next')['Watermark']
     AQrcode: typeof import('antdv-next')['QRCode']
     ACollapse: typeof import('antdv-next')['Collapse']

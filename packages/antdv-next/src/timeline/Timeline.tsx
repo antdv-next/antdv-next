@@ -11,12 +11,14 @@ import { computed, defineComponent, ref, toRefs } from 'vue'
 import { useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
 import isNonNullable from '../_util/isNonNullable.ts'
 import { toPropsRefs } from '../_util/tools'
+import { resolveSlotsNode } from '../_util/vnode'
 import { useBaseConfig, useComponentBaseConfig } from '../config-provider/context.ts'
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
 import Steps from '../steps'
 import { provideInternalContext } from '../steps/context.ts'
 import { genCssVar } from '../theme/util/genStyleUtils.ts'
 import useStyle from './style'
+import { TIMELINE_ITEM_MARK, TimelineItem } from './TimelineItem'
 import useItems from './useItems'
 
 type Color = 'blue' | 'red' | 'green' | 'gray'
@@ -29,6 +31,7 @@ export interface TimelineItemType {
   // Style
   color?: LiteralUnion<Color>
   className?: string
+  class?: string
   style?: CSSProperties
   classes?: NonNullable<StepItem['classes']>
   styles?: NonNullable<StepItem['styles']>
@@ -125,7 +128,7 @@ const Timeline = defineComponent<
     const rootPrefixCls = computed(() => getPrefixCls())
 
     const { classes, styles } = toPropsRefs(props, 'classes', 'styles')
-    const items = computed(() => props.items)
+    const items = computed(() => props.items || resolveSlotsNode(slots, 'default', undefined, TIMELINE_ITEM_MARK))
     const pending = computed(() => props.pending)
     const pendingDot = computed(() => props.pendingDot)
 
@@ -257,6 +260,7 @@ const Timeline = defineComponent<
 
 ;(Timeline as any).install = (app: App) => {
   app.component(Timeline.name, Timeline)
+  app.component(TimelineItem.name, TimelineItem)
 }
 
 export default Timeline
