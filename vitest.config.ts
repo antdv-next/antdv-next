@@ -14,6 +14,8 @@ export default defineConfig({
       exclude: [
         'packages/**/locale/*.{ts,tsx}',
         'packages/antdv-next/src/components.ts',
+        'packages/cssinjs/src/cssinjs-utils/interface.ts',
+        'packages/antdv-next/src/version.ts',
       ],
     },
   },

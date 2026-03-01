@@ -34,18 +34,18 @@ export function containerPlugin(md: MarkdownIt, options: Options, containerOptio
       ),
     )
   // explicitly escape Vue syntax
-    .use(container, 'v-pre', {
+    .use(container as any, 'v-pre', {
       render: (tokens: Token[], idx: number) =>
         tokens[idx].nesting === 1 ? `<div v-pre>\n` : `</div>\n`,
     })
-    .use(container, 'raw', {
+    .use(container as any, 'raw', {
       render: (tokens: Token[], idx: number) =>
         tokens[idx].nesting === 1 ? `<div class="vp-raw">\n` : `</div>\n`,
     })
     .use(...createCodeGroup(options))
 }
 
-type ContainerArgs = [typeof container, string, { render: RenderRule }]
+type ContainerArgs = [any, string, { render: RenderRule }]
 
 function createContainer(
   klass: string,
