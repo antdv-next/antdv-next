@@ -38,9 +38,9 @@ const Cell = defineComponent<CellProps>(
               {
                 [`${itemPrefixCls}-item-label`]: type === 'label',
                 [`${itemPrefixCls}-item-content`]: type === 'content',
-                [`${descriptionsClassNames?.label}`]: type === 'label',
-                [`${descriptionsClassNames?.content}`]: type === 'content',
               },
+              type === 'label' ? descriptionsClassNames?.label : undefined,
+              type === 'content' ? descriptionsClassNames?.content : undefined,
             )}
             colSpan={span}
             {

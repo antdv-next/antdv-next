@@ -1055,7 +1055,7 @@ exports[`descriptions demo > renders block correctly 1`] = `
             <!---->
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <!---->
@@ -1073,7 +1073,7 @@ exports[`descriptions demo > renders block correctly 1`] = `
             <!---->
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="3"
           >
             <!---->
@@ -1095,7 +1095,7 @@ exports[`descriptions demo > renders block correctly 1`] = `
             <!---->
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="5"
           >
             <!---->
@@ -1117,7 +1117,7 @@ exports[`descriptions demo > renders block correctly 1`] = `
             <!---->
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="5"
           >
             <!---->
@@ -1164,7 +1164,7 @@ exports[`descriptions demo > renders border correctly 1`] = `
             <!---->
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <!---->
@@ -1182,7 +1182,7 @@ exports[`descriptions demo > renders border correctly 1`] = `
             <!---->
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <!---->
@@ -1200,7 +1200,7 @@ exports[`descriptions demo > renders border correctly 1`] = `
             <!---->
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <!---->
@@ -1222,7 +1222,7 @@ exports[`descriptions demo > renders border correctly 1`] = `
             <!---->
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <!---->
@@ -1240,7 +1240,7 @@ exports[`descriptions demo > renders border correctly 1`] = `
             <!---->
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="3"
           >
             <!---->
@@ -1262,7 +1262,7 @@ exports[`descriptions demo > renders border correctly 1`] = `
             <!---->
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="5"
           >
             <!---->
@@ -1295,7 +1295,7 @@ exports[`descriptions demo > renders border correctly 1`] = `
             <!---->
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <!---->
@@ -1313,7 +1313,7 @@ exports[`descriptions demo > renders border correctly 1`] = `
             <!---->
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <!---->
@@ -1331,7 +1331,7 @@ exports[`descriptions demo > renders border correctly 1`] = `
             <!---->
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <!---->
@@ -1353,7 +1353,7 @@ exports[`descriptions demo > renders border correctly 1`] = `
             <!---->
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="5"
           >
             <!---->
@@ -1411,7 +1411,7 @@ exports[`descriptions demo > renders responsive correctly 1`] = `
             <!---->
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <!---->
@@ -1429,7 +1429,7 @@ exports[`descriptions demo > renders responsive correctly 1`] = `
             <!---->
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <!---->
@@ -1447,7 +1447,7 @@ exports[`descriptions demo > renders responsive correctly 1`] = `
             <!---->
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <!---->
@@ -1469,7 +1469,7 @@ exports[`descriptions demo > renders responsive correctly 1`] = `
             <!---->
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <!---->
@@ -1487,7 +1487,7 @@ exports[`descriptions demo > renders responsive correctly 1`] = `
             <!---->
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <!---->
@@ -1505,7 +1505,7 @@ exports[`descriptions demo > renders responsive correctly 1`] = `
             <!---->
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <!---->
@@ -1527,7 +1527,7 @@ exports[`descriptions demo > renders responsive correctly 1`] = `
             <!---->
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <!---->
@@ -1549,7 +1549,7 @@ exports[`descriptions demo > renders responsive correctly 1`] = `
             <!---->
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="3"
           >
             <!---->
@@ -1561,6 +1561,240 @@ exports[`descriptions demo > renders responsive correctly 1`] = `
                Replication factor: 3 
               <br />
                Region: East China 1 
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`descriptions demo > renders sfc correctly 1`] = `
+<div
+  class="ant-descriptions ant-descriptions-bordered css-var-root"
+>
+  <div
+    class="ant-descriptions-header"
+  >
+    <div
+      class="ant-descriptions-title"
+    >
+      User Info
+    </div>
+    <!---->
+  </div>
+  <div
+    class="ant-descriptions-view"
+  >
+    <table>
+      <tbody>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
+          >
+            <span>
+              Product
+            </span>
+            <!---->
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            <!---->
+            <span>
+               Cloud Database 
+            </span>
+          </td>
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
+          >
+            <span>
+              Billing Mode
+            </span>
+            <!---->
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            <!---->
+            <span>
+               Prepaid 
+            </span>
+          </td>
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
+          >
+            <span>
+              Automatic Renewal
+            </span>
+            <!---->
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            <!---->
+            <span>
+               YES 
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
+          >
+            <span>
+              Order time
+            </span>
+            <!---->
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            <!---->
+            <span>
+               2018-04-24 18:00:00 
+            </span>
+          </td>
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
+          >
+            <span>
+              Usage Time
+            </span>
+            <!---->
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="3"
+          >
+            <!---->
+            <span>
+               2019-04-24 18:00:00 
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
+          >
+            <span>
+              Status
+            </span>
+            <!---->
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="5"
+          >
+            <!---->
+            <!---->
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
+          >
+            <span>
+              Negotiated Amount
+            </span>
+            <!---->
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            <!---->
+            <span>
+               $80.00 
+            </span>
+          </td>
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
+          >
+            <span>
+              Discount
+            </span>
+            <!---->
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            <!---->
+            <span>
+               $20.00 
+            </span>
+          </td>
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
+          >
+            <span>
+              Official Receipts
+            </span>
+            <!---->
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="1"
+          >
+            <!---->
+            <span>
+               $60.00 
+            </span>
+          </td>
+        </tr>
+        <tr
+          class="ant-descriptions-row"
+        >
+          <th
+            class="ant-descriptions-item-label"
+            colspan="1"
+          >
+            <span>
+              Config Info
+            </span>
+            <!---->
+          </th>
+          <td
+            class="ant-descriptions-item-content"
+            colspan="5"
+          >
+            <!---->
+            <span>
+               Data disk type: MongoDB 
+              <br />
+               Database version: 3.4 
+              <br />
+               Package: dds.mongo.mid 
+              <br />
+               Storage space: 10 GB 
+              <br />
+               Replication factor: 3 
+              <br />
+               Region: East China 1 
+              <br />
             </span>
           </td>
         </tr>
@@ -1666,7 +1900,7 @@ exports[`descriptions demo > renders size correctly 1`] = `
               <!---->
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
               <!---->
@@ -1684,7 +1918,7 @@ exports[`descriptions demo > renders size correctly 1`] = `
               <!---->
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
               <!---->
@@ -1702,7 +1936,7 @@ exports[`descriptions demo > renders size correctly 1`] = `
               <!---->
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
               <!---->
@@ -1724,7 +1958,7 @@ exports[`descriptions demo > renders size correctly 1`] = `
               <!---->
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
               <!---->
@@ -1742,7 +1976,7 @@ exports[`descriptions demo > renders size correctly 1`] = `
               <!---->
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="3"
             >
               <!---->
@@ -1764,7 +1998,7 @@ exports[`descriptions demo > renders size correctly 1`] = `
               <!---->
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="5"
             >
               <!---->
@@ -1797,7 +2031,7 @@ exports[`descriptions demo > renders size correctly 1`] = `
               <!---->
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
               <!---->
@@ -1815,7 +2049,7 @@ exports[`descriptions demo > renders size correctly 1`] = `
               <!---->
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
               <!---->
@@ -1833,7 +2067,7 @@ exports[`descriptions demo > renders size correctly 1`] = `
               <!---->
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
               <!---->
@@ -1855,7 +2089,7 @@ exports[`descriptions demo > renders size correctly 1`] = `
               <!---->
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="5"
             >
               <!---->
@@ -2085,7 +2319,7 @@ exports[`descriptions demo > renders style-class correctly 1`] = `
               <!---->
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
               <!---->
@@ -2103,7 +2337,7 @@ exports[`descriptions demo > renders style-class correctly 1`] = `
               <!---->
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
               <!---->
@@ -2121,7 +2355,7 @@ exports[`descriptions demo > renders style-class correctly 1`] = `
               <!---->
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
               <!---->
@@ -2167,7 +2401,7 @@ exports[`descriptions demo > renders style-class correctly 1`] = `
               <!---->
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
               <!---->
@@ -2185,7 +2419,7 @@ exports[`descriptions demo > renders style-class correctly 1`] = `
               <!---->
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
               <!---->
@@ -2203,7 +2437,7 @@ exports[`descriptions demo > renders style-class correctly 1`] = `
               <!---->
             </th>
             <td
-              class="ant-descriptions-item-content undefined"
+              class="ant-descriptions-item-content"
               colspan="1"
             >
               <!---->
@@ -2464,7 +2698,7 @@ exports[`descriptions demo > renders vertical-border correctly 1`] = `
           class="ant-descriptions-row"
         >
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <!---->
@@ -2473,7 +2707,7 @@ exports[`descriptions demo > renders vertical-border correctly 1`] = `
             </span>
           </td>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <!---->
@@ -2482,7 +2716,7 @@ exports[`descriptions demo > renders vertical-border correctly 1`] = `
             </span>
           </td>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <!---->
@@ -2517,7 +2751,7 @@ exports[`descriptions demo > renders vertical-border correctly 1`] = `
           class="ant-descriptions-row"
         >
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <!---->
@@ -2526,7 +2760,7 @@ exports[`descriptions demo > renders vertical-border correctly 1`] = `
             </span>
           </td>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="2"
           >
             <!---->
@@ -2552,7 +2786,7 @@ exports[`descriptions demo > renders vertical-border correctly 1`] = `
           class="ant-descriptions-row"
         >
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="3"
           >
             <!---->
@@ -2607,7 +2841,7 @@ exports[`descriptions demo > renders vertical-border correctly 1`] = `
           class="ant-descriptions-row"
         >
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <!---->
@@ -2616,7 +2850,7 @@ exports[`descriptions demo > renders vertical-border correctly 1`] = `
             </span>
           </td>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <!---->
@@ -2625,7 +2859,7 @@ exports[`descriptions demo > renders vertical-border correctly 1`] = `
             </span>
           </td>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <!---->
@@ -2651,7 +2885,7 @@ exports[`descriptions demo > renders vertical-border correctly 1`] = `
           class="ant-descriptions-row"
         >
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="3"
           >
             <!---->

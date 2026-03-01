@@ -65,13 +65,13 @@ function getCalcRows(
 
 function useRow(mergedColumn: Ref<number>, items: Ref<InternalDescriptionsItemType[]>) {
   const info = computed(() => getCalcRows(items.value, mergedColumn.value))
-
-  if (isDev) {
-    const warning = devUseWarning('Descriptions')
-    warning(!info.value[1], 'usage', 'Sum of column `span` in a line not match `column` of Descriptions.')
-  }
-
-  return computed(() => info.value?.[0])
+  return computed(() => {
+    if (isDev) {
+      const warning = devUseWarning('Descriptions')
+      warning(!info.value[1], 'usage', 'Sum of column `span` in a line not match `column` of Descriptions.')
+    }
+    return info.value?.[0]
+  })
 }
 
 export default useRow

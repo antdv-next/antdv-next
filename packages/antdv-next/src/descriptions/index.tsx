@@ -16,6 +16,7 @@ import {
 } from '../_util/hooks'
 import { matchScreen } from '../_util/responsiveObserver.ts'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
+import { resolveSlotsNode } from '../_util/vnode'
 import { useComponentBaseConfig } from '../config-provider/context.ts'
 import { useSize } from '../config-provider/hooks/useSize.ts'
 import { useBreakpoint } from '../grid'
@@ -23,6 +24,7 @@ import DEFAULT_COLUMN_MAP from './constant.ts'
 import { useDescriptionsProvider } from './DescriptionsContext.ts'
 import useItems from './hooks/useItems.ts'
 import useRow from './hooks/useRow.ts'
+import DescriptionsItem, { DESCRIPTIONS_ITEM_MARK } from './Item.tsx'
 import Row from './Row.tsx'
 import useStyle from './style'
 
@@ -93,6 +95,7 @@ const defaults = {
 } as any
 
 export interface DescriptionsSlots {
+  default?: () => any
   title?: () => any
   extra?: () => any
   labelRender?: RenderDescriptionsItem
@@ -116,7 +119,17 @@ const Descriptions = defineComponent<
     } = useComponentBaseConfig('descriptions', props)
     const { classes, styles } = toPropsRefs(props, 'classes', 'styles')
     const screens = useBreakpoint()
-    const items = computed(() => props.items ?? [])
+    const items = computed<DescriptionsItemType[]>(() => {
+      if (props.items) {
+        return props.items
+      }
+      return resolveSlotsNode<Record<string, any>>(slots, 'default', undefined, DESCRIPTIONS_ITEM_MARK).map((item) => {
+        return {
+          ...item,
+          content: item.content ?? item.children,
+        }
+      })
+    })
     const customizeSize = computed(() => props.size)
     // Column count
     const mergedColumn = computed(() => {
@@ -258,5 +271,16 @@ const Descriptions = defineComponent<
 )
 ;(Descriptions as any).install = (app: App) => {
   app.component(Descriptions.name, Descriptions)
+  app.component(DescriptionsItem.name, DescriptionsItem)
 }
+
+;(Descriptions as any).Item = DescriptionsItem
+
+export {
+  DescriptionsItem,
+}
+export type {
+  DescriptionsItemProps,
+  DescriptionsItemSlots,
+} from './Item.tsx'
 export default Descriptions

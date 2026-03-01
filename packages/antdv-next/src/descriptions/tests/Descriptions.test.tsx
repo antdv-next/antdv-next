@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { h } from 'vue'
-import Descriptions from '..'
+import Descriptions, { DescriptionsItem } from '..'
 import ConfigProvider from '../../config-provider'
 import mountTest from '/@tests/shared/mountTest'
 import rtlTest from '/@tests/shared/rtlTest'
@@ -41,6 +41,54 @@ describe('descriptions', () => {
     })
     expect(wrapper.find('.ant-descriptions-item-label').text()).toBe('Product')
     expect(wrapper.find('.ant-descriptions-item-content').text()).toBe('Cloud Database')
+  })
+
+  it('resolves descriptions-item nodes from default slot', () => {
+    const wrapper = mount(() => (
+      <Descriptions>
+        <DescriptionsItem label="UserName">
+          Zhou Maomao
+        </DescriptionsItem>
+        <DescriptionsItem label="Telephone">
+          1810000000
+        </DescriptionsItem>
+      </Descriptions>
+    ))
+
+    const items = wrapper.findAll('.ant-descriptions-item')
+    expect(items).toHaveLength(2)
+    expect(wrapper.findAll('.ant-descriptions-item-label').map(node => node.text())).toEqual(['UserName', 'Telephone'])
+    expect(wrapper.findAll('.ant-descriptions-item-content').map(node => node.text())).toEqual(['Zhou Maomao', '1810000000'])
+  })
+
+  it('supports label/content slots on descriptions-item', () => {
+    const wrapper = mount(() => (
+      <Descriptions>
+        <DescriptionsItem label="fallback-label" content="fallback-content">
+          {{
+            label: () => <span class="slot-label">slot-label</span>,
+            content: () => <span class="slot-content">slot-content</span>,
+          }}
+        </DescriptionsItem>
+      </Descriptions>
+    ))
+
+    expect(wrapper.find('.slot-label').exists()).toBe(true)
+    expect(wrapper.find('.slot-content').exists()).toBe(true)
+  })
+
+  it('only parses descriptions-item marked nodes in default slot', () => {
+    const wrapper = mount(() => (
+      <Descriptions>
+        <DescriptionsItem label="A">
+          1
+        </DescriptionsItem>
+        <div class="plain-node">plain</div>
+      </Descriptions>
+    ))
+
+    expect(wrapper.findAll('.ant-descriptions-item')).toHaveLength(1)
+    expect(wrapper.find('.plain-node').exists()).toBe(false)
   })
 
   // ==================== Title & Extra ====================

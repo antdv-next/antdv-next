@@ -32,7 +32,7 @@ exports[`descriptions > matches snapshot with basic props 1`] = `
             <!---->
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <!---->
@@ -50,7 +50,7 @@ exports[`descriptions > matches snapshot with basic props 1`] = `
             <!---->
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="1"
           >
             <!---->
@@ -72,7 +72,7 @@ exports[`descriptions > matches snapshot with basic props 1`] = `
             <!---->
           </th>
           <td
-            class="ant-descriptions-item-content undefined"
+            class="ant-descriptions-item-content"
             colspan="3"
           >
             <!---->
