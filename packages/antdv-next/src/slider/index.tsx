@@ -104,7 +104,7 @@ export interface SliderBaseProps {
   // onBlur?: FocusEventHandler<HTMLDivElement>;
 
   // Accessibility
-  tabindex?: SliderProps['tabIndex']
+  tabIndex?: SliderProps['tabIndex']
   ariaLabelForHandle?: SliderProps['ariaLabelForHandle']
   ariaLabelledByForHandle?: SliderProps['ariaLabelledByForHandle']
   ariaRequired?: SliderProps['ariaRequired']
