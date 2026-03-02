@@ -8,6 +8,7 @@ import type { ItemHolderProps } from './ItemHolder.tsx'
 import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { computed, createVNode, defineComponent, isVNode, onBeforeUnmount, shallowRef, watch } from 'vue'
+import { getSlotPropsFnRun } from '../../_util/tools.ts'
 import { checkRenderNode } from '../../_util/vueNode.ts'
 import { useComponentBaseConfig } from '../../config-provider/context'
 import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls'
@@ -67,6 +68,10 @@ export interface FormItemEmitsProps {
 
 export interface FormItemSlots {
   default: () => any
+  tooltip?: (tooltip?: FormItemLabelProps['tooltip']) => any
+  label?: () => any
+  extra?: () => any
+  help?: () => any
 }
 
 function genEmptyMeta(): Meta {
@@ -503,9 +508,38 @@ const InternalFormItem = defineComponent<
         )
       }
 
+      const tooltipSlotValue = getSlotPropsFnRun(slots, props, 'tooltip', false, props.tooltip)
+      let mergedTooltip = props.tooltip
+      if (tooltipSlotValue !== undefined) {
+        const isTooltipOptions = !!(
+          props.tooltip
+          && typeof props.tooltip === 'object'
+          && !Array.isArray(props.tooltip)
+          && !isVNode(props.tooltip)
+        )
+        if (isTooltipOptions) {
+          const isSlotOptions = !!(
+            tooltipSlotValue
+            && typeof tooltipSlotValue === 'object'
+            && !Array.isArray(tooltipSlotValue)
+            && !isVNode(tooltipSlotValue)
+          )
+          mergedTooltip = isSlotOptions
+            ? { ...(props.tooltip as any), ...(tooltipSlotValue as any) }
+            : { ...(props.tooltip as any), title: tooltipSlotValue as any }
+        }
+        else {
+          mergedTooltip = tooltipSlotValue as any
+        }
+      }
+
       return (
         <ItemHolder
           {...props}
+          tooltip={mergedTooltip}
+          label={getSlotPropsFnRun(slots, props, 'label')}
+          extra={getSlotPropsFnRun(slots, props, 'extra')}
+          help={getSlotPropsFnRun(slots, props, 'help')}
           {...attrs}
           rootClass={rootClassName.value}
           prefixCls={prefixCls.value}
