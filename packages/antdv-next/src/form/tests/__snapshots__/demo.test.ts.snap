@@ -7184,9 +7184,29 @@ exports[`form demo > renders label-debug correctly 1`] = `
     <div
       class="ant-row css-var-root ant-form-item-row"
     >
-      <!---->
       <div
-        class="ant-col ant-col-16 ant-col-offset-8 css-var-root ant-form-item-control"
+        class="ant-col ant-col-8 css-var-root ant-form-item-label"
+      >
+        <label
+          class=""
+          title=""
+        >
+          <span
+            aria-label=" longtextlongtextlongtextlongtextlongtextlongtextlongtext "
+            class="ant-typography ant-typography-ellipsis css-var-root"
+          >
+             longtextlongtextlongtextlongtextlongtextlongtextlongtext 
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+          </span>
+        </label>
+      </div>
+      <div
+        class="ant-col ant-col-16 css-var-root ant-form-item-control"
       >
         <div
           class="ant-form-item-control-input"
@@ -7232,9 +7252,29 @@ exports[`form demo > renders label-debug correctly 1`] = `
     <div
       class="ant-row css-var-root ant-form-item-row"
     >
-      <!---->
       <div
-        class="ant-col ant-col-16 ant-col-offset-8 css-var-root ant-form-item-control"
+        class="ant-col ant-col-8 css-var-root ant-form-item-label"
+      >
+        <label
+          class=""
+          title=""
+        >
+          <span
+            aria-label=" longtext longtext longtext longtext longtext longtext longtext "
+            class="ant-typography ant-typography-ellipsis css-var-root"
+          >
+             longtext longtext longtext longtext longtext longtext longtext 
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+          </span>
+        </label>
+      </div>
+      <div
+        class="ant-col ant-col-16 css-var-root ant-form-item-control"
       >
         <div
           class="ant-form-item-control-input"
