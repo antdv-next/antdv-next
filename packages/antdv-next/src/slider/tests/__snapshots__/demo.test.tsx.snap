@@ -1,0 +1,2521 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`slider demo > renders _semantic correctly 1`] = `
+<div
+  class="semantic-preview-container"
+  data-v-dfc8ebef=""
+>
+  <div
+    class="ant-row css-var-root semantic-preview-row"
+    data-v-dfc8ebef=""
+  >
+    <div
+      class="ant-col ant-col-16 css-var-root semantic-preview-col"
+      data-v-dfc8ebef=""
+    >
+      <div
+        class="ant-slider semantic-mark-root css-var-v-0 ant-slider-horizontal"
+        style="width: 100%;"
+      >
+        <div
+          class="ant-slider-rail semantic-mark-rail"
+        />
+        <div
+          class="semantic-mark-tracks ant-slider-tracks"
+          style="left: 20%; width: 30%;"
+        />
+        <div
+          class="ant-slider-track ant-slider-track-1 semantic-mark-track"
+          style="left: 20%; width: 10%;"
+        />
+        <div
+          class="ant-slider-track ant-slider-track-2 semantic-mark-track"
+          style="left: 30%; width: 20%;"
+        />
+        <div
+          class="ant-slider-step"
+        />
+        <div
+          aria-disabled="false"
+          aria-orientation="horizontal"
+          aria-valuemax="100"
+          aria-valuemin="0"
+          aria-valuenow="20"
+          class="ant-slider-handle ant-slider-handle-1 semantic-mark-handle"
+          mock="false"
+          role="slider"
+          style="left: 20%; transform: translateX(-50%);"
+          tabindex="0"
+        />
+        <div
+          aria-disabled="false"
+          aria-orientation="horizontal"
+          aria-valuemax="100"
+          aria-valuemin="0"
+          aria-valuenow="30"
+          class="ant-slider-handle ant-slider-handle-2 semantic-mark-handle"
+          mock="false"
+          role="slider"
+          style="left: 30%; transform: translateX(-50%);"
+          tabindex="0"
+        />
+        <div
+          aria-disabled="false"
+          aria-orientation="horizontal"
+          aria-valuemax="100"
+          aria-valuemin="0"
+          aria-valuenow="50"
+          class="ant-slider-handle ant-slider-handle-3 semantic-mark-handle"
+          mock="false"
+          role="slider"
+          style="left: 50%; transform: translateX(-50%);"
+          tabindex="0"
+        />
+        <!---->
+        <!---->
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-8 css-var-root"
+      data-v-dfc8ebef=""
+    >
+      <ul
+        class="semantic-list"
+        data-v-dfc8ebef=""
+      >
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  root
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <span
+                  class="ant-tag ant-tag-filled ant-tag-blue css-var-root"
+                  data-v-dfc8ebef=""
+                >
+                  1.0.0
+                  <!---->
+                  <!---->
+                  <!---->
+                </span>
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              Root element with relative positioning, height, margin, padding, cursor style and touch action control
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  track
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <span
+                  class="ant-tag ant-tag-filled ant-tag-blue css-var-root"
+                  data-v-dfc8ebef=""
+                >
+                  1.0.0
+                  <!---->
+                  <!---->
+                  <!---->
+                </span>
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              Track selection bar element with absolute positioning, background color, border radius and transition animation styles
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  tracks
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <span
+                  class="ant-tag ant-tag-filled ant-tag-blue css-var-root"
+                  data-v-dfc8ebef=""
+                >
+                  1.0.0
+                  <!---->
+                  <!---->
+                  <!---->
+                </span>
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              Multi-segment track container element with absolute positioning and transition animation styles
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  rail
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <span
+                  class="ant-tag ant-tag-filled ant-tag-blue css-var-root"
+                  data-v-dfc8ebef=""
+                >
+                  1.0.0
+                  <!---->
+                  <!---->
+                  <!---->
+                </span>
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              Background rail element with absolute positioning, background color, border radius and transition animation styles
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  handle
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <span
+                  class="ant-tag ant-tag-filled ant-tag-blue css-var-root"
+                  data-v-dfc8ebef=""
+                >
+                  1.0.0
+                  <!---->
+                  <!---->
+                  <!---->
+                </span>
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              Slider handle control element with absolute positioning, size, outline, user selection, background color, border shadow, border radius, cursor style and transition animation
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`slider demo > renders basic correctly 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-slider css-var-root ant-slider-horizontal"
+  >
+    <div
+      class="ant-slider-rail"
+    />
+    <!---->
+    <div
+      class="ant-slider-track"
+      style="left: 0%; width: 30%;"
+    />
+    <div
+      class="ant-slider-step"
+    />
+    <div
+      aria-disabled="false"
+      aria-orientation="horizontal"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="30"
+      class="ant-slider-handle"
+      mock="false"
+      role="slider"
+      style="left: 30%; transform: translateX(-50%);"
+      tabindex="0"
+    />
+    <!---->
+    <!---->
+    <!---->
+  </div>
+  <div
+    class="ant-slider css-var-root ant-slider-horizontal"
+  >
+    <div
+      class="ant-slider-rail"
+    />
+    <!---->
+    <div
+      class="ant-slider-track ant-slider-track-1"
+      style="left: 20%; width: 30%;"
+    />
+    <div
+      class="ant-slider-step"
+    />
+    <div
+      aria-disabled="false"
+      aria-orientation="horizontal"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="20"
+      class="ant-slider-handle ant-slider-handle-1"
+      mock="false"
+      role="slider"
+      style="left: 20%; transform: translateX(-50%);"
+      tabindex="0"
+    />
+    <div
+      aria-disabled="false"
+      aria-orientation="horizontal"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="50"
+      class="ant-slider-handle ant-slider-handle-2"
+      mock="false"
+      role="slider"
+      style="left: 50%; transform: translateX(-50%);"
+      tabindex="0"
+    />
+    <!---->
+    <!---->
+  </div>
+   Disabled: 
+  <button
+    aria-checked="false"
+    checked="false"
+    class="ant-switch ant-switch-small css-var-root"
+    role="switch"
+    type="button"
+  >
+    <div
+      class="ant-switch-handle"
+    >
+      <!---->
+    </div>
+    <span
+      class="ant-switch-inner"
+    >
+      <span
+        class="ant-switch-inner-checked"
+      >
+        <!---->
+      </span>
+      <span
+        class="ant-switch-inner-unchecked"
+      >
+        <!---->
+      </span>
+    </span>
+  </button>
+</div>
+`;
+
+exports[`slider demo > renders component-token correctly 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-slider css-var-v-0 ant-slider-disabled ant-slider-horizontal"
+  >
+    <div
+      class="ant-slider-rail"
+    />
+    <!---->
+    <div
+      class="ant-slider-track"
+      style="left: 0%; width: 30%;"
+    />
+    <div
+      class="ant-slider-step"
+    />
+    <div
+      aria-disabled="true"
+      aria-orientation="horizontal"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="30"
+      class="ant-slider-handle"
+      mock="false"
+      role="slider"
+      style="left: 30%; transform: translateX(-50%);"
+    />
+    <!---->
+    <!---->
+    <!---->
+  </div>
+  <div
+    class="ant-slider css-var-v-0 ant-slider-horizontal"
+  >
+    <div
+      class="ant-slider-rail"
+    />
+    <!---->
+    <div
+      class="ant-slider-track ant-slider-track-1 ant-slider-track-draggable"
+      style="left: 20%; width: 30%;"
+    />
+    <div
+      class="ant-slider-step"
+    />
+    <div
+      aria-disabled="false"
+      aria-orientation="horizontal"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="20"
+      class="ant-slider-handle ant-slider-handle-1"
+      mock="false"
+      role="slider"
+      style="left: 20%; transform: translateX(-50%);"
+      tabindex="0"
+    />
+    <div
+      aria-disabled="false"
+      aria-orientation="horizontal"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="50"
+      class="ant-slider-handle ant-slider-handle-2"
+      mock="false"
+      role="slider"
+      style="left: 50%; transform: translateX(-50%);"
+      tabindex="0"
+    />
+    <!---->
+    <!---->
+  </div>
+  <div
+    style="display: inline-block; height: 300px; margin-inline-start: 70px;"
+  >
+    <div
+      class="ant-slider css-var-v-0 ant-slider-vertical"
+    >
+      <div
+        class="ant-slider-rail"
+      />
+      <!---->
+      <div
+        class="ant-slider-track"
+        style="bottom: 0%; height: 30%;"
+      />
+      <div
+        class="ant-slider-step"
+      />
+      <div
+        aria-disabled="false"
+        aria-orientation="vertical"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="30"
+        class="ant-slider-handle"
+        mock="false"
+        role="slider"
+        style="bottom: 30%; transform: translateY(50%);"
+        tabindex="0"
+      />
+      <!---->
+      <!---->
+      <!---->
+    </div>
+  </div>
+  <div
+    style="display: inline-block; height: 300px; margin-inline-start: 70px;"
+  >
+    <div
+      class="ant-slider css-var-v-0 ant-slider-vertical"
+    >
+      <div
+        class="ant-slider-rail"
+      />
+      <!---->
+      <div
+        class="ant-slider-track ant-slider-track-1"
+        style="bottom: 20%; height: 30%;"
+      />
+      <div
+        class="ant-slider-step"
+      />
+      <div
+        aria-disabled="false"
+        aria-orientation="vertical"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="20"
+        class="ant-slider-handle ant-slider-handle-1"
+        mock="false"
+        role="slider"
+        style="bottom: 20%; transform: translateY(50%);"
+        tabindex="0"
+      />
+      <div
+        aria-disabled="false"
+        aria-orientation="vertical"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="50"
+        class="ant-slider-handle ant-slider-handle-2"
+        mock="false"
+        role="slider"
+        style="bottom: 50%; transform: translateY(50%);"
+        tabindex="0"
+      />
+      <!---->
+      <!---->
+    </div>
+  </div>
+  <div
+    style="display: inline-block; height: 300px; margin-inline-start: 70px;"
+  >
+    <div
+      class="ant-slider css-var-v-0 ant-slider-vertical ant-slider-with-marks"
+    >
+      <div
+        class="ant-slider-rail"
+      />
+      <!---->
+      <div
+        class="ant-slider-track ant-slider-track-1"
+        style="bottom: 26%; height: 11%;"
+      />
+      <div
+        class="ant-slider-step"
+      >
+        <span
+          class="ant-slider-dot"
+          style="bottom: 0%; transform: translateY(50%);"
+        />
+        <span
+          class="ant-slider-dot ant-slider-dot-active"
+          style="bottom: 26%; transform: translateY(50%);"
+        />
+        <span
+          class="ant-slider-dot ant-slider-dot-active"
+          style="bottom: 37%; transform: translateY(50%);"
+        />
+        <span
+          class="ant-slider-dot"
+          style="bottom: 100%; transform: translateY(50%);"
+        />
+      </div>
+      <div
+        aria-disabled="false"
+        aria-orientation="vertical"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="26"
+        class="ant-slider-handle ant-slider-handle-1"
+        mock="false"
+        role="slider"
+        style="bottom: 26%; transform: translateY(50%);"
+        tabindex="0"
+      />
+      <div
+        aria-disabled="false"
+        aria-orientation="vertical"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="37"
+        class="ant-slider-handle ant-slider-handle-2"
+        mock="false"
+        role="slider"
+        style="bottom: 37%; transform: translateY(50%);"
+        tabindex="0"
+      />
+      <!---->
+      <div
+        class="ant-slider-mark"
+      >
+        <span
+          class="ant-slider-mark-text"
+          style="bottom: 0%; transform: translateY(50%);"
+        >
+          0°C
+        </span>
+        <span
+          class="ant-slider-mark-text ant-slider-mark-text-active"
+          style="bottom: 26%; transform: translateY(50%);"
+        >
+          26°C
+        </span>
+        <span
+          class="ant-slider-mark-text ant-slider-mark-text-active"
+          style="bottom: 37%; transform: translateY(50%);"
+        >
+          37°C
+        </span>
+        <span
+          class="ant-slider-mark-text"
+          style="bottom: 100%; transform: translateY(50%); color: rgb(255, 85, 0);"
+        >
+          <strong>
+            100°C
+          </strong>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`slider demo > renders draggableTrack correctly 1`] = `
+<div
+  class="ant-slider css-var-root ant-slider-horizontal"
+>
+  <div
+    class="ant-slider-rail"
+  />
+  <!---->
+  <div
+    class="ant-slider-track ant-slider-track-1 ant-slider-track-draggable"
+    style="left: 20%; width: 30%;"
+  />
+  <div
+    class="ant-slider-step"
+  />
+  <div
+    aria-disabled="false"
+    aria-orientation="horizontal"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="20"
+    class="ant-slider-handle ant-slider-handle-1"
+    mock="false"
+    role="slider"
+    style="left: 20%; transform: translateX(-50%);"
+    tabindex="0"
+  />
+  <div
+    aria-disabled="false"
+    aria-orientation="horizontal"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="50"
+    class="ant-slider-handle ant-slider-handle-2"
+    mock="false"
+    role="slider"
+    style="left: 50%; transform: translateX(-50%);"
+    tabindex="0"
+  />
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`slider demo > renders editable correctly 1`] = `
+<div
+  class="ant-slider css-var-root ant-slider-horizontal"
+>
+  <div
+    class="ant-slider-rail"
+  />
+  <!---->
+  <div
+    class="ant-slider-track ant-slider-track-1"
+    style="left: 20%; width: 60%;"
+  />
+  <div
+    class="ant-slider-step"
+  />
+  <div
+    aria-disabled="false"
+    aria-orientation="horizontal"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="20"
+    class="ant-slider-handle ant-slider-handle-1"
+    mock="false"
+    role="slider"
+    style="left: 20%; transform: translateX(-50%);"
+    tabindex="0"
+  />
+  <div
+    aria-disabled="false"
+    aria-orientation="horizontal"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="80"
+    class="ant-slider-handle ant-slider-handle-2"
+    mock="false"
+    role="slider"
+    style="left: 80%; transform: translateX(-50%);"
+    tabindex="0"
+  />
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`slider demo > renders event correctly 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-slider css-var-root ant-slider-horizontal"
+  >
+    <div
+      class="ant-slider-rail"
+    />
+    <!---->
+    <div
+      class="ant-slider-track"
+      style="left: 0%; width: 30%;"
+    />
+    <div
+      class="ant-slider-step"
+    />
+    <div
+      aria-disabled="false"
+      aria-orientation="horizontal"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="30"
+      class="ant-slider-handle"
+      mock="false"
+      role="slider"
+      style="left: 30%; transform: translateX(-50%);"
+      tabindex="0"
+    />
+    <!---->
+    <!---->
+    <!---->
+  </div>
+  <div
+    class="ant-slider css-var-root ant-slider-horizontal"
+  >
+    <div
+      class="ant-slider-rail"
+    />
+    <!---->
+    <div
+      class="ant-slider-track ant-slider-track-1"
+      style="left: 20%; width: 30%;"
+    />
+    <div
+      class="ant-slider-step"
+    />
+    <div
+      aria-disabled="false"
+      aria-orientation="horizontal"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="20"
+      class="ant-slider-handle ant-slider-handle-1"
+      mock="false"
+      role="slider"
+      style="left: 20%; transform: translateX(-50%);"
+      tabindex="0"
+    />
+    <div
+      aria-disabled="false"
+      aria-orientation="horizontal"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="50"
+      class="ant-slider-handle ant-slider-handle-2"
+      mock="false"
+      role="slider"
+      style="left: 50%; transform: translateX(-50%);"
+      tabindex="0"
+    />
+    <!---->
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`slider demo > renders icon-slider correctly 1`] = `
+<div
+  class="icon-wrapper"
+  data-v-ac78c8d2=""
+>
+  <span
+    aria-label="frown"
+    class="anticon anticon-frown icon-wrapper-active"
+    data-v-ac78c8d2=""
+    role="img"
+  >
+    <svg
+      aria-hidden="true"
+      data-icon="frown"
+      fill="currentColor"
+      focusable="false"
+      height="1em"
+      viewBox="64 64 896 896"
+      width="1em"
+    >
+      <path
+        d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM512 533c-85.5 0-155.6 67.3-160 151.6a8 8 0 008 8.4h48.1c4.2 0 7.8-3.2 8.1-7.4C420 636.1 461.5 597 512 597s92.1 39.1 95.8 88.6c.3 4.2 3.9 7.4 8.1 7.4H664a8 8 0 008-8.4C667.6 600.3 597.5 533 512 533z"
+      />
+    </svg>
+  </span>
+  <div
+    class="ant-slider css-var-root ant-slider-horizontal"
+    data-v-ac78c8d2=""
+  >
+    <div
+      class="ant-slider-rail"
+    />
+    <!---->
+    <div
+      class="ant-slider-track"
+      style="left: 0%; width: 0%;"
+    />
+    <div
+      class="ant-slider-step"
+    />
+    <div
+      aria-disabled="false"
+      aria-orientation="horizontal"
+      aria-valuemax="20"
+      aria-valuemin="0"
+      aria-valuenow="0"
+      class="ant-slider-handle"
+      mock="false"
+      role="slider"
+      style="left: 0%; transform: translateX(-50%);"
+      tabindex="0"
+    />
+    <!---->
+    <!---->
+    <!---->
+  </div>
+  <span
+    aria-label="smile"
+    class="anticon anticon-smile"
+    data-v-ac78c8d2=""
+    role="img"
+  >
+    <svg
+      aria-hidden="true"
+      data-icon="smile"
+      fill="currentColor"
+      focusable="false"
+      height="1em"
+      viewBox="64 64 896 896"
+      width="1em"
+    >
+      <path
+        d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
+      />
+    </svg>
+  </span>
+</div>
+`;
+
+exports[`slider demo > renders input-number correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-root"
+  style="width: 100%;"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-row css-var-root"
+    >
+      <div
+        class="ant-col ant-col-12 css-var-root"
+      >
+        <div
+          class="ant-slider css-var-root ant-slider-horizontal"
+        >
+          <div
+            class="ant-slider-rail"
+          />
+          <!---->
+          <div
+            class="ant-slider-track"
+            style="left: 0%; width: 0%;"
+          />
+          <div
+            class="ant-slider-step"
+          />
+          <div
+            aria-disabled="false"
+            aria-orientation="horizontal"
+            aria-valuemax="20"
+            aria-valuemin="1"
+            aria-valuenow="1"
+            class="ant-slider-handle"
+            mock="false"
+            role="slider"
+            style="left: 0%; transform: translateX(-50%);"
+            tabindex="0"
+          />
+          <!---->
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-col ant-col-4 css-var-root"
+      >
+        <div
+          class="ant-input-number ant-input-number-mode-input css-var-root ant-input-number-css-var ant-input-number-outlined"
+          style="margin: 0px 16px;"
+        >
+          <!---->
+          <!---->
+          <input
+            aria-valuemax="20"
+            aria-valuemin="1"
+            aria-valuenow="1"
+            autocomplete="off"
+            class="ant-input-number-input"
+            role="spinbutton"
+            step="1"
+            value="1"
+          />
+          <!---->
+          <!---->
+          <div
+            class="ant-input-number-actions"
+          >
+            <span
+              aria-disabled="false"
+              aria-label="Increase Value"
+              class="ant-input-number-action ant-input-number-action-up"
+              role="button"
+              unselectable="on"
+            >
+              <span
+                aria-label="up"
+                class="anticon anticon-up"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="up"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span
+              aria-disabled="true"
+              aria-label="Decrease Value"
+              class="ant-input-number-action ant-input-number-action-down ant-input-number-action-down-disabled"
+              role="button"
+              unselectable="on"
+            >
+              <span
+                aria-label="down"
+                class="anticon anticon-down"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="down"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!---->
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-row css-var-root"
+    >
+      <div
+        class="ant-col ant-col-12 css-var-root"
+      >
+        <div
+          class="ant-slider css-var-root ant-slider-horizontal"
+        >
+          <div
+            class="ant-slider-rail"
+          />
+          <!---->
+          <div
+            class="ant-slider-track"
+            style="left: 0%; width: 0%;"
+          />
+          <div
+            class="ant-slider-step"
+          />
+          <div
+            aria-disabled="false"
+            aria-orientation="horizontal"
+            aria-valuemax="1"
+            aria-valuemin="0"
+            aria-valuenow="0"
+            class="ant-slider-handle"
+            mock="false"
+            role="slider"
+            style="left: 0%; transform: translateX(-50%);"
+            tabindex="0"
+          />
+          <!---->
+          <!---->
+          <!---->
+        </div>
+      </div>
+      <div
+        class="ant-col ant-col-4 css-var-root"
+      >
+        <div
+          class="ant-input-number ant-input-number-mode-input css-var-root ant-input-number-css-var ant-input-number-outlined"
+          style="margin: 0px 16px;"
+        >
+          <!---->
+          <!---->
+          <input
+            aria-valuemax="1"
+            aria-valuemin="0"
+            aria-valuenow="0"
+            autocomplete="off"
+            class="ant-input-number-input"
+            role="spinbutton"
+            step="0.01"
+            value="0.00"
+          />
+          <!---->
+          <!---->
+          <div
+            class="ant-input-number-actions"
+          >
+            <span
+              aria-disabled="false"
+              aria-label="Increase Value"
+              class="ant-input-number-action ant-input-number-action-up"
+              role="button"
+              unselectable="on"
+            >
+              <span
+                aria-label="up"
+                class="anticon anticon-up"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="up"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span
+              aria-disabled="true"
+              aria-label="Decrease Value"
+              class="ant-input-number-action ant-input-number-action-down ant-input-number-action-down-disabled"
+              role="button"
+              unselectable="on"
+            >
+              <span
+                aria-label="down"
+                class="anticon anticon-down"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="down"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`slider demo > renders mark correctly 1`] = `
+<div
+  data-v-app=""
+>
+  <h4
+    data-v-16df1846=""
+  >
+    included=true
+  </h4>
+  <div
+    class="ant-slider css-var-root ant-slider-horizontal ant-slider-with-marks"
+    data-v-16df1846=""
+  >
+    <div
+      class="ant-slider-rail"
+    />
+    <!---->
+    <div
+      class="ant-slider-track"
+      style="left: 0%; width: 37%;"
+    />
+    <div
+      class="ant-slider-step"
+    >
+      <span
+        class="ant-slider-dot ant-slider-dot-active"
+        style="left: 0%; transform: translateX(-50%);"
+      />
+      <span
+        class="ant-slider-dot ant-slider-dot-active"
+        style="left: 26%; transform: translateX(-50%);"
+      />
+      <span
+        class="ant-slider-dot ant-slider-dot-active"
+        style="left: 37%; transform: translateX(-50%);"
+      />
+      <span
+        class="ant-slider-dot"
+        style="left: 100%; transform: translateX(-50%);"
+      />
+    </div>
+    <div
+      aria-disabled="false"
+      aria-orientation="horizontal"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="37"
+      class="ant-slider-handle"
+      mock="false"
+      role="slider"
+      style="left: 37%; transform: translateX(-50%);"
+      tabindex="0"
+    />
+    <!---->
+    <!---->
+    <div
+      class="ant-slider-mark"
+    >
+      <span
+        class="ant-slider-mark-text ant-slider-mark-text-active"
+        style="left: 0%; transform: translateX(-50%);"
+      >
+        0°C
+      </span>
+      <span
+        class="ant-slider-mark-text ant-slider-mark-text-active"
+        style="left: 26%; transform: translateX(-50%);"
+      >
+        26°C
+      </span>
+      <span
+        class="ant-slider-mark-text ant-slider-mark-text-active"
+        style="left: 37%; transform: translateX(-50%);"
+      >
+        37°C
+      </span>
+      <span
+        class="ant-slider-mark-text"
+        style="left: 100%; transform: translateX(-50%); color: rgb(255, 85, 0);"
+      >
+        <strong>
+          100°C
+        </strong>
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-slider css-var-root ant-slider-horizontal ant-slider-with-marks"
+    data-v-16df1846=""
+  >
+    <div
+      class="ant-slider-rail"
+    />
+    <!---->
+    <div
+      class="ant-slider-track ant-slider-track-1"
+      style="left: 26%; width: 11%;"
+    />
+    <div
+      class="ant-slider-step"
+    >
+      <span
+        class="ant-slider-dot"
+        style="left: 0%; transform: translateX(-50%);"
+      />
+      <span
+        class="ant-slider-dot ant-slider-dot-active"
+        style="left: 26%; transform: translateX(-50%);"
+      />
+      <span
+        class="ant-slider-dot ant-slider-dot-active"
+        style="left: 37%; transform: translateX(-50%);"
+      />
+      <span
+        class="ant-slider-dot"
+        style="left: 100%; transform: translateX(-50%);"
+      />
+    </div>
+    <div
+      aria-disabled="false"
+      aria-orientation="horizontal"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="26"
+      class="ant-slider-handle ant-slider-handle-1"
+      mock="false"
+      role="slider"
+      style="left: 26%; transform: translateX(-50%);"
+      tabindex="0"
+    />
+    <div
+      aria-disabled="false"
+      aria-orientation="horizontal"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="37"
+      class="ant-slider-handle ant-slider-handle-2"
+      mock="false"
+      role="slider"
+      style="left: 37%; transform: translateX(-50%);"
+      tabindex="0"
+    />
+    <!---->
+    <div
+      class="ant-slider-mark"
+    >
+      <span
+        class="ant-slider-mark-text"
+        style="left: 0%; transform: translateX(-50%);"
+      >
+        0°C
+      </span>
+      <span
+        class="ant-slider-mark-text ant-slider-mark-text-active"
+        style="left: 26%; transform: translateX(-50%);"
+      >
+        26°C
+      </span>
+      <span
+        class="ant-slider-mark-text ant-slider-mark-text-active"
+        style="left: 37%; transform: translateX(-50%);"
+      >
+        37°C
+      </span>
+      <span
+        class="ant-slider-mark-text"
+        style="left: 100%; transform: translateX(-50%); color: rgb(255, 85, 0);"
+      >
+        <strong>
+          100°C
+        </strong>
+      </span>
+    </div>
+  </div>
+  <h4
+    data-v-16df1846=""
+  >
+    included=false
+  </h4>
+  <div
+    class="ant-slider css-var-root ant-slider-horizontal ant-slider-with-marks"
+    data-v-16df1846=""
+  >
+    <div
+      class="ant-slider-rail"
+    />
+    <!---->
+    <div
+      class="ant-slider-step"
+    >
+      <span
+        class="ant-slider-dot"
+        style="left: 0%; transform: translateX(-50%);"
+      />
+      <span
+        class="ant-slider-dot"
+        style="left: 26%; transform: translateX(-50%);"
+      />
+      <span
+        class="ant-slider-dot"
+        style="left: 37%; transform: translateX(-50%);"
+      />
+      <span
+        class="ant-slider-dot"
+        style="left: 100%; transform: translateX(-50%);"
+      />
+    </div>
+    <div
+      aria-disabled="false"
+      aria-orientation="horizontal"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="37"
+      class="ant-slider-handle"
+      mock="false"
+      role="slider"
+      style="left: 37%; transform: translateX(-50%);"
+      tabindex="0"
+    />
+    <!---->
+    <!---->
+    <div
+      class="ant-slider-mark"
+    >
+      <span
+        class="ant-slider-mark-text"
+        style="left: 0%; transform: translateX(-50%);"
+      >
+        0°C
+      </span>
+      <span
+        class="ant-slider-mark-text"
+        style="left: 26%; transform: translateX(-50%);"
+      >
+        26°C
+      </span>
+      <span
+        class="ant-slider-mark-text"
+        style="left: 37%; transform: translateX(-50%);"
+      >
+        37°C
+      </span>
+      <span
+        class="ant-slider-mark-text"
+        style="left: 100%; transform: translateX(-50%); color: rgb(255, 85, 0);"
+      >
+        <strong>
+          100°C
+        </strong>
+      </span>
+    </div>
+  </div>
+  <h4
+    data-v-16df1846=""
+  >
+    marks & step
+  </h4>
+  <div
+    class="ant-slider css-var-root ant-slider-horizontal ant-slider-with-marks"
+    data-v-16df1846=""
+  >
+    <div
+      class="ant-slider-rail"
+    />
+    <!---->
+    <div
+      class="ant-slider-track"
+      style="left: 0%; width: 37%;"
+    />
+    <div
+      class="ant-slider-step"
+    >
+      <span
+        class="ant-slider-dot ant-slider-dot-active"
+        style="left: 0%; transform: translateX(-50%);"
+      />
+      <span
+        class="ant-slider-dot ant-slider-dot-active"
+        style="left: 26%; transform: translateX(-50%);"
+      />
+      <span
+        class="ant-slider-dot ant-slider-dot-active"
+        style="left: 37%; transform: translateX(-50%);"
+      />
+      <span
+        class="ant-slider-dot"
+        style="left: 100%; transform: translateX(-50%);"
+      />
+    </div>
+    <div
+      aria-disabled="false"
+      aria-orientation="horizontal"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="37"
+      class="ant-slider-handle"
+      mock="false"
+      role="slider"
+      style="left: 37%; transform: translateX(-50%);"
+      tabindex="0"
+    />
+    <!---->
+    <!---->
+    <div
+      class="ant-slider-mark"
+    >
+      <span
+        class="ant-slider-mark-text ant-slider-mark-text-active"
+        style="left: 0%; transform: translateX(-50%);"
+      >
+        0°C
+      </span>
+      <span
+        class="ant-slider-mark-text ant-slider-mark-text-active"
+        style="left: 26%; transform: translateX(-50%);"
+      >
+        26°C
+      </span>
+      <span
+        class="ant-slider-mark-text ant-slider-mark-text-active"
+        style="left: 37%; transform: translateX(-50%);"
+      >
+        37°C
+      </span>
+      <span
+        class="ant-slider-mark-text"
+        style="left: 100%; transform: translateX(-50%); color: rgb(255, 85, 0);"
+      >
+        <strong>
+          100°C
+        </strong>
+      </span>
+    </div>
+  </div>
+  <h4
+    data-v-16df1846=""
+  >
+    step=null
+  </h4>
+  <div
+    class="ant-slider css-var-root ant-slider-horizontal ant-slider-with-marks"
+    data-v-16df1846=""
+  >
+    <div
+      class="ant-slider-rail"
+    />
+    <!---->
+    <div
+      class="ant-slider-track"
+      style="left: 0%; width: 37%;"
+    />
+    <div
+      class="ant-slider-step"
+    >
+      <span
+        class="ant-slider-dot ant-slider-dot-active"
+        style="left: 0%; transform: translateX(-50%);"
+      />
+      <span
+        class="ant-slider-dot ant-slider-dot-active"
+        style="left: 26%; transform: translateX(-50%);"
+      />
+      <span
+        class="ant-slider-dot ant-slider-dot-active"
+        style="left: 37%; transform: translateX(-50%);"
+      />
+      <span
+        class="ant-slider-dot"
+        style="left: 100%; transform: translateX(-50%);"
+      />
+    </div>
+    <div
+      aria-disabled="false"
+      aria-orientation="horizontal"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="37"
+      class="ant-slider-handle"
+      mock="false"
+      role="slider"
+      style="left: 37%; transform: translateX(-50%);"
+      tabindex="0"
+    />
+    <!---->
+    <!---->
+    <div
+      class="ant-slider-mark"
+    >
+      <span
+        class="ant-slider-mark-text ant-slider-mark-text-active"
+        style="left: 0%; transform: translateX(-50%);"
+      >
+        0°C
+      </span>
+      <span
+        class="ant-slider-mark-text ant-slider-mark-text-active"
+        style="left: 26%; transform: translateX(-50%);"
+      >
+        26°C
+      </span>
+      <span
+        class="ant-slider-mark-text ant-slider-mark-text-active"
+        style="left: 37%; transform: translateX(-50%);"
+      >
+        37°C
+      </span>
+      <span
+        class="ant-slider-mark-text"
+        style="left: 100%; transform: translateX(-50%); color: rgb(255, 85, 0);"
+      >
+        <strong>
+          100°C
+        </strong>
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`slider demo > renders multiple correctly 1`] = `
+<div
+  class="ant-slider css-var-root ant-slider-horizontal"
+>
+  <div
+    class="ant-slider-rail"
+  />
+  <div
+    class="ant-slider-tracks"
+    style="left: 0%; width: 20%; background: linear-gradient(to right, rgb(135, 208, 104) 0%, rgb(159, 207, 123) 100%);"
+  />
+  <div
+    class="ant-slider-track ant-slider-track-1"
+    style="left: 0%; width: 10%; background: transparent;"
+  />
+  <div
+    class="ant-slider-track ant-slider-track-2"
+    style="left: 10%; width: 10%; background: transparent;"
+  />
+  <div
+    class="ant-slider-step"
+  />
+  <div
+    aria-disabled="false"
+    aria-orientation="horizontal"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="0"
+    class="ant-slider-handle ant-slider-handle-1"
+    mock="false"
+    role="slider"
+    style="left: 0%; transform: translateX(-50%);"
+    tabindex="0"
+  />
+  <div
+    aria-disabled="false"
+    aria-orientation="horizontal"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="10"
+    class="ant-slider-handle ant-slider-handle-2"
+    mock="false"
+    role="slider"
+    style="left: 10%; transform: translateX(-50%);"
+    tabindex="0"
+  />
+  <div
+    aria-disabled="false"
+    aria-orientation="horizontal"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="20"
+    class="ant-slider-handle ant-slider-handle-3"
+    mock="false"
+    role="slider"
+    style="left: 20%; transform: translateX(-50%);"
+    tabindex="0"
+  />
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`slider demo > renders reverse correctly 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-slider css-var-root ant-slider-horizontal"
+  >
+    <div
+      class="ant-slider-rail"
+    />
+    <!---->
+    <div
+      class="ant-slider-track"
+      style="right: 0%; width: 30%;"
+    />
+    <div
+      class="ant-slider-step"
+    />
+    <div
+      aria-disabled="false"
+      aria-orientation="horizontal"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="30"
+      class="ant-slider-handle"
+      mock="false"
+      role="slider"
+      style="right: 30%; transform: translateX(50%);"
+      tabindex="0"
+    />
+    <!---->
+    <!---->
+    <!---->
+  </div>
+  <div
+    class="ant-slider css-var-root ant-slider-horizontal"
+  >
+    <div
+      class="ant-slider-rail"
+    />
+    <!---->
+    <div
+      class="ant-slider-track ant-slider-track-1"
+      style="right: 20%; width: 30%;"
+    />
+    <div
+      class="ant-slider-step"
+    />
+    <div
+      aria-disabled="false"
+      aria-orientation="horizontal"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="20"
+      class="ant-slider-handle ant-slider-handle-1"
+      mock="false"
+      role="slider"
+      style="right: 20%; transform: translateX(50%);"
+      tabindex="0"
+    />
+    <div
+      aria-disabled="false"
+      aria-orientation="horizontal"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="50"
+      class="ant-slider-handle ant-slider-handle-2"
+      mock="false"
+      role="slider"
+      style="right: 50%; transform: translateX(50%);"
+      tabindex="0"
+    />
+    <!---->
+    <!---->
+  </div>
+   Reversed: 
+  <button
+    aria-checked="true"
+    checked="true"
+    class="ant-switch ant-switch-small css-var-root ant-switch-checked"
+    role="switch"
+    type="button"
+  >
+    <div
+      class="ant-switch-handle"
+    >
+      <!---->
+    </div>
+    <span
+      class="ant-switch-inner"
+    >
+      <span
+        class="ant-switch-inner-checked"
+      >
+        <!---->
+      </span>
+      <span
+        class="ant-switch-inner-unchecked"
+      >
+        <!---->
+      </span>
+    </span>
+  </button>
+</div>
+`;
+
+exports[`slider demo > renders show-tooltip correctly 1`] = `
+<div
+  class="ant-slider css-var-root ant-slider-horizontal"
+>
+  <div
+    class="ant-slider-rail"
+  />
+  <!---->
+  <div
+    class="ant-slider-track"
+    style="left: 0%; width: 30%;"
+  />
+  <div
+    class="ant-slider-step"
+  />
+  <div
+    aria-describedby="test-id"
+    aria-disabled="false"
+    aria-orientation="horizontal"
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="30"
+    class="ant-slider-handle ant-slider-handle ant-tooltip-open"
+    mock="false"
+    role="slider"
+    style="left: 30%; transform: translateX(-50%);"
+    tabindex="0"
+  />
+  <!---->
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`slider demo > renders style-class correctly 1`] = `
+<div
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  data-v-e57a2610=""
+>
+  <div
+    class="ant-slider custom-slider css-var-root ant-slider-horizontal"
+    data-v-e57a2610=""
+  >
+    <div
+      class="ant-slider-rail"
+    />
+    <!---->
+    <div
+      class="ant-slider-track"
+      style="left: 0%; width: 30%; background-image: linear-gradient(180deg, rgb(145, 202, 255), rgb(22, 119, 255));"
+    />
+    <div
+      class="ant-slider-step"
+    />
+    <div
+      aria-disabled="false"
+      aria-orientation="horizontal"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="30"
+      class="ant-slider-handle"
+      mock="false"
+      role="slider"
+      style="left: 30%; transform: translateX(-50%); border-color: rgb(22, 119, 255); box-shadow: 0 2px 8px #1677ff;"
+      tabindex="0"
+    />
+    <!---->
+    <!---->
+    <!---->
+  </div>
+  <div
+    class="ant-slider custom-slider-vertical css-var-root ant-slider-vertical"
+    data-v-e57a2610=""
+    style="height: 300px;"
+  >
+    <div
+      class="ant-slider-rail"
+    />
+    <!---->
+    <div
+      class="ant-slider-track"
+      style="top: 0%; height: 30%; background-image: linear-gradient(180deg, rgb(114, 44, 192), rgb(114, 46, 209));"
+    />
+    <div
+      class="ant-slider-step"
+    />
+    <div
+      aria-disabled="false"
+      aria-orientation="vertical"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="30"
+      class="ant-slider-handle"
+      mock="false"
+      role="slider"
+      style="top: 30%; transform: translateY(-50%); border-color: rgb(114, 46, 209); box-shadow: 0 2px 8px #722ed1;"
+      tabindex="0"
+    />
+    <!---->
+    <!---->
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`slider demo > renders tip-formatter correctly 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-slider css-var-root ant-slider-horizontal"
+  >
+    <div
+      class="ant-slider-rail"
+    />
+    <!---->
+    <div
+      class="ant-slider-track"
+      style="left: 0%; width: 30%;"
+    />
+    <div
+      class="ant-slider-step"
+    />
+    <div
+      aria-disabled="false"
+      aria-orientation="horizontal"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="30"
+      class="ant-slider-handle"
+      mock="false"
+      role="slider"
+      style="left: 30%; transform: translateX(-50%);"
+      tabindex="0"
+    />
+    <!---->
+    <!---->
+    <!---->
+  </div>
+  <div
+    class="ant-slider css-var-root ant-slider-horizontal"
+  >
+    <div
+      class="ant-slider-rail"
+    />
+    <!---->
+    <div
+      class="ant-slider-track"
+      style="left: 0%; width: 30%;"
+    />
+    <div
+      class="ant-slider-step"
+    />
+    <div
+      aria-disabled="false"
+      aria-orientation="horizontal"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="30"
+      class="ant-slider-handle"
+      mock="false"
+      role="slider"
+      style="left: 30%; transform: translateX(-50%);"
+      tabindex="0"
+    />
+    <!---->
+    <!---->
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`slider demo > renders vertical correctly 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    style="display: inline-block; height: 300px; margin-inline-start: 70px;"
+  >
+    <div
+      class="ant-slider css-var-root ant-slider-vertical"
+    >
+      <div
+        class="ant-slider-rail"
+      />
+      <!---->
+      <div
+        class="ant-slider-track"
+        style="bottom: 0%; height: 30%;"
+      />
+      <div
+        class="ant-slider-step"
+      />
+      <div
+        aria-disabled="false"
+        aria-orientation="vertical"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="30"
+        class="ant-slider-handle"
+        mock="false"
+        role="slider"
+        style="bottom: 30%; transform: translateY(50%);"
+        tabindex="0"
+      />
+      <!---->
+      <!---->
+      <!---->
+    </div>
+  </div>
+  <div
+    style="display: inline-block; height: 300px; margin-inline-start: 70px;"
+  >
+    <div
+      class="ant-slider css-var-root ant-slider-vertical"
+    >
+      <div
+        class="ant-slider-rail"
+      />
+      <!---->
+      <div
+        class="ant-slider-track ant-slider-track-1"
+        style="bottom: 20%; height: 30%;"
+      />
+      <div
+        class="ant-slider-step"
+      />
+      <div
+        aria-disabled="false"
+        aria-orientation="vertical"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="20"
+        class="ant-slider-handle ant-slider-handle-1"
+        mock="false"
+        role="slider"
+        style="bottom: 20%; transform: translateY(50%);"
+        tabindex="0"
+      />
+      <div
+        aria-disabled="false"
+        aria-orientation="vertical"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="50"
+        class="ant-slider-handle ant-slider-handle-2"
+        mock="false"
+        role="slider"
+        style="bottom: 50%; transform: translateY(50%);"
+        tabindex="0"
+      />
+      <!---->
+      <!---->
+    </div>
+  </div>
+  <div
+    style="display: inline-block; height: 300px; margin-inline-start: 70px;"
+  >
+    <div
+      class="ant-slider css-var-root ant-slider-vertical ant-slider-with-marks"
+    >
+      <div
+        class="ant-slider-rail"
+      />
+      <!---->
+      <div
+        class="ant-slider-track ant-slider-track-1"
+        style="bottom: 26%; height: 11%;"
+      />
+      <div
+        class="ant-slider-step"
+      >
+        <span
+          class="ant-slider-dot"
+          style="bottom: 0%; transform: translateY(50%);"
+        />
+        <span
+          class="ant-slider-dot ant-slider-dot-active"
+          style="bottom: 26%; transform: translateY(50%);"
+        />
+        <span
+          class="ant-slider-dot ant-slider-dot-active"
+          style="bottom: 37%; transform: translateY(50%);"
+        />
+        <span
+          class="ant-slider-dot"
+          style="bottom: 100%; transform: translateY(50%);"
+        />
+      </div>
+      <div
+        aria-disabled="false"
+        aria-orientation="vertical"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="26"
+        class="ant-slider-handle ant-slider-handle-1"
+        mock="false"
+        role="slider"
+        style="bottom: 26%; transform: translateY(50%);"
+        tabindex="0"
+      />
+      <div
+        aria-disabled="false"
+        aria-orientation="vertical"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="37"
+        class="ant-slider-handle ant-slider-handle-2"
+        mock="false"
+        role="slider"
+        style="bottom: 37%; transform: translateY(50%);"
+        tabindex="0"
+      />
+      <!---->
+      <div
+        class="ant-slider-mark"
+      >
+        <span
+          class="ant-slider-mark-text"
+          style="bottom: 0%; transform: translateY(50%);"
+        >
+          0°C
+        </span>
+        <span
+          class="ant-slider-mark-text ant-slider-mark-text-active"
+          style="bottom: 26%; transform: translateY(50%);"
+        >
+          26°C
+        </span>
+        <span
+          class="ant-slider-mark-text ant-slider-mark-text-active"
+          style="bottom: 37%; transform: translateY(50%);"
+        >
+          37°C
+        </span>
+        <span
+          class="ant-slider-mark-text"
+          style="bottom: 100%; transform: translateY(50%); color: rgb(255, 85, 0);"
+        >
+          <strong>
+            100°C
+          </strong>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
