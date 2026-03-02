@@ -159,6 +159,16 @@ const formRef = ref<FormInstance>()
 | rootClass | Root container class | string | - | - |
 | prefixCls | Prefix class name | string | - | - |
 
+#### Slots {#form-item-slots}
+
+| Slot | Description | Type | Version |
+| --- | --- | --- | --- |
+| default | Form control content | () =&gt; any | - |
+| label | Custom label content (higher priority than `label` prop) | () =&gt; any | - |
+| tooltip | Custom label tooltip content. The slot arg is the current `tooltip` config; when `tooltip` is an options object, returning an object from slot will be merged into it | (tooltip?: VueNode \| TooltipProps & &#123; icon: VueNode &#125;) =&gt; any | - |
+| extra | Custom extra message (higher priority than `extra` prop) | () =&gt; any | - |
+| help | Custom help/error message (higher priority than `help` prop) | () =&gt; any | - |
+
 ## Types
 
 ### validateMessages

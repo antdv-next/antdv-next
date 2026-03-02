@@ -132,7 +132,7 @@ const formRef = ref<FormInstance>()
 
 ### FormItem {#form-item}
 
-#### Props {#form-item-props}
+#### 属性 {#form-item-props}
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -160,7 +160,17 @@ const formRef = ref<FormInstance>()
 | rootClass | 根容器类名 | string | - | - |
 | prefixCls | 组件前缀类名 | string | - | - |
 
-### Types
+#### 插槽 {#form-item-slots}
+
+| 插槽 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| default | 表单控件内容 | () =&gt; any | - |
+| label | 自定义标签内容（优先于 `label` 属性） | () =&gt; any | - |
+| tooltip | 自定义标签提示内容。插槽参数为当前 `tooltip` 配置；当 `tooltip` 为对象配置时，插槽返回对象会与原配置合并 | (tooltip?: VueNode \| TooltipProps & &#123; icon: VueNode &#125;) =&gt; any | - |
+| extra | 自定义额外提示信息（优先于 `extra` 属性） | () =&gt; any | - |
+| help | 自定义帮助/错误提示（优先于 `help` 属性） | () =&gt; any | - |
+
+### 类型
 
 #### validateMessages {#validatemessages}
 
