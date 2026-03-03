@@ -1,0 +1,77 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`image > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-image css-var-root ant-image-css-var"
+  >
+    <img
+      class="ant-image-img"
+      src="https://example.com/test.png"
+    />
+    <!---->
+    <div
+      class="ant-image-cover ant-image-cover-center"
+    >
+      <!---->
+    </div>
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`image > should match snapshot 1`] = `
+"<div alt="Test" class="ant-image css-var-root ant-image-css-var" style="width: 200px;"><img src="https://example.com/test.png" class="ant-image-img" width="200">
+  <!---->
+  <div class="ant-image-cover ant-image-cover-center">
+    <!---->
+  </div>
+</div>"
+`;
+
+exports[`image > should match snapshot with preview disabled 1`] = `
+"<div class="ant-image css-var-root ant-image-css-var"><img src="https://example.com/test.png" class="ant-image-img">
+  <!---->
+  <!---->
+</div>"
+`;
+
+exports[`image.PreviewGroup > rtl render > component should be rendered correctly in RTL direction 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-image css-var-root ant-image-css-var"
+  >
+    <img
+      class="ant-image-img"
+      src="https://example.com/test.png"
+    />
+    <!---->
+    <div
+      class="ant-image-cover ant-image-cover-center"
+    >
+      <!---->
+    </div>
+  </div>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`image.PreviewGroup > should match snapshot 1`] = `
+"<div class="ant-image css-var-root ant-image-css-var" style="width: 200px;"><img src="https://example.com/test.png" class="ant-image-img" width="200">
+  <!---->
+  <div class="ant-image-cover ant-image-cover-center">
+    <!---->
+  </div>
+</div>
+<div class="ant-image css-var-root ant-image-css-var" style="width: 200px;"><img src="https://example.com/test2.png" class="ant-image-img" width="200">
+  <!---->
+  <div class="ant-image-cover ant-image-cover-center">
+    <!---->
+  </div>
+</div>"
+`;
