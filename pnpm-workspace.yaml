@@ -125,7 +125,7 @@ catalogs:
     '@types/throttle-debounce': ^5.0.2
   vc:
     '@v-c/async-validator': ^1.0.0
-    '@v-c/cascader': ^1.0.1
+    '@v-c/cascader': ^1.0.2
     '@v-c/checkbox': ^1.0.1
     '@v-c/collapse': ^1.0.0
     '@v-c/color-picker': ^1.0.6
