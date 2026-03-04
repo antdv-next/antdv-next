@@ -3,7 +3,7 @@ import type { ColProps } from '../grid'
 import type { TooltipProps } from '../tooltip'
 import type { RequiredMark } from './Form'
 import type { FormLabelAlign } from './interface'
-import { QuestionCircleFilled } from '@antdv-next/icons'
+import { QuestionCircleOutlined } from '@antdv-next/icons'
 import { clsx } from '@v-c/util'
 import { omit } from 'es-toolkit'
 import { defineComponent } from 'vue'
@@ -93,7 +93,7 @@ const FormItemLabel = defineComponent<
       const tooltipProps = convertToTooltipProps(tooltip, contextTooltip)
       if (tooltipProps) {
         const { ...restTooltipProps } = tooltipProps
-        const icon = getSlotPropsFnRun({}, tooltipProps, 'icon') ?? <QuestionCircleFilled />
+        const icon = getSlotPropsFnRun({}, tooltipProps, 'icon') ?? <QuestionCircleOutlined />
         const tooltipNode = (
           <Tooltip {...omit(restTooltipProps, ['icon'])}>
             <span
