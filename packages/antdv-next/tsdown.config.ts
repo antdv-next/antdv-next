@@ -1,7 +1,18 @@
+import vue from '@vitejs/plugin-vue'
+import vueJsx from '@vitejs/plugin-vue-jsx'
 import { defineConfig } from 'tsdown'
+import { tsxResolveTypes } from 'vite-plugin-tsx-resolve-types'
 
 export default defineConfig({
-  fromVite: true,
+  plugins: [
+    tsxResolveTypes({
+      defaultPropsToUndefined: ['Boolean'],
+    }),
+    vueJsx(),
+    vue({
+      include: [/\.vue$/, /\.md$/],
+    }),
+  ],
   entry: [
     'src/**/*.ts',
     'src/**/*.tsx',

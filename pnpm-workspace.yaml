@@ -47,7 +47,7 @@ catalogs:
     pretty-format: ^30.2.0
     simple-git-hooks: ^2.13.1
     tinyglobby: 0.2.15
-    tsdown: 0.20.3
+    tsdown: 0.20.1
     tsx: ^4.21.0
     turbo: ^2.8.13
     typedoc: ^0.28.17
