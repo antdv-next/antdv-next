@@ -11023,6 +11023,7 @@ exports[`form demo > renders style-class correctly 1`] = `
           >
             <input
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
+              data-v-86e4aa7a=""
               id="name"
               type="text"
               value=""
@@ -11081,6 +11082,7 @@ exports[`form demo > renders style-class correctly 1`] = `
           >
             <input
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
+              data-v-86e4aa7a=""
               id="email"
               type="text"
               value=""
@@ -11130,6 +11132,7 @@ exports[`form demo > renders style-class correctly 1`] = `
           >
             <button
               class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+              data-v-86e4aa7a=""
               type="button"
             >
               <transition-stub
