@@ -35,6 +35,8 @@ docs/public/llms-full.txt
 docs/public/llms-full-cn.txt
 docs/public/llms-semantic.md
 docs/public/llms-semantic-cn.md
+docs/public/components/
+docs/public/docs/
 docs/public/search.cn.json
 docs/public/search.en.json
 coverage
