@@ -40,7 +40,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*d27AQJrowGAAAA
 | extra | 描述列表的操作区域，显示在右上方 | VueNode | - | - |
 | labelRender | - | RenderDescriptionsItem | - | - |
 | contentRender | - | RenderDescriptionsItem | - | - |
-| column | 一行的 `DescriptionItems` 数量，可以写成像素值或支持响应式的对象写法 `&#123; xs: 8, sm: 16, md: 24&#125;` | number \| Partial&lt;Record&lt;Breakpoint, number&gt;&gt; | 3 | - |
+| column | 一行的 `DescriptionItems` 数量，可以写成像素值或支持响应式的对象写法 `{ xs: 8, sm: 16, md: 24}` | number \| Partial&lt;Record&lt;Breakpoint, number&gt;&gt; | `{xxxl: 4,xxl: 3,xl: 3,lg: 3,md: 3,sm: 2,xs: 1}` | - |
 | layout | 描述布局 | 'horizontal' \| 'vertical' | `horizontal` | - |
 | colon | 配置 `Descriptions.Item` 的 `colon` 的默认值。表示是否显示 label 后面的冒号 | boolean | true | - |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | DescriptionsStylesType | - | - |
