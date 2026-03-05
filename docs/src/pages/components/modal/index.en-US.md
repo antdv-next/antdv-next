@@ -133,7 +133,7 @@ The items listed above are all functions, expecting a settings object as paramet
 | getContainer | Return the mount node for Modal | string \| HTMLElement \| (() => HTMLElement) \| false | document.body | - |
 | icon | Custom icon | VueNode | &lt;ExclamationCircleFilled /> | - |
 | keyboard | Whether support press esc to close | boolean | true | - |
-| mask | Mask effect | MaskType | true | - |
+| mask | Mask effect | boolean \| [MaskType](#masktype) | true | - |
 | maskClosable | Whether to close the modal dialog when the mask is clicked | boolean | false | - |
 | okButtonProps | The ok button props | ButtonProps | - | - |
 | okText | Text of the OK button | string | `OK` | - |
@@ -157,6 +157,14 @@ All the `Modal.method`s will return a reference, and then we can update and clos
 | closeIcon | Custom close icon | VueNode | undefined | - |
 | disabled | Whether disabled close icon | boolean | false | - |
 | onClose | Trigger when modal close | () => void | undefined | - |
+
+### MaskType {#masktype}
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| enabled | Do you want to enable masking | boolean | true | - |
+| blur | Whether to enable virtualization effect | boolean | false | - |
+| closable | Whether to close the modal dialog when the mask is clicked, When using functional calls, the default value is `false` | boolean | true | - |
 
 ```ts
 const modal = Modal.info()

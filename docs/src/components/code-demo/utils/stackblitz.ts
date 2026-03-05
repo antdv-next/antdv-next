@@ -120,7 +120,7 @@ export function iframeStackBlitz(
   return sdk.embedProject(elementId, {
     title,
     description: 'Ant Design Vue Next Demo',
-    template: 'node',
+    template: 'javascript',
     files,
   }, {
     openFile: 'src/Demo.vue',
@@ -128,5 +128,6 @@ export function iframeStackBlitz(
     hideNavigation: true,
     hideExplorer: true,
     height: 500,
+    view: 'editor',
   })
 }

@@ -472,24 +472,50 @@ const InternalFormItem = defineComponent<
       if ((Array.isArray(baseChildren) && baseChildren.length === 1 && isVNode(baseChildren[0])) || isVNode(baseChildren)) {
         const child = isVNode(baseChildren) ? baseChildren : baseChildren[0]
         const childProps = child.props || {}
+        const _onBlur = childProps.onBlur
+        const _onFocus = childProps.onFocus
+        if (_onBlur) {
+          delete child.props.onBlur
+        }
+        if (_onFocus) {
+          delete child.props.onFocus
+        }
         const newChildProps = {
-          id: currentFieldId,
-          ...childProps,
+          id: childProps.id || currentFieldId,
           onBlur: (...args: any[]) => {
             onFieldBlur()
-            if (childProps.onBlur) {
-              childProps.onBlur(...args)
+            if (_onBlur) {
+              // 判断可能是不是数组的情况
+              if (Array.isArray(_onBlur)) {
+                _onBlur.forEach((fn) => {
+                  if (typeof fn === 'function') {
+                    fn(...args)
+                  }
+                })
+              }
+              else {
+                _onBlur?.(...args)
+              }
             }
           },
           onFocus: (...args: any[]) => {
             onFieldFocus()
-            if (childProps.onFocus) {
-              childProps.onFocus(...args)
+            // 判断可能是不是数组的情况
+            if (_onFocus) {
+              if (Array.isArray(_onFocus)) {
+                _onFocus.forEach((fn) => {
+                  if (typeof fn === 'function') {
+                    fn(...args)
+                  }
+                })
+              }
+              else {
+                _onFocus?.(...args)
+              }
             }
           },
-
         }
-        baseChildren = createVNode(child.type, newChildProps, child.children)
+        baseChildren = createVNode(child, newChildProps)
       }
       if (props.noStyle && !props.hidden) {
         return (

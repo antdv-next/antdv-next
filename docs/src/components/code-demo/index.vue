@@ -148,7 +148,7 @@ const cls = computed(() => {
 </script>
 
 <template>
-  <section :id="id" class="ant-doc-demo-box border border-solid border-color-split" :class="cls">
+  <section :id="id" class="ant-doc-demo-box border-solid border-color-split border-1px" :class="cls">
     <template v-if="simplify">
       <section class="vp-raw ant-doc-demo-box-demo">
         <component :is="component" v-if="demo?.component" />

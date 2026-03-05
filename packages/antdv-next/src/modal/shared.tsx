@@ -25,7 +25,7 @@ export interface FooterProps
     'footer' | 'okText' | 'okType' | 'cancelText' | 'confirmLoading' | 'okButtonProps' | 'cancelButtonProps'
   > {
   onOk?: ModalEmits['ok']
-  onCancel?: ModalEmits['cancel']
+  onCancel?: ModalEmits['cancel'] // aligned with ModalEmits to support MouseEvent | KeyboardEvent
 }
 
 export const Footer = defineComponent<

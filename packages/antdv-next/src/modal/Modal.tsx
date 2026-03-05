@@ -1,3 +1,4 @@
+import type { DialogProps } from '@v-c/dialog'
 import type { SlotsType } from 'vue'
 import type { Breakpoint } from '../_util/responsiveObserver'
 import type { ModalClassNamesType, ModalEmits, ModalProps, ModalSlots, ModalStylesType, MousePosition } from './interface'
@@ -132,7 +133,7 @@ const Modal = defineComponent<
       closableContext.value?.[1]?.()
     }
 
-    const handleCancel = (e: MouseEvent) => {
+    const handleCancel = (e: MouseEvent | KeyboardEvent) => {
       if (props.confirmLoading) {
         return
       }
@@ -360,7 +361,7 @@ const Modal = defineComponent<
               title={titleNode}
               visible={props.open}
               mousePosition={props.mousePosition ?? mousePosition}
-              onClose={handleCancel as any}
+              onClose={handleCancel as DialogProps['onClose']}
               closable={mergedClosable as any}
               closeIcon={mergedCloseIcon}
               focusTriggerAfterClose={mergedFocusable.value?.focusTriggerAfterClose}

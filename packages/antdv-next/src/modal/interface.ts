@@ -127,8 +127,8 @@ export interface ModalProps extends ModalCommonProps {
 export interface ModalEmits {
   /** Specify a function that will be called when a user clicks the OK button */
   'ok': (e: MouseEvent) => void
-  /** Specify a function that will be called when a user clicks mask, close button on top right or Cancel button */
-  'cancel': (e: MouseEvent) => void
+  /** Specify a function that will be called when a user clicks mask, close button on top right or Cancel button, or presses Esc key */
+  'cancel': (e: MouseEvent | KeyboardEvent) => void
   'update:open': (open: boolean) => void
 }
 
