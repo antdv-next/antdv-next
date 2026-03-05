@@ -185,7 +185,9 @@ const Switch = defineComponent<
     const handleVMHandler = (checked: boolean) => {
       // 根据 checked 状态返回对应的自定义值
       const newValue = checked ? mergedCheckedValue.value : mergedUnCheckedValue.value
-      currentValue.value = newValue
+      if (props.checked === undefined && props.value === undefined) {
+        currentValue.value = newValue
+      }
       emit('update:checked', newValue)
       emit('update:value', newValue)
     }
