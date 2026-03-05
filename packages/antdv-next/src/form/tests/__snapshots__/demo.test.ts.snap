@@ -14008,9 +14008,14 @@ exports[`form demo > renders validate-scroll-to-field correctly 1`] = `
             >
               <!---->
               <div
-                class="ant-select-content ant-select-content-has-value"
-                title=""
+                class="ant-select-content"
               >
+                <div
+                  class="ant-select-placeholder"
+                  style="visibility: visible;"
+                >
+                  <!---->
+                </div>
                 <input
                   aria-autocomplete="list"
                   aria-controls="occupation_list"
