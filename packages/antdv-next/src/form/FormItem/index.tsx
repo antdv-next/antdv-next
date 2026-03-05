@@ -487,9 +487,8 @@ const InternalFormItem = defineComponent<
               childProps.onFocus(...args)
             }
           },
-
         }
-        baseChildren = createVNode(child.type, newChildProps, child.children)
+        baseChildren = createVNode(child, newChildProps)
       }
       if (props.noStyle && !props.hidden) {
         return (
