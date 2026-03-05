@@ -17,6 +17,7 @@ const config = antfu(
       'vue/one-component-per-file': 0,
       'style/quote-props': 0,
       'test/prefer-lowercase-title': 0,
+      'pnpm/yaml-enforce-settings': 0,
     },
   },
   {
