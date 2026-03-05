@@ -4,13 +4,14 @@ import type { InternalUploadListProps } from './UploadList'
 import Dragger from './Dragger'
 import InternalUpload, { LIST_IGNORE } from './Upload'
 
-export type { DraggerProps } from './Dragger'
+export type { DraggerProps, DraggerType } from './Dragger'
 export type {
   UploadChangeParam,
   UploadEmits,
   UploadFile,
   UploadSlots,
 } from './interface'
+export type { UploadRef } from './Upload'
 export type UploadProps = InternalUploadProps
 export type UploadListProps = InternalUploadListProps
 

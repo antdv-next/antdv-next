@@ -250,6 +250,6 @@ export type {
   TitleProps as TypographyTitleProps,
 } from './typography'
 export { default as Upload, UploadDragger } from './upload'
-export type { UploadChangeParam, DraggerProps as UploadDraggerProps, UploadEmits, UploadFile, UploadProps, UploadSlots } from './upload'
+export type { UploadChangeParam, DraggerProps as UploadDraggerProps, UploadEmits, UploadFile, UploadProps, UploadRef, UploadSlots } from './upload'
 export { default as Watermark } from './watermark'
 export type { WatermarkProps } from './watermark'

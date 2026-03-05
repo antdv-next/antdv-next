@@ -8,6 +8,10 @@ import Upload from './Upload'
 
 export type DraggerProps<T = any> = UploadProps<T> & { height?: number }
 
+export type DraggerType = (new <T = any>() => {
+  $props: DraggerProps<T>
+}) & { readonly name: string }
+
 const Dragger = defineComponent<
   DraggerProps,
   EmptyEmit,
@@ -51,6 +55,6 @@ const Dragger = defineComponent<
     name: 'AUploadDragger',
     inheritAttrs: false,
   },
-)
+) as unknown as DraggerType
 
 export default Dragger
