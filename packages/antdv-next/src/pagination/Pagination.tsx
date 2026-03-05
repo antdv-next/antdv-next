@@ -248,7 +248,8 @@ const Pagination = defineComponent<
       const extendedClassName = clsx(
         {
           [`${prefixCls.value}-${align}`]: !!align,
-          [`${prefixCls.value}-${mergedSize.value}`]: mergedSize.value,
+          [`${prefixCls.value}-large`]: mergedSize.value === 'large',
+          [`${prefixCls.value}-small`]: mergedSize.value === 'small',
           /** @deprecated Should be removed in v2 */
           [`${prefixCls.value}-mini`]: isSmall.value,
           [`${prefixCls.value}-rtl`]: direction.value === 'rtl',

@@ -641,7 +641,8 @@ const InternalForm = defineComponent<
         {
           [`${prefixCls.value}-hide-required-mark`]: mergedRequiredMark.value === false, // todo: remove in next major version
           [`${prefixCls.value}-rtl`]: direction.value === 'rtl',
-          [`${prefixCls.value}-${mergedSize.value}`]: mergedSize.value,
+          [`${prefixCls.value}-large`]: mergedSize.value === 'large',
+          [`${prefixCls.value}-small`]: mergedSize.value === 'small',
         },
         cssVarCls.value,
         rootCls.value,

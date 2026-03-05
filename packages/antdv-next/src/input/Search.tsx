@@ -208,7 +208,8 @@ const InternalSearch = defineComponent<
         cssVarCls.value,
         {
           [`${prefixCls.value}-rtl`]: direction.value === 'rtl',
-          [`${prefixCls.value}-${mergedSize.value}`]: mergedSize.value,
+          [`${prefixCls.value}-large`]: mergedSize.value === 'large',
+          [`${prefixCls.value}-small`]: mergedSize.value === 'small',
           [`${prefixCls.value}-with-button`]: !!props.enterButton,
         },
         className,

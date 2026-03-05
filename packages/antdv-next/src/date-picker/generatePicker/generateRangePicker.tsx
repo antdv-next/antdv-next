@@ -277,7 +277,8 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
 
         const mergedClassName = clsx(
           {
-            [`${prefixCls.value}-${mergedSize.value}`]: mergedSize.value,
+            [`${prefixCls.value}-large`]: mergedSize.value === 'large',
+            [`${prefixCls.value}-small`]: mergedSize.value === 'small',
             [`${prefixCls.value}-${variant.value}`]: enableVariantCls.value,
           },
           getStatusClassNames(prefixCls.value, mergedStatus, hasFeedback),
