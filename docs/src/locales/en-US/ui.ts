@@ -16,6 +16,7 @@ export default {
     },
     action: {
       externalLink: 'Open in new window',
+      openPlayground: 'Open in Playground',
       expandCode: 'Expand Code',
       expandedCode: 'Collapse Code',
       stackblitz: 'Open in StackBlitz',

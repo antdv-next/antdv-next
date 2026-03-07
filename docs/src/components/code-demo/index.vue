@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { CSSProperties } from 'vue'
-import { CheckOutlined, CopyOutlined, EditOutlined, ThunderboltOutlined } from '@antdv-next/icons'
+import { CheckOutlined, CodeOutlined, CopyOutlined, EditOutlined, ThunderboltOutlined } from '@antdv-next/icons'
 import { useClipboard } from '@vueuse/core'
 import demos from 'virtual:demos'
 import { computed, defineAsyncComponent, shallowRef } from 'vue'
@@ -8,6 +8,7 @@ import { useRoute, useRouter } from 'vue-router'
 import ExpandIcon from '@/components/code-demo/expand-icon.vue'
 import CodeIframe from '@/components/code-demo/iframe.vue'
 import { getId } from '@/components/code-demo/utils/getId'
+import { loadPlaygroundUrl } from '@/components/code-demo/utils/playground.ts'
 import ExternalLink from '@/components/icons/external-link.vue'
 import { useLocale } from '@/composables/use-locale'
 import { useAppStore } from '@/stores/app.ts'
@@ -145,6 +146,13 @@ const cls = computed(() => {
   }
   return cls
 })
+
+function handleOpenPlayground() {
+  const url = loadPlaygroundUrl(activeSourceCode.value ?? '')
+  if (url) {
+    window.open(url, '_blank', 'noopener,noreferrer')
+  }
+}
 </script>
 
 <template>
@@ -189,6 +197,11 @@ const cls = computed(() => {
               <ExternalLink />
             </a-tooltip>
           </a>
+          <div class="ant-doc-demo-box-code-action" @click="handleOpenPlayground">
+            <a-tooltip :title="t('ui.codeDemo.action.openPlayground')">
+              <CodeOutlined />
+            </a-tooltip>
+          </div>
           <div class="ant-doc-demo-box-expand-icon ant-doc-demo-box-code-action" @click="handleShowCode">
             <a-tooltip :title="t(`ui.codeDemo.action.${showCode ? 'expandedCode' : 'expandCode'}`)">
               <ExpandIcon :expanded="showCode" />
