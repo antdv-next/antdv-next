@@ -268,6 +268,37 @@ describe('tree', () => {
     expect(wrapper.find('.ant-tree-checkbox').classes()).not.toContain('ant-tree-checkbox-checked')
   })
 
+  it('should support v-model:checkedKeys with non-strict check mode', async () => {
+    const checkedKeys = ref<(string | number)[]>([])
+    const treeData = [
+      {
+        title: 'parent',
+        key: '0-0',
+        children: [
+          { title: 'child-1', key: '0-0-0' },
+          { title: 'child-2', key: '0-0-1' },
+        ],
+      },
+    ]
+
+    const wrapper = mount(() => (
+      <Tree
+        v-model:checkedKeys={checkedKeys.value}
+        checkable
+        defaultExpandAll
+        treeData={treeData}
+      />
+    ))
+
+    const checkboxes = wrapper.findAll('.ant-tree-checkbox')
+    expect(checkboxes).toHaveLength(3)
+
+    await checkboxes[1]!.trigger('click')
+    await nextTick()
+
+    expect(checkedKeys.value).toEqual(['0-0-0'])
+  })
+
   describe('draggable', () => {
     const dragTreeData = [
       {
