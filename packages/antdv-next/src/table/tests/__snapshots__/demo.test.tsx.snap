@@ -32933,6 +32933,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
         >
           <div
             aria-label="segmented control"
+            aria-orientation="horizontal"
             class="ant-segmented css-var-root css-var-root"
             role="radiogroup"
             size="middle"
@@ -32951,9 +32952,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                   type="radio"
                 />
                 <div
-                  aria-checked="false"
                   class="ant-segmented-item-label"
-                  role="radio"
                 >
                   <span
                     class="ant-segmented-item-icon"
@@ -32974,9 +32973,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                   type="radio"
                 />
                 <div
-                  aria-checked="false"
                   class="ant-segmented-item-label"
-                  role="radio"
                 >
                   <span
                     class="ant-segmented-item-icon"
@@ -32998,9 +32995,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                   type="radio"
                 />
                 <div
-                  aria-checked="true"
                   class="ant-segmented-item-label"
-                  role="radio"
                 >
                   <span
                     class="ant-segmented-item-icon"

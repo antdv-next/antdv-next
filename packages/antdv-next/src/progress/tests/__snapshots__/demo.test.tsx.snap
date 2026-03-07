@@ -22,6 +22,7 @@ exports[`progress demo > renders _semantic correctly 1`] = `
         >
           <div
             aria-label="segmented control"
+            aria-orientation="horizontal"
             class="ant-segmented css-var-v-0 css-var-v-0"
             role="radiogroup"
             size="middle"
@@ -41,9 +42,7 @@ exports[`progress demo > renders _semantic correctly 1`] = `
                   type="radio"
                 />
                 <div
-                  aria-checked="true"
                   class="ant-segmented-item-label"
-                  role="radio"
                   title="line"
                 >
                   line
@@ -58,9 +57,7 @@ exports[`progress demo > renders _semantic correctly 1`] = `
                   type="radio"
                 />
                 <div
-                  aria-checked="false"
                   class="ant-segmented-item-label"
-                  role="radio"
                   title="steps"
                 >
                   steps
@@ -75,9 +72,7 @@ exports[`progress demo > renders _semantic correctly 1`] = `
                   type="radio"
                 />
                 <div
-                  aria-checked="false"
                   class="ant-segmented-item-label"
-                  role="radio"
                   title="circle"
                 >
                   circle
@@ -92,9 +87,7 @@ exports[`progress demo > renders _semantic correctly 1`] = `
                   type="radio"
                 />
                 <div
-                  aria-checked="false"
                   class="ant-segmented-item-label"
-                  role="radio"
                   title="dashboard"
                 >
                   dashboard
@@ -1552,6 +1545,7 @@ exports[`progress demo > renders dashboard correctly 1`] = `
      gapDegree: 
     <div
       aria-label="segmented control"
+      aria-orientation="horizontal"
       class="ant-segmented css-var-root css-var-root"
       role="radiogroup"
       size="middle"
@@ -1571,9 +1565,7 @@ exports[`progress demo > renders dashboard correctly 1`] = `
             type="radio"
           />
           <div
-            aria-checked="true"
             class="ant-segmented-item-label"
-            role="radio"
           >
             <span
               class="ant-segmented-item-icon"
@@ -1594,9 +1586,7 @@ exports[`progress demo > renders dashboard correctly 1`] = `
             type="radio"
           />
           <div
-            aria-checked="false"
             class="ant-segmented-item-label"
-            role="radio"
           >
             <span
               class="ant-segmented-item-icon"
@@ -1615,6 +1605,7 @@ exports[`progress demo > renders dashboard correctly 1`] = `
      gapPlacement: 
     <div
       aria-label="segmented control"
+      aria-orientation="horizontal"
       class="ant-segmented css-var-root css-var-root"
       role="radiogroup"
       size="middle"
@@ -1633,9 +1624,7 @@ exports[`progress demo > renders dashboard correctly 1`] = `
             type="radio"
           />
           <div
-            aria-checked="false"
             class="ant-segmented-item-label"
-            role="radio"
           >
             <span
               class="ant-segmented-item-icon"
@@ -1656,9 +1645,7 @@ exports[`progress demo > renders dashboard correctly 1`] = `
             type="radio"
           />
           <div
-            aria-checked="false"
             class="ant-segmented-item-label"
-            role="radio"
           >
             <span
               class="ant-segmented-item-icon"
@@ -1679,9 +1666,7 @@ exports[`progress demo > renders dashboard correctly 1`] = `
             type="radio"
           />
           <div
-            aria-checked="false"
             class="ant-segmented-item-label"
-            role="radio"
           >
             <span
               class="ant-segmented-item-icon"
@@ -1703,9 +1688,7 @@ exports[`progress demo > renders dashboard correctly 1`] = `
             type="radio"
           />
           <div
-            aria-checked="true"
             class="ant-segmented-item-label"
-            role="radio"
           >
             <span
               class="ant-segmented-item-icon"

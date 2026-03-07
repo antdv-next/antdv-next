@@ -21,6 +21,7 @@ exports[`tree-select demo > renders _semantic correctly 1`] = `
         >
           <div
             aria-label="segmented control"
+            aria-orientation="horizontal"
             class="ant-segmented css-var-v-0 css-var-v-0"
             role="radiogroup"
             size="middle"
@@ -40,9 +41,7 @@ exports[`tree-select demo > renders _semantic correctly 1`] = `
                   type="radio"
                 />
                 <div
-                  aria-checked="true"
                   class="ant-segmented-item-label"
-                  role="radio"
                   title="single"
                 >
                   single
@@ -57,9 +56,7 @@ exports[`tree-select demo > renders _semantic correctly 1`] = `
                   type="radio"
                 />
                 <div
-                  aria-checked="false"
                   class="ant-segmented-item-label"
-                  role="radio"
                   title="multiple"
                 >
                   multiple

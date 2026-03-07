@@ -700,6 +700,7 @@ exports[`qr-code demo > renders download correctly 1`] = `
   >
     <div
       aria-label="segmented control"
+      aria-orientation="horizontal"
       class="ant-segmented css-var-root css-var-root"
       role="radiogroup"
       size="middle"
@@ -719,9 +720,7 @@ exports[`qr-code demo > renders download correctly 1`] = `
             type="radio"
           />
           <div
-            aria-checked="true"
             class="ant-segmented-item-label"
-            role="radio"
             title="canvas"
           >
             canvas
@@ -736,9 +735,7 @@ exports[`qr-code demo > renders download correctly 1`] = `
             type="radio"
           />
           <div
-            aria-checked="false"
             class="ant-segmented-item-label"
-            role="radio"
             title="svg"
           >
             svg
@@ -809,6 +806,7 @@ exports[`qr-code demo > renders errorLevel correctly 1`] = `
   </div>
   <div
     aria-label="segmented control"
+    aria-orientation="horizontal"
     class="ant-segmented css-var-root css-var-root"
     role="radiogroup"
     size="middle"
@@ -827,9 +825,7 @@ exports[`qr-code demo > renders errorLevel correctly 1`] = `
           type="radio"
         />
         <div
-          aria-checked="false"
           class="ant-segmented-item-label"
-          role="radio"
           title="L"
         >
           L
@@ -845,9 +841,7 @@ exports[`qr-code demo > renders errorLevel correctly 1`] = `
           type="radio"
         />
         <div
-          aria-checked="true"
           class="ant-segmented-item-label"
-          role="radio"
           title="M"
         >
           M
@@ -862,9 +856,7 @@ exports[`qr-code demo > renders errorLevel correctly 1`] = `
           type="radio"
         />
         <div
-          aria-checked="false"
           class="ant-segmented-item-label"
-          role="radio"
           title="Q"
         >
           Q
@@ -879,9 +871,7 @@ exports[`qr-code demo > renders errorLevel correctly 1`] = `
           type="radio"
         />
         <div
-          aria-checked="false"
           class="ant-segmented-item-label"
-          role="radio"
           title="H"
         >
           H

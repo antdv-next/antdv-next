@@ -9,6 +9,7 @@ exports[`flex demo > renders align correctly 1`] = `
   </p>
   <div
     aria-label="segmented control"
+    aria-orientation="horizontal"
     class="ant-segmented css-var-root css-var-root"
     role="radiogroup"
     size="middle"
@@ -28,9 +29,7 @@ exports[`flex demo > renders align correctly 1`] = `
           type="radio"
         />
         <div
-          aria-checked="true"
           class="ant-segmented-item-label"
-          role="radio"
           title="flex-start"
         >
           flex-start
@@ -45,9 +44,7 @@ exports[`flex demo > renders align correctly 1`] = `
           type="radio"
         />
         <div
-          aria-checked="false"
           class="ant-segmented-item-label"
-          role="radio"
           title="center"
         >
           center
@@ -62,9 +59,7 @@ exports[`flex demo > renders align correctly 1`] = `
           type="radio"
         />
         <div
-          aria-checked="false"
           class="ant-segmented-item-label"
-          role="radio"
           title="flex-end"
         >
           flex-end
@@ -79,9 +74,7 @@ exports[`flex demo > renders align correctly 1`] = `
           type="radio"
         />
         <div
-          aria-checked="false"
           class="ant-segmented-item-label"
-          role="radio"
           title="space-between"
         >
           space-between
@@ -96,9 +89,7 @@ exports[`flex demo > renders align correctly 1`] = `
           type="radio"
         />
         <div
-          aria-checked="false"
           class="ant-segmented-item-label"
-          role="radio"
           title="space-around"
         >
           space-around
@@ -113,9 +104,7 @@ exports[`flex demo > renders align correctly 1`] = `
           type="radio"
         />
         <div
-          aria-checked="false"
           class="ant-segmented-item-label"
-          role="radio"
           title="space-evenly"
         >
           space-evenly
@@ -128,6 +117,7 @@ exports[`flex demo > renders align correctly 1`] = `
   </p>
   <div
     aria-label="segmented control"
+    aria-orientation="horizontal"
     class="ant-segmented css-var-root css-var-root"
     role="radiogroup"
     size="middle"
@@ -147,9 +137,7 @@ exports[`flex demo > renders align correctly 1`] = `
           type="radio"
         />
         <div
-          aria-checked="true"
           class="ant-segmented-item-label"
-          role="radio"
           title="flex-start"
         >
           flex-start
@@ -164,9 +152,7 @@ exports[`flex demo > renders align correctly 1`] = `
           type="radio"
         />
         <div
-          aria-checked="false"
           class="ant-segmented-item-label"
-          role="radio"
           title="center"
         >
           center
@@ -181,9 +167,7 @@ exports[`flex demo > renders align correctly 1`] = `
           type="radio"
         />
         <div
-          aria-checked="false"
           class="ant-segmented-item-label"
-          role="radio"
           title="flex-end"
         >
           flex-end

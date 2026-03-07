@@ -2700,6 +2700,7 @@ exports[`tabs demo > renders custom-indicator correctly 1`] = `
 <div>
   <div
     aria-label="segmented control"
+    aria-orientation="horizontal"
     class="ant-segmented css-var-root css-var-root"
     role="radiogroup"
     size="middle"
@@ -2719,9 +2720,7 @@ exports[`tabs demo > renders custom-indicator correctly 1`] = `
           type="radio"
         />
         <div
-          aria-checked="false"
           class="ant-segmented-item-label"
-          role="radio"
           title="start"
         >
           start
@@ -2737,9 +2736,7 @@ exports[`tabs demo > renders custom-indicator correctly 1`] = `
           type="radio"
         />
         <div
-          aria-checked="true"
           class="ant-segmented-item-label"
-          role="radio"
           title="center"
         >
           center
@@ -2754,9 +2751,7 @@ exports[`tabs demo > renders custom-indicator correctly 1`] = `
           type="radio"
         />
         <div
-          aria-checked="false"
           class="ant-segmented-item-label"
-          role="radio"
           title="end"
         >
           end
