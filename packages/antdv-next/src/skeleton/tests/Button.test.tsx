@@ -55,8 +55,8 @@ describe('skeleton.button', () => {
       expect(wrapper.find('.ant-skeleton-button-sm').exists()).toBe(true)
     })
 
-    it('should not render size class when size=default', () => {
-      const wrapper = mount(SkeletonButton, { props: { size: 'default' } })
+    it('should not render size class when size=medium', () => {
+      const wrapper = mount(SkeletonButton, { props: { size: 'medium' } })
       expect(wrapper.find('.ant-skeleton-button-lg').exists()).toBe(false)
       expect(wrapper.find('.ant-skeleton-button-sm').exists()).toBe(false)
     })

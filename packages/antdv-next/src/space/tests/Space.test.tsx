@@ -76,6 +76,7 @@ describe('space', () => {
     it.each([
       ['small', '.ant-space-gap-row-small', '.ant-space-gap-col-small'],
       ['middle', '.ant-space-gap-row-middle', '.ant-space-gap-col-middle'],
+      ['medium', '.ant-space-gap-row-medium', '.ant-space-gap-col-medium'],
       ['large', '.ant-space-gap-row-large', '.ant-space-gap-col-large'],
     ] as const)('should apply %s preset size', (size, rowClass, colClass) => {
       const wrapper = mount(Space, {

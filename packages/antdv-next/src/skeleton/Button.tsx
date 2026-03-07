@@ -1,26 +1,30 @@
+import type { SizeType } from '../config-provider/SizeContext'
 import type { SkeletonElementProps } from './Element'
 import { classNames } from '@v-c/util'
-import { defineComponent } from 'vue'
+import { defineComponent, toRef } from 'vue'
 import { getAttrStyleAndClass } from '../_util/hooks'
 import { useBaseConfig } from '../config-provider/context'
+import { useSize } from '../config-provider/hooks/useSize.ts'
 import Element from './Element'
 import useStyle from './style'
 
 export interface SkeletonButtonProps extends Omit<SkeletonElementProps, 'size'> {
-  size?: 'large' | 'small' | 'default'
+  /**
+   * Note: `default` is deprecated and will be removed in v7, please use `medium` instead.
+   */
+  size?: SizeType | 'default'
   block?: boolean
 }
 
-const defaults = {
-  size: 'default',
-} as any
+const defaults = {} as any
 const SkeletonButton = defineComponent<SkeletonButtonProps>(
   (props = defaults, { attrs }) => {
     const { prefixCls } = useBaseConfig('skeleton', props)
     const [hashId, cssVarCls] = useStyle(prefixCls)
+    const mergedSize = useSize<SkeletonButtonProps['size']>(toRef(props, 'size'))
 
     return () => {
-      const { active, rootClass, block, size, shape, classes, styles } = props
+      const { active, rootClass, block, shape, classes, styles } = props
       const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
       const cls = classNames(
         prefixCls.value,
@@ -39,7 +43,7 @@ const SkeletonButton = defineComponent<SkeletonButtonProps>(
         <div {...restAttrs} class={cls} style={styles?.root}>
           <Element
             prefixCls={`${prefixCls.value}-button`}
-            size={size}
+            size={mergedSize.value}
             shape={shape}
             class={classes?.content}
             style={[styles?.content, style]}

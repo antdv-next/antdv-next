@@ -53,7 +53,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VcjGQLSrYdcAAA
 | --- | --- | --- | --- | --- |
 | active | 是否展示动画效果，仅在单独使用头像骨架时生效 | boolean | false | - |
 | shape | 指定头像的形状 | `circle` \| `square` | `circle` | - |
-| size | 设置头像占位图的大小 | number \| `large` \| `small` \| `default` | `default` | - |
+| size | 设置头像占位图的大小 | number \| `large` \| `medium` \| `small` | `medium` | - |
 
 ### SkeletonTitle
 
@@ -80,7 +80,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VcjGQLSrYdcAAA
 | --- | --- | --- | --- | --- |
 | active | 是否展示动画效果 | boolean | false | - |
 | shape | 指定头像的形状 | `circle` \| `square` | `circle` | - |
-| size | 设置头像占位图的大小 | number \| `large` \| `small` \| `default` | `default` | - |
+| size | 设置头像占位图的大小 | number \| `large` \| `medium` \| `small` | `medium` | - |
 | classes | 用于自定义组件内部各语义化结构的 class | SkeletonClassNamesType | - | - |
 | styles | 用于自定义组件内部各语义化结构的行内 style | SkeletonStylesType | - | - |
 
@@ -93,7 +93,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VcjGQLSrYdcAAA
 | active | 是否展示动画效果 | boolean | false | - |
 | block | 将按钮宽度调整为其父宽度的选项 | boolean | false | - |
 | shape | 指定按钮的形状 | `circle` \| `round` \| `square` \| `default` | - | - |
-| size | 设置按钮的大小 | `large` \| `small` \| `default` | - | - |
+| size | 设置按钮的大小 | `large` \| `medium` \| `small` | `medium` | - |
 | classes | 用于自定义组件内部各语义化结构的 class | SkeletonClassNamesType | - | - |
 | styles | 用于自定义组件内部各语义化结构的行内 style | SkeletonStylesType | - | - |
 
@@ -104,7 +104,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VcjGQLSrYdcAAA
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | active | 是否展示动画效果 | boolean | false | - |
-| size | 设置输入框的大小 | `large` \| `small` \| `default` | - | - |
+| size | 设置输入框的大小 | `large` \| `medium` \| `small` | `medium` | - |
 | classes | 用于自定义组件内部各语义化结构的 class | SkeletonClassNamesType | - | - |
 | styles | 用于自定义组件内部各语义化结构的行内 style | SkeletonStylesType | - | - |
 

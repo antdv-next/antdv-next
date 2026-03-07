@@ -1379,7 +1379,7 @@ exports[`skeleton demo > renders componentToken correctly 1`] = `
 
 exports[`skeleton demo > renders element correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"
@@ -1725,25 +1725,6 @@ exports[`skeleton demo > renders element correctly 1`] = `
                     class="ant-radio-group ant-radio-group-outline css-var-root ant-radio-css-var"
                   >
                     <label
-                      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item css-var-root ant-radio-css-var"
-                    >
-                      <span
-                        class="ant-radio-button ant-radio-button-checked"
-                        name="v-0"
-                      >
-                        <input
-                          checked=""
-                          class="ant-radio-button-input"
-                          type="radio"
-                        />
-                      </span>
-                      <span
-                        class="ant-radio-button-label"
-                      >
-                         Default 
-                      </span>
-                    </label>
-                    <label
                       class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item css-var-root ant-radio-css-var"
                     >
                       <span
@@ -1759,6 +1740,25 @@ exports[`skeleton demo > renders element correctly 1`] = `
                         class="ant-radio-button-label"
                       >
                          Large 
+                      </span>
+                    </label>
+                    <label
+                      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item css-var-root ant-radio-css-var"
+                    >
+                      <span
+                        class="ant-radio-button ant-radio-button-checked"
+                        name="v-0"
+                      >
+                        <input
+                          checked=""
+                          class="ant-radio-button-input"
+                          type="radio"
+                        />
+                      </span>
+                      <span
+                        class="ant-radio-button-label"
+                      >
+                         Medium 
                       </span>
                     </label>
                     <label

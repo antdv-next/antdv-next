@@ -1,8 +1,10 @@
 import type { CSSProperties } from 'vue'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
+import type { SizeType } from '../config-provider/SizeContext'
 import { classNames } from '@v-c/util'
 import { defineComponent } from 'vue'
 import { getAttrStyleAndClass } from '../_util/hooks/useMergeSemantic'
+import { devUseWarning, isDev } from '../_util/warning.ts'
 
 export interface ElementSemanticClassNames {
   root?: string
@@ -15,7 +17,10 @@ export interface ElementSemanticStyles {
 }
 
 export interface SkeletonElementProps extends ComponentBaseProps {
-  size?: 'large' | 'small' | 'default' | number
+  /**
+   * Note: `default` is deprecated and will be removed in v7, please use `medium` instead.
+   */
+  size?: SizeType | number | 'default'
   shape?: 'circle' | 'square' | 'round' | 'default'
   active?: boolean
   classes?: ElementSemanticClassNames
@@ -24,6 +29,11 @@ export interface SkeletonElementProps extends ComponentBaseProps {
 
 const Element = defineComponent<SkeletonElementProps>(
   (props, { attrs }) => {
+    if (isDev) {
+      const warning = devUseWarning('Skeleton')
+      warning.deprecated(props.size !== 'default', 'size="default"', 'size="medium"')
+    }
+
     return () => {
       const { prefixCls, size, shape, classes, styles } = props
       const { className, style } = getAttrStyleAndClass(attrs)

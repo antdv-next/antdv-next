@@ -129,14 +129,19 @@ describe('flex', () => {
   })
 
   describe('gap', () => {
-    it.each(['small', 'middle', 'large'] as const)(
+    it.each([
+      ['small', 'small'],
+      ['middle', 'middle'],
+      ['medium', 'medium'],
+      ['large', 'large'],
+    ] as const)(
       'should apply %s preset gap class',
-      (gap) => {
+      (gap, className) => {
         const wrapper = mount(Flex, {
           props: { gap },
           slots: { default: () => <div>test</div> },
         })
-        expect(wrapper.find(`.ant-flex-gap-${gap}`).exists()).toBe(true)
+        expect(wrapper.find(`.ant-flex-gap-${className}`).exists()).toBe(true)
         const style = wrapper.find('.ant-flex').attributes('style') || ''
         expect(style).not.toContain('gap:')
       },

@@ -1,8 +1,9 @@
 import type { SkeletonElementProps } from './Element'
 import { classNames } from '@v-c/util'
-import { defineComponent } from 'vue'
+import { defineComponent, toRef } from 'vue'
 import { getAttrStyleAndClass } from '../_util/hooks'
 import { useBaseConfig } from '../config-provider/context'
+import { useSize } from '../config-provider/hooks/useSize.ts'
 import Element from './Element'
 import useStyle from './style'
 
@@ -12,16 +13,16 @@ export interface SkeletonAvatarProps extends Omit<SkeletonElementProps, 'shape'>
 
 const defaults = {
   shape: 'circle',
-  size: 'default',
 } as any
 
 const SkeletonAvatar = defineComponent<SkeletonAvatarProps>(
   (props = defaults, { attrs }) => {
     const { prefixCls } = useBaseConfig('skeleton', props)
     const [hashId, cssVarCls] = useStyle(prefixCls)
+    const mergedSize = useSize<SkeletonAvatarProps['size']>(toRef(props, 'size'))
 
     return () => {
-      const { active, rootClass, shape, size, classes, styles } = props
+      const { active, rootClass, shape, classes, styles } = props
       const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
       const cls = classNames(
         prefixCls.value,
@@ -40,7 +41,7 @@ const SkeletonAvatar = defineComponent<SkeletonAvatarProps>(
           <Element
             prefixCls={`${prefixCls.value}-avatar`}
             shape={shape}
-            size={size}
+            size={mergedSize.value}
             class={classes?.content}
             style={[styles?.content, style]}
           />

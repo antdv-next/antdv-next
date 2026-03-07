@@ -10,19 +10,19 @@ Skeleton Button, Avatar, Input, Image and Node.
 import { DotChartOutlined } from '@antdv-next/icons'
 import { ref } from 'vue'
 
-type SizeType = 'default' | 'small' | 'large'
+type SizeType = 'large' | 'medium' | 'small'
 type ButtonShapeType = 'circle' | 'square' | 'round' | 'default'
 type AvatarShapeType = 'circle' | 'square'
 
 const active = ref(false)
 const block = ref(false)
-const size = ref<SizeType>('default')
+const size = ref<SizeType>('medium')
 const buttonShape = ref<ButtonShapeType>('default')
 const avatarShape = ref<AvatarShapeType>('circle')
 </script>
 
 <template>
-  <a-flex gap="middle" vertical>
+  <a-flex gap="medium" vertical>
     <a-space>
       <a-skeleton-button :active="active" :size="size" :shape="buttonShape" :block="block" />
       <a-skeleton-avatar :active="active" :size="size" :shape="avatarShape" />
@@ -48,11 +48,11 @@ const avatarShape = ref<AvatarShapeType>('circle')
         </a-form-item>
         <a-form-item label="Size">
           <a-radio-group v-model:value="size">
-            <a-radio-button value="default">
-              Default
-            </a-radio-button>
             <a-radio-button value="large">
               Large
+            </a-radio-button>
+            <a-radio-button value="medium">
+              Medium
             </a-radio-button>
             <a-radio-button value="small">
               Small

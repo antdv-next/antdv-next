@@ -373,9 +373,9 @@ describe('skeleton', () => {
       const large = mount(Skeleton.Button, { props: { size: 'large' } })
       expect(large.find('.ant-skeleton-button-lg').exists()).toBe(true)
 
-      const def = mount(Skeleton.Button, { props: { size: 'default' } })
-      expect(def.find('.ant-skeleton-button-sm').exists()).toBe(false)
-      expect(def.find('.ant-skeleton-button-lg').exists()).toBe(false)
+      const medium = mount(Skeleton.Button, { props: { size: 'medium' } })
+      expect(medium.find('.ant-skeleton-button-sm').exists()).toBe(false)
+      expect(medium.find('.ant-skeleton-button-lg').exists()).toBe(false)
     })
 
     it('should render shape classes', () => {
@@ -420,9 +420,9 @@ describe('skeleton', () => {
       const large = mount(Skeleton.Avatar, { props: { size: 'large' } })
       expect(large.find('.ant-skeleton-avatar-lg').exists()).toBe(true)
 
-      const def = mount(Skeleton.Avatar, { props: { size: 'default' } })
-      expect(def.find('.ant-skeleton-avatar-sm').exists()).toBe(false)
-      expect(def.find('.ant-skeleton-avatar-lg').exists()).toBe(false)
+      const medium = mount(Skeleton.Avatar, { props: { size: 'medium' } })
+      expect(medium.find('.ant-skeleton-avatar-sm').exists()).toBe(false)
+      expect(medium.find('.ant-skeleton-avatar-lg').exists()).toBe(false)
     })
 
     it('should render numeric size as inline style', () => {
@@ -469,6 +469,10 @@ describe('skeleton', () => {
 
       const large = mount(Skeleton.Input, { props: { size: 'large' } })
       expect(large.find('.ant-skeleton-input-lg').exists()).toBe(true)
+
+      const medium = mount(Skeleton.Input, { props: { size: 'medium' } })
+      expect(medium.find('.ant-skeleton-input-sm').exists()).toBe(false)
+      expect(medium.find('.ant-skeleton-input-lg').exists()).toBe(false)
     })
 
     it('should pass rootClass', () => {
@@ -478,6 +482,51 @@ describe('skeleton', () => {
   })
 
   // ==================== Skeleton.Image ====================
+
+  describe('componentSize from ConfigProvider', () => {
+    it('should apply componentSize to skeleton elements', async () => {
+      const componentSize = ref<'small' | 'large'>('small')
+      const wrapper = mount(() => (
+        <ConfigProvider componentSize={componentSize.value}>
+          <div>
+            <Skeleton.Avatar />
+            <Skeleton.Button />
+            <Skeleton.Input />
+          </div>
+        </ConfigProvider>
+      ))
+
+      expect(wrapper.find('.ant-skeleton-avatar-sm').exists()).toBe(true)
+      expect(wrapper.find('.ant-skeleton-button-sm').exists()).toBe(true)
+      expect(wrapper.find('.ant-skeleton-input-sm').exists()).toBe(true)
+
+      componentSize.value = 'large'
+      await nextTick()
+
+      expect(wrapper.find('.ant-skeleton-avatar-lg').exists()).toBe(true)
+      expect(wrapper.find('.ant-skeleton-button-lg').exists()).toBe(true)
+      expect(wrapper.find('.ant-skeleton-input-lg').exists()).toBe(true)
+    })
+
+    it('should let explicit size override componentSize', () => {
+      const wrapper = mount(() => (
+        <ConfigProvider componentSize="large">
+          <div>
+            <Skeleton.Avatar size="small" />
+            <Skeleton.Button size="small" />
+            <Skeleton.Input size="small" />
+          </div>
+        </ConfigProvider>
+      ))
+
+      expect(wrapper.find('.ant-skeleton-avatar-sm').exists()).toBe(true)
+      expect(wrapper.find('.ant-skeleton-button-sm').exists()).toBe(true)
+      expect(wrapper.find('.ant-skeleton-input-sm').exists()).toBe(true)
+      expect(wrapper.find('.ant-skeleton-avatar-lg').exists()).toBe(false)
+      expect(wrapper.find('.ant-skeleton-button-lg').exists()).toBe(false)
+      expect(wrapper.find('.ant-skeleton-input-lg').exists()).toBe(false)
+    })
+  })
 
   describe('skeleton.Image', () => {
     it('should render image skeleton with svg', () => {
