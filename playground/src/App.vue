@@ -47,11 +47,19 @@ const treeData: TreeDataNode[] = [
     key: '0-2',
   },
 ]
+
+function handleCheck() {
+  checkedKeys.value = ['0-0-1']
+  checkedKey2.value = ['0-0-1']
+}
 </script>
 
 <template>
   <div>
     <a-app class="w-full px-10">
+      <a-button @click="handleCheck">
+        测试
+      </a-button>
       <a-tree
         v-model:checked-keys="checkedKeys"
         checkable
