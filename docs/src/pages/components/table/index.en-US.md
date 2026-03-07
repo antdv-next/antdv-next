@@ -166,7 +166,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | filterResetToDefaultFilteredValue | click the reset button, whether to restore the default filter | boolean | false | - |
 | defaultSortOrder | Default order of sorted values | `ascend` \| `descend` | - | - |
 | ellipsis | The ellipsis cell content, not working with sorter and filters for now.<br />tableLayout would be `fixed` when `ellipsis` is `true` or `{ showTitle?: boolean }` | boolean \| {showTitle?: boolean } | false | - |
-| filterDropdown | Customized filter overlay | VueNode \| (props: [FilterDropdownProps](https://github.com/ant-design/ant-design/blob/ecc54dda839619e921c0ace530408871f0281c2a/components/table/interface.tsx#L79)) => VueNode | - | - |
+| filterDropdown | Customized filter overlay | VueNode \| (props: [FilterDropdownProps](https://github.com/antdv-next/antdv-next/blob/main/packages/antdv-next/src/table/interface.ts#L94)) => VueNode | - | - |
 | filtered | Whether the `dataSource` is filtered | boolean | false | - |
 | filteredValue | Controlled filtered value, filter icon will highlight | string\[] | - | - |
 | filterIcon | Customized filter icon | VueNode \| (filtered: boolean) => VueNode | - | - |
@@ -175,15 +175,15 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | filterMode | To specify the filter interface | 'menu' \| 'tree' | 'menu' | - |
 | filterSearch | Whether to be searchable for filter menu | boolean \| function(input, record):boolean | false | - |
 | filters | Filter menu config | object\[] | - | - |
-| filterDropdownProps | Customized dropdown props, `filterDropdownOpen` and `onFilterDropdownOpenChange` were available before `<5.22.0` | [DropdownProps](/components/dropdown#api) | - | - |
+| filterDropdownProps | Customized dropdown props | [DropdownProps](/components/dropdown#api) | - | - |
 | fixed | (IE not support) Set column to be fixed: `true`(same as `'start'`) `'start'` `'end'` | boolean \| string | false | - |
 | render | Renderer of the table cell. `value` is the value of current cell; `record` is the value object of current row; `index` is the row number. The return value should be a VueNode | (value: V, record: T, index: number): VueNode | - | - |
-| responsive | The list of breakpoints at which to display this column. Always visible if not set | [Breakpoint](https://github.com/ant-design/ant-design/blob/015109b42b85c63146371b4e32b883cf97b088e8/components/_util/responsiveObserve.ts#L1)\[] | - | - |
+| responsive | The list of breakpoints at which to display this column. Always visible if not set | [Breakpoint](https://github.com/antdv-next/antdv-next/blob/main/packages/antdv-next/src/_util/responsiveObserver.ts#L9)\[] | - | - |
 | rowScope | Set scope attribute for all cells in this column | `row` \| `rowgroup` | - | - |
 | shouldCellUpdate | Control cell render logic | (record, prevRecord) => boolean | - | - |
-| showSorterTooltip | If header show next sorter direction tooltip, override `showSorterTooltip` in table | boolean \| [Tooltip props](/components/tooltip/) & `{target?: 'full-header' \| 'sorter-icon' }` | { target: 'full-header' } | - |
+| showSorterTooltip | If header show next sorter direction tooltip, override `showSorterTooltip` in table | boolean \| [Tooltip props](/components/tooltip/) & `{target?: 'full-header' \| 'sorter-icon' }` | \{ target: 'full-header' \} | - |
 | sortDirections | Supported sort way, override `sortDirections` in `Table`, could be `ascend`, `descend` | Array | \[`ascend`, `descend`] | - |
-| sorter | Sort function for local sort, see [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)'s compareFunction. If it is server-side sorting, set to `true`, but if you want to support multi-column sorting, you can set it to `{ multiple: number }` | function \| boolean \| { compare: function, multiple: number } | - | - |
+| sorter | Sort function for local sort, see [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)'s compareFunction. If it is server-side sorting, set to `true`, but if you want to support multi-column sorting, you can set it to `{ multiple: number }` | function \| boolean \| \{ compare: function, multiple: number \} | - | - |
 | sortOrder | Order of sorted values: `ascend` `descend` `null` | `ascend` \| `descend` \| null | - | - |
 | sortIcon | Customized sort icon | (props: { sortOrder }) => VueNode | - | - |
 | title | Title of this column | VueNode \| ({ sortColumns, filters }) => VueNode | - | - |
@@ -207,7 +207,6 @@ Properties for pagination.
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | placement | Specify the placement of `Pagination`, could be`topStart` \| `topCenter` \| `topEnd` \|`bottomStart` \| `bottomCenter` \| `bottomEnd` \| `none` | Array | \[`bottomEnd`] |
-| ~~position~~ | Specify the position of `Pagination`, could be`topLeft` \| `topCenter` \| `topRight` \|`bottomLeft` \| `bottomCenter` \| `bottomRight` \| `none`, please use `placement` instead | Array | \[`bottomRight`] |
 
 More about pagination, please check [`Pagination`](/components/pagination/).
 
@@ -225,7 +224,7 @@ Properties for expandable.
 | expandedRowClassName | Expanded row's className | string \| (record, index, indent) => string | - | - |
 | expandedRowKeys | Current expanded row keys | string\[] | - | - |
 | expandedRowRender | Expanded container render for each row | function(record, index, indent, expanded): VueNode | - | - |
-| expandIcon | Customize row expand Icon. Ref [example](https://codesandbox.io/s/fervent-bird-nuzpr) | function(props): VueNode | - | - |
+| expandIcon | Customize row expand Icon. Ref [example](https://stackblitz.com/edit/vitejs-vite-jezqinto?file=src%2FApp.vue) | function(props): VueNode | - | - |
 | expandRowByClick | Whether to expand row by clicking anywhere in the whole row | boolean | false | - |
 | fixed | Whether the expansion icon is fixed. Optional true `left` `right` | boolean \| string | false | - |
 | indentSize | Indent size in pixels of tree data | number | 15 | - |
@@ -233,7 +232,6 @@ Properties for expandable.
 | showExpandColumn | Show expand column | boolean | true | - |
 | onExpand | Callback executed when the row expand icon is clicked | function(expanded, record) | - | - |
 | onExpandedRowsChange | Callback executed when the expanded rows change | function(expandedRows) | - | - |
-| ~~expandedRowOffset~~ | Deprecated: Expand the number of offset columns of the row. After setting, it will force the columns in front of it to be fixed columns. Please use'Table. EXPAND_COLUMN 'instead and control the position through column order | number | - | - |
 
 ### rowSelection
 

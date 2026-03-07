@@ -167,7 +167,7 @@ const columns = [
 | filterResetToDefaultFilteredValue | 点击重置按钮的时候，是否恢复默认筛选值 | boolean | false | - |
 | defaultSortOrder | 默认排序顺序 | `ascend` \| `descend` | - | - |
 | ellipsis | 超过宽度将自动省略，暂不支持和排序筛选一起使用。<br />设置为 `true` 或 `{ showTitle?: boolean }` 时，表格布局将变成 `tableLayout="fixed"`。 | boolean \| { showTitle?: boolean } | false | - |
-| filterDropdown | 可以自定义筛选菜单，此函数只负责渲染图层，需要自行编写各种交互 | VueNode \| (props: [FilterDropdownProps](https://github.com/ant-design/ant-design/blob/ecc54dda839619e921c0ace530408871f0281c2a/components/table/interface.tsx#L79)) => VueNode | - | - |
+| filterDropdown | 可以自定义筛选菜单，此函数只负责渲染图层，需要自行编写各种交互 | VueNode \| (props: [FilterDropdownProps](https://github.com/antdv-next/antdv-next/blob/main/packages/antdv-next/src/table/interface.ts#L94)) => VueNode | - | - |
 | filtered | 是否处于筛选状态 | boolean | false | - |
 | filteredValue | 筛选的受控属性，外界可用此控制列的筛选状态，值为已筛选的 value 数组 | string\[] | - | - |
 | filterIcon | 自定义 filter 图标。 | VueNode \| (filtered: boolean) => VueNode | false | - |
@@ -176,15 +176,15 @@ const columns = [
 | filterMode | 指定筛选菜单的用户界面 | 'menu' \| 'tree' | 'menu' | - |
 | filterSearch | 筛选菜单项是否可搜索 | boolean \| function(input, record):boolean | false | - |
 | filters | 表头的筛选菜单项 | object\[] | - | - |
-| filterDropdownProps | 自定义下拉属性，在 `<5.22.0` 之前可用 `filterDropdownOpen` 和 `onFilterDropdownOpenChange` | [DropdownProps](/components/dropdown#api) | - | - |
+| filterDropdownProps | 自定义下拉属性 | [DropdownProps](/components/dropdown#api) | - | - |
 | fixed | （IE 下无效）列是否固定，可选 `true` (等效于 `'start'`) `'start'` `'end'` | boolean \| string | false | - |
 | render | 生成复杂数据的渲染函数，参数分别为当前单元格的值，当前行数据，行索引 | (value: V, record: T, index: number): VueNode | - | - |
-| responsive | 响应式 breakpoint 配置列表。未设置则始终可见。 | [Breakpoint](https://github.com/ant-design/ant-design/blob/015109b42b85c63146371b4e32b883cf97b088e8/components/_util/responsiveObserve.ts#L1)\[] | - | - |
+| responsive | 响应式 breakpoint 配置列表。未设置则始终可见。 | [Breakpoint](https://github.com/antdv-next/antdv-next/blob/main/packages/antdv-next/src/_util/responsiveObserver.ts#L9)\[] | - | - |
 | rowScope | 设置列范围 | `row` \| `rowgroup` | - | - |
 | shouldCellUpdate | 自定义单元格渲染时机 | (record, prevRecord) => boolean | - | - |
-| showSorterTooltip | 表头显示下一次排序的 tooltip 提示, 覆盖 table 中 `showSorterTooltip` | boolean \| [Tooltip props](/components/tooltip-cn/#api) & `{target?: 'full-header' \| 'sorter-icon' }` | { target: 'full-header' } | - |
+| showSorterTooltip | 表头显示下一次排序的 tooltip 提示, 覆盖 table 中 `showSorterTooltip` | boolean \| [Tooltip props](/components/tooltip-cn/#api) & `{target?: 'full-header' \| 'sorter-icon' }` | \{ target: 'full-header' \} | - |
 | sortDirections | 支持的排序方式，覆盖 `Table` 中 `sortDirections`， 取值为 `ascend` `descend` | Array | \[`ascend`, `descend`] | - |
-| sorter | 排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)。需要服务端排序可设为 `true`（单列排序） 或 `{ multiple: number }`（多列排序） | function \| boolean \| { compare: function, multiple: number } | - | - |
+| sorter | 排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)。需要服务端排序可设为 `true`（单列排序） 或 `{ multiple: number }`（多列排序） | function \| boolean \| \{ compare: function, multiple: number \} | - | - |
 | sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `ascend` `descend` `null` | `ascend` \| `descend` \| null | - | - |
 | sortIcon | 自定义 sort 图标 | (props: { sortOrder }) => VueNode | - | - |
 | title | 列头显示文字（函数用法 `3.10.0` 后支持） | VueNode \| ({ sortColumns, filters }) => VueNode | - | - |
@@ -208,7 +208,6 @@ const columns = [
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | placement | 指定分页显示的位置， 取值为`topStart` \| `topCenter` \| `topEnd` \|`bottomStart` \| `bottomCenter` \| `bottomEnd`\| `none` | Array | \[`bottomEnd`] |
-| ~~position~~ | 指定分页显示的位置， 取值为`topLeft` \| `topCenter` \| `topRight` \|`bottomLeft` \| `bottomCenter` \| `bottomRight` \| `none`，请使用 `placement` 替换 | Array | \[`bottomRight`] |
 
 更多配置项，请查看 [`Pagination`](/components/pagination-cn)。
 
@@ -226,7 +225,7 @@ const columns = [
 | expandedRowClassName | 展开行的 className | string \| (record, index, indent) => string | - | - |
 | expandedRowKeys | 展开的行，控制属性 | string\[] | - | - |
 | expandedRowRender | 额外的展开行 | function(record, index, indent, expanded): VueNode | - | - |
-| expandIcon | 自定义展开图标，参考[示例](https://codesandbox.io/s/fervent-bird-nuzpr) | function(props): VueNode | - | - |
+| expandIcon | 自定义展开图标，参考[示例](https://stackblitz.com/edit/vitejs-vite-jezqinto?file=src%2FApp.vue) | function(props): VueNode | - | - |
 | expandRowByClick | 通过点击行来展开子行 | boolean | false | - |
 | fixed | 控制展开图标是否固定，可选 `true` `'left'` `'right'` | boolean \| string | false | - |
 | indentSize | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number | 15 | - |
@@ -234,7 +233,6 @@ const columns = [
 | showExpandColumn | 是否显示展开图标列 | boolean | true | - |
 | onExpand | 点击展开图标时触发 | function(expanded, record) | - | - |
 | onExpandedRowsChange | 展开的行变化时触发 | function(expandedRows) | - | - |
-| ~~expandedRowOffset~~ | 废弃：展开行的偏移列数，设置后会强制将其前面的列设为固定列。请改用 `Table.EXPAND_COLUMN` 并通过列顺序控制位置 | number | - | - |
 
 ### rowSelection
 
