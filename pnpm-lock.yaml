@@ -372,8 +372,8 @@ catalogs:
       specifier: ^1.0.1
       version: 1.0.1
     '@v-c/segmented':
-      specifier: ^1.0.0
-      version: 1.0.0
+      specifier: ^1.0.1
+      version: 1.0.1
     '@v-c/select':
       specifier: ^1.0.17
       version: 1.0.17
@@ -828,7 +828,7 @@ importers:
         version: 1.0.8(vue@3.5.29(typescript@5.9.3))
       '@v-c/segmented':
         specifier: catalog:vc
-        version: 1.0.0(vue@3.5.29(typescript@5.9.3))
+        version: 1.0.1(vue@3.5.29(typescript@5.9.3))
       '@v-c/select':
         specifier: catalog:vc
         version: 1.0.17(vue@3.5.29(typescript@5.9.3))
@@ -2804,8 +2804,8 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
-  '@v-c/select@1.0.16':
-    resolution: {integrity: sha512-JznjrkIg20dyvRFdKIEvTqDCaiCIrKMItBJkgJCWtmEBU/dBAGiByx2S43gmCR5plcHAOIj/n5d0yRSvqkZ47A==}
+  '@v-c/segmented@1.0.1':
+    resolution: {integrity: sha512-qEaHzJxl3gfuZNn754iUcC+YrvPih0luD/wr51VInwOKQgEqaIm5R0fzs3uO57aA4zCuXrDn5LK0z6rFOF+IbQ==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -8008,12 +8008,9 @@ snapshots:
       '@v-c/util': 1.0.17(vue@3.5.29(typescript@5.9.3))
       vue: 3.5.29(typescript@5.9.3)
 
-  '@v-c/select@1.0.16(vue@3.5.29(typescript@5.9.3))':
+  '@v-c/segmented@1.0.1(vue@3.5.29(typescript@5.9.3))':
     dependencies:
-      '@v-c/overflow': 1.0.3(vue@3.5.29(typescript@5.9.3))
-      '@v-c/trigger': 1.0.11(vue@3.5.29(typescript@5.9.3))
       '@v-c/util': 1.0.17(vue@3.5.29(typescript@5.9.3))
-      '@v-c/virtual-list': 1.0.6(vue@3.5.29(typescript@5.9.3))
       vue: 3.5.29(typescript@5.9.3)
 
   '@v-c/select@1.0.17(vue@3.5.29(typescript@5.9.3))':
@@ -8477,7 +8474,7 @@ snapshots:
       '@v-c/rate': 1.0.1(vue@3.5.29(typescript@5.9.3))
       '@v-c/resize-observer': 1.0.8(vue@3.5.29(typescript@5.9.3))
       '@v-c/segmented': 1.0.0(vue@3.5.29(typescript@5.9.3))
-      '@v-c/select': 1.0.16(vue@3.5.29(typescript@5.9.3))
+      '@v-c/select': 1.0.17(vue@3.5.29(typescript@5.9.3))
       '@v-c/slick': 1.0.2(vue@3.5.29(typescript@5.9.3))
       '@v-c/slider': 1.0.10(vue@3.5.29(typescript@5.9.3))
       '@v-c/steps': 1.0.0(vue@3.5.29(typescript@5.9.3))
