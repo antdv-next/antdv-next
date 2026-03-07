@@ -249,7 +249,7 @@ export interface TreeEmits {
   'activeChange': NonNullable<VcTreeProps['onActiveChange']>
   'keydown': NonNullable<VcTreeProps['onKeyDown']>
   'update:expandedKeys': (keys: Key[]) => void
-  'update:checkedKeys': (keys: Key[] | { checked: Key[], halfChecked: Key[] }) => void
+  'update:checkedKeys': (keys: Key[]) => void
   'update:selectedKeys': (keys: Key[]) => void
   'update:activeKey': (key: Key) => void
 }
@@ -405,7 +405,12 @@ const Tree = defineComponent<
       const onAttrs: Partial<VcTreeProps> = {
         onCheck(checked, info) {
           emit('check', checked, info)
-          emit('update:checkedKeys', checked)
+          if (Array.isArray(checked)) {
+            emit('update:checkedKeys', checked)
+          }
+          else {
+            emit('update:checkedKeys', checked?.checked ?? [])
+          }
         },
         onClick(...args) {
           emit('click', ...args)

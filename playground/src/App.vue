@@ -1,51 +1,74 @@
 <script setup lang="ts">
-import type { RadioOptionType } from 'antdv-next'
-import { BarChartOutlined, DotChartOutlined, LineChartOutlined, PieChartOutlined } from '@antdv-next/icons'
+import type { TreeDataNode } from 'antdv-next'
 import { ref } from 'vue'
 
-const iconsMap: any = {
-  1: LineChartOutlined,
-  2: DotChartOutlined,
-  3: BarChartOutlined,
-  4: PieChartOutlined,
-}
-const options: RadioOptionType[] = [
+const checkedKeys = ref<string[]>([])
+const checkedKey2 = ref<string[]>([])
+const treeData: TreeDataNode[] = [
   {
-    value: 1,
-    class: 'option-1',
-    label: 'LineChat',
+    title: '0-0',
+    key: '0-0',
+    children: [
+      {
+        title: '0-0-0',
+        key: '0-0-0',
+        children: [
+          { title: '0-0-0-0', key: '0-0-0-0' },
+          { title: '0-0-0-1', key: '0-0-0-1' },
+          { title: '0-0-0-2', key: '0-0-0-2' },
+        ],
+      },
+      {
+        title: '0-0-1',
+        key: '0-0-1',
+        children: [
+          { title: '0-0-1-0', key: '0-0-1-0' },
+          { title: '0-0-1-1', key: '0-0-1-1' },
+          { title: '0-0-1-2', key: '0-0-1-2' },
+        ],
+      },
+      {
+        title: '0-0-2',
+        key: '0-0-2',
+      },
+    ],
   },
   {
-    value: 2,
-    class: 'option-2',
-    label: 'DotChart',
+    title: '0-1',
+    key: '0-1',
+    children: [
+      { title: '0-1-0-0', key: '0-1-0-0' },
+      { title: '0-1-0-1', key: '0-1-0-1' },
+      { title: '0-1-0-2', key: '0-1-0-2' },
+    ],
   },
   {
-    value: 3,
-    class: 'option-3',
-    label: 'BarChart',
-  },
-  {
-    value: 4,
-    class: 'option-4',
-    label: 'PieChart',
+    title: '0-2',
+    key: '0-2',
   },
 ]
-const model = ref({
-  test: 3,
-})
 </script>
 
 <template>
   <div>
-    {{ model }}
-    <a-radio-group :value="model.test" :options="options">
-      <template #labelRender="{ item }">
-        <a-flex gap="small" justify="center" align="center" vertical>
-          <component :is="iconsMap[item.value]" style="font-size: 18px" />
-          {{ item.label }}
-        </a-flex>
-      </template>
-    </a-radio-group>
+    <a-app class="w-full px-10">
+      <a-tree
+        v-model:checked-keys="checkedKeys"
+        checkable
+        :tree-data="treeData"
+      />
+      <span>
+        {{ checkedKeys }}
+      </span>
+      <a-tree
+        v-model:checked-keys="checkedKey2"
+        checkable
+        :check-strictly="true"
+        :tree-data="treeData"
+      />
+      <span>
+        {{ checkedKey2 }}
+      </span>
+    </a-app>
   </div>
 </template>
