@@ -166,6 +166,11 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
             overflow: 'hidden',
           },
 
+          // >>> Value
+          '&-value': {
+            visibility: 'inherit',
+          },
+
           // >>> Input: should only take effect for not customize mode
 
           // input element with readOnly use cursor pointer
@@ -259,8 +264,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         [`&-single:not(${componentCls}-customize)`]: {
           [`${componentCls}-input`]: {
             position: 'absolute',
-            insetInline: 0,
-            insetBlock: `calc(${varRef('padding-vertical')} * -1)`,
+            inset: 0,
             lineHeight: `calc(${varRef('font-height')} + ${varRef('padding-vertical')} * 2)`,
           },
 
