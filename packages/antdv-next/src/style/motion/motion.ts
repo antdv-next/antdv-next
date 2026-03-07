@@ -20,6 +20,7 @@ export function initMotion(motionCls: string, inKeyframes: Keyframes, outKeyfram
     },
 
     [`${sameLevelPrefix}${motionCls}-leave`]: {
+      ...initMotionCommon(duration),
       animationPlayState: 'paused',
     },
 
