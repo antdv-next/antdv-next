@@ -1,5 +1,6 @@
 import type { RateProps as VcRateProps } from '@v-c/rate'
 import type { App } from 'vue'
+import type { SizeType } from '../config-provider/SizeContext.tsx'
 import type { TooltipProps } from '../tooltip'
 import { StarFilled } from '@antdv-next/icons'
 import VcRate from '@v-c/rate'
@@ -9,6 +10,7 @@ import { defineComponent, shallowRef } from 'vue'
 import { getAttrStyleAndClass } from '../_util/hooks'
 import { useComponentBaseConfig } from '../config-provider/context.ts'
 import { useDisabledContext } from '../config-provider/DisabledContext.tsx'
+import { useSize } from '../config-provider/hooks/useSize.ts'
 import Tooltip from '../tooltip'
 
 import useStyle from './style'
@@ -18,7 +20,6 @@ function isTooltipProps(item: TooltipProps | string): item is TooltipProps {
 }
 
 const defaults = {
-  size: 'middle',
   character: <StarFilled />,
 } as any
 export interface RateProps extends Omit<
@@ -28,7 +29,7 @@ export interface RateProps extends Omit<
   /* @vue-ignore */
   RateEmitsProps {
   rootClass?: string
-  size?: 'small' | 'middle' | 'large'
+  size?: SizeType
   tooltips?: (TooltipProps | string)[]
 }
 
@@ -82,6 +83,7 @@ const Rate = defineComponent<
     const [hashId, cssVarCls] = useStyle(ratePrefixCls)
 
     const disabled = useDisabledContext()
+    const mergedSize = useSize(ctx => props.size ?? ctx)
     expose({
       focus: () => {
         rateRef.value?.focus?.()
@@ -94,7 +96,6 @@ const Rate = defineComponent<
       const {
         character,
         disabled: customDisabled,
-        size,
         rootClass,
         ...restProps
       } = props
@@ -109,7 +110,10 @@ const Rate = defineComponent<
           {...restAttrs}
           {...omit(restProps, ['characterRender'])}
           class={clsx(
-            `${ratePrefixCls.value}-${size}`,
+            {
+              [`${ratePrefixCls.value}-large`]: mergedSize.value === 'large',
+              [`${ratePrefixCls.value}-small`]: mergedSize.value === 'small',
+            },
             className,
             rootClass,
             hashId.value,

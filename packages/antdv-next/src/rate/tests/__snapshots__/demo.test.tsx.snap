@@ -2,7 +2,7 @@
 
 exports[`rate demo > renders basic correctly 1`] = `
 <ul
-  class="ant-rate ant-rate-middle css-var-root"
+  class="ant-rate css-var-root"
   tabindex="0"
 >
   <li
@@ -303,7 +303,7 @@ exports[`rate demo > renders character correctly 1`] = `
   class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <ul
-    class="ant-rate ant-rate-middle css-var-root"
+    class="ant-rate css-var-root"
     tabindex="0"
   >
     <li
@@ -598,7 +598,7 @@ exports[`rate demo > renders character correctly 1`] = `
     </li>
   </ul>
   <ul
-    class="ant-rate ant-rate-middle css-var-root"
+    class="ant-rate css-var-root"
     style="font-size: 36px;"
     tabindex="0"
   >
@@ -714,7 +714,7 @@ exports[`rate demo > renders character correctly 1`] = `
     </li>
   </ul>
   <ul
-    class="ant-rate ant-rate-middle css-var-root"
+    class="ant-rate css-var-root"
     tabindex="0"
   >
     <li
@@ -836,7 +836,7 @@ exports[`rate demo > renders character-function correctly 1`] = `
   class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <ul
-    class="ant-rate ant-rate-middle css-var-root"
+    class="ant-rate css-var-root"
     tabindex="0"
   >
     <li
@@ -951,7 +951,7 @@ exports[`rate demo > renders character-function correctly 1`] = `
     </li>
   </ul>
   <ul
-    class="ant-rate ant-rate-middle css-var-root"
+    class="ant-rate css-var-root"
     tabindex="0"
   >
     <li
@@ -1256,7 +1256,7 @@ exports[`rate demo > renders clear correctly 1`] = `
     class="ant-flex css-var-root ant-flex-gap-middle"
   >
     <ul
-      class="ant-rate ant-rate-middle css-var-root"
+      class="ant-rate css-var-root"
       tabindex="0"
     >
       <li
@@ -1558,7 +1558,7 @@ exports[`rate demo > renders clear correctly 1`] = `
     class="ant-flex css-var-root ant-flex-gap-middle"
   >
     <ul
-      class="ant-rate ant-rate-middle css-var-root"
+      class="ant-rate css-var-root"
       tabindex="0"
     >
       <li
@@ -1864,7 +1864,7 @@ exports[`rate demo > renders component-token correctly 1`] = `
   data-v-app=""
 >
   <ul
-    class="ant-rate ant-rate-middle css-var-v-0"
+    class="ant-rate css-var-v-0"
     tabindex="0"
   >
     <li
@@ -2163,7 +2163,7 @@ exports[`rate demo > renders component-token correctly 1`] = `
 
 exports[`rate demo > renders disabled correctly 1`] = `
 <ul
-  class="ant-rate ant-rate-middle css-var-root ant-rate-disabled"
+  class="ant-rate css-var-root ant-rate-disabled"
   tabindex="-1"
 >
   <li
@@ -2461,7 +2461,7 @@ exports[`rate demo > renders disabled correctly 1`] = `
 
 exports[`rate demo > renders half correctly 1`] = `
 <ul
-  class="ant-rate ant-rate-middle css-var-root"
+  class="ant-rate css-var-root"
   tabindex="0"
 >
   <li
@@ -2764,6 +2764,7 @@ exports[`rate demo > renders size correctly 1`] = `
 >
   <ul
     class="ant-rate ant-rate-large css-var-root"
+    size="large"
     tabindex="0"
   >
     <li
@@ -3058,7 +3059,7 @@ exports[`rate demo > renders size correctly 1`] = `
     </li>
   </ul>
   <ul
-    class="ant-rate ant-rate-middle css-var-root"
+    class="ant-rate css-var-root"
     tabindex="0"
   >
     <li
@@ -3354,6 +3355,7 @@ exports[`rate demo > renders size correctly 1`] = `
   </ul>
   <ul
     class="ant-rate ant-rate-small css-var-root"
+    size="small"
     tabindex="0"
   >
     <li
@@ -3655,7 +3657,7 @@ exports[`rate demo > renders text correctly 1`] = `
   class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <ul
-    class="ant-rate ant-rate-middle css-var-root"
+    class="ant-rate css-var-root"
     tabindex="0"
   >
     <li

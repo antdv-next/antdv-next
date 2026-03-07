@@ -126,6 +126,15 @@ describe('divider', () => {
       expect(wrapper.find('.ant-divider-md').exists()).toBe(true)
     })
 
+    it('should apply medium size from ConfigProvider', () => {
+      const wrapper = mount(() => (
+        <ConfigProvider componentSize="medium">
+          <Divider />
+        </ConfigProvider>
+      ))
+      expect(wrapper.find('.ant-divider-md').exists()).toBe(true)
+    })
+
     it('should apply componentSize from ConfigProvider', () => {
       const wrapper = mount(() => (
         <ConfigProvider componentSize="small">

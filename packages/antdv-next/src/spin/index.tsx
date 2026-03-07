@@ -2,6 +2,7 @@ import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { EmptyEmit, VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context'
+import type { SizeType } from '../config-provider/SizeContext.tsx'
 import { classNames } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { debounce } from 'throttle-debounce'
@@ -10,12 +11,10 @@ import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '..
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { devUseWarning, isDev } from '../_util/warning.ts'
 import { useComponentBaseConfig, useComponentConfig } from '../config-provider/context'
+import { useSize } from '../config-provider/hooks/useSize.ts'
 import Indicator from './Indicator'
 import useStyle from './style/index'
 import usePercent from './usePercent.ts'
-
-const _SpinSizes = ['small', 'default', 'large'] as const
-export type SpinSize = (typeof _SpinSizes)[number]
 
 export type SpinSemanticName = keyof SpinSemanticClassNames & keyof SpinSemanticStyles
 
@@ -54,8 +53,10 @@ export type SpinStylesType = SemanticStylesType<SpinProps, SpinSemanticStyles>
 export interface SpinProps extends ComponentBaseProps {
   /** Whether Spin is spinning */
   spinning?: boolean
-  /** Size of Spin, options: `small`, `default` and `large` */
-  size?: SpinSize
+  /**
+   * Note: `default` is deprecated and will be removed in v7, please use `medium` instead.
+   */
+  size?: SizeType | 'default'
   /** Customize description content when Spin has children */
   /** @deprecated Please use `description` instead */
   tip?: VueNode
@@ -92,7 +93,6 @@ function shouldDelay(spinning?: boolean, delay?: number): boolean {
 const defaultSpinProps = {
   spinning: true,
   delay: 0,
-  size: 'default',
   fullscreen: false,
 } as any
 
@@ -141,12 +141,13 @@ const Spin = defineComponent<
     )
 
     const warning = devUseWarning('Spin')
+    const mergedSize = useSize(ctx => props.size ?? ctx)
 
     // =========== Merged Props for Semantic ===========
     const mergedProps = computed(() => {
       return {
         ...props,
-        size: props.size,
+        size: mergedSize.value,
         spinning: spinning.value,
         fullscreen: props.fullscreen,
         percent: mergedPercent.value,
@@ -172,6 +173,7 @@ const Spin = defineComponent<
 
       // ======================== Warning =========================
       if (isDev) {
+        warning.deprecated(size !== 'default', 'size="default"', 'size="medium"')
         warning.deprecated(!props.tip && !slots.tip, 'tip', 'description')
         warning.deprecated(!wrapperClassName, 'wrapperClassName', 'classes.root')
 
@@ -224,8 +226,8 @@ const Spin = defineComponent<
           class={classNames(
             prefixCls.value,
             {
-              [`${prefixCls.value}-sm`]: size === 'small',
-              [`${prefixCls.value}-lg`]: size === 'large',
+              [`${prefixCls.value}-sm`]: mergedSize.value === 'small',
+              [`${prefixCls.value}-lg`]: mergedSize.value === 'large',
               [`${prefixCls.value}-spinning`]: spinning.value,
               [`${prefixCls.value}-rtl`]: direction.value === 'rtl',
               [`${prefixCls.value}-fullscreen`]: fullscreen,

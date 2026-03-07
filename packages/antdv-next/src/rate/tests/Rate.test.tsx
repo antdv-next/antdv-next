@@ -16,13 +16,28 @@ describe('rate', () => {
   })
 
   describe('size', () => {
-    it.each(['small', 'middle', 'large'] as const)(
+    it.each(['small', 'large'] as const)(
       'should apply %s size class',
       (size) => {
         const wrapper = mount(Rate, { props: { size } })
         expect(wrapper.find(`.ant-rate-${size}`).exists()).toBe(true)
       },
     )
+
+    it('should not apply size class when size is middle', () => {
+      const wrapper = mount(Rate, { props: { size: 'middle' } })
+      expect(wrapper.find('.ant-rate-small').exists()).toBe(false)
+      expect(wrapper.find('.ant-rate-large').exists()).toBe(false)
+    })
+
+    it('should inherit size from ConfigProvider', () => {
+      const wrapper = mount(() => (
+        <ConfigProvider componentSize="small">
+          <Rate />
+        </ConfigProvider>
+      ))
+      expect(wrapper.find('.ant-rate-small').exists()).toBe(true)
+    })
   })
 
   describe('disabled', () => {

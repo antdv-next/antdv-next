@@ -561,6 +561,7 @@ const InternalTable = defineComponent<
 
       switch (mergedSize.value) {
         case 'middle':
+        case 'medium':
           return paddingSM * 2 + fontHeight + lineWidth
         case 'small':
           return paddingXS * 2 + fontHeight + lineWidth
@@ -701,7 +702,7 @@ const InternalTable = defineComponent<
             (mergedPagination.value as any).class,
             (mergedPagination.value as any).className,
           )}
-          size={mergedPagination.value.size || (mergedSize.value === 'small' || mergedSize.value === 'middle' ? 'small' : undefined)}
+          size={mergedPagination.value.size || (mergedSize.value === 'small' || mergedSize.value === 'middle' || mergedSize.value === 'medium' ? 'small' : undefined)}
         />
       )
       const paginationNodes = (() => {
@@ -768,7 +769,7 @@ const InternalTable = defineComponent<
 
       const tableClassName = clsx(
         {
-          [`${prefixCls.value}-middle`]: mergedSize.value === 'middle',
+          [`${prefixCls.value}-medium`]: mergedSize.value === 'middle' || mergedSize.value === 'medium',
           [`${prefixCls.value}-small`]: mergedSize.value === 'small',
           [`${prefixCls.value}-bordered`]: props.bordered,
           [`${prefixCls.value}-empty`]: rawData.value.length === 0,

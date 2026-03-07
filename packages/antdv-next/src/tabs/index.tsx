@@ -347,7 +347,8 @@ const InternalTabs = defineComponent<
         contextClassName.value,
         mergedClassNames.value.root,
         {
-          [`${prefixCls.value}-${size.value}`]: size.value,
+          [`${prefixCls.value}-large`]: size.value === 'large',
+          [`${prefixCls.value}-small`]: size.value === 'small',
           [`${prefixCls.value}-card`]: ['card', 'editable-card'].includes(type.value ?? ''),
           [`${prefixCls.value}-editable-card`]: type.value === 'editable-card',
           [`${prefixCls.value}-centered`]: centered.value,

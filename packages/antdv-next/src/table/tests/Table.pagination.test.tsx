@@ -180,4 +180,15 @@ describe('table pagination', () => {
     })
     expect(wrapper.find('.ant-pagination-mini').exists()).toBe(true)
   })
+
+  it('should use small pagination size when table is medium', () => {
+    const wrapper = mount(Table, {
+      props: {
+        columns,
+        dataSource: generateData(20),
+        size: 'medium',
+      },
+    })
+    expect(wrapper.find('.ant-pagination-mini').exists()).toBe(true)
+  })
 })

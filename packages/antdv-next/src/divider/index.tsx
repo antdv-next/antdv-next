@@ -61,8 +61,6 @@ export interface DividerProps extends ComponentBaseProps {
   styles?: DividerStylesType
 }
 
-const sizeClassNameMap: Record<string, string> = { small: 'sm', middle: 'md' }
-
 const defaultProps = {
   orientation: 'center',
   variant: 'solid',
@@ -81,7 +79,6 @@ const Divider = defineComponent<DividerProps>(
     const { type, vertical, orientation, classes, styles, size } = toPropsRefs(props, 'orientation', 'vertical', 'type', 'classes', 'styles', 'size')
     const [hashId, cssVarCls] = useStyle(prefixCls)
     const sizeFullName = useSize(size)
-    const sizeCls = computed(() => sizeClassNameMap[sizeFullName.value!])
     const validTitlePlacement = computed(() => titlePlacementList.includes(orientation.value || ''))
     const mergedTitlePlacement = computed<'start' | 'end' | 'center'>(() => {
       const placement = props?.titlePlacement ?? (validTitlePlacement.value ? (orientation.value as TitlePlacement) : 'center')
@@ -152,7 +149,8 @@ const Divider = defineComponent<DividerProps>(
           [`${prefixCls.value}-rtl`]: direction.value === 'rtl',
           [`${prefixCls.value}-no-default-orientation-margin-start`]: hasMarginStart.value,
           [`${prefixCls.value}-no-default-orientation-margin-end`]: hasMarginEnd.value,
-          [`${prefixCls.value}-${sizeCls.value}`]: !!sizeCls.value,
+          [`${prefixCls.value}-md`]: sizeFullName.value === 'medium' || sizeFullName.value === 'middle',
+          [`${prefixCls.value}-sm`]: sizeFullName.value === 'small',
           [railCls]: !hasChildren,
           [mergedClassNames.value.rail as string]: mergedClassNames.value.rail && !hasChildren,
         },

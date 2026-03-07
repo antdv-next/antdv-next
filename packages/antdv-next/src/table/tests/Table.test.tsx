@@ -137,7 +137,8 @@ describe('table', () => {
 
   // ========================= Size =========================
   it.each([
-    ['middle', 'ant-table-middle'],
+    ['middle', 'ant-table-medium'],
+    ['medium', 'ant-table-medium'],
     ['small', 'ant-table-small'],
   ])('should support size="%s"', (size, expectedClass) => {
     const wrapper = mount(Table, {

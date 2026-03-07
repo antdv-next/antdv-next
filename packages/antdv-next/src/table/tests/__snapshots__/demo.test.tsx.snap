@@ -28,7 +28,7 @@ exports[`table demo > renders _semantic correctly 1`] = `
             class="ant-spin-container"
           >
             <div
-              class="ant-table ant-table-middle ant-table-bordered css-var-v-0 ant-table-css-var"
+              class="ant-table ant-table-medium ant-table-bordered css-var-v-0 ant-table-css-var"
             >
               <div
                 class="ant-table-title semantic-mark-title"
@@ -17007,7 +17007,7 @@ exports[`table demo > renders grouping-columns correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-middle ant-table-bordered css-var-root ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-fixed-header ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-start ant-table-has-fix-end"
+        class="ant-table ant-table-medium ant-table-bordered css-var-root ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-fixed-header ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-start ant-table-has-fix-end"
       >
         <!---->
         <div
@@ -21877,7 +21877,7 @@ exports[`table demo > renders nested-table correctly 1`] = `
         class="ant-spin-container"
       >
         <div
-          class="ant-table ant-table-middle css-var-root ant-table-css-var"
+          class="ant-table ant-table-medium css-var-root ant-table-css-var"
         >
           <!---->
           <div
@@ -27650,7 +27650,7 @@ exports[`table demo > renders size correctly 1`] = `
         class="ant-spin-container"
       >
         <div
-          class="ant-table ant-table-middle css-var-root ant-table-css-var"
+          class="ant-table ant-table-medium css-var-root ant-table-css-var"
         >
           <!---->
           <div
@@ -29967,7 +29967,7 @@ exports[`table demo > renders style-class correctly 1`] = `
         class="ant-spin-container"
       >
         <div
-          class="ant-table ant-table-middle css-var-root ant-table-css-var"
+          class="ant-table ant-table-medium css-var-root ant-table-css-var"
         >
           <div
             class="ant-table-title"

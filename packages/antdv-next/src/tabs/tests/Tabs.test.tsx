@@ -214,6 +214,17 @@ describe('tabs', () => {
       expect(root?.classList.contains('ant-tabs-small')).toBe(true)
       wrapper.unmount()
     })
+
+    it('does not apply size class when size is middle', () => {
+      const wrapper = mount(Tabs, {
+        props: { items: defaultItems, size: 'middle' },
+        attachTo: document.body,
+      })
+      const root = document.querySelector('.ant-tabs')
+      expect(root?.classList.contains('ant-tabs-small')).toBe(false)
+      expect(root?.classList.contains('ant-tabs-large')).toBe(false)
+      wrapper.unmount()
+    })
   })
 
   // ========================= Centered =========================

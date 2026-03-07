@@ -5,7 +5,7 @@ exports[`rate > rtl render > component should be rendered correctly in RTL direc
   data-v-app=""
 >
   <ul
-    class="ant-rate ant-rate-middle css-var-root ant-rate-rtl"
+    class="ant-rate css-var-root ant-rate-rtl"
     tabindex="0"
   >
     <li
@@ -304,7 +304,7 @@ exports[`rate > rtl render > component should be rendered correctly in RTL direc
 
 exports[`rate > should render correct snapshot 1`] = `
 <ul
-  class="ant-rate ant-rate-middle css-var-root"
+  class="ant-rate css-var-root"
   tabindex="0"
 >
   <li

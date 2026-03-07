@@ -96,7 +96,8 @@ const RadioGroup = defineComponent<
         groupPrefixCls.value,
         `${groupPrefixCls.value}-${buttonStyle}`,
         {
-          [`${groupPrefixCls.value}-${mergedSize.value}`]: mergedSize.value,
+          [`${groupPrefixCls.value}-large`]: mergedSize.value === 'large',
+          [`${groupPrefixCls.value}-small`]: mergedSize.value === 'small',
           [`${groupPrefixCls.value}-rtl`]: direction.value === 'rtl',
           [`${groupPrefixCls.value}-block`]: block,
         },

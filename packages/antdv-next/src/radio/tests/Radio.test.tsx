@@ -423,6 +423,14 @@ describe('radio group', () => {
     expect(wrapper.find('div').classes()).toContain(`${groupPrefixCls}-${size}`)
   })
 
+  it('should not apply size class when size is middle', () => {
+    const wrapper = mount(RadioGroup, {
+      props: { size: 'middle' },
+    })
+    expect(wrapper.find('div').classes()).not.toContain(`${groupPrefixCls}-small`)
+    expect(wrapper.find('div').classes()).not.toContain(`${groupPrefixCls}-large`)
+  })
+
   it('should inherit size from ConfigProvider', () => {
     const wrapper = mount(() => (
       <ConfigProvider componentSize="small">
