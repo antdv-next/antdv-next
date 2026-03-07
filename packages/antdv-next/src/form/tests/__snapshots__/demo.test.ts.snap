@@ -10463,7 +10463,7 @@ exports[`form demo > renders size correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-radio-group ant-radio-group-outline ant-radio-group-middle css-var-root ant-radio-css-var"
+              class="ant-radio-group ant-radio-group-outline css-var-root ant-radio-css-var"
               id="size"
             >
               <label
@@ -13476,7 +13476,7 @@ exports[`form demo > renders validate-other correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <ul
-              class="ant-rate ant-rate-middle css-var-root"
+              class="ant-rate css-var-root"
               id="validate_other_rate"
               tabindex="0"
             >

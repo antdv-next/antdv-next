@@ -2,6 +2,7 @@ import type { StepsProps as VcStepsProps } from '@v-c/steps'
 import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { VueNode } from '../_util/type'
+import type { SizeType } from '../config-provider/SizeContext.tsx'
 import { CheckOutlined } from '@antdv-next/icons'
 import VcSteps from '@v-c/steps'
 import { clsx } from '@v-c/util'
@@ -95,7 +96,7 @@ export interface BaseStepsProps {
   classes?: StepsClassNamesType
   styles?: StepsStylesType
   variant?: 'filled' | 'outlined'
-  size?: 'default' | 'small'
+  size?: Exclude<SizeType, 'large'> | 'default'
 
   // Layout
   type?: 'default' | 'navigation' | 'inline' | 'panel' | 'dot'
@@ -255,6 +256,7 @@ const Steps = defineComponent<
       const { labelPlacement, progressDot, direction } = props
       const warning = devUseWarning('Steps')
 
+      warning.deprecated(props.size !== 'default', 'size="default"', 'size="medium"')
       warning.deprecated(!labelPlacement, 'labelPlacement', 'titlePlacement')
       warning.deprecated(!progressDot, 'progressDot', 'type="dot"')
       warning.deprecated(!direction, 'direction', 'orientation')
@@ -402,7 +404,7 @@ const Steps = defineComponent<
           [`${prefixCls.value}-dot`]: isDot.value,
           [`${prefixCls.value}-ellipsis`]: ellipsis,
           [`${prefixCls.value}-with-progress`]: mergedPercent.value !== undefined,
-          [`${prefixCls.value}-${mergedSize.value}`]: mergedSize.value,
+          [`${prefixCls.value}-small`]: mergedSize.value === 'small',
         },
         className,
         rootClass,

@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from 'vitest'
 import { h } from 'vue'
 import Card, { CardGrid, CardMeta } from '..'
+import ConfigProvider from '../../config-provider'
 import rtlTest from '/@tests/shared/rtlTest'
 import { mount } from '/@tests/utils'
 
@@ -83,6 +84,19 @@ describe('card', () => {
       slots: { default: () => 'content' },
     })
     expect(wrapper.find('.ant-card-small').exists()).toBe(true)
+  })
+
+  it('should not add medium class from ConfigProvider size', () => {
+    const wrapper = mount(ConfigProvider, {
+      props: { componentSize: 'medium' },
+      slots: {
+        default: () => <Card>Card content</Card>,
+      },
+    })
+    const card = wrapper.find('.ant-card')
+    expect(card.classes()).not.toContain('ant-card-small')
+    expect(card.classes()).not.toContain('ant-card-medium')
+    expect(card.classes()).not.toContain('ant-card-large')
   })
 
   it('should support type inner', () => {

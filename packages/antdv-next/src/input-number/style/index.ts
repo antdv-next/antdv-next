@@ -102,6 +102,19 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
         }),
         ...genBorderlessStyle(token),
 
+        [`&${componentCls}-borderless`]: {
+          paddingBlock: 0,
+          [varName('input-padding-block')]: unit(token.calc(paddingBlock).add(lineWidth).equal()),
+        },
+        [`&${componentCls}-borderless${componentCls}-sm`]: {
+          paddingBlock: 0,
+          [varName('input-padding-block')]: unit(token.calc(paddingBlockSM).add(lineWidth).equal()),
+        },
+        [`&${componentCls}-borderless${componentCls}-lg`]: {
+          paddingBlock: 0,
+          [varName('input-padding-block')]: unit(token.calc(paddingBlockLG).add(lineWidth).equal()),
+        },
+
         // ========================= RTL ==========================
         '&-rtl': {
           direction: 'rtl',

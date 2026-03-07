@@ -4,6 +4,7 @@ import type { PresetStatusColorType } from '../_util/colors.ts'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { EmptyEmit, VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
+import type { SizeType } from '../config-provider/SizeContext.tsx'
 import type { PresetColorKey } from '../theme/interface'
 import type { RibbonProps } from './Ribbon.tsx'
 import { classNames } from '@v-c/util'
@@ -19,6 +20,7 @@ import {
 } from '../_util/hooks'
 import { formatUnit } from '../_util/styleUtils.ts'
 import { clsx, getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
+import { devUseWarning, isDev } from '../_util/warning'
 import { useComponentBaseConfig } from '../config-provider/context.ts'
 
 import Ribbon from './Ribbon.tsx'
@@ -53,7 +55,7 @@ export interface BadgeProps extends ComponentBaseProps {
   status?: PresetStatusColorType
   color?: LiteralUnion<PresetColorKey>
   text?: VueNode
-  size?: 'default' | 'small'
+  size?: Exclude<SizeType, 'large'> | 'default'
   offset?: [number | string, number | string]
   title?: string
   classes?: BadgeClassNamesType
@@ -69,7 +71,7 @@ export interface BadgeSlots {
 const defaultProps = {
   count: null,
   overflowCount: 99,
-  size: 'default',
+  size: 'medium',
 } as BadgeProps
 
 const InternalBadge = defineComponent<
@@ -105,6 +107,11 @@ const InternalBadge = defineComponent<
     const badgeRef = shallowRef<HTMLSpanElement>()
     expose({ badgeRef })
     const [hashId, cssVarCls] = useStyle(prefixCls)
+
+    if (isDev) {
+      const warning = devUseWarning('Badge')
+      warning.deprecated(props.size !== 'default', 'size="default"', 'size="medium"')
+    }
 
     const numberedDisplayCount = computed(() => {
       const { count, overflowCount } = props

@@ -4,6 +4,7 @@ import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { Breakpoint } from '../_util/responsiveObserver.ts'
 import type { EmptyEmit, VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
+import type { SizeType } from '../config-provider/SizeContext.tsx'
 import type { DescriptionsItemProps } from './Item.tsx'
 import { classNames } from '@v-c/util'
 import { omit } from 'es-toolkit'
@@ -17,6 +18,7 @@ import {
 import { matchScreen } from '../_util/responsiveObserver.ts'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { resolveSlotsNode } from '../_util/vnode'
+import { devUseWarning, isDev } from '../_util/warning'
 import { useComponentBaseConfig } from '../config-provider/context.ts'
 import { useSize } from '../config-provider/hooks/useSize.ts'
 import { useBreakpoint } from '../grid'
@@ -76,7 +78,7 @@ export type RenderDescriptionsItem = (params: { item: InternalDescriptionsItemTy
 
 export interface DescriptionsProps extends ComponentBaseProps {
   bordered?: boolean
-  size?: 'middle' | 'small' | 'default'
+  size?: SizeType | 'default'
   title?: VueNode
   extra?: VueNode
   labelRender?: RenderDescriptionsItem
@@ -166,6 +168,11 @@ const Descriptions = defineComponent<
       useToProps(mergedProps),
     )
 
+    if (isDev) {
+      const warning = devUseWarning('Descriptions')
+      warning.deprecated(props.size !== 'default', 'size="default"', 'size="large"')
+    }
+
     // ======================== Render ========================
     const contextValue = computed(() => {
       return {
@@ -193,7 +200,8 @@ const Descriptions = defineComponent<
             contextClassName.value,
             mergedClassNames.value.root,
             {
-              [`${prefixCls.value}-${mergedSize.value}`]: mergedSize.value && mergedSize.value !== 'default',
+              [`${prefixCls.value}-medium`]: mergedSize.value === 'medium' || mergedSize.value === 'middle',
+              [`${prefixCls.value}-small`]: mergedSize.value === 'small',
               [`${prefixCls.value}-bordered`]: !!bordered,
               [`${prefixCls.value}-rtl`]: direction.value === 'rtl',
             },

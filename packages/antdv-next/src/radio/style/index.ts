@@ -218,6 +218,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
         // Styles moved from inner
         boxSizing: 'border-box',
         display: 'block',
+        flex: 'none',
         width: `calc(${radioSize} * 1px)`,
         height: `calc(${radioSize} * 1px)`,
         backgroundColor: colorBgContainer,

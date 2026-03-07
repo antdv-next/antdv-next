@@ -18,7 +18,7 @@ import useStyle from './style'
 
 export type CardType = 'inner'
 
-export type CardSize = 'default' | 'small'
+export type CardSize = 'small' | 'medium' | 'middle' | 'default'
 
 export interface CardTabListType extends Omit<Tab, 'label'> {
   key: string
@@ -172,8 +172,9 @@ const Card = defineComponent<
 
     // =================Warning===================
     if (isDev) {
-      const warning = devUseWarning('Card');
-      [
+      const warning = devUseWarning('Card')
+      warning.deprecated(props.size !== 'default', 'size="default"', 'size="medium"')
+      ;[
         ['headStyle', 'styles.header'],
         ['bodyStyle', 'styles.body'],
         ['bordered', 'variant'],
@@ -232,7 +233,7 @@ const Card = defineComponent<
 
       let head: any
 
-      const tabSize = !mergedSize.value || mergedSize.value === 'default' ? 'large' : mergedSize.value
+      const tabSize = mergedSize.value === 'small' ? mergedSize.value : 'large'
 
       const tabsSlots: Record<string, any> = {
         contentRender: slots?.tabContentRender,
@@ -328,7 +329,7 @@ const Card = defineComponent<
           [`${prefixCls.value}-hoverable`]: hoverable,
           [`${prefixCls.value}-contain-grid`]: isContainGrid,
           [`${prefixCls.value}-contain-tabs`]: tabList?.length,
-          [`${prefixCls.value}-${mergedSize.value}`]: mergedSize.value,
+          [`${prefixCls.value}-small`]: mergedSize.value === 'small',
           [`${prefixCls.value}-type-${type}`]: !!type,
           [`${prefixCls.value}-rtl`]: direction.value === 'rtl',
         },

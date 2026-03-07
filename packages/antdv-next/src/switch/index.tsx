@@ -3,6 +3,7 @@ import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { VueNode } from '../_util/type'
 import type { ComponentBaseProps } from '../config-provider/context'
+import type { SizeType } from '../config-provider/SizeContext.tsx'
 import { LoadingOutlined } from '@antdv-next/icons'
 import VcSwitch from '@v-c/switch'
 import { clsx } from '@v-c/util'
@@ -11,13 +12,14 @@ import { computed, defineComponent, shallowRef, watch } from 'vue'
 import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
 import { isValueEqual } from '../_util/isEqual'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
+import { devUseWarning, isDev } from '../_util/warning'
 import Wave from '../_util/wave'
 import { useComponentBaseConfig } from '../config-provider/context'
 import { useDisabledContext } from '../config-provider/DisabledContext.tsx'
 import { useSize } from '../config-provider/hooks/useSize.ts'
 import useStyle from './style'
 
-export type SwitchSize = 'small' | 'default'
+export type SwitchSize = Exclude<SizeType, 'large'> | 'default'
 
 export type SwitchSemanticName = keyof SwitchSemanticClassNames & keyof SwitchSemanticStyles
 
@@ -164,6 +166,11 @@ const Switch = defineComponent<
     const [hashId, cssVarCls] = useStyle(prefixCls)
 
     const mergedSize = useSize(customizeSize)
+
+    if (isDev) {
+      const warning = devUseWarning('Switch')
+      warning.deprecated(props.size !== 'default', 'size="default"', 'size="medium"')
+    }
 
     const mergedProps = computed(() => {
       return {

@@ -92,6 +92,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
         // Styles moved from inner
         boxSizing: 'border-box',
         display: 'block',
+        flex: 'none',
         width: checkboxSize,
         height: checkboxSize,
         direction: 'ltr',

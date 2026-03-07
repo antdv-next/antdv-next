@@ -195,7 +195,14 @@ describe('descriptions', () => {
     const wrapper = mount(Descriptions, {
       props: { size: 'middle', items: basicItems },
     })
-    expect(wrapper.find('.ant-descriptions-middle').exists()).toBe(true)
+    expect(wrapper.find('.ant-descriptions-medium').exists()).toBe(true)
+  })
+
+  it('adds size class for medium', () => {
+    const wrapper = mount(Descriptions, {
+      props: { size: 'medium', items: basicItems },
+    })
+    expect(wrapper.find('.ant-descriptions-medium').exists()).toBe(true)
   })
 
   it('does not add size class for default', () => {
@@ -460,7 +467,7 @@ describe('descriptions', () => {
         default: () => <Descriptions size="middle" items={basicItems} />,
       },
     })
-    expect(wrapper.find('.ant-descriptions-middle').exists()).toBe(true)
+    expect(wrapper.find('.ant-descriptions-medium').exists()).toBe(true)
     expect(wrapper.find('.ant-descriptions-small').exists()).toBe(false)
   })
 

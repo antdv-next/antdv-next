@@ -2756,7 +2756,7 @@ exports[`card demo > renders tabs correctly 1`] = `
         <!---->
       </div>
       <div
-        class="ant-tabs ant-tabs-top ant-tabs-middle css-var-root ant-tabs-css-var ant-card-head-size"
+        class="ant-tabs ant-tabs-top css-var-root ant-tabs-css-var ant-card-head-size"
       >
         <div
           aria-orientation="horizontal"

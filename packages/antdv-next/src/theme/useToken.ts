@@ -4,6 +4,7 @@ import type { DesignTokenProviderProps } from './context'
 import type { AliasToken, GlobalToken, SeedToken } from './interface'
 import { useCacheToken } from '@antdv-next/cssinjs'
 import { computed } from 'vue'
+import { useConfig } from '../config-provider/context'
 import version from '../version'
 import { defaultTheme, useDesignToken } from './context'
 import defaultSeedToken from './themes/seed'
@@ -105,6 +106,7 @@ export default function useToken(): [
     zeroRuntime: Ref<boolean>,
 ] {
   const designContext = useDesignToken()
+  const config = useConfig()
   const salt = computed(() => `${version}-${designContext.value.hashed || ''}`)
   const mergedTheme = computed(() => designContext.value?.theme || defaultTheme)
   const cssVar = computed(() => {
@@ -128,6 +130,7 @@ export default function useToken(): [
           ignore,
           preserve,
         },
+        nonce: designContext.value.csp?.nonce ?? config.value?.csp?.nonce,
       } as any
     }),
   )

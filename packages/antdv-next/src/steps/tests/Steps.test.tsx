@@ -449,6 +449,18 @@ describe('steps', () => {
     expect(wrapper.find('.ant-steps-small').exists()).toBe(true)
   })
 
+  it('should not add medium class from ConfigProvider size', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider componentSize="medium">
+        <Steps items={[{ title: 'Step 1' }]} />
+      </ConfigProvider>
+    ))
+    const steps = wrapper.find('.ant-steps')
+    expect(steps.classes()).not.toContain('ant-steps-small')
+    expect(steps.classes()).not.toContain('ant-steps-medium')
+    expect(steps.classes()).not.toContain('ant-steps-large')
+  })
+
   it('should support rtl from ConfigProvider', () => {
     const wrapper = mount(() => (
       <ConfigProvider direction="rtl">

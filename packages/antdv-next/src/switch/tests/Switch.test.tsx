@@ -335,6 +335,20 @@ describe('switch', () => {
     expect(wrapper.find('button').classes()).toContain(`${prefixCls}-small`)
   })
 
+  it('should not apply size class for medium from ConfigProvider', () => {
+    const wrapper = mount({
+      render() {
+        return h(ConfigProvider, { componentSize: 'medium' }, {
+          default: () => h(Switch),
+        })
+      },
+    })
+    const classes = wrapper.find('button').classes()
+    expect(classes).not.toContain(`${prefixCls}-small`)
+    expect(classes).not.toContain(`${prefixCls}-medium`)
+    expect(classes).not.toContain(`${prefixCls}-large`)
+  })
+
   // ===================== rtl direction =====================
 
   it('should apply rtl class from ConfigProvider direction', () => {
