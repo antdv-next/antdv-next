@@ -1,7 +1,7 @@
 import type { AntTreeNodeProps } from '..'
 import { SmileOutlined } from '@antdv-next/icons'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { nextTick } from 'vue'
+import { nextTick, ref } from 'vue'
 import Tree from '..'
 import ConfigProvider from '../../config-provider'
 import Form, { FormItem } from '../../form'
@@ -233,6 +233,39 @@ describe('tree', () => {
     })
     await nextTick()
     expect(wrapper.html()).toMatchSnapshot()
+  })
+
+  it('should support v-model:checkedKeys with checkStrictly', async () => {
+    const checkedKeys = ref<(string | number)[]>([])
+    const treeData = [
+      {
+        title: 'parent',
+        key: '0-0',
+        children: [
+          { title: 'child', key: '0-0-0' },
+        ],
+      },
+    ]
+
+    const wrapper = mount(() => (
+      <Tree
+        v-model:checkedKeys={checkedKeys.value}
+        checkable
+        checkStrictly
+        defaultExpandAll
+        treeData={treeData}
+      />
+    ))
+
+    const checkboxes = wrapper.findAll('.ant-tree-checkbox')
+    expect(checkboxes).toHaveLength(2)
+
+    await checkboxes[1]!.trigger('click')
+    await nextTick()
+
+    expect(checkedKeys.value).toEqual(['0-0-0'])
+    expect(wrapper.findAll('.ant-tree-checkbox-checked')).toHaveLength(1)
+    expect(wrapper.find('.ant-tree-checkbox').classes()).not.toContain('ant-tree-checkbox-checked')
   })
 
   describe('draggable', () => {
