@@ -71,7 +71,6 @@ exports[`select demo > renders _semantic correctly 1`] = `
           <!---->
           <div
             class="ant-select ant-select-outlined semantic-mark-root css-var-v-0 ant-select-css-var ant-select-single ant-select-show-arrow ant-select-open"
-            classes="[object Object]"
             style="width: 300px;"
           >
             <div
@@ -5613,7 +5612,6 @@ exports[`select demo > renders style-class correctly 1`] = `
   <!---->
   <div
     class="ant-select ant-select-outlined custom-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
-    classes="[object Object]"
   >
     <div
       class="ant-select-prefix"
@@ -5695,7 +5693,6 @@ exports[`select demo > renders style-class correctly 1`] = `
   <!---->
   <div
     class="ant-select ant-select-filled custom-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
-    classes="[object Object]"
     variant="filled"
   >
     <div

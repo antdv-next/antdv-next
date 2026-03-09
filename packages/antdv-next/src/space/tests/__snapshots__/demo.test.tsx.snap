@@ -2023,7 +2023,6 @@ exports[`space demo > renders compact correctly 1`] = `
       <!---->
       <div
         class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-last-item ant-select-auto-complete css-var-root ant-select-css-var ant-select-single ant-select-show-search"
-        classes="[object Object]"
         style="width: 70%;"
       >
         <!---->

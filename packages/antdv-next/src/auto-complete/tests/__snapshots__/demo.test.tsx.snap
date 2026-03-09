@@ -19,7 +19,6 @@ exports[`auto-complete demo > renders _semantic correctly 1`] = `
         <!---->
         <div
           class="ant-select ant-select-outlined ant-select-auto-complete semantic-mark-root css-var-v-0 ant-select-css-var ant-select-single ant-select-open ant-select-show-search"
-          classes="[object Object]"
           style="width: 200px;"
         >
           <div
@@ -1159,7 +1158,6 @@ exports[`auto-complete demo > renders allowClear correctly 1`] = `
   <!---->
   <div
     class="ant-select ant-select-outlined ant-select-auto-complete css-var-root ant-select-css-var ant-select-single ant-select-show-search"
-    classes="[object Object]"
     style="width: 200px;"
   >
     <!---->
@@ -1194,7 +1192,6 @@ exports[`auto-complete demo > renders allowClear correctly 1`] = `
   <!---->
   <div
     class="ant-select ant-select-outlined ant-select-auto-complete css-var-root ant-select-css-var ant-select-single ant-select-show-search"
-    classes="[object Object]"
     style="width: 200px;"
   >
     <!---->
@@ -1294,7 +1291,6 @@ exports[`auto-complete demo > renders auto-complete-and-select correctly 1`] = `
     <!---->
     <div
       class="ant-select ant-select-sm ant-select-outlined ant-select-auto-complete css-var-root ant-select-css-var ant-select-single ant-select-show-search"
-      classes="[object Object]"
       size="small"
       style="width: 200px;"
     >
@@ -1385,7 +1381,6 @@ exports[`auto-complete demo > renders auto-complete-and-select correctly 1`] = `
     <!---->
     <div
       class="ant-select ant-select-outlined ant-select-auto-complete css-var-root ant-select-css-var ant-select-single ant-select-show-search"
-      classes="[object Object]"
       size="middle"
       style="width: 200px;"
     >
@@ -1476,7 +1471,6 @@ exports[`auto-complete demo > renders auto-complete-and-select correctly 1`] = `
     <!---->
     <div
       class="ant-select ant-select-lg ant-select-outlined ant-select-auto-complete css-var-root ant-select-css-var ant-select-single ant-select-show-search"
-      classes="[object Object]"
       size="large"
       style="width: 200px;"
     >
@@ -1516,7 +1510,6 @@ exports[`auto-complete demo > renders basic correctly 1`] = `
   <!---->
   <div
     class="ant-select ant-select-outlined ant-select-auto-complete css-var-root ant-select-css-var ant-select-single ant-select-show-search"
-    classes="[object Object]"
     style="width: 200px;"
   >
     <!---->
@@ -1551,7 +1544,6 @@ exports[`auto-complete demo > renders basic correctly 1`] = `
   <!---->
   <div
     class="ant-select ant-select-outlined ant-select-auto-complete css-var-root ant-select-css-var ant-select-single ant-select-show-search"
-    classes="[object Object]"
     style="width: 200px;"
   >
     <!---->
@@ -1593,7 +1585,6 @@ exports[`auto-complete demo > renders certain-category correctly 1`] = `
   <!---->
   <div
     class="ant-select ant-select-outlined ant-select-auto-complete ant-select-customize css-var-root ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
-    classes="[object Object]"
     style="width: 250px;"
   >
     <!---->
@@ -1664,7 +1655,6 @@ exports[`auto-complete demo > renders custom correctly 1`] = `
   <!---->
   <div
     class="ant-select ant-select-outlined ant-select-auto-complete ant-select-customize css-var-root ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
-    classes="[object Object]"
     style="width: 220px;"
   >
     <!---->
@@ -1703,7 +1693,6 @@ exports[`auto-complete demo > renders non-case-sensitive correctly 1`] = `
   <!---->
   <div
     class="ant-select ant-select-outlined ant-select-auto-complete css-var-root ant-select-css-var ant-select-single ant-select-show-search"
-    classes="[object Object]"
     style="width: 200px;"
   >
     <!---->
@@ -1745,7 +1734,6 @@ exports[`auto-complete demo > renders options correctly 1`] = `
   <!---->
   <div
     class="ant-select ant-select-outlined ant-select-auto-complete css-var-root ant-select-css-var ant-select-single ant-select-show-search"
-    classes="[object Object]"
     style="width: 200px;"
   >
     <!---->
@@ -1819,7 +1807,6 @@ exports[`auto-complete demo > renders render-panel correctly 1`] = `
     <!---->
     <div
       class="ant-select ant-select-outlined ant-select-auto-complete css-var-v-0 ant-select-css-var ant-select-single ant-select-show-search"
-      classes="[object Object]"
       style="width: 120px; margin: 0px;"
     >
       <!---->
@@ -1862,7 +1849,6 @@ exports[`auto-complete demo > renders status correctly 1`] = `
     <!---->
     <div
       class="ant-select ant-select-outlined ant-select-status-error ant-select-auto-complete css-var-root ant-select-css-var ant-select-single ant-select-show-search"
-      classes="[object Object]"
       style="width: 200px;"
     >
       <!---->
@@ -1902,7 +1888,6 @@ exports[`auto-complete demo > renders status correctly 1`] = `
     <!---->
     <div
       class="ant-select ant-select-outlined ant-select-status-warning ant-select-auto-complete css-var-root ant-select-css-var ant-select-single ant-select-show-search"
-      classes="[object Object]"
       style="width: 200px;"
     >
       <!---->
@@ -1946,7 +1931,6 @@ exports[`auto-complete demo > renders style-class correctly 1`] = `
   <!---->
   <div
     class="ant-select ant-select-outlined ant-select-auto-complete auto-complete-style-root css-var-root ant-select-css-var ant-select-single ant-select-show-search"
-    classes="[object Object]"
     style="width: 200px;"
   >
     <!---->
@@ -1981,7 +1965,6 @@ exports[`auto-complete demo > renders style-class correctly 1`] = `
   <!---->
   <div
     class="ant-select ant-select-filled ant-select-auto-complete auto-complete-style-root css-var-root ant-select-css-var ant-select-single ant-select-show-search"
-    classes="[object Object]"
     style="width: 200px;"
     variant="filled"
   >
@@ -2024,7 +2007,6 @@ exports[`auto-complete demo > renders uncertain-category correctly 1`] = `
   <!---->
   <div
     class="ant-select ant-select-outlined ant-select-auto-complete ant-select-customize css-var-root ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
-    classes="[object Object]"
     style="width: 300px;"
   >
     <!---->
@@ -2095,7 +2077,6 @@ exports[`auto-complete demo > renders variant correctly 1`] = `
   <!---->
   <div
     class="ant-select ant-select-outlined ant-select-auto-complete css-var-root ant-select-css-var ant-select-single ant-select-show-search"
-    classes="[object Object]"
     style="width: 200px;"
   >
     <!---->
@@ -2130,7 +2111,6 @@ exports[`auto-complete demo > renders variant correctly 1`] = `
   <!---->
   <div
     class="ant-select ant-select-filled ant-select-auto-complete css-var-root ant-select-css-var ant-select-single ant-select-show-search"
-    classes="[object Object]"
     style="width: 200px;"
     variant="filled"
   >
@@ -2166,7 +2146,6 @@ exports[`auto-complete demo > renders variant correctly 1`] = `
   <!---->
   <div
     class="ant-select ant-select-borderless ant-select-auto-complete css-var-root ant-select-css-var ant-select-single ant-select-show-search"
-    classes="[object Object]"
     style="width: 200px;"
     variant="borderless"
   >
@@ -2202,7 +2181,6 @@ exports[`auto-complete demo > renders variant correctly 1`] = `
   <!---->
   <div
     class="ant-select ant-select-underlined ant-select-auto-complete css-var-root ant-select-css-var ant-select-single ant-select-show-search"
-    classes="[object Object]"
     style="width: 200px;"
     variant="underlined"
   >

@@ -9764,7 +9764,6 @@ exports[`form demo > renders register correctly 1`] = `
             <!---->
             <div
               class="ant-select ant-select-outlined ant-select-in-form-item ant-select-auto-complete css-var-root ant-select-css-var ant-select-single ant-select-show-search"
-              classes="[object Object]"
             >
               <!---->
               <div

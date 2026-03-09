@@ -7,7 +7,6 @@ exports[`autoComplete > rtl render > component should be rendered correctly in R
   <!---->
   <div
     class="ant-select ant-select-rtl ant-select-outlined ant-select-auto-complete css-var-root ant-select-css-var ant-select-single ant-select-show-search"
-    classes="[object Object]"
   >
     <!---->
     <div
