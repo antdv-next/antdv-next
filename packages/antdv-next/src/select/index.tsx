@@ -477,7 +477,15 @@ const Select = defineComponent<
 
       const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear
 
-      const selectProps: Record<string, any> = omit(rest, ['suffixIcon', 'itemIcon', 'value', 'showSearch', ...omitKeys])
+      const selectProps: Record<string, any> = omit(rest as any, [
+        'suffixIcon',
+        'classes',
+        'styles',
+        'itemIcon',
+        'value',
+        'showSearch',
+        ...omitKeys,
+      ])
       const mergedPopupClassName = clsx(
         mergedClassNames.value?.popup?.root,
         popupClassName,
