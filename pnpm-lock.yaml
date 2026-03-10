@@ -2710,11 +2710,6 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
-  '@v-c/input-number@1.0.2':
-    resolution: {integrity: sha512-9wbAmdC0Nt18XlLLgfVbmulY50K7tc5RZsNeZuWnmqluTK3JTgZRSbPdRkzl308x8vtGyCOufnepsMrFei1NoQ==}
-    peerDependencies:
-      vue: ^3.0.0
-
   '@v-c/input-number@1.0.3':
     resolution: {integrity: sha512-L38ANAuSx8As5hsqk95mHx4N98Xv15jr5aKQKob4kXPBhIy5DQ+rzNiXgm0vokvav8hPSN/qsCPqHGDcNpLXTg==}
     peerDependencies:
@@ -7906,18 +7901,11 @@ snapshots:
       '@v-c/util': 1.0.18(vue@3.5.29(typescript@5.9.3))
       vue: 3.5.29(typescript@5.9.3)
 
-  '@v-c/input-number@1.0.2(vue@3.5.29(typescript@5.9.3))':
-    dependencies:
-      '@v-c/input': 1.0.2(vue@3.5.29(typescript@5.9.3))
-      '@v-c/mini-decimal': 1.0.1
-      '@v-c/util': 1.0.18(vue@3.5.29(typescript@5.9.3))
-      vue: 3.5.29(typescript@5.9.3)
-
   '@v-c/input-number@1.0.3(vue@3.5.29(typescript@5.9.3))':
     dependencies:
       '@v-c/input': 1.0.2(vue@3.5.29(typescript@5.9.3))
       '@v-c/mini-decimal': 1.0.1
-      '@v-c/util': 1.0.17(vue@3.5.29(typescript@5.9.3))
+      '@v-c/util': 1.0.18(vue@3.5.29(typescript@5.9.3))
       vue: 3.5.29(typescript@5.9.3)
 
   '@v-c/input@1.0.2(vue@3.5.29(typescript@5.9.3))':
@@ -8475,7 +8463,7 @@ snapshots:
       '@v-c/dropdown': 1.0.2(vue@3.5.29(typescript@5.9.3))
       '@v-c/image': 1.0.4(vue@3.5.29(typescript@5.9.3))
       '@v-c/input': 1.0.2(vue@3.5.29(typescript@5.9.3))
-      '@v-c/input-number': 1.0.2(vue@3.5.29(typescript@5.9.3))
+      '@v-c/input-number': 1.0.3(vue@3.5.29(typescript@5.9.3))
       '@v-c/mentions': 1.0.0(vue@3.5.29(typescript@5.9.3))
       '@v-c/menu': 1.0.11(vue@3.5.29(typescript@5.9.3))
       '@v-c/mutate-observer': 1.0.1(vue@3.5.29(typescript@5.9.3))
