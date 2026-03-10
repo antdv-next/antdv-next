@@ -1458,8 +1458,7 @@ exports[`popconfirm demo > renders shift correctly 1`] = `
   class="h-300vh w-300vw flex items-center justify-center"
 >
   <button
-    aria-describedby="test-id"
-    class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-popover-open"
+    class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <transition-stub
