@@ -99,11 +99,11 @@ const InternalFormItem = defineComponent<
     const formContext = useFormContext()
     const mergedValidateTrigger = computed<TriggerType | TriggerType[] | false>(() => {
       const { trigger, validateTrigger } = props
-      return validateTrigger !== undefined
+      return (validateTrigger !== undefined
         ? validateTrigger
         : trigger !== undefined
           ? trigger
-          : formContext.value?.validateTrigger ?? 'change'
+          : formContext.value?.validateTrigger ?? 'change') as TriggerType | TriggerType[] | false
     })
     const { prefixCls } = useComponentBaseConfig('form', props)
     const notifyParentMetaChange = useNoStyleItemContext()
@@ -223,7 +223,7 @@ const InternalFormItem = defineComponent<
       return toArray(ruleTrigger)
     }
 
-    const validateRulesInner = (options: ValidateOptions & { triggerName?: string } = {}) => {
+    const validateRulesInner = (options: ValidateOptions & { triggerName?: TriggerType } = {}) => {
       if (!namePath.value.length) {
         return Promise.resolve()
       }
@@ -231,7 +231,7 @@ const InternalFormItem = defineComponent<
       const { triggerName } = options
       if (triggerName) {
         filteredRules = filteredRules.filter((rule) => {
-          const ruleValidateTrigger = (rule as any).validateTrigger ?? (rule as any).trigger
+          const ruleValidateTrigger = rule.validateTrigger ?? rule.trigger
           if (!ruleValidateTrigger && !mergedValidateTrigger.value) {
             return true
           }
@@ -302,7 +302,7 @@ const InternalFormItem = defineComponent<
           return results
         })
     }
-    const triggerValidate = (triggerName: string) => {
+    const triggerValidate = (triggerName: TriggerType) => {
       if (mergedValidateTrigger.value === false) {
         return
       }

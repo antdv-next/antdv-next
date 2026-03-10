@@ -1,5 +1,6 @@
 import type { FormInstance } from '..'
 import type { Rule } from '../types'
+import VcSelect from '@v-c/select'
 import { describe, expect, it } from 'vitest'
 import { defineComponent, nextTick, reactive, shallowRef } from 'vue'
 import Form, { FormItem } from '..'
@@ -62,6 +63,17 @@ async function selectFirstOption() {
   const option = document.querySelector('.ant-select-item-option') as HTMLElement | null
   if (!option) {
     throw new Error('select option not found')
+  }
+  option.click()
+  await flushForm()
+}
+
+async function selectOptionByIndex(index: number) {
+  await nextTick()
+  const options = document.querySelectorAll('.ant-select-item-option')
+  const option = options[index] as HTMLElement | undefined
+  if (!option) {
+    throw new Error(`select option at index ${index} not found`)
   }
   option.click()
   await flushForm()
@@ -305,6 +317,88 @@ describe('form validate trigger', () => {
 
     await selectFirstOption()
     await expect(formRef.value!.validateFields()).resolves.toEqual({ gender: 1 })
+
+    wrapper.unmount()
+  })
+
+  it('does not validate select value changes when field validateTrigger is blur', async () => {
+    const formRef = shallowRef<FormInstance>()
+    const model = reactive({ gender: undefined as number | undefined })
+
+    const wrapper = mount(defineComponent(() => () => (
+      <Form ref={formRef as any} model={model}>
+        <FormItem
+          name="gender"
+          validateTrigger="blur"
+          rules={[{
+            validator: (_, value) => {
+              if (value === 2) {
+                return Promise.reject(new Error('Invalid gender'))
+              }
+              return Promise.resolve()
+            },
+          }]}
+        >
+          <Select
+            v-model:value={model.gender}
+            open
+            options={[
+              { label: 'male', value: 1 },
+              { label: 'female', value: 2 },
+            ]}
+          />
+        </FormItem>
+      </Form>
+    )), { attachTo: document.body })
+
+    await selectOptionByIndex(1)
+    expect(formRef.value!.getFieldError('gender')).toEqual([])
+
+    const vcSelect = wrapper.findComponent(VcSelect as any)
+    ;(vcSelect.vm as any).$props.onBlur?.(new FocusEvent('blur'))
+    await flushForm()
+    expect(formRef.value!.getFieldError('gender')).toEqual(['Invalid gender'])
+
+    wrapper.unmount()
+  })
+
+  it('does not validate select value changes when field validateTrigger is focus', async () => {
+    const formRef = shallowRef<FormInstance>()
+    const model = reactive({ gender: undefined as number | undefined })
+
+    const wrapper = mount(defineComponent(() => () => (
+      <Form ref={formRef as any} model={model}>
+        <FormItem
+          name="gender"
+          validateTrigger="focus"
+          rules={[{
+            validator: (_, value) => {
+              if (value === 2) {
+                return Promise.reject(new Error('Invalid gender'))
+              }
+              return Promise.resolve()
+            },
+          }]}
+        >
+          <Select
+            v-model:value={model.gender}
+            open
+            options={[
+              { label: 'male', value: 1 },
+              { label: 'female', value: 2 },
+            ]}
+          />
+        </FormItem>
+      </Form>
+    )), { attachTo: document.body })
+
+    await selectOptionByIndex(1)
+    expect(formRef.value!.getFieldError('gender')).toEqual([])
+
+    const vcSelect = wrapper.findComponent(VcSelect as any)
+    ;(vcSelect.vm as any).$props.onFocus?.(new FocusEvent('focus'))
+    await flushForm()
+    expect(formRef.value!.getFieldError('gender')).toEqual(['Invalid gender'])
 
     wrapper.unmount()
   })

@@ -27,7 +27,7 @@ import { DefaultRenderEmpty } from '../config-provider/defaultRenderEmpty'
 import { useDisabledContext } from '../config-provider/DisabledContext'
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
 import { useSize } from '../config-provider/hooks/useSize'
-import { useFormItemInputContext } from '../form/context'
+import { useFormItemContext, useFormItemInputContext } from '../form/context'
 import { useVariants } from '../form/hooks/useVariant'
 import { useCompactItemContext } from '../space/Compact'
 import { useToken } from '../theme/internal'
@@ -326,6 +326,7 @@ const Select = defineComponent<
     }
 
     // ===================== Form Status =====================
+    const formItemContext = useFormItemContext()
     const formItemInputContext = useFormItemInputContext()
 
     const mergedSize = useSize(ctx => customizeSize.value ?? compactSize.value ?? ctx)
@@ -533,9 +534,11 @@ const Select = defineComponent<
           emit('keyup', e)
         },
         onBlur: (e: any) => {
+          formItemContext?.triggerBlur?.()
           emit('blur', e)
         },
         onFocus: (e: any) => {
+          formItemContext?.triggerFocus?.()
           emit('focus', e)
         },
         onClick: (e: any) => {

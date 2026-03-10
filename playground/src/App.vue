@@ -56,7 +56,7 @@ function handleFill() {
       note: [{ required: true, message: 'xxx', validateTrigger: 'blur' }],
       note2: [{ required: true, message: 'xxx', trigger: 'blur' }],
       gender: [
-        { required: true, message: '性别错误', validateTrigger: 'change' },
+        { required: true, message: '性别错误', validateTrigger: 'blur' },
       ],
     }"
     style="max-width: 600px"
