@@ -3,7 +3,7 @@ import type { ComponentBaseProps } from '../../config-provider/context'
 import type { FormItemLayout } from '../Form'
 import type { FormItemInputProps } from '../FormItemInput'
 import type { FormItemLabelProps } from '../FormItemLabel'
-import type { InternalNamePath, Meta, NamePath, Rule, RuleError, RuleObject, ValidateOptions } from '../types'
+import type { InternalNamePath, Meta, NamePath, Rule, RuleError, RuleObject, TriggerType, ValidateOptions } from '../types'
 import type { ItemHolderProps } from './ItemHolder.tsx'
 import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
@@ -40,8 +40,8 @@ export type FeedbackIcons = (itemStatus: {
 export interface BaseFormItemProps {
   name?: NamePath
   rules?: Rule[]
-  trigger?: string
-  validateTrigger?: string | string[] | false
+  trigger?: TriggerType | TriggerType[]
+  validateTrigger?: TriggerType | TriggerType[] | false
   validateDebounce?: number
   validateFirst?: boolean | 'parallel'
 }
@@ -97,11 +97,13 @@ const InternalFormItem = defineComponent<
 >(
   (props, { slots, attrs }) => {
     const formContext = useFormContext()
-    const mergedValidateTrigger = computed(() => {
-      const { validateTrigger } = props
+    const mergedValidateTrigger = computed<TriggerType | TriggerType[] | false>(() => {
+      const { trigger, validateTrigger } = props
       return validateTrigger !== undefined
         ? validateTrigger
-        : formContext.value?.validateTrigger ?? 'change'
+        : trigger !== undefined
+          ? trigger
+          : formContext.value?.validateTrigger ?? 'change'
     })
     const { prefixCls } = useComponentBaseConfig('form', props)
     const notifyParentMetaChange = useNoStyleItemContext()
@@ -175,7 +177,7 @@ const InternalFormItem = defineComponent<
         }
         collectedRules.push({
           required: !!props.required,
-          trigger: mergedValidateTrigger.value || [],
+          validateTrigger: mergedValidateTrigger.value || [],
           ...(ruleType ? { type: ruleType } : {}),
         } as RuleObject)
       }
@@ -216,6 +218,11 @@ const InternalFormItem = defineComponent<
       }
     }
 
+    const getRuleTriggerList = (rule: RuleObject) => {
+      const ruleTrigger = (rule as any).validateTrigger ?? (rule as any).trigger
+      return toArray(ruleTrigger)
+    }
+
     const validateRulesInner = (options: ValidateOptions & { triggerName?: string } = {}) => {
       if (!namePath.value.length) {
         return Promise.resolve()
@@ -224,11 +231,11 @@ const InternalFormItem = defineComponent<
       const { triggerName } = options
       if (triggerName) {
         filteredRules = filteredRules.filter((rule) => {
-          const ruleTrigger = (rule as any).trigger
-          if (!ruleTrigger && !mergedValidateTrigger.value) {
+          const ruleValidateTrigger = (rule as any).validateTrigger ?? (rule as any).trigger
+          if (!ruleValidateTrigger && !mergedValidateTrigger.value) {
             return true
           }
-          const triggerList = toArray(ruleTrigger || mergedValidateTrigger.value || [])
+          const triggerList = toArray(ruleValidateTrigger || mergedValidateTrigger.value || [])
           return triggerList.includes(triggerName)
         })
       }
@@ -296,13 +303,13 @@ const InternalFormItem = defineComponent<
         })
     }
     const triggerValidate = (triggerName: string) => {
-      const trigger = mergedValidateTrigger.value
-      if (trigger === false)
+      const fieldTriggerList = toArray(mergedValidateTrigger.value)
+      const hasFieldTrigger = mergedValidateTrigger.value !== false && fieldTriggerList.includes(triggerName)
+      const hasRuleTrigger = mergedRules.value.some(rule => getRuleTriggerList(rule).includes(triggerName))
+      if (!hasFieldTrigger && !hasRuleTrigger) {
         return
-      const triggerList = Array.isArray(trigger) ? trigger : [trigger]
-      if (triggerList.includes(triggerName)) {
-        validateRulesInner({ triggerName })
       }
+      validateRulesInner({ triggerName }).catch(e => e)
     }
 
     const clearValidate = () => {

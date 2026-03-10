@@ -1,0 +1,275 @@
+import type { FormInstance } from '..'
+import type { Rule } from '../types'
+import { describe, expect, it } from 'vitest'
+import { defineComponent, nextTick, reactive, shallowRef } from 'vue'
+import Form, { FormItem } from '..'
+import Select from '../../select'
+import { flushPromises, mount } from '/@tests/utils'
+
+async function flushForm() {
+  await nextTick()
+  await flushPromises()
+  await nextTick()
+}
+
+function createInputForm(options: {
+  rules?: Rule[]
+  trigger?: 'change' | 'blur' | 'focus' | ('change' | 'blur' | 'focus')[]
+  validateTrigger?: 'change' | 'blur' | 'focus' | ('change' | 'blur' | 'focus')[] | false
+}) {
+  const formRef = shallowRef<FormInstance>()
+  const model = reactive({ username: '' })
+
+  const Demo = defineComponent(() => {
+    return () => (
+      <Form ref={formRef as any} model={model}>
+        <FormItem
+          name="username"
+          rules={options.rules}
+          trigger={options.trigger as any}
+          validateTrigger={options.validateTrigger as any}
+        >
+          <input
+            class="username-input"
+            value={model.username}
+            onInput={(e: Event) => {
+              model.username = (e.target as HTMLInputElement).value
+            }}
+          />
+        </FormItem>
+      </Form>
+    )
+  })
+
+  const wrapper = mount(Demo, { attachTo: document.body })
+  return {
+    wrapper,
+    formRef,
+    input: () => wrapper.find('input'),
+  }
+}
+
+async function makeFieldEmpty(wrapper: ReturnType<typeof mount>) {
+  const input = wrapper.find('input')
+  await input.setValue('filled')
+  await flushForm()
+  await input.setValue('')
+  await flushForm()
+}
+
+async function selectFirstOption() {
+  await nextTick()
+  const option = document.querySelector('.ant-select-item-option') as HTMLElement | null
+  if (!option) {
+    throw new Error('select option not found')
+  }
+  option.click()
+  await flushForm()
+}
+
+describe('form validate trigger', () => {
+  it('validates rule.validateTrigger on blur only', async () => {
+    const { wrapper, formRef, input } = createInputForm({
+      rules: [{ required: true, message: 'Username required', validateTrigger: 'blur' }],
+    })
+
+    await makeFieldEmpty(wrapper)
+    expect(formRef.value!.getFieldError('username')).toEqual([])
+
+    await input().trigger('blur')
+    await flushForm()
+    expect(formRef.value!.getFieldError('username')).toEqual(['Username required'])
+
+    wrapper.unmount()
+  })
+
+  it('validates rule.trigger on blur only', async () => {
+    const { wrapper, formRef, input } = createInputForm({
+      rules: [{ required: true, message: 'Username required', trigger: 'blur' }],
+    })
+
+    await makeFieldEmpty(wrapper)
+    expect(formRef.value!.getFieldError('username')).toEqual([])
+
+    await input().trigger('blur')
+    await flushForm()
+    expect(formRef.value!.getFieldError('username')).toEqual(['Username required'])
+
+    wrapper.unmount()
+  })
+
+  it('supports rule.validateTrigger arrays', async () => {
+    const { wrapper, formRef } = createInputForm({
+      rules: [{ required: true, message: 'Username required', validateTrigger: ['change', 'blur'] }],
+    })
+
+    await makeFieldEmpty(wrapper)
+    expect(formRef.value!.getFieldError('username')).toEqual(['Username required'])
+
+    wrapper.unmount()
+  })
+
+  it('supports rule.trigger arrays', async () => {
+    const { wrapper, formRef } = createInputForm({
+      rules: [{ required: true, message: 'Username required', trigger: ['change', 'blur'] }],
+    })
+
+    await makeFieldEmpty(wrapper)
+    expect(formRef.value!.getFieldError('username')).toEqual(['Username required'])
+
+    wrapper.unmount()
+  })
+
+  it('prefers rule.validateTrigger over rule.trigger', async () => {
+    const { wrapper, formRef, input } = createInputForm({
+      rules: [{
+        required: true,
+        message: 'Username required',
+        trigger: 'change',
+        validateTrigger: 'blur',
+      }],
+    })
+
+    await makeFieldEmpty(wrapper)
+    expect(formRef.value!.getFieldError('username')).toEqual([])
+
+    await input().trigger('blur')
+    await flushForm()
+    expect(formRef.value!.getFieldError('username')).toEqual(['Username required'])
+
+    wrapper.unmount()
+  })
+
+  it('supports field trigger as validate alias', async () => {
+    const { wrapper, formRef, input } = createInputForm({
+      trigger: 'blur',
+      rules: [{ required: true, message: 'Username required' }],
+    })
+
+    await makeFieldEmpty(wrapper)
+    expect(formRef.value!.getFieldError('username')).toEqual([])
+
+    await input().trigger('blur')
+    await flushForm()
+    expect(formRef.value!.getFieldError('username')).toEqual(['Username required'])
+
+    wrapper.unmount()
+  })
+
+  it('supports field trigger arrays', async () => {
+    const { wrapper, formRef, input } = createInputForm({
+      trigger: ['focus', 'blur'],
+      rules: [{ required: true, message: 'Username required' }],
+    })
+
+    await input().trigger('focus')
+    await flushForm()
+    expect(formRef.value!.getFieldError('username')).toEqual(['Username required'])
+
+    formRef.value!.clearValidate(['username'])
+    await flushForm()
+
+    await input().trigger('blur')
+    await flushForm()
+    expect(formRef.value!.getFieldError('username')).toEqual(['Username required'])
+
+    wrapper.unmount()
+  })
+
+  it('prefers field validateTrigger over field trigger', async () => {
+    const { wrapper, formRef, input } = createInputForm({
+      trigger: 'change',
+      validateTrigger: 'blur',
+      rules: [{ required: true, message: 'Username required' }],
+    })
+
+    await makeFieldEmpty(wrapper)
+    expect(formRef.value!.getFieldError('username')).toEqual([])
+
+    await input().trigger('blur')
+    await flushForm()
+    expect(formRef.value!.getFieldError('username')).toEqual(['Username required'])
+
+    wrapper.unmount()
+  })
+
+  it('does not validate on events when field validateTrigger is false', async () => {
+    const { wrapper, formRef, input } = createInputForm({
+      validateTrigger: false,
+      rules: [{ required: true, message: 'Username required' }],
+    })
+
+    await makeFieldEmpty(wrapper)
+    await input().trigger('blur')
+    await flushForm()
+    expect(formRef.value!.getFieldError('username')).toEqual([])
+
+    await expect(formRef.value!.validateFields()).rejects.toMatchObject({
+      errorFields: [{ name: ['username'], errors: ['Username required'] }],
+    })
+
+    wrapper.unmount()
+  })
+
+  it('validates all rules on submit regardless of rule.validateTrigger', async () => {
+    const formRef = shallowRef<FormInstance>()
+    const model = reactive({ gender: undefined as number | undefined })
+
+    const wrapper = mount(defineComponent(() => () => (
+      <Form
+        ref={formRef as any}
+        model={model}
+        rules={{
+          gender: [{ required: true, message: 'Gender required', validateTrigger: 'change' }],
+        }}
+      >
+        <FormItem name="gender">
+          <Select
+            v-model:value={model.gender}
+            open
+            options={[
+              { label: 'male', value: 1 },
+              { label: 'female', value: 2 },
+            ]}
+          />
+        </FormItem>
+      </Form>
+    )), { attachTo: document.body })
+
+    await selectFirstOption()
+    await expect(formRef.value!.validateFields()).resolves.toEqual({ gender: 1 })
+
+    wrapper.unmount()
+  })
+
+  it('validates all rules on submit regardless of rule.trigger', async () => {
+    const formRef = shallowRef<FormInstance>()
+    const model = reactive({ gender: undefined as number | undefined })
+
+    const wrapper = mount(defineComponent(() => () => (
+      <Form
+        ref={formRef as any}
+        model={model}
+        rules={{
+          gender: [{ required: true, message: 'Gender required', trigger: 'change' }],
+        }}
+      >
+        <FormItem name="gender">
+          <Select
+            v-model:value={model.gender}
+            open
+            options={[
+              { label: 'male', value: 1 },
+              { label: 'female', value: 2 },
+            ]}
+          />
+        </FormItem>
+      </Form>
+    )), { attachTo: document.body })
+
+    await selectFirstOption()
+    await expect(formRef.value!.validateFields()).resolves.toEqual({ gender: 1 })
+
+    wrapper.unmount()
+  })
+})

@@ -43,6 +43,8 @@ async function validateRule(
   // https://github.com/react-component/field-form/issues/316
   // https://github.com/react-component/field-form/issues/313
   delete (cloneRule as any).ruleIndex
+  delete (cloneRule as any).trigger
+  delete (cloneRule as any).validateTrigger
 
   // https://github.com/ant-design/ant-design/issues/40497#issuecomment-1422282378
   AsyncValidator.warning = () => void 0

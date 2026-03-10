@@ -71,6 +71,8 @@ export interface ValidatorRule {
   validator: Validator
 }
 
+export type TriggerType = 'change' | 'blur' | 'focus'
+
 interface BaseRule {
   warningOnly?: boolean
   enum?: StoreValue[]
@@ -83,9 +85,10 @@ interface BaseRule {
   transform?: (value: StoreValue) => StoreValue
   type?: RuleType
   whitespace?: boolean
+  trigger?: TriggerType | TriggerType[]
 
   /** Customize rule level `validateTrigger`. Must be subset of Field `validateTrigger` */
-  validateTrigger?: string | string[]
+  validateTrigger?: TriggerType | TriggerType[]
 }
 
 type AggregationRule = BaseRule & Partial<ValidatorRule>
