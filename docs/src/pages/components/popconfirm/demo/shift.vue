@@ -7,19 +7,25 @@ Auto adjust Popup and arrow position when Popconfirm is close to the edge of the
 </docs>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
+
+const open = ref(false)
 
 onMounted(() => {
   setTimeout(() => {
     document.documentElement.scrollTop = document.documentElement.clientHeight
     document.documentElement.scrollLeft = document.documentElement.clientWidth
+
+    requestAnimationFrame(() => {
+      open.value = true
+    })
   }, 10)
 })
 </script>
 
 <template>
   <div class="h-300vh w-300vw flex items-center justify-center">
-    <a-popconfirm title="Thanks for using antd. Have a nice day !" open>
+    <a-popconfirm title="Thanks for using antd. Have a nice day !" :open="open">
       <a-button type="primary">
         Scroll The Window
       </a-button>

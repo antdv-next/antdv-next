@@ -103,7 +103,7 @@ const InternalFormItem = defineComponent<
         ? validateTrigger
         : trigger !== undefined
           ? trigger
-          : formContext.value?.validateTrigger ?? 'change') as TriggerType | TriggerType[] | false
+          : formContext.value?.validateTrigger) as TriggerType | TriggerType[] | false
     })
     const { prefixCls } = useComponentBaseConfig('form', props)
     const notifyParentMetaChange = useNoStyleItemContext()
@@ -175,11 +175,14 @@ const InternalFormItem = defineComponent<
             ruleType = 'array'
           }
         }
-        collectedRules.push({
+        const requiredRule: RuleObject = {
           required: !!props.required,
-          validateTrigger: mergedValidateTrigger.value || [],
           ...(ruleType ? { type: ruleType } : {}),
-        } as RuleObject)
+        }
+        if (mergedValidateTrigger.value !== undefined) {
+          requiredRule.validateTrigger = (mergedValidateTrigger.value || []) as any
+        }
+        collectedRules.push(requiredRule)
       }
       return collectedRules as RuleObject[]
     })
@@ -218,8 +221,22 @@ const InternalFormItem = defineComponent<
       }
     }
 
-    const getRuleTriggerList = (rule: RuleObject) => {
+    const getRuleTrigger = (rule: RuleObject): TriggerType | TriggerType[] | false | undefined => {
       const ruleTrigger = (rule as any).validateTrigger ?? (rule as any).trigger
+      if (ruleTrigger !== undefined) {
+        return ruleTrigger
+      }
+      if (mergedValidateTrigger.value !== undefined) {
+        return mergedValidateTrigger.value
+      }
+      return 'change'
+    }
+
+    const getRuleTriggerList = (rule: RuleObject) => {
+      const ruleTrigger = getRuleTrigger(rule)
+      if (ruleTrigger === false) {
+        return []
+      }
       return toArray(ruleTrigger)
     }
 
@@ -230,14 +247,15 @@ const InternalFormItem = defineComponent<
       let filteredRules = mergedRules.value
       const { triggerName } = options
       if (triggerName) {
-        filteredRules = filteredRules.filter((rule) => {
-          const ruleValidateTrigger = rule.validateTrigger ?? rule.trigger
-          if (!ruleValidateTrigger && !mergedValidateTrigger.value) {
-            return true
-          }
-          const triggerList = toArray(ruleValidateTrigger || mergedValidateTrigger.value || [])
-          return triggerList.includes(triggerName)
-        })
+        if (mergedValidateTrigger.value === false) {
+          filteredRules = []
+        }
+        else {
+          filteredRules = filteredRules.filter((rule) => {
+            const triggerList = getRuleTriggerList(rule)
+            return triggerList.includes(triggerName)
+          })
+        }
       }
 
       if (!filteredRules.length) {
@@ -306,12 +324,11 @@ const InternalFormItem = defineComponent<
       if (mergedValidateTrigger.value === false) {
         return
       }
-      const fieldTriggerList = toArray(mergedValidateTrigger.value)
-      const hasFieldTrigger = fieldTriggerList.includes(triggerName)
-      const hasRuleTrigger = mergedRules.value.some(rule => getRuleTriggerList(rule).includes(triggerName))
-      if (!hasFieldTrigger && !hasRuleTrigger) {
+      const hasMatchedRule = mergedRules.value.some(rule => getRuleTriggerList(rule).includes(triggerName))
+      if (!hasMatchedRule) {
         return
       }
+
       validateRulesInner({ triggerName }).catch(e => e)
     }
 

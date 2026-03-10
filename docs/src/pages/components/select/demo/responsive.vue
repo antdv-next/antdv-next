@@ -15,6 +15,7 @@ const options = Array.from({ length: 26 }, (_, i) => {
 })
 
 const value = shallowRef(['a10', 'c12', 'h17', 'j19', 'k20'])
+const value1 = shallowRef(['a10', 'c12', 'h17', 'j19'])
 </script>
 
 <template>
@@ -36,7 +37,7 @@ const value = shallowRef(['a10', 'c12', 'h17', 'j19', 'k20'])
       max-tag-count="responsive"
     />
     <a-select
-      v-model:value="value"
+      v-model:value="value1"
       mode="multiple"
       style="width: 100%"
       :options="options"

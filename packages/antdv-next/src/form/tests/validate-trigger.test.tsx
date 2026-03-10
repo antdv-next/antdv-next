@@ -80,6 +80,17 @@ async function selectOptionByIndex(index: number) {
 }
 
 describe('form validate trigger', () => {
+  it('falls back to change when neither field nor rule config validateTrigger', async () => {
+    const { wrapper, formRef } = createInputForm({
+      rules: [{ required: true, message: 'Username required' }],
+    })
+
+    await makeFieldEmpty(wrapper)
+    expect(formRef.value!.getFieldError('username')).toEqual(['Username required'])
+
+    wrapper.unmount()
+  })
+
   it('validates rule.validateTrigger on blur only', async () => {
     const { wrapper, formRef, input } = createInputForm({
       rules: [{ required: true, message: 'Username required', validateTrigger: 'blur' }],
@@ -95,6 +106,27 @@ describe('form validate trigger', () => {
     wrapper.unmount()
   })
 
+  it('does not clear rule.validateTrigger blur errors on change when field validateTrigger is not configured', async () => {
+    const { wrapper, formRef, input } = createInputForm({
+      rules: [{ required: true, message: 'Username required', validateTrigger: 'blur' }],
+    })
+
+    await makeFieldEmpty(wrapper)
+    await input().trigger('blur')
+    await flushForm()
+    expect(formRef.value!.getFieldError('username')).toEqual(['Username required'])
+
+    await input().setValue('filled')
+    await flushForm()
+    expect(formRef.value!.getFieldError('username')).toEqual(['Username required'])
+
+    await input().trigger('blur')
+    await flushForm()
+    expect(formRef.value!.getFieldError('username')).toEqual([])
+
+    wrapper.unmount()
+  })
+
   it('validates rule.trigger on blur only', async () => {
     const { wrapper, formRef, input } = createInputForm({
       rules: [{ required: true, message: 'Username required', trigger: 'blur' }],
@@ -106,6 +138,27 @@ describe('form validate trigger', () => {
     await input().trigger('blur')
     await flushForm()
     expect(formRef.value!.getFieldError('username')).toEqual(['Username required'])
+
+    wrapper.unmount()
+  })
+
+  it('does not clear rule.trigger blur errors on change when field validateTrigger is not configured', async () => {
+    const { wrapper, formRef, input } = createInputForm({
+      rules: [{ required: true, message: 'Username required', trigger: 'blur' }],
+    })
+
+    await makeFieldEmpty(wrapper)
+    await input().trigger('blur')
+    await flushForm()
+    expect(formRef.value!.getFieldError('username')).toEqual(['Username required'])
+
+    await input().setValue('filled')
+    await flushForm()
+    expect(formRef.value!.getFieldError('username')).toEqual(['Username required'])
+
+    await input().trigger('blur')
+    await flushForm()
+    expect(formRef.value!.getFieldError('username')).toEqual([])
 
     wrapper.unmount()
   })
