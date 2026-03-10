@@ -82,22 +82,24 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 | validateMessages | 验证提示模板，说明[见下](#validatemessages) | ValidateMessages | - | - |
 | model | 表单数据 | Record&lt;string, any&gt; | - | - |
 | rules | 表单规则 | Record&lt;string, Rule[]&gt; | - | - |
-| validateTrigger | 统一设置字段触发验证的时机 | string \| string[] \| false | `change` | - |
+| validateTrigger | 统一设置字段触发验证的时机。设为 `false` 时禁用所有交互事件触发的校验，即使规则单独声明了 `trigger` 或 `validateTrigger`；`validateFields` 和提交校验仍会执行 | string \| string[] \| false | `change` | - |
 | preserve | 当字段被删除时保留字段值。你可以通过 `getFieldsValue(true)` 来获取保留字段值 | boolean | true | - |
 | clearOnDestroy | 当表单被卸载时清空表单值 | boolean | false | - |
-| validateOnRuleChange | - | boolean | - | - |
+| validateOnRuleChange | 当 `Form.rules` 发生变化时，自动重新触发表单校验 | boolean | false | - |
 | rootClass | 根容器类名 | string | - | - |
 | prefixCls | 组件前缀类名 | string | - | - |
 
 ### 事件 {#form-events}
 
+Vue 版本事件名省略 React 版本的 `on` 前缀，例如 React 的 `onValuesChange` 对应 Vue 的 `@valuesChange`。
+
 | 事件 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
 | finish | 提交表单且数据验证成功后回调事件 | (values: Record&lt;string, any&gt;) =&gt; void | - |
 | finishFailed | 提交表单且数据验证失败后回调事件 | (errorInfo: ValidateErrorEntity) =&gt; void | - |
-| submit | - | (e: Event) =&gt; void | - |
-| reset | - | (e: Event) =&gt; void | - |
-| validate | - | (name: InternalNamePath, status: boolean, errors: any[] \| null) =&gt; void | - |
+| submit | 原生表单提交时触发，在内部校验开始前执行 | (e: Event) =&gt; void | - |
+| reset | 原生表单重置时触发 | (e: Event) =&gt; void | - |
+| validate | 单个字段校验完成时触发，返回字段路径、是否通过以及错误信息 | (name: InternalNamePath, status: boolean, errors: any[] \| null) =&gt; void | - |
 | valuesChange | 字段值更新时触发回调事件 | (changedValues: Record&lt;string, any&gt;, values: Record&lt;string, any&gt;) =&gt; void | - |
 | fieldsChange | 字段更新时触发回调事件 | (changedFields: FieldData[], allFields: FieldData[]) =&gt; void | - |
 
@@ -111,24 +113,27 @@ const formRef = ref<FormInstance>()
 
 | 方法 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
-| getFieldValue | - | (name: NamePath) =&gt; StoreValue | - |
-| getFieldsValue | - | (nameList?: NamePath[] \| true) =&gt; Record&lt;string, any&gt; | - |
-| getFieldError | - | (name: NamePath) =&gt; string[] | - |
-| getFieldsError | - | (nameList?: NamePath[]) =&gt; FieldError[] | - |
-| getFieldWarning | - | (name: NamePath) =&gt; string[] | - |
-| isFieldsTouched | - | (nameList?: NamePath[] \| boolean, allFieldsTouched?: boolean) =&gt; boolean | - |
-| isFieldTouched | - | (name: NamePath) =&gt; boolean | - |
-| isFieldsValidating | - | (nameList?: NamePath[]) =&gt; boolean | - |
-| isFieldValidating | - | (name: NamePath) =&gt; boolean | - |
-| resetFields | - | (nameList?: NamePath[]) =&gt; void | - |
-| clearValidate | - | (nameList?: NamePath[]) =&gt; void | - |
-| setFields | - | (data: FieldData[]) =&gt; void | - |
-| setFieldValue | - | (name: NamePath, value: any) =&gt; void | - |
-| setFieldsValue | - | (values: Record&lt;string, any&gt;) =&gt; void | - |
-| validateFields | - | (nameList?: NamePath[], options?: ValidateOptions) =&gt; Promise&lt;Record&lt;string, any&gt;&gt; | - |
-| validate | - | () =&gt; Promise&lt;Record&lt;string, any&gt;&gt; | - |
-| submit | - | () =&gt; void | - |
-| nativeElement | - | HTMLFormElement \| undefined | - |
+| getFieldValue | 获取单个字段值 | (name: NamePath) =&gt; StoreValue | - |
+| getFieldsValue | 获取一组字段值；传 `true` 时返回当前已收集字段的值 | (nameList?: NamePath[] \| true) =&gt; Record&lt;string, any&gt; | - |
+| getFieldError | 获取单个字段的错误信息 | (name: NamePath) =&gt; string[] | - |
+| getFieldsError | 获取字段错误信息列表，包含 `errors` 和 `warnings` | (nameList?: NamePath[]) =&gt; FieldError[] | - |
+| getFieldWarning | 获取单个字段的警告信息 | (name: NamePath) =&gt; string[] | - |
+| isFieldsTouched | 检查字段是否已被操作；当 `allFieldsTouched` 为 `true` 时要求全部字段都已被操作 | (nameList?: NamePath[] \| boolean, allFieldsTouched?: boolean) =&gt; boolean | - |
+| isFieldTouched | 检查单个字段是否已被操作 | (name: NamePath) =&gt; boolean | - |
+| isFieldsValidating | 检查字段是否处于校验中 | (nameList?: NamePath[]) =&gt; boolean | - |
+| isFieldValidating | 检查单个字段是否处于校验中 | (name: NamePath) =&gt; boolean | - |
+| resetFields | 重置字段值、状态和校验结果；不传时重置全部字段 | (nameList?: NamePath[]) =&gt; void | - |
+| clearValidate | 清空字段校验结果，不修改字段值 | (nameList?: NamePath[]) =&gt; void | - |
+| setFields | 直接设置字段状态和字段值，可手动写入 `errors`、`warnings`、`touched` 等 | (data: FieldData[]) =&gt; void | - |
+| setFieldValue | 设置单个字段值 | (name: NamePath, value: any) =&gt; void | - |
+| setFieldsValue | 批量设置多个字段值 | (values: Record&lt;string, any&gt;) =&gt; void | - |
+| validateFields | 触发字段校验并返回对应字段值 | (nameList?: NamePath[], options?: ValidateOptions) =&gt; Promise&lt;Record&lt;string, any&gt;&gt; | - |
+| validate | `validateFields()` 的别名，用于校验整个表单 | () =&gt; Promise&lt;Record&lt;string, any&gt;&gt; | - |
+| submit | 提交表单，效果等同于触发表单 `submit` | () =&gt; void | - |
+| nativeElement | 表单根 `form` 元素 | HTMLFormElement \| undefined | - |
+| scrollToField | 滚动到指定字段位置，默认会尝试聚焦该字段 | (name: NamePath, options?: ScrollFocusOptions \| boolean) =&gt; void | - |
+| focusField | 聚焦指定字段对应的 DOM 元素 | (name: NamePath) =&gt; void | - |
+| getFieldInstance | 获取已注册字段实例 | (name: NamePath) =&gt; any | - |
 
 ### FormItem {#form-item}
 
@@ -148,7 +153,7 @@ const formRef = ref<FormInstance>()
 | validateStatus | 校验状态 | ValidateStatus | - | - |
 | required | 是否显示必选样式 | boolean | false | - |
 | rules | 校验规则 | Rule[] | - | - |
-| validateTrigger | 触发校验的时机 | string \| string[] \| false | `change` | - |
+| validateTrigger | 触发校验的时机。设为 `false` 时禁用当前字段的所有交互事件校验，即使规则单独声明了 `trigger` 或 `validateTrigger`；显式调用 `validateFields` 或提交时仍会校验 | string \| string[] \| false | `change` | - |
 | validateDebounce | 延迟校验时间（毫秒） | number | - | - |
 | validateFirst | 是否在第一个规则失败后停止 | boolean \| `parallel` | false | - |
 | noStyle | 为 `true` 时不带样式，仅作为字段控制 | boolean | false | - |
@@ -171,6 +176,64 @@ const formRef = ref<FormInstance>()
 | help | 自定义帮助/错误提示（优先于 `help` 属性） | () =&gt; any | - |
 
 ### 类型
+
+#### Rule {#rule}
+
+`rules` 支持在 `Form` 上按字段批量声明，也支持在 `Form.Item` 上为单个字段声明。当前实现的主要类型如下：
+
+```ts
+type RuleType =
+  | 'string'
+  | 'number'
+  | 'boolean'
+  | 'method'
+  | 'regexp'
+  | 'integer'
+  | 'float'
+  | 'object'
+  | 'enum'
+  | 'date'
+  | 'url'
+  | 'hex'
+  | 'email'
+  | 'tel'
+
+type TriggerType = 'change' | 'blur' | 'focus'
+
+type Validator = (
+  rule: RuleObject,
+  value: any,
+  callback: (error?: string) => void,
+) => Promise<void | any> | void
+
+interface RuleObject {
+  warningOnly?: boolean
+  enum?: any[]
+  len?: number
+  max?: number
+  message?: string | Component
+  min?: number
+  pattern?: RegExp
+  required?: boolean
+  transform?: (value: any) => any
+  type?: RuleType | 'array'
+  whitespace?: boolean
+  trigger?: TriggerType | TriggerType[]
+  validateTrigger?: TriggerType | TriggerType[]
+  validator?: Validator
+  defaultField?: RuleObject
+}
+
+type RuleRender = (form: FormInstance) => RuleObject
+type Rule = RuleObject | RuleRender
+```
+
+说明：
+
+- `Form.rules` 的类型为 `Record<string, Rule[]>`
+- `Form.Item.rules` 的类型为 `Rule[]`
+- `validateTrigger` 优先级高于 `trigger`
+- `type: 'array'` 时可通过 `defaultField` 为数组元素继续声明规则
 
 #### validateMessages {#validatemessages}
 

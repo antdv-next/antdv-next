@@ -81,22 +81,24 @@ Common props ref：[Common props](/docs/vue/common-props)
 | validateMessages | Validation prompt template, description [see below](#validatemessages) | ValidateMessages | - | - |
 | model | Form model | Record&lt;string, any&gt; | - | - |
 | rules | Form rules | Record&lt;string, Rule[]&gt; | - | - |
-| validateTrigger | Config field validate trigger | string \| string[] \| false | `change` | - |
+| validateTrigger | Config field validate trigger. When set to `false`, all interaction-driven validation is disabled even if a rule declares `trigger` or `validateTrigger`; `validateFields` and submit validation still run | string \| string[] \| false | `change` | - |
 | preserve | Keep field value even when field removed. You can get the preserve field value by `getFieldsValue(true)` | boolean | true | - |
 | clearOnDestroy | Clear form values when the form is uninstalled | boolean | false | - |
-| validateOnRuleChange | - | boolean | - | - |
+| validateOnRuleChange | Automatically revalidates the form when `Form.rules` changes | boolean | false | - |
 | rootClass | Root container class | string | - | - |
 | prefixCls | Prefix class name | string | - | - |
 
 ### Events {#form-events}
 
+Vue event names omit the React `on` prefix. For example, React `onValuesChange` maps to Vue `@valuesChange`.
+
 | Event | Description | Type | Version |
 | --- | --- | --- | --- |
 | finish | Trigger after submitting the form and verifying data successfully | (values: Record&lt;string, any&gt;) =&gt; void | - |
 | finishFailed | Trigger after submitting the form and verifying data failed | (errorInfo: ValidateErrorEntity) =&gt; void | - |
-| submit | - | (e: Event) =&gt; void | - |
-| reset | - | (e: Event) =&gt; void | - |
-| validate | - | (name: InternalNamePath, status: boolean, errors: any[] \| null) =&gt; void | - |
+| submit | Triggered on native form submit before internal validation starts | (e: Event) =&gt; void | - |
+| reset | Triggered on native form reset | (e: Event) =&gt; void | - |
+| validate | Triggered when a single field finishes validation. Returns the field path, pass status, and error messages | (name: InternalNamePath, status: boolean, errors: any[] \| null) =&gt; void | - |
 | valuesChange | Trigger when value updated | (changedValues: Record&lt;string, any&gt;, values: Record&lt;string, any&gt;) =&gt; void | - |
 | fieldsChange | Trigger when field updated | (changedFields: FieldData[], allFields: FieldData[]) =&gt; void | - |
 
@@ -110,24 +112,27 @@ const formRef = ref<FormInstance>()
 
 | Method | Description | Type | Version |
 | --- | --- | --- | --- |
-| getFieldValue | - | (name: NamePath) =&gt; StoreValue | - |
-| getFieldsValue | - | (nameList?: NamePath[] \| true) =&gt; Record&lt;string, any&gt; | - |
-| getFieldError | - | (name: NamePath) =&gt; string[] | - |
-| getFieldsError | - | (nameList?: NamePath[]) =&gt; FieldError[] | - |
-| getFieldWarning | - | (name: NamePath) =&gt; string[] | - |
-| isFieldsTouched | - | (nameList?: NamePath[] \| boolean, allFieldsTouched?: boolean) =&gt; boolean | - |
-| isFieldTouched | - | (name: NamePath) =&gt; boolean | - |
-| isFieldsValidating | - | (nameList?: NamePath[]) =&gt; boolean | - |
-| isFieldValidating | - | (name: NamePath) =&gt; boolean | - |
-| resetFields | - | (nameList?: NamePath[]) =&gt; void | - |
-| clearValidate | - | (nameList?: NamePath[]) =&gt; void | - |
-| setFields | - | (data: FieldData[]) =&gt; void | - |
-| setFieldValue | - | (name: NamePath, value: any) =&gt; void | - |
-| setFieldsValue | - | (values: Record&lt;string, any&gt;) =&gt; void | - |
-| validateFields | - | (nameList?: NamePath[], options?: ValidateOptions) =&gt; Promise&lt;Record&lt;string, any&gt;&gt; | - |
-| validate | - | () =&gt; Promise&lt;Record&lt;string, any&gt;&gt; | - |
-| submit | - | () =&gt; void | - |
-| nativeElement | - | HTMLFormElement \| undefined | - |
+| getFieldValue | Get the value of a single field | (name: NamePath) =&gt; StoreValue | - |
+| getFieldsValue | Get values of a group of fields. Pass `true` to return values of all currently collected fields | (nameList?: NamePath[] \| true) =&gt; Record&lt;string, any&gt; | - |
+| getFieldError | Get error messages of a single field | (name: NamePath) =&gt; string[] | - |
+| getFieldsError | Get field error info list, including `errors` and `warnings` | (nameList?: NamePath[]) =&gt; FieldError[] | - |
+| getFieldWarning | Get warning messages of a single field | (name: NamePath) =&gt; string[] | - |
+| isFieldsTouched | Check whether fields have been operated on. When `allFieldsTouched` is `true`, all fields must be touched | (nameList?: NamePath[] \| boolean, allFieldsTouched?: boolean) =&gt; boolean | - |
+| isFieldTouched | Check whether a single field has been operated on | (name: NamePath) =&gt; boolean | - |
+| isFieldsValidating | Check whether fields are validating | (nameList?: NamePath[]) =&gt; boolean | - |
+| isFieldValidating | Check whether a single field is validating | (name: NamePath) =&gt; boolean | - |
+| resetFields | Reset field values, status, and validation results. Resets all fields when omitted | (nameList?: NamePath[]) =&gt; void | - |
+| clearValidate | Clear validation results without changing field values | (nameList?: NamePath[]) =&gt; void | - |
+| setFields | Set field state and values directly. Useful for writing `errors`, `warnings`, `touched`, and similar meta manually | (data: FieldData[]) =&gt; void | - |
+| setFieldValue | Set the value of a single field | (name: NamePath, value: any) =&gt; void | - |
+| setFieldsValue | Set values of multiple fields in batch | (values: Record&lt;string, any&gt;) =&gt; void | - |
+| validateFields | Validate fields and return the corresponding field values | (nameList?: NamePath[], options?: ValidateOptions) =&gt; Promise&lt;Record&lt;string, any&gt;&gt; | - |
+| validate | Alias of `validateFields()` for validating the whole form | () =&gt; Promise&lt;Record&lt;string, any&gt;&gt; | - |
+| submit | Submit the form. Equivalent to triggering form `submit` | () =&gt; void | - |
+| nativeElement | Root `form` element | HTMLFormElement \| undefined | - |
+| scrollToField | Scroll to the specified field. By default it will also try to focus the field | (name: NamePath, options?: ScrollFocusOptions \| boolean) =&gt; void | - |
+| focusField | Focus the DOM element of the specified field | (name: NamePath) =&gt; void | - |
+| getFieldInstance | Get the registered field instance | (name: NamePath) =&gt; any | - |
 
 ### FormItem {#form-item}
 
@@ -147,7 +152,7 @@ const formRef = ref<FormInstance>()
 | validateStatus | The validation status | ValidateStatus | - | - |
 | required | Display required style. It will be generated by the validation rule | boolean | false | - |
 | rules | Rules for field validation | Rule[] | - | - |
-| validateTrigger | When to validate the value of children node | string \| string[] \| false | `change` | - |
+| validateTrigger | When to validate the value of children node. When set to `false`, all interaction-driven validation for the field is disabled even if a rule declares `trigger` or `validateTrigger`; explicit `validateFields` and submit validation still run | string \| string[] \| false | `change` | - |
 | validateDebounce | Delay milliseconds to start validation | number | - | - |
 | validateFirst | Whether stop validate on first rule of error for this field. Will parallel validate when `parallel` configured | boolean \| `parallel` | false | - |
 | noStyle | No style for `true`, used as a pure field control | boolean | false | - |
@@ -170,6 +175,64 @@ const formRef = ref<FormInstance>()
 | help | Custom help/error message (higher priority than `help` prop) | () =&gt; any | - |
 
 ## Types
+
+### Rule {#rule}
+
+`rules` can be declared on `Form` for multiple fields or on `Form.Item` for a single field. The main supported types are:
+
+```ts
+type RuleType =
+  | 'string'
+  | 'number'
+  | 'boolean'
+  | 'method'
+  | 'regexp'
+  | 'integer'
+  | 'float'
+  | 'object'
+  | 'enum'
+  | 'date'
+  | 'url'
+  | 'hex'
+  | 'email'
+  | 'tel'
+
+type TriggerType = 'change' | 'blur' | 'focus'
+
+type Validator = (
+  rule: RuleObject,
+  value: any,
+  callback: (error?: string) => void,
+) => Promise<void | any> | void
+
+interface RuleObject {
+  warningOnly?: boolean
+  enum?: any[]
+  len?: number
+  max?: number
+  message?: string | Component
+  min?: number
+  pattern?: RegExp
+  required?: boolean
+  transform?: (value: any) => any
+  type?: RuleType | 'array'
+  whitespace?: boolean
+  trigger?: TriggerType | TriggerType[]
+  validateTrigger?: TriggerType | TriggerType[]
+  validator?: Validator
+  defaultField?: RuleObject
+}
+
+type RuleRender = (form: FormInstance) => RuleObject
+type Rule = RuleObject | RuleRender
+```
+
+Notes:
+
+- `Form.rules` is typed as `Record<string, Rule[]>`
+- `Form.Item.rules` is typed as `Rule[]`
+- `validateTrigger` has higher priority than `trigger`
+- When `type: 'array'` is used, `defaultField` can define rules for array items
 
 ### validateMessages
 

@@ -211,6 +211,42 @@ describe('form validate trigger', () => {
     wrapper.unmount()
   })
 
+  it('honors validateTrigger false before rule.validateTrigger checks', async () => {
+    const { wrapper, formRef, input } = createInputForm({
+      validateTrigger: false,
+      rules: [{ required: true, message: 'Username required', validateTrigger: 'blur' }],
+    })
+
+    await makeFieldEmpty(wrapper)
+    await input().trigger('blur')
+    await flushForm()
+    expect(formRef.value!.getFieldError('username')).toEqual([])
+
+    await expect(formRef.value!.validateFields()).rejects.toMatchObject({
+      errorFields: [{ name: ['username'], errors: ['Username required'] }],
+    })
+
+    wrapper.unmount()
+  })
+
+  it('honors validateTrigger false before rule.trigger checks', async () => {
+    const { wrapper, formRef, input } = createInputForm({
+      validateTrigger: false,
+      rules: [{ required: true, message: 'Username required', trigger: 'blur' }],
+    })
+
+    await makeFieldEmpty(wrapper)
+    await input().trigger('blur')
+    await flushForm()
+    expect(formRef.value!.getFieldError('username')).toEqual([])
+
+    await expect(formRef.value!.validateFields()).rejects.toMatchObject({
+      errorFields: [{ name: ['username'], errors: ['Username required'] }],
+    })
+
+    wrapper.unmount()
+  })
+
   it('validates all rules on submit regardless of rule.validateTrigger', async () => {
     const formRef = shallowRef<FormInstance>()
     const model = reactive({ gender: undefined as number | undefined })

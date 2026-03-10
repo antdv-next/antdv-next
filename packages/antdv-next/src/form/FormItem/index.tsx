@@ -303,8 +303,11 @@ const InternalFormItem = defineComponent<
         })
     }
     const triggerValidate = (triggerName: string) => {
+      if (mergedValidateTrigger.value === false) {
+        return
+      }
       const fieldTriggerList = toArray(mergedValidateTrigger.value)
-      const hasFieldTrigger = mergedValidateTrigger.value !== false && fieldTriggerList.includes(triggerName)
+      const hasFieldTrigger = fieldTriggerList.includes(triggerName)
       const hasRuleTrigger = mergedRules.value.some(rule => getRuleTriggerList(rule).includes(triggerName))
       if (!hasFieldTrigger && !hasRuleTrigger) {
         return
