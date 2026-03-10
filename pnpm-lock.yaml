@@ -342,8 +342,8 @@ catalogs:
       specifier: ^1.0.2
       version: 1.0.2
     '@v-c/input-number':
-      specifier: ^1.0.2
-      version: 1.0.2
+      specifier: ^1.0.3
+      version: 1.0.3
     '@v-c/mentions':
       specifier: ^1.0.0
       version: 1.0.0
@@ -795,7 +795,7 @@ importers:
         version: 1.0.2(vue@3.5.29(typescript@5.9.3))
       '@v-c/input-number':
         specifier: catalog:vc
-        version: 1.0.2(vue@3.5.29(typescript@5.9.3))
+        version: 1.0.3(vue@3.5.29(typescript@5.9.3))
       '@v-c/mentions':
         specifier: catalog:vc
         version: 1.0.0(vue@3.5.29(typescript@5.9.3))
@@ -2715,6 +2715,11 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
+  '@v-c/input-number@1.0.3':
+    resolution: {integrity: sha512-L38ANAuSx8As5hsqk95mHx4N98Xv15jr5aKQKob4kXPBhIy5DQ+rzNiXgm0vokvav8hPSN/qsCPqHGDcNpLXTg==}
+    peerDependencies:
+      vue: ^3.0.0
+
   '@v-c/input@1.0.2':
     resolution: {integrity: sha512-NzBor6XbUYP42zRrcaBUgWtQI1aIaN3oylmMdvSZ5UMcWsAXRNC8XKsedkFF/LLOEJBJ2NaTbomHRwkIjmtQAA==}
     peerDependencies:
@@ -2801,11 +2806,6 @@ packages:
 
   '@v-c/segmented@1.0.1':
     resolution: {integrity: sha512-qEaHzJxl3gfuZNn754iUcC+YrvPih0luD/wr51VInwOKQgEqaIm5R0fzs3uO57aA4zCuXrDn5LK0z6rFOF+IbQ==}
-    peerDependencies:
-      vue: ^3.0.0
-
-  '@v-c/select@1.0.17':
-    resolution: {integrity: sha512-K+vvx6iwTuzgJutrOJYH+KBpmP0H8WBXMUV9ot3qB76+opZDWyq2tutcGLPQCO7fbHDoZfq0OxPSiz/EutrKxQ==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -7908,6 +7908,13 @@ snapshots:
       '@v-c/util': 1.0.17(vue@3.5.29(typescript@5.9.3))
       vue: 3.5.29(typescript@5.9.3)
 
+  '@v-c/input-number@1.0.3(vue@3.5.29(typescript@5.9.3))':
+    dependencies:
+      '@v-c/input': 1.0.2(vue@3.5.29(typescript@5.9.3))
+      '@v-c/mini-decimal': 1.0.1
+      '@v-c/util': 1.0.17(vue@3.5.29(typescript@5.9.3))
+      vue: 3.5.29(typescript@5.9.3)
+
   '@v-c/input@1.0.2(vue@3.5.29(typescript@5.9.3))':
     dependencies:
       '@v-c/util': 1.0.17(vue@3.5.29(typescript@5.9.3))
@@ -8006,14 +8013,6 @@ snapshots:
   '@v-c/segmented@1.0.1(vue@3.5.29(typescript@5.9.3))':
     dependencies:
       '@v-c/util': 1.0.17(vue@3.5.29(typescript@5.9.3))
-      vue: 3.5.29(typescript@5.9.3)
-
-  '@v-c/select@1.0.17(vue@3.5.29(typescript@5.9.3))':
-    dependencies:
-      '@v-c/overflow': 1.0.3(vue@3.5.29(typescript@5.9.3))
-      '@v-c/trigger': 1.0.11(vue@3.5.29(typescript@5.9.3))
-      '@v-c/util': 1.0.17(vue@3.5.29(typescript@5.9.3))
-      '@v-c/virtual-list': 1.0.6(vue@3.5.29(typescript@5.9.3))
       vue: 3.5.29(typescript@5.9.3)
 
   '@v-c/select@1.0.18(vue@3.5.29(typescript@5.9.3))':
@@ -8477,7 +8476,7 @@ snapshots:
       '@v-c/rate': 1.0.1(vue@3.5.29(typescript@5.9.3))
       '@v-c/resize-observer': 1.0.8(vue@3.5.29(typescript@5.9.3))
       '@v-c/segmented': 1.0.1(vue@3.5.29(typescript@5.9.3))
-      '@v-c/select': 1.0.17(vue@3.5.29(typescript@5.9.3))
+      '@v-c/select': 1.0.18(vue@3.5.29(typescript@5.9.3))
       '@v-c/slick': 1.0.2(vue@3.5.29(typescript@5.9.3))
       '@v-c/slider': 1.0.10(vue@3.5.29(typescript@5.9.3))
       '@v-c/steps': 1.0.0(vue@3.5.29(typescript@5.9.3))
