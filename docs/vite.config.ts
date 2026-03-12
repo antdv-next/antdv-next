@@ -13,6 +13,14 @@ import { mdPlugin } from './plugins/markdown'
 import { postcssIsolateStyles } from './plugins/markdown/isolateStyles.ts'
 
 const baseUrl = fileURLToPath(new URL('.', import.meta.url))
+const docsBuildTarget = [
+  'chrome111',
+  'edge111',
+  'firefox114',
+  'safari16.4',
+  'ios16.4',
+] as const
+
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
@@ -86,6 +94,10 @@ export default defineConfig({
     },
   },
   build: {
+    // Lock the docs site target to Vite's current baseline so future browser
+    // version bumps do not leak unsupported targets like `chrome142` into the build.
+    target: [...docsBuildTarget],
+    cssTarget: [...docsBuildTarget],
     sourcemap: false,
   },
 })

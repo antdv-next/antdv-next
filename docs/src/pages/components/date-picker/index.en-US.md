@@ -202,9 +202,9 @@ Added in `4.1.0`.
 | defaultPickerValue | Default panel date, will be reset when panel open | [dayjs](https://day.js.org/)[] | - | - |
 | defaultValue | To set default date | [dayjs](https://day.js.org/)[] | - | - |
 | disabled | If disable start or end | [boolean, boolean] | - | - |
-| disabledTime | To specify the time that cannot be selected | function(date: dayjs, partial: `start` \| `end`, info: { from?: dayjs }) | - | - |
+| disabledTime | To specify the time that cannot be selected |`function(date: dayjs, partial: start \| end, info: { from?: dayjs })`| - | - |
 | format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY-MM-DD HH:mm:ss` | - |
-| id | Config input ids | { start?: string, end?: string } | - | - |
+| id | Config input ids | `{ start?: string, end?: string }` | - | - |
 | pickerValue | Panel date. Used for controlled switching of panel date. Work with `onPanelChange` | [dayjs](https://day.js.org/)[] | - | - |
 | presets | The preset ranges for quick selection, Since `5.8.0`, preset value supports callback function. | { label: VueNode, value: (Dayjs \| (() => Dayjs))[] }[] | - | - |
 | renderExtraFooter | Render extra footer in panel | () => VueNode | - | - |
