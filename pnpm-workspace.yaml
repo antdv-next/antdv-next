@@ -128,9 +128,9 @@ catalogs:
     '@v-c/collapse': ^1.0.0
     '@v-c/color-picker': ^1.0.6
     '@v-c/dialog': ^1.0.1
-    '@v-c/drawer': ^1.0.0
+    '@v-c/drawer': ^1.0.1
     '@v-c/dropdown': ^1.0.2
-    '@v-c/image': ^1.0.4
+    '@v-c/image': ^1.0.5
     '@v-c/input': ^1.0.2
     '@v-c/input-number': ^1.0.3
     '@v-c/mentions': ^1.0.0
@@ -139,7 +139,7 @@ catalogs:
     '@v-c/notification': ^1.0.0
     '@v-c/pagination': ^1.0.0
     '@v-c/picker': ^1.0.4
-    '@v-c/portal': ^1.0.7
+    '@v-c/portal': ^1.0.8
     '@v-c/progress': ^1.0.0
     '@v-c/qrcode': ^1.0.0
     '@v-c/rate': ^1.0.1
@@ -150,7 +150,7 @@ catalogs:
     '@v-c/slider': ^1.0.10
     '@v-c/steps': ^1.0.0
     '@v-c/switch': ^1.0.0
-    '@v-c/table': ^1.0.2
+    '@v-c/table': ^1.0.3
     '@v-c/tabs': ^1.0.1
     '@v-c/textarea': ^1.0.3
     '@v-c/tooltip': ^1.0.3
