@@ -153,6 +153,9 @@ const InternalSearch = defineComponent<
     }
 
     const handleChange: BaseInputEmits['change'] = (e) => {
+      if ((e as MouseEvent)?.type === 'click' && (e?.target as HTMLInputElement | undefined)?.value !== undefined) {
+        handleSearch(e as MouseEvent, { source: 'clear' }, (e.target as HTMLInputElement).value)
+      }
       emit('change', e)
     }
 
@@ -310,7 +313,6 @@ const InternalSearch = defineComponent<
             onKeyup={(e: any) => emit('keyup', e)}
             onClear={() => {
               emit('clear')
-              handleSearch(undefined, { source: 'clear' }, '')
             }}
             onCompositionstart={handleCompositionStart}
             onCompositionend={handleCompositionEnd}

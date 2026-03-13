@@ -145,7 +145,7 @@ describe('search', () => {
     await wrapper.find('.ant-input-clear-icon').trigger('click')
     expect(onClear).toHaveBeenCalled()
     expect(onSearch).toHaveBeenCalledTimes(1)
-    expect(onSearch).toHaveBeenCalledWith('', undefined, { source: 'clear' })
+    expect(onSearch).toHaveBeenCalledWith('', expect.anything(), { source: 'clear' })
     expect(value.value).toBe('')
   })
 
