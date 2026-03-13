@@ -45,20 +45,20 @@ Common props ref：[Common props](/docs/vue/common-props)
 | --- | --- | --- | --- | --- |
 | activeKey | Current TabPane's key, support `v-model:active-key` | string | - | - |
 | addIcon | Customize add icon, only works with `type="editable-card"` | VueNode | `<PlusOutlined />` | - |
-| animated | Whether to change tabs with animation | boolean \| { inkBar: boolean, tabPane: boolean } | { inkBar: true, tabPane: false } | - |
+| animated | Whether to change tabs with animation | boolean \| \{ inkBar: boolean, tabPane: boolean \} | \{ inkBar: true, tabPane: false \} | - |
 | centered | Centers tabs | boolean | false | - |
 | classes | Customize class for each semantic structure inside the component. Supports object or function | TabsClassNamesType | - | - |
 | defaultActiveKey | Initial active TabPane's key, if `activeKey` is not set | string | `The key of first tab` | - |
 | hideAdd | Hide plus icon or not. Only works while `type="editable-card"` | boolean | false | - |
-| indicator | Customize `size` and `align` of indicator | { size?: number \| (origin: number) => number; align?: `start` \| `center` \| `end` } | - | - |
+| indicator | Customize `size` and `align` of indicator | \{ size?: number \| (origin: number) => number; align?: `start` \| `center` \| `end` \} | - | - |
 | items | Configure tab content | TabItemType[] | [] | - |
-| more | Customize the collapse menu | MoreProps | { icon: `<EllipsisOutlined />`, trigger: 'hover' } | - |
+| more | Customize the collapse menu | MoreProps | \{ icon: `<EllipsisOutlined />`, trigger: 'hover' \} | - |
 | moreIcon | Custom icon of the collapse menu | VueNode | `<EllipsisOutlined />` | - |
 | removeIcon | The custom icon of remove, only works with `type="editable-card"` | VueNode | `<CloseOutlined />` | - |
-| renderTabBar | Replace the TabBar | (ctx: { props: any; TabNavListComponent: any }) => VueNode | - | - |
+| renderTabBar | Replace the TabBar | (ctx: \{ props: any; TabNavListComponent: any \}) => VueNode | - | - |
 | size | Preset tab bar size | `large` \| `middle` \| `small` | `middle` | - |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function | TabsStylesType | - | - |
-| tabBarExtraContent | Extra content in tab bar | VueNode \| { left?: VueNode, right?: VueNode } | - | - |
+| tabBarExtraContent | Extra content in tab bar | VueNode \| \{ left?: VueNode, right?: VueNode \} | - | - |
 | tabBarGutter | The gap between tabs | number | - | - |
 | tabBarStyle | Tab bar style object | CSSProperties | - | - |
 | tabPlacement | Placement of tabs | `top` \| `end` \| `bottom` \| `start` | `top` | - |
@@ -93,7 +93,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | change | Callback executed when active tab is changed | (activeKey: string) => void | - |
 | edit | Callback executed when tab is added or removed. Only works while `type="editable-card"` | (e: MouseEvent \| KeyboardEvent \| string, action: 'add' \| 'remove') => void | - |
 | tabClick | Callback executed when tab is clicked | (key: string, event: MouseEvent) => void | - |
-| tabScroll | Trigger when tab scroll | ({ direction: `left` \| `right` \| `top` \| `bottom` }) => void | - |
+| tabScroll | Trigger when tab scroll | (\{ direction: `left` \| `right` \| `top` \| `bottom` \}) => void | - |
 
 ### Slots {#slots}
 
@@ -102,9 +102,9 @@ Common props ref：[Common props](/docs/vue/common-props)
 | addIcon | Customize add icon, only works with `type="editable-card"` | () => any | - |
 | moreIcon | Custom collapse menu icon | () => any | - |
 | removeIcon | The custom icon of remove, only works with `type="editable-card"` | () => any | - |
-| labelRender | Custom label render | (args: { item: TabItemType; index: number }) => any | - |
-| contentRender | Custom content render | (args: { item: TabItemType; index: number }) => any | - |
-| renderTabBar | Replace the TabBar | (args: { props: any; TabNavListComponent: any }) => any | - |
+| labelRender | Custom label render | (args: \{ item: TabItemType; index: number \}) => any | - |
+| contentRender | Custom content render | (args: \{ item: TabItemType; index: number \}) => any | - |
+| renderTabBar | Replace the TabBar | (args: \{ props: any; TabNavListComponent: any \}) => any | - |
 | rightExtra | Extra content on the right | () => any | - |
 | leftExtra | Extra content on the left | () => any | - |
 

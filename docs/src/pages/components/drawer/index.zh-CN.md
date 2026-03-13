@@ -63,7 +63,7 @@ demo:
 | mask | 遮罩效果 | MaskType | true | - |
 | maskClosable | 点击遮罩是否允许关闭 | boolean | true | - |
 | placement | 抽屉的方向 | `top` \| `right` \| `bottom` \| `left` | `right` | - |
-| push | 多层抽屉的推开行为 | boolean \| { distance: string \| number } | { distance: 180 } | - |
+| push | 多层抽屉的推开行为 | boolean \| \{ distance: string \| number \} | \{ distance: 180 \} | - |
 | resizable | 是否允许拖拽调整尺寸 | boolean \| [ResizableConfig](#resizableconfig) | - | - |
 | rootClass | 根容器 class | string | - | - |
 | rootStyle | 根容器样式（包含遮罩） | CSSProperties | - | - |

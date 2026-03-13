@@ -62,7 +62,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | mask | Mask effect | MaskType | true | - |
 | maskClosable | Clicking on the mask (area outside the Drawer) to close the Drawer or not | boolean | true | - |
 | placement | The placement of the Drawer | `top` \| `right` \| `bottom` \| `left` | `right` | - |
-| push | Nested drawers push behavior | boolean \| { distance: string \| number } | { distance: 180 } | - |
+| push | Nested drawers push behavior | boolean \| \{ distance: string \| number \} | \{ distance: 180 \} | - |
 | resizable | Enable resizable by dragging | boolean \| [ResizableConfig](#resizableconfig) | - | - |
 | rootClass | Root container class | string | - | - |
 | rootStyle | Style of wrapper element which contains mask | CSSProperties | - | - |

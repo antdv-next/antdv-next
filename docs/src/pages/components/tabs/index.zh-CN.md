@@ -48,20 +48,20 @@ Antdv Next 依次提供了三级选项卡，分别用于不同的场景。
 | --- | --- | --- | --- | --- |
 | activeKey | 当前激活 tab 面板的 key，支持 `v-model:active-key` | string | - | - |
 | addIcon | 自定义添加按钮，设置 `type="editable-card"` 时有效 | VueNode | `<PlusOutlined />` | - |
-| animated | 是否使用动画切换 Tabs | boolean \| { inkBar: boolean, tabPane: boolean } | { inkBar: true, tabPane: false } | - |
+| animated | 是否使用动画切换 Tabs | boolean \| \{ inkBar: boolean, tabPane: boolean \} | \{ inkBar: true, tabPane: false \} | - |
 | centered | 标签居中展示 | boolean | false | - |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | TabsClassNamesType | - | - |
 | defaultActiveKey | 初始化选中面板的 key，如果没有设置 activeKey | string | `第一个面板的 key` | - |
 | hideAdd | 是否隐藏加号图标，在 `type="editable-card"` 时有效 | boolean | false | - |
-| indicator | 自定义指示条的长度和对齐方式 | { size?: number \| (origin: number) => number; align?: `start` \| `center` \| `end` } | - | - |
+| indicator | 自定义指示条的长度和对齐方式 | \{ size?: number \| (origin: number) => number; align?: `start` \| `center` \| `end` \} | - | - |
 | items | 配置选项卡内容 | TabItemType[] | [] | - |
-| more | 自定义折叠菜单属性 | MoreProps | { icon: `<EllipsisOutlined />`, trigger: 'hover' } | - |
+| more | 自定义折叠菜单属性 | MoreProps | \{ icon: `<EllipsisOutlined />`, trigger: 'hover' \} | - |
 | moreIcon | 自定义折叠图标 | VueNode | `<EllipsisOutlined />` | - |
 | removeIcon | 自定义删除按钮，设置 `type="editable-card"` 时有效 | VueNode | `<CloseOutlined />` | - |
-| renderTabBar | 替换 TabBar，用于二次封装标签头 | (ctx: { props: any; TabNavListComponent: any }) => VueNode | - | - |
+| renderTabBar | 替换 TabBar，用于二次封装标签头 | (ctx: \{ props: any; TabNavListComponent: any \}) => VueNode | - | - |
 | size | 大小，提供 `large` `middle` 和 `small` 三种大小 | `large` \| `middle` \| `small` | `middle` | - |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | TabsStylesType | - | - |
-| tabBarExtraContent | tab bar 上额外的元素 | VueNode \| { left?: VueNode, right?: VueNode } | - | - |
+| tabBarExtraContent | tab bar 上额外的元素 | VueNode \| \{ left?: VueNode, right?: VueNode \} | - | - |
 | tabBarGutter | tabs 之间的间隙 | number | - | - |
 | tabBarStyle | tab bar 的样式对象 | CSSProperties | - | - |
 | tabPlacement | 页签位置，可选值有 `top` `end` `bottom` `start` | `top` \| `end` \| `bottom` \| `start` | `top` | - |
@@ -96,7 +96,7 @@ Antdv Next 依次提供了三级选项卡，分别用于不同的场景。
 | change | 切换面板的回调 | (activeKey: string) => void | - |
 | edit | 新增和删除页签的回调，在 `type="editable-card"` 时有效 | (e: MouseEvent \| KeyboardEvent \| string, action: 'add' \| 'remove') => void | - |
 | tabClick | tab 被点击的回调 | (key: string, event: MouseEvent) => void | - |
-| tabScroll | tab 滚动时触发 | ({ direction: `left` \| `right` \| `top` \| `bottom` }) => void | - |
+| tabScroll | tab 滚动时触发 | (\{ direction: `left` \| `right` \| `top` \| `bottom` \}) => void | - |
 
 ### 插槽 {#slots}
 
@@ -105,9 +105,9 @@ Antdv Next 依次提供了三级选项卡，分别用于不同的场景。
 | addIcon | 自定义添加按钮，设置 `type="editable-card"` 时有效 | () => any | - |
 | moreIcon | 自定义折叠图标 | () => any | - |
 | removeIcon | 自定义删除按钮，设置 `type="editable-card"` 时有效 | () => any | - |
-| labelRender | 自定义标签头 | (args: { item: TabItemType; index: number }) => any | - |
-| contentRender | 自定义内容 | (args: { item: TabItemType; index: number }) => any | - |
-| renderTabBar | 替换 TabBar | (args: { props: any; TabNavListComponent: any }) => any | - |
+| labelRender | 自定义标签头 | (args: \{ item: TabItemType; index: number \}) => any | - |
+| contentRender | 自定义内容 | (args: \{ item: TabItemType; index: number \}) => any | - |
+| renderTabBar | 替换 TabBar | (args: \{ props: any; TabNavListComponent: any \}) => any | - |
 | rightExtra | 右侧附加内容 | () => any | - |
 | leftExtra | 左侧附加内容 | () => any | - |
 
