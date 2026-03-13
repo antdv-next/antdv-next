@@ -212,9 +212,9 @@ demo:
 
 `onChange` 事件仅会作用于在列表中的文件，因而 `fileList` 不存在对应文件时后续事件会被忽略。
 
-### `onChange` 为什么有时候返回 File 有时候返回 `\{ originFileObj: File \}`？ {#faq-on-change-return-type}
+### `onChange` 为什么有时候返回 File 有时候返回 `{ originFileObj: File }`？ {#faq-on-change-return-type}
 
-历史原因，在 `beforeUpload` 返回 `false` 时，会返回 `File` 对象。在下个大版本我们会统一返回 `\{ originFileObj: File \}` 对象。当前版本已经兼容所有场景下 `info.file.originFileObj` 获取原 `File` 写法。你可以提前切换。
+历史原因，在 `beforeUpload` 返回 `false` 时，会返回 `File` 对象。在下个大版本我们会统一返回 `{ originFileObj: File }` 对象。当前版本已经兼容所有场景下 `info.file.originFileObj` 获取原 `File` 写法。你可以提前切换。
 
 ### 为何有时 Chrome 点击 Upload 无法弹出文件选择框？ {#faq-chrome-file-picker}
 

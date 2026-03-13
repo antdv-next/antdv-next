@@ -212,9 +212,9 @@ See <https://github.com/react-component/upload#customrequest>.
 
 `onChange` will only trigger when the file is in the list, it will ignore any events removed from the list.
 
-### Why does `onChange` sometimes return File object and other times return `\{ originFileObj: File \}`? {#faq-on-change-return-type}
+### Why does `onChange` sometimes return File object and other times return `{ originFileObj: File }`? {#faq-on-change-return-type}
 
-For compatible case, we return File object when `beforeUpload` return `false`. It will merge to `\{ originFileObj: File \}` in the next major version. Current version is compatible to get origin file by `info.file.originFileObj`. You can change this before a major release.
+For compatible case, we return File object when `beforeUpload` return `false`. It will merge to `{ originFileObj: File }` in the next major version. Current version is compatible to get origin file by `info.file.originFileObj`. You can change this before a major release.
 
 ### Why sometimes Chrome can not upload? {#faq-chrome-file-picker}
 
