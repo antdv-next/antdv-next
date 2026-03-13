@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { MenuProps } from 'antdv-next'
-import { BgColorsOutlined, CompressOutlined, LinkOutlined, MoonOutlined, ShopOutlined, SmileOutlined, SunOutlined, SyncOutlined } from '@antdv-next/icons'
+import { AntDesignOutlined, BgColorsOutlined, CompressOutlined, LinkOutlined, MoonOutlined, ShopOutlined, SmileOutlined, SunOutlined, SyncOutlined } from '@antdv-next/icons'
+import { Modal } from 'antdv-next'
 import { storeToRefs } from 'pinia'
 import { computed, h } from 'vue'
 import ThemeIcon from '@/components/icons/theme.vue'
@@ -14,7 +15,8 @@ defineOptions({
 })
 
 const { setThemeMode } = useTheme()
-
+const local = localStorage.getItem('locale')
+const confirm = Modal.confirm
 const appStore = useAppStore()
 const { compactMode, happyMode } = storeToRefs(appStore)
 
@@ -75,14 +77,12 @@ const themeMenuItems = computed<MenuProps['items']>(() => [
     key: 'ai-theme',
     label: t('ui.themeBtn.aiTheme'),
     icon: h(ShopOutlined),
-    disabled: true,
   },
   {
     key: 'theme-editor',
     label: t('ui.themeBtn.themeEditor'),
     icon: h(BgColorsOutlined),
     extra: h(LinkOutlined),
-    disabled: true,
   },
 ])
 
@@ -97,6 +97,27 @@ function handleMenuClick(info: { key: string, domEvent: MouseEvent }) {
   }
   else if (key === 'happy') {
     appStore.toggleHappyMode()
+  }
+  else if (key === 'ai-theme') {
+    confirm({
+      title: t('ui.themeBtn.aiThemeModal.title'),
+      icon: h(AntDesignOutlined),
+      content: t('ui.themeBtn.aiThemeModal.content'),
+      okText: t('ui.themeBtn.aiThemeModal.okText'),
+      cancelText: t('ui.themeBtn.aiThemeModal.cancelText'),
+      onOk() {
+        if (local === 'zh-CN')
+          window.open('https://ant.design/index-cn', '_blank')
+        else
+          window.open('https://ant.design', '_blank')
+      },
+    })
+  }
+  else if (key === 'theme-editor') {
+    if (local === 'zh-CN')
+      window.open('https://ant.design/theme-editor-cn', '_blank')
+    else
+      window.open('https://ant.design/theme-editor', '_blank')
   }
 }
 </script>

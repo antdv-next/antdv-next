@@ -7,6 +7,12 @@ export default {
     happy: 'Happy Work Effect',
     aiTheme: 'AI Generated Theme',
     themeEditor: 'Theme Editor',
+    aiThemeModal: {
+      title: 'AI Theme Editor',
+      content: 'antdv-next shares the same theme token system with Ant Design, allowing you to use Ant Design\'s AI Theme Editor to customize themes for your antdv-next projects',
+      okText: 'Go',
+      cancelText: 'Cancel',
+    },
   },
 
   codeDemo: {
