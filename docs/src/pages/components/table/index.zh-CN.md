@@ -166,7 +166,7 @@ const columns = [
 | defaultFilteredValue | 默认筛选值 | string\[] | - | - |
 | filterResetToDefaultFilteredValue | 点击重置按钮的时候，是否恢复默认筛选值 | boolean | false | - |
 | defaultSortOrder | 默认排序顺序 | `ascend` \| `descend` | - | - |
-| ellipsis | 超过宽度将自动省略，暂不支持和排序筛选一起使用。<br />设置为 `true` 或 `{ showTitle?: boolean }` 时，表格布局将变成 `tableLayout="fixed"`。 | boolean \| { showTitle?: boolean } | false | - |
+| ellipsis | 超过宽度将自动省略，暂不支持和排序筛选一起使用。<br />设置为 `true` 或 `{ showTitle?: boolean }` 时，表格布局将变成 `tableLayout="fixed"`。 | boolean \| \{ showTitle?: boolean \} | false | - |
 | filterDropdown | 可以自定义筛选菜单，此函数只负责渲染图层，需要自行编写各种交互 | VueNode \| (props: [FilterDropdownProps](https://github.com/antdv-next/antdv-next/blob/main/packages/antdv-next/src/table/interface.ts#L94)) => VueNode | - | - |
 | filtered | 是否处于筛选状态 | boolean | false | - |
 | filteredValue | 筛选的受控属性，外界可用此控制列的筛选状态，值为已筛选的 value 数组 | string\[] | - | - |
@@ -186,8 +186,8 @@ const columns = [
 | sortDirections | 支持的排序方式，覆盖 `Table` 中 `sortDirections`， 取值为 `ascend` `descend` | Array | \[`ascend`, `descend`] | - |
 | sorter | 排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)。需要服务端排序可设为 `true`（单列排序） 或 `{ multiple: number }`（多列排序） | function \| boolean \| \{ compare: function, multiple: number \} | - | - |
 | sortOrder | 排序的受控属性，外界可用此控制列的排序，可设置为 `ascend` `descend` `null` | `ascend` \| `descend` \| null | - | - |
-| sortIcon | 自定义 sort 图标 | (props: { sortOrder }) => VueNode | - | - |
-| title | 列头显示文字（函数用法 `3.10.0` 后支持） | VueNode \| ({ sortColumns, filters }) => VueNode | - | - |
+| sortIcon | 自定义 sort 图标 | (props: \{ sortOrder \}) => VueNode | - | - |
+| title | 列头显示文字（函数用法 `3.10.0` 后支持） | VueNode \| (\{ sortColumns, filters \}) => VueNode | - | - |
 | width | 列宽 | string \| number | - | - |
 | minWidth | 最小列宽度，只在 `tableLayout="auto"` 时有效 | number | - | - |
 | hidden | 隐藏列 | boolean | false | - |
@@ -255,7 +255,7 @@ const columns = [
 | selections | 自定义选择项 [配置项](#selection), 设为 `true` 时使用默认选择项 | object\[] \| boolean | true | - |
 | type | 多选/单选 | `checkbox` \| `radio` | `checkbox` | - |
 | onCell | 设置单元格属性，用法与 Column 的 `onCell` 相同 | function(record, rowIndex) | - | - |
-| onChange | 选中项发生变化时的回调 | function(selectedRowKeys, selectedRows, info: { type }) | - | - |
+| onChange | 选中项发生变化时的回调 | function(selectedRowKeys, selectedRows, info: \{ type \}) | - | - |
 | onSelect | 用户手动选择/取消选择某行的回调 | function(record, selected, selectedRows, nativeEvent) | - | - |
 
 ### scroll

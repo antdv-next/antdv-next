@@ -165,7 +165,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | defaultFilteredValue | Default filtered values | string\[] | - | - |
 | filterResetToDefaultFilteredValue | click the reset button, whether to restore the default filter | boolean | false | - |
 | defaultSortOrder | Default order of sorted values | `ascend` \| `descend` | - | - |
-| ellipsis | The ellipsis cell content, not working with sorter and filters for now.<br />tableLayout would be `fixed` when `ellipsis` is `true` or `{ showTitle?: boolean }` | boolean \| {showTitle?: boolean } | false | - |
+| ellipsis | The ellipsis cell content, not working with sorter and filters for now.<br />tableLayout would be `fixed` when `ellipsis` is `true` or `{ showTitle?: boolean }` | boolean \| \{ showTitle?: boolean \} | false | - |
 | filterDropdown | Customized filter overlay | VueNode \| (props: [FilterDropdownProps](https://github.com/antdv-next/antdv-next/blob/main/packages/antdv-next/src/table/interface.ts#L94)) => VueNode | - | - |
 | filtered | Whether the `dataSource` is filtered | boolean | false | - |
 | filteredValue | Controlled filtered value, filter icon will highlight | string\[] | - | - |
@@ -185,8 +185,8 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | sortDirections | Supported sort way, override `sortDirections` in `Table`, could be `ascend`, `descend` | Array | \[`ascend`, `descend`] | - |
 | sorter | Sort function for local sort, see [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort)'s compareFunction. If it is server-side sorting, set to `true`, but if you want to support multi-column sorting, you can set it to `{ multiple: number }` | function \| boolean \| \{ compare: function, multiple: number \} | - | - |
 | sortOrder | Order of sorted values: `ascend` `descend` `null` | `ascend` \| `descend` \| null | - | - |
-| sortIcon | Customized sort icon | (props: { sortOrder }) => VueNode | - | - |
-| title | Title of this column | VueNode \| ({ sortColumns, filters }) => VueNode | - | - |
+| sortIcon | Customized sort icon | (props: \{ sortOrder \}) => VueNode | - | - |
+| title | Title of this column | VueNode \| (\{ sortColumns, filters \}) => VueNode | - | - |
 | width | Width of this column ([width not working?](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)) | string \| number | - | - |
 | minWidth | Min width of this column, only works when `tableLayout="auto"` | number | - | - |
 | hidden | Hidden this column | boolean | false | - |
@@ -253,7 +253,7 @@ Properties for row selection.
 | selections | Custom selection [config](#selection), only displays default selections when set to `true` | object\[] \| boolean | - | - |
 | type | `checkbox` or `radio` | `checkbox` \| `radio` | `checkbox` | - |
 | onCell | Set props on per cell. Same as `onCell` in column | function(record, rowIndex) | - | - |
-| onChange | Callback executed when selected rows change | function(selectedRowKeys, selectedRows, info: { type }) | - | - |
+| onChange | Callback executed when selected rows change | function(selectedRowKeys, selectedRows, info: \{ type \}) | - | - |
 | onSelect | Callback executed when select/deselect one row | function(record, selected, selectedRows, nativeEvent) | - | - |
 
 ### scroll
