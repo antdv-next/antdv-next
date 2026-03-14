@@ -94,7 +94,7 @@ const segmentedOptions = computed(() => [
     <a-card :class="[containerClassName, styles.container]">
       <a-app>
         <a-flex vertical gap="middle" :style="style" :class="className">
-          <ModalPanel title="Ant Design" width="100%">
+          <ModalPanel title="Antdv Next" width="100%">
             {{ t('homePage.componentsBlock.text') }}
           </ModalPanel>
 
