@@ -127,7 +127,7 @@ function changeDirection(value: 1 | 2) {
       </a-col>
       <a-col :xxl="20" :xl="19" :lg="18" :md="18" :sm="0" :xs="0">
         <div class="ant-doc-header-right flex items-center gap-sm" :class="[direction === 'ltr' ? 'pr-[var(--ant-padding)]' : 'pl-[var(--ant-padding)]']">
-          <div class="flex items-center m-0" :class="[direction === 'ltr' ? 'b-l-1 b-l-solid b-l-black/6' : 'b-r-1 b-r-solid b-r-black/6']" style="flex: auto">
+          <div class="ant-doc-header-search flex items-center m-0" :class="[direction === 'ltr' ? 'b-l-1 b-l-solid b-l-black/6' : 'b-r-1 b-r-solid b-r-black/6']">
             <DocSearch />
           </div>
           <template v-if="!isMobile">
@@ -215,15 +215,27 @@ function changeDirection(value: 1 | 2) {
 }
 
 .ant-doc-header-right {
+  min-width: 0;
+
   > * {
     flex: none;
+    min-width: 0;
     margin: 0;
   }
 }
-.ant-doc-header-menu {
-  flex: 1;
+
+.ant-doc-header-search {
+  flex: 0 1 clamp(220px, 24vw, 320px);
+}
+
+.ant-doc-header-search .ant-doc-search-bar-container {
   min-width: 0;
-  flex-shrink: 0;
+}
+
+.ant-doc-header-menu {
+  flex: 1 1 0;
+  width: 0;
+  min-width: 0;
   justify-content: flex-end;
   background-color: transparent !important;
 
@@ -246,10 +258,11 @@ function changeDirection(value: 1 | 2) {
   }
 
   &-input {
-    width: 280px;
+    width: 100%;
     height: 22px;
     border: 0;
-    max-width: calc(100vw - 768px);
+    min-width: 0;
+    max-width: none;
     padding: 0;
     padding-inline-start: 40px;
     padding-inline-end: 12px;
