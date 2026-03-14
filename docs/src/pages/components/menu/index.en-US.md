@@ -29,6 +29,7 @@ More layouts with navigation: [Layout](/components/layout).
   <demo src="./demo/theme.vue">Menu Themes</demo>
   <demo src="./demo/submenu-theme.vue">Sub-menu theme</demo>
   <demo src="./demo/switch-mode.vue">Switch the menu type</demo>
+  <demo src="./demo/sfc.vue">SFC Mode (Nested)</demo>
   <demo src="./demo/slot-render.vue">Slot Render (items mode)</demo>
   <demo src="./demo/style-class.vue">Custom semantic dom styling</demo>
   <demo src="./demo/custom-popup-render.vue">Custom Submenu Render</demo>

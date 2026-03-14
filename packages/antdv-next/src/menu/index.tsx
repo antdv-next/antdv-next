@@ -1,14 +1,16 @@
-import type { MenuInfo, MenuItemGroupProps, SelectInfo, MenuRef as VcMenuRef } from '@v-c/menu'
+import type { MenuInfo, SelectInfo, MenuRef as VcMenuRef } from '@v-c/menu'
 import type { App, SlotsType } from 'vue'
 import type { ItemType } from './interface.ts'
 import type { MenuProps as BaseMenuProps, MenuEmits, MenuEmitsProps, MenuSlots } from './menu'
 import type { MenuItemProps } from './MenuItem'
+import type { MenuItemGroupProps } from './MenuItemGroup'
 import type { SubMenuProps } from './SubMenu'
 import { computed, defineComponent, shallowRef } from 'vue'
 import { useSiderCtx } from '../layout/Sider.tsx'
 import InternalMenu from './menu'
 import MenuDivider from './MenuDivider'
 import Item from './MenuItem'
+import MenuItemGroup from './MenuItemGroup'
 
 import SubMenu from './SubMenu'
 
@@ -70,23 +72,27 @@ const Menu = defineComponent<
 
 ;(Menu as any).Item = Item
 ;(Menu as any).SubMenu = SubMenu
+;(Menu as any).ItemGroup = MenuItemGroup
 ;(Menu as any).Divider = MenuDivider
 
 ;(Menu as any).install = (app: App) => {
   app.component(Menu.name, Menu)
   app.component(Item.name, Item)
   app.component(SubMenu.name, SubMenu)
+  app.component(MenuItemGroup.name, MenuItemGroup)
   app.component(MenuDivider.name, MenuDivider)
 }
 
 export const MenuItem = Item
 export {
   MenuDivider,
+  MenuItemGroup,
   SubMenu,
 }
 
 export default Menu as typeof Menu & {
   Item: typeof Item
   SubMenu: typeof SubMenu
+  ItemGroup: typeof MenuItemGroup
   Divider: typeof MenuDivider
 }

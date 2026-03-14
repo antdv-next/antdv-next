@@ -939,24 +939,6 @@ describe('tabs', () => {
       wrapper.unmount()
     })
 
-    it('warns about deprecated Tabs.TabPane usage', () => {
-      const spy = vi.spyOn(console, 'error').mockImplementation(() => {})
-      const wrapper = mount({
-        render() {
-          return (
-            <Tabs>
-              <TabPane key="1" tab="Tab 1">Content</TabPane>
-            </Tabs>
-          )
-        },
-      }, { attachTo: document.body })
-      expect(spy).toHaveBeenCalledWith(
-        expect.stringContaining('`Tabs.TabPane` is deprecated'),
-      )
-      spy.mockRestore()
-      wrapper.unmount()
-    })
-
     it('warns about destroyInactiveTabPane in items', () => {
       const spy = vi.spyOn(console, 'error').mockImplementation(() => {})
       const wrapper = mount(Tabs, {

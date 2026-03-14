@@ -260,7 +260,7 @@ const InternalTabs = defineComponent<
         'destroyInactiveTabPane',
         'destroyOnHidden',
       )
-      warning.deprecated(!slots.default, 'Tabs.TabPane', 'items')
+      // warning.deprecated(!slots.default, 'Tabs.TabPane', 'items')
     }
 
     const rootCls = useCSSVarCls(prefixCls)
@@ -318,9 +318,7 @@ const InternalTabs = defineComponent<
         props,
         [
           'items',
-          'style',
           'styles',
-          'classNames',
           'classes',
           'type',
           'size',

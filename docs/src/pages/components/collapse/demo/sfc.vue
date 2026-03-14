@@ -1,19 +1,19 @@
 <docs lang="zh-CN">
-支持使用 `<a-collapse-panel>` 标签编写 SFC 模式。
+支持使用 `a-collapse-panel` 标签编写 SFC 模式。
 </docs>
 
 <docs lang="en-US">
-Support SFC mode with `<a-collapse-panel>`.
+Support SFC mode with `a-collapse-panel`.
 </docs>
 
 <script setup lang="ts">
-function onChange(key: string[]) {
-  console.log(key)
-}
+import { ref } from 'vue'
+
+const activeKeys = ref(['1'])
 </script>
 
 <template>
-  <a-collapse :default-active-key="['1']" @change="onChange">
+  <a-collapse v-model:active-key="activeKeys">
     <a-collapse-panel key="1" header="This is panel header 1">
       <p>
         A dog is a type of domesticated animal. Known for its loyalty and faithfulness.

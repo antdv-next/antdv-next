@@ -29,7 +29,8 @@ const omitPropKeys = [
   '_internalDisableMenuItemTitleTooltip',
   'inlineCollapsed',
   'siderCollapsed',
-  'rootClassName',
+  'rootClass',
+  'collapsedWidth',
   'mode',
   'selectable',
   'onClick',
@@ -241,8 +242,6 @@ const InternalMenu = defineComponent<
         'usage',
         '`inlineCollapsed` should only be used when `mode` is inline.',
       )
-      const children = filterEmpty(slots?.default?.())
-      warning.deprecated('items' in props && !children.length, 'children', 'items')
     }
     overrideObj?.value?.validator?.({ mode: props.mode })
     // ========================== Click ==========================
@@ -347,8 +346,7 @@ const InternalMenu = defineComponent<
         overflowedIndicatorPopupClassName,
         rootClass,
       } = props
-      const restProps = omit(props, omitPropKeys)
-      const passedProps = omit(restProps, ['collapsedWidth', 'rootClass', 'style', 'class'])
+      const passedProps = omit(props, omitPropKeys)
       const menuClassName = clsx(`${prefixCls.value}-${theme}`, contextClassName.value, (attrs as any).class)
       const itemIcon = slots?.itemIcon ?? props?.itemIcon
       const labelRender = slots?.labelRender ?? props?.labelRender
@@ -417,7 +415,9 @@ const InternalMenu = defineComponent<
               extraRender={extraRender as any}
               iconRender={iconRender as any}
               _internalComponents={MENU_COMPONENTS}
-            />
+            >
+              {slots?.default?.()}
+            </VcMenu>
           </MenuContextProvider>
         </OverrideProvider>
       )

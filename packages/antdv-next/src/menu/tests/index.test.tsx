@@ -1,7 +1,7 @@
 import type { MenuProps } from '..'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { nextTick } from 'vue'
-import Menu, { MenuItem, SubMenu } from '..'
+import Menu, { MenuItem, MenuItemGroup, SubMenu } from '..'
 import { mountTest, rtlTest } from '/@tests/shared'
 import { mount } from '/@tests/utils'
 
@@ -48,6 +48,7 @@ describe('menu', () => {
   it('exposes Item/SubMenu/Divider static members', () => {
     expect(Menu.Item).toBe(MenuItem)
     expect(Menu.SubMenu).toBe(SubMenu)
+    expect(Menu.ItemGroup).toBe(MenuItemGroup)
     expect(Menu.Divider).toBeDefined()
   })
 
@@ -62,6 +63,101 @@ describe('menu', () => {
 
     expect(wrapper.find('.ant-menu-submenu-open').exists()).toBe(true)
     expect(wrapper.text()).toContain('Option 1')
+  })
+
+  it('supports declarative nested menu nodes via default slot', async () => {
+    const wrapper = mount(() => (
+      <Menu mode="inline" defaultOpenKeys={['sub1', 'sub2']} defaultSelectedKeys={['2-2']}>
+        <SubMenu key="sub1" v-slots={{ title: () => 'Navigation One' }}>
+          <MenuItemGroup title="Core Views">
+            <MenuItem key="1">
+              Option 1
+            </MenuItem>
+          </MenuItemGroup>
+          <SubMenu key="sub2" v-slots={{ title: () => 'Level Two' }}>
+            <MenuItem key="2-1">
+              Option 2-1
+            </MenuItem>
+            <MenuItem key="2-2">
+              Option 2-2
+            </MenuItem>
+          </SubMenu>
+        </SubMenu>
+      </Menu>
+    ))
+
+    await nextTick()
+
+    expect(wrapper.findAll('.ant-menu-submenu')).toHaveLength(2)
+    expect(wrapper.find('.ant-menu-submenu-open').exists()).toBe(true)
+    expect(wrapper.text()).toContain('Navigation One')
+    expect(wrapper.text()).toContain('Core Views')
+    expect(wrapper.text()).toContain('Level Two')
+    expect(wrapper.text()).toContain('Option 2-2')
+    expect(wrapper.find('.ant-menu-item-selected').text()).toContain('Option 2-2')
+  })
+
+  it('supports menu divider in declarative mode', () => {
+    const wrapper = mount(() => (
+      <Menu mode="inline">
+        <MenuItem key="1">
+          Option 1
+        </MenuItem>
+        <Menu.Divider />
+        <MenuItem key="2">
+          Option 2
+        </MenuItem>
+      </Menu>
+    ))
+
+    expect(wrapper.find('.ant-menu-item-divider').exists()).toBe(true)
+  })
+
+  it('supports menu item group in declarative mode', () => {
+    const wrapper = mount(() => (
+      <Menu mode="inline" defaultOpenKeys={['sub1']}>
+        <SubMenu key="sub1" v-slots={{ title: () => 'Navigation One' }}>
+          <MenuItemGroup v-slots={{ title: () => <span class="group-title">Grouped</span> }}>
+            <MenuItem key="1">
+              Option 1
+            </MenuItem>
+          </MenuItemGroup>
+        </SubMenu>
+      </Menu>
+    ))
+
+    expect(wrapper.find('.group-title').exists()).toBe(true)
+    expect(wrapper.find('.ant-menu-item-group').exists()).toBe(true)
+    expect(wrapper.text()).toContain('Option 1')
+  })
+
+  it('supports expanding and collapsing submenu in declarative mode', async () => {
+    const wrapper = mount(() => (
+      <Menu mode="inline">
+        <SubMenu key="sub1" v-slots={{ title: () => 'Navigation One' }}>
+          <MenuItem key="1">
+            Option 1
+          </MenuItem>
+          <MenuItem key="2">
+            Option 2
+          </MenuItem>
+        </SubMenu>
+      </Menu>
+    ))
+
+    const subMenu = wrapper.find('.ant-menu-submenu')
+    const title = wrapper.find('.ant-menu-submenu-title')
+
+    expect(subMenu.classes()).not.toContain('ant-menu-submenu-open')
+
+    await title.trigger('click')
+    await nextTick()
+    expect(subMenu.classes()).toContain('ant-menu-submenu-open')
+    expect(wrapper.text()).toContain('Option 1')
+
+    await title.trigger('click')
+    await nextTick()
+    expect(subMenu.classes()).not.toContain('ant-menu-submenu-open')
   })
 
   it('supports controlled openKeys in inline mode', async () => {

@@ -30,6 +30,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Vn4XSqJFAxcAAA
   <demo src="./demo/theme.vue">主题</demo>
   <demo src="./demo/submenu-theme.vue">子菜单主题</demo>
   <demo src="./demo/switch-mode.vue">切换菜单类型</demo>
+  <demo src="./demo/sfc.vue">标签模式（多层嵌套）</demo>
   <demo src="./demo/slot-render.vue">插槽渲染（items 模式）</demo>
   <demo src="./demo/style-class.vue">自定义语义结构的样式和类</demo>
   <demo src="./demo/custom-popup-render.vue">自定义弹出框</demo>
