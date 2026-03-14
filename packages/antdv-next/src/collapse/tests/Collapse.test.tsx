@@ -1,7 +1,7 @@
 import type { CollapseItemType } from '../Collapse'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { h, nextTick, ref } from 'vue'
-import Collapse from '..'
+import Collapse, { CollapsePanel } from '..'
 import ConfigProvider from '../../config-provider'
 import mountTest from '/@tests/shared/mountTest'
 import rtlTest from '/@tests/shared/rtlTest'
@@ -33,6 +33,76 @@ describe('collapse', () => {
   it('should render items as panels', () => {
     const wrapper = mount(Collapse, { props: { items: basicItems } })
     expect(wrapper.findAll('.ant-collapse-item').length).toBe(2)
+  })
+
+  it('should support Collapse.Panel static property', () => {
+    expect((Collapse as any).Panel).toBe(CollapsePanel)
+  })
+
+  it('should resolve collapse panel props from default slot nodes', () => {
+    const wrapper = mount(() => (
+      <Collapse defaultActiveKey={['1']}>
+        <CollapsePanel key="1" header="Slot Header 1">
+          <p class="slot-body-1">Slot Body 1</p>
+        </CollapsePanel>
+        <CollapsePanel key="2" showArrow={false} extra={<span class="slot-extra">Extra</span>}>
+          <span class="slot-body-2">Slot Body 2</span>
+        </CollapsePanel>
+      </Collapse>
+    ))
+
+    const items = wrapper.findAll('.ant-collapse-item')
+    expect(items).toHaveLength(2)
+    expect(wrapper.find('.ant-collapse-title').text()).toBe('Slot Header 1')
+    expect(wrapper.find('.slot-body-1').exists()).toBe(true)
+    expect(wrapper.find('.slot-extra').exists()).toBe(true)
+    expect(items[1]!.find('.ant-collapse-expand-icon').exists()).toBe(false)
+  })
+
+  it('should resolve named slots from collapse panel nodes', () => {
+    const wrapper = mount(() => (
+      <Collapse defaultActiveKey={['1']}>
+        <CollapsePanel
+          key="1"
+          v-slots={{
+            header: () => <span class="slot-header">Slot Header</span>,
+            extra: () => <span class="slot-extra">Extra</span>,
+            default: () => <div class="slot-content">Slot Content</div>,
+          }}
+        />
+      </Collapse>
+    ))
+
+    expect(wrapper.find('.slot-header').exists()).toBe(true)
+    expect(wrapper.find('.slot-extra').exists()).toBe(true)
+    expect(wrapper.find('.slot-content').exists()).toBe(true)
+  })
+
+  it('should only treat collapse-panel marked nodes as panels', () => {
+    const wrapper = mount(() => (
+      <Collapse>
+        <CollapsePanel key="1" header="Slot Header">
+          slot-body
+        </CollapsePanel>
+        <div class="plain-node">plain-node</div>
+      </Collapse>
+    ))
+
+    expect(wrapper.findAll('.ant-collapse-item')).toHaveLength(1)
+    expect(wrapper.find('.plain-node').exists()).toBe(false)
+  })
+
+  it('should prefer items prop over default slot panels', () => {
+    const wrapper = mount(() => (
+      <Collapse items={basicItems}>
+        <CollapsePanel key="3" header="Slot Header">
+          slot-body
+        </CollapsePanel>
+      </Collapse>
+    ))
+
+    expect(wrapper.findAll('.ant-collapse-item')).toHaveLength(2)
+    expect(wrapper.text()).not.toContain('Slot Header')
   })
 
   // ==================== expandIconPlacement ====================

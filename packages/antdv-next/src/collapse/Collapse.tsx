@@ -16,9 +16,11 @@ import {
 } from '../_util/hooks'
 import initCollapseMotion from '../_util/motion.ts'
 import { toPropsRefs } from '../_util/tools.ts'
+import { resolveSlotsNode } from '../_util/vnode'
 import { checkRenderNode, cloneElement } from '../_util/vueNode.ts'
 import { useComponentBaseConfig } from '../config-provider/context.ts'
 import { useSize } from '../config-provider/hooks/useSize.ts'
+import CollapsePanel, { COLLAPSE_PANEL_MARK } from './CollapsePanel.tsx'
 import useStyle from './style'
 
 export type ExpandIconPlacement = 'start' | 'end'
@@ -48,8 +50,9 @@ export type CollapseClassNamesType = SemanticClassNamesType<
 
 export type CollapseStylesType = SemanticStylesType<CollapseProps, CollapseSemanticStyles>
 
-export type CollapseItemType = Omit<ItemType, 'children'> & {
+export type CollapseItemType = Omit<ItemType, 'children' | 'classNames'> & {
   content?: ItemType['children']
+  classes?: ItemType['classNames']
 }
 export interface CollapseProps extends
   /* @vue-ignore */
@@ -96,6 +99,7 @@ interface PanelProps {
 }
 
 interface CollapseSlots {
+  default?: () => any
   expandIcon: (panelProps: PanelProps) => any
   labelRender: (params: { item: CollapseItemType, index: number }) => any
   contentRender: (params: { item: CollapseItemType, index: number }) => any
@@ -163,6 +167,19 @@ const Collapse = defineComponent<
         appear: false,
       }
     })
+    const sourceItems = computed<CollapseItemType[]>(() => {
+      if (props.items) {
+        return props.items
+      }
+
+      return resolveSlotsNode<Record<string, any>>(slots, 'default', undefined, COLLAPSE_PANEL_MARK).map((item) => {
+        return {
+          ...item,
+          label: item.header ?? item.label,
+          content: item.content ?? item.children,
+        }
+      })
+    })
     return () => {
       const { bordered, ghost, rootClass, destroyOnHidden } = props
       const collapseClassName = classNames(
@@ -182,11 +199,13 @@ const Collapse = defineComponent<
       )
       const labelRender = slots?.labelRender ?? props?.labelRender
       const contentRender = slots?.contentRender ?? props?.contentRender
-      const items = (props.items ?? []).map((item, index) => {
+      const items = sourceItems.value.map((item, index) => {
+        const { classes: itemClasses, ...restItem } = item
         const label = checkRenderNode(labelRender ? labelRender?.({ item, index }) : item.label)
         const children = checkRenderNode(contentRender ? contentRender?.({ item, index }) : item.content)
         const _item: ItemType = {
-          ...item,
+          ...restItem,
+          classNames: itemClasses,
         }
         if (label) {
           _item.label = label
@@ -222,5 +241,6 @@ const Collapse = defineComponent<
 
 ;(Collapse as any).install = (app: App) => {
   app.component(Collapse.name, Collapse)
+  app.component(CollapsePanel.name, CollapsePanel)
 }
 export default Collapse

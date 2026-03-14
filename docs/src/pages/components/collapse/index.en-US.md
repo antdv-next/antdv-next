@@ -21,6 +21,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sir-TK0HkWcAAA
   <demo src="./demo/mix.vue">Nested panel</demo>
   <demo src="./demo/borderless.vue">Borderless</demo>
   <demo src="./demo/custom.vue">Custom Panel</demo>
+  <demo src="./demo/sfc.vue">SFC Mode</demo>
   <demo src="./demo/noarrow.vue">No arrow</demo>
   <demo src="./demo/extra.vue">Extra node</demo>
   <demo src="./demo/ghost.vue">Ghost Collapse</demo>

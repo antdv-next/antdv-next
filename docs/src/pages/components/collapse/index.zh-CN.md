@@ -22,6 +22,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sir-TK0HkWcAAA
   <demo src="./demo/mix.vue">面板嵌套</demo>
   <demo src="./demo/borderless.vue">简洁风格</demo>
   <demo src="./demo/custom.vue">自定义面板</demo>
+  <demo src="./demo/sfc.vue">标签模式</demo>
   <demo src="./demo/noarrow.vue">隐藏箭头</demo>
   <demo src="./demo/extra.vue">额外节点</demo>
   <demo src="./demo/ghost.vue">幽灵折叠面板</demo>

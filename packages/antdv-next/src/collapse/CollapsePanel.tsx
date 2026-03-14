@@ -1,51 +1,48 @@
-import type { VueNode } from '../_util/type.ts'
-import { Panel as VcCollapsePanel } from '@v-c/collapse'
-import { classNames } from '@v-c/util'
-import { omit } from 'es-toolkit'
+import type { CSSProperties, SlotsType } from 'vue'
+import type { EmptyEmit, VueNode } from '../_util/type.ts'
+import type { CollapseSemanticClassNames, CollapseSemanticStyles } from './Collapse.tsx'
 import { defineComponent } from 'vue'
-import { useBaseConfig } from '../config-provider/context.ts'
 
 export type CollapsibleType = 'header' | 'icon' | 'disabled'
 
+export const COLLAPSE_PANEL_MARK = '_ANTDV_NEXT_COLLAPSE_PANEL'
+
 export interface CollapsePanelProps {
   key: string | number
-  header: VueNode
+  class?: string
+  style?: CSSProperties
+  header?: VueNode
   showArrow?: boolean
   prefixCls?: string
   forceRender?: boolean
   id?: string
   extra?: VueNode
   collapsible?: CollapsibleType
+  classes?: Partial<CollapseSemanticClassNames>
+  styles?: Partial<CollapseSemanticStyles>
 }
 
-const defaults = {
-  showArrow: true,
-} as any
+export interface CollapsePanelSlots {
+  default?: () => any
+  header?: () => any
+  extra?: () => any
+}
 
-const CollapsePanel = defineComponent<CollapsePanelProps>(
-  (props = defaults, { slots, attrs }) => {
-    const { prefixCls } = useBaseConfig('collapse', props)
-    return () => {
-      const children = slots.default ? slots.default() : null
-      const { showArrow = true } = props
-      const collapsePanelClassName = classNames(
-        {
-          [`${prefixCls.value}-no-arrow`]: !showArrow,
-        },
-        (attrs as any).class,
-      )
-      return (
-        <VcCollapsePanel
-          {...omit(attrs, ['class'])}
-          {...props}
-          prefixCls={prefixCls.value}
-          showArrow={showArrow}
-          class={collapsePanelClassName}
-          children={children}
-        />
-      )
-    }
+const CollapsePanel = defineComponent<
+  CollapsePanelProps,
+  EmptyEmit,
+  string,
+  SlotsType<CollapsePanelSlots>
+>(
+  () => {
+    return () => null
+  },
+  {
+    name: 'ACollapsePanel',
+    inheritAttrs: false,
   },
 )
+
+;(CollapsePanel as any)[COLLAPSE_PANEL_MARK] = true
 
 export default CollapsePanel
