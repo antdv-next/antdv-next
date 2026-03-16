@@ -375,8 +375,8 @@ catalogs:
       specifier: ^1.0.1
       version: 1.0.1
     '@v-c/select':
-      specifier: ^1.0.19
-      version: 1.0.19
+      specifier: ^1.0.20
+      version: 1.0.20
     '@v-c/slick':
       specifier: ^1.0.2
       version: 1.0.2
@@ -831,7 +831,7 @@ importers:
         version: 1.0.1(vue@3.5.29(typescript@5.9.3))
       '@v-c/select':
         specifier: catalog:vc
-        version: 1.0.19(vue@3.5.29(typescript@5.9.3))
+        version: 1.0.20(vue@3.5.29(typescript@5.9.3))
       '@v-c/slick':
         specifier: catalog:vc
         version: 1.0.2(vue@3.5.29(typescript@5.9.3))
@@ -2828,6 +2828,11 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
+  '@v-c/select@1.0.20':
+    resolution: {integrity: sha512-gmG5U7r8YgXIjGQZ5qjHM3felSlYAep7pBjJRzA8ALgHhx0CKRk6RTadVDXzWh7LwOFvlgTn7OLUMTU6RACoaQ==}
+    peerDependencies:
+      vue: ^3.0.0
+
   '@v-c/slick@1.0.2':
     resolution: {integrity: sha512-8BbPxJgYST+tio9jyeFQgJb/3XSFhfWZN8Am7YVYeqsYsvn3g8wu61UZNSjlkp9ArOEe+ujOgX4izfDHeXh4RA==}
     peerDependencies:
@@ -2873,18 +2878,8 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
-  '@v-c/tree-select@1.0.2':
-    resolution: {integrity: sha512-pJ7l3qXggnkAMA2IvS+3818hkZS2xwrf+5G98aFhkS9jS17BNWXTB1UlSYUpXsnx7z7BiGbpXOGM4XWHnu4Ewg==}
-    peerDependencies:
-      vue: ^3.0.0
-
   '@v-c/tree-select@1.0.3':
     resolution: {integrity: sha512-N4mK8JXrCU+GFfhLG/zat3TAUt0Ju+P4S3hN6PlmuHPikQ4OWEA91CA8Br83i4zpW9TCH7xP0EfMUvhLtjqbsA==}
-    peerDependencies:
-      vue: ^3.0.0
-
-  '@v-c/tree@1.0.4':
-    resolution: {integrity: sha512-ywLHXVx+OAjp5IFnXLaNLy3iN81+1GXZZA+/capCmISOkgtG5abbY8ERsdYwXaZAs4cYtX4/VF00shW1xKAGig==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -7890,7 +7885,7 @@ snapshots:
 
   '@v-c/cascader@1.0.2(vue@3.5.29(typescript@5.9.3))':
     dependencies:
-      '@v-c/select': 1.0.19(vue@3.5.29(typescript@5.9.3))
+      '@v-c/select': 1.0.20(vue@3.5.29(typescript@5.9.3))
       '@v-c/tree': 1.0.5(vue@3.5.29(typescript@5.9.3))
       '@v-c/util': 1.0.18(vue@3.5.29(typescript@5.9.3))
       vue: 3.5.29(typescript@5.9.3)
@@ -8056,6 +8051,14 @@ snapshots:
       '@v-c/virtual-list': 1.0.6(vue@3.5.29(typescript@5.9.3))
       vue: 3.5.29(typescript@5.9.3)
 
+  '@v-c/select@1.0.20(vue@3.5.29(typescript@5.9.3))':
+    dependencies:
+      '@v-c/overflow': 1.0.4(vue@3.5.29(typescript@5.9.3))
+      '@v-c/trigger': 1.0.13(vue@3.5.29(typescript@5.9.3))
+      '@v-c/util': 1.0.18(vue@3.5.29(typescript@5.9.3))
+      '@v-c/virtual-list': 1.0.6(vue@3.5.29(typescript@5.9.3))
+      vue: 3.5.29(typescript@5.9.3)
+
   '@v-c/slick@1.0.2(vue@3.5.29(typescript@5.9.3))':
     dependencies:
       '@v-c/util': 1.0.18(vue@3.5.29(typescript@5.9.3))
@@ -8113,24 +8116,11 @@ snapshots:
       '@v-c/util': 1.0.18(vue@3.5.29(typescript@5.9.3))
       vue: 3.5.29(typescript@5.9.3)
 
-  '@v-c/tree-select@1.0.2(vue@3.5.29(typescript@5.9.3))':
-    dependencies:
-      '@v-c/select': 1.0.19(vue@3.5.29(typescript@5.9.3))
-      '@v-c/tree': 1.0.4(vue@3.5.29(typescript@5.9.3))
-      '@v-c/util': 1.0.18(vue@3.5.29(typescript@5.9.3))
-      vue: 3.5.29(typescript@5.9.3)
-
   '@v-c/tree-select@1.0.3(vue@3.5.29(typescript@5.9.3))':
     dependencies:
-      '@v-c/select': 1.0.19(vue@3.5.29(typescript@5.9.3))
+      '@v-c/select': 1.0.20(vue@3.5.29(typescript@5.9.3))
       '@v-c/tree': 1.0.5(vue@3.5.29(typescript@5.9.3))
       '@v-c/util': 1.0.18(vue@3.5.29(typescript@5.9.3))
-      vue: 3.5.29(typescript@5.9.3)
-
-  '@v-c/tree@1.0.4(vue@3.5.29(typescript@5.9.3))':
-    dependencies:
-      '@v-c/util': 1.0.18(vue@3.5.29(typescript@5.9.3))
-      '@v-c/virtual-list': 1.0.6(vue@3.5.29(typescript@5.9.3))
       vue: 3.5.29(typescript@5.9.3)
 
   '@v-c/tree@1.0.5(vue@3.5.29(typescript@5.9.3))':
@@ -8534,8 +8524,8 @@ snapshots:
       '@v-c/textarea': 1.0.3(vue@3.5.29(typescript@5.9.3))
       '@v-c/tooltip': 1.0.3(vue@3.5.29(typescript@5.9.3))
       '@v-c/tour': 1.0.3(vue@3.5.29(typescript@5.9.3))
-      '@v-c/tree': 1.0.4(vue@3.5.29(typescript@5.9.3))
-      '@v-c/tree-select': 1.0.2(vue@3.5.29(typescript@5.9.3))
+      '@v-c/tree': 1.0.5(vue@3.5.29(typescript@5.9.3))
+      '@v-c/tree-select': 1.0.3(vue@3.5.29(typescript@5.9.3))
       '@v-c/trigger': 1.0.13(vue@3.5.29(typescript@5.9.3))
       '@v-c/upload': 1.0.0(vue@3.5.29(typescript@5.9.3))
       '@v-c/util': 1.0.18(vue@3.5.29(typescript@5.9.3))
