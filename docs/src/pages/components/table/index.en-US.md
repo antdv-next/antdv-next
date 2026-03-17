@@ -112,21 +112,31 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| classes | Customize class for each semantic structure inside the component. Supports object or function. | TableClassNamesType&lt;RecordType&gt; | - | - |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | TableStylesType&lt;RecordType&gt; | - | - |
-| dropdownPrefixCls | - | string | - | - |
-| dataSource | Data record array to be displayed | VcTableProps&lt;RecordType&gt;['data'] | - | - |
-| columns | Columns of table | ColumnsType&lt;RecordType&gt; | - | - |
-| pagination | Config of pagination. You can ref table pagination [config](#pagination) or full [`pagination`](/components/pagination/) document, hide it by setting it to `false` | false \| TablePaginationConfig | - | - |
-| loading | Loading status of table | boolean \| SpinProps | false | - |
-| size | Size of table | SizeType | `large` | - |
 | bordered | Whether to show all table borders | boolean | false | - |
-| locale | The i18n text including filter, sort, empty text, etc | TableLocale | [Default Value](https://github.com/ant-design/ant-design/blob/6dae4a7e18ad1ba193aedd5ab6867e1d823e2aa4/components/locale/en_US.tsx#L19-L37) | - |
-| rowSelection | Row selection [config](#rowselection) | TableRowSelection&lt;RecordType&gt; | - | - |
-| getPopupContainer | The render container of dropdowns in table | GetPopupContainer | () =&gt; TableHtmlElement | - |
-| scroll | Whether the table can be scrollable, [config](#scroll) | VcTableProps&lt;RecordType&gt;['scroll'] & &#123; scrollToFirstRowOnChange?: boolean &#125; | - | - |
-| sortDirections | Supported sort way, could be `ascend`, `descend` | SortOrder[] | \[`ascend`, `descend`] | - |
-| showSorterTooltip | The header show next sorter direction tooltip. It will be set as the property of Tooltip if its type is object | boolean \| SorterTooltipProps | &#123; target: 'full-header' &#125; | - |
+| classes | Customize class for each semantic structure inside the component. Supports object or function. | Record\<[SemanticDOM](#semantic-dom), string\> \| (info: \{ props \})=> Record\<[SemanticDOM](#semantic-dom), string\> | - | - |
+| columns |  Columns of table | [ColumnsType](#Column)\[\] | - | - |
+| dataSource | Data record array to be displayed | object[] | - | - |
+| expandable | Config expandable content | [expandable](#expandable) | - |  |
+| footer | Table footer renderer | function\(currentPageData\) | - |  |
+| getPopupContainer | The render container of dropdowns in table| (triggerNode) => HTMLElement | () => TableHtmlElement | - |
+| loading | Loading status of table | boolean \| [Spin Props](/components/spin-cn#props) | false | - |
+| locale | The i18n text including filter, sort, empty text, etc | TableLocale | [默认值](https://github.com/ant-design/ant-design/blob/6dae4a7e18ad1ba193aedd5ab6867e1d823e2aa4/components/locale/zh_CN.tsx#L20-L37) | - |
+| pagination |Config of pagination. You can ref table pagination [config](#pagination) or full [`pagination`](/components/pagination/) document, hide it by setting it to `false` | false \| TablePaginationConfig | - | - |
+| rowClassName | Row's className | function(record, index): string | - |  |
+| rowKey | Row's unique key, could be a string or function that returns a string | string \| function(record): string | `key` | - |
+| rowSelection | Row selection [config](#rowselection) | object | - | - |
+| rowHoverable | Row hover | boolean | true | - |
+| scroll | Whether the table can be scrollable, [config](#scroll) | object | - | - |
+| showHeader | Whether to show table header | boolean | true | - |
+| showSorterTooltip | The header show next sorter direction tooltip. It will be set as the property of Tooltip if its type is object | boolean \| [Tooltip props](/components/tooltip-cn) & `{target?: 'full-header' \| 'sorter-icon' }` | \{ target: 'full-header' \} | - |
+| size | Size of table | `large` \| `middle` \| `small` | `large` |  |
+| sortDirections | Supported sort way, could be `ascend`, `descend` | Array | \[`ascend`, `descend`] | - |
+| sticky | Set sticky header and scroll bar | boolean \| `{offsetHeader?: number, offsetScroll?: number, getContainer?: () => HTMLElement}` | - | - |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record\<[SemanticDOM](#semantic-dom), CSSProperties\> \| (info: \{ props \})=> Record\<[SemanticDOM](#semantic-dom), CSSProperties\> | - | - |
+| summary | Summary content | (currentData) => VueNode | - |  |
+| tableLayout | The [table-layout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) attribute of table element | - \| `auto` \| `fixed` | -<hr />`fixed` when header/columns are fixed, or using `column.ellipsis`  |  |
+| dropdownPrefixCls | - | string | - | - |
+| title | Table title renderer | function(currentPageData) | - |  |
 | virtual | Support virtual list | boolean | - | - |
 
 ### Events
