@@ -60,12 +60,12 @@ const Basic = defineComponent<BasicPropsWithTagName>(
         prefixCls: customizePrefixCls,
       } = props
       const prefixWithSuffixCls = suffixCls ? `${prefixCls.value}-${suffixCls}` : prefixCls.value
+      const { class: _attrClass, ...restAttrs } = attrs as Record<string, any>
 
       return createVNode(tagName, {
-        ...attrs,
+        ...restAttrs,
         class: classNames(
           customizePrefixCls || prefixWithSuffixCls,
-          (attrs as any)?.class,
           hashId.value,
           cssVarCls.value,
         ),
@@ -104,6 +104,11 @@ const BasicLayout = defineComponent<BasicPropsWithTagName>(
       } = props
       const children = filterEmpty(slots?.default?.() || [])
       const mergedHasSider = useHasSider(siders.value, children, hasSider)
+      const {
+        class: _attrClass,
+        style: attrStyle,
+        ...restAttrs
+      } = attrs as Record<string, any>
 
       const classString = classNames(
         prefixCls.value,
@@ -112,17 +117,16 @@ const BasicLayout = defineComponent<BasicPropsWithTagName>(
           [`${prefixCls.value}-rtl`]: direction.value === 'rtl',
         },
         compCtx.value.class,
-        (attrs as any).class,
         rootClass,
         hashId.value,
         cssVarCls.value,
       )
 
       return createVNode(tagName, {
-        ...attrs,
+        ...restAttrs,
         suffixCls,
         class: classString,
-        style: [compCtx.value.style, (attrs as any).style],
+        style: [compCtx.value.style, attrStyle],
       }, {
         default: () => children,
       })

@@ -6,6 +6,10 @@ import mountTest from '/@tests/shared/mountTest'
 import rtlTest from '/@tests/shared/rtlTest'
 import { mount } from '/@tests/utils'
 
+function countClassName(className: string | null | undefined, target: string) {
+  return (className ?? '').split(/\s+/).filter(token => token === target).length
+}
+
 describe('layout', () => {
   mountTest(Layout)
   mountTest(LayoutContent)
@@ -124,6 +128,11 @@ describe('layout', () => {
       expect(el.attributes('style')).toContain('color: red')
     })
 
+    it('should not duplicate custom class on layout', () => {
+      const wrapper = mount(() => <Layout class="custom-cls" />)
+      expect(countClassName(wrapper.find('.ant-layout').attributes('class'), 'custom-cls')).toBe(1)
+    })
+
     it('should pass data attributes on layout', () => {
       const wrapper = mount(() => <Layout data-testid="my-layout" />)
       expect(wrapper.find('[data-testid="my-layout"]').exists()).toBe(true)
@@ -136,6 +145,11 @@ describe('layout', () => {
       expect(el.attributes('style')).toContain('color: blue')
     })
 
+    it('should not duplicate custom class on header', () => {
+      const wrapper = mount(() => <LayoutHeader class="hdr" />)
+      expect(countClassName(wrapper.find('header').attributes('class'), 'hdr')).toBe(1)
+    })
+
     it('should pass class and style on footer', () => {
       const wrapper = mount(() => <LayoutFooter class="ftr" style={{ color: 'green' }} />)
       const el = wrapper.find('footer')
@@ -143,11 +157,21 @@ describe('layout', () => {
       expect(el.attributes('style')).toContain('color: green')
     })
 
+    it('should not duplicate custom class on footer', () => {
+      const wrapper = mount(() => <LayoutFooter class="ftr" />)
+      expect(countClassName(wrapper.find('footer').attributes('class'), 'ftr')).toBe(1)
+    })
+
     it('should pass class and style on content', () => {
       const wrapper = mount(() => <LayoutContent class="cnt" style={{ color: 'purple' }} />)
       const el = wrapper.find('main')
       expect(el.classes()).toContain('cnt')
       expect(el.attributes('style')).toContain('color: purple')
+    })
+
+    it('should not duplicate custom class on content', () => {
+      const wrapper = mount(() => <LayoutContent class="cnt" />)
+      expect(countClassName(wrapper.find('main').attributes('class'), 'cnt')).toBe(1)
     })
 
     it('should pass class, style and data attributes on sider', () => {
@@ -160,6 +184,15 @@ describe('layout', () => {
       expect(el.classes()).toContain('sdr')
       expect(el.attributes('style')).toContain('color: orange')
       expect(wrapper.find('[data-testid="my-sider"]').exists()).toBe(true)
+    })
+
+    it('should not duplicate custom class on sider', () => {
+      const wrapper = mount(() => (
+        <Layout>
+          <LayoutSider class="sdr">Sider</LayoutSider>
+        </Layout>
+      ))
+      expect(countClassName(wrapper.find('aside').attributes('class'), 'sdr')).toBe(1)
     })
   })
 

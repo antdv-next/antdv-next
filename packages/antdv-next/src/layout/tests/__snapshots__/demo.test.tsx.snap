@@ -6,34 +6,34 @@ exports[`layout demo > renders basic correctly 1`] = `
   data-v-8a9a70e8=""
 >
   <div
-    class="ant-layout demo-layout css-var-root demo-layout"
+    class="ant-layout css-var-root demo-layout"
     data-v-8a9a70e8=""
   >
     <header
-      class="ant-layout-header demo-header css-var-root demo-header"
+      class="ant-layout-header css-var-root demo-header"
       data-v-8a9a70e8=""
     >
        Header 
     </header>
     <main
-      class="ant-layout-content demo-content css-var-root demo-content"
+      class="ant-layout-content css-var-root demo-content"
       data-v-8a9a70e8=""
     >
        Content 
     </main>
     <footer
-      class="ant-layout-footer demo-footer css-var-root demo-footer"
+      class="ant-layout-footer css-var-root demo-footer"
       data-v-8a9a70e8=""
     >
        Footer 
     </footer>
   </div>
   <div
-    class="ant-layout demo-layout css-var-root demo-layout"
+    class="ant-layout css-var-root demo-layout"
     data-v-8a9a70e8=""
   >
     <header
-      class="ant-layout-header demo-header css-var-root demo-header"
+      class="ant-layout-header css-var-root demo-header"
       data-v-8a9a70e8=""
     >
        Header 
@@ -55,25 +55,25 @@ exports[`layout demo > renders basic correctly 1`] = `
         <!---->
       </aside>
       <main
-        class="ant-layout-content demo-content css-var-root demo-content"
+        class="ant-layout-content css-var-root demo-content"
         data-v-8a9a70e8=""
       >
          Content 
       </main>
     </div>
     <footer
-      class="ant-layout-footer demo-footer css-var-root demo-footer"
+      class="ant-layout-footer css-var-root demo-footer"
       data-v-8a9a70e8=""
     >
        Footer 
     </footer>
   </div>
   <div
-    class="ant-layout demo-layout css-var-root demo-layout"
+    class="ant-layout css-var-root demo-layout"
     data-v-8a9a70e8=""
   >
     <header
-      class="ant-layout-header demo-header css-var-root demo-header"
+      class="ant-layout-header css-var-root demo-header"
       data-v-8a9a70e8=""
     >
        Header 
@@ -83,7 +83,7 @@ exports[`layout demo > renders basic correctly 1`] = `
       data-v-8a9a70e8=""
     >
       <main
-        class="ant-layout-content demo-content css-var-root demo-content"
+        class="ant-layout-content css-var-root demo-content"
         data-v-8a9a70e8=""
       >
          Content 
@@ -102,14 +102,14 @@ exports[`layout demo > renders basic correctly 1`] = `
       </aside>
     </div>
     <footer
-      class="ant-layout-footer demo-footer css-var-root demo-footer"
+      class="ant-layout-footer css-var-root demo-footer"
       data-v-8a9a70e8=""
     >
        Footer 
     </footer>
   </div>
   <div
-    class="ant-layout ant-layout-has-sider demo-layout css-var-root demo-layout"
+    class="ant-layout ant-layout-has-sider css-var-root demo-layout"
     data-v-8a9a70e8=""
   >
     <aside
@@ -129,19 +129,19 @@ exports[`layout demo > renders basic correctly 1`] = `
       data-v-8a9a70e8=""
     >
       <header
-        class="ant-layout-header demo-header css-var-root demo-header"
+        class="ant-layout-header css-var-root demo-header"
         data-v-8a9a70e8=""
       >
          Header 
       </header>
       <main
-        class="ant-layout-content demo-content css-var-root demo-content"
+        class="ant-layout-content css-var-root demo-content"
         data-v-8a9a70e8=""
       >
          Content 
       </main>
       <footer
-        class="ant-layout-footer demo-footer css-var-root demo-footer"
+        class="ant-layout-footer css-var-root demo-footer"
         data-v-8a9a70e8=""
       >
          Footer 
@@ -300,7 +300,7 @@ exports[`layout demo > renders custom-trigger correctly 1`] = `
     data-v-abdf83f8=""
   >
     <header
-      class="ant-layout-header custom-header css-var-root custom-header"
+      class="ant-layout-header css-var-root custom-header"
       data-v-abdf83f8=""
       style="background: rgb(255, 255, 255);"
     >
@@ -338,7 +338,7 @@ exports[`layout demo > renders custom-trigger correctly 1`] = `
       </button>
     </header>
     <main
-      class="ant-layout-content custom-content css-var-root custom-content"
+      class="ant-layout-content css-var-root custom-content"
       data-v-abdf83f8=""
       style="background: rgb(255, 255, 255); border-radius: 8px;"
     >
@@ -354,7 +354,7 @@ exports[`layout demo > renders fixed correctly 1`] = `
   data-v-37deaf19=""
 >
   <header
-    class="ant-layout-header demo-header css-var-root demo-header"
+    class="ant-layout-header css-var-root demo-header"
     data-v-37deaf19=""
   >
     <div
@@ -457,7 +457,7 @@ exports[`layout demo > renders fixed correctly 1`] = `
     </div>
   </header>
   <main
-    class="ant-layout-content demo-content css-var-root demo-content"
+    class="ant-layout-content css-var-root demo-content"
     data-v-37deaf19=""
   >
     <nav
@@ -514,7 +514,7 @@ exports[`layout demo > renders fixed correctly 1`] = `
     </div>
   </main>
   <footer
-    class="ant-layout-footer demo-footer css-var-root demo-footer"
+    class="ant-layout-footer css-var-root demo-footer"
     data-v-37deaf19=""
   >
      Antdv Next ©2026 Created by Ant UED 
@@ -851,12 +851,12 @@ exports[`layout demo > renders fixed-sider correctly 1`] = `
     data-v-dc441303=""
   >
     <header
-      class="ant-layout-header fixed-header css-var-root fixed-header"
+      class="ant-layout-header css-var-root fixed-header"
       data-v-dc441303=""
       style="background: rgb(255, 255, 255);"
     />
     <main
-      class="ant-layout-content fixed-content css-var-root fixed-content"
+      class="ant-layout-content css-var-root fixed-content"
       data-v-dc441303=""
     >
       <div
@@ -1272,7 +1272,7 @@ exports[`layout demo > renders fixed-sider correctly 1`] = `
       </div>
     </main>
     <footer
-      class="ant-layout-footer fixed-footer css-var-root fixed-footer"
+      class="ant-layout-footer css-var-root fixed-footer"
       data-v-dc441303=""
     >
        Antdv Next ©2026 Created by Ant UED 
@@ -1485,12 +1485,12 @@ exports[`layout demo > renders responsive correctly 1`] = `
     data-v-c531d7ce=""
   >
     <header
-      class="ant-layout-header responsive-header css-var-root responsive-header"
+      class="ant-layout-header css-var-root responsive-header"
       data-v-c531d7ce=""
       style="background: rgb(255, 255, 255);"
     />
     <main
-      class="ant-layout-content responsive-content css-var-root responsive-content"
+      class="ant-layout-content css-var-root responsive-content"
       data-v-c531d7ce=""
     >
       <div
@@ -1502,7 +1502,7 @@ exports[`layout demo > renders responsive correctly 1`] = `
       </div>
     </main>
     <footer
-      class="ant-layout-footer responsive-footer css-var-root responsive-footer"
+      class="ant-layout-footer css-var-root responsive-footer"
       data-v-c531d7ce=""
     >
        Antdv Next ©2026 Created by Ant UED 
@@ -1513,7 +1513,7 @@ exports[`layout demo > renders responsive correctly 1`] = `
 
 exports[`layout demo > renders side correctly 1`] = `
 <div
-  class="ant-layout ant-layout-has-sider side-layout css-var-root side-layout"
+  class="ant-layout ant-layout-has-sider css-var-root side-layout"
   data-v-a29884ea=""
 >
   <aside
@@ -1809,12 +1809,12 @@ exports[`layout demo > renders side correctly 1`] = `
     data-v-a29884ea=""
   >
     <header
-      class="ant-layout-header side-header css-var-root side-header"
+      class="ant-layout-header css-var-root side-header"
       data-v-a29884ea=""
       style="background: rgb(255, 255, 255);"
     />
     <main
-      class="ant-layout-content side-content css-var-root side-content"
+      class="ant-layout-content css-var-root side-content"
       data-v-a29884ea=""
     >
       <nav
@@ -1857,7 +1857,7 @@ exports[`layout demo > renders side correctly 1`] = `
       </div>
     </main>
     <footer
-      class="ant-layout-footer side-footer css-var-root side-footer"
+      class="ant-layout-footer css-var-root side-footer"
       data-v-a29884ea=""
     >
        Antdv Next ©2026 Created by Ant UED 
@@ -1872,7 +1872,7 @@ exports[`layout demo > renders top correctly 1`] = `
   data-v-6c1c6387=""
 >
   <header
-    class="ant-layout-header demo-header css-var-root demo-header"
+    class="ant-layout-header css-var-root demo-header"
     data-v-6c1c6387=""
   >
     <div
@@ -2179,7 +2179,7 @@ exports[`layout demo > renders top correctly 1`] = `
     </div>
   </header>
   <main
-    class="ant-layout-content demo-content css-var-root demo-content"
+    class="ant-layout-content css-var-root demo-content"
     data-v-6c1c6387=""
   >
     <nav
@@ -2236,7 +2236,7 @@ exports[`layout demo > renders top correctly 1`] = `
     </div>
   </main>
   <footer
-    class="ant-layout-footer demo-footer css-var-root demo-footer"
+    class="ant-layout-footer css-var-root demo-footer"
     data-v-6c1c6387=""
   >
      Antdv Next ©2026 Created by Ant UED 
@@ -2250,7 +2250,7 @@ exports[`layout demo > renders top-side correctly 1`] = `
   data-v-6569885e=""
 >
   <header
-    class="ant-layout-header demo-header css-var-root demo-header"
+    class="ant-layout-header css-var-root demo-header"
     data-v-6569885e=""
   >
     <div
@@ -2402,7 +2402,7 @@ exports[`layout demo > renders top-side correctly 1`] = `
       </ol>
     </nav>
     <div
-      class="ant-layout ant-layout-has-sider demo-inner css-var-root demo-inner"
+      class="ant-layout ant-layout-has-sider css-var-root demo-inner"
       data-v-6569885e=""
       style="background: rgb(255, 255, 255); border-radius: 8px;"
     >
@@ -2700,7 +2700,7 @@ exports[`layout demo > renders top-side correctly 1`] = `
         <!---->
       </aside>
       <main
-        class="ant-layout-content demo-content css-var-root demo-content"
+        class="ant-layout-content css-var-root demo-content"
         data-v-6569885e=""
       >
          Content 
@@ -2708,7 +2708,7 @@ exports[`layout demo > renders top-side correctly 1`] = `
     </div>
   </div>
   <footer
-    class="ant-layout-footer demo-footer css-var-root demo-footer"
+    class="ant-layout-footer css-var-root demo-footer"
     data-v-6569885e=""
   >
      Antdv Next ©2026 Created by Ant UED 
@@ -2722,7 +2722,7 @@ exports[`layout demo > renders top-side-2 correctly 1`] = `
   data-v-6783405e=""
 >
   <header
-    class="ant-layout-header demo-header css-var-root demo-header"
+    class="ant-layout-header css-var-root demo-header"
     data-v-6783405e=""
   >
     <div
@@ -3122,7 +3122,7 @@ exports[`layout demo > renders top-side-2 correctly 1`] = `
       <!---->
     </aside>
     <div
-      class="ant-layout demo-main css-var-root demo-main"
+      class="ant-layout css-var-root demo-main"
       data-v-6783405e=""
     >
       <nav
@@ -3171,7 +3171,7 @@ exports[`layout demo > renders top-side-2 correctly 1`] = `
         </ol>
       </nav>
       <main
-        class="ant-layout-content demo-content css-var-root demo-content"
+        class="ant-layout-content css-var-root demo-content"
         data-v-6783405e=""
         style="background: rgb(255, 255, 255); border-radius: 8px;"
       >
