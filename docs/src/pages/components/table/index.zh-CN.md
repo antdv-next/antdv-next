@@ -118,7 +118,6 @@ const columns = [
 | columns | 表格列的配置描述，具体项见下表 | [ColumnsType](#Column)\[\] | - | - |
 | dataSource | 数据数组 | object[] | - | - |
 | expandable | 配置展开属性 | [expandable](#expandable) | - |  |
-| footer | 表格尾部 | function\(currentPageData\) | - |  |
 | getPopupContainer | 设置表格内各类浮层的渲染节点，如筛选菜单 | (triggerNode) => HTMLElement | () => TableHtmlElement | - |
 | loading | 页面是否加载中 | boolean \| [Spin Props](/components/spin-cn#props) | false | - |
 | locale | 默认文案设置，目前包括排序、过滤、空数据文案 | object | [默认值](https://github.com/ant-design/ant-design/blob/6dae4a7e18ad1ba193aedd5ab6867e1d823e2aa4/components/locale/zh_CN.tsx#L20-L37) | - |
@@ -134,10 +133,8 @@ const columns = [
 | sortDirections | 支持的排序方式，取值为 `ascend` `descend` | Array | \[`ascend`, `descend`] | - |
 | sticky | 设置粘性头部和滚动条 | boolean \| `{offsetHeader?: number, offsetScroll?: number, getContainer?: () => HTMLElement}` | - | - |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record\<[SemanticDOM](#semantic-dom), CSSProperties\> \| (info: \{ props \})=> Record\<[SemanticDOM](#semantic-dom), CSSProperties\> | - | - |
-| summary | 总结栏 | (currentData) => VueNode | - |  |
 | tableLayout | 表格元素的 [table-layout](https://developer.mozilla.org/zh-CN/docs/Web/CSS/table-layout) 属性，设为 `fixed` 表示内容不会影响列的布局 | - \| `auto` \| `fixed` | 无<hr />固定表头/列或使用了 `column.ellipsis` 时，默认值为 `fixed` |  |
 | dropdownPrefixCls | - | string | - | - |
-| title | 表格标题 | function(currentPageData) | - |  |
 | virtual | 支持虚拟列表 | boolean | - | - |
 
 ### 事件 {#events}

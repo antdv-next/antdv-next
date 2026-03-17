@@ -117,7 +117,6 @@ Common props ref：[Common props](/docs/vue/common-props)
 | columns |  Columns of table | [ColumnsType](#Column)\[\] | - | - |
 | dataSource | Data record array to be displayed | object[] | - | - |
 | expandable | Config expandable content | [expandable](#expandable) | - |  |
-| footer | Table footer renderer | function\(currentPageData\) | - |  |
 | getPopupContainer | The render container of dropdowns in table| (triggerNode) => HTMLElement | () => TableHtmlElement | - |
 | loading | Loading status of table | boolean \| [Spin Props](/components/spin-cn#props) | false | - |
 | locale | The i18n text including filter, sort, empty text, etc | object | [默认值](https://github.com/ant-design/ant-design/blob/6dae4a7e18ad1ba193aedd5ab6867e1d823e2aa4/components/locale/zh_CN.tsx#L20-L37) | - |
@@ -133,10 +132,8 @@ Common props ref：[Common props](/docs/vue/common-props)
 | sortDirections | Supported sort way, could be `ascend`, `descend` | Array | \[`ascend`, `descend`] | - |
 | sticky | Set sticky header and scroll bar | boolean \| `{offsetHeader?: number, offsetScroll?: number, getContainer?: () => HTMLElement}` | - | - |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record\<[SemanticDOM](#semantic-dom), CSSProperties\> \| (info: \{ props \})=> Record\<[SemanticDOM](#semantic-dom), CSSProperties\> | - | - |
-| summary | Summary content | (currentData) => VueNode | - |  |
 | tableLayout | The [table-layout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) attribute of table element | - \| `auto` \| `fixed` | -<hr />`fixed` when header/columns are fixed, or using `column.ellipsis`  |  |
 | dropdownPrefixCls | - | string | - | - |
-| title | Table title renderer | function(currentPageData) | - |  |
 | virtual | Support virtual list | boolean | - | - |
 
 ### Events
