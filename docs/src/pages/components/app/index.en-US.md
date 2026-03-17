@@ -8,7 +8,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*oC92TK44Ex8AAA
 demo:
   cols: 2
 ---
-
 ## When To Use {#when-to-use}
 
 - Provide reset styles based on `.ant-app` element.
@@ -32,7 +31,7 @@ demo:
 </template>
 
 <script setup lang="ts">
-  import { App } from 'ant-design-vue';
+  import { App } from 'antdv-next';
 
   const { message, modal, notification } = App.useApp();
 
@@ -124,11 +123,12 @@ The App component can only use the token in the `ConfigProvider`, if you need to
 
 Common props ref：[Common props](/docs/vue/common-props)
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| message | Global config for Message | MessageConfig | - | |
-| notification | Global config for Notification | NotificationConfig | - | |
-| component | Config render element, if `false` will not create DOM node | any | div | |
+
+| Property     | Description                                               | Type               | Default | Version |
+| ------------ | --------------------------------------------------------- | ------------------ | ------- | ------- |
+| message      | Global config for Message                                 | MessageConfig      | -       |         |
+| notification | Global config for Notification                            | NotificationConfig | -       |         |
+| component    | Config render element, if`false` will not create DOM node | any                | div     |         |
 
 ## Design Token
 
