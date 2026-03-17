@@ -120,7 +120,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | footer | Table footer renderer | function\(currentPageData\) | - |  |
 | getPopupContainer | The render container of dropdowns in table| (triggerNode) => HTMLElement | () => TableHtmlElement | - |
 | loading | Loading status of table | boolean \| [Spin Props](/components/spin-cn#props) | false | - |
-| locale | The i18n text including filter, sort, empty text, etc | TableLocale | [默认值](https://github.com/ant-design/ant-design/blob/6dae4a7e18ad1ba193aedd5ab6867e1d823e2aa4/components/locale/zh_CN.tsx#L20-L37) | - |
+| locale | The i18n text including filter, sort, empty text, etc | object | [默认值](https://github.com/ant-design/ant-design/blob/6dae4a7e18ad1ba193aedd5ab6867e1d823e2aa4/components/locale/zh_CN.tsx#L20-L37) | - |
 | pagination |Config of pagination. You can ref table pagination [config](#pagination) or full [`pagination`](/components/pagination/) document, hide it by setting it to `false` | false \| TablePaginationConfig | - | - |
 | rowClassName | Row's className | function(record, index): string | - |  |
 | rowKey | Row's unique key, could be a string or function that returns a string | string \| function(record): string | `key` | - |
