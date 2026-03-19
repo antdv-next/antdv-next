@@ -173,6 +173,7 @@ export type {
   SorterResult as TableSorterResult,
   SortOrder as TableSortOrder,
   TableStylesType,
+  TableTouchScrollConfig,
 } from './table'
 export { TabPane, default as Tabs } from './tabs'
 export type { TabPaneProps, TabsEmits, TabsProps, TabsRef, TabsSlots } from './tabs'

@@ -36,46 +36,35 @@ import { onBeforeUnmount, watch } from 'vue'
  */
 export interface TableTouchScrollConfig {
   /**
-   * Displacement threshold (px) before determining scroll direction.
-   * Used to distinguish between slight jittery clicks and intentional drags.
-   * @default 5
-   */
-  dragThreshold?: number
-  /**
-   * Friction/Decay rate.
-   * Controls the physical feel of inertial scrolling. Higher values result in smoother
-   * scrolling (slower decay), while lower values result in a sharper stop (faster decay).
+   * Friction/decay rate. Higher = smoother (slower decay), lower = sharper stop.
    * Recommended range: 0.8 - 0.99
    * @default 0.95
    */
   friction?: number
   /**
-   * Callback function when scrolling starts.
-   * Triggered when the user starts dragging (after exceeding dragThreshold).
-   * Use cases: Close popovers, log start time, etc.
+   * Displacement threshold (px) before locking scroll direction, to distinguish tap vs intentional drag.
+   * @default 5
    */
-  onScrollStart?: () => void
+  dragThreshold?: number
   /**
-   * Callback function when scrolling ends.
-   * Triggered after the inertial animation has fully stopped.
-   * Use cases: Trigger tracking, load more data, sync state, etc.
-   */
-  onScrollEnd?: () => void
-  /**
-   * Whether to disable inertial scrolling.
-   * If true, scrolling stops immediately when the finger is released, with no inertial effect.
-   * Use cases: Low-performance devices, form input scenarios requiring precise control.
+   * Disable inertial scrolling. If true, stops immediately on finger release.
    * @default false
    */
   disableInertia?: boolean
   /**
-   * Velocity threshold for intercepting clicks (px/ms).
-   * When scrolling speed exceeds this threshold, click events are intercepted after stopping to prevent accidental triggers.
-   * Larger values are looser (harder to block), smaller values are stricter (easier to block).
+   * Velocity threshold (px/ms) for blocking clicks after brake. Higher = looser, lower = stricter.
    * Recommended range: 0.3 - 1.0
    * @default 0.5
    */
   clickBlockThreshold?: number
+  /**
+   * Callback when scroll starts (after displacement exceeds dragThreshold and direction is locked).
+   */
+  onScrollStart?: () => void
+  /**
+   * Callback when scroll ends (after inertia animation fully stops).
+   */
+  onScrollEnd?: () => void
 }
 
 /**
