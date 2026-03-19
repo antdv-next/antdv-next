@@ -1,7 +1,8 @@
 import { describe, expect, it, vi } from 'vitest'
 import { nextTick, ref } from 'vue'
 import Drawer from '..'
-import { mount } from '/@tests/utils'
+import Popover from '../../popover'
+import { mount, waitFakeTimer } from '/@tests/utils'
 
 describe('drawer', () => {
   // ========================= Basic =========================
@@ -238,6 +239,44 @@ describe('drawer', () => {
     const drawer = document.querySelector('.ant-drawer-bottom')
     expect(drawer).toBeTruthy()
     wrapper.unmount()
+  })
+
+  it('keeps focus on a body-mounted popover input when drawer is open', async () => {
+    vi.useFakeTimers()
+    const wrapper = mount(Drawer, {
+      props: {
+        open: true,
+        title: 'Drawer with Popover',
+      },
+      slots: {
+        default: () => (
+          <Popover
+            open
+            trigger="click"
+            content={<input id="drawer-popover-input" />}
+          >
+            <input id="drawer-popover-trigger" readonly />
+          </Popover>
+        ),
+      },
+      attachTo: document.body,
+    })
+    try {
+      await waitFakeTimer(20, 10)
+      const popupInput = document.getElementById('drawer-popover-input') as HTMLInputElement | null
+      const drawerElement = document.querySelector('.ant-drawer')
+      expect(popupInput).not.toBeNull()
+      expect(drawerElement?.contains(popupInput!)).toBe(false)
+
+      popupInput!.focus()
+      await waitFakeTimer(1, 5)
+
+      expect(document.activeElement).toBe(popupInput)
+    }
+    finally {
+      wrapper.unmount()
+      vi.useRealTimers()
+    }
   })
 
   // ========================= Size =========================
