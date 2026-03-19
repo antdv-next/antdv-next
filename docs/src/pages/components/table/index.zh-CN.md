@@ -100,6 +100,7 @@ const columns = [
   <demo src="./demo/row-selection-and-operation.vue">选择与操作</demo>
   <demo src="./demo/reset-filter.vue">重置筛选</demo>
   <demo src="./demo/virtual-list.vue">虚拟列表</demo>
+  <demo src="./demo/touch-scroll.vue">触摸滚动</demo>
   <demo src="./demo/style-class.vue">自定义样式</demo>
   <demo src="./demo/dynamic-settings.vue">动态配置</demo>
   <demo src="./demo/cell-slot.vue">表头与单元格插槽</demo>
@@ -134,8 +135,22 @@ const columns = [
 | sticky | 设置粘性头部和滚动条 | boolean \| `{offsetHeader?: number, offsetScroll?: number, getContainer?: () => HTMLElement}` | - | - |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record\<[SemanticDOM](#semantic-dom), CSSProperties\> \| (info: \{ props \})=> Record\<[SemanticDOM](#semantic-dom), CSSProperties\> | - | - |
 | tableLayout | 表格元素的 [table-layout](https://developer.mozilla.org/zh-CN/docs/Web/CSS/table-layout) 属性，设为 `fixed` 表示内容不会影响列的布局 | - \| `auto` \| `fixed` | 无<hr />固定表头/列或使用了 `column.ellipsis` 时，默认值为 `fixed` |  |
+| touchScroll | 移动端触摸滚动增强，设为 `true` 使用默认配置，传入对象可自定义参数，详见 [TableTouchScrollConfig](#tabletouchscrollconfig) | boolean \| [TableTouchScrollConfig](#tabletouchscrollconfig) | - | - |
 | dropdownPrefixCls | - | string | - | - |
 | virtual | 支持虚拟列表 | boolean | - | - |
+
+### TableTouchScrollConfig {#tabletouchscrollconfig}
+
+开启 `touchScroll` 后，可通过对象形式自定义触摸滚动行为：
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| friction | 摩擦力/衰减率，值越大衰减越慢（滚动越丝滑），值越小即停感越强（建议范围：0.8 - 0.99） | number | 0.95 |
+| dragThreshold | 判定滚动方向前的位移阈值 (px)，用于区分轻微抖动点击和有意识的拖拽 | number | 5 |
+| disableInertia | 是否禁用惯性滚动，为 true 时手指松开即停止 | boolean | false |
+| clickBlockThreshold | 急停点击拦截的速度阈值 (px/ms)，值越大越宽松，值越小越严格（建议范围：0.3 - 1.0） | number | 0.5 |
+| onScrollStart | 滚动开始回调，在用户手指位移超过 dragThreshold 并锁定方向后触发 | () => void | - |
+| onScrollEnd | 滚动结束回调，在惯性动画完全停止后触发 | () => void | - |
 
 ### 事件 {#events}
 
