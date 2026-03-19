@@ -1,5 +1,5 @@
 import type { Component } from 'vue'
-// @ts-expect-error this is an internal util
+// @ts-expect-error this is an internal util1
 import { _rs as onResize } from '@v-c/resize-observer/dist/utils/observerUtil'
 import { flushPromises, mount } from '@vue/test-utils'
 import MockDate from 'mockdate'
