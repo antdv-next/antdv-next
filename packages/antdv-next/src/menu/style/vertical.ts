@@ -176,6 +176,11 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
             },
           },
         },
+        [`> ${componentCls}-item`]: {
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        },
 
         [`> ${componentCls}-item,
           > ${componentCls}-item-group > ${componentCls}-item-group-list > ${componentCls}-item,
@@ -200,7 +205,7 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
             lineHeight: unit(itemHeight),
 
             '+ span': {
-              display: 'inline-block',
+              display: 'none',
               opacity: 0,
             },
           },
