@@ -1,5 +1,5 @@
 import type { TableProps as VcTableProps } from '@v-c/table'
-import type { CSSProperties, SlotsType } from 'vue'
+import type { CSSProperties, ShallowRef, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { Breakpoint } from '../_util/responsiveObserver.ts'
 import type { AnyObject, VueNode } from '../_util/type.ts'
@@ -9,6 +9,7 @@ import type { PaginationSemanticClassNames, PaginationSemanticStyles } from '../
 import type { SpinProps } from '../spin'
 import type { FilterState } from './hooks/useFilter'
 import type { SortState } from './hooks/useSorter'
+import type { TableTouchScrollConfig } from './hooks/useTouchScroll.ts'
 import type {
   ColumnsType,
   ColumnType,
@@ -53,6 +54,7 @@ import usePagination, { DEFAULT_PAGE_SIZE, getPaginationParam } from './hooks/us
 import useSelection from './hooks/useSelection.tsx'
 import useSorter, { getSortData } from './hooks/useSorter.tsx'
 import useTitleColumns from './hooks/useTitleColumns.ts'
+import { useTouchScroll } from './hooks/useTouchScroll.ts'
 import useStyle from './style'
 import { TableMeasureRowContextProvider } from './TableMeasureRowContext.ts'
 import { convertColumnsToColumnProps } from './utils.ts'
@@ -164,6 +166,7 @@ export interface TableProps<RecordType = AnyObject>
   sortDirections?: SortOrder[]
   showSorterTooltip?: boolean | SorterTooltipProps
   virtual?: boolean
+  touchScroll?: boolean | TableTouchScrollConfig
 }
 
 export interface InternalTableProps<RecordType = AnyObject> extends TableProps<RecordType>,
@@ -318,6 +321,7 @@ const InternalTable = defineComponent<
         'sortDirections',
         'showSorterTooltip',
         'virtual',
+        'touchScroll',
         '_renderTimes',
       ]),
     )
@@ -531,6 +535,12 @@ const InternalTable = defineComponent<
 
     const rootRef = shallowRef<HTMLDivElement | null>(null)
     const tblRef = shallowRef<any>(null)
+
+    useTouchScroll(
+      rootRef,
+      internalRefs.body as ShallowRef<HTMLElement | null>,
+      computed(() => props.touchScroll),
+    )
 
     expose({
       scrollTo: (...args: any[]) => {

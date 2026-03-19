@@ -11,6 +11,7 @@ import {
 } from './hooks/useSelection.tsx'
 import Table from './Table.tsx'
 
+export type { TableTouchScrollConfig } from './hooks/useTouchScroll.ts'
 export type { ColumnsType, ColumnType, ExpandType, FilterValue, SorterResult, SortOrder, TableLocale, TablePaginationConfig, TableRowSelection } from './interface.ts'
 export type { TableClassNamesType, TableEmits, TableProps, TableSlots, TableStylesType } from './InternalTable.tsx'
 export type { DataIndex, Reference }
