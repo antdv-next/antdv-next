@@ -75,18 +75,10 @@ function clearLog() {
       <a-space wrap>
         <span>预设：</span>
         <a-radio-group v-model:value="preset">
-          <a-radio-button value="default">
-            默认
-          </a-radio-button>
-          <a-radio-button value="smooth">
-            更顺滑
-          </a-radio-button>
-          <a-radio-button value="noInertia">
-            无惯性
-          </a-radio-button>
-          <a-radio-button value="custom">
-            自定义
-          </a-radio-button>
+          <a-radio-button value="default">默认</a-radio-button>
+          <a-radio-button value="smooth">更顺滑</a-radio-button>
+          <a-radio-button value="noInertia">无惯性</a-radio-button>
+          <a-radio-button value="custom">自定义</a-radio-button>
         </a-radio-group>
       </a-space>
 
