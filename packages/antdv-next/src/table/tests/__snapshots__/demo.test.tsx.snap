@@ -31052,114 +31052,76 @@ exports[`table demo > renders summary correctly 1`] = `
 
 exports[`table demo > renders touch-scroll correctly 1`] = `
 <div
-  style="padding: 16px;"
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-root"
+  style="width: 100%;"
 >
   <div
-    class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-root"
-    style="width: 100%;"
+    class="ant-space-item"
   >
     <div
-      class="ant-space-item"
+      aria-label="segmented control"
+      aria-orientation="horizontal"
+      class="ant-segmented ant-segmented-shape-round css-var-root ant-segmented-shape-round css-var-root"
+      role="radiogroup"
+      size="middle"
+      tabindex="0"
     >
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"
-        style="flex-wrap: wrap;"
+        class="ant-segmented-group"
       >
-        <div
-          class="ant-space-item"
-        >
-          <span>
-            预设：
-          </span>
-        </div>
         <!---->
-        <div
-          class="ant-space-item"
+        <label
+          class="ant-segmented-item ant-segmented-item-selected"
         >
+          <input
+            checked=""
+            class="ant-segmented-item-input"
+            name="v-0"
+            type="radio"
+          />
           <div
-            class="ant-radio-group ant-radio-group-outline css-var-root ant-radio-css-var"
+            class="ant-segmented-item-label"
           >
-            <label
-              class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-root ant-radio-css-var"
+            <span
+              class="ant-segmented-item-icon"
             >
-              <span
-                class="ant-radio-button ant-radio-button-checked"
-                name="v-0"
-              >
-                <input
-                  checked=""
-                  class="ant-radio-button-input"
-                  type="radio"
-                />
-              </span>
-              <span
-                class="ant-radio-button-label"
-              >
-                默认
-              </span>
-            </label>
-            <label
-              class="ant-radio-button-wrapper css-var-root ant-radio-css-var"
-            >
-              <span
-                class="ant-radio-button"
-                name="v-0"
-              >
-                <input
-                  class="ant-radio-button-input"
-                  type="radio"
-                />
-              </span>
-              <span
-                class="ant-radio-button-label"
-              >
-                更顺滑
-              </span>
-            </label>
-            <label
-              class="ant-radio-button-wrapper css-var-root ant-radio-css-var"
-            >
-              <span
-                class="ant-radio-button"
-                name="v-0"
-              >
-                <input
-                  class="ant-radio-button-input"
-                  type="radio"
-                />
-              </span>
-              <span
-                class="ant-radio-button-label"
-              >
-                无惯性
-              </span>
-            </label>
-            <label
-              class="ant-radio-button-wrapper css-var-root ant-radio-css-var"
-            >
-              <span
-                class="ant-radio-button"
-                name="v-0"
-              >
-                <input
-                  class="ant-radio-button-input"
-                  type="radio"
-                />
-              </span>
-              <span
-                class="ant-radio-button-label"
-              >
-                自定义
-              </span>
-            </label>
+              <!---->
+            </span>
+            <span>
+              移动端
+            </span>
           </div>
-        </div>
-        <!---->
+        </label>
+        <label
+          class="ant-segmented-item"
+        >
+          <input
+            class="ant-segmented-item-input"
+            name="v-0"
+            type="radio"
+          />
+          <div
+            class="ant-segmented-item-label"
+          >
+            <span
+              class="ant-segmented-item-icon"
+            >
+              <!---->
+            </span>
+            <span>
+              PC 端
+            </span>
+          </div>
+        </label>
       </div>
     </div>
-    <!---->
+  </div>
+  <!---->
+  <div
+    class="ant-space-item"
+  >
     <div
-      class="ant-space-item"
+      style="max-width: 375px; border: 1px solid rgb(240, 240, 240); border-radius: 8px; overflow: hidden; transition: max-width 0.3s;"
     >
       <div
         class="css-var-root ant-table-css-var ant-table-wrapper"
@@ -31175,7 +31137,7 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
             class="ant-spin-container"
           >
             <div
-              class="ant-table css-var-root ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-fixed-header ant-table-scroll-horizontal"
+              class="ant-table ant-table-small css-var-root ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-fixed-header ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-start ant-table-has-fix-end"
             >
               <!---->
               <div
@@ -31187,17 +31149,29 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
                   style="overflow: hidden;"
                 >
                   <table
-                    style="table-layout: fixed; min-width: 100%; width: 600px;"
+                    style="table-layout: auto; min-width: 100%; width: max-content;"
                   >
                     <colgroup>
                       <col
-                        style="width: 150px;"
+                        style="width: 100px;"
+                      />
+                      <col
+                        style="width: 80px;"
+                      />
+                      <col
+                        style="width: 120px;"
+                      />
+                      <col
+                        style="width: 140px;"
+                      />
+                      <col
+                        style="width: 200px;"
                       />
                       <col
                         style="width: 100px;"
                       />
                       <col
-                        style="width: 300px;"
+                        style="width: 80px;"
                       />
                     </colgroup>
                     <thead
@@ -31207,10 +31181,11 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
                         class=""
                       >
                         <th
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                           colend="0"
                           colstart="0"
                           scope="col"
+                          style="inset-inline-start: 0px; --z-offset: 14; --z-offset-reverse: 7;"
                         >
                           <!---->
                           Name
@@ -31231,7 +31206,44 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
                           scope="col"
                         >
                           <!---->
-                          Address
+                          Department
+                        </th>
+                        <th
+                          class="ant-table-cell"
+                          colend="3"
+                          colstart="3"
+                          scope="col"
+                        >
+                          <!---->
+                          Role
+                        </th>
+                        <th
+                          class="ant-table-cell"
+                          colend="4"
+                          colstart="4"
+                          scope="col"
+                        >
+                          <!---->
+                          Email
+                        </th>
+                        <th
+                          class="ant-table-cell"
+                          colend="5"
+                          colstart="5"
+                          scope="col"
+                        >
+                          <!---->
+                          Status
+                        </th>
+                        <th
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                          colend="6"
+                          colstart="6"
+                          scope="col"
+                          style="inset-inline-end: 0px; --z-offset: 6; --z-offset-reverse: 1;"
+                        >
+                          <!---->
+                          Action
                         </th>
                       </tr>
                     </thead>
@@ -31243,18 +31255,30 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
                   style="overflow-x: auto; overflow-y: scroll; max-height: 300px; overflow: hidden; will-change: scroll-position;"
                 >
                   <table
-                    style="width: 600px; min-width: 100%; table-layout: fixed;"
+                    style="width: max-content; min-width: 100%; table-layout: auto;"
                   >
                     <!---->
                     <colgroup>
                       <col
-                        style="width: 150px;"
+                        style="width: 100px;"
+                      />
+                      <col
+                        style="width: 80px;"
+                      />
+                      <col
+                        style="width: 120px;"
+                      />
+                      <col
+                        style="width: 140px;"
+                      />
+                      <col
+                        style="width: 200px;"
                       />
                       <col
                         style="width: 100px;"
                       />
                       <col
-                        style="width: 300px;"
+                        style="width: 80px;"
                       />
                     </colgroup>
                     <tbody
@@ -31289,7 +31313,43 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
                           <div
                             style="height: 0px; overflow: hidden; font-weight: bold;"
                           >
-                            Address
+                            Department
+                          </div>
+                        </td>
+                        <td
+                          style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                        >
+                          <div
+                            style="height: 0px; overflow: hidden; font-weight: bold;"
+                          >
+                            Role
+                          </div>
+                        </td>
+                        <td
+                          style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                        >
+                          <div
+                            style="height: 0px; overflow: hidden; font-weight: bold;"
+                          >
+                            Email
+                          </div>
+                        </td>
+                        <td
+                          style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                        >
+                          <div
+                            style="height: 0px; overflow: hidden; font-weight: bold;"
+                          >
+                            Status
+                          </div>
+                        </td>
+                        <td
+                          style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                        >
+                          <div
+                            style="height: 0px; overflow: hidden; font-weight: bold;"
+                          >
+                            Action
                           </div>
                         </td>
                       </tr>
@@ -31298,25 +31358,57 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
                         data-row-key="0"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                           scope="row"
+                          style="inset-inline-start: 0px; --z-offset: 14; --z-offset-reverse: 7;"
                         >
                           <!---->
-                          Edward King 0
+                          User 0
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          32
+                          24
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          London, Park Lane no. 0
+                          Engineering
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Manager
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          user0@example.com
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Active
+                        </td>
+                        <td
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                          scope="row"
+                          style="inset-inline-end: 0px; --z-offset: 6; --z-offset-reverse: 1;"
+                        >
+                          <!---->
+                          <a>
+                            Edit
+                          </a>
                         </td>
                       </tr>
                       <tr
@@ -31324,25 +31416,57 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
                         data-row-key="1"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                           scope="row"
+                          style="inset-inline-start: 0px; --z-offset: 14; --z-offset-reverse: 7;"
                         >
                           <!---->
-                          Edward King 1
+                          User 1
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          33
+                          25
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          London, Park Lane no. 1
+                          Design
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Senior
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          user1@example.com
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          On Leave
+                        </td>
+                        <td
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                          scope="row"
+                          style="inset-inline-end: 0px; --z-offset: 6; --z-offset-reverse: 1;"
+                        >
+                          <!---->
+                          <a>
+                            Edit
+                          </a>
                         </td>
                       </tr>
                       <tr
@@ -31350,25 +31474,57 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
                         data-row-key="2"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                           scope="row"
+                          style="inset-inline-start: 0px; --z-offset: 14; --z-offset-reverse: 7;"
                         >
                           <!---->
-                          Edward King 2
+                          User 2
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          34
+                          26
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          London, Park Lane no. 2
+                          Product
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Junior
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          user2@example.com
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Remote
+                        </td>
+                        <td
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                          scope="row"
+                          style="inset-inline-end: 0px; --z-offset: 6; --z-offset-reverse: 1;"
+                        >
+                          <!---->
+                          <a>
+                            Edit
+                          </a>
                         </td>
                       </tr>
                       <tr
@@ -31376,25 +31532,57 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
                         data-row-key="3"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                           scope="row"
+                          style="inset-inline-start: 0px; --z-offset: 14; --z-offset-reverse: 7;"
                         >
                           <!---->
-                          Edward King 3
+                          User 3
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          35
+                          27
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          London, Park Lane no. 3
+                          Marketing
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Lead
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          user3@example.com
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Active
+                        </td>
+                        <td
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                          scope="row"
+                          style="inset-inline-end: 0px; --z-offset: 6; --z-offset-reverse: 1;"
+                        >
+                          <!---->
+                          <a>
+                            Edit
+                          </a>
                         </td>
                       </tr>
                       <tr
@@ -31402,25 +31590,57 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
                         data-row-key="4"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                           scope="row"
+                          style="inset-inline-start: 0px; --z-offset: 14; --z-offset-reverse: 7;"
                         >
                           <!---->
-                          Edward King 4
+                          User 4
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          36
+                          28
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          London, Park Lane no. 4
+                          Sales
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Intern
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          user4@example.com
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          On Leave
+                        </td>
+                        <td
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                          scope="row"
+                          style="inset-inline-end: 0px; --z-offset: 6; --z-offset-reverse: 1;"
+                        >
+                          <!---->
+                          <a>
+                            Edit
+                          </a>
                         </td>
                       </tr>
                       <tr
@@ -31428,25 +31648,57 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
                         data-row-key="5"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                           scope="row"
+                          style="inset-inline-start: 0px; --z-offset: 14; --z-offset-reverse: 7;"
                         >
                           <!---->
-                          Edward King 5
+                          User 5
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          37
+                          29
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          London, Park Lane no. 5
+                          Engineering
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Manager
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          user5@example.com
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Remote
+                        </td>
+                        <td
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                          scope="row"
+                          style="inset-inline-end: 0px; --z-offset: 6; --z-offset-reverse: 1;"
+                        >
+                          <!---->
+                          <a>
+                            Edit
+                          </a>
                         </td>
                       </tr>
                       <tr
@@ -31454,25 +31706,57 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
                         data-row-key="6"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                           scope="row"
+                          style="inset-inline-start: 0px; --z-offset: 14; --z-offset-reverse: 7;"
                         >
                           <!---->
-                          Edward King 6
+                          User 6
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          38
+                          30
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          London, Park Lane no. 6
+                          Design
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Senior
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          user6@example.com
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Active
+                        </td>
+                        <td
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                          scope="row"
+                          style="inset-inline-end: 0px; --z-offset: 6; --z-offset-reverse: 1;"
+                        >
+                          <!---->
+                          <a>
+                            Edit
+                          </a>
                         </td>
                       </tr>
                       <tr
@@ -31480,25 +31764,57 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
                         data-row-key="7"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                           scope="row"
+                          style="inset-inline-start: 0px; --z-offset: 14; --z-offset-reverse: 7;"
                         >
                           <!---->
-                          Edward King 7
+                          User 7
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          39
+                          31
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          London, Park Lane no. 7
+                          Product
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Junior
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          user7@example.com
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          On Leave
+                        </td>
+                        <td
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                          scope="row"
+                          style="inset-inline-end: 0px; --z-offset: 6; --z-offset-reverse: 1;"
+                        >
+                          <!---->
+                          <a>
+                            Edit
+                          </a>
                         </td>
                       </tr>
                       <tr
@@ -31506,25 +31822,57 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
                         data-row-key="8"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                           scope="row"
+                          style="inset-inline-start: 0px; --z-offset: 14; --z-offset-reverse: 7;"
                         >
                           <!---->
-                          Edward King 8
+                          User 8
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          40
+                          32
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          London, Park Lane no. 8
+                          Marketing
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Lead
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          user8@example.com
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Remote
+                        </td>
+                        <td
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                          scope="row"
+                          style="inset-inline-end: 0px; --z-offset: 6; --z-offset-reverse: 1;"
+                        >
+                          <!---->
+                          <a>
+                            Edit
+                          </a>
                         </td>
                       </tr>
                       <tr
@@ -31532,25 +31880,57 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
                         data-row-key="9"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                           scope="row"
+                          style="inset-inline-start: 0px; --z-offset: 14; --z-offset-reverse: 7;"
                         >
                           <!---->
-                          Edward King 9
+                          User 9
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          41
+                          33
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          London, Park Lane no. 9
+                          Sales
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Intern
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          user9@example.com
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Active
+                        </td>
+                        <td
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                          scope="row"
+                          style="inset-inline-end: 0px; --z-offset: 6; --z-offset-reverse: 1;"
+                        >
+                          <!---->
+                          <a>
+                            Edit
+                          </a>
                         </td>
                       </tr>
                       <tr
@@ -31558,25 +31938,57 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
                         data-row-key="10"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                           scope="row"
+                          style="inset-inline-start: 0px; --z-offset: 14; --z-offset-reverse: 7;"
                         >
                           <!---->
-                          Edward King 10
+                          User 10
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          32
+                          34
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          London, Park Lane no. 10
+                          Engineering
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Manager
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          user10@example.com
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          On Leave
+                        </td>
+                        <td
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                          scope="row"
+                          style="inset-inline-end: 0px; --z-offset: 6; --z-offset-reverse: 1;"
+                        >
+                          <!---->
+                          <a>
+                            Edit
+                          </a>
                         </td>
                       </tr>
                       <tr
@@ -31584,25 +31996,57 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
                         data-row-key="11"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                           scope="row"
+                          style="inset-inline-start: 0px; --z-offset: 14; --z-offset-reverse: 7;"
                         >
                           <!---->
-                          Edward King 11
+                          User 11
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          33
+                          35
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          London, Park Lane no. 11
+                          Design
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Senior
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          user11@example.com
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Remote
+                        </td>
+                        <td
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                          scope="row"
+                          style="inset-inline-end: 0px; --z-offset: 6; --z-offset-reverse: 1;"
+                        >
+                          <!---->
+                          <a>
+                            Edit
+                          </a>
                         </td>
                       </tr>
                       <tr
@@ -31610,25 +32054,57 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
                         data-row-key="12"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                           scope="row"
+                          style="inset-inline-start: 0px; --z-offset: 14; --z-offset-reverse: 7;"
                         >
                           <!---->
-                          Edward King 12
+                          User 12
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          34
+                          36
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          London, Park Lane no. 12
+                          Product
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Junior
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          user12@example.com
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Active
+                        </td>
+                        <td
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                          scope="row"
+                          style="inset-inline-end: 0px; --z-offset: 6; --z-offset-reverse: 1;"
+                        >
+                          <!---->
+                          <a>
+                            Edit
+                          </a>
                         </td>
                       </tr>
                       <tr
@@ -31636,25 +32112,57 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
                         data-row-key="13"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                           scope="row"
+                          style="inset-inline-start: 0px; --z-offset: 14; --z-offset-reverse: 7;"
                         >
                           <!---->
-                          Edward King 13
+                          User 13
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          35
+                          37
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          London, Park Lane no. 13
+                          Marketing
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Lead
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          user13@example.com
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          On Leave
+                        </td>
+                        <td
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                          scope="row"
+                          style="inset-inline-end: 0px; --z-offset: 6; --z-offset-reverse: 1;"
+                        >
+                          <!---->
+                          <a>
+                            Edit
+                          </a>
                         </td>
                       </tr>
                       <tr
@@ -31662,25 +32170,57 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
                         data-row-key="14"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                           scope="row"
+                          style="inset-inline-start: 0px; --z-offset: 14; --z-offset-reverse: 7;"
                         >
                           <!---->
-                          Edward King 14
+                          User 14
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          36
+                          38
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          London, Park Lane no. 14
+                          Sales
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Intern
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          user14@example.com
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Remote
+                        </td>
+                        <td
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                          scope="row"
+                          style="inset-inline-end: 0px; --z-offset: 6; --z-offset-reverse: 1;"
+                        >
+                          <!---->
+                          <a>
+                            Edit
+                          </a>
                         </td>
                       </tr>
                       <tr
@@ -31688,25 +32228,57 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
                         data-row-key="15"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                           scope="row"
+                          style="inset-inline-start: 0px; --z-offset: 14; --z-offset-reverse: 7;"
                         >
                           <!---->
-                          Edward King 15
+                          User 15
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          37
+                          24
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          London, Park Lane no. 15
+                          Engineering
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Manager
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          user15@example.com
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Active
+                        </td>
+                        <td
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                          scope="row"
+                          style="inset-inline-end: 0px; --z-offset: 6; --z-offset-reverse: 1;"
+                        >
+                          <!---->
+                          <a>
+                            Edit
+                          </a>
                         </td>
                       </tr>
                       <tr
@@ -31714,25 +32286,57 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
                         data-row-key="16"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                           scope="row"
+                          style="inset-inline-start: 0px; --z-offset: 14; --z-offset-reverse: 7;"
                         >
                           <!---->
-                          Edward King 16
+                          User 16
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          38
+                          25
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          London, Park Lane no. 16
+                          Design
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Senior
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          user16@example.com
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          On Leave
+                        </td>
+                        <td
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                          scope="row"
+                          style="inset-inline-end: 0px; --z-offset: 6; --z-offset-reverse: 1;"
+                        >
+                          <!---->
+                          <a>
+                            Edit
+                          </a>
                         </td>
                       </tr>
                       <tr
@@ -31740,25 +32344,57 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
                         data-row-key="17"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                           scope="row"
+                          style="inset-inline-start: 0px; --z-offset: 14; --z-offset-reverse: 7;"
                         >
                           <!---->
-                          Edward King 17
+                          User 17
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          39
+                          26
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          London, Park Lane no. 17
+                          Product
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Junior
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          user17@example.com
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Remote
+                        </td>
+                        <td
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                          scope="row"
+                          style="inset-inline-end: 0px; --z-offset: 6; --z-offset-reverse: 1;"
+                        >
+                          <!---->
+                          <a>
+                            Edit
+                          </a>
                         </td>
                       </tr>
                       <tr
@@ -31766,25 +32402,57 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
                         data-row-key="18"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                           scope="row"
+                          style="inset-inline-start: 0px; --z-offset: 14; --z-offset-reverse: 7;"
                         >
                           <!---->
-                          Edward King 18
+                          User 18
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          40
+                          27
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          London, Park Lane no. 18
+                          Marketing
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Lead
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          user18@example.com
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Active
+                        </td>
+                        <td
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                          scope="row"
+                          style="inset-inline-end: 0px; --z-offset: 6; --z-offset-reverse: 1;"
+                        >
+                          <!---->
+                          <a>
+                            Edit
+                          </a>
                         </td>
                       </tr>
                       <tr
@@ -31792,25 +32460,57 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
                         data-row-key="19"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                           scope="row"
+                          style="inset-inline-start: 0px; --z-offset: 14; --z-offset-reverse: 7;"
                         >
                           <!---->
-                          Edward King 19
+                          User 19
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          41
+                          28
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          London, Park Lane no. 19
+                          Sales
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Intern
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          user19@example.com
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          On Leave
+                        </td>
+                        <td
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                          scope="row"
+                          style="inset-inline-end: 0px; --z-offset: 6; --z-offset-reverse: 1;"
+                        >
+                          <!---->
+                          <a>
+                            Edit
+                          </a>
                         </td>
                       </tr>
                       <tr
@@ -31818,25 +32518,57 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
                         data-row-key="20"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                           scope="row"
+                          style="inset-inline-start: 0px; --z-offset: 14; --z-offset-reverse: 7;"
                         >
                           <!---->
-                          Edward King 20
+                          User 20
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          32
+                          29
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          London, Park Lane no. 20
+                          Engineering
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Manager
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          user20@example.com
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Remote
+                        </td>
+                        <td
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                          scope="row"
+                          style="inset-inline-end: 0px; --z-offset: 6; --z-offset-reverse: 1;"
+                        >
+                          <!---->
+                          <a>
+                            Edit
+                          </a>
                         </td>
                       </tr>
                       <tr
@@ -31844,25 +32576,57 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
                         data-row-key="21"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                           scope="row"
+                          style="inset-inline-start: 0px; --z-offset: 14; --z-offset-reverse: 7;"
                         >
                           <!---->
-                          Edward King 21
+                          User 21
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          33
+                          30
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          London, Park Lane no. 21
+                          Design
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Senior
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          user21@example.com
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Active
+                        </td>
+                        <td
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                          scope="row"
+                          style="inset-inline-end: 0px; --z-offset: 6; --z-offset-reverse: 1;"
+                        >
+                          <!---->
+                          <a>
+                            Edit
+                          </a>
                         </td>
                       </tr>
                       <tr
@@ -31870,25 +32634,57 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
                         data-row-key="22"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                           scope="row"
+                          style="inset-inline-start: 0px; --z-offset: 14; --z-offset-reverse: 7;"
                         >
                           <!---->
-                          Edward King 22
+                          User 22
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          34
+                          31
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          London, Park Lane no. 22
+                          Product
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Junior
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          user22@example.com
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          On Leave
+                        </td>
+                        <td
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                          scope="row"
+                          style="inset-inline-end: 0px; --z-offset: 6; --z-offset-reverse: 1;"
+                        >
+                          <!---->
+                          <a>
+                            Edit
+                          </a>
                         </td>
                       </tr>
                       <tr
@@ -31896,25 +32692,57 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
                         data-row-key="23"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                           scope="row"
+                          style="inset-inline-start: 0px; --z-offset: 14; --z-offset-reverse: 7;"
                         >
                           <!---->
-                          Edward King 23
+                          User 23
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          35
+                          32
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          London, Park Lane no. 23
+                          Marketing
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Lead
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          user23@example.com
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Remote
+                        </td>
+                        <td
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                          scope="row"
+                          style="inset-inline-end: 0px; --z-offset: 6; --z-offset-reverse: 1;"
+                        >
+                          <!---->
+                          <a>
+                            Edit
+                          </a>
                         </td>
                       </tr>
                       <tr
@@ -31922,25 +32750,57 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
                         data-row-key="24"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                           scope="row"
+                          style="inset-inline-start: 0px; --z-offset: 14; --z-offset-reverse: 7;"
                         >
                           <!---->
-                          Edward King 24
+                          User 24
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          36
+                          33
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          London, Park Lane no. 24
+                          Sales
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Intern
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          user24@example.com
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Active
+                        </td>
+                        <td
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                          scope="row"
+                          style="inset-inline-end: 0px; --z-offset: 6; --z-offset-reverse: 1;"
+                        >
+                          <!---->
+                          <a>
+                            Edit
+                          </a>
                         </td>
                       </tr>
                       <tr
@@ -31948,25 +32808,57 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
                         data-row-key="25"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                           scope="row"
+                          style="inset-inline-start: 0px; --z-offset: 14; --z-offset-reverse: 7;"
                         >
                           <!---->
-                          Edward King 25
+                          User 25
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          37
+                          34
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          London, Park Lane no. 25
+                          Engineering
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Manager
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          user25@example.com
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          On Leave
+                        </td>
+                        <td
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                          scope="row"
+                          style="inset-inline-end: 0px; --z-offset: 6; --z-offset-reverse: 1;"
+                        >
+                          <!---->
+                          <a>
+                            Edit
+                          </a>
                         </td>
                       </tr>
                       <tr
@@ -31974,25 +32866,57 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
                         data-row-key="26"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                           scope="row"
+                          style="inset-inline-start: 0px; --z-offset: 14; --z-offset-reverse: 7;"
                         >
                           <!---->
-                          Edward King 26
+                          User 26
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          38
+                          35
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          London, Park Lane no. 26
+                          Design
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Senior
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          user26@example.com
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Remote
+                        </td>
+                        <td
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                          scope="row"
+                          style="inset-inline-end: 0px; --z-offset: 6; --z-offset-reverse: 1;"
+                        >
+                          <!---->
+                          <a>
+                            Edit
+                          </a>
                         </td>
                       </tr>
                       <tr
@@ -32000,25 +32924,57 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
                         data-row-key="27"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                           scope="row"
+                          style="inset-inline-start: 0px; --z-offset: 14; --z-offset-reverse: 7;"
                         >
                           <!---->
-                          Edward King 27
+                          User 27
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          39
+                          36
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          London, Park Lane no. 27
+                          Product
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Junior
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          user27@example.com
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Active
+                        </td>
+                        <td
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                          scope="row"
+                          style="inset-inline-end: 0px; --z-offset: 6; --z-offset-reverse: 1;"
+                        >
+                          <!---->
+                          <a>
+                            Edit
+                          </a>
                         </td>
                       </tr>
                       <tr
@@ -32026,25 +32982,57 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
                         data-row-key="28"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                           scope="row"
+                          style="inset-inline-start: 0px; --z-offset: 14; --z-offset-reverse: 7;"
                         >
                           <!---->
-                          Edward King 28
+                          User 28
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          40
+                          37
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          London, Park Lane no. 28
+                          Marketing
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          Lead
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          user28@example.com
+                        </td>
+                        <td
+                          class="ant-table-cell"
+                          scope="row"
+                        >
+                          <!---->
+                          On Leave
+                        </td>
+                        <td
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
+                          scope="row"
+                          style="inset-inline-end: 0px; --z-offset: 6; --z-offset-reverse: 1;"
+                        >
+                          <!---->
+                          <a>
+                            Edit
+                          </a>
                         </td>
                       </tr>
                       <tr
@@ -32052,193 +33040,12 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
                         data-row-key="29"
                       >
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                           scope="row"
+                          style="inset-inline-start: 0px; --z-offset: 14; --z-offset-reverse: 7;"
                         >
                           <!---->
-                          Edward King 29
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          41
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          London, Park Lane no. 29
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="30"
-                      >
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          Edward King 30
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          32
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          London, Park Lane no. 30
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="31"
-                      >
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          Edward King 31
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          33
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          London, Park Lane no. 31
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="32"
-                      >
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          Edward King 32
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          34
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          London, Park Lane no. 32
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="33"
-                      >
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          Edward King 33
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          35
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          London, Park Lane no. 33
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="34"
-                      >
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          Edward King 34
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          36
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          London, Park Lane no. 34
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="35"
-                      >
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          Edward King 35
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          37
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          London, Park Lane no. 35
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="36"
-                      >
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          Edward King 36
+                          User 29
                         </td>
                         <td
                           class="ant-table-cell"
@@ -32252,345 +33059,38 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
                           scope="row"
                         >
                           <!---->
-                          London, Park Lane no. 36
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="37"
-                      >
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          Edward King 37
+                          Sales
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          39
+                          Intern
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          London, Park Lane no. 37
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="38"
-                      >
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          Edward King 38
+                          user29@example.com
                         </td>
                         <td
                           class="ant-table-cell"
                           scope="row"
                         >
                           <!---->
-                          40
+                          Remote
                         </td>
                         <td
-                          class="ant-table-cell"
+                          class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
                           scope="row"
+                          style="inset-inline-end: 0px; --z-offset: 6; --z-offset-reverse: 1;"
                         >
                           <!---->
-                          London, Park Lane no. 38
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="39"
-                      >
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          Edward King 39
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          41
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          London, Park Lane no. 39
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="40"
-                      >
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          Edward King 40
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          32
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          London, Park Lane no. 40
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="41"
-                      >
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          Edward King 41
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          33
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          London, Park Lane no. 41
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="42"
-                      >
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          Edward King 42
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          34
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          London, Park Lane no. 42
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="43"
-                      >
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          Edward King 43
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          35
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          London, Park Lane no. 43
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="44"
-                      >
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          Edward King 44
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          36
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          London, Park Lane no. 44
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="45"
-                      >
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          Edward King 45
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          37
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          London, Park Lane no. 45
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="46"
-                      >
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          Edward King 46
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          38
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          London, Park Lane no. 46
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="47"
-                      >
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          Edward King 47
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          39
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          London, Park Lane no. 47
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="48"
-                      >
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          Edward King 48
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          40
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          London, Park Lane no. 48
-                        </td>
-                      </tr>
-                      <tr
-                        class="ant-table-row ant-table-row-level-0"
-                        data-row-key="49"
-                      >
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          Edward King 49
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          41
-                        </td>
-                        <td
-                          class="ant-table-cell"
-                          scope="row"
-                        >
-                          <!---->
-                          London, Park Lane no. 49
+                          <a>
+                            Edit
+                          </a>
                         </td>
                       </tr>
                     </tbody>
@@ -32606,8 +33106,8 @@ exports[`table demo > renders touch-scroll correctly 1`] = `
         </div>
       </div>
     </div>
-    <!---->
   </div>
+  <!---->
 </div>
 `;
 

@@ -99,7 +99,7 @@ const columns = [
   <demo src="./demo/row-selection-and-operation.vue">Selection Operations</demo>
   <demo src="./demo/reset-filter.vue">Reset Filter</demo>
   <demo src="./demo/virtual-list.vue">Virtual List</demo>
-  <demo src="./demo/touch-scroll.vue">Touch Scroll</demo>
+  <demo src="./demo/touch-scroll.vue">Mobile Adaptation</demo>
   <demo src="./demo/style-class.vue">Style & Class</demo>
   <demo src="./demo/dynamic-settings.vue">Dynamic Settings</demo>
   <demo src="./demo/cell-slot.vue">Header & Body Cell Slots</demo>
@@ -134,13 +134,13 @@ Common props ref：[Common props](/docs/vue/common-props)
 | sticky | Set sticky header and scroll bar | boolean \| `{offsetHeader?: number, offsetScroll?: number, getContainer?: () => HTMLElement}` | - | - |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record\<[SemanticDOM](#semantic-dom), CSSProperties\> \| (info: \{ props \})=> Record\<[SemanticDOM](#semantic-dom), CSSProperties\> | - | - |
 | tableLayout | The [table-layout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) attribute of table element | - \| `auto` \| `fixed` | -<hr />`fixed` when header/columns are fixed, or using `column.ellipsis`  |  |
-| touchScroll | Mobile touch scroll enhancement. `true` for defaults, or pass [TableTouchScrollConfig](#tabletouchscrollconfig) to customize | boolean \| [TableTouchScrollConfig](#tabletouchscrollconfig) | - | - |
+| touchScroll | Mobile touch scroll enhancement. Fixes scroll lag, missing inertia, header-body scroll tearing, and axis misjudgment when using desktop Table on mobile. Requires `scroll.x` and column `width`. `true` for defaults, or pass [TableTouchScrollConfig](#tabletouchscrollconfig) to customize | boolean \| [TableTouchScrollConfig](#tabletouchscrollconfig) | - | - |
 | dropdownPrefixCls | - | string | - | - |
 | virtual | Support virtual list | boolean | - | - |
 
 ### TableTouchScrollConfig {#tabletouchscrollconfig}
 
-When `touchScroll` is enabled, customize touch scroll behavior via object:
+Set `touchScroll` to `true` for defaults, or pass an object to fine-tune touch scroll behavior. Default values work well for most scenarios.
 
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |

@@ -100,7 +100,7 @@ const columns = [
   <demo src="./demo/row-selection-and-operation.vue">选择与操作</demo>
   <demo src="./demo/reset-filter.vue">重置筛选</demo>
   <demo src="./demo/virtual-list.vue">虚拟列表</demo>
-  <demo src="./demo/touch-scroll.vue">触摸滚动</demo>
+  <demo src="./demo/touch-scroll.vue">移动端适配</demo>
   <demo src="./demo/style-class.vue">自定义样式</demo>
   <demo src="./demo/dynamic-settings.vue">动态配置</demo>
   <demo src="./demo/cell-slot.vue">表头与单元格插槽</demo>
@@ -135,13 +135,13 @@ const columns = [
 | sticky | 设置粘性头部和滚动条 | boolean \| `{offsetHeader?: number, offsetScroll?: number, getContainer?: () => HTMLElement}` | - | - |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record\<[SemanticDOM](#semantic-dom), CSSProperties\> \| (info: \{ props \})=> Record\<[SemanticDOM](#semantic-dom), CSSProperties\> | - | - |
 | tableLayout | 表格元素的 [table-layout](https://developer.mozilla.org/zh-CN/docs/Web/CSS/table-layout) 属性，设为 `fixed` 表示内容不会影响列的布局 | - \| `auto` \| `fixed` | 无<hr />固定表头/列或使用了 `column.ellipsis` 时，默认值为 `fixed` |  |
-| touchScroll | 移动端触摸滚动增强，设为 `true` 使用默认配置，传入对象可自定义参数，详见 [TableTouchScrollConfig](#tabletouchscrollconfig) | boolean \| [TableTouchScrollConfig](#tabletouchscrollconfig) | - | - |
+| touchScroll | 移动端触摸滚动增强。解决桌面表格在移动端滚动不跟手、缺少惯性反馈、表头与内容滚动撕裂、方向轴误判等问题。需配合 `scroll.x` 和列 `width` 使用。设为 `true` 使用默认配置，传入 [TableTouchScrollConfig](#tabletouchscrollconfig) 可自定义参数 | boolean \| [TableTouchScrollConfig](#tabletouchscrollconfig) | - | - |
 | dropdownPrefixCls | - | string | - | - |
 | virtual | 支持虚拟列表 | boolean | - | - |
 
 ### TableTouchScrollConfig {#tabletouchscrollconfig}
 
-开启 `touchScroll` 后，可通过对象形式自定义触摸滚动行为：
+`touchScroll` 设为 `true` 时使用默认配置，传入对象可精细调节触摸滚动行为。通常默认值已能满足大部分场景，无需额外配置。
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |

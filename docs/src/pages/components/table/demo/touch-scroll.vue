@@ -1,109 +1,70 @@
 <docs lang="zh-CN">
-移动端触摸滚动增强，提供惯性滑动与同步表头。设为 `true` 使用默认配置，传入对象可自定义阻尼、阈值等参数。
+在移动端直接使用桌面表格组件时，常会遇到滚动不跟手、缺少惯性反馈、表头与内容滚动撕裂、方向轴误判等问题。开启 `touchScroll` 可让表格在移动设备上获得接近原生的丝滑触摸滚动体验。传入 [TableTouchScrollConfig](#tabletouchscrollconfig) 可自定义摩擦力、拖拽阈值等参数。
 </docs>
 
 <docs lang="en-US">
-Mobile touch scroll enhancement with inertial scrolling and header sync. Set to `true` for defaults, or pass an object to customize friction, thresholds, etc.
+When using desktop Table components on mobile, you may encounter issues like scroll lag, no inertia, header-body scroll tearing, and axis misjudgment. Enable `touchScroll` for a near-native smooth touch scrolling experience. Pass [TableTouchScrollConfig](#tabletouchscrollconfig) to customize friction, drag threshold, etc.
 </docs>
 
 <script setup lang="ts">
-import type { TableProps, TableTouchScrollConfig } from 'antdv-next'
-import { computed, ref } from 'vue'
+import type { TableProps } from 'antdv-next'
+import { h, ref } from 'vue'
 
 interface DataType {
   key: number
   name: string
   age: number
-  address: string
+  department: string
+  role: string
+  email: string
+  status: string
 }
 
 const columns: TableProps['columns'] = [
-  { title: 'Name', dataIndex: 'name', key: 'name', width: 150 },
-  { title: 'Age', dataIndex: 'age', key: 'age', width: 100 },
-  { title: 'Address', dataIndex: 'address', key: 'address', width: 300 },
+  { title: 'Name', dataIndex: 'name', key: 'name', width: 100, fixed: 'start' },
+  { title: 'Age', dataIndex: 'age', key: 'age', width: 80 },
+  { title: 'Department', dataIndex: 'department', key: 'department', width: 120 },
+  { title: 'Role', dataIndex: 'role', key: 'role', width: 140 },
+  { title: 'Email', dataIndex: 'email', key: 'email', width: 200 },
+  { title: 'Status', dataIndex: 'status', key: 'status', width: 100 },
+  {
+    title: 'Action',
+    key: 'action',
+    fixed: 'end',
+    width: 80,
+    render: () => h('a', 'Edit'),
+  },
 ]
 
-const dataSource: DataType[] = Array.from({ length: 50 }).map((_, i) => ({
+const departments = ['Engineering', 'Design', 'Product', 'Marketing', 'Sales']
+const roles = ['Manager', 'Senior', 'Junior', 'Lead', 'Intern']
+const statuses = ['Active', 'On Leave', 'Remote']
+
+const dataSource: DataType[] = Array.from({ length: 30 }).map((_, i) => ({
   key: i,
-  name: `Edward King ${i}`,
-  age: 32 + (i % 10),
-  address: `London, Park Lane no. ${i}`,
+  name: `User ${i}`,
+  age: 24 + (i % 15),
+  department: departments[i % departments.length]!,
+  role: roles[i % roles.length]!,
+  email: `user${i}@example.com`,
+  status: statuses[i % statuses.length]!,
 }))
 
-// 预设配置示例
-const preset = ref<'default' | 'smooth' | 'noInertia' | 'custom'>('default')
-const customFriction = ref(0.92)
-const customDragThreshold = ref(8)
-const scrollLog = ref<string[]>([])
-
-const touchScrollConfig = computed<boolean | TableTouchScrollConfig>(() => {
-  if (preset.value === 'default') {
-    return true
-  }
-
-  if (preset.value === 'smooth') {
-    return {
-      friction: 0.98,
-      onScrollStart: () => scrollLog.value.push('开始滑动'),
-      onScrollEnd: () => scrollLog.value.push('滑动结束'),
-    }
-  }
-
-  if (preset.value === 'noInertia') {
-    return {
-      disableInertia: true,
-      onScrollEnd: () => scrollLog.value.push('松手即停'),
-    }
-  }
-
-  return {
-    friction: customFriction.value,
-    dragThreshold: customDragThreshold.value,
-    onScrollStart: () => scrollLog.value.push('Start'),
-    onScrollEnd: () => scrollLog.value.push('End'),
-  }
-})
-
-function clearLog() {
-  scrollLog.value = []
-}
+const viewMode = ref<'mobile' | 'pc'>('mobile')
 </script>
 
 <template>
-  <div style="padding: 16px;">
-    <a-space direction="vertical" style="width: 100%">
-      <a-space wrap>
-        <span>预设：</span>
-        <a-radio-group v-model:value="preset">
-          <a-radio-button value="default">默认</a-radio-button>
-          <a-radio-button value="smooth">更顺滑</a-radio-button>
-          <a-radio-button value="noInertia">无惯性</a-radio-button>
-          <a-radio-button value="custom">自定义</a-radio-button>
-        </a-radio-group>
-      </a-space>
-
-      <a-space v-if="preset === 'custom'" wrap>
-        <a-input-number v-model:value="customFriction" :min="0.8" :max="0.99" :step="0.01" addon-before="friction" />
-        <a-input-number v-model:value="customDragThreshold" :min="1" :max="20" addon-before="dragThreshold" />
-      </a-space>
-
+  <a-space direction="vertical" style="width: 100%">
+    <a-segmented v-model:value="viewMode" :options="[{ label: '移动端', value: 'mobile' }, { label: 'PC 端', value: 'pc' }]" shape="round" />
+    <div :style="{ maxWidth: viewMode === 'mobile' ? '375px' : '100%', border: '1px solid #f0f0f0', borderRadius: '8px', overflow: 'hidden', transition: 'max-width 0.3s' }">
       <a-table
         :columns="columns"
         :data-source="dataSource"
         :pagination="false"
-        :scroll="{ y: 300, x: 600 }"
-        :touch-scroll="touchScrollConfig"
+        :scroll="{ x: 'max-content', y: 300 }"
+        :touch-scroll="true"
+        size="small"
       />
-
-      <div v-if="scrollLog.length > 0">
-        <a-space>
-          <span>滚动回调日志：</span>
-          <a-button size="small" @click="clearLog">
-            清空
-          </a-button>
-        </a-space>
-        <pre style="margin: 8px 0 0; max-height: 80px; overflow: auto; font-size: 12px;">{{ scrollLog.join('\n') }}</pre>
-      </div>
-    </a-space>
-  </div>
+    </div>
+  </a-space>
 </template>
