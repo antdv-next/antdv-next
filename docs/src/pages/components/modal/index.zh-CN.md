@@ -59,6 +59,7 @@ demo:
 | focusTriggerAfterClose | 对话框关闭后是否需要聚焦触发元素 | boolean | true | - |
 | footer | 底部内容，当不需要默认底部按钮时，可以设为 `footer={null}` | VueNode \| (params: { originNode: VueNode, extra: { OkBtn: any, CancelBtn: any } }) => any | (确定取消按钮) | - |
 | forceRender | 强制渲染 Modal | boolean | false | - |
+| focusable | 对话框内焦点管理的配置 | `{ trap?: boolean, focusTriggerAfterClose?: boolean }` | - | - |
 | getContainer | 指定 Modal 挂载的节点，但依旧为全屏展示，`false` 为挂载在当前位置 | string \| HTMLElement \| (() => HTMLElement) \| false | document.body | - |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true | - |
 | loading | 显示骨架屏 | boolean | false | - |

@@ -58,6 +58,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | focusTriggerAfterClose | Whether need to focus trigger element after dialog is closed | boolean | true | - |
 | footer | Footer content, set as `footer={null}` when you don't need default buttons | VueNode \| (params: { originNode: VueNode, extra: { OkBtn: any, CancelBtn: any } }) => any | (OK and Cancel buttons) | - |
 | forceRender | Force render Modal | boolean | false | - |
+| focusable | Configuration for focus management in the Modal | `{ trap?: boolean, focusTriggerAfterClose?: boolean }` | - | - |
 | getContainer | The mounted node for Modal but still display at fullscreen | string \| HTMLElement \| (() => HTMLElement) \| false | document.body | - |
 | keyboard | Whether support press esc to close | boolean | true | - |
 | loading | Show the skeleton | boolean | false | - |
