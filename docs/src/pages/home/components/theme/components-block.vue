@@ -7,9 +7,9 @@ import {
   DownOutlined,
 } from '@antdv-next/icons'
 import { Modal } from 'antdv-next'
+import { createStyles } from 'antdv-style'
 import { computed } from 'vue'
 import { useLocale } from '@/composables/use-locale'
-import { createStyles } from './hooks'
 
 interface ComponentsBlockProps {
   config?: ConfigProviderProps

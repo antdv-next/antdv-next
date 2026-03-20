@@ -1,8 +1,9 @@
 <script setup lang="ts">
+import { ThemeProvider } from 'antdv-style'
 import { storeToRefs } from 'pinia'
 import { defineAsyncComponent } from 'vue'
 import { useLocale } from '@/composables/use-locale'
-import { useAppStore } from '@/stores/app.ts'
+import { useAppStore } from '@/stores/app'
 
 const PreviewBanner = defineAsyncComponent(() => import('./components/preview-banner/index.vue'))
 const Theme = defineAsyncComponent(() => import('./components/theme/index.vue'))
@@ -30,7 +31,9 @@ const { t } = useLocale()
     <div>
       <!-- 定制主题 -->
       <Suspense>
-        <Theme />
+        <ThemeProvider>
+          <Theme />
+        </ThemeProvider>
         <template #fallback>
           <div />
         </template>

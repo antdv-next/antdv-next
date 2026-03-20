@@ -2,6 +2,8 @@ export default {
   theme: {
     themeTitle: '定制主题,随心所欲',
     themeDesc: 'Antdv Next 开放更多样式算法,让你定制主题更简单',
+    copyTheme: '复制主题代码',
+    copySuccess: '已复制',
     customizeTheme: '定制主题',
     myTheme: '我的主题',
     titlePrimaryColor: '主色',

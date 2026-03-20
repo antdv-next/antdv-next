@@ -21,6 +21,7 @@
     "@antdv-next/icons": "catalog:prod",
     "@antdv-next/unocss": "catalog:docs",
     "@vueuse/core": "catalog:prod",
+    "antdv-style": "catalog:prod",
     "dayjs": "catalog:prod",
     "es-toolkit": "catalog:prod",
     "flexsearch": "catalog:",

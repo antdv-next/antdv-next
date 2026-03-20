@@ -1,9 +1,7 @@
-import type { ConfigProviderProps } from 'antdv-next'
-import type { UseTheme } from '.'
-import { clsx } from '@v-c/util'
+import type { ButtonProps, ConfigProviderProps } from 'antdv-next'
 import { theme } from 'antdv-next'
+import { createStyles, cx } from 'antdv-style'
 import { computed } from 'vue'
-import { createStyles } from '../hooks'
 
 const useStyles = createStyles(({ css, cssVar }) => {
   return {
@@ -86,7 +84,7 @@ const useStyles = createStyles(({ css, cssVar }) => {
   }
 })
 
-const useBootstrapTheme: UseTheme = () => {
+function useBootstrapTheme() {
   const { styles } = useStyles()
 
   return computed<ConfigProviderProps>(() => ({
@@ -119,15 +117,15 @@ const useBootstrapTheme: UseTheme = () => {
 
     modal: {
       classes: {
-        container: clsx(styles.boxBorder, styles.modalContainer),
+        container: cx(styles.boxBorder, styles.modalContainer),
         header: styles.modalHeader,
         body: styles.modalBody,
         footer: styles.modalFooter,
       },
     },
     button: {
-      classes: ({ props }) => ({
-        root: clsx(styles.buttonRoot, props.color === 'default' && styles.buttonColorDefault),
+      classes: ({ props }: { props: ButtonProps }) => ({
+        root: cx(styles.buttonRoot, props.color === 'default' && styles.buttonColorDefault),
       }),
     },
 
@@ -139,7 +137,7 @@ const useBootstrapTheme: UseTheme = () => {
       classes: {
         root: styles.boxBorder,
         popup: {
-          root: clsx(styles.boxBorder, styles.popupBox),
+          root: cx(styles.boxBorder, styles.popupBox),
         },
       },
     },
@@ -148,7 +146,7 @@ const useBootstrapTheme: UseTheme = () => {
     },
     dropdown: {
       classes: {
-        root: clsx(styles.boxBorder, styles.popupBox),
+        root: cx(styles.boxBorder, styles.popupBox),
         item: styles.dropdownItem,
       },
     },
@@ -156,7 +154,7 @@ const useBootstrapTheme: UseTheme = () => {
       classes: {
         root: styles.boxBorder,
         popup: {
-          root: clsx(styles.boxBorder, styles.selectPopupRoot),
+          root: cx(styles.boxBorder, styles.selectPopupRoot),
           listItem: styles.dropdownItem,
         },
       },

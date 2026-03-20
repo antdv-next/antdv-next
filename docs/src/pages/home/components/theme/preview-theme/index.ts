@@ -4,12 +4,19 @@ import { theme } from 'antdv-next'
 import { computed } from 'vue'
 import { useLocale } from '@/composables/use-locale'
 import useBootstrapTheme from './bootstrap-theme'
+import bootstrapThemeSource from './bootstrap-theme.ts?raw'
 import useCartoonTheme from './cartoon-theme'
+import cartoonThemeSource from './cartoon-theme.ts?raw'
 import useGeekTheme from './geek-theme'
+import geekThemeSource from './geek-theme.ts?raw'
 import useGlassTheme from './glass-theme'
+import glassThemeSource from './glass-theme.ts?raw'
 import useIllustrationTheme from './illustration-theme'
+import illustrationThemeSource from './illustration-theme.ts?raw'
 import useMuiTheme from './mui-theme'
+import muiThemeSource from './mui-theme.ts?raw'
 import useShadcnTheme from './shadcn-theme'
+import shadcnThemeSource from './shadcn-theme.ts?raw'
 
 export interface PreviewThemeConfig {
   name: string
@@ -17,7 +24,7 @@ export interface PreviewThemeConfig {
   props?: ConfigProviderProps
   bgImg?: string
   bgImgDark?: true
-  dark?: boolean
+  copyCode?: string
 }
 
 export type UseTheme = () => ComputedRef<ConfigProviderProps>
@@ -48,7 +55,6 @@ export function usePreviewThemes() {
     {
       name: t('homePage.previewThemes.dark'),
       key: 'dark',
-      dark: true,
       bgImg:
         'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*ETkNSJ-oUGwAAAAAQ_AAAAgAegCCAQ/original',
       bgImgDark: true,
@@ -63,30 +69,35 @@ export function usePreviewThemes() {
       bgImg:
         'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*IFkZRpIKEEkAAAAAQzAAAAgAegCCAQ/original',
       props: muiTheme.value,
+      copyCode: muiThemeSource,
     },
     {
       name: t('homePage.previewThemes.shadcn'),
       bgImg:
         'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*56tPQbwgFyEAAAAARuAAAAgAegCCAQ/original',
       props: shadcnTheme.value,
+      copyCode: shadcnThemeSource,
     },
     {
       name: t('homePage.previewThemes.cartoon'),
       bgImg:
         'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*tgpBT7vYIUsAAAAAQ-AAAAgAegCCAQ/original',
       props: cartoonTheme.value,
+      copyCode: cartoonThemeSource,
     },
     {
       name: t('homePage.previewThemes.illustration'),
       bgImg:
         'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*HuVGQKqOER0AAAAARsAAAAgAegCCAQ/original',
       props: illustrationTheme.value,
+      copyCode: illustrationThemeSource,
     },
     {
       name: t('homePage.previewThemes.bootstrap'),
       bgImg:
         'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*ZrLfQIO34x4AAAAAS4AAAAgAegCCAQ/original',
       props: bootstrapTheme.value,
+      copyCode: bootstrapThemeSource,
     },
     {
       name: t('homePage.previewThemes.glass'),
@@ -94,6 +105,7 @@ export function usePreviewThemes() {
         'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*PbKXQLie7OAAAAAARTAAAAgAegCCAQ/original',
       bgImgDark: true,
       props: glassTheme.value,
+      copyCode: glassThemeSource,
     },
     {
       name: t('homePage.previewThemes.geek'),
@@ -101,6 +113,7 @@ export function usePreviewThemes() {
         'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*fzA2T4ms154AAAAARtAAAAgAegCCAQ/original',
       bgImgDark: true,
       props: geekTheme.value,
+      copyCode: geekThemeSource,
     },
   ])
 }

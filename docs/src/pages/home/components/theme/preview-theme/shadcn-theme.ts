@@ -1,9 +1,7 @@
-import type { ConfigProviderProps } from 'antdv-next'
-import type { UseTheme } from '.'
-import { clsx } from '@v-c/util'
+import type { ButtonProps, ConfigProviderProps } from 'antdv-next'
 import { theme } from 'antdv-next'
+import { createStyles, cx } from 'antdv-style'
 import { computed } from 'vue'
-import { createStyles } from '../hooks'
 
 const useStyles = createStyles(({ css }) => {
   return {
@@ -47,7 +45,7 @@ const useStyles = createStyles(({ css }) => {
   }
 })
 
-const useShadcnTheme: UseTheme = () => {
+function useShadcnTheme() {
   const { styles } = useStyles()
 
   return computed<ConfigProviderProps>(() => ({
@@ -195,8 +193,8 @@ const useShadcnTheme: UseTheme = () => {
       },
     },
     button: {
-      classes: ({ props }) => ({
-        root: clsx(
+      classes: ({ props }: { props: ButtonProps }) => ({
+        root: cx(
           styles.buttonPrimary,
           props.color === 'default' && styles.buttonDefault,
           props.color === 'danger' && styles.buttonDanger,

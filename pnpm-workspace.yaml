@@ -90,6 +90,7 @@ catalogs:
     '@emotion/hash': ^0.8.0
     '@emotion/unitless': ^0.7.5
     '@vueuse/core': ^14.2.1
+    antdv-style: 0.1.0-alpha.1
     csstype: ^3.2.3
     dayjs: ^1.11.20
     dom-serializer: ^2.0.0

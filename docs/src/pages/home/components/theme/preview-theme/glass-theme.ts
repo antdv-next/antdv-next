@@ -1,9 +1,8 @@
-import type { ConfigProviderProps } from 'antdv-next'
-import type { UseTheme } from '.'
+import type { ButtonProps, ConfigProviderProps } from 'antdv-next'
 import { clsx } from '@v-c/util'
 import { theme } from 'antdv-next'
+import { createStyles } from 'antdv-style'
 import { computed } from 'vue'
-import { createStyles } from '../hooks'
 
 const useStyles = createStyles(({ css, cssVar }) => {
   const glassBorder = {
@@ -79,7 +78,7 @@ const useStyles = createStyles(({ css, cssVar }) => {
   }
 })
 
-const useGlassTheme: UseTheme = () => {
+function useGlassTheme() {
   const { styles } = useStyles()
 
   return computed<ConfigProviderProps>(() => ({
@@ -114,7 +113,7 @@ const useGlassTheme: UseTheme = () => {
       },
     },
     button: {
-      classes: ({ props }) => ({
+      classes: ({ props }: { props: ButtonProps }) => ({
         root: clsx(styles.buttonRoot, props.color === 'default' && styles.buttonRootDefaultColor),
       }),
     },

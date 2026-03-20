@@ -1,12 +1,10 @@
-import type { ConfigProviderProps } from 'antdv-next'
-import type { UseTheme } from '.'
-import { clsx } from '@v-c/util'
+import type { ButtonProps, ConfigProviderProps } from 'antdv-next'
 import raf from '@v-c/util/dist/raf'
 import { theme } from 'antdv-next'
+import { createStyles, cx } from 'antdv-style'
 import { computed } from 'vue'
-import { createStyles } from '../hooks'
 
-type WaveShowEffect = NonNullable<NonNullable<ConfigProviderProps['wave']>['showEffect']>
+type WaveShowEffect = NonNullable<ConfigProviderProps['wave']>['showEffect']
 
 function createHolder(node: HTMLElement) {
   const { borderWidth } = getComputedStyle(node)
@@ -117,7 +115,7 @@ const useStyles = createStyles(({ css }) => {
   }
 })
 
-const useMuiTheme: UseTheme = () => {
+function useMuiTheme() {
   const { styles } = useStyles()
 
   return computed<ConfigProviderProps>(() => ({
@@ -254,8 +252,8 @@ const useMuiTheme: UseTheme = () => {
       showEffect: showInsetEffect,
     },
     button: {
-      classes: ({ props }) => ({
-        root: clsx(
+      classes: ({ props }: { props: ButtonProps }) => ({
+        root: cx(
           styles.buttonPrimary,
           props.color === 'default' && styles.buttonDefault,
           props.color === 'danger' && styles.buttonDanger,

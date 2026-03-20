@@ -2,6 +2,8 @@ export default {
   theme: {
     themeTitle: 'Flexible theme customization',
     themeDesc: 'Antdv Next enable extendable algorithm, make custom theme easier',
+    copyTheme: 'Copy theme code',
+    copySuccess: 'Copied',
     customizeTheme: 'Customize Theme',
     myTheme: 'My Theme',
     titlePrimaryColor: 'Primary Color',

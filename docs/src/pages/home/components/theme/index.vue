@@ -1,11 +1,15 @@
 <script setup lang="ts">
+import { CheckOutlined, CopyOutlined } from '@antdv-next/icons'
+import { message, theme } from 'antdv-next'
+import { createStyles } from 'antdv-style'
 import { storeToRefs } from 'pinia'
-import { computed, ref, watch } from 'vue'
+import { computed, onBeforeUnmount, ref, watch } from 'vue'
 import { useLocale } from '@/composables/use-locale'
-import { useAppStore } from '@/stores/app.ts'
+import { useAppStore } from '@/stores/app'
 import Group from '../group/index.vue'
 import ComponentsBlock from './components-block.vue'
 import { usePreviewThemes } from './preview-theme'
+import { generateFullCopyFile } from './theme-code-utils'
 
 const { t } = useLocale()
 const appStore = useAppStore()
@@ -13,6 +17,118 @@ const { darkMode } = storeToRefs(appStore)
 
 const previewThemes = usePreviewThemes()
 const activeName = ref('')
+const copiedName = ref<string | null>(null)
+const hoveredName = ref<string | null>(null)
+let copyTimer: ReturnType<typeof setTimeout> | null = null
+
+const useStyles = createStyles(({ css, cssVar }) => ({
+  container: css({
+    width: '100%',
+    color: cssVar.colorText,
+    lineHeight: cssVar.lineHeight,
+    fontSize: cssVar.fontSize,
+    fontFamily: cssVar.fontFamily,
+    alignItems: 'stretch',
+    justifyContent: 'center',
+  }),
+  list: css({
+    flex: 'auto',
+    margin: 0,
+    padding: 0,
+    listStyleType: 'none',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: cssVar.paddingSM,
+  }),
+  listItem: css({
+    margin: 0,
+    fontSize: cssVar.fontSizeLG,
+    lineHeight: cssVar.lineHeightLG,
+    paddingBlock: cssVar.padding,
+    paddingInline: cssVar.paddingLG,
+    border: `${cssVar.lineWidth} ${cssVar.lineType} ${cssVar.colorBorderSecondary}`,
+    borderRadius: cssVar.borderRadius,
+    borderColor: 'transparent',
+    transition: `all ${cssVar.motionDurationMid} ${cssVar.motionEaseInOut}`,
+    cursor: 'pointer',
+
+    '&:hover:not(.active):not(.dark)': {
+      borderColor: cssVar.colorPrimaryBorder,
+      backgroundColor: cssVar.colorPrimaryBg,
+    },
+
+    '&:focus-visible': {
+      outline: `2px solid ${cssVar.colorPrimary}`,
+      outlineOffset: 2,
+    },
+
+    '&.active': {
+      borderColor: cssVar.colorPrimary,
+      backgroundColor: cssVar.colorPrimaryBg,
+      color: cssVar.colorPrimary,
+    },
+
+    '&.dark': {
+      color: cssVar.colorTextLightSolid,
+      backgroundColor: 'transparent',
+      borderColor: 'transparent',
+
+      '&:hover, &.active': {
+        borderColor: cssVar.colorTextLightSolid,
+        backgroundColor: 'transparent',
+        color: cssVar.colorTextLightSolid,
+      },
+
+      '&.active': {
+        color: cssVar.colorTextLightSolid,
+        borderColor: cssVar.colorTextLightSolid,
+        backgroundColor: 'transparent',
+      },
+    },
+  }),
+  listItemContent: css({
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: cssVar.paddingSM,
+  }),
+  copyButton: css({
+    opacity: 0,
+    flexShrink: 0,
+    transition: `opacity ${cssVar.motionDurationMid} ${cssVar.motionEaseInOut}`,
+
+    '&.visible': {
+      opacity: 1,
+    },
+
+    '&.dark': {
+      color: cssVar.colorTextLightSolid,
+
+      '&:hover': {
+        backgroundColor: 'rgba(255, 255, 255, 0.08)',
+      },
+
+      '&:active': {
+        backgroundColor: 'rgba(255, 255, 255, 0.12)',
+      },
+    },
+  }),
+  componentsBlock: css({
+    flex: 'none',
+    maxWidth: `calc(420px + ${cssVar.paddingXL} * 2)`,
+  }),
+  componentsBlockContainer: css({
+    flex: 'auto',
+    display: 'flex',
+    padding: cssVar.paddingXL,
+    justifyContent: 'center',
+    border: `${cssVar.lineWidth} ${cssVar.lineType} ${cssVar.colorBorderSecondary}`,
+    borderRadius: cssVar.borderRadius,
+    boxShadow: cssVar.boxShadow,
+  }),
+}))
+
+const { styles } = useStyles()
 
 function getModeDefaultTheme(themes = previewThemes.value) {
   if (!themes.length)
@@ -86,126 +202,138 @@ function handleThemeKeyDown(event: KeyboardEvent, name: string) {
     handleThemeClick(name)
   }
 }
+
+async function copyToClipboard(text: string) {
+  try {
+    await navigator.clipboard.writeText(text)
+    return true
+  }
+  catch {
+    const element = document.createElement('textarea')
+    const previouslyFocusedElement = document.activeElement
+
+    element.value = text
+    element.setAttribute('readonly', '')
+    element.style.contain = 'strict'
+    element.style.position = 'absolute'
+    element.style.left = '-9999px'
+    element.style.fontSize = '12pt'
+
+    const selection = document.getSelection()
+    const originalRange = selection?.rangeCount ? selection.getRangeAt(0) : null
+
+    document.body.appendChild(element)
+    element.select()
+    element.selectionStart = 0
+    element.selectionEnd = text.length
+
+    const copied = document.execCommand('copy')
+    document.body.removeChild(element)
+
+    if (originalRange) {
+      selection?.removeAllRanges()
+      selection?.addRange(originalRange)
+    }
+
+    if (previouslyFocusedElement)
+    ;(previouslyFocusedElement as HTMLElement).focus()
+
+    return copied
+  }
+}
+
+async function handleCopyTheme(event: MouseEvent, name: string) {
+  event.stopPropagation()
+
+  const previewTheme = previewThemes.value.find(item => item.name === name)
+  if (!previewTheme)
+    return
+
+  const code = generateFullCopyFile({
+    themeConfig: previewTheme.props?.theme,
+    copyCode: previewTheme.copyCode,
+  })
+
+  const copied = await copyToClipboard(code)
+  if (!copied)
+    return
+
+  if (copyTimer)
+    clearTimeout(copyTimer)
+
+  copiedName.value = name
+  message.success(t('homePage.theme.copySuccess'))
+  copyTimer = setTimeout(() => {
+    copiedName.value = null
+    copyTimer = null
+  }, 2000)
+}
+
+onBeforeUnmount(() => {
+  if (copyTimer)
+    clearTimeout(copyTimer)
+})
 </script>
 
 <template>
-  <Group
-    id="flexible"
-    :title="t('homePage.theme.themeTitle')"
-    :description="t('homePage.theme.themeDesc')"
-    :background="activeTheme?.bgImg"
-    :background-prefetch-list="backgroundPrefetchList"
-    :title-color="activeTheme?.bgImgDark ? '#fff' : undefined"
-  >
-    <a-flex class="theme-container" gap="large">
-      <div style="display: flex;">
-        <div class="theme-list" :class="{ 'theme-list-dark': isThemeListDark }" role="tablist" aria-label="Theme selection">
-          <div
-            v-for="item in previewThemes"
-            :key="item.name"
-            class="theme-list-item"
-            :class="{
-              active: activeName === item.name,
-            }"
-            role="tab"
-            :tabindex="activeName === item.name ? 0 : -1"
-            :aria-selected="activeName === item.name"
-            style="margin-bottom: 8px;"
-            @click="handleThemeClick(item.name)"
-            @keydown="(event) => handleThemeKeyDown(event, item.name)"
-          >
-            {{ item.name }}
+  <a-config-provider :theme="{ algorithm: theme.defaultAlgorithm }">
+    <Group
+      id="flexible"
+      :title="t('homePage.theme.themeTitle')"
+      :description="t('homePage.theme.themeDesc')"
+      :background="activeTheme?.bgImg"
+      :background-prefetch-list="backgroundPrefetchList"
+      :title-color="activeTheme?.bgImgDark ? '#fff' : undefined"
+    >
+      <a-flex :class="styles.container" gap="large">
+        <div style="display: flex;">
+          <div :class="styles.list" role="tablist" aria-label="Theme selection">
+            <div
+              v-for="item in previewThemes"
+              :key="item.name"
+              :class="[styles.listItem, {
+                active: activeName === item.name,
+                dark: isThemeListDark,
+              }]"
+              role="tab"
+              :tabindex="activeName === item.name ? 0 : -1"
+              :aria-selected="activeName === item.name"
+              @click="handleThemeClick(item.name)"
+              @keydown="(event) => handleThemeKeyDown(event, item.name)"
+              @mouseenter="hoveredName = item.name"
+              @mouseleave="hoveredName = null"
+            >
+              <div :class="styles.listItemContent">
+                <span>{{ item.name }}</span>
+                <a-tooltip :title="t('homePage.theme.copyTheme')">
+                  <a-button
+                    type="text"
+                    size="small"
+                    :class="[styles.copyButton, {
+                      visible: hoveredName === item.name || copiedName === item.name,
+                      dark: isThemeListDark,
+                    }]"
+                    :aria-label="t('homePage.theme.copyTheme')"
+                    @click="(event) => handleCopyTheme(event, item.name)"
+                  >
+                    <template #icon>
+                      <CheckOutlined v-if="copiedName === item.name" />
+                      <CopyOutlined v-else />
+                    </template>
+                  </a-button>
+                </a-tooltip>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-      <ComponentsBlock
-        :key="activeName"
-        :config="activeTheme?.props"
-        class-name="components-block"
-        container-class-name="components-block-container"
-      />
-    </a-flex>
-  </Group>
+        <ComponentsBlock
+          :key="activeName"
+          :config="activeTheme?.props"
+          :class-name="styles.componentsBlock"
+          :container-class-name="styles.componentsBlockContainer"
+        />
+      </a-flex>
+    </Group>
+  </a-config-provider>
 </template>
-
-<style>
-.theme-container {
-  width: 100%;
-  align-items: stretch;
-  justify-content: center;
-}
-
-.theme-list {
-  --theme-list-text-color: rgba(0, 0, 0, 0.88);
-
-  flex: auto;
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-  display: flex;
-  flex-direction: column;
-  gap: var(--ant-padding-sm);
-}
-
-.theme-list.theme-list-dark {
-  --theme-list-text-color: var(--ant-color-text-light-solid);
-}
-
-.theme-list-item {
-  margin: 0;
-  font-size: var(--ant-font-size-lg);
-  line-height: var(--ant-line-height-lg);
-  color: var(--theme-list-text-color);
-  padding-block: var(--ant-padding);
-  padding-inline: var(--ant-padding-lg);
-  border: var(--ant-line-width) var(--ant-line-type) var(--ant-color-border-secondary);
-  border-radius: var(--ant-border-radius);
-  border-color: transparent;
-  transition: all var(--ant-motion-duration-mid) var(--ant-motion-ease-in-out);
-  cursor: pointer;
-}
-
-.theme-list-item:hover:not(.active) {
-  border-color: var(--ant-color-primary-border);
-  background-color: var(--ant-color-primary-bg);
-  color: var(--ant-color-text-light-solid);
-  cursor: pointer;
-}
-
-.theme-list-item:focus-visible {
-  outline: 2px solid var(--ant-color-primary);
-  outline-offset: 2px;
-}
-
-.theme-list-item.active {
-  border-color: var(--ant-color-primary);
-  background-color: var(--ant-color-primary-bg);
-  color: var(--ant-color-primary);
-}
-
-.theme-list.theme-list-dark .theme-list-item:hover,
-.theme-list.theme-list-dark .theme-list-item.active {
-  border-color: var(--ant-color-text-light-solid);
-  background-color: transparent;
-}
-
-.theme-list.theme-list-dark .theme-list-item.active {
-  color: var(--ant-color-text-light-solid);
-}
-
-.components-block {
-  flex: none;
-  max-width: calc(420px + var(--ant-padding-xl) * 2);
-}
-
-.components-block-container {
-  flex: auto;
-  display: flex;
-  padding: var(--ant-padding-xl);
-  justify-content: center;
-  border: var(--ant-line-width) var(--ant-line-type) var(--ant-color-border-secondary);
-  border-radius: var(--ant-border-radius);
-  box-shadow: var(--ant-box-shadow);
-}
-</style>

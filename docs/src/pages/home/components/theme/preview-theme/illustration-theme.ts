@@ -1,8 +1,7 @@
 import type { ConfigProviderProps } from 'antdv-next'
-import type { UseTheme } from '.'
 import { theme } from 'antdv-next'
+import { createStyles } from 'antdv-style'
 import { computed } from 'vue'
-import { createStyles } from '../hooks'
 
 const useStyles = createStyles(({ css, cssVar }) => {
   const illustrationBorder = {
@@ -47,7 +46,7 @@ const useStyles = createStyles(({ css, cssVar }) => {
   }
 })
 
-const useIllustrationTheme: UseTheme = () => {
+function useIllustrationTheme() {
   const { styles } = useStyles()
 
   return computed<ConfigProviderProps>(() => ({
