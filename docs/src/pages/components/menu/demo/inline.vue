@@ -9,6 +9,7 @@ Vertical menu with inline submenus.
 <script setup lang="ts">
 import type { MenuItemType } from 'antdv-next'
 import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@antdv-next/icons'
+import { ref } from 'vue'
 
 function handleClick(e: any) {
   console.log('click ', e)
@@ -81,13 +82,15 @@ const items: MenuItemType[] = [
     ],
   },
 ]
+const openKeys = ref(['sub1'])
+const selectedKeys = ref(['1'])
 </script>
 
 <template>
   <a-menu
+    v-model:open-keys="openKeys"
+    v-model:selected-keys="selectedKeys"
     style="width: 256px"
-    :default-open-keys="['sub1']"
-    :default-selected-keys="['1']"
     mode="inline"
     :items="items"
     @click="handleClick"

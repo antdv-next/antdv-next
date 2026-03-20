@@ -127,14 +127,14 @@ catalogs:
     '@v-c/checkbox': ^1.0.1
     '@v-c/collapse': ^1.0.0
     '@v-c/color-picker': ^1.0.6
-    '@v-c/dialog': ^1.0.2
+    '@v-c/dialog': ^1.0.3
     '@v-c/drawer': ^1.0.2
     '@v-c/dropdown': ^1.0.2
     '@v-c/image': ^1.0.7
     '@v-c/input': ^1.0.2
     '@v-c/input-number': ^1.0.5
     '@v-c/mentions': ^1.0.0
-    '@v-c/menu': ^1.0.11
+    '@v-c/menu': ^1.0.12
     '@v-c/mutate-observer': ^1.0.1
     '@v-c/notification': ^1.0.0
     '@v-c/pagination': ^1.0.0
