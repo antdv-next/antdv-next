@@ -15,8 +15,8 @@ export type TitlePlacement
   = | 'left'
     | 'right'
     | 'center'
-    | 'start' // 👈 5.24.0+
-    | 'end' // 👈 5.24.0+
+    | 'start'
+    | 'end'
 
 const titlePlacementList = ['left', 'right', 'center', 'start', 'end']
 
@@ -155,6 +155,7 @@ const Divider = defineComponent<DividerProps>(
           [mergedClassNames.value.rail as string]: mergedClassNames.value.rail && !hasChildren,
         },
         rootClass,
+        (attrs as any).class,
         mergedClassNames.value.root,
       )
       const innerStyle: CSSProperties = {
@@ -205,7 +206,7 @@ const Divider = defineComponent<DividerProps>(
   },
 )
 
-;(Divider as any).install = (app: App) => {
+  ; (Divider as any).install = (app: App) => {
   app.component(Divider.name, Divider)
 }
 

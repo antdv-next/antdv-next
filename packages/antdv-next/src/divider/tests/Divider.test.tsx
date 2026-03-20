@@ -216,12 +216,19 @@ describe('divider', () => {
     })
   })
 
-  it('should pass style via attrs', () => {
+  it('should pass class and style via attrs', () => {
     const wrapper = mount(() => (
-      <Divider style={{ color: 'red' }} />
+      <Divider class="my-custom-class class-a class-b" style={{ color: 'red', fontSize: '14px' }}>
+        Text
+      </Divider>
     ))
     const divider = wrapper.find('.ant-divider')
-    expect(divider.attributes('style')).toContain('color: red')
+    expect(divider.classes()).toContain('my-custom-class')
+    expect(divider.classes()).toContain('class-a')
+    expect(divider.classes()).toContain('class-b')
+    const style = divider.attributes('style')
+    expect(style).toContain('color: red')
+    expect(style).toContain('font-size: 14px')
   })
 
   it('should pass data attributes', () => {
