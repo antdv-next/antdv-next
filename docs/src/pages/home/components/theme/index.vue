@@ -149,6 +149,7 @@ function handleThemeKeyDown(event: KeyboardEvent, name: string) {
   margin: 0;
   font-size: var(--ant-font-size-lg);
   line-height: var(--ant-line-height-lg);
+  color: var(--ant-color-text-base);
   padding-block: var(--ant-padding);
   padding-inline: var(--ant-padding-lg);
   border: var(--ant-line-width) var(--ant-line-type) var(--ant-color-border-secondary);
