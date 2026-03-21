@@ -12,8 +12,14 @@ function normalizeMask(mask?: MaskType | VueNode) {
   if (isVNode(mask)) {
     return [mask, undefined]
   }
-  if (typeof mask === 'boolean' || (mask && typeof mask === 'object')) {
-    return [undefined, mask]
+  if (mask === true) {
+    return [undefined, { blur: true }]
+  }
+  if (mask === false) {
+    return [undefined, false]
+  }
+  if (mask && typeof mask === 'object') {
+    return [undefined, { blur: true, ...mask }]
   }
   return [undefined, undefined]
 }

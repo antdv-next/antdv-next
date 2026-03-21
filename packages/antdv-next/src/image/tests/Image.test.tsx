@@ -170,4 +170,40 @@ describe('image.PreviewGroup', () => {
     ))
     expect(wrapper.html()).toMatchSnapshot()
   })
+
+  it('should support mask blur behavior', async () => {
+    // 1. Default true mask has blur
+    const wrapper = mount(Image, {
+      props: {
+        src,
+        preview: { open: true, mask: true },
+      },
+    })
+    await new Promise(resolve => setTimeout(resolve, 100))
+    expect(document.querySelector('.ant-image-preview-mask-blur')).not.toBeNull()
+    wrapper.unmount()
+
+    // 2. mask=false should not have blur
+    const wrapper2 = mount(Image, {
+      props: {
+        src,
+        preview: { open: true, mask: false },
+      },
+    })
+    await new Promise(resolve => setTimeout(resolve, 100))
+    // wait for DOM to update
+    expect(document.querySelector('.ant-image-preview-mask-blur')).toBeNull()
+    wrapper2.unmount()
+
+    // 3. Object mask can disable blur
+    const wrapper3 = mount(Image, {
+      props: {
+        src,
+        preview: { open: true, mask: { blur: false } },
+      },
+    })
+    await new Promise(resolve => setTimeout(resolve, 100))
+    expect(document.querySelector('.ant-image-preview-mask-blur')).toBeNull()
+    wrapper3.unmount()
+  })
 })
