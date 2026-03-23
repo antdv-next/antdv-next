@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { computed, defineComponent, h, nextTick, ref, unref } from 'vue'
+import { computed, defineComponent, h, nextTick, onBeforeMount, ref, unref } from 'vue'
 import { createCache, StyleProvider } from '../src'
 import { useGlobalCache } from '../src/hooks/useGlobalCache'
 
@@ -71,9 +71,51 @@ describe('useGlobalCache', () => {
       return useGlobalCache(prefix, keyPath, cacheFn, undefined, onEffect)
     })
 
-    // onCacheEffect is scheduled as a microtask batch to avoid blocking hydration
+    // The effect should already have run on mount and remain observable after a microtask.
     await Promise.resolve()
     expect(onEffect).toHaveBeenCalled()
+  })
+
+  it('should call onCacheEffect synchronously on initial client mount', () => {
+    const prefix = ref('test')
+    const keyPath = ref(['sync-effect-test'])
+    const cacheFn = () => ({ value: 'sync-effect-value' })
+    const onEffect = vi.fn()
+
+    createWrapper(() => {
+      return useGlobalCache(prefix, keyPath, cacheFn, undefined, onEffect)
+    })
+
+    expect(onEffect).toHaveBeenCalledTimes(1)
+  })
+
+  it('should trigger onCacheEffect during mount instead of setup', () => {
+    const prefix = ref('test')
+    const keyPath = ref(['mount-phase-effect-test'])
+    const cacheFn = () => ({ value: 'mount-phase-effect-value' })
+    const effectPhases: string[] = []
+
+    const Component = defineComponent({
+      setup() {
+        const phase = ref('setup')
+
+        onBeforeMount(() => {
+          phase.value = 'before-mount'
+        })
+
+        useGlobalCache(prefix, keyPath, cacheFn, undefined, () => {
+          effectPhases.push(phase.value)
+        })
+
+        expect(effectPhases).toEqual([])
+
+        return () => h('div', {}, 'phase-test')
+      },
+    })
+
+    mount(() => h(StyleProvider, { cache }, () => h(Component)))
+
+    expect(effectPhases).toEqual(['before-mount'])
   })
 
   it('should handle reactive key path changes', async () => {

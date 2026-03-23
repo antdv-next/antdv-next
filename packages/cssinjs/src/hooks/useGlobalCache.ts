@@ -1,6 +1,6 @@
 import type { Ref } from 'vue'
 import type { KeyType } from '../Cache'
-import { computed, onBeforeUnmount, shallowRef, watch } from 'vue'
+import { computed, onBeforeMount, onBeforeUnmount, shallowRef, watch } from 'vue'
 import { pathKey } from '../Cache'
 import { useStyleContext } from '../StyleContext'
 import { isClientSide } from '../util'
@@ -14,22 +14,6 @@ export type ExtractStyle<CacheValue> = (
   },
 ) => [order: number, styleId: string, style: string] | null
 const effectMap = new Map<string, boolean>()
-
-// 批量延迟执行 onCacheEffect，避免 hydration 阶段大量同步 DOM 操作阻塞主线程
-const pendingEffects = new Map<string, () => void>()
-let pendingEffectFlush: Promise<void> | null = null
-
-function scheduleEffect(pathStr: string, fn: () => void) {
-  pendingEffects.set(pathStr, fn)
-  if (!pendingEffectFlush) {
-    pendingEffectFlush = Promise.resolve().then(() => {
-      pendingEffectFlush = null
-      const effects = Array.from(pendingEffects.values())
-      pendingEffects.clear()
-      effects.forEach(effect => effect())
-    })
-  }
-}
 
 /**
  * 延迟移除样式的时间（毫秒）
@@ -80,6 +64,7 @@ export function useGlobalCache<CacheType>(
 
   // 记录当前的 path，用于在 onBeforeUnmount 中清理
   const currentPathRef = shallowRef(fullPathStr.value)
+  const isMountedRef = shallowRef(false)
 
   const globalCache = () => styleContext.value.cache
   const isServerSide = () => styleContext.value.mock !== undefined
@@ -183,71 +168,96 @@ export function useGlobalCache<CacheType>(
 
     return entity![1]!
   })
+  // Align with React cssinjs `useMemo`: create the cache entry during setup/render,
+  // then apply side effects in mount/update timing.
+  // eslint-disable-next-line ts/no-unused-expressions
+  cacheContent.value
 
-  // Watch for keyPath changes
+  const triggerCacheEffect = (pathStr: string) => {
+    if (!onCacheEffect || effectMap.has(pathStr)) {
+      return
+    }
+
+    const cachedValue = cacheContent.value
+    effectMap.set(pathStr, true)
+    onCacheEffect(cachedValue)
+    Promise.resolve().then(() => {
+      effectMap.delete(pathStr)
+    })
+  }
+
+  const activatePath = (newPath: string, oldPath?: string) => {
+    if (oldPath && oldPath !== newPath) {
+      clearCache(oldPath, true)
+    }
+
+    currentPathRef.value = newPath
+
+    const existingInfo = delayedRemoveInfo.get(newPath)
+
+    if (existingInfo) {
+      const newPendingDecrements = existingInfo.pendingDecrements - 1
+
+      if (newPendingDecrements <= 0) {
+        clearTimeout(existingInfo.timer)
+        delayedRemoveInfo.delete(newPath)
+      }
+      else {
+        delayedRemoveInfo.set(newPath, {
+          timer: existingInfo.timer,
+          pendingDecrements: newPendingDecrements,
+        })
+      }
+    }
+    else {
+      globalCache().opUpdate(newPath, (prevCache) => {
+        const [times = 0, cache] = prevCache || [undefined, undefined]
+        const mergedCache = cache || cacheFn()
+        return [times + 1, mergedCache]
+      })
+    }
+
+    // Align with React cssinjs `useInsertionEffect`: inject on mount/update,
+    // but not during setup where hydration work can be noisier.
+    triggerCacheEffect(newPath)
+  }
+
+  watch(
+    fullPathStr,
+    (newPath) => {
+      if (!isMountedRef.value) {
+        currentPathRef.value = newPath
+      }
+    },
+    {
+      flush: 'sync',
+    },
+  )
+
   watch(
     fullPathStr,
     (newPath, oldPath) => {
-      // 如果 path 变化了，先清理旧的缓存（立即清理，不需要延迟）
-      if (oldPath) {
-        clearCache(oldPath, true)
+      if (!isMountedRef.value) {
+        return
       }
 
-      // 更新当前 path 引用
-      currentPathRef.value = newPath
-
-      // 检查是否有 pending 的延迟移除
-      const existingInfo = delayedRemoveInfo.get(newPath)
-
-      if (existingInfo) {
-        // 存在 pending 的延迟移除，说明之前有组件卸载还在等待
-        // 减少 pendingDecrements，因为这次挂载抵消了一次卸载
-        const newPendingDecrements = existingInfo.pendingDecrements - 1
-
-        if (newPendingDecrements <= 0) {
-          // 所有 pending decrements 都被抵消了，取消定时器
-          clearTimeout(existingInfo.timer)
-          delayedRemoveInfo.delete(newPath)
-          // 不需要增加引用计数，因为之前的 mount 已经增加过了
-        }
-        else {
-          // 还有其他 pending decrements，更新计数并复用当前定时器，避免频繁 clear/set
-          delayedRemoveInfo.set(newPath, {
-            timer: existingInfo.timer,
-            pendingDecrements: newPendingDecrements,
-          })
-          // 不需要增加引用计数，因为之前的 mount 已经增加过了
-        }
-      }
-      else {
-        // 没有 pending 的延迟移除，正常增加引用计数
-        globalCache().opUpdate(newPath, (prevCache) => {
-          const [times = 0, cache] = prevCache || [undefined, undefined]
-          const mergedCache = cache || cacheFn()
-          return [times + 1, mergedCache]
-        })
-      }
-
-      // 触发 effect（批量异步，避免 hydration 阶段大量同步 DOM 操作）
-      if (onCacheEffect && !effectMap.has(newPath)) {
-        effectMap.set(newPath, true)
-        const cachedValue = cacheContent.value
-        scheduleEffect(newPath, () => {
-          onCacheEffect(cachedValue)
-          // 微任务清理，保证单次 batch render 中只触发一次 effect
-          Promise.resolve().then(() => {
-            effectMap.delete(newPath)
-          })
-        })
-      }
+      activatePath(newPath, oldPath)
     },
-    { immediate: true },
+    {
+      flush: 'sync',
+    },
   )
+
+  onBeforeMount(() => {
+    isMountedRef.value = true
+    activatePath(currentPathRef.value)
+  })
 
   // 组件卸载时清理缓存
   // 使用 onBeforeUnmount 而不是 watch 的 onCleanup，
   // 这样可以更好地控制清理时机（对 Transition 动画很重要）
   onBeforeUnmount(() => {
+    isMountedRef.value = false
     clearCache(currentPathRef.value)
   })
 

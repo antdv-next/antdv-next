@@ -43,6 +43,36 @@ describe('useStyleRegister', () => {
     wrapper.unmount()
   })
 
+  it('injects style into DOM on initial client mount before microtask flush', () => {
+    const theme = {} as any
+    const token = { _tokenKey: 'sync-token' }
+
+    const TestComponent = defineComponent({
+      setup() {
+        const info = ref({
+          theme,
+          token,
+          path: ['.sync-box'],
+        })
+        useStyleRegister(info, () => ({
+          '.sync-box': {
+            color: 'green',
+          },
+        }))
+
+        return () => h('div', { class: 'sync-box' }, 'content')
+      },
+    })
+
+    const wrapper = mountWithStyleProvider(TestComponent)
+
+    const styles = Array.from(document.querySelectorAll(`style[${ATTR_MARK}]`))
+    const matched = styles.find(style => style.innerHTML.includes('.sync-box') && style.innerHTML.includes('color:green'))
+
+    expect(matched).toBeTruthy()
+    wrapper.unmount()
+  })
+
   it('does not inject styles when mocked as server', async () => {
     const theme = {} as any
     const token = { _tokenKey: 'server-token' }
