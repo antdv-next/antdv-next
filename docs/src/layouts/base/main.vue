@@ -55,10 +55,10 @@ const handleChangeMenu: MenuEmits['click'] = (info) => {
       </a-menu>
     </a-col>
     <a-col :xxl="20" :xl="19" :lg="18" :md="18" :sm="24" :xs="24">
-      <section class="ant-doc-main-section">
+      <section v-if="!isMobile" class="ant-doc-main-section">
         <a-anchor :items="anchorItems" class="ant-doc-main-sider-anchor" :offset-top="70" :affix="false" />
       </section>
-      <article class="mt--16px" :class="[direction === 'ltr' ? 'pl-48px pr-164px' : 'pr-48px pl-164px']">
+      <article class="mt--16px" :class="[isMobile ? 'px-16px' : direction === 'ltr' ? 'pl-48px pr-164px' : 'pr-48px pl-164px']">
         <slot />
         <Suspense>
           <Contributors />

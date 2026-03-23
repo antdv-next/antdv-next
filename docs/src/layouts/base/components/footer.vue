@@ -103,6 +103,10 @@ const details = {
     position: relative;
     padding: 86px 144px 93px 144px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+
+    @media (max-width: 768px) {
+      padding: 40px 24px 48px 24px;
+    }
   }
 
   a {

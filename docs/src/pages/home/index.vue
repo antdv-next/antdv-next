@@ -2,8 +2,17 @@
 import { ThemeProvider } from 'antdv-style'
 import { storeToRefs } from 'pinia'
 import { defineAsyncComponent } from 'vue'
+import { useRouter } from 'vue-router'
+import { useMobile } from '@/composables/mobile'
 import { useLocale } from '@/composables/use-locale'
 import { useAppStore } from '@/stores/app'
+
+const { isMobile } = useMobile()
+const router = useRouter()
+
+if (isMobile.value) {
+  router.replace('/components/overview')
+}
 
 const PreviewBanner = defineAsyncComponent(() => import('./components/preview-banner/index.vue'))
 const Theme = defineAsyncComponent(() => import('./components/theme/index.vue'))

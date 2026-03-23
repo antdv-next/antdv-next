@@ -201,6 +201,14 @@
   border: 1px solid var(--ant-color-split);
 }
 
+@media (max-width: 768px) {
+  .vp-doc th,
+  .vp-doc td {
+    padding: var(--ant-padding-xs) var(--ant-padding-sm);
+    font-size: 13px;
+  }
+}
+
 .vp-doc th {
   color: var(--ant-color-text-secondary);
   font-weight: 500;
