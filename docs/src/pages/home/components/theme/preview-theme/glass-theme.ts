@@ -64,6 +64,15 @@ const useStyles = createStyles(({ css, cssVar }) => {
       ...glassBox,
       borderRadius: cssVar.borderRadiusLG,
     }),
+    colorPickerPopupRoot: css({
+      '& .ant-popover-container': {
+        background: cssVar.colorBgElevated,
+        border: `${cssVar.lineWidth}px solid ${cssVar.colorBorderSecondary}`,
+        boxShadow: cssVar.boxShadowSecondary,
+        backdropFilter: 'none',
+        WebkitBackdropFilter: 'none',
+      },
+    }),
     switchRoot: css({
       ...glassBorder,
       border: 'none',
@@ -124,7 +133,11 @@ function useGlassTheme() {
     },
     colorPicker: {
       arrow: false,
-      classes: {},
+      classes: {
+        popup: {
+          root: styles.colorPickerPopupRoot,
+        },
+      },
     },
     dropdown: {
       classes: {
