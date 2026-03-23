@@ -149,4 +149,9 @@ describe('calculator', () => {
       'calc(var(--ant-z-index) + 93)',
     )
   })
+
+  it('css calc should ignore NaN initial values', () => {
+    const calc = genCalc('css', new Set())
+    expect(calc(Number.NaN).equal()).toBe('')
+  })
 })

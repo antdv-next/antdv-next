@@ -160,8 +160,12 @@ export function supportLogicProps(): boolean {
 
 export const isClientSide = canUseDom()
 
+export function isNumber(val: any): val is number {
+  return typeof val === 'number' && !Number.isNaN(val)
+}
+
 export function unit(num: string | number) {
-  if (typeof num === 'number') {
+  if (isNumber(num)) {
     return `${num}px`
   }
   return num

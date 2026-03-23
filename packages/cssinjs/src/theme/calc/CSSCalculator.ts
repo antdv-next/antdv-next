@@ -1,3 +1,4 @@
+import { isNumber } from '../../util'
 import AbstractCalculator from './calculator'
 
 const CALC_UNIT = 'CALC_UNIT'
@@ -5,7 +6,7 @@ const CALC_UNIT = 'CALC_UNIT'
 const regexp = new RegExp(CALC_UNIT, 'g')
 
 function unit(value: string | number) {
-  if (typeof value === 'number') {
+  if (isNumber(value)) {
     return `${value}${CALC_UNIT}`
   }
   return value
@@ -31,8 +32,8 @@ export default class CSSCalculator extends AbstractCalculator {
     if (num instanceof CSSCalculator) {
       this.result = `(${num.result})`
     }
-    else if (numType === 'number') {
-      this.result = unit(num as number)
+    else if (isNumber(num)) {
+      this.result = unit(num)
     }
     else if (numType === 'string') {
       this.result = num as string

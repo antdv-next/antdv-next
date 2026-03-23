@@ -90,7 +90,12 @@ describe('util/index', () => {
   it('formats style tags and helper outputs', async () => {
     const util = await import('../src/util/index')
 
+    expect(util.isNumber(12)).toBe(true)
+    expect(util.isNumber(Number.NaN)).toBe(false)
+    expect(util.isNumber('12')).toBe(false)
+
     expect(util.unit(12)).toBe('12px')
+    expect(util.unit(Number.NaN)).toBe(Number.NaN)
     expect(util.unit('1em')).toBe('1em')
 
     expect(
