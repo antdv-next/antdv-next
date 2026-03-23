@@ -75,14 +75,6 @@ export default defineNuxtConfig({
 })
 ```
 
-:::warning Note
-
-If `nuxt devtools` is enabled, style loading in development may become slower. If you encounter slow style loading or temporarily unclickable UI, try disabling `nuxt devtools`, or wait until loading is finished in the console before interacting.
-
-This does not affect normal precompiled development flow, and it does not affect production builds.
-
-:::
-
 ## Options
 
 | Option | Type | Default | Description |

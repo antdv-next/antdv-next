@@ -74,13 +74,6 @@ export default defineNuxtConfig({
   ],
 })
 ```
-:::warning 需要注意的是
-如果开启了 `nuxt devtools`，开发模式下的样式加载可能会变慢。  
-如果你遇到样式加载过慢或页面暂时无法正常点击的情况，请先尝试关闭 `nuxt devtools`或等待 `devtools` 加载完成后再操作。
-
-该问题不会影响正常预编译开发流程，也不会影响生产环境。
-
-:::
 
 ## 选项
 
