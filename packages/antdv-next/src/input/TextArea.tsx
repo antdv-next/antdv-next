@@ -147,11 +147,12 @@ const InternalTextArea = defineComponent<
       prefixCls,
       direction,
       allowClear: contextAllowClear,
+      changeOnComposing: contextChangeOnComposing,
       class: contextClassName,
       style: contextStyle,
       classes: contextClassNames,
       styles: contextStyles,
-    } = useComponentBaseConfig('textArea', props, ['allowClear'], 'input')
+    } = useComponentBaseConfig('textArea', props, ['allowClear', 'changeOnComposing'], 'input')
 
     const {
       classes,
@@ -201,6 +202,7 @@ const InternalTextArea = defineComponent<
     const [mergedVariant, enableVariantCls] = useVariant('textArea', customVariant, bordered)
 
     const mergedAllowClear = computed(() => getAllowClear(props.allowClear ?? contextAllowClear.value))
+    const mergedChangeOnComposing = computed(() => props.changeOnComposing ?? contextChangeOnComposing.value)
 
     const isMouseDown = shallowRef(false)
     const resizeDirty = shallowRef(false)
@@ -325,6 +327,7 @@ const InternalTextArea = defineComponent<
           styles={mergedStyles.value as any}
           disabled={mergedDisabled.value}
           allowClear={mergedAllowClear.value}
+          changeOnComposing={mergedChangeOnComposing.value}
           onPressEnter={handlePressEnter}
           onResize={handleResize}
           {
