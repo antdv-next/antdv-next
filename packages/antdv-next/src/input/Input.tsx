@@ -172,11 +172,12 @@ const InternalInput = defineComponent<
       direction,
       allowClear: contextAllowClear,
       autoComplete: contextAutoComplete,
+      changeOnComposing: contextChangeOnComposing,
       class: contextClassName,
       style: contextStyle,
       classes: contextClassNames,
       styles: contextStyles,
-    } = useComponentBaseConfig('input', props, ['allowClear', 'autoComplete'])
+    } = useComponentBaseConfig('input', props, ['allowClear', 'autoComplete', 'changeOnComposing'])
 
     const {
       classes,
@@ -245,6 +246,7 @@ const InternalInput = defineComponent<
     })
 
     const mergedAutoComplete = computed(() => props.autoComplete ?? contextAutoComplete.value)
+    const mergedChangeOnComposing = computed(() => props.changeOnComposing ?? contextChangeOnComposing.value)
 
     expose({
       focus: (options?: Parameters<NonNullable<VcInputRef['focus']>>[0]) => inputRef.value?.focus?.(options),
@@ -405,6 +407,7 @@ const InternalInput = defineComponent<
           disabled={mergedDisabled.value}
           allowClear={mergedAllowClear.value}
           autoComplete={mergedAutoComplete.value}
+          changeOnComposing={mergedChangeOnComposing.value}
           suffix={mergedSuffix}
           prefix={prefixNode}
           addonBefore={wrapAddon(addonBeforeNode)}
