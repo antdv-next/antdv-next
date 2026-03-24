@@ -323,13 +323,13 @@ export type SwitchStyleConfig = ComponentStyleConfig & Pick<SwitchProps, 'classe
 export type TransferConfig = ComponentStyleConfig & Pick<TransferProps, 'selectionsIcon' | 'classes' | 'styles'>
 
 export type InputConfig = ComponentStyleConfig
-  & Pick<InputProps, 'autoComplete' | 'classes' | 'styles' | 'allowClear' | 'variant'>
+  & Pick<InputProps, 'autoComplete' | 'classes' | 'styles' | 'allowClear' | 'variant' | 'changeOnComposing'>
 
 export type InputNumberConfig = ComponentStyleConfig
   & Pick<InputNumberProps, 'classes' | 'styles' | 'variant'>
 
 export type TextAreaConfig = ComponentStyleConfig
-  & Pick<TextAreaProps, 'classes' | 'styles' | 'allowClear' | 'variant'>
+  & Pick<TextAreaProps, 'classes' | 'styles' | 'allowClear' | 'variant' | 'changeOnComposing'>
 
 export type MentionsConfig = ComponentStyleConfig
   & Pick<TextAreaProps, 'classes' | 'styles' | 'allowClear' | 'variant'>

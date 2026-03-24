@@ -71,6 +71,7 @@ interface BaseVcInputProps {
   prefix?: VueNode
   suffix?: VueNode
   allowClear?: VcInputProps['allowClear']
+  changeOnComposing?: VcInputProps['changeOnComposing']
   autoFocus?: boolean
   inputMode?: string
 }
