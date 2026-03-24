@@ -32,7 +32,7 @@ onBeforeUnmount(() => {
   }
 })
 
-const categoryTitle = computed(() => t(`iconSearch.categories.${props.title}`))
+const categoryTitle = computed(() => t(`ui.iconSearch.categories.${props.title}`))
 </script>
 
 <template>
