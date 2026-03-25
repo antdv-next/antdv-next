@@ -65,7 +65,7 @@ const SwitcherIconCom = defineComponent<SwitcherIconProps>(
       }
       if (isVNode(switcher)) {
         return createVNode(switcher, {
-          class: switcherCls,
+          class: [switcher.props?.classes, showLine ? `${prefixCls}-switcher-line-icon` : switcherCls],
         })
       }
       if (switcher !== undefined) {

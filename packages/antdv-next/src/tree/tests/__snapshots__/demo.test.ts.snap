@@ -5321,7 +5321,7 @@ exports[`tree demo > renders switcher-icon correctly 1`] = `
             >
               <span
                 aria-label="down"
-                class="anticon anticon-down ant-tree-switcher-icon"
+                class="anticon anticon-down ant-tree-switcher-line-icon"
                 role="img"
               >
                 <svg
@@ -5376,7 +5376,7 @@ exports[`tree demo > renders switcher-icon correctly 1`] = `
             >
               <span
                 aria-label="down"
-                class="anticon anticon-down ant-tree-switcher-icon"
+                class="anticon anticon-down ant-tree-switcher-line-icon"
                 role="img"
               >
                 <svg
@@ -5554,7 +5554,7 @@ exports[`tree demo > renders switcher-icon correctly 1`] = `
             >
               <span
                 aria-label="down"
-                class="anticon anticon-down ant-tree-switcher-icon"
+                class="anticon anticon-down ant-tree-switcher-line-icon"
                 role="img"
               >
                 <svg
@@ -5609,7 +5609,7 @@ exports[`tree demo > renders switcher-icon correctly 1`] = `
             >
               <span
                 aria-label="down"
-                class="anticon anticon-down ant-tree-switcher-icon"
+                class="anticon anticon-down ant-tree-switcher-line-icon"
                 role="img"
               >
                 <svg
