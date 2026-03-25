@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from 'vitest'
 import { h, nextTick, ref } from 'vue'
-import Input from '..'
+import Input, { TextArea } from '..'
+import ConfigProvider from '../../config-provider'
 import rtlTest from '/@tests/shared/rtlTest'
 import { mount } from '/@tests/utils'
 
@@ -246,5 +247,59 @@ describe('input', () => {
       },
     })
     expect(wrapper.find('input').attributes('autofocus')).toBe('true')
+  })
+
+  describe('changeOnComposing', () => {
+    it('should accept changeOnComposing prop without error', () => {
+      const wrapper = mount(Input, {
+        props: { changeOnComposing: true },
+      })
+      expect(wrapper.find('.ant-input').exists()).toBe(true)
+    })
+
+    it('should render with ConfigProvider changeOnComposing', () => {
+      const wrapper = mount(ConfigProvider, {
+        props: {
+          input: { changeOnComposing: true },
+        },
+        slots: {
+          default: () => h(Input),
+        },
+      })
+      expect(wrapper.find('.ant-input').exists()).toBe(true)
+    })
+
+    it('should accept component prop alongside ConfigProvider', () => {
+      const wrapper = mount(ConfigProvider, {
+        props: {
+          input: { changeOnComposing: true },
+        },
+        slots: {
+          default: () => h(Input, { changeOnComposing: false }),
+        },
+      })
+      expect(wrapper.find('.ant-input').exists()).toBe(true)
+    })
+  })
+})
+
+describe('textarea changeOnComposing', () => {
+  it('should accept changeOnComposing prop without error', () => {
+    const wrapper = mount(TextArea, {
+      props: { changeOnComposing: true },
+    })
+    expect(wrapper.find('textarea').exists()).toBe(true)
+  })
+
+  it('should render with ConfigProvider changeOnComposing', () => {
+    const wrapper = mount(ConfigProvider, {
+      props: {
+        textArea: { changeOnComposing: true },
+      },
+      slots: {
+        default: () => h(TextArea),
+      },
+    })
+    expect(wrapper.find('textarea').exists()).toBe(true)
   })
 })
