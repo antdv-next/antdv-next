@@ -360,7 +360,7 @@ exports[`transfer > should render correctly 1`] = `
       >
         <li
           class="ant-transfer-list-content-item ant-transfer-list-content-item-checked"
-          title=""
+          title="a"
         >
           <label
             class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
@@ -384,7 +384,7 @@ exports[`transfer > should render correctly 1`] = `
         </li>
         <li
           class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
-          title=""
+          title="c"
         >
           <label
             class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
@@ -534,7 +534,7 @@ exports[`transfer > should render correctly 1`] = `
       >
         <li
           class="ant-transfer-list-content-item"
-          title=""
+          title="b"
         >
           <label
             class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
@@ -1157,7 +1157,7 @@ exports[`transfer immutable data > dataSource is frozen 1`] = `
       >
         <li
           class="ant-transfer-list-content-item"
-          title=""
+          title="title"
         >
           <label
             class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"

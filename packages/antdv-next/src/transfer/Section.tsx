@@ -29,6 +29,18 @@ function getEnabledItemKeys<RecordType extends KeyWiseTransferItem>(items: Recor
   return items.filter(data => !data.disabled).map(data => data.key)
 }
 
+function getTextFromRenderResult<RecordType extends KeyWiseTransferItem>(
+  renderResult: RenderResult,
+  item: RecordType,
+): string {
+  for (const v of [renderResult, item.title, item.key]) {
+    if (typeof v === 'string' || typeof v === 'number') {
+      return String(v)
+    }
+  }
+  return ''
+}
+
 const isValidIcon = (icon: any) => icon !== undefined
 
 function getShowSearchOption(showSearch: boolean | TransferSearchOption) {
@@ -88,12 +100,13 @@ const TransferSection = defineComponent<
       else if (labelNode !== undefined && labelNode !== null) {
         mergedLabel = labelNode
       }
+      const renderedEl = mergedLabel ?? (isRenderResultPlain ? renderResult.label : renderResult)
       const renderedText = isRenderResultPlain
         ? renderResult.value
-        : (typeof renderResult === 'string' || typeof renderResult === 'number' ? String(renderResult) : '')
+        : getTextFromRenderResult(renderResult, item)
       return {
         item,
-        renderedEl: mergedLabel ?? (isRenderResultPlain ? renderResult.label : renderResult),
+        renderedEl,
         renderedText,
       }
     }
@@ -300,7 +313,7 @@ const TransferSection = defineComponent<
                   newCheckedKeysSet.add(key)
                 }
               })
-              props.onItemSelectAll?.(Array.from(newCheckedKeysSet), 'replace')
+              props.onItemSelectAll?.([...newCheckedKeysSet], 'replace')
             },
           },
         ].filter(Boolean)

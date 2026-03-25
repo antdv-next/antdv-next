@@ -150,4 +150,22 @@ describe('transfer.Section', () => {
 
     expect(onItemSelect).toHaveBeenCalledWith('a', false)
   })
+
+  it('should fallback to empty string text when render result is non-text', async () => {
+    const handleFilter = vi.fn()
+    const wrapper = mountComponent(Section, {
+      props: {
+        ...listCommonProps,
+        dataSource: [{ key: {} as unknown } as KeyWiseTransferItem],
+        showSearch: true,
+        handleFilter: handleFilter(),
+        handleClear: vi.fn(),
+      },
+    })
+
+    await wrapper.find('.ant-transfer-list-search input').trigger('click')
+
+    expect(handleFilter).toHaveBeenCalled()
+    expect(wrapper.find('.ant-transfer-list-body-not-found')).toBeTruthy()
+  })
 })
