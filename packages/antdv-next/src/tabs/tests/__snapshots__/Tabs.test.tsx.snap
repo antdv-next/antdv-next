@@ -24,6 +24,7 @@ exports[`tabs > matches snapshot 1`] = `
       <!---->
     </div>
     <!---->
+    <!---->
   </div>
   <div class="ant-tabs-content-holder" rtl="false" mobile="false">
     <div class="ant-tabs-content ant-tabs-content-top">
@@ -144,6 +145,7 @@ exports[`tabs > rtl render > component should be rendered correctly in RTL direc
         <!---->
         <!---->
       </div>
+      <!---->
       <!---->
     </div>
     <div

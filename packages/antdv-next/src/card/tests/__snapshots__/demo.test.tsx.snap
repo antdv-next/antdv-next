@@ -1332,6 +1332,7 @@ exports[`card demo > renders component-token correctly 1`] = `
             <!---->
           </div>
           <!---->
+          <!---->
         </div>
         <div
           class="ant-tabs-content-holder"
@@ -2696,6 +2697,7 @@ exports[`card demo > renders tabs correctly 1`] = `
             <!---->
           </div>
           <!---->
+          <!---->
         </div>
         <div
           class="ant-tabs-content-holder"
@@ -2868,6 +2870,7 @@ exports[`card demo > renders tabs correctly 1`] = `
               More
             </a>
           </div>
+          <!---->
         </div>
         <div
           class="ant-tabs-content-holder"

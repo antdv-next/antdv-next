@@ -551,6 +551,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
             <!---->
           </div>
           <!---->
+          <!---->
         </div>
         <div
           class="ant-tabs-content-holder"
@@ -1770,6 +1771,7 @@ exports[`tabs demo > renders animated correctly 1`] = `
         <!---->
       </div>
       <!---->
+      <!---->
     </div>
     <div
       class="ant-tabs-content-holder"
@@ -1958,6 +1960,7 @@ exports[`tabs demo > renders basic correctly 1`] = `
       <!---->
     </div>
     <!---->
+    <!---->
   </div>
   <div
     class="ant-tabs-content-holder"
@@ -2104,6 +2107,7 @@ exports[`tabs demo > renders card correctly 1`] = `
       <!---->
       <!---->
     </div>
+    <!---->
     <!---->
   </div>
   <div
@@ -2256,6 +2260,7 @@ exports[`tabs demo > renders card-top correctly 1`] = `
         <!---->
         <!---->
       </div>
+      <!---->
       <!---->
     </div>
     <div
@@ -2446,6 +2451,7 @@ exports[`tabs demo > renders centered correctly 1`] = `
       <!---->
       <!---->
     </div>
+    <!---->
     <!---->
   </div>
   <div
@@ -2655,6 +2661,7 @@ exports[`tabs demo > renders custom-add-trigger correctly 1`] = `
         <!---->
       </div>
       <!---->
+      <!---->
     </div>
     <div
       class="ant-tabs-content-holder"
@@ -2855,6 +2862,7 @@ exports[`tabs demo > renders custom-indicator correctly 1`] = `
         <!---->
       </div>
       <!---->
+      <!---->
     </div>
     <div
       class="ant-tabs-content-holder"
@@ -3006,6 +3014,7 @@ exports[`tabs demo > renders custom-tab-bar correctly 1`] = `
         <!---->
       </div>
       <!---->
+      <!---->
     </div>
   </div>
   <div
@@ -3054,7 +3063,6 @@ exports[`tabs demo > renders custom-tab-bar correctly 1`] = `
 exports[`tabs demo > renders custom-tab-bar-node correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top css-var-root ant-tabs-css-var"
-  data-v-042b8168=""
 >
   <div
     aria-orientation="horizontal"
@@ -3071,11 +3079,10 @@ exports[`tabs demo > renders custom-tab-bar-node correctly 1`] = `
       >
         <div
           class="draggable-tab"
-          data-v-042b8168=""
           draggable="true"
         >
           <div
-            class="ant-tabs-tab ant-tabs-tab-active"
+            class="ant-tabs-tab draggable-tab draggable-tab ant-tabs-tab-active"
             data-node-key="1"
           >
             <div
@@ -3092,11 +3099,10 @@ exports[`tabs demo > renders custom-tab-bar-node correctly 1`] = `
         </div>
         <div
           class="draggable-tab"
-          data-v-042b8168=""
           draggable="true"
         >
           <div
-            class="ant-tabs-tab"
+            class="ant-tabs-tab draggable-tab draggable-tab"
             data-node-key="2"
           >
             <div
@@ -3113,11 +3119,10 @@ exports[`tabs demo > renders custom-tab-bar-node correctly 1`] = `
         </div>
         <div
           class="draggable-tab"
-          data-v-042b8168=""
           draggable="true"
         >
           <div
-            class="ant-tabs-tab"
+            class="ant-tabs-tab draggable-tab draggable-tab"
             data-node-key="3"
           >
             <div
@@ -3173,6 +3178,7 @@ exports[`tabs demo > renders custom-tab-bar-node correctly 1`] = `
       <!---->
       <!---->
     </div>
+    <!---->
     <!---->
   </div>
   <div
@@ -3320,6 +3326,7 @@ exports[`tabs demo > renders disabled correctly 1`] = `
       <!---->
       <!---->
     </div>
+    <!---->
     <!---->
   </div>
   <div
@@ -3576,6 +3583,7 @@ exports[`tabs demo > renders editable-card correctly 1`] = `
       </button>
     </div>
     <!---->
+    <!---->
   </div>
   <div
     class="ant-tabs-content-holder"
@@ -3752,6 +3760,7 @@ exports[`tabs demo > renders extra correctly 1`] = `
           <!---->
         </button>
       </div>
+      <!---->
     </div>
     <div
       class="ant-tabs-content-holder"
@@ -4008,6 +4017,7 @@ exports[`tabs demo > renders extra correctly 1`] = `
           <!---->
         </button>
       </div>
+      <!---->
     </div>
     <div
       class="ant-tabs-content-holder"
@@ -4186,6 +4196,7 @@ exports[`tabs demo > renders icon correctly 1`] = `
       <!---->
       <!---->
     </div>
+    <!---->
     <!---->
   </div>
   <div
@@ -4420,6 +4431,7 @@ exports[`tabs demo > renders placement correctly 1`] = `
         <!---->
       </div>
       <!---->
+      <!---->
     </div>
     <div
       class="ant-tabs-content-holder"
@@ -4630,6 +4642,7 @@ exports[`tabs demo > renders size correctly 1`] = `
         <!---->
       </div>
       <!---->
+      <!---->
     </div>
     <div
       class="ant-tabs-content-holder"
@@ -4774,6 +4787,7 @@ exports[`tabs demo > renders size correctly 1`] = `
         <!---->
         <!---->
       </div>
+      <!---->
       <!---->
     </div>
     <div
@@ -5053,6 +5067,7 @@ exports[`tabs demo > renders size correctly 1`] = `
           </span>
         </button>
       </div>
+      <!---->
       <!---->
     </div>
     <div
@@ -5680,6 +5695,7 @@ exports[`tabs demo > renders slide correctly 1`] = `
         <!---->
       </div>
       <!---->
+      <!---->
     </div>
     <div
       class="ant-tabs-content-holder"
@@ -6107,6 +6123,7 @@ exports[`tabs demo > renders style-class correctly 1`] = `
         <!---->
       </div>
       <!---->
+      <!---->
     </div>
     <div
       class="ant-tabs-content-holder"
@@ -6253,6 +6270,7 @@ exports[`tabs demo > renders style-class correctly 1`] = `
         <!---->
         <!---->
       </div>
+      <!---->
       <!---->
     </div>
     <div
