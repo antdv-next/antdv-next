@@ -199,8 +199,8 @@ catalogs:
       version: 4.0.2
   prod:
     '@ant-design/colors':
-      specifier: 7.2.1
-      version: 7.2.1
+      specifier: ^8.0.1
+      version: 8.0.1
     '@ant-design/fast-color':
       specifier: ^3.0.1
       version: 3.0.1
@@ -587,7 +587,7 @@ importers:
     dependencies:
       '@ant-design/colors':
         specifier: catalog:prod
-        version: 7.2.1
+        version: 8.0.1
       '@ant-design/fast-color':
         specifier: catalog:prod
         version: 3.0.1
@@ -759,7 +759,7 @@ importers:
     dependencies:
       '@ant-design/colors':
         specifier: catalog:prod
-        version: 7.2.1
+        version: 8.0.1
       '@ant-design/fast-color':
         specifier: catalog:prod
         version: 3.0.1
@@ -993,6 +993,9 @@ packages:
 
   '@ant-design/colors@7.2.1':
     resolution: {integrity: sha512-lCHDcEzieu4GA3n8ELeZ5VQ8pKQAWcGGLRTQ50aQM2iqPpq2evTxER84jfdPvsPAtEcZ7m44NI45edFMo8oOYQ==}
+
+  '@ant-design/colors@8.0.1':
+    resolution: {integrity: sha512-foPVl0+SWIslGUtD/xBr1p9U4AKzPhNYEseXYRRo5QSzGACYZrQbe11AYJbYfAWnWSpGBx6JjBmSeugUsD9vqQ==}
 
   '@ant-design/fast-color@2.0.6':
     resolution: {integrity: sha512-y2217gk4NqL35giHl72o6Zzqji9O7vHh9YmhUVkPtAOpoTCH4uWxo/pr4VE8t0+ChEPs0qo4eJRC5Q1eXWo3vA==}
@@ -2664,11 +2667,6 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
-  '@v-c/input@1.0.2':
-    resolution: {integrity: sha512-NzBor6XbUYP42zRrcaBUgWtQI1aIaN3oylmMdvSZ5UMcWsAXRNC8XKsedkFF/LLOEJBJ2NaTbomHRwkIjmtQAA==}
-    peerDependencies:
-      vue: ^3.0.0
-
   '@v-c/input@1.0.3':
     resolution: {integrity: sha512-vQic9OWfREBlNfJeRcejMcOPhp4xnbHVbqeqo/TfCOf73Ym+zjWXRGXiqM/pIqV9v95zuhYen3KzMeJYM4pViA==}
     peerDependencies:
@@ -2793,18 +2791,8 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
-  '@v-c/tabs@1.0.1':
-    resolution: {integrity: sha512-6G6cWKdxb8l3IuR802mZGV+l8GAvCEJCoVQcyG3BwiBYOeOii6eyET5D+yMp7mC7dsFRxc2y7q0krxyo97CosQ==}
-    peerDependencies:
-      vue: ^3.0.0
-
   '@v-c/tabs@1.0.2':
     resolution: {integrity: sha512-FA/lG5TaYOVFhB3WjJ2x6O8egREm9FWdfEbnY1Tmg3D1avkxYDhISHlW4ot3NvWb8Ds4MxBe0T9xg206o0LHEw==}
-    peerDependencies:
-      vue: ^3.0.0
-
-  '@v-c/textarea@1.0.3':
-    resolution: {integrity: sha512-oCpqdOyiNPFgLRUw913IjTdIMVtryy9maJEaSz+ledn/cVO4OJ44dEP8eCnhxlHTfduLKesKIlDoRIBhLu4qqQ==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -6200,6 +6188,10 @@ snapshots:
     dependencies:
       '@ant-design/fast-color': 2.0.6
 
+  '@ant-design/colors@8.0.1':
+    dependencies:
+      '@ant-design/fast-color': 3.0.1
+
   '@ant-design/fast-color@2.0.6':
     dependencies:
       '@babel/runtime': 7.28.4
@@ -7911,11 +7903,6 @@ snapshots:
       '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
       vue: 3.5.30(typescript@5.9.3)
 
-  '@v-c/input@1.0.2(vue@3.5.30(typescript@5.9.3))':
-    dependencies:
-      '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
-      vue: 3.5.30(typescript@5.9.3)
-
   '@v-c/input@1.0.3(vue@3.5.30(typescript@5.9.3))':
     dependencies:
       '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
@@ -8058,27 +8045,11 @@ snapshots:
       '@v-c/virtual-list': 1.0.6(vue@3.5.30(typescript@5.9.3))
       vue: 3.5.30(typescript@5.9.3)
 
-  '@v-c/tabs@1.0.1(vue@3.5.30(typescript@5.9.3))':
-    dependencies:
-      '@v-c/dropdown': 1.0.2(vue@3.5.30(typescript@5.9.3))
-      '@v-c/menu': 1.0.12(vue@3.5.30(typescript@5.9.3))
-      '@v-c/overflow': 1.0.4(vue@3.5.30(typescript@5.9.3))
-      '@v-c/resize-observer': 1.0.8(vue@3.5.30(typescript@5.9.3))
-      '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
-      vue: 3.5.30(typescript@5.9.3)
-
   '@v-c/tabs@1.0.2(vue@3.5.30(typescript@5.9.3))':
     dependencies:
       '@v-c/dropdown': 1.0.2(vue@3.5.30(typescript@5.9.3))
       '@v-c/menu': 1.0.12(vue@3.5.30(typescript@5.9.3))
       '@v-c/overflow': 1.0.4(vue@3.5.30(typescript@5.9.3))
-      '@v-c/resize-observer': 1.0.8(vue@3.5.30(typescript@5.9.3))
-      '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
-      vue: 3.5.30(typescript@5.9.3)
-
-  '@v-c/textarea@1.0.3(vue@3.5.30(typescript@5.9.3))':
-    dependencies:
-      '@v-c/input': 1.0.2(vue@3.5.30(typescript@5.9.3))
       '@v-c/resize-observer': 1.0.8(vue@3.5.30(typescript@5.9.3))
       '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
       vue: 3.5.30(typescript@5.9.3)
@@ -8488,7 +8459,7 @@ snapshots:
       '@v-c/drawer': 1.0.2(vue@3.5.30(typescript@5.9.3))
       '@v-c/dropdown': 1.0.2(vue@3.5.30(typescript@5.9.3))
       '@v-c/image': 1.0.9(vue@3.5.30(typescript@5.9.3))
-      '@v-c/input': 1.0.2(vue@3.5.30(typescript@5.9.3))
+      '@v-c/input': 1.0.3(vue@3.5.30(typescript@5.9.3))
       '@v-c/input-number': 1.0.5(vue@3.5.30(typescript@5.9.3))
       '@v-c/mentions': 1.0.0(vue@3.5.30(typescript@5.9.3))
       '@v-c/menu': 1.0.12(vue@3.5.30(typescript@5.9.3))
@@ -8507,8 +8478,8 @@ snapshots:
       '@v-c/steps': 1.0.0(vue@3.5.30(typescript@5.9.3))
       '@v-c/switch': 1.0.0(vue@3.5.30(typescript@5.9.3))
       '@v-c/table': 1.0.3(vue@3.5.30(typescript@5.9.3))
-      '@v-c/tabs': 1.0.1(vue@3.5.30(typescript@5.9.3))
-      '@v-c/textarea': 1.0.3(vue@3.5.30(typescript@5.9.3))
+      '@v-c/tabs': 1.0.2(vue@3.5.30(typescript@5.9.3))
+      '@v-c/textarea': 1.0.4(vue@3.5.30(typescript@5.9.3))
       '@v-c/tooltip': 1.0.3(vue@3.5.30(typescript@5.9.3))
       '@v-c/tour': 1.0.3(vue@3.5.30(typescript@5.9.3))
       '@v-c/tree': 1.0.5(vue@3.5.30(typescript@5.9.3))
