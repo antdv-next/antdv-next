@@ -3054,7 +3054,6 @@ exports[`tabs demo > renders custom-tab-bar correctly 1`] = `
 exports[`tabs demo > renders custom-tab-bar-node correctly 1`] = `
 <div
   class="ant-tabs ant-tabs-top css-var-root ant-tabs-css-var"
-  data-v-042b8168=""
 >
   <div
     aria-orientation="horizontal"
@@ -3071,11 +3070,10 @@ exports[`tabs demo > renders custom-tab-bar-node correctly 1`] = `
       >
         <div
           class="draggable-tab"
-          data-v-042b8168=""
           draggable="true"
         >
           <div
-            class="ant-tabs-tab ant-tabs-tab-active"
+            class="ant-tabs-tab draggable-tab draggable-tab ant-tabs-tab-active"
             data-node-key="1"
           >
             <div
@@ -3092,11 +3090,10 @@ exports[`tabs demo > renders custom-tab-bar-node correctly 1`] = `
         </div>
         <div
           class="draggable-tab"
-          data-v-042b8168=""
           draggable="true"
         >
           <div
-            class="ant-tabs-tab"
+            class="ant-tabs-tab draggable-tab draggable-tab"
             data-node-key="2"
           >
             <div
@@ -3113,11 +3110,10 @@ exports[`tabs demo > renders custom-tab-bar-node correctly 1`] = `
         </div>
         <div
           class="draggable-tab"
-          data-v-042b8168=""
           draggable="true"
         >
           <div
-            class="ant-tabs-tab"
+            class="ant-tabs-tab draggable-tab draggable-tab"
             data-node-key="3"
           >
             <div

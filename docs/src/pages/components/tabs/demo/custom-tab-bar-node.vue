@@ -49,24 +49,23 @@ function handleDrop(overKey: string, event: DragEvent) {
   }
   const next = items.value.slice()
   const [moved] = next.splice(activeIndex, 1)
+  if (!moved) {
+    return
+  }
   next.splice(overIndex, 0, moved)
   items.value = next
 }
 </script>
 
 <template>
-  <a-tabs :items="items">
+  <a-tabs :items="items" :classes="{ item: 'draggable-tab' }">
     <template #renderTabBar="{ TabNavListComponent, props }">
       <component :is="TabNavListComponent" v-bind="props">
         <template #default="node">
           <div
-            class="draggable-tab"
-            :class="{ 'draggable-tab--dragging': draggingKey === getNodeKey(node) }"
-            draggable="true"
-            @dragstart="(event) => handleDragStart(getNodeKey(node), event)"
-            @dragover.prevent
-            @drop="(event) => handleDrop(getNodeKey(node), event)"
-            @dragend="handleDragEnd"
+            class="draggable-tab" :class="{ 'draggable-tab--dragging': draggingKey === getNodeKey(node) }"
+            draggable="true" @dragstart="(event) => handleDragStart(getNodeKey(node), event)" @dragover.prevent
+            @drop="(event) => handleDrop(getNodeKey(node), event)" @dragend="handleDragEnd"
           >
             <component :is="node" />
           </div>
@@ -76,9 +75,14 @@ function handleDrop(overKey: string, event: DragEvent) {
   </a-tabs>
 </template>
 
-<style scoped>
+<style>
 .draggable-tab {
   cursor: move;
+  margin-left: var(--ant-tabs-horizontal-item-gutter);
+}
+
+.draggable-tab:first-child {
+  margin-left: 0;
 }
 
 .draggable-tab--dragging {
