@@ -19,8 +19,8 @@ const baseUrl = fileURLToPath(new URL('.', import.meta.url))
 //   3. VC_LOCAL=* pnpm dev:play              (CLI, watch ALL packages)
 //   4. Add VC_LOCAL=input,textarea to playground/.env.local (persistent)
 //
-// VC_PATH: path to vue-components repo root (default: ../../vue-components)
-//   VC_PATH=/path/to/vue-components VC_LOCAL=1 pnpm dev:play
+// VC_PATH: path to vue-components repo root (default: ../../antdv-vc)
+//   VC_PATH=/path/to/antdv-vc VC_LOCAL=1 pnpm dev:play
 //
 // Edit @v-c/input src → auto rebuild → Vite full-reload → done.
 //
@@ -28,7 +28,7 @@ const baseUrl = fileURLToPath(new URL('.', import.meta.url))
 // like @v-c/picker/generate/* are NOT covered — add subpath aliases if needed.
 // ─────────────────────────────────────────────────────────────────────
 
-const VC_PATH_DEFAULT = '../../vue-components'
+const VC_PATH_DEFAULT = '../../antdv-vc'
 const PKG_NAME_RE = /^[a-z][\w-]*$/
 
 function resolveVcRoot(vcPath: string | undefined): string {

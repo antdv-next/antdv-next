@@ -12,7 +12,7 @@ Debug `@v-c/*` packages locally with auto-rebuild on source change.
 
 ### Prerequisites
 
-- Clone [vue-components](https://github.com/nicepkg/vue-components) as a sibling directory (or set `VC_PATH`)
+- Clone [vue-components](https://github.com/nicepkg/vue-components) as `antdv-vc` sibling directory (or set `VC_PATH`)
 - Ensure the target package has been built at least once (`pnpm -F @v-c/input build`)
 
 ### Quick Start
@@ -34,7 +34,7 @@ pnpm dev:play
 
 1. `loadEnv` reads `VC_LOCAL` / `VC_PATH` from `.env.local` (or CLI env vars)
 2. Vite `resolve.alias` redirects `@v-c/{pkg}` to local `dist/` instead of `node_modules`
-3. Chokidar watches `vue-components/packages/{pkg}/src/`
+3. Chokidar watches `antdv-vc/packages/{pkg}/src/`
 4. On file change → `pnpm -F @v-c/{pkg} build` (~1s) → browser full-reload
 
 ### Configuration
@@ -42,7 +42,7 @@ pnpm dev:play
 | Variable | Description | Default |
 |----------|-------------|---------|
 | `VC_LOCAL` | Packages to watch. `1` = input,textarea. `*` = all packages. Comma-separated list for specific packages. | _(disabled)_ |
-| `VC_PATH` | Path to vue-components repo root (relative to `playground/` or absolute). | `../../vue-components` |
+| `VC_PATH` | Path to vue-components repo root (relative to `playground/` or absolute). | `../../antdv-vc` |
 
 ### Limitations
 
