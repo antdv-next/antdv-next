@@ -19655,8 +19655,7 @@ exports[`table demo > renders measure-row-render correctly 1`] = `
                           class="ant-table-column-title"
                         >
                           <div
-                            aria-describedby="test-id"
-                            class="ant-table-column-sorters ant-table-column-sorters ant-tooltip-open"
+                            class="ant-table-column-sorters"
                           >
                             <span
                               class="ant-table-column-title"
