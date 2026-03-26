@@ -58,7 +58,7 @@ function handleDrop(overKey: string, event: DragEvent) {
 </script>
 
 <template>
-  <a-tabs :items="items" :classes="{ item: 'draggable-tab' }">
+  <a-tabs :items="items" :styles="{ item: { cursor: 'move' } }">
     <template #renderTabBar="{ TabNavListComponent, props }">
       <component :is="TabNavListComponent" v-bind="props">
         <template #default="node">
@@ -77,7 +77,6 @@ function handleDrop(overKey: string, event: DragEvent) {
 
 <style>
 .draggable-tab {
-  cursor: move;
   margin-left: var(--ant-tabs-horizontal-item-gutter);
 }
 

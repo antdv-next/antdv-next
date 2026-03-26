@@ -3073,8 +3073,9 @@ exports[`tabs demo > renders custom-tab-bar-node correctly 1`] = `
           draggable="true"
         >
           <div
-            class="ant-tabs-tab draggable-tab draggable-tab ant-tabs-tab-active"
+            class="ant-tabs-tab ant-tabs-tab-active"
             data-node-key="1"
+            style="cursor: move;"
           >
             <div
               aria-selected="true"
@@ -3093,8 +3094,9 @@ exports[`tabs demo > renders custom-tab-bar-node correctly 1`] = `
           draggable="true"
         >
           <div
-            class="ant-tabs-tab draggable-tab draggable-tab"
+            class="ant-tabs-tab"
             data-node-key="2"
+            style="cursor: move;"
           >
             <div
               aria-selected="false"
@@ -3113,8 +3115,9 @@ exports[`tabs demo > renders custom-tab-bar-node correctly 1`] = `
           draggable="true"
         >
           <div
-            class="ant-tabs-tab draggable-tab draggable-tab"
+            class="ant-tabs-tab"
             data-node-key="3"
+            style="cursor: move;"
           >
             <div
               aria-selected="false"
