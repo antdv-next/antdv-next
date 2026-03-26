@@ -10,6 +10,7 @@ import type { BadgeProps } from '../badge'
 import type { RibbonProps } from '../badge/Ribbon.tsx'
 import type { BreadcrumbProps } from '../breadcrumb/Breadcrumb.tsx'
 import type { ButtonProps } from '../button'
+import type { CalendarProps } from '../calendar'
 import type { CardProps } from '../card/Card.tsx'
 import type { CardMetaProps } from '../card/CardMeta.tsx'
 import type { CascaderProps } from '../cascader'
@@ -49,6 +50,7 @@ import type { SkeletonProps } from '../skeleton'
 import type { SliderProps } from '../slider'
 import type { SpaceProps } from '../space'
 import type { SpinProps } from '../spin'
+import type { SplitterProps } from '../splitter'
 import type { StatisticProps } from '../statistic'
 import type { StepsProps } from '../steps'
 import type { SwitchProps } from '../switch'
@@ -57,6 +59,7 @@ import type { TabsProps } from '../tabs'
 import type { TagProps } from '../tag'
 import type { AliasToken, MapToken, OverrideToken, SeedToken } from '../theme/interface'
 import type { TimePickerProps } from '../time-picker'
+import type { TimelineProps } from '../timeline'
 import type { TooltipProps } from '../tooltip'
 import type { TourProps } from '../tour'
 import type { TransferProps } from '../transfer/interface'
@@ -262,6 +265,10 @@ export type StatisticConfig = ComponentStyleConfig & Pick<StatisticProps, 'class
 
 export type TypographyConfig = ComponentStyleConfig & Pick<TypographyBaseProps, 'classes' | 'styles'>
 
+export type SplitterConfig = ComponentStyleConfig & Pick<SplitterProps, 'classes' | 'styles'>
+
+export type CalendarConfig = ComponentStyleConfig & Pick<CalendarProps<any>, 'classes' | 'styles'>
+
 export type FloatButtonConfig = ComponentStyleConfig & Pick<FloatButtonProps, 'classes' | 'styles'> & {
   backTopIcon?: VueNode
 }
@@ -375,6 +382,8 @@ export type ModalConfig = ComponentStyleConfig
 
 export type StepsConfig = ComponentStyleConfig & Pick<StepsProps, 'classes' | 'styles'>
 
+export type TimelineConfig = ComponentStyleConfig & Pick<TimelineProps, 'classes' | 'styles'>
+
 export type ImageConfig = ComponentStyleConfig
   & Pick<ImageProps, 'classes' | 'styles'> & {
     preview?: Partial<Record<'closeIcon', any>>
@@ -429,7 +438,7 @@ export interface ConfigComponentProps {
   inputSearch?: InputSearchConfig
   otp?: OTPConfig
   space?: SpaceConfig
-  splitter?: ComponentStyleConfig
+  splitter?: SplitterConfig
   form?: FormConfig
   select?: SelectConfig
   app?: ComponentStyleConfig
@@ -438,7 +447,7 @@ export interface ConfigComponentProps {
   button?: ButtonConfig
   divider?: DividerConfig
   drawer?: DrawerConfig
-  calendar?: ComponentStyleConfig
+  calendar?: CalendarConfig
   carousel?: ComponentStyleConfig
   cascader?: CascaderConfig
   treeSelect?: TreeSelectConfig
@@ -476,7 +485,7 @@ export interface ConfigComponentProps {
   card?: CardConfig
   cardMeta?: CardMetaConfig
   tabs?: TabsConfig
-  timeline?: ComponentStyleConfig
+  timeline?: TimelineConfig
   timePicker?: TimePickerConfig
   tour?: TourConfig
   tooltip?: TooltipConfig

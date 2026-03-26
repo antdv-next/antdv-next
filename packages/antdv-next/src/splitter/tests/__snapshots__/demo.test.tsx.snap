@@ -1380,7 +1380,6 @@ exports[`splitter demo > renders nested-in-tabs correctly 1`] = `
       <!---->
     </div>
     <!---->
-    <!---->
   </div>
   <div
     class="ant-tabs-content-holder"

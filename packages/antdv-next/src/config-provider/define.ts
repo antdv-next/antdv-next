@@ -3,17 +3,24 @@ import type { Locale } from '../locale'
 import type { ColumnType } from '../table'
 import type {
   AlertConfig,
+  AnchorStyleConfig,
   BadgeConfig,
+  BreadcrumbConfig,
   ButtonConfig,
+  CalendarConfig,
   CardConfig,
   CascaderConfig,
+  CheckboxConfig,
   CollapseConfig,
   ColorPickerConfig,
   ComponentStyleConfig,
   CSPConfig,
   DatePickerConfig,
+  DescriptionsConfig,
   DirectionType,
+  DividerConfig,
   DrawerConfig,
+  DropdownConfig,
   EmptyConfig,
   FlexConfig,
   FloatButtonConfig,
@@ -32,20 +39,33 @@ import type {
   PopconfirmConfig,
   PopoverConfig,
   PopupOverflow,
+  ProgressConfig,
+  RadioConfig,
   RangePickerConfig,
+  ResultConfig,
+  SegmentedConfig,
   SelectConfig,
+  SkeletonConfig,
+  SliderConfig,
   SpaceConfig,
   SpinConfig,
+  SplitterConfig,
+  StatisticConfig,
+  StepsConfig,
+  SwitchStyleConfig,
   TableConfig,
   TabsConfig,
   TagConfig,
   TextAreaConfig,
   ThemeConfig,
+  TimelineConfig,
   TimePickerConfig,
   TooltipConfig,
   TourConfig,
   TransferConfig,
+  TreeConfig,
   TreeSelectConfig,
+  TypographyConfig,
   UploadConfig,
   Variant,
   WaveConfig,
@@ -84,7 +104,7 @@ export interface ConfigProviderProps {
    */
   direction?: DirectionType
   space?: SpaceConfig
-  splitter?: ComponentStyleConfig
+  splitter?: SplitterConfig
   /**
    * @descCN 设置 `false` 时关闭虚拟滚动。
    * @descEN Close the virtual scrolling when setting `false`.
@@ -96,39 +116,39 @@ export interface ConfigProviderProps {
   theme?: ThemeConfig
   warning?: WarningContextProps
   alert?: AlertConfig
-  anchor?: ComponentStyleConfig
+  anchor?: AnchorStyleConfig
   button?: ButtonConfig
-  calendar?: ComponentStyleConfig
+  calendar?: CalendarConfig
   carousel?: ComponentStyleConfig
   cascader?: CascaderConfig
   treeSelect?: TreeSelectConfig
   collapse?: CollapseConfig
-  divider?: ComponentStyleConfig
+  divider?: DividerConfig
   drawer?: DrawerConfig
-  typography?: ComponentStyleConfig
-  skeleton?: ComponentStyleConfig
+  typography?: TypographyConfig
+  skeleton?: SkeletonConfig
   spin?: SpinConfig
-  segmented?: ComponentStyleConfig
-  statistic?: ComponentStyleConfig
-  steps?: ComponentStyleConfig
+  segmented?: SegmentedConfig
+  statistic?: StatisticConfig
+  steps?: StepsConfig
   image?: ImageConfig
   layout?: ComponentStyleConfig
   // list?: ListConfig;
   modal?: ModalConfig
-  progress?: ComponentStyleConfig
-  result?: ComponentStyleConfig
-  slider?: ComponentStyleConfig
-  breadcrumb?: ComponentStyleConfig
+  progress?: ProgressConfig
+  result?: ResultConfig
+  slider?: SliderConfig
+  breadcrumb?: BreadcrumbConfig
   menu?: MenuConfig
   floatButton?: FloatButtonConfig
   floatButtonGroup?: FloatButtonGroupConfig
-  checkbox?: ComponentStyleConfig
-  descriptions?: ComponentStyleConfig
+  checkbox?: CheckboxConfig
+  descriptions?: DescriptionsConfig
   empty?: EmptyConfig
   badge?: BadgeConfig
-  radio?: ComponentStyleConfig
+  radio?: RadioConfig
   rate?: ComponentStyleConfig
-  switch?: ComponentStyleConfig
+  switch?: SwitchStyleConfig
   transfer?: TransferConfig
   avatar?: ComponentStyleConfig
   message?: ComponentStyleConfig
@@ -136,15 +156,15 @@ export interface ConfigProviderProps {
   table?: TableConfig
   card?: CardConfig
   tabs?: TabsConfig
-  timeline?: ComponentStyleConfig
+  timeline?: TimelineConfig
   timePicker?: TimePickerConfig
   upload?: UploadConfig
   notification?: NotificationConfig
-  tree?: ComponentStyleConfig
+  tree?: TreeConfig
   colorPicker?: ColorPickerConfig
   datePicker?: DatePickerConfig
   rangePicker?: RangePickerConfig
-  dropdown?: ComponentStyleConfig
+  dropdown?: DropdownConfig
   flex?: FlexConfig
   masonry?: MasonryConfig
   // /**

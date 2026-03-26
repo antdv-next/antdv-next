@@ -551,7 +551,6 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
             <!---->
           </div>
           <!---->
-          <!---->
         </div>
         <div
           class="ant-tabs-content-holder"
@@ -1771,7 +1770,6 @@ exports[`tabs demo > renders animated correctly 1`] = `
         <!---->
       </div>
       <!---->
-      <!---->
     </div>
     <div
       class="ant-tabs-content-holder"
@@ -1960,7 +1958,6 @@ exports[`tabs demo > renders basic correctly 1`] = `
       <!---->
     </div>
     <!---->
-    <!---->
   </div>
   <div
     class="ant-tabs-content-holder"
@@ -2107,7 +2104,6 @@ exports[`tabs demo > renders card correctly 1`] = `
       <!---->
       <!---->
     </div>
-    <!---->
     <!---->
   </div>
   <div
@@ -2260,7 +2256,6 @@ exports[`tabs demo > renders card-top correctly 1`] = `
         <!---->
         <!---->
       </div>
-      <!---->
       <!---->
     </div>
     <div
@@ -2451,7 +2446,6 @@ exports[`tabs demo > renders centered correctly 1`] = `
       <!---->
       <!---->
     </div>
-    <!---->
     <!---->
   </div>
   <div
@@ -2661,7 +2655,6 @@ exports[`tabs demo > renders custom-add-trigger correctly 1`] = `
         <!---->
       </div>
       <!---->
-      <!---->
     </div>
     <div
       class="ant-tabs-content-holder"
@@ -2862,7 +2855,6 @@ exports[`tabs demo > renders custom-indicator correctly 1`] = `
         <!---->
       </div>
       <!---->
-      <!---->
     </div>
     <div
       class="ant-tabs-content-holder"
@@ -3014,7 +3006,6 @@ exports[`tabs demo > renders custom-tab-bar correctly 1`] = `
         <!---->
       </div>
       <!---->
-      <!---->
     </div>
   </div>
   <div
@@ -3079,48 +3070,66 @@ exports[`tabs demo > renders custom-tab-bar-node correctly 1`] = `
         style="transform: translate(0px, 0px);"
       >
         <div
-          class="ant-tabs-tab ant-tabs-tab-active"
-          data-node-key="1"
+          class="draggable-tab"
+          data-v-042b8168=""
+          draggable="true"
         >
           <div
-            aria-selected="true"
-            class="ant-tabs-tab-btn"
-            role="tab"
-            tabindex="0"
+            class="ant-tabs-tab ant-tabs-tab-active"
+            data-node-key="1"
           >
-            <span>
-              Tab 1
-            </span>
+            <div
+              aria-selected="true"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="0"
+            >
+              <span>
+                Tab 1
+              </span>
+            </div>
           </div>
         </div>
         <div
-          class="ant-tabs-tab"
-          data-node-key="2"
+          class="draggable-tab"
+          data-v-042b8168=""
+          draggable="true"
         >
           <div
-            aria-selected="false"
-            class="ant-tabs-tab-btn"
-            role="tab"
-            tabindex="-1"
+            class="ant-tabs-tab"
+            data-node-key="2"
           >
-            <span>
-              Tab 2
-            </span>
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab 2
+              </span>
+            </div>
           </div>
         </div>
         <div
-          class="ant-tabs-tab"
-          data-node-key="3"
+          class="draggable-tab"
+          data-v-042b8168=""
+          draggable="true"
         >
           <div
-            aria-selected="false"
-            class="ant-tabs-tab-btn"
-            role="tab"
-            tabindex="-1"
+            class="ant-tabs-tab"
+            data-node-key="3"
           >
-            <span>
-              Tab 3
-            </span>
+            <div
+              aria-selected="false"
+              class="ant-tabs-tab-btn"
+              role="tab"
+              tabindex="-1"
+            >
+              <span>
+                Tab 3
+              </span>
+            </div>
           </div>
         </div>
         <!---->
@@ -3164,7 +3173,6 @@ exports[`tabs demo > renders custom-tab-bar-node correctly 1`] = `
       <!---->
       <!---->
     </div>
-    <!---->
     <!---->
   </div>
   <div
@@ -3312,7 +3320,6 @@ exports[`tabs demo > renders disabled correctly 1`] = `
       <!---->
       <!---->
     </div>
-    <!---->
     <!---->
   </div>
   <div
@@ -3569,7 +3576,6 @@ exports[`tabs demo > renders editable-card correctly 1`] = `
       </button>
     </div>
     <!---->
-    <!---->
   </div>
   <div
     class="ant-tabs-content-holder"
@@ -3746,7 +3752,6 @@ exports[`tabs demo > renders extra correctly 1`] = `
           <!---->
         </button>
       </div>
-      <!---->
     </div>
     <div
       class="ant-tabs-content-holder"
@@ -4003,7 +4008,6 @@ exports[`tabs demo > renders extra correctly 1`] = `
           <!---->
         </button>
       </div>
-      <!---->
     </div>
     <div
       class="ant-tabs-content-holder"
@@ -4182,7 +4186,6 @@ exports[`tabs demo > renders icon correctly 1`] = `
       <!---->
       <!---->
     </div>
-    <!---->
     <!---->
   </div>
   <div
@@ -4417,7 +4420,6 @@ exports[`tabs demo > renders placement correctly 1`] = `
         <!---->
       </div>
       <!---->
-      <!---->
     </div>
     <div
       class="ant-tabs-content-holder"
@@ -4628,7 +4630,6 @@ exports[`tabs demo > renders size correctly 1`] = `
         <!---->
       </div>
       <!---->
-      <!---->
     </div>
     <div
       class="ant-tabs-content-holder"
@@ -4773,7 +4774,6 @@ exports[`tabs demo > renders size correctly 1`] = `
         <!---->
         <!---->
       </div>
-      <!---->
       <!---->
     </div>
     <div
@@ -5053,7 +5053,6 @@ exports[`tabs demo > renders size correctly 1`] = `
           </span>
         </button>
       </div>
-      <!---->
       <!---->
     </div>
     <div
@@ -5681,7 +5680,6 @@ exports[`tabs demo > renders slide correctly 1`] = `
         <!---->
       </div>
       <!---->
-      <!---->
     </div>
     <div
       class="ant-tabs-content-holder"
@@ -6109,7 +6107,6 @@ exports[`tabs demo > renders style-class correctly 1`] = `
         <!---->
       </div>
       <!---->
-      <!---->
     </div>
     <div
       class="ant-tabs-content-holder"
@@ -6256,7 +6253,6 @@ exports[`tabs demo > renders style-class correctly 1`] = `
         <!---->
         <!---->
       </div>
-      <!---->
       <!---->
     </div>
     <div
