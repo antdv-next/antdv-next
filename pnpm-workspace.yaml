@@ -83,7 +83,7 @@ catalogs:
     prismjs: ^1.30.0
     shiki: ^4.0.2
   prod:
-    '@ant-design/colors': 7.2.1
+    '@ant-design/colors': ^8.0.1
     '@ant-design/fast-color': ^3.0.1
     '@antdv-next/happy-work-theme': ^1.0.0
     '@antdv-next/icons': ^1.0.5
