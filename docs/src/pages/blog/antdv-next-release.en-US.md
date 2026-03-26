@@ -123,8 +123,20 @@ In this release, we have added AI support to the documentation system.
    Built-in support for `llm.txt` is enabled by default, making it easy to use local or remote LLM models for offline Q&A.
 
 2. **Skills support**  
-   We now support popular local skills libraries. When used together with the [Antfu Skills collection](https://github.com/antfu/skills), this can help reduce issues caused by AI hallucinations.
+   Integrated with the popular local skills library [Antfu Skills collection](https://github.com/antfu/skills), this helps reduce issues caused by AI hallucinations.
 
+
+## Disclaimer
+
+Antdv Next is **not an official Ant Design project**. It is a community-initiated and community-maintained independent project.
+
+This project is a complete reimplementation of Vue components based on the Ant Design v6 design system, aiming to provide the Vue ecosystem with a design system solution that is highly consistent with Ant Design's style.
+
+Since this project is not a secondary development based on Ant Design Vue, we do not maintain full API consistency with it. Therefore, you may encounter some differences during usage.
+
+If your project is just getting started and you want to migrate to our library, we recommend consulting our [Migration Guide](/docs/vue/migration-antdv-next).
+
+If your project is already mature and running in production, we recommend that you carefully evaluate potential risks and impacts before upgrading, and consider whether the upgrade is necessary to avoid unnecessary disruptions to your existing system.
 
 ## Acknowledgements
 
@@ -161,18 +173,6 @@ These resources will be used to subsidize core maintenance costs and allow us to
 
 If you encounter sponsorship information during usage, we hope you can understand and support it —
 this directly helps us make the project more stable, longer-lasting, and better.
-
-## Disclaimer
-
-Antdv Next is **not an official Ant Design project**. It is a community-initiated and community-maintained independent project.
-
-This project is a complete reimplementation of Vue components based on the Ant Design v6 design system, aiming to provide the Vue ecosystem with a design system solution that is highly consistent with Ant Design's style.
-
-Since our project is **not** a fork or secondary development of Ant Design Vue, we do not maintain full API compatibility with Ant Design Vue. Therefore, you may encounter some differences during usage.
-
-If your project is just getting started and you want to migrate to our library, we recommend referring to our [Migration Guide](/docs/vue/migration-antdv-next).
-
-If your project is already mature and running in production, we recommend that you carefully evaluate potential risks and impacts before upgrading, and consider whether the upgrade is necessary to avoid unnecessary disruptions to your existing system.
 
 ### On Community Governance
 
