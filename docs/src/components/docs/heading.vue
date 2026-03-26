@@ -12,7 +12,7 @@ defineOptions({
 const props = defineProps<{
   frontmatter?: Frontmatter
 }>()
-console.log()
+
 const pageInfo = usePageInfo()
 const frontmatter = computed(() => props?.frontmatter ?? pageInfo.frontmatter)
 
