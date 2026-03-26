@@ -2,9 +2,10 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { h, nextTick, ref } from 'vue'
 import Table, { Column, ColumnGroup, EXPAND_COLUMN, SELECTION_ALL, SELECTION_COLUMN, SELECTION_INVERT, SELECTION_NONE, Summary, SummaryCell, SummaryRow } from '..'
 import ConfigProvider from '../../config-provider'
+import Popover from '../../popover'
 import mountTest from '/@tests/shared/mountTest'
 import rtlTest from '/@tests/shared/rtlTest'
-import { mount } from '/@tests/utils'
+import { mount, waitFakeTimer } from '/@tests/utils'
 
 const columns = [
   { title: 'Name', dataIndex: 'name', key: 'name' },
@@ -29,6 +30,7 @@ describe('table', () => {
   afterEach(() => {
     vi.clearAllTimers()
     vi.useRealTimers()
+    document.body.innerHTML = ''
   })
 
   // ========================= Static Exports =========================
@@ -349,6 +351,52 @@ describe('table', () => {
       },
     })
     expect(wrapper.find('.ant-table').exists()).toBe(true)
+  })
+
+  it('should not render duplicated controlled Popover in column title when scroll is enabled', async () => {
+    mount(() => {
+      const open = ref(true)
+
+      return (
+        <Table
+          pagination={false}
+          scroll={{ y: 200 }}
+          columns={[
+            {
+              key: 'name',
+              dataIndex: 'name',
+              title: (
+                <Popover
+                  open={open.value}
+                  trigger="click"
+                  content={<button type="button">Popover Content</button>}
+                  onUpdate:open={(value) => {
+                    open.value = value
+                  }}
+                >
+                  <button type="button">Name</button>
+                </Popover>
+              ),
+            },
+          ]}
+          dataSource={[{ key: '1', name: 'Bamboo' }]}
+        />
+      )
+    }, {
+      attachTo: document.body,
+    })
+
+    await waitFakeTimer(150, 10)
+
+    expect(document.body.querySelectorAll('.ant-popover')).toHaveLength(1)
+
+    const contentButton = document.body.querySelector('.ant-popover button')
+    expect(contentButton).toBeTruthy()
+
+    contentButton!.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+    await waitFakeTimer(150, 10)
+
+    expect(document.body.querySelectorAll('.ant-popover')).toHaveLength(1)
   })
 
   // ========================= Responsive Columns =========================

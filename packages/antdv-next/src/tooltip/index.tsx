@@ -19,6 +19,7 @@ import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { ZIndexProvider } from '../_util/zindexContext.ts'
 import { useComponentBaseConfig } from '../config-provider/context.ts'
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls.ts'
+import { useTableMeasureRowContext } from '../table/TableMeasureRowContext.ts'
 import { useToken } from '../theme/internal.ts'
 import useMergedArrow from './hooks/useMergedArrow.ts'
 import PurePanel from './PurePanel'
@@ -236,6 +237,7 @@ const InternalTooltip = defineComponent<
       TooltipProps
     >(useToArr(contextClassNames, classes), useToArr(contextStyles, styles), useToProps(mergedProps))
     const injectFromPopover = props.dataPopoverInject
+    const inTableMeasureRow = useTableMeasureRowContext()
 
     // Style
     const rootCls = useCSSVarCls(prefixCls)
@@ -290,8 +292,8 @@ const InternalTooltip = defineComponent<
       }
 
       let tempOpen = open.value
-      // Hide tooltip when there is no title
-      if (!(props.open !== undefined) && noTitle) {
+      // Hide tooltip when there is no title or the node is rendered for table measurement.
+      if ((!(props.open !== undefined) && noTitle) || inTableMeasureRow.value) {
         tempOpen = false
       }
       const content = (
