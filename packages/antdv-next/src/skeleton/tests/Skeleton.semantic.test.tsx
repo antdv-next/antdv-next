@@ -5,6 +5,32 @@ import Skeleton from '..'
 import { mount } from '/@tests/utils'
 
 describe('skeleton.semantic', () => {
+  it('should keep attrs.class, attrs.style and extra attrs on root', () => {
+    const wrapper = mount(Skeleton, {
+      props: {
+        avatar: true,
+        classes: {
+          root: 'root-class-prop',
+        },
+        styles: {
+          root: { padding: '8px' },
+        },
+      },
+      attrs: {
+        class: 'root-class-attr',
+        style: { marginTop: '9px' },
+        'data-testid': 'skeleton-root',
+      },
+    })
+
+    const root = wrapper.find('.ant-skeleton')
+    expect(root.classes()).toContain('root-class-prop')
+    expect(root.classes()).toContain('root-class-attr')
+    expect(root.attributes('style')).toContain('padding: 8px')
+    expect(root.attributes('style')).toContain('margin-top: 9px')
+    expect(root.attributes('data-testid')).toBe('skeleton-root')
+  })
+
   // ==================== Function form ====================
 
   it('should support classNames as functions', async () => {
@@ -120,6 +146,23 @@ describe('skeleton.semantic', () => {
     expect(wrapper.find('.ant-skeleton-title').attributes('style')).toContain('padding: 14px')
 
     expect(wrapper.find('.ant-skeleton-paragraph').classes()).toContain('obj-paragraph')
+    expect(wrapper.find('.ant-skeleton-paragraph').attributes('style')).toContain('padding: 15px')
+  })
+
+  it('should merge semantic styles with attrs on title and paragraph nodes', () => {
+    const wrapper = mount(Skeleton, {
+      props: {
+        styles: {
+          title: { padding: '16px' },
+          paragraph: { padding: '17px' },
+        },
+        title: true,
+        paragraph: true,
+      },
+    })
+
+    expect(wrapper.find('.ant-skeleton-title').attributes('style')).toContain('padding: 16px')
+    expect(wrapper.find('.ant-skeleton-paragraph').attributes('style')).toContain('padding: 17px')
   })
 
   // ==================== Absent elements ====================

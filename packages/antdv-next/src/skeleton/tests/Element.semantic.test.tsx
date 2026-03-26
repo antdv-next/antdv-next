@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest'
 import { SkeletonAvatar, SkeletonButton, SkeletonImage, SkeletonInput, SkeletonNode } from '..'
 import Element from '../Element'
+import Paragraph from '../Paragraph'
+import Title from '../Title'
 import { mount } from '/@tests/utils'
 
 describe('skeleton.element.semantic', () => {
@@ -21,6 +23,47 @@ describe('skeleton.element.semantic', () => {
     expect(element.classes()).toContain('el-attr')
     expect(element.attributes('style')).toContain('padding: 2px')
     expect(element.attributes('style')).toContain('color: rgb(0, 0, 255)')
+  })
+
+  it('should support class/style passthrough on Title', () => {
+    const wrapper = mount(() => (
+      <Title
+        prefixCls="ant-skeleton-title-test"
+        rootClass="title-root"
+        width="66%"
+        class="title-attr"
+        style={{ color: 'rgb(0, 0, 255)' }}
+        data-testid="title"
+      />
+    ))
+
+    const title = wrapper.find('.ant-skeleton-title-test')
+    expect(title.classes()).toContain('title-root')
+    expect(title.classes()).toContain('title-attr')
+    expect(title.attributes('style')).toContain('width: 66%')
+    expect(title.attributes('style')).toContain('color: rgb(0, 0, 255)')
+    expect(title.attributes('data-testid')).toBe('title')
+  })
+
+  it('should support class/style passthrough on Paragraph', () => {
+    const wrapper = mount(() => (
+      <Paragraph
+        prefixCls="ant-skeleton-paragraph-test"
+        rootClass="paragraph-root"
+        rows={2}
+        width="70%"
+        class="paragraph-attr"
+        style={{ color: 'rgb(0, 0, 255)' }}
+        data-testid="paragraph"
+      />
+    ))
+
+    const paragraph = wrapper.find('.ant-skeleton-paragraph-test')
+    expect(paragraph.classes()).toContain('paragraph-root')
+    expect(paragraph.classes()).toContain('paragraph-attr')
+    expect(paragraph.attributes('style')).toContain('color: rgb(0, 0, 255)')
+    expect(paragraph.attributes('data-testid')).toBe('paragraph')
+    expect(wrapper.findAll('.ant-skeleton-paragraph-test > li')[1].attributes('style')).toContain('width: 70%')
   })
 
   it('should support semantic root/content for Skeleton.Avatar', () => {
@@ -45,6 +88,22 @@ describe('skeleton.element.semantic', () => {
     expect(content.classes()).toContain('avatar-content')
     expect(content.attributes('style')).toContain('color: rgb(0, 0, 255)')
     expect(content.attributes('style')).toContain('width: 44px')
+  })
+
+  it('should keep inline color style on active small Skeleton.Avatar', () => {
+    const wrapper = mount(SkeletonAvatar, {
+      props: {
+        active: true,
+        size: 'small',
+      },
+      attrs: {
+        style: 'color:red',
+      },
+    })
+
+    expect(wrapper.find('.ant-skeleton-active').exists()).toBe(true)
+    expect(wrapper.find('.ant-skeleton-avatar-sm').exists()).toBe(true)
+    expect(wrapper.find('.ant-skeleton-avatar').attributes('style')).toContain('color: red')
   })
 
   it('should support semantic root/content for Skeleton.Input', () => {

@@ -528,6 +528,31 @@ describe('skeleton', () => {
     })
   })
 
+  describe('ConfigProvider inheritance for skeleton sub components', () => {
+    it.each([
+      ['Skeleton.Button', () => <Skeleton.Button data-testid="skeleton-button" />],
+      ['Skeleton.Avatar', () => <Skeleton.Avatar data-testid="skeleton-avatar" />],
+      ['Skeleton.Input', () => <Skeleton.Input data-testid="skeleton-input" />],
+      ['Skeleton.Node', () => <Skeleton.Node data-testid="skeleton-node">node</Skeleton.Node>],
+      ['Skeleton.Image', () => <Skeleton.Image data-testid="skeleton-image" />],
+    ])('should apply ConfigProvider skeleton class and style to %s', (_, renderNode) => {
+      const wrapper = mount(() => (
+        <ConfigProvider
+          skeleton={{
+            class: 'cp-skeleton-root',
+            style: { border: '1px solid red' },
+          }}
+        >
+          {renderNode()}
+        </ConfigProvider>
+      ))
+
+      const root = wrapper.find('[data-testid]')
+      expect(root.classes()).toContain('cp-skeleton-root')
+      expect(root.attributes('style')).toContain('border: 1px solid red')
+    })
+  })
+
   describe('skeleton.Image', () => {
     it('should render image skeleton with svg', () => {
       const wrapper = mount(Skeleton.Image)

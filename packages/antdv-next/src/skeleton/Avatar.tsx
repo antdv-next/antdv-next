@@ -2,7 +2,7 @@ import type { SkeletonElementProps } from './Element'
 import { classNames } from '@v-c/util'
 import { defineComponent, toRef } from 'vue'
 import { getAttrStyleAndClass } from '../_util/hooks'
-import { useBaseConfig } from '../config-provider/context'
+import { useComponentBaseConfig } from '../config-provider/context'
 import { useSize } from '../config-provider/hooks/useSize.ts'
 import Element from './Element'
 import useStyle from './style'
@@ -17,7 +17,11 @@ const defaults = {
 
 const SkeletonAvatar = defineComponent<SkeletonAvatarProps>(
   (props = defaults, { attrs }) => {
-    const { prefixCls } = useBaseConfig('skeleton', props)
+    const {
+      prefixCls,
+      class: contextClassName,
+      style: contextStyle,
+    } = useComponentBaseConfig('skeleton', props)
     const [hashId, cssVarCls] = useStyle(prefixCls)
     const mergedSize = useSize<SkeletonAvatarProps['size']>(toRef(props, 'size'))
 
@@ -34,10 +38,11 @@ const SkeletonAvatar = defineComponent<SkeletonAvatarProps>(
         rootClass,
         hashId.value,
         cssVarCls.value,
+        contextClassName.value,
         className,
       )
       return (
-        <div {...restAttrs} class={cls} style={styles?.root}>
+        <div {...restAttrs} class={cls} style={[styles?.root, contextStyle.value]}>
           <Element
             prefixCls={`${prefixCls.value}-avatar`}
             shape={shape}

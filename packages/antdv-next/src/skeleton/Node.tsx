@@ -4,7 +4,7 @@ import type { SkeletonElementProps } from './Element'
 import { classNames } from '@v-c/util'
 import { defineComponent } from 'vue'
 import { getAttrStyleAndClass } from '../_util/hooks'
-import { useBaseConfig } from '../config-provider/context'
+import { useComponentBaseConfig } from '../config-provider/context'
 import useStyle from './style'
 
 export interface SkeletonNodeProps extends Omit<SkeletonElementProps, 'size' | 'shape'> {
@@ -18,7 +18,11 @@ export interface SkeletonNodeSlots {
 
 const SkeletonNode = defineComponent<SkeletonNodeProps, EmptyEmit, string, SlotsType<SkeletonNodeSlots>>(
   (props, { attrs, slots }) => {
-    const { prefixCls } = useBaseConfig('skeleton', props)
+    const {
+      prefixCls,
+      class: contextClassName,
+      style: contextStyle,
+    } = useComponentBaseConfig('skeleton', props)
     const [hashId, cssVarCls] = useStyle(prefixCls)
 
     return () => {
@@ -34,11 +38,12 @@ const SkeletonNode = defineComponent<SkeletonNodeProps, EmptyEmit, string, Slots
         classes?.root,
         rootClass,
         cssVarCls.value,
+        contextClassName.value,
         className,
       )
 
       return (
-        <div {...restAttrs} class={cls} style={styles?.root}>
+        <div {...restAttrs} class={cls} style={[styles?.root, contextStyle.value]}>
           <div
             class={classNames(internalClassName || `${prefixCls.value}-node`, classes?.content)}
             style={[styles?.content, style]}
