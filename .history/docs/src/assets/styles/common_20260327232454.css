@@ -70,7 +70,7 @@ body {
 
 .ant-doc-main-sider-menu.ant-menu-inline.ant-menu-inline .ant-menu-item-group-title {
   margin-left: var(--ant-margin-xxs);
-  padding-inline: 24px 12px !important;
+  padding-inline: 28px 12px !important;
 }
 
 .ant-doc-main-sider-menu.ant-menu-inline > .ant-menu-item {
