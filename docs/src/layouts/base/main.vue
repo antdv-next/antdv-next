@@ -10,7 +10,7 @@ import Footer from './components/footer.vue'
 
 const { isMobile } = useMobile()
 const appStore = useAppStore()
-const { siderMenus, siderKey, siderOpenKeys, siderLocales, locale, direction } = storeToRefs(appStore)
+const { siderMenus, siderKey, siderOpenKeys, siderLocales, locale, direction, darkMode } = storeToRefs(appStore)
 const { anchorItems } = useDocPage()
 const router = useRouter()
 const handleChangeMenu: MenuEmits['click'] = (info) => {
@@ -37,6 +37,7 @@ const handleChangeMenu: MenuEmits['click'] = (info) => {
       <a-menu
         class="ant-doc-main-sider-menu"
         :items="siderMenus"
+        :theme="darkMode ? 'dark' : 'light'"
         mode="inline"
         :selected-keys="siderKey"
         :open-keys="siderOpenKeys"
@@ -93,6 +94,7 @@ const handleChangeMenu: MenuEmits['click'] = (info) => {
       padding-top: 0;
       padding-bottom: var(--ant-margin-xxl) !important;
       padding-inline: var(--ant-margin-xxs);
+      background: transparent;
 
       //.ant-menu-inline > .ant-menu-item-group > .ant-menu-item-group-title::after {
       //  position: relative;
