@@ -124,7 +124,7 @@ catalogs:
     '@types/throttle-debounce': ^5.0.2
   vc:
     '@v-c/async-validator': ^1.0.1
-    '@v-c/cascader': ^1.0.2
+    '@v-c/cascader': ^1.0.3
     '@v-c/checkbox': ^1.0.1
     '@v-c/collapse': ^1.0.0
     '@v-c/color-picker': ^1.0.6
@@ -135,7 +135,7 @@ catalogs:
     '@v-c/input': ^1.0.3
     '@v-c/input-number': ^1.0.5
     '@v-c/mentions': ^1.0.0
-    '@v-c/menu': ^1.0.12
+    '@v-c/menu': ^1.0.13
     '@v-c/mutate-observer': ^1.0.1
     '@v-c/notification': ^1.0.0
     '@v-c/pagination': ^1.0.0
