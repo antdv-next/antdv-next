@@ -86,7 +86,7 @@ catalogs:
     '@ant-design/colors': ^8.0.1
     '@ant-design/fast-color': ^3.0.1
     '@antdv-next/happy-work-theme': ^1.0.0
-    '@antdv-next/icons': ^1.0.5
+    '@antdv-next/icons': ^1.0.6
     '@emotion/hash': ^0.8.0
     '@emotion/unitless': ^0.7.5
     '@vueuse/core': ^14.2.1
