@@ -1540,7 +1540,6 @@ exports[`skeleton demo > renders element correctly 1`] = `
               class="ant-col css-var-root ant-form-item-label"
             >
               <label
-                class=""
                 title="Active"
               >
                 Active
@@ -1623,7 +1622,6 @@ exports[`skeleton demo > renders element correctly 1`] = `
               class="ant-col css-var-root ant-form-item-label"
             >
               <label
-                class=""
                 title="Button and Input Block"
               >
                 Button and Input Block
@@ -1706,7 +1704,6 @@ exports[`skeleton demo > renders element correctly 1`] = `
               class="ant-col css-var-root ant-form-item-label"
             >
               <label
-                class=""
                 title="Size"
               >
                 Size
@@ -1821,7 +1818,6 @@ exports[`skeleton demo > renders element correctly 1`] = `
               class="ant-col css-var-root ant-form-item-label"
             >
               <label
-                class=""
                 title="Button Shape"
               >
                 Button Shape
@@ -1954,7 +1950,6 @@ exports[`skeleton demo > renders element correctly 1`] = `
               class="ant-col css-var-root ant-form-item-label"
             >
               <label
-                class=""
                 title="Avatar Shape"
               >
                 Avatar Shape

@@ -103,7 +103,7 @@ const ItemHolder = defineComponent<ItemHolderProps>(
             {/* Label */}
             <FormItemLabel
               {...props}
-              htmlFor={fieldId}
+              htmlFor={props.htmlFor ?? fieldId}
               requiredMark={formContext.value?.requiredMark}
               required={required ?? isRequired}
               prefixCls={prefixCls!}

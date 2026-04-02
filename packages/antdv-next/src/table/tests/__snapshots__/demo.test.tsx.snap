@@ -4731,7 +4731,6 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
           class="ant-col css-var-root ant-form-item-label"
         >
           <label
-            class=""
             title="Bordered"
           >
             Bordered
@@ -4809,7 +4808,6 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
           class="ant-col css-var-root ant-form-item-label"
         >
           <label
-            class=""
             title="loading"
           >
             loading
@@ -4887,7 +4885,6 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
           class="ant-col css-var-root ant-form-item-label"
         >
           <label
-            class=""
             title="Title"
           >
             Title
@@ -4965,7 +4962,6 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
           class="ant-col css-var-root ant-form-item-label"
         >
           <label
-            class=""
             title="Column Header"
           >
             Column Header
@@ -5043,7 +5039,6 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
           class="ant-col css-var-root ant-form-item-label"
         >
           <label
-            class=""
             title="Footer"
           >
             Footer
@@ -5121,7 +5116,6 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
           class="ant-col css-var-root ant-form-item-label"
         >
           <label
-            class=""
             title="Expandable"
           >
             Expandable
@@ -5199,7 +5193,6 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
           class="ant-col css-var-root ant-form-item-label"
         >
           <label
-            class=""
             title="Checkbox"
           >
             Checkbox
@@ -5277,7 +5270,6 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
           class="ant-col css-var-root ant-form-item-label"
         >
           <label
-            class=""
             title="Fixed Header"
           >
             Fixed Header
@@ -5355,7 +5347,6 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
           class="ant-col css-var-root ant-form-item-label"
         >
           <label
-            class=""
             title="Has Data"
           >
             Has Data
@@ -5433,7 +5424,6 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
           class="ant-col css-var-root ant-form-item-label"
         >
           <label
-            class=""
             title="Ellipsis"
           >
             Ellipsis
@@ -5511,7 +5501,6 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
           class="ant-col css-var-root ant-form-item-label"
         >
           <label
-            class=""
             title="Size"
           >
             Size
@@ -5621,7 +5610,6 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
           class="ant-col css-var-root ant-form-item-label"
         >
           <label
-            class=""
             title="Table Scroll"
           >
             Table Scroll
@@ -5731,7 +5719,6 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
           class="ant-col css-var-root ant-form-item-label"
         >
           <label
-            class=""
             title="Table Layout"
           >
             Table Layout
@@ -5823,7 +5810,6 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
           class="ant-col css-var-root ant-form-item-label"
         >
           <label
-            class=""
             title="Pagination Top"
           >
             Pagination Top
@@ -5951,7 +5937,6 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
           class="ant-col css-var-root ant-form-item-label"
         >
           <label
-            class=""
             title="Pagination Bottom"
           >
             Pagination Bottom

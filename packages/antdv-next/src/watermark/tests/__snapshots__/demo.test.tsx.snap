@@ -77,7 +77,6 @@ exports[`watermark demo > renders custom correctly 1`] = `
           class="ant-col css-var-root ant-form-item-label"
         >
           <label
-            class=""
             title="Content"
           >
             Content
@@ -134,7 +133,6 @@ exports[`watermark demo > renders custom correctly 1`] = `
           class="ant-col css-var-root ant-form-item-label"
         >
           <label
-            class=""
             title="Color"
           >
             Color
@@ -199,7 +197,6 @@ exports[`watermark demo > renders custom correctly 1`] = `
           class="ant-col css-var-root ant-form-item-label"
         >
           <label
-            class=""
             title="FontSize"
           >
             FontSize
@@ -280,7 +277,6 @@ exports[`watermark demo > renders custom correctly 1`] = `
           class="ant-col css-var-root ant-form-item-label"
         >
           <label
-            class=""
             title="zIndex"
           >
             zIndex
@@ -361,7 +357,6 @@ exports[`watermark demo > renders custom correctly 1`] = `
           class="ant-col css-var-root ant-form-item-label"
         >
           <label
-            class=""
             title="Rotate"
           >
             Rotate
@@ -443,7 +438,6 @@ exports[`watermark demo > renders custom correctly 1`] = `
           class="ant-col css-var-root ant-form-item-label"
         >
           <label
-            class=""
             title="Gap"
           >
             Gap
@@ -737,7 +731,6 @@ exports[`watermark demo > renders custom correctly 1`] = `
           class="ant-col css-var-root ant-form-item-label"
         >
           <label
-            class=""
             title="Offset"
           >
             Offset
