@@ -827,6 +827,7 @@ exports[`mentions demo > renders form correctly 1`] = `
       >
         <label
           class=""
+          for="coders"
           title="Top coders"
         >
           Top coders
@@ -889,6 +890,7 @@ exports[`mentions demo > renders form correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="bio"
           title="Bio"
         >
           Bio

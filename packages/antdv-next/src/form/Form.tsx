@@ -537,7 +537,7 @@ const InternalForm = defineComponent<
             validating: item.validating ?? target.getMeta().validating,
           })
         }
-        if (item.value !== undefined) {
+        if (Object.prototype.hasOwnProperty.call(item, 'value')) {
           updateModelValue(item.name as InternalNamePath, item.value)
         }
       })

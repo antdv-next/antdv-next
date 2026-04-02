@@ -152,7 +152,7 @@ const FormItemLabel = defineComponent<
       return (
         <Col {...mergedLabelCol} class={labelColClassName}>
           <label
-            for={htmlFor}
+            {...(htmlFor ? { htmlFor } : {})}
             class={labelClassName}
             style={contextStyles?.label}
             title={typeof label === 'string' ? label : ''}
