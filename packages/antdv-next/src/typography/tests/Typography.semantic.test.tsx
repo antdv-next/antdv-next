@@ -1,18 +1,27 @@
 import type { BlockProps, TypographyClassNamesType, TypographyStylesType } from '../interface'
-import { describe, expect, it, vi } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import { nextTick } from 'vue'
 import Base from '../Base'
 import Paragraph from '../Paragraph'
 import { mount } from '/@tests/utils'
 
 const prefixCls = 'ant-typography'
+const styleSupportState = vi.hoisted(() => ({ value: false }))
 
 // Mock copy util to avoid clipboard issues
 vi.mock('../../_util/copy', () => ({
   default: vi.fn().mockResolvedValue(undefined),
 }))
 
+vi.mock('../../_util/styleChecker', () => ({
+  isStyleSupport: () => styleSupportState.value,
+}))
+
 describe('typography.semantic', () => {
+  afterEach(() => {
+    styleSupportState.value = false
+  })
+
   // ===================== Object form =====================
 
   describe('object form', () => {
@@ -97,9 +106,7 @@ describe('typography.semantic', () => {
         return style
       }
 
-      vi.mock('../../_util/styleChecker', () => ({
-        isStyleSupport: () => true,
-      }))
+      styleSupportState.value = true
 
       const longText = 'A'.repeat(200)
       const wrapper = mount(Base, {

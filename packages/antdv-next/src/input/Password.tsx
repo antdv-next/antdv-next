@@ -33,6 +33,12 @@ export interface PasswordEmitsProps {
   'onUpdate:iconVisible'?: PasswordEmits['update:iconVisible']
 }
 
+export interface InputPasswordRef {
+  focus: (...args: Parameters<NonNullable<InputRef['focus']>>) => void
+  blur: () => void
+  input: HTMLInputElement | null
+}
+
 export interface PasswordSlots {
   prefix?: () => any
   suffix?: () => any
