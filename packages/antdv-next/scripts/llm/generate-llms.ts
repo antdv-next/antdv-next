@@ -4,7 +4,9 @@ import { fileURLToPath } from 'node:url'
 import { glob } from 'tinyglobby'
 import { extractTitle, getRepoRoot, normalizePath, stripFrontmatter } from './utils'
 
-const SITE_URL = process.env.LLM_SITE_URL?.replace(/\/$/, '')
+const DEFAULT_SITE_URL = 'https://www.antdv-next.com'
+
+const SITE_URL = process.env.LLM_SITE_URL?.replace(/\/$/, '') || DEFAULT_SITE_URL
 const OUTPUT_DIR = process.env.LLM_OUTPUT_DIR
 const demoFileCache = new Map<string, Promise<string>>()
 
