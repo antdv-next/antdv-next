@@ -24,7 +24,7 @@ mask effect, default `blur`.
   <a-image
     :width="100"
     alt="Dimmed mask"
-    src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+    src="https://www.antdv-next.com/antdv-next.svg"
     :preview="{
       mask: { blur: false },
     }"
@@ -38,7 +38,7 @@ mask effect, default `blur`.
   <a-image
     :width="100"
     alt="No mask"
-    src="https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg"
+    src="https://cn.vuejs.org/logo.svg"
     :preview="{
       mask: false,
     }"
