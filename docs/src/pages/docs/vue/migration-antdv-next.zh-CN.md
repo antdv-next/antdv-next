@@ -222,6 +222,10 @@ yarn add @antdv-next/icons
     - `direction` 弃用，变为 `orientation`。
     - `split` 弃用，变为 `separator`。
 
+- `Spin`
+    - `tip` 弃用，变为 `description`。
+    - `wrapperClassName` 弃用，变为 `classes.root`。
+
 - `Splitter`
     - `layout` 弃用，变为 `orientation`。
 

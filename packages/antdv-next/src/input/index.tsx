@@ -8,20 +8,29 @@ import TextArea from './TextArea'
 
 export type { InputGroupProps } from './Group'
 export type { InputEmits, InputProps, InputRef, InputSlots } from './Input'
-export type { OTPProps } from './OTP'
-export type { PasswordProps } from './Password'
-export type { SearchProps } from './Search'
-export type { TextAreaProps, TextAreaRef } from './TextArea'
+export type { OTPEmits, OTPProps, OTPSlots } from './OTP'
+export type { InputPasswordRef, PasswordProps } from './Password'
+export type { InputSearchRef, SearchProps } from './Search'
+export type { InputTextAreaRef, TextAreaProps, TextAreaRef } from './TextArea'
 
-const CompoundedInput = Input
+type CompoundedInputType = typeof Input & {
+  Search: typeof Search
+  TextArea: typeof TextArea
+  Password: typeof Password
+  OTP: typeof OTP
+  Group: typeof Group
+  install: (app: App) => App
+}
 
-;(CompoundedInput as any).Search = Search
-;(CompoundedInput as any).TextArea = TextArea
-;(CompoundedInput as any).Password = Password
-;(CompoundedInput as any).OTP = OTP
-;(CompoundedInput as any).Group = Group
+const CompoundedInput = Input as CompoundedInputType
 
-;(CompoundedInput as any).install = (app: App) => {
+CompoundedInput.Search = Search
+CompoundedInput.TextArea = TextArea
+CompoundedInput.Password = Password
+CompoundedInput.OTP = OTP
+CompoundedInput.Group = Group
+
+CompoundedInput.install = (app: App) => {
   app.component(Input.name, CompoundedInput)
   app.component(Search.name, Search)
   app.component(TextArea.name, TextArea)

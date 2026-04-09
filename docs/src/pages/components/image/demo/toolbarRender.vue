@@ -21,8 +21,8 @@ import {
 import { ref } from 'vue'
 
 const imageList = [
-  'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
-  'https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg',
+  'https://www.antdv-next.com/antdv-next.svg',
+  'https://cn.vuejs.org/logo.svg',
 ]
 const current = ref(0)
 function handlePreviewChange(val: number) {

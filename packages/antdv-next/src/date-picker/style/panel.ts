@@ -51,11 +51,11 @@ const genPickerCellInnerStyle: GenerateStyle<SharedPickerToken, CSSObject> = (to
     // >>> Hover
     [`&:hover:not(${pickerCellCls}-in-view):not(${pickerCellCls}-disabled),
     &:hover:not(${pickerCellCls}-selected):not(${pickerCellCls}-range-start):not(${pickerCellCls}-range-end):not(${pickerCellCls}-disabled)`]:
-      {
-        [pickerCellInnerCls]: {
-          background: cellHoverBg,
+        {
+          [pickerCellInnerCls]: {
+            background: cellHoverBg,
+          },
         },
-      },
 
     // >>> Today
     [`&-in-view${pickerCellCls}-today ${pickerCellInnerCls}`]: {
@@ -106,21 +106,21 @@ const genPickerCellInnerStyle: GenerateStyle<SharedPickerToken, CSSObject> = (to
 
     // range start border-radius
     [`&-in-view${pickerCellCls}-range-start:not(${pickerCellCls}-range-end) ${pickerCellInnerCls}`]:
-      {
-        borderStartStartRadius: borderRadiusSM,
-        borderEndStartRadius: borderRadiusSM,
-        borderStartEndRadius: 0,
-        borderEndEndRadius: 0,
-      },
+        {
+          borderStartStartRadius: borderRadiusSM,
+          borderEndStartRadius: borderRadiusSM,
+          borderStartEndRadius: 0,
+          borderEndEndRadius: 0,
+        },
 
     // range end border-radius
     [`&-in-view${pickerCellCls}-range-end:not(${pickerCellCls}-range-start) ${pickerCellInnerCls}`]:
-      {
-        borderStartStartRadius: 0,
-        borderEndStartRadius: 0,
-        borderStartEndRadius: borderRadiusSM,
-        borderEndEndRadius: borderRadiusSM,
-      },
+        {
+          borderStartStartRadius: 0,
+          borderEndStartRadius: 0,
+          borderStartEndRadius: borderRadiusSM,
+          borderEndEndRadius: borderRadiusSM,
+        },
 
     // >>> Disabled
     '&-disabled': {
@@ -539,7 +539,7 @@ export const genPanelStyle: GenerateStyle<SharedPickerToken, CSSObject> = (token
           width: timeColumnWidth,
           margin: `${unit(paddingXXS)} 0`,
           padding: 0,
-          overflowY: 'hidden',
+          overflowY: 'auto',
           textAlign: 'start',
           listStyle: 'none',
           transition: `background-color ${motionDurationMid}`,
@@ -573,10 +573,6 @@ export const genPanelStyle: GenerateStyle<SharedPickerToken, CSSObject> = (token
 
           '&-active': {
             background: new FastColor(controlItemBgActive).setA(0.2).toHexString(),
-          },
-
-          '&:hover': {
-            overflowY: 'auto',
           },
 
           '> li': {

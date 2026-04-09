@@ -77,6 +77,12 @@ export interface SearchEmitsProps {
   onSearch?: SearchEmits['search']
 }
 
+export interface InputSearchRef {
+  focus: (...args: Parameters<NonNullable<InputRef['focus']>>) => void
+  blur: () => void
+  input: HTMLInputElement | null
+}
+
 const omitInputKeys: (keyof SearchProps)[] = [
   'enterButton',
   'loading',

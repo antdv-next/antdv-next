@@ -53,6 +53,7 @@ export default defineConfig({
   presets: [
     presetAntd({
       prefix: 'a',
+      allowUnprefixed: true,
       antPrefix: 'ant',
     }),
   ],
@@ -79,6 +80,7 @@ export default defineConfig({
   presets: [
     presetAntdTailwind4({
       prefix: 'a',
+      allowUnprefixed: true,
       antPrefix: 'ant',
     }),
   ],
@@ -107,9 +109,9 @@ export default defineConfig({
 - 你正在从 Tailwind v4 迁移到 UnoCSS，或者两套方案混合使用
 - 你希望使用 `radius`、`shadow`、`text` 这类键名
 
-## 同时支持带前缀和不带前缀写法
+## 默认支持带前缀和不带前缀写法
 
-两个预设都同时支持：
+两个预设默认都支持：
 
 - 带前缀写法：`a-bg-primary`、`a-p-lg`、`a-rounded-lg`
 - 不带前缀写法：`bg-primary`、`p-lg`、`rounded-lg`
@@ -133,6 +135,29 @@ export default defineConfig({
 - 文本颜色使用的是 `color-primary` 或 `c-primary`
 - `text-*` 在这里主要表示字号，例如 `text-lg`、`text-h1`
 - 所以无前缀时应写 `color-primary`，而不是 `text-primary`
+
+如果你希望只允许 `a-` 开头的类名生效，可以显式关闭无前缀支持：
+
+```ts
+// uno.config.ts
+import { defineConfig } from 'unocss'
+import { presetAntd } from '@antdv-next/unocss'
+
+export default defineConfig({
+  presets: [
+    presetAntd({
+      prefix: 'a',
+      allowUnprefixed: false,
+      antPrefix: 'ant',
+    }),
+  ],
+})
+```
+
+关闭后：
+
+- `a-bg-primary`、`a-p-lg`、`a-rounded-lg` 仍然可用
+- `bg-primary`、`p-lg`、`rounded-lg`、`color-primary` 将不再生效
 
 ## 工具类示例
 
@@ -159,6 +184,8 @@ export default defineConfig({
 - 圆角：`a-rounded-*`、`a-rd-*`
 - 阴影：`a-shadow-*`
 - 文本：`a-text-*`
+
+当 `allowUnprefixed: true` 时，上述大部分类名也支持无前缀写法。
 
 ## 常用类名示例
 
@@ -206,4 +233,5 @@ export default defineConfig({
 
 - 该预设主要扩展 `m-*` / `p-*` 相关类，不会覆盖 UnoCSS 全局 spacing 规则。
 - `prefix` 默认是 `a`，所以生成的类名通常是 `a-bg-primary`、`a-p-lg` 这种形式。
+- `allowUnprefixed` 默认是 `true`，因此 `bg-primary`、`p-lg`、`color-primary` 这类无前缀类名默认也可用；如果你希望只允许 `a-*`，可设置为 `false`。
 - `antPrefix` 默认是 `ant`，如果你自定义了 `prefixCls` 或 CSS 变量前缀，需要同步调整这里的配置。

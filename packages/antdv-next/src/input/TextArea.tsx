@@ -1,5 +1,8 @@
 import type { InputProps } from '@v-c/input'
-import type { TextAreaProps as VcTextAreaProps } from '@v-c/textarea'
+import type {
+  TextAreaProps as VcTextAreaProps,
+  TextAreaRef as VcTextAreaRef,
+} from '@v-c/textarea'
 import type { CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { InputStatus } from '../_util/statusUtils'
@@ -46,12 +49,12 @@ export type TextAreaClassNamesType = SemanticClassNamesType<
 
 export type TextAreaStylesType = SemanticStylesType<TextAreaProps, TextAreaSemanticStyles>
 
-export interface TextAreaRef {
-  resizableTextArea?: any
-  focus: (...args: any[]) => void
-  blur: () => void
-  nativeElement: HTMLElement | null
+export interface TextAreaRef extends Pick<VcTextAreaRef, 'focus' | 'blur'> {
+  resizableTextArea?: VcTextAreaRef['resizableTextArea']
+  nativeElement: VcTextAreaRef['nativeElement'] | null
 }
+
+export type InputTextAreaRef = TextAreaRef
 
 export interface TextAreaProps
   extends ComponentBaseProps,

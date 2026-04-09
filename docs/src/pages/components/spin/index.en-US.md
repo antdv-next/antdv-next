@@ -37,7 +37,8 @@ Common props ref：[Common props](/docs/vue/common-props)
 | --- | --- | --- | --- | --- |
 | spinning | Whether Spin is visible | boolean | true | - |
 | size | The size of Spin, options: `small`, `default` and `large` | SpinSize | `default` | - |
-| tip | Customize description content when Spin has children | VueNode | - | - |
+| ~~tip~~ | `deprecated, use description`Customize description content when Spin has children | VueNode | - | - |
+| description | Customize description content | VueNode | - | - |
 | delay | Specifies a delay in milliseconds for loading state (prevent flush) | number | - | - |
 | wrapperClassName | The className of wrapper when Spin has children | string | - | - |
 | indicator | The node of the spinning indicator | VueNode | - | - |
@@ -53,7 +54,8 @@ Common props ref：[Common props](/docs/vue/common-props)
 | --- | --- | --- | --- |
 | default | Content to wrap with Spin | () =&gt; any | - |
 | indicator | The node of the spinning indicator | () =&gt; any | - |
-| tip | Customize description content when Spin has children | () =&gt; any | - |
+| ~~tip~~ | `deprecated, use description`Customize description content when Spin has children | () =&gt; any | - |
+| description | Customize description content | () =&gt; any | - |
 
 ### Static Methods
 

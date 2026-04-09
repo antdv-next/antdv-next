@@ -68,16 +68,18 @@ export interface OTPEmitsProps {
   'onUpdate:value'?: OTPEmits['update:value']
 }
 
-export interface OPTSlots {
+export interface OTPSlots {
   default: () => any
   separator: (params: { index: number }) => any
 }
+
+export type OPTSlots = OTPSlots
 
 const OTP = defineComponent<
   OTPProps,
   OTPEmits,
   string,
-  SlotsType<OPTSlots>
+  SlotsType<OTPSlots>
 >(
   (props, { attrs, emit, slots }) => {
     if (isDev) {

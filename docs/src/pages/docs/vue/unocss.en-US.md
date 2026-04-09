@@ -53,6 +53,7 @@ export default defineConfig({
   presets: [
     presetAntd({
       prefix: 'a',
+      allowUnprefixed: true,
       antPrefix: 'ant',
     }),
   ],
@@ -79,6 +80,7 @@ export default defineConfig({
   presets: [
     presetAntdTailwind4({
       prefix: 'a',
+      allowUnprefixed: true,
       antPrefix: 'ant',
     }),
   ],
@@ -107,9 +109,9 @@ Theme keys:
 - when you are migrating from Tailwind v4 to UnoCSS or mixing both approaches
 - when you want theme keys such as `radius`, `shadow`, and `text`
 
-## Prefixed and Unprefixed Syntax
+## Prefixed and Unprefixed Syntax by Default
 
-Both presets support:
+Both presets support these forms by default:
 
 - prefixed syntax: `a-bg-primary`, `a-p-lg`, `a-rounded-lg`
 - unprefixed syntax: `bg-primary`, `p-lg`, `rounded-lg`
@@ -133,6 +135,29 @@ One important detail:
 - text color uses `color-primary` or `c-primary`
 - `text-*` is mainly for font size, such as `text-lg` and `text-h1`
 - so for unprefixed text color, use `color-primary`, not `text-primary`
+
+If you want to allow only `a-`-prefixed utilities, disable unprefixed support explicitly:
+
+```ts
+// uno.config.ts
+import { defineConfig } from 'unocss'
+import { presetAntd } from '@antdv-next/unocss'
+
+export default defineConfig({
+  presets: [
+    presetAntd({
+      prefix: 'a',
+      allowUnprefixed: false,
+      antPrefix: 'ant',
+    }),
+  ],
+})
+```
+
+After disabling it:
+
+- `a-bg-primary`, `a-p-lg`, and `a-rounded-lg` still work
+- `bg-primary`, `p-lg`, `rounded-lg`, and `color-primary` no longer match
 
 ## Utility Examples
 
@@ -159,6 +184,8 @@ Common utility groups include:
 - radius: `a-rounded-*`, `a-rd-*`
 - shadows: `a-shadow-*`
 - typography: `a-text-*`
+
+When `allowUnprefixed: true`, most of the utilities above also have unprefixed counterparts.
 
 ## Common Utility Reference
 
@@ -206,4 +233,5 @@ In practice, make sure your app is already wired with `ConfigProvider`, and comb
 
 - The preset mainly customizes `m-*` / `p-*` related utilities and does not override UnoCSS global spacing behavior.
 - The default `prefix` is `a`, so generated classes usually look like `a-bg-primary` and `a-p-lg`.
+- `allowUnprefixed` defaults to `true`, so unprefixed classes such as `bg-primary`, `p-lg`, and `color-primary` work out of the box. Set it to `false` if you want to enforce `a-*` only.
 - The default `antPrefix` is `ant`. If you customize your CSS variable prefix, keep this option aligned.

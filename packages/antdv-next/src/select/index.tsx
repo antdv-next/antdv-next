@@ -1,4 +1,4 @@
-import type { SelectProps as VcSelectProps } from '@v-c/select'
+import type { BaseSelectRef, SelectProps as VcSelectProps } from '@v-c/select'
 import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { SelectCommonPlacement } from '../_util/motion'
@@ -263,6 +263,7 @@ const Select = defineComponent<
   SlotsType<SelectSlots>
 >(
   (props = defaults, { slots, emit, expose, attrs }) => {
+    const selectRef = shallowRef<BaseSelectRef>()
     const {
       getTargetContainer: getContextPopupContainer,
       getPrefixCls,
@@ -414,7 +415,9 @@ const Select = defineComponent<
     const [zIndex] = useZIndex('SelectLike', computed(() => (mergedStyles.value?.popup?.root?.zIndex as number) ?? (mergedPopupStyle.value?.zIndex as number)))
 
     expose({
-
+      focus: () => selectRef.value?.focus(),
+      blur: () => selectRef.value?.blur(),
+      scrollTo: (arg: any) => selectRef.value?.scrollTo(arg),
     })
     return () => {
       const {
@@ -581,6 +584,7 @@ const Select = defineComponent<
         <VcSelect
           {...restAttrs as any}
           {...onAttrs}
+          ref={selectRef}
           virtual={virtual.value}
           classNames={mergedClassNames.value}
           styles={mergedStyles.value as any}

@@ -72,6 +72,13 @@ export type BreadcrumbStylesType<T extends AnyObject = AnyObject> = SemanticStyl
   BreadcrumbSemanticStyles
 >
 
+export interface BreadcrumbItemRenderContext<T extends AnyObject = AnyObject> {
+  route: ItemType
+  params: T
+  routes: ItemType[]
+  paths: string[]
+}
+
 export interface BreadcrumbProps<T extends AnyObject = AnyObject> extends
   /* @vue-ignore */
   BreadcrumbEmitsProps {
@@ -101,7 +108,7 @@ export interface BreadcrumbEmitsProps {
 }
 
 export interface BreadcrumbSlots {
-  itemRender: (route: ItemType, params: AnyObject, routes: ItemType[], paths: string[]) => any
+  itemRender: (context: BreadcrumbItemRenderContext) => any
   titleRender: (params: { item: ItemType, index: number }) => any
   separator: () => any
   default: () => any
@@ -177,7 +184,10 @@ const Breadcrumb = defineComponent<
         params = {},
         rootClass,
       } = props
-      const itemRender = slots?.itemRender ?? props?.itemRender
+      const itemRender = slots?.itemRender
+        ? (route: ItemType, slotParams: AnyObject, routes: ItemType[], paths: string[]) =>
+            slots.itemRender?.({ route, params: slotParams, routes, paths })
+        : props?.itemRender
       const mergedDropdownIcon = getSlotPropsFnRun(slots, props, 'dropdownIcon') ?? contextDropdownIcon.value ?? <DownOutlined />
 
       const children = filterEmpty(slots?.default?.() ?? [])

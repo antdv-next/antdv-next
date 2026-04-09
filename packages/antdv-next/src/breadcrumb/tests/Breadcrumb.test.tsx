@@ -141,6 +141,41 @@ describe('breadcrumb', () => {
     expect(wrapper.find('.custom-link').exists()).toBe(true)
   })
 
+  it('should support itemRender slot with context object', () => {
+    const wrapper = mount(Breadcrumb, {
+      props: {
+        params: { appId: 'detail' },
+        items: [
+          { title: 'Home', path: '/home' },
+          { title: 'Current', path: '/:appId' },
+        ],
+      },
+      slots: {
+        itemRender: ({ route, params, routes, paths }: any) => {
+          return h(
+            'span',
+            {
+              class: 'slot-item-render',
+              'data-title': route.title,
+              'data-app-id': params.appId,
+              'data-routes-length': String(routes.length),
+              'data-paths': paths.join('/'),
+            },
+            route.title,
+          )
+        },
+      },
+    })
+
+    const items = wrapper.findAll('.slot-item-render')
+    expect(items).toHaveLength(2)
+    expect(items[0].attributes('data-title')).toBe('Home')
+    expect(items[0].attributes('data-app-id')).toBe('detail')
+    expect(items[0].attributes('data-routes-length')).toBe('2')
+    expect(items[0].attributes('data-paths')).toBe('home')
+    expect(items[1].attributes('data-paths')).toBe('home/detail')
+  })
+
   it('should render item with menu dropdown', () => {
     const wrapper = mount(Breadcrumb, {
       props: {

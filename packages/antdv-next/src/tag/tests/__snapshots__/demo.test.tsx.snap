@@ -767,7 +767,6 @@ exports[`tag demo > renders checkable correctly 1`] = `
         class="ant-col ant-col-6 css-var-root ant-form-item-label"
       >
         <label
-          class=""
           title="Checkable"
         >
           Checkable
@@ -826,7 +825,6 @@ exports[`tag demo > renders checkable correctly 1`] = `
         class="ant-col ant-col-6 css-var-root ant-form-item-label"
       >
         <label
-          class=""
           title="Single"
         >
           Single
@@ -913,7 +911,6 @@ exports[`tag demo > renders checkable correctly 1`] = `
         class="ant-col ant-col-6 css-var-root ant-form-item-label"
       >
         <label
-          class=""
           title="Multiple"
         >
           Multiple

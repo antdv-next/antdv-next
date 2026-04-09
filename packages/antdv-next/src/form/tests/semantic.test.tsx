@@ -85,4 +85,22 @@ describe('form.Semantic', () => {
 
     wrapper.unmount()
   })
+
+  it('should not render empty class attribute on label', () => {
+    const wrapper = mount(Form, {
+      slots: {
+        default: () => (
+          <FormItem label="Plain label">
+            <input />
+          </FormItem>
+        ),
+      },
+      attachTo: document.body,
+    })
+
+    const label = wrapper.find('.ant-form-item-label > label')
+    expect(label.attributes('class')).toBeUndefined()
+
+    wrapper.unmount()
+  })
 })

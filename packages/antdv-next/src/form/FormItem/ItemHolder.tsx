@@ -102,8 +102,8 @@ const ItemHolder = defineComponent<ItemHolderProps>(
           <Row class={`${itemPrefixCls.value}-row`} {...restAttrs}>
             {/* Label */}
             <FormItemLabel
-              htmlFor={fieldId}
               {...props}
+              htmlFor={props.htmlFor ?? fieldId}
               requiredMark={formContext.value?.requiredMark}
               required={required ?? isRequired}
               prefixCls={prefixCls!}

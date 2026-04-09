@@ -826,7 +826,7 @@ exports[`mentions demo > renders form correctly 1`] = `
         class="ant-col ant-col-6 css-var-root ant-form-item-label"
       >
         <label
-          class=""
+          for="coders"
           title="Top coders"
         >
           Top coders
@@ -889,6 +889,7 @@ exports[`mentions demo > renders form correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="bio"
           title="Bio"
         >
           Bio

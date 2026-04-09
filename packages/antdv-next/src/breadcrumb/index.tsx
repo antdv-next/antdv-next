@@ -1,6 +1,12 @@
 import Breadcrumb from './Breadcrumb'
 
-export type { BreadcrumbEmits, ItemType as BreadcrumbItemType, BreadcrumbProps, BreadcrumbSlots } from './Breadcrumb'
+export type {
+  BreadcrumbEmits,
+  BreadcrumbItemRenderContext,
+  ItemType as BreadcrumbItemType,
+  BreadcrumbProps,
+  BreadcrumbSlots,
+} from './Breadcrumb'
 export {
   BreadcrumbItem,
   BreadcrumbSeparator,

@@ -88,7 +88,7 @@ exports[`menu demo > renders _semantic correctly 1`] = `
           >
             <!---->
             <li
-              class="ant-menu-item ant-menu-item-selected semantic-mark-item"
+              class="ant-menu-overflow-item semantic-mark-item ant-menu-item ant-menu-item-selected semantic-mark-item"
               data-menu-id="vc-menu-uuid-mail"
               label="Navigation One"
               role="menuitem"
@@ -1434,7 +1434,7 @@ exports[`menu demo > renders custom-popup-render correctly 1`] = `
   >
     <!---->
     <li
-      class="ant-menu-item ant-menu-item-only-child"
+      class="ant-menu-overflow-item ant-menu-item-only-child ant-menu-item ant-menu-item-only-child"
       data-menu-id="vc-menu-uuid-home"
       label="Home"
       role="menuitem"
@@ -1558,7 +1558,7 @@ exports[`menu demo > renders horizontal correctly 1`] = `
   >
     <!---->
     <li
-      class="ant-menu-item ant-menu-item-selected"
+      class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected"
       data-menu-id="vc-menu-uuid-mail"
       label="Navigation One"
       role="menuitem"
@@ -1594,7 +1594,7 @@ exports[`menu demo > renders horizontal correctly 1`] = `
     <!---->
     <li
       aria-disabled="true"
-      class="ant-menu-item ant-menu-item-disabled"
+      class="ant-menu-overflow-item ant-menu-item ant-menu-item-disabled"
       label="Navigation Two"
       role="menuitem"
       style="opacity: 1; order: 1;"
@@ -1672,7 +1672,7 @@ exports[`menu demo > renders horizontal correctly 1`] = `
       <!---->
     </li>
     <li
-      class="ant-menu-item ant-menu-item-only-child"
+      class="ant-menu-overflow-item ant-menu-item-only-child ant-menu-item ant-menu-item-only-child"
       label="[object Object]"
       role="menuitem"
       style="opacity: 1; order: 3;"
@@ -1750,7 +1750,7 @@ exports[`menu demo > renders horizontal-dark correctly 1`] = `
   >
     <!---->
     <li
-      class="ant-menu-item ant-menu-item-selected"
+      class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected"
       data-menu-id="vc-menu-uuid-mail"
       label="Navigation One"
       role="menuitem"
@@ -1786,7 +1786,7 @@ exports[`menu demo > renders horizontal-dark correctly 1`] = `
     <!---->
     <li
       aria-disabled="true"
-      class="ant-menu-item ant-menu-item-disabled"
+      class="ant-menu-overflow-item ant-menu-item ant-menu-item-disabled"
       label="Navigation Two"
       role="menuitem"
       style="opacity: 1; order: 1;"
@@ -1864,7 +1864,7 @@ exports[`menu demo > renders horizontal-dark correctly 1`] = `
       <!---->
     </li>
     <li
-      class="ant-menu-item ant-menu-item-only-child"
+      class="ant-menu-overflow-item ant-menu-item-only-child ant-menu-item ant-menu-item-only-child"
       label="[object Object]"
       role="menuitem"
       style="opacity: 1; order: 3;"
@@ -2251,7 +2251,7 @@ exports[`menu demo > renders inline correctly 1`] = `
         role="group"
       >
         <li
-          class="ant-menu-item ant-menu-item-only-child"
+          class="ant-menu-item-only-child ant-menu-item ant-menu-item-only-child"
           data-menu-id="vc-menu-uuid-13"
           label="Option 13"
           role="menuitem"
@@ -2268,7 +2268,7 @@ exports[`menu demo > renders inline correctly 1`] = `
         </li>
         <!---->
         <li
-          class="ant-menu-item ant-menu-item-only-child"
+          class="ant-menu-item-only-child ant-menu-item ant-menu-item-only-child"
           data-menu-id="vc-menu-uuid-14"
           label="Option 14"
           role="menuitem"
@@ -4257,7 +4257,7 @@ exports[`menu demo > renders style-class correctly 1`] = `
       <!---->
     </li>
     <li
-      class="ant-menu-item _item_7a0174 ant-menu-item-only-child"
+      class="_item_7a0174 ant-menu-item-only-child ant-menu-item _item_7a0174 ant-menu-item-only-child"
       data-menu-id="vc-menu-uuid-mail"
       label="Navigation Two"
       role="menuitem"
@@ -4335,7 +4335,7 @@ exports[`menu demo > renders style-class correctly 1`] = `
       </transition-stub>
     </li>
     <li
-      class="ant-menu-item _item_7a0174 ant-menu-item-only-child"
+      class="_item_7a0174 ant-menu-item-only-child ant-menu-item _item_7a0174 ant-menu-item-only-child"
       data-menu-id="vc-menu-uuid-mail"
       label="Navigation Two"
       role="menuitem"
@@ -4452,7 +4452,7 @@ exports[`menu demo > renders submenu-theme correctly 1`] = `
       <!---->
     </li>
     <li
-      class="ant-menu-item ant-menu-item-only-child"
+      class="ant-menu-item-only-child ant-menu-item ant-menu-item-only-child"
       data-menu-id="vc-menu-uuid-5"
       label="Option 5"
       role="menuitem"
@@ -4468,7 +4468,7 @@ exports[`menu demo > renders submenu-theme correctly 1`] = `
     </li>
     <!---->
     <li
-      class="ant-menu-item ant-menu-item-only-child"
+      class="ant-menu-item-only-child ant-menu-item ant-menu-item-only-child"
       data-menu-id="vc-menu-uuid-6"
       label="Option 6"
       role="menuitem"

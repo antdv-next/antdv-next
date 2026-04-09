@@ -11,12 +11,12 @@ Click the left and right switch buttons to preview multiple images.
     <a-image
       alt="svg image"
       :width="200"
-      src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+      src="https://www.antdv-next.com/antdv-next.svg"
     />
     <a-image
       :width="200"
       alt="svg image"
-      src="https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg"
+      src="https://cn.vuejs.org/logo.svg"
     />
   </a-image-preview-group>
 </template>

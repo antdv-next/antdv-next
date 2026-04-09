@@ -1,9 +1,9 @@
 export { default as Affix } from './affix'
-export type { AffixProps } from './affix'
+export type { AffixEmits, AffixProps, AffixRef } from './affix'
 export { default as Alert } from './alert'
 export type { AlertEmits, AlertProps, AlertSemanticType, AlertSlots } from './alert'
 export { default as Anchor } from './anchor'
-export type { AnchorLinkProps, AnchorProps } from './anchor'
+export type { AnchorEmits, AnchorLinkProps, AnchorProps, AnchorSlots } from './anchor'
 export { default as App } from './app'
 export type { AppProps } from './app'
 export { default as AutoComplete, Option as AutoCompleteOption } from './auto-complete'
@@ -24,7 +24,19 @@ export type { RibbonProps as BadgeRibbonProps } from './badge/Ribbon'
 export { default as Breadcrumb, BreadcrumbItem, BreadcrumbSeparator } from './breadcrumb'
 export type { BreadcrumbEmits, BreadcrumbItemProps, BreadcrumbItemType, BreadcrumbProps, BreadcrumbSlots } from './breadcrumb'
 export { default as Button } from './button'
-export type { ButtonColorType, ButtonHTMLType, ButtonProps, ButtonShape, ButtonSize, ButtonType, ButtonVariantType } from './button'
+export type {
+  ButtonColorType,
+  ButtonEmits,
+  ButtonHTMLType,
+  ButtonProps,
+  ButtonSemanticName,
+  ButtonShape,
+  ButtonSize,
+  ButtonSlots,
+  ButtonType,
+  ButtonVariantType,
+  LegacyButtonType,
+} from './button'
 export { default as Calendar } from './calendar'
 export type { CalendarMode, CalendarProps } from './calendar'
 export { default as Card, CardGrid, CardMeta } from './card'
@@ -53,9 +65,9 @@ export type { DrawerEmits, DrawerProps, DrawerResizableConfig, DrawerSlots } fro
 export { default as Dropdown } from './dropdown'
 export type { DropdownArrowOptions, DropdownEmits, DropdownProps, DropdownSlots } from './dropdown'
 export { default as Empty } from './empty'
-export type { EmptyProps } from './empty'
+export type { EmptyProps, EmptySlots } from './empty'
 export { default as Flex } from './flex'
-export type { FlexProps } from './flex'
+export type { FlexProps, FlexSlots } from './flex'
 export { BackTop, default as FloatButton, FloatButtonGroup } from './float-button'
 export type { FloatButtonGroupProps, FloatButtonProps, FloatButtonRef } from './float-button'
 export { default as Form, FormItem } from './form'
@@ -68,12 +80,17 @@ export { default as Input, InputGroup, InputOTP, InputPassword, InputSearch, Tex
 export type {
   InputEmits,
   InputGroupProps,
+  OTPEmits as InputOTPEmits,
   OTPProps as InputOTPProps,
+  OTPSlots as InputOTPSlots,
   PasswordProps as InputPasswordProps,
+  InputPasswordRef,
   InputProps,
   InputRef,
   SearchProps as InputSearchProps,
+  InputSearchRef,
   InputSlots,
+  InputTextAreaRef,
   TextAreaProps,
   TextAreaRef,
 } from './input'
@@ -120,7 +137,7 @@ export type {
 export { default as Popconfirm } from './popconfirm'
 export type { PopconfirmEmits, PopconfirmProps, PopconfirmSlots } from './popconfirm'
 export { default as Popover } from './popover'
-export type { PopoverProps } from './popover'
+export type { PopoverEmits, PopoverProps, PopoverRef, PopoverSlots } from './popover'
 export type { ProgressProps } from './progress'
 export { default as Progress } from './progress/progress'
 export { default as QRCode } from './qrcode'
@@ -130,9 +147,9 @@ export type { RadioChangeEvent, RadioEmits, RadioGroupEmits, RadioGroupOptionTyp
 export { default as Rate } from './rate'
 export type { RateEmits, RateProps } from './rate'
 export { default as Result } from './result'
-export type { ResultProps } from './result'
+export type { ResultProps, ResultSlots, ResultStatusType } from './result'
 export { default as Segmented } from './segmented'
-export type { SegmentedEmits, SegmentedOptions, SegmentedProps } from './segmented'
+export type { SegmentedEmits, SegmentedOptions, SegmentedProps, SegmentedSlots } from './segmented'
 export { default as Select, SelectOptGroup, SelectOption } from './select'
 export type { SelectEmits, SelectProps, SelectSlots, SelectValue } from './select'
 export { default as Skeleton, SkeletonAvatar, SkeletonButton, SkeletonImage, SkeletonInput, SkeletonNode } from './skeleton'
@@ -148,7 +165,7 @@ export type { SplitterEmits, SplitterProps, SplitterSlots } from './splitter'
 export { default as Statistic, StatisticTimer } from './statistic'
 export type { StatisticProps, StatisticTimerProps } from './statistic'
 export { default as Steps } from './steps'
-export type { StepsProps } from './steps'
+export type { StepItem, StepsEmits, StepsProps, StepsSlots } from './steps'
 export { default as Switch } from './switch'
 export type { SwitchEmits, SwitchProps, SwitchSize, SwitchSlots } from './switch'
 export {
@@ -179,7 +196,14 @@ export type { TabPaneProps, TabsEmits, TabsProps, TabsRef, TabsSlots } from './t
 export { CheckableTag, CheckableTagGroup, default as Tag } from './tag'
 export type { CheckableTagProps, TagProps, TagSlots } from './tag'
 export { default as TimePicker, TimeRangePicker } from './time-picker'
-export type { TimePickerLocale, TimePickerProps, TimeRangePickerProps } from './time-picker'
+export type {
+  TimePickerEmits,
+  TimePickerLocale,
+  TimePickerProps,
+  TimePickerSlots,
+  TimeRangePickerEmits,
+  TimeRangePickerProps,
+} from './time-picker'
 export { default as Timeline, TimelineItem } from './timeline'
 export type { TimelineItemProps, TimelineItemSlots, TimelineItemType, TimelineProps } from './timeline'
 export { default as Tooltip, UniqueProvider } from './tooltip'

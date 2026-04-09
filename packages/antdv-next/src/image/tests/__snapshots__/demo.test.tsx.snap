@@ -1302,7 +1302,7 @@ exports[`image demo > renders mask correctly 1`] = `
   >
     <img
       class="ant-image-img"
-      src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+      src="https://www.antdv-next.com/antdv-next.svg"
       width="100"
     />
     <!---->
@@ -1332,7 +1332,7 @@ exports[`image demo > renders mask correctly 1`] = `
   >
     <img
       class="ant-image-img"
-      src="https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg"
+      src="https://cn.vuejs.org/logo.svg"
       width="100"
     />
     <!---->
@@ -1471,7 +1471,7 @@ exports[`image demo > renders preview-group correctly 1`] = `
   >
     <img
       class="ant-image-img"
-      src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+      src="https://www.antdv-next.com/antdv-next.svg"
       width="200"
     />
     <!---->
@@ -1492,7 +1492,7 @@ exports[`image demo > renders preview-group correctly 1`] = `
   >
     <img
       class="ant-image-img"
-      src="https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg"
+      src="https://cn.vuejs.org/logo.svg"
       width="200"
     />
     <!---->
@@ -1629,7 +1629,7 @@ exports[`image demo > renders toolbarRender correctly 1`] = `
   >
     <img
       class="ant-image-img"
-      src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+      src="https://www.antdv-next.com/antdv-next.svg"
       width="200"
     />
     <!---->
@@ -1650,7 +1650,7 @@ exports[`image demo > renders toolbarRender correctly 1`] = `
   >
     <img
       class="ant-image-img"
-      src="https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg"
+      src="https://cn.vuejs.org/logo.svg"
       width="200"
     />
     <!---->

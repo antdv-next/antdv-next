@@ -2,6 +2,68 @@
 title: Component Changelog
 ---
 
+## V1.1.9
+
+This release focuses on **fixing class duplication, missing styles, and form label behavior across Tabs, Menu, FormItem, and Image**, while also **improving style completeness in SSR rendering scenarios and optimizing type performance**.
+
+**🐞 Fixes**
+
+* fix(tabs): fix duplicated class names by @selicens in [#435](https://github.com/antdv-next/antdv-next/pull/435)
+* fix: fix missing Menu styles in SSR rendering mode by @aibayanyu20 in [#437](https://github.com/antdv-next/antdv-next/pull/437)
+* fix: fix FormItem label not taking effect by @aibayanyu20 in [#441](https://github.com/antdv-next/antdv-next/pull/441)
+
+**🛠 Refactor & Maintenance**
+
+* chore(image): update image source paths by @selicens in [#436](https://github.com/antdv-next/antdv-next/pull/436)
+* perf: optimize type performance by @aibayanyu20 in [#442](https://github.com/antdv-next/antdv-next/pull/442)
+
+**Full Changelog**
+https://github.com/antdv-next/antdv-next/compare/antdv-next@1.1.8...antdv-next@1.1.9
+
+
+## V1.1.8
+
+This release focuses on **fixing IME input handling, style/class passthrough, and touch interactions across Input, ConfigProvider, Image, and TimePicker**, while also **improving docs layout, Tabs examples, release announcement content, and GitHub edit links**. It also introduces the initial Pro project setup and adds Claude Code collaboration guidance together with related CI workflows.
+
+**✨ Features**
+
+* feat: initialize the Pro project by @aibayanyu20 in [#422](https://github.com/antdv-next/antdv-next/pull/422)
+
+**🐞 Fixes**
+
+* fix(input): add an IME composition guard for Input and support the `changeOnComposing` prop by @shiqkuangsan in [#417](https://github.com/antdv-next/antdv-next/pull/417)
+* fix: fix `style` and `class` passthrough in ConfigProvider by @aibayanyu20 in [#420](https://github.com/antdv-next/antdv-next/pull/420)
+* fix(image): fix abnormal button styles in the image preview footer by @selicens in [#430](https://github.com/antdv-next/antdv-next/pull/430)
+* fix: fix TimePicker columns not scrolling on touch devices by @aibayanyu20 in [#433](https://github.com/antdv-next/antdv-next/pull/433)
+
+**📝 Documentation**
+
+* docs(tabs): update the draggable Tabs documentation example by @jiangrong-devops in [#412](https://github.com/antdv-next/antdv-next/pull/412)
+* docs(blog): optimize the release announcement content and English translation by @TAYUN in [#413](https://github.com/antdv-next/antdv-next/pull/413)
+* fix(docs): correct the GitHub edit path in the documentation by @lonewolfyx in [#415](https://github.com/antdv-next/antdv-next/pull/415)
+* fix(docs): fix left alignment in the documentation layout by @ouyang108 in [#425](https://github.com/antdv-next/antdv-next/pull/425)
+* fix(docs): align dark theme tokens and background styles for the docs sider menu by @ffgenius in [#428](https://github.com/antdv-next/antdv-next/pull/428)
+
+**🛠 Refactor & Maintenance**
+
+* chore: update dependencies by @aibayanyu20 in [#416](https://github.com/antdv-next/antdv-next/pull/416)
+* chore: add `CLAUDE.md` for Claude Code collaboration guidance by @shiqkuangsan in [#418](https://github.com/antdv-next/antdv-next/pull/418)
+* ci: add Claude Code workflows by @shiqkuangsan in [#419](https://github.com/antdv-next/antdv-next/pull/419)
+
+---
+
+**👏 New Contributors**
+
+Thanks to the following contributors for their first contributions:
+
+* @lonewolfyx in [#415](https://github.com/antdv-next/antdv-next/pull/415)
+* @TAYUN in [#413](https://github.com/antdv-next/antdv-next/pull/413)
+* @ouyang108 in [#425](https://github.com/antdv-next/antdv-next/pull/425)
+
+**Full Changelog**
+https://github.com/antdv-next/antdv-next/compare/antdv-next@1.1.7...antdv-next@1.1.8
+
+
 ## V1.1.7
 
 This release focuses on **fixing rendering, styling, and interaction details across cssinjs, Tree, Transfer, Image, Table, and Menu**, while also **improving mobile responsiveness in the docs site, icon search interaction, and several documentation descriptions and repository links**. It also syncs part of the behavior with antd 6.3.4.

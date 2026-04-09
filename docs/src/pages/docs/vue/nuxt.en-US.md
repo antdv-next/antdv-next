@@ -93,10 +93,17 @@ Notes:
 
 ## Full Example
 
+`assets/entry.css`
+
+```css
+@import "antdv-next/dist/reset.css";
+
+```
+
 ```ts
 export default defineNuxtConfig({
   modules: ['@antdv-next/nuxt'],
-  css: ['antdv-next/dist/reset.css'],
+  css: ['~/assets/entry.css'],
   antd: {
     prefix: 'A',
     icon: true,

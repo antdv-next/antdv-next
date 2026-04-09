@@ -2,6 +2,68 @@
 title: 组件更新日志
 ---
 
+## V1.1.9
+
+本次版本主要聚焦于 **修复 Tabs、Menu、FormItem 与 Image 等在 class、样式资源和表单标签表现上的问题**，并进一步 **优化 SSR 渲染场景下的样式完整性与类型性能表现**。
+
+**🐞 问题修复 Fixes**
+
+* fix(tabs)：修复 class 名重复的问题 by @selicens [#435](https://github.com/antdv-next/antdv-next/pull/435)
+* fix：修复 SSR 渲染模式下 Menu 样式缺失的问题 by @aibayanyu20 [#437](https://github.com/antdv-next/antdv-next/pull/437)
+* fix：修复 FormItem label 未生效的问题 by @aibayanyu20 [#441](https://github.com/antdv-next/antdv-next/pull/441)
+
+**🛠 重构与维护 Refactor & Maintenance**
+
+* chore(image)：更新图片资源地址 by @selicens [#436](https://github.com/antdv-next/antdv-next/pull/436)
+* perf：优化类型性能 by @aibayanyu20 [#442](https://github.com/antdv-next/antdv-next/pull/442)
+
+**Full Changelog**
+https://github.com/antdv-next/antdv-next/compare/antdv-next@1.1.8...antdv-next@1.1.9
+
+
+## V1.1.8
+
+本次版本主要聚焦于 **修复 Input、ConfigProvider、Image、TimePicker 等在输入法输入、样式透传与触屏交互上的问题**，并进一步 **优化文档站排版、Tabs 示例、发布公告内容与 GitHub 编辑链接**。同时新增 Pro 项目初始化，并补充 Claude Code 协作说明与相关 CI 工作流。
+
+**✨ 新功能 Features**
+
+* feat：初始化 Pro 项目 by @aibayanyu20 [#422](https://github.com/antdv-next/antdv-next/pull/422)
+
+**🐞 问题修复 Fixes**
+
+* fix(input)：为 Input 增加 IME 输入法组合态保护，并支持 `changeOnComposing` 属性 by @shiqkuangsan [#417](https://github.com/antdv-next/antdv-next/pull/417)
+* fix：修复 ConfigProvider 的 `style` 与 `class` 透传问题 by @aibayanyu20 [#420](https://github.com/antdv-next/antdv-next/pull/420)
+* fix(image)：修复图片预览底部按钮样式异常问题 by @selicens [#430](https://github.com/antdv-next/antdv-next/pull/430)
+* fix：修复 TimePicker 在触摸设备上列无法滚动的问题 by @aibayanyu20 [#433](https://github.com/antdv-next/antdv-next/pull/433)
+
+**📝 文档更新 Documentation**
+
+* docs(tabs)：更新可拖拽 Tabs 组件文档示例 by @jiangrong-devops [#412](https://github.com/antdv-next/antdv-next/pull/412)
+* docs(blog)：优化发布公告内容及英文翻译 by @TAYUN [#413](https://github.com/antdv-next/antdv-next/pull/413)
+* fix(docs)：修正文档中的 GitHub 编辑链接路径 by @lonewolfyx [#415](https://github.com/antdv-next/antdv-next/pull/415)
+* fix(docs)：修复文档左侧对齐问题 by @ouyang108 [#425](https://github.com/antdv-next/antdv-next/pull/425)
+* fix(docs)：对齐文档侧边菜单暗色主题 token 与背景样式 by @ffgenius [#428](https://github.com/antdv-next/antdv-next/pull/428)
+
+**🛠 重构与维护 Refactor & Maintenance**
+
+* chore：更新依赖 by @aibayanyu20 [#416](https://github.com/antdv-next/antdv-next/pull/416)
+* chore：新增 `CLAUDE.md`，补充 Claude Code 协作说明 by @shiqkuangsan [#418](https://github.com/antdv-next/antdv-next/pull/418)
+* ci：新增 Claude Code 工作流 by @shiqkuangsan [#419](https://github.com/antdv-next/antdv-next/pull/419)
+
+---
+
+**👏 新贡献者 New Contributors**
+
+感谢以下社区贡献者的首次参与：
+
+* @lonewolfyx（[#415](https://github.com/antdv-next/antdv-next/pull/415)）
+* @TAYUN（[#413](https://github.com/antdv-next/antdv-next/pull/413)）
+* @ouyang108（[#425](https://github.com/antdv-next/antdv-next/pull/425)）
+
+**Full Changelog**
+https://github.com/antdv-next/antdv-next/compare/antdv-next@1.1.7...antdv-next@1.1.8
+
+
 ## V1.1.7
 
 本次版本主要聚焦于 **修复 cssinjs、Tree、Transfer、Image、Table、Menu 等在渲染、样式与交互细节上的问题**，并进一步 **优化文档站移动端适配、图标搜索交互以及多处文档描述与仓库链接内容**。同时同步了 antd 6.3.4 的部分细节表现。

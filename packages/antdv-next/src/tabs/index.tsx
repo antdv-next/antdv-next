@@ -126,7 +126,7 @@ export interface TabsProps extends BaseTabsProps, CompatibilityProps, Omit<
   removeIcon?: VueNode
   styles?: TabsStylesType
   classes?: TabsClassNamesType
-  /** @deprecated Please use `classNames.popup` instead */
+  /** @deprecated Please use `classes.popup` instead */
   popupClassName?: string
   renderTabBar?: (args: { props: any, TabNavListComponent: any }) => any
 }
@@ -174,7 +174,6 @@ const InternalTabs = defineComponent<
       'centered',
       'indicatorSize',
     )
-    const classNames = toRef(props, 'classes')
     const more = toRef(props, 'more')
     const popupClassName = toRef(props, 'popupClassName')
     const indicator = toRef(props, 'indicator')
@@ -220,7 +219,7 @@ const InternalTabs = defineComponent<
       TabsStylesType,
       TabsProps
     >(
-      useToArr(contextClassNames, classNames, classes),
+      useToArr(contextClassNames, classes),
       useToArr(contextStyles, styles),
       useToProps(mergedProps),
       computed(() => ({
@@ -244,7 +243,7 @@ const InternalTabs = defineComponent<
 
     if (isDev) {
       const warning = devUseWarning('Tabs')
-      warning.deprecated(!popupClassName.value, 'popupClassName', 'classNames.popup')
+      warning.deprecated(!popupClassName.value, 'popupClassName', 'classes.popup')
       warning.deprecated(!tabPosition.value, 'tabPosition', 'tabPlacement')
       warning(
         !((attrs as any).onPrevClick || (attrs as any).onNextClick),

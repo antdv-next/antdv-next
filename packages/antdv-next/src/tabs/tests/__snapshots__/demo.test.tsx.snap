@@ -14,12 +14,12 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
       data-v-dfc8ebef=""
     >
       <div
-        class="ant-tabs ant-tabs-top semantic-mark-root semantic-mark-root css-var-v-0 ant-tabs-css-var"
+        class="ant-tabs ant-tabs-top semantic-mark-root css-var-v-0 ant-tabs-css-var"
         style="height: 220px; width: 100%;"
       >
         <div
           aria-orientation="horizontal"
-          class="ant-tabs-nav semantic-mark-header semantic-mark-header"
+          class="ant-tabs-nav semantic-mark-header"
           role="tablist"
         >
           <!---->
@@ -31,7 +31,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
               style="transform: translate(0px, 0px);"
             >
               <div
-                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                class="ant-tabs-tab semantic-mark-item"
                 data-node-key="0"
               >
                 <div
@@ -47,7 +47,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-tabs-tab semantic-mark-item semantic-mark-item ant-tabs-tab-active"
+                class="ant-tabs-tab semantic-mark-item ant-tabs-tab-active"
                 data-node-key="1"
               >
                 <div
@@ -63,7 +63,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                class="ant-tabs-tab semantic-mark-item"
                 data-node-key="2"
               >
                 <div
@@ -79,7 +79,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                class="ant-tabs-tab semantic-mark-item"
                 data-node-key="3"
               >
                 <div
@@ -95,7 +95,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                class="ant-tabs-tab semantic-mark-item"
                 data-node-key="4"
               >
                 <div
@@ -111,7 +111,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                class="ant-tabs-tab semantic-mark-item"
                 data-node-key="5"
               >
                 <div
@@ -127,7 +127,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                class="ant-tabs-tab semantic-mark-item"
                 data-node-key="6"
               >
                 <div
@@ -143,7 +143,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                class="ant-tabs-tab semantic-mark-item"
                 data-node-key="7"
               >
                 <div
@@ -159,7 +159,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                class="ant-tabs-tab semantic-mark-item"
                 data-node-key="8"
               >
                 <div
@@ -175,7 +175,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                class="ant-tabs-tab semantic-mark-item"
                 data-node-key="9"
               >
                 <div
@@ -191,7 +191,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                class="ant-tabs-tab semantic-mark-item"
                 data-node-key="10"
               >
                 <div
@@ -207,7 +207,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                class="ant-tabs-tab semantic-mark-item"
                 data-node-key="11"
               >
                 <div
@@ -223,7 +223,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                class="ant-tabs-tab semantic-mark-item"
                 data-node-key="12"
               >
                 <div
@@ -239,7 +239,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                class="ant-tabs-tab semantic-mark-item"
                 data-node-key="13"
               >
                 <div
@@ -255,7 +255,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                class="ant-tabs-tab semantic-mark-item"
                 data-node-key="14"
               >
                 <div
@@ -271,7 +271,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                class="ant-tabs-tab semantic-mark-item"
                 data-node-key="15"
               >
                 <div
@@ -287,7 +287,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                class="ant-tabs-tab semantic-mark-item"
                 data-node-key="16"
               >
                 <div
@@ -303,7 +303,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                class="ant-tabs-tab semantic-mark-item"
                 data-node-key="17"
               >
                 <div
@@ -319,7 +319,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                class="ant-tabs-tab semantic-mark-item"
                 data-node-key="18"
               >
                 <div
@@ -335,7 +335,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                class="ant-tabs-tab semantic-mark-item"
                 data-node-key="19"
               >
                 <div
@@ -351,7 +351,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                class="ant-tabs-tab semantic-mark-item"
                 data-node-key="20"
               >
                 <div
@@ -367,7 +367,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                class="ant-tabs-tab semantic-mark-item"
                 data-node-key="21"
               >
                 <div
@@ -383,7 +383,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                class="ant-tabs-tab semantic-mark-item"
                 data-node-key="22"
               >
                 <div
@@ -399,7 +399,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                class="ant-tabs-tab semantic-mark-item"
                 data-node-key="23"
               >
                 <div
@@ -415,7 +415,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                class="ant-tabs-tab semantic-mark-item"
                 data-node-key="24"
               >
                 <div
@@ -431,7 +431,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                class="ant-tabs-tab semantic-mark-item"
                 data-node-key="25"
               >
                 <div
@@ -447,7 +447,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                class="ant-tabs-tab semantic-mark-item"
                 data-node-key="26"
               >
                 <div
@@ -463,7 +463,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                class="ant-tabs-tab semantic-mark-item"
                 data-node-key="27"
               >
                 <div
@@ -479,7 +479,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-tabs-tab semantic-mark-item semantic-mark-item ant-tabs-tab-disabled"
+                class="ant-tabs-tab semantic-mark-item ant-tabs-tab-disabled"
                 data-node-key="28"
               >
                 <div
@@ -494,7 +494,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
                 </div>
               </div>
               <div
-                class="ant-tabs-tab semantic-mark-item semantic-mark-item"
+                class="ant-tabs-tab semantic-mark-item"
                 data-node-key="29"
               >
                 <div
@@ -511,7 +511,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
               </div>
               <!---->
               <div
-                class="ant-tabs-ink-bar semantic-mark-indicator semantic-mark-indicator ant-tabs-ink-bar-animated"
+                class="ant-tabs-ink-bar semantic-mark-indicator ant-tabs-ink-bar-animated"
               />
             </div>
           </div>
@@ -563,7 +563,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
             <!---->
             <div
               aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
               role="tabpanel"
               style="display: none;"
               tabindex="-1"
@@ -573,7 +573,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
             <!---->
             <div
               aria-hidden="false"
-              class="ant-tabs-tabpane ant-tabs-tabpane-active semantic-mark-content semantic-mark-content"
+              class="ant-tabs-tabpane ant-tabs-tabpane-active semantic-mark-content"
               role="tabpanel"
               tabindex="0"
             >
@@ -582,7 +582,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
             <!---->
             <div
               aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
               role="tabpanel"
               style="display: none;"
               tabindex="-1"
@@ -592,7 +592,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
             <!---->
             <div
               aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
               role="tabpanel"
               style="display: none;"
               tabindex="-1"
@@ -602,7 +602,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
             <!---->
             <div
               aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
               role="tabpanel"
               style="display: none;"
               tabindex="-1"
@@ -612,7 +612,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
             <!---->
             <div
               aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
               role="tabpanel"
               style="display: none;"
               tabindex="-1"
@@ -622,7 +622,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
             <!---->
             <div
               aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
               role="tabpanel"
               style="display: none;"
               tabindex="-1"
@@ -632,7 +632,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
             <!---->
             <div
               aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
               role="tabpanel"
               style="display: none;"
               tabindex="-1"
@@ -642,7 +642,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
             <!---->
             <div
               aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
               role="tabpanel"
               style="display: none;"
               tabindex="-1"
@@ -652,7 +652,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
             <!---->
             <div
               aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
               role="tabpanel"
               style="display: none;"
               tabindex="-1"
@@ -662,7 +662,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
             <!---->
             <div
               aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
               role="tabpanel"
               style="display: none;"
               tabindex="-1"
@@ -672,7 +672,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
             <!---->
             <div
               aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
               role="tabpanel"
               style="display: none;"
               tabindex="-1"
@@ -682,7 +682,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
             <!---->
             <div
               aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
               role="tabpanel"
               style="display: none;"
               tabindex="-1"
@@ -692,7 +692,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
             <!---->
             <div
               aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
               role="tabpanel"
               style="display: none;"
               tabindex="-1"
@@ -702,7 +702,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
             <!---->
             <div
               aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
               role="tabpanel"
               style="display: none;"
               tabindex="-1"
@@ -712,7 +712,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
             <!---->
             <div
               aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
               role="tabpanel"
               style="display: none;"
               tabindex="-1"
@@ -722,7 +722,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
             <!---->
             <div
               aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
               role="tabpanel"
               style="display: none;"
               tabindex="-1"
@@ -732,7 +732,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
             <!---->
             <div
               aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
               role="tabpanel"
               style="display: none;"
               tabindex="-1"
@@ -742,7 +742,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
             <!---->
             <div
               aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
               role="tabpanel"
               style="display: none;"
               tabindex="-1"
@@ -752,7 +752,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
             <!---->
             <div
               aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
               role="tabpanel"
               style="display: none;"
               tabindex="-1"
@@ -762,7 +762,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
             <!---->
             <div
               aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
               role="tabpanel"
               style="display: none;"
               tabindex="-1"
@@ -772,7 +772,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
             <!---->
             <div
               aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
               role="tabpanel"
               style="display: none;"
               tabindex="-1"
@@ -782,7 +782,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
             <!---->
             <div
               aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
               role="tabpanel"
               style="display: none;"
               tabindex="-1"
@@ -792,7 +792,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
             <!---->
             <div
               aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
               role="tabpanel"
               style="display: none;"
               tabindex="-1"
@@ -802,7 +802,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
             <!---->
             <div
               aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
               role="tabpanel"
               style="display: none;"
               tabindex="-1"
@@ -812,7 +812,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
             <!---->
             <div
               aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
               role="tabpanel"
               style="display: none;"
               tabindex="-1"
@@ -822,7 +822,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
             <!---->
             <div
               aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
               role="tabpanel"
               style="display: none;"
               tabindex="-1"
@@ -832,7 +832,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
             <!---->
             <div
               aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
               role="tabpanel"
               style="display: none;"
               tabindex="-1"
@@ -842,7 +842,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
             <!---->
             <div
               aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
               role="tabpanel"
               style="display: none;"
               tabindex="-1"
@@ -852,7 +852,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
             <!---->
             <div
               aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content semantic-mark-content ant-tabs-tabpane-hidden"
+              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
               role="tabpanel"
               style="display: none;"
               tabindex="-1"
@@ -5998,7 +5998,7 @@ exports[`tabs demo > renders style-class correctly 1`] = `
   class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-tabs ant-tabs-top custom-tabs-root custom-tabs-root css-var-root ant-tabs-css-var"
+    class="ant-tabs ant-tabs-top custom-tabs-root css-var-root ant-tabs-css-var"
     style="border-width: 2px; border-style: dashed; padding: 16px; margin-bottom: 10px;"
   >
     <div
@@ -6149,7 +6149,7 @@ exports[`tabs demo > renders style-class correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-tabs ant-tabs-top custom-tabs-root custom-tabs-root ant-tabs-card css-var-root ant-tabs-css-var"
+    class="ant-tabs ant-tabs-top custom-tabs-root ant-tabs-card css-var-root ant-tabs-css-var"
     style="background-color: rgba(250, 250, 250, 0.8); border-color: rgb(217, 217, 217);"
   >
     <div

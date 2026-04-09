@@ -32,6 +32,7 @@ exports[`form demo > renders _semantic correctly 1`] = `
             >
               <label
                 class="semantic-mark-label ant-form-item-required"
+                for="basic_username"
                 title="Username"
               >
                 Username
@@ -89,6 +90,7 @@ exports[`form demo > renders _semantic correctly 1`] = `
             >
               <label
                 class="semantic-mark-label ant-form-item-required"
+                for="basic_password"
                 title="Password"
               >
                 Password
@@ -599,6 +601,7 @@ exports[`form demo > renders advanced-search correctly 1`] = `
             >
               <label
                 class="ant-form-item-required"
+                for="advanced_search_field-0"
                 title="Field 0"
               >
                 Field 0
@@ -712,6 +715,7 @@ exports[`form demo > renders advanced-search correctly 1`] = `
             >
               <label
                 class="ant-form-item-required"
+                for="advanced_search_field-1"
                 title="Field 1"
               >
                 Field 1
@@ -775,6 +779,7 @@ exports[`form demo > renders advanced-search correctly 1`] = `
             >
               <label
                 class="ant-form-item-required"
+                for="advanced_search_field-2"
                 title="Field 2"
               >
                 Field 2
@@ -838,6 +843,7 @@ exports[`form demo > renders advanced-search correctly 1`] = `
             >
               <label
                 class="ant-form-item-required"
+                for="advanced_search_field-3"
                 title="Field 3"
               >
                 Field 3
@@ -951,6 +957,7 @@ exports[`form demo > renders advanced-search correctly 1`] = `
             >
               <label
                 class="ant-form-item-required"
+                for="advanced_search_field-4"
                 title="Field 4"
               >
                 Field 4
@@ -1014,6 +1021,7 @@ exports[`form demo > renders advanced-search correctly 1`] = `
             >
               <label
                 class="ant-form-item-required"
+                for="advanced_search_field-5"
                 title="Field 5"
               >
                 Field 5
@@ -1181,6 +1189,7 @@ exports[`form demo > renders basic correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="username"
           title="Username"
         >
           Username
@@ -1238,6 +1247,7 @@ exports[`form demo > renders basic correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="password"
           title="Password"
         >
           Password
@@ -1463,6 +1473,7 @@ exports[`form demo > renders col-24-debug correctly 1`] = `
         >
           <label
             class="ant-form-item-required"
+            for="col-24-debug_username"
             title="Username"
           >
             Username
@@ -1520,6 +1531,7 @@ exports[`form demo > renders col-24-debug correctly 1`] = `
         >
           <label
             class="ant-form-item-required"
+            for="col-24-debug_password"
             title="Password"
           >
             Password
@@ -1612,7 +1624,7 @@ exports[`form demo > renders col-24-debug correctly 1`] = `
           class="ant-col ant-col-24 css-var-root ant-form-item-label"
         >
           <label
-            class=""
+            for="col-24-debug_select"
             title="Select"
           >
             Select
@@ -1830,6 +1842,7 @@ exports[`form demo > renders col-24-debug correctly 1`] = `
         >
           <label
             class="ant-form-item-required"
+            for="responsive_username"
             title="Username"
           >
             Username
@@ -1887,6 +1900,7 @@ exports[`form demo > renders col-24-debug correctly 1`] = `
         >
           <label
             class="ant-form-item-required"
+            for="responsive_password"
             title="Password"
           >
             Password
@@ -2048,7 +2062,7 @@ exports[`form demo > renders col-24-debug correctly 1`] = `
           class="ant-col css-var-root ant-form-item-label"
         >
           <label
-            class=""
+            for="select"
             title="Select"
           >
             Select
@@ -2200,7 +2214,7 @@ exports[`form demo > renders col-24-debug correctly 1`] = `
           class="ant-col ant-col-12 css-var-root ant-form-item-label"
         >
           <label
-            class=""
+            for="col12"
             title="col12"
           >
             col12
@@ -2268,7 +2282,6 @@ exports[`form demo > renders complex-form-control correctly 1`] = `
         class="ant-col ant-col-8 css-var-root ant-form-item-label"
       >
         <label
-          class=""
           title="Username"
         >
           Username
@@ -2354,7 +2367,6 @@ exports[`form demo > renders complex-form-control correctly 1`] = `
         class="ant-col ant-col-8 css-var-root ant-form-item-label"
       >
         <label
-          class=""
           title="Address"
         >
           Address
@@ -2475,7 +2487,6 @@ exports[`form demo > renders complex-form-control correctly 1`] = `
         class="ant-col ant-col-8 css-var-root ant-form-item-label"
       >
         <label
-          class=""
           title="BirthDate"
         >
           BirthDate
@@ -2697,6 +2708,7 @@ exports[`form demo > renders component-token correctly 1`] = `
         >
           <label
             class="ant-form-item-required"
+            for="username"
             title="Username"
           >
             Username
@@ -2754,6 +2766,7 @@ exports[`form demo > renders component-token correctly 1`] = `
         >
           <label
             class="ant-form-item-required"
+            for="password"
             title="Password"
           >
             Password
@@ -2916,6 +2929,7 @@ exports[`form demo > renders control-hooks correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="control-hooks_note"
           title="Note"
         >
           Note
@@ -2973,6 +2987,7 @@ exports[`form demo > renders control-hooks correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="control-hooks_gender"
           title="Gender"
         >
           Gender
@@ -3204,6 +3219,7 @@ exports[`form demo > renders custom-feedback-icons correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="custom-feedback-icons_test1"
           title="Test"
         >
           Test
@@ -3294,6 +3310,7 @@ exports[`form demo > renders custom-feedback-icons correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="custom-feedback-icons_test2"
           title="Test"
         >
           Test
@@ -3383,7 +3400,7 @@ exports[`form demo > renders custom-feedback-icons correctly 1`] = `
         class="ant-col css-var-root ant-form-item-label"
       >
         <label
-          class=""
+          for="custom-feedback-icons_test3"
           title="Test"
         >
           Test
@@ -3567,7 +3584,7 @@ exports[`form demo > renders customized-form-controls correctly 1`] = `
         class="ant-col css-var-root ant-form-item-label"
       >
         <label
-          class=""
+          for="customized_form_controls_price"
           title="Price"
         >
           Price
@@ -3849,7 +3866,7 @@ exports[`form demo > renders disabled correctly 1`] = `
             class="ant-col ant-col-4 css-var-root ant-form-item-label"
           >
             <label
-              class=""
+              for="checkbox"
               title="Checkbox"
             >
               Checkbox
@@ -3920,7 +3937,7 @@ exports[`form demo > renders disabled correctly 1`] = `
             class="ant-col ant-col-4 css-var-root ant-form-item-label"
           >
             <label
-              class=""
+              for="radio"
               title="Radio"
             >
               Radio
@@ -4015,7 +4032,7 @@ exports[`form demo > renders disabled correctly 1`] = `
             class="ant-col ant-col-4 css-var-root ant-form-item-label"
           >
             <label
-              class=""
+              for="input"
               title="Input"
             >
               Input
@@ -4073,7 +4090,7 @@ exports[`form demo > renders disabled correctly 1`] = `
             class="ant-col ant-col-4 css-var-root ant-form-item-label"
           >
             <label
-              class=""
+              for="select"
               title="Select"
             >
               Select
@@ -4182,7 +4199,7 @@ exports[`form demo > renders disabled correctly 1`] = `
             class="ant-col ant-col-4 css-var-root ant-form-item-label"
           >
             <label
-              class=""
+              for="switch"
               title="Switch"
             >
               Switch
@@ -4262,7 +4279,6 @@ exports[`form demo > renders disabled correctly 1`] = `
             class="ant-col ant-col-4 css-var-root ant-form-item-label"
           >
             <label
-              class=""
               title="Button"
             >
               Button
@@ -4342,7 +4358,7 @@ exports[`form demo > renders disabled-input-debug correctly 1`] = `
         class="ant-col ant-col-6 css-var-root ant-form-item-label"
       >
         <label
-          class=""
+          for="username"
           title="Username"
         >
           Username
@@ -4400,7 +4416,7 @@ exports[`form demo > renders disabled-input-debug correctly 1`] = `
         class="ant-col ant-col-6 css-var-root ant-form-item-label"
       >
         <label
-          class=""
+          for="level"
           title="Level"
         >
           Level
@@ -4505,7 +4521,7 @@ exports[`form demo > renders disabled-input-debug correctly 1`] = `
         class="ant-col ant-col-6 css-var-root ant-form-item-label"
       >
         <label
-          class=""
+          for="count"
           title="Count"
         >
           Count
@@ -4576,7 +4592,6 @@ exports[`form demo > renders disabled-input-debug correctly 1`] = `
         class="ant-col ant-col-6 css-var-root ant-form-item-label"
       >
         <label
-          class=""
           title="Button"
         >
           Button
@@ -4656,6 +4671,7 @@ exports[`form demo > renders dynamic-form-item correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="dynamic_form_item_names_0"
           title="Passengers"
         >
           Passengers
@@ -5246,7 +5262,7 @@ exports[`form demo > renders dynamic-form-items-complex correctly 1`] = `
               class="ant-col ant-col-6 css-var-root ant-form-item-label"
             >
               <label
-                class=""
+                for="dynamic_form_complex_items_0_name"
                 title="Name"
               >
                 Name
@@ -5303,7 +5319,6 @@ exports[`form demo > renders dynamic-form-items-complex correctly 1`] = `
               class="ant-col ant-col-6 css-var-root ant-form-item-label"
             >
               <label
-                class=""
                 title="List"
               >
                 List
@@ -5479,7 +5494,6 @@ exports[`form demo > renders dynamic-form-items-no-style correctly 1`] = `
         class="ant-col css-var-root ant-form-item-label"
       >
         <label
-          class=""
           title="Names"
         >
           Names
@@ -5685,6 +5699,7 @@ exports[`form demo > renders dynamic-rule correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="dynamic_rule_username"
           title="Name"
         >
           Name
@@ -5742,7 +5757,7 @@ exports[`form demo > renders dynamic-rule correctly 1`] = `
         class="ant-col ant-col-4 css-var-root ant-form-item-label"
       >
         <label
-          class=""
+          for="dynamic_rule_nickname"
           title="Nickname"
         >
           Nickname
@@ -5932,6 +5947,7 @@ exports[`form demo > renders form-context correctly 1`] = `
         >
           <label
             class="ant-form-item-required"
+            for="basicForm_group"
             title="Group Name"
           >
             Group Name
@@ -5988,7 +6004,6 @@ exports[`form demo > renders form-context correctly 1`] = `
           class="ant-col ant-col-8 css-var-root ant-form-item-label"
         >
           <label
-            class=""
             title="User List"
           >
             User List
@@ -6211,6 +6226,7 @@ exports[`form demo > renders form-dependencies correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="dependencies_password"
           title="Password"
         >
           Password
@@ -6268,6 +6284,7 @@ exports[`form demo > renders form-dependencies correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="dependencies_password2"
           title="Confirm Password"
         >
           Confirm Password
@@ -6391,6 +6408,7 @@ exports[`form demo > renders form-item-path correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="user_name"
           title="User Name"
         >
           User Name
@@ -6447,7 +6465,7 @@ exports[`form demo > renders form-item-path correctly 1`] = `
         class="ant-col css-var-root ant-form-item-label"
       >
         <label
-          class=""
+          for="user_contact_email"
           title="Email"
         >
           Email
@@ -6504,7 +6522,6 @@ exports[`form demo > renders form-item-path correctly 1`] = `
         class="ant-col css-var-root ant-form-item-label"
       >
         <label
-          class=""
           title="Address"
         >
           Address
@@ -6537,6 +6554,7 @@ exports[`form demo > renders form-item-path correctly 1`] = `
                     >
                       <label
                         class="ant-form-item-required"
+                        for="addresses_0_city"
                         title="City"
                       >
                         City
@@ -6598,7 +6616,7 @@ exports[`form demo > renders form-item-path correctly 1`] = `
                       class="ant-col css-var-root ant-form-item-label"
                     >
                       <label
-                        class=""
+                        for="addresses_0_street"
                         title="Street"
                       >
                         Street
@@ -6695,6 +6713,7 @@ exports[`form demo > renders getValueProps-normalize correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="getValueProps_date"
           title="Date"
         >
           Date
@@ -6885,6 +6904,7 @@ exports[`form demo > renders global-state correctly 1`] = `
         >
           <label
             class="ant-form-item-required"
+            for="global_state_username"
             title="Username"
           >
             Username
@@ -7188,7 +7208,7 @@ exports[`form demo > renders label-debug correctly 1`] = `
         class="ant-col ant-col-8 css-var-root ant-form-item-label"
       >
         <label
-          class=""
+          for="label-ellipsis_username"
           title=""
         >
           <span
@@ -7256,7 +7276,7 @@ exports[`form demo > renders label-debug correctly 1`] = `
         class="ant-col ant-col-8 css-var-root ant-form-item-label"
       >
         <label
-          class=""
+          for="label-ellipsis_password"
           title=""
         >
           <span
@@ -7367,7 +7387,7 @@ exports[`form demo > renders layout correctly 1`] = `
         class="ant-col css-var-root ant-form-item-label"
       >
         <label
-          class=""
+          for="layout"
           title="Form Layout"
         >
           Form Layout
@@ -7478,7 +7498,7 @@ exports[`form demo > renders layout correctly 1`] = `
         class="ant-col css-var-root ant-form-item-label"
       >
         <label
-          class=""
+          for="fieldA"
           title="Field A"
         >
           Field A
@@ -7536,7 +7556,7 @@ exports[`form demo > renders layout correctly 1`] = `
         class="ant-col css-var-root ant-form-item-label"
       >
         <label
-          class=""
+          for="fieldB"
           title="Field B"
         >
           Field B
@@ -7665,6 +7685,7 @@ exports[`form demo > renders layout-can-wrap correctly 1`] = `
       >
         <label
           class="ant-form-item-required ant-form-item-no-colon"
+          for="wrap_username"
           title="Normal label"
         >
           Normal label
@@ -7724,6 +7745,7 @@ exports[`form demo > renders layout-can-wrap correctly 1`] = `
       >
         <label
           class="ant-form-item-required ant-form-item-no-colon"
+          for="wrap_password"
           title="A super long label text"
         >
           A super long label text
@@ -7783,6 +7805,7 @@ exports[`form demo > renders layout-can-wrap correctly 1`] = `
       >
         <label
           class="ant-form-item-no-colon"
+          for="wrap_password1"
           title="A super long label text"
         >
           A super long label text
@@ -7922,6 +7945,7 @@ exports[`form demo > renders layout-multiple correctly 1`] = `
         >
           <label
             class="ant-form-item-required"
+            for="layout-multiple-horizontal_horizontal"
             title="horizontal"
           >
             horizontal
@@ -7979,6 +8003,7 @@ exports[`form demo > renders layout-multiple correctly 1`] = `
         >
           <label
             class="ant-form-item-required"
+            for="layout-multiple-horizontal_vertical"
             title="vertical"
           >
             vertical
@@ -8036,6 +8061,7 @@ exports[`form demo > renders layout-multiple correctly 1`] = `
         >
           <label
             class="ant-form-item-required"
+            for="layout-multiple-horizontal_vertical2"
             title="vertical2"
           >
             vertical2
@@ -8105,6 +8131,7 @@ exports[`form demo > renders layout-multiple correctly 1`] = `
         >
           <label
             class="ant-form-item-required"
+            for="layout-multiple-vertical_vertical"
             title="vertical"
           >
             vertical
@@ -8162,6 +8189,7 @@ exports[`form demo > renders layout-multiple correctly 1`] = `
         >
           <label
             class="ant-form-item-required"
+            for="layout-multiple-vertical_vertical2"
             title="vertical2"
           >
             vertical2
@@ -8219,6 +8247,7 @@ exports[`form demo > renders layout-multiple correctly 1`] = `
         >
           <label
             class="ant-form-item-required"
+            for="layout-multiple-vertical_horizontal"
             title="horizontal"
           >
             horizontal
@@ -8586,6 +8615,7 @@ exports[`form demo > renders nest-messages correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="nest-messages_user_name"
           title="Name"
         >
           Name
@@ -8642,7 +8672,7 @@ exports[`form demo > renders nest-messages correctly 1`] = `
         class="ant-col ant-col-8 css-var-root ant-form-item-label"
       >
         <label
-          class=""
+          for="nest-messages_user_email"
           title="Email"
         >
           Email
@@ -8699,7 +8729,7 @@ exports[`form demo > renders nest-messages correctly 1`] = `
         class="ant-col ant-col-8 css-var-root ant-form-item-label"
       >
         <label
-          class=""
+          for="nest-messages_user_age"
           title="Age"
         >
           Age
@@ -8825,7 +8855,7 @@ exports[`form demo > renders nest-messages correctly 1`] = `
         class="ant-col ant-col-8 css-var-root ant-form-item-label"
       >
         <label
-          class=""
+          for="nest-messages_user_website"
           title="Website"
         >
           Website
@@ -8882,7 +8912,7 @@ exports[`form demo > renders nest-messages correctly 1`] = `
         class="ant-col ant-col-8 css-var-root ant-form-item-label"
       >
         <label
-          class=""
+          for="nest-messages_user_introduction"
           title="Introduction"
         >
           Introduction
@@ -9005,7 +9035,7 @@ exports[`form demo > renders ref-item correctly 1`] = `
         class="ant-col css-var-root ant-form-item-label"
       >
         <label
-          class=""
+          for="test"
           title="test"
         >
           test
@@ -9169,6 +9199,7 @@ exports[`form demo > renders register correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="register_email"
           title="E-mail"
         >
           E-mail
@@ -9226,6 +9257,7 @@ exports[`form demo > renders register correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="register_password"
           title="Password"
         >
           Password
@@ -9318,6 +9350,7 @@ exports[`form demo > renders register correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="register_confirm"
           title="Confirm Password"
         >
           Confirm Password
@@ -9410,6 +9443,7 @@ exports[`form demo > renders register correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="register_nickname"
           title="Nickname"
         >
           Nickname
@@ -9495,6 +9529,7 @@ exports[`form demo > renders register correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="register_residence"
           title="Habitual Residence"
         >
           Habitual Residence
@@ -9622,6 +9657,7 @@ exports[`form demo > renders register correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="register_phone"
           title="Phone Number"
         >
           Phone Number
@@ -9747,6 +9783,7 @@ exports[`form demo > renders register correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="register_website"
           title="Website"
         >
           Website
@@ -9831,6 +9868,7 @@ exports[`form demo > renders register correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="register_age"
           title="Age"
         >
           Age
@@ -10090,6 +10128,7 @@ exports[`form demo > renders required-mark correctly 1`] = `
       >
         <label
           class="ant-form-item-required-mark-optional"
+          for="requiredMarkValue"
           title="Required Mark"
         >
           Required Mark
@@ -10446,7 +10485,7 @@ exports[`form demo > renders size correctly 1`] = `
         class="ant-col ant-col-4 css-var-root ant-form-item-label"
       >
         <label
-          class=""
+          for="size"
           title="Form Size"
         >
           Form Size
@@ -10557,7 +10596,7 @@ exports[`form demo > renders size correctly 1`] = `
         class="ant-col ant-col-4 css-var-root ant-form-item-label"
       >
         <label
-          class=""
+          for="input"
           title="Input"
         >
           Input
@@ -10614,7 +10653,7 @@ exports[`form demo > renders size correctly 1`] = `
         class="ant-col ant-col-4 css-var-root ant-form-item-label"
       >
         <label
-          class=""
+          for="select"
           title="Select"
         >
           Select
@@ -10722,7 +10761,7 @@ exports[`form demo > renders size correctly 1`] = `
         class="ant-col ant-col-4 css-var-root ant-form-item-label"
       >
         <label
-          class=""
+          for="number"
           title="InputNumber"
         >
           InputNumber
@@ -10848,7 +10887,7 @@ exports[`form demo > renders size correctly 1`] = `
         class="ant-col ant-col-4 css-var-root ant-form-item-label"
       >
         <label
-          class=""
+          for="switch"
           title="Switch"
         >
           Switch
@@ -10927,7 +10966,6 @@ exports[`form demo > renders size correctly 1`] = `
         class="ant-col ant-col-4 css-var-root ant-form-item-label"
       >
         <label
-          class=""
           title="Button"
         >
           Button
@@ -11006,6 +11044,7 @@ exports[`form demo > renders style-class correctly 1`] = `
       >
         <label
           class="form-demo-label ant-form-item-required"
+          for="name"
           title="Name"
         >
           Name
@@ -11065,6 +11104,7 @@ exports[`form demo > renders style-class correctly 1`] = `
       >
         <label
           class="form-demo-label"
+          for="email"
           title="Email"
         >
           Email
@@ -11194,6 +11234,7 @@ exports[`form demo > renders time-related-controls correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="time_related_controls_datePicker"
           title="DatePicker"
         >
           DatePicker
@@ -11289,6 +11330,7 @@ exports[`form demo > renders time-related-controls correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="time_related_controls_dateTimePicker"
           title="DatePicker[showTime]"
         >
           DatePicker[showTime]
@@ -11384,6 +11426,7 @@ exports[`form demo > renders time-related-controls correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="time_related_controls_monthPicker"
           title="MonthPicker"
         >
           MonthPicker
@@ -11479,6 +11522,7 @@ exports[`form demo > renders time-related-controls correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="time_related_controls_rangePicker"
           title="RangePicker"
         >
           RangePicker
@@ -11623,6 +11667,7 @@ exports[`form demo > renders time-related-controls correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="time_related_controls_rangeTimePicker"
           title="RangePicker[showTime]"
         >
           RangePicker[showTime]
@@ -11767,6 +11812,7 @@ exports[`form demo > renders time-related-controls correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="time_related_controls_timePicker"
           title="TimePicker"
         >
           TimePicker
@@ -11931,7 +11977,7 @@ exports[`form demo > renders useWatch correctly 1`] = `
         class="ant-col css-var-root ant-form-item-label"
       >
         <label
-          class=""
+          for="username"
           title="Username"
         >
           Username
@@ -11988,7 +12034,7 @@ exports[`form demo > renders useWatch correctly 1`] = `
         class="ant-col css-var-root ant-form-item-label"
       >
         <label
-          class=""
+          for="age"
           title="Age"
         >
           Age
@@ -12115,7 +12161,6 @@ exports[`form demo > renders useWatch correctly 1`] = `
         class="ant-col css-var-root ant-form-item-label"
       >
         <label
-          class=""
           title="Watched Values"
         >
           Watched Values
@@ -12183,6 +12228,7 @@ exports[`form demo > renders validate-only correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="username"
           title="Username"
         >
           Username
@@ -12241,6 +12287,7 @@ exports[`form demo > renders validate-only correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="password"
           title="Password"
         >
           Password
@@ -12433,7 +12480,6 @@ exports[`form demo > renders validate-other correctly 1`] = `
         class="ant-col ant-col-6 css-var-root ant-form-item-label"
       >
         <label
-          class=""
           title="Plain Text"
         >
           Plain Text
@@ -12490,6 +12536,7 @@ exports[`form demo > renders validate-other correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="validate_other_select"
           title="Select"
         >
           Select
@@ -12598,6 +12645,7 @@ exports[`form demo > renders validate-other correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="validate_other_selectMultiple"
           title="Select[multiple]"
         >
           Select[multiple]
@@ -12716,7 +12764,6 @@ exports[`form demo > renders validate-other correctly 1`] = `
         class="ant-col ant-col-6 css-var-root ant-form-item-label"
       >
         <label
-          class=""
           title="InputNumber"
         >
           InputNumber
@@ -12850,7 +12897,7 @@ exports[`form demo > renders validate-other correctly 1`] = `
         class="ant-col ant-col-6 css-var-root ant-form-item-label"
       >
         <label
-          class=""
+          for="validate_other_switch"
           title="Switch"
         >
           Switch
@@ -12929,7 +12976,7 @@ exports[`form demo > renders validate-other correctly 1`] = `
         class="ant-col ant-col-6 css-var-root ant-form-item-label"
       >
         <label
-          class=""
+          for="validate_other_slider"
           title="Slider"
         >
           Slider
@@ -13075,7 +13122,7 @@ exports[`form demo > renders validate-other correctly 1`] = `
         class="ant-col ant-col-6 css-var-root ant-form-item-label"
       >
         <label
-          class=""
+          for="validate_other_radioGroup"
           title="Radio.Group"
         >
           Radio.Group
@@ -13187,6 +13234,7 @@ exports[`form demo > renders validate-other correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="validate_other_radioButton"
           title="Radio.Button"
         >
           Radio.Button
@@ -13297,7 +13345,7 @@ exports[`form demo > renders validate-other correctly 1`] = `
         class="ant-col ant-col-6 css-var-root ant-form-item-label"
       >
         <label
-          class=""
+          for="validate_other_checkboxGroup"
           title="Checkbox.Group"
         >
           Checkbox.Group
@@ -13459,7 +13507,7 @@ exports[`form demo > renders validate-other correctly 1`] = `
         class="ant-col ant-col-6 css-var-root ant-form-item-label"
       >
         <label
-          class=""
+          for="validate_other_rate"
           title="Rate"
         >
           Rate
@@ -13933,6 +13981,7 @@ exports[`form demo > renders validate-scroll-to-field correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="username"
           title="Username"
         >
           Username
@@ -13989,7 +14038,7 @@ exports[`form demo > renders validate-scroll-to-field correctly 1`] = `
         class="ant-col ant-col-6 css-var-root ant-form-item-label"
       >
         <label
-          class=""
+          for="occupation"
           title="Occupation"
         >
           Occupation
@@ -14097,7 +14146,7 @@ exports[`form demo > renders validate-scroll-to-field correctly 1`] = `
         class="ant-col ant-col-6 css-var-root ant-form-item-label"
       >
         <label
-          class=""
+          for="motto"
           title="Motto"
         >
           Motto
@@ -14155,6 +14204,7 @@ exports[`form demo > renders validate-scroll-to-field correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="bio"
           title="Bio"
         >
           Bio
@@ -14299,7 +14349,6 @@ exports[`form demo > renders validate-static correctly 1`] = `
         class="ant-col ant-col-xs-24 ant-col-sm-6 css-var-root ant-form-item-label"
       >
         <label
-          class=""
           title="Fail"
         >
           Fail
@@ -14378,7 +14427,6 @@ exports[`form demo > renders validate-static correctly 1`] = `
         class="ant-col ant-col-xs-24 ant-col-sm-6 css-var-root ant-form-item-label"
       >
         <label
-          class=""
           title="Warning"
         >
           Warning
@@ -14463,7 +14511,6 @@ exports[`form demo > renders validate-static correctly 1`] = `
         class="ant-col ant-col-xs-24 ant-col-sm-6 css-var-root ant-form-item-label"
       >
         <label
-          class=""
           title="Validating"
         >
           Validating
@@ -14577,7 +14624,6 @@ exports[`form demo > renders validate-static correctly 1`] = `
         class="ant-col ant-col-xs-24 ant-col-sm-6 css-var-root ant-form-item-label"
       >
         <label
-          class=""
           title="Success"
         >
           Success
@@ -14669,7 +14715,6 @@ exports[`form demo > renders validate-static correctly 1`] = `
         class="ant-col ant-col-xs-24 ant-col-sm-6 css-var-root ant-form-item-label"
       >
         <label
-          class=""
           title="Error"
         >
           Error
@@ -14786,7 +14831,6 @@ exports[`form demo > renders validate-static correctly 1`] = `
         class="ant-col ant-col-xs-24 ant-col-sm-6 css-var-root ant-form-item-label"
       >
         <label
-          class=""
           title="Warning"
         >
           Warning
@@ -14916,7 +14960,6 @@ exports[`form demo > renders validate-static correctly 1`] = `
         class="ant-col ant-col-xs-24 ant-col-sm-6 css-var-root ant-form-item-label"
       >
         <label
-          class=""
           title="Success"
         >
           Success
@@ -15068,7 +15111,6 @@ exports[`form demo > renders validate-static correctly 1`] = `
         class="ant-col ant-col-xs-24 ant-col-sm-6 css-var-root ant-form-item-label"
       >
         <label
-          class=""
           title="Fail"
         >
           Fail
@@ -15201,6 +15243,7 @@ exports[`form demo > renders validate-trigger correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="blurInput"
           title="Validate on Blur"
         >
           Validate on Blur
@@ -15259,6 +15302,7 @@ exports[`form demo > renders validate-trigger correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="changeInput"
           title="Validate on Change"
         >
           Validate on Change
@@ -15324,7 +15368,7 @@ exports[`form demo > renders variant correctly 1`] = `
         class="ant-col css-var-root ant-form-item-label"
       >
         <label
-          class=""
+          for="variant"
           title="Variant"
         >
           Variant
@@ -15454,6 +15498,7 @@ exports[`form demo > renders variant correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="username"
           title="Username"
         >
           Username
@@ -15512,6 +15557,7 @@ exports[`form demo > renders variant correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="password"
           title="Password"
         >
           Password
@@ -15612,6 +15658,7 @@ exports[`form demo > renders warning-only correctly 1`] = `
       >
         <label
           class="ant-form-item-required"
+          for="url"
           title="URL"
         >
           URL
@@ -15767,7 +15814,6 @@ exports[`form demo > renders without-form-create correctly 1`] = `
         class="ant-col ant-col-7 css-var-root ant-form-item-label"
       >
         <label
-          class=""
           title="Prime between 8 & 12"
         >
           Prime between 8 & 12

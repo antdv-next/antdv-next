@@ -2185,12 +2185,7 @@ exports[`cascader demo > renders panel correctly 1`] = `
     >
       <ul
         class="ant-cascader-menu"
-        direction="ltr"
-        lockoptions="false"
-        open="true"
         role="menu"
-        searchvalue=""
-        toggleopen="function noop() {}"
       >
         <li
           aria-checked="false"
@@ -2279,12 +2274,7 @@ exports[`cascader demo > renders panel correctly 1`] = `
     >
       <ul
         class="ant-cascader-menu"
-        direction="ltr"
-        lockoptions="false"
-        open="true"
         role="menu"
-        searchvalue=""
-        toggleopen="function noop() {}"
       >
         <li
           aria-checked="false"

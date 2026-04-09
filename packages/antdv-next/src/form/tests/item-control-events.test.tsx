@@ -22,6 +22,36 @@ describe('form item control events', () => {
     wrapper.unmount()
   })
 
+  it('links generated field id to label for when form item has a name', () => {
+    const wrapper = mount(() => (
+      <Form name="profile" model={{ username: '' }}>
+        <FormItem name="username" label="Username">
+          <input />
+        </FormItem>
+      </Form>
+    ))
+
+    expect(wrapper.find('input#profile_username').exists()).toBe(true)
+    expect(wrapper.find('.ant-form-item-label > label').attributes('for')).toBe('profile_username')
+
+    wrapper.unmount()
+  })
+
+  it('prefers explicit htmlFor over generated field id', () => {
+    const wrapper = mount(() => (
+      <Form name="profile" model={{ username: '' }}>
+        <FormItem name="username" label="Username" htmlFor="custom-control-id">
+          <input />
+        </FormItem>
+      </Form>
+    ))
+
+    expect(wrapper.find('input#profile_username').exists()).toBe(true)
+    expect(wrapper.find('.ant-form-item-label > label').attributes('for')).toBe('custom-control-id')
+
+    wrapper.unmount()
+  })
+
   it('supports array-based onBlur/onFocus listeners from child vnode', async () => {
     const blurA = vi.fn()
     const blurB = vi.fn()
