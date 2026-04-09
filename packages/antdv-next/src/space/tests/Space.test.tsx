@@ -1,7 +1,8 @@
 import { describe, expect, it } from 'vitest'
 import { h, nextTick, ref } from 'vue'
-import Space from '..'
+import Space, { SpaceAddon, SpaceCompact } from '..'
 import ConfigProvider from '../../config-provider'
+import Input from '../../input'
 import mountTest from '/@tests/shared/mountTest'
 import rtlTest from '/@tests/shared/rtlTest'
 import { mount } from '/@tests/utils'
@@ -365,5 +366,20 @@ describe('space', () => {
       </Space>
     ))
     expect(wrapper.element).toMatchSnapshot()
+  })
+
+  it('should prevent wrapping in addon content', () => {
+    const wrapper = mount(() => (
+      <Space>
+        <SpaceCompact>
+          <SpaceAddon>中文</SpaceAddon>
+          <Input placeholder="input here" />
+        </SpaceCompact>
+      </Space>
+    ))
+    const element = wrapper.find('.ant-space-addon').element
+    const styles = window.getComputedStyle(element)
+    const whiteSpace = styles.getPropertyValue('white-space')
+    expect(whiteSpace).toBe('nowrap')
   })
 })
