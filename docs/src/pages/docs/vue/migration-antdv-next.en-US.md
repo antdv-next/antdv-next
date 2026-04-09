@@ -222,6 +222,10 @@ yarn add @antdv-next/icons
     - `direction` deprecated, changed to `orientation`.
     - `split` deprecated, changed to `separator`.
 
+- `Spin`
+    - `tip` deprecated, changed to `description`.
+    - `wrapperClassName` deprecated, changed to `classes.root`.
+
 - `Splitter`
     - `layout` deprecated, changed to `orientation`.
 

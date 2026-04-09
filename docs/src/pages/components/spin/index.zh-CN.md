@@ -38,7 +38,8 @@ demo:
 | --- | --- | --- | --- | --- |
 | spinning | 是否为加载中状态 | boolean | true | - |
 | size | 组件大小，可选值为 `small` `default` `large` | SpinSize | `default` | - |
-| tip | 当作为包裹元素时，可以自定义描述文案 | VueNode | - | - |
+| ~~tip~~ | `已弃用，请使用description`当作为包裹元素时，可以自定义描述文案 | VueNode | - | - |
+| description | 可以自定义描述文案 | VueNode | - | - |
 | delay | 延迟显示加载效果的时间（防止闪烁） | number | - | - |
 | wrapperClassName | 包装器的类属性 | string | - | - |
 | indicator | 加载指示符 | VueNode | - | - |
@@ -54,7 +55,8 @@ demo:
 | --- | --- | --- | --- |
 | default | 包裹内容 | () =&gt; any | - |
 | indicator | 加载指示符 | () =&gt; any | - |
-| tip | 当作为包裹元素时，可以自定义描述文案 | () =&gt; any | - |
+| ~~tip~~ | `已弃用，请使用description`当作为包裹元素时，可以自定义描述文案 | () =&gt; any | - |
+| description | 可以自定义描述文案 | () =&gt; any | - |
 
 ### 静态方法 {#static-methods}
 
