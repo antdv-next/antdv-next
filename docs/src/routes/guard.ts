@@ -1,6 +1,7 @@
 import type { Router } from 'vue-router'
 import { applyRouteSeo } from '@/composables/seo.ts'
 import { useAppStore } from '@/stores/app.ts'
+import { toCnPathname, toEnPathname } from '@/utils/locale-path'
 
 export function setupRouterGuard(router: Router) {
   router.beforeEach(
@@ -12,13 +13,7 @@ export function setupRouterGuard(router: Router) {
       }
       const locale = appStore.locale
       if (locale === 'zh-CN' && !to.path.endsWith('-cn')) {
-        let path = to.path
-        if (path === '/' || path === '') {
-          path = '/index-cn'
-        }
-        else {
-          path = `${path}-cn`
-        }
+        const path = toCnPathname(to.path)
         return {
           ...to,
           replace: true,
@@ -26,13 +21,7 @@ export function setupRouterGuard(router: Router) {
         }
       }
       else if (locale === 'en-US' && to.path.endsWith('-cn')) {
-        let path = to.path
-        if (path === '/index-cn') {
-          path = '/'
-        }
-        else {
-          path = path.slice(0, path.length - 3)
-        }
+        const path = toEnPathname(to.path)
         return {
           ...to,
           replace: true,

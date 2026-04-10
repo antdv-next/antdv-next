@@ -32,7 +32,7 @@ const treeData: TreeDataNode[] = [
         ],
       },
       {
-        title: 'parent 1-1',
+        title: 'This is also a very very very very very long title',
         key: '0-0-1',
         children: [{ key: '0-0-1-0' }],
       },

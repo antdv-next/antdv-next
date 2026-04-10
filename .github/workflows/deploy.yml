@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  deploy:
+  build:
     # Test 绿 + main 分支才部署
     if: >
       ${{
@@ -45,6 +45,27 @@ jobs:
           pnpm build
           rm -rf dist
           cp -r docs/dist dist
+
+      - name: Upload site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-dist
+          path: dist
+
+  deploy:
+    needs: build
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download site artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: site-dist
+          path: dist
+
+      - name: Inspect downloaded site artifact
+        run: ls -R dist
 
       - name: Scp dir to server
         uses: appleboy/scp-action@v1
@@ -84,3 +105,57 @@ jobs:
 
       - name: Deployment completed
         run: echo "Deployment to server completed successfully."
+
+  deploy-cn:
+    needs: build
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download site artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: site-dist
+          path: dist
+
+      - name: Inspect downloaded site artifact
+        run: ls -R dist
+
+      - name: Scp dir to CN server
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ secrets.DEPLOY_HOST_CN }}
+          username: ${{ secrets.DEPLOY_USERNAME_CN }}
+          password: ${{ secrets.DEPLOY_PASSWORD_CN }}
+          port: ${{ secrets.DEPLOY_PORT_CN }}
+          source: dist
+          target: ${{ secrets.DEPLOY_TARGET_PATH_CN }}
+
+      - name: ssh command on CN server
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.DEPLOY_HOST_CN }}
+          username: ${{ secrets.DEPLOY_USERNAME_CN }}
+          password: ${{ secrets.DEPLOY_PASSWORD_CN }}
+          port: ${{ secrets.DEPLOY_PORT_CN }}
+          script: |
+            set -e
+            TARGET="${{ secrets.DEPLOY_TARGET_PATH_CN }}"
+
+            mkdir -p "$TARGET/index" "$TARGET/index.bak"
+
+            if [ "$(ls -A "$TARGET/index" 2>/dev/null)" ]; then
+              rm -rf "$TARGET/index.bak"/*
+              mv "$TARGET/index"/* "$TARGET/index.bak"/
+            fi
+
+            if [ ! -d "$TARGET/dist" ] || [ -z "$(ls -A "$TARGET/dist" 2>/dev/null)" ]; then
+              echo "No dist files uploaded; abort."
+              exit 1
+            fi
+
+            rm -rf "$TARGET/index"/*
+            mv "$TARGET/dist"/* "$TARGET/index"/
+
+      - name: Deployment completed on CN server
+        run: echo "Deployment to CN server completed successfully."

@@ -5,6 +5,7 @@ import { defineAsyncComponent } from 'vue'
 import { useRouter } from 'vue-router'
 import { useMobile } from '@/composables/mobile'
 import { useLocale } from '@/composables/use-locale'
+import Footer from '@/layouts/base/components/footer.vue'
 import { useAppStore } from '@/stores/app'
 
 const { isMobile } = useMobile()
@@ -85,6 +86,8 @@ const { t } = useLocale()
         </template>
       </Suspense>
     </div>
+
+    <Footer />
   </div>
 </template>
 

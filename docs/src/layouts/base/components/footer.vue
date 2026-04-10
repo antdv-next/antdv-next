@@ -4,6 +4,7 @@ import { theme } from 'antdv-next'
 import getAlphaColor from 'antdv-next/theme/util/getAlphaColor'
 import { computed } from 'vue'
 import { useLocale } from '@/composables/use-locale'
+import { shouldShowBeian } from '@/utils/beian'
 
 const { t } = useLocale()
 const { token } = theme.useToken()
@@ -11,6 +12,14 @@ const background = computed(() => new FastColor(getAlphaColor('#f0f3fa', '#fff')
   .onBackground(token.value.colorBgContainer)
   .toHexString(),
 )
+const beianUrl = 'https://beian.miit.gov.cn/'
+const showBeian = computed(() => {
+  if (typeof window === 'undefined') {
+    return false
+  }
+
+  return shouldShowBeian(window.location.hostname)
+})
 const details = {
   Github: [
     { name: 'Ant Design of React', url: 'https://ant.design/docs/react/introduce-cn' },
@@ -53,6 +62,15 @@ const details = {
         <div style="color: var(--ant-color-text-secondary);">
           {{ t('layout.footer.teamName') }}
         </div>
+        <a
+          v-if="showBeian"
+          class="footer-bottom-beian"
+          :href="beianUrl"
+          target="_blank"
+          rel="noreferrer"
+        >
+          鲁ICP备2023021414号-3
+        </a>
       </div>
     </div>
   </footer>
@@ -133,6 +151,17 @@ const details = {
       line-height: 32px;
       text-align: center;
       border-top: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .footer-bottom-beian {
+      display: inline-block;
+      color: var(--ant-color-text-secondary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: var(--ant-color-text);
+      }
     }
   }
 }
