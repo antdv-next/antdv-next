@@ -428,12 +428,7 @@ const InternalUpload = defineComponent<
           listType={listType.value}
           items={mergedFileList.value}
           previewFile={props.previewFile}
-          onPreview={(file: UploadFile) => {
-            if (props?.onPreview) {
-              // emit('preview', file)
-              props?.onPreview?.(file)
-            }
-          }}
+          onPreview={props.onPreview}
           onDownload={(file: UploadFile) => {
             if (props.onDownload) {
               props?.onDownload?.(file)

@@ -368,6 +368,49 @@ describe('upload List', () => {
     expect(handlePreview).toHaveBeenCalledWith(expect.objectContaining({ uid: fileList![1]!.uid }))
   })
 
+  it('should not prevent default thumbnail navigation when onPreview is not provided', () => {
+    const wrapper = mount({
+      render: () => (
+        <Upload
+          listType="picture-card"
+          defaultFileList={fileList}
+        >
+          <button type="button">upload</button>
+        </Upload>
+      ),
+    })
+
+    const link = wrapper.find('.ant-upload-list-item-thumbnail').element as HTMLAnchorElement
+    const event = new MouseEvent('click', { bubbles: true, cancelable: true })
+
+    link.dispatchEvent(event)
+
+    expect(event.defaultPrevented).toBe(false)
+  })
+
+  it('should prevent default thumbnail navigation when onPreview is provided', () => {
+    const handlePreview = vi.fn()
+    const wrapper = mount({
+      render: () => (
+        <Upload
+          listType="picture-card"
+          defaultFileList={fileList}
+          onPreview={handlePreview}
+        >
+          <button type="button">upload</button>
+        </Upload>
+      ),
+    })
+
+    const link = wrapper.find('.ant-upload-list-item-thumbnail').element as HTMLAnchorElement
+    const event = new MouseEvent('click', { bubbles: true, cancelable: true })
+
+    link.dispatchEvent(event)
+
+    expect(event.defaultPrevented).toBe(true)
+    expect(handlePreview).toHaveBeenCalledWith(expect.objectContaining({ uid: fileList![0]!.uid }))
+  })
+
   it('should support onRemove', async () => {
     const handleRemove = vi.fn()
     const handleChange = vi.fn()
