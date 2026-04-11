@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { CategoriesKeys } from './field'
-import { message } from 'antdv-next'
+import { App } from 'antdv-next'
 import { computed, onBeforeUnmount, ref } from 'vue'
 import { useLocale } from '@/composables/use-locale'
 import CopyableIcon from './CopyableIcon.vue'
@@ -14,6 +14,7 @@ const props = defineProps<{
   newIcons: string[]
 }>()
 
+const { message } = App.useApp()
 const { t } = useLocale()
 const justCopied = ref<string | null>(null)
 const copyId = ref<ReturnType<typeof setTimeout> | null>(null)
