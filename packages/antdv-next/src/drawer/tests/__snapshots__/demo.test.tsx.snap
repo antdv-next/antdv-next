@@ -1990,7 +1990,79 @@ exports[`drawer demo > renders render-in-current correctly 1`] = `
       <!---->
     </button>
   </div>
-  <!---->
+  <div
+    class="ant-drawer ant-drawer-right css-var-root ant-drawer-inline"
+    tabindex="-1"
+  >
+    <transition-stub
+      appear="true"
+      css="true"
+      enteractiveclass="ant-drawer-mask-motion ant-drawer-mask-motion-enter ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-prepare ant-drawer-mask-motion-enter-prepare "
+      enterfromclass="ant-drawer-mask-motion ant-drawer-mask-motion-enter ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-prepare ant-drawer-mask-motion-enter-prepare ant-drawer-mask-motion-enter-start"
+      entertoclass="ant-drawer-mask-motion ant-drawer-mask-motion-enter ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-active ant-drawer-mask-motion-enter-active"
+      leaveactiveclass="ant-drawer-mask-motion ant-drawer-mask-motion-leave ant-drawer-mask-motion-leave-active"
+      leavefromclass="ant-drawer-mask-motion ant-drawer-mask-motion-leave"
+      leavetoclass="ant-drawer-mask-motion ant-drawer-mask-motion-leave ant-drawer-mask-motion-leave-active"
+      name="ant-drawer-mask-motion"
+      persisted="false"
+    >
+      <div
+        class="ant-drawer-mask"
+        style="display: none;"
+      />
+    </transition-stub>
+    <transition-stub
+      appear="true"
+      css="true"
+      enteractiveclass="ant-drawer-panel-motion-right ant-drawer-panel-motion-right-enter ant-drawer-panel-motion-right-appear ant-drawer-panel-motion-right-appear-prepare ant-drawer-panel-motion-right-enter-prepare "
+      enterfromclass="ant-drawer-panel-motion-right ant-drawer-panel-motion-right-enter ant-drawer-panel-motion-right-appear ant-drawer-panel-motion-right-appear-prepare ant-drawer-panel-motion-right-enter-prepare ant-drawer-panel-motion-right-enter-start"
+      entertoclass="ant-drawer-panel-motion-right ant-drawer-panel-motion-right-enter ant-drawer-panel-motion-right-appear ant-drawer-panel-motion-right-appear-active ant-drawer-panel-motion-right-enter-active"
+      leaveactiveclass="ant-drawer-panel-motion-right ant-drawer-panel-motion-right-leave ant-drawer-panel-motion-right-leave-active"
+      leavefromclass="ant-drawer-panel-motion-right ant-drawer-panel-motion-right-leave"
+      leavetoclass="ant-drawer-panel-motion-right ant-drawer-panel-motion-right-leave ant-drawer-panel-motion-right-leave-active"
+      name="ant-drawer-panel-motion-right"
+      persisted="false"
+    >
+      <div
+        class="ant-drawer-content-wrapper"
+        style="width: 378px; display: none;"
+      >
+        <!---->
+        <div
+          aria-labelledby="v-0"
+          aria-modal="true"
+          class="ant-drawer-section"
+          role="dialog"
+        >
+          <div
+            class="ant-drawer-header"
+          >
+            <div
+              class="ant-drawer-header-title"
+            >
+              <!---->
+              <div
+                class="ant-drawer-title"
+                id="v-0"
+              >
+                Basic Drawer
+              </div>
+              <!---->
+            </div>
+            <!---->
+          </div>
+          <div
+            class="ant-drawer-body"
+          >
+            <p>
+              Some contents...
+            </p>
+          </div>
+          <!---->
+        </div>
+      </div>
+    </transition-stub>
+  </div>
 </div>
 `;
 

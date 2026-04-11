@@ -1407,11 +1407,8 @@ exports[`image demo > renders placeholder correctly 1`] = `
       >
         <div
           alt="placeholder image"
-          aria-label="placeholder image"
           class="ant-image css-var-root ant-image-css-var"
-          role="button"
           style="width: 200px;"
-          tabindex="0"
         >
           <img
             class="ant-image-img"

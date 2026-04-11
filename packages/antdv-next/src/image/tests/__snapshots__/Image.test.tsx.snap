@@ -34,7 +34,7 @@ exports[`image > should match snapshot 1`] = `
 `;
 
 exports[`image > should match snapshot with preview disabled 1`] = `
-"<div class="ant-image css-var-root ant-image-css-var" role="button" tabindex="0"><img src="https://example.com/test.png" class="ant-image-img">
+"<div class="ant-image css-var-root ant-image-css-var"><img src="https://example.com/test.png" class="ant-image-img">
   <!---->
   <!---->
 </div>"
