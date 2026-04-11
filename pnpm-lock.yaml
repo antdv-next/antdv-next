@@ -333,14 +333,14 @@ catalogs:
       specifier: ^1.0.3
       version: 1.0.3
     '@v-c/drawer':
-      specifier: ^1.0.2
-      version: 1.0.2
+      specifier: ^1.0.3
+      version: 1.0.3
     '@v-c/dropdown':
       specifier: ^1.0.2
       version: 1.0.2
     '@v-c/image':
-      specifier: ^1.0.9
-      version: 1.0.9
+      specifier: ^1.0.10
+      version: 1.0.10
     '@v-c/input':
       specifier: ^1.0.3
       version: 1.0.3
@@ -375,8 +375,8 @@ catalogs:
       specifier: ^1.0.1
       version: 1.0.1
     '@v-c/segmented':
-      specifier: ^1.0.1
-      version: 1.0.1
+      specifier: ^1.0.2
+      version: 1.0.2
     '@v-c/select':
       specifier: ^1.0.20
       version: 1.0.20
@@ -393,8 +393,8 @@ catalogs:
       specifier: ^1.0.0
       version: 1.0.0
     '@v-c/table':
-      specifier: ^1.0.3
-      version: 1.0.3
+      specifier: ^1.0.4
+      version: 1.0.4
     '@v-c/tabs':
       specifier: ^1.0.2
       version: 1.0.2
@@ -789,13 +789,13 @@ importers:
         version: 1.0.3(vue@3.5.30(typescript@5.9.3))
       '@v-c/drawer':
         specifier: catalog:vc
-        version: 1.0.2(vue@3.5.30(typescript@5.9.3))
+        version: 1.0.3(vue@3.5.30(typescript@5.9.3))
       '@v-c/dropdown':
         specifier: catalog:vc
         version: 1.0.2(vue@3.5.30(typescript@5.9.3))
       '@v-c/image':
         specifier: catalog:vc
-        version: 1.0.9(vue@3.5.30(typescript@5.9.3))
+        version: 1.0.10(vue@3.5.30(typescript@5.9.3))
       '@v-c/input':
         specifier: catalog:vc
         version: 1.0.3(vue@3.5.30(typescript@5.9.3))
@@ -834,7 +834,7 @@ importers:
         version: 1.0.8(vue@3.5.30(typescript@5.9.3))
       '@v-c/segmented':
         specifier: catalog:vc
-        version: 1.0.1(vue@3.5.30(typescript@5.9.3))
+        version: 1.0.2(vue@3.5.30(typescript@5.9.3))
       '@v-c/select':
         specifier: catalog:vc
         version: 1.0.20(vue@3.5.30(typescript@5.9.3))
@@ -852,7 +852,7 @@ importers:
         version: 1.0.0(vue@3.5.30(typescript@5.9.3))
       '@v-c/table':
         specifier: catalog:vc
-        version: 1.0.3(vue@3.5.30(typescript@5.9.3))
+        version: 1.0.4(vue@3.5.30(typescript@5.9.3))
       '@v-c/tabs':
         specifier: catalog:vc
         version: 1.0.2(vue@3.5.30(typescript@5.9.3))
@@ -2761,13 +2761,18 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
+  '@v-c/drawer@1.0.3':
+    resolution: {integrity: sha512-k6oIWFZXtt9lR2A3zUzIVQZCl90adBy7bh1bs6uHPsEa5Ma73+7PbQlaxt0X+WQAVW9M5n9pqDAf6Qp7qexi+A==}
+    peerDependencies:
+      vue: ^3.0.0
+
   '@v-c/dropdown@1.0.2':
     resolution: {integrity: sha512-D6TACf3jUiRWx4xW5h2+wVT9SMYxUasFlAHESYJr4ZMjLTLLM1Q8iBjkjhGF+vA0eYR5zqRTwlaacN0DNDZBPw==}
     peerDependencies:
       vue: ^3.0.0
 
-  '@v-c/image@1.0.9':
-    resolution: {integrity: sha512-0SGcTAopppmo8rjk/E9Kb8kWZ7yIoZeS2XTwnJNs2YOrwvZzY3OJA/5BB/5+siW0uZBe9XKnnO8byS3Frwr2xA==}
+  '@v-c/image@1.0.10':
+    resolution: {integrity: sha512-rcFtfsmoZJrQoax+Y2rTxp60HcClNfPFrtwQCF8MAlCtkt+Z4wnavLikixW4H1QwJ1V8GOb4tPRjSUZslaU2xg==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -2865,8 +2870,8 @@ packages:
   '@v-c/resolve-types@0.0.1':
     resolution: {integrity: sha512-M9ETzAuDE5ExNeYnrV5DGMMKpEqr3WbFEZQ747tpraXWe/gzJ+CzG3DNtauhvbneE33+e3Mmz5EgZt+uAL6Wog==}
 
-  '@v-c/segmented@1.0.1':
-    resolution: {integrity: sha512-qEaHzJxl3gfuZNn754iUcC+YrvPih0luD/wr51VInwOKQgEqaIm5R0fzs3uO57aA4zCuXrDn5LK0z6rFOF+IbQ==}
+  '@v-c/segmented@1.0.2':
+    resolution: {integrity: sha512-g/aWgURMJkytu05AACN3Pd9QKgka4ZQM8tl/y0AcabANldy2hmPIHek0ZH5dDdn5VmK1PhAfUTqtgDS19sLh5w==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -2895,8 +2900,8 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
-  '@v-c/table@1.0.3':
-    resolution: {integrity: sha512-VsklYM8M/fSrx+djBJJ0+nUiyzav9w3kZQYtojCnLPg2d2BKORtDKw8WRcpIaZZjDUSJcOh9LOSoY7GA+JKwBQ==}
+  '@v-c/table@1.0.4':
+    resolution: {integrity: sha512-Fvf5WzGidDdkRHa8pRiIKS38E8v+goa2Y8fktwB586+gEM1IwcWFGSnioa6tOH/hA0N2mCWfdAp+qFWb9LXRdw==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -8003,13 +8008,19 @@ snapshots:
       '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
       vue: 3.5.30(typescript@5.9.3)
 
+  '@v-c/drawer@1.0.3(vue@3.5.30(typescript@5.9.3))':
+    dependencies:
+      '@v-c/portal': 1.0.8(vue@3.5.30(typescript@5.9.3))
+      '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
+      vue: 3.5.30(typescript@5.9.3)
+
   '@v-c/dropdown@1.0.2(vue@3.5.30(typescript@5.9.3))':
     dependencies:
       '@v-c/trigger': 1.0.14(vue@3.5.30(typescript@5.9.3))
       '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
       vue: 3.5.30(typescript@5.9.3)
 
-  '@v-c/image@1.0.9(vue@3.5.30(typescript@5.9.3))':
+  '@v-c/image@1.0.10(vue@3.5.30(typescript@5.9.3))':
     dependencies:
       '@v-c/portal': 1.0.8(vue@3.5.30(typescript@5.9.3))
       '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
@@ -8123,7 +8134,7 @@ snapshots:
     transitivePeerDependencies:
       - typescript
 
-  '@v-c/segmented@1.0.1(vue@3.5.30(typescript@5.9.3))':
+  '@v-c/segmented@1.0.2(vue@3.5.30(typescript@5.9.3))':
     dependencies:
       '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
       vue: 3.5.30(typescript@5.9.3)
@@ -8157,7 +8168,7 @@ snapshots:
       '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
       vue: 3.5.30(typescript@5.9.3)
 
-  '@v-c/table@1.0.3(vue@3.5.30(typescript@5.9.3))':
+  '@v-c/table@1.0.4(vue@3.5.30(typescript@5.9.3))':
     dependencies:
       '@v-c/resize-observer': 1.0.8(vue@3.5.30(typescript@5.9.3))
       '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
@@ -8528,7 +8539,7 @@ snapshots:
       '@v-c/dialog': 1.0.3(vue@3.5.30(typescript@5.9.3))
       '@v-c/drawer': 1.0.2(vue@3.5.30(typescript@5.9.3))
       '@v-c/dropdown': 1.0.2(vue@3.5.30(typescript@5.9.3))
-      '@v-c/image': 1.0.9(vue@3.5.30(typescript@5.9.3))
+      '@v-c/image': 1.0.10(vue@3.5.30(typescript@5.9.3))
       '@v-c/input': 1.0.3(vue@3.5.30(typescript@5.9.3))
       '@v-c/input-number': 1.0.5(vue@3.5.30(typescript@5.9.3))
       '@v-c/mentions': 1.0.0(vue@3.5.30(typescript@5.9.3))
@@ -8541,13 +8552,13 @@ snapshots:
       '@v-c/qrcode': 1.0.0(vue@3.5.30(typescript@5.9.3))
       '@v-c/rate': 1.0.1(vue@3.5.30(typescript@5.9.3))
       '@v-c/resize-observer': 1.0.8(vue@3.5.30(typescript@5.9.3))
-      '@v-c/segmented': 1.0.1(vue@3.5.30(typescript@5.9.3))
+      '@v-c/segmented': 1.0.2(vue@3.5.30(typescript@5.9.3))
       '@v-c/select': 1.0.20(vue@3.5.30(typescript@5.9.3))
       '@v-c/slick': 1.0.2(vue@3.5.30(typescript@5.9.3))
       '@v-c/slider': 1.0.10(vue@3.5.30(typescript@5.9.3))
       '@v-c/steps': 1.0.0(vue@3.5.30(typescript@5.9.3))
       '@v-c/switch': 1.0.0(vue@3.5.30(typescript@5.9.3))
-      '@v-c/table': 1.0.3(vue@3.5.30(typescript@5.9.3))
+      '@v-c/table': 1.0.4(vue@3.5.30(typescript@5.9.3))
       '@v-c/tabs': 1.0.2(vue@3.5.30(typescript@5.9.3))
       '@v-c/textarea': 1.0.4(vue@3.5.30(typescript@5.9.3))
       '@v-c/tooltip': 1.0.3(vue@3.5.30(typescript@5.9.3))
