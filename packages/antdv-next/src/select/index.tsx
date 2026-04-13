@@ -265,7 +265,7 @@ const Select = defineComponent<
   (props = defaults, { slots, emit, expose, attrs }) => {
     const selectRef = shallowRef<BaseSelectRef>()
     const {
-      getTargetContainer: getContextPopupContainer,
+      getPopupContainer: getContextPopupContainer,
       getPrefixCls,
       renderEmpty,
       direction: contextDirection,

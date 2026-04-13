@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from 'vitest'
 import { h, nextTick, ref } from 'vue'
 import Select, { SelectOption } from '..'
+import ConfigProvider from '../../config-provider'
 import rtlTest from '/@tests/shared/rtlTest'
 import { mount } from '/@tests/utils'
 
@@ -357,5 +358,31 @@ describe('select', () => {
     ))
 
     expect(wrapper.find('.ant-select-multiple').exists()).toBe(true)
+  })
+
+  it('should use ConfigProvider getPopupContainer for dropdown', async () => {
+    const popupContainer = document.createElement('div')
+    popupContainer.className = 'select-popup-container'
+    document.body.appendChild(popupContainer)
+
+    const wrapper = mount(ConfigProvider, {
+      props: {
+        getPopupContainer: () => popupContainer,
+      },
+      slots: {
+        default: () => h(Select, {
+          open: true,
+          options: [{ value: 'test', label: 'Test' }],
+        }),
+      },
+      attachTo: document.body,
+    })
+
+    await nextTick()
+
+    expect(popupContainer.querySelector('.ant-select-dropdown')).toBeTruthy()
+
+    wrapper.unmount()
+    popupContainer.remove()
   })
 })
