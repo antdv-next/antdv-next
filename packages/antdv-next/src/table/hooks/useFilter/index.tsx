@@ -171,27 +171,35 @@ export function getFilterData<RecordType extends AnyObject = AnyObject>(data: Re
       filteredKeys,
     } = filterState
     if (onFilter && filteredKeys && (filteredKeys as any).length) {
-      return (
-        currentData
-          .map(record => ({ ...record }))
-          .filter((record: any) =>
-            (filteredKeys as any).some((key: any) => {
-              const keys = flattenKeys(filters)
-              const keyIndex = keys.findIndex(k => String(k) === String(key))
-              const realKey = keyIndex !== -1 ? keys[keyIndex] : key
+      const flatKeys = flattenKeys(filters)
+      const keyMap = new Map<string, FilterValue[number]>()
+      flatKeys.forEach((key) => {
+        const stringKey = String(key)
+        if (!keyMap.has(stringKey))
+          keyMap.set(stringKey, key)
+      })
 
-              if (record[childrenColumnName]) {
-                record[childrenColumnName] = getFilterData(
-                  record[childrenColumnName],
-                  filterStates,
-                  childrenColumnName,
-                )
-              }
+      const realKeys = (filteredKeys as any[]).map((key) => {
+        const stringKey = String(key)
+        return keyMap.get(stringKey) ?? key
+      })
 
-              return onFilter(realKey as any, record)
-            }),
+      return currentData.reduce<RecordType[]>((records, record) => {
+        const currentRecord = { ...record } as any
+
+        if (currentRecord[childrenColumnName]) {
+          currentRecord[childrenColumnName] = getFilterData(
+            currentRecord[childrenColumnName],
+            filterStates,
+            childrenColumnName,
           )
-      )
+        }
+
+        if (realKeys.some(realKey => onFilter(realKey as any, currentRecord)))
+          records.push(currentRecord)
+
+        return records
+      }, [])
     }
     return currentData
   }, data)
