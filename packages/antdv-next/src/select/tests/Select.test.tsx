@@ -342,6 +342,19 @@ describe('select', () => {
     expect(wrapperBorderless.find('.ant-select-borderless').exists()).toBe(true)
   })
 
+  it('should support global variant from ConfigProvider', () => {
+    const wrapper = mount(ConfigProvider, {
+      props: { variant: 'filled' },
+      slots: {
+        default: () => h(Select, {
+          options: [{ value: 'jack', label: 'Jack' }],
+        }),
+      },
+    })
+
+    expect(wrapper.find('.ant-select-filled').exists()).toBe(true)
+  })
+
   it('should support maxCount in multiple mode', async () => {
     const value = ref(['jack'])
     const wrapper = mount(() => (
