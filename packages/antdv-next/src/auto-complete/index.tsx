@@ -23,8 +23,6 @@ import { devUseWarning, isDev } from '../_util/warning'
 import { useComponentBaseConfig } from '../config-provider/context'
 import Select from '../select'
 
-export type AutoCompleteSemanticName = 'root' | 'prefix' | 'input' | 'placeholder' | 'content' | 'clear'
-
 export interface AutoCompleteSemanticClassNames {
   root?: string
   prefix?: string
