@@ -24,6 +24,7 @@ export type StatisticSemanticName = keyof StatisticSemanticClassNames
 export interface StatisticSemanticClassNames {
   root?: string
   content?: string
+  value?: string
   title?: string
   header?: string
   prefix?: string
@@ -33,6 +34,7 @@ export interface StatisticSemanticClassNames {
 export interface StatisticSemanticStyles {
   root?: CSSProperties
   content?: CSSProperties
+  value?: CSSProperties
   title?: CSSProperties
   header?: CSSProperties
   prefix?: CSSProperties
@@ -144,16 +146,6 @@ const Statistic = defineComponent<
       const title = getSlotPropsFnRun(slots, props, 'title')
       const prefix = getSlotPropsFnRun(slots, props, 'prefix')
       const suffix = getSlotPropsFnRun(slots, props, 'suffix')
-      const valueNode = (
-        <StatisticNumber
-          decimalSeparator={decimalSeparator}
-          groupSeparator={groupSeparator}
-          prefixCls={prefixCls.value}
-          formatter={formatter}
-          precision={precision}
-          value={value!}
-        />
-      )
 
       const cls = classNames(
         prefixCls.value,
@@ -175,9 +167,24 @@ const Statistic = defineComponent<
 
       const contentClassNames = clsx(`${prefixCls.value}-content`, mergedClassNames.value.content)
 
+      const valueClassNames = clsx(`${prefixCls.value}-content-value`, mergedClassNames.value.value)
+
       const prefixClassNames = clsx(`${prefixCls.value}-content-prefix`, mergedClassNames.value.prefix)
 
       const suffixClassNames = clsx(`${prefixCls.value}-content-suffix`, mergedClassNames.value.suffix)
+
+      const valueNode = (
+        <StatisticNumber
+          decimalSeparator={decimalSeparator}
+          groupSeparator={groupSeparator}
+          prefixCls={prefixCls.value}
+          formatter={formatter}
+          precision={precision}
+          value={value!}
+          className={valueClassNames}
+          style={mergedStyles.value.value}
+        />
+      )
       return (
         <div
           {...restProps}

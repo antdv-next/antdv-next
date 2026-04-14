@@ -1,15 +1,18 @@
+import type { CSSProperties } from 'vue'
 import type { FormatConfig, valueType } from './utils.ts'
 import { defineComponent } from 'vue'
 
 interface NumberProps extends FormatConfig {
   value: valueType
   prefixCls?: string
+  className?: string
+  style?: CSSProperties
 }
 
 const StatisticNumber = defineComponent<NumberProps>(
   (props) => {
     return () => {
-      const { value, formatter, precision, decimalSeparator, groupSeparator = '', prefixCls } = props
+      const { value, formatter, precision, decimalSeparator, groupSeparator = '', prefixCls, className, style } = props
 
       let valueNode: any
 
@@ -55,7 +58,7 @@ const StatisticNumber = defineComponent<NumberProps>(
         }
       }
 
-      return <span class={`${prefixCls}-content-value`}>{valueNode}</span>
+      return <span class={className} style={style}>{valueNode}</span>
     }
   },
 )

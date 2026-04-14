@@ -53,28 +53,34 @@ function hasSubMenu(filters: ColumnFilterItem[]) {
   return filters.some(({ children }) => children)
 }
 
-function searchValueMatched(searchValue: string, text: any) {
+function searchValueMatched(normalizedSearchValue: string, text: any) {
   if (typeof text === 'string' || typeof text === 'number') {
-    return text?.toString().toLowerCase().includes(searchValue.trim().toLowerCase())
+    return text?.toString().toLowerCase().includes(normalizedSearchValue)
   }
   return false
 }
 
-function renderFilterItems({
-  filters,
-  prefixCls,
-  filteredKeys,
-  filterMultiple,
-  searchValue,
-  filterSearch,
-}: {
+interface RenderFilterItemsOptions {
   filters: ColumnFilterItem[]
   prefixCls: string
   filteredKeys: Key[]
   filterMultiple: boolean
   searchValue: string
+  normalizedSearchValue: string
   filterSearch: FilterSearchType<ColumnFilterItem>
-}): Required<MenuProps>['items'] {
+}
+
+function renderFilterItems(options: RenderFilterItemsOptions): Required<MenuProps>['items'] {
+  const {
+    filters,
+    prefixCls,
+    filteredKeys,
+    filterMultiple,
+    searchValue,
+    normalizedSearchValue,
+    filterSearch,
+  } = options
+
   return filters.map((filter, index) => {
     const key = String(filter.value)
 
@@ -89,6 +95,7 @@ function renderFilterItems({
           filteredKeys,
           filterMultiple,
           searchValue,
+          normalizedSearchValue,
           filterSearch,
         }),
       }
@@ -105,11 +112,11 @@ function renderFilterItems({
         </>
       ),
     }
-    if (searchValue.trim()) {
+    if (normalizedSearchValue) {
       if (typeof filterSearch === 'function') {
-        return filterSearch(searchValue, filter) ? item : null
+        return filterSearch(normalizedSearchValue, filter) ? item : null
       }
-      return searchValueMatched(searchValue, filter.text) ? item : null
+      return searchValueMatched(normalizedSearchValue, filter.text) ? item : null
     }
     return item
   })
@@ -243,6 +250,9 @@ const FilterDropdown = defineComponent<
     }
 
     const searchValue = shallowRef('')
+
+    const normalizedSearchValue = computed(() => searchValue.value.trim().toLowerCase())
+
     const onSearch = (e: Event) => {
       const target = e.target as HTMLInputElement
       searchValue.value = target?.value || ''
@@ -370,6 +380,7 @@ const FilterDropdown = defineComponent<
         filteredKeys: filteredKeysSync.value,
         filterMultiple: props.filterMultiple,
         searchValue: searchValue.value,
+        normalizedSearchValue: normalizedSearchValue.value,
       })
     })
 
@@ -480,12 +491,12 @@ const FilterDropdown = defineComponent<
                       autoExpandParent
                       defaultExpandAll
                       filterTreeNode={
-                        searchValue.value.trim()
+                        normalizedSearchValue.value
                           ? (node: FilterTreeDataNode) => {
                               if (typeof filterSearch.value === 'function') {
                                 return (filterSearch.value as any)(searchValue.value, getFilterData(node))
                               }
-                              return searchValueMatched(searchValue.value, node.title)
+                              return searchValueMatched(normalizedSearchValue.value, node.title)
                             }
                           : undefined
                       }
