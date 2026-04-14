@@ -96,9 +96,11 @@ export const PureContent = defineComponent<PureContentProps>(
       return (
         <div class={clsx({ [`${prefixCls}-with-icon`]: iconNode })} role={role}>
           {iconNode}
-          <div class={clsx(`${prefixCls}-title`, pureContentCls.title)} style={styles.title}>
-            {title}
-          </div>
+          {title && (
+            <div class={clsx(`${prefixCls}-title`, pureContentCls.title)} style={styles.title}>
+              {title}
+            </div>
+          )}
           {description && (
             <div
               class={clsx(`${prefixCls}-description`, pureContentCls.description)}

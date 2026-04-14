@@ -1,6 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { nextTick, ref } from 'vue'
 import Table from '..'
+import ConfigProvider from '../../config-provider'
 import { mount } from '/@tests/utils'
 
 const columns = [
@@ -175,6 +176,33 @@ describe('table row selection', () => {
       },
     })
     expect(wrapper.find('.ant-table-selection-column').exists()).toBe(true)
+  })
+
+  it('should use theme selectionColumnWidth by default for rowSelection', async () => {
+    const wrapper = mount(() => (
+      <ConfigProvider
+        theme={{
+          components: {
+            Table: {
+              selectionColumnWidth: 80,
+            },
+          },
+        }}
+      >
+        <Table
+          columns={columns}
+          dataSource={data}
+          pagination={false}
+          rowSelection={{}}
+        />
+      </ConfigProvider>
+    ))
+
+    await nextTick()
+
+    const selectionCol = wrapper.find('.ant-table-selection-col')
+    expect(selectionCol.exists()).toBe(true)
+    expect(selectionCol.attributes('style') || selectionCol.attributes('width')).toContain('80')
   })
 
   it('should support checkStrictly for tree data', () => {

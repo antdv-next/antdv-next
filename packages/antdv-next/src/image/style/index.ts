@@ -3,6 +3,7 @@ import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/inte
 import { FastColor } from '@ant-design/fast-color'
 
 import { unit } from '@antdv-next/cssinjs'
+import { genFocusOutline, genFocusStyle } from '../../style'
 import { genStyleHooks, mergeToken } from '../../theme/internal'
 
 export interface ComponentToken {
@@ -75,7 +76,7 @@ export const genImageCoverStyle: GenerateStyle<ImageToken, CSSObject> = (token) 
         opacity: 0,
         transition: `opacity ${motionDurationSlow}`,
       },
-      '&:hover': {
+      '&:hover, &:focus-visible': {
         [`${componentCls}-cover`]: {
           opacity: 1,
         },
@@ -133,6 +134,7 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken, CSSObject> = (token
     '&:active': {
       backgroundColor: operationBg.toRgbString(),
     },
+    '&:focus-visible': genFocusOutline(token),
   }
 
   return {
@@ -256,6 +258,7 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken, CSSObject> = (token
           [`&:not(${previewCls}-actions-action-disabled):hover`]: {
             color: previewOperationHoverColor,
           },
+          '&:focus-visible': genFocusOutline(token),
           '&-disabled': {
             color: previewOperationColorDisabled,
             cursor: 'not-allowed',
@@ -273,6 +276,7 @@ const genImageStyle: GenerateStyle<ImageToken, CSSObject> = (token) => {
     [componentCls]: {
       position: 'relative',
       display: 'inline-block',
+      ...genFocusStyle(token),
       [`${componentCls}-img`]: {
         width: '100%',
         height: 'auto',

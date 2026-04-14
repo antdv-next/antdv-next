@@ -25,8 +25,8 @@ function getCollapsedHeight(_el: Element, name?: string) {
 }
 function getRealHeight(_el: Element) {
   const el = _el as HTMLElement
+  const scrollHeight = el?.scrollHeight ?? 0
   if (el) {
-    const scrollHeight = el.scrollHeight
     el.style.height = `${scrollHeight}px`
     el.style.opacity = '1'
   }
@@ -38,7 +38,7 @@ function getCurrentHeight(_el: Element, name?: string) {
     if (name) {
       addClass(el, name)
     }
-    const offsetHeight = el.offsetHeight
+    const offsetHeight = el?.offsetHeight ?? 0
     el.style.height = `${offsetHeight}px`
   }
 }

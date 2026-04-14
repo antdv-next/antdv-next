@@ -1,0 +1,43 @@
+{
+  "version": "1",
+  "downstream": {
+    "name": "antdv-next",
+    "local_path": "/Users/zhuzhengjian/workspace/github/antdv-next/antdv-next"
+  },
+  "upstreams": [
+    {
+      "name": "ant-design",
+      "repo": "ant-design/ant-design",
+      "remote_url": "https://github.com/ant-design/ant-design.git",
+      "local_path": null,
+      "packages": [
+        {
+          "upstream_path": ".",
+          "downstream_path": "packages/antdv-next",
+          "description": "Ant Design React 主组件库 -> antdv-next 主包"
+        }
+      ],
+      "last_synced_commit": "c5b930ed2ddfc83c4ed6d6bc0ce2b124a757537a",
+      "last_synced_commit_short": "c5b930e",
+      "last_synced_at": "2026-04-14T03:53:35Z",
+      "sync_count": 1
+    },
+    {
+      "name": "cssinjs",
+      "repo": "ant-design/cssinjs",
+      "remote_url": "https://github.com/ant-design/cssinjs.git",
+      "local_path": null,
+      "packages": [
+        {
+          "upstream_path": ".",
+          "downstream_path": "packages/cssinjs",
+          "description": "Ant Design cssinjs -> antdv-next cssinjs 包"
+        }
+      ],
+      "last_synced_commit": "116099459d6fc8b3c4affb051ccdf3e7b5ceaacf",
+      "last_synced_commit_short": "1160994",
+      "last_synced_at": "2026-04-14T03:53:35Z",
+      "sync_count": 1
+    }
+  ]
+}

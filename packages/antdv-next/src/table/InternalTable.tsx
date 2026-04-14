@@ -472,6 +472,17 @@ const InternalTable = defineComponent<
       changeEventInfo.resetPagination = resetPagination
     })
 
+    const [, token] = useToken()
+    const mergedRowSelection = computed(() => {
+      if (props.rowSelection && typeof props.rowSelection === 'object') {
+        return {
+          columnWidth: token.value.Table?.selectionColumnWidth,
+          ...props.rowSelection,
+        }
+      }
+      return props.rowSelection
+    })
+
     const pageData = computed(() => {
       if (props.pagination === false || !(mergedPagination.value as any).pageSize) {
         return mergedData.value
@@ -512,7 +523,7 @@ const InternalTable = defineComponent<
         locale: mergedLocale,
         getPopupContainer: computed(() => props.getPopupContainer || contextGetPopupContainer),
       },
-      computed(() => props.rowSelection),
+      mergedRowSelection,
     )
 
     const internalRowClassName = (record: AnyObject, index: number, indent: number) => {
@@ -553,8 +564,6 @@ const InternalTable = defineComponent<
 
     const mergedVirtual = computed(() => props.virtual ?? contextVirtual.value)
     const TableComponent = computed(() => mergedVirtual.value ? VcVirtualTable : VcTable)
-
-    const [, token] = useToken()
     const listItemHeight = computed(() => {
       const { fontSize, lineHeight, lineWidth, padding, paddingXS, paddingSM } = token.value
       const fontHeight = Math.floor(fontSize * lineHeight)
@@ -680,9 +689,9 @@ const InternalTable = defineComponent<
         expandable.expandIcon = expandable.expandIcon || renderExpandIcon(mergedLocale.value)
 
         if (expandType === 'nest' && expandable.expandIconColumnIndex === undefined) {
-          expandable.expandIconColumnIndex = props.rowSelection ? 1 : 0
+          expandable.expandIconColumnIndex = mergedRowSelection.value ? 1 : 0
         }
-        else if (expandType === 'nest' && expandable.expandIconColumnIndex! > 0 && props.rowSelection) {
+        else if (expandType === 'nest' && expandable.expandIconColumnIndex! > 0 && mergedRowSelection.value) {
           expandable.expandIconColumnIndex! -= 1
         }
 

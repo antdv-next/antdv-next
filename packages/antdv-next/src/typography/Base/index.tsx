@@ -258,7 +258,17 @@ const Base = defineComponent<
       },
     )
 
-    const isMergedEllipsis = computed(() => mergedEnableEllipsis.value && (cssEllipsis.value ? isNativeEllipsis.value : isJsEllipsis.value))
+    const tooltipProps = useTooltipProps(
+      computed(() => ellipsisConfig.value.tooltip),
+      computed(() => editConfig.value.text),
+      childrenNodes,
+    )
+    const needNativeEllipsisMeasure = computed(() => cssEllipsis.value && !!tooltipProps.value?.title)
+
+    const isMergedEllipsis = computed(() =>
+      mergedEnableEllipsis.value
+      && (cssEllipsis.value ? needNativeEllipsisMeasure.value && isNativeEllipsis.value : isJsEllipsis.value),
+    )
 
     const cssTextOverflow = computed(() => mergedEnableEllipsis.value && rows.value === 1 && cssEllipsis.value)
     const cssLineClamp = computed(() => mergedEnableEllipsis.value && rows.value > 1 && cssEllipsis.value)
@@ -285,11 +295,18 @@ const Base = defineComponent<
     }
 
     watch(
-      () => [enableEllipsis.value, cssEllipsis.value, childrenNodes.value, cssLineClamp.value, isNativeVisible.value, ellipsisWidth.value],
+      () => [
+        enableEllipsis.value,
+        needNativeEllipsisMeasure.value,
+        childrenNodes.value,
+        cssLineClamp.value,
+        isNativeVisible.value,
+        ellipsisWidth.value,
+      ],
       () => {
         const textEle = typographyDom.value
 
-        if (enableEllipsis.value && cssEllipsis.value && textEle) {
+        if (enableEllipsis.value && needNativeEllipsisMeasure.value && textEle) {
           const currentEllipsis = isEleEllipsis(textEle)
 
           if (isNativeEllipsis.value !== currentEllipsis)
@@ -301,10 +318,10 @@ const Base = defineComponent<
 
     let observer: IntersectionObserver | null = null
     watch(
-      () => [cssEllipsis.value, mergedEnableEllipsis.value],
+      () => [needNativeEllipsisMeasure.value, mergedEnableEllipsis.value],
       () => {
         observer?.disconnect()
-        if (typeof IntersectionObserver === 'undefined' || !typographyDom.value || !cssEllipsis.value || !mergedEnableEllipsis.value)
+        if (typeof IntersectionObserver === 'undefined' || !typographyDom.value || !needNativeEllipsisMeasure.value || !mergedEnableEllipsis.value)
           return
 
         observer = new IntersectionObserver(() => {
@@ -321,13 +338,6 @@ const Base = defineComponent<
       observer?.disconnect()
       observer = null
     })
-
-    // ========================== Tooltip ===========================
-    const tooltipProps = useTooltipProps(
-      computed(() => ellipsisConfig.value.tooltip),
-      computed(() => editConfig.value.text),
-      childrenNodes,
-    )
 
     const getChildrenText = computed(() => {
       for (const node of childrenNodes.value) {

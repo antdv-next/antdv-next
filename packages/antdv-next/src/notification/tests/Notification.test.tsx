@@ -876,6 +876,23 @@ describe('notification', () => {
       wrapper.unmount()
     })
 
+    it('does not render title wrapper when only description is provided', () => {
+      const wrapper = mount(PurePanel, {
+        props: {
+          description: 'Description Only',
+        } as any,
+        attachTo: document.body,
+      })
+
+      const title = document.querySelector('.ant-notification-notice-title')
+      expect(title).toBeFalsy()
+
+      const desc = document.querySelector('.ant-notification-notice-description')
+      expect(desc?.textContent).toBe('Description Only')
+
+      wrapper.unmount()
+    })
+
     it('renders actions via slot', () => {
       const wrapper = mount(PurePanel, {
         props: {

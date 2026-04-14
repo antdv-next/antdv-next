@@ -46,6 +46,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
     filledHandleBg,
     lineHeightLG,
     antCls,
+    colorTextDisabled,
   } = token
 
   const borderStyle = `${unit(lineWidth)} ${lineType} ${handleBorderColor}`
@@ -172,13 +173,6 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
     {
       [componentCls]: {
         // ======================= Shared =======================
-        [`
-          ${componentCls}-action-up-disabled,
-          ${componentCls}-action-down-disabled
-        `]: {
-          cursor: 'not-allowed',
-        },
-
         [`${componentCls}-action`]: {
           ...resetIcon(),
 
@@ -190,12 +184,17 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
           cursor: 'pointer',
           transition: `all ${motionDurationMid} linear`,
 
-          '&:active': {
-            background: handleActiveBg,
-          },
-          // Hover
-          '&:hover': {
-            color: handleHoverColor,
+          [`&:active:not(${componentCls}-action-up-disabled):not(${componentCls}-action-down-disabled)`]:
+            {
+              background: handleActiveBg,
+            },
+          [`&:hover:not(${componentCls}-action-up-disabled):not(${componentCls}-action-down-disabled)`]:
+            {
+              color: handleHoverColor,
+            },
+          [`&${componentCls}-action-up-disabled, &${componentCls}-action-down-disabled`]: {
+            cursor: 'not-allowed',
+            color: colorTextDisabled,
           },
         },
 
@@ -242,9 +241,10 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
             borderInlineStart: borderStyle,
 
             // Hover
-            '&:hover': {
-              height: `60%`,
-            },
+            [`&:hover:not(${componentCls}-action-up-disabled):not(${componentCls}-action-down-disabled)`]:
+              {
+                height: `60%`,
+              },
           },
 
           [`&${componentCls}-disabled, &${componentCls}-readonly`]: {
