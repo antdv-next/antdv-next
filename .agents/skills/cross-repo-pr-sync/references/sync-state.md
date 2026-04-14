@@ -14,7 +14,13 @@
   "version": "1",
   "downstream": {
     "name": "antdv-next",
-    "local_path": "/path/to/antdv-next"
+    "local_path": "./"
+  },
+  "settings": {
+    "parallel": true,
+    "max_workers": 4,
+    "max_prs": 50,
+    "base_branch": "main"
   },
   "upstreams": [
     {
@@ -104,7 +110,21 @@
 
 > **`packages` 字段的作用**：分析 PR 时，Skill 会根据 commit 改动的文件路径，结合 `packages` 映射，判断该变更影响下游 monorepo 中的哪个子包，并在输出表格中标注。若不填，则只显示上游路径，不做映射。
 
+### settings 字段
+
+| 字段 | 默认值 | 说明 |
+|------|--------|------|
+| `settings.parallel` | `true` | 是否启用多 worker 并行 |
+| `settings.max_workers` | `4` | 最大并发 worker 数，超出任务排队等待 |
+| `settings.max_prs` | `50` | 每个 worker 最多分析的 PR 数量 |
+| `settings.base_branch` | `"main"` | 自动创建同步分支时的基准分支 |
+
+**Worker 粒度固定为：每个 `packages` 条目一个 worker**（下游子包粒度）。
+同一上游的多个子包 worker 共享一次 clone，由主进程统一管理 clone 生命周期。
+
 **数据源优先级**：`local_path`（本地仓库）> 自动克隆 `remote_url` 到 tmp > GitHub API
+
+**Worker 并行说明**：同一个 `remote_url` 的多个子包 worker 会复用一次 clone，主进程统一管理 clone 生命周期，各 worker 只负责过滤自己的 `upstream_path` 范围，结果写入独立的 `{worker_id}.json`，主进程完成后统一清理。详见 `references/worker.md`。
 
 ---
 
@@ -113,11 +133,10 @@
 ### 检查文件是否存在
 
 ```bash
-DOWNSTREAM=/path/to/downstream
-
-if [ -f "$DOWNSTREAM/.sync-upstream.json" ]; then
+# 在下游仓库根目录执行
+if [ -f ".sync-upstream.json" ]; then
     echo "✅ 找到同步记录"
-    cat "$DOWNSTREAM/.sync-upstream.json"
+    cat ".sync-upstream.json"
 else
     echo "⚠️ 首次使用，需要初始化"
 fi
@@ -126,7 +145,7 @@ fi
 ### 读取上次同步的 commit（bash）
 
 ```bash
-LAST_COMMIT=$(cat "$DOWNSTREAM/.sync-upstream.json" \
+LAST_COMMIT=$(cat ".sync-upstream.json" \
   | python3 -c "import sys,json; d=json.load(sys.stdin); print(d['upstreams'][0]['last_synced_commit'])")
 
 echo "上次同步到: $LAST_COMMIT"
@@ -137,15 +156,12 @@ echo "上次同步到: $LAST_COMMIT"
 ```bash
 # 读取名为 "ant-design" 的上游记录
 UPSTREAM_NAME="ant-design"
-LAST_COMMIT=$(cat "$DOWNSTREAM/.sync-upstream.json" \
+LAST_COMMIT=$(cat ".sync-upstream.json" \
   | python3 -c "
 import sys, json
 d = json.load(sys.stdin)
 upstream = next((u for u in d['upstreams'] if u['name'] == '$UPSTREAM_NAME'), None)
-if upstream:
-    print(upstream['last_synced_commit'])
-else:
-    print('NOT_FOUND')
+print(upstream['last_synced_commit'] if upstream else 'NOT_FOUND')
 ")
 ```
 
@@ -156,34 +172,43 @@ else:
 ### 初始化文件（首次使用）
 
 ```bash
-DOWNSTREAM=/path/to/downstream
-UPSTREAM_LOCAL=/path/to/ant-design
-UPSTREAM_REPO="ant-design/ant-design"
+# 在下游仓库根目录执行，无需任何路径参数
+UPSTREAM_REMOTE="https://github.com/ant-design/ant-design.git"
 START_COMMIT="a1b2c3d4e5f6"
 
-# 获取当前上游 HEAD
-LATEST=$(git -C "$UPSTREAM_LOCAL" rev-parse HEAD)
-LATEST_SHORT=$(git -C "$UPSTREAM_LOCAL" rev-parse --short HEAD)
-LATEST_TAG=$(git -C "$UPSTREAM_LOCAL" describe --tags --abbrev=0 2>/dev/null || echo "")
 NOW=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+REPO_NAME=$(basename "$(git rev-parse --show-toplevel)")
 
-cat > "$DOWNSTREAM/.sync-upstream.json" << JSON
+cat > ".sync-upstream.json" << JSON
 {
   "version": "1",
   "downstream": {
-    "name": "$(basename $DOWNSTREAM)",
-    "local_path": "$DOWNSTREAM"
+    "name": "$REPO_NAME",
+    "local_path": "./"
+  },
+  "settings": {
+    "parallel": true,
+    "max_workers": 4,
+    "max_prs": 50,
+    "base_branch": "main"
   },
   "upstreams": [
     {
       "name": "ant-design",
-      "repo": "$UPSTREAM_REPO",
-      "local_path": "$UPSTREAM_LOCAL",
-      "last_synced_commit": "$LATEST",
-      "last_synced_commit_short": "$LATEST_SHORT",
+      "remote_url": "$UPSTREAM_REMOTE",
+      "local_path": null,
+      "packages": [
+        {
+          "upstream_path": ".",
+          "downstream_path": "packages/components",
+          "description": "核心组件库"
+        }
+      ],
+      "last_synced_commit": "$START_COMMIT",
+      "last_synced_commit_short": "${START_COMMIT:0:7}",
       "last_synced_at": "$NOW",
-      "last_synced_tag": "$LATEST_TAG",
-      "sync_count": 1
+      "last_synced_tag": "",
+      "sync_count": 0
     }
   ]
 }
@@ -195,19 +220,18 @@ echo "✅ 已创建 .sync-upstream.json"
 ### 更新文件（每次同步后）
 
 ```bash
-DOWNSTREAM=/path/to/downstream
-UPSTREAM_LOCAL=/path/to/ant-design
+# 在下游仓库根目录执行
 UPSTREAM_NAME="ant-design"
-
-LATEST=$(git -C "$UPSTREAM_LOCAL" rev-parse HEAD)
-LATEST_SHORT=$(git -C "$UPSTREAM_LOCAL" rev-parse --short HEAD)
-LATEST_TAG=$(git -C "$UPSTREAM_LOCAL" describe --tags --abbrev=0 2>/dev/null || echo "")
+# LATEST 由主进程在分析完成后从 worker 结果中读取，写回到配置
+LATEST="d4e5f6a7b8c9"
+LATEST_SHORT="d4e5f6a"
+LATEST_TAG="v5.16.0"
 NOW=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 
 python3 - << PYEOF
 import json, sys
 
-path = "$DOWNSTREAM/.sync-upstream.json"
+path = ".sync-upstream.json"
 with open(path, 'r') as f:
     data = json.load(f)
 
@@ -234,14 +258,14 @@ PYEOF
 python3 - << PYEOF
 import json
 
-path = "$DOWNSTREAM/.sync-upstream.json"
+path = ".sync-upstream.json"
 with open(path, 'r') as f:
     data = json.load(f)
 
 new_upstream = {
     "name": "new-upstream",
     "repo": "owner/new-upstream",
-    "local_path": "/path/to/new-upstream",
+    "local_path": "../new-upstream",
     "last_synced_commit": "$LATEST",
     "last_synced_commit_short": "$LATEST_SHORT",
     "last_synced_at": "$NOW",
@@ -261,14 +285,98 @@ PYEOF
 
 ---
 
+## 本地路径覆盖文件：.sync-upstream.local.json
+
+团队共享的 `.sync-upstream.json` 里上游 `local_path` 填 `null`，
+用本地有仓库副本的成员在 `.sync-upstream.local.json` 里单独覆盖，
+这样既能共享同步进度，又不把个人本地路径污染到 git 历史。
+
+### 文件格式
+
+只需列出需要覆盖的上游名称和对应的本地路径，其余字段全部继承主配置：
+
+```json
+{
+  "upstreams": [
+    {
+      "name": "ant-design",
+      "local_path": "../ant-design"
+    },
+    {
+      "name": "pro-components",
+      "local_path": "/Users/yourname/projects/pro-components"
+    }
+  ]
+}
+```
+
+> `local_path` 支持相对路径（相对于下游仓库根目录）或绝对路径，两者均可，填自己机器上实际的位置即可。
+
+### 加入 .gitignore（初始化时自动执行）
+
+```bash
+# Skill 初始化时自动写入，无需手动操作
+echo ".sync-upstream.local.json" >> .gitignore
+```
+
+### Skill 读取合并逻辑
+
+```
+读取 .sync-upstream.json          （基础配置，必须存在）
+        ↓
+读取 .sync-upstream.local.json    （可选，不存在则跳过）
+        ↓
+按 upstream name 做浅合并：
+  local 文件中有的字段 → 覆盖主配置对应字段
+  local 文件中没有的字段 → 保留主配置原值
+        ↓
+合并结果交给后续 worker 使用
+```
+
+**合并优先级**：`.sync-upstream.local.json` > `.sync-upstream.json`
+
+**只覆盖 `local_path`，不覆盖 `last_synced_commit`**：同步进度始终以主配置为准，
+本地文件仅用于提供路径加速，不影响团队共享的同步状态。
+
+### Python 合并实现
+
+```python
+import json
+from pathlib import Path
+
+def load_config() -> dict:
+    """读取并合并主配置与本地覆盖配置"""
+    base = json.loads(Path(".sync-upstream.json").read_text())
+
+    local_path = Path(".sync-upstream.local.json")
+    if not local_path.exists():
+        return base
+
+    local = json.loads(local_path.read_text())
+
+    # 按 name 索引本地覆盖
+    local_index = {u["name"]: u for u in local.get("upstreams", [])}
+
+    for upstream in base["upstreams"]:
+        override = local_index.get(upstream["name"], {})
+        # 只允许覆盖 local_path，保护 last_synced_commit 等共享字段
+        if "local_path" in override:
+            upstream["local_path"] = override["local_path"]
+
+    return base
+```
+
+---
+
 ## 建议的 Git 管理方式
 
 ### 加入版本控制（推荐）
 
 ```bash
 # 加入 git 追踪，让团队共享同步进度
-git -C "$DOWNSTREAM" add .sync-upstream.json
-git -C "$DOWNSTREAM" commit -m "chore: update upstream sync state to $LATEST_SHORT"
+# 在下游仓库根目录执行
+git add .sync-upstream.json
+git commit -m "chore: update upstream sync state to $LATEST_SHORT"
 ```
 
 这样团队成员 pull 之后就能看到最新的同步起点，不会重复同步。
@@ -276,7 +384,7 @@ git -C "$DOWNSTREAM" commit -m "chore: update upstream sync state to $LATEST_SHO
 ### 加入 .gitignore（不推荐，但如需本地独立管理）
 
 ```bash
-echo ".sync-upstream.json" >> "$DOWNSTREAM/.gitignore"
+echo ".sync-upstream.json" >> ".gitignore"
 ```
 
 ---
@@ -302,7 +410,7 @@ echo ".sync-upstream.json" >> "$DOWNSTREAM/.gitignore"
 
 ```bash
 # 验证 commit 是否还存在
-git -C /path/to/upstream cat-file -t <last_synced_commit>
+git -C $UPSTREAM_DIR cat-file -t <last_synced_commit>
 # 若输出不是 "commit"，说明已失效，需要用户重新指定起点
 ```
 

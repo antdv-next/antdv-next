@@ -20,6 +20,19 @@ description: >
 筛选出需要同步到下游移植仓库（如 antdv-next Vue3 版）的 PR，
 输出带优先级的同步表格和每个 PR 对应的 checklist 模板。
 
+支持**多 worker 并行**模式：主进程负责调度和汇总 review，
+每个 worker 独立负责一个上游仓库或子包的分析，互不阻塞。
+
+```
+主进程（调度 + 汇总）
+  ├── worker-1: ant-design          → packages/components
+  ├── worker-2: ant-design-icons    → packages/icons
+  ├── worker-3: pro-components/table → packages/pro-table
+  └── worker-4: pro-components/form  → packages/pro-form
+          ↓ 各自独立 clone/分析，结果写入 results/
+主进程：等待全部完成 → 合并 → 输出统一表格 + checklist
+```
+
 ---
 
 ## Step 0：读取同步状态（优先执行）
@@ -27,17 +40,24 @@ description: >
 在做任何事之前，先检查下游仓库根目录是否存在 `.sync-upstream.json`：
 
 ```bash
-cat /path/to/downstream/.sync-upstream.json
+# 在下游仓库根目录执行
+cat .sync-upstream.json
 ```
 
 ### 情况 A：文件存在 ✅
 
-读取上次同步位置，**无需用户再次提供任何参数**，然后按以下优先级确定数据源：
+读取上次同步位置，**无需用户再次提供任何参数**。
+
+首先合并两个配置文件（若存在）：
+- `.sync-upstream.json` — 团队共享，提交到 git
+- `.sync-upstream.local.json` — 当前用户私有，加入 `.gitignore`，用于覆盖本地路径
+
+然后按以下优先级确定每个上游的数据源：
 
 | 优先级 | 条件 | 行为 |
 |--------|------|------|
-| 1️⃣ 最优 | `local_path` 有效且目录存在 | 直接使用本地仓库 |
-| 2️⃣ 自动 | `local_path` 为空或不存在，有 `remote_url` | 克隆到 tmp，用完删除 |
+| 1️⃣ 最优 | 合并后 `local_path` 有效且目录存在 | 直接使用本地仓库，无需网络 |
+| 2️⃣ 自动 | `local_path` 为空或路径不存在，有 `remote_url` | 克隆到 tmp，用完删除 |
 | 3️⃣ 兜底 | 仅有 `repo` 字段（GitHub） | 使用 GitHub API |
 
 **当触发自动克隆时**，告知用户：
@@ -54,11 +74,19 @@ cat /path/to/downstream/.sync-upstream.json
 
 | 需要询问 | 说明 |
 |---------|------|
-| 上游仓库地址 | 本地路径 或 GitHub `owner/repo` |
+| 上游仓库地址 | 本地相对路径（如 `../ant-design`）或 remote URL |
 | 起始 commit SHA | 从哪个版本开始往后追踪 |
-| 上游仓库名称（可选） | 用于显示，默认取路径最后一段 |
+| 上游仓库名称（可选） | 用于显示，默认取 URL/路径最后一段 |
 
-> 详见 `references/sync-state.md` 了解文件格式和读写操作
+> `downstream.local_path` 固定写入 `"./"` 即可，无需用户提供。
+
+初始化时 Skill 同时执行：
+```bash
+echo ".sync-upstream.local.json" >> .gitignore
+echo ".sync-checklist-*.md" >> .gitignore
+```
+
+> 详见 `references/sync-state.md` 了解文件格式、本地覆盖机制和读写操作
 
 ---
 
@@ -90,18 +118,81 @@ cat /path/to/downstream/.sync-upstream.json
 | `github_token` | 不需要 | 不需要 | 可选，推荐 |
 | `max_prs` | 默认 50 | 默认 50 | 默认 50 |
 
+**并行相关参数**（可写入 `.sync-upstream.json` 的 `settings` 字段）：
+
+| 参数 | 默认值 | 说明 |
+|------|--------|------|
+| `parallel` | `true` | 是否启用多 worker 并行 |
+| `max_workers` | `4` | 最大并发 worker 数，超出的任务排队等待 |
+| `results_dir` | `/tmp/sync-results-{timestamp}` | 共享结果目录，每个 worker 写 `{worker_id}.json`，主进程统一读取合并 |
+
 首次使用时 Skill 会将上游 URL 写入 `.sync-upstream.json`，后续无需再次提供。
 
 如用户未提供起始 commit，**先检查 Step 0 是否已从 `.sync-upstream.json` 读到**，若无则询问用户。
 
 ---
 
-## Step 1：获取 Commit 列表
+## Step 1：主进程调度（并行模式入口）
 
-### 🖥️ Local 模式（推荐）
+### 1.1 构建 Worker 任务列表
+
+从 `.sync-upstream.json` 读取所有上游配置，按 `worker_granularity` 拆分任务：
+
+**按下游子包划分（每个 `packages` 条目一个 worker）**：
+
+```
+ant-design            → worker-0（upstream: .,               downstream: packages/components）
+ant-design-icons      → worker-1（upstream: packages/icons-vue, downstream: packages/icons）
+pro-components/table  → worker-2（upstream: packages/table,   downstream: packages/pro-table）
+pro-components/form   → worker-3（upstream: packages/form,    downstream: packages/pro-form）
+```
+
+这是最细粒度，每个下游子包独立并行，互不阻塞。
+同一上游（如 `pro-components`）的多个 worker 会**复用同一次 clone**，不重复拉取。
+
+### 1.2 并发控制
+
+```
+总任务数 = N
+实际并发 = min(settings.max_workers, N)   # 不超过实际任务数，默认 4
+
+超出并发上限的任务进入等待队列
+有 worker 完成后立即从队列取出下一个执行
+```
+
+进度实时打印到主进程 stdout，便于用户了解各 worker 状态。
+
+### 1.3 启动 Worker
+
+每个 worker 接收以下输入并独立执行 Step 2~4：
+
+```json
+{
+  "worker_id": "worker-C",
+  "upstream_name": "pro-components",
+  "remote_url": "https://github.com/ant-design/pro-components.git",
+  "local_path": null,
+  "upstream_path": "packages/table",
+  "downstream_path": "packages/pro-table",
+  "last_synced_commit": "c3d4e5f",
+  "results_dir": "/tmp/sync-results-1712345678/",
+  "max_prs": 50
+}
+```
+
+主进程启动所有 worker 后**挂起等待**，直到全部完成（或超时）后进入 Step 5 汇总。
+
+> Worker 内部执行流程详见 `references/worker.md`
+
+---
+
+## Step 2（Worker 内）：获取 Commit 列表
+
+### 🖥️ Local / Auto-clone 模式（推荐）
 
 ```bash
-git -C /path/to/upstream log <start_commit>..HEAD \
+# $UPSTREAM_DIR = upstream 的 local_path（相对路径）或 auto-clone 的 tmp 路径
+git -C $UPSTREAM_DIR log <start_commit>..HEAD \
   --pretty=format:"%H|%h|%s|%ad|%an" \
   --date=short \
   --extended-regexp \
@@ -132,7 +223,7 @@ GET https://api.github.com/repos/{upstream_repo}/commits
 
 ---
 
-## Step 2：关联 PR 信息 & 检查同步状态
+## Step 3（Worker 内）：关联 PR 信息 & 检查同步状态
 
 ### 🖥️ Local 模式
 
@@ -140,7 +231,7 @@ GET https://api.github.com/repos/{upstream_repo}/commits
 
 ```bash
 # 检查下游是否已同步某个 PR
-git -C /path/to/downstream log --oneline --grep="12345"
+git -C $DOWNSTREAM_DIR log --oneline --grep="12345"
 ```
 
 > 详见 `references/local-git.md` → Section 3 & 5
@@ -162,13 +253,13 @@ GET https://api.github.com/repos/{upstream_repo}/commits/{sha}/pulls
 
 ---
 
-## Step 3：分析影响范围
+## Step 4（Worker 内）：分析影响范围
 
 ### 3.1 获取 commit 改动文件列表
 
 **🖥️ Local / Auto-clone 模式**：
 ```bash
-git -C /path/to/upstream diff-tree --no-commit-id -r <sha> --name-only
+git -C $UPSTREAM_DIR diff-tree --no-commit-id -r <sha> --name-only
 ```
 
 **🌐 Remote 模式**：`GET /repos/{owner}/{repo}/pulls/{number}/files`
@@ -222,7 +313,7 @@ site/docs/intro.md              →  (无匹配，标记为文档，P3)
 
 ---
 
-## Step 4：评估同步优先级
+## Step 5（Worker 内）：评估同步优先级
 
 按以下规则自动评分，生成优先级：
 
@@ -246,7 +337,67 @@ site/docs/intro.md              →  (无匹配，标记为文档，P3)
 
 ---
 
-## Step 5：输出格式
+## Step 6（Worker 内）：写出结果
+
+每个 worker 完成分析后，将结果写入 `results_dir/{worker_id}.json`：
+
+```json
+{
+  "worker_id": "worker-C",
+  "upstream_name": "pro-components",
+  "upstream_path": "packages/table",
+  "downstream_path": "packages/pro-table",
+  "latest_commit": "d4e5f6a7b8c9",
+  "latest_commit_short": "d4e5f6a",
+  "latest_tag": "v2.7.0",
+  "analyzed_at": "2024-03-01T12:05:00Z",
+  "prs": [
+    {
+      "pr_number": 8800,
+      "title": "fix(table): sort not reset on filter change",
+      "type": "fix",
+      "commit": "c3d4e5f",
+      "components": ["ProTable"],
+      "priority": "P1",
+      "difficulty": "Medium",
+      "upstream_url": "https://github.com/ant-design/pro-components/pull/8800",
+      "status": "pending"
+    }
+  ],
+  "error": null
+}
+```
+
+若 worker 执行出错（clone 失败、网络超时等），写入 `error` 字段，`prs` 为空数组，主进程收到后单独标记该 worker 失败，不影响其他 worker 结果。
+
+---
+
+## Step 7（主进程）：汇总输出 + 自动创建分支
+
+### 7.1 合并所有 worker 结果
+
+读取 `results_dir/` 下所有 `{worker_id}.json`，按优先级统一排序，生成汇总表格和 `.sync-report.md`。
+
+### 7.2 自动创建同步分支（全部 PR，Skip 除外）
+
+对所有非 Skip 的 PR，主进程逐一执行：
+
+```
+每个 PR → git checkout -b sync/{upstream-name}-{pr-number} origin/{base_branch}
+         → 写入 .sync-checklist-{upstream-name}-{pr-number}.md
+         → git commit
+         → git checkout {base_branch}
+```
+
+**分支命名**：`sync/{upstream-name}-{pr-number}`，例如 `sync/ant-design-12345`
+
+**基准分支**：`settings.base_branch`，默认 `main`
+
+**已存在的分支**自动跳过，不覆盖，保护正在进行中的工作。
+
+> 完整实现和 git 命令见 `references/branch-management.md`
+
+### 7.3 输出格式
 
 ### 5.1 汇总表格
 
@@ -364,15 +515,15 @@ Claude 执行流程：
 
 ---
 
-## Step 6：更新同步状态文件
+## Step 8（主进程）：更新同步状态文件
 
 每次完成分析后，将本次分析到的**上游最新 commit** 写回 `.sync-upstream.json`：
 
 ```bash
 # 获取上游当前 HEAD commit
-LATEST=$(git -C /path/to/upstream rev-parse HEAD)
-LATEST_SHORT=$(git -C /path/to/upstream rev-parse --short HEAD)
-LATEST_TAG=$(git -C /path/to/upstream describe --tags --abbrev=0 2>/dev/null || echo "")
+LATEST=$(git -C $UPSTREAM_DIR rev-parse HEAD)
+LATEST_SHORT=$(git -C $UPSTREAM_DIR rev-parse --short HEAD)
+LATEST_TAG=$(git -C $UPSTREAM_DIR describe --tags --abbrev=0 2>/dev/null || echo "")
 NOW=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 ```
 
@@ -391,6 +542,6 @@ NOW=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 - 部分 commit 可能没有关联 PR（直接 push），这类提交单独列出供人工判断
 - "Skip" 类 PR 仍然列出，方便人工复核是否真的不适用
 - 如果 PR 数量 > 50，建议分批处理或按时间段拆分
-- `.sync-upstream.json` 建议加入版本控制（git commit），方便团队共享同步进度
+- `.sync-upstream.json` 加入版本控制，团队共享同步进度；`.sync-upstream.local.json` 加入 `.gitignore`，存放个人本地路径，互不干扰
 - 详细 API 调用示例见 `references/github-api.md`
 - 优先级规则可按项目需求调整，见 `references/priority-rules.md`
