@@ -42,3 +42,5 @@ docs/public/search.en.json
 coverage
 docs/superpowers
 superpowers
+.sync-upstream.local.json
+.sync-checklist-*.md

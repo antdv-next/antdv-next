@@ -4,6 +4,12 @@
     "name": "antdv-next",
     "local_path": "./"
   },
+  "settings": {
+    "parallel": true,
+    "max_workers": 4,
+    "max_prs": 50,
+    "base_branch": "main"
+  },
   "upstreams": [
     {
       "name": "ant-design",
