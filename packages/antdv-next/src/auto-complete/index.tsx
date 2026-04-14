@@ -8,6 +8,7 @@ import type {
   SelectPopupSemanticClassNames,
   SelectPopupSemanticStyles,
   SelectProps,
+  SelectSlots,
 } from '../select'
 import { Option } from '@v-c/select'
 import { clsx } from '@v-c/util'
@@ -21,8 +22,6 @@ import { toPropsRefs } from '../_util/tools'
 import { devUseWarning, isDev } from '../_util/warning'
 import { useComponentBaseConfig } from '../config-provider/context'
 import Select from '../select'
-
-export type AutoCompleteSemanticName = 'root' | 'prefix' | 'input' | 'placeholder' | 'content' | 'clear'
 
 export interface AutoCompleteSemanticClassNames {
   root?: string
@@ -159,6 +158,14 @@ export interface AutoCompleteEmitsProps {
 
 export interface AutoCompleteSlots {
   default?: () => any
+  suffixIcon?: SelectSlots['suffixIcon']
+  prefix?: SelectSlots['prefix']
+  tagRender?: SelectSlots['tagRender']
+  labelRender?: SelectSlots['labelRender']
+  popupRender?: SelectSlots['popupRender']
+  optionRender?: SelectSlots['optionRender']
+  maxTagPlaceholder?: SelectSlots['maxTagPlaceholder']
+  notFoundContent?: SelectSlots['notFoundContent']
 }
 
 function isSelectOptionOrSelectOptGroup(child: any): boolean {
@@ -227,6 +234,9 @@ const InternalAutoComplete = defineComponent<
 
       const getInputElement = customizeInput ? () => customizeInput : undefined
       const customizeInputPlaceholder = customizeInput?.props?.placeholder
+      const forwardedSlots = Object.fromEntries(
+        Object.entries(slots).filter(([key]) => key !== 'default'),
+      ) as Omit<AutoCompleteSlots, 'default'>
 
       let optionChildren: any = []
       if (hasSelectOptions) {
@@ -394,6 +404,7 @@ const InternalAutoComplete = defineComponent<
           {...selectProps}
           {...onAttrs}
           {...inputProps}
+          v-slots={forwardedSlots}
           prefixCls={prefixCls.value}
           classes={finalClassNames as any}
           styles={finalStyles as any}

@@ -200,6 +200,17 @@ describe('input', () => {
     expect(wrapperBorderless.find('.ant-input-borderless').exists()).toBe(true)
   })
 
+  it('should support global variant from ConfigProvider', () => {
+    const wrapper = mount(ConfigProvider, {
+      props: { variant: 'filled' },
+      slots: {
+        default: () => h(Input),
+      },
+    })
+
+    expect(wrapper.find('.ant-input-filled').exists()).toBe(true)
+  })
+
   it('should support prefix and suffix', () => {
     const wrapper = mount(Input, {
       props: {

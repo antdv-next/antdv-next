@@ -196,6 +196,7 @@ const ProviderChildren = defineComponent<
         direction: props.direction,
         locale: props.locale || props.legacyLocale,
         space: props.space,
+        variant: props.variant,
       } as ConfigConsumerProps
 
       const config: ConfigConsumerProps = {
