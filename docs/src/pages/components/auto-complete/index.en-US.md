@@ -50,9 +50,11 @@ Common props ref：[Common props](/docs/vue/common-props)
 | defaultActiveFirstOption | Whether active first option by default | boolean | true | - |
 | disabled | Whether disabled select | boolean | false | - |
 | getPopupContainer | Parent node of the dropdown. Default to body, if you encountered positioning problems during scroll, try changing to the scrollable area and position relative to it | (triggerNode: HTMLElement) =&gt; HTMLElement | () =&gt; document.body | - |
+| labelRender | Customize selected label render | (props: LabelInValueType) =&gt; VueNode | - | - |
 | notFoundContent | Specify content to show when no result matches | VueNode | - | - |
 | open | Controlled open state of dropdown | boolean | - | - |
 | options | Select options. Will get better perf than jsx definition | &#123; label: VueNode; value: string &#125;[] | - | - |
+| optionRender | Customize the rendering dropdown options | (option: FlattenOptionData&lt;BaseOptionType&gt;, info: &#123; index: number &#125;) =&gt; VueNode | - | - |
 | placeholder | The placeholder of input | string | - | - |
 | popupMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true | - |
 | popupRender | Customize dropdown content | (menu: VueNode) =&gt; VueNode | - | - |
@@ -82,7 +84,13 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 | Slot | Description | Type | Version |
 | --- | --- | --- | --- |
-| default | Customize input element | () =&gt; VueNode | - |
+| default | Customize input element, or provide `AutoComplete.Option` children | () =&gt; VueNode | - |
+| labelRender | Customize selected label render | (props: LabelInValueType) =&gt; VueNode | - |
+| notFoundContent | Specify content to show when no result matches | () =&gt; VueNode | - |
+| optionRender | Customize the rendering dropdown options | (option: FlattenOptionData&lt;BaseOptionType&gt;, info: &#123; index: number &#125;) =&gt; VueNode | - |
+| popupRender | Customize dropdown content | (menu: VueNode) =&gt; VueNode | - |
+| prefix | The custom prefix | () =&gt; VueNode | - |
+| suffixIcon | The custom suffix icon | () =&gt; VueNode | - |
 
 ## Types
 

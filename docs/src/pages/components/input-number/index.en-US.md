@@ -53,6 +53,8 @@ Common props ref：[Common props](/docs/vue/common-props)
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | InputNumberStylesType | - | - |
 | controls | Whether to show `+-` controls, or set custom arrow icons | boolean \| &#123; upIcon?: VueNode, downIcon?: VueNode &#125; | - | - |
 | type | - | 'number' \| 'text' | - | - |
+| max | The max value | number | [Number.MAX_SAFE_INTEGER](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) | - |
+| min | The min value | number | [Number.MIN_SAFE_INTEGER](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MIN_SAFE_INTEGER) | - |
 | step | The number to which the current value is increased or decreased. It can be an integer or decimal | 'number' \| 'string' | 1 | - |
 
 ### Events {#events}

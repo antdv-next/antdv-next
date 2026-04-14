@@ -54,6 +54,8 @@ demo:
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | InputNumberStylesType | - | - |
 | controls | 是否显示增减按钮，也可设置自定义箭头图标 | boolean \| &#123; upIcon?: VueNode, downIcon?: VueNode &#125; | - | - |
 | type | - | 'number' \| 'text' | - | - |
+| max | 最大值 | number | [Number.MAX_SAFE_INTEGER](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) | - |
+| min | 最小值 | number | [Number.MIN_SAFE_INTEGER](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/MIN_SAFE_INTEGER) | - |
 | step | 每次改变步数，可以为小数 | 'number' \| 'string' | 1 | - |
 
 ### 事件 {#events}

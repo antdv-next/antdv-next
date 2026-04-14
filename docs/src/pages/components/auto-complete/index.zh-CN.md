@@ -51,9 +51,11 @@ demo:
 | defaultActiveFirstOption | 是否默认高亮第一个选项 | boolean | true | - |
 | disabled | 是否禁用 | boolean | false | - |
 | getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位 | (triggerNode: HTMLElement) =&gt; HTMLElement | () =&gt; document.body | - |
+| labelRender | 自定义当前选中的 label 内容 render | (props: LabelInValueType) =&gt; VueNode | - | - |
 | notFoundContent | 当下拉列表为空时显示的内容 | VueNode | - | - |
 | open | 是否展开下拉菜单 | boolean | - | - |
 | options | 数据化配置选项内容，相比 jsx 定义会获得更好的渲染性能 | &#123; label: VueNode; value: string &#125;[] | - | - |
+| optionRender | 自定义下拉选项渲染 | (option: FlattenOptionData&lt;BaseOptionType&gt;, info: &#123; index: number &#125;) =&gt; VueNode | - | - |
 | placeholder | 输入框提示 | string | - | - |
 | popupMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。false 时会关闭虚拟滚动 | boolean \| number | true | - |
 | popupRender | 自定义下拉框内容 | (menu: VueNode) =&gt; VueNode | - | - |
@@ -78,6 +80,18 @@ demo:
 | popupScroll | 下拉列表滚动时的回调 | (e: UIEvent) =&gt; void | - |
 | search | 搜索补全项的时候调用 | (value: string) =&gt; void | - |
 | select | 被选中时调用，参数为选中项的 value 值 | (value: string, option: Option) =&gt; void | - |
+
+### 插槽 {#slots}
+
+| 插槽 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| default | 自定义输入组件，或传入 `AutoComplete.Option` 子节点 | () =&gt; VueNode | - |
+| labelRender | 自定义当前选中的 label 内容 render | (props: LabelInValueType) =&gt; VueNode | - |
+| notFoundContent | 当下拉列表为空时显示的内容 | () =&gt; VueNode | - |
+| optionRender | 自定义下拉选项渲染 | (option: FlattenOptionData&lt;BaseOptionType&gt;, info: &#123; index: number &#125;) =&gt; VueNode | - |
+| popupRender | 自定义下拉框内容 | (menu: VueNode) =&gt; VueNode | - |
+| prefix | 自定义前缀 | () =&gt; VueNode | - |
+| suffixIcon | 自定义后缀图标 | () =&gt; VueNode | - |
 
 ## 类型 {#types}
 

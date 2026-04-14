@@ -223,6 +223,25 @@ describe('autoComplete', () => {
     expect(wrapper.find('.ant-select-auto-complete').exists()).toBe(true)
   })
 
+  it('should forward labelRender slot to Select', () => {
+    const wrapper = mount(AutoComplete, {
+      props: {
+        defaultValue: 'missing-option',
+      },
+      slots: {
+        labelRender: ({ label, value }: any) => (
+          <span class="auto-complete-label-render">
+            {label ?? `No option for ${value}`}
+          </span>
+        ),
+      },
+    })
+
+    const rendered = wrapper.find('.auto-complete-label-render')
+    expect(rendered.exists()).toBe(true)
+    expect(rendered.text()).toBe('No option for missing-option')
+  })
+
   it('should support onBlur and onFocus', async () => {
     const onBlur = vi.fn()
     const onFocus = vi.fn()
