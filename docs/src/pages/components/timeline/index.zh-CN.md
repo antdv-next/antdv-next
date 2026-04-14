@@ -44,7 +44,7 @@ demo:
 | items | 选项配置 | TimelineItemProps[] | - | - |
 | mode | 通过设置 `mode` 可以改变时间轴和内容的相对位置 | `left` \| `alternate` \| `right` | - | - |
 | pending | 指定最后一个幽灵节点是否存在或内容，请使用 `item.loading` 代替 | VueNode | false | - |
-| pendingDot | 当最后一个幽灵节点存在時，指定其时间图点，请使用 `item.icon` 代替 | VueNode | &lt;LoadingOutlined /&gt; | - |
+| pendingDot | 当最后一个幽灵节点存在时，指定其时间图点，请使用 `item.icon` 代替 | VueNode | &lt;LoadingOutlined /&gt; | - |
 | reverse | 节点排序 | boolean | false | - |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;SemanticDOM, CSSProperties&gt; | - | - |
 | dotRender | 自定义时间轴点渲染函数 | (params: &#123; item: TimelineItemProps, index: number &#125;) =&gt; VueNode | - | - |
@@ -56,7 +56,7 @@ demo:
 | 插槽 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
 | pending | 指定最后一个幽灵节点是否存在或内容 | () =&gt; VueNode | - |
-| pendingDot | 当最后一个幽灵节点存在時，指定其时间图点 | () =&gt; VueNode | - |
+| pendingDot | 当最后一个幽灵节点存在时，指定其时间图点 | () =&gt; VueNode | - |
 | dotRender | 自定义时间轴点渲染函数 | (params: &#123; item: TimelineItemProps, index: number &#125;) =&gt; VueNode | - |
 | labelRender | 自定义时间轴标签渲染函数 | (params: &#123; item: TimelineItemProps, index: number &#125;) =&gt; VueNode | - |
 | contentRender | 自定义时间轴内容渲染函数 | (params: &#123; item: TimelineItemProps, index: number &#125;) =&gt; VueNode | - |
