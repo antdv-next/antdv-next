@@ -2,7 +2,7 @@
   "version": "1",
   "downstream": {
     "name": "antdv-next",
-    "local_path": "/Users/zhuzhengjian/workspace/github/antdv-next/antdv-next"
+    "local_path": "./"
   },
   "upstreams": [
     {
