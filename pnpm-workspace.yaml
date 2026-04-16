@@ -129,7 +129,7 @@ catalogs:
     '@v-c/collapse': ^1.0.0
     '@v-c/color-picker': ^1.0.6
     '@v-c/dialog': ^1.0.3
-    '@v-c/drawer': ^1.0.3
+    '@v-c/drawer': ^1.0.4
     '@v-c/dropdown': ^1.0.2
     '@v-c/image': ^1.0.10
     '@v-c/input': ^1.0.3

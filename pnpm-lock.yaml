@@ -333,8 +333,8 @@ catalogs:
       specifier: ^1.0.3
       version: 1.0.3
     '@v-c/drawer':
-      specifier: ^1.0.3
-      version: 1.0.3
+      specifier: ^1.0.4
+      version: 1.0.4
     '@v-c/dropdown':
       specifier: ^1.0.2
       version: 1.0.2
@@ -596,7 +596,7 @@ importers:
         version: link:../packages/cssinjs
       '@antdv-next/happy-work-theme':
         specifier: catalog:prod
-        version: 1.0.0(antdv-next@1.1.9(vue@3.5.30(typescript@5.9.3)))(vue@3.5.30(typescript@5.9.3))
+        version: 1.0.0(antdv-next@1.2.0(vue@3.5.30(typescript@5.9.3)))(vue@3.5.30(typescript@5.9.3))
       '@antdv-next/icons':
         specifier: catalog:prod
         version: 1.0.6(vue@3.5.30(typescript@5.9.3))
@@ -608,7 +608,7 @@ importers:
         version: 14.2.1(vue@3.5.30(typescript@5.9.3))
       antdv-style:
         specifier: catalog:prod
-        version: 1.0.0-rc.1(antdv-next@1.1.9(vue@3.5.30(typescript@5.9.3)))(vue@3.5.30(typescript@5.9.3))
+        version: 1.0.0-rc.1(antdv-next@1.2.0(vue@3.5.30(typescript@5.9.3)))(vue@3.5.30(typescript@5.9.3))
       dayjs:
         specifier: catalog:prod
         version: 1.11.20
@@ -789,7 +789,7 @@ importers:
         version: 1.0.3(vue@3.5.30(typescript@5.9.3))
       '@v-c/drawer':
         specifier: catalog:vc
-        version: 1.0.3(vue@3.5.30(typescript@5.9.3))
+        version: 1.0.4(vue@3.5.30(typescript@5.9.3))
       '@v-c/dropdown':
         specifier: catalog:vc
         version: 1.0.2(vue@3.5.30(typescript@5.9.3))
@@ -2761,6 +2761,11 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
+  '@v-c/drawer@1.0.4':
+    resolution: {integrity: sha512-UXvgsHl7zpgzEvFM61yrXPBxZPkiczD5/b5VImD5T/BbKOcwZgIDvJa/3//8Qj+rBppT5IEwzW/eLVK3ieAmyQ==}
+    peerDependencies:
+      vue: ^3.0.0
+
   '@v-c/dropdown@1.0.2':
     resolution: {integrity: sha512-D6TACf3jUiRWx4xW5h2+wVT9SMYxUasFlAHESYJr4ZMjLTLLM1Q8iBjkjhGF+vA0eYR5zqRTwlaacN0DNDZBPw==}
     peerDependencies:
@@ -2895,11 +2900,6 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
-  '@v-c/table@1.0.4':
-    resolution: {integrity: sha512-Fvf5WzGidDdkRHa8pRiIKS38E8v+goa2Y8fktwB586+gEM1IwcWFGSnioa6tOH/hA0N2mCWfdAp+qFWb9LXRdw==}
-    peerDependencies:
-      vue: ^3.0.0
-
   '@v-c/table@1.0.5':
     resolution: {integrity: sha512-TM3j3d1D8o4SY4h4bBWnzMDkFeHfI6WSgRUPScCqX9eZ9xIYfD0qMXD/1Dx/9hFo8UFTsscvxZ9gIDxsw9LaWg==}
     peerDependencies:
@@ -2947,11 +2947,6 @@ packages:
 
   '@v-c/util@1.0.19':
     resolution: {integrity: sha512-apJGS4BVzhXbrNR6jxXF18jAiOWIn/UNmGjgSvB5r4ba9Wr/ireKCfJvhuuNsZi+scLaM0W3ghB81PbQ5vwoJg==}
-    peerDependencies:
-      vue: ^3.0.0
-
-  '@v-c/virtual-list@1.0.6':
-    resolution: {integrity: sha512-eXGbU1zME4pXAfQSBfhp1BkqBP3XYSX03CRJg7tsHgwXoaw8DE7pLuxzFSa+COJ66oOdYn99XS/sHTiz34aQCA==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -3186,8 +3181,8 @@ packages:
     resolution: {integrity: sha512-HqZ5rWlFjGiV0tDm3UxxgNRqsOTniqoKZu0pIAfh7TZQMGuZK+hH0drySty0si0QXj1ieop4+SkSfPZBPPkHig==}
     engines: {node: '>=14'}
 
-  antdv-next@1.1.9:
-    resolution: {integrity: sha512-lC4pEn7d+SPwVvSnfDC4G4b6WKniq3VDKU/tUSHa8W6emgkVH0pcsvD0bHQ5c14MSEVlgB4xUVs6X9qihTfh8w==}
+  antdv-next@1.2.0:
+    resolution: {integrity: sha512-XbnPItBia9Ti35SQd42WIV6eoSr3Vz7rdh9pfOtzH/y+VV+ZvdUpGF/0oDTCW8xou5Ey2D+l5tmYrE5dPu+Epg==}
 
   antdv-style@1.0.0-rc.1:
     resolution: {integrity: sha512-CRu+zwJ0nRy3u9vpWm1odesX9Xk1kgvYrGR/enLNbn6yfY8HEgIIvRkeXASIHoaVMDi2E8Jozi+1lGOfiVg0LQ==}
@@ -6274,10 +6269,10 @@ snapshots:
       stylis: 4.3.6
       vue: 3.5.30(typescript@5.9.3)
 
-  '@antdv-next/happy-work-theme@1.0.0(antdv-next@1.1.9(vue@3.5.30(typescript@5.9.3)))(vue@3.5.30(typescript@5.9.3))':
+  '@antdv-next/happy-work-theme@1.0.0(antdv-next@1.2.0(vue@3.5.30(typescript@5.9.3)))(vue@3.5.30(typescript@5.9.3))':
     dependencies:
       '@ant-design/fast-color': 3.0.1
-      antdv-next: 1.1.9(vue@3.5.30(typescript@5.9.3))
+      antdv-next: 1.2.0(vue@3.5.30(typescript@5.9.3))
       vue: 3.5.30(typescript@5.9.3)
 
   '@antdv-next/icons@1.0.6(vue@3.5.30(typescript@5.9.3))':
@@ -8013,6 +8008,12 @@ snapshots:
       '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
       vue: 3.5.30(typescript@5.9.3)
 
+  '@v-c/drawer@1.0.4(vue@3.5.30(typescript@5.9.3))':
+    dependencies:
+      '@v-c/portal': 1.0.8(vue@3.5.30(typescript@5.9.3))
+      '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
+      vue: 3.5.30(typescript@5.9.3)
+
   '@v-c/dropdown@1.0.2(vue@3.5.30(typescript@5.9.3))':
     dependencies:
       '@v-c/trigger': 1.0.14(vue@3.5.30(typescript@5.9.3))
@@ -8167,13 +8168,6 @@ snapshots:
       '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
       vue: 3.5.30(typescript@5.9.3)
 
-  '@v-c/table@1.0.4(vue@3.5.30(typescript@5.9.3))':
-    dependencies:
-      '@v-c/resize-observer': 1.0.8(vue@3.5.30(typescript@5.9.3))
-      '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
-      '@v-c/virtual-list': 1.0.6(vue@3.5.30(typescript@5.9.3))
-      vue: 3.5.30(typescript@5.9.3)
-
   '@v-c/table@1.0.5(vue@3.5.30(typescript@5.9.3))':
     dependencies:
       '@v-c/resize-observer': 1.0.8(vue@3.5.30(typescript@5.9.3))
@@ -8237,12 +8231,6 @@ snapshots:
 
   '@v-c/util@1.0.19(vue@3.5.30(typescript@5.9.3))':
     dependencies:
-      vue: 3.5.30(typescript@5.9.3)
-
-  '@v-c/virtual-list@1.0.6(vue@3.5.30(typescript@5.9.3))':
-    dependencies:
-      '@v-c/resize-observer': 1.0.8(vue@3.5.30(typescript@5.9.3))
-      '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
       vue: 3.5.30(typescript@5.9.3)
 
   '@v-c/virtual-list@1.0.7(vue@3.5.30(typescript@5.9.3))':
@@ -8537,7 +8525,7 @@ snapshots:
 
   ansis@4.2.0: {}
 
-  antdv-next@1.1.9(vue@3.5.30(typescript@5.9.3)):
+  antdv-next@1.2.0(vue@3.5.30(typescript@5.9.3)):
     dependencies:
       '@ant-design/colors': 8.0.1
       '@ant-design/fast-color': 3.0.1
@@ -8570,7 +8558,7 @@ snapshots:
       '@v-c/slider': 1.0.10(vue@3.5.30(typescript@5.9.3))
       '@v-c/steps': 1.0.0(vue@3.5.30(typescript@5.9.3))
       '@v-c/switch': 1.0.0(vue@3.5.30(typescript@5.9.3))
-      '@v-c/table': 1.0.4(vue@3.5.30(typescript@5.9.3))
+      '@v-c/table': 1.0.5(vue@3.5.30(typescript@5.9.3))
       '@v-c/tabs': 1.0.2(vue@3.5.30(typescript@5.9.3))
       '@v-c/textarea': 1.0.4(vue@3.5.30(typescript@5.9.3))
       '@v-c/tooltip': 1.0.3(vue@3.5.30(typescript@5.9.3))
@@ -8580,7 +8568,7 @@ snapshots:
       '@v-c/trigger': 1.0.14(vue@3.5.30(typescript@5.9.3))
       '@v-c/upload': 1.0.0(vue@3.5.30(typescript@5.9.3))
       '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
-      '@v-c/virtual-list': 1.0.6(vue@3.5.30(typescript@5.9.3))
+      '@v-c/virtual-list': 1.0.7(vue@3.5.30(typescript@5.9.3))
       '@vueuse/core': 14.2.1(vue@3.5.30(typescript@5.9.3))
       dayjs: 1.11.20
       es-toolkit: 1.45.1
@@ -8592,10 +8580,10 @@ snapshots:
       - moment
       - vue
 
-  antdv-style@1.0.0-rc.1(antdv-next@1.1.9(vue@3.5.30(typescript@5.9.3)))(vue@3.5.30(typescript@5.9.3)):
+  antdv-style@1.0.0-rc.1(antdv-next@1.2.0(vue@3.5.30(typescript@5.9.3)))(vue@3.5.30(typescript@5.9.3)):
     dependencies:
       '@emotion/css': 11.13.5
-      antdv-next: 1.1.9(vue@3.5.30(typescript@5.9.3))
+      antdv-next: 1.2.0(vue@3.5.30(typescript@5.9.3))
       vue: 3.5.30(typescript@5.9.3)
     transitivePeerDependencies:
       - supports-color
