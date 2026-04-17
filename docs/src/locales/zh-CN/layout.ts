@@ -9,7 +9,7 @@ export default {
 
   footer: {
     sections: {
-      github: 'Github',
+      resources: '相关资源',
       community: '社区',
       links: '友链',
     },

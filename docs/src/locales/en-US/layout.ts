@@ -9,7 +9,7 @@ export default {
 
   footer: {
     sections: {
-      github: 'Github',
+      resources: 'Resources',
       community: 'Community',
       links: 'Links',
     },
