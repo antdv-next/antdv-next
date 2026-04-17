@@ -19,16 +19,12 @@ npx nuxi@latest module add @antdv-next/nuxt
 
 Or install dependencies manually:
 
-```shell
-# via pnpm
-pnpm add -D @antdv-next/nuxt antdv-next @antdv-next/icons
-
-# via npm
-npm i -D @antdv-next/nuxt antdv-next @antdv-next/icons
-
-# via yarn
-yarn add -D @antdv-next/nuxt antdv-next @antdv-next/icons
-```
+<InstallDependencies
+  npm='$ npm i -D @antdv-next/nuxt antdv-next @antdv-next/icons'
+  yarn='$ yarn add -D @antdv-next/nuxt antdv-next @antdv-next/icons'
+  pnpm='$ pnpm add -D @antdv-next/nuxt antdv-next @antdv-next/icons'
+  bun='$ bun add -D @antdv-next/nuxt antdv-next @antdv-next/icons'
+/>
 
 ## Configuration
 

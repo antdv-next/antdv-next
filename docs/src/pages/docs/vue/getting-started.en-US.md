@@ -54,19 +54,12 @@ We provide a library adapter `@antdv-next/auto-import-resolver`.
 
 #### Installation
 
-```shell
-# via npm
-npm i @antdv-next/auto-import-resolver unplugin-vue-components unplugin-auto-import -D
-
-# via yarn
-yarn add @antdv-next/auto-import-resolver unplugin-vue-components unplugin-auto-import -D
-
-# via pnpm
-pnpm add @antdv-next/auto-import-resolver unplugin-vue-components unplugin-auto-import -D
-
-# via Bun
-bun add @antdv-next/auto-import-resolver unplugin-vue-components unplugin-auto-import -D
-```
+<InstallDependencies
+  npm='$ npm i @antdv-next/auto-import-resolver unplugin-vue-components unplugin-auto-import -D'
+  yarn='$ yarn add @antdv-next/auto-import-resolver unplugin-vue-components unplugin-auto-import -D'
+  pnpm='$ pnpm add @antdv-next/auto-import-resolver unplugin-vue-components unplugin-auto-import -D'
+  bun='$ bun add @antdv-next/auto-import-resolver unplugin-vue-components unplugin-auto-import -D'
+/>
 
 #### Usage
 
