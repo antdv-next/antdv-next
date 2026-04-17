@@ -49,6 +49,10 @@ const handleHeaderChange: MenuEmits['click'] = (info) => {
     window.open('https://play.antdv-next.com', '_blank')
     return
   }
+  else if (key === '/mirror') {
+    window.open('http://antdv-next.cn', '_blank')
+    return
+  }
   router.push(key)
   appStore.setHeaderKey([key])
 }

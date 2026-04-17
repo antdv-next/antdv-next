@@ -9,6 +9,7 @@ const menuLocales = {
     resources: '资源',
     sponsor: '赞助',
     playground: 'Playground',
+    mirror: '国内镜像',
   },
 
   docs: {
