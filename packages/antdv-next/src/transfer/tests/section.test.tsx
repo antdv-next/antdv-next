@@ -151,6 +151,18 @@ describe('transfer.Section', () => {
     expect(onItemSelect).toHaveBeenCalledWith('a', false)
   })
 
+  it('falls back to built-in list when renderList returns empty', () => {
+    const wrapper = mountComponent(Section, {
+      props: {
+        ...listCommonProps,
+        renderList: () => [],
+      },
+    })
+
+    expect(wrapper.find('.ant-transfer-list-body-customize-wrapper').exists()).toBe(false)
+    expect(wrapper.find('ul.ant-transfer-list-content').exists()).toBe(true)
+  })
+
   it('should fallback to empty string text when render result is non-text', async () => {
     const handleFilter = vi.fn()
     const wrapper = mountComponent(Section, {
