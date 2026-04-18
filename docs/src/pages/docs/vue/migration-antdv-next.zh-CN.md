@@ -68,14 +68,16 @@ yarn add @antdv-next/icons
     - `maxPopoverTrigger` 弃用，变为 `:max="{popover: PopoverProps}"`。
 
 - `BackTop`
-    - `BackTop` 弃用，变为 `FloatButton.BackTop`。
+    - `FloatButton.BackTop` 弃用，变为 `BackTop`。
 
 - `Breadcrumb`
     - `routes` 弃用，变为 `items`。
+    - `routes.children` 弃用，变为 `items.menu`。
+    - `itemRender="props"` 弃用，变为 `itemRender="item"`。
     - `Breadcrumb.Item` 和 `Breadcrumb.Separator` 弃用，变为 `items`。
 
 - `Button.Group`
-    - `Button.Group` 弃用，变为 `Space.Compact`。
+    - `Button.Group` 弃用，变为 `SpaceCompact`。
 
 - `Button`
     - `iconPosition` 弃用，变为 `iconPlacement`。
@@ -119,6 +121,9 @@ yarn add @antdv-next/icons
     - `popupStyle` 弃用，变为 `styles.popup.root`。
     - `bordered` 弃用，变为 `variant`。
     - `onSelect` 弃用，变为 `onCalendarChange`。
+    - `MonthPicker` 弃用，变为 `DateMonthPicker`。
+    - `RangePicker` 弃用，变为 `DateRangePicker`。
+    - `WeekPicker` 弃用，变为 `DateWeekPicker`。
 
 - `DatePicker`
     - `dropdownClassName` 弃用，变为 `classes.popup.root`。
@@ -140,6 +145,7 @@ yarn add @antdv-next/icons
     - `bodyStyle` 弃用，变为 `styles.body`。
     - `footerStyle` 弃用，变为 `styles.footer`。
     - `contentWrapperStyle` 弃用，变为 `styles.wrapper`。
+    - `destroyOnClose` 弃用，变为 `destroyOnHidden`。
     - `maskStyle` 弃用，变为 `styles.mask`。
     - `drawerStyle` 弃用，变为 `styles.section`。
     - `destroyInactivePanel` 弃用，变为 `destroyOnHidden`。
@@ -147,14 +153,16 @@ yarn add @antdv-next/icons
     - `height` 弃用，变为 `size`。
 
 - `Dropdown.Button`
-    - `Dropdown.Button` 弃用，变为 `Space.Compact + Dropdown + Button`。
+    - `Dropdown.Button` 弃用，变为 `SpaceCompact + Dropdown + Button`。
 
 - `Dropdown`
     - `dropdownRender` 弃用，变为 `popupRender`。
     - `destroyPopupOnHide` 弃用，变为 `destroyOnHidden`。
+    - `overlay(v-slot)` 弃用，变为 `popupRender`。
     - `overlayClassName` 弃用，变为 `classes.root`。
     - `overlayStyle` 弃用，变为 `styles.root`。
     - `placement: xxxCenter` 弃用，变为 `placement: xxx`。
+    - `<Dropdown class="xx"></Dropdown>` 弃用，变为 `<Dropdown><span class="xx"></span></Dropdown>`。
 
 - `Empty`
     - `imageStyle` 弃用，变为 `styles.image`。
@@ -170,24 +178,34 @@ yarn add @antdv-next/icons
     - `rootClassName` 弃用，变为 `classes.root`。
     - `toolbarRender` 弃用，变为 `actionsRender`。
 
+- `Input`
+    - `addonAfter` 弃用，变为 `SpaceCompact`。
+    - `addonBefore` 弃用，变为 `SpaceCompact`。
+    - `Input.Password` 弃用，变为 `InputPassword`。
+    - `Input.Search` 弃用，变为 `InputSearch`。
+    - `Input.TextArea` 弃用，变为 `TextArea`。
+
 - `Input.Group`
-    - `Input.Group` 弃用，变为 `Space.Compact`。
+    - `Input.Group` 弃用，变为 `SpaceCompact`。
 
 - `InputNumber`
     - `bordered` 弃用，变为 `variant`。
-    - `addonAfter` 弃用，变为 `Space.Compact`。
-    - `addonBefore` 弃用，变为 `Space.Compact`。
+    - `addonAfter` 弃用，变为 `SpaceCompact`。
+    - `addonBefore` 弃用，变为 `SpaceCompact`。
 
 - `Mentions`
     - `Mentions.Option` 弃用，变为 `options`。
 
 - `Menu`
+    - `value` 弃用，变为 `key`。
     - `children` 弃用，变为 `items`。
+    - `select` 事件，变为 `(value: string | number, option: Option) => void`。
 
 - `Modal`
     - `bodyStyle` 弃用，变为 `styles.body`。
     - `maskStyle` 弃用，变为 `styles.mask`。
     - `destroyOnClose` 弃用，变为 `destroyOnHidden`。
+    - `class` 弃用，变为 `classes.container`。
 
 - `Notification`
     - `btn` 弃用，变为 `actions`。
@@ -215,7 +233,7 @@ yarn add @antdv-next/icons
     - `tooltipPlacement` 弃用，变为 `tooltip.placement`。
     - `tooltipVisible` 弃用，变为 `tooltip.open`。
 
-- `Space.Compact`
+- `SpaceCompact`
     - `direction` 弃用，变为 `orientation`。
 
 - `Space`
@@ -240,6 +258,7 @@ yarn add @antdv-next/icons
     - `progressDot` 弃用，变为 `type="dot"`。
     - `direction` 弃用，变为 `orientation`。
     - `items.description` 弃用，变为 `items.content`。
+    - `Steps.Step` 弃用，变为 `items`。
 
 - `Table`
     - `pagination.position` 弃用，变为 `pagination.placement`。
@@ -247,6 +266,12 @@ yarn add @antdv-next/icons
     - `filterDropdownOpen` 弃用，变为 `filterDropdownProps.open`。
     - `onFilterDropdownOpenChange` 弃用，变为 `filterDropdownProps.onOpenChange`。
     - `filterCheckall` 弃用，变为 `locale.filterCheckAll`。
+    - `customRender` 弃用，变为 `render`。
+    - `customRow` 弃用，变为 `onRow`。
+    - `onResizeColumn` 弃用，变为 `onResize`。
+    - `customFilterIcon` 弃用，变为 `filterIcon`。
+    - `customFilterDropdown` 弃用，变为 `filterDropdown`。
+    - `customCell` 弃用，变为 `onCell`。
 
 - `Tabs`
     - `popupClassName` 弃用，变为 `classes.popup`。
@@ -273,6 +298,9 @@ yarn add @antdv-next/icons
     - `overlayClassName` 弃用，变为 `classes.root`。
     - `destroyTooltipOnHide` 弃用，变为 `destroyOnHidden`。
 
+- `Popover`
+    - `overlayClassName` 弃用，变为 `classes.container`。
+
 - `Transfer`
     - `listStyle` 弃用，变为 `styles.section`。
     - `operationStyle` 弃用，变为 `styles.actions`。
@@ -286,6 +314,15 @@ yarn add @antdv-next/icons
     - `dropdownRender` 弃用，变为 `popupRender`。
     - `onDropdownVisibleChange` 弃用，变为 `onOpenChange`。
     - `bordered` 弃用，变为 `variant`。
+
+- `Tree`
+    - `tree.dataRef` 弃用，变为 `tree`。
+    - `treeData.title(v-slot)` 弃用，变为 `titleRender`。
+
+- `notification`
+    - `message` 弃用，变为 `title`。
+    - `btn` 弃用，变为 `actions`。
+    - `close` 弃用，变为 `destroy`。
 
 ### 弹层类组件（Modal、Drawer 等）
 
@@ -341,6 +378,7 @@ yarn add @antdv-next/icons
 ### Form 调整
 
 - 去掉了`a-form-rest`取消被动收集的组件，默认情况下我们不会主动收集`a-form-item`内的组件作为表单域，需要手动通过`name`属性指定。
+- `model` 表单数据对象不能是平面化对象，必须是嵌套对象，否则 `validate` 无法获取对象属性和无法正常表单验证，例如：`{ 'employee.office.officeCode': '' }` 变更为 `{ employee: { office: 'officeCode' : '' } }`。
 
 ## 升级影响排查 Checklist
 
