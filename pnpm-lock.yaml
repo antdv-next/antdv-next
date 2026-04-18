@@ -333,8 +333,8 @@ catalogs:
       specifier: ^1.0.3
       version: 1.0.3
     '@v-c/drawer':
-      specifier: ^1.0.4
-      version: 1.0.4
+      specifier: ^1.0.5
+      version: 1.0.5
     '@v-c/dropdown':
       specifier: ^1.0.2
       version: 1.0.2
@@ -789,7 +789,7 @@ importers:
         version: 1.0.3(vue@3.5.30(typescript@5.9.3))
       '@v-c/drawer':
         specifier: catalog:vc
-        version: 1.0.4(vue@3.5.30(typescript@5.9.3))
+        version: 1.0.5(vue@3.5.30(typescript@5.9.3))
       '@v-c/dropdown':
         specifier: catalog:vc
         version: 1.0.2(vue@3.5.30(typescript@5.9.3))
@@ -2756,13 +2756,13 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
-  '@v-c/drawer@1.0.3':
-    resolution: {integrity: sha512-k6oIWFZXtt9lR2A3zUzIVQZCl90adBy7bh1bs6uHPsEa5Ma73+7PbQlaxt0X+WQAVW9M5n9pqDAf6Qp7qexi+A==}
+  '@v-c/drawer@1.0.4':
+    resolution: {integrity: sha512-UXvgsHl7zpgzEvFM61yrXPBxZPkiczD5/b5VImD5T/BbKOcwZgIDvJa/3//8Qj+rBppT5IEwzW/eLVK3ieAmyQ==}
     peerDependencies:
       vue: ^3.0.0
 
-  '@v-c/drawer@1.0.4':
-    resolution: {integrity: sha512-UXvgsHl7zpgzEvFM61yrXPBxZPkiczD5/b5VImD5T/BbKOcwZgIDvJa/3//8Qj+rBppT5IEwzW/eLVK3ieAmyQ==}
+  '@v-c/drawer@1.0.5':
+    resolution: {integrity: sha512-CqOQIm0RTtbQX6rqS2RN9O197URtyyBKo5WitVL2Ta9GdTp/IhmD9INfjrgbTN9UO1fJjGK6jHoBNRXXLtYI4g==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -8002,13 +8002,13 @@ snapshots:
       '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
       vue: 3.5.30(typescript@5.9.3)
 
-  '@v-c/drawer@1.0.3(vue@3.5.30(typescript@5.9.3))':
+  '@v-c/drawer@1.0.4(vue@3.5.30(typescript@5.9.3))':
     dependencies:
       '@v-c/portal': 1.0.8(vue@3.5.30(typescript@5.9.3))
       '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
       vue: 3.5.30(typescript@5.9.3)
 
-  '@v-c/drawer@1.0.4(vue@3.5.30(typescript@5.9.3))':
+  '@v-c/drawer@1.0.5(vue@3.5.30(typescript@5.9.3))':
     dependencies:
       '@v-c/portal': 1.0.8(vue@3.5.30(typescript@5.9.3))
       '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
@@ -8537,7 +8537,7 @@ snapshots:
       '@v-c/collapse': 1.0.0(vue@3.5.30(typescript@5.9.3))
       '@v-c/color-picker': 1.0.6(vue@3.5.30(typescript@5.9.3))
       '@v-c/dialog': 1.0.3(vue@3.5.30(typescript@5.9.3))
-      '@v-c/drawer': 1.0.3(vue@3.5.30(typescript@5.9.3))
+      '@v-c/drawer': 1.0.4(vue@3.5.30(typescript@5.9.3))
       '@v-c/dropdown': 1.0.2(vue@3.5.30(typescript@5.9.3))
       '@v-c/image': 1.0.10(vue@3.5.30(typescript@5.9.3))
       '@v-c/input': 1.0.3(vue@3.5.30(typescript@5.9.3))
