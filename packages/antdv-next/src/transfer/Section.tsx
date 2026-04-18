@@ -172,13 +172,19 @@ const TransferSection = defineComponent<
         styles: props.styles,
       }
 
-      let bodyContent: any = props.renderList
+      const raw = props.renderList
         ? props.renderList({
             ...listProps,
             onItemSelect: (key: any, check: any) => listProps.onItemSelect(key, check),
           })
         : null
-      const customize = !!bodyContent
+
+      const slotNodes = raw != null
+        ? filterEmpty(Array.isArray(raw) ? raw : [raw])
+        : []
+      const customize = slotNodes.length > 0
+
+      let bodyContent: any
 
       if (!customize) {
         bodyContent = (
@@ -188,6 +194,9 @@ const TransferSection = defineComponent<
             prefixCls={listPrefixCls.value}
           />
         )
+      }
+      else {
+        bodyContent = slotNodes.length === 1 ? slotNodes[0] : slotNodes
       }
 
       const bodyNode = customize
