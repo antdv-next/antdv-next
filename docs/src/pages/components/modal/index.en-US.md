@@ -238,3 +238,20 @@ Modal will use memo to avoid content jumping when closed. Also, if you use Form 
 ### Why I can not access context in Modal.xxx? {#faq-context}
 
 Modal static methods create an instance without context connection. When you need context info (like ConfigProvider context), you can use `Modal.useModal` to get `modal` instance and `contextHolder` node.
+
+If you still need to use `Modal.xxx` static methods and want them to read `locale`, `theme`, or other ConfigProvider settings, configure a global `holderRender` once:
+
+```ts
+import { App, ConfigProvider } from 'antdv-next'
+import { h } from 'vue'
+import zhCN from 'antdv-next/locale/zh_CN'
+
+ConfigProvider.config({
+  holderRender: children =>
+    h(ConfigProvider, { locale: zhCN }, {
+      default: () => h(App, null, () => children),
+    }),
+})
+```
+
+Then `Modal.confirm`, `Modal.info` and other static methods will render with that wrapped context.

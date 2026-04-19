@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { HappyProvider } from '@antdv-next/happy-work-theme'
-import { ConfigProvider, theme } from 'antdv-next'
+import { App, ConfigProvider, StyleProvider, theme } from 'antdv-next'
 import en from 'antdv-next/locale/en_US'
 import cn from 'antdv-next/locale/zh_CN'
 import dayjs from 'dayjs'
 import { storeToRefs } from 'pinia'
-import { computed, getCurrentInstance, onMounted, shallowRef, watch } from 'vue'
+import { computed, getCurrentInstance, h, onMounted, shallowRef, watch } from 'vue'
 import { themeModeStore } from '@/composables/local-store'
 import { applyThemeToDOM, useTheme } from '@/composables/theme'
 import { useAppStore } from '@/stores/app'
@@ -70,6 +70,31 @@ watch(
     ConfigProvider.config({
       theme: themeConfig.value,
       appContext: instance?.appContext,
+      holderRender: (children) => {
+        console.log(children)
+        return h(
+          StyleProvider,
+          {
+            layer: true,
+          },
+          () => h(
+            HappyProvider,
+            { enabled: !!happyMode.value } as any,
+            {
+              default: ({ wave }: { wave: any }) => h(
+                ConfigProvider,
+                {
+                  theme: themeConfig.value,
+                  direction: direction.value,
+                  locale: antdLocale.value,
+                  wave,
+                },
+                () => h(App, null, () => children),
+              ),
+            },
+          ),
+        )
+      },
     })
   },
   {

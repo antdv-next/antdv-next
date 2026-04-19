@@ -166,6 +166,23 @@ const [api, ContextHolder] = notification.useNotification()
 
 > [App Package Component](/components/app) can be used to simplify `useNotification` and other methods that need to manually implant ContextHolder.
 
+If you still need to use static methods and want them to read `locale`, `theme`, or other ConfigProvider settings, configure a global `holderRender` once:
+
+```ts
+import { App, ConfigProvider } from 'antdv-next'
+import { h } from 'vue'
+import zhCN from 'antdv-next/locale/zh_CN'
+
+ConfigProvider.config({
+  holderRender: children =>
+    h(ConfigProvider, { locale: zhCN }, {
+      default: () => h(App, null, () => children),
+    }),
+})
+```
+
+Then `notification.open`, `notification.success` and other static methods will render with that wrapped context.
+
 ### How to set static methods prefixCls? {#faq-set-prefix-cls}
 
 You can config with [`ConfigProvider.config`](/components/config-provider#configproviderconfig-4130).
