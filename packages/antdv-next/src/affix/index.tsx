@@ -112,6 +112,8 @@ export const Affix = defineComponent<
           status: AFFIX_STATUS_NONE,
         }
         const placeholderRect = getTargetRect(placeholderNodeRef.value)
+        const contentRect = getTargetRect(contextRef.value || fixedNodeRef.value)
+        const contentHeight = contentRect.height || placeholderRect.height
 
         if (
           placeholderRect.top === 0
@@ -130,11 +132,11 @@ export const Affix = defineComponent<
             position: 'fixed',
             top: `${fixedTop}px`,
             width: `${placeholderRect.width}px`,
-            height: `${placeholderRect.height}px`,
+            height: `${contentHeight}px`,
           }
           newState.placeholderStyle = {
             width: `${placeholderRect.width}px`,
-            height: `${placeholderRect.height}px`,
+            height: `${contentHeight}px`,
           }
         }
         else if (fixedBottom !== undefined) {
@@ -142,11 +144,11 @@ export const Affix = defineComponent<
             position: 'fixed',
             bottom: `${fixedBottom}px`,
             width: `${placeholderRect.width}px`,
-            height: `${placeholderRect.height}px`,
+            height: `${contentHeight}px`,
           }
           newState.placeholderStyle = {
             width: `${placeholderRect.width}px`,
-            height: `${placeholderRect.height}px`,
+            height: `${contentHeight}px`,
           }
         }
 

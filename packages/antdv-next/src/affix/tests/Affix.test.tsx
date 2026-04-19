@@ -265,4 +265,81 @@ describe('affix Render', () => {
       })
     })
   })
+
+  it('keeps placeholder size stable when root border exists with offsetBottom', async () => {
+    const defaultRectMock = domMock.getMockImplementation()
+    if (!defaultRectMock) {
+      throw new Error('default rect mock should exist')
+    }
+
+    domMock.mockImplementation(function borderedAffixRect(this: HTMLElement) {
+      if (this.classList.contains('container')) {
+        return { top: 0, bottom: 100, left: 0, width: 100, height: 100 } as DOMRect
+      }
+
+      if (this.classList.contains('placeholder')) {
+        const placeholder = this.querySelector('div[aria-hidden="true"]') as HTMLDivElement | null
+        const placeholderHeight = placeholder?.style.height
+          ? Number.parseFloat(placeholder.style.height)
+          : 30
+        const height = placeholder ? placeholderHeight + 1 : 31
+
+        return {
+          top: 300,
+          bottom: 300 + height,
+          left: 0,
+          width: 100,
+          height,
+        } as DOMRect
+      }
+
+      if (this.className.includes('ant-affix')) {
+        const height = this.style.height ? Number.parseFloat(this.style.height) : 30
+        return {
+          top: 300,
+          bottom: 300 + height,
+          left: 0,
+          width: 100,
+          height,
+        } as DOMRect
+      }
+
+      if (this.className.includes('ant-btn')) {
+        return { top: 0, bottom: 30, left: 0, width: 100, height: 30 } as DOMRect
+      }
+
+      return defaultRectMock.call(this)
+    })
+
+    const wrapper = mount(AffixMounter, {
+      props: {
+        offsetBottom: 0,
+        style: {
+          borderTop: '1px solid rgba(0, 0, 0, 0.04)',
+        },
+      },
+      attachTo: document.body,
+    })
+
+    try {
+      await waitFakeTimer()
+      await movePlaceholder(300)
+
+      const placeholder = wrapper.element.querySelector('div[aria-hidden="true"]') as HTMLDivElement | null
+      const affix = wrapper.element.querySelector('.ant-affix')
+
+      expect(placeholder).not.toBeNull()
+      expect(placeholder).toHaveStyle({ height: '30px' })
+      expect(affix).toHaveStyle({ height: '30px' })
+
+      await movePlaceholder(300)
+
+      expect(placeholder).toHaveStyle({ height: '30px' })
+      expect(affix).toHaveStyle({ height: '30px' })
+    }
+    finally {
+      wrapper.unmount()
+      domMock.mockImplementation(defaultRectMock)
+    }
+  })
 })
