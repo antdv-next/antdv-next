@@ -28,6 +28,7 @@ One or more elements can be selected from either column, one click on the proper
   <demo src="./demo/custom-item.vue">Custom datasource</demo>
   <demo src="./demo/actions.vue">Custom Actions</demo>
   <demo src="./demo/large-data.vue">Pagination</demo>
+  <demo src="./demo/table-transfer.vue">Table Transfer</demo>
   <demo src="./demo/tree-transfer.vue">Tree Transfer</demo>
   <demo src="./demo/status.vue">Status</demo>
   <demo src="./demo/style-class.vue">Custom semantic dom styling</demo>

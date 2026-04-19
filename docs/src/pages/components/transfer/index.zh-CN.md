@@ -29,6 +29,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*g9vUQq2nkpEAAA
   <demo src="./demo/custom-item.vue">自定义渲染</demo>
   <demo src="./demo/actions.vue">自定义操作</demo>
   <demo src="./demo/large-data.vue">分页</demo>
+  <demo src="./demo/table-transfer.vue">表格穿梭框</demo>
   <demo src="./demo/tree-transfer.vue">树形穿梭框</demo>
   <demo src="./demo/status.vue">状态</demo>
   <demo src="./demo/style-class.vue">语义化样式</demo>
