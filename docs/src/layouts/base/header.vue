@@ -129,6 +129,20 @@ const directionValue = computed(() => {
 function changeDirection(value: 1 | 2) {
   appStore.toggleDirection(value === 1 ? 'ltr' : 'rtl')
 }
+
+function getHeaderMenuUrl(key: string) {
+  if (key === '/playground')
+    return 'https://play.antdv-next.com'
+  if (key === '/mirror')
+    return 'http://antdv-next.cn'
+  return key
+}
+
+function getSiderMenuUrl(key: string) {
+  if (appStore.locale === 'zh-CN')
+    return `${key}-cn`
+  return key
+}
 </script>
 
 <template>
@@ -170,7 +184,13 @@ function changeDirection(value: 1 | 2) {
               @click="handleHeaderChange"
             >
               <template #labelRender="{ key, label }">
-                {{ headerLocales?.[key]?.[locale] ?? label }}
+                <a
+                  class="ant-doc-header-menu-item-link"
+                  :href="getHeaderMenuUrl(key as string)"
+                  @click.prevent
+                >
+                  {{ headerLocales?.[key]?.[locale] ?? label }}
+                </a>
               </template>
             </a-menu>
             <a-select
@@ -256,7 +276,13 @@ function changeDirection(value: 1 | 2) {
         @click="(info: any) => { handleHeaderChange(info); drawerVisible = false }"
       >
         <template #labelRender="{ key, label }">
-          {{ headerLocales?.[key]?.[locale] ?? label }}
+          <a
+            class="ant-doc-header-menu-item-link"
+            :href="getHeaderMenuUrl(key as string)"
+            @click.prevent
+          >
+            {{ headerLocales?.[key]?.[locale] ?? label }}
+          </a>
         </template>
       </a-menu>
       <template v-if="siderMenus.length">
@@ -270,7 +296,13 @@ function changeDirection(value: 1 | 2) {
           @click="handleSiderChange"
         >
           <template #labelRender="{ key, label }">
-            {{ siderLocales?.[key]?.[locale] ?? label }}
+            <a
+              class="ant-doc-header-menu-item-link"
+              :href="getSiderMenuUrl(key as string)"
+              @click.prevent
+            >
+              {{ siderLocales?.[key]?.[locale] ?? label }}
+            </a>
           </template>
           <template #extraRender="{ tag }">
             <template v-if="tag">
@@ -377,6 +409,10 @@ function changeDirection(value: 1 | 2) {
   .ant-menu-item {
     height: var(--ant-doc-header-height);
     line-height: var(--ant-doc-header-height);
+  }
+
+  &-item-link {
+    color: inherit;
   }
 }
 
