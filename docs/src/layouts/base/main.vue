@@ -42,6 +42,7 @@ const handleMenuClick: MenuProps['onClick'] = (info) => {
       >
         <template #labelRender="{ key, label }">
           <a
+            class="ant-doc-main-sider-menu-item-link"
             :href="getMenuUrl(key as string)"
             @click.prevent
           >
@@ -97,6 +98,10 @@ const handleMenuClick: MenuProps['onClick'] = (info) => {
       padding-bottom: var(--ant-margin-xxl) !important;
       padding-inline: var(--ant-margin-xxs);
       background: transparent;
+
+      &-item-link {
+        color: inherit;
+      }
 
       //.ant-menu-inline > .ant-menu-item-group > .ant-menu-item-group-title::after {
       //  position: relative;
