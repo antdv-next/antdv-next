@@ -1,5 +1,9 @@
+import { StyleProvider } from '@antdv-next/cssinjs'
+import { SmileOutlined } from '@antdv-next/icons'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import ConfigProvider from '..'
+import { ATTR_MARK } from '../../../../cssinjs/src/StyleContext'
+import App from '../../app'
 import message, { actDestroy as destroyMessageInstance } from '../../message'
 import Modal from '../../modal'
 import notification, { actDestroy as destroyNotificationInstance } from '../../notification'
@@ -8,6 +12,7 @@ import { waitFakeTimer } from '/@tests/utils'
 describe('config-provider static methods', () => {
   beforeEach(() => {
     vi.useFakeTimers()
+    document.querySelectorAll(`style[${ATTR_MARK}]`).forEach(style => style.remove())
   })
 
   afterEach(async () => {
@@ -18,6 +23,7 @@ describe('config-provider static methods', () => {
     destroyMessageInstance()
     destroyNotificationInstance()
     await waitFakeTimer(1, 5)
+    document.querySelectorAll(`style[${ATTR_MARK}]`).forEach(style => style.remove())
     document.body.innerHTML = ''
     vi.useRealTimers()
   })
@@ -60,5 +66,35 @@ describe('config-provider static methods', () => {
     expect(holderRender.mock.calls.length).toBeGreaterThan(notificationRenderCount)
     expect(document.body.textContent).toContain('modal title')
     expect(document.body.textContent).toContain('modal content')
+  })
+
+  it('should register static modal icon styles inside layer when holderRender enables layer', async () => {
+    ConfigProvider.config({
+      holderRender: children => (
+        <StyleProvider layer>
+          <ConfigProvider>
+            <App>
+              {children}
+            </App>
+          </ConfigProvider>
+        </StyleProvider>
+      ),
+    })
+
+    Modal.confirm({
+      title: 'modal title',
+      content: 'modal content',
+      icon: <SmileOutlined />,
+    })
+
+    await waitFakeTimer(1, 5)
+
+    const iconStyles = Array.from(document.querySelectorAll('style'))
+      .filter(style => style.innerHTML.includes('.anticon'))
+
+    expect(iconStyles.length).toBeGreaterThan(0)
+    iconStyles.forEach((style) => {
+      expect(style.innerHTML).toContain('@layer antd')
+    })
   })
 })
