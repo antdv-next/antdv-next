@@ -35,6 +35,7 @@ const details = {
     { name: 'Vue Router', url: 'https://router.vuejs.org/' },
     { name: 'Pinia', url: 'https://pinia.vuejs.org/' },
     { name: 'Vite', url: 'https://vitejs.dev/' },
+    { name: 'Fantastic-admin', url: 'https://fantastic-admin.hurui.me/' },
   ],
 }
 </script>
