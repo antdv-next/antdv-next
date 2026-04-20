@@ -1,5 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import Modal from '..'
+import ConfigProvider from '../../config-provider'
+import zhCN from '../../locale/zh_CN'
 import Popover from '../../popover'
 import { mount, waitFakeTimer } from '/@tests/utils'
 
@@ -10,6 +12,7 @@ describe('modal static', () => {
 
   afterEach(async () => {
     Modal.destroyAll()
+    ConfigProvider.config({ holderRender: undefined })
     await waitFakeTimer(1, 5)
     vi.useRealTimers()
     document.body.innerHTML = ''
@@ -35,6 +38,28 @@ describe('modal static', () => {
     await waitFakeTimer(1, 5)
 
     expect(document.querySelectorAll('.ant-modal-confirm-btns .ant-btn')).toHaveLength(2)
+  })
+
+  it('modal.confirm should support locale from holderRender config', async () => {
+    ConfigProvider.config({
+      holderRender: children => (
+        <ConfigProvider locale={zhCN}>
+          {children}
+        </ConfigProvider>
+      ),
+    })
+
+    Modal.confirm({
+      title: '标题',
+      content: '内容',
+    })
+
+    await waitFakeTimer(1, 5)
+
+    const buttons = Array.from(document.querySelectorAll('.ant-modal-confirm-btns .ant-btn'))
+      .map(node => node.textContent?.replace(/\s+/g, '').trim())
+
+    expect(buttons).toEqual(['取消', '确定'])
   })
 })
 

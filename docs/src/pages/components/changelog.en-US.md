@@ -2,6 +2,43 @@
 title: Component Changelog
 ---
 
+## V1.2.1
+
+Release Date: 2026-04-20
+
+This release focuses on **fixing interaction and rendering issues across Drawer, Transfer, Affix, layer-mode icon colors, and static method locale support**, while also **improving the docs site, syncing Transfer examples and migration docs, and adding related links together with updated test snapshots**.
+
+**🐞 Fixes**
+
+* fix(drawer): fix `afterOpenChange` being triggered twice during initial mount by @selicens in [#466](https://github.com/antdv-next/antdv-next/pull/466)
+* fix(Transfer): fix the Transfer default slot rendering empty content when used on a node without a specified `direction` by @jiangrong-devops in [#471](https://github.com/antdv-next/antdv-next/pull/471)
+* fix(drawer): preserve Esc-to-close behavior when `getContainer` is `false` by @ffgenius in [#470](https://github.com/antdv-next/antdv-next/pull/470)
+* fix(affix): use content height for the placeholder to fix incorrect placeholder sizing by @william-xue in [#478](https://github.com/antdv-next/antdv-next/pull/478)
+* fix: fix layer-mode icon colors not taking effect and static methods not supporting locale by @aibayanyu20 in [#481](https://github.com/antdv-next/antdv-next/pull/481)
+
+**📝 Documentation**
+
+* docs: optimize the docs site by @selicens in [#467](https://github.com/antdv-next/antdv-next/pull/467)
+* docs(Transfer): sync the antd Transfer component example docs by @jiangrong-devops in [#476](https://github.com/antdv-next/antdv-next/pull/476)
+* docs: update the `migration-antdv-next` docs by @think-gem in [#474](https://github.com/antdv-next/antdv-next/pull/474)
+* docs: revert the migration docs update by @selicens in [#480](https://github.com/antdv-next/antdv-next/pull/480)
+* docs: add related links by @aibayanyu20 in [#486](https://github.com/antdv-next/antdv-next/pull/486)
+
+**🛠 Refactor & Maintenance**
+
+* test(image): update snapshots for the `alt` attribute fix by @cc-hearts in [#479](https://github.com/antdv-next/antdv-next/pull/479)
+
+---
+
+**👏 New Contributors**
+
+Thanks to the following contributor for their first contribution:
+
+* @think-gem in [#474](https://github.com/antdv-next/antdv-next/pull/474)
+
+**Full Changelog**
+https://github.com/antdv-next/antdv-next/compare/antdv-next@1.2.0...antdv-next@1.2.1
+
 ## V1.2.0
 
 Release Date: 2026-04-15

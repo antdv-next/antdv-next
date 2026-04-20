@@ -137,6 +137,23 @@ const [api, ContextHolder] = message.useMessage()
 
 > 可通过 [App 包裹组件](/components/app-cn) 简化 `useMessage` 等方法需要手动植入 ContextHolder 的问题。
 
+如果你仍然需要使用静态方法，并希望它读取 `locale`、`theme` 或其他 ConfigProvider 配置，可以在应用初始化时统一配置一次 `holderRender`：
+
+```ts
+import { App, ConfigProvider } from 'antdv-next'
+import { h } from 'vue'
+import zhCN from 'antdv-next/locale/zh_CN'
+
+ConfigProvider.config({
+  holderRender: children =>
+    h(ConfigProvider, { locale: zhCN }, {
+      default: () => h(App, null, () => children),
+    }),
+})
+```
+
+这样 `message.info`、`message.success` 等静态方法就会在这层包裹后的上下文中渲染。
+
 ### 静态方法如何设置 prefixCls？ {#faq-set-prefix-cls}
 
 你可以通过 [`ConfigProvider.config`](/components/config-provider-cn#configproviderconfig-4130) 进行设置。

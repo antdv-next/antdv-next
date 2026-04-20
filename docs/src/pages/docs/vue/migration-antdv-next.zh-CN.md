@@ -68,7 +68,7 @@ yarn add @antdv-next/icons
     - `maxPopoverTrigger` 弃用，变为 `:max="{popover: PopoverProps}"`。
 
 - `BackTop`
-    - `FloatButton.BackTop` 弃用，变为 `BackTop`。
+    - `BackTop` 弃用，变为 `FloatButton.BackTop`。
 
 - `Breadcrumb`
     - `routes` 弃用，变为 `items`。
@@ -181,9 +181,6 @@ yarn add @antdv-next/icons
 - `Input`
     - `addonAfter` 弃用，变为 `SpaceCompact`。
     - `addonBefore` 弃用，变为 `SpaceCompact`。
-    - `Input.Password` 弃用，变为 `InputPassword`。
-    - `Input.Search` 弃用，变为 `InputSearch`。
-    - `Input.TextArea` 弃用，变为 `TextArea`。
 
 - `Input.Group`
     - `Input.Group` 弃用，变为 `SpaceCompact`。
@@ -205,7 +202,6 @@ yarn add @antdv-next/icons
     - `bodyStyle` 弃用，变为 `styles.body`。
     - `maskStyle` 弃用，变为 `styles.mask`。
     - `destroyOnClose` 弃用，变为 `destroyOnHidden`。
-    - `class` 弃用，变为 `classes.container`。
 
 - `Notification`
     - `btn` 弃用，变为 `actions`。
@@ -258,7 +254,6 @@ yarn add @antdv-next/icons
     - `progressDot` 弃用，变为 `type="dot"`。
     - `direction` 弃用，变为 `orientation`。
     - `items.description` 弃用，变为 `items.content`。
-    - `Steps.Step` 弃用，变为 `items`。
 
 - `Table`
     - `pagination.position` 弃用，变为 `pagination.placement`。

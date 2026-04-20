@@ -77,7 +77,7 @@ yarn add @antdv-next/icons
     - `Breadcrumb.Item` and `Breadcrumb.Separator` deprecated, changed to `items`.
 
 - `Button.Group`
-    - `Button.Group` deprecated, changed to `Space.Compact`.
+    - `BackTop` deprecated, changed to `FloatButton.BackTop`.
 
 - `Button`
     - `iconPosition` deprecated, changed to `iconPlacement`.
@@ -178,9 +178,6 @@ yarn add @antdv-next/icons
 - `Input`
     - `addonAfter` deprecated, changed to `SpaceCompact`.
     - `addonBefore` deprecated, changed to `SpaceCompact`.
-    - `Input.Password` deprecated, changed to `InputPassword`.
-    - `Input.Search` deprecated, changed to `InputSearch`.
-    - `Input.TextArea` deprecated, changed to `TextArea`.
 
 - `Input.Group`
     - `Input.Group` deprecated, changed to `Space.Compact`.
@@ -202,7 +199,6 @@ yarn add @antdv-next/icons
     - `bodyStyle` deprecated, changed to `styles.body`.
     - `maskStyle` deprecated, changed to `styles.mask`.
     - `destroyOnClose` deprecated, changed to `destroyOnHidden`.
-    - `class` deprecated, changed to `classes.container`.
 
 - `Notification`
     - `btn` deprecated, changed to `actions`.
@@ -230,7 +226,7 @@ yarn add @antdv-next/icons
     - `tooltipPlacement` deprecated, changed to `tooltip.placement`.
     - `tooltipVisible` deprecated, changed to `tooltip.open`.
 
-- `Space.Compact`
+- `SpaceCompact`
     - `direction` deprecated, changed to `orientation`.
 
 - `Space`
@@ -255,7 +251,6 @@ yarn add @antdv-next/icons
     - `progressDot` deprecated, changed to `type="dot"`.
     - `direction` deprecated, changed to `orientation`.
     - `items.description` deprecated, changed to `items.content`.
-    - `Steps.Step` deprecated, changed to `items`.
 
 - `Table`
     - `pagination.position` deprecated, changed to `pagination.placement`.

@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { HappyProvider } from '@antdv-next/happy-work-theme'
 import { ConfigProvider, theme } from 'antdv-next'
 import en from 'antdv-next/locale/en_US'
 import cn from 'antdv-next/locale/zh_CN'
 import dayjs from 'dayjs'
 import { storeToRefs } from 'pinia'
-import { computed, getCurrentInstance, onMounted, shallowRef, watch } from 'vue'
+import { computed, getCurrentInstance, h, onMounted, shallowRef, watch } from 'vue'
 import { themeModeStore } from '@/composables/local-store'
 import { applyThemeToDOM, useTheme } from '@/composables/theme'
 import { useAppStore } from '@/stores/app'
+import DocsAppShell from './app-shell.vue'
 import 'dayjs/locale/zh-cn'
 import 'dayjs/locale/en'
 
@@ -70,6 +70,14 @@ watch(
     ConfigProvider.config({
       theme: themeConfig.value,
       appContext: instance?.appContext,
+      holderRender: children => h(DocsAppShell, {
+        happy: happyMode.value,
+        direction: direction.value,
+        locale: antdLocale.value,
+        theme: themeConfig.value,
+      }, {
+        default: () => children,
+      }),
     })
   },
   {
@@ -79,18 +87,12 @@ watch(
 </script>
 
 <template>
-  <a-style-provider layer>
-    <HappyProvider v-slot="{ wave }" :enabled="happyMode">
-      <a-config-provider
-        :locale="antdLocale"
-        :direction="direction"
-        :theme="themeConfig"
-        :wave="wave"
-      >
-        <a-app>
-          <slot />
-        </a-app>
-      </a-config-provider>
-    </HappyProvider>
-  </a-style-provider>
+  <DocsAppShell
+    :happy="happyMode"
+    :direction="direction"
+    :locale="antdLocale"
+    :theme="themeConfig"
+  >
+    <slot />
+  </DocsAppShell>
 </template>

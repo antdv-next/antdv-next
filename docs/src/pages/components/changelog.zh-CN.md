@@ -2,6 +2,43 @@
 title: 组件更新日志
 ---
 
+## V1.2.1
+
+发布日期：2026-04-20
+
+本次版本主要聚焦于 **修复 Drawer、Transfer、Affix 以及 layer 模式图标颜色和静态方法国际化等交互与表现问题**，并进一步 **优化文档站点、同步 Transfer 示例与迁移文档内容，同时补充相关链接与测试快照更新**。
+
+**🐞 问题修复 Fixes**
+
+* fix(drawer)：修复 `afterOpenChange` 方法在初始化阶段触发两次的问题 by @selicens [#466](https://github.com/antdv-next/antdv-next/pull/466)
+* fix(Transfer)：修复 Transfer 组件默认插槽在未指定 `direction` 的节点上渲染为空的问题 by @jiangrong-devops [#471](https://github.com/antdv-next/antdv-next/pull/471)
+* fix(drawer)：修复 `getContainer` 为 `false` 时丢失 Esc 关闭行为的问题 by @ffgenius [#470](https://github.com/antdv-next/antdv-next/pull/470)
+* fix(affix)：使用内容高度作为占位高度，修复占位高度异常问题 by @william-xue [#478](https://github.com/antdv-next/antdv-next/pull/478)
+* fix：修复 layer 模式下图标颜色未生效，以及静态方法不支持国际化的问题 by @aibayanyu20 [#481](https://github.com/antdv-next/antdv-next/pull/481)
+
+**📝 文档更新 Documentation**
+
+* docs：优化站点文档 by @selicens [#467](https://github.com/antdv-next/antdv-next/pull/467)
+* docs(Transfer)：同步 antd Transfer 组件示例文档 by @jiangrong-devops [#476](https://github.com/antdv-next/antdv-next/pull/476)
+* docs：更新 `migration-antdv-next` 文档 by @think-gem [#474](https://github.com/antdv-next/antdv-next/pull/474)
+* docs：回滚迁移文档更新 by @selicens [#480](https://github.com/antdv-next/antdv-next/pull/480)
+* docs：补充相关链接 by @aibayanyu20 [#486](https://github.com/antdv-next/antdv-next/pull/486)
+
+**🛠 重构与维护 Refactor & Maintenance**
+
+* test(image)：更新快照以覆盖 `alt` 属性修复 by @cc-hearts [#479](https://github.com/antdv-next/antdv-next/pull/479)
+
+---
+
+**👏 新贡献者 New Contributors**
+
+感谢以下社区贡献者的首次参与：
+
+* @think-gem（[#474](https://github.com/antdv-next/antdv-next/pull/474)）
+
+**Full Changelog**
+https://github.com/antdv-next/antdv-next/compare/antdv-next@1.2.0...antdv-next@1.2.1
+
 ## V1.2.0
 
 发布日期：2026-04-15
