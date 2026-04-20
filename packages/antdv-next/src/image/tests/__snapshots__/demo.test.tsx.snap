@@ -1029,7 +1029,6 @@ exports[`image demo > renders basic correctly 1`] = `
   data-v-app=""
 >
   <div
-    alt="basic"
     aria-label="basic"
     class="ant-image css-var-root ant-image-css-var"
     role="button"
@@ -1037,6 +1036,7 @@ exports[`image demo > renders basic correctly 1`] = `
     tabindex="0"
   >
     <img
+      alt="basic"
       class="ant-image-img"
       src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
       width="200"
@@ -1154,7 +1154,6 @@ exports[`image demo > renders controlled-preview correctly 1`] = `
     <!---->
   </button>
   <div
-    alt="basic image"
     aria-label="basic image"
     class="ant-image css-var-root ant-image-css-var"
     role="button"
@@ -1162,6 +1161,7 @@ exports[`image demo > renders controlled-preview correctly 1`] = `
     tabindex="0"
   >
     <img
+      alt="basic image"
       class="ant-image-img"
       src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?x-oss-process=image/blur,r_50,s_50/quality,q_1/resize,m_mfit,h_200,w_200"
       style="display: none;"
@@ -1183,7 +1183,6 @@ exports[`image demo > renders fallback correctly 1`] = `
   data-v-app=""
 >
   <div
-    alt="basic image"
     aria-label="basic image"
     class="ant-image css-var-root ant-image-css-var"
     role="button"
@@ -1191,6 +1190,7 @@ exports[`image demo > renders fallback correctly 1`] = `
     tabindex="0"
   >
     <img
+      alt="basic image"
       class="ant-image-img"
       height="200"
       src="error"
@@ -1213,7 +1213,6 @@ exports[`image demo > renders imageRender correctly 1`] = `
   data-v-app=""
 >
   <div
-    alt="slot image"
     aria-label="slot image"
     class="ant-image css-var-root ant-image-css-var"
     role="button"
@@ -1221,6 +1220,7 @@ exports[`image demo > renders imageRender correctly 1`] = `
     tabindex="0"
   >
     <img
+      alt="slot image"
       class="ant-image-img"
       src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
       width="200"
@@ -1235,7 +1235,6 @@ exports[`image demo > renders imageRender correctly 1`] = `
   <!---->
   <br />
   <div
-    alt="preview image"
     aria-label="preview image"
     class="ant-image css-var-root ant-image-css-var"
     role="button"
@@ -1243,6 +1242,7 @@ exports[`image demo > renders imageRender correctly 1`] = `
     tabindex="0"
   >
     <img
+      alt="preview image"
       class="ant-image-img"
       src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
       width="200"
@@ -1263,7 +1263,6 @@ exports[`image demo > renders mask correctly 1`] = `
   data-v-app=""
 >
   <div
-    alt="Default blur"
     aria-label="Default blur"
     class="ant-image css-var-root ant-image-css-var"
     role="button"
@@ -1271,6 +1270,7 @@ exports[`image demo > renders mask correctly 1`] = `
     tabindex="0"
   >
     <img
+      alt="Default blur"
       class="ant-image-img"
       src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
       width="100"
@@ -1293,7 +1293,6 @@ exports[`image demo > renders mask correctly 1`] = `
   </div>
   <!---->
   <div
-    alt="Dimmed mask"
     aria-label="Dimmed mask"
     class="ant-image css-var-root ant-image-css-var"
     role="button"
@@ -1301,6 +1300,7 @@ exports[`image demo > renders mask correctly 1`] = `
     tabindex="0"
   >
     <img
+      alt="Dimmed mask"
       class="ant-image-img"
       src="https://www.antdv-next.com/antdv-next.svg"
       width="100"
@@ -1323,7 +1323,6 @@ exports[`image demo > renders mask correctly 1`] = `
   </div>
   <!---->
   <div
-    alt="No mask"
     aria-label="No mask"
     class="ant-image css-var-root ant-image-css-var"
     role="button"
@@ -1331,6 +1330,7 @@ exports[`image demo > renders mask correctly 1`] = `
     tabindex="0"
   >
     <img
+      alt="No mask"
       class="ant-image-img"
       src="https://cn.vuejs.org/logo.svg"
       width="100"
@@ -1389,7 +1389,6 @@ exports[`image demo > renders placeholder correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      alt="basic image"
       aria-label="basic image"
       class="ant-image css-var-root ant-image-css-var"
       role="button"
@@ -1397,6 +1396,7 @@ exports[`image demo > renders placeholder correctly 1`] = `
       tabindex="0"
     >
       <img
+        alt="basic image"
         class="ant-image-img"
         src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?1505705407795"
         width="200"
@@ -1406,11 +1406,11 @@ exports[`image demo > renders placeholder correctly 1`] = `
         class="ant-image-placeholder"
       >
         <div
-          alt="placeholder image"
           class="ant-image css-var-root ant-image-css-var"
           style="width: 200px;"
         >
           <img
+            alt="placeholder image"
             class="ant-image-img"
             src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?x-oss-process=image/blur,r_50,s_50/quality,q_1/resize,m_mfit,h_200,w_200"
             width="200"
@@ -1459,7 +1459,6 @@ exports[`image demo > renders preview-group correctly 1`] = `
   data-v-app=""
 >
   <div
-    alt="svg image"
     aria-label="svg image"
     class="ant-image css-var-root ant-image-css-var"
     role="button"
@@ -1467,6 +1466,7 @@ exports[`image demo > renders preview-group correctly 1`] = `
     tabindex="0"
   >
     <img
+      alt="svg image"
       class="ant-image-img"
       src="https://www.antdv-next.com/antdv-next.svg"
       width="200"
@@ -1480,7 +1480,6 @@ exports[`image demo > renders preview-group correctly 1`] = `
   </div>
   <!---->
   <div
-    alt="svg image"
     aria-label="svg image"
     class="ant-image css-var-root ant-image-css-var"
     role="button"
@@ -1488,6 +1487,7 @@ exports[`image demo > renders preview-group correctly 1`] = `
     tabindex="0"
   >
     <img
+      alt="svg image"
       class="ant-image-img"
       src="https://cn.vuejs.org/logo.svg"
       width="200"
@@ -1509,7 +1509,6 @@ exports[`image demo > renders preview-group-visible correctly 1`] = `
   data-v-app=""
 >
   <div
-    alt="webp image"
     aria-label="webp image"
     class="ant-image css-var-root ant-image-css-var"
     role="button"
@@ -1517,6 +1516,7 @@ exports[`image demo > renders preview-group-visible correctly 1`] = `
     tabindex="0"
   >
     <img
+      alt="webp image"
       class="ant-image-img"
       src="https://gw.alipayobjects.com/zos/antfincdn/LlvErxo8H9/photo-1503185912284-5271ff81b9a8.webp"
       width="200"
@@ -1538,7 +1538,6 @@ exports[`image demo > renders previewSrc correctly 1`] = `
   data-v-app=""
 >
   <div
-    alt="basic image"
     aria-label="basic image"
     class="ant-image css-var-root ant-image-css-var"
     role="button"
@@ -1546,6 +1545,7 @@ exports[`image demo > renders previewSrc correctly 1`] = `
     tabindex="0"
   >
     <img
+      alt="basic image"
       class="ant-image-img"
       src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?x-oss-process=image/blur,r_50,s_50/quality,q_1/resize,m_mfit,h_200,w_200"
       width="200"
@@ -1566,7 +1566,6 @@ exports[`image demo > renders style-class correctly 1`] = `
   class="ant-flex css-var-root ant-flex-gap-middle"
 >
   <div
-    alt="示例图片"
     aria-label="示例图片"
     class="ant-image css-var-root ant-image-css-var"
     role="button"
@@ -1574,6 +1573,7 @@ exports[`image demo > renders style-class correctly 1`] = `
     tabindex="0"
   >
     <img
+      alt="示例图片"
       class="ant-image-img"
       src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
       style="border-radius: 4px;"
@@ -1588,7 +1588,6 @@ exports[`image demo > renders style-class correctly 1`] = `
   </div>
   <!---->
   <div
-    alt="示例图片"
     aria-label="示例图片"
     class="ant-image css-var-root ant-image-css-var"
     role="button"
@@ -1596,6 +1595,7 @@ exports[`image demo > renders style-class correctly 1`] = `
     tabindex="0"
   >
     <img
+      alt="示例图片"
       class="ant-image-img"
       src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
       style="border-radius: 4px; filter: grayscale(50%);"
@@ -1617,7 +1617,6 @@ exports[`image demo > renders toolbarRender correctly 1`] = `
   data-v-app=""
 >
   <div
-    alt="image-0"
     aria-label="image-0"
     class="ant-image css-var-root ant-image-css-var"
     role="button"
@@ -1625,6 +1624,7 @@ exports[`image demo > renders toolbarRender correctly 1`] = `
     tabindex="0"
   >
     <img
+      alt="image-0"
       class="ant-image-img"
       src="https://www.antdv-next.com/antdv-next.svg"
       width="200"
@@ -1638,7 +1638,6 @@ exports[`image demo > renders toolbarRender correctly 1`] = `
   </div>
   <!---->
   <div
-    alt="image-1"
     aria-label="image-1"
     class="ant-image css-var-root ant-image-css-var"
     role="button"
@@ -1646,6 +1645,7 @@ exports[`image demo > renders toolbarRender correctly 1`] = `
     tabindex="0"
   >
     <img
+      alt="image-1"
       class="ant-image-img"
       src="https://cn.vuejs.org/logo.svg"
       width="200"

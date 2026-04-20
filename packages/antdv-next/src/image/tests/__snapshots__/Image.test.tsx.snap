@@ -25,7 +25,7 @@ exports[`image > rtl render > component should be rendered correctly in RTL dire
 `;
 
 exports[`image > should match snapshot 1`] = `
-"<div alt="Test" class="ant-image css-var-root ant-image-css-var" role="button" tabindex="0" aria-label="Test" style="width: 200px;"><img src="https://example.com/test.png" class="ant-image-img" width="200">
+"<div class="ant-image css-var-root ant-image-css-var" role="button" tabindex="0" aria-label="Test" style="width: 200px;"><img alt="Test" src="https://example.com/test.png" class="ant-image-img" width="200">
   <!---->
   <div class="ant-image-cover ant-image-cover-center">
     <!---->
