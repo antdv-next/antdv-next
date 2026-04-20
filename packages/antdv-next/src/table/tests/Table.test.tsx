@@ -284,6 +284,25 @@ describe('table', () => {
     expect(wrapper.find('.ant-table-wrapper').attributes('style')).toContain('margin-top: 10px')
   })
 
+  it('should pass custom attrs to table without extraneous attrs warning when scroll.x is enabled', () => {
+    const consoleWarn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
+    const wrapper = mount(() => (
+      <Table
+        columns={columns}
+        dataSource={data}
+        pagination={false}
+        scroll={{ x: 1000 }}
+        custom="123"
+      />
+    ))
+
+    expect(wrapper.find('.ant-table[custom="123"]').exists()).toBe(true)
+    expect(consoleWarn).not.toHaveBeenCalledWith(
+      expect.stringContaining('Extraneous non-props attributes'),
+    )
+  })
+
   // ========================= RTL =========================
   it('should support RTL direction', () => {
     const wrapper = mount(() => (
