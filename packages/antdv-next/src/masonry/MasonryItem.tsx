@@ -6,12 +6,12 @@ import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { defineComponent, shallowRef, watch } from 'vue'
 
-export interface MasonryItemType {
+export interface MasonryItemType<T = any> {
   key: Key
   column?: number
   height?: number
   children?: VueNode
-  data: any
+  data: T
   class?: string
   style?: CSSProperties
 }
