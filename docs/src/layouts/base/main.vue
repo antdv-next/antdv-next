@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import type { MenuProps } from 'antdv-next'
+import type { AntdvMenuItem } from '../../config/menu/interface'
+import { LeftOutlined, RightOutlined } from '@antdv-next/icons'
 import { storeToRefs } from 'pinia'
-import { useRouter } from 'vue-router'
+import { computed } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { useDocPage } from '@/composables/doc-page'
 import { useMobile } from '@/composables/mobile'
 import { useAppStore } from '@/stores/app'
@@ -13,6 +16,7 @@ const appStore = useAppStore()
 const { siderMenus, siderKey, siderOpenKeys, siderLocales, locale, direction, darkMode } = storeToRefs(appStore)
 const { anchorItems } = useDocPage()
 const router = useRouter()
+const route = useRoute()
 
 function getMenuUrl(key: string) {
   const currentLocale = appStore.locale
@@ -26,6 +30,42 @@ const handleMenuClick: MenuProps['onClick'] = (info) => {
   const key = info.key
   router.push({ path: getMenuUrl(key) })
 }
+
+const pageTurning = computed(() => {
+  const menus: AntdvMenuItem[] = siderMenus.value.reduce(
+    (pre, current) => {
+      if (current.children) {
+        return [...pre, ...current.children]
+      }
+      else {
+        return [...pre, current]
+      }
+    },
+    [],
+  )
+  const currentPath = route.path
+  const currentIndex = menus.findIndex((item) => {
+    if (appStore.locale === 'zh-CN') {
+      const replacePath = currentPath.replace('-cn', '')
+      return item.key === replacePath
+    }
+    return item.key === currentPath
+  })
+  const prev = currentIndex >= 0 && menus[currentIndex - 1]
+  const next = currentIndex <= menus.length && menus[currentIndex + 1]
+  const prevPath = prev ? getMenuUrl(prev.key as string) : ''
+  const nextPath = next ? getMenuUrl(next.key as string) : ''
+  const prevLocale = prev && siderLocales.value?.[prev.key as string]?.[locale.value]
+  const nextLocale = next && siderLocales.value?.[next.key as string]?.[locale.value]
+  return {
+    prev,
+    next,
+    prevPath,
+    nextPath,
+    prevLocale,
+    nextLocale,
+  }
+})
 </script>
 
 <template>
@@ -70,6 +110,21 @@ const handleMenuClick: MenuProps['onClick'] = (info) => {
             loading
           </template>
         </Suspense>
+        <!-- prev and next -->
+        <div class="ant-doc-main-section-pageTurning">
+          <div>
+            <LeftOutlined :class="[pageTurning.prev ? '' : 'hidden']" />
+            <RouterLink :to="pageTurning.prevPath">
+              {{ pageTurning.prevLocale }}
+            </RouterLink>
+          </div>
+          <div v-show="pageTurning.next">
+            <RouterLink :to="pageTurning.nextPath">
+              {{ pageTurning.nextLocale }}
+            </RouterLink>
+            <RightOutlined />
+          </div>
+        </div>
       </article>
       <Footer />
     </a-col>
@@ -139,6 +194,20 @@ const handleMenuClick: MenuProps['onClick'] = (info) => {
       padding: var(--ant-padding-xxs);
       -webkit-backdrop-filter: blur(8px);
       backdrop-filter: blur(8px);
+    }
+
+    &-pageTurning {
+      display: flex;
+      justify-content: space-between;
+      height: 72px;
+      line-height: 72px;
+      border-top: 1px solid var(--ant-color-border);
+      > .anticon:hover {
+        inset-inline-start: 0.2em;
+      }
+      .hidden {
+        visibility: hidden;
+      }
     }
   }
 }
