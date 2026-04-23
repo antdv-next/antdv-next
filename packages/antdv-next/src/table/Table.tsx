@@ -1,4 +1,5 @@
 import type { SlotsType } from 'vue'
+import type { AnyObject } from '../_util/type.ts'
 import type { TableEmits, TableProps, TableSlots } from './InternalTable.tsx'
 import { EXPAND_COLUMN, Summary } from '@v-c/table'
 import { omit } from 'es-toolkit'
@@ -14,13 +15,34 @@ import {
 
 import InternalTable from './InternalTable.tsx'
 
-export type TableEmitsProps = {
-  [K in keyof TableEmits as `on${Capitalize<string & K>}`]?: TableEmits[K]
+export type TableEmitsProps<RecordType = AnyObject> = {
+  [K in keyof TableEmits<RecordType> as `on${Capitalize<string & K>}`]?: TableEmits<RecordType>[K]
 }
 
-interface InternalTableProps extends TableProps,
+interface InternalTableProps<RecordType = AnyObject> extends TableProps<RecordType>,
   /* @vue-ignore */
-  TableEmitsProps {}
+  TableEmitsProps<RecordType> {}
+
+export interface ForwardTableType {
+  new<RecordType = AnyObject>(props: InternalTableProps<RecordType>): {
+    $props: InternalTableProps<RecordType>
+    $emit: {
+      (event: 'change', ...args: Parameters<TableEmits<RecordType>['change']>): void
+      (event: 'update:expandedRowKeys', ...args: Parameters<TableEmits<RecordType>['update:expandedRowKeys']>): void
+      (event: 'scroll', ...args: Parameters<TableEmits<RecordType>['scroll']>): void
+    }
+    $slots: TableSlots<RecordType>
+  }
+  displayName?: string
+  SELECTION_COLUMN: typeof SELECTION_COLUMN
+  EXPAND_COLUMN: typeof EXPAND_COLUMN
+  SELECTION_ALL: typeof SELECTION_ALL
+  SELECTION_INVERT: typeof SELECTION_INVERT
+  SELECTION_NONE: typeof SELECTION_NONE
+  Column: typeof Column
+  ColumnGroup: typeof ColumnGroup
+  Summary: typeof Summary
+}
 
 const Table = defineComponent<
   InternalTableProps,
@@ -62,17 +84,7 @@ const Table = defineComponent<
   },
 )
 
-const ForwardTable = Table as typeof Table & {
-  displayName?: string
-  SELECTION_COLUMN: typeof SELECTION_COLUMN
-  EXPAND_COLUMN: typeof EXPAND_COLUMN
-  SELECTION_ALL: typeof SELECTION_ALL
-  SELECTION_INVERT: typeof SELECTION_INVERT
-  SELECTION_NONE: typeof SELECTION_NONE
-  Column: typeof Column
-  ColumnGroup: typeof ColumnGroup
-  Summary: typeof Summary
-}
+const ForwardTable = Table as typeof Table & ForwardTableType
 
 ForwardTable.SELECTION_COLUMN = SELECTION_COLUMN
 ForwardTable.EXPAND_COLUMN = EXPAND_COLUMN
@@ -83,4 +95,4 @@ ForwardTable.Column = Column
 ForwardTable.ColumnGroup = ColumnGroup
 ForwardTable.Summary = Summary
 
-export default ForwardTable
+export default ForwardTable as unknown as ForwardTableType

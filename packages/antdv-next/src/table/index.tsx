@@ -1,5 +1,6 @@
 import type { DataIndex, Reference } from '@v-c/table'
 import type { App } from 'vue'
+import type { ForwardTableType } from './Table.tsx'
 import { EXPAND_COLUMN, Summary, SummaryCell, SummaryRow } from '@v-c/table'
 import Column from './Column.tsx'
 import ColumnGroup from './ColumnGroup.tsx'
@@ -13,20 +14,13 @@ import Table from './Table.tsx'
 
 export type { ColumnsType, ColumnType, ExpandType, FilterValue, SorterResult, SortOrder, TableLocale, TablePaginationConfig, TableRowSelection } from './interface.ts'
 export type { TableClassNamesType, TableEmits, TableProps, TableSlots, TableStylesType } from './InternalTable.tsx'
+export type { ForwardTableType as TableConstructor }
 export type { DataIndex, Reference }
 
-const InternalTable = Table as typeof Table & {
+const InternalTable = Table as ForwardTableType & {
   install: (app: App) => void
-  Column: typeof Column
-  ColumnGroup: typeof ColumnGroup
-  Summary: typeof Summary
   SummaryRow: typeof SummaryRow
   SummaryCell: typeof SummaryCell
-  SELECTION_COLUMN: typeof SELECTION_COLUMN
-  EXPAND_COLUMN: typeof EXPAND_COLUMN
-  SELECTION_ALL: typeof SELECTION_ALL
-  SELECTION_INVERT: typeof SELECTION_INVERT
-  SELECTION_NONE: typeof SELECTION_NONE
 }
 
 InternalTable.Column = Column
@@ -63,4 +57,4 @@ export {
   SummaryRow,
 }
 
-export default InternalTable
+export default InternalTable as unknown as ForwardTableType
