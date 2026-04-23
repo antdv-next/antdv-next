@@ -393,8 +393,8 @@ catalogs:
       specifier: ^1.0.0
       version: 1.0.0
     '@v-c/table':
-      specifier: ^1.0.6
-      version: 1.0.6
+      specifier: ^1.0.7
+      version: 1.0.7
     '@v-c/tabs':
       specifier: ^1.0.2
       version: 1.0.2
@@ -596,7 +596,7 @@ importers:
         version: link:../packages/cssinjs
       '@antdv-next/happy-work-theme':
         specifier: catalog:prod
-        version: 1.0.0(antdv-next@1.2.0(vue@3.5.30(typescript@5.9.3)))(vue@3.5.30(typescript@5.9.3))
+        version: 1.0.0(antdv-next@1.2.2-beta.1(vue@3.5.30(typescript@5.9.3)))(vue@3.5.30(typescript@5.9.3))
       '@antdv-next/icons':
         specifier: catalog:prod
         version: 1.0.6(vue@3.5.30(typescript@5.9.3))
@@ -608,7 +608,7 @@ importers:
         version: 14.2.1(vue@3.5.30(typescript@5.9.3))
       antdv-style:
         specifier: catalog:prod
-        version: 1.0.0-rc.1(antdv-next@1.2.0(vue@3.5.30(typescript@5.9.3)))(vue@3.5.30(typescript@5.9.3))
+        version: 1.0.0-rc.1(antdv-next@1.2.2-beta.1(vue@3.5.30(typescript@5.9.3)))(vue@3.5.30(typescript@5.9.3))
       dayjs:
         specifier: catalog:prod
         version: 1.11.20
@@ -852,7 +852,7 @@ importers:
         version: 1.0.0(vue@3.5.30(typescript@5.9.3))
       '@v-c/table':
         specifier: catalog:vc
-        version: 1.0.6(vue@3.5.30(typescript@5.9.3))
+        version: 1.0.7(vue@3.5.30(typescript@5.9.3))
       '@v-c/tabs':
         specifier: catalog:vc
         version: 1.0.2(vue@3.5.30(typescript@5.9.3))
@@ -2895,13 +2895,13 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
-  '@v-c/table@1.0.5':
-    resolution: {integrity: sha512-TM3j3d1D8o4SY4h4bBWnzMDkFeHfI6WSgRUPScCqX9eZ9xIYfD0qMXD/1Dx/9hFo8UFTsscvxZ9gIDxsw9LaWg==}
+  '@v-c/table@1.0.6':
+    resolution: {integrity: sha512-WJC7PiYmGE/2udxIQ4/FP0VRsGmPZnL5nRlcpP1dMIfJvtpVUSNRXy3UNMp50CvUXSFBtBNvMsebNXp0ys6PGQ==}
     peerDependencies:
       vue: ^3.0.0
 
-  '@v-c/table@1.0.6':
-    resolution: {integrity: sha512-WJC7PiYmGE/2udxIQ4/FP0VRsGmPZnL5nRlcpP1dMIfJvtpVUSNRXy3UNMp50CvUXSFBtBNvMsebNXp0ys6PGQ==}
+  '@v-c/table@1.0.7':
+    resolution: {integrity: sha512-vdJE9/gm3KRfDfgWM5O5jKNBwYB/PbS6yQ2TkiMwTmKjOHnaiSIRPJd++X7jCSchi46nU1shNDmqHf3Pw3Y9mg==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -3181,8 +3181,8 @@ packages:
     resolution: {integrity: sha512-HqZ5rWlFjGiV0tDm3UxxgNRqsOTniqoKZu0pIAfh7TZQMGuZK+hH0drySty0si0QXj1ieop4+SkSfPZBPPkHig==}
     engines: {node: '>=14'}
 
-  antdv-next@1.2.0:
-    resolution: {integrity: sha512-XbnPItBia9Ti35SQd42WIV6eoSr3Vz7rdh9pfOtzH/y+VV+ZvdUpGF/0oDTCW8xou5Ey2D+l5tmYrE5dPu+Epg==}
+  antdv-next@1.2.2-beta.1:
+    resolution: {integrity: sha512-60M0xFpR7Bq2x8h7oMkrSTdFxjbOW0CsXM9wlsPgKC8PoQ+LwVjbGmCqjefaS3MginxAnPrRvF1oEdbqz1bvWA==}
 
   antdv-style@1.0.0-rc.1:
     resolution: {integrity: sha512-CRu+zwJ0nRy3u9vpWm1odesX9Xk1kgvYrGR/enLNbn6yfY8HEgIIvRkeXASIHoaVMDi2E8Jozi+1lGOfiVg0LQ==}
@@ -6269,10 +6269,10 @@ snapshots:
       stylis: 4.3.6
       vue: 3.5.30(typescript@5.9.3)
 
-  '@antdv-next/happy-work-theme@1.0.0(antdv-next@1.2.0(vue@3.5.30(typescript@5.9.3)))(vue@3.5.30(typescript@5.9.3))':
+  '@antdv-next/happy-work-theme@1.0.0(antdv-next@1.2.2-beta.1(vue@3.5.30(typescript@5.9.3)))(vue@3.5.30(typescript@5.9.3))':
     dependencies:
       '@ant-design/fast-color': 3.0.1
-      antdv-next: 1.2.0(vue@3.5.30(typescript@5.9.3))
+      antdv-next: 1.2.2-beta.1(vue@3.5.30(typescript@5.9.3))
       vue: 3.5.30(typescript@5.9.3)
 
   '@antdv-next/icons@1.0.6(vue@3.5.30(typescript@5.9.3))':
@@ -8162,14 +8162,14 @@ snapshots:
       '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
       vue: 3.5.30(typescript@5.9.3)
 
-  '@v-c/table@1.0.5(vue@3.5.30(typescript@5.9.3))':
+  '@v-c/table@1.0.6(vue@3.5.30(typescript@5.9.3))':
     dependencies:
       '@v-c/resize-observer': 1.0.8(vue@3.5.30(typescript@5.9.3))
       '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
       '@v-c/virtual-list': 1.0.7(vue@3.5.30(typescript@5.9.3))
       vue: 3.5.30(typescript@5.9.3)
 
-  '@v-c/table@1.0.6(vue@3.5.30(typescript@5.9.3))':
+  '@v-c/table@1.0.7(vue@3.5.30(typescript@5.9.3))':
     dependencies:
       '@v-c/resize-observer': 1.0.8(vue@3.5.30(typescript@5.9.3))
       '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
@@ -8526,7 +8526,7 @@ snapshots:
 
   ansis@4.2.0: {}
 
-  antdv-next@1.2.0(vue@3.5.30(typescript@5.9.3)):
+  antdv-next@1.2.2-beta.1(vue@3.5.30(typescript@5.9.3)):
     dependencies:
       '@ant-design/colors': 8.0.1
       '@ant-design/fast-color': 3.0.1
@@ -8559,7 +8559,7 @@ snapshots:
       '@v-c/slider': 1.0.10(vue@3.5.30(typescript@5.9.3))
       '@v-c/steps': 1.0.0(vue@3.5.30(typescript@5.9.3))
       '@v-c/switch': 1.0.0(vue@3.5.30(typescript@5.9.3))
-      '@v-c/table': 1.0.5(vue@3.5.30(typescript@5.9.3))
+      '@v-c/table': 1.0.6(vue@3.5.30(typescript@5.9.3))
       '@v-c/tabs': 1.0.2(vue@3.5.30(typescript@5.9.3))
       '@v-c/textarea': 1.0.4(vue@3.5.30(typescript@5.9.3))
       '@v-c/tooltip': 1.0.3(vue@3.5.30(typescript@5.9.3))
@@ -8581,10 +8581,10 @@ snapshots:
       - moment
       - vue
 
-  antdv-style@1.0.0-rc.1(antdv-next@1.2.0(vue@3.5.30(typescript@5.9.3)))(vue@3.5.30(typescript@5.9.3)):
+  antdv-style@1.0.0-rc.1(antdv-next@1.2.2-beta.1(vue@3.5.30(typescript@5.9.3)))(vue@3.5.30(typescript@5.9.3)):
     dependencies:
       '@emotion/css': 11.13.5
-      antdv-next: 1.2.0(vue@3.5.30(typescript@5.9.3))
+      antdv-next: 1.2.2-beta.1(vue@3.5.30(typescript@5.9.3))
       vue: 3.5.30(typescript@5.9.3)
     transitivePeerDependencies:
       - supports-color
