@@ -260,6 +260,7 @@ const InternalCompoundedButton = defineComponent<
         })
       },
       {
+        flush: 'sync',
         immediate: true,
       },
     )

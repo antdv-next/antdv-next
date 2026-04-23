@@ -85,6 +85,16 @@ describe('button', () => {
     expect(wrapper.find('.custom-loading').exists()).toBe(true)
   })
 
+  it('should use shared motion transition classes for loading icon', () => {
+    const wrapper = mount(Button, {
+      props: { loading: true },
+      slots: { default: () => 'Loading' },
+    })
+
+    expect(wrapper.html()).toContain('enterfromclass=')
+    expect(wrapper.html()).toContain('ant-btn-loading-icon-motion-enter-start')
+  })
+
   it('should handle icon placement end with loading state', () => {
     const wrapper = mount(Button, {
       props: {

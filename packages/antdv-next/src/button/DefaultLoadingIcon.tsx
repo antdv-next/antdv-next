@@ -1,5 +1,6 @@
 import { LoadingOutlined } from '@antdv-next/icons'
 import { classNames } from '@v-c/util'
+import { getTransitionProps } from '@v-c/util/dist/utils/transition'
 import { defineComponent, Transition } from 'vue'
 import IconWrapper from './IconWrapper.tsx'
 
@@ -33,6 +34,22 @@ export interface DefaultLoadingIconProps {
 
 const DefaultLoadingIcon = defineComponent<DefaultLoadingIconProps>(
   (props, { attrs }) => {
+    const scheduleMotionFrame = (cb: () => void) => {
+      if (typeof requestAnimationFrame === 'function') {
+        requestAnimationFrame(cb)
+      }
+      else {
+        setTimeout(cb, 0)
+      }
+    }
+
+    function resetStyle(el: Element) {
+      const element = el as HTMLElement
+      element.style.width = ''
+      element.style.opacity = ''
+      element.style.transform = ''
+    }
+
     function onBeforeEnter(el: Element) {
       const element = el as HTMLElement
       element.style.width = '0px'
@@ -40,13 +57,14 @@ const DefaultLoadingIcon = defineComponent<DefaultLoadingIconProps>(
       element.style.transform = 'scale(0)'
     }
 
-    function onEnter(el: Element, done: () => void) {
+    function onEnter(el: Element) {
       const element = el as HTMLElement
-      // Force reflow
-      element.style.width = `${element.scrollWidth}px`
-      element.style.opacity = '1'
-      element.style.transform = 'scale(1)'
-      done()
+      void element.offsetWidth
+      scheduleMotionFrame(() => {
+        element.style.width = `${element.scrollWidth}px`
+        element.style.opacity = '1'
+        element.style.transform = 'scale(1)'
+      })
     }
 
     function onBeforeLeave(el: Element) {
@@ -56,14 +74,14 @@ const DefaultLoadingIcon = defineComponent<DefaultLoadingIconProps>(
       element.style.transform = 'scale(1)'
     }
 
-    function onLeave(el: Element, done: () => void) {
+    function onLeave(el: Element) {
       const element = el as HTMLElement
-      // Force reflow
-      void element.offsetHeight
-      element.style.width = '0px'
-      element.style.opacity = '0'
-      element.style.transform = 'scale(0)'
-      done()
+      void element.offsetWidth
+      scheduleMotionFrame(() => {
+        element.style.width = '0px'
+        element.style.opacity = '0'
+        element.style.transform = 'scale(0)'
+      })
     }
     return () => {
       const { prefixCls, loading, existIcon, mount } = props
@@ -74,10 +92,10 @@ const DefaultLoadingIcon = defineComponent<DefaultLoadingIconProps>(
       }
       return (
         <Transition
-          name={`${prefixCls}-loading-icon-motion`}
-          appear={!mount}
+          {...getTransitionProps(`${prefixCls}-loading-icon-motion`, { appear: !mount })}
           onBeforeEnter={onBeforeEnter}
           onEnter={onEnter}
+          onAfterEnter={resetStyle}
           onBeforeLeave={onBeforeLeave}
           onLeave={onLeave}
         >
