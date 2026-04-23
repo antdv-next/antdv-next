@@ -273,6 +273,26 @@ describe('card', () => {
     expect(wrapper.find('.ant-card-grid-hoverable').exists()).toBe(false)
   })
 
+  it('should not render body when no children and not loading', () => {
+    const wrapper = mount(Card, {
+      props: {
+        cover: h('img', { src: 'test.jpg', alt: 'cover' }),
+        actions: [h('span', 'A1'), h('span', 'A2')],
+      },
+    })
+    expect(wrapper.find('.ant-card-body').exists()).toBe(false)
+    expect(wrapper.find('.ant-card-cover').exists()).toBe(true)
+    expect(wrapper.find('.ant-card-actions').exists()).toBe(true)
+  })
+
+  it('should render body when loading even without children', () => {
+    const wrapper = mount(Card, {
+      props: { loading: true },
+    })
+    expect(wrapper.find('.ant-card-body').exists()).toBe(true)
+    expect(wrapper.find('.ant-skeleton').exists()).toBe(true)
+  })
+
   // ============ Snapshots ============
 
   it('should match snapshot - basic', () => {

@@ -2213,6 +2213,46 @@ exports[`card demo > renders meta correctly 1`] = `
 </div>
 `;
 
+exports[`card demo > renders no-body-debug correctly 1`] = `
+<div
+  class="ant-card ant-card-bordered css-var-root"
+  style="width: 300px;"
+>
+  <!---->
+  <div
+    class="ant-card-cover"
+  >
+    <img
+      alt="example"
+      src="https://api.dicebear.com/7.x/miniavs/svg?seed=8"
+    />
+  </div>
+  <!---->
+  <ul
+    class="ant-card-actions"
+  >
+    <li
+      style="width: 50%;"
+    >
+      <span>
+        <span>
+          setting
+        </span>
+      </span>
+    </li>
+    <li
+      style="width: 50%;"
+    >
+      <span>
+        <span>
+          edit
+        </span>
+      </span>
+    </li>
+  </ul>
+</div>
+`;
+
 exports[`card demo > renders simple correctly 1`] = `
 <div
   class="ant-card ant-card-bordered css-var-root"

@@ -300,11 +300,13 @@ const Card = defineComponent<
         ...mergedStyles.value.body,
       }
 
-      const body = (
-        <div class={bodyClasses} style={mergedBodyStyle}>
-          {loading ? loadingBlock : children}
-        </div>
-      )
+      const body = loading || children.length
+        ? (
+            <div class={bodyClasses} style={mergedBodyStyle}>
+              {loading ? loadingBlock : children}
+            </div>
+          )
+        : null
 
       const actionClasses = clsx(`${prefixCls.value}-actions`, mergedClassNames.value.actions)
       // 需要处理一下actions
