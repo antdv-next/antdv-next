@@ -89,9 +89,11 @@ export interface TimePickerLocale {
   rangePlaceholder?: [string, string]
 }
 
-export interface TimeRangePickerProps extends Omit<RangePickerTimeProps<AnyObject>, 'picker'>,
+type BaseTimeRangePickerProps = Omit<RangePickerTimeProps<AnyObject>, 'picker' | 'onKeydown'>
+
+export interface TimeRangePickerProps extends BaseTimeRangePickerProps,
   /* @vue-ignore */
-  TimeRangePickerEmitsProps {
+  Omit<TimeRangePickerEmitsProps, keyof BaseTimeRangePickerProps> {
   /** @deprecated Please use `classes.popup` instead */
   popupClassName?: string
   /** @deprecated Please use `styles.popup` instead */
@@ -183,10 +185,12 @@ const RangePicker = defineComponent<
   },
 )
 
+type BaseTimePickerProps = Omit<PickerTimeProps<AnyObject>, 'picker' | 'classes' | 'styles' | 'onKeydown'>
+
 export interface TimePickerProps
-  extends Omit<PickerTimeProps<AnyObject>, 'picker' | 'classes' | 'styles'>,
+  extends BaseTimePickerProps,
   /* @vue-ignore */
-  TimePickerEmitsProps {
+  Omit<TimePickerEmitsProps, keyof BaseTimePickerProps> {
   addon?: () => VueNode
   status?: InputStatus
   /** @deprecated Please use `classes.popup` instead */
