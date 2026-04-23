@@ -1,6 +1,6 @@
 import type { SlotsType } from 'vue'
 import type { AnyObject } from '../_util/type.ts'
-import type { TableEmits, TableProps, TableSlots } from './InternalTable.tsx'
+import type { TableEmits, TableExpose, TableProps, TableSlots } from './InternalTable.tsx'
 import { EXPAND_COLUMN, Summary } from '@v-c/table'
 import { omit } from 'es-toolkit'
 import { defineComponent, shallowRef } from 'vue'
@@ -32,7 +32,7 @@ export interface ForwardTableType {
       (event: 'scroll', ...args: Parameters<TableEmits<RecordType>['scroll']>): void
     }
     $slots: TableSlots<RecordType>
-  }
+  } & TableExpose
   displayName?: string
   SELECTION_COLUMN: typeof SELECTION_COLUMN
   EXPAND_COLUMN: typeof EXPAND_COLUMN
@@ -53,14 +53,16 @@ const Table = defineComponent<
   (props, { slots, attrs, expose, emit }) => {
     const renderTimesRef = shallowRef(0)
     renderTimesRef.value += 1
-    const tableRef = shallowRef<any>(null)
+    const tableRef = shallowRef<TableExpose | null>(null)
 
-    expose({
-      scrollTo: (...args: any[]) => tableRef.value?.scrollTo?.(...args),
+    const tableExpose: TableExpose = {
+      scrollTo: (...args) => tableRef.value?.scrollTo?.(...args),
       get nativeElement() {
-        return tableRef.value?.nativeElement
+        return tableRef.value?.nativeElement as HTMLDivElement
       },
-    })
+    }
+
+    expose(tableExpose)
 
     return () => (
       <InternalTable

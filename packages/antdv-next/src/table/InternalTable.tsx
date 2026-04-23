@@ -1,4 +1,4 @@
-import type { TableProps as VcTableProps } from '@v-c/table'
+import type { Reference, TableProps as VcTableProps } from '@v-c/table'
 import type { CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { Breakpoint } from '../_util/responsiveObserver.ts'
@@ -182,6 +182,8 @@ export interface TableEmits<RecordType = AnyObject> {
   'update:expandedRowKeys': (keys: readonly Key[]) => void
   'scroll': NonNullable<VcTableProps['onScroll']>
 }
+
+export interface TableExpose extends Reference {}
 export interface TableEmitsProps<RecordType = AnyObject> {
   onChange?: TableEmits<RecordType>['change']
   'onUpdate:expandedRowKeys'?: TableEmits<RecordType>['update:expandedRowKeys']
@@ -543,14 +545,16 @@ const InternalTable = defineComponent<
     const rootRef = shallowRef<HTMLDivElement | null>(null)
     const tblRef = shallowRef<any>(null)
 
-    expose({
+    const tableExpose: TableExpose = {
       scrollTo: (...args: any[]) => {
         tblRef.value?.scrollTo?.(...args)
       },
       get nativeElement() {
-        return rootRef.value
+        return rootRef.value!
       },
-    })
+    }
+
+    expose(tableExpose)
 
     const spinProps = computed<SpinProps | undefined>(() => {
       if (typeof props.loading === 'boolean') {
