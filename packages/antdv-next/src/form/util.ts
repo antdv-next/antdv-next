@@ -5,7 +5,7 @@ import { cloneDeep } from 'es-toolkit'
 
 // form item name black list.  in form ,you can use form.id get the form item element.
 // use object hasOwnProperty will get better performance if black list is longer.
-const formItemNameBlackList = ['parentNode']
+const formItemNameBlackList = ['parentNode', 'tagName', 'nextSibling']
 
 // default form item id prefix.
 const defaultItemNamePrefixCls: string = 'form_item'
