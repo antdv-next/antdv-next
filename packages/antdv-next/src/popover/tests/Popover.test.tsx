@@ -125,6 +125,35 @@ describe('popover', () => {
     expect(document.querySelector('.ant-popover-content')?.textContent).toContain('Slot Content')
   })
 
+  it('ConfigProvider tooltip config should not leak into Popover', async () => {
+    mount(ConfigProvider, {
+      attachTo: document.body,
+      props: {
+        tooltip: {
+          class: 'custom-tooltip-root',
+          styles: {
+            arrow: { background: 'red' },
+          },
+        },
+      },
+      slots: {
+        default: () => (
+          <Popover content="hello" open>
+            <span>Show</span>
+          </Popover>
+        ),
+      },
+    })
+
+    await flushPopoverTimer()
+
+    const popover = document.querySelector<HTMLElement>('.ant-popover')
+    expect(popover).not.toHaveClass('custom-tooltip-root')
+
+    const arrow = document.querySelector<HTMLElement>('.ant-popover-arrow')
+    expect(arrow).not.toHaveStyle({ background: 'red' })
+  })
+
   it('should not render overlay when both title and content are empty', async () => {
     mount(Popover, {
       attachTo: document.body,

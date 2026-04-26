@@ -3,7 +3,7 @@ import type { CSSProperties } from 'vue'
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal'
 
 import { unit } from '@antdv-next/cssinjs'
-import { resetComponent } from '../../style'
+import { genFocusStyle, resetComponent } from '../../style'
 import { genStyleHooks } from '../../theme/internal'
 
 export interface ComponentToken {
@@ -212,8 +212,8 @@ export const genActionStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
         lineHeight: unit(fontSizeIcon),
         backgroundColor: 'transparent',
         border: 'none',
-        outline: 'none',
         cursor: 'pointer',
+        ...genFocusStyle(token),
 
         [`${iconCls}-close`]: {
           color: colorIcon,

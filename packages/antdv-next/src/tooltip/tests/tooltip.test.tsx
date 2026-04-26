@@ -755,6 +755,35 @@ describe('tooltip', () => {
     expect(document.querySelector('.ant-tooltip-arrow')).not.toBeNull()
   })
 
+  it('ConfigProvider tooltip config should apply to Tooltip', async () => {
+    mount(ConfigProvider, {
+      attachTo: document.body,
+      props: {
+        tooltip: {
+          class: 'custom-tooltip-root',
+          styles: {
+            arrow: { background: 'red' },
+          },
+        },
+      },
+      slots: {
+        default: () => (
+          <Tooltip title="hello" open>
+            <span>Hover me</span>
+          </Tooltip>
+        ),
+      },
+    })
+
+    await flushTooltipTimer()
+
+    const tooltip = document.querySelector<HTMLElement>('.ant-tooltip')
+    expect(tooltip).toHaveClass('custom-tooltip-root')
+
+    const arrow = document.querySelector<HTMLElement>('.ant-tooltip-arrow')
+    expect(arrow).toHaveStyle({ background: 'red' })
+  })
+
   describe('parseColor', () => {
     const prefixCls = 'ant-tooltip'
 

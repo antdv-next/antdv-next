@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from 'vitest'
 import { nextTick, ref } from 'vue'
 import Popconfirm from '..'
+import ConfigProvider from '../../config-provider'
 import { mount } from '/@tests/utils'
 
 describe('popconfirm', () => {
@@ -61,6 +62,40 @@ describe('popconfirm', () => {
     const desc = document.querySelector('.ant-popconfirm-description')
     expect(desc?.textContent).toBe('This action cannot be undone.')
     wrapper.unmount()
+  })
+
+  it('ConfigProvider tooltip config should not leak into Popconfirm', async () => {
+    const wrapper = mount(ConfigProvider, {
+      props: {
+        tooltip: {
+          class: 'custom-tooltip-root',
+          styles: {
+            arrow: { background: 'red' },
+          },
+        },
+      },
+      slots: {
+        default: () => (
+          <Popconfirm title="Are you sure?" open>
+            <span>Delete</span>
+          </Popconfirm>
+        ),
+      },
+      attachTo: document.body,
+    })
+
+    await nextTick()
+    await nextTick()
+
+    const popconfirm = document.querySelector<HTMLElement>('.ant-popconfirm')
+    expect(popconfirm).not.toHaveClass('custom-tooltip-root')
+
+    const arrow = document.querySelector<HTMLElement>('.ant-popconfirm-arrow')
+    if (arrow) {
+      expect(arrow).not.toHaveStyle({ background: 'red' })
+    }
+    wrapper.unmount()
+    document.body.innerHTML = ''
   })
 
   // ========================= Buttons =========================

@@ -30,4 +30,10 @@ describe('input-number style extract', () => {
     expect(styleText).toContain(':hover:not(.ant-input-number-action-up-disabled):not(.ant-input-number-action-down-disabled)')
     expect(styleText).toContain('.ant-input-number-action.ant-input-number-action-up-disabled')
   })
+
+  it('removes the inner input border radius', async () => {
+    const styleText = await extractInputNumberStyle()
+
+    expect(styleText).toMatch(/\.ant-input-number \.ant-input-number-input\{[^}]*border-radius:0;/)
+  })
 })

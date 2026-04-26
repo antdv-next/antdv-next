@@ -68,6 +68,10 @@ export const getLinkStyles: GenerateStyle<TypographyToken, CSSObject> = (token) 
 
         '&:active': {
           pointerEvents: 'none',
+
+          [`${componentCls}-actions`]: {
+            pointerEvents: 'auto',
+          },
         },
       },
     },

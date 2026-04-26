@@ -154,12 +154,12 @@ const InternalTooltip = defineComponent<
       prefixCls,
       rootPrefixCls,
       direction,
-      arrow: contextArrow,
-      class: contextClassName,
-      style: contextStyle,
-      classes: contextClassNames,
-      styles: contextStyles,
-      trigger: contextTrigger,
+      arrow: rawContextArrow,
+      class: rawContextClassName,
+      style: rawContextStyle,
+      classes: rawContextClassNames,
+      styles: rawContextStyles,
+      trigger: rawContextTrigger,
       getPopupContainer: getContextPopupContainer,
     } = useComponentBaseConfig('tooltip', props, ['arrow', 'trigger'])
     const {
@@ -169,6 +169,13 @@ const InternalTooltip = defineComponent<
       classes,
       styles,
     } = toPropsRefs(props, 'arrow', 'builtinPlacements', 'autoAdjustOverflow', 'classes', 'styles')
+    const injectFromPopover = computed(() => !!props.dataPopoverInject)
+    const contextArrow = computed(() => injectFromPopover.value ? undefined : rawContextArrow.value)
+    const contextClassName = computed(() => injectFromPopover.value ? undefined : rawContextClassName.value)
+    const contextStyle = computed(() => injectFromPopover.value ? undefined : rawContextStyle.value)
+    const contextClassNames = computed(() => injectFromPopover.value ? {} : rawContextClassNames.value)
+    const contextStyles = computed(() => injectFromPopover.value ? {} : rawContextStyles.value)
+    const contextTrigger = computed(() => injectFromPopover.value ? undefined : rawContextTrigger.value)
     const mergedArrow = useMergedArrow(tooltipArrow, contextArrow)
     const mergedTrigger = computed(() => props?.trigger ?? contextTrigger.value ?? 'hover')
     const mergedShowArrow = computed(() => mergedArrow.value?.show)
@@ -236,12 +243,11 @@ const InternalTooltip = defineComponent<
       TooltipStylesType,
       TooltipProps
     >(useToArr(contextClassNames, classes), useToArr(contextStyles, styles), useToProps(mergedProps))
-    const injectFromPopover = props.dataPopoverInject
     const inTableMeasureRow = useTableMeasureRowContext()
 
     // Style
     const rootCls = useCSSVarCls(prefixCls)
-    const [hashId, cssVarCls] = useStyle(prefixCls, rootCls, !injectFromPopover)
+    const [hashId, cssVarCls] = useStyle(prefixCls, rootCls, !injectFromPopover.value)
 
     // ============================ zIndex ============================
     const [zIndex, contextZIndex] = useZIndex('Tooltip', computed(() => props.zIndex))

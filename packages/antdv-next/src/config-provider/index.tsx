@@ -106,6 +106,7 @@ const providerDefaultProps: any = {
 }
 
 type holderRenderType = (children: VNodeChild) => VNodeChild
+type WrappedLocale = Locale & { default?: Locale }
 
 let globalPrefixCls: string
 let globalIconPrefixCls: string
@@ -152,6 +153,22 @@ function setGlobalConfig(props: GlobalConfigProps) {
     globalConfigData.theme = theme
   }
 }
+
+function unwrapLocale(locale?: Locale): Locale | undefined {
+  const wrappedLocale = locale as WrappedLocale | undefined
+
+  if (
+    wrappedLocale
+    && typeof wrappedLocale === 'object'
+    && Object.prototype.hasOwnProperty.call(wrappedLocale, 'default')
+    && wrappedLocale.default?.locale
+  ) {
+    return wrappedLocale.default
+  }
+
+  return locale
+}
+
 const ProviderChildren = defineComponent<
   ProviderChildrenProps,
   ConfigProviderEmits,
@@ -161,6 +178,7 @@ const ProviderChildren = defineComponent<
   (props = providerDefaultProps, { slots }) => {
     const theme = computed(() => props.theme)
     const parentTheme = computed(() => props.parentContext?.theme)
+    const locale = computed(() => unwrapLocale(props.locale))
     // =================================== Context ===================================
     const getPrefixCls = (suffixCls: string, customizePrefixCls?: string) => {
       const { prefixCls, parentContext } = props
@@ -194,7 +212,7 @@ const ProviderChildren = defineComponent<
         getPrefixCls,
         theme: mergedTheme.value,
         direction: props.direction,
-        locale: props.locale || props.legacyLocale,
+        locale: locale.value || props.legacyLocale,
         space: props.space,
         variant: props.variant,
       } as ConfigConsumerProps
@@ -276,9 +294,9 @@ const ProviderChildren = defineComponent<
     return () => {
       let childNode = slots?.default?.()
 
-      if (props.locale) {
+      if (locale.value) {
         childNode = (
-          <LocaleProvider locale={props.locale} _ANT_MARK__={ANT_MARK}>
+          <LocaleProvider locale={locale.value} _ANT_MARK__={ANT_MARK}>
             {childNode}
           </LocaleProvider>
         )
