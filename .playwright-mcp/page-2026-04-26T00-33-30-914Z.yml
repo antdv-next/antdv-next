@@ -1,0 +1,149 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - heading "logo Antdv Next" [level=1] [ref=e7]:
+        - link "logo Antdv Next" [ref=e8] [cursor=pointer]:
+          - /url: /
+          - img "logo" [ref=e9]
+          - generic [ref=e10]: Antdv Next
+      - generic [ref=e12]:
+        - generic [ref=e14]:
+          - img [ref=e15]
+          - textbox "输入关键字搜索..." [ref=e17]
+        - menu [ref=e18]:
+          - menuitem "研发" [ref=e19] [cursor=pointer]:
+            - link "研发" [ref=e21]:
+              - /url: /docs/vue
+          - menuitem "组件" [ref=e22] [cursor=pointer]:
+            - link "组件" [ref=e24]:
+              - /url: /components
+          - menuitem "博客" [ref=e25] [cursor=pointer]:
+            - link "博客" [ref=e27]:
+              - /url: /blog
+          - generic:
+            - link:
+              - /url: https://play.antdv-next.com
+              - text: Playground
+          - generic:
+            - link:
+              - /url: /sponsor
+              - text: 赞助
+          - generic:
+            - link:
+              - /url: http://antdv-next.cn
+              - text: 国内镜像
+          - menuitem "..." [ref=e28] [cursor=pointer]
+        - generic [ref=e29] [cursor=pointer]:
+          - generic "1.2.2-beta.1" [ref=e30]:
+            - text: 1.2.2-beta.1
+            - combobox [ref=e31]
+          - img "down" [ref=e33]:
+            - img [ref=e34]
+        - button "中 En" [ref=e36] [cursor=pointer]:
+          - generic [ref=e38]:
+            - generic [ref=e39]: 中
+            - generic [ref=e40]: En
+        - button [ref=e41] [cursor=pointer]:
+          - img [ref=e43]:
+            - img "Direction Icon" [ref=e44]
+        - button [ref=e46] [cursor=pointer]:
+          - img [ref=e48]
+        - link "github" [ref=e52] [cursor=pointer]:
+          - /url: https://github.com/antdv-next/antdv-next
+          - button "github" [ref=e53]:
+            - img "github" [ref=e55]:
+              - img [ref=e56]
+  - generic [ref=e58]:
+    - generic [ref=e60]:
+      - generic [ref=e61]:
+        - img [ref=e62]
+        - text: Open Source Sponsor
+      - heading "支持我们的创作与发展" [level=1] [ref=e64]
+      - paragraph [ref=e65]: 您的每一份支持，都是 Antdv Next 持续输出高质量内容的动力
+    - main [ref=e66]:
+      - generic [ref=e68]:
+        - button "team 赞助团队" [ref=e69] [cursor=pointer]:
+          - img "team" [ref=e70]:
+            - img [ref=e71]
+          - text: 赞助团队
+        - button "user 赞助个人" [ref=e73] [cursor=pointer]:
+          - img "user" [ref=e74]:
+            - img [ref=e75]
+          - text: 赞助个人
+      - generic [ref=e77]:
+        - generic [ref=e78]:
+          - generic [ref=e79]:
+            - generic [ref=e80]:
+              - generic [ref=e81]: 企业赞助
+              - heading "感谢以下企业赞助者" [level=2] [ref=e82]
+              - paragraph [ref=e83]: 企业赞助将用于 Antdv Next 的持续维护、文档建设与社区基础设施投入。
+            - link "OpenCollective Sponsors" [ref=e84] [cursor=pointer]:
+              - /url: https://opencollective.com/ant-design/contribute/sponsors-218
+              - img "Sponsors" [ref=e85]
+          - generic [ref=e86]:
+            - link "YouMind YouMind" [ref=e87] [cursor=pointer]:
+              - /url: https://youmind.com/zh-CN?utm_source=antdv-next
+              - img "YouMind" [ref=e88]
+              - generic [ref=e89]: YouMind
+            - link "TRACTIAN TRACTIAN" [ref=e90] [cursor=pointer]:
+              - /url: https://tractian.com?utm_source=antdv-next
+              - img "TRACTIAN" [ref=e91]
+              - generic [ref=e92]: TRACTIAN
+            - link "LobeHub LobeHub" [ref=e93] [cursor=pointer]:
+              - /url: https://lobehub.com?utm_source=antdv-next
+              - img "LobeHub" [ref=e94]
+              - generic [ref=e95]: LobeHub
+          - generic [ref=e96]:
+            - link "查看所有 Sponsors" [ref=e97] [cursor=pointer]:
+              - /url: https://opencollective.com/ant-design/contribute/sponsors-218
+            - link "成为企业 Sponsor" [ref=e98] [cursor=pointer]:
+              - /url: https://opencollective.com/ant-design/contribute/sponsors-218/checkout
+        - generic [ref=e99]:
+          - generic [ref=e101]:
+            - generic [ref=e102]:
+              - img [ref=e103]
+              - paragraph [ref=e105]: 所有赞助资金将优先投入服务器等运营成本，结余部分将以公开透明的方式用于团队支持及社区贡献激励。
+            - generic [ref=e106]:
+              - generic [ref=e107]: 赞助金额
+              - generic [ref=e108]:
+                - button "¥10" [ref=e109] [cursor=pointer]
+                - button "¥20" [ref=e110] [cursor=pointer]
+                - button "¥30" [ref=e111] [cursor=pointer]
+                - button "¥50" [ref=e112] [cursor=pointer]
+                - button "¥100" [ref=e113] [cursor=pointer]
+                - generic [ref=e114]:
+                  - generic: ¥
+                  - spinbutton "自定义" [ref=e115]: "20"
+                  - generic: 元
+            - generic [ref=e116]:
+              - generic [ref=e117]: 赞助人
+              - textbox "留个称呼让我们感谢您~" [ref=e118]
+            - generic [ref=e119]:
+              - generic [ref=e120]: 留言
+              - textbox "您的每一句话都是我们前进的动力~" [ref=e121]
+            - generic [ref=e122]:
+              - generic [ref=e123]: 支付方式
+              - generic [ref=e124]:
+                - button "alipay-circle 支付宝" [ref=e125] [cursor=pointer]:
+                  - img "alipay-circle" [ref=e126]:
+                    - img [ref=e127]
+                  - text: 支付宝
+                - button "wechat 微信支付" [ref=e129] [cursor=pointer]:
+                  - img "wechat" [ref=e130]:
+                    - img [ref=e131]
+                  - text: 微信支付
+            - generic [ref=e134] [cursor=pointer]:
+              - checkbox "需要开具发票" [ref=e136]
+              - generic [ref=e137]: 需要开具发票
+            - button "立即赞助" [ref=e138] [cursor=pointer]:
+              - generic [ref=e139]: 立即赞助
+          - generic [ref=e142]:
+            - generic [ref=e143]:
+              - heading "感谢以下赞助者的支持" [level=2] [ref=e144]
+              - paragraph [ref=e145]: 共 0 位赞助者
+            - generic [ref=e146]:
+              - generic [ref=e147]:
+                - button "按金额" [ref=e148] [cursor=pointer]
+                - button "按时间" [ref=e149] [cursor=pointer]
+              - generic [ref=e150]: 实时更新
+      - paragraph [ref=e154]: Antdv Next · 全面保障支付安全及财务合规性

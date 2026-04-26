@@ -17,6 +17,7 @@ interface ComponentsBlockProps {
   className?: string
   containerClassName?: string
   inherit?: boolean
+  compact?: boolean
 }
 
 const props = withDefaults(defineProps<ComponentsBlockProps>(), {
@@ -33,6 +34,40 @@ const useStyle = createStyles(({ css, cssVar }) => {
     }),
     flexAuto: css({
       flex: 'auto',
+    }),
+    compactCard: css({
+      width: '100%',
+      overflow: 'hidden',
+
+      '.ant-card-body': {
+        padding: cssVar.padding,
+      },
+    }),
+    compactContent: css({
+      width: '100%',
+      minWidth: 0,
+
+      '.ant-flex:not(.ant-flex-vertical)': {
+        flexWrap: 'wrap',
+      },
+
+      '.ant-picker, .ant-select, .ant-progress, .ant-slider': {
+        minWidth: 0,
+      },
+
+      '.ant-steps': {
+        minWidth: 0,
+      },
+
+      '.ant-radio-group, .ant-checkbox-group': {
+        maxWidth: '100%',
+      },
+
+      '.ant-checkbox-group': {
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: cssVar.marginXS,
+      },
     }),
   }
 })
@@ -91,9 +126,9 @@ const segmentedOptions = computed(() => [
 
 <template>
   <a-config-provider v-bind="mergedConfig">
-    <a-card :class="[containerClassName, styles.container]">
+    <a-card :class="[containerClassName, styles.container, compact && styles.compactCard]">
       <a-app>
-        <a-flex vertical gap="middle" :style="style" :class="className">
+        <a-flex vertical gap="middle" :style="style" :class="[className, compact && styles.compactContent]">
           <ModalPanel title="Antdv Next" width="100%">
             {{ t('homePage.componentsBlock.text') }}
           </ModalPanel>

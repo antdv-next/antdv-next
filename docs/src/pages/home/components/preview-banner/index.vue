@@ -1,9 +1,13 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
+import BannerSponsors from '@/components/sponsor/BannerSponsors.vue'
 import { useLocale } from '@/composables/use-locale'
+import BannerRecommends from '../banner-recommends/index.vue'
 import GroupMaskLayer from './group-mask-layer.vue'
 import LuminousBg from './luminous-bg.vue'
 
 const { t } = useLocale()
+const router = useRouter()
 </script>
 
 <template>
@@ -21,7 +25,7 @@ const { t } = useLocale()
       </a-typography>
 
       <a-flex gap="middle" class="antdv-home-preview-banner-buttons">
-        <a-button type="primary" href="/components/overview" size="large">
+        <a-button type="primary" size="large" @click="router.push('/components/overview')">
           {{ t('home.start') }}
         </a-button>
         <a-button href="https://github.com/antdv-next/antdv-next" size="large">
@@ -29,7 +33,11 @@ const { t } = useLocale()
         </a-button>
       </a-flex>
 
-      <div class="antdv-home-preview-banner-child" />
+      <div class="antdv-home-preview-banner-child">
+        <BannerRecommends />
+      </div>
+
+      <BannerSponsors />
     </div>
   </GroupMaskLayer>
 </template>
@@ -86,5 +94,31 @@ const { t } = useLocale()
   max-width: 1200px;
   margin: 0 auto;
   z-index: 1;
+}
+
+@media (max-width: 767px) {
+  .antdv-home-preview-banner-holder {
+    height: auto;
+    min-height: 640px;
+    padding: 96px 16px 48px;
+    row-gap: var(--ant-margin-lg);
+  }
+
+  .antdv-home-preview-banner-typography {
+    padding-inline: 0;
+  }
+
+  .antdv-home-preview-banner-title {
+    font-size: 44px !important;
+  }
+
+  .antdv-home-preview-banner-slogan {
+    font-size: var(--ant-font-size-lg) !important;
+    line-height: 1.6 !important;
+  }
+
+  .antdv-home-preview-banner-buttons {
+    margin-bottom: var(--ant-margin-lg);
+  }
 }
 </style>

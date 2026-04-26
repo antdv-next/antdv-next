@@ -1,0 +1,124 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - heading "logo Antdv Next" [level=1] [ref=e7]:
+        - link "logo Antdv Next" [ref=e8] [cursor=pointer]:
+          - /url: /
+          - img "logo" [ref=e9]
+          - generic [ref=e10]: Antdv Next
+      - generic [ref=e12]:
+        - generic [ref=e14]:
+          - img [ref=e15]
+          - textbox "输入关键字搜索..." [ref=e17]
+        - menu [ref=e18]:
+          - menuitem "研发" [ref=e19] [cursor=pointer]:
+            - link "研发" [ref=e21]:
+              - /url: /docs/vue
+          - menuitem "组件" [ref=e22] [cursor=pointer]:
+            - link "组件" [ref=e24]:
+              - /url: /components
+          - menuitem "博客" [ref=e25] [cursor=pointer]:
+            - link "博客" [ref=e27]:
+              - /url: /blog
+          - generic:
+            - link:
+              - /url: https://play.antdv-next.com
+              - text: Playground
+          - generic:
+            - link:
+              - /url: /sponsor
+              - text: 赞助
+          - generic:
+            - link:
+              - /url: http://antdv-next.cn
+              - text: 国内镜像
+          - menuitem "..." [ref=e28] [cursor=pointer]
+        - generic "Sponsors" [ref=e29]:
+          - link "YouMind" [ref=e30] [cursor=pointer]:
+            - /url: https://youmind.com/zh-CN?utm_source=antdv-next
+            - img "YouMind" [ref=e31]
+          - link "TRACTIAN" [ref=e32] [cursor=pointer]:
+            - /url: https://tractian.com?utm_source=antdv-next
+            - img "TRACTIAN" [ref=e33]
+          - link "LobeHub" [ref=e34] [cursor=pointer]:
+            - /url: https://lobehub.com?utm_source=antdv-next
+            - img "LobeHub" [ref=e35]
+        - generic [ref=e36] [cursor=pointer]:
+          - generic "1.2.2-beta.1" [ref=e37]:
+            - text: 1.2.2-beta.1
+            - combobox [ref=e38]
+          - img "down" [ref=e40]:
+            - img [ref=e41]
+        - button "中 En" [ref=e43] [cursor=pointer]:
+          - generic [ref=e45]:
+            - generic [ref=e46]: 中
+            - generic [ref=e47]: En
+        - button [ref=e48] [cursor=pointer]:
+          - img [ref=e50]:
+            - img "Direction Icon" [ref=e51]
+        - button [ref=e53] [cursor=pointer]:
+          - img [ref=e55]
+        - link "github" [ref=e59] [cursor=pointer]:
+          - /url: https://github.com/antdv-next/antdv-next
+          - button "github" [ref=e60]:
+            - img "github" [ref=e62]:
+              - img [ref=e63]
+  - generic [ref=e65]:
+    - generic [ref=e68]:
+      - article [ref=e70]:
+        - heading "Antdv Next" [level=1] [ref=e71]
+        - paragraph [ref=e72]: 助力设计开发者「更灵活」地搭建出「更美」的产品，让用户「快乐工作」～
+      - generic [ref=e73]:
+        - link "开始使用" [ref=e74] [cursor=pointer]:
+          - /url: /components/overview
+          - generic [ref=e75]: 开始使用
+        - link "仓库地址" [ref=e76] [cursor=pointer]:
+          - /url: https://github.com/antdv-next/antdv-next
+          - generic [ref=e77]: 仓库地址
+      - generic [ref=e78]:
+        - generic [ref=e79]: Sponsors
+        - link "YouMind YouMind" [ref=e80] [cursor=pointer]:
+          - /url: https://youmind.com/zh-CN?utm_source=antdv-next
+          - img "YouMind" [ref=e81]
+          - generic [ref=e82]: YouMind
+        - link "TRACTIAN TRACTIAN" [ref=e84] [cursor=pointer]:
+          - /url: https://tractian.com?utm_source=antdv-next
+          - img "TRACTIAN" [ref=e85]
+          - generic [ref=e86]: TRACTIAN
+        - link "LobeHub LobeHub" [ref=e88] [cursor=pointer]:
+          - /url: https://lobehub.com?utm_source=antdv-next
+          - img "LobeHub" [ref=e89]
+          - generic [ref=e90]: LobeHub
+    - contentinfo [ref=e91]:
+      - generic [ref=e93]:
+        - generic [ref=e95]:
+          - heading "相关资源" [level=2] [ref=e96]
+          - link "Ant Design of React" [ref=e98] [cursor=pointer]:
+            - /url: https://ant.design/docs/react/introduce-cn
+          - link "Ant Design of Angular" [ref=e100] [cursor=pointer]:
+            - /url: https://ng.ant.design/docs/introduce/zh
+          - link "Antdv Next X" [ref=e102] [cursor=pointer]:
+            - /url: https://x.antdv-next.com/
+        - generic [ref=e104]:
+          - heading "社区" [level=2] [ref=e105]
+          - link "Change Log" [ref=e107] [cursor=pointer]:
+            - /url: https://github.com/antdv-next/antdv-next/releases
+          - link "Bug Report" [ref=e109] [cursor=pointer]:
+            - /url: https://github.com/antdv-next/antdv-next/issues
+        - generic [ref=e111]:
+          - heading "友链" [level=2] [ref=e112]
+          - link "Vue" [ref=e114] [cursor=pointer]:
+            - /url: https://vuejs.org/
+          - link "Vue Router" [ref=e116] [cursor=pointer]:
+            - /url: https://router.vuejs.org/
+          - link "Pinia" [ref=e118] [cursor=pointer]:
+            - /url: https://pinia.vuejs.org/
+          - link "Vite" [ref=e120] [cursor=pointer]:
+            - /url: https://vitejs.dev/
+          - link "Fantastic-admin" [ref=e122] [cursor=pointer]:
+            - /url: https://fantastic-admin.hurui.me/
+      - generic [ref=e124]:
+        - generic [ref=e125]: Made with ❤ by
+        - generic [ref=e126]: Antdv Next Team
+        - link "鲁ICP备2023021414号-3" [ref=e127] [cursor=pointer]:
+          - /url: https://beian.miit.gov.cn/

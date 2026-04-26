@@ -1,10 +1,17 @@
 <script setup lang="ts">
-import { AlipayCircleOutlined, GithubOutlined, TeamOutlined, UserOutlined, WechatOutlined } from '@antdv-next/icons'
+import { AlipayCircleOutlined, GithubOutlined, HeartOutlined, TeamOutlined, UserOutlined, WechatOutlined } from '@antdv-next/icons'
+import { message } from 'antdv-next'
 import dayjs from 'dayjs'
 import { computed, onMounted, onUnmounted, reactive, ref, shallowRef, watch } from 'vue'
+import { useRouter } from 'vue-router'
+import { useCommercialSponsors } from '@/composables/sponsors'
+import { getSponsorDescription, getSponsorUrl, sponsorApiBaseUrl } from '@/config/sponsors'
 
 // Tab
-const activeTab = shallowRef('org')
+const router = useRouter()
+const activeTab = shallowRef<'org' | 'personal' | 'enterprise'>('org')
+const sponsorLocale = 'cn'
+const { commercialSponsors: enterpriseSponsors, refreshCommercialSponsors } = useCommercialSponsors()
 
 // Team members
 const teamMembers = [
@@ -65,6 +72,12 @@ interface SponsorForm {
   invoiceEmail?: string
 }
 
+interface EnterpriseSponsorForm extends SponsorForm {
+  logo: string
+  websiteUrl: string
+  websiteDescription: string
+}
+
 const orgSponsorForm = reactive<SponsorForm>({
   amount: 20,
   subject: 'Antdv Next 项目赞助',
@@ -76,6 +89,22 @@ const orgSponsorForm = reactive<SponsorForm>({
   invoiceCompany: '',
   invoiceTaxNo: '',
   invoiceEmail: '',
+})
+
+const enterpriseSponsorForm = reactive<EnterpriseSponsorForm>({
+  amount: 500,
+  subject: 'Antdv Next 企业赞助',
+  payType: 'alipay',
+  sponsorName: '',
+  sponsorEmail: '',
+  sponsorMessage: '',
+  invoiceRequired: false,
+  invoiceCompany: '',
+  invoiceTaxNo: '',
+  invoiceEmail: '',
+  logo: '',
+  websiteUrl: '',
+  websiteDescription: '',
 })
 
 const customInputStyles = {
@@ -94,6 +123,12 @@ const amountOptions = [
   { label: '¥100', value: 100 },
 ]
 
+const enterpriseAmountOptions = [
+  { label: '¥500', value: 500 },
+  { label: '¥1000', value: 1000 },
+  { label: '¥2000', value: 2000 },
+]
+
 // Sponsor list - infinite scroll
 const allSponsors = shallowRef<any[]>([])
 const rawSponsors = shallowRef<any[]>([])
@@ -106,7 +141,11 @@ const allLoaded = computed(() => displayedCount.value >= allSponsors.value.lengt
 
 const displayedSponsors = computed(() => allSponsors.value.slice(0, displayedCount.value))
 
-const submitUrl = 'https://test-pay.lingyu.org.cn'
+const submitUrl = sponsorApiBaseUrl
+const allowLowAmountCommercialSponsor = import.meta.env.VITE_ALLOW_LOW_AMOUNT_COMMERCIAL_SPONSOR === 'true'
+const enterpriseMinAmount = allowLowAmountCommercialSponsor ? 0.01 : 500
+const orgSponsorMaxAmount = 10000
+const enterpriseSponsorMaxAmount = 50000
 
 async function fetchSponsors() {
   sponsorLoading.value = true
@@ -214,108 +253,149 @@ function getAmountClass(rank: number) {
   return 'amount-normal'
 }
 
-// WeChat payment modal
-const wechatPayVisible = shallowRef(false)
-const wechatPayCodeUrl = shallowRef('')
-const wechatPayOrderNo = shallowRef('')
-const wechatPayStatus = shallowRef<'idle' | 'pending' | 'timeout' | 'error'>('idle')
-const wechatPayQuerying = shallowRef(false)
-const wechatPayError = shallowRef('')
-const WECHAT_POLL_INTERVAL = 5000
-const WECHAT_MAX_POLL_COUNT = 120
-let wechatPollTimer: ReturnType<typeof setTimeout> | null = null
-let wechatPollCount = 0
+type ScanPayType = 'alipay' | 'wechat'
+type ScanPaySponsorKind = 'org' | 'enterprise'
+
+// Scan payment modal
+const scanPayVisible = shallowRef(false)
+const scanPayType = shallowRef<ScanPayType>('wechat')
+const scanPaySponsorKind = shallowRef<ScanPaySponsorKind>('org')
+const scanPayCodeUrl = shallowRef('')
+const scanPayOrderNo = shallowRef('')
+const scanPayAmount = shallowRef<number | string>(orgSponsorForm.amount)
+const scanPayStatus = shallowRef<'idle' | 'pending' | 'timeout' | 'error'>('idle')
+const scanPayQuerying = shallowRef(false)
+const scanPayError = shallowRef('')
+const SCAN_PAY_POLL_INTERVAL = 5000
+const SCAN_PAY_MAX_POLL_COUNT = 120
+let scanPayPollTimer: ReturnType<typeof setTimeout> | null = null
+let scanPayPollCount = 0
+
+const scanPayTitle = computed(() => scanPayType.value === 'alipay' ? '支付宝支付' : '微信支付')
+const scanPayIconClass = computed(() => scanPayType.value === 'alipay' ? 'scan-pay-badge-alipay' : 'scan-pay-badge-wechat')
+const scanPayQrClass = computed(() => scanPayType.value === 'alipay' ? 'scan-pay-qrcode-alipay' : 'scan-pay-qrcode-wechat')
+const scanPayDescription = computed(() => {
+  return scanPayType.value === 'alipay'
+    ? '请使用支付宝扫一扫完成支付'
+    : '请使用微信扫一扫完成支付'
+})
 
 function getSuccessPath(orderNo: string) {
   const path = window.location.pathname.includes('/sponsor-cn') ? '/sponsor/success-cn' : '/sponsor/success'
   return `${path}?out_trade_no=${encodeURIComponent(orderNo)}`
 }
 
-function stopWechatPayPoll() {
-  if (wechatPollTimer) {
-    clearTimeout(wechatPollTimer)
-    wechatPollTimer = null
+function stopScanPayPoll() {
+  if (scanPayPollTimer) {
+    clearTimeout(scanPayPollTimer)
+    scanPayPollTimer = null
   }
 }
 
-function closeWechatPayModal() {
-  wechatPayVisible.value = false
-  stopWechatPayPoll()
-  wechatPayCodeUrl.value = ''
-  wechatPayOrderNo.value = ''
-  wechatPayStatus.value = 'idle'
-  wechatPayQuerying.value = false
-  wechatPayError.value = ''
+function closeScanPayModal() {
+  scanPayVisible.value = false
+  stopScanPayPoll()
+  scanPayCodeUrl.value = ''
+  scanPayOrderNo.value = ''
+  scanPayStatus.value = 'idle'
+  scanPayQuerying.value = false
+  scanPayError.value = ''
 }
 
-async function queryWechatPayment() {
-  if (!wechatPayOrderNo.value || wechatPayQuerying.value)
+async function refreshSponsorListsAfterPaid() {
+  if (scanPaySponsorKind.value === 'enterprise') {
+    await refreshCommercialSponsors()
+    return
+  }
+
+  await fetchSponsors()
+}
+
+async function queryScanPayment() {
+  if (!scanPayOrderNo.value || scanPayQuerying.value)
     return false
-  wechatPayQuerying.value = true
+  scanPayQuerying.value = true
   try {
-    const res = await fetch(`${submitUrl}/pay/query?orderNo=${encodeURIComponent(wechatPayOrderNo.value)}`)
+    const res = await fetch(`${submitUrl}/pay/query?orderNo=${encodeURIComponent(scanPayOrderNo.value)}`)
     const { code, data } = await res.json()
     if (code === 0 && data) {
       if (data.paid || data.status === 'paid') {
-        stopWechatPayPoll()
-        window.location.href = getSuccessPath(wechatPayOrderNo.value)
+        stopScanPayPoll()
+        await refreshSponsorListsAfterPaid()
+        void router.push(getSuccessPath(scanPayOrderNo.value))
         return true
       }
       if (data.status === 'pending') {
-        wechatPayStatus.value = 'pending'
-        wechatPayError.value = ''
+        scanPayStatus.value = 'pending'
+        scanPayError.value = ''
         return false
       }
     }
-    wechatPayStatus.value = 'error'
-    wechatPayError.value = '支付状态异常，请稍后重新查询'
-    stopWechatPayPoll()
+    scanPayStatus.value = 'error'
+    scanPayError.value = '支付状态异常，请稍后重新查询'
+    stopScanPayPoll()
     return true
   }
   catch (error) {
-    console.error('查询微信支付状态失败', error)
-    wechatPayStatus.value = 'error'
-    wechatPayError.value = '支付状态查询失败，请稍后重试'
-    stopWechatPayPoll()
+    console.error('查询扫码支付状态失败', error)
+    scanPayStatus.value = 'error'
+    scanPayError.value = '支付状态查询失败，请稍后重试'
+    stopScanPayPoll()
     return true
   }
   finally {
-    wechatPayQuerying.value = false
+    scanPayQuerying.value = false
   }
 }
 
-function scheduleWechatPayPoll() {
-  stopWechatPayPoll()
-  if (!wechatPayVisible.value || !wechatPayOrderNo.value)
+function scheduleScanPayPoll() {
+  stopScanPayPoll()
+  if (!scanPayVisible.value || !scanPayOrderNo.value)
     return
-  if (wechatPollCount >= WECHAT_MAX_POLL_COUNT) {
-    wechatPayStatus.value = 'timeout'
-    wechatPayError.value = '等待支付确认超时，您可以完成支付后手动刷新状态'
+  if (scanPayPollCount >= SCAN_PAY_MAX_POLL_COUNT) {
+    scanPayStatus.value = 'timeout'
+    scanPayError.value = '等待支付确认超时，您可以完成支付后手动刷新状态'
     return
   }
-  wechatPollTimer = setTimeout(async () => {
-    wechatPollCount += 1
-    const finished = await queryWechatPayment()
+  scanPayPollTimer = setTimeout(async () => {
+    scanPayPollCount += 1
+    const finished = await queryScanPayment()
     if (!finished)
-      scheduleWechatPayPoll()
-  }, WECHAT_POLL_INTERVAL)
+      scheduleScanPayPoll()
+  }, SCAN_PAY_POLL_INTERVAL)
 }
 
-function startWechatPayPoll(orderNo: string) {
-  wechatPayOrderNo.value = orderNo
-  wechatPayStatus.value = 'pending'
-  wechatPayError.value = ''
-  wechatPollCount = 0
-  scheduleWechatPayPoll()
+function startScanPayPoll(orderNo: string) {
+  scanPayOrderNo.value = orderNo
+  scanPayStatus.value = 'pending'
+  scanPayError.value = ''
+  scanPayPollCount = 0
+  scheduleScanPayPoll()
 }
 
-async function refreshWechatPayment() {
-  const finished = await queryWechatPayment()
-  if (!finished && wechatPayVisible.value && !wechatPollTimer)
-    scheduleWechatPayPoll()
+async function refreshScanPayment() {
+  const finished = await queryScanPayment()
+  if (!finished && scanPayVisible.value && !scanPayPollTimer)
+    scheduleScanPayPoll()
+}
+
+function openScanPayModal(options: {
+  type: ScanPayType
+  codeUrl: string
+  orderNo: string
+  amount: number | string
+  sponsorKind: ScanPaySponsorKind
+}) {
+  scanPayType.value = options.type
+  scanPaySponsorKind.value = options.sponsorKind
+  scanPayCodeUrl.value = options.codeUrl
+  scanPayAmount.value = options.amount
+  scanPayVisible.value = true
+  startScanPayPoll(options.orderNo)
 }
 
 function getSubmitRequest() {
+  scanPayAmount.value = orgSponsorForm.amount
   return fetch(`${submitUrl}/pay/page`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -323,7 +403,7 @@ function getSubmitRequest() {
       amount: orgSponsorForm.amount,
       subject: orgSponsorForm.subject,
       payType: orgSponsorForm.payType,
-      ...(orgSponsorForm.payType === 'wechat' ? { tradeType: 'native' } : {}),
+      ...(orgSponsorForm.payType === 'wechat' ? { tradeType: 'native' } : { tradeType: 'wap' }),
       sponsorName: orgSponsorForm.sponsorName,
       sponsorEmail: orgSponsorForm.sponsorEmail,
       sponsorMessage: orgSponsorForm.sponsorMessage,
@@ -335,10 +415,93 @@ function getSubmitRequest() {
   })
 }
 
+function getEnterpriseSubmitRequest() {
+  scanPayAmount.value = enterpriseSponsorForm.amount
+  return fetch(`${submitUrl}/sponsor/commercial/pay/page`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      amount: enterpriseSponsorForm.amount,
+      subject: enterpriseSponsorForm.subject,
+      payType: enterpriseSponsorForm.payType,
+      ...(enterpriseSponsorForm.payType === 'wechat' ? { tradeType: 'native' } : { tradeType: 'wap' }),
+      sponsorName: enterpriseSponsorForm.sponsorName,
+      sponsorEmail: enterpriseSponsorForm.sponsorEmail,
+      sponsorMessage: enterpriseSponsorForm.sponsorMessage,
+      logoUrl: enterpriseSponsorForm.logo,
+      websiteUrl: enterpriseSponsorForm.websiteUrl,
+      websiteDescription: enterpriseSponsorForm.websiteDescription,
+      invoiceRequired: enterpriseSponsorForm.invoiceRequired,
+      invoiceCompany: enterpriseSponsorForm.invoiceCompany,
+      invoiceTaxNo: enterpriseSponsorForm.invoiceTaxNo,
+      invoiceEmail: enterpriseSponsorForm.invoiceEmail,
+    }),
+  })
+}
+
 const submitting = shallowRef(false)
+const enterpriseSubmitting = shallowRef(false)
+
+function getEnterpriseAmount() {
+  return Number(enterpriseSponsorForm.amount)
+}
+
+function getOrgAmount() {
+  return Number(orgSponsorForm.amount)
+}
+
+function isHttpUrl(value: string) {
+  return /^https?:\/\//i.test(value.trim())
+}
+
+function isHttpsUrl(value: string) {
+  return /^https:\/\//i.test(value.trim())
+}
+
+function validateEnterpriseSponsorForm() {
+  const amount = getEnterpriseAmount()
+  if (!Number.isFinite(amount) || amount < enterpriseMinAmount) {
+    message.error(`成为赞助商最低金额为 ¥${enterpriseMinAmount}`)
+    return false
+  }
+  if (amount > enterpriseSponsorMaxAmount) {
+    message.error(`企业赞助单次不能超过 ¥${enterpriseSponsorMaxAmount}`)
+    return false
+  }
+  if (!enterpriseSponsorForm.logo.trim()) {
+    message.error('请填写赞助商 Logo 地址')
+    return false
+  }
+  if (!isHttpUrl(enterpriseSponsorForm.logo)) {
+    message.error('Logo 地址需要以 http:// 或 https:// 开头')
+    return false
+  }
+  if (!isHttpUrl(enterpriseSponsorForm.websiteUrl)) {
+    message.error('请填写有效的官网 URL')
+    return false
+  }
+  if (!enterpriseSponsorForm.websiteDescription.trim()) {
+    message.error('请填写官网描述信息')
+    return false
+  }
+  return true
+}
+
+function validateOrgSponsorForm() {
+  const amount = getOrgAmount()
+  if (!Number.isFinite(amount) || amount <= 0) {
+    message.error('请填写有效的赞助金额')
+    return false
+  }
+  if (amount > orgSponsorMaxAmount) {
+    message.error(`赞助团队单次不能超过 ¥${orgSponsorMaxAmount}`)
+    return false
+  }
+  return true
+}
 
 async function handleOrgSponsorSubmit() {
-  if (submitting.value)
+  if (submitting.value || !validateOrgSponsorForm())
     return
   submitting.value = true
   try {
@@ -346,14 +509,28 @@ async function handleOrgSponsorSubmit() {
     const { code, data } = await res.json()
     if (code !== 0 || !data)
       return
+    if (orgSponsorForm.payType === 'alipay' && data.qrCode && data.orderNo) {
+      openScanPayModal({
+        type: 'alipay',
+        codeUrl: data.qrCode,
+        orderNo: data.orderNo,
+        amount: orgSponsorForm.amount,
+        sponsorKind: 'org',
+      })
+      return
+    }
     if (orgSponsorForm.payType === 'alipay' && data.url) {
       window.open(data.url, '_blank')
       return
     }
     if (orgSponsorForm.payType === 'wechat' && data.codeUrl && data.orderNo) {
-      wechatPayCodeUrl.value = data.codeUrl
-      wechatPayVisible.value = true
-      startWechatPayPoll(data.orderNo)
+      openScanPayModal({
+        type: 'wechat',
+        codeUrl: data.codeUrl,
+        orderNo: data.orderNo,
+        amount: orgSponsorForm.amount,
+        sponsorKind: 'org',
+      })
     }
   }
   finally {
@@ -361,17 +538,58 @@ async function handleOrgSponsorSubmit() {
   }
 }
 
+async function handleEnterpriseSponsorSubmit() {
+  if (enterpriseSubmitting.value || !validateEnterpriseSponsorForm())
+    return
+  enterpriseSubmitting.value = true
+  try {
+    const res = await getEnterpriseSubmitRequest()
+    const { code, data } = await res.json()
+    if (code !== 0 || !data)
+      return
+    if (enterpriseSponsorForm.payType === 'alipay' && data.qrCode && data.orderNo) {
+      openScanPayModal({
+        type: 'alipay',
+        codeUrl: data.qrCode,
+        orderNo: data.orderNo,
+        amount: enterpriseSponsorForm.amount,
+        sponsorKind: 'enterprise',
+      })
+      return
+    }
+    if (enterpriseSponsorForm.payType === 'alipay' && data.url) {
+      window.open(data.url, '_blank')
+      void refreshCommercialSponsors()
+      return
+    }
+    if (enterpriseSponsorForm.payType === 'wechat' && data.codeUrl && data.orderNo) {
+      openScanPayModal({
+        type: 'wechat',
+        codeUrl: data.codeUrl,
+        orderNo: data.orderNo,
+        amount: enterpriseSponsorForm.amount,
+        sponsorKind: 'enterprise',
+      })
+    }
+  }
+  finally {
+    enterpriseSubmitting.value = false
+  }
+}
+
 onMounted(() => {
+  if (new URLSearchParams(window.location.search).get('tab') === 'enterprise')
+    activeTab.value = 'enterprise'
   fetchSponsors()
 })
 
 onUnmounted(() => {
-  stopWechatPayPoll()
+  stopScanPayPoll()
 })
 
-watch(wechatPayVisible, (visible) => {
+watch(scanPayVisible, (visible) => {
   if (!visible)
-    stopWechatPayPoll()
+    stopScanPayPoll()
 })
 </script>
 
@@ -421,6 +639,14 @@ watch(wechatPayVisible, (visible) => {
             <UserOutlined />
             赞助个人
           </button>
+          <button
+            class="tab-btn"
+            :class="{ active: activeTab === 'enterprise' }"
+            @click="activeTab = 'enterprise'"
+          >
+            <HeartOutlined />
+            成为赞助商
+          </button>
         </div>
       </div>
 
@@ -454,6 +680,7 @@ watch(wechatPayVisible, (visible) => {
                   <a-input-number
                     v-model:value="orgSponsorForm.amount"
                     :min="1"
+                    :max="orgSponsorMaxAmount"
                     :step="1"
                     :controls="false"
                     prefix="¥"
@@ -608,6 +835,162 @@ watch(wechatPayVisible, (visible) => {
         </div>
       </div>
 
+      <!-- ENTERPRISE TAB -->
+      <div v-show="activeTab === 'enterprise'" class="fade-in">
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-6">
+          <div class="lg:col-span-2">
+            <div class="glass-card rounded-2xl p-6 sticky top-6">
+              <div class="info-banner mb-6">
+                <HeartOutlined class="enterprise-info-icon" />
+                <p class="text-xs leading-relaxed" style="color: var(--ant-color-text-secondary)">
+                  感谢贵司的赞助，我们会将贵公司的信息展示在 Header 和首页。
+                </p>
+              </div>
+
+              <div class="mb-4">
+                <label class="form-label">赞助商名称</label>
+                <a-input v-model:value="enterpriseSponsorForm.sponsorName" placeholder="企业或品牌名称" />
+              </div>
+
+              <div class="mb-4">
+                <label class="form-label">Logo 地址</label>
+                <a-input v-model:value="enterpriseSponsorForm.logo" placeholder="https://example.com/logo.png" />
+                <div v-if="enterpriseSponsorForm.logo" class="enterprise-logo-preview">
+                  <img :src="enterpriseSponsorForm.logo" alt="Logo preview">
+                  <span>Logo 预览</span>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <label class="form-label">官网 URL</label>
+                <a-input v-model:value="enterpriseSponsorForm.websiteUrl" placeholder="https://example.com" />
+              </div>
+
+              <div class="mb-5">
+                <label class="form-label">官网描述信息</label>
+                <a-textarea
+                  v-model:value="enterpriseSponsorForm.websiteDescription"
+                  placeholder="一句话介绍企业、产品或服务"
+                  :auto-size="{ minRows: 3, maxRows: 5 }"
+                />
+              </div>
+
+              <div class="mb-5">
+                <label class="form-label">赞助金额</label>
+                <div class="grid grid-cols-3 gap-2 mb-2">
+                  <button
+                    v-for="opt in enterpriseAmountOptions"
+                    :key="opt.value"
+                    class="amount-chip"
+                    :class="{ active: enterpriseSponsorForm.amount === opt.value }"
+                    @click="enterpriseSponsorForm.amount = opt.value"
+                  >
+                    {{ opt.label }}
+                  </button>
+                </div>
+                <a-input-number
+                  v-model:value="enterpriseSponsorForm.amount"
+                  :min="enterpriseMinAmount"
+                  :max="enterpriseSponsorMaxAmount"
+                  :step="100"
+                  :controls="false"
+                  prefix="¥"
+                  suffix="元"
+                  :styles="customInputStyles"
+                  class="custom-amount-input"
+                  :placeholder="`自定义金额，${enterpriseMinAmount} - ${enterpriseSponsorMaxAmount}`"
+                />
+              </div>
+
+              <div class="mb-5">
+                <label class="form-label">支付方式</label>
+                <div class="grid grid-cols-2 gap-2">
+                  <button
+                    class="pay-radio"
+                    :class="{ active: enterpriseSponsorForm.payType === 'alipay' }"
+                    @click="enterpriseSponsorForm.payType = 'alipay'"
+                  >
+                    <AlipayCircleOutlined style="color: #1677ff; font-size: 18px" />
+                    支付宝
+                  </button>
+                  <button
+                    class="pay-radio"
+                    :class="{ active: enterpriseSponsorForm.payType === 'wechat' }"
+                    @click="enterpriseSponsorForm.payType = 'wechat'"
+                  >
+                    <WechatOutlined style="color: #07c160; font-size: 18px" />
+                    微信支付
+                  </button>
+                </div>
+              </div>
+
+              <div class="mb-4">
+                <a-checkbox v-model:checked="enterpriseSponsorForm.invoiceRequired">
+                  需要开具发票
+                </a-checkbox>
+              </div>
+              <template v-if="enterpriseSponsorForm.invoiceRequired">
+                <div class="invoice-section">
+                  <div class="flex items-center justify-between mb-4">
+                    <span class="text-sm font-600" style="color: var(--ant-color-text)">发票信息</span>
+                    <a-tag color="green">
+                      支持电子普票
+                    </a-tag>
+                  </div>
+                  <a-input v-model:value="enterpriseSponsorForm.invoiceCompany" placeholder="公司全称" class="mb-3" />
+                  <a-input v-model:value="enterpriseSponsorForm.invoiceTaxNo" placeholder="统一社会信用代码" class="mb-3" />
+                  <a-input v-model:value="enterpriseSponsorForm.invoiceEmail" placeholder="接收邮箱" />
+                </div>
+              </template>
+
+              <a-button type="primary" size="large" block class="submit-btn" :loading="enterpriseSubmitting" @click="handleEnterpriseSponsorSubmit">
+                提交企业赞助
+              </a-button>
+            </div>
+          </div>
+
+          <div class="lg:col-span-3">
+            <div class="glass-card rounded-2xl p-6">
+              <div class="flex items-center justify-between mb-5">
+                <div>
+                  <h2 class="text-lg font-700" style="color: var(--ant-color-text)">
+                    企业赞助展示
+                  </h2>
+                  <p class="text-xs mt-1" style="color: var(--ant-color-text-secondary)">
+                    当前展示全部 {{ enterpriseSponsors.length }} 位企业赞助商
+                  </p>
+                </div>
+                <a-tag color="blue">
+                  全量展示
+                </a-tag>
+              </div>
+
+              <div class="enterprise-sponsor-grid">
+                <component
+                  :is="isHttpsUrl(getSponsorUrl(sponsor, sponsorLocale)) ? 'a' : 'div'"
+                  v-for="sponsor in enterpriseSponsors"
+                  :key="sponsor.name"
+                  class="enterprise-sponsor-card"
+                  v-bind="isHttpsUrl(getSponsorUrl(sponsor, sponsorLocale)) ? { href: getSponsorUrl(sponsor, sponsorLocale), target: '_blank', rel: 'noreferrer' } : {}"
+                >
+                  <img :src="sponsor.logo" :alt="sponsor.name" class="enterprise-sponsor-logo">
+                  <div class="enterprise-sponsor-main">
+                    <div class="enterprise-sponsor-head">
+                      <h3>{{ sponsor.name }}</h3>
+                      <span class="enterprise-sponsor-amount">¥{{ sponsor.amount ?? 0 }}</span>
+                    </div>
+                    <p>{{ getSponsorDescription(sponsor, sponsorLocale) }}</p>
+                    <span v-if="isHttpsUrl(getSponsorUrl(sponsor, sponsorLocale))" class="enterprise-sponsor-link">
+                      访问官网 ->
+                    </span>
+                  </div>
+                </component>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- PERSONAL TAB -->
       <div v-show="activeTab === 'personal'" class="fade-in">
         <div class="glass-card rounded-2xl p-6 max-w-4xl mx-auto">
@@ -683,50 +1066,51 @@ watch(wechatPayVisible, (visible) => {
       </div>
     </main>
 
-    <!-- WeChat Pay Modal -->
+    <!-- Scan Pay Modal -->
     <a-modal
-      v-model:open="wechatPayVisible"
+      v-model:open="scanPayVisible"
       :footer="null"
       :width="420"
       centered
-      title="微信支付"
-      @cancel="closeWechatPayModal"
+      :title="scanPayTitle"
+      @cancel="closeScanPayModal"
     >
-      <div class="wechat-pay-sheet">
-        <div class="wechat-pay-badge">
-          <WechatOutlined />
+      <div class="scan-pay-sheet">
+        <div class="scan-pay-badge" :class="scanPayIconClass">
+          <AlipayCircleOutlined v-if="scanPayType === 'alipay'" />
+          <WechatOutlined v-else />
         </div>
         <h3 class="text-xl font-700 m-0" style="color: var(--ant-color-text)">
-          请使用微信扫一扫完成支付
+          {{ scanPayDescription }}
         </h3>
         <p class="text-sm m-0 text-center leading-relaxed" style="color: var(--ant-color-text-secondary)">
           完成扫码后页面会自动确认支付状态，并在成功后跳转到结果页。
         </p>
-        <div class="wechat-pay-qrcode">
-          <a-qrcode :value="wechatPayCodeUrl" :size="220" :bordered="false" />
+        <div class="scan-pay-qrcode" :class="scanPayQrClass">
+          <a-qrcode :value="scanPayCodeUrl" :size="220" :bordered="false" />
         </div>
-        <div class="wechat-pay-meta">
-          <div class="wechat-pay-row">
+        <div class="scan-pay-meta">
+          <div class="scan-pay-row">
             <span>订单号</span>
-            <strong>{{ wechatPayOrderNo }}</strong>
+            <strong>{{ scanPayOrderNo }}</strong>
           </div>
-          <div class="wechat-pay-row">
+          <div class="scan-pay-row">
             <span>支付金额</span>
-            <strong>¥{{ orgSponsorForm.amount }}</strong>
+            <strong>¥{{ scanPayAmount }}</strong>
           </div>
         </div>
         <a-alert
-          v-if="wechatPayStatus === 'timeout'"
+          v-if="scanPayStatus === 'timeout'"
           type="warning"
           show-icon
-          :message="wechatPayError"
+          :message="scanPayError"
           class="w-full"
         />
         <a-alert
-          v-else-if="wechatPayStatus === 'error'"
+          v-else-if="scanPayStatus === 'error'"
           type="error"
           show-icon
-          :message="wechatPayError"
+          :message="scanPayError"
           class="w-full"
         />
         <a-alert
@@ -737,10 +1121,10 @@ watch(wechatPayVisible, (visible) => {
           class="w-full"
         />
         <a-space class="w-full justify-center">
-          <a-button type="primary" :loading="wechatPayQuerying" @click="refreshWechatPayment">
+          <a-button type="primary" :loading="scanPayQuerying" @click="refreshScanPayment">
             我已支付，刷新状态
           </a-button>
-          <a-button @click="closeWechatPayModal">
+          <a-button @click="closeScanPayModal">
             稍后再说
           </a-button>
         </a-space>
@@ -965,6 +1349,122 @@ watch(wechatPayVisible, (visible) => {
   border-radius: 16px;
   padding: 20px;
   margin-bottom: 16px;
+}
+
+.enterprise-info-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: #ff4d4f;
+  font-size: 18px;
+}
+
+.enterprise-logo-preview {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid var(--ant-color-border-secondary);
+  border-radius: 12px;
+  background: var(--ant-color-fill-quaternary);
+  color: var(--ant-color-text-tertiary);
+  font-size: 12px;
+}
+
+.enterprise-logo-preview img {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--ant-color-bg-container);
+  object-fit: contain;
+}
+
+.enterprise-sponsor-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.enterprise-sponsor-card {
+  display: flex;
+  gap: 14px;
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid var(--ant-color-border-secondary);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--ant-color-bg-container) 72%, transparent);
+  color: inherit;
+  text-decoration: none;
+  transition:
+    transform 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.enterprise-sponsor-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--ant-color-primary-border);
+  box-shadow: 0 8px 28px rgba(22, 119, 255, 0.08);
+}
+
+.enterprise-sponsor-logo {
+  flex: none;
+  width: 56px;
+  height: 56px;
+  padding: 8px;
+  border: 1px solid var(--ant-color-border-secondary);
+  border-radius: 14px;
+  background: var(--ant-color-bg-container);
+  object-fit: contain;
+}
+
+.enterprise-sponsor-main {
+  min-width: 0;
+}
+
+.enterprise-sponsor-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-width: 0;
+}
+
+.enterprise-sponsor-head h3 {
+  overflow: hidden;
+  margin: 0;
+  color: var(--ant-color-text);
+  font-size: 15px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.enterprise-sponsor-amount {
+  flex: none;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--ant-color-primary-bg);
+  color: var(--ant-color-primary);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.enterprise-sponsor-main p {
+  display: -webkit-box;
+  overflow: hidden;
+  margin: 6px 0 8px;
+  color: var(--ant-color-text-secondary);
+  font-size: 13px;
+  line-height: 1.5;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.enterprise-sponsor-link {
+  color: var(--ant-color-primary);
+  font-size: 12px;
+  font-weight: 600;
 }
 
 /* Submit */
@@ -1274,8 +1774,8 @@ watch(wechatPayVisible, (visible) => {
   background: rgba(82, 196, 26, 0.12);
 }
 
-/* WeChat pay modal */
-.wechat-pay-sheet {
+/* Scan pay modal */
+.scan-pay-sheet {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1283,43 +1783,58 @@ watch(wechatPayVisible, (visible) => {
   padding-top: 8px;
 }
 
-.wechat-pay-badge {
+.scan-pay-badge {
   width: 56px;
   height: 56px;
   border-radius: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(7, 193, 96, 0.12);
-  color: #07c160;
   font-size: 28px;
 }
 
-.wechat-pay-qrcode {
+.scan-pay-badge-alipay {
+  background: rgba(22, 119, 255, 0.12);
+  color: #1677ff;
+}
+
+.scan-pay-badge-wechat {
+  background: rgba(7, 193, 96, 0.12);
+  color: #07c160;
+}
+
+.scan-pay-qrcode {
   padding: 18px;
   border-radius: 24px;
+}
+
+.scan-pay-qrcode-alipay {
+  background: linear-gradient(180deg, rgba(22, 119, 255, 0.08), rgba(22, 119, 255, 0.02));
+}
+
+.scan-pay-qrcode-wechat {
   background: linear-gradient(180deg, rgba(7, 193, 96, 0.08), rgba(7, 193, 96, 0.02));
 }
 
-.wechat-pay-meta {
+.scan-pay-meta {
   width: 100%;
   padding: 16px;
   border-radius: 16px;
   background: var(--ant-color-fill-quaternary);
 }
 
-.wechat-pay-row {
+.scan-pay-row {
   display: flex;
   justify-content: space-between;
   gap: 16px;
   color: var(--ant-color-text-secondary);
 }
 
-.wechat-pay-row + .wechat-pay-row {
+.scan-pay-row + .scan-pay-row {
   margin-top: 10px;
 }
 
-.wechat-pay-row strong {
+.scan-pay-row strong {
   color: var(--ant-color-text);
   text-align: right;
   word-break: break-all;
@@ -1364,8 +1879,28 @@ watch(wechatPayVisible, (visible) => {
   .main-content {
     padding: 0 12px 48px;
   }
+  .tab-bar {
+    width: 100%;
+    overflow-x: auto;
+  }
+  .tab-btn {
+    flex: 1 0 auto;
+    justify-content: center;
+    padding: 8px 14px;
+    white-space: nowrap;
+  }
   .glass-card {
     padding: 16px;
+  }
+  .enterprise-sponsor-grid {
+    grid-template-columns: 1fr;
+  }
+  .enterprise-sponsor-card {
+    padding: 14px;
+  }
+  .enterprise-sponsor-logo {
+    width: 48px;
+    height: 48px;
   }
   .scroll-container {
     max-height: 480px;

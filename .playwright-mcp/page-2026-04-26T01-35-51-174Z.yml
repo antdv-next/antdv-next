@@ -1,0 +1,91 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - heading "bars logo Antdv Next" [level=1] [ref=e7]:
+      - button "bars" [ref=e8] [cursor=pointer]:
+        - img "bars" [ref=e10]:
+          - img [ref=e11]
+      - link "logo Antdv Next" [ref=e13] [cursor=pointer]:
+        - /url: /
+        - img "logo" [ref=e14]
+        - generic [ref=e15]: Antdv Next
+  - generic [ref=e16]:
+    - generic [ref=e18]:
+      - generic [ref=e19]:
+        - img [ref=e20]
+        - text: Open Source Sponsor
+      - heading "支持我们的创作与发展" [level=1] [ref=e22]
+      - paragraph [ref=e23]: 您的每一份支持，都是 Antdv Next 持续输出高质量内容的动力
+    - main [ref=e24]:
+      - generic [ref=e26]:
+        - button "team 赞助团队" [ref=e27] [cursor=pointer]:
+          - img "team" [ref=e28]:
+            - img [ref=e29]
+          - text: 赞助团队
+        - button "user 赞助个人" [ref=e31] [cursor=pointer]:
+          - img "user" [ref=e32]:
+            - img [ref=e33]
+          - text: 赞助个人
+        - button "heart 成为赞助商" [ref=e35] [cursor=pointer]:
+          - img "heart" [ref=e36]:
+            - img [ref=e37]
+          - text: 成为赞助商
+      - generic [ref=e40]:
+        - generic [ref=e42]:
+          - generic [ref=e43]:
+            - img "heart" [ref=e44]:
+              - img [ref=e45]
+            - paragraph [ref=e47]: 企业赞助会展示在赞助页，首页和 Header 仅展示金额最高的 3 个赞助商。
+          - generic [ref=e48]:
+            - generic [ref=e49]: 赞助商名称
+            - textbox "企业或品牌名称" [ref=e50]
+          - generic [ref=e51]:
+            - generic [ref=e52]: Logo 地址
+            - textbox "https://example.com/logo.png" [ref=e53]
+          - generic [ref=e54]:
+            - generic [ref=e55]: 官网 URL
+            - textbox "https://example.com" [ref=e56]
+          - generic [ref=e57]:
+            - generic [ref=e58]: 官网描述信息
+            - textbox "一句话介绍企业、产品或服务" [ref=e59]
+          - generic [ref=e60]:
+            - generic [ref=e61]: 赞助金额
+            - generic [ref=e62]:
+              - button "¥500" [ref=e63] [cursor=pointer]
+              - button "¥1000" [ref=e64] [cursor=pointer]
+              - button "¥2000" [ref=e65] [cursor=pointer]
+            - generic [ref=e66]:
+              - generic: ¥
+              - spinbutton "自定义金额，最低 500" [ref=e67]: "500"
+              - generic: 元
+          - generic [ref=e68]:
+            - generic [ref=e69]: 支付方式
+            - generic [ref=e70]:
+              - button "alipay-circle 支付宝" [ref=e71] [cursor=pointer]:
+                - img "alipay-circle" [ref=e72]:
+                  - img [ref=e73]
+                - text: 支付宝
+              - button "wechat 微信支付" [ref=e75] [cursor=pointer]:
+                - img "wechat" [ref=e76]:
+                  - img [ref=e77]
+                - text: 微信支付
+          - generic [ref=e80] [cursor=pointer]:
+            - checkbox "需要开具发票" [ref=e82]
+            - generic [ref=e83]: 需要开具发票
+          - button "提交企业赞助" [ref=e84] [cursor=pointer]:
+            - generic [ref=e85]: 提交企业赞助
+        - generic [ref=e87]:
+          - generic [ref=e88]:
+            - generic [ref=e89]:
+              - heading "企业赞助展示" [level=2] [ref=e90]
+              - paragraph [ref=e91]: 当前展示全部 1 位企业赞助商
+            - generic [ref=e92]: 全量展示
+          - link "Antdv Next Antdv Next ¥0 企业赞助可以联系 antdvnext@gmail.com。 访问官网 ->" [ref=e94] [cursor=pointer]:
+            - /url: https://github.com/antdv-next/antdv-next
+            - img "Antdv Next" [ref=e95]
+            - generic [ref=e96]:
+              - generic [ref=e97]:
+                - heading "Antdv Next" [level=3] [ref=e98]
+                - generic [ref=e99]: ¥0
+              - paragraph [ref=e100]: 企业赞助可以联系 antdvnext@gmail.com。
+              - text: 访问官网 ->
+      - paragraph [ref=e102]: Antdv Next · 全面保障支付安全及财务合规性

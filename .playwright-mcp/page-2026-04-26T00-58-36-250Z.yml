@@ -1,0 +1,561 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - heading "logo Antdv Next" [level=1] [ref=e7]:
+        - link "logo Antdv Next" [ref=e8] [cursor=pointer]:
+          - /url: /
+          - img "logo" [ref=e9]
+          - generic [ref=e10]: Antdv Next
+      - generic [ref=e12]:
+        - generic [ref=e14]:
+          - img [ref=e15]
+          - textbox "输入关键字搜索..." [ref=e17]
+        - menu [ref=e18]:
+          - menuitem "研发" [ref=e19] [cursor=pointer]:
+            - link "研发" [ref=e21]:
+              - /url: /docs/vue
+          - menuitem "组件" [ref=e22] [cursor=pointer]:
+            - link "组件" [ref=e24]:
+              - /url: /components
+          - menuitem "博客" [ref=e25] [cursor=pointer]:
+            - link "博客" [ref=e27]:
+              - /url: /blog
+          - menuitem "Playground" [ref=e28] [cursor=pointer]:
+            - link "Playground" [ref=e30]:
+              - /url: https://play.antdv-next.com
+          - menuitem "赞助" [ref=e31] [cursor=pointer]:
+            - link "赞助" [ref=e33]:
+              - /url: /sponsor
+          - menuitem [disabled]: ...
+        - generic "Sponsors" [ref=e34]:
+          - link "YouMind" [ref=e35] [cursor=pointer]:
+            - /url: https://youmind.com/zh-CN?utm_source=antdv-next
+            - img "YouMind" [ref=e36]
+          - link "TRACTIAN" [ref=e37] [cursor=pointer]:
+            - /url: https://tractian.com?utm_source=antdv-next
+            - img "TRACTIAN" [ref=e38]
+          - link "LobeHub" [ref=e39] [cursor=pointer]:
+            - /url: https://lobehub.com?utm_source=antdv-next
+            - img "LobeHub" [ref=e40]
+        - generic [ref=e41] [cursor=pointer]:
+          - generic "1.2.2-beta.1" [ref=e42]:
+            - text: 1.2.2-beta.1
+            - combobox [ref=e43]
+          - img "down" [ref=e45]:
+            - img [ref=e46]
+        - button "中 En" [ref=e48] [cursor=pointer]:
+          - generic [ref=e50]:
+            - generic [ref=e51]: 中
+            - generic [ref=e52]: En
+        - button [ref=e53] [cursor=pointer]:
+          - img [ref=e55]:
+            - img "Direction Icon" [ref=e56]
+        - button [ref=e58] [cursor=pointer]:
+          - img [ref=e60]
+        - link "github" [ref=e64] [cursor=pointer]:
+          - /url: https://github.com/antdv-next/antdv-next
+          - button "github" [ref=e65]:
+            - img "github" [ref=e67]:
+              - img [ref=e68]
+  - generic [ref=e70]:
+    - generic [ref=e73]:
+      - article [ref=e75]:
+        - heading "Antdv Next" [level=1] [ref=e76]
+        - paragraph [ref=e77]: 助力设计开发者「更灵活」地搭建出「更美」的产品，让用户「快乐工作」～
+      - generic [ref=e78]:
+        - link "开始使用" [ref=e79] [cursor=pointer]:
+          - /url: /components/overview
+          - generic [ref=e80]: 开始使用
+        - link "仓库地址" [ref=e81] [cursor=pointer]:
+          - /url: https://github.com/antdv-next/antdv-next
+          - generic [ref=e82]: 仓库地址
+      - generic [ref=e84]:
+        - generic [ref=e85]:
+          - link "Antdv Next v1.0 发布：升级 Ant Design v6 了解 Antdv Next 第一个正式版本的设计取舍、Vue 适配与 Design Token 体系。 2026-02-03 blog" [ref=e86] [cursor=pointer]:
+            - /url: /blog/antdv-next-release
+            - heading "Antdv Next v1.0 发布：升级 Ant Design v6" [level=5] [ref=e87]
+            - generic [ref=e88]: 了解 Antdv Next 第一个正式版本的设计取舍、Vue 适配与 Design Token 体系。
+            - generic [ref=e89]:
+              - generic [ref=e90]: 2026-02-03
+              - img "blog" [ref=e91]
+          - generic [ref=e92]: HOT
+        - link "Antdv Next：Vue 3 的 Ant Design 体系 从安装、按需使用到主题能力，快速开始构建一致、灵活的产品体验。 Getting Started docs" [ref=e94] [cursor=pointer]:
+          - /url: /docs/vue/introduce
+          - heading "Antdv Next：Vue 3 的 Ant Design 体系" [level=5] [ref=e95]
+          - generic [ref=e96]: 从安装、按需使用到主题能力，快速开始构建一致、灵活的产品体验。
+          - generic [ref=e97]:
+            - generic [ref=e98]: Getting Started
+            - img "docs" [ref=e99]
+        - link "组件总览 浏览当前可用组件与覆盖情况，快速找到页面搭建所需的基础能力。 Components components" [ref=e100] [cursor=pointer]:
+          - /url: /components/overview
+          - heading "组件总览" [level=5] [ref=e101]
+          - generic [ref=e102]: 浏览当前可用组件与覆盖情况，快速找到页面搭建所需的基础能力。
+          - generic [ref=e103]:
+            - generic [ref=e104]: Components
+            - img "components" [ref=e105]
+      - generic [ref=e106]:
+        - generic [ref=e107]: Sponsors
+        - link "YouMind YouMind" [ref=e108] [cursor=pointer]:
+          - /url: https://youmind.com/zh-CN?utm_source=antdv-next
+          - img "YouMind" [ref=e109]
+          - generic [ref=e110]: YouMind
+        - link "TRACTIAN TRACTIAN" [ref=e112] [cursor=pointer]:
+          - /url: https://tractian.com?utm_source=antdv-next
+          - img "TRACTIAN" [ref=e113]
+          - generic [ref=e114]: TRACTIAN
+        - link "LobeHub LobeHub" [ref=e116] [cursor=pointer]:
+          - /url: https://lobehub.com?utm_source=antdv-next
+          - img "LobeHub" [ref=e117]
+          - generic [ref=e118]: LobeHub
+    - generic [ref=e119]:
+      - generic [ref=e122]:
+        - generic [ref=e123]:
+          - heading "定制主题,随心所欲" [level=1] [ref=e124]
+          - generic [ref=e125]: Antdv Next 开放更多样式算法,让你定制主题更简单
+        - generic [ref=e128]:
+          - tablist "Theme selection" [ref=e130]:
+            - tab "默认风格 复制主题代码" [selected] [ref=e131] [cursor=pointer]:
+              - generic [ref=e132]:
+                - generic [ref=e133]: 默认风格
+                - button "复制主题代码" [ref=e134]:
+                  - img "copy" [ref=e136]:
+                    - img [ref=e137]
+            - tab "暗黑风格 复制主题代码" [ref=e139] [cursor=pointer]:
+              - generic [ref=e140]:
+                - generic [ref=e141]: 暗黑风格
+                - button "复制主题代码" [ref=e142]:
+                  - img "copy" [ref=e144]:
+                    - img [ref=e145]
+            - tab "类 MUI 风格 复制主题代码" [ref=e147] [cursor=pointer]:
+              - generic [ref=e148]:
+                - generic [ref=e149]: 类 MUI 风格
+                - button "复制主题代码" [ref=e150]:
+                  - img "copy" [ref=e152]:
+                    - img [ref=e153]
+            - tab "类 shadcn 风格 复制主题代码" [ref=e155] [cursor=pointer]:
+              - generic [ref=e156]:
+                - generic [ref=e157]: 类 shadcn 风格
+                - button "复制主题代码" [ref=e158]:
+                  - img "copy" [ref=e160]:
+                    - img [ref=e161]
+            - tab "卡通风格 复制主题代码" [ref=e163] [cursor=pointer]:
+              - generic [ref=e164]:
+                - generic [ref=e165]: 卡通风格
+                - button "复制主题代码" [ref=e166]:
+                  - img "copy" [ref=e168]:
+                    - img [ref=e169]
+            - tab "插画风格 复制主题代码" [ref=e171] [cursor=pointer]:
+              - generic [ref=e172]:
+                - generic [ref=e173]: 插画风格
+                - button "复制主题代码" [ref=e174]:
+                  - img "copy" [ref=e176]:
+                    - img [ref=e177]
+            - tab "类 Bootstrap 拟物化风格 复制主题代码" [ref=e179] [cursor=pointer]:
+              - generic [ref=e180]:
+                - generic [ref=e181]: 类 Bootstrap 拟物化风格
+                - button "复制主题代码" [ref=e182]:
+                  - img "copy" [ref=e184]:
+                    - img [ref=e185]
+            - tab "玻璃风格 复制主题代码" [ref=e187] [cursor=pointer]:
+              - generic [ref=e188]:
+                - generic [ref=e189]: 玻璃风格
+                - button "复制主题代码" [ref=e190]:
+                  - img "copy" [ref=e192]:
+                    - img [ref=e193]
+            - tab "极客风格 复制主题代码" [ref=e195] [cursor=pointer]:
+              - generic [ref=e196]:
+                - generic [ref=e197]: 极客风格
+                - button "复制主题代码" [ref=e198]:
+                  - img "copy" [ref=e200]:
+                    - img [ref=e201]
+          - generic [ref=e206]:
+            - dialog:
+              - generic [ref=e207]:
+                - button "Close" [ref=e208] [cursor=pointer]:
+                  - img "close" [ref=e210]:
+                    - img [ref=e211]
+                - generic [ref=e214]: Antdv Next
+                - generic [ref=e215]: Antdv Next 使用 CSS-in-JS 技术以提供动态与混合主题的能力。与此同时,我们使用组件级别的 CSS-in-JS 解决方案,让你的应用获得更好的性能。
+                - generic [ref=e216]:
+                  - button "取 消" [ref=e217] [cursor=pointer]:
+                    - generic [ref=e218]: 取 消
+                  - button "确 定" [ref=e219] [cursor=pointer]:
+                    - generic [ref=e220]: 确 定
+            - alert [ref=e221]:
+              - generic [ref=e223]: 信息内容展示
+            - generic [ref=e224]:
+              - generic [ref=e226]:
+                - button "下拉菜单" [ref=e227] [cursor=pointer]:
+                  - generic [ref=e228]: 下拉菜单
+                - button "down" [ref=e229] [cursor=pointer]:
+                  - img "down" [ref=e231]:
+                    - img [ref=e232]
+              - generic [ref=e237] [cursor=pointer]: "#1677FF"
+              - generic [ref=e238]:
+                - generic [ref=e239]:
+                  - generic "苹果" [ref=e241]:
+                    - generic [ref=e242]: 苹果
+                    - img [ref=e244] [cursor=pointer]:
+                      - img [ref=e245]
+                  - generic "香蕉" [ref=e248]:
+                    - generic [ref=e249]: 香蕉
+                    - img [ref=e251] [cursor=pointer]:
+                      - img [ref=e252]
+                  - generic:
+                    - generic: + 0 ...
+                  - combobox [ref=e255]
+                - img "down" [ref=e257]:
+                  - img [ref=e258]
+            - generic [ref=e260]:
+              - generic [ref=e262]:
+                - textbox "请选择日期" [ref=e263]
+                - generic:
+                  - img "calendar":
+                    - img
+              - generic [ref=e264]:
+                - generic [ref=e265]:
+                  - generic "苹果" [ref=e267]:
+                    - generic [ref=e268]: 苹果
+                    - img [ref=e270] [cursor=pointer]:
+                      - img [ref=e271]
+                  - generic "香蕉" [ref=e274]:
+                    - generic [ref=e275]: 香蕉
+                    - img [ref=e277] [cursor=pointer]:
+                      - img [ref=e278]
+                  - generic:
+                    - generic: + 0 ...
+                  - combobox [ref=e281]
+                - img "down" [ref=e283]:
+                  - img [ref=e284]
+            - progressbar [ref=e286]:
+              - generic "60%" [ref=e290]
+            - generic [ref=e291]:
+              - button "check 已完成" [ref=e292]:
+                - generic [ref=e293]:
+                  - img "check" [ref=e295]:
+                    - img [ref=e296]
+                  - generic [ref=e300]: 已完成
+              - button "2 进行中" [ref=e302]:
+                - generic [ref=e303]:
+                  - generic [ref=e305]: "2"
+                  - generic [ref=e308]: 进行中
+              - button "3 等待中" [ref=e310]:
+                - generic [ref=e311]:
+                  - generic [ref=e313]: "3"
+                  - generic [ref=e316]: 等待中
+            - slider [ref=e320] [cursor=pointer]
+            - generic [ref=e321]:
+              - button "主要按钮" [ref=e322] [cursor=pointer]:
+                - generic [ref=e323]: 主要按钮
+              - button "危险按钮" [ref=e324] [cursor=pointer]:
+                - generic [ref=e325]: 危险按钮
+              - button "默认按钮" [ref=e326] [cursor=pointer]:
+                - generic [ref=e327]: 默认按钮
+              - button "虚线按钮" [ref=e328] [cursor=pointer]:
+                - generic [ref=e329]: 虚线按钮
+            - generic [ref=e330]:
+              - switch "check close" [checked] [ref=e331] [cursor=pointer]:
+                - generic [ref=e333]:
+                  - generic:
+                    - img "check":
+                      - img
+                  - generic:
+                    - img "close":
+                      - img
+              - group [ref=e334]:
+                - generic [ref=e335] [cursor=pointer]:
+                  - checkbox "苹果" [checked] [ref=e337]
+                  - generic [ref=e338]: 苹果
+                - generic [ref=e339] [cursor=pointer]:
+                  - checkbox "香蕉" [ref=e341]
+                  - generic [ref=e342]: 香蕉
+                - generic [ref=e343] [cursor=pointer]:
+                  - checkbox "橘子" [ref=e345]
+                  - generic [ref=e346]: 橘子
+              - generic [ref=e347]:
+                - generic [ref=e348] [cursor=pointer]:
+                  - radio "苹果" [checked] [ref=e350]
+                  - generic [ref=e351]: 苹果
+                - generic [ref=e352] [cursor=pointer]:
+                  - radio "香蕉" [ref=e354]
+                  - generic [ref=e355]: 香蕉
+            - generic [ref=e356]:
+              - generic [ref=e357]:
+                - generic [ref=e358] [cursor=pointer]:
+                  - generic [ref=e359]:
+                    - radio "A" [checked]
+                  - text: A
+                - generic [ref=e360] [cursor=pointer]:
+                  - generic [ref=e361]:
+                    - radio "B"
+                  - text: B
+                - generic [ref=e362] [cursor=pointer]:
+                  - generic [ref=e363]:
+                    - radio "C"
+                  - text: C
+              - radiogroup "segmented control" [ref=e364]:
+                - generic [ref=e365]:
+                  - generic [ref=e366] [cursor=pointer]:
+                    - radio "每日" [checked]
+                    - generic "每日" [ref=e367]
+                  - generic [ref=e368] [cursor=pointer]:
+                    - radio "每周"
+                    - generic "每周" [ref=e369]
+                  - generic [ref=e370] [cursor=pointer]:
+                    - radio "每月"
+                    - generic "每月" [ref=e371]
+      - generic [ref=e374]:
+        - generic [ref=e375]:
+          - heading "组件丰富，选用自如" [level=1] [ref=e376]
+          - generic [ref=e377]: 大量实用组件满足你的需求，灵活定制与拓展
+        - generic [ref=e381]:
+          - generic [ref=e382]:
+            - generic [ref=e384]:
+              - heading "DatePicker" [level=4] [ref=e385]
+              - generic [ref=e386]: 新增
+            - generic [ref=e388]:
+              - generic [ref=e390]:
+                - textbox "请选择日期" [ref=e391]: 2025-11-22
+                - generic:
+                  - img "calendar":
+                    - img
+                - button "close-circle" [ref=e392] [cursor=pointer]:
+                  - img "close-circle" [ref=e393]:
+                    - img [ref=e394]
+              - generic [ref=e397]:
+                - list [ref=e399]:
+                  - listitem [ref=e400] [cursor=pointer]: 昨天
+                  - listitem [ref=e401] [cursor=pointer]: 上周
+                  - listitem [ref=e402] [cursor=pointer]: 上月
+                  - listitem [ref=e403] [cursor=pointer]: 去年
+                - generic [ref=e406]:
+                  - generic [ref=e407]:
+                    - button "上一年 (Control键加左方向键)" [ref=e408] [cursor=pointer]
+                    - button "上个月 (翻页上键)" [ref=e410] [cursor=pointer]
+                    - generic [ref=e412]:
+                      - button "选择年份" [ref=e413] [cursor=pointer]: 2025年
+                      - button "选择月份" [ref=e414] [cursor=pointer]: 11月
+                    - button "下个月 (翻页下键)" [ref=e415] [cursor=pointer]
+                    - button "下一年 (Control键加右方向键)" [ref=e417] [cursor=pointer]
+                  - table [ref=e420]:
+                    - rowgroup [ref=e421]:
+                      - row "一 二 三 四 五 六 日" [ref=e422]:
+                        - columnheader "一" [ref=e423]
+                        - columnheader "二" [ref=e424]
+                        - columnheader "三" [ref=e425]
+                        - columnheader "四" [ref=e426]
+                        - columnheader "五" [ref=e427]
+                        - columnheader "六" [ref=e428]
+                        - columnheader "日" [ref=e429]
+                    - rowgroup [ref=e430]:
+                      - row "27 28 29 30 31 1 2" [ref=e431]:
+                        - cell "27" [ref=e432] [cursor=pointer]:
+                          - generic [ref=e433]: "27"
+                        - cell "28" [ref=e434] [cursor=pointer]:
+                          - generic [ref=e435]: "28"
+                        - cell "29" [ref=e436] [cursor=pointer]:
+                          - generic [ref=e437]: "29"
+                        - cell "30" [ref=e438] [cursor=pointer]:
+                          - generic [ref=e439]: "30"
+                        - cell "31" [ref=e440] [cursor=pointer]:
+                          - generic [ref=e441]: "31"
+                        - cell "1" [ref=e442] [cursor=pointer]:
+                          - generic [ref=e443]: "1"
+                        - cell "2" [ref=e444] [cursor=pointer]:
+                          - generic [ref=e445]: "2"
+                      - row "3 4 5 6 7 8 9" [ref=e446]:
+                        - cell "3" [ref=e447] [cursor=pointer]:
+                          - generic [ref=e448]: "3"
+                        - cell "4" [ref=e449] [cursor=pointer]:
+                          - generic [ref=e450]: "4"
+                        - cell "5" [ref=e451] [cursor=pointer]:
+                          - generic [ref=e452]: "5"
+                        - cell "6" [ref=e453] [cursor=pointer]:
+                          - generic [ref=e454]: "6"
+                        - cell "7" [ref=e455] [cursor=pointer]:
+                          - generic [ref=e456]: "7"
+                        - cell "8" [ref=e457] [cursor=pointer]:
+                          - generic [ref=e458]: "8"
+                        - cell "9" [ref=e459] [cursor=pointer]:
+                          - generic [ref=e460]: "9"
+                      - row "10 11 12 13 14 15 16" [ref=e461]:
+                        - cell "10" [ref=e462] [cursor=pointer]:
+                          - generic [ref=e463]: "10"
+                        - cell "11" [ref=e464] [cursor=pointer]:
+                          - generic [ref=e465]: "11"
+                        - cell "12" [ref=e466] [cursor=pointer]:
+                          - generic [ref=e467]: "12"
+                        - cell "13" [ref=e468] [cursor=pointer]:
+                          - generic [ref=e469]: "13"
+                        - cell "14" [ref=e470] [cursor=pointer]:
+                          - generic [ref=e471]: "14"
+                        - cell "15" [ref=e472] [cursor=pointer]:
+                          - generic [ref=e473]: "15"
+                        - cell "16" [ref=e474] [cursor=pointer]:
+                          - generic [ref=e475]: "16"
+                      - row "17 18 19 20 21 22 23" [ref=e476]:
+                        - cell "17" [ref=e477] [cursor=pointer]:
+                          - generic [ref=e478]: "17"
+                        - cell "18" [ref=e479] [cursor=pointer]:
+                          - generic [ref=e480]: "18"
+                        - cell "19" [ref=e481] [cursor=pointer]:
+                          - generic [ref=e482]: "19"
+                        - cell "20" [ref=e483] [cursor=pointer]:
+                          - generic [ref=e484]: "20"
+                        - cell "21" [ref=e485] [cursor=pointer]:
+                          - generic [ref=e486]: "21"
+                        - cell "22" [ref=e487] [cursor=pointer]:
+                          - generic [ref=e488]: "22"
+                        - cell "23" [ref=e489] [cursor=pointer]:
+                          - generic [ref=e490]: "23"
+                      - row "24 25 26 27 28 29 30" [ref=e491]:
+                        - cell "24" [ref=e492] [cursor=pointer]:
+                          - generic [ref=e493]: "24"
+                        - cell "25" [ref=e494] [cursor=pointer]:
+                          - generic [ref=e495]: "25"
+                        - cell "26" [ref=e496] [cursor=pointer]:
+                          - generic [ref=e497]: "26"
+                        - cell "27" [ref=e498] [cursor=pointer]:
+                          - generic [ref=e499]: "27"
+                        - cell "28" [ref=e500] [cursor=pointer]:
+                          - generic [ref=e501]: "28"
+                        - cell "29" [ref=e502] [cursor=pointer]:
+                          - generic [ref=e503]: "29"
+                        - cell "30" [ref=e504] [cursor=pointer]:
+                          - generic [ref=e505]: "30"
+                      - row "1 2 3 4 5 6 7" [ref=e506]:
+                        - cell "1" [ref=e507] [cursor=pointer]:
+                          - generic [ref=e508]: "1"
+                        - cell "2" [ref=e509] [cursor=pointer]:
+                          - generic [ref=e510]: "2"
+                        - cell "3" [ref=e511] [cursor=pointer]:
+                          - generic [ref=e512]: "3"
+                        - cell "4" [ref=e513] [cursor=pointer]:
+                          - generic [ref=e514]: "4"
+                        - cell "5" [ref=e515] [cursor=pointer]:
+                          - generic [ref=e516]: "5"
+                        - cell "6" [ref=e517] [cursor=pointer]:
+                          - generic [ref=e518]: "6"
+                        - cell "7" [ref=e519] [cursor=pointer]:
+                          - generic [ref=e520]: "7"
+          - generic [ref=e521]:
+            - generic [ref=e523]:
+              - heading "Tour" [level=4] [ref=e524]
+              - generic [ref=e525]: 新增
+            - tooltip "关闭 Antdv Next 漫游导览帮助用户对新加的功能进行快速了解 上一步 下一步" [ref=e528]:
+              - generic [ref=e530]:
+                - button "关闭" [ref=e531] [cursor=pointer]:
+                  - img "关闭" [ref=e532]:
+                    - img [ref=e533]
+                - generic [ref=e536]: Antdv Next
+                - generic [ref=e537]: 漫游导览帮助用户对新加的功能进行快速了解
+                - generic [ref=e549]:
+                  - button "上一步" [ref=e550] [cursor=pointer]:
+                    - generic [ref=e551]: 上一步
+                  - button "下一步" [ref=e552] [cursor=pointer]:
+                    - generic [ref=e553]: 下一步
+          - generic [ref=e554]:
+            - generic [ref=e556]:
+              - heading "FloatButton" [level=4] [ref=e557]
+              - generic [ref=e558]: 新增
+            - generic [ref=e560]:
+              - generic [ref=e562]:
+                - button "question-circle" [ref=e563] [cursor=pointer]:
+                  - img "question-circle" [ref=e565]:
+                    - img [ref=e566]
+                - button "customer-service" [ref=e569] [cursor=pointer]:
+                  - img "customer-service" [ref=e571]:
+                    - img [ref=e572]
+                - button "sync" [ref=e574] [cursor=pointer]:
+                  - img "sync" [ref=e576]:
+                    - img [ref=e577]
+              - button "vertical-align-top" [ref=e579] [cursor=pointer]:
+                - img "vertical-align-top" [ref=e581]:
+                  - img [ref=e582]
+              - generic [ref=e585]:
+                - button "question-circle" [ref=e586] [cursor=pointer]:
+                  - img "question-circle" [ref=e588]:
+                    - img [ref=e589]
+                - button "customer-service" [ref=e592] [cursor=pointer]:
+                  - img "customer-service" [ref=e594]:
+                    - img [ref=e595]
+                - button "sync" [ref=e597] [cursor=pointer]:
+                  - img "sync" [ref=e599]:
+                    - img [ref=e600]
+          - generic [ref=e602]:
+            - generic [ref=e604]:
+              - heading "Splitter" [level=4] [ref=e605]
+              - generic [ref=e606]: 新增
+            - generic [ref=e608]:
+              - heading "First" [level=5] [ref=e611]
+              - separator
+              - heading "Second" [level=5] [ref=e615]
+          - generic [ref=e616]:
+            - generic [ref=e618]:
+              - heading "Masonry" [level=4] [ref=e619]
+              - generic [ref=e620]: 新增
+            - generic [ref=e622]:
+              - generic [ref=e625]: "1"
+              - generic [ref=e628]: "2"
+              - generic [ref=e631]: "3"
+              - generic [ref=e634]: "4"
+              - generic [ref=e637]: "5"
+              - generic [ref=e640]: "6"
+              - generic [ref=e643]: "7"
+              - generic [ref=e646]: "8"
+              - generic [ref=e649]: "9"
+      - generic [ref=e650]:
+        - img "bg" [ref=e652]
+        - generic [ref=e653]:
+          - generic [ref=e654]:
+            - heading "设计语言与研发框架" [level=1] [ref=e655]
+            - generic [ref=e656]: 配套生态，让你快速搭建网站应用
+          - generic [ref=e659]:
+            - link "设计价值观 设计价值观 确定性、意义感、生长性、自然" [ref=e661] [cursor=pointer]:
+              - /url: https://ant-design.antgroup.com/docs/spec/values-cn
+              - img "设计价值观" [ref=e662]
+              - heading "设计价值观" [level=4] [ref=e663]
+              - generic [ref=e664]: 确定性、意义感、生长性、自然
+            - link "设计指引 设计指引 全局样式、设计模式" [ref=e666] [cursor=pointer]:
+              - /url: https://ant-design.antgroup.com/docs/spec/colors-cn
+              - img "设计指引" [ref=e667]
+              - heading "设计指引" [level=4] [ref=e668]
+              - generic [ref=e669]: 全局样式、设计模式
+            - link "组件库 组件库 Antdv Next of Vue 3" [ref=e671] [cursor=pointer]:
+              - /url: /docs/vue/introduce
+              - img "组件库" [ref=e672]
+              - heading "组件库" [level=4] [ref=e673]
+              - generic [ref=e674]: Antdv Next of Vue 3
+    - contentinfo [ref=e675]:
+      - generic [ref=e677]:
+        - generic [ref=e679]:
+          - heading "相关资源" [level=2] [ref=e680]
+          - link "Ant Design of React" [ref=e682] [cursor=pointer]:
+            - /url: https://ant.design/docs/react/introduce-cn
+          - link "Ant Design of Angular" [ref=e684] [cursor=pointer]:
+            - /url: https://ng.ant.design/docs/introduce/zh
+          - link "Antdv Next X" [ref=e686] [cursor=pointer]:
+            - /url: https://x.antdv-next.com/
+        - generic [ref=e688]:
+          - heading "社区" [level=2] [ref=e689]
+          - link "Change Log" [ref=e691] [cursor=pointer]:
+            - /url: https://github.com/antdv-next/antdv-next/releases
+          - link "Bug Report" [ref=e693] [cursor=pointer]:
+            - /url: https://github.com/antdv-next/antdv-next/issues
+        - generic [ref=e695]:
+          - heading "友链" [level=2] [ref=e696]
+          - link "Vue" [ref=e698] [cursor=pointer]:
+            - /url: https://vuejs.org/
+          - link "Vue Router" [ref=e700] [cursor=pointer]:
+            - /url: https://router.vuejs.org/
+          - link "Pinia" [ref=e702] [cursor=pointer]:
+            - /url: https://pinia.vuejs.org/
+          - link "Vite" [ref=e704] [cursor=pointer]:
+            - /url: https://vitejs.dev/
+          - link "Fantastic-admin" [ref=e706] [cursor=pointer]:
+            - /url: https://fantastic-admin.hurui.me/
+      - generic [ref=e708]:
+        - generic [ref=e709]: Made with ❤ by
+        - generic [ref=e710]: Antdv Next Team
+        - link "鲁ICP备2023021414号-3" [ref=e711] [cursor=pointer]:
+          - /url: https://beian.miit.gov.cn/

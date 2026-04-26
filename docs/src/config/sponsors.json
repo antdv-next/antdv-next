@@ -1,0 +1,19 @@
+{
+  "becomeSponsorUrl": "mailto:antdvnext@gmail.com",
+  "items": [
+    {
+      "name": "Antdv Next",
+      "logo": "/antdv-next.svg",
+      "amount": 0,
+      "url": {
+        "cn": "https://github.com/antdv-next/antdv-next",
+        "en": "https://github.com/antdv-next/antdv-next"
+      },
+      "opencollective": "mailto:antdvnext@gmail.com",
+      "description": {
+        "cn": "企业赞助可以联系 antdvnext@gmail.com。",
+        "en": "For corporate sponsorship, contact antdvnext@gmail.com."
+      }
+    }
+  ]
+}

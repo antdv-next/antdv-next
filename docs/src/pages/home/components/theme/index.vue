@@ -4,6 +4,7 @@ import { message, theme } from 'antdv-next'
 import { createStyles } from 'antdv-style'
 import { storeToRefs } from 'pinia'
 import { computed, onBeforeUnmount, ref, watch } from 'vue'
+import { useMobile } from '@/composables/mobile'
 import { useLocale } from '@/composables/use-locale'
 import { useAppStore } from '@/stores/app'
 import Group from '../group/index.vue'
@@ -12,6 +13,7 @@ import { usePreviewThemes } from './preview-theme'
 import { generateFullCopyFile } from './theme-code-utils'
 
 const { t } = useLocale()
+const { isMobile } = useMobile()
 const appStore = useAppStore()
 const { darkMode } = storeToRefs(appStore)
 
@@ -125,6 +127,41 @@ const useStyles = createStyles(({ css, cssVar }) => ({
     border: `${cssVar.lineWidth} ${cssVar.lineType} ${cssVar.colorBorderSecondary}`,
     borderRadius: cssVar.borderRadius,
     boxShadow: cssVar.boxShadow,
+  }),
+  mobileContainer: css({
+    width: '100%',
+    boxSizing: 'border-box',
+    paddingInline: cssVar.padding,
+  }),
+  mobileSelector: css({
+    display: 'flex',
+    width: '100%',
+    gap: cssVar.paddingXS,
+    overflowX: 'auto',
+    paddingBlockEnd: cssVar.paddingSM,
+    scrollbarWidth: 'none',
+
+    '&::-webkit-scrollbar': {
+      display: 'none',
+    },
+  }),
+  mobileListItem: css({
+    flex: '0 0 auto',
+    minWidth: 112,
+    whiteSpace: 'nowrap',
+    fontSize: cssVar.fontSize,
+    lineHeight: cssVar.lineHeight,
+    paddingBlock: cssVar.paddingXS,
+    paddingInline: cssVar.padding,
+  }),
+  mobileComponentsBlock: css({
+    width: '100%',
+    maxWidth: '100%',
+  }),
+  mobileComponentsBlockContainer: css({
+    width: '100%',
+    boxSizing: 'border-box',
+    padding: cssVar.padding,
   }),
 }))
 
@@ -285,7 +322,7 @@ onBeforeUnmount(() => {
       :background-prefetch-list="backgroundPrefetchList"
       :title-color="activeTheme?.bgImgDark ? '#fff' : undefined"
     >
-      <a-flex :class="styles.container" gap="large">
+      <a-flex v-if="!isMobile" :class="styles.container" gap="large">
         <div style="display: flex;">
           <div :class="styles.list" role="tablist" aria-label="Theme selection">
             <div
@@ -334,6 +371,34 @@ onBeforeUnmount(() => {
           :container-class-name="styles.componentsBlockContainer"
         />
       </a-flex>
+
+      <div v-else :class="styles.mobileContainer">
+        <div :class="styles.mobileSelector" role="tablist" aria-label="Theme selection">
+          <div
+            v-for="item in previewThemes"
+            :key="item.name"
+            :class="[styles.listItem, styles.mobileListItem, {
+              active: activeName === item.name,
+              dark: isThemeListDark,
+            }]"
+            role="tab"
+            :tabindex="activeName === item.name ? 0 : -1"
+            :aria-selected="activeName === item.name"
+            @click="handleThemeClick(item.name)"
+            @keydown="(event) => handleThemeKeyDown(event, item.name)"
+          >
+            {{ item.name }}
+          </div>
+        </div>
+
+        <ComponentsBlock
+          :key="activeName"
+          :config="activeTheme?.props"
+          :class-name="styles.mobileComponentsBlock"
+          :container-class-name="styles.mobileComponentsBlockContainer"
+          compact
+        />
+      </div>
     </Group>
   </a-config-provider>
 </template>

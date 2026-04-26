@@ -7,6 +7,7 @@ import { computed, ref, shallowRef, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import DocSearch from '@/components/doc-search/index.vue'
 import DirectionIcon from '@/components/icons/directionIcon.vue'
+import SponsorsNav from '@/components/sponsor/SponsorsNav.vue'
 import { useMobile } from '@/composables/mobile'
 import { useLocale } from '@/composables/use-locale'
 import { headerItems, headerLocales } from '@/config/menu/header'
@@ -47,10 +48,6 @@ const handleHeaderChange: MenuEmits['click'] = (info) => {
   const key = info.key
   if (key === '/playground') {
     window.open('https://play.antdv-next.com', '_blank')
-    return
-  }
-  else if (key === '/mirror') {
-    window.open('http://antdv-next.cn', '_blank')
     return
   }
   router.push(key)
@@ -133,9 +130,11 @@ function changeDirection(value: 1 | 2) {
 function getHeaderMenuUrl(key: string) {
   if (key === '/playground')
     return 'https://play.antdv-next.com'
-  if (key === '/mirror')
-    return 'http://antdv-next.cn'
   return key
+}
+
+function isExternalUrl(url: string) {
+  return url.startsWith('https://')
 }
 
 function getSiderMenuUrl(key: string) {
@@ -185,14 +184,19 @@ function getSiderMenuUrl(key: string) {
             >
               <template #labelRender="{ key, label }">
                 <a
+                  v-if="isExternalUrl(getHeaderMenuUrl(key as string))"
                   class="ant-doc-header-menu-item-link"
                   :href="getHeaderMenuUrl(key as string)"
                   @click.prevent
                 >
                   {{ headerLocales?.[key]?.[locale] ?? label }}
                 </a>
+                <span v-else class="ant-doc-header-menu-item-link">
+                  {{ headerLocales?.[key]?.[locale] ?? label }}
+                </span>
               </template>
             </a-menu>
+            <SponsorsNav />
             <a-select
               v-model:value="currentVersion"
               :options="versions"
@@ -277,12 +281,16 @@ function getSiderMenuUrl(key: string) {
       >
         <template #labelRender="{ key, label }">
           <a
+            v-if="isExternalUrl(getHeaderMenuUrl(key as string))"
             class="ant-doc-header-menu-item-link"
             :href="getHeaderMenuUrl(key as string)"
             @click.prevent
           >
             {{ headerLocales?.[key]?.[locale] ?? label }}
           </a>
+          <span v-else class="ant-doc-header-menu-item-link">
+            {{ headerLocales?.[key]?.[locale] ?? label }}
+          </span>
         </template>
       </a-menu>
       <template v-if="siderMenus.length">
@@ -297,12 +305,16 @@ function getSiderMenuUrl(key: string) {
         >
           <template #labelRender="{ key, label }">
             <a
+              v-if="isExternalUrl(getSiderMenuUrl(key as string))"
               class="ant-doc-header-menu-item-link"
               :href="getSiderMenuUrl(key as string)"
               @click.prevent
             >
               {{ siderLocales?.[key]?.[locale] ?? label }}
             </a>
+            <span v-else class="ant-doc-header-menu-item-link">
+              {{ siderLocales?.[key]?.[locale] ?? label }}
+            </span>
           </template>
           <template #extraRender="{ tag }">
             <template v-if="tag">
