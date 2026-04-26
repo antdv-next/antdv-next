@@ -154,7 +154,6 @@ export default defineComponent(
               <ColorClear
                 prefixCls={prefixCls}
                 value={panelPickerContext.value?.value}
-                disabled={disabled}
                 onChange={(clearColor) => {
                   panelPickerContext.value?.onChange?.(clearColor)
                   onClear?.()
