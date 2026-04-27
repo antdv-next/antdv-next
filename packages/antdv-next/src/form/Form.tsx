@@ -635,6 +635,7 @@ const InternalForm = defineComponent<
         name,
       } = props
       const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
+      const autocomplete = props.autoComplete ?? restAttrs.autocomplete
       const formClassName = clsx(
         prefixCls.value,
         `${prefixCls.value}-${layout}`,
@@ -655,6 +656,7 @@ const InternalForm = defineComponent<
         <form
           id={name}
           {...restAttrs}
+          autocomplete={autocomplete}
           name={name}
           ref={nativeElementRef}
           style={[mergedStyles.value.root, contextStyle.value, style]}

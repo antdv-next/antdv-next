@@ -1193,6 +1193,7 @@ exports[`form demo > renders advanced-search correctly 1`] = `
 
 exports[`form demo > renders basic correctly 1`] = `
 <form
+  autocomplete="off"
   class="ant-form ant-form-horizontal css-var-root ant-form-css-var"
   style="max-width: 600px;"
 >
@@ -5007,6 +5008,7 @@ exports[`form demo > renders dynamic-form-item correctly 1`] = `
 
 exports[`form demo > renders dynamic-form-items correctly 1`] = `
 <form
+  autocomplete="off"
   class="ant-form ant-form-horizontal css-var-root ant-form-css-var"
   id="dynamic_form_nest_item"
   name="dynamic_form_nest_item"
@@ -6291,6 +6293,7 @@ exports[`form demo > renders form-context correctly 1`] = `
 
 exports[`form demo > renders form-dependencies correctly 1`] = `
 <form
+  autocomplete="off"
   class="ant-form ant-form-vertical css-var-root ant-form-css-var"
   id="dependencies"
   name="dependencies"
