@@ -36,4 +36,11 @@ describe('input style extract', () => {
 
     expect(styleText).toContain('.ant-otp .ant-otp-input-wrapper .ant-otp-mask-input::selection{color:transparent;}')
   })
+
+  it('adds focus-visible outline to the clear button', async () => {
+    const styleText = await extractInputStyle(h(Input, { allowClear: true, value: 'text' }))
+
+    expect(styleText).toContain('.ant-input-clear-icon:focus-visible')
+    expect(styleText).toContain('outline:')
+  })
 })

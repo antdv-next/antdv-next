@@ -3,7 +3,7 @@ import type { GenerateStyle } from '../../theme/internal'
 
 import type { ComponentToken, InputToken } from './token'
 import { unit } from '@antdv-next/cssinjs'
-import { clearFix, resetComponent } from '../../style'
+import { clearFix, genFocusOutline, resetComponent } from '../../style'
 import { genCompactItemStyle } from '../../style/compact-item'
 import { genStyleHooks, mergeToken } from '../../theme/internal'
 import { initComponentToken, initInputToken } from './token'
@@ -409,6 +409,12 @@ const genAllowClearStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
       backgroundColor: 'transparent',
       '&:hover': {
         color: token.colorIcon,
+      },
+
+      '&:focus-visible': {
+        color: token.colorIcon,
+        borderRadius: token.borderRadiusSM,
+        ...genFocusOutline(token),
       },
 
       '&:active': {
