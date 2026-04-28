@@ -3,6 +3,58 @@ import componentRoutes from '@/routes/components'
 import demoRoutes from '@/routes/demos'
 import { pagesRoutes } from '@/routes/pages'
 
+function waitForHashTarget(targetId: string, timeout = 5000) {
+  return new Promise<HTMLElement | null>((resolve) => {
+    const root = document.body ?? document.documentElement
+    const getTarget = () => document.getElementById(targetId)
+    let observer: MutationObserver | null = null
+    let timer: ReturnType<typeof window.setTimeout> | null = null
+
+    const resolveWithCleanup = (element: HTMLElement | null) => {
+      observer?.disconnect()
+
+      if (timer !== null) {
+        window.clearTimeout(timer)
+        timer = null
+      }
+
+      resolve(element)
+    }
+
+    const initialTarget = getTarget()
+    if (initialTarget) {
+      return resolve(initialTarget)
+    }
+
+    if (root) {
+      observer = new MutationObserver(() => {
+        const element = getTarget()
+
+        if (element) {
+          resolveWithCleanup(element)
+        }
+      })
+
+      observer.observe(root, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ['id'],
+      })
+    }
+
+    timer = window.setTimeout(() => {
+      const element = getTarget()
+
+      if (element) {
+        return resolveWithCleanup(element)
+      }
+
+      resolveWithCleanup(null)
+    }, timeout)
+  })
+}
+
 export const router = createRouter({
   routes: [
     {
@@ -24,14 +76,11 @@ export const router = createRouter({
   ],
   history: createWebHistory(),
   async scrollBehavior(to, _from, savedPosition) {
-    await new Promise(resolve => setTimeout(resolve, 0))
     if (to.hash) {
-      const targetId = to.hash.slice(1)
-      const element = document.getElementById(targetId)
+      const targetId = decodeURIComponent(to.hash.slice(1))
+      const element = await waitForHashTarget(targetId)
       if (element) {
-        // Scroll to the element with smooth behavior
         const headerHeight = 70
-        await new Promise(resolve => setTimeout(resolve, 0))
         const rect = element.getBoundingClientRect()
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop
         const targetTop = rect.top + scrollTop - headerHeight
