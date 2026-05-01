@@ -1662,7 +1662,65 @@ exports[`layout demo > renders side correctly 1`] = `
             name="ant-motion-collapse"
             persisted="false"
           >
-            <!---->
+            <ul
+              class="ant-menu ant-menu-sub ant-menu-inline"
+              data-menu-list="true"
+              id="vc-menu-uuid-sub1-popup"
+              role="menu"
+              style="display: none;"
+            >
+              <li
+                class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="vc-menu-uuid-3"
+                label="Tom"
+                role="menuitem"
+                style="padding-left: 48px;"
+                tabindex="-1"
+              >
+                <!---->
+                <span
+                  class="ant-menu-title-content"
+                >
+                  Tom
+                </span>
+                <!---->
+              </li>
+              <!---->
+              <li
+                class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="vc-menu-uuid-4"
+                label="Bill"
+                role="menuitem"
+                style="padding-left: 48px;"
+                tabindex="-1"
+              >
+                <!---->
+                <span
+                  class="ant-menu-title-content"
+                >
+                  Bill
+                </span>
+                <!---->
+              </li>
+              <!---->
+              <li
+                class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="vc-menu-uuid-5"
+                label="Alex"
+                role="menuitem"
+                style="padding-left: 48px;"
+                tabindex="-1"
+              >
+                <!---->
+                <span
+                  class="ant-menu-title-content"
+                >
+                  Alex
+                </span>
+                <!---->
+              </li>
+              <!---->
+            </ul>
           </transition-stub>
         </li>
         <li
@@ -1722,7 +1780,48 @@ exports[`layout demo > renders side correctly 1`] = `
             name="ant-motion-collapse"
             persisted="false"
           >
-            <!---->
+            <ul
+              class="ant-menu ant-menu-sub ant-menu-inline"
+              data-menu-list="true"
+              id="vc-menu-uuid-sub2-popup"
+              role="menu"
+              style="display: none;"
+            >
+              <li
+                class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="vc-menu-uuid-6"
+                label="Team 1"
+                role="menuitem"
+                style="padding-left: 48px;"
+                tabindex="-1"
+              >
+                <!---->
+                <span
+                  class="ant-menu-title-content"
+                >
+                  Team 1
+                </span>
+                <!---->
+              </li>
+              <!---->
+              <li
+                class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="vc-menu-uuid-8"
+                label="Team 2"
+                role="menuitem"
+                style="padding-left: 48px;"
+                tabindex="-1"
+              >
+                <!---->
+                <span
+                  class="ant-menu-title-content"
+                >
+                  Team 2
+                </span>
+                <!---->
+              </li>
+              <!---->
+            </ul>
           </transition-stub>
         </li>
         <li
@@ -2612,7 +2711,82 @@ exports[`layout demo > renders top-side correctly 1`] = `
                 name="ant-motion-collapse"
                 persisted="false"
               >
-                <!---->
+                <ul
+                  class="ant-menu ant-menu-sub ant-menu-inline"
+                  data-menu-list="true"
+                  id="vc-menu-uuid-sub2-popup"
+                  role="menu"
+                  style="display: none;"
+                >
+                  <li
+                    class="ant-menu-item ant-menu-item-only-child"
+                    data-menu-id="vc-menu-uuid-5"
+                    label="option5"
+                    role="menuitem"
+                    style="padding-left: 48px;"
+                    tabindex="-1"
+                  >
+                    <!---->
+                    <span
+                      class="ant-menu-title-content"
+                    >
+                      option5
+                    </span>
+                    <!---->
+                  </li>
+                  <!---->
+                  <li
+                    class="ant-menu-item ant-menu-item-only-child"
+                    data-menu-id="vc-menu-uuid-6"
+                    label="option6"
+                    role="menuitem"
+                    style="padding-left: 48px;"
+                    tabindex="-1"
+                  >
+                    <!---->
+                    <span
+                      class="ant-menu-title-content"
+                    >
+                      option6
+                    </span>
+                    <!---->
+                  </li>
+                  <!---->
+                  <li
+                    class="ant-menu-item ant-menu-item-only-child"
+                    data-menu-id="vc-menu-uuid-7"
+                    label="option7"
+                    role="menuitem"
+                    style="padding-left: 48px;"
+                    tabindex="-1"
+                  >
+                    <!---->
+                    <span
+                      class="ant-menu-title-content"
+                    >
+                      option7
+                    </span>
+                    <!---->
+                  </li>
+                  <!---->
+                  <li
+                    class="ant-menu-item ant-menu-item-only-child"
+                    data-menu-id="vc-menu-uuid-8"
+                    label="option8"
+                    role="menuitem"
+                    style="padding-left: 48px;"
+                    tabindex="-1"
+                  >
+                    <!---->
+                    <span
+                      class="ant-menu-title-content"
+                    >
+                      option8
+                    </span>
+                    <!---->
+                  </li>
+                  <!---->
+                </ul>
               </transition-stub>
             </li>
             <li
@@ -2672,7 +2846,82 @@ exports[`layout demo > renders top-side correctly 1`] = `
                 name="ant-motion-collapse"
                 persisted="false"
               >
-                <!---->
+                <ul
+                  class="ant-menu ant-menu-sub ant-menu-inline"
+                  data-menu-list="true"
+                  id="vc-menu-uuid-sub3-popup"
+                  role="menu"
+                  style="display: none;"
+                >
+                  <li
+                    class="ant-menu-item ant-menu-item-only-child"
+                    data-menu-id="vc-menu-uuid-9"
+                    label="option9"
+                    role="menuitem"
+                    style="padding-left: 48px;"
+                    tabindex="-1"
+                  >
+                    <!---->
+                    <span
+                      class="ant-menu-title-content"
+                    >
+                      option9
+                    </span>
+                    <!---->
+                  </li>
+                  <!---->
+                  <li
+                    class="ant-menu-item ant-menu-item-only-child"
+                    data-menu-id="vc-menu-uuid-10"
+                    label="option10"
+                    role="menuitem"
+                    style="padding-left: 48px;"
+                    tabindex="-1"
+                  >
+                    <!---->
+                    <span
+                      class="ant-menu-title-content"
+                    >
+                      option10
+                    </span>
+                    <!---->
+                  </li>
+                  <!---->
+                  <li
+                    class="ant-menu-item ant-menu-item-only-child"
+                    data-menu-id="vc-menu-uuid-11"
+                    label="option11"
+                    role="menuitem"
+                    style="padding-left: 48px;"
+                    tabindex="-1"
+                  >
+                    <!---->
+                    <span
+                      class="ant-menu-title-content"
+                    >
+                      option11
+                    </span>
+                    <!---->
+                  </li>
+                  <!---->
+                  <li
+                    class="ant-menu-item ant-menu-item-only-child"
+                    data-menu-id="vc-menu-uuid-12"
+                    label="option12"
+                    role="menuitem"
+                    style="padding-left: 48px;"
+                    tabindex="-1"
+                  >
+                    <!---->
+                    <span
+                      class="ant-menu-title-content"
+                    >
+                      option12
+                    </span>
+                    <!---->
+                  </li>
+                  <!---->
+                </ul>
               </transition-stub>
             </li>
             <!---->
@@ -3034,7 +3283,82 @@ exports[`layout demo > renders top-side-2 correctly 1`] = `
               name="ant-motion-collapse"
               persisted="false"
             >
-              <!---->
+              <ul
+                class="ant-menu ant-menu-sub ant-menu-inline"
+                data-menu-list="true"
+                id="vc-menu-uuid-sub2-popup"
+                role="menu"
+                style="display: none;"
+              >
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="vc-menu-uuid-5"
+                  label="option5"
+                  role="menuitem"
+                  style="padding-left: 48px;"
+                  tabindex="-1"
+                >
+                  <!---->
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    option5
+                  </span>
+                  <!---->
+                </li>
+                <!---->
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="vc-menu-uuid-6"
+                  label="option6"
+                  role="menuitem"
+                  style="padding-left: 48px;"
+                  tabindex="-1"
+                >
+                  <!---->
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    option6
+                  </span>
+                  <!---->
+                </li>
+                <!---->
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="vc-menu-uuid-7"
+                  label="option7"
+                  role="menuitem"
+                  style="padding-left: 48px;"
+                  tabindex="-1"
+                >
+                  <!---->
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    option7
+                  </span>
+                  <!---->
+                </li>
+                <!---->
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="vc-menu-uuid-8"
+                  label="option8"
+                  role="menuitem"
+                  style="padding-left: 48px;"
+                  tabindex="-1"
+                >
+                  <!---->
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    option8
+                  </span>
+                  <!---->
+                </li>
+                <!---->
+              </ul>
             </transition-stub>
           </li>
           <li
@@ -3094,7 +3418,82 @@ exports[`layout demo > renders top-side-2 correctly 1`] = `
               name="ant-motion-collapse"
               persisted="false"
             >
-              <!---->
+              <ul
+                class="ant-menu ant-menu-sub ant-menu-inline"
+                data-menu-list="true"
+                id="vc-menu-uuid-sub3-popup"
+                role="menu"
+                style="display: none;"
+              >
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="vc-menu-uuid-9"
+                  label="option9"
+                  role="menuitem"
+                  style="padding-left: 48px;"
+                  tabindex="-1"
+                >
+                  <!---->
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    option9
+                  </span>
+                  <!---->
+                </li>
+                <!---->
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="vc-menu-uuid-10"
+                  label="option10"
+                  role="menuitem"
+                  style="padding-left: 48px;"
+                  tabindex="-1"
+                >
+                  <!---->
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    option10
+                  </span>
+                  <!---->
+                </li>
+                <!---->
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="vc-menu-uuid-11"
+                  label="option11"
+                  role="menuitem"
+                  style="padding-left: 48px;"
+                  tabindex="-1"
+                >
+                  <!---->
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    option11
+                  </span>
+                  <!---->
+                </li>
+                <!---->
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="vc-menu-uuid-12"
+                  label="option12"
+                  role="menuitem"
+                  style="padding-left: 48px;"
+                  tabindex="-1"
+                >
+                  <!---->
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    option12
+                  </span>
+                  <!---->
+                </li>
+                <!---->
+              </ul>
             </transition-stub>
           </li>
           <!---->

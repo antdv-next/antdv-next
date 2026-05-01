@@ -2167,7 +2167,130 @@ exports[`menu demo > renders inline correctly 1`] = `
         name="ant-motion-collapse"
         persisted="false"
       >
-        <!---->
+        <ul
+          class="ant-menu ant-menu-sub ant-menu-inline"
+          data-menu-list="true"
+          id="vc-menu-uuid-sub2-popup"
+          role="menu"
+          style="display: none;"
+        >
+          <li
+            class="ant-menu-item ant-menu-item-only-child"
+            data-menu-id="vc-menu-uuid-5"
+            label="Option 5"
+            role="menuitem"
+            style="padding-left: 48px;"
+            tabindex="-1"
+          >
+            <!---->
+            <span
+              class="ant-menu-title-content"
+            >
+              Option 5
+            </span>
+            <!---->
+          </li>
+          <!---->
+          <li
+            class="ant-menu-item ant-menu-item-only-child"
+            data-menu-id="vc-menu-uuid-6"
+            label="Option 6"
+            role="menuitem"
+            style="padding-left: 48px;"
+            tabindex="-1"
+          >
+            <!---->
+            <span
+              class="ant-menu-title-content"
+            >
+              Option 6
+            </span>
+            <!---->
+          </li>
+          <!---->
+          <li
+            class="ant-menu-submenu ant-menu-submenu-inline"
+            eventkey="sub3"
+            role="none"
+          >
+            <div
+              aria-controls="vc-menu-uuid-sub3-popup"
+              aria-disabled="false"
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="ant-menu-submenu-title"
+              data-menu-id="vc-menu-uuid-sub3"
+              role="menuitem"
+              style="padding-left: 48px;"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Submenu
+              </span>
+              <i
+                class="ant-menu-submenu-arrow"
+              />
+            </div>
+            <!---->
+            <transition-stub
+              appear="false"
+              css="true"
+              enteractiveclass="ant-motion-collapse ant-motion-collapse-enter ant-motion-collapse-appear ant-motion-collapse-appear-prepare ant-motion-collapse-enter-prepare "
+              enterfromclass="ant-motion-collapse ant-motion-collapse-enter ant-motion-collapse-appear ant-motion-collapse-appear-prepare ant-motion-collapse-enter-prepare ant-motion-collapse-enter-start"
+              entertoclass="ant-motion-collapse ant-motion-collapse-enter ant-motion-collapse-appear ant-motion-collapse-appear-active ant-motion-collapse-enter-active"
+              leaveactiveclass="ant-motion-collapse ant-motion-collapse-leave ant-motion-collapse-leave-active"
+              leavefromclass="ant-motion-collapse ant-motion-collapse-leave"
+              leavetoclass="ant-motion-collapse ant-motion-collapse-leave ant-motion-collapse-leave-active"
+              name="ant-motion-collapse"
+              persisted="false"
+            >
+              <ul
+                class="ant-menu ant-menu-sub ant-menu-inline"
+                data-menu-list="true"
+                id="vc-menu-uuid-sub3-popup"
+                role="menu"
+                style="display: none;"
+              >
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="vc-menu-uuid-7"
+                  label="Option 7"
+                  role="menuitem"
+                  style="padding-left: 72px;"
+                  tabindex="-1"
+                >
+                  <!---->
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    Option 7
+                  </span>
+                  <!---->
+                </li>
+                <!---->
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="vc-menu-uuid-8"
+                  label="Option 8"
+                  role="menuitem"
+                  style="padding-left: 72px;"
+                  tabindex="-1"
+                >
+                  <!---->
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    Option 8
+                  </span>
+                  <!---->
+                </li>
+                <!---->
+              </ul>
+            </transition-stub>
+          </li>
+        </ul>
       </transition-stub>
     </li>
     <li
@@ -2232,7 +2355,82 @@ exports[`menu demo > renders inline correctly 1`] = `
         name="ant-motion-collapse"
         persisted="false"
       >
-        <!---->
+        <ul
+          class="ant-menu ant-menu-sub ant-menu-inline"
+          data-menu-list="true"
+          id="vc-menu-uuid-sub4-popup"
+          role="menu"
+          style="display: none;"
+        >
+          <li
+            class="ant-menu-item ant-menu-item-only-child"
+            data-menu-id="vc-menu-uuid-9"
+            label="Option 9"
+            role="menuitem"
+            style="padding-left: 48px;"
+            tabindex="-1"
+          >
+            <!---->
+            <span
+              class="ant-menu-title-content"
+            >
+              Option 9
+            </span>
+            <!---->
+          </li>
+          <!---->
+          <li
+            class="ant-menu-item ant-menu-item-only-child"
+            data-menu-id="vc-menu-uuid-10"
+            label="Option 10"
+            role="menuitem"
+            style="padding-left: 48px;"
+            tabindex="-1"
+          >
+            <!---->
+            <span
+              class="ant-menu-title-content"
+            >
+              Option 10
+            </span>
+            <!---->
+          </li>
+          <!---->
+          <li
+            class="ant-menu-item ant-menu-item-only-child"
+            data-menu-id="vc-menu-uuid-11"
+            label="Option 11"
+            role="menuitem"
+            style="padding-left: 48px;"
+            tabindex="-1"
+          >
+            <!---->
+            <span
+              class="ant-menu-title-content"
+            >
+              Option 11
+            </span>
+            <!---->
+          </li>
+          <!---->
+          <li
+            class="ant-menu-item ant-menu-item-only-child"
+            data-menu-id="vc-menu-uuid-12"
+            label="Option 12"
+            role="menuitem"
+            style="padding-left: 48px;"
+            tabindex="-1"
+          >
+            <!---->
+            <span
+              class="ant-menu-title-content"
+            >
+              Option 12
+            </span>
+            <!---->
+          </li>
+          <!---->
+        </ul>
       </transition-stub>
     </li>
     <li
@@ -2660,7 +2858,130 @@ exports[`menu demo > renders inline-collapsed correctly 1`] = `
         name="ant-motion-collapse"
         persisted="false"
       >
-        <!---->
+        <ul
+          class="ant-menu ant-menu-sub ant-menu-inline"
+          data-menu-list="true"
+          id="vc-menu-uuid-sub2-popup"
+          role="menu"
+          style="display: none;"
+        >
+          <li
+            class="ant-menu-item ant-menu-item-only-child"
+            data-menu-id="vc-menu-uuid-9"
+            label="Option 9"
+            role="menuitem"
+            style="padding-left: 48px;"
+            tabindex="-1"
+          >
+            <!---->
+            <span
+              class="ant-menu-title-content"
+            >
+              Option 9
+            </span>
+            <!---->
+          </li>
+          <!---->
+          <li
+            class="ant-menu-item ant-menu-item-only-child"
+            data-menu-id="vc-menu-uuid-10"
+            label="Option 10"
+            role="menuitem"
+            style="padding-left: 48px;"
+            tabindex="-1"
+          >
+            <!---->
+            <span
+              class="ant-menu-title-content"
+            >
+              Option 10
+            </span>
+            <!---->
+          </li>
+          <!---->
+          <li
+            class="ant-menu-submenu ant-menu-submenu-inline"
+            eventkey="sub3"
+            role="none"
+          >
+            <div
+              aria-controls="vc-menu-uuid-sub3-popup"
+              aria-disabled="false"
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="ant-menu-submenu-title"
+              data-menu-id="vc-menu-uuid-sub3"
+              role="menuitem"
+              style="padding-left: 48px;"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Submenu
+              </span>
+              <i
+                class="ant-menu-submenu-arrow"
+              />
+            </div>
+            <!---->
+            <transition-stub
+              appear="false"
+              css="true"
+              enteractiveclass="ant-motion-collapse ant-motion-collapse-enter ant-motion-collapse-appear ant-motion-collapse-appear-prepare ant-motion-collapse-enter-prepare "
+              enterfromclass="ant-motion-collapse ant-motion-collapse-enter ant-motion-collapse-appear ant-motion-collapse-appear-prepare ant-motion-collapse-enter-prepare ant-motion-collapse-enter-start"
+              entertoclass="ant-motion-collapse ant-motion-collapse-enter ant-motion-collapse-appear ant-motion-collapse-appear-active ant-motion-collapse-enter-active"
+              leaveactiveclass="ant-motion-collapse ant-motion-collapse-leave ant-motion-collapse-leave-active"
+              leavefromclass="ant-motion-collapse ant-motion-collapse-leave"
+              leavetoclass="ant-motion-collapse ant-motion-collapse-leave ant-motion-collapse-leave-active"
+              name="ant-motion-collapse"
+              persisted="false"
+            >
+              <ul
+                class="ant-menu ant-menu-sub ant-menu-inline"
+                data-menu-list="true"
+                id="vc-menu-uuid-sub3-popup"
+                role="menu"
+                style="display: none;"
+              >
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="vc-menu-uuid-11"
+                  label="Option 11"
+                  role="menuitem"
+                  style="padding-left: 72px;"
+                  tabindex="-1"
+                >
+                  <!---->
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    Option 11
+                  </span>
+                  <!---->
+                </li>
+                <!---->
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="vc-menu-uuid-12"
+                  label="Option 12"
+                  role="menuitem"
+                  style="padding-left: 72px;"
+                  tabindex="-1"
+                >
+                  <!---->
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    Option 12
+                  </span>
+                  <!---->
+                </li>
+                <!---->
+              </ul>
+            </transition-stub>
+          </li>
+        </ul>
       </transition-stub>
     </li>
     <!---->
@@ -3033,7 +3354,46 @@ exports[`menu demo > renders sfc correctly 1`] = `
                 name="ant-motion-collapse"
                 persisted="false"
               >
-                <!---->
+                <ul
+                  class="ant-menu ant-menu-sub ant-menu-inline"
+                  data-menu-list="true"
+                  id="vc-menu-uuid-sub1-2-popup"
+                  role="menu"
+                  style="display: none;"
+                >
+                  <li
+                    class="ant-menu-item ant-menu-item-only-child"
+                    data-menu-id="vc-menu-uuid-5"
+                    role="menuitem"
+                    style="padding-left: 72px;"
+                    tabindex="-1"
+                  >
+                    <!---->
+                    <span
+                      class="ant-menu-title-content"
+                    >
+                       Option 5 
+                    </span>
+                    <!---->
+                  </li>
+                  <!---->
+                  <li
+                    class="ant-menu-item ant-menu-item-only-child"
+                    data-menu-id="vc-menu-uuid-6"
+                    role="menuitem"
+                    style="padding-left: 72px;"
+                    tabindex="-1"
+                  >
+                    <!---->
+                    <span
+                      class="ant-menu-title-content"
+                    >
+                       Option 6 
+                    </span>
+                    <!---->
+                  </li>
+                  <!---->
+                </ul>
               </transition-stub>
             </li>
           </ul>
@@ -3096,7 +3456,78 @@ exports[`menu demo > renders sfc correctly 1`] = `
           name="ant-motion-collapse"
           persisted="false"
         >
-          <!---->
+          <ul
+            class="ant-menu ant-menu-sub ant-menu-inline"
+            data-menu-list="true"
+            id="vc-menu-uuid-sub2-popup"
+            role="menu"
+            style="display: none;"
+          >
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              data-menu-id="vc-menu-uuid-7"
+              role="menuitem"
+              style="padding-left: 48px;"
+              tabindex="-1"
+            >
+              <!---->
+              <span
+                class="ant-menu-title-content"
+              >
+                 Option 7 
+              </span>
+              <!---->
+            </li>
+            <!---->
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              data-menu-id="vc-menu-uuid-8"
+              role="menuitem"
+              style="padding-left: 48px;"
+              tabindex="-1"
+            >
+              <!---->
+              <span
+                class="ant-menu-title-content"
+              >
+                 Option 8 
+              </span>
+              <!---->
+            </li>
+            <!---->
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              data-menu-id="vc-menu-uuid-9"
+              role="menuitem"
+              style="padding-left: 48px;"
+              tabindex="-1"
+            >
+              <!---->
+              <span
+                class="ant-menu-title-content"
+              >
+                 Option 9 
+              </span>
+              <!---->
+            </li>
+            <!---->
+            <li
+              class="ant-menu-item ant-menu-item-only-child"
+              data-menu-id="vc-menu-uuid-10"
+              role="menuitem"
+              style="padding-left: 48px;"
+              tabindex="-1"
+            >
+              <!---->
+              <span
+                class="ant-menu-title-content"
+              >
+                 Option 10 
+              </span>
+              <!---->
+            </li>
+            <!---->
+          </ul>
         </transition-stub>
       </li>
       <li
@@ -3243,7 +3674,82 @@ exports[`menu demo > renders sider-current correctly 1`] = `
         name="ant-motion-collapse"
         persisted="false"
       >
-        <!---->
+        <ul
+          class="ant-menu ant-menu-sub ant-menu-inline"
+          data-menu-list="true"
+          id="vc-menu-uuid-1-popup"
+          role="menu"
+          style="display: none;"
+        >
+          <li
+            class="ant-menu-item ant-menu-item-only-child"
+            data-menu-id="vc-menu-uuid-11"
+            label="Option 1"
+            role="menuitem"
+            style="padding-left: 48px;"
+            tabindex="-1"
+          >
+            <!---->
+            <span
+              class="ant-menu-title-content"
+            >
+              Option 1
+            </span>
+            <!---->
+          </li>
+          <!---->
+          <li
+            class="ant-menu-item ant-menu-item-only-child"
+            data-menu-id="vc-menu-uuid-12"
+            label="Option 2"
+            role="menuitem"
+            style="padding-left: 48px;"
+            tabindex="-1"
+          >
+            <!---->
+            <span
+              class="ant-menu-title-content"
+            >
+              Option 2
+            </span>
+            <!---->
+          </li>
+          <!---->
+          <li
+            class="ant-menu-item ant-menu-item-only-child"
+            data-menu-id="vc-menu-uuid-13"
+            label="Option 3"
+            role="menuitem"
+            style="padding-left: 48px;"
+            tabindex="-1"
+          >
+            <!---->
+            <span
+              class="ant-menu-title-content"
+            >
+              Option 3
+            </span>
+            <!---->
+          </li>
+          <!---->
+          <li
+            class="ant-menu-item ant-menu-item-only-child"
+            data-menu-id="vc-menu-uuid-14"
+            label="Option 4"
+            role="menuitem"
+            style="padding-left: 48px;"
+            tabindex="-1"
+          >
+            <!---->
+            <span
+              class="ant-menu-title-content"
+            >
+              Option 4
+            </span>
+            <!---->
+          </li>
+          <!---->
+        </ul>
       </transition-stub>
     </li>
     <li
@@ -3479,7 +3985,65 @@ exports[`menu demo > renders sider-current correctly 1`] = `
               name="ant-motion-collapse"
               persisted="false"
             >
-              <!---->
+              <ul
+                class="ant-menu ant-menu-sub ant-menu-inline"
+                data-menu-list="true"
+                id="vc-menu-uuid-24-popup"
+                role="menu"
+                style="display: none;"
+              >
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="vc-menu-uuid-241"
+                  label="Option 1"
+                  role="menuitem"
+                  style="padding-left: 72px;"
+                  tabindex="-1"
+                >
+                  <!---->
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    Option 1
+                  </span>
+                  <!---->
+                </li>
+                <!---->
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="vc-menu-uuid-242"
+                  label="Option 2"
+                  role="menuitem"
+                  style="padding-left: 72px;"
+                  tabindex="-1"
+                >
+                  <!---->
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    Option 2
+                  </span>
+                  <!---->
+                </li>
+                <!---->
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="vc-menu-uuid-243"
+                  label="Option 3"
+                  role="menuitem"
+                  style="padding-left: 72px;"
+                  tabindex="-1"
+                >
+                  <!---->
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    Option 3
+                  </span>
+                  <!---->
+                </li>
+                <!---->
+              </ul>
             </transition-stub>
           </li>
         </ul>
@@ -3542,7 +4106,82 @@ exports[`menu demo > renders sider-current correctly 1`] = `
         name="ant-motion-collapse"
         persisted="false"
       >
-        <!---->
+        <ul
+          class="ant-menu ant-menu-sub ant-menu-inline"
+          data-menu-list="true"
+          id="vc-menu-uuid-3-popup"
+          role="menu"
+          style="display: none;"
+        >
+          <li
+            class="ant-menu-item ant-menu-item-only-child"
+            data-menu-id="vc-menu-uuid-31"
+            label="Option 1"
+            role="menuitem"
+            style="padding-left: 48px;"
+            tabindex="-1"
+          >
+            <!---->
+            <span
+              class="ant-menu-title-content"
+            >
+              Option 1
+            </span>
+            <!---->
+          </li>
+          <!---->
+          <li
+            class="ant-menu-item ant-menu-item-only-child"
+            data-menu-id="vc-menu-uuid-32"
+            label="Option 2"
+            role="menuitem"
+            style="padding-left: 48px;"
+            tabindex="-1"
+          >
+            <!---->
+            <span
+              class="ant-menu-title-content"
+            >
+              Option 2
+            </span>
+            <!---->
+          </li>
+          <!---->
+          <li
+            class="ant-menu-item ant-menu-item-only-child"
+            data-menu-id="vc-menu-uuid-33"
+            label="Option 3"
+            role="menuitem"
+            style="padding-left: 48px;"
+            tabindex="-1"
+          >
+            <!---->
+            <span
+              class="ant-menu-title-content"
+            >
+              Option 3
+            </span>
+            <!---->
+          </li>
+          <!---->
+          <li
+            class="ant-menu-item ant-menu-item-only-child"
+            data-menu-id="vc-menu-uuid-34"
+            label="Option 4"
+            role="menuitem"
+            style="padding-left: 48px;"
+            tabindex="-1"
+          >
+            <!---->
+            <span
+              class="ant-menu-title-content"
+            >
+              Option 4
+            </span>
+            <!---->
+          </li>
+          <!---->
+        </ul>
       </transition-stub>
     </li>
     <!---->
@@ -3988,7 +4627,312 @@ exports[`menu demo > renders slot-render correctly 1`] = `
         name="ant-motion-collapse"
         persisted="false"
       >
-        <!---->
+        <ul
+          class="ant-menu ant-menu-sub ant-menu-inline"
+          data-menu-list="true"
+          id="vc-menu-uuid-sub2-popup"
+          role="menu"
+          style="display: none;"
+        >
+          <li
+            class="ant-menu-item"
+            data-menu-id="vc-menu-uuid-5"
+            label="Option 5"
+            role="menuitem"
+            style="padding-left: 48px;"
+            tabindex="-1"
+          >
+            <span
+              class="menu-slot-icon ant-menu-item-icon"
+              data-v-bf6f9cf7=""
+            >
+              <span
+                aria-label="clock-circle"
+                class="anticon anticon-clock-circle"
+                data-v-bf6f9cf7=""
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="clock-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm176.5 585.7l-28.6 39a7.99 7.99 0 01-11.2 1.7L483.3 569.8a7.92 7.92 0 01-3.3-6.5V288c0-4.4 3.6-8 8-8h48.1c4.4 0 8 3.6 8 8v247.5l142.6 103.1c3.6 2.5 4.4 7.5 1.8 11.1z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span
+              class="ant-menu-title-content ant-menu-title-content-with-extra"
+            >
+              <span
+                class="menu-slot-label"
+                data-v-bf6f9cf7=""
+              >
+                Option 5
+              </span>
+              <span
+                class="ant-menu-item-extra"
+              >
+                <span
+                  class="menu-slot-extra"
+                  data-v-bf6f9cf7=""
+                >
+                   #5
+                </span>
+              </span>
+            </span>
+            <!---->
+          </li>
+          <!---->
+          <li
+            class="ant-menu-item"
+            data-menu-id="vc-menu-uuid-6"
+            label="Option 6"
+            role="menuitem"
+            style="padding-left: 48px;"
+            tabindex="-1"
+          >
+            <span
+              class="menu-slot-icon ant-menu-item-icon"
+              data-v-bf6f9cf7=""
+            >
+              <span
+                aria-label="clock-circle"
+                class="anticon anticon-clock-circle"
+                data-v-bf6f9cf7=""
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="clock-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm176.5 585.7l-28.6 39a7.99 7.99 0 01-11.2 1.7L483.3 569.8a7.92 7.92 0 01-3.3-6.5V288c0-4.4 3.6-8 8-8h48.1c4.4 0 8 3.6 8 8v247.5l142.6 103.1c3.6 2.5 4.4 7.5 1.8 11.1z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span
+              class="ant-menu-title-content ant-menu-title-content-with-extra"
+            >
+              <span
+                class="menu-slot-label"
+                data-v-bf6f9cf7=""
+              >
+                Option 6
+              </span>
+              <span
+                class="ant-menu-item-extra"
+              >
+                <span
+                  class="menu-slot-extra"
+                  data-v-bf6f9cf7=""
+                >
+                   #6
+                </span>
+              </span>
+            </span>
+            <!---->
+          </li>
+          <!---->
+          <li
+            class="ant-menu-submenu ant-menu-submenu-inline"
+            eventkey="sub3"
+            role="none"
+          >
+            <div
+              aria-controls="vc-menu-uuid-sub3-popup"
+              aria-disabled="false"
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="ant-menu-submenu-title"
+              data-menu-id="vc-menu-uuid-sub3"
+              role="menuitem"
+              style="padding-left: 48px;"
+              tabindex="-1"
+            >
+              <span
+                class="menu-slot-icon ant-menu-item-icon"
+                data-v-bf6f9cf7=""
+              >
+                <span
+                  aria-label="clock-circle"
+                  class="anticon anticon-clock-circle"
+                  data-v-bf6f9cf7=""
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="clock-circle"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm176.5 585.7l-28.6 39a7.99 7.99 0 01-11.2 1.7L483.3 569.8a7.92 7.92 0 01-3.3-6.5V288c0-4.4 3.6-8 8-8h48.1c4.4 0 8 3.6 8 8v247.5l142.6 103.1c3.6 2.5 4.4 7.5 1.8 11.1z"
+                    />
+                  </svg>
+                </span>
+              </span>
+              <span
+                class="menu-slot-label"
+                data-v-bf6f9cf7=""
+              >
+                Submenu
+              </span>
+              <i
+                class="ant-menu-submenu-arrow"
+              />
+            </div>
+            <!---->
+            <transition-stub
+              appear="false"
+              css="true"
+              enteractiveclass="ant-motion-collapse ant-motion-collapse-enter ant-motion-collapse-appear ant-motion-collapse-appear-prepare ant-motion-collapse-enter-prepare "
+              enterfromclass="ant-motion-collapse ant-motion-collapse-enter ant-motion-collapse-appear ant-motion-collapse-appear-prepare ant-motion-collapse-enter-prepare ant-motion-collapse-enter-start"
+              entertoclass="ant-motion-collapse ant-motion-collapse-enter ant-motion-collapse-appear ant-motion-collapse-appear-active ant-motion-collapse-enter-active"
+              leaveactiveclass="ant-motion-collapse ant-motion-collapse-leave ant-motion-collapse-leave-active"
+              leavefromclass="ant-motion-collapse ant-motion-collapse-leave"
+              leavetoclass="ant-motion-collapse ant-motion-collapse-leave ant-motion-collapse-leave-active"
+              name="ant-motion-collapse"
+              persisted="false"
+            >
+              <ul
+                class="ant-menu ant-menu-sub ant-menu-inline"
+                data-menu-list="true"
+                id="vc-menu-uuid-sub3-popup"
+                role="menu"
+                style="display: none;"
+              >
+                <li
+                  class="ant-menu-item"
+                  data-menu-id="vc-menu-uuid-7"
+                  label="Option 7"
+                  role="menuitem"
+                  style="padding-left: 72px;"
+                  tabindex="-1"
+                >
+                  <span
+                    class="menu-slot-icon ant-menu-item-icon"
+                    data-v-bf6f9cf7=""
+                  >
+                    <span
+                      aria-label="clock-circle"
+                      class="anticon anticon-clock-circle"
+                      data-v-bf6f9cf7=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="clock-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm176.5 585.7l-28.6 39a7.99 7.99 0 01-11.2 1.7L483.3 569.8a7.92 7.92 0 01-3.3-6.5V288c0-4.4 3.6-8 8-8h48.1c4.4 0 8 3.6 8 8v247.5l142.6 103.1c3.6 2.5 4.4 7.5 1.8 11.1z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <span
+                    class="ant-menu-title-content ant-menu-title-content-with-extra"
+                  >
+                    <span
+                      class="menu-slot-label"
+                      data-v-bf6f9cf7=""
+                    >
+                      Option 7
+                    </span>
+                    <span
+                      class="ant-menu-item-extra"
+                    >
+                      <span
+                        class="menu-slot-extra"
+                        data-v-bf6f9cf7=""
+                      >
+                         #7
+                      </span>
+                    </span>
+                  </span>
+                  <!---->
+                </li>
+                <!---->
+                <li
+                  class="ant-menu-item"
+                  data-menu-id="vc-menu-uuid-8"
+                  label="Option 8"
+                  role="menuitem"
+                  style="padding-left: 72px;"
+                  tabindex="-1"
+                >
+                  <span
+                    class="menu-slot-icon ant-menu-item-icon"
+                    data-v-bf6f9cf7=""
+                  >
+                    <span
+                      aria-label="clock-circle"
+                      class="anticon anticon-clock-circle"
+                      data-v-bf6f9cf7=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="clock-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm176.5 585.7l-28.6 39a7.99 7.99 0 01-11.2 1.7L483.3 569.8a7.92 7.92 0 01-3.3-6.5V288c0-4.4 3.6-8 8-8h48.1c4.4 0 8 3.6 8 8v247.5l142.6 103.1c3.6 2.5 4.4 7.5 1.8 11.1z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <span
+                    class="ant-menu-title-content ant-menu-title-content-with-extra"
+                  >
+                    <span
+                      class="menu-slot-label"
+                      data-v-bf6f9cf7=""
+                    >
+                      Option 8
+                    </span>
+                    <span
+                      class="ant-menu-item-extra"
+                    >
+                      <span
+                        class="menu-slot-extra"
+                        data-v-bf6f9cf7=""
+                      >
+                         #8
+                      </span>
+                    </span>
+                  </span>
+                  <!---->
+                </li>
+                <!---->
+              </ul>
+            </transition-stub>
+          </li>
+        </ul>
       </transition-stub>
     </li>
     <li
@@ -4060,7 +5004,238 @@ exports[`menu demo > renders slot-render correctly 1`] = `
         name="ant-motion-collapse"
         persisted="false"
       >
-        <!---->
+        <ul
+          class="ant-menu ant-menu-sub ant-menu-inline"
+          data-menu-list="true"
+          id="vc-menu-uuid-sub4-popup"
+          role="menu"
+          style="display: none;"
+        >
+          <li
+            class="ant-menu-item"
+            data-menu-id="vc-menu-uuid-9"
+            label="Option 9"
+            role="menuitem"
+            style="padding-left: 48px;"
+            tabindex="-1"
+          >
+            <span
+              class="menu-slot-icon ant-menu-item-icon"
+              data-v-bf6f9cf7=""
+            >
+              <span
+                aria-label="clock-circle"
+                class="anticon anticon-clock-circle"
+                data-v-bf6f9cf7=""
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="clock-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm176.5 585.7l-28.6 39a7.99 7.99 0 01-11.2 1.7L483.3 569.8a7.92 7.92 0 01-3.3-6.5V288c0-4.4 3.6-8 8-8h48.1c4.4 0 8 3.6 8 8v247.5l142.6 103.1c3.6 2.5 4.4 7.5 1.8 11.1z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span
+              class="ant-menu-title-content ant-menu-title-content-with-extra"
+            >
+              <span
+                class="menu-slot-label"
+                data-v-bf6f9cf7=""
+              >
+                Option 9
+              </span>
+              <span
+                class="ant-menu-item-extra"
+              >
+                <span
+                  class="menu-slot-extra"
+                  data-v-bf6f9cf7=""
+                >
+                   #9
+                </span>
+              </span>
+            </span>
+            <!---->
+          </li>
+          <!---->
+          <li
+            class="ant-menu-item"
+            data-menu-id="vc-menu-uuid-10"
+            label="Option 10"
+            role="menuitem"
+            style="padding-left: 48px;"
+            tabindex="-1"
+          >
+            <span
+              class="menu-slot-icon ant-menu-item-icon"
+              data-v-bf6f9cf7=""
+            >
+              <span
+                aria-label="clock-circle"
+                class="anticon anticon-clock-circle"
+                data-v-bf6f9cf7=""
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="clock-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm176.5 585.7l-28.6 39a7.99 7.99 0 01-11.2 1.7L483.3 569.8a7.92 7.92 0 01-3.3-6.5V288c0-4.4 3.6-8 8-8h48.1c4.4 0 8 3.6 8 8v247.5l142.6 103.1c3.6 2.5 4.4 7.5 1.8 11.1z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span
+              class="ant-menu-title-content ant-menu-title-content-with-extra"
+            >
+              <span
+                class="menu-slot-label"
+                data-v-bf6f9cf7=""
+              >
+                Option 10
+              </span>
+              <span
+                class="ant-menu-item-extra"
+              >
+                <span
+                  class="menu-slot-extra"
+                  data-v-bf6f9cf7=""
+                >
+                   #10
+                </span>
+              </span>
+            </span>
+            <!---->
+          </li>
+          <!---->
+          <li
+            class="ant-menu-item"
+            data-menu-id="vc-menu-uuid-11"
+            label="Option 11"
+            role="menuitem"
+            style="padding-left: 48px;"
+            tabindex="-1"
+          >
+            <span
+              class="menu-slot-icon ant-menu-item-icon"
+              data-v-bf6f9cf7=""
+            >
+              <span
+                aria-label="clock-circle"
+                class="anticon anticon-clock-circle"
+                data-v-bf6f9cf7=""
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="clock-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm176.5 585.7l-28.6 39a7.99 7.99 0 01-11.2 1.7L483.3 569.8a7.92 7.92 0 01-3.3-6.5V288c0-4.4 3.6-8 8-8h48.1c4.4 0 8 3.6 8 8v247.5l142.6 103.1c3.6 2.5 4.4 7.5 1.8 11.1z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span
+              class="ant-menu-title-content ant-menu-title-content-with-extra"
+            >
+              <span
+                class="menu-slot-label"
+                data-v-bf6f9cf7=""
+              >
+                Option 11
+              </span>
+              <span
+                class="ant-menu-item-extra"
+              >
+                <span
+                  class="menu-slot-extra"
+                  data-v-bf6f9cf7=""
+                >
+                   #11
+                </span>
+              </span>
+            </span>
+            <!---->
+          </li>
+          <!---->
+          <li
+            class="ant-menu-item"
+            data-menu-id="vc-menu-uuid-12"
+            label="Option 12"
+            role="menuitem"
+            style="padding-left: 48px;"
+            tabindex="-1"
+          >
+            <span
+              class="menu-slot-icon ant-menu-item-icon"
+              data-v-bf6f9cf7=""
+            >
+              <span
+                aria-label="clock-circle"
+                class="anticon anticon-clock-circle"
+                data-v-bf6f9cf7=""
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="clock-circle"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm176.5 585.7l-28.6 39a7.99 7.99 0 01-11.2 1.7L483.3 569.8a7.92 7.92 0 01-3.3-6.5V288c0-4.4 3.6-8 8-8h48.1c4.4 0 8 3.6 8 8v247.5l142.6 103.1c3.6 2.5 4.4 7.5 1.8 11.1z"
+                  />
+                </svg>
+              </span>
+            </span>
+            <span
+              class="ant-menu-title-content ant-menu-title-content-with-extra"
+            >
+              <span
+                class="menu-slot-label"
+                data-v-bf6f9cf7=""
+              >
+                Option 12
+              </span>
+              <span
+                class="ant-menu-item-extra"
+              >
+                <span
+                  class="menu-slot-extra"
+                  data-v-bf6f9cf7=""
+                >
+                   #12
+                </span>
+              </span>
+            </span>
+            <!---->
+          </li>
+          <!---->
+        </ul>
       </transition-stub>
     </li>
     <li
@@ -4337,7 +5512,65 @@ exports[`menu demo > renders style-class correctly 1`] = `
         name="ant-motion-collapse"
         persisted="false"
       >
-        <!---->
+        <ul
+          class="ant-menu ant-menu-sub ant-menu-inline"
+          data-menu-list="true"
+          id="vc-menu-uuid-SubMenu-popup"
+          role="menu"
+          style="display: none;"
+        >
+          <li
+            class="ant-menu-item-group"
+            role="presentation"
+          >
+            <div
+              class="ant-menu-item-group-title"
+              role="presentation"
+              title="Item 1"
+            >
+              Item 1
+            </div>
+            <ul
+              class="ant-menu-item-group-list"
+              role="group"
+            >
+              <li
+                class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="vc-menu-uuid-1"
+                label="Option 1"
+                role="menuitem"
+                style="padding-left: 48px;"
+                tabindex="-1"
+              >
+                <!---->
+                <span
+                  class="ant-menu-title-content"
+                >
+                  Option 1
+                </span>
+                <!---->
+              </li>
+              <!---->
+              <li
+                class="ant-menu-item ant-menu-item-only-child"
+                data-menu-id="vc-menu-uuid-2"
+                label="Option 2"
+                role="menuitem"
+                style="padding-left: 48px;"
+                tabindex="-1"
+              >
+                <!---->
+                <span
+                  class="ant-menu-title-content"
+                >
+                  Option 2
+                </span>
+                <!---->
+              </li>
+              <!---->
+            </ul>
+          </li>
+        </ul>
       </transition-stub>
     </li>
     <li
@@ -4787,7 +6020,48 @@ exports[`menu demo > renders switch-mode correctly 1`] = `
               name="ant-motion-collapse"
               persisted="false"
             >
-              <!---->
+              <ul
+                class="ant-menu ant-menu-sub ant-menu-inline"
+                data-menu-list="true"
+                id="vc-menu-uuid-sub1-2-popup"
+                role="menu"
+                style="display: none;"
+              >
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="vc-menu-uuid-5"
+                  label="Option 5"
+                  role="menuitem"
+                  style="padding-left: 72px;"
+                  tabindex="-1"
+                >
+                  <!---->
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    Option 5
+                  </span>
+                  <!---->
+                </li>
+                <!---->
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="vc-menu-uuid-6"
+                  label="Option 6"
+                  role="menuitem"
+                  style="padding-left: 72px;"
+                  tabindex="-1"
+                >
+                  <!---->
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    Option 6
+                  </span>
+                  <!---->
+                </li>
+                <!---->
+              </ul>
             </transition-stub>
           </li>
         </ul>
@@ -4850,7 +6124,82 @@ exports[`menu demo > renders switch-mode correctly 1`] = `
         name="ant-motion-collapse"
         persisted="false"
       >
-        <!---->
+        <ul
+          class="ant-menu ant-menu-sub ant-menu-inline"
+          data-menu-list="true"
+          id="vc-menu-uuid-sub2-popup"
+          role="menu"
+          style="display: none;"
+        >
+          <li
+            class="ant-menu-item ant-menu-item-only-child"
+            data-menu-id="vc-menu-uuid-7"
+            label="Option 7"
+            role="menuitem"
+            style="padding-left: 48px;"
+            tabindex="-1"
+          >
+            <!---->
+            <span
+              class="ant-menu-title-content"
+            >
+              Option 7
+            </span>
+            <!---->
+          </li>
+          <!---->
+          <li
+            class="ant-menu-item ant-menu-item-only-child"
+            data-menu-id="vc-menu-uuid-8"
+            label="Option 8"
+            role="menuitem"
+            style="padding-left: 48px;"
+            tabindex="-1"
+          >
+            <!---->
+            <span
+              class="ant-menu-title-content"
+            >
+              Option 8
+            </span>
+            <!---->
+          </li>
+          <!---->
+          <li
+            class="ant-menu-item ant-menu-item-only-child"
+            data-menu-id="vc-menu-uuid-9"
+            label="Option 9"
+            role="menuitem"
+            style="padding-left: 48px;"
+            tabindex="-1"
+          >
+            <!---->
+            <span
+              class="ant-menu-title-content"
+            >
+              Option 9
+            </span>
+            <!---->
+          </li>
+          <!---->
+          <li
+            class="ant-menu-item ant-menu-item-only-child"
+            data-menu-id="vc-menu-uuid-10"
+            label="Option 10"
+            role="menuitem"
+            style="padding-left: 48px;"
+            tabindex="-1"
+          >
+            <!---->
+            <span
+              class="ant-menu-title-content"
+            >
+              Option 10
+            </span>
+            <!---->
+          </li>
+          <!---->
+        </ul>
       </transition-stub>
     </li>
     <li
@@ -5149,7 +6498,130 @@ exports[`menu demo > renders theme correctly 1`] = `
         name="ant-motion-collapse"
         persisted="false"
       >
-        <!---->
+        <ul
+          class="ant-menu ant-menu-sub ant-menu-inline"
+          data-menu-list="true"
+          id="vc-menu-uuid-sub2-popup"
+          role="menu"
+          style="display: none;"
+        >
+          <li
+            class="ant-menu-item ant-menu-item-only-child"
+            data-menu-id="vc-menu-uuid-5"
+            label="Option 5"
+            role="menuitem"
+            style="padding-left: 48px;"
+            tabindex="-1"
+          >
+            <!---->
+            <span
+              class="ant-menu-title-content"
+            >
+              Option 5
+            </span>
+            <!---->
+          </li>
+          <!---->
+          <li
+            class="ant-menu-item ant-menu-item-only-child"
+            data-menu-id="vc-menu-uuid-6"
+            label="Option 6"
+            role="menuitem"
+            style="padding-left: 48px;"
+            tabindex="-1"
+          >
+            <!---->
+            <span
+              class="ant-menu-title-content"
+            >
+              Option 6
+            </span>
+            <!---->
+          </li>
+          <!---->
+          <li
+            class="ant-menu-submenu ant-menu-submenu-inline"
+            eventkey="sub3"
+            role="none"
+          >
+            <div
+              aria-controls="vc-menu-uuid-sub3-popup"
+              aria-disabled="false"
+              aria-expanded="false"
+              aria-haspopup="true"
+              class="ant-menu-submenu-title"
+              data-menu-id="vc-menu-uuid-sub3"
+              role="menuitem"
+              style="padding-left: 48px;"
+              tabindex="-1"
+            >
+              <span
+                class="ant-menu-title-content"
+              >
+                Submenu
+              </span>
+              <i
+                class="ant-menu-submenu-arrow"
+              />
+            </div>
+            <!---->
+            <transition-stub
+              appear="false"
+              css="true"
+              enteractiveclass="ant-motion-collapse ant-motion-collapse-enter ant-motion-collapse-appear ant-motion-collapse-appear-prepare ant-motion-collapse-enter-prepare "
+              enterfromclass="ant-motion-collapse ant-motion-collapse-enter ant-motion-collapse-appear ant-motion-collapse-appear-prepare ant-motion-collapse-enter-prepare ant-motion-collapse-enter-start"
+              entertoclass="ant-motion-collapse ant-motion-collapse-enter ant-motion-collapse-appear ant-motion-collapse-appear-active ant-motion-collapse-enter-active"
+              leaveactiveclass="ant-motion-collapse ant-motion-collapse-leave ant-motion-collapse-leave-active"
+              leavefromclass="ant-motion-collapse ant-motion-collapse-leave"
+              leavetoclass="ant-motion-collapse ant-motion-collapse-leave ant-motion-collapse-leave-active"
+              name="ant-motion-collapse"
+              persisted="false"
+            >
+              <ul
+                class="ant-menu ant-menu-sub ant-menu-inline"
+                data-menu-list="true"
+                id="vc-menu-uuid-sub3-popup"
+                role="menu"
+                style="display: none;"
+              >
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="vc-menu-uuid-7"
+                  label="Option 7"
+                  role="menuitem"
+                  style="padding-left: 72px;"
+                  tabindex="-1"
+                >
+                  <!---->
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    Option 7
+                  </span>
+                  <!---->
+                </li>
+                <!---->
+                <li
+                  class="ant-menu-item ant-menu-item-only-child"
+                  data-menu-id="vc-menu-uuid-8"
+                  label="Option 8"
+                  role="menuitem"
+                  style="padding-left: 72px;"
+                  tabindex="-1"
+                >
+                  <!---->
+                  <span
+                    class="ant-menu-title-content"
+                  >
+                    Option 8
+                  </span>
+                  <!---->
+                </li>
+                <!---->
+              </ul>
+            </transition-stub>
+          </li>
+        </ul>
       </transition-stub>
     </li>
     <li
@@ -5209,7 +6681,82 @@ exports[`menu demo > renders theme correctly 1`] = `
         name="ant-motion-collapse"
         persisted="false"
       >
-        <!---->
+        <ul
+          class="ant-menu ant-menu-sub ant-menu-inline"
+          data-menu-list="true"
+          id="vc-menu-uuid-sub4-popup"
+          role="menu"
+          style="display: none;"
+        >
+          <li
+            class="ant-menu-item ant-menu-item-only-child"
+            data-menu-id="vc-menu-uuid-9"
+            label="Option 9"
+            role="menuitem"
+            style="padding-left: 48px;"
+            tabindex="-1"
+          >
+            <!---->
+            <span
+              class="ant-menu-title-content"
+            >
+              Option 9
+            </span>
+            <!---->
+          </li>
+          <!---->
+          <li
+            class="ant-menu-item ant-menu-item-only-child"
+            data-menu-id="vc-menu-uuid-10"
+            label="Option 10"
+            role="menuitem"
+            style="padding-left: 48px;"
+            tabindex="-1"
+          >
+            <!---->
+            <span
+              class="ant-menu-title-content"
+            >
+              Option 10
+            </span>
+            <!---->
+          </li>
+          <!---->
+          <li
+            class="ant-menu-item ant-menu-item-only-child"
+            data-menu-id="vc-menu-uuid-11"
+            label="Option 11"
+            role="menuitem"
+            style="padding-left: 48px;"
+            tabindex="-1"
+          >
+            <!---->
+            <span
+              class="ant-menu-title-content"
+            >
+              Option 11
+            </span>
+            <!---->
+          </li>
+          <!---->
+          <li
+            class="ant-menu-item ant-menu-item-only-child"
+            data-menu-id="vc-menu-uuid-12"
+            label="Option 12"
+            role="menuitem"
+            style="padding-left: 48px;"
+            tabindex="-1"
+          >
+            <!---->
+            <span
+              class="ant-menu-title-content"
+            >
+              Option 12
+            </span>
+            <!---->
+          </li>
+          <!---->
+        </ul>
       </transition-stub>
     </li>
     <!---->

@@ -189,14 +189,17 @@ onBeforeUnmount(() => {
     var(--ant-color-primary-border-hover),
     var(--ant-color-border-secondary)
   );
-  mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  mask-composite: subtract;
+
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
+
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: subtract;
+
   transition: opacity 0.3s ease;
 }
 

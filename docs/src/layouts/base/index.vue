@@ -3,8 +3,9 @@ import { ConfigProvider, theme } from 'antdv-next'
 import en from 'antdv-next/locale/en_US'
 import cn from 'antdv-next/locale/zh_CN'
 import dayjs from 'dayjs'
+import { isFunction } from 'es-toolkit'
 import { storeToRefs } from 'pinia'
-import { computed, getCurrentInstance, h, onMounted, shallowRef, watch } from 'vue'
+import { computed, getCurrentInstance, h, onBeforeUnmount, onMounted, shallowRef, watch } from 'vue'
 import { themeModeStore } from '@/composables/local-store'
 import { applyThemeToDOM, useTheme } from '@/composables/theme'
 import { useAppStore } from '@/stores/app'
@@ -15,6 +16,13 @@ import 'dayjs/locale/en'
 const appStore = useAppStore()
 const { locale, darkMode, compactMode, happyMode, direction } = storeToRefs(appStore)
 const { setThemeMode } = useTheme()
+let systemDarkMediaQuery: MediaQueryList | null = null
+
+function handleSystemThemeChange() {
+  if (themeModeStore.value === 'system') {
+    setThemeMode('system')
+  }
+}
 
 watch(
   darkMode,
@@ -28,6 +36,28 @@ watch(
 
 onMounted(() => {
   setThemeMode(themeModeStore.value)
+
+  systemDarkMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+
+  if (isFunction(systemDarkMediaQuery.addEventListener)) {
+    systemDarkMediaQuery.addEventListener('change', handleSystemThemeChange)
+  }
+  else {
+    systemDarkMediaQuery.addListener(handleSystemThemeChange)
+  }
+})
+
+onBeforeUnmount(() => {
+  if (!systemDarkMediaQuery) {
+    return
+  }
+
+  if (isFunction(systemDarkMediaQuery.removeEventListener)) {
+    systemDarkMediaQuery.removeEventListener('change', handleSystemThemeChange)
+  }
+  else {
+    systemDarkMediaQuery.removeListener(handleSystemThemeChange)
+  }
 })
 
 const antdLocale = shallowRef(cn)

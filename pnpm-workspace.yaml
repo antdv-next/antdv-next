@@ -60,6 +60,8 @@ catalogs:
     vitest: ^4.1.0
     vue-tsc: ^3.2.6
   docs:
+    '@codesandbox/sandpack-themes': ^2.0.21
+    '@vue/compiler-sfc': ^3.5.33
     '@antdv-next/unocss': ^1.0.2
     '@mdit-vue/plugin-frontmatter': 3.0.2
     '@mdit-vue/plugin-headers': ^3.0.2
@@ -81,7 +83,9 @@ catalogs:
     markdown-it-emoji: ^3.0.0
     markdown-it-ts: 0.0.2
     prismjs: ^1.30.0
+    sandpack-vue3: ^3.1.12
     shiki: ^4.0.2
+    sucrase: ^3.35.1
   prod:
     '@ant-design/colors': ^8.0.1
     '@ant-design/fast-color': ^3.0.1
@@ -135,7 +139,7 @@ catalogs:
     '@v-c/input': ^1.0.3
     '@v-c/input-number': ^1.0.5
     '@v-c/mentions': ^1.0.0
-    '@v-c/menu': ^1.0.13
+    '@v-c/menu': ^1.0.14
     '@v-c/mutate-observer': ^1.0.1
     '@v-c/notification': ^1.0.0
     '@v-c/pagination': ^1.0.0
