@@ -2341,6 +2341,7 @@ exports[`descriptions demo > renders style-class correctly 1`] = `
             <th
               class="ant-descriptions-item-label"
               colspan="1"
+              style="color: rgb(0, 0, 0);"
             >
               <span>
                 Product
@@ -2359,6 +2360,7 @@ exports[`descriptions demo > renders style-class correctly 1`] = `
             <th
               class="ant-descriptions-item-label"
               colspan="1"
+              style="color: rgb(0, 0, 0);"
             >
               <span>
                 Billing Mode
@@ -2377,6 +2379,7 @@ exports[`descriptions demo > renders style-class correctly 1`] = `
             <th
               class="ant-descriptions-item-label"
               colspan="1"
+              style="color: rgb(0, 0, 0);"
             >
               <span>
                 Automatic Renewal
@@ -2423,6 +2426,7 @@ exports[`descriptions demo > renders style-class correctly 1`] = `
             <th
               class="ant-descriptions-item-label"
               colspan="1"
+              style="color: rgb(162, 148, 249);"
             >
               <span>
                 Product
@@ -2441,6 +2445,7 @@ exports[`descriptions demo > renders style-class correctly 1`] = `
             <th
               class="ant-descriptions-item-label"
               colspan="1"
+              style="color: rgb(162, 148, 249);"
             >
               <span>
                 Billing Mode
@@ -2459,6 +2464,7 @@ exports[`descriptions demo > renders style-class correctly 1`] = `
             <th
               class="ant-descriptions-item-label"
               colspan="1"
+              style="color: rgb(162, 148, 249);"
             >
               <span>
                 Automatic Renewal
