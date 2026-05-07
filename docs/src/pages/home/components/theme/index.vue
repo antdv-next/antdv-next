@@ -272,8 +272,9 @@ async function copyToClipboard(text: string) {
       selection?.addRange(originalRange)
     }
 
-    if (previouslyFocusedElement)
-    ;(previouslyFocusedElement as HTMLElement).focus()
+    if (previouslyFocusedElement) {
+      (previouslyFocusedElement as HTMLElement).focus()
+    }
 
     return copied
   }
