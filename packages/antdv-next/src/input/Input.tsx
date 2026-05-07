@@ -60,6 +60,7 @@ interface BaseVcInputProps {
   type?: VcInputProps['type']
   showCount?: VcInputProps['showCount']
   autoComplete?: string
+  autocomplete?: string
   htmlSize?: number
   placeholder?: string
   count?: VcInputProps['count']
@@ -142,6 +143,7 @@ const omitKeys: (keyof InputProps)[] = [
   'prefixCls',
   'allowClear',
   'autoComplete',
+  'autocomplete',
   'prefix',
   'suffix',
   'maxlength',
@@ -172,12 +174,13 @@ const InternalInput = defineComponent<
       direction,
       allowClear: contextAllowClear,
       autoComplete: contextAutoComplete,
+      autocomplete: contextAutocomplete,
       changeOnComposing: contextChangeOnComposing,
       class: contextClassName,
       style: contextStyle,
       classes: contextClassNames,
       styles: contextStyles,
-    } = useComponentBaseConfig('input', props, ['allowClear', 'autoComplete', 'changeOnComposing'])
+    } = useComponentBaseConfig('input', props, ['allowClear', 'autoComplete', 'autocomplete', 'changeOnComposing'])
 
     const {
       classes,
@@ -245,7 +248,7 @@ const InternalInput = defineComponent<
       return getAllowClear(props.allowClear ?? contextAllowClear.value)
     })
 
-    const mergedAutoComplete = computed(() => props.autoComplete ?? contextAutoComplete.value)
+    const mergedAutoComplete = computed(() => props.autoComplete ?? props.autocomplete ?? contextAutoComplete.value ?? contextAutocomplete.value)
     const mergedChangeOnComposing = computed(() => props.changeOnComposing ?? contextChangeOnComposing.value)
 
     expose({

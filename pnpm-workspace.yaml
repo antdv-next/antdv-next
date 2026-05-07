@@ -60,9 +60,8 @@ catalogs:
     vitest: ^4.1.0
     vue-tsc: ^3.2.6
   docs:
-    '@codesandbox/sandpack-themes': ^2.0.21
-    '@vue/compiler-sfc': ^3.5.33
     '@antdv-next/unocss': ^1.0.2
+    '@codesandbox/sandpack-themes': ^2.0.21
     '@mdit-vue/plugin-frontmatter': 3.0.2
     '@mdit-vue/plugin-headers': ^3.0.2
     '@mdit-vue/plugin-title': ^3.0.2
@@ -75,6 +74,7 @@ catalogs:
     '@shikijs/transformers': ^4.0.2
     '@shikijs/twoslash': ^4.0.2
     '@stackblitz/sdk': ^1.11.0
+    '@vue/compiler-sfc': ^3.5.33
     markdown-it: 14.1.1
     markdown-it-anchor: ^9.2.0
     markdown-it-async: ^2.2.0

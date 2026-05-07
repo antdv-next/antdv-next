@@ -90,6 +90,7 @@ export interface FormProps extends ComponentBaseProps,
   clearOnDestroy?: boolean
   validateOnRuleChange?: boolean
   autoComplete?: string | undefined
+  autocomplete?: string | undefined
   tooltip?: FormTooltipProps
 }
 
@@ -156,12 +157,14 @@ const InternalForm = defineComponent<
       requiredMark: contextRequiredMark,
       colon: contextColon,
       scrollToFirstError: contextScrollToFirstError,
+      autoComplete: contextAutoComplete,
+      autocomplete: contextAutocomplete,
       class: contextClassName,
       style: contextStyle,
       styles: contextStyles,
       classes: contextClassNames,
       tooltip: contextTooltip,
-    } = useComponentBaseConfig('form', props, ['scrollToFirstError', 'colon', 'requiredMark', 'tooltip'])
+    } = useComponentBaseConfig('form', props, ['scrollToFirstError', 'colon', 'requiredMark', 'tooltip', 'autoComplete', 'autocomplete'])
     const {
       size,
       styles,
@@ -200,6 +203,7 @@ const InternalForm = defineComponent<
     })
 
     const mergedColon = computed(() => props.colon ?? contextColon.value)
+    const mergedAutoComplete = computed(() => props.autoComplete ?? props.autocomplete ?? contextAutoComplete.value ?? contextAutocomplete.value)
     const mergedTooltip = computed(() => {
       return {
         ...contextTooltip.value,
@@ -635,7 +639,6 @@ const InternalForm = defineComponent<
         name,
       } = props
       const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
-      const autocomplete = props.autoComplete ?? restAttrs.autocomplete
       const formClassName = clsx(
         prefixCls.value,
         `${prefixCls.value}-${layout}`,
@@ -656,7 +659,7 @@ const InternalForm = defineComponent<
         <form
           id={name}
           {...restAttrs}
-          autocomplete={autocomplete}
+          autocomplete={mergedAutoComplete.value}
           name={name}
           ref={nativeElementRef}
           style={[mergedStyles.value.root, contextStyle.value, style]}

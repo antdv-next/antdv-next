@@ -313,6 +313,8 @@ export type FormConfig = ComponentStyleConfig
     | 'classes'
     | 'styles'
     | 'tooltip'
+    | 'autoComplete'
+    | 'autocomplete'
   >
 export type RadioConfig = ComponentStyleConfig & Pick<RadioProps, 'classes' | 'styles'>
 
@@ -323,7 +325,7 @@ export type SwitchStyleConfig = ComponentStyleConfig & Pick<SwitchProps, 'classe
 export type TransferConfig = ComponentStyleConfig & Pick<TransferProps, 'selectionsIcon' | 'classes' | 'styles'>
 
 export type InputConfig = ComponentStyleConfig
-  & Pick<InputProps, 'autoComplete' | 'classes' | 'styles' | 'allowClear' | 'variant' | 'changeOnComposing'>
+  & Pick<InputProps, 'autoComplete' | 'autocomplete' | 'classes' | 'styles' | 'allowClear' | 'variant' | 'changeOnComposing'>
 
 export type InputNumberConfig = ComponentStyleConfig
   & Pick<InputNumberProps, 'classes' | 'styles' | 'variant'>

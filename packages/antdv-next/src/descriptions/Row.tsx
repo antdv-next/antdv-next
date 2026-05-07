@@ -152,7 +152,7 @@ const Row = defineComponent<
                   component: 'th',
                   type: 'label',
                   showLabel: true,
-                  ...descContext,
+                  ...descContext.value,
                 },
               )}
             </tr>
@@ -164,7 +164,7 @@ const Row = defineComponent<
                   component: 'td',
                   type: 'content',
                   showContent: true,
-                  ...descContext,
+                  ...descContext.value,
                 },
               )}
             </tr>
@@ -182,7 +182,7 @@ const Row = defineComponent<
               type: 'item',
               showLabel: true,
               showContent: true,
-              ...descContext,
+              ...descContext.value,
             },
           )}
         </tr>
