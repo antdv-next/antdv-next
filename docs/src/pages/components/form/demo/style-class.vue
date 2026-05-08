@@ -62,7 +62,7 @@ const sharedProps: FormProps = {
     v-bind="sharedProps"
     :styles="stylesObject"
   >
-    <a-form-item label="UserName" name="username" :rules="[{ required: true }]">
+    <a-form-item label="UserName" name="username" :rules="[{ required: true, message: 'Please enter username!' }]">
       <a-input v-model:value="model.username" placeholder="Please enter username" />
     </a-form-item>
     <a-form-item label="Email" name="email" :rules="[{ required: true, message: 'Please enter email!' }]">

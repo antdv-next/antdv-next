@@ -11767,7 +11767,7 @@ exports[`form demo > renders style-class correctly 1`] = `
                       <!---->
                     </transition-stub>
                     <span>
-                      Reset
+                       Reset 
                     </span>
                     <!---->
                   </button>
@@ -12007,7 +12007,7 @@ exports[`form demo > renders style-class correctly 1`] = `
                       <!---->
                     </transition-stub>
                     <span>
-                      Reset
+                       Reset 
                     </span>
                     <!---->
                   </button>
