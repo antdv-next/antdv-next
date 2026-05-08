@@ -20,8 +20,11 @@ const model = reactive({
   residence: ['zhejiang', 'hangzhou', 'xihu'],
   phone: '',
   prefix: '86',
+  amount: '',
+  currency: 'USD',
   website: '',
-  age: 18,
+  intro: '',
+  gender: 'male',
   agreement: false,
 })
 
@@ -63,6 +66,17 @@ const residences = [
 const prefixOptions = [
   { label: '+86', value: '86' },
   { label: '+87', value: '87' },
+]
+
+const donationOptions = [
+  { label: '$', value: 'USD' },
+  { label: '¥', value: 'CNY' },
+]
+
+const genderOptions = [
+  { label: 'Male', value: 'male' },
+  { label: 'Female', value: 'female' },
+  { label: 'Other', value: 'other' },
 ]
 
 const autoCompleteResult = ref<string[]>([])
@@ -156,11 +170,17 @@ function handleFinish(values: any) {
     </a-form-item>
 
     <a-form-item name="phone" label="Phone Number" :rules="[{ required: true, message: 'Please input your phone number!' }]">
-      <a-input v-model:value="model.phone" style="width: 100%">
-        <template #addonBefore>
-          <a-select v-model:value="model.prefix" style="width: 70px" :options="prefixOptions" />
-        </template>
-      </a-input>
+      <a-space-compact block>
+        <a-select v-model:value="model.prefix" style="width: 70px" :options="prefixOptions" />
+        <a-input v-model:value="model.phone" style="width: 100%" />
+      </a-space-compact>
+    </a-form-item>
+
+    <a-form-item name="donation" label="Donation" :rules="[{ required: true, message: 'Please input donation amount!' }]">
+      <a-space-compact block>
+        <a-input-number v-model:value="model.amount" style="width: 100%" />
+        <a-select v-model:value="model.currency" style="width: 70px" :options="donationOptions" />
+      </a-space-compact>
     </a-form-item>
 
     <a-form-item name="website" label="Website" :rules="[{ required: true, message: 'Please input website!' }]">
@@ -172,8 +192,33 @@ function handleFinish(values: any) {
       />
     </a-form-item>
 
-    <a-form-item name="age" :required="true" label="Age" :rules="[{ type: 'number', min: 0, max: 120 }]">
-      <a-input-number v-model:value="model.age" style="width: 100%" />
+    <a-form-item
+      name="intro"
+      label="Intro"
+      :rules="[{ required: true, message: 'Please input Intro' }]"
+    >
+      <a-textarea show-count :max-length="100" />
+    </a-form-item>
+
+    <a-form-item name="gender" :required="true" label="Gender" :rules="[{ required: true, message: 'Please select your gender' }]">
+      <a-select v-model:value="model.gender" placeholder="Please select gender!" :options="genderOptions" />
+    </a-form-item>
+
+    <a-form-item label="Captcha" extra="We must make sure that your are a human.">
+      <a-row :gutter="8">
+        <a-col :span="12">
+          <a-form-item
+            name="captcha"
+            no-style
+            :rules="[{ required: true, message: 'Please input the captcha you got!' }]"
+          >
+            <a-input />
+          </a-form-item>
+        </a-col>
+        <a-col :span="12">
+          <a-button>Get captcha</a-button>
+        </a-col>
+      </a-row>
     </a-form-item>
 
     <a-form-item name="agreement" :wrapper-col="{ xs: { span: 24, offset: 0 }, sm: { span: 16, offset: 8 } }">
