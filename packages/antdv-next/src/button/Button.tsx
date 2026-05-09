@@ -313,6 +313,7 @@ const InternalCompoundedButton = defineComponent<
         ...props,
         type: mergedType.value,
         color: mergedColor.value,
+        variant: mergedVariant.value,
         danger: isDanger.value,
         shape: mergedShape.value,
         size: sizeFullName.value,

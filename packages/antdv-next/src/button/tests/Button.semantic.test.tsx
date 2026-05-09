@@ -66,6 +66,28 @@ describe('button.Semantic', () => {
     expect(updatedRootElement.classes()).toContain('default-button')
   })
 
+  it('should expose resolved color and variant to semantic functions', () => {
+    const classNamesFn = vi.fn((info: { props: BaseButtonProps }) => {
+      if (info.props.color === 'primary' && info.props.variant === 'solid') {
+        return { root: 'resolved-primary-solid' }
+      }
+      return { root: 'unresolved-button' }
+    })
+
+    const wrapper = mount(Button, {
+      props: {
+        type: 'primary',
+        classes: classNamesFn,
+      },
+      slots: {
+        default: () => 'Test',
+      },
+    })
+
+    expect(classNamesFn).toHaveBeenCalled()
+    expect(wrapper.find('.ant-btn').classes()).toContain('resolved-primary-solid')
+  })
+
   it('should merge context and component classNames and styles', () => {
     const contextClassNames = {
       root: 'context-root',
