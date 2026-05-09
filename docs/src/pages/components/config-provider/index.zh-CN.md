@@ -201,7 +201,7 @@ const { componentDisabled, componentSize } = config.value
 
 ### 为什么时间类组件的国际化 locale 设置不生效？ {#faq-locale-not-work}
 
-参考 FAQ [Date-related-components-locale-is-not-working?](/docs/vue/faq#date-related-components-locale-is-not-working)
+参考 FAQ [Date-related-components-locale-is-not-working?](/docs/vue/faq#为什么时间类组件的国际化-locale-设置不生效)
 
 ### 配置 `getPopupContainer` 导致 Modal 报错？ {#faq-get-popup-container}
 

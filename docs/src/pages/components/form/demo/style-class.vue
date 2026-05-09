@@ -1,58 +1,116 @@
 <docs lang="zh-CN">
-自定义语义化结构的样式和类。
+通过 `classes` 和 `styles` 传入对象/函数可以自定义 Form 的[语义化结构](#semantic-dom)样式。
 </docs>
 
 <docs lang="en-US">
-Custom semantic dom styling.
+You can customize the [semantic dom](#semantic-dom) style of Form by passing objects/functions through `classes` and `styles`.
 </docs>
 
 <script setup lang="ts">
+import type { FormProps } from 'antdv-next'
 import { reactive } from 'vue'
-
-const model = reactive({
-  name: '',
-  email: '',
-})
 
 const classes = {
   root: 'form-demo-root',
-  label: 'form-demo-label',
-  content: 'form-demo-content',
 }
 
-const styles = {
-  root: { background: '#f6f7fb', padding: '16px', borderRadius: '8px' },
+const stylesObject: FormProps['styles'] = {
+  label: {
+    textAlign: 'end',
+    color: '#333',
+    fontWeight: 500,
+  },
+  content: {
+    paddingInlineStart: '12px',
+  },
+}
+
+const stylesFunction: FormProps['styles'] = (info) => {
+  if (info.props.variant === 'filled') {
+    return {
+      root: {
+        border: '1px solid #1677FF',
+      },
+      label: {
+        textAlign: 'end',
+        color: '#1677FF',
+      },
+      content: {
+        paddingInlineStart: '12px',
+      },
+    } satisfies FormProps['styles']
+  }
+  return {}
+}
+
+const model = reactive({
+  username: '',
+  email: '',
+})
+
+const sharedProps: FormProps = {
+  labelCol: { span: 4 },
+  wrapperCol: { span: 20 },
+  autoComplete: 'off',
+  classes,
 }
 </script>
 
 <template>
   <a-form
     :model="model"
-    layout="vertical"
-    :classes="classes"
-    :styles="styles"
-    style="max-width: 600px"
+    v-bind="sharedProps"
+    :styles="stylesObject"
   >
-    <a-form-item label="Name" name="name" :rules="[{ required: true }]">
-      <a-input v-model:value="model.name" />
+    <a-form-item label="UserName" name="username" :rules="[{ required: true, message: 'Please enter username!' }]">
+      <a-input v-model:value="model.username" placeholder="Please enter username" />
     </a-form-item>
-    <a-form-item label="Email" name="email" :rules="[{ type: 'email' }]">
-      <a-input v-model:value="model.email" />
+    <a-form-item label="Email" name="email" :rules="[{ required: true, message: 'Please enter email!' }]">
+      <a-input v-model:value="model.email" placeholder="Please enter email" />
     </a-form-item>
     <a-form-item :label="null">
-      <a-button type="primary">
-        Submit
-      </a-button>
+      <a-space>
+        <a-button type="primary" html-type="submit">
+          Submit
+        </a-button>
+        <a-button html-type="reset">
+          Reset
+        </a-button>
+      </a-space>
+    </a-form-item>
+  </a-form>
+  <a-form
+    :model="model"
+    v-bind="sharedProps"
+    :styles="stylesFunction"
+    variant="filled"
+  >
+    <a-form-item label="UserName" name="username" :rules="[{ required: true, message: 'Please enter username!' }]">
+      <a-input v-model:value="model.username" placeholder="Please enter username" />
+    </a-form-item>
+    <a-form-item label="Email" name="email" :rules="[{ required: true, message: 'Please enter email!' }]">
+      <a-input v-model:value="model.email" placeholder="Please enter email" />
+    </a-form-item>
+    <a-form-item :label="null">
+      <a-space>
+        <a-button type="primary" html-type="submit">
+          Submit
+        </a-button>
+        <a-button html-type="reset">
+          Reset
+        </a-button>
+      </a-space>
     </a-form-item>
   </a-form>
 </template>
 
 <style scoped>
-.form-demo-label {
-  color: #1677ff;
-}
-
-.form-demo-content :deep(.ant-input) {
-  border-color: #1677ff;
+.form-demo-root {
+  padding: var(--ant-padding);
+  max-width: 800px;
+  margin-top: 32px;
+  background-color: var(--ant-color-bg-container);
+  border-radius: var(--ant-border-radius);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 </style>
