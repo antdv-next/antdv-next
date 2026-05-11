@@ -254,9 +254,9 @@ function useMuiTheme() {
     button: {
       classes: ({ props }: { props: ButtonProps }) => ({
         root: cx(
-          styles.buttonPrimary,
-          props.color === 'default' && styles.buttonDefault,
-          props.color === 'danger' && styles.buttonDanger,
+          props.type === 'primary' && styles.buttonPrimary,
+          props.type === 'default' && styles.buttonDefault,
+          props.danger && styles.buttonDanger,
         ),
       }),
     },

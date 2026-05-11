@@ -43,8 +43,7 @@ const useStyles = createStyles(({ css, cssVar }) => {
     }),
 
     buttonRoot: css({
-      ...lightBorder,
-      // border: undefined, // Not supported in this object spread context directly to unset
+      boxShadow: lightBorder.boxShadow,
       borderWidth: `${cssVar.lineWidth}`,
       borderColor: cssVar.colorPrimary,
     }),
@@ -84,14 +83,13 @@ function useGeekTheme() {
         lineWidth: 2,
         colorPrimary: '#39ff14',
         colorText: '#39ff14',
+        colorInfo: '#39ff14',
         controlHeightSM: 26,
         controlHeight: 34,
       },
     },
     app: {
-      classes: {
-        root: styles.app,
-      },
+      class: styles.app,
     },
     modal: {
       classes: {
@@ -112,9 +110,7 @@ function useGeekTheme() {
     },
 
     alert: {
-      classes: {
-        root: styles.lightBorder,
-      },
+      class: styles.lightBorder,
     },
     colorPicker: {
       arrow: false,
@@ -124,6 +120,11 @@ function useGeekTheme() {
       },
     },
     select: {
+      classes: {
+        root: styles.lightBorder,
+      },
+    },
+    datePicker: {
       classes: {
         root: styles.lightBorder,
       },

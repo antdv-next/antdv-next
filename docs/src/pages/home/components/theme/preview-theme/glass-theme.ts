@@ -6,7 +6,6 @@ import { computed } from 'vue'
 
 const useStyles = createStyles(({ css, cssVar }) => {
   const glassBorder = {
-    border: `${cssVar.lineWidth}px solid rgba(255,255,255,0.3)`,
     boxShadow: [
       `${cssVar.boxShadowSecondary}`,
       `inset 0 0 5px 2px rgba(255, 255, 255, 0.3)`,
@@ -20,12 +19,16 @@ const useStyles = createStyles(({ css, cssVar }) => {
     backdropFilter: 'blur(12px)',
   }
 
-  const glassBoxNoBackdrop = {
-    ...glassBox,
-    backdropFilter: 'none',
-  }
-
   return {
+    glassBorder: css({
+      ...glassBorder,
+    }),
+    glassBox: css({
+      ...glassBox,
+    }),
+    notBackdropFilter: css({
+      backdropFilter: 'none',
+    }),
     app: css({
       textShadow: '0 1px rgba(0,0,0,0.1)',
     }),
@@ -54,28 +57,57 @@ const useStyles = createStyles(({ css, cssVar }) => {
         color: `color-mix(in srgb, ${cssVar.colorText} 80%, transparent)`,
       },
     }),
-    glassBoxNoBackdrop: css({
-      ...glassBoxNoBackdrop,
-    }),
-    glassBox: css({
-      ...glassBox,
-    }),
     dropdownRoot: css({
       ...glassBox,
       borderRadius: cssVar.borderRadiusLG,
-    }),
-    colorPickerPopupRoot: css({
-      '& .ant-popover-container': {
-        background: cssVar.colorBgElevated,
-        border: `${cssVar.lineWidth}px solid ${cssVar.colorBorderSecondary}`,
-        boxShadow: cssVar.boxShadowSecondary,
-        backdropFilter: 'none',
-        WebkitBackdropFilter: 'none',
+
+      ul: {
+        background: 'transparent',
       },
     }),
     switchRoot: css({
       ...glassBorder,
       border: 'none',
+    }),
+    segmentedRoot: css({
+      ...glassBorder,
+      background: 'transparent',
+      backdropFilter: 'none',
+
+      '& .ant-segmented-thumb': {
+        ...glassBox,
+      },
+
+      '& .ant-segmented-item-selected': {
+        ...glassBox,
+      },
+    }),
+    radioButtonRoot: css({
+      '&.ant-radio-button-wrapper': {
+        ...glassBorder,
+        background: 'transparent',
+        borderColor: 'rgba(255, 255, 255, 0.2)',
+        color: cssVar.colorText,
+
+        '&:hover': {
+          borderColor: 'rgba(255, 255, 255, 0.24)',
+          color: cssVar.colorText,
+        },
+
+        '&.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled)': {
+          ...glassBox,
+          borderColor: 'rgba(255, 255, 255, 0.28)',
+          color: cssVar.colorText,
+
+          '&::before': {
+            backgroundColor: 'rgba(255, 255, 255, 0.18)',
+          },
+
+          '&:hover': {
+            color: cssVar.colorText,
+          },
+        },
+      },
     }),
     progressTrack: css({
       ...glassBorder,
@@ -104,9 +136,7 @@ function useGlassTheme() {
       },
     },
     app: {
-      classes: {
-        root: styles.app,
-      },
+      class: styles.app,
     },
     wave: {
       showEffect: () => {},
@@ -123,20 +153,19 @@ function useGlassTheme() {
     },
     button: {
       classes: ({ props }: { props: ButtonProps }) => ({
-        root: clsx(styles.buttonRoot, props.color === 'default' && styles.buttonRootDefaultColor),
+        root: clsx(
+          styles.buttonRoot,
+          (props.variant !== 'solid' || props.color === 'default' || props.type === 'default') && styles.buttonRootDefaultColor,
+        ),
       }),
     },
     alert: {
-      classes: {
-        root: styles.glassBoxNoBackdrop,
-      },
+      class: clsx(styles.glassBox, styles.notBackdropFilter),
     },
     colorPicker: {
       arrow: false,
       classes: {
-        popup: {
-          root: styles.colorPickerPopupRoot,
-        },
+        root: clsx(styles.glassBox, styles.notBackdropFilter),
       },
     },
     dropdown: {
@@ -146,10 +175,28 @@ function useGlassTheme() {
     },
     select: {
       classes: {
-        root: styles.glassBoxNoBackdrop,
+        root: clsx(styles.glassBox, styles.notBackdropFilter),
         popup: {
           root: styles.glassBox,
         },
+      },
+    },
+    datePicker: {
+      classes: {
+        root: clsx(styles.glassBox, styles.notBackdropFilter),
+        popup: {
+          container: styles.glassBox,
+        },
+      },
+    },
+    input: {
+      classes: {
+        root: clsx(styles.glassBox, styles.notBackdropFilter),
+      },
+    },
+    inputNumber: {
+      classes: {
+        root: clsx(styles.glassBox, styles.notBackdropFilter),
       },
     },
     popover: {
@@ -162,10 +209,17 @@ function useGlassTheme() {
         root: styles.switchRoot,
       },
     },
+    radio: {
+      classes: {
+        root: styles.radioButtonRoot,
+      },
+    },
+    segmented: {
+      class: styles.segmentedRoot,
+    },
     progress: {
       classes: {
-        track: styles.progressTrack,
-        rail: styles.progressRail,
+        track: styles.glassBorder,
       },
       styles: {
         rail: {
