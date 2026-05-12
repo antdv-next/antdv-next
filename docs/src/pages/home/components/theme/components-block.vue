@@ -161,10 +161,9 @@ const segmentedOptions = computed(() => [
           </a-flex>
 
           <a-flex gap="middle">
-            <a-date-picker variant="filled" />
+            <a-date-picker />
 
             <a-select
-              variant="filled"
               style="flex: auto;"
               mode="multiple"
               max-tag-count="responsive"
