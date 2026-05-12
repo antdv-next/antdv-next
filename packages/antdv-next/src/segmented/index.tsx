@@ -232,8 +232,8 @@ const InternalSegmented = defineComponent<
           direction={direction.value}
           vertical={mergedVertical.value}
           onChange={(value) => {
-            emit('change', value)
             emit('update:value', value)
+            emit('change', value)
           }}
         />
       )
