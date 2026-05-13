@@ -26,7 +26,6 @@ exports[`select > rtl render > component should be rendered correctly in RTL dir
         aria-owns="test-id_list"
         autocomplete="off"
         class="ant-select-input"
-        id="test-id"
         readonly=""
         role="combobox"
         type="search"
