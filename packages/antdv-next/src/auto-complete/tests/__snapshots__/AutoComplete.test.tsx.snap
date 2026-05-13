@@ -26,6 +26,7 @@ exports[`autoComplete > rtl render > component should be rendered correctly in R
         aria-owns="test-id_list"
         autocomplete="off"
         class="ant-select-input"
+        id="test-id"
         role="combobox"
         type="text"
         value=""

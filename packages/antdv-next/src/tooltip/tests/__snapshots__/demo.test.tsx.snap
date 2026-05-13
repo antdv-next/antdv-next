@@ -1652,6 +1652,7 @@ exports[`tooltip demo > renders disabled-children correctly 1`] = `
           autocomplete="off"
           class="ant-select-input"
           disabled=""
+          id="test-id"
           readonly=""
           role="combobox"
           type="search"

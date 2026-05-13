@@ -3695,6 +3695,7 @@ exports[`tree demo > renders line correctly 1`] = `
           aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-input"
+          id="test-id"
           readonly=""
           role="combobox"
           type="search"
