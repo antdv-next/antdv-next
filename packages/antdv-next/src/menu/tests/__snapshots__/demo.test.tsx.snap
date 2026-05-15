@@ -4350,10 +4350,14 @@ exports[`menu demo > renders slot-render correctly 1`] = `
                   class="ant-menu-title-content ant-menu-title-content-with-extra"
                 >
                   <span
-                    class="menu-slot-label"
-                    data-v-bf6f9cf7=""
+                    class="ant-menu-item-label"
                   >
-                    Option 1
+                    <span
+                      class="menu-slot-label"
+                      data-v-bf6f9cf7=""
+                    >
+                      Option 1
+                    </span>
                   </span>
                   <span
                     class="ant-menu-item-extra"
@@ -4406,10 +4410,14 @@ exports[`menu demo > renders slot-render correctly 1`] = `
                   class="ant-menu-title-content ant-menu-title-content-with-extra"
                 >
                   <span
-                    class="menu-slot-label"
-                    data-v-bf6f9cf7=""
+                    class="ant-menu-item-label"
                   >
-                    Option 2
+                    <span
+                      class="menu-slot-label"
+                      data-v-bf6f9cf7=""
+                    >
+                      Option 2
+                    </span>
                   </span>
                   <span
                     class="ant-menu-item-extra"
@@ -4483,10 +4491,14 @@ exports[`menu demo > renders slot-render correctly 1`] = `
                   class="ant-menu-title-content ant-menu-title-content-with-extra"
                 >
                   <span
-                    class="menu-slot-label"
-                    data-v-bf6f9cf7=""
+                    class="ant-menu-item-label"
                   >
-                    Option 3
+                    <span
+                      class="menu-slot-label"
+                      data-v-bf6f9cf7=""
+                    >
+                      Option 3
+                    </span>
                   </span>
                   <span
                     class="ant-menu-item-extra"
@@ -4539,10 +4551,14 @@ exports[`menu demo > renders slot-render correctly 1`] = `
                   class="ant-menu-title-content ant-menu-title-content-with-extra"
                 >
                   <span
-                    class="menu-slot-label"
-                    data-v-bf6f9cf7=""
+                    class="ant-menu-item-label"
                   >
-                    Option 4
+                    <span
+                      class="menu-slot-label"
+                      data-v-bf6f9cf7=""
+                    >
+                      Option 4
+                    </span>
                   </span>
                   <span
                     class="ant-menu-item-extra"
@@ -4671,10 +4687,14 @@ exports[`menu demo > renders slot-render correctly 1`] = `
               class="ant-menu-title-content ant-menu-title-content-with-extra"
             >
               <span
-                class="menu-slot-label"
-                data-v-bf6f9cf7=""
+                class="ant-menu-item-label"
               >
-                Option 5
+                <span
+                  class="menu-slot-label"
+                  data-v-bf6f9cf7=""
+                >
+                  Option 5
+                </span>
               </span>
               <span
                 class="ant-menu-item-extra"
@@ -4727,10 +4747,14 @@ exports[`menu demo > renders slot-render correctly 1`] = `
               class="ant-menu-title-content ant-menu-title-content-with-extra"
             >
               <span
-                class="menu-slot-label"
-                data-v-bf6f9cf7=""
+                class="ant-menu-item-label"
               >
-                Option 6
+                <span
+                  class="menu-slot-label"
+                  data-v-bf6f9cf7=""
+                >
+                  Option 6
+                </span>
               </span>
               <span
                 class="ant-menu-item-extra"
@@ -4854,10 +4878,14 @@ exports[`menu demo > renders slot-render correctly 1`] = `
                     class="ant-menu-title-content ant-menu-title-content-with-extra"
                   >
                     <span
-                      class="menu-slot-label"
-                      data-v-bf6f9cf7=""
+                      class="ant-menu-item-label"
                     >
-                      Option 7
+                      <span
+                        class="menu-slot-label"
+                        data-v-bf6f9cf7=""
+                      >
+                        Option 7
+                      </span>
                     </span>
                     <span
                       class="ant-menu-item-extra"
@@ -4910,10 +4938,14 @@ exports[`menu demo > renders slot-render correctly 1`] = `
                     class="ant-menu-title-content ant-menu-title-content-with-extra"
                   >
                     <span
-                      class="menu-slot-label"
-                      data-v-bf6f9cf7=""
+                      class="ant-menu-item-label"
                     >
-                      Option 8
+                      <span
+                        class="menu-slot-label"
+                        data-v-bf6f9cf7=""
+                      >
+                        Option 8
+                      </span>
                     </span>
                     <span
                       class="ant-menu-item-extra"
@@ -5048,10 +5080,14 @@ exports[`menu demo > renders slot-render correctly 1`] = `
               class="ant-menu-title-content ant-menu-title-content-with-extra"
             >
               <span
-                class="menu-slot-label"
-                data-v-bf6f9cf7=""
+                class="ant-menu-item-label"
               >
-                Option 9
+                <span
+                  class="menu-slot-label"
+                  data-v-bf6f9cf7=""
+                >
+                  Option 9
+                </span>
               </span>
               <span
                 class="ant-menu-item-extra"
@@ -5104,10 +5140,14 @@ exports[`menu demo > renders slot-render correctly 1`] = `
               class="ant-menu-title-content ant-menu-title-content-with-extra"
             >
               <span
-                class="menu-slot-label"
-                data-v-bf6f9cf7=""
+                class="ant-menu-item-label"
               >
-                Option 10
+                <span
+                  class="menu-slot-label"
+                  data-v-bf6f9cf7=""
+                >
+                  Option 10
+                </span>
               </span>
               <span
                 class="ant-menu-item-extra"
@@ -5160,10 +5200,14 @@ exports[`menu demo > renders slot-render correctly 1`] = `
               class="ant-menu-title-content ant-menu-title-content-with-extra"
             >
               <span
-                class="menu-slot-label"
-                data-v-bf6f9cf7=""
+                class="ant-menu-item-label"
               >
-                Option 11
+                <span
+                  class="menu-slot-label"
+                  data-v-bf6f9cf7=""
+                >
+                  Option 11
+                </span>
               </span>
               <span
                 class="ant-menu-item-extra"
@@ -5216,10 +5260,14 @@ exports[`menu demo > renders slot-render correctly 1`] = `
               class="ant-menu-title-content ant-menu-title-content-with-extra"
             >
               <span
-                class="menu-slot-label"
-                data-v-bf6f9cf7=""
+                class="ant-menu-item-label"
               >
-                Option 12
+                <span
+                  class="menu-slot-label"
+                  data-v-bf6f9cf7=""
+                >
+                  Option 12
+                </span>
               </span>
               <span
                 class="ant-menu-item-extra"
@@ -5294,10 +5342,14 @@ exports[`menu demo > renders slot-render correctly 1`] = `
             class="ant-menu-title-content ant-menu-title-content-with-extra"
           >
             <span
-              class="menu-slot-label"
-              data-v-bf6f9cf7=""
+              class="ant-menu-item-label"
             >
-              Option 13
+              <span
+                class="menu-slot-label"
+                data-v-bf6f9cf7=""
+              >
+                Option 13
+              </span>
             </span>
             <span
               class="ant-menu-item-extra"
@@ -5350,10 +5402,14 @@ exports[`menu demo > renders slot-render correctly 1`] = `
             class="ant-menu-title-content ant-menu-title-content-with-extra"
           >
             <span
-              class="menu-slot-label"
-              data-v-bf6f9cf7=""
+              class="ant-menu-item-label"
             >
-              Option 14
+              <span
+                class="menu-slot-label"
+                data-v-bf6f9cf7=""
+              >
+                Option 14
+              </span>
             </span>
             <span
               class="ant-menu-item-extra"
