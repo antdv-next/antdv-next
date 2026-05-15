@@ -20,8 +20,7 @@ import useClosable, { pickClosable } from '../_util/hooks/useClosable'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { useBaseConfig, useComponentBaseConfig } from '../config-provider/context'
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
-import useStyle from './style'
-import PurePanelStyle from './style/pure-panel'
+import useStyle, { PurePanelStyle } from './style'
 
 export type PurePanelClassNamesType = SemanticClassNamesType<
   PurePanelProps,

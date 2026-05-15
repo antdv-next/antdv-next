@@ -1,113 +1,210 @@
 import type { CSSObject } from '@antdv-next/cssinjs'
 import type { NotificationToken } from '.'
-
 import type { GenerateStyle } from '../../theme/internal'
-import { Keyframes } from '@antdv-next/cssinjs'
+import type { NotificationPlacement } from '../interface'
+import { unit } from '@antdv-next/cssinjs'
+import { NotificationPlacements } from '../interface'
 
-const genNotificationPlacementStyle: GenerateStyle<NotificationToken, CSSObject> = (token) => {
-  const { componentCls, notificationMarginEdge, animationMaxHeight } = token
+type VerticalPlacement = 'top' | 'bottom'
+type HorizontalPlacement = 'left' | 'right'
 
-  const noticeCls = `${componentCls}-notice`
+interface PlacementOffset {
+  blockEnd: VerticalPlacement
+  inlineEnd: HorizontalPlacement
+}
 
-  const rightFadeIn = new Keyframes('antNotificationFadeIn', {
-    '0%': {
-      transform: `translate3d(100%, 0, 0)`,
-      opacity: 0,
-    },
+interface PlacementMotionOffset {
+  x?: string
+  y?: string
+}
 
-    '100%': {
-      transform: `translate3d(0, 0, 0)`,
-      opacity: 1,
-    },
-  })
+interface PlacementStyleConfig {
+  placement: NotificationPlacement
+  vertical: VerticalPlacement
+  blockEnd: VerticalPlacement
+  horizontal: HorizontalPlacement
+  inlineEnd: HorizontalPlacement
+  motionOffset: PlacementMotionOffset
+  baseMotionOffset?: PlacementMotionOffset
+  isCenterPlacement: boolean
+}
 
-  const topFadeIn = new Keyframes('antNotificationTopFadeIn', {
-    '0%': {
-      top: -animationMaxHeight,
-      opacity: 0,
-    },
+const notificationMarginEdgeVar = '--notification-margin-edge'
 
-    '100%': {
-      top: 0,
-      opacity: 1,
-    },
-  })
+// ============================== Shared ==============================
 
-  const bottomFadeIn = new Keyframes('antNotificationBottomFadeIn', {
-    '0%': {
-      bottom: token.calc(animationMaxHeight).mul(-1).equal(),
-      opacity: 0,
-    },
+function getPlacementOffset(vertical: VerticalPlacement, horizontal: HorizontalPlacement): PlacementOffset {
+  return {
+    blockEnd: vertical === 'top' ? 'bottom' : 'top',
+    inlineEnd: horizontal === 'left' ? 'right' : 'left',
+  }
+}
 
-    '100%': {
-      bottom: 0,
-      opacity: 1,
-    },
-  })
+function getMotionTransform(motionOffset?: PlacementMotionOffset): string {
+  const x = motionOffset?.x ?? '0'
+  const y = motionOffset?.y ?? '0'
+  return `translate3d(${x}, ${y}, 0) scale(var(--notification-scale, 1))`
+}
 
-  const leftFadeIn = new Keyframes('antNotificationLeftFadeIn', {
-    '0%': {
-      transform: `translate3d(-100%, 0, 0)`,
-      opacity: 0,
-    },
-
-    '100%': {
-      transform: `translate3d(0, 0, 0)`,
-      opacity: 1,
-    },
-  })
+function getPlacementStyleConfig(
+  placement: NotificationPlacement,
+  motionOffset: string,
+): PlacementStyleConfig {
+  const vertical = placement.startsWith('bottom') ? 'bottom' : 'top'
+  const horizontal = placement.endsWith('Right') ? 'right' : 'left'
+  const { blockEnd, inlineEnd } = getPlacementOffset(vertical, horizontal)
+  const isCenterPlacement = placement === 'top' || placement === 'bottom'
+  const offset = placement === 'top' || placement.endsWith('Left') ? `-${motionOffset}` : motionOffset
 
   return {
-    [componentCls]: {
-      [`&${componentCls}-top, &${componentCls}-bottom`]: {
-        marginInline: 0,
+    placement,
+    vertical,
+    blockEnd,
+    horizontal,
+    inlineEnd,
+    motionOffset: isCenterPlacement ? { x: '-50%', y: offset } : { x: offset },
+    baseMotionOffset: isCenterPlacement ? { x: '-50%' } : undefined,
+    isCenterPlacement,
+  }
+}
+
+function getPlacementFlexDirection(vertical: VerticalPlacement) {
+  return vertical === 'bottom' ? 'column-reverse' : 'column'
+}
+
+function getPlacementInset(vertical: VerticalPlacement) {
+  const marginEdge = `var(${notificationMarginEdgeVar}, 0px)`
+  return `calc(var(--notification-${vertical}, ${marginEdge}) - ${marginEdge})`
+}
+
+function getPlacementTransformOrigin(vertical: VerticalPlacement) {
+  return vertical === 'bottom' ? 'center top' : 'center bottom'
+}
+
+function getStackShadowClipOffset(token: NotificationToken) {
+  return unit(token.calc(token.marginXXL).mul(-1).equal())
+}
+
+function getStackNoticeClipPath(token: NotificationToken) {
+  const offset = getStackShadowClipOffset(token)
+  return `inset(${offset} ${offset} ${offset} ${offset})`
+}
+
+function getPlacementStackClipPath(token: NotificationToken, vertical: VerticalPlacement) {
+  const offset = getStackShadowClipOffset(token)
+  return vertical === 'bottom'
+    ? `inset(${offset} ${offset} 50% ${offset})`
+    : `inset(50% ${offset} ${offset} ${offset})`
+}
+
+// ============================= Placement =============================
+
+function genPlacementStyle(token: NotificationToken, config: PlacementStyleConfig): CSSObject {
+  const { componentCls } = token
+  const { placement, vertical, blockEnd, horizontal, inlineEnd, isCenterPlacement } = config
+
+  const noticeCls = `${componentCls}-notice`
+  const noticeMotionCls = `${noticeCls}${componentCls}-fade`
+
+  const enterTransform = getMotionTransform(config.motionOffset)
+  const baseTransform = getMotionTransform(config.baseMotionOffset)
+  const transformOrigin = getPlacementTransformOrigin(vertical)
+
+  return {
+    [`&${componentCls}-${placement}`]: {
+      [vertical]: getPlacementInset(vertical),
+      [blockEnd]: 'auto',
+      display: 'flex',
+      flexDirection: getPlacementFlexDirection(vertical),
+      ...(isCenterPlacement
+        ? {
+            marginInline: 0,
+            left: '50%',
+            right: 'auto',
+            transform: 'translateX(-50%)',
+          }
+        : {
+            [horizontal]: 0,
+            [inlineEnd]: 'auto',
+          }),
+
+      [noticeCls]: {
+        [vertical]: 'var(--notification-y, 0)',
+        ...(isCenterPlacement
+          ? {
+              left: '50%',
+              transform: baseTransform,
+            }
+          : {
+              [horizontal]: 'var(--notification-x, 0)',
+            }),
+        transformOrigin,
+      },
+
+      [`${noticeMotionCls}-appear-prepare, ${noticeMotionCls}-enter-prepare`]: {
+        opacity: 0,
+        transform: enterTransform,
+        transition: 'none',
+      },
+
+      [`${noticeMotionCls}-appear-start, ${noticeMotionCls}-enter-start`]: {
+        opacity: 0,
+        transform: enterTransform,
+      },
+
+      [`${noticeMotionCls}-appear-active, ${noticeMotionCls}-enter-active`]: {
+        opacity: 1,
+        transform: baseTransform,
+      },
+
+      [`${noticeMotionCls}-leave-start`]: {
+        opacity: 1,
+        transform: baseTransform,
+      },
+
+      [`${noticeMotionCls}-leave-active`]: {
+        opacity: 0,
+        transform: enterTransform,
+      },
+
+      [`&${componentCls}-stack:not(${componentCls}-stack-expanded)`]: {
         [noticeCls]: {
-          marginInline: 'auto auto',
-        },
-      },
-
-      [`&${componentCls}-top`]: {
-        [`${componentCls}-fade-enter${componentCls}-fade-enter-active, ${componentCls}-fade-appear${componentCls}-fade-appear-active`]:
-          {
-            animationName: topFadeIn,
-          },
-      },
-
-      [`&${componentCls}-bottom`]: {
-        [`${componentCls}-fade-enter${componentCls}-fade-enter-active, ${componentCls}-fade-appear${componentCls}-fade-appear-active`]:
-          {
-            animationName: bottomFadeIn,
-          },
-      },
-
-      [`&${componentCls}-topRight, &${componentCls}-bottomRight`]: {
-        [`${componentCls}-fade-enter${componentCls}-fade-enter-active, ${componentCls}-fade-appear${componentCls}-fade-appear-active`]:
-          {
-            animationName: rightFadeIn,
-          },
-      },
-
-      [`&${componentCls}-topLeft, &${componentCls}-bottomLeft`]: {
-        marginRight: {
-          value: 0,
-          _skip_check_: true,
-        },
-        marginLeft: {
-          value: notificationMarginEdge,
-          _skip_check_: true,
+          clipPath: getPlacementStackClipPath(token, vertical),
         },
 
-        [noticeCls]: {
-          marginInlineEnd: 'auto',
-          marginInlineStart: 0,
+        [`${noticeCls}[data-notification-index='0']`]: {
+          clipPath: getStackNoticeClipPath(token),
         },
-
-        [`${componentCls}-fade-enter${componentCls}-fade-enter-active, ${componentCls}-fade-appear${componentCls}-fade-appear-active`]:
-          {
-            animationName: leftFadeIn,
-          },
       },
     },
+  }
+}
+
+function genNotificationPlacementRootStyle(
+  token: NotificationToken,
+  placements: readonly NotificationPlacement[] = NotificationPlacements,
+): CSSObject {
+  const { notificationMotionOffset } = token
+  const motionOffset = unit(notificationMotionOffset)
+
+  return {
+    ...placements.reduce<CSSObject>(
+      (styles, placement) => ({
+        ...styles,
+        ...genPlacementStyle(token, getPlacementStyleConfig(placement, motionOffset)),
+      }),
+      {},
+    ),
+  }
+}
+
+// ============================== Export ==============================
+
+const genNotificationPlacementStyle: GenerateStyle<NotificationToken, CSSObject> = (token) => {
+  const { componentCls } = token
+
+  return {
+    [componentCls]: genNotificationPlacementRootStyle(token),
   }
 }
 
