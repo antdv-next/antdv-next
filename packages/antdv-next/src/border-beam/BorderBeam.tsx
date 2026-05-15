@@ -1,4 +1,4 @@
-import type { CSSProperties, SlotsType, VNode } from 'vue'
+import type { App, CSSProperties, SlotsType, VNode } from 'vue'
 import type { VueNode } from '../_util/type'
 import type { BorderBeamColor } from './util'
 import { clsx } from '@v-c/util'
@@ -123,9 +123,13 @@ const BorderBeam = defineComponent<
     }
   },
   {
-    name: 'BorderBeam',
+    name: 'ABorderBeam',
     inheritAttrs: false,
   },
 )
 
 export default BorderBeam
+
+;(BorderBeam as any).install = (app: App) => {
+  app.component(BorderBeam.name, BorderBeam)
+}
