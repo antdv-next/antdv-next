@@ -369,6 +369,7 @@ export type CardConfig = ComponentStyleConfig
 
 export type DrawerConfig = ComponentStyleConfig
   & Pick<DrawerProps, 'classes' | 'styles' | 'closeIcon' | 'closable' | 'mask'>
+  & { focusable?: any }
 
 export type ModalConfig = ComponentStyleConfig
   & Pick<
@@ -382,6 +383,7 @@ export type ModalConfig = ComponentStyleConfig
     | 'cancelButtonProps'
     | 'mask'
   >
+  & { focusable?: any }
 
 export type StepsConfig = ComponentStyleConfig & Pick<StepsProps, 'classes' | 'styles'>
 

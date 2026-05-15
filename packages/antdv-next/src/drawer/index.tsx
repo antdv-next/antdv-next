@@ -118,7 +118,8 @@ const Drawer = defineComponent<
       classes: contextClassNames,
       styles: contextStyles,
       mask: contextMask,
-    } = useComponentBaseConfig('drawer', props, ['mask'])
+      focusable: contextFocusable,
+    } = useComponentBaseConfig('drawer', props, ['mask', 'focusable'])
     const {
       zIndex: customZIndex,
       mask: drawerMask,
@@ -193,7 +194,11 @@ const Drawer = defineComponent<
     // ============================ Mask ============================
     const [mergedMask, maskBlurClassName, mergedMaskClosable] = useMergedMask(drawerMask, contextMask, prefixCls, maskClosable)
     // ========================== Focusable =========================
-    const mergedFocusable = useFocusable(focusable, computed(() => {
+    const mergedFocusableInput = computed(() => ({
+      ...(contextFocusable?.value ?? {}),
+      ...(focusable.value ?? {}),
+    }))
+    const mergedFocusable = useFocusable(mergedFocusableInput as any, computed(() => {
       return props?.getContainer !== false && mergedMask.value
     }))
     const mergedProps = computed(() => {

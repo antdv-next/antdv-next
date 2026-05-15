@@ -80,11 +80,13 @@ const Modal = defineComponent<
       cancelButtonProps: contextCancelButtonProps,
       okButtonProps: contextOkButtonProps,
       mask: contextMask,
+      focusable: contextFocusable,
     } = useComponentBaseConfig('modal', props, [
       'centered',
       'cancelButtonProps',
       'okButtonProps',
       'mask',
+      'focusable',
     ])
 
     const {
@@ -127,7 +129,11 @@ const Modal = defineComponent<
     const [mergedMask, maskBlurClassName, mergeMaskClosable] = useMergedMask(modalMask, contextMask, prefixCls, maskClosable)
 
     // ========================== Focusable =========================
-    const mergedFocusable = useFocusable(focusable, mergedMask, focusTriggerAfterClose)
+    const mergedFocusableInput = computed(() => ({
+      ...(contextFocusable?.value ?? {}),
+      ...(focusable.value ?? {}),
+    }))
+    const mergedFocusable = useFocusable(mergedFocusableInput, mergedMask, focusTriggerAfterClose)
 
     const onClose = () => {
       closableContext.value?.[1]?.()
