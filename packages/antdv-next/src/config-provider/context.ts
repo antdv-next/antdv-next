@@ -424,6 +424,8 @@ export interface TableConfig<RecordType extends AnyObject = AnyObject>
   scroll?: TableProps<RecordType>['scroll']
   bodyCell?: TableProps['bodyCell']
   headerCell?: TableProps['headerCell']
+  /** Default props applied to every column (ant-design 6.4.0 #57545). */
+  column?: TableProps<RecordType>['column']
 }
 
 export type RibbonConfig = ComponentStyleConfig & Pick<RibbonProps, 'classes' | 'styles'>

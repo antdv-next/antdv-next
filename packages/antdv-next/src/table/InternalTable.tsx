@@ -47,6 +47,7 @@ import Spin from '../spin'
 import { useToken } from '../theme/internal'
 import renderExpandIcon from './ExpandIcon.tsx'
 import useContainerWidth from './hooks/useContainerWidth.ts'
+import useFilledColumns from './hooks/useFilledColumns.ts'
 import useFilter, { collectFilterStates, generateFilterInfo, getFilterData, getMergedFilterStates } from './hooks/useFilter'
 import useLazyKVMap from './hooks/useLazyKVMap.ts'
 import usePagination, { DEFAULT_PAGE_SIZE, getPaginationParam } from './hooks/usePagination.ts'
@@ -240,7 +241,8 @@ const InternalTable = defineComponent<
       headerCell: contextHeaderCell,
       rowKey: contextRowKey,
       scroll: contextScroll,
-    } = useComponentBaseConfig('table', props, ['bodyCell', 'headerCell', 'rowKey', 'scroll'])
+      column: contextColumn,
+    } = useComponentBaseConfig('table', props, ['bodyCell', 'headerCell', 'rowKey', 'scroll', 'column'])
 
     const configCtx = useConfig()
 
@@ -286,13 +288,18 @@ const InternalTable = defineComponent<
     const rootCls = useCSSVarCls(prefixCls)
     const [hashId, cssVarCls] = useStyle(prefixCls, rootCls)
 
-    const baseColumns = computed(() => {
+    const rawColumns = computed(() => {
       if (props.columns) {
         return props.columns
       }
       const children = slots.default?.() ?? []
       return convertColumnsToColumnProps(children)
     })
+
+    const baseColumns = useFilledColumns(
+      rawColumns,
+      computed(() => (props.column ?? (contextColumn as any)?.value) as any),
+    )
 
     const needResponsive = computed(() => baseColumns.value.some((col: any) => col.responsive))
     const screens = useBreakpoint(needResponsive, null)
