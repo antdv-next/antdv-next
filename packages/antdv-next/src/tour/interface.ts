@@ -26,6 +26,7 @@ export interface TourSemanticClassNames {
   header?: string
   title?: string
   description?: string
+  close?: string
 }
 
 export interface TourSemanticStyles {
@@ -40,6 +41,7 @@ export interface TourSemanticStyles {
   header?: CSSProperties
   title?: CSSProperties
   description?: CSSProperties
+  close?: CSSProperties
 }
 
 export type TourClassNamesType = SemanticClassNamesType<TourProps, TourSemanticClassNames>

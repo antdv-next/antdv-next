@@ -63,6 +63,11 @@ export interface SearchProps extends Omit<BaseInputProps, 'class' | 'style' | 'r
   inputPrefixCls?: string
   on?: never
   enterButton?: boolean | VueNode
+  /**
+   * Custom search icon shown inside the trigger button when enterButton is a
+   * boolean. Mirrors ant-design 6.4.0 PR #57256.
+   */
+  searchIcon?: VueNode
   loading?: boolean
   size?: SizeType
   hidden?: boolean
@@ -237,7 +242,9 @@ const InternalSearch = defineComponent<
 
       const enterButtonValue = props.enterButton ?? false
       const isBooleanEnterButton = typeof enterButtonValue === 'boolean'
-      const searchIcon = isBooleanEnterButton ? <SearchOutlined /> : null
+      const searchIcon = isBooleanEnterButton
+        ? (props.searchIcon ?? <SearchOutlined />)
+        : null
       const buttonChildren = isBooleanEnterButton ? undefined : enterButtonValue
 
       let buttonNode: any

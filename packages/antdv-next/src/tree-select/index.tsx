@@ -85,12 +85,14 @@ export interface TreeSelectPopupSemanticClassNames {
   root?: string
   item?: string
   itemTitle?: string
+  itemSwitcher?: string
 }
 
 export interface TreeSelectPopupSemanticStyles {
   root?: CSSProperties
   item?: CSSProperties
   itemTitle?: CSSProperties
+  itemSwitcher?: CSSProperties
 }
 
 export type TreeSelectClassNamesType = SemanticClassNamesType<

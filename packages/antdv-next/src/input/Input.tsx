@@ -36,6 +36,7 @@ export interface InputSemanticClassNames {
   root?: string
   prefix?: string
   suffix?: string
+  clear?: string
   input?: string
   count?: string
 }
@@ -44,6 +45,7 @@ export interface InputSemanticStyles {
   root?: CSSProperties
   prefix?: CSSProperties
   suffix?: CSSProperties
+  clear?: CSSProperties
   input?: CSSProperties
   count?: CSSProperties
 }

@@ -126,6 +126,7 @@ export interface TreeSemanticClassNames {
   item?: string
   itemIcon?: string
   itemTitle?: string
+  itemSwitcher?: string
 }
 
 export interface TreeSemanticStyles {
@@ -133,6 +134,7 @@ export interface TreeSemanticStyles {
   item?: CSSProperties
   itemIcon?: CSSProperties
   itemTitle?: CSSProperties
+  itemSwitcher?: CSSProperties
 }
 
 export type TreeClassNamesType = SemanticClassNamesType<TreeProps, TreeSemanticClassNames>

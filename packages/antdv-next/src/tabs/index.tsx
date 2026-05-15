@@ -35,6 +35,7 @@ export interface TabsSemanticClassNames {
   indicator?: string
   content?: string
   header?: string
+  remove?: string
 }
 
 export interface TabsSemanticStyles {
@@ -43,6 +44,7 @@ export interface TabsSemanticStyles {
   indicator?: CSSProperties
   content?: CSSProperties
   header?: CSSProperties
+  remove?: CSSProperties
 }
 
 export type TabsClassNamesType = SemanticClassNamesType<
