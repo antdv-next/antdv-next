@@ -237,10 +237,14 @@ const PurePanel = defineComponent<PurePanelProps>(
       const notificationClassName = (attrs as any).class
       const style = (attrs as any).style
       const restProps = omit(props, omitKeys)
+      // slot > prop > null
       const actions = getSlotPropsFnRun(slots, props, 'actions')
+      const titleNode = getSlotPropsFnRun(slots, props, 'title')
+      const descriptionNode = getSlotPropsFnRun(slots, props, 'description')
+      const slotIcon = getSlotPropsFnRun(slots, props, 'icon')
       const mergedNcs = mergedClassNames.value as PureContentProps['classes']
       const mergedNss = mergedStyles.value as PureContentProps['styles']
-      const iconNode = resolveIconNode(props.icon, props.type)
+      const iconNode = resolveIconNode(slotIcon ?? props.icon, props.type)
       const iconWrapperClass = clsx(getIconWrapperClassName(noticePrefixCls, props.type), mergedNcs?.icon)
       return (
         <div
@@ -272,8 +276,8 @@ const PurePanel = defineComponent<PurePanelProps>(
               { [`${noticePrefixCls}-with-icon`]: !!iconNode },
             )}
             icon={iconNode}
-            title={props.title}
-            description={props.description}
+            title={titleNode}
+            description={descriptionNode}
             actions={actions}
             classNames={{
               icon: iconWrapperClass,

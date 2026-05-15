@@ -27,4 +27,13 @@ describe('input.Search searchIcon', () => {
     // When enterButton is a custom string, searchIcon is intentionally suppressed.
     expect(wrapper.find('.custom-search-icon').exists()).toBe(false)
   })
+
+  it('renders the searchIcon slot (slot wins over prop and default)', () => {
+    const wrapper = mount(Input.Search, {
+      props: { enterButton: true, searchIcon: h('span', { class: 'from-prop' }, 'P') },
+      slots: { searchIcon: () => h('span', { class: 'from-slot' }, 'S') },
+    })
+    expect(wrapper.find('.ant-input-search-btn .from-slot').exists()).toBe(true)
+    expect(wrapper.find('.ant-input-search-btn .from-prop').exists()).toBe(false)
+  })
 })
