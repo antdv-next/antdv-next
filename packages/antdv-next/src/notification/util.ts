@@ -4,63 +4,28 @@ import type { VueNode } from '../_util/type.ts'
 import type { NotificationConfig as CPNotificationConfig } from '../config-provider/context'
 import type { NotificationConfig, NotificationPlacement } from './interface'
 
-export function getPlacementStyle(placement: NotificationPlacement, top: number, bottom: number) {
-  let style: CSSProperties
-
-  switch (placement) {
-    case 'top':
-      style = {
-        left: '50%',
-        transform: 'translateX(-50%)',
-        right: 'auto',
-        top: `${top}px`,
-        bottom: 'auto',
-      }
-      break
-
-    case 'topLeft':
-      style = {
-        left: 0,
-        top: `${top}px`,
-        bottom: 'auto',
-      }
-      break
-
-    case 'topRight':
-      style = {
-        right: 0,
-        top: `${top}px`,
-        bottom: 'auto',
-      }
-      break
-
-    case 'bottom':
-      style = {
-        left: '50%',
-        transform: 'translateX(-50%)',
-        right: 'auto',
-        top: 'auto',
-        bottom: `${bottom}px`,
-      }
-      break
-
-    case 'bottomLeft':
-      style = {
-        left: 0,
-        top: 'auto',
-        bottom: `${bottom}px`,
-      }
-      break
-
-    default:
-      style = {
-        right: 0,
-        top: 'auto',
-        bottom: `${bottom}px`,
-      }
-      break
+/**
+ * Mirror ant-design 6.4.0 getPlacementOffsetStyle: surface positioning via
+ * the --notification-top / --notification-bottom CSS variables that the
+ * new placement.ts style file consumes. Setting inline `top: Npx` would
+ * defeat the holder's `inset` calc and force the holder to occupy the
+ * full --notification-margin-edge gap, which manifests as a tall empty
+ * strip at the top of the page when scrolled.
+ */
+export function getPlacementOffsetStyle(top?: number | string, bottom?: number | string): CSSProperties {
+  const result: CSSProperties = {}
+  if (top !== undefined && top !== null) {
+    ;(result as any)['--notification-top'] = typeof top === 'number' ? `${top}px` : top
   }
-  return style
+  if (bottom !== undefined && bottom !== null) {
+    ;(result as any)['--notification-bottom'] = typeof bottom === 'number' ? `${bottom}px` : bottom
+  }
+  return result
+}
+
+/** @deprecated kept for the message wrapper; routes through getPlacementOffsetStyle. */
+export function getPlacementStyle(_placement: NotificationPlacement, top: number, bottom: number): CSSProperties {
+  return getPlacementOffsetStyle(top, bottom)
 }
 
 export function getMotion(prefixCls: string): CSSMotionProps {

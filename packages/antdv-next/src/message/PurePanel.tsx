@@ -184,6 +184,7 @@ const PurePanel = defineComponent<PurePanelProps>(
         mergedClassNames.value?.icon,
         mergedStyles.value?.icon,
       )
+      const iconWrapperClass = props.type ? `${noticePrefixCls}-icon-${props.type}` : ''
 
       return (
         <Notification
@@ -191,6 +192,7 @@ const PurePanel = defineComponent<PurePanelProps>(
           {...restProps as NotificationProps}
           prefixCls={prefixCls.value}
           duration={null}
+          classNames={{ icon: iconWrapperClass }}
           class={clsx(
             contextClassName.value,
             mergedClassNames.value?.root,

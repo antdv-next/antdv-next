@@ -21,6 +21,7 @@ import { toPropsRefs } from '../_util/tools'
 import { devUseWarning } from '../_util/warning'
 import { useBaseConfig, useComponentBaseConfig } from '../config-provider/context'
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
+import { getPlacementOffsetStyle } from '../notification/util'
 import { resolveMessageIcon } from './PurePanel'
 import useStyle from './style'
 import { getMotion, wrapPromiseFn } from './util'
@@ -94,11 +95,11 @@ const Holder = defineComponent<HolderProps>(
     const mergedDuration = computed(() => props.duration ?? DEFAULT_DURATION)
     const mergedPauseOnHover = computed(() => (props.pauseOnHover === undefined ? true : props.pauseOnHover))
 
-    const getStyle = () => ({
-      left: '50%',
-      transform: 'translateX(-50%)',
-      top: mergedTop.value,
-    })
+    // Surface position via the --notification-top CSS variable so the new
+    // placement.ts `inset` calc (--notification-top - --notification-margin-edge)
+    // works correctly and the holder doesn't take a full-height strip at the
+    // top of the page. Mirrors ant-design 6.4.0 getPlacementOffsetStyle.
+    const getStyle = () => getPlacementOffsetStyle(mergedTop.value)
 
     const getClassName = () => clsx({
       [`${prefixCls.value}-rtl`]: props.rtl ?? direction.value === 'rtl',
@@ -235,6 +236,10 @@ export function useInternalMessage(messageConfig?: MaybeRef<HolderProps>) {
         mergedClassNames.icon,
         mergedStyles.icon,
       )
+      // Tell vc-notification to add the type modifier on the .notice-icon
+      // wrapper so the shared genListItemSharedStyle can apply
+      // colorSuccess / colorInfo / colorWarning / colorError to it.
+      const iconWrapperClass = type ? `${noticePrefixCls}-icon-${type}` : ''
       return wrapPromiseFn((resolve) => {
         originOpen({
           ...restConfig as any,
@@ -243,6 +248,7 @@ export function useInternalMessage(messageConfig?: MaybeRef<HolderProps>) {
           // v2 semantic icon slot → renders inside .notice-wrapper > .notice-icon
           // so the shared flex layout (gap, alignItems:center) applies.
           icon: iconNode,
+          classNames: { icon: iconWrapperClass },
           description: (
             <div class={clsx(`${prefixCls}-custom-content`, type && `${prefixCls}-${type}`)}>
               <span class={mergedClassNames.content} style={mergedStyles.content}>
