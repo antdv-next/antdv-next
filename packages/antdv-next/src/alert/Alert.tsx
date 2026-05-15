@@ -188,7 +188,8 @@ const Alert = defineComponent<
       errorIcon,
       infoIcon,
       warningIcon,
-    } = useComponentBaseConfig('alert', props, ['closable', 'closeIcon', 'successIcon', 'errorIcon', 'infoIcon', 'warningIcon'])
+      variant: contextVariant,
+    } = useComponentBaseConfig('alert', props, ['closable', 'closeIcon', 'successIcon', 'errorIcon', 'infoIcon', 'warningIcon', 'variant'])
     const { classes, styles } = toPropsRefs(props, 'classes', 'styles')
     const closed = shallowRef(false)
     const internalRef = shallowRef<HTMLDivElement>()
@@ -263,9 +264,11 @@ const Alert = defineComponent<
         props: mergedProps,
       })
 
+      const mergedVariant = props.variant ?? contextVariant?.value ?? 'outlined'
       const alertCls = classNames(
         prefixCls.value,
         `${prefixCls.value}-${type.value}`,
+        `${prefixCls.value}-${mergedVariant}`,
         {
           [`${prefixCls.value}-with-description`]: !!description,
           [`${prefixCls.value}-no-icon`]: !isShowIcon,

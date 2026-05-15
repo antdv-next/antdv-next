@@ -488,7 +488,7 @@ exports[`spin demo > renders delay-and-debounce correctly 1`] = `
         persisted="false"
       >
         <div
-          class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon css-var-root"
+          class="ant-alert ant-alert-info ant-alert-outlined ant-alert-with-description ant-alert-no-icon css-var-root"
           data-show="true"
           role="alert"
         >
@@ -609,7 +609,7 @@ exports[`spin demo > renders nested correctly 1`] = `
         persisted="false"
       >
         <div
-          class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon css-var-root"
+          class="ant-alert ant-alert-info ant-alert-outlined ant-alert-with-description ant-alert-no-icon css-var-root"
           data-show="true"
           role="alert"
         >
@@ -1216,7 +1216,7 @@ exports[`spin demo > renders tip correctly 1`] = `
         persisted="false"
       >
         <div
-          class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon css-var-root"
+          class="ant-alert ant-alert-info ant-alert-outlined ant-alert-with-description ant-alert-no-icon css-var-root"
           data-show="true"
           role="alert"
         >

@@ -6309,7 +6309,7 @@ exports[`form demo > renders form-dependencies correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-info css-var-root"
+      class="ant-alert ant-alert-info ant-alert-outlined css-var-root"
       data-show="true"
       role="alert"
     >
