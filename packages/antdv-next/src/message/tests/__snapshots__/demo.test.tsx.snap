@@ -20,10 +20,10 @@ exports[`message demo > renders _semantic correctly 1`] = `
         style="--notification-index: 0;"
       >
         <div
-          class="ant-message-notice-description"
+          class="ant-message-notice-wrapper"
         >
           <div
-            class="ant-message-custom-content ant-message-success"
+            class="ant-message-notice-icon"
           >
             <span
               aria-label="check-circle"
@@ -44,11 +44,19 @@ exports[`message demo > renders _semantic correctly 1`] = `
                 />
               </svg>
             </span>
-            <span
-              class="semantic-mark-content"
+          </div>
+          <div
+            class="ant-message-notice-description"
+          >
+            <div
+              class="ant-message-custom-content ant-message-success"
             >
-              Hello, Ant Design!
-            </span>
+              <span
+                class="semantic-mark-content"
+              >
+                Hello, Ant Design!
+              </span>
+            </div>
           </div>
         </div>
         <!---->
@@ -708,10 +716,10 @@ exports[`message demo > renders render-panel correctly 1`] = `
   style="--notification-index: 0;"
 >
   <div
-    class="ant-message-notice-description"
+    class="ant-message-notice-wrapper"
   >
     <div
-      class="ant-message-custom-content ant-message-error"
+      class="ant-message-notice-icon"
     >
       <span
         aria-label="close-circle"
@@ -733,9 +741,17 @@ exports[`message demo > renders render-panel correctly 1`] = `
           />
         </svg>
       </span>
-      <span>
-        Hello World!
-      </span>
+    </div>
+    <div
+      class="ant-message-notice-description"
+    >
+      <div
+        class="ant-message-custom-content ant-message-error"
+      >
+        <span>
+          Hello World!
+        </span>
+      </div>
     </div>
   </div>
   <!---->

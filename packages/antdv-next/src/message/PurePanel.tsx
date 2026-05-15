@@ -206,9 +206,9 @@ const PurePanel = defineComponent<PurePanelProps>(
             ...contextStyle.value,
             ...(attrs as any).style,
           }}
+          icon={iconNode}
           description={(
             <div class={clsx(`${prefixCls.value}-custom-content`, props.type && `${prefixCls.value}-${props.type}`)}>
-              {iconNode}
               <span class={mergedClassNames.value?.content} style={mergedStyles.value?.content}>
                 {props.content}
               </span>

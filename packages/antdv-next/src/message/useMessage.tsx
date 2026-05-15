@@ -240,9 +240,11 @@ export function useInternalMessage(messageConfig?: MaybeRef<HolderProps>) {
           ...restConfig as any,
           key: mergedKey!,
           placement: 'top',
+          // v2 semantic icon slot → renders inside .notice-wrapper > .notice-icon
+          // so the shared flex layout (gap, alignItems:center) applies.
+          icon: iconNode,
           description: (
             <div class={clsx(`${prefixCls}-custom-content`, type && `${prefixCls}-${type}`)}>
-              {iconNode}
               <span class={mergedClassNames.content} style={mergedStyles.content}>
                 {content}
               </span>
