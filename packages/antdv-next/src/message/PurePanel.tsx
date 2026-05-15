@@ -1,4 +1,4 @@
-import type { NoticeProps } from '@v-c/notification'
+import type { NotificationProps } from '@v-c/notification'
 import type { VueNode } from '../_util/type'
 import type {
   ArgsClassNamesType,
@@ -8,7 +8,7 @@ import type {
   NoticeType,
 } from './interface'
 import { CheckCircleFilled, CloseCircleFilled, ExclamationCircleFilled, InfoCircleFilled, LoadingOutlined } from '@antdv-next/icons'
-import { Notice } from '@v-c/notification'
+import { Notification } from '@v-c/notification'
 import { clsx } from '@v-c/util'
 import { omit } from 'es-toolkit'
 import { cloneVNode, computed, defineComponent, isVNode } from 'vue'
@@ -32,6 +32,37 @@ const TypeIcon = {
   error: CloseCircleFilled,
   warning: ExclamationCircleFilled,
   loading: LoadingOutlined,
+}
+
+export function resolveMessageIcon(
+  prefixCls: string,
+  icon: VueNode | undefined,
+  type: NoticeType | undefined,
+  iconClassName?: string,
+  iconStyle?: any,
+): VueNode {
+  if (icon && isVNode(icon)) {
+    return cloneVNode(icon, {
+      class: clsx((icon.props as any)?.class, iconClassName),
+      style: { ...(icon.props as any)?.style, ...iconStyle },
+    })
+  }
+  if (icon) {
+    return (
+      <span class={clsx(`${prefixCls}-icon`, iconClassName)} style={iconStyle}>
+        {icon}
+      </span>
+    )
+  }
+  const IconNode = type ? TypeIcon[type] : null
+  return IconNode
+    ? (
+        <IconNode
+          class={clsx(`${prefixCls}-icon`, iconClassName)}
+          style={iconStyle}
+        />
+      )
+    : null
 }
 
 export const PureContent = defineComponent<PureContentProps>(
@@ -145,15 +176,22 @@ const PurePanel = defineComponent<PurePanelProps>(
 
     return () => {
       const restProps = omit(props, omitKeys)
+      const noticePrefixCls = `${prefixCls.value}-notice`
+      const iconNode = resolveMessageIcon(
+        prefixCls.value,
+        props.icon,
+        props.type,
+        mergedClassNames.value?.icon,
+        mergedStyles.value?.icon,
+      )
 
       return (
-        <Notice
+        <Notification
           {...pureAttrs(attrs)}
-          {...restProps as NoticeProps}
+          {...restProps as NotificationProps}
           prefixCls={prefixCls.value}
-          eventKey="pure"
           duration={null}
-          className={clsx(
+          class={clsx(
             contextClassName.value,
             mergedClassNames.value?.root,
             props.class,
@@ -161,22 +199,18 @@ const PurePanel = defineComponent<PurePanelProps>(
             cssVarCls.value,
             rootCls.value,
             `${prefixCls.value}-notice-pure-panel`,
+            props.type && `${noticePrefixCls}-${props.type}`,
           )}
           style={{
             ...mergedStyles.value.root,
             ...contextStyle.value,
             ...(attrs as any).style,
           }}
-          content={(
-            <PureContent
-              prefixCls={prefixCls.value}
-              type={props.type}
-              icon={props.icon}
-              classNames={mergedClassNames.value}
-              styles={mergedStyles.value}
-            >
+          icon={iconNode}
+          description={(
+            <span class={mergedClassNames.value?.content} style={mergedStyles.value?.content}>
               {props.content}
-            </PureContent>
+            </span>
           )}
         />
       )

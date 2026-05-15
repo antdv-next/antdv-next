@@ -6,7 +6,7 @@ import type {
   NotificationSemanticStyles,
 } from './interface'
 import { CheckCircleFilled, CloseCircleFilled, CloseOutlined, ExclamationCircleFilled, InfoCircleFilled } from '@antdv-next/icons'
-import { Notice } from '@v-c/notification'
+import { Notification } from '@v-c/notification'
 import { clsx } from '@v-c/util'
 import { omit } from 'es-toolkit'
 import { computed, createVNode, defineComponent } from 'vue'
@@ -54,6 +54,29 @@ const typeToIcon = {
   info: InfoCircleFilled,
   error: CloseCircleFilled,
   warning: ExclamationCircleFilled,
+}
+
+export function resolveIconNode(
+  prefixCls: string,
+  icon: VueNode | undefined,
+  type: IconType | undefined,
+  iconClassName?: string,
+  iconStyle?: any,
+): VueNode {
+  if (icon) {
+    return (
+      <span class={clsx(`${prefixCls}-icon`, iconClassName)} style={iconStyle}>
+        {icon}
+      </span>
+    )
+  }
+  if (type && typeToIcon[type]) {
+    return createVNode(typeToIcon[type], {
+      class: clsx(`${prefixCls}-icon`, iconClassName, `${prefixCls}-icon-${type}`),
+      style: iconStyle,
+    })
+  }
+  return null
 }
 
 const defaults = {
@@ -221,6 +244,15 @@ const PurePanel = defineComponent<PurePanelProps>(
       const style = (attrs as any).style
       const restProps = omit(props, omitKeys)
       const actions = getSlotPropsFnRun(slots, props, 'actions')
+      const mergedNcs = mergedClassNames.value as PureContentProps['classes']
+      const mergedNss = mergedStyles.value as PureContentProps['styles']
+      const iconNode = resolveIconNode(
+        noticePrefixCls,
+        props.icon,
+        props.type,
+        mergedNcs?.icon,
+        mergedNss?.icon,
+      )
       return (
         <div
           class={clsx(
@@ -234,7 +266,7 @@ const PurePanel = defineComponent<PurePanelProps>(
           style={mergedStyles.value.root}
         >
           <PurePanelStyle prefixCls={prefixCls.value} />
-          <Notice
+          <Notification
             style={{
               ...contextStyle.value,
               ...style,
@@ -242,24 +274,25 @@ const PurePanel = defineComponent<PurePanelProps>(
             {...pureAttrs(attrs)}
             {...restProps as any}
             prefixCls={prefixCls.value}
-            eventKey="pure"
             duration={null}
             closable={mergedClosable.value}
+            role={props.role}
             class={clsx(notificationClassName, contextClassName.value)}
-            content={(
-              <PureContent
-                classes={mergedClassNames.value as PureContentProps['classes']}
-                styles={mergedStyles.value as PureContentProps['styles']}
-                prefixCls={noticePrefixCls}
-                icon={props.icon}
-                type={props.type}
-                title={props.title}
-                description={props.description}
-                actions={actions}
-              />
-            )}
-          >
-          </Notice>
+            icon={iconNode}
+            title={props.title}
+            description={props.description}
+            actions={actions}
+            classNames={{
+              title: mergedNcs?.title,
+              description: mergedNcs?.description,
+              actions: mergedNcs?.actions,
+            }}
+            styles={{
+              title: mergedNss?.title,
+              description: mergedNss?.description,
+              actions: mergedNss?.actions,
+            }}
+          />
         </div>
       )
     }

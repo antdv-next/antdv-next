@@ -13,7 +13,6 @@ import type {
   NoticeType,
   TypeOpen,
 } from './interface'
-import type { PureContentProps } from './PurePanel'
 import { useNotificationProvider, useNotification as useVcNotification } from '@v-c/notification'
 import { clsx } from '@v-c/util'
 import { computed, defineComponent, shallowRef, unref } from 'vue'
@@ -22,7 +21,7 @@ import { toPropsRefs } from '../_util/tools'
 import { devUseWarning } from '../_util/warning'
 import { useBaseConfig, useComponentBaseConfig } from '../config-provider/context'
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
-import { PureContent } from './PurePanel'
+import { resolveMessageIcon } from './PurePanel'
 import useStyle from './style'
 import { getMotion, wrapPromiseFn } from './util'
 
@@ -229,23 +228,25 @@ export function useInternalMessage(messageConfig?: MaybeRef<HolderProps>) {
         originStyles,
       )
 
+      const iconNode = resolveMessageIcon(
+        prefixCls,
+        icon,
+        type,
+        mergedClassNames.icon,
+        mergedStyles.icon,
+      )
       return wrapPromiseFn((resolve) => {
         originOpen({
           ...restConfig as any,
           key: mergedKey!,
           placement: 'top',
-          content: (
-            <PureContent
-              prefixCls={prefixCls}
-              type={type}
-              icon={icon}
-              classNames={mergedClassNames as PureContentProps['classNames']}
-              styles={mergedStyles as PureContentProps['styles']}
-            >
+          icon: iconNode,
+          description: (
+            <span class={mergedClassNames.content} style={mergedStyles.content}>
               {content}
-            </PureContent>
+            </span>
           ),
-          className: clsx(
+          class: clsx(
             { [`${noticePrefixCls}-${type}`]: !!type },
             className,
             contextClassName,
@@ -260,7 +261,7 @@ export function useInternalMessage(messageConfig?: MaybeRef<HolderProps>) {
             onClose?.()
             resolve()
           },
-        })
+        } as any)
         return () => {
           close(mergedKey!)
         }
