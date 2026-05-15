@@ -36,6 +36,7 @@ export interface CalendarSemanticClassNames {
   body?: string
   content?: string
   item?: string
+  itemContent?: string
 }
 
 export interface CalendarSemanticStyles {
@@ -44,6 +45,7 @@ export interface CalendarSemanticStyles {
   body?: CSSProperties
   content?: CSSProperties
   item?: CSSProperties
+  itemContent?: CSSProperties
 }
 
 export type CalendarClassNamesType<DateType> = SemanticClassNamesType<

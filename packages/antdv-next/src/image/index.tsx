@@ -63,6 +63,8 @@ export interface ImagePopupSemanticClassNames {
   body?: string
   footer?: string
   actions?: string
+  /** ant-design 6.4.0 #57263: close-button icon classNames. */
+  closeIcon?: string
 }
 
 export interface ImagePopupSemanticStyles {
@@ -71,6 +73,7 @@ export interface ImagePopupSemanticStyles {
   body?: CSSProperties
   footer?: CSSProperties
   actions?: CSSProperties
+  closeIcon?: CSSProperties
 }
 
 export type ImageClassNamesType = SemanticClassNamesType<
