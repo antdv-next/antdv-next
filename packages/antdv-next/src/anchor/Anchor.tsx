@@ -96,7 +96,7 @@ export interface AntAnchor {
   registerLink: (link: string) => void
   unregisterLink: (link: string) => void
   activeLink: string | null
-  scrollTo: (link: string) => void
+  scrollTo: (link: string, linkTargetOffset?: number) => void
   onClick: (e: MouseEvent, link: { title: VNodeChild, href: string }) => void
   direction: AnchorDirection
 }
@@ -244,7 +244,7 @@ const Anchor = defineComponent<
       )
       setCurrentActiveLink(currentActiveLink)
     }
-    const handleScrollTo = (link: string) => {
+    const handleScrollTo = (link: string, linkTargetOffset?: number) => {
       const { offsetTop, targetOffset } = props
       setCurrentActiveLink(link)
       const sharpLinkMatch = sharpMatcherRegex.exec(link)
@@ -260,7 +260,9 @@ const Anchor = defineComponent<
       const scrollTop = getScroll(container)
       const eleOffsetTop = getOffsetTop(targetElement, container)
       let y = scrollTop + eleOffsetTop
-      y -= targetOffset !== undefined ? targetOffset : offsetTop || 0
+      const resolvedOffset = linkTargetOffset
+        ?? (targetOffset !== undefined ? targetOffset : offsetTop || 0)
+      y -= resolvedOffset
       animating.value = true
       scrollTo(y, {
         getContainer: getCurrentContainer,

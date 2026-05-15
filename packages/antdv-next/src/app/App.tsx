@@ -17,7 +17,7 @@ export interface AppProps extends ComponentBaseProps, AppConfig {
 }
 
 const App = defineComponent<AppProps>(
-  (props, { slots, attrs }) => {
+  (props, { slots, attrs, expose }) => {
     const {
       direction,
       prefixCls,
@@ -41,6 +41,14 @@ const App = defineComponent<AppProps>(
     const [ModalApi, ModalContextHolder] = useModal()
 
     useAppContextProvider({
+      message: messageApi,
+      notification: notificationApi,
+      modal: ModalApi,
+    })
+
+    // Expose imperative API so consumers can call e.g. ref.value.message.success().
+    // Mirrors ant-design 6.4.0 PR #56951.
+    expose({
       message: messageApi,
       notification: notificationApi,
       modal: ModalApi,

@@ -58,6 +58,7 @@ export interface FloatButtonProps extends ComponentBaseProps,
   href?: string
   target?: '_self' | '_blank' | '_parent' | '_top' | string
   badge?: FloatButtonBadgeProps & { class?: string }
+  disabled?: boolean
   htmlType?: ButtonHTMLType
   ariaLabel?: string
   style?: CSSProperties
@@ -256,6 +257,7 @@ const InternalFloatButton = defineComponent<
           icon={mergedIcon ? () => mergedIcon : undefined}
           htmlType={props.htmlType as ButtonHTMLType | undefined}
           aria-label={props.ariaLabel}
+          disabled={props.disabled}
           _skipSemantic
           onClick={(e: MouseEvent) => emit('click', e)}
           onMouseenter={(e: MouseEvent) => emit('mouseenter', e)}

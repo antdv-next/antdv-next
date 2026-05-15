@@ -35,11 +35,19 @@ export interface AlertSemanticType {
 export type AlertClassNamesType = SemanticType<AlertProps, AlertSemanticType['classes']>
 export type AlertStylesType = SemanticType<AlertProps, AlertSemanticType['styles']>
 
+export type AlertVariant = 'filled' | 'outlined'
+
 export interface AlertProps extends ComponentBaseProps,
   /* @vue-ignore */
   AlertEmitsProps {
   /** Type of Alert styles, options:`success`, `info`, `warning`, `error` */
   type?: 'success' | 'info' | 'warning' | 'error'
+  /**
+   * Visual variant. `filled` keeps the existing solid background, `outlined`
+   * renders with the colored border style introduced in ant-design 6.4.0.
+   * @default 'filled'
+   */
+  variant?: AlertVariant
   /** Whether Alert can be closed */
   closable?: ClosableType
   /** Content of Alert */
