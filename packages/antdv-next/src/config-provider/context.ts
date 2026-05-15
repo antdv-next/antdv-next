@@ -476,6 +476,7 @@ export interface ConfigComponentProps {
   descriptions?: DescriptionsConfig
   empty?: EmptyConfig
   badge?: BadgeConfig
+  borderBeam?: ComponentStyleConfig
   radio?: RadioConfig
   rate?: ComponentStyleConfig
   switch?: SwitchStyleConfig
