@@ -417,8 +417,8 @@ catalogs:
       specifier: ^1.0.3
       version: 1.0.3
     '@v-c/tour':
-      specifier: 1.1.0-rc.1
-      version: 1.1.0-rc.1
+      specifier: 1.1.0-rc.2
+      version: 1.1.0-rc.2
     '@v-c/tree':
       specifier: 1.1.0-rc.1
       version: 1.1.0-rc.1
@@ -888,7 +888,7 @@ importers:
         version: 1.0.3(vue@3.5.30(typescript@5.9.3))
       '@v-c/tour':
         specifier: catalog:vc
-        version: 1.1.0-rc.1(vue@3.5.30(typescript@5.9.3))
+        version: 1.1.0-rc.2(vue@3.5.30(typescript@5.9.3))
       '@v-c/tree':
         specifier: catalog:vc
         version: 1.1.0-rc.1(vue@3.5.30(typescript@5.9.3))
@@ -3070,8 +3070,8 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
-  '@v-c/tour@1.1.0-rc.1':
-    resolution: {integrity: sha512-LJpHfQgdq+9xXEkTcFJJXL545BL6tV5J2Tv1VATgqTqE4sebTfuAxuVB7GAutwTLlqEo2s1ZHTnZ25EpMPIgpQ==}
+  '@v-c/tour@1.1.0-rc.2':
+    resolution: {integrity: sha512-j80LmVs/akVZOuACCBUdWCRe815RwYhe28qtQNTGdTbiIp9BXBsAmmOe/n9SZiniRGDv0the5GenhpCf2st6Bg==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -8666,7 +8666,7 @@ snapshots:
       '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
       vue: 3.5.30(typescript@5.9.3)
 
-  '@v-c/tour@1.1.0-rc.1(vue@3.5.30(typescript@5.9.3))':
+  '@v-c/tour@1.1.0-rc.2(vue@3.5.30(typescript@5.9.3))':
     dependencies:
       '@v-c/portal': 1.0.8(vue@3.5.30(typescript@5.9.3))
       '@v-c/trigger': 1.0.14(vue@3.5.30(typescript@5.9.3))

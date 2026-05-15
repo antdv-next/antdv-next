@@ -159,7 +159,7 @@ catalogs:
     '@v-c/tabs': 1.1.0-rc.1
     '@v-c/textarea': 1.1.0-rc.1
     '@v-c/tooltip': ^1.0.3
-    '@v-c/tour': 1.1.0-rc.1
+    '@v-c/tour': 1.1.0-rc.2
     '@v-c/tree': 1.1.0-rc.1
     '@v-c/tree-select': 1.1.0-rc.1
     '@v-c/trigger': ^1.0.14
