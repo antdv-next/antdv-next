@@ -30,12 +30,14 @@ export interface TagSemanticClassNames {
   root?: string
   icon?: string
   content?: string
+  close?: string
 }
 
 export interface TagSemanticStyles {
   root?: CSSProperties
   icon?: CSSProperties
   content?: CSSProperties
+  close?: CSSProperties
 }
 
 export type TagClassNamesType = SemanticClassNamesType<TagProps, TagSemanticClassNames>

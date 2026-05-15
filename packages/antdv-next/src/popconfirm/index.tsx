@@ -1,4 +1,4 @@
-import type { App, SlotsType } from 'vue'
+import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { VueNode } from '../_util/type'
 import type { ButtonProps, LegacyButtonType } from '../button'
@@ -17,11 +17,11 @@ import useMergedArrow from '../tooltip/hooks/useMergedArrow'
 import PurePanel, { Overlay } from './PurePanel'
 import useStyle from './style'
 
-export type PopconfirmSemanticName = PopoverSemanticName
+export type PopconfirmSemanticName = PopoverSemanticName | 'icon'
 
-export type PopconfirmSemanticClassNames = PopoverSemanticClassNames
+export type PopconfirmSemanticClassNames = PopoverSemanticClassNames & { icon?: string }
 
-export type PopconfirmSemanticStyles = PopoverSemanticStyles
+export type PopconfirmSemanticStyles = PopoverSemanticStyles & { icon?: CSSProperties }
 
 export type PopconfirmClassNamesType = SemanticClassNamesType<
   PopconfirmProps,

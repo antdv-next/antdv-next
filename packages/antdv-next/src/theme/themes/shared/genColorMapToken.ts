@@ -85,6 +85,7 @@ export default function genColorMapToken(
     colorErrorTextHover: errorColors[8],
     colorErrorText: errorColors[9],
     colorErrorTextActive: errorColors[10],
+    colorErrorAffix: errorColors[6],
 
     colorWarningBg: warningColors[1],
     colorWarningBgHover: warningColors[2],
@@ -96,6 +97,7 @@ export default function genColorMapToken(
     colorWarningTextHover: warningColors[8],
     colorWarningText: warningColors[9],
     colorWarningTextActive: warningColors[10],
+    colorWarningAffix: warningColors[6],
 
     colorInfoBg: infoColors[1],
     colorInfoBgHover: infoColors[2],

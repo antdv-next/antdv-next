@@ -74,6 +74,8 @@ export interface TransferSemanticClassNames {
   itemContent?: string
   footer?: string
   actions?: string
+  source?: string
+  target?: string
 }
 
 export interface TransferSemanticStyles {
@@ -88,6 +90,8 @@ export interface TransferSemanticStyles {
   itemContent?: CSSProperties
   footer?: CSSProperties
   actions?: CSSProperties
+  source?: CSSProperties
+  target?: CSSProperties
 }
 
 export type TransferClassNamesType = SemanticClassNamesType<

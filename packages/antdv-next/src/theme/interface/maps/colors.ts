@@ -406,6 +406,14 @@ interface ColorWarningMapToken {
    * @descEN The active state of the text in the warning color.
    */
   colorWarningTextActive: string // 10
+
+  /**
+   * @nameZH 输入框 affix 警告色
+   * @nameEN Affix warning color for Input
+   * @desc 控制输入框 affix 区域的警告色，默认为 colorWarning。ant-design 6.4.0 #57760。
+   * @descEN The warning color used inside input affix areas; defaults to colorWarning.
+   */
+  colorWarningAffix: string
 }
 
 interface ColorInfoMapToken {
@@ -586,6 +594,14 @@ interface ColorErrorMapToken {
    * @descEN The active state of the text in the error color.
    */
   colorErrorTextActive: string // 10
+
+  /**
+   * @nameZH 输入框 affix 错误色
+   * @nameEN Affix error color for Input
+   * @desc 控制输入框 affix 区域的错误色，默认为 colorError。ant-design 6.4.0 #57604。
+   * @descEN The error color used inside input affix areas; defaults to colorError.
+   */
+  colorErrorAffix: string
 }
 
 export interface ColorLinkMapToken {
