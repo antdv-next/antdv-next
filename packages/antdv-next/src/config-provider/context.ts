@@ -360,6 +360,7 @@ export type SelectConfig = ComponentStyleConfig
 
 export type CascaderConfig = ComponentStyleConfig
   & Pick<CascaderProps, 'variant' | 'classes' | 'styles' | 'expandIcon' | 'loadingIcon'>
+  & { searchIcon?: any, clearIcon?: any, removeIcon?: any, suffixIcon?: any }
 
 export type CardMetaConfig = ComponentStyleConfig & Pick<CardMetaProps, 'classes' | 'styles'>
 
