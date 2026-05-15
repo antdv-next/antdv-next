@@ -7532,7 +7532,7 @@ exports[`calendar demo > renders select correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-info ant-alert-no-icon css-var-root"
+      class="ant-alert ant-alert-info ant-alert-outlined ant-alert-no-icon css-var-root"
       data-show="true"
       role="alert"
     >
