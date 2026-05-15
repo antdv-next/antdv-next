@@ -49,12 +49,14 @@ export interface PureContentProps {
   styles: NotificationSemanticStyles
 }
 
-const typeToIcon = {
+export const TypeIcon: Record<IconType, any> = {
   success: CheckCircleFilled,
   info: InfoCircleFilled,
   error: CloseCircleFilled,
   warning: ExclamationCircleFilled,
 }
+
+const typeToIcon = TypeIcon
 
 export function resolveIconNode(
   icon: VueNode | undefined,
@@ -238,7 +240,7 @@ const PurePanel = defineComponent<PurePanelProps>(
       const noticePrefixCls = `${prefixCls.value}-notice`
       const notificationClassName = (attrs as any).class
       const style = (attrs as any).style
-      const restProps = omit(props, omitKeys)
+      const restProps = omit(props, omitKeys as any)
       // slot > prop > null
       const actions = getSlotPropsFnRun(slots, props, 'actions')
       const titleNode = getSlotPropsFnRun(slots, props, 'title')

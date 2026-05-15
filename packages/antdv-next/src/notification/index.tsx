@@ -4,6 +4,7 @@ import { createVNode, defineComponent, getCurrentInstance, onMounted, render, sh
 import { useAppConfig } from '../app/context.ts'
 import { useBaseConfig } from '../config-provider/context.ts'
 import ConfigProvider, { globalConfig } from '../config-provider/index.tsx'
+import PureList from './PureList.tsx'
 import PurePanel from './PurePanel.tsx'
 import useNotification, { useInternalNotification } from './useNotification'
 
@@ -232,6 +233,8 @@ interface BaseMethods {
   useNotification: typeof useNotification
   /** @private Internal Component. Do not use in your production. */
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel
+  /** @private Internal Component. Do not use in your production. */
+  _InternalListDoNotUseOrYouWillBeFired: typeof PureList
 }
 
 type StaticFn = (config: ArgsProps) => void
@@ -251,6 +254,7 @@ const baseStaticMethods: BaseMethods = {
   config: setNotificationGlobalConfig,
   useNotification,
   _InternalPanelDoNotUseOrYouWillBeFired: PurePanel,
+  _InternalListDoNotUseOrYouWillBeFired: PureList,
 }
 
 const staticMethods = baseStaticMethods as NoticeMethods & BaseMethods

@@ -31,10 +31,7 @@ interface NotificationItemSharedStyleConfig {
 }
 
 /** Generate item styles shared by Notification and Message notice cards. */
-export function genListItemSharedStyle(
-  token: NotificationToken,
-  config: NotificationItemSharedStyleConfig,
-): CSSObject {
+export function genListItemSharedStyle(token: NotificationToken, config: NotificationItemSharedStyleConfig): CSSObject {
   const {
     componentCls,
     antCls,
@@ -198,19 +195,6 @@ function genNotificationItemStyle(token: NotificationToken): CSSObject {
     [`${noticeCls}-description`]: {
       color: colorText,
       fontSize,
-      marginTop: 0,
-    },
-
-    [`${noticeCls}-title + ${noticeCls}-description`]: {
-      marginTop: marginXS,
-    },
-
-    [`${noticeCls}-closable ${noticeCls}-description`]: {
-      paddingInlineEnd: paddingLG,
-    },
-
-    [`${noticeCls}-closable ${noticeCls}-title + ${noticeCls}-description`]: {
-      paddingInlineEnd: 0,
     },
 
     [`${noticeCls}-closable ${noticeCls}-title`]: {
@@ -260,11 +244,11 @@ function genNotificationItemStyle(token: NotificationToken): CSSObject {
       left: {
         _skip_check_: true,
         value: borderRadiusLG,
-      } as any,
+      },
       right: {
         _skip_check_: true,
         value: borderRadiusLG,
-      } as any,
+      },
 
       '&, &::-webkit-progress-bar': {
         borderRadius: borderRadiusLG,

@@ -1,5 +1,6 @@
 import type { CSSObject } from '@antdv-next/cssinjs'
 import type { NotificationToken } from '.'
+
 import type { GenerateStyle } from '../../theme/internal'
 import type { NotificationPlacement } from '../interface'
 import { unit } from '@antdv-next/cssinjs'
@@ -12,7 +13,6 @@ interface PlacementOffset {
   blockEnd: VerticalPlacement
   inlineEnd: HorizontalPlacement
 }
-
 interface PlacementMotionOffset {
   x?: string
   y?: string
@@ -33,6 +33,7 @@ const notificationMarginEdgeVar = '--notification-margin-edge'
 
 // ============================== Shared ==============================
 
+/** Resolve the opposite block and inline edges for a placement. */
 function getPlacementOffset(vertical: VerticalPlacement, horizontal: HorizontalPlacement): PlacementOffset {
   return {
     blockEnd: vertical === 'top' ? 'bottom' : 'top',
@@ -40,21 +41,22 @@ function getPlacementOffset(vertical: VerticalPlacement, horizontal: HorizontalP
   }
 }
 
-function getMotionTransform(motionOffset?: PlacementMotionOffset): string {
+/** Convert placement offsets into the transform used by notice motion. */
+function getMotionTransform(motionOffset?: PlacementMotionOffset) {
   const x = motionOffset?.x ?? '0'
   const y = motionOffset?.y ?? '0'
+
   return `translate3d(${x}, ${y}, 0) scale(var(--notification-scale, 1))`
 }
 
-function getPlacementStyleConfig(
-  placement: NotificationPlacement,
-  motionOffset: string,
-): PlacementStyleConfig {
+/** Build the placement metadata used by position and motion styles. */
+function getPlacementStyleConfig(placement: NotificationPlacement, motionOffset: string): PlacementStyleConfig {
   const vertical = placement.startsWith('bottom') ? 'bottom' : 'top'
   const horizontal = placement.endsWith('Right') ? 'right' : 'left'
   const { blockEnd, inlineEnd } = getPlacementOffset(vertical, horizontal)
   const isCenterPlacement = placement === 'top' || placement === 'bottom'
-  const offset = placement === 'top' || placement.endsWith('Left') ? `-${motionOffset}` : motionOffset
+  const offset
+    = placement === 'top' || placement.endsWith('Left') ? `-${motionOffset}` : motionOffset
 
   return {
     placement,
@@ -68,30 +70,38 @@ function getPlacementStyleConfig(
   }
 }
 
+/** Get the list direction for a vertical placement. */
 function getPlacementFlexDirection(vertical: VerticalPlacement) {
   return vertical === 'bottom' ? 'column-reverse' : 'column'
 }
 
+/** Keep configured top/bottom as the visible notice edge while list padding preserves shadows. */
 function getPlacementInset(vertical: VerticalPlacement) {
   const marginEdge = `var(${notificationMarginEdgeVar}, 0px)`
+
   return `calc(var(--notification-${vertical}, ${marginEdge}) - ${marginEdge})`
 }
 
+/** Get the transform origin used by stacked notice scaling. */
 function getPlacementTransformOrigin(vertical: VerticalPlacement) {
   return vertical === 'bottom' ? 'center top' : 'center bottom'
 }
 
+/** Calculate the clip offset that preserves stack shadows. */
 function getStackShadowClipOffset(token: NotificationToken) {
   return unit(token.calc(token.marginXXL).mul(-1).equal())
 }
 
+/** Build the default stack clip-path for a visible notice. */
 function getStackNoticeClipPath(token: NotificationToken) {
   const offset = getStackShadowClipOffset(token)
   return `inset(${offset} ${offset} ${offset} ${offset})`
 }
 
+/** Build the collapsed stack clip-path for a placement. */
 function getPlacementStackClipPath(token: NotificationToken, vertical: VerticalPlacement) {
   const offset = getStackShadowClipOffset(token)
+
   return vertical === 'bottom'
     ? `inset(${offset} ${offset} 50% ${offset})`
     : `inset(50% ${offset} ${offset} ${offset})`
@@ -99,14 +109,25 @@ function getPlacementStackClipPath(token: NotificationToken, vertical: VerticalP
 
 // ============================= Placement =============================
 
+/** Generate styles for a single notification placement. */
 function genPlacementStyle(token: NotificationToken, config: PlacementStyleConfig): CSSObject {
   const { componentCls } = token
-  const { placement, vertical, blockEnd, horizontal, inlineEnd, isCenterPlacement } = config
+  const {
+    placement,
+    vertical,
+    blockEnd,
+    horizontal,
+    inlineEnd,
+    // Horizontal centered
+    isCenterPlacement,
+  } = config
 
   const noticeCls = `${componentCls}-notice`
   const noticeMotionCls = `${noticeCls}${componentCls}-fade`
 
+  // Transform used for enter start and leave end states.
   const enterTransform = getMotionTransform(config.motionOffset)
+  // Transform used when fully visible; top/bottom keep translateX(-50%) for centering.
   const baseTransform = getMotionTransform(config.baseMotionOffset)
   const transformOrigin = getPlacementTransformOrigin(vertical)
 
@@ -180,10 +201,8 @@ function genPlacementStyle(token: NotificationToken, config: PlacementStyleConfi
   }
 }
 
-function genNotificationPlacementRootStyle(
-  token: NotificationToken,
-  placements: readonly NotificationPlacement[] = NotificationPlacements,
-): CSSObject {
+/** Generate placement styles for all enabled notification placements. */
+function genNotificationPlacementRootStyle(token: NotificationToken, placements: readonly NotificationPlacement[] = NotificationPlacements): CSSObject {
   const { notificationMotionOffset } = token
   const motionOffset = unit(notificationMotionOffset)
 
@@ -200,6 +219,7 @@ function genNotificationPlacementRootStyle(
 
 // ============================== Export ==============================
 
+/** Wrap placement styles under the component root selector. */
 const genNotificationPlacementStyle: GenerateStyle<NotificationToken, CSSObject> = (token) => {
   const { componentCls } = token
 
