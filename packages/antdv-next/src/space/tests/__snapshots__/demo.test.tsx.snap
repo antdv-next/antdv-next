@@ -1569,6 +1569,7 @@ exports[`space demo > renders compact correctly 1`] = `
             class="ant-picker-suffix"
           >
             <span
+              aria-hidden="true"
               aria-label="calendar"
               class="anticon anticon-calendar"
               role="img"
@@ -1671,6 +1672,7 @@ exports[`space demo > renders compact correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -1807,6 +1809,7 @@ exports[`space demo > renders compact correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -2154,6 +2157,7 @@ exports[`space demo > renders compact correctly 1`] = `
             class="ant-picker-suffix"
           >
             <span
+              aria-hidden="true"
               aria-label="clock-circle"
               class="anticon anticon-clock-circle"
               role="img"
@@ -2316,6 +2320,7 @@ exports[`space demo > renders compact correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="clock-circle"
             class="anticon anticon-clock-circle"
             role="img"

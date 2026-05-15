@@ -17,6 +17,7 @@ import {
   useToProps,
 } from '../_util/hooks'
 import useClosable, { pickClosable } from '../_util/hooks/useClosable'
+import isNonNullable from '../_util/isNonNullable'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { useBaseConfig, useComponentBaseConfig } from '../config-provider/context'
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
@@ -109,10 +110,12 @@ export const PureContent = defineComponent<PureContentProps>(
           iconNode = null
         }
       }
+      const hasTitle = isNonNullable(title) && title !== false && title !== ''
+
       return (
         <div class={clsx({ [`${prefixCls}-with-icon`]: iconNode })} role={role}>
           {iconNode}
-          {title && (
+          {hasTitle && (
             <div class={clsx(`${prefixCls}-title`, pureContentCls.title)} style={styles.title}>
               {title}
             </div>

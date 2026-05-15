@@ -178,11 +178,10 @@ describe('app', () => {
 
     expect(consumedConfig?.notification).toStrictEqual(config)
     expect(document.querySelector('.ant-notification-topRight')).toBeNull()
-    expect(document.querySelector('.ant-notification-bottomLeft')).toHaveStyle({
-      top: 'auto',
-      left: '0px',
-      bottom: '50px',
-    })
+    const notification = document.querySelector('.ant-notification-bottomLeft') as HTMLElement
+    expect(notification).toBeTruthy()
+    expect(notification.style.getPropertyValue('--notification-top')).toBe('100px')
+    expect(notification.style.getPropertyValue('--notification-bottom')).toBe('50px')
     wrapper.unmount()
   })
 

@@ -168,21 +168,24 @@ describe('message', () => {
 
   // ========================= onClose =========================
   it('calls onClose callback', async () => {
+    vi.useFakeTimers()
     const onClose = vi.fn()
     const { wrapper, getApi } = mountMessage()
     await nextTick()
     await nextTick()
 
-    getApi().info({ content: 'Will Close', key: 'close-key', onClose, duration: 0 })
+    getApi().info({ content: 'Will Close', key: 'close-key', onClose, duration: 0.01 })
     await nextTick()
     await nextTick()
 
-    getApi().destroy('close-key')
+    vi.advanceTimersByTime(20)
+    await nextTick()
     await nextTick()
     await nextTick()
 
     expect(onClose).toHaveBeenCalled()
 
+    vi.useRealTimers()
     wrapper.unmount()
   })
 

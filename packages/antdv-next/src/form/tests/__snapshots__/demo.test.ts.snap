@@ -6889,6 +6889,7 @@ exports[`form demo > renders getValueProps-normalize correctly 1`] = `
                   class="ant-picker-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="calendar"
                     class="anticon anticon-calendar"
                     role="img"
@@ -12097,6 +12098,7 @@ exports[`form demo > renders time-related-controls correctly 1`] = `
                   class="ant-picker-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="calendar"
                     class="anticon anticon-calendar"
                     role="img"
@@ -12193,6 +12195,7 @@ exports[`form demo > renders time-related-controls correctly 1`] = `
                   class="ant-picker-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="calendar"
                     class="anticon anticon-calendar"
                     role="img"
@@ -12289,6 +12292,7 @@ exports[`form demo > renders time-related-controls correctly 1`] = `
                   class="ant-picker-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="calendar"
                     class="anticon anticon-calendar"
                     role="img"
@@ -12435,6 +12439,7 @@ exports[`form demo > renders time-related-controls correctly 1`] = `
                 class="ant-picker-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="calendar"
                   class="anticon anticon-calendar"
                   role="img"
@@ -12580,6 +12585,7 @@ exports[`form demo > renders time-related-controls correctly 1`] = `
                 class="ant-picker-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="calendar"
                   class="anticon anticon-calendar"
                   role="img"
@@ -12675,6 +12681,7 @@ exports[`form demo > renders time-related-controls correctly 1`] = `
                   class="ant-picker-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="clock-circle"
                     class="anticon anticon-clock-circle"
                     role="img"
@@ -15618,6 +15625,7 @@ exports[`form demo > renders validate-static correctly 1`] = `
                   class="ant-picker-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="calendar"
                     class="anticon anticon-calendar"
                     role="img"

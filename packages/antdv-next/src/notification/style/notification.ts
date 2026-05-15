@@ -198,6 +198,19 @@ function genNotificationItemStyle(token: NotificationToken): CSSObject {
     [`${noticeCls}-description`]: {
       color: colorText,
       fontSize,
+      marginTop: 0,
+    },
+
+    [`${noticeCls}-title + ${noticeCls}-description`]: {
+      marginTop: marginXS,
+    },
+
+    [`${noticeCls}-closable ${noticeCls}-description`]: {
+      paddingInlineEnd: paddingLG,
+    },
+
+    [`${noticeCls}-closable ${noticeCls}-title + ${noticeCls}-description`]: {
+      paddingInlineEnd: 0,
     },
 
     [`${noticeCls}-closable ${noticeCls}-title`]: {

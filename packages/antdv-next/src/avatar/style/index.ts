@@ -45,7 +45,7 @@ export interface ComponentToken {
    * @desc 大号头像图标大小
    * @descEN Font size of large Avatar icon
    */
-  iconFontSizeLG: number
+  iconFontSizeLG: number | string
   /**
    * @desc 小号头像图标大小
    * @descEN Font size of small Avatar icon
@@ -105,7 +105,7 @@ const genBaseStyle: GenerateStyle<AvatarToken, CSSObject> = (token) => {
   const avatarSizeStyle = (
     size: number,
     fontSize: number,
-    iconFontSize: number,
+    iconFontSize: CSSProperties['fontSize'],
     radius: number,
   ): CSSObject => ({
     width: size,

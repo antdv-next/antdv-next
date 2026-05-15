@@ -23,7 +23,7 @@ exports[`message demo > renders _semantic correctly 1`] = `
           class="ant-message-notice-wrapper"
         >
           <div
-            class="ant-message-notice-icon"
+            class="ant-message-notice-icon ant-message-notice-icon-success"
           >
             <span
               aria-label="check-circle"
@@ -719,7 +719,7 @@ exports[`message demo > renders render-panel correctly 1`] = `
     class="ant-message-notice-wrapper"
   >
     <div
-      class="ant-message-notice-icon"
+      class="ant-message-notice-icon ant-message-notice-icon-error"
     >
       <span
         aria-label="close-circle"

@@ -354,8 +354,8 @@ catalogs:
       specifier: ^1.0.11
       version: 1.0.11
     '@v-c/input':
-      specifier: 1.1.0-rc.1
-      version: 1.1.0-rc.1
+      specifier: 1.1.0-rc.2
+      version: 1.1.0-rc.2
     '@v-c/input-number':
       specifier: ^1.0.5
       version: 1.0.5
@@ -369,14 +369,14 @@ catalogs:
       specifier: ^1.0.1
       version: 1.0.1
     '@v-c/notification':
-      specifier: 2.0.0-rc.2
-      version: 2.0.0-rc.2
+      specifier: 2.0.0-rc.3
+      version: 2.0.0-rc.3
     '@v-c/pagination':
       specifier: ^1.0.0
       version: 1.0.0
     '@v-c/picker':
-      specifier: 1.1.0-rc.1
-      version: 1.1.0-rc.1
+      specifier: 1.1.0-rc.2
+      version: 1.1.0-rc.2
     '@v-c/progress':
       specifier: ^1.0.0
       version: 1.0.0
@@ -822,7 +822,7 @@ importers:
         version: 1.0.11(vue@3.5.30(typescript@5.9.3))
       '@v-c/input':
         specifier: catalog:vc
-        version: 1.1.0-rc.1(vue@3.5.30(typescript@5.9.3))
+        version: 1.1.0-rc.2(vue@3.5.30(typescript@5.9.3))
       '@v-c/input-number':
         specifier: catalog:vc
         version: 1.0.5(vue@3.5.30(typescript@5.9.3))
@@ -837,13 +837,13 @@ importers:
         version: 1.0.1(vue@3.5.30(typescript@5.9.3))
       '@v-c/notification':
         specifier: catalog:vc
-        version: 2.0.0-rc.2(vue@3.5.30(typescript@5.9.3))
+        version: 2.0.0-rc.3(vue@3.5.30(typescript@5.9.3))
       '@v-c/pagination':
         specifier: catalog:vc
         version: 1.0.0(vue@3.5.30(typescript@5.9.3))
       '@v-c/picker':
         specifier: catalog:vc
-        version: 1.1.0-rc.1(dayjs@1.11.20)(vue@3.5.30(typescript@5.9.3))
+        version: 1.1.0-rc.2(dayjs@1.11.20)(vue@3.5.30(typescript@5.9.3))
       '@v-c/progress':
         specifier: catalog:vc
         version: 1.0.0(vue@3.5.30(typescript@5.9.3))
@@ -2883,8 +2883,8 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
-  '@v-c/input@1.1.0-rc.1':
-    resolution: {integrity: sha512-nyJLvXyJZH3GL20w2+x2Nzv9EV296jrivze7QVQF2VFIlww6ImA2RTxjwxWB+LBB8hZGTbNBzYsvMGMbYmecdQ==}
+  '@v-c/input@1.1.0-rc.2':
+    resolution: {integrity: sha512-B7vVOA7KzW+jMxhK4GQN5b1Y3hJgL6cc+Aie7GqSY+hFaKF57KSTy4XsYiQh3F2bsM9KyBWOlYJum13HTOFBZw==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -2921,8 +2921,8 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
-  '@v-c/notification@2.0.0-rc.2':
-    resolution: {integrity: sha512-ZeltIIEGtdFvvJLTec3qVLGspJ5BnGdVwChuwQI91stjTLJU9DnIQCVV4+S0ka4bBdcMl8sLkMoUTqQwIISXPw==}
+  '@v-c/notification@2.0.0-rc.3':
+    resolution: {integrity: sha512-t3k2NBF4cKlxxh6ntpxeiiKuwbOwJK5wsTFIgX+oeOnZ3iMzVxiXq4EpRrVekL+OVsRvgyn9Y6zdvX8KPB3YkQ==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -2954,8 +2954,8 @@ packages:
       moment:
         optional: true
 
-  '@v-c/picker@1.1.0-rc.1':
-    resolution: {integrity: sha512-b8kXsbKaZyt2LEa4SqIzn/BX6TJ5GDhRsYjKtooNzMoAcKgAphFS8cVjPbDUa+6rUxawRd3VY9Rbzb0wCRoO8w==}
+  '@v-c/picker@1.1.0-rc.2':
+    resolution: {integrity: sha512-Yigw/JZrBVQ0gQdvlXOzy2pMq5al/tIzVss6SzDgH6DC7yvuAJzQ0m01ryLauL+NOeMQcFZT1LQ/eVRxOqDvcg==}
     peerDependencies:
       date-fns: '>= 2.x'
       dayjs: '>= 1.x'
@@ -8447,7 +8447,7 @@ snapshots:
       '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
       vue: 3.5.30(typescript@5.9.3)
 
-  '@v-c/input@1.1.0-rc.1(vue@3.5.30(typescript@5.9.3))':
+  '@v-c/input@1.1.0-rc.2(vue@3.5.30(typescript@5.9.3))':
     dependencies:
       '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
       vue: 3.5.30(typescript@5.9.3)
@@ -8463,7 +8463,7 @@ snapshots:
 
   '@v-c/mentions@1.1.0-rc.1(vue@3.5.30(typescript@5.9.3))':
     dependencies:
-      '@v-c/input': 1.1.0-rc.1(vue@3.5.30(typescript@5.9.3))
+      '@v-c/input': 1.1.0-rc.2(vue@3.5.30(typescript@5.9.3))
       '@v-c/menu': 1.1.0-rc.1(vue@3.5.30(typescript@5.9.3))
       '@v-c/textarea': 1.1.0-rc.1(vue@3.5.30(typescript@5.9.3))
       '@v-c/trigger': 1.0.14(vue@3.5.30(typescript@5.9.3))
@@ -8497,7 +8497,7 @@ snapshots:
       '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
       vue: 3.5.30(typescript@5.9.3)
 
-  '@v-c/notification@2.0.0-rc.2(vue@3.5.30(typescript@5.9.3))':
+  '@v-c/notification@2.0.0-rc.3(vue@3.5.30(typescript@5.9.3))':
     dependencies:
       '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
       vue: 3.5.30(typescript@5.9.3)
@@ -8523,7 +8523,7 @@ snapshots:
     optionalDependencies:
       dayjs: 1.11.20
 
-  '@v-c/picker@1.1.0-rc.1(dayjs@1.11.20)(vue@3.5.30(typescript@5.9.3))':
+  '@v-c/picker@1.1.0-rc.2(dayjs@1.11.20)(vue@3.5.30(typescript@5.9.3))':
     dependencies:
       '@v-c/overflow': 1.0.5(vue@3.5.30(typescript@5.9.3))
       '@v-c/resize-observer': 1.0.8(vue@3.5.30(typescript@5.9.3))
@@ -8648,7 +8648,7 @@ snapshots:
 
   '@v-c/textarea@1.1.0-rc.1(vue@3.5.30(typescript@5.9.3))':
     dependencies:
-      '@v-c/input': 1.1.0-rc.1(vue@3.5.30(typescript@5.9.3))
+      '@v-c/input': 1.1.0-rc.2(vue@3.5.30(typescript@5.9.3))
       '@v-c/resize-observer': 1.0.8(vue@3.5.30(typescript@5.9.3))
       '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
       vue: 3.5.30(typescript@5.9.3)
