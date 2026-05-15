@@ -369,8 +369,8 @@ catalogs:
       specifier: ^1.0.1
       version: 1.0.1
     '@v-c/notification':
-      specifier: 2.0.0-rc.1
-      version: 2.0.0-rc.1
+      specifier: 2.0.0-rc.2
+      version: 2.0.0-rc.2
     '@v-c/pagination':
       specifier: ^1.0.0
       version: 1.0.0
@@ -837,7 +837,7 @@ importers:
         version: 1.0.1(vue@3.5.30(typescript@5.9.3))
       '@v-c/notification':
         specifier: catalog:vc
-        version: 2.0.0-rc.1(vue@3.5.30(typescript@5.9.3))
+        version: 2.0.0-rc.2(vue@3.5.30(typescript@5.9.3))
       '@v-c/pagination':
         specifier: catalog:vc
         version: 1.0.0(vue@3.5.30(typescript@5.9.3))
@@ -2921,8 +2921,8 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
-  '@v-c/notification@2.0.0-rc.1':
-    resolution: {integrity: sha512-xTks6ud0tZGX+HvKP/H6Uf5Pc5SJ9RB8gc9IsG5URDAWJZOsoryrqsV0I9iRqgUqMNlgGe2bfH4SG66tm2vB5Q==}
+  '@v-c/notification@2.0.0-rc.2':
+    resolution: {integrity: sha512-ZeltIIEGtdFvvJLTec3qVLGspJ5BnGdVwChuwQI91stjTLJU9DnIQCVV4+S0ka4bBdcMl8sLkMoUTqQwIISXPw==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -8497,7 +8497,7 @@ snapshots:
       '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
       vue: 3.5.30(typescript@5.9.3)
 
-  '@v-c/notification@2.0.0-rc.1(vue@3.5.30(typescript@5.9.3))':
+  '@v-c/notification@2.0.0-rc.2(vue@3.5.30(typescript@5.9.3))':
     dependencies:
       '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
       vue: 3.5.30(typescript@5.9.3)

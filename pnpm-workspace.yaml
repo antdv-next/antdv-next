@@ -141,7 +141,7 @@ catalogs:
     '@v-c/mentions': 1.1.0-rc.1
     '@v-c/menu': 1.1.0-rc.1
     '@v-c/mutate-observer': ^1.0.1
-    '@v-c/notification': 2.0.0-rc.1
+    '@v-c/notification': 2.0.0-rc.2
     '@v-c/pagination': ^1.0.0
     '@v-c/picker': 1.1.0-rc.1
     '@v-c/portal': ^1.0.8
