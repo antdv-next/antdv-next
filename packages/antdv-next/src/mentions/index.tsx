@@ -16,6 +16,7 @@ import { omit } from 'es-toolkit'
 import { computed, defineComponent, shallowRef } from 'vue'
 import getAllowClear from '../_util/getAllowClear'
 import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { useZIndex } from '../_util/hooks/useZIndex'
 import genPurePanel from '../_util/PurePanel.tsx'
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils'
 import toList from '../_util/toList'
@@ -256,6 +257,10 @@ const InternalMentions = defineComponent<
       emit('popupScroll', event)
     }
 
+    // ====================== zIndex ======================
+    const popupZIndexProp = computed(() => (props.styles as any)?.popup?.zIndex as number | undefined)
+    const [mentionsZIndex] = useZIndex('SelectLike', popupZIndexProp)
+
     const notFoundContent = computed(() => {
       if (props.notFoundContent !== undefined) {
         return props.notFoundContent
@@ -367,9 +372,13 @@ const InternalMentions = defineComponent<
         ),
         affixWrapper: hashId.value,
       }
+      const popupStyle = mergedStyles.value.popup as CSSProperties | undefined
       const mergedStylesValue = {
         textarea: mergedStyles.value.textarea,
-        popup: mergedStyles.value.popup,
+        popup: {
+          ...popupStyle,
+          zIndex: popupStyle?.zIndex ?? mentionsZIndex.value,
+        } as CSSProperties,
         suffix: mergedStyles.value.suffix,
       }
 
