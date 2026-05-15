@@ -57,26 +57,20 @@ const typeToIcon = {
 }
 
 export function resolveIconNode(
-  prefixCls: string,
   icon: VueNode | undefined,
   type: IconType | undefined,
-  iconClassName?: string,
-  iconStyle?: any,
 ): VueNode {
   if (icon) {
-    return (
-      <span class={clsx(`${prefixCls}-icon`, iconClassName)} style={iconStyle}>
-        {icon}
-      </span>
-    )
+    return icon
   }
   if (type && typeToIcon[type]) {
-    return createVNode(typeToIcon[type], {
-      class: clsx(`${prefixCls}-icon`, iconClassName, `${prefixCls}-icon-${type}`),
-      style: iconStyle,
-    })
+    return createVNode(typeToIcon[type])
   }
   return null
+}
+
+export function getIconWrapperClassName(prefixCls: string, type: IconType | undefined): string {
+  return type ? `${prefixCls}-icon-${type}` : ''
 }
 
 const defaults = {
@@ -246,13 +240,8 @@ const PurePanel = defineComponent<PurePanelProps>(
       const actions = getSlotPropsFnRun(slots, props, 'actions')
       const mergedNcs = mergedClassNames.value as PureContentProps['classes']
       const mergedNss = mergedStyles.value as PureContentProps['styles']
-      const iconNode = resolveIconNode(
-        noticePrefixCls,
-        props.icon,
-        props.type,
-        mergedNcs?.icon,
-        mergedNss?.icon,
-      )
+      const iconNode = resolveIconNode(props.icon, props.type)
+      const iconWrapperClass = clsx(getIconWrapperClassName(noticePrefixCls, props.type), mergedNcs?.icon)
       return (
         <div
           class={clsx(
@@ -277,17 +266,23 @@ const PurePanel = defineComponent<PurePanelProps>(
             duration={null}
             closable={mergedClosable.value}
             role={props.role}
-            class={clsx(notificationClassName, contextClassName.value)}
+            class={clsx(
+              notificationClassName,
+              contextClassName.value,
+              { [`${noticePrefixCls}-with-icon`]: !!iconNode },
+            )}
             icon={iconNode}
             title={props.title}
             description={props.description}
             actions={actions}
             classNames={{
+              icon: iconWrapperClass,
               title: mergedNcs?.title,
               description: mergedNcs?.description,
               actions: mergedNcs?.actions,
             }}
             styles={{
+              icon: mergedNss?.icon,
               title: mergedNss?.title,
               description: mergedNss?.description,
               actions: mergedNss?.actions,

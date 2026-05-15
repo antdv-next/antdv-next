@@ -21,7 +21,7 @@ import { devUseWarning } from '../_util/warning.ts'
 import { useBaseConfig, useComponentBaseConfig } from '../config-provider/context'
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
 import { useToken } from '../theme/internal.ts'
-import { getCloseIcon, resolveIconNode } from './PurePanel.tsx'
+import { getCloseIcon, getIconWrapperClassName, resolveIconNode } from './PurePanel.tsx'
 import useStyle from './style'
 import { getCloseIconConfig, getMotion, getPlacementStyle } from './util.ts'
 
@@ -236,12 +236,10 @@ export function useInternalNotification(
         originStyles,
         semanticStyles,
       )
-      const iconNode = resolveIconNode(
-        noticePrefixCls,
-        icon,
-        type,
+      const iconNode = resolveIconNode(icon, type)
+      const iconWrapperClass = clsx(
+        getIconWrapperClassName(noticePrefixCls, type),
         mergedClassNames.icon,
-        mergedStyles.icon,
       )
       return originOpen({
         // use placement from props instead of hard-coding "topRight"
@@ -253,17 +251,20 @@ export function useInternalNotification(
         actions: mergedActions,
         role,
         classNames: {
+          icon: iconWrapperClass,
           title: mergedClassNames.title,
           description: mergedClassNames.description,
           actions: mergedClassNames.actions,
         },
         styles: {
+          icon: mergedStyles.icon,
           title: mergedStyles.title,
           description: mergedStyles.description,
           actions: mergedStyles.actions,
         },
         class: clsx(
           { [`${noticePrefixCls}-${type}`]: type },
+          { [`${noticePrefixCls}-with-icon`]: !!iconNode },
           className,
           contextClassName,
           mergedClassNames.root,

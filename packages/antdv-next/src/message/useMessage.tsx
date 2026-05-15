@@ -240,11 +240,13 @@ export function useInternalMessage(messageConfig?: MaybeRef<HolderProps>) {
           ...restConfig as any,
           key: mergedKey!,
           placement: 'top',
-          icon: iconNode,
           description: (
-            <span class={mergedClassNames.content} style={mergedStyles.content}>
-              {content}
-            </span>
+            <div class={clsx(`${prefixCls}-custom-content`, type && `${prefixCls}-${type}`)}>
+              {iconNode}
+              <span class={mergedClassNames.content} style={mergedStyles.content}>
+                {content}
+              </span>
+            </div>
           ),
           class: clsx(
             { [`${noticePrefixCls}-${type}`]: !!type },

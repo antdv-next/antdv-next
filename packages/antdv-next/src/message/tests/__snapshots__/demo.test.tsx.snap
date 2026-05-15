@@ -14,10 +14,13 @@ exports[`message demo > renders _semantic correctly 1`] = `
       data-v-dfc8ebef=""
     >
       <div
-        class="ant-message-notice semantic-mark-root css-var-v-0 ant-message-css-var ant-message-notice-pure-panel"
+        class="ant-message-notice semantic-mark-root css-var-v-0 ant-message-css-var ant-message-notice-pure-panel ant-message-notice-success"
+        data-notification-index="0"
+        role="alert"
+        style="--notification-index: 0;"
       >
         <div
-          class="ant-message-notice-content"
+          class="ant-message-notice-description"
         >
           <div
             class="ant-message-custom-content ant-message-success"
@@ -48,6 +51,7 @@ exports[`message demo > renders _semantic correctly 1`] = `
             </span>
           </div>
         </div>
+        <!---->
         <!---->
         <!---->
       </div>
@@ -698,10 +702,13 @@ exports[`message demo > renders other correctly 1`] = `
 
 exports[`message demo > renders render-panel correctly 1`] = `
 <div
-  class="ant-message-notice css-var-root ant-message-css-var ant-message-notice-pure-panel"
+  class="ant-message-notice css-var-root ant-message-css-var ant-message-notice-pure-panel ant-message-notice-error"
+  data-notification-index="0"
+  role="alert"
+  style="--notification-index: 0;"
 >
   <div
-    class="ant-message-notice-content"
+    class="ant-message-notice-description"
   >
     <div
       class="ant-message-custom-content ant-message-error"
@@ -731,6 +738,7 @@ exports[`message demo > renders render-panel correctly 1`] = `
       </span>
     </div>
   </div>
+  <!---->
   <!---->
   <!---->
 </div>
