@@ -5,11 +5,12 @@ import { defineComponent } from 'vue'
 export const InternalPanel = defineComponent<InternalPanelProps>(
   (props, { slots, attrs }) => {
     return () => {
-      const { prefixCls, class: className, size, style = {} } = props
+      const { prefixCls, class: className, size, style = {}, destroyOnHidden } = props
 
+      const isHidden = size === 0
       const panelClassName = clsx(
         `${prefixCls}-panel`,
-        { [`${prefixCls}-panel-hidden`]: size === 0 },
+        { [`${prefixCls}-panel-hidden`]: isHidden },
         className,
       )
 
@@ -26,7 +27,8 @@ export const InternalPanel = defineComponent<InternalPanelProps>(
             flexGrow: hasSize ? 0 : 1,
           }}
         >
-          {slots?.default?.()}
+          {/* ant-design 6.4.0 #56772: optionally drop slot content when collapsed. */}
+          {(isHidden && destroyOnHidden) ? null : slots?.default?.()}
         </div>
       )
     }

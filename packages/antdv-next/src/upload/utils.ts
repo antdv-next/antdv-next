@@ -59,7 +59,8 @@ export function isImageUrl(file: UploadFile): boolean {
   const extension = extname(url)
   if (
     /^data:image\//.test(url)
-    || /(webp|svg|png|gif|jpg|jpeg|jfif|bmp|dpg|ico|heic|heif)$/i.test(extension)
+    // ant-design 6.4.0 #57287: detect avif/tif/tiff in addition to the legacy list.
+    || /(avif|webp|svg|png|gif|jpg|jpeg|jfif|bmp|dpg|ico|heic|heif|tiff?)$/i.test(extension)
   ) {
     return true
   }

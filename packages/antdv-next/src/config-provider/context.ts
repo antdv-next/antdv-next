@@ -219,6 +219,13 @@ export interface WaveConfig {
    * @descEN Customized wave effect.
    */
   showEffect?: ShowWaveEffect
+  /**
+   * @descCN 控制由哪种元素事件触发水波纹。
+   * @descEN Which element event triggers the wave effect.
+   * @default 'click'
+   * ant-design 6.4.0 PR #57402.
+   */
+  triggerType?: 'click' | 'pointerdown'
 }
 
 export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'classes' | 'styles'>

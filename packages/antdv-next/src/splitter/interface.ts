@@ -96,9 +96,23 @@ export interface PanelProps {
   size?: number | string
   collapsible?:
     | boolean
-    | { start?: boolean, end?: boolean, showCollapsibleIcon?: ShowCollapsibleIconMode }
+    | {
+      start?: boolean
+      end?: boolean
+      showCollapsibleIcon?: ShowCollapsibleIconMode
+      /**
+       * Replaces top-level `collapsibleIcon` config (deprecated).
+       * ant-design 6.4.0 PR #57044.
+       */
+      icon?: { start?: () => any, end?: () => any }
+    }
   resizable?: boolean
   defaultSize?: number | string
+  /**
+   * Keep the panel mounted when collapsed but hidden via CSS.
+   * ant-design 6.4.0 PR #56772.
+   */
+  destroyOnHidden?: boolean
 }
 
 // ================ inside ================
