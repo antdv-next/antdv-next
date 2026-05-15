@@ -52,12 +52,18 @@ export interface FormSemanticClassNames {
   root?: string
   label?: string
   content?: string
+  help?: string
+  helpItem?: string
+  extra?: string
 }
 
 export interface FormSemanticStyles {
   root?: CSSProperties
   label?: CSSProperties
   content?: CSSProperties
+  help?: CSSProperties
+  helpItem?: CSSProperties
+  extra?: CSSProperties
 }
 
 export type FormClassNamesType = SemanticClassNamesType<FormProps, FormSemanticClassNames>
