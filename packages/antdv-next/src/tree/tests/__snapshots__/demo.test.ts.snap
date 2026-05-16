@@ -270,6 +270,7 @@ exports[`tree demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -367,6 +368,7 @@ exports[`tree demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Root element with tree control base styles, layout and container control
               <!---->
               <!---->
@@ -398,6 +400,7 @@ exports[`tree demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   item
                   <!---->
                   <!---->
@@ -495,6 +498,7 @@ exports[`tree demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Item element with tree node base styles, drag state, role attributes, indentation, switcher, content wrapper and other node structure
               <!---->
               <!---->
@@ -526,6 +530,7 @@ exports[`tree demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   itemIcon
                   <!---->
                   <!---->
@@ -623,6 +628,7 @@ exports[`tree demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Icon element with tree node icon styles, size and state display
               <!---->
               <!---->
@@ -654,6 +660,7 @@ exports[`tree demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   itemTitle
                   <!---->
                   <!---->
@@ -751,6 +758,7 @@ exports[`tree demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Title element with tree node title text display styles and text content
               <!---->
               <!---->

@@ -33,6 +33,7 @@ const semantics = computed(() => {
       { name: 'popup.root', desc: t('popup.root') },
       { name: 'popup.item', desc: t('popup.item') },
       { name: 'popup.itemTitle', desc: t('popup.itemTitle') },
+      { name: 'popup.itemSwitcher', desc: t('popup.itemSwitcher'), version: '1.3.0' },
     ],
   )
 
