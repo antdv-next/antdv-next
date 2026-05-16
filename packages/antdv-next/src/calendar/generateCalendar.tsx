@@ -308,7 +308,13 @@ function generateCalendar<DateType extends AnyObject>(generateConfig: GenerateCo
             <div class={`${calendarPrefixCls.value}-date-value`}>
               {String(generateConfig.getDate(date)).padStart(2, '0')}
             </div>
-            <div class={`${calendarPrefixCls.value}-date-content`}>
+            <div
+              class={clsx(
+                `${calendarPrefixCls.value}-date-content`,
+                mergedClassNames.value.itemContent,
+              )}
+              style={mergedStyles.value.itemContent}
+            >
               {cellContent}
             </div>
           </div>
@@ -338,7 +344,13 @@ function generateCalendar<DateType extends AnyObject>(generateConfig: GenerateCo
             <div class={`${calendarPrefixCls.value}-date-value`}>
               {months[generateConfig.getMonth(date)]}
             </div>
-            <div class={`${calendarPrefixCls.value}-date-content`}>
+            <div
+              class={clsx(
+                `${calendarPrefixCls.value}-date-content`,
+                mergedClassNames.value.itemContent,
+              )}
+              style={mergedStyles.value.itemContent}
+            >
               {cellContent}
             </div>
           </div>

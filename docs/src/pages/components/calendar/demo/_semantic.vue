@@ -12,6 +12,7 @@ const semantics = computed(() => [
   { name: 'body', desc: t('body'), version: '1.0.0' },
   { name: 'content', desc: t('content'), version: '1.0.0' },
   { name: 'item', desc: t('item'), version: '1.0.0' },
+  { name: 'itemContent', desc: t('itemContent'), version: '1.3.0' },
 ])
 </script>
 

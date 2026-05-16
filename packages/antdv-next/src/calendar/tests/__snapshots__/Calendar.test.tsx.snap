@@ -614,11 +614,11 @@ exports[`calendar > rtl render > component should be rendered correctly in RTL d
               </tr>
               <tr>
                 <td
-                  class="ant-picker-cell ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                   title="2017-09-17"
                 >
                   <div
-                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                    class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
                   >
                     <div
                       class="ant-picker-calendar-date-value"
@@ -633,11 +633,11 @@ exports[`calendar > rtl render > component should be rendered correctly in RTL d
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-09-18"
                 >
                   <div
-                    class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
                     <div
                       class="ant-picker-calendar-date-value"
@@ -1206,7 +1206,7 @@ exports[`calendar > should match default snapshot 1`] = `
                   </div>
                 </div>
               </td>
-              <td title="2025-01-14" class="ant-picker-cell ant-picker-cell-in-view">
+              <td title="2025-01-14" class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view">
                 <div class="ant-picker-cell-inner ant-picker-calendar-date">
                   <div class="ant-picker-calendar-date-value">14</div>
                   <div class="ant-picker-calendar-date-content">
@@ -1214,7 +1214,7 @@ exports[`calendar > should match default snapshot 1`] = `
                   </div>
                 </div>
               </td>
-              <td title="2025-01-15" class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view">
+              <td title="2025-01-15" class="ant-picker-cell ant-picker-cell-in-view">
                 <div class="ant-picker-cell-inner ant-picker-calendar-date">
                   <div class="ant-picker-calendar-date-value">15</div>
                   <div class="ant-picker-calendar-date-content">
@@ -1609,7 +1609,7 @@ exports[`calendar > should match mini snapshot 1`] = `
                   </div>
                 </div>
               </td>
-              <td title="2025-01-14" class="ant-picker-cell ant-picker-cell-in-view">
+              <td title="2025-01-14" class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view">
                 <div class="ant-picker-cell-inner ant-picker-calendar-date">
                   <div class="ant-picker-calendar-date-value">14</div>
                   <div class="ant-picker-calendar-date-content">
@@ -1617,7 +1617,7 @@ exports[`calendar > should match mini snapshot 1`] = `
                   </div>
                 </div>
               </td>
-              <td title="2025-01-15" class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view">
+              <td title="2025-01-15" class="ant-picker-cell ant-picker-cell-in-view">
                 <div class="ant-picker-cell-inner ant-picker-calendar-date">
                   <div class="ant-picker-calendar-date-value">15</div>
                   <div class="ant-picker-calendar-date-content">
