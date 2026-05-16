@@ -42,6 +42,9 @@ export interface ErrorListProps {
   errors?: any[]
   warnings?: any[]
   onVisibleChanged?: (visible: boolean) => void
+  /** ant-design 6.4 #57607: per-item class for each help/error line. */
+  helpItemClassName?: string
+  helpItemStyle?: CSSProperties
 }
 
 const ErrorList = defineComponent<
@@ -144,11 +147,12 @@ const ErrorList = defineComponent<
                       key={key}
                       class={clsx(
                         itemClassName,
+                        props.helpItemClassName,
                         {
                           [`${baseClassName.value}-${errorStatus}`]: !!errorStatus,
                         },
                       )}
-                      style={itemStyle}
+                      style={{ ...props.helpItemStyle, ...itemStyle }}
                     >
                       {error}
                     </div>

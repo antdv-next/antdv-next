@@ -3,10 +3,16 @@ export const locales = {
     root: '根元素，包含表单项的底边距、垂直对齐、过渡动画、隐藏状态、错误警告状态等表单项容器的基础样式',
     label: '标签元素，包含 flex 布局、溢出隐藏、文本不换行、文本对齐、垂直对齐，以及标签的颜色、字体大小、高度、必填标记等标签显示样式',
     content: '内容元素，包含表单内容区域的布局、样式和控件容器的相关样式',
+    help: '帮助信息元素，包含校验提示与帮助文本的容器布局样式',
+    helpItem: '帮助信息条目元素，逐条校验或帮助文本的展示样式',
+    extra: '额外说明元素，包含 extra 文本块的间距、颜色等样式',
   },
   en: {
     root: 'Root element with form item margin-bottom, vertical-align, transitions, hidden states, error/warning states and other basic form item container styles',
     label: 'Label element with flex layout, overflow hidden, whitespace nowrap, text alignment, vertical alignment, plus label color, font size, height, required marks and other label display styles',
     content: 'Content element with form content area layout, styling and control container related styles',
+    help: 'Help wrapper element that contains validation feedback and help-text list',
+    helpItem: 'Single help/validation entry styles',
+    extra: 'Extra-text element below the field with spacing and color styles',
   },
 }

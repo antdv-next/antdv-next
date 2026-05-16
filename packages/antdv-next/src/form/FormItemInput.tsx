@@ -128,7 +128,10 @@ const FormItemInput = defineComponent<
                   warnings={warnings}
                   help={help}
                   helpStatus={status}
-                  class={`${baseClassName.value}-explain-connected`}
+                  class={clsx(`${baseClassName.value}-explain-connected`, contextClassNames.value?.help)}
+                  helpItemClassName={contextClassNames.value?.helpItem}
+                  helpItemStyle={contextStyles.value?.helpItem}
+                  style={contextStyles.value?.help}
                   onVisibleChanged={onErrorVisibleChanged}
                 />
               </FormItemPrefixContextProvider>
@@ -146,7 +149,12 @@ const FormItemInput = defineComponent<
 
       const extraDom = extra
         ? (
-            <div {...extraProps} class={`${baseClassName.value}-extra`} ref={extraRef}>
+            <div
+              {...extraProps}
+              class={clsx(`${baseClassName.value}-extra`, contextClassNames.value?.extra)}
+              style={contextStyles.value?.extra}
+              ref={extraRef}
+            >
               {extra}
             </div>
           )

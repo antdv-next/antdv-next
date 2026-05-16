@@ -10,6 +10,9 @@ const semantics = computed(() => [
   { name: 'root', desc: t('root'), version: '1.0.0' },
   { name: 'label', desc: t('label'), version: '1.0.0' },
   { name: 'content', desc: t('content'), version: '1.0.0' },
+  { name: 'help', desc: t('help'), version: '1.3.0' },
+  { name: 'helpItem', desc: t('helpItem'), version: '1.3.0' },
+  { name: 'extra', desc: t('extra'), version: '1.3.0' },
 ])
 </script>
 
@@ -38,6 +41,7 @@ const semantics = computed(() => [
         <a-form-item
           label="Password"
           name="password"
+          extra="Use at least 8 characters."
           :rules="[{ required: true, message: 'Please input your password!' }]"
         >
           <a-input-password />
