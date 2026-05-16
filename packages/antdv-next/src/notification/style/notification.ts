@@ -201,6 +201,18 @@ function genNotificationItemStyle(token: NotificationToken): CSSObject {
       paddingInlineEnd: paddingLG,
     },
 
+    // Without a title, the close button overlaps the description text.
+    // Mirrors ant-design#57821: pad the description for closable, then
+    // cancel when title is adjacent so the description aligns with the
+    // already-padded title.
+    [`${noticeCls}-closable ${noticeCls}-description`]: {
+      paddingInlineEnd: paddingLG,
+    },
+
+    [`${noticeCls}-closable ${noticeCls}-title + ${noticeCls}-description`]: {
+      paddingInlineEnd: 0,
+    },
+
     // ============================ Close =============================
     [`${noticeCls}-close`]: {
       position: 'absolute',
