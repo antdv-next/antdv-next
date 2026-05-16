@@ -327,6 +327,32 @@ const Transfer = defineComponent<
       useToProps(mergedProps),
     )
 
+    // ant-design 6.4 #57101: merge per-side (source/target) overrides on top
+    // of the shared classes/styles. The merged result is what gets handed to
+    // each <Section>, so callers can override either both sides at once via
+    // top-level `section`/`header`/… or per side via `source`/`target`.
+    const SECTION_SEMANTIC_KEYS = ['section', 'header', 'title', 'body', 'list', 'item', 'itemIcon', 'itemContent', 'footer'] as const
+    function mergeSideClasses(side: 'source' | 'target') {
+      const sideOverrides = (mergedClassNames.value as any)[side] ?? {}
+      const next: Record<string, any> = { ...mergedClassNames.value }
+      SECTION_SEMANTIC_KEYS.forEach((key) => {
+        if (sideOverrides[key]) {
+          next[key] = clsx(mergedClassNames.value[key], sideOverrides[key])
+        }
+      })
+      return next
+    }
+    function mergeSideStyles(side: 'source' | 'target') {
+      const sideOverrides = (mergedStyles.value as any)[side] ?? {}
+      const next: Record<string, any> = { ...mergedStyles.value }
+      SECTION_SEMANTIC_KEYS.forEach((key) => {
+        if (sideOverrides[key]) {
+          next[key] = { ...(mergedStyles.value as any)[key], ...sideOverrides[key] }
+        }
+      })
+      return next
+    }
+
     const [contextLocale] = useLocale('Transfer', defaultLocale.Transfer)
 
     const listLocale = computed(() => ({
@@ -430,8 +456,8 @@ const Transfer = defineComponent<
           <Section
             prefixCls={prefixCls.value}
             style={handleListStyle('left')}
-            classes={mergedClassNames.value}
-            styles={mergedStyles.value}
+            classes={mergeSideClasses('source')}
+            styles={mergeSideStyles('source')}
             titleText={leftTitle}
             dataSource={leftDataSource.value as any}
             filterOption={props.filterOption}
@@ -472,8 +498,8 @@ const Transfer = defineComponent<
           <Section
             prefixCls={prefixCls.value}
             style={handleListStyle('right')}
-            classes={mergedClassNames.value}
-            styles={mergedStyles.value}
+            classes={mergeSideClasses('target')}
+            styles={mergeSideStyles('target')}
             titleText={rightTitle}
             dataSource={rightDataSource.value as any}
             filterOption={props.filterOption}

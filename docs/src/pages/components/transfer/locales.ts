@@ -11,6 +11,8 @@ export const locales = {
     itemContent: '列表项内容元素，设置文本省略、内边距等列表项文本内容的展示样式',
     footer: '页脚元素，设置底部操作区域的样式和布局',
     actions: '操作元素，设置穿梭按钮组的样式、布局和交互状态',
+    source: '源（左侧）区域专属语义，与共享 section/header/title/body/list/item/itemIcon/itemContent/footer 同级，仅覆盖源侧',
+    target: '目标（右侧）区域专属语义，与共享 section/header/title/body/list/item/itemIcon/itemContent/footer 同级，仅覆盖目标侧',
   },
   en: {
     root: 'Root element with flex layout, transfer container base styles and layout control',
@@ -24,5 +26,7 @@ export const locales = {
     itemContent: 'List item content element with text ellipsis, padding and other list item text content display styles',
     footer: 'Footer element with bottom operation area styles and layout',
     actions: 'Actions element with transfer button group styles, layout and interaction states',
+    source: 'Source-side (left) overrides nested under the same shared semantic keys (section/header/title/body/list/item/itemIcon/itemContent/footer); only the source list picks them up',
+    target: 'Target-side (right) overrides nested under the same shared semantic keys (section/header/title/body/list/item/itemIcon/itemContent/footer); only the target list picks them up',
   },
 }

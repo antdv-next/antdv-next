@@ -851,6 +851,7 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -940,6 +941,7 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Root element with flex layout, transfer container base styles and layout control
               <!---->
               <!---->
@@ -971,6 +973,7 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   section
                   <!---->
                   <!---->
@@ -1060,6 +1063,7 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Section element with flex layout, width, height, min height, border, border radius and other single-side transfer container styles
               <!---->
               <!---->
@@ -1091,6 +1095,7 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   header
                   <!---->
                   <!---->
@@ -1180,6 +1185,7 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Header element with flex layout, alignment, height, padding, color, background color, bottom border, border radius and other header area styles
               <!---->
               <!---->
@@ -1211,6 +1217,7 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   title
                   <!---->
                   <!---->
@@ -1300,6 +1307,7 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Title element with text ellipsis, flex ratio, text alignment, auto left margin and other title text layout and styles
               <!---->
               <!---->
@@ -1331,6 +1339,7 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   body
                   <!---->
                   <!---->
@@ -1420,6 +1429,7 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Body element with list main area container styles and layout control
               <!---->
               <!---->
@@ -1451,6 +1461,7 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   list
                   <!---->
                   <!---->
@@ -1540,6 +1551,7 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               List element with list content styles, layout and scroll control
               <!---->
               <!---->
@@ -1571,6 +1583,7 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   item
                   <!---->
                   <!---->
@@ -1660,6 +1673,7 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               List item element with relative positioning, padding, border, hover state, selected state, disabled state and other list item interaction styles
               <!---->
               <!---->
@@ -1691,6 +1705,7 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   itemIcon
                   <!---->
                   <!---->
@@ -1780,6 +1795,7 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               List item icon element with checkbox and other icon styles and interaction states
               <!---->
               <!---->
@@ -1811,6 +1827,7 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   itemContent
                   <!---->
                   <!---->
@@ -1900,6 +1917,7 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               List item content element with text ellipsis, padding and other list item text content display styles
               <!---->
               <!---->
@@ -1931,6 +1949,7 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   footer
                   <!---->
                   <!---->
@@ -2020,6 +2039,7 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Footer element with bottom operation area styles and layout
               <!---->
               <!---->
@@ -2051,6 +2071,7 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   actions
                   <!---->
                   <!---->
@@ -2140,6 +2161,7 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Actions element with transfer button group styles, layout and interaction states
               <!---->
               <!---->
