@@ -2,6 +2,65 @@
 title: 组件更新日志
 ---
 
+## V1.3.0
+
+发布日期：2026-05-16
+
+本次版本主要聚焦于 **同步 ant-design 至 6.4.2、新增 BorderBeam 组件、按照 antd v2 语义化标准重构 Notification / Message / Typography 等组件，并补齐 ConfigProvider 全局配置项**，同时修复 **TypeScript bundler 模式下深层导入失败、message 动画错位、Notification 无标题关闭按钮间距、Image popup.close 语义键命名** 等问题。
+
+> ⚠️ 本版本包含若干破坏性改动，详情见 **破坏性变更** 章节。
+
+**✨ 新功能 Features**
+
+* feat：同步 ant-design@6.4.2，覆盖 Calendar / Splitter / Image / Wave / Modal / Drawer / ConfigProvider / Table / Tabs / Form / Menu / Tag / Tree / Tour / Typography / Notification / Message 等组件的功能与样式更新
+* feat(border-beam)：新增 BorderBeam 边框流光组件，附带文档、demo 与单元测试
+* feat(typography)：迁移到 antd 6.4 的 v2 语义化结构，支持 `actions.placement` 控制操作按钮组位置；新增 `root` / `actions` / `action` / `textarea` 语义化 key
+* feat(notification)：升级到 vc-notification@2，支持 `title` / `description` / `icon` / `actions` / `progress` / `close` 等完整 v2 语义化插槽；新增 `_InternalListDoNotUseOrYouWillBeFired` 内部组件供文档预览
+* feat(message)：同步 antd 6.4 v2 语义化结构（`title` / `wrapper` / `list` / `listContent`），新增 `_InternalListDoNotUseOrYouWillBeFired`
+* feat(form)：新增 `help` / `helpItem` / `extra` 语义化 class 与 style 支持
+* feat(transfer)：新增 `source` / `target` 嵌套语义化覆盖，支持按左右单侧定制 `section` / `header` / `title` / `body` / `list` / `item` / `itemIcon` / `itemContent` / `footer`
+* feat(calendar)：新增 `itemContent` 语义化 class 与 style
+* feat(modal, tour, tag, popconfirm, image, statistic, tree, tree-select, input, popconfirm)：补齐 `close` / `icon` / `clear` / `value` / `itemSwitcher` 等语义化 class 与 style
+* feat(config-provider)：扩展全局组件配置，支持 Select `allowClear` / `showSearch` / `loadingIcon`、DatePicker / TimePicker `allowClear` / `clearIcon`、Modal infoIcon/successIcon/warningIcon/errorIcon、Upload `progress` / `accept`、Modal / Drawer `focusable`、Mentions `allowClear`、Cascader 系列 icon 等
+* feat(menu)：item extra 布局与 tooltip padding 样式更新
+* feat(mentions)：弹层 z-index 接入 `useZIndex`
+* feat(cascader)：支持 ConfigProvider `searchIcon` / `clearIcon` / `removeIcon` / `suffixIcon`
+* feat(table)：支持 ConfigProvider 列默认值 + 按列合并
+* feat：升级 vc-notification@2.0.0-rc.4、vc-input@1.1.0-rc.3、vc-picker@1.1.0-rc.3、vc-table@1.1.0-rc.2、vc-select@1.1.0-rc.1、vc-slider@1.1.0-rc.1、vc-resize-observer@1.1.0-rc.1、vc-tour@1.1.0-rc.2 等
+
+**💥 破坏性变更 Breaking Changes**
+
+* **typography**：`classes.copy` / `classes.edit` / `classes.expand` / `classes.content`（及对应 `styles.*`）已移除，请改用统一的 `classes.action` / `styles.action`（单按钮）和 `classes.actions` / `styles.actions`（操作组容器）
+* **message**：`classes.content` / `styles.content` 已移除，请改用 `classes.title` / `styles.title`；DOM 从 `notice-description > .custom-content` 改为 `notice-title`，type 修饰类从 root 挪到 `notice-wrapper`
+* **transfer**：`classes.source` / `classes.target` 从扁平字符串改为嵌套对象。原 `classes={ source: 'foo' }` 写法需迁移为 `classes={ source: { section: 'foo' } }`
+* **image**：`classes.popup.closeIcon` / `styles.popup.closeIcon` 已重命名为 `popup.close` / `popup.close`，与 vc-image 的内部命名对齐
+
+**🐞 问题修复 Fixes**
+
+* fix(pkg)：为 `./dist/*` 子路径导出增加 `index.d.ts` fallback，修复 TypeScript `moduleResolution: bundler` / `nodenext` 下深层类型导入失败的问题
+* fix(message)：从 `move-up` 改为 `fade` 动画名，恢复与 antd 6.x 一致的进出场动画
+* fix(message)：图标从内嵌 description 提升到 v2 的 icon 语义槽
+* fix(notification)：可关闭通知没有标题时为 description 补充 `padding-inline-end`，避免文字与关闭按钮重叠
+* fix(notification)：位置改用 `--notification-top` / `--notification-bottom` CSS 变量，避免 holder 占满高度
+* fix(notification, message)：补回 v1 icon-wrapper 类，保持向后兼容
+* fix(notification)：从 vc-notification 拆掉 onClose array merge / 无效 TransitionGroup tag 等问题（vc-notification 2.0.0-rc.2/rc.3 跟进）
+* fix(border-beam)：将 `offsetPath` 圆角从 `200px` 调整为 `100px`，避免光束在转弯处断开
+
+**📝 文档与 Demo**
+
+* docs：新增 Notification / Message / Typography / Form / Transfer / Tag / Tour / Modal / Image / Calendar / Statistic / Tree / TreeSelect / Input / Popconfirm 语义化 DOM 预览 demo + 多语言 locale 描述
+* docs(notification, message)：style-class demo 重构成 React 6.4 同款绿色/红色函数式样式示例
+* docs(border-beam)：新增中英文文档、demo 与侧边栏注册
+
+**🔄 内部依赖 Internal**
+
+* 升级 vc-notification 至 2.0.0-rc.4（完整 v2 语义化结构 + height patcher 修复 + 离场动画修复）
+* 升级 vc-input/picker/select/table/slider/resize-observer/tour/notification 等 rc 版本，详见 catalog
+* 升级 vc-overflow 至 1.1.0-rc.1（RTL logical offset 修复）
+
+**Full Changelog**
+https://github.com/antdv-next/antdv-next/compare/antdv-next@1.2.2...antdv-next@1.3.0
+
 ## V1.2.2
 
 发布日期：2026-04-28
