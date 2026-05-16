@@ -13,6 +13,7 @@ const semantics = computed(() => [
   { name: 'title', desc: t('title'), version: '1.0.0' },
   { name: 'prefix', desc: t('prefix'), version: '1.0.0' },
   { name: 'content', desc: t('content'), version: '1.0.0' },
+  { name: 'value', desc: t('value'), version: '1.3.0' },
   { name: 'suffix', desc: t('suffix'), version: '1.0.0' },
 ])
 </script>
