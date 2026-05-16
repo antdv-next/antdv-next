@@ -41,41 +41,54 @@ describe('typography.semantic', () => {
       expect(root.attributes('style')).toContain('color: rgb(255, 0, 0)')
     })
 
-    it('should apply classes and styles to copy button', async () => {
+    it('should apply classes and styles to actions wrapper and action buttons', async () => {
       const wrapper = mount(Base, {
         props: {
           component: 'p',
           copyable: {},
-          classes: { copy: 'c-copy' },
-          styles: { copy: { color: 'rgb(0, 128, 0)' } },
+          editable: {},
+          classes: {
+            actions: 'c-actions',
+            action: 'c-action',
+          },
+          styles: {
+            actions: { backgroundColor: 'rgb(240, 240, 240)' },
+            action: { color: 'rgb(0, 128, 0)' },
+          },
         },
         slots: {
           default: () => 'text',
         },
       })
+      const actions = wrapper.find(`.${prefixCls}-actions`)
+      expect(actions.classes()).toContain('c-actions')
+      expect(actions.attributes('style')).toContain('background-color: rgb(240, 240, 240)')
+
       const copyBtn = wrapper.find(`.${prefixCls}-copy`)
-      expect(copyBtn.classes()).toContain('c-copy')
+      expect(copyBtn.classes()).toContain('c-action')
       expect(copyBtn.attributes('style')).toContain('color: rgb(0, 128, 0)')
+
+      const editBtn = wrapper.find(`.${prefixCls}-edit`)
+      expect(editBtn.classes()).toContain('c-action')
+      expect(editBtn.attributes('style')).toContain('color: rgb(0, 128, 0)')
     })
 
-    it('should apply classes and styles to edit button', () => {
+    it('should render actions in front when placement is "start"', () => {
       const wrapper = mount(Base, {
         props: {
           component: 'p',
-          editable: {},
-          classes: { edit: 'c-edit' },
-          styles: { edit: { color: 'rgb(0, 0, 255)' } },
+          copyable: {},
+          actions: { placement: 'start' as const },
         },
         slots: {
           default: () => 'text',
         },
       })
-      const editBtn = wrapper.find(`.${prefixCls}-edit`)
-      expect(editBtn.classes()).toContain('c-edit')
-      expect(editBtn.attributes('style')).toContain('color: rgb(0, 0, 255)')
+      const actions = wrapper.find(`.${prefixCls}-actions`)
+      expect(actions.classes()).toContain(`${prefixCls}-actions-start`)
     })
 
-    it('should apply classes and styles to expand button', async () => {
+    it('should apply classes and styles to action (expand button)', async () => {
       const LINE_STR_COUNT = 20
       const originOffsetHeight = Object.getOwnPropertyDescriptor(
         HTMLElement.prototype,
@@ -114,8 +127,8 @@ describe('typography.semantic', () => {
         props: {
           component: 'p',
           ellipsis: { expandable: true },
-          classes: { expand: 'c-expand' },
-          styles: { expand: { color: 'rgb(128, 0, 128)' } },
+          classes: { action: 'c-action' },
+          styles: { action: { color: 'rgb(128, 0, 128)' } },
         },
         slots: {
           default: () => longText,
@@ -126,7 +139,7 @@ describe('typography.semantic', () => {
 
       const expandBtn = wrapper.find(`.${prefixCls}-expand`)
       if (expandBtn.exists()) {
-        expect(expandBtn.classes()).toContain('c-expand')
+        expect(expandBtn.classes()).toContain('c-action')
         expect(expandBtn.attributes('style')).toContain('color: rgb(128, 0, 128)')
       }
 

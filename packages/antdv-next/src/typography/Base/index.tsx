@@ -355,6 +355,8 @@ const Base = defineComponent<
       return [editConfig.value.text, getChildrenText.value, props.title, tooltipProps.value?.title].find(isValidText)
     })
 
+    const placement = computed<'start' | 'end'>(() => props.actions?.placement ?? 'end')
+
     // Expand
     const renderExpand = () => {
       const { expandable, symbol } = ellipsisConfig.value
@@ -363,10 +365,10 @@ const Base = defineComponent<
             <button
               type="button"
               key="expand"
-              class={classNames(`${prefixCls.value}-${expanded.value ? 'collapse' : 'expand'}`, mergedClassNames.value.expand)}
+              class={classNames(`${prefixCls.value}-${expanded.value ? 'collapse' : 'expand'}`, mergedClassNames.value.action)}
               onClick={(e: MouseEvent) => onExpandClick(e, { expanded: !expanded.value })}
               aria-label={expanded.value ? textLocale?.value?.collapse : textLocale?.value?.expand}
-              style={mergedStyles.value.expand}
+              style={mergedStyles.value.action}
             >
               {typeof symbol === 'function' ? symbol(expanded.value) : symbol}
             </button>
@@ -391,11 +393,11 @@ const Base = defineComponent<
               <button
                 type="button"
                 ref={editIconRef}
-                class={classNames(`${prefixCls.value}-edit`, mergedClassNames.value.edit)}
+                class={classNames(`${prefixCls.value}-edit`, mergedClassNames.value.action)}
                 onClick={onEditClick}
                 aria-label={ariaLabel}
                 tabindex={tabIndex}
-                style={mergedStyles.value.edit}
+                style={mergedStyles.value.action}
               >
                 {icon || <EditOutlined {...{ role: 'button' }} />}
               </button>
@@ -419,8 +421,8 @@ const Base = defineComponent<
           onCopy={handleCopyClick}
           loading={copyLoading.value}
           iconOnly={childrenNodes.value.length === 0}
-          className={mergedClassNames.value.copy as any}
-          style={mergedStyles.value.copy as any}
+          className={mergedClassNames.value.action as any}
+          style={mergedStyles.value.action as any}
         />
       )
     }
@@ -437,7 +439,14 @@ const Base = defineComponent<
       return (
         <span
           key="operations"
-          class={`${prefixCls.value}-actions`}
+          class={classNames(
+            `${prefixCls.value}-actions`,
+            mergedClassNames.value.actions,
+            {
+              [`${prefixCls.value}-actions-start`]: placement.value === 'start',
+            },
+          )}
+          style={mergedStyles.value.actions}
           onMouseenter={() => {
             isHoveringOperations.value = true
           }}
@@ -460,7 +469,6 @@ const Base = defineComponent<
           </span>
         ),
         ellipsisConfig.value.suffix,
-        renderOperations(canEllipsis),
       ]
     }
 
@@ -508,13 +516,15 @@ const Base = defineComponent<
               emit('edit:end')
             }}
             prefixCls={prefixCls.value}
-            className={classNames(attrClass, mergedClassNames.value.root, props.rootClass, contextClassName.value)}
-            style={[mergedStyles.value.root, contextStyle.value, attrStyle] as any}
+            className={classNames(attrClass, props.rootClass, contextClassName.value)}
+            style={[contextStyle.value, attrStyle] as any}
             direction={mergedDirection.value}
             component={props.component as any}
             maxLength={editConfig.value.maxLength}
             autoSize={editConfig.value.autoSize}
             enterIcon={editConfig.value.enterIcon}
+            classes={mergedClassNames.value}
+            styles={mergedStyles.value}
           />
         )
       }
@@ -572,6 +582,7 @@ const Base = defineComponent<
                   return wrapperDecorations(
                     props,
                     <>
+                      {placement.value === 'start' ? renderOperations(canEllipsis) : null}
                       {node.length > 0 && canEllipsis && !expanded.value && topAriaLabel.value
                         ? (
                             <span key="show-content" aria-hidden>
@@ -580,6 +591,7 @@ const Base = defineComponent<
                           )
                         : node}
                       <>{renderEllipsis(canEllipsis)}</>
+                      {placement.value === 'start' ? null : renderOperations(canEllipsis)}
                     </>,
                   )
                 }}
