@@ -203,6 +203,7 @@ exports[`input-number demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -292,6 +293,7 @@ exports[`input-number demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Root element, sets inline-block layout, width, border radius and reset styles
               <!---->
               <!---->
@@ -323,6 +325,7 @@ exports[`input-number demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   prefix
                   <!---->
                   <!---->
@@ -412,6 +415,7 @@ exports[`input-number demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Prefix wrapper element, sets flex layout, alignment and right margin styles
               <!---->
               <!---->
@@ -443,6 +447,7 @@ exports[`input-number demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   input
                   <!---->
                   <!---->
@@ -532,6 +537,7 @@ exports[`input-number demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Input element, sets font, line height, text input and interaction styles
               <!---->
               <!---->
@@ -563,6 +569,7 @@ exports[`input-number demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   suffix
                   <!---->
                   <!---->
@@ -652,6 +659,7 @@ exports[`input-number demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Suffix wrapper element, sets flex layout, margin and transition animation styles
               <!---->
               <!---->
@@ -683,6 +691,7 @@ exports[`input-number demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   actions
                   <!---->
                   <!---->
@@ -772,6 +781,7 @@ exports[`input-number demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Actions element, sets absolute positioning, width, flex layout and number adjustment button styles
               <!---->
               <!---->
@@ -803,6 +813,7 @@ exports[`input-number demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   action
                   <!---->
                   <!---->
@@ -892,6 +903,7 @@ exports[`input-number demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Single action button element, sets button styling, hover effects and click interactions
               <!---->
               <!---->
