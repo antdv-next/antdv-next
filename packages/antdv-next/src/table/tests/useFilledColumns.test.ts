@@ -1,9 +1,8 @@
+import { EXPAND_COLUMN } from '@v-c/table'
 import { describe, expect, it } from 'vitest'
 import { computed, ref } from 'vue'
 import useFilledColumns from '../hooks/useFilledColumns'
-
-const SELECTION_COLUMN = { key: 'SELECTION_COLUMN' } as any
-const EXPAND_COLUMN = { key: 'EXPAND_COLUMN' } as any
+import { SELECTION_COLUMN } from '../hooks/useSelection'
 
 describe('useFilledColumns', () => {
   it('returns the original columns when no column default is supplied', () => {

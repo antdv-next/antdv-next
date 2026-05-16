@@ -1,12 +1,11 @@
 import type { ComputedRef } from 'vue'
 import type { ColumnGroupType, ColumnsType, ColumnType } from '../interface'
+import { EXPAND_COLUMN } from '@v-c/table'
 import { computed } from 'vue'
-
-const SELECTION_COLUMN_KEY = 'SELECTION_COLUMN'
-const EXPAND_COLUMN_KEY = 'EXPAND_COLUMN'
+import { SELECTION_COLUMN } from './useSelection'
 
 function isSpecialColumn(col: any): boolean {
-  return col?.key === SELECTION_COLUMN_KEY || col?.key === EXPAND_COLUMN_KEY
+  return col === SELECTION_COLUMN || col === EXPAND_COLUMN
 }
 
 /**

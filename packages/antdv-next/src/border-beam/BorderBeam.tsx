@@ -61,17 +61,8 @@ const BorderBeam = defineComponent<
       return borderInfo.value.borderWidth.map(getInset).join(' ')
     })
 
-    const setHostDom = (el: unknown, originalRef?: any) => {
-      const node = unrefElement(el as any) as HTMLElement | null
-      hostDom.value = node ?? null
-      if (originalRef) {
-        if (typeof originalRef === 'function') {
-          originalRef(node)
-        }
-        else if (typeof originalRef === 'object' && 'value' in originalRef) {
-          (originalRef as { value: unknown }).value = node
-        }
-      }
+    const setHostDom = (el: unknown) => {
+      hostDom.value = (unrefElement(el as any) as HTMLElement | null) ?? null
     }
 
     return () => {
@@ -108,10 +99,7 @@ const BorderBeam = defineComponent<
           return children
         }
         const child = children[0] as VNode
-        const originalRef = (child as any).ref
-        return cloneVNode(child, {
-          ref: (el: any) => setHostDom(el, originalRef),
-        })
+        return cloneVNode(child, { ref: setHostDom }, true)
       }
 
       return (
