@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { notification } from 'antdv-next'
+import { Button, notification } from 'antdv-next'
 import { computed, h } from 'vue'
 import { SemanticPreview } from '@/components/semantic'
 import { useComponentLocale } from '@/composables/use-locale'
@@ -40,7 +40,7 @@ const items = computed(() => [
     description: 'Hello World?',
     type: 'success' as const,
     duration: false as const,
-    actions: h('a-button', { type: 'primary', size: 'small' }, () => 'My Button'),
+    actions: h(Button, { type: 'primary', size: 'small' }, () => 'My Button'),
   },
   {
     key: 'semantic-notification-2',
