@@ -152,7 +152,7 @@ catalogs:
     '@v-c/segmented': ^1.0.2
     '@v-c/select': 1.1.0-rc.1
     '@v-c/slick': ^1.0.2
-    '@v-c/slider': ^1.0.10
+    '@v-c/slider': 1.1.0-rc.1
     '@v-c/steps': ^1.0.0
     '@v-c/switch': ^1.0.0
     '@v-c/table': 1.1.0-rc.2

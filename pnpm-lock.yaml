@@ -396,8 +396,8 @@ catalogs:
       specifier: ^1.0.2
       version: 1.0.2
     '@v-c/slider':
-      specifier: ^1.0.10
-      version: 1.0.10
+      specifier: 1.1.0-rc.1
+      version: 1.1.0-rc.1
     '@v-c/steps':
       specifier: ^1.0.0
       version: 1.0.0
@@ -867,7 +867,7 @@ importers:
         version: 1.0.2(vue@3.5.30(typescript@5.9.3))
       '@v-c/slider':
         specifier: catalog:vc
-        version: 1.0.10(vue@3.5.30(typescript@5.9.3))
+        version: 1.1.0-rc.1(vue@3.5.30(typescript@5.9.3))
       '@v-c/steps':
         specifier: catalog:vc
         version: 1.0.0(vue@3.5.30(typescript@5.9.3))
@@ -3027,6 +3027,11 @@ packages:
 
   '@v-c/slider@1.0.10':
     resolution: {integrity: sha512-KMIVytBm8K8RQ+aPPraS28GmBptGHESF/gDRbGjOLD7xyivuQDJeEqVaUFY3EcCWsERjh4VP/L96gUbMTF0uag==}
+    peerDependencies:
+      vue: ^3.0.0
+
+  '@v-c/slider@1.1.0-rc.1':
+    resolution: {integrity: sha512-zScHhXRy9cer592UobYXuYyY74iI+0frbeDQgqHSiwQ7E+f3uBSRRlyHBHRftE7TXPFKbU91R2Lzzh/d8G7y8Q==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -8617,6 +8622,11 @@ snapshots:
       vue: 3.5.30(typescript@5.9.3)
 
   '@v-c/slider@1.0.10(vue@3.5.30(typescript@5.9.3))':
+    dependencies:
+      '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
+      vue: 3.5.30(typescript@5.9.3)
+
+  '@v-c/slider@1.1.0-rc.1(vue@3.5.30(typescript@5.9.3))':
     dependencies:
       '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
       vue: 3.5.30(typescript@5.9.3)
