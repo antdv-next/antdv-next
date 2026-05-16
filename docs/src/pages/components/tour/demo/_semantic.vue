@@ -18,6 +18,7 @@ const semantics = computed(() => [
   { name: 'actions', desc: t('actions'), version: '1.0.0' },
   { name: 'indicators', desc: t('indicators'), version: '1.0.0' },
   { name: 'indicator', desc: t('indicator'), version: '1.0.0' },
+  { name: 'close', desc: t('close'), version: '1.3.0' },
 ])
 
 const open = ref(true)
