@@ -153,7 +153,11 @@ const InternalTag = defineComponent<
           closable: false,
           closeIconRender(iconNode) {
             const replacement = (
-              <span class={`${prefixCls.value}-close-icon`} onClick={handleCloseClick}>
+              <span
+                class={classNames(`${prefixCls.value}-close-icon`, mergedClassNames.value?.close)}
+                style={mergedStyles.value?.close}
+                onClick={handleCloseClick}
+              >
                 {iconNode}
               </span>
             )
@@ -163,7 +167,12 @@ const InternalTag = defineComponent<
                   originProps?.onClick?.(e)
                   handleCloseClick(e)
                 },
-                class: classNames(originProps?.class, `${prefixCls.value}-close-icon`),
+                class: classNames(
+                  originProps?.class,
+                  `${prefixCls.value}-close-icon`,
+                  mergedClassNames.value?.close,
+                ),
+                style: { ...(originProps?.style as any), ...mergedStyles.value?.close },
               }
             })
           },
