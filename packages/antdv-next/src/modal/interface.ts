@@ -19,6 +19,10 @@ export interface ModalSemanticClassNames {
   title?: string
   wrapper?: string
   mask?: string
+  /**
+   * @since 1.3.0 (mirrors ant-design#57264)
+   */
+  close?: string
 }
 
 export interface ModalSemanticStyles {
@@ -30,6 +34,10 @@ export interface ModalSemanticStyles {
   title?: CSSProperties
   wrapper?: CSSProperties
   mask?: CSSProperties
+  /**
+   * @since 1.3.0
+   */
+  close?: CSSProperties
 }
 
 export type ModalClassNamesType = SemanticClassNamesType<ModalProps, ModalSemanticClassNames>
