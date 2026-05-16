@@ -11,7 +11,7 @@ import { CheckCircleFilled, CloseCircleFilled, ExclamationCircleFilled, InfoCirc
 import { Notification } from '@v-c/notification'
 import { clsx } from '@v-c/util'
 import { omit } from 'es-toolkit'
-import { cloneVNode, computed, defineComponent, isVNode } from 'vue'
+import { computed, defineComponent } from 'vue'
 import { pureAttrs, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
 import { toPropsRefs } from '../_util/tools'
 import { useComponentBaseConfig } from '../config-provider/context'
@@ -26,7 +26,7 @@ export interface PureContentProps {
   styles?: MessageSemanticStyles
 }
 
-const TypeIcon = {
+export const TypeIcon: Record<NoticeType, any> = {
   info: InfoCircleFilled,
   success: CheckCircleFilled,
   error: CloseCircleFilled,
@@ -34,83 +34,34 @@ const TypeIcon = {
   loading: LoadingOutlined,
 }
 
+/**
+ * Mirrors ant-design 6.4 `getMessageIcon`. Returns a renderable icon vnode for
+ * the type, allowing a custom `icon` to take precedence. The notice element
+ * wraps it with `${prefixCls}-notice-icon`, so the returned vnode does NOT
+ * need the `${prefixCls}-icon` class anymore.
+ */
 export function resolveMessageIcon(
-  prefixCls: string,
+  _prefixCls: string,
   icon: VueNode | undefined,
   type: NoticeType | undefined,
-  iconClassName?: string,
-  iconStyle?: any,
 ): VueNode {
-  if (icon && isVNode(icon)) {
-    return cloneVNode(icon, {
-      class: clsx((icon.props as any)?.class, iconClassName),
-      style: { ...(icon.props as any)?.style, ...iconStyle },
-    })
-  }
-  if (icon) {
-    return (
-      <span class={clsx(`${prefixCls}-icon`, iconClassName)} style={iconStyle}>
-        {icon}
-      </span>
-    )
+  if (icon !== undefined && icon !== null) {
+    return icon as VueNode
   }
   const IconNode = type ? TypeIcon[type] : null
-  return IconNode
-    ? (
-        <IconNode
-          class={clsx(`${prefixCls}-icon`, iconClassName)}
-          style={iconStyle}
-        />
-      )
-    : null
+  return IconNode ? <IconNode /> : null
 }
 
 export const PureContent = defineComponent<PureContentProps>(
   (props, { slots }) => {
     return () => {
-      const { prefixCls, type, icon, classNames: pureContentClassNames, styles } = props
-
-      const renderIcon = () => {
-        if (!icon && !type) {
-          return null
-        }
-
-        if (icon && isVNode(icon)) {
-          return cloneVNode(icon, {
-            class: clsx((icon.props as any)?.class, pureContentClassNames?.icon),
-            style: { ...(icon.props as any)?.style, ...styles?.icon },
-          })
-        }
-
-        if (icon) {
-          return (
-            <span class={clsx(`${prefixCls}-icon`, pureContentClassNames?.icon)} style={styles?.icon}>
-              {icon}
-            </span>
-          )
-        }
-
-        const IconNode = type ? TypeIcon[type] : null
-
-        return IconNode
-          ? (
-              <IconNode
-                class={clsx(`${prefixCls}-icon`, pureContentClassNames?.icon)}
-                style={styles?.icon}
-              />
-            )
-          : null
-      }
-
-      const iconNode = renderIcon()
-
+      const { prefixCls, type, icon } = props
+      const iconNode = resolveMessageIcon(prefixCls, icon, type)
       return (
-        <div class={clsx(`${prefixCls}-custom-content`, type && `${prefixCls}-${type}`)}>
+        <>
           {iconNode}
-          <span class={pureContentClassNames?.content} style={styles?.content}>
-            {slots.default?.()}
-          </span>
-        </div>
+          {slots.default?.()}
+        </>
       )
     }
   },
@@ -177,14 +128,8 @@ const PurePanel = defineComponent<PurePanelProps>(
     return () => {
       const restProps = omit(props, omitKeys)
       const noticePrefixCls = `${prefixCls.value}-notice`
-      const iconNode = resolveMessageIcon(
-        prefixCls.value,
-        props.icon,
-        props.type,
-        mergedClassNames.value?.icon,
-        mergedStyles.value?.icon,
-      )
-      const iconWrapperClass = props.type ? `${noticePrefixCls}-icon-${props.type}` : ''
+      const iconNode = resolveMessageIcon(prefixCls.value, props.icon, props.type)
+      const typeIconCls = props.type ? `${noticePrefixCls}-icon-${props.type}` : undefined
 
       return (
         <Notification
@@ -192,7 +137,16 @@ const PurePanel = defineComponent<PurePanelProps>(
           {...restProps as NotificationProps}
           prefixCls={prefixCls.value}
           duration={null}
-          classNames={{ icon: iconWrapperClass }}
+          classNames={{
+            wrapper: clsx(props.type && `${prefixCls.value}-${props.type}`, mergedClassNames.value?.wrapper),
+            icon: clsx(typeIconCls, mergedClassNames.value?.icon),
+            title: mergedClassNames.value?.title,
+          }}
+          styles={{
+            wrapper: mergedStyles.value?.wrapper,
+            icon: mergedStyles.value?.icon,
+            title: mergedStyles.value?.title,
+          }}
           class={clsx(
             contextClassName.value,
             mergedClassNames.value?.root,
@@ -209,13 +163,7 @@ const PurePanel = defineComponent<PurePanelProps>(
             ...(attrs as any).style,
           }}
           icon={iconNode}
-          description={(
-            <div class={clsx(`${prefixCls.value}-custom-content`, props.type && `${prefixCls.value}-${props.type}`)}>
-              <span class={mergedClassNames.value?.content} style={mergedStyles.value?.content}>
-                {props.content}
-              </span>
-            </div>
-          )}
+          title={props.content}
         />
       )
     }

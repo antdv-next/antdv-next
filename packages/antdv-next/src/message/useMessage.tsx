@@ -229,33 +229,27 @@ export function useInternalMessage(messageConfig?: MaybeRef<HolderProps>) {
         originStyles,
       )
 
-      const iconNode = resolveMessageIcon(
-        prefixCls,
-        icon,
-        type,
-        mergedClassNames.icon,
-        mergedStyles.icon,
-      )
-      // Tell vc-notification to add the type modifier on the .notice-icon
-      // wrapper so the shared genListItemSharedStyle can apply
-      // colorSuccess / colorInfo / colorWarning / colorError to it.
-      const iconWrapperClass = type ? `${noticePrefixCls}-icon-${type}` : ''
+      const iconNode = resolveMessageIcon(prefixCls, icon, type)
+      const typeIconCls = type ? `${noticePrefixCls}-icon-${type}` : undefined
       return wrapPromiseFn((resolve) => {
         originOpen({
           ...restConfig as any,
           key: mergedKey!,
           placement: 'top',
-          // v2 semantic icon slot → renders inside .notice-wrapper > .notice-icon
-          // so the shared flex layout (gap, alignItems:center) applies.
           icon: iconNode,
-          classNames: { icon: iconWrapperClass },
-          description: (
-            <div class={clsx(`${prefixCls}-custom-content`, type && `${prefixCls}-${type}`)}>
-              <span class={mergedClassNames.content} style={mergedStyles.content}>
-                {content}
-              </span>
-            </div>
-          ),
+          // v2 semantic: content goes in the title slot, type modifier on the
+          // wrapper (not on a content div). Mirrors ant-design 6.4 useMessage.
+          title: content,
+          classNames: {
+            wrapper: clsx(type && `${prefixCls}-${type}`, mergedClassNames.wrapper),
+            icon: clsx(typeIconCls, mergedClassNames.icon),
+            title: mergedClassNames.title,
+          },
+          styles: {
+            wrapper: mergedStyles.wrapper,
+            icon: mergedStyles.icon,
+            title: mergedStyles.title,
+          },
           class: clsx(
             { [`${noticePrefixCls}-${type}`]: !!type },
             className,

@@ -33,7 +33,7 @@ describe('message', () => {
     await nextTick()
     await nextTick()
 
-    const content = document.querySelector('.ant-message-custom-content.ant-message-info')
+    const content = document.querySelector('.ant-message-notice-info .ant-message-notice-title')
     expect(content).toBeTruthy()
     expect(content?.textContent).toContain('Hello Info')
 
@@ -49,7 +49,7 @@ describe('message', () => {
     await nextTick()
     await nextTick()
 
-    const content = document.querySelector('.ant-message-custom-content.ant-message-success')
+    const content = document.querySelector('.ant-message-notice-success .ant-message-notice-title')
     expect(content).toBeTruthy()
     expect(content?.textContent).toContain('Success!')
 
@@ -65,7 +65,7 @@ describe('message', () => {
     await nextTick()
     await nextTick()
 
-    const content = document.querySelector('.ant-message-custom-content.ant-message-error')
+    const content = document.querySelector('.ant-message-notice-error .ant-message-notice-title')
     expect(content).toBeTruthy()
     expect(content?.textContent).toContain('Error!')
 
@@ -81,7 +81,7 @@ describe('message', () => {
     await nextTick()
     await nextTick()
 
-    const content = document.querySelector('.ant-message-custom-content.ant-message-warning')
+    const content = document.querySelector('.ant-message-notice-warning .ant-message-notice-title')
     expect(content).toBeTruthy()
     expect(content?.textContent).toContain('Warning!')
 
@@ -97,7 +97,7 @@ describe('message', () => {
     await nextTick()
     await nextTick()
 
-    const content = document.querySelector('.ant-message-custom-content.ant-message-loading')
+    const content = document.querySelector('.ant-message-notice-loading .ant-message-notice-title')
     expect(content).toBeTruthy()
     expect(content?.textContent).toContain('Loading...')
 
@@ -247,7 +247,7 @@ describe('message', () => {
     await nextTick()
     await nextTick()
 
-    const content = document.querySelector('.ant-message-custom-content.ant-message-warning')
+    const content = document.querySelector('.ant-message-notice-warning .ant-message-notice-title')
     expect(content).toBeTruthy()
     expect(content?.textContent).toContain('Open API')
 
@@ -264,7 +264,7 @@ describe('message', () => {
     await nextTick()
     await nextTick()
 
-    const content = document.querySelector('.ant-message-custom-content.ant-message-error')
+    const content = document.querySelector('.ant-message-notice-error .ant-message-notice-title')
     expect(content).toBeTruthy()
     expect(content?.textContent).toContain('Object Form Error')
 

@@ -11,6 +11,7 @@ import { createVNode, defineComponent, getCurrentInstance, onMounted, render, sh
 import { useAppConfig } from '../app/context.ts'
 import { useBaseConfig } from '../config-provider/context.ts'
 import ConfigProvider, { globalConfig } from '../config-provider/index.tsx'
+import PureList from './PureList.tsx'
 import PurePanel from './PurePanel.tsx'
 import useMessage, { useInternalMessage } from './useMessage.tsx'
 import { wrapPromiseFn } from './util.ts'
@@ -324,6 +325,8 @@ interface BaseMethods {
   useMessage: typeof useMessage
   /** @private Internal Component. Do not use in your production. */
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel
+  /** @private Internal Component. Do not use in your production. */
+  _InternalListDoNotUseOrYouWillBeFired: typeof PureList
 }
 
 interface MessageMethods {
@@ -342,6 +345,7 @@ const baseStaticMethods: BaseMethods = {
   config: setMessageGlobalConfig,
   useMessage,
   _InternalPanelDoNotUseOrYouWillBeFired: PurePanel,
+  _InternalListDoNotUseOrYouWillBeFired: PureList,
 }
 
 const staticMethods = baseStaticMethods as MessageMethods & BaseMethods
