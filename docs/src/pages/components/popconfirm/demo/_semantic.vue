@@ -11,6 +11,7 @@ const semantics = computed(() => [
   { name: 'container', desc: t('container') },
   { name: 'title', desc: t('title') },
   { name: 'content', desc: t('content') },
+  { name: 'icon', desc: t('icon'), version: '1.3.0' },
   { name: 'arrow', desc: t('arrow') },
 ])
 

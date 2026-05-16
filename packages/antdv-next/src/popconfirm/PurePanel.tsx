@@ -1,7 +1,6 @@
 import type { CSSProperties } from 'vue'
-import type { PopconfirmProps } from '.'
+import type { PopconfirmProps, PopconfirmSemanticClassNames, PopconfirmSemanticStyles } from '.'
 import type { ButtonProps } from '../button'
-import type { PopoverSemanticClassNames, PopoverSemanticStyles } from '../popover'
 import { ExclamationCircleFilled } from '@antdv-next/icons'
 import { clsx } from '@v-c/util'
 import { computed, defineComponent } from 'vue'
@@ -36,8 +35,8 @@ export interface OverlayProps
   onConfirm?: (e?: MouseEvent) => void
   onCancel?: (e?: MouseEvent) => void
   onPopupClick?: (e: MouseEvent) => void
-  classes?: PopoverSemanticClassNames
-  styles?: PopoverSemanticStyles
+  classes?: PopconfirmSemanticClassNames
+  styles?: PopconfirmSemanticStyles
 }
 
 export const Overlay = defineComponent<OverlayProps>(
@@ -84,7 +83,14 @@ export const Overlay = defineComponent<OverlayProps>(
       return (
         <div class={`${prefixCls}-inner-content`} onClick={handlePopupClick}>
           <div class={`${prefixCls}-message`}>
-            {icon && <span class={`${prefixCls}-message-icon`}>{icon}</span>}
+            {icon && (
+              <span
+                class={clsx(`${prefixCls}-message-icon`, classes?.icon)}
+                style={styles?.icon}
+              >
+                {icon}
+              </span>
+            )}
             <div class={`${prefixCls}-message-text`}>
               {title && (
                 <div class={clsx(`${prefixCls}-title`, classes?.title)} style={styles?.title}>
