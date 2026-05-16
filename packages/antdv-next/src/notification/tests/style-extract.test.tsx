@@ -30,8 +30,11 @@ describe('notification style extract', () => {
   it('reserves close spacing when closable notice has no title', async () => {
     const styleText = await extractNotificationStyle()
 
+    // v2 semantic spacing uses the section flex `gap`, so there's no explicit
+    // `margin-top: 0` on description like in the original ant-design#57821 fix.
+    // The closable + (description-only) padding rules are what actually keep
+    // the description from running under the close button.
     expect(styleText).toContain('.ant-notification .ant-notification-notice-description{')
-    expect(styleText).toContain('margin-top:0;')
     expect(styleText).toContain('.ant-notification .ant-notification-notice-closable .ant-notification-notice-description{padding-inline-end:var(--ant-padding-lg);}')
     expect(styleText).toContain('.ant-notification .ant-notification-notice-closable .ant-notification-notice-title+.ant-notification-notice-description{padding-inline-end:0;}')
   })
