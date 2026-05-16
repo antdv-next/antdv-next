@@ -368,6 +368,7 @@ exports[`flex demo > renders combination correctly 1`] = `
           <h3
             class="ant-typography css-var-root"
           >
+            <!---->
              “antd is an enterprise-class UI design language and Vue UI library.” 
             <!---->
             <!---->

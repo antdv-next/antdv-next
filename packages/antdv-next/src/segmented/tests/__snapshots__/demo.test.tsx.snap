@@ -139,6 +139,7 @@ exports[`segmented demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -236,6 +237,7 @@ exports[`segmented demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Root element with inline-block layout, padding, background, border radius, transition and container styles
               <!---->
               <!---->
@@ -267,6 +269,7 @@ exports[`segmented demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   item
                   <!---->
                   <!---->
@@ -364,6 +367,7 @@ exports[`segmented demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Option element with relative positioning, text alignment, cursor style, transition, selected state background and hover styles
               <!---->
               <!---->
@@ -395,6 +399,7 @@ exports[`segmented demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   label
                   <!---->
                   <!---->
@@ -492,6 +497,7 @@ exports[`segmented demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Label content element with min height, line height, padding, text ellipsis and content layout styles
               <!---->
               <!---->
@@ -523,6 +529,7 @@ exports[`segmented demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   icon
                   <!---->
                   <!---->
@@ -620,6 +627,7 @@ exports[`segmented demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Icon element with icon size, color and text spacing styles
               <!---->
               <!---->

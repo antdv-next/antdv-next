@@ -87,6 +87,7 @@ exports[`badge demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -184,6 +185,7 @@ exports[`badge demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Root element with relative positioning, inline-block display, and fit-content width for basic layout
               <!---->
               <!---->
@@ -215,6 +217,7 @@ exports[`badge demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   indicator
                   <!---->
                   <!---->
@@ -312,6 +315,7 @@ exports[`badge demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Indicator element with positioning, z-index, dimensions, colors, fonts, text alignment, background, border-radius, box-shadow, and transition animations for complete badge styling
               <!---->
               <!---->
@@ -420,6 +424,7 @@ exports[`badge demo > renders _semantic_ribbon correctly 1`] = `
                     class="ant-typography css-var-root"
                     style="margin: 0px;"
                   >
+                    <!---->
                     root
                     <!---->
                     <!---->
@@ -517,6 +522,7 @@ exports[`badge demo > renders _semantic_ribbon correctly 1`] = `
                 class="ant-typography css-var-root"
                 style="margin: 0px; font-size: 12px;"
               >
+                <!---->
                 Root element, set relative positioning and wrapper container styles
                 <!---->
                 <!---->
@@ -548,6 +554,7 @@ exports[`badge demo > renders _semantic_ribbon correctly 1`] = `
                     class="ant-typography css-var-root"
                     style="margin: 0px;"
                   >
+                    <!---->
                     indicator
                     <!---->
                     <!---->
@@ -645,6 +652,7 @@ exports[`badge demo > renders _semantic_ribbon correctly 1`] = `
                 class="ant-typography css-var-root"
                 style="margin: 0px; font-size: 12px;"
               >
+                <!---->
                 Indicator element, set absolute positioning, padding, background color, border radius and ribbon styles
                 <!---->
                 <!---->
@@ -676,6 +684,7 @@ exports[`badge demo > renders _semantic_ribbon correctly 1`] = `
                     class="ant-typography css-var-root"
                     style="margin: 0px;"
                   >
+                    <!---->
                     content
                     <!---->
                     <!---->
@@ -773,6 +782,7 @@ exports[`badge demo > renders _semantic_ribbon correctly 1`] = `
                 class="ant-typography css-var-root"
                 style="margin: 0px; font-size: 12px;"
               >
+                <!---->
                 Content element, set text color and ribbon content display styles
                 <!---->
                 <!---->

@@ -133,6 +133,7 @@ exports[`divider demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -222,6 +223,7 @@ exports[`divider demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Root element with border-top style, divider styling and other basic divider container styles
               <!---->
               <!---->
@@ -253,6 +255,7 @@ exports[`divider demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   rail
                   <!---->
                   <!---->
@@ -342,6 +345,7 @@ exports[`divider demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Background rail element with border-top style and other divider connection line styles
               <!---->
               <!---->
@@ -373,6 +377,7 @@ exports[`divider demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   content
                   <!---->
                   <!---->
@@ -462,6 +467,7 @@ exports[`divider demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Content element with inline-block display, padding and other divider text content styles
               <!---->
               <!---->

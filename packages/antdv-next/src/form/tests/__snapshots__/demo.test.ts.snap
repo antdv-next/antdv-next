@@ -3900,7 +3900,6 @@ exports[`form demo > renders custom-feedback-icons correctly 1`] = `
               >
                 <button
                   class="ant-mentions-clear-icon ant-mentions-clear-icon-has-suffix"
-                  tabindex="-1"
                   type="button"
                 >
                   <span
@@ -16423,7 +16422,6 @@ exports[`form demo > renders validate-static correctly 1`] = `
               >
                 <button
                   class="ant-input-clear-icon ant-input-clear-icon-hidden ant-input-clear-icon-has-suffix"
-                  tabindex="-1"
                   type="button"
                 >
                   <span

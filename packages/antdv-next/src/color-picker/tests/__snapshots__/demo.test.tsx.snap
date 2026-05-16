@@ -77,6 +77,7 @@ exports[`color-picker demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -166,6 +167,7 @@ exports[`color-picker demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Trigger container with border styles, transition animations, size controls, displaying color block and text content
               <!---->
               <!---->
@@ -197,6 +199,7 @@ exports[`color-picker demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   body
                   <!---->
                   <!---->
@@ -286,6 +289,7 @@ exports[`color-picker demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Color block container with background color, border styles
               <!---->
               <!---->
@@ -317,6 +321,7 @@ exports[`color-picker demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   content
                   <!---->
                   <!---->
@@ -406,6 +411,7 @@ exports[`color-picker demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Color block element with actual selected color styles
               <!---->
               <!---->
@@ -437,6 +443,7 @@ exports[`color-picker demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   description
                   <!---->
                   <!---->
@@ -526,6 +533,7 @@ exports[`color-picker demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Description text content with font styles and color
               <!---->
               <!---->
@@ -557,6 +565,7 @@ exports[`color-picker demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   popup.root
                   <!---->
                   <!---->
@@ -646,6 +655,7 @@ exports[`color-picker demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Popup panel root container with background color, shadow effects, color selection panel, slider controls and preset colors
               <!---->
               <!---->

@@ -28,6 +28,7 @@ exports[`empty demo > renders _semantic correctly 1`] = `
           <span
             class="ant-typography css-var-v-0"
           >
+            <!---->
              Customize 
             Description
             <!---->
@@ -96,6 +97,7 @@ exports[`empty demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -193,6 +195,7 @@ exports[`empty demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Root element, sets text alignment, font and line height styles
               <!---->
               <!---->
@@ -224,6 +227,7 @@ exports[`empty demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   image
                   <!---->
                   <!---->
@@ -321,6 +325,7 @@ exports[`empty demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Image element, sets height, opacity, margin and image styles
               <!---->
               <!---->
@@ -352,6 +357,7 @@ exports[`empty demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   description
                   <!---->
                   <!---->
@@ -449,6 +455,7 @@ exports[`empty demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Description element, sets text color styles
               <!---->
               <!---->
@@ -480,6 +487,7 @@ exports[`empty demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   footer
                   <!---->
                   <!---->
@@ -577,6 +585,7 @@ exports[`empty demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Footer element, sets top margin and action button styles
               <!---->
               <!---->

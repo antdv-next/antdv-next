@@ -316,6 +316,7 @@ exports[`table demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -405,6 +406,7 @@ exports[`table demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Root element with font-size, background, border-radius, scrollbar-color and other basic table container styles
               <!---->
               <!---->
@@ -436,6 +438,7 @@ exports[`table demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   title
                   <!---->
                   <!---->
@@ -525,6 +528,7 @@ exports[`table demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Title element with table title styling and layout
               <!---->
               <!---->
@@ -556,6 +560,7 @@ exports[`table demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   content
                   <!---->
                   <!---->
@@ -645,6 +650,7 @@ exports[`table demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Content element with table content area styling and layout
               <!---->
               <!---->
@@ -676,6 +682,7 @@ exports[`table demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   header.wrapper
                   <!---->
                   <!---->
@@ -765,6 +772,7 @@ exports[`table demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Header wrapper element with table header layout and container styles
               <!---->
               <!---->
@@ -796,6 +804,7 @@ exports[`table demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   header.row
                   <!---->
                   <!---->
@@ -885,6 +894,7 @@ exports[`table demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Header row element with table header row layout and styling
               <!---->
               <!---->
@@ -916,6 +926,7 @@ exports[`table demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   header.cell
                   <!---->
                   <!---->
@@ -1005,6 +1016,7 @@ exports[`table demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Header cell element with relative positioning, padding, word-wrap, background, text color, font-weight and other header cell styles
               <!---->
               <!---->
@@ -1036,6 +1048,7 @@ exports[`table demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   section
                   <!---->
                   <!---->
@@ -1125,6 +1138,7 @@ exports[`table demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Container element with clear-fix, max-width, scrollbar background and other table wrapper styles
               <!---->
               <!---->
@@ -1156,6 +1170,7 @@ exports[`table demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   body.wrapper
                   <!---->
                   <!---->
@@ -1245,6 +1260,7 @@ exports[`table demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Body wrapper element with table body layout and container styles
               <!---->
               <!---->
@@ -1276,6 +1292,7 @@ exports[`table demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   body.row
                   <!---->
                   <!---->
@@ -1365,6 +1382,7 @@ exports[`table demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Body row element with hover effects, selected states, expanded states and other interactive row styles
               <!---->
               <!---->
@@ -1396,6 +1414,7 @@ exports[`table demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   body.cell
                   <!---->
                   <!---->
@@ -1485,6 +1504,7 @@ exports[`table demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Body cell element with relative positioning, padding, word-wrap and other basic data cell styles
               <!---->
               <!---->
@@ -1516,6 +1536,7 @@ exports[`table demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   footer
                   <!---->
                   <!---->
@@ -1605,6 +1626,7 @@ exports[`table demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Footer element with table footer background color, text color and other footer styles
               <!---->
               <!---->
@@ -1636,6 +1658,7 @@ exports[`table demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   pagination.root
                   <!---->
                   <!---->
@@ -1725,6 +1748,7 @@ exports[`table demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Pagination root element with pagination component basic styles and layout
               <!---->
               <!---->
@@ -1756,6 +1780,7 @@ exports[`table demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   pagination.item
                   <!---->
                   <!---->
@@ -1845,6 +1870,7 @@ exports[`table demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Pagination item element with pagination item styling and interactive effects
               <!---->
               <!---->
@@ -7973,6 +7999,7 @@ exports[`table demo > renders edit-row correctly 1`] = `
                       <a
                         class="ant-typography ant-typography-link css-var-root"
                       >
+                        <!---->
                          Edit 
                         <!---->
                         <!---->
@@ -8016,6 +8043,7 @@ exports[`table demo > renders edit-row correctly 1`] = `
                       <a
                         class="ant-typography ant-typography-link css-var-root"
                       >
+                        <!---->
                          Edit 
                         <!---->
                         <!---->
@@ -8059,6 +8087,7 @@ exports[`table demo > renders edit-row correctly 1`] = `
                       <a
                         class="ant-typography ant-typography-link css-var-root"
                       >
+                        <!---->
                          Edit 
                         <!---->
                         <!---->
@@ -8102,6 +8131,7 @@ exports[`table demo > renders edit-row correctly 1`] = `
                       <a
                         class="ant-typography ant-typography-link css-var-root"
                       >
+                        <!---->
                          Edit 
                         <!---->
                         <!---->
@@ -8145,6 +8175,7 @@ exports[`table demo > renders edit-row correctly 1`] = `
                       <a
                         class="ant-typography ant-typography-link css-var-root"
                       >
+                        <!---->
                          Edit 
                         <!---->
                         <!---->
@@ -8188,6 +8219,7 @@ exports[`table demo > renders edit-row correctly 1`] = `
                       <a
                         class="ant-typography ant-typography-link css-var-root"
                       >
+                        <!---->
                          Edit 
                         <!---->
                         <!---->
@@ -8231,6 +8263,7 @@ exports[`table demo > renders edit-row correctly 1`] = `
                       <a
                         class="ant-typography ant-typography-link css-var-root"
                       >
+                        <!---->
                          Edit 
                         <!---->
                         <!---->
@@ -8274,6 +8307,7 @@ exports[`table demo > renders edit-row correctly 1`] = `
                       <a
                         class="ant-typography ant-typography-link css-var-root"
                       >
+                        <!---->
                          Edit 
                         <!---->
                         <!---->
@@ -8317,6 +8351,7 @@ exports[`table demo > renders edit-row correctly 1`] = `
                       <a
                         class="ant-typography ant-typography-link css-var-root"
                       >
+                        <!---->
                          Edit 
                         <!---->
                         <!---->
@@ -8360,6 +8395,7 @@ exports[`table demo > renders edit-row correctly 1`] = `
                       <a
                         class="ant-typography ant-typography-link css-var-root"
                       >
+                        <!---->
                          Edit 
                         <!---->
                         <!---->
@@ -30453,6 +30489,7 @@ exports[`table demo > renders summary correctly 1`] = `
                       <span
                         class="ant-typography ant-typography-danger css-var-root"
                       >
+                        <!---->
                         195
                         <!---->
                         <!---->
@@ -30469,6 +30506,7 @@ exports[`table demo > renders summary correctly 1`] = `
                       <span
                         class="ant-typography css-var-root"
                       >
+                        <!---->
                         88
                         <!---->
                         <!---->
@@ -30494,6 +30532,7 @@ exports[`table demo > renders summary correctly 1`] = `
                       <span
                         class="ant-typography ant-typography-danger css-var-root"
                       >
+                        <!---->
                         107
                         <!---->
                         <!---->
@@ -33336,6 +33375,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                                 <a
                                   class="ant-typography ant-typography-link css-var-root"
                                 >
+                                  <!---->
                                   Action1
                                   <!---->
                                   <!---->
@@ -33352,6 +33392,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                                 <a
                                   class="ant-typography ant-typography-link css-var-root"
                                 >
+                                  <!---->
                                   Action2
                                   <!---->
                                   <!---->
@@ -33459,6 +33500,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                                 <a
                                   class="ant-typography ant-typography-link css-var-root"
                                 >
+                                  <!---->
                                   Action1
                                   <!---->
                                   <!---->
@@ -33475,6 +33517,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                                 <a
                                   class="ant-typography ant-typography-link css-var-root"
                                 >
+                                  <!---->
                                   Action2
                                   <!---->
                                   <!---->
@@ -33582,6 +33625,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                                 <a
                                   class="ant-typography ant-typography-link css-var-root"
                                 >
+                                  <!---->
                                   Action1
                                   <!---->
                                   <!---->
@@ -33598,6 +33642,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                                 <a
                                   class="ant-typography ant-typography-link css-var-root"
                                 >
+                                  <!---->
                                   Action2
                                   <!---->
                                   <!---->
@@ -33705,6 +33750,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                                 <a
                                   class="ant-typography ant-typography-link css-var-root"
                                 >
+                                  <!---->
                                   Action1
                                   <!---->
                                   <!---->
@@ -33721,6 +33767,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                                 <a
                                   class="ant-typography ant-typography-link css-var-root"
                                 >
+                                  <!---->
                                   Action2
                                   <!---->
                                   <!---->
@@ -33830,6 +33877,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                                 <a
                                   class="ant-typography ant-typography-link css-var-root"
                                 >
+                                  <!---->
                                   Action1
                                   <!---->
                                   <!---->
@@ -33846,6 +33894,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                                 <a
                                   class="ant-typography ant-typography-link css-var-root"
                                 >
+                                  <!---->
                                   Action2
                                   <!---->
                                   <!---->
@@ -33953,6 +34002,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                                 <a
                                   class="ant-typography ant-typography-link css-var-root"
                                 >
+                                  <!---->
                                   Action1
                                   <!---->
                                   <!---->
@@ -33969,6 +34019,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                                 <a
                                   class="ant-typography ant-typography-link css-var-root"
                                 >
+                                  <!---->
                                   Action2
                                   <!---->
                                   <!---->
@@ -34076,6 +34127,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                                 <a
                                   class="ant-typography ant-typography-link css-var-root"
                                 >
+                                  <!---->
                                   Action1
                                   <!---->
                                   <!---->
@@ -34092,6 +34144,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                                 <a
                                   class="ant-typography ant-typography-link css-var-root"
                                 >
+                                  <!---->
                                   Action2
                                   <!---->
                                   <!---->
@@ -34199,6 +34252,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                                 <a
                                   class="ant-typography ant-typography-link css-var-root"
                                 >
+                                  <!---->
                                   Action1
                                   <!---->
                                   <!---->
@@ -34215,6 +34269,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                                 <a
                                   class="ant-typography ant-typography-link css-var-root"
                                 >
+                                  <!---->
                                   Action2
                                   <!---->
                                   <!---->
@@ -34324,6 +34379,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                                 <a
                                   class="ant-typography ant-typography-link css-var-root"
                                 >
+                                  <!---->
                                   Action1
                                   <!---->
                                   <!---->
@@ -34340,6 +34396,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                                 <a
                                   class="ant-typography ant-typography-link css-var-root"
                                 >
+                                  <!---->
                                   Action2
                                   <!---->
                                   <!---->
@@ -34447,6 +34504,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                                 <a
                                   class="ant-typography ant-typography-link css-var-root"
                                 >
+                                  <!---->
                                   Action1
                                   <!---->
                                   <!---->
@@ -34463,6 +34521,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                                 <a
                                   class="ant-typography ant-typography-link css-var-root"
                                 >
+                                  <!---->
                                   Action2
                                   <!---->
                                   <!---->
@@ -34560,6 +34619,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                                 <a
                                   class="ant-typography ant-typography-link css-var-root"
                                 >
+                                  <!---->
                                   Action1
                                   <!---->
                                   <!---->
@@ -34576,6 +34636,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                                 <a
                                   class="ant-typography ant-typography-link css-var-root"
                                 >
+                                  <!---->
                                   Action2
                                   <!---->
                                   <!---->
@@ -34673,6 +34734,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                                 <a
                                   class="ant-typography ant-typography-link css-var-root"
                                 >
+                                  <!---->
                                   Action1
                                   <!---->
                                   <!---->
@@ -34689,6 +34751,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                                 <a
                                   class="ant-typography ant-typography-link css-var-root"
                                 >
+                                  <!---->
                                   Action2
                                   <!---->
                                   <!---->
@@ -34786,6 +34849,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                                 <a
                                   class="ant-typography ant-typography-link css-var-root"
                                 >
+                                  <!---->
                                   Action1
                                   <!---->
                                   <!---->
@@ -34802,6 +34866,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                                 <a
                                   class="ant-typography ant-typography-link css-var-root"
                                 >
+                                  <!---->
                                   Action2
                                   <!---->
                                   <!---->

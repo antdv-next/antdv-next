@@ -86,6 +86,7 @@ exports[`dropdown demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -175,6 +176,7 @@ exports[`dropdown demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Root element of dropdown, sets positioning, z-index and container styles
               <!---->
               <!---->
@@ -206,6 +208,7 @@ exports[`dropdown demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   itemTitle
                   <!---->
                   <!---->
@@ -295,6 +298,7 @@ exports[`dropdown demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Title content area of dropdown option, sets layout and text styles
               <!---->
               <!---->
@@ -326,6 +330,7 @@ exports[`dropdown demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   item
                   <!---->
                   <!---->
@@ -415,6 +420,7 @@ exports[`dropdown demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Individual dropdown option element, sets interaction states and background styles
               <!---->
               <!---->
@@ -446,6 +452,7 @@ exports[`dropdown demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   itemContent
                   <!---->
                   <!---->
@@ -535,6 +542,7 @@ exports[`dropdown demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Main content area of dropdown option, sets content layout and link styles
               <!---->
               <!---->
@@ -566,6 +574,7 @@ exports[`dropdown demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   itemIcon
                   <!---->
                   <!---->
@@ -655,6 +664,7 @@ exports[`dropdown demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Icon area of dropdown option, sets icon size and spacing styles
               <!---->
               <!---->
@@ -2273,6 +2283,7 @@ exports[`dropdown demo > renders selectable correctly 1`] = `
   <a
     class="ant-typography ant-typography-link ant-dropdown-trigger css-var-root"
   >
+    <!---->
     <div
       class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"
     >

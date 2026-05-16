@@ -114,6 +114,7 @@ exports[`anchor demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -211,6 +212,7 @@ exports[`anchor demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Root element with layout positioning, padding, margin, background color and other basic styles
               <!---->
               <!---->
@@ -242,6 +244,7 @@ exports[`anchor demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   item
                   <!---->
                   <!---->
@@ -339,6 +342,7 @@ exports[`anchor demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Link item element with padding, text color, hover states, transition animations and other styles
               <!---->
               <!---->
@@ -370,6 +374,7 @@ exports[`anchor demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   itemTitle
                   <!---->
                   <!---->
@@ -467,6 +472,7 @@ exports[`anchor demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Title text element with font styles, color changes, text decoration, transition effects and other styles
               <!---->
               <!---->
@@ -498,6 +504,7 @@ exports[`anchor demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   indicator
                   <!---->
                   <!---->
@@ -595,6 +602,7 @@ exports[`anchor demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Indicator element with width, height, background color, position changes, transition animations and other styles
               <!---->
               <!---->
