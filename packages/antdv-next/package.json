@@ -28,9 +28,9 @@
       "default": "./dist/index.js"
     },
     "./dist/*": {
-      "types": "./dist/*.d.ts",
-      "import": "./dist/*.js",
-      "default": "./dist/*.js"
+      "types": ["./dist/*.d.ts", "./dist/*/index.d.ts"],
+      "import": ["./dist/*.js", "./dist/*/index.js"],
+      "default": ["./dist/*.js", "./dist/*/index.js"]
     },
     "./dist/locale/*": {
       "types": "./dist/locale/*.d.ts",
@@ -43,9 +43,9 @@
       "default": "./dist/locale/*.js"
     },
     "./date-picker/*": {
-      "types": "./dist/date-picker/*.d.ts",
-      "import": "./dist/date-picker/*.js",
-      "default": "./dist/date-picker/*.js"
+      "types": ["./dist/date-picker/*.d.ts", "./dist/date-picker/*/index.d.ts"],
+      "import": ["./dist/date-picker/*.js", "./dist/date-picker/*/index.js"],
+      "default": ["./dist/date-picker/*.js", "./dist/date-picker/*/index.js"]
     },
     "./date-picker/locale/*": {
       "types": "./dist/date-picker/locale/*.d.ts",
@@ -53,9 +53,9 @@
       "default": "./dist/date-picker/locale/*.js"
     },
     "./time-picker/*": {
-      "types": "./dist/time-picker/*.d.ts",
-      "import": "./dist/time-picker/*.js",
-      "default": "./dist/time-picker/*.js"
+      "types": ["./dist/time-picker/*.d.ts", "./dist/time-picker/*/index.d.ts"],
+      "import": ["./dist/time-picker/*.js", "./dist/time-picker/*/index.js"],
+      "default": ["./dist/time-picker/*.js", "./dist/time-picker/*/index.js"]
     },
     "./time-picker/locale/*": {
       "types": "./dist/date-picker/locale/*.d.ts",
@@ -68,9 +68,9 @@
       "default": "./dist/date-picker/generate/index.js"
     },
     "./date-picker/generate/*": {
-      "types": "./dist/date-picker/generate/*.d.ts",
-      "import": "./dist/date-picker/generate/*.js",
-      "default": "./dist/date-picker/generate/*.js"
+      "types": ["./dist/date-picker/generate/*.d.ts", "./dist/date-picker/generate/*/index.d.ts"],
+      "import": ["./dist/date-picker/generate/*.js", "./dist/date-picker/generate/*/index.js"],
+      "default": ["./dist/date-picker/generate/*.js", "./dist/date-picker/generate/*/index.js"]
     },
     "./global.d.ts": "./global.d.ts",
     "./global": "./global.d.ts",
