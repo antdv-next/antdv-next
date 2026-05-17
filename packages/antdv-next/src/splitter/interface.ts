@@ -61,6 +61,18 @@ export interface SplitterProps extends ComponentBaseProps {
   orientation?: Orientation
   vertical?: boolean
   draggerIcon?: VueNode
+  /**
+   * Collapse configuration. ant-design 6.4.0 PR #57044.
+   */
+  collapsible?: {
+    icon?: {
+      start?: VueNode
+      end?: VueNode
+    }
+  }
+  /**
+   * @deprecated please use `collapsible.icon`
+   */
   collapsibleIcon?: {
     start?: VueNode
     end?: VueNode
@@ -100,11 +112,6 @@ export interface PanelProps {
       start?: boolean
       end?: boolean
       showCollapsibleIcon?: ShowCollapsibleIconMode
-      /**
-       * Replaces top-level `collapsibleIcon` config (deprecated).
-       * ant-design 6.4.0 PR #57044.
-       */
-      icon?: { start?: () => any, end?: () => any }
     }
   resizable?: boolean
   defaultSize?: number | string
