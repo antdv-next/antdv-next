@@ -81,6 +81,7 @@ exports[`float-button demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -170,6 +171,7 @@ exports[`float-button demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Root element with float button base styles, shape size, type theme, fixed positioning, z-index, shadow, spacing and other container styles
               <!---->
               <!---->
@@ -201,6 +203,7 @@ exports[`float-button demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   icon
                   <!---->
                   <!---->
@@ -290,6 +293,7 @@ exports[`float-button demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Icon element with button icon size, color, line height, alignment and other icon display styles
               <!---->
               <!---->
@@ -321,6 +325,7 @@ exports[`float-button demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   content
                   <!---->
                   <!---->
@@ -410,6 +415,7 @@ exports[`float-button demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Content element with button text content font size, color, alignment, line wrap and other text display styles
               <!---->
               <!---->
@@ -635,6 +641,7 @@ exports[`float-button demo > renders _semantic_group correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -724,6 +731,7 @@ exports[`float-button demo > renders _semantic_group correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Root element with float button group container styles, fixed positioning, z-index, padding, gap, direction mode and other combined layout styles
               <!---->
               <!---->
@@ -755,6 +763,7 @@ exports[`float-button demo > renders _semantic_group correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   list
                   <!---->
                   <!---->
@@ -844,6 +853,7 @@ exports[`float-button demo > renders _semantic_group correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               List element with button group list flex layout, border radius, shadow, animation transition, vertical alignment and other list container styles
               <!---->
               <!---->
@@ -875,6 +885,7 @@ exports[`float-button demo > renders _semantic_group correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   item
                   <!---->
                   <!---->
@@ -964,6 +975,7 @@ exports[`float-button demo > renders _semantic_group correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Item element with individual float button styles, size, shape, type, state, icon content and other button base styles
               <!---->
               <!---->
@@ -995,6 +1007,7 @@ exports[`float-button demo > renders _semantic_group correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   itemIcon
                   <!---->
                   <!---->
@@ -1084,6 +1097,7 @@ exports[`float-button demo > renders _semantic_group correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Item icon element with float button icon size, color, alignment and other icon display styles
               <!---->
               <!---->
@@ -1115,6 +1129,7 @@ exports[`float-button demo > renders _semantic_group correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   itemContent
                   <!---->
                   <!---->
@@ -1204,6 +1219,7 @@ exports[`float-button demo > renders _semantic_group correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Item content element with float button text content, badge, description and other content area styles
               <!---->
               <!---->
@@ -1235,6 +1251,7 @@ exports[`float-button demo > renders _semantic_group correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   trigger
                   <!---->
                   <!---->
@@ -1324,6 +1341,7 @@ exports[`float-button demo > renders _semantic_group correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Trigger element with menu mode trigger button styles, shape, icon, hover state, expand/collapse state and other interaction styles
               <!---->
               <!---->
@@ -1355,6 +1373,7 @@ exports[`float-button demo > renders _semantic_group correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   triggerIcon
                   <!---->
                   <!---->
@@ -1444,6 +1463,7 @@ exports[`float-button demo > renders _semantic_group correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Trigger icon element with trigger button icon styles, rotation animation, toggle state and other icon interaction styles
               <!---->
               <!---->
@@ -1475,6 +1495,7 @@ exports[`float-button demo > renders _semantic_group correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   triggerContent
                   <!---->
                   <!---->
@@ -1564,6 +1585,7 @@ exports[`float-button demo > renders _semantic_group correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Trigger content element with trigger button content area text, identifier, state indicator and other content styles
               <!---->
               <!---->

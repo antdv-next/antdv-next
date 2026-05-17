@@ -11,6 +11,7 @@ const semantics = computed(() => [
   { name: 'root', desc: t('root'), version: '1.0.0' },
   { name: 'icon', desc: t('icon'), version: '1.0.0' },
   { name: 'content', desc: t('content'), version: '1.0.0' },
+  { name: 'close', desc: t('close'), version: '1.3.0' },
 ])
 </script>
 
@@ -20,7 +21,7 @@ const semantics = computed(() => [
     :semantics="semantics"
   >
     <template #default="{ classes }">
-      <a-tag :classes="classes">
+      <a-tag closable :classes="classes">
         <template #icon>
           <AntDesignOutlined />
         </template>

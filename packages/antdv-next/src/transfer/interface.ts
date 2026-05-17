@@ -62,6 +62,34 @@ export interface TransferSearchOption {
   defaultValue?: string
 }
 
+/**
+ * @since 1.3.0 (mirrors ant-design#57101)
+ * Per-side semantic overrides applied on top of the shared keys.
+ */
+export interface TransferSectionSemanticClassNames {
+  section?: string
+  header?: string
+  title?: string
+  body?: string
+  list?: string
+  item?: string
+  itemIcon?: string
+  itemContent?: string
+  footer?: string
+}
+
+export interface TransferSectionSemanticStyles {
+  section?: CSSProperties
+  header?: CSSProperties
+  title?: CSSProperties
+  body?: CSSProperties
+  list?: CSSProperties
+  item?: CSSProperties
+  itemIcon?: CSSProperties
+  itemContent?: CSSProperties
+  footer?: CSSProperties
+}
+
 export interface TransferSemanticClassNames {
   root?: string
   section?: string
@@ -74,6 +102,10 @@ export interface TransferSemanticClassNames {
   itemContent?: string
   footer?: string
   actions?: string
+  /** Per-side overrides applied on top of the shared keys. */
+  source?: TransferSectionSemanticClassNames
+  /** Per-side overrides applied on top of the shared keys. */
+  target?: TransferSectionSemanticClassNames
 }
 
 export interface TransferSemanticStyles {
@@ -88,6 +120,8 @@ export interface TransferSemanticStyles {
   itemContent?: CSSProperties
   footer?: CSSProperties
   actions?: CSSProperties
+  source?: TransferSectionSemanticStyles
+  target?: TransferSectionSemanticStyles
 }
 
 export type TransferClassNamesType = SemanticClassNamesType<

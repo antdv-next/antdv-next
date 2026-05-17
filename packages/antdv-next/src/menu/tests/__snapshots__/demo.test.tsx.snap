@@ -237,6 +237,7 @@ exports[`menu demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -326,6 +327,7 @@ exports[`menu demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Root element with basic menu container styles and layout
               <!---->
               <!---->
@@ -357,6 +359,7 @@ exports[`menu demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   item
                   <!---->
                   <!---->
@@ -446,6 +449,7 @@ exports[`menu demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Item element with relative positioning, block display, margins, whitespace handling, cursor styles, transitions and other basic interactive styles for menu items
               <!---->
               <!---->
@@ -477,6 +481,7 @@ exports[`menu demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   itemIcon
                   <!---->
                   <!---->
@@ -566,6 +571,7 @@ exports[`menu demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Icon element with min-width, font-size, transitions, icon reset styles, and spacing control with text
               <!---->
               <!---->
@@ -597,6 +603,7 @@ exports[`menu demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   itemContent
                   <!---->
                   <!---->
@@ -686,6 +693,7 @@ exports[`menu demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Item content element with layout and typography styles for menu item content
               <!---->
               <!---->
@@ -717,6 +725,7 @@ exports[`menu demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   popup
                   <!---->
                   <!---->
@@ -806,6 +815,7 @@ exports[`menu demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Popup menu element (no effect in inline mode) with popup layer positioning, z-index, background and other styles
               <!---->
               <!---->
@@ -837,6 +847,7 @@ exports[`menu demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   subMenu.itemTitle
                   <!---->
                   <!---->
@@ -926,6 +937,7 @@ exports[`menu demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Submenu title element with submenu title styles and interactive effects
               <!---->
               <!---->
@@ -957,6 +969,7 @@ exports[`menu demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   subMenu.list
                   <!---->
                   <!---->
@@ -1046,6 +1059,7 @@ exports[`menu demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Submenu list element with submenu list layout and container styles
               <!---->
               <!---->
@@ -1077,6 +1091,7 @@ exports[`menu demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   subMenu.item
                   <!---->
                   <!---->
@@ -1166,6 +1181,7 @@ exports[`menu demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Submenu item element with submenu item styles and interactive effects
               <!---->
               <!---->
@@ -1197,6 +1213,7 @@ exports[`menu demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   subMenu.itemIcon
                   <!---->
                   <!---->
@@ -1286,6 +1303,7 @@ exports[`menu demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Submenu item icon element with submenu icon size and styles
               <!---->
               <!---->
@@ -1317,6 +1335,7 @@ exports[`menu demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   subMenu.itemContent
                   <!---->
                   <!---->
@@ -1406,6 +1425,7 @@ exports[`menu demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Submenu item content element with submenu content layout and typography
               <!---->
               <!---->
@@ -4350,10 +4370,14 @@ exports[`menu demo > renders slot-render correctly 1`] = `
                   class="ant-menu-title-content ant-menu-title-content-with-extra"
                 >
                   <span
-                    class="menu-slot-label"
-                    data-v-bf6f9cf7=""
+                    class="ant-menu-item-label"
                   >
-                    Option 1
+                    <span
+                      class="menu-slot-label"
+                      data-v-bf6f9cf7=""
+                    >
+                      Option 1
+                    </span>
                   </span>
                   <span
                     class="ant-menu-item-extra"
@@ -4406,10 +4430,14 @@ exports[`menu demo > renders slot-render correctly 1`] = `
                   class="ant-menu-title-content ant-menu-title-content-with-extra"
                 >
                   <span
-                    class="menu-slot-label"
-                    data-v-bf6f9cf7=""
+                    class="ant-menu-item-label"
                   >
-                    Option 2
+                    <span
+                      class="menu-slot-label"
+                      data-v-bf6f9cf7=""
+                    >
+                      Option 2
+                    </span>
                   </span>
                   <span
                     class="ant-menu-item-extra"
@@ -4483,10 +4511,14 @@ exports[`menu demo > renders slot-render correctly 1`] = `
                   class="ant-menu-title-content ant-menu-title-content-with-extra"
                 >
                   <span
-                    class="menu-slot-label"
-                    data-v-bf6f9cf7=""
+                    class="ant-menu-item-label"
                   >
-                    Option 3
+                    <span
+                      class="menu-slot-label"
+                      data-v-bf6f9cf7=""
+                    >
+                      Option 3
+                    </span>
                   </span>
                   <span
                     class="ant-menu-item-extra"
@@ -4539,10 +4571,14 @@ exports[`menu demo > renders slot-render correctly 1`] = `
                   class="ant-menu-title-content ant-menu-title-content-with-extra"
                 >
                   <span
-                    class="menu-slot-label"
-                    data-v-bf6f9cf7=""
+                    class="ant-menu-item-label"
                   >
-                    Option 4
+                    <span
+                      class="menu-slot-label"
+                      data-v-bf6f9cf7=""
+                    >
+                      Option 4
+                    </span>
                   </span>
                   <span
                     class="ant-menu-item-extra"
@@ -4671,10 +4707,14 @@ exports[`menu demo > renders slot-render correctly 1`] = `
               class="ant-menu-title-content ant-menu-title-content-with-extra"
             >
               <span
-                class="menu-slot-label"
-                data-v-bf6f9cf7=""
+                class="ant-menu-item-label"
               >
-                Option 5
+                <span
+                  class="menu-slot-label"
+                  data-v-bf6f9cf7=""
+                >
+                  Option 5
+                </span>
               </span>
               <span
                 class="ant-menu-item-extra"
@@ -4727,10 +4767,14 @@ exports[`menu demo > renders slot-render correctly 1`] = `
               class="ant-menu-title-content ant-menu-title-content-with-extra"
             >
               <span
-                class="menu-slot-label"
-                data-v-bf6f9cf7=""
+                class="ant-menu-item-label"
               >
-                Option 6
+                <span
+                  class="menu-slot-label"
+                  data-v-bf6f9cf7=""
+                >
+                  Option 6
+                </span>
               </span>
               <span
                 class="ant-menu-item-extra"
@@ -4854,10 +4898,14 @@ exports[`menu demo > renders slot-render correctly 1`] = `
                     class="ant-menu-title-content ant-menu-title-content-with-extra"
                   >
                     <span
-                      class="menu-slot-label"
-                      data-v-bf6f9cf7=""
+                      class="ant-menu-item-label"
                     >
-                      Option 7
+                      <span
+                        class="menu-slot-label"
+                        data-v-bf6f9cf7=""
+                      >
+                        Option 7
+                      </span>
                     </span>
                     <span
                       class="ant-menu-item-extra"
@@ -4910,10 +4958,14 @@ exports[`menu demo > renders slot-render correctly 1`] = `
                     class="ant-menu-title-content ant-menu-title-content-with-extra"
                   >
                     <span
-                      class="menu-slot-label"
-                      data-v-bf6f9cf7=""
+                      class="ant-menu-item-label"
                     >
-                      Option 8
+                      <span
+                        class="menu-slot-label"
+                        data-v-bf6f9cf7=""
+                      >
+                        Option 8
+                      </span>
                     </span>
                     <span
                       class="ant-menu-item-extra"
@@ -5048,10 +5100,14 @@ exports[`menu demo > renders slot-render correctly 1`] = `
               class="ant-menu-title-content ant-menu-title-content-with-extra"
             >
               <span
-                class="menu-slot-label"
-                data-v-bf6f9cf7=""
+                class="ant-menu-item-label"
               >
-                Option 9
+                <span
+                  class="menu-slot-label"
+                  data-v-bf6f9cf7=""
+                >
+                  Option 9
+                </span>
               </span>
               <span
                 class="ant-menu-item-extra"
@@ -5104,10 +5160,14 @@ exports[`menu demo > renders slot-render correctly 1`] = `
               class="ant-menu-title-content ant-menu-title-content-with-extra"
             >
               <span
-                class="menu-slot-label"
-                data-v-bf6f9cf7=""
+                class="ant-menu-item-label"
               >
-                Option 10
+                <span
+                  class="menu-slot-label"
+                  data-v-bf6f9cf7=""
+                >
+                  Option 10
+                </span>
               </span>
               <span
                 class="ant-menu-item-extra"
@@ -5160,10 +5220,14 @@ exports[`menu demo > renders slot-render correctly 1`] = `
               class="ant-menu-title-content ant-menu-title-content-with-extra"
             >
               <span
-                class="menu-slot-label"
-                data-v-bf6f9cf7=""
+                class="ant-menu-item-label"
               >
-                Option 11
+                <span
+                  class="menu-slot-label"
+                  data-v-bf6f9cf7=""
+                >
+                  Option 11
+                </span>
               </span>
               <span
                 class="ant-menu-item-extra"
@@ -5216,10 +5280,14 @@ exports[`menu demo > renders slot-render correctly 1`] = `
               class="ant-menu-title-content ant-menu-title-content-with-extra"
             >
               <span
-                class="menu-slot-label"
-                data-v-bf6f9cf7=""
+                class="ant-menu-item-label"
               >
-                Option 12
+                <span
+                  class="menu-slot-label"
+                  data-v-bf6f9cf7=""
+                >
+                  Option 12
+                </span>
               </span>
               <span
                 class="ant-menu-item-extra"
@@ -5294,10 +5362,14 @@ exports[`menu demo > renders slot-render correctly 1`] = `
             class="ant-menu-title-content ant-menu-title-content-with-extra"
           >
             <span
-              class="menu-slot-label"
-              data-v-bf6f9cf7=""
+              class="ant-menu-item-label"
             >
-              Option 13
+              <span
+                class="menu-slot-label"
+                data-v-bf6f9cf7=""
+              >
+                Option 13
+              </span>
             </span>
             <span
               class="ant-menu-item-extra"
@@ -5350,10 +5422,14 @@ exports[`menu demo > renders slot-render correctly 1`] = `
             class="ant-menu-title-content ant-menu-title-content-with-extra"
           >
             <span
-              class="menu-slot-label"
-              data-v-bf6f9cf7=""
+              class="ant-menu-item-label"
             >
-              Option 14
+              <span
+                class="menu-slot-label"
+                data-v-bf6f9cf7=""
+              >
+                Option 14
+              </span>
             </span>
             <span
               class="ant-menu-item-extra"

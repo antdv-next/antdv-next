@@ -17,7 +17,7 @@ exports[`input demo > renders _semantic correctly 1`] = `
         style="width: 100%;"
       >
         <span
-          class="ant-input-affix-wrapper ant-input-outlined css-var-v-0 ant-input-css-var semantic-mark-root"
+          class="ant-input-affix-wrapper ant-input-affix-wrapper-input-with-clear-btn ant-input-outlined css-var-v-0 ant-input-css-var semantic-mark-root"
         >
           <span
             class="ant-input-prefix semantic-mark-prefix"
@@ -50,7 +50,31 @@ exports[`input demo > renders _semantic correctly 1`] = `
           <span
             class="ant-input-suffix semantic-mark-suffix"
           >
-            <!---->
+            <button
+              class="ant-input-clear-icon semantic-mark-clear ant-input-clear-icon-has-suffix"
+              type="button"
+            >
+              <span
+                aria-label="close-circle"
+                class="anticon anticon-close-circle"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="close-circle"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+                  />
+                </svg>
+              </span>
+            </button>
             <span
               class="ant-input-show-count-suffix ant-input-show-count-has-suffix semantic-mark-count"
             >
@@ -109,6 +133,7 @@ exports[`input demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -198,6 +223,7 @@ exports[`input demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Root element with relative positioning, inline-block display, width, min-width, padding, colors, fonts, line-height, border-radius, transitions and other input container basic styles
               <!---->
               <!---->
@@ -229,6 +255,7 @@ exports[`input demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   prefix
                   <!---->
                   <!---->
@@ -318,6 +345,7 @@ exports[`input demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Prefix wrapper element with layout and styling for prefix content
               <!---->
               <!---->
@@ -349,6 +377,7 @@ exports[`input demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   input
                   <!---->
                   <!---->
@@ -438,6 +467,7 @@ exports[`input demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Input element with core interactive styles and text input related styling
               <!---->
               <!---->
@@ -469,6 +499,7 @@ exports[`input demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   suffix
                   <!---->
                   <!---->
@@ -558,6 +589,7 @@ exports[`input demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Suffix wrapper element with layout and styling for suffix content
               <!---->
               <!---->
@@ -589,6 +621,7 @@ exports[`input demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   count
                   <!---->
                   <!---->
@@ -678,7 +711,138 @@ exports[`input demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Character count element with font and color styles for count display
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  <!---->
+                  clear
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <span
+                  class="ant-tag ant-tag-filled ant-tag-blue css-var-root"
+                  data-v-dfc8ebef=""
+                >
+                  1.3.0
+                  <!---->
+                  <!---->
+                  <!---->
+                </span>
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              <!---->
+              Clear button element with color, size, hover state and transition animation styles
               <!---->
               <!---->
               <!---->
@@ -851,6 +1015,7 @@ exports[`input demo > renders _semantic-otp correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -940,6 +1105,7 @@ exports[`input demo > renders _semantic-otp correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Root element with relative positioning, inline-block display, width, min-width, padding, colors, fonts, line-height, border-radius, transitions and other input container basic styles
               <!---->
               <!---->
@@ -971,6 +1137,7 @@ exports[`input demo > renders _semantic-otp correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   input
                   <!---->
                   <!---->
@@ -1060,6 +1227,7 @@ exports[`input demo > renders _semantic-otp correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Input element with core interactive styles and text input related styling
               <!---->
               <!---->
@@ -1091,6 +1259,7 @@ exports[`input demo > renders _semantic-otp correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   separator
                   <!---->
                   <!---->
@@ -1180,6 +1349,7 @@ exports[`input demo > renders _semantic-otp correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Separator element, set separator display styles between OTP input boxes
               <!---->
               <!---->
@@ -1328,6 +1498,7 @@ exports[`input demo > renders _semantic-password correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -1417,6 +1588,7 @@ exports[`input demo > renders _semantic-password correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Root element with relative positioning, inline-block display, width, min-width, padding, colors, fonts, line-height, border-radius, transitions and other input container basic styles
               <!---->
               <!---->
@@ -1448,6 +1620,7 @@ exports[`input demo > renders _semantic-password correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   prefix
                   <!---->
                   <!---->
@@ -1537,6 +1710,7 @@ exports[`input demo > renders _semantic-password correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Prefix wrapper element with layout and styling for prefix content
               <!---->
               <!---->
@@ -1568,6 +1742,7 @@ exports[`input demo > renders _semantic-password correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   input
                   <!---->
                   <!---->
@@ -1657,6 +1832,7 @@ exports[`input demo > renders _semantic-password correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Input element with core interactive styles and text input related styling
               <!---->
               <!---->
@@ -1688,6 +1864,7 @@ exports[`input demo > renders _semantic-password correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   suffix
                   <!---->
                   <!---->
@@ -1777,6 +1954,7 @@ exports[`input demo > renders _semantic-password correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Suffix wrapper element with layout and styling for suffix content
               <!---->
               <!---->
@@ -1808,6 +1986,7 @@ exports[`input demo > renders _semantic-password correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   count
                   <!---->
                   <!---->
@@ -1897,6 +2076,7 @@ exports[`input demo > renders _semantic-password correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Character count element with font and color styles for count display
               <!---->
               <!---->
@@ -2074,6 +2254,7 @@ exports[`input demo > renders _semantic-search correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -2163,6 +2344,7 @@ exports[`input demo > renders _semantic-search correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Root element with relative positioning, inline-block display, width, min-width, padding, colors, fonts, line-height, border-radius, transitions and other input container basic styles
               <!---->
               <!---->
@@ -2194,6 +2376,7 @@ exports[`input demo > renders _semantic-search correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   prefix
                   <!---->
                   <!---->
@@ -2283,6 +2466,7 @@ exports[`input demo > renders _semantic-search correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Prefix wrapper element with layout and styling for prefix content
               <!---->
               <!---->
@@ -2314,6 +2498,7 @@ exports[`input demo > renders _semantic-search correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   input
                   <!---->
                   <!---->
@@ -2403,6 +2588,7 @@ exports[`input demo > renders _semantic-search correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Input element with core interactive styles and text input related styling
               <!---->
               <!---->
@@ -2434,6 +2620,7 @@ exports[`input demo > renders _semantic-search correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   suffix
                   <!---->
                   <!---->
@@ -2523,6 +2710,7 @@ exports[`input demo > renders _semantic-search correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Suffix wrapper element with layout and styling for suffix content
               <!---->
               <!---->
@@ -2554,6 +2742,7 @@ exports[`input demo > renders _semantic-search correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   count
                   <!---->
                   <!---->
@@ -2643,6 +2832,7 @@ exports[`input demo > renders _semantic-search correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Character count element with font and color styles for count display
               <!---->
               <!---->
@@ -2674,6 +2864,7 @@ exports[`input demo > renders _semantic-search correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   button.root
                   <!---->
                   <!---->
@@ -2763,6 +2954,7 @@ exports[`input demo > renders _semantic-search correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Search button root element with button styles, hover effects and click interactions
               <!---->
               <!---->
@@ -2794,6 +2986,7 @@ exports[`input demo > renders _semantic-search correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   button.icon
                   <!---->
                   <!---->
@@ -2883,6 +3076,7 @@ exports[`input demo > renders _semantic-search correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Search button icon element with icon styles, hover effects and click interactions
               <!---->
               <!---->
@@ -2914,6 +3108,7 @@ exports[`input demo > renders _semantic-search correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   button.content
                   <!---->
                   <!---->
@@ -3003,6 +3198,7 @@ exports[`input demo > renders _semantic-search correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Search button content element with text styles, hover effects and click interactions
               <!---->
               <!---->
@@ -3090,6 +3286,7 @@ exports[`input demo > renders _semantic-textarea correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -3179,6 +3376,7 @@ exports[`input demo > renders _semantic-textarea correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Root element with textarea wrapper styles, border, border radius, transition animation and state control
               <!---->
               <!---->
@@ -3210,6 +3408,7 @@ exports[`input demo > renders _semantic-textarea correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   textarea
                   <!---->
                   <!---->
@@ -3299,6 +3498,7 @@ exports[`input demo > renders _semantic-textarea correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Textarea element with font, line height, padding, color, background, border, text input and multi-line text display styles
               <!---->
               <!---->
@@ -3330,6 +3530,7 @@ exports[`input demo > renders _semantic-textarea correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   count
                   <!---->
                   <!---->
@@ -3419,6 +3620,7 @@ exports[`input demo > renders _semantic-textarea correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Count element with character count display position, font, color and numeric statistics styles
               <!---->
               <!---->
@@ -3447,6 +3649,7 @@ exports[`input demo > renders advance-count correctly 1`] = `
       <h5
         class="ant-typography css-var-root"
       >
+        <!---->
          Exceed Max 
         <!---->
         <!---->
@@ -3485,6 +3688,7 @@ exports[`input demo > renders advance-count correctly 1`] = `
       <h5
         class="ant-typography css-var-root"
       >
+        <!---->
          Exceed Max 
         <!---->
         <!---->
@@ -3523,6 +3727,7 @@ exports[`input demo > renders advance-count correctly 1`] = `
       <h5
         class="ant-typography css-var-root"
       >
+        <!---->
          Exceed Max 
         <!---->
         <!---->
@@ -3576,7 +3781,6 @@ exports[`input demo > renders allowClear correctly 1`] = `
     >
       <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -3619,7 +3823,6 @@ exports[`input demo > renders allowClear correctly 1`] = `
     >
       <button
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
-        tabindex="-1"
         type="button"
       >
         <span
@@ -3752,7 +3955,6 @@ exports[`input demo > renders compact-style correctly 1`] = `
           >
             <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-              tabindex="-1"
               type="button"
             >
               <span
@@ -4115,6 +4317,7 @@ exports[`input demo > renders otp correctly 1`] = `
   <h5
     class="ant-typography css-var-root"
   >
+    <!---->
      With formatter (Upcase) 
     <!---->
     <!---->
@@ -4220,6 +4423,7 @@ exports[`input demo > renders otp correctly 1`] = `
   <h5
     class="ant-typography css-var-root"
   >
+    <!---->
      With Disabled 
     <!---->
     <!---->
@@ -4331,6 +4535,7 @@ exports[`input demo > renders otp correctly 1`] = `
   <h5
     class="ant-typography css-var-root"
   >
+    <!---->
      With Length (8) 
     <!---->
     <!---->
@@ -4466,6 +4671,7 @@ exports[`input demo > renders otp correctly 1`] = `
   <h5
     class="ant-typography css-var-root"
   >
+    <!---->
      With variant 
     <!---->
     <!---->
@@ -4571,6 +4777,7 @@ exports[`input demo > renders otp correctly 1`] = `
   <h5
     class="ant-typography css-var-root"
   >
+    <!---->
      With custom display character 
     <!---->
     <!---->
@@ -4676,6 +4883,7 @@ exports[`input demo > renders otp correctly 1`] = `
   <h5
     class="ant-typography css-var-root"
   >
+    <!---->
      With custom ReactNode separator 
     <!---->
     <!---->
@@ -4811,6 +5019,7 @@ exports[`input demo > renders otp correctly 1`] = `
   <h5
     class="ant-typography css-var-root"
   >
+    <!---->
      With custom function separator 
     <!---->
     <!---->
@@ -5439,7 +5648,6 @@ exports[`input demo > renders search-input correctly 1`] = `
         >
           <button
             class="ant-input-clear-icon ant-input-clear-icon-hidden"
-            tabindex="-1"
             type="button"
           >
             <span
@@ -5528,7 +5736,6 @@ exports[`input demo > renders search-input correctly 1`] = `
           >
             <button
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
-              tabindex="-1"
               type="button"
             >
               <span
@@ -5655,7 +5862,6 @@ exports[`input demo > renders search-input correctly 1`] = `
         >
           <button
             class="ant-input-clear-icon ant-input-clear-icon-hidden"
-            tabindex="-1"
             type="button"
           >
             <span

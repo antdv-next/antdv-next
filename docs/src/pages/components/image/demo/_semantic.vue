@@ -16,6 +16,7 @@ const semantics = computed(() => [
   { name: 'popup.body', desc: t('popup.body') },
   { name: 'popup.footer', desc: t('popup.footer') },
   { name: 'popup.actions', desc: t('popup.actions') },
+  { name: 'popup.close', desc: t('popup.close'), version: '1.3.0' },
 ])
 
 const { token } = theme.useToken()

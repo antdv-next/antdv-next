@@ -176,6 +176,10 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | ellipsis | 触发省略时的回调 | (ellipsis: boolean) =&gt; void |
 | expand | 点击展开或收起时的回调 | (event: MouseEvent, info: &#123; expanded: boolean &#125;) =&gt; void |
 
+## 语义化 DOM {#semantic-dom}
+
+<demo src="./demo/_semantic.vue" simplify></demo>
+
 ## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Typography" />

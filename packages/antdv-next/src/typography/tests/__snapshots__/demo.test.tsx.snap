@@ -1,5 +1,655 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`typography demo > renders _semantic correctly 1`] = `
+<div
+  class="semantic-preview-container"
+  data-v-dfc8ebef=""
+>
+  <div
+    class="ant-row css-var-root semantic-preview-row"
+    data-v-dfc8ebef=""
+  >
+    <div
+      class="ant-col ant-col-16 css-var-root semantic-preview-col"
+      data-v-dfc8ebef=""
+    >
+      <div
+        class="ant-flex css-var-v-0 ant-flex-align-start ant-flex-gap-middle ant-flex-vertical"
+        style="width: 100%; align-self: flex-start;"
+      >
+        <button
+          aria-checked="false"
+          checked="false"
+          class="ant-switch css-var-v-0"
+          role="switch"
+          type="button"
+        >
+          <div
+            class="ant-switch-handle"
+          >
+            <!---->
+          </div>
+          <span
+            class="ant-switch-inner"
+          >
+            <span
+              class="ant-switch-inner-checked"
+            >
+              Editing
+            </span>
+            <span
+              class="ant-switch-inner-unchecked"
+            >
+              Editing
+            </span>
+          </span>
+        </button>
+        <div
+          aria-label=" Ant Design is a design language for background applications, refined by Ant UED Team. It aims to uniform the user interface specs for internal background projects, lower the unnecessary cost of design differences and implementation and liberate the resources of design and front-end development. "
+          class="ant-typography ant-typography-ellipsis semantic-mark-root css-var-v-0"
+          style="width: 100%;"
+        >
+          <!---->
+           Ant Design is a design language for background applications, refined by Ant UED Team. It aims to uniform the user interface specs for internal background projects, lower the unnecessary cost of design differences and implementation and liberate the resources of design and front-end development. 
+          <!---->
+          <!---->
+          <span
+            class="ant-typography-actions semantic-mark-actions"
+          >
+            <!---->
+            <button
+              aria-label="Edit"
+              class="ant-typography-edit semantic-mark-action"
+              type="button"
+            >
+              <span
+                aria-label="edit"
+                class="anticon anticon-edit"
+                role="button"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="edit"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+                  />
+                </svg>
+              </span>
+            </button>
+            <!---->
+            <button
+              aria-label="Copy"
+              class="ant-typography-copy semantic-mark-action"
+              type="button"
+            >
+              <span
+                aria-label="copy"
+                class="anticon anticon-copy"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="copy"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+                  />
+                </svg>
+              </span>
+            </button>
+            <!---->
+          </span>
+          <!---->
+          <!---->
+          <!---->
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-8 css-var-root"
+      data-v-dfc8ebef=""
+    >
+      <ul
+        class="semantic-list"
+        data-v-dfc8ebef=""
+      >
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  <!---->
+                  root
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <span
+                  class="ant-tag ant-tag-filled ant-tag-blue css-var-root"
+                  data-v-dfc8ebef=""
+                >
+                  1.3.0
+                  <!---->
+                  <!---->
+                  <!---->
+                </span>
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              <!---->
+              Root element with base typography styles, layout, and positioning
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  <!---->
+                  actions
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <span
+                  class="ant-tag ant-tag-filled ant-tag-blue css-var-root"
+                  data-v-dfc8ebef=""
+                >
+                  1.3.0
+                  <!---->
+                  <!---->
+                  <!---->
+                </span>
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              <!---->
+              Actions element with layout and spacing styles for copy, edit, expand/collapse buttons
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  <!---->
+                  action
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <span
+                  class="ant-tag ant-tag-filled ant-tag-blue css-var-root"
+                  data-v-dfc8ebef=""
+                >
+                  1.3.0
+                  <!---->
+                  <!---->
+                  <!---->
+                </span>
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              <!---->
+              Individual action button element including copy, edit, expand, collapse button styles like padding, border radius, colors, etc.
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  <!---->
+                  textarea
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <span
+                  class="ant-tag ant-tag-filled ant-tag-blue css-var-root"
+                  data-v-dfc8ebef=""
+                >
+                  1.3.0
+                  <!---->
+                  <!---->
+                  <!---->
+                </span>
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              <!---->
+              TextArea element in editable mode, used to customize className and inline styles for the edit input
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`typography demo > renders basic correctly 1`] = `
 <article
   class="ant-typography css-var-root"
@@ -7,6 +657,7 @@ exports[`typography demo > renders basic correctly 1`] = `
   <h1
     class="ant-typography css-var-root"
   >
+    <!---->
     Introduction
     <!---->
     <!---->
@@ -18,6 +669,7 @@ exports[`typography demo > renders basic correctly 1`] = `
   <div
     class="ant-typography css-var-root"
   >
+    <!---->
      In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development. 
     <!---->
     <!---->
@@ -29,11 +681,13 @@ exports[`typography demo > renders basic correctly 1`] = `
   <div
     class="ant-typography css-var-root"
   >
+    <!---->
      After massive project practice and summaries, Antdv Next, a design language for background applications, is refined by Ant UED Team, which aims to 
     <span
       class="ant-typography css-var-root"
     >
       <strong>
+        <!---->
          uniform the user interface specs for internal background projects, lower the unnecessary cost of design differences and implementation and liberate the resources of design and front-end development 
         <!---->
         <!---->
@@ -54,6 +708,7 @@ exports[`typography demo > renders basic correctly 1`] = `
   <h2
     class="ant-typography css-var-root"
   >
+    <!---->
      Guidelines and Resources 
     <!---->
     <!---->
@@ -65,11 +720,13 @@ exports[`typography demo > renders basic correctly 1`] = `
   <div
     class="ant-typography css-var-root"
   >
+    <!---->
      We supply a series of design principles, practical patterns and high quality design resources (
     <span
       class="ant-typography css-var-root"
     >
       <code>
+        <!---->
          Sketch 
         <!---->
         <!---->
@@ -84,6 +741,7 @@ exports[`typography demo > renders basic correctly 1`] = `
       class="ant-typography css-var-root"
     >
       <code>
+        <!---->
          Axure 
         <!---->
         <!---->
@@ -104,12 +762,14 @@ exports[`typography demo > renders basic correctly 1`] = `
   <div
     class="ant-typography css-var-root"
   >
+    <!---->
     <ul>
       <li>
         <a
           class="ant-typography ant-typography-link css-var-root"
           href="/docs/spec/proximity"
         >
+          <!---->
            Principles 
           <!---->
           <!---->
@@ -124,6 +784,7 @@ exports[`typography demo > renders basic correctly 1`] = `
           class="ant-typography ant-typography-link css-var-root"
           href="/docs/spec/overview"
         >
+          <!---->
            Patterns 
           <!---->
           <!---->
@@ -138,6 +799,7 @@ exports[`typography demo > renders basic correctly 1`] = `
           class="ant-typography ant-typography-link css-var-root"
           href="/docs/resources"
         >
+          <!---->
            Resource Download 
           <!---->
           <!---->
@@ -158,11 +820,13 @@ exports[`typography demo > renders basic correctly 1`] = `
   <div
     class="ant-typography css-var-root"
   >
+    <!---->
      Press 
     <span
       class="ant-typography css-var-root"
     >
       <kbd>
+        <!---->
          Esc 
         <!---->
         <!---->
@@ -189,6 +853,7 @@ exports[`typography demo > renders basic correctly 1`] = `
   <h1
     class="ant-typography css-var-root"
   >
+    <!---->
     介绍
     <!---->
     <!---->
@@ -200,6 +865,7 @@ exports[`typography demo > renders basic correctly 1`] = `
   <div
     class="ant-typography css-var-root"
   >
+    <!---->
      蚂蚁的企业级产品是一个庞大且复杂的体系。这类产品不仅量级巨大且功能复杂,而且变动和并发频繁,常常需要设计与开发能够快速的做出响应。同时这类产品中有存在很多类似的页面以及组件,可以通过抽象得到一些稳定且高复用性的内容。 
     <!---->
     <!---->
@@ -211,11 +877,13 @@ exports[`typography demo > renders basic correctly 1`] = `
   <div
     class="ant-typography css-var-root"
   >
+    <!---->
      随着商业化的趋势,越来越多的企业级产品对更好的用户体验有了进一步的要求。带着这样的一个终极目标,我们(蚂蚁集团体验技术部)经过大量的项目实践和总结,逐步打磨出一个服务于企业级产品的设计体系 Antdv Next。基于
     <span
       class="ant-typography css-var-root"
     >
       <mark>
+        <!---->
          『确定』和『自然』 
         <!---->
         <!---->
@@ -230,6 +898,7 @@ exports[`typography demo > renders basic correctly 1`] = `
       class="ant-typography css-var-root"
     >
       <strong>
+        <!---->
          更好的用户体验 
         <!---->
         <!---->
@@ -250,6 +919,7 @@ exports[`typography demo > renders basic correctly 1`] = `
   <h2
     class="ant-typography css-var-root"
   >
+    <!---->
      设计资源 
     <!---->
     <!---->
@@ -261,11 +931,13 @@ exports[`typography demo > renders basic correctly 1`] = `
   <div
     class="ant-typography css-var-root"
   >
+    <!---->
      我们提供完善的设计原则、最佳实践和设计资源文件(
     <span
       class="ant-typography css-var-root"
     >
       <code>
+        <!---->
          Sketch 
         <!---->
         <!---->
@@ -280,6 +952,7 @@ exports[`typography demo > renders basic correctly 1`] = `
       class="ant-typography css-var-root"
     >
       <code>
+        <!---->
          Axure 
         <!---->
         <!---->
@@ -300,12 +973,14 @@ exports[`typography demo > renders basic correctly 1`] = `
   <div
     class="ant-typography css-var-root"
   >
+    <!---->
     <ul>
       <li>
         <a
           class="ant-typography ant-typography-link css-var-root"
           href="/docs/spec/proximity-cn"
         >
+          <!---->
            设计原则 
           <!---->
           <!---->
@@ -320,6 +995,7 @@ exports[`typography demo > renders basic correctly 1`] = `
           class="ant-typography ant-typography-link css-var-root"
           href="/docs/spec/overview-cn"
         >
+          <!---->
            设计模式 
           <!---->
           <!---->
@@ -334,6 +1010,7 @@ exports[`typography demo > renders basic correctly 1`] = `
           class="ant-typography ant-typography-link css-var-root"
           href="/docs/resources-cn"
         >
+          <!---->
            设计资源 
           <!---->
           <!---->
@@ -354,6 +1031,7 @@ exports[`typography demo > renders basic correctly 1`] = `
   <div
     class="ant-typography css-var-root"
   >
+    <!---->
     AntV 是蚂蚁集团全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、不限可能的数据可视化最佳实践。得益于丰富的业务场景和用户需求挑战，AntV 经历多年积累与不断打磨，已支撑整个阿里集团内外 20000+ 业务系统，通过了日均千万级 UV 产品的严苛考验。
 我们正在基础图表，图分析，图编辑，地理空间可视化，智能可视化等各个可视化的领域耕耘，欢迎同路人一起前行。
     AntV 是蚂蚁集团全新一代数据可视化解决方案，致力于提供一套简单方便、专业可靠、不限可能的数据可视化最佳实践。得益于丰富的业务场景和用户需求挑战，AntV 经历多年积累与不断打磨，已支撑整个阿里集团内外 20000+ 业务系统，通过了日均千万级 UV 产品的严苛考验。
@@ -368,11 +1046,13 @@ exports[`typography demo > renders basic correctly 1`] = `
   <div
     class="ant-typography css-var-root"
   >
+    <!---->
      按
     <span
       class="ant-typography css-var-root"
     >
       <kbd>
+        <!---->
          Esc 
         <!---->
         <!---->
@@ -400,6 +1080,7 @@ exports[`typography demo > renders copyable correctly 1`] = `
   <div
     class="ant-typography css-var-root"
   >
+    <!---->
      This is a copyable text. 
     <!---->
     <!---->
@@ -442,6 +1123,7 @@ exports[`typography demo > renders copyable correctly 1`] = `
   <div
     class="ant-typography css-var-root"
   >
+    <!---->
      Replace copy text. 
     <!---->
     <!---->
@@ -484,6 +1166,7 @@ exports[`typography demo > renders copyable correctly 1`] = `
   <div
     class="ant-typography css-var-root"
   >
+    <!---->
      Custom Copy icon and replace tooltips text. 
     <!---->
     <!---->
@@ -526,6 +1209,7 @@ exports[`typography demo > renders copyable correctly 1`] = `
   <div
     class="ant-typography css-var-root"
   >
+    <!---->
      Hide Copy tooltips. 
     <!---->
     <!---->
@@ -568,6 +1252,7 @@ exports[`typography demo > renders copyable correctly 1`] = `
   <div
     class="ant-typography css-var-root"
   >
+    <!---->
      Request copy text. 
     <!---->
     <!---->
@@ -610,6 +1295,7 @@ exports[`typography demo > renders copyable correctly 1`] = `
   <span
     class="ant-typography css-var-root"
   >
+    <!---->
     <!---->
     <!---->
     <span
@@ -658,6 +1344,7 @@ exports[`typography demo > renders editable correctly 1`] = `
   <div
     class="ant-typography css-var-root"
   >
+    <!---->
     This is an editable text.
     <!---->
     <!---->
@@ -701,6 +1388,7 @@ exports[`typography demo > renders editable correctly 1`] = `
     aria-label="This is a loooooooooooooooooooooooooooooooong editable text with suffix."
     class="ant-typography ant-typography-ellipsis css-var-root"
   >
+    <!---->
     This is a loooooooooooooooooooooooooooooooong editable text 
     <!---->
     with suffix.
@@ -743,6 +1431,7 @@ exports[`typography demo > renders editable correctly 1`] = `
   <div
     class="ant-typography css-var-root"
   >
+    <!---->
     Custom Edit icon and replace tooltip text.
     <!---->
     <!---->
@@ -845,6 +1534,7 @@ exports[`typography demo > renders editable correctly 1`] = `
   <div
     class="ant-typography css-var-root"
   >
+    <!---->
     Text or icon as trigger - click to start editing.
     <!---->
     <!---->
@@ -887,6 +1577,7 @@ exports[`typography demo > renders editable correctly 1`] = `
   <div
     class="ant-typography css-var-root"
   >
+    <!---->
     Editable text with a custom enter icon in edit field.
     <!---->
     <!---->
@@ -929,6 +1620,7 @@ exports[`typography demo > renders editable correctly 1`] = `
   <div
     class="ant-typography css-var-root"
   >
+    <!---->
     Editable text with no enter icon in edit field.
     <!---->
     <!---->
@@ -971,6 +1663,7 @@ exports[`typography demo > renders editable correctly 1`] = `
   <div
     class="ant-typography css-var-root"
   >
+    <!---->
     Hide Edit tooltip.
     <!---->
     <!---->
@@ -1013,6 +1706,7 @@ exports[`typography demo > renders editable correctly 1`] = `
   <div
     class="ant-typography css-var-root"
   >
+    <!---->
     This is an editable text with limited length.
     <!---->
     <!---->
@@ -1056,6 +1750,7 @@ exports[`typography demo > renders editable correctly 1`] = `
     class="ant-typography css-var-root"
     style="margin: 0px;"
   >
+    <!---->
      h1. Antdv Next 
     <!---->
     <!---->
@@ -1099,6 +1794,7 @@ exports[`typography demo > renders editable correctly 1`] = `
     class="ant-typography css-var-root"
     style="margin: 0px;"
   >
+    <!---->
      h2. Antdv Next 
     <!---->
     <!---->
@@ -1142,6 +1838,7 @@ exports[`typography demo > renders editable correctly 1`] = `
     class="ant-typography css-var-root"
     style="margin: 0px;"
   >
+    <!---->
      h3. Antdv Next 
     <!---->
     <!---->
@@ -1185,6 +1882,7 @@ exports[`typography demo > renders editable correctly 1`] = `
     class="ant-typography css-var-root"
     style="margin: 0px;"
   >
+    <!---->
      h4. Antdv Next 
     <!---->
     <!---->
@@ -1228,6 +1926,7 @@ exports[`typography demo > renders editable correctly 1`] = `
     class="ant-typography css-var-root"
     style="margin: 0px;"
   >
+    <!---->
      h5. Antdv Next 
     <!---->
     <!---->
@@ -1305,6 +2004,7 @@ exports[`typography demo > renders ellipsis correctly 1`] = `
     aria-label=" Antdv Next, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. "
     class="ant-typography ant-typography-ellipsis css-var-root"
   >
+    <!---->
      Antdv Next, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. 
     <!---->
     <!---->
@@ -1317,6 +2017,7 @@ exports[`typography demo > renders ellipsis correctly 1`] = `
     aria-label=" Antdv Next, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. "
     class="ant-typography ant-typography-ellipsis css-var-root"
   >
+    <!---->
      Antdv Next, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. Ant Design, a design language for background applications, is refined by Ant UED Team. 
     <!---->
     <!---->
@@ -1330,6 +2031,7 @@ exports[`typography demo > renders ellipsis correctly 1`] = `
     class="ant-typography ant-typography-ellipsis css-var-root"
     style="width: 200px;"
   >
+    <!---->
      Antdv Next, a design language for background applications, is refined by Ant UED Team. 
     <!---->
     <!---->
@@ -1345,6 +2047,7 @@ exports[`typography demo > renders ellipsis correctly 1`] = `
     style="width: 200px;"
   >
     <code>
+      <!---->
        Antdv Next, a design language for background applications, is refined by Ant UED Team. 
       <!---->
       <!---->
@@ -1431,6 +2134,7 @@ exports[`typography demo > renders ellipsis-controlled correctly 1`] = `
     aria-label="Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team."
     class="ant-typography ant-typography-ellipsis css-var-root"
   >
+    <!---->
     Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.Antdv Next, a design language for background applications, is refined by Ant UED Team.
     <!---->
     <!---->
@@ -1482,6 +2186,7 @@ exports[`typography demo > renders ellipsis-middle correctly 1`] = `
     class="ant-typography ant-typography-ellipsis css-var-root"
     style="max-width: 100%;"
   >
+    <!---->
     In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of 
     <!---->
     development.
@@ -1530,6 +2235,7 @@ exports[`typography demo > renders suffix correctly 1`] = `
     class="ant-typography ant-typography-ellipsis css-var-root"
     title="To be, or not to be, that is the question: Whether it is nobler in the mind to suffer. The slings and arrows of outrageous fortune Or to take arms against a sea of troubles, And by opposing end them? To die: to sleep; No more; and by a sleep to say we end The heart-ache and the thousand natural shocks That flesh is heir to, 'tis a consummation Devoutly to be wish'd. To die, to sleep To sleep- perchance to dream: ay, there's the rub! For in that sleep of death what dreams may come When we have shuffled off this mortal coil, Must give us pause. There 's the respect That makes calamity of so long life--William Shakespeare"
   >
+    <!---->
     To be, or not to be, that is the question: Whether it is nobler in the mind to suffer. The slings and arrows of outrageous fortune Or to take arms against a sea of troubles, And by opposing end them? To die: to sleep; No more; and by a sleep to say we end The heart-ache and the thousand natural shocks That flesh is heir to, 'tis a consummation Devoutly to be wish'd. To die, to sleep To sleep- perchance to dream: ay, there's the rub! For in that sleep of death what dreams may come When we have shuffled off this mortal coil, Must give us pause. There 's the respect That makes calamity of so long life
     <!---->
     --William Shakespeare
@@ -1551,6 +2257,7 @@ exports[`typography demo > renders text correctly 1`] = `
     <span
       class="ant-typography css-var-root"
     >
+      <!---->
       Antdv Next (default)
       <!---->
       <!---->
@@ -1567,6 +2274,7 @@ exports[`typography demo > renders text correctly 1`] = `
     <span
       class="ant-typography ant-typography-secondary css-var-root"
     >
+      <!---->
        Antdv Next (secondary) 
       <!---->
       <!---->
@@ -1583,6 +2291,7 @@ exports[`typography demo > renders text correctly 1`] = `
     <span
       class="ant-typography ant-typography-success css-var-root"
     >
+      <!---->
        Antdv Next (success) 
       <!---->
       <!---->
@@ -1599,6 +2308,7 @@ exports[`typography demo > renders text correctly 1`] = `
     <span
       class="ant-typography ant-typography-warning css-var-root"
     >
+      <!---->
        Antdv Next (warning) 
       <!---->
       <!---->
@@ -1615,6 +2325,7 @@ exports[`typography demo > renders text correctly 1`] = `
     <span
       class="ant-typography ant-typography-danger css-var-root"
     >
+      <!---->
        Antdv Next (danger) 
       <!---->
       <!---->
@@ -1631,6 +2342,7 @@ exports[`typography demo > renders text correctly 1`] = `
     <span
       class="ant-typography ant-typography-disabled css-var-root"
     >
+      <!---->
        Antdv Next (disabled) 
       <!---->
       <!---->
@@ -1648,6 +2360,7 @@ exports[`typography demo > renders text correctly 1`] = `
       class="ant-typography css-var-root"
     >
       <mark>
+        <!---->
          Antdv Next (mark) 
         <!---->
         <!---->
@@ -1666,6 +2379,7 @@ exports[`typography demo > renders text correctly 1`] = `
       class="ant-typography css-var-root"
     >
       <code>
+        <!---->
          Antdv Next (code) 
         <!---->
         <!---->
@@ -1684,6 +2398,7 @@ exports[`typography demo > renders text correctly 1`] = `
       class="ant-typography css-var-root"
     >
       <kbd>
+        <!---->
          Antdv Next (keyboard) 
         <!---->
         <!---->
@@ -1702,6 +2417,7 @@ exports[`typography demo > renders text correctly 1`] = `
       class="ant-typography css-var-root"
     >
       <u>
+        <!---->
          Antdv Next (underline) 
         <!---->
         <!---->
@@ -1720,6 +2436,7 @@ exports[`typography demo > renders text correctly 1`] = `
       class="ant-typography css-var-root"
     >
       <del>
+        <!---->
          Antdv Next (delete) 
         <!---->
         <!---->
@@ -1738,6 +2455,7 @@ exports[`typography demo > renders text correctly 1`] = `
       class="ant-typography css-var-root"
     >
       <strong>
+        <!---->
          Antdv Next (strong) 
         <!---->
         <!---->
@@ -1756,6 +2474,7 @@ exports[`typography demo > renders text correctly 1`] = `
       class="ant-typography css-var-root"
     >
       <i>
+        <!---->
          Antdv Next (italic) 
         <!---->
         <!---->
@@ -1776,6 +2495,7 @@ exports[`typography demo > renders text correctly 1`] = `
       rel="noopener noreferrer"
       target="_blank"
     >
+      <!---->
        Antdv Next (Link) 
       <!---->
       <!---->
@@ -1794,6 +2514,7 @@ exports[`typography demo > renders title correctly 1`] = `
   <h1
     class="ant-typography css-var-root"
   >
+    <!---->
     h1. Antdv Next
     <!---->
     <!---->
@@ -1805,6 +2526,7 @@ exports[`typography demo > renders title correctly 1`] = `
   <h2
     class="ant-typography css-var-root"
   >
+    <!---->
      h2. Antdv Next 
     <!---->
     <!---->
@@ -1816,6 +2538,7 @@ exports[`typography demo > renders title correctly 1`] = `
   <h3
     class="ant-typography css-var-root"
   >
+    <!---->
      h3. Antdv Next 
     <!---->
     <!---->
@@ -1827,6 +2550,7 @@ exports[`typography demo > renders title correctly 1`] = `
   <h4
     class="ant-typography css-var-root"
   >
+    <!---->
      h4. Antdv Next 
     <!---->
     <!---->
@@ -1838,6 +2562,7 @@ exports[`typography demo > renders title correctly 1`] = `
   <h5
     class="ant-typography css-var-root"
   >
+    <!---->
      h5. Antdv Next 
     <!---->
     <!---->

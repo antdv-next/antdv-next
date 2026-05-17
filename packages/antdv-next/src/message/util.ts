@@ -3,7 +3,7 @@ import type { MessageType } from './interface'
 
 export function getMotion(prefixCls: string, transitionName?: string): CSSMotionProps {
   return {
-    name: transitionName ?? `${prefixCls}-move-up`,
+    name: transitionName ?? `${prefixCls}-fade`,
   }
 }
 

@@ -101,7 +101,7 @@ export function genOutlinedStyle(token: InputToken, extraStyles?: CSSObject): CS
         hoverBorderColor: token.colorErrorBorderHover,
         activeBorderColor: token.colorError,
         activeShadow: token.errorActiveShadow,
-        affixColor: token.colorError,
+        affixColor: token.colorErrorAffix,
       }),
 
       ...genOutlinedStatusStyle(token, {
@@ -110,7 +110,7 @@ export function genOutlinedStyle(token: InputToken, extraStyles?: CSSObject): CS
         hoverBorderColor: token.colorWarningBorderHover,
         activeBorderColor: token.colorWarning,
         activeShadow: token.warningActiveShadow,
-        affixColor: token.colorWarning,
+        affixColor: token.colorWarningAffix,
       }),
 
       ...extraStyles,
@@ -206,11 +206,17 @@ export function genBorderlessStyle(token: InputToken, extraStyles?: CSSObject): 
         '&, & input, & textarea': {
           color: token.colorError,
         },
+        [`${componentCls}-prefix, ${componentCls}-suffix`]: {
+          color: token.colorErrorAffix,
+        },
       },
 
       [`&${componentCls}-status-warning`]: {
         '&, & input, & textarea': {
           color: token.colorWarning,
+        },
+        [`${componentCls}-prefix, ${componentCls}-suffix`]: {
+          color: token.colorWarningAffix,
         },
       },
 
@@ -287,7 +293,7 @@ export function genFilledStyle(token: InputToken, extraStyles?: CSSObject): CSSO
         hoverBg: token.colorErrorBgHover,
         activeBorderColor: token.colorError,
         inputColor: token.colorErrorText,
-        affixColor: token.colorError,
+        affixColor: token.colorErrorAffix,
       }),
 
       ...genFilledStatusStyle(token, {
@@ -296,7 +302,7 @@ export function genFilledStyle(token: InputToken, extraStyles?: CSSObject): CSSO
         hoverBg: token.colorWarningBgHover,
         activeBorderColor: token.colorWarning,
         inputColor: token.colorWarningText,
-        affixColor: token.colorWarning,
+        affixColor: token.colorWarningAffix,
       }),
 
       ...extraStyles,
@@ -443,7 +449,7 @@ export function genUnderlinedStyle(token: InputToken, extraStyles?: CSSObject): 
         hoverBorderColor: token.colorErrorBorderHover,
         activeBorderColor: token.colorError,
         activeShadow: token.errorActiveShadow,
-        affixColor: token.colorError,
+        affixColor: token.colorErrorAffix,
       }),
 
       ...genUnderlinedStatusStyle(token, {
@@ -452,7 +458,7 @@ export function genUnderlinedStyle(token: InputToken, extraStyles?: CSSObject): 
         hoverBorderColor: token.colorWarningBorderHover,
         activeBorderColor: token.colorWarning,
         activeShadow: token.warningActiveShadow,
-        affixColor: token.colorWarning,
+        affixColor: token.colorWarningAffix,
       }),
 
       ...extraStyles,

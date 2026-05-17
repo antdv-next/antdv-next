@@ -4,8 +4,10 @@ import PurePanel from '../PurePanel'
 import { mount } from '/@tests/utils'
 
 describe('message.Semantic', () => {
-  // PurePanel uses useMergeSemantic, same mechanism as useMessage hook
-  // Semantic slots: root, icon, content
+  // PurePanel uses useMergeSemantic, same mechanism as useMessage hook.
+  // v2 semantic slots (ant-design 6.4.0): root, wrapper, icon, title.
+  // `icon` lands on `${prefixCls}-notice-icon`, `title` lands on
+  // `${prefixCls}-notice-title`.
 
   afterEach(() => {
     document.body.innerHTML = ''
@@ -19,12 +21,12 @@ describe('message.Semantic', () => {
         classes: {
           root: 'custom-root',
           icon: 'custom-icon',
-          content: 'custom-content',
+          title: 'custom-title',
         },
         styles: {
           root: { margin: '10px' },
           icon: { color: 'red' },
-          content: { fontSize: '14px' },
+          title: { fontSize: '14px' },
         },
       } as any,
       attachTo: document.body,
@@ -34,14 +36,15 @@ describe('message.Semantic', () => {
     expect(root?.classList.contains('custom-root')).toBe(true)
     expect((root as HTMLElement)?.style.margin).toBe('10px')
 
-    const icon = document.querySelector('.ant-message-icon')
+    const icon = document.querySelector('.ant-message-notice-icon')
     expect(icon?.classList.contains('custom-icon')).toBe(true)
     expect((icon as HTMLElement)?.style.color).toBe('red')
 
-    const contentSpan = document.querySelector('.custom-content')
-    expect(contentSpan).toBeTruthy()
-    expect(contentSpan?.textContent).toContain('Semantic Test')
-    expect((contentSpan as HTMLElement)?.style.fontSize).toBe('14px')
+    const titleEl = document.querySelector('.ant-message-notice-title')
+    expect(titleEl).toBeTruthy()
+    expect(titleEl?.classList.contains('custom-title')).toBe(true)
+    expect(titleEl?.textContent).toContain('Semantic Test')
+    expect((titleEl as HTMLElement)?.style.fontSize).toBe('14px')
 
     wrapper.unmount()
   })
@@ -65,7 +68,7 @@ describe('message.Semantic', () => {
     const root = document.querySelector('.ant-message-notice')
     expect(root?.classList.contains('fn-root')).toBe(true)
 
-    const icon = document.querySelector('.ant-message-icon')
+    const icon = document.querySelector('.ant-message-notice-icon')
     expect(icon?.classList.contains('fn-icon')).toBe(true)
 
     wrapper.unmount()
@@ -97,7 +100,7 @@ describe('message.Semantic', () => {
     expect(root?.classList.contains('provider-cls')).toBe(true)
     expect((root as HTMLElement)?.style.color).toBe('blue')
 
-    const icon = document.querySelector('.ant-message-icon')
+    const icon = document.querySelector('.ant-message-notice-icon')
     expect(icon?.classList.contains('provider-icon')).toBe(true)
 
     wrapper.unmount()

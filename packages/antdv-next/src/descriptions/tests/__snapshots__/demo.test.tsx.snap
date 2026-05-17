@@ -152,6 +152,7 @@ exports[`descriptions demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -249,6 +250,7 @@ exports[`descriptions demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Root element with basic styles, reset styles, border styles, layout direction and other overall styles for description list container
               <!---->
               <!---->
@@ -280,6 +282,7 @@ exports[`descriptions demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   header
                   <!---->
                   <!---->
@@ -377,6 +380,7 @@ exports[`descriptions demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Header element with flex layout, alignment, bottom margin and other layout and style controls for header area
               <!---->
               <!---->
@@ -408,6 +412,7 @@ exports[`descriptions demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   title
                   <!---->
                   <!---->
@@ -505,6 +510,7 @@ exports[`descriptions demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Title element with text ellipsis, flex ratio, color, font weight, font size, line height and other title text styles
               <!---->
               <!---->
@@ -536,6 +542,7 @@ exports[`descriptions demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   extra
                   <!---->
                   <!---->
@@ -633,6 +640,7 @@ exports[`descriptions demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Extra content element with left margin, color, font size and other styles for additional operation area
               <!---->
               <!---->
@@ -664,6 +672,7 @@ exports[`descriptions demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   label
                   <!---->
                   <!---->
@@ -761,6 +770,7 @@ exports[`descriptions demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Label element with color, font weight, font size, line height, text align, colon styles and other label text styles
               <!---->
               <!---->
@@ -792,6 +802,7 @@ exports[`descriptions demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   content
                   <!---->
                   <!---->
@@ -889,6 +900,7 @@ exports[`descriptions demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Content element with table cell layout, color, font size, line height, word break and other content display styles
               <!---->
               <!---->

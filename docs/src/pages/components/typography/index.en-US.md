@@ -178,6 +178,10 @@ Common props ref：[Common props](/docs/vue/common-props)
 | ellipsis | Called when enter or leave ellipsis state | (ellipsis: boolean) =&gt; void | - |
 | expand | Called when expand content | (event: MouseEvent, info: &#123; expanded: boolean &#125;) =&gt; void | - |
 
+## Semantic DOM {#semantic-dom}
+
+<demo src="./demo/_semantic.vue" simplify></demo>
+
 ## Design Token {#design-token}
 
 <ComponentTokenTable component="Typography" />

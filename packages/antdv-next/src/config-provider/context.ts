@@ -219,6 +219,13 @@ export interface WaveConfig {
    * @descEN Customized wave effect.
    */
   showEffect?: ShowWaveEffect
+  /**
+   * @descCN 控制由哪种元素事件触发水波纹。
+   * @descEN Which element event triggers the wave effect.
+   * @default 'click'
+   * ant-design 6.4.0 PR #57402.
+   */
+  triggerType?: 'click' | 'pointerdown'
 }
 
 export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'classes' | 'styles'>
@@ -315,6 +322,7 @@ export type FormConfig = ComponentStyleConfig
     | 'tooltip'
     | 'autoComplete'
     | 'autocomplete'
+    | 'labelAlign'
   >
 export type RadioConfig = ComponentStyleConfig & Pick<RadioProps, 'classes' | 'styles'>
 
@@ -336,7 +344,7 @@ export type TextAreaConfig = ComponentStyleConfig
 export type MentionsConfig = ComponentStyleConfig
   & Pick<TextAreaProps, 'classes' | 'styles' | 'allowClear' | 'variant'>
 
-export type InputSearchConfig = ComponentStyleConfig & Pick<SearchProps, 'classes' | 'styles'>
+export type InputSearchConfig = ComponentStyleConfig & Pick<SearchProps, 'classes' | 'styles' | 'searchIcon'>
 
 export type OTPConfig = ComponentStyleConfig & Pick<OTPProps, 'classes' | 'styles' | 'variant'>
 
@@ -356,10 +364,16 @@ export type TabsConfig = ComponentStyleConfig
   >
 
 export type SelectConfig = ComponentStyleConfig
-  & Pick<SelectProps, 'showSearch' | 'variant' | 'classes' | 'styles'>
+  & Pick<SelectProps, 'showSearch' | 'variant' | 'classes' | 'styles' | 'allowClear' | 'suffixIcon' | 'removeIcon'>
+  & {
+    clearIcon?: any
+    loadingIcon?: any
+    menuItemSelectedIcon?: any
+  }
 
 export type CascaderConfig = ComponentStyleConfig
   & Pick<CascaderProps, 'variant' | 'classes' | 'styles' | 'expandIcon' | 'loadingIcon'>
+  & { searchIcon?: any, clearIcon?: any, removeIcon?: any, suffixIcon?: any }
 
 export type CardMetaConfig = ComponentStyleConfig & Pick<CardMetaProps, 'classes' | 'styles'>
 
@@ -368,6 +382,7 @@ export type CardConfig = ComponentStyleConfig
 
 export type DrawerConfig = ComponentStyleConfig
   & Pick<DrawerProps, 'classes' | 'styles' | 'closeIcon' | 'closable' | 'mask'>
+  & { focusable?: any }
 
 export type ModalConfig = ComponentStyleConfig
   & Pick<
@@ -381,6 +396,13 @@ export type ModalConfig = ComponentStyleConfig
     | 'cancelButtonProps'
     | 'mask'
   >
+  & {
+    focusable?: any
+    infoIcon?: any
+    successIcon?: any
+    warningIcon?: any
+    errorIcon?: any
+  }
 
 export type StepsConfig = ComponentStyleConfig & Pick<StepsProps, 'classes' | 'styles'>
 
@@ -399,16 +421,19 @@ export type TreeSelectConfig = ComponentStyleConfig
   & Pick<TreeSelectProps, 'variant' | 'classes' | 'styles' | 'switcherIcon'>
 
 export type UploadConfig = ComponentStyleConfig
-  & Pick<UploadProps, 'classes' | 'styles' | 'customRequest'>
+  & Pick<UploadProps, 'classes' | 'styles' | 'customRequest' | 'progress' | 'accept'>
 
 export type DatePickerConfig = ComponentStyleConfig
-  & Pick<DatePickerProps, 'classes' | 'styles' | 'variant' | 'suffixIcon'>
+  & Pick<DatePickerProps, 'classes' | 'styles' | 'variant' | 'suffixIcon' | 'allowClear'>
+  & { clearIcon?: any }
 
 export type RangePickerConfig = ComponentStyleConfig
-  & Pick<RangePickerProps, 'classes' | 'styles' | 'variant' | 'separator'>
+  & Pick<RangePickerProps, 'classes' | 'styles' | 'variant' | 'separator' | 'suffixIcon' | 'allowClear'>
+  & { clearIcon?: any }
 
 export type TimePickerConfig = ComponentStyleConfig
-  & Pick<TimePickerProps, 'classes' | 'styles' | 'variant' | 'suffixIcon'>
+  & Pick<TimePickerProps, 'classes' | 'styles' | 'variant' | 'suffixIcon' | 'allowClear'>
+  & { clearIcon?: any }
 
 export interface TableConfig<RecordType extends AnyObject = AnyObject>
   extends ComponentStyleConfig {
@@ -421,6 +446,8 @@ export interface TableConfig<RecordType extends AnyObject = AnyObject>
   scroll?: TableProps<RecordType>['scroll']
   bodyCell?: TableProps['bodyCell']
   headerCell?: TableProps['headerCell']
+  /** Default props applied to every column (ant-design 6.4.0 #57545). */
+  column?: TableProps<RecordType>['column']
 }
 
 export type RibbonConfig = ComponentStyleConfig & Pick<RibbonProps, 'classes' | 'styles'>
@@ -476,6 +503,7 @@ export interface ConfigComponentProps {
   descriptions?: DescriptionsConfig
   empty?: EmptyConfig
   badge?: BadgeConfig
+  borderBeam?: ComponentStyleConfig
   radio?: RadioConfig
   rate?: ComponentStyleConfig
   switch?: SwitchStyleConfig

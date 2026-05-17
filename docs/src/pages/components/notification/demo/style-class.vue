@@ -7,46 +7,72 @@ You can customize the [semantic dom](#semantic-dom) style of Notification by pas
 </docs>
 
 <script setup lang="ts">
+import type { CSSProperties } from 'vue'
 import { notification } from 'antdv-next'
 
 const [api, ContextHolder] = notification.useNotification()
 
-const classes = {
-  root: 'custom-notification-root',
+const defaultStyles: Record<string, CSSProperties> = {
+  root: {
+    backgroundColor: '#f6ffed',
+    border: '2px solid #95de64',
+    borderRadius: '16px',
+    boxShadow: '4px 4px 0 #d9f7be',
+  },
+  icon: {
+    color: '#237804',
+  },
+  title: {
+    color: '#237804',
+    fontWeight: 600,
+  },
+  description: {
+    color: '#3f6600',
+  },
 }
 
-function styleFn(info: any) {
+function styleFn(info: { props: any }): Record<string, CSSProperties> {
   if (info.props.type === 'error') {
     return {
+      ...defaultStyles,
       root: {
-        backgroundColor: 'rgba(255, 200, 200, 0.3)',
+        ...defaultStyles.root,
+        backgroundColor: '#fff2f0',
+        borderColor: '#ffccc7',
+        boxShadow: '4px 4px 0 #ffccc7',
+      },
+      icon: {
+        color: '#cf1322',
+      },
+      title: {
+        color: '#cf1322',
+      },
+      description: {
+        color: '#5c0011',
       },
     }
   }
-  return {}
+  return defaultStyles
+}
+
+const sharedProps = {
+  title: 'Notification Title',
+  description: 'This is a notification description.',
+  duration: false as const,
 }
 
 function openDefault() {
   api.info({
-    title: 'Notification Title',
-    description: 'This is a notification description.',
-    duration: false,
-    classes,
-    styles: {
-      root: {
-        borderRadius: '8px',
-      },
-    },
+    ...sharedProps,
+    styles: defaultStyles,
   })
 }
 
 function openError() {
   api.error({
-    title: 'Notification Title',
-    description: 'This is a notification description.',
-    duration: false,
-    classes,
-    styles: styleFn,
+    ...sharedProps,
+    type: 'error',
+    styles: styleFn as any,
   })
 }
 </script>
@@ -62,9 +88,3 @@ function openError() {
     </a-button>
   </a-space>
 </template>
-
-<style>
-.custom-notification-root {
-  border: 2px dashed #ccc;
-}
-</style>

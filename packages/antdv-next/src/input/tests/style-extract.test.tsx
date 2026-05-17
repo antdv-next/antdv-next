@@ -43,4 +43,11 @@ describe('input style extract', () => {
     expect(styleText).toContain('.ant-input-clear-icon:focus-visible')
     expect(styleText).toContain('outline:')
   })
+
+  it('uses affix color tokens for error and warning statuses', async () => {
+    const styleText = await extractInputStyle(h(Input, { prefix: '$', suffix: 'USD', status: 'error' }))
+
+    expect(styleText).toContain('color:var(--ant-color-error-affix);')
+    expect(styleText).toContain('color:var(--ant-color-warning-affix);')
+  })
 })

@@ -76,6 +76,7 @@ exports[`spin demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -173,6 +174,7 @@ exports[`spin demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Root element with absolute positioning, display control, color, font size, text alignment, vertical alignment, opacity and transition animation (effective when fullscreen is false)
               <!---->
               <!---->
@@ -204,6 +206,7 @@ exports[`spin demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   indicator
                   <!---->
                   <!---->
@@ -301,6 +304,7 @@ exports[`spin demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Indicator element with width, height, font size, inline-block display, transition animation, transform origin, line height and color
               <!---->
               <!---->
@@ -488,7 +492,7 @@ exports[`spin demo > renders delay-and-debounce correctly 1`] = `
         persisted="false"
       >
         <div
-          class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon css-var-root"
+          class="ant-alert ant-alert-info ant-alert-outlined ant-alert-with-description ant-alert-no-icon css-var-root"
           data-show="true"
           role="alert"
         >
@@ -609,7 +613,7 @@ exports[`spin demo > renders nested correctly 1`] = `
         persisted="false"
       >
         <div
-          class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon css-var-root"
+          class="ant-alert ant-alert-info ant-alert-outlined ant-alert-with-description ant-alert-no-icon css-var-root"
           data-show="true"
           role="alert"
         >
@@ -1216,7 +1220,7 @@ exports[`spin demo > renders tip correctly 1`] = `
         persisted="false"
       >
         <div
-          class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon css-var-root"
+          class="ant-alert ant-alert-info ant-alert-outlined ant-alert-with-description ant-alert-no-icon css-var-root"
           data-show="true"
           role="alert"
         >

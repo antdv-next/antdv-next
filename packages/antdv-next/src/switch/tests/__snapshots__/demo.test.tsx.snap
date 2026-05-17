@@ -71,6 +71,7 @@ exports[`switch demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -168,6 +169,7 @@ exports[`switch demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Root element with min-width, height, line-height, vertical alignment, background color, border, border radius, cursor style, transition animations, user selection and other basic switch container styles
               <!---->
               <!---->
@@ -199,6 +201,7 @@ exports[`switch demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   content
                   <!---->
                   <!---->
@@ -296,6 +299,7 @@ exports[`switch demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Content element with block display, overflow hidden, border radius, height, padding, transition animations and other switch content area layout and styles
               <!---->
               <!---->
@@ -327,6 +331,7 @@ exports[`switch demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   indicator
                   <!---->
                   <!---->
@@ -424,6 +429,7 @@ exports[`switch demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Indicator element with absolute positioning, width, height, background color, border radius, shadow, transition animations and other switch handle styles and interactive effects
               <!---->
               <!---->

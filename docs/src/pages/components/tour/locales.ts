@@ -11,6 +11,7 @@ export const locales = {
     title: '引导标题文字，设置字体粗细等标题文本样式',
     description: '引导描述文字，设置内边距、词汇换行等描述文本样式',
     mask: '遮罩层元素，设置固定定位、全屏覆盖、层级、指针事件、过渡动画等遮罩样式',
+    close: '关闭按钮元素，设置绝对定位、尺寸、颜色、悬浮态和交互反馈等关闭按钮样式',
   },
   en: {
     root: 'Tour root container with absolute positioning, z-index control, max width, visibility, arrow background color variable, theme styles and other container styles',
@@ -24,5 +25,6 @@ export const locales = {
     title: 'Guide title text with font weight and other title text styles',
     description: 'Guide description text with padding, word wrap and other description text styles',
     mask: 'Mask layer element with fixed positioning, full screen coverage, z-index, pointer events, transition animation and other mask styles',
+    close: 'Close button element with absolute positioning, size, color, hover state and interaction feedback styles',
   },
 }

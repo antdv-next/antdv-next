@@ -403,6 +403,7 @@ exports[`steps demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -492,6 +493,7 @@ exports[`steps demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Root element with flex layout, nowrap, alignment, CSS variables and other basic step container styles
               <!---->
               <!---->
@@ -523,6 +525,7 @@ exports[`steps demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   item
                   <!---->
                   <!---->
@@ -612,6 +615,7 @@ exports[`steps demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Step item element with flex layout, relative positioning and other basic step item container styles
               <!---->
               <!---->
@@ -643,6 +647,7 @@ exports[`steps demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   itemWrapper
                   <!---->
                   <!---->
@@ -732,6 +737,7 @@ exports[`steps demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Step item wrapper element with flex layout, nowrap, top padding and other step content wrapping styles
               <!---->
               <!---->
@@ -763,6 +769,7 @@ exports[`steps demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   itemIcon
                   <!---->
                   <!---->
@@ -852,6 +859,7 @@ exports[`steps demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Step item icon element with icon size, positioning, font-size and other icon display related styles
               <!---->
               <!---->
@@ -883,6 +891,7 @@ exports[`steps demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   itemHeader
                   <!---->
                   <!---->
@@ -972,6 +981,7 @@ exports[`steps demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Step item header element with flex layout, nowrap, alignment and other header area layout styles
               <!---->
               <!---->
@@ -1003,6 +1013,7 @@ exports[`steps demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   itemTitle
                   <!---->
                   <!---->
@@ -1092,6 +1103,7 @@ exports[`steps demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Step item title element with color, font-size, line-height, word-break, transitions and other title text styles
               <!---->
               <!---->
@@ -1123,6 +1135,7 @@ exports[`steps demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   itemSubtitle
                   <!---->
                   <!---->
@@ -1212,6 +1225,7 @@ exports[`steps demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Step item subtitle element with color, font-weight, font-size, line-height, margin, word-break and other subtitle styles
               <!---->
               <!---->
@@ -1243,6 +1257,7 @@ exports[`steps demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   itemSection
                   <!---->
                   <!---->
@@ -1332,6 +1347,7 @@ exports[`steps demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Step item section element with step content area layout and styling
               <!---->
               <!---->
@@ -1363,6 +1379,7 @@ exports[`steps demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   itemContent
                   <!---->
                   <!---->
@@ -1452,6 +1469,7 @@ exports[`steps demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Step item content element with color, font-size, line-height, word-break, transitions and other content text styles
               <!---->
               <!---->
@@ -1483,6 +1501,7 @@ exports[`steps demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   itemRail
                   <!---->
                   <!---->
@@ -1572,6 +1591,7 @@ exports[`steps demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Step item rail element with border-style, border-width, transitions and other connecting line styles
               <!---->
               <!---->

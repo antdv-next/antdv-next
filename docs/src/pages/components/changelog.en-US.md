@@ -2,6 +2,65 @@
 title: Component Changelog
 ---
 
+## V1.3.0
+
+Release Date: 2026-05-16
+
+This release focuses on **syncing ant-design to 6.4.2, introducing the new BorderBeam component, migrating Notification / Message / Typography to antd v2 semantic structure, and expanding ConfigProvider coverage**, while also fixing **TypeScript bundler deep-subpath type resolution, Message transition mismatch, Notification close button spacing when title is empty, and Image popup.close semantic key naming**.
+
+> ⚠️ This release contains breaking changes — see the **Breaking Changes** section below.
+
+**✨ Features**
+
+* feat: sync ant-design@6.4.2, covering Calendar / Splitter / Image / Wave / Modal / Drawer / ConfigProvider / Table / Tabs / Form / Menu / Tag / Tree / Tour / Typography / Notification / Message
+* feat(border-beam): introduce the BorderBeam glow border component with docs, demos, and unit tests
+* feat(typography): migrate to antd 6.4 v2 semantic structure; add `actions.placement` for action button group position; new `root` / `actions` / `action` / `textarea` semantic keys
+* feat(notification): upgrade to vc-notification@2 with full v2 semantic slots `title` / `description` / `icon` / `actions` / `progress` / `close`; add `_InternalListDoNotUseOrYouWillBeFired` internal component for doc previews
+* feat(message): sync antd 6.4 v2 semantic structure (`title` / `wrapper` / `list` / `listContent`); add `_InternalListDoNotUseOrYouWillBeFired`
+* feat(form): add `help` / `helpItem` / `extra` semantic class and style support
+* feat(transfer): add nested `source` / `target` semantic overrides — customize `section` / `header` / `title` / `body` / `list` / `item` / `itemIcon` / `itemContent` / `footer` per side
+* feat(calendar): add `itemContent` semantic class and style
+* feat(modal, tour, tag, popconfirm, image, statistic, tree, tree-select, input, popconfirm): add `close` / `icon` / `clear` / `value` / `itemSwitcher` semantic class/style support
+* feat(config-provider): extend global component config for Select `allowClear` / `showSearch` / `loadingIcon`, DatePicker / TimePicker `allowClear` / `clearIcon`, Modal infoIcon/successIcon/warningIcon/errorIcon, Upload `progress` / `accept`, Modal / Drawer `focusable`, Mentions `allowClear`, Cascader icons, and more
+* feat(menu): refresh item extra layout and tooltip padding
+* feat(mentions): wire the popup z-index through `useZIndex`
+* feat(cascader): support ConfigProvider `searchIcon` / `clearIcon` / `removeIcon` / `suffixIcon`
+* feat(table): support ConfigProvider column defaults with per-column merge
+* feat: upgrade vc-notification@2.0.0-rc.4, vc-input@1.1.0-rc.3, vc-picker@1.1.0-rc.3, vc-table@1.1.0-rc.2, vc-select@1.1.0-rc.1, vc-slider@1.1.0-rc.1, vc-resize-observer@1.1.0-rc.1, vc-tour@1.1.0-rc.2 etc.
+
+**💥 Breaking Changes**
+
+* **typography**: `classes.copy` / `classes.edit` / `classes.expand` / `classes.content` (and matching `styles.*`) are removed. Migrate to the unified `classes.action` / `styles.action` (single action button) and `classes.actions` / `styles.actions` (actions container).
+* **message**: `classes.content` / `styles.content` are removed — use `classes.title` / `styles.title` instead. DOM moves from `notice-description > .custom-content` to `notice-title`, and the type modifier class moves from the root to `notice-wrapper`.
+* **transfer**: `classes.source` / `classes.target` change from flat strings to nested objects. The old `classes={ source: 'foo' }` becomes `classes={ source: { section: 'foo' } }`.
+* **image**: `classes.popup.closeIcon` / `styles.popup.closeIcon` are renamed to `popup.close` / `popup.close`, aligning with the underlying vc-image naming.
+
+**🐞 Fixes**
+
+* fix(pkg): add `index.d.ts` fallback to the `./dist/*` subpath exports — resolves TypeScript `moduleResolution: bundler` / `nodenext` failing to resolve deep type imports
+* fix(message): switch the transition class from `move-up` to `fade`, restoring antd 6.x enter/leave animation
+* fix(message): promote the icon from inline description into the v2 icon semantic slot
+* fix(notification): pad description with `padding-inline-end` when the notice is closable but has no title — prevents the close button from overlapping description text
+* fix(notification): position via `--notification-top` / `--notification-bottom` CSS variables to stop the holder from spanning full height
+* fix(notification, message): re-add the v1 icon-wrapper class for backward compatibility
+* fix(notification): in vc-notification, drop the broken onClose array merge and the invalid TransitionGroup tag (vc-notification 2.0.0-rc.2/rc.3 follow-ups)
+* fix(border-beam): adjust the `offsetPath` corner radius from `200px` to `100px` so the beam no longer breaks at corners
+
+**📝 Documentation & Demos**
+
+* docs: add Notification / Message / Typography / Form / Transfer / Tag / Tour / Modal / Image / Calendar / Statistic / Tree / TreeSelect / Input / Popconfirm semantic DOM preview demos with bilingual locale copy
+* docs(notification, message): refactor the style-class demo to match React 6.4's green/red function-style example
+* docs(border-beam): add zh-CN / en-US component docs, demos, and sidebar registration
+
+**🔄 Internal**
+
+* upgrade vc-notification to 2.0.0-rc.4 (full v2 semantic structure + height patcher fix + leave animation fix)
+* bump vc-input / vc-picker / vc-select / vc-table / vc-slider / vc-resize-observer / vc-tour / vc-notification rc versions — see catalog for details
+* upgrade vc-overflow to 1.1.0-rc.1 (RTL logical offset fix)
+
+**Full Changelog**
+https://github.com/antdv-next/antdv-next/compare/antdv-next@1.2.2...antdv-next@1.3.0
+
 ## V1.2.2
 
 Release Date: 2026-04-28

@@ -109,6 +109,7 @@ exports[`collapse demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -206,6 +207,7 @@ exports[`collapse demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Root element with border, border-radius, background color and container styles that control the overall layout and appearance of collapse panels
               <!---->
               <!---->
@@ -237,6 +239,7 @@ exports[`collapse demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   header
                   <!---->
                   <!---->
@@ -334,6 +337,7 @@ exports[`collapse demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Header element with flex layout, padding, color, line-height, cursor style, transition animations and other interactive styles for panel headers
               <!---->
               <!---->
@@ -365,6 +369,7 @@ exports[`collapse demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   icon
                   <!---->
                   <!---->
@@ -462,6 +467,7 @@ exports[`collapse demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Icon element with font size, transition animations, rotation transforms and other styles and animations for expand/collapse arrows
               <!---->
               <!---->
@@ -493,6 +499,7 @@ exports[`collapse demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   title
                   <!---->
                   <!---->
@@ -590,6 +597,7 @@ exports[`collapse demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Title element with flex auto layout and margin styles for title text layout and typography
               <!---->
               <!---->
@@ -621,6 +629,7 @@ exports[`collapse demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   body
                   <!---->
                   <!---->
@@ -718,6 +727,7 @@ exports[`collapse demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Body element with padding, color, background color and other styles for panel content area display
               <!---->
               <!---->

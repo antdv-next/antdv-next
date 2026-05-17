@@ -192,6 +192,7 @@ exports[`card demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -289,6 +290,7 @@ exports[`card demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Card root element with positioning, background, border, border-radius, box-shadow, padding and other container styles
               <!---->
               <!---->
@@ -320,6 +322,7 @@ exports[`card demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   header
                   <!---->
                   <!---->
@@ -417,6 +420,7 @@ exports[`card demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Card header area with flex layout, min-height, padding, text color, font-weight, font-size, background, bottom border and top border-radius
               <!---->
               <!---->
@@ -448,6 +452,7 @@ exports[`card demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   title
                   <!---->
                   <!---->
@@ -545,6 +550,7 @@ exports[`card demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Card title with inline-block display, flex-grow, text ellipsis and other title display styles
               <!---->
               <!---->
@@ -576,6 +582,7 @@ exports[`card demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   extra
                   <!---->
                   <!---->
@@ -673,6 +680,7 @@ exports[`card demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Card extra operation area in top-right corner with text color and layout styles for additional content
               <!---->
               <!---->
@@ -704,6 +712,7 @@ exports[`card demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   cover
                   <!---->
                   <!---->
@@ -801,6 +810,7 @@ exports[`card demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Title cover with styles for cover image display and layout
               <!---->
               <!---->
@@ -832,6 +842,7 @@ exports[`card demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   body
                   <!---->
                   <!---->
@@ -929,6 +940,7 @@ exports[`card demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Card content area with padding, font-size and other content display styles
               <!---->
               <!---->
@@ -960,6 +972,7 @@ exports[`card demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   actions
                   <!---->
                   <!---->
@@ -1057,6 +1070,7 @@ exports[`card demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Card bottom action group with flex layout, list-style reset, background, top border and bottom border-radius for action buttons container
               <!---->
               <!---->

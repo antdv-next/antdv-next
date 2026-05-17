@@ -75,6 +75,7 @@ const Splitter = defineComponent<
       }
 
       warning.deprecated(!layout.value, 'layout', 'orientation')
+      warning.deprecated(!props.collapsibleIcon, 'collapsibleIcon', 'collapsible.icon')
     }
 
     // ====================== Container =======================
@@ -179,8 +180,10 @@ const Splitter = defineComponent<
         rootClass,
         lazy,
         draggerIcon,
+        collapsible,
         collapsibleIcon,
       } = props
+      const mergedCollapsibleIcon = collapsible?.icon ?? collapsibleIcon
 
       // Update items from slots in render function for reactivity
       items.value = convertChildrenToItems(slots?.default?.() ?? [])
@@ -246,7 +249,7 @@ const Splitter = defineComponent<
                     draggerStyle={mergedStyles.value.dragger as CSSProperties}
                     draggerClassName={mergedClassNames.value.dragger as SplitterSemanticDraggerClassNames}
                     draggerIcon={draggerIcon}
-                    collapsibleIcon={collapsibleIcon}
+                    collapsibleIcon={mergedCollapsibleIcon}
                     v-slots={slots}
                     ariaNow={stackSizes.value![idx]! * 100}
                     ariaMin={Math.max(ariaMinStart, ariaMinEnd) * 100}

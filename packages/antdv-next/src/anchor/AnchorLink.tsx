@@ -11,6 +11,11 @@ export interface AnchorLinkBaseProps extends ComponentBaseProps {
   target?: string
   title: VueNode
   replace?: boolean
+  /**
+   * Per-link scroll offset. Falls back to Anchor.targetOffset / offsetTop
+   * when omitted. ant-design 6.4.0 #57521.
+   */
+  targetOffset?: number
 }
 
 export interface AnchorLinkEmits {
@@ -52,7 +57,7 @@ const AnchorLink = defineComponent<
       const title = getSlotPropsFnRun(slots, props, 'title')
 
       onClick?.(e, { title, href })
-      scrollTo?.(href)
+      scrollTo?.(href, props.targetOffset)
       // Support clicking on an anchor does not record history.
       if (e.defaultPrevented) {
         return

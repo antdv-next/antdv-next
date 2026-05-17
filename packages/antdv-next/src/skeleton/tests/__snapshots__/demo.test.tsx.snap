@@ -70,6 +70,7 @@ exports[`skeleton demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -167,6 +168,7 @@ exports[`skeleton demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Root element with table display, width, animation effects, border radius and other skeleton container basic styles
               <!---->
               <!---->
@@ -198,6 +200,7 @@ exports[`skeleton demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   header
                   <!---->
                   <!---->
@@ -295,6 +298,7 @@ exports[`skeleton demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Header element with table cell, padding, vertical alignment and other avatar placeholder area layout styles
               <!---->
               <!---->
@@ -326,6 +330,7 @@ exports[`skeleton demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   section
                   <!---->
                   <!---->
@@ -423,6 +428,7 @@ exports[`skeleton demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Section element with skeleton content area layout styles
               <!---->
               <!---->
@@ -454,6 +460,7 @@ exports[`skeleton demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   avatar
                   <!---->
                   <!---->
@@ -551,6 +558,7 @@ exports[`skeleton demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Avatar element with inline-block display, vertical alignment, background color, size, border radius and other avatar placeholder styles
               <!---->
               <!---->
@@ -582,6 +590,7 @@ exports[`skeleton demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   title
                   <!---->
                   <!---->
@@ -679,6 +688,7 @@ exports[`skeleton demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Title element with width, height, background color, border radius and other title placeholder styles
               <!---->
               <!---->
@@ -710,6 +720,7 @@ exports[`skeleton demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   paragraph
                   <!---->
                   <!---->
@@ -807,6 +818,7 @@ exports[`skeleton demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Paragraph element with padding, list item styles, background color, border radius and other paragraph placeholder styles
               <!---->
               <!---->
@@ -984,6 +996,7 @@ exports[`skeleton demo > renders _semantic_element correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -1081,6 +1094,7 @@ exports[`skeleton demo > renders _semantic_element correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Root element
               <!---->
               <!---->
@@ -1112,6 +1126,7 @@ exports[`skeleton demo > renders _semantic_element correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   content
                   <!---->
                   <!---->
@@ -1209,6 +1224,7 @@ exports[`skeleton demo > renders _semantic_element correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Content element
               <!---->
               <!---->

@@ -13,6 +13,7 @@ const semantics = computed(() => [
   { name: 'input', desc: t('input') },
   { name: 'suffix', desc: t('suffix') },
   { name: 'count', desc: t('count') },
+  { name: 'clear', desc: t('clear'), version: '1.3.0' },
 ])
 </script>
 
@@ -26,6 +27,7 @@ const semantics = computed(() => [
         <a-input
           default-value="Hello, Antdv-Next"
           show-count
+          allow-clear
           :classes="classes"
         >
           <template #prefix>

@@ -12,7 +12,7 @@ import pickAttrs from '@v-c/util/dist/pickAttrs'
 import { omit } from 'es-toolkit'
 import { cloneVNode, computed, defineComponent, isVNode, shallowRef } from 'vue'
 import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
-import { toPropsRefs } from '../_util/tools'
+import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import Button from '../button'
 import { useComponentBaseConfig } from '../config-provider/context'
 import { useSize } from '../config-provider/hooks/useSize'
@@ -63,6 +63,11 @@ export interface SearchProps extends Omit<BaseInputProps, 'class' | 'style' | 'r
   inputPrefixCls?: string
   on?: never
   enterButton?: boolean | VueNode
+  /**
+   * Custom search icon shown inside the trigger button when enterButton is a
+   * boolean. Mirrors ant-design 6.4.0 PR #57256.
+   */
+  searchIcon?: VueNode
   loading?: boolean
   size?: SizeType
   hidden?: boolean
@@ -100,6 +105,11 @@ export interface SearchSlots {
   addonBefore: () => any
   addonAfter: () => any
   clearIcon: () => any
+  /**
+   * Custom search icon shown inside the trigger button when enterButton is
+   * boolean. Slot takes priority over the `searchIcon` prop.
+   */
+  searchIcon?: () => any
 }
 
 const InternalSearch = defineComponent<
@@ -237,7 +247,11 @@ const InternalSearch = defineComponent<
 
       const enterButtonValue = props.enterButton ?? false
       const isBooleanEnterButton = typeof enterButtonValue === 'boolean'
-      const searchIcon = isBooleanEnterButton ? <SearchOutlined /> : null
+      // Slot > prop > default SearchOutlined.
+      const searchIconFromSlot = getSlotPropsFnRun(slots, props, 'searchIcon', false)
+      const searchIcon = isBooleanEnterButton
+        ? (searchIconFromSlot ?? props.searchIcon ?? <SearchOutlined />)
+        : null
       const buttonChildren = isBooleanEnterButton ? undefined : enterButtonValue
 
       let buttonNode: any

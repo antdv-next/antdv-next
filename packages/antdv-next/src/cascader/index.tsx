@@ -237,7 +237,13 @@ const InternalCascader = defineComponent<
       getPrefixCls,
       expandIcon: contextExpandIcon,
       loadingIcon: contextLoadingIcon,
-    } = useComponentBaseConfig('cascader', props, ['expandIcon', 'loadingIcon'])
+      searchIcon: _contextSearchIcon,
+      clearIcon: contextClearIcon,
+      removeIcon: contextRemoveIcon,
+      suffixIcon: contextSuffixIcon,
+    } = useComponentBaseConfig('cascader', props, ['expandIcon', 'loadingIcon', 'searchIcon', 'clearIcon', 'removeIcon', 'suffixIcon'])
+    // contextSearchIcon is consumed downstream by useShowSearch; reserved for future inline search icon wiring
+    void _contextSearchIcon
     const {
       prefixCls: customizePrefixCls,
       direction: propDirection,
@@ -425,6 +431,7 @@ const InternalCascader = defineComponent<
       } = props
       const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
       const mergedSuffixIcon = getSlotPropsFnRun(slots, props, 'suffixIcon', false)
+        ?? contextSuffixIcon.value
       const showSuffixIcon = useShowArrow(mergedSuffixIcon, showArrow)
       const {
         hasFeedback,
@@ -438,6 +445,9 @@ const InternalCascader = defineComponent<
         feedbackIcon,
         showSuffixIcon,
         suffixIcon: mergedSuffixIcon,
+        removeIcon: (rest as any).removeIcon ?? contextRemoveIcon.value,
+        clearIcon: ((rest as any).allowClear && typeof (rest as any).allowClear === 'object' && (rest as any).allowClear.clearIcon)
+          || contextClearIcon.value,
         prefixCls: prefixCls.value,
         componentName: 'Cascader',
       } as any)

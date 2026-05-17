@@ -48,6 +48,11 @@ export interface ComponentToken {
    * @descEN Size of status badge
    */
   statusSize: number
+  /**
+   * @desc 徽标横向内边距
+   * @descEN Inline padding of badge
+   */
+  paddingInline: number | string
 }
 
 /**
@@ -215,7 +220,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken, CSSObject> = (token) => {
       },
 
       [`${componentCls}-multiple-words`]: {
-        padding: `0 ${unit(token.paddingXS)}`,
+        padding: `0 ${unit(token.paddingInline)}`,
 
         bdi: {
           unicodeBidi: 'plaintext',
@@ -401,7 +406,7 @@ export function prepareToken(token: Parameters<GenStyleFn<'Badge'>>[0]) {
 }
 
 export const prepareComponentToken: GetDefaultToken<'Badge'> = (token) => {
-  const { fontSize, lineHeight, fontSizeSM, lineWidth } = token
+  const { fontSize, lineHeight, fontSizeSM, lineWidth, paddingXS } = token
   return {
     indicatorZIndex: 'auto',
     indicatorHeight: Math.round(fontSize * lineHeight) - 2 * lineWidth,
@@ -411,6 +416,7 @@ export const prepareComponentToken: GetDefaultToken<'Badge'> = (token) => {
     textFontSizeSM: fontSizeSM,
     textFontWeight: 'normal',
     statusSize: fontSizeSM / 2,
+    paddingInline: paddingXS,
   }
 }
 

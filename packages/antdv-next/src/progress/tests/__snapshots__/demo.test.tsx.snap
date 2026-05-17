@@ -190,6 +190,7 @@ exports[`progress demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -279,6 +280,7 @@ exports[`progress demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Root element, set relative positioning and basic container styles
               <!---->
               <!---->
@@ -310,6 +312,7 @@ exports[`progress demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   body
                   <!---->
                   <!---->
@@ -399,6 +402,7 @@ exports[`progress demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Body element, set progress bar layout and size styles
               <!---->
               <!---->
@@ -430,6 +434,7 @@ exports[`progress demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   rail
                   <!---->
                   <!---->
@@ -519,6 +524,7 @@ exports[`progress demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Rail element, set background track color and border radius styles. Not exist in steps mode
               <!---->
               <!---->
@@ -550,6 +556,7 @@ exports[`progress demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   track
                   <!---->
                   <!---->
@@ -639,6 +646,7 @@ exports[`progress demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Track element, set progress fill color and transition animation styles
               <!---->
               <!---->
@@ -670,6 +678,7 @@ exports[`progress demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   indicator
                   <!---->
                   <!---->
@@ -759,6 +768,7 @@ exports[`progress demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Indicator element, set percentage text or icon position and font styles
               <!---->
               <!---->
@@ -1262,6 +1272,7 @@ exports[`progress demo > renders circle-steps correctly 1`] = `
   <h5
     class="ant-typography css-var-root"
   >
+    <!---->
      Custom count: 
     <!---->
     <!---->
@@ -1303,6 +1314,7 @@ exports[`progress demo > renders circle-steps correctly 1`] = `
   <h5
     class="ant-typography css-var-root"
   >
+    <!---->
      Custom gap: 
     <!---->
     <!---->

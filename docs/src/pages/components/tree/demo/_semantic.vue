@@ -12,6 +12,7 @@ const semantics = computed(() => [
   { name: 'item', desc: t('item'), version: '1.0.0' },
   { name: 'itemIcon', desc: t('itemIcon'), version: '1.0.0' },
   { name: 'itemTitle', desc: t('itemTitle'), version: '1.0.0' },
+  { name: 'itemSwitcher', desc: t('itemSwitcher'), version: '1.3.0' },
 ])
 
 const treeData = [

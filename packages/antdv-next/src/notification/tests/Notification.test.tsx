@@ -548,8 +548,7 @@ describe('notification', () => {
 
       const container = document.querySelector('.ant-notification')
       expect(container).toBeTruthy()
-      const style = (container as HTMLElement)?.style
-      expect(style.right).toBe('0px')
+      expect(container?.classList.contains('ant-notification-topRight')).toBe(true)
 
       wrapper.unmount()
     })
@@ -566,8 +565,7 @@ describe('notification', () => {
 
       const container = document.querySelector('.ant-notification')
       expect(container).toBeTruthy()
-      const style = (container as HTMLElement)?.style
-      expect(style.left).toBe('0px')
+      expect(container?.classList.contains('ant-notification-topLeft')).toBe(true)
 
       wrapper.unmount()
     })
@@ -584,8 +582,7 @@ describe('notification', () => {
 
       const container = document.querySelector('.ant-notification')
       expect(container).toBeTruthy()
-      const style = (container as HTMLElement)?.style
-      expect(style.left).toBe('50%')
+      expect(container?.classList.contains('ant-notification-bottom')).toBe(true)
 
       wrapper.unmount()
     })
@@ -602,8 +599,7 @@ describe('notification', () => {
 
       const container = document.querySelector('.ant-notification')
       expect(container).toBeTruthy()
-      const style = (container as HTMLElement)?.style
-      expect(style.left).toBe('0px')
+      expect(container?.classList.contains('ant-notification-bottomLeft')).toBe(true)
 
       wrapper.unmount()
     })
@@ -620,8 +616,7 @@ describe('notification', () => {
 
       const container = document.querySelector('.ant-notification')
       expect(container).toBeTruthy()
-      const style = (container as HTMLElement)?.style
-      expect(style.right).toBe('0px')
+      expect(container?.classList.contains('ant-notification-bottomRight')).toBe(true)
 
       wrapper.unmount()
     })
@@ -638,8 +633,7 @@ describe('notification', () => {
 
       const container = document.querySelector('.ant-notification')
       expect(container).toBeTruthy()
-      const style = (container as HTMLElement)?.style
-      expect(style.left).toBe('50%')
+      expect(container?.classList.contains('ant-notification-top')).toBe(true)
 
       wrapper.unmount()
     })
@@ -965,54 +959,46 @@ describe('notification', () => {
     describe('getPlacementStyle', () => {
       it('returns correct style for topRight', () => {
         const style = getPlacementStyle('topRight', 24, 24)
-        expect(style.right).toBe(0)
-        expect(style.top).toBe('24px')
-        expect(style.bottom).toBe('auto')
+        expect((style as any)['--notification-top']).toBe('24px')
+        expect((style as any)['--notification-bottom']).toBe('24px')
       })
 
       it('returns correct style for topLeft', () => {
         const style = getPlacementStyle('topLeft', 24, 24)
-        expect(style.left).toBe(0)
-        expect(style.top).toBe('24px')
-        expect(style.bottom).toBe('auto')
+        expect((style as any)['--notification-top']).toBe('24px')
+        expect((style as any)['--notification-bottom']).toBe('24px')
       })
 
       it('returns correct style for top (centered)', () => {
         const style = getPlacementStyle('top', 24, 24)
-        expect(style.left).toBe('50%')
-        expect(style.transform).toBe('translateX(-50%)')
-        expect(style.top).toBe('24px')
-        expect(style.bottom).toBe('auto')
+        expect((style as any)['--notification-top']).toBe('24px')
+        expect((style as any)['--notification-bottom']).toBe('24px')
       })
 
       it('returns correct style for bottomRight (default)', () => {
         const style = getPlacementStyle('bottomRight', 24, 24)
-        expect(style.right).toBe(0)
-        expect(style.top).toBe('auto')
-        expect(style.bottom).toBe('24px')
+        expect((style as any)['--notification-top']).toBe('24px')
+        expect((style as any)['--notification-bottom']).toBe('24px')
       })
 
       it('returns correct style for bottomLeft', () => {
         const style = getPlacementStyle('bottomLeft', 24, 24)
-        expect(style.left).toBe(0)
-        expect(style.top).toBe('auto')
-        expect(style.bottom).toBe('24px')
+        expect((style as any)['--notification-top']).toBe('24px')
+        expect((style as any)['--notification-bottom']).toBe('24px')
       })
 
       it('returns correct style for bottom (centered)', () => {
         const style = getPlacementStyle('bottom', 24, 24)
-        expect(style.left).toBe('50%')
-        expect(style.transform).toBe('translateX(-50%)')
-        expect(style.top).toBe('auto')
-        expect(style.bottom).toBe('24px')
+        expect((style as any)['--notification-top']).toBe('24px')
+        expect((style as any)['--notification-bottom']).toBe('24px')
       })
 
       it('uses custom top and bottom values', () => {
         const style = getPlacementStyle('topRight', 50, 100)
-        expect(style.top).toBe('50px')
+        expect((style as any)['--notification-top']).toBe('50px')
 
         const bottomStyle = getPlacementStyle('bottomRight', 50, 100)
-        expect(bottomStyle.bottom).toBe('100px')
+        expect((bottomStyle as any)['--notification-bottom']).toBe('100px')
       })
     })
 
@@ -1172,8 +1158,8 @@ describe('notification', () => {
 
       const container = document.querySelector('.ant-notification') as HTMLElement
       expect(container).toBeTruthy()
-      // Default placement is topRight, so top should be 50
-      expect(container?.style.top).toBe('50px')
+      expect(container?.style.getPropertyValue('--notification-top')).toBe('50px')
+      expect(container?.style.getPropertyValue('--notification-bottom')).toBe('100px')
 
       wrapper.unmount()
     })

@@ -23,7 +23,7 @@ exports[`alert demo > renders _semantic correctly 1`] = `
         persisted="false"
       >
         <div
-          class="ant-alert ant-alert-info ant-alert-with-description semantic-mark-root css-var-v-0"
+          class="ant-alert ant-alert-info ant-alert-outlined ant-alert-with-description semantic-mark-root css-var-v-0"
           data-show="true"
           role="alert"
         >
@@ -186,6 +186,7 @@ exports[`alert demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -283,6 +284,7 @@ exports[`alert demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Root element with border, background, padding, border-radius, and positioning styles for the alert container
               <!---->
               <!---->
@@ -314,6 +316,7 @@ exports[`alert demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   icon
                   <!---->
                   <!---->
@@ -411,6 +414,7 @@ exports[`alert demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Icon element with color, line-height, and margin styles, supporting different status icon types
               <!---->
               <!---->
@@ -442,6 +446,7 @@ exports[`alert demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   section
                   <!---->
                   <!---->
@@ -539,6 +544,7 @@ exports[`alert demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Content element with flex layout controlling content area typography and minimum width
               <!---->
               <!---->
@@ -570,6 +576,7 @@ exports[`alert demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   title
                   <!---->
                   <!---->
@@ -667,6 +674,7 @@ exports[`alert demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Title element with text color and font styling for the alert title
               <!---->
               <!---->
@@ -698,6 +706,7 @@ exports[`alert demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   description
                   <!---->
                   <!---->
@@ -795,6 +804,7 @@ exports[`alert demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Description element with font-size and line-height styles for additional content
               <!---->
               <!---->
@@ -826,6 +836,7 @@ exports[`alert demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   actions
                   <!---->
                   <!---->
@@ -923,6 +934,7 @@ exports[`alert demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Actions element with layout and spacing styles for action buttons
               <!---->
               <!---->
@@ -954,6 +966,7 @@ exports[`alert demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   close
                   <!---->
                   <!---->
@@ -1051,6 +1064,7 @@ exports[`alert demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Close button element with basic button styling
               <!---->
               <!---->
@@ -1081,7 +1095,7 @@ exports[`alert demo > renders action correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-success css-var-root"
+      class="ant-alert ant-alert-success ant-alert-outlined css-var-root"
       data-show="true"
       role="alert"
     >
@@ -1184,7 +1198,7 @@ exports[`alert demo > renders action correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-error ant-alert-with-description css-var-root"
+      class="ant-alert ant-alert-error ant-alert-outlined ant-alert-with-description css-var-root"
       data-show="true"
       role="alert"
     >
@@ -1267,7 +1281,7 @@ exports[`alert demo > renders action correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-warning ant-alert-no-icon css-var-root"
+      class="ant-alert ant-alert-warning ant-alert-outlined ant-alert-no-icon css-var-root"
       data-show="true"
       role="alert"
     >
@@ -1357,7 +1371,7 @@ exports[`alert demo > renders action correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon css-var-root"
+      class="ant-alert ant-alert-info ant-alert-outlined ant-alert-with-description ant-alert-no-icon css-var-root"
       data-show="true"
       role="alert"
     >
@@ -1485,7 +1499,7 @@ exports[`alert demo > renders banner correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-warning ant-alert-banner css-var-root"
+      class="ant-alert ant-alert-warning ant-alert-outlined ant-alert-banner css-var-root"
       data-show="true"
       role="alert"
     >
@@ -1537,7 +1551,7 @@ exports[`alert demo > renders banner correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-warning ant-alert-banner css-var-root"
+      class="ant-alert ant-alert-warning ant-alert-outlined ant-alert-banner css-var-root"
       data-show="true"
       role="alert"
     >
@@ -1614,7 +1628,7 @@ exports[`alert demo > renders banner correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-warning ant-alert-no-icon ant-alert-banner css-var-root"
+      class="ant-alert ant-alert-warning ant-alert-outlined ant-alert-no-icon ant-alert-banner css-var-root"
       data-show="true"
       role="alert"
     >
@@ -1644,7 +1658,7 @@ exports[`alert demo > renders banner correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-error ant-alert-banner css-var-root"
+      class="ant-alert ant-alert-error ant-alert-outlined ant-alert-banner css-var-root"
       data-show="true"
       role="alert"
     >
@@ -1700,7 +1714,7 @@ exports[`alert demo > renders basic correctly 1`] = `
   persisted="false"
 >
   <div
-    class="ant-alert ant-alert-success ant-alert-no-icon css-var-root"
+    class="ant-alert ant-alert-success ant-alert-outlined ant-alert-no-icon css-var-root"
     data-show="true"
     role="alert"
   >
@@ -1735,7 +1749,7 @@ exports[`alert demo > renders closable correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-warning ant-alert-no-icon css-var-root"
+      class="ant-alert ant-alert-warning ant-alert-outlined ant-alert-no-icon css-var-root"
       data-show="true"
       role="alert"
     >
@@ -1765,7 +1779,7 @@ exports[`alert demo > renders closable correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-success ant-alert-no-icon css-var-root"
+      class="ant-alert ant-alert-success ant-alert-outlined ant-alert-no-icon css-var-root"
       data-show="true"
       role="alert"
     >
@@ -1795,7 +1809,7 @@ exports[`alert demo > renders closable correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-info ant-alert-no-icon css-var-root"
+      class="ant-alert ant-alert-info ant-alert-outlined ant-alert-no-icon css-var-root"
       data-show="true"
       role="alert"
     >
@@ -1825,7 +1839,7 @@ exports[`alert demo > renders closable correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-error ant-alert-no-icon css-var-root"
+      class="ant-alert ant-alert-error ant-alert-outlined ant-alert-no-icon css-var-root"
       data-show="true"
       role="alert"
     >
@@ -1861,7 +1875,7 @@ exports[`alert demo > renders component-token correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-success ant-alert-with-description css-var-v-0"
+      class="ant-alert ant-alert-success ant-alert-outlined ant-alert-with-description css-var-v-0"
       data-show="true"
       role="alert"
     >
@@ -1923,7 +1937,7 @@ exports[`alert demo > renders custom-icon correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-success ant-alert-no-icon css-var-root"
+      class="ant-alert ant-alert-success ant-alert-outlined ant-alert-no-icon css-var-root"
       data-show="true"
       role="alert"
     >
@@ -1953,7 +1967,7 @@ exports[`alert demo > renders custom-icon correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-success css-var-root"
+      class="ant-alert ant-alert-success ant-alert-outlined css-var-root"
       data-show="true"
       role="alert"
     >
@@ -2005,7 +2019,7 @@ exports[`alert demo > renders custom-icon correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-info css-var-root"
+      class="ant-alert ant-alert-info ant-alert-outlined css-var-root"
       data-show="true"
       role="alert"
     >
@@ -2057,7 +2071,7 @@ exports[`alert demo > renders custom-icon correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-warning css-var-root"
+      class="ant-alert ant-alert-warning ant-alert-outlined css-var-root"
       data-show="true"
       role="alert"
     >
@@ -2109,7 +2123,7 @@ exports[`alert demo > renders custom-icon correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-error css-var-root"
+      class="ant-alert ant-alert-error ant-alert-outlined css-var-root"
       data-show="true"
       role="alert"
     >
@@ -2161,7 +2175,7 @@ exports[`alert demo > renders custom-icon correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-success ant-alert-with-description css-var-root"
+      class="ant-alert ant-alert-success ant-alert-outlined ant-alert-with-description css-var-root"
       data-show="true"
       role="alert"
     >
@@ -2217,7 +2231,7 @@ exports[`alert demo > renders custom-icon correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-info ant-alert-with-description css-var-root"
+      class="ant-alert ant-alert-info ant-alert-outlined ant-alert-with-description css-var-root"
       data-show="true"
       role="alert"
     >
@@ -2273,7 +2287,7 @@ exports[`alert demo > renders custom-icon correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-warning ant-alert-with-description css-var-root"
+      class="ant-alert ant-alert-warning ant-alert-outlined ant-alert-with-description css-var-root"
       data-show="true"
       role="alert"
     >
@@ -2329,7 +2343,7 @@ exports[`alert demo > renders custom-icon correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-error ant-alert-with-description css-var-root"
+      class="ant-alert ant-alert-error ant-alert-outlined ant-alert-with-description css-var-root"
       data-show="true"
       role="alert"
     >
@@ -2391,7 +2405,7 @@ exports[`alert demo > renders description correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-success ant-alert-with-description ant-alert-no-icon css-var-root"
+      class="ant-alert ant-alert-success ant-alert-outlined ant-alert-with-description ant-alert-no-icon css-var-root"
       data-show="true"
       role="alert"
     >
@@ -2425,7 +2439,7 @@ exports[`alert demo > renders description correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon css-var-root"
+      class="ant-alert ant-alert-info ant-alert-outlined ant-alert-with-description ant-alert-no-icon css-var-root"
       data-show="true"
       role="alert"
     >
@@ -2459,7 +2473,7 @@ exports[`alert demo > renders description correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-warning ant-alert-with-description ant-alert-no-icon css-var-root"
+      class="ant-alert ant-alert-warning ant-alert-outlined ant-alert-with-description ant-alert-no-icon css-var-root"
       data-show="true"
       role="alert"
     >
@@ -2493,7 +2507,7 @@ exports[`alert demo > renders description correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-error ant-alert-with-description ant-alert-no-icon css-var-root"
+      class="ant-alert ant-alert-error ant-alert-outlined ant-alert-with-description ant-alert-no-icon css-var-root"
       data-show="true"
       role="alert"
     >
@@ -2533,7 +2547,7 @@ exports[`alert demo > renders icon correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-success css-var-root"
+      class="ant-alert ant-alert-success ant-alert-outlined css-var-root"
       data-show="true"
       role="alert"
     >
@@ -2585,7 +2599,7 @@ exports[`alert demo > renders icon correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-info css-var-root"
+      class="ant-alert ant-alert-info ant-alert-outlined css-var-root"
       data-show="true"
       role="alert"
     >
@@ -2637,7 +2651,7 @@ exports[`alert demo > renders icon correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-warning css-var-root"
+      class="ant-alert ant-alert-warning ant-alert-outlined css-var-root"
       data-show="true"
       role="alert"
     >
@@ -2714,7 +2728,7 @@ exports[`alert demo > renders icon correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-error css-var-root"
+      class="ant-alert ant-alert-error ant-alert-outlined css-var-root"
       data-show="true"
       role="alert"
     >
@@ -2767,7 +2781,7 @@ exports[`alert demo > renders icon correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-success ant-alert-with-description css-var-root"
+      class="ant-alert ant-alert-success ant-alert-outlined ant-alert-with-description css-var-root"
       data-show="true"
       role="alert"
     >
@@ -2823,7 +2837,7 @@ exports[`alert demo > renders icon correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-info ant-alert-with-description css-var-root"
+      class="ant-alert ant-alert-info ant-alert-outlined ant-alert-with-description css-var-root"
       data-show="true"
       role="alert"
     >
@@ -2879,7 +2893,7 @@ exports[`alert demo > renders icon correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-warning ant-alert-with-description css-var-root"
+      class="ant-alert ant-alert-warning ant-alert-outlined ant-alert-with-description css-var-root"
       data-show="true"
       role="alert"
     >
@@ -2960,7 +2974,7 @@ exports[`alert demo > renders icon correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-error ant-alert-with-description css-var-root"
+      class="ant-alert ant-alert-error ant-alert-outlined ant-alert-with-description css-var-root"
       data-show="true"
       role="alert"
     >
@@ -3021,7 +3035,7 @@ exports[`alert demo > renders loop-banner correctly 1`] = `
   persisted="false"
 >
   <div
-    class="ant-alert ant-alert-warning ant-alert-banner css-var-root"
+    class="ant-alert ant-alert-warning ant-alert-outlined ant-alert-banner css-var-root"
     data-show="true"
     role="alert"
   >
@@ -3088,7 +3102,7 @@ exports[`alert demo > renders smooth-closed correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-success ant-alert-no-icon css-var-root"
+      class="ant-alert ant-alert-success ant-alert-outlined ant-alert-no-icon css-var-root"
       data-show="true"
       role="alert"
     >
@@ -3180,7 +3194,7 @@ exports[`alert demo > renders style correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-success ant-alert-no-icon css-var-root"
+      class="ant-alert ant-alert-success ant-alert-outlined ant-alert-no-icon css-var-root"
       data-show="true"
       role="alert"
     >
@@ -3210,7 +3224,7 @@ exports[`alert demo > renders style correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-info ant-alert-no-icon css-var-root"
+      class="ant-alert ant-alert-info ant-alert-outlined ant-alert-no-icon css-var-root"
       data-show="true"
       role="alert"
     >
@@ -3240,7 +3254,7 @@ exports[`alert demo > renders style correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-warning ant-alert-no-icon css-var-root"
+      class="ant-alert ant-alert-warning ant-alert-outlined ant-alert-no-icon css-var-root"
       data-show="true"
       role="alert"
     >
@@ -3270,7 +3284,7 @@ exports[`alert demo > renders style correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-error ant-alert-no-icon css-var-root"
+      class="ant-alert ant-alert-error ant-alert-outlined ant-alert-no-icon css-var-root"
       data-show="true"
       role="alert"
     >
@@ -3306,7 +3320,7 @@ exports[`alert demo > renders style-class correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-info demo-alert-root css-var-root"
+      class="ant-alert ant-alert-info ant-alert-outlined demo-alert-root css-var-root"
       data-show="true"
       role="alert"
     >
@@ -3385,7 +3399,7 @@ exports[`alert demo > renders style-class correctly 1`] = `
     persisted="false"
   >
     <div
-      class="ant-alert ant-alert-success demo-alert-root css-var-root"
+      class="ant-alert ant-alert-success ant-alert-outlined demo-alert-root css-var-root"
       data-show="true"
       role="alert"
       style="background-color: rgba(82, 196, 26, 0.1); border-color: rgb(183, 235, 143);"

@@ -104,6 +104,7 @@ exports[`slider demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -201,6 +202,7 @@ exports[`slider demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Root element with relative positioning, height, margin, padding, cursor style and touch action control
               <!---->
               <!---->
@@ -232,6 +234,7 @@ exports[`slider demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   track
                   <!---->
                   <!---->
@@ -329,6 +332,7 @@ exports[`slider demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Track selection bar element with absolute positioning, background color, border radius and transition animation styles
               <!---->
               <!---->
@@ -360,6 +364,7 @@ exports[`slider demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   tracks
                   <!---->
                   <!---->
@@ -457,6 +462,7 @@ exports[`slider demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Multi-segment track container element with absolute positioning and transition animation styles
               <!---->
               <!---->
@@ -488,6 +494,7 @@ exports[`slider demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   rail
                   <!---->
                   <!---->
@@ -585,6 +592,7 @@ exports[`slider demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Background rail element with absolute positioning, background color, border radius and transition animation styles
               <!---->
               <!---->
@@ -616,6 +624,7 @@ exports[`slider demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   handle
                   <!---->
                   <!---->
@@ -713,6 +722,7 @@ exports[`slider demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Slider handle control element with absolute positioning, size, outline, user selection, background color, border shadow, border radius, cursor style and transition animation
               <!---->
               <!---->
@@ -859,7 +869,7 @@ exports[`slider demo > renders component-token correctly 1`] = `
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="30"
-      class="ant-slider-handle"
+      class="ant-slider-handle ant-slider-handle-disabled"
       mock="false"
       role="slider"
       style="left: 30%; transform: translateX(-50%);"

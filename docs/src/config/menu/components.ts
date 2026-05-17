@@ -173,6 +173,7 @@ export const components: AntdvMenuItem[] = [
     children: [
       { key: '/components/affix', label: '/components/affix' },
       { key: '/components/app', label: '/components/app' },
+      { key: '/components/border-beam', label: '/components/border-beam', tag: '1.3.0' },
       { key: '/components/config-provider', label: '/components/config-provider' },
     ],
   },

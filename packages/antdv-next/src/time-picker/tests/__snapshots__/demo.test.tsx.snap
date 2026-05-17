@@ -81,6 +81,7 @@ exports[`time-picker demo > renders _semantic correctly 1`] = `
               class="ant-picker-suffix semantic-mark-suffix"
             >
               <span
+                aria-hidden="true"
                 aria-label="clock-circle"
                 class="anticon anticon-clock-circle"
                 role="img"
@@ -139,6 +140,7 @@ exports[`time-picker demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -228,6 +230,7 @@ exports[`time-picker demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Root element with relative positioning, inline-flex layout, padding, border-radius, transition animations and other basic styles for time picker container
               <!---->
               <!---->
@@ -259,6 +262,7 @@ exports[`time-picker demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   prefix
                   <!---->
                   <!---->
@@ -348,6 +352,7 @@ exports[`time-picker demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Prefix element with flex layout and margin styles for prefix content layout
               <!---->
               <!---->
@@ -379,6 +384,7 @@ exports[`time-picker demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   input
                   <!---->
                   <!---->
@@ -468,6 +474,7 @@ exports[`time-picker demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Input element with relative positioning, width, color, font, line-height, transition animations and other core interactive styles for input field
               <!---->
               <!---->
@@ -499,6 +506,7 @@ exports[`time-picker demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   suffix
                   <!---->
                   <!---->
@@ -588,6 +596,7 @@ exports[`time-picker demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Suffix element with flex layout, color, line-height, pointer events, transition animations and other styles for suffix content
               <!---->
               <!---->
@@ -619,6 +628,7 @@ exports[`time-picker demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   popup.root
                   <!---->
                   <!---->
@@ -708,6 +718,7 @@ exports[`time-picker demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Popup element
               <!---->
               <!---->
@@ -739,6 +750,7 @@ exports[`time-picker demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   popup.container
                   <!---->
                   <!---->
@@ -828,6 +840,7 @@ exports[`time-picker demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Container element, set background color, padding, border radius, shadow, border and content display styles
               <!---->
               <!---->
@@ -859,6 +872,7 @@ exports[`time-picker demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   popup.content
                   <!---->
                   <!---->
@@ -948,6 +962,7 @@ exports[`time-picker demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Popup content element with width, border, cell and other content display styles for time list
               <!---->
               <!---->
@@ -979,6 +994,7 @@ exports[`time-picker demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   popup.item
                   <!---->
                   <!---->
@@ -1068,6 +1084,7 @@ exports[`time-picker demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Popup item element with size, background, border-radius, hover state, selected state and other interactive styles for time cells
               <!---->
               <!---->
@@ -1099,6 +1116,7 @@ exports[`time-picker demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   popup.footer
                   <!---->
                   <!---->
@@ -1188,6 +1206,7 @@ exports[`time-picker demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Popup footer element with layout styles for bottom operation area including confirm/cancel buttons
               <!---->
               <!---->
@@ -1230,6 +1249,7 @@ exports[`time-picker demo > renders 12hours correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="clock-circle"
             class="anticon anticon-clock-circle"
             role="img"
@@ -1280,6 +1300,7 @@ exports[`time-picker demo > renders 12hours correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="clock-circle"
             class="anticon anticon-clock-circle"
             role="img"
@@ -1330,6 +1351,7 @@ exports[`time-picker demo > renders 12hours correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="clock-circle"
             class="anticon anticon-clock-circle"
             role="img"
@@ -1384,6 +1406,7 @@ exports[`time-picker demo > renders addon correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="clock-circle"
           class="anticon anticon-clock-circle"
           role="img"
@@ -1436,6 +1459,7 @@ exports[`time-picker demo > renders basic correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="clock-circle"
           class="anticon anticon-clock-circle"
           role="img"
@@ -1488,6 +1512,7 @@ exports[`time-picker demo > renders change-on-scroll correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="clock-circle"
           class="anticon anticon-clock-circle"
           role="img"
@@ -1540,6 +1565,7 @@ exports[`time-picker demo > renders colored-popup correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="clock-circle"
           class="anticon anticon-clock-circle"
           role="img"
@@ -1593,6 +1619,7 @@ exports[`time-picker demo > renders disabled correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="clock-circle"
           class="anticon anticon-clock-circle"
           role="img"
@@ -1645,6 +1672,7 @@ exports[`time-picker demo > renders hide-column correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="clock-circle"
           class="anticon anticon-clock-circle"
           role="img"
@@ -1721,6 +1749,7 @@ exports[`time-picker demo > renders interval-options correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="clock-circle"
           class="anticon anticon-clock-circle"
           role="img"
@@ -1773,6 +1802,7 @@ exports[`time-picker demo > renders need-confirm correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="clock-circle"
           class="anticon anticon-clock-circle"
           role="img"
@@ -1875,6 +1905,7 @@ exports[`time-picker demo > renders range-picker correctly 1`] = `
       class="ant-picker-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="clock-circle"
         class="anticon anticon-clock-circle"
         role="img"
@@ -1954,6 +1985,7 @@ exports[`time-picker demo > renders render-panel correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="clock-circle"
             class="anticon anticon-clock-circle"
             role="img"
@@ -2011,6 +2043,7 @@ exports[`time-picker demo > renders size correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="clock-circle"
             class="anticon anticon-clock-circle"
             role="img"
@@ -2085,6 +2118,7 @@ exports[`time-picker demo > renders size correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="clock-circle"
             class="anticon anticon-clock-circle"
             role="img"
@@ -2159,6 +2193,7 @@ exports[`time-picker demo > renders size correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="clock-circle"
             class="anticon anticon-clock-circle"
             role="img"
@@ -2240,6 +2275,7 @@ exports[`time-picker demo > renders status correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="clock-circle"
             class="anticon anticon-clock-circle"
             role="img"
@@ -2290,6 +2326,7 @@ exports[`time-picker demo > renders status correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="clock-circle"
             class="anticon anticon-clock-circle"
             role="img"
@@ -2390,6 +2427,7 @@ exports[`time-picker demo > renders status correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="clock-circle"
           class="anticon anticon-clock-circle"
           role="img"
@@ -2489,6 +2527,7 @@ exports[`time-picker demo > renders status correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="clock-circle"
           class="anticon anticon-clock-circle"
           role="img"
@@ -2544,6 +2583,7 @@ exports[`time-picker demo > renders style-class correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="clock-circle"
           class="anticon anticon-clock-circle"
           role="img"
@@ -2591,6 +2631,7 @@ exports[`time-picker demo > renders style-class correctly 1`] = `
         style="color: rgb(114, 46, 209);"
       >
         <span
+          aria-hidden="true"
           aria-label="clock-circle"
           class="anticon anticon-clock-circle"
           role="img"
@@ -2693,6 +2734,7 @@ exports[`time-picker demo > renders suffix correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="clock-circle"
             class="anticon anticon-clock-circle"
             role="img"
@@ -2793,6 +2835,7 @@ exports[`time-picker demo > renders suffix correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="clock-circle"
           class="anticon anticon-clock-circle"
           role="img"
@@ -2846,6 +2889,7 @@ exports[`time-picker demo > renders value correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="clock-circle"
           class="anticon anticon-clock-circle"
           role="img"
@@ -2908,6 +2952,7 @@ exports[`time-picker demo > renders value-format correctly 1`] = `
               class="ant-picker-suffix"
             >
               <span
+                aria-hidden="true"
                 aria-label="clock-circle"
                 class="anticon anticon-clock-circle"
                 role="img"
@@ -3049,6 +3094,7 @@ exports[`time-picker demo > renders value-format correctly 1`] = `
             class="ant-picker-suffix"
           >
             <span
+              aria-hidden="true"
               aria-label="clock-circle"
               class="anticon anticon-clock-circle"
               role="img"
@@ -3142,6 +3188,7 @@ exports[`time-picker demo > renders variant correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="clock-circle"
             class="anticon anticon-clock-circle"
             role="img"
@@ -3237,6 +3284,7 @@ exports[`time-picker demo > renders variant correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="clock-circle"
           class="anticon anticon-clock-circle"
           role="img"
@@ -3286,6 +3334,7 @@ exports[`time-picker demo > renders variant correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="clock-circle"
             class="anticon anticon-clock-circle"
             role="img"
@@ -3381,6 +3430,7 @@ exports[`time-picker demo > renders variant correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="clock-circle"
           class="anticon anticon-clock-circle"
           role="img"
@@ -3430,6 +3480,7 @@ exports[`time-picker demo > renders variant correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="clock-circle"
             class="anticon anticon-clock-circle"
             role="img"
@@ -3525,6 +3576,7 @@ exports[`time-picker demo > renders variant correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="clock-circle"
           class="anticon anticon-clock-circle"
           role="img"
@@ -3574,6 +3626,7 @@ exports[`time-picker demo > renders variant correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="clock-circle"
             class="anticon anticon-clock-circle"
             role="img"
@@ -3669,6 +3722,7 @@ exports[`time-picker demo > renders variant correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="clock-circle"
           class="anticon anticon-clock-circle"
           role="img"

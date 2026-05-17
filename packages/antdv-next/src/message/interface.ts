@@ -8,15 +8,21 @@ export type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading'
 export type MessageSemanticName = keyof MessageSemanticClassNames & keyof MessageSemanticStyles
 
 export interface MessageSemanticClassNames {
+  list?: string
+  listContent?: string
   root?: string
+  wrapper?: string
   icon?: string
-  content?: string
+  title?: string
 }
 
 export interface MessageSemanticStyles {
+  list?: CSSProperties
+  listContent?: CSSProperties
   root?: CSSProperties
+  wrapper?: CSSProperties
   icon?: CSSProperties
-  content?: CSSProperties
+  title?: CSSProperties
 }
 
 export type ArgsClassNamesType = SemanticClassNamesType<ArgsProps, MessageSemanticClassNames>

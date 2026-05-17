@@ -44,20 +44,25 @@ export interface EllipsisConfig {
   tooltip?: VueNode | TooltipProps
 }
 
+/**
+ * @since 1.3.0 (mirrors ant-design 6.4 ActionsConfig)
+ */
+export interface ActionsConfig {
+  placement?: 'start' | 'end'
+}
+
 export interface TypographySemanticClassNames {
   root?: string
-  copy?: string
-  edit?: string
-  expand?: string
-  content?: string
+  actions?: string
+  action?: string
+  textarea?: string
 }
 
 export interface TypographySemanticStyles {
   root?: CSSProperties
-  copy?: CSSProperties
-  edit?: CSSProperties
-  expand?: CSSProperties
-  content?: CSSProperties
+  actions?: CSSProperties
+  action?: CSSProperties
+  textarea?: CSSProperties
 }
 
 export type TypographyClassNamesType = SemanticClassNamesType<BlockProps, TypographySemanticClassNames>
@@ -70,6 +75,10 @@ export interface BlockProps extends ComponentBaseProps {
   type?: BaseType
   disabled?: boolean
   ellipsis?: boolean | EllipsisConfig
+  /**
+   * @since 1.3.0
+   */
+  actions?: ActionsConfig
   code?: boolean
   mark?: boolean
   underline?: boolean

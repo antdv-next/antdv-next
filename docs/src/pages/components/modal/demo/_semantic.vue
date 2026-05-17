@@ -15,6 +15,7 @@ const semantics = computed(() => [
   { name: 'title', desc: t('title'), version: '1.0.0' },
   { name: 'body', desc: t('body'), version: '1.0.0' },
   { name: 'footer', desc: t('footer'), version: '1.0.0' },
+  { name: 'close', desc: t('close'), version: '1.3.0' },
 ])
 
 const divRef = ref<HTMLDivElement | null>(null)
@@ -29,7 +30,6 @@ const divRef = ref<HTMLDivElement | null>(null)
       <div ref="divRef" :style="{ position: 'absolute', inset: 0 }">
         <a-modal
           title="Title"
-          :closable="false"
           open
           :get-container="() => divRef!"
           :width="400"

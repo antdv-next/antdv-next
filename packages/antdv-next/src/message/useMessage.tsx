@@ -13,7 +13,6 @@ import type {
   NoticeType,
   TypeOpen,
 } from './interface'
-import type { PureContentProps } from './PurePanel'
 import { useNotificationProvider, useNotification as useVcNotification } from '@v-c/notification'
 import { clsx } from '@v-c/util'
 import { computed, defineComponent, shallowRef, unref } from 'vue'
@@ -22,7 +21,8 @@ import { toPropsRefs } from '../_util/tools'
 import { devUseWarning } from '../_util/warning'
 import { useBaseConfig, useComponentBaseConfig } from '../config-provider/context'
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
-import { PureContent } from './PurePanel'
+import { getPlacementOffsetStyle } from '../notification/util'
+import { resolveMessageIcon } from './PurePanel'
 import useStyle from './style'
 import { getMotion, wrapPromiseFn } from './util'
 
@@ -95,11 +95,11 @@ const Holder = defineComponent<HolderProps>(
     const mergedDuration = computed(() => props.duration ?? DEFAULT_DURATION)
     const mergedPauseOnHover = computed(() => (props.pauseOnHover === undefined ? true : props.pauseOnHover))
 
-    const getStyle = () => ({
-      left: '50%',
-      transform: 'translateX(-50%)',
-      top: mergedTop.value,
-    })
+    // Surface position via the --notification-top CSS variable so the new
+    // placement.ts `inset` calc (--notification-top - --notification-margin-edge)
+    // works correctly and the holder doesn't take a full-height strip at the
+    // top of the page. Mirrors ant-design 6.4.0 getPlacementOffsetStyle.
+    const getStyle = () => getPlacementOffsetStyle(mergedTop.value)
 
     const getClassName = () => clsx({
       [`${prefixCls.value}-rtl`]: props.rtl ?? direction.value === 'rtl',
@@ -229,23 +229,28 @@ export function useInternalMessage(messageConfig?: MaybeRef<HolderProps>) {
         originStyles,
       )
 
+      const iconNode = resolveMessageIcon(prefixCls, icon, type)
+      const typeIconCls = type ? `${noticePrefixCls}-icon-${type}` : undefined
       return wrapPromiseFn((resolve) => {
         originOpen({
           ...restConfig as any,
           key: mergedKey!,
           placement: 'top',
-          content: (
-            <PureContent
-              prefixCls={prefixCls}
-              type={type}
-              icon={icon}
-              classNames={mergedClassNames as PureContentProps['classNames']}
-              styles={mergedStyles as PureContentProps['styles']}
-            >
-              {content}
-            </PureContent>
-          ),
-          className: clsx(
+          icon: iconNode,
+          // v2 semantic: content goes in the title slot, type modifier on the
+          // wrapper (not on a content div). Mirrors ant-design 6.4 useMessage.
+          title: content,
+          classNames: {
+            wrapper: clsx(type && `${prefixCls}-${type}`, mergedClassNames.wrapper),
+            icon: clsx(typeIconCls, mergedClassNames.icon),
+            title: mergedClassNames.title,
+          },
+          styles: {
+            wrapper: mergedStyles.wrapper,
+            icon: mergedStyles.icon,
+            title: mergedStyles.title,
+          },
+          class: clsx(
             { [`${noticePrefixCls}-${type}`]: !!type },
             className,
             contextClassName,
@@ -260,7 +265,7 @@ export function useInternalMessage(messageConfig?: MaybeRef<HolderProps>) {
             onClose?.()
             resolve()
           },
-        })
+        } as any)
         return () => {
           close(mergedKey!)
         }

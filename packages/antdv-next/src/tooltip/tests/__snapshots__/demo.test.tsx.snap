@@ -54,6 +54,7 @@ exports[`tooltip demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -143,6 +144,7 @@ exports[`tooltip demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Root element (including arrows, content elements) with absolute positioning, z-index, block display, max width, visibility, transform origin and arrow background color
               <!---->
               <!---->
@@ -174,6 +176,7 @@ exports[`tooltip demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   container
                   <!---->
                   <!---->
@@ -263,6 +266,7 @@ exports[`tooltip demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Content element with min width and height, padding, color, text alignment, background color, border radius, shadow and border styles
               <!---->
               <!---->
@@ -294,6 +298,7 @@ exports[`tooltip demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   arrow
                   <!---->
                   <!---->
@@ -383,6 +388,7 @@ exports[`tooltip demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Arrow element with width, height, position, color and border styles
               <!---->
               <!---->
@@ -802,6 +808,7 @@ exports[`tooltip demo > renders auto-adjust-overflow correctly 1`] = `
   <h5
     class="ant-typography css-var-root"
   >
+    <!---->
      With \`getPopupContainer\` 
     <!---->
     <!---->
@@ -873,6 +880,7 @@ exports[`tooltip demo > renders auto-adjust-overflow correctly 1`] = `
   <h5
     class="ant-typography css-var-root"
   >
+    <!---->
      Without \`getPopupContainer\` 
     <!---->
     <!---->

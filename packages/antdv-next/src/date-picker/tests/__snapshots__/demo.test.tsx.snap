@@ -81,6 +81,7 @@ exports[`date-picker demo > renders _semantic correctly 1`] = `
               class="ant-picker-suffix semantic-mark-suffix"
             >
               <span
+                aria-hidden="true"
                 aria-label="calendar"
                 class="anticon anticon-calendar"
                 role="img"
@@ -136,6 +137,7 @@ exports[`date-picker demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -225,6 +227,7 @@ exports[`date-picker demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Root element with relative positioning, inline-flex layout, padding, border-radius, transition animations and other basic styles for date picker container
               <!---->
               <!---->
@@ -256,6 +259,7 @@ exports[`date-picker demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   prefix
                   <!---->
                   <!---->
@@ -345,6 +349,7 @@ exports[`date-picker demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Prefix element with flex layout and margin styles for prefix content layout
               <!---->
               <!---->
@@ -376,6 +381,7 @@ exports[`date-picker demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   input
                   <!---->
                   <!---->
@@ -465,6 +471,7 @@ exports[`date-picker demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Input element with relative positioning, width, color, font, line-height, transition animations and other core interactive styles for input field
               <!---->
               <!---->
@@ -496,6 +503,7 @@ exports[`date-picker demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   suffix
                   <!---->
                   <!---->
@@ -585,6 +593,7 @@ exports[`date-picker demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Suffix element with flex layout, color, line-height, pointer events, transition animations and other styles for suffix content
               <!---->
               <!---->
@@ -616,6 +625,7 @@ exports[`date-picker demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   popup.root
                   <!---->
                   <!---->
@@ -705,6 +715,7 @@ exports[`date-picker demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Popup element
               <!---->
               <!---->
@@ -736,6 +747,7 @@ exports[`date-picker demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   popup.container
                   <!---->
                   <!---->
@@ -825,6 +837,7 @@ exports[`date-picker demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Container element, set background color, padding, border radius, shadow, border and content display styles
               <!---->
               <!---->
@@ -856,6 +869,7 @@ exports[`date-picker demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   popup.header
                   <!---->
                   <!---->
@@ -945,6 +959,7 @@ exports[`date-picker demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Popup header element with navigation buttons, month/year selectors and other header control area layout and styles
               <!---->
               <!---->
@@ -976,6 +991,7 @@ exports[`date-picker demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   popup.body
                   <!---->
                   <!---->
@@ -1065,6 +1081,7 @@ exports[`date-picker demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Popup body element with container layout and styles for date panel table
               <!---->
               <!---->
@@ -1096,6 +1113,7 @@ exports[`date-picker demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   popup.content
                   <!---->
                   <!---->
@@ -1185,6 +1203,7 @@ exports[`date-picker demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Popup content element with width, border, cell and other content display styles for date table
               <!---->
               <!---->
@@ -1216,6 +1235,7 @@ exports[`date-picker demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   popup.item
                   <!---->
                   <!---->
@@ -1305,6 +1325,7 @@ exports[`date-picker demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Popup item element with size, background, border-radius, hover state, selected state and other interactive styles for date cells
               <!---->
               <!---->
@@ -1336,6 +1357,7 @@ exports[`date-picker demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   popup.footer
                   <!---->
                   <!---->
@@ -1425,6 +1447,7 @@ exports[`date-picker demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Popup footer element with layout styles for bottom operation area including confirm/cancel buttons and shortcuts
               <!---->
               <!---->
@@ -1513,6 +1536,7 @@ exports[`date-picker demo > renders allow-empty correctly 1`] = `
       class="ant-picker-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="calendar"
         class="anticon anticon-calendar"
         role="img"
@@ -1564,6 +1588,7 @@ exports[`date-picker demo > renders basic correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -1611,6 +1636,7 @@ exports[`date-picker demo > renders basic correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -1658,6 +1684,7 @@ exports[`date-picker demo > renders basic correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -1705,6 +1732,7 @@ exports[`date-picker demo > renders basic correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -1752,6 +1780,7 @@ exports[`date-picker demo > renders basic correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -1794,6 +1823,7 @@ exports[`date-picker demo > renders buddhist-era correctly 1`] = `
       style="margin: 0px;"
       title="no, it's not"
     >
+      <!---->
        By locale props 
       <!---->
       <!---->
@@ -1825,6 +1855,7 @@ exports[`date-picker demo > renders buddhist-era correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -1896,6 +1927,7 @@ exports[`date-picker demo > renders buddhist-era correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -1953,6 +1985,7 @@ exports[`date-picker demo > renders buddhist-era correctly 1`] = `
       class="ant-typography css-var-root"
       style="margin: 0px;"
     >
+      <!---->
        By ConfigProvider 
       <!---->
       <!---->
@@ -1991,6 +2024,7 @@ exports[`date-picker demo > renders buddhist-era correctly 1`] = `
               class="ant-picker-suffix"
             >
               <span
+                aria-hidden="true"
                 aria-label="calendar"
                 class="anticon anticon-calendar"
                 role="img"
@@ -2062,6 +2096,7 @@ exports[`date-picker demo > renders buddhist-era correctly 1`] = `
               class="ant-picker-suffix"
             >
               <span
+                aria-hidden="true"
                 aria-label="calendar"
                 class="anticon anticon-calendar"
                 role="img"
@@ -2144,6 +2179,7 @@ exports[`date-picker demo > renders cell-render correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -2241,6 +2277,7 @@ exports[`date-picker demo > renders cell-render correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -2294,6 +2331,7 @@ exports[`date-picker demo > renders components correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -2345,6 +2383,7 @@ exports[`date-picker demo > renders date-range correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -2423,6 +2462,7 @@ exports[`date-picker demo > renders disabled correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -2471,6 +2511,7 @@ exports[`date-picker demo > renders disabled correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -2570,6 +2611,7 @@ exports[`date-picker demo > renders disabled correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -2667,6 +2709,7 @@ exports[`date-picker demo > renders disabled correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -2737,6 +2780,7 @@ exports[`date-picker demo > renders disabled correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -2816,6 +2860,7 @@ exports[`date-picker demo > renders disabled-date correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -2863,6 +2908,7 @@ exports[`date-picker demo > renders disabled-date correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -2960,6 +3006,7 @@ exports[`date-picker demo > renders disabled-date correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -3056,6 +3103,7 @@ exports[`date-picker demo > renders disabled-date correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -3213,6 +3261,7 @@ exports[`date-picker demo > renders extra-footer correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -3260,6 +3309,7 @@ exports[`date-picker demo > renders extra-footer correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -3357,6 +3407,7 @@ exports[`date-picker demo > renders extra-footer correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -3453,6 +3504,7 @@ exports[`date-picker demo > renders extra-footer correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -3499,6 +3551,7 @@ exports[`date-picker demo > renders extra-footer correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -3554,6 +3607,7 @@ exports[`date-picker demo > renders format correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -3625,6 +3679,7 @@ exports[`date-picker demo > renders format correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -3696,6 +3751,7 @@ exports[`date-picker demo > renders format correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -3767,6 +3823,7 @@ exports[`date-picker demo > renders format correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -3888,6 +3945,7 @@ exports[`date-picker demo > renders format correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -3958,6 +4016,7 @@ exports[`date-picker demo > renders format correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -4036,6 +4095,7 @@ exports[`date-picker demo > renders mask correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -4083,6 +4143,7 @@ exports[`date-picker demo > renders mask correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -4158,6 +4219,7 @@ exports[`date-picker demo > renders multiple correctly 1`] = `
       class="ant-picker-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="calendar"
         class="anticon anticon-calendar"
         role="img"
@@ -4247,6 +4309,7 @@ exports[`date-picker demo > renders multiple correctly 1`] = `
       class="ant-picker-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="calendar"
         class="anticon anticon-calendar"
         role="img"
@@ -4336,6 +4399,7 @@ exports[`date-picker demo > renders multiple correctly 1`] = `
       class="ant-picker-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="calendar"
         class="anticon anticon-calendar"
         role="img"
@@ -4408,6 +4472,7 @@ exports[`date-picker demo > renders needConfirm correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -4543,6 +4608,7 @@ exports[`date-picker demo > renders placement correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -4640,6 +4706,7 @@ exports[`date-picker demo > renders placement correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -4694,6 +4761,7 @@ exports[`date-picker demo > renders preset-ranges correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -4791,6 +4859,7 @@ exports[`date-picker demo > renders preset-ranges correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -4887,6 +4956,7 @@ exports[`date-picker demo > renders preset-ranges correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -4991,6 +5061,7 @@ exports[`date-picker demo > renders range-picker correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -5087,6 +5158,7 @@ exports[`date-picker demo > renders range-picker correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -5183,6 +5255,7 @@ exports[`date-picker demo > renders range-picker correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -5279,6 +5352,7 @@ exports[`date-picker demo > renders range-picker correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -5375,6 +5449,7 @@ exports[`date-picker demo > renders range-picker correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -5473,6 +5548,7 @@ exports[`date-picker demo > renders range-picker correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -5527,6 +5603,7 @@ exports[`date-picker demo > renders render-panel correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -5565,6 +5642,7 @@ exports[`date-picker demo > renders select-in-range correctly 1`] = `
     <h5
       class="ant-typography css-var-root"
     >
+      <!---->
        7 days range 
       <!---->
       <!---->
@@ -5646,6 +5724,7 @@ exports[`date-picker demo > renders select-in-range correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -5677,6 +5756,7 @@ exports[`date-picker demo > renders select-in-range correctly 1`] = `
     <h5
       class="ant-typography css-var-root"
     >
+      <!---->
        6 months range 
       <!---->
       <!---->
@@ -5758,6 +5838,7 @@ exports[`date-picker demo > renders select-in-range correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -5876,6 +5957,7 @@ exports[`date-picker demo > renders size correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -5923,6 +6005,7 @@ exports[`date-picker demo > renders size correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -6020,6 +6103,7 @@ exports[`date-picker demo > renders size correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -6066,6 +6150,7 @@ exports[`date-picker demo > renders size correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -6122,6 +6207,7 @@ exports[`date-picker demo > renders status correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -6170,6 +6256,7 @@ exports[`date-picker demo > renders status correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -6268,6 +6355,7 @@ exports[`date-picker demo > renders status correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -6365,6 +6453,7 @@ exports[`date-picker demo > renders status correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -6418,6 +6507,7 @@ exports[`date-picker demo > renders style-class correctly 1`] = `
         style="opacity: 0.85;"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -6461,6 +6551,7 @@ exports[`date-picker demo > renders style-class correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -6930,6 +7021,7 @@ exports[`date-picker demo > renders suffix correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -6981,6 +7073,7 @@ exports[`date-picker demo > renders suffix correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -7100,6 +7193,7 @@ exports[`date-picker demo > renders suffix correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -7200,6 +7294,7 @@ exports[`date-picker demo > renders suffix correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -7312,6 +7407,7 @@ exports[`date-picker demo > renders switchable correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="clock-circle"
             class="anticon anticon-clock-circle"
             role="img"
@@ -7370,6 +7466,7 @@ exports[`date-picker demo > renders time correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -7467,6 +7564,7 @@ exports[`date-picker demo > renders time correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -7527,6 +7625,7 @@ exports[`date-picker demo > renders value-format correctly 1`] = `
               class="ant-picker-suffix"
             >
               <span
+                aria-hidden="true"
                 aria-label="calendar"
                 class="anticon anticon-calendar"
                 role="img"
@@ -7665,6 +7764,7 @@ exports[`date-picker demo > renders value-format correctly 1`] = `
             class="ant-picker-suffix"
           >
             <span
+              aria-hidden="true"
               aria-label="calendar"
               class="anticon anticon-calendar"
               role="img"
@@ -7755,6 +7855,7 @@ exports[`date-picker demo > renders variant correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -7847,6 +7948,7 @@ exports[`date-picker demo > renders variant correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -7893,6 +7995,7 @@ exports[`date-picker demo > renders variant correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -7985,6 +8088,7 @@ exports[`date-picker demo > renders variant correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -8031,6 +8135,7 @@ exports[`date-picker demo > renders variant correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -8123,6 +8228,7 @@ exports[`date-picker demo > renders variant correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -8169,6 +8275,7 @@ exports[`date-picker demo > renders variant correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -8261,6 +8368,7 @@ exports[`date-picker demo > renders variant correctly 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"

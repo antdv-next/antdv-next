@@ -63,7 +63,8 @@ const TourPanel = defineComponent<
         <button
           type="button"
           onClick={onClose}
-          class={`${prefixCls}-close`}
+          class={clsx(`${prefixCls}-close`, classes.close)}
+          style={styles.close}
           aria-label={contextLocaleGlobal?.value.close}
           {...ariaProps}
         >

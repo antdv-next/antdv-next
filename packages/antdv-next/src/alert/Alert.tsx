@@ -35,11 +35,19 @@ export interface AlertSemanticType {
 export type AlertClassNamesType = SemanticType<AlertProps, AlertSemanticType['classes']>
 export type AlertStylesType = SemanticType<AlertProps, AlertSemanticType['styles']>
 
+export type AlertVariant = 'filled' | 'outlined'
+
 export interface AlertProps extends ComponentBaseProps,
   /* @vue-ignore */
   AlertEmitsProps {
   /** Type of Alert styles, options:`success`, `info`, `warning`, `error` */
   type?: 'success' | 'info' | 'warning' | 'error'
+  /**
+   * Visual variant. `filled` keeps the existing solid background, `outlined`
+   * renders with the colored border style introduced in ant-design 6.4.0.
+   * @default 'filled'
+   */
+  variant?: AlertVariant
   /** Whether Alert can be closed */
   closable?: ClosableType
   /** Content of Alert */
@@ -180,7 +188,8 @@ const Alert = defineComponent<
       errorIcon,
       infoIcon,
       warningIcon,
-    } = useComponentBaseConfig('alert', props, ['closable', 'closeIcon', 'successIcon', 'errorIcon', 'infoIcon', 'warningIcon'])
+      variant: contextVariant,
+    } = useComponentBaseConfig('alert', props, ['closable', 'closeIcon', 'successIcon', 'errorIcon', 'infoIcon', 'warningIcon', 'variant'])
     const { classes, styles } = toPropsRefs(props, 'classes', 'styles')
     const closed = shallowRef(false)
     const internalRef = shallowRef<HTMLDivElement>()
@@ -255,9 +264,11 @@ const Alert = defineComponent<
         props: mergedProps,
       })
 
+      const mergedVariant = props.variant ?? contextVariant?.value ?? 'outlined'
       const alertCls = classNames(
         prefixCls.value,
         `${prefixCls.value}-${type.value}`,
+        `${prefixCls.value}-${mergedVariant}`,
         {
           [`${prefixCls.value}-with-description`]: !!description,
           [`${prefixCls.value}-no-icon`]: !isShowIcon,

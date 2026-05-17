@@ -87,6 +87,7 @@ exports[`qr-code demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -176,6 +177,7 @@ exports[`qr-code demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Root element, set flex layout, padding, background color, border, border radius and relative positioning styles
               <!---->
               <!---->
@@ -207,6 +209,7 @@ exports[`qr-code demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   cover
                   <!---->
                   <!---->
@@ -296,6 +299,7 @@ exports[`qr-code demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Cover element, set absolute positioning, z-index, background color and loading state overlay styles
               <!---->
               <!---->

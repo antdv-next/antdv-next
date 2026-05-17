@@ -45,6 +45,7 @@ function getSizeDiff<T>(prev: Set<T>, next: Set<T>) {
 
 const DEFAULT_GAP_X = 100
 const DEFAULT_GAP_Y = 100
+const WATERMARK_Z_INDEX_OFFSET = 1
 
 const fixedStyle: CSSProperties = {
   position: 'relative',
@@ -52,11 +53,6 @@ const fixedStyle: CSSProperties = {
 }
 
 const defaults = {
-  /**
-   * The antd content layer zIndex is basically below 10
-   * https://github.com/ant-design/ant-design/blob/6192403b2ce517c017f9e58a32d58774921c10cd/components/style/themes/default.less#L335
-   */
-  zIndex: 9,
   rotate: -22,
   inherit: true,
   gap: [DEFAULT_GAP_X, DEFAULT_GAP_Y],
@@ -66,6 +62,7 @@ const defaults = {
 const Watermark = defineComponent<WatermarkProps>(
   (props = defaults, { slots, attrs }) => {
     const [,token] = useToken()
+    const mergedZIndex = computed(() => props.zIndex ?? token.value.zIndexPopupBase - WATERMARK_Z_INDEX_OFFSET)
     const onRemove = computed(() => props.onRemove)
     const color = computed(() => props.font?.color ?? token.value.colorFill)
     const fontSize = computed(() => props?.font?.fontSize ?? token.value?.fontSizeLG)
@@ -87,7 +84,7 @@ const Watermark = defineComponent<WatermarkProps>(
 
     const markStyle = computed(() => {
       const mergedMarkStyle: CSSProperties = {
-        zIndex: props.zIndex,
+        zIndex: mergedZIndex.value,
         position: 'absolute',
         left: 0,
         top: 0,
@@ -247,7 +244,7 @@ const Watermark = defineComponent<WatermarkProps>(
 
     watch([
       () => props.offset,
-      () => props.zIndex,
+      mergedZIndex,
       () => props.width,
       () => props.height,
       () => props.rotate,

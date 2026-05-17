@@ -42,4 +42,70 @@ describe('form instance api', () => {
     await nextTick()
     expect(model.email).toBeUndefined()
   })
+
+  it('setFields accepts string names and applies errors/value/touched', async () => {
+    const formRef = ref<FormInstance>()
+    const model = reactive({
+      username: '',
+      password: '',
+    })
+
+    mount(() => (
+      <Form ref={formRef} model={model}>
+        <FormItem name="username" label="Username">
+          <input />
+        </FormItem>
+        <FormItem name="password" label="Password">
+          <input />
+        </FormItem>
+      </Form>
+    ))
+
+    formRef.value!.setFields([
+      {
+        name: 'password',
+        errors: ['Please input your password!', 'Use at least 8 characters.'],
+        touched: true,
+      },
+      {
+        name: 'username',
+        value: 'alice',
+      },
+    ])
+    await nextTick()
+
+    expect(formRef.value!.getFieldError('password')).toEqual([
+      'Please input your password!',
+      'Use at least 8 characters.',
+    ])
+    expect(formRef.value!.isFieldTouched('password')).toBe(true)
+    expect(model.username).toBe('alice')
+  })
+
+  it('setFields accepts nested string-path names', async () => {
+    const formRef = ref<FormInstance>()
+    const model = reactive({
+      profile: {
+        nickname: '',
+      },
+    })
+
+    mount(() => (
+      <Form ref={formRef} model={model}>
+        <FormItem name={['profile', 'nickname']} label="Nickname">
+          <input />
+        </FormItem>
+      </Form>
+    ))
+
+    formRef.value!.setFields([
+      {
+        name: 'profile.nickname',
+        errors: ['Required'],
+      },
+    ])
+    await nextTick()
+
+    expect(formRef.value!.getFieldError(['profile', 'nickname'])).toEqual(['Required'])
+  })
 })

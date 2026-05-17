@@ -5,7 +5,7 @@ import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/inte
 import { FastColor } from '@ant-design/fast-color'
 
 import { unit } from '@antdv-next/cssinjs'
-import { clearFix, resetComponent, resetIcon } from '../../style'
+import { clearFix, resetComponent, resetIcon, textEllipsis } from '../../style'
 import { genCollapseMotion, initSlideMotion, initZoomMotion } from '../../style/motion'
 import { genStyleHooks, mergeToken } from '../../theme/internal'
 import getHorizontalStyle from './horizontal'
@@ -647,18 +647,33 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
             display: 'inline-flex',
             alignItems: 'center',
             width: '100%',
+            minWidth: 0,
+          },
+
+          [`${componentCls}-item-label`]: {
+            flex: 'auto',
+            minWidth: 0,
+            ...textEllipsis,
           },
 
           // https://github.com/ant-design/ant-design/issues/41143
-          [`> ${antCls}-typography-ellipsis-single-line`]: {
+          [[
+            `> ${antCls}-typography-ellipsis-single-line`,
+            `> ${componentCls}-item-label > ${antCls}-typography-ellipsis-single-line`,
+          ].join(',')]: {
             display: 'inline',
             verticalAlign: 'unset',
           },
 
           [`${componentCls}-item-extra`]: {
+            flex: 'none',
             marginInlineStart: 'auto',
             paddingInlineStart: token.padding,
           },
+        },
+
+        [`${componentCls}-item-icon + ${componentCls}-title-content-with-extra`]: {
+          width: `calc(100% - ${unit(token.calc(token.iconSize).add(token.iconMarginInlineEnd ?? 0).equal())})`,
         },
 
         [`${componentCls}-item a`]: {

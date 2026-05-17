@@ -5,6 +5,7 @@ export const locales = {
     arrow: '箭头元素，设置宽高、位置、颜色和边框样式',
     title: '标题元素，设置标题文本样式和间距',
     content: '描述元素，设置描述文本样式和布局',
+    icon: '图标元素，设置图标尺寸、颜色和外边距样式',
   },
   en: {
     root: 'Root element, set absolute positioning, z-index, transform origin, arrow direction and popover container styles',
@@ -12,5 +13,6 @@ export const locales = {
     arrow: 'Arrow element with width, height, position, color and border styles',
     title: 'Title element, set title text styles and spacing',
     content: 'Description element, set content text styles and layout',
+    icon: 'Icon element, set icon size, color and margin styles',
   },
 }

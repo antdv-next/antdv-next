@@ -2,6 +2,7 @@ import type { CSSProperties, SlotsType } from 'vue'
 import type { EmptyEmit, VueNode } from '../_util/type'
 import type { DirectionType } from '../config-provider/context'
 import type { TextAreaRef } from '../input'
+import type { TypographySemanticClassNames, TypographySemanticStyles } from './interface'
 import { EnterOutlined } from '@antdv-next/icons'
 import { clsx } from '@v-c/util'
 import KeyCode from '@v-c/util/dist/KeyCode'
@@ -25,6 +26,12 @@ export interface EditableProps {
   'autoSize'?: any
   'enterIcon'?: VueNode
   'component'?: string
+  /**
+   * Semantic class names. `root` applies to the wrapper div, `textarea`
+   * applies to the TextArea. Mirrors ant-design 6.4 Editable.
+   */
+  'classes'?: TypographySemanticClassNames
+  'styles'?: TypographySemanticStyles
 }
 
 const defaults = {
@@ -115,6 +122,8 @@ const Editable = defineComponent<
 
     return () => {
       const { component, className } = props
+      const classes = props.classes ?? {}
+      const styles = props.styles ?? {}
       const textAreaClassName = clsx(
         prefixCls.value,
         `${prefixCls.value}-edit-content`,
@@ -123,11 +132,12 @@ const Editable = defineComponent<
           [`${prefixCls.value}-${component}`]: !!component,
         },
         className,
+        classes.root,
         hashId.value,
         cssVarCls.value,
       )
       return (
-        <div class={textAreaClassName} style={props.style}>
+        <div class={textAreaClassName} style={{ ...styles.root, ...props.style }}>
           <TextArea
             ref={ref}
             maxlength={maxLength.value}
@@ -141,6 +151,8 @@ const Editable = defineComponent<
             aria-label={props['aria-label']}
             rows={1}
             autoSize={autoSize.value}
+            class={classes.textarea}
+            style={styles.textarea}
           />
           {icon !== null
             ? cloneElement(icon as any, { class: `${prefixCls.value}-edit-content-confirm` })

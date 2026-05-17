@@ -115,7 +115,7 @@ export default function useToken(): [
   const cssVar = computed(() => {
     const cssVar = designContext.value.cssVar
     return {
-      prefix: cssVar?.prefix ?? 'ant',
+      prefix: cssVar?.prefix ?? config.value?.getPrefixCls?.() ?? 'ant',
       key: cssVar?.key ?? 'css-var-root',
     }
   })

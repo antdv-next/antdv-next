@@ -11,7 +11,6 @@ import type {
   NotificationSemanticStyles,
   NotificationStylesType,
 } from './interface'
-import type { PureContentProps } from './PurePanel.tsx'
 import { useNotificationProvider, useNotification as useVcNotification } from '@v-c/notification'
 import { clsx } from '@v-c/util'
 import { computed, defineComponent, shallowRef, unref } from 'vue'
@@ -22,7 +21,7 @@ import { devUseWarning } from '../_util/warning.ts'
 import { useBaseConfig, useComponentBaseConfig } from '../config-provider/context'
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
 import { useToken } from '../theme/internal.ts'
-import { getCloseIcon, PureContent } from './PurePanel.tsx'
+import { getCloseIcon, getIconWrapperClassName, resolveIconNode } from './PurePanel.tsx'
 import useStyle from './style'
 import { getCloseIconConfig, getMotion, getPlacementStyle } from './util.ts'
 
@@ -237,32 +236,42 @@ export function useInternalNotification(
         originStyles,
         semanticStyles,
       )
+      const iconNode = resolveIconNode(icon, type)
+      const iconWrapperClass = clsx(
+        getIconWrapperClassName(noticePrefixCls, type),
+        mergedClassNames.icon,
+      )
       return originOpen({
         // use placement from props instead of hard-coding "topRight"
         placement: unref(notificationConfig)?.placement ?? DEFAULT_PLACEMENT,
         ...restConfig,
-        content: (
-          <PureContent
-            prefixCls={noticePrefixCls}
-            icon={icon}
-            type={type}
-            title={mergedTitle}
-            description={description}
-            actions={mergedActions}
-            role={role}
-            classes={mergedClassNames as PureContentProps['classes']}
-            styles={mergedStyles as PureContentProps['styles']}
-          />
-        ),
-        className: clsx(
+        icon: iconNode,
+        title: mergedTitle,
+        description,
+        actions: mergedActions,
+        role,
+        classNames: {
+          icon: iconWrapperClass,
+          title: mergedClassNames.title,
+          description: mergedClassNames.description,
+          actions: mergedClassNames.actions,
+        },
+        styles: {
+          icon: mergedStyles.icon,
+          title: mergedStyles.title,
+          description: mergedStyles.description,
+          actions: mergedStyles.actions,
+        },
+        class: clsx(
           { [`${noticePrefixCls}-${type}`]: type },
+          { [`${noticePrefixCls}-with-icon`]: !!iconNode },
           className,
           contextClassName,
           mergedClassNames.root,
         ),
         style: { ...contextStyle, ...mergedStyles.root, ...style } as any,
         closable: mergedClosable,
-      })
+      } as any)
     }
 
     // >>> destroy

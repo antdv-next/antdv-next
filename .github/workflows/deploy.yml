@@ -14,6 +14,7 @@ jobs:
     # Test 绿 + main 分支才部署
     if: >
       ${{
+        github.repository == 'antdv-next/antdv-next' &&
         github.event.workflow_run.conclusion == 'success' &&
         github.event.workflow_run.head_branch == 'main'
       }}

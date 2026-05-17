@@ -193,6 +193,7 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -282,6 +283,7 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Root element with timeline container list style reset, vertical layout, dot icon, outlined style, alternate layout and other basic container styles
               <!---->
               <!---->
@@ -313,6 +315,7 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   item
                   <!---->
                   <!---->
@@ -402,6 +405,7 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Item element with single timeline node relative positioning, margin, padding, font size, finish state, color theme, layout direction and other node basic styles
               <!---->
               <!---->
@@ -433,6 +437,7 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   itemWrapper
                   <!---->
                   <!---->
@@ -522,6 +527,7 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Item wrapper element with timeline node content wrapping container styles
               <!---->
               <!---->
@@ -553,6 +559,7 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   itemIcon
                   <!---->
                   <!---->
@@ -642,6 +649,7 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Item icon element with node head icon absolute positioning, width/height size, background color, border, border radius, wave animation and other icon styles
               <!---->
               <!---->
@@ -673,6 +681,7 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   itemSection
                   <!---->
                   <!---->
@@ -762,6 +771,7 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Item section element with section container containing header and content flex layout, wrap, gap and other layout styles
               <!---->
               <!---->
@@ -793,6 +803,7 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   itemHeader
                   <!---->
                   <!---->
@@ -882,6 +893,7 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Item header element with header area layout containing title and rail, alignment, text direction and other styles
               <!---->
               <!---->
@@ -913,6 +925,7 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   itemTitle
                   <!---->
                   <!---->
@@ -1002,6 +1015,7 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Item title element with node title text font size, line height, color and other text styles
               <!---->
               <!---->
@@ -1033,6 +1047,7 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   itemContent
                   <!---->
                   <!---->
@@ -1122,6 +1137,7 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Item content element with node detail content relative positioning, top offset, left margin, text color, word break and other content styles
               <!---->
               <!---->
@@ -1153,6 +1169,7 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   itemRail
                   <!---->
                   <!---->
@@ -1242,6 +1259,7 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Item rail element with timeline node connection track line absolute positioning, top offset, left offset, height, border color, width, style and other connection line styles
               <!---->
               <!---->
@@ -3489,6 +3507,7 @@ exports[`timeline demo > renders title-span correctly 1`] = `
     class="ant-typography css-var-root"
     style="margin: 0px;"
   >
+    <!---->
      titleSpan = 100px 
     <!---->
     <!---->
@@ -3651,6 +3670,7 @@ exports[`timeline demo > renders title-span correctly 1`] = `
     class="ant-typography css-var-root"
     style="margin: 0px;"
   >
+    <!---->
      titleSpan = 25% 
     <!---->
     <!---->
@@ -3813,6 +3833,7 @@ exports[`timeline demo > renders title-span correctly 1`] = `
     class="ant-typography css-var-root"
     style="margin: 0px;"
   >
+    <!---->
      titleSpan = 18, mode = end 
     <!---->
     <!---->

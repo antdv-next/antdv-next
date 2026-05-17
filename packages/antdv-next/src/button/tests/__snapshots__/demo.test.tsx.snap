@@ -77,6 +77,7 @@ exports[`button demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -174,6 +175,7 @@ exports[`button demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Root element with comprehensive button styling including border, background, padding, border-radius, box-shadow, transitions, cursor, font-weight, alignment, and layout properties
               <!---->
               <!---->
@@ -205,6 +207,7 @@ exports[`button demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   icon
                   <!---->
                   <!---->
@@ -302,6 +305,7 @@ exports[`button demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Icon element with font-size, color inheritance, and SVG style reset for proper icon display
               <!---->
               <!---->
@@ -333,6 +337,7 @@ exports[`button demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   content
                   <!---->
                   <!---->
@@ -430,6 +435,7 @@ exports[`button demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Content element that wraps button text with typography styles including nowrap, text-align center, and Chinese character spacing optimization
               <!---->
               <!---->

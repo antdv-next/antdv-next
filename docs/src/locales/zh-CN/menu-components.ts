@@ -86,6 +86,7 @@ export default {
     other: '其他',
     affix: 'Affix 固钉',
     app: 'App 应用配置',
+    borderBeam: 'BorderBeam 边框流光',
     configProvider: 'ConfigProvider 全局化配置',
     util: 'Util 工具',
   },

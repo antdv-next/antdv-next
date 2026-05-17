@@ -149,6 +149,7 @@ exports[`space demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   root
                   <!---->
                   <!---->
@@ -238,6 +239,7 @@ exports[`space demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Root element with flex layout, gap settings, alignment, wrap and other spacing container basic styles
               <!---->
               <!---->
@@ -269,6 +271,7 @@ exports[`space demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   item
                   <!---->
                   <!---->
@@ -358,6 +361,7 @@ exports[`space demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Wrapped item element with spacing item layout and styles, providing wrapper for each child element for inline alignment
               <!---->
               <!---->
@@ -389,6 +393,7 @@ exports[`space demo > renders _semantic correctly 1`] = `
                   class="ant-typography css-var-root"
                   style="margin: 0px;"
                 >
+                  <!---->
                   separator
                   <!---->
                   <!---->
@@ -478,6 +483,7 @@ exports[`space demo > renders _semantic correctly 1`] = `
               class="ant-typography css-var-root"
               style="margin: 0px; font-size: 12px;"
             >
+              <!---->
               Separator element with divider styling
               <!---->
               <!---->
@@ -1296,7 +1302,6 @@ exports[`space demo > renders compact correctly 1`] = `
           >
             <button
               class="ant-input-clear-icon"
-              tabindex="-1"
               type="button"
             >
               <span
@@ -1569,6 +1574,7 @@ exports[`space demo > renders compact correctly 1`] = `
             class="ant-picker-suffix"
           >
             <span
+              aria-hidden="true"
               aria-label="calendar"
               class="anticon anticon-calendar"
               role="img"
@@ -1671,6 +1677,7 @@ exports[`space demo > renders compact correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -1807,6 +1814,7 @@ exports[`space demo > renders compact correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -2154,6 +2162,7 @@ exports[`space demo > renders compact correctly 1`] = `
             class="ant-picker-suffix"
           >
             <span
+              aria-hidden="true"
               aria-label="clock-circle"
               class="anticon anticon-clock-circle"
               role="img"
@@ -2316,6 +2325,7 @@ exports[`space demo > renders compact correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="clock-circle"
             class="anticon anticon-clock-circle"
             role="img"
@@ -3564,6 +3574,7 @@ exports[`space demo > renders separator correctly 1`] = `
     <a
       class="ant-typography ant-typography-link css-var-root"
     >
+      <!---->
        Link 
       <!---->
       <!---->
@@ -3589,6 +3600,7 @@ exports[`space demo > renders separator correctly 1`] = `
     <a
       class="ant-typography ant-typography-link css-var-root"
     >
+      <!---->
        Link 
       <!---->
       <!---->
@@ -3614,6 +3626,7 @@ exports[`space demo > renders separator correctly 1`] = `
     <a
       class="ant-typography ant-typography-link css-var-root"
     >
+      <!---->
        Link 
       <!---->
       <!---->

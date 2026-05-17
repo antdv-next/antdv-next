@@ -4,8 +4,20 @@ import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/inte
 import { genStyleHooks, mergeToken } from '../../theme/internal'
 
 /** Component only token. Which will handle additional calculation of alias token */
-// biome-ignore lint/suspicious/noEmptyInterface: ComponentToken need to be empty by default
-export interface ComponentToken {}
+export interface ComponentToken {
+  /**
+   * @desc Space.Addon 横向内边距
+   * @descEN Inline padding for Space.Addon cells.
+   * ant-design 6.4.0 PR #56915.
+   */
+  addonPaddingInline?: number | string
+  /**
+   * @desc Space.Addon 纵向内边距
+   * @descEN Block padding for Space.Addon cells.
+   * ant-design 6.4.0 PR #56915.
+   */
+  addonPaddingBlock?: number | string
+}
 
 interface SpaceToken extends FullToken<'Space'> {
   spaceGapSmallSize: number

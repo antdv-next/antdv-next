@@ -74,6 +74,15 @@ describe('watermark', () => {
     expect(wrapper.html()).toMatchSnapshot()
   })
 
+  it('uses popup base minus one as the default z-index', async () => {
+    const wrapper = mount(<Watermark content="Ant Design" />)
+
+    await waitFakeTimer()
+
+    const watermarkDiv = wrapper.element.querySelector('div[style*="position: absolute"]') as HTMLElement
+    expect(watermarkDiv.style.zIndex).toBe('999')
+  })
+
   it('the offset should be correct', async () => {
     const wrapper = mount(
       <Watermark

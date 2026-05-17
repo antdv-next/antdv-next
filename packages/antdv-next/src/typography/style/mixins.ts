@@ -15,7 +15,7 @@ import { gold } from '@ant-design/colors'
 import { unit } from '@antdv-next/cssinjs'
 import { operationUnit } from '../../style'
 
-function getTitleStyle(fontSize: number, lineHeight: number, color: string, token: TypographyToken) {
+function getTitleStyle(fontSize: number | string, lineHeight: number, color: string, token: TypographyToken) {
   const { titleMarginBottom, fontWeightStrong } = token
 
   return {

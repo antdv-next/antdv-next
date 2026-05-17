@@ -86,6 +86,7 @@ export default {
     other: 'Other',
     affix: 'Affix',
     app: 'App',
+    borderBeam: 'BorderBeam',
     configProvider: 'ConfigProvider',
     util: 'Util',
   },

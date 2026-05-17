@@ -63,6 +63,12 @@ export interface ImagePopupSemanticClassNames {
   body?: string
   footer?: string
   actions?: string
+  /**
+   * ant-design 6.4.0 #57263: close-button class names.
+   * Matches `@v-c/image` Preview's `classNames.close`, which is what the
+   * VcPreviewGroup forwards through.
+   */
+  close?: string
 }
 
 export interface ImagePopupSemanticStyles {
@@ -71,6 +77,7 @@ export interface ImagePopupSemanticStyles {
   body?: CSSProperties
   footer?: CSSProperties
   actions?: CSSProperties
+  close?: CSSProperties
 }
 
 export type ImageClassNamesType = SemanticClassNamesType<

@@ -1,0 +1,462 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`border-beam demo > renders basic correctly 1`] = `
+<div
+  style="width: 360px;"
+>
+  <div
+    class="ant-card ant-card-bordered css-var-root"
+  >
+    <div
+      class="ant-card-head"
+    >
+      <div
+        class="ant-card-head-wrapper"
+      >
+        <div
+          class="ant-card-head-title"
+        >
+          Workspace overview
+        </div>
+        <!---->
+      </div>
+      <!---->
+    </div>
+    <!---->
+    <div
+      class="ant-card-body"
+    >
+       Review task status, deployment health, and recent automation activity in one panel. 
+    </div>
+    <!---->
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`border-beam demo > renders component-token correctly 1`] = `
+<div
+  class="ant-flex css-var-root ant-flex-wrap-wrap"
+  style="gap: 24px;"
+>
+  <div
+    style="width: 320px;"
+  >
+    <div
+      class="ant-card ant-card-bordered css-var-root"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Default line width
+          </div>
+          <!---->
+        </div>
+        <!---->
+      </div>
+      <!---->
+      <div
+        class="ant-card-body"
+      >
+        <span
+          class="ant-typography ant-typography-secondary css-var-root"
+        >
+          <!---->
+           Uses the default global lineWidth token from the current theme. 
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </span>
+      </div>
+      <!---->
+    </div>
+    <!---->
+  </div>
+  <div
+    style="width: 320px;"
+  >
+    <div
+      class="ant-card ant-card-bordered css-var-v-0"
+    >
+      <div
+        class="ant-card-head"
+      >
+        <div
+          class="ant-card-head-wrapper"
+        >
+          <div
+            class="ant-card-head-title"
+          >
+            Custom line width
+          </div>
+          <!---->
+        </div>
+        <!---->
+      </div>
+      <!---->
+      <div
+        class="ant-card-body"
+      >
+        <span
+          class="ant-typography ant-typography-secondary css-var-v-0"
+        >
+          <!---->
+           Override lineWidth from theme.token. 
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+          <!---->
+        </span>
+      </div>
+      <!---->
+    </div>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`border-beam demo > renders customized-color correctly 1`] = `
+<div
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-vertical"
+  style="gap: 16px; max-width: 480px;"
+>
+  <div
+    aria-label="segmented control"
+    aria-orientation="horizontal"
+    class="ant-segmented ant-segmented-block css-var-root ant-segmented-block css-var-root"
+    role="radiogroup"
+    size="middle"
+    tabindex="0"
+  >
+    <div
+      class="ant-segmented-group"
+    >
+      <!---->
+      <label
+        class="ant-segmented-item ant-segmented-item-selected"
+      >
+        <input
+          checked=""
+          class="ant-segmented-item-input"
+          name="v-0"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+        >
+          <span
+            class="ant-segmented-item-icon"
+          >
+            <!---->
+          </span>
+          <span>
+            Ocean
+          </span>
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="v-0"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+        >
+          <span
+            class="ant-segmented-item-icon"
+          >
+            <!---->
+          </span>
+          <span>
+            Sunset
+          </span>
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="v-0"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+        >
+          <span
+            class="ant-segmented-item-icon"
+          >
+            <!---->
+          </span>
+          <span>
+            Aurora
+          </span>
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="v-0"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+        >
+          <span
+            class="ant-segmented-item-icon"
+          >
+            <!---->
+          </span>
+          <span>
+            Forest
+          </span>
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="v-0"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+        >
+          <span
+            class="ant-segmented-item-icon"
+          >
+            <!---->
+          </span>
+          <span>
+            Ember
+          </span>
+        </div>
+      </label>
+      <label
+        class="ant-segmented-item"
+      >
+        <input
+          class="ant-segmented-item-input"
+          name="v-0"
+          type="radio"
+        />
+        <div
+          class="ant-segmented-item-label"
+        >
+          <span
+            class="ant-segmented-item-icon"
+          >
+            <!---->
+          </span>
+          <span>
+            Nebula
+          </span>
+        </div>
+      </label>
+    </div>
+  </div>
+  <div
+    class="ant-card ant-card-bordered css-var-root"
+  >
+    <div
+      class="ant-card-head"
+    >
+      <div
+        class="ant-card-head-wrapper"
+      >
+        <div
+          class="ant-card-head-title"
+        >
+          Ocean
+        </div>
+        <div
+          class="ant-card-extra"
+        >
+          <span
+            class="ant-tag ant-tag-filled css-var-root"
+          >
+            Dashboard
+            <!---->
+            <!---->
+            <!---->
+          </span>
+        </div>
+      </div>
+      <!---->
+    </div>
+    <!---->
+    <div
+      class="ant-card-body"
+      style="display: flex; flex-direction: column; gap: 16px;"
+    >
+      <span
+        class="ant-typography ant-typography-secondary css-var-root"
+      >
+        <!---->
+        A calm blue-green accent that works well for data views and cloud tooling.
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+      </span>
+      <div
+        class="ant-flex css-var-root ant-flex-wrap-wrap"
+        style="gap: 8px;"
+      >
+        <span
+          class="ant-tag ant-tag-filled css-var-root"
+          style="background-color: rgb(229, 240, 255); color: rgb(22, 119, 255);"
+        >
+          #1677ff · 0% 
+          <!---->
+          <!---->
+          <!---->
+        </span>
+        <span
+          class="ant-tag ant-tag-filled css-var-root"
+          style="background-color: rgb(234, 250, 250); color: rgb(54, 207, 201);"
+        >
+          #36cfc9 · 52% 
+          <!---->
+          <!---->
+          <!---->
+        </span>
+        <span
+          class="ant-tag ant-tag-filled css-var-root"
+          style="background-color: rgb(241, 251, 234); color: rgb(149, 222, 100);"
+        >
+          #95de64 · 100% 
+          <!---->
+          <!---->
+          <!---->
+        </span>
+      </div>
+      <span
+        class="ant-typography ant-typography-secondary css-var-root"
+      >
+        <!---->
+         Stop positions use the public 0-100 input range. 
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+      </span>
+    </div>
+    <!---->
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`border-beam demo > renders non-uniform-radius correctly 1`] = `
+<div
+  style="width: 360px;"
+>
+  <div
+    class="ant-card ant-card-bordered css-var-root"
+    style="border-radius: 20px 20px 0 0; overflow: hidden;"
+  >
+    <div
+      class="ant-card-head"
+    >
+      <div
+        class="ant-card-head-wrapper"
+      >
+        <div
+          class="ant-card-head-title"
+        >
+          Activity stream
+        </div>
+        <!---->
+      </div>
+      <!---->
+    </div>
+    <!---->
+    <div
+      class="ant-card-body"
+      style="display: flex; flex-direction: column; gap: 16px;"
+    >
+      <span
+        class="ant-typography ant-typography-secondary css-var-root"
+      >
+        <!---->
+         Use a multi-value 
+        border-radius
+         like 
+        20px 20px 0 0
+         to keep the beam aligned with non-uniform corners. 
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+      </span>
+      <div
+        class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between"
+      >
+        <span
+          class="ant-typography css-var-root"
+        >
+          <strong>
+            <!---->
+             12 running jobs 
+            <!---->
+            <!---->
+            <!---->
+          </strong>
+          <!---->
+          <!---->
+          <!---->
+        </span>
+        <button
+          class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+          type="button"
+        >
+          <transition-stub
+            appear="false"
+            css="true"
+            enteractiveclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-prepare ant-btn-loading-icon-motion-enter-prepare "
+            enterfromclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-prepare ant-btn-loading-icon-motion-enter-prepare ant-btn-loading-icon-motion-enter-start"
+            entertoclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-active ant-btn-loading-icon-motion-enter-active"
+            leaveactiveclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave ant-btn-loading-icon-motion-leave-active"
+            leavefromclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave"
+            leavetoclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave ant-btn-loading-icon-motion-leave-active"
+            name="ant-btn-loading-icon-motion"
+            persisted="false"
+          >
+            <!---->
+          </transition-stub>
+          <span>
+             View queue 
+          </span>
+          <!---->
+        </button>
+      </div>
+    </div>
+    <!---->
+  </div>
+  <!---->
+</div>
+`;

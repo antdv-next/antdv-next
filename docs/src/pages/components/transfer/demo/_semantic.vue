@@ -18,6 +18,8 @@ const semantics = computed(() => [
   { name: 'itemContent', desc: t('itemContent') },
   { name: 'footer', desc: t('footer') },
   { name: 'actions', desc: t('actions') },
+  { name: 'source', desc: t('source'), version: '1.3.0' },
+  { name: 'target', desc: t('target'), version: '1.3.0' },
 ])
 
 const mockData = Array.from({ length: 20 }).map((_, i) => ({

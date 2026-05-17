@@ -12,6 +12,7 @@ describe('statistic.semantic', () => {
           header: 'precision-header',
           title: 'precision-title',
           content: 'precision-content',
+          value: 'precision-value',
           prefix: 'precision-prefix',
           suffix: 'precision-suffix',
         }
@@ -21,6 +22,7 @@ describe('statistic.semantic', () => {
         header: 'default-header',
         title: 'default-title',
         content: 'default-content',
+        value: 'default-value',
         prefix: 'default-prefix',
         suffix: 'default-suffix',
       }
@@ -53,6 +55,7 @@ describe('statistic.semantic', () => {
     expect(wrapper.find('.ant-statistic-header').classes()).toContain('precision-header')
     expect(wrapper.find('.ant-statistic-title').classes()).toContain('precision-title')
     expect(wrapper.find('.ant-statistic-content').classes()).toContain('precision-content')
+    expect(wrapper.find('.ant-statistic-content-value').classes()).toContain('precision-value')
     expect(wrapper.find('.ant-statistic-content-prefix').classes()).toContain('precision-prefix')
     expect(wrapper.find('.ant-statistic-content-suffix').classes()).toContain('precision-suffix')
     expect(wrapper.find('.ant-statistic').attributes('style')).toContain('color: rgb(255, 0, 0)')
@@ -63,6 +66,7 @@ describe('statistic.semantic', () => {
     expect(wrapper.find('.ant-statistic-header').classes()).toContain('default-header')
     expect(wrapper.find('.ant-statistic-title').classes()).toContain('default-title')
     expect(wrapper.find('.ant-statistic-content').classes()).toContain('default-content')
+    expect(wrapper.find('.ant-statistic-content-value').classes()).toContain('default-value')
     expect(wrapper.find('.ant-statistic-content-prefix').classes()).toContain('default-prefix')
     expect(wrapper.find('.ant-statistic-content-suffix').classes()).toContain('default-suffix')
     expect(wrapper.find('.ant-statistic').attributes('style')).toContain('color: rgb(0, 0, 255)')
@@ -80,6 +84,7 @@ describe('statistic.semantic', () => {
           header: 'c-header',
           title: 'c-title',
           content: 'c-content',
+          value: 'c-value',
           prefix: 'c-prefix',
           suffix: 'c-suffix',
         },
@@ -88,6 +93,7 @@ describe('statistic.semantic', () => {
           header: { margin: '5px' },
           title: { fontWeight: 'bold' },
           content: { fontSize: '20px' },
+          value: { color: 'purple' },
           prefix: { color: 'green' },
           suffix: { color: 'blue' },
         },
@@ -105,6 +111,9 @@ describe('statistic.semantic', () => {
 
     expect(wrapper.find('.ant-statistic-content').classes()).toContain('c-content')
     expect(wrapper.find('.ant-statistic-content').attributes('style')).toContain('font-size: 20px')
+
+    expect(wrapper.find('.ant-statistic-content-value').classes()).toContain('c-value')
+    expect(wrapper.find('.ant-statistic-content-value').attributes('style')).toContain('color: purple')
 
     expect(wrapper.find('.ant-statistic-content-prefix').classes()).toContain('c-prefix')
     expect(wrapper.find('.ant-statistic-content-prefix').attributes('style')).toContain('color: green')
