@@ -15,7 +15,8 @@ describe('result', () => {
     expect(wrapper.find('.ant-result').exists()).toBe(true)
     expect(wrapper.find('.ant-result-info').exists()).toBe(true)
     expect(wrapper.find('.ant-result-icon').exists()).toBe(true)
-    expect(wrapper.find('.ant-result-title').exists()).toBe(true)
+    // title is omitted when not provided (aligned with antd 6.4.3 #58028)
+    expect(wrapper.find('.ant-result-title').exists()).toBe(false)
   })
 
   describe('status', () => {
@@ -125,6 +126,11 @@ describe('result', () => {
         slots: { title: () => 'Slot Title' },
       })
       expect(wrapper.find('.ant-result-title').text()).toBe('Slot Title')
+    })
+
+    it('should not render title when not provided', () => {
+      const wrapper = mount(Result)
+      expect(wrapper.find('.ant-result-title').exists()).toBe(false)
     })
   })
 
