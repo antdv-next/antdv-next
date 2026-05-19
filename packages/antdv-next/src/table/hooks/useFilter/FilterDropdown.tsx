@@ -147,7 +147,7 @@ export interface FilterDropdownProps<RecordType = AnyObject> {
 
 type FilterTreeDataNode = FieldDataNode
 
-interface FilterRestProps {
+interface FilterResetProps {
   confirm?: boolean
   closeDropdown?: boolean
 }
@@ -288,7 +288,7 @@ const FilterDropdown = defineComponent<
     }
 
     const onReset = (
-      { confirm, closeDropdown }: FilterRestProps = { confirm: false, closeDropdown: false },
+      { confirm, closeDropdown }: FilterResetProps = { confirm: false, closeDropdown: false },
     ) => {
       if (confirm) {
         internalTriggerFilter([])
