@@ -268,9 +268,12 @@ function stateToInfo<RecordType extends AnyObject = AnyObject>(sorterState: Sort
 }
 
 function generateSorterInfo<RecordType extends AnyObject = AnyObject>(sorterStates: SortState<RecordType>[]): SorterResult<RecordType> | SorterResult<RecordType>[] {
-  const activeSorters = sorterStates
-    .filter(({ sortOrder }) => sortOrder)
-    .map<SorterResult<RecordType>>(stateToInfo)
+  const activeSorters = sorterStates.reduce<SorterResult<RecordType>[]>((list, sorterState) => {
+    if (sorterState.sortOrder) {
+      list.push(stateToInfo(sorterState))
+    }
+    return list
+  }, [])
 
   if (activeSorters.length === 0 && sorterStates.length) {
     const lastIndex = sorterStates.length - 1

@@ -225,7 +225,7 @@ const Result = defineComponent<
       return (
         <div {...restProps} class={rootClassNames} style={rootStyles}>
           <Icon class={iconClassNames} status={status!} icon={icon} style={mergedStyles.value.icon} />
-          <div class={titleClassNames} style={mergedStyles.value.title}>{title}</div>
+          {!!title && <div class={titleClassNames} style={mergedStyles.value.title}>{title}</div>}
           {!!subTitle && <div class={subTitleClassNames} style={mergedStyles.value.subTitle}>{subTitle}</div>}
           <Extra class={extraClassNames} extra={extra} style={mergedStyles.value.extra} />
           {!!children.length && <div class={bodyClassNames} style={mergedStyles.value.body}>{children}</div>}

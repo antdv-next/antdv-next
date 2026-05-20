@@ -3,7 +3,7 @@ import type { WaveColorSource, WaveComponent } from './interface'
 import { classNames } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { unrefElement } from '@vueuse/core'
-import { cloneVNode, computed, defineComponent, isVNode, onBeforeUnmount, shallowRef, watch } from 'vue'
+import { cloneVNode, computed, defineComponent, isVNode, onBeforeUnmount, onMounted, shallowRef, watch } from 'vue'
 import { useConfig } from '../../config-provider/context.ts'
 import useStyle from './style'
 
@@ -27,6 +27,14 @@ export interface WaveSlots {
 }
 
 const isBrowser = typeof window !== 'undefined' && typeof document !== 'undefined'
+
+const TRIGGER_TYPE_TO_EVENT_MAP = {
+  click: 'click',
+  mousedown: 'mousedown',
+  mouseup: 'mouseup',
+  pointerdown: 'pointerdown',
+  pointerup: 'pointerup',
+} as const
 
 function isVisible(element: HTMLElement | null) {
   if (!isBrowser) {
@@ -57,9 +65,9 @@ export default defineComponent<WaveProps, WaveEmits, string, SlotsType<WaveSlots
 
     const showWave = useWave(containerRef, waveClassName, computed(() => props.component), colorSource)
 
-    const handleClick = (event: MouseEvent) => {
+    const handleEvent = (event: Event) => {
       const node = containerRef.value
-      if (!node || !isBrowser) {
+      if (!node) {
         return
       }
 
@@ -79,32 +87,37 @@ export default defineComponent<WaveProps, WaveEmits, string, SlotsType<WaveSlots
         return
       }
 
-      showWave(event)
+      showWave(event as MouseEvent)
     }
 
-    watch(
-      () => ({ node: containerRef.value, disabled: props.disabled }),
-      ({ node, disabled }, _, onCleanup) => {
-        if (!isBrowser) {
-          return
-        }
+    let teardown: (() => void) | null = null
 
-        if (!node || node.nodeType !== window.Node.ELEMENT_NODE || disabled) {
-          return
-        }
-        onCleanup(() => {
-          node?.removeEventListener('click', handleClick, true)
-        })
-        node.addEventListener('click', handleClick, true)
-      },
-      { immediate: true },
-    )
+    const attachListener = () => {
+      teardown?.()
+      teardown = null
 
-    onBeforeUnmount(() => {
-      if (!isBrowser) {
+      const node = containerRef.value
+      if (!node || node.nodeType !== window.Node.ELEMENT_NODE || props.disabled) {
         return
       }
-      containerRef.value?.removeEventListener('click', handleClick, true)
+
+      const triggerType = configCtx.value.wave?.triggerType
+      const eventName = triggerType && triggerType in TRIGGER_TYPE_TO_EVENT_MAP
+        ? TRIGGER_TYPE_TO_EVENT_MAP[triggerType]
+        : 'click'
+
+      node.addEventListener(eventName, handleEvent, true)
+      teardown = () => node.removeEventListener(eventName, handleEvent, true)
+    }
+
+    onMounted(attachListener)
+    watch(
+      [containerRef, () => props.disabled, () => configCtx.value.wave?.triggerType],
+      attachListener,
+    )
+    onBeforeUnmount(() => {
+      teardown?.()
+      teardown = null
     })
     const mergedRef = (el: any, node: any) => {
       const _el = unrefElement(el)

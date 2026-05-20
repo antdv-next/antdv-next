@@ -58,6 +58,33 @@ describe('range-picker', () => {
     expect(inputs[1]?.attributes('placeholder')).toBe('End quarter')
   })
 
+  it('should fall back to rangePlaceholder when locale omits range-variant placeholder', () => {
+    const partialLocale = {
+      ...enUS,
+      lang: {
+        ...enUS.lang,
+        rangePlaceholder: ['Fallback start', 'Fallback end'] as [string, string],
+        rangeYearPlaceholder: undefined,
+        rangeQuarterPlaceholder: undefined,
+        rangeMonthPlaceholder: undefined,
+        rangeWeekPlaceholder: undefined,
+      },
+    } as typeof enUS
+
+    ;(['year', 'quarter', 'month', 'week'] as const).forEach((picker) => {
+      const wrapper = mount(RangePicker, {
+        props: {
+          picker,
+          locale: partialLocale,
+        },
+      })
+      const inputs = wrapper.findAll('input')
+      expect(inputs[0]?.attributes('placeholder')).toBe('Fallback start')
+      expect(inputs[inputs.length - 1]?.attributes('placeholder')).toBe('Fallback end')
+      wrapper.unmount()
+    })
+  })
+
   it('should support allowClear and custom clearIcon', async () => {
     const open = ref(true)
     const value = [dayjs('2023-08-01'), dayjs('2023-08-02')]

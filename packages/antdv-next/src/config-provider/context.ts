@@ -207,6 +207,8 @@ export const Variants = ['outlined', 'borderless', 'filled', 'underlined'] as co
 
 export type Variant = (typeof Variants)[number]
 
+export type TriggerType = 'click' | 'pointerdown' | 'pointerup' | 'mousedown' | 'mouseup'
+
 export interface WaveConfig {
   /**
    * @descCN 是否禁用水波纹效果。
@@ -220,12 +222,11 @@ export interface WaveConfig {
    */
   showEffect?: ShowWaveEffect
   /**
-   * @descCN 控制由哪种元素事件触发水波纹。
-   * @descEN Which element event triggers the wave effect.
+   * @descCN 触发水波纹效果的事件。
+   * @descEN The event that triggers the wave effect.
    * @default 'click'
-   * ant-design 6.4.0 PR #57402.
    */
-  triggerType?: 'click' | 'pointerdown'
+  triggerType?: TriggerType
 }
 
 export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'classes' | 'styles'>

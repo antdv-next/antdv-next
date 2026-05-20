@@ -68,11 +68,7 @@ exports[`result > rtl render > component should be rendered correctly in RTL dir
         </svg>
       </span>
     </div>
-    <div
-      class="ant-result-title"
-    >
-      <!---->
-    </div>
+    <!---->
     <!---->
     <!---->
     <!---->
