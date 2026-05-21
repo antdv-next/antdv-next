@@ -2,6 +2,28 @@
 title: 组件更新日志
 ---
 
+## V1.3.1
+
+发布日期：2026-05-20
+
+本次补丁版本主要 **同步 ant-design 6.4.3 P1 修复（Result / DatePicker / Select）、回灌上游 6.4.3 中 Table 与 Mentions 的性能优化**，并修复 **Image 运行时告警**。
+
+**🐞 问题修复 Fixes**
+
+* fix：同步 ant-design 6.4.3 P1 修复（Result / DatePicker / Select）—— [#541](https://github.com/antdv-next/antdv-next/pull/541)
+* fix：修复 image 告警 —— [#539](https://github.com/antdv-next/antdv-next/pull/539)
+
+**⚡ 性能优化 Performance**
+
+* perf(table)：同步 ant-design 6.4.3 Table 性能优化与 `FilterResetProps` 重命名 —— [#542](https://github.com/antdv-next/antdv-next/pull/542)
+* perf(mentions)：同步 ant-design 6.4.3 `getMentions` 减少遍历次数 —— [#543](https://github.com/antdv-next/antdv-next/pull/543)
+
+**🧪 测试 Tests**
+
+* test(Table)：为 `table-demo-expand-sticky` 表格组件新增测试用例 —— [#540](https://github.com/antdv-next/antdv-next/pull/540)
+
+**完整变更日志**：[antdv-next@1.3.0...antdv-next@1.3.1](https://github.com/antdv-next/antdv-next/compare/antdv-next@1.3.0...antdv-next@1.3.1)
+
 ## V1.3.0
 
 发布日期：2026-05-16

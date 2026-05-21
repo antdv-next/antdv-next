@@ -2,6 +2,28 @@
 title: Component Changelog
 ---
 
+## V1.3.1
+
+Release Date: 2026-05-20
+
+This patch release **syncs the ant-design 6.4.3 P1 fixes (Result / DatePicker / Select), backports the upstream 6.4.3 Table / Mentions performance improvements**, and fixes an **Image runtime warning**.
+
+**🐞 Fixes**
+
+* fix: sync ant-design 6.4.3 P1 fixes (Result / DatePicker / Select) — [#541](https://github.com/antdv-next/antdv-next/pull/541)
+* fix: fix image warning — [#539](https://github.com/antdv-next/antdv-next/pull/539)
+
+**⚡ Performance**
+
+* perf(table): sync ant-design 6.4.3 Table perf and `FilterResetProps` rename — [#542](https://github.com/antdv-next/antdv-next/pull/542)
+* perf(mentions): sync ant-design 6.4.3 `getMentions` reduce iteration — [#543](https://github.com/antdv-next/antdv-next/pull/543)
+
+**🧪 Tests**
+
+* test(Table): add a test case for the `table-demo-expand-sticky` table component — [#540](https://github.com/antdv-next/antdv-next/pull/540)
+
+**Full Changelog**: [antdv-next@1.3.0...antdv-next@1.3.1](https://github.com/antdv-next/antdv-next/compare/antdv-next@1.3.0...antdv-next@1.3.1)
+
 ## V1.3.0
 
 Release Date: 2026-05-16
