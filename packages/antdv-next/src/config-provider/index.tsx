@@ -119,6 +119,7 @@ export interface GlobalConfigProps {
   prefixCls?: string
   iconPrefixCls?: string
   theme?: Theme | ThemeConfig
+  locale?: Locale
   holderRender?: holderRenderType
   appContext?: AppContext
 }
@@ -134,7 +135,7 @@ function getGlobalIconPrefixCls() {
 }
 
 function setGlobalConfig(props: GlobalConfigProps) {
-  const { prefixCls, iconPrefixCls, theme, holderRender, appContext } = props
+  const { prefixCls, iconPrefixCls, theme, locale, holderRender, appContext } = props
   if (prefixCls !== undefined) {
     globalPrefixCls = prefixCls
     globalConfigData.prefixCls = prefixCls
@@ -153,6 +154,9 @@ function setGlobalConfig(props: GlobalConfigProps) {
   if (theme) {
     globalTheme = theme
     globalConfigData.theme = theme
+  }
+  if ('locale' in props) {
+    globalConfigData.locale = locale
   }
 }
 
@@ -401,6 +405,7 @@ export function globalConfig() {
     },
     getTheme: () => globalTheme,
     theme: computed(() => globalConfigData.theme || globalTheme),
+    locale: globalConfigData.locale,
     holderRender: globalHolderRender,
     get appContext() {
       return globalConfigData.appContext

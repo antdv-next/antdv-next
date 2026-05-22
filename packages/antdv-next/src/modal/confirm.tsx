@@ -72,6 +72,7 @@ export default function confirm(config: ModalFuncProps) {
         prefixCls: rootPrefixCls,
         iconPrefixCls,
         theme,
+        locale: global.locale,
       },
       {
         default: () => holderNode,

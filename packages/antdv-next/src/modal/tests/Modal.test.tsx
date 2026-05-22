@@ -12,7 +12,7 @@ describe('modal static', () => {
 
   afterEach(async () => {
     Modal.destroyAll()
-    ConfigProvider.config({ holderRender: undefined })
+    ConfigProvider.config({ holderRender: undefined, locale: undefined })
     await waitFakeTimer(1, 5)
     vi.useRealTimers()
     document.body.innerHTML = ''
@@ -48,6 +48,22 @@ describe('modal static', () => {
         </ConfigProvider>
       ),
     })
+
+    Modal.confirm({
+      title: '标题',
+      content: '内容',
+    })
+
+    await waitFakeTimer(1, 5)
+
+    const buttons = Array.from(document.querySelectorAll('.ant-modal-confirm-btns .ant-btn'))
+      .map(node => node.textContent?.replace(/\s+/g, '').trim())
+
+    expect(buttons).toEqual(['取消', '确定'])
+  })
+
+  it('modal.confirm should support locale from global config', async () => {
+    ConfigProvider.config({ locale: zhCN })
 
     Modal.confirm({
       title: '标题',
