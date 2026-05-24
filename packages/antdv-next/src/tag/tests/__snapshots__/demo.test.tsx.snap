@@ -43,8 +43,8 @@ exports[`tag demo > renders _semantic correctly 1`] = `
         <span
           aria-label="Close"
           class="anticon anticon-close ant-tag-close-icon semantic-mark-close"
-          role="img"
-          tabindex="-1"
+          role="button"
+          tabindex="0"
         >
           <svg
             aria-hidden="true"
@@ -632,6 +632,8 @@ exports[`tag demo > renders basic correctly 1`] = `
     <span
       aria-label="Close"
       class="ant-tag-close-icon"
+      role="button"
+      tabindex="0"
     />
     <!---->
     <!---->
@@ -643,8 +645,8 @@ exports[`tag demo > renders basic correctly 1`] = `
     <span
       aria-label="Close"
       class="anticon anticon-close-circle ant-tag-close-icon"
-      role="img"
-      tabindex="-1"
+      role="button"
+      tabindex="0"
     >
       <svg
         aria-hidden="true"
@@ -671,8 +673,8 @@ exports[`tag demo > renders basic correctly 1`] = `
     <span
       aria-label="Close Button"
       class="anticon anticon-delete ant-tag-close-icon"
-      role="img"
-      tabindex="-1"
+      role="button"
+      tabindex="0"
     >
       <svg
         aria-hidden="true"
@@ -725,8 +727,8 @@ exports[`tag demo > renders borderless correctly 1`] = `
       <span
         aria-label="Close"
         class="anticon anticon-close ant-tag-close-icon"
-        role="img"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
       >
         <svg
           aria-hidden="true"
@@ -753,8 +755,8 @@ exports[`tag demo > renders borderless correctly 1`] = `
       <span
         aria-label="Close"
         class="anticon anticon-close ant-tag-close-icon"
-        role="img"
-        tabindex="-1"
+        role="button"
+        tabindex="0"
       >
         <svg
           aria-hidden="true"
@@ -938,7 +940,10 @@ exports[`tag demo > renders checkable correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <span
+              aria-checked="true"
               class="ant-tag ant-tag-checkable ant-tag-checkable-checked css-var-root"
+              role="checkbox"
+              tabindex="0"
             >
               <!---->
               <span>
@@ -999,7 +1004,10 @@ exports[`tag demo > renders checkable correctly 1`] = `
               class="ant-tag-checkable-group css-var-root"
             >
               <span
+                aria-checked="false"
                 class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-root"
+                role="checkbox"
+                tabindex="0"
               >
                 <!---->
                 <span>
@@ -1007,7 +1015,10 @@ exports[`tag demo > renders checkable correctly 1`] = `
                 </span>
               </span>
               <span
+                aria-checked="true"
                 class="ant-tag ant-tag-checkable ant-tag-checkable-checked ant-tag-checkable-group-item css-var-root"
+                role="checkbox"
+                tabindex="0"
               >
                 <!---->
                 <span>
@@ -1015,7 +1026,10 @@ exports[`tag demo > renders checkable correctly 1`] = `
                 </span>
               </span>
               <span
+                aria-checked="false"
                 class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-root"
+                role="checkbox"
+                tabindex="0"
               >
                 <!---->
                 <span>
@@ -1023,7 +1037,10 @@ exports[`tag demo > renders checkable correctly 1`] = `
                 </span>
               </span>
               <span
+                aria-checked="false"
                 class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-root"
+                role="checkbox"
+                tabindex="0"
               >
                 <!---->
                 <span>
@@ -1085,7 +1102,10 @@ exports[`tag demo > renders checkable correctly 1`] = `
               class="ant-tag-checkable-group css-var-root"
             >
               <span
+                aria-checked="true"
                 class="ant-tag ant-tag-checkable ant-tag-checkable-checked ant-tag-checkable-group-item css-var-root"
+                role="checkbox"
+                tabindex="0"
               >
                 <!---->
                 <span>
@@ -1093,7 +1113,10 @@ exports[`tag demo > renders checkable correctly 1`] = `
                 </span>
               </span>
               <span
+                aria-checked="false"
                 class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-root"
+                role="checkbox"
+                tabindex="0"
               >
                 <!---->
                 <span>
@@ -1101,7 +1124,10 @@ exports[`tag demo > renders checkable correctly 1`] = `
                 </span>
               </span>
               <span
+                aria-checked="true"
                 class="ant-tag ant-tag-checkable ant-tag-checkable-checked ant-tag-checkable-group-item css-var-root"
+                role="checkbox"
+                tabindex="0"
               >
                 <!---->
                 <span>
@@ -1109,7 +1135,10 @@ exports[`tag demo > renders checkable correctly 1`] = `
                 </span>
               </span>
               <span
+                aria-checked="false"
                 class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-root"
+                role="checkbox"
+                tabindex="0"
               >
                 <!---->
                 <span>
@@ -1684,8 +1713,8 @@ exports[`tag demo > renders control correctly 1`] = `
     <span
       aria-label="Close"
       class="anticon anticon-close ant-tag-close-icon"
-      role="img"
-      tabindex="-1"
+      role="button"
+      tabindex="0"
     >
       <svg
         aria-hidden="true"
@@ -1716,8 +1745,8 @@ exports[`tag demo > renders control correctly 1`] = `
     <span
       aria-label="Close"
       class="anticon anticon-close ant-tag-close-icon"
-      role="img"
-      tabindex="-1"
+      role="button"
+      tabindex="0"
     >
       <svg
         aria-hidden="true"
@@ -1781,6 +1810,8 @@ exports[`tag demo > renders customize correctly 1`] = `
     <span
       aria-label="Close"
       class="ant-tag-close-icon"
+      role="button"
+      tabindex="0"
     >
       关闭
     </span>
@@ -1794,8 +1825,8 @@ exports[`tag demo > renders customize correctly 1`] = `
     <span
       aria-label="Close"
       class="anticon anticon-close-circle ant-tag-close-icon"
-      role="img"
-      tabindex="-1"
+      role="button"
+      tabindex="0"
     >
       <svg
         aria-hidden="true"
@@ -1939,7 +1970,11 @@ exports[`tag demo > renders disabled correctly 1`] = `
     class="ant-flex css-var-root ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <span
+      aria-checked="true"
+      aria-disabled="true"
       class="ant-tag ant-tag-checkable ant-tag-checkable-checked ant-tag-checkable-disabled css-var-root"
+      role="checkbox"
+      tabindex="-1"
       value="true"
     >
       <!---->
@@ -1948,7 +1983,11 @@ exports[`tag demo > renders disabled correctly 1`] = `
       </span>
     </span>
     <span
+      aria-checked="false"
+      aria-disabled="true"
       class="ant-tag ant-tag-checkable ant-tag-checkable-disabled css-var-root"
+      role="checkbox"
+      tabindex="-1"
       value="false"
     >
       <!---->
@@ -1957,7 +1996,11 @@ exports[`tag demo > renders disabled correctly 1`] = `
       </span>
     </span>
     <span
+      aria-checked="false"
+      aria-disabled="true"
       class="ant-tag ant-tag-checkable ant-tag-checkable-disabled css-var-root"
+      role="checkbox"
+      tabindex="-1"
       value="false"
     >
       <!---->
@@ -1974,9 +2017,10 @@ exports[`tag demo > renders disabled correctly 1`] = `
     >
        Closable Tag 
       <span
+        aria-disabled="true"
         aria-label="Close"
         class="anticon anticon-close ant-tag-close-icon"
-        role="img"
+        role="button"
         tabindex="-1"
       >
         <svg
@@ -2026,9 +2070,10 @@ exports[`tag demo > renders disabled correctly 1`] = `
          Closable with Icon 
       </span>
       <span
+        aria-disabled="true"
         aria-label="Close"
         class="anticon anticon-close ant-tag-close-icon"
-        role="img"
+        role="button"
         tabindex="-1"
       >
         <svg
@@ -2054,9 +2099,10 @@ exports[`tag demo > renders disabled correctly 1`] = `
     >
        Closable with Custom Icon 
       <span
+        aria-disabled="true"
         aria-label="Close"
         class="anticon anticon-close-circle ant-tag-close-icon"
-        role="img"
+        role="button"
         tabindex="-1"
       >
         <svg
@@ -2126,9 +2172,10 @@ exports[`tag demo > renders disabled correctly 1`] = `
     >
        Borderless Closable 
       <span
+        aria-disabled="true"
         aria-label="Close"
         class="anticon anticon-close ant-tag-close-icon"
-        role="img"
+        role="button"
         tabindex="-1"
       >
         <svg
@@ -2317,7 +2364,10 @@ exports[`tag demo > renders icon correctly 1`] = `
     class="ant-flex css-var-root ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
   >
     <span
+      aria-checked="true"
       class="ant-tag ant-tag-checkable ant-tag-checkable-checked css-var-root"
+      role="checkbox"
+      tabindex="0"
     >
       <span
         aria-label="twitter"
@@ -2343,7 +2393,10 @@ exports[`tag demo > renders icon correctly 1`] = `
       </span>
     </span>
     <span
+      aria-checked="false"
       class="ant-tag ant-tag-checkable css-var-root"
+      role="checkbox"
+      tabindex="0"
     >
       <span
         aria-label="youtube"
@@ -2369,7 +2422,10 @@ exports[`tag demo > renders icon correctly 1`] = `
       </span>
     </span>
     <span
+      aria-checked="false"
       class="ant-tag ant-tag-checkable css-var-root"
+      role="checkbox"
+      tabindex="0"
     >
       <span
         aria-label="facebook"
@@ -2395,7 +2451,10 @@ exports[`tag demo > renders icon correctly 1`] = `
       </span>
     </span>
     <span
+      aria-checked="false"
       class="ant-tag ant-tag-checkable css-var-root"
+      role="checkbox"
+      tabindex="0"
     >
       <span
         aria-label="linkedin"
@@ -3064,8 +3123,11 @@ exports[`tag demo > renders style-class correctly 1`] = `
         style="gap: 12px; padding: 8px 12px; background-color: rgba(82, 196, 26, 0.08); border-radius: 8px;"
       >
         <span
+          aria-checked="false"
           class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-root"
+          role="checkbox"
           style="background-color: rgba(82, 196, 26, 0.1); border-color: rgba(82, 196, 26, 0.3); color: rgb(82, 196, 26);"
+          tabindex="0"
         >
           <!---->
           <span>
@@ -3073,8 +3135,11 @@ exports[`tag demo > renders style-class correctly 1`] = `
           </span>
         </span>
         <span
+          aria-checked="false"
           class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-root"
+          role="checkbox"
           style="background-color: rgba(82, 196, 26, 0.1); border-color: rgba(82, 196, 26, 0.3); color: rgb(82, 196, 26);"
+          tabindex="0"
         >
           <!---->
           <span>
@@ -3082,8 +3147,11 @@ exports[`tag demo > renders style-class correctly 1`] = `
           </span>
         </span>
         <span
+          aria-checked="false"
           class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-root"
+          role="checkbox"
           style="background-color: rgba(82, 196, 26, 0.1); border-color: rgba(82, 196, 26, 0.3); color: rgb(82, 196, 26);"
+          tabindex="0"
         >
           <!---->
           <span>
@@ -3097,8 +3165,11 @@ exports[`tag demo > renders style-class correctly 1`] = `
         style="gap: 16px; padding: 8px 12px; background-color: rgba(143, 135, 241, 0.08); border-radius: 8px;"
       >
         <span
+          aria-checked="false"
           class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-root"
+          role="checkbox"
           style="background-color: rgba(143, 135, 241, 0.1); border-color: rgba(143, 135, 241, 0.3); color: rgb(143, 135, 241); font-weight: 500;"
+          tabindex="0"
         >
           <!---->
           <span>
@@ -3106,8 +3177,11 @@ exports[`tag demo > renders style-class correctly 1`] = `
           </span>
         </span>
         <span
+          aria-checked="false"
           class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-root"
+          role="checkbox"
           style="background-color: rgba(143, 135, 241, 0.1); border-color: rgba(143, 135, 241, 0.3); color: rgb(143, 135, 241); font-weight: 500;"
+          tabindex="0"
         >
           <!---->
           <span>

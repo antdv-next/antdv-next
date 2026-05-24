@@ -28,11 +28,13 @@ export interface CheckableTagEmits {
   'change': (checked: boolean) => void
   'update:checked': (checked: boolean) => void
   'click': (e: MouseEvent) => void
+  'keydown': (e: KeyboardEvent) => void
 }
 export interface CheckableTagEmitsProps {
   onChange?: CheckableTagEmits['change']
   'onUpdate:checked'?: CheckableTagEmits['update:checked']
   onClick?: CheckableTagEmits['click']
+  onKeydown?: CheckableTagEmits['keydown']
 }
 
 export interface CheckableTagSlots {
@@ -62,6 +64,18 @@ const CheckableTag = defineComponent<
       emit('update:checked', checked)
       emit('click', e)
     }
+    const handleKeyDown = (e: KeyboardEvent) => {
+      emit('keydown', e)
+      if (e.defaultPrevented || mergedDisabled.value) {
+        return
+      }
+      if (e.key === ' ') {
+        e.preventDefault()
+        const checked = !props.checked
+        emit('change', checked)
+        emit('update:checked', checked)
+      }
+    }
     const [hashId, cssVarCls] = useStyle(prefixCls)
 
     return () => {
@@ -84,9 +98,14 @@ const CheckableTag = defineComponent<
       return (
         <span
           {...pureAttrs(attrs)}
+          role="checkbox"
+          aria-checked={checked}
+          aria-disabled={mergedDisabled.value || undefined}
+          tabindex={mergedDisabled.value ? -1 : 0}
           style={[tag?.style, (attrs as any).style]}
           class={cls}
           onClick={handleClick}
+          onKeydown={handleKeyDown}
         >
           {icon}
           <span>{slots?.default?.()}</span>

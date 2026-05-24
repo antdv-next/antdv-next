@@ -134,14 +134,20 @@ const Descriptions = defineComponent<
     })
     const customizeSize = computed(() => props.size)
     // Column count
+    // Mobile-first cascade: try the user-supplied map first (so a lower
+    // breakpoint like `md` stays "active" on a larger `lg` viewport). Only
+    // fall back to DEFAULT_COLUMN_MAP when no user-supplied breakpoint
+    // matches at all. Merging user + default upfront would let default's
+    // wider breakpoint override the user's narrower one.
     const mergedColumn = computed(() => {
       if (typeof props.column === 'number') {
         return props.column
       }
-      return matchScreen(screens.value!, {
-        ...DEFAULT_COLUMN_MAP,
-        ...props?.column,
-      }) ?? 3
+      return (
+        matchScreen(screens.value!, props.column as Partial<Record<Breakpoint, number>> | undefined)
+        ?? matchScreen(screens.value!, DEFAULT_COLUMN_MAP)
+        ?? 3
+      )
     })
     // Items with responsive
     const mergedItems = useItems(screens as any, items)

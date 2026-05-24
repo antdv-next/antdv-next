@@ -1,10 +1,10 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`checkable-tag > should match snapshot - checked 1`] = `"<span class="ant-tag ant-tag-checkable ant-tag-checkable-checked css-var-root"><!----><span>Checked</span></span>"`;
+exports[`checkable-tag > should match snapshot - checked 1`] = `"<span role="checkbox" aria-checked="true" tabindex="0" class="ant-tag ant-tag-checkable ant-tag-checkable-checked css-var-root"><!----><span>Checked</span></span>"`;
 
-exports[`checkable-tag > should match snapshot - unchecked 1`] = `"<span class="ant-tag ant-tag-checkable css-var-root"><!----><span>Unchecked</span></span>"`;
+exports[`checkable-tag > should match snapshot - unchecked 1`] = `"<span role="checkbox" aria-checked="false" tabindex="0" class="ant-tag ant-tag-checkable css-var-root"><!----><span>Unchecked</span></span>"`;
 
-exports[`checkable-tag-group > should match snapshot 1`] = `"<div class="ant-tag-checkable-group css-var-root"><span class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-root"><!----><span>A</span></span><span class="ant-tag ant-tag-checkable ant-tag-checkable-checked ant-tag-checkable-group-item css-var-root"><!----><span>B</span></span><span class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-root"><!----><span>C</span></span></div>"`;
+exports[`checkable-tag-group > should match snapshot 1`] = `"<div class="ant-tag-checkable-group css-var-root"><span role="checkbox" aria-checked="false" tabindex="0" class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-root"><!----><span>A</span></span><span role="checkbox" aria-checked="true" tabindex="0" class="ant-tag ant-tag-checkable ant-tag-checkable-checked ant-tag-checkable-group-item css-var-root"><!----><span>B</span></span><span role="checkbox" aria-checked="false" tabindex="0" class="ant-tag ant-tag-checkable ant-tag-checkable-group-item css-var-root"><!----><span>C</span></span></div>"`;
 
 exports[`tag > rtl render > component should be rendered correctly in RTL direction 1`] = `
 <div
@@ -24,7 +24,7 @@ exports[`tag > rtl render > component should be rendered correctly in RTL direct
 exports[`tag > should match snapshot - basic 1`] = `"<span class="ant-tag ant-tag-filled css-var-root">Basic Tag<!----><!----><!----></span>"`;
 
 exports[`tag > should match snapshot - closable 1`] = `
-"<span class="ant-tag ant-tag-filled css-var-root">Closable Tag<span role="img" aria-label="Close" tabindex="-1" class="anticon anticon-close ant-tag-close-icon"><svg data-icon="close" width="1em" height="1em" fill="currentColor" aria-hidden="true" fill-rule="evenodd" viewBox="64 64 896 896" focusable="false"><path d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"></path></svg></span>
+"<span class="ant-tag ant-tag-filled css-var-root">Closable Tag<span role="button" aria-label="Close" tabindex="0" class="anticon anticon-close ant-tag-close-icon"><svg data-icon="close" width="1em" height="1em" fill="currentColor" aria-hidden="true" fill-rule="evenodd" viewBox="64 64 896 896" focusable="false"><path d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"></path></svg></span>
 <!---->
 <!----></span>"
 `;

@@ -133,16 +133,23 @@ const InternalTag = defineComponent<
     )
     expose({ tagRef })
 
-    const handleCloseClick = (e: MouseEvent) => {
+    const triggerClose = (e: MouseEvent | KeyboardEvent) => {
       if (mergedDisabled.value) {
         return
       }
       e.stopPropagation()
-      emit('close', e)
+      emit('close', e as MouseEvent)
       if (e.defaultPrevented) {
         return
       }
       visible.value = false
+    }
+
+    const handleCloseKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault()
+        ;(e.currentTarget as HTMLElement)?.click()
+      }
     }
 
     const closableInfo = useClosable(
@@ -154,9 +161,13 @@ const InternalTag = defineComponent<
           closeIconRender(iconNode) {
             const replacement = (
               <span
+                role="button"
+                tabindex={mergedDisabled.value ? -1 : 0}
+                aria-disabled={mergedDisabled.value || undefined}
                 class={classNames(`${prefixCls.value}-close-icon`, mergedClassNames.value?.close)}
                 style={mergedStyles.value?.close}
-                onClick={handleCloseClick}
+                onClick={triggerClose}
+                onKeydown={handleCloseKeyDown}
               >
                 {iconNode}
               </span>
@@ -165,8 +176,25 @@ const InternalTag = defineComponent<
               return {
                 onClick(e: MouseEvent) {
                   originProps?.onClick?.(e)
-                  handleCloseClick(e)
+                  triggerClose(e)
                 },
+                onKeydown(e: KeyboardEvent) {
+                  originProps?.onKeydown?.(e)
+                  if (!e.defaultPrevented) {
+                    handleCloseKeyDown(e)
+                  }
+                },
+                role: 'button',
+                // camelCase is required when the close icon is an icon component
+                // like CloseOutlined — AntdIcon declares `tabIndex` as a typed
+                // prop and renders `<span tabindex={iconTabIndex}>` after its
+                // attr spread, so a lowercase `tabindex` lands only in attrs
+                // and is then overridden back to `-1` by that hardcoded
+                // assignment. `tabIndex` flows into the component prop and
+                // drives `iconTabIndex` directly. Vue normalizes camelCase to
+                // the lowercase HTML attribute for plain <span> close icons too.
+                tabIndex: mergedDisabled.value ? -1 : 0,
+                'aria-disabled': mergedDisabled.value || undefined,
                 class: classNames(
                   originProps?.class,
                   `${prefixCls.value}-close-icon`,

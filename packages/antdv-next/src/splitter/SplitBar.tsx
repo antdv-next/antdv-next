@@ -253,14 +253,16 @@ const SplitBar = defineComponent<SplitBarProps>(
         return [startIcon, endIcon, startCustomize, endCustomize]
       }
       const [startIcon, endIcon, startCustomize, endCustomize] = renderIconsFn()
+      const onCollapseKeyDown = (e: KeyboardEvent, type: 'start' | 'end') => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault()
+          onCollapse(index.value, type)
+        }
+      }
       return (
         <div
           {...attrs}
           class={splitBarPrefixCls.value}
-          role="separator"
-          aria-valuenow={getValidNumber(ariaNow.value)}
-          aria-valuemin={getValidNumber(ariaMin.value)}
-          aria-valuemax={getValidNumber(ariaMax.value)}
         >
           {lazy.value && (
             <div
@@ -286,6 +288,12 @@ const SplitBar = defineComponent<SplitBarProps>(
             onMousedown={onMouseDown}
             onTouchstart={onTouchStart}
             onDblclick={() => props?.onDraggerDoubleClick?.(index.value)}
+            role="separator"
+            aria-disabled={!resizable.value}
+            aria-orientation={vertical.value ? 'horizontal' : 'vertical'}
+            aria-valuenow={getValidNumber(ariaNow.value)}
+            aria-valuemin={getValidNumber(ariaMin.value)}
+            aria-valuemax={getValidNumber(ariaMax.value)}
           >
             {draggerIcon !== undefined
               ? (
@@ -305,7 +313,11 @@ const SplitBar = defineComponent<SplitBarProps>(
                 },
                 getVisibilityClass(showStartCollapsibleIcon),
               )}
+              role="button"
+              tabindex={0}
+              aria-label="Toggle start panel"
               onClick={() => onCollapse(index.value, 'start')}
+              onKeydown={(e: KeyboardEvent) => onCollapseKeyDown(e, 'start')}
             >
               <span
                 class={clsx(
@@ -329,7 +341,11 @@ const SplitBar = defineComponent<SplitBarProps>(
                 },
                 getVisibilityClass(showEndCollapsibleIcon),
               )}
+              role="button"
+              tabindex={0}
+              aria-label="Toggle end panel"
               onClick={() => onCollapse(index.value, 'end')}
+              onKeydown={(e: KeyboardEvent) => onCollapseKeyDown(e, 'end')}
             >
               <span
                 class={clsx(
