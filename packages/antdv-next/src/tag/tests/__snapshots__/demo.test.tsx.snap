@@ -44,7 +44,7 @@ exports[`tag demo > renders _semantic correctly 1`] = `
           aria-label="Close"
           class="anticon anticon-close ant-tag-close-icon semantic-mark-close"
           role="button"
-          tabindex="-1"
+          tabindex="0"
         >
           <svg
             aria-hidden="true"
@@ -646,7 +646,7 @@ exports[`tag demo > renders basic correctly 1`] = `
       aria-label="Close"
       class="anticon anticon-close-circle ant-tag-close-icon"
       role="button"
-      tabindex="-1"
+      tabindex="0"
     >
       <svg
         aria-hidden="true"
@@ -674,7 +674,7 @@ exports[`tag demo > renders basic correctly 1`] = `
       aria-label="Close Button"
       class="anticon anticon-delete ant-tag-close-icon"
       role="button"
-      tabindex="-1"
+      tabindex="0"
     >
       <svg
         aria-hidden="true"
@@ -728,7 +728,7 @@ exports[`tag demo > renders borderless correctly 1`] = `
         aria-label="Close"
         class="anticon anticon-close ant-tag-close-icon"
         role="button"
-        tabindex="-1"
+        tabindex="0"
       >
         <svg
           aria-hidden="true"
@@ -756,7 +756,7 @@ exports[`tag demo > renders borderless correctly 1`] = `
         aria-label="Close"
         class="anticon anticon-close ant-tag-close-icon"
         role="button"
-        tabindex="-1"
+        tabindex="0"
       >
         <svg
           aria-hidden="true"
@@ -1714,7 +1714,7 @@ exports[`tag demo > renders control correctly 1`] = `
       aria-label="Close"
       class="anticon anticon-close ant-tag-close-icon"
       role="button"
-      tabindex="-1"
+      tabindex="0"
     >
       <svg
         aria-hidden="true"
@@ -1746,7 +1746,7 @@ exports[`tag demo > renders control correctly 1`] = `
       aria-label="Close"
       class="anticon anticon-close ant-tag-close-icon"
       role="button"
-      tabindex="-1"
+      tabindex="0"
     >
       <svg
         aria-hidden="true"
@@ -1826,7 +1826,7 @@ exports[`tag demo > renders customize correctly 1`] = `
       aria-label="Close"
       class="anticon anticon-close-circle ant-tag-close-icon"
       role="button"
-      tabindex="-1"
+      tabindex="0"
     >
       <svg
         aria-hidden="true"

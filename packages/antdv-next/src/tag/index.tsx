@@ -185,7 +185,15 @@ const InternalTag = defineComponent<
                   }
                 },
                 role: 'button',
-                tabindex: mergedDisabled.value ? -1 : 0,
+                // camelCase is required when the close icon is an icon component
+                // like CloseOutlined — AntdIcon declares `tabIndex` as a typed
+                // prop and renders `<span tabindex={iconTabIndex}>` after its
+                // attr spread, so a lowercase `tabindex` lands only in attrs
+                // and is then overridden back to `-1` by that hardcoded
+                // assignment. `tabIndex` flows into the component prop and
+                // drives `iconTabIndex` directly. Vue normalizes camelCase to
+                // the lowercase HTML attribute for plain <span> close icons too.
+                tabIndex: mergedDisabled.value ? -1 : 0,
                 'aria-disabled': mergedDisabled.value || undefined,
                 class: classNames(
                   originProps?.class,

@@ -1996,7 +1996,7 @@ exports[`select demo > renders custom-tag-render correctly 1`] = `
               aria-label="Close"
               class="anticon anticon-close ant-tag-close-icon"
               role="button"
-              tabindex="-1"
+              tabindex="0"
             >
               <svg
                 aria-hidden="true"
@@ -2032,7 +2032,7 @@ exports[`select demo > renders custom-tag-render correctly 1`] = `
               aria-label="Close"
               class="anticon anticon-close ant-tag-close-icon"
               role="button"
-              tabindex="-1"
+              tabindex="0"
             >
               <svg
                 aria-hidden="true"
