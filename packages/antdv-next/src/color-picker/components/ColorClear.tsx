@@ -22,9 +22,26 @@ export default defineComponent<ColorClearProps>(
       props.onChange(genColor)
     }
 
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault()
+        handleClick()
+      }
+    }
+
     return () => {
       const { className, style } = getAttrStyleAndClass(attrs)
-      return <div class={[`${props.prefixCls}-clear`, className]} style={style} onClick={handleClick} />
+      return (
+        <div
+          role="button"
+          aria-label="Clear color"
+          tabindex={0}
+          class={[`${props.prefixCls}-clear`, className]}
+          style={style}
+          onClick={handleClick}
+          onKeydown={handleKeyDown}
+        />
+      )
     }
   },
   {

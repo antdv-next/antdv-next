@@ -41,7 +41,10 @@ exports[`color-picker demo > renders _semantic correctly 1`] = `
           class="ant-color-picker-trigger css-var-v-0 ant-color-picker-css-var semantic-mark-root"
         >
           <div
+            aria-label="Clear color"
             class="ant-color-picker-clear semantic-mark-body"
+            role="button"
+            tabindex="0"
           />
           <!---->
         </div>

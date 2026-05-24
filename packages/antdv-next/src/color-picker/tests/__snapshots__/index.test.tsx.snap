@@ -8,7 +8,10 @@ exports[`color-picker > rtl render > component should be rendered correctly in R
     class="ant-color-picker-trigger css-var-root ant-color-picker-css-var ant-color-picker-rtl"
   >
     <div
+      aria-label="Clear color"
       class="ant-color-picker-clear"
+      role="button"
+      tabindex="0"
     />
     <!---->
   </div>
