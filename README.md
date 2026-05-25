@@ -70,15 +70,15 @@ Antdv Next is inspired by and built upon the following open-source projects.
 
 ## Contribute
 
-We are very welcome to have you participate in our open source project.
+We warmly welcome you to participate in our open source project.
 
 **Pull Request:**
 
-1. Fork code!
-2. Create your own branch: `git checkout -b feat-xxxx`
-3. Submit your changes: `git commit -am 'feat(function): add xxxxx'`
-4. Push your branch: `git push origin feat-xxxx`
-5. submit`pull request`
+1. Fork the repository.
+2. Create your own branch: `git checkout -b feat-xxxx`.
+3. Commit your changes: `git commit -am 'feat(function): add xxxxx'`.
+4. Push your branch: `git push origin feat-xxxx`.
+5. Submit a pull request.
 
 Thank you to all the people who already contributed to Antdv Next!
 
