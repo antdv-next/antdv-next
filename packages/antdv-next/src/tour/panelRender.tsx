@@ -162,6 +162,11 @@ const TourPanel = defineComponent<
         _nextBtn = nextButtonPropsChild
       }
 
+      // Exclude `children` from spread — it is extracted above for slot content
+      // and must not leak as a DOM prop onto the <button> element.
+      const { children: _prevChildren, ...prevBtnRest } = prevButtonProps ?? {} as any
+      const { children: _nextChildren, ...nextBtnRest } = nextButtonProps ?? {} as any
+
       const defaultActionsNode = (
         <>
           {current !== 0
@@ -169,7 +174,7 @@ const TourPanel = defineComponent<
                 <Button
                   size="small"
                   {...secondaryBtnProps}
-                  {...prevButtonProps}
+                  {...prevBtnRest}
                   onClick={prevBtnClick}
                   class={clsx(`${prefixCls}-prev-btn`, prevButtonProps?.class)}
                 >
@@ -180,7 +185,7 @@ const TourPanel = defineComponent<
           <Button
             size="small"
             type={mainBtnType}
-            {...nextButtonProps}
+            {...nextBtnRest}
             onClick={nextBtnClick}
             class={clsx(`${prefixCls}-next-btn`, nextButtonProps?.class)}
           >

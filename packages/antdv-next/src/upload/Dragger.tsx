@@ -41,9 +41,8 @@ const Dragger = defineComponent<
           style={mergedStyle}
           hasControlInside={hasControlInside}
           type="drag"
-        >
-          {slots.default?.()}
-        </Upload>
+          v-slots={slots}
+        />
       )
     }
   },

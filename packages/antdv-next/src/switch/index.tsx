@@ -189,6 +189,9 @@ const Switch = defineComponent<
     const changeHandler: SwitchChangeEventHandler = (...args) => {
       emit('change', ...args)
     }
+    const clickHandler: SwitchClickEventHandler = (...args) => {
+      emit('click', ...args)
+    }
     const handleVMHandler = (checked: boolean) => {
       // 根据 checked 状态返回对应的自定义值
       const newValue = checked ? mergedCheckedValue.value : mergedUnCheckedValue.value
@@ -245,6 +248,7 @@ const Switch = defineComponent<
             styles={mergedStyles.value}
             checked={isChecked.value}
             onChange={changeHandler}
+            onClick={clickHandler}
             prefixCls={prefixCls.value}
             className={classes}
             style={mergedStyle}
