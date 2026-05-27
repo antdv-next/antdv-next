@@ -235,6 +235,16 @@ describe('switch', () => {
     expect(onChange).toHaveBeenCalledWith(true, expect.anything())
   })
 
+  it('should emit click event only once per click', async () => {
+    const onClick = vi.fn()
+    const wrapper = mount(Switch, {
+      props: { onClick },
+    })
+    await wrapper.find('button').trigger('click')
+    expect(onClick).toHaveBeenCalledTimes(1)
+    expect(onClick).toHaveBeenCalledWith(true, expect.anything())
+  })
+
   // ===================== click toggles switch =====================
 
   it('should toggle on button click', async () => {
