@@ -8538,7 +8538,25 @@ exports[`table demo > renders edit-row correctly 1`] = `
                 <span
                   class="ant-pagination-item-ellipsis"
                 >
-                  •••
+                  <span
+                    aria-label="ellipsis"
+                    class="anticon anticon-ellipsis"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="ellipsis"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                      />
+                    </svg>
+                  </span>
                 </span>
               </div>
             </a>
@@ -14386,7 +14404,25 @@ exports[`table demo > renders fixed-columns-header correctly 1`] = `
               <span
                 class="ant-pagination-item-ellipsis"
               >
-                •••
+                <span
+                  aria-label="ellipsis"
+                  class="anticon anticon-ellipsis"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="ellipsis"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                    />
+                  </svg>
+                </span>
               </span>
             </div>
           </a>
@@ -18277,7 +18313,25 @@ exports[`table demo > renders grouping-columns correctly 1`] = `
               <span
                 class="ant-pagination-item-ellipsis"
               >
-                •••
+                <span
+                  aria-label="ellipsis"
+                  class="anticon anticon-ellipsis"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="ellipsis"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                    />
+                  </svg>
+                </span>
               </span>
             </div>
           </a>
@@ -20865,7 +20919,25 @@ exports[`table demo > renders narrow correctly 1`] = `
                 <span
                   class="ant-pagination-item-ellipsis"
                 >
-                  •••
+                  <span
+                    aria-label="ellipsis"
+                    class="anticon anticon-ellipsis"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="ellipsis"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                      />
+                    </svg>
+                  </span>
                 </span>
               </div>
             </a>
@@ -20958,7 +21030,25 @@ exports[`table demo > renders narrow correctly 1`] = `
                 <span
                   class="ant-pagination-item-ellipsis"
                 >
-                  •••
+                  <span
+                    aria-label="ellipsis"
+                    class="anticon anticon-ellipsis"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="ellipsis"
+                      fill="currentColor"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                      />
+                    </svg>
+                  </span>
                 </span>
               </div>
             </a>
@@ -29604,7 +29694,25 @@ exports[`table demo > renders sticky correctly 1`] = `
               <span
                 class="ant-pagination-item-ellipsis"
               >
-                •••
+                <span
+                  aria-label="ellipsis"
+                  class="anticon anticon-ellipsis"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="ellipsis"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                    />
+                  </svg>
+                </span>
               </span>
             </div>
           </a>

@@ -8,7 +8,7 @@ import type {
   PaginationSlots,
   PaginationStylesType,
 } from './interface'
-import { DoubleLeftOutlined, DoubleRightOutlined, LeftOutlined, RightOutlined } from '@antdv-next/icons'
+import { DoubleLeftOutlined, DoubleRightOutlined, EllipsisOutlined, LeftOutlined, RightOutlined } from '@antdv-next/icons'
 import VcPagination from '@v-c/pagination'
 import enUS from '@v-c/pagination/locale/zh_CN'
 import { clsx } from '@v-c/util'
@@ -166,7 +166,7 @@ const Pagination = defineComponent<
     // ============================= Render =============================
     const defaultEllipsis = computed(() => (
       <span class={`${prefixCls.value}-item-ellipsis`}>
-        •••
+        <EllipsisOutlined />
       </span>
     ))
 
