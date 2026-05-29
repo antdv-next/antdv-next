@@ -568,7 +568,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
               style="display: none;"
               tabindex="-1"
             >
-              <!---->
+              Content of tab 0
             </div>
             <!---->
             <div
@@ -577,7 +577,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
               role="tabpanel"
               tabindex="0"
             >
-              <!---->
+              Content of tab 1
             </div>
             <!---->
             <div
@@ -587,7 +587,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
               style="display: none;"
               tabindex="-1"
             >
-              <!---->
+              Content of tab 2
             </div>
             <!---->
             <div
@@ -597,7 +597,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
               style="display: none;"
               tabindex="-1"
             >
-              <!---->
+              Content of tab 3
             </div>
             <!---->
             <div
@@ -607,7 +607,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
               style="display: none;"
               tabindex="-1"
             >
-              <!---->
+              Content of tab 4
             </div>
             <!---->
             <div
@@ -617,7 +617,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
               style="display: none;"
               tabindex="-1"
             >
-              <!---->
+              Content of tab 5
             </div>
             <!---->
             <div
@@ -627,7 +627,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
               style="display: none;"
               tabindex="-1"
             >
-              <!---->
+              Content of tab 6
             </div>
             <!---->
             <div
@@ -637,7 +637,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
               style="display: none;"
               tabindex="-1"
             >
-              <!---->
+              Content of tab 7
             </div>
             <!---->
             <div
@@ -647,7 +647,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
               style="display: none;"
               tabindex="-1"
             >
-              <!---->
+              Content of tab 8
             </div>
             <!---->
             <div
@@ -657,7 +657,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
               style="display: none;"
               tabindex="-1"
             >
-              <!---->
+              Content of tab 9
             </div>
             <!---->
             <div
@@ -667,7 +667,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
               style="display: none;"
               tabindex="-1"
             >
-              <!---->
+              Content of tab 10
             </div>
             <!---->
             <div
@@ -677,7 +677,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
               style="display: none;"
               tabindex="-1"
             >
-              <!---->
+              Content of tab 11
             </div>
             <!---->
             <div
@@ -687,7 +687,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
               style="display: none;"
               tabindex="-1"
             >
-              <!---->
+              Content of tab 12
             </div>
             <!---->
             <div
@@ -697,7 +697,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
               style="display: none;"
               tabindex="-1"
             >
-              <!---->
+              Content of tab 13
             </div>
             <!---->
             <div
@@ -707,7 +707,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
               style="display: none;"
               tabindex="-1"
             >
-              <!---->
+              Content of tab 14
             </div>
             <!---->
             <div
@@ -717,7 +717,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
               style="display: none;"
               tabindex="-1"
             >
-              <!---->
+              Content of tab 15
             </div>
             <!---->
             <div
@@ -727,7 +727,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
               style="display: none;"
               tabindex="-1"
             >
-              <!---->
+              Content of tab 16
             </div>
             <!---->
             <div
@@ -737,7 +737,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
               style="display: none;"
               tabindex="-1"
             >
-              <!---->
+              Content of tab 17
             </div>
             <!---->
             <div
@@ -747,7 +747,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
               style="display: none;"
               tabindex="-1"
             >
-              <!---->
+              Content of tab 18
             </div>
             <!---->
             <div
@@ -757,7 +757,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
               style="display: none;"
               tabindex="-1"
             >
-              <!---->
+              Content of tab 19
             </div>
             <!---->
             <div
@@ -767,7 +767,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
               style="display: none;"
               tabindex="-1"
             >
-              <!---->
+              Content of tab 20
             </div>
             <!---->
             <div
@@ -777,7 +777,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
               style="display: none;"
               tabindex="-1"
             >
-              <!---->
+              Content of tab 21
             </div>
             <!---->
             <div
@@ -787,7 +787,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
               style="display: none;"
               tabindex="-1"
             >
-              <!---->
+              Content of tab 22
             </div>
             <!---->
             <div
@@ -797,7 +797,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
               style="display: none;"
               tabindex="-1"
             >
-              <!---->
+              Content of tab 23
             </div>
             <!---->
             <div
@@ -807,7 +807,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
               style="display: none;"
               tabindex="-1"
             >
-              <!---->
+              Content of tab 24
             </div>
             <!---->
             <div
@@ -817,7 +817,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
               style="display: none;"
               tabindex="-1"
             >
-              <!---->
+              Content of tab 25
             </div>
             <!---->
             <div
@@ -827,7 +827,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
               style="display: none;"
               tabindex="-1"
             >
-              <!---->
+              Content of tab 26
             </div>
             <!---->
             <div
@@ -837,7 +837,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
               style="display: none;"
               tabindex="-1"
             >
-              <!---->
+              Content of tab 27
             </div>
             <!---->
             <div
@@ -847,7 +847,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
               style="display: none;"
               tabindex="-1"
             >
-              <!---->
+              Content of tab 28
             </div>
             <!---->
             <div
@@ -857,7 +857,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
               style="display: none;"
               tabindex="-1"
             >
-              <!---->
+              Content of tab 29
             </div>
           </div>
         </div>
