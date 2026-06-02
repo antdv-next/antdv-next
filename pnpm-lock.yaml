@@ -375,8 +375,8 @@ catalogs:
       specifier: ^1.0.0
       version: 1.0.0
     '@v-c/picker':
-      specifier: ^1.1.0
-      version: 1.1.0
+      specifier: ^1.1.1
+      version: 1.1.1
     '@v-c/progress':
       specifier: ^1.0.0
       version: 1.0.0
@@ -843,7 +843,7 @@ importers:
         version: 1.0.0(vue@3.5.30(typescript@5.9.3))
       '@v-c/picker':
         specifier: catalog:vc
-        version: 1.1.0(dayjs@1.11.20)(vue@3.5.30(typescript@5.9.3))
+        version: 1.1.1(dayjs@1.11.20)(vue@3.5.30(typescript@5.9.3))
       '@v-c/progress':
         specifier: catalog:vc
         version: 1.0.0(vue@3.5.30(typescript@5.9.3))
@@ -2924,6 +2924,24 @@ packages:
       moment:
         optional: true
 
+  '@v-c/picker@1.1.1':
+    resolution: {integrity: sha512-RqOI6P/0zqZAU4pNB1ne9JbipSAgTcutTR475EshFEAt3qXnxjKiWXa4WGjvjNBxZwMZd3GlOw3s37fe/cWKBg==}
+    peerDependencies:
+      date-fns: '>= 2.x'
+      dayjs: '>= 1.x'
+      luxon: '>= 3.x'
+      moment: '>= 2.x'
+      vue: ^3.0.0
+    peerDependenciesMeta:
+      date-fns:
+        optional: true
+      dayjs:
+        optional: true
+      luxon:
+        optional: true
+      moment:
+        optional: true
+
   '@v-c/portal@1.0.8':
     resolution: {integrity: sha512-93elruWfHKrdtRkpFBNpi47YhQjA75tCuG8C/WvcQ9x/dp+H3i+y7h6t0iyyDjZu1w3d2U5+d43vtslmoQXBYg==}
     peerDependencies:
@@ -2974,11 +2992,6 @@ packages:
 
   '@v-c/steps@1.0.0':
     resolution: {integrity: sha512-DPL0OOb8pDLlTPZB93b8+Saxiz6V5zEpGXKaCnsbXUuOhimkc7089AuEKfpMw+8x1SrVe+gapWf5RRHWXUm2pg==}
-    peerDependencies:
-      vue: ^3.0.0
-
-  '@v-c/switch@1.0.0':
-    resolution: {integrity: sha512-VIem244KJkYfqDgofpgHjK00sGL9rJ/9OtmK4Gbs4hnPsrTtzHDBRltYxR4IT7HQleathZfj6NhcZ1bjdWKYUw==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -8411,6 +8424,16 @@ snapshots:
     optionalDependencies:
       dayjs: 1.11.20
 
+  '@v-c/picker@1.1.1(dayjs@1.11.20)(vue@3.5.30(typescript@5.9.3))':
+    dependencies:
+      '@v-c/overflow': 1.1.0(vue@3.5.30(typescript@5.9.3))
+      '@v-c/resize-observer': 1.1.0(vue@3.5.30(typescript@5.9.3))
+      '@v-c/trigger': 1.0.14(vue@3.5.30(typescript@5.9.3))
+      '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
+      vue: 3.5.30(typescript@5.9.3)
+    optionalDependencies:
+      dayjs: 1.11.20
+
   '@v-c/portal@1.0.8(vue@3.5.30(typescript@5.9.3))':
     dependencies:
       '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
@@ -8476,11 +8499,6 @@ snapshots:
       vue: 3.5.30(typescript@5.9.3)
 
   '@v-c/steps@1.0.0(vue@3.5.30(typescript@5.9.3))':
-    dependencies:
-      '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
-      vue: 3.5.30(typescript@5.9.3)
-
-  '@v-c/switch@1.0.0(vue@3.5.30(typescript@5.9.3))':
     dependencies:
       '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
       vue: 3.5.30(typescript@5.9.3)
@@ -8920,7 +8938,7 @@ snapshots:
       '@v-c/slick': 1.0.2(vue@3.5.30(typescript@5.9.3))
       '@v-c/slider': 1.1.0(vue@3.5.30(typescript@5.9.3))
       '@v-c/steps': 1.0.0(vue@3.5.30(typescript@5.9.3))
-      '@v-c/switch': 1.0.0(vue@3.5.30(typescript@5.9.3))
+      '@v-c/switch': 1.0.1(vue@3.5.30(typescript@5.9.3))
       '@v-c/table': 1.1.3(vue@3.5.30(typescript@5.9.3))
       '@v-c/tabs': 1.1.0(vue@3.5.30(typescript@5.9.3))
       '@v-c/textarea': 1.1.0(vue@3.5.30(typescript@5.9.3))

@@ -45,6 +45,16 @@ describe('range-picker', () => {
     expect(inputs[1]?.attributes('placeholder')).toBe('End date')
   })
 
+  it('should pass inputReadOnly to inner picker inputs', () => {
+    const wrapper = mount(RangePicker, {
+      props: {
+        inputReadOnly: true,
+      },
+    })
+
+    expect(wrapper.findAll('input').map(input => (input.element as HTMLInputElement).readOnly)).toEqual([true, true])
+  })
+
   it('should support quarter placeholders', () => {
     const wrapper = mount(RangePicker, {
       props: {
