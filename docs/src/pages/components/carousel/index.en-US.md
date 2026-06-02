@@ -24,7 +24,6 @@ demo:
   <demo src="./demo/fade.vue">Fade in</demo>
   <demo src="./demo/arrows.vue" >Arrows for switching</demo>
   <demo src="./demo/dot-duration.vue" >Progress of dots</demo>
-  <demo src="./demo/component-token.vue" debug>Component Token</demo>
 </demo-group>
 
 ## API
