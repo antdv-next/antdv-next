@@ -70,7 +70,8 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | --- | --- | --- | --- | --- |
 | actionsRender | Custom toolbar render | (originalNode: VNode, info: ToolbarRenderInfoType) => VNode | - | - |
 | closeIcon | Custom close icon | VNode | - | - |
-| cover | Custom preview mask | VNode \| [CoverConfig](#coverconfig) | - | CoverConfig support after v6.0 |
+| cover | Custom preview mask | VNode \| [CoverConfig](#coverconfig) | - | - |
+| focusTrap | Whether to trap focus within the preview when open | boolean | true | - |
 | getContainer | Specify container for preview mounting; still full screen; false mounts at current location | string \| HTMLElement \| (() => HTMLElement) \| false | - | - |
 | imageRender | Custom preview content | (originalNode: VNode, info: { transform: [TransformType](#transformtype), image: [ImgInfo](#imginfo) }) => VNode | - | - |
 | mask | preview mask effect | boolean \| \{ enabled?: boolean, blur?: boolean \} | true | - |
@@ -101,6 +102,7 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | actionsRender | Custom toolbar render | (originalNode: VNode, info: ToolbarRenderInfoType) => VNode | - | - |
 | closeIcon | Custom close icon | VNode | - | - |
 | countRender | Custom preview count render | (current: number, total: number) => VNode | - | - |
+| focusTrap | Whether to trap focus within the preview when open | boolean | true | - |
 | current | Index of the current preview image | number | - | - |
 | getContainer | Specify container for preview mounting; still full screen; false mounts at current location | string \| HTMLElement \| (() => HTMLElement) \| false | - | - |
 | imageRender | Custom preview content | (originalNode: VNode, info: { transform: [TransformType](#transformtype), image: [ImgInfo](#imginfo), current: number }) => VNode | - | - |
