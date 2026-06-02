@@ -49,7 +49,7 @@ const previewItems = [
             :items="previewItems"
             :classes="classes"
             :styles="{ popup: { root: { position: 'absolute' } } }"
-            :preview="{ getContainer: () => holderRef!, open: true }"
+            :preview="{ getContainer: () => holderRef!, open: true, focusTrap: false }"
           />
         </div>
       </a-flex>

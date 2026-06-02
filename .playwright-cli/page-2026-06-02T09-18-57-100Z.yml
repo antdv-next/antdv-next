@@ -1,0 +1,420 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - heading "logo Antdv Next" [level=1] [ref=e7]:
+        - link "logo Antdv Next" [ref=e8] [cursor=pointer]:
+          - /url: /
+          - img "logo" [ref=e9]
+          - generic [ref=e10]: Antdv Next
+      - generic [ref=e12]:
+        - generic [ref=e14]:
+          - img [ref=e15]
+          - textbox "输入关键字搜索..." [ref=e17]
+        - menu [ref=e18]:
+          - menuitem "研发" [ref=e19] [cursor=pointer]:
+            - generic [ref=e20]: 研发
+          - menuitem "组件" [ref=e21] [cursor=pointer]:
+            - generic [ref=e22]: 组件
+          - menuitem "博客" [ref=e23] [cursor=pointer]:
+            - generic [ref=e24]: 博客
+          - generic:
+            - link:
+              - /url: https://play.antdv-next.com
+              - text: Playground
+          - generic: 赞助
+          - menuitem "..." [ref=e25] [cursor=pointer]
+        - generic "Sponsors" [ref=e26]:
+          - link "Antdv Next" [ref=e27] [cursor=pointer]:
+            - /url: https://github.com/antdv-next/antdv-next
+            - img "Antdv Next" [ref=e28]
+        - generic [ref=e29] [cursor=pointer]:
+          - generic "1.3.2-beta.1" [ref=e30]:
+            - text: 1.3.2-beta.1
+            - combobox [ref=e31]
+          - img "down" [ref=e33]:
+            - img [ref=e34]
+        - button "中 En" [ref=e36] [cursor=pointer]:
+          - generic [ref=e38]:
+            - generic [ref=e39]: 中
+            - generic [ref=e40]: En
+        - button [ref=e41] [cursor=pointer]:
+          - img [ref=e43]:
+            - img "Direction Icon" [ref=e44]
+        - button [ref=e46] [cursor=pointer]:
+          - img [ref=e48]
+        - link "github" [ref=e52] [cursor=pointer]:
+          - /url: https://github.com/antdv-next/antdv-next
+          - button "github" [ref=e53]:
+            - img "github" [ref=e55]:
+              - img [ref=e56]
+  - main [ref=e58]:
+    - menu [ref=e60]:
+      - menuitem "组件总览" [ref=e61] [cursor=pointer]:
+        - link "组件总览" [ref=e63]:
+          - /url: /components/overview-cn
+      - menuitem "更新日志 v1.3.2-beta.1" [ref=e64] [cursor=pointer]:
+        - generic [ref=e65]:
+          - link "更新日志" [ref=e67]:
+            - /url: /components/changelog-cn
+          - generic [ref=e69]: v1.3.2-beta.1
+      - link "通用" [ref=e70] [cursor=pointer]:
+        - /url: general-cn
+      - group [ref=e71]:
+        - menuitem "Button 按钮" [ref=e72] [cursor=pointer]:
+          - link "Button 按钮" [ref=e74]:
+            - /url: /components/button-cn
+        - menuitem "FloatButton 悬浮按钮" [ref=e75] [cursor=pointer]:
+          - link "FloatButton 悬浮按钮" [ref=e77]:
+            - /url: /components/float-button-cn
+        - menuitem "Icon 图标" [ref=e78] [cursor=pointer]:
+          - link "Icon 图标" [ref=e80]:
+            - /url: /components/icon-cn
+        - menuitem "Typography 排版" [ref=e81] [cursor=pointer]:
+          - link "Typography 排版" [ref=e83]:
+            - /url: /components/typography-cn
+      - link "布局" [ref=e84] [cursor=pointer]:
+        - /url: layoutGroup-cn
+      - group [ref=e85]:
+        - menuitem "Divider 分割线" [ref=e86] [cursor=pointer]:
+          - link "Divider 分割线" [ref=e88]:
+            - /url: /components/divider-cn
+        - menuitem "Flex 弹性布局" [ref=e89] [cursor=pointer]:
+          - link "Flex 弹性布局" [ref=e91]:
+            - /url: /components/flex-cn
+        - menuitem "Grid 栅格" [ref=e92] [cursor=pointer]:
+          - link "Grid 栅格" [ref=e94]:
+            - /url: /components/grid-cn
+        - menuitem "Layout 布局" [ref=e95] [cursor=pointer]:
+          - link "Layout 布局" [ref=e97]:
+            - /url: /components/layout-cn
+        - menuitem "Masonry 瀑布流" [ref=e98] [cursor=pointer]:
+          - link "Masonry 瀑布流" [ref=e100]:
+            - /url: /components/masonry-cn
+        - menuitem "Space 间距" [ref=e101] [cursor=pointer]:
+          - link "Space 间距" [ref=e103]:
+            - /url: /components/space-cn
+        - menuitem "Splitter 面板分割" [ref=e104] [cursor=pointer]:
+          - link "Splitter 面板分割" [ref=e106]:
+            - /url: /components/splitter-cn
+      - link "导航" [ref=e107] [cursor=pointer]:
+        - /url: navigation-cn
+      - group [ref=e108]:
+        - menuitem "Anchor 锚点" [ref=e109] [cursor=pointer]:
+          - link "Anchor 锚点" [ref=e111]:
+            - /url: /components/anchor-cn
+        - menuitem "Breadcrumb 面包屑" [ref=e112] [cursor=pointer]:
+          - link "Breadcrumb 面包屑" [ref=e114]:
+            - /url: /components/breadcrumb-cn
+        - menuitem "Dropdown 下拉菜单" [ref=e115] [cursor=pointer]:
+          - link "Dropdown 下拉菜单" [ref=e117]:
+            - /url: /components/dropdown-cn
+        - menuitem "Menu 导航菜单" [ref=e118] [cursor=pointer]:
+          - link "Menu 导航菜单" [ref=e120]:
+            - /url: /components/menu-cn
+        - menuitem "Pagination 分页" [ref=e121] [cursor=pointer]:
+          - link "Pagination 分页" [ref=e123]:
+            - /url: /components/pagination-cn
+        - menuitem "Steps 步骤条" [ref=e124] [cursor=pointer]:
+          - link "Steps 步骤条" [ref=e126]:
+            - /url: /components/steps-cn
+        - menuitem "Tabs 标签页" [ref=e127] [cursor=pointer]:
+          - link "Tabs 标签页" [ref=e129]:
+            - /url: /components/tabs-cn
+      - link "数据录入" [ref=e130] [cursor=pointer]:
+        - /url: data-entry-cn
+      - group [ref=e131]:
+        - menuitem "AutoComplete 自动完成" [ref=e132] [cursor=pointer]:
+          - link "AutoComplete 自动完成" [ref=e134]:
+            - /url: /components/auto-complete-cn
+        - menuitem "Cascader 级联选择" [ref=e135] [cursor=pointer]:
+          - link "Cascader 级联选择" [ref=e137]:
+            - /url: /components/cascader-cn
+        - menuitem "Checkbox 多选框" [ref=e138] [cursor=pointer]:
+          - link "Checkbox 多选框" [ref=e140]:
+            - /url: /components/checkbox-cn
+        - menuitem "ColorPicker 颜色选择器" [ref=e141] [cursor=pointer]:
+          - link "ColorPicker 颜色选择器" [ref=e143]:
+            - /url: /components/color-picker-cn
+        - menuitem "DatePicker 日期选择器" [ref=e144] [cursor=pointer]:
+          - link "DatePicker 日期选择器" [ref=e146]:
+            - /url: /components/date-picker-cn
+        - menuitem "Form 表单" [ref=e147] [cursor=pointer]:
+          - link "Form 表单" [ref=e149]:
+            - /url: /components/form-cn
+        - menuitem "Input 输入框" [ref=e150] [cursor=pointer]:
+          - link "Input 输入框" [ref=e152]:
+            - /url: /components/input-cn
+        - menuitem "InputNumber 数字输入框" [ref=e153] [cursor=pointer]:
+          - link "InputNumber 数字输入框" [ref=e155]:
+            - /url: /components/input-number-cn
+        - menuitem "Mentions 提及" [ref=e156] [cursor=pointer]:
+          - link "Mentions 提及" [ref=e158]:
+            - /url: /components/mentions-cn
+        - menuitem "Radio 单选框" [ref=e159] [cursor=pointer]:
+          - link "Radio 单选框" [ref=e161]:
+            - /url: /components/radio-cn
+        - menuitem "Rate 评分" [ref=e162] [cursor=pointer]:
+          - link "Rate 评分" [ref=e164]:
+            - /url: /components/rate-cn
+        - menuitem "Select 选择器" [ref=e165] [cursor=pointer]:
+          - link "Select 选择器" [ref=e167]:
+            - /url: /components/select-cn
+        - menuitem "Slider 滑动输入条" [ref=e168] [cursor=pointer]:
+          - link "Slider 滑动输入条" [ref=e170]:
+            - /url: /components/slider-cn
+        - menuitem "Switch 开关" [ref=e171] [cursor=pointer]:
+          - link "Switch 开关" [ref=e173]:
+            - /url: /components/switch-cn
+        - menuitem "TimePicker 时间选择器" [ref=e174] [cursor=pointer]:
+          - link "TimePicker 时间选择器" [ref=e176]:
+            - /url: /components/time-picker-cn
+        - menuitem "Transfer 穿梭框" [ref=e177] [cursor=pointer]:
+          - link "Transfer 穿梭框" [ref=e179]:
+            - /url: /components/transfer-cn
+        - menuitem "TreeSelect 树选择" [ref=e180] [cursor=pointer]:
+          - link "TreeSelect 树选择" [ref=e182]:
+            - /url: /components/tree-select-cn
+        - menuitem "Upload 上传" [ref=e183] [cursor=pointer]:
+          - link "Upload 上传" [ref=e185]:
+            - /url: /components/upload-cn
+      - link "数据展示" [ref=e186] [cursor=pointer]:
+        - /url: data-display-cn
+      - group [ref=e187]:
+        - menuitem "Avatar 头像" [ref=e188] [cursor=pointer]:
+          - link "Avatar 头像" [ref=e190]:
+            - /url: /components/avatar-cn
+        - menuitem "Badge 徽标数" [ref=e191] [cursor=pointer]:
+          - link "Badge 徽标数" [ref=e193]:
+            - /url: /components/badge-cn
+        - menuitem "Calendar 日历" [ref=e194] [cursor=pointer]:
+          - link "Calendar 日历" [ref=e196]:
+            - /url: /components/calendar-cn
+        - menuitem "Card 卡片" [ref=e197] [cursor=pointer]:
+          - link "Card 卡片" [ref=e199]:
+            - /url: /components/card-cn
+        - menuitem "Carousel 走马灯" [ref=e200] [cursor=pointer]:
+          - link "Carousel 走马灯" [ref=e202]:
+            - /url: /components/carousel-cn
+        - menuitem "Collapse 折叠面板" [ref=e203] [cursor=pointer]:
+          - link "Collapse 折叠面板" [ref=e205]:
+            - /url: /components/collapse-cn
+        - menuitem "Descriptions 描述列表" [ref=e206] [cursor=pointer]:
+          - link "Descriptions 描述列表" [ref=e208]:
+            - /url: /components/descriptions-cn
+        - menuitem "Empty 空状态" [ref=e209] [cursor=pointer]:
+          - link "Empty 空状态" [ref=e211]:
+            - /url: /components/empty-cn
+        - menuitem "Image 图片" [ref=e212] [cursor=pointer]:
+          - link "Image 图片" [ref=e214]:
+            - /url: /components/image-cn
+        - menuitem "Popover 气泡卡片" [ref=e215] [cursor=pointer]:
+          - link "Popover 气泡卡片" [ref=e217]:
+            - /url: /components/popover-cn
+        - menuitem "QRCode 二维码" [ref=e218] [cursor=pointer]:
+          - link "QRCode 二维码" [ref=e220]:
+            - /url: /components/qr-code-cn
+        - menuitem "Segmented 分段控制器" [ref=e221] [cursor=pointer]:
+          - link "Segmented 分段控制器" [ref=e223]:
+            - /url: /components/segmented-cn
+        - menuitem "Statistic 统计数值" [ref=e224] [cursor=pointer]:
+          - link "Statistic 统计数值" [ref=e226]:
+            - /url: /components/statistic-cn
+        - menuitem "Table 表格" [ref=e227] [cursor=pointer]:
+          - link "Table 表格" [ref=e229]:
+            - /url: /components/table-cn
+        - menuitem "Tag 标签" [ref=e230] [cursor=pointer]:
+          - link "Tag 标签" [ref=e232]:
+            - /url: /components/tag-cn
+        - menuitem "Timeline 时间轴" [ref=e233] [cursor=pointer]:
+          - link "Timeline 时间轴" [ref=e235]:
+            - /url: /components/timeline-cn
+        - menuitem "Tooltip 文字提示" [ref=e236] [cursor=pointer]:
+          - link "Tooltip 文字提示" [ref=e238]:
+            - /url: /components/tooltip-cn
+        - menuitem "Tour 漫游导览" [ref=e239] [cursor=pointer]:
+          - link "Tour 漫游导览" [ref=e241]:
+            - /url: /components/tour-cn
+        - menuitem "Tree 树形控件" [ref=e242] [cursor=pointer]:
+          - link "Tree 树形控件" [ref=e244]:
+            - /url: /components/tree-cn
+      - link "反馈" [ref=e245] [cursor=pointer]:
+        - /url: feedback-cn
+      - group [ref=e246]:
+        - menuitem "Alert 警告提示" [ref=e247] [cursor=pointer]:
+          - link "Alert 警告提示" [ref=e249]:
+            - /url: /components/alert-cn
+        - menuitem "Drawer 抽屉" [ref=e250] [cursor=pointer]:
+          - link "Drawer 抽屉" [ref=e252]:
+            - /url: /components/drawer-cn
+        - menuitem "Message 全局提示" [ref=e253] [cursor=pointer]:
+          - link "Message 全局提示" [ref=e255]:
+            - /url: /components/message-cn
+        - menuitem "Modal 对话框" [ref=e256] [cursor=pointer]:
+          - link "Modal 对话框" [ref=e258]:
+            - /url: /components/modal-cn
+        - menuitem "Notification 通知提醒框" [ref=e259] [cursor=pointer]:
+          - link "Notification 通知提醒框" [ref=e261]:
+            - /url: /components/notification-cn
+        - menuitem "Popconfirm 气泡确认框" [ref=e262] [cursor=pointer]:
+          - link "Popconfirm 气泡确认框" [ref=e264]:
+            - /url: /components/popconfirm-cn
+        - menuitem "Progress 进度条" [ref=e265] [cursor=pointer]:
+          - link "Progress 进度条" [ref=e267]:
+            - /url: /components/progress-cn
+        - menuitem "Result 结果" [ref=e268] [cursor=pointer]:
+          - link "Result 结果" [ref=e270]:
+            - /url: /components/result-cn
+        - menuitem "Skeleton 骨架屏" [ref=e271] [cursor=pointer]:
+          - link "Skeleton 骨架屏" [ref=e273]:
+            - /url: /components/skeleton-cn
+        - menuitem "Spin 加载中" [ref=e274] [cursor=pointer]:
+          - link "Spin 加载中" [ref=e276]:
+            - /url: /components/spin-cn
+        - menuitem "Watermark 水印" [ref=e277] [cursor=pointer]:
+          - link "Watermark 水印" [ref=e279]:
+            - /url: /components/watermark-cn
+      - link "其他" [ref=e280] [cursor=pointer]:
+        - /url: other-cn
+      - group [ref=e281]:
+        - menuitem "Affix 固钉" [ref=e282] [cursor=pointer]:
+          - link "Affix 固钉" [ref=e284]:
+            - /url: /components/affix-cn
+        - menuitem "App 应用配置" [ref=e285] [cursor=pointer]:
+          - link "App 应用配置" [ref=e287]:
+            - /url: /components/app-cn
+        - menuitem "BorderBeam 边框流光 1.3.0" [ref=e288] [cursor=pointer]:
+          - generic [ref=e289]:
+            - link "BorderBeam 边框流光" [ref=e291]:
+              - /url: /components/border-beam-cn
+            - generic [ref=e293]: 1.3.0
+        - menuitem "ConfigProvider 全局化配置" [ref=e294] [cursor=pointer]:
+          - link "ConfigProvider 全局化配置" [ref=e296]:
+            - /url: /components/config-provider-cn
+    - generic [ref=e297]:
+      - generic [ref=e300]:
+        - link "何时使用" [ref=e302] [cursor=pointer]:
+          - /url: "#when-to-use"
+        - generic [ref=e303]:
+          - link "示例" [ref=e304] [cursor=pointer]:
+            - /url: "#examples"
+          - link "基本用法" [ref=e306] [cursor=pointer]:
+            - /url: "#image-demo-basic"
+          - link "容错处理" [ref=e308] [cursor=pointer]:
+            - /url: "#image-demo-fallback"
+          - link "渐进加载" [ref=e310] [cursor=pointer]:
+            - /url: "#image-demo-placeholder"
+          - link "多张图片预览" [ref=e312] [cursor=pointer]:
+            - /url: "#image-demo-preview-group"
+          - link "相册模式" [ref=e314] [cursor=pointer]:
+            - /url: "#image-demo-preview-group-visible"
+          - link "自定义预览图片" [ref=e316] [cursor=pointer]:
+            - /url: "#image-demo-previewSrc"
+          - link "受控的预览" [ref=e318] [cursor=pointer]:
+            - /url: "#image-demo-controlled-preview"
+          - link "自定义工具栏" [ref=e320] [cursor=pointer]:
+            - /url: "#image-demo-toolbarRender"
+          - link "自定义预览内容" [ref=e322] [cursor=pointer]:
+            - /url: "#image-demo-imageRender"
+          - link "预览遮罩" [ref=e324] [cursor=pointer]:
+            - /url: "#image-demo-mask"
+          - link "自定义语义结构的样式和类" [ref=e326] [cursor=pointer]:
+            - /url: "#image-demo-style-class"
+          - link "嵌套" [ref=e328] [cursor=pointer]:
+            - /url: "#image-demo-nested"
+        - generic [ref=e329]:
+          - link "API" [ref=e330] [cursor=pointer]:
+            - /url: "#api"
+          - link "属性" [ref=e332] [cursor=pointer]:
+            - /url: "#属性"
+          - link "事件" [ref=e334] [cursor=pointer]:
+            - /url: "#events"
+          - link "插槽" [ref=e336] [cursor=pointer]:
+            - /url: "#slots"
+          - link "PreviewType" [ref=e338] [cursor=pointer]:
+            - /url: "#previewtype"
+          - link "PreviewGroup" [ref=e340] [cursor=pointer]:
+            - /url: "#previewgroup"
+          - link "PreviewGroupType" [ref=e342] [cursor=pointer]:
+            - /url: "#previewgrouptype"
+        - generic [ref=e343]:
+          - link "Interface" [ref=e344] [cursor=pointer]:
+            - /url: "#interface"
+          - link "TransformType" [ref=e346] [cursor=pointer]:
+            - /url: "#transformtype"
+          - link "TransformAction" [ref=e348] [cursor=pointer]:
+            - /url: "#transformaction"
+          - link "ToolbarRenderInfoType" [ref=e350] [cursor=pointer]:
+            - /url: "#toolbarrenderinfotype"
+          - link "ImgInfo" [ref=e352] [cursor=pointer]:
+            - /url: "#imginfo"
+          - link "CoverConfig" [ref=e354] [cursor=pointer]:
+            - /url: "#coverconfig"
+        - link "语义化 DOM" [ref=e356] [cursor=pointer]:
+          - /url: "#semantic-dom"
+        - link "主题变量（Design Token）" [ref=e358] [cursor=pointer]:
+          - /url: "#主题变量-design-token"
+      - article [ref=e359]:
+        - heading "Image 图片 edit" [level=1] [ref=e360]:
+          - generic [ref=e361]:
+            - generic [ref=e362]: Image
+            - generic [ref=e363]: 图片
+            - link "edit" [ref=e365] [cursor=pointer]:
+              - /url: https://github.com/antdv-next/antdv-next/edit/main/docs/src/pages/components/image/index.zh-CN.md
+              - img "edit" [ref=e366]:
+                - img [ref=e367]
+        - text: 可预览的图片。
+        - generic [ref=e370]:
+          - heading [level=3] [ref=e371]
+          - list [ref=e372]:
+            - listitem [ref=e373]
+            - listitem [ref=e374]
+            - listitem [ref=e375]
+            - listitem [ref=e376]
+            - listitem [ref=e377]
+        - generic [ref=e378]:
+          - generic [ref=e379]:
+            - img "left" [ref=e380]:
+              - img [ref=e381]
+            - link "Empty 空状态" [ref=e383] [cursor=pointer]:
+              - /url: /components/empty-cn
+          - generic [ref=e384]:
+            - link "Popover 气泡卡片" [ref=e385] [cursor=pointer]:
+              - /url: /components/popover-cn
+            - img "right" [ref=e386]:
+              - img [ref=e387]
+      - generic [ref=e389]:
+        - generic [ref=e391]:
+          - generic [ref=e393]:
+            - heading "相关资源" [level=2] [ref=e394]
+            - link "Ant Design of React" [ref=e396] [cursor=pointer]:
+              - /url: https://ant.design/docs/react/introduce-cn
+            - link "Ant Design of Angular" [ref=e398] [cursor=pointer]:
+              - /url: https://ng.ant.design/docs/introduce/zh
+            - link "Antdv Next X" [ref=e400] [cursor=pointer]:
+              - /url: https://x.antdv-next.com/
+          - generic [ref=e402]:
+            - heading "社区" [level=2] [ref=e403]
+            - link "Change Log" [ref=e405] [cursor=pointer]:
+              - /url: https://github.com/antdv-next/antdv-next/releases
+            - link "Bug Report" [ref=e407] [cursor=pointer]:
+              - /url: https://github.com/antdv-next/antdv-next/issues
+          - generic [ref=e409]:
+            - heading "友链" [level=2] [ref=e410]
+            - link "Vue" [ref=e412] [cursor=pointer]:
+              - /url: https://vuejs.org/
+            - link "Vue Router" [ref=e414] [cursor=pointer]:
+              - /url: https://router.vuejs.org/
+            - link "Pinia" [ref=e416] [cursor=pointer]:
+              - /url: https://pinia.vuejs.org/
+            - link "Vite" [ref=e418] [cursor=pointer]:
+              - /url: https://vitejs.dev/
+            - link "Fantastic-admin" [ref=e420] [cursor=pointer]:
+              - /url: https://fantastic-admin.hurui.me/
+        - generic [ref=e422]:
+          - generic [ref=e423]: Made with ❤ by
+          - generic [ref=e424]: Antdv Next Team
+          - link "鲁ICP备2023021414号-3" [ref=e425] [cursor=pointer]:
+            - /url: https://beian.miit.gov.cn/
+  - button "wechat" [ref=e428] [cursor=pointer]:
+    - img "wechat" [ref=e430]:
+      - img [ref=e431]

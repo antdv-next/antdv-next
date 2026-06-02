@@ -239,7 +239,15 @@ async function loadIndexData(targetLocale: Locale) {
     : '/search.en.json'
   const response = await fetch(fileUrl)
   if (!response.ok)
-    throw new Error(`Failed to load ${targetLocale} search index`)
+    throw new Error(`Failed to load ${targetLocale} search index (HTTP ${response.status})`)
+  // 防止将 HTML 回退页当作 JSON 解析
+  const contentType = response.headers.get('content-type') || ''
+  if (!contentType.includes('application/json') && !contentType.includes('text/json')) {
+    throw new Error(
+      `Search index for ${targetLocale} returned non-JSON content. `
+      + `Run "pnpm -F docs run gen:search" to generate it.`,
+    )
+  }
   return await response.json() as SearchIndexPayload
 }
 
@@ -253,14 +261,19 @@ async function ensureIndex(targetLocale: Locale) {
     return loadingPromise
 
   const promise = (async () => {
-    const payload = await loadIndexData(targetLocale)
-    const index = markRaw(createIndex(targetLocale))
-    for (const [key, data] of Object.entries(payload.index))
-      index.import(key, data)
+    try {
+      const payload = await loadIndexData(targetLocale)
+      const index = markRaw(createIndex(targetLocale))
+      for (const [key, data] of Object.entries(payload.index))
+        index.import(key, data)
 
-    indexCache.set(targetLocale, index)
-    indexLoading.delete(targetLocale)
-    return index
+      indexCache.set(targetLocale, index)
+      return index
+    }
+    finally {
+      // 加载失败时清除 loading 状态，允许后续重试
+      indexLoading.delete(targetLocale)
+    }
   })()
 
   indexLoading.set(targetLocale, promise)
@@ -371,10 +384,15 @@ function handleInput(value: string) {
   runSearch(value)
 }
 
+function handleInputEvent(e: Event) {
+  handleInput((e.target as HTMLInputElement).value)
+}
+
 function handleFocus() {
   if (searchValue.value.trim() && results.value.length)
     open.value = true
-  void ensureIndex(locale.value)
+  // 预加载搜索索引，失败时静默忽略（用户输入时会再次尝试）
+  ensureIndex(locale.value).catch(() => {})
 }
 
 function handleSelect(item: SearchResultItem) {
@@ -455,7 +473,7 @@ watch(
       :value="searchValue"
       class="ant-doc-search-bar-input"
       :placeholder="t('ui.docSearch.placeholder')"
-      @input="handleInput(($event.target as HTMLInputElement).value)"
+      @input="handleInputEvent"
       @focus="handleFocus"
       @keydown="handleKeydown"
     >

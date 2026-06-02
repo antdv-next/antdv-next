@@ -1,0 +1,1569 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - heading "logo Antdv Next" [level=1] [ref=e7]:
+        - link "logo Antdv Next" [ref=e8] [cursor=pointer]:
+          - /url: /
+          - img "logo" [ref=e9]
+          - generic [ref=e10]: Antdv Next
+      - generic [ref=e12]:
+        - generic [ref=e14]:
+          - img [ref=e15]
+          - textbox "输入关键字搜索..." [ref=e17]
+        - menu [ref=e18]:
+          - menuitem "研发" [ref=e19] [cursor=pointer]:
+            - generic [ref=e20]: 研发
+          - menuitem "组件" [ref=e21] [cursor=pointer]:
+            - generic [ref=e22]: 组件
+          - menuitem "博客" [ref=e23] [cursor=pointer]:
+            - generic [ref=e24]: 博客
+          - generic:
+            - link:
+              - /url: https://play.antdv-next.com
+              - text: Playground
+          - generic: 赞助
+          - menuitem "..." [ref=e25] [cursor=pointer]
+        - generic "Sponsors" [ref=e26]:
+          - link "Antdv Next" [ref=e27] [cursor=pointer]:
+            - /url: https://github.com/antdv-next/antdv-next
+            - img "Antdv Next" [ref=e28]
+        - generic [ref=e29] [cursor=pointer]:
+          - generic "1.3.2-beta.1" [ref=e30]:
+            - text: 1.3.2-beta.1
+            - combobox [ref=e31]
+          - img "down" [ref=e33]:
+            - img [ref=e34]
+        - button "中 En" [ref=e36] [cursor=pointer]:
+          - generic [ref=e38]:
+            - generic [ref=e39]: 中
+            - generic [ref=e40]: En
+        - button [ref=e41] [cursor=pointer]:
+          - img [ref=e43]:
+            - img "Direction Icon" [ref=e44]
+        - button [ref=e46] [cursor=pointer]:
+          - img [ref=e48]
+        - link "github" [ref=e52] [cursor=pointer]:
+          - /url: https://github.com/antdv-next/antdv-next
+          - button "github" [ref=e53]:
+            - img "github" [ref=e55]:
+              - img [ref=e56]
+  - main [ref=e58]:
+    - menu [ref=e60]:
+      - menuitem "组件总览" [ref=e61] [cursor=pointer]:
+        - link "组件总览" [ref=e63]:
+          - /url: /components/overview-cn
+      - menuitem "更新日志 v1.3.2-beta.1" [ref=e64] [cursor=pointer]:
+        - generic [ref=e65]:
+          - link "更新日志" [ref=e67]:
+            - /url: /components/changelog-cn
+          - generic [ref=e69]: v1.3.2-beta.1
+      - link "通用" [ref=e70] [cursor=pointer]:
+        - /url: general-cn
+      - group [ref=e71]:
+        - menuitem "Button 按钮" [ref=e72] [cursor=pointer]:
+          - link "Button 按钮" [ref=e74]:
+            - /url: /components/button-cn
+        - menuitem "FloatButton 悬浮按钮" [ref=e75] [cursor=pointer]:
+          - link "FloatButton 悬浮按钮" [ref=e77]:
+            - /url: /components/float-button-cn
+        - menuitem "Icon 图标" [ref=e78] [cursor=pointer]:
+          - link "Icon 图标" [ref=e80]:
+            - /url: /components/icon-cn
+        - menuitem "Typography 排版" [ref=e81] [cursor=pointer]:
+          - link "Typography 排版" [ref=e83]:
+            - /url: /components/typography-cn
+      - link "布局" [ref=e84] [cursor=pointer]:
+        - /url: layoutGroup-cn
+      - group [ref=e85]:
+        - menuitem "Divider 分割线" [ref=e86] [cursor=pointer]:
+          - link "Divider 分割线" [ref=e88]:
+            - /url: /components/divider-cn
+        - menuitem "Flex 弹性布局" [ref=e89] [cursor=pointer]:
+          - link "Flex 弹性布局" [ref=e91]:
+            - /url: /components/flex-cn
+        - menuitem "Grid 栅格" [ref=e92] [cursor=pointer]:
+          - link "Grid 栅格" [ref=e94]:
+            - /url: /components/grid-cn
+        - menuitem "Layout 布局" [ref=e95] [cursor=pointer]:
+          - link "Layout 布局" [ref=e97]:
+            - /url: /components/layout-cn
+        - menuitem "Masonry 瀑布流" [ref=e98] [cursor=pointer]:
+          - link "Masonry 瀑布流" [ref=e100]:
+            - /url: /components/masonry-cn
+        - menuitem "Space 间距" [ref=e101] [cursor=pointer]:
+          - link "Space 间距" [ref=e103]:
+            - /url: /components/space-cn
+        - menuitem "Splitter 面板分割" [ref=e104] [cursor=pointer]:
+          - link "Splitter 面板分割" [ref=e106]:
+            - /url: /components/splitter-cn
+      - link "导航" [ref=e107] [cursor=pointer]:
+        - /url: navigation-cn
+      - group [ref=e108]:
+        - menuitem "Anchor 锚点" [ref=e109] [cursor=pointer]:
+          - link "Anchor 锚点" [ref=e111]:
+            - /url: /components/anchor-cn
+        - menuitem "Breadcrumb 面包屑" [ref=e112] [cursor=pointer]:
+          - link "Breadcrumb 面包屑" [ref=e114]:
+            - /url: /components/breadcrumb-cn
+        - menuitem "Dropdown 下拉菜单" [ref=e115] [cursor=pointer]:
+          - link "Dropdown 下拉菜单" [ref=e117]:
+            - /url: /components/dropdown-cn
+        - menuitem "Menu 导航菜单" [ref=e118] [cursor=pointer]:
+          - link "Menu 导航菜单" [ref=e120]:
+            - /url: /components/menu-cn
+        - menuitem "Pagination 分页" [ref=e121] [cursor=pointer]:
+          - link "Pagination 分页" [ref=e123]:
+            - /url: /components/pagination-cn
+        - menuitem "Steps 步骤条" [ref=e124] [cursor=pointer]:
+          - link "Steps 步骤条" [ref=e126]:
+            - /url: /components/steps-cn
+        - menuitem "Tabs 标签页" [ref=e127] [cursor=pointer]:
+          - link "Tabs 标签页" [ref=e129]:
+            - /url: /components/tabs-cn
+      - link "数据录入" [ref=e130] [cursor=pointer]:
+        - /url: data-entry-cn
+      - group [ref=e131]:
+        - menuitem "AutoComplete 自动完成" [ref=e132] [cursor=pointer]:
+          - link "AutoComplete 自动完成" [ref=e134]:
+            - /url: /components/auto-complete-cn
+        - menuitem "Cascader 级联选择" [ref=e135] [cursor=pointer]:
+          - link "Cascader 级联选择" [ref=e137]:
+            - /url: /components/cascader-cn
+        - menuitem "Checkbox 多选框" [ref=e138] [cursor=pointer]:
+          - link "Checkbox 多选框" [ref=e140]:
+            - /url: /components/checkbox-cn
+        - menuitem "ColorPicker 颜色选择器" [ref=e141] [cursor=pointer]:
+          - link "ColorPicker 颜色选择器" [ref=e143]:
+            - /url: /components/color-picker-cn
+        - menuitem "DatePicker 日期选择器" [ref=e144] [cursor=pointer]:
+          - link "DatePicker 日期选择器" [ref=e146]:
+            - /url: /components/date-picker-cn
+        - menuitem "Form 表单" [ref=e147] [cursor=pointer]:
+          - link "Form 表单" [ref=e149]:
+            - /url: /components/form-cn
+        - menuitem "Input 输入框" [ref=e150] [cursor=pointer]:
+          - link "Input 输入框" [ref=e152]:
+            - /url: /components/input-cn
+        - menuitem "InputNumber 数字输入框" [ref=e153] [cursor=pointer]:
+          - link "InputNumber 数字输入框" [ref=e155]:
+            - /url: /components/input-number-cn
+        - menuitem "Mentions 提及" [ref=e156] [cursor=pointer]:
+          - link "Mentions 提及" [ref=e158]:
+            - /url: /components/mentions-cn
+        - menuitem "Radio 单选框" [ref=e159] [cursor=pointer]:
+          - link "Radio 单选框" [ref=e161]:
+            - /url: /components/radio-cn
+        - menuitem "Rate 评分" [ref=e162] [cursor=pointer]:
+          - link "Rate 评分" [ref=e164]:
+            - /url: /components/rate-cn
+        - menuitem "Select 选择器" [ref=e165] [cursor=pointer]:
+          - link "Select 选择器" [ref=e167]:
+            - /url: /components/select-cn
+        - menuitem "Slider 滑动输入条" [ref=e168] [cursor=pointer]:
+          - link "Slider 滑动输入条" [ref=e170]:
+            - /url: /components/slider-cn
+        - menuitem "Switch 开关" [ref=e171] [cursor=pointer]:
+          - link "Switch 开关" [ref=e173]:
+            - /url: /components/switch-cn
+        - menuitem "TimePicker 时间选择器" [ref=e174] [cursor=pointer]:
+          - link "TimePicker 时间选择器" [ref=e176]:
+            - /url: /components/time-picker-cn
+        - menuitem "Transfer 穿梭框" [ref=e177] [cursor=pointer]:
+          - link "Transfer 穿梭框" [ref=e179]:
+            - /url: /components/transfer-cn
+        - menuitem "TreeSelect 树选择" [ref=e180] [cursor=pointer]:
+          - link "TreeSelect 树选择" [ref=e182]:
+            - /url: /components/tree-select-cn
+        - menuitem "Upload 上传" [ref=e183] [cursor=pointer]:
+          - link "Upload 上传" [ref=e185]:
+            - /url: /components/upload-cn
+      - link "数据展示" [ref=e186] [cursor=pointer]:
+        - /url: data-display-cn
+      - group [ref=e187]:
+        - menuitem "Avatar 头像" [ref=e188] [cursor=pointer]:
+          - link "Avatar 头像" [ref=e190]:
+            - /url: /components/avatar-cn
+        - menuitem "Badge 徽标数" [ref=e191] [cursor=pointer]:
+          - link "Badge 徽标数" [ref=e193]:
+            - /url: /components/badge-cn
+        - menuitem "Calendar 日历" [ref=e194] [cursor=pointer]:
+          - link "Calendar 日历" [ref=e196]:
+            - /url: /components/calendar-cn
+        - menuitem "Card 卡片" [ref=e197] [cursor=pointer]:
+          - link "Card 卡片" [ref=e199]:
+            - /url: /components/card-cn
+        - menuitem "Carousel 走马灯" [ref=e200] [cursor=pointer]:
+          - link "Carousel 走马灯" [ref=e202]:
+            - /url: /components/carousel-cn
+        - menuitem "Collapse 折叠面板" [ref=e203] [cursor=pointer]:
+          - link "Collapse 折叠面板" [ref=e205]:
+            - /url: /components/collapse-cn
+        - menuitem "Descriptions 描述列表" [ref=e206] [cursor=pointer]:
+          - link "Descriptions 描述列表" [ref=e208]:
+            - /url: /components/descriptions-cn
+        - menuitem "Empty 空状态" [ref=e209] [cursor=pointer]:
+          - link "Empty 空状态" [ref=e211]:
+            - /url: /components/empty-cn
+        - menuitem "Image 图片" [ref=e212] [cursor=pointer]:
+          - link "Image 图片" [ref=e214]:
+            - /url: /components/image-cn
+        - menuitem "Popover 气泡卡片" [ref=e215] [cursor=pointer]:
+          - link "Popover 气泡卡片" [ref=e217]:
+            - /url: /components/popover-cn
+        - menuitem "QRCode 二维码" [ref=e218] [cursor=pointer]:
+          - link "QRCode 二维码" [ref=e220]:
+            - /url: /components/qr-code-cn
+        - menuitem "Segmented 分段控制器" [ref=e221] [cursor=pointer]:
+          - link "Segmented 分段控制器" [ref=e223]:
+            - /url: /components/segmented-cn
+        - menuitem "Statistic 统计数值" [ref=e224] [cursor=pointer]:
+          - link "Statistic 统计数值" [ref=e226]:
+            - /url: /components/statistic-cn
+        - menuitem "Table 表格" [ref=e227] [cursor=pointer]:
+          - link "Table 表格" [ref=e229]:
+            - /url: /components/table-cn
+        - menuitem "Tag 标签" [ref=e230] [cursor=pointer]:
+          - link "Tag 标签" [ref=e232]:
+            - /url: /components/tag-cn
+        - menuitem "Timeline 时间轴" [ref=e233] [cursor=pointer]:
+          - link "Timeline 时间轴" [ref=e235]:
+            - /url: /components/timeline-cn
+        - menuitem "Tooltip 文字提示" [ref=e236] [cursor=pointer]:
+          - link "Tooltip 文字提示" [ref=e238]:
+            - /url: /components/tooltip-cn
+        - menuitem "Tour 漫游导览" [ref=e239] [cursor=pointer]:
+          - link "Tour 漫游导览" [ref=e241]:
+            - /url: /components/tour-cn
+        - menuitem "Tree 树形控件" [ref=e242] [cursor=pointer]:
+          - link "Tree 树形控件" [ref=e244]:
+            - /url: /components/tree-cn
+      - link "反馈" [ref=e245] [cursor=pointer]:
+        - /url: feedback-cn
+      - group [ref=e246]:
+        - menuitem "Alert 警告提示" [ref=e247] [cursor=pointer]:
+          - link "Alert 警告提示" [ref=e249]:
+            - /url: /components/alert-cn
+        - menuitem "Drawer 抽屉" [ref=e250] [cursor=pointer]:
+          - link "Drawer 抽屉" [ref=e252]:
+            - /url: /components/drawer-cn
+        - menuitem "Message 全局提示" [ref=e253] [cursor=pointer]:
+          - link "Message 全局提示" [ref=e255]:
+            - /url: /components/message-cn
+        - menuitem "Modal 对话框" [ref=e256] [cursor=pointer]:
+          - link "Modal 对话框" [ref=e258]:
+            - /url: /components/modal-cn
+        - menuitem "Notification 通知提醒框" [ref=e259] [cursor=pointer]:
+          - link "Notification 通知提醒框" [ref=e261]:
+            - /url: /components/notification-cn
+        - menuitem "Popconfirm 气泡确认框" [ref=e262] [cursor=pointer]:
+          - link "Popconfirm 气泡确认框" [ref=e264]:
+            - /url: /components/popconfirm-cn
+        - menuitem "Progress 进度条" [ref=e265] [cursor=pointer]:
+          - link "Progress 进度条" [ref=e267]:
+            - /url: /components/progress-cn
+        - menuitem "Result 结果" [ref=e268] [cursor=pointer]:
+          - link "Result 结果" [ref=e270]:
+            - /url: /components/result-cn
+        - menuitem "Skeleton 骨架屏" [ref=e271] [cursor=pointer]:
+          - link "Skeleton 骨架屏" [ref=e273]:
+            - /url: /components/skeleton-cn
+        - menuitem "Spin 加载中" [ref=e274] [cursor=pointer]:
+          - link "Spin 加载中" [ref=e276]:
+            - /url: /components/spin-cn
+        - menuitem "Watermark 水印" [ref=e277] [cursor=pointer]:
+          - link "Watermark 水印" [ref=e279]:
+            - /url: /components/watermark-cn
+      - link "其他" [ref=e280] [cursor=pointer]:
+        - /url: other-cn
+      - group [ref=e281]:
+        - menuitem "Affix 固钉" [ref=e282] [cursor=pointer]:
+          - link "Affix 固钉" [ref=e284]:
+            - /url: /components/affix-cn
+        - menuitem "App 应用配置" [ref=e285] [cursor=pointer]:
+          - link "App 应用配置" [ref=e287]:
+            - /url: /components/app-cn
+        - menuitem "BorderBeam 边框流光 1.3.0" [ref=e288] [cursor=pointer]:
+          - generic [ref=e289]:
+            - link "BorderBeam 边框流光" [ref=e291]:
+              - /url: /components/border-beam-cn
+            - generic [ref=e293]: 1.3.0
+        - menuitem "ConfigProvider 全局化配置" [ref=e294] [cursor=pointer]:
+          - link "ConfigProvider 全局化配置" [ref=e296]:
+            - /url: /components/config-provider-cn
+    - generic [ref=e297]:
+      - generic [ref=e300]:
+        - link "何时使用" [ref=e302] [cursor=pointer]:
+          - /url: "#when-to-use"
+        - generic [ref=e303]:
+          - link "示例" [ref=e304] [cursor=pointer]:
+            - /url: "#examples"
+          - link "基本用法" [ref=e306] [cursor=pointer]:
+            - /url: "#image-demo-basic"
+          - link "容错处理" [ref=e308] [cursor=pointer]:
+            - /url: "#image-demo-fallback"
+          - link "渐进加载" [ref=e310] [cursor=pointer]:
+            - /url: "#image-demo-placeholder"
+          - link "多张图片预览" [ref=e312] [cursor=pointer]:
+            - /url: "#image-demo-preview-group"
+          - link "相册模式" [ref=e314] [cursor=pointer]:
+            - /url: "#image-demo-preview-group-visible"
+          - link "自定义预览图片" [ref=e316] [cursor=pointer]:
+            - /url: "#image-demo-previewSrc"
+          - link "受控的预览" [ref=e318] [cursor=pointer]:
+            - /url: "#image-demo-controlled-preview"
+          - link "自定义工具栏" [ref=e320] [cursor=pointer]:
+            - /url: "#image-demo-toolbarRender"
+          - link "自定义预览内容" [ref=e322] [cursor=pointer]:
+            - /url: "#image-demo-imageRender"
+          - link "预览遮罩" [ref=e324] [cursor=pointer]:
+            - /url: "#image-demo-mask"
+          - link "自定义语义结构的样式和类" [ref=e326] [cursor=pointer]:
+            - /url: "#image-demo-style-class"
+          - link "嵌套" [ref=e328] [cursor=pointer]:
+            - /url: "#image-demo-nested"
+        - generic [ref=e329]:
+          - link "API" [ref=e330] [cursor=pointer]:
+            - /url: "#api"
+          - link "属性" [ref=e332] [cursor=pointer]:
+            - /url: "#属性"
+          - link "事件" [ref=e334] [cursor=pointer]:
+            - /url: "#events"
+          - link "插槽" [ref=e336] [cursor=pointer]:
+            - /url: "#slots"
+          - link "PreviewType" [ref=e338] [cursor=pointer]:
+            - /url: "#previewtype"
+          - link "PreviewGroup" [ref=e340] [cursor=pointer]:
+            - /url: "#previewgroup"
+          - link "PreviewGroupType" [ref=e342] [cursor=pointer]:
+            - /url: "#previewgrouptype"
+        - generic [ref=e343]:
+          - link "Interface" [ref=e344] [cursor=pointer]:
+            - /url: "#interface"
+          - link "TransformType" [ref=e346] [cursor=pointer]:
+            - /url: "#transformtype"
+          - link "TransformAction" [ref=e348] [cursor=pointer]:
+            - /url: "#transformaction"
+          - link "ToolbarRenderInfoType" [ref=e350] [cursor=pointer]:
+            - /url: "#toolbarrenderinfotype"
+          - link "ImgInfo" [ref=e352] [cursor=pointer]:
+            - /url: "#imginfo"
+          - link "CoverConfig" [ref=e354] [cursor=pointer]:
+            - /url: "#coverconfig"
+        - link "语义化 DOM" [ref=e356] [cursor=pointer]:
+          - /url: "#semantic-dom"
+        - link "主题变量（Design Token）" [ref=e358] [cursor=pointer]:
+          - /url: "#主题变量-design-token"
+      - article [ref=e359]:
+        - heading "Image 图片 edit" [level=1] [ref=e360]:
+          - generic [ref=e361]:
+            - generic [ref=e362]: Image
+            - generic [ref=e363]: 图片
+            - link "edit" [ref=e365] [cursor=pointer]:
+              - /url: https://github.com/antdv-next/antdv-next/edit/main/docs/src/pages/components/image/index.zh-CN.md
+              - img "edit" [ref=e366]:
+                - img [ref=e367]
+        - text: 可预览的图片。
+        - generic [ref=e433]:
+          - 'heading "何时使用 Permalink to \"何时使用 {#when-to-use}\"" [level=2] [ref=e434]':
+            - text: 何时使用
+            - 'link "Permalink to \"何时使用 {#when-to-use}\"" [ref=e435] [cursor=pointer]':
+              - /url: "#when-to-use"
+              - text: "#"
+          - list [ref=e436]:
+            - listitem [ref=e437]: 需要展示图片时使用。
+            - listitem [ref=e438]: 加载显示大图或加载失败时容错处理。
+          - 'heading "示例 Permalink to \"示例 {#examples}\"" [level=2] [ref=e439]':
+            - text: 示例
+            - 'link "Permalink to \"示例 {#examples}\"" [ref=e440] [cursor=pointer]':
+              - /url: "#examples"
+              - text: "#"
+          - generic [ref=e442]:
+            - generic [ref=e443]:
+              - button "basic" [ref=e445]:
+                - img "basic" [ref=e446]
+              - generic [ref=e448]:
+                - generic [ref=e449]:
+                  - link "基本用法" [ref=e450] [cursor=pointer]:
+                    - /url: "#image-demo-basic"
+                  - img "edit" [ref=e452] [cursor=pointer]:
+                    - img [ref=e453]
+                - paragraph [ref=e457]: 单击图像可以放大显示。
+                - generic [ref=e458]:
+                  - img "thunderbolt" [ref=e460] [cursor=pointer]:
+                    - img [ref=e461]
+                  - link [ref=e463] [cursor=pointer]:
+                    - /url: /~demos/image-demo-basic
+                    - img [ref=e464]:
+                      - img "External Link Icon" [ref=e465]
+                  - img "code" [ref=e469] [cursor=pointer]:
+                    - img [ref=e470]
+                  - img [ref=e473] [cursor=pointer]:
+                    - img "Expand Icon" [ref=e474]
+            - generic [ref=e476]:
+              - button "basic image" [ref=e478]:
+                - img "basic image" [ref=e479]
+              - generic [ref=e481]:
+                - generic [ref=e482]:
+                  - link "容错处理" [ref=e483] [cursor=pointer]:
+                    - /url: "#image-demo-fallback"
+                  - img "edit" [ref=e485] [cursor=pointer]:
+                    - img [ref=e486]
+                - paragraph [ref=e490]: 加载失败显示图像占位符。
+                - generic [ref=e491]:
+                  - img "thunderbolt" [ref=e493] [cursor=pointer]:
+                    - img [ref=e494]
+                  - link [ref=e496] [cursor=pointer]:
+                    - /url: /~demos/image-demo-fallback
+                    - img [ref=e497]:
+                      - img "External Link Icon" [ref=e498]
+                  - img "code" [ref=e502] [cursor=pointer]:
+                    - img [ref=e503]
+                  - img [ref=e506] [cursor=pointer]:
+                    - img "Expand Icon" [ref=e507]
+            - generic [ref=e509]:
+              - generic [ref=e511]:
+                - button "basic image" [ref=e513]:
+                  - img "basic image" [ref=e514]
+                - button "Reload" [ref=e517] [cursor=pointer]:
+                  - generic [ref=e518]: Reload
+              - generic [ref=e519]:
+                - generic [ref=e520]:
+                  - link "渐进加载" [ref=e521] [cursor=pointer]:
+                    - /url: "#image-demo-placeholder"
+                  - img "edit" [ref=e523] [cursor=pointer]:
+                    - img [ref=e524]
+                - paragraph [ref=e528]: 大图使用 placeholder 渐进加载。
+                - generic [ref=e529]:
+                  - img "thunderbolt" [ref=e531] [cursor=pointer]:
+                    - img [ref=e532]
+                  - link [ref=e534] [cursor=pointer]:
+                    - /url: /~demos/image-demo-placeholder
+                    - img [ref=e535]:
+                      - img "External Link Icon" [ref=e536]
+                  - img "code" [ref=e540] [cursor=pointer]:
+                    - img [ref=e541]
+                  - img [ref=e544] [cursor=pointer]:
+                    - img "Expand Icon" [ref=e545]
+            - generic [ref=e547]:
+              - generic [ref=e548]:
+                - button "svg image" [ref=e549]:
+                  - img "svg image" [ref=e550]
+                - button "svg image" [ref=e552]:
+                  - img "svg image" [ref=e553]
+              - generic [ref=e555]:
+                - generic [ref=e556]:
+                  - link "多张图片预览" [ref=e557] [cursor=pointer]:
+                    - /url: "#image-demo-preview-group"
+                  - img "edit" [ref=e559] [cursor=pointer]:
+                    - img [ref=e560]
+                - paragraph [ref=e564]: 点击左右切换按钮可以预览多张图片。
+                - generic [ref=e565]:
+                  - img "thunderbolt" [ref=e567] [cursor=pointer]:
+                    - img [ref=e568]
+                  - link [ref=e570] [cursor=pointer]:
+                    - /url: /~demos/image-demo-preview-group
+                    - img [ref=e571]:
+                      - img "External Link Icon" [ref=e572]
+                  - img "code" [ref=e576] [cursor=pointer]:
+                    - img [ref=e577]
+                  - img [ref=e580] [cursor=pointer]:
+                    - img "Expand Icon" [ref=e581]
+            - generic [ref=e583]:
+              - button "webp image" [ref=e585]:
+                - img "webp image" [ref=e586]
+              - generic [ref=e588]:
+                - generic [ref=e589]:
+                  - link "相册模式" [ref=e590] [cursor=pointer]:
+                    - /url: "#image-demo-preview-group-visible"
+                  - img "edit" [ref=e592] [cursor=pointer]:
+                    - img [ref=e593]
+                - paragraph [ref=e597]: 从一张图片点开相册。
+                - generic [ref=e598]:
+                  - img "thunderbolt" [ref=e600] [cursor=pointer]:
+                    - img [ref=e601]
+                  - link [ref=e603] [cursor=pointer]:
+                    - /url: /~demos/image-demo-preview-group-visible
+                    - img [ref=e604]:
+                      - img "External Link Icon" [ref=e605]
+                  - img "code" [ref=e609] [cursor=pointer]:
+                    - img [ref=e610]
+                  - img [ref=e613] [cursor=pointer]:
+                    - img "Expand Icon" [ref=e614]
+            - generic [ref=e616]:
+              - button "basic image" [ref=e618]:
+                - img "basic image" [ref=e619]
+              - generic [ref=e621]:
+                - generic [ref=e622]:
+                  - link "自定义预览图片" [ref=e623] [cursor=pointer]:
+                    - /url: "#image-demo-previewSrc"
+                  - img "edit" [ref=e625] [cursor=pointer]:
+                    - img [ref=e626]
+                - paragraph [ref=e630]: 可以设置不同的预览图片。
+                - generic [ref=e631]:
+                  - img "thunderbolt" [ref=e633] [cursor=pointer]:
+                    - img [ref=e634]
+                  - link [ref=e636] [cursor=pointer]:
+                    - /url: /~demos/image-demo-previewSrc
+                    - img [ref=e637]:
+                      - img "External Link Icon" [ref=e638]
+                  - img "code" [ref=e642] [cursor=pointer]:
+                    - img [ref=e643]
+                  - img [ref=e646] [cursor=pointer]:
+                    - img "Expand Icon" [ref=e647]
+            - generic [ref=e649]:
+              - generic [ref=e650]:
+                - generic [ref=e651]:
+                  - text: "scaleStep: 0.5"
+                  - generic [ref=e652]:
+                    - spinbutton [ref=e653]: "0.5"
+                    - generic:
+                      - button "Increase Value" [ref=e654] [cursor=pointer]:
+                        - img "up" [ref=e655]:
+                          - img [ref=e656]
+                      - button "Decrease Value" [ref=e658] [cursor=pointer]:
+                        - img "down" [ref=e659]:
+                          - img [ref=e660]
+                - button "show image preview" [ref=e662] [cursor=pointer]:
+                  - generic [ref=e663]: show image preview
+                - button "basic image"
+              - generic [ref=e664]:
+                - generic [ref=e665]:
+                  - link "受控的预览" [ref=e666] [cursor=pointer]:
+                    - /url: "#image-demo-controlled-preview"
+                  - img "edit" [ref=e668] [cursor=pointer]:
+                    - img [ref=e669]
+                - paragraph [ref=e673]: 可以使预览受控。
+                - generic [ref=e674]:
+                  - img "thunderbolt" [ref=e676] [cursor=pointer]:
+                    - img [ref=e677]
+                  - link [ref=e679] [cursor=pointer]:
+                    - /url: /~demos/image-demo-controlled-preview
+                    - img [ref=e680]:
+                      - img "External Link Icon" [ref=e681]
+                  - img "code" [ref=e685] [cursor=pointer]:
+                    - img [ref=e686]
+                  - img [ref=e689] [cursor=pointer]:
+                    - img "Expand Icon" [ref=e690]
+            - generic [ref=e692]:
+              - generic [ref=e693]:
+                - button "image-0" [ref=e694]:
+                  - img "image-0" [ref=e695]
+                - button "image-1" [ref=e697]:
+                  - img "image-1" [ref=e698]
+              - generic [ref=e700]:
+                - generic [ref=e701]:
+                  - link "自定义工具栏" [ref=e702] [cursor=pointer]:
+                    - /url: "#image-demo-toolbarRender"
+                  - img "edit" [ref=e704] [cursor=pointer]:
+                    - img [ref=e705]
+                - paragraph [ref=e709]: 可以自定义工具栏并添加下载原图或翻转旋转后图片的按钮。
+                - generic [ref=e710]:
+                  - img "thunderbolt" [ref=e712] [cursor=pointer]:
+                    - img [ref=e713]
+                  - link [ref=e715] [cursor=pointer]:
+                    - /url: /~demos/image-demo-toolbarRender
+                    - img [ref=e716]:
+                      - img "External Link Icon" [ref=e717]
+                  - img "code" [ref=e721] [cursor=pointer]:
+                    - img [ref=e722]
+                  - img [ref=e725] [cursor=pointer]:
+                    - img "Expand Icon" [ref=e726]
+            - generic [ref=e728]:
+              - generic [ref=e729]:
+                - button "slot image" [ref=e730]:
+                  - img "slot image" [ref=e731]
+                - button "preview image" [ref=e733]:
+                  - img "preview image" [ref=e734]
+              - generic [ref=e736]:
+                - generic [ref=e737]:
+                  - link "自定义预览内容" [ref=e738] [cursor=pointer]:
+                    - /url: "#image-demo-imageRender"
+                  - img "edit" [ref=e740] [cursor=pointer]:
+                    - img [ref=e741]
+                - paragraph [ref=e745]: 可以自定义预览内容。
+                - generic [ref=e746]:
+                  - img "thunderbolt" [ref=e748] [cursor=pointer]:
+                    - img [ref=e749]
+                  - link [ref=e751] [cursor=pointer]:
+                    - /url: /~demos/image-demo-imageRender
+                    - img [ref=e752]:
+                      - img "External Link Icon" [ref=e753]
+                  - img "code" [ref=e757] [cursor=pointer]:
+                    - img [ref=e758]
+                  - img [ref=e761] [cursor=pointer]:
+                    - img "Expand Icon" [ref=e762]
+            - generic [ref=e764]:
+              - generic [ref=e765]:
+                - button "Default blur" [ref=e766]:
+                  - img "Default blur" [ref=e767]
+                  - generic [ref=e770] [cursor=pointer]: Default blur
+                - button "Dimmed mask" [ref=e771]:
+                  - img "Dimmed mask" [ref=e772]
+                  - generic [ref=e775] [cursor=pointer]: Dimmed mask
+                - button "No mask" [ref=e776]:
+                  - img "No mask" [ref=e777]
+                  - generic [ref=e780] [cursor=pointer]: No mask
+              - generic [ref=e781]:
+                - generic [ref=e782]:
+                  - link "预览遮罩" [ref=e783] [cursor=pointer]:
+                    - /url: "#image-demo-mask"
+                  - img "edit" [ref=e785] [cursor=pointer]:
+                    - img [ref=e786]
+                - paragraph [ref=e790]:
+                  - text: 遮罩效果，默认
+                  - code [ref=e791]: blur
+                  - text: 。
+                - generic [ref=e792]:
+                  - img "thunderbolt" [ref=e794] [cursor=pointer]:
+                    - img [ref=e795]
+                  - link [ref=e797] [cursor=pointer]:
+                    - /url: /~demos/image-demo-mask
+                    - img [ref=e798]:
+                      - img "External Link Icon" [ref=e799]
+                  - img "code" [ref=e803] [cursor=pointer]:
+                    - img [ref=e804]
+                  - img [ref=e807] [cursor=pointer]:
+                    - img "Expand Icon" [ref=e808]
+            - generic [ref=e810]:
+              - generic [ref=e812]:
+                - button "示例图片" [ref=e813]:
+                  - img "示例图片" [ref=e814]
+                - button "示例图片" [ref=e816]:
+                  - img "示例图片" [ref=e817]
+              - generic [ref=e819]:
+                - generic [ref=e820]:
+                  - link "自定义语义结构的样式和类" [ref=e821] [cursor=pointer]:
+                    - /url: "#image-demo-style-class"
+                  - img "edit" [ref=e823] [cursor=pointer]:
+                    - img [ref=e824]
+                - paragraph [ref=e828]:
+                  - text: 通过
+                  - code [ref=e829]: classes
+                  - text: 和
+                  - code [ref=e830]: styles
+                  - text: 传入对象/函数可以自定义 Image 的
+                  - link "语义化结构" [ref=e831] [cursor=pointer]:
+                    - /url: "#semantic-dom"
+                  - text: 样式。
+                - generic [ref=e832]:
+                  - img "thunderbolt" [ref=e834] [cursor=pointer]:
+                    - img [ref=e835]
+                  - link [ref=e837] [cursor=pointer]:
+                    - /url: /~demos/image-demo-style-class
+                    - img [ref=e838]:
+                      - img "External Link Icon" [ref=e839]
+                  - img "code" [ref=e843] [cursor=pointer]:
+                    - img [ref=e844]
+                  - img [ref=e847] [cursor=pointer]:
+                    - img "Expand Icon" [ref=e848]
+            - generic [ref=e850]:
+              - button "showModal" [ref=e852] [cursor=pointer]:
+                - generic [ref=e853]: showModal
+              - generic [ref=e854]:
+                - generic [ref=e855]:
+                  - link "嵌套" [ref=e856] [cursor=pointer]:
+                    - /url: "#image-demo-nested"
+                  - img "edit" [ref=e858] [cursor=pointer]:
+                    - img [ref=e859]
+                - paragraph [ref=e863]: 嵌套在弹框当中使用。
+                - generic [ref=e864]:
+                  - img "thunderbolt" [ref=e866] [cursor=pointer]:
+                    - img [ref=e867]
+                  - link [ref=e869] [cursor=pointer]:
+                    - /url: /~demos/image-demo-nested
+                    - img [ref=e870]:
+                      - img "External Link Icon" [ref=e871]
+                  - img "code" [ref=e875] [cursor=pointer]:
+                    - img [ref=e876]
+                  - img [ref=e879] [cursor=pointer]:
+                    - img "Expand Icon" [ref=e880]
+          - heading "API Permalink to \"API\"" [level=2] [ref=e882]:
+            - text: API
+            - link "Permalink to \"API\"" [ref=e883] [cursor=pointer]:
+              - /url: "#api"
+              - text: "#"
+          - heading "属性 Permalink to \"属性\"" [level=3] [ref=e884]:
+            - text: 属性
+            - link "Permalink to \"属性\"" [ref=e885] [cursor=pointer]:
+              - /url: "#属性"
+              - text: "#"
+          - paragraph [ref=e886]:
+            - text: 通用属性参考：
+            - link "通用属性" [ref=e887] [cursor=pointer]:
+              - /url: /docs/vue/common-props
+          - table [ref=e888]:
+            - rowgroup [ref=e889]:
+              - row "属性 说明 类型 默认值 版本" [ref=e890]:
+                - columnheader "属性" [ref=e891]
+                - columnheader "说明" [ref=e892]
+                - columnheader "类型" [ref=e893]
+                - columnheader "默认值" [ref=e894]
+                - columnheader "版本" [ref=e895]
+            - rowgroup [ref=e896]:
+              - row "preview 预览参数，为 false 时禁用 boolean | PreviewConfig true -" [ref=e897]:
+                - cell "preview" [ref=e898]
+                - cell "预览参数，为 false 时禁用" [ref=e899]:
+                  - text: 预览参数，为
+                  - code [ref=e900]: "false"
+                  - text: 时禁用
+                - cell "boolean | PreviewConfig" [ref=e901]
+                - cell "true" [ref=e902]
+                - cell "-" [ref=e903]
+              - row "wrapperStyle Deprecated. CSSProperties - -" [ref=e904]:
+                - cell "wrapperStyle" [ref=e905]
+                - cell "Deprecated." [ref=e906]
+                - cell "CSSProperties" [ref=e907]
+                - cell "-" [ref=e908]
+                - cell "-" [ref=e909]
+              - row "classes 用于自定义组件内部各语义化结构的 class，支持对象或函数 ImageClassNamesType - -" [ref=e910]:
+                - cell "classes" [ref=e911]
+                - cell "用于自定义组件内部各语义化结构的 class，支持对象或函数" [ref=e912]
+                - cell "ImageClassNamesType" [ref=e913]
+                - cell "-" [ref=e914]
+                - cell "-" [ref=e915]
+              - row "styles 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 ImageStylesType - -" [ref=e916]:
+                - cell "styles" [ref=e917]
+                - cell "用于自定义组件内部各语义化结构的行内 style，支持对象或函数" [ref=e918]
+                - cell "ImageStylesType" [ref=e919]
+                - cell "-" [ref=e920]
+                - cell "-" [ref=e921]
+              - row "rootClass - string - -" [ref=e922]:
+                - cell "rootClass" [ref=e923]
+                - cell "-" [ref=e924]
+                - cell "string" [ref=e925]
+                - cell "-" [ref=e926]
+                - cell "-" [ref=e927]
+              - row "alt 图像描述 string - _" [ref=e928]:
+                - cell "alt" [ref=e929]
+                - cell "图像描述" [ref=e930]
+                - cell "string" [ref=e931]
+                - cell "-" [ref=e932]
+                - cell "_" [ref=e933]
+              - row "height 图像高度 string | number - -" [ref=e934]:
+                - cell "height" [ref=e935]
+                - cell "图像高度" [ref=e936]
+                - cell "string | number" [ref=e937]
+                - cell "-" [ref=e938]
+                - cell "-" [ref=e939]
+              - row "src 图片地址 string - -" [ref=e940]:
+                - cell "src" [ref=e941]
+                - cell "图片地址" [ref=e942]
+                - cell "string" [ref=e943]
+                - cell "-" [ref=e944]
+                - cell "-" [ref=e945]
+              - row "width 图像宽度 string | number - -" [ref=e946]:
+                - cell "width" [ref=e947]
+                - cell "图像宽度" [ref=e948]
+                - cell "string | number" [ref=e949]
+                - cell "-" [ref=e950]
+                - cell "-" [ref=e951]
+          - paragraph [ref=e952]:
+            - text: 其他属性见
+            - link "<img>" [ref=e953] [cursor=pointer]:
+              - /url: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Attributes
+          - 'heading "事件 Permalink to \"事件 {#events}\"" [level=3] [ref=e954]':
+            - text: 事件
+            - 'link "Permalink to \"事件 {#events}\"" [ref=e955] [cursor=pointer]':
+              - /url: "#events"
+              - text: "#"
+          - table [ref=e956]:
+            - rowgroup [ref=e957]:
+              - row "事件 说明 类型 版本" [ref=e958]:
+                - columnheader "事件" [ref=e959]
+                - columnheader "说明" [ref=e960]
+                - columnheader "类型" [ref=e961]
+                - columnheader "版本" [ref=e962]
+            - rowgroup [ref=e963]:
+              - row "error 加载错误回调 NonNullable<VcImageProps[‘onError’]> -" [ref=e964]:
+                - cell "error" [ref=e965]
+                - cell "加载错误回调" [ref=e966]
+                - cell "NonNullable<VcImageProps[‘onError’]>" [ref=e967]
+                - cell "-" [ref=e968]
+              - row "click - NonNullable<VcImageProps[‘onClick’]> -" [ref=e969]:
+                - cell "click" [ref=e970]
+                - cell "-" [ref=e971]
+                - cell "NonNullable<VcImageProps[‘onClick’]>" [ref=e972]
+                - cell "-" [ref=e973]
+          - 'heading "插槽 Permalink to \"插槽 {#slots}\"" [level=3] [ref=e974]':
+            - text: 插槽
+            - 'link "Permalink to \"插槽 {#slots}\"" [ref=e975] [cursor=pointer]':
+              - /url: "#slots"
+              - text: "#"
+          - table [ref=e976]:
+            - rowgroup [ref=e977]:
+              - row "插槽 说明 类型 版本" [ref=e978]:
+                - columnheader "插槽" [ref=e979]
+                - columnheader "说明" [ref=e980]
+                - columnheader "类型" [ref=e981]
+                - columnheader "版本" [ref=e982]
+            - rowgroup [ref=e983]:
+              - row "fallback 加载失败容错地址 () => any -" [ref=e984]:
+                - cell "fallback" [ref=e985]
+                - cell "加载失败容错地址" [ref=e986]
+                - cell "() => any" [ref=e987]
+                - cell "-" [ref=e988]
+              - row "placeholder 加载占位，为 true 时使用默认占位 () => any -" [ref=e989]:
+                - cell "placeholder" [ref=e990]
+                - cell "加载占位，为 true 时使用默认占位" [ref=e991]:
+                  - text: 加载占位，为
+                  - code [ref=e992]: "true"
+                  - text: 时使用默认占位
+                - cell "() => any" [ref=e993]
+                - cell "-" [ref=e994]
+          - heading "PreviewType Permalink to \"PreviewType\"" [level=3] [ref=e995]:
+            - text: PreviewType
+            - link "Permalink to \"PreviewType\"" [ref=e996] [cursor=pointer]:
+              - /url: "#previewtype"
+              - text: "#"
+          - table [ref=e997]:
+            - rowgroup [ref=e998]:
+              - row "参数 说明 类型 默认值 版本" [ref=e999]:
+                - columnheader "参数" [ref=e1000]
+                - columnheader "说明" [ref=e1001]
+                - columnheader "类型" [ref=e1002]
+                - columnheader "默认值" [ref=e1003]
+                - columnheader "版本" [ref=e1004]
+            - rowgroup [ref=e1005]:
+              - 'row "actionsRender 自定义工具栏渲染 (originalNode: VNode, info: ToolbarRenderInfoType) => VNode - -" [ref=e1006]':
+                - cell "actionsRender" [ref=e1007]
+                - cell "自定义工具栏渲染" [ref=e1008]
+                - 'cell "(originalNode: VNode, info: ToolbarRenderInfoType) => VNode" [ref=e1009]'
+                - cell "-" [ref=e1010]
+                - cell "-" [ref=e1011]
+              - row "closeIcon 自定义关闭 Icon VNode - -" [ref=e1012]:
+                - cell "closeIcon" [ref=e1013]
+                - cell "自定义关闭 Icon" [ref=e1014]
+                - cell "VNode" [ref=e1015]
+                - cell "-" [ref=e1016]
+                - cell "-" [ref=e1017]
+              - row "cover 自定义预览遮罩 VNode | CoverConfig - -" [ref=e1018]:
+                - cell "cover" [ref=e1019]
+                - cell "自定义预览遮罩" [ref=e1020]
+                - cell "VNode | CoverConfig" [ref=e1021]:
+                  - text: VNode |
+                  - link "CoverConfig" [ref=e1022] [cursor=pointer]:
+                    - /url: "#coverconfig"
+                - cell "-" [ref=e1023]
+                - cell "-" [ref=e1024]
+              - row "getContainer 指定预览挂载的节点，但依旧为全屏展示，false 为挂载在当前位置 string | HTMLElement | (() => HTMLElement) | false - -" [ref=e1025]:
+                - cell "getContainer" [ref=e1026]
+                - cell "指定预览挂载的节点，但依旧为全屏展示，false 为挂载在当前位置" [ref=e1027]
+                - cell "string | HTMLElement | (() => HTMLElement) | false" [ref=e1028]
+                - cell "-" [ref=e1029]
+                - cell "-" [ref=e1030]
+              - 'row "imageRender 自定义预览内容 (originalNode: VNode, info: { transform: TransformType, image: ImgInfo }) => VNode - -" [ref=e1031]':
+                - cell "imageRender" [ref=e1032]
+                - cell "自定义预览内容" [ref=e1033]
+                - 'cell "(originalNode: VNode, info: { transform: TransformType, image: ImgInfo }) => VNode" [ref=e1034]':
+                  - text: "(originalNode: VNode, info: { transform:"
+                  - link "TransformType" [ref=e1035] [cursor=pointer]:
+                    - /url: "#transformtype"
+                  - text: ", image:"
+                  - link "ImgInfo" [ref=e1036] [cursor=pointer]:
+                    - /url: "#imginfo"
+                  - text: "}) => VNode"
+                - cell "-" [ref=e1037]
+                - cell "-" [ref=e1038]
+              - 'row "mask 预览遮罩效果 boolean | { enabled?: boolean, blur?: boolean } true -" [ref=e1039]':
+                - cell "mask" [ref=e1040]
+                - cell "预览遮罩效果" [ref=e1041]
+                - 'cell "boolean | { enabled?: boolean, blur?: boolean }" [ref=e1042]'
+                - cell "true" [ref=e1043]
+                - cell "-" [ref=e1044]
+              - row "maxScale 最大缩放倍数 number 50 -" [ref=e1045]:
+                - cell "maxScale" [ref=e1046]
+                - cell "最大缩放倍数" [ref=e1047]
+                - cell "number" [ref=e1048]
+                - cell "50" [ref=e1049]
+                - cell "-" [ref=e1050]
+              - row "minScale 最小缩放倍数 number 1 -" [ref=e1051]:
+                - cell "minScale" [ref=e1052]
+                - cell "最小缩放倍数" [ref=e1053]
+                - cell "number" [ref=e1054]
+                - cell "1" [ref=e1055]
+                - cell "-" [ref=e1056]
+              - row "movable 是否可移动 boolean true -" [ref=e1057]:
+                - cell "movable" [ref=e1058]
+                - cell "是否可移动" [ref=e1059]
+                - cell "boolean" [ref=e1060]
+                - cell "true" [ref=e1061]
+                - cell "-" [ref=e1062]
+              - row "open 是否显示预览 boolean - -" [ref=e1063]:
+                - cell "open" [ref=e1064]
+                - cell "是否显示预览" [ref=e1065]
+                - cell "boolean" [ref=e1066]
+                - cell "-" [ref=e1067]
+                - cell "-" [ref=e1068]
+              - row "rootClassName 预览图的根 DOM 类名，会同时作用在图片和预览层最外侧 string - -" [ref=e1069]:
+                - cell "rootClassName" [ref=e1070]
+                - cell "预览图的根 DOM 类名，会同时作用在图片和预览层最外侧" [ref=e1071]
+                - cell "string" [ref=e1072]
+                - cell "-" [ref=e1073]
+                - cell "-" [ref=e1074]
+              - row "scaleStep 1 + scaleStep 为缩放放大的每步倍数 number 0.5 -" [ref=e1075]:
+                - cell "scaleStep" [ref=e1076]
+                - cell "1 + scaleStep 为缩放放大的每步倍数" [ref=e1077]:
+                  - code [ref=e1078]: 1 + scaleStep
+                  - text: 为缩放放大的每步倍数
+                - cell "number" [ref=e1079]
+                - cell "0.5" [ref=e1080]
+                - cell "-" [ref=e1081]
+              - row "src 自定义预览 src string - -" [ref=e1082]:
+                - cell "src" [ref=e1083]
+                - cell "自定义预览 src" [ref=e1084]
+                - cell "string" [ref=e1085]
+                - cell "-" [ref=e1086]
+                - cell "-" [ref=e1087]
+              - row "styles 自定义语义化结构样式 Record<SemanticDOM, CSSProperties> - -" [ref=e1088]:
+                - cell "styles" [ref=e1089]
+                - cell "自定义语义化结构样式" [ref=e1090]
+                - cell "Record<SemanticDOM, CSSProperties>" [ref=e1091]:
+                  - text: Record<
+                  - link "SemanticDOM" [ref=e1092] [cursor=pointer]:
+                    - /url: "#semantic-dom"
+                  - text: ", CSSProperties>"
+                - cell "-" [ref=e1093]
+                - cell "-" [ref=e1094]
+              - 'row "onOpenChange 预览打开状态变化的回调 (visible: boolean) => void - -" [ref=e1095]':
+                - cell "onOpenChange" [ref=e1096]
+                - cell "预览打开状态变化的回调" [ref=e1097]
+                - 'cell "(visible: boolean) => void" [ref=e1098]'
+                - cell "-" [ref=e1099]
+                - cell "-" [ref=e1100]
+              - 'row "onTransform 预览图 transform 变化的回调 { transform: TransformType, action: TransformAction } - -" [ref=e1101]':
+                - cell "onTransform" [ref=e1102]
+                - cell "预览图 transform 变化的回调" [ref=e1103]
+                - 'cell "{ transform: TransformType, action: TransformAction }" [ref=e1104]':
+                  - text: "{ transform:"
+                  - link "TransformType" [ref=e1105] [cursor=pointer]:
+                    - /url: "#transformtype"
+                  - text: ", action:"
+                  - link "TransformAction" [ref=e1106] [cursor=pointer]:
+                    - /url: "#transformaction"
+                  - text: "}"
+                - cell "-" [ref=e1107]
+                - cell "-" [ref=e1108]
+          - heading "PreviewGroup Permalink to \"PreviewGroup\"" [level=3] [ref=e1109]:
+            - text: PreviewGroup
+            - link "Permalink to \"PreviewGroup\"" [ref=e1110] [cursor=pointer]:
+              - /url: "#previewgroup"
+              - text: "#"
+          - table [ref=e1111]:
+            - rowgroup [ref=e1112]:
+              - row "参数 说明 类型 默认值 版本" [ref=e1113]:
+                - columnheader "参数" [ref=e1114]
+                - columnheader "说明" [ref=e1115]
+                - columnheader "类型" [ref=e1116]
+                - columnheader "默认值" [ref=e1117]
+                - columnheader "版本" [ref=e1118]
+            - rowgroup [ref=e1119]:
+              - 'row "classes 用于自定义组件内部各语义化结构的 class，支持对象或函数 Record<SemanticDOM, string> | (info: { props })=> Record<SemanticDOM, string> - -" [ref=e1120]':
+                - cell "classes" [ref=e1121]
+                - cell "用于自定义组件内部各语义化结构的 class，支持对象或函数" [ref=e1122]
+                - 'cell "Record<SemanticDOM, string> | (info: { props })=> Record<SemanticDOM, string>" [ref=e1123]':
+                  - text: Record<
+                  - link "SemanticDOM" [ref=e1124] [cursor=pointer]:
+                    - /url: "#semantic-dom"
+                  - text: ", string> | (info: { props })=> Record<"
+                  - link "SemanticDOM" [ref=e1125] [cursor=pointer]:
+                    - /url: "#semantic-dom"
+                  - text: ", string>"
+                - cell "-" [ref=e1126]
+                - cell "-" [ref=e1127]
+              - row "fallback 加载失败容错地址 string - -" [ref=e1128]:
+                - cell "fallback" [ref=e1129]
+                - cell "加载失败容错地址" [ref=e1130]
+                - cell "string" [ref=e1131]
+                - cell "-" [ref=e1132]
+                - cell "-" [ref=e1133]
+              - 'row "items 预览数组 string[] | { src: string, crossOrigin: string, … }[] - -" [ref=e1134]':
+                - cell "items" [ref=e1135]
+                - cell "预览数组" [ref=e1136]
+                - 'cell "string[] | { src: string, crossOrigin: string, … }[]" [ref=e1137]'
+                - cell "-" [ref=e1138]
+                - cell "-" [ref=e1139]
+              - row "preview 预览参数，为 false 时禁用 boolean | PreviewGroupType true -" [ref=e1140]:
+                - cell "preview" [ref=e1141]
+                - cell "预览参数，为 false 时禁用" [ref=e1142]:
+                  - text: 预览参数，为
+                  - code [ref=e1143]: "false"
+                  - text: 时禁用
+                - cell "boolean | PreviewGroupType" [ref=e1144]:
+                  - text: boolean |
+                  - link "PreviewGroupType" [ref=e1145] [cursor=pointer]:
+                    - /url: "#previewgrouptype"
+                - cell "true" [ref=e1146]
+                - cell "-" [ref=e1147]
+          - heading "PreviewGroupType Permalink to \"PreviewGroupType\"" [level=3] [ref=e1148]:
+            - text: PreviewGroupType
+            - link "Permalink to \"PreviewGroupType\"" [ref=e1149] [cursor=pointer]:
+              - /url: "#previewgrouptype"
+              - text: "#"
+          - table [ref=e1150]:
+            - rowgroup [ref=e1151]:
+              - row "参数 说明 类型 默认值 版本" [ref=e1152]:
+                - columnheader "参数" [ref=e1153]
+                - columnheader "说明" [ref=e1154]
+                - columnheader "类型" [ref=e1155]
+                - columnheader "默认值" [ref=e1156]
+                - columnheader "版本" [ref=e1157]
+            - rowgroup [ref=e1158]:
+              - 'row "actionsRender 自定义工具栏渲染 (originalNode: VNode, info: ToolbarRenderInfoType) => VNode - -" [ref=e1159]':
+                - cell "actionsRender" [ref=e1160]
+                - cell "自定义工具栏渲染" [ref=e1161]
+                - 'cell "(originalNode: VNode, info: ToolbarRenderInfoType) => VNode" [ref=e1162]'
+                - cell "-" [ref=e1163]
+                - cell "-" [ref=e1164]
+              - row "closeIcon 自定义关闭 Icon VNode - -" [ref=e1165]:
+                - cell "closeIcon" [ref=e1166]
+                - cell "自定义关闭 Icon" [ref=e1167]
+                - cell "VNode" [ref=e1168]
+                - cell "-" [ref=e1169]
+                - cell "-" [ref=e1170]
+              - 'row "countRender 自定义预览计数内容 (current: number, total: number) => VNode - -" [ref=e1171]':
+                - cell "countRender" [ref=e1172]
+                - cell "自定义预览计数内容" [ref=e1173]
+                - 'cell "(current: number, total: number) => VNode" [ref=e1174]'
+                - cell "-" [ref=e1175]
+                - cell "-" [ref=e1176]
+              - row "current 当前预览图的 index number - -" [ref=e1177]:
+                - cell "current" [ref=e1178]
+                - cell "当前预览图的 index" [ref=e1179]
+                - cell "number" [ref=e1180]
+                - cell "-" [ref=e1181]
+                - cell "-" [ref=e1182]
+              - row "getContainer 指定预览挂载的节点，但依旧为全屏展示，false 为挂载在当前位置 string | HTMLElement | (() => HTMLElement) | false - -" [ref=e1183]:
+                - cell "getContainer" [ref=e1184]
+                - cell "指定预览挂载的节点，但依旧为全屏展示，false 为挂载在当前位置" [ref=e1185]
+                - cell "string | HTMLElement | (() => HTMLElement) | false" [ref=e1186]
+                - cell "-" [ref=e1187]
+                - cell "-" [ref=e1188]
+              - 'row "imageRender 自定义预览内容 (originalNode: VNode, info: { transform: TransformType, image: ImgInfo, current: number }) => VNode - -" [ref=e1189]':
+                - cell "imageRender" [ref=e1190]
+                - cell "自定义预览内容" [ref=e1191]
+                - 'cell "(originalNode: VNode, info: { transform: TransformType, image: ImgInfo, current: number }) => VNode" [ref=e1192]':
+                  - text: "(originalNode: VNode, info: { transform:"
+                  - link "TransformType" [ref=e1193] [cursor=pointer]:
+                    - /url: "#transformtype"
+                  - text: ", image:"
+                  - link "ImgInfo" [ref=e1194] [cursor=pointer]:
+                    - /url: "#imginfo"
+                  - text: ", current: number }) => VNode"
+                - cell "-" [ref=e1195]
+                - cell "-" [ref=e1196]
+              - 'row "mask 预览遮罩效果 boolean | { enabled?: boolean, blur?: boolean } true -" [ref=e1197]':
+                - cell "mask" [ref=e1198]
+                - cell "预览遮罩效果" [ref=e1199]
+                - 'cell "boolean | { enabled?: boolean, blur?: boolean }" [ref=e1200]'
+                - cell "true" [ref=e1201]
+                - cell "-" [ref=e1202]
+              - row "minScale 最小缩放倍数 number 1 -" [ref=e1203]:
+                - cell "minScale" [ref=e1204]
+                - cell "最小缩放倍数" [ref=e1205]
+                - cell "number" [ref=e1206]
+                - cell "1" [ref=e1207]
+                - cell "-" [ref=e1208]
+              - row "maxScale 最大放大倍数 number 50 -" [ref=e1209]:
+                - cell "maxScale" [ref=e1210]
+                - cell "最大放大倍数" [ref=e1211]
+                - cell "number" [ref=e1212]
+                - cell "50" [ref=e1213]
+                - cell "-" [ref=e1214]
+              - row "movable 是否可移动 boolean true -" [ref=e1215]:
+                - cell "movable" [ref=e1216]
+                - cell "是否可移动" [ref=e1217]
+                - cell "boolean" [ref=e1218]
+                - cell "true" [ref=e1219]
+                - cell "-" [ref=e1220]
+              - row "open 是否显示预览 boolean - -" [ref=e1221]:
+                - cell "open" [ref=e1222]
+                - cell "是否显示预览" [ref=e1223]
+                - cell "boolean" [ref=e1224]
+                - cell "-" [ref=e1225]
+                - cell "-" [ref=e1226]
+              - row "styles 自定义语义化结构样式 Record<SemanticDOM, CSSProperties> - -" [ref=e1227]:
+                - cell "styles" [ref=e1228]
+                - cell "自定义语义化结构样式" [ref=e1229]
+                - cell "Record<SemanticDOM, CSSProperties>" [ref=e1230]:
+                  - text: Record<
+                  - link "SemanticDOM" [ref=e1231] [cursor=pointer]:
+                    - /url: "#semantic-dom"
+                  - text: ", CSSProperties>"
+                - cell "-" [ref=e1232]
+                - cell "-" [ref=e1233]
+              - row "scaleStep 1 + scaleStep 为缩放放大的每步倍数 number 0.5 -" [ref=e1234]:
+                - cell "scaleStep" [ref=e1235]
+                - cell "1 + scaleStep 为缩放放大的每步倍数" [ref=e1236]:
+                  - code [ref=e1237]: 1 + scaleStep
+                  - text: 为缩放放大的每步倍数
+                - cell "number" [ref=e1238]
+                - cell "0.5" [ref=e1239]
+                - cell "-" [ref=e1240]
+              - 'row "onOpenChange 预览打开状态变化回调，额外携带当前预览图索引 (visible: boolean, info: { current: number }) => void - -" [ref=e1241]':
+                - cell "onOpenChange" [ref=e1242]
+                - cell "预览打开状态变化回调，额外携带当前预览图索引" [ref=e1243]
+                - 'cell "(visible: boolean, info: { current: number }) => void" [ref=e1244]'
+                - cell "-" [ref=e1245]
+                - cell "-" [ref=e1246]
+              - 'row "onChange 切换预览图的回调 (current: number, prevCurrent: number) => void - -" [ref=e1247]':
+                - cell "onChange" [ref=e1248]
+                - cell "切换预览图的回调" [ref=e1249]
+                - 'cell "(current: number, prevCurrent: number) => void" [ref=e1250]'
+                - cell "-" [ref=e1251]
+                - cell "-" [ref=e1252]
+              - 'row "onTransform 预览图 transform 变化的回调 { transform: TransformType, action: TransformAction } - -" [ref=e1253]':
+                - cell "onTransform" [ref=e1254]
+                - cell "预览图 transform 变化的回调" [ref=e1255]
+                - 'cell "{ transform: TransformType, action: TransformAction }" [ref=e1256]':
+                  - text: "{ transform:"
+                  - link "TransformType" [ref=e1257] [cursor=pointer]:
+                    - /url: "#transformtype"
+                  - text: ", action:"
+                  - link "TransformAction" [ref=e1258] [cursor=pointer]:
+                    - /url: "#transformaction"
+                  - text: "}"
+                - cell "-" [ref=e1259]
+                - cell "-" [ref=e1260]
+          - heading "Interface Permalink to \"Interface\"" [level=2] [ref=e1261]:
+            - text: Interface
+            - link "Permalink to \"Interface\"" [ref=e1262] [cursor=pointer]:
+              - /url: "#interface"
+              - text: "#"
+          - heading "TransformType Permalink to \"TransformType\"" [level=3] [ref=e1263]:
+            - text: TransformType
+            - link "Permalink to \"TransformType\"" [ref=e1264] [cursor=pointer]:
+              - /url: "#transformtype"
+              - text: "#"
+          - generic [ref=e1265]:
+            - button "Copy Code" [ref=e1266] [cursor=pointer]
+            - generic [ref=e1267]: typescript
+            - code [ref=e1269]:
+              - generic [ref=e1270]: "{"
+              - generic [ref=e1271]: "x: number"
+              - generic [ref=e1272]: "y: number"
+              - generic [ref=e1273]: "rotate: number"
+              - generic [ref=e1274]: "scale: number"
+              - generic [ref=e1275]: "flipX: boolean"
+              - generic [ref=e1276]: "flipY: boolean"
+              - generic [ref=e1277]: "}"
+          - heading "TransformAction Permalink to \"TransformAction\"" [level=3] [ref=e1278]:
+            - text: TransformAction
+            - link "Permalink to \"TransformAction\"" [ref=e1279] [cursor=pointer]:
+              - /url: "#transformaction"
+              - text: "#"
+          - generic [ref=e1280]:
+            - button "Copy Code" [ref=e1281] [cursor=pointer]
+            - generic [ref=e1282]: typescript
+            - code [ref=e1284]:
+              - generic [ref=e1285]: type TransformAction
+              - generic [ref=e1286]: = | 'flipY'
+              - generic [ref=e1287]: "| 'flipX'"
+              - generic [ref=e1288]: "| 'rotateLeft'"
+              - generic [ref=e1289]: "| 'rotateRight'"
+              - generic [ref=e1290]: "| 'zoomIn'"
+              - generic [ref=e1291]: "| 'zoomOut'"
+              - generic [ref=e1292]: "| 'close'"
+              - generic [ref=e1293]: "| 'prev'"
+              - generic [ref=e1294]: "| 'next'"
+              - generic [ref=e1295]: "| 'wheel'"
+              - generic [ref=e1296]: "| 'doubleClick'"
+              - generic [ref=e1297]: "| 'move'"
+              - generic [ref=e1298]: "| 'dragRebound'"
+              - generic [ref=e1299]: "| 'reset'"
+          - heading "ToolbarRenderInfoType Permalink to \"ToolbarRenderInfoType\"" [level=3] [ref=e1300]:
+            - text: ToolbarRenderInfoType
+            - link "Permalink to \"ToolbarRenderInfoType\"" [ref=e1301] [cursor=pointer]:
+              - /url: "#toolbarrenderinfotype"
+              - text: "#"
+          - generic [ref=e1302]:
+            - button "Copy Code" [ref=e1303] [cursor=pointer]
+            - generic [ref=e1304]: typescript
+            - code [ref=e1306]:
+              - generic [ref=e1307]: "{"
+              - generic [ref=e1308]: "icons: {"
+              - generic [ref=e1309]: "flipYIcon: VNode;"
+              - generic [ref=e1310]: "flipXIcon: VNode;"
+              - generic [ref=e1311]: "rotateLeftIcon: VNode;"
+              - generic [ref=e1312]: "rotateRightIcon: VNode;"
+              - generic [ref=e1313]: "zoomOutIcon: VNode;"
+              - generic [ref=e1314]: "zoomInIcon: VNode;"
+              - generic [ref=e1315]: "};"
+              - generic [ref=e1316]: "actions: {"
+              - generic [ref=e1317]: "onActive?: (index: number) => void;"
+              - generic [ref=e1318]: "onFlipY: () => void;"
+              - generic [ref=e1319]: "onFlipX: () => void;"
+              - generic [ref=e1320]: "onRotateLeft: () => void;"
+              - generic [ref=e1321]: "onRotateRight: () => void;"
+              - generic [ref=e1322]: "onZoomOut: () => void;"
+              - generic [ref=e1323]: "onZoomIn: () => void;"
+              - generic [ref=e1324]: "onReset: () => void;"
+              - generic [ref=e1325]: "onClose: () => void;"
+              - generic [ref=e1326]: "};"
+              - generic [ref=e1327]: "transform: TransformType,"
+              - generic [ref=e1328]: "current: number;"
+              - generic [ref=e1329]: "total: number;"
+              - generic [ref=e1330]: "image: ImgInfo"
+              - generic [ref=e1331]: "}"
+          - heading "ImgInfo Permalink to \"ImgInfo\"" [level=3] [ref=e1332]:
+            - text: ImgInfo
+            - link "Permalink to \"ImgInfo\"" [ref=e1333] [cursor=pointer]:
+              - /url: "#imginfo"
+              - text: "#"
+          - generic [ref=e1334]:
+            - button "Copy Code" [ref=e1335] [cursor=pointer]
+            - generic [ref=e1336]: typescript
+            - code [ref=e1338]:
+              - generic [ref=e1339]: "{"
+              - generic [ref=e1340]: "url: string"
+              - generic [ref=e1341]: "alt: string"
+              - generic [ref=e1342]: "width: string | number"
+              - generic [ref=e1343]: "height: string | number"
+              - generic [ref=e1344]: "}"
+          - heading "CoverConfig Permalink to \"CoverConfig\"" [level=3] [ref=e1345]:
+            - text: CoverConfig
+            - link "Permalink to \"CoverConfig\"" [ref=e1346] [cursor=pointer]:
+              - /url: "#coverconfig"
+              - text: "#"
+          - generic [ref=e1347]:
+            - button "Copy Code" [ref=e1348] [cursor=pointer]
+            - generic [ref=e1349]: typescript
+            - code [ref=e1351]:
+              - generic [ref=e1352]: "interface CoverConfig {"
+              - generic [ref=e1353]: "coverNode?: VNode // 自定义遮罩元素"
+              - generic [ref=e1354]: "placement?: 'top' | 'bottom' | 'center' // 设置预览遮罩显示的位置"
+              - generic [ref=e1355]: "};"
+          - 'heading "语义化 DOM Permalink to \"语义化 DOM {#semantic-dom}\"" [level=2] [ref=e1356]':
+            - text: 语义化 DOM
+            - 'link "Permalink to \"语义化 DOM {#semantic-dom}\"" [ref=e1357] [cursor=pointer]':
+              - /url: "#semantic-dom"
+              - text: "#"
+          - paragraph [ref=e1358]:
+            - generic [ref=e1362]:
+              - generic [ref=e1364]:
+                - button [ref=e1366]:
+                  - img [ref=e1367]
+                - dialog [ref=e1370]:
+                  - img [ref=e1372]
+                  - button "close" [active] [ref=e1373] [cursor=pointer]:
+                    - img "close" [ref=e1374]:
+                      - img [ref=e1375]
+                  - button "left" [ref=e1377]:
+                    - img "left" [ref=e1378]:
+                      - img [ref=e1379]
+                  - button "right" [ref=e1381] [cursor=pointer]:
+                    - img "right" [ref=e1382]:
+                      - img [ref=e1383]
+                  - generic [ref=e1385]:
+                    - generic [ref=e1386]: 1 / 2
+                    - generic [ref=e1387]:
+                      - button "flipY" [ref=e1388] [cursor=pointer]:
+                        - img "swap" [ref=e1389]:
+                          - img [ref=e1390]
+                      - button "flipX" [ref=e1392] [cursor=pointer]:
+                        - img "swap" [ref=e1393]:
+                          - img [ref=e1394]
+                      - button "rotateLeft" [ref=e1396] [cursor=pointer]:
+                        - img "rotate-left" [ref=e1397]:
+                          - img [ref=e1398]
+                      - button "rotateRight" [ref=e1401] [cursor=pointer]:
+                        - img "rotate-right" [ref=e1402]:
+                          - img [ref=e1403]
+                      - button "zoomOut" [disabled] [ref=e1406]:
+                        - img "zoom-out" [ref=e1407]:
+                          - img [ref=e1408]
+                      - button "zoomIn" [ref=e1410] [cursor=pointer]:
+                        - img "zoom-in" [ref=e1411]:
+                          - img [ref=e1412]
+              - list [ref=e1415]:
+                - listitem [ref=e1416] [cursor=pointer]:
+                  - generic [ref=e1417]:
+                    - generic [ref=e1418]:
+                      - heading "root" [level=5] [ref=e1420]
+                      - generic [ref=e1421]:
+                        - button "pushpin" [ref=e1422]:
+                          - img "pushpin" [ref=e1424]:
+                            - img [ref=e1425]
+                        - button "info-circle" [ref=e1427]:
+                          - img "info-circle" [ref=e1429]:
+                            - img [ref=e1430]
+                    - generic [ref=e1433]: 根元素，设置相对定位和行内块布局样式
+                - listitem [ref=e1434] [cursor=pointer]:
+                  - generic [ref=e1435]:
+                    - generic [ref=e1436]:
+                      - heading "image" [level=5] [ref=e1438]
+                      - generic [ref=e1439]:
+                        - button "pushpin" [ref=e1440]:
+                          - img "pushpin" [ref=e1442]:
+                            - img [ref=e1443]
+                        - button "info-circle" [ref=e1445]:
+                          - img "info-circle" [ref=e1447]:
+                            - img [ref=e1448]
+                    - generic [ref=e1451]: 图片元素，设置宽度、高度和垂直对齐样式
+                - listitem [ref=e1452] [cursor=pointer]:
+                  - generic [ref=e1453]:
+                    - generic [ref=e1454]:
+                      - heading "cover" [level=5] [ref=e1456]
+                      - generic [ref=e1457]:
+                        - button "pushpin" [ref=e1458]:
+                          - img "pushpin" [ref=e1460]:
+                            - img [ref=e1461]
+                        - button "info-circle" [ref=e1463]:
+                          - img "info-circle" [ref=e1465]:
+                            - img [ref=e1466]
+                    - generic [ref=e1469]: 悬浮图片显示的提示元素，设置绝对定位、背景色、透明度和过渡动画样式
+                - listitem [ref=e1470] [cursor=pointer]:
+                  - generic [ref=e1471]:
+                    - generic [ref=e1472]:
+                      - heading "popup.root" [level=5] [ref=e1474]
+                      - generic [ref=e1475]:
+                        - button "pushpin" [ref=e1476]:
+                          - img "pushpin" [ref=e1478]:
+                            - img [ref=e1479]
+                        - button "info-circle" [ref=e1481]:
+                          - img "info-circle" [ref=e1483]:
+                            - img [ref=e1484]
+                    - generic [ref=e1487]: 预览根元素，设置固定定位、层级和背景遮罩样式
+                - listitem [ref=e1488] [cursor=pointer]:
+                  - generic [ref=e1489]:
+                    - generic [ref=e1490]:
+                      - heading "popup.mask" [level=5] [ref=e1492]
+                      - generic [ref=e1493]:
+                        - button "pushpin" [ref=e1494]:
+                          - img "pushpin" [ref=e1496]:
+                            - img [ref=e1497]
+                        - button "info-circle" [ref=e1499]:
+                          - img "info-circle" [ref=e1501]:
+                            - img [ref=e1502]
+                    - generic [ref=e1505]: 预览遮罩元素，设置绝对定位和半透明背景样式
+                - listitem [ref=e1506] [cursor=pointer]:
+                  - generic [ref=e1507]:
+                    - generic [ref=e1508]:
+                      - heading "popup.body" [level=5] [ref=e1510]
+                      - generic [ref=e1511]:
+                        - button "pushpin" [ref=e1512]:
+                          - img "pushpin" [ref=e1514]:
+                            - img [ref=e1515]
+                        - button "info-circle" [ref=e1517]:
+                          - img "info-circle" [ref=e1519]:
+                            - img [ref=e1520]
+                    - generic [ref=e1523]: 预览内容元素，设置flex布局、居中对齐和指针事件样式
+                - listitem [ref=e1524] [cursor=pointer]:
+                  - generic [ref=e1525]:
+                    - generic [ref=e1526]:
+                      - heading "popup.footer" [level=5] [ref=e1528]
+                      - generic [ref=e1529]:
+                        - button "pushpin" [ref=e1530]:
+                          - img "pushpin" [ref=e1532]:
+                            - img [ref=e1533]
+                        - button "info-circle" [ref=e1535]:
+                          - img "info-circle" [ref=e1537]:
+                            - img [ref=e1538]
+                    - generic [ref=e1541]: 预览页脚元素，设置绝对定位、居中布局和底部操作区域样式
+                - listitem [ref=e1542] [cursor=pointer]:
+                  - generic [ref=e1543]:
+                    - generic [ref=e1544]:
+                      - heading "popup.actions" [level=5] [ref=e1546]
+                      - generic [ref=e1547]:
+                        - button "pushpin" [ref=e1548]:
+                          - img "pushpin" [ref=e1550]:
+                            - img [ref=e1551]
+                        - button "info-circle" [ref=e1553]:
+                          - img "info-circle" [ref=e1555]:
+                            - img [ref=e1556]
+                    - generic [ref=e1559]: 预览操作组元素，设置flex布局、背景色、圆角和操作按钮样式
+                - listitem [ref=e1560] [cursor=pointer]:
+                  - generic [ref=e1561]:
+                    - generic [ref=e1562]:
+                      - generic [ref=e1563]:
+                        - heading "popup.close" [level=5] [ref=e1564]
+                        - generic [ref=e1565]: 1.3.0
+                      - generic [ref=e1566]:
+                        - button "pushpin" [ref=e1567]:
+                          - img "pushpin" [ref=e1569]:
+                            - img [ref=e1570]
+                        - button "info-circle" [ref=e1572]:
+                          - img "info-circle" [ref=e1574]:
+                            - img [ref=e1575]
+                    - generic [ref=e1578]: 预览关闭按钮元素，设置按钮的基础样式
+          - heading "主题变量（Design Token） Permalink to \"主题变量（Design Token）\"" [level=2] [ref=e1579]:
+            - text: 主题变量（Design Token）
+            - link "Permalink to \"主题变量（Design Token）\"" [ref=e1580] [cursor=pointer]:
+              - /url: "#主题变量-design-token"
+              - text: "#"
+          - generic [ref=e1581]:
+            - generic [ref=e1582]:
+              - generic [ref=e1583] [cursor=pointer]:
+                - img "right" [ref=e1584]:
+                  - img [ref=e1585]
+                - generic [ref=e1587]:
+                  - text: 组件 Token
+                  - generic [ref=e1588]:
+                    - img "question-circle" [ref=e1589]:
+                      - img [ref=e1590]
+                    - text: 如何定制?
+              - table [ref=e1600]:
+                - rowgroup [ref=e1601]:
+                  - row "Token 名称 描述 类型 默认值" [ref=e1602]:
+                    - columnheader "Token 名称" [ref=e1603]
+                    - columnheader "描述" [ref=e1604]
+                    - columnheader "类型" [ref=e1605]
+                    - columnheader "默认值" [ref=e1606]
+                - rowgroup [ref=e1607]:
+                  - row "orientationMargin 文本与边缘距离，取值 0 ～ 1 number 0.05" [ref=e1608]:
+                    - cell "orientationMargin" [ref=e1609]
+                    - cell "文本与边缘距离，取值 0 ～ 1" [ref=e1610]
+                    - cell "number" [ref=e1611]
+                    - cell "0.05" [ref=e1612]
+                  - row "textPaddingInline 文本横向内间距 PaddingInline<string | number> | undefined 1em" [ref=e1613]:
+                    - cell "textPaddingInline" [ref=e1614]
+                    - cell "文本横向内间距" [ref=e1615]
+                    - cell "PaddingInline<string | number> | undefined" [ref=e1616]
+                    - cell "1em" [ref=e1617]
+                  - row "verticalMarginInline 纵向分割线的横向外间距 MarginInline<string | number> | undefined 8" [ref=e1618]:
+                    - cell "verticalMarginInline" [ref=e1619]
+                    - cell "纵向分割线的横向外间距" [ref=e1620]
+                    - cell "MarginInline<string | number> | undefined" [ref=e1621]
+                    - cell "8" [ref=e1622]
+            - generic [ref=e1623]:
+              - generic [ref=e1624] [cursor=pointer]:
+                - img "right" [ref=e1625]:
+                  - img [ref=e1626]
+                - generic [ref=e1628]:
+                  - text: 全局 Token
+                  - generic [ref=e1629]:
+                    - img "question-circle" [ref=e1630]:
+                      - img [ref=e1631]
+                    - text: 如何定制?
+              - table [ref=e1641]:
+                - rowgroup [ref=e1642]:
+                  - row "Token 名称 描述 类型 默认值" [ref=e1643]:
+                    - columnheader "Token 名称" [ref=e1644]
+                    - columnheader "描述" [ref=e1645]
+                    - columnheader "类型" [ref=e1646]
+                    - columnheader "默认值" [ref=e1647]
+                - rowgroup [ref=e1648]:
+                  - row "colorSplit 用于作为分割线的颜色，此颜色和 colorBorderSecondary 的颜色一致，但是用的是透明色。 string rgba(5,5,5,0.06)" [ref=e1649]:
+                    - cell "colorSplit" [ref=e1650]
+                    - cell "用于作为分割线的颜色，此颜色和 colorBorderSecondary 的颜色一致，但是用的是透明色。" [ref=e1651]
+                    - cell "string" [ref=e1652]
+                    - cell "rgba(5,5,5,0.06)" [ref=e1653]:
+                      - generic [ref=e1654]: rgba(5,5,5,0.06)
+                  - row "colorText 最深的文本色。为了符合W3C标准，默认的文本颜色使用了该色，同时这个颜色也是最深的中性色。 string rgba(0,0,0,0.88)" [ref=e1656]:
+                    - cell "colorText" [ref=e1657]
+                    - cell "最深的文本色。为了符合W3C标准，默认的文本颜色使用了该色，同时这个颜色也是最深的中性色。" [ref=e1658]
+                    - cell "string" [ref=e1659]
+                    - cell "rgba(0,0,0,0.88)" [ref=e1660]:
+                      - generic [ref=e1661]: rgba(0,0,0,0.88)
+                  - row "colorTextHeading 控制标题字体颜色。 string rgba(0,0,0,0.88)" [ref=e1663]:
+                    - cell "colorTextHeading" [ref=e1664]
+                    - cell "控制标题字体颜色。" [ref=e1665]
+                    - cell "string" [ref=e1666]
+                    - cell "rgba(0,0,0,0.88)" [ref=e1667]:
+                      - generic [ref=e1668]: rgba(0,0,0,0.88)
+                  - row "fontFamily Ant Design 的字体家族中优先使用系统默认的界面字体，同时提供了一套利于屏显的备用字体库，来维护在不同平台以及浏览器的显示下，字体始终保持良好的易读性和可读性，体现了友好、稳定和专业的特性。 string -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" [ref=e1670]:
+                    - cell "fontFamily" [ref=e1671]
+                    - cell "Ant Design 的字体家族中优先使用系统默认的界面字体，同时提供了一套利于屏显的备用字体库，来维护在不同平台以及浏览器的显示下，字体始终保持良好的易读性和可读性，体现了友好、稳定和专业的特性。" [ref=e1672]
+                    - cell "string" [ref=e1673]
+                    - cell "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'" [ref=e1674]
+                  - row "fontSize 设计系统中使用最广泛的字体大小，文本梯度也将基于该字号进行派生。 number 14" [ref=e1675]:
+                    - cell "fontSize" [ref=e1676]
+                    - cell "设计系统中使用最广泛的字体大小，文本梯度也将基于该字号进行派生。" [ref=e1677]
+                    - cell "number" [ref=e1678]
+                    - cell "14" [ref=e1679]
+                  - row "fontSizeLG 大号字体大小 number 16" [ref=e1680]:
+                    - cell "fontSizeLG" [ref=e1681]
+                    - cell "大号字体大小" [ref=e1682]
+                    - cell "number" [ref=e1683]
+                    - cell "16" [ref=e1684]
+                  - row "lineHeight 文本行高 number 1.5714285714285714" [ref=e1685]:
+                    - cell "lineHeight" [ref=e1686]
+                    - cell "文本行高" [ref=e1687]
+                    - cell "number" [ref=e1688]
+                    - cell "1.5714285714285714" [ref=e1689]
+                  - row "lineWidth 用于控制组件边框、分割线等的宽度 number 1" [ref=e1690]:
+                    - cell "lineWidth" [ref=e1691]
+                    - cell "用于控制组件边框、分割线等的宽度" [ref=e1692]
+                    - cell "number" [ref=e1693]
+                    - cell "1" [ref=e1694]
+                  - row "margin 控制元素外边距，中等尺寸。 number 16" [ref=e1695]:
+                    - cell "margin" [ref=e1696]
+                    - cell "控制元素外边距，中等尺寸。" [ref=e1697]
+                    - cell "number" [ref=e1698]
+                    - cell "16" [ref=e1699]
+                  - row "marginLG 控制元素外边距，大尺寸。 number 24" [ref=e1700]:
+                    - cell "marginLG" [ref=e1701]
+                    - cell "控制元素外边距，大尺寸。" [ref=e1702]
+                    - cell "number" [ref=e1703]
+                    - cell "24" [ref=e1704]
+                  - row "marginXS 控制元素外边距，小尺寸。 number 8" [ref=e1705]:
+                    - cell "marginXS" [ref=e1706]
+                    - cell "控制元素外边距，小尺寸。" [ref=e1707]
+                    - cell "number" [ref=e1708]
+                    - cell "8" [ref=e1709]
+          - paragraph [ref=e1710]:
+            - text: 查看
+            - link "定制主题" [ref=e1711] [cursor=pointer]:
+              - /url: /docs/vue/customize-theme
+            - text: 了解如何使用主题变量。
+        - generic [ref=e1712]:
+          - generic [ref=e1713]: 文档贡献者
+          - list [ref=e1715]:
+            - listitem [ref=e1716]:
+              - link [ref=e1717] [cursor=pointer]:
+                - /url: https://github.com/selicens
+                - img [ref=e1719]
+            - listitem [ref=e1720]:
+              - link [ref=e1721] [cursor=pointer]:
+                - /url: https://github.com/aibayanyu20
+                - img [ref=e1723]
+            - listitem [ref=e1724]:
+              - link [ref=e1725] [cursor=pointer]:
+                - /url: https://github.com/ffgenius
+                - img [ref=e1727]
+        - generic [ref=e378]:
+          - generic [ref=e379]:
+            - img "left" [ref=e380]:
+              - img [ref=e381]
+            - link "Empty 空状态" [ref=e383] [cursor=pointer]:
+              - /url: /components/empty-cn
+          - generic [ref=e384]:
+            - link "Popover 气泡卡片" [ref=e385] [cursor=pointer]:
+              - /url: /components/popover-cn
+            - img "right" [ref=e386]:
+              - img [ref=e387]
+      - generic [ref=e389]:
+        - generic [ref=e391]:
+          - generic [ref=e393]:
+            - heading "相关资源" [level=2] [ref=e394]
+            - link "Ant Design of React" [ref=e396] [cursor=pointer]:
+              - /url: https://ant.design/docs/react/introduce-cn
+            - link "Ant Design of Angular" [ref=e398] [cursor=pointer]:
+              - /url: https://ng.ant.design/docs/introduce/zh
+            - link "Antdv Next X" [ref=e400] [cursor=pointer]:
+              - /url: https://x.antdv-next.com/
+          - generic [ref=e402]:
+            - heading "社区" [level=2] [ref=e403]
+            - link "Change Log" [ref=e405] [cursor=pointer]:
+              - /url: https://github.com/antdv-next/antdv-next/releases
+            - link "Bug Report" [ref=e407] [cursor=pointer]:
+              - /url: https://github.com/antdv-next/antdv-next/issues
+          - generic [ref=e409]:
+            - heading "友链" [level=2] [ref=e410]
+            - link "Vue" [ref=e412] [cursor=pointer]:
+              - /url: https://vuejs.org/
+            - link "Vue Router" [ref=e414] [cursor=pointer]:
+              - /url: https://router.vuejs.org/
+            - link "Pinia" [ref=e416] [cursor=pointer]:
+              - /url: https://pinia.vuejs.org/
+            - link "Vite" [ref=e418] [cursor=pointer]:
+              - /url: https://vitejs.dev/
+            - link "Fantastic-admin" [ref=e420] [cursor=pointer]:
+              - /url: https://fantastic-admin.hurui.me/
+        - generic [ref=e422]:
+          - generic [ref=e423]: Made with ❤ by
+          - generic [ref=e424]: Antdv Next Team
+          - link "鲁ICP备2023021414号-3" [ref=e425] [cursor=pointer]:
+            - /url: https://beian.miit.gov.cn/
+  - button "wechat" [ref=e428] [cursor=pointer]:
+    - img "wechat" [ref=e430]:
+      - img [ref=e431]

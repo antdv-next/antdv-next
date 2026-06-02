@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Antdv Next is a Vue 3 enterprise component library porting [Ant Design (React)](https://github.com/ant-design/ant-design) to Vue 3 using TSX and Composition API. CSS-in-JS theming via `@antdv-next/cssinjs`.
 
-**Requirements:** Node >=22.18.0, pnpm 10.28.2
+**Requirements:** Node >=22.18.0, pnpm 10.32.1
 
 ## Component Conventions
 
@@ -25,6 +25,7 @@ Antdv Next is a Vue 3 enterprise component library porting [Ant Design (React)](
 pnpm dev                              # Docs site dev server (turbo dev --filter docs)
 pnpm dev:play                         # Playground dev server
 pnpm build:antdv                      # Build component library only
+pnpm build:site                       # Build full docs site (needs ~8GB heap)
 pnpm test                             # Run all Vitest tests
 pnpm test:coverage                    # Tests with coverage
 pnpm -F antdv-next test button.test   # Run specific test file
@@ -72,4 +73,8 @@ Conventional commits enforced by `scripts/verify-commit.js`:
 
 pnpm workspace with catalog-based versioning (`catalog:prod`, `catalog:dev`, `catalog:docs`, `catalog:vc`, `catalog:types`). Internal packages use `workspace:^`.
 
-`@v-c/*` headless primitives live in `../antdv-vc/` — user is maintainer.
+`@v-c/*` headless primitives live in `../antdv-vc/` — user is maintainer. When developing both repos in tandem, link via `pnpm link ../antdv-vc/packages/<name>`.
+
+## Release & Versioning
+
+Uses [Changesets](https://github.com/changesets/changesets) (`pnpm changeset`) for version bumping. Run `pnpm bump` to bump versions and generate changelogs. CI publishes via `pnpm ci:publish`.
