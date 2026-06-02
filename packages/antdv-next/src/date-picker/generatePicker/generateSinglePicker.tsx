@@ -197,7 +197,10 @@ function generatePicker<DateType extends AnyObject = AnyObject>(generateConfig: 
             triggerChange(date as DateType[], dateStr as string[])
           }
           if (picker === TIME && !(props as any).multiple) {
-            emit('select', (date as DateType[])[0] ?? (date as DateType))
+            const selectedDate = Array.isArray(date) ? date[0] : date
+            if (selectedDate) {
+              emit('select', selectedDate)
+            }
           }
         }
 

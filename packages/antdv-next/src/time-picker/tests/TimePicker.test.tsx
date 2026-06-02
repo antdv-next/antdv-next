@@ -139,6 +139,35 @@ describe('time-picker', () => {
     expect(wrapper.find('[data-testid="custom-clear"]').exists()).toBe(true)
   })
 
+  it('should clear value without error when clear icon is clicked', async () => {
+    const onChange = vi.fn()
+    const onUpdateValue = vi.fn()
+    const onSelect = vi.fn()
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
+    const wrapper = mount(TimePicker, {
+      props: {
+        value: dayjs('12:00:00', 'HH:mm:ss'),
+        onChange,
+        'onUpdate:value': onUpdateValue,
+        onSelect,
+      },
+    })
+
+    try {
+      await wrapper.find('.ant-picker-clear').trigger('click')
+      await nextTick()
+
+      expect(errSpy).not.toHaveBeenCalled()
+      expect(onUpdateValue).toHaveBeenCalledWith(null)
+      expect(onChange).toHaveBeenCalledWith(null, null)
+      expect(onSelect).not.toHaveBeenCalled()
+    }
+    finally {
+      errSpy.mockRestore()
+      wrapper.unmount()
+    }
+  })
+
   // ====================== Open / Popup ======================
   it('should open popup when open=true', async () => {
     const wrapper = mount(TimePicker, {
