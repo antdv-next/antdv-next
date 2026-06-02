@@ -34,6 +34,16 @@ describe('date-picker', () => {
     expect(wrapper.find('input').attributes('placeholder')).toBe('Select date')
   })
 
+  it('should pass inputReadOnly to inner picker input', () => {
+    const wrapper = mount(DatePicker, {
+      props: {
+        inputReadOnly: true,
+      },
+    })
+
+    expect((wrapper.find('input').element as HTMLInputElement).readOnly).toBe(true)
+  })
+
   it('should support disabledDate', async () => {
     const wrapper = mount(DatePicker, {
       props: {
