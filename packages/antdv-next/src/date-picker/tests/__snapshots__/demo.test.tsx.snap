@@ -3816,6 +3816,7 @@ exports[`date-picker demo > renders format correctly 1`] = `
           aria-invalid="false"
           aria-required="false"
           placeholder="Select week"
+          readonly=""
           size="15"
           value="09/17 ~ 09/23"
         />
@@ -4009,6 +4010,7 @@ exports[`date-picker demo > renders format correctly 1`] = `
           aria-invalid="false"
           aria-required="false"
           placeholder="Select date"
+          readonly=""
           size="27"
           value="custom format: 2015/01/01"
         />
