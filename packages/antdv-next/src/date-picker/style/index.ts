@@ -4,7 +4,7 @@ import type { GenerateStyle } from '../../theme/internal'
 import type { ComponentToken, PanelComponentToken, PickerPanelToken, PickerToken } from './token'
 import { unit } from '@antdv-next/cssinjs'
 import { genPlaceholderStyle, initInputToken } from '../../input/style'
-import { resetComponent, textEllipsis } from '../../style'
+import { genFocusOutline, resetComponent, textEllipsis } from '../../style'
 import { genCompactItemStyle } from '../../style/compact-item'
 import {
   initMoveMotion,
@@ -210,6 +210,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           transform: 'translateY(-50%)',
           cursor: 'pointer',
           opacity: 0,
+          pointerEvents: 'none',
           transition: ['opacity', 'color'].map(prop => `${prop} ${motionDurationMid}`).join(', '),
 
           '> *': {
@@ -219,11 +220,18 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           '&:hover': {
             color: colorIcon,
           },
+
+          '&:focus-visible': {
+            color: token.colorIcon,
+            borderRadius: token.borderRadiusSM,
+            ...genFocusOutline(token),
+          },
         },
 
-        '&:hover': {
+        '&:hover, &:focus-within': {
           [`${componentCls}-clear`]: {
             opacity: 1,
+            pointerEvents: 'auto',
           },
           // Should use the following selector, but since `:has` has poor compatibility,
           // we use `:not(:last-child)` instead, which may cause some problems in some cases.
