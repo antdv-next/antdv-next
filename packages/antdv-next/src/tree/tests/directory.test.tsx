@@ -189,6 +189,13 @@ describe('directory Tree', () => {
     wrapper.unmount()
   })
 
+  it('defaultExpandParent with false', async () => {
+    const wrapper = mountDirectoryTree({ defaultExpandParent: false })
+    await waitFakeTimer(0, 1)
+    expect(wrapper.html()).toMatchSnapshot()
+    wrapper.unmount()
+  })
+
   it('expandedKeys update', async () => {
     const wrapper = mountDirectoryTree()
     await waitFakeTimer(0, 1)

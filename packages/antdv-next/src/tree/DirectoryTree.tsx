@@ -55,7 +55,7 @@ const DirectoryTree = defineComponent<
     const children = computed(() => filterEmpty(slots?.default?.()))
 
     const getInitExpandedKeys = () => {
-      const { defaultExpandAll, defaultExpandParent } = props
+      const { defaultExpandAll, defaultExpandParent = true } = props
       let _children: any = children.value
       if (_children.length < 1) {
         _children = undefined
