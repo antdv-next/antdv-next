@@ -52,6 +52,9 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
   <demo src="./demo/validate-scroll-to-field.vue" iframe="240">滑动到错误字段</demo>
   <demo src="./demo/validate-other.vue">其他表单控件</demo>
   <demo src="./demo/style-class.vue" version="6.0.0">自定义语义结构样式</demo>
+  <demo src="./demo/col-24-debug.vue" debug>Col 24 布局调试</demo>
+  <demo src="./demo/disabled-input-debug.vue" debug>禁用状态调试</demo>
+  <demo src="./demo/label-debug.vue" debug>Label 省略调试</demo>
 </demo-group>
 
 ## API

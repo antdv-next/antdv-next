@@ -191,6 +191,9 @@ const cls = computed(() => {
   if (simplify) {
     cls.push('ant-doc-demo-box-simplify')
   }
+  if (debug) {
+    cls.push('ant-doc-demo-box-debug')
+  }
   return cls
 })
 
@@ -309,6 +312,15 @@ function handleOpenPlayground() {
 
   break-inside: avoid;
   display: flow-root;
+
+  // Debug demos (dev only) get a purple border to stand out, matching antd.
+  &-debug {
+    border-color: #d3adf7;
+  }
+
+  &-debug &-title a {
+    color: #722ed1;
+  }
   border-radius: 8px;
   transition: 0.2s;
   box-sizing: border-box;
