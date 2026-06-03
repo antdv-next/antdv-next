@@ -36,13 +36,18 @@ interface DemoMeta {
 defineOptions({
   name: 'Demo',
 })
-const { src, compact, background, simplify } = defineProps<{
+const { src, compact, background, simplify, debug } = defineProps<{
   src: string
   iframe?: string
   compact?: boolean
   background?: string
   simplify?: boolean
+  /** Debug demos are shown in development only and hidden in the production docs build. */
+  debug?: boolean
 }>()
+
+// Debug demos are visible while developing but stripped from the production docs.
+const hidden = computed(() => Boolean(debug) && import.meta.env.PROD)
 const demo = computed<DemoMeta | undefined>(() => demos[src])
 const route = useRoute()
 const router = useRouter()
@@ -198,7 +203,7 @@ function handleOpenPlayground() {
 </script>
 
 <template>
-  <section :id="id" class="ant-doc-demo-box border-solid border-color-split border-1px" :class="cls">
+  <section v-if="!hidden" :id="id" class="ant-doc-demo-box border-solid border-color-split border-1px" :class="cls">
     <template v-if="simplify">
       <section class="vp-raw ant-doc-demo-box-demo">
         <component :is="component" v-if="demo?.component" />

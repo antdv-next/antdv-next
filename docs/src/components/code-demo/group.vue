@@ -66,6 +66,9 @@ const columns = computed(() => {
     // 过滤掉空白文本
     if (node.type === Text && typeof node.children === 'string' && !node.children.trim())
       return false
+    // Debug demos are shown in development only and hidden in the production docs build
+    if (import.meta.env.PROD && (node.props?.debug === '' || node.props?.debug === true || node.props?.debug === 'true'))
+      return false
     return true
   })
 
