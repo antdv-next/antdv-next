@@ -2,6 +2,84 @@
 title: Component Changelog
 ---
 
+## V1.3.3
+
+Release Date: 2026-06-03
+
+This release **syncs the ant-design 6.4.3 → 8b5c356f fix/feat batch into the main package** — Tooltip / Popover arrow drop-shadow, Checkbox / Modal / Result / Popconfirm / Select / DatePicker / Empty styles, Transfer / Tree / Table / Descriptions / Tabs behavior, and locale additions — **bumps the `@v-c/*` dependencies to their released sync versions**, fixes a **Menu `itemData` DOM leak**, and introduces a **debug-demo mechanism for the docs site** (visible in development, hidden in production).
+
+**✨ Features**
+
+* feat(docs): hide debug demos in the production build and give debug demos a purple border — [#568](https://github.com/antdv-next/antdv-next/pull/568)
+
+**🐞 Fixes**
+
+* fix(tooltip, popover): use drop-shadow for the arrow so it no longer stacks with the container shadow (antd #57988) — [#568](https://github.com/antdv-next/antdv-next/pull/568)
+* fix(checkbox): avoid lingering hover border style on touch devices (antd #58085) — [#568](https://github.com/antdv-next/antdv-next/pull/568)
+* fix(modal): correct footer button alignment when `confirmLoading` is true (antd #58120) — [#568](https://github.com/antdv-next/antdv-next/pull/568)
+* fix(result, popconfirm): correct status icon color inheritance (antd #58157) — [#568](https://github.com/antdv-next/antdv-next/pull/568)
+* fix(select): keep selected option active style themed and avoid disabled customize input background stacking (antd #58069 / #58114) — [#568](https://github.com/antdv-next/antdv-next/pull/568)
+* fix(date-picker, time-picker): make the clear button keyboard accessible (antd #58132) — [#568](https://github.com/antdv-next/antdv-next/pull/568)
+* fix(empty): use design tokens for SVG colors to support dark mode (antd #58152) — [#568](https://github.com/antdv-next/antdv-next/pull/568)
+* fix(tree): default `DirectoryTree` `defaultExpandParent` to `true` (antd #58068) — [#568](https://github.com/antdv-next/antdv-next/pull/568)
+* fix(table): add `presentation` role to the filter dropdown wrapper (antd #58164) — [#568](https://github.com/antdv-next/antdv-next/pull/568)
+* fix(descriptions): avoid inflated width inside a `max-content` ancestor (antd #58203) — [#568](https://github.com/antdv-next/antdv-next/pull/568)
+* fix(tabs): correct the more-dropdown motion direction when the placement flips (antd #58202) — [#568](https://github.com/antdv-next/antdv-next/pull/568)
+* fix(form): treat `help={false}` as no help (antd #58160) — [#568](https://github.com/antdv-next/antdv-next/pull/568)
+* fix(menu): do not leak the `itemData` prop to the DOM element — [#568](https://github.com/antdv-next/antdv-next/pull/568)
+* fix(locale): add Tour translations to `km_KH` and QRCode / ColorPicker translations to `pt_BR` (antd #58140 / #58188) — [#568](https://github.com/antdv-next/antdv-next/pull/568)
+
+**⚡ Performance**
+
+* perf(transfer): combine enabled key iteration (antd #58168) — [#568](https://github.com/antdv-next/antdv-next/pull/568)
+
+**📝 Documentation**
+
+* docs: register existing debug demos, sync the Table / AutoComplete demos (antd #58134 / #58114) — [#568](https://github.com/antdv-next/antdv-next/pull/568)
+* docs(rate): drop native `className` / `style` rows from the API table (antd #58196) — [#568](https://github.com/antdv-next/antdv-next/pull/568)
+* docs: align `CLAUDE.md` with `AGENTS.md` to keep repo guidance consistent — [#567](https://github.com/antdv-next/antdv-next/pull/567)
+
+**🛠 Refactor & Maintenance**
+
+* build(deps): bump `@v-c` trigger / menu / virtual-list to their released sync versions — [#568](https://github.com/antdv-next/antdv-next/pull/568)
+
+**🧪 Tests**
+
+* test(radio): cover uncontrolled checked state (antd #57917) — [#568](https://github.com/antdv-next/antdv-next/pull/568)
+
+**Full Changelog**: [antdv-next@1.3.2...antdv-next@1.3.3](https://github.com/antdv-next/antdv-next/compare/antdv-next@1.3.2...antdv-next@1.3.3)
+
+## V1.3.2
+
+Release Date: 2026-06-03
+
+This patch release **fixes a batch of component issues (TimePicker / DatePicker / Pagination / Switch / Tour / Upload / Modal), syncs ant-design master accessibility and responsive fixes**, and updates the `@v-c/table` dependency.
+
+**🐞 Fixes**
+
+* fix(time-picker): console error when clearing values — [#562](https://github.com/antdv-next/antdv-next/pull/562)
+* fix(date-picker): the `inputReadonly` property passed is invalid — [#561](https://github.com/antdv-next/antdv-next/pull/561)
+* fix(pagination): text line break overflow in some scenarios — [#557](https://github.com/antdv-next/antdv-next/pull/557)
+* fix(switch): emit the `click` event from the Switch component — [#556](https://github.com/antdv-next/antdv-next/pull/556)
+* fix(tour): exclude `children` from the button props spread to avoid a Vue DOM warning — [#555](https://github.com/antdv-next/antdv-next/pull/555)
+* fix(upload): partial slots of `UploadDragger` are not properly transmitted through — [#553](https://github.com/antdv-next/antdv-next/pull/553)
+* fix: sync ant-design master accessibility and responsive fixes — [#549](https://github.com/antdv-next/antdv-next/pull/549)
+* fix(modal): support global config locale — [#546](https://github.com/antdv-next/antdv-next/pull/546)
+
+**📝 Documentation**
+
+* docs(image): supplement `focusTrap` — [#565](https://github.com/antdv-next/antdv-next/pull/565)
+* docs(carousel): remove the missing component token demo — [#564](https://github.com/antdv-next/antdv-next/pull/564)
+* docs(tabs): replace `children` with `content` — [#559](https://github.com/antdv-next/antdv-next/pull/559)
+* docs(readme): improve contribution steps — [#551](https://github.com/antdv-next/antdv-next/pull/551)
+
+**🛠 Refactor & Maintenance**
+
+* chore(deps): update `@v-c/table` to 1.1.3 — [#550](https://github.com/antdv-next/antdv-next/pull/550)
+* chore(deps): update `@v-c/table` to 1.1.2 — [#548](https://github.com/antdv-next/antdv-next/pull/548)
+
+**Full Changelog**: [antdv-next@1.3.1...antdv-next@1.3.2](https://github.com/antdv-next/antdv-next/compare/antdv-next@1.3.1...antdv-next@1.3.2)
+
 ## V1.3.1
 
 Release Date: 2026-05-20

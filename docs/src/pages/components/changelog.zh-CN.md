@@ -2,6 +2,84 @@
 title: 组件更新日志
 ---
 
+## V1.3.3
+
+发布日期：2026-06-03
+
+本次版本主要 **将 ant-design 6.4.3 → 8b5c356f 的 fix/feat 批量同步到主包** —— Tooltip / Popover 箭头 drop-shadow、Checkbox / Modal / Result / Popconfirm / Select / DatePicker / Empty 样式、Transfer / Tree / Table / Descriptions / Tabs 行为以及多语言补充，**将 `@v-c/*` 依赖升级到已发版的同步版本**，修复 **Menu `itemData` 泄漏到 DOM** 的问题，并为文档站新增 **debug demo 机制**（开发可见、生产隐藏）。
+
+**✨ 新功能 Features**
+
+* feat(docs)：生产构建中隐藏 debug demo，并为 debug demo 增加紫色边框 —— [#568](https://github.com/antdv-next/antdv-next/pull/568)
+
+**🐞 问题修复 Fixes**
+
+* fix(tooltip, popover)：箭头改用 drop-shadow，避免与容器阴影叠加（antd #57988）—— [#568](https://github.com/antdv-next/antdv-next/pull/568)
+* fix(checkbox)：避免触屏设备上残留的 hover 边框样式（antd #58085）—— [#568](https://github.com/antdv-next/antdv-next/pull/568)
+* fix(modal)：修复 `confirmLoading` 为 true 时页脚按钮对齐（antd #58120）—— [#568](https://github.com/antdv-next/antdv-next/pull/568)
+* fix(result, popconfirm)：修正状态图标颜色继承（antd #58157）—— [#568](https://github.com/antdv-next/antdv-next/pull/568)
+* fix(select)：保持选中项 active 主题色，并避免禁用自定义输入背景叠加（antd #58069 / #58114）—— [#568](https://github.com/antdv-next/antdv-next/pull/568)
+* fix(date-picker, time-picker)：让清除按钮支持键盘可访问性（antd #58132）—— [#568](https://github.com/antdv-next/antdv-next/pull/568)
+* fix(empty)：使用 design token 设置 SVG 颜色以支持暗色模式（antd #58152）—— [#568](https://github.com/antdv-next/antdv-next/pull/568)
+* fix(tree)：`DirectoryTree` 的 `defaultExpandParent` 默认值改为 `true`（antd #58068）—— [#568](https://github.com/antdv-next/antdv-next/pull/568)
+* fix(table)：为筛选下拉容器添加 `presentation` role（antd #58164）—— [#568](https://github.com/antdv-next/antdv-next/pull/568)
+* fix(descriptions)：避免在 `max-content` 容器内宽度被撑大（antd #58203）—— [#568](https://github.com/antdv-next/antdv-next/pull/568)
+* fix(tabs)：修正 more 下拉菜单位置翻转时的动画方向（antd #58202）—— [#568](https://github.com/antdv-next/antdv-next/pull/568)
+* fix(form)：将 `help={false}` 视为无 help（antd #58160）—— [#568](https://github.com/antdv-next/antdv-next/pull/568)
+* fix(menu)：避免将 `itemData` 属性泄漏到 DOM 元素 —— [#568](https://github.com/antdv-next/antdv-next/pull/568)
+* fix(locale)：为 `km_KH` 补充 Tour 翻译，为 `pt_BR` 补充 QRCode / ColorPicker 翻译（antd #58140 / #58188）—— [#568](https://github.com/antdv-next/antdv-next/pull/568)
+
+**⚡ 性能优化 Performance**
+
+* perf(transfer)：合并 enabled key 的遍历（antd #58168）—— [#568](https://github.com/antdv-next/antdv-next/pull/568)
+
+**📝 文档更新 Documentation**
+
+* docs：注册已有的 debug demo，并同步 Table / AutoComplete 示例（antd #58134 / #58114）—— [#568](https://github.com/antdv-next/antdv-next/pull/568)
+* docs(rate)：从 API 表中移除原生 `className` / `style` 行（antd #58196）—— [#568](https://github.com/antdv-next/antdv-next/pull/568)
+* docs：对齐 `CLAUDE.md` 与 `AGENTS.md`，保持仓库指引一致 —— [#567](https://github.com/antdv-next/antdv-next/pull/567)
+
+**🛠 重构与维护 Refactor & Maintenance**
+
+* build(deps)：将 `@v-c` trigger / menu / virtual-list 升级到已发版的同步版本 —— [#568](https://github.com/antdv-next/antdv-next/pull/568)
+
+**🧪 测试 Tests**
+
+* test(radio)：覆盖非受控 checked 状态（antd #57917）—— [#568](https://github.com/antdv-next/antdv-next/pull/568)
+
+**完整变更日志**：[antdv-next@1.3.2...antdv-next@1.3.3](https://github.com/antdv-next/antdv-next/compare/antdv-next@1.3.2...antdv-next@1.3.3)
+
+## V1.3.2
+
+发布日期：2026-06-03
+
+本次补丁版本主要 **修复一批组件问题（TimePicker / DatePicker / Pagination / Switch / Tour / Upload / Modal），同步 ant-design master 的无障碍与响应式修复**，并更新 `@v-c/table` 依赖。
+
+**🐞 问题修复 Fixes**
+
+* fix(time-picker)：清除值时出现的控制台报错 —— [#562](https://github.com/antdv-next/antdv-next/pull/562)
+* fix(date-picker)：传入的 `inputReadonly` 属性不生效 —— [#561](https://github.com/antdv-next/antdv-next/pull/561)
+* fix(pagination)：部分场景下文字换行溢出 —— [#557](https://github.com/antdv-next/antdv-next/pull/557)
+* fix(switch)：从 Switch 组件派发 `click` 事件 —— [#556](https://github.com/antdv-next/antdv-next/pull/556)
+* fix(tour)：从按钮 props 透传中排除 `children`，避免 Vue DOM 告警 —— [#555](https://github.com/antdv-next/antdv-next/pull/555)
+* fix(upload)：`UploadDragger` 的部分插槽未正确透传 —— [#553](https://github.com/antdv-next/antdv-next/pull/553)
+* fix：同步 ant-design master 的无障碍与响应式修复 —— [#549](https://github.com/antdv-next/antdv-next/pull/549)
+* fix(modal)：支持全局 config 多语言 —— [#546](https://github.com/antdv-next/antdv-next/pull/546)
+
+**📝 文档更新 Documentation**
+
+* docs(image)：补充 `focusTrap` —— [#565](https://github.com/antdv-next/antdv-next/pull/565)
+* docs(carousel)：移除缺失的组件 token 示例 —— [#564](https://github.com/antdv-next/antdv-next/pull/564)
+* docs(tabs)：将 `children` 替换为 `content` —— [#559](https://github.com/antdv-next/antdv-next/pull/559)
+* docs(readme)：完善贡献步骤 —— [#551](https://github.com/antdv-next/antdv-next/pull/551)
+
+**🛠 重构与维护 Refactor & Maintenance**
+
+* chore(deps)：将 `@v-c/table` 更新到 1.1.3 —— [#550](https://github.com/antdv-next/antdv-next/pull/550)
+* chore(deps)：将 `@v-c/table` 更新到 1.1.2 —— [#548](https://github.com/antdv-next/antdv-next/pull/548)
+
+**完整变更日志**：[antdv-next@1.3.1...antdv-next@1.3.2](https://github.com/antdv-next/antdv-next/compare/antdv-next@1.3.1...antdv-next@1.3.2)
+
 ## V1.3.1
 
 发布日期：2026-05-20
