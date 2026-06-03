@@ -29843,7 +29843,7 @@ exports[`table demo > renders style-class correctly 1`] = `
         class="ant-spin-container"
       >
         <div
-          class="ant-table ant-table-small css-var-root ant-table-css-var"
+          class="ant-table ant-table-small css-var-root ant-table-css-var ant-table-virtual ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-fixed-header ant-table-scroll-horizontal"
         >
           <div
             class="ant-table-title"
@@ -29854,13 +29854,27 @@ exports[`table demo > renders style-class correctly 1`] = `
             class="ant-table-container"
           >
             <div
-              class="ant-table-content"
+              class="ant-table-header"
+              scroll="[object Object]"
+              style="overflow: hidden;"
             >
               <table
-                style="table-layout: auto;"
+                style="table-layout: fixed; min-width: 100%; width: 4px;"
               >
-                <!---->
-                <!---->
+                <colgroup>
+                  <col
+                    style="width: 1px;"
+                  />
+                  <col
+                    style="width: 1px;"
+                  />
+                  <col
+                    style="width: 1px;"
+                  />
+                  <col
+                    style="width: 1px;"
+                  />
+                </colgroup>
                 <thead
                   class="ant-table-thead"
                 >
@@ -29905,113 +29919,143 @@ exports[`table demo > renders style-class correctly 1`] = `
                     </th>
                   </tr>
                 </thead>
-                <tbody
-                  class="ant-table-tbody"
-                >
-                  <!---->
-                  <tr
-                    class="ant-table-row ant-table-row-level-0"
-                    data-row-key="1"
-                  >
-                    <td
-                      class="ant-table-cell"
-                      scope="row"
-                    >
-                      <!---->
-                      John Brown
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                      scope="row"
-                    >
-                      <!---->
-                      32
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                      scope="row"
-                    >
-                      <!---->
-                      New York No. 1 Lake Park
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                      scope="row"
-                    >
-                      <!---->
-                      My name is John Brown, I am 32 years old, living in New York No. 1 Lake Park.
-                    </td>
-                  </tr>
-                  <tr
-                    class="ant-table-row ant-table-row-level-0"
-                    data-row-key="2"
-                  >
-                    <td
-                      class="ant-table-cell"
-                      scope="row"
-                    >
-                      <!---->
-                      Jim Green
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                      scope="row"
-                    >
-                      <!---->
-                      42
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                      scope="row"
-                    >
-                      <!---->
-                      London No. 1 Lake Park
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                      scope="row"
-                    >
-                      <!---->
-                      My name is Jim Green, I am 42 years old, living in London No. 1 Lake Park.
-                    </td>
-                  </tr>
-                  <tr
-                    class="ant-table-row ant-table-row-level-0"
-                    data-row-key="3"
-                  >
-                    <td
-                      class="ant-table-cell"
-                      scope="row"
-                    >
-                      <!---->
-                      Joe Black
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                      scope="row"
-                    >
-                      <!---->
-                      32
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                      scope="row"
-                    >
-                      <!---->
-                      Sydney No. 1 Lake Park
-                    </td>
-                    <td
-                      class="ant-table-cell"
-                      scope="row"
-                    >
-                      <!---->
-                      My name is Joe Black, I am 32 years old, living in Sydney No. 1 Lake Park.
-                    </td>
-                  </tr>
-                </tbody>
                 <!---->
               </table>
             </div>
+            <div
+              class="ant-table-tbody-virtual ant-table-tbody"
+              style="position: relative;"
+            >
+              <div
+                class="ant-table-tbody-virtual-holder"
+                style="max-height: 300px; overflow-y: hidden; overflow-anchor: none; overflow-x: hidden;"
+              >
+                <div
+                  style="height: 117px; position: relative; overflow: hidden;"
+                >
+                  <div
+                    class="ant-table-tbody-virtual-holder-inner"
+                    style="display: flex; flex-direction: column; transform: translateY(0px); margin-left: 0px; position: absolute; left: 0px; right: 0px; top: 0px;"
+                  >
+                    <div
+                      class="ant-table-row"
+                      data-row-key="1"
+                      style="width: 4px; outline: 1px dashed rgba(226, 225, 225, 0.1);"
+                    >
+                      <div
+                        class="ant-table-cell"
+                        style="outline: 1px dashed rgba(226, 225, 225, 0.1); flex: 0 0 1px; width: 1px; margin-right: 0px; pointer-events: auto;"
+                      >
+                        <!---->
+                        John Brown
+                      </div>
+                      <div
+                        class="ant-table-cell"
+                        style="outline: 1px dashed rgba(226, 225, 225, 0.1); flex: 0 0 1px; width: 1px; margin-right: 0px; pointer-events: auto;"
+                      >
+                        <!---->
+                        32
+                      </div>
+                      <div
+                        class="ant-table-cell"
+                        style="outline: 1px dashed rgba(226, 225, 225, 0.1); flex: 0 0 1px; width: 1px; margin-right: 0px; pointer-events: auto;"
+                      >
+                        <!---->
+                        New York No. 1 Lake Park
+                      </div>
+                      <div
+                        class="ant-table-cell"
+                        style="outline: 1px dashed rgba(226, 225, 225, 0.1); flex: 0 0 1px; width: 1px; margin-right: 0px; pointer-events: auto;"
+                      >
+                        <!---->
+                        My name is John Brown, I am 32 years old, living in New York No. 1 Lake Park.
+                      </div>
+                    </div>
+                    <div
+                      class="ant-table-row"
+                      data-row-key="2"
+                      style="width: 4px; outline: 1px dashed rgba(226, 225, 225, 0.1);"
+                    >
+                      <div
+                        class="ant-table-cell"
+                        style="outline: 1px dashed rgba(226, 225, 225, 0.1); flex: 0 0 1px; width: 1px; margin-right: 0px; pointer-events: auto;"
+                      >
+                        <!---->
+                        Jim Green
+                      </div>
+                      <div
+                        class="ant-table-cell"
+                        style="outline: 1px dashed rgba(226, 225, 225, 0.1); flex: 0 0 1px; width: 1px; margin-right: 0px; pointer-events: auto;"
+                      >
+                        <!---->
+                        42
+                      </div>
+                      <div
+                        class="ant-table-cell"
+                        style="outline: 1px dashed rgba(226, 225, 225, 0.1); flex: 0 0 1px; width: 1px; margin-right: 0px; pointer-events: auto;"
+                      >
+                        <!---->
+                        London No. 1 Lake Park
+                      </div>
+                      <div
+                        class="ant-table-cell"
+                        style="outline: 1px dashed rgba(226, 225, 225, 0.1); flex: 0 0 1px; width: 1px; margin-right: 0px; pointer-events: auto;"
+                      >
+                        <!---->
+                        My name is Jim Green, I am 42 years old, living in London No. 1 Lake Park.
+                      </div>
+                    </div>
+                    <div
+                      class="ant-table-row"
+                      data-row-key="3"
+                      style="width: 4px; outline: 1px dashed rgba(226, 225, 225, 0.1);"
+                    >
+                      <div
+                        class="ant-table-cell"
+                        style="outline: 1px dashed rgba(226, 225, 225, 0.1); flex: 0 0 1px; width: 1px; margin-right: 0px; pointer-events: auto;"
+                      >
+                        <!---->
+                        Joe Black
+                      </div>
+                      <div
+                        class="ant-table-cell"
+                        style="outline: 1px dashed rgba(226, 225, 225, 0.1); flex: 0 0 1px; width: 1px; margin-right: 0px; pointer-events: auto;"
+                      >
+                        <!---->
+                        32
+                      </div>
+                      <div
+                        class="ant-table-cell"
+                        style="outline: 1px dashed rgba(226, 225, 225, 0.1); flex: 0 0 1px; width: 1px; margin-right: 0px; pointer-events: auto;"
+                      >
+                        <!---->
+                        Sydney No. 1 Lake Park
+                      </div>
+                      <div
+                        class="ant-table-cell"
+                        style="outline: 1px dashed rgba(226, 225, 225, 0.1); flex: 0 0 1px; width: 1px; margin-right: 0px; pointer-events: auto;"
+                      >
+                        <!---->
+                        My name is Joe Black, I am 32 years old, living in Sydney No. 1 Lake Park.
+                      </div>
+                    </div>
+                    <!---->
+                  </div>
+                </div>
+              </div>
+              <!---->
+              <div
+                class="ant-table-tbody-virtual-scrollbar ant-table-tbody-virtual-scrollbar-horizontal ant-table-tbody-virtual-scrollbar-visible"
+                style="position: absolute; height: 8px; left: 0px; right: 0px; bottom: 0px;"
+              >
+                <div
+                  class="ant-table-tbody-virtual-scrollbar-thumb"
+                  style="position: absolute; border-radius: 99px; background: var(--vc-virtual-list-scrollbar-bg, rgba(0, 0, 0, 0.5)); cursor: pointer; user-select: none; height: 100%; width: 20px; left: 0px;"
+                />
+              </div>
+            </div>
+            <!---->
+            <!---->
           </div>
           <div
             class="ant-table-footer"
