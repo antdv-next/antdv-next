@@ -42,6 +42,7 @@ function getArrowStyle<
     top?: boolean
     bottom?: boolean
   }
+  arrowShadow?: boolean
 }): CSSInterpolation {
   const {
     componentCls,
@@ -61,6 +62,7 @@ function getArrowStyle<
       top: true,
       bottom: true,
     },
+    arrowShadow = true,
   } = options || {}
 
   return {
@@ -72,7 +74,7 @@ function getArrowStyle<
           'zIndex': 1, // lift it up so the menu wouldn't cask shadow on it
           'display': 'block',
 
-          ...genRoundedArrow(token, colorBg, boxShadowPopoverArrow),
+          ...genRoundedArrow(token, colorBg, arrowShadow ? boxShadowPopoverArrow : false),
 
           '&:before': {
             background: colorBg,

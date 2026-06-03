@@ -46,8 +46,30 @@ export function getArrowToken(token: AliasToken): ArrowToken {
   }
 }
 
-export function genRoundedArrow<T extends AliasToken & ArrowToken & CSSUtil>(token: T, bgColor: string, boxShadow: string): CSSObject {
+export function genRoundedArrow<T extends AliasToken & ArrowToken & CSSUtil>(token: T, bgColor: string, boxShadow: string | false): CSSObject {
   const { sizePopupArrow, arrowPolygon, arrowPath, arrowShadowWidth, borderRadiusXS, calc } = token
+
+  const afterStyle: CSSObject = {
+    content: '""',
+    position: 'absolute',
+    width: arrowShadowWidth,
+    height: arrowShadowWidth,
+    bottom: 0,
+    insetInline: 0,
+    margin: 'auto',
+    borderRadius: {
+      _skip_check_: true,
+      value: `0 0 ${unit(borderRadiusXS)} 0`,
+    },
+    transform: 'translateY(50%) rotate(-135deg)',
+    zIndex: 0,
+    background: 'transparent',
+  }
+
+  if (boxShadow) {
+    afterStyle.boxShadow = boxShadow
+  }
+
   return {
     'pointerEvents': 'none',
     'width': sizePopupArrow,
@@ -68,22 +90,6 @@ export function genRoundedArrow<T extends AliasToken & ArrowToken & CSSUtil>(tok
       content: '""',
     },
 
-    '&::after': {
-      content: '""',
-      position: 'absolute',
-      width: arrowShadowWidth,
-      height: arrowShadowWidth,
-      bottom: 0,
-      insetInline: 0,
-      margin: 'auto',
-      borderRadius: {
-        _skip_check_: true,
-        value: `0 0 ${unit(borderRadiusXS)} 0`,
-      },
-      transform: 'translateY(50%) rotate(-135deg)',
-      boxShadow,
-      zIndex: 0,
-      background: 'transparent',
-    },
+    '&::after': afterStyle,
   }
 }
