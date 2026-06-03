@@ -139,7 +139,7 @@ catalogs:
     '@v-c/input': ^1.1.0
     '@v-c/input-number': ^1.0.5
     '@v-c/mentions': ^1.1.0
-    '@v-c/menu': ^1.1.0
+    '@v-c/menu': ^1.1.1
     '@v-c/mutate-observer': ^1.0.1
     '@v-c/notification': ^2.0.0
     '@v-c/pagination': ^1.0.0
@@ -162,10 +162,10 @@ catalogs:
     '@v-c/tour': ^1.1.0
     '@v-c/tree': ^1.1.0
     '@v-c/tree-select': ^1.1.0
-    '@v-c/trigger': ^1.0.14
+    '@v-c/trigger': ^1.0.15
     '@v-c/upload': ^1.0.0
     '@v-c/util': ^1.0.19
-    '@v-c/virtual-list': ^1.0.7
+    '@v-c/virtual-list': ^1.0.8
 
 onlyBuiltDependencies:
   - esbuild
