@@ -26,7 +26,12 @@ function isRenderResultPlainObject(result: RenderResult): result is RenderResult
 }
 
 function getEnabledItemKeys<RecordType extends KeyWiseTransferItem>(items: RecordType[]) {
-  return items.filter(data => !data.disabled).map(data => data.key)
+  return items.reduce<RecordType['key'][]>((keys, data) => {
+    if (!data.disabled) {
+      keys.push(data.key)
+    }
+    return keys
+  }, [])
 }
 
 function getTextFromRenderResult<RecordType extends KeyWiseTransferItem>(
@@ -238,8 +243,9 @@ const TransferSection = defineComponent<
           indeterminate={checkStatus.value === 'part'}
           class={`${listPrefixCls.value}-checkbox`}
           onChange={() => {
+            // Only select enabled items
             props.onItemSelectAll?.(
-              filteredItems.value.filterItems.filter(item => !item.disabled).map(({ key }) => key),
+              getEnabledItemKeys(filteredItems.value.filterItems),
               checkStatus.value !== 'all',
             )
           }}

@@ -41,7 +41,6 @@ const previewItems = [
             :width="200"
             src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
             :classes="classes"
-            :preview="{ getContainer: () => holderRef! }"
           />
         </a-flex>
         <div ref="holderRef" :style="{ flex: 1, position: 'relative', minHeight: '500px', width: '100%' }">
@@ -49,7 +48,7 @@ const previewItems = [
             :items="previewItems"
             :classes="classes"
             :styles="{ popup: { root: { position: 'absolute' } } }"
-            :preview="{ getContainer: () => holderRef!, open: true }"
+            :preview="{ getContainer: () => holderRef!, open: true, focusTrap: false }"
           />
         </div>
       </a-flex>

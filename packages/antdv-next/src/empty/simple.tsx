@@ -1,7 +1,7 @@
-import { FastColor } from '@ant-design/fast-color'
 import { computed, defineComponent } from 'vue'
 import useLocale from '../locale/useLocale.ts'
 import { useToken } from '../theme/internal.ts'
+import { getAsSolidColor } from './utils.ts'
 
 const Simple = defineComponent(() => {
   const [,token] = useToken()
@@ -10,9 +10,9 @@ const Simple = defineComponent(() => {
     const { colorFill, colorFillTertiary, colorFillQuaternary, colorBgContainer } = token.value
 
     return {
-      borderColor: new FastColor(colorFill).onBackground(colorBgContainer).toHexString(),
-      shadowColor: new FastColor(colorFillTertiary).onBackground(colorBgContainer).toHexString(),
-      contentColor: new FastColor(colorFillQuaternary).onBackground(colorBgContainer).toHexString(),
+      borderColor: getAsSolidColor(colorFill, colorBgContainer),
+      shadowColor: getAsSolidColor(colorFillTertiary, colorBgContainer),
+      contentColor: getAsSolidColor(colorFillQuaternary, colorBgContainer),
     }
   })
   return () => {

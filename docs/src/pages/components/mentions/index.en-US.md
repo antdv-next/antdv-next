@@ -28,6 +28,7 @@ When you need to mention someone or something.
   <demo src="./demo/auto-size.vue">autoSize</demo>
   <demo src="./demo/status.vue">Status</demo>
   <demo src="./demo/style-class.vue">Custom semantic dom styling</demo>
+  <demo src="./demo/autosize-textarea-debug.vue" debug>autoSize debug</demo>
 </demo-group>
 
 ## API

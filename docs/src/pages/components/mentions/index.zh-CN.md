@@ -29,6 +29,7 @@ demo:
   <demo src="./demo/auto-size.vue">自动大小</demo>
   <demo src="./demo/status.vue">自定义状态</demo>
   <demo src="./demo/style-class.vue">自定义语义结构的样式和类</demo>
+  <demo src="./demo/autosize-textarea-debug.vue" debug>autoSize 调试</demo>
 </demo-group>
 
 ## API

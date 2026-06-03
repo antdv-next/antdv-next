@@ -69,6 +69,14 @@ const styles: TableProps['styles'] = {
       padding: '10px',
     },
   },
+  body: {
+    row: {
+      outline: '1px dashed rgba(226, 225, 225, 0.1)',
+    },
+    cell: {
+      outline: '1px dashed rgba(226, 225, 225, 0.1)',
+    },
+  },
 }
 
 const stylesFn: TableProps['styles'] = (info) => {
@@ -121,6 +129,8 @@ const stylesFn: TableProps['styles'] = (info) => {
       :pagination="{ pageSize: 3, simple: true }"
       :styles="styles"
       size="small"
+      virtual
+      :scroll="{ y: 300 }"
     >
       <template #title>
         Table Object Styles

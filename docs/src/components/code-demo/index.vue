@@ -36,13 +36,18 @@ interface DemoMeta {
 defineOptions({
   name: 'Demo',
 })
-const { src, compact, background, simplify } = defineProps<{
+const { src, compact, background, simplify, debug } = defineProps<{
   src: string
   iframe?: string
   compact?: boolean
   background?: string
   simplify?: boolean
+  /** Debug demos are shown in development only and hidden in the production docs build. */
+  debug?: boolean
 }>()
+
+// Debug demos are visible while developing but stripped from the production docs.
+const hidden = computed(() => Boolean(debug) && import.meta.env.PROD)
 const demo = computed<DemoMeta | undefined>(() => demos[src])
 const route = useRoute()
 const router = useRouter()
@@ -186,6 +191,9 @@ const cls = computed(() => {
   if (simplify) {
     cls.push('ant-doc-demo-box-simplify')
   }
+  if (debug) {
+    cls.push('ant-doc-demo-box-debug')
+  }
   return cls
 })
 
@@ -198,7 +206,7 @@ function handleOpenPlayground() {
 </script>
 
 <template>
-  <section :id="id" class="ant-doc-demo-box border-solid border-color-split border-1px" :class="cls">
+  <section v-if="!hidden" :id="id" class="ant-doc-demo-box border-solid border-color-split border-1px" :class="cls">
     <template v-if="simplify">
       <section class="vp-raw ant-doc-demo-box-demo">
         <component :is="component" v-if="demo?.component" />
@@ -304,6 +312,15 @@ function handleOpenPlayground() {
 
   break-inside: avoid;
   display: flow-root;
+
+  // Debug demos (dev only) get a purple border to stand out, matching antd.
+  &-debug {
+    border-color: #d3adf7;
+  }
+
+  &-debug &-title a {
+    color: #722ed1;
+  }
   border-radius: 8px;
   transition: 0.2s;
   box-sizing: border-box;

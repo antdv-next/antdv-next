@@ -72,6 +72,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | actionsRender | 自定义工具栏渲染 | (originalNode: VNode, info: ToolbarRenderInfoType) => VNode | - | - |
 | closeIcon | 自定义关闭 Icon | VNode | - | - |
 | cover | 自定义预览遮罩 | VNode \| [CoverConfig](#coverconfig) | - | - |
+| focusTrap | 预览打开时是否在预览内捕获焦点 | boolean | true | - |
 | getContainer | 指定预览挂载的节点，但依旧为全屏展示，false 为挂载在当前位置 | string \| HTMLElement \| (() => HTMLElement) \| false | - | - |
 | imageRender | 自定义预览内容 | (originalNode: VNode, info: { transform: [TransformType](#transformtype), image: [ImgInfo](#imginfo) }) => VNode | - | - |
 | mask | 预览遮罩效果 | boolean \| \{ enabled?: boolean, blur?: boolean \} | true | - |
@@ -102,6 +103,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | actionsRender | 自定义工具栏渲染 | (originalNode: VNode, info: ToolbarRenderInfoType) => VNode | - | - |
 | closeIcon | 自定义关闭 Icon | VNode | - | - |
 | countRender | 自定义预览计数内容 | (current: number, total: number) => VNode | - | - |
+| focusTrap | 预览打开时是否在预览内捕获焦点 | boolean | true | - |
 | current | 当前预览图的 index | number | - | - |
 | getContainer | 指定预览挂载的节点，但依旧为全屏展示，false 为挂载在当前位置 | string \| HTMLElement \| (() => HTMLElement) \| false | - | - |
 | imageRender | 自定义预览内容 | (originalNode: VNode, info: { transform: [TransformType](#transformtype), image: [ImgInfo](#imginfo), current: number }) => VNode | - | - |

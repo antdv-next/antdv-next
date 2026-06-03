@@ -51,6 +51,9 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
   <demo src="./demo/validate-scroll-to-field.vue" iframe="240">Slide to error field</demo>
   <demo src="./demo/validate-other.vue">Other Form Controls</demo>
   <demo src="./demo/style-class.vue">Custom semantic dom styling</demo>
+  <demo src="./demo/col-24-debug.vue" debug>Col 24 debug</demo>
+  <demo src="./demo/disabled-input-debug.vue" debug>Disabled input debug</demo>
+  <demo src="./demo/label-debug.vue" debug>Label ellipsis debug</demo>
 </demo-group>
 
 ## API

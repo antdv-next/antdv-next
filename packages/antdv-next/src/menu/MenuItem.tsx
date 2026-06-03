@@ -101,8 +101,8 @@ const MenuItem = defineComponent<
       const childrenLength = children.length
       let returnNode = (
         <Item
-          {...pureAttrs(attrs) as any}
-          {...omit(props, ['title', 'icon', 'danger'])}
+          {...omit(pureAttrs(attrs), ['itemData']) as any}
+          {...omit(props, ['title', 'icon', 'danger', 'itemData'])}
           class={clsx(
             firstLevel ? classes?.item : classes?.subMenu?.item,
             {

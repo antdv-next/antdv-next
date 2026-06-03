@@ -26,6 +26,7 @@ const FilterDropdownMenuWrapper = defineComponent<
         class={props.className || props.class}
         onClick={e => e.stopPropagation()}
         onKeydown={onKeydown}
+        role="presentation"
       >
         {slots.default?.()}
       </div>

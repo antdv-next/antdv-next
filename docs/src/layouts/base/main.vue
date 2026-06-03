@@ -112,18 +112,20 @@ const pageTurning = computed(() => {
         </Suspense>
         <!-- prev and next -->
         <div class="ant-doc-main-section-pageTurning">
-          <div>
-            <LeftOutlined :class="[pageTurning.prev ? '' : 'hidden']" />
-            <RouterLink :to="pageTurning.prevPath">
-              {{ pageTurning.prevLocale }}
-            </RouterLink>
-          </div>
-          <div v-show="pageTurning.next">
-            <RouterLink :to="pageTurning.nextPath">
-              {{ pageTurning.nextLocale }}
-            </RouterLink>
-            <RightOutlined />
-          </div>
+          <RouterLink v-show="pageTurning.prev" :to="pageTurning.prevPath" class="ant-doc-main-section-pageTurning-prev">
+            <LeftOutlined class="ant-doc-main-section-pageTurning-arrow" />
+            <span class="ant-doc-main-section-pageTurning-content">
+              <span class="ant-doc-main-section-pageTurning-label">{{ locale === 'zh-CN' ? '上一篇' : 'Previous' }}</span>
+              <span class="ant-doc-main-section-pageTurning-title">{{ pageTurning.prevLocale }}</span>
+            </span>
+          </RouterLink>
+          <RouterLink v-show="pageTurning.next" :to="pageTurning.nextPath" class="ant-doc-main-section-pageTurning-next">
+            <span class="ant-doc-main-section-pageTurning-content">
+              <span class="ant-doc-main-section-pageTurning-label">{{ locale === 'zh-CN' ? '下一篇' : 'Next' }}</span>
+              <span class="ant-doc-main-section-pageTurning-title">{{ pageTurning.nextLocale }}</span>
+            </span>
+            <RightOutlined class="ant-doc-main-section-pageTurning-arrow" />
+          </RouterLink>
         </div>
       </article>
       <Footer />
@@ -199,14 +201,86 @@ const pageTurning = computed(() => {
     &-pageTurning {
       display: flex;
       justify-content: space-between;
-      height: 72px;
-      line-height: 72px;
-      border-top: 1px solid var(--ant-color-border);
-      > .anticon:hover {
-        inset-inline-start: 0.2em;
+      gap: 16px;
+      margin-top: 32px;
+      padding-top: 24px;
+      padding-bottom: 32px;
+      border-top: 1px solid var(--ant-color-split, var(--ant-color-border));
+
+      &-prev,
+      &-next {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        flex: 0 1 auto;
+        max-width: calc(50% - 8px);
+        padding: 12px 16px;
+        border: 1px solid var(--ant-color-border-secondary, var(--ant-color-border));
+        border-radius: var(--ant-border-radius-lg, 8px);
+        color: var(--ant-color-text-secondary);
+        line-height: 1.4;
+        transition:
+          border-color 0.2s,
+          color 0.2s,
+          background-color 0.2s;
+
+        &:hover {
+          color: var(--ant-color-primary);
+          border-color: var(--ant-color-primary);
+          background-color: var(--ant-color-primary-bg, transparent);
+        }
       }
-      .hidden {
-        visibility: hidden;
+
+      // Keep the next block on the right even when there is no previous page
+      &-next {
+        margin-inline-start: auto;
+        text-align: end;
+      }
+
+      &-content {
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        gap: 2px;
+      }
+
+      &-label {
+        font-size: 12px;
+        color: var(--ant-color-text-tertiary);
+      }
+
+      &-title {
+        font-weight: 600;
+        color: var(--ant-color-text);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      &-prev:hover &-title,
+      &-next:hover &-title,
+      &-prev:hover &-label,
+      &-next:hover &-label {
+        color: var(--ant-color-primary);
+      }
+
+      &-arrow {
+        flex: none;
+        font-size: 14px;
+        color: var(--ant-color-text-tertiary);
+        transition:
+          transform 0.2s,
+          color 0.2s;
+      }
+
+      &-prev:hover &-arrow {
+        color: var(--ant-color-primary);
+        transform: translateX(-3px);
+      }
+
+      &-next:hover &-arrow {
+        color: var(--ant-color-primary);
+        transform: translateX(3px);
       }
     }
   }
