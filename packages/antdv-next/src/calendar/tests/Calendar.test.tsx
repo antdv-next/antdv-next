@@ -72,10 +72,8 @@ describe('calendar', () => {
   it('should emit select and change when date is selected', async () => {
     const onSelect = vi.fn()
     const onChange = vi.fn()
-    // Use controlled value so onChange fires correctly
-    // (uncontrolled mode has a bug: innerValue is updated before the comparison)
     const wrapper = mount(Calendar, {
-      props: { value: dayjs('2017-09-18T00:00:00Z'), onSelect, onChange },
+      props: { onSelect, onChange },
     })
     // Click a date cell that is different from the current value
     const cells = wrapper.findAll('.ant-picker-cell')
@@ -83,6 +81,29 @@ describe('calendar', () => {
     await cells[0].trigger('click')
     expect(onSelect).toHaveBeenCalled()
     expect(onChange).toHaveBeenCalled()
+  })
+
+  it('should emit change and panelChange from custom header in uncontrolled mode', async () => {
+    const onChange = vi.fn()
+    const onPanelChange = vi.fn()
+    let headerOnChange: ((date: dayjs.Dayjs) => void) | undefined
+
+    mount(Calendar, {
+      props: {
+        defaultValue: dayjs('2025-09-18T00:00:00Z'),
+        onChange,
+        onPanelChange,
+        headerRender: ({ onChange }: any) => {
+          headerOnChange = onChange
+          return h('div', { class: 'custom-header' })
+        },
+      },
+    })
+
+    headerOnChange?.(dayjs('2025-10-18T00:00:00Z'))
+
+    expect(onChange).toHaveBeenCalledWith(expect.objectContaining({ $M: 9 }))
+    expect(onPanelChange).toHaveBeenCalledWith(expect.objectContaining({ $M: 9 }), 'month')
   })
 
   it('should respect validRange boundaries', () => {
