@@ -83,6 +83,11 @@ function onPanelChange(value: Dayjs, mode: CalendarProps<Dayjs>['mode']) {
   panelDate.value = value
 }
 
+function onHeaderChange(value: Dayjs, onChange: (value: Dayjs) => void) {
+  panelDate.value = value
+  onChange(value)
+}
+
 function onSelect(value, selectInfo) {
   if (selectInfo.source === 'date') {
     selectDate.value = value
@@ -117,10 +122,10 @@ function onSelect(value, selectInfo) {
       <template #headerRender="{ value, type, onChange, onTypeChange }">
         <a-row justify="end" :gutter="8" style="padding: 8px;">
           <a-col>
-            <a-select size="small" :options="getOptions(value)" :value="value.year()" @change="(newYear) => onChange(value.clone().year(newYear))" />
+            <a-select size="small" :options="getOptions(value)" :value="value.year()" @change="(newYear) => onHeaderChange(value.clone().year(newYear), onChange)" />
           </a-col>
           <a-col>
-            <a-select size="small" :options="getMonthOptions(value)" :value="value.month()" @change="(newMonth) => onChange(value.clone().month(newMonth))" />
+            <a-select size="small" :options="getMonthOptions(value)" :value="value.month()" @change="(newMonth) => onHeaderChange(value.clone().month(newMonth), onChange)" />
           </a-col>
           <a-col>
             <a-radio-group size="small" :value="type" @change="(e) => onTypeChange(e.target.value)">
@@ -168,24 +173,17 @@ function onSelect(value, selectInfo) {
   background: rgba(0, 0, 0, 0.04);
 }
 .current {
-  color: #fff;
+  color: v-bind('token.colorTextLightSolid');
 }
 .current::before {
-  background: #1677ff;
+  background: v-bind('token.colorPrimary');
 }
 .current:hover::before {
-  background: #1677ff;
+  background: v-bind('token.colorPrimary');
   opacity: 0.8;
 }
-/* .current .lunar {
-  color: #fff;
-  opacity: 0.9;
-}
-.current .weekend {
-  color: #fff;
-} */
 .today::before {
-  border: 1px solid #1677ff;
+  border: 1px solid v-bind('token.colorPrimary');
 }
 .text {
   position: relative;
@@ -195,14 +193,15 @@ function onSelect(value, selectInfo) {
   color: v-bind('token.colorTextDescription');
   font-size: 12px;
 }
-.current .lunar {
-  color: v-bind('token.colorText');
-}
 .weekend {
-  color: #ff4d4f;
+  color: v-bind('token.colorError');
   &.gray {
     opacity: 0.4;
   }
+}
+.current .lunar,
+.current .weekend {
+  color: v-bind('token.colorTextLightSolid');
 }
 .monthCell {
   width: 120px;
@@ -214,11 +213,11 @@ function onSelect(value, selectInfo) {
   background: rgba(0, 0, 0, 0.04);
 }
 .monthCellCurrent {
-  color: #fff;
-  background: #1677ff;
+  color: v-bind('token.colorTextLightSolid');
+  background: v-bind('token.colorPrimary');
 }
 .monthCellCurrent:hover {
-  background: #1677ff;
+  background: v-bind('token.colorPrimary');
   opacity: 0.8;
 }
 </style>

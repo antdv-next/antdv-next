@@ -242,14 +242,15 @@ function generateCalendar<DateType extends AnyObject>(generateConfig: GenerateCo
       }
 
       const triggerChange = (date: DateType) => {
+        const prevValue = mergedValue.value
         if (props.value === undefined) {
           innerValue.value = date
         }
 
-        if (!isSameDate(date, mergedValue.value, generateConfig)) {
+        if (!isSameDate(date, prevValue, generateConfig)) {
           if (
-            (panelMode.value === 'date' && !isSameMonth(date, mergedValue.value, generateConfig))
-            || (panelMode.value === 'month' && !isSameYear(date, mergedValue.value, generateConfig))
+            (panelMode.value === 'date' && !isSameMonth(date, prevValue, generateConfig))
+            || (panelMode.value === 'month' && !isSameYear(date, prevValue, generateConfig))
           ) {
             triggerPanelChange(date, mergedMode.value)
           }
