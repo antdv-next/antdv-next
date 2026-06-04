@@ -24,6 +24,8 @@ describe('calendar lunar demo', () => {
     expect(source).toContain('gray: !panelDate.isSame(date, \'month\')')
     expect(source).toMatch(/\.current\s+\.lunar,\s*\n\.current\s+\.weekend\s*\{\s*color:\s*v-bind\('token\.colorTextLightSolid'\);\s*\}/)
     expect(source).toContain('color: v-bind(\'token.colorError\');')
+    expect(source).toContain('color: v-bind(\'token.colorText\');')
+    expect(source).not.toContain('color: #000;')
     expect(source).not.toContain('.current .lunar {\n  color: v-bind(\'token.colorText\');')
     expect(source).not.toContain('color: inherit;')
   })
