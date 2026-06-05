@@ -88,10 +88,8 @@ function onHeaderChange(value: Dayjs, onChange: (value: Dayjs) => void) {
   onChange(value)
 }
 
-function onSelect(value, selectInfo) {
-  if (selectInfo.source === 'date') {
-    selectDate.value = value
-  }
+function onSelect(value) {
+  selectDate.value = value
 }
 </script>
 
@@ -205,7 +203,7 @@ function onSelect(value, selectInfo) {
 }
 .monthCell {
   width: 120px;
-  color: #000;
+  color: v-bind('token.colorText');
   border-radius: 4px;
   padding: 5px 0;
 }
