@@ -167,6 +167,9 @@ catalogs:
     '@v-c/util': ^1.0.19
     '@v-c/virtual-list': ^1.0.8
 
+patchedDependencies:
+  '@v-c/dialog@1.1.0': patches/@v-c__dialog@1.1.0.patch
+
 onlyBuiltDependencies:
   - esbuild
   - less

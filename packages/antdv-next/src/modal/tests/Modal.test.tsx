@@ -170,4 +170,26 @@ describe('modal integration', () => {
 
     expect(document.activeElement).toBe(popupInput)
   })
+
+  it('should render content when forceRender is true even if modal is closed', async () => {
+    const wrapper = mount(Modal, {
+      attachTo: document.body,
+      props: {
+        open: false,
+        forceRender: true,
+        title: 'Force Render Modal',
+      },
+      slots: {
+        default: () => <div id="force-render-content">Hello</div>,
+      },
+    })
+
+    await waitFakeTimer(20, 10)
+
+    const content = document.getElementById('force-render-content')
+    expect(content).not.toBeNull()
+    expect(content!.textContent).toBe('Hello')
+
+    wrapper.unmount()
+  })
 })

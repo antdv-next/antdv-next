@@ -1,0 +1,13 @@
+diff --git a/dist/Dialog/Content/Panel.js b/dist/Dialog/Content/Panel.js
+index 092475766c9b24133f53946b073c8228998c4a15..6e29181ba8f3b45afc1c1ecfed2b01acc5a4e27e 100644
+--- a/dist/Dialog/Content/Panel.js
++++ b/dist/Dialog/Content/Panel.js
+@@ -69,7 +69,7 @@ var Panel = /* @__PURE__ */ defineComponent((props, { expose, slots }) => {
+ 			footerNode
+ 		]);
+ 		const renderContent = () => {
+-			if (!animationVisible && forceRender) return null;
++			if (!animationVisible && !forceRender) return null;
+ 			return modalRender ? modalRender(content) : content;
+ 		};
+ 		return createVNode("div", mergeProps({
