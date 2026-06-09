@@ -60,14 +60,16 @@ const Cell = defineComponent<CellProps>(
         >
           <div class={`${itemPrefixCls}-item-container`}>
             {(label || label === 0) && (
-              <span class={classNames(
-                `${itemPrefixCls}-item-label`,
-                descriptionsClassNames?.label,
-                {
-                  [`${itemPrefixCls}-item-no-colon`]: !colon,
-                },
-                classes?.label,
-              )}
+              <span
+                class={classNames(
+                  `${itemPrefixCls}-item-label`,
+                  descriptionsClassNames?.label,
+                  {
+                    [`${itemPrefixCls}-item-no-colon`]: !colon,
+                  },
+                  classes?.label,
+                )}
+                style={styles?.label}
               >
                 {label}
               </span>

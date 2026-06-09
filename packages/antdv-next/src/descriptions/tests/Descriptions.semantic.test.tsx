@@ -66,6 +66,8 @@ describe('descriptions.Semantic', () => {
     const contentSpan = wrapper.find('.ant-descriptions-item-content')
     expect(labelSpan.exists()).toBe(true)
     expect(contentSpan.exists()).toBe(true)
+    expect(labelSpan.attributes('style')).toContain('color: blue')
+    expect(contentSpan.attributes('style')).toContain('color: green')
   })
 
   it('should support classes and styles as functions', () => {

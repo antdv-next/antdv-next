@@ -14,6 +14,20 @@ function checkWrapper(content: string, wrapper = 'demo'): boolean {
   return REGEX_CHECK.test(content)
 }
 
+function isProdDebugDemo(tag: string) {
+  if (process.env.NODE_ENV !== 'production') {
+    return false
+  }
+
+  const debugAttr = tag.match(/(?:^|\s)debug(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s/>]+)))?/i)
+  if (!debugAttr) {
+    return false
+  }
+
+  const value = debugAttr[1] ?? debugAttr[2] ?? debugAttr[3]
+  return value === undefined || value === '' || value === 'true'
+}
+
 export function replaceSrcPath(content: string, id: string, root: string, wrapper = 'demo', examples?: MarkdownItHeader) {
   // Helper function to replace src path in a tag
   function replaceSrcInTag(tagMatch: string, titleContent?: string) {
@@ -35,7 +49,7 @@ export function replaceSrcPath(content: string, id: string, root: string, wrappe
 
       const newSrc = relative.startsWith('/') ? relative : `/${relative}`
       // 如果存在 examples header，则在其 children 中添加 demo 项
-      if (examples && titleContent) {
+      if (examples && titleContent && !isProdDebugDemo(tagMatch)) {
         const slug = componentDemoPath.replace(/\//g, '-').replace('.vue', '')
         const title = titleContent
         const level = examples.level + 1

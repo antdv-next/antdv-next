@@ -10,7 +10,7 @@ import { removeUndefined } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, shallowRef, watch } from 'vue'
 import { useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
-import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
+import { getSlotPropsFnRun, toPropsRefs, useLiveListener } from '../_util/tools'
 import { useComponentBaseConfig } from '../config-provider/context'
 import Popover from '../popover'
 import useMergedArrow from '../tooltip/hooks/useMergedArrow'
@@ -30,7 +30,7 @@ export type PopconfirmClassNamesType = SemanticClassNamesType<
 
 export type PopconfirmStylesType = SemanticStylesType<PopconfirmProps, PopconfirmSemanticStyles>
 
-export interface PopconfirmProps extends Omit<PopoverProps, 'title' | 'content' | 'classes' | 'styles'>,
+export interface PopconfirmProps extends Omit<PopoverProps, 'title' | 'content' | 'classes' | 'styles' | 'onOpenChange'>,
   /* @vue-ignore */
   PopconfirmEmitsProps {
   title?: VueNode
@@ -160,6 +160,10 @@ const InternalPopconfirm = defineComponent<
       settingOpen(value, e)
     }
 
+    // 实时转发 confirm：避免组件被复用且仅 `@confirm` 回调变化时（如无 rowKey 的表格翻页）
+    // 被 shouldUpdateComponent 跳过更新而捕获到旧的 record，同时保留返回值用于异步 loading。
+    const handleConfirm = useLiveListener<[MouseEvent?]>('confirm')
+
     expose({
       forceAlign: () => popoverRef.value?.forceAlign?.(),
       nativeElement: computed(() => popoverRef.value?.nativeElement),
@@ -208,7 +212,7 @@ const InternalPopconfirm = defineComponent<
           okButtonProps={props.okButtonProps}
           cancelButtonProps={props.cancelButtonProps}
           close={close}
-          onConfirm={props.onConfirm}
+          onConfirm={handleConfirm}
           onCancel={onCancel}
           onPopupClick={handlePopupClick}
           classes={mergedClassNames.value}

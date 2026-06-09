@@ -132,7 +132,7 @@ catalogs:
     '@v-c/checkbox': ^1.0.1
     '@v-c/collapse': ^1.0.0
     '@v-c/color-picker': ^1.0.6
-    '@v-c/dialog': ^1.1.0
+    '@v-c/dialog': ^1.1.1
     '@v-c/drawer': ^1.0.6
     '@v-c/dropdown': ^1.0.2
     '@v-c/image': ^1.0.12
