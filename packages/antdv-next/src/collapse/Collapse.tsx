@@ -131,7 +131,13 @@ const Collapse = defineComponent<
     const rootPrefixCls = getPrefixCls()
     const [hashId, cssVarCls] = useStyle(prefixCls)
     const mergedPlacement = computed(() => props.expandIconPlacement ?? 'start')
-    const mergedProps = computed(() => props)
+    // =========== Merged Props for Semantic ===========
+    const mergedProps = computed<CollapseProps>(() => ({
+      ...props,
+      size: mergedSize.value,
+      bordered: props.bordered ?? true,
+      expandIconPlacement: mergedPlacement.value,
+    }))
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       CollapseClassNamesType,
       CollapseStylesType,
@@ -183,7 +189,7 @@ const Collapse = defineComponent<
     return () => {
       const { bordered, ghost, rootClass, destroyOnHidden } = props
       const collapseClassName = classNames(
-        `${prefixCls.value}-icon-position-${mergedPlacement.value}`,
+        `${prefixCls.value}-icon-placement-${mergedPlacement.value}`,
         {
           [`${prefixCls.value}-borderless`]: !bordered,
           [`${prefixCls.value}-rtl`]: direction.value === 'rtl',
