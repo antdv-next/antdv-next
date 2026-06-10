@@ -6,6 +6,7 @@ import type { ColProps } from '../grid'
 import type { FormContextProps, FormFieldRegister } from './context.tsx'
 import type { FeedbackIcons } from './FormItem'
 import type { FormTooltipProps } from './FormItemLabel.tsx'
+import type { FormHookEntry } from './hooks/useForm.ts'
 import type { FormLabelAlign, ScrollFocusOptions } from './interface'
 import type {
   FieldData,
@@ -19,9 +20,10 @@ import type {
 import { clsx, get, set } from '@v-c/util'
 import { pick } from 'es-toolkit'
 import scrollIntoView from 'scroll-into-view-if-needed'
-import { computed, defineComponent, shallowRef, watch } from 'vue'
+import { computed, defineComponent, getCurrentInstance, inject, onBeforeUnmount, onMounted, provide, shallowRef, watch } from 'vue'
 import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
 import { toPropsRefs } from '../_util/tools.ts'
+import warning from '../_util/warning'
 import { useComponentBaseConfig } from '../config-provider/context'
 import { useDisabledContext, useDisabledContextProvider } from '../config-provider/DisabledContext.tsx'
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls.ts'
@@ -29,6 +31,7 @@ import { useSize } from '../config-provider/hooks/useSize.ts'
 import { useSizeProvider } from '../config-provider/SizeContext.tsx'
 import useLocale from '../locale/useLocale.ts'
 import { NoFormStyle, useFormContextProvider, useVariantContextProvider } from './context.tsx'
+import { FormHookRegistryKey, FormInstanceContextKey } from './hooks/useForm.ts'
 import useStyle from './style'
 import { getFieldId, toArray } from './util.ts'
 import { allPromiseFinish } from './utils/asyncUtil'
@@ -138,8 +141,8 @@ export interface FormInstance {
   setFields: (data: FieldData[]) => void
   setFieldValue: (name: NamePath, value: any) => void
   setFieldsValue: (values: Record<string, any>) => void
-  validateFields: (nameList?: NamePath[], options?: ValidateOptions) => Promise<Record<string, any>>
-  validate: () => Promise<Record<string, any>>
+  validateFields: (nameList?: NamePath[] | ValidateOptions, options?: ValidateOptions) => Promise<Record<string, any>>
+  validate: (nameList?: NamePath[] | ValidateOptions, options?: ValidateOptions) => Promise<Record<string, any>>
   submit: () => void
   nativeElement: HTMLFormElement | undefined
   scrollToField: (fieldName: NamePath, options?: ScrollFocusOptions | boolean) => void
@@ -255,13 +258,13 @@ const InternalForm = defineComponent<
       delete fields.value[eventKey]
     }
 
-    const getFieldsByNameList = (namePathList?: InternalNamePath[]) => {
+    const getFieldsByNameList = (namePathList?: InternalNamePath[], partialMatch = false) => {
       const mergedNamePathList = namePathList?.length ? namePathList : undefined
       const fieldList = Object.values(fields.value)
       if (!mergedNamePathList) {
         return fieldList
       }
-      return fieldList.filter(field => containsNamePath(mergedNamePathList, field.namePath()))
+      return fieldList.filter(field => containsNamePath(mergedNamePathList, field.namePath(), partialMatch))
     }
 
     const getFieldValue = (namePath: InternalNamePath) => {
@@ -314,7 +317,17 @@ const InternalForm = defineComponent<
       getFieldsByNameList(targetList).forEach(field => field.clearValidate())
     }
 
-    const validateFields = (nameList?: NamePath[], options: ValidateOptions = {}) => {
+    const validateFields = (arg1?: NamePath[] | ValidateOptions, arg2?: ValidateOptions) => {
+      let nameList: NamePath[] | undefined
+      let options: ValidateOptions
+      if (Array.isArray(arg1) || typeof arg1 === 'string' || typeof arg2 === 'string') {
+        nameList = arg1 as NamePath[]
+        options = (arg2 as ValidateOptions) || {}
+      }
+      else {
+        options = (arg1 as ValidateOptions) || {}
+      }
+
       const provideNameList = !!(nameList && toArray(nameList).length)
       const namePathList: InternalNamePath[] = provideNameList
         ? toArray(nameList).map(getNamePath)
@@ -326,11 +339,17 @@ const InternalForm = defineComponent<
         warnings: string[]
       }>[] = []
 
-      getFieldsByNameList(provideNameList ? namePathList : undefined).forEach((field) => {
+      const { recursive, dirty } = options
+
+      getFieldsByNameList(provideNameList ? namePathList : undefined, recursive).forEach((field) => {
         if (!provideNameList) {
           namePathList.push(field.namePath())
         }
         if (!field.rules || !field.rules()?.length) {
+          return
+        }
+        // Skip if only validate dirty field
+        if (dirty && !field.isFieldDirty?.()) {
           return
         }
         const promise = field
@@ -378,8 +397,10 @@ const InternalForm = defineComponent<
         })
         .catch((results) => {
           const errorList = results.filter((result: any) => result && result.errors.length)
+          const errorMessage = errorList[0]?.errors?.[0]
           // eslint-disable-next-line prefer-promise-reject-errors
           return Promise.reject({
+            message: errorMessage,
             values: getFieldsValue(namePathList),
             errorFields: errorList,
             outOfDate: lastValidatePromise.value !== summaryPromise,
@@ -565,7 +586,7 @@ const InternalForm = defineComponent<
     useDisabledContextProvider(disabled)
     useSizeProvider(mergedSize)
 
-    expose({
+    const formInstance = {
       getFieldValue: (name: NamePath) => getFieldValue(getNamePath(name)),
       getFieldsValue,
       getFieldError,
@@ -581,10 +602,14 @@ const InternalForm = defineComponent<
       setFieldValue,
       setFieldsValue,
       validateFields,
-      validate: () => validateFields(),
+      validate: validateFields,
       submit,
-      nativeElement: nativeElementRef,
-      el: nativeElementRef,
+      get nativeElement() {
+        return nativeElementRef.value
+      },
+      get el() {
+        return nativeElementRef.value
+      },
       scrollToField: (name: NamePath, options: ScrollFocusOptions | boolean = {}) => {
         scrollToField(getNamePath(name), options)
       },
@@ -606,6 +631,54 @@ const InternalForm = defineComponent<
           return fields.value?.[targetId]
         }
       },
+    } as unknown as FormInstance
+
+    expose(formInstance)
+    provide(FormInstanceContextKey, formInstance)
+
+    // Connect `useForm()` hook instances from ancestor components.
+    const hookRegistry = inject(FormHookRegistryKey, null)
+    const vm = getCurrentInstance()
+    let boundEntry: FormHookEntry | undefined
+
+    onMounted(() => {
+      if (!hookRegistry || !vm) {
+        return
+      }
+      const entries = hookRegistry.entries
+      // Template refs are set before mounted hooks flush. If this form is already
+      // explicitly bound to a hook instance, do not consume another entry.
+      const isSelf = (val: any) => !!val && (val === formInstance || val.$ === vm)
+      if (entries.some(entry => isSelf(entry.instanceRef.value))) {
+        return
+      }
+      let entry: FormHookEntry | undefined
+      if (props.name) {
+        entry = entries.find(item => item.boundBy === undefined && item.name === props.name)
+      }
+      if (!entry) {
+        entry = entries.find(item => item.boundBy === undefined && item.name === undefined)
+      }
+      if (entry) {
+        if (!entry.name && entries.filter(item => item.name === undefined).length > 1) {
+          warning(
+            false,
+            'Form',
+            'Multiple unnamed `useForm` instances are connected by declaration order, which is fragile. Bind explicitly via template ref or a matching `name`.',
+          )
+        }
+        entry.boundBy = vm.uid
+        entry.instanceRef.value = formInstance
+        boundEntry = entry
+      }
+    })
+
+    onBeforeUnmount(() => {
+      if (boundEntry && vm && boundEntry.boundBy === vm.uid) {
+        boundEntry.boundBy = undefined
+        boundEntry.instanceRef.value = undefined
+        boundEntry = undefined
+      }
     })
 
     watch(
