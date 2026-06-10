@@ -46,10 +46,10 @@ Common props ref：[Common props](/docs/vue/common-props)
 | rootClass | Root container class | string | - | - |
 | bordered | Toggles rendering of the border around the collapse block | boolean | true | - |
 | expandIcon | Allow to customize collapse icon | (panelProps: PanelProps) =&gt; any | - | - |
-| expandIconPlacement | Set expand icon placement | ExpandIconPlacement | `start` | - |
+| expandIconPlacement | Set expand icon placement | `start` \| `end` | `start` | - |
 | ghost | Make the collapse borderless and its background transparent | boolean | false | - |
 | size | Set the size of collapse | SizeType | `middle` | - |
-| collapsible | Specify how to trigger Collapse. Either by clicking icon or by clicking any area in header or disable collapse functionality itself | CollapsibleType | - | - |
+| collapsible | Specify how to trigger Collapse. Either by clicking icon or by clicking any area in header or disable collapse functionality itself | `header` \| `icon` \| `disabled` | - | - |
 | labelRender | Custom render label | (params: &#123; item: CollapseItemType, index: number &#125;) =&gt; any | - | - |
 | contentRender | Custom render content | (params: &#123; item: CollapseItemType, index: number &#125;) =&gt; any | - | - |
 | classes | Customize class for each semantic structure inside the component. Supports object or function. | CollapseClassNamesType | - | - |
@@ -81,7 +81,7 @@ Deprecated: when using items, prefer configuring panels with `items`.
 | header | - | VueNode | - | - |
 | showArrow | - | boolean | true | - |
 | extra | - | VueNode | - | - |
-| collapsible | Specify how to trigger Collapse. Either by clicking icon or by clicking any area in header or disable collapse functionality itself | CollapsibleType | - | - |
+| collapsible | Specify how to trigger Collapse. Either by clicking icon or by clicking any area in header or disable collapse functionality itself | `header` \| `icon` \| `disabled` | - | - |
 
 ## Types
 
@@ -90,7 +90,7 @@ Deprecated: when using items, prefer configuring panels with `items`.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | classes | Semantic structure class | Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - |
-| collapsible | Specify whether the panel be collapsible or the trigger area of collapsible | CollapsibleType | - | - |
+| collapsible | Specify whether the panel be collapsible or the trigger area of collapsible | `header` \| `icon` \| `disabled` | - | - |
 | content | Body area content | VueNode | - | - |
 | extra | The extra element in the corner | VueNode | - | - |
 | forceRender | Forced render of content on panel, instead of lazy rendering after clicking on header | boolean | false | - |

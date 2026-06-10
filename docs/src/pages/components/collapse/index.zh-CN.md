@@ -46,10 +46,10 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sir-TK0HkWcAAA
 | rootClass | 根节点 class | string | - | - |
 | bordered | 带边框风格的折叠面板 | boolean | true | - |
 | expandIcon | 自定义切换图标 | (panelProps: PanelProps) =&gt; any | - | - |
-| expandIconPlacement | 设置图标位置 | ExpandIconPlacement | `start` | - |
+| expandIconPlacement | 设置图标位置 | `start` \| `end` | `start` | - |
 | ghost | 使折叠面板透明且无边框 | boolean | false | - |
 | size | 设置折叠面板大小 | SizeType | `middle` | - |
-| collapsible | 所有子面板是否可折叠或指定可折叠触发区域 | CollapsibleType | - | - |
+| collapsible | 所有子面板是否可折叠或指定可折叠触发区域 | `header` \| `icon` \| `disabled` | - | - |
 | labelRender | 自定义渲染label | (params: &#123; item: CollapseItemType, index: number &#125;) =&gt; any | - | - |
 | contentRender | 自定义渲染内容 | (params: &#123; item: CollapseItemType, index: number &#125;) =&gt; any | - | - |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | CollapseClassNamesType | - | - |
