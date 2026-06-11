@@ -39,6 +39,8 @@ import useShowArrow from './useShowArrow'
 
 type RawValue = string | number
 
+export type { SearchConfig } from '@v-c/select'
+
 export interface LabeledValue {
   key?: string
   value: RawValue

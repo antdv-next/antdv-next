@@ -5,6 +5,7 @@ import type { InputStatus } from '../_util/statusUtils'
 import type { VueNode } from '../_util/type'
 import type {
   InternalSelectProps,
+  SearchConfig,
   SelectPopupSemanticClassNames,
   SelectPopupSemanticStyles,
   SelectProps,
@@ -90,6 +91,9 @@ export interface AutoCompleteProps extends
     | 'styles'
     | 'getInputElement'
     | 'getRawInputElement'
+    | 'showSearch'
+    | 'optionFilterProp'
+    | 'filterSort'
     | RcEventKeys
   >,
   /* @vue-ignore */
@@ -111,6 +115,7 @@ export interface AutoCompleteProps extends
   popupRender?: (menu: VueNode) => any
   /** @deprecated Please use `styles.popup.root` instead */
   dropdownStyle?: CSSProperties
+  showSearch?: boolean | Pick<SearchConfig, 'filterOption' | 'onSearch'>
 }
 
 export interface AutoCompleteEmits {
