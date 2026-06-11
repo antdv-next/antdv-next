@@ -280,7 +280,7 @@ describe('menu', () => {
       .map(style => style.innerHTML)
       .join('\n')
 
-    expect(dynamicStyleText).toMatch(/ant-menu-inline-collapsed[\s\S]*justify-content:center/)
+    expect(dynamicStyleText).toMatch(/ant-menu-inline-collapsed[\s\S]*justify-content:flex-start/)
     expect(dynamicStyleText).toMatch(/ant-menu-inline-collapsed[\s\S]*ant-menu-title-content\{width:0;opacity:0;overflow:hidden/)
 
     wrapper.unmount()
