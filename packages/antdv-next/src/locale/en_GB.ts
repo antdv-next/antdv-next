@@ -70,7 +70,7 @@ const localeValues: Locale = {
     downloadFile: 'Download file',
   },
   Empty: {
-    description: 'No Data',
+    description: 'No data',
   },
   Icon: {
     icon: 'icon',
@@ -130,6 +130,17 @@ const localeValues: Locale = {
         mismatch: '${label} does not match the pattern ${pattern}',
       },
     },
+  },
+  QRCode: {
+    expired: 'QR code expired',
+    refresh: 'Refresh',
+    scanned: 'Scanned',
+  },
+  ColorPicker: {
+    presetEmpty: 'Empty',
+    transparent: 'Transparent',
+    singleColor: 'Single',
+    gradientColor: 'Gradient',
   },
 }
 
