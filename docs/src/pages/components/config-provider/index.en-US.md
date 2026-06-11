@@ -80,7 +80,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 ### ConfigProvider.config() {#config}
 
-Setting `Modal`, `Message`, `Notification` static config. Not work on hooks.
+Setting `Modal`, `Message`, `Notification` static config. Does not work on hooks.
 
 ```ts
 import { App, ConfigProvider } from 'antdv-next'

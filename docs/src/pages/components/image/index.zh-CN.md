@@ -78,7 +78,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | mask | 预览遮罩效果 | boolean \| \{ enabled?: boolean, blur?: boolean \} | true | - |
 | maxScale | 最大缩放倍数 | number | 50 | - |
 | minScale | 最小缩放倍数 | number | 1 | - |
-| movable | 是否可移动 | boolean | true | - |
+| movable | 预览图片大于视口时是否可拖拽移动 | boolean | true | - |
 | open | 是否显示预览 | boolean | - | - |
 | rootClassName | 预览图的根 DOM 类名，会同时作用在图片和预览层最外侧 | string | - | - |
 | scaleStep | `1 + scaleStep` 为缩放放大的每步倍数 | number | 0.5 | - |
@@ -110,7 +110,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | mask | 预览遮罩效果 | boolean \| \{ enabled?: boolean, blur?: boolean \} | true | - |
 | minScale | 最小缩放倍数 | number | 1 | - |
 | maxScale | 最大放大倍数 | number | 50 | - |
-| movable | 是否可移动 | boolean | true | - |
+| movable | 预览图片大于视口时是否可拖拽移动 | boolean | true | - |
 | open | 是否显示预览 | boolean | - | - |
 | styles | 自定义语义化结构样式 | Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | - |
 | scaleStep | `1 + scaleStep` 为缩放放大的每步倍数 | number | 0.5 | - |

@@ -61,7 +61,7 @@ demo:
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: \{ props \})=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | data | 上传所需额外参数或返回上传额外参数的方法 | object\|(file) => object \| Promise&lt;object> | - |  |
 | directory | 支持上传文件夹（[caniuse](https://caniuse.com/#feat=input-file-directory)） | boolean | false |  |
-| disabled | 是否禁用 | boolean | false | 对于自定义 Upload children 时请将 disabled 属性同时传给 child node 确保 disabled 渲染效果保持一致 |
+| disabled | 是否禁用。对于自定义 Upload children 时，请同时将 `disabled` 属性传给 child node，以确保禁用状态的渲染效果保持一致 | boolean | false |  |
 | fileList | 已经上传的文件列表（受控），使用此参数时，如果遇到 `onChange` 只调用一次的问题，请参考 [#2423](https://github.com/ant-design/ant-design/issues/2423)，支持 `v-model:file-list` | [UploadFile](#uploadfile)\[] | - |  |
 | headers | 设置上传的请求头部，IE10 以上有效 | object | - |  |
 | iconRender | 自定义显示 icon | (file: UploadFile, listType?: UploadListType) => VueNode | - |  |

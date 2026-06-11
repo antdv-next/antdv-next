@@ -49,6 +49,9 @@ const stylesFnPassword: InputPasswordProps['styles'] = (info) => {
 const stylesFnOTP: InputOTPProps['styles'] = (info) => {
   if (info.props.size === 'middle') {
     return {
+      root: {
+        borderWidth: 0,
+      },
       input: {
         borderColor: '#6E8CFB',
         width: '32px',
@@ -61,7 +64,7 @@ const stylesFnOTP: InputOTPProps['styles'] = (info) => {
 const stylesFnSearch: InputSearchProps['styles'] = (info) => {
   if (info.props.size === 'large') {
     return {
-      root: { color: '#4DA8DA' },
+      root: { color: '#4DA8DA', borderWidth: 0 },
       input: { color: '#4DA8DA', borderColor: '#4DA8DA' },
       prefix: { color: '#4DA8DA' },
       suffix: { color: '#4DA8DA' },

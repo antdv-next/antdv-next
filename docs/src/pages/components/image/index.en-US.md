@@ -77,7 +77,7 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | mask | preview mask effect | boolean \| \{ enabled?: boolean, blur?: boolean \} | true | - |
 | maxScale | Maximum zoom scale | number | 50 | - |
 | minScale | Minimum zoom scale | number | 1 | - |
-| movable | Whether it is movable | boolean | true | - |
+| movable | Whether the preview image can be dragged when it is larger than the viewport | boolean | true | - |
 | open | Whether to display preview | boolean | - | - |
 | rootClassName | Root DOM class name for preview; applies to both image and preview wrapper | string | - | - |
 | scaleStep | Each step's zoom multiplier is 1 + scaleStep | number | 0.5 | - |
@@ -109,7 +109,7 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | mask | preview mask effect | boolean \| \{ enabled?: boolean, blur?: boolean \} | true | - |
 | minScale | Minimum zoom scale | number | 1 | - |
 | maxScale | Maximum zoom scale | number | 50 | - |
-| movable | Whether movable | boolean | true | - |
+| movable | Whether the preview image can be dragged when it is larger than the viewport | boolean | true | - |
 | open | Whether to display preview | boolean | - | - |
 | styles | Custom semantic structure styles | Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | - |
 | scaleStep | Each step's zoom multiplier is 1 + scaleStep | number | 0.5 | - |

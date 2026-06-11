@@ -60,7 +60,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | classes | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: \{ props \})=> Record<[SemanticDOM](#semantic-dom), string> | - | - |
 | data | Uploading extra params or function which can return uploading extra params | object \| (file) => object \| Promise&lt;object> | - | - |
 | directory | Support upload whole directory ([caniuse](https://caniuse.com/#feat=input-file-directory)) | boolean | false | - |
-| disabled | Disable upload button | boolean | false | When customizing Upload children, please pass the disabled attribute to the child node at the same time to ensure the disabled rendering effect is consistent. |
+| disabled | Disable upload button. When customizing Upload children, please pass the `disabled` attribute to the child node at the same time to ensure the disabled rendering effect is consistent. | boolean | false | - |
 | fileList | List of files that have been uploaded (controlled). Here is a common issue [#2423](https://github.com/ant-design/ant-design/issues/2423) when using it, support `v-model:file-list` | [UploadFile](#uploadfile)\[] | - | - |
 | headers | Set request headers, valid above IE10 | object | - | - |
 | iconRender | Custom show icon | (file: UploadFile, listType?: UploadListType) => VueNode | - | - |
