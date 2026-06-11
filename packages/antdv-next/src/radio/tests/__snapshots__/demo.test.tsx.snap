@@ -1484,81 +1484,152 @@ exports[`radio demo > renders radiogroup-block correctly 1`] = `
 
 exports[`radio demo > renders radiogroup-more correctly 1`] = `
 <div
-  class="ant-radio-group ant-radio-group-outline css-var-root ant-radio-css-var ant-radio-group-vertical"
+  class="ant-flex css-var-root ant-flex-align-start ant-flex-gap-large"
 >
-  <label
-    class="ant-radio-wrapper ant-radio-wrapper-checked css-var-root ant-radio-css-var"
+  <div
+    style="flex: 1 1 0%;"
   >
-    <span
-      class="ant-radio ant-wave-target ant-radio-checked ant-wave-target"
-      name="v-0"
+    <div
+      class="ant-radio-group ant-radio-group-outline css-var-root ant-radio-css-var ant-radio-group-vertical"
     >
-      <input
-        checked=""
-        class="ant-radio-input"
-        type="radio"
-      />
-    </span>
-    <span
-      class="ant-radio-label"
-    >
-       Option A 
-    </span>
-  </label>
-  <label
-    class="ant-radio-wrapper css-var-root ant-radio-css-var"
+      <label
+        class="ant-radio-wrapper ant-radio-wrapper-checked css-var-root ant-radio-css-var"
+      >
+        <span
+          class="ant-radio ant-wave-target ant-radio-checked ant-wave-target"
+          name="v-0"
+        >
+          <input
+            checked=""
+            class="ant-radio-input"
+            type="radio"
+          />
+        </span>
+        <span
+          class="ant-radio-label"
+        >
+           Option A 
+        </span>
+      </label>
+      <label
+        class="ant-radio-wrapper css-var-root ant-radio-css-var"
+      >
+        <span
+          class="ant-radio ant-wave-target ant-wave-target"
+          name="v-0"
+        >
+          <input
+            class="ant-radio-input"
+            type="radio"
+          />
+        </span>
+        <span
+          class="ant-radio-label"
+        >
+           Option B 
+        </span>
+      </label>
+      <label
+        class="ant-radio-wrapper css-var-root ant-radio-css-var"
+      >
+        <span
+          class="ant-radio ant-wave-target ant-wave-target"
+          name="v-0"
+        >
+          <input
+            class="ant-radio-input"
+            type="radio"
+          />
+        </span>
+        <span
+          class="ant-radio-label"
+        >
+           Option C 
+        </span>
+      </label>
+      <label
+        class="ant-radio-wrapper css-var-root ant-radio-css-var"
+      >
+        <span
+          class="ant-radio ant-wave-target ant-wave-target"
+          name="v-0"
+        >
+          <input
+            class="ant-radio-input"
+            type="radio"
+          />
+        </span>
+        <span
+          class="ant-radio-label"
+        >
+           More... 
+        </span>
+      </label>
+    </div>
+  </div>
+  <div
+    style="flex: 1 1 0%;"
   >
-    <span
-      class="ant-radio ant-wave-target ant-wave-target"
-      name="v-0"
+    <div
+      class="ant-radio-group ant-radio-group-outline css-var-root ant-radio-css-var ant-radio-group-vertical"
     >
-      <input
-        class="ant-radio-input"
-        type="radio"
-      />
-    </span>
-    <span
-      class="ant-radio-label"
-    >
-       Option B 
-    </span>
-  </label>
-  <label
-    class="ant-radio-wrapper css-var-root ant-radio-css-var"
-  >
-    <span
-      class="ant-radio ant-wave-target ant-wave-target"
-      name="v-0"
-    >
-      <input
-        class="ant-radio-input"
-        type="radio"
-      />
-    </span>
-    <span
-      class="ant-radio-label"
-    >
-       Option C 
-    </span>
-  </label>
-  <label
-    class="ant-radio-wrapper css-var-root ant-radio-css-var"
-  >
-    <span
-      class="ant-radio ant-wave-target ant-wave-target"
-      name="v-0"
-    >
-      <input
-        class="ant-radio-input"
-        type="radio"
-      />
-    </span>
-    <span
-      class="ant-radio-label"
-    >
-       More... 
-    </span>
-  </label>
+      <label
+        class="ant-radio-button-wrapper label-1 css-var-root ant-radio-css-var"
+      >
+        <span
+          class="ant-radio-button"
+          name="v-1"
+        >
+          <input
+            class="ant-radio-button-input"
+            type="radio"
+          />
+        </span>
+        <span
+          class="ant-radio-button-label"
+        >
+          Apple
+        </span>
+      </label>
+      <label
+        class="ant-radio-button-wrapper label-2 css-var-root ant-radio-css-var"
+      >
+        <span
+          class="ant-radio-button"
+          name="v-1"
+        >
+          <input
+            class="ant-radio-button-input"
+            type="radio"
+          />
+        </span>
+        <span
+          class="ant-radio-button-label"
+        >
+          Pear
+        </span>
+      </label>
+      <label
+        class="ant-radio-button-wrapper label-3 css-var-root ant-radio-css-var"
+        title="Orange"
+      >
+        <span
+          class="ant-radio-button"
+          name="v-1"
+        >
+          <input
+            class="ant-radio-button-input"
+            type="radio"
+          />
+        </span>
+        <span
+          class="ant-radio-button-label"
+        >
+          Orange
+        </span>
+      </label>
+    </div>
+  </div>
 </div>
 `;
 
