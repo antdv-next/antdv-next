@@ -12,6 +12,7 @@ import { filterEmpty } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent } from 'vue'
 import { useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { isRenderable } from '../_util/is.ts'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { useComponentBaseConfig } from '../config-provider/context.ts'
 import useStyle from './style'
@@ -30,17 +31,17 @@ export const Overlay = defineComponent<OverlayProps>(
       const { prefixCls, classes, styles } = props
       const title = getSlotPropsFnRun(slots, props, 'title')
       const content = getSlotPropsFnRun(slots, props, 'content')
-      if (!title && !content) {
+      if (!isRenderable(title) && !isRenderable(content)) {
         return null
       }
       return (
         <>
-          {title && (
+          {isRenderable(title) && (
             <div class={clsx(`${prefixCls}-title`, classes?.title)} style={styles?.title}>
               {title}
             </div>
           )}
-          {content && (
+          {isRenderable(content) && (
             <div class={clsx(`${prefixCls}-content`, classes?.content)} style={styles?.content}>
               {content}
             </div>

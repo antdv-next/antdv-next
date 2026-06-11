@@ -85,6 +85,25 @@ describe('popover', () => {
     expect(document.querySelector('.ant-popover-content')?.textContent).toContain('Popover Content')
   })
 
+  it('should display overlay when the content is the number 0', async () => {
+    mount(Popover, {
+      attachTo: document.body,
+      props: {
+        content: 0,
+        open: true,
+        mouseEnterDelay: 0,
+        mouseLeaveDelay: 0,
+      },
+      slots: {
+        default: () => <span>show me your code</span>,
+      },
+    })
+    await flushPopoverTimer()
+    const popup = document.querySelector('.ant-popover')
+    expect(popup).not.toBe(null)
+    expect(popup?.textContent).toContain('0')
+  })
+
   it('renders title and content via slots', async () => {
     mount(Popover, {
       attachTo: document.body,

@@ -12,6 +12,7 @@ import {
   useToArr,
   useToProps,
 } from '../_util/hooks'
+import { isRenderable } from '../_util/is.ts'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { useComponentBaseConfig } from '../config-provider/context'
 import Tooltip from '../tooltip'
@@ -182,7 +183,7 @@ const InternalPopover = defineComponent<
           open={open.value}
           onOpenChange={onInternalOpenChange}
           overlay={
-            titleNode || contentNode
+            isRenderable(titleNode) || isRenderable(contentNode)
               ? (
                   <Overlay
                     prefixCls={prefixCls.value}

@@ -64,6 +64,22 @@ describe('popconfirm', () => {
     wrapper.unmount()
   })
 
+  it('should render title when it is the number 0', async () => {
+    const wrapper = mount(Popconfirm, {
+      props: { title: 0, open: true },
+      slots: {
+        default: () => <span>show me your code</span>,
+      },
+      attachTo: document.body,
+    })
+    await nextTick()
+    await nextTick()
+    const titleNode = document.querySelector('.ant-popconfirm-title')
+    expect(titleNode).not.toBe(null)
+    expect(titleNode?.textContent).toContain('0')
+    wrapper.unmount()
+  })
+
   it('ConfigProvider tooltip config should not leak into Popconfirm', async () => {
     const wrapper = mount(ConfigProvider, {
       props: {
