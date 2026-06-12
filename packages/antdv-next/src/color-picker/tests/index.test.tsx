@@ -137,6 +137,33 @@ describe('color-picker', () => {
     ).toContain('0')
   })
 
+  it('should allowClear work with keyboard', async () => {
+    const triggerClear = async (key: string) => {
+      const onClear = vi.fn()
+      const wrapper = mount(ColorPicker, {
+        attachTo: document.body,
+        props: {
+          open: true,
+          defaultValue: '#1677ff',
+          allowClear: true,
+          onClear,
+        },
+      })
+      await flushColorPickerTimer()
+
+      const clearBtn = document.querySelector<HTMLElement>('.ant-color-picker-operation .ant-color-picker-clear')
+      expect(clearBtn?.getAttribute('role')).toBe('button')
+      expect(clearBtn?.getAttribute('tabindex')).toBe('0')
+      clearBtn?.dispatchEvent(new KeyboardEvent('keydown', { key, bubbles: true }))
+      await flushColorPickerTimer()
+
+      expect(onClear).toHaveBeenCalledTimes(1)
+      wrapper.unmount()
+    }
+    await triggerClear('Enter')
+    await triggerClear(' ')
+  })
+
   it('switches format input by controlled format prop', async () => {
     const wrapper = mount(ColorPicker, {
       attachTo: document.body,
