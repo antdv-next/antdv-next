@@ -16,6 +16,7 @@ import { clsx } from '@v-c/util'
 import { computed, defineComponent, shallowRef, unref } from 'vue'
 import { mergeClassNames, mergeStyles, resolveStyleOrClass, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
 import { computeClosable, pickClosable } from '../_util/hooks/useClosable.tsx'
+import { isRenderable } from '../_util/is.ts'
 import { toPropsRefs } from '../_util/tools.ts'
 import { devUseWarning } from '../_util/warning.ts'
 import { useBaseConfig, useComponentBaseConfig } from '../config-provider/context'
@@ -199,6 +200,9 @@ export function useInternalNotification(
         ...restConfig
       } = config
       const mergedTitle = title
+      // An empty title still renders a title node, which would cancel the
+      // closable padding on the adjacent description (antd #58096).
+      const hasTitle = isRenderable(mergedTitle) && (mergedTitle as unknown) !== ''
       const mergedActions = actions
 
       const realCloseIcon = getCloseIcon(
@@ -246,7 +250,7 @@ export function useInternalNotification(
         placement: unref(notificationConfig)?.placement ?? DEFAULT_PLACEMENT,
         ...restConfig,
         icon: iconNode,
-        title: mergedTitle,
+        title: hasTitle ? mergedTitle : null,
         description,
         actions: mergedActions,
         role,

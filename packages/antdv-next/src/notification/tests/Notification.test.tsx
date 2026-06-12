@@ -204,6 +204,28 @@ describe('notification', () => {
       wrapper.unmount()
     })
 
+    // antd #58096: an empty title must not render a title node, otherwise the
+    // adjacent-sibling rule cancels the closable padding on the description
+    // and the close button overlaps the description text.
+    it('does not render title node when title is empty', async () => {
+      const { wrapper, getApi } = mountNotification()
+      await waitForNotification()
+
+      getApi().open({
+        title: '',
+        description: 'Description Only',
+        duration: 0,
+      })
+      await waitForNotification()
+
+      expect(document.querySelector('.ant-notification-notice-title')).toBeFalsy()
+
+      const desc = document.querySelector('.ant-notification-notice-description')
+      expect(desc?.textContent).toBe('Description Only')
+
+      wrapper.unmount()
+    })
+
     it('renders JSX content in title and description', async () => {
       const { wrapper, getApi } = mountNotification()
       await waitForNotification()
