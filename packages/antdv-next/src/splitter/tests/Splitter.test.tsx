@@ -956,6 +956,24 @@ describe('splitter', () => {
       expect(onCollapse).toHaveBeenCalledTimes(2)
       expect(onCollapse).toHaveBeenCalledWith([false, false], [50, 50])
     })
+
+    it('should trigger onCollapse when collapse button keydown', async () => {
+      const onCollapse = vi.fn()
+      const wrapper = mountSplitter({
+        items: [{ collapsible: true }, { collapsible: true }],
+        onCollapse,
+      })
+
+      await resizeSplitter()
+
+      await wrapper.find('.ant-splitter-bar-collapse-start').trigger('keydown', { key: 'Enter' })
+      expect(onCollapse).toHaveBeenCalledTimes(1)
+      expect(onCollapse).toHaveBeenCalledWith([true, false], [0, 100])
+
+      await wrapper.find('.ant-splitter-bar-collapse-end').trigger('keydown', { key: ' ' })
+      expect(onCollapse).toHaveBeenCalledTimes(2)
+      expect(onCollapse).toHaveBeenCalledWith([false, false], [50, 50])
+    })
   })
 
   it('auto resize', async () => {
