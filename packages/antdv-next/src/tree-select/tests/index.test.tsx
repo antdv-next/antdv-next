@@ -613,12 +613,12 @@ describe('tree-select', () => {
 
     await nextTick()
 
-    // 触发focus
+    // 触发focus（真实浏览器中内部 input 聚焦后由 focusin 冒泡到根节点）
     const select = wrapper.find('.ant-tree-select')
-    await select.trigger('focus')
+    await select.trigger('focusin')
 
     const formSelect = formWrapper.find('.ant-tree-select')
-    await formSelect.trigger('focus')
+    await formSelect.trigger('focusin')
 
     // 确保控制台没有警告
     expect(errSpy).not.toHaveBeenCalled()
