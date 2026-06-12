@@ -7523,6 +7523,63 @@ exports[`form demo > renders global-state correctly 1`] = `
       </div>
       <!---->
     </div>
+    <div
+      class="ant-form-item css-var-root ant-form-css-var ant-form-item-inline"
+    >
+      <div
+        class="ant-row css-var-root ant-form-item-row"
+      >
+        <div
+          class="ant-col css-var-root ant-form-item-label"
+        >
+          <label
+            for="global_state_profile_email"
+            title="Email"
+          >
+            Email
+          </label>
+        </div>
+        <div
+          class="ant-col css-var-root ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <input
+                class="ant-input ant-input-outlined css-var-root ant-input-css-var"
+                id="global_state_profile_email"
+                type="text"
+                value="antdv@example.com"
+              />
+            </div>
+          </div>
+          <div
+            class="ant-form-item-additional"
+          >
+            <transition-stub
+              appear="true"
+              css="true"
+              enteractiveclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-prepare ant-form-show-help-enter-prepare "
+              enterfromclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-prepare ant-form-show-help-enter-prepare ant-form-show-help-enter-start"
+              entertoclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-active ant-form-show-help-enter-active"
+              leaveactiveclass="ant-form-show-help ant-form-show-help-leave ant-form-show-help-leave-active"
+              leavefromclass="ant-form-show-help ant-form-show-help-leave"
+              leavetoclass="ant-form-show-help ant-form-show-help-leave ant-form-show-help-leave-active"
+              name="ant-form-show-help"
+              persisted="false"
+            >
+              <!---->
+            </transition-stub>
+            <!---->
+          </div>
+        </div>
+        <!---->
+      </div>
+      <!---->
+    </div>
   </form>
   <div
     class="ant-typography css-var-root"
@@ -7530,7 +7587,10 @@ exports[`form demo > renders global-state correctly 1`] = `
   >
     <!---->
     {
-  "username": "Antdv Next"
+  "username": "Antdv Next",
+  "profile": {
+    "email": "antdv@example.com"
+  }
 }
     <!---->
     <!---->
