@@ -3127,7 +3127,7 @@ exports[`date-picker demo > renders external-panel correctly 1`] = `
           class="ant-space-item"
         >
           <span>
-            2017-09-17
+            2017-09-18
           </span>
         </div>
         <!---->
@@ -3175,7 +3175,7 @@ exports[`date-picker demo > renders external-panel correctly 1`] = `
           class="ant-space-item"
         >
           <span>
-            2017-09-17 ~ 2017-09-18
+            2017-09-18 ~ 2017-09-19
           </span>
         </div>
         <!---->

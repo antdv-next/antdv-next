@@ -2,6 +2,55 @@
 title: Component Changelog
 ---
 
+## V1.3.4
+
+Release Date: 2026-06-12
+
+This release advances the ant-design upstream sync to **6.4.4 (`b32376a31b`)** — back-fills every fix and companion test missed from the 6.4.4 changelog, **adds a "Global Config" column to every component API doc** and simplifies the ConfigProvider component-config section. It also introduces the **Form `useForm` / `useFormInstance`** hooks, fixes **popup misplacement under transformed ancestors** and the **Enter key mis-selecting on dropdown open in Select**, and bumps the `@v-c/*` dependencies to their released sync versions.
+
+**✨ Features**
+
+* feat(form): add `useForm` / `useFormInstance` hooks and align `validateFields` options with rc-field-form — [#586](https://github.com/antdv-next/antdv-next/pull/586)
+
+**🐞 Fixes**
+
+* fix(trigger): fix popup misplacement when an ancestor has a transform, and bump `@v-c` deps (dialog@1.2.0 / menu@1.2.0 / pagination@1.0.1 / picker@1.1.2 / select@1.1.1 / table@1.1.4); select@1.1.1 fixes the Enter key mis-selecting the first option right as the dropdown opens (#594) — [#595](https://github.com/antdv-next/antdv-next/pull/595)
+* fix(slider): prevent text selection on adjacent content when dragging the handle in Safari (antd #58024) — [#596](https://github.com/antdv-next/antdv-next/pull/596)
+* fix(splitter): show the collapse bar when the collapse button is keyboard-focused and support keyboard collapsing (antd #58060) — [#596](https://github.com/antdv-next/antdv-next/pull/596)
+* fix(upload): consume the global `progress` config from ConfigProvider and keep the default progress style when unset (antd #58126) — [#596](https://github.com/antdv-next/antdv-next/pull/596)
+* fix(notification): skip rendering the title node when `title` is empty so the close button no longer overlaps the description (antd #58096) — [#596](https://github.com/antdv-next/antdv-next/pull/596)
+* fix(collapse): align with antd v6 so `expandIconPlacement` takes effect — [#592](https://github.com/antdv-next/antdv-next/pull/592)
+* fix(modal): bump `@v-c/dialog` to 1.1.1 to fix `forceRender` — [#582](https://github.com/antdv-next/antdv-next/pull/582)
+* fix(descriptions): fix label styles not applied in non-bordered mode — [#580](https://github.com/antdv-next/antdv-next/pull/580)
+* fix(popconfirm): fix the `confirm` prop value not rendering — [#577](https://github.com/antdv-next/antdv-next/pull/577)
+* fix(menu): bump `@v-c/menu` to 1.1.3 to fix large-menu toggle jank, with regression tests — [#587](https://github.com/antdv-next/antdv-next/pull/587) / [#589](https://github.com/antdv-next/antdv-next/pull/589)
+* fix(menu): keep the collapsed menu icon aligned before the collapse animation plays (antd #58271)
+* fix(radio): fix vertical Radio.Group button radius and adjacent borders (antd #58317)
+* fix(tour): keep the previous-button hover text readable in primary mode (antd #58311)
+* fix(auto-complete): restrict the `showSearch` type to prevent unsupported Select props leaking (antd #58104)
+* fix(popover, popconfirm): keep rendering when `title` or `content` is the number `0` (antd #58296)
+* fix(icon): keep the spin animation working with multiple `iconPrefixCls` (antd #58253)
+* fix(locale): align `en_GB` texts with `en_US` (antd #58224)
+* fix(calendar): align lunar demo selected and panel month colors, and fix year selection
+* fix(docs): hide debug demo anchors in production
+
+**💄 Styles**
+
+* style: deepen the `boxShadowTertiary` shadow for better visibility on light backgrounds, affecting Card / Tour / Segmented (antd #58205)
+
+**🧪 Tests**
+
+* test: back-fill upstream companion tests for the Descriptions responsive `column` cascade, ColorPicker / Tag keyboard accessibility and Transfer root attribute passthrough (antd #58058 / #58040 / #58067 / #58166) — [#596](https://github.com/antdv-next/antdv-next/pull/596)
+* test(tree-select): align focus tests with the `focusin` event semantics — [#595](https://github.com/antdv-next/antdv-next/pull/595)
+
+**📝 Documentation**
+
+* docs: add a "Global Config" column to every component API table marking props configurable via the ConfigProvider component config, and simplify the ConfigProvider component-config section into a key list (antd #58265 / #58290 / #58278) — [#596](https://github.com/antdv-next/antdv-next/pull/596)
+* docs(form): demonstrate nested name-path field entries in the `global-state` demo (antd #58327) — [#596](https://github.com/antdv-next/antdv-next/pull/596)
+* docs(date-picker): switch the basic demo to Flex layout (antd #58320) — [#596](https://github.com/antdv-next/antdv-next/pull/596)
+* docs(progress): fix grammar in the `steps` description (antd #58325) — [#596](https://github.com/antdv-next/antdv-next/pull/596)
+* docs: sync upstream doc and demo updates, and polish the docs-site page-turning navigation
+
 ## V1.3.3
 
 Release Date: 2026-06-03

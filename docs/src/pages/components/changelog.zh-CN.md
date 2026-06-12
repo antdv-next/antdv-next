@@ -2,6 +2,55 @@
 title: 组件更新日志
 ---
 
+## V1.3.4
+
+发布日期：2026-06-12
+
+本次版本将 ant-design 上游同步推进到 **6.4.4（`b32376a31b`）** —— 补齐 6.4.4 的全部遗漏修复与配套测试，并 **为全部组件 API 文档新增「全局配置」列**、简化 ConfigProvider 组件配置章节；同时新增 **Form `useForm` / `useFormInstance`** hooks，修复 **弹层在 transform 父级下定位偏移**、**Select 下拉打开瞬间回车误选** 等问题，并将 `@v-c/*` 依赖升级到已发版的同步版本。
+
+**✨ 新功能 Features**
+
+* feat(form)：新增 `useForm` / `useFormInstance` hooks，并将 `validateFields` 选项对齐 rc-field-form —— [#586](https://github.com/antdv-next/antdv-next/pull/586)
+
+**🐞 问题修复 Fixes**
+
+* fix(trigger)：修复父级存在 transform 时弹层位置偏移，并升级 `@v-c` 依赖（dialog@1.2.0 / menu@1.2.0 / pagination@1.0.1 / picker@1.1.2 / select@1.1.1 / table@1.1.4），其中 select@1.1.1 修复了下拉打开瞬间回车误选第一项的问题（#594）—— [#595](https://github.com/antdv-next/antdv-next/pull/595)
+* fix(slider)：防止 Safari 中拖动滑块时选中相邻文本（antd #58024）—— [#596](https://github.com/antdv-next/antdv-next/pull/596)
+* fix(splitter)：键盘聚焦折叠按钮时展示折叠条，并补充键盘折叠交互（antd #58060）—— [#596](https://github.com/antdv-next/antdv-next/pull/596)
+* fix(upload)：支持消费 ConfigProvider 全局 `progress` 配置，未配置时保持默认进度条样式（antd #58126）—— [#596](https://github.com/antdv-next/antdv-next/pull/596)
+* fix(notification)：`title` 为空时不再渲染标题节点，避免关闭按钮与描述内容重叠（antd #58096）—— [#596](https://github.com/antdv-next/antdv-next/pull/596)
+* fix(collapse)：对齐 antd v6，使 `expandIconPlacement` 正确生效 —— [#592](https://github.com/antdv-next/antdv-next/pull/592)
+* fix(modal)：升级 `@v-c/dialog` 至 1.1.1，修复 `forceRender` 不生效 —— [#582](https://github.com/antdv-next/antdv-next/pull/582)
+* fix(descriptions)：修复非 bordered 模式下 label 样式未生效 —— [#580](https://github.com/antdv-next/antdv-next/pull/580)
+* fix(popconfirm)：修复 `confirm` 属性值不渲染的问题 —— [#577](https://github.com/antdv-next/antdv-next/pull/577)
+* fix(menu)：升级 `@v-c/menu` 至 1.1.3，修复大菜单切换卡顿并补充回归测试 —— [#587](https://github.com/antdv-next/antdv-next/pull/587) / [#589](https://github.com/antdv-next/antdv-next/pull/589)
+* fix(menu)：修复折叠时图标动画跳动（antd #58271）
+* fix(radio)：修复 Radio.Group button 形态在垂直布局下圆角与相邻边框展示异常（antd #58317）
+* fix(tour)：修复主色模式下 hover 上一步按钮时文字可读性（antd #58311）
+* fix(auto-complete)：收紧 `showSearch` 类型，防止不支持的 Select 属性泄漏（antd #58104）
+* fix(popover, popconfirm)：`title` 或 `content` 为数字 `0` 时保持渲染（antd #58296）
+* fix(icon)：存在多个 `iconPrefixCls` 时保持图标旋转动画（antd #58253）
+* fix(locale)：`en_GB` 文案对齐 `en_US`（antd #58224）
+* fix(calendar)：对齐 lunar demo 选中与面板月份颜色，并修复年份选择
+* fix(docs)：生产环境隐藏 debug demo 锚点
+
+**💄 样式 Styles**
+
+* style：加深 `boxShadowTertiary` 阴影，提升浅色背景下的可见度，影响 Card / Tour / Segmented（antd #58205）
+
+**🧪 测试 Tests**
+
+* test：补齐 Descriptions 响应式 `column` 级联、ColorPicker / Tag 键盘可访问性、Transfer 根节点属性透传的上游配套测试（antd #58058 / #58040 / #58067 / #58166）—— [#596](https://github.com/antdv-next/antdv-next/pull/596)
+* test(tree-select)：焦点测试对齐 `focusin` 事件语义 —— [#595](https://github.com/antdv-next/antdv-next/pull/595)
+
+**📝 文档更新 Documentation**
+
+* docs：为全部组件 API 表新增「全局配置」列，标记可由 ConfigProvider 组件配置设置的属性，并将 ConfigProvider 组件配置章节简化为列表（antd #58265 / #58290 / #58278）—— [#596](https://github.com/antdv-next/antdv-next/pull/596)
+* docs(form)：`global-state` demo 演示嵌套路径字段在外部状态中的处理（antd #58327）—— [#596](https://github.com/antdv-next/antdv-next/pull/596)
+* docs(date-picker)：basic demo 改用 Flex 布局（antd #58320）—— [#596](https://github.com/antdv-next/antdv-next/pull/596)
+* docs(progress)：修正 `steps` 描述语法（antd #58325）—— [#596](https://github.com/antdv-next/antdv-next/pull/596)
+* docs：同步上游文档与 demo 更新，并优化文档站翻页导航样式
+
 ## V1.3.3
 
 发布日期：2026-06-03
