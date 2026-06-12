@@ -51,33 +51,33 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 ### Props
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| accept | File types that can be accepted. See [input accept Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept) | string \| [AcceptObject](#acceptobject) | - | - |
-| action | Uploading URL | string \| (file) => Promise&lt;string> | - | - |
-| beforeUpload | Hook function which will be executed before uploading. Uploading will be stopped with `false` or a rejected Promise returned. When returned value is `Upload.LIST_IGNORE`, the list of files that have been uploaded will ignore it. **Warning：this function is not supported in IE9** | (file: [VcFile](#vcfile), fileList: [VcFile[]](#vcfile)) => boolean \| Promise&lt;File> \| `Upload.LIST_IGNORE` | - | - |
-| customRequest | Override for the default xhr behavior allowing for additional customization and the ability to implement your own XMLHttpRequest | ( options: [RequestOptions](#request-options), info: \{ defaultRequest: (option: [RequestOptions](#request-options)) => void; \} ) => void | - | defaultRequest: - |
-| classes | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: \{ props \})=> Record<[SemanticDOM](#semantic-dom), string> | - | - |
-| data | Uploading extra params or function which can return uploading extra params | object \| (file) => object \| Promise&lt;object> | - | - |
-| directory | Support upload whole directory ([caniuse](https://caniuse.com/#feat=input-file-directory)) | boolean | false | - |
-| disabled | Disable upload button. When customizing Upload children, please pass the `disabled` attribute to the child node at the same time to ensure the disabled rendering effect is consistent. | boolean | false | - |
-| fileList | List of files that have been uploaded (controlled). Here is a common issue [#2423](https://github.com/ant-design/ant-design/issues/2423) when using it, support `v-model:file-list` | [UploadFile](#uploadfile)\[] | - | - |
-| headers | Set request headers, valid above IE10 | object | - | - |
-| iconRender | Custom show icon | (file: UploadFile, listType?: UploadListType) => VueNode | - | - |
-| isImageUrl | Customize if render &lt;img /> in thumbnail | (file: UploadFile) => boolean | [(inside implementation)](https://github.com/ant-design/ant-design/blob/4ad5830eecfb87471cd8ac588c5d992862b70770/components/upload/utils.tsx#L47-L68) | - |
-| itemRender | Custom item of uploadList | (originNode: VueNode, file: UploadFile, fileList: object\[], actions: \{ download: function, preview: function, remove: function \}) => VueNode | - | - |
-| listType | Built-in stylesheets, support for four types: `text`, `picture`, `picture-card` or `picture-circle` | string | `text` | - |
-| maxCount | Limit the number of uploaded files. Will replace current one when `maxCount` is `1` | number | - | - |
-| method | The http method of upload request | string | `post` | - |
-| multiple | Whether to support selected multiple files. `IE10+` supported. You can select multiple files with CTRL holding down while multiple is set to be true | boolean | false | - |
-| name | The name of uploading file | string | `file` | - |
-| openFileDialogOnClick | Click open file dialog | boolean | true | - |
-| pastable | Support paste file | boolean | false | - |
-| previewFile | Customize preview file logic | (file: File \| Blob) => Promise&lt;dataURL: string> | - | - |
-| progress | Custom progress bar | [ProgressProps](/components/progress#api) (support `type="line"` only) | \{ strokeWidth: 2, showInfo: false \} | - |
-| showUploadList | Whether to show default upload list, could be an object to specify `extra`, `showPreviewIcon`, `showRemoveIcon`, `showDownloadIcon`, `removeIcon` and `downloadIcon` individually | boolean \| \{ extra?: VueNode \| (file: UploadFile) => VueNode, showPreviewIcon?: boolean \| (file: UploadFile) => boolean, showDownloadIcon?: boolean \| (file: UploadFile) => boolean, showRemoveIcon?: boolean \| (file: UploadFile) => boolean, previewIcon?: VueNode \| (file: UploadFile) => VueNode, removeIcon?: VueNode \| (file: UploadFile) => VueNode, downloadIcon?: VueNode \| (file: UploadFile) => VueNode \} | true | `extra`: -, `showPreviewIcon` function: -, `showRemoveIcon` function: -, `showDownloadIcon` function: - |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: \{ props \})=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | - |
-| withCredentials | The ajax upload with cookie sent | boolean | false | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| accept | File types that can be accepted. See [input accept Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept) | string \| [AcceptObject](#acceptobject) | - | - | ✓ |
+| action | Uploading URL | string \| (file) => Promise&lt;string> | - | - | × |
+| beforeUpload | Hook function which will be executed before uploading. Uploading will be stopped with `false` or a rejected Promise returned. When returned value is `Upload.LIST_IGNORE`, the list of files that have been uploaded will ignore it. **Warning：this function is not supported in IE9** | (file: [VcFile](#vcfile), fileList: [VcFile[]](#vcfile)) => boolean \| Promise&lt;File> \| `Upload.LIST_IGNORE` | - | - | × |
+| customRequest | Override for the default xhr behavior allowing for additional customization and the ability to implement your own XMLHttpRequest | ( options: [RequestOptions](#request-options), info: \{ defaultRequest: (option: [RequestOptions](#request-options)) => void; \} ) => void | - | defaultRequest: - | ✓ |
+| classes | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: \{ props \})=> Record<[SemanticDOM](#semantic-dom), string> | - | - | ✓ |
+| data | Uploading extra params or function which can return uploading extra params | object \| (file) => object \| Promise&lt;object> | - | - | × |
+| directory | Support upload whole directory ([caniuse](https://caniuse.com/#feat=input-file-directory)) | boolean | false | - | × |
+| disabled | Disable upload button. When customizing Upload children, please pass the `disabled` attribute to the child node at the same time to ensure the disabled rendering effect is consistent. | boolean | false | - | × |
+| fileList | List of files that have been uploaded (controlled). Here is a common issue [#2423](https://github.com/ant-design/ant-design/issues/2423) when using it, support `v-model:file-list` | [UploadFile](#uploadfile)\[] | - | - | × |
+| headers | Set request headers, valid above IE10 | object | - | - | × |
+| iconRender | Custom show icon | (file: UploadFile, listType?: UploadListType) => VueNode | - | - | × |
+| isImageUrl | Customize if render &lt;img /> in thumbnail | (file: UploadFile) => boolean | [(inside implementation)](https://github.com/ant-design/ant-design/blob/4ad5830eecfb87471cd8ac588c5d992862b70770/components/upload/utils.tsx#L47-L68) | - | × |
+| itemRender | Custom item of uploadList | (originNode: VueNode, file: UploadFile, fileList: object\[], actions: \{ download: function, preview: function, remove: function \}) => VueNode | - | - | × |
+| listType | Built-in stylesheets, support for four types: `text`, `picture`, `picture-card` or `picture-circle` | string | `text` | - | × |
+| maxCount | Limit the number of uploaded files. Will replace current one when `maxCount` is `1` | number | - | - | × |
+| method | The http method of upload request | string | `post` | - | × |
+| multiple | Whether to support selected multiple files. `IE10+` supported. You can select multiple files with CTRL holding down while multiple is set to be true | boolean | false | - | × |
+| name | The name of uploading file | string | `file` | - | × |
+| openFileDialogOnClick | Click open file dialog | boolean | true | - | × |
+| pastable | Support paste file | boolean | false | - | × |
+| previewFile | Customize preview file logic | (file: File \| Blob) => Promise&lt;dataURL: string> | - | - | × |
+| progress | Custom progress bar | [ProgressProps](/components/progress#api) (support `type="line"` only) | \{ strokeWidth: 2, showInfo: false \} | - | ✓ |
+| showUploadList | Whether to show default upload list, could be an object to specify `extra`, `showPreviewIcon`, `showRemoveIcon`, `showDownloadIcon`, `removeIcon` and `downloadIcon` individually | boolean \| \{ extra?: VueNode \| (file: UploadFile) => VueNode, showPreviewIcon?: boolean \| (file: UploadFile) => boolean, showDownloadIcon?: boolean \| (file: UploadFile) => boolean, showRemoveIcon?: boolean \| (file: UploadFile) => boolean, previewIcon?: VueNode \| (file: UploadFile) => VueNode, removeIcon?: VueNode \| (file: UploadFile) => VueNode, downloadIcon?: VueNode \| (file: UploadFile) => VueNode \} | true | `extra`: -, `showPreviewIcon` function: -, `showRemoveIcon` function: -, `showDownloadIcon` function: - | × |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: \{ props \})=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | - | ✓ |
+| withCredentials | The ajax upload with cookie sent | boolean | false | - | × |
 
 ### Events
 

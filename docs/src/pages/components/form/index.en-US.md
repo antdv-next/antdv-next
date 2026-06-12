@@ -64,32 +64,32 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 ### Props {#form-props}
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| classes | Customize class for each semantic structure inside the component. Supports object or function. | FormClassNamesType | - | - |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | FormStylesType | - | - |
-| colon | Configure the default value of `colon` for Form.Item. Indicates whether the colon after the label is displayed (only effective when prop layout is horizontal) | boolean | true | - |
-| name | Form name. Will be the prefix of Field `id` | string | - | - |
-| layout | Form layout | FormLayout | `horizontal` | - |
-| labelAlign | The text align of label of all items | FormLabelAlign | `right` | - |
-| labelWrap | whether label can be wrap | boolean | false | - |
-| labelCol | Label layout, like `Col` component. Set `span` `offset` value like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` | ColProps | - | - |
-| wrapperCol | The layout for input controls, same as `labelCol` | ColProps | - | - |
-| feedbackIcons | Can be passed custom icons while `Form.Item` element has `hasFeedback` | FeedbackIcons | - | - |
-| size | Set field component size (antd components only) | SizeType | - | - |
-| disabled | Set form component disable, only available for antd components | boolean | false | - |
-| scrollToFirstError | Auto scroll to first failed field when submit | ScrollFocusOptions \| boolean | false | - |
-| requiredMark | Required mark style. Can use required mark or optional mark. You can not config to single Form.Item since this is a Form level config | RequiredMark | true | - |
-| variant | Variant of components inside form | Variant | `outlined` | - |
-| validateMessages | Validation prompt template, description [see below](#validatemessages) | ValidateMessages | - | - |
-| model | Form model | Record&lt;string, any&gt; | - | - |
-| rules | Form rules | Record&lt;string, Rule[]&gt; | - | - |
-| validateTrigger | Config field validate trigger. When set to `false`, all interaction-driven validation is disabled even if a rule declares `trigger` or `validateTrigger`; `validateFields` and submit validation still run | string \| string[] \| false | `change` | - |
-| preserve | Keep field value even when field removed. You can get the preserve field value by `getFieldsValue(true)` | boolean | true | - |
-| clearOnDestroy | Clear form values when the form is uninstalled | boolean | false | - |
-| validateOnRuleChange | Automatically revalidates the form when `Form.rules` changes | boolean | false | - |
-| rootClass | Root container class | string | - | - |
-| prefixCls | Prefix class name | string | - | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| classes | Customize class for each semantic structure inside the component. Supports object or function. | FormClassNamesType | - | - | ✓ |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | FormStylesType | - | - | ✓ |
+| colon | Configure the default value of `colon` for Form.Item. Indicates whether the colon after the label is displayed (only effective when prop layout is horizontal) | boolean | true | - | ✓ |
+| name | Form name. Will be the prefix of Field `id` | string | - | - | × |
+| layout | Form layout | FormLayout | `horizontal` | - | × |
+| labelAlign | The text align of label of all items | FormLabelAlign | `right` | - | ✓ |
+| labelWrap | whether label can be wrap | boolean | false | - | × |
+| labelCol | Label layout, like `Col` component. Set `span` `offset` value like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` | ColProps | - | - | × |
+| wrapperCol | The layout for input controls, same as `labelCol` | ColProps | - | - | × |
+| feedbackIcons | Can be passed custom icons while `Form.Item` element has `hasFeedback` | FeedbackIcons | - | - | × |
+| size | Set field component size (antd components only) | SizeType | - | - | × |
+| disabled | Set form component disable, only available for antd components | boolean | false | - | × |
+| scrollToFirstError | Auto scroll to first failed field when submit | ScrollFocusOptions \| boolean | false | - | ✓ |
+| requiredMark | Required mark style. Can use required mark or optional mark. You can not config to single Form.Item since this is a Form level config | RequiredMark | true | - | ✓ |
+| variant | Variant of components inside form | Variant | `outlined` | - | ✓ |
+| validateMessages | Validation prompt template, description [see below](#validatemessages) | ValidateMessages | - | - | ✓ |
+| model | Form model | Record&lt;string, any&gt; | - | - | × |
+| rules | Form rules | Record&lt;string, Rule[]&gt; | - | - | × |
+| validateTrigger | Config field validate trigger. When set to `false`, all interaction-driven validation is disabled even if a rule declares `trigger` or `validateTrigger`; `validateFields` and submit validation still run | string \| string[] \| false | `change` | - | × |
+| preserve | Keep field value even when field removed. You can get the preserve field value by `getFieldsValue(true)` | boolean | true | - | × |
+| clearOnDestroy | Clear form values when the form is uninstalled | boolean | false | - | × |
+| validateOnRuleChange | Automatically revalidates the form when `Form.rules` changes | boolean | false | - | × |
+| rootClass | Root container class | string | - | - | × |
+| prefixCls | Prefix class name | string | - | - | × |
 
 ### Events {#form-events}
 

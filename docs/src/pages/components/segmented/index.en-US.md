@@ -37,20 +37,20 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 ### Props
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| block | Option to fit width to its parent\'s width | boolean | false |  |
-| classes | Customize class for each semantic structure inside the Segmented component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  |
-| defaultValue | Default selected value | string \| number |  |  |
-| disabled | Disable all segments | boolean | false |  |
-| options | Set children optional | string\[] \| number\[] \| SegmentedItemType\[] | [] |  |
-| orientation | Orientation | `horizontal` \| `vertical` | `horizontal` |  |
-| size | The size of the Segmented. | `large` \| `middle` \| `small` | `middle` |  |
-| styles | Customize inline style for each semantic structure inside the Segmented component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
-| vertical | Orientation，Simultaneously existing with `orientation`, `orientation` takes priority | boolean | `false` | - |
-| value | Currently selected value, support `v-model:value` | string \| number |  |  |
-| shape | shape of Segmented | `default` \| `round` | `default` | - |
-| name | The `name` property of all `input[type="radio"]` children. if not set, it will fallback to a randomly generated name | string |  |- |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| block | Option to fit width to its parent\'s width | boolean | false |  | × |
+| classes | Customize class for each semantic structure inside the Segmented component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  | ✓ |
+| defaultValue | Default selected value | string \| number |  |  | × |
+| disabled | Disable all segments | boolean | false |  | × |
+| options | Set children optional | string\[] \| number\[] \| SegmentedItemType\[] | [] |  | × |
+| orientation | Orientation | `horizontal` \| `vertical` | `horizontal` |  | × |
+| size | The size of the Segmented. | `large` \| `middle` \| `small` | `middle` |  | × |
+| styles | Customize inline style for each semantic structure inside the Segmented component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | ✓ |
+| vertical | Orientation，Simultaneously existing with `orientation`, `orientation` takes priority | boolean | `false` | - | × |
+| value | Currently selected value, support `v-model:value` | string \| number |  |  | × |
+| shape | shape of Segmented | `default` \| `round` | `default` | - | × |
+| name | The `name` property of all `input[type="radio"]` children. if not set, it will fallback to a randomly generated name | string |  |- | × |
 
 ### Events
 

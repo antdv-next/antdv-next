@@ -35,17 +35,17 @@ group:
 
 Common props ref：[Common props](/docs/vue/common-props)
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| dashed | Whether line is dashed | boolean | false |
-| orientation | Whether line is horizontal or vertical | `horizontal` \| `vertical` | `horizontal` |
-| plain | Divider text show as plain style | boolean | true |
-| size | The size of divider. Only valid for horizontal layout | `small` \| `middle` \| `large` | - |
-| titlePlacement | The position of title inside divider | `start` \| `end` \| `center` | `center` |
-| variant | Whether line is dashed, dotted or solid | `dashed` \| `dotted` \| `solid` | `solid` |
-| vertical | Orientation, Simultaneously configure with `orientation` and prioritize `orientation` | boolean | false |
-| classes | Customize class for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - |
+| Property | Description | Type | Default | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- |
+| dashed | Whether line is dashed | boolean | false | × |
+| orientation | Whether line is horizontal or vertical | `horizontal` \| `vertical` | `horizontal` | × |
+| plain | Divider text show as plain style | boolean | true | × |
+| size | The size of divider. Only valid for horizontal layout | `small` \| `middle` \| `large` | - | × |
+| titlePlacement | The position of title inside divider | `start` \| `end` \| `center` | `center` | × |
+| variant | Whether line is dashed, dotted or solid | `dashed` \| `dotted` \| `solid` | `solid` | × |
+| vertical | Orientation, Simultaneously configure with `orientation` and prioritize `orientation` | boolean | false | × |
+| classes | Customize class for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | ✓ |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | ✓ |
 
 ## Semantic DOM
 

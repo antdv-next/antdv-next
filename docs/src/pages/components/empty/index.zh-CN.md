@@ -30,14 +30,14 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*obM7S5lIxeMAAA
 
 通用属性参考：[通用属性](/docs/vue/common-props)
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | EmptyClassNamesType | - | - |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | EmptyStylesType | - | - |
-| image | 设置显示图片，为 string 时表示自定义图片地址。 | VueNode | `Empty.PRESENTED_IMAGE_DEFAULT` | - |
-| description | 自定义描述内容 | VueNode | - | - |
-| rootClass | 根元素 class | string | - | - |
-| prefixCls | 类名前缀 | string | - | - |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | EmptyClassNamesType | - | - | ✓ |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | EmptyStylesType | - | - | ✓ |
+| image | 设置显示图片，为 string 时表示自定义图片地址。 | VueNode | `Empty.PRESENTED_IMAGE_DEFAULT` | - | ✓ |
+| description | 自定义描述内容 | VueNode | - | - | × |
+| rootClass | 根元素 class | string | - | - | × |
+| prefixCls | 类名前缀 | string | - | - | × |
 
 ### 插槽 {#slots}
 

@@ -36,23 +36,23 @@ The whole of the step bar.
 
 ### Props
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| classes | Customize class for each semantic structure inside the component. Supports object or function | StepsClassNamesType | - | - |
-| current | To set the current step, counting from 0. You can overwrite this state by using `status` of `Step`, support `v-model:current` | number | 0 | - |
-| iconRender | Custom render icon, please use `items.icon` first | (oriNode, info: &#123; index, active, item &#125;) =&gt; VueNode | - | - |
-| initial | Set the initial step, counting from 0 | number | 0 | - |
-| items | StepItem content | [StepItem](#stepitem)[] | [] | 4.24.0 |
-| orientation | To specify the orientation of the step bar, `horizontal` or `vertical` | `horizontal` \| `vertical` | `horizontal` | - |
-| percent | Progress circle percentage of current step in `process` status (only works on basic Steps) | number | - | 4.5.0 |
-| progressDot | Steps with progress dot style, customize the progress dot by setting it to a function. `titlePlacement` will be `vertical` | boolean \| (iconDot, &#123; index, status, title, content &#125;) =&gt; VueNode | false | - |
-| responsive | Change to vertical direction when screen width smaller than `532px` | boolean | true | - |
-| size | To specify the size of the step bar, `default` and `small` are currently supported | `default` \| `small` | `default` | - |
-| status | To specify the status of current step, can be set to one of the following values: `wait` `process` `finish` `error` | `wait` \| `process` \| `finish` \| `error` | `process` | - |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function | StepsStylesType | - | - |
-| titlePlacement | Place title and content with `horizontal` or `vertical` direction | `horizontal` \| `vertical` | `horizontal` | - |
-| type | Type of steps, can be set to one of the following values: `default` `dot` `inline` `navigation` `panel` | `default` \| `dot` \| `inline` \| `navigation` \| `panel` | `default` | - |
-| variant | Config style variant | `filled` \| `outlined` | `filled` | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| classes | Customize class for each semantic structure inside the component. Supports object or function | StepsClassNamesType | - | - | ✓ |
+| current | To set the current step, counting from 0. You can overwrite this state by using `status` of `Step`, support `v-model:current` | number | 0 | - | × |
+| iconRender | Custom render icon, please use `items.icon` first | (oriNode, info: &#123; index, active, item &#125;) =&gt; VueNode | - | - | × |
+| initial | Set the initial step, counting from 0 | number | 0 | - | × |
+| items | StepItem content | [StepItem](#stepitem)[] | [] | 4.24.0 | × |
+| orientation | To specify the orientation of the step bar, `horizontal` or `vertical` | `horizontal` \| `vertical` | `horizontal` | - | × |
+| percent | Progress circle percentage of current step in `process` status (only works on basic Steps) | number | - | 4.5.0 | × |
+| progressDot | Steps with progress dot style, customize the progress dot by setting it to a function. `titlePlacement` will be `vertical` | boolean \| (iconDot, &#123; index, status, title, content &#125;) =&gt; VueNode | false | - | × |
+| responsive | Change to vertical direction when screen width smaller than `532px` | boolean | true | - | × |
+| size | To specify the size of the step bar, `default` and `small` are currently supported | `default` \| `small` | `default` | - | × |
+| status | To specify the status of current step, can be set to one of the following values: `wait` `process` `finish` `error` | `wait` \| `process` \| `finish` \| `error` | `process` | - | × |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function | StepsStylesType | - | - | ✓ |
+| titlePlacement | Place title and content with `horizontal` or `vertical` direction | `horizontal` \| `vertical` | `horizontal` | - | × |
+| type | Type of steps, can be set to one of the following values: `default` `dot` `inline` `navigation` `panel` | `default` \| `dot` \| `inline` \| `navigation` \| `panel` | `default` | - | × |
+| variant | Config style variant | `filled` \| `outlined` | `filled` | - | × |
 
 ### Events
 

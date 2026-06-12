@@ -91,9 +91,9 @@ The wrapper.
 
 #### Props {#layout-props}
 
-| Property | Description | Type | Default |
-| --- | --- | --- | --- |
-| hasSider | Whether contain Sider in children, don't have to assign it normally. Useful in ssr avoid style flickering | boolean | - |
+| Property | Description | Type | Default | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- |
+| hasSider | Whether contain Sider in children, don't have to assign it normally. Useful in ssr avoid style flickering | boolean | - | × |
 
 ### LayoutSider
 

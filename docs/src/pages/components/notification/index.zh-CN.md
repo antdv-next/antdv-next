@@ -56,49 +56,49 @@ demo:
 
 `config` 参数如下：
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| title | 通知提醒标题 | VueNode | - | - |
-| description | 通知提醒内容 | VueNode | - | - |
-| actions | 自定义按钮组 | VueNode | - | - |
-| key | 当前通知唯一标志 | Key | - | - |
-| duration | 默认 4.5 秒后自动关闭，配置为 `0 \| false` 则不会自动关闭 | number \| false | 4.5 | - |
-| showProgress | 显示自动关闭通知框的进度条 | boolean | - | - |
-| pauseOnHover | 悬停时是否暂停计时器 | boolean | true | - |
-| icon | 自定义图标 | VueNode | - | - |
-| placement | 弹出位置，可选 `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | NotificationPlacement | `topRight` | - |
-| class | 自定义 CSS class | string | - | - |
-| style | 自定义内联样式 | CSSProperties | - | - |
-| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | NotificationClassNamesType | - | - |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | NotificationStylesType | - | - |
-| type | 通知类型 | IconType | - | - |
-| onClick | 点击通知时触发的回调函数 | () =&gt; void | - | - |
-| onClose | 当通知关闭时触发 | () =&gt; void | - | - |
-| closeIcon | 自定义关闭图标，设置为 null 或 false 时隐藏关闭按钮 | VueNode | true | - |
-| closable | 是否显示右上角的关闭按钮 | boolean \| ClosableType | true | - |
-| props | 透传至通知 `div` 的 props，支持 `data-testid`、`aria-*` 或 `role` | DivProps | - | - |
-| role | 供屏幕阅读器识别的通知内容语义 | 'alert' \| 'status' | `alert` | - |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| title | 通知提醒标题 | VueNode | - | - | × |
+| description | 通知提醒内容 | VueNode | - | - | × |
+| actions | 自定义按钮组 | VueNode | - | - | × |
+| key | 当前通知唯一标志 | Key | - | - | × |
+| duration | 默认 4.5 秒后自动关闭，配置为 `0 \| false` 则不会自动关闭 | number \| false | 4.5 | - | × |
+| showProgress | 显示自动关闭通知框的进度条 | boolean | - | - | × |
+| pauseOnHover | 悬停时是否暂停计时器 | boolean | true | - | × |
+| icon | 自定义图标 | VueNode | - | - | × |
+| placement | 弹出位置，可选 `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | NotificationPlacement | `topRight` | - | × |
+| class | 自定义 CSS class | string | - | - | ✓ |
+| style | 自定义内联样式 | CSSProperties | - | - | ✓ |
+| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | NotificationClassNamesType | - | - | ✓ |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | NotificationStylesType | - | - | ✓ |
+| type | 通知类型 | IconType | - | - | × |
+| onClick | 点击通知时触发的回调函数 | () =&gt; void | - | - | × |
+| onClose | 当通知关闭时触发 | () =&gt; void | - | - | × |
+| closeIcon | 自定义关闭图标，设置为 null 或 false 时隐藏关闭按钮 | VueNode | true | - | ✓ |
+| closable | 是否显示右上角的关闭按钮 | boolean \| ClosableType | true | - | × |
+| props | 透传至通知 `div` 的 props，支持 `data-testid`、`aria-*` 或 `role` | DivProps | - | - | × |
+| role | 供屏幕阅读器识别的通知内容语义 | 'alert' \| 'status' | `alert` | - | × |
 
 ### notification.useNotification {#use-notification}
 
 `config` 参数如下：
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| top | 消息从顶部弹出时，距离顶部的位置，单位像素 | number | 24 | - |
-| bottom | 消息从底部弹出时，距离底部的位置，单位像素 | number | 24 | - |
-| placement | 弹出位置，可选 `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | NotificationPlacement | `topRight` | - |
-| getContainer | 配置渲染节点的输出位置 | () =&gt; HTMLElement \| ShadowRoot | () =&gt; document.body | - |
-| duration | 默认 4.5 秒后自动关闭，配置为 `0 \| false` 则不会自动关闭 | number \| false | 4.5 | - |
-| maxCount | 最大显示数，超过限制时，最早的消息会被自动关闭 | number | - | - |
-| rtl | 是否开启 RTL 模式 | boolean | false | - |
-| stack | 堆叠模式，超过阈值时会将所有消息收起 | boolean \| &#123; threshold?: number &#125; | &#123; threshold: 3 &#125; | - |
-| showProgress | 显示自动关闭通知框的进度条 | boolean | - | - |
-| pauseOnHover | 悬停时是否暂停计时器 | boolean | true | - |
-| closeIcon | 自定义关闭图标，设置为 null 或 false 时隐藏关闭按钮 | VueNode | true | - |
-| prefixCls | - | string | `ant-notification` | - |
-| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | NotificationClassNamesType | - | - |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | NotificationStylesType | - | - |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| top | 消息从顶部弹出时，距离顶部的位置，单位像素 | number | 24 | - | × |
+| bottom | 消息从底部弹出时，距离底部的位置，单位像素 | number | 24 | - | × |
+| placement | 弹出位置，可选 `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | NotificationPlacement | `topRight` | - | × |
+| getContainer | 配置渲染节点的输出位置 | () =&gt; HTMLElement \| ShadowRoot | () =&gt; document.body | - | × |
+| duration | 默认 4.5 秒后自动关闭，配置为 `0 \| false` 则不会自动关闭 | number \| false | 4.5 | - | × |
+| maxCount | 最大显示数，超过限制时，最早的消息会被自动关闭 | number | - | - | × |
+| rtl | 是否开启 RTL 模式 | boolean | false | - | × |
+| stack | 堆叠模式，超过阈值时会将所有消息收起 | boolean \| &#123; threshold?: number &#125; | &#123; threshold: 3 &#125; | - | × |
+| showProgress | 显示自动关闭通知框的进度条 | boolean | - | - | × |
+| pauseOnHover | 悬停时是否暂停计时器 | boolean | true | - | × |
+| closeIcon | 自定义关闭图标，设置为 null 或 false 时隐藏关闭按钮 | VueNode | true | - | ✓ |
+| prefixCls | - | string | `ant-notification` | - | × |
+| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | NotificationClassNamesType | - | - | ✓ |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | NotificationStylesType | - | - | ✓ |
 
 ### ClosableType {#closabletype}
 

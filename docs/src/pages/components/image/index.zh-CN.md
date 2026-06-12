@@ -37,17 +37,17 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 
 通用属性参考：[通用属性](/docs/vue/common-props)
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| preview | 预览参数，为 `false` 时禁用 | boolean \| PreviewConfig | true | - |
-| wrapperStyle | Deprecated. | CSSProperties | - | - |
-| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | ImageClassNamesType | - | - |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | ImageStylesType | - | - |
-| rootClass | - | string | - | - |
-| alt | 图像描述 | string | - | _ |
-| height | 图像高度 | string \| number | - | - |
-| src | 图片地址 | string | - | - |
-| width | 图像宽度 | string \| number | - | - |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| preview | 预览参数，为 `false` 时禁用 | boolean \| PreviewConfig | true | - | ✓ |
+| wrapperStyle | Deprecated. | CSSProperties | - | - | × |
+| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | ImageClassNamesType | - | - | ✓ |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | ImageStylesType | - | - | ✓ |
+| rootClass | - | string | - | - | × |
+| alt | 图像描述 | string | - | _ | × |
+| height | 图像高度 | string \| number | - | - | × |
+| src | 图片地址 | string | - | - | × |
+| width | 图像宽度 | string \| number | - | - | × |
 
 其他属性见 [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Attributes)
 

@@ -44,29 +44,29 @@ demo:
 
 通用属性参考：[通用属性](/docs/vue/common-props)
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| allowClear | 支持清除 | boolean \| &#123; clearIcon?: VueNode &#125; | false | - |
-| backfill | 使用键盘选择选项的时候把选中项回填到输入框中 | boolean | false | - |
-| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - |
-| defaultActiveFirstOption | 是否默认高亮第一个选项 | boolean | true | - |
-| disabled | 是否禁用 | boolean | false | - |
-| getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位 | (triggerNode: HTMLElement) =&gt; HTMLElement | () =&gt; document.body | - |
-| labelRender | 自定义当前选中的 label 内容 render | (props: LabelInValueType) =&gt; VueNode | - | - |
-| notFoundContent | 当下拉列表为空时显示的内容 | VueNode | - | - |
-| open | 是否展开下拉菜单 | boolean | - | - |
-| options | 数据化配置选项内容，相比 jsx 定义会获得更好的渲染性能 | &#123; label: VueNode; value: string &#125;[] | - | - |
-| optionRender | 自定义下拉选项渲染 | (option: FlattenOptionData&lt;BaseOptionType&gt;, info: &#123; index: number &#125;) =&gt; VueNode | - | - |
-| placeholder | 输入框提示 | string | - | - |
-| popupMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。false 时会关闭虚拟滚动 | boolean \| number | true | - |
-| popupRender | 自定义下拉框内容 | (menu: VueNode) =&gt; VueNode | - | - |
-| showSearch | 搜索配置 | boolean \| [SearchConfig](#showsearch) | true | - |
-| size | 控件大小 | `large` \| `middle` \| `small` | - | - |
-| status | 设置校验状态 | `error` \| `warning` | - | - |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - |
-| value | 指定当前选中的条目，支持 `v-model:value` | string | - | - |
-| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - |
-| virtual | 设置 false 时关闭虚拟滚动 | boolean | true | - |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| allowClear | 支持清除 | boolean \| &#123; clearIcon?: VueNode &#125; | false | - | × |
+| backfill | 使用键盘选择选项的时候把选中项回填到输入框中 | boolean | false | - | × |
+| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - | × |
+| defaultActiveFirstOption | 是否默认高亮第一个选项 | boolean | true | - | × |
+| disabled | 是否禁用 | boolean | false | - | × |
+| getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位 | (triggerNode: HTMLElement) =&gt; HTMLElement | () =&gt; document.body | - | × |
+| labelRender | 自定义当前选中的 label 内容 render | (props: LabelInValueType) =&gt; VueNode | - | - | × |
+| notFoundContent | 当下拉列表为空时显示的内容 | VueNode | - | - | × |
+| open | 是否展开下拉菜单 | boolean | - | - | × |
+| options | 数据化配置选项内容，相比 jsx 定义会获得更好的渲染性能 | &#123; label: VueNode; value: string &#125;[] | - | - | × |
+| optionRender | 自定义下拉选项渲染 | (option: FlattenOptionData&lt;BaseOptionType&gt;, info: &#123; index: number &#125;) =&gt; VueNode | - | - | × |
+| placeholder | 输入框提示 | string | - | - | × |
+| popupMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。false 时会关闭虚拟滚动 | boolean \| number | true | - | × |
+| popupRender | 自定义下拉框内容 | (menu: VueNode) =&gt; VueNode | - | - | × |
+| showSearch | 搜索配置 | boolean \| [SearchConfig](#showsearch) | true | - | × |
+| size | 控件大小 | `large` \| `middle` \| `small` | - | - | × |
+| status | 设置校验状态 | `error` \| `warning` | - | - | × |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - | × |
+| value | 指定当前选中的条目，支持 `v-model:value` | string | - | - | × |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - | × |
+| virtual | 设置 false 时关闭虚拟滚动 | boolean | true | - | × |
 
 ### 事件 {#events}
 

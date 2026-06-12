@@ -83,46 +83,47 @@ dayjs.locale('zh-cn')
 
 The following APIs are shared by DatePicker, RangePicker.
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| allowClear | Customize clear button | boolean \| \{ clearIcon?: VueNode \} | true | - |
-| classes | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | - |
-| dateRender | Custom rendering function for date cells, >= 5.4.0 use `cellRender` instead. | function(currentDate: dayjs, today: dayjs) => VueNode | - | - |
-| cellRender | Custom rendering function for picker cells | (current: dayjs, info: { originNode: VueNode, today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => VueNode | - | - |
-| components | Custom panels | Record<Panel \| 'input', Component> | - | - |
-| defaultOpen | Initial open state of picker | boolean | - | - |
-| disabled | Determine whether the DatePicker is disabled | boolean | false | - |
-| disabledDate | Specify the date that cannot be selected | (currentDate: dayjs, info: { from?: dayjs, type: Picker }) => boolean | - | - |
-| format | To set the date format, support multi-format matching when it is an array, display the first one shall prevail. refer to [dayjs#format](https://day.js.org/docs/en/display/format). for example: [Custom Format](#date-picker-demo-format) | [formatType](#formattype) | [@rc-component/picker](https://github.com/react-component/picker/blob/f512f18ed59d6791280d1c3d7d37abbb9867eb0b/src/utils/uiUtil.ts#L155-L177) | - |
-| valueFormat | Set the binding value format. After setting, `value`, `defaultValue`, and `v-model:value` can use formatted strings, and `change` returns strings in the same format. Demo: [Value Format](#date-picker-demo-value-format) | string | - | - |
-| order | Auto order date when multiple or range selection | boolean | true | - |
-| ~~popupClassName~~ | To customize the className of the popup calendar, use `classes.popup.root` instead | string | - | - |
-| preserveInvalidOnBlur | Not clean input on blur even when the typing is invalidate | boolean | false | - |
-| getPopupContainer | To set the container of the floating layer, while the default is to create a `div` element in `body` | function(trigger) | - | - |
-| inputReadOnly | Set the `readonly` attribute of the input tag (avoids virtual keyboard on touch devices) | boolean | false | - |
-| locale | Localization configuration | object | [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) | - |
-| minDate | The minimum date, which also limits the range of panel switching | dayjs | - | - |
-| maxDate | The maximum date, which also limits the range of panel switching | dayjs | - | - |
-| mode | The picker panel mode（ [Cannot select year or month anymore?](/docs/vue/faq#when-set-mode-to-datepickerrangepicker-cannot-select-year-or-month-anymore) ) | `time` \| `date` \| `month` \| `year` \| `decade` | - | - |
-| needConfirm | Need click confirm button to trigger value change. Default `false` when `multiple` | boolean | - | - |
-| nextIcon | The custom next icon | VueNode | - | - |
-| open | The open state of picker | boolean | - | - |
-| panelRender | Customize panel render | (panelNode) => VueNode | - | - |
-| picker | Set picker type | `date` \| `week` \| `month` \| `quarter` \| `year` | `date` | - |
-| placeholder | The placeholder of date input | string \| [string, string] | - | - |
-| placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft | - |
-| ~~popupStyle~~ | To customize the style of the popup calendar, use `styles.popup.root` instead | CSSProperties | {} | - |
-| prefix | The custom prefix | VueNode | - | - |
-| presets | The preset ranges for quick selection, Since `5.8.0`, preset value supports callback function. | { label: VueNode, value: Dayjs \| (() => Dayjs) }[] | - | - |
-| prevIcon | The custom prev icon | VueNode | - | - |
-| previewValue | When the user selects the date hover option, the value of the input field undergoes a temporary change | false \| hover | hover | - |
-| size | To determine the size of the input box, the height of `large` and `small`, are 40px and 24px respectively, while default size is 32px | `large` \| `middle` \| `small` | - | - |
-| status | Set validation status | 'error' \| 'warning' | - | - |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | - |
-| suffixIcon | The custom suffix icon | VueNode | - | - |
-| superNextIcon | The custom super next icon | VueNode | - | - |
-| superPrevIcon | The custom super prev icon | VueNode | - | - |
-| variant | Variants of picker | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| allowClear | Customize clear button | boolean \| \{ clearIcon?: VueNode \} | true | - | ✓ |
+| classes | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | - | ✓ |
+| dateRender | Custom rendering function for date cells, >= 5.4.0 use `cellRender` instead. | function(currentDate: dayjs, today: dayjs) => VueNode | - | - | × |
+| cellRender | Custom rendering function for picker cells | (current: dayjs, info: { originNode: VueNode, today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => VueNode | - | - | × |
+| components | Custom panels | Record<Panel \| 'input', Component> | - | - | × |
+| defaultOpen | Initial open state of picker | boolean | - | - | × |
+| disabled | Determine whether the DatePicker is disabled | boolean | false | - | × |
+| disabledDate | Specify the date that cannot be selected | (currentDate: dayjs, info: { from?: dayjs, type: Picker }) => boolean | - | - | × |
+| format | To set the date format, support multi-format matching when it is an array, display the first one shall prevail. refer to [dayjs#format](https://day.js.org/docs/en/display/format). for example: [Custom Format](#date-picker-demo-format) | [formatType](#formattype) | [@rc-component/picker](https://github.com/react-component/picker/blob/f512f18ed59d6791280d1c3d7d37abbb9867eb0b/src/utils/uiUtil.ts#L155-L177) | - | × |
+| valueFormat | Set the binding value format. After setting, `value`, `defaultValue`, and `v-model:value` can use formatted strings, and `change` returns strings in the same format. Demo: [Value Format](#date-picker-demo-value-format) | string | - | - | × |
+| order | Auto order date when multiple or range selection | boolean | true | - | × |
+| ~~popupClassName~~ | To customize the className of the popup calendar, use `classes.popup.root` instead | string | - | - | × |
+| preserveInvalidOnBlur | Not clean input on blur even when the typing is invalidate | boolean | false | - | × |
+| getPopupContainer | To set the container of the floating layer, while the default is to create a `div` element in `body` | function(trigger) | - | - | × |
+| inputReadOnly | Set the `readonly` attribute of the input tag (avoids virtual keyboard on touch devices) | boolean | false | - | × |
+| locale | Localization configuration | object | [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) | - | × |
+| minDate | The minimum date, which also limits the range of panel switching | dayjs | - | - | × |
+| maxDate | The maximum date, which also limits the range of panel switching | dayjs | - | - | × |
+| mode | The picker panel mode（ [Cannot select year or month anymore?](/docs/vue/faq#when-set-mode-to-datepickerrangepicker-cannot-select-year-or-month-anymore) ) | `time` \| `date` \| `month` \| `year` \| `decade` | - | - | × |
+| needConfirm | Need click confirm button to trigger value change. Default `false` when `multiple` | boolean | - | - | × |
+| nextIcon | The custom next icon | VueNode | - | - | × |
+| open | The open state of picker | boolean | - | - | × |
+| panelRender | Customize panel render | (panelNode) => VueNode | - | - | × |
+| picker | Set picker type | `date` \| `week` \| `month` \| `quarter` \| `year` | `date` | - | × |
+| placeholder | The placeholder of date input | string \| [string, string] | - | - | × |
+| placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft | - | × |
+| ~~popupStyle~~ | To customize the style of the popup calendar, use `styles.popup.root` instead | CSSProperties | {} | - | × |
+| prefix | The custom prefix | VueNode | - | - | × |
+| presets | The preset ranges for quick selection, Since `5.8.0`, preset value supports callback function. | { label: VueNode, value: Dayjs \| (() => Dayjs) }[] | - | - | × |
+| prevIcon | The custom prev icon | VueNode | - | - | × |
+| previewValue | When the user selects the date hover option, the value of the input field undergoes a temporary change | false \| hover | hover | - | × |
+| size | To determine the size of the input box, the height of `large` and `small`, are 40px and 24px respectively, while default size is 32px | `large` \| `middle` \| `small` | - | - | × |
+| status | Set validation status | 'error' \| 'warning' | - | - | × |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | - | ✓ |
+| suffixIcon | The custom suffix icon | VueNode | - | - | ✓ |
+| superNextIcon | The custom super next icon | VueNode | - | - | × |
+| superPrevIcon | The custom super prev icon | VueNode | - | - | × |
+| clearIcon | (Only supports global configuration) Custom clear icon | VueNode | - | - | ✓ |
+| variant | Variants of picker | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - | ✓ |
 
 ### Common Methods
 
@@ -194,25 +195,25 @@ Added in `4.1.0`.
 
 ### RangePicker
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| allowEmpty | Allow start or end input leave empty | [boolean, boolean] | [false, false] | - |
-| cellRender | Custom rendering function for picker cells | (current: dayjs, info: { originNode: VueNode, today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => VueNode | - | - |
-| dateRender | Custom rendering function for date cells, >= 5.4.0 use `cellRender` instead. | function(currentDate: dayjs, today: dayjs) => VueNode | - | - |
-| defaultPickerValue | Default panel date, will be reset when panel open | [dayjs](https://day.js.org/)[] | - | - |
-| defaultValue | To set default date | [dayjs](https://day.js.org/)[] | - | - |
-| disabled | If disable start or end | [boolean, boolean] | - | - |
-| disabledTime | To specify the time that cannot be selected |`function(date: dayjs, partial: start \| end, info: { from?: dayjs })`| - | - |
-| format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY-MM-DD HH:mm:ss` | - |
-| id | Config input ids | `{ start?: string, end?: string }` | - | - |
-| pickerValue | Panel date. Used for controlled switching of panel date. Work with `onPanelChange` | [dayjs](https://day.js.org/)[] | - | - |
-| presets | The preset ranges for quick selection, Since `5.8.0`, preset value supports callback function. | { label: VueNode, value: (Dayjs \| (() => Dayjs))[] }[] | - | - |
-| renderExtraFooter | Render extra footer in panel | () => VueNode | - | - |
-| separator | Set separator between inputs | VueNode | `<SwapRightOutlined />` | - |
-| showTime | To provide an additional time selection | object \| boolean | [TimePicker Options](/components/time-picker/#api) | - |
-| ~~showTime.defaultValue~~ | Use `showTime.defaultOpenValue` instead | [dayjs](https://day.js.org/)[] | [dayjs(), dayjs()] | - |
-| showTime.defaultOpenValue | To set default time of selected date, [demo](#date-picker-demo-disabled-date) | [dayjs](https://day.js.org/)[] | [dayjs(), dayjs()] | - |
-| value | To set date, support `v-model:value` | [dayjs](https://day.js.org/)[] | - | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| allowEmpty | Allow start or end input leave empty | [boolean, boolean] | [false, false] | - | × |
+| cellRender | Custom rendering function for picker cells | (current: dayjs, info: { originNode: VueNode, today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => VueNode | - | - | × |
+| dateRender | Custom rendering function for date cells, >= 5.4.0 use `cellRender` instead. | function(currentDate: dayjs, today: dayjs) => VueNode | - | - | × |
+| defaultPickerValue | Default panel date, will be reset when panel open | [dayjs](https://day.js.org/)[] | - | - | × |
+| defaultValue | To set default date | [dayjs](https://day.js.org/)[] | - | - | × |
+| disabled | If disable start or end | [boolean, boolean] | - | - | × |
+| disabledTime | To specify the time that cannot be selected |`function(date: dayjs, partial: start \| end, info: { from?: dayjs })`| - | - | × |
+| format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY-MM-DD HH:mm:ss` | - | × |
+| id | Config input ids | `{ start?: string, end?: string }` | - | - | × |
+| pickerValue | Panel date. Used for controlled switching of panel date. Work with `onPanelChange` | [dayjs](https://day.js.org/)[] | - | - | × |
+| presets | The preset ranges for quick selection, Since `5.8.0`, preset value supports callback function. | { label: VueNode, value: (Dayjs \| (() => Dayjs))[] }[] | - | - | × |
+| renderExtraFooter | Render extra footer in panel | () => VueNode | - | - | × |
+| separator | Set separator between inputs | VueNode | `<SwapRightOutlined />` | - | ✓ |
+| showTime | To provide an additional time selection | object \| boolean | [TimePicker Options](/components/time-picker/#api) | - | × |
+| ~~showTime.defaultValue~~ | Use `showTime.defaultOpenValue` instead | [dayjs](https://day.js.org/)[] | [dayjs(), dayjs()] | - | × |
+| showTime.defaultOpenValue | To set default time of selected date, [demo](#date-picker-demo-disabled-date) | [dayjs](https://day.js.org/)[] | [dayjs(), dayjs()] | - | × |
+| value | To set date, support `v-model:value` | [dayjs](https://day.js.org/)[] | - | - | × |
 
 #### formatType
 

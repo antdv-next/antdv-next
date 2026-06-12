@@ -37,56 +37,56 @@ demo:
 
 Common props ref：[Common props](/docs/vue/common-props)
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| allowClear | Show clear button | boolean \| &#123; clearIcon?: VueNode &#125; | false | - |
-| classes | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | - |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | - |
-| defaultOpen | Initial open state of dropdown | boolean | - | - |
-| defaultValue | To set the initial selected treeNode(s) | string \| string[] | - | - |
-| disabled | Disabled or not | boolean | false | - |
-| popupMatchSelectWidth | Determine whether the popup menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true | - |
-| popupRender | Customize dropdown content | (menu: VueNode) =&gt; VueNode | - | - |
-| fieldNames | Customize node label, value, children field name | object | &#123; label: `label`, value: `value`, children: `children` &#125; | - |
-| getPopupContainer | To set the container of the dropdown menu | (triggerNode: HTMLElement) =&gt; HTMLElement | () =&gt; document.body | - |
-| labelInValue | Whether to embed label in value, turn the format of value from `string` to &#123; value: string, label: VueNode, halfChecked: boolean &#125; | boolean | false | - |
-| listHeight | Config popup height | number | 256 | - |
-| loadData | Load data asynchronously | (node: DataNode) =&gt; Promise&lt;void&gt; | - | - |
-| maxTagCount | Max tag count to show. `responsive` will cost render performance | number \| 'responsive' | - | - |
-| maxCount | The maximum number of items that can be selected. Only takes effect when `multiple=true`. If (`showCheckedStrategy = 'SHOW_ALL'` and `treeCheckStrictly` is disabled) or `showCheckedStrategy = 'SHOW_PARENT'` is used, `maxCount` will not take effect. | number | - | - |
-| maxTagPlaceholder | Placeholder for not showing tags | VueNode \| ((omittedValues: LabeledValue[]) =&gt; VueNode) | - | - |
-| maxTagTextLength | Max tag text length to show | number | - | - |
-| multiple | Support multiple or not, will be `true` when enable `treeCheckable` | boolean | false | - |
-| notFoundContent | Specify content to show when no result matches | VueNode | `Not Found` | - |
-| open | Controlled open state of dropdown | boolean | - | - |
-| placeholder | Placeholder of the select input | string | - | - |
-| placement | The position where the selection box pops up | `bottomLeft` \| `bottomRight` \| `topLeft` \| `topRight` | `bottomLeft` | - |
-| prefix | The custom prefix | VueNode | - | - |
-| showCheckedStrategy | The way show selected item in box when `treeCheckable` set. **Default:** just show child nodes. **`TreeSelect.SHOW_ALL`:** show all checked treeNodes (include parent treeNode). **`TreeSelect.SHOW_PARENT`:** show checked treeNodes (just show parent treeNode) | `TreeSelect.SHOW_ALL` \| `TreeSelect.SHOW_PARENT` \| `TreeSelect.SHOW_CHILD` | `TreeSelect.SHOW_CHILD` | - |
-| showSearch | Support search or not | boolean \| [Object](#showsearch) | single: false \| multiple: true | - |
-| size | To set the size of the select input | `large` \| `middle` \| `small` | - | - |
-| status | Set validation status | `error` \| `warning` | - | - |
-| variant | Variants of selector | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - |
-| suffixIcon | The custom suffix icon | VueNode | `&lt;DownOutlined /&gt;` | - |
-| switcherIcon | Customize collapse/expand icon of tree node | VueNode \| ((props: AntTreeNodeProps) =&gt; VueNode) | - | - |
-| tagRender | Customize tag render when `multiple` | (props: any) =&gt; VueNode | - | - |
-| treeCheckable | Whether to show checkbox on the treeNodes | boolean | false | - |
-| treeCheckStrictly | Whether to check nodes precisely (in the `checkable` mode), means parent and child nodes are not associated, and it will make `labelInValue` be true | boolean | false | - |
-| treeData | Data of the treeNodes, manual construction work is no longer needed if this property has been set(ensure the Uniqueness of each value) | array&lt;&#123; value, title, children, [disabled, disableCheckbox, selectable, checkable] &#125;&gt; | [] | - |
-| treeDataSimpleMode | Enable simple mode of treeData. Changes the `treeData` schema to: [&#123;id:1, pId:0, value:'1', title:"test1",...&#125;,...] where pId is parent node's id). It is possible to replace the default `id` and `pId` keys by providing object to `treeDataSimpleMode` | boolean \| object&lt;&#123; id: string, pId: string, rootPId: string &#125;&gt; | false | - |
-| treeTitleRender | Customize tree node title render | (nodeData: DataNode) =&gt; VueNode | - | - |
-| treeDefaultExpandAll | Whether to expand all treeNodes by default | boolean | false | - |
-| treeDefaultExpandedKeys | Default expanded treeNodes | string[] | - | - |
-| treeExpandAction | Tree title open logic when click, optional: false \| `click` \| `doubleClick` | string \| boolean | false | - |
-| treeExpandedKeys | Set expanded keys | string[] | - | - |
-| treeIcon | Shows the icon before a TreeNode's title | boolean | false | - |
-| treeLine | Show the line. Ref [Tree - showLine](/components/tree/#tree-demo-line) | boolean \| object | false | - |
-| treeLoadedKeys | (Controlled) Set loaded tree nodes, work with `loadData` only | string[] | [] | - |
-| treeNodeLabelProp | Will render as content of select | string | `title` | - |
-| value | To set the current selected treeNode(s), support `v-model:value` | string \| string[] | - | - |
-| virtual | Disable virtual scroll when set to false | boolean | true | - |
-| bordered | Deprecated. Use `variant` instead | boolean | - | - |
-| showArrow | Deprecated. Set `suffixIcon` to null to hide | boolean | - | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| allowClear | Show clear button | boolean \| &#123; clearIcon?: VueNode &#125; | false | - | × |
+| classes | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | - | ✓ |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | - | ✓ |
+| defaultOpen | Initial open state of dropdown | boolean | - | - | × |
+| defaultValue | To set the initial selected treeNode(s) | string \| string[] | - | - | × |
+| disabled | Disabled or not | boolean | false | - | × |
+| popupMatchSelectWidth | Determine whether the popup menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true | - | × |
+| popupRender | Customize dropdown content | (menu: VueNode) =&gt; VueNode | - | - | × |
+| fieldNames | Customize node label, value, children field name | object | &#123; label: `label`, value: `value`, children: `children` &#125; | - | × |
+| getPopupContainer | To set the container of the dropdown menu | (triggerNode: HTMLElement) =&gt; HTMLElement | () =&gt; document.body | - | × |
+| labelInValue | Whether to embed label in value, turn the format of value from `string` to &#123; value: string, label: VueNode, halfChecked: boolean &#125; | boolean | false | - | × |
+| listHeight | Config popup height | number | 256 | - | × |
+| loadData | Load data asynchronously | (node: DataNode) =&gt; Promise&lt;void&gt; | - | - | × |
+| maxTagCount | Max tag count to show. `responsive` will cost render performance | number \| 'responsive' | - | - | × |
+| maxCount | The maximum number of items that can be selected. Only takes effect when `multiple=true`. If (`showCheckedStrategy = 'SHOW_ALL'` and `treeCheckStrictly` is disabled) or `showCheckedStrategy = 'SHOW_PARENT'` is used, `maxCount` will not take effect. | number | - | - | × |
+| maxTagPlaceholder | Placeholder for not showing tags | VueNode \| ((omittedValues: LabeledValue[]) =&gt; VueNode) | - | - | × |
+| maxTagTextLength | Max tag text length to show | number | - | - | × |
+| multiple | Support multiple or not, will be `true` when enable `treeCheckable` | boolean | false | - | × |
+| notFoundContent | Specify content to show when no result matches | VueNode | `Not Found` | - | × |
+| open | Controlled open state of dropdown | boolean | - | - | × |
+| placeholder | Placeholder of the select input | string | - | - | × |
+| placement | The position where the selection box pops up | `bottomLeft` \| `bottomRight` \| `topLeft` \| `topRight` | `bottomLeft` | - | × |
+| prefix | The custom prefix | VueNode | - | - | × |
+| showCheckedStrategy | The way show selected item in box when `treeCheckable` set. **Default:** just show child nodes. **`TreeSelect.SHOW_ALL`:** show all checked treeNodes (include parent treeNode). **`TreeSelect.SHOW_PARENT`:** show checked treeNodes (just show parent treeNode) | `TreeSelect.SHOW_ALL` \| `TreeSelect.SHOW_PARENT` \| `TreeSelect.SHOW_CHILD` | `TreeSelect.SHOW_CHILD` | - | × |
+| showSearch | Support search or not | boolean \| [Object](#showsearch) | single: false \| multiple: true | - | × |
+| size | To set the size of the select input | `large` \| `middle` \| `small` | - | - | × |
+| status | Set validation status | `error` \| `warning` | - | - | × |
+| variant | Variants of selector | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - | ✓ |
+| suffixIcon | The custom suffix icon | VueNode | `&lt;DownOutlined /&gt;` | - | × |
+| switcherIcon | Customize collapse/expand icon of tree node | VueNode \| ((props: AntTreeNodeProps) =&gt; VueNode) | - | - | ✓ |
+| tagRender | Customize tag render when `multiple` | (props: any) =&gt; VueNode | - | - | × |
+| treeCheckable | Whether to show checkbox on the treeNodes | boolean | false | - | × |
+| treeCheckStrictly | Whether to check nodes precisely (in the `checkable` mode), means parent and child nodes are not associated, and it will make `labelInValue` be true | boolean | false | - | × |
+| treeData | Data of the treeNodes, manual construction work is no longer needed if this property has been set(ensure the Uniqueness of each value) | array&lt;&#123; value, title, children, [disabled, disableCheckbox, selectable, checkable] &#125;&gt; | [] | - | × |
+| treeDataSimpleMode | Enable simple mode of treeData. Changes the `treeData` schema to: [&#123;id:1, pId:0, value:'1', title:"test1",...&#125;,...] where pId is parent node's id). It is possible to replace the default `id` and `pId` keys by providing object to `treeDataSimpleMode` | boolean \| object&lt;&#123; id: string, pId: string, rootPId: string &#125;&gt; | false | - | × |
+| treeTitleRender | Customize tree node title render | (nodeData: DataNode) =&gt; VueNode | - | - | × |
+| treeDefaultExpandAll | Whether to expand all treeNodes by default | boolean | false | - | × |
+| treeDefaultExpandedKeys | Default expanded treeNodes | string[] | - | - | × |
+| treeExpandAction | Tree title open logic when click, optional: false \| `click` \| `doubleClick` | string \| boolean | false | - | × |
+| treeExpandedKeys | Set expanded keys | string[] | - | - | × |
+| treeIcon | Shows the icon before a TreeNode's title | boolean | false | - | × |
+| treeLine | Show the line. Ref [Tree - showLine](/components/tree/#tree-demo-line) | boolean \| object | false | - | × |
+| treeLoadedKeys | (Controlled) Set loaded tree nodes, work with `loadData` only | string[] | [] | - | × |
+| treeNodeLabelProp | Will render as content of select | string | `title` | - | × |
+| value | To set the current selected treeNode(s), support `v-model:value` | string \| string[] | - | - | × |
+| virtual | Disable virtual scroll when set to false | boolean | true | - | × |
+| bordered | Deprecated. Use `variant` instead | boolean | - | - | × |
+| showArrow | Deprecated. Set `suffixIcon` to null to hide | boolean | - | - | × |
 
 ### Events {#events}
 

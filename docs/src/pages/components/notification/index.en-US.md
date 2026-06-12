@@ -55,49 +55,49 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 The properties of `config` are as follows:
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| title | The title of notification box | VueNode | - | - |
-| description | The content of notification box | VueNode | - | - |
-| actions | Customized button group | VueNode | - | - |
-| key | The unique identifier of the Notification | Key | - | - |
-| duration | Time in seconds before Notification is closed. When set to `0` or `false`, it will never be closed automatically | number \| false | 4.5 | - |
-| showProgress | Show progress bar for auto-closing notification | boolean | - | - |
-| pauseOnHover | Keep the timer running or not on hover | boolean | true | - |
-| icon | Customized icon | VueNode | - | - |
-| placement | Position of Notification, can be one of `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | NotificationPlacement | `topRight` | - |
-| class | Customized CSS class | string | - | - |
-| style | Customized inline style | CSSProperties | - | - |
-| classes | Customize class for each semantic structure inside the component. Supports object or function. | NotificationClassNamesType | - | - |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | NotificationStylesType | - | - |
-| type | Notification type | IconType | - | - |
-| onClick | Specify a function that will be called when the notification is clicked | () =&gt; void | - | - |
-| onClose | Trigger when notification closed | () =&gt; void | - | - |
-| closeIcon | Custom close icon. Set to null or false to hide close button | VueNode | true | - |
-| closable | Whether to show close button | boolean \| ClosableType | true | - |
-| props | Props passed to the notification `div`, supports `data-testid`, `aria-*`, or `role` | DivProps | - | - |
-| role | The semantics of notification content recognized by screen readers | 'alert' \| 'status' | `alert` | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| title | The title of notification box | VueNode | - | - | × |
+| description | The content of notification box | VueNode | - | - | × |
+| actions | Customized button group | VueNode | - | - | × |
+| key | The unique identifier of the Notification | Key | - | - | × |
+| duration | Time in seconds before Notification is closed. When set to `0` or `false`, it will never be closed automatically | number \| false | 4.5 | - | × |
+| showProgress | Show progress bar for auto-closing notification | boolean | - | - | × |
+| pauseOnHover | Keep the timer running or not on hover | boolean | true | - | × |
+| icon | Customized icon | VueNode | - | - | × |
+| placement | Position of Notification, can be one of `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | NotificationPlacement | `topRight` | - | × |
+| class | Customized CSS class | string | - | - | ✓ |
+| style | Customized inline style | CSSProperties | - | - | ✓ |
+| classes | Customize class for each semantic structure inside the component. Supports object or function. | NotificationClassNamesType | - | - | ✓ |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | NotificationStylesType | - | - | ✓ |
+| type | Notification type | IconType | - | - | × |
+| onClick | Specify a function that will be called when the notification is clicked | () =&gt; void | - | - | × |
+| onClose | Trigger when notification closed | () =&gt; void | - | - | × |
+| closeIcon | Custom close icon. Set to null or false to hide close button | VueNode | true | - | ✓ |
+| closable | Whether to show close button | boolean \| ClosableType | true | - | × |
+| props | Props passed to the notification `div`, supports `data-testid`, `aria-*`, or `role` | DivProps | - | - | × |
+| role | The semantics of notification content recognized by screen readers | 'alert' \| 'status' | `alert` | - | × |
 
 ### notification.useNotification {#use-notification}
 
 The properties of `config` are as follows:
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| top | Distance from the top of the viewport, when `placement` is `top` `topRight` or `topLeft` (unit: pixels) | number | 24 | - |
-| bottom | Distance from the bottom of the viewport, when `placement` is `bottom` `bottomRight` or `bottomLeft` (unit: pixels) | number | 24 | - |
-| placement | Position of Notification, can be one of `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | NotificationPlacement | `topRight` | - |
-| getContainer | Return the mount node for Notification | () =&gt; HTMLElement \| ShadowRoot | () =&gt; document.body | - |
-| duration | Time in seconds before Notification is closed. When set to `0` or `false`, it will never be closed automatically | number \| false | 4.5 | - |
-| maxCount | Max Notification show, drop oldest if exceed limit | number | - | - |
-| rtl | Whether to enable RTL mode | boolean | false | - |
-| stack | Notifications will be stacked when amount is over threshold | boolean \| &#123; threshold?: number &#125; | &#123; threshold: 3 &#125; | - |
-| showProgress | Show progress bar for auto-closing notification | boolean | - | - |
-| pauseOnHover | Keep the timer running or not on hover | boolean | true | - |
-| closeIcon | Custom close icon. Set to null or false to hide close button | VueNode | true | - |
-| prefixCls | - | string | `ant-notification` | - |
-| classes | Customize class for each semantic structure inside the component. Supports object or function. | NotificationClassNamesType | - | - |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | NotificationStylesType | - | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| top | Distance from the top of the viewport, when `placement` is `top` `topRight` or `topLeft` (unit: pixels) | number | 24 | - | × |
+| bottom | Distance from the bottom of the viewport, when `placement` is `bottom` `bottomRight` or `bottomLeft` (unit: pixels) | number | 24 | - | × |
+| placement | Position of Notification, can be one of `top` \| `topLeft` \| `topRight` \| `bottom` \| `bottomLeft` \| `bottomRight` | NotificationPlacement | `topRight` | - | × |
+| getContainer | Return the mount node for Notification | () =&gt; HTMLElement \| ShadowRoot | () =&gt; document.body | - | × |
+| duration | Time in seconds before Notification is closed. When set to `0` or `false`, it will never be closed automatically | number \| false | 4.5 | - | × |
+| maxCount | Max Notification show, drop oldest if exceed limit | number | - | - | × |
+| rtl | Whether to enable RTL mode | boolean | false | - | × |
+| stack | Notifications will be stacked when amount is over threshold | boolean \| &#123; threshold?: number &#125; | &#123; threshold: 3 &#125; | - | × |
+| showProgress | Show progress bar for auto-closing notification | boolean | - | - | × |
+| pauseOnHover | Keep the timer running or not on hover | boolean | true | - | × |
+| closeIcon | Custom close icon. Set to null or false to hide close button | VueNode | true | - | ✓ |
+| prefixCls | - | string | `ant-notification` | - | × |
+| classes | Customize class for each semantic structure inside the component. Supports object or function. | NotificationClassNamesType | - | - | ✓ |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | NotificationStylesType | - | - | ✓ |
 
 ### ClosableType {#closabletype}
 

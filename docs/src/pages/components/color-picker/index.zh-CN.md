@@ -41,32 +41,32 @@ group:
 
 ### 属性 {#props}
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| allowClear | 允许清除选择的颜色 | boolean | false | - |
-| arrow | 配置弹出的箭头 | boolean \| &#123; pointAtCenter: boolean &#125; | true | - |
-| autoAdjustOverflow | 弹窗不可见时自动调整位置 | boolean \| AdjustOverflow | - | - |
-| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | ColorPickerClassNamesType | - | - |
-| defaultFormat | 颜色格式默认的值 | ColorFormatType | `hex` | - |
-| defaultValue | 颜色默认的值 | [ColorValueType](#colorvaluetype) | - | - |
-| destroyOnHidden | 关闭后是否销毁弹窗 | boolean | false | - |
-| disabled | 禁用颜色选择器 | boolean | false | - |
-| disabledAlpha | 禁用透明度 | boolean | false | - |
-| disabledFormat | 禁用选择颜色格式 | boolean | false | - |
-| format | 颜色格式，支持 `v-model:format` | ColorFormatType | - | - |
-| getPopupContainer | 指定弹层挂载的节点 | (triggerNode: HTMLElement) => HTMLElement | - | - |
-| mode | 选择器模式，用于配置单色与渐变 | ModeType \| ModeType[] | `single` | - |
-| open | 是否显示弹出窗口，支持 `v-model:open` | boolean | - | - |
-| placement | 弹出窗口的位置 | TriggerPlacement | `bottomLeft` | - |
-| presets | 预设的颜色 | [PresetsItem](#presetsitem)[] | - | - |
-| panelRender | 自定义渲染面板 | (params: &#123; panel: any, extra: &#123; components: &#123; Picker: any, Presets: any &#125; &#125; &#125;) => any | - | - |
-| rootClass | 根容器 class | string | - | - |
-| showText | 显示颜色文本 | boolean \| ((params: &#123; color: Color &#125;) => any) | false | - |
-| size | 设置触发器大小 | SizeType | `middle` | - |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | ColorPickerStylesType | - | - |
-| trigger | 颜色选择器的触发模式 | TriggerType | `click` | - |
-| valueFormat | 设置颜色值的输出格式，支持 `hex`、`rgb`、`hsb`。设置后 `v-model:value` 返回对应格式的字符串。示例：[值格式化](#color-picker-demo-value-format) | ColorFormatType | - | - |
-| value | 颜色的值，支持 `v-model:value` | [ColorValueType](#colorvaluetype) | - | - |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| allowClear | 允许清除选择的颜色 | boolean | false | - | × |
+| arrow | 配置弹出的箭头 | boolean \| &#123; pointAtCenter: boolean &#125; | true | - | ✓ |
+| autoAdjustOverflow | 弹窗不可见时自动调整位置 | boolean \| AdjustOverflow | - | - | × |
+| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | ColorPickerClassNamesType | - | - | ✓ |
+| defaultFormat | 颜色格式默认的值 | ColorFormatType | `hex` | - | × |
+| defaultValue | 颜色默认的值 | [ColorValueType](#colorvaluetype) | - | - | × |
+| destroyOnHidden | 关闭后是否销毁弹窗 | boolean | false | - | × |
+| disabled | 禁用颜色选择器 | boolean | false | - | × |
+| disabledAlpha | 禁用透明度 | boolean | false | - | × |
+| disabledFormat | 禁用选择颜色格式 | boolean | false | - | × |
+| format | 颜色格式，支持 `v-model:format` | ColorFormatType | - | - | × |
+| getPopupContainer | 指定弹层挂载的节点 | (triggerNode: HTMLElement) => HTMLElement | - | - | × |
+| mode | 选择器模式，用于配置单色与渐变 | ModeType \| ModeType[] | `single` | - | × |
+| open | 是否显示弹出窗口，支持 `v-model:open` | boolean | - | - | × |
+| placement | 弹出窗口的位置 | TriggerPlacement | `bottomLeft` | - | × |
+| presets | 预设的颜色 | [PresetsItem](#presetsitem)[] | - | - | × |
+| panelRender | 自定义渲染面板 | (params: &#123; panel: any, extra: &#123; components: &#123; Picker: any, Presets: any &#125; &#125; &#125;) => any | - | - | × |
+| rootClass | 根容器 class | string | - | - | × |
+| showText | 显示颜色文本 | boolean \| ((params: &#123; color: Color &#125;) => any) | false | - | × |
+| size | 设置触发器大小 | SizeType | `middle` | - | × |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | ColorPickerStylesType | - | - | ✓ |
+| trigger | 颜色选择器的触发模式 | TriggerType | `click` | - | × |
+| valueFormat | 设置颜色值的输出格式，支持 `hex`、`rgb`、`hsb`。设置后 `v-model:value` 返回对应格式的字符串。示例：[值格式化](#color-picker-demo-value-format) | ColorFormatType | - | - | × |
+| value | 颜色的值，支持 `v-model:value` | [ColorValueType](#colorvaluetype) | - | - | × |
 
 ### 事件 {#events}
 

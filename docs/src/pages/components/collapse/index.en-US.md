@@ -37,24 +37,24 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 #### Props {#collapse-props}
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| activeKey | Key of the active panel | Array&lt;string \| number&gt; \| string \| number | No default value. In accordion mode, it's the key of the first panel | - |
-| defaultActiveKey | Key of the initial active panel | Array&lt;string \| number&gt; \| string \| number | - | - |
-| accordion | If true, Collapse renders as Accordion | boolean | false | - |
-| destroyOnHidden | Destroy Inactive Panel | boolean | false | - |
-| rootClass | Root container class | string | - | - |
-| bordered | Toggles rendering of the border around the collapse block | boolean | true | - |
-| expandIcon | Allow to customize collapse icon | (panelProps: PanelProps) =&gt; any | - | - |
-| expandIconPlacement | Set expand icon placement | `start` \| `end` | `start` | - |
-| ghost | Make the collapse borderless and its background transparent | boolean | false | - |
-| size | Set the size of collapse | SizeType | `middle` | - |
-| collapsible | Specify how to trigger Collapse. Either by clicking icon or by clicking any area in header or disable collapse functionality itself | `header` \| `icon` \| `disabled` | - | - |
-| labelRender | Custom render label | (params: &#123; item: CollapseItemType, index: number &#125;) =&gt; any | - | - |
-| contentRender | Custom render content | (params: &#123; item: CollapseItemType, index: number &#125;) =&gt; any | - | - |
-| classes | Customize class for each semantic structure inside the component. Supports object or function. | CollapseClassNamesType | - | - |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | CollapseStylesType | - | - |
-| items | Collapse items content | CollapseItemType[] | - | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| activeKey | Key of the active panel | Array&lt;string \| number&gt; \| string \| number | No default value. In accordion mode, it's the key of the first panel | - | × |
+| defaultActiveKey | Key of the initial active panel | Array&lt;string \| number&gt; \| string \| number | - | - | × |
+| accordion | If true, Collapse renders as Accordion | boolean | false | - | × |
+| destroyOnHidden | Destroy Inactive Panel | boolean | false | - | × |
+| rootClass | Root container class | string | - | - | × |
+| bordered | Toggles rendering of the border around the collapse block | boolean | true | - | × |
+| expandIcon | Allow to customize collapse icon | (panelProps: PanelProps) =&gt; any | - | - | ✓ |
+| expandIconPlacement | Set expand icon placement | `start` \| `end` | `start` | - | × |
+| ghost | Make the collapse borderless and its background transparent | boolean | false | - | × |
+| size | Set the size of collapse | SizeType | `middle` | - | × |
+| collapsible | Specify how to trigger Collapse. Either by clicking icon or by clicking any area in header or disable collapse functionality itself | `header` \| `icon` \| `disabled` | - | - | × |
+| labelRender | Custom render label | (params: &#123; item: CollapseItemType, index: number &#125;) =&gt; any | - | - | × |
+| contentRender | Custom render content | (params: &#123; item: CollapseItemType, index: number &#125;) =&gt; any | - | - | × |
+| classes | Customize class for each semantic structure inside the component. Supports object or function. | CollapseClassNamesType | - | - | ✓ |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | CollapseStylesType | - | - | ✓ |
+| items | Collapse items content | CollapseItemType[] | - | - | × |
 
 #### Events {#collapse-events}
 

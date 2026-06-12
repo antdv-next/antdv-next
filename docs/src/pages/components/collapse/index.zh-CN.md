@@ -37,24 +37,24 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sir-TK0HkWcAAA
 
 #### 属性 {#props}
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| activeKey | 当前激活 tab 面板的 key | Array&lt;string \| number&gt; \| string \| number | 手风琴模式下为第一个元素 | - |
-| defaultActiveKey | 初始化选中面板的 key | Array&lt;string \| number&gt; \| string \| number | - | - |
-| accordion | 手风琴模式 | boolean | false | - |
-| destroyOnHidden | 销毁折叠隐藏的面板 | boolean | false | - |
-| rootClass | 根节点 class | string | - | - |
-| bordered | 带边框风格的折叠面板 | boolean | true | - |
-| expandIcon | 自定义切换图标 | (panelProps: PanelProps) =&gt; any | - | - |
-| expandIconPlacement | 设置图标位置 | `start` \| `end` | `start` | - |
-| ghost | 使折叠面板透明且无边框 | boolean | false | - |
-| size | 设置折叠面板大小 | SizeType | `middle` | - |
-| collapsible | 所有子面板是否可折叠或指定可折叠触发区域 | `header` \| `icon` \| `disabled` | - | - |
-| labelRender | 自定义渲染label | (params: &#123; item: CollapseItemType, index: number &#125;) =&gt; any | - | - |
-| contentRender | 自定义渲染内容 | (params: &#123; item: CollapseItemType, index: number &#125;) =&gt; any | - | - |
-| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | CollapseClassNamesType | - | - |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | CollapseStylesType | - | - |
-| items | 折叠项目内容 | CollapseItemType[] | - | - |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| activeKey | 当前激活 tab 面板的 key | Array&lt;string \| number&gt; \| string \| number | 手风琴模式下为第一个元素 | - | × |
+| defaultActiveKey | 初始化选中面板的 key | Array&lt;string \| number&gt; \| string \| number | - | - | × |
+| accordion | 手风琴模式 | boolean | false | - | × |
+| destroyOnHidden | 销毁折叠隐藏的面板 | boolean | false | - | × |
+| rootClass | 根节点 class | string | - | - | × |
+| bordered | 带边框风格的折叠面板 | boolean | true | - | × |
+| expandIcon | 自定义切换图标 | (panelProps: PanelProps) =&gt; any | - | - | ✓ |
+| expandIconPlacement | 设置图标位置 | `start` \| `end` | `start` | - | × |
+| ghost | 使折叠面板透明且无边框 | boolean | false | - | × |
+| size | 设置折叠面板大小 | SizeType | `middle` | - | × |
+| collapsible | 所有子面板是否可折叠或指定可折叠触发区域 | `header` \| `icon` \| `disabled` | - | - | × |
+| labelRender | 自定义渲染label | (params: &#123; item: CollapseItemType, index: number &#125;) =&gt; any | - | - | × |
+| contentRender | 自定义渲染内容 | (params: &#123; item: CollapseItemType, index: number &#125;) =&gt; any | - | - | × |
+| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | CollapseClassNamesType | - | - | ✓ |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | CollapseStylesType | - | - | ✓ |
+| items | 折叠项目内容 | CollapseItemType[] | - | - | × |
 
 #### 事件 {#events}
 

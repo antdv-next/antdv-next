@@ -42,34 +42,34 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Vn4XSqJFAxcAAA
 
 ### 属性 {#props}
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | MenuClassNamesType | - | - |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | MenuStylesType | - | - |
-| rootClass | 根节点样式类 | string | - | - |
-| defaultOpenKeys | 初始展开的 SubMenu 菜单项 key 数组 | string[] | - | - |
-| defaultSelectedKeys | 初始选中的菜单项 key 数组 | string[] | - | - |
-| expandIcon | 自定义展开图标 | VueNode \| ((props: SubMenuProps & { isSubMenu: boolean }) => VueNode) | - | - |
-| forceSubMenuRender | 在子菜单展示之前就渲染进 DOM | boolean | false | - |
-| inlineCollapsed | inline 时菜单是否收起状态 | boolean | - | - |
-| inlineIndent | inline 模式的菜单缩进宽度 | number | 24 | - |
-| items | 菜单内容 | ItemType[] | - | - |
-| mode | 菜单类型，现在支持垂直、水平、和内嵌模式三种 | `vertical` \| `horizontal` \| `inline` | `vertical` | - |
-| multiple | 是否允许多选 | boolean | false | - |
-| openKeys | 当前展开的 SubMenu 菜单项 key 数组 | string[] | - | - |
-| overflowedIndicator | 用于自定义 Menu 水平空间不足时的省略收缩的图标 | VueNode | `<EllipsisOutlined />` | - |
-| selectable | 是否允许选中 | boolean | true | - |
-| selectedKeys | 当前选中的菜单项 key 数组 | string[] | - | - |
-| subMenuCloseDelay | 用户鼠标离开子菜单后关闭延时，单位：秒 | number | 0.1 | - |
-| subMenuOpenDelay | 用户鼠标进入子菜单后开启延时，单位：秒 | number | 0 | - |
-| theme | 主题颜色 | `light` \| `dark` | `light` | - |
-| triggerSubMenuAction | SubMenu 展开/关闭的触发行为 | `hover` \| `click` | `hover` | - |
-| getPopupContainer | 菜单弹出层渲染容器，默认渲染到 body | (triggerNode: HTMLElement) => HTMLElement | () => document.body | - |
-| itemIcon | 自定义菜单项图标渲染 | (props: MenuItemProps & RenderIconInfo) => any | - | - |
-| labelRender | 自定义菜单项标签渲染 | (item: RenderItem) => any | - | - |
-| iconRender | 自定义菜单项图标渲染（items 模式） | (item: RenderItem) => any | - | - |
-| extraRender | 自定义菜单项额外内容渲染 | (item: RenderItem) => any | - | - |
-| popupRender | 自定义子菜单的弹出框 | (node: VueNode, info: { item: SubMenuProps; keys: string[] }) => VueNode | - | - |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | MenuClassNamesType | - | - | ✓ |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | MenuStylesType | - | - | ✓ |
+| rootClass | 根节点样式类 | string | - | - | × |
+| defaultOpenKeys | 初始展开的 SubMenu 菜单项 key 数组 | string[] | - | - | × |
+| defaultSelectedKeys | 初始选中的菜单项 key 数组 | string[] | - | - | × |
+| expandIcon | 自定义展开图标 | VueNode \| ((props: SubMenuProps & { isSubMenu: boolean }) => VueNode) | - | - | ✓ |
+| forceSubMenuRender | 在子菜单展示之前就渲染进 DOM | boolean | false | - | × |
+| inlineCollapsed | inline 时菜单是否收起状态 | boolean | - | - | × |
+| inlineIndent | inline 模式的菜单缩进宽度 | number | 24 | - | × |
+| items | 菜单内容 | ItemType[] | - | - | × |
+| mode | 菜单类型，现在支持垂直、水平、和内嵌模式三种 | `vertical` \| `horizontal` \| `inline` | `vertical` | - | × |
+| multiple | 是否允许多选 | boolean | false | - | × |
+| openKeys | 当前展开的 SubMenu 菜单项 key 数组 | string[] | - | - | × |
+| overflowedIndicator | 用于自定义 Menu 水平空间不足时的省略收缩的图标 | VueNode | `<EllipsisOutlined />` | - | × |
+| selectable | 是否允许选中 | boolean | true | - | × |
+| selectedKeys | 当前选中的菜单项 key 数组 | string[] | - | - | × |
+| subMenuCloseDelay | 用户鼠标离开子菜单后关闭延时，单位：秒 | number | 0.1 | - | × |
+| subMenuOpenDelay | 用户鼠标进入子菜单后开启延时，单位：秒 | number | 0 | - | × |
+| theme | 主题颜色 | `light` \| `dark` | `light` | - | × |
+| triggerSubMenuAction | SubMenu 展开/关闭的触发行为 | `hover` \| `click` | `hover` | - | × |
+| getPopupContainer | 菜单弹出层渲染容器，默认渲染到 body | (triggerNode: HTMLElement) => HTMLElement | () => document.body | - | × |
+| itemIcon | 自定义菜单项图标渲染 | (props: MenuItemProps & RenderIconInfo) => any | - | - | × |
+| labelRender | 自定义菜单项标签渲染 | (item: RenderItem) => any | - | - | × |
+| iconRender | 自定义菜单项图标渲染（items 模式） | (item: RenderItem) => any | - | - | × |
+| extraRender | 自定义菜单项额外内容渲染 | (item: RenderItem) => any | - | - | × |
+| popupRender | 自定义子菜单的弹出框 | (node: VueNode, info: { item: SubMenuProps; keys: string[] }) => VueNode | - | - | × |
 
 ### 事件 {#events}
 

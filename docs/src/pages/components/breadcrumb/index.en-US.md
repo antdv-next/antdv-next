@@ -34,15 +34,15 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 ### Props
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| classes | Customize class for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: \{ props \})=> Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - |
-| dropdownIcon | Custom dropdown icon | VueNode | `<DownOutlined />` | - |
-| itemRender | Custom item renderer, work with vue-router | (route, params, routes, paths) =&gt; VueNode | - | - |
-| params | Routing parameters | object | - | - |
-| items | The routing stack information of router | [ItemType\[\]](#itemtype) | - | - |
-| separator | Custom separator | VueNode | `/` | - |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: \{ props \})=> Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| classes | Customize class for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: \{ props \})=> Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - | ✓ |
+| dropdownIcon | Custom dropdown icon | VueNode | `<DownOutlined />` | - | ✓ |
+| itemRender | Custom item renderer, work with vue-router | (route, params, routes, paths) =&gt; VueNode | - | - | × |
+| params | Routing parameters | object | - | - | × |
+| items | The routing stack information of router | [ItemType\[\]](#itemtype) | - | - | × |
+| separator | Custom separator | VueNode | `/` | - | ✓ |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: \{ props \})=> Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - | ✓ |
 
 ### Events
 

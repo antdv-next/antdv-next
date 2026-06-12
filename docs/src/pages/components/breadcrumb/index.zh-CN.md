@@ -35,15 +35,15 @@ demo:
 
 ### 属性 {#props}
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: \{ props \})=> Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - |
-| dropdownIcon | 自定义下拉图标 | VueNode | `<DownOutlined />` | - |
-| itemRender | 自定义链接函数，和 vue-router 配置使用 | (route, params, routes, paths) =&gt; VueNode | - | - |
-| params | 路由的参数 | object | - | - |
-| items | 路由栈信息 | [ItemType\[\]](#itemtype) | - | - |
-| separator | 分隔符自定义 | VueNode | `/` | - |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: \{ props \})=> Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: \{ props \})=> Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - | ✓ |
+| dropdownIcon | 自定义下拉图标 | VueNode | `<DownOutlined />` | - | ✓ |
+| itemRender | 自定义链接函数，和 vue-router 配置使用 | (route, params, routes, paths) =&gt; VueNode | - | - | × |
+| params | 路由的参数 | object | - | - | × |
+| items | 路由栈信息 | [ItemType\[\]](#itemtype) | - | - | × |
+| separator | 分隔符自定义 | VueNode | `/` | - | ✓ |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: \{ props \})=> Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - | ✓ |
 
 ### 事件 {#events}
 

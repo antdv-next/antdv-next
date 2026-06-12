@@ -47,32 +47,32 @@ demo:
 
 ### 属性 {#props}
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| allowClear | 支持清除 | boolean \| \{ clearIcon?: VueNode \} | true | - |
-| changeOnSelect | 单选时生效（multiple 下始终都可以选择），点选每级菜单选项值都会发生变化。 | boolean | false | - |
-| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: \{ props \})=&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - |
-| disabled | 禁用 | boolean | false | - |
-| expandTrigger | 次级菜单的展开方式，可选 'click' 和 'hover' | string | `click` | - |
-| fieldNames | 自定义 options 中 label value children 的字段 | object | \{ label: `label`, value: `value`, children: `children` \} | - |
-| getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | function(triggerNode) | () =&gt; document.body | - |
-| loadData | 用于动态加载选项，无法与 `showSearch` 一起使用 | (selectedOptions) =&gt; void | - | - |
-| maxTagCount | 最多显示多少个 tag，响应式模式会对性能产生损耗 | number \| `responsive` | - | - |
-| maxTagPlaceholder | 隐藏 tag 时显示的内容 | VueNode \| function(omittedValues) | - | - |
-| maxTagTextLength | 最大显示的 tag 文本长度 | number | - | - |
-| multiple | 支持多选节点 | boolean | - | - |
-| open | 控制浮层显隐 | boolean | - | - |
-| options | 可选项数据源 | [Option](#option)\[] | - | - |
-| placeholder | 输入框占位文本 | string | - | - |
-| placement | 浮层预设位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | `bottomLeft` | - |
-| popupMenuColumnStyle | 下拉菜单列的样式 | CSSProperties | - | - |
-| showCheckedStrategy | 定义选中项回填的方式（仅在 `multiple` 为 `true` 时生效）。`Cascader.SHOW_CHILD`: 只显示选中的子节点。`Cascader.SHOW_PARENT`: 只显示父节点（当父节点下所有子节点都选中时）。 | `Cascader.SHOW_PARENT` \| `Cascader.SHOW_CHILD` | `Cascader.SHOW_PARENT` | - |
-| showSearch | 在选择框中显示搜索框 | boolean \| [Object](#showsearch) | false | - |
-| size | 输入框大小 | `large` \| `middle` \| `small` | - | - |
-| status | 设置校验状态 | 'error' \| 'warning' | - | - |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: \{ props \})=&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - |
-| value | 指定选中项，支持 `v-model:value` | string\[] \| number\[] | - | - |
-| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| allowClear | 支持清除 | boolean \| \{ clearIcon?: VueNode \} | true | - | × |
+| changeOnSelect | 单选时生效（multiple 下始终都可以选择），点选每级菜单选项值都会发生变化。 | boolean | false | - | × |
+| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: \{ props \})=&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - | ✓ |
+| disabled | 禁用 | boolean | false | - | × |
+| expandTrigger | 次级菜单的展开方式，可选 'click' 和 'hover' | string | `click` | - | × |
+| fieldNames | 自定义 options 中 label value children 的字段 | object | \{ label: `label`, value: `value`, children: `children` \} | - | × |
+| getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | function(triggerNode) | () =&gt; document.body | - | × |
+| loadData | 用于动态加载选项，无法与 `showSearch` 一起使用 | (selectedOptions) =&gt; void | - | - | × |
+| maxTagCount | 最多显示多少个 tag，响应式模式会对性能产生损耗 | number \| `responsive` | - | - | × |
+| maxTagPlaceholder | 隐藏 tag 时显示的内容 | VueNode \| function(omittedValues) | - | - | × |
+| maxTagTextLength | 最大显示的 tag 文本长度 | number | - | - | × |
+| multiple | 支持多选节点 | boolean | - | - | × |
+| open | 控制浮层显隐 | boolean | - | - | × |
+| options | 可选项数据源 | [Option](#option)\[] | - | - | × |
+| placeholder | 输入框占位文本 | string | - | - | × |
+| placement | 浮层预设位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | `bottomLeft` | - | × |
+| popupMenuColumnStyle | 下拉菜单列的样式 | CSSProperties | - | - | × |
+| showCheckedStrategy | 定义选中项回填的方式（仅在 `multiple` 为 `true` 时生效）。`Cascader.SHOW_CHILD`: 只显示选中的子节点。`Cascader.SHOW_PARENT`: 只显示父节点（当父节点下所有子节点都选中时）。 | `Cascader.SHOW_PARENT` \| `Cascader.SHOW_CHILD` | `Cascader.SHOW_PARENT` | - | × |
+| showSearch | 在选择框中显示搜索框 | boolean \| [Object](#showsearch) | false | - | × |
+| size | 输入框大小 | `large` \| `middle` \| `small` | - | - | × |
+| status | 设置校验状态 | 'error' \| 'warning' | - | - | × |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: \{ props \})=&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - | ✓ |
+| value | 指定选中项，支持 `v-model:value` | string\[] \| number\[] | - | - | × |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - | ✓ |
 
 ### 事件 {#events}
 

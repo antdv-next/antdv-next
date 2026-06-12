@@ -53,54 +53,54 @@ demo:
 
 Common props ref：[Common props](/docs/vue/common-props)
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| allowClear | Show clear button | boolean \| &#123; clearIcon?: VueNode &#125; | false | - |
-| autoClearSearchValue | Whether the current search will be cleared on selecting an item. Only applies when `mode` is set to `multiple` or `tags` | boolean | true | - |
-| classes | Customize class for each semantic structure inside the component. Supports object or function | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - |
-| defaultActiveFirstOption | Whether active first option by default | boolean | true | - |
-| disabled | Whether disabled select | boolean | false | - |
-| dropdownClassName | The className of dropdown menu, **Deprecated. Use `classes.popup.root` instead** | string | - | - |
-| dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width, **Deprecated. Use `popupMatchSelectWidth` instead** | boolean \| number | - | - |
-| dropdownRender | Customize dropdown content, **Deprecated. Use `popupRender` instead** | (originNode: VueNode) =&gt; VueNode | - | - |
-| dropdownStyle | The style of dropdown menu, **Deprecated. Use `styles.popup.root` instead** | CSSProperties | - | - |
-| fieldNames | Customize node label, value, options, groupLabel field name | object | &#123; label: 'label', value: 'value', options: 'options', groupLabel: 'label' &#125; | - |
-| filterOption | If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and `option`, if the function returns true, the option will be included in the filtered set; Otherwise, it will be excluded | boolean \| (inputValue: string, option?: Option) =&gt; boolean | true | - |
-| filterSort | Sort function for search options sorting, see Array.sort's compareFunction | (optionA: Option, optionB: Option, info: &#123; searchValue: string &#125;) =&gt; number | - | - |
-| getPopupContainer | Parent Node which the selector should be rendered to. Default to body. When position issues happen, try to modify it into scrollable content and position it relative | (triggerNode: HTMLElement) =&gt; HTMLElement | () =&gt; document.body | - |
-| labelInValue | Whether to embed label in value, turn the format of value from `string` to `&#123; value: string, label: VueNode &#125;` | boolean | false | - |
-| listHeight | Config popup height | number | 256 | - |
-| loading | Indicate loading state | boolean | false | - |
-| maxCount | The max number of items can be selected, only applies when `mode` is `multiple` or `tags` | number | - | - |
-| maxTagCount | Max tag count to show. `responsive` will cost render performance | number \| 'responsive' | - | - |
-| maxTagPlaceholder | Placeholder for not showing tags | VueNode \| (omittedValues: LabeledValue[]) =&gt; VueNode | - | - |
-| maxTagTextLength | Max tag text length to show | number | - | - |
-| menuItemSelectedIcon | The custom menuItemSelected icon with multiple options | VueNode | - | - |
-| mode | Set mode of Select | 'multiple' \| 'tags' | - | - |
-| notFoundContent | Specify content to show when no result matches | VueNode | `Not Found` | - |
-| open | Controlled open state of dropdown | boolean | - | - |
-| optionFilterProp | Which prop value of option will be used for filter if filterOption is true. If options is set, it should be set to label. When a string[] is provided, multiple fields are searched using OR matching | string \| string[] | value | - |
-| options | Select options. Will get better perf than jsx definition | &#123; label: VueNode; value: string &#125;[] | - | - |
-| optionRender | Customize the rendering dropdown options | (option: FlattenOptionData&lt;BaseOptionType&gt;, info: &#123; index: number &#125;) =&gt; VueNode | - | - |
-| placeholder | The placeholder of select | string | - | - |
-| placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft | - |
-| popupClassName | The className of dropdown menu, use `classes.popup.root` instead | string | - | - |
-| popupMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true | - |
-| popupRender | Customize dropdown content | (originNode: VueNode) =&gt; VueNode | - | - |
-| prefix | The custom prefix | VueNode | - | - |
-| removeIcon | The custom remove icon | VueNode | - | - |
-| searchValue | The current input "search" text | string | - | - |
-| showSearch | Whether select is searchable | boolean \| Object | single: false, multiple: true | - |
-| size | Size of Select input | `large` \| `middle` \| `small` | - | - |
-| status | Set validation status | 'error' \| 'warning' | - | - |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - |
-| suffixIcon | The custom suffix icon. Customize icon will not response click open to avoid icon designed to do other interactive. You can use `pointer-events: none` style to bypass | VueNode | `<DownOutlined />` | - |
-| tagRender | Customize tag render, only applies when `mode` is set to `multiple` or `tags` | (props) =&gt; VueNode | - | - |
-| labelRender | Customize selected label render | (props: LabelInValueType) =&gt; VueNode | - | - |
-| tokenSeparators | Separator used to tokenize, only applies when `mode="tags"` | string[] | - | - |
-| value | Current selected option (considered as a immutable array), support `v-model:value` | string \| string[] \| number \| number[] | - | - |
-| variant | Variants of selector | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - |
-| virtual | Disable virtual scroll when set to false | boolean | true | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| allowClear | Show clear button | boolean \| &#123; clearIcon?: VueNode &#125; | false | - | ✓ |
+| autoClearSearchValue | Whether the current search will be cleared on selecting an item. Only applies when `mode` is set to `multiple` or `tags` | boolean | true | - | × |
+| classes | Customize class for each semantic structure inside the component. Supports object or function | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - | ✓ |
+| defaultActiveFirstOption | Whether active first option by default | boolean | true | - | × |
+| disabled | Whether disabled select | boolean | false | - | × |
+| dropdownClassName | The className of dropdown menu, **Deprecated. Use `classes.popup.root` instead** | string | - | - | × |
+| dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width, **Deprecated. Use `popupMatchSelectWidth` instead** | boolean \| number | - | - | × |
+| dropdownRender | Customize dropdown content, **Deprecated. Use `popupRender` instead** | (originNode: VueNode) =&gt; VueNode | - | - | × |
+| dropdownStyle | The style of dropdown menu, **Deprecated. Use `styles.popup.root` instead** | CSSProperties | - | - | × |
+| fieldNames | Customize node label, value, options, groupLabel field name | object | &#123; label: 'label', value: 'value', options: 'options', groupLabel: 'label' &#125; | - | × |
+| filterOption | If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and `option`, if the function returns true, the option will be included in the filtered set; Otherwise, it will be excluded | boolean \| (inputValue: string, option?: Option) =&gt; boolean | true | - | × |
+| filterSort | Sort function for search options sorting, see Array.sort's compareFunction | (optionA: Option, optionB: Option, info: &#123; searchValue: string &#125;) =&gt; number | - | - | × |
+| getPopupContainer | Parent Node which the selector should be rendered to. Default to body. When position issues happen, try to modify it into scrollable content and position it relative | (triggerNode: HTMLElement) =&gt; HTMLElement | () =&gt; document.body | - | × |
+| labelInValue | Whether to embed label in value, turn the format of value from `string` to `&#123; value: string, label: VueNode &#125;` | boolean | false | - | × |
+| listHeight | Config popup height | number | 256 | - | × |
+| loading | Indicate loading state | boolean | false | - | × |
+| maxCount | The max number of items can be selected, only applies when `mode` is `multiple` or `tags` | number | - | - | × |
+| maxTagCount | Max tag count to show. `responsive` will cost render performance | number \| 'responsive' | - | - | × |
+| maxTagPlaceholder | Placeholder for not showing tags | VueNode \| (omittedValues: LabeledValue[]) =&gt; VueNode | - | - | × |
+| maxTagTextLength | Max tag text length to show | number | - | - | × |
+| menuItemSelectedIcon | The custom menuItemSelected icon with multiple options | VueNode | - | - | ✓ |
+| mode | Set mode of Select | 'multiple' \| 'tags' | - | - | × |
+| notFoundContent | Specify content to show when no result matches | VueNode | `Not Found` | - | × |
+| open | Controlled open state of dropdown | boolean | - | - | × |
+| optionFilterProp | Which prop value of option will be used for filter if filterOption is true. If options is set, it should be set to label. When a string[] is provided, multiple fields are searched using OR matching | string \| string[] | value | - | × |
+| options | Select options. Will get better perf than jsx definition | &#123; label: VueNode; value: string &#125;[] | - | - | × |
+| optionRender | Customize the rendering dropdown options | (option: FlattenOptionData&lt;BaseOptionType&gt;, info: &#123; index: number &#125;) =&gt; VueNode | - | - | × |
+| placeholder | The placeholder of select | string | - | - | × |
+| placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft | - | × |
+| popupClassName | The className of dropdown menu, use `classes.popup.root` instead | string | - | - | × |
+| popupMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true | - | × |
+| popupRender | Customize dropdown content | (originNode: VueNode) =&gt; VueNode | - | - | × |
+| prefix | The custom prefix | VueNode | - | - | × |
+| removeIcon | The custom remove icon | VueNode | - | - | ✓ |
+| searchValue | The current input "search" text | string | - | - | × |
+| showSearch | Whether select is searchable | boolean \| Object | single: false, multiple: true | - | ✓ |
+| size | Size of Select input | `large` \| `middle` \| `small` | - | - | × |
+| status | Set validation status | 'error' \| 'warning' | - | - | × |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - | ✓ |
+| suffixIcon | The custom suffix icon. Customize icon will not response click open to avoid icon designed to do other interactive. You can use `pointer-events: none` style to bypass | VueNode | `<DownOutlined />` | - | ✓ |
+| tagRender | Customize tag render, only applies when `mode` is set to `multiple` or `tags` | (props) =&gt; VueNode | - | - | × |
+| labelRender | Customize selected label render | (props: LabelInValueType) =&gt; VueNode | - | - | × |
+| tokenSeparators | Separator used to tokenize, only applies when `mode="tags"` | string[] | - | - | × |
+| value | Current selected option (considered as a immutable array), support `v-model:value` | string \| string[] \| number \| number[] | - | - | × |
+| variant | Variants of selector | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - | ✓ |
+| virtual | Disable virtual scroll when set to false | boolean | true | - | × |
 
 ### Events {#events}
 

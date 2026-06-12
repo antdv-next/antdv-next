@@ -124,11 +124,11 @@ The App component can only use the token in the `ConfigProvider`, if you need to
 Common props ref：[Common props](/docs/vue/common-props)
 
 
-| Property     | Description                                               | Type               | Default | Version |
-| ------------ | --------------------------------------------------------- | ------------------ | ------- | ------- |
-| message      | Global config for Message                                 | MessageConfig      | -       |         |
-| notification | Global config for Notification                            | NotificationConfig | -       |         |
-| component    | Config render element, if`false` will not create DOM node | any                | div     |         |
+| Property     | Description                                               | Type               | Default | Version | [Global Config](/components/config-provider#component-config) |
+| ------------ | --------------------------------------------------------- | ------------------ | ------- | ------- | --- |
+| message      | Global config for Message                                 | MessageConfig      | -       |         | × |
+| notification | Global config for Notification                            | NotificationConfig | -       |         | × |
+| component    | Config render element, if`false` will not create DOM node | any                | div     |         | × |
 
 ## Design Token
 

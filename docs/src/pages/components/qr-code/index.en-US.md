@@ -36,23 +36,23 @@ Used when the text needs to be converted into a QR Code.
 
 Common props ref：[Common props](/docs/vue/common-props)
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| value | scanned text | string \| string[] | - | - |
-| type | render type | `canvas` \| `svg` | `canvas` | - |
-| icon | include image url (only image link are supported) | string | - | - |
-| size | QRCode size | number | 160 | - |
-| iconSize | include image size | number \| &#123; width: number; height: number &#125; | 40 | - |
-| color | QRCode Color | string | `#000` | - |
-| classes | Customize class for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - |
-| bgColor | QRCode Background Color | string | `transparent` | - |
-| marginSize | Quiet zone size (in modules). `0` means no margin | number | `0` | - |
-| bordered | Whether has border style | boolean | `true` | - |
-| errorLevel | Error Code Level | `'L'` \| `'M'` \| `'Q'` \| `'H'` | `'M'` | - |
-| boostLevel | If enabled, the Error Correction Level of the result may be higher than the specified Error Correction Level | boolean | true | - |
-| status | QRCode status | `'active'` \| `'expired'` \| `'loading'` \| `'scanned'` | `'active'` | - |
-| statusRender | custom status render | (info: StatusRenderInfo) =&gt; VueNode | - | - |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| value | scanned text | string \| string[] | - | - | × |
+| type | render type | `canvas` \| `svg` | `canvas` | - | × |
+| icon | include image url (only image link are supported) | string | - | - | × |
+| size | QRCode size | number | 160 | - | × |
+| iconSize | include image size | number \| &#123; width: number; height: number &#125; | 40 | - | × |
+| color | QRCode Color | string | `#000` | - | × |
+| classes | Customize class for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - | ✓ |
+| bgColor | QRCode Background Color | string | `transparent` | - | × |
+| marginSize | Quiet zone size (in modules). `0` means no margin | number | `0` | - | × |
+| bordered | Whether has border style | boolean | `true` | - | × |
+| errorLevel | Error Code Level | `'L'` \| `'M'` \| `'Q'` \| `'H'` | `'M'` | - | × |
+| boostLevel | If enabled, the Error Correction Level of the result may be higher than the specified Error Correction Level | boolean | true | - | × |
+| status | QRCode status | `'active'` \| `'expired'` \| `'loading'` \| `'scanned'` | `'active'` | - | × |
+| statusRender | custom status render | (info: StatusRenderInfo) =&gt; VueNode | - | - | × |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - | ✓ |
 
 ### Events
 

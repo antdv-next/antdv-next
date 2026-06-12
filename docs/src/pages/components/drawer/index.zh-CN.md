@@ -46,32 +46,32 @@ demo:
 
 通用属性参考：[通用属性](/docs/vue/common-props)
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| afterOpenChange | 切换抽屉时动画结束后的回调 | (open: boolean) => void | - | - |
-| classes | 用于自定义 Drawer 组件内部各语义化结构的 class，支持对象或函数 | DrawerClassNamesType | - | - |
-| closable | 是否展示关闭按钮，可通过 `placement` 设置位置 | boolean \| \{ closeIcon?: VueNode, disabled?: boolean, placement?: 'start' \| 'end' \} | true | - |
-| closeIcon | 自定义关闭图标 | VueNode | - | - |
-| ~~destroyOnClose~~ | 关闭时销毁 Drawer 里的子元素 | boolean | false | - |
-| destroyOnHidden | 关闭时销毁 Drawer 里的子元素 | boolean | false | - |
-| extra | 右上角额外操作区域 | VueNode | - | - |
-| footer | 抽屉底部 | VueNode | - | - |
-| forceRender | 强制预渲染 Drawer | boolean | false | - |
-| getContainer | 指定 Drawer 挂载的节点，`false` 为挂载在当前位置 | string \| HTMLElement \| (() => HTMLElement) \| false | document.body | - |
-| keyboard | 是否支持键盘 esc 关闭 | boolean | true | - |
-| loading | 显示 Skeleton | boolean | false | - |
-| mask | 遮罩效果 | MaskType | true | - |
-| maskClosable | 点击遮罩是否允许关闭 | boolean | true | - |
-| placement | 抽屉的方向 | `top` \| `right` \| `bottom` \| `left` | `right` | - |
-| push | 多层抽屉的推开行为 | boolean \| \{ distance: string \| number \} | \{ distance: 180 \} | - |
-| resizable | 是否允许拖拽调整尺寸 | boolean \| [ResizableConfig](#resizableconfig) | - | - |
-| rootClass | 根容器 class | string | - | - |
-| rootStyle | 根容器样式（包含遮罩） | CSSProperties | - | - |
-| size | 预设尺寸，默认 `378px` 和大号 `736px`，也支持自定义数字 | 'default' \| 'large' \| number | 'default' | - |
-| styles | 用于自定义 Drawer 组件内部各语义化结构的行内 style，支持对象或函数 | DrawerStylesType | - | - |
-| title | 标题 | VueNode | - | - |
-| open | 抽屉是否可见，支持 `v-model:open` | boolean | false | - |
-| zIndex | 设置 Drawer 的 `z-index` | number | 1000 | - |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| afterOpenChange | 切换抽屉时动画结束后的回调 | (open: boolean) => void | - | - | × |
+| classes | 用于自定义 Drawer 组件内部各语义化结构的 class，支持对象或函数 | DrawerClassNamesType | - | - | ✓ |
+| closable | 是否展示关闭按钮，可通过 `placement` 设置位置 | boolean \| \{ closeIcon?: VueNode, disabled?: boolean, placement?: 'start' \| 'end' \} | true | - | ✓ |
+| closeIcon | 自定义关闭图标 | VueNode | - | - | ✓ |
+| ~~destroyOnClose~~ | 关闭时销毁 Drawer 里的子元素 | boolean | false | - | × |
+| destroyOnHidden | 关闭时销毁 Drawer 里的子元素 | boolean | false | - | × |
+| extra | 右上角额外操作区域 | VueNode | - | - | × |
+| footer | 抽屉底部 | VueNode | - | - | × |
+| forceRender | 强制预渲染 Drawer | boolean | false | - | × |
+| getContainer | 指定 Drawer 挂载的节点，`false` 为挂载在当前位置 | string \| HTMLElement \| (() => HTMLElement) \| false | document.body | - | × |
+| keyboard | 是否支持键盘 esc 关闭 | boolean | true | - | × |
+| loading | 显示 Skeleton | boolean | false | - | × |
+| mask | 遮罩效果 | MaskType | true | - | ✓ |
+| maskClosable | 点击遮罩是否允许关闭 | boolean | true | - | × |
+| placement | 抽屉的方向 | `top` \| `right` \| `bottom` \| `left` | `right` | - | × |
+| push | 多层抽屉的推开行为 | boolean \| \{ distance: string \| number \} | \{ distance: 180 \} | - | × |
+| resizable | 是否允许拖拽调整尺寸 | boolean \| [ResizableConfig](#resizableconfig) | - | - | × |
+| rootClass | 根容器 class | string | - | - | × |
+| rootStyle | 根容器样式（包含遮罩） | CSSProperties | - | - | × |
+| size | 预设尺寸，默认 `378px` 和大号 `736px`，也支持自定义数字 | 'default' \| 'large' \| number | 'default' | - | × |
+| styles | 用于自定义 Drawer 组件内部各语义化结构的行内 style，支持对象或函数 | DrawerStylesType | - | - | ✓ |
+| title | 标题 | VueNode | - | - | × |
+| open | 抽屉是否可见，支持 `v-model:open` | boolean | false | - | × |
+| zIndex | 设置 Drawer 的 `z-index` | number | 1000 | - | × |
 
 ### 事件 {#events}
 

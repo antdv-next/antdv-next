@@ -41,28 +41,28 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 ### Props
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| actions | A set of operations that are sorted from top to bottom. When an array of strings is provided, default buttons will be used; when an array of VueNode is provided, custom elements will be used | VueNode[] | [`>`, `<`] | 6.0.0 |
-| classes | Customize class for each semantic structure inside the component. Supports object or function | TransferClassNamesType | - | - |
-| dataSource | Used for setting the source data. The elements that are part of this array will be present the left column. Except the elements whose keys are included in `targetKeys` prop | TransferItem[] | [] | - |
-| disabled | Whether disabled transfer | boolean | false | - |
-| filterOption | A function to determine whether an item should show in search result list, only works when searching | (inputValue: string, option: TransferItem, direction: `left` \| `right`) =&gt; boolean | - | - |
-| footer | A function used for rendering the footer | (props: TransferListProps, direction: `left` \| `right`) =&gt; VueNode | - | - |
-| locale | The i18n text including filter, empty text, item unit, etc | TransferLocale | - | - |
-| oneWay | Display as single direction style | boolean | false | - |
-| pagination | Use pagination. Not work in render props | boolean \| &#123; pageSize: number; simple: boolean; showSizeChanger?: boolean; showLessItems?: boolean &#125; | false | - |
-| render | The function to generate the item shown on a column. Based on an record (element of the dataSource array), this function should return a VueNode which is generated from that record. Also, it can return a plain object with `value` and `label`, `label` is a VueNode and `value` is for title | (record: TransferItem) =&gt; VueNode | - | - |
-| rowKey | Specify the key that will be used for uniquely identify each element | (record: TransferItem) =&gt; string | - | - |
-| selectAllLabels | A set of customized labels for select all checkboxes on the header | (VueNode \| (info: &#123; selectedCount: number; totalCount: number &#125;) =&gt; VueNode)[] | - | - |
-| selectedKeys | A set of keys of selected items, support `v-model:selected-keys` | string[] | [] | - |
-| selectionsIcon | Custom dropdown icon | VueNode | - | - |
-| showSearch | If included, a search box is shown on each column | boolean \| &#123; placeholder?: string; defaultValue?: string &#125; | false | - |
-| showSelectAll | Show select all checkbox on the header | boolean | true | - |
-| status | Set validation status | `error` \| `warning` | - | - |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function | TransferStylesType | - | - |
-| targetKeys | A set of keys of elements that are listed on the right column, support `v-model:target-keys` | string[] | [] | - |
-| titles | A set of titles that are sorted from left to right | VueNode[] | - | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| actions | A set of operations that are sorted from top to bottom. When an array of strings is provided, default buttons will be used; when an array of VueNode is provided, custom elements will be used | VueNode[] | [`>`, `<`] | 6.0.0 | × |
+| classes | Customize class for each semantic structure inside the component. Supports object or function | TransferClassNamesType | - | - | ✓ |
+| dataSource | Used for setting the source data. The elements that are part of this array will be present the left column. Except the elements whose keys are included in `targetKeys` prop | TransferItem[] | [] | - | × |
+| disabled | Whether disabled transfer | boolean | false | - | × |
+| filterOption | A function to determine whether an item should show in search result list, only works when searching | (inputValue: string, option: TransferItem, direction: `left` \| `right`) =&gt; boolean | - | - | × |
+| footer | A function used for rendering the footer | (props: TransferListProps, direction: `left` \| `right`) =&gt; VueNode | - | - | × |
+| locale | The i18n text including filter, empty text, item unit, etc | TransferLocale | - | - | × |
+| oneWay | Display as single direction style | boolean | false | - | × |
+| pagination | Use pagination. Not work in render props | boolean \| &#123; pageSize: number; simple: boolean; showSizeChanger?: boolean; showLessItems?: boolean &#125; | false | - | × |
+| render | The function to generate the item shown on a column. Based on an record (element of the dataSource array), this function should return a VueNode which is generated from that record. Also, it can return a plain object with `value` and `label`, `label` is a VueNode and `value` is for title | (record: TransferItem) =&gt; VueNode | - | - | × |
+| rowKey | Specify the key that will be used for uniquely identify each element | (record: TransferItem) =&gt; string | - | - | × |
+| selectAllLabels | A set of customized labels for select all checkboxes on the header | (VueNode \| (info: &#123; selectedCount: number; totalCount: number &#125;) =&gt; VueNode)[] | - | - | × |
+| selectedKeys | A set of keys of selected items, support `v-model:selected-keys` | string[] | [] | - | × |
+| selectionsIcon | Custom dropdown icon | VueNode | - | - | ✓ |
+| showSearch | If included, a search box is shown on each column | boolean \| &#123; placeholder?: string; defaultValue?: string &#125; | false | - | × |
+| showSelectAll | Show select all checkbox on the header | boolean | true | - | × |
+| status | Set validation status | `error` \| `warning` | - | - | × |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function | TransferStylesType | - | - | ✓ |
+| targetKeys | A set of keys of elements that are listed on the right column, support `v-model:target-keys` | string[] | [] | - | × |
+| titles | A set of titles that are sorted from left to right | VueNode[] | - | - | × |
 
 ### Events
 

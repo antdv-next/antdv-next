@@ -32,20 +32,20 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 #### Props {#statistic-props}
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| classes | Customize class for each semantic structure inside the Statistic component. Supports object or function | StatisticClassNamesType | - | - |
-| decimalSeparator | The decimal separator | string | `.` | - |
-| formatter | Customize value display logic | (value: number \| string) =&gt; VueNode | - | - |
-| groupSeparator | Group separator | string | `,` | - |
-| loading | Loading status of Statistic | boolean | false | - |
-| precision | The precision of input value | number | - | - |
-| prefix | The prefix node of value | VueNode | - | - |
-| styles | Customize inline style for each semantic structure inside the Statistic component. Supports object or function | StatisticStylesType | - | - |
-| suffix | The suffix node of value | VueNode | - | - |
-| title | Display title | VueNode | - | - |
-| value | Display value | string \| number | - | - |
-| valueStyle | Set value section style | CSSProperties | - | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| classes | Customize class for each semantic structure inside the Statistic component. Supports object or function | StatisticClassNamesType | - | - | ✓ |
+| decimalSeparator | The decimal separator | string | `.` | - | × |
+| formatter | Customize value display logic | (value: number \| string) =&gt; VueNode | - | - | × |
+| groupSeparator | Group separator | string | `,` | - | × |
+| loading | Loading status of Statistic | boolean | false | - | × |
+| precision | The precision of input value | number | - | - | × |
+| prefix | The prefix node of value | VueNode | - | - | × |
+| styles | Customize inline style for each semantic structure inside the Statistic component. Supports object or function | StatisticStylesType | - | - | ✓ |
+| suffix | The suffix node of value | VueNode | - | - | × |
+| title | Display title | VueNode | - | - | × |
+| value | Display value | string \| number | - | - | × |
+| valueStyle | Set value section style | CSSProperties | - | - | × |
 
 #### Slots {#statistic-slots}
 

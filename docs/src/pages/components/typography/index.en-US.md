@@ -34,30 +34,30 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 #### Props {#typography-props}
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| direction | Direction control | 'ltr' \| 'rtl' | - | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| direction | Direction control | 'ltr' \| 'rtl' | - | - | × |
 
 ### Typography.Text {#typography-text}
 
 #### Props {#typography-text-props}
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| code | Code style | boolean | false | - |
-| copyable | Whether to be copyable, customize it via setting an object | boolean \| [copyable](#copyable) | false | - |
-| delete | Deleted line style | boolean | false | - |
-| disabled | Disabled content | boolean | false | - |
-| editable | If editable. Can control edit state when is object | boolean \| [editable](#editable) | false | - |
-| ellipsis | Display ellipsis when text overflows, can't configure expandable, rows and onExpand by using object. Diff with Typography.Paragraph, Text do not have 100% width style which means it will fix width on the first ellipsis. If you want to have responsive ellipsis, please set width manually | boolean \| [Omit&lt;ellipsis, 'expandable' \| 'rows' \| 'onExpand'&gt;](#ellipsis) | false | - |
-| keyboard | Keyboard style | boolean | false | - |
-| mark | Marked style | boolean | false | - |
-| strong | Bold style | boolean | false | - |
-| italic | Italic style | boolean | false | - |
-| type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | - |
-| underline | Underlined style | boolean | false | - |
-| classes | Customize class for each semantic structure inside the component. Supports object or function. | TypographyClassNamesType | - | - |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | TypographyStylesType | - | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| code | Code style | boolean | false | - | × |
+| copyable | Whether to be copyable, customize it via setting an object | boolean \| [copyable](#copyable) | false | - | × |
+| delete | Deleted line style | boolean | false | - | × |
+| disabled | Disabled content | boolean | false | - | × |
+| editable | If editable. Can control edit state when is object | boolean \| [editable](#editable) | false | - | × |
+| ellipsis | Display ellipsis when text overflows, can't configure expandable, rows and onExpand by using object. Diff with Typography.Paragraph, Text do not have 100% width style which means it will fix width on the first ellipsis. If you want to have responsive ellipsis, please set width manually | boolean \| [Omit&lt;ellipsis, 'expandable' \| 'rows' \| 'onExpand'&gt;](#ellipsis) | false | - | × |
+| keyboard | Keyboard style | boolean | false | - | × |
+| mark | Marked style | boolean | false | - | × |
+| strong | Bold style | boolean | false | - | × |
+| italic | Italic style | boolean | false | - | × |
+| type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | - | × |
+| underline | Underlined style | boolean | false | - | × |
+| classes | Customize class for each semantic structure inside the component. Supports object or function. | TypographyClassNamesType | - | - | ✓ |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | TypographyStylesType | - | - | ✓ |
 
 #### Events {#typography-text-events}
 
@@ -69,21 +69,21 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 #### Props {#typography-title-props}
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| code | Code style | boolean | false | - |
-| copyable | Whether to be copyable, customize it via setting an object | boolean \| [copyable](#copyable) | false | - |
-| delete | Deleted line style | boolean | false | - |
-| disabled | Disabled content | boolean | false | - |
-| editable | If editable. Can control edit state when is object | boolean \| [editable](#editable) | false | - |
-| ellipsis | Display ellipsis when text overflows, can configure rows and expandable by using object | boolean \| [ellipsis](#ellipsis) | false | - |
-| level | Set content importance. Match with `h1`, `h2`, `h3`, `h4`, `h5` | number: 1, 2, 3, 4, 5 | 1 | - |
-| mark | Marked style | boolean | false | - |
-| italic | Italic style | boolean | false | - |
-| type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | - |
-| underline | Underlined style | boolean | false | - |
-| classes | Customize class for each semantic structure inside the component. Supports object or function. | TypographyClassNamesType | - | - |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | TypographyStylesType | - | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| code | Code style | boolean | false | - | × |
+| copyable | Whether to be copyable, customize it via setting an object | boolean \| [copyable](#copyable) | false | - | × |
+| delete | Deleted line style | boolean | false | - | × |
+| disabled | Disabled content | boolean | false | - | × |
+| editable | If editable. Can control edit state when is object | boolean \| [editable](#editable) | false | - | × |
+| ellipsis | Display ellipsis when text overflows, can configure rows and expandable by using object | boolean \| [ellipsis](#ellipsis) | false | - | × |
+| level | Set content importance. Match with `h1`, `h2`, `h3`, `h4`, `h5` | number: 1, 2, 3, 4, 5 | 1 | - | × |
+| mark | Marked style | boolean | false | - | × |
+| italic | Italic style | boolean | false | - | × |
+| type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | - | × |
+| underline | Underlined style | boolean | false | - | × |
+| classes | Customize class for each semantic structure inside the component. Supports object or function. | TypographyClassNamesType | - | - | ✓ |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | TypographyStylesType | - | - | ✓ |
 
 #### Events {#typography-title-events}
 
@@ -95,21 +95,21 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 #### Props {#typography-paragraph-props}
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| code | Code style | boolean | false | - |
-| copyable | Whether to be copyable, customize it via setting an object | boolean \| [copyable](#copyable) | false | - |
-| delete | Deleted line style | boolean | false | - |
-| disabled | Disabled content | boolean | false | - |
-| editable | If editable. Can control edit state when is object | boolean \| [editable](#editable) | false | - |
-| ellipsis | Display ellipsis when text overflows, can configure rows and expandable by using object | boolean \| [ellipsis](#ellipsis) | false | - |
-| mark | Marked style | boolean | false | - |
-| strong | Bold style | boolean | false | - |
-| italic | Italic style | boolean | false | - |
-| type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | - |
-| underline | Underlined style | boolean | false | - |
-| classes | Customize class for each semantic structure inside the component. Supports object or function. | TypographyClassNamesType | - | - |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | TypographyStylesType | - | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| code | Code style | boolean | false | - | × |
+| copyable | Whether to be copyable, customize it via setting an object | boolean \| [copyable](#copyable) | false | - | × |
+| delete | Deleted line style | boolean | false | - | × |
+| disabled | Disabled content | boolean | false | - | × |
+| editable | If editable. Can control edit state when is object | boolean \| [editable](#editable) | false | - | × |
+| ellipsis | Display ellipsis when text overflows, can configure rows and expandable by using object | boolean \| [ellipsis](#ellipsis) | false | - | × |
+| mark | Marked style | boolean | false | - | × |
+| strong | Bold style | boolean | false | - | × |
+| italic | Italic style | boolean | false | - | × |
+| type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | - | × |
+| underline | Underlined style | boolean | false | - | × |
+| classes | Customize class for each semantic structure inside the component. Supports object or function. | TypographyClassNamesType | - | - | ✓ |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | TypographyStylesType | - | - | ✓ |
 
 #### Events {#typography-paragraph-events}
 

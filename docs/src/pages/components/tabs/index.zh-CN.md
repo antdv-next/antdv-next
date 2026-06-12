@@ -44,29 +44,29 @@ Antdv Next 依次提供了三级选项卡，分别用于不同的场景。
 
 通用属性参考：[通用属性](/docs/vue/common-props)
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| activeKey | 当前激活 tab 面板的 key，支持 `v-model:active-key` | string | - | - |
-| addIcon | 自定义添加按钮，设置 `type="editable-card"` 时有效 | VueNode | `<PlusOutlined />` | - |
-| animated | 是否使用动画切换 Tabs | boolean \| \{ inkBar: boolean, tabPane: boolean \} | \{ inkBar: true, tabPane: false \} | - |
-| centered | 标签居中展示 | boolean | false | - |
-| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | TabsClassNamesType | - | - |
-| defaultActiveKey | 初始化选中面板的 key，如果没有设置 activeKey | string | `第一个面板的 key` | - |
-| hideAdd | 是否隐藏加号图标，在 `type="editable-card"` 时有效 | boolean | false | - |
-| indicator | 自定义指示条的长度和对齐方式 | \{ size?: number \| (origin: number) => number; align?: `start` \| `center` \| `end` \} | - | - |
-| items | 配置选项卡内容 | TabItemType[] | [] | - |
-| more | 自定义折叠菜单属性 | MoreProps | \{ icon: `<EllipsisOutlined />`, trigger: 'hover' \} | - |
-| moreIcon | 自定义折叠图标 | VueNode | `<EllipsisOutlined />` | - |
-| removeIcon | 自定义删除按钮，设置 `type="editable-card"` 时有效 | VueNode | `<CloseOutlined />` | - |
-| renderTabBar | 替换 TabBar，用于二次封装标签头 | (ctx: \{ props: any; TabNavListComponent: any \}) => VueNode | - | - |
-| size | 大小，提供 `large` `middle` 和 `small` 三种大小 | `large` \| `middle` \| `small` | `middle` | - |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | TabsStylesType | - | - |
-| tabBarExtraContent | tab bar 上额外的元素 | VueNode \| \{ left?: VueNode, right?: VueNode \} | - | - |
-| tabBarGutter | tabs 之间的间隙 | number | - | - |
-| tabBarStyle | tab bar 的样式对象 | CSSProperties | - | - |
-| tabPlacement | 页签位置，可选值有 `top` `end` `bottom` `start` | `top` \| `end` \| `bottom` \| `start` | `top` | - |
-| destroyOnHidden | 被隐藏时是否销毁 DOM 结构 | boolean | false | - |
-| type | 页签的基本样式，可选 `line`、`card` `editable-card` 类型 | `line` \| `card` \| `editable-card` | `line` | - |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| activeKey | 当前激活 tab 面板的 key，支持 `v-model:active-key` | string | - | - | × |
+| addIcon | 自定义添加按钮，设置 `type="editable-card"` 时有效 | VueNode | `<PlusOutlined />` | - | ✓ |
+| animated | 是否使用动画切换 Tabs | boolean \| \{ inkBar: boolean, tabPane: boolean \} | \{ inkBar: true, tabPane: false \} | - | × |
+| centered | 标签居中展示 | boolean | false | - | × |
+| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | TabsClassNamesType | - | - | ✓ |
+| defaultActiveKey | 初始化选中面板的 key，如果没有设置 activeKey | string | `第一个面板的 key` | - | × |
+| hideAdd | 是否隐藏加号图标，在 `type="editable-card"` 时有效 | boolean | false | - | × |
+| indicator | 自定义指示条的长度和对齐方式 | \{ size?: number \| (origin: number) => number; align?: `start` \| `center` \| `end` \} | - | - | ✓ |
+| items | 配置选项卡内容 | TabItemType[] | [] | - | × |
+| more | 自定义折叠菜单属性 | MoreProps | \{ icon: `<EllipsisOutlined />`, trigger: 'hover' \} | - | ✓ |
+| moreIcon | 自定义折叠图标 | VueNode | `<EllipsisOutlined />` | - | ✓ |
+| removeIcon | 自定义删除按钮，设置 `type="editable-card"` 时有效 | VueNode | `<CloseOutlined />` | - | ✓ |
+| renderTabBar | 替换 TabBar，用于二次封装标签头 | (ctx: \{ props: any; TabNavListComponent: any \}) => VueNode | - | - | × |
+| size | 大小，提供 `large` `middle` 和 `small` 三种大小 | `large` \| `middle` \| `small` | `middle` | - | × |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | TabsStylesType | - | - | ✓ |
+| tabBarExtraContent | tab bar 上额外的元素 | VueNode \| \{ left?: VueNode, right?: VueNode \} | - | - | × |
+| tabBarGutter | tabs 之间的间隙 | number | - | - | × |
+| tabBarStyle | tab bar 的样式对象 | CSSProperties | - | - | × |
+| tabPlacement | 页签位置，可选值有 `top` `end` `bottom` `start` | `top` \| `end` \| `bottom` \| `start` | `top` | - | × |
+| destroyOnHidden | 被隐藏时是否销毁 DOM 结构 | boolean | false | - | × |
+| type | 页签的基本样式，可选 `line`、`card` `editable-card` 类型 | `line` \| `card` \| `editable-card` | `line` | - | × |
 
 ### TabItemType {#tabitemtype}
 

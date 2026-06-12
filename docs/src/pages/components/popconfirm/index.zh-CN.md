@@ -36,20 +36,20 @@ demo:
 
 ### 属性 {#props}
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| cancelButtonProps | cancel 按钮 props | ButtonProps | - | - |
-| cancelText | 取消按钮文字 | VueNode | `取消` | - |
-| disabled | 阻止点击 Popconfirm 子元素时弹出确认框 | boolean | false | - |
-| icon | 自定义弹出气泡 Icon 图标 | VueNode | &lt;ExclamationCircleFilled /&gt; | - |
-| okButtonProps | ok 按钮 props | ButtonProps | - | - |
-| okText | 确认按钮文字 | VueNode | `确定` | - |
-| okType | 确认按钮类型 | LegacyButtonType | `primary` | - |
-| showCancel | 是否显示取消按钮 | boolean | true | - |
-| title | 确认框标题 | VueNode | - | - |
-| description | 确认内容的详细描述 | VueNode | - | - |
-| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | PopconfirmClassNamesType | - | - |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | PopconfirmStylesType | - | - |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| cancelButtonProps | cancel 按钮 props | ButtonProps | - | - | × |
+| cancelText | 取消按钮文字 | VueNode | `取消` | - | × |
+| disabled | 阻止点击 Popconfirm 子元素时弹出确认框 | boolean | false | - | × |
+| icon | 自定义弹出气泡 Icon 图标 | VueNode | &lt;ExclamationCircleFilled /&gt; | - | × |
+| okButtonProps | ok 按钮 props | ButtonProps | - | - | × |
+| okText | 确认按钮文字 | VueNode | `确定` | - | × |
+| okType | 确认按钮类型 | LegacyButtonType | `primary` | - | × |
+| showCancel | 是否显示取消按钮 | boolean | true | - | × |
+| title | 确认框标题 | VueNode | - | - | × |
+| description | 确认内容的详细描述 | VueNode | - | - | × |
+| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | PopconfirmClassNamesType | - | - | ✓ |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | PopconfirmStylesType | - | - | ✓ |
 
 Popconfirm 还支持 Popover 的所有属性，详见 [Popover](/components/popover-cn#api)。
 

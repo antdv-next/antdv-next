@@ -45,32 +45,32 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 
 Common props ref：[Common props](/docs/vue/common-props)
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| afterOpenChange | Callback after the animation ends when switching drawers | (open: boolean) => void | - | - |
-| classes | Customize class for each semantic structure inside the Drawer component. Supports object or function. | DrawerClassNamesType | - | - |
-| closable | Whether to show a close button. The position can be configured with `placement` | boolean \| \{ closeIcon?: VueNode, disabled?: boolean, placement?: 'start' \| 'end' \} | true | - |
-| closeIcon | Custom close icon | VueNode | - | - |
-| ~~destroyOnClose~~ | Whether to unmount child components on closing drawer or not | boolean | false | - |
-| destroyOnHidden | Whether to unmount child components on closing drawer or not | boolean | false | - |
-| extra | Extra actions area at corner | VueNode | - | - |
-| footer | The footer for Drawer | VueNode | - | - |
-| forceRender | Pre-render Drawer component forcibly | boolean | false | - |
-| getContainer | Mounted node and display window for Drawer | string \| HTMLElement \| (() => HTMLElement) \| false | document.body | - |
-| keyboard | Whether support press esc to close | boolean | true | - |
-| loading | Show the Skeleton | boolean | false | - |
-| mask | Mask effect | MaskType | true | - |
-| maskClosable | Clicking on the mask (area outside the Drawer) to close the Drawer or not | boolean | true | - |
-| placement | The placement of the Drawer | `top` \| `right` \| `bottom` \| `left` | `right` | - |
-| push | Nested drawers push behavior | boolean \| \{ distance: string \| number \} | \{ distance: 180 \} | - |
-| resizable | Enable resizable by dragging | boolean \| [ResizableConfig](#resizableconfig) | - | - |
-| rootClass | Root container class | string | - | - |
-| rootStyle | Style of wrapper element which contains mask | CSSProperties | - | - |
-| size | Preset size of drawer, default `378px` and large `736px`, or a custom number | 'default' \| 'large' \| number | 'default' | - |
-| styles | Customize inline style for each semantic structure inside the Drawer component. Supports object or function. | DrawerStylesType | - | - |
-| title | The title for Drawer | VueNode | - | - |
-| open | Whether the Drawer dialog is visible or not, support `v-model:open` | boolean | false | - |
-| zIndex | The `z-index` of the Drawer | number | 1000 | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| afterOpenChange | Callback after the animation ends when switching drawers | (open: boolean) => void | - | - | × |
+| classes | Customize class for each semantic structure inside the Drawer component. Supports object or function. | DrawerClassNamesType | - | - | ✓ |
+| closable | Whether to show a close button. The position can be configured with `placement` | boolean \| \{ closeIcon?: VueNode, disabled?: boolean, placement?: 'start' \| 'end' \} | true | - | ✓ |
+| closeIcon | Custom close icon | VueNode | - | - | ✓ |
+| ~~destroyOnClose~~ | Whether to unmount child components on closing drawer or not | boolean | false | - | × |
+| destroyOnHidden | Whether to unmount child components on closing drawer or not | boolean | false | - | × |
+| extra | Extra actions area at corner | VueNode | - | - | × |
+| footer | The footer for Drawer | VueNode | - | - | × |
+| forceRender | Pre-render Drawer component forcibly | boolean | false | - | × |
+| getContainer | Mounted node and display window for Drawer | string \| HTMLElement \| (() => HTMLElement) \| false | document.body | - | × |
+| keyboard | Whether support press esc to close | boolean | true | - | × |
+| loading | Show the Skeleton | boolean | false | - | × |
+| mask | Mask effect | MaskType | true | - | ✓ |
+| maskClosable | Clicking on the mask (area outside the Drawer) to close the Drawer or not | boolean | true | - | × |
+| placement | The placement of the Drawer | `top` \| `right` \| `bottom` \| `left` | `right` | - | × |
+| push | Nested drawers push behavior | boolean \| \{ distance: string \| number \} | \{ distance: 180 \} | - | × |
+| resizable | Enable resizable by dragging | boolean \| [ResizableConfig](#resizableconfig) | - | - | × |
+| rootClass | Root container class | string | - | - | × |
+| rootStyle | Style of wrapper element which contains mask | CSSProperties | - | - | × |
+| size | Preset size of drawer, default `378px` and large `736px`, or a custom number | 'default' \| 'large' \| number | 'default' | - | × |
+| styles | Customize inline style for each semantic structure inside the Drawer component. Supports object or function. | DrawerStylesType | - | - | ✓ |
+| title | The title for Drawer | VueNode | - | - | × |
+| open | Whether the Drawer dialog is visible or not, support `v-model:open` | boolean | false | - | × |
+| zIndex | The `z-index` of the Drawer | number | 1000 | - | × |
 
 ### Events
 

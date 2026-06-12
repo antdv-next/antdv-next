@@ -37,25 +37,25 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 ### Props {#props}
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| classes | Customize class for each semantic structure inside the component. Supports object or function | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - |
-| defaultValue | The default value of the slider. When `range` is false, use number, otherwise, use [number, number] | number \| [number, number] | 0 \| [0, 0] | - |
-| disabled | If true, the slider will not be interactive | boolean | false | - |
-| dots | Whether the thumb can only be dragged to tick marks | boolean | false | - |
-| included | Takes effect when `marks` is not null. True means containment and false means coordinative | boolean | true | - |
-| keyboard | Support using keyboard to move handlers | boolean | true | 5.2.0+ |
-| marks | Tick marks of Slider. The type of key must be `number`, and must be in closed interval [min, max]. Each mark can declare its own style | object | &#123; number: VueNode &#125; \| &#123; number: &#123; style: CSSProperties, label: VueNode &#125; &#125; | - |
-| max | The maximum value the slider can slide to | number | 100 | - |
-| min | The minimum value the slider can slide to | number | 0 | - |
-| orientation | Orientation direction | `horizontal` \| `vertical` | `horizontal` | - |
-| range | Enable dual thumb mode for range selection | boolean \| [RangeConfig](#rangeconfig) | false | - |
-| reverse | Reverse the component | boolean | false | - |
-| step | The granularity the slider can step through values. Must be greater than 0, and be divisible by (max - min). When `step` is `null` and `marks` exist, valid points will only be marks, `min` and `max` | number \| null | 1 | - |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - |
-| tooltip | The tooltip related props | [TooltipConfig](#tooltipconfig) | - | 4.23.0 |
-| value | The value of slider. When `range` is false, use number, otherwise, use [number, number], support `v-model:value` | number \| [number, number] | - | - |
-| vertical | If true, the slider will be vertical. Simultaneously existing with `orientation`, `orientation` takes priority | boolean | false | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| classes | Customize class for each semantic structure inside the component. Supports object or function | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - | ✓ |
+| defaultValue | The default value of the slider. When `range` is false, use number, otherwise, use [number, number] | number \| [number, number] | 0 \| [0, 0] | - | × |
+| disabled | If true, the slider will not be interactive | boolean | false | - | × |
+| dots | Whether the thumb can only be dragged to tick marks | boolean | false | - | × |
+| included | Takes effect when `marks` is not null. True means containment and false means coordinative | boolean | true | - | × |
+| keyboard | Support using keyboard to move handlers | boolean | true | 5.2.0+ | × |
+| marks | Tick marks of Slider. The type of key must be `number`, and must be in closed interval [min, max]. Each mark can declare its own style | object | &#123; number: VueNode &#125; \| &#123; number: &#123; style: CSSProperties, label: VueNode &#125; &#125; | - | × |
+| max | The maximum value the slider can slide to | number | 100 | - | × |
+| min | The minimum value the slider can slide to | number | 0 | - | × |
+| orientation | Orientation direction | `horizontal` \| `vertical` | `horizontal` | - | × |
+| range | Enable dual thumb mode for range selection | boolean \| [RangeConfig](#rangeconfig) | false | - | × |
+| reverse | Reverse the component | boolean | false | - | × |
+| step | The granularity the slider can step through values. Must be greater than 0, and be divisible by (max - min). When `step` is `null` and `marks` exist, valid points will only be marks, `min` and `max` | number \| null | 1 | - | × |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - | ✓ |
+| tooltip | The tooltip related props | [TooltipConfig](#tooltipconfig) | - | 4.23.0 | × |
+| value | The value of slider. When `range` is false, use number, otherwise, use [number, number], support `v-model:value` | number \| [number, number] | - | - | × |
+| vertical | If true, the slider will be vertical. Simultaneously existing with `orientation`, `orientation` takes priority | boolean | false | - | × |
 
 ### RangeConfig
 

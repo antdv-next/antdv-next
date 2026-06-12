@@ -35,32 +35,32 @@ demo:
 
 Common props ref：[Common props](/docs/vue/common-props)
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| align | Popup alignment config | AlignType | - | - |
-| arrow | Show, hide or keep arrow in the center | boolean \| &#123; pointAtCenter?: boolean &#125; | - | - |
-| autoAdjustOverflow | Auto adjust placement when tooltip is invisible | boolean \| AdjustOverflow | - | - |
-| color | The background color. After using this attribute, the internal text color will adapt automatically | LiteralUnion&lt;PresetColorType&gt; | - | - |
-| open | Whether tooltip is visible | boolean | - | - |
-| defaultOpen | Initial open state | boolean | false | - |
-| getPopupContainer | Specify container for tooltip | (triggerNode: HTMLElement) =&gt; HTMLElement | - | - |
-| destroyOnHidden | Destroy tooltip when hidden | boolean | - | - |
-| zIndex | Set z-index of tooltip | number | - | - |
-| placement | Tooltip placement | TooltipPlacement | top | - |
-| trigger | Trigger action | ActionType \| ActionType[] | - | - |
-| fresh | Update content even when tooltip is hidden | boolean | - | - |
-| mouseEnterDelay | Delay in seconds before showing tooltip | number | 0.1 | - |
-| mouseLeaveDelay | Delay in seconds before hiding tooltip | number | 0.1 | - |
-| classes | Semantic DOM class. Supports object or function | TooltipClassNamesType | - | - |
-| styles | Semantic DOM style. Supports object or function | TooltipStylesType | - | - |
-| getTooltipContainer | Legacy alias of `getPopupContainer` | (node: HTMLElement) =&gt; HTMLElement | - | - |
-| motion | Popup motion config | VcTooltipProps['motion'] | - | - |
-| afterOpenChange | Callback after visibility change | (open: boolean) =&gt; void | - | - |
-| builtinPlacements | Built-in placement config | typeof Placements | - | - |
-| title | The text shown in the tooltip | VueNode | - | - |
-| overlay | Legacy alias of `title` | VueNode | - | - |
-| openClass | Class added to child when tooltip is open | string | - | - |
-| unique | Enable unique display inside `AUniqueProvider`/ConfigProvider | boolean | - | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| align | Popup alignment config | AlignType | - | - | × |
+| arrow | Show, hide or keep arrow in the center | boolean \| &#123; pointAtCenter?: boolean &#125; | - | - | ✓ |
+| autoAdjustOverflow | Auto adjust placement when tooltip is invisible | boolean \| AdjustOverflow | - | - | × |
+| color | The background color. After using this attribute, the internal text color will adapt automatically | LiteralUnion&lt;PresetColorType&gt; | - | - | × |
+| open | Whether tooltip is visible | boolean | - | - | × |
+| defaultOpen | Initial open state | boolean | false | - | × |
+| getPopupContainer | Specify container for tooltip | (triggerNode: HTMLElement) =&gt; HTMLElement | - | - | × |
+| destroyOnHidden | Destroy tooltip when hidden | boolean | - | - | × |
+| zIndex | Set z-index of tooltip | number | - | - | × |
+| placement | Tooltip placement | TooltipPlacement | top | - | × |
+| trigger | Trigger action | ActionType \| ActionType[] | - | - | ✓ |
+| fresh | Update content even when tooltip is hidden | boolean | - | - | × |
+| mouseEnterDelay | Delay in seconds before showing tooltip | number | 0.1 | - | × |
+| mouseLeaveDelay | Delay in seconds before hiding tooltip | number | 0.1 | - | × |
+| classes | Semantic DOM class. Supports object or function | TooltipClassNamesType | - | - | ✓ |
+| styles | Semantic DOM style. Supports object or function | TooltipStylesType | - | - | ✓ |
+| getTooltipContainer | Legacy alias of `getPopupContainer` | (node: HTMLElement) =&gt; HTMLElement | - | - | × |
+| motion | Popup motion config | VcTooltipProps['motion'] | - | - | × |
+| afterOpenChange | Callback after visibility change | (open: boolean) =&gt; void | - | - | × |
+| builtinPlacements | Built-in placement config | typeof Placements | - | - | × |
+| title | The text shown in the tooltip | VueNode | - | - | × |
+| overlay | Legacy alias of `title` | VueNode | - | - | × |
+| openClass | Class added to child when tooltip is open | string | - | - | × |
+| unique | Enable unique display inside `AUniqueProvider`/ConfigProvider | boolean | - | - | ✓ |
 
 ### Events
 
