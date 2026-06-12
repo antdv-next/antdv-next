@@ -31,13 +31,13 @@ Before using icons, you need to install the [@antdv-next/icons](https://www.npmj
 
 ### Common Icon
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| className | The className of Icon | string | - | |
-| rotate | Rotate by n degrees (not working in IE9) | number | - | |
-| spin | Rotate icon with animation | boolean | false | |
-| style | The style properties of icon, like `fontSize` and `color` | CSSProperties | - | |
-| twoToneColor | Only supports the two-tone icon. Specify the primary color | string (hex color) | - | |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| className | The className of Icon | string | - | | × |
+| rotate | Rotate by n degrees (not working in IE9) | number | - | | × |
+| spin | Rotate icon with animation | boolean | false | | × |
+| style | The style properties of icon, like `fontSize` and `color` | CSSProperties | - | | × |
+| twoToneColor | Only supports the two-tone icon. Specify the primary color | string (hex color) | - | | × |
 
 We still have three different themes for icons, icon component name is the icon name suffixed by the theme name.
 
@@ -55,12 +55,12 @@ import { StarFilled, StarOutlined, StarTwoTone } from '@antdv-next/icons'
 
 ### Custom Icon
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| component | The component used for the root node | ComponentType&lt;CustomIconComponentProps> | - | |
-| rotate | Rotate degrees (not working in IE9) | number | - | |
-| spin | Rotate icon with animation | boolean | false | |
-| style | The style properties of icon, like `fontSize` and `color` | CSSProperties | - | |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| component | The component used for the root node | ComponentType&lt;CustomIconComponentProps> | - | | × |
+| rotate | Rotate degrees (not working in IE9) | number | - | | × |
+| spin | Rotate icon with animation | boolean | false | | × |
+| style | The style properties of icon, like `fontSize` and `color` | CSSProperties | - | | × |
 
 ### About SVG icons
 

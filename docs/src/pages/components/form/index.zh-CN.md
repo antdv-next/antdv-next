@@ -65,32 +65,32 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 
 ### 属性 {#form-props}
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | FormClassNamesType | - | - |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | FormStylesType | - | - |
-| colon | 配置 Form.Item 的 `colon` 的默认值。表示是否显示 label 后面的冒号 (只有在属性 layout 为 horizontal 时有效) | boolean | true | - |
-| name | 表单名称，会作为表单字段 `id` 前缀使用 | string | - | - |
-| layout | 表单布局 | FormLayout | `horizontal` | - |
-| labelAlign | label 标签的文本对齐方式 | FormLabelAlign | `right` | - |
-| labelWrap | label 标签的文本换行方式 | boolean | false | - |
-| labelCol | label 标签布局，同 `Col` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}` | ColProps | - | - |
-| wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | ColProps | - | - |
-| feedbackIcons | 当 `Form.Item` 有 `hasFeedback` 属性时可以自定义图标 | FeedbackIcons | - | - |
-| size | 设置字段组件的尺寸（仅限 antd 组件） | SizeType | - | - |
-| disabled | 设置表单组件禁用，仅对 antd 组件有效 | boolean | false | - |
-| scrollToFirstError | 提交失败自动滚动到第一个错误字段 | ScrollFocusOptions \| boolean | false | - |
-| requiredMark | 必选样式，可以切换为必选或者可选展示样式。此为 Form 配置，Form.Item 无法单独配置 | RequiredMark | true | - |
-| variant | 表单内控件变体 | Variant | `outlined` | - |
-| validateMessages | 验证提示模板，说明[见下](#validatemessages) | ValidateMessages | - | - |
-| model | 表单数据 | Record&lt;string, any&gt; | - | - |
-| rules | 表单规则 | Record&lt;string, Rule[]&gt; | - | - |
-| validateTrigger | 统一设置字段触发验证的时机。设为 `false` 时禁用所有交互事件触发的校验，即使规则单独声明了 `trigger` 或 `validateTrigger`；`validateFields` 和提交校验仍会执行 | string \| string[] \| false | `change` | - |
-| preserve | 当字段被删除时保留字段值。你可以通过 `getFieldsValue(true)` 来获取保留字段值 | boolean | true | - |
-| clearOnDestroy | 当表单被卸载时清空表单值 | boolean | false | - |
-| validateOnRuleChange | 当 `Form.rules` 发生变化时，自动重新触发表单校验 | boolean | false | - |
-| rootClass | 根容器类名 | string | - | - |
-| prefixCls | 组件前缀类名 | string | - | - |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | FormClassNamesType | - | - | ✓ |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | FormStylesType | - | - | ✓ |
+| colon | 配置 Form.Item 的 `colon` 的默认值。表示是否显示 label 后面的冒号 (只有在属性 layout 为 horizontal 时有效) | boolean | true | - | ✓ |
+| name | 表单名称，会作为表单字段 `id` 前缀使用 | string | - | - | × |
+| layout | 表单布局 | FormLayout | `horizontal` | - | × |
+| labelAlign | label 标签的文本对齐方式 | FormLabelAlign | `right` | - | ✓ |
+| labelWrap | label 标签的文本换行方式 | boolean | false | - | × |
+| labelCol | label 标签布局，同 `Col` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}` | ColProps | - | - | × |
+| wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | ColProps | - | - | × |
+| feedbackIcons | 当 `Form.Item` 有 `hasFeedback` 属性时可以自定义图标 | FeedbackIcons | - | - | × |
+| size | 设置字段组件的尺寸（仅限 antd 组件） | SizeType | - | - | × |
+| disabled | 设置表单组件禁用，仅对 antd 组件有效 | boolean | false | - | × |
+| scrollToFirstError | 提交失败自动滚动到第一个错误字段 | ScrollFocusOptions \| boolean | false | - | ✓ |
+| requiredMark | 必选样式，可以切换为必选或者可选展示样式。此为 Form 配置，Form.Item 无法单独配置 | RequiredMark | true | - | ✓ |
+| variant | 表单内控件变体 | Variant | `outlined` | - | ✓ |
+| validateMessages | 验证提示模板，说明[见下](#validatemessages) | ValidateMessages | - | - | ✓ |
+| model | 表单数据 | Record&lt;string, any&gt; | - | - | × |
+| rules | 表单规则 | Record&lt;string, Rule[]&gt; | - | - | × |
+| validateTrigger | 统一设置字段触发验证的时机。设为 `false` 时禁用所有交互事件触发的校验，即使规则单独声明了 `trigger` 或 `validateTrigger`；`validateFields` 和提交校验仍会执行 | string \| string[] \| false | `change` | - | × |
+| preserve | 当字段被删除时保留字段值。你可以通过 `getFieldsValue(true)` 来获取保留字段值 | boolean | true | - | × |
+| clearOnDestroy | 当表单被卸载时清空表单值 | boolean | false | - | × |
+| validateOnRuleChange | 当 `Form.rules` 发生变化时，自动重新触发表单校验 | boolean | false | - | × |
+| rootClass | 根容器类名 | string | - | - | × |
+| prefixCls | 组件前缀类名 | string | - | - | × |
 
 ### 事件 {#form-events}
 

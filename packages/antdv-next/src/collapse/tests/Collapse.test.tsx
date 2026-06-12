@@ -106,14 +106,18 @@ describe('collapse', () => {
   })
 
   // ==================== expandIconPlacement ====================
+  // The class name must stay `-icon-placement-*` (antd v6 naming): the style in
+  // style/index.ts targets `&-icon-placement-end` to move the icon via `order`.
   it('should default expandIconPlacement to start', () => {
     const wrapper = mount(Collapse, { props: { items: basicItems } })
-    expect(wrapper.find('.ant-collapse').classes()).toContain('ant-collapse-icon-position-start')
+    expect(wrapper.find('.ant-collapse').classes()).toContain('ant-collapse-icon-placement-start')
   })
 
   it('should support expandIconPlacement=end', () => {
     const wrapper = mount(Collapse, { props: { items: basicItems, expandIconPlacement: 'end' } })
-    expect(wrapper.find('.ant-collapse').classes()).toContain('ant-collapse-icon-position-end')
+    expect(wrapper.find('.ant-collapse').classes()).toContain('ant-collapse-icon-placement-end')
+    // The icon node the style selector relies on must exist inside the header
+    expect(wrapper.find('.ant-collapse-header .ant-collapse-expand-icon').exists()).toBe(true)
   })
 
   // ==================== bordered ====================

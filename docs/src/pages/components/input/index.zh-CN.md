@@ -46,26 +46,26 @@ demo:
 
 #### Props {#input-props}
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| ~~addonAfter~~ | 带标签的 input，设置后置标签，请使用 Space.Compact 替换 | VueNode | - | - |
-| ~~addonBefore~~ | 带标签的 input，设置前置标签，请使用 Space.Compact 替换 | VueNode | - | - |
-| allowClear | 可以点击清除图标删除内容 | boolean \| &#123; clearIcon: VueNode &#125; | - | - |
-| ~~bordered~~ | 是否有边框, 请使用 `variant` 替换 | boolean | true | - |
-| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-input), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-input), string&gt; | - | - |
-| count | 字符计数配置 | [CountConfig](#countconfig) | - | - |
-| disabled | 是否禁用状态，默认为 false | boolean | false | - |
-| id | 输入框的 id | string | - | - |
-| maxlength | 最大长度 | number | - | - |
-| prefix | 带有前缀图标的 input | VueNode | - | - |
-| showCount | 是否展示字数 | boolean \| &#123; formatter: (info: &#123; value: string, count: number, maxLength?: number &#125;) =&gt; VueNode &#125; | false | - |
-| status | 设置校验状态 | 'error' \| 'warning' | - | - |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-input), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-input), CSSProperties&gt; | - | - |
-| size | 控件大小。注：标准表单内的输入框大小限制为 `middle` | `large` \| `middle` \| `small` | - | - |
-| suffix | 带有后缀图标的 input | - | - | - |
-| type | 声明 input 类型，同原生 input 标签的 type 属性，见：[MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input#属性)(请直接使用 `Input.TextArea` 代替 `type="textarea"`) | string | `text` | - |
-| value | 输入框内容，支持 `v-model:value` | string | - | - |
-| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| ~~addonAfter~~ | 带标签的 input，设置后置标签，请使用 Space.Compact 替换 | VueNode | - | - | × |
+| ~~addonBefore~~ | 带标签的 input，设置前置标签，请使用 Space.Compact 替换 | VueNode | - | - | × |
+| allowClear | 可以点击清除图标删除内容 | boolean \| &#123; clearIcon: VueNode &#125; | - | - | ✓ |
+| ~~bordered~~ | 是否有边框, 请使用 `variant` 替换 | boolean | true | - | × |
+| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-input), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-input), string&gt; | - | - | ✓ |
+| count | 字符计数配置 | [CountConfig](#countconfig) | - | - | × |
+| disabled | 是否禁用状态，默认为 false | boolean | false | - | × |
+| id | 输入框的 id | string | - | - | × |
+| maxlength | 最大长度 | number | - | - | × |
+| prefix | 带有前缀图标的 input | VueNode | - | - | × |
+| showCount | 是否展示字数 | boolean \| &#123; formatter: (info: &#123; value: string, count: number, maxLength?: number &#125;) =&gt; VueNode &#125; | false | - | × |
+| status | 设置校验状态 | 'error' \| 'warning' | - | - | × |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-input), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-input), CSSProperties&gt; | - | - | ✓ |
+| size | 控件大小。注：标准表单内的输入框大小限制为 `middle` | `large` \| `middle` \| `small` | - | - | × |
+| suffix | 带有后缀图标的 input | - | - | - | × |
+| type | 声明 input 类型，同原生 input 标签的 type 属性，见：[MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input#属性)(请直接使用 `Input.TextArea` 代替 `type="textarea"`) | string | `text` | - | × |
+| value | 输入框内容，支持 `v-model:value` | string | - | - | × |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - | ✓ |
 
 > 如果 `Input` 在 `Form.Item` 内，并且 `Form.Item` 设置了 `id` 属性，则 `value` `defaultValue` 和 `id` 属性会被自动设置。
 
@@ -100,11 +100,11 @@ Input 的其他属性和 Vue 自带的 [input](https://cn.vuejs.org/guide/essent
 
 同 Input 属性，外加：
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| autoSize | 自适应内容高度，可设置为 true \| false 或对象：&#123; minRows: 2, maxRows: 6 &#125; | boolean \| object | false | - |
-| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-textarea), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-textarea), string&gt; | - | - |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-textarea), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-textarea), CSSProperties&gt; | - | - |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| autoSize | 自适应内容高度，可设置为 true \| false 或对象：&#123; minRows: 2, maxRows: 6 &#125; | boolean \| object | false | - | × |
+| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-textarea), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-textarea), string&gt; | - | - | ✓ |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-textarea), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-textarea), CSSProperties&gt; | - | - | ✓ |
 
 `Input.TextArea` 的其他属性和浏览器自带的 [textarea](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea) 一致。
 
@@ -112,12 +112,12 @@ Input 的其他属性和 Vue 自带的 [input](https://cn.vuejs.org/guide/essent
 
 #### 属性 {#input-search-props}
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-search), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-search), string&gt; | - | - |
-| enterButton | 是否有确认按钮，可设为按钮文字。该属性会与 `addonAfter` 冲突。 | VueNode | false | - |
-| loading | 搜索 loading | boolean | false | - |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-search), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-search), CSSProperties&gt; | - | - |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-search), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-search), string&gt; | - | - | ✓ |
+| enterButton | 是否有确认按钮，可设为按钮文字。该属性会与 `addonAfter` 冲突。 | VueNode | false | - | × |
+| loading | 搜索 loading | boolean | false | - | × |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-search), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-search), CSSProperties&gt; | - | - | ✓ |
 
 其余属性和 Input 一致。
 
@@ -148,19 +148,19 @@ Input 的其他属性和 Vue 自带的 [input](https://cn.vuejs.org/guide/essent
 
 #### 属性 {#input-otp-props}
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-otp), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-otp), string&gt; | - | - |
-| disabled | 是否禁用 | boolean | false | - |
-| formatter | 格式化展示，留空字段会被 ` ` 填充 | (value: string) =&gt; string | - | - |
-| separator | 分隔符，在指定索引的输入框后渲染分隔符 | VueNode \| ((i: number) =&gt; VueNode) | - | - |
-| mask | 自定义展示，和 `formatter` 的区别是不会修改原始值 | boolean \| string | `false` | - |
-| length | 输入元素数量 | number | 6 | - |
-| status | 设置校验状态 | 'error' \| 'warning' | - | - |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-otp), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-otp), CSSProperties&gt; | - | - |
-| size | 输入框大小 | `small` \| `middle` \| `large` | `middle` | - |
-| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - |
-| value | 输入框内容 | string | - | - |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-otp), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-otp), string&gt; | - | - | ✓ |
+| disabled | 是否禁用 | boolean | false | - | × |
+| formatter | 格式化展示，留空字段会被 ` ` 填充 | (value: string) =&gt; string | - | - | × |
+| separator | 分隔符，在指定索引的输入框后渲染分隔符 | VueNode \| ((i: number) =&gt; VueNode) | - | - | × |
+| mask | 自定义展示，和 `formatter` 的区别是不会修改原始值 | boolean \| string | `false` | - | × |
+| length | 输入元素数量 | number | 6 | - | × |
+| status | 设置校验状态 | 'error' \| 'warning' | - | - | × |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-otp), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-otp), CSSProperties&gt; | - | - | ✓ |
+| size | 输入框大小 | `small` \| `middle` \| `large` | `middle` | - | × |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - | ✓ |
+| value | 输入框内容 | string | - | - | × |
 
 #### 事件 {#input-otp-events}
 

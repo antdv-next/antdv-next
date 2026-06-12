@@ -33,10 +33,10 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 ### Props
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| color | Beam color configuration. Supports a single color string or gradient stops. `percent` uses the `0 ~ 100` input range and BorderBeam reserves tail space for the transparent fade | `string \| { color: string, percent: number }[]` | - | - |
-| outset | Outset distance of the beam layer from the container edge. Set to `0` for clipped containers | `number \| string` | - | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| color | Beam color configuration. Supports a single color string or gradient stops. `percent` uses the `0 ~ 100` input range and BorderBeam reserves tail space for the transparent fade | `string \| { color: string, percent: number }[]` | - | - | × |
+| outset | Outset distance of the beam layer from the container edge. Set to `0` for clipped containers | `number \| string` | - | - | × |
 
 ### Slots
 

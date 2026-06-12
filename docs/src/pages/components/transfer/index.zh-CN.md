@@ -42,28 +42,28 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*g9vUQq2nkpEAAA
 
 ### 属性 {#props}
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| actions | 操作文案集合，顺序从上至下。当为字符串数组时使用默认的按钮，当为 VueNode 数组时直接使用自定义元素 | VueNode[] | [`>`, `<`] | 6.0.0 |
-| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | TransferClassNamesType | - | - |
-| dataSource | 数据源，其中的数据将会被渲染到左边一栏中，`targetKeys` 中指定的除外 | TransferItem[] | [] | - |
-| disabled | 是否禁用 | boolean | false | - |
-| filterOption | 根据搜索内容进行筛选，接收 `inputValue` `option` `direction` 三个参数，当 `option` 符合筛选条件时，应返回 true，反之则返回 false | (inputValue: string, option: TransferItem, direction: `left` \| `right`) =&gt; boolean | - | - |
-| footer | 底部渲染函数 | (props: TransferListProps, direction: `left` \| `right`) =&gt; VueNode | - | - |
-| locale | 各种语言 | TransferLocale | - | - |
-| oneWay | 展示为单向样式 | boolean | false | - |
-| pagination | 使用分页样式，自定义渲染列表下无效 | boolean \| &#123; pageSize: number; simple: boolean; showSizeChanger?: boolean; showLessItems?: boolean &#125; | false | - |
-| render | 每行数据渲染函数，该函数的入参为 `dataSource` 中的项，返回值为 VueNode。或者返回一个普通对象，其中 `label` 字段为 VueNode，`value` 字段为 title | (record: TransferItem) =&gt; VueNode | - | - |
-| rowKey | 数据列的主键 | (record: TransferItem) =&gt; string | - | - |
-| selectAllLabels | 自定义顶部多选框标题的集合 | (VueNode \| (info: &#123; selectedCount: number; totalCount: number &#125;) =&gt; VueNode)[] | - | - |
-| selectedKeys | 设置哪些项应该被选中，支持 `v-model:selected-keys` | string[] | [] | - |
-| selectionsIcon | 自定义下拉菜单图标 | VueNode | - | - |
-| showSearch | 是否显示搜索框，或可对两侧搜索框进行配置 | boolean \| &#123; placeholder?: string; defaultValue?: string &#125; | false | - |
-| showSelectAll | 是否展示全选勾选框 | boolean | true | - |
-| status | 设置校验状态 | `error` \| `warning` | - | - |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | TransferStylesType | - | - |
-| targetKeys | 显示在右侧框数据的 key 集合，支持 `v-model:target-keys` | string[] | [] | - |
-| titles | 标题集合，顺序从左至右 | VueNode[] | - | - |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| actions | 操作文案集合，顺序从上至下。当为字符串数组时使用默认的按钮，当为 VueNode 数组时直接使用自定义元素 | VueNode[] | [`>`, `<`] | 6.0.0 | × |
+| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | TransferClassNamesType | - | - | ✓ |
+| dataSource | 数据源，其中的数据将会被渲染到左边一栏中，`targetKeys` 中指定的除外 | TransferItem[] | [] | - | × |
+| disabled | 是否禁用 | boolean | false | - | × |
+| filterOption | 根据搜索内容进行筛选，接收 `inputValue` `option` `direction` 三个参数，当 `option` 符合筛选条件时，应返回 true，反之则返回 false | (inputValue: string, option: TransferItem, direction: `left` \| `right`) =&gt; boolean | - | - | × |
+| footer | 底部渲染函数 | (props: TransferListProps, direction: `left` \| `right`) =&gt; VueNode | - | - | × |
+| locale | 各种语言 | TransferLocale | - | - | × |
+| oneWay | 展示为单向样式 | boolean | false | - | × |
+| pagination | 使用分页样式，自定义渲染列表下无效 | boolean \| &#123; pageSize: number; simple: boolean; showSizeChanger?: boolean; showLessItems?: boolean &#125; | false | - | × |
+| render | 每行数据渲染函数，该函数的入参为 `dataSource` 中的项，返回值为 VueNode。或者返回一个普通对象，其中 `label` 字段为 VueNode，`value` 字段为 title | (record: TransferItem) =&gt; VueNode | - | - | × |
+| rowKey | 数据列的主键 | (record: TransferItem) =&gt; string | - | - | × |
+| selectAllLabels | 自定义顶部多选框标题的集合 | (VueNode \| (info: &#123; selectedCount: number; totalCount: number &#125;) =&gt; VueNode)[] | - | - | × |
+| selectedKeys | 设置哪些项应该被选中，支持 `v-model:selected-keys` | string[] | [] | - | × |
+| selectionsIcon | 自定义下拉菜单图标 | VueNode | - | - | ✓ |
+| showSearch | 是否显示搜索框，或可对两侧搜索框进行配置 | boolean \| &#123; placeholder?: string; defaultValue?: string &#125; | false | - | × |
+| showSelectAll | 是否展示全选勾选框 | boolean | true | - | × |
+| status | 设置校验状态 | `error` \| `warning` | - | - | × |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | TransferStylesType | - | - | ✓ |
+| targetKeys | 显示在右侧框数据的 key 集合，支持 `v-model:target-keys` | string[] | [] | - | × |
+| titles | 标题集合，顺序从左至右 | VueNode[] | - | - | × |
 
 ### 事件 {#events}
 

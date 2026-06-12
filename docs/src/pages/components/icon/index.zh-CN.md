@@ -32,13 +32,13 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*xEDOTJx2DEkAAA
 
 ### 通用图标 {#common-icon}
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| class | 设置图标的样式名 | string | - | |
-| rotate | 图标旋转角度（IE9 无效） | number | - | |
-| spin | 是否有旋转动画 | boolean | false | |
-| style | 设置图标的样式，例如 `fontSize` 和 `color` | CSSProperties | - | |
-| twoToneColor | 仅适用双色图标。设置双色图标的主要颜色，支持设置十六进制颜色字符串 | string \| string[] | - | |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| class | 设置图标的样式名 | string | - | | × |
+| rotate | 图标旋转角度（IE9 无效） | number | - | | × |
+| spin | 是否有旋转动画 | boolean | false | | × |
+| style | 设置图标的样式，例如 `fontSize` 和 `color` | CSSProperties | - | | × |
+| twoToneColor | 仅适用双色图标。设置双色图标的主要颜色，支持设置十六进制颜色字符串 | string \| string[] | - | | × |
 
 其中我们提供了三种主题的图标，不同主题的 Icon 组件名为图标名加主题做为后缀。
 
@@ -56,12 +56,12 @@ import { StarFilled, StarOutlined, StarTwoTone } from '@antdv-next/icons'
 
 ### 自定义 Icon {#custom-icon}
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| component | 控制如何渲染图标，通常是一个渲染根标签为 `<svg>` 的 React 组件 | ComponentType&lt;CustomIconComponentProps> | - | |
-| rotate | 图标旋转角度（IE9 无效） | number | - | |
-| spin | 是否有旋转动画 | boolean | false | |
-| style | 设置图标的样式，例如 `fontSize` 和 `color` | CSSProperties | - | |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| component | 控制如何渲染图标，通常是一个渲染根标签为 `<svg>` 的 React 组件 | ComponentType&lt;CustomIconComponentProps> | - | | × |
+| rotate | 图标旋转角度（IE9 无效） | number | - | | × |
+| spin | 是否有旋转动画 | boolean | false | | × |
+| style | 设置图标的样式，例如 `fontSize` 和 `color` | CSSProperties | - | | × |
 
 ### 关于 SVG 图标 {#about-svg-icons}
 

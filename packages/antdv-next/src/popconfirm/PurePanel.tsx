@@ -5,6 +5,7 @@ import { ExclamationCircleFilled } from '@antdv-next/icons'
 import { clsx } from '@v-c/util'
 import { computed, defineComponent } from 'vue'
 import ActionButton from '../_util/ActionButton'
+import { isRenderable } from '../_util/is.ts'
 import Button from '../button'
 import { useComponentBaseConfig, useConfig } from '../config-provider/context'
 import defaultLocale from '../locale/en_US'
@@ -92,12 +93,12 @@ export const Overlay = defineComponent<OverlayProps>(
               </span>
             )}
             <div class={`${prefixCls}-message-text`}>
-              {title && (
+              {isRenderable(title) && (
                 <div class={clsx(`${prefixCls}-title`, classes?.title)} style={styles?.title}>
                   {title}
                 </div>
               )}
-              {description && (
+              {isRenderable(description) && (
                 <div class={clsx(`${prefixCls}-description`, classes?.content)} style={styles?.content}>
                   {description}
                 </div>

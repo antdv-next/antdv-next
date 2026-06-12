@@ -41,34 +41,34 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 ### Props
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| classes | Customize class for each semantic structure inside the component. Supports object or function | MenuClassNamesType | - | - |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function | MenuStylesType | - | - |
-| rootClass | Root container class | string | - | - |
-| defaultOpenKeys | Array with the keys of default opened sub menus | string[] | - | - |
-| defaultSelectedKeys | Array with the keys of default selected menu items | string[] | - | - |
-| expandIcon | Custom expand icon of submenu | VueNode \| ((props: SubMenuProps & { isSubMenu: boolean }) => VueNode) | - | - |
-| forceSubMenuRender | Render submenu into DOM before it becomes visible | boolean | false | - |
-| inlineCollapsed | Specifies the collapsed status when menu is inline mode | boolean | - | - |
-| inlineIndent | Indent (in pixels) of inline menu items on each level | number | 24 | - |
-| items | Menu item content | ItemType[] | - | - |
-| mode | Type of menu | `vertical` \| `horizontal` \| `inline` | `vertical` | - |
-| multiple | Allows selection of multiple items | boolean | false | - |
-| openKeys | Array with the keys of currently opened sub-menus | string[] | - | - |
-| overflowedIndicator | Customized the ellipsis icon when menu is collapsed horizontally | VueNode | `<EllipsisOutlined />` | - |
-| selectable | Allows selecting menu items | boolean | true | - |
-| selectedKeys | Array with the keys of currently selected menu items | string[] | - | - |
-| subMenuCloseDelay | Delay time to hide submenu when mouse leaves (in seconds) | number | 0.1 | - |
-| subMenuOpenDelay | Delay time to show submenu when mouse enters, (in seconds) | number | 0 | - |
-| theme | Color theme of the menu | `light` \| `dark` | `light` | - |
-| triggerSubMenuAction | Which action can trigger submenu open/close | `hover` \| `click` | `hover` | - |
-| getPopupContainer | To set the container of the submenu popup. The default is to create a div element in body, but you can reset it to the scrolling area and make a relative reposition | (triggerNode: HTMLElement) => HTMLElement | () => document.body | - |
-| itemIcon | Custom menu item icon render | (props: MenuItemProps & RenderIconInfo) => any | - | - |
-| labelRender | Custom label render | (item: RenderItem) => any | - | - |
-| iconRender | Custom icon render (items mode) | (item: RenderItem) => any | - | - |
-| extraRender | Custom extra render | (item: RenderItem) => any | - | - |
-| popupRender | Custom popup renderer for submenu | (node: VueNode, info: { item: SubMenuProps; keys: string[] }) => VueNode | - | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| classes | Customize class for each semantic structure inside the component. Supports object or function | MenuClassNamesType | - | - | ✓ |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function | MenuStylesType | - | - | ✓ |
+| rootClass | Root container class | string | - | - | × |
+| defaultOpenKeys | Array with the keys of default opened sub menus | string[] | - | - | × |
+| defaultSelectedKeys | Array with the keys of default selected menu items | string[] | - | - | × |
+| expandIcon | Custom expand icon of submenu | VueNode \| ((props: SubMenuProps & { isSubMenu: boolean }) => VueNode) | - | - | ✓ |
+| forceSubMenuRender | Render submenu into DOM before it becomes visible | boolean | false | - | × |
+| inlineCollapsed | Specifies the collapsed status when menu is inline mode | boolean | - | - | × |
+| inlineIndent | Indent (in pixels) of inline menu items on each level | number | 24 | - | × |
+| items | Menu item content | ItemType[] | - | - | × |
+| mode | Type of menu | `vertical` \| `horizontal` \| `inline` | `vertical` | - | × |
+| multiple | Allows selection of multiple items | boolean | false | - | × |
+| openKeys | Array with the keys of currently opened sub-menus | string[] | - | - | × |
+| overflowedIndicator | Customized the ellipsis icon when menu is collapsed horizontally | VueNode | `<EllipsisOutlined />` | - | × |
+| selectable | Allows selecting menu items | boolean | true | - | × |
+| selectedKeys | Array with the keys of currently selected menu items | string[] | - | - | × |
+| subMenuCloseDelay | Delay time to hide submenu when mouse leaves (in seconds) | number | 0.1 | - | × |
+| subMenuOpenDelay | Delay time to show submenu when mouse enters, (in seconds) | number | 0 | - | × |
+| theme | Color theme of the menu | `light` \| `dark` | `light` | - | × |
+| triggerSubMenuAction | Which action can trigger submenu open/close | `hover` \| `click` | `hover` | - | × |
+| getPopupContainer | To set the container of the submenu popup. The default is to create a div element in body, but you can reset it to the scrolling area and make a relative reposition | (triggerNode: HTMLElement) => HTMLElement | () => document.body | - | × |
+| itemIcon | Custom menu item icon render | (props: MenuItemProps & RenderIconInfo) => any | - | - | × |
+| labelRender | Custom label render | (item: RenderItem) => any | - | - | × |
+| iconRender | Custom icon render (items mode) | (item: RenderItem) => any | - | - | × |
+| extraRender | Custom extra render | (item: RenderItem) => any | - | - | × |
+| popupRender | Custom popup renderer for submenu | (node: VueNode, info: { item: SubMenuProps; keys: string[] }) => VueNode | - | - | × |
 
 ### Events
 

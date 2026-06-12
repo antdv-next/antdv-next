@@ -65,20 +65,20 @@ demo:
 
 `config` 对象属性如下：
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| class | 自定义 CSS class | string | - | - |
-| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | ArgsClassNamesType | - | - |
-| content | 提示内容 | VueNode | - | - |
-| duration | 自动关闭的延时，单位秒。设为 0 时不自动关闭 | number | 3 | - |
-| icon | 自定义图标 | VueNode | - | - |
-| pauseOnHover | 悬停时是否暂停计时器 | boolean | true | - |
-| key | 当前提示的唯一标志 | Key | - | - |
-| style | 自定义内联样式 | CSSProperties | - | - |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | ArgsStylesType | - | - |
-| type | 通知类型 | NoticeType | - | - |
-| onClick | 点击 message 时触发的回调函数 | (e: MouseEvent) =&gt; void | - | - |
-| onClose | 关闭时触发的回调函数 | () =&gt; void | - | - |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| class | 自定义 CSS class | string | - | - | ✓ |
+| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | ArgsClassNamesType | - | - | ✓ |
+| content | 提示内容 | VueNode | - | - | × |
+| duration | 自动关闭的延时，单位秒。设为 0 时不自动关闭 | number | 3 | - | × |
+| icon | 自定义图标 | VueNode | - | - | × |
+| pauseOnHover | 悬停时是否暂停计时器 | boolean | true | - | × |
+| key | 当前提示的唯一标志 | Key | - | - | × |
+| style | 自定义内联样式 | CSSProperties | - | - | ✓ |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | ArgsStylesType | - | - | ✓ |
+| type | 通知类型 | NoticeType | - | - | × |
+| onClick | 点击 message 时触发的回调函数 | (e: MouseEvent) =&gt; void | - | - | × |
+| onClose | 关闭时触发的回调函数 | () =&gt; void | - | - | × |
 
 ### 全局配置 {#global-config}
 
@@ -94,18 +94,18 @@ message.config({
 })
 ```
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| duration | 默认自动关闭延时，单位秒 | number | 3 | - |
-| getContainer | 配置渲染节点的输出位置，但依旧为全屏展示 | () =&gt; HTMLElement \| ShadowRoot | () =&gt; document.body | - |
-| maxCount | 最大显示数，超过限制时，最早的消息会被自动关闭 | number | - | - |
-| prefixCls | 消息节点的 class 前缀 | string | `ant-message` | - |
-| rtl | 是否开启 RTL 模式 | boolean | false | - |
-| top | 消息距离顶部的位置 | string \| number | 8 | - |
-| transitionName | 动画名称 | string | - | - |
-| pauseOnHover | 悬停时是否暂停计时器 | boolean | true | - |
-| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | ArgsClassNamesType | - | - |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | ArgsStylesType | - | - |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| duration | 默认自动关闭延时，单位秒 | number | 3 | - | × |
+| getContainer | 配置渲染节点的输出位置，但依旧为全屏展示 | () =&gt; HTMLElement \| ShadowRoot | () =&gt; document.body | - | × |
+| maxCount | 最大显示数，超过限制时，最早的消息会被自动关闭 | number | - | - | × |
+| prefixCls | 消息节点的 class 前缀 | string | `ant-message` | - | × |
+| rtl | 是否开启 RTL 模式 | boolean | false | - | × |
+| top | 消息距离顶部的位置 | string \| number | 8 | - | × |
+| transitionName | 动画名称 | string | - | - | × |
+| pauseOnHover | 悬停时是否暂停计时器 | boolean | true | - | × |
+| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | ArgsClassNamesType | - | - | ✓ |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | ArgsStylesType | - | - | ✓ |
 
 ## 语义化 DOM {#semantic-dom}
 

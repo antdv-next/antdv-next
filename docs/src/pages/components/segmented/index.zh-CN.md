@@ -38,20 +38,20 @@ demo:
 
 ### Props
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| block | 将宽度调整为父元素宽度的选项 | boolean | false | - |
-| classes | 用于自定义 Segmented 组件内部各语义化结构的 class，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - |
-| defaultValue | 默认选中的值 | string \| number | - | - |
-| disabled | 是否禁用 | boolean | false | - |
-| options | 数据化配置选项内容 | string\[] \| number\[] \| SegmentedItemType\[] | [] | - |
-| orientation | 排列方向 | `horizontal` \| `vertical` | `horizontal` | - |
-| size | 控件尺寸 | `large` \| `middle` \| `small` | `middle` | - |
-| styles | 用于自定义 Segmented 组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - |
-| vertical | 排列方向，与 `orientation` 同时存在，以 `orientation` 优先 | boolean | `false` | - |
-| value | 当前选中的值，支持 `v-model:value` | string \| number | - | - |
-| shape | 形状 | `default` \| `round` | `default` | - |
-| name | Segmented 下所有 `input[type="radio"]` 的 `name` 属性。若未设置，则将回退到随机生成的名称 | string | - | - |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| block | 将宽度调整为父元素宽度的选项 | boolean | false | - | × |
+| classes | 用于自定义 Segmented 组件内部各语义化结构的 class，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - | ✓ |
+| defaultValue | 默认选中的值 | string \| number | - | - | × |
+| disabled | 是否禁用 | boolean | false | - | × |
+| options | 数据化配置选项内容 | string\[] \| number\[] \| SegmentedItemType\[] | [] | - | × |
+| orientation | 排列方向 | `horizontal` \| `vertical` | `horizontal` | - | × |
+| size | 控件尺寸 | `large` \| `middle` \| `small` | `middle` | - | × |
+| styles | 用于自定义 Segmented 组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - | ✓ |
+| vertical | 排列方向，与 `orientation` 同时存在，以 `orientation` 优先 | boolean | `false` | - | × |
+| value | 当前选中的值，支持 `v-model:value` | string \| number | - | - | × |
+| shape | 形状 | `default` \| `round` | `default` | - | × |
+| name | Segmented 下所有 `input[type="radio"]` 的 `name` 属性。若未设置，则将回退到随机生成的名称 | string | - | - | × |
 
 ### Events
 

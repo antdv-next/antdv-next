@@ -32,18 +32,18 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 ### Props
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| effect | Transition effect | CarouselEffect | `scrollx` | - |
-| id | - | string | - | - |
-| slickGoTo | - | number | - | - |
-| dotPosition | The position of the dots, which can be one of `top` `bottom` `left` `right` `start` `end`, Please use `dotPlacement` instead | DotPlacement \| 'left' \| 'right' | `bottom` | - |
-| dotPlacement | The position of the dots, which can be one of `top` `bottom` `start` `end` | DotPlacement | `bottom` | - |
-| dots | Whether to show the dots at the bottom of the gallery, `object` for `dotsClass` | boolean \| &#123; class?: string &#125; | true | - |
-| waitForAnimate | Whether to wait for the animation when switching | boolean | false | - |
-| autoplay | Whether to scroll automatically, you can specify `autoplay=&#123;&#123; dotDuration: true &#125;&#125;` to display the progress bar | boolean \| &#123; dotDuration?: boolean &#125; | false | - |
-| prevArrow | - | VueNode | - | - |
-| nextArrow | - | VueNode | - | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| effect | Transition effect | CarouselEffect | `scrollx` | - | × |
+| id | - | string | - | - | × |
+| slickGoTo | - | number | - | - | × |
+| dotPosition | The position of the dots, which can be one of `top` `bottom` `left` `right` `start` `end`, Please use `dotPlacement` instead | DotPlacement \| 'left' \| 'right' | `bottom` | - | × |
+| dotPlacement | The position of the dots, which can be one of `top` `bottom` `start` `end` | DotPlacement | `bottom` | - | × |
+| dots | Whether to show the dots at the bottom of the gallery, `object` for `dotsClass` | boolean \| &#123; class?: string &#125; | true | - | × |
+| waitForAnimate | Whether to wait for the animation when switching | boolean | false | - | × |
+| autoplay | Whether to scroll automatically, you can specify `autoplay=&#123;&#123; dotDuration: true &#125;&#125;` to display the progress bar | boolean \| &#123; dotDuration?: boolean &#125; | false | - | × |
+| prevArrow | - | VueNode | - | - | × |
+| nextArrow | - | VueNode | - | - | × |
 
 ### Events
 

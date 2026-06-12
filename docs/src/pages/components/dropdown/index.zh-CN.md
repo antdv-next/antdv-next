@@ -44,28 +44,28 @@ demo:
 
 ### 属性 {#props}
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| classes | 用于自定义 Dropdown 组件内部各语义化结构的 class，支持对象或函数 | DropdownClassNamesType | - | - |
-| styles | 用于自定义 Dropdown 组件内部各语义化结构的行内 style，支持对象或函数 | DropdownStylesType | - | - |
-| menu | 菜单配置项 | MenuProps & &#123; activeKey?: VcMenuProps['activeKey'], onClick?: MenuEmits['click'] &#125; | - | - |
-| autoFocus | 打开后自动聚焦首个菜单项 | boolean | - | - |
-| arrow | 下拉框箭头是否显示，可配置 `pointAtCenter` | boolean \| DropdownArrowOptions | false | - |
-| trigger | 触发下拉的行为，移动端不支持 hover | ('click' \| 'hover' \| 'contextmenu')[] | ['hover'] | - |
-| popupRender | 自定义弹出框内容 | (menu: VueNode) =&gt; VueNode | - | - |
-| open | 菜单是否显示 | boolean | - | - |
-| disabled | 菜单是否禁用 | boolean | - | - |
-| destroyOnHidden | 关闭后是否销毁 Dropdown | boolean | false | - |
-| align | 对齐配置 | AlignType | - | - |
-| getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | (triggerNode: HTMLElement) =&gt; HTMLElement | () =&gt; document.body | - |
-| prefixCls | 自定义前缀类名 | string | - | - |
-| transitionName | 动画名称 | string | - | - |
-| placement | 菜单弹出位置：`bottom` `bottomLeft` `bottomRight` `top` `topLeft` `topRight` | Placement | `bottomLeft` | - |
-| forceRender | 强制渲染下拉菜单 | boolean | - | - |
-| mouseEnterDelay | 鼠标移入后显示延时，单位秒 | number | 0.15 | - |
-| mouseLeaveDelay | 鼠标移出后隐藏延时，单位秒 | number | 0.1 | - |
-| openClassName | 菜单显示时附加在触发元素上的 class | string | - | - |
-| autoAdjustOverflow | 下拉框被遮挡时自动调整位置 | boolean \| AdjustOverflow | true | - |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| classes | 用于自定义 Dropdown 组件内部各语义化结构的 class，支持对象或函数 | DropdownClassNamesType | - | - | ✓ |
+| styles | 用于自定义 Dropdown 组件内部各语义化结构的行内 style，支持对象或函数 | DropdownStylesType | - | - | ✓ |
+| menu | 菜单配置项 | MenuProps & &#123; activeKey?: VcMenuProps['activeKey'], onClick?: MenuEmits['click'] &#125; | - | - | × |
+| autoFocus | 打开后自动聚焦首个菜单项 | boolean | - | - | × |
+| arrow | 下拉框箭头是否显示，可配置 `pointAtCenter` | boolean \| DropdownArrowOptions | false | - | × |
+| trigger | 触发下拉的行为，移动端不支持 hover | ('click' \| 'hover' \| 'contextmenu')[] | ['hover'] | - | × |
+| popupRender | 自定义弹出框内容 | (menu: VueNode) =&gt; VueNode | - | - | × |
+| open | 菜单是否显示 | boolean | - | - | × |
+| disabled | 菜单是否禁用 | boolean | - | - | × |
+| destroyOnHidden | 关闭后是否销毁 Dropdown | boolean | false | - | × |
+| align | 对齐配置 | AlignType | - | - | × |
+| getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | (triggerNode: HTMLElement) =&gt; HTMLElement | () =&gt; document.body | - | × |
+| prefixCls | 自定义前缀类名 | string | - | - | × |
+| transitionName | 动画名称 | string | - | - | × |
+| placement | 菜单弹出位置：`bottom` `bottomLeft` `bottomRight` `top` `topLeft` `topRight` | Placement | `bottomLeft` | - | × |
+| forceRender | 强制渲染下拉菜单 | boolean | - | - | × |
+| mouseEnterDelay | 鼠标移入后显示延时，单位秒 | number | 0.15 | - | × |
+| mouseLeaveDelay | 鼠标移出后隐藏延时，单位秒 | number | 0.1 | - | × |
+| openClassName | 菜单显示时附加在触发元素上的 class | string | - | - | × |
+| autoAdjustOverflow | 下拉框被遮挡时自动调整位置 | boolean \| AdjustOverflow | true | - | × |
 
 ### 事件 {#events}
 

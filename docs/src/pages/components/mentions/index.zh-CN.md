@@ -38,19 +38,19 @@ demo:
 
 ### 属性 {#props}
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| loading | - | boolean | - | - |
-| status | 设置校验状态 | InputStatus | - | - |
-| options | 选项配置 | MentionsOptionProps[] | [] | - |
-| popupClassName | - | string | - | - |
-| variant | 形态变体 | Variant | `outlined` | - |
-| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | MentionsClassNamesType | - | - |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | MentionsStylesType | - | - |
-| size | - | SizeType | - | - |
-| labelRender | - | (ctx: &#123; option: MentionsOptionProps, index: number &#125;) =&gt; any | - | - |
-| allowClear | 可以点击清除图标删除内容 | boolean \| &#123;     clearIcon?: VueNode   &#125; | false | - |
-| disabled | - | boolean | - | - |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| loading | - | boolean | - | - | × |
+| status | 设置校验状态 | InputStatus | - | - | × |
+| options | 选项配置 | MentionsOptionProps[] | [] | - | × |
+| popupClassName | - | string | - | - | × |
+| variant | 形态变体 | Variant | `outlined` | - | ✓ |
+| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | MentionsClassNamesType | - | - | ✓ |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | MentionsStylesType | - | - | ✓ |
+| size | - | SizeType | - | - | × |
+| labelRender | - | (ctx: &#123; option: MentionsOptionProps, index: number &#125;) =&gt; any | - | - | × |
+| allowClear | 可以点击清除图标删除内容 | boolean \| &#123;     clearIcon?: VueNode   &#125; | false | - | ✓ |
+| disabled | - | boolean | - | - | × |
 
 ### 事件 {#events}
 

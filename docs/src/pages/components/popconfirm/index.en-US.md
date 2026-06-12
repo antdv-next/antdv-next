@@ -35,20 +35,20 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 ### Props
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| cancelButtonProps | The cancel button props | ButtonProps | - | - |
-| cancelText | The text of the Cancel button | VueNode | `Cancel` | - |
-| disabled | Whether to show popconfirm when clicking its children node | boolean | false | - |
-| icon | Customize icon of confirmation | VueNode | &lt;ExclamationCircleFilled /&gt; | - |
-| okButtonProps | The ok button props | ButtonProps | - | - |
-| okText | The text of the Confirm button | VueNode | `OK` | - |
-| okType | Button `type` of the Confirm button | LegacyButtonType | `primary` | - |
-| showCancel | Show cancel button | boolean | true | - |
-| title | The title of the confirmation box | VueNode | - | - |
-| description | The description of the confirmation box | VueNode | - | - |
-| classes | Customize class for each semantic structure inside the component. Supports object or function | PopconfirmClassNamesType | - | - |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function | PopconfirmStylesType | - | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| cancelButtonProps | The cancel button props | ButtonProps | - | - | × |
+| cancelText | The text of the Cancel button | VueNode | `Cancel` | - | × |
+| disabled | Whether to show popconfirm when clicking its children node | boolean | false | - | × |
+| icon | Customize icon of confirmation | VueNode | &lt;ExclamationCircleFilled /&gt; | - | × |
+| okButtonProps | The ok button props | ButtonProps | - | - | × |
+| okText | The text of the Confirm button | VueNode | `OK` | - | × |
+| okType | Button `type` of the Confirm button | LegacyButtonType | `primary` | - | × |
+| showCancel | Show cancel button | boolean | true | - | × |
+| title | The title of the confirmation box | VueNode | - | - | × |
+| description | The description of the confirmation box | VueNode | - | - | × |
+| classes | Customize class for each semantic structure inside the component. Supports object or function | PopconfirmClassNamesType | - | - | ✓ |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function | PopconfirmStylesType | - | - | ✓ |
 
 Popconfirm also supports all Popover props. See [Popover](/components/popover#api).
 

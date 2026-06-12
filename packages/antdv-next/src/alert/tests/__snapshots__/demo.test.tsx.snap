@@ -68,64 +68,55 @@ exports[`alert demo > renders _semantic correctly 1`] = `
             class="ant-alert-actions semantic-mark-actions"
           >
             <div
-              class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-v-0"
+              class="ant-flex css-var-v-0 ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+              style="min-width: 80px;"
             >
-              <div
-                class="ant-space-item"
+              <button
+                class="ant-btn css-var-v-0 ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-block"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-v-0 ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-                  type="button"
+                <transition-stub
+                  appear="false"
+                  css="true"
+                  enteractiveclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-prepare ant-btn-loading-icon-motion-enter-prepare "
+                  enterfromclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-prepare ant-btn-loading-icon-motion-enter-prepare ant-btn-loading-icon-motion-enter-start"
+                  entertoclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-active ant-btn-loading-icon-motion-enter-active"
+                  leaveactiveclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave ant-btn-loading-icon-motion-leave-active"
+                  leavefromclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave"
+                  leavetoclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave ant-btn-loading-icon-motion-leave-active"
+                  name="ant-btn-loading-icon-motion"
+                  persisted="false"
                 >
-                  <transition-stub
-                    appear="false"
-                    css="true"
-                    enteractiveclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-prepare ant-btn-loading-icon-motion-enter-prepare "
-                    enterfromclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-prepare ant-btn-loading-icon-motion-enter-prepare ant-btn-loading-icon-motion-enter-start"
-                    entertoclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-active ant-btn-loading-icon-motion-enter-active"
-                    leaveactiveclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave ant-btn-loading-icon-motion-leave-active"
-                    leavefromclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave"
-                    leavetoclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave ant-btn-loading-icon-motion-leave-active"
-                    name="ant-btn-loading-icon-motion"
-                    persisted="false"
-                  >
-                    <!---->
-                  </transition-stub>
-                  <span>
-                     Accept 
-                  </span>
                   <!---->
-                </button>
-              </div>
-              <!---->
-              <div
-                class="ant-space-item"
+                </transition-stub>
+                <span>
+                   Accept 
+                </span>
+                <!---->
+              </button>
+              <button
+                class="ant-btn css-var-v-0 ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined ant-btn-sm ant-btn-background-ghost ant-btn-block"
+                type="button"
               >
-                <button
-                  class="ant-btn css-var-v-0 ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined ant-btn-sm ant-btn-background-ghost"
-                  type="button"
+                <transition-stub
+                  appear="false"
+                  css="true"
+                  enteractiveclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-prepare ant-btn-loading-icon-motion-enter-prepare "
+                  enterfromclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-prepare ant-btn-loading-icon-motion-enter-prepare ant-btn-loading-icon-motion-enter-start"
+                  entertoclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-active ant-btn-loading-icon-motion-enter-active"
+                  leaveactiveclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave ant-btn-loading-icon-motion-leave-active"
+                  leavefromclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave"
+                  leavetoclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave ant-btn-loading-icon-motion-leave-active"
+                  name="ant-btn-loading-icon-motion"
+                  persisted="false"
                 >
-                  <transition-stub
-                    appear="false"
-                    css="true"
-                    enteractiveclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-prepare ant-btn-loading-icon-motion-enter-prepare "
-                    enterfromclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-prepare ant-btn-loading-icon-motion-enter-prepare ant-btn-loading-icon-motion-enter-start"
-                    entertoclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-active ant-btn-loading-icon-motion-enter-active"
-                    leaveactiveclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave ant-btn-loading-icon-motion-leave-active"
-                    leavefromclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave"
-                    leavetoclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave ant-btn-loading-icon-motion-leave-active"
-                    name="ant-btn-loading-icon-motion"
-                    persisted="false"
-                  >
-                    <!---->
-                  </transition-stub>
-                  <span>
-                     Decline 
-                  </span>
                   <!---->
-                </button>
-              </div>
-              <!---->
+                </transition-stub>
+                <span>
+                   Decline 
+                </span>
+                <!---->
+              </button>
             </div>
           </div>
           <button
@@ -1299,38 +1290,29 @@ exports[`alert demo > renders action correctly 1`] = `
       <div
         class="ant-alert-actions"
       >
-        <div
-          class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"
+        <button
+          class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm"
+          type="button"
         >
-          <div
-            class="ant-space-item"
+          <transition-stub
+            appear="false"
+            css="true"
+            enteractiveclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-prepare ant-btn-loading-icon-motion-enter-prepare "
+            enterfromclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-prepare ant-btn-loading-icon-motion-enter-prepare ant-btn-loading-icon-motion-enter-start"
+            entertoclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-active ant-btn-loading-icon-motion-enter-active"
+            leaveactiveclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave ant-btn-loading-icon-motion-leave-active"
+            leavefromclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave"
+            leavetoclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave ant-btn-loading-icon-motion-leave-active"
+            name="ant-btn-loading-icon-motion"
+            persisted="false"
           >
-            <button
-              class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm"
-              type="button"
-            >
-              <transition-stub
-                appear="false"
-                css="true"
-                enteractiveclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-prepare ant-btn-loading-icon-motion-enter-prepare "
-                enterfromclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-prepare ant-btn-loading-icon-motion-enter-prepare ant-btn-loading-icon-motion-enter-start"
-                entertoclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-active ant-btn-loading-icon-motion-enter-active"
-                leaveactiveclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave ant-btn-loading-icon-motion-leave-active"
-                leavefromclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave"
-                leavetoclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave ant-btn-loading-icon-motion-leave-active"
-                name="ant-btn-loading-icon-motion"
-                persisted="false"
-              >
-                <!---->
-              </transition-stub>
-              <span>
-                 Done 
-              </span>
-              <!---->
-            </button>
-          </div>
+            <!---->
+          </transition-stub>
+          <span>
+             Done 
+          </span>
           <!---->
-        </div>
+        </button>
       </div>
       <button
         class="ant-alert-close-icon"
@@ -1394,64 +1376,55 @@ exports[`alert demo > renders action correctly 1`] = `
         class="ant-alert-actions"
       >
         <div
-          class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-root"
+          class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+          style="min-width: 80px;"
         >
-          <div
-            class="ant-space-item"
+          <button
+            class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-block"
+            type="button"
           >
-            <button
-              class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
-              type="button"
+            <transition-stub
+              appear="false"
+              css="true"
+              enteractiveclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-prepare ant-btn-loading-icon-motion-enter-prepare "
+              enterfromclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-prepare ant-btn-loading-icon-motion-enter-prepare ant-btn-loading-icon-motion-enter-start"
+              entertoclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-active ant-btn-loading-icon-motion-enter-active"
+              leaveactiveclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave ant-btn-loading-icon-motion-leave-active"
+              leavefromclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave"
+              leavetoclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave ant-btn-loading-icon-motion-leave-active"
+              name="ant-btn-loading-icon-motion"
+              persisted="false"
             >
-              <transition-stub
-                appear="false"
-                css="true"
-                enteractiveclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-prepare ant-btn-loading-icon-motion-enter-prepare "
-                enterfromclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-prepare ant-btn-loading-icon-motion-enter-prepare ant-btn-loading-icon-motion-enter-start"
-                entertoclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-active ant-btn-loading-icon-motion-enter-active"
-                leaveactiveclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave ant-btn-loading-icon-motion-leave-active"
-                leavefromclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave"
-                leavetoclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave ant-btn-loading-icon-motion-leave-active"
-                name="ant-btn-loading-icon-motion"
-                persisted="false"
-              >
-                <!---->
-              </transition-stub>
-              <span>
-                 Accept 
-              </span>
               <!---->
-            </button>
-          </div>
-          <!---->
-          <div
-            class="ant-space-item"
+            </transition-stub>
+            <span>
+               Accept 
+            </span>
+            <!---->
+          </button>
+          <button
+            class="ant-btn css-var-root ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined ant-btn-sm ant-btn-background-ghost ant-btn-block"
+            type="button"
           >
-            <button
-              class="ant-btn css-var-root ant-btn-default ant-btn-dangerous ant-btn-color-dangerous ant-btn-variant-outlined ant-btn-sm ant-btn-background-ghost"
-              type="button"
+            <transition-stub
+              appear="false"
+              css="true"
+              enteractiveclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-prepare ant-btn-loading-icon-motion-enter-prepare "
+              enterfromclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-prepare ant-btn-loading-icon-motion-enter-prepare ant-btn-loading-icon-motion-enter-start"
+              entertoclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-active ant-btn-loading-icon-motion-enter-active"
+              leaveactiveclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave ant-btn-loading-icon-motion-leave-active"
+              leavefromclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave"
+              leavetoclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave ant-btn-loading-icon-motion-leave-active"
+              name="ant-btn-loading-icon-motion"
+              persisted="false"
             >
-              <transition-stub
-                appear="false"
-                css="true"
-                enteractiveclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-prepare ant-btn-loading-icon-motion-enter-prepare "
-                enterfromclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-prepare ant-btn-loading-icon-motion-enter-prepare ant-btn-loading-icon-motion-enter-start"
-                entertoclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-active ant-btn-loading-icon-motion-enter-active"
-                leaveactiveclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave ant-btn-loading-icon-motion-leave-active"
-                leavefromclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave"
-                leavetoclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave ant-btn-loading-icon-motion-leave-active"
-                name="ant-btn-loading-icon-motion"
-                persisted="false"
-              >
-                <!---->
-              </transition-stub>
-              <span>
-                 Decline 
-              </span>
               <!---->
-            </button>
-          </div>
-          <!---->
+            </transition-stub>
+            <span>
+               Decline 
+            </span>
+            <!---->
+          </button>
         </div>
       </div>
       <button

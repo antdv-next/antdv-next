@@ -6529,6 +6529,7 @@ exports[`input demo > renders style-class correctly 1`] = `
     data-v-769a5a90=""
     name="otp-fn"
     role="group"
+    style="border-width: 0px;"
   >
     <span
       class="ant-otp-input-wrapper"
@@ -6649,7 +6650,7 @@ exports[`input demo > renders style-class correctly 1`] = `
   <div
     class="ant-space-compact css-var-root ant-input-search css-var-root ant-input-search-large effect"
     data-v-769a5a90=""
-    style="color: rgb(77, 168, 218);"
+    style="color: rgb(77, 168, 218); border-width: 0px;"
   >
     <input
       class="ant-input ant-input-lg ant-input-outlined ant-input-compact-item ant-input-compact-first-item css-var-root ant-input-css-var"

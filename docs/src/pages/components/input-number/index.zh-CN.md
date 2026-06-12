@@ -39,24 +39,24 @@ demo:
 
 ### 属性 {#props}
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| size | 输入框大小 | SizeType | - | - |
-| status | 设置校验状态 | InputStatus | - | - |
-| disabled | 禁用 | boolean | false | - |
-| addonBefore | 带标签的 input，设置前置标签，请使用 Space.Compact 替换 | VueNode | - | - |
-| addonAfter | 带标签的 input，设置后置标签，请使用 Space.Compact 替换 | VueNode | - | - |
-| prefix | 带有前缀图标的 input | VueNode | - | - |
-| suffix | 带有后缀图标的 input | VueNode | - | - |
-| bordered | Deprecated. | boolean | - | - |
-| variant | 形态变体 | Variant | `outlined` | - |
-| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | InputNumberClassNamesType | - | - |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | InputNumberStylesType | - | - |
-| controls | 是否显示增减按钮，也可设置自定义箭头图标 | boolean \| &#123; upIcon?: VueNode, downIcon?: VueNode &#125; | - | - |
-| type | - | 'number' \| 'text' | - | - |
-| max | 最大值 | number | [Number.MAX_SAFE_INTEGER](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) | - |
-| min | 最小值 | number | [Number.MIN_SAFE_INTEGER](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/MIN_SAFE_INTEGER) | - |
-| step | 每次改变步数，可以为小数 | 'number' \| 'string' | 1 | - |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| size | 输入框大小 | SizeType | - | - | × |
+| status | 设置校验状态 | InputStatus | - | - | × |
+| disabled | 禁用 | boolean | false | - | × |
+| addonBefore | 带标签的 input，设置前置标签，请使用 Space.Compact 替换 | VueNode | - | - | × |
+| addonAfter | 带标签的 input，设置后置标签，请使用 Space.Compact 替换 | VueNode | - | - | × |
+| prefix | 带有前缀图标的 input | VueNode | - | - | × |
+| suffix | 带有后缀图标的 input | VueNode | - | - | × |
+| bordered | Deprecated. | boolean | - | - | × |
+| variant | 形态变体 | Variant | `outlined` | - | ✓ |
+| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | InputNumberClassNamesType | - | - | ✓ |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | InputNumberStylesType | - | - | ✓ |
+| controls | 是否显示增减按钮，也可设置自定义箭头图标 | boolean \| &#123; upIcon?: VueNode, downIcon?: VueNode &#125; | - | - | × |
+| type | - | 'number' \| 'text' | - | - | × |
+| max | 最大值 | number | [Number.MAX_SAFE_INTEGER](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) | - | × |
+| min | 最小值 | number | [Number.MIN_SAFE_INTEGER](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/MIN_SAFE_INTEGER) | - | × |
+| step | 每次改变步数，可以为小数 | 'number' \| 'string' | 1 | - | × |
 
 ### 事件 {#events}
 

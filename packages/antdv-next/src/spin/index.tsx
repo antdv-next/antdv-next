@@ -151,7 +151,7 @@ const Spin = defineComponent<
         spinning: spinning.value,
         fullscreen: props.fullscreen,
         percent: mergedPercent.value,
-      }
+      } as SpinProps
     })
     // ========================= Style ==========================
     const [mergedClassNames, mergedStyles] = useMergeSemantic<

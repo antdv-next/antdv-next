@@ -35,18 +35,18 @@ demo:
 
 通用属性参考：[通用属性](/docs/vue/common-props)
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| allowClear | 是否允许再次点击后清除 | boolean | true |  |
-| allowHalf | 是否允许半选 | boolean | false |  |
-| character | 自定义字符 | VueNode \| (RateProps) => VueNode | &lt;StarFilled /> | - |
-| count | star 总数 | number | 5 |  |
-| defaultValue | 默认值 | number | 0 |  |
-| disabled | 只读，无法进行交互 | boolean | false |  |
-| keyboard | 支持使用键盘操作 | boolean | true | - |
-| size | 星星尺寸 | 'small' \| 'middle' \| 'large' | 'middle' |  |
-| tooltips | 自定义每项的提示信息 | [TooltipProps](/components/tooltip-cn#api)[\] \| string\[] | - |  |
-| value | 当前数，受控值，支持 `v-model:value` | number | - |  |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| allowClear | 是否允许再次点击后清除 | boolean | true |  | × |
+| allowHalf | 是否允许半选 | boolean | false |  | × |
+| character | 自定义字符 | VueNode \| (RateProps) => VueNode | &lt;StarFilled /> | - | × |
+| count | star 总数 | number | 5 |  | × |
+| defaultValue | 默认值 | number | 0 |  | × |
+| disabled | 只读，无法进行交互 | boolean | false |  | × |
+| keyboard | 支持使用键盘操作 | boolean | true | - | × |
+| size | 星星尺寸 | 'small' \| 'middle' \| 'large' | 'middle' |  | × |
+| tooltips | 自定义每项的提示信息 | [TooltipProps](/components/tooltip-cn#api)[\] \| string\[] | - |  | × |
+| value | 当前数，受控值，支持 `v-model:value` | number | - |  | × |
 
 ### 事件 {#events}
 

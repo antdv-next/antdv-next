@@ -36,17 +36,17 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 
 Common props ref：[Common props](/docs/vue/common-props)
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| preview | Preview configuration; set to false to disable | boolean \| PreviewConfig | true | - |
-| wrapperStyle | Deprecated. | CSSProperties | - | - |
-| classes | Customize class for each semantic structure inside the component. Supports object or function. | ImageClassNamesType | - | - |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | ImageStylesType | - | - |
-| rootClass | - | string | - | - |
-| alt | Image description | string | - | _ |
-| height | Image height | string \| number | - | - |
-| src | Image URL | string | - | - |
-| width | Image width | string \| number | - | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| preview | Preview configuration; set to false to disable | boolean \| PreviewConfig | true | - | ✓ |
+| wrapperStyle | Deprecated. | CSSProperties | - | - | × |
+| classes | Customize class for each semantic structure inside the component. Supports object or function. | ImageClassNamesType | - | - | ✓ |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | ImageStylesType | - | - | ✓ |
+| rootClass | - | string | - | - | × |
+| alt | Image description | string | - | _ | × |
+| height | Image height | string \| number | - | - | × |
+| src | Image URL | string | - | - | × |
+| width | Image width | string \| number | - | - | × |
 
 ### Events
 
@@ -77,7 +77,7 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | mask | preview mask effect | boolean \| \{ enabled?: boolean, blur?: boolean \} | true | - |
 | maxScale | Maximum zoom scale | number | 50 | - |
 | minScale | Minimum zoom scale | number | 1 | - |
-| movable | Whether it is movable | boolean | true | - |
+| movable | Whether the preview image can be dragged when it is larger than the viewport | boolean | true | - |
 | open | Whether to display preview | boolean | - | - |
 | rootClassName | Root DOM class name for preview; applies to both image and preview wrapper | string | - | - |
 | scaleStep | Each step's zoom multiplier is 1 + scaleStep | number | 0.5 | - |
@@ -109,7 +109,7 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | mask | preview mask effect | boolean \| \{ enabled?: boolean, blur?: boolean \} | true | - |
 | minScale | Minimum zoom scale | number | 1 | - |
 | maxScale | Maximum zoom scale | number | 50 | - |
-| movable | Whether movable | boolean | true | - |
+| movable | Whether the preview image can be dragged when it is larger than the viewport | boolean | true | - |
 | open | Whether to display preview | boolean | - | - |
 | styles | Custom semantic structure styles | Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | - |
 | scaleStep | Each step's zoom multiplier is 1 + scaleStep | number | 0.5 | - |

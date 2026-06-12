@@ -45,24 +45,24 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 #### Props {#input-props}
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| allowClear | If allow to remove input content with clear icon | boolean \| &#123; clearIcon: VueNode &#125; | false | - |
-| classes | Customize class for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-input), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-input), string&gt; | - | - |
-| count | Character count config | [CountConfig](#countconfig) | - | - |
-| defaultValue | The initial input content | string | - | - |
-| disabled | Whether the input is disabled | boolean | false | - |
-| id | The ID for input | string | - | - |
-| maxlength | The maximum number of characters in Input | number | - | - |
-| prefix | The prefix icon for the Input | VueNode | - | - |
-| showCount | Whether to show character count | boolean \| &#123; formatter: (info: &#123; value: string, count: number, maxLength?: number &#125;) =&gt; VueNode &#125; | false | - |
-| status | Set validation status | 'error' \| 'warning' | - | - |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-input), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-input), CSSProperties&gt; | - | - |
-| size | The size of the input box. Note: in the context of a form, the `middle` size is used | `large` \| `middle` \| `small` | - | - |
-| suffix | The suffix icon for the Input | VueNode | - | - |
-| type | The type of input, see: [MDN](https://developer.mozilla.org/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types)( use `Input.TextArea` instead of `type="textarea"`) | string | `text` | - |
-| value | The input content value, support `v-model:value` | string | - | - |
-| variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| allowClear | If allow to remove input content with clear icon | boolean \| &#123; clearIcon: VueNode &#125; | false | - | ✓ |
+| classes | Customize class for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-input), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-input), string&gt; | - | - | ✓ |
+| count | Character count config | [CountConfig](#countconfig) | - | - | × |
+| defaultValue | The initial input content | string | - | - | × |
+| disabled | Whether the input is disabled | boolean | false | - | × |
+| id | The ID for input | string | - | - | × |
+| maxlength | The maximum number of characters in Input | number | - | - | × |
+| prefix | The prefix icon for the Input | VueNode | - | - | × |
+| showCount | Whether to show character count | boolean \| &#123; formatter: (info: &#123; value: string, count: number, maxLength?: number &#125;) =&gt; VueNode &#125; | false | - | × |
+| status | Set validation status | 'error' \| 'warning' | - | - | × |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-input), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-input), CSSProperties&gt; | - | - | ✓ |
+| size | The size of the input box. Note: in the context of a form, the `middle` size is used | `large` \| `middle` \| `small` | - | - | × |
+| suffix | The suffix icon for the Input | VueNode | - | - | × |
+| type | The type of input, see: [MDN](https://developer.mozilla.org/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types)( use `Input.TextArea` instead of `type="textarea"`) | string | `text` | - | × |
+| value | The input content value, support `v-model:value` | string | - | - | × |
+| variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - | ✓ |
 
 > When `Input` is used in a `Form.Item` context, if the `Form.Item` has the `id` props defined then `value`, `defaultValue`, and `id` props of `Input` are automatically set.
 
@@ -97,11 +97,11 @@ The rest of the props of Input are exactly the same as the original [input](http
 
 Same as Input, and more:
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| autoSize | Height auto size feature, can be set to true \| false or an object &#123; minRows: 2, maxRows: 6 &#125; | boolean \| object | false | - |
-| classes | Customize class for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-textarea), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-textarea), string&gt; | - | - |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-textarea), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-textarea), CSSProperties&gt; | - | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| autoSize | Height auto size feature, can be set to true \| false or an object &#123; minRows: 2, maxRows: 6 &#125; | boolean \| object | false | - | × |
+| classes | Customize class for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-textarea), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-textarea), string&gt; | - | - | ✓ |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-textarea), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-textarea), CSSProperties&gt; | - | - | ✓ |
 
 The rest of the props of `Input.TextArea` are the same as the original [textarea](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea).
 
@@ -109,12 +109,12 @@ The rest of the props of `Input.TextArea` are the same as the original [textarea
 
 #### Props {#input-search-props}
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| classes | Customize class for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-search), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-search), string&gt; | - | - |
-| enterButton | false displays the default button color, true uses the primary color, or you can provide a custom button. Conflicts with addonAfter. | VueNode | false | - |
-| loading | Search box with loading | boolean | false | - |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-search), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-search), CSSProperties&gt; | - | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| classes | Customize class for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-search), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-search), string&gt; | - | - | ✓ |
+| enterButton | false displays the default button color, true uses the primary color, or you can provide a custom button. Conflicts with addonAfter. | VueNode | false | - | × |
+| loading | Search box with loading | boolean | false | - | × |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-search), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-search), CSSProperties&gt; | - | - | ✓ |
 
 Supports all props of `Input`.
 
@@ -145,20 +145,20 @@ Added in `5.16.0`.
 
 #### Props {#input-otp-props}
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| classes | Customize class for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-otp), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-otp), string&gt; | - | - |
-| defaultValue | Default value | string | - | - |
-| disabled | Whether the input is disabled | boolean | false | - |
-| formatter | Format display, blank fields will be filled with ` ` | (value: string) =&gt; string | - | - |
-| separator | render the separator after the input box of the specified index | VueNode \| ((i: number) =&gt; VueNode) | - | - |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-otp), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-otp), CSSProperties&gt; | - | - |
-| mask | Custom display, the original value will not be modified | boolean \| string | `false` | - |
-| length | The number of input elements | number | 6 | - |
-| status | Set validation status | 'error' \| 'warning' | - | - |
-| size | The size of the input box | `small` \| `middle` \| `large` | `middle` | - |
-| variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - |
-| value | The input content value | string | - | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| classes | Customize class for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-otp), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-otp), string&gt; | - | - | ✓ |
+| defaultValue | Default value | string | - | - | × |
+| disabled | Whether the input is disabled | boolean | false | - | × |
+| formatter | Format display, blank fields will be filled with ` ` | (value: string) =&gt; string | - | - | × |
+| separator | render the separator after the input box of the specified index | VueNode \| ((i: number) =&gt; VueNode) | - | - | × |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-otp), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-otp), CSSProperties&gt; | - | - | ✓ |
+| mask | Custom display, the original value will not be modified | boolean \| string | `false` | - | × |
+| length | The number of input elements | number | 6 | - | × |
+| status | Set validation status | 'error' \| 'warning' | - | - | × |
+| size | The size of the input box | `small` \| `middle` \| `large` | `middle` | - | × |
+| variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - | ✓ |
+| value | The input content value | string | - | - | × |
 
 #### Events {#input-otp-events}
 

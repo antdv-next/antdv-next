@@ -38,24 +38,24 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 ### Props {#props}
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| size | The height of input box | SizeType | - | - |
-| status | Set validation status | InputStatus | - | - |
-| disabled | If the input is disabled | boolean | false | - |
-| addonBefore | The label text displayed before (on the left side of) the input field, please use Space.Compact instead | VueNode | - | - |
-| addonAfter | The label text displayed after (on the right side of) the input field, please use Space.Compact instead | VueNode | - | - |
-| prefix | The prefix icon for the Input | VueNode | - | - |
-| suffix | The suffix icon for the Input | VueNode | - | - |
-| bordered | Deprecated. | boolean | - | - |
-| variant | Variants of Input | Variant | `outlined` | - |
-| classes | Customize class for each semantic structure inside the component. Supports object or function. | InputNumberClassNamesType | - | - |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | InputNumberStylesType | - | - |
-| controls | Whether to show `+-` controls, or set custom arrow icons | boolean \| &#123; upIcon?: VueNode, downIcon?: VueNode &#125; | - | - |
-| type | - | 'number' \| 'text' | - | - |
-| max | The max value | number | [Number.MAX_SAFE_INTEGER](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) | - |
-| min | The min value | number | [Number.MIN_SAFE_INTEGER](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MIN_SAFE_INTEGER) | - |
-| step | The number to which the current value is increased or decreased. It can be an integer or decimal | 'number' \| 'string' | 1 | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| size | The height of input box | SizeType | - | - | × |
+| status | Set validation status | InputStatus | - | - | × |
+| disabled | If the input is disabled | boolean | false | - | × |
+| addonBefore | The label text displayed before (on the left side of) the input field, please use Space.Compact instead | VueNode | - | - | × |
+| addonAfter | The label text displayed after (on the right side of) the input field, please use Space.Compact instead | VueNode | - | - | × |
+| prefix | The prefix icon for the Input | VueNode | - | - | × |
+| suffix | The suffix icon for the Input | VueNode | - | - | × |
+| bordered | Deprecated. | boolean | - | - | × |
+| variant | Variants of Input | Variant | `outlined` | - | ✓ |
+| classes | Customize class for each semantic structure inside the component. Supports object or function. | InputNumberClassNamesType | - | - | ✓ |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | InputNumberStylesType | - | - | ✓ |
+| controls | Whether to show `+-` controls, or set custom arrow icons | boolean \| &#123; upIcon?: VueNode, downIcon?: VueNode &#125; | - | - | × |
+| type | - | 'number' \| 'text' | - | - | × |
+| max | The max value | number | [Number.MAX_SAFE_INTEGER](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MAX_SAFE_INTEGER) | - | × |
+| min | The min value | number | [Number.MIN_SAFE_INTEGER](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/MIN_SAFE_INTEGER) | - | × |
+| step | The number to which the current value is increased or decreased. It can be an integer or decimal | 'number' \| 'string' | 1 | - | × |
 
 ### Events {#events}
 

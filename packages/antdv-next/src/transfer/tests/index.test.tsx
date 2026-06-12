@@ -137,6 +137,21 @@ describe('transfer', () => {
     expect(wrapper.element).toMatchSnapshot()
   })
 
+  it('should forward data and aria attributes to root element', () => {
+    const wrapper = mount(Transfer, {
+      props: {
+        ...listCommonProps,
+      },
+      attrs: {
+        'data-testid': 'transfer-testid',
+        'aria-label': 'transfer-label',
+      },
+    })
+    const rootNode = wrapper.find('.ant-transfer')
+    expect(rootNode.attributes('data-testid')).toBe('transfer-testid')
+    expect(rootNode.attributes('aria-label')).toBe('transfer-label')
+  })
+
   it('should move selected keys to corresponding list', () => {
     const handleChange = vi.fn()
     const wrapper = mount(Transfer, {

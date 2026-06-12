@@ -40,28 +40,28 @@ When there are more than a few options to choose from, you can wrap them in a `D
 
 Common props ref：[Common props](/docs/vue/common-props)
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| classes | Customize class for each semantic structure inside the Dropdown component. Supports object or function | DropdownClassNamesType | - | - |
-| styles | Customize inline style for each semantic structure inside the Dropdown component. Supports object or function | DropdownStylesType | - | - |
-| menu | The menu props | MenuProps & &#123; activeKey?: VcMenuProps['activeKey'], onClick?: MenuEmits['click'] &#125; | - | - |
-| autoFocus | Focus the first menu item when opened | boolean | - | - |
-| arrow | Whether the dropdown arrow should be visible. Supports `pointAtCenter` | boolean \| DropdownArrowOptions | false | - |
-| trigger | The trigger mode which executes the dropdown action. Note that hover can't be used on touchscreens | ('click' \| 'hover' \| 'contextmenu')[] | ['hover'] | - |
-| popupRender | Customize popup content | (menu: VueNode) =&gt; VueNode | - | - |
-| open | Whether the dropdown menu is currently open | boolean | - | - |
-| disabled | Whether the dropdown menu is disabled | boolean | - | - |
-| destroyOnHidden | Whether destroy dropdown when hidden | boolean | false | - |
-| align | Popup align config | AlignType | - | - |
-| getPopupContainer | To set the container of the dropdown menu. The default is to create a div element in body, but you can reset it to the scrolling area and make a relative reposition. [Example on CodePen](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | (triggerNode: HTMLElement) =&gt; HTMLElement | () =&gt; document.body | - |
-| prefixCls | Customize prefix class name | string | - | - |
-| transitionName | Motion name of dropdown | string | - | - |
-| placement | Placement of popup menu: `bottom` `bottomLeft` `bottomRight` `top` `topLeft` `topRight` | Placement | `bottomLeft` | - |
-| forceRender | Force render dropdown overlay | boolean | - | - |
-| mouseEnterDelay | Delay in seconds before showing dropdown | number | 0.15 | - |
-| mouseLeaveDelay | Delay in seconds before hiding dropdown | number | 0.1 | - |
-| openClassName | Class added to trigger when dropdown is open | string | - | - |
-| autoAdjustOverflow | Whether to adjust dropdown placement automatically when dropdown is off screen | boolean \| AdjustOverflow | true | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| classes | Customize class for each semantic structure inside the Dropdown component. Supports object or function | DropdownClassNamesType | - | - | ✓ |
+| styles | Customize inline style for each semantic structure inside the Dropdown component. Supports object or function | DropdownStylesType | - | - | ✓ |
+| menu | The menu props | MenuProps & &#123; activeKey?: VcMenuProps['activeKey'], onClick?: MenuEmits['click'] &#125; | - | - | × |
+| autoFocus | Focus the first menu item when opened | boolean | - | - | × |
+| arrow | Whether the dropdown arrow should be visible. Supports `pointAtCenter` | boolean \| DropdownArrowOptions | false | - | × |
+| trigger | The trigger mode which executes the dropdown action. Note that hover can't be used on touchscreens | ('click' \| 'hover' \| 'contextmenu')[] | ['hover'] | - | × |
+| popupRender | Customize popup content | (menu: VueNode) =&gt; VueNode | - | - | × |
+| open | Whether the dropdown menu is currently open | boolean | - | - | × |
+| disabled | Whether the dropdown menu is disabled | boolean | - | - | × |
+| destroyOnHidden | Whether destroy dropdown when hidden | boolean | false | - | × |
+| align | Popup align config | AlignType | - | - | × |
+| getPopupContainer | To set the container of the dropdown menu. The default is to create a div element in body, but you can reset it to the scrolling area and make a relative reposition. [Example on CodePen](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | (triggerNode: HTMLElement) =&gt; HTMLElement | () =&gt; document.body | - | × |
+| prefixCls | Customize prefix class name | string | - | - | × |
+| transitionName | Motion name of dropdown | string | - | - | × |
+| placement | Placement of popup menu: `bottom` `bottomLeft` `bottomRight` `top` `topLeft` `topRight` | Placement | `bottomLeft` | - | × |
+| forceRender | Force render dropdown overlay | boolean | - | - | × |
+| mouseEnterDelay | Delay in seconds before showing dropdown | number | 0.15 | - | × |
+| mouseLeaveDelay | Delay in seconds before hiding dropdown | number | 0.1 | - | × |
+| openClassName | Class added to trigger when dropdown is open | string | - | - | × |
+| autoAdjustOverflow | Whether to adjust dropdown placement automatically when dropdown is off screen | boolean \| AdjustOverflow | true | - | × |
 
 ### Events
 

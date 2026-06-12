@@ -1520,7 +1520,7 @@ exports[`card demo > renders component-token correctly 1`] = `
 
 exports[`card demo > renders flexible-content correctly 1`] = `
 <div
-  class="ant-card ant-card-bordered ant-card-hoverable css-var-root"
+  class="ant-card ant-card-hoverable css-var-root"
   style="width: 240px;"
 >
   <!---->

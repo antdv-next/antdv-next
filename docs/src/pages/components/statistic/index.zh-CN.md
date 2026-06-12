@@ -33,20 +33,20 @@ demo:
 
 #### 属性 {#statistic-props}
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| classes | 用于自定义 Statistic 组件内部各语义化结构的 class，支持对象或函数 | StatisticClassNamesType | - | - |
-| decimalSeparator | 设置小数点 | string | `.` | - |
-| formatter | 自定义数值展示 | (value: number \| string) =&gt; VueNode | - | - |
-| groupSeparator | 设置千分位标识符 | string | `,` | - |
-| loading | 数值是否加载中 | boolean | false | - |
-| precision | 数值精度 | number | - | - |
-| prefix | 设置数值的前缀 | VueNode | - | - |
-| styles | 用于自定义 Statistic 组件内部各语义化结构的行内 style，支持对象或函数 | StatisticStylesType | - | - |
-| suffix | 设置数值的后缀 | VueNode | - | - |
-| title | 数值的标题 | VueNode | - | - |
-| value | 数值内容 | string \| number | - | - |
-| valueStyle | 设置数值区域的样式 | CSSProperties | - | - |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| classes | 用于自定义 Statistic 组件内部各语义化结构的 class，支持对象或函数 | StatisticClassNamesType | - | - | ✓ |
+| decimalSeparator | 设置小数点 | string | `.` | - | × |
+| formatter | 自定义数值展示 | (value: number \| string) =&gt; VueNode | - | - | × |
+| groupSeparator | 设置千分位标识符 | string | `,` | - | × |
+| loading | 数值是否加载中 | boolean | false | - | × |
+| precision | 数值精度 | number | - | - | × |
+| prefix | 设置数值的前缀 | VueNode | - | - | × |
+| styles | 用于自定义 Statistic 组件内部各语义化结构的行内 style，支持对象或函数 | StatisticStylesType | - | - | ✓ |
+| suffix | 设置数值的后缀 | VueNode | - | - | × |
+| title | 数值的标题 | VueNode | - | - | × |
+| value | 数值内容 | string \| number | - | - | × |
+| valueStyle | 设置数值区域的样式 | CSSProperties | - | - | × |
 
 #### 插槽 {#statistic-slots}
 

@@ -31,27 +31,27 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-p-wQLik200AAA
 
 通用属性参考：[通用属性](/docs/vue/common-props)
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| prefixCls | - | string | - | - |
-| rootClass | - | string | - | - |
-| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | CalendarClassNamesType&lt;DateType&gt; | - | - |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | CalendarStylesType&lt;DateType&gt; | - | - |
-| locale | 国际化配置 | typeof enUS | [(默认配置)](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) | - |
-| validRange | 设置可以显示的日期 | [DateType, DateType] | - | - |
-| disabledDate | 不可选择的日期，参数为当前 `value`，注意使用时[不要直接修改](https://github.com/ant-design/ant-design/issues/30987) | (date: DateType) =&gt; boolean | - | - |
-| dateFullCellRender | 自定义渲染日期单元格，返回内容覆盖单元格，&gt;= 5.4.0 请用 `fullCellRender` | (date: DateType) =&gt; VueNode | - | - |
-| dateCellRender | Deprecated. | (date: DateType) =&gt; VueNode | - | - |
-| monthFullCellRender | Deprecated. | (date: DateType) =&gt; VueNode | - | - |
-| monthCellRender | Deprecated. | (date: DateType) =&gt; VueNode | - | - |
-| cellRender | 自定义单元格的内容 | (date: DateType, info: any) =&gt; VueNode | - | - |
-| fullCellRender | 自定义单元格的内容 | (date: DateType, info: any) =&gt; VueNode | - | - |
-| headerRender | 自定义头部内容 | HeaderRender&lt;DateType&gt; | - | - |
-| value | 展示日期，支持 `v-model:value` | DateType | - | - |
-| defaultValue | 默认展示的日期 | DateType | - | - |
-| mode | 初始模式 | CalendarMode | `month` | - |
-| fullscreen | 是否全屏显示 | boolean | true | - |
-| showWeek | 是否显示周数列 | boolean | false | - |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| prefixCls | - | string | - | - | × |
+| rootClass | - | string | - | - | × |
+| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | CalendarClassNamesType&lt;DateType&gt; | - | - | ✓ |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | CalendarStylesType&lt;DateType&gt; | - | - | ✓ |
+| locale | 国际化配置 | typeof enUS | [(默认配置)](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) | - | × |
+| validRange | 设置可以显示的日期 | [DateType, DateType] | - | - | × |
+| disabledDate | 不可选择的日期，参数为当前 `value`，注意使用时[不要直接修改](https://github.com/ant-design/ant-design/issues/30987) | (date: DateType) =&gt; boolean | - | - | × |
+| dateFullCellRender | 自定义渲染日期单元格，返回内容覆盖单元格，&gt;= 5.4.0 请用 `fullCellRender` | (date: DateType) =&gt; VueNode | - | - | × |
+| dateCellRender | Deprecated. | (date: DateType) =&gt; VueNode | - | - | × |
+| monthFullCellRender | Deprecated. | (date: DateType) =&gt; VueNode | - | - | × |
+| monthCellRender | Deprecated. | (date: DateType) =&gt; VueNode | - | - | × |
+| cellRender | 自定义单元格的内容 | (date: DateType, info: any) =&gt; VueNode | - | - | × |
+| fullCellRender | 自定义单元格的内容 | (date: DateType, info: any) =&gt; VueNode | - | - | × |
+| headerRender | 自定义头部内容 | HeaderRender&lt;DateType&gt; | - | - | × |
+| value | 展示日期，支持 `v-model:value` | DateType | - | - | × |
+| defaultValue | 默认展示的日期 | DateType | - | - | × |
+| mode | 初始模式 | CalendarMode | `month` | - | × |
+| fullscreen | 是否全屏显示 | boolean | true | - | × |
+| showWeek | 是否显示周数列 | boolean | false | - | × |
 
 ### 事件 {#events}
 

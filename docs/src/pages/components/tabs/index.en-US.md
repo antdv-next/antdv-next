@@ -41,29 +41,29 @@ Antdv Next has 3 types of Tabs for different situations.
 
 Common props ref：[Common props](/docs/vue/common-props)
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| activeKey | Current TabPane's key, support `v-model:active-key` | string | - | - |
-| addIcon | Customize add icon, only works with `type="editable-card"` | VueNode | `<PlusOutlined />` | - |
-| animated | Whether to change tabs with animation | boolean \| \{ inkBar: boolean, tabPane: boolean \} | \{ inkBar: true, tabPane: false \} | - |
-| centered | Centers tabs | boolean | false | - |
-| classes | Customize class for each semantic structure inside the component. Supports object or function | TabsClassNamesType | - | - |
-| defaultActiveKey | Initial active TabPane's key, if `activeKey` is not set | string | `The key of first tab` | - |
-| hideAdd | Hide plus icon or not. Only works while `type="editable-card"` | boolean | false | - |
-| indicator | Customize `size` and `align` of indicator | \{ size?: number \| (origin: number) => number; align?: `start` \| `center` \| `end` \} | - | - |
-| items | Configure tab content | TabItemType[] | [] | - |
-| more | Customize the collapse menu | MoreProps | \{ icon: `<EllipsisOutlined />`, trigger: 'hover' \} | - |
-| moreIcon | Custom icon of the collapse menu | VueNode | `<EllipsisOutlined />` | - |
-| removeIcon | The custom icon of remove, only works with `type="editable-card"` | VueNode | `<CloseOutlined />` | - |
-| renderTabBar | Replace the TabBar | (ctx: \{ props: any; TabNavListComponent: any \}) => VueNode | - | - |
-| size | Preset tab bar size | `large` \| `middle` \| `small` | `middle` | - |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function | TabsStylesType | - | - |
-| tabBarExtraContent | Extra content in tab bar | VueNode \| \{ left?: VueNode, right?: VueNode \} | - | - |
-| tabBarGutter | The gap between tabs | number | - | - |
-| tabBarStyle | Tab bar style object | CSSProperties | - | - |
-| tabPlacement | Placement of tabs | `top` \| `end` \| `bottom` \| `start` | `top` | - |
-| destroyOnHidden | Whether destroy inactive TabPane when change tab | boolean | false | - |
-| type | Basic style of tabs | `line` \| `card` \| `editable-card` | `line` | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| activeKey | Current TabPane's key, support `v-model:active-key` | string | - | - | × |
+| addIcon | Customize add icon, only works with `type="editable-card"` | VueNode | `<PlusOutlined />` | - | ✓ |
+| animated | Whether to change tabs with animation | boolean \| \{ inkBar: boolean, tabPane: boolean \} | \{ inkBar: true, tabPane: false \} | - | × |
+| centered | Centers tabs | boolean | false | - | × |
+| classes | Customize class for each semantic structure inside the component. Supports object or function | TabsClassNamesType | - | - | ✓ |
+| defaultActiveKey | Initial active TabPane's key, if `activeKey` is not set | string | `The key of first tab` | - | × |
+| hideAdd | Hide plus icon or not. Only works while `type="editable-card"` | boolean | false | - | × |
+| indicator | Customize `size` and `align` of indicator | \{ size?: number \| (origin: number) => number; align?: `start` \| `center` \| `end` \} | - | - | ✓ |
+| items | Configure tab content | TabItemType[] | [] | - | × |
+| more | Customize the collapse menu | MoreProps | \{ icon: `<EllipsisOutlined />`, trigger: 'hover' \} | - | ✓ |
+| moreIcon | Custom icon of the collapse menu | VueNode | `<EllipsisOutlined />` | - | ✓ |
+| removeIcon | The custom icon of remove, only works with `type="editable-card"` | VueNode | `<CloseOutlined />` | - | ✓ |
+| renderTabBar | Replace the TabBar | (ctx: \{ props: any; TabNavListComponent: any \}) => VueNode | - | - | × |
+| size | Preset tab bar size | `large` \| `middle` \| `small` | `middle` | - | × |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function | TabsStylesType | - | - | ✓ |
+| tabBarExtraContent | Extra content in tab bar | VueNode \| \{ left?: VueNode, right?: VueNode \} | - | - | × |
+| tabBarGutter | The gap between tabs | number | - | - | × |
+| tabBarStyle | Tab bar style object | CSSProperties | - | - | × |
+| tabPlacement | Placement of tabs | `top` \| `end` \| `bottom` \| `start` | `top` | - | × |
+| destroyOnHidden | Whether destroy inactive TabPane when change tab | boolean | false | - | × |
+| type | Basic style of tabs | `line` \| `card` \| `editable-card` | `line` | - | × |
 
 ### TabItemType {#tabitemtype}
 

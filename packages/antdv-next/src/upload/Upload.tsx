@@ -80,7 +80,8 @@ const InternalUpload = defineComponent<
       classes: contextClassNames,
       styles: contextStyles,
       customRequest: contextCustomRequest,
-    } = useComponentBaseConfig('upload', props, ['customRequest'])
+      progress: contextProgress,
+    } = useComponentBaseConfig('upload', props, ['customRequest', 'progress'])
 
     const {
       disabled: customDisabled,
@@ -93,6 +94,13 @@ const InternalUpload = defineComponent<
     const disabled = useDisabledContext()
     const mergedDisabled = computed(() => customDisabled.value ?? disabled.value)
     const customRequest = computed(() => props?.customRequest ?? contextCustomRequest.value)
+    // Keep `undefined` when neither global config nor prop is set, so that
+    // UploadList's default progress style still applies (antd #58126).
+    const mergedProgress = computed(() =>
+      contextProgress.value || props.progress
+        ? { ...contextProgress.value, ...props.progress }
+        : undefined,
+    )
 
     const internalFileList = shallowRef(props?.fileList ?? props?.defaultFileList ?? [])
     watch(
@@ -448,7 +456,7 @@ const InternalUpload = defineComponent<
           extra={extra}
           locale={mergedLocale.value}
           isImageUrl={props.isImageUrl}
-          progress={props.progress}
+          progress={mergedProgress.value}
           appendAction={button}
           appendActionVisible={buttonVisible}
           itemRender={itemRender}

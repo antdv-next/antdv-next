@@ -43,43 +43,43 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 ### Props
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| afterClose | Specify a function that will be called when modal is closed completely | () => void | - | - |
-| afterOpenChange | Callback when the animation ends when Modal is turned on and off | (open: boolean) => void | - | - |
-| cancelButtonProps | The cancel button props | ButtonProps | - | - |
-| cancelText | Text of the Cancel button | VueNode | `Cancel` | - |
-| centered | Centered Modal | boolean | false | - |
-| classes | Customize class for each semantic structure inside the Modal component. Supports object or function. | ModalClassNamesType | - | - |
-| closable | Whether a close (x) button is visible on top right or not | boolean \| [ClosableType](#closabletype) | true | - |
-| closeIcon | Custom close icon. Close button will be hidden when setting to `null` or `false` | VueNode | &lt;CloseOutlined /> | - |
-| confirmLoading | Whether to apply loading visual effect for OK button or not | boolean | false | - |
-| destroyOnHidden | Whether to unmount child components on close | boolean | false | - |
-| focusTriggerAfterClose | Whether need to focus trigger element after dialog is closed | boolean | true | - |
-| footer | Footer content, set as `footer={null}` when you don't need default buttons | VueNode \| (params: { originNode: VueNode, extra: { OkBtn: any, CancelBtn: any } }) => any | (OK and Cancel buttons) | - |
-| forceRender | Force render Modal | boolean | false | - |
-| focusable | Configuration for focus management in the Modal | `{ trap?: boolean, focusTriggerAfterClose?: boolean }` | - | - |
-| getContainer | The mounted node for Modal but still display at fullscreen | string \| HTMLElement \| (() => HTMLElement) \| false | document.body | - |
-| keyboard | Whether support press esc to close | boolean | true | - |
-| loading | Show the skeleton | boolean | false | - |
-| mask | Mask effect | boolean \| `{enabled?: boolean, blur?: boolean, closable?: boolean}` | true | mask.closable: 1.0.3 |
-| ~~maskClosable~~ | Whether to close the modal dialog when the mask (area outside the modal) is clicked | boolean | true |  |
-| modalRender | Custom modal content render | (node: any) => any | - | - |
-| mousePosition | Set animation start position | MousePosition | - | - |
-| okButtonProps | The ok button props | ButtonProps | - | - |
-| okText | Text of the OK button | VueNode | `OK` | - |
-| okType | Button `type` of the OK button | LegacyButtonType | `primary` | - |
-| open | Whether the modal dialog is visible or not, support `v-model:open` | boolean | false | - |
-| rootClass | Root container class | string | - | - |
-| rootStyle | Root container style | CSSProperties | - | - |
-| styles | Customize inline style for each semantic structure inside the Modal component. Supports object or function. | ModalStylesType | - | - |
-| title | The modal dialog's title | VueNode | - | - |
-| transitionName | Transition name of dialog | string | - | - |
-| maskTransitionName | Transition name of mask | string | - | - |
-| width | Width of the modal dialog | string \| number \| Partial<Record<Breakpoint, string \| number>> | 520 | - |
-| wrapClassName | The class name of the container of the modal dialog | string | - | - |
-| wrapProps | Wrapper element props | Record<string, any> | - | - |
-| zIndex | The `z-index` of the Modal | number | 1000 | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| afterClose | Specify a function that will be called when modal is closed completely | () => void | - | - | × |
+| afterOpenChange | Callback when the animation ends when Modal is turned on and off | (open: boolean) => void | - | - | × |
+| cancelButtonProps | The cancel button props | ButtonProps | - | - | ✓ |
+| cancelText | Text of the Cancel button | VueNode | `Cancel` | - | × |
+| centered | Centered Modal | boolean | false | - | ✓ |
+| classes | Customize class for each semantic structure inside the Modal component. Supports object or function. | ModalClassNamesType | - | - | ✓ |
+| closable | Whether a close (x) button is visible on top right or not | boolean \| [ClosableType](#closabletype) | true | - | ✓ |
+| closeIcon | Custom close icon. Close button will be hidden when setting to `null` or `false` | VueNode | &lt;CloseOutlined /> | - | ✓ |
+| confirmLoading | Whether to apply loading visual effect for OK button or not | boolean | false | - | × |
+| destroyOnHidden | Whether to unmount child components on close | boolean | false | - | × |
+| focusTriggerAfterClose | Whether need to focus trigger element after dialog is closed | boolean | true | - | × |
+| footer | Footer content, set as `footer={null}` when you don't need default buttons | VueNode \| (params: { originNode: VueNode, extra: { OkBtn: any, CancelBtn: any } }) => any | (OK and Cancel buttons) | - | × |
+| forceRender | Force render Modal | boolean | false | - | × |
+| focusable | Configuration for focus management in the Modal | `{ trap?: boolean, focusTriggerAfterClose?: boolean }` | - | - | ✓ |
+| getContainer | The mounted node for Modal but still display at fullscreen | string \| HTMLElement \| (() => HTMLElement) \| false | document.body | - | × |
+| keyboard | Whether support press esc to close | boolean | true | - | × |
+| loading | Show the skeleton | boolean | false | - | × |
+| mask | Mask effect | boolean \| `{enabled?: boolean, blur?: boolean, closable?: boolean}` | true | mask.closable: 1.0.3 | ✓ |
+| ~~maskClosable~~ | Whether to close the modal dialog when the mask (area outside the modal) is clicked | boolean | true |  | × |
+| modalRender | Custom modal content render | (node: any) => any | - | - | × |
+| mousePosition | Set animation start position | MousePosition | - | - | × |
+| okButtonProps | The ok button props | ButtonProps | - | - | ✓ |
+| okText | Text of the OK button | VueNode | `OK` | - | × |
+| okType | Button `type` of the OK button | LegacyButtonType | `primary` | - | × |
+| open | Whether the modal dialog is visible or not, support `v-model:open` | boolean | false | - | × |
+| rootClass | Root container class | string | - | - | × |
+| rootStyle | Root container style | CSSProperties | - | - | × |
+| styles | Customize inline style for each semantic structure inside the Modal component. Supports object or function. | ModalStylesType | - | - | ✓ |
+| title | The modal dialog's title | VueNode | - | - | × |
+| transitionName | Transition name of dialog | string | - | - | × |
+| maskTransitionName | Transition name of mask | string | - | - | × |
+| width | Width of the modal dialog | string \| number \| Partial<Record<Breakpoint, string \| number>> | 520 | - | × |
+| wrapClassName | The class name of the container of the modal dialog | string | - | - | × |
+| wrapProps | Wrapper element props | Record<string, any> | - | - | × |
+| zIndex | The `z-index` of the Modal | number | 1000 | - | × |
 
 ### Events {#events}
 

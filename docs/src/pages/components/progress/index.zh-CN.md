@@ -46,24 +46,24 @@ demo:
 
 各类型共用的属性。
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | ProgressClassNamesType | - | - |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | ProgressStylesType | - | - |
-| rootClass | 根节点 class | string | - | - |
-| type | 类型，可选 `line` `circle` `dashboard` | ProgressType | `line` | - |
-| percent | 百分比 | number | 0 | - |
-| format | 内容的模板函数 | (percent?: number, successPercent?: number) =&gt; any | (percent) =&gt; percent + `%` | - |
-| status | 状态，可选：`success` `exception` `normal` `active`(仅限 line) | (typeof ProgressStatuses)[number] | - | - |
-| showInfo | 是否显示进度数值或状态图标 | boolean | true | - |
-| strokeWidth | - | number | - | - |
-| strokeLinecap | 进度条的样式 | 'butt' \| 'square' \| 'round' | `round` | - |
-| strokeColor | 进度条的色彩 | string \| string[] \| ProgressGradient | - | - |
-| railColor | 未完成的分段的颜色 | string | - | - |
-| success | 成功进度条相关配置 | SuccessProps | - | - |
-| trailColor | 未完成的分段的颜色。已废弃，请使用 `railColor` | string | - | - |
-| width | 已废弃，请使用 `size` | number | - | - |
-| size | 进度条的尺寸 | number \| [number \| string, number] \| ProgressSize \| &#123; width?: number, height?: number &#125; | `default` | - |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | ProgressClassNamesType | - | - | ✓ |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | ProgressStylesType | - | - | ✓ |
+| rootClass | 根节点 class | string | - | - | × |
+| type | 类型，可选 `line` `circle` `dashboard` | ProgressType | `line` | - | × |
+| percent | 百分比 | number | 0 | - | × |
+| format | 内容的模板函数 | (percent?: number, successPercent?: number) =&gt; any | (percent) =&gt; percent + `%` | - | × |
+| status | 状态，可选：`success` `exception` `normal` `active`(仅限 line) | (typeof ProgressStatuses)[number] | - | - | × |
+| showInfo | 是否显示进度数值或状态图标 | boolean | true | - | × |
+| strokeWidth | - | number | - | - | × |
+| strokeLinecap | 进度条的样式 | 'butt' \| 'square' \| 'round' | `round` | - | × |
+| strokeColor | 进度条的色彩 | string \| string[] \| ProgressGradient | - | - | × |
+| railColor | 未完成的分段的颜色 | string | - | - | × |
+| success | 成功进度条相关配置 | SuccessProps | - | - | × |
+| trailColor | 未完成的分段的颜色。已废弃，请使用 `railColor` | string | - | - | × |
+| width | 已废弃，请使用 `size` | number | - | - | × |
+| size | 进度条的尺寸 | number \| [number \| string, number] \| ProgressSize \| &#123; width?: number, height?: number &#125; | `default` | - | × |
 
 ### `type="line"` {#type-line}
 

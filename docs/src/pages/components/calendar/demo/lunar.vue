@@ -168,7 +168,7 @@ function onSelect(value) {
   box-sizing: border-box;
 }
 .dateCell:hover::before {
-  background: rgba(0, 0, 0, 0.04);
+  background: v-bind('token.controlItemBgHover');
 }
 .current {
   color: v-bind('token.colorTextLightSolid');
@@ -208,7 +208,7 @@ function onSelect(value) {
   padding: 5px 0;
 }
 .monthCell:hover {
-  background: rgba(0, 0, 0, 0.04);
+  background: v-bind('token.controlItemBgHover');
 }
 .monthCellCurrent {
   color: v-bind('token.colorTextLightSolid');

@@ -44,43 +44,43 @@ demo:
 
 ### 属性 {#props}
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| afterClose | Modal 完全关闭后的回调 | () => void | - | - |
-| afterOpenChange | 打开和关闭 Modal 时动画结束后的回调 | (open: boolean) => void | - | - |
-| cancelButtonProps | cancel 按钮 props | ButtonProps | - | - |
-| cancelText | 取消按钮文字 | VueNode | `取消` | - |
-| centered | 垂直居中展示 Modal | boolean | false | - |
-| classes | 用于自定义 Modal 组件内部各语义化结构的 class，支持对象或函数 | ModalClassNamesType | - | - |
-| closable | 是否显示右上角的关闭按钮 | boolean \| [ClosableType](#closabletype) | true | - |
-| closeIcon | 自定义关闭图标。设置为 `null` 或 `false` 时隐藏关闭按钮 | VueNode | &lt;CloseOutlined /> | - |
-| confirmLoading | 确定按钮 loading | boolean | false | - |
-| destroyOnHidden | 关闭时销毁 Modal 里的子元素 | boolean | false | - |
-| focusTriggerAfterClose | 对话框关闭后是否需要聚焦触发元素 | boolean | true | - |
-| footer | 底部内容，当不需要默认底部按钮时，可以设为 `footer={null}` | VueNode \| (params: { originNode: VueNode, extra: { OkBtn: any, CancelBtn: any } }) => any | (确定取消按钮) | - |
-| forceRender | 强制渲染 Modal | boolean | false | - |
-| focusable | 对话框内焦点管理的配置 | `{ trap?: boolean, focusTriggerAfterClose?: boolean }` | - | - |
-| getContainer | 指定 Modal 挂载的节点，但依旧为全屏展示，`false` 为挂载在当前位置 | string \| HTMLElement \| (() => HTMLElement) \| false | document.body | - |
-| keyboard | 是否支持键盘 esc 关闭 | boolean | true | - |
-| loading | 显示骨架屏 | boolean | false | - |
-| mask | 遮罩效果 | boolean \| [MaskType](#masktype) | true | - |
-| maskClosable | 点击蒙层是否允许关闭 | boolean | true | - |
-| modalRender | 自定义渲染对话框 | (node: any) => any | - | - |
-| mousePosition | 设置动画起点位置 | MousePosition | - | - |
-| okButtonProps | ok 按钮 props | ButtonProps | - | - |
-| okText | 确认按钮文字 | VueNode | `确定` | - |
-| okType | 确认按钮类型 | LegacyButtonType | `primary` | - |
-| open | 对话框是否可见，支持 `v-model:open` | boolean | false | - |
-| rootClass | 根容器 class | string | - | - |
-| rootStyle | 根容器样式 | CSSProperties | - | - |
-| styles | 用于自定义 Modal 组件内部各语义化结构的行内 style，支持对象或函数 | ModalStylesType | - | - |
-| title | 标题 | VueNode | - | - |
-| transitionName | 对话框过渡动效名称 | string | - | - |
-| maskTransitionName | 遮罩过渡动效名称 | string | - | - |
-| width | 宽度 | string \| number \| Partial<Record<Breakpoint, string \| number>> | 520 | - |
-| wrapClassName | 对话框外层容器的类名 | string | - | - |
-| wrapProps | 对话框外层容器属性 | Record<string, any> | - | - |
-| zIndex | 设置 Modal 的 `z-index` | number | 1000 | - |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| afterClose | Modal 完全关闭后的回调 | () => void | - | - | × |
+| afterOpenChange | 打开和关闭 Modal 时动画结束后的回调 | (open: boolean) => void | - | - | × |
+| cancelButtonProps | cancel 按钮 props | ButtonProps | - | - | ✓ |
+| cancelText | 取消按钮文字 | VueNode | `取消` | - | × |
+| centered | 垂直居中展示 Modal | boolean | false | - | ✓ |
+| classes | 用于自定义 Modal 组件内部各语义化结构的 class，支持对象或函数 | ModalClassNamesType | - | - | ✓ |
+| closable | 是否显示右上角的关闭按钮 | boolean \| [ClosableType](#closabletype) | true | - | ✓ |
+| closeIcon | 自定义关闭图标。设置为 `null` 或 `false` 时隐藏关闭按钮 | VueNode | &lt;CloseOutlined /> | - | ✓ |
+| confirmLoading | 确定按钮 loading | boolean | false | - | × |
+| destroyOnHidden | 关闭时销毁 Modal 里的子元素 | boolean | false | - | × |
+| focusTriggerAfterClose | 对话框关闭后是否需要聚焦触发元素 | boolean | true | - | × |
+| footer | 底部内容，当不需要默认底部按钮时，可以设为 `footer={null}` | VueNode \| (params: { originNode: VueNode, extra: { OkBtn: any, CancelBtn: any } }) => any | (确定取消按钮) | - | × |
+| forceRender | 强制渲染 Modal | boolean | false | - | × |
+| focusable | 对话框内焦点管理的配置 | `{ trap?: boolean, focusTriggerAfterClose?: boolean }` | - | - | ✓ |
+| getContainer | 指定 Modal 挂载的节点，但依旧为全屏展示，`false` 为挂载在当前位置 | string \| HTMLElement \| (() => HTMLElement) \| false | document.body | - | × |
+| keyboard | 是否支持键盘 esc 关闭 | boolean | true | - | × |
+| loading | 显示骨架屏 | boolean | false | - | × |
+| mask | 遮罩效果 | boolean \| [MaskType](#masktype) | true | - | ✓ |
+| maskClosable | 点击蒙层是否允许关闭 | boolean | true | - | × |
+| modalRender | 自定义渲染对话框 | (node: any) => any | - | - | × |
+| mousePosition | 设置动画起点位置 | MousePosition | - | - | × |
+| okButtonProps | ok 按钮 props | ButtonProps | - | - | ✓ |
+| okText | 确认按钮文字 | VueNode | `确定` | - | × |
+| okType | 确认按钮类型 | LegacyButtonType | `primary` | - | × |
+| open | 对话框是否可见，支持 `v-model:open` | boolean | false | - | × |
+| rootClass | 根容器 class | string | - | - | × |
+| rootStyle | 根容器样式 | CSSProperties | - | - | × |
+| styles | 用于自定义 Modal 组件内部各语义化结构的行内 style，支持对象或函数 | ModalStylesType | - | - | ✓ |
+| title | 标题 | VueNode | - | - | × |
+| transitionName | 对话框过渡动效名称 | string | - | - | × |
+| maskTransitionName | 遮罩过渡动效名称 | string | - | - | × |
+| width | 宽度 | string \| number \| Partial<Record<Breakpoint, string \| number>> | 520 | - | × |
+| wrapClassName | 对话框外层容器的类名 | string | - | - | × |
+| wrapProps | 对话框外层容器属性 | Record<string, any> | - | - | × |
+| zIndex | 设置 Modal 的 `z-index` | number | 1000 | - | × |
 
 ### 事件 {#events}
 

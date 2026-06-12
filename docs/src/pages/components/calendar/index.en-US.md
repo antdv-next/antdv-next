@@ -30,27 +30,27 @@ When data is in the form of dates, such as schedules, timetables, prices calenda
 
 Common props ref：[Common props](/docs/vue/common-props)
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| prefixCls | - | string | - | - |
-| rootClass | - | string | - | - |
-| classes | Customize class for each semantic structure inside the component. Supports object or function. | CalendarClassNamesType&lt;DateType&gt; | - | - |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | CalendarStylesType&lt;DateType&gt; | - | - |
-| locale | The calendar's locale | typeof enUS | [(default)](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) | - |
-| validRange | To set valid range | [DateType, DateType] | - | - |
-| disabledDate | Function that specifies the dates that cannot be selected, `currentDate` is same dayjs object as `value` prop which you [shouldn't mutate it](https://github.com/ant-design/ant-design/issues/30987) | (date: DateType) =&gt; boolean | - | - |
-| dateFullCellRender | Customize the display of the date cell, the returned content will override the cell | (date: DateType) =&gt; VueNode | - | - |
-| dateCellRender | Deprecated. | (date: DateType) =&gt; VueNode | - | - |
-| monthFullCellRender | Deprecated. | (date: DateType) =&gt; VueNode | - | - |
-| monthCellRender | Deprecated. | (date: DateType) =&gt; VueNode | - | - |
-| cellRender | Customize cell content | (date: DateType, info: any) =&gt; VueNode | - | - |
-| fullCellRender | Customize cell content | (date: DateType, info: any) =&gt; VueNode | - | - |
-| headerRender | Render custom header in panel | HeaderRender&lt;DateType&gt; | - | - |
-| value | The current selected date, support `v-model:value` | DateType | - | - |
-| defaultValue | The date selected by default | DateType | - | - |
-| mode | The display mode of the calendar | CalendarMode | `month` | - |
-| fullscreen | Whether to display in full-screen | boolean | true | - |
-| showWeek | Whether to display week number | boolean | false | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| prefixCls | - | string | - | - | × |
+| rootClass | - | string | - | - | × |
+| classes | Customize class for each semantic structure inside the component. Supports object or function. | CalendarClassNamesType&lt;DateType&gt; | - | - | ✓ |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | CalendarStylesType&lt;DateType&gt; | - | - | ✓ |
+| locale | The calendar's locale | typeof enUS | [(default)](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) | - | × |
+| validRange | To set valid range | [DateType, DateType] | - | - | × |
+| disabledDate | Function that specifies the dates that cannot be selected, `currentDate` is same dayjs object as `value` prop which you [shouldn't mutate it](https://github.com/ant-design/ant-design/issues/30987) | (date: DateType) =&gt; boolean | - | - | × |
+| dateFullCellRender | Customize the display of the date cell, the returned content will override the cell | (date: DateType) =&gt; VueNode | - | - | × |
+| dateCellRender | Deprecated. | (date: DateType) =&gt; VueNode | - | - | × |
+| monthFullCellRender | Deprecated. | (date: DateType) =&gt; VueNode | - | - | × |
+| monthCellRender | Deprecated. | (date: DateType) =&gt; VueNode | - | - | × |
+| cellRender | Customize cell content | (date: DateType, info: any) =&gt; VueNode | - | - | × |
+| fullCellRender | Customize cell content | (date: DateType, info: any) =&gt; VueNode | - | - | × |
+| headerRender | Render custom header in panel | HeaderRender&lt;DateType&gt; | - | - | × |
+| value | The current selected date, support `v-model:value` | DateType | - | - | × |
+| defaultValue | The date selected by default | DateType | - | - | × |
+| mode | The display mode of the calendar | CalendarMode | `month` | - | × |
+| fullscreen | Whether to display in full-screen | boolean | true | - | × |
+| showWeek | Whether to display week number | boolean | false | - | × |
 
 ### Events
 

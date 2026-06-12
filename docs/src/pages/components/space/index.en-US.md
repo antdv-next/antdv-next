@@ -40,16 +40,16 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 #### Props {#space-props}
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| align | Align items | `start` \| `end` \| `center` \| `baseline` | - | 4.2.0 |
-| classes | Customize class for each semantic structure inside the component. Supports object or function | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - |
-| orientation | The space direction | `vertical` \| `horizontal` | `horizontal` | - |
-| separator | Set separator | VueNode | - | - |
-| size | The space size | [Size](#size) \| [[Size](#size), [Size](#size)] | `small` | 4.1.0 \| Array: 4.9.0 |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - |
-| vertical | Orientation, Simultaneously configure with `orientation` and prioritize `orientation` | boolean | false | - |
-| wrap | Auto wrap line, when `horizontal` effective | boolean | false | 4.9.0 |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| align | Align items | `start` \| `end` \| `center` \| `baseline` | - | 4.2.0 | × |
+| classes | Customize class for each semantic structure inside the component. Supports object or function | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - | ✓ |
+| orientation | The space direction | `vertical` \| `horizontal` | `horizontal` | - | × |
+| separator | Set separator | VueNode | - | - | × |
+| size | The space size | [Size](#size) \| [[Size](#size), [Size](#size)] | `small` | 4.1.0 \| Array: 4.9.0 | ✓ |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - | ✓ |
+| vertical | Orientation, Simultaneously configure with `orientation` and prioritize `orientation` | boolean | false | - | × |
+| wrap | Auto wrap line, when `horizontal` effective | boolean | false | 4.9.0 | × |
 
 #### Slots {#space-slots}
 

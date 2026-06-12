@@ -34,12 +34,12 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 ### Props
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| title | Title of the card | VueNode | - | - |
-| content | Content of the card | VueNode | - | - |
-| classes | Customize class for each semantic structure inside the component. Supports object or function | PopoverClassNamesType | - | - |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function | PopoverStylesType | - | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| title | Title of the card | VueNode | - | - | × |
+| content | Content of the card | VueNode | - | - | × |
+| classes | Customize class for each semantic structure inside the component. Supports object or function | PopoverClassNamesType | - | - | ✓ |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function | PopoverStylesType | - | - | ✓ |
 
 Popover also supports all Tooltip props. See [Tooltip](/components/tooltip#api).
 

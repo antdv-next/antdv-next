@@ -4,6 +4,7 @@ import { mount } from '@vue/test-utils'
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 import { nextTick } from 'vue'
 import Upload from '..'
+import ConfigProvider from '../../config-provider'
 import { setup, teardown } from './mock'
 import { errorRequest, successRequest } from './requests'
 
@@ -231,6 +232,45 @@ describe('upload List', () => {
     await vi.runAllTimersAsync()
 
     expect(done).toHaveBeenCalled()
+  })
+
+  // antd #58126: when neither the `progress` prop nor the global config is set,
+  // UploadList's default progress style (thin bar without info text) must apply.
+  it('should keep default progress style when progress is not configured', async () => {
+    const uploadingList: UploadProps['fileList'] = [
+      { uid: '-up', name: 'uploading.png', status: 'uploading', percent: 30 },
+    ]
+    const wrapper = mount({
+      render: () => (
+        <Upload fileList={uploadingList} listType="text">
+          <button type="button">upload</button>
+        </Upload>
+      ),
+    })
+    // progress bar shows after a 300ms delay in ListItem
+    await vi.advanceTimersByTimeAsync(400)
+
+    expect(wrapper.find('.ant-upload-list-item-progress .ant-progress').exists()).toBe(true)
+    // showInfo defaults to false → no progress text
+    expect(wrapper.find('.ant-upload-list-item-progress .ant-progress-indicator').exists()).toBe(false)
+  })
+
+  it('should consume progress from ConfigProvider upload config', async () => {
+    const uploadingList: UploadProps['fileList'] = [
+      { uid: '-up', name: 'uploading.png', status: 'uploading', percent: 30 },
+    ]
+    const wrapper = mount({
+      render: () => (
+        <ConfigProvider upload={{ progress: { size: [-1, 2], showInfo: true } }}>
+          <Upload fileList={uploadingList} listType="text">
+            <button type="button">upload</button>
+          </Upload>
+        </ConfigProvider>
+      ),
+    })
+    await vi.advanceTimersByTimeAsync(400)
+
+    expect(wrapper.find('.ant-upload-list-item-progress .ant-progress-indicator').exists()).toBe(true)
   })
 
   it('handle error', async () => {

@@ -245,7 +245,7 @@ const InternalFormItem = defineComponent<
         return Promise.resolve()
       }
       let filteredRules = mergedRules.value
-      const { triggerName } = options
+      const { triggerName, validateOnly = false } = options
       if (triggerName) {
         if (mergedValidateTrigger.value === false) {
           filteredRules = []
@@ -259,6 +259,9 @@ const InternalFormItem = defineComponent<
       }
 
       if (!filteredRules.length) {
+        if (validateOnly) {
+          return Promise.resolve()
+        }
         errors.value = []
         warnings.value = []
         updateMeta({
@@ -272,7 +275,9 @@ const InternalFormItem = defineComponent<
         return Promise.resolve()
       }
 
-      updateMeta({ validating: true, validated: true })
+      if (!validateOnly) {
+        updateMeta({ validating: true, validated: true })
+      }
 
       const promise = validateRules(
         namePath.value,
@@ -285,6 +290,21 @@ const InternalFormItem = defineComponent<
         props.validateFirst ?? false,
         messageVariables.value,
       )
+
+      // Validate only and not trigger UI and Field status update
+      if (validateOnly) {
+        return promise
+          .catch(e => e)
+          .then((results: RuleError[] = []) => {
+            const hasError = results.some(
+              ({ rule: { warningOnly }, errors: ruleErrors }) => !warningOnly && ruleErrors.length,
+            )
+            if (hasError) {
+              return Promise.reject(results)
+            }
+            return results
+          })
+      }
 
       return promise
         .catch(e => e)
@@ -436,6 +456,8 @@ const InternalFormItem = defineComponent<
             getValue: () => fieldValue.value,
             getMeta: () => meta.value,
             rules: () => mergedRules.value,
+            // Touched or validated or has initialValue
+            isFieldDirty: () => meta.value.touched || meta.value.validated || initialValue.value !== undefined,
             // @ts-expect-error this
             validateRules: (options?: ValidateOptions) => validateRulesInner(options),
             resetField,

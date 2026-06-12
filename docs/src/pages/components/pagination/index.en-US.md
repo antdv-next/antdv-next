@@ -37,36 +37,36 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 ### Props
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| align | Alignment of pagination | `start` \| `center` \| `end` | - | - |
-| classes | Customize class for each semantic structure inside the component. Supports object or function | PaginationClassNamesType | - | - |
-| current | Current page number | number | - | - |
-| defaultCurrent | Default initial page number | number | 1 | - |
-| defaultPageSize | Default number of data items per page | number | 10 | - |
-| disabled | Disable pagination | boolean | - | - |
-| hideOnSinglePage | Whether to hide pager on single page | boolean | false | - |
-| itemRender | To customize item's innerHTML | (page: number, type: 'page' \| 'prev' \| 'next' \| 'jump-prev' \| 'jump-next', element: VueNode) => VueNode | - | - |
-| pageSize | Number of data items per page | number | - | - |
-| pageSizeOptions | Specify the sizeChanger options | (string \| number)[] | ['10', '20', '50', '100'] | - |
-| responsive | If `size` is not specified, `Pagination` would resize according to the width of the window | boolean | - | - |
-| rootClass | Root container class | string | - | - |
-| showLessItems | Show less page items | boolean | false | - |
-| showQuickJumper | Determine whether you can jump to pages directly | boolean \| \{ goButton?: VueNode \} | false | - |
-| showSizeChanger | Determine whether to show `pageSize` select | boolean \| SelectProps | - | - |
-| totalBoundaryShowSizeChanger | When `total` larger than it, `showSizeChanger` will be true | number | 50 | - |
-| showTitle | Show page item's title | boolean | true | - |
-| showTotal | To display the total number and range | (total: number, range: [number, number]) => VueNode | - | - |
-| simple | Whether to use simple mode | boolean \| \{ readOnly?: boolean \} | - | - |
-| size | Specify the size of `Pagination`, can be set to `small` | `default` \| `small` | `default` | - |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function | PaginationStylesType | - | - |
-| total | Total number of data items | number | 0 | - |
-| locale | Pagination locale | PaginationLocale | - | - |
-| prevIcon | Custom previous icon | VueNode | - | - |
-| nextIcon | Custom next icon | VueNode | - | - |
-| jumpPrevIcon | Custom jump-prev icon | VueNode | - | - |
-| jumpNextIcon | Custom jump-next icon | VueNode | - | - |
-| selectComponentClass | Deprecated, not official support | any | - | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| align | Alignment of pagination | `start` \| `center` \| `end` | - | - | × |
+| classes | Customize class for each semantic structure inside the component. Supports object or function | PaginationClassNamesType | - | - | ✓ |
+| current | Current page number | number | - | - | × |
+| defaultCurrent | Default initial page number | number | 1 | - | × |
+| defaultPageSize | Default number of data items per page | number | 10 | - | × |
+| disabled | Disable pagination | boolean | - | - | × |
+| hideOnSinglePage | Whether to hide pager on single page | boolean | false | - | × |
+| itemRender | To customize item's innerHTML | (page: number, type: 'page' \| 'prev' \| 'next' \| 'jump-prev' \| 'jump-next', element: VueNode) => VueNode | - | - | × |
+| pageSize | Number of data items per page | number | - | - | × |
+| pageSizeOptions | Specify the sizeChanger options | (string \| number)[] | ['10', '20', '50', '100'] | - | × |
+| responsive | If `size` is not specified, `Pagination` would resize according to the width of the window | boolean | - | - | × |
+| rootClass | Root container class | string | - | - | × |
+| showLessItems | Show less page items | boolean | false | - | × |
+| showQuickJumper | Determine whether you can jump to pages directly | boolean \| \{ goButton?: VueNode \} | false | - | × |
+| showSizeChanger | Determine whether to show `pageSize` select | boolean \| SelectProps | - | - | ✓ |
+| totalBoundaryShowSizeChanger | When `total` larger than it, `showSizeChanger` will be true | number | 50 | - | × |
+| showTitle | Show page item's title | boolean | true | - | × |
+| showTotal | To display the total number and range | (total: number, range: [number, number]) => VueNode | - | - | × |
+| simple | Whether to use simple mode | boolean \| \{ readOnly?: boolean \} | - | - | × |
+| size | Specify the size of `Pagination`, can be set to `small` | `default` \| `small` | `default` | - | × |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function | PaginationStylesType | - | - | ✓ |
+| total | Total number of data items | number | 0 | - | × |
+| locale | Pagination locale | PaginationLocale | - | - | × |
+| prevIcon | Custom previous icon | VueNode | - | - | × |
+| nextIcon | Custom next icon | VueNode | - | - | × |
+| jumpPrevIcon | Custom jump-prev icon | VueNode | - | - | × |
+| jumpNextIcon | Custom jump-next icon | VueNode | - | - | × |
+| selectComponentClass | Deprecated, not official support | any | - | - | × |
 
 ### Events {#events}
 

@@ -69,13 +69,13 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 #### Props {#radio-props}
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| checked | Specifies whether the radio is selected, support `v-model:checked` | boolean | false |  |
-| classes | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | -|
-| disabled | Disable radio | boolean | false |  |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | - |
-| value | According to value for comparison, to determine whether the selected | any | - |  |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| checked | Specifies whether the radio is selected, support `v-model:checked` | boolean | false |  | × |
+| classes | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | -| ✓ |
+| disabled | Disable radio | boolean | false |  | × |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | - | ✓ |
+| value | According to value for comparison, to determine whether the selected | any | - |  | × |
 
 #### Methods {#radio-methods}
 

@@ -32,27 +32,27 @@ Common props ref：[Comon props](/docs/vue/common-props)
 
 ### Props
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| steps | Tour steps | TourStepItem[\] | - | - |
-| open | Open tour, support `v-model:open` | boolean | false | - |
-| current | What is the current step | number | - | - |
-| arrow | Whether to show the arrow, including the configuration whether to point to the center of the element | boolean \| &#123; pointAtCenter: boolean &#125; | true | - |
-| closeIcon | Customize close icon | VueNode | true | - |
-| disabledInteraction | Disable interaction on highlighted area | boolean | false | - |
-| gap | Control the radius of the highlighted area and the offset between highlighted area and the element | &#123; offset?: number \| [number, number]; radius?: number &#125; | &#123; offset: 6, radius: 2 &#125; | - |
-| placement | Position of the guide card relative to the target element | `center` `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom` `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | `bottom` | - |
-| mask | Whether to enable masking, change mask style and fill color by pass custom props | boolean \| &#123; style?: CSSProperties; color?: string &#125; | true | - |
-| type | Type, affects the background color and text color | 'default' \| 'primary' | `default` | - |
-| scrollIntoViewOptions | support pass custom scrollIntoView options | boolean \| ScrollIntoViewOptions | true | - |
-| indicatorsRender | Custom indicator | (current: number, total: number) =&gt; VueNode | - | - |
-| actionsRender | Custom action | (originNode: VueNode, info: &#123; current: number, total: number &#125;) =&gt; VueNode | - | - |
-| zIndex | Tour zIndex | number | 1001 | - |
-| getPopupContainer | Set the rendering node of Tour floating layer | (node: HTMLElement) =&gt; HTMLElement | () =&gt; document.body | - |
-| classes | Customize class for each semantic structure inside the component. Supports object or function. | TourClassNamesType | - | - |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | TourStylesType | - | - |
-| rootClass | Root container class | string | - | - |
-| prefixCls | - | string | - | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| steps | Tour steps | TourStepItem[\] | - | - | × |
+| open | Open tour, support `v-model:open` | boolean | false | - | × |
+| current | What is the current step | number | - | - | × |
+| arrow | Whether to show the arrow, including the configuration whether to point to the center of the element | boolean \| &#123; pointAtCenter: boolean &#125; | true | - | × |
+| closeIcon | Customize close icon | VueNode | true | - | ✓ |
+| disabledInteraction | Disable interaction on highlighted area | boolean | false | - | × |
+| gap | Control the radius of the highlighted area and the offset between highlighted area and the element | &#123; offset?: number \| [number, number]; radius?: number &#125; | &#123; offset: 6, radius: 2 &#125; | - | × |
+| placement | Position of the guide card relative to the target element | `center` `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom` `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | `bottom` | - | × |
+| mask | Whether to enable masking, change mask style and fill color by pass custom props | boolean \| &#123; style?: CSSProperties; color?: string &#125; | true | - | × |
+| type | Type, affects the background color and text color | 'default' \| 'primary' | `default` | - | × |
+| scrollIntoViewOptions | support pass custom scrollIntoView options | boolean \| ScrollIntoViewOptions | true | - | × |
+| indicatorsRender | Custom indicator | (current: number, total: number) =&gt; VueNode | - | - | × |
+| actionsRender | Custom action | (originNode: VueNode, info: &#123; current: number, total: number &#125;) =&gt; VueNode | - | - | × |
+| zIndex | Tour zIndex | number | 1001 | - | × |
+| getPopupContainer | Set the rendering node of Tour floating layer | (node: HTMLElement) =&gt; HTMLElement | () =&gt; document.body | - | × |
+| classes | Customize class for each semantic structure inside the component. Supports object or function. | TourClassNamesType | - | - | ✓ |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | TourStylesType | - | - | ✓ |
+| rootClass | Root container class | string | - | - | × |
+| prefixCls | - | string | - | - | × |
 
 ### Events
 | Event | Description | Type | Version |

@@ -227,6 +227,21 @@ describe('tag', () => {
     expect(onClick).not.toHaveBeenCalled()
   })
 
+  it.each(['Enter', ' '])('should close by %s key', async (key) => {
+    const onClose = vi.fn()
+    const wrapper = mount(Tag, {
+      props: { closable: true, onClose },
+      slots: { default: () => 'Closable' },
+    })
+    const closeIcon = wrapper.find(`.${prefixCls}-close-icon`)
+    expect(closeIcon.attributes('role')).toBe('button')
+    expect(closeIcon.attributes('tabindex')).toBe('0')
+    await closeIcon.trigger('keydown', { key })
+    expect(onClose).toHaveBeenCalled()
+    expect(onClose.mock.calls[0][0].type).toBe('click')
+    expect(wrapper.find('span').classes()).toContain(`${prefixCls}-hidden`)
+  })
+
   // ===================== closeIcon slot =====================
 
   it('should render closeIcon slot', () => {
@@ -545,6 +560,41 @@ describe('checkable-tag', () => {
     await wrapper.find('span').trigger('click')
     expect(onChange).toHaveBeenCalledWith(true)
     expect(onUpdateChecked).toHaveBeenCalledWith(true)
+  })
+
+  it('should have checkbox aria attributes', async () => {
+    const wrapper = mount(CheckableTag, {
+      props: { checked: false },
+      slots: { default: () => 'Toggle' },
+    })
+    const tag = wrapper.find(`.${prefixCls}`)
+    expect(tag.attributes('role')).toBe('checkbox')
+    expect(tag.attributes('aria-checked')).toBe('false')
+    expect(tag.attributes('tabindex')).toBe('0')
+    await wrapper.setProps({ checked: true })
+    expect(tag.attributes('aria-checked')).toBe('true')
+  })
+
+  it('should trigger change by Space key', async () => {
+    const onChange = vi.fn()
+    const wrapper = mount(CheckableTag, {
+      props: { checked: false, onChange },
+      slots: { default: () => 'Toggle' },
+    })
+    await wrapper.find('span').trigger('keydown', { key: ' ' })
+    expect(onChange).toHaveBeenCalledWith(true)
+  })
+
+  it('should not trigger change when key event is prevented', async () => {
+    const onChange = vi.fn()
+    const onKeydown = vi.fn((e: KeyboardEvent) => e.preventDefault())
+    const wrapper = mount(CheckableTag, {
+      props: { checked: false, onChange, onKeydown },
+      slots: { default: () => 'Toggle' },
+    })
+    await wrapper.find('span').trigger('keydown', { key: ' ' })
+    expect(onKeydown).toHaveBeenCalled()
+    expect(onChange).not.toHaveBeenCalled()
   })
 
   it('should emit click event', async () => {

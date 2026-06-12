@@ -45,24 +45,24 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 Properties shared by all types.
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| classes | Customize class for each semantic structure inside the component. Supports object or function. | ProgressClassNamesType | - | - |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | ProgressStylesType | - | - |
-| rootClass | Root container class | string | - | - |
-| type | To set the type, options: `line` `circle` `dashboard` | ProgressType | `line` | - |
-| percent | To set the completion percentage | number | 0 | - |
-| format | The template function of the content | (percent?: number, successPercent?: number) =&gt; any | (percent) =&gt; percent + `%` | - |
-| status | To set the status of the Progress, options: `success` `exception` `normal` `active`(line only) | (typeof ProgressStatuses)[number] | - | - |
-| showInfo | Whether to display the progress value and the status icon | boolean | true | - |
-| strokeWidth | - | number | - | - |
-| strokeLinecap | To set the style of the progress linecap | 'butt' \| 'square' \| 'round' | `round` | - |
-| strokeColor | The color of progress bar | string \| string[] \| ProgressGradient | - | - |
-| railColor | The color of unfilled part | string | - | - |
-| success | Configs of successfully progress bar | SuccessProps | - | - |
-| trailColor | The color of unfilled part. Please use `railColor` instead | string | - | - |
-| width | Deprecated. Use `size` instead | number | - | - |
-| size | Progress size | number \| [number \| string, number] \| ProgressSize \| &#123; width?: number, height?: number &#125; | `default` | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| classes | Customize class for each semantic structure inside the component. Supports object or function. | ProgressClassNamesType | - | - | ✓ |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | ProgressStylesType | - | - | ✓ |
+| rootClass | Root container class | string | - | - | × |
+| type | To set the type, options: `line` `circle` `dashboard` | ProgressType | `line` | - | × |
+| percent | To set the completion percentage | number | 0 | - | × |
+| format | The template function of the content | (percent?: number, successPercent?: number) =&gt; any | (percent) =&gt; percent + `%` | - | × |
+| status | To set the status of the Progress, options: `success` `exception` `normal` `active`(line only) | (typeof ProgressStatuses)[number] | - | - | × |
+| showInfo | Whether to display the progress value and the status icon | boolean | true | - | × |
+| strokeWidth | - | number | - | - | × |
+| strokeLinecap | To set the style of the progress linecap | 'butt' \| 'square' \| 'round' | `round` | - | × |
+| strokeColor | The color of progress bar | string \| string[] \| ProgressGradient | - | - | × |
+| railColor | The color of unfilled part | string | - | - | × |
+| success | Configs of successfully progress bar | SuccessProps | - | - | × |
+| trailColor | The color of unfilled part. Please use `railColor` instead | string | - | - | × |
+| width | Deprecated. Use `size` instead | number | - | - | × |
+| size | Progress size | number \| [number \| string, number] \| ProgressSize \| &#123; width?: number, height?: number &#125; | `default` | - | × |
 
 ### `type="line"` {#type-line}
 
@@ -77,7 +77,7 @@ Properties shared by all types.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| steps | The total step count. When passing an object, `count` refers to the number of steps, and `gap` refers to the distance between them. When passing number, the default value for `gap` is 2. | number \| &#123; count: number, gap: number &#125; | - | - |
+| steps | The total step count. When passing an object, `count` refers to the number of steps, and `gap` refers to the distance between them. When passing a number, the default value for `gap` is 2. | number \| &#123; count: number, gap: number &#125; | - | - |
 | strokeColor | The color of circular progress, render gradient when passing an object | string \| ProgressGradient | - | - |
 | strokeWidth | To set the width of the circular progress, unit: percentage of the canvas width | number | 6 | - |
 
@@ -85,7 +85,7 @@ Properties shared by all types.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| steps | The total step count. When passing an object, `count` refers to the number of steps, and `gap` refers to the distance between them. When passing number, the default value for `gap` is 2. | number \| &#123; count: number, gap: number &#125; | - | - |
+| steps | The total step count. When passing an object, `count` refers to the number of steps, and `gap` refers to the distance between them. When passing a number, the default value for `gap` is 2. | number \| &#123; count: number, gap: number &#125; | - | - |
 | gapDegree | The gap degree of half circle, 0 ~ 295 | number | 75 | - |
 | gapPlacement | The gap placement, options: `top` `bottom` `start` `end` | GapPlacement | `bottom` | - |
 | gapPosition | Deprecated. Please use `gapPlacement` instead | GapPosition | `bottom` | - |

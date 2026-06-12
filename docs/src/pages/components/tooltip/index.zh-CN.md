@@ -35,32 +35,32 @@ demo:
 
 通用属性参考：[通用属性](/docs/vue/common-props)
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| align | 浮层对齐方式配置 | AlignType | - | - |
-| arrow | 支持显示、隐藏以及将箭头保持居中定位 | boolean \| &#123; pointAtCenter?: boolean &#125; | - | - |
-| autoAdjustOverflow | 气泡框不可见时自动调整位置 | boolean \| AdjustOverflow | - | - |
-| color | 设置背景颜色，使用该属性后内部文字颜色将自适应 | LiteralUnion&lt;PresetColorType&gt; | - | - |
-| open | 是否显示 | boolean | - | - |
-| defaultOpen | 默认是否显示 | boolean | false | - |
-| getPopupContainer | 浮层渲染父节点 | (triggerNode: HTMLElement) =&gt; HTMLElement | - | - |
-| destroyOnHidden | 隐藏后是否销毁 | boolean | - | - |
-| zIndex | 设置浮层 z-index | number | - | - |
-| placement | 气泡框位置 | TooltipPlacement | top | - |
-| trigger | 触发行为 | ActionType \| ActionType[] | - | - |
-| fresh | 在隐藏状态也更新内容 | boolean | - | - |
-| mouseEnterDelay | 鼠标移入后显示延时，单位秒 | number | 0.1 | - |
-| mouseLeaveDelay | 鼠标移出后隐藏延时，单位秒 | number | 0.1 | - |
-| classes | 语义化结构 class，支持对象或函数 | TooltipClassNamesType | - | - |
-| styles | 语义化结构 style，支持对象或函数 | TooltipStylesType | - | - |
-| getTooltipContainer | `getPopupContainer` 的兼容别名 | (node: HTMLElement) =&gt; HTMLElement | - | - |
-| motion | 浮层动画配置 | VcTooltipProps['motion'] | - | - |
-| afterOpenChange | 显隐变化后的回调 | (open: boolean) =&gt; void | - | - |
-| builtinPlacements | 内置位置配置 | typeof Placements | - | - |
-| title | 提示文字 | VueNode | - | - |
-| overlay | `title` 的兼容别名 | VueNode | - | - |
-| openClass | 气泡显示时附加在子元素上的 class | string | - | - |
-| unique | 在 `AUniqueProvider`/ConfigProvider 中启用唯一显示 | boolean | - | - |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| align | 浮层对齐方式配置 | AlignType | - | - | × |
+| arrow | 支持显示、隐藏以及将箭头保持居中定位 | boolean \| &#123; pointAtCenter?: boolean &#125; | - | - | ✓ |
+| autoAdjustOverflow | 气泡框不可见时自动调整位置 | boolean \| AdjustOverflow | - | - | × |
+| color | 设置背景颜色，使用该属性后内部文字颜色将自适应 | LiteralUnion&lt;PresetColorType&gt; | - | - | × |
+| open | 是否显示 | boolean | - | - | × |
+| defaultOpen | 默认是否显示 | boolean | false | - | × |
+| getPopupContainer | 浮层渲染父节点 | (triggerNode: HTMLElement) =&gt; HTMLElement | - | - | × |
+| destroyOnHidden | 隐藏后是否销毁 | boolean | - | - | × |
+| zIndex | 设置浮层 z-index | number | - | - | × |
+| placement | 气泡框位置 | TooltipPlacement | top | - | × |
+| trigger | 触发行为 | ActionType \| ActionType[] | - | - | ✓ |
+| fresh | 在隐藏状态也更新内容 | boolean | - | - | × |
+| mouseEnterDelay | 鼠标移入后显示延时，单位秒 | number | 0.1 | - | × |
+| mouseLeaveDelay | 鼠标移出后隐藏延时，单位秒 | number | 0.1 | - | × |
+| classes | 语义化结构 class，支持对象或函数 | TooltipClassNamesType | - | - | ✓ |
+| styles | 语义化结构 style，支持对象或函数 | TooltipStylesType | - | - | ✓ |
+| getTooltipContainer | `getPopupContainer` 的兼容别名 | (node: HTMLElement) =&gt; HTMLElement | - | - | × |
+| motion | 浮层动画配置 | VcTooltipProps['motion'] | - | - | × |
+| afterOpenChange | 显隐变化后的回调 | (open: boolean) =&gt; void | - | - | × |
+| builtinPlacements | 内置位置配置 | typeof Placements | - | - | × |
+| title | 提示文字 | VueNode | - | - | × |
+| overlay | `title` 的兼容别名 | VueNode | - | - | × |
+| openClass | 气泡显示时附加在子元素上的 class | string | - | - | × |
+| unique | 在 `AUniqueProvider`/ConfigProvider 中启用唯一显示 | boolean | - | - | ✓ |
 
 ### 事件 {#events}
 

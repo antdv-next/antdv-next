@@ -1,7 +1,7 @@
 import type { CSSObject } from '@antdv-next/cssinjs'
 import type { AliasToken, GenerateStyle } from '../theme/internal'
 
-import { unit } from '@antdv-next/cssinjs'
+import { Keyframes, unit } from '@antdv-next/cssinjs'
 
 export const textEllipsis: CSSObject = {
   overflow: 'hidden',
@@ -48,6 +48,12 @@ export function resetIcon(): CSSObject {
     },
   }
 }
+
+const loadingCircle = new Keyframes('loadingCircle', {
+  '100%': {
+    transform: 'rotate(360deg)',
+  },
+})
 
 export function clearFix(): CSSObject {
   return {
@@ -156,6 +162,13 @@ export function genIconStyle(iconPrefixCls: string): CSSObject {
       [`.${iconPrefixCls} .${iconPrefixCls}-icon`]: {
         display: 'block',
       },
+    },
+
+    [`.${iconPrefixCls}-spin`]: {
+      animationName: loadingCircle,
+      animationDuration: '1s',
+      animationIterationCount: 'infinite',
+      animationTimingFunction: 'linear',
     },
   }
 }

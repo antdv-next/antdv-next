@@ -39,11 +39,9 @@ Custom action.
     closable
   >
     <template #action>
-      <a-space>
-        <a-button size="small" type="text">
-          Done
-        </a-button>
-      </a-space>
+      <a-button size="small" type="text">
+        Done
+      </a-button>
     </template>
   </a-alert>
   <br>
@@ -54,14 +52,14 @@ Custom action.
     closable
   >
     <template #action>
-      <a-space direction="vertical">
-        <a-button size="small" type="primary">
+      <a-flex vertical gap="small" :style="{ minWidth: '80px' }">
+        <a-button size="small" type="primary" block>
           Accept
         </a-button>
-        <a-button size="small" danger ghost>
+        <a-button size="small" danger ghost block>
           Decline
         </a-button>
-      </a-space>
+      </a-flex>
     </template>
   </a-alert>
 </template>

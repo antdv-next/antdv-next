@@ -29,14 +29,14 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 ### Props
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| classes | Customize class for each semantic structure inside the component. Supports object or function. | EmptyClassNamesType | - | - |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | EmptyStylesType | - | - |
-| image | Customize image. Will treat as image url when string provided | VueNode | `Empty.PRESENTED_IMAGE_DEFAULT` | - |
-| description | Customize description | VueNode | - | - |
-| rootClass | Root container class | string | - | - |
-| prefixCls | Prefix class name | string | - | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| classes | Customize class for each semantic structure inside the component. Supports object or function. | EmptyClassNamesType | - | - | ✓ |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | EmptyStylesType | - | - | ✓ |
+| image | Customize image. Will treat as image url when string provided | VueNode | `Empty.PRESENTED_IMAGE_DEFAULT` | - | ✓ |
+| description | Customize description | VueNode | - | - | × |
+| rootClass | Root container class | string | - | - | × |
+| prefixCls | Prefix class name | string | - | - | × |
 
 ### Slots
 
