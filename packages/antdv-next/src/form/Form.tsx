@@ -12,7 +12,7 @@ import type {
   FieldData,
   InternalNamePath,
   NamePath,
-  Rule,
+  RulesMap,
   ValidateErrorEntity,
   ValidateMessages,
   ValidateOptions,
@@ -93,7 +93,7 @@ export interface FormProps extends ComponentBaseProps,
   variant?: Variant
   validateMessages?: ValidateMessages
   model?: Record<string, any>
-  rules?: Record<string, Rule[]>
+  rules?: RulesMap
   validateTrigger?: string | string[] | false
   preserve?: boolean
   clearOnDestroy?: boolean
