@@ -154,26 +154,32 @@ const InternalSegmented = defineComponent<
         const iconRender = slots.iconRender || props.iconRender
         const _option = typeof option === 'object' ? option : { value: option }
         let iconFromSlot = iconRender ? iconRender(_option) : null
-        iconFromSlot = filterEmpty(Array.isArray(iconFromSlot) ? iconFromSlot : [iconFromSlot])
+        iconFromSlot = filterEmpty(Array.isArray(iconFromSlot) ? iconFromSlot : [iconFromSlot]).filter(Boolean)
         const labelRender = slots.labelRender || props.labelRender
         let labelFromSlot = labelRender ? labelRender(_option) : null
         labelFromSlot = filterEmpty(Array.isArray(labelFromSlot) ? labelFromSlot : [labelFromSlot]).filter(Boolean)
-        if (isSegmentedLabeledOptionWithIcon(option, iconFromSlot)) {
-          const { label, ...restOption } = option
-          labelFromSlot = labelFromSlot.length > 0 ? labelFromSlot : label
-          const showLabel = !!(labelFromSlot && labelFromSlot.length > 0) || !!label
+        const hasIcon = isSegmentedLabeledOptionWithIcon(option, iconFromSlot)
+        const hasCustomLabel = labelFromSlot.length > 0
+        // Only wrap the option when it actually carries an icon or a custom label,
+        // otherwise keep the raw option so we don't render an empty icon wrapper.
+        if (hasIcon || hasCustomLabel) {
+          const { label, ...restOption } = _option
+          const mergedLabel = labelFromSlot.length > 0 ? labelFromSlot : label
+          const showLabel = !!(labelFromSlot.length > 0) || !!label
           const icon = getSlotPropsFnRun({}, option, 'icon') ?? iconFromSlot
           return {
             ...restOption,
             label: (
               <>
-                <span
-                  class={clsx(`${prefixCls.value}-item-icon`, mergedClassNames.value?.icon)}
-                  style={mergedStyles.value?.icon}
-                >
-                  {icon}
-                </span>
-                {showLabel && <span>{labelFromSlot}</span>}
+                {hasIcon && (
+                  <span
+                    class={clsx(`${prefixCls.value}-item-icon`, mergedClassNames.value?.icon)}
+                    style={mergedStyles.value?.icon}
+                  >
+                    {icon}
+                  </span>
+                )}
+                {showLabel && <span>{mergedLabel}</span>}
               </>
             ),
           }

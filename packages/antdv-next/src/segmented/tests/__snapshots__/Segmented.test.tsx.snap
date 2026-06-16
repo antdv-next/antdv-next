@@ -76,15 +76,9 @@ exports[`segmented > should render segmented with mixed options 1`] = `
       />
       <div
         class="ant-segmented-item-label"
+        title="Weekly"
       >
-        <span
-          class="ant-segmented-item-icon"
-        >
-          <!---->
-        </span>
-        <span>
-          Weekly
-        </span>
+        Weekly
       </div>
     </label>
     <label
@@ -385,15 +379,9 @@ exports[`segmented > snapshot > should match snapshot with various options 1`] =
       />
       <div
         class="ant-segmented-item-label"
+        title="Weekly"
       >
-        <span
-          class="ant-segmented-item-icon"
-        >
-          <!---->
-        </span>
-        <span>
-          Weekly
-        </span>
+        Weekly
       </div>
     </label>
     <label
@@ -407,15 +395,9 @@ exports[`segmented > snapshot > should match snapshot with various options 1`] =
       />
       <div
         class="ant-segmented-item-label"
+        title="Monthly"
       >
-        <span
-          class="ant-segmented-item-icon"
-        >
-          <!---->
-        </span>
-        <span>
-          Monthly
-        </span>
+        Monthly
       </div>
     </label>
   </div>

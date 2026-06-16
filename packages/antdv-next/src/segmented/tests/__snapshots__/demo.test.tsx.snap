@@ -828,11 +828,7 @@ exports[`segmented demo > renders custom correctly 1`] = `
         <div
           class="ant-segmented-item-label"
         >
-          <span
-            class="ant-segmented-item-icon"
-          >
-            <!---->
-          </span>
+          <!---->
           <span>
             <div
               style="padding: 4px;"
@@ -863,11 +859,7 @@ exports[`segmented demo > renders custom correctly 1`] = `
         <div
           class="ant-segmented-item-label"
         >
-          <span
-            class="ant-segmented-item-icon"
-          >
-            <!---->
-          </span>
+          <!---->
           <span>
             <div
               style="padding: 4px;"
@@ -898,11 +890,7 @@ exports[`segmented demo > renders custom correctly 1`] = `
         <div
           class="ant-segmented-item-label"
         >
-          <span
-            class="ant-segmented-item-icon"
-          >
-            <!---->
-          </span>
+          <!---->
           <span>
             <div
               style="padding: 4px;"
@@ -950,11 +938,7 @@ exports[`segmented demo > renders custom correctly 1`] = `
         <div
           class="ant-segmented-item-label"
         >
-          <span
-            class="ant-segmented-item-icon"
-          >
-            <!---->
-          </span>
+          <!---->
           <span>
             <div
               style="padding: 4px;"
@@ -980,11 +964,7 @@ exports[`segmented demo > renders custom correctly 1`] = `
         <div
           class="ant-segmented-item-label"
         >
-          <span
-            class="ant-segmented-item-icon"
-          >
-            <!---->
-          </span>
+          <!---->
           <span>
             <div
               style="padding: 4px;"
@@ -1010,11 +990,7 @@ exports[`segmented demo > renders custom correctly 1`] = `
         <div
           class="ant-segmented-item-label"
         >
-          <span
-            class="ant-segmented-item-icon"
-          >
-            <!---->
-          </span>
+          <!---->
           <span>
             <div
               style="padding: 4px;"
@@ -1040,11 +1016,7 @@ exports[`segmented demo > renders custom correctly 1`] = `
         <div
           class="ant-segmented-item-label"
         >
-          <span
-            class="ant-segmented-item-icon"
-          >
-            <!---->
-          </span>
+          <!---->
           <span>
             <div
               style="padding: 4px;"
@@ -1169,15 +1141,9 @@ exports[`segmented demo > renders disabled correctly 1`] = `
         />
         <div
           class="ant-segmented-item-label"
+          title="Weekly"
         >
-          <span
-            class="ant-segmented-item-icon"
-          >
-            <!---->
-          </span>
-          <span>
-            Weekly
-          </span>
+          Weekly
         </div>
       </label>
       <label
@@ -1206,15 +1172,9 @@ exports[`segmented demo > renders disabled correctly 1`] = `
         />
         <div
           class="ant-segmented-item-label"
+          title="Quarterly"
         >
-          <span
-            class="ant-segmented-item-icon"
-          >
-            <!---->
-          </span>
-          <span>
-            Quarterly
-          </span>
+          Quarterly
         </div>
       </label>
       <label
