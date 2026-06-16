@@ -100,6 +100,46 @@ describe('dropdown', () => {
     expect(items.length).toBe(3)
   })
 
+  // https://github.com/antdv-next/antdv-next/issues/599
+  it('should forward menu.classes and menu.styles to the underlying Menu', async () => {
+    mount(Dropdown, {
+      attachTo: document.body,
+      props: {
+        menu: {
+          ...menu,
+          classes: { root: 'ant-pro-menu' },
+          styles: { root: { width: '160px' } },
+        },
+        open: true,
+        mouseEnterDelay: 0,
+        mouseLeaveDelay: 0,
+      },
+      slots: { default: () => <span>trigger</span> },
+    })
+    await flushDropdownTimer()
+    const menuEl = document.querySelector<HTMLElement>('.ant-dropdown-menu')
+    expect(menuEl).toBeTruthy()
+    expect(menuEl!.classList.contains('ant-pro-menu')).toBe(true)
+    expect(menuEl!.style.width).toBe('160px')
+  })
+
+  it('should forward menu.rootClass to the underlying Menu', async () => {
+    mount(Dropdown, {
+      attachTo: document.body,
+      props: {
+        menu: { ...menu, rootClass: 'custom-menu-root' },
+        open: true,
+        mouseEnterDelay: 0,
+        mouseLeaveDelay: 0,
+      },
+      slots: { default: () => <span>trigger</span> },
+    })
+    await flushDropdownTimer()
+    const menuEl = document.querySelector<HTMLElement>('.ant-dropdown-menu')
+    expect(menuEl).toBeTruthy()
+    expect(menuEl!.classList.contains('custom-menu-root')).toBe(true)
+  })
+
   // =================== Placement ===================
 
   it('should default placement to bottomLeft in LTR', () => {

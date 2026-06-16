@@ -273,17 +273,20 @@ const Dropdown = defineComponent<
         if (menu?.items) {
           overlayNode = (
             <Menu
-              {...menu}
+              {...omit(menu, ['classes', 'styles', 'rootClass'])}
               onClick={(menu: MenuInfo) => {
                 emit('menuClick', menu)
               }}
+              rootClass={clsx(menu?.rootClass)}
               classes={{
+                ...menu?.classes,
                 ...menuClassNames,
                 subMenu: {
                   ...menuClassNames,
                 },
               }}
               styles={{
+                ...menu?.styles,
                 ...menuStyles,
                 subMenu: {
                   ...menuStyles,
