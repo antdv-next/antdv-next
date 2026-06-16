@@ -33136,15 +33136,9 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                 />
                 <div
                   class="ant-segmented-item-label"
+                  title="None"
                 >
-                  <span
-                    class="ant-segmented-item-icon"
-                  >
-                    <!---->
-                  </span>
-                  <span>
-                    None
-                  </span>
+                  None
                 </div>
               </label>
               <label
@@ -33157,15 +33151,9 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                 />
                 <div
                   class="ant-segmented-item-label"
+                  title="Less"
                 >
-                  <span
-                    class="ant-segmented-item-icon"
-                  >
-                    <!---->
-                  </span>
-                  <span>
-                    Less
-                  </span>
+                  Less
                 </div>
               </label>
               <label
@@ -33179,15 +33167,9 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                 />
                 <div
                   class="ant-segmented-item-label"
+                  title="Lot"
                 >
-                  <span
-                    class="ant-segmented-item-icon"
-                  >
-                    <!---->
-                  </span>
-                  <span>
-                    Lot
-                  </span>
+                  Lot
                 </div>
               </label>
             </div>

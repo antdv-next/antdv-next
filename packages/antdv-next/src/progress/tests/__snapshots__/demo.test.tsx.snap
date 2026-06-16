@@ -1578,15 +1578,9 @@ exports[`progress demo > renders dashboard correctly 1`] = `
           />
           <div
             class="ant-segmented-item-label"
+            title="50"
           >
-            <span
-              class="ant-segmented-item-icon"
-            >
-              <!---->
-            </span>
-            <span>
-              50
-            </span>
+            50
           </div>
         </label>
         <label
@@ -1599,15 +1593,9 @@ exports[`progress demo > renders dashboard correctly 1`] = `
           />
           <div
             class="ant-segmented-item-label"
+            title="100"
           >
-            <span
-              class="ant-segmented-item-icon"
-            >
-              <!---->
-            </span>
-            <span>
-              100
-            </span>
+            100
           </div>
         </label>
       </div>
@@ -1637,15 +1625,9 @@ exports[`progress demo > renders dashboard correctly 1`] = `
           />
           <div
             class="ant-segmented-item-label"
+            title="start"
           >
-            <span
-              class="ant-segmented-item-icon"
-            >
-              <!---->
-            </span>
-            <span>
-              start
-            </span>
+            start
           </div>
         </label>
         <label
@@ -1658,15 +1640,9 @@ exports[`progress demo > renders dashboard correctly 1`] = `
           />
           <div
             class="ant-segmented-item-label"
+            title="end"
           >
-            <span
-              class="ant-segmented-item-icon"
-            >
-              <!---->
-            </span>
-            <span>
-              end
-            </span>
+            end
           </div>
         </label>
         <label
@@ -1679,15 +1655,9 @@ exports[`progress demo > renders dashboard correctly 1`] = `
           />
           <div
             class="ant-segmented-item-label"
+            title="top"
           >
-            <span
-              class="ant-segmented-item-icon"
-            >
-              <!---->
-            </span>
-            <span>
-              top
-            </span>
+            top
           </div>
         </label>
         <label
@@ -1701,15 +1671,9 @@ exports[`progress demo > renders dashboard correctly 1`] = `
           />
           <div
             class="ant-segmented-item-label"
+            title="bottom"
           >
-            <span
-              class="ant-segmented-item-icon"
-            >
-              <!---->
-            </span>
-            <span>
-              bottom
-            </span>
+            bottom
           </div>
         </label>
       </div>
