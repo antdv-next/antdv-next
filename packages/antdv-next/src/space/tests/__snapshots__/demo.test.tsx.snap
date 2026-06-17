@@ -2023,7 +2023,7 @@ exports[`space demo > renders compact correctly 1`] = `
         value=""
       />
       <input
-        class="ant-input ant-input-disabled ant-input-outlined site-input-split site-input-split ant-input-compact-item css-var-root ant-input-css-var"
+        class="ant-input ant-input-disabled ant-input-outlined site-input-split ant-input-compact-item css-var-root ant-input-css-var"
         disabled=""
         placeholder="~"
         style="width: 30px; border-inline-start: 0; border-inline-end: 0; pointer-events: none;"
@@ -2031,7 +2031,7 @@ exports[`space demo > renders compact correctly 1`] = `
         value=""
       />
       <input
-        class="ant-input ant-input-outlined site-input-right site-input-right ant-input-compact-item ant-input-compact-last-item css-var-root ant-input-css-var"
+        class="ant-input ant-input-outlined site-input-right ant-input-compact-item ant-input-compact-last-item css-var-root ant-input-css-var"
         placeholder="Maximum"
         style="width: 100px; text-align: center;"
         type="text"

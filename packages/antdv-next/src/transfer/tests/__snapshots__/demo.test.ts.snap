@@ -75,7 +75,7 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
               class="ant-transfer-list-body-search-wrapper"
             >
               <span
-                class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search ant-transfer-list-search css-var-v-0 ant-input-css-var"
+                class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search css-var-v-0 ant-input-css-var"
               >
                 <span
                   class="ant-input-prefix"
@@ -693,7 +693,7 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
               class="ant-transfer-list-body-search-wrapper"
             >
               <span
-                class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search ant-transfer-list-search css-var-v-0 ant-input-css-var"
+                class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search css-var-v-0 ant-input-css-var"
               >
                 <span
                   class="ant-input-prefix"
@@ -3156,7 +3156,7 @@ exports[`transfer demo > renders advanced correctly 1`] = `
         class="ant-transfer-list-body-search-wrapper"
       >
         <span
-          class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search ant-transfer-list-search css-var-root ant-input-css-var"
+          class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search css-var-root ant-input-css-var"
         >
           <span
             class="ant-input-prefix"
@@ -3429,7 +3429,7 @@ exports[`transfer demo > renders advanced correctly 1`] = `
         class="ant-transfer-list-body-search-wrapper"
       >
         <span
-          class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search ant-transfer-list-search css-var-root ant-input-css-var"
+          class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search css-var-root ant-input-css-var"
         >
           <span
             class="ant-input-prefix"
@@ -6042,7 +6042,7 @@ exports[`transfer demo > renders search correctly 1`] = `
         class="ant-transfer-list-body-search-wrapper"
       >
         <span
-          class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search ant-transfer-list-search css-var-root ant-input-css-var"
+          class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search css-var-root ant-input-css-var"
         >
           <span
             class="ant-input-prefix"
@@ -6284,7 +6284,7 @@ exports[`transfer demo > renders search correctly 1`] = `
         class="ant-transfer-list-body-search-wrapper"
       >
         <span
-          class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search ant-transfer-list-search css-var-root ant-input-css-var"
+          class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search css-var-root ant-input-css-var"
         >
           <span
             class="ant-input-prefix"
@@ -6760,7 +6760,7 @@ exports[`transfer demo > renders status correctly 1`] = `
           class="ant-transfer-list-body-search-wrapper"
         >
           <span
-            class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search ant-transfer-list-search css-var-root ant-input-css-var"
+            class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search css-var-root ant-input-css-var"
           >
             <span
               class="ant-input-prefix"
@@ -7002,7 +7002,7 @@ exports[`transfer demo > renders status correctly 1`] = `
           class="ant-transfer-list-body-search-wrapper"
         >
           <span
-            class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search ant-transfer-list-search css-var-root ant-input-css-var"
+            class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search css-var-root ant-input-css-var"
           >
             <span
               class="ant-input-prefix"
@@ -8474,7 +8474,7 @@ exports[`transfer demo > renders table-transfer correctly 1`] = `
           class="ant-transfer-list-body-search-wrapper"
         >
           <span
-            class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search ant-transfer-list-search css-var-root ant-input-css-var"
+            class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search css-var-root ant-input-css-var"
           >
             <span
               class="ant-input-prefix"
@@ -9391,7 +9391,7 @@ exports[`transfer demo > renders table-transfer correctly 1`] = `
           class="ant-transfer-list-body-search-wrapper"
         >
           <span
-            class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search ant-transfer-list-search css-var-root ant-input-css-var"
+            class="ant-input-affix-wrapper ant-input-outlined ant-transfer-list-search css-var-root ant-input-css-var"
           >
             <span
               class="ant-input-prefix"
