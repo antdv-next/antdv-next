@@ -148,7 +148,7 @@ catalogs:
     '@v-c/progress': ^1.0.0
     '@v-c/qrcode': ^1.0.0
     '@v-c/rate': ^1.0.1
-    '@v-c/resize-observer': ^1.1.0
+    '@v-c/resize-observer': ^1.1.2
     '@v-c/segmented': ^1.0.2
     '@v-c/select': ^1.1.1
     '@v-c/slick': ^1.0.2
