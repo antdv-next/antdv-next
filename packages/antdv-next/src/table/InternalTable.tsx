@@ -63,14 +63,24 @@ const EMPTY_LIST: AnyObject[] = []
 
 // Aria props are injected into the scroll header `<table>` so screen readers
 // can still read them when the header is rendered in a separate fixed table.
-const HeaderTableAriaKey: InjectionKey<Ref<Record<string, any>>> = Symbol('HeaderTableAria')
+// `component` keeps any consumer-provided `components.header.table` so the
+// escape hatch is preserved while aria props are merged on top.
+interface HeaderTableContextValue {
+  ariaProps?: Record<string, any>
+  component?: any
+}
+const HeaderTableContextKey: InjectionKey<Ref<HeaderTableContextValue>> = Symbol('HeaderTableContext')
 
 const HeaderTable = defineComponent({
   name: 'HeaderTable',
   inheritAttrs: false,
   setup(_, { slots, attrs }) {
-    const ariaProps = inject(HeaderTableAriaKey, undefined)
-    return () => h('table', { ...ariaProps?.value, ...attrs }, slots.default?.())
+    const ctx = inject(HeaderTableContextKey, undefined)
+    return () => {
+      const { ariaProps, component } = ctx?.value ?? {}
+      const Comp = component ?? 'table'
+      return h(Comp, { ...ariaProps, ...attrs }, slots.default?.())
+    }
   },
 })
 
@@ -264,7 +274,10 @@ const InternalTable = defineComponent<
     // header table via a custom `components.header.table` (#58339).
     const ariaProps = computed(() => pickAttrs(attrs, { aria: true }) as Record<string, any>)
     const hasAriaProps = computed(() => Object.keys(ariaProps.value).length > 0)
-    provide(HeaderTableAriaKey, ariaProps)
+    provide(HeaderTableContextKey, computed<HeaderTableContextValue>(() => ({
+      ariaProps: ariaProps.value,
+      component: props.components?.header?.table,
+    })))
     const mergedComponents = computed(() => {
       const components = props.components
       if (!hasAriaProps.value) {
