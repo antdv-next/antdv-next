@@ -71,10 +71,23 @@ interface HeaderTableContextValue {
 }
 const HeaderTableContextKey: InjectionKey<Ref<HeaderTableContextValue>> = Symbol('HeaderTableContext')
 
-const HeaderTable = defineComponent({
-  name: 'HeaderTable',
-  inheritAttrs: false,
-  setup(_, { slots, attrs }) {
+export interface HeaderTableProps {}
+
+export interface HeaderTableEmits {
+  [key: string]: (...args: any[]) => void
+}
+
+export interface HeaderTableSlots {
+  default?: () => any
+}
+
+const HeaderTable = defineComponent<
+  HeaderTableProps,
+  HeaderTableEmits,
+  string,
+  SlotsType<HeaderTableSlots>
+>(
+  (_props, { slots, attrs }) => {
     const ctx = inject(HeaderTableContextKey, undefined)
     return () => {
       const { ariaProps, component } = ctx?.value ?? {}
@@ -82,7 +95,11 @@ const HeaderTable = defineComponent({
       return h(Comp, { ...ariaProps, ...attrs }, slots.default?.())
     }
   },
-})
+  {
+    name: 'HeaderTable',
+    inheritAttrs: false,
+  },
+)
 
 export type TableSemanticName = keyof TableSemanticClassNames & keyof TableSemanticStyles
 
