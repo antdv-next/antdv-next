@@ -366,11 +366,11 @@ catalogs:
       specifier: ^1.2.0
       version: 1.2.0
     '@v-c/mutate-observer':
-      specifier: ^1.0.1
-      version: 1.0.1
+      specifier: ^1.0.2
+      version: 1.0.2
     '@v-c/notification':
-      specifier: ^2.0.0
-      version: 2.0.0
+      specifier: ^2.0.1
+      version: 2.0.1
     '@v-c/pagination':
       specifier: ^1.0.1
       version: 1.0.1
@@ -378,11 +378,11 @@ catalogs:
       specifier: ^1.1.3
       version: 1.1.3
     '@v-c/progress':
-      specifier: ^1.0.0
-      version: 1.0.0
+      specifier: ^1.0.1
+      version: 1.0.1
     '@v-c/qrcode':
-      specifier: ^1.0.0
-      version: 1.0.0
+      specifier: ^1.0.1
+      version: 1.0.1
     '@v-c/rate':
       specifier: ^1.0.1
       version: 1.0.1
@@ -834,10 +834,10 @@ importers:
         version: 1.2.0(vue@3.5.30(typescript@5.9.3))
       '@v-c/mutate-observer':
         specifier: catalog:vc
-        version: 1.0.1(vue@3.5.30(typescript@5.9.3))
+        version: 1.0.2(vue@3.5.30(typescript@5.9.3))
       '@v-c/notification':
         specifier: catalog:vc
-        version: 2.0.0(vue@3.5.30(typescript@5.9.3))
+        version: 2.0.1(vue@3.5.30(typescript@5.9.3))
       '@v-c/pagination':
         specifier: catalog:vc
         version: 1.0.1(vue@3.5.30(typescript@5.9.3))
@@ -846,10 +846,10 @@ importers:
         version: 1.1.3(dayjs@1.11.20)(vue@3.5.30(typescript@5.9.3))
       '@v-c/progress':
         specifier: catalog:vc
-        version: 1.0.0(vue@3.5.30(typescript@5.9.3))
+        version: 1.0.1(vue@3.5.30(typescript@5.9.3))
       '@v-c/qrcode':
         specifier: catalog:vc
-        version: 1.0.0(vue@3.5.30(typescript@5.9.3))
+        version: 1.0.1(vue@3.5.30(typescript@5.9.3))
       '@v-c/rate':
         specifier: catalog:vc
         version: 1.0.1(vue@3.5.30(typescript@5.9.3))
@@ -2891,8 +2891,18 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
+  '@v-c/mutate-observer@1.0.2':
+    resolution: {integrity: sha512-btnmj0NezMcQ/vOlTlP9p47NBOa8q/CIYdDMrpM3W0JrmAHrkAUD7hiWypLXyBuiEko+SQc3U07rcm8StQ5qFA==}
+    peerDependencies:
+      vue: ^3.0.0
+
   '@v-c/notification@2.0.0':
     resolution: {integrity: sha512-m/DeTTZf7l0t6ROYNoP6UPUTdbo8SQDU8x6KPeo/9BgpfhOsIp2FcAnzkfb8NXxYzVJyyFTrWxX5IFM3gw6Zcg==}
+    peerDependencies:
+      vue: ^3.0.0
+
+  '@v-c/notification@2.0.1':
+    resolution: {integrity: sha512-23Vj8/eodOVSAAvXjZkgwIn2Ww0zNzX3w0wpyYi/TlDo4pOfWFEyXtJEuQ1icS9HPUlmIaBfHrBgomCWe3OxNA==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -2934,8 +2944,18 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
+  '@v-c/progress@1.0.1':
+    resolution: {integrity: sha512-ZTaXBYfAASPSk9MD/tu3eZUCnB1UhK6s0G/F0AkNwvzPiVcR2kiiDZO12YpfmdZwUjcrg8U7miAg89aSUZ/aPw==}
+    peerDependencies:
+      vue: ^3.0.0
+
   '@v-c/qrcode@1.0.0':
     resolution: {integrity: sha512-OSMrYDhP/NQiUcO6J0X2X8BskHPRqX/E/F9npH3oayZgjCo5Aom+63Ja3J0u6SOmKP1JgLSgjrm5karc0671jw==}
+    peerDependencies:
+      vue: ^3.0.0
+
+  '@v-c/qrcode@1.0.1':
+    resolution: {integrity: sha512-kPcpjgX5lEj6/vatJOqrUtqj5PGvcAYCs5CAu1kBO0B6FGnSuHM/JXlYQrmMNIOD1sI/GzgYIa9KL6mc8FCHJw==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -8380,7 +8400,18 @@ snapshots:
       '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
       vue: 3.5.30(typescript@5.9.3)
 
+  '@v-c/mutate-observer@1.0.2(vue@3.5.30(typescript@5.9.3))':
+    dependencies:
+      '@v-c/resize-observer': 1.1.2(vue@3.5.30(typescript@5.9.3))
+      '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
+      vue: 3.5.30(typescript@5.9.3)
+
   '@v-c/notification@2.0.0(vue@3.5.30(typescript@5.9.3))':
+    dependencies:
+      '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
+      vue: 3.5.30(typescript@5.9.3)
+
+  '@v-c/notification@2.0.1(vue@3.5.30(typescript@5.9.3))':
     dependencies:
       '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
       vue: 3.5.30(typescript@5.9.3)
@@ -8416,7 +8447,17 @@ snapshots:
       '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
       vue: 3.5.30(typescript@5.9.3)
 
+  '@v-c/progress@1.0.1(vue@3.5.30(typescript@5.9.3))':
+    dependencies:
+      '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
+      vue: 3.5.30(typescript@5.9.3)
+
   '@v-c/qrcode@1.0.0(vue@3.5.30(typescript@5.9.3))':
+    dependencies:
+      '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
+      vue: 3.5.30(typescript@5.9.3)
+
+  '@v-c/qrcode@1.0.1(vue@3.5.30(typescript@5.9.3))':
     dependencies:
       '@v-c/util': 1.0.19(vue@3.5.30(typescript@5.9.3))
       vue: 3.5.30(typescript@5.9.3)

@@ -140,13 +140,13 @@ catalogs:
     '@v-c/input-number': ^1.0.5
     '@v-c/mentions': ^1.1.0
     '@v-c/menu': ^1.2.0
-    '@v-c/mutate-observer': ^1.0.1
-    '@v-c/notification': ^2.0.0
+    '@v-c/mutate-observer': ^1.0.2
+    '@v-c/notification': ^2.0.1
     '@v-c/pagination': ^1.0.1
     '@v-c/picker': ^1.1.3
     '@v-c/portal': ^1.0.8
-    '@v-c/progress': ^1.0.0
-    '@v-c/qrcode': ^1.0.0
+    '@v-c/progress': ^1.0.1
+    '@v-c/qrcode': ^1.0.1
     '@v-c/rate': ^1.0.1
     '@v-c/resize-observer': ^1.1.2
     '@v-c/segmented': ^1.0.2
