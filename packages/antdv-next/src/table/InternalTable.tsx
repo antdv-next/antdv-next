@@ -1,5 +1,5 @@
 import type { Reference, TableProps as VcTableProps } from '@v-c/table'
-import type { CSSProperties, SlotsType } from 'vue'
+import type { CSSProperties, InjectionKey, Ref, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { Breakpoint } from '../_util/responsiveObserver.ts'
 import type { AnyObject, VueNode } from '../_util/type.ts'
@@ -27,9 +27,10 @@ import type {
 } from './interface.ts'
 import VcTable, { INTERNAL_HOOKS, VirtualTable as VcVirtualTable } from '@v-c/table'
 import { clsx } from '@v-c/util'
+import pickAttrs from '@v-c/util/dist/pickAttrs'
 import { getAttrStyleAndClass } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
-import { computed, defineComponent, shallowRef, watch, watchEffect } from 'vue'
+import { computed, defineComponent, h, inject, provide, shallowRef, watch, watchEffect } from 'vue'
 import { useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
 import scrollTo from '../_util/scrollTo.ts'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
@@ -59,6 +60,19 @@ import { TableMeasureRowContextProvider } from './TableMeasureRowContext.ts'
 import { convertColumnsToColumnProps } from './utils.ts'
 
 const EMPTY_LIST: AnyObject[] = []
+
+// Aria props are injected into the scroll header `<table>` so screen readers
+// can still read them when the header is rendered in a separate fixed table.
+const HeaderTableAriaKey: InjectionKey<Ref<Record<string, any>>> = Symbol('HeaderTableAria')
+
+const HeaderTable = defineComponent({
+  name: 'HeaderTable',
+  inheritAttrs: false,
+  setup(_, { slots, attrs }) {
+    const ariaProps = inject(HeaderTableAriaKey, undefined)
+    return () => h('table', { ...ariaProps?.value, ...attrs }, slots.default?.())
+  },
+})
 
 export type TableSemanticName = keyof TableSemanticClassNames & keyof TableSemanticStyles
 
@@ -245,6 +259,25 @@ const InternalTable = defineComponent<
     } = useComponentBaseConfig('table', props, ['bodyCell', 'headerCell', 'rowKey', 'scroll', 'column'])
 
     const configCtx = useConfig()
+
+    // Aria props passed to <a-table> land in attrs; re-apply them to the scroll
+    // header table via a custom `components.header.table` (#58339).
+    const ariaProps = computed(() => pickAttrs(attrs, { aria: true }) as Record<string, any>)
+    const hasAriaProps = computed(() => Object.keys(ariaProps.value).length > 0)
+    provide(HeaderTableAriaKey, ariaProps)
+    const mergedComponents = computed(() => {
+      const components = props.components
+      if (!hasAriaProps.value) {
+        return components
+      }
+      return {
+        ...components,
+        header: {
+          ...components?.header,
+          table: HeaderTable,
+        },
+      } as typeof components
+    })
 
     const { classes, styles } = toPropsRefs(props, 'classes', 'styles')
 
@@ -817,6 +850,7 @@ const InternalTable = defineComponent<
               {...virtualProps}
               {...tableProps.value}
               {...restAttrs}
+              components={mergedComponents.value}
               ref={tblRef}
               columns={mergedColumns.value as any}
               data={pageData.value as any}

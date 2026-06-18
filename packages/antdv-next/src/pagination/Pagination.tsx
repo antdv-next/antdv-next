@@ -20,6 +20,7 @@ import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { devUseWarning, isDev } from '../_util/warning'
 import { useComponentBaseConfig } from '../config-provider/context'
 import { useSize } from '../config-provider/hooks/useSize'
+import useVariant from '../form/hooks/useVariant'
 import useBreakpoint from '../grid/hooks/useBreakpoint'
 import useLocale from '../locale/useLocale'
 import Select from '../select'
@@ -83,6 +84,7 @@ const Pagination = defineComponent<
     const mergedSize = useSize(size)
     const screens = useBreakpoint(responsive as any)
     const isSmall = computed(() => mergedSize.value === 'small' || (!!screens.value?.xs && !mergedSize.value && responsive.value))
+    const [inputVariant, enableInputVariantCls] = useVariant('input')
 
     // =========== Merged Props for Semantic ==========
     const mergedProps = computed(() => {
@@ -249,6 +251,7 @@ const Pagination = defineComponent<
         {
           [`${prefixCls.value}-${align}`]: !!align,
           [`${prefixCls.value}-${mergedSize.value}`]: mergedSize.value,
+          [`${prefixCls.value}-${inputVariant.value}`]: enableInputVariantCls.value && inputVariant.value !== 'outlined',
           /** @deprecated Should be removed in v2 */
           [`${prefixCls.value}-mini`]: isSmall.value,
           [`${prefixCls.value}-rtl`]: direction.value === 'rtl',
