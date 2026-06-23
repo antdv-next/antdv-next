@@ -192,6 +192,7 @@ export interface TableProps<RecordType = AnyObject>
   styles?: TableStylesType<RecordType>
   dropdownPrefixCls?: string
   dataSource?: VcTableProps<RecordType>['data']
+  column?: Partial<ColumnType<RecordType>>
   columns?: ColumnsType<RecordType>
   pagination?: false | TablePaginationConfig
   loading?: boolean | SpinProps
@@ -360,8 +361,8 @@ const InternalTable = defineComponent<
     })
 
     const baseColumns = useFilledColumns(
-      rawColumns,
-      computed(() => (props.column ?? (contextColumn as any)?.value) as any),
+      rawColumns as any,
+      computed(() => (props.column ?? contextColumn.value)),
     )
 
     const needResponsive = computed(() => baseColumns.value.some((col: any) => col.responsive))
