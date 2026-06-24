@@ -36,6 +36,8 @@ export interface ComponentToken {
    * @descEN Label height
    */
   labelHeight: number | string
+  /** @internal */
+  verticalLabelHeight: number | string
   /**
    * @desc 标签冒号前间距
    * @descEN Label colon margin-inline-start
@@ -534,7 +536,7 @@ const makeVerticalLayout: GenerateStyle<FormToken, CSSObject> = (token) => {
 }
 
 const genVerticalStyle: GenerateStyle<FormToken, CSSObject> = (token) => {
-  const { componentCls, formItemCls, antCls } = token
+  const { componentCls, formItemCls, antCls, verticalLabelHeight } = token
 
   return {
     [`${formItemCls}-vertical`]: {
@@ -543,7 +545,7 @@ const genVerticalStyle: GenerateStyle<FormToken, CSSObject> = (token) => {
       },
 
       [`${formItemCls}-label > label`]: {
-        height: 'auto',
+        height: verticalLabelHeight,
       },
 
       [`${formItemCls}-control`]: {
@@ -597,6 +599,7 @@ export const prepareComponentToken: GetDefaultToken<'Form'> = token => ({
   labelColor: token.colorTextHeading,
   labelFontSize: token.fontSize,
   labelHeight: token.controlHeight,
+  verticalLabelHeight: token.labelHeight ?? 'auto',
   labelColonMarginInlineStart: token.marginXXS / 2,
   labelColonMarginInlineEnd: token.marginXS,
   itemMarginBottom: token.marginLG,

@@ -48,4 +48,11 @@ describe('upload isImageUrl', () => {
     expect(isImageUrl(mkFile({ url: 'https://example.com/a.txt' }))).toBe(false)
     expect(isImageUrl(mkFile({ url: 'https://example.com/a.exe' }))).toBe(false)
   })
+
+  // ant-design #58484: failed uploads have no url, so fall back to file.name
+  // for extension detection (non-image name should NOT be treated as image).
+  it('falls back to file.name when url is empty', () => {
+    expect(isImageUrl(mkFile({ name: 'report.pdf' }))).toBe(false)
+    expect(isImageUrl(mkFile({ name: 'photo.png' }))).toBe(true)
+  })
 })

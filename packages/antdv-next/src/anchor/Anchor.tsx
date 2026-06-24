@@ -32,7 +32,7 @@ export interface AnchorLinkItemProps extends AnchorLinkBaseProps {
   children?: AnchorLinkItemProps[]
 }
 
-const sharpMatcherRegex = /#([\S ]+)$/
+const sharpMatcherRegex = /#([^\t\r\n\f\v]+)$/
 
 interface Section {
   link: string

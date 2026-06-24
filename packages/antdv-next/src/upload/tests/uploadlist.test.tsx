@@ -408,6 +408,33 @@ describe('upload List', () => {
     expect(handlePreview).toHaveBeenCalledWith(expect.objectContaining({ uid: fileList![1]!.uid }))
   })
 
+  // ant-design #58092: the non-link file name should be keyboard-accessible.
+  it('file name without url is keyboard accessible', async () => {
+    const handlePreview = vi.fn()
+    const file = { uid: 'no-url', name: 'report.pdf', status: 'done' }
+    const wrapper = mount({
+      render: () => (
+        <Upload
+          listType="text"
+          defaultFileList={[file] as UploadProps['defaultFileList']}
+          onPreview={handlePreview}
+        >
+          <button type="button">upload</button>
+        </Upload>
+      ),
+    })
+
+    const name = wrapper.find('.ant-upload-list-item-name')
+    expect(name.attributes('role')).toBe('button')
+    expect(name.attributes('tabindex')).toBe('0')
+
+    await name.trigger('click')
+    expect(handlePreview).toHaveBeenCalledTimes(1)
+    await name.trigger('keydown', { key: 'Enter' })
+    await name.trigger('keydown', { key: ' ' })
+    expect(handlePreview).toHaveBeenCalledTimes(3)
+  })
+
   it('should not prevent default thumbnail navigation when onPreview is not provided', () => {
     const wrapper = mount({
       render: () => (
