@@ -233,7 +233,7 @@ const Pagination = defineComponent<
       if (props.current !== page) {
         emit('update:current', page)
       }
-      else if (props.pageSize !== pageSize) {
+      if (props.pageSize !== pageSize) {
         emit('update:pageSize', pageSize)
       }
       emit('change', page, pageSize)
