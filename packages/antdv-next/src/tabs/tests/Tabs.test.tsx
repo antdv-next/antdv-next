@@ -546,6 +546,92 @@ describe('tabs', () => {
     })
   })
 
+  // ========================= forceRender / lazy mount =========================
+  describe('forceRender', () => {
+    it('lazily mounts only the active pane (items mode)', () => {
+      const wrapper = mount(Tabs, {
+        props: { items: defaultItems, activeKey: '1' },
+        attachTo: document.body,
+      })
+      // panes without forceRender that have never been active are not mounted
+      expect(document.querySelectorAll('.ant-tabs-tabpane').length).toBe(1)
+      expect(document.querySelector('.ant-tabs-tabpane-active')?.textContent).toContain('Content 1')
+      wrapper.unmount()
+    })
+
+    it('mounts a forceRender pane immediately (items mode)', () => {
+      const items: Tab[] = [
+        { key: '1', label: 'Tab 1', content: 'Content 1' },
+        { key: '2', label: 'Tab 2', content: 'Content 2', forceRender: true },
+        { key: '3', label: 'Tab 3', content: 'Content 3' },
+      ]
+      const wrapper = mount(Tabs, {
+        props: { items, activeKey: '1' },
+        attachTo: document.body,
+      })
+      const panes = document.querySelectorAll('.ant-tabs-tabpane')
+      // active pane (1) + forceRender pane (2); pane 3 stays lazy
+      expect(panes.length).toBe(2)
+      const text = Array.from(panes).map(p => p.textContent).join('|')
+      expect(text).toContain('Content 1')
+      expect(text).toContain('Content 2')
+      expect(text).not.toContain('Content 3')
+      wrapper.unmount()
+    })
+
+    it('keeps visited panes mounted after switching (items mode)', async () => {
+      const wrapper = mount(Tabs, {
+        props: { items: defaultItems, activeKey: '1' },
+        attachTo: document.body,
+      })
+      expect(document.querySelectorAll('.ant-tabs-tabpane').length).toBe(1)
+      await wrapper.setProps({ activeKey: '2' })
+      await nextTick()
+      // pane 1 stays mounted (keep-alive) + pane 2 now mounted
+      expect(document.querySelectorAll('.ant-tabs-tabpane').length).toBe(2)
+      wrapper.unmount()
+    })
+
+    it('lazily mounts only the active pane (SFC mode)', () => {
+      const wrapper = mount({
+        render() {
+          return (
+            <Tabs activeKey="1">
+              <TabPane key="1" tab="Tab 1">Content 1</TabPane>
+              <TabPane key="2" tab="Tab 2">Content 2</TabPane>
+              <TabPane key="3" tab="Tab 3">Content 3</TabPane>
+            </Tabs>
+          )
+        },
+      }, { attachTo: document.body })
+      expect(document.querySelectorAll('.ant-tabs-tabpane').length).toBe(1)
+      expect(document.querySelector('.ant-tabs-tabpane-active')?.textContent).toContain('Content 1')
+      wrapper.unmount()
+    })
+
+    it('mounts a forceRender pane immediately (SFC mode)', () => {
+      const wrapper = mount({
+        render() {
+          return (
+            <Tabs activeKey="1">
+              <TabPane key="1" tab="Tab 1">Content 1</TabPane>
+              <TabPane key="2" tab="Tab 2" forceRender>Content 2</TabPane>
+              <TabPane key="3" tab="Tab 3">Content 3</TabPane>
+            </Tabs>
+          )
+        },
+      }, { attachTo: document.body })
+      const panes = document.querySelectorAll('.ant-tabs-tabpane')
+      // active pane (1) + forceRender pane (2); pane 3 stays lazy
+      expect(panes.length).toBe(2)
+      const text = Array.from(panes).map(p => p.textContent).join('|')
+      expect(text).toContain('Content 1')
+      expect(text).toContain('Content 2')
+      expect(text).not.toContain('Content 3')
+      wrapper.unmount()
+    })
+  })
+
   // ========================= Slots =========================
   describe('slots', () => {
     it('supports addIcon slot', () => {

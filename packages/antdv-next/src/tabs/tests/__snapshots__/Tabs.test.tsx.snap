@@ -30,9 +30,9 @@ exports[`tabs > matches snapshot 1`] = `
       <!---->
       <div role="tabpanel" tabindex="0" aria-hidden="false" class="ant-tabs-tabpane ant-tabs-tabpane-active">Content 1</div>
       <!---->
-      <div role="tabpanel" tabindex="-1" aria-hidden="true" class="ant-tabs-tabpane ant-tabs-tabpane-hidden" style="display: none;">Content 2</div>
       <!---->
-      <div role="tabpanel" tabindex="-1" aria-hidden="true" class="ant-tabs-tabpane ant-tabs-tabpane-hidden" style="display: none;">Content 3</div>
+      <!---->
+      <!---->
     </div>
   </div>
 </div>"
@@ -164,25 +164,9 @@ exports[`tabs > rtl render > component should be rendered correctly in RTL direc
           Content 1
         </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content 2
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content 3
-        </div>
+        <!---->
+        <!---->
       </div>
     </div>
   </div>

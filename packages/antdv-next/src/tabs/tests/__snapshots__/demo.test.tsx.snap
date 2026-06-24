@@ -561,15 +561,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
             class="ant-tabs-content ant-tabs-content-top"
           >
             <!---->
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            >
-              Content of tab 0
-            </div>
+            <!---->
             <!---->
             <div
               aria-hidden="false"
@@ -580,285 +572,61 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
               Content of tab 1
             </div>
             <!---->
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            >
-              Content of tab 2
-            </div>
             <!---->
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            >
-              Content of tab 3
-            </div>
             <!---->
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            >
-              Content of tab 4
-            </div>
             <!---->
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            >
-              Content of tab 5
-            </div>
             <!---->
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            >
-              Content of tab 6
-            </div>
             <!---->
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            >
-              Content of tab 7
-            </div>
             <!---->
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            >
-              Content of tab 8
-            </div>
             <!---->
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            >
-              Content of tab 9
-            </div>
             <!---->
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            >
-              Content of tab 10
-            </div>
             <!---->
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            >
-              Content of tab 11
-            </div>
             <!---->
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            >
-              Content of tab 12
-            </div>
             <!---->
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            >
-              Content of tab 13
-            </div>
             <!---->
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            >
-              Content of tab 14
-            </div>
             <!---->
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            >
-              Content of tab 15
-            </div>
             <!---->
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            >
-              Content of tab 16
-            </div>
             <!---->
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            >
-              Content of tab 17
-            </div>
             <!---->
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            >
-              Content of tab 18
-            </div>
             <!---->
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            >
-              Content of tab 19
-            </div>
             <!---->
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            >
-              Content of tab 20
-            </div>
             <!---->
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            >
-              Content of tab 21
-            </div>
             <!---->
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            >
-              Content of tab 22
-            </div>
             <!---->
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            >
-              Content of tab 23
-            </div>
             <!---->
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            >
-              Content of tab 24
-            </div>
             <!---->
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            >
-              Content of tab 25
-            </div>
             <!---->
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            >
-              Content of tab 26
-            </div>
             <!---->
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            >
-              Content of tab 27
-            </div>
             <!---->
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            >
-              Content of tab 28
-            </div>
             <!---->
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane semantic-mark-content ant-tabs-tabpane-hidden"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            >
-              Content of tab 29
-            </div>
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
+            <!---->
           </div>
         </div>
       </div>
@@ -1826,15 +1594,7 @@ exports[`tabs demo > renders animated correctly 1`] = `
           name="ant-tabs-switch"
           persisted="false"
         >
-          <div
-            aria-hidden="true"
-            class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-            role="tabpanel"
-            style="height: 300px; box-shadow: 0 0 3px rgba(0, 255, 0, 0.5); display: none;"
-            tabindex="-1"
-          >
-            Hi Little!
-          </div>
+          <!---->
         </transition-stub>
         <!---->
         <transition-stub
@@ -1849,15 +1609,7 @@ exports[`tabs demo > renders animated correctly 1`] = `
           name="ant-tabs-switch"
           persisted="false"
         >
-          <div
-            aria-hidden="true"
-            class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-            role="tabpanel"
-            style="height: 100px; box-shadow: 0 0 3px rgba(0, 0, 255, 0.5); display: none;"
-            tabindex="-1"
-          >
-            Welcome Light!
-          </div>
+          <!---->
         </transition-stub>
         <!---->
       </div>
@@ -1989,25 +1741,9 @@ exports[`tabs demo > renders basic correctly 1`] = `
         Content of Tab Pane 1
       </div>
       <!---->
-      <div
-        aria-hidden="true"
-        class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-        role="tabpanel"
-        style="display: none;"
-        tabindex="-1"
-      >
-        Content of Tab Pane 2
-      </div>
       <!---->
-      <div
-        aria-hidden="true"
-        class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-        role="tabpanel"
-        style="display: none;"
-        tabindex="-1"
-      >
-        Content of Tab Pane 3
-      </div>
+      <!---->
+      <!---->
     </div>
   </div>
 </div>
@@ -2136,25 +1872,9 @@ exports[`tabs demo > renders card correctly 1`] = `
         Content of Tab Pane 1
       </div>
       <!---->
-      <div
-        aria-hidden="true"
-        class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-        role="tabpanel"
-        style="display: none;"
-        tabindex="-1"
-      >
-        Content of Tab Pane 2
-      </div>
       <!---->
-      <div
-        aria-hidden="true"
-        class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-        role="tabpanel"
-        style="display: none;"
-        tabindex="-1"
-      >
-        Content of Tab Pane 3
-      </div>
+      <!---->
+      <!---->
     </div>
   </div>
 </div>
@@ -2302,53 +2022,9 @@ exports[`tabs demo > renders card-top correctly 1`] = `
           </p>
         </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          <p
-            data-v-c7c4141d=""
-          >
-            Content of Tab Pane 2
-          </p>
-          <p
-            data-v-c7c4141d=""
-          >
-            Content of Tab Pane 2
-          </p>
-          <p
-            data-v-c7c4141d=""
-          >
-            Content of Tab Pane 2
-          </p>
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          <p
-            data-v-c7c4141d=""
-          >
-            Content of Tab Pane 3
-          </p>
-          <p
-            data-v-c7c4141d=""
-          >
-            Content of Tab Pane 3
-          </p>
-          <p
-            data-v-c7c4141d=""
-          >
-            Content of Tab Pane 3
-          </p>
-        </div>
+        <!---->
+        <!---->
       </div>
     </div>
   </div>
@@ -2478,25 +2154,9 @@ exports[`tabs demo > renders centered correctly 1`] = `
         Content of Tab Pane 1
       </div>
       <!---->
-      <div
-        aria-hidden="true"
-        class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-        role="tabpanel"
-        style="display: none;"
-        tabindex="-1"
-      >
-        Content of Tab Pane 2
-      </div>
       <!---->
-      <div
-        aria-hidden="true"
-        class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-        role="tabpanel"
-        style="display: none;"
-        tabindex="-1"
-      >
-        Content of Tab Pane 3
-      </div>
+      <!---->
+      <!---->
     </div>
   </div>
 </div>
@@ -2692,15 +2352,7 @@ exports[`tabs demo > renders custom-add-trigger correctly 1`] = `
           Content of Tab Pane 1
         </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of Tab Pane 2
-        </div>
+        <!---->
       </div>
     </div>
   </div>
@@ -2892,25 +2544,9 @@ exports[`tabs demo > renders custom-indicator correctly 1`] = `
           Content of Tab Pane 1
         </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of Tab Pane 2
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of Tab Pane 3
-        </div>
+        <!---->
+        <!---->
       </div>
     </div>
   </div>
@@ -3045,25 +2681,9 @@ exports[`tabs demo > renders custom-tab-bar correctly 1`] = `
         Content of Tab Pane 1
       </div>
       <!---->
-      <div
-        aria-hidden="true"
-        class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-        role="tabpanel"
-        style="display: none;"
-        tabindex="-1"
-      >
-        Content of Tab Pane 2
-      </div>
       <!---->
-      <div
-        aria-hidden="true"
-        class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-        role="tabpanel"
-        style="display: none;"
-        tabindex="-1"
-      >
-        Content of Tab Pane 3
-      </div>
+      <!---->
+      <!---->
     </div>
   </div>
 </div>
@@ -3210,25 +2830,9 @@ exports[`tabs demo > renders custom-tab-bar-node correctly 1`] = `
         Content of Tab Pane 1
       </div>
       <!---->
-      <div
-        aria-hidden="true"
-        class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-        role="tabpanel"
-        style="display: none;"
-        tabindex="-1"
-      >
-        Content of Tab Pane 2
-      </div>
       <!---->
-      <div
-        aria-hidden="true"
-        class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-        role="tabpanel"
-        style="display: none;"
-        tabindex="-1"
-      >
-        Content of Tab Pane 3
-      </div>
+      <!---->
+      <!---->
     </div>
   </div>
 </div>
@@ -3357,25 +2961,9 @@ exports[`tabs demo > renders disabled correctly 1`] = `
         Tab 1
       </div>
       <!---->
-      <div
-        aria-hidden="true"
-        class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-        role="tabpanel"
-        style="display: none;"
-        tabindex="-1"
-      >
-        Tab 2
-      </div>
       <!---->
-      <div
-        aria-hidden="true"
-        class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-        role="tabpanel"
-        style="display: none;"
-        tabindex="-1"
-      >
-        Tab 3
-      </div>
+      <!---->
+      <!---->
     </div>
   </div>
 </div>
@@ -3612,25 +3200,9 @@ exports[`tabs demo > renders editable-card correctly 1`] = `
         Content of Tab 1
       </div>
       <!---->
-      <div
-        aria-hidden="true"
-        class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-        role="tabpanel"
-        style="display: none;"
-        tabindex="-1"
-      >
-        Content of Tab 2
-      </div>
       <!---->
-      <div
-        aria-hidden="true"
-        class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-        role="tabpanel"
-        style="display: none;"
-        tabindex="-1"
-      >
-        Content of Tab 3
-      </div>
+      <!---->
+      <!---->
     </div>
   </div>
 </div>
@@ -3794,25 +3366,9 @@ exports[`tabs demo > renders extra correctly 1`] = `
           Content of tab 1
         </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of tab 2
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of tab 3
-        </div>
+        <!---->
+        <!---->
       </div>
     </div>
   </div>
@@ -4062,25 +3618,9 @@ exports[`tabs demo > renders extra correctly 1`] = `
           Content of tab 1
         </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of tab 2
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of tab 3
-        </div>
+        <!---->
+        <!---->
       </div>
     </div>
   </div>
@@ -4232,15 +3772,7 @@ exports[`tabs demo > renders icon correctly 1`] = `
       class="ant-tabs-content ant-tabs-content-top"
     >
       <!---->
-      <div
-        aria-hidden="true"
-        class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-        role="tabpanel"
-        style="display: none;"
-        tabindex="-1"
-      >
-        Tab 1
-      </div>
+      <!---->
       <!---->
       <div
         aria-hidden="false"
@@ -4474,25 +4006,9 @@ exports[`tabs demo > renders placement correctly 1`] = `
           Content of Tab 1
         </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of Tab 2
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of Tab 3
-        </div>
+        <!---->
+        <!---->
       </div>
     </div>
   </div>
@@ -4684,25 +4200,9 @@ exports[`tabs demo > renders size correctly 1`] = `
           Content of tab 1
         </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of tab 2
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of tab 3
-        </div>
+        <!---->
+        <!---->
       </div>
     </div>
   </div>
@@ -4829,25 +4329,9 @@ exports[`tabs demo > renders size correctly 1`] = `
           Content of card tab 1
         </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of card tab 2
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of card tab 3
-        </div>
+        <!---->
+        <!---->
       </div>
     </div>
   </div>
@@ -5108,25 +4592,9 @@ exports[`tabs demo > renders size correctly 1`] = `
           Content of editable tab 1
         </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of editable tab 2
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of editable tab 3
-        </div>
+        <!---->
+        <!---->
       </div>
     </div>
   </div>
@@ -5734,295 +5202,63 @@ exports[`tabs demo > renders slide correctly 1`] = `
           Content of tab 0
         </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of tab 1
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of tab 2
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of tab 3
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of tab 4
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of tab 5
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of tab 6
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of tab 7
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of tab 8
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of tab 9
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of tab 10
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of tab 11
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of tab 12
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of tab 13
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of tab 14
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of tab 15
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of tab 16
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of tab 17
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of tab 18
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of tab 19
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of tab 20
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of tab 21
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of tab 22
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of tab 23
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of tab 24
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of tab 25
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of tab 26
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of tab 27
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of tab 28
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of tab 29
-        </div>
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
       </div>
     </div>
   </div>
@@ -6162,25 +5398,9 @@ exports[`tabs demo > renders style-class correctly 1`] = `
           Content of Tab Pane 1
         </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="background-color: rgba(230, 247, 255, 0.8); padding: 16px; display: none;"
-          tabindex="-1"
-        >
-          Content of Tab Pane 2
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="background-color: rgba(230, 247, 255, 0.8); padding: 16px; display: none;"
-          tabindex="-1"
-        >
-          Content of Tab Pane 3
-        </div>
+        <!---->
+        <!---->
       </div>
     </div>
   </div>
@@ -6308,25 +5528,9 @@ exports[`tabs demo > renders style-class correctly 1`] = `
           Content of Tab Pane 1
         </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of Tab Pane 2
-        </div>
         <!---->
-        <div
-          aria-hidden="true"
-          class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-          role="tabpanel"
-          style="display: none;"
-          tabindex="-1"
-        >
-          Content of Tab Pane 3
-        </div>
+        <!---->
+        <!---->
       </div>
     </div>
   </div>
