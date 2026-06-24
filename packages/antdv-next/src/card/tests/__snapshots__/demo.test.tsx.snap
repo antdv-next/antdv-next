@@ -1365,15 +1365,7 @@ exports[`card demo > renders component-token correctly 1`] = `
               <!---->
             </div>
             <!---->
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            >
-              <!---->
-            </div>
+            <!---->
           </div>
         </div>
       </div>
@@ -2781,15 +2773,7 @@ exports[`card demo > renders tabs correctly 1`] = `
               <!---->
             </div>
             <!---->
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            >
-              <!---->
-            </div>
+            <!---->
           </div>
         </div>
       </div>
@@ -2944,15 +2928,7 @@ exports[`card demo > renders tabs correctly 1`] = `
             class="ant-tabs-content ant-tabs-content-top"
           >
             <!---->
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            >
-              <!---->
-            </div>
+            <!---->
             <!---->
             <div
               aria-hidden="false"
@@ -2963,15 +2939,7 @@ exports[`card demo > renders tabs correctly 1`] = `
               <!---->
             </div>
             <!---->
-            <div
-              aria-hidden="true"
-              class="ant-tabs-tabpane ant-tabs-tabpane-hidden"
-              role="tabpanel"
-              style="display: none;"
-              tabindex="-1"
-            >
-              <!---->
-            </div>
+            <!---->
           </div>
         </div>
       </div>
