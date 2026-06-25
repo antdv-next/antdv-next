@@ -369,7 +369,7 @@ exports[`layout demo > renders fixed correctly 1`] = `
     >
       <!---->
       <li
-        class="ant-menu-overflow-item ant-menu-item-only-child ant-menu-item ant-menu-item-only-child"
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         data-menu-id="vc-menu-uuid-1"
         label="nav 1"
         role="menuitem"
@@ -386,7 +386,7 @@ exports[`layout demo > renders fixed correctly 1`] = `
       </li>
       <!---->
       <li
-        class="ant-menu-overflow-item ant-menu-item-only-child ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
         label="nav 2"
         role="menuitem"
         style="opacity: 1; order: 1;"
@@ -402,7 +402,7 @@ exports[`layout demo > renders fixed correctly 1`] = `
       </li>
       <!---->
       <li
-        class="ant-menu-overflow-item ant-menu-item-only-child ant-menu-item ant-menu-item-only-child"
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         label="nav 3"
         role="menuitem"
         style="opacity: 1; order: 2;"
@@ -1883,7 +1883,7 @@ exports[`layout demo > renders top correctly 1`] = `
     >
       <!---->
       <li
-        class="ant-menu-overflow-item ant-menu-item-only-child ant-menu-item ant-menu-item-only-child"
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         data-menu-id="vc-menu-uuid-1"
         label="nav 1"
         role="menuitem"
@@ -1900,7 +1900,7 @@ exports[`layout demo > renders top correctly 1`] = `
       </li>
       <!---->
       <li
-        class="ant-menu-overflow-item ant-menu-item-only-child ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
         label="nav 2"
         role="menuitem"
         style="opacity: 1; order: 1;"
@@ -1916,7 +1916,7 @@ exports[`layout demo > renders top correctly 1`] = `
       </li>
       <!---->
       <li
-        class="ant-menu-overflow-item ant-menu-item-only-child ant-menu-item ant-menu-item-only-child"
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         label="nav 3"
         role="menuitem"
         style="opacity: 1; order: 2;"
@@ -1932,7 +1932,7 @@ exports[`layout demo > renders top correctly 1`] = `
       </li>
       <!---->
       <li
-        class="ant-menu-overflow-item ant-menu-item-only-child ant-menu-item ant-menu-item-only-child"
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         label="nav 4"
         role="menuitem"
         style="opacity: 1; order: 3;"
@@ -1948,7 +1948,7 @@ exports[`layout demo > renders top correctly 1`] = `
       </li>
       <!---->
       <li
-        class="ant-menu-overflow-item ant-menu-item-only-child ant-menu-item ant-menu-item-only-child"
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         label="nav 5"
         role="menuitem"
         style="opacity: 1; order: 4;"
@@ -1964,7 +1964,7 @@ exports[`layout demo > renders top correctly 1`] = `
       </li>
       <!---->
       <li
-        class="ant-menu-overflow-item ant-menu-item-only-child ant-menu-item ant-menu-item-only-child"
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         label="nav 6"
         role="menuitem"
         style="opacity: 1; order: 5;"
@@ -1980,7 +1980,7 @@ exports[`layout demo > renders top correctly 1`] = `
       </li>
       <!---->
       <li
-        class="ant-menu-overflow-item ant-menu-item-only-child ant-menu-item ant-menu-item-only-child"
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         label="nav 7"
         role="menuitem"
         style="opacity: 1; order: 6;"
@@ -1996,7 +1996,7 @@ exports[`layout demo > renders top correctly 1`] = `
       </li>
       <!---->
       <li
-        class="ant-menu-overflow-item ant-menu-item-only-child ant-menu-item ant-menu-item-only-child"
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         label="nav 8"
         role="menuitem"
         style="opacity: 1; order: 7;"
@@ -2012,7 +2012,7 @@ exports[`layout demo > renders top correctly 1`] = `
       </li>
       <!---->
       <li
-        class="ant-menu-overflow-item ant-menu-item-only-child ant-menu-item ant-menu-item-only-child"
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         label="nav 9"
         role="menuitem"
         style="opacity: 1; order: 8;"
@@ -2028,7 +2028,7 @@ exports[`layout demo > renders top correctly 1`] = `
       </li>
       <!---->
       <li
-        class="ant-menu-overflow-item ant-menu-item-only-child ant-menu-item ant-menu-item-only-child"
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         label="nav 10"
         role="menuitem"
         style="opacity: 1; order: 9;"
@@ -2044,7 +2044,7 @@ exports[`layout demo > renders top correctly 1`] = `
       </li>
       <!---->
       <li
-        class="ant-menu-overflow-item ant-menu-item-only-child ant-menu-item ant-menu-item-only-child"
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         label="nav 11"
         role="menuitem"
         style="opacity: 1; order: 10;"
@@ -2060,7 +2060,7 @@ exports[`layout demo > renders top correctly 1`] = `
       </li>
       <!---->
       <li
-        class="ant-menu-overflow-item ant-menu-item-only-child ant-menu-item ant-menu-item-only-child"
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         label="nav 12"
         role="menuitem"
         style="opacity: 1; order: 11;"
@@ -2076,7 +2076,7 @@ exports[`layout demo > renders top correctly 1`] = `
       </li>
       <!---->
       <li
-        class="ant-menu-overflow-item ant-menu-item-only-child ant-menu-item ant-menu-item-only-child"
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         label="nav 13"
         role="menuitem"
         style="opacity: 1; order: 12;"
@@ -2092,7 +2092,7 @@ exports[`layout demo > renders top correctly 1`] = `
       </li>
       <!---->
       <li
-        class="ant-menu-overflow-item ant-menu-item-only-child ant-menu-item ant-menu-item-only-child"
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         label="nav 14"
         role="menuitem"
         style="opacity: 1; order: 13;"
@@ -2108,7 +2108,7 @@ exports[`layout demo > renders top correctly 1`] = `
       </li>
       <!---->
       <li
-        class="ant-menu-overflow-item ant-menu-item-only-child ant-menu-item ant-menu-item-only-child"
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         label="nav 15"
         role="menuitem"
         style="opacity: 1; order: 14;"
@@ -2259,7 +2259,7 @@ exports[`layout demo > renders top-side correctly 1`] = `
     >
       <!---->
       <li
-        class="ant-menu-overflow-item ant-menu-item-only-child ant-menu-item ant-menu-item-only-child"
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         data-menu-id="vc-menu-uuid-1"
         label="nav 1"
         role="menuitem"
@@ -2276,7 +2276,7 @@ exports[`layout demo > renders top-side correctly 1`] = `
       </li>
       <!---->
       <li
-        class="ant-menu-overflow-item ant-menu-item-only-child ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
         label="nav 2"
         role="menuitem"
         style="opacity: 1; order: 1;"
@@ -2292,7 +2292,7 @@ exports[`layout demo > renders top-side correctly 1`] = `
       </li>
       <!---->
       <li
-        class="ant-menu-overflow-item ant-menu-item-only-child ant-menu-item ant-menu-item-only-child"
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         label="nav 3"
         role="menuitem"
         style="opacity: 1; order: 2;"
@@ -2726,7 +2726,7 @@ exports[`layout demo > renders top-side-2 correctly 1`] = `
     >
       <!---->
       <li
-        class="ant-menu-overflow-item ant-menu-item-only-child ant-menu-item ant-menu-item-only-child"
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         data-menu-id="vc-menu-uuid-1"
         label="nav 1"
         role="menuitem"
@@ -2743,7 +2743,7 @@ exports[`layout demo > renders top-side-2 correctly 1`] = `
       </li>
       <!---->
       <li
-        class="ant-menu-overflow-item ant-menu-item-only-child ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
         label="nav 2"
         role="menuitem"
         style="opacity: 1; order: 1;"
@@ -2759,7 +2759,7 @@ exports[`layout demo > renders top-side-2 correctly 1`] = `
       </li>
       <!---->
       <li
-        class="ant-menu-overflow-item ant-menu-item-only-child ant-menu-item ant-menu-item-only-child"
+        class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
         label="nav 3"
         role="menuitem"
         style="opacity: 1; order: 2;"
