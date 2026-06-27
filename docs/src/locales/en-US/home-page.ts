@@ -5,6 +5,8 @@ export default {
     copyTheme: 'Copy theme code',
     copySuccess: 'Copied',
     customizeTheme: 'Customize Theme',
+    editTheme: 'Theme Editor',
+    aiGenerate: 'AI Theme Generator',
     myTheme: 'My Theme',
     titlePrimaryColor: 'Primary Color',
     titleBorderRadius: 'Border Radius',

@@ -1,8 +1,10 @@
 import type { ThemeConfig } from 'antdv-next'
 import { theme as antdvTheme } from 'antdv-next'
 
+/** Minimal imports for default/dark theme copy */
 const MINIMAL_THEME_IMPORTS = `import { ConfigProvider, theme } from 'antdv-next'`
 
+/** Extract hook name and source from raw theme file content */
 function getThemeFileContent(source: string): { content: string, hookName: string } {
   const hookNameMatch = source.match(/export\s+default\s+(\w+)/)
   const hookName = hookNameMatch?.[1] ?? 'useTheme'
@@ -10,48 +12,20 @@ function getThemeFileContent(source: string): { content: string, hookName: strin
   return { content, hookName }
 }
 
+/** useGlassTheme → glassTheme */
 function hookNameToFileName(hookName: string): string {
   if (hookName.length <= 3)
     return hookName
-
   return hookName.slice(3, 4).toLowerCase() + hookName.slice(4)
 }
 
-function buildThemeConfigLiteral(themeConfig?: ThemeConfig): string {
-  if (!themeConfig) {
-    return '{ algorithm: theme.defaultAlgorithm }'
-  }
-
-  const themeProps: string[] = []
-  const algorithmStr = getAlgorithmStr(themeConfig.algorithm)
-  if (algorithmStr)
-    themeProps.push(`algorithm: ${algorithmStr}`)
-  if (themeConfig.token && Object.keys(themeConfig.token).length > 0)
-    themeProps.push(`token: ${stringifyValue(themeConfig.token, 1)}`)
-  if (themeConfig.components && Object.keys(themeConfig.components).length > 0)
-    themeProps.push(`components: ${stringifyValue(themeConfig.components, 1)}`)
-  if (themeProps.length === 0)
-    themeProps.push('algorithm: theme.defaultAlgorithm')
-
-  return `{\n  ${themeProps.join(',\n  ')}\n}`
-}
-
-function getConfigFileContent(hookName: string, fileName: string, themeConfig?: ThemeConfig) {
-  const themeLiteral = buildThemeConfigLiteral(themeConfig)
-
+/** Generate App.vue that imports the theme hook and wraps ConfigProvider */
+function getConfigFileContent(hookName: string, fileName: string): string {
   return `<script setup lang="ts">
-import { ConfigProvider, theme } from 'antdv-next'
-import { computed } from 'vue'
+import { ConfigProvider } from 'antdv-next'
 import ${hookName} from './${fileName}'
 
-const previewConfig = ${hookName}()
-
-const themeConfig = ${themeLiteral}
-
-const configProps = computed(() => ({
-  ...previewConfig.value,
-  theme: themeConfig,
-}))
+const configProps = ${hookName}()
 </script>
 
 <template>
@@ -62,6 +36,11 @@ const configProps = computed(() => ({
 `
 }
 
+/**
+ * Generate full copyable code.
+ * - If copyCode is provided (custom theme), exports two files: hook file + App.vue
+ * - Otherwise (default/dark theme), exports a minimal App.vue
+ */
 export function generateFullCopyFile(params: {
   themeConfig?: ThemeConfig
   copyCode?: string
@@ -71,7 +50,7 @@ export function generateFullCopyFile(params: {
   if (copyCode?.trim()) {
     const { content: themeFileContent, hookName } = getThemeFileContent(copyCode)
     const fileName = hookNameToFileName(hookName)
-    const configContent = getConfigFileContent(hookName, fileName, themeConfig)
+    const configContent = getConfigFileContent(hookName, fileName)
     return [
       `// ========== ${fileName}.ts ==========`,
       '',
@@ -83,7 +62,23 @@ export function generateFullCopyFile(params: {
     ].join('\n')
   }
 
-  const configPropsStr = `{ theme: ${buildThemeConfigLiteral(themeConfig)} }`
+  const configPropsStr = !themeConfig
+    ? '{ theme: { algorithm: theme.defaultAlgorithm } }'
+    : (() => {
+        const themeProps: string[] = []
+        const algorithmStr = getAlgorithmStr(themeConfig.algorithm)
+        if (algorithmStr)
+          themeProps.push(`algorithm: ${algorithmStr}`)
+        if (themeConfig.token && Object.keys(themeConfig.token).length > 0) {
+          themeProps.push(`token: ${stringifyValue(themeConfig.token, 1)}`)
+        }
+        if (themeConfig.components && Object.keys(themeConfig.components).length > 0) {
+          themeProps.push(`components: ${stringifyValue(themeConfig.components, 1)}`)
+        }
+        if (themeProps.length === 0)
+          themeProps.push('algorithm: theme.defaultAlgorithm')
+        return `{ theme: { ${themeProps.join(', ')} } }`
+      })()
 
   return [
     '// ========== App.vue ==========',
@@ -96,6 +91,55 @@ export function generateFullCopyFile(params: {
     '',
     '<template>',
     '  <ConfigProvider v-bind="configProps">',
+    '    <!-- Your App -->',
+    '  </ConfigProvider>',
+    '</template>',
+  ].join('\n')
+}
+
+/** Generate a minimal theme code snippet (no file comments) */
+export function generateThemeCode(themeConfig?: ThemeConfig): string {
+  if (!themeConfig) {
+    return [
+      '<script setup lang="ts">',
+      MINIMAL_THEME_IMPORTS,
+      '',
+      '</script>',
+      '',
+      '<template>',
+      '  <ConfigProvider theme={{ algorithm: theme.defaultAlgorithm }}>',
+      '    <!-- Your App -->',
+      '  </ConfigProvider>',
+      '</template>',
+    ].join('\n')
+  }
+
+  const { algorithm, token, components } = themeConfig
+
+  const themeProps: string[] = []
+
+  const algorithmStr = getAlgorithmStr(algorithm)
+  if (algorithmStr)
+    themeProps.push(`    algorithm: ${algorithmStr},`)
+
+  if (token && Object.keys(token).length > 0)
+    themeProps.push(`    token: ${stringifyValue(token, 2)},`)
+
+  if (components && Object.keys(components).length > 0)
+    themeProps.push(`    components: ${stringifyValue(components, 2)},`)
+
+  return [
+    '<script setup lang="ts">',
+    MINIMAL_THEME_IMPORTS,
+    '',
+    '</script>',
+    '',
+    '<template>',
+    '  <ConfigProvider',
+    '    :theme="{',
+    ...themeProps,
+    '    }"',
+    '  >',
     '    <!-- Your App -->',
     '  </ConfigProvider>',
     '</template>',

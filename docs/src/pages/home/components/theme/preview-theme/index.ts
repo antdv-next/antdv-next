@@ -1,5 +1,4 @@
 import type { ConfigProviderProps } from 'antdv-next'
-import type { ComputedRef } from 'vue'
 import { theme } from 'antdv-next'
 import { computed } from 'vue'
 import { useLocale } from '@/composables/use-locale'
@@ -25,9 +24,11 @@ export interface PreviewThemeConfig {
   bgImg?: string
   bgImgDark?: true
   copyCode?: string
+  icon?: string
+  colors?: string[]
 }
 
-export type UseTheme = () => ComputedRef<ConfigProviderProps>
+export type UseTheme = () => ConfigProviderProps
 
 export function usePreviewThemes() {
   const { t } = useLocale()
@@ -42,6 +43,7 @@ export function usePreviewThemes() {
 
   return computed<PreviewThemeConfig[]>(() => [
     {
+      icon: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
       name: t('homePage.previewThemes.default'),
       key: 'light',
       bgImg:
@@ -53,6 +55,37 @@ export function usePreviewThemes() {
       },
     },
     {
+      icon: 'https://mui.com/static/favicon.svg',
+      name: t('homePage.previewThemes.mui'),
+      bgImg:
+        'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*IFkZRpIKEEkAAAAAQzAAAAgAegCCAQ/original',
+      props: muiTheme.value,
+      copyCode: muiThemeSource,
+    },
+    {
+      icon: 'https://ui.shadcn.com/favicon.ico',
+      name: t('homePage.previewThemes.shadcn'),
+      bgImg:
+        'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*56tPQbwgFyEAAAAARuAAAAgAegCCAQ/original',
+      props: shadcnTheme.value,
+      copyCode: shadcnThemeSource,
+    },
+    {
+      icon: 'https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg',
+      name: t('homePage.previewThemes.bootstrap'),
+      props: bootstrapTheme.value,
+      copyCode: bootstrapThemeSource,
+    },
+    {
+      name: t('homePage.previewThemes.cartoon'),
+      icon: 'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*fLjhR5tqNIwAAAAAN9AAAAgAegCCAQ/original',
+      bgImg:
+        'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*tgpBT7vYIUsAAAAAQ-AAAAgAegCCAQ/original',
+      props: cartoonTheme.value,
+      copyCode: cartoonThemeSource,
+    },
+    {
+      icon: 'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*rjPZR5DHPO0AAAAAQBAAAAgAegCCAQ/original',
       name: t('homePage.previewThemes.dark'),
       key: 'dark',
       bgImg:
@@ -65,27 +98,7 @@ export function usePreviewThemes() {
       },
     },
     {
-      name: t('homePage.previewThemes.mui'),
-      bgImg:
-        'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*IFkZRpIKEEkAAAAAQzAAAAgAegCCAQ/original',
-      props: muiTheme.value,
-      copyCode: muiThemeSource,
-    },
-    {
-      name: t('homePage.previewThemes.shadcn'),
-      bgImg:
-        'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*56tPQbwgFyEAAAAARuAAAAgAegCCAQ/original',
-      props: shadcnTheme.value,
-      copyCode: shadcnThemeSource,
-    },
-    {
-      name: t('homePage.previewThemes.cartoon'),
-      bgImg:
-        'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*tgpBT7vYIUsAAAAAQ-AAAAgAegCCAQ/original',
-      props: cartoonTheme.value,
-      copyCode: cartoonThemeSource,
-    },
-    {
+      icon: 'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*Tm6ESY5h6ZgAAAAAQBAAAAgAegCCAQ/original',
       name: t('homePage.previewThemes.illustration'),
       bgImg:
         'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*HuVGQKqOER0AAAAARsAAAAgAegCCAQ/original',
@@ -93,21 +106,13 @@ export function usePreviewThemes() {
       copyCode: illustrationThemeSource,
     },
     {
-      name: t('homePage.previewThemes.bootstrap'),
-      bgImg:
-        'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*ZrLfQIO34x4AAAAAS4AAAAgAegCCAQ/original',
-      props: bootstrapTheme.value,
-      copyCode: bootstrapThemeSource,
-    },
-    {
+      icon: 'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*GF9US7qG8tAAAAAAQCAAAAgAegCCAQ/original',
       name: t('homePage.previewThemes.glass'),
-      bgImg:
-        'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*PbKXQLie7OAAAAAARTAAAAgAegCCAQ/original',
-      bgImgDark: true,
       props: glassTheme.value,
       copyCode: glassThemeSource,
     },
     {
+      icon: 'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*MsjGSYbZ6xkAAAAAQCAAAAgAegCCAQ/original',
       name: t('homePage.previewThemes.geek'),
       bgImg:
         'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*fzA2T4ms154AAAAARtAAAAgAegCCAQ/original',

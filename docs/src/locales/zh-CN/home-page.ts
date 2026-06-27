@@ -5,6 +5,8 @@ export default {
     copyTheme: '复制主题代码',
     copySuccess: '已复制',
     customizeTheme: '定制主题',
+    editTheme: '主题编辑器',
+    aiGenerate: 'AI 主题生成',
     myTheme: '我的主题',
     titlePrimaryColor: '主色',
     titleBorderRadius: '圆角',
