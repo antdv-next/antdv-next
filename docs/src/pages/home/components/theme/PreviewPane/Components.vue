@@ -271,7 +271,6 @@ const avatarGroupList = [
   'https://avatars.githubusercontent.com/u/106022674?v=4',
   'https://avatars.githubusercontent.com/u/18481623?v=4',
   'https://avatars.githubusercontent.com/u/51188676?v=4',
-  'https://avatars.githubusercontent.com/u/59312002?v=4',
 ]
 
 const buttonList: (ButtonProps & { label: string })[] = [
@@ -521,7 +520,7 @@ const mergedConfig = computed<ConfigProviderProps>(() => {
                 <div :class="[styles.blockCard, styles.signupCard]">
                   <Avatar
                     :size="50"
-                    src="https://avatars.githubusercontent.com/u/45655660?v=4"
+                    src="https://avatars.githubusercontent.com/u/59312002?v=4"
                     :class="styles.signupAvatar"
                   />
                   <TypographyTitle :level="4">
