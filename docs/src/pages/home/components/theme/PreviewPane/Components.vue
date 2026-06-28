@@ -271,6 +271,7 @@ const avatarGroupList = [
   'https://avatars.githubusercontent.com/u/106022674?v=4',
   'https://avatars.githubusercontent.com/u/18481623?v=4',
   'https://avatars.githubusercontent.com/u/51188676?v=4',
+  'https://avatars.githubusercontent.com/u/59312002?v=4',
 ]
 
 const buttonList: (ButtonProps & { label: string })[] = [
