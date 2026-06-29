@@ -420,7 +420,7 @@ const mergedConfig = computed<ConfigProviderProps>(() => {
                   <Segmented
                     :styles="{
                       root: {
-                        marginBlockStart: 8,
+                        marginBlockStart: '8px',
                       },
                     }"
                     block
