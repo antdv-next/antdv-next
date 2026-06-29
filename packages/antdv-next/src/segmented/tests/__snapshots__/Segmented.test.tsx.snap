@@ -52,9 +52,10 @@ exports[`segmented > should render segmented with mixed options 1`] = `
   >
     <!---->
     <label
-      class="ant-segmented-item"
+      class="ant-segmented-item ant-segmented-item-selected"
     >
       <input
+        checked=""
         class="ant-segmented-item-input"
         name="v-0"
         type="radio"
@@ -114,9 +115,10 @@ exports[`segmented > should render segmented with string options 1`] = `
   >
     <!---->
     <label
-      class="ant-segmented-item"
+      class="ant-segmented-item ant-segmented-item-selected"
     >
       <input
+        checked=""
         class="ant-segmented-item-input"
         name="v-0"
         type="radio"
@@ -176,9 +178,10 @@ exports[`segmented > snapshot > should match snapshot with block and size 1`] = 
   >
     <!---->
     <label
-      class="ant-segmented-item"
+      class="ant-segmented-item ant-segmented-item-selected"
     >
       <input
+        checked=""
         class="ant-segmented-item-input"
         name="v-0"
         type="radio"
@@ -308,9 +311,10 @@ exports[`segmented > snapshot > should match snapshot with round shape 1`] = `
   >
     <!---->
     <label
-      class="ant-segmented-item"
+      class="ant-segmented-item ant-segmented-item-selected"
     >
       <input
+        checked=""
         class="ant-segmented-item-input"
         name="v-0"
         type="radio"
@@ -355,9 +359,10 @@ exports[`segmented > snapshot > should match snapshot with various options 1`] =
   >
     <!---->
     <label
-      class="ant-segmented-item"
+      class="ant-segmented-item ant-segmented-item-selected"
     >
       <input
+        checked=""
         class="ant-segmented-item-input"
         name="v-0"
         type="radio"
