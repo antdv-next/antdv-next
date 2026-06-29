@@ -119,7 +119,6 @@ const useStyle = createStyles(({ css, token, cssVar }) => {
       background: cssVar.colorBgContainer,
       borderRadius: token.borderRadiusLG,
       boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
-      border: `1px solid ${token.colorBorderSecondary}`,
       padding: token.paddingLG,
     }),
     avatarGroup: css({
@@ -381,7 +380,7 @@ const mergedConfig = computed<ConfigProviderProps>(() => {
                   <div :class="[styles.blockCard, styles.blockCardQr]">
                     <QRCode
                       error-level="H"
-                      value="https://www.antdv-next.com/"
+                      value="http://weixin.qq.com/r/mp/1iYQCM-ESZI2rYtr93PE"
                       :icon="antdvNextLogo"
                     />
                   </div>
@@ -420,7 +419,7 @@ const mergedConfig = computed<ConfigProviderProps>(() => {
                   <Segmented
                     :styles="{
                       root: {
-                        marginBlockStart: 8,
+                        marginBlockStart: '8px',
                       },
                     }"
                     block
