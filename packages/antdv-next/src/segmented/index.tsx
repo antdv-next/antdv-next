@@ -163,7 +163,7 @@ const InternalSegmented = defineComponent<
         // Only wrap the option when it actually carries an icon or a custom label,
         // otherwise keep the raw option so we don't render an empty icon wrapper.
         if (hasIcon || hasCustomLabel) {
-          const { label, ...restOption } = _option
+          const { label, icon: _icon, ...restOption } = _option
           const mergedLabel = labelFromSlot.length > 0 ? labelFromSlot : label
           const showLabel = !!(labelFromSlot.length > 0) || !!label
           const icon = getSlotPropsFnRun({}, option, 'icon') ?? iconFromSlot
@@ -194,6 +194,7 @@ const InternalSegmented = defineComponent<
         rootClass,
         block,
         shape,
+        classes,
         ...restProps
       } = props
       const cls = clsx(
