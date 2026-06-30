@@ -492,6 +492,11 @@ const InternalTable = defineComponent<
     const [transformSorterColumns, sortStates, sorterTitleProps, getSorters] = useSorter({
       prefixCls,
       mergedColumns: mergedColumns as any,
+      // Pass `baseColumns` (pre-responsive) so `defaultSortOrder` and controlled
+      // `sortOrder` on a `responsive` column are still honored when the column
+      // is hidden at the current breakpoint.
+      // See: https://github.com/ant-design/ant-design/issues/32847
+      baseColumns: baseColumns as any,
       onSorterChange,
       sortDirections: computed(() => props.sortDirections || ['ascend', 'descend']),
       tableLocale: mergedLocale,
