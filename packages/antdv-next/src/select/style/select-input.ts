@@ -82,6 +82,14 @@ function genSelectInputVariantStyle(token: SelectToken, variant: string, colors:
   }
 }
 
+function genSelectInputFocusVisibleStyle(token: SelectToken, outlineColor: string): CSSObject {
+  return {
+    outline: `${unit(token.lineWidth)} ${token.lineType} ${outlineColor}`,
+    outlineOffset: unit(token.calc(token.lineWidth).mul(-1).equal()),
+    transition: [`outline-offset`, `outline`].map(prop => `${prop} 0s`).join(', '),
+  }
+}
+
 const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
   const { componentCls, fontHeight, controlHeight, iconCls, antCls, calc } = token
   const [varName, varRef] = genCssVar(antCls, 'select')
@@ -384,14 +392,28 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
       ),
 
       // >>> Borderless
-      genSelectInputVariantStyle(token, 'borderless', {
-        border: 'transparent',
-        borderHover: 'transparent',
-        borderActive: 'transparent',
-        borderOutline: 'transparent',
+      genSelectInputVariantStyle(
+        token,
+        'borderless',
+        {
+          border: 'transparent',
+          borderHover: 'transparent',
+          borderActive: 'transparent',
+          borderOutline: 'transparent',
 
-        background: 'transparent',
-      }),
+          background: 'transparent',
+        },
+        {},
+        {},
+        {
+          [`&:not(${componentCls}-disabled):has(input:focus-visible), &:not(${componentCls}-disabled):has(textarea:focus-visible)`]:
+            genSelectInputFocusVisibleStyle(token, token.activeBorderColor),
+          [`&${componentCls}-status-error:not(${componentCls}-disabled):has(input:focus-visible), &${componentCls}-status-error:not(${componentCls}-disabled):has(textarea:focus-visible)`]:
+            genSelectInputFocusVisibleStyle(token, token.colorError),
+          [`&${componentCls}-status-warning:not(${componentCls}-disabled):has(input:focus-visible), &${componentCls}-status-warning:not(${componentCls}-disabled):has(textarea:focus-visible)`]:
+            genSelectInputFocusVisibleStyle(token, token.colorWarning),
+        },
+      ),
 
       // Underlined
       genSelectInputVariantStyle(
