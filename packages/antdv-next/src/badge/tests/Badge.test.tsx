@@ -137,6 +137,15 @@ describe('badge', () => {
     expect(wrapper.find('.ant-badge-count').attributes('title')).toBe('Custom Title')
   })
 
+  // https://github.com/ant-design/ant-design/pull/58209
+  it('should not render title attribute when title is null or false', () => {
+    const wrapperNull = mount(Badge, { props: { count: 10, title: null } })
+    expect(wrapperNull.find('.ant-scroll-number').attributes('title')).toBeUndefined()
+
+    const wrapperFalse = mount(Badge, { props: { count: 11, title: false } })
+    expect(wrapperFalse.find('.ant-scroll-number').attributes('title')).toBeUndefined()
+  })
+
   it('should render with offset', () => {
     const wrapper = mount(Badge, {
       props: { count: 5, offset: [10, 10] },
