@@ -173,7 +173,9 @@ const InternalForm = defineComponent<
       styles: contextStyles,
       classes: contextClassNames,
       tooltip: contextTooltip,
-    } = useComponentBaseConfig('form', props, ['scrollToFirstError', 'colon', 'requiredMark', 'tooltip', 'autoComplete', 'autocomplete'])
+      labelAlign: contextLabelAlign,
+      labelWrap: contextLabelWrap,
+    } = useComponentBaseConfig('form', props, ['scrollToFirstError', 'colon', 'requiredMark', 'tooltip', 'autoComplete', 'autocomplete', 'labelAlign', 'labelWrap'])
     const {
       size,
       styles,
@@ -212,6 +214,8 @@ const InternalForm = defineComponent<
     })
 
     const mergedColon = computed(() => props.colon ?? contextColon.value)
+    const mergedLabelAlign = computed(() => props.labelAlign ?? contextLabelAlign.value)
+    const mergedLabelWrap = computed(() => props.labelWrap ?? contextLabelWrap.value)
     const mergedAutoComplete = computed(() => props.autoComplete ?? props.autocomplete ?? contextAutoComplete.value ?? contextAutocomplete.value)
     const mergedTooltip = computed(() => {
       return {
@@ -238,6 +242,8 @@ const InternalForm = defineComponent<
         size: mergedSize.value,
         colon: mergedColon.value,
         requiredMark: mergedRequiredMark.value,
+        labelAlign: mergedLabelAlign.value,
+        labelWrap: mergedLabelWrap.value,
       } as FormProps
     })
 
@@ -415,12 +421,12 @@ const InternalForm = defineComponent<
       return {
         ...pick(props, [
           'name',
-          'labelAlign',
           'labelCol',
-          'labelWrap',
           'wrapperCol',
           'layout',
         ]),
+        labelAlign: mergedLabelAlign.value,
+        labelWrap: mergedLabelWrap.value,
         colon: mergedColon.value,
         requiredMark: mergedRequiredMark.value,
         classes: mergedClassNames.value,

@@ -324,6 +324,7 @@ export type FormConfig = ComponentStyleConfig
     | 'autoComplete'
     | 'autocomplete'
     | 'labelAlign'
+    | 'labelWrap'
   >
 export type RadioConfig = ComponentStyleConfig & Pick<RadioProps, 'classes' | 'styles'>
 
