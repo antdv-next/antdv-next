@@ -29,6 +29,7 @@ demo:
   <demo src="./demo/draggableTrack.vue">范围可拖拽</demo>
   <demo src="./demo/multiple.vue">多点组合</demo>
   <demo src="./demo/editable.vue">动态增减节点</demo>
+  <demo src="./demo/disabled-handle.vue">单独禁用滑块</demo>
   <demo src="./demo/style-class.vue">自定义语义结构的样式和类</demo>
 </demo-group>
 
@@ -42,7 +43,7 @@ demo:
 | --- | --- | --- | --- | --- | --- |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - | ✓ |
 | defaultValue | 设置初始取值。当 `range` 为 false 时，使用 number，否则用 [number, number] | number \| [number, number] | 0 \| [0, 0] | - | × |
-| disabled | 值为 true 时，滑块为禁用状态 | boolean | false | - | × |
+| disabled | 值为 true 时，滑块为禁用状态；在 Range 模式下可传 `boolean[]` 单独禁用某个滑块 | boolean \| boolean[] | false | boolean[]: 6.5.0 | × |
 | dots | 是否只能拖拽到刻度上 | boolean | false | - | × |
 | included | `marks` 不为空对象时有效，值为 true 时表示值为包含关系，false 表示并列 | boolean | true | - | × |
 | keyboard | 支持使用键盘操作 handler | boolean | true | 5.2.0+ | × |

@@ -87,7 +87,8 @@ export interface SliderBaseProps {
   marks?: SliderMarks
   dots?: boolean
   included?: boolean
-  disabled?: boolean
+  /** Set `boolean[]` to individually disable specific handles (Range mode). */
+  disabled?: boolean | boolean[]
   keyboard?: boolean
   orientation?: Orientation
   vertical?: boolean
