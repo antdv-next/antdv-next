@@ -4,14 +4,29 @@ import { useMutateObserver } from '@v-c/mutate-observer'
 import canUseDom from '@v-c/util/dist/Dom/canUseDom'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, ref, shallowRef, watch } from 'vue'
-import toList from '../_util/toList.ts'
 import { useToken } from '../theme/internal.ts'
 import { WatermarkContextProvider } from './context.ts'
 import useClips, { FontGap } from './useClips.ts'
 import useRafDebounce from './useRafDebounce.ts'
 import useSingletonCache from './useSingletonCache.ts'
 import useWatermark from './useWatermark.ts'
-import { getPixelRatio, reRendering } from './utils.ts'
+import { getCanvasFont, getContentLines, getPixelRatio, reRendering } from './utils.ts'
+
+export interface WatermarkFont {
+  color?: CanvasFillStrokeStyles['fillStyle']
+  fontSize?: number | string
+  fontWeight?: 'normal' | 'lighter' | 'bold' | 'bolder' | number
+  fontStyle?: 'none' | 'normal' | 'italic' | 'oblique'
+  fontFamily?: string
+  textAlign?: CanvasTextAlign
+}
+
+export interface WatermarkText {
+  text: string
+  font?: WatermarkFont
+}
+
+export type WatermarkContent = string | WatermarkText
 
 export interface WatermarkProps {
   zIndex?: number
@@ -19,15 +34,8 @@ export interface WatermarkProps {
   width?: number
   height?: number
   image?: string
-  content?: string | string[]
-  font?: {
-    color?: CanvasFillStrokeStyles['fillStyle']
-    fontSize?: number | string
-    fontWeight?: 'normal' | 'light' | 'weight' | number
-    fontStyle?: 'none' | 'normal' | 'italic' | 'oblique'
-    fontFamily?: string
-    textAlign?: CanvasTextAlign
-  }
+  content?: WatermarkContent | WatermarkContent[]
+  font?: WatermarkFont
   rootClass?: string
   gap?: [number, number]
   offset?: [number, number]
@@ -70,6 +78,15 @@ const Watermark = defineComponent<WatermarkProps>(
     const fontStyle = computed(() => props?.font?.fontStyle ?? 'normal')
     const fontFamily = computed(() => props?.font?.fontFamily ?? 'sans-serif')
     const textAlign = computed(() => props?.font?.textAlign ?? 'center')
+    const mergedFont = computed(() => ({
+      color: color.value,
+      fontSize: fontSize.value,
+      fontWeight: fontWeight.value,
+      fontStyle: fontStyle.value,
+      fontFamily: fontFamily.value,
+      textAlign: textAlign.value,
+    }))
+    const contentLines = computed(() => getContentLines(props.content, mergedFont.value as any))
     const gap = computed(() => props.gap!)
     const gapXCenter = computed(() => gap.value[0] / 2)
     const gapYCenter = computed(() => gap.value[1] / 2)
@@ -129,17 +146,22 @@ const Watermark = defineComponent<WatermarkProps>(
       let defaultWidth = 120
       let defaultHeight = 64
       if (!props.image && ctx.measureText) {
-        ctx.font = `${Number(fontSize.value)}px ${fontFamily.value}`
-        const contents = toList(props.content)
-        const sizes = contents.map((item) => {
-          const metrics = ctx.measureText(item!)
+        if (contentLines.value.length) {
+          const sizes = contentLines.value.map(({ text, font: lineFont }) => {
+            ctx.font = getCanvasFont(lineFont)
+            const metrics = ctx.measureText(text)
 
-          return [metrics.width, metrics.fontBoundingBoxAscent + metrics.fontBoundingBoxDescent]
-        })
+            return [metrics.width, metrics.fontBoundingBoxAscent + metrics.fontBoundingBoxDescent]
+          })
 
-        defaultWidth = Math.ceil(Math.max(...sizes.map(size => size[0]!)))
-        defaultHeight = Math.ceil(Math.max(...sizes.map(size => size[1]!))) * contents.length
-          + (contents.length - 1) * FontGap
+          defaultWidth = Math.ceil(Math.max(...sizes.map(size => size[0]!)))
+          defaultHeight = Math.ceil(sizes.reduce((total, size) => total + size[1]!, 0))
+            + (contentLines.value.length - 1) * FontGap
+        }
+        else {
+          defaultWidth = 0
+          defaultHeight = 0
+        }
       }
       const width = props.width
       const height = props.height
@@ -163,22 +185,14 @@ const Watermark = defineComponent<WatermarkProps>(
         const [markWidth, markHeight] = getMarkSize(ctx)
 
         const drawCanvas = (
-          drawContent?: NonNullable<WatermarkProps['content']> | HTMLImageElement,
+          drawContent?: typeof contentLines.value | HTMLImageElement,
         ) => {
           const params: ClipParams = [
-            drawContent || '',
+            drawContent || [],
             props.rotate!,
             ratio,
             markWidth,
             markHeight,
-            {
-              color: color.value,
-              fontSize: fontSize.value,
-              fontStyle: fontStyle.value,
-              fontWeight: fontWeight.value,
-              fontFamily: fontFamily.value,
-              textAlign: textAlign.value,
-            },
             gap.value[0],
             gap.value[1],
           ] as const
@@ -193,14 +207,14 @@ const Watermark = defineComponent<WatermarkProps>(
             drawCanvas(img)
           }
           img.onerror = () => {
-            drawCanvas(props.content)
+            drawCanvas(contentLines.value)
           }
           img.crossOrigin = 'anonymous'
           img.referrerPolicy = 'no-referrer'
           img.src = props.image
         }
         else {
-          drawCanvas(props.content)
+          drawCanvas(contentLines.value)
         }
       }
     }
@@ -249,12 +263,7 @@ const Watermark = defineComponent<WatermarkProps>(
       () => props.height,
       () => props.rotate,
       () => props.image,
-      () => props.content,
-      fontSize,
-      fontWeight,
-      fontStyle,
-      fontFamily,
-      textAlign,
+      contentLines,
       gap,
       offsetLeft,
       offsetTop,

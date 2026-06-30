@@ -38,7 +38,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | rotate | When the watermark is drawn, the rotation angle, unit `°` | number | -22 | - | × |
 | zIndex | The z-index of the appended watermark element | number | 9 | - | × |
 | image | Image source, it is recommended to export 2x or 3x image, high priority (support base64 format) | string | - | - | × |
-| content | Watermark text content | string \| string[] | - | - | × |
+| content | Watermark text content. Pass a `WatermarkText` object to set per-line font styles | string \| [WatermarkText](#watermarktext) \| (string \| [WatermarkText](#watermarktext))[] | - | object usage: 6.5.0 | × |
 | font | Text style | [Font](#font) | [Font](#font) | - | × |
 | gap | The spacing between watermarks | \[number, number\] | \[100, 100\] | - | × |
 | offset | The offset of the watermark from the upper left corner of the container. The default is `gap/2` | \[number, number\] | \[gap\[0\]/2, gap\[1\]/2\] | - | × |
@@ -61,6 +61,15 @@ Common props ref：[Common props](/docs/vue/common-props)
 | fontFamily | Font family | string | sans-serif | - |
 | fontStyle | Font style | `none` \| `normal` \| `italic` \| `oblique` | normal | - |
 | textAlign | Specify the text alignment direction | [CanvasTextAlign](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/textAlign) | `center` | - |
+
+### WatermarkText {#watermarktext}
+
+Configure the font style for a single line of a multi-line watermark (`6.5.0`).
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| text | Text content of the line | string | - | 6.5.0 |
+| font | Font style of the line, merged over the component-level `font` | [Font](#font) | - | 6.5.0 |
 
 ## Design Token {#design-token}
 
