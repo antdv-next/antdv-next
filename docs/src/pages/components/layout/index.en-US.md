@@ -104,10 +104,12 @@ The sidebar.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | breakpoint | [Breakpoints](/components/grid/#col) of the responsive layout | `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `xxl` \| `xxxl` | - | xxxl: 1.0.3 |
+| classes | Semantic structure class (`root`, `body`) for the Sider, supports object or function | Record<string, string> \| (info: { props }) => Record<string, string> | - | 6.5.0 |
 | collapsed | To set the current status | boolean | - |  |
 | collapsedWidth | Width of the collapsed sidebar, by setting to 0 a special trigger will appear | number | 80 |  |
 | collapsible | Whether can be collapsed | boolean | false |  |
 | reverseArrow | Reverse direction of arrow, for a sider that expands from the right | boolean | false |  |
+| styles | Semantic structure inline style (`root`, `body`) for the Sider, supports object or function | Record<string, CSSProperties> \| (info: { props }) => Record<string, CSSProperties> | - | 6.5.0 |
 | theme | Color theme of the sidebar | `light` \| `dark` | `dark` |  |
 | trigger | Specify the customized trigger, set to null to hide the trigger | ReactNode | - |  |
 | width | Width of the sidebar | number \| string | 200 |  |

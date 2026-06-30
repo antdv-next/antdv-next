@@ -1,12 +1,14 @@
 import type { CSSProperties, InjectionKey, Ref, SlotsType } from 'vue'
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { Breakpoint } from '../_util/responsiveObserver'
 import { BarsOutlined, LeftOutlined, RightOutlined } from '@antdv-next/icons'
 import { classNames } from '@v-c/util'
 import canUseDom from '@v-c/util/dist/Dom/canUseDom'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, inject, onBeforeUnmount, provide, ref, shallowRef, watch } from 'vue'
+import { useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
 import { addMediaQueryListener, removeMediaQueryListener } from '../_util/mediaQueryUtil.ts'
-import { getSlotPropsFnRun } from '../_util/tools.ts'
+import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { useBaseConfig } from '../config-provider/context.ts'
 import { useLayoutCtx } from './context.ts'
 
@@ -46,6 +48,20 @@ export type CollapseType = 'clickTrigger' | 'responsive'
 
 export type SiderTheme = 'light' | 'dark'
 
+export interface SiderSemanticClassNames {
+  root?: string
+  body?: string
+}
+
+export interface SiderSemanticStyles {
+  root?: CSSProperties
+  body?: CSSProperties
+}
+
+export type SiderClassNamesType = SemanticClassNamesType<SiderProps, SiderSemanticClassNames>
+
+export type SiderStylesType = SemanticStylesType<SiderProps, SiderSemanticStyles>
+
 export interface SiderProps extends
   /* @vue-ignore */
   SiderEmitsProps {
@@ -59,6 +75,8 @@ export interface SiderProps extends
   collapsedWidth?: number | string
   breakpoint?: Breakpoint
   theme?: SiderTheme
+  classes?: SiderClassNamesType
+  styles?: SiderStylesType
 }
 
 export interface SiderEmits {
@@ -126,6 +144,19 @@ const Sider = defineComponent<
   const { prefixCls, direction } = useBaseConfig('layout-sider', props)
 
   const [hashId, cssVarCls] = useStyle(prefixCls)
+
+  // =========================== Semantic ===========================
+  const { classes, styles } = toPropsRefs(props, 'classes', 'styles')
+  const mergedProps = computed(() => props)
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    SiderClassNamesType,
+    SiderStylesType,
+    SiderProps
+  >(
+    useToArr(classes),
+    useToArr(styles),
+    useToProps(mergedProps),
+  )
 
   // ========================= Responsive =========================
   const responsiveHandler: (mql: MediaQueryListEvent | MediaQueryList) => void = (mql) => {
@@ -236,13 +267,14 @@ const Sider = defineComponent<
         [`${prefixCls.value}-zero-width`]: Number.parseFloat(siderWidth.value) === 0,
       },
       (attrs as any).class,
+      mergedClassNames.value.root,
       hashId.value,
       cssVarCls.value,
     )
 
     return (
-      <aside class={siderCls} {...omit(attrs, ['style', 'class'])} style={[(attrs as any).style, divStyle]}>
-        <div class={`${prefixCls.value}-children`}>{slots?.default?.()}</div>
+      <aside class={siderCls} {...omit(attrs, ['style', 'class'])} style={[mergedStyles.value.root, (attrs as any).style, divStyle]}>
+        <div class={classNames(`${prefixCls.value}-children`, mergedClassNames.value.body)} style={mergedStyles.value.body}>{slots?.default?.()}</div>
         {collapsible || (below.value && zeroWidthTrigger) ? triggerDom : null}
       </aside>
     )
