@@ -240,7 +240,7 @@ const OTP = defineComponent<
                 value={valueCells.value[index] || ''}
                 onChange={handleInputChange}
                 onActiveChange={handleActiveChange}
-                autoFocus={index === 0 && props.autoFocus}
+                autoFocus={index === 0 ? props.autoFocus : undefined}
                 mask={props.mask}
                 type={props.type}
                 inputMode={props.inputMode}

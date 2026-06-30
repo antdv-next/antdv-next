@@ -88,9 +88,6 @@ const OTPInput = defineComponent<
           onMouseup={() => syncSelection()}
           aria-label={`OTP Input ${props.index + 1}`}
           v-slots={slots}
-          {...{
-            'onUpdate:value': (value: string) => props.onChange(props.index, value ?? ''),
-          }}
         />
       </span>
     )
