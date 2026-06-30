@@ -4,14 +4,14 @@ import type { InputEmits as BaseInputEmits, InputProps as BaseInputProps, InputR
 import { EyeInvisibleOutlined, EyeOutlined } from '@antdv-next/icons'
 import { clsx } from '@v-c/util'
 import { omit } from 'es-toolkit'
-import { cloneVNode, computed, defineComponent, isVNode, shallowRef, watch } from 'vue'
+import { computed, defineComponent, shallowRef, watch } from 'vue'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { useComponentBaseConfig } from '../config-provider/context'
 import { useDisabledContext } from '../config-provider/DisabledContext.tsx'
 import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout'
 import Input from './Input'
 
-type VisibilityToggle = boolean | { visible?: boolean, onVisibleChange?: (visible: boolean) => void }
+type VisibilityToggle = boolean | { tabIndex?: number, visible?: boolean, onVisibleChange?: (visible: boolean) => void }
 
 type PasswordAction = 'click' | 'hover'
 
@@ -110,20 +110,35 @@ const InternalPassword = defineComponent<
         return null
       }
       const iconNode = iconRender(visible.value)
-      const originVNode = isVNode(iconNode) ? iconNode : <span>{iconNode}</span>
-      const originalProps = originVNode.props || {}
-      const iconVNode = originVNode
       const eventName = action.value === 'hover' ? 'onMouseover' : 'onClick'
-      return cloneVNode(iconVNode, {
-        [eventName]: (e: Event) => {
-          originalProps?.[eventName as keyof typeof originalProps]?.(e)
-          triggerVisibleChange()
-        },
-        class: clsx(iconVNode.props?.class, `${passwordPrefixCls.value}-icon`),
-        key: 'passwordIcon',
-        onMousedown: (e: MouseEvent) => e.preventDefault(),
-        onMouseup: (e: MouseEvent) => e.preventDefault(),
-      })
+      const toggle = visibilityToggle.value
+      const iconTabIndex = typeof toggle === 'object' ? toggle.tabIndex : undefined
+      const triggerProps = { [eventName]: () => triggerVisibleChange() }
+      return (
+        <span
+          key="passwordIcon"
+          role="button"
+          tabindex={mergedDisabled.value ? -1 : (iconTabIndex ?? 0)}
+          class={`${passwordPrefixCls.value}-icon`}
+          aria-disabled={mergedDisabled.value}
+          aria-pressed={visible.value}
+          // Prevent focused state lost
+          // https://github.com/ant-design/ant-design/issues/15173
+          onMousedown={(e: MouseEvent) => e.preventDefault()}
+          // Prevent caret position change
+          // https://github.com/ant-design/ant-design/issues/23524
+          onMouseup={(e: MouseEvent) => e.preventDefault()}
+          onKeydown={(e: KeyboardEvent) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault()
+              triggerVisibleChange()
+            }
+          }}
+          {...triggerProps}
+        >
+          {iconNode}
+        </span>
+      )
     }
 
     const handleUpdateValue = (value: any) => {
