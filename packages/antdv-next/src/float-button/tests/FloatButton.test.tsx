@@ -304,6 +304,19 @@ describe('floatButtonGroup', () => {
     expect(onOpenChange).toHaveBeenCalledWith(false)
   })
 
+  // https://github.com/ant-design/ant-design/pull/58513
+  it('should not trigger open when hover menu is disabled', async () => {
+    const onOpenChange = vi.fn()
+    const wrapper = mount(FloatButtonGroup, {
+      props: { trigger: 'hover', disabled: true, onOpenChange },
+      slots: { default: () => [h(FloatButton), h(FloatButton)] },
+    })
+
+    await wrapper.find('.ant-float-btn-group').trigger('mouseenter')
+    await wrapper.find('.ant-float-btn-group').trigger('mouseleave')
+    expect(onOpenChange).not.toHaveBeenCalled()
+  })
+
   it('should support controlled open', async () => {
     const wrapper = mount(FloatButtonGroup, {
       props: { trigger: 'click', open: true },
