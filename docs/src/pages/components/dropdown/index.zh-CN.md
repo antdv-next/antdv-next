@@ -60,7 +60,7 @@ demo:
 | getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | (triggerNode: HTMLElement) =&gt; HTMLElement | () =&gt; document.body | - | × |
 | prefixCls | 自定义前缀类名 | string | - | - | × |
 | transitionName | 动画名称 | string | - | - | × |
-| placement | 菜单弹出位置：`bottom` `bottomLeft` `bottomRight` `top` `topLeft` `topRight` | Placement | `bottomLeft` | - | × |
+| placement | 菜单弹出位置：`bottom` `bottomLeft` `bottomRight` `top` `topLeft` `topRight` `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom` | Placement | `bottomLeft` | left/right: 6.5.0 | × |
 | forceRender | 强制渲染下拉菜单 | boolean | - | - | × |
 | mouseEnterDelay | 鼠标移入后显示延时，单位秒 | number | 0.15 | - | × |
 | mouseLeaveDelay | 鼠标移出后隐藏延时，单位秒 | number | 0.1 | - | × |

@@ -56,7 +56,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | getPopupContainer | To set the container of the dropdown menu. The default is to create a div element in body, but you can reset it to the scrolling area and make a relative reposition. [Example on CodePen](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | (triggerNode: HTMLElement) =&gt; HTMLElement | () =&gt; document.body | - | × |
 | prefixCls | Customize prefix class name | string | - | - | × |
 | transitionName | Motion name of dropdown | string | - | - | × |
-| placement | Placement of popup menu: `bottom` `bottomLeft` `bottomRight` `top` `topLeft` `topRight` | Placement | `bottomLeft` | - | × |
+| placement | Placement of popup menu: `bottom` `bottomLeft` `bottomRight` `top` `topLeft` `topRight` `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom` | Placement | `bottomLeft` | left/right: 6.5.0 | × |
 | forceRender | Force render dropdown overlay | boolean | - | - | × |
 | mouseEnterDelay | Delay in seconds before showing dropdown | number | 0.15 | - | × |
 | mouseLeaveDelay | Delay in seconds before hiding dropdown | number | 0.1 | - | × |
