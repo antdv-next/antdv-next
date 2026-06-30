@@ -44,6 +44,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cFsBQLA0b7UAAA
 | iconRender | 自定义渲染图标，请优先使用 `items.icon` | (oriNode, info: &#123; index, active, item &#125;) =&gt; VueNode | - | - | × |
 | initial | 起始序号，从 0 开始记数 | number | 0 | - | × |
 | items | 配置选项卡内容 | [StepItem](#stepitem)[] | [] | 4.24.0 | × |
+| maxCount | 最大可见步骤项数量（`>= 3`）。超出数量的步骤区间会聚合成禁用的省略号步骤 | number | - | 6.5.0 | × |
 | orientation | 指定步骤条方向。目前支持水平（`horizontal`）和竖直（`vertical`）两种方向 | `horizontal` \| `vertical` | `horizontal` | - | × |
 | percent | 当前 `process` 步骤显示的进度条进度（只对基本类型的 Steps 生效） | number | - | 4.5.0 | × |
 | progressDot | 点状步骤条，可以设置为一个 function，`titlePlacement` 将强制为 `vertical` | boolean \| (iconDot, &#123; index, status, title, content &#125;) =&gt; VueNode | false | - | × |
