@@ -29,7 +29,6 @@ exports[`otp > rtl render > component should be rendered correctly in RTL direct
       <!---->
       <input
         aria-label="OTP Input 2"
-        autofocus="false"
         class="ant-input ant-input-rtl ant-input-outlined ant-otp-input css-var-root ant-input-css-var"
         size="1"
         type="text"
@@ -44,7 +43,6 @@ exports[`otp > rtl render > component should be rendered correctly in RTL direct
       <!---->
       <input
         aria-label="OTP Input 3"
-        autofocus="false"
         class="ant-input ant-input-rtl ant-input-outlined ant-otp-input css-var-root ant-input-css-var"
         size="1"
         type="text"
@@ -59,7 +57,6 @@ exports[`otp > rtl render > component should be rendered correctly in RTL direct
       <!---->
       <input
         aria-label="OTP Input 4"
-        autofocus="false"
         class="ant-input ant-input-rtl ant-input-outlined ant-otp-input css-var-root ant-input-css-var"
         size="1"
         type="text"
@@ -74,7 +71,6 @@ exports[`otp > rtl render > component should be rendered correctly in RTL direct
       <!---->
       <input
         aria-label="OTP Input 5"
-        autofocus="false"
         class="ant-input ant-input-rtl ant-input-outlined ant-otp-input css-var-root ant-input-css-var"
         size="1"
         type="text"
@@ -89,7 +85,6 @@ exports[`otp > rtl render > component should be rendered correctly in RTL direct
       <!---->
       <input
         aria-label="OTP Input 6"
-        autofocus="false"
         class="ant-input ant-input-rtl ant-input-outlined ant-otp-input css-var-root ant-input-css-var"
         size="1"
         type="text"
