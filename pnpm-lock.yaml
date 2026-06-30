@@ -393,8 +393,8 @@ catalogs:
       specifier: ^1.0.3
       version: 1.0.3
     '@v-c/select':
-      specifier: ^1.1.2
-      version: 1.1.2
+      specifier: ^1.1.3
+      version: 1.1.3
     '@v-c/slick':
       specifier: ^1.0.2
       version: 1.0.2
@@ -411,8 +411,8 @@ catalogs:
       specifier: ^1.1.6
       version: 1.1.6
     '@v-c/tabs':
-      specifier: ^1.1.1
-      version: 1.1.1
+      specifier: ^1.2.0
+      version: 1.2.0
     '@v-c/textarea':
       specifier: ^1.1.0
       version: 1.1.0
@@ -867,7 +867,7 @@ importers:
         version: 1.0.3(vue@3.5.38(typescript@5.9.3))
       '@v-c/select':
         specifier: catalog:vc
-        version: 1.1.2(vue@3.5.38(typescript@5.9.3))
+        version: 1.1.3(vue@3.5.38(typescript@5.9.3))
       '@v-c/slick':
         specifier: catalog:vc
         version: 1.0.2(vue@3.5.38(typescript@5.9.3))
@@ -885,7 +885,7 @@ importers:
         version: 1.1.6(vue@3.5.38(typescript@5.9.3))
       '@v-c/tabs':
         specifier: catalog:vc
-        version: 1.1.1(vue@3.5.38(typescript@5.9.3))
+        version: 1.2.0(vue@3.5.38(typescript@5.9.3))
       '@v-c/textarea':
         specifier: catalog:vc
         version: 1.1.0(vue@3.5.38(typescript@5.9.3))
@@ -3016,6 +3016,11 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
+  '@v-c/select@1.1.3':
+    resolution: {integrity: sha512-UfnIE2q0eXPL48xBy/A5aVSOPa49Z0x9klpDyhU3z8Y14KXdlhq23HvePiyzBhv9+ltu5wM1Tr+J6rE7OXgbRg==}
+    peerDependencies:
+      vue: ^3.0.0
+
   '@v-c/slick@1.0.2':
     resolution: {integrity: sha512-8BbPxJgYST+tio9jyeFQgJb/3XSFhfWZN8Am7YVYeqsYsvn3g8wu61UZNSjlkp9ArOEe+ujOgX4izfDHeXh4RA==}
     peerDependencies:
@@ -3043,6 +3048,11 @@ packages:
 
   '@v-c/tabs@1.1.1':
     resolution: {integrity: sha512-BPIIAMeac5S5hJ9cvgnSeMsTiaMPNTMtPGBLjmsChQq4qeBqAyln/gGnuEnoNpCFsAvtwXv8ibDFPjn4unFQaQ==}
+    peerDependencies:
+      vue: ^3.0.0
+
+  '@v-c/tabs@1.2.0':
+    resolution: {integrity: sha512-iwgrtYEsUJTBR0tU6nlz0UQW4Tkn13StDMbDTT+jRbHeHWI5OGesL09im9HfR+GqhUIU34klZ3216q7HsOf6uw==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -8408,7 +8418,7 @@ snapshots:
 
   '@v-c/cascader@1.1.1(vue@3.5.38(typescript@5.9.3))':
     dependencies:
-      '@v-c/select': 1.1.2(vue@3.5.38(typescript@5.9.3))
+      '@v-c/select': 1.1.3(vue@3.5.38(typescript@5.9.3))
       '@v-c/tree': 1.1.1(vue@3.5.38(typescript@5.9.3))
       '@v-c/util': 1.0.19(vue@3.5.38(typescript@5.9.3))
       vue: 3.5.38(typescript@5.9.3)
@@ -8570,6 +8580,14 @@ snapshots:
       '@v-c/virtual-list': 1.0.9(vue@3.5.38(typescript@5.9.3))
       vue: 3.5.38(typescript@5.9.3)
 
+  '@v-c/select@1.1.3(vue@3.5.38(typescript@5.9.3))':
+    dependencies:
+      '@v-c/overflow': 1.1.0(vue@3.5.38(typescript@5.9.3))
+      '@v-c/trigger': 1.0.16(vue@3.5.38(typescript@5.9.3))
+      '@v-c/util': 1.0.19(vue@3.5.38(typescript@5.9.3))
+      '@v-c/virtual-list': 1.0.9(vue@3.5.38(typescript@5.9.3))
+      vue: 3.5.38(typescript@5.9.3)
+
   '@v-c/slick@1.0.2(vue@3.5.38(typescript@5.9.3))':
     dependencies:
       '@v-c/util': 1.0.19(vue@3.5.38(typescript@5.9.3))
@@ -8607,6 +8625,15 @@ snapshots:
       '@v-c/util': 1.0.19(vue@3.5.38(typescript@5.9.3))
       vue: 3.5.38(typescript@5.9.3)
 
+  '@v-c/tabs@1.2.0(vue@3.5.38(typescript@5.9.3))':
+    dependencies:
+      '@v-c/dropdown': 1.0.2(vue@3.5.38(typescript@5.9.3))
+      '@v-c/menu': 1.2.1(vue@3.5.38(typescript@5.9.3))
+      '@v-c/overflow': 1.1.0(vue@3.5.38(typescript@5.9.3))
+      '@v-c/resize-observer': 1.1.2(vue@3.5.38(typescript@5.9.3))
+      '@v-c/util': 1.0.19(vue@3.5.38(typescript@5.9.3))
+      vue: 3.5.38(typescript@5.9.3)
+
   '@v-c/textarea@1.1.0(vue@3.5.38(typescript@5.9.3))':
     dependencies:
       '@v-c/input': 1.1.0(vue@3.5.38(typescript@5.9.3))
@@ -8629,7 +8656,7 @@ snapshots:
 
   '@v-c/tree-select@1.1.1(vue@3.5.38(typescript@5.9.3))':
     dependencies:
-      '@v-c/select': 1.1.2(vue@3.5.38(typescript@5.9.3))
+      '@v-c/select': 1.1.3(vue@3.5.38(typescript@5.9.3))
       '@v-c/tree': 1.1.1(vue@3.5.38(typescript@5.9.3))
       '@v-c/util': 1.0.19(vue@3.5.38(typescript@5.9.3))
       vue: 3.5.38(typescript@5.9.3)

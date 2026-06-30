@@ -24,7 +24,7 @@ const items: TabsProps['items'] = Array.from({ length: 3 }).map((_, i) => {
 
 <style scoped>
 .card-top-tabs :deep(.ant-tabs.ant-tabs-card) {
-  .ant-tabs-content {
+  .ant-tabs-body {
     padding: 16px;
     background: var(--ant-color-bg-container);
   }

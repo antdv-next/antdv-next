@@ -553,19 +553,19 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
           <!---->
         </div>
         <div
-          class="ant-tabs-content-holder"
+          class="ant-tabs-body-holder"
           mobile="false"
           rtl="false"
         >
           <div
-            class="ant-tabs-content ant-tabs-content-top"
+            class="ant-tabs-body ant-tabs-body-top"
           >
             <!---->
             <!---->
             <!---->
             <div
               aria-hidden="false"
-              class="ant-tabs-tabpane ant-tabs-tabpane-active semantic-mark-content"
+              class="ant-tabs-content ant-tabs-content-active semantic-mark-content"
               role="tabpanel"
               tabindex="0"
             >
@@ -1149,6 +1149,128 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
                   style="margin: 0px;"
                 >
                   <!---->
+                  body
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <!--v-if-->
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              <!---->
+              Body element with tab panel container layout, animation and size control styles
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  <!---->
                   content
                   <!---->
                   <!---->
@@ -1239,7 +1361,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               <!---->
-              Content element with tab content panel layout, padding and other content display styles
+              Content element with single tab panel layout, padding and other content display styles
               <!---->
               <!---->
               <!---->
@@ -1552,12 +1674,12 @@ exports[`tabs demo > renders animated correctly 1`] = `
       <!---->
     </div>
     <div
-      class="ant-tabs-content-holder"
+      class="ant-tabs-body-holder"
       mobile="false"
       rtl="false"
     >
       <div
-        class="ant-tabs-content ant-tabs-content-top ant-tabs-content-animated"
+        class="ant-tabs-body ant-tabs-body-top ant-tabs-body-animated"
       >
         <transition-stub
           appear="false"
@@ -1573,7 +1695,7 @@ exports[`tabs demo > renders animated correctly 1`] = `
         >
           <div
             aria-hidden="false"
-            class="ant-tabs-tabpane ant-tabs-tabpane-active"
+            class="ant-tabs-content ant-tabs-content-active"
             role="tabpanel"
             style="height: 200px; box-shadow: 0 0 3px rgba(255, 0, 0, 0.5);"
             tabindex="0"
@@ -1724,17 +1846,17 @@ exports[`tabs demo > renders basic correctly 1`] = `
     <!---->
   </div>
   <div
-    class="ant-tabs-content-holder"
+    class="ant-tabs-body-holder"
     mobile="false"
     rtl="false"
   >
     <div
-      class="ant-tabs-content ant-tabs-content-top"
+      class="ant-tabs-body ant-tabs-body-top"
     >
       <!---->
       <div
         aria-hidden="false"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        class="ant-tabs-content ant-tabs-content-active"
         role="tabpanel"
         tabindex="0"
       >
@@ -1855,17 +1977,17 @@ exports[`tabs demo > renders card correctly 1`] = `
     <!---->
   </div>
   <div
-    class="ant-tabs-content-holder"
+    class="ant-tabs-body-holder"
     mobile="false"
     rtl="false"
   >
     <div
-      class="ant-tabs-content ant-tabs-content-top"
+      class="ant-tabs-body ant-tabs-body-top"
     >
       <!---->
       <div
         aria-hidden="false"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        class="ant-tabs-content ant-tabs-content-active"
         role="tabpanel"
         tabindex="0"
       >
@@ -1991,17 +2113,17 @@ exports[`tabs demo > renders card-top correctly 1`] = `
       <!---->
     </div>
     <div
-      class="ant-tabs-content-holder"
+      class="ant-tabs-body-holder"
       mobile="false"
       rtl="false"
     >
       <div
-        class="ant-tabs-content ant-tabs-content-top"
+        class="ant-tabs-body ant-tabs-body-top"
       >
         <!---->
         <div
           aria-hidden="false"
-          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          class="ant-tabs-content ant-tabs-content-active"
           role="tabpanel"
           tabindex="0"
         >
@@ -2137,17 +2259,17 @@ exports[`tabs demo > renders centered correctly 1`] = `
     <!---->
   </div>
   <div
-    class="ant-tabs-content-holder"
+    class="ant-tabs-body-holder"
     mobile="false"
     rtl="false"
   >
     <div
-      class="ant-tabs-content ant-tabs-content-top"
+      class="ant-tabs-body ant-tabs-body-top"
     >
       <!---->
       <div
         aria-hidden="false"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        class="ant-tabs-content ant-tabs-content-active"
         role="tabpanel"
         tabindex="0"
       >
@@ -2335,17 +2457,17 @@ exports[`tabs demo > renders custom-add-trigger correctly 1`] = `
       <!---->
     </div>
     <div
-      class="ant-tabs-content-holder"
+      class="ant-tabs-body-holder"
       mobile="false"
       rtl="false"
     >
       <div
-        class="ant-tabs-content ant-tabs-content-top"
+        class="ant-tabs-body ant-tabs-body-top"
       >
         <!---->
         <div
           aria-hidden="false"
-          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          class="ant-tabs-content ant-tabs-content-active"
           role="tabpanel"
           tabindex="0"
         >
@@ -2527,17 +2649,17 @@ exports[`tabs demo > renders custom-indicator correctly 1`] = `
       <!---->
     </div>
     <div
-      class="ant-tabs-content-holder"
+      class="ant-tabs-body-holder"
       mobile="false"
       rtl="false"
     >
       <div
-        class="ant-tabs-content ant-tabs-content-top"
+        class="ant-tabs-body ant-tabs-body-top"
       >
         <!---->
         <div
           aria-hidden="false"
-          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          class="ant-tabs-content ant-tabs-content-active"
           role="tabpanel"
           tabindex="0"
         >
@@ -2663,17 +2785,17 @@ exports[`tabs demo > renders custom-tab-bar correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-tabs-content-holder"
+    class="ant-tabs-body-holder"
     mobile="false"
     rtl="false"
   >
     <div
-      class="ant-tabs-content ant-tabs-content-top"
+      class="ant-tabs-body ant-tabs-body-top"
     >
       <!---->
       <div
         aria-hidden="false"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        class="ant-tabs-content ant-tabs-content-active"
         role="tabpanel"
         style="height: 200px;"
         tabindex="0"
@@ -2813,17 +2935,17 @@ exports[`tabs demo > renders custom-tab-bar-node correctly 1`] = `
     <!---->
   </div>
   <div
-    class="ant-tabs-content-holder"
+    class="ant-tabs-body-holder"
     mobile="false"
     rtl="false"
   >
     <div
-      class="ant-tabs-content ant-tabs-content-top"
+      class="ant-tabs-body ant-tabs-body-top"
     >
       <!---->
       <div
         aria-hidden="false"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        class="ant-tabs-content ant-tabs-content-active"
         role="tabpanel"
         tabindex="0"
       >
@@ -2944,17 +3066,17 @@ exports[`tabs demo > renders disabled correctly 1`] = `
     <!---->
   </div>
   <div
-    class="ant-tabs-content-holder"
+    class="ant-tabs-body-holder"
     mobile="false"
     rtl="false"
   >
     <div
-      class="ant-tabs-content ant-tabs-content-top"
+      class="ant-tabs-body ant-tabs-body-top"
     >
       <!---->
       <div
         aria-hidden="false"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        class="ant-tabs-content ant-tabs-content-active"
         role="tabpanel"
         tabindex="0"
       >
@@ -3183,17 +3305,17 @@ exports[`tabs demo > renders editable-card correctly 1`] = `
     <!---->
   </div>
   <div
-    class="ant-tabs-content-holder"
+    class="ant-tabs-body-holder"
     mobile="false"
     rtl="false"
   >
     <div
-      class="ant-tabs-content ant-tabs-content-top"
+      class="ant-tabs-body ant-tabs-body-top"
     >
       <!---->
       <div
         aria-hidden="false"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        class="ant-tabs-content ant-tabs-content-active"
         role="tabpanel"
         tabindex="0"
       >
@@ -3349,17 +3471,17 @@ exports[`tabs demo > renders extra correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-tabs-content-holder"
+      class="ant-tabs-body-holder"
       mobile="false"
       rtl="false"
     >
       <div
-        class="ant-tabs-content ant-tabs-content-top"
+        class="ant-tabs-body ant-tabs-body-top"
       >
         <!---->
         <div
           aria-hidden="false"
-          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          class="ant-tabs-content ant-tabs-content-active"
           role="tabpanel"
           tabindex="0"
         >
@@ -3601,17 +3723,17 @@ exports[`tabs demo > renders extra correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-tabs-content-holder"
+      class="ant-tabs-body-holder"
       mobile="false"
       rtl="false"
     >
       <div
-        class="ant-tabs-content ant-tabs-content-top"
+        class="ant-tabs-body ant-tabs-body-top"
       >
         <!---->
         <div
           aria-hidden="false"
-          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          class="ant-tabs-content ant-tabs-content-active"
           role="tabpanel"
           tabindex="0"
         >
@@ -3764,19 +3886,19 @@ exports[`tabs demo > renders icon correctly 1`] = `
     <!---->
   </div>
   <div
-    class="ant-tabs-content-holder"
+    class="ant-tabs-body-holder"
     mobile="false"
     rtl="false"
   >
     <div
-      class="ant-tabs-content ant-tabs-content-top"
+      class="ant-tabs-body ant-tabs-body-top"
     >
       <!---->
       <!---->
       <!---->
       <div
         aria-hidden="false"
-        class="ant-tabs-tabpane ant-tabs-tabpane-active"
+        class="ant-tabs-content ant-tabs-content-active"
         role="tabpanel"
         tabindex="0"
       >
@@ -3989,17 +4111,17 @@ exports[`tabs demo > renders placement correctly 1`] = `
       <!---->
     </div>
     <div
-      class="ant-tabs-content-holder"
+      class="ant-tabs-body-holder"
       mobile="false"
       rtl="false"
     >
       <div
-        class="ant-tabs-content ant-tabs-content-left"
+        class="ant-tabs-body ant-tabs-body-left"
       >
         <!---->
         <div
           aria-hidden="false"
-          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          class="ant-tabs-content ant-tabs-content-active"
           role="tabpanel"
           tabindex="0"
         >
@@ -4183,17 +4305,17 @@ exports[`tabs demo > renders size correctly 1`] = `
       <!---->
     </div>
     <div
-      class="ant-tabs-content-holder"
+      class="ant-tabs-body-holder"
       mobile="false"
       rtl="false"
     >
       <div
-        class="ant-tabs-content ant-tabs-content-top"
+        class="ant-tabs-body ant-tabs-body-top"
       >
         <!---->
         <div
           aria-hidden="false"
-          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          class="ant-tabs-content ant-tabs-content-active"
           role="tabpanel"
           tabindex="0"
         >
@@ -4312,17 +4434,17 @@ exports[`tabs demo > renders size correctly 1`] = `
       <!---->
     </div>
     <div
-      class="ant-tabs-content-holder"
+      class="ant-tabs-body-holder"
       mobile="false"
       rtl="false"
     >
       <div
-        class="ant-tabs-content ant-tabs-content-top"
+        class="ant-tabs-body ant-tabs-body-top"
       >
         <!---->
         <div
           aria-hidden="false"
-          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          class="ant-tabs-content ant-tabs-content-active"
           role="tabpanel"
           tabindex="0"
         >
@@ -4575,17 +4697,17 @@ exports[`tabs demo > renders size correctly 1`] = `
       <!---->
     </div>
     <div
-      class="ant-tabs-content-holder"
+      class="ant-tabs-body-holder"
       mobile="false"
       rtl="false"
     >
       <div
-        class="ant-tabs-content ant-tabs-content-top"
+        class="ant-tabs-body ant-tabs-body-top"
       >
         <!---->
         <div
           aria-hidden="false"
-          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          class="ant-tabs-content ant-tabs-content-active"
           role="tabpanel"
           tabindex="0"
         >
@@ -5185,17 +5307,17 @@ exports[`tabs demo > renders slide correctly 1`] = `
       <!---->
     </div>
     <div
-      class="ant-tabs-content-holder"
+      class="ant-tabs-body-holder"
       mobile="false"
       rtl="false"
     >
       <div
-        class="ant-tabs-content ant-tabs-content-top"
+        class="ant-tabs-body ant-tabs-body-top"
       >
         <!---->
         <div
           aria-hidden="false"
-          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          class="ant-tabs-content ant-tabs-content-active"
           role="tabpanel"
           tabindex="0"
         >
@@ -5380,19 +5502,19 @@ exports[`tabs demo > renders style-class correctly 1`] = `
       <!---->
     </div>
     <div
-      class="ant-tabs-content-holder"
+      class="ant-tabs-body-holder"
       mobile="false"
       rtl="false"
     >
       <div
-        class="ant-tabs-content ant-tabs-content-top"
+        class="ant-tabs-body ant-tabs-body-top"
       >
         <!---->
         <div
           aria-hidden="false"
-          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          class="ant-tabs-content ant-tabs-content-active"
           role="tabpanel"
-          style="background-color: rgba(230, 247, 255, 0.8); padding: 16px;"
+          style="padding: 16px;"
           tabindex="0"
         >
           Content of Tab Pane 1
@@ -5511,17 +5633,17 @@ exports[`tabs demo > renders style-class correctly 1`] = `
       <!---->
     </div>
     <div
-      class="ant-tabs-content-holder"
+      class="ant-tabs-body-holder"
       mobile="false"
       rtl="false"
     >
       <div
-        class="ant-tabs-content ant-tabs-content-top"
+        class="ant-tabs-body ant-tabs-body-top"
       >
         <!---->
         <div
           aria-hidden="false"
-          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          class="ant-tabs-content ant-tabs-content-active"
           role="tabpanel"
           tabindex="0"
         >

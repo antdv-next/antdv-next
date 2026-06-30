@@ -25,10 +25,10 @@ exports[`tabs > matches snapshot 1`] = `
     </div>
     <!---->
   </div>
-  <div class="ant-tabs-content-holder" rtl="false" mobile="false">
-    <div class="ant-tabs-content ant-tabs-content-top">
+  <div class="ant-tabs-body-holder" rtl="false" mobile="false">
+    <div class="ant-tabs-body ant-tabs-body-top">
       <!---->
-      <div role="tabpanel" tabindex="0" aria-hidden="false" class="ant-tabs-tabpane ant-tabs-tabpane-active">Content 1</div>
+      <div role="tabpanel" tabindex="0" aria-hidden="false" class="ant-tabs-content ant-tabs-content-active">Content 1</div>
       <!---->
       <!---->
       <!---->
@@ -147,17 +147,17 @@ exports[`tabs > rtl render > component should be rendered correctly in RTL direc
       <!---->
     </div>
     <div
-      class="ant-tabs-content-holder"
+      class="ant-tabs-body-holder"
       mobile="false"
       rtl="false"
     >
       <div
-        class="ant-tabs-content ant-tabs-content-top"
+        class="ant-tabs-body ant-tabs-body-top"
       >
         <!---->
         <div
           aria-hidden="false"
-          class="ant-tabs-tabpane ant-tabs-tabpane-active"
+          class="ant-tabs-content ant-tabs-content-active"
           role="tabpanel"
           tabindex="0"
         >

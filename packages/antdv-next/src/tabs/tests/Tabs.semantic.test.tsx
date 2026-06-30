@@ -56,7 +56,7 @@ describe('tabs.semantic', () => {
       expect(header?.classList.contains('custom-header')).toBe(true)
       expect((header as HTMLElement)?.style.color).toBe('green')
 
-      const content = document.querySelector('.ant-tabs-tabpane')
+      const content = document.querySelector('.ant-tabs-content')
       expect(content?.classList.contains('custom-content')).toBe(true)
       expect((content as HTMLElement)?.style.color).toBe('purple')
 

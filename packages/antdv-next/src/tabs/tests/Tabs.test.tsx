@@ -62,7 +62,7 @@ describe('tabs', () => {
         props: { items: defaultItems, defaultActiveKey: '1' },
         attachTo: document.body,
       })
-      const content = document.querySelector('.ant-tabs-tabpane-active')
+      const content = document.querySelector('.ant-tabs-content-active')
       expect(content?.textContent).toContain('Content 1')
       wrapper.unmount()
     })
@@ -528,7 +528,7 @@ describe('tabs', () => {
         attachTo: document.body,
       })
       // only the active tabpane should be in the DOM
-      const panes = document.querySelectorAll('.ant-tabs-tabpane')
+      const panes = document.querySelectorAll('.ant-tabs-content')
       const visiblePanes = Array.from(panes).filter(p => p.textContent?.trim())
       expect(visiblePanes.length).toBe(1)
       wrapper.unmount()
@@ -539,7 +539,7 @@ describe('tabs', () => {
         props: { items: defaultItems, destroyInactiveTabPane: true, defaultActiveKey: '1' } as any,
         attachTo: document.body,
       })
-      const panes = document.querySelectorAll('.ant-tabs-tabpane')
+      const panes = document.querySelectorAll('.ant-tabs-content')
       const visiblePanes = Array.from(panes).filter(p => p.textContent?.trim())
       expect(visiblePanes.length).toBe(1)
       wrapper.unmount()
@@ -554,8 +554,8 @@ describe('tabs', () => {
         attachTo: document.body,
       })
       // panes without forceRender that have never been active are not mounted
-      expect(document.querySelectorAll('.ant-tabs-tabpane').length).toBe(1)
-      expect(document.querySelector('.ant-tabs-tabpane-active')?.textContent).toContain('Content 1')
+      expect(document.querySelectorAll('.ant-tabs-content').length).toBe(1)
+      expect(document.querySelector('.ant-tabs-content-active')?.textContent).toContain('Content 1')
       wrapper.unmount()
     })
 
@@ -569,7 +569,7 @@ describe('tabs', () => {
         props: { items, activeKey: '1' },
         attachTo: document.body,
       })
-      const panes = document.querySelectorAll('.ant-tabs-tabpane')
+      const panes = document.querySelectorAll('.ant-tabs-content')
       // active pane (1) + forceRender pane (2); pane 3 stays lazy
       expect(panes.length).toBe(2)
       const text = Array.from(panes).map(p => p.textContent).join('|')
@@ -584,11 +584,11 @@ describe('tabs', () => {
         props: { items: defaultItems, activeKey: '1' },
         attachTo: document.body,
       })
-      expect(document.querySelectorAll('.ant-tabs-tabpane').length).toBe(1)
+      expect(document.querySelectorAll('.ant-tabs-content').length).toBe(1)
       await wrapper.setProps({ activeKey: '2' })
       await nextTick()
       // pane 1 stays mounted (keep-alive) + pane 2 now mounted
-      expect(document.querySelectorAll('.ant-tabs-tabpane').length).toBe(2)
+      expect(document.querySelectorAll('.ant-tabs-content').length).toBe(2)
       wrapper.unmount()
     })
 
@@ -604,8 +604,8 @@ describe('tabs', () => {
           )
         },
       }, { attachTo: document.body })
-      expect(document.querySelectorAll('.ant-tabs-tabpane').length).toBe(1)
-      expect(document.querySelector('.ant-tabs-tabpane-active')?.textContent).toContain('Content 1')
+      expect(document.querySelectorAll('.ant-tabs-content').length).toBe(1)
+      expect(document.querySelector('.ant-tabs-content-active')?.textContent).toContain('Content 1')
       wrapper.unmount()
     })
 
@@ -621,7 +621,7 @@ describe('tabs', () => {
           )
         },
       }, { attachTo: document.body })
-      const panes = document.querySelectorAll('.ant-tabs-tabpane')
+      const panes = document.querySelectorAll('.ant-tabs-content')
       // active pane (1) + forceRender pane (2); pane 3 stays lazy
       expect(panes.length).toBe(2)
       const text = Array.from(panes).map(p => p.textContent).join('|')

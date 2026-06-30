@@ -11,6 +11,7 @@ const semantics = computed(() => [
   { name: 'header', desc: t('header') },
   { name: 'item', desc: t('item') },
   { name: 'indicator', desc: t('indicator') },
+  { name: 'body', desc: t('body') },
   { name: 'content', desc: t('content') },
   { name: 'popup.root', desc: t('popup.root') },
 ])

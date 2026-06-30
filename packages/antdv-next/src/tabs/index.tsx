@@ -33,6 +33,7 @@ export interface TabsSemanticClassNames {
   root?: string
   item?: string
   indicator?: string
+  body?: string
   content?: string
   header?: string
   remove?: string
@@ -42,6 +43,7 @@ export interface TabsSemanticStyles {
   root?: CSSProperties
   item?: CSSProperties
   indicator?: CSSProperties
+  body?: CSSProperties
   content?: CSSProperties
   header?: CSSProperties
   remove?: CSSProperties
