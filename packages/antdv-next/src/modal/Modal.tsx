@@ -376,6 +376,7 @@ const Modal = defineComponent<
               maskTransitionName={getTransitionName(rootPrefixCls.value, 'fade', props.maskTransitionName)}
               mask={mergedMask.value}
               maskClosable={mergeMaskClosable.value}
+              scrollLock={props.scrollLock}
               className={mergedClassName}
               style={{ ...contextStyle.value, ...responsiveWidthVars.value, ...attrStyle }}
               classNames={{

@@ -119,6 +119,8 @@ export interface ModalProps extends ModalCommonProps {
    */
   maskClosable?: boolean
   keyboard?: boolean
+  /** Control whether to lock body scroll when modal opens. Default is true. */
+  scrollLock?: boolean
   wrapProps?: any
   prefixCls?: string
   closeIcon?: VueNode
@@ -180,6 +182,8 @@ export interface ModalFuncProps extends ModalCommonProps {
   maskStyle?: CSSProperties
   type?: 'info' | 'success' | 'error' | 'warn' | 'warning' | 'confirm'
   keyboard?: boolean
+  /** Control whether to lock body scroll when modal opens. Default is true. */
+  scrollLock?: boolean
   getContainer?: string | HTMLElement | getContainerFunc | false
   autoFocusButton?: null | 'ok' | 'cancel'
   transitionName?: string
