@@ -470,9 +470,11 @@ export default function useSelection<RecordType extends AnyObject = AnyObject>(
         const key = getRowKey.value(record, index)
         const checked = keySet.has(key)
         const checkboxProps = checkboxPropsMap.value.get(key)
+        const defaultAriaLabel = `Select row ${index + 1}`
         return {
           node: (
             <Radio
+              aria-label={defaultAriaLabel}
               {...checkboxProps as any}
               checked={checked}
               onClick={(e: any) => {
@@ -510,9 +512,12 @@ export default function useSelection<RecordType extends AnyObject = AnyObject>(
           mergedIndeterminate = (checkboxProps as any)?.indeterminate ?? indeterminate
         }
 
+        const defaultAriaLabel = checked ? `Row ${index + 1} selected` : `Select row ${index + 1}`
+
         return {
           node: (
             <Checkbox
+              aria-label={defaultAriaLabel}
               {...checkboxProps as any}
               indeterminate={mergedIndeterminate}
               checked={checked}

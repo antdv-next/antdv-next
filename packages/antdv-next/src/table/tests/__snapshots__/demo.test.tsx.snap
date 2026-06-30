@@ -6370,6 +6370,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                     >
                       <!---->
                       <label
+                        aria-label="Select row 1"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -6485,6 +6486,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                     >
                       <!---->
                       <label
+                        aria-label="Select row 2"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -6600,6 +6602,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                     >
                       <!---->
                       <label
+                        aria-label="Select row 3"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -6715,6 +6718,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                     >
                       <!---->
                       <label
+                        aria-label="Select row 4"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -6830,6 +6834,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                     >
                       <!---->
                       <label
+                        aria-label="Select row 5"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -6945,6 +6950,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                     >
                       <!---->
                       <label
+                        aria-label="Select row 6"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -7060,6 +7066,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                     >
                       <!---->
                       <label
+                        aria-label="Select row 7"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -7175,6 +7182,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                     >
                       <!---->
                       <label
+                        aria-label="Select row 8"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -7290,6 +7298,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                     >
                       <!---->
                       <label
+                        aria-label="Select row 9"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -7405,6 +7414,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                     >
                       <!---->
                       <label
+                        aria-label="Select row 10"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -23733,6 +23743,7 @@ exports[`table demo > renders order-column correctly 1`] = `
                   >
                     <!---->
                     <label
+                      aria-label="Select row 1"
                       class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
@@ -23789,6 +23800,7 @@ exports[`table demo > renders order-column correctly 1`] = `
                   >
                     <!---->
                     <label
+                      aria-label="Select row 2"
                       class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
@@ -23845,6 +23857,7 @@ exports[`table demo > renders order-column correctly 1`] = `
                   >
                     <!---->
                     <label
+                      aria-label="Select row 3"
                       class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
@@ -23901,6 +23914,7 @@ exports[`table demo > renders order-column correctly 1`] = `
                   >
                     <!---->
                     <label
+                      aria-label="Select row 4"
                       class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
@@ -26022,6 +26036,7 @@ exports[`table demo > renders row-selection correctly 1`] = `
                     >
                       <!---->
                       <label
+                        aria-label="Select row 1"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -26070,6 +26085,7 @@ exports[`table demo > renders row-selection correctly 1`] = `
                     >
                       <!---->
                       <label
+                        aria-label="Select row 2"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -26118,6 +26134,7 @@ exports[`table demo > renders row-selection correctly 1`] = `
                     >
                       <!---->
                       <label
+                        aria-label="Select row 3"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -26166,6 +26183,7 @@ exports[`table demo > renders row-selection correctly 1`] = `
                     >
                       <!---->
                       <label
+                        aria-label="Select row 4"
                         class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -26441,6 +26459,7 @@ exports[`table demo > renders row-selection-and-operation correctly 1`] = `
                     >
                       <!---->
                       <label
+                        aria-label="Select row 1"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -26486,6 +26505,7 @@ exports[`table demo > renders row-selection-and-operation correctly 1`] = `
                     >
                       <!---->
                       <label
+                        aria-label="Select row 2"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -26531,6 +26551,7 @@ exports[`table demo > renders row-selection-and-operation correctly 1`] = `
                     >
                       <!---->
                       <label
+                        aria-label="Select row 3"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -26576,6 +26597,7 @@ exports[`table demo > renders row-selection-and-operation correctly 1`] = `
                     >
                       <!---->
                       <label
+                        aria-label="Select row 4"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -26621,6 +26643,7 @@ exports[`table demo > renders row-selection-and-operation correctly 1`] = `
                     >
                       <!---->
                       <label
+                        aria-label="Select row 5"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -26666,6 +26689,7 @@ exports[`table demo > renders row-selection-and-operation correctly 1`] = `
                     >
                       <!---->
                       <label
+                        aria-label="Select row 6"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -26711,6 +26735,7 @@ exports[`table demo > renders row-selection-and-operation correctly 1`] = `
                     >
                       <!---->
                       <label
+                        aria-label="Select row 7"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -26756,6 +26781,7 @@ exports[`table demo > renders row-selection-and-operation correctly 1`] = `
                     >
                       <!---->
                       <label
+                        aria-label="Select row 8"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -26801,6 +26827,7 @@ exports[`table demo > renders row-selection-and-operation correctly 1`] = `
                     >
                       <!---->
                       <label
+                        aria-label="Select row 9"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -26846,6 +26873,7 @@ exports[`table demo > renders row-selection-and-operation correctly 1`] = `
                     >
                       <!---->
                       <label
+                        aria-label="Select row 10"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -27156,6 +27184,7 @@ exports[`table demo > renders row-selection-custom correctly 1`] = `
                   >
                     <!---->
                     <label
+                      aria-label="Select row 1"
                       class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
@@ -27201,6 +27230,7 @@ exports[`table demo > renders row-selection-custom correctly 1`] = `
                   >
                     <!---->
                     <label
+                      aria-label="Select row 2"
                       class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
@@ -27246,6 +27276,7 @@ exports[`table demo > renders row-selection-custom correctly 1`] = `
                   >
                     <!---->
                     <label
+                      aria-label="Select row 3"
                       class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
@@ -27291,6 +27322,7 @@ exports[`table demo > renders row-selection-custom correctly 1`] = `
                   >
                     <!---->
                     <label
+                      aria-label="Select row 4"
                       class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
@@ -27336,6 +27368,7 @@ exports[`table demo > renders row-selection-custom correctly 1`] = `
                   >
                     <!---->
                     <label
+                      aria-label="Select row 5"
                       class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
@@ -27381,6 +27414,7 @@ exports[`table demo > renders row-selection-custom correctly 1`] = `
                   >
                     <!---->
                     <label
+                      aria-label="Select row 6"
                       class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
@@ -27426,6 +27460,7 @@ exports[`table demo > renders row-selection-custom correctly 1`] = `
                   >
                     <!---->
                     <label
+                      aria-label="Select row 7"
                       class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
@@ -27471,6 +27506,7 @@ exports[`table demo > renders row-selection-custom correctly 1`] = `
                   >
                     <!---->
                     <label
+                      aria-label="Select row 8"
                       class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
@@ -27516,6 +27552,7 @@ exports[`table demo > renders row-selection-custom correctly 1`] = `
                   >
                     <!---->
                     <label
+                      aria-label="Select row 9"
                       class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
@@ -27561,6 +27598,7 @@ exports[`table demo > renders row-selection-custom correctly 1`] = `
                   >
                     <!---->
                     <label
+                      aria-label="Select row 10"
                       class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
@@ -31395,6 +31433,7 @@ exports[`table demo > renders tree-data correctly 1`] = `
                     >
                       <!---->
                       <label
+                        aria-label="Select row 1"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -31449,6 +31488,7 @@ exports[`table demo > renders tree-data correctly 1`] = `
                     >
                       <!---->
                       <label
+                        aria-label="Select row 2"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -31758,6 +31798,7 @@ exports[`table demo > renders tree-table-ellipsis correctly 1`] = `
                     >
                       <!---->
                       <label
+                        aria-label="Select row 1"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -31819,6 +31860,7 @@ exports[`table demo > renders tree-table-ellipsis correctly 1`] = `
                     >
                       <!---->
                       <label
+                        aria-label="Select row 1"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -31880,6 +31922,7 @@ exports[`table demo > renders tree-table-ellipsis correctly 1`] = `
                     >
                       <!---->
                       <label
+                        aria-label="Select row 2"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -31941,6 +31984,7 @@ exports[`table demo > renders tree-table-ellipsis correctly 1`] = `
                     >
                       <!---->
                       <label
+                        aria-label="Select row 1"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -32002,6 +32046,7 @@ exports[`table demo > renders tree-table-ellipsis correctly 1`] = `
                     >
                       <!---->
                       <label
+                        aria-label="Select row 3"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -32063,6 +32108,7 @@ exports[`table demo > renders tree-table-ellipsis correctly 1`] = `
                     >
                       <!---->
                       <label
+                        aria-label="Select row 1"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -32124,6 +32170,7 @@ exports[`table demo > renders tree-table-ellipsis correctly 1`] = `
                     >
                       <!---->
                       <label
+                        aria-label="Select row 1"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -32185,6 +32232,7 @@ exports[`table demo > renders tree-table-ellipsis correctly 1`] = `
                     >
                       <!---->
                       <label
+                        aria-label="Select row 2"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -32246,6 +32294,7 @@ exports[`table demo > renders tree-table-ellipsis correctly 1`] = `
                     >
                       <!---->
                       <label
+                        aria-label="Select row 2"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -32591,6 +32640,7 @@ exports[`table demo > renders tree-table-preserveSelectedRowKeys correctly 1`] =
                     >
                       <!---->
                       <label
+                        aria-label="Select row 1"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -32645,6 +32695,7 @@ exports[`table demo > renders tree-table-preserveSelectedRowKeys correctly 1`] =
                     >
                       <!---->
                       <label
+                        aria-label="Select row 2"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -32699,6 +32750,7 @@ exports[`table demo > renders tree-table-preserveSelectedRowKeys correctly 1`] =
                     >
                       <!---->
                       <label
+                        aria-label="Select row 3"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -32753,6 +32805,7 @@ exports[`table demo > renders tree-table-preserveSelectedRowKeys correctly 1`] =
                     >
                       <!---->
                       <label
+                        aria-label="Select row 4"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -32807,6 +32860,7 @@ exports[`table demo > renders tree-table-preserveSelectedRowKeys correctly 1`] =
                     >
                       <!---->
                       <label
+                        aria-label="Select row 5"
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
@@ -33402,6 +33456,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                           >
                             <!---->
                             <label
+                              aria-label="Select row 1"
                               class="ant-radio-wrapper css-var-root ant-radio-css-var"
                             >
                               <span
@@ -33529,6 +33584,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                           >
                             <!---->
                             <label
+                              aria-label="Select row 2"
                               class="ant-radio-wrapper css-var-root ant-radio-css-var"
                             >
                               <span
@@ -33654,6 +33710,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                           >
                             <!---->
                             <label
+                              aria-label="Select row 3"
                               class="ant-radio-wrapper css-var-root ant-radio-css-var"
                             >
                               <span
@@ -33779,6 +33836,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                           >
                             <!---->
                             <label
+                              aria-label="Select row 4"
                               class="ant-radio-wrapper css-var-root ant-radio-css-var"
                             >
                               <span
@@ -33904,6 +33962,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                           >
                             <!---->
                             <label
+                              aria-label="Select row 5"
                               class="ant-radio-wrapper css-var-root ant-radio-css-var"
                             >
                               <span
@@ -34031,6 +34090,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                           >
                             <!---->
                             <label
+                              aria-label="Select row 6"
                               class="ant-radio-wrapper css-var-root ant-radio-css-var"
                             >
                               <span
@@ -34156,6 +34216,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                           >
                             <!---->
                             <label
+                              aria-label="Select row 7"
                               class="ant-radio-wrapper css-var-root ant-radio-css-var"
                             >
                               <span
@@ -34281,6 +34342,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                           >
                             <!---->
                             <label
+                              aria-label="Select row 8"
                               class="ant-radio-wrapper css-var-root ant-radio-css-var"
                             >
                               <span
@@ -34406,6 +34468,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                           >
                             <!---->
                             <label
+                              aria-label="Select row 9"
                               class="ant-radio-wrapper css-var-root ant-radio-css-var"
                             >
                               <span
@@ -34533,6 +34596,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                           >
                             <!---->
                             <label
+                              aria-label="Select row 10"
                               class="ant-radio-wrapper css-var-root ant-radio-css-var"
                             >
                               <span
