@@ -96,6 +96,26 @@ describe('date-picker', () => {
     expect(wrapper.find('.ant-picker-clear svg').exists()).toBe(true)
   })
 
+  // https://github.com/ant-design/ant-design/pull/58403
+  it('emits clear when the clear icon is clicked', async () => {
+    const onClear = vi.fn()
+    const wrapper = mount(DatePicker, {
+      attachTo: document.body,
+      props: {
+        value: dayjs('2026-02-23'),
+        onClear,
+      },
+    })
+
+    const clearBtn = wrapper.find('.ant-picker-clear')
+    expect(clearBtn.exists()).toBe(true)
+    await clearBtn.trigger('mousedown')
+    await clearBtn.trigger('click')
+
+    expect(onClear).toHaveBeenCalledTimes(1)
+    wrapper.unmount()
+  })
+
   it('should support custom clear icon through allowClear config', () => {
     const wrapper = mount(DatePicker, {
       props: {

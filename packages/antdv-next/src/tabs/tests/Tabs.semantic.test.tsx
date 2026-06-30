@@ -27,6 +27,7 @@ describe('tabs.semantic', () => {
             item: 'custom-item',
             indicator: 'custom-indicator',
             header: 'custom-header',
+            body: 'custom-body',
             content: 'custom-content',
           },
           styles: {
@@ -34,6 +35,7 @@ describe('tabs.semantic', () => {
             item: { color: 'blue' },
             indicator: { color: 'yellow' },
             header: { color: 'green' },
+            body: { color: 'orange' },
             content: { color: 'purple' },
           },
         } as any,
@@ -55,6 +57,10 @@ describe('tabs.semantic', () => {
       const header = document.querySelector('.ant-tabs-nav')
       expect(header?.classList.contains('custom-header')).toBe(true)
       expect((header as HTMLElement)?.style.color).toBe('green')
+
+      const body = document.querySelector('.ant-tabs-body')
+      expect(body?.classList.contains('custom-body')).toBe(true)
+      expect((body as HTMLElement)?.style.color).toBe('orange')
 
       const content = document.querySelector('.ant-tabs-content')
       expect(content?.classList.contains('custom-content')).toBe(true)

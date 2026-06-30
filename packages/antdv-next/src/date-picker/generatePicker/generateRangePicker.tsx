@@ -36,6 +36,7 @@ export interface RangePickerEmits<DateType = AnyObject> {
   'panelChange': (dates: DateType[], modes: [PickerMode, PickerMode]) => void
   'openChange': (open: boolean) => void
   'ok': (dates: DateType[]) => void
+  'clear': () => void
   'focus': (e: FocusEvent, info: any) => void
   'blur': (e: FocusEvent, info: any) => void
   'keydown': (e: KeyboardEvent, preventDefault: VoidFunction) => void
@@ -59,6 +60,7 @@ export interface RangePickerEmitsProps<DateType = AnyObject> {
   onPanelChange?: RangePickerEmits<DateType>['panelChange']
   onOpenChange?: RangePickerEmits<DateType>['openChange']
   onOk?: RangePickerEmits<DateType>['ok']
+  onClear?: RangePickerEmits<DateType>['clear']
   onFocus?: RangePickerEmits<DateType>['focus']
   onBlur?: RangePickerEmits<DateType>['blur']
   onKeydown?: RangePickerEmits<DateType>['keydown']
@@ -179,6 +181,10 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
 
       const handleOk = (values: DateType[]) => {
         emit('ok', values)
+      }
+
+      const handleClear = () => {
+        emit('clear')
       }
 
       const handleFocus = (e: FocusEvent, info: any) => {
@@ -346,6 +352,7 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
               onPanelChange={handlePanelChange as any}
               onOpenChange={handleOpenChange}
               onOk={handleOk}
+              onClear={handleClear}
               onFocus={handleFocus}
               onBlur={handleBlur}
               onKeyDown={handleKeyDown}

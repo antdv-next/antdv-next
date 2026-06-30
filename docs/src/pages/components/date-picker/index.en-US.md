@@ -243,6 +243,7 @@ export type FormatType
 | panelChange | Callback when picker panel mode is changed | (value: Dayjs, mode: PickerMode) => void | - |
 | openChange | Callback function, can be executed whether the popup calendar is popped up or closed | (open: boolean) => void | - |
 | ok | Callback when click ok button | () => void | - |
+| clear | Callback when click clear button | () => void | 6.5.0 |
 | select | - | (date: Dayjs) => void | - |
 | focus | Trigger when get focus | (event: FocusEvent, info: { range: 'start' \| 'end' }) => void | - |
 | blur | Trigger when lose focus | (event: FocusEvent, info: { range: 'start' \| 'end' }) => void | - |
