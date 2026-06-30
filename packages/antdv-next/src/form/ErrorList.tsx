@@ -70,7 +70,7 @@ const ErrorList = defineComponent<
 
       const debounceErrors = errors || EMPTY_LIST
       const debouncedWarnings = warnings || EMPTY_LIST
-      const hasHelp = isNonNullable(help) && help !== false
+      const hasHelp = isNonNullable(help)
       const fullKeyListFn = () => {
         if (hasHelp) {
           return [toErrorEntity(help, 'help', helpStatus)]
