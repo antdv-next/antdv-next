@@ -50,7 +50,7 @@ title: 组件更新日志
 
 **🧰 依赖更新 Dependencies**
 
-* chore(deps)：升级 `@antdv-next/icons` 至 1.1.0
+* chore(deps)：升级 `@antdv-next/icons` 至 1.1.1（新增图标 + 支持 `zeroRuntime` 跳过运行时样式注入）
 * chore(deps)：升级 `@v-c` 链路 —— picker 1.2.0 / select 1.1.3 / tabs 1.2.1
 
 ## V1.3.7

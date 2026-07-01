@@ -50,7 +50,7 @@ This release advances the ant-design upstream sync to **6.5.0**, bringing a batc
 
 **🧰 Dependencies**
 
-* chore(deps): upgrade `@antdv-next/icons` to 1.1.0
+* chore(deps): upgrade `@antdv-next/icons` to 1.1.1 (new icons + `zeroRuntime` support to skip runtime style injection)
 * chore(deps): upgrade the `@v-c` chain — picker 1.2.0 / select 1.1.3 / tabs 1.2.1
 
 ## V1.3.7
