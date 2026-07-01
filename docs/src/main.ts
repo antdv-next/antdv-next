@@ -1,4 +1,3 @@
-import pro from '@antdv-next/pro'
 import antd from 'antdv-next'
 import { createPinia } from 'pinia'
 import { createApp } from 'vue'
@@ -20,7 +19,6 @@ import 'uno.css'
 const app = createApp(App)
 app.use(router)
 app.use(antd)
-app.use(pro)
 setupRouterGuard(router)
 app.use(CodeDemo)
 app.component('DocHeading', DocHeading)

@@ -3,7 +3,6 @@ import type { Menu } from '@/locales/zh-CN/menu'
 import type { InnerLocale } from '@/utils/locale'
 import locales from '@/locales'
 import { components } from './components'
-import { proMenus } from './pro'
 
 // Helper to flatten nested docs locales
 function flattenDocsLocales(nestedLocales: Menu) {
@@ -166,5 +165,4 @@ export const docsMenus: Record<string, AntdvMenuItem[]> = {
       label: '/blog/antdv-next-release',
     },
   ],
-  '/pro': proMenus,
 }
