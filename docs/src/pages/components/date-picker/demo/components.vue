@@ -14,6 +14,10 @@ import { computed, defineComponent, h, ref, resolveComponent, watch } from 'vue'
 
 const MyDatePanel = defineComponent({
   name: 'MyDatePanel',
+  // The picker passes panel props (e.g. `prefixCls="ant-picker"`) to the custom
+  // component; without this they would fall through to the root `<a-flex>` and make
+  // Flex generate styles under the `ant-picker` prefix, clobbering the picker styles.
+  inheritAttrs: false,
   props: {
     value: Object as PropType<Dayjs>,
     onSelect: Function as PropType<(value: Dayjs) => void>,

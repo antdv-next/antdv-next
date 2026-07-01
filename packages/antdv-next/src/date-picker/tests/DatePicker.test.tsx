@@ -1,9 +1,10 @@
 import dayjs from 'dayjs'
 import MockDate from 'mockdate'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { nextTick, ref } from 'vue'
+import { defineComponent, h, nextTick, ref } from 'vue'
 import DatePicker from '..'
 import { resetWarned } from '../../_util/warning'
+import Flex from '../../flex'
 import { mount } from '/@tests/utils'
 
 function getCell(text: string) {
@@ -59,6 +60,35 @@ describe('date-picker', () => {
 
     await wrapper.setProps({ open: false })
     await nextTick()
+    wrapper.unmount()
+  })
+
+  // A custom `components.date` panel must not let the picker-injected `prefixCls`
+  // ("ant-picker") fall through to a child component (here Flex), which would make
+  // Flex emit `.ant-picker{display:flex;margin:0;padding:0}` and clobber picker styles.
+  it('does not leak picker prefixCls into a custom panel child', async () => {
+    const CustomPanel = defineComponent({
+      inheritAttrs: false,
+      setup() {
+        return () => h(Flex, { class: 'my-custom-panel' }, () => 'panel')
+      },
+    })
+    const wrapper = mount(DatePicker, {
+      props: {
+        open: true,
+        components: { date: CustomPanel },
+      },
+      attachTo: document.body,
+    })
+    await nextTick()
+
+    const flexEl = document.querySelector('.my-custom-panel')
+    expect(flexEl).toBeTruthy()
+    // Flex must use its own prefix, not the leaked picker prefix.
+    expect(flexEl?.classList.contains('ant-flex')).toBe(true)
+    expect(flexEl?.classList.contains('ant-picker')).toBe(false)
+
+    await wrapper.setProps({ open: false })
     wrapper.unmount()
   })
 
