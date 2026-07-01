@@ -13,6 +13,7 @@ import { computed, defineComponent, nextTick, ref, shallowRef, watch, watchEffec
 import getScroll from '../_util/getScroll'
 import {
   useMergeSemantic,
+  useSemanticRootStyle,
   useToArr,
   useToProps,
 } from '../_util/hooks'
@@ -279,13 +280,14 @@ const Anchor = defineComponent<
         direction: anchorDirection.value,
       }
     })
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       AnchorClassNamesType,
       AnchorStylesType,
       AnchorProps
     >(
       useToArr(contextClassNames, classes),
-      useToArr(contextStyles, styles),
+      useToArr(contextStyles, contextStyleRoot as any, styles),
       useToProps(mergedProps),
     )
 
@@ -370,7 +372,6 @@ const Anchor = defineComponent<
           maxHeight: offsetTop ? `calc(100vh - ${offsetTop}px)` : '100vh',
         },
         mergedStyles.value.root,
-        contextStyle.value,
         (attrs as any).style,
       ]
 

@@ -1,5 +1,7 @@
 import { describe, expect, it, vi } from 'vitest'
 import InputNumber from '..'
+import ConfigProvider from '../../config-provider'
+import { expectSemanticRootStylePriority, semanticRootStylePriority } from '/@tests/shared/semanticStylePriority'
 import { mount } from '/@tests/utils'
 
 describe('inputNumber.Semantic', () => {
@@ -139,5 +141,16 @@ describe('inputNumber.Semantic', () => {
     expect(classNamesFn).toHaveBeenCalled()
     const rootElement = wrapper.find('.ant-input-number')
     expect(rootElement.classes()).toContain('large-input-number')
+  })
+
+  // https://github.com/ant-design/ant-design/pull/58474
+  it('aligns root semantic style priority', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider inputNumber={{ style: semanticRootStylePriority.contextStyle, styles: semanticRootStylePriority.contextStyles }}>
+        <InputNumber style={semanticRootStylePriority.style} styles={semanticRootStylePriority.styles} />
+      </ConfigProvider>
+    ), { attachTo: document.body })
+    expectSemanticRootStylePriority(wrapper.find('.ant-input-number').element)
+    wrapper.unmount()
   })
 })

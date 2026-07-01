@@ -7,7 +7,7 @@ import type { SizeType } from '../../config-provider/SizeContext'
 import type { InputRef } from '../Input'
 import { clsx } from '@v-c/util'
 import { computed, defineComponent, shallowRef, watch } from 'vue'
-import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '../../_util/hooks'
+import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../../_util/hooks'
 import { getMergedStatus } from '../../_util/statusUtils'
 import { toPropsRefs } from '../../_util/tools'
 import { devUseWarning, isDev } from '../../_util/warning'
@@ -115,13 +115,14 @@ const OTP = defineComponent<
 
     const mergedProps = computed(() => ({ ...props, length: mergedLength.value }))
 
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       OTPClassNamesType,
       OTPStylesType,
       OTPProps
     >(
       useToArr(contextClassNames, classes),
-      useToArr(contextStyles, styles),
+      useToArr(contextStyles, contextStyleRoot as any, styles),
       useToProps(mergedProps),
     )
 
@@ -228,7 +229,7 @@ const OTP = defineComponent<
             },
             mergedClassNames.value.root,
           )}
-          style={{ ...mergedStyles.value.root, ...contextStyle.value, ...style }}
+          style={{ ...mergedStyles.value.root, ...style }}
           role="group"
         >
           {Array.from({ length: mergedLength.value }).map((_, index) => (

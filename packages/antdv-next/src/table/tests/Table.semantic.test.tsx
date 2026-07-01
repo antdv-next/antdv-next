@@ -1,6 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import Table from '..'
 import ConfigProvider from '../../config-provider'
+import { expectSemanticRootStylePriority, semanticRootStylePriority } from '/@tests/shared/semanticStylePriority'
 import { mount } from '/@tests/utils'
 
 const columns = [
@@ -167,5 +168,16 @@ describe('table semantic', () => {
       },
     })
     expect(wrapper.html()).toContain('b-wrapper')
+  })
+
+  // https://github.com/ant-design/ant-design/pull/58474
+  it('aligns root semantic style priority', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider table={{ style: semanticRootStylePriority.contextStyle, styles: semanticRootStylePriority.contextStyles }}>
+        <Table columns={columns} dataSource={[]} pagination={false} style={semanticRootStylePriority.style} styles={semanticRootStylePriority.styles} />
+      </ConfigProvider>
+    ), { attachTo: document.body })
+    expectSemanticRootStylePriority(wrapper.find('.ant-table-wrapper').element)
+    wrapper.unmount()
   })
 })

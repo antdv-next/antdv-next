@@ -1,6 +1,8 @@
 import { describe, expect, it, vi } from 'vitest'
 import { nextTick } from 'vue'
 import Select from '..'
+import ConfigProvider from '../../config-provider'
+import { expectSemanticRootStylePriority, semanticRootStylePriority } from '/@tests/shared/semanticStylePriority'
 import { mount } from '/@tests/utils'
 
 describe('select.Semantic', () => {
@@ -227,5 +229,17 @@ describe('select.Semantic', () => {
     expect(itemRemoveElement.exists()).toBe(true)
     expect(itemRemoveElement.classes()).toContain('custom-item-remove')
     expect(itemRemoveElement.attributes('style')).toContain('color: red')
+  })
+
+  // https://github.com/ant-design/ant-design/pull/58474
+  it('aligns root semantic style priority', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider select={{ style: semanticRootStylePriority.contextStyle, styles: semanticRootStylePriority.contextStyles }}>
+        <Select style={semanticRootStylePriority.style} styles={semanticRootStylePriority.styles} />
+      </ConfigProvider>
+    ), { attachTo: document.body })
+
+    expectSemanticRootStylePriority(wrapper.find('.ant-select').element)
+    wrapper.unmount()
   })
 })

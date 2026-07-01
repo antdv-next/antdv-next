@@ -8676,6 +8676,7 @@ exports[`transfer demo > renders table-transfer correctly 1`] = `
                             >
                               <!---->
                               <label
+                                aria-label="Select row 1"
                                 class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                               >
                                 <span
@@ -8729,6 +8730,7 @@ exports[`transfer demo > renders table-transfer correctly 1`] = `
                             >
                               <!---->
                               <label
+                                aria-label="Select row 2"
                                 class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                               >
                                 <span
@@ -8782,6 +8784,7 @@ exports[`transfer demo > renders table-transfer correctly 1`] = `
                             >
                               <!---->
                               <label
+                                aria-label="Select row 3"
                                 class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                               >
                                 <span
@@ -8835,6 +8838,7 @@ exports[`transfer demo > renders table-transfer correctly 1`] = `
                             >
                               <!---->
                               <label
+                                aria-label="Select row 4"
                                 class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                               >
                                 <span
@@ -8888,6 +8892,7 @@ exports[`transfer demo > renders table-transfer correctly 1`] = `
                             >
                               <!---->
                               <label
+                                aria-label="Select row 5"
                                 class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                               >
                                 <span
@@ -8941,6 +8946,7 @@ exports[`transfer demo > renders table-transfer correctly 1`] = `
                             >
                               <!---->
                               <label
+                                aria-label="Select row 6"
                                 class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                               >
                                 <span
@@ -8994,6 +9000,7 @@ exports[`transfer demo > renders table-transfer correctly 1`] = `
                             >
                               <!---->
                               <label
+                                aria-label="Select row 7"
                                 class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                               >
                                 <span
@@ -9047,6 +9054,7 @@ exports[`transfer demo > renders table-transfer correctly 1`] = `
                             >
                               <!---->
                               <label
+                                aria-label="Select row 8"
                                 class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                               >
                                 <span
@@ -9100,6 +9108,7 @@ exports[`transfer demo > renders table-transfer correctly 1`] = `
                             >
                               <!---->
                               <label
+                                aria-label="Select row 9"
                                 class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                               >
                                 <span
@@ -9153,6 +9162,7 @@ exports[`transfer demo > renders table-transfer correctly 1`] = `
                             >
                               <!---->
                               <label
+                                aria-label="Select row 10"
                                 class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                               >
                                 <span

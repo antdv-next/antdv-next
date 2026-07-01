@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest'
 import { h } from 'vue'
 import Card from '..'
 import ConfigProvider from '../../config-provider'
+import { expectSemanticRootStylePriority, semanticRootStylePriority } from '/@tests/shared/semanticStylePriority'
 import { mount } from '/@tests/utils'
 
 describe('card semantic DOM', () => {
@@ -216,5 +217,17 @@ describe('card semantic DOM', () => {
     expect(actions.classes()).toContain('component-actions')
     expect(actions.attributes('style')).toContain('padding: 8px')
     expect(actions.attributes('style')).toContain('background: white')
+  })
+
+  // https://github.com/ant-design/ant-design/pull/58474
+  it('aligns root semantic style priority', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider card={{ style: semanticRootStylePriority.contextStyle, styles: semanticRootStylePriority.contextStyles }}>
+        <Card style={semanticRootStylePriority.style} styles={semanticRootStylePriority.styles} />
+      </ConfigProvider>
+    ), { attachTo: document.body })
+
+    expectSemanticRootStylePriority(wrapper.find('.ant-card').element)
+    wrapper.unmount()
   })
 })

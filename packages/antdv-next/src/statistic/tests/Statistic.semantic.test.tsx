@@ -1,6 +1,8 @@
 import type { StatisticProps } from '..'
 import { describe, expect, it, vi } from 'vitest'
 import Statistic from '..'
+import ConfigProvider from '../../config-provider'
+import { expectSemanticRootStylePriority, semanticRootStylePriority } from '/@tests/shared/semanticStylePriority'
 import { mount } from '/@tests/utils'
 
 describe('statistic.semantic', () => {
@@ -162,5 +164,16 @@ describe('statistic.semantic', () => {
 
     await wrapper.setProps({ loading: true })
     expect(wrapper.find('.ant-statistic').classes()).toContain('loading-root')
+  })
+
+  // https://github.com/ant-design/ant-design/pull/58474
+  it('aligns root semantic style priority', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider statistic={{ style: semanticRootStylePriority.contextStyle, styles: semanticRootStylePriority.contextStyles }}>
+        <Statistic title="Active" value={100} style={semanticRootStylePriority.style} styles={semanticRootStylePriority.styles} />
+      </ConfigProvider>
+    ), { attachTo: document.body })
+    expectSemanticRootStylePriority(wrapper.find('.ant-statistic').element)
+    wrapper.unmount()
   })
 })

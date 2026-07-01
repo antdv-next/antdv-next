@@ -21,7 +21,7 @@ import { clsx, get, set } from '@v-c/util'
 import { pick } from 'es-toolkit'
 import scrollIntoView from 'scroll-into-view-if-needed'
 import { computed, defineComponent, getCurrentInstance, inject, onBeforeUnmount, onMounted, provide, shallowRef, watch } from 'vue'
-import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { toPropsRefs } from '../_util/tools.ts'
 import warning from '../_util/warning'
 import { useComponentBaseConfig } from '../config-provider/context'
@@ -247,11 +247,12 @@ const InternalForm = defineComponent<
       } as FormProps
     })
 
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       FormClassNamesType,
       FormStylesType,
       FormProps
-    >(useToArr(contextClassNames, classes), useToArr(contextStyles, styles), useToProps(mergedProps))
+    >(useToArr(contextClassNames, classes), useToArr(contextStyles, contextStyleRoot as any, styles), useToProps(mergedProps))
 
     const fields = shallowRef<Record<string, FormFieldRegister>>({})
     const lastValidatePromise = shallowRef<Promise<any>>()
@@ -748,7 +749,7 @@ const InternalForm = defineComponent<
           autocomplete={mergedAutoComplete.value}
           name={name}
           ref={nativeElementRef}
-          style={[mergedStyles.value.root, contextStyle.value, style]}
+          style={[mergedStyles.value.root, style]}
           class={formClassName}
           onSubmit={handleSubmit}
           onReset={handleReset}

@@ -9,6 +9,7 @@ import { computed, defineComponent, shallowRef } from 'vue'
 import {
 
   useMergeSemantic,
+  useSemanticRootStyle,
   useToArr,
   useToProps,
 } from '../_util/hooks'
@@ -113,13 +114,14 @@ const Statistic = defineComponent<
     const internalRef = shallowRef<HTMLDivElement>()
     // =========== Merged Props for Semantic ===========
     const mergedProps = computed(() => props)
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       StatisticClassNamesType,
       StatisticStylesType,
       StatisticProps
     >(
       useToArr(contextClassNames, classes),
-      useToArr(contextStyles, styles),
+      useToArr(contextStyles, contextStyleRoot as any, styles),
       useToProps(mergedProps),
     )
     expose({
@@ -190,7 +192,7 @@ const Statistic = defineComponent<
           {...restProps}
           ref={internalRef}
           class={cls}
-          style={[mergedStyles.value.root, contextStyle.value, (attrs as any).style]}
+          style={[mergedStyles.value.root, (attrs as any).style]}
           onMouseenter={handleMouseEnter}
           onMouseleave={handleMouseLeave}
         >

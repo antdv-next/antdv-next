@@ -558,7 +558,7 @@ exports[`tabs demo > renders _semantic correctly 1`] = `
           rtl="false"
         >
           <div
-            class="ant-tabs-body ant-tabs-body-top"
+            class="ant-tabs-body ant-tabs-body-top semantic-mark-body"
           >
             <!---->
             <!---->
@@ -5508,6 +5508,7 @@ exports[`tabs demo > renders style-class correctly 1`] = `
     >
       <div
         class="ant-tabs-body ant-tabs-body-top"
+        style="background-color: rgba(230, 247, 255, 0.8);"
       >
         <!---->
         <div

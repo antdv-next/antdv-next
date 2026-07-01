@@ -14,6 +14,7 @@ import getAllowClear from '../_util/getAllowClear'
 import {
   getAttrStyleAndClass,
   useMergeSemantic,
+  useSemanticRootStyle,
   useToArr,
   useToProps,
 } from '../_util/hooks'
@@ -226,13 +227,14 @@ const InternalInput = defineComponent<
       } as InputProps
     })
 
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       InputClassNamesType,
       InputStylesType,
       InputProps
     >(
       useToArr(contextClassNames, classes),
-      useToArr(contextStyles, styles),
+      useToArr(contextStyles, contextStyleRoot as any, styles),
       useToProps(mergedProps),
     )
 
@@ -348,7 +350,6 @@ const InternalInput = defineComponent<
 
       const mergedStyle: any = {
         ...mergedStyles.value.root,
-        ...contextStyle.value,
         ...style,
       }
 

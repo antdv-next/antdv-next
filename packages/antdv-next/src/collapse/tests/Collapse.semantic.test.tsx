@@ -2,6 +2,8 @@ import type { CollapseProps } from '..'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { h } from 'vue'
 import Collapse from '..'
+import ConfigProvider from '../../config-provider'
+import { expectSemanticRootStylePriority, semanticRootStylePriority } from '/@tests/shared/semanticStylePriority'
 import { mount } from '/@tests/utils'
 
 const openItems: CollapseProps['items'] = [
@@ -121,5 +123,16 @@ describe('collapse.Semantic', () => {
     })
 
     expect(wrapper.find('.ant-collapse').attributes('style')).toContain('padding: 8px')
+  })
+
+  // https://github.com/ant-design/ant-design/pull/58474
+  it('aligns root semantic style priority', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider collapse={{ style: semanticRootStylePriority.contextStyle, styles: semanticRootStylePriority.contextStyles }}>
+        <Collapse items={openItems} style={semanticRootStylePriority.style} styles={semanticRootStylePriority.styles} />
+      </ConfigProvider>
+    ), { attachTo: document.body })
+    expectSemanticRootStylePriority(wrapper.find('.ant-collapse').element)
+    wrapper.unmount()
   })
 })

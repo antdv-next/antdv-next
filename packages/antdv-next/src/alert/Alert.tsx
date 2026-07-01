@@ -256,11 +256,12 @@ const Alert = defineComponent<
         showIcon: isShowIcon,
         closable: isClosable,
       }
+      const contextStyleRoot = contextStyle.value ? { root: contextStyle.value } : undefined
       const [mergedClassNames, mergedStyles] = useMergeSemanticNoRef<
         AlertClassNamesType,
         AlertStylesType,
         AlertProps
-      >([contextClassNames.value, classes.value], [contextStyles.value, styles.value], {
+      >([contextClassNames.value, classes.value], [contextStyles.value, contextStyleRoot as any, styles.value], {
         props: mergedProps,
       })
 
@@ -327,7 +328,6 @@ const Alert = defineComponent<
                   class={alertCls}
                   style={[
                     mergedStyles.root,
-                    contextStyle.value,
                     style,
                   ]}
                   {...pureAttrs(attrs)}

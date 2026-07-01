@@ -13,7 +13,7 @@ import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, shallowRef } from 'vue'
-import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { toPropsRefs } from '../_util/tools'
 import { checkRenderNode } from '../_util/vueNode.ts'
 import { devUseWarning, isDev } from '../_util/warning'
@@ -117,11 +117,12 @@ const InternalRadio = defineComponent<
       }
     })
 
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       SemanticClassNamesType<RadioProps, RadioSemanticClassNames>,
       SemanticStylesType<RadioProps, RadioSemanticStyles>,
       RadioProps
-    >(useToArr(contextClassNames, classes), useToArr(contextStyles, styles), useToProps(mergedProps))
+    >(useToArr(contextClassNames, classes), useToArr(contextStyles, contextStyleRoot as any, styles), useToProps(mergedProps))
 
     // ============================ Event Lock ============================
     const [onLabelClick, onInputClick] = useBubbleLock((e) => {
@@ -159,7 +160,7 @@ const InternalRadio = defineComponent<
           <label
             {...restAttrs}
             class={wrapperClassString}
-            style={{ ...mergedStyles.value.root, ...contextStyle.value, ...style }}
+            style={{ ...mergedStyles.value.root, ...style }}
             onMouseenter={(e) => {
               emit('mouseenter', e)
             }}

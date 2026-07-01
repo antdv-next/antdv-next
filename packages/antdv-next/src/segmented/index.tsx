@@ -13,7 +13,7 @@ import VcSegmented from '@v-c/segmented'
 import { clsx } from '@v-c/util'
 import { filterEmpty, removeUndefined } from '@v-c/util/dist/props-util'
 import { computed, defineComponent, useId } from 'vue'
-import { pureAttrs, useMergeSemantic, useOrientation, useToArr, useToProps } from '../_util/hooks'
+import { pureAttrs, useMergeSemantic, useOrientation, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { useComponentBaseConfig } from '../config-provider/context.ts'
 import { useSize } from '../config-provider/hooks/useSize.ts'
@@ -133,11 +133,12 @@ const InternalSegmented = defineComponent<
       return props
     })
 
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       SegmentedClassNamesType,
       SegmentedStylesType,
       SegmentedProps
-    >(useToArr(contextClassNames, classes), useToArr(contextStyles, styles), useToProps(
+    >(useToArr(contextClassNames, classes), useToArr(contextStyles, contextStyleRoot as any, styles), useToProps(
       mergedProps,
     ))
 
@@ -214,7 +215,6 @@ const InternalSegmented = defineComponent<
       )
       const mergedStyle: CSSProperties = {
         ...mergedStyles?.value?.root,
-        ...contextStyle.value,
       }
 
       const itemRender = (node: any, { item }: { item: SegmentedLabeledOption }) => {

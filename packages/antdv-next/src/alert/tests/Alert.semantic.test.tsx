@@ -2,6 +2,7 @@ import type { AlertProps } from '../Alert'
 import { describe, expect, it, vi } from 'vitest'
 import Alert from '..'
 import ConfigProvider from '../../config-provider'
+import { expectSemanticRootStylePriority, semanticRootStylePriority } from '/@tests/shared/semanticStylePriority'
 import { mount } from '/@tests/utils'
 
 describe('alert.Semantic', () => {
@@ -104,5 +105,17 @@ describe('alert.Semantic', () => {
 
     const titleStyle = titleElement.attributes('style')
     expect(titleStyle).toContain('font-weight: bold')
+  })
+
+  // https://github.com/ant-design/ant-design/pull/58474
+  it('aligns root semantic style priority', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider alert={{ style: semanticRootStylePriority.contextStyle, styles: semanticRootStylePriority.contextStyles }}>
+        <Alert message="test" style={semanticRootStylePriority.style} styles={semanticRootStylePriority.styles} />
+      </ConfigProvider>
+    ), { attachTo: document.body })
+
+    expectSemanticRootStylePriority(wrapper.find('.ant-alert').element)
+    wrapper.unmount()
   })
 })

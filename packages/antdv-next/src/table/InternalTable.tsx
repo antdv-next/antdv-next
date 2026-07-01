@@ -31,7 +31,7 @@ import pickAttrs from '@v-c/util/dist/pickAttrs'
 import { getAttrStyleAndClass } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, h, inject, provide, shallowRef, watch, watchEffect } from 'vue'
-import { useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import scrollTo from '../_util/scrollTo.ts'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { devUseWarning, isDev } from '../_util/warning.ts'
@@ -322,13 +322,14 @@ const InternalTable = defineComponent<
       } as TableProps
     })
 
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       TableClassNamesType,
       TableStylesType,
       TableProps
     >(
       useToArr(contextClassNames, classes),
-      useToArr(contextStyles, styles),
+      useToArr(contextStyles, contextStyleRoot as any, styles),
       useToProps(mergedProps),
       computed(() => ({
         pagination: { _default: 'root' },
@@ -854,7 +855,7 @@ const InternalTable = defineComponent<
         className,
       )
 
-      const mergedStyle = { ...mergedStyles.value.root, ...contextStyle.value, ...style }
+      const mergedStyle = { ...mergedStyles.value.root, ...style }
 
       const tableClassName = clsx(
         {

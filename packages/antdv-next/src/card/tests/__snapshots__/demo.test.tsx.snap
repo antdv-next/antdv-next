@@ -1348,17 +1348,17 @@ exports[`card demo > renders component-token correctly 1`] = `
           <!---->
         </div>
         <div
-          class="ant-tabs-content-holder"
+          class="ant-tabs-body-holder"
           mobile="false"
           rtl="false"
         >
           <div
-            class="ant-tabs-content ant-tabs-content-top"
+            class="ant-tabs-body ant-tabs-body-top"
           >
             <!---->
             <div
               aria-hidden="false"
-              class="ant-tabs-tabpane ant-tabs-tabpane-active"
+              class="ant-tabs-content ant-tabs-content-active"
               role="tabpanel"
               tabindex="0"
             >
@@ -2756,17 +2756,17 @@ exports[`card demo > renders tabs correctly 1`] = `
           <!---->
         </div>
         <div
-          class="ant-tabs-content-holder"
+          class="ant-tabs-body-holder"
           mobile="false"
           rtl="false"
         >
           <div
-            class="ant-tabs-content ant-tabs-content-top"
+            class="ant-tabs-body ant-tabs-body-top"
           >
             <!---->
             <div
               aria-hidden="false"
-              class="ant-tabs-tabpane ant-tabs-tabpane-active"
+              class="ant-tabs-content ant-tabs-content-active"
               role="tabpanel"
               tabindex="0"
             >
@@ -2920,19 +2920,19 @@ exports[`card demo > renders tabs correctly 1`] = `
           </div>
         </div>
         <div
-          class="ant-tabs-content-holder"
+          class="ant-tabs-body-holder"
           mobile="false"
           rtl="false"
         >
           <div
-            class="ant-tabs-content ant-tabs-content-top"
+            class="ant-tabs-body ant-tabs-body-top"
           >
             <!---->
             <!---->
             <!---->
             <div
               aria-hidden="false"
-              class="ant-tabs-tabpane ant-tabs-tabpane-active"
+              class="ant-tabs-content ant-tabs-content-active"
               role="tabpanel"
               tabindex="0"
             >

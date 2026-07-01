@@ -12,6 +12,7 @@ import { computed, defineComponent } from 'vue'
 import {
 
   useMergeSemantic,
+  useSemanticRootStyle,
   useToArr,
   useToProps,
 } from '../_util/hooks'
@@ -164,13 +165,14 @@ const Descriptions = defineComponent<
         size: mergedSize.value,
       }
     })
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       DescriptionsClassNamesType,
       DescriptionsStylesType,
       DescriptionsProps
     >(
       useToArr(contextClassNames, classes as any),
-      useToArr(contextStyles, styles),
+      useToArr(contextStyles, contextStyleRoot as any, styles),
       useToProps(mergedProps),
     )
 
@@ -217,7 +219,7 @@ const Descriptions = defineComponent<
             cssVarCls.value,
           )}
           id={props.id}
-          style={[contextStyle, mergedStyles.value.root, (attrs as any).style]}
+          style={[mergedStyles.value.root, (attrs as any).style]}
           {...omit(attrs, ['class', 'style'])}
         >
           {(!!title || !!extra) && (

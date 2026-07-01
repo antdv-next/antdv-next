@@ -2,6 +2,7 @@ import type { ProgressProps } from '..'
 import { describe, expect, it, vi } from 'vitest'
 import Progress from '..'
 import ConfigProvider from '../../config-provider'
+import { expectSemanticRootStylePriority, semanticRootStylePriority } from '/@tests/shared/semanticStylePriority'
 import { mount } from '/@tests/utils'
 
 describe('progress.Semantic', () => {
@@ -122,5 +123,17 @@ describe('progress.Semantic', () => {
     const body = wrapper.find('.ant-progress-body')
     expect(body.classes()).toContain('comp-body')
     expect(body.attributes('style')).toContain('padding: 2px')
+  })
+
+  // https://github.com/ant-design/ant-design/pull/58474
+  it('aligns root semantic style priority', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider progress={{ style: semanticRootStylePriority.contextStyle, styles: semanticRootStylePriority.contextStyles }}>
+        <Progress style={semanticRootStylePriority.style} styles={semanticRootStylePriority.styles} />
+      </ConfigProvider>
+    ), { attachTo: document.body })
+
+    expectSemanticRootStylePriority(wrapper.find('.ant-progress').element)
+    wrapper.unmount()
   })
 })

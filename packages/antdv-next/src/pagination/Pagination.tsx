@@ -15,7 +15,7 @@ import { clsx } from '@v-c/util'
 import { getAttrStyleAndClass } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent } from 'vue'
-import { useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { devUseWarning, isDev } from '../_util/warning'
 import { useComponentBaseConfig } from '../config-provider/context'
@@ -95,11 +95,12 @@ const Pagination = defineComponent<
     })
 
     // ========================= Style ==========================
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       PaginationClassNamesType,
       PaginationStylesType,
       PaginationProps
-    >(useToArr(contextClassNames, classes), useToArr(contextStyles, styles), useToProps(mergedProps))
+    >(useToArr(contextClassNames, classes), useToArr(contextStyles, contextStyleRoot as any, styles), useToProps(mergedProps))
 
     // ============================= Locale =============================
     const [contextLocale] = useLocale('Pagination', enUS)
@@ -267,7 +268,6 @@ const Pagination = defineComponent<
 
       const mergedStyle = {
         ...mergedStyles.value?.root,
-        ...contextStyle.value,
         ...style,
       }
 

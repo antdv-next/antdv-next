@@ -1,6 +1,8 @@
 import { describe, expect, it, vi } from 'vitest'
 import { nextTick } from 'vue'
 import Cascader from '..'
+import ConfigProvider from '../../config-provider'
+import { expectSemanticRootStylePriority, semanticRootStylePriority } from '/@tests/shared/semanticStylePriority'
 import { mount } from '/@tests/utils'
 
 const options = [
@@ -245,5 +247,17 @@ describe('cascader semantic DOM', () => {
     expect(itemRemove.exists()).toBe(true)
     expect(itemRemove.classes()).toContain('custom-item-remove')
     expect(itemRemove.attributes('style')).toContain('color: red')
+  })
+
+  // https://github.com/ant-design/ant-design/pull/58474
+  it('aligns root semantic style priority', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider cascader={{ style: semanticRootStylePriority.contextStyle, styles: semanticRootStylePriority.contextStyles }}>
+        <Cascader style={semanticRootStylePriority.style} styles={semanticRootStylePriority.styles} />
+      </ConfigProvider>
+    ), { attachTo: document.body })
+
+    expectSemanticRootStylePriority(wrapper.find('.ant-select').element)
+    wrapper.unmount()
   })
 })

@@ -11,6 +11,7 @@ import {
   getAttrStyleAndClass,
   useMergeSemantic,
   useOrientation,
+  useSemanticRootStyle,
   useToArr,
   useToProps,
 } from '../_util/hooks'
@@ -191,11 +192,13 @@ const Slider = defineComponent<
       } as SliderInternalProps
     })
 
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
+
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       SliderClassNamesType,
       SliderStylesType,
       SliderInternalProps
-    >(useToArr(contextClassNames, classes), useToArr(contextStyles, styles), useToProps(mergedProps))
+    >(useToArr(contextClassNames, classes), useToArr(contextStyles, contextStyleRoot as any, styles), useToProps(mergedProps))
 
     // ============================= Context ==============================
     const { handleRender: contextHandleRender, direction: internalContextDirection } = useSliderInternalContext()
@@ -390,7 +393,6 @@ const Slider = defineComponent<
       // ============================== Render ==============================
       const rootStyle = {
         ...mergedStyles.value.root,
-        ...contextStyle.value,
         ...style,
       }
       return (

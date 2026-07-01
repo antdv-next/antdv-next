@@ -15,6 +15,7 @@ import { computed, defineComponent, shallowRef } from 'vue'
 import {
   getAttrStyleAndClass,
   useMergeSemantic,
+  useSemanticRootStyle,
   useToArr,
   useToProps,
   useZIndex,
@@ -301,13 +302,14 @@ const InternalCascader = defineComponent<
       } as CascaderProps
     })
 
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       CascaderClassNamesType,
       CascaderStylesType,
       CascaderProps
     >(
       useToArr(contextClassNames, classes),
-      useToArr(contextStyles, styles),
+      useToArr(contextStyles, contextStyleRoot as any, styles),
       useToProps(mergedProps),
       computed(() => {
         return {
@@ -525,7 +527,7 @@ const InternalCascader = defineComponent<
           prefixCls={prefixCls.value}
           popupPrefixCls={customizePrefixCls.value || cascaderPrefixCls.value}
           className={mergedClassName}
-          style={{ ...mergedStyles.value.root, ...contextStyle.value, ...style }}
+          style={{ ...mergedStyles.value.root, ...style }}
           popupClassName={mergedPopupClassName}
           popupStyle={{ ...mergedPopupStyle.value, zIndex: zIndex.value }}
           popupMenuColumnStyle={mergedPopupMenuColumnStyle}

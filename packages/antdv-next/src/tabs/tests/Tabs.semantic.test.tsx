@@ -2,6 +2,7 @@ import type { Tab, TabsProps } from '..'
 import { afterEach, describe, expect, it } from 'vitest'
 import Tabs from '..'
 import ConfigProvider from '../../config-provider'
+import { expectSemanticRootStylePriority, semanticRootStylePriority } from '/@tests/shared/semanticStylePriority'
 import { mount } from '/@tests/utils'
 
 const defaultItems: Tab[] = [
@@ -196,5 +197,16 @@ describe('tabs.semantic', () => {
       expect(root?.style.border).toBe('1px solid red')
       wrapper.unmount()
     })
+  })
+
+  // https://github.com/ant-design/ant-design/pull/58474
+  it('aligns root semantic style priority', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider tabs={{ style: semanticRootStylePriority.contextStyle, styles: semanticRootStylePriority.contextStyles }}>
+        <Tabs items={defaultItems} style={semanticRootStylePriority.style} styles={semanticRootStylePriority.styles} />
+      </ConfigProvider>
+    ), { attachTo: document.body })
+    expectSemanticRootStylePriority(wrapper.find('.ant-tabs').element)
+    wrapper.unmount()
   })
 })

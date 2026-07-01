@@ -11,7 +11,7 @@ import { clsx } from '@v-c/util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, shallowRef } from 'vue'
 import { ContextIsolator } from '../_util/ContextIsolator.tsx'
-import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { devUseWarning, isDev } from '../_util/warning'
@@ -268,13 +268,14 @@ const InputNumber = defineComponent<
       } as InputNumberProps
     })
 
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       InputNumberClassNamesType,
       InputNumberStylesType,
       InputNumberProps
     >(
       useToArr(contextClassNames, classes),
-      useToArr(contextStyles, styles),
+      useToArr(contextStyles, contextStyleRoot as any, styles),
       useToProps(mergedProps),
     )
 
@@ -323,7 +324,6 @@ const InputNumber = defineComponent<
       const { style } = getAttrStyleAndClass(attrs)
       return {
         ...mergedStyles.value.root,
-        ...contextStyle.value,
         ...style,
       }
     })

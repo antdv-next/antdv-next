@@ -1,5 +1,7 @@
 import { describe, expect, it, vi } from 'vitest'
 import Input from '..'
+import ConfigProvider from '../../config-provider'
+import { expectSemanticRootStylePriority, semanticRootStylePriority } from '/@tests/shared/semanticStylePriority'
 import { mount } from '/@tests/utils'
 
 const { OTP } = Input as any
@@ -81,5 +83,16 @@ describe('otp.Semantic', () => {
       expect(separator.classes()).toContain('custom-separator')
       expect(separator.attributes('style')).toContain('margin: 0px 8px')
     })
+  })
+
+  // https://github.com/ant-design/ant-design/pull/58474
+  it('aligns root semantic style priority', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider otp={{ style: semanticRootStylePriority.contextStyle, styles: semanticRootStylePriority.contextStyles }}>
+        <OTP style={semanticRootStylePriority.style} styles={semanticRootStylePriority.styles} />
+      </ConfigProvider>
+    ), { attachTo: document.body })
+    expectSemanticRootStylePriority(wrapper.find('.ant-otp').element)
+    wrapper.unmount()
   })
 })

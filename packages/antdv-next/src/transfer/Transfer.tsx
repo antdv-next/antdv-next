@@ -11,7 +11,7 @@ import type {
 import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { computed, defineComponent } from 'vue'
-import { getAttrStyleAndClass, useMergeSemantic, useMultipleSelect, useToArr, useToProps } from '../_util/hooks'
+import { getAttrStyleAndClass, useMergeSemantic, useMultipleSelect, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { groupDisabledKeysMap, groupKeysMap } from '../_util/transKeys'
@@ -317,13 +317,14 @@ const Transfer = defineComponent<
     const hasFeedback = computed(() => formItemInputContext.value.hasFeedback)
     const mergedStatus = computed(() => getMergedStatus(formItemInputContext.value.status, props.status))
 
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       TransferClassNamesType,
       TransferStylesType,
       TransferProps
     >(
       useToArr(contextClassNames, classes),
-      useToArr(contextStyles, styles),
+      useToArr(contextStyles, contextStyleRoot as any, styles),
       useToProps(mergedProps),
     )
 
@@ -443,7 +444,6 @@ const Transfer = defineComponent<
       )
 
       const rootStyle = {
-        ...contextStyle.value,
         ...mergedStyles.value.root,
         ...style,
       }

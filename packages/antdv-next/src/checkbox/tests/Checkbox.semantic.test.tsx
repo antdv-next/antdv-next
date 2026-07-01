@@ -1,5 +1,7 @@
 import { describe, expect, it, vi } from 'vitest'
 import Checkbox from '..'
+import ConfigProvider from '../../config-provider'
+import { expectSemanticRootStylePriority, semanticRootStylePriority } from '/@tests/shared/semanticStylePriority'
 import { mount } from '/@tests/utils'
 
 describe('checkbox semantic DOM', () => {
@@ -89,5 +91,17 @@ describe('checkbox semantic DOM', () => {
 
     const icon = wrapper.find('.ant-checkbox')
     expect(icon.classes()).toContain('custom-disabled-icon')
+  })
+
+  // https://github.com/ant-design/ant-design/pull/58474
+  it('aligns root semantic style priority', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider checkbox={{ style: semanticRootStylePriority.contextStyle, styles: semanticRootStylePriority.contextStyles }}>
+        <Checkbox style={semanticRootStylePriority.style} styles={semanticRootStylePriority.styles} />
+      </ConfigProvider>
+    ), { attachTo: document.body })
+
+    expectSemanticRootStylePriority(wrapper.find('.ant-checkbox-wrapper').element)
+    wrapper.unmount()
   })
 })

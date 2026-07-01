@@ -9,7 +9,7 @@ import VcSwitch from '@v-c/switch'
 import { clsx } from '@v-c/util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, shallowRef, watch } from 'vue'
-import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { isValueEqual } from '../_util/isEqual'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { devUseWarning, isDev } from '../_util/warning'
@@ -180,11 +180,12 @@ const Switch = defineComponent<
       } as SwitchProps
     })
 
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       SwitchClassNamesType,
       SwitchStylesType,
       SwitchProps
-    >(useToArr(contextClassNames, classes), useToArr(contextStyles, styles), useToProps(mergedProps))
+    >(useToArr(contextClassNames, classes), useToArr(contextStyles, contextStyleRoot as any, styles), useToProps(mergedProps))
 
     const changeHandler: SwitchChangeEventHandler = (...args) => {
       emit('change', ...args)
@@ -234,7 +235,6 @@ const Switch = defineComponent<
 
       const mergedStyle: any = {
         ...mergedStyles.value.root,
-        ...contextStyle.value,
         ...style,
       }
 

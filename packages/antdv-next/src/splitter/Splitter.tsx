@@ -12,7 +12,7 @@ import ResizeObserver from '@v-c/resize-observer'
 import { clsx } from '@v-c/util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, Fragment, shallowRef } from 'vue'
-import { getAttrStyleAndClass, useMergeSemantic, useOrientation, useToArr, useToProps } from '../_util/hooks'
+import { getAttrStyleAndClass, useMergeSemantic, useOrientation, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { toPropsRefs } from '../_util/tools.ts'
 import { devUseWarning, isDev } from '../_util/warning.ts'
 import { useComponentBaseConfig } from '../config-provider/context'
@@ -148,13 +148,14 @@ const Splitter = defineComponent<
     })
 
     // ======================== Styles ========================
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       SplitterClassNamesType,
       SplitterStylesType,
       SplitterProps
     >(
       useToArr(contextClassNames, classes),
-      useToArr(contextStyles, styles),
+      useToArr(contextStyles, contextStyleRoot as any, styles),
       useToProps(mergedProps),
       computed(() => ({
         // Convert `classNames.dragger: 'a'` to
@@ -208,7 +209,6 @@ const Splitter = defineComponent<
 
       const mergedStyle = {
         ...mergedStyles.value.root,
-        ...contextStyle.value,
         ...style,
       }
       return (
