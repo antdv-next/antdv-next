@@ -220,8 +220,8 @@ catalogs:
       specifier: ^1.0.0
       version: 1.0.0
     '@antdv-next/icons':
-      specifier: ^1.0.8
-      version: 1.0.8
+      specifier: ^1.1.0
+      version: 1.1.0
     '@emotion/hash':
       specifier: ^0.8.0
       version: 0.8.0
@@ -614,7 +614,7 @@ importers:
         version: 1.0.0(antdv-next@1.3.7(vue@3.5.38(typescript@5.9.3)))(vue@3.5.38(typescript@5.9.3))
       '@antdv-next/icons':
         specifier: catalog:prod
-        version: 1.0.8(vue@3.5.38(typescript@5.9.3))
+        version: 1.1.0(vue@3.5.38(typescript@5.9.3))
       '@antdv-next/unocss':
         specifier: catalog:docs
         version: 1.1.1(unocss@66.7.2(vite@8.1.0(@types/node@25.9.4)(esbuild@0.28.1)(jiti@2.7.0)(less@4.6.7)(terser@5.44.1)(tsx@4.22.4)(yaml@2.9.0)))
@@ -798,7 +798,7 @@ importers:
         version: link:../cssinjs
       '@antdv-next/icons':
         specifier: catalog:prod
-        version: 1.0.8(vue@3.5.38(typescript@5.9.3))
+        version: 1.1.0(vue@3.5.38(typescript@5.9.3))
       '@v-c/async-validator':
         specifier: catalog:vc
         version: 1.0.1
@@ -980,7 +980,7 @@ importers:
     dependencies:
       '@antdv-next/icons':
         specifier: catalog:prod
-        version: 1.0.8(vue@3.5.38(typescript@5.9.3))
+        version: 1.1.0(vue@3.5.38(typescript@5.9.3))
       dayjs:
         specifier: catalog:prod
         version: 1.11.21
@@ -1038,6 +1038,9 @@ packages:
   '@ant-design/icons-svg@4.4.2':
     resolution: {integrity: sha512-vHbT+zJEVzllwP+CM+ul7reTEfBR0vgxFe7+lREAsAA7YGsYpboiq2sQNeQeRvh09GfQgs/GyFEvZpJ9cLXpXA==}
 
+  '@ant-design/icons-svg@4.5.0':
+    resolution: {integrity: sha512-1BTUFyKPTBZ53MuTP8s0k5SFEXL7o3VHEOwLgzaoWKwnBeqIcqUtVshc4SKzhI6uACfqhJqBwBUE9FsWR3uULA==}
+
   '@antdv-next/cssinjs@1.0.6':
     resolution: {integrity: sha512-8NL+AzjFZVHfG9A2l+r4rNWdRfbS5FFFozGU9jVl7WNgd7y+wEYSzl+qvRjJuqd3IryacrDfsTxIgcSQkVlr5Q==}
     peerDependencies:
@@ -1051,6 +1054,11 @@ packages:
 
   '@antdv-next/icons@1.0.8':
     resolution: {integrity: sha512-tA5UeJfEakn+QqnBlY1Ky5rhd6m15Jm7Fmf0B9Zw5EySlIYqE61Z7OfaHOD+RlhPmzX08Ycg9DSR6IvDObfqEg==}
+    peerDependencies:
+      vue: '>=3.2.0'
+
+  '@antdv-next/icons@1.1.0':
+    resolution: {integrity: sha512-kkIVbuJxSCZU0xSQtUWDl1gntUmSDAw1W+fqNgP6fg8ufnxSrvLFExzdibiK12wv0fnqRaLsXCM5lIsSsSLBiQ==}
     peerDependencies:
       vue: '>=3.2.0'
 
@@ -6497,6 +6505,8 @@ snapshots:
 
   '@ant-design/icons-svg@4.4.2': {}
 
+  '@ant-design/icons-svg@4.5.0': {}
+
   '@antdv-next/cssinjs@1.0.6(vue@3.5.38(typescript@5.9.3))':
     dependencies:
       '@emotion/hash': 0.8.0
@@ -6516,6 +6526,13 @@ snapshots:
     dependencies:
       '@ant-design/colors': 7.2.1
       '@ant-design/icons-svg': 4.4.2
+      '@v-c/util': 1.0.19(vue@3.5.38(typescript@5.9.3))
+      vue: 3.5.38(typescript@5.9.3)
+
+  '@antdv-next/icons@1.1.0(vue@3.5.38(typescript@5.9.3))':
+    dependencies:
+      '@ant-design/colors': 7.2.1
+      '@ant-design/icons-svg': 4.5.0
       '@v-c/util': 1.0.19(vue@3.5.38(typescript@5.9.3))
       vue: 3.5.38(typescript@5.9.3)
 
