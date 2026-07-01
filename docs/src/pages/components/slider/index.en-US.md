@@ -42,7 +42,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | --- | --- | --- | --- | --- | --- |
 | classes | Customize class for each semantic structure inside the component. Supports object or function | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - | ✓ |
 | defaultValue | The default value of the slider. When `range` is false, use number, otherwise, use [number, number] | number \| [number, number] | 0 \| [0, 0] | - | × |
-| disabled | If true, the slider will not be interactive. Pass `boolean[]` to disable specific handles individually in Range mode | boolean \| boolean[] | false | boolean[]: 6.5.0 | × |
+| disabled | If true, the slider will not be interactive. Pass `boolean[]` to disable specific handles individually in Range mode | boolean \| boolean[] | false | boolean[]: 1.4.0 | × |
 | dots | Whether the thumb can only be dragged to tick marks | boolean | false | - | × |
 | included | Takes effect when `marks` is not null. True means containment and false means coordinative | boolean | true | - | × |
 | keyboard | Support using keyboard to move handlers | boolean | true | 5.2.0+ | × |

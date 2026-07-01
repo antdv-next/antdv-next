@@ -245,7 +245,7 @@ export type FormatType
 | panelChange | 日历面板切换的回调 | (value: Dayjs, mode: PickerMode) => void | - |
 | openChange | 弹出日历和关闭日历的回调 | (open: boolean) => void | - |
 | ok | 点击确定按钮的回调 | () => void | - |
-| clear | 点击清除按钮的回调 | () => void | 6.5.0 |
+| clear | 点击清除按钮的回调 | () => void | 1.4.0 |
 | select | - | (date: Dayjs) => void | - |
 | focus | 聚焦时回调 | (event: FocusEvent, info: { range: 'start' \| 'end' }) => void | - |
 | blur | 失焦时回调 | (event: FocusEvent, info: { range: 'start' \| 'end' }) => void | - |

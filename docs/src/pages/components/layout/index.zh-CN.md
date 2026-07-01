@@ -103,12 +103,12 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAA
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | breakpoint | 触发响应式布局的[断点](/components/grid-cn#col) | `xs` \| `sm` \| `md` \| `lg` \| `xl` \| `xxl` \| `xxxl` | - | xxxl: 1.0.3 |
-| classes | 用于自定义 Sider 组件内部各语义化结构（`root`、`body`）的 class，支持对象或函数 | Record<string, string> \| (info: { props }) => Record<string, string> | - | 6.5.0 |
+| classes | 用于自定义 Sider 组件内部各语义化结构（`root`、`body`）的 class，支持对象或函数 | Record<string, string> \| (info: { props }) => Record<string, string> | - | 1.4.0 |
 | collapsed | 当前收起状态 | boolean | - |  |
 | collapsedWidth | 收缩宽度，设置为 0 会出现特殊 trigger | number | 80 |  |
 | collapsible | 是否可收起 | boolean | false |  |
 | reverseArrow | 翻转折叠提示箭头的方向，当 Sider 在右边时可以使用 | boolean | false |  |
-| styles | 用于自定义 Sider 组件内部各语义化结构（`root`、`body`）的行内 style，支持对象或函数 | Record<string, CSSProperties> \| (info: { props }) => Record<string, CSSProperties> | - | 6.5.0 |
+| styles | 用于自定义 Sider 组件内部各语义化结构（`root`、`body`）的行内 style，支持对象或函数 | Record<string, CSSProperties> \| (info: { props }) => Record<string, CSSProperties> | - | 1.4.0 |
 | theme | 主题颜色 | `light` \| `dark` | `dark` |  |
 | trigger | 自定义 trigger，设置为 null 时隐藏 trigger | ReactNode | - |  |
 | width | 宽度 | number \| string | 200 |  |

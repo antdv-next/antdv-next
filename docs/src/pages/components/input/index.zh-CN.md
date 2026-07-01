@@ -190,7 +190,7 @@ interface CountConfig {
 
 ```tsx
 interface VisibilityToggle {
-  // 设置切换按钮的 tabIndex（6.5.0）
+  // 设置切换按钮的 tabIndex（1.4.0）
   tabIndex?: number
   // 用于手动控制密码显隐
   visible?: boolean

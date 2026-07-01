@@ -39,7 +39,7 @@ demo:
 | rotate | 水印绘制时，旋转的角度，单位 `°` | number | -22 |  | × |
 | zIndex | 追加的水印元素的 z-index | number | 9 |  | × |
 | image | 图片源，建议导出 2 倍或 3 倍图，优先级高 (支持 base64 格式) | string | - |  | × |
-| content | 水印文字内容，传入 `WatermarkText` 对象可为每行单独设置字体样式 | string \| [WatermarkText](#watermarktext) \| (string \| [WatermarkText](#watermarktext))[] | - | 对象用法: 6.5.0 | × |
+| content | 水印文字内容，传入 `WatermarkText` 对象可为每行单独设置字体样式 | string \| [WatermarkText](#watermarktext) \| (string \| [WatermarkText](#watermarktext))[] | - | 对象用法: 1.4.0 | × |
 | font | 文字样式 | [Font](#font) | [Font](#font) |  | × |
 | gap | 水印之间的间距 | \[number, number\] | \[100, 100\] |  | × |
 | offset | 水印距离容器左上角的偏移量，默认为 `gap/2` | \[number, number\] | \[gap\[0\]/2, gap\[1\]/2\] |  | × |
@@ -65,12 +65,12 @@ demo:
 
 ### WatermarkText {#watermarktext}
 
-用于为多行水印的每一行单独配置字体样式（`6.5.0`）。
+用于为多行水印的每一行单独配置字体样式（`1.4.0`）。
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| text | 该行文字内容 | string | - | 6.5.0 |
-| font | 该行字体样式，会与组件级 `font` 合并 | [Font](#font) | - | 6.5.0 |
+| text | 该行文字内容 | string | - | 1.4.0 |
+| font | 该行字体样式，会与组件级 `font` 合并 | [Font](#font) | - | 1.4.0 |
 
 ## 主题变量（Design Token）{#design-token}
 

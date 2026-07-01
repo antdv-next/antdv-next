@@ -43,7 +43,7 @@ The whole of the step bar.
 | iconRender | Custom render icon, please use `items.icon` first | (oriNode, info: &#123; index, active, item &#125;) =&gt; VueNode | - | - | × |
 | initial | Set the initial step, counting from 0 | number | 0 | - | × |
 | items | StepItem content | [StepItem](#stepitem)[] | [] | 4.24.0 | × |
-| maxCount | Maximum number of step items to display (`>= 3`). Hidden step ranges are collapsed into disabled ellipsis steps | number | - | 6.5.0 | × |
+| maxCount | Maximum number of step items to display (`>= 3`). Hidden step ranges are collapsed into disabled ellipsis steps | number | - | 1.4.0 | × |
 | orientation | To specify the orientation of the step bar, `horizontal` or `vertical` | `horizontal` \| `vertical` | `horizontal` | - | × |
 | percent | Progress circle percentage of current step in `process` status (only works on basic Steps) | number | - | 4.5.0 | × |
 | progressDot | Steps with progress dot style, customize the progress dot by setting it to a function. `titlePlacement` will be `vertical` | boolean \| (iconDot, &#123; index, status, title, content &#125;) =&gt; VueNode | false | - | × |

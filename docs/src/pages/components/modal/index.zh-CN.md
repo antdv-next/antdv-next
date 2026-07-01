@@ -73,7 +73,7 @@ demo:
 | open | 对话框是否可见，支持 `v-model:open` | boolean | false | - | × |
 | rootClass | 根容器 class | string | - | - | × |
 | rootStyle | 根容器样式 | CSSProperties | - | - | × |
-| scrollLock | 弹窗打开时是否锁定 body 滚动 | boolean | true | 6.5.0 | × |
+| scrollLock | 弹窗打开时是否锁定 body 滚动 | boolean | true | 1.4.0 | × |
 | styles | 用于自定义 Modal 组件内部各语义化结构的行内 style，支持对象或函数 | ModalStylesType | - | - | ✓ |
 | title | 标题 | VueNode | - | - | × |
 | transitionName | 对话框过渡动效名称 | string | - | - | × |
@@ -142,7 +142,7 @@ demo:
 | okButtonProps | ok 按钮 props | ButtonProps | - | - |
 | okText | 确认按钮文字 | string | `确定` | - |
 | okType | 确认按钮类型 | LegacyButtonType | `primary` | - |
-| scrollLock | 弹窗打开时是否锁定 body 滚动 | boolean | true | 6.5.0 |
+| scrollLock | 弹窗打开时是否锁定 body 滚动 | boolean | true | 1.4.0 |
 | style | 可用于设置浮层的样式，调整浮层位置等 | CSSProperties | - | - |
 | title | 标题 | VueNode | - | - |
 | type | 对话框类型 | `info` \| `success` \| `error` \| `warn` \| `warning` \| `confirm` | `confirm` | - |
