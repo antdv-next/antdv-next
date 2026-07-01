@@ -147,7 +147,10 @@ const Sider = defineComponent<
 
   // =========================== Semantic ===========================
   const { classes, styles } = toPropsRefs(props, 'classes', 'styles')
-  const mergedProps = computed(() => props)
+  // Semantic callbacks must see the effective collapsed state, not the raw
+  // `props.collapsed` (which stays undefined in uncontrolled/responsive mode).
+  // Mirror ant-design's `semanticProps` that overrides `collapsed`. sync ant-design#57938
+  const mergedProps = computed(() => ({ ...props, collapsed: collapsed.value }))
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     SiderClassNamesType,
     SiderStylesType,

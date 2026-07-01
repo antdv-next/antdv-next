@@ -55,4 +55,23 @@ describe('layout sider semantic classes/styles', () => {
     expect(body().classes()).toContain('body-collapsed')
     expect((body().element as HTMLElement).style.opacity).toBe('0.5')
   })
+
+  // Uncontrolled: props.collapsed stays undefined, callbacks must see the effective state.
+  it('passes the effective collapsed state to callbacks when uncontrolled', () => {
+    const wrapper = mount(() => (
+      <LayoutSider
+        defaultCollapsed
+        collapsible
+        classes={({ props }: any) => ({
+          body: props.collapsed ? 'body-collapsed' : 'body-expanded',
+        })}
+      >
+        Sider
+      </LayoutSider>
+    ))
+
+    // defaultCollapsed with no `collapsed` prop -> the callback must see the
+    // effective collapsed state (from the internal ref), not undefined.
+    expect(wrapper.find('.ant-layout-sider-children').classes()).toContain('body-collapsed')
+  })
 })
