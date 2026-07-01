@@ -23,6 +23,7 @@ This release advances the ant-design upstream sync to **6.5.0**, bringing a batc
 * feat(badge): allow removing the native title via `title` `null`/`false` (#58209)
 * feat(input): support `tabIndex` for the Password visibility toggle (#58458)
 * feat(config-provider): support Form `labelWrap` configuration (#58035)
+* feat(config-provider): pass `theme.zeroRuntime` to the icon context (#58517)
 * feat: unify root semantic style priority across 30+ components (#58474)
 
 **🐞 Fixes**
@@ -36,6 +37,7 @@ This release advances the ant-design upstream sync to **6.5.0**, bringing a batc
 * fix(select): refine single-mode open-state labelRender dimming; do not create disabled tags; numeric popup width (#58288 #58518 #58511)
 * fix(float-button): prevent a disabled `FloatButton.Group` from opening the hover menu (#58513)
 * fix(alert): fix the CSS specificity for icon vertical alignment with description (#57915)
+* fix(upload): switch default file/picture icons from TwoTone to Outlined, aligning with upstream (#58497)
 * fix(config-provider): forward collapse/otp/anchor/splitter component config
 * fix(layout): pass the effective collapsed state to Sider semantic callbacks
 * fix(watermark): keep the default 120×64 size for empty content to avoid a 0×0 draw error

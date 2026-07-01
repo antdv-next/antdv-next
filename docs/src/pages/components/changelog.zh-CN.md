@@ -23,6 +23,7 @@ title: 组件更新日志
 * feat(badge)：`title` 设为 `null`/`false` 可移除原生 title（#58209）
 * feat(input)：Password 可见性切换按钮支持 `tabIndex`（#58458）
 * feat(config-provider)：支持 Form 的 `labelWrap` 配置（#58035）
+* feat(config-provider)：将 `theme.zeroRuntime` 透传至图标上下文（#58517）
 * feat：统一 root 语义样式优先级（30+ 组件）（#58474）
 
 **🐞 问题修复 Fixes**
@@ -36,6 +37,7 @@ title: 组件更新日志
 * fix(select)：修正单选 open 态 labelRender dimming；不创建 disabled 标签；数值化弹层宽度（#58288 #58518 #58511）
 * fix(float-button)：禁用的 `FloatButton.Group` 不再展开 hover 菜单（#58513）
 * fix(alert)：修正带 description 时图标垂直对齐的 CSS 优先级（#57915）
+* fix(upload)：默认文件/图片图标由 TwoTone 改为 Outlined，对齐上游（#58497）
 * fix(config-provider)：补齐 collapse/otp/anchor/splitter 的组件级配置透传
 * fix(layout)：Sider 语义回调接收生效的 collapsed 状态
 * fix(watermark)：空内容时保持默认 120×64 尺寸，避免 0×0 绘制异常
