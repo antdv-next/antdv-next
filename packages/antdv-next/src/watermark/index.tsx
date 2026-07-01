@@ -158,10 +158,9 @@ const Watermark = defineComponent<WatermarkProps>(
           defaultHeight = Math.ceil(sizes.reduce((total, size) => total + size[1]!, 0))
             + (contentLines.value.length - 1) * FontGap
         }
-        else {
-          defaultWidth = 0
-          defaultHeight = 0
-        }
+        // When there is no content, keep the default [120, 64] size (align with
+        // ant-design) so an empty watermark does not produce a 0x0 clip that
+        // throws in `drawImage`. sync ant-design#57886
       }
       const width = props.width
       const height = props.height
