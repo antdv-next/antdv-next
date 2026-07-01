@@ -43,6 +43,7 @@ const PASSED_PROPS: Exclude<
   'input',
   'pagination',
   'transfer',
+  'splitter',
   'mentions',
   'form',
   'select',
@@ -101,6 +102,9 @@ const PASSED_PROPS: Exclude<
   'divider',
   'flex',
   'typography',
+  'collapse',
+  'otp',
+  'anchor',
 ]
 
 const providerDefaultProps: any = {
