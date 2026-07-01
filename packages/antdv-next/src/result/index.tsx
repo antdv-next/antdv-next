@@ -9,6 +9,7 @@ import { filterEmpty, getAttrStyleAndClass } from '@v-c/util/dist/props-util'
 import { computed, createVNode, defineComponent } from 'vue'
 import {
   useMergeSemantic,
+  useSemanticRootStyle,
   useToArr,
   useToProps,
 } from '../_util/hooks'
@@ -174,6 +175,7 @@ const Result = defineComponent<
 
     // =========== Merged Props for Semantic ==========
     const mergedProps = computed(() => props)
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
 
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       ResultClassNamesType,
@@ -181,7 +183,7 @@ const Result = defineComponent<
       ResultProps
     >(
       useToArr(contextClassNames, classes),
-      useToArr(contextStyles, styles),
+      useToArr(contextStyles, contextStyleRoot as any, styles),
       useToProps(mergedProps),
     )
 
@@ -204,7 +206,7 @@ const Result = defineComponent<
       const extra = getSlotPropsFnRun(slots, props, 'extra')
       const icon = getSlotPropsFnRun(slots, props, 'icon', false)
       const children = filterEmpty(slots?.default?.())
-      const rootStyles = [mergedStyles.value.root, contextStyle.value, style]
+      const rootStyles = [mergedStyles.value.root, style]
 
       const titleClassNames = clsx(`${prefixCls.value}-title`, mergedClassNames.value.title)
 

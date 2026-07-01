@@ -189,6 +189,17 @@ export function useToProps<T>(props: Ref<T>) {
   return computed(() => ({ props: props.value }))
 }
 
+/**
+ * Wrap a root-level inline style (e.g. `ConfigProvider` component `style`) into a
+ * semantic `{ root: style }` object so it can be merged into the `styles` list at a
+ * defined priority instead of being applied directly on the root element (which would
+ * clobber the semantic `styles.root`). Aligns root semantic style priority.
+ * sync ant-design#58474
+ */
+export function useSemanticRootStyle<Style = CSSProperties>(style: Ref<Style | undefined>) {
+  return computed(() => (style.value ? { root: style.value } : undefined))
+}
+
 interface RemoveBaseAttributesOptions {
   class?: boolean
   style?: boolean

@@ -2,6 +2,8 @@ import type { ResultProps } from '..'
 import { describe, expect, it, vi } from 'vitest'
 import { h } from 'vue'
 import Result from '..'
+import ConfigProvider from '../../config-provider'
+import { expectSemanticRootStylePriority, semanticRootStylePriority } from '/@tests/shared/semanticStylePriority'
 import { mount } from '/@tests/utils'
 
 describe('result.semantic', () => {
@@ -140,5 +142,17 @@ describe('result.semantic', () => {
 
     await wrapper.setProps({ status: 'success' })
     expect(wrapper.find('.ant-result').classes()).toContain('active-root')
+  })
+
+  // https://github.com/ant-design/ant-design/pull/58474
+  it('aligns root semantic style priority', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider result={{ style: semanticRootStylePriority.contextStyle, styles: semanticRootStylePriority.contextStyles }}>
+        <Result style={semanticRootStylePriority.style} styles={semanticRootStylePriority.styles} />
+      </ConfigProvider>
+    ), { attachTo: document.body })
+
+    expectSemanticRootStylePriority(wrapper.find('.ant-result').element)
+    wrapper.unmount()
   })
 })
