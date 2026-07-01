@@ -2,6 +2,54 @@
 title: Component Changelog
 ---
 
+## V1.4.0
+
+Release Date: 2026-06-30
+
+This release advances the ant-design upstream sync to **6.5.0**, bringing a batch of new features and semantic capabilities: **Modal `scrollLock`**, **Dropdown left/right placements**, **Steps `maxCount` collapsing**, **Slider per-handle disabling (`boolean[]` in Range mode)**, **DatePicker/RangePicker `clear` event**, **Watermark per-line fonts**, **Layout Sider semantic `classes`/`styles`** and **Tabs `body` semantic structure**; it also unifies the **root semantic style priority** across 30+ components. Multiple upstream fixes are synced as well, and the `@v-c` chain is upgraded (picker 1.2.0 / select 1.1.3 / tabs 1.2.1).
+
+**✨ Features**
+
+* feat: sync ant-design upstream changes (6.4.5 → 6.5.0) — [#621](https://github.com/antdv-next/antdv-next/pull/621)
+* feat(modal): add `scrollLock` to control body scroll lock while open (#58256)
+* feat(dropdown): support `left`/`right` placements (#58437)
+* feat(steps): add `maxCount` collapse mode for dense step items (#57987)
+* feat(slider): support disabling individual handles via `boolean[]` in Range mode (#57982)
+* feat(date-picker): emit `clear` when the clear button is clicked (#58403)
+* feat(watermark): `content` supports per-line font styles for multi-line watermarks (#57886)
+* feat(layout): support semantic `classes`/`styles` (`root`/`body`) for Sider (#57938)
+* feat(tabs): sync `body`/`content` semantic DOM rename and the `body` semantic (#58521)
+* feat(collapse): support size padding tokens for header/content (#58436)
+* feat(badge): allow removing the native title via `title` `null`/`false` (#58209)
+* feat(input): support `tabIndex` for the Password visibility toggle (#58458)
+* feat(config-provider): support Form `labelWrap` configuration (#58035)
+* feat: unify root semantic style priority across 30+ components (#58474)
+
+**🐞 Fixes**
+
+* fix(form): restore `Form.Item` `help={false}` behavior (#58558)
+* fix(table): honor `defaultSortOrder` on responsive columns (#58008)
+* fix(table): keep the sticky header top border and drop the extra fixed-right line in bordered mode (#58451 #58516)
+* fix(table): support forwarding aria attributes through `getCheckboxProps` (#58275)
+* fix(input,select): add a focus outline for borderless inputs (#58250)
+* fix(input): align the Search button height and the compact small control height (#58411 #58525)
+* fix(select): refine single-mode open-state labelRender dimming; do not create disabled tags; numeric popup width (#58288 #58518 #58511)
+* fix(float-button): prevent a disabled `FloatButton.Group` from opening the hover menu (#58513)
+* fix(alert): fix the CSS specificity for icon vertical alignment with description (#57915)
+* fix(config-provider): forward collapse/otp/anchor/splitter component config
+* fix(layout): pass the effective collapsed state to Sider semantic callbacks
+* fix(watermark): keep the default 120×64 size for empty content to avoid a 0×0 draw error
+* fix(locale): correct ja-JP Typography expand/collapse labels (#58563)
+
+**🧪 Tests**
+
+* test(menu): cover `itemData` in click/select/deselect callbacks (#58197)
+* test: add cross-component tests for root semantic style priority
+
+**🧰 Dependencies**
+
+* chore(deps): upgrade the `@v-c` chain — picker 1.2.0 / select 1.1.3 / tabs 1.2.1
+
 ## V1.3.7
 
 Release Date: 2026-06-25

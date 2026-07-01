@@ -2,6 +2,54 @@
 title: 组件更新日志
 ---
 
+## V1.4.0
+
+发布日期：2026-06-30
+
+本次版本将 ant-design 上游同步推进到 **6.5.0**，带来一批新特性与语义化能力：**Modal `scrollLock`**、**Dropdown 左右方向 placement**、**Steps `maxCount` 折叠**、**Slider 分别禁用（Range 模式 `boolean[]`）**、**DatePicker/RangePicker `clear` 事件**、**Watermark 多行字体**、**Layout Sider 语义化 `classes`/`styles`**、**Tabs `body` 语义结构** 等；并统一了 **root 语义样式优先级**（横跨 30+ 组件）。同时同步多项上游修复，升级 `@v-c` 链路（picker 1.2.0 / select 1.1.3 / tabs 1.2.1）。
+
+**✨ 新功能 Features**
+
+* feat：同步 ant-design 上游变更（6.4.5 → 6.5.0）—— [#621](https://github.com/antdv-next/antdv-next/pull/621)
+* feat(modal)：新增 `scrollLock` 控制打开时是否锁定 body 滚动（#58256）
+* feat(dropdown)：支持 `left`/`right` 等左右方向弹出位置（#58437）
+* feat(steps)：新增 `maxCount` 密集步骤折叠模式（#57987）
+* feat(slider)：Range 模式支持通过 `boolean[]` 单独禁用某个滑块（#57982）
+* feat(date-picker)：点击清除按钮时触发 `clear` 事件（#58403）
+* feat(watermark)：`content` 支持为多行水印逐行配置字体样式（#57886）
+* feat(layout)：Sider 支持语义化 `classes`/`styles`（`root`/`body`）（#57938）
+* feat(tabs)：同步 `body`/`content` 语义 DOM 重命名与 `body` 语义（#58521）
+* feat(collapse)：支持 header/content 的尺寸内边距 token（#58436）
+* feat(badge)：`title` 设为 `null`/`false` 可移除原生 title（#58209）
+* feat(input)：Password 可见性切换按钮支持 `tabIndex`（#58458）
+* feat(config-provider)：支持 Form 的 `labelWrap` 配置（#58035）
+* feat：统一 root 语义样式优先级（30+ 组件）（#58474）
+
+**🐞 问题修复 Fixes**
+
+* fix(form)：恢复 `Form.Item` `help={false}` 的行为（#58558）
+* fix(table)：响应式列也遵循 `defaultSortOrder`（#58008）
+* fix(table)：bordered 模式保留 sticky 表头顶边框、去除右固定列多余竖线（#58451 #58516）
+* fix(table)：`getCheckboxProps` 支持透传 aria 属性（#58275）
+* fix(input,select)：为无边框输入框补充 focus 描边（#58250）
+* fix(input)：对齐 Search 按钮高度与 compact small 控件高度（#58411 #58525）
+* fix(select)：修正单选 open 态 labelRender dimming；不创建 disabled 标签；数值化弹层宽度（#58288 #58518 #58511）
+* fix(float-button)：禁用的 `FloatButton.Group` 不再展开 hover 菜单（#58513）
+* fix(alert)：修正带 description 时图标垂直对齐的 CSS 优先级（#57915）
+* fix(config-provider)：补齐 collapse/otp/anchor/splitter 的组件级配置透传
+* fix(layout)：Sider 语义回调接收生效的 collapsed 状态
+* fix(watermark)：空内容时保持默认 120×64 尺寸，避免 0×0 绘制异常
+* fix(locale)：修正 ja-JP Typography 展开/折叠文案（#58563）
+
+**🧪 测试 Tests**
+
+* test(menu)：覆盖 click/select/deselect 回调中的 `itemData`（#58197）
+* test：为 root 语义样式优先级新增跨组件测试
+
+**🧰 依赖更新 Dependencies**
+
+* chore(deps)：升级 `@v-c` 链路 —— picker 1.2.0 / select 1.1.3 / tabs 1.2.1
+
 ## V1.3.7
 
 发布日期：2026-06-25
