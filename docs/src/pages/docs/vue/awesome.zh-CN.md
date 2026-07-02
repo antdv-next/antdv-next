@@ -23,3 +23,5 @@ title: 社区生态
 | 名称 | 详情 |
 | ---- | ---- |
 | [Fantastic-admin](https://fantastic-admin.hurui.me/) | 面向AI的管理系统框架 |
+| [antdv-next-tiptap](https://pengyinghao.github.io/antdv-next-tiptap/) | 基于vue3+antdv-next+tiptap 封装的富文本编辑器
+|
