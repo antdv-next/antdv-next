@@ -39,12 +39,38 @@ const slug = computed(() => {
 const component = computed(() => props.frontmatter?.title)
 const version = computed(() => props.frontmatter?.tag)
 
-const show = computed(() => props.frontmatter?.category === 'Components' && !!component.value && !!slug.value)
+// Some pages don't map 1:1 to a single named export or source directory, so
+// override the import snippet / source path for those (keyed by docs slug).
+const IMPORT_OVERRIDES: Record<string, string> = {
+  icon: `import { AntDesignOutlined } from '@antdv-next/icons'`,
+  grid: `import { Row, Col } from 'antdv-next'`,
+  message: `import { message } from 'antdv-next'`,
+  notification: `import { notification } from 'antdv-next'`,
+}
+const SOURCE_OVERRIDES: Record<string, { repo?: string, dir: string }> = {
+  'qr-code': { dir: 'qrcode' },
+  'icon': { repo: 'antdv-next/icons', dir: 'src' },
+}
 
-const importCode = computed(() => `import { ${component.value} } from 'antdv-next'`)
+const show = computed(() =>
+  props.frontmatter?.category === 'Components'
+  && props.frontmatter?.showImport !== false
+  && !!component.value
+  && !!slug.value)
 
-const sourceUrl = computed(() => `https://github.com/${REPO}/tree/main/packages/antdv-next/src/${slug.value}`)
-const abbrSource = computed(() => `packages/antdv-next/src/${slug.value}`)
+const importCode = computed(() =>
+  IMPORT_OVERRIDES[slug.value] ?? `import { ${component.value} } from 'antdv-next'`)
+
+const sourceRepo = computed(() => SOURCE_OVERRIDES[slug.value]?.repo ?? REPO)
+const sourcePath = computed(() => {
+  const override = SOURCE_OVERRIDES[slug.value]
+  if (override) {
+    return override.repo ? override.dir : `packages/antdv-next/src/${override.dir}`
+  }
+  return `packages/antdv-next/src/${slug.value}`
+})
+const sourceUrl = computed(() => `https://github.com/${sourceRepo.value}/tree/main/${sourcePath.value}`)
+const abbrSource = computed(() => sourceRepo.value === REPO ? sourcePath.value : sourceRepo.value)
 const editUrl = computed(() =>
   `https://github.com/${REPO}/edit/main/docs/src/pages/components/${slug.value}/index.${isZhCN.value ? 'zh-CN' : 'en-US'}.md`)
 const llmsUrl = computed(() => `/components/${slug.value}${isZhCN.value ? '-cn' : ''}.md`)
