@@ -17,6 +17,10 @@ const props = defineProps<{
 const pageInfo = usePageInfo()
 const frontmatter = computed(() => props?.frontmatter ?? pageInfo.frontmatter)
 
+// On component pages the edit link is already provided by <ComponentMeta> below,
+// so only show the title-level edit link on other doc pages.
+const showTitleEdit = computed(() => frontmatter.value?.category !== 'Components')
+
 const route = useRoute()
 const githubUrl = computed(() => {
   const path = route.path
@@ -33,7 +37,7 @@ const githubUrl = computed(() => {
     <a-space>
       <span>{{ frontmatter?.title }}</span>
       <span>{{ frontmatter?.subtitle }}</span>
-      <a-tooltip destroy-on-hidden title="在 GitHub 上编辑此页">
+      <a-tooltip v-if="showTitleEdit" destroy-on-hidden title="在 GitHub 上编辑此页">
         <a
           :href="githubUrl" class="relative top--2px inline-block decoration-none align-mid ml-xs"
           rel="noopener noreferrer" target="_blank"
