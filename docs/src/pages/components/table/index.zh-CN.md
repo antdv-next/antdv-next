@@ -115,9 +115,12 @@ const columns = [
 | --- | --- | --- | --- | --- | --- |
 | bordered | 是否展示外边框和列边框 | boolean | false | - | × |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record\<[SemanticDOM](#semantic-dom), string\> \| (info: \{ props \})=> Record\<[SemanticDOM](#semantic-dom), string\> | - | - | ✓ |
-| columns | 表格列的配置描述，具体项见下表 | [ColumnsType](#Column)\[\] | - | - | × |
+| column | 统一列配置，参考 [Column](#column)，仅在单列未声明同名属性时生效 | Partial\<[ColumnType](#column)\> | - | - | ✓ |
+| columns | 表格列的配置描述，具体项见下表 | [ColumnsType](#column)\[\] | - | - | × |
+| components | 覆盖默认的 table 元素 | [components](#components) | - | - | × |
 | dataSource | 数据数组 | object[] | - | - | × |
 | expandable | 配置展开属性 | [expandable](#expandable) | - |  | ✓ |
+| footer | 表格尾部，也可以使用 `#footer` 插槽 | VueNode \| function(currentPageData) | - | - | × |
 | getPopupContainer | 设置表格内各类浮层的渲染节点，如筛选菜单 | (triggerNode) => HTMLElement | () => TableHtmlElement | - | × |
 | loading | 页面是否加载中 | boolean \| [Spin Props](/components/spin-cn#props) | false | - | × |
 | locale | 默认文案设置，目前包括排序、过滤、空数据文案 | object | [默认值](https://github.com/ant-design/ant-design/blob/6dae4a7e18ad1ba193aedd5ab6867e1d823e2aa4/components/locale/zh_CN.tsx#L20-L37) | - | × |
@@ -133,7 +136,9 @@ const columns = [
 | sortDirections | 支持的排序方式，取值为 `ascend` `descend` | Array | \[`ascend`, `descend`] | - | × |
 | sticky | 设置粘性头部和滚动条 | boolean \| `{offsetHeader?: number, offsetScroll?: number, getContainer?: () => HTMLElement}` | - | - | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record\<[SemanticDOM](#semantic-dom), CSSProperties\> \| (info: \{ props \})=> Record\<[SemanticDOM](#semantic-dom), CSSProperties\> | - | - | ✓ |
+| summary | 总结栏，也可以使用 `#summary` 插槽 | VueNode \| function(currentPageData) | - | - | × |
 | tableLayout | 表格元素的 [table-layout](https://developer.mozilla.org/zh-CN/docs/Web/CSS/table-layout) 属性，设为 `fixed` 表示内容不会影响列的布局 | - \| `auto` \| `fixed` | 无<hr />固定表头/列或使用了 `column.ellipsis` 时，默认值为 `fixed` |  | × |
+| title | 表格标题，也可以使用 `#title` 插槽 | VueNode \| function(currentPageData) | - | - | × |
 | dropdownPrefixCls | - | string | - | - | × |
 | virtual | 支持虚拟列表 | boolean | - | - | × |
 
@@ -144,6 +149,43 @@ const columns = [
 | change | 分页、排序、筛选变化时触发 | (     pagination: TablePaginationConfig,     filters: Record&lt;string, FilterValue \| null&gt;,     sorter: SorterResult&lt;RecordType&gt; \| SorterResult&lt;RecordType&gt;[],     extra: TableCurrentDataSource&lt;RecordType&gt;,   ) =&gt; void | - |
 | update:expandedRowKeys | - | (keys: readonly Key[]) =&gt; void | - |
 | scroll | 表格是否可滚动，也可以指定滚动区域的宽、高，[配置项](#scroll) | NonNullable&lt;VcTableProps['onScroll']&gt; | - |
+| headerRow | 设置头部行属性 | function(columns, index) | - | - |
+| row | 设置行属性 | function(record, index) | - | - |
+
+<h4>onRow 用法</h4>
+
+适用于 `onRow`、`onHeaderRow`、`column.onCell`、`column.onHeaderCell`。
+
+```vue
+<template>
+  <a-table
+    :columns="columns"
+    :data-source="dataSource"
+    @row="onRow"
+    @header-row="onHeaderRow"
+  />
+</template>
+
+<script setup lang="ts">
+import type { TableProps } from 'antdv-next'
+
+const onRow: TableProps['onRow'] = (record, index) => {
+  return {
+    onClick: (event) => {}, // 点击行
+    onDblclick: (event) => {}, // 双击行
+    onContextmenu: (event) => {}, // 右键菜单
+    onMouseenter: (event) => {}, // 鼠标移入行
+    onMouseleave: (event) => {}, // 鼠标移出
+  }
+}
+
+const onHeaderRow: TableProps['onHeaderRow'] = (columns, index) => {
+  return {
+    onClick: (event) => {}, // 点击表头行
+  }
+}
+</script>
+```
 
 ### 插槽 {#slots}
 
@@ -208,6 +250,20 @@ const columns = [
 | 参数  | 说明         | 类型      | 默认值 |
 | ----- | ------------ | --------- | ------ |
 | title | 列头显示文字 | VueNode | -      |
+
+### components
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| table | 自定义 table 元素 | Component | - |
+| header.table | 自定义表头 table 元素 | Component | - |
+| header.wrapper | 自定义表头 wrapper 元素 | Component | - |
+| header.row | 自定义表头行元素 | Component | - |
+| header.cell | 自定义表头单元格元素 | Component | - |
+| body | 自定义表体渲染函数或表体元素集合 | Function \| object | - |
+| body.wrapper | 自定义表体 wrapper 元素 | Component | - |
+| body.row | 自定义表体行元素 | Component | - |
+| body.cell | 自定义表体单元格元素 | Component | - |
 
 ### pagination
 

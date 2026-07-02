@@ -114,7 +114,9 @@ Common props ref：[Common props](/docs/vue/common-props)
 | --- | --- | --- | --- | --- | --- |
 | bordered | Whether to show all table borders | boolean | false | - | × |
 | classes | Customize class for each semantic structure inside the component. Supports object or function. | Record\<[SemanticDOM](#semantic-dom), string\> \| (info: \{ props \})=> Record\<[SemanticDOM](#semantic-dom), string\> | - | - | ✓ |
-| columns |  Columns of table | [ColumnsType](#Column)\[\] | - | - | × |
+| column | Default props for every column. See [Column](#column). It only applies when the column does not define the same property. | Partial\<[ColumnType](#column)\> | - | - | ✓ |
+| columns |  Columns of table | [ColumnsType](#column)\[\] | - | - | × |
+| components | Override default table elements | [components](#components) | - | - | × |
 | dataSource | Data record array to be displayed | object[] | - | - | × |
 | expandable | Config expandable content | [expandable](#expandable) | - |  | ✓ |
 | getPopupContainer | The render container of dropdowns in table| (triggerNode) => HTMLElement | () => TableHtmlElement | - | × |
@@ -132,7 +134,9 @@ Common props ref：[Common props](/docs/vue/common-props)
 | sortDirections | Supported sort way, could be `ascend`, `descend` | Array | \[`ascend`, `descend`] | - | × |
 | sticky | Set sticky header and scroll bar | boolean \| `{offsetHeader?: number, offsetScroll?: number, getContainer?: () => HTMLElement}` | - | - | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record\<[SemanticDOM](#semantic-dom), CSSProperties\> \| (info: \{ props \})=> Record\<[SemanticDOM](#semantic-dom), CSSProperties\> | - | - | ✓ |
+| summary | Summary content renderer. You can also use the `#summary` slot. | VueNode \| function(currentPageData) | - | - | × |
 | tableLayout | The [table-layout](https://developer.mozilla.org/en-US/docs/Web/CSS/table-layout) attribute of table element | - \| `auto` \| `fixed` | -<hr />`fixed` when header/columns are fixed, or using `column.ellipsis`  |  | × |
+| title | Table title renderer. You can also use the `#title` slot. | VueNode \| function(currentPageData) | - | - | × |
 | dropdownPrefixCls | - | string | - | - | × |
 | virtual | Support virtual list | boolean | - | - | × |
 
@@ -143,6 +147,43 @@ Common props ref：[Common props](/docs/vue/common-props)
 | change | Callback executed when pagination, filters or sorter is changed | (     pagination: TablePaginationConfig,     filters: Record&lt;string, FilterValue \| null&gt;,     sorter: SorterResult&lt;RecordType&gt; \| SorterResult&lt;RecordType&gt;[],     extra: TableCurrentDataSource&lt;RecordType&gt;,   ) =&gt; void | - |
 | update:expandedRowKeys | - | (keys: readonly Key[]) =&gt; void | - |
 | scroll | Whether the table can be scrollable, [config](#scroll) | NonNullable&lt;VcTableProps['onScroll']&gt; | - |
+| headerRow | Set props on per header row | function(columns, index) | - | - |
+| row | Set props on per row | function(record, index) | - | - |
+
+<h4>onRow Usage</h4>
+
+This applies to `onRow`, `onHeaderRow`, `column.onCell`, and `column.onHeaderCell`.
+
+```vue
+<template>
+  <a-table
+    :columns="columns"
+    :data-source="dataSource"
+    @row="onRow"
+    @header-row="onHeaderRow"
+  />
+</template>
+
+<script setup lang="ts">
+import type { TableProps } from 'antdv-next'
+
+const onRow: TableProps['onRow'] = (record, index) => {
+  return {
+    onClick: (event) => {}, // click row
+    onDblclick: (event) => {}, // double click row
+    onContextmenu: (event) => {}, // right button click row
+    onMouseenter: (event) => {}, // mouse enter row
+    onMouseleave: (event) => {}, // mouse leave row
+  }
+}
+
+const onHeaderRow: TableProps['onHeaderRow'] = (columns, index) => {
+  return {
+    onClick: (event) => {}, // click header row
+  }
+}
+</script>
+```
 
 ### Slots
 
@@ -207,6 +248,20 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | Property | Description               | Type      | Default |
 | -------- | ------------------------- | --------- | ------- |
 | title    | Title of the column group | VueNode | -       |
+
+### components
+
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| table | Customize table element | Component | - |
+| header.table | Customize header table element | Component | - |
+| header.wrapper | Customize header wrapper element | Component | - |
+| header.row | Customize header row element | Component | - |
+| header.cell | Customize header cell element | Component | - |
+| body | Customize body render function or body element collection | Function \| object | - |
+| body.wrapper | Customize body wrapper element | Component | - |
+| body.row | Customize body row element | Component | - |
+| body.cell | Customize body cell element | Component | - |
 
 ### pagination
 
