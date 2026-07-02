@@ -17,9 +17,12 @@ const props = defineProps<{
 const pageInfo = usePageInfo()
 const frontmatter = computed(() => props?.frontmatter ?? pageInfo.frontmatter)
 
-// On component pages the edit link is already provided by <ComponentMeta> below,
-// so only show the title-level edit link on other doc pages.
-const showTitleEdit = computed(() => frontmatter.value?.category !== 'Components')
+// The edit link is provided by <ComponentMeta> only when it actually renders
+// (component pages with showImport !== false). Keep the title-level edit link
+// everywhere else — including `category: Components` pages that opt out via
+// `showImport: false` (e.g. the overview page).
+const showTitleEdit = computed(() =>
+  frontmatter.value?.category !== 'Components' || frontmatter.value?.showImport === false)
 
 const route = useRoute()
 const githubUrl = computed(() => {

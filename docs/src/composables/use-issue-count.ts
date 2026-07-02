@@ -46,10 +46,16 @@ export function useIssueCount(options: UseIssueCountOptions) {
       loading.value = true
       try {
         const res = await fetch(url, { headers: { Accept: 'application/vnd.github+json' } })
+        // On rate-limit (403) / validation (422) errors the body has no
+        // `total_count`; leave the count unset instead of showing a fake 0.
+        if (!res.ok) {
+          issueCount.value = undefined
+          return
+        }
         const data = await res.json()
         issueCount.value = typeof data?.total_count === 'number' && !Number.isNaN(data.total_count)
           ? data.total_count
-          : 0
+          : undefined
       }
       catch {
         issueCount.value = undefined
