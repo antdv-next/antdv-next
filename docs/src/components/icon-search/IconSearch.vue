@@ -43,19 +43,15 @@ const NEW_ICON_NAMES: string[] = [
 const NEW_ICON_ORDER = new Map(NEW_ICON_NAMES.map((name, index) => [name, index]))
 
 function groupNewIcons(icons: string[]) {
-  const firstNewIconIndex = icons.findIndex(iconName => NEW_ICON_ORDER.has(iconName))
-  if (firstNewIconIndex === -1) {
-    return icons
-  }
   const newIcons = icons
     .filter(iconName => NEW_ICON_ORDER.has(iconName))
     .sort((a, b) => (NEW_ICON_ORDER.get(a) ?? 0) - (NEW_ICON_ORDER.get(b) ?? 0))
+  if (!newIcons.length) {
+    return icons
+  }
+  // Surface the newly added (1.4.0-badged) icons at the top of the brand group.
   const restIcons = icons.filter(iconName => !NEW_ICON_ORDER.has(iconName))
-  return [
-    ...restIcons.slice(0, firstNewIconIndex),
-    ...newIcons,
-    ...restIcons.slice(firstNewIconIndex),
-  ]
+  return [...newIcons, ...restIcons]
 }
 
 const theme = ref<ThemeType>('Outlined')
