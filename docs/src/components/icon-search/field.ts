@@ -221,6 +221,22 @@ const logo = [
   'Docker',
   'Baidu',
   'HarmonyOS',
+  // AI / brand icons added in 1.4.0
+  'Anthropic',
+  'Claude',
+  'Gemini',
+  'Mistral',
+  'DeepSeek',
+  'Qwen',
+  'Perplexity',
+  'HuggingFace',
+  'Ollama',
+  'Replicate',
+  'ElevenLabs',
+  'Telegram',
+  'Mastodon',
+  'Threads',
+  'Snapchat',
 ]
 
 const datum = [...direction, ...suggestion, ...editor, ...data, ...logo]

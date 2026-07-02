@@ -21,6 +21,43 @@ const { darkMode } = storeToRefs(useAppStore())
 const { t } = useLocale()
 const allIcons = AntdIcons as Record<string, any>
 
+// Icons newly added in this version; marked with a version tag in the list.
+const NEW_ICON_VERSION = '1.4.0'
+const NEW_ICON_NAMES: string[] = [
+  'AnthropicFilled',
+  'ClaudeFilled',
+  'GeminiFilled',
+  'MistralFilled',
+  'DeepSeekFilled',
+  'QwenFilled',
+  'PerplexityFilled',
+  'HuggingFaceFilled',
+  'OllamaFilled',
+  'ReplicateFilled',
+  'ElevenLabsFilled',
+  'TelegramFilled',
+  'MastodonFilled',
+  'ThreadsFilled',
+  'SnapchatFilled',
+]
+const NEW_ICON_ORDER = new Map(NEW_ICON_NAMES.map((name, index) => [name, index]))
+
+function groupNewIcons(icons: string[]) {
+  const firstNewIconIndex = icons.findIndex(iconName => NEW_ICON_ORDER.has(iconName))
+  if (firstNewIconIndex === -1) {
+    return icons
+  }
+  const newIcons = icons
+    .filter(iconName => NEW_ICON_ORDER.has(iconName))
+    .sort((a, b) => (NEW_ICON_ORDER.get(a) ?? 0) - (NEW_ICON_ORDER.get(b) ?? 0))
+  const restIcons = icons.filter(iconName => !NEW_ICON_ORDER.has(iconName))
+  return [
+    ...restIcons.slice(0, firstNewIconIndex),
+    ...newIcons,
+    ...restIcons.slice(firstNewIconIndex),
+  ]
+}
+
 const theme = ref<ThemeType>('Outlined')
 const searchKey = ref('')
 const searchBarAffixed = ref(false)
@@ -128,9 +165,11 @@ const matchedCategories = computed(() => {
   const merged = mergeCategory(namedMatchedCategoryObj, tagMatchedCategoryObj)
   const result = Object.values(merged)
     .map((item) => {
-      item.icons = item.icons
+      const icons = item.icons
         .map(iconName => iconName + theme.value)
         .filter(iconName => allIcons[iconName])
+      // Surface the newly added icons at the top of the brand group.
+      item.icons = item.category === 'logo' ? groupNewIcons(icons) : icons
       return item
     })
     .filter(({ icons }) => !!icons.length)
@@ -190,7 +229,8 @@ function onChangeSearchKey() {
           :title="item.category as CategoriesKeys"
           :theme="theme"
           :icons="item.icons"
-          :new-icons="[]"
+          :new-icons="NEW_ICON_NAMES"
+          :new-icon-version="NEW_ICON_VERSION"
         />
       </template>
       <a-empty v-else style="margin: 2em 0" />
