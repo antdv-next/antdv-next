@@ -1862,7 +1862,7 @@ exports[`descriptions demo > renders size correctly 1`] = `
       <span
         class="ant-radio-label"
       >
-         default 
+         large 
       </span>
     </label>
     <label

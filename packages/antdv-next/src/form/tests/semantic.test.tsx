@@ -1,6 +1,8 @@
 import type { FormProps } from '..'
 import { describe, expect, it, vi } from 'vitest'
 import Form, { FormItem } from '..'
+import ConfigProvider from '../../config-provider'
+import { expectSemanticRootStylePriority, semanticRootStylePriority } from '/@tests/shared/semanticStylePriority'
 import { mount } from '/@tests/utils'
 
 describe('form.Semantic', () => {
@@ -101,6 +103,17 @@ describe('form.Semantic', () => {
     const label = wrapper.find('.ant-form-item-label > label')
     expect(label.attributes('class')).toBeUndefined()
 
+    wrapper.unmount()
+  })
+
+  // https://github.com/ant-design/ant-design/pull/58474
+  it('aligns root semantic style priority', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider form={{ style: semanticRootStylePriority.contextStyle, styles: semanticRootStylePriority.contextStyles }}>
+        <Form style={semanticRootStylePriority.style} styles={semanticRootStylePriority.styles} />
+      </ConfigProvider>
+    ), { attachTo: document.body })
+    expectSemanticRootStylePriority(wrapper.find('.ant-form').element)
     wrapper.unmount()
   })
 })

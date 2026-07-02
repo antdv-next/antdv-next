@@ -3,6 +3,8 @@ import scrollIntoView from 'scroll-into-view-if-needed'
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 import { defineComponent, ref } from 'vue'
 import Anchor from '..'
+import ConfigProvider from '../../config-provider'
+import { expectSemanticRootStylePriority, semanticRootStylePriority } from '/@tests/shared/semanticStylePriority'
 import { mount, waitFakeTimer } from '/@tests/utils'
 
 vi.mock('scroll-into-view-if-needed', () => ({
@@ -767,6 +769,22 @@ describe('anchor Render', () => {
       top: '0px',
       height: '0px',
     })
+    wrapper.unmount()
+  })
+
+  // https://github.com/ant-design/ant-design/pull/58474
+  it('aligns root semantic style priority', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider anchor={{ style: semanticRootStylePriority.contextStyle, styles: semanticRootStylePriority.contextStyles }}>
+        <Anchor
+          affix={false}
+          style={semanticRootStylePriority.style}
+          styles={semanticRootStylePriority.styles}
+          items={[{ key: '1', href: '#a', title: 'A' }]}
+        />
+      </ConfigProvider>
+    ), { attachTo: document.body })
+    expectSemanticRootStylePriority(wrapper.find('.ant-anchor-wrapper').element)
     wrapper.unmount()
   })
 })

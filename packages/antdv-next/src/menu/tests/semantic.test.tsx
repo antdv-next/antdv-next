@@ -2,6 +2,7 @@ import type { MenuProps } from '..'
 import { describe, expect, it, vi } from 'vitest'
 import Menu from '..'
 import ConfigProvider from '../../config-provider'
+import { expectSemanticRootStylePriority, semanticRootStylePriority } from '/@tests/shared/semanticStylePriority'
 import { mount } from '/@tests/utils'
 
 const baseItems: NonNullable<MenuProps['items']> = [
@@ -194,5 +195,17 @@ describe('menu.semantic', () => {
         expect(menuItem.attributes('style')).toContain(expectedStyles[label])
       }
     })
+  })
+
+  // https://github.com/ant-design/ant-design/pull/58474
+  it('aligns root semantic style priority', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider menu={{ style: semanticRootStylePriority.contextStyle, styles: semanticRootStylePriority.contextStyles }}>
+        <Menu items={baseItems} style={semanticRootStylePriority.style} styles={semanticRootStylePriority.styles} />
+      </ConfigProvider>
+    ), { attachTo: document.body })
+
+    expectSemanticRootStylePriority(wrapper.find('.ant-menu').element)
+    wrapper.unmount()
   })
 })

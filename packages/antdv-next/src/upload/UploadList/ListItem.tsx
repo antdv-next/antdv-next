@@ -43,7 +43,7 @@ export interface ListItemProps {
     acceptUploadDisabled?: boolean,
   ) => any
   itemRender?: ItemRender
-  onPreview: (file: UploadFile, e?: MouseEvent) => void
+  onPreview: (file: UploadFile, e?: MouseEvent | KeyboardEvent) => void
   onClose: (file: UploadFile) => void
   onDownload: (file: UploadFile) => void
   progress?: UploadListProgressProps
@@ -209,6 +209,13 @@ const ListItem = defineComponent<
       )
 
       const listItemNameClass = clsx(`${prefixCls}-list-item-name`)
+      // ant-design #58092: make the non-link file name keyboard-accessible.
+      const onPreviewKeyDown = (e: KeyboardEvent) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault()
+          onPreview(file, e)
+        }
+      }
       const fileName = file.url
         ? (
             <a
@@ -228,8 +235,11 @@ const ListItem = defineComponent<
         : (
             <span
               key="view"
+              role="button"
+              tabindex={0}
               class={listItemNameClass}
               onClick={e => onPreview(file, e)}
+              onKeydown={onPreviewKeyDown}
               title={file.name}
             >
               {file.name}

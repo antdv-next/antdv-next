@@ -100,6 +100,66 @@ describe('dropdown', () => {
     expect(items.length).toBe(3)
   })
 
+  // https://github.com/ant-design/ant-design/pull/58437
+  // The 6 horizontal placements are recognized by the trigger and position the
+  // popup horizontally. In jsdom the element sits at (0,0), so `left*` placements
+  // auto-flip to their `right*` counterpart — assert a horizontal placement class
+  // rather than the exact requested one.
+  it.each(['left', 'leftTop', 'leftBottom', 'right', 'rightTop', 'rightBottom'] as const)(
+    'should support horizontal placement %s',
+    async (placement) => {
+      mount(Dropdown, {
+        attachTo: document.body,
+        props: { menu, open: true, placement, mouseEnterDelay: 0, mouseLeaveDelay: 0 },
+        slots: { default: () => <span>trigger</span> },
+      })
+      await flushDropdownTimer()
+      const popup = document.querySelector('.ant-dropdown')
+      expect(popup).toBeTruthy()
+      expect(/ant-dropdown-placement-(?:left|right)/.test(popup!.className)).toBe(true)
+    },
+  )
+
+  // https://github.com/antdv-next/antdv-next/issues/599
+  it('should forward menu.classes and menu.styles to the underlying Menu', async () => {
+    mount(Dropdown, {
+      attachTo: document.body,
+      props: {
+        menu: {
+          ...menu,
+          classes: { root: 'ant-pro-menu' },
+          styles: { root: { width: '160px' } },
+        },
+        open: true,
+        mouseEnterDelay: 0,
+        mouseLeaveDelay: 0,
+      },
+      slots: { default: () => <span>trigger</span> },
+    })
+    await flushDropdownTimer()
+    const menuEl = document.querySelector<HTMLElement>('.ant-dropdown-menu')
+    expect(menuEl).toBeTruthy()
+    expect(menuEl!.classList.contains('ant-pro-menu')).toBe(true)
+    expect(menuEl!.style.width).toBe('160px')
+  })
+
+  it('should forward menu.rootClass to the underlying Menu', async () => {
+    mount(Dropdown, {
+      attachTo: document.body,
+      props: {
+        menu: { ...menu, rootClass: 'custom-menu-root' },
+        open: true,
+        mouseEnterDelay: 0,
+        mouseLeaveDelay: 0,
+      },
+      slots: { default: () => <span>trigger</span> },
+    })
+    await flushDropdownTimer()
+    const menuEl = document.querySelector<HTMLElement>('.ant-dropdown-menu')
+    expect(menuEl).toBeTruthy()
+    expect(menuEl!.classList.contains('custom-menu-root')).toBe(true)
+  })
+
   // =================== Placement ===================
 
   it('should default placement to bottomLeft in LTR', () => {

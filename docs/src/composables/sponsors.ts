@@ -86,8 +86,8 @@ export function useCommercialSponsors() {
     void fetchCommercialSponsors()
   })
 
-  const headerSponsors = computed(() => getHeaderSponsors(3, commercialSponsors.value))
-  const homeSponsors = computed(() => getHomeSponsors(9, commercialSponsors.value))
+  const headerSponsors = computed(() => getHeaderSponsors(4, commercialSponsors.value))
+  const homeSponsors = computed(() => getHomeSponsors(4, commercialSponsors.value))
 
   return {
     commercialSponsors,

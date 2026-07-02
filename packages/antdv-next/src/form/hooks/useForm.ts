@@ -54,6 +54,12 @@ export type FormHookInstance = FormInstance & ((instance: any) => void)
  * 1. Explicit: pass it as a template ref — `<Form :ref="form">`.
  * 2. By name: `useForm('login')` connects to `<Form name="login">`.
  * 3. Single/ordered fallback: unnamed instances connect to descendant Forms in declaration order.
+ *
+ * ⚠️ Do NOT destructure the returned value. The result is a lazy Proxy that
+ * resolves methods off the real instance on each access — destructuring
+ * (`const { validateFields } = useForm()`) snapshots the method before the
+ * Form mounts, capturing a no-op and losing connection to the instance.
+ * Always keep the whole reference: `const form = useForm()` then `form.xxx()`.
  */
 export function useForm(name?: string): FormHookInstance {
   const instanceRef = shallowRef<FormInstance>()

@@ -10,7 +10,7 @@ import { clsx } from '@v-c/util'
 import { getAttrStyleAndClass } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, shallowRef, toRef } from 'vue'
-import { useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { devUseWarning, isDev } from '../_util/warning.ts'
 import { useComponentBaseConfig } from '../config-provider/context.ts'
@@ -33,6 +33,7 @@ export interface TabsSemanticClassNames {
   root?: string
   item?: string
   indicator?: string
+  body?: string
   content?: string
   header?: string
   remove?: string
@@ -42,6 +43,7 @@ export interface TabsSemanticStyles {
   root?: CSSProperties
   item?: CSSProperties
   indicator?: CSSProperties
+  body?: CSSProperties
   content?: CSSProperties
   header?: CSSProperties
   remove?: CSSProperties
@@ -216,13 +218,14 @@ const InternalTabs = defineComponent<
       } as TabsProps
     })
 
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       TabsClassNamesType,
       TabsStylesType,
       TabsProps
     >(
       useToArr(contextClassNames, classes),
-      useToArr(contextStyles, styles),
+      useToArr(contextStyles, contextStyleRoot as any, styles),
       useToProps(mergedProps),
       computed(() => ({
         popup: {
@@ -368,7 +371,6 @@ const InternalTabs = defineComponent<
 
       const mergedStyle = {
         ...mergedStyles.value.root,
-        ...contextStyle.value,
         ...attrStyle,
       }
       let renderTabBar: any | undefined

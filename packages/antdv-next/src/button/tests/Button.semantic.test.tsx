@@ -4,6 +4,7 @@ import { describe, expect, it, vi } from 'vitest'
 import { h } from 'vue'
 import Button from '..'
 import ConfigProvider from '../../config-provider'
+import { expectSemanticRootStylePriority, semanticRootStylePriority } from '/@tests/shared/semanticStylePriority'
 import { mount } from '/@tests/utils'
 
 describe('button.Semantic', () => {
@@ -138,5 +139,17 @@ describe('button.Semantic', () => {
     expect(iconElement.classes()).toContain('context-icon')
     const iconStyle = iconElement.attributes('style')
     expect(iconStyle).toContain('font-size: 16px')
+  })
+
+  // https://github.com/ant-design/ant-design/pull/58474
+  it('aligns root semantic style priority', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider button={{ style: semanticRootStylePriority.contextStyle, styles: semanticRootStylePriority.contextStyles }}>
+        <Button style={semanticRootStylePriority.style} styles={semanticRootStylePriority.styles}>btn</Button>
+      </ConfigProvider>
+    ), { attachTo: document.body })
+
+    expectSemanticRootStylePriority(wrapper.find('.ant-btn').element)
+    wrapper.unmount()
   })
 })

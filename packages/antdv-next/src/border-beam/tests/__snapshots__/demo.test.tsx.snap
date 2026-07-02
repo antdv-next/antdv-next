@@ -154,15 +154,9 @@ exports[`border-beam demo > renders customized-color correctly 1`] = `
         />
         <div
           class="ant-segmented-item-label"
+          title="Ocean"
         >
-          <span
-            class="ant-segmented-item-icon"
-          >
-            <!---->
-          </span>
-          <span>
-            Ocean
-          </span>
+          Ocean
         </div>
       </label>
       <label
@@ -175,15 +169,9 @@ exports[`border-beam demo > renders customized-color correctly 1`] = `
         />
         <div
           class="ant-segmented-item-label"
+          title="Sunset"
         >
-          <span
-            class="ant-segmented-item-icon"
-          >
-            <!---->
-          </span>
-          <span>
-            Sunset
-          </span>
+          Sunset
         </div>
       </label>
       <label
@@ -196,15 +184,9 @@ exports[`border-beam demo > renders customized-color correctly 1`] = `
         />
         <div
           class="ant-segmented-item-label"
+          title="Aurora"
         >
-          <span
-            class="ant-segmented-item-icon"
-          >
-            <!---->
-          </span>
-          <span>
-            Aurora
-          </span>
+          Aurora
         </div>
       </label>
       <label
@@ -217,15 +199,9 @@ exports[`border-beam demo > renders customized-color correctly 1`] = `
         />
         <div
           class="ant-segmented-item-label"
+          title="Forest"
         >
-          <span
-            class="ant-segmented-item-icon"
-          >
-            <!---->
-          </span>
-          <span>
-            Forest
-          </span>
+          Forest
         </div>
       </label>
       <label
@@ -238,15 +214,9 @@ exports[`border-beam demo > renders customized-color correctly 1`] = `
         />
         <div
           class="ant-segmented-item-label"
+          title="Ember"
         >
-          <span
-            class="ant-segmented-item-icon"
-          >
-            <!---->
-          </span>
-          <span>
-            Ember
-          </span>
+          Ember
         </div>
       </label>
       <label
@@ -259,15 +229,9 @@ exports[`border-beam demo > renders customized-color correctly 1`] = `
         />
         <div
           class="ant-segmented-item-label"
+          title="Nebula"
         >
-          <span
-            class="ant-segmented-item-icon"
-          >
-            <!---->
-          </span>
-          <span>
-            Nebula
-          </span>
+          Nebula
         </div>
       </label>
     </div>

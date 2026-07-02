@@ -2,6 +2,7 @@ import type { MentionsProps } from '..'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import Mentions from '..'
 import ConfigProvider from '../../config-provider'
+import { expectSemanticRootStylePriority, semanticRootStylePriority } from '/@tests/shared/semanticStylePriority'
 import { mount } from '/@tests/utils'
 
 const defaultOptions: MentionsProps['options'] = [
@@ -127,5 +128,17 @@ describe('mentions.Semantic', () => {
 
     const root = document.querySelector<HTMLElement>('.ant-mentions')
     expect(root?.style.padding).toBe('2px')
+  })
+
+  // https://github.com/ant-design/ant-design/pull/58474
+  it('aligns root semantic style priority', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider mentions={{ style: semanticRootStylePriority.contextStyle, styles: semanticRootStylePriority.contextStyles }}>
+        <Mentions style={semanticRootStylePriority.style} styles={semanticRootStylePriority.styles} />
+      </ConfigProvider>
+    ), { attachTo: document.body })
+
+    expectSemanticRootStylePriority(wrapper.find('.ant-mentions').element)
+    wrapper.unmount()
   })
 })

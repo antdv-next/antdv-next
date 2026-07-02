@@ -1,5 +1,5 @@
 import type { Reference, TableProps as VcTableProps } from '@v-c/table'
-import type { CSSProperties, SlotsType } from 'vue'
+import type { CSSProperties, InjectionKey, Ref, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { Breakpoint } from '../_util/responsiveObserver.ts'
 import type { AnyObject, VueNode } from '../_util/type.ts'
@@ -27,10 +27,11 @@ import type {
 } from './interface.ts'
 import VcTable, { INTERNAL_HOOKS, VirtualTable as VcVirtualTable } from '@v-c/table'
 import { clsx } from '@v-c/util'
+import pickAttrs from '@v-c/util/dist/pickAttrs'
 import { getAttrStyleAndClass } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
-import { computed, defineComponent, shallowRef, watch, watchEffect } from 'vue'
-import { useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { computed, defineComponent, h, inject, provide, shallowRef, watch, watchEffect } from 'vue'
+import { useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import scrollTo from '../_util/scrollTo.ts'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { devUseWarning, isDev } from '../_util/warning.ts'
@@ -59,6 +60,46 @@ import { TableMeasureRowContextProvider } from './TableMeasureRowContext.ts'
 import { convertColumnsToColumnProps } from './utils.ts'
 
 const EMPTY_LIST: AnyObject[] = []
+
+// Aria props are injected into the scroll header `<table>` so screen readers
+// can still read them when the header is rendered in a separate fixed table.
+// `component` keeps any consumer-provided `components.header.table` so the
+// escape hatch is preserved while aria props are merged on top.
+interface HeaderTableContextValue {
+  ariaProps?: Record<string, any>
+  component?: any
+}
+const HeaderTableContextKey: InjectionKey<Ref<HeaderTableContextValue>> = Symbol('HeaderTableContext')
+
+export interface HeaderTableProps {}
+
+export interface HeaderTableEmits {
+  [key: string]: (...args: any[]) => void
+}
+
+export interface HeaderTableSlots {
+  default?: () => any
+}
+
+const HeaderTable = defineComponent<
+  HeaderTableProps,
+  HeaderTableEmits,
+  string,
+  SlotsType<HeaderTableSlots>
+>(
+  (_props, { slots, attrs }) => {
+    const ctx = inject(HeaderTableContextKey, undefined)
+    return () => {
+      const { ariaProps, component } = ctx?.value ?? {}
+      const Comp = component ?? 'table'
+      return h(Comp, { ...ariaProps, ...attrs }, slots.default?.())
+    }
+  },
+  {
+    name: 'HeaderTable',
+    inheritAttrs: false,
+  },
+)
 
 export type TableSemanticName = keyof TableSemanticClassNames & keyof TableSemanticStyles
 
@@ -151,6 +192,7 @@ export interface TableProps<RecordType = AnyObject>
   styles?: TableStylesType<RecordType>
   dropdownPrefixCls?: string
   dataSource?: VcTableProps<RecordType>['data']
+  column?: Partial<ColumnType<RecordType>>
   columns?: ColumnsType<RecordType>
   pagination?: false | TablePaginationConfig
   loading?: boolean | SpinProps
@@ -246,6 +288,28 @@ const InternalTable = defineComponent<
 
     const configCtx = useConfig()
 
+    // Aria props passed to <a-table> land in attrs; re-apply them to the scroll
+    // header table via a custom `components.header.table` (#58339).
+    const ariaProps = computed(() => pickAttrs(attrs, { aria: true }) as Record<string, any>)
+    const hasAriaProps = computed(() => Object.keys(ariaProps.value).length > 0)
+    provide(HeaderTableContextKey, computed<HeaderTableContextValue>(() => ({
+      ariaProps: ariaProps.value,
+      component: props.components?.header?.table,
+    })))
+    const mergedComponents = computed(() => {
+      const components = props.components
+      if (!hasAriaProps.value) {
+        return components
+      }
+      return {
+        ...components,
+        header: {
+          ...components?.header,
+          table: HeaderTable,
+        },
+      } as typeof components
+    })
+
     const { classes, styles } = toPropsRefs(props, 'classes', 'styles')
 
     const mergedSize = useSize(computed(() => props.size))
@@ -258,13 +322,14 @@ const InternalTable = defineComponent<
       } as TableProps
     })
 
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       TableClassNamesType,
       TableStylesType,
       TableProps
     >(
       useToArr(contextClassNames, classes),
-      useToArr(contextStyles, styles),
+      useToArr(contextStyles, contextStyleRoot as any, styles),
       useToProps(mergedProps),
       computed(() => ({
         pagination: { _default: 'root' },
@@ -297,8 +362,8 @@ const InternalTable = defineComponent<
     })
 
     const baseColumns = useFilledColumns(
-      rawColumns,
-      computed(() => (props.column ?? (contextColumn as any)?.value) as any),
+      rawColumns as any,
+      computed(() => (props.column ?? contextColumn.value)),
     )
 
     const needResponsive = computed(() => baseColumns.value.some((col: any) => col.responsive))
@@ -428,6 +493,11 @@ const InternalTable = defineComponent<
     const [transformSorterColumns, sortStates, sorterTitleProps, getSorters] = useSorter({
       prefixCls,
       mergedColumns: mergedColumns as any,
+      // Pass `baseColumns` (pre-responsive) so `defaultSortOrder` and controlled
+      // `sortOrder` on a `responsive` column are still honored when the column
+      // is hidden at the current breakpoint.
+      // See: https://github.com/ant-design/ant-design/issues/32847
+      baseColumns: baseColumns as any,
       onSorterChange,
       sortDirections: computed(() => props.sortDirections || ['ascend', 'descend']),
       tableLocale: mergedLocale,
@@ -785,7 +855,7 @@ const InternalTable = defineComponent<
         className,
       )
 
-      const mergedStyle = { ...mergedStyles.value.root, ...contextStyle.value, ...style }
+      const mergedStyle = { ...mergedStyles.value.root, ...style }
 
       const tableClassName = clsx(
         {
@@ -817,6 +887,7 @@ const InternalTable = defineComponent<
               {...virtualProps}
               {...tableProps.value}
               {...restAttrs}
+              components={mergedComponents.value}
               ref={tblRef}
               columns={mergedColumns.value as any}
               data={pageData.value as any}

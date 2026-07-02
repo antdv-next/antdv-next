@@ -47,7 +47,7 @@ describe('select style extract', () => {
     const styleText = await extractSelectStyle()
 
     expect(styleText).toContain('margin-inline-end:max(calc(var(--ant-select-show-arrow-padding-inline-end) - var(--ant-font-size-icon)),0px);')
-    expect(styleText).toContain('.ant-select-content-has-search-value >:not(.ant-select-input)')
+    expect(styleText).toContain('.ant-select-content-has-search-value >*:not(.ant-select-input)')
     expect(styleText).toContain('opacity:0;')
   })
 

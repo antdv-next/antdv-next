@@ -7,6 +7,7 @@ import {
 } from '@antdv-next/icons'
 import { theme } from 'antdv-next'
 import { computed, ref } from 'vue'
+import { useMobile } from '@/composables/mobile'
 import { useLocale } from '@/composables/use-locale'
 import tokenMetaRes from '../../assets/token-meta.json'
 import tokenDataRes from '../../assets/token.json'
@@ -21,6 +22,7 @@ const props = defineProps<{
 }>()
 
 const { t, messages } = useLocale()
+const { isMobile } = useMobile()
 
 const { token: tokenState } = theme.useToken()
 
@@ -280,6 +282,7 @@ const globalCode = computed(() => {
             :data-source="componentData"
             :style="{ marginBottom: `${tokenState.margin}px` }"
             :pagination="false"
+            :scroll="isMobile ? { x: 'max-content' } : undefined"
             row-key="name"
           >
             <template #bodyCell="{ column, text, record }">
@@ -350,6 +353,7 @@ const globalCode = computed(() => {
             :data-source="globalData"
             :style="{ marginBottom: `${tokenState.margin}px` }"
             :pagination="false"
+            :scroll="isMobile ? { x: 'max-content' } : undefined"
             row-key="name"
           >
             <template #bodyCell="{ column, text, record }">

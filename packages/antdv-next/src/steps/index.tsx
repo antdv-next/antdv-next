@@ -22,6 +22,7 @@ import { useInternalContext } from './context'
 import PanelArrow from './PanelArrow'
 import ProgressIcon from './ProgressIcon'
 import useStyle from './style'
+import useDisplaySteps from './useDisplaySteps'
 
 type RcIconRenderTypeInfo = Parameters<NonNullable<VcStepsProps['iconRender']>>[1]
 
@@ -60,6 +61,7 @@ export type StepsClassNamesType = SemanticClassNamesType<StepsProps, StepsSemant
 export type StepsStylesType = SemanticStylesType<StepsProps, StepsSemanticStyles>
 
 export interface StepItem {
+  key?: PropertyKey
   class?: string
   style?: CSSProperties
   classes?: NonNullable<VcStepsProps['items']>[number]['classNames']
@@ -110,6 +112,11 @@ export interface BaseStepsProps {
   progressDot?: boolean | ProgressDotRender
   responsive?: boolean
   ellipsis?: boolean
+  /**
+   * Maximum number of step items to display (`>= 3`).
+   * Hidden step ranges are collapsed into disabled ellipsis steps.
+   */
+  maxCount?: number
 
   /**
    * Set offset cell, only work when `type` is `inline`.
@@ -191,6 +198,18 @@ const Steps = defineComponent<
     // ============================= Item =============================
     const mergedItems = computed(() => (items.value || []).filter(Boolean))
 
+    // ========================== Max Count ==========================
+    const mergedCurrent = computed(() => props.current ?? 0)
+    const mergedInitial = computed(() => props.initial ?? 0)
+    const mergedMaxCount = computed(() => props.maxCount)
+    const { canApplyMaxCount, displaySteps, mappedDisplayCurrent, displayItems } = useDisplaySteps(
+      mergedItems,
+      mergedCurrent,
+      mergedInitial,
+      mergedMaxCount,
+      prefixCls,
+    )
+
     // ============================ Layout ============================
     const breakpoint = useBreakpoint(responsive as any)
     const xs = computed(() => breakpoint.value?.xs)
@@ -265,6 +284,11 @@ const Steps = defineComponent<
         'items.description',
         'items.content',
       )
+      warning(
+        props.maxCount === undefined || props.maxCount >= 3,
+        'usage',
+        '`maxCount` should be greater than or equal to 3.',
+      )
     }
     return () => {
       const {
@@ -273,7 +297,9 @@ const Steps = defineComponent<
         offset,
         ellipsis,
         rootClass,
-        current,
+        current: _current,
+        initial: _initial,
+        maxCount: _maxCount,
         ...restProps
       } = props
       const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
@@ -294,6 +320,9 @@ const Steps = defineComponent<
           components: { Icon: StepIcon },
         } = info
 
+        const originIndex = displaySteps.value[index]?.originIndex
+        const mappedIndex = originIndex !== undefined && originIndex >= 0 ? mergedInitial.value + originIndex : index
+
         const { status, icon } = item
 
         let iconContent: any
@@ -309,7 +338,7 @@ const Steps = defineComponent<
               iconContent = <CheckOutlined class={`${itemIconCls.value}-error`} />
               break
             default:{
-              let numNode = <span class={`${itemIconCls.value}-number`}>{info.index + 1}</span>
+              let numNode = <span class={`${itemIconCls.value}-number`}>{mappedIndex + 1}</span>
               if (status === 'process' && mergedPercent.value !== undefined) {
                 numNode = (
                   <ProgressIcon
@@ -333,7 +362,7 @@ const Steps = defineComponent<
           iconNode = iconRender({
             oriNode: iconNode,
             info: {
-              index,
+              index: mappedIndex,
               active,
               item,
               components: {
@@ -346,7 +375,7 @@ const Steps = defineComponent<
           iconNode = legacyProgressDotRender({
             iconDot: iconNode,
             info: {
-              index,
+              index: mappedIndex,
               ...(item as any),
             },
           })
@@ -403,6 +432,7 @@ const Steps = defineComponent<
           [`${prefixCls.value}-rtl`]: rtlDirection.value === 'rtl',
           [`${prefixCls.value}-dot`]: isDot.value,
           [`${prefixCls.value}-ellipsis`]: ellipsis,
+          [`${prefixCls.value}-max-count`]: canApplyMaxCount.value,
           [`${prefixCls.value}-with-progress`]: mergedPercent.value !== undefined,
           [`${prefixCls.value}-small`]: mergedSize.value === 'small',
         },
@@ -428,11 +458,15 @@ const Steps = defineComponent<
           titlePlacement={mergedTitlePlacement.value}
           components={components.value}
           // Data
-          current={current}
-          items={mergedItems.value as any}
-          onChange={(current) => {
-            onChange?.(current)
-            emit('update:current', current)
+          initial={0}
+          current={mappedDisplayCurrent.value}
+          items={displayItems.value as any}
+          onChange={(displayCurrent) => {
+            const target = displaySteps.value[displayCurrent]
+            const originIndex = target && target.originIndex >= 0 ? target.originIndex : displayCurrent
+            const next = mergedInitial.value + originIndex
+            onChange?.(next)
+            emit('update:current', next)
           }}
           // Render
           iconRender={internalIconRender}

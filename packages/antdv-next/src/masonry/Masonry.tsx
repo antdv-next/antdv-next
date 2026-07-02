@@ -7,9 +7,9 @@ import type { ItemHeightData } from './hooks/usePositions'
 import type { MasonryItemType } from './MasonryItem'
 import ResizeObserver from '@v-c/resize-observer'
 import { clsx } from '@v-c/util'
-import { getDOM } from '@v-c/util/dist/Dom/findDOMNode'
 import isEqual from '@v-c/util/dist/isEqual'
 import { getTransitionGroupProps } from '@v-c/util/dist/utils/transition'
+import { createElementRef } from '@v-c/util/dist/vnode'
 import { computed, defineComponent, onMounted, ref, shallowRef, TransitionGroup, watch } from 'vue'
 import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
 import { useChildLoadEvents } from '../_util/hooks/useChildLoadEvents.ts'
@@ -321,9 +321,12 @@ const Masonry = defineComponent<
                 return (
                   <MasonryItem
                     key={key}
-                    ref={(ele) => {
-                      setItemRef(itemKey, getDOM(ele) as any)
-                    }}
+                    ref={createElementRef((element) => {
+                      // vue >=3.5.39 no longer re-invokes function refs reactively,
+                      // so resolve-and-store must tolerate the element ref not being
+                      // ready yet (retry on nextTick). sync antdv-next#623 pattern.
+                      setItemRef(itemKey, element as any)
+                    })}
                     prefixCls={prefixCls.value}
                     item={item}
                     class={clsx(mergedClassNames.value?.item, item.class)}

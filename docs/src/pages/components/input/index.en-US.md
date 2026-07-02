@@ -188,6 +188,8 @@ interface CountConfig {
 
 ```tsx
 interface VisibilityToggle {
+  // tabIndex of the visibility toggle button (1.4.0)
+  tabIndex?: number
   // Whether the password is show or hide
   visible?: boolean
   // Callback executed when visibility of the password is changed

@@ -3,6 +3,8 @@ import type { PanelProps } from '../interface'
 import { describe, expect, it, vi } from 'vitest'
 import { defineComponent, nextTick } from 'vue'
 import Splitter, { SplitterPanel } from '..'
+import ConfigProvider from '../../config-provider'
+import { expectSemanticRootStylePriority, semanticRootStylePriority } from '/@tests/shared/semanticStylePriority'
 import { mount, triggerResize } from '/@tests/utils'
 
 const SplitterDemo = defineComponent<{ items?: PanelProps[] } & SplitterProps>((props) => {
@@ -150,5 +152,19 @@ describe('splitter.Semantic', () => {
 
     expect(classesFn).toHaveBeenCalled()
     expect(wrapper.find('.ant-splitter-bar-dragger').classes()).toContain('custom-dragger-default')
+  })
+
+  // https://github.com/ant-design/ant-design/pull/58474
+  it('aligns root semantic style priority', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider splitter={{ style: semanticRootStylePriority.contextStyle, styles: semanticRootStylePriority.contextStyles }}>
+        <Splitter style={semanticRootStylePriority.style} styles={semanticRootStylePriority.styles}>
+          <SplitterPanel />
+          <SplitterPanel />
+        </Splitter>
+      </ConfigProvider>
+    ), { attachTo: document.body })
+    expectSemanticRootStylePriority(wrapper.find('.ant-splitter').element)
+    wrapper.unmount()
   })
 })

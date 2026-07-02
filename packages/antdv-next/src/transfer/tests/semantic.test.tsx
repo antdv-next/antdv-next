@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import Transfer from '..'
+import ConfigProvider from '../../config-provider'
+import { expectSemanticRootStylePriority, semanticRootStylePriority } from '/@tests/shared/semanticStylePriority'
 import { mount } from '/@tests/utils'
 
 describe('transfer.Semantic', () => {
@@ -73,5 +75,16 @@ describe('transfer.Semantic', () => {
       const structureInfo = semanticStructure[key]
       expect(elementList).toHaveLength(structureInfo![1])
     })
+  })
+
+  // https://github.com/ant-design/ant-design/pull/58474
+  it('aligns root semantic style priority', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider transfer={{ style: semanticRootStylePriority.contextStyle, styles: semanticRootStylePriority.contextStyles }}>
+        <Transfer dataSource={[]} targetKeys={[]} render={(item: any) => item.title} style={semanticRootStylePriority.style} styles={semanticRootStylePriority.styles} />
+      </ConfigProvider>
+    ), { attachTo: document.body })
+    expectSemanticRootStylePriority(wrapper.find('.ant-transfer').element)
+    wrapper.unmount()
   })
 })

@@ -22,7 +22,7 @@ const stylesObject = {
 }
 
 function stylesFn(info: any) {
-  if (info.props.size === 'default') {
+  if (info.props.size === 'medium') {
     return {
       root: {
         backgroundColor: '#BDE3C3',
@@ -42,7 +42,7 @@ function stylesFn(info: any) {
       :classes="classes"
       :styles="stylesObject"
     />
-    <a-switch :classes="classes" size="default" :styles="stylesFn" />
+    <a-switch :classes="classes" size="medium" :styles="stylesFn" />
   </a-flex>
 </template>
 

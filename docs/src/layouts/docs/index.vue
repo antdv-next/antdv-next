@@ -30,6 +30,7 @@ window.addEventListener('scroll', throttleByAnimationFrameFn(() => {
 const tooltip = {
   title: h(QRCode, {
     bordered: false,
+    color: '#000',
     value: 'http://weixin.qq.com/r/mp/1iYQCM-ESZI2rYtr93PE',
   }),
   color: 'white',

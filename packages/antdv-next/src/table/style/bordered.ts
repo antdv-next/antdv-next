@@ -53,6 +53,11 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           borderInlineStart: tableBorder,
           borderTop: tableBorder,
 
+          [`> ${componentCls}-header${componentCls}-sticky-holder`]: {
+            marginTop: calc(lineWidth).mul(-1).equal(),
+            borderTop: tableBorder,
+          },
+
           [`
             > ${componentCls}-content,
             > ${componentCls}-header,
@@ -84,12 +89,16 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
               },
 
               // Fixed right should provides additional border
+              // Only add separator border when there are multiple fixed-right columns
+              // (i.e. fix-right-first is not also fix-right-last), otherwise the
+              // ::after border doubles up with the cell's own borderInlineEnd and
+              // creates a spurious extra vertical line. See #56287.
               [`
                 > thead > tr,
                 > tbody > tr,
                 > tfoot > tr
               `]: {
-                [`> ${componentCls}-cell-fix-right-first::after`]: {
+                [`> ${componentCls}-cell-fix-right-first:not(${componentCls}-cell-fix-right-last)::after`]: {
                   borderInlineEnd: tableBorder,
                 },
               },

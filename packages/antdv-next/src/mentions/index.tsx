@@ -15,7 +15,7 @@ import { filterEmpty } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, shallowRef } from 'vue'
 import getAllowClear from '../_util/getAllowClear'
-import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { useZIndex } from '../_util/hooks/useZIndex'
 import genPurePanel from '../_util/PurePanel.tsx'
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils'
@@ -214,11 +214,12 @@ const InternalMentions = defineComponent<
       } as MentionProps
     })
 
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       MentionsClassNamesType,
       MentionsStylesType,
       MentionProps
-    >(useToArr(contextClassNames, classes), useToArr(contextStyles, styles), useToProps(mergedProps))
+    >(useToArr(contextClassNames, classes), useToArr(contextStyles, contextStyleRoot as any, styles), useToProps(mergedProps))
 
     const mergedAllowClear = computed(() => getAllowClear(props.allowClear))
 
@@ -324,7 +325,6 @@ const InternalMentions = defineComponent<
 
       const rootStyle = {
         ...mergedStyles.value.root,
-        ...contextStyle.value,
         ...style,
       }
 

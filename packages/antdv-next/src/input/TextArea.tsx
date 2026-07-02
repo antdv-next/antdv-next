@@ -13,7 +13,7 @@ import { clsx } from '@v-c/util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, onBeforeUnmount, shallowRef } from 'vue'
 import getAllowClear from '../_util/getAllowClear'
-import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils'
 import { toPropsRefs } from '../_util/tools'
 import { devUseWarning, isDev } from '../_util/warning'
@@ -187,13 +187,14 @@ const InternalTextArea = defineComponent<
       } as TextAreaProps
     })
 
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       TextAreaClassNamesType,
       TextAreaStylesType,
       TextAreaProps
     >(
       useToArr(contextClassNames, classes),
-      useToArr(contextStyles, styles),
+      useToArr(contextStyles, contextStyleRoot as any, styles),
       useToProps(mergedProps),
     )
 
@@ -286,7 +287,6 @@ const InternalTextArea = defineComponent<
 
       const mergedStyle: any = {
         ...mergedStyles.value.root,
-        ...contextStyle.value,
         ...style,
       }
 

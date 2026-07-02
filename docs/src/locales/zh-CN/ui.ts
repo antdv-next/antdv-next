@@ -9,7 +9,7 @@ export default {
     themeEditor: '主题编辑器',
     aiThemeModal: {
       title: 'AI 主题编辑器',
-      content: 'antdv-next 与 Ant Design 使用了相同的主题变量体系，您可以直接使用 Ant Design 的 AI 主题编辑器为 antdv-next 项目定制主题',
+      content: 'Antdv Next 与 Ant Design 使用了相同的主题变量体系，您可以直接使用 Ant Design 的 AI 主题编辑器为 Antdv Next 项目定制主题',
       okText: '前往',
       cancelText: '取消',
     },

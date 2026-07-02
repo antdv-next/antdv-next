@@ -14,6 +14,7 @@ import { computed, defineComponent, shallowRef, watch } from 'vue'
 import {
   getAttrStyleAndClass,
   useMergeSemantic,
+  useSemanticRootStyle,
   useToArr,
   useToProps,
   useZIndex,
@@ -348,13 +349,14 @@ const Select = defineComponent<
       } as SelectProps
     })
 
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       SelectClassNamesType,
       SelectStylesType,
       SelectProps
     >(
       useToArr(contextClassNames, classes),
-      useToArr(contextStyles, styles),
+      useToArr(contextStyles, contextStyleRoot as any, styles),
       useToProps(mergedProps),
       computed(() => {
         return {
@@ -594,7 +596,7 @@ const Select = defineComponent<
           {...selectProps}
           maxTagPlaceholder={slots.maxTagPlaceholder}
           labelRender={labelRender}
-          style={{ ...mergedStyles.value.root, ...contextStyle.value, ...style }}
+          style={{ ...mergedStyles.value.root, ...style }}
           popupMatchSelectWidth={mergedPopupMatchSelectWidth}
           transitionName={getTransitionName(rootPrefixCls.value, 'slide-up', transitionName)}
           builtinPlacements={mergedBuiltinPlacements(builtinPlacements, popupOverflow.value)}

@@ -124,6 +124,7 @@ type RcEventKeys
     | 'onPanelChange'
     | 'onOpenChange'
     | 'onOk'
+    | 'onClear'
     | 'onSelect'
     | 'onFocus'
     | 'onBlur'

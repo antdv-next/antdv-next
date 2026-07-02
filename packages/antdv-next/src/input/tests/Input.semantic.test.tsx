@@ -1,5 +1,7 @@
 import { describe, expect, it, vi } from 'vitest'
 import Input from '..'
+import ConfigProvider from '../../config-provider'
+import { expectSemanticRootStylePriority, semanticRootStylePriority } from '/@tests/shared/semanticStylePriority'
 import { mount } from '/@tests/utils'
 
 describe('input.Semantic', () => {
@@ -126,5 +128,16 @@ describe('input.Semantic', () => {
     expect(countElement.exists()).toBe(true)
     expect(countElement.classes()).toContain('custom-count')
     expect(countElement.attributes('style')).toContain('color: rgb(153, 153, 153)')
+  })
+
+  // https://github.com/ant-design/ant-design/pull/58474
+  it('aligns root semantic style priority', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider input={{ style: semanticRootStylePriority.contextStyle, styles: semanticRootStylePriority.contextStyles }}>
+        <Input style={semanticRootStylePriority.style} styles={semanticRootStylePriority.styles} />
+      </ConfigProvider>
+    ), { attachTo: document.body })
+    expectSemanticRootStylePriority(wrapper.find('.ant-input').element)
+    wrapper.unmount()
   })
 })

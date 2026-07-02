@@ -40,14 +40,13 @@ const semantics = computed(() => {
   return base
 })
 
-const treeValue = ref<string[]>([])
-console.log(treeValue)
+const treeValue = ref<string | string[] | undefined>(undefined)
 function handleResetValue(newMode: string | number) {
   if (newMode === 'multiple') {
     treeValue.value = ['aojunhao123']
   }
   else {
-    treeValue.value = []
+    treeValue.value = undefined
   }
 }
 

@@ -75,6 +75,18 @@ describe('slider', () => {
     expect(handles[1]?.attributes('aria-valuenow')).toBe('50')
   })
 
+  // https://github.com/ant-design/ant-design/pull/57982
+  it('should support per-handle disabled in range mode', () => {
+    const wrapper = mount(Slider, {
+      props: { range: true, defaultValue: [20, 50], disabled: [false, true] },
+    })
+    const handles = wrapper.findAll('.ant-slider-handle')
+    expect(handles[0]?.classes()).not.toContain('ant-slider-handle-disabled')
+    expect(handles[1]?.classes()).toContain('ant-slider-handle-disabled')
+    expect(handles[0]?.attributes('aria-disabled')).toBe('false')
+    expect(handles[1]?.attributes('aria-disabled')).toBe('true')
+  })
+
   // ========================= Min/Max/Step =========================
   it('should support min and max', () => {
     const wrapper = mount(Slider, {

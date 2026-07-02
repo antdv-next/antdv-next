@@ -2,6 +2,152 @@
 title: Component Changelog
 ---
 
+## V1.4.1
+
+Release Date: 2026-07-02
+
+This release mainly fixes **vue 3.5.39 compatibility issues** ([vuejs/core#14985](https://github.com/vuejs/core/pull/14985) changed when function refs are invoked): overlay components (Tooltip/Popover/Popconfirm/Dropdown) mis-positioning and dropping the first-open animation, message/notification notices stacking on top of each other, and Masonry layout breakage. It also adds a component meta block to the component doc pages and refines the icon overview.
+
+**🐞 Fixes**
+
+* fix: fix overlay components mis-positioning / losing the first-open animation under the vue 3.5.39 production build (Tooltip / Popover / Popconfirm / Dropdown) — via `@v-c/trigger` 1.0.18 (#623)
+* fix: fix **message / notification notices stacking** on top of each other under vue 3.5.39 (first-frame height measurement failed) — via `@v-c/notification` 2.0.2 (#623)
+* fix(masonry): fix Masonry layout breakage caused by failed item height measurement under vue 3.5.39; resolve via `createElementRef` (#623)
+* fix(deps): add `@v-c/notification` to overrides to drop the stale version left in the lockfile
+
+**📖 Docs**
+
+* docs: add a component meta block (import / feedback / docs / version) to component doc pages, aligning with ant-design
+* docs(icon): categorize the newly added AI / brand icons under the brand group, tag them as "added in 1.4.0", and surface them first
+
+**🧪 Tests**
+
+* test(drawer): add a regression test for Watermark inheritance inside Drawer (vue 3.5.39)
+
+**🧰 Dependencies**
+
+* chore(deps): bump vue to `^3.5.39`; `@v-c/trigger` 1.0.18, `@v-c/notification` 2.0.2, `@v-c/util` 1.0.20 and related toolchain deps
+
+## V1.4.0
+
+Release Date: 2026-06-30
+
+This release advances the ant-design upstream sync to **6.5.0**, bringing a batch of new features and semantic capabilities: **Modal `scrollLock`**, **Dropdown left/right placements**, **Steps `maxCount` collapsing**, **Slider per-handle disabling (`boolean[]` in Range mode)**, **DatePicker/RangePicker `clear` event**, **Watermark per-line fonts**, **Layout Sider semantic `classes`/`styles`** and **Tabs `body` semantic structure**; it also unifies the **root semantic style priority** across 30+ components. Multiple upstream fixes are synced as well, and the `@v-c` chain is upgraded (picker 1.2.0 / select 1.1.3 / tabs 1.2.1).
+
+**✨ Features**
+
+* feat: sync ant-design upstream changes (6.4.5 → 6.5.0) — [#621](https://github.com/antdv-next/antdv-next/pull/621)
+* feat(modal): add `scrollLock` to control body scroll lock while open (#58256)
+* feat(dropdown): support `left`/`right` placements (#58437)
+* feat(steps): add `maxCount` collapse mode for dense step items (#57987)
+* feat(slider): support disabling individual handles via `boolean[]` in Range mode (#57982)
+* feat(date-picker): emit `clear` when the clear button is clicked (#58403)
+* feat(watermark): `content` supports per-line font styles for multi-line watermarks (#57886)
+* feat(layout): support semantic `classes`/`styles` (`root`/`body`) for Sider (#57938)
+* feat(tabs): sync `body`/`content` semantic DOM rename and the `body` semantic (#58521)
+* feat(collapse): support size padding tokens for header/content (#58436)
+* feat(badge): allow removing the native title via `title` `null`/`false` (#58209)
+* feat(input): support `tabIndex` for the Password visibility toggle (#58458)
+* feat(config-provider): support Form `labelWrap` configuration (#58035)
+* feat(config-provider): pass `theme.zeroRuntime` to the icon context (#58517)
+* feat: unify root semantic style priority across 30+ components (#58474)
+
+**🐞 Fixes**
+
+* fix(form): restore `Form.Item` `help={false}` behavior (#58558)
+* fix(table): honor `defaultSortOrder` on responsive columns (#58008)
+* fix(table): keep the sticky header top border and drop the extra fixed-right line in bordered mode (#58451 #58516)
+* fix(table): support forwarding aria attributes through `getCheckboxProps` (#58275)
+* fix(input,select): add a focus outline for borderless inputs (#58250)
+* fix(input): align the Search button height and the compact small control height (#58411 #58525)
+* fix(select): refine single-mode open-state labelRender dimming; do not create disabled tags; numeric popup width (#58288 #58518 #58511)
+* fix(float-button): prevent a disabled `FloatButton.Group` from opening the hover menu (#58513)
+* fix(alert): fix the CSS specificity for icon vertical alignment with description (#57915)
+* fix(upload): switch default file/picture icons from TwoTone to Outlined, aligning with upstream (#58497)
+* fix(config-provider): forward collapse/otp/anchor/splitter component config
+* fix(layout): pass the effective collapsed state to Sider semantic callbacks
+* fix(watermark): keep the default 120×64 size for empty content to avoid a 0×0 draw error
+* fix(locale): correct ja-JP Typography expand/collapse labels (#58563)
+
+**🧪 Tests**
+
+* test(menu): cover `itemData` in click/select/deselect callbacks (#58197)
+* test: add cross-component tests for root semantic style priority
+
+**🧰 Dependencies**
+
+* chore(deps): upgrade `@antdv-next/icons` to 1.1.1 (new icons + `zeroRuntime` support to skip runtime style injection)
+* chore(deps): upgrade the `@v-c` chain — picker 1.2.0 / select 1.1.3 / tabs 1.2.1
+
+## V1.3.7
+
+Release Date: 2026-06-25
+
+This release advances the ant-design upstream sync to **6.4.5** and backfills the missing fixes (#58234 / #58214 / #58314 / #58371 / #58339), makes **Tabs panes mount lazily**, fixes **Pagination not emitting the update event in some scenarios** and **Table overriding the consumer's `components.header.table` when merging aria props**, and upgrades the `@v-c` chain (table 1.1.6 cell memo, virtual-list 1.0.9 height perf) for better performance.
+
+**🐞 Fixes**
+
+* fix: sync ant-design upstream changes (6.4.4 → 6.4.5) — [#613](https://github.com/antdv-next/antdv-next/pull/613)
+* fix(tabs): lazily mount panes via `@v-c/tabs` 1.1.1 — [#612](https://github.com/antdv-next/antdv-next/pull/612)
+* fix(pagination): some scenarios did not trigger the update event
+* fix(table): preserve the consumer's `components.header.table` when merging aria props
+* fix: sync ant-design upstream fixes (#58234 #58214 #58314 #58371 #58339)
+* docs(locale): fill missing nb_NO (Norwegian) keys (#58439)
+
+**🔧 Types**
+
+* refactor(table): add a typed contract to HeaderTable
+
+**🧪 Tests**
+
+* test: reduce spurious deprecation warnings in demos and tests
+* test: update snapshots
+
+**🧰 Dependencies**
+
+* chore(deps): upgrade the `@v-c` chain — table 1.1.6 (cell memo) + virtual-list 1.0.9 (height perf) — [#609](https://github.com/antdv-next/antdv-next/pull/609)
+* chore: upgrade dependencies
+
+## V1.3.6
+
+Release Date: 2026-06-18
+
+This release fixes **Segmented rendering an empty icon node for options without an icon**, **Dropdown not forwarding `menu`'s `classes` / `styles` / `rootClass`** and **Input emitting a duplicate `class` attribute**, relaxes the Form form-level `rules` type to a recursive `RulesMap`, and refines the DirectoryTree typing while bumping dependencies.
+
+**🐞 Fixes**
+
+* fix(segmented): no longer render an empty `.ant-segmented-item-icon` node for options without an `icon`, aligning with React ant-design (#600) — [#601](https://github.com/antdv-next/antdv-next/pull/601)
+* fix(dropdown): forward `menu`'s `classes` / `styles` / `rootClass` to the overlay Menu instead of having them overridden by the explicit semantic classes (#599) — [#601](https://github.com/antdv-next/antdv-next/pull/601)
+* fix(input): fix the duplicate `class` attribute
+
+**🔧 Types**
+
+* refactor(form): relax the form-level `rules` type to a recursive `RulesMap` so nested (`{ user: { email: [...] } }`) and indexed (`{ list: { 0: [...] } }`) configs type-check without casts — [#601](https://github.com/antdv-next/antdv-next/pull/601)
+* perf(tree): refine DirectoryTree typing
+
+**🧪 Tests**
+
+* test: update Space and Transfer snapshots
+
+**🧰 Dependencies**
+
+* chore: upgrade dependencies
+
+## V1.3.5
+
+Release Date: 2026-06-13
+
+This release fixes **Form.Item triggering a no-op meta update with a fresh meta object on every focus/blur, re-rendering its child** — combined with inline object props (e.g. `:show-time`) this reset DatePicker's in-panel draft selection, making the OK confirm impossible inside a-form-item — and bumps `@v-c/picker` for the companion fix.
+
+**🐞 Fixes**
+
+* fix(form): skip no-op meta updates to avoid re-rendering FormItem children (fixes DatePicker in-panel draft selection being reset inside a-form-item) — [#597](https://github.com/antdv-next/antdv-next/pull/597)
+
+**🧰 Dependencies**
+
+* chore(deps): bump `@v-c/picker` to ^1.1.3 for the companion fix where a parent re-render passing equivalent-but-new props reset the draft selection (antdv-next #597)
+* chore: update the docs-site css
+
 ## V1.3.4
 
 Release Date: 2026-06-12

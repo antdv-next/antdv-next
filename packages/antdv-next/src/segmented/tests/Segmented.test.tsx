@@ -251,6 +251,33 @@ describe('segmented', () => {
       })
       expect(wrapper.find(`.${prefixCls}-item-icon`).exists()).toBe(true)
     })
+
+    // https://github.com/antdv-next/antdv-next/issues/600
+    it('should not render icon wrapper when option has no icon', () => {
+      const wrapper = mount(Segmented, {
+        props: {
+          options: [
+            { label: '年', value: 'year' },
+            { label: '月', value: 'month' },
+            { label: '日', value: 'day' },
+          ],
+        },
+      })
+      expect(wrapper.findAll(`.${prefixCls}-item-icon`)).toHaveLength(0)
+    })
+
+    it('should only render icon wrapper for options that have an icon', () => {
+      const wrapper = mount(Segmented, {
+        props: {
+          options: [
+            { label: 'List', value: 'List', icon: h('span', { class: 'has-icon' }, 'ic') },
+            { label: 'Kanban', value: 'Kanban' },
+          ],
+        },
+      })
+      expect(wrapper.findAll(`.${prefixCls}-item-icon`)).toHaveLength(1)
+      expect(wrapper.find('.has-icon').exists()).toBe(true)
+    })
   })
 
   // ===================== Slots =====================

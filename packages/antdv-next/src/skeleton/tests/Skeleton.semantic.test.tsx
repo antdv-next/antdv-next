@@ -2,6 +2,8 @@ import type { SkeletonProps } from '..'
 import { describe, expect, it, vi } from 'vitest'
 import { nextTick, ref } from 'vue'
 import Skeleton from '..'
+import ConfigProvider from '../../config-provider'
+import { expectSemanticRootStylePriority, semanticRootStylePriority } from '/@tests/shared/semanticStylePriority'
 import { mount } from '/@tests/utils'
 
 describe('skeleton.semantic', () => {
@@ -218,5 +220,17 @@ describe('skeleton.semantic', () => {
     expect(stylesFn).toHaveBeenCalled()
     expect(wrapper.find('.ant-skeleton').attributes('style')).toContain('background: rgb(200, 200, 200)')
     expect(wrapper.find('.ant-skeleton-section').attributes('style')).toContain('background: rgb(100, 100, 100)')
+  })
+
+  // https://github.com/ant-design/ant-design/pull/58474
+  it('aligns root semantic style priority', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider skeleton={{ style: semanticRootStylePriority.contextStyle, styles: semanticRootStylePriority.contextStyles }}>
+        <Skeleton style={semanticRootStylePriority.style} styles={semanticRootStylePriority.styles} />
+      </ConfigProvider>
+    ), { attachTo: document.body })
+
+    expectSemanticRootStylePriority(wrapper.find('.ant-skeleton').element)
+    wrapper.unmount()
   })
 })

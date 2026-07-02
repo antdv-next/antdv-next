@@ -25,6 +25,7 @@ import type {
   FlexConfig,
   FloatButtonConfig,
   FloatButtonGroupConfig,
+  FormConfig,
   ImageConfig,
   InputConfig,
   InputNumberConfig,
@@ -89,6 +90,7 @@ export interface ConfigProviderProps {
   inputSearch?: InputSearchConfig
   otp?: OTPConfig
   select?: SelectConfig
+  form?: FormConfig
   pagination?: PaginationConfig
   /**
    * @descCN 语言包配置，语言包可到 `antd/locale` 目录下寻找。

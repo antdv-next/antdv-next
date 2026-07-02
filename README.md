@@ -1,6 +1,6 @@
 <div align="center"><a name="readme-top"></a>
 
-<img height="180" src="./docs/public/antdv-next.svg">
+<img height="180" src="https://www.antdv-next.com/assets/antdv-next-Cum7m2ZU.svg">
 
 <h1>Antdv Next</h1>
 
@@ -14,6 +14,11 @@ Antdv Next is a Vue 3 enterprise component library built on the Ant Design desig
 [![][nuxt-image]][nuxt-url]
 
 English · [中文](./README.zh-CN.md)
+
+## ❤️ Sponsors
+
+| <a href="https://ergouzi.life/register?utm_source=antdv-next"><img src="https://nzj13gqqmj.ufs.sh/f/7vCb7ZuKZQXM8I2IHQXhPqNEAXV4gJm0LzopUFvck3bCKG1e" width="80" alt="二狗子中转"></a> | <a href="https://penna.pro"><img src="https://penna.pro/logo.svg" width="80" alt="Penna Note"></a> | <a href="https://jeesite.com/?utm_source=antdv-next"><img src="https://jeesite.com/assets/images/logo.png" width="80" alt="JeeSite 低代码"></a> |
+| :-: | :-: | :-: |
 
 </div>
 
@@ -32,9 +37,9 @@ English · [中文](./README.zh-CN.md)
 - Server-side Rendering
 - [Electron](https://www.electronjs.org/)
 
-| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)<br>Edge | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)<br>Firefox | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)<br>Chrome | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)<br>Safari | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png" alt="Electron" width="24px" height="24px" />](https://godban.github.io/browsers-support-badges/)<br>Electron |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Edge                                                                                                                                                                                                  | last 2 versions                                                                                                                                                                                                   | last 2 versions                                                                                                                                                                                               | last 2 versions                                                                                                                                                                                               | last 2 versions                                                                                                                                                                                                       |
+| [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="Edge" width="24px" height="24px" /><br>Edge](https://godban.github.io/browsers-support-badges/) | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" /><br>Firefox](https://godban.github.io/browsers-support-badges/) | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" /><br>Chrome](https://godban.github.io/browsers-support-badges/) | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" /><br>Safari](https://godban.github.io/browsers-support-badges/) | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/electron/electron_48x48.png" alt="Electron" width="24px" height="24px" /><br>Electron](https://godban.github.io/browsers-support-badges/) |
+| --- | --- | --- | --- | --- |
+| last 2 versions | last 2 versions | last 2 versions | last 2 versions | last 2 versions |
 
 ## 📦 Install
 

@@ -6,8 +6,8 @@ import { mountTest, rtlTest } from '/@tests/shared'
 import { mount } from '/@tests/utils'
 
 describe('qrcode test', () => {
-  mountTest(() => h(QRCode, { value: '' }))
-  rtlTest(() => h(QRCode, { value: '' }))
+  mountTest(() => h(QRCode, { value: 'test' }))
+  rtlTest(() => h(QRCode, { value: 'test' }))
 
   it('should correct render', () => {
     const wrapper = mount(QRCode, {

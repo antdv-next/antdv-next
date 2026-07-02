@@ -103,6 +103,19 @@ export type RuleObject = AggregationRule | ArrayRule
 
 export type Rule = RuleObject | RuleRender
 
+/**
+ * Form-level rules map keyed by field name.
+ *
+ * Values are resolved against a field's `namePath` via `getValue`, so the map
+ * mirrors the data structure and supports nested objects and array indexes:
+ * - flat:    `{ username: [...] }`
+ * - nested:  `{ user: { email: [...] } }`
+ * - indexed: `{ list: { 0: [...], 1: [...] } }`
+ */
+export interface RulesMap {
+  [key: string | number]: Rule[] | RulesMap
+}
+
 export interface ValidateErrorEntity<Values = any> {
   message: string
   values: Values

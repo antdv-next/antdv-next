@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import Radio from '..'
 import ConfigProvider from '../../config-provider'
+import { expectSemanticRootStylePriority, semanticRootStylePriority } from '/@tests/shared/semanticStylePriority'
 import { mount } from '/@tests/utils'
 
 const prefixCls = 'ant-radio'
@@ -115,5 +116,17 @@ describe('radio semantic', () => {
     expect(wrapper.find(`.${prefixCls}`).attributes('style')).toContain('color: rgb(255, 0, 0)')
     // root should not have the style
     expect(wrapper.find('label').attributes('style') ?? '').not.toContain('color: rgb(255, 0, 0)')
+  })
+
+  // https://github.com/ant-design/ant-design/pull/58474
+  it('aligns root semantic style priority', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider radio={{ style: semanticRootStylePriority.contextStyle, styles: semanticRootStylePriority.contextStyles }}>
+        <Radio style={semanticRootStylePriority.style} styles={semanticRootStylePriority.styles}>Radio</Radio>
+      </ConfigProvider>
+    ), { attachTo: document.body })
+
+    expectSemanticRootStylePriority(wrapper.find('.ant-radio-wrapper').element)
+    wrapper.unmount()
   })
 })

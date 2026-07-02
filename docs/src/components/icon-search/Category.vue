@@ -12,6 +12,7 @@ const props = defineProps<{
   icons: string[]
   theme: ThemeType
   newIcons: string[]
+  newIconVersion?: string
 }>()
 
 const { message } = App.useApp()
@@ -46,6 +47,7 @@ const categoryTitle = computed(() => t(`ui.iconSearch.categories.${props.title}`
         :name="name"
         :theme="theme"
         :is-new="newIcons.includes(name)"
+        :new-icon-version="newIconVersion"
         :just-copied="justCopied"
         @copied="onCopied"
       />

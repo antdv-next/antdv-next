@@ -9,6 +9,7 @@ import DocSearch from '@/components/doc-search/index.vue'
 import DirectionIcon from '@/components/icons/directionIcon.vue'
 import SponsorsNav from '@/components/sponsor/SponsorsNav.vue'
 import { useMobile } from '@/composables/mobile'
+import { useCommercialSponsors } from '@/composables/sponsors'
 import { useLocale } from '@/composables/use-locale'
 import { headerItems, headerLocales } from '@/config/menu/header'
 import SwitchBtn from '@/layouts/base/components/switch-btn.vue'
@@ -28,6 +29,7 @@ const versions = ref([
   },
 ])
 const { isMobile } = useMobile()
+const { headerSponsors } = useCommercialSponsors()
 const currentVersion = shallowRef(version)
 const router = useRouter()
 
@@ -119,6 +121,8 @@ const localeValue = computed(() => {
   return locale.value === 'zh-CN' ? 1 : 2
 })
 
+const settingsTitle = computed(() => locale.value === 'zh-CN' ? '设置' : 'Settings')
+
 const directionValue = computed(() => {
   return direction.value === 'ltr' ? 1 : 2
 })
@@ -150,24 +154,29 @@ function getSiderMenuUrl(key: string) {
   >
     <a-row>
       <a-col :xxl="4" :xl="5" :lg="6" :md="6" :sm="24" :xs="24">
-        <h1 class="m-0 p-0 flex items-center">
-          <a-button
-            v-if="isMobile"
-            type="text"
-            class="ml-12px text-18px"
-            @click="drawerVisible = true"
-          >
-            <template #icon>
-              <BarsOutlined />
-            </template>
-          </a-button>
-          <router-link class="inline-flex items-center h-(--ant-doc-header-height) line-height-[var(--ant-doc-header-height)] text-18px font-bold a-color-text hover:a-color-text of-hidden" :class="[isMobile ? 'pl-4px' : 'pl-40px']" to="/">
-            <img src="../../assets/antdv-next.svg" class="w-36px h-36px inline-block align-middle" draggable="false" alt="logo">
-            <span class="ml-2 c-text">
-              Antdv Next
-            </span>
-          </router-link>
-        </h1>
+        <div class="flex items-center h-full" :class="[isMobile ? 'justify-between' : '']">
+          <h1 class="m-0 p-0 flex items-center min-w-0">
+            <a-button
+              v-if="isMobile"
+              type="text"
+              class="ml-4px text-18px"
+              @click="drawerVisible = true"
+            >
+              <template #icon>
+                <BarsOutlined />
+              </template>
+            </a-button>
+            <router-link class="inline-flex items-center h-(--ant-doc-header-height) line-height-[var(--ant-doc-header-height)] text-18px font-bold a-color-text hover:a-color-text of-hidden" :class="[isMobile ? 'pl-4px' : 'pl-40px']" to="/">
+              <img src="../../assets/antdv-next.svg" class="w-36px h-36px inline-block align-middle" draggable="false" alt="logo">
+              <span class="ml-2 c-text">
+                Antdv Next
+              </span>
+            </router-link>
+          </h1>
+          <div v-if="isMobile" class="ant-doc-header-search-mobile flex items-center">
+            <DocSearch />
+          </div>
+        </div>
       </a-col>
       <a-col :xxl="20" :xl="19" :lg="18" :md="18" :sm="0" :xs="0">
         <div class="ant-doc-header-right flex items-center gap-sm" :class="[direction === 'ltr' ? 'pr-[var(--ant-padding)]' : 'pl-[var(--ant-padding)]']">
@@ -270,9 +279,6 @@ function getSiderMenuUrl(key: string) {
           <span class="ml-2 c-text">Antdv Next</span>
         </router-link>
       </template>
-      <div class="px-12px pb-12px">
-        <DocSearch />
-      </div>
       <a-menu
         :selected-keys="headerKey"
         mode="inline"
@@ -325,58 +331,69 @@ function getSiderMenuUrl(key: string) {
           </template>
         </a-menu>
       </template>
+      <template v-if="headerSponsors.length">
+        <a-divider class="my-8px" />
+        <div class="px-16px pb-8px">
+          <SponsorsNav variant="drawer" />
+        </div>
+      </template>
       <a-divider class="my-8px" />
-      <div class="flex flex-wrap items-center gap-sm px-16px pb-16px">
+      <div class="px-16px pb-16px">
+        <div class="ant-doc-drawer-section-title">
+          {{ settingsTitle }}
+        </div>
         <a-select
           v-model:value="currentVersion"
           :options="versions"
           size="small"
           variant="filled"
-          class="min-w-90px"
+          class="w-full mb-12px"
           :popup-match-select-width="false"
         />
-        <SwitchBtn
-          key="lang"
-          :value="localeValue"
-          :tooltip1="t('layout.header.languageTooltip1')"
-          :tooltip2="t('layout.header.languageTooltip2')"
-          @click="changeLocale"
-        >
-          <template #label1>
-            中
-          </template>
-          <template #label2>
-            En
-          </template>
-        </SwitchBtn>
-        <SwitchBtn
-          key="direction"
-          :value="directionValue"
-          :tooltip1="t('layout.header.directionTooltip1')"
-          :tooltip2="t('layout.header.directionTooltip2')"
-          pure
-          aria-label="RTL Switch Button"
-          @click="changeDirection"
-        >
-          <template #label1>
-            <DirectionIcon class="w-20px" direction="ltr" />
-          </template>
-          <template #label2>
-            <DirectionIcon class="w-20px" direction="rtl" />
-          </template>
-        </SwitchBtn>
-        <ThemeBtn />
-        <a
-          href="https://github.com/antdv-next/antdv-next"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <a-button type="text" class="text-16px">
-            <template #icon>
-              <GithubOutlined />
+        <div class="flex flex-wrap items-center gap-sm">
+          <SwitchBtn
+            key="lang"
+            :value="localeValue"
+            :tooltip1="t('layout.header.languageTooltip1')"
+            :tooltip2="t('layout.header.languageTooltip2')"
+            @click="changeLocale"
+          >
+            <template #label1>
+              中
             </template>
-          </a-button>
-        </a>
+            <template #label2>
+              En
+            </template>
+          </SwitchBtn>
+          <SwitchBtn
+            key="direction"
+            :value="directionValue"
+            :tooltip1="t('layout.header.directionTooltip1')"
+            :tooltip2="t('layout.header.directionTooltip2')"
+            pure
+            aria-label="RTL Switch Button"
+            @click="changeDirection"
+          >
+            <template #label1>
+              <DirectionIcon class="w-20px" direction="ltr" />
+            </template>
+            <template #label2>
+              <DirectionIcon class="w-20px" direction="rtl" />
+            </template>
+          </SwitchBtn>
+          <ThemeBtn />
+          <a
+            href="https://github.com/antdv-next/antdv-next"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <a-button type="text" class="text-16px">
+              <template #icon>
+                <GithubOutlined />
+              </template>
+            </a-button>
+          </a>
+        </div>
       </div>
     </a-drawer>
   </header>
@@ -409,6 +426,29 @@ function getSiderMenuUrl(key: string) {
 
 .ant-doc-header-search .ant-doc-search-bar-container {
   min-width: 0;
+}
+
+.ant-doc-header-search-mobile {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 260px;
+  height: 28px;
+  margin-inline: 8px 12px;
+  padding-inline: 4px;
+  border-radius: 14px;
+  background-color: var(--ant-color-fill-tertiary);
+}
+
+.ant-doc-header-search-mobile .ant-doc-search-bar-container {
+  height: 28px;
+  min-width: 0;
+}
+
+.ant-doc-drawer-section-title {
+  margin-bottom: 8px;
+  padding-inline: 4px;
+  color: var(--ant-color-text-secondary);
+  font-size: 12px;
 }
 
 .ant-doc-header-menu {

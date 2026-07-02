@@ -91,7 +91,7 @@ dayjs.locale('zh-cn')
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | - | ✓ |
 | dateRender | 自定义日期单元格的内容，>= 5.4.0 起用 `cellRender` 代替 | function(currentDate: dayjs, today: dayjs) => VueNode | - | - | × |
 | cellRender | 自定义单元格的内容 | (current: dayjs, info: { originNode: VueNode, today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => VueNode | - | - | × |
-| components | 自定义面板 | Record<Panel \| 'input', Component> | - | - | × |
+| components | 自定义面板。自定义面板组件请设置 `inheritAttrs: false`，否则 DatePicker 注入的 `prefixCls` 等会透传到根节点，导致子组件（如 Flex）以错误前缀生成样式并破坏面板布局 | Record<Panel \| 'input', Component> | - | - | × |
 | defaultOpen | 是否默认展开控制弹层 | boolean | - | - | × |
 | disabled | 禁用 | boolean | false | - | × |
 | disabledDate | 不可选择的日期 | (currentDate: dayjs, info: { from?: dayjs, type: Picker }) => boolean | - | - | × |
@@ -245,6 +245,7 @@ export type FormatType
 | panelChange | 日历面板切换的回调 | (value: Dayjs, mode: PickerMode) => void | - |
 | openChange | 弹出日历和关闭日历的回调 | (open: boolean) => void | - |
 | ok | 点击确定按钮的回调 | () => void | - |
+| clear | 点击清除按钮的回调 | () => void | 1.4.0 |
 | select | - | (date: Dayjs) => void | - |
 | focus | 聚焦时回调 | (event: FocusEvent, info: { range: 'start' \| 'end' }) => void | - |
 | blur | 失焦时回调 | (event: FocusEvent, info: { range: 'start' \| 'end' }) => void | - |

@@ -15,6 +15,18 @@ describe('password', () => {
     expect(wrapper.find('input').attributes('type')).toBe('password')
   })
 
+  // https://github.com/ant-design/ant-design/pull/58458
+  it('should support tabIndex in visibilityToggle', async () => {
+    const wrapper = mount(Password)
+    expect(wrapper.find('.ant-input-password-icon').attributes('tabindex')).toBe('0')
+
+    await wrapper.setProps({ visibilityToggle: { tabIndex: -1 } })
+    expect(wrapper.find('.ant-input-password-icon').attributes('tabindex')).toBe('-1')
+
+    await wrapper.setProps({ disabled: true, visibilityToggle: { tabIndex: 0 } })
+    expect(wrapper.find('.ant-input-password-icon').attributes('tabindex')).toBe('-1')
+  })
+
   it('should support v-model:value', async () => {
     const value = ref('')
     const wrapper = mount(() => (

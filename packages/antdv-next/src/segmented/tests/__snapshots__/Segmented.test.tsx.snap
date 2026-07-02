@@ -52,9 +52,10 @@ exports[`segmented > should render segmented with mixed options 1`] = `
   >
     <!---->
     <label
-      class="ant-segmented-item"
+      class="ant-segmented-item ant-segmented-item-selected"
     >
       <input
+        checked=""
         class="ant-segmented-item-input"
         name="v-0"
         type="radio"
@@ -76,15 +77,9 @@ exports[`segmented > should render segmented with mixed options 1`] = `
       />
       <div
         class="ant-segmented-item-label"
+        title="Weekly"
       >
-        <span
-          class="ant-segmented-item-icon"
-        >
-          <!---->
-        </span>
-        <span>
-          Weekly
-        </span>
+        Weekly
       </div>
     </label>
     <label
@@ -120,9 +115,10 @@ exports[`segmented > should render segmented with string options 1`] = `
   >
     <!---->
     <label
-      class="ant-segmented-item"
+      class="ant-segmented-item ant-segmented-item-selected"
     >
       <input
+        checked=""
         class="ant-segmented-item-input"
         name="v-0"
         type="radio"
@@ -182,9 +178,10 @@ exports[`segmented > snapshot > should match snapshot with block and size 1`] = 
   >
     <!---->
     <label
-      class="ant-segmented-item"
+      class="ant-segmented-item ant-segmented-item-selected"
     >
       <input
+        checked=""
         class="ant-segmented-item-input"
         name="v-0"
         type="radio"
@@ -245,7 +242,6 @@ exports[`segmented > snapshot > should match snapshot with icon options 1`] = `
     <!---->
     <label
       class="ant-segmented-item ant-segmented-item-selected"
-      icon="[object Object]"
     >
       <input
         checked=""
@@ -272,7 +268,6 @@ exports[`segmented > snapshot > should match snapshot with icon options 1`] = `
     </label>
     <label
       class="ant-segmented-item"
-      icon="[object Object]"
     >
       <input
         class="ant-segmented-item-input"
@@ -314,9 +309,10 @@ exports[`segmented > snapshot > should match snapshot with round shape 1`] = `
   >
     <!---->
     <label
-      class="ant-segmented-item"
+      class="ant-segmented-item ant-segmented-item-selected"
     >
       <input
+        checked=""
         class="ant-segmented-item-input"
         name="v-0"
         type="radio"
@@ -361,9 +357,10 @@ exports[`segmented > snapshot > should match snapshot with various options 1`] =
   >
     <!---->
     <label
-      class="ant-segmented-item"
+      class="ant-segmented-item ant-segmented-item-selected"
     >
       <input
+        checked=""
         class="ant-segmented-item-input"
         name="v-0"
         type="radio"
@@ -385,15 +382,9 @@ exports[`segmented > snapshot > should match snapshot with various options 1`] =
       />
       <div
         class="ant-segmented-item-label"
+        title="Weekly"
       >
-        <span
-          class="ant-segmented-item-icon"
-        >
-          <!---->
-        </span>
-        <span>
-          Weekly
-        </span>
+        Weekly
       </div>
     </label>
     <label
@@ -407,15 +398,9 @@ exports[`segmented > snapshot > should match snapshot with various options 1`] =
       />
       <div
         class="ant-segmented-item-label"
+        title="Monthly"
       >
-        <span
-          class="ant-segmented-item-icon"
-        >
-          <!---->
-        </span>
-        <span>
-          Monthly
-        </span>
+        Monthly
       </div>
     </label>
   </div>

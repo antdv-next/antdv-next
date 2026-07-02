@@ -1,4 +1,6 @@
 import type { CSSProperties } from 'vue'
+import type { WatermarkContent, WatermarkFont, WatermarkText } from '.'
+import toList from '../_util/toList'
 
 /** converting camel-cased strings to be lowercase and link it with Separator */
 export function toLowercaseSeparator(key: string) {
@@ -14,6 +16,56 @@ export function getStyleStr(style: CSSProperties): string {
 /** Returns the ratio of the device's physical pixel resolution to the css pixel resolution */
 export function getPixelRatio() {
   return window.devicePixelRatio || 1
+}
+
+function isWatermarkText(content: WatermarkContent | null | undefined): content is WatermarkText {
+  return typeof content === 'object' && content !== null && !Array.isArray(content)
+}
+
+export interface WatermarkContentLine {
+  text: string
+  font: Required<WatermarkFont>
+}
+
+export function getFontSize(font: Required<WatermarkFont>, ratio = 1) {
+  return Number(font.fontSize) * ratio
+}
+
+export function getCanvasFont(font: Required<WatermarkFont>, ratio = 1, lineHeight?: number) {
+  const mergedLineHeight = lineHeight === undefined ? '' : `/${lineHeight}px`
+
+  return `${font.fontStyle} normal ${font.fontWeight} ${getFontSize(font, ratio)}px${mergedLineHeight} ${font.fontFamily}`
+}
+
+/** Merge per-line font over the base font, ignoring `undefined` overrides. */
+function mergeFont(base: Required<WatermarkFont>, override: WatermarkFont): Required<WatermarkFont> {
+  const merged = { ...base }
+  for (const key of Object.keys(override) as (keyof WatermarkFont)[]) {
+    const value = override[key]
+    if (value !== undefined) {
+      (merged as any)[key] = value
+    }
+  }
+  return merged
+}
+
+export function getContentLines(
+  content: WatermarkContent | WatermarkContent[] | undefined,
+  font: Required<WatermarkFont>,
+): WatermarkContentLine[] {
+  return toList(content as any, true).map((item: WatermarkContent) => {
+    if (isWatermarkText(item)) {
+      return {
+        text: item.text ?? '',
+        font: mergeFont(font, item.font ?? {}),
+      }
+    }
+
+    return {
+      text: (item as string) ?? '',
+      font,
+    }
+  })
 }
 
 /** Whether to re-render the watermark */

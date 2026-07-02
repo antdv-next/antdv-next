@@ -17,7 +17,6 @@ exports[`segmented demo > renders _semantic correctly 1`] = `
         aria-label="segmented control"
         aria-orientation="horizontal"
         class="ant-segmented semantic-mark-root css-var-v-0 semantic-mark-root css-var-v-0"
-        classes="[object Object]"
         role="radiogroup"
         size="middle"
         tabindex="0"
@@ -28,7 +27,6 @@ exports[`segmented demo > renders _semantic correctly 1`] = `
           <!---->
           <label
             class="ant-segmented-item semantic-mark-item ant-segmented-item-selected"
-            icon="[object Object]"
           >
             <input
               checked=""
@@ -69,7 +67,6 @@ exports[`segmented demo > renders _semantic correctly 1`] = `
           </label>
           <label
             class="ant-segmented-item semantic-mark-item"
-            icon="[object Object]"
           >
             <input
               class="ant-segmented-item-input"
@@ -828,11 +825,7 @@ exports[`segmented demo > renders custom correctly 1`] = `
         <div
           class="ant-segmented-item-label"
         >
-          <span
-            class="ant-segmented-item-icon"
-          >
-            <!---->
-          </span>
+          <!---->
           <span>
             <div
               style="padding: 4px;"
@@ -863,11 +856,7 @@ exports[`segmented demo > renders custom correctly 1`] = `
         <div
           class="ant-segmented-item-label"
         >
-          <span
-            class="ant-segmented-item-icon"
-          >
-            <!---->
-          </span>
+          <!---->
           <span>
             <div
               style="padding: 4px;"
@@ -898,11 +887,7 @@ exports[`segmented demo > renders custom correctly 1`] = `
         <div
           class="ant-segmented-item-label"
         >
-          <span
-            class="ant-segmented-item-icon"
-          >
-            <!---->
-          </span>
+          <!---->
           <span>
             <div
               style="padding: 4px;"
@@ -950,11 +935,7 @@ exports[`segmented demo > renders custom correctly 1`] = `
         <div
           class="ant-segmented-item-label"
         >
-          <span
-            class="ant-segmented-item-icon"
-          >
-            <!---->
-          </span>
+          <!---->
           <span>
             <div
               style="padding: 4px;"
@@ -980,11 +961,7 @@ exports[`segmented demo > renders custom correctly 1`] = `
         <div
           class="ant-segmented-item-label"
         >
-          <span
-            class="ant-segmented-item-icon"
-          >
-            <!---->
-          </span>
+          <!---->
           <span>
             <div
               style="padding: 4px;"
@@ -1010,11 +987,7 @@ exports[`segmented demo > renders custom correctly 1`] = `
         <div
           class="ant-segmented-item-label"
         >
-          <span
-            class="ant-segmented-item-icon"
-          >
-            <!---->
-          </span>
+          <!---->
           <span>
             <div
               style="padding: 4px;"
@@ -1040,11 +1013,7 @@ exports[`segmented demo > renders custom correctly 1`] = `
         <div
           class="ant-segmented-item-label"
         >
-          <span
-            class="ant-segmented-item-icon"
-          >
-            <!---->
-          </span>
+          <!---->
           <span>
             <div
               style="padding: 4px;"
@@ -1169,15 +1138,9 @@ exports[`segmented demo > renders disabled correctly 1`] = `
         />
         <div
           class="ant-segmented-item-label"
+          title="Weekly"
         >
-          <span
-            class="ant-segmented-item-icon"
-          >
-            <!---->
-          </span>
-          <span>
-            Weekly
-          </span>
+          Weekly
         </div>
       </label>
       <label
@@ -1206,15 +1169,9 @@ exports[`segmented demo > renders disabled correctly 1`] = `
         />
         <div
           class="ant-segmented-item-label"
+          title="Quarterly"
         >
-          <span
-            class="ant-segmented-item-icon"
-          >
-            <!---->
-          </span>
-          <span>
-            Quarterly
-          </span>
+          Quarterly
         </div>
       </label>
       <label
@@ -1347,7 +1304,6 @@ exports[`segmented demo > renders icon-only correctly 1`] = `
       <!---->
       <label
         class="ant-segmented-item ant-segmented-item-selected"
-        icon="[object Object]"
       >
         <input
           checked=""
@@ -1386,7 +1342,6 @@ exports[`segmented demo > renders icon-only correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
-        icon="[object Object]"
       >
         <input
           class="ant-segmented-item-input"
@@ -1966,7 +1921,6 @@ exports[`segmented demo > renders style-class correctly 1`] = `
     aria-label="segmented control"
     aria-orientation="horizontal"
     class="ant-segmented custom-segmented-root css-var-root custom-segmented-root css-var-root"
-    classes="[object Object]"
     data-v-0de51c46=""
     role="radiogroup"
     size="middle"
@@ -1979,7 +1933,6 @@ exports[`segmented demo > renders style-class correctly 1`] = `
       <!---->
       <label
         class="ant-segmented-item ant-segmented-item-selected"
-        icon="[object Object]"
       >
         <input
           checked=""
@@ -2020,7 +1973,6 @@ exports[`segmented demo > renders style-class correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
-        icon="[object Object]"
       >
         <input
           class="ant-segmented-item-input"
@@ -2060,7 +2012,6 @@ exports[`segmented demo > renders style-class correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
-        icon="[object Object]"
       >
         <input
           class="ant-segmented-item-input"
@@ -2104,7 +2055,6 @@ exports[`segmented demo > renders style-class correctly 1`] = `
     aria-label="segmented control"
     aria-orientation="vertical"
     class="ant-segmented ant-segmented-vertical custom-segmented-root ant-segmented-vertical css-var-root custom-segmented-root ant-segmented-vertical css-var-root"
-    classes="[object Object]"
     data-v-0de51c46=""
     role="radiogroup"
     size="middle"
@@ -2117,7 +2067,6 @@ exports[`segmented demo > renders style-class correctly 1`] = `
       <!---->
       <label
         class="ant-segmented-item ant-segmented-item-selected"
-        icon="[object Object]"
         style="text-align: start;"
       >
         <input
@@ -2160,7 +2109,6 @@ exports[`segmented demo > renders style-class correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
-        icon="[object Object]"
         style="text-align: start;"
       >
         <input
@@ -2202,7 +2150,6 @@ exports[`segmented demo > renders style-class correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
-        icon="[object Object]"
         style="text-align: start;"
       >
         <input
@@ -2358,7 +2305,6 @@ exports[`segmented demo > renders with-icon correctly 1`] = `
       <!---->
       <label
         class="ant-segmented-item ant-segmented-item-selected"
-        icon="[object Object]"
       >
         <input
           checked=""
@@ -2399,7 +2345,6 @@ exports[`segmented demo > renders with-icon correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
-        icon="[object Object]"
       >
         <input
           class="ant-segmented-item-input"

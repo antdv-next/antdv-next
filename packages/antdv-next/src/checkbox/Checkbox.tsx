@@ -7,7 +7,7 @@ import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, nextTick, shallowRef, watch } from 'vue'
-import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { isValueEqual } from '../_util/isEqual'
 import isNonNullable from '../_util/isNonNullable.ts'
 import { toPropsRefs } from '../_util/tools'
@@ -168,11 +168,12 @@ const InternalCheckbox = defineComponent<
       } as CheckboxProps
     })
 
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       CheckboxClassNamesType,
       CheckboxStylesType,
       CheckboxProps
-    >(useToArr(contextClassNames, classes), useToArr(contextStyles, styles), useToProps(mergedProps))
+    >(useToArr(contextClassNames, classes), useToArr(contextStyles, contextStyleRoot as any, styles), useToProps(mergedProps))
 
     const prevValue = shallowRef(props.value)
     const checkboxRef = shallowRef()
@@ -293,7 +294,7 @@ const InternalCheckbox = defineComponent<
         <Wave component="Checkbox" disabled={mergedDisabled.value}>
           <label
             class={classString}
-            style={[mergedStyles.value.root, contextStyle.value, style]}
+            style={[mergedStyles.value.root, style]}
             onMouseenter={e => emit('mouseenter', e)}
             onMouseleave={e => emit('mouseleave', e)}
             onClick={onLabelClick}

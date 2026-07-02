@@ -38,7 +38,7 @@ const styles: DescriptionsProps['styles'] = {
 }
 
 const stylesFn: DescriptionsProps['styles'] = (info) => {
-  if (info.props.size === 'default') {
+  if (info.props.size === 'large') {
     return {
       root: {
         borderRadius: '8px',
@@ -61,7 +61,7 @@ const descriptionsProps: DescriptionsProps = {
 <template>
   <a-flex vertical gap="middle">
     <a-descriptions v-bind="descriptionsProps" :styles="styles" size="small" />
-    <a-descriptions v-bind="descriptionsProps" :styles="stylesFn" size="default" />
+    <a-descriptions v-bind="descriptionsProps" :styles="stylesFn" size="large" />
   </a-flex>
 </template>
 

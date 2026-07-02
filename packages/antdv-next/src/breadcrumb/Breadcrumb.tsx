@@ -9,7 +9,7 @@ import { clsx } from '@v-c/util'
 import pickAttrs from '@v-c/util/dist/pickAttrs'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { cloneVNode, computed, defineComponent, isVNode } from 'vue'
-import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { useComponentBaseConfig } from '../config-provider/context'
 
@@ -165,11 +165,12 @@ const Breadcrumb = defineComponent<
       } as BreadcrumbProps
     })
     // ========================= Style ==========================
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       BreadcrumbClassNamesType,
       BreadcrumbStylesType,
       BreadcrumbProps
-    >(useToArr(contextClassNames, classes), useToArr(contextStyles, styles), useToProps(mergedProps))
+    >(useToArr(contextClassNames, classes), useToArr(contextStyles, contextStyleRoot as any, styles), useToProps(mergedProps))
 
     const contextValue = computed(() => {
       return {
@@ -300,7 +301,6 @@ const Breadcrumb = defineComponent<
       )
       const mergedStyle: CSSProperties = {
         ...mergedStyles.value?.root,
-        ...contextStyle.value,
         ...style,
       }
 

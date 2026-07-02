@@ -30,7 +30,7 @@ const ItemHolder = defineComponent<ItemHolderProps>(
     const vertical = computed(() => layout.value === 'vertical')
     // ======================== Margin ========================
     const itemRef = shallowRef<HTMLDivElement>()
-    const hasHelp = computed(() => isNonNullable(props.help) && props.help !== false)
+    const hasHelp = computed(() => isNonNullable(props.help))
     const hasError = computed(() => !!(hasHelp.value || props?.errors?.length || props?.warnings?.length))
     const isOnScreen = computed(() => !!itemRef.value && isVisible(itemRef.value))
     const marginBottom = shallowRef()

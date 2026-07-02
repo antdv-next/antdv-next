@@ -37,8 +37,10 @@ function getIcon(props: AntdTreeNodeAttribute) {
   return expanded ? <FolderOpenOutlined /> : <FolderOutlined />
 }
 
-function getTreeData({ treeData, children }: DirectoryTreeProps & { children: any[] }) {
-  return treeData || convertTreeToData(children)
+function getTreeData(
+  { treeData, children }: { treeData?: DirectoryTreeProps<BasicDataNode>['treeData'], children: any[] },
+): DataNode[] {
+  return (treeData as DataNode[] | undefined) || convertTreeToData(children)
 }
 
 const DirectoryTree = defineComponent<
@@ -199,7 +201,7 @@ const DirectoryTree = defineComponent<
       const onAttrs: Partial<DirectoryTreeEmitsType> = {
         onCheck(checked, info) {
           emit('check', checked, info)
-          emit('update:checkedKeys', checked)
+          emit('update:checkedKeys', Array.isArray(checked) ? checked : checked?.checked ?? [])
         },
         onClick(...args) {
           emit('click', ...args)

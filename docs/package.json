@@ -33,7 +33,8 @@
     "tslib": "catalog:prod",
     "vanilla-tilt": "catalog:prod",
     "vue": "catalog:prod",
-    "vue-router": "catalog:prod"
+    "vue-router": "catalog:prod",
+    "zod": "catalog:prod"
   },
   "devDependencies": {
     "@mdit-vue/plugin-frontmatter": "catalog:docs",

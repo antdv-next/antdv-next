@@ -209,6 +209,14 @@
   }
 }
 
+/* Markdown table styles above target plain tables; keep them from leaking
+ * into antdv `<a-table>` (which manages its own layout & horizontal scroll). */
+.vp-doc .ant-table-wrapper table {
+  display: table;
+  overflow: visible;
+  min-width: 0;
+}
+
 .vp-doc th {
   color: var(--ant-color-text-secondary);
   font-weight: 500;

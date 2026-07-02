@@ -47,6 +47,7 @@ export interface DatePickerEmits<DateType = AnyObject> {
   'panelChange': (date: DateType, mode: PickerMode) => void
   'openChange': (open: boolean) => void
   'ok': (date: DateType | DateType[]) => void
+  'clear': () => void
   'select': (date: DateType) => void
   'focus': (e: FocusEvent, info: any) => void
   'blur': (e: FocusEvent, info: any) => void
@@ -71,6 +72,7 @@ export interface DatePickerEmitsProps<DateType = AnyObject> {
   onPanelChange?: DatePickerEmits<DateType>['panelChange']
   onOpenChange?: DatePickerEmits<DateType>['openChange']
   onOk?: DatePickerEmits<DateType>['ok']
+  onClear?: DatePickerEmits<DateType>['clear']
   onSelect?: DatePickerEmits<DateType>['select']
   onFocus?: DatePickerEmits<DateType>['focus']
   onBlur?: DatePickerEmits<DateType>['blur']
@@ -214,6 +216,10 @@ function generatePicker<DateType extends AnyObject = AnyObject>(generateConfig: 
 
         const handleOk = (value: DateType | DateType[]) => {
           emit('ok', value)
+        }
+
+        const handleClear = () => {
+          emit('clear')
         }
 
         const handleFocus = (e: FocusEvent, info: any) => {
@@ -383,6 +389,7 @@ function generatePicker<DateType extends AnyObject = AnyObject>(generateConfig: 
                 onPanelChange={handlePanelChange as any}
                 onOpenChange={handleOpenChange}
                 onOk={handleOk}
+                onClear={handleClear}
                 onFocus={handleFocus}
                 onBlur={handleBlur}
                 onKeyDown={handleKeyDown}

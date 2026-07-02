@@ -7,9 +7,12 @@ export default defineConfig({
     // 'src/cssinjs-utils/index.ts',
   ],
   dts: true,
-  external: [
-    'vue',
-  ],
+  deps: {
+    skipNodeModulesBundle: true,
+    neverBundle: [
+      'vue',
+    ],
+  },
   outExtensions() {
     return {
       js: '.js',
@@ -18,5 +21,4 @@ export default defineConfig({
   },
   format: 'esm',
   unbundle: true,
-  skipNodeModulesBundle: true,
 })

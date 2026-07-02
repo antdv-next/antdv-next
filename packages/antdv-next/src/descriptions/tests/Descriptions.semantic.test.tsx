@@ -2,6 +2,7 @@ import type { DescriptionsProps } from '../index'
 import { describe, expect, it, vi } from 'vitest'
 import Descriptions from '..'
 import ConfigProvider from '../../config-provider'
+import { expectSemanticRootStylePriority, semanticRootStylePriority } from '/@tests/shared/semanticStylePriority'
 import { mount } from '/@tests/utils'
 
 const basicItems = [
@@ -154,5 +155,16 @@ describe('descriptions.Semantic', () => {
     // label/content classes propagate through DescriptionsContext to Cell
     expect(wrapper.find('.semantic-label').exists()).toBe(true)
     expect(wrapper.find('.semantic-content').exists()).toBe(true)
+  })
+
+  // https://github.com/ant-design/ant-design/pull/58474
+  it('aligns root semantic style priority', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider descriptions={{ style: semanticRootStylePriority.contextStyle, styles: semanticRootStylePriority.contextStyles }}>
+        <Descriptions items={basicItems} style={semanticRootStylePriority.style} styles={semanticRootStylePriority.styles} />
+      </ConfigProvider>
+    ), { attachTo: document.body })
+    expectSemanticRootStylePriority(wrapper.find('.ant-descriptions').element)
+    wrapper.unmount()
   })
 })

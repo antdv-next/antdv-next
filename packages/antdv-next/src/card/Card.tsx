@@ -6,7 +6,7 @@ import type { Tab, TabsSlots } from '../tabs'
 import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { computed, defineComponent, isVNode } from 'vue'
-import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { devUseWarning, isDev } from '../_util/warning'
 import { useComponentBaseConfig } from '../config-provider/context'
@@ -164,11 +164,12 @@ const Card = defineComponent<
       } as CardProps
     })
 
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       CardClassNamesType,
       CardStylesType,
       CardProps
-    >(useToArr(contextClassNames, classes), useToArr(contextStyles, styles), useToProps(mergedProps))
+    >(useToArr(contextClassNames, classes), useToArr(contextStyles, contextStyleRoot as any, styles), useToProps(mergedProps))
 
     // =================Warning===================
     if (isDev) {
@@ -344,7 +345,6 @@ const Card = defineComponent<
 
       const mergedStyle: CSSProperties = {
         ...mergedStyles.value.root,
-        ...contextStyle.value,
         ...style,
       }
 

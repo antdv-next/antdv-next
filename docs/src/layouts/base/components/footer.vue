@@ -129,6 +129,28 @@ const details = {
     }
   }
 
+  @media (max-width: 768px) {
+    .ant-row {
+      text-align: left;
+
+      .footer-center {
+        display: block;
+
+        > h2 {
+          margin-bottom: 16px;
+        }
+
+        > div {
+          margin: 10px 0;
+        }
+      }
+    }
+
+    .ant-col:not(:first-child) .footer-center {
+      margin-top: 32px;
+    }
+  }
+
   a {
     color: v-bind('token.colorText');
   }

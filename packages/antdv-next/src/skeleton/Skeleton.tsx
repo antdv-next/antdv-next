@@ -8,7 +8,7 @@ import type { SkeletonTitleProps } from './Title'
 import { classNames } from '@v-c/util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent } from 'vue'
-import { useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { toPropsRefs } from '../_util/tools.ts'
 import { useComponentBaseConfig } from '../config-provider/context'
 import SkeletonAvatar from './Avatar'
@@ -135,6 +135,7 @@ const Skeleton = defineComponent<SkeletonProps, EmptyEmit, string, SlotsType<Ske
 
     // =========== Merged Props for Semantic ==========
     const mergedProps = computed(() => props)
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
 
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       SkeletonClassNamesType,
@@ -142,7 +143,7 @@ const Skeleton = defineComponent<SkeletonProps, EmptyEmit, string, SlotsType<Ske
       SkeletonProps
     >(
       useToArr(contextClassNames, classes),
-      useToArr(contextStyles, styles),
+      useToArr(contextStyles, contextStyleRoot as any, styles),
       useToProps(mergedProps),
     )
 
@@ -254,7 +255,7 @@ const Skeleton = defineComponent<SkeletonProps, EmptyEmit, string, SlotsType<Ske
           <div
             class={cls}
             {...omit(attrs, ['class', 'style'])}
-            style={[mergedStyles.value.root, contextStyle.value, (attrs as any)?.style]}
+            style={[mergedStyles.value.root, (attrs as any)?.style]}
           >
             {avatarNode}
             {contentNode}

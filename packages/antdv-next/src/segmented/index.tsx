@@ -13,7 +13,7 @@ import VcSegmented from '@v-c/segmented'
 import { clsx } from '@v-c/util'
 import { filterEmpty, removeUndefined } from '@v-c/util/dist/props-util'
 import { computed, defineComponent, useId } from 'vue'
-import { pureAttrs, useMergeSemantic, useOrientation, useToArr, useToProps } from '../_util/hooks'
+import { pureAttrs, useMergeSemantic, useOrientation, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { useComponentBaseConfig } from '../config-provider/context.ts'
 import { useSize } from '../config-provider/hooks/useSize.ts'
@@ -133,11 +133,12 @@ const InternalSegmented = defineComponent<
       return props
     })
 
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       SegmentedClassNamesType,
       SegmentedStylesType,
       SegmentedProps
-    >(useToArr(contextClassNames, classes), useToArr(contextStyles, styles), useToProps(
+    >(useToArr(contextClassNames, classes), useToArr(contextStyles, contextStyleRoot as any, styles), useToProps(
       mergedProps,
     ))
 
@@ -154,26 +155,32 @@ const InternalSegmented = defineComponent<
         const iconRender = slots.iconRender || props.iconRender
         const _option = typeof option === 'object' ? option : { value: option }
         let iconFromSlot = iconRender ? iconRender(_option) : null
-        iconFromSlot = filterEmpty(Array.isArray(iconFromSlot) ? iconFromSlot : [iconFromSlot])
+        iconFromSlot = filterEmpty(Array.isArray(iconFromSlot) ? iconFromSlot : [iconFromSlot]).filter(Boolean)
         const labelRender = slots.labelRender || props.labelRender
         let labelFromSlot = labelRender ? labelRender(_option) : null
         labelFromSlot = filterEmpty(Array.isArray(labelFromSlot) ? labelFromSlot : [labelFromSlot]).filter(Boolean)
-        if (isSegmentedLabeledOptionWithIcon(option, iconFromSlot)) {
-          const { label, ...restOption } = option
-          labelFromSlot = labelFromSlot.length > 0 ? labelFromSlot : label
-          const showLabel = !!(labelFromSlot && labelFromSlot.length > 0) || !!label
+        const hasIcon = isSegmentedLabeledOptionWithIcon(option, iconFromSlot)
+        const hasCustomLabel = labelFromSlot.length > 0
+        // Only wrap the option when it actually carries an icon or a custom label,
+        // otherwise keep the raw option so we don't render an empty icon wrapper.
+        if (hasIcon || hasCustomLabel) {
+          const { label, icon: _icon, ...restOption } = _option
+          const mergedLabel = labelFromSlot.length > 0 ? labelFromSlot : label
+          const showLabel = !!(labelFromSlot.length > 0) || !!label
           const icon = getSlotPropsFnRun({}, option, 'icon') ?? iconFromSlot
           return {
             ...restOption,
             label: (
               <>
-                <span
-                  class={clsx(`${prefixCls.value}-item-icon`, mergedClassNames.value?.icon)}
-                  style={mergedStyles.value?.icon}
-                >
-                  {icon}
-                </span>
-                {showLabel && <span>{labelFromSlot}</span>}
+                {hasIcon && (
+                  <span
+                    class={clsx(`${prefixCls.value}-item-icon`, mergedClassNames.value?.icon)}
+                    style={mergedStyles.value?.icon}
+                  >
+                    {icon}
+                  </span>
+                )}
+                {showLabel && <span>{mergedLabel}</span>}
               </>
             ),
           }
@@ -188,6 +195,7 @@ const InternalSegmented = defineComponent<
         rootClass,
         block,
         shape,
+        classes,
         ...restProps
       } = props
       const cls = clsx(
@@ -207,7 +215,6 @@ const InternalSegmented = defineComponent<
       )
       const mergedStyle: CSSProperties = {
         ...mergedStyles?.value?.root,
-        ...contextStyle.value,
       }
 
       const itemRender = (node: any, { item }: { item: SegmentedLabeledOption }) => {

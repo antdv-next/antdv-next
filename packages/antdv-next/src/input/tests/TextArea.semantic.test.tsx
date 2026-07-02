@@ -1,5 +1,7 @@
 import { describe, expect, it, vi } from 'vitest'
 import Input from '..'
+import ConfigProvider from '../../config-provider'
+import { expectSemanticRootStylePriority, semanticRootStylePriority } from '/@tests/shared/semanticStylePriority'
 import { mount } from '/@tests/utils'
 
 const { TextArea } = Input as any
@@ -64,5 +66,16 @@ describe('textArea.Semantic', () => {
     expect(textareaElement.exists()).toBe(true)
     expect(textareaElement.classes()).toContain('custom-textarea')
     expect(textareaElement.attributes('style')).toContain('line-height: 1.5')
+  })
+
+  // https://github.com/ant-design/ant-design/pull/58474
+  it('aligns root semantic style priority', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider textArea={{ style: semanticRootStylePriority.contextStyle, styles: semanticRootStylePriority.contextStyles }}>
+        <TextArea style={semanticRootStylePriority.style} styles={semanticRootStylePriority.styles} />
+      </ConfigProvider>
+    ), { attachTo: document.body })
+    expectSemanticRootStylePriority(wrapper.find('.ant-input').element)
+    wrapper.unmount()
   })
 })

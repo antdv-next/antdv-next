@@ -25,18 +25,6 @@ export function getPaidAtTime(sponsor: Sponsor) {
   return sponsor.paidAt ? new Date(sponsor.paidAt).getTime() : 0
 }
 
-function isValidPaidAt(sponsor: Sponsor) {
-  return Number.isFinite(getPaidAtTime(sponsor)) && getPaidAtTime(sponsor) > 0
-}
-
-function isRecentPaidSponsor(sponsor: Sponsor) {
-  if (!isValidPaidAt(sponsor) || (sponsor.amount ?? 0) <= 0)
-    return false
-
-  const oneMonthAgo = Date.now() - 30 * 24 * 60 * 60 * 1000
-  return getPaidAtTime(sponsor) >= oneMonthAgo
-}
-
 function hasRealSponsor(items: Sponsor[]) {
   return items.some(sponsor => (sponsor.amount ?? 0) > 0)
 }
@@ -56,28 +44,16 @@ function getDisplaySponsors(limit: number, items: Sponsor[]) {
     ? items.filter(sponsor => (sponsor.amount ?? 0) > 0)
     : items
 
-  const recentSponsors = candidates
-    .filter(isRecentPaidSponsor)
-    .sort((a, b) => {
-      const paidAtDiff = getPaidAtTime(b) - getPaidAtTime(a)
-      if (paidAtDiff !== 0)
-        return paidAtDiff
-
-      return (b.amount ?? 0) - (a.amount ?? 0)
-    })
-    .slice(0, limit)
-
-  if (recentSponsors.length)
-    return recentSponsors
-
+  // 按「付款时间 + 金额」排序后取前 N 个：最近付款的自然排在前面，
+  // 较早的付费赞助商填满剩余名额，最多展示 limit 个（对齐 ant-design 行为）。
   return sortByTimeAndAmount(candidates).slice(0, limit)
 }
 
-export function getHeaderSponsors(limit = 3, items = sponsors) {
+export function getHeaderSponsors(limit = 4, items = sponsors) {
   return getDisplaySponsors(limit, items)
 }
 
-export function getHomeSponsors(limit = 9, items = sponsors) {
+export function getHomeSponsors(limit = 4, items = sponsors) {
   return getDisplaySponsors(limit, items)
 }
 

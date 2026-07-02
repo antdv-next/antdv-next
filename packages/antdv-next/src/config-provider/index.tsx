@@ -43,6 +43,7 @@ const PASSED_PROPS: Exclude<
   'input',
   'pagination',
   'transfer',
+  'splitter',
   'mentions',
   'form',
   'select',
@@ -101,6 +102,9 @@ const PASSED_PROPS: Exclude<
   'divider',
   'flex',
   'typography',
+  'collapse',
+  'otp',
+  'anchor',
 ]
 
 const providerDefaultProps: any = {
@@ -247,7 +251,7 @@ const ProviderChildren = defineComponent<
     const layer = computed(() => styleContext.value.layer)
 
     // Icon Support
-    const memoIconContextValue = computed(() => ({ prefixCls: iconPrefixCls.value, csp: csp.value, layer: layer.value ? 'antd' : undefined }))
+    const memoIconContextValue = computed(() => ({ prefixCls: iconPrefixCls.value, csp: csp.value, layer: layer.value ? 'antd' : undefined, zeroRuntime: mergedTheme.value?.zeroRuntime }))
 
     // ================================ Dynamic theme ================================
     const memoTheme = computed(() => {

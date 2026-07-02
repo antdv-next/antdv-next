@@ -644,4 +644,15 @@ watch(
 .dark .ant-doc-search-panel-highlight {
   background: rgba(255, 183, 0, 0.2);
 }
+
+@media (max-width: 767.99px) {
+  .ant-doc-search-panel {
+    position: fixed;
+    inset-inline: 8px;
+    top: calc(var(--ant-doc-header-height) + 8px);
+    width: auto;
+    max-width: none;
+    max-height: calc(100vh - var(--ant-doc-header-height) - 24px);
+  }
+}
 </style>

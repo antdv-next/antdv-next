@@ -34,6 +34,12 @@ const _Placements = [
   'bottomRight',
   'top',
   'bottom',
+  'left',
+  'leftTop',
+  'leftBottom',
+  'right',
+  'rightTop',
+  'rightBottom',
 ] as const
 
 type Placement = (typeof _Placements)[number]
@@ -233,8 +239,15 @@ const Dropdown = defineComponent<
       if (props.transitionName !== undefined) {
         return props.transitionName
       }
-      if (props?.placement?.includes('top')) {
+      const placement = props?.placement ?? ''
+      if (placement.startsWith('top')) {
         return `${rootPrefixCls}-slide-down`
+      }
+      if (placement.startsWith('left')) {
+        return `${rootPrefixCls}-slide-right`
+      }
+      if (placement.startsWith('right')) {
+        return `${rootPrefixCls}-slide-left`
       }
       return `${rootPrefixCls}-slide-up`
     })
@@ -273,17 +286,20 @@ const Dropdown = defineComponent<
         if (menu?.items) {
           overlayNode = (
             <Menu
-              {...menu}
+              {...omit(menu, ['classes', 'styles', 'rootClass'])}
               onClick={(menu: MenuInfo) => {
                 emit('menuClick', menu)
               }}
+              rootClass={clsx(menu?.rootClass)}
               classes={{
+                ...menu?.classes,
                 ...menuClassNames,
                 subMenu: {
                   ...menuClassNames,
                 },
               }}
               styles={{
+                ...menu?.styles,
                 ...menuStyles,
                 subMenu: {
                   ...menuStyles,

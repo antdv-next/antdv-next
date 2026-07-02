@@ -1,0 +1,2 @@
+# Snapshot files — disable EOL conversion to avoid CRLF/LF churn
+*.snap -text

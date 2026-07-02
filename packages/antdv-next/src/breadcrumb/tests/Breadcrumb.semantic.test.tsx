@@ -1,6 +1,8 @@
 import type { BreadcrumbProps } from '..'
 import { describe, expect, it, vi } from 'vitest'
 import Breadcrumb from '..'
+import ConfigProvider from '../../config-provider'
+import { expectSemanticRootStylePriority, semanticRootStylePriority } from '/@tests/shared/semanticStylePriority'
 import { mount } from '/@tests/utils'
 
 describe('breadcrumb.Semantic', () => {
@@ -72,5 +74,17 @@ describe('breadcrumb.Semantic', () => {
 
     const updatedSeparatorElement = wrapper.find('.ant-breadcrumb-separator')
     expect(updatedSeparatorElement.classes()).toContain('default-separator')
+  })
+
+  // https://github.com/ant-design/ant-design/pull/58474
+  it('aligns root semantic style priority', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider breadcrumb={{ style: semanticRootStylePriority.contextStyle, styles: semanticRootStylePriority.contextStyles }}>
+        <Breadcrumb items={[{ title: 'Home' }]} style={semanticRootStylePriority.style} styles={semanticRootStylePriority.styles} />
+      </ConfigProvider>
+    ), { attachTo: document.body })
+
+    expectSemanticRootStylePriority(wrapper.find('.ant-breadcrumb').element)
+    wrapper.unmount()
   })
 })

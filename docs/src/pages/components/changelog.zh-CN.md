@@ -2,6 +2,152 @@
 title: 组件更新日志
 ---
 
+## V1.4.1
+
+发布日期：2026-07-02
+
+本次版本重点修复 **vue 3.5.39 兼容性问题**（[vuejs/core#14985](https://github.com/vuejs/core/pull/14985) 改变了函数 ref 的调用时机）：修复浮层组件（Tooltip/Popover/Popconfirm/Dropdown）首次打开定位异常与首帧动画丢失、message/notification 通知叠加、Masonry 布局错乱等问题；同时为组件文档页新增「组件元信息」块，并完善图标总览。
+
+**🐞 问题修复 Fixes**
+
+* fix：修复 vue 3.5.39 生产构建下**浮层组件首次打开定位异常/首帧动画丢失**（Tooltip / Popover / Popconfirm / Dropdown）—— 底层升级 `@v-c/trigger` 1.0.18（#623）
+* fix：修复 vue 3.5.39 下 **message / notification 通知相互叠加**（首帧高度测量失败）—— 底层升级 `@v-c/notification` 2.0.2（#623）
+* fix(masonry)：修复 vue 3.5.39 下 Masonry item 高度测量失败导致的布局错乱，改用 `createElementRef`（#623）
+* fix(deps)：将 `@v-c/notification` 加入 overrides，消除 lock 中残留的旧版本
+
+**📖 文档 Docs**
+
+* docs：组件文档页新增「组件元信息」块（使用 / 反馈 / 文档 / 版本），对齐 ant-design
+* docs(icon)：将新增的 AI / 品牌图标归入品牌分类、标记「1.4.0 新增」并置顶展示
+
+**🧪 测试 Tests**
+
+* test(drawer)：新增 Drawer 内 Watermark 继承的回归测试（vue 3.5.39）
+
+**🧰 依赖更新 Dependencies**
+
+* chore(deps)：升级 vue 至 `^3.5.39`；`@v-c/trigger` 1.0.18、`@v-c/notification` 2.0.2、`@v-c/util` 1.0.20 及相关工具链依赖
+
+## V1.4.0
+
+发布日期：2026-06-30
+
+本次版本将 ant-design 上游同步推进到 **6.5.0**，带来一批新特性与语义化能力：**Modal `scrollLock`**、**Dropdown 左右方向 placement**、**Steps `maxCount` 折叠**、**Slider 分别禁用（Range 模式 `boolean[]`）**、**DatePicker/RangePicker `clear` 事件**、**Watermark 多行字体**、**Layout Sider 语义化 `classes`/`styles`**、**Tabs `body` 语义结构** 等；并统一了 **root 语义样式优先级**（横跨 30+ 组件）。同时同步多项上游修复，升级 `@v-c` 链路（picker 1.2.0 / select 1.1.3 / tabs 1.2.1）。
+
+**✨ 新功能 Features**
+
+* feat：同步 ant-design 上游变更（6.4.5 → 6.5.0）—— [#621](https://github.com/antdv-next/antdv-next/pull/621)
+* feat(modal)：新增 `scrollLock` 控制打开时是否锁定 body 滚动（#58256）
+* feat(dropdown)：支持 `left`/`right` 等左右方向弹出位置（#58437）
+* feat(steps)：新增 `maxCount` 密集步骤折叠模式（#57987）
+* feat(slider)：Range 模式支持通过 `boolean[]` 单独禁用某个滑块（#57982）
+* feat(date-picker)：点击清除按钮时触发 `clear` 事件（#58403）
+* feat(watermark)：`content` 支持为多行水印逐行配置字体样式（#57886）
+* feat(layout)：Sider 支持语义化 `classes`/`styles`（`root`/`body`）（#57938）
+* feat(tabs)：同步 `body`/`content` 语义 DOM 重命名与 `body` 语义（#58521）
+* feat(collapse)：支持 header/content 的尺寸内边距 token（#58436）
+* feat(badge)：`title` 设为 `null`/`false` 可移除原生 title（#58209）
+* feat(input)：Password 可见性切换按钮支持 `tabIndex`（#58458）
+* feat(config-provider)：支持 Form 的 `labelWrap` 配置（#58035）
+* feat(config-provider)：将 `theme.zeroRuntime` 透传至图标上下文（#58517）
+* feat：统一 root 语义样式优先级（30+ 组件）（#58474）
+
+**🐞 问题修复 Fixes**
+
+* fix(form)：恢复 `Form.Item` `help={false}` 的行为（#58558）
+* fix(table)：响应式列也遵循 `defaultSortOrder`（#58008）
+* fix(table)：bordered 模式保留 sticky 表头顶边框、去除右固定列多余竖线（#58451 #58516）
+* fix(table)：`getCheckboxProps` 支持透传 aria 属性（#58275）
+* fix(input,select)：为无边框输入框补充 focus 描边（#58250）
+* fix(input)：对齐 Search 按钮高度与 compact small 控件高度（#58411 #58525）
+* fix(select)：修正单选 open 态 labelRender dimming；不创建 disabled 标签；数值化弹层宽度（#58288 #58518 #58511）
+* fix(float-button)：禁用的 `FloatButton.Group` 不再展开 hover 菜单（#58513）
+* fix(alert)：修正带 description 时图标垂直对齐的 CSS 优先级（#57915）
+* fix(upload)：默认文件/图片图标由 TwoTone 改为 Outlined，对齐上游（#58497）
+* fix(config-provider)：补齐 collapse/otp/anchor/splitter 的组件级配置透传
+* fix(layout)：Sider 语义回调接收生效的 collapsed 状态
+* fix(watermark)：空内容时保持默认 120×64 尺寸，避免 0×0 绘制异常
+* fix(locale)：修正 ja-JP Typography 展开/折叠文案（#58563）
+
+**🧪 测试 Tests**
+
+* test(menu)：覆盖 click/select/deselect 回调中的 `itemData`（#58197）
+* test：为 root 语义样式优先级新增跨组件测试
+
+**🧰 依赖更新 Dependencies**
+
+* chore(deps)：升级 `@antdv-next/icons` 至 1.1.1（新增图标 + 支持 `zeroRuntime` 跳过运行时样式注入）
+* chore(deps)：升级 `@v-c` 链路 —— picker 1.2.0 / select 1.1.3 / tabs 1.2.1
+
+## V1.3.7
+
+发布日期：2026-06-25
+
+本次版本将 ant-design 上游同步推进到 **6.4.5**，并补齐 #58234 / #58214 / #58314 / #58371 / #58339 等遗漏修复；同时让 **Tabs 面板懒挂载**、修复 **Pagination 部分场景未触发更新事件**、**Table 合并 aria 属性时覆盖消费方 `components.header.table`** 等问题，升级 `@v-c` 链路（table 1.1.6 单元格 memo、virtual-list 1.0.9 高度性能）以提升性能。
+
+**🐞 问题修复 Fixes**
+
+* fix：同步 ant-design 上游变更（6.4.4 → 6.4.5）—— [#613](https://github.com/antdv-next/antdv-next/pull/613)
+* fix(tabs)：通过 `@v-c/tabs` 1.1.1 懒挂载面板 —— [#612](https://github.com/antdv-next/antdv-next/pull/612)
+* fix(pagination)：修复部分场景未触发更新事件
+* fix(table)：合并 aria 属性时保留消费方传入的 `components.header.table`
+* fix：同步 ant-design 上游修复（#58234 #58214 #58314 #58371 #58339）
+* docs(locale)：补齐缺失的 nb_NO（挪威语）文案（#58439）
+
+**🔧 类型优化 Types**
+
+* refactor(table)：为 HeaderTable 补充类型契约
+
+**🧪 测试 Tests**
+
+* test：减少 demo 与测试中的冗余弃用告警
+* test：更新快照
+
+**🧰 依赖更新 Dependencies**
+
+* chore(deps)：升级 `@v-c` 链路 —— table 1.1.6（单元格 memo）+ virtual-list 1.0.9（高度性能）—— [#609](https://github.com/antdv-next/antdv-next/pull/609)
+* chore：升级依赖
+
+## V1.3.6
+
+发布日期：2026-06-18
+
+本次版本主要修复 **Segmented 无图标选项仍渲染空图标节点**、**Dropdown 未透传 `menu` 的 `classes` / `styles` / `rootClass`**、**Input 重复 `class` 属性** 等问题，并将 Form 表单级 `rules` 类型放宽为递归 `RulesMap`，同时优化 DirectoryTree 类型与升级依赖。
+
+**🐞 问题修复 Fixes**
+
+* fix(segmented)：无 `icon` 的选项不再渲染空的 `.ant-segmented-item-icon` 节点，与 React ant-design 对齐（#600）—— [#601](https://github.com/antdv-next/antdv-next/pull/601)
+* fix(dropdown)：将 `menu` 的 `classes` / `styles` / `rootClass` 透传到弹层 Menu，不再被显式语义类名覆盖（#599）—— [#601](https://github.com/antdv-next/antdv-next/pull/601)
+* fix(input)：修复重复的 `class` 属性
+
+**🔧 类型优化 Types**
+
+* refactor(form)：将表单级 `rules` 类型放宽为递归 `RulesMap`，支持嵌套（`{ user: { email: [...] } }`）与索引（`{ list: { 0: [...] } }`）配置无需断言通过类型检查 —— [#601](https://github.com/antdv-next/antdv-next/pull/601)
+* perf(tree)：优化 DirectoryTree 类型
+
+**🧪 测试 Tests**
+
+* test：更新 Space 与 Transfer 快照
+
+**🧰 依赖更新 Dependencies**
+
+* chore：升级依赖
+
+## V1.3.5
+
+发布日期：2026-06-13
+
+本次版本修复 **Form.Item 在每次聚焦/失焦时以全新 meta 对象触发无变更更新导致子节点重渲染** 的问题 —— 配合内联对象属性（如 `:show-time`）会重置 DatePicker 面板内的草稿选择，使 a-form-item 内无法点击「确定」确认；同时升级 `@v-c/picker` 配套修复。
+
+**🐞 问题修复 Fixes**
+
+* fix(form)：跳过无变更的 meta 更新，避免重渲染 FormItem 子节点（修复 a-form-item 内 DatePicker 面板草稿选择被重置）—— [#597](https://github.com/antdv-next/antdv-next/pull/597)
+
+**🧰 依赖更新 Dependencies**
+
+* chore(deps)：升级 `@v-c/picker` 至 ^1.1.3，配套修复父级重渲染传入等价新属性时草稿选择被重置的问题（antdv-next #597）
+* chore：更新文档站 css
+
 ## V1.3.4
 
 发布日期：2026-06-12

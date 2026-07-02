@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { theme } from 'antdv-next'
 import { computed } from 'vue'
+import { useMobile } from '@/composables/mobile'
 import { useLocale } from '@/composables/use-locale'
 import tokenMetaRes from '../../assets/token-meta.json'
 import BezierVisualizer from '../bezier-visualizer/index.vue'
@@ -15,6 +16,7 @@ const props = defineProps<{
 }>()
 
 const { t, messages } = useLocale()
+const { isMobile } = useMobile()
 
 const { token: tokenState } = theme.useToken()
 
@@ -95,6 +97,7 @@ function formatValue(value: any): string {
     :columns="columns"
     :data-source="data"
     :pagination="false"
+    :scroll="isMobile ? { x: 'max-content' } : undefined"
     row-key="name"
   >
     <template #bodyCell="{ column, text, record }">

@@ -9,6 +9,7 @@ type ThemeType = 'Filled' | 'Outlined' | 'TwoTone'
 const props = defineProps<{
   name: string
   isNew: boolean
+  newIconVersion?: string
   theme: ThemeType
   justCopied: string | null
 }>()
@@ -65,11 +66,8 @@ async function handleClick() {
     @click="handleClick"
   >
     <component :is="iconComponent" />
-    <span class="anticon-cls">
-      <a-badge :dot="isNew">
-        {{ name }}
-      </a-badge>
-    </span>
+    <span class="anticon-cls">{{ name }}</span>
+    <span v-if="isNew && newIconVersion" class="new-icon-version">{{ newIconVersion }}</span>
   </li>
 </template>
 
@@ -153,5 +151,23 @@ async function handleClick() {
 
 .anticon-cls :deep(.ant-badge) {
   transition: color 0.3s ease-in-out;
+}
+
+.new-icon-version {
+  position: absolute;
+  top: 8px;
+  inset-inline-end: 8px;
+  padding: 0 6px;
+  font-size: 12px;
+  line-height: 18px;
+  color: #fff;
+  background-color: #1677ff;
+  border-radius: 9px;
+  pointer-events: none;
+}
+
+.icon-item:hover .new-icon-version {
+  background-color: #fff;
+  color: #1677ff;
 }
 </style>

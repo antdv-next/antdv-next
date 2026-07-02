@@ -18,6 +18,9 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 <demo-group>
   <demo src="./demo/basic.vue">基础用法</demo>
   <demo src="./demo/control-hooks.vue">表单方法</demo>
+  <demo src="./demo/use-form.vue">useForm 实例</demo>
+  <demo src="./demo/use-form-name.vue">按 name 连接表单</demo>
+  <demo src="./demo/use-form-ref.vue">ref 绑定表单</demo>
   <demo src="./demo/layout.vue">表单布局</demo>
   <demo src="./demo/layout-multiple.vue">混合布局</demo>
   <demo src="./demo/disabled.vue">禁用表单</demo>
@@ -29,6 +32,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
   <demo src="./demo/useWatch.vue">监听字段</demo>
   <demo src="./demo/validate-trigger.vue">校验触发时机</demo>
   <demo src="./demo/validate-only.vue">仅校验</demo>
+  <demo src="./demo/form-zod.vue">接入 zod 校验</demo>
   <demo src="./demo/form-item-path.vue">路径前缀</demo>
   <demo src="./demo/dynamic-form-item.vue">动态表单项</demo>
   <demo src="./demo/dynamic-form-items.vue">动态嵌套表单项</demo>

@@ -25,7 +25,18 @@ exports[`qrcode test > rtl render > component should be rendered correctly in RT
 <div
   data-v-app=""
 >
-  <!---->
+  <div
+    class="ant-qrcode css-var-root"
+    style="background-color: transparent; width: 160px; height: 160px;"
+  >
+    <!---->
+    <canvas
+      height="160"
+      role="img"
+      width="160"
+    />
+    <!---->
+  </div>
 </div>
 `;
 

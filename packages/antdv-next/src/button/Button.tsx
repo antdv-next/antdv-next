@@ -11,6 +11,7 @@ import { toArray } from 'es-toolkit/compat'
 import { computed, defineComponent, nextTick, onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue'
 import {
   useMergeSemantic,
+  useSemanticRootStyle,
   useToArr,
   useToProps,
 } from '../_util/hooks'
@@ -323,13 +324,14 @@ const InternalCompoundedButton = defineComponent<
       }
     })
     // ========================= Style ==========================
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       ButtonClassNamesType,
       ButtonStylesType,
       ButtonProps
     >(
       useToArr(...(props._skipSemantic ? [ref(), classes] : [contextClassNames, classes])),
-      useToArr(...(props._skipSemantic ? [ref(), styles] : [contextStyles, styles])),
+      useToArr(...(props._skipSemantic ? [ref(), styles] : [contextStyles, contextStyleRoot as any, styles])),
       useToProps(mergedProps),
     )
     return () => {
@@ -379,7 +381,6 @@ const InternalCompoundedButton = defineComponent<
 
       const fullStyle: any[] = [
         mergedStyles.value.root,
-        contextStyle.value,
         (attrs as any).style,
       ]
       const iconSharedProps = {

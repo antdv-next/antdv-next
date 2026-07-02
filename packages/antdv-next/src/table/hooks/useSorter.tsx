@@ -347,6 +347,15 @@ type MaybeRef<T> = T | Ref<T>
 interface SorterConfig<RecordType = AnyObject> {
   prefixCls: MaybeRef<string>
   mergedColumns: MaybeRef<ColumnsType<RecordType>>
+  /**
+   * Columns before applying the responsive filter.
+   * Used to collect `defaultSortOrder` / controlled `sortOrder` for columns
+   * that are currently hidden by `column.responsive`, so the user's sort
+   * intent is preserved when the column appears at a different breakpoint.
+   * Falls back to `mergedColumns` when not provided.
+   * See: https://github.com/ant-design/ant-design/issues/32847
+   */
+  baseColumns?: MaybeRef<ColumnsType<RecordType>>
   onSorterChange: (
     sorterResult: SorterResult<RecordType> | SorterResult<RecordType>[],
     sortStates: SortState<RecordType>[],
@@ -363,6 +372,7 @@ export default function useSorter<RecordType extends AnyObject = AnyObject>(
   const {
     prefixCls: rawPrefixCls,
     mergedColumns: rawMergedColumns,
+    baseColumns: rawBaseColumns,
     sortDirections: rawSortDirections,
     tableLocale: rawTableLocale,
     showSorterTooltip: rawShowSorterTooltip,
@@ -372,13 +382,17 @@ export default function useSorter<RecordType extends AnyObject = AnyObject>(
 
   const prefixCls = computed(() => unref(rawPrefixCls))
   const mergedColumns = computed(() => unref(rawMergedColumns))
+  // Use base (pre-responsive) columns to seed sort states so that
+  // `defaultSortOrder` / controlled `sortOrder` on a `responsive` column is
+  // honored even when the column is not visible at the current breakpoint.
+  const collectColumns = computed(() => unref(rawBaseColumns) ?? mergedColumns.value)
   const sortDirections = computed(() => unref(rawSortDirections))
   const tableLocale = computed(() => unref(rawTableLocale))
   const showSorterTooltip = computed(() => unref(rawShowSorterTooltip))
   const globalLocale = computed(() => unref(rawGlobalLocale))
 
   const sortStates = shallowRef<SortState<RecordType>[]>(
-    collectSortStates<RecordType>(mergedColumns.value, true),
+    collectSortStates<RecordType>(collectColumns.value, true),
   )
 
   const getColumnKeys = (columns: ColumnsType<RecordType>, pos?: string): Key[] => {
@@ -396,11 +410,14 @@ export default function useSorter<RecordType extends AnyObject = AnyObject>(
 
   const mergedSorterStates = computed<SortState<RecordType>[]>(() => {
     let validate = true
-    const collectedStates = collectSortStates<RecordType>(mergedColumns.value, false)
+    // Collect controlled `sortOrder` from the full (pre-responsive) column
+    // set so that a controlled `sortOrder` on a hidden responsive column
+    // still applies to the sorted data.
+    const collectedStates = collectSortStates<RecordType>(collectColumns.value, false)
 
     if (!collectedStates.length) {
-      const mergedColumnsKeys = getColumnKeys(mergedColumns.value)
-      return sortStates.value.filter(({ key }) => mergedColumnsKeys.includes(key))
+      const collectColumnsKeys = getColumnKeys(collectColumns.value)
+      return sortStates.value.filter(({ key }) => collectColumnsKeys.includes(key))
     }
 
     const validateStates: SortState<RecordType>[] = []

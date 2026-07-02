@@ -2,6 +2,8 @@ import type { SegmentedProps } from '..'
 import { describe, expect, it, vi } from 'vitest'
 import { h } from 'vue'
 import Segmented from '..'
+import ConfigProvider from '../../config-provider'
+import { expectSemanticRootStylePriority, semanticRootStylePriority } from '/@tests/shared/semanticStylePriority'
 import { mount } from '/@tests/utils'
 
 const prefixCls = 'ant-segmented'
@@ -138,5 +140,17 @@ describe('segmented.semantic', () => {
       })
       expect(wrapper.find(`.${prefixCls}-item-icon`).exists()).toBe(false)
     })
+  })
+
+  // https://github.com/ant-design/ant-design/pull/58474
+  it('aligns root semantic style priority', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider segmented={{ style: semanticRootStylePriority.contextStyle, styles: semanticRootStylePriority.contextStyles }}>
+        <Segmented options={['a', 'b']} style={semanticRootStylePriority.style} styles={semanticRootStylePriority.styles} />
+      </ConfigProvider>
+    ), { attachTo: document.body })
+
+    expectSemanticRootStylePriority(wrapper.find('.ant-segmented').element)
+    wrapper.unmount()
   })
 })

@@ -4,6 +4,7 @@ import { EditOutlined } from '@antdv-next/icons'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { usePageInfo } from '@/composables/doc-page.ts'
+import ComponentMeta from './component-meta.vue'
 
 defineOptions({
   name: 'DocHeading',
@@ -15,6 +16,13 @@ const props = defineProps<{
 
 const pageInfo = usePageInfo()
 const frontmatter = computed(() => props?.frontmatter ?? pageInfo.frontmatter)
+
+// The edit link is provided by <ComponentMeta> only when it actually renders
+// (component pages with showImport !== false). Keep the title-level edit link
+// everywhere else — including `category: Components` pages that opt out via
+// `showImport: false` (e.g. the overview page).
+const showTitleEdit = computed(() =>
+  frontmatter.value?.category !== 'Components' || frontmatter.value?.showImport === false)
 
 const route = useRoute()
 const githubUrl = computed(() => {
@@ -32,7 +40,7 @@ const githubUrl = computed(() => {
     <a-space>
       <span>{{ frontmatter?.title }}</span>
       <span>{{ frontmatter?.subtitle }}</span>
-      <a-tooltip destroy-on-hidden title="在 GitHub 上编辑此页">
+      <a-tooltip v-if="showTitleEdit" destroy-on-hidden title="在 GitHub 上编辑此页">
         <a
           :href="githubUrl" class="relative top--2px inline-block decoration-none align-mid ml-xs"
           rel="noopener noreferrer" target="_blank"
@@ -43,4 +51,5 @@ const githubUrl = computed(() => {
     </a-space>
   </a-typography-title>
   {{ frontmatter?.description }}
+  <ComponentMeta :frontmatter="frontmatter" />
 </template>

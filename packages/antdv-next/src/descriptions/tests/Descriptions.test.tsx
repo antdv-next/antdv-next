@@ -207,11 +207,11 @@ describe('descriptions', () => {
     expect(wrapper.find('.ant-descriptions-medium').exists()).toBe(true)
   })
 
-  it('does not add size class for default', () => {
+  it('does not add size class for large', () => {
     const wrapper = mount(Descriptions, {
-      props: { size: 'default', items: basicItems },
+      props: { size: 'large', items: basicItems },
     })
-    expect(wrapper.find('.ant-descriptions-default').exists()).toBe(false)
+    expect(wrapper.find('.ant-descriptions-large').exists()).toBe(false)
   })
 
   // ==================== Layout ====================

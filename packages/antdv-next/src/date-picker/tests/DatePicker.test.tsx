@@ -1,9 +1,10 @@
 import dayjs from 'dayjs'
 import MockDate from 'mockdate'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { nextTick, ref } from 'vue'
+import { defineComponent, h, nextTick, ref } from 'vue'
 import DatePicker from '..'
 import { resetWarned } from '../../_util/warning'
+import Flex from '../../flex'
 import { mount } from '/@tests/utils'
 
 function getCell(text: string) {
@@ -62,6 +63,35 @@ describe('date-picker', () => {
     wrapper.unmount()
   })
 
+  // A custom `components.date` panel must not let the picker-injected `prefixCls`
+  // ("ant-picker") fall through to a child component (here Flex), which would make
+  // Flex emit `.ant-picker{display:flex;margin:0;padding:0}` and clobber picker styles.
+  it('does not leak picker prefixCls into a custom panel child', async () => {
+    const CustomPanel = defineComponent({
+      inheritAttrs: false,
+      setup() {
+        return () => h(Flex, { class: 'my-custom-panel' }, () => 'panel')
+      },
+    })
+    const wrapper = mount(DatePicker, {
+      props: {
+        open: true,
+        components: { date: CustomPanel },
+      },
+      attachTo: document.body,
+    })
+    await nextTick()
+
+    const flexEl = document.querySelector('.my-custom-panel')
+    expect(flexEl).toBeTruthy()
+    // Flex must use its own prefix, not the leaked picker prefix.
+    expect(flexEl?.classList.contains('ant-flex')).toBe(true)
+    expect(flexEl?.classList.contains('ant-picker')).toBe(false)
+
+    await wrapper.setProps({ open: false })
+    wrapper.unmount()
+  })
+
   it('should render time columns based on showTime options', async () => {
     const wrapper = mount(DatePicker, {
       props: {
@@ -94,6 +124,26 @@ describe('date-picker', () => {
     expect(wrapper.find('.ant-picker-clear').exists()).toBe(true)
     expect(wrapper.find('.ant-picker-clear .anticon').exists()).toBe(true)
     expect(wrapper.find('.ant-picker-clear svg').exists()).toBe(true)
+  })
+
+  // https://github.com/ant-design/ant-design/pull/58403
+  it('emits clear when the clear icon is clicked', async () => {
+    const onClear = vi.fn()
+    const wrapper = mount(DatePicker, {
+      attachTo: document.body,
+      props: {
+        value: dayjs('2026-02-23'),
+        onClear,
+      },
+    })
+
+    const clearBtn = wrapper.find('.ant-picker-clear')
+    expect(clearBtn.exists()).toBe(true)
+    await clearBtn.trigger('mousedown')
+    await clearBtn.trigger('click')
+
+    expect(onClear).toHaveBeenCalledTimes(1)
+    wrapper.unmount()
   })
 
   it('should support custom clear icon through allowClear config', () => {

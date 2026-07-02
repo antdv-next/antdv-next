@@ -3,7 +3,7 @@ import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { EmptyEmit, VueNode } from '../_util/type.ts'
 import { clsx } from '@v-c/util'
 import { computed, defineComponent } from 'vue'
-import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { useComponentBaseConfig } from '../config-provider/context.ts'
 
@@ -66,11 +66,12 @@ const CardMeta = defineComponent<
     const metaPrefixCls = computed(() => `${prefixCls.value}-meta`)
     const mergedProps = computed(() => props)
 
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       CardMetaClassNamesType,
       CardMetaStylesType,
       CardMetaProps
-    >(useToArr(contextClassNames, cardMetaClassNames), useToArr(contextStyles, styles), useToProps(mergedProps))
+    >(useToArr(contextClassNames, cardMetaClassNames), useToArr(contextStyles, contextStyleRoot as any, styles), useToProps(mergedProps))
     return () => {
       const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
       const rootClassNames = clsx(
@@ -80,7 +81,6 @@ const CardMeta = defineComponent<
         mergedClassNames.value?.root,
       )
       const rootStyles = {
-        ...contextStyle.value,
         ...mergedStyles.value?.root,
         ...style,
       }

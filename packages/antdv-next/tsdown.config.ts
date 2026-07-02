@@ -21,7 +21,6 @@ export default defineConfig({
   ],
   unbundle: true,
   format: 'es',
-  inlineOnly: false,
   outExtensions() {
     return {
       js: '.js',
@@ -30,16 +29,20 @@ export default defineConfig({
   },
   // minify: true,
   clean: true,
-  skipNodeModulesBundle: true,
   copy: [
     { from: 'src/style/reset.css', to: 'dist' },
   ],
-  external: [
-    'vue',
-    '@antdv-next/icons',
-    '@antdv-next/cssinjs/cssinjs-utils',
-    '@antdv-next/cssinjs',
-    'csstype',
-    '@v-c/util',
-  ],
+  deps: {
+    onlyBundle: false,
+    skipNodeModulesBundle: true,
+    neverBundle: [
+      'vue',
+      '@antdv-next/icons',
+      '@antdv-next/cssinjs/cssinjs-utils',
+      '@antdv-next/cssinjs',
+      'csstype',
+      '@v-c/util',
+      '@vueuse/core',
+    ],
+  },
 })

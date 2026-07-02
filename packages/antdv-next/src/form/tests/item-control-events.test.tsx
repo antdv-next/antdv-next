@@ -103,6 +103,43 @@ describe('form item control events', () => {
     wrapper.unmount()
   })
 
+  // https://github.com/antdv-next/antdv-next/issues/597
+  // Repeated focus/blur used to call updateMeta with an identical state and
+  // still produce a new meta object, re-rendering the sole child on every
+  // event and resetting its internal draft state (e.g. DatePicker showTime).
+  it('does not re-render children on focus/blur once meta is unchanged', async () => {
+    const renderCount = vi.fn()
+
+    const wrapper = mount(() => (
+      <Form model={{ username: '' }}>
+        <FormItem name="username">
+          {{
+            default: () => {
+              renderCount()
+              return <input />
+            },
+          }}
+        </FormItem>
+      </Form>
+    ))
+
+    await nextTick()
+    const input = wrapper.find('input')
+    await input.trigger('focus')
+    await input.trigger('blur')
+    const countAfterFirstTouch = renderCount.mock.calls.length
+
+    await input.trigger('focus')
+    await input.trigger('blur')
+    await input.trigger('focus')
+    await input.trigger('blur')
+    await nextTick()
+
+    expect(renderCount.mock.calls.length).toBe(countAfterFirstTouch)
+
+    wrapper.unmount()
+  })
+
   it('preserves child ref after FormItem wraps vnode props', async () => {
     const inputRef = ref<HTMLInputElement>()
 

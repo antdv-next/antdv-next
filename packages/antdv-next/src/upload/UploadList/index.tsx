@@ -1,6 +1,6 @@
 import type { SlotsType } from 'vue'
 import type { UploadFile, UploadListEmits, UploadListProps, UploadListSlots, UploadLocale } from '../interface'
-import { FileTwoTone, LoadingOutlined, PaperClipOutlined, PictureTwoTone } from '@antdv-next/icons'
+import { FileOutlined, LoadingOutlined, PaperClipOutlined, PictureOutlined } from '@antdv-next/icons'
 import { clsx } from '@v-c/util'
 import { getTransitionGroupProps } from '@v-c/util/dist/utils/transition'
 import { cloneVNode, computed, defineComponent, getCurrentInstance, isVNode, onMounted, shallowRef, TransitionGroup, watch } from 'vue'
@@ -117,7 +117,7 @@ const UploadList = defineComponent<
       const isLoading = file.status === 'uploading'
       if (listType.value.startsWith('picture')) {
         const loadingIcon = listType.value === 'picture' ? <LoadingOutlined /> : props.locale?.uploading
-        const fileIcon = mergedIsImageUrl.value?.(file) ? <PictureTwoTone /> : <FileTwoTone />
+        const fileIcon = mergedIsImageUrl.value?.(file) ? <PictureOutlined /> : <FileOutlined />
         return isLoading ? loadingIcon : fileIcon
       }
       return isLoading ? <LoadingOutlined /> : <PaperClipOutlined />

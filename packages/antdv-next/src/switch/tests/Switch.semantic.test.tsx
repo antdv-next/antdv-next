@@ -1,6 +1,8 @@
 import type { SwitchProps } from '..'
 import { describe, expect, it, vi } from 'vitest'
 import Switch from '..'
+import ConfigProvider from '../../config-provider'
+import { expectSemanticRootStylePriority, semanticRootStylePriority } from '/@tests/shared/semanticStylePriority'
 import { mount } from '/@tests/utils'
 
 const prefixCls = 'ant-switch'
@@ -117,5 +119,16 @@ describe('switch.semantic', () => {
       expect(handle.exists()).toBe(true)
       expect(handle.classes()).toContain('c-indicator')
     })
+  })
+
+  // https://github.com/ant-design/ant-design/pull/58474
+  it('aligns root semantic style priority', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider switch={{ style: semanticRootStylePriority.contextStyle, styles: semanticRootStylePriority.contextStyles }}>
+        <Switch style={semanticRootStylePriority.style} styles={semanticRootStylePriority.styles} />
+      </ConfigProvider>
+    ), { attachTo: document.body })
+    expectSemanticRootStylePriority(wrapper.find(`.${prefixCls}`).element)
+    wrapper.unmount()
   })
 })

@@ -9,7 +9,7 @@ Custom sizes to fit in a variety of containers.
 <script setup lang="ts">
 import { ref } from 'vue'
 
-const size = ref<'default' | 'middle' | 'small'>('default')
+const size = ref<'large' | 'middle' | 'small'>('large')
 const borderItems = [
   {
     key: '1',
@@ -99,8 +99,8 @@ const items = [
 
 <template>
   <a-radio-group v-model:value="size">
-    <a-radio value="default">
-      default
+    <a-radio value="large">
+      large
     </a-radio>
     <a-radio value="middle">
       middle

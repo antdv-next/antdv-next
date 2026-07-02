@@ -1,6 +1,8 @@
 import type { EmptyProps } from '..'
 import { describe, expect, it, vi } from 'vitest'
 import Empty from '..'
+import ConfigProvider from '../../config-provider'
+import { expectSemanticRootStylePriority, semanticRootStylePriority } from '/@tests/shared/semanticStylePriority'
 import { mount } from '/@tests/utils'
 
 describe('empty.Semantic', () => {
@@ -146,5 +148,16 @@ describe('empty.Semantic', () => {
 
     await wrapper.setProps({ description: 'Error' })
     expect(wrapper.find('.ant-empty').classes()).toContain('error-root')
+  })
+
+  // https://github.com/ant-design/ant-design/pull/58474
+  it('aligns root semantic style priority', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider empty={{ style: semanticRootStylePriority.contextStyle, styles: semanticRootStylePriority.contextStyles }}>
+        <Empty style={semanticRootStylePriority.style} styles={semanticRootStylePriority.styles} />
+      </ConfigProvider>
+    ), { attachTo: document.body })
+    expectSemanticRootStylePriority(wrapper.find('.ant-empty').element)
+    wrapper.unmount()
   })
 })

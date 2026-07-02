@@ -125,6 +125,34 @@ describe('table sorter', () => {
     expect(cells[0]!.text()).toBe('42')
   })
 
+  // https://github.com/ant-design/ant-design/issues/32847
+  it('defaultSortOrder still applies when column is hidden by responsive', () => {
+    // The matchMedia mock only matches `max-width` queries, so a column with
+    // `responsive: ['md']` (min-width) is filtered out of `mergedColumns`.
+    // The default sort should still apply because base (pre-responsive)
+    // columns are used to collect default sort states.
+    const columns = [
+      // Always-visible column we can read to assert row order.
+      { title: 'Name', dataIndex: 'name', key: 'name' },
+      {
+        title: 'AgeSorted',
+        dataIndex: 'age',
+        key: 'age-sorted',
+        sorter: (a: any, b: any) => a.age - b.age,
+        defaultSortOrder: 'descend' as const,
+        responsive: ['md'] as any,
+      },
+    ]
+    const wrapper = mount(Table, {
+      props: { columns, dataSource: data, pagination: false },
+    })
+    // The responsive sorter column should not render a header.
+    expect(wrapper.findAll('thead th')).toHaveLength(1)
+    // But the data should still be sorted by the hidden column's defaultSortOrder.
+    const names = wrapper.findAll('tbody tr td').map(c => c.text())
+    expect(names).toEqual(['Jim', 'John', 'Joe', 'Jerry'])
+  })
+
   it('should support sortDirections', async () => {
     // Only descend allowed
     const columns = [

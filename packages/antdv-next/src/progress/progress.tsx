@@ -8,6 +8,7 @@ import { computed, defineComponent } from 'vue'
 import {
   getAttrStyleAndClass,
   useMergeSemantic,
+  useSemanticRootStyle,
   useToArr,
   useToProps,
 } from '../_util/hooks'
@@ -163,11 +164,12 @@ const Progress = defineComponent<
       percentPosition: mergedPercentPosition.value,
     }))
 
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       ProgressClassNamesType,
       ProgressStylesType,
       ProgressProps
-    >(useToArr(contextClassNames, classes), useToArr(contextStyles, styles), useToProps(mergedProps))
+    >(useToArr(contextClassNames, classes), useToArr(contextStyles, contextStyleRoot as any, styles), useToProps(mergedProps))
 
     const infoAlign = computed(() => mergedPercentPosition.value.align ?? 'end')
     const infoPosition = computed(() => mergedPercentPosition.value.type ?? 'outer')
@@ -332,7 +334,6 @@ const Progress = defineComponent<
       )
 
       const rootStyle = [
-        contextStyle.value,
         mergedStyles.value.root,
         attrStyle,
       ]

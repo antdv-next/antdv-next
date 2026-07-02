@@ -5,7 +5,7 @@ import type { ComponentBaseProps } from '../config-provider/context.ts'
 import { classNames } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { computed, defineComponent } from 'vue'
-import { pureAttrs, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { pureAttrs, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { useComponentBaseConfig, useComponentConfig } from '../config-provider/context.ts'
 import useLocale from '../locale/useLocale.ts'
@@ -79,13 +79,14 @@ const Empty = defineComponent<
     } = useComponentBaseConfig('empty', props)
     const { classes, styles } = toPropsRefs(props, 'classes', 'styles')
     const [hashId, cssVarCls] = useStyle(prefixCls)
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       EmptyClassNamesType,
       EmptyStylesType,
       EmptyProps
     >(
       useToArr(contextClassNames, classes),
-      useToArr(contextStyles, styles),
+      useToArr(contextStyles, contextStyleRoot as any, styles),
       useToProps(computed(() => props)),
     )
 
@@ -120,7 +121,6 @@ const Empty = defineComponent<
           )}
           style={[
             mergedStyles.value.root,
-            contextStyle.value,
             (attrs as any).style,
           ]}
           {...pureAttrs(attrs)}

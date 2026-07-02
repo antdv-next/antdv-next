@@ -215,6 +215,12 @@ const InternalFormItem = defineComponent<
     })
 
     const updateMeta = (state: Partial<Meta>) => {
+      // Skip no-op updates (e.g. repeated `touched: true` on every focus/blur),
+      // otherwise each event re-renders children and can reset their internal state.
+      const prev = meta.value as Record<string, any>
+      if (Object.keys(state).every(key => (state as Record<string, any>)[key] === prev[key])) {
+        return
+      }
       meta.value = { ...meta.value, ...state }
       if (props.noStyle && notifyParentMetaChange) {
         notifyParentMetaChange(meta.value, meta.value.name)

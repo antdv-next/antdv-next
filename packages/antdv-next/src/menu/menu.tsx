@@ -9,7 +9,7 @@ import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { computed, createVNode, defineComponent, isVNode, shallowRef } from 'vue'
-import { useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import initCollapseMotion from '../_util/motion.ts'
 import { toPropsRefs } from '../_util/tools.ts'
 import { devUseWarning, isDev } from '../_util/warning.ts'
@@ -272,13 +272,14 @@ const InternalMenu = defineComponent<
       } as MenuProps
     })
 
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       MenuClassNamesType,
       MenuStylesType,
       MenuProps
     >(
       useToArr(contextClassNames, classes),
-      useToArr(contextStyles, styles),
+      useToArr(contextStyles, contextStyleRoot as any, styles),
       useToProps(mergedProps),
       computed(() => ({
         popup: {
@@ -380,7 +381,6 @@ const InternalMenu = defineComponent<
               inlineCollapsed={mergedInlineCollapsed.value as any}
               style={{
                 ...mergedStyles.value?.root,
-                ...contextStyle.value,
                 ...(attrs as any).style,
               }}
               ref={menuRef as any}

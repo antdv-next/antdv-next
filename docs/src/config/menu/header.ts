@@ -35,7 +35,6 @@ function flattenHeaderLocales(nestedLocales: typeof locales['zh-CN']['menu']['he
     '/docs/vue': nestedLocales.docs.vue,
     '/components': nestedLocales.components,
     '/blog': nestedLocales.blog,
-    '/pro': nestedLocales.pro,
     '/docs/resources': nestedLocales.resources,
     '/sponsor': nestedLocales.sponsor,
     '/playground': nestedLocales.playground,

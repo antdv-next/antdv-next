@@ -25,22 +25,18 @@ describe('tree-select', () => {
         {
           value: 'parent 1',
           title: 'parent 1',
-          key: '0-1',
           children: [
             {
               value: 'parent 1-0',
               title: 'parent 1-0',
-              key: '0-1-1',
               children: [
                 {
                   value: 'leaf1',
                   title: 'my leaf',
-                  key: 'random',
                 },
                 {
                   value: 'leaf2',
                   title: 'your leaf',
-                  key: 'random1',
                 },
               ],
             },
@@ -73,7 +69,6 @@ describe('tree-select', () => {
         {
           value: 'parent 1',
           title: 'parent 1',
-          key: 'p1',
           icon: <span class="bamboo"></span>,
         },
       ]
@@ -513,15 +508,13 @@ describe('tree-select', () => {
       {
         value: 'parent 1',
         title: 'parent 1',
-        key: '0-1',
         children: [
           {
             value: 'parent 1-0',
             title: 'parent 1-0',
-            key: '0-1-1',
             children: [
-              { value: 'leaf1', title: 'my leaf', key: 'random' },
-              { value: 'leaf2', title: 'your leaf', key: 'random1' },
+              { value: 'leaf1', title: 'my leaf' },
+              { value: 'leaf2', title: 'your leaf' },
             ],
           },
         ],

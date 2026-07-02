@@ -17,6 +17,9 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 <demo-group>
   <demo src="./demo/basic.vue">Basic Usage</demo>
   <demo src="./demo/control-hooks.vue">Form methods</demo>
+  <demo src="./demo/use-form.vue">useForm instance</demo>
+  <demo src="./demo/use-form-name.vue">Connect form by name</demo>
+  <demo src="./demo/use-form-ref.vue">Bind form via ref</demo>
   <demo src="./demo/layout.vue">Form Layout</demo>
   <demo src="./demo/layout-multiple.vue">Form mix layout</demo>
   <demo src="./demo/disabled.vue">Form disabled</demo>
@@ -28,6 +31,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
   <demo src="./demo/useWatch.vue">Watch Hooks</demo>
   <demo src="./demo/validate-trigger.vue">Validate Trigger</demo>
   <demo src="./demo/validate-only.vue">Validate Only</demo>
+  <demo src="./demo/form-zod.vue">Validate with zod</demo>
   <demo src="./demo/form-item-path.vue">Path Prefix</demo>
   <demo src="./demo/dynamic-form-item.vue">Dynamic Form Item</demo>
   <demo src="./demo/dynamic-form-items.vue">Dynamic Form nest Items</demo>

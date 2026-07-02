@@ -235,7 +235,7 @@ const value = ref('leaf1')
         v-model:value="value"
         show-search
         style="width: 60%"
-        :dropdown-style="{ maxHeight: '400px', overflow: 'auto' }"
+        :styles="{ popup: { root: { maxHeight: '400px', overflow: 'auto' } } }"
         placeholder="Please select"
         allow-clear
         tree-default-expand-all

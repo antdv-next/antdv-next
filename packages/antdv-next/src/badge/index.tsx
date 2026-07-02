@@ -57,7 +57,8 @@ export interface BadgeProps extends ComponentBaseProps {
   text?: VueNode
   size?: Exclude<SizeType, 'large'> | 'default'
   offset?: [number | string, number | string]
-  title?: string
+  /** Set `null` or `false` to remove the native tooltip title. */
+  title?: string | null | false
   classes?: BadgeClassNamesType
   styles?: BadgeStylesType
 }
@@ -197,7 +198,8 @@ const InternalBadge = defineComponent<
       if (typeof livingCount === 'function') {
         livingCount = livingCount()
       }
-      const titleNode = props.title ?? (typeof livingCount === 'string' || typeof livingCount === 'number' ? livingCount : undefined)
+      const fallbackTitleNode = typeof livingCount === 'string' || typeof livingCount === 'number' ? livingCount : undefined
+      const titleNode = props.title === null || props.title === false ? undefined : (props.title ?? fallbackTitleNode)
       const hasTextSlot = textNodes.value.length > 0
       const showStatusTextNode = !isHidden.value && (hasTextSlot ? true : (props.text === 0 ? props.showZero : !!props.text && props.text !== true))
 

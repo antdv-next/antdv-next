@@ -14,6 +14,7 @@ import { pureAttrs, useMergeSemantic, useToArr, useToProps } from '../_util/hook
 import { useZIndex } from '../_util/hooks/useZIndex'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { useComponentBaseConfig } from '../config-provider/context'
+import { useDisabledContext } from '../config-provider/DisabledContext'
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
 import Flex from '../flex'
 import { SpaceCompact } from '../space'
@@ -167,7 +168,14 @@ const InternalFloatButtonGroup = defineComponent<
     const hoverTrigger = computed(() => trigger.value === 'hover')
     const clickTrigger = computed(() => trigger.value === 'click')
 
+    // ============================ Disabled ============================
+    const disabledContext = useDisabledContext()
+    const mergedDisabled = computed(() => props.disabled ?? disabledContext.value)
+
     const triggerOpen = (nextOpen: boolean) => {
+      if (mergedDisabled.value) {
+        return
+      }
       emit('update:open', nextOpen)
       if (props.open !== undefined) {
         return
@@ -335,6 +343,7 @@ const InternalFloatButtonGroup = defineComponent<
               {...restButtonProps.value}
               type={mergedType.value}
               shape={mergedShape.value}
+              disabled={mergedDisabled.value}
               icon={open.value ? mergedCloseIcon : mergedTriggerIcon}
               rootClass={classNames(`${groupPrefixCls.value}-trigger`, mergedClassNames.value.trigger)}
               classes={undefined}

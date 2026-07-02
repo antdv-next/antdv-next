@@ -38,6 +38,33 @@ describe('table row selection', () => {
     expect(wrapper.findAll('input[type="checkbox"]').length).toBeGreaterThan(0)
   })
 
+  // https://github.com/ant-design/ant-design/pull/58275
+  it('should have default aria-label on body checkboxes', () => {
+    const wrapper = mount(Table, {
+      props: { columns, dataSource: data, pagination: false, rowSelection: {} },
+    })
+    const checkboxes = wrapper.findAll('tbody .ant-checkbox-wrapper')
+    expect(checkboxes[0]!.attributes('aria-label')).toBe('Select row 1')
+    expect(checkboxes[1]!.attributes('aria-label')).toBe('Select row 2')
+    expect(checkboxes[2]!.attributes('aria-label')).toBe('Select row 3')
+  })
+
+  it('should support custom aria-label from getCheckboxProps', () => {
+    const wrapper = mount(Table, {
+      props: {
+        columns,
+        dataSource: data,
+        pagination: false,
+        rowSelection: {
+          getCheckboxProps: (record: any) => ({ 'aria-label': `Select ${record.name}` }),
+        },
+      },
+    })
+    const checkboxes = wrapper.findAll('tbody .ant-checkbox-wrapper')
+    expect(checkboxes[0]!.attributes('aria-label')).toBe('Select John')
+    expect(checkboxes[1]!.attributes('aria-label')).toBe('Select Jim')
+  })
+
   it('should render radio column when type is radio', () => {
     const wrapper = mount(Table, {
       props: {

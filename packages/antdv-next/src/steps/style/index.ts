@@ -9,6 +9,7 @@ import genHorizontalStyle from './horizontal'
 import genIconStyle from './icon'
 import genInlineStyle from './inline'
 import genLabelPlacementStyle from './label-placement'
+import genMaxCountStyle from './max-count'
 import genLegacyNavStyle from './nav'
 import genPanelStyle from './panel'
 import genStepsProgressStyle from './progress'
@@ -224,6 +225,7 @@ export default genStyleHooks(
       genInlineStyle(stepsToken),
       genStepsProgressStyle(stepsToken),
       genRTLStyle(stepsToken),
+      genMaxCountStyle(stepsToken),
     ]
   },
   prepareComponentToken,

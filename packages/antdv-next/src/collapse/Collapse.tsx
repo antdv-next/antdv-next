@@ -11,6 +11,7 @@ import { omit } from 'es-toolkit'
 import { computed, defineComponent } from 'vue'
 import {
   useMergeSemantic,
+  useSemanticRootStyle,
   useToArr,
   useToProps,
 } from '../_util/hooks'
@@ -138,13 +139,14 @@ const Collapse = defineComponent<
       bordered: props.bordered ?? true,
       expandIconPlacement: mergedPlacement.value,
     }))
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       CollapseClassNamesType,
       CollapseStylesType,
       CollapseProps
     >(
       useToArr(contextClassNames, classes),
-      useToArr(contextStyles, styles),
+      useToArr(contextStyles, contextStyleRoot as any, styles),
       useToProps(mergedProps),
     )
 
@@ -228,7 +230,7 @@ const Collapse = defineComponent<
           {...omit(props, ['rootClass', 'items', 'expandIconPlacement', 'classes', 'styles']) as any}
           class={collapseClassName}
           prefixCls={prefixCls.value}
-          style={[mergedStyles.value.root, contextStyle.value, (attrs as any).style]}
+          style={[mergedStyles.value.root, (attrs as any).style]}
           expandIcon={renderExpandIcon}
           classNames={mergedClassNames.value}
           styles={mergedStyles.value}
