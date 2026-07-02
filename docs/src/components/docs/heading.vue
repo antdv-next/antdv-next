@@ -4,6 +4,7 @@ import { EditOutlined } from '@antdv-next/icons'
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { usePageInfo } from '@/composables/doc-page.ts'
+import ComponentMeta from './component-meta.vue'
 
 defineOptions({
   name: 'DocHeading',
@@ -43,4 +44,5 @@ const githubUrl = computed(() => {
     </a-space>
   </a-typography-title>
   {{ frontmatter?.description }}
+  <ComponentMeta :frontmatter="frontmatter" />
 </template>
