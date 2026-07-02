@@ -8,6 +8,7 @@ packages:
   - docs
 
 overrides:
+  '@v-c/notification': catalog:vc
   '@v-c/portal': catalog:vc
   '@v-c/resize-observer': catalog:vc
   '@v-c/trigger': catalog:vc
