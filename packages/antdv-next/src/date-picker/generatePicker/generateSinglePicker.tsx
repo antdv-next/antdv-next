@@ -273,7 +273,7 @@ function generatePicker<DateType extends AnyObject = AnyObject>(generateConfig: 
         expose({
           focus: (options?: FocusOptions) => innerRef.value?.focus?.(options),
           blur: () => innerRef.value?.blur?.(),
-          nativeElement: computed(() => () => innerRef.value?.nativeElement),
+          nativeElement: computed(() => innerRef.value?.nativeElement),
         })
 
         return () => {
