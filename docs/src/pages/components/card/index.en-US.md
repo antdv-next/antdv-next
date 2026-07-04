@@ -26,6 +26,7 @@ A card can be used to display content related to a single subject. The content c
   <demo src="./demo/meta.vue">Support more content configuration</demo>
   <demo src="./demo/style-class.vue">Custom semantic dom styling</demo>
   <demo src="./demo/no-body-debug.vue" debug>Cover and actions without body</demo>
+  <demo src="./demo/button-alignment-debug.vue" debug>Debug button icon alignment in Card extra</demo>
 </demo-group>
 
 ## API
