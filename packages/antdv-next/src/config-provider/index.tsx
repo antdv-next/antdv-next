@@ -251,7 +251,7 @@ const ProviderChildren = defineComponent<
     const layer = computed(() => styleContext.value.layer)
 
     // Icon Support
-    const memoIconContextValue = computed(() => ({ prefixCls: iconPrefixCls.value, csp: csp.value, layer: layer.value ? 'antd' : undefined, zeroRuntime: mergedTheme.value?.zeroRuntime }))
+    const memoIconContextValue = computed(() => ({ prefixCls: iconPrefixCls.value, csp: csp.value, layer: layer.value ? 'antd' : undefined, zeroRuntime: !!layer.value || mergedTheme.value?.zeroRuntime }))
 
     // ================================ Dynamic theme ================================
     const memoTheme = computed(() => {
