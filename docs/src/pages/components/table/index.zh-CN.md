@@ -68,6 +68,7 @@ const columns = [
   <demo src="./demo/size.vue">尺寸</demo>
   <demo src="./demo/sticky.vue">粘性表头</demo>
   <demo src="./demo/fixed-header.vue">固定表头</demo>
+  <demo src="./demo/auto-height.vue">自动高度</demo>
   <demo src="./demo/fixed-columns.vue">固定列</demo>
   <demo src="./demo/fixed-columns-header.vue">固定列与表头</demo>
   <demo src="./demo/fixed-gapped-columns.vue">超宽固定列</demo>

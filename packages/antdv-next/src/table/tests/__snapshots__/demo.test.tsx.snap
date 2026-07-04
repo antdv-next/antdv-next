@@ -2051,6 +2051,554 @@ exports[`table demo > renders ajax correctly 1`] = `
 </div>
 `;
 
+exports[`table demo > renders auto-height correctly 1`] = `
+<div
+  class="ant-flex css-var-root ant-flex-align-start ant-flex-gap-middle ant-flex-vertical"
+>
+  <button
+    aria-checked="true"
+    checked="true"
+    class="ant-switch css-var-root ant-switch-checked"
+    role="switch"
+    type="button"
+  >
+    <div
+      class="ant-switch-handle"
+    >
+      <!---->
+    </div>
+    <span
+      class="ant-switch-inner"
+    >
+      <span
+        class="ant-switch-inner-checked"
+      >
+        More Data
+      </span>
+      <span
+        class="ant-switch-inner-unchecked"
+      >
+        More Data
+      </span>
+    </span>
+  </button>
+  <div
+    style="height: 400px; box-sizing: border-box; background: rgba(140, 140, 140, 0.03); padding: 16px; align-self: stretch;"
+  >
+    <div
+      class="css-var-root ant-table-css-var ant-table-wrapper"
+      data-allow-mismatch="true"
+      style="height: 100%;"
+    >
+      <div
+        aria-busy="false"
+        aria-live="polite"
+        class="ant-spin css-var-root"
+      >
+        <!---->
+        <div
+          class="ant-spin-container"
+        >
+          <div
+            class="ant-table css-var-root ant-table-css-var ant-table-fixed-header"
+          >
+            <!---->
+            <div
+              class="ant-table-container"
+              style="height: 0px;"
+            >
+              <div
+                class="ant-table-header"
+                scroll="[object Object]"
+                style="overflow: hidden;"
+              >
+                <table
+                  style="table-layout: fixed; min-width: 100%;"
+                >
+                  <colgroup>
+                    <col
+                      style="width: 20%;"
+                    />
+                    <col
+                      style="width: 20%;"
+                    />
+                    <col
+                      style="width: 60%;"
+                    />
+                  </colgroup>
+                  <thead
+                    class="ant-table-thead measure-header"
+                  >
+                    <tr
+                      class=""
+                    >
+                      <th
+                        class="ant-table-cell"
+                        colend="0"
+                        colstart="0"
+                        scope="col"
+                      >
+                        <!---->
+                        Name
+                      </th>
+                      <th
+                        class="ant-table-cell"
+                        colend="1"
+                        colstart="1"
+                        scope="col"
+                      >
+                        <!---->
+                        Age
+                      </th>
+                      <th
+                        class="ant-table-cell"
+                        colend="2"
+                        colstart="2"
+                        scope="col"
+                      >
+                        <!---->
+                        Address
+                      </th>
+                    </tr>
+                  </thead>
+                  <!---->
+                </table>
+              </div>
+              <div
+                class="ant-table-body"
+                style="overflow-y: scroll; max-height: 0px;"
+              >
+                <table
+                  style="table-layout: fixed;"
+                >
+                  <!---->
+                  <colgroup>
+                    <col
+                      style="width: 20%;"
+                    />
+                    <col
+                      style="width: 20%;"
+                    />
+                    <col
+                      style="width: 60%;"
+                    />
+                  </colgroup>
+                  <tbody
+                    class="ant-table-tbody"
+                  >
+                    <tr
+                      aria-hidden="true"
+                      class="ant-table-measure-row"
+                      style="height: 0px;"
+                    >
+                      <td
+                        style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                      >
+                        <div
+                          style="height: 0px; overflow: hidden; font-weight: bold;"
+                        >
+                          Name
+                        </div>
+                      </td>
+                      <td
+                        style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                      >
+                        <div
+                          style="height: 0px; overflow: hidden; font-weight: bold;"
+                        >
+                          Age
+                        </div>
+                      </td>
+                      <td
+                        style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                      >
+                        <div
+                          style="height: 0px; overflow: hidden; font-weight: bold;"
+                        >
+                          Address
+                        </div>
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="0"
+                    >
+                      <td
+                        class="ant-table-cell"
+                        scope="row"
+                      >
+                        <!---->
+                        Edward King 0
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                        scope="row"
+                      >
+                        <!---->
+                        32
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                        scope="row"
+                      >
+                        <!---->
+                        London, Park Lane no. 0
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="1"
+                    >
+                      <td
+                        class="ant-table-cell"
+                        scope="row"
+                      >
+                        <!---->
+                        Edward King 1
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                        scope="row"
+                      >
+                        <!---->
+                        33
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                        scope="row"
+                      >
+                        <!---->
+                        London, Park Lane no. 1
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="2"
+                    >
+                      <td
+                        class="ant-table-cell"
+                        scope="row"
+                      >
+                        <!---->
+                        Edward King 2
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                        scope="row"
+                      >
+                        <!---->
+                        34
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                        scope="row"
+                      >
+                        <!---->
+                        London, Park Lane no. 2
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="3"
+                    >
+                      <td
+                        class="ant-table-cell"
+                        scope="row"
+                      >
+                        <!---->
+                        Edward King 3
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                        scope="row"
+                      >
+                        <!---->
+                        35
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                        scope="row"
+                      >
+                        <!---->
+                        London, Park Lane no. 3
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="4"
+                    >
+                      <td
+                        class="ant-table-cell"
+                        scope="row"
+                      >
+                        <!---->
+                        Edward King 4
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                        scope="row"
+                      >
+                        <!---->
+                        36
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                        scope="row"
+                      >
+                        <!---->
+                        London, Park Lane no. 4
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="5"
+                    >
+                      <td
+                        class="ant-table-cell"
+                        scope="row"
+                      >
+                        <!---->
+                        Edward King 5
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                        scope="row"
+                      >
+                        <!---->
+                        37
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                        scope="row"
+                      >
+                        <!---->
+                        London, Park Lane no. 5
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="6"
+                    >
+                      <td
+                        class="ant-table-cell"
+                        scope="row"
+                      >
+                        <!---->
+                        Edward King 6
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                        scope="row"
+                      >
+                        <!---->
+                        38
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                        scope="row"
+                      >
+                        <!---->
+                        London, Park Lane no. 6
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="7"
+                    >
+                      <td
+                        class="ant-table-cell"
+                        scope="row"
+                      >
+                        <!---->
+                        Edward King 7
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                        scope="row"
+                      >
+                        <!---->
+                        39
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                        scope="row"
+                      >
+                        <!---->
+                        London, Park Lane no. 7
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="8"
+                    >
+                      <td
+                        class="ant-table-cell"
+                        scope="row"
+                      >
+                        <!---->
+                        Edward King 8
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                        scope="row"
+                      >
+                        <!---->
+                        40
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                        scope="row"
+                      >
+                        <!---->
+                        London, Park Lane no. 8
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="9"
+                    >
+                      <td
+                        class="ant-table-cell"
+                        scope="row"
+                      >
+                        <!---->
+                        Edward King 9
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                        scope="row"
+                      >
+                        <!---->
+                        41
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                        scope="row"
+                      >
+                        <!---->
+                        London, Park Lane no. 9
+                      </td>
+                    </tr>
+                  </tbody>
+                  <!---->
+                </table>
+              </div>
+              <!---->
+              <!---->
+            </div>
+            <!---->
+          </div>
+          <!---->
+          <ul
+            class="ant-pagination ant-table-pagination ant-table-pagination-end measure-pagination css-var-root"
+          >
+            <!---->
+            <li
+              aria-disabled="true"
+              class="ant-pagination-prev ant-pagination-disabled"
+              title="上一页"
+            >
+              <button
+                class="ant-pagination-item-link"
+                disabled=""
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  aria-label="left"
+                  class="anticon anticon-left"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="left"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </li>
+            <li
+              class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+              tabindex="0"
+              title="1"
+            >
+              <a
+                rel="nofollow"
+              >
+                1
+              </a>
+            </li>
+            <li
+              class="ant-pagination-item ant-pagination-item-2"
+              tabindex="0"
+              title="2"
+            >
+              <a
+                rel="nofollow"
+              >
+                2
+              </a>
+            </li>
+            <li
+              class="ant-pagination-item ant-pagination-item-3"
+              tabindex="0"
+              title="3"
+            >
+              <a
+                rel="nofollow"
+              >
+                3
+              </a>
+            </li>
+            <li
+              aria-disabled="false"
+              class="ant-pagination-next"
+              tabindex="0"
+              title="下一页"
+            >
+              <button
+                class="ant-pagination-item-link"
+                tabindex="-1"
+                type="button"
+              >
+                <span
+                  aria-label="right"
+                  class="anticon anticon-right"
+                  role="img"
+                >
+                  <svg
+                    aria-hidden="true"
+                    data-icon="right"
+                    fill="currentColor"
+                    focusable="false"
+                    height="1em"
+                    viewBox="64 64 896 896"
+                    width="1em"
+                  >
+                    <path
+                      d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                    />
+                  </svg>
+                </span>
+              </button>
+            </li>
+            <!---->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`table demo > renders basic correctly 1`] = `
 <div
   class="css-var-root ant-table-css-var ant-table-wrapper"
@@ -3904,6 +4452,7 @@ exports[`table demo > renders custom-filter-panel correctly 1`] = `
                     </div>
                   </th>
                   <th
+                    aria-description="sortable"
                     aria-label="Address"
                     class="ant-table-cell ant-table-column-has-sorters"
                     colend="2"
@@ -6167,6 +6716,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                       Name
                     </th>
                     <th
+                      aria-description="sortable"
                       aria-label="Age"
                       class="ant-table-cell ant-table-column-has-sorters"
                       colend="3"
@@ -6277,6 +6827,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                       </div>
                     </th>
                     <th
+                      aria-description="sortable"
                       aria-label="Action"
                       class="ant-table-cell ant-table-column-has-sorters"
                       colend="5"
@@ -10331,6 +10882,7 @@ exports[`table demo > renders filter-in-tree correctly 1`] = `
                     </div>
                   </th>
                   <th
+                    aria-description="sortable"
                     aria-label="Age"
                     class="ant-table-cell ant-table-column-has-sorters"
                     colend="1"
@@ -10731,6 +11283,7 @@ exports[`table demo > renders filter-search correctly 1`] = `
                     </div>
                   </th>
                   <th
+                    aria-description="sortable"
                     aria-label="Age"
                     class="ant-table-cell ant-table-column-has-sorters"
                     colend="1"
@@ -11121,6 +11674,7 @@ exports[`table demo > renders fixed-columns correctly 1`] = `
                     Full Name
                   </th>
                   <th
+                    aria-description="sortable"
                     aria-label="Age"
                     class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow ant-table-column-has-sorters"
                     colend="1"
@@ -17207,6 +17761,7 @@ exports[`table demo > renders grouping-columns correctly 1`] = `
                   class=""
                 >
                   <th
+                    aria-description="sortable"
                     aria-label="Age"
                     class="ant-table-cell ant-table-column-has-sorters"
                     colend="1"
@@ -18490,6 +19045,7 @@ exports[`table demo > renders head correctly 1`] = `
                   class=""
                 >
                   <th
+                    aria-description="sortable"
                     aria-label="Name"
                     class="ant-table-cell ant-table-column-has-sorters"
                     colend="0"
@@ -18573,6 +19129,7 @@ exports[`table demo > renders head correctly 1`] = `
                     </div>
                   </th>
                   <th
+                    aria-description="sortable"
                     aria-label="Age"
                     aria-sort="descending"
                     class="ant-table-cell ant-table-column-sort ant-table-column-has-sorters"
@@ -19517,6 +20074,7 @@ exports[`table demo > renders measure-row-render correctly 1`] = `
                     </div>
                   </th>
                   <th
+                    aria-description="sortable"
                     aria-label="Address"
                     class="ant-table-cell ant-table-column-has-sorters"
                     colend="2"
@@ -20078,6 +20636,7 @@ exports[`table demo > renders multiple-sorter correctly 1`] = `
                     Name
                   </th>
                   <th
+                    aria-description="sortable"
                     aria-label="Chinese Score"
                     class="ant-table-cell ant-table-column-has-sorters"
                     colend="1"
@@ -20145,6 +20704,7 @@ exports[`table demo > renders multiple-sorter correctly 1`] = `
                     <!---->
                   </th>
                   <th
+                    aria-description="sortable"
                     aria-label="Math Score"
                     class="ant-table-cell ant-table-column-has-sorters"
                     colend="2"
@@ -20212,6 +20772,7 @@ exports[`table demo > renders multiple-sorter correctly 1`] = `
                     <!---->
                   </th>
                   <th
+                    aria-description="sortable"
                     aria-label="English Score"
                     class="ant-table-cell ant-table-column-has-sorters"
                     colend="3"
@@ -24840,6 +25401,7 @@ exports[`table demo > renders reset-filter correctly 1`] = `
                     class=""
                   >
                     <th
+                      aria-description="sortable"
                       aria-label="Name"
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
                       colend="0"
@@ -24942,6 +25504,7 @@ exports[`table demo > renders reset-filter correctly 1`] = `
                       </div>
                     </th>
                     <th
+                      aria-description="sortable"
                       aria-label="Age"
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
                       colend="1"
@@ -25010,6 +25573,7 @@ exports[`table demo > renders reset-filter correctly 1`] = `
                       <!---->
                     </th>
                     <th
+                      aria-description="sortable"
                       aria-label="Address"
                       class="ant-table-cell ant-table-cell-ellipsis ant-table-column-has-sorters"
                       colend="2"
@@ -25390,6 +25954,7 @@ exports[`table demo > renders resizable-column correctly 1`] = `
                     />
                   </th>
                   <th
+                    aria-description="sortable"
                     aria-label="Amount"
                     class="resizable-title ant-table-cell ant-table-column-has-sorters"
                     colend="1"

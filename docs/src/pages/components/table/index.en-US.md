@@ -67,6 +67,7 @@ const columns = [
   <demo src="./demo/size.vue">Size</demo>
   <demo src="./demo/sticky.vue">Sticky Header</demo>
   <demo src="./demo/fixed-header.vue">Fixed Header</demo>
+  <demo src="./demo/auto-height.vue">Auto Height</demo>
   <demo src="./demo/fixed-columns.vue">Fixed Columns</demo>
   <demo src="./demo/fixed-columns-header.vue">Fixed Columns & Header</demo>
   <demo src="./demo/fixed-gapped-columns.vue">Wide Fixed Columns</demo>
