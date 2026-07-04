@@ -16,6 +16,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Таңдаңыз',
     close: 'Жабу',
+    sortable: 'сұрыпталатын',
   },
   Table: {
     filterTitle: 'Фильтр',
@@ -32,6 +33,9 @@ const localeValues: Locale = {
     triggerDesc: 'Төмендеуді сұрыптау үшін басыңыз',
     triggerAsc: 'Өсу ретімен сұрыптау үшін басыңыз',
     cancelSort: 'Сұрыптаудан бас тарту үшін басыңыз',
+    filterCheckAll: 'Барлық элементтерді таңдаңыз',
+    filterSearchPlaceholder: 'Сүзгілерде іздеу',
+    selectNone: 'Барлық деректерді өшіріңіз',
   },
   Tour: {
     Next: 'Келесі',
@@ -58,6 +62,7 @@ const localeValues: Locale = {
     selectInvert: 'Кері тәртіпте көрсету',
     removeAll: 'Барлық деректерді жою',
     removeCurrent: 'Ағымдағы парақты өшіру',
+    deselectAll: 'Барлық деректердің таңдауын алып тастаңыз',
   },
   Upload: {
     uploading: 'Жүктеу...',
@@ -77,6 +82,7 @@ const localeValues: Locale = {
     copy: 'Көшіру',
     copied: 'Көшірілді',
     expand: 'Жазу',
+    collapse: 'Жыйрату',
   },
   Form: {
     defaultValidateMessages: {
@@ -125,6 +131,17 @@ const localeValues: Locale = {
         mismatch: '${label} ${pattern} мен сәйкес келмейді',
       },
     },
+  },
+  QRCode: {
+    expired: 'QR кодының мерзімі аяқталды',
+    refresh: 'Жаңарту',
+    scanned: 'Сканерленген',
+  },
+  ColorPicker: {
+    presetEmpty: 'Бос',
+    transparent: 'Мөлдір',
+    singleColor: 'Бір түсті',
+    gradientColor: 'Градиент түсі',
   },
 }
 

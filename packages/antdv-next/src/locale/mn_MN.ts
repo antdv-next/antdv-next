@@ -16,6 +16,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Сонгоно уу',
     close: 'Хаах',
+    sortable: 'ангилах боломжтой',
   },
   Table: {
     filterTitle: 'Хайх цэс',
@@ -61,6 +62,7 @@ const localeValues: Locale = {
     selectAll: 'Бүх өгөгдлийг сонгоно уу',
     removeAll: 'Бүх өгөгдлийг устгана уу',
     selectInvert: 'Одоогийн хуудсыг эргүүлэх',
+    deselectAll: 'Бүх өгөгдлийн сонголтыг цуцлах',
   },
   Upload: {
     uploading: 'Хуулж байна...',
@@ -80,6 +82,7 @@ const localeValues: Locale = {
     copy: 'Хуулбарлах',
     copied: 'Хуулсан',
     expand: 'Өргөтгөх',
+    collapse: 'Нурах',
   },
   Form: {
     optional: '(сонголттой)',
@@ -130,6 +133,17 @@ const localeValues: Locale = {
         mismatch: '${label} нь ${pattern} загвартай тохирохгүй байна',
       },
     },
+  },
+  QRCode: {
+    expired: 'QR кодын хугацаа дууссан',
+    refresh: 'Сэргээх',
+    scanned: 'Сканнердсан',
+  },
+  ColorPicker: {
+    presetEmpty: 'Хоосон',
+    transparent: 'Ил тод',
+    singleColor: 'Ганц өнгө',
+    gradientColor: 'Градиент өнгө',
   },
 }
 

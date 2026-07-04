@@ -16,6 +16,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Aukeratu',
     close: 'Itxi',
+    sortable: 'ordenagarria',
   },
   Table: {
     filterTitle: 'Iragazi menua',
@@ -61,6 +62,7 @@ const localeValues: Locale = {
     selectAll: 'Datu guztiak hautatu',
     removeAll: 'Ezabatu datu guztiak',
     selectInvert: 'Uneko orrialdea alderantzikatu',
+    deselectAll: 'Deshautatu datu guztiak',
   },
   Upload: {
     uploading: 'Igotzen...',
@@ -80,6 +82,7 @@ const localeValues: Locale = {
     copy: 'Kopiatu',
     copied: 'Kopiatuta',
     expand: 'Zabaldu',
+    collapse: 'Tolestu',
   },
   Form: {
     optional: '(aukerakoa)',
@@ -134,6 +137,7 @@ const localeValues: Locale = {
   QRCode: {
     expired: 'QR kodea kadukatuta',
     refresh: 'Freskatu',
+    scanned: 'Eskaneatua',
   },
   ColorPicker: {
     presetEmpty: 'Hustu',

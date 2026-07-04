@@ -16,6 +16,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Sila pilih',
     close: 'Tutup',
+    sortable: 'boleh disusun',
   },
   Table: {
     filterTitle: 'Cari dengan tajuk',
@@ -62,6 +63,7 @@ const localeValues: Locale = {
     selectAll: 'Pilih Semua',
     removeAll: 'Buang Semua',
     selectInvert: 'Balik Pilihan',
+    deselectAll: 'Nyahpilih semua data',
   },
   Upload: {
     uploading: 'Sedang memuat naik...',
@@ -81,6 +83,7 @@ const localeValues: Locale = {
     copy: 'Salin',
     copied: 'Berjaya menyalin',
     expand: 'Kembang',
+    collapse: 'Runtuh',
   },
   Form: {
     optional: '(Opsional)',
@@ -135,6 +138,7 @@ const localeValues: Locale = {
   QRCode: {
     expired: 'Kod QR luput',
     refresh: 'Segar Semula',
+    scanned: 'Diimbas',
   },
   ColorPicker: {
     presetEmpty: 'Tiada',

@@ -16,6 +16,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Пожалуйста выберите',
     close: 'Закрыть',
+    sortable: 'сортируемый',
   },
   Table: {
     filterTitle: 'Фильтр',
@@ -136,6 +137,7 @@ const localeValues: Locale = {
   QRCode: {
     expired: 'QR-код устарел',
     refresh: 'Обновить',
+    scanned: 'Отсканировано',
   },
   ColorPicker: {
     presetEmpty: 'Пустой',

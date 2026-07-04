@@ -15,6 +15,8 @@ const localeValues: Locale = {
   Calendar,
   global: {
     close: 'Затвори',
+    placeholder: 'Моля изберете',
+    sortable: 'сортируеми',
   },
   Table: {
     filterTitle: 'Филтриране',
@@ -22,6 +24,18 @@ const localeValues: Locale = {
     filterReset: 'Нулриане',
     selectAll: 'Избор на текуща страница',
     selectInvert: 'Обръщане',
+    filterEmptyText: 'Без филтри',
+    filterCheckAll: 'Изберете всички елементи',
+    filterSearchPlaceholder: 'Търсене във филтри',
+    emptyText: 'Няма данни',
+    selectNone: 'Изчистване на всички данни',
+    selectionAll: 'Изберете всички данни',
+    sortTitle: 'Сортиране',
+    expand: 'Разширяване на реда',
+    collapse: 'Свиване на ред',
+    triggerDesc: 'Кликнете, за да сортирате в низходящ ред',
+    triggerAsc: 'Кликнете, за да сортирате във възходящ ред',
+    cancelSort: 'Кликнете, за да отмените сортирането',
   },
   Tour: {
     Next: 'Следващ',
@@ -42,6 +56,13 @@ const localeValues: Locale = {
     searchPlaceholder: 'Търсене',
     itemUnit: 'избор',
     itemsUnit: 'избори',
+    remove: 'Премахнете',
+    selectAll: 'Изберете всички данни',
+    deselectAll: 'Демаркирайте всички данни',
+    selectCurrent: 'Изберете текущата страница',
+    selectInvert: 'Обърнете текущата страница',
+    removeAll: 'Премахнете всички данни',
+    removeCurrent: 'Премахване на текущата страница',
   },
   Upload: {
     uploading: 'Качване...',
@@ -102,6 +123,24 @@ const localeValues: Locale = {
         mismatch: '${label} не отговаря на модела ${pattern}',
       },
     },
+  },
+  Text: {
+    edit: 'Редактиране',
+    copy: 'копие',
+    copied: 'Копирано',
+    expand: 'Разширяване',
+    collapse: 'Свиване',
+  },
+  QRCode: {
+    expired: 'QR кодът е изтекъл',
+    refresh: 'Опресняване',
+    scanned: 'Сканирани',
+  },
+  ColorPicker: {
+    presetEmpty: 'празна',
+    transparent: 'Прозрачен',
+    singleColor: 'Едноцветен',
+    gradientColor: 'Преливащ цвят',
   },
 }
 

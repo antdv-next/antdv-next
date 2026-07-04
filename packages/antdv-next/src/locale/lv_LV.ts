@@ -13,6 +13,8 @@ const localeValues: Locale = {
   Calendar,
   global: {
     close: 'Aizvērt',
+    placeholder: 'Lūdzu, atlasiet',
+    sortable: 'šķirojams',
   },
   Table: {
     filterTitle: 'Filtrēšanas izvēlne',
@@ -20,6 +22,18 @@ const localeValues: Locale = {
     filterReset: 'Atiestatīt',
     selectAll: 'Atlasiet pašreizējo lapu',
     selectInvert: 'Pārvērst pašreizējo lapu',
+    filterEmptyText: 'Nav filtru',
+    filterCheckAll: 'Atlasiet visus vienumus',
+    filterSearchPlaceholder: 'Meklēt filtros',
+    emptyText: 'Nav datu',
+    selectNone: 'Notīrīt visus datus',
+    selectionAll: 'Atlasiet visus datus',
+    sortTitle: 'Kārtot',
+    expand: 'Izvērst rindu',
+    collapse: 'Sakļaut rindu',
+    triggerDesc: 'Noklikšķiniet, lai kārtotu dilstošā secībā',
+    triggerAsc: 'Noklikšķiniet, lai kārtotu augošā secībā',
+    cancelSort: 'Noklikšķiniet, lai atceltu kārtošanu',
   },
   Tour: {
     Next: 'Nākamais',
@@ -40,6 +54,13 @@ const localeValues: Locale = {
     searchPlaceholder: 'Meklēt šeit',
     itemUnit: 'vienumu',
     itemsUnit: 'vienumus',
+    remove: 'Noņemt',
+    selectAll: 'Atlasiet visus datus',
+    deselectAll: 'Noņemiet visu datu atlasi',
+    selectCurrent: 'Atlasiet pašreizējo lapu',
+    selectInvert: 'Apgriezt pašreizējo lapu',
+    removeAll: 'Noņemiet visus datus',
+    removeCurrent: 'Noņemt pašreizējo lapu',
   },
   Upload: {
     uploading: 'Augšupielāde...',
@@ -50,6 +71,24 @@ const localeValues: Locale = {
   },
   Empty: {
     description: 'Nav datu',
+  },
+  Text: {
+    edit: 'Rediģēt',
+    copy: 'Kopēt',
+    copied: 'Kopēts',
+    expand: 'Izvērst',
+    collapse: 'Sakļaut',
+  },
+  QRCode: {
+    expired: 'QR kods ir beidzies',
+    refresh: 'Atsvaidzināt',
+    scanned: 'Skenēts',
+  },
+  ColorPicker: {
+    presetEmpty: 'Tukšs',
+    transparent: 'Caurspīdīgs',
+    singleColor: 'Vienkrāsains',
+    gradientColor: 'Gradienta krāsa',
   },
 }
 

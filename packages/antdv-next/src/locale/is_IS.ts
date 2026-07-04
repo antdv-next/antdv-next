@@ -15,6 +15,8 @@ const localeValues: Locale = {
   Calendar,
   global: {
     close: 'Loka',
+    placeholder: 'Vinsamlegast veldu',
+    sortable: 'flokkanlegt',
   },
   Table: {
     filterTitle: 'Afmarkanir',
@@ -22,6 +24,18 @@ const localeValues: Locale = {
     filterReset: 'Núllstilla',
     selectAll: 'Velja allt',
     selectInvert: 'Viðsnúa vali',
+    filterEmptyText: 'Engar síur',
+    filterCheckAll: 'Veldu alla hluti',
+    filterSearchPlaceholder: 'Leitaðu í síum',
+    emptyText: 'Engin gögn',
+    selectNone: 'Hreinsaðu öll gögn',
+    selectionAll: 'Veldu öll gögn',
+    sortTitle: 'Raða',
+    expand: 'Stækkaðu röð',
+    collapse: 'Draga saman röð',
+    triggerDesc: 'Smelltu til að raða lækkandi',
+    triggerAsc: 'Smelltu til að flokka hækkandi',
+    cancelSort: 'Smelltu til að hætta við flokkun',
   },
   Tour: {
     Next: 'Áfram',
@@ -42,6 +56,13 @@ const localeValues: Locale = {
     searchPlaceholder: 'Leita hér',
     itemUnit: 'færsla',
     itemsUnit: 'færslur',
+    remove: 'Fjarlægja',
+    selectAll: 'Veldu öll gögn',
+    deselectAll: 'Afvelja öll gögn',
+    selectCurrent: 'Veldu núverandi síðu',
+    selectInvert: 'Snúa núverandi síðu við',
+    removeAll: 'Fjarlægðu öll gögn',
+    removeCurrent: 'Fjarlægðu núverandi síðu',
   },
   Upload: {
     uploading: 'Hleð upp...',
@@ -102,6 +123,24 @@ const localeValues: Locale = {
         mismatch: '${label} passar ekki við mynstur ${pattern}',
       },
     },
+  },
+  Text: {
+    edit: 'Breyta',
+    copy: 'Afrita',
+    copied: 'Afritað',
+    expand: 'Stækkaðu',
+    collapse: 'Hrun',
+  },
+  QRCode: {
+    expired: 'QR kóða útrunninn',
+    refresh: 'Endurnýja',
+    scanned: 'Skannaður',
+  },
+  ColorPicker: {
+    presetEmpty: 'Tómt',
+    transparent: 'Gegnsætt',
+    singleColor: 'Einlitur',
+    gradientColor: 'Gradient litur',
   },
 }
 

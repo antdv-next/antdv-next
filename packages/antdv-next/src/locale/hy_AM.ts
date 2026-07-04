@@ -62,6 +62,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Ընտրեք',
     close: 'Դադարեցնել',
+    sortable: 'տեսակավորելի',
   },
   Table: {
     filterTitle: 'ֆիլտրի ընտրացանկ',
@@ -72,6 +73,15 @@ const localeValues: Locale = {
     sortTitle: 'Տեսակավորել',
     expand: 'Ընդլայնեք տողը',
     collapse: 'Կրճատել տողը',
+    filterEmptyText: 'Զտիչներ չկան',
+    filterCheckAll: 'Ընտրեք բոլոր տարրերը',
+    filterSearchPlaceholder: 'Որոնել ֆիլտրերում',
+    emptyText: 'Տվյալներ չկան',
+    selectNone: 'Մաքրել բոլոր տվյալները',
+    selectionAll: 'Ընտրեք բոլոր տվյալները',
+    triggerDesc: 'Սեղմեք՝ նվազման կարգով',
+    triggerAsc: 'Սեղմեք՝ աճող տեսակավորելու համար',
+    cancelSort: 'Սեղմեք՝ տեսակավորումը չեղարկելու համար',
   },
   Tour: {
     Next: 'Հաջորդ',
@@ -92,6 +102,13 @@ const localeValues: Locale = {
     searchPlaceholder: 'Որոնեք այստեղ',
     itemUnit: 'պարագան',
     itemsUnit: 'պարագաները',
+    remove: 'Հեռացնել',
+    selectAll: 'Ընտրեք բոլոր տվյալները',
+    deselectAll: 'Ապաընտրել բոլոր տվյալները',
+    selectCurrent: 'Ընտրեք ընթացիկ էջը',
+    selectInvert: 'Շրջել ընթացիկ էջը',
+    removeAll: 'Հեռացրեք բոլոր տվյալները',
+    removeCurrent: 'Հեռացնել ընթացիկ էջը',
   },
   Upload: {
     uploading: 'Ներբեռնում...',
@@ -111,6 +128,18 @@ const localeValues: Locale = {
     copy: 'Պատճենել',
     copied: 'Պատճենվել է',
     expand: 'Տեսնել ավելին',
+    collapse: 'Փլուզում',
+  },
+  QRCode: {
+    expired: 'QR կոդը ժամկետանց է',
+    refresh: 'Թարմացնել',
+    scanned: 'Սկանավորվել է',
+  },
+  ColorPicker: {
+    presetEmpty: 'Դատարկ',
+    transparent: 'Թափանցիկ',
+    singleColor: 'Մեկ գույն',
+    gradientColor: 'Գրադիենտ գույն',
   },
 }
 

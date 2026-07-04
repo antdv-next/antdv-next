@@ -16,6 +16,7 @@ const localeValues: Locale = {
   global: {
     placeholder: '선택하세요',
     close: '닫기',
+    sortable: '정렬 가능',
   },
   Table: {
     filterTitle: '필터 메뉴',
@@ -61,6 +62,7 @@ const localeValues: Locale = {
     selectAll: '전체 선택',
     removeAll: '전체 삭제',
     selectInvert: '선택 반전',
+    deselectAll: '모든 데이터 선택 해제',
   },
   Upload: {
     uploading: '업로드 중...',
@@ -80,6 +82,7 @@ const localeValues: Locale = {
     copy: '복사',
     copied: '복사됨',
     expand: '확장',
+    collapse: '접기',
   },
   Form: {
     optional: '(선택사항)',
@@ -134,6 +137,7 @@ const localeValues: Locale = {
   QRCode: {
     expired: '만료된 QR 코드',
     refresh: '새로고침',
+    scanned: '스캔됨',
   },
   ColorPicker: {
     presetEmpty: '미정',
