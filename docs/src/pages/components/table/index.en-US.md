@@ -345,3 +345,9 @@ Properties for row selection.
 <ComponentTokenTable component="Table" />
 
 See [Customize Theme](/docs/vue/customize-theme) to learn how to use Design Token.
+
+## FAQ
+
+### How should I troubleshoot Table performance issues? {#faq-table-performance}
+
+Vue DevTools may add extra overhead when profiling complex tables, especially with many rows or cells. If you notice obvious lag, please try disabling Vue DevTools or testing in a clean browser environment first. If the performance issue can still be reproduced in a normal runtime, feel free to provide a minimal reproduction so we can continue to investigate.

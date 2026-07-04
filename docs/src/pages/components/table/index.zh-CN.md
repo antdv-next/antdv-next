@@ -348,3 +348,9 @@ const onHeaderRow: TableProps['onHeaderRow'] = (columns, index) => {
 <ComponentTokenTable component="Table" />
 
 查看 [定制主题](/docs/vue/customize-theme) 了解如何使用主题变量。
+
+## FAQ
+
+### 如何排查 Table 性能问题？ {#faq-table-performance}
+
+Vue DevTools 在分析复杂表格时可能带来额外开销，尤其是行列数量较多的场景。若你遇到明显卡顿，建议先关闭 Vue DevTools，或在干净的浏览器环境中重新测试。如果在正常运行环境下仍能稳定复现性能问题，欢迎提供最小复现以便我们继续排查。
