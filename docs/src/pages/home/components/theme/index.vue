@@ -82,7 +82,7 @@ const useStyles = createStyles(({ css, cssVar }) => ({
     backdropFilter: 'blur(16px)',
     boxShadow: 'inset 0 0 0 1px rgba(255, 255, 255, 0.16)',
     '.ant-segmented-thumb': {
-      background: 'rgba(255, 255, 255, 0.96)',
+      background: cssVar.colorBgElevated,
       boxShadow: '0 6px 18px rgba(0,0,0,0.24)',
     },
   }),
@@ -119,8 +119,11 @@ const useStyles = createStyles(({ css, cssVar }) => ({
   }),
 
   switch: css({
+    alignItems: 'center',
+    gap: 16,
     '@media (max-width: 1200px)': {
       justifyContent: 'center',
+      flexDirection: 'column',
     },
   }),
 
@@ -426,6 +429,7 @@ const background = computed(() => {
               :config="activeTheme?.props"
               :active-theme="activeTheme"
               :class="styles.dashboardBlock"
+              :style="{ borderRadius: '16px' }"
             />
           </a-flex>
         </a-flex>

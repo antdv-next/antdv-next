@@ -35,7 +35,11 @@ function useLarkTheme() {
         Select: {},
         Input: {},
         Switch: {},
-        Progress: {},
+        Progress: {
+          circleTextColor: '#1f2329',
+          defaultColor: '#00B96B',
+          remainingColor: 'rgba(0, 185, 107, 0.12)',
+        },
         Steps: {},
         Slider: {},
         ColorPicker: {},

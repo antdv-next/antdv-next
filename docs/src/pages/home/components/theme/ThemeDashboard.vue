@@ -5,6 +5,7 @@ import {
   ArrowDownOutlined,
   ArrowUpOutlined,
   BellOutlined,
+  CalendarOutlined,
   ColumnHeightOutlined,
   DeleteOutlined,
   DownloadOutlined,
@@ -46,6 +47,8 @@ import {
 } from 'antdv-next'
 import { createStyles } from 'antdv-style'
 import { computed, h, markRaw } from 'vue'
+import antdvNextLogo from '@/assets/antdv-next.svg'
+import { DEFAULT_COLOR } from './preview-theme'
 
 // Props
 const props = withDefaults(defineProps<{
@@ -181,26 +184,6 @@ const useStyles = createStyles(({ css, cssVar }) => {
       },
     }),
 
-    dashboardTabsDark: css({
-      background: 'rgba(255, 255, 255, 0.14)',
-      backdropFilter: 'blur(16px)',
-      boxShadow: 'inset 0 0 0 1px rgba(255, 255, 255, 0.16)',
-      '.ant-segmented-thumb': {
-        background: 'rgba(255, 255, 255, 0.96)',
-        boxShadow: '0 6px 18px rgba(0,0,0,0.24)',
-      },
-      '.ant-segmented-item': {
-        color: 'rgba(255, 255, 255, 0.78)',
-        '&:not(.ant-segmented-item-selected):not(.ant-segmented-item-disabled):hover': {
-          color: '#fff',
-          background: 'rgba(255, 255, 255, 0.08)',
-        },
-      },
-      '.ant-segmented-item-selected': {
-        color: cssVar.colorText,
-      },
-    }),
-
     dashboardStatValue: css({
       display: 'flex',
       alignItems: 'center',
@@ -265,8 +248,6 @@ const sideMenuItems: MenuProps['items'] = [
 ]
 
 // ========================== Logo Color Filter ==========================
-const DEFAULT_COLOR = '#1677FF'
-
 function normalize(value: number) {
   return value / 255
 }
@@ -314,7 +295,7 @@ const employeeData: EmployeeRecord[] = [
   {
     key: '1',
     id: '#4586936',
-    avatar: 'linear-gradient(135deg, #69c0ff, #9254de)',
+    avatar: '#1677ff',
     email: 'alex@acme.com',
     member: 'Alex Turner',
     role: 'Product Manager',
@@ -323,7 +304,7 @@ const employeeData: EmployeeRecord[] = [
   {
     key: '2',
     id: '#4586937',
-    avatar: 'linear-gradient(135deg, #ffadd2, #eb2f96)',
+    avatar: '#eb2f96',
     email: 'emma@acme.com',
     member: 'Emma Davis',
     role: 'Senior Designer',
@@ -332,7 +313,7 @@ const employeeData: EmployeeRecord[] = [
   {
     key: '3',
     id: '#4586933',
-    avatar: 'linear-gradient(135deg, #b5f5ec, #1677ff)',
+    avatar: '#52c41a',
     email: 'john@acme.com',
     member: 'John Smith',
     role: 'Chief Technology Officer',
@@ -341,7 +322,7 @@ const employeeData: EmployeeRecord[] = [
   {
     key: '4',
     id: '#4586932',
-    avatar: 'linear-gradient(135deg, #d3f261, #5cdbd3)',
+    avatar: '#fa8c16',
     email: 'kate@acme.com',
     member: 'Kate Moore',
     role: 'Chief Executive Officer',
@@ -434,7 +415,7 @@ const breadcrumbItems = computed(() => [
 const selectOptions = [
   {
     value: 'monthly',
-    label: 'Monthly',
+    label: h(Space, { size: 6 }, () => [h(CalendarOutlined), 'Monthly']),
   },
 ]
 
@@ -469,7 +450,7 @@ const headerClass = computed(() => clsx(
               <div :class="styles.logoImg">
                 <img
                   draggable="false"
-                  src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
+                  :src="antdvNextLogo"
                   :style="{
                     filter: closestColor === DEFAULT_COLOR ? undefined : rgbToColorMatrix(logoColor),
                   }"
@@ -477,7 +458,7 @@ const headerClass = computed(() => clsx(
                 >
               </div>
               <h1 style="margin: 0;">
-                Ant Design
+                Antdv Next
               </h1>
             </div>
             <Flex :class="styles.menu" gap="middle">
@@ -518,7 +499,7 @@ const headerClass = computed(() => clsx(
                     gap="middle"
                   >
                     <Segmented
-                      :class="[styles.dashboardTabs, hasDarkBackground && styles.dashboardTabsDark]"
+                      :class="styles.dashboardTabs"
                       default-value="Overview"
                       :options="['Overview', 'Sales', 'Expenses']"
                     />
@@ -627,7 +608,9 @@ const headerClass = computed(() => clsx(
                         </template>
                         <template v-else-if="column.dataIndex === 'member'">
                           <Flex align="center" gap="middle" :class="styles.dashboardEmployee">
-                            <Avatar :size="40" :style="{ background: record.avatar }" />
+                            <Avatar :size="40" :style="{ background: record.avatar }">
+                              {{ record.member?.charAt(0) }}
+                            </Avatar>
                             <div :class="styles.dashboardEmployeeMeta">
                               <Typography.Text strong>
                                 {{ record.member }}

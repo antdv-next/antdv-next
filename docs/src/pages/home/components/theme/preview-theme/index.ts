@@ -36,6 +36,112 @@ export interface PreviewThemeConfig {
 
 export type UseTheme = () => ConfigProviderProps
 
+export const DEFAULT_COLOR = '#1677FF'
+export const PINK_COLOR = '#ED4192'
+
+const previewThemeComponents: Record<string, any> = {
+  Layout: {
+    bodyBg: '#f5f8ff',
+    footerBg: '#f5f8ff',
+    headerBg: '#ffffff',
+    headerColor: 'rgba(0, 0, 0, 0.88)',
+    siderBg: '#ffffff',
+    triggerBg: '#f0f5ff',
+    triggerColor: 'rgba(0, 0, 0, 0.88)',
+  },
+  Menu: {
+    activeBarBorderWidth: 0,
+    itemBg: 'transparent',
+    subMenuItemBg: 'transparent',
+  },
+  Button: {},
+  Alert: {},
+  Modal: {},
+  Card: {},
+  Tooltip: {},
+  Checkbox: {},
+  Radio: {},
+  Select: {},
+  Input: {},
+  Switch: {},
+  Progress: {
+    circleTextColor: 'rgba(0, 0, 0, 0.88)',
+    defaultColor: DEFAULT_COLOR,
+    remainingColor: 'rgba(0, 0, 0, 0.06)',
+  },
+  Steps: {},
+  Slider: {},
+  ColorPicker: {},
+  Notification: {},
+}
+
+const darkPreviewLayoutToken: Record<string, any> = {
+  bodyBg: '#050505',
+  footerBg: '#050505',
+  headerBg: '#111111',
+  headerColor: 'rgba(255, 255, 255, 0.88)',
+  siderBg: '#050505',
+  triggerBg: '#111111',
+  triggerColor: 'rgba(255, 255, 255, 0.88)',
+}
+
+const darkPreviewMenuToken: Record<string, any> = {
+  darkItemBg: 'transparent',
+  darkItemColor: 'rgba(255, 255, 255, 0.68)',
+  darkItemHoverBg: 'rgba(255, 255, 255, 0.08)',
+  darkItemHoverColor: '#fff',
+  darkItemSelectedBg: 'rgba(22, 119, 255, 0.28)',
+  darkItemSelectedColor: '#fff',
+  darkSubMenuItemBg: 'transparent',
+}
+
+const darkPreviewProgressToken: Record<string, any> = {
+  circleTextColor: 'rgba(255, 255, 255, 0.88)',
+  defaultColor: DEFAULT_COLOR,
+  remainingColor: 'rgba(255, 255, 255, 0.12)',
+}
+
+function isDarkAlgorithm(algorithm: any): boolean {
+  const algorithms = Array.isArray(algorithm) ? algorithm : algorithm ? [algorithm] : []
+  return algorithms.includes(theme.darkAlgorithm)
+}
+
+function getBasePreviewThemeProps(algorithm: any): ConfigProviderProps {
+  return {
+    theme: {
+      algorithm,
+      components: isDarkAlgorithm(algorithm)
+        ? {
+            ...previewThemeComponents,
+            Layout: darkPreviewLayoutToken,
+            Menu: darkPreviewMenuToken,
+            Progress: darkPreviewProgressToken,
+          }
+        : previewThemeComponents,
+    },
+    wave: {},
+    app: {},
+    card: {},
+    modal: {},
+    button: {},
+    alert: {},
+    colorPicker: {},
+    checkbox: {},
+    dropdown: {},
+    select: {},
+    datePicker: {},
+    input: {},
+    inputNumber: {},
+    popover: {},
+    tooltip: {},
+    notification: {},
+    switch: {},
+    radio: {},
+    segmented: {},
+    progress: {},
+  }
+}
+
 export function usePreviewThemes() {
   const { t } = useLocale()
 
@@ -52,16 +158,12 @@ export function usePreviewThemes() {
 
   return computed<PreviewThemeConfig[]>(() => [
     {
-      icon: 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
+      icon: 'https://www.antdv-next.com/assets/antdv-next-Cum7m2ZU.svg',
       name: t('homePage.previewThemes.default'),
       key: 'light',
       bgImg:
         'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*T8IlRaNez08AAAAARwAAAAgAegCCAQ/original',
-      props: {
-        theme: {
-          algorithm: theme.defaultAlgorithm,
-        },
-      },
+      props: getBasePreviewThemeProps(theme.defaultAlgorithm),
     },
     {
       icon: 'https://mui.com/static/favicon.svg',
@@ -100,11 +202,7 @@ export function usePreviewThemes() {
       bgImg:
         'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*ETkNSJ-oUGwAAAAAQ_AAAAgAegCCAQ/original',
       bgImgDark: true,
-      props: {
-        theme: {
-          algorithm: theme.darkAlgorithm,
-        },
-      },
+      props: getBasePreviewThemeProps(theme.darkAlgorithm),
     },
     {
       icon: 'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*Tm6ESY5h6ZgAAAAAQBAAAAgAegCCAQ/original',

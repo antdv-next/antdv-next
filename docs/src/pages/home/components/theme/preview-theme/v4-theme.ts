@@ -82,7 +82,11 @@ function useV4Theme() {
         Select: {},
         Input: {},
         Switch: {},
-        Progress: {},
+        Progress: {
+          circleTextColor: '#000000d9',
+          defaultColor: '#1890ff',
+          remainingColor: '#f5f5f5',
+        },
         Steps: {},
         Slider: {},
         ColorPicker: {},

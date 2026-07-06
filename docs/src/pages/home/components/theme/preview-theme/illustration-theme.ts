@@ -14,8 +14,8 @@ const useStyles = createStyles(({ css, cssVar }) => {
   }
 
   return {
-    illustrationBorder: css(illustrationBorder),
-    illustrationBox: css(illustrationBox),
+    illustrationBorder,
+    illustrationBox,
     buttonRoot: css({
       ...illustrationBox,
       fontWeight: 600,
@@ -32,6 +32,16 @@ const useStyles = createStyles(({ css, cssVar }) => {
       ...illustrationBox,
       borderRadius: cssVar.borderRadiusLG,
       backgroundColor: cssVar.colorBgContainer,
+    }),
+    notificationRoot: css({
+      '&.ant-notification-notice, & .ant-notification-notice': {
+        ...illustrationBox,
+      },
+    }),
+    notificationTitle: css({
+      fontWeight: 600,
+      textTransform: 'uppercase',
+      letterSpacing: '0.5px',
     }),
     progressRail: css({
       border: `${cssVar.lineWidth} solid ${cssVar.colorBorder}`,
@@ -102,6 +112,38 @@ function useIllustrationTheme() {
           colorPrimaryBorder: '#237804',
           colorPrimaryBorderHover: '#237804',
         },
+        Notification: {
+          colorSuccessBg: '#F6FFED',
+          colorErrorBg: '#FFF1F0',
+          colorInfoBg: '#E6F4FF',
+          colorWarningBg: '#FFFBE6',
+        },
+        Layout: {
+          bodyBg: '#FFF9F0',
+          footerBg: '#FFF9F0',
+          headerBg: '#FFFFFF',
+          headerColor: '#2C2C2C',
+          siderBg: '#FFF0F6',
+          triggerBg: '#FFE7BA',
+          triggerColor: '#2C2C2C',
+        },
+        Menu: {
+          activeBarBorderWidth: 0,
+          itemBg: 'transparent',
+          subMenuItemBg: 'transparent',
+        },
+        Alert: {},
+        Checkbox: {},
+        Radio: {},
+        Input: {},
+        Switch: {},
+        Progress: {
+          circleTextColor: '#2C2C2C',
+          defaultColor: '#52C41A',
+          remainingColor: '#D9F7BE',
+        },
+        Steps: {},
+        ColorPicker: {},
       },
     },
     button: {
@@ -126,7 +168,6 @@ function useIllustrationTheme() {
       },
     },
     popover: {
-      arrow: false,
       classes: {
         container: styles.illustrationBox,
       },
@@ -136,6 +177,12 @@ function useIllustrationTheme() {
       classes: {
         root: styles.tooltipRoot,
         container: styles.illustrationBox,
+      },
+    },
+    notification: {
+      classes: {
+        root: styles.notificationRoot,
+        title: styles.notificationTitle,
       },
     },
     dropdown: {
@@ -176,6 +223,14 @@ function useIllustrationTheme() {
         },
       },
     },
+    wave: {},
+    app: {},
+    card: {},
+    checkbox: {},
+    datePicker: {},
+    switch: {},
+    radio: {},
+    segmented: {},
   }))
 }
 
