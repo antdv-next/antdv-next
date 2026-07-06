@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { AntDesignOutlined, BgColorsOutlined, CopyOutlined } from '@antdv-next/icons'
-import { App, ConfigProvider, message, Modal, theme, Tooltip } from 'antdv-next'
+import { clsx } from '@v-c/util'
+import { App, ConfigProvider, message, Modal, Segmented, theme, Tooltip } from 'antdv-next'
 import { createStyles } from 'antdv-style'
 import { storeToRefs } from 'pinia'
 import { computed, h, onBeforeUnmount, ref, watch } from 'vue'
@@ -11,6 +12,7 @@ import Group from '../group/index.vue'
 import { usePreviewThemes } from './preview-theme'
 import ComponentsBlock from './PreviewPane/Components.vue'
 import { generateFullCopyFile } from './theme-code-utils'
+import ThemeDashboard from './ThemeDashboard.vue'
 
 const { t } = useLocale()
 const appStore = useAppStore()
@@ -18,6 +20,7 @@ const { darkMode } = storeToRefs(appStore)
 
 const previewThemes = usePreviewThemes()
 const activeName = ref('')
+const activePane = ref<'components' | 'dashboard'>('components')
 let copyTimer: ReturnType<typeof setTimeout> | null = null
 
 const useStyles = createStyles(({ css, cssVar }) => ({
@@ -46,6 +49,73 @@ const useStyles = createStyles(({ css, cssVar }) => ({
     width: '100%',
     maxWidth: 1320,
     margin: '0 auto',
+  }),
+
+  dashboardBlock: css({
+    width: '100%',
+    maxWidth: 1320,
+    margin: '0 auto',
+  }),
+
+  previewTabs: css({
+    padding: 3,
+    borderRadius: 100,
+    background: cssVar.colorFillQuaternary,
+    '.ant-segmented-group': {
+      gap: 2,
+    },
+    '.ant-segmented-item': {
+      borderRadius: 100,
+    },
+    '.ant-segmented-thumb': {
+      borderRadius: 100,
+      background: cssVar.colorBgElevated,
+      boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
+    },
+    '@media (max-width: 768px)': {
+      width: '60%',
+    },
+  }),
+
+  previewTabsDark: css({
+    background: 'rgba(255, 255, 255, 0.14)',
+    backdropFilter: 'blur(16px)',
+    boxShadow: 'inset 0 0 0 1px rgba(255, 255, 255, 0.16)',
+    '.ant-segmented-thumb': {
+      background: 'rgba(255, 255, 255, 0.96)',
+      boxShadow: '0 6px 18px rgba(0,0,0,0.24)',
+    },
+  }),
+
+  previewTabsItem: css({
+    minWidth: 112,
+    borderRadius: 100,
+    color: cssVar.colorTextTertiary,
+    '&.ant-segmented-item-selected': {
+      color: cssVar.colorText,
+    },
+    '@media (max-width: 768px)': {
+      flex: 1,
+      minWidth: 0,
+      paddingInline: 12,
+      fontSize: 16,
+    },
+  }),
+
+  previewTabsItemDark: css({
+    color: 'rgba(255, 255, 255, 0.78)',
+    '&:not(.ant-segmented-item-selected):not(.ant-segmented-item-disabled):hover': {
+      color: '#fff',
+      background: 'rgba(255, 255, 255, 0.08)',
+    },
+    '&.ant-segmented-item-selected': {
+      color: cssVar.colorText,
+    },
+  }),
+
+  previewTabsLabel: css({
+    minHeight: 30,
+    lineHeight: '30px',
   }),
 
   switch: css({
@@ -110,6 +180,12 @@ const activeTheme = computed(() => {
 })
 
 const isThemeListDark = computed(() => !!activeTheme.value?.bgImgDark)
+
+const segmentedClasses = computed(() => ({
+  root: clsx(styles.previewTabs, isThemeListDark.value && styles.previewTabsDark),
+  item: clsx(styles.previewTabsItem, isThemeListDark.value && styles.previewTabsItemDark),
+  label: styles.previewTabsLabel,
+}))
 
 const backgroundPrefetchList = computed(() => {
   return previewThemes.value
@@ -282,7 +358,15 @@ const background = computed(() => {
           <a-flex :class="styles.wrapper" :gap="16">
             <!-- Theme switcher row -->
             <a-flex :class="styles.switch" justify="space-between">
-              <div />
+              <Segmented
+                :classes="segmentedClasses"
+                :options="[
+                  { label: 'Components', value: 'components' },
+                  { label: 'Dashboard', value: 'dashboard' },
+                ]"
+                :value="activePane"
+                @change="(value) => activePane = value as 'components' | 'dashboard'"
+              />
               <a-flex align="center" :gap="12">
                 <Tooltip
                   v-for="item in previewThemes"
@@ -291,7 +375,7 @@ const background = computed(() => {
                   :title="item.name"
                 >
                   <div
-                    :class="[styles.themeBlock, { [styles.active]: activeName === item.name }]"
+                    :class="[styles.themeBlock, activeName === item.name && styles.active]"
                     role="tab"
                     :tabindex="activeName === item.name ? 0 : -1"
                     :aria-selected="activeName === item.name"
@@ -327,13 +411,21 @@ const background = computed(() => {
               </a-flex>
             </a-flex>
 
-            <!-- Component preview area -->
+            <!-- Preview area -->
             <ComponentsBlock
-              :key="activeName"
+              v-if="activePane === 'components'"
+              :key="`components-${activeName}`"
               :is-dark="isThemeListDark"
               :config="activeTheme?.props"
               :class-name="styles.componentsBlock"
               :container-class-name="styles.componentsBlockContainer"
+            />
+            <ThemeDashboard
+              v-else
+              :key="`dashboard-${activeName}`"
+              :config="activeTheme?.props"
+              :active-theme="activeTheme"
+              :class="styles.dashboardBlock"
             />
           </a-flex>
         </a-flex>

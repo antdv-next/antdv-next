@@ -91,5 +91,8 @@ export default {
     bootstrap: '类 Bootstrap 拟物化风格',
     cartoon: '卡通风格',
     illustration: '插画风格',
+    lark: '知识协作',
+    blossom: '桃花缘',
+    v4: 'Ant Design V4',
   },
 } as const

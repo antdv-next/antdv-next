@@ -66,11 +66,15 @@ const Basic = defineComponent<BasicPropsWithTagName>(
         ...restAttrs,
         class: classNames(
           customizePrefixCls || prefixWithSuffixCls,
+          _attrClass,
           hashId.value,
           cssVarCls.value,
         ),
       }, slots)
     }
+  },
+  {
+    inheritAttrs: false,
   },
 )
 
@@ -118,6 +122,7 @@ const BasicLayout = defineComponent<BasicPropsWithTagName>(
         },
         compCtx.value.class,
         rootClass,
+        _attrClass,
         hashId.value,
         cssVarCls.value,
       )
@@ -131,6 +136,9 @@ const BasicLayout = defineComponent<BasicPropsWithTagName>(
         default: () => children,
       })
     }
+  },
+  {
+    inheritAttrs: false,
   },
 )
 

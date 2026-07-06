@@ -2,6 +2,8 @@ import type { ConfigProviderProps } from 'antdv-next'
 import { theme } from 'antdv-next'
 import { computed } from 'vue'
 import { useLocale } from '@/composables/use-locale'
+import useBlossomTheme from './blossom-theme'
+import blossomThemeSource from './blossom-theme.ts?raw'
 import useBootstrapTheme from './bootstrap-theme'
 import bootstrapThemeSource from './bootstrap-theme.ts?raw'
 import useCartoonTheme from './cartoon-theme'
@@ -12,10 +14,14 @@ import useGlassTheme from './glass-theme'
 import glassThemeSource from './glass-theme.ts?raw'
 import useIllustrationTheme from './illustration-theme'
 import illustrationThemeSource from './illustration-theme.ts?raw'
+import useLarkTheme from './lark-theme'
+import larkThemeSource from './lark-theme.ts?raw'
 import useMuiTheme from './mui-theme'
 import muiThemeSource from './mui-theme.ts?raw'
 import useShadcnTheme from './shadcn-theme'
 import shadcnThemeSource from './shadcn-theme.ts?raw'
+import useV4Theme from './v4-theme'
+import v4ThemeSource from './v4-theme.ts?raw'
 
 export interface PreviewThemeConfig {
   name: string
@@ -33,13 +39,16 @@ export type UseTheme = () => ConfigProviderProps
 export function usePreviewThemes() {
   const { t } = useLocale()
 
+  const blossomTheme = useBlossomTheme()
   const cartoonTheme = useCartoonTheme()
   const illustrationTheme = useIllustrationTheme()
   const geekTheme = useGeekTheme()
   const glassTheme = useGlassTheme()
+  const larkTheme = useLarkTheme()
   const muiTheme = useMuiTheme()
   const shadcnTheme = useShadcnTheme()
   const bootstrapTheme = useBootstrapTheme()
+  const v4Theme = useV4Theme()
 
   return computed<PreviewThemeConfig[]>(() => [
     {
@@ -119,6 +128,28 @@ export function usePreviewThemes() {
       bgImgDark: true,
       props: geekTheme.value,
       copyCode: geekThemeSource,
+    },
+    {
+      icon: 'https://gw.alipayobjects.com/zos/bmw-prod/3e899b2b-4eb4-4771-a7fc-14c7ff078aed.svg',
+      name: t('homePage.previewThemes.lark'),
+      bgImg:
+        'https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*iM6CQ496P3oAAAAAAAAAAAAADrJ8AQ/fmt.webp',
+      props: larkTheme.value,
+      copyCode: larkThemeSource,
+    },
+    {
+      icon: 'https://gw.alipayobjects.com/zos/bmw-prod/ed9b04e8-9b8d-4945-8f8a-c8fc025e846f.svg',
+      name: t('homePage.previewThemes.blossom'),
+      bgImg:
+        'https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*s5OdR6wZZIkAAAAAAAAAAAAADrJ8AQ/fmt.webp',
+      props: blossomTheme.value,
+      copyCode: blossomThemeSource,
+    },
+    {
+      icon: 'https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*bOiWT4-34jkAAAAAAAAAAAAADrJ8AQ/original',
+      name: t('homePage.previewThemes.v4'),
+      props: v4Theme.value,
+      copyCode: v4ThemeSource,
     },
   ])
 }
