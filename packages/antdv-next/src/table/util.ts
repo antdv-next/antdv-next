@@ -1,5 +1,13 @@
 import type { AnyObject } from '../_util/type'
-import type { ColumnTitle, ColumnTitleProps, ColumnType, Key } from './interface'
+import type { SizeType } from '../config-provider/SizeContext'
+import type {
+  ColumnTitle,
+  ColumnTitleProps,
+  ColumnType,
+  Key,
+  TablePaginationPlacement,
+  TablePaginationPosition,
+} from './interface'
 
 export function getColumnKey<RecordType extends AnyObject = AnyObject>(column: ColumnType<RecordType>, defaultKey: string): Key {
   if ('key' in column && column.key !== undefined && column.key !== null) {
@@ -35,4 +43,22 @@ export function safeColumnTitle<RecordType extends AnyObject = AnyObject>(title:
     return ''
   }
   return res
+}
+
+export function normalizePlacement(pos: TablePaginationPlacement | TablePaginationPosition) {
+  const lowerPos = pos.toLowerCase()
+  if (lowerPos.includes('center')) {
+    return 'center'
+  }
+  return lowerPos.includes('left') || lowerPos.includes('start') ? 'start' : 'end'
+}
+
+export function getPaginationSize(paginationSize: SizeType, mergedSize: SizeType): SizeType {
+  if (paginationSize) {
+    return paginationSize
+  }
+  if (mergedSize === 'small' || mergedSize === 'middle' || mergedSize === 'medium') {
+    return 'small'
+  }
+  return undefined
 }
