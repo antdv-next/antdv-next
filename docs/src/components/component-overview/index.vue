@@ -171,7 +171,7 @@ onMounted(() => {
   padding: 0;
   font-size: 20px;
   border: 0;
-  box-shadow: none;
+  box-shadow: none !important;
 
   input {
     font-size: 20px;
@@ -179,6 +179,13 @@ onMounted(() => {
 
   .anticon {
     color: var(--ant-color-text-placeholder);
+  }
+
+  // 对齐 ant-design 组件总览搜索框的可访问性覆盖：
+  // borderless 变体在 :focus-visible 时会绘制 outline，这里强制移除
+  &:focus-visible,
+  &:has(input:focus-visible) {
+    outline: none !important;
   }
 }
 
