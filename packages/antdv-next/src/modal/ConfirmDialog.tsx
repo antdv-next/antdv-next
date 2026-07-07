@@ -1,4 +1,4 @@
-import type { SlotsType } from 'vue'
+import type { CSSProperties, SlotsType } from 'vue'
 import type { EmptyEmit } from '../_util/type.ts'
 import type { ThemeConfig } from '../config-provider/context'
 import type { ModalFuncProps, ModalLocale } from './interface'
@@ -20,6 +20,8 @@ import { useModalProvider } from './context'
 import { getConfirmLocale } from './locale'
 import Modal from './Modal'
 import Confirm from './style/confirm'
+
+const CONFIRM_OMIT_SEMANTIC_NAMES = ['body']
 
 export interface ConfirmDialogProps extends ModalFuncProps {
   prefixCls: string
@@ -50,7 +52,11 @@ export interface ConfirmDialogProps extends ModalFuncProps {
 }
 
 export const ConfirmContent = defineComponent<
-  ConfirmDialogProps & { confirmPrefixCls: string },
+  ConfirmDialogProps & {
+    confirmPrefixCls: string
+    contentClassName?: string
+    contentStyle?: CSSProperties
+  },
   EmptyEmit,
   string,
   SlotsType<{ default?: () => any }>
@@ -100,6 +106,8 @@ export const ConfirmContent = defineComponent<
       const {
         confirmPrefixCls,
         footer,
+        contentClassName,
+        contentStyle,
       } = props
       const content = getSlotPropsFnRun({}, props, 'content', false)
       const icon = getSlotPropsFnRun({}, props, 'icon', false)
@@ -142,7 +150,12 @@ export const ConfirmContent = defineComponent<
             {mergedIcon}
             <div class={`${confirmPrefixCls}-paragraph`}>
               {hasTitle && <span class={`${confirmPrefixCls}-title`}>{title}</span>}
-              <div class={`${confirmPrefixCls}-content`}>{content}</div>
+              <div
+                class={clsx(`${confirmPrefixCls}-content`, contentClassName)}
+                style={contentStyle}
+              >
+                {content}
+              </div>
             </div>
           </div>
           {footer === undefined || typeof footer === 'function'
@@ -219,6 +232,10 @@ const ConfirmDialog = defineComponent<ConfirmDialogProps>(
 
       const mergedMask = mergedMaskFn()
 
+      const semanticStyles = typeof styles === 'function'
+        ? (info: any) => ({ body: bodyStyle, mask: maskStyle, ...(styles as any)(info) })
+        : { body: bodyStyle, mask: maskStyle, ...styles }
+
       const mergedType = type || 'confirm'
       const classString = clsx(
         confirmPrefixCls,
@@ -242,18 +259,22 @@ const ConfirmDialog = defineComponent<ConfirmDialogProps>(
           maskTransitionName={getTransitionName(rootPrefixCls || '', 'fade', props.maskTransitionName)}
           mask={mergedMask}
           style={style as any}
-          styles={{ body: bodyStyle, mask: maskStyle, ...styles }}
+          styles={semanticStyles}
           width={width}
           zIndex={mergedZIndex.value}
           closable={closable}
-        >
-          <ConfirmContent
-            {...props}
-            confirmPrefixCls={confirmPrefixCls}
-            okButtonProps={{ ...contextOkButtonProps.value, ...props.okButtonProps }}
-            cancelButtonProps={{ ...contextCancelButtonProps.value, ...props.cancelButtonProps }}
-          />
-        </Modal>
+          _semanticOmit={CONFIRM_OMIT_SEMANTIC_NAMES}
+          _renderSemanticContent={({ classNames: mergedClassNames, styles: mergedStyles }) => (
+            <ConfirmContent
+              {...props}
+              confirmPrefixCls={confirmPrefixCls}
+              okButtonProps={{ ...contextOkButtonProps.value, ...props.okButtonProps }}
+              cancelButtonProps={{ ...contextCancelButtonProps.value, ...props.cancelButtonProps }}
+              contentClassName={mergedClassNames.body}
+              contentStyle={mergedStyles.body}
+            />
+          )}
+        />
       )
     }
   },

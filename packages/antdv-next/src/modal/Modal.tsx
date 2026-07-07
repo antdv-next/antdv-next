@@ -1,5 +1,5 @@
 import type { DialogProps } from '@v-c/dialog'
-import type { SlotsType } from 'vue'
+import type { CSSProperties, SlotsType } from 'vue'
 import type { Breakpoint } from '../_util/responsiveObserver'
 import type { ModalClassNamesType, ModalEmits, ModalProps, ModalSlots, ModalStylesType, MousePosition } from './interface'
 import { CloseOutlined } from '@antdv-next/icons'
@@ -50,9 +50,19 @@ const defaults = {
   width: 520,
 } as any
 
+export interface ModalSemanticRenderInfo {
+  classNames: Record<string, string | undefined>
+  styles: Record<string, CSSProperties | undefined>
+}
+
 export interface InternalModalProps extends ModalProps,
   /* @vue-ignore */
-  ModalEmitsProps {}
+  ModalEmitsProps {
+  /** @private Internal usage for Modal static methods. Do not use in your production. */
+  _semanticOmit?: string[]
+  /** @private Internal usage for Modal static methods. Do not use in your production. */
+  _renderSemanticContent?: (semantic: ModalSemanticRenderInfo) => any
+}
 
 export interface ModalEmitsProps {
   onOk?: ModalEmits['ok']
@@ -334,7 +344,24 @@ const Modal = defineComponent<
         'focusTriggerAfterClose',
         'panelRef',
         'focusable',
+        '_semanticOmit',
+        '_renderSemanticContent',
       ] as any)
+
+      const { _semanticOmit, _renderSemanticContent } = props as InternalModalProps
+      const dialogClassNames = (
+        _semanticOmit ? omit(mergedClassNames.value, _semanticOmit as any[]) : mergedClassNames.value
+      ) as typeof mergedClassNames.value
+      const dialogStyles = (
+        _semanticOmit ? omit(mergedStyles.value, _semanticOmit as any[]) : mergedStyles.value
+      ) as typeof mergedStyles.value
+
+      const semanticContent = _renderSemanticContent
+        ? _renderSemanticContent({
+            classNames: mergedClassNames.value as any,
+            styles: mergedStyles.value as any,
+          })
+        : slots.default?.()
 
       const titleNode = getSlotPropsFnRun(slots, props, 'title')
       const mergedClassName = clsx(hashId.value, contextClassName.value, className)
@@ -343,7 +370,7 @@ const Modal = defineComponent<
         rootClassRef.value,
         cssVarCls.value,
         rootCls.value,
-        mergedClassNames.value.root,
+        dialogClassNames.root,
       )
 
       const getContainer
@@ -362,7 +389,7 @@ const Modal = defineComponent<
               getContainer={getContainer}
               prefixCls={prefixCls.value}
               rootClassName={mergedRootClassName}
-              rootStyle={{ ...rootStyleRef.value, ...mergedStyles.value.root }}
+              rootStyle={{ ...rootStyleRef.value, ...dialogStyles.root }}
               footer={dialogFooter}
               title={titleNode}
               visible={props.open}
@@ -380,10 +407,10 @@ const Modal = defineComponent<
               className={mergedClassName}
               style={{ ...contextStyle.value, ...responsiveWidthVars.value, ...attrStyle }}
               classNames={{
-                ...mergedClassNames.value,
-                wrapper: clsx(mergedClassNames.value.wrapper, wrapClassNameExtended),
+                ...dialogClassNames,
+                wrapper: clsx(dialogClassNames.wrapper, wrapClassNameExtended),
               }}
-              styles={mergedStyles.value}
+              styles={dialogStyles}
               panelRef={mergedPanelRef}
               destroyOnHidden={destroyOnHidden ?? destroyOnClose}
               modalRender={mergedModalRender}
@@ -397,7 +424,7 @@ const Modal = defineComponent<
                       class={`${prefixCls.value}-body-skeleton`}
                     />
                   )
-                : slots.default?.()}
+                : semanticContent}
             </Dialog>
           </ZIndexProvider>
         </ContextIsolator>
