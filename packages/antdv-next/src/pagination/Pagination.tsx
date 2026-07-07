@@ -150,7 +150,7 @@ const Pagination = defineComponent<
             propSelectOnChange?.(nextSize, option)
           }}
           size={mergedSize.value}
-          class={clsx(sizeChangerClassName, propSelectClass)}
+          class={clsx(`${prefixCls.value}-options-size-changer-select`, sizeChangerClassName, propSelectClass)}
         />
       )
     }

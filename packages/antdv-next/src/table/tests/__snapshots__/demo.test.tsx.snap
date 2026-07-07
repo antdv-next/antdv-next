@@ -9171,7 +9171,7 @@ exports[`table demo > renders edit-row correctly 1`] = `
             <!---->
             <div
               aria-label="页码"
-              class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+              class="ant-select ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
             >
               <!---->
               <div
@@ -15040,7 +15040,7 @@ exports[`table demo > renders fixed-columns-header correctly 1`] = `
           <!---->
           <div
             aria-label="页码"
-            class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+            class="ant-select ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <!---->
             <div
@@ -17560,7 +17560,7 @@ exports[`table demo > renders fixed-header correctly 1`] = `
           <!---->
           <div
             aria-label="页码"
-            class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+            class="ant-select ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <!---->
             <div
@@ -18950,7 +18950,7 @@ exports[`table demo > renders grouping-columns correctly 1`] = `
           <!---->
           <div
             aria-label="页码"
-            class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+            class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
             size="small"
           >
             <!---->
@@ -21651,7 +21651,7 @@ exports[`table demo > renders narrow correctly 1`] = `
             <!---->
             <div
               aria-label="页码"
-              class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+              class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
               size="small"
             >
               <!---->
@@ -30347,7 +30347,7 @@ exports[`table demo > renders sticky correctly 1`] = `
           <!---->
           <div
             aria-label="页码"
-            class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+            class="ant-select ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <!---->
             <div
