@@ -33,6 +33,7 @@ export default {
 
   iconSearch: {
     themes: {
+      all: '全部',
       outlined: '线框风格',
       filled: '实底风格',
       twoTone: '双色风格',

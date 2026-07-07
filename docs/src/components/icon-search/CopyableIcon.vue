@@ -4,7 +4,7 @@ import { message } from 'antdv-next'
 import { computed } from 'vue'
 import { useLocale } from '@/composables/use-locale'
 
-type ThemeType = 'Filled' | 'Outlined' | 'TwoTone'
+type ThemeType = 'All' | 'Filled' | 'Outlined' | 'TwoTone'
 
 const props = defineProps<{
   name: string
@@ -21,6 +21,10 @@ const emit = defineEmits<{
 const { t } = useLocale()
 
 const iconName = computed(() => `${props.name}`)
+
+// Derive the theme from the icon name so the correct hover style applies even
+// in the "All" view, where a single list mixes icons of different themes.
+const themeClass = computed(() => props.name.match(/(Outlined|Filled|TwoTone)$/)?.[0] ?? props.theme)
 
 const iconComponent = computed(() => AntdIcons[iconName.value as keyof typeof AntdIcons])
 
@@ -62,7 +66,7 @@ async function handleClick() {
 <template>
   <li
     class="icon-item"
-    :class="[theme, { copied: justCopied === name }]"
+    :class="[themeClass, { copied: justCopied === name }]"
     @click="handleClick"
   >
     <component :is="iconComponent" />

@@ -10,7 +10,12 @@ import { all, categories } from './field'
 import metaInfo from './meta'
 import { FilledIcon, OutlinedIcon, TwoToneIcon } from './themeIcons'
 
-type ThemeType = 'Filled' | 'Outlined' | 'TwoTone'
+type ThemeType = 'All' | 'Filled' | 'Outlined' | 'TwoTone'
+
+// Preference order used by the "All" view to pick the single variant shown for
+// each icon. Outlined first keeps the default look; Filled surfaces logos that
+// only ship as Filled and would otherwise stay hidden on the Outlined tab.
+const THEME_ORDER = ['Outlined', 'Filled', 'TwoTone'] as const
 
 interface MatchedCategory {
   category: string
@@ -54,11 +59,23 @@ function groupNewIcons(icons: string[]) {
   return [...newIcons, ...restIcons]
 }
 
-const theme = ref<ThemeType>('Outlined')
+// Map a base icon name to the concrete component name(s) to render for a theme.
+// "All" resolves to a single variant (see THEME_ORDER); a specific theme resolves
+// to that variant only when it exists.
+function resolveIconNames(baseName: string, theme: ThemeType): string[] {
+  if (theme === 'All') {
+    const matched = THEME_ORDER.find(item => allIcons[baseName + item])
+    return matched ? [baseName + matched] : []
+  }
+  return allIcons[baseName + theme] ? [baseName + theme] : []
+}
+
+const theme = ref<ThemeType>('All')
 const searchKey = ref('')
 const searchBarAffixed = ref(false)
 
 const options = computed(() => [
+  { value: 'All', label: t('ui.iconSearch.themes.all'), icon: h(AntdIcons.AppstoreOutlined) },
   { value: 'Outlined', label: t('ui.iconSearch.themes.outlined'), icon: h(OutlinedIcon) },
   { value: 'Filled', label: t('ui.iconSearch.themes.filled'), icon: h(FilledIcon) },
   { value: 'TwoTone', label: t('ui.iconSearch.themes.twoTone'), icon: h(TwoToneIcon) },
@@ -161,9 +178,7 @@ const matchedCategories = computed(() => {
   const merged = mergeCategory(namedMatchedCategoryObj, tagMatchedCategoryObj)
   const result = Object.values(merged)
     .map((item) => {
-      const icons = item.icons
-        .map(iconName => iconName + theme.value)
-        .filter(iconName => allIcons[iconName])
+      const icons = item.icons.flatMap(iconName => resolveIconNames(iconName, theme.value))
       // Surface the newly added icons at the top of the brand group.
       item.icons = item.category === 'logo' ? groupNewIcons(icons) : icons
       return item
