@@ -2,6 +2,7 @@ import type { ConfigProviderProps } from 'antdv-next'
 import { theme } from 'antdv-next'
 import { computed } from 'vue'
 import { useLocale } from '@/composables/use-locale'
+import sereneIcon from './assets/serene-icon.svg'
 import useBlossomTheme from './blossom-theme'
 import blossomThemeSource from './blossom-theme.ts?raw'
 import useBootstrapTheme from './bootstrap-theme'
@@ -18,6 +19,8 @@ import useLarkTheme from './lark-theme'
 import larkThemeSource from './lark-theme.ts?raw'
 import useMuiTheme from './mui-theme'
 import muiThemeSource from './mui-theme.ts?raw'
+import useSereneTheme from './serene-theme'
+import sereneThemeSource from './serene-theme.ts?raw'
 import useShadcnTheme from './shadcn-theme'
 import shadcnThemeSource from './shadcn-theme.ts?raw'
 import useV4Theme from './v4-theme'
@@ -155,6 +158,7 @@ export function usePreviewThemes() {
   const shadcnTheme = useShadcnTheme()
   const bootstrapTheme = useBootstrapTheme()
   const v4Theme = useV4Theme()
+  const sereneTheme = useSereneTheme()
 
   return computed<PreviewThemeConfig[]>(() => [
     {
@@ -248,6 +252,12 @@ export function usePreviewThemes() {
       name: t('homePage.previewThemes.v4'),
       props: v4Theme.value,
       copyCode: v4ThemeSource,
+    },
+    {
+      icon: sereneIcon,
+      name: t('homePage.previewThemes.serene'),
+      props: sereneTheme.value,
+      copyCode: sereneThemeSource,
     },
   ])
 }

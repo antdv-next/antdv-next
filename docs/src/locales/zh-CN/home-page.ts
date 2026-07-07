@@ -94,5 +94,6 @@ export default {
     lark: '知识协作',
     blossom: '桃花缘',
     v4: 'Ant Design V4',
+    serene: '静谧',
   },
 } as const
