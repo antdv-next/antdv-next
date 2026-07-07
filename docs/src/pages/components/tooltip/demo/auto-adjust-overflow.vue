@@ -32,7 +32,7 @@ onMounted(() => {
     <div ref="containerRef1" class="tooltip-overflow-container">
       <div class="tooltip-overflow-inner">
         <a-tooltip placement="left" title="Prompt Text" :get-popup-container="getPopupContainer">
-          <a-button>Adjust automatically / 自动调整</a-button>
+          <a-button>Adjust automatically</a-button>
         </a-tooltip>
         <a-tooltip
           placement="left"
@@ -40,7 +40,7 @@ onMounted(() => {
           :get-popup-container="getPopupContainer"
           :auto-adjust-overflow="false"
         >
-          <a-button>Ignore / 不处理</a-button>
+          <a-button>Ignore</a-button>
         </a-tooltip>
       </div>
     </div>
@@ -50,10 +50,10 @@ onMounted(() => {
     <div ref="containerRef2" class="tooltip-overflow-container">
       <div class="tooltip-overflow-inner">
         <a-tooltip placement="left" title="Prompt Text">
-          <a-button>Adjust automatically / 自动调整</a-button>
+          <a-button>Adjust automatically</a-button>
         </a-tooltip>
         <a-tooltip placement="left" title="Prompt Text" :auto-adjust-overflow="false">
-          <a-button>Ignore / 不处理</a-button>
+          <a-button>Ignore</a-button>
         </a-tooltip>
       </div>
     </div>

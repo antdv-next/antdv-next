@@ -17,7 +17,7 @@ const checked2 = shallowRef(true)
 
 <template>
   <a-space vertical>
-    <a-switch v-model:checked="checked" checked-children="开启" un-checked-children="关闭" />
+    <a-switch v-model:checked="checked" checked-children="On" un-checked-children="Off" />
     <a-switch v-model:checked="checked1" checked-children="1" un-checked-children="0" />
     <a-switch v-model:checked="checked2">
       <template #checkedChildren>
