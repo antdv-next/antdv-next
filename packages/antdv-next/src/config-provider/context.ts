@@ -54,7 +54,7 @@ import type { SplitterProps } from '../splitter'
 import type { StatisticProps } from '../statistic'
 import type { StepsProps } from '../steps'
 import type { SwitchProps } from '../switch'
-import type { TableProps } from '../table'
+import type { ColumnType, TableProps } from '../table'
 import type { TabsProps } from '../tabs'
 import type { TagProps } from '../tag'
 import type { AliasToken, MapToken, OverrideToken, SeedToken } from '../theme/interface'
@@ -68,7 +68,6 @@ import type { TreeProps } from '../tree/Tree.tsx'
 import type { BlockProps as TypographyBaseProps } from '../typography/interface'
 import type { UploadProps } from '../upload/interface.ts'
 import type { RenderEmptyHandler } from './defaultRenderEmpty'
-import type { ConfigProviderProps } from './index.tsx'
 import { computed, inject, provide, ref } from 'vue'
 
 export const defaultPrefixCls = 'ant'
@@ -197,8 +196,15 @@ export interface ThemeConfig {
 export interface ComponentStyleConfig {
   class?: string
   style?: CSSProperties
-  classes?: any
-  styles?: any
+  /*
+   * `unknown`, NOT `any`: component configs are built as
+   * `ComponentStyleConfig & Pick<XxxProps, 'classes' | 'styles'>`, and
+   * intersecting a same-named property with `any` collapses it to `any`
+   * (`any & T = any`), silently erasing every component's semantic
+   * classes/styles config type. `unknown & T = T` keeps them intact.
+   */
+  classes?: unknown
+  styles?: unknown
 }
 
 export type PopupOverflow = 'viewport' | 'scroll'
@@ -543,7 +549,8 @@ export interface ConfigConsumerProps extends ConfigComponentProps {
   iconPrefixCls: string
   getPrefixCls: (suffixCls?: string, customizePrefixCls?: string) => string
   renderEmpty?: RenderEmptyHandler
-  transformCellText?: ConfigProviderProps['transformCellText']
+  /** Inlined (mirrors ConfigProviderProps#transformCellText in define.ts) to keep context.ts free of define/index imports — see the circular-any note below. */
+  transformCellText?: (ctx: { text: any, column: ColumnType<any>, record: Record<string, any>, index: number }) => any
   /**
    * @descCN 设置 [Content Security Policy](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CSP) 配置。
    * @descEN Set the [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) config.
@@ -644,7 +651,10 @@ export function useComponentBaseConfig<
 >(propName: T, props?: ComponentBaseProps, keys?: readonly K[], suffixCls?: string) {
   const context = useConfig()
   const propValue = computed(() => {
-    return context.value[propName] as { classes?: any, styles?: any } & ConfigComponentProps[T]
+    // Index through `any`: with real (non-any) config types the raw indexed
+    // access forms a union of every component config, which trips TS2590
+    // (union too complex). The result is cast to the precise type anyway.
+    return (context.value as any)[propName] as { classes?: any, styles?: any } & ConfigComponentProps[T]
   })
   const toRefs = <TValue>(propValues: Ref<TValue>) => {
     const result: any = {
