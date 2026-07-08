@@ -300,6 +300,26 @@ describe('modal integration', () => {
     expect(document.activeElement).toBe(popupInput)
   })
 
+  it('should not invoke default slot while loading', async () => {
+    const slotSpy = vi.fn(() => <div id="lazy-slot-content">Hello</div>)
+    mount(Modal, {
+      attachTo: document.body,
+      props: {
+        open: true,
+        loading: true,
+        title: 'Loading Modal',
+      },
+      slots: {
+        default: slotSpy,
+      },
+    })
+
+    await waitFakeTimer(20, 10)
+
+    expect(document.querySelector('.ant-modal-body-skeleton')).not.toBeNull()
+    expect(slotSpy).not.toHaveBeenCalled()
+  })
+
   it('should render content when forceRender is true even if modal is closed', async () => {
     const wrapper = mount(Modal, {
       attachTo: document.body,

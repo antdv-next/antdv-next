@@ -356,7 +356,8 @@ const Modal = defineComponent<
         _semanticOmit ? omit(mergedStyles.value, _semanticOmit as any[]) : mergedStyles.value
       ) as typeof mergedStyles.value
 
-      const semanticContent = _renderSemanticContent
+      // Keep slot rendering lazy: only invoked in the non-loading branch below.
+      const renderSemanticContent = () => _renderSemanticContent
         ? _renderSemanticContent({
             classNames: mergedClassNames.value as any,
             styles: mergedStyles.value as any,
@@ -424,7 +425,7 @@ const Modal = defineComponent<
                       class={`${prefixCls.value}-body-skeleton`}
                     />
                   )
-                : semanticContent}
+                : renderSemanticContent()}
             </Dialog>
           </ZIndexProvider>
         </ContextIsolator>
