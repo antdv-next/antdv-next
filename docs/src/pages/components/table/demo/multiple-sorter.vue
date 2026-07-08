@@ -7,7 +7,7 @@
 </docs>
 
 <script setup lang="ts">
-import type { TableProps } from 'antdv-next'
+import type { TableEmits, TableProps } from 'antdv-next'
 
 interface DataType {
   key: string
@@ -59,7 +59,7 @@ const dataSource: DataType[] = [
   { key: '4', name: 'Jim Red', chinese: 88, math: 99, english: 89 },
 ]
 
-const onChange: TableProps['onChange'] = (pagination, filters, sorter, extra) => {
+const onChange: TableEmits['change'] = (pagination, filters, sorter, extra) => {
   console.log('params', pagination, filters, sorter, extra)
 }
 </script>
