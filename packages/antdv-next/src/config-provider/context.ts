@@ -161,7 +161,12 @@ export interface ThemeConfig {
    * @default false
    * @since 5.12.0
    */
-  cssVar?: boolean | {
+  /*
+   * `true` only (not `boolean`): CSS variables are always on in v6 —
+   * `useToken` unconditionally builds the cssVar config, so `false` would
+   * silently behave as enabled.
+   */
+  cssVar?: true | {
     /**
      * @descCN css 变量的前缀
      * @descEN Prefix for css variable.

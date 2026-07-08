@@ -291,7 +291,7 @@ const ProviderChildren = defineComponent<
           override: mergedToken,
           ...parsedComponents,
         },
-        cssVar: cssVar as Exclude<ThemeConfig['cssVar'], boolean>,
+        cssVar: cssVar as Exclude<ThemeConfig['cssVar'], true>,
       }
     })
 
