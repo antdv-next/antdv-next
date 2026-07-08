@@ -77,13 +77,19 @@ export interface MentionsOptionProps extends VcMentionsOptionProps {
 }
 
 export interface MentionProps extends
-  Omit<VcMentionsProps, 'suffix' | 'classNames' | 'className' | 'styles' | 'onFocus' | 'onChange' | 'onBlur' | 'onSelect' | 'onPopupScroll' | 'onSearch'>,
+  Omit<VcMentionsProps, 'suffix' | 'classNames' | 'className' | 'styles' | 'onFocus' | 'onChange' | 'onBlur' | 'onSelect' | 'onPopupScroll' | 'onSearch' | 'filterOption'>,
   ComponentBaseProps,
   /* @vue-ignore */
   MentionsEmitsProps {
   loading?: boolean
   status?: InputStatus
   options?: MentionsOptionProps[]
+  /**
+   * Overrides the vc-mentions declaration: its d.ts ships a zero-arg
+   * overload (`(): typeof filterOption`) that breaks contextual parameter
+   * inference for user callbacks.
+   */
+  filterOption?: false | ((input: string, option: MentionsOptionProps) => boolean)
   popupClassName?: string
   /**
    * @since 5.13.0

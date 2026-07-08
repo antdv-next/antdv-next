@@ -161,7 +161,7 @@ export interface ThemeConfig {
    * @default false
    * @since 5.12.0
    */
-  cssVar?: {
+  cssVar?: boolean | {
     /**
      * @descCN css 变量的前缀
      * @descEN Prefix for css variable.
