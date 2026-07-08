@@ -293,7 +293,7 @@ describe('table', () => {
         dataSource={data}
         pagination={false}
         scroll={{ x: 1000 }}
-        custom="123"
+        {...{ custom: '123' } as any}
       />
     ))
 
