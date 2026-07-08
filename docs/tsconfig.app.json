@@ -26,7 +26,8 @@
   },
   "files": [
     "types/vite-env.d.ts",
-    "types/md.d.ts"
+    "types/md.d.ts",
+    "../packages/antdv-next/vue.d.ts"
   ],
   "include": [
     "src/**/*.ts",
