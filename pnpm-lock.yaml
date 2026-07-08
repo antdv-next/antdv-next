@@ -363,8 +363,8 @@ catalogs:
       specifier: ^1.0.5
       version: 1.0.5
     '@v-c/mentions':
-      specifier: ^1.1.1
-      version: 1.1.1
+      specifier: ^1.1.2
+      version: 1.1.2
     '@v-c/menu':
       specifier: ^1.2.2
       version: 1.2.2
@@ -832,7 +832,7 @@ importers:
         version: 1.0.5(vue@3.5.39(typescript@5.9.3))
       '@v-c/mentions':
         specifier: catalog:vc
-        version: 1.1.1(vue@3.5.39(typescript@5.9.3))
+        version: 1.1.2(vue@3.5.39(typescript@5.9.3))
       '@v-c/menu':
         specifier: catalog:vc
         version: 1.2.2(vue@3.5.39(typescript@5.9.3))
@@ -2923,6 +2923,11 @@ packages:
 
   '@v-c/mentions@1.1.1':
     resolution: {integrity: sha512-0AHxlZuRREsr4draxwMWJ2S9BUaW61PwgSIh5dK0eZ0fguAbm6+VfEpXw6t6JKICrcW771nvhjp8qzXJFjFzsw==}
+    peerDependencies:
+      vue: ^3.0.0
+
+  '@v-c/mentions@1.1.2':
+    resolution: {integrity: sha512-KNwrUKLNH/rJU2EV1jzwwGxt8q5J/ovMgWtzGw4+nEO33u1cZ22XFBUfBT0elA79Gz63xVXWFDH7zEQRCjFdIw==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -8450,6 +8455,15 @@ snapshots:
       vue: 3.5.39(typescript@5.9.3)
 
   '@v-c/mentions@1.1.1(vue@3.5.39(typescript@5.9.3))':
+    dependencies:
+      '@v-c/input': 1.1.1(vue@3.5.39(typescript@5.9.3))
+      '@v-c/menu': 1.2.2(vue@3.5.39(typescript@5.9.3))
+      '@v-c/textarea': 1.1.0(vue@3.5.39(typescript@5.9.3))
+      '@v-c/trigger': 1.0.18(vue@3.5.39(typescript@5.9.3))
+      '@v-c/util': 1.0.21(vue@3.5.39(typescript@5.9.3))
+      vue: 3.5.39(typescript@5.9.3)
+
+  '@v-c/mentions@1.1.2(vue@3.5.39(typescript@5.9.3))':
     dependencies:
       '@v-c/input': 1.1.1(vue@3.5.39(typescript@5.9.3))
       '@v-c/menu': 1.2.2(vue@3.5.39(typescript@5.9.3))
