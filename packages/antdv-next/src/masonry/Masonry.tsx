@@ -85,12 +85,21 @@ export interface MasonryRef {
   nativeElement: HTMLDivElement
 }
 
+interface MasonryInstance<T = any> {
+  $props: MasonryProps<T>
+  $emit: (event: 'layoutChange', sortInfo: { key: Key, column: number }[]) => void
+  $slots: MasonrySlots<T>
+}
+
 export interface MasonryConstructor {
-  new<T = any>(props: MasonryProps<T>): {
-    $props: MasonryProps<T>
-    $emit: (event: 'layoutChange', sortInfo: { key: Key, column: number }[]) => void
-    $slots: MasonrySlots<T>
-  }
+  new<T = any>(props: MasonryProps<T>): MasonryInstance<T>
+  /**
+   * Non-generic fallback signature. TypeScript infers from the last overload,
+   * so this keeps render-function usage like `h(Masonry, props)` resolvable
+   * against Vue's `Constructor<P>` overload of `h` (see #634), while the
+   * generic signature above still drives template/Volar inference.
+   */
+  new (props: MasonryProps<any>): MasonryInstance
   install: (app: import('vue').App) => void
 }
 

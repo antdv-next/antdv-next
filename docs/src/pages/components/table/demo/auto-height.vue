@@ -26,7 +26,7 @@ const tableClasses = {
   },
 }
 
-const AutoHeightTable = defineComponent<TableProps>(
+const AutoHeightTable = defineComponent<TableProps<any>>(
   (props, { attrs }) => {
     const rootRef = shallowRef<InstanceType<typeof Table>>()
     const scrollY = ref(0)

@@ -23,16 +23,27 @@ interface InternalTableProps<RecordType = AnyObject> extends TableProps<RecordTy
   /* @vue-ignore */
   TableEmitsProps<RecordType> {}
 
+type TableInstance<RecordType = AnyObject> = {
+  $props: InternalTableProps<RecordType>
+  $emit: {
+    (event: 'change', ...args: Parameters<TableEmits<RecordType>['change']>): void
+    (event: 'update:expandedRowKeys', ...args: Parameters<TableEmits<RecordType>['update:expandedRowKeys']>): void
+    (event: 'scroll', ...args: Parameters<TableEmits<RecordType>['scroll']>): void
+  }
+  $slots: TableSlots<RecordType>
+} & TableExpose
+
 export interface ForwardTableType {
-  new<RecordType = AnyObject>(props: InternalTableProps<RecordType>): {
-    $props: InternalTableProps<RecordType>
-    $emit: {
-      (event: 'change', ...args: Parameters<TableEmits<RecordType>['change']>): void
-      (event: 'update:expandedRowKeys', ...args: Parameters<TableEmits<RecordType>['update:expandedRowKeys']>): void
-      (event: 'scroll', ...args: Parameters<TableEmits<RecordType>['scroll']>): void
-    }
-    $slots: TableSlots<RecordType>
-  } & TableExpose
+  new<RecordType = AnyObject>(props: InternalTableProps<RecordType>): TableInstance<RecordType>
+  /**
+   * Non-generic fallback signature. TypeScript infers from the last overload,
+   * so this keeps render-function usage like `h(Table, props)` resolvable
+   * against Vue's `Constructor<P>` overload of `h` (see #634), while the
+   * generic signature above still drives template/Volar inference.
+   * `any` (not `AnyObject`) because record callbacks are contravariant:
+   * `TableProps<DataType>` is not assignable to `TableProps<AnyObject>`.
+   */
+  new (props: InternalTableProps<any>): TableInstance<any>
   displayName?: string
   SELECTION_COLUMN: typeof SELECTION_COLUMN
   EXPAND_COLUMN: typeof EXPAND_COLUMN
