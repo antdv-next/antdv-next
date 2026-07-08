@@ -133,7 +133,7 @@ export default function useToken(): [
           ignore,
           preserve,
         },
-        nonce: designContext.value.csp?.nonce ?? config.value?.csp?.nonce,
+        nonce: (designContext.value as { csp?: { nonce?: string } }).csp?.nonce ?? config.value?.csp?.nonce,
       } as any
     }),
   )

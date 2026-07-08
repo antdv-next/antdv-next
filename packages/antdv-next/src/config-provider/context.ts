@@ -238,7 +238,7 @@ export type ButtonConfig = ComponentStyleConfig
 
 export type FlexConfig = ComponentStyleConfig & Pick<FlexProps, 'vertical'>
 
-export type AlertConfig = ComponentStyleConfig & Pick<AlertProps, 'closable' | 'closeIcon' | 'classes' | 'styles'> & {
+export type AlertConfig = ComponentStyleConfig & Pick<AlertProps, 'variant' | 'closable' | 'closeIcon' | 'classes' | 'styles'> & {
   successIcon?: VueNode
   infoIcon?: VueNode
   warningIcon?: VueNode

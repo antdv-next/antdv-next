@@ -126,10 +126,15 @@ export interface TransferSemanticStyles {
 
 export type TransferClassNamesType = SemanticClassNamesType<
   TransferProps,
-  TransferSemanticClassNames
+  Omit<TransferSemanticClassNames, 'source' | 'target'>,
+  Pick<TransferSemanticClassNames, 'source' | 'target'>
 >
 
-export type TransferStylesType = SemanticStylesType<TransferProps, TransferSemanticStyles>
+export type TransferStylesType = SemanticStylesType<
+  TransferProps,
+  Omit<TransferSemanticStyles, 'source' | 'target'>,
+  Pick<TransferSemanticStyles, 'source' | 'target'>
+>
 
 export interface TransferListProps<RecordType> extends TransferLocale {
   prefixCls: string

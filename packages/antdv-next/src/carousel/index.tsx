@@ -78,7 +78,7 @@ const omitKeys = [
   'autoplay',
   'autoplaySpeed',
   'rtl',
-] as string[]
+] as const satisfies readonly (keyof CarouselProps)[]
 
 const dotsClass = 'slick-dots'
 
@@ -213,7 +213,7 @@ const Carousel = defineComponent<
         typeof dots === 'boolean' ? false : dots?.class,
       )
       const { className: customClassName, style, restAttrs } = getAttrStyleAndClass(attrs)
-      const newProps = {
+      const newProps: Record<string, any> = {
         vertical: mergedVertical.value,
         className: clsx(customClassName, contextClassName.value),
         style: { ...contextStyle.value, ...style },

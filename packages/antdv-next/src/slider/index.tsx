@@ -5,7 +5,7 @@ import type { TooltipPlacement, TriggerCommonApi } from '../tooltip'
 import VcSlider from '@v-c/slider'
 import { clsx } from '@v-c/util'
 import raf from '@v-c/util/dist/raf'
-import { omit } from 'es-toolkit'
+import { omit } from 'es-toolkit/compat'
 import { cloneVNode, computed, defineComponent, onMounted, onUnmounted, shallowRef } from 'vue'
 import {
   getAttrStyleAndClass,

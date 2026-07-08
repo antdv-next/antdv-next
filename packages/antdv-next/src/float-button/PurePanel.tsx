@@ -31,7 +31,7 @@ const PureFloatButton = defineComponent<PureFloatButtonProps>(
       if (props.backTop) {
         return (
           <BackTop
-            {...attrs}
+            {...attrs as any}
             {...omit(props, ['backTop'])}
             visibilityHeight={0}
             v-slots={slots}
@@ -42,7 +42,7 @@ const PureFloatButton = defineComponent<PureFloatButtonProps>(
         <FloatButton
           {...omit(props, ['backTop'])}
           v-slots={slots}
-          {...attrs}
+          {...attrs as any}
         />
       )
     }
