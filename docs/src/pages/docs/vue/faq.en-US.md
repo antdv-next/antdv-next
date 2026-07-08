@@ -4,7 +4,7 @@ title: FAQ
 
 ## Components are not vertically aligned when placed in single row.
 
-Try [Space](https://ant.design/components/space/) component to make them aligned.
+Try [Space](/components/space/) component to make them aligned.
 
 ## Date-related components locale is not working?
 
