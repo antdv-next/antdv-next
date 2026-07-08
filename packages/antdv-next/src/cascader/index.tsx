@@ -1,5 +1,5 @@
 import type { DefaultOptionType, FieldNames, SearchConfig, CascaderProps as VcCascaderProps } from '@v-c/cascader'
-import type { App, CSSProperties, SlotsType } from 'vue'
+import type { App, CSSProperties, PublicProps, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { SelectCommonPlacement } from '../_util/motion'
 import type { InputStatus } from '../_util/statusUtils'
@@ -155,7 +155,7 @@ export interface CascaderProps<
     | 'value'
   >,
   /* @vue-ignore */
-  CascaderEmitsProps {
+  CascaderEmitsProps<OptionType, ValueField, Multiple> {
   value?: any
   multiple?: boolean
   size?: SizeType
@@ -194,31 +194,39 @@ export interface CascaderProps<
   styles?: CascaderStylesType
 }
 
-export interface CascaderSlots {
+export interface CascaderSlots<OptionType extends DefaultOptionType = DefaultOptionType> {
   suffixIcon?: () => any
   notFoundContent?: () => any
   popupRender?: (menu: any) => any
-  displayRender?: (data: { labels: string[], selectedOptions?: DefaultOptionType[] }) => any
-  optionRender?: (option: DefaultOptionType) => any
+  displayRender?: (data: { labels: string[], selectedOptions?: OptionType[] }) => any
+  optionRender?: (option: OptionType) => any
   expandIcon?: () => any
   default?: () => any
 }
 
-export interface CascaderEmits {
+export interface CascaderEmits<
+  OptionType extends DefaultOptionType = DefaultOptionType,
+  ValueField extends keyof OptionType = keyof OptionType,
+  Multiple extends boolean = boolean,
+> {
   'openChange': (visible: boolean) => void
   'dropdownVisibleChange': (visible: boolean) => void
   'popupVisibleChange': (visible: boolean) => void
-  'change': NonNullable<VcCascaderProps['onChange']>
+  'change': NonNullable<VcCascaderProps<OptionType, ValueField, Multiple>['onChange']>
   'update:value': (value: any) => void
-  'search': NonNullable<VcCascaderProps['onSearch']>
+  'search': NonNullable<VcCascaderProps<OptionType, ValueField, Multiple>['onSearch']>
 }
-export interface CascaderEmitsProps {
-  onOpenChange?: CascaderEmits['openChange']
-  onDropdownVisibleChange?: CascaderEmits['dropdownVisibleChange']
-  onPopupVisibleChange?: CascaderEmits['popupVisibleChange']
-  onChange?: CascaderEmits['change']
-  'onUpdate:value'?: CascaderEmits['update:value']
-  onSearch?: CascaderEmits['search']
+export interface CascaderEmitsProps<
+  OptionType extends DefaultOptionType = DefaultOptionType,
+  ValueField extends keyof OptionType = keyof OptionType,
+  Multiple extends boolean = boolean,
+> {
+  onOpenChange?: CascaderEmits<OptionType, ValueField, Multiple>['openChange']
+  onDropdownVisibleChange?: CascaderEmits<OptionType, ValueField, Multiple>['dropdownVisibleChange']
+  onPopupVisibleChange?: CascaderEmits<OptionType, ValueField, Multiple>['popupVisibleChange']
+  onChange?: CascaderEmits<OptionType, ValueField, Multiple>['change']
+  'onUpdate:value'?: CascaderEmits<OptionType, ValueField, Multiple>['update:value']
+  onSearch?: CascaderEmits<OptionType, ValueField, Multiple>['search']
 }
 
 const InternalCascader = defineComponent<
@@ -567,7 +575,41 @@ const InternalCascader = defineComponent<
   },
 )
 
-const Cascader = InternalCascader as typeof InternalCascader & {
+interface CascaderInstance<
+  OptionType extends DefaultOptionType = DefaultOptionType,
+  ValueField extends keyof OptionType = keyof OptionType,
+  Multiple extends boolean = boolean,
+> {
+  $props: CascaderProps<OptionType, ValueField, Multiple> & PublicProps
+  $emit: {
+    (event: 'openChange', ...args: Parameters<CascaderEmits['openChange']>): void
+    (event: 'dropdownVisibleChange', ...args: Parameters<CascaderEmits['dropdownVisibleChange']>): void
+    (event: 'popupVisibleChange', ...args: Parameters<CascaderEmits['popupVisibleChange']>): void
+    (event: 'change', ...args: Parameters<CascaderEmits<OptionType, ValueField, Multiple>['change']>): void
+    (event: 'update:value', ...args: Parameters<CascaderEmits['update:value']>): void
+    (event: 'search', ...args: Parameters<CascaderEmits<OptionType, ValueField, Multiple>['search']>): void
+  }
+  $slots: CascaderSlots<OptionType>
+  focus: () => void
+  blur: () => void
+}
+
+export interface CascaderConstructor {
+  new<
+    OptionType extends DefaultOptionType = DefaultOptionType,
+    ValueField extends keyof OptionType = keyof OptionType,
+    Multiple extends boolean = boolean,
+  >(props: CascaderProps<OptionType, ValueField, Multiple>): CascaderInstance<OptionType, ValueField, Multiple>
+  /**
+   * Non-generic fallback signature. TypeScript infers from the last overload,
+   * so this keeps render-function usage like `h(Cascader, props)` resolvable
+   * against Vue's `Constructor<P>` overload of `h` (see #634), while the
+   * generic signature above still drives template/Volar inference.
+   * `$props` must stay fully loose here: `ValueField extends keyof OptionType`
+   * makes every concrete instantiation fail contravariant checks on
+   * `showSearch.filter`'s `FieldNames` parameter.
+   */
+  new (props: Record<string, any>): Omit<CascaderInstance<any, any, any>, '$props'> & { $props: Record<string, any> }
   install: (app: App) => void
   Panel: typeof CascaderPanel
   SHOW_PARENT: typeof SHOW_PARENT
@@ -575,12 +617,14 @@ const Cascader = InternalCascader as typeof InternalCascader & {
   _InternalPanelDoNotUseOrYouWillBeFired: any
 }
 
+const Cascader = InternalCascader as unknown as CascaderConstructor
+
 Cascader.Panel = CascaderPanel
 Cascader.SHOW_PARENT = SHOW_PARENT
 Cascader.SHOW_CHILD = SHOW_CHILD
 
 Cascader.install = (app: App) => {
-  app.component(Cascader.name, Cascader)
+  app.component(InternalCascader.name, Cascader)
   app.component(CascaderPanel.name, CascaderPanel)
 }
 

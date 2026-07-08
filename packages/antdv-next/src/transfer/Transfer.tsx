@@ -40,7 +40,7 @@ const defaults = {
   oneWay: false,
 } as any
 
-export interface InternalTransferProps extends TransferProps,
+export interface InternalTransferProps<RecordType = any> extends TransferProps<RecordType>,
   /* @vue-ignore */
   TransferEmitsProps {}
 

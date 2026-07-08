@@ -1,5 +1,5 @@
 import type { DataNode, TreeSelectProps as VcTreeSelectProps } from '@v-c/tree-select'
-import type { App, CSSProperties, SlotsType } from 'vue'
+import type { App, CSSProperties, PublicProps, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { SelectCommonPlacement } from '../_util/motion'
 import type { InputStatus } from '../_util/statusUtils'
@@ -12,7 +12,7 @@ import VcTreeSelect, { SHOW_ALL, SHOW_CHILD, SHOW_PARENT, TreeNode } from '@v-c/
 import { clsx } from '@v-c/util'
 import { getAttrStyleAndClass } from '@v-c/util/dist/props-util'
 import { getTransitionName } from '@v-c/util/dist/utils/transition'
-import { omit } from 'es-toolkit'
+import { omit } from 'es-toolkit/compat'
 import { computed, defineComponent, shallowRef } from 'vue'
 import {
   useMergeSemantic,
@@ -136,7 +136,7 @@ interface BaseTreeSelectProps<ValueType = any, OptionType extends DataNode = Dat
 export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = DataNode>
   extends BaseTreeSelectProps<ValueType, OptionType>,
   /* @vue-ignore */
-  TreeSelectEmitsProps {
+  TreeSelectEmitsProps<ValueType, OptionType> {
   styles?: TreeSelectStylesType
   classes?: TreeSelectClassNamesType
   suffixIcon?: VueNode
@@ -178,41 +178,41 @@ export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = 
   variant?: Variant
 }
 
-export interface TreeSelectEmits {
+export interface TreeSelectEmits<ValueType = any, OptionType extends DataNode = DataNode> {
   'focus': (e: FocusEvent) => void
   'blur': (e: FocusEvent) => void
   'openChange': (open: boolean) => void
   'dropdownVisibleChange': (open: boolean) => void
-  'select': NonNullable<VcTreeSelectProps['onSelect']>
-  'treeExpand': NonNullable<VcTreeSelectProps['onTreeExpand']>
-  'treeLoad': NonNullable<VcTreeSelectProps['onTreeLoad']>
-  'change': NonNullable<VcTreeSelectProps['onChange']>
+  'select': NonNullable<VcTreeSelectProps<ValueType, OptionType>['onSelect']>
+  'treeExpand': NonNullable<VcTreeSelectProps<ValueType, OptionType>['onTreeExpand']>
+  'treeLoad': NonNullable<VcTreeSelectProps<ValueType, OptionType>['onTreeLoad']>
+  'change': NonNullable<VcTreeSelectProps<ValueType, OptionType>['onChange']>
   'update:value': (value: any) => void
-  'deselect': NonNullable<VcTreeSelectProps['onDeselect']>
-  'popupScroll': NonNullable<VcTreeSelectProps['onPopupScroll']>
-  'search': NonNullable<VcTreeSelectProps['onSearch']>
+  'deselect': NonNullable<VcTreeSelectProps<ValueType, OptionType>['onDeselect']>
+  'popupScroll': NonNullable<VcTreeSelectProps<ValueType, OptionType>['onPopupScroll']>
+  'search': NonNullable<VcTreeSelectProps<ValueType, OptionType>['onSearch']>
 }
-export interface TreeSelectEmitsProps {
+export interface TreeSelectEmitsProps<ValueType = any, OptionType extends DataNode = DataNode> {
   onFocus?: TreeSelectEmits['focus']
   onBlur?: TreeSelectEmits['blur']
   onOpenChange?: TreeSelectEmits['openChange']
   onDropdownVisibleChange?: TreeSelectEmits['dropdownVisibleChange']
-  onSelect?: TreeSelectEmits['select']
-  onTreeExpand?: TreeSelectEmits['treeExpand']
-  onTreeLoad?: TreeSelectEmits['treeLoad']
-  onChange?: TreeSelectEmits['change']
+  onSelect?: TreeSelectEmits<ValueType, OptionType>['select']
+  onTreeExpand?: TreeSelectEmits<ValueType, OptionType>['treeExpand']
+  onTreeLoad?: TreeSelectEmits<ValueType, OptionType>['treeLoad']
+  onChange?: TreeSelectEmits<ValueType, OptionType>['change']
   'onUpdate:value'?: TreeSelectEmits['update:value']
-  onDeselect?: TreeSelectEmits['deselect']
-  onPopupScroll?: TreeSelectEmits['popupScroll']
-  onSearch?: TreeSelectEmits['search']
+  onDeselect?: TreeSelectEmits<ValueType, OptionType>['deselect']
+  onPopupScroll?: TreeSelectEmits<ValueType, OptionType>['popupScroll']
+  onSearch?: TreeSelectEmits<ValueType, OptionType>['search']
 }
 
-export interface TreeSelectSlots {
+export interface TreeSelectSlots<OptionType extends DataNode = DataNode> {
   suffixIcon?: () => any
   tagRender?: (props: any) => any
   notFoundContent?: () => any
   switcherIcon?: () => any
-  treeTitleRender?: (nodeData: DataNode) => any
+  treeTitleRender?: (nodeData: OptionType) => any
 }
 const defaults = {
   listHeight: 256,
@@ -623,7 +623,39 @@ const InternalTreeSelect = defineComponent<
   },
 )
 
-const TreeSelect = InternalTreeSelect as typeof InternalTreeSelect & {
+interface TreeSelectInstance<ValueType = any, OptionType extends DataNode = DataNode> {
+  $props: TreeSelectProps<ValueType, OptionType> & PublicProps
+  $emit: {
+    (event: 'focus', ...args: Parameters<TreeSelectEmits['focus']>): void
+    (event: 'blur', ...args: Parameters<TreeSelectEmits['blur']>): void
+    (event: 'openChange', ...args: Parameters<TreeSelectEmits['openChange']>): void
+    (event: 'dropdownVisibleChange', ...args: Parameters<TreeSelectEmits['dropdownVisibleChange']>): void
+    (event: 'select', ...args: Parameters<TreeSelectEmits<ValueType, OptionType>['select']>): void
+    (event: 'treeExpand', ...args: Parameters<TreeSelectEmits<ValueType, OptionType>['treeExpand']>): void
+    (event: 'treeLoad', ...args: Parameters<TreeSelectEmits<ValueType, OptionType>['treeLoad']>): void
+    (event: 'change', ...args: Parameters<TreeSelectEmits<ValueType, OptionType>['change']>): void
+    (event: 'update:value', ...args: Parameters<TreeSelectEmits['update:value']>): void
+    (event: 'deselect', ...args: Parameters<TreeSelectEmits<ValueType, OptionType>['deselect']>): void
+    (event: 'popupScroll', ...args: Parameters<TreeSelectEmits<ValueType, OptionType>['popupScroll']>): void
+    (event: 'search', ...args: Parameters<TreeSelectEmits<ValueType, OptionType>['search']>): void
+  }
+  $slots: TreeSelectSlots<OptionType>
+  focus: () => void
+  blur: () => void
+  scrollTo: (arg: any) => void
+}
+
+export interface TreeSelectConstructor {
+  new<ValueType = any, OptionType extends DataNode = DataNode>(
+    props: TreeSelectProps<ValueType, OptionType>
+  ): TreeSelectInstance<ValueType, OptionType>
+  /**
+   * Non-generic fallback signature. TypeScript infers from the last overload,
+   * so this keeps render-function usage like `h(TreeSelect, props)` resolvable
+   * against Vue's `Constructor<P>` overload of `h` (see #634), while the
+   * generic signature above still drives template/Volar inference.
+   */
+  new (props: TreeSelectProps<any, any>): TreeSelectInstance<any, any>
   install: (app: App) => void
   TreeNode: typeof TreeNode
   SHOW_ALL: typeof SHOW_ALL
@@ -632,6 +664,8 @@ const TreeSelect = InternalTreeSelect as typeof InternalTreeSelect & {
   _InternalPanelDoNotUseOrYouWillBeFired: any
 }
 
+const TreeSelect = InternalTreeSelect as unknown as TreeSelectConstructor
+
 export const TreeSelectNode = TreeNode
 TreeSelect.TreeNode = TreeNode
 TreeSelect.SHOW_ALL = SHOW_ALL
@@ -639,7 +673,7 @@ TreeSelect.SHOW_PARENT = SHOW_PARENT
 TreeSelect.SHOW_CHILD = SHOW_CHILD
 
 TreeSelect.install = (app: App) => {
-  app.component(TreeSelect.name, TreeSelect)
+  app.component(InternalTreeSelect.name, TreeSelect)
   app.component('ATreeSelectOption', TreeSelectNode)
   return app
 }

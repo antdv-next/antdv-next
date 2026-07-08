@@ -237,7 +237,7 @@ describe('transfer', () => {
           selectedKeys={state.value.selectedKeys}
           render={item => item.title}
           {...{
-            'onUpdate:selectedKeys': (keys: string[]) => {
+            'onUpdate:selectedKeys': (keys: (string | number)[]) => {
               state.value.selectedKeys = keys
             },
           }}

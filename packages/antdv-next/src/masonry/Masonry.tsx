@@ -1,4 +1,4 @@
-import type { CSSProperties, SlotsType } from 'vue'
+import type { CSSProperties, PublicProps, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { Breakpoint } from '../_util/responsiveObserver'
 import type { ComponentBaseProps } from '../config-provider/context'
@@ -86,7 +86,7 @@ export interface MasonryRef {
 }
 
 interface MasonryInstance<T = any> {
-  $props: MasonryProps<T>
+  $props: MasonryProps<T> & PublicProps
   $emit: (event: 'layoutChange', sortInfo: { key: Key, column: number }[]) => void
   $slots: MasonrySlots<T>
 }

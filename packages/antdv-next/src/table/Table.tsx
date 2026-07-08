@@ -1,4 +1,4 @@
-import type { SlotsType } from 'vue'
+import type { PublicProps, SlotsType } from 'vue'
 import type { AnyObject } from '../_util/type.ts'
 import type { TableEmits, TableExpose, TableProps, TableSlots } from './InternalTable.tsx'
 import { EXPAND_COLUMN, Summary } from '@v-c/table'
@@ -24,7 +24,7 @@ interface InternalTableProps<RecordType = AnyObject> extends TableProps<RecordTy
   TableEmitsProps<RecordType> {}
 
 type TableInstance<RecordType = AnyObject> = {
-  $props: InternalTableProps<RecordType>
+  $props: InternalTableProps<RecordType> & PublicProps
   $emit: {
     (event: 'change', ...args: Parameters<TableEmits<RecordType>['change']>): void
     (event: 'update:expandedRowKeys', ...args: Parameters<TableEmits<RecordType>['update:expandedRowKeys']>): void
