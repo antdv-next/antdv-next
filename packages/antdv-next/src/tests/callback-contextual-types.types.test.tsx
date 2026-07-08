@@ -101,7 +101,7 @@ export function renderAll() {
     h(Calendar, { disabledDate: current => !current }),
     h(InputNumber, {
       formatter: value => `${value}`,
-      parser: text => text,
+      parser: text => Number(text ?? 0),
       onChange: value => value,
     }),
     h(Progress, { format: (percent, successPercent) => `${percent}-${successPercent}` }),

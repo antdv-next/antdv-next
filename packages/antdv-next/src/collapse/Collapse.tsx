@@ -234,7 +234,7 @@ const Collapse = defineComponent<
           expandIcon={renderExpandIcon}
           classNames={mergedClassNames.value}
           styles={mergedStyles.value}
-          onChange={key => emit('change', key)}
+          onChange={key => emit('change', key as string[])}
           destroyOnHidden={destroyOnHidden}
           items={items}
         />

@@ -213,7 +213,7 @@ describe('inputNumber', () => {
     const wrapper = mount(InputNumber, {
       props: {
         value: 1000,
-        formatter: (value: string) => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ','),
+        formatter: value => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ','),
         parser: (value: string | undefined) => value?.replace(/\$\s?|(,*)/g, '') ?? '',
       },
     })

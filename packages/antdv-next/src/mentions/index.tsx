@@ -77,21 +77,13 @@ export interface MentionsOptionProps extends VcMentionsOptionProps {
 }
 
 export interface MentionProps extends
-  Omit<VcMentionsProps, 'suffix' | 'classNames' | 'className' | 'styles' | 'onFocus' | 'onChange' | 'onBlur' | 'onSelect' | 'onPopupScroll' | 'onSearch' | 'filterOption'>,
+  Omit<VcMentionsProps, 'suffix' | 'classNames' | 'className' | 'styles' | 'onFocus' | 'onChange' | 'onBlur' | 'onSelect' | 'onPopupScroll' | 'onSearch'>,
   ComponentBaseProps,
   /* @vue-ignore */
   MentionsEmitsProps {
   loading?: boolean
   status?: InputStatus
   options?: MentionsOptionProps[]
-  /**
-   * Keep overriding the vc-mentions declaration until a release built with
-   * the d.ts specifier fix ships: published @v-c/mentions <= 1.1.2 emits
-   * monorepo-relative type imports ('../../textarea/src') that resolve to
-   * `any` under skipLibCheck, so the whole Omit<VcMentionsProps, ...> chain
-   * degrades and callbacks lose contextual parameter types.
-   */
-  filterOption?: false | ((input: string, option: MentionsOptionProps) => boolean)
   popupClassName?: string
   /**
    * @since 5.13.0
