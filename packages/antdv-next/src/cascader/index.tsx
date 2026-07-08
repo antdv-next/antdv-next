@@ -594,6 +594,10 @@ interface CascaderInstance<
   blur: () => void
 }
 
+type CascaderLooseProps = Omit<CascaderProps<any, any, any>, 'showSearch'> & {
+  showSearch?: boolean | Record<string, any>
+}
+
 export interface CascaderConstructor {
   new<
     OptionType extends DefaultOptionType = DefaultOptionType,
@@ -605,11 +609,13 @@ export interface CascaderConstructor {
    * so this keeps render-function usage like `h(Cascader, props)` resolvable
    * against Vue's `Constructor<P>` overload of `h` (see #634), while the
    * generic signature above still drives template/Volar inference.
-   * `$props` must stay fully loose here: `ValueField extends keyof OptionType`
-   * makes every concrete instantiation fail contravariant checks on
-   * `showSearch.filter`'s `FieldNames` parameter.
+   * Only `showSearch` is loosened: `ValueField extends keyof OptionType` makes
+   * every concrete instantiation fail contravariant checks on
+   * `showSearch.filter`'s `FieldNames` parameter. Every other field keeps its
+   * `any`-instantiated type so callbacks like `displayRender` still get
+   * contextual parameter types inside `h()`.
    */
-  new (props: Record<string, any>): Omit<CascaderInstance<any, any, any>, '$props'> & { $props: Record<string, any> }
+  new (props: CascaderLooseProps): Omit<CascaderInstance<any, any, any>, '$props'> & { $props: CascaderLooseProps }
   install: (app: App) => void
   Panel: typeof CascaderPanel
   SHOW_PARENT: typeof SHOW_PARENT

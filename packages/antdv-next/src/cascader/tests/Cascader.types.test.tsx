@@ -27,7 +27,10 @@ export function renderTyped() {
 export function renderWithTypedOptions() {
   return h(Cascader, {
     options: [] as Option[],
-    displayRender: (labels: string[]) => labels.join(' / '),
+    // callback params must get contextual types inside h() — no explicit
+    // annotation here on purpose (would be an implicit-any error otherwise)
+    displayRender: labels => labels.join(' / '),
+    loadData: selectedOptions => selectedOptions.length,
   })
 }
 
