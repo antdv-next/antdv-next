@@ -74,7 +74,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| flex | Flex layout style | string \| number | - |  | × |
+| flex | Flex layout style. Number for 'flex: n n auto', string is applied directly (e.g. pure number string 'n' for 'flex: n 1 0') | string \| number | - |  | × |
 | offset | The number of cells to offset Col from the left | number | 0 |  | × |
 | order | Raster order | number | 0 |  | × |
 | pull | The number of cells that raster is moved to the left | number | 0 |  | × |
