@@ -157,7 +157,7 @@ catalogs:
     '@v-c/slider': ^1.1.0
     '@v-c/steps': ^1.0.0
     '@v-c/switch': ^1.0.1
-    '@v-c/table': ^1.1.6
+    '@v-c/table': ^1.1.7
     '@v-c/tabs': ^1.2.1
     '@v-c/textarea': ^1.1.0
     '@v-c/tooltip': ^1.0.4
@@ -167,8 +167,7 @@ catalogs:
     '@v-c/trigger': ^1.0.18
     '@v-c/upload': ^1.0.0
     '@v-c/util': ^1.0.21
-    '@v-c/virtual-list': ^1.0.9
-
+    '@v-c/virtual-list': ^1.1.0
 onlyBuiltDependencies:
   - esbuild
   - less
