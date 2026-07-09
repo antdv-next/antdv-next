@@ -65,6 +65,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAA
   <demo src="./demo/top-side-2.vue" compact background="grey">顶部-侧边布局-通栏</demo>
   <demo src="./demo/side.vue" iframe="360">侧边布局</demo>
   <demo src="./demo/custom-trigger.vue" compact background="grey">自定义触发器</demo>
+  <demo src="./demo/collapsible-overlay.vue" compact background="grey">折叠覆盖布局</demo>
   <demo src="./demo/responsive.vue" compact background="grey">响应式布局</demo>
   <demo src="./demo/fixed.vue" iframe="360">固定头部</demo>
   <demo src="./demo/fixed-sider.vue" iframe="360">固定侧边栏</demo>
