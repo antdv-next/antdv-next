@@ -22,7 +22,7 @@ const semantics = computed(() => [
       <a-switch
         checked-children="on"
         un-checked-children="off"
-        default-checked
+        :default-checked="true"
         disabled
         :classes="classes"
       />

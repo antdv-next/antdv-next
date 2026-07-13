@@ -34,15 +34,25 @@ function stylesFn(info: any) {
 </script>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical align="flex-start" justify="flex-start" gap="medium">
     <a-switch
       size="small"
       checked-children="on"
       un-checked-children="off"
-      :classes="classes"
       :styles="stylesObject"
+      :classes="{ root: 'custom-switch-root' }"
     />
-    <a-switch :classes="classes" size="medium" :styles="stylesFn" />
+    <a-switch
+      size="medium"
+      checked-children="on"
+      un-checked-children="off"
+      :styles="stylesFn"
+      :classes="classes"
+    />
+    <a-switch
+      :default-checked="true"
+      :classes="{ root: 'mui-root', indicator: 'mui-indicator' }"
+    />
   </a-flex>
 </template>
 
@@ -50,5 +60,38 @@ function stylesFn(info: any) {
 .custom-switch-root {
   width: 40px;
   background-color: v-bind('token.colorPrimary');
+}
+
+.mui-root {
+  min-width: 32px;
+  height: 14px;
+  line-height: 14px;
+}
+
+.mui-root.mui-root.ant-switch-checked {
+  background-color: rgb(25 118 210 / 50%);
+}
+
+.mui-root.mui-root.ant-switch-checked :deep(.ant-switch-handle) {
+  inset-inline-start: calc(100% - 17px);
+}
+
+:deep(.mui-indicator) {
+  top: -3px;
+  width: 20px;
+  height: 20px;
+}
+
+:deep(.mui-indicator.mui-indicator.mui-indicator) {
+  inset-inline-start: -3px;
+}
+
+:deep(.mui-indicator.mui-indicator.mui-indicator)::before {
+  background-color: rgb(25 118 210);
+  border-radius: 999px;
+  box-shadow:
+    rgba(0, 0, 0, 0.2) 0 2px 1px -1px,
+    rgba(0, 0, 0, 0.14) 0 1px 1px 0,
+    rgba(0, 0, 0, 0.12) 0 1px 4px 0;
 }
 </style>
