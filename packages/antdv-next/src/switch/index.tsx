@@ -39,7 +39,7 @@ export type SwitchClassNamesType = SemanticClassNamesType<SwitchProps, SwitchSem
 
 export type SwitchStylesType = SemanticStylesType<SwitchProps, SwitchSemanticStyles>
 
-export type CheckedValueType = string | number | boolean | object
+export type CheckedValueType = boolean | string | number | object
 
 export interface SwitchProps extends ComponentBaseProps,
   /* @vue-ignore */

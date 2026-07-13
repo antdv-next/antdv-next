@@ -50,7 +50,7 @@ function stylesFn(info: any) {
       :classes="classes"
     />
     <a-switch
-      :default-checked="true"
+      default-checked
       :classes="{ root: 'mui-root', indicator: 'mui-indicator' }"
     />
   </a-flex>

@@ -12,9 +12,9 @@ import { CheckOutlined, CloseOutlined, FrownOutlined, SmileOutlined } from '@ant
 
 <template>
   <a-flex gap="medium" align="flex-start" justify="flex-start" vertical>
-    <a-switch checked-children="On" un-checked-children="Off" :default-checked="true" />
-    <a-switch :checked-children="1" :un-checked-children="0" :default-checked="true" />
-    <a-switch :default-checked="true">
+    <a-switch checked-children="On" un-checked-children="Off" default-checked />
+    <a-switch :checked-children="1" :un-checked-children="0" default-checked />
+    <a-switch default-checked>
       <template #checkedChildren>
         <CheckOutlined />
       </template>
@@ -22,7 +22,7 @@ import { CheckOutlined, CloseOutlined, FrownOutlined, SmileOutlined } from '@ant
         <CloseOutlined />
       </template>
     </a-switch>
-    <a-switch :default-checked="true">
+    <a-switch default-checked>
       <template #checkedChildren>
         <a-flex :gap="4" justify="flex-start" align="center">
           <SmileOutlined />

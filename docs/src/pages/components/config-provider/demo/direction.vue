@@ -235,9 +235,9 @@ const handleTreeSelectScroll: TreeSelectEmits['popupScroll'] = (e) => {
             Switch example
           </a-divider>
           &nbsp;&nbsp;
-          <a-switch :default-checked="true" />
+          <a-switch default-checked />
           &nbsp;&nbsp;
-          <a-switch :default-checked="true" loading />
+          <a-switch default-checked loading />
           &nbsp;&nbsp;
           <a-switch loading size="small" />
         </a-col>
