@@ -157,7 +157,7 @@ catalogs:
     '@v-c/slider': ^1.1.0
     '@v-c/steps': ^1.0.0
     '@v-c/switch': ^1.0.1
-    '@v-c/table': ^1.1.7
+    '@v-c/table': ^1.1.8
     '@v-c/tabs': ^1.2.1
     '@v-c/textarea': ^1.1.0
     '@v-c/tooltip': ^1.0.4
