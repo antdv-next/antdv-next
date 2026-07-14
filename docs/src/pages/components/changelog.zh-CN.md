@@ -2,6 +2,49 @@
 title: 组件更新日志
 ---
 
+## V1.4.2
+
+发布日期：2026-07-13
+
+本次版本将 ant-design 上游同步推进到 **6.5.1**（[#644](https://github.com/antdv-next/antdv-next/pull/644)、[#647](https://github.com/antdv-next/antdv-next/pull/647)、[#650](https://github.com/antdv-next/antdv-next/pull/650)），重点完善 **TypeScript 类型基建**（泛型组件构造器导出、`h()` 场景类型推断），并修复 Switch 标签居中与裸属性解析、AutoComplete filled 背景叠加、Modal 惰性渲染等一批组件问题；同步升级 `@v-c/table` 1.1.8、`@v-c/util` 1.0.21 等依赖。
+
+**✨ 新功能 Features**
+
+* feat(types)：Transfer / Cascader / TreeSelect / Segmented 导出泛型构造器类型，`h()` 与 TSX 下可获得完整泛型推断
+* feat(ecosystem)：Awesome 页面新增 antdv-next-tiptap 富文本编辑器
+
+**🐞 问题修复 Fixes**
+
+* fix(switch)：标签内容改为 flex 居中，修复图标类内容按文字基线对齐导致的向上偏移（#58672）
+* fix(switch, checkbox)：模板中裸写 `checked` / `default-checked` 现在正确解析为 `true`（原会解析为空字符串导致不选中）
+* fix(input)：修复 Search 按钮获得焦点时 focus 轮廓被相邻元素遮挡（#58615）
+* fix(auto-complete)：修复 filled 形态下自定义输入组件背景色叠加两层（#58669）
+* fix(motion)：`prefers-reduced-motion` 下同时禁用 `::before` / `::after` 伪元素的过渡与动画（#58685）
+* fix(modal)：loading 期间默认插槽保持惰性渲染；Modal 方法调用的 `styles.body` 正确应用到 content
+* fix(pagination)：修复 Form.Item 中页码尺寸切换器宽度异常
+* fix(button)：修复 Card extra 中按钮图标对齐
+* fix(descriptions)：恢复 shrink-to-fit 容器下的视图宽度
+* fix(date-picker)：`nativeElement` 暴露为元素本身而非函数
+* fix(config-provider)：组件级配置的 `classes` / `styles` 不再被静默推断为 `any`（[#642](https://github.com/antdv-next/antdv-next/pull/642)）；开启 cssinjs layer 时强制 `zeroRuntime`
+* fix(locale)：补齐多语言包缺失字段
+* fix(types)：修复 `h()` 用法下回调参数上下文类型丢失、`h(Table, props)` 无法解析等类型问题，清理组件源码遗留类型错误
+* fix(deps)：升级 `@v-c/util` 1.0.21，修复 vue 3.5.39 下 Space.Compact 中 Select 弹层首开错位
+* build：外置 `@vueuse/core`，消除 rolldown 构建告警
+
+**📖 文档 Docs**
+
+* docs(layout)：新增「折叠覆盖布局」demo（#58566）
+* docs(grid)：补充 Col `flex` 数字与字符串取值的语义差异（#58624）
+* docs(border-beam)：新增「鼠标悬浮时显示」demo（#58683）
+* docs(auto-complete)：新增 filled 形态自定义输入 Debug demo（#58669）
+* docs(table)：新增自适应高度 demo、性能排查 FAQ（Vue DevTools）、`change` 事件类型示例等
+* docs(notification)：新增固定宽度用法 FAQ
+* docs(site)：图标搜索新增「全部」筛选；主题预览新增 Serene / Dashboard；组件总览卡片 hover 效果对齐 ant-design
+
+**🧰 依赖更新 Dependencies**
+
+* chore(deps)：升级 `@v-c/table` ^1.1.8、`@v-c/virtual-list` ^1.1.0、`@v-c/mentions` ^1.1.2、`@v-c/util` ^1.0.21、`@antdv-next/happy-work-theme` 1.0.1
+
 ## V1.4.1
 
 发布日期：2026-07-02

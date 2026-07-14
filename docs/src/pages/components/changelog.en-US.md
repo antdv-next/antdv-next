@@ -2,6 +2,49 @@
 title: Component Changelog
 ---
 
+## V1.4.2
+
+Release Date: 2026-07-13
+
+This release advances the ant-design upstream sync to **6.5.1** ([#644](https://github.com/antdv-next/antdv-next/pull/644), [#647](https://github.com/antdv-next/antdv-next/pull/647), [#650](https://github.com/antdv-next/antdv-next/pull/650)) and focuses on **TypeScript type infrastructure** (generic constructor exports, type inference in `h()` usage). It also fixes a batch of component issues — Switch label centering and bare attribute parsing, AutoComplete filled background stacking, Modal lazy rendering — and upgrades `@v-c/table` 1.1.8, `@v-c/util` 1.0.21 and other dependencies.
+
+**✨ Features**
+
+* feat(types): export generic constructor types for Transfer / Cascader / TreeSelect / Segmented, enabling full generic inference in `h()` and TSX
+* feat(ecosystem): add the antdv-next-tiptap rich-text editor to the Awesome page
+
+**🐞 Fixes**
+
+* fix(switch): center label content with flex instead of aligning it to the text baseline, fixing the upward offset of icon content (#58672)
+* fix(switch, checkbox): bare `checked` / `default-checked` template attributes now correctly resolve to `true` (previously parsed as an empty string and rendered unchecked)
+* fix(input): prevent the Search button focus outline from being covered by adjacent elements (#58615)
+* fix(auto-complete): avoid duplicate filled background on custom input components (#58669)
+* fix(motion): `prefers-reduced-motion` now also disables transitions/animations on `::before` / `::after` pseudo elements (#58685)
+* fix(modal): keep default slot rendering lazy while loading; apply `styles.body` of Modal methods to the content
+* fix(pagination): keep the size changer width inside Form.Item
+* fix(button): align icons inside Card extra
+* fix(descriptions): restore view width in shrink-to-fit containers
+* fix(date-picker): expose `nativeElement` as an element instead of a function
+* fix(config-provider): component-level `classes` / `styles` config is no longer silently inferred as `any` ([#642](https://github.com/antdv-next/antdv-next/pull/642)); force `zeroRuntime` when the cssinjs layer is enabled
+* fix(locale): complete missing locale fields
+* fix(types): fix lost contextual callback types in `h()` usage, unresolvable `h(Table, props)`, and clean up remaining type errors in component sources
+* fix(deps): bump `@v-c/util` to 1.0.21, fixing Select dropdown misalignment inside Space.Compact under vue 3.5.39
+* build: externalize `@vueuse/core` to silence rolldown build warnings
+
+**📖 Docs**
+
+* docs(layout): add a "Collapsible overlay" demo (#58566)
+* docs(grid): document the semantic difference between number and string values of Col `flex` (#58624)
+* docs(border-beam): add a "Show on hover" demo (#58683)
+* docs(auto-complete): add a filled custom input debug demo (#58669)
+* docs(table): add an auto-height demo, a performance troubleshooting FAQ (Vue DevTools), `change` event typing examples, and more
+* docs(notification): add a fixed-width usage FAQ
+* docs(site): add an "All" filter to icon search; add Serene / Dashboard preview themes; align component overview card hover with ant-design
+
+**🧰 Dependencies**
+
+* chore(deps): bump `@v-c/table` ^1.1.8, `@v-c/virtual-list` ^1.1.0, `@v-c/mentions` ^1.1.2, `@v-c/util` ^1.0.21, `@antdv-next/happy-work-theme` 1.0.1
+
 ## V1.4.1
 
 Release Date: 2026-07-02
