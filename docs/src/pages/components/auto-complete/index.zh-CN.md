@@ -36,6 +36,7 @@ demo:
   <demo src="./demo/allowClear.vue">自定义清除按钮</demo>
   <demo src="./demo/style-class.vue">自定义语义结构的样式和类</demo>
   <demo src="./demo/disabled-custom-debug.vue" debug>禁用自定义输入 Debug</demo>
+  <demo src="./demo/filled-custom-debug.vue" debug>填充形态自定义输入 Debug</demo>
 </demo-group>
 
 ## API

@@ -333,6 +333,41 @@ exports[`border-beam demo > renders customized-color correctly 1`] = `
 </div>
 `;
 
+exports[`border-beam demo > renders hover correctly 1`] = `
+<div
+  data-v-app=""
+>
+  <div
+    class="ant-card ant-card-bordered hover-card css-var-root"
+    data-v-ed084c0b=""
+  >
+    <div
+      class="ant-card-head"
+    >
+      <div
+        class="ant-card-head-wrapper"
+      >
+        <div
+          class="ant-card-head-title"
+        >
+          Hover over the card
+        </div>
+        <!---->
+      </div>
+      <!---->
+    </div>
+    <!---->
+    <div
+      class="ant-card-body"
+    >
+       The border beam appears when the pointer moves over this card. 
+    </div>
+    <!---->
+  </div>
+  <!---->
+</div>
+`;
+
 exports[`border-beam demo > renders non-uniform-radius correctly 1`] = `
 <div
   style="width: 360px;"
