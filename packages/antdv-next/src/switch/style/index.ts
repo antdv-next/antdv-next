@@ -4,7 +4,7 @@ import { FastColor } from '@ant-design/fast-color'
 
 import { unit } from '@antdv-next/cssinjs'
 import { genFocusStyle, resetComponent } from '../../style'
-import { genNoMotionStyle } from '../../style/motion'
+import { genNoMotionRawStyle, genNoMotionStyle } from '../../style/motion'
 import { genStyleHooks, mergeToken } from '../../theme/internal'
 
 export interface ComponentToken {
@@ -222,7 +222,7 @@ const genSwitchHandleStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
           boxShadow: handleShadow,
           transition: `all ${token.switchDuration} ease-in-out`,
           content: '""',
-          ...genNoMotionStyle(),
+          ...genNoMotionRawStyle(),
         },
       },
 

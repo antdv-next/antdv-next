@@ -1,7 +1,7 @@
 import type { CSSObject } from '@antdv-next/cssinjs'
 import type { FullToken, GenerateStyle } from '../../theme/internal'
 import { Keyframes } from '@antdv-next/cssinjs'
-import { genNoMotionStyle } from '../../style/motion'
+import { genNoMotionRawStyle } from '../../style/motion'
 import { genStyleHooks } from '../../theme/internal'
 import { genCssVar } from '../../theme/util/genStyleUtils'
 import { MAX_BEAM_COLOR_STOP_PERCENT } from '../util'
@@ -41,7 +41,7 @@ const genBorderBeamStyle: GenerateStyle<BorderBeamToken, CSSObject> = (token) =>
           display: 'block',
 
           '&::before': {
-            ...genNoMotionStyle(),
+            ...genNoMotionRawStyle(),
             content: '""',
             position: 'absolute',
             top: 0,

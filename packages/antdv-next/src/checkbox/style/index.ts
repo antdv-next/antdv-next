@@ -2,7 +2,7 @@ import type { FullToken, GenerateStyle } from '../../theme/internal'
 
 import { unit } from '@antdv-next/cssinjs'
 import { genFocusOutline, resetComponent } from '../../style'
-import { genNoMotionStyle } from '../../style/motion'
+import { genNoMotionRawStyle, genNoMotionStyle } from '../../style/motion'
 import { genStyleHooks, mergeToken } from '../../theme/internal'
 
 // biome-ignore lint/suspicious/noEmptyInterface: ComponentToken need to be empty by default
@@ -120,7 +120,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
           opacity: 0,
           content: '""',
           transition: `all ${token.motionDurationFast} ${token.motionEaseInBack}, opacity ${token.motionDurationFast}`,
-          ...genNoMotionStyle(),
+          ...genNoMotionRawStyle(),
         },
 
         // Wrapper > Checkbox > input
@@ -180,7 +180,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
           opacity: 1,
           transform: 'rotate(45deg) scale(1) translate(-50%,-50%)',
           transition: `all ${token.motionDurationMid} ${token.motionEaseOutBack} ${token.motionDurationFast}`,
-          ...genNoMotionStyle(),
+          ...genNoMotionRawStyle(),
         },
 
         [hoverMediaQuery]: {

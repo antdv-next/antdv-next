@@ -3,7 +3,7 @@ import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/inte
 
 import { unit } from '@antdv-next/cssinjs'
 import { genFocusOutline, genFocusStyle, resetComponent, textEllipsis } from '../../style'
-import { genNoMotionStyle } from '../../style/motion'
+import { genNoMotionRawStyle, genNoMotionStyle } from '../../style/motion'
 import { genStyleHooks, mergeToken } from '../../theme/internal'
 
 export interface ComponentToken {
@@ -178,7 +178,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken, CSSObject> = (token) => {
           transition: ['opacity', 'background-color']
             .map(prop => `${prop} ${motionDurationMid}`)
             .join(', '),
-          ...genNoMotionStyle(),
+          ...genNoMotionRawStyle(),
         },
 
         [`&:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)`]: {
