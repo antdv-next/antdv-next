@@ -22,6 +22,7 @@ tag: 1.3.0
 
 <demo-group>
   <demo src="./demo/basic.vue">Basic</demo>
+  <demo src="./demo/hover.vue">Show on hover</demo>
   <demo src="./demo/customized-color.vue">Gradients</demo>
   <demo src="./demo/non-uniform-radius.vue" debug>Non-uniform radius</demo>
   <demo src="./demo/component-token.vue" debug>Line width</demo>
