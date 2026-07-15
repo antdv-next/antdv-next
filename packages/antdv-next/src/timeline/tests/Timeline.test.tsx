@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { h, nextTick, ref } from 'vue'
+import { createCommentVNode, h, nextTick, ref } from 'vue'
 import Timeline, { TimelineItem } from '..'
 import ConfigProvider from '../../config-provider'
 import mountTest from '/@tests/shared/mountTest'
@@ -682,6 +682,24 @@ describe('timeline', () => {
       ))
       expect(wrapper.findAll('.item-icon')).toHaveLength(1)
       expect(wrapper.findAll('.custom-dot')).toHaveLength(1)
+    })
+
+    it('should fall back when slot renders nothing (comment node)', () => {
+      // 模板插槽中 v-if 不成立时,插槽返回的是含注释节点的数组而非 null
+      const wrapper = mount(() => (
+        <Timeline
+          items={[
+            { content: 'foo', icon: <span class="item-icon" /> },
+            { content: 'bar' },
+          ]}
+          v-slots={{
+            dotRender: ({ index }: any) =>
+              index === 1 ? [<span class="slot-dot" />] : [createCommentVNode('v-if')],
+          }}
+        />
+      ))
+      expect(wrapper.findAll('.item-icon')).toHaveLength(1)
+      expect(wrapper.findAll('.slot-dot')).toHaveLength(1)
     })
 
     it('should support labelRender and contentRender', () => {

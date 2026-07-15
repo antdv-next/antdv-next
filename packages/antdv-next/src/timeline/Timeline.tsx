@@ -6,6 +6,7 @@ import type { ComponentBaseProps } from '../config-provider/context.ts'
 import type { StepItem, StepsProps, StepsSemanticClassNames, StepsSemanticName, StepsSemanticStyles } from '../steps'
 import { useUnstableProvider } from '@v-c/steps/dist/UnstableContext.js'
 import { classNames as clsx } from '@v-c/util'
+import { filterEmpty } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, ref, toRefs } from 'vue'
 import { useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
@@ -165,11 +166,25 @@ const Timeline = defineComponent<
     }))
 
     // ===================== Data =======================
-    // 插槽优先，其次 props(与 getSlotPropFnRun 的约定一致)
+    // 插槽优先，其次 props(与 getSlotPropFnRun 的约定一致)。
+    // 插槽结果是规范化后的 VNode 数组(条件不渲染时为注释节点),须过滤后
+    // 判空,空结果返回 undefined 以触发 item 自身字段的回退。
+    const wrapRender = (fn: any): TimelineProps['dotRender'] => {
+      if (typeof fn !== 'function')
+        return undefined
+      return (params) => {
+        const node = fn(params)
+        const nodes = filterEmpty(Array.isArray(node) ? node : [node])
+          .filter(n => n !== undefined && n !== null)
+        if (!nodes.length)
+          return undefined
+        return nodes.length === 1 ? nodes[0] : nodes
+      }
+    }
     const itemRenders = computed(() => ({
-      dotRender: (slots.dotRender ?? props.dotRender) as TimelineProps['dotRender'],
-      labelRender: (slots.labelRender ?? props.labelRender) as TimelineProps['labelRender'],
-      contentRender: (slots.contentRender ?? props.contentRender) as TimelineProps['contentRender'],
+      dotRender: wrapRender(slots.dotRender ?? props.dotRender),
+      labelRender: wrapRender(slots.labelRender ?? props.labelRender),
+      contentRender: wrapRender(slots.contentRender ?? props.contentRender),
     }))
     const rawItems = useItems(rootPrefixCls, prefixCls, mergedMode, items, pending, pendingDot, itemRenders)
 
