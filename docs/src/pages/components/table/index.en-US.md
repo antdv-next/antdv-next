@@ -121,7 +121,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | dataSource | Data record array to be displayed | object[] | - | - | × |
 | expandable | Config expandable content | [expandable](#expandable) | - |  | ✓ |
 | getPopupContainer | The render container of dropdowns in table| (triggerNode) => HTMLElement | () => TableHtmlElement | - | × |
-| loading | Loading status of table | boolean \| [Spin Props](/components/spin-cn#props) | false | - | × |
+| loading | Loading status of table | boolean \| [Spin Props](/components/spin/#props) | false | - | × |
 | locale | The i18n text including filter, sort, empty text, etc | object | [默认值](https://github.com/ant-design/ant-design/blob/6dae4a7e18ad1ba193aedd5ab6867e1d823e2aa4/components/locale/zh_CN.tsx#L20-L37) | - | × |
 | pagination |Config of pagination. You can ref table pagination [config](#pagination) or full [`pagination`](/components/pagination/) document, hide it by setting it to `false` | false \| TablePaginationConfig | - | - | × |
 | rowClassName | Row's className | function(record, index): string | - |  | × |
@@ -130,7 +130,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | rowHoverable | Row hover | boolean | true | - | × |
 | scroll | Whether the table can be scrollable, [config](#scroll) | object | - | - | ✓ |
 | showHeader | Whether to show table header | boolean | true | - | × |
-| showSorterTooltip | The header show next sorter direction tooltip. It will be set as the property of Tooltip if its type is object | boolean \| [Tooltip props](/components/tooltip-cn) & `{target?: 'full-header' \| 'sorter-icon' }` | \{ target: 'full-header' \} | - | × |
+| showSorterTooltip | The header show next sorter direction tooltip. It will be set as the property of Tooltip if its type is object | boolean \| [Tooltip props](/components/tooltip/) & `{target?: 'full-header' \| 'sorter-icon' }` | \{ target: 'full-header' \} | - | × |
 | size | Size of table | `large` \| `middle` \| `small` | `large` |  | × |
 | sortDirections | Supported sort way, could be `ascend`, `descend` | Array | \[`ascend`, `descend`] | - | × |
 | sticky | Set sticky header and scroll bar | boolean \| `{offsetHeader?: number, offsetScroll?: number, getContainer?: () => HTMLElement}` | - | - | × |
