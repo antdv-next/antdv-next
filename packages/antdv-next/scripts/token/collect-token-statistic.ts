@@ -189,6 +189,7 @@ export async function collectTokenStatistic() {
 
   // 经 vite alias 解析到 packages/antdv-next/src；须通过 vite-ssr-run.ts 加载，
   // 以便 vite-plugin-tsx-resolve-types 生成 runtime props。
+  // @ts-expect-error this is module
   const antdModule = await import('antdv-next/components')
   antd = (antdModule as any).components_exports ?? antdModule
 
