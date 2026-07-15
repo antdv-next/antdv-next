@@ -2,9 +2,24 @@
 title: 组件更新日志
 ---
 
+## V1.4.3
+
+发布日期：2026-07-15
+
+紧急修复 1.4.2 同步上游 [ant-design#58685](https://github.com/ant-design/ant-design/pull/58685) 时引入的样式回归：`genNoMotionStyle` 展开为 `&::before / &::after` 后，6 处本身位于伪元素选择器内部的调用点会生成 `.ant-border-beam::before::before` 这类非法双伪元素选择器——浏览器会静默丢弃这些规则（`prefers-reduced-motion` 在这些位置实际失效），基于 lightningcss 的静态 CSS 压缩则会直接构建失败。
+
+**🐞 问题修复 Fixes**
+
+* fix(style)：新增平铺变体 `genNoMotionRawStyle`，替换 Switch / Segmented / Radio / Checkbox / BorderBeam 中位于伪元素内部的 6 处调用，消除非法 `::before::before` 选择器，`prefers-reduced-motion` 在相应位置恢复生效（[#651](https://github.com/antdv-next/antdv-next/pull/651)）
+
+**🧰 工程 Infrastructure**
+
+* ci：GitHub Actions 的 node 版本升级至 24
+* chore：重新生成静态样式产物
+
 ## V1.4.2
 
-发布日期：2026-07-13
+发布日期：2026-07-14
 
 本次版本将 ant-design 上游同步推进到 **6.5.1**（[#644](https://github.com/antdv-next/antdv-next/pull/644)、[#647](https://github.com/antdv-next/antdv-next/pull/647)、[#650](https://github.com/antdv-next/antdv-next/pull/650)），重点完善 **TypeScript 类型基建**（泛型组件构造器导出、`h()` 场景类型推断），并修复 Switch 标签居中与裸属性解析、AutoComplete filled 背景叠加、Modal 惰性渲染等一批组件问题；同步升级 `@v-c/table` 1.1.8、`@v-c/util` 1.0.21 等依赖。
 

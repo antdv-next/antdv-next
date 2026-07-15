@@ -2,9 +2,24 @@
 title: Component Changelog
 ---
 
+## V1.4.3
+
+Release Date: 2026-07-15
+
+Hotfix for a style regression introduced in 1.4.2 while syncing upstream [ant-design#58685](https://github.com/ant-design/ant-design/pull/58685): after `genNoMotionStyle` expanded to `&::before / &::after`, six call sites that already live inside pseudo-element selectors produced invalid double pseudo-element selectors such as `.ant-border-beam::before::before` — browsers silently drop these rules (so `prefers-reduced-motion` never took effect there), and lightningcss-based static CSS minification fails the build outright.
+
+**🐞 Fixes**
+
+* fix(style): add a flat `genNoMotionRawStyle` variant and use it at the six pseudo-element call sites in Switch / Segmented / Radio / Checkbox / BorderBeam, removing the invalid `::before::before` selectors and restoring `prefers-reduced-motion` behavior there ([#651](https://github.com/antdv-next/antdv-next/pull/651))
+
+**🧰 Infrastructure**
+
+* ci: bump node to 24 in GitHub Actions workflows
+* chore: regenerate the static style output
+
 ## V1.4.2
 
-Release Date: 2026-07-13
+Release Date: 2026-07-14
 
 This release advances the ant-design upstream sync to **6.5.1** ([#644](https://github.com/antdv-next/antdv-next/pull/644), [#647](https://github.com/antdv-next/antdv-next/pull/647), [#650](https://github.com/antdv-next/antdv-next/pull/650)) and focuses on **TypeScript type infrastructure** (generic constructor exports, type inference in `h()` usage). It also fixes a batch of component issues — Switch label centering and bare attribute parsing, AutoComplete filled background stacking, Modal lazy rendering — and upgrades `@v-c/table` 1.1.8, `@v-c/util` 1.0.21 and other dependencies.
 
