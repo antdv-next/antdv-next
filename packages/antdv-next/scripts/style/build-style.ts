@@ -2,10 +2,12 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { createCache, extractStyle, StyleProvider } from '@antdv-next/cssinjs'
+// Resolved to packages/antdv-next/src via the vite alias in vitest-plugin.ts;
+// this module must be loaded through vite (see run-build-style.ts) so that
+// vite-plugin-tsx-resolve-types can generate the runtime props declarations.
+import * as _antd from 'antdv-next/components'
 import { createSSRApp, Fragment, h } from 'vue'
 import { renderToString } from 'vue/server-renderer'
-// eslint-disable-next-line antfu/no-import-dist
-import * as _antd from '../../dist/components.js'
 
 const antd = (_antd as any).components_exports ?? _antd
 
@@ -224,7 +226,7 @@ async function extractStyleText(customTheme?: (node: ReturnType<typeof h>) => Re
   return extractStyle(cache, { plain: true, types: 'style' })
 }
 
-async function buildStyle() {
+export async function buildStyle() {
   const styleText = await extractStyleText()
   for (const output of [distOutput, docsOutput]) {
     await fs.mkdir(path.dirname(output), { recursive: true })
@@ -233,13 +235,3 @@ async function buildStyle() {
   }
   console.log(`Style output saved to: ${distOutput}, ${docsOutput}`)
 }
-
-async function main() {
-  if (process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1])
-    await buildStyle()
-}
-
-main().catch((error) => {
-  console.error(error)
-  process.exit(1)
-})
