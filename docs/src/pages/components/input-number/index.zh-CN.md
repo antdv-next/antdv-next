@@ -31,6 +31,7 @@ demo:
   <demo src="./demo/status.vue">自定义状态</demo>
   <demo src="./demo/focus.vue">聚焦</demo>
   <demo src="./demo/style-class.vue">自定义语义结构的样式和类</demo>
+  <demo src="./demo/feedback-suffix-debug.vue" debug>带反馈图标的后缀 Debug</demo>
 </demo-group>
 
 ## API

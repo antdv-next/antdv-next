@@ -30,6 +30,7 @@ When a numeric value needs to be provided.
   <demo src="./demo/status.vue">Status</demo>
   <demo src="./demo/focus.vue">Focus</demo>
   <demo src="./demo/style-class.vue">Custom semantic dom styling</demo>
+  <demo src="./demo/feedback-suffix-debug.vue" debug>Suffix with feedback debug</demo>
 </demo-group>
 
 ## API
