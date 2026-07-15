@@ -76,9 +76,9 @@ export interface TimelineProps extends ComponentBaseProps {
   reverse?: boolean
   mode?: 'left' | 'alternate' | 'right' | 'start' | 'end'
   items?: TimelineItemType[]
-  dotRender?: (params: { item: TimelineItemType, index: number }) => void
-  labelRender?: (params: { item: TimelineItemType, index: number }) => void
-  contentRender?: (params: { item: TimelineItemType, index: number }) => void
+  dotRender?: (params: { item: TimelineItemType, index: number }) => VueNode
+  labelRender?: (params: { item: TimelineItemType, index: number }) => VueNode
+  contentRender?: (params: { item: TimelineItemType, index: number }) => VueNode
   orientation?: 'horizontal' | 'vertical'
   variant?: StepsProps['variant']
   classes?: TimelineClassNamesType
@@ -91,9 +91,9 @@ export type TimelineStylesType = SemanticStylesType<TimelineProps, TimelineSeman
 export interface TimelineSlots {
   pending?: () => void
   pendingDot?: () => void
-  dotRender?: (params: { item: TimelineItemType, index: number }) => void
-  labelRender?: (params: { item: TimelineItemType, index: number }) => void
-  contentRender?: (params: { item: TimelineItemType, index: number }) => void
+  dotRender?: (params: { item: TimelineItemType, index: number }) => any
+  labelRender?: (params: { item: TimelineItemType, index: number }) => any
+  contentRender?: (params: { item: TimelineItemType, index: number }) => any
 }
 
 const defaults = {
@@ -165,7 +165,13 @@ const Timeline = defineComponent<
     }))
 
     // ===================== Data =======================
-    const rawItems = useItems(rootPrefixCls, prefixCls, mergedMode, items, pending, pendingDot)
+    // 插槽优先，其次 props(与 getSlotPropFnRun 的约定一致)
+    const itemRenders = computed(() => ({
+      dotRender: (slots.dotRender ?? props.dotRender) as TimelineProps['dotRender'],
+      labelRender: (slots.labelRender ?? props.labelRender) as TimelineProps['labelRender'],
+      contentRender: (slots.contentRender ?? props.contentRender) as TimelineProps['contentRender'],
+    }))
+    const rawItems = useItems(rootPrefixCls, prefixCls, mergedMode, items, pending, pendingDot, itemRenders)
 
     const mergedItems = computed(() => {
       return (props.reverse ? [...rawItems.value].reverse() : rawItems.value) as StepItem[]
@@ -222,7 +228,7 @@ const Timeline = defineComponent<
       return (
         <Steps
           {...omit(attrs, ['class', 'style'])}
-          {...omit(props, ['items', 'prefixCls', 'titleSpan'])}
+          {...omit(props, ['items', 'prefixCls', 'titleSpan', 'dotRender', 'labelRender', 'contentRender'])}
           class={clsx(
             contextClassName.value,
             timeline.value?.class,

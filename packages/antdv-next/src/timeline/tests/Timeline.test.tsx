@@ -625,6 +625,85 @@ describe('timeline', () => {
     })
   })
 
+  // ============================ Render Functions ============================
+  describe('render functions', () => {
+    const items = [{ content: 'foo' }, { content: 'bar' }]
+
+    it('should support dotRender prop', () => {
+      const wrapper = mount(() => (
+        <Timeline
+          items={items}
+          dotRender={({ index }) => <span class="custom-dot">{index}</span>}
+        />
+      ))
+      const dots = wrapper.findAll('.custom-dot')
+      expect(dots).toHaveLength(2)
+      expect(dots[0]!.text()).toBe('0')
+      expect(dots[1]!.text()).toBe('1')
+    })
+
+    it('should support dotRender slot', () => {
+      const wrapper = mount(() => (
+        <Timeline
+          items={items}
+          v-slots={{
+            dotRender: ({ item, index }: any) => <span class="slot-dot">{`${item.content}-${index}`}</span>,
+          }}
+        />
+      ))
+      const dots = wrapper.findAll('.slot-dot')
+      expect(dots).toHaveLength(2)
+      expect(dots[0]!.text()).toBe('foo-0')
+    })
+
+    it('should prefer dotRender slot over prop', () => {
+      const wrapper = mount(() => (
+        <Timeline
+          items={items}
+          dotRender={() => <span class="prop-dot" />}
+          v-slots={{
+            dotRender: () => <span class="slot-dot" />,
+          }}
+        />
+      ))
+      expect(wrapper.findAll('.slot-dot')).toHaveLength(2)
+      expect(wrapper.findAll('.prop-dot')).toHaveLength(0)
+    })
+
+    it('should fall back to item icon when dotRender returns nullish', () => {
+      const wrapper = mount(() => (
+        <Timeline
+          items={[
+            { content: 'foo', icon: <span class="item-icon" /> },
+            { content: 'bar' },
+          ]}
+          dotRender={({ index }) => (index === 1 ? <span class="custom-dot" /> : null)}
+        />
+      ))
+      expect(wrapper.findAll('.item-icon')).toHaveLength(1)
+      expect(wrapper.findAll('.custom-dot')).toHaveLength(1)
+    })
+
+    it('should support labelRender and contentRender', () => {
+      const wrapper = mount(() => (
+        <Timeline
+          items={items}
+          labelRender={({ index }) => <span class="custom-label">{`L${index}`}</span>}
+          contentRender={({ item }: any) => <span class="custom-content">{`C-${item.content}`}</span>}
+        />
+      ))
+      expect(wrapper.findAll('.custom-label')).toHaveLength(2)
+      expect(wrapper.findAll('.custom-content')[0]!.text()).toBe('C-foo')
+    })
+
+    it('should not leak render props to DOM attrs', () => {
+      const wrapper = mount(() => (
+        <Timeline items={items} dotRender={() => <span class="custom-dot" />} />
+      ))
+      expect(wrapper.find('ol.ant-timeline').attributes('dotrender')).toBeUndefined()
+    })
+  })
+
   // ============================ Snapshot ============================
   it('should render correct snapshot', () => {
     const wrapper = mount(() => (

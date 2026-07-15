@@ -6,6 +6,12 @@ import { classNames as clsx } from '@v-c/util'
 import { computed } from 'vue'
 import { genCssVar } from '../theme/util/genStyleUtils'
 
+export interface TimelineItemRenders {
+  dotRender?: TimelineProps['dotRender']
+  labelRender?: TimelineProps['labelRender']
+  contentRender?: TimelineProps['contentRender']
+}
+
 function useItems(
   rootPrefixCls: ComputedRef<string>,
   prefixCls: ComputedRef<string>,
@@ -13,6 +19,7 @@ function useItems(
   items?: ComputedRef<TimelineItemType[] | undefined>,
   pending?: ComputedRef<TimelineProps['pending']>,
   pendingDot?: ComputedRef<TimelineProps['pendingDot']>,
+  renders?: ComputedRef<TimelineItemRenders>,
 ) {
   const itemCls = computed(() => `${prefixCls.value}-item`)
 
@@ -27,6 +34,7 @@ function useItems(
 
   // convert legacy type
   return computed(() => {
+    const { dotRender, labelRender, contentRender } = renders?.value ?? {}
     const mergedItems = parseItems.value.map<TimelineItemType>((item, index) => {
       const {
         label,
@@ -68,15 +76,15 @@ function useItems(
       mergedClass = clsx(mergedClass, `${itemCls.value}-placement-${mergedPlacement}`)
 
       // Icon
-      let mergedIcon = icon ?? dot
+      let mergedIcon = dotRender?.({ item, index }) ?? icon ?? dot
       if (!mergedIcon && loading) {
         mergedIcon = <LoadingOutlined />
       }
 
       return {
         ...restProps,
-        title: title ?? label,
-        content: content ?? children,
+        title: labelRender?.({ item, index }) ?? title ?? label,
+        content: contentRender?.({ item, index }) ?? content ?? children,
         style: mergedStyle,
         class: mergedClass,
         icon: mergedIcon,
