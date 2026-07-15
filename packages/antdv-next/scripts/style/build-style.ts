@@ -5,6 +5,7 @@ import { createCache, extractStyle, StyleProvider } from '@antdv-next/cssinjs'
 // Resolved to packages/antdv-next/src via the vite alias in vitest-plugin.ts;
 // this module must be loaded through vite (see run-build-style.ts) so that
 // vite-plugin-tsx-resolve-types can generate the runtime props declarations.
+// @ts-expect-error this is module
 import * as _antd from 'antdv-next/components'
 import { createSSRApp, Fragment, h } from 'vue'
 import { renderToString } from 'vue/server-renderer'

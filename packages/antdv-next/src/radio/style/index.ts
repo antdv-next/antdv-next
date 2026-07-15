@@ -3,7 +3,6 @@ import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/inte
 
 import { unit } from '@antdv-next/cssinjs'
 import { genFocusOutline, resetComponent } from '../../style'
-import { genNoMotionRawStyle, genNoMotionStyle } from '../../style/motion'
 import { genStyleHooks, mergeToken } from '../../theme/internal'
 
 // ============================== Tokens ==============================
@@ -281,7 +280,6 @@ const getRadioBasicStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
         border: `${unit(lineWidth)} ${lineType} ${colorBorder}`,
         borderRadius: '50%',
         transition: `all ${motionDurationMid}`,
-        ...genNoMotionStyle(),
 
         // Dot
         '&:after': {
@@ -297,7 +295,6 @@ const getRadioBasicStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
           transformOrigin: '50% 50%',
           opacity: 0,
           transition: `all ${motionDurationSlow} ${motionEaseInOutCirc}`,
-          ...genNoMotionRawStyle(),
         },
 
         // Wrapper > Radio > input
@@ -421,7 +418,6 @@ const getRadioButtonStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
       transition: [`color`, `background-color`, `box-shadow`]
         .map(prop => `${prop} ${motionDurationMid}`)
         .join(','),
-      ...genNoMotionStyle(),
 
       a: {
         color: buttonColor,
