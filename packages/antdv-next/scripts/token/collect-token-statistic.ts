@@ -175,7 +175,7 @@ async function collect(theme: any, label: string) {
   bar.stop()
 }
 
-async function main() {
+export async function collectTokenStatistic() {
   if (process.env.CSSINJS_STATISTIC) {
     ;(globalThis as any).CSSINJS_STATISTIC = true
   }
@@ -187,7 +187,9 @@ async function main() {
   const cssinjsUtils = await import('@antdv-next/cssinjs/cssinjs-utils')
   statistic = cssinjsUtils.statistic
 
-  const antdModule = await import('../../dist/components.js')
+  // 经 vite alias 解析到 packages/antdv-next/src；须通过 vite-ssr-run.ts 加载，
+  // 以便 vite-plugin-tsx-resolve-types 生成 runtime props。
+  const antdModule = await import('antdv-next/components')
   antd = (antdModule as any).components_exports ?? antdModule
 
   resetStatistic()
@@ -197,8 +199,3 @@ async function main() {
   fs.writeJsonSync(output, statistic, 'utf8')
   console.log(`Collected token statistics successfully, check it in ${output}`)
 }
-
-main().catch((error) => {
-  console.error(error)
-  process.exit(1)
-})
