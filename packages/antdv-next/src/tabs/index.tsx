@@ -1,5 +1,5 @@
 import type { GetIndicatorSize, MoreProps, TabsProps as VcTabsProps, Tab as VcTabType } from '@v-c/tabs'
-import type { App, CSSProperties, SlotsType } from 'vue'
+import type { App, CSSProperties, PublicProps, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
@@ -75,10 +75,12 @@ export interface Tab extends Omit<VcTabType, 'children' | 'className'> {
   class?: string
 }
 
+export type TabItem = Tab & Record<string, any>
+
 export interface TabsRef {
   nativeElement: any
 }
-export interface BaseTabsProps extends ComponentBaseProps {
+export interface BaseTabsProps<Item extends Tab = TabItem> extends ComponentBaseProps {
   type?: TabsType
   size?: SizeType
   hideAdd?: boolean
@@ -90,7 +92,7 @@ export interface BaseTabsProps extends ComponentBaseProps {
   tabPlacement?: TabPlacement
   /** @deprecated Please use `indicator={{ size: ... }}` instead */
   indicatorSize?: GetIndicatorSize
-  items?: Tab[]
+  items?: Item[]
 }
 
 export interface TabsEmits {
@@ -108,7 +110,7 @@ export interface TabsEmitsProps {
   'onUpdate:activeKey'?: TabsEmits['update:activeKey']
 }
 
-export interface TabsProps extends BaseTabsProps, CompatibilityProps, Omit<
+export interface TabsProps<Item extends Tab = TabItem> extends BaseTabsProps<Item>, CompatibilityProps, Omit<
   VcTabsProps,
   | 'editable'
   | 'items'
@@ -135,15 +137,13 @@ export interface TabsProps extends BaseTabsProps, CompatibilityProps, Omit<
   renderTabBar?: (args: { props: any, TabNavListComponent: any }) => any
 }
 
-export type TabItem = Tab & Record<string, any>
-
-export interface TabsSlots {
+export interface TabsSlots<Item extends Tab = TabItem> {
   default: () => any
   addIcon: () => any
   moreIcon: () => any
   removeIcon: () => any
-  labelRender: (args: { item: TabItem, index: number }) => any
-  contentRender: (args: { item: TabItem, index: number }) => any
+  labelRender: (args: { item: Item, index: number }) => any
+  contentRender: (args: { item: Item, index: number }) => any
   renderTabBar?: (args: { props: any, TabNavListComponent: any }) => any
   rightExtra?: () => any
   leftExtra?: () => any
@@ -438,12 +438,37 @@ const InternalTabs = defineComponent<
   },
 )
 
-const Tabs = InternalTabs
+interface TabsInstance<Item extends Tab = TabItem> {
+  $props: TabsProps<Item> & PublicProps
+  $emit: {
+    (event: 'edit', e: MouseEvent | KeyboardEvent | string, action: 'add' | 'remove'): void
+    (event: 'change', ...args: Parameters<TabsEmits['change']>): void
+    (event: 'tabClick', ...args: Parameters<TabsEmits['tabClick']>): void
+    (event: 'tabScroll', ...args: Parameters<TabsEmits['tabScroll']>): void
+    (event: 'update:activeKey', activeKey: string): void
+  }
+  $slots: TabsSlots<Item>
+}
 
-;(Tabs as any).TabPane = TabPane
+export interface TabsConstructor {
+  new<Item extends Tab = TabItem>(props: TabsProps<Item>): TabsInstance<Item>
+  /**
+   * Non-generic fallback signature. TypeScript infers from the last overload,
+   * so this keeps render-function usage like `h(Tabs, props)` resolvable
+   * against Vue's `Constructor<P>` overload of `h` (see #634), while the
+   * generic signature above still drives template/Volar inference.
+   */
+  new (props: TabsProps<any>): TabsInstance<any>
+  install: (app: App) => void
+  TabPane: typeof TabPane
+}
 
-;(Tabs as any).install = (app: App) => {
-  app.component(Tabs.name, Tabs)
+const Tabs = InternalTabs as unknown as TabsConstructor
+
+Tabs.TabPane = TabPane
+
+Tabs.install = (app: App) => {
+  app.component(InternalTabs.name, Tabs)
   app.component(TabPane.name, TabPane)
 }
 
