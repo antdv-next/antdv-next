@@ -97,7 +97,10 @@ export default defineComponent<WaveProps, WaveEmits, string, SlotsType<WaveSlots
       teardown = null
 
       const node = containerRef.value
-      if (!node || node.nodeType !== window.Node.ELEMENT_NODE || props.disabled) {
+      // 用字面量 1(Node.ELEMENT_NODE)而非 window.Node:该回调经 watch 异步调度,
+      // 可能在环境卸载后(如 vitest 拆掉 jsdom 全局)才执行,触碰 window 会抛
+      // "window is not defined" 的 unhandled rejection
+      if (!node || node.nodeType !== 1 || props.disabled) {
         return
       }
 
