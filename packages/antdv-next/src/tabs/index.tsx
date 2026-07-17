@@ -438,7 +438,7 @@ const InternalTabs = defineComponent<
   },
 )
 
-interface TabsInstance<Item extends Tab = TabItem> {
+type TabsInstance<Item extends Tab = TabItem> = {
   $props: TabsProps<Item> & PublicProps
   $emit: {
     (event: 'edit', e: MouseEvent | KeyboardEvent | string, action: 'add' | 'remove'): void
@@ -448,7 +448,7 @@ interface TabsInstance<Item extends Tab = TabItem> {
     (event: 'update:activeKey', activeKey: string): void
   }
   $slots: TabsSlots<Item>
-}
+} & TabsRef
 
 export interface TabsConstructor {
   new<Item extends Tab = TabItem>(props: TabsProps<Item>): TabsInstance<Item>
