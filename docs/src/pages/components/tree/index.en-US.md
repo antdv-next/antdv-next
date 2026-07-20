@@ -64,7 +64,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | loadData | Load data asynchronously | function(node) | - | - | × |
 | loadedKeys | (Controlled) Set loaded tree nodes. Need to work with `loadData` | string[] | [] | - | × |
 | multiple | Allows selecting multiple treeNodes | boolean | false | - | × |
-| rootStyle | Style on the root element | CSSProperties | - | - | × |
+| ~~rootStyle~~ | Style on the root element, please use `styles.root` instead | CSSProperties | - | - | × |
 | selectable | Whether it can be selected | boolean | true | - | × |
 | selectedKeys | (Controlled) Specifies the keys of the selected treeNodes, multiple selection needs to set `multiple` to true, support `v-model:selected-keys` | string[] | - | - | × |
 | showIcon | Controls whether to display the `icon` node (no default style) | boolean | false | - | × |

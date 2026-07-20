@@ -11,11 +11,13 @@ import { omit } from 'es-toolkit'
 import { computed, defineComponent, shallowRef } from 'vue'
 import {
   useMergeSemantic,
+  useSemanticRootStyle,
   useToArr,
   useToProps,
 } from '../_util/hooks'
 import initCollapseMotion from '../_util/motion.ts'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
+import { devUseWarning, isDev } from '../_util/warning'
 import { useComponentBaseConfig } from '../config-provider/context.ts'
 import { useDisabledContext } from '../config-provider/DisabledContext.tsx'
 import { useToken } from '../theme/internal'
@@ -153,6 +155,7 @@ export interface TreeProps<T extends BasicDataNode = DataNode>
     | 'switcherIcon'
     | 'classNames'
     | 'rootClassName'
+    | 'rootStyle'
     | 'styles'
     | 'onCheck'
     | 'onClick'
@@ -184,6 +187,8 @@ export interface TreeProps<T extends BasicDataNode = DataNode>
   showLine?: boolean | { showLeafIcon: boolean | TreeLeafIcon }
   classes?: TreeClassNamesType
   styles?: TreeStylesType
+  /** @deprecated Please use `styles.root` instead */
+  rootStyle?: CSSProperties
 
   /** Whether to support multiple selection */
   multiple?: boolean
@@ -318,7 +323,14 @@ const Tree = defineComponent<
       styles: contextStyles,
     } = useComponentBaseConfig('tree', props)
     const treeRef = shallowRef()
-    const { classes, styles, motion: customMotion } = toPropsRefs(props, 'classes', 'styles', 'motion')
+    const { classes, styles, motion: customMotion, rootStyle } = toPropsRefs(props, 'classes', 'styles', 'motion', 'rootStyle')
+
+    // =================Warning===================
+    if (isDev) {
+      const warning = devUseWarning('Tree')
+      warning.deprecated(!rootStyle.value, 'rootStyle', 'styles.root')
+    }
+
     const contextDisabled = useDisabledContext()
     const mergedDisabled = computed(() => props?.disabled ?? contextDisabled.value)
     const motion = computed(() => customMotion.value ?? {
@@ -335,11 +347,16 @@ const Tree = defineComponent<
       } as TreeProps
     })
 
+    const rootStyleRoot = useSemanticRootStyle(rootStyle)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       TreeClassNamesType,
       TreeStylesType,
       TreeProps
-    >(useToArr(contextClassNames, classes), useToArr(contextStyles, styles), useToProps(mergedProps))
+    >(
+      useToArr(contextClassNames, classes),
+      useToArr(contextStyles, rootStyleRoot as any, styles),
+      useToProps(mergedProps),
+    )
     const [hashId, cssVarCls] = useStyle(prefixCls)
     const [, token] = useToken()
 
