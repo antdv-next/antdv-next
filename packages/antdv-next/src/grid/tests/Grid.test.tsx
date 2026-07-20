@@ -364,6 +364,17 @@ describe('grid', () => {
         expect(wrapper.find('.ant-col').attributes('style')).toContain('flex: 1 0 auto')
       })
 
+      it('should support zero flex', () => {
+        const wrapper = mount(Col, { props: { flex: 0 } })
+        expect(wrapper.find('.ant-col').attributes('style')).toContain('flex: 0 0 auto')
+      })
+
+      it('should support zero flex as string', () => {
+        const wrapper = mount(Col, { props: { flex: '0' } })
+        // jsdom expands the shorthand `flex: 0` to `0 1 0%`
+        expect(wrapper.find('.ant-col').attributes('style')).toContain('flex: 0 1 0%')
+      })
+
       it('should set minWidth 0 when flex is set and Row wrap is false', () => {
         const wrapper = mount(() => (
           <Row wrap={false}>
@@ -428,6 +439,15 @@ describe('grid', () => {
         })
         const classes = wrapper.find('.ant-col').classes()
         expect(classes).toContain('ant-col-xs-flex')
+      })
+
+      it('should support responsive zero flex', () => {
+        const wrapper = mount(Col, {
+          props: { xs: { flex: 0 } },
+        })
+        const col = wrapper.find('.ant-col')
+        expect(col.classes()).toContain('ant-col-xs-flex')
+        expect(col.attributes('style')).toContain('--ant-col-xs-flex: 0 0 auto')
       })
 
       it('should support all breakpoints', () => {

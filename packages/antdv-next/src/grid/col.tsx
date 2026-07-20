@@ -99,7 +99,7 @@ const Col = defineComponent<ColProps>(
         }
 
         // Responsive flex layout
-        if (sizeProps.flex) {
+        if (sizeProps.flex || sizeProps.flex === 0) {
           sizeClassObj[`${prefixCls.value}-${size}-flex`] = true
           sizeStyle[varName(`${size}-flex`)] = parseFlex(sizeProps.flex)
         }
@@ -128,7 +128,7 @@ const Col = defineComponent<ColProps>(
         mergedStyle.paddingLeft = `${horizontalGutter}px`
         mergedStyle.paddingRight = `${horizontalGutter}px`
       }
-      if (flex) {
+      if (flex || flex === 0) {
         mergedStyle.flex = parseFlex(flex)
         // Hack for Firefox to avoid size issue
         // https://github.com/ant-design/ant-design/pull/20023#issuecomment-564389553
