@@ -18,6 +18,7 @@ import type {
   ValidateOptions,
 } from './types.ts'
 import { clsx, get, set } from '@v-c/util'
+import { getDOM } from '@v-c/util/dist/Dom/findDOMNode'
 import { pick } from 'es-toolkit'
 import scrollIntoView from 'scroll-into-view-if-needed'
 import { computed, defineComponent, getCurrentInstance, inject, onBeforeUnmount, onMounted, provide, shallowRef, watch } from 'vue'
@@ -33,7 +34,7 @@ import useLocale from '../locale/useLocale.ts'
 import { NoFormStyle, useFormContextProvider, useVariantContextProvider } from './context.tsx'
 import { FormHookRegistryKey, FormInstanceContextKey } from './hooks/useForm.ts'
 import useStyle from './style'
-import { getFieldId, toArray } from './util.ts'
+import { getFieldId, toArray, toNamePathStr } from './util.ts'
 import { allPromiseFinish } from './utils/asyncUtil'
 import { defaultValidateMessages } from './utils/messages'
 import { cloneByNamePathList, containsNamePath, getNamePath, setValue } from './utils/valueUtil.ts'
@@ -265,6 +266,23 @@ const InternalForm = defineComponent<
       delete fields.value[eventKey]
     }
 
+    // `items` tracks the rendered control instance of each Form.Item, keyed by
+    // the joined name path (`toNamePathStr`). It is intentionally separate from
+    // `fields`, which holds the internal validation bookkeeping of each field.
+    const items = shallowRef<Record<string, any>>({})
+
+    const addItem = (namePathStr: string, instance: any) => {
+      items.value[namePathStr] = instance
+    }
+
+    const removeItem = (namePathStr: string) => {
+      delete items.value[namePathStr]
+    }
+
+    const getFieldInstance = (name: NamePath) => {
+      return items.value[toNamePathStr(getNamePath(name))]
+    }
+
     const getFieldsByNameList = (namePathList?: InternalNamePath[], partialMatch = false) => {
       const mergedNamePathList = namePathList?.length ? namePathList : undefined
       const fieldList = Object.values(fields.value)
@@ -440,6 +458,8 @@ const InternalForm = defineComponent<
         feedbackIcons: feedbackIcons.value,
         addField,
         removeField,
+        addItem,
+        removeItem,
         onValidate,
         triggerValuesChange,
         triggerFieldsChange,
@@ -621,8 +641,20 @@ const InternalForm = defineComponent<
         scrollToField(getNamePath(name), options)
       },
       focusField: (name: NamePath) => {
+        // Prefer the control instance so custom components can expose their own
+        // `focus`, and fall back to the rendered DOM node.
+        const instance = getFieldInstance(name)
+        if (typeof instance?.focus === 'function') {
+          try {
+            instance.focus()
+          }
+          finally {
+            // ignore focus error
+          }
+          return
+        }
         const targetId = getFieldId(getNamePath(name), props.name)
-        const node = targetId ? document.getElementById(targetId) : null
+        const node = getDOM(instance) ?? (targetId ? document.getElementById(targetId) : null)
         if (node) {
           try {
             node.focus?.()
@@ -632,12 +664,7 @@ const InternalForm = defineComponent<
           }
         }
       },
-      getFieldInstance: (name: NamePath) => {
-        const targetId = getFieldId(getNamePath(name), props.name)
-        if (targetId) {
-          return fields.value?.[targetId]
-        }
-      },
+      getFieldInstance,
     } as unknown as FormInstance
 
     expose(formInstance)

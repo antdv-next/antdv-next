@@ -17,6 +17,15 @@ export function toArray<T>(candidate?: T | T[] | false): T[] {
   return Array.isArray(candidate) ? candidate : [candidate]
 }
 
+/**
+ * Key used to track the rendered control instance of a Form.Item.
+ * Unlike `getFieldId`, this is not prefixed with the form name, so it stays
+ * stable no matter whether the Form declares a `name`.
+ */
+export function toNamePathStr(namePath: InternalNamePath): string {
+  return namePath.join('_')
+}
+
 export function getFieldId(namePath: InternalNamePath, formName?: string): string | undefined {
   if (!namePath.length) {
     return undefined
