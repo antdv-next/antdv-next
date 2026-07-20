@@ -119,6 +119,43 @@ describe('form getFieldInstance', () => {
     expect(formRef.value!.getFieldInstance('username')).toBeUndefined()
   })
 
+  // The key comes from the user supplied field name, so inherited Object keys
+  // must not reach the registry prototype.
+  it('handles field names that collide with Object prototype keys', async () => {
+    const formRef = ref<FormInstance>()
+    const model = reactive({ __proto__: '', constructor: '' } as any)
+    const visible = ref(true)
+
+    mount(() => (
+      <Form ref={formRef} model={model}>
+        {visible.value
+          ? (
+              <>
+                <FormItem name="__proto__" label="Proto">
+                  <input class="proto-input" />
+                </FormItem>
+                <FormItem name="constructor" label="Ctor">
+                  <input class="ctor-input" />
+                </FormItem>
+              </>
+            )
+          : null}
+      </Form>
+    ))
+    await nextTick()
+
+    expect(formRef.value!.getFieldInstance('__proto__')).toBeTruthy()
+    expect(formRef.value!.getFieldInstance('constructor')).toBeTruthy()
+    expect(formRef.value!.getFieldInstance('__proto__'))
+      .not
+      .toBe(formRef.value!.getFieldInstance('constructor'))
+
+    visible.value = false
+    await nextTick()
+    expect(formRef.value!.getFieldInstance('__proto__')).toBeUndefined()
+    expect(formRef.value!.getFieldInstance('constructor')).toBeUndefined()
+  })
+
   it('focusField prefers the control focus method', async () => {
     const formRef = ref<FormInstance>()
     const model = reactive({ username: '' })

@@ -269,18 +269,21 @@ const InternalForm = defineComponent<
     // `items` tracks the rendered control instance of each Form.Item, keyed by
     // the joined name path (`toNamePathStr`). It is intentionally separate from
     // `fields`, which holds the internal validation bookkeeping of each field.
-    const items = shallowRef<Record<string, any>>({})
+    // A `Map` is used because the key comes from the user supplied field name,
+    // and inherited `Object` keys such as `__proto__` would otherwise be written
+    // to the prototype rather than stored as own entries.
+    const items = new Map<string, any>()
 
     const addItem = (namePathStr: string, instance: any) => {
-      items.value[namePathStr] = instance
+      items.set(namePathStr, instance)
     }
 
     const removeItem = (namePathStr: string) => {
-      delete items.value[namePathStr]
+      items.delete(namePathStr)
     }
 
     const getFieldInstance = (name: NamePath) => {
-      return items.value[toNamePathStr(getNamePath(name))]
+      return items.get(toNamePathStr(getNamePath(name)))
     }
 
     const getFieldsByNameList = (namePathList?: InternalNamePath[], partialMatch = false) => {
