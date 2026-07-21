@@ -59,6 +59,7 @@ export default {
     empty: 'Empty',
     image: 'Image',
     list: 'List',
+    listy: 'Listy',
     popover: 'Popover',
     qrCode: 'QRCode',
     segmented: 'Segmented',

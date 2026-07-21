@@ -109,6 +109,7 @@ export const components: AntdvMenuItem[] = [
       { key: '/components/form', label: '/components/form' },
       { key: '/components/input', label: '/components/input' },
       { key: '/components/input-number', label: '/components/input-number' },
+      { key: '/components/listy', label: '/components/listy' },
       { key: '/components/mentions', label: '/components/mentions' },
       { key: '/components/radio', label: '/components/radio' },
       { key: '/components/rate', label: '/components/rate' },

@@ -32,6 +32,7 @@ import type { InputProps } from '../input/Input.tsx'
 import type { OTPProps } from '../input/OTP'
 import type { SearchProps } from '../input/Search.tsx'
 import type { TextAreaProps } from '../input/TextArea.tsx'
+import type { ListyProps } from '../listy'
 import type { Locale } from '../locale'
 import type { MasonryProps } from '../masonry/Masonry.tsx'
 import type { MenuProps } from '../menu'
@@ -341,6 +342,8 @@ export type RadioConfig = ComponentStyleConfig & Pick<RadioProps, 'classes' | 's
 
 export type CheckboxConfig = ComponentStyleConfig & Pick<CheckboxProps, 'classes' | 'styles'>
 
+export type ListyConfig = ComponentStyleConfig & Pick<ListyProps, 'classes' | 'styles'>
+
 export type SwitchStyleConfig = ComponentStyleConfig & Pick<SwitchProps, 'classes' | 'styles'>
 
 export type TransferConfig = ComponentStyleConfig & Pick<TransferProps, 'selectionsIcon' | 'classes' | 'styles'>
@@ -505,6 +508,7 @@ export interface ConfigComponentProps {
   image?: ImageConfig
   layout?: ComponentStyleConfig
   // list?: ListConfig;
+  listy?: ListyConfig
   modal?: ModalConfig
   progress?: ProgressConfig
   result?: ResultConfig
