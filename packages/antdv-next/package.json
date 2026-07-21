@@ -177,7 +177,8 @@
   },
   "scripts": {
     "test": "vitest run",
-    "build": "run-s build:esm build:vite:parallel build:p",
+    "build": "run-s build:esm build:vite:parallel build:verify build:p",
+    "build:verify": "tsx ./scripts/verify-browser-bundle.ts",
     "build:p": "run-p build:web-types build:style",
     "build:esm": "tsdown",
     "build:with-locales": "run-p build:with-locales:esm build:with-locales:umd",
