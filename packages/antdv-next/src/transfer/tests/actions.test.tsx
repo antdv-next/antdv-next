@@ -4,17 +4,25 @@ import Transfer from '..'
 import Button from '../../button'
 import { mount } from '/@tests/utils'
 
-const CustomLink = defineComponent<{ disabled?: boolean, onClick?: (event: MouseEvent) => void }>(
-  (props) => {
+const CustomLink = defineComponent<
+  { disabled?: boolean },
+  { click: (event: MouseEvent) => void }
+>(
+  (props, { emit }) => {
     return () => (
-      <a href="#target" aria-disabled={props.disabled ? 'true' : undefined} onClick={props.onClick}>
+      <a
+        href="#target"
+        aria-disabled={props.disabled ? 'true' : undefined}
+        onClick={event => emit('click', event)}
+      >
         Custom Link
       </a>
     )
   },
   {
     name: 'CustomLink',
-    props: ['disabled', 'onClick'] as any,
+    props: ['disabled'] as any,
+    emits: ['click'],
   },
 )
 
