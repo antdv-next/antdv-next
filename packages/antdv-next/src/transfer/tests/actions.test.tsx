@@ -1,7 +1,30 @@
 import { describe, expect, it, vi } from 'vitest'
+import { defineComponent } from 'vue'
 import Transfer from '..'
 import Button from '../../button'
 import { mount } from '/@tests/utils'
+
+const CustomLink = defineComponent<
+  { disabled?: boolean },
+  { click: (event: MouseEvent) => void }
+>(
+  (props, { emit }) => {
+    return () => (
+      <a
+        href="#target"
+        aria-disabled={props.disabled ? 'true' : undefined}
+        onClick={event => emit('click', event)}
+      >
+        Custom Link
+      </a>
+    )
+  },
+  {
+    name: 'CustomLink',
+    props: ['disabled'] as any,
+    emits: ['click'],
+  },
+)
 
 const listCommonProps: {
   dataSource: { key: string, title: string, disabled?: boolean }[]
@@ -45,6 +68,64 @@ describe('transfer.Actions', () => {
 
     expect(customButtonClick).toHaveBeenCalled()
     expect(handleChange).toHaveBeenCalled()
+  })
+
+  it('should preserve disabled state of custom actions', () => {
+    const wrapper = mount({
+      render: () => (
+        <Transfer
+          {...listCommonProps}
+          oneWay
+          actions={[<CustomLink key="test" disabled />]}
+        />
+      ),
+    })
+
+    const link = Array.from(wrapper.element.querySelectorAll('a') as unknown as HTMLAnchorElement[])
+      .find(a => a.textContent?.includes('Custom Link'))
+    expect(link).toBeTruthy()
+    expect(link?.getAttribute('aria-disabled')).toBe('true')
+  })
+
+  it('should prevent default behavior of disabled custom actions', () => {
+    const wrapper = mount({
+      render: () => (
+        <Transfer
+          {...listCommonProps}
+          oneWay
+          actions={[<CustomLink key="test" disabled />]}
+        />
+      ),
+    })
+
+    const link = Array.from(wrapper.element.querySelectorAll('a') as unknown as HTMLAnchorElement[])
+      .find(a => a.textContent?.includes('Custom Link'))!
+    const event = new MouseEvent('click', { bubbles: true, cancelable: true })
+    link.dispatchEvent(event)
+    expect(event.defaultPrevented).toBe(true)
+  })
+
+  it('should prevent click handlers of disabled custom actions', () => {
+    const handleChange = vi.fn()
+    const customActionClick = vi.fn()
+
+    const wrapper = mount({
+      render: () => (
+        <Transfer
+          {...listCommonProps}
+          onChange={handleChange}
+          oneWay
+          actions={[<CustomLink key="test" disabled onClick={customActionClick} />]}
+        />
+      ),
+    })
+
+    const link = Array.from(wrapper.element.querySelectorAll('a') as unknown as HTMLAnchorElement[])
+      .find(a => a.textContent?.includes('Custom Link'))!
+    link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }))
+
+    expect(customActionClick).not.toHaveBeenCalled()
+    expect(handleChange).not.toHaveBeenCalled()
   })
 
   it('should accept multiple actions >= 3', () => {

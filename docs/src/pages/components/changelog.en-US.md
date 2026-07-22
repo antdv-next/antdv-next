@@ -2,6 +2,21 @@
 title: Component Changelog
 ---
 
+## V1.4.5
+
+Release Date: 2026-07-21
+
+Hotfix for the browser (CDN) bundles shipped in 1.4.4. The UMD/ESM builds referenced `process.env.NODE_ENV`, which does not exist in the browser, so loading `dist/antd.js` from unpkg/jsdelivr threw `ReferenceError: process is not defined` and the whole bundle failed. Fixing that surfaced a second problem: `app.use(window.antd)` never registered any components because the plugin's `install` was nested one level deeper on the global.
+
+**🐞 Fixes**
+
+* fix(build): define `process.env.NODE_ENV` in the browser-facing bundles (`antd.js`, `antd.esm.js`, `antd-with-locales.js`, `antd-with-locales.esm.js`) so they no longer reference the missing `process` global. The bundler entry (`dist/index.js`) is left untouched so tree-shaking consumers keep their own dev/prod branches ([#667](https://github.com/antdv-next/antdv-next/pull/667), fixes [#666](https://github.com/antdv-next/antdv-next/issues/666))
+* fix(build): expose `install` / `setPrefix` as named exports so the UMD/ESM global (`window.antd`) carries `install` at the top level; `app.use(window.antd)` now registers all components directly, without reaching for `window.antd.default` ([#667](https://github.com/antdv-next/antdv-next/pull/667))
+
+**🧰 Infrastructure**
+
+* build: add a post-build check that fails the build if any browser bundle references the `process` global unguarded, preventing this regression from shipping again ([#667](https://github.com/antdv-next/antdv-next/pull/667))
+
 ## V1.4.4
 
 Release Date: 2026-07-20

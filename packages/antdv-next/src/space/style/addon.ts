@@ -26,6 +26,7 @@ const genSpaceAddonStyle: GenerateStyle<SpaceToken, CSSObject> = (token) => {
     borderRadiusSM,
     colorBgContainerDisabled,
     lineWidth,
+    lineType,
     antCls,
   } = token
 
@@ -44,7 +45,7 @@ const genSpaceAddonStyle: GenerateStyle<SpaceToken, CSSObject> = (token) => {
         paddingInline: paddingSM,
         margin: 0,
         borderWidth: lineWidth,
-        borderStyle: 'solid',
+        borderStyle: lineType,
         borderRadius,
 
         '&:hover': {

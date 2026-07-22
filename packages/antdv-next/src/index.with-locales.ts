@@ -1,5 +1,10 @@
 import type { Locale } from './locale'
-import * as antd from '.'
+import antd from '.'
+
+// Re-export the full named surface (components, `install`, `theme`, …) so the
+// with-locales UMD/ESM global carries `install` at the top level and
+// `app.use(window.antd)` works directly. See src/index.ts.
+export * from '.'
 
 interface LocaleModule { default: Locale }
 

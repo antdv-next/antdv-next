@@ -9,6 +9,11 @@ export default defineConfig({
     }),
     vueJsx(),
   ],
+  // Browser-facing bundle: replace `process.env.NODE_ENV` so the output does
+  // not reference the missing `process` global in the browser (#666).
+  define: {
+    'process.env.NODE_ENV': JSON.stringify('production'),
+  },
   build: {
     rolldownOptions: {
       external: [

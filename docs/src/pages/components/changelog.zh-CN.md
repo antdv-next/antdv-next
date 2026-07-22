@@ -2,6 +2,21 @@
 title: 组件更新日志
 ---
 
+## V1.4.5
+
+发布日期：2026-07-21
+
+紧急修复 1.4.4 发布的浏览器（CDN）产物。UMD/ESM 构建引用了浏览器中并不存在的 `process.env.NODE_ENV`，导致从 unpkg/jsdelivr 加载 `dist/antd.js` 抛出 `ReferenceError: process is not defined`，整包无法加载。修复该问题后又暴露出第二个问题：`app.use(window.antd)` 完全没有注册任何组件——因为带 `install` 的插件在全局对象上多嵌套了一层。
+
+**🐞 问题修复 Fixes**
+
+* fix(build)：在面向浏览器的产物（`antd.js`、`antd.esm.js`、`antd-with-locales.js`、`antd-with-locales.esm.js`）中替换 `process.env.NODE_ENV`，不再引用缺失的 `process` 全局。打包器入口（`dist/index.js`）保持不动，让 tree-shaking 消费方自行决定 dev/prod 分支（[#667](https://github.com/antdv-next/antdv-next/pull/667)，修复 [#666](https://github.com/antdv-next/antdv-next/issues/666)）
+* fix(build)：将 `install` / `setPrefix` 提为命名导出，使 UMD/ESM 全局（`window.antd`）在顶层直接携带 `install`；`app.use(window.antd)` 现在可直接注册全部组件，无需再取 `window.antd.default`（[#667](https://github.com/antdv-next/antdv-next/pull/667)）
+
+**🧰 工程 Infrastructure**
+
+* build：新增构建后校验，若任一浏览器产物出现未守卫的 `process` 全局引用则构建失败，防止该回归再次发布（[#667](https://github.com/antdv-next/antdv-next/pull/667)）
+
 ## V1.4.4
 
 发布日期：2026-07-20

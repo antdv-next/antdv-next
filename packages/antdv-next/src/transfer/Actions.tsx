@@ -47,15 +47,27 @@ const Action = defineComponent<ActionProps>(
       const icon = getArrowIcon(props.type, props.direction)
 
       if (isVNode(button)) {
+        const nodeProps = (button as any).props || {}
+        const mergedDisabled = nodeProps.disabled || props.disabled || !active
         const onClick = (event: MouseEvent) => {
-          const nodeProps = (button as any).props || {}
+          if (mergedDisabled) {
+            event.preventDefault()
+            return
+          }
           nodeProps?.onClick?.(event)
           moveHandler?.(event)
         }
-        return cloneVNode(button, {
-          disabled: props.disabled || !active,
+        const cloned = cloneVNode(button, {
+          disabled: mergedDisabled,
           onClick,
         })
+        // cloneVNode merges `onClick` into an array (both original and new
+        // handlers fire). Override it so our gated handler fully replaces the
+        // original, matching React's cloneElement behavior.
+        if (cloned.props) {
+          cloned.props.onClick = onClick
+        }
+        return cloned
       }
 
       return (
