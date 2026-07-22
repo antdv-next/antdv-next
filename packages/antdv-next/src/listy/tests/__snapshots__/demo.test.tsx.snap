@@ -1,0 +1,2118 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`listy demo > renders _semantic correctly 1`] = `
+<div
+  class="semantic-preview-container"
+  data-v-dfc8ebef=""
+>
+  <div
+    class="ant-row css-var-root semantic-preview-row"
+    data-v-dfc8ebef=""
+  >
+    <div
+      class="ant-col ant-col-16 css-var-root semantic-preview-col"
+      data-v-dfc8ebef=""
+    >
+      <div
+        class="ant-listy semantic-mark-root css-var-v-0 ant-listy-css-var"
+        style="position: relative; width: 100%;"
+      >
+        <div
+          class="ant-listy-holder"
+          style="max-height: 260px; overflow-y: hidden; overflow-anchor: none;"
+        >
+          <div
+            style="height: 376px; position: relative; overflow: hidden;"
+          >
+            <div
+              class="ant-listy-holder-inner"
+              style="display: flex; flex-direction: column; transform: translateY(0px); margin-left: 0px; position: absolute; left: 0px; right: 0px; top: 0px;"
+            >
+              <div
+                class="ant-listy-group-header semantic-mark-groupHeader"
+              >
+                Design
+              </div>
+              <div
+                class="ant-listy-item semantic-mark-item"
+              >
+                Olivia
+              </div>
+              <div
+                class="ant-listy-item semantic-mark-item"
+              >
+                Liam
+              </div>
+              <div
+                class="ant-listy-item semantic-mark-item"
+              >
+                Emma
+              </div>
+              <div
+                class="ant-listy-group-header semantic-mark-groupHeader"
+              >
+                Engineering
+              </div>
+              <div
+                class="ant-listy-item semantic-mark-item"
+              >
+                Noah
+              </div>
+              <div
+                class="ant-listy-item semantic-mark-item"
+              >
+                Ava
+              </div>
+              <div
+                class="ant-listy-item semantic-mark-item"
+              >
+                Ethan
+              </div>
+              <!---->
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-listy-scrollbar ant-listy-scrollbar-vertical ant-listy-scrollbar-visible"
+          style="position: absolute; width: 8px; top: 0px; bottom: 0px; right: 0px;"
+        >
+          <div
+            class="ant-listy-scrollbar-thumb"
+            style="position: absolute; border-radius: 99px; background: var(--vc-virtual-list-scrollbar-bg, rgba(0, 0, 0, 0.5)); cursor: pointer; user-select: none; width: 100%; height: 179px; top: 0px;"
+          />
+        </div>
+        <!---->
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-8 css-var-root"
+      data-v-dfc8ebef=""
+    >
+      <ul
+        class="semantic-list"
+        data-v-dfc8ebef=""
+      >
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  <!---->
+                  root
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <!--v-if-->
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              <!---->
+              Root element, the scroll container, with font and relative positioning
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  <!---->
+                  item
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <!--v-if-->
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              <!---->
+              Item element, with padding, split line and hover background
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+        <li
+          class="semantic-list-item"
+          data-v-dfc8ebef=""
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+            data-v-dfc8ebef=""
+          >
+            <div
+              class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+              data-v-dfc8ebef=""
+            >
+              <!-- Title + Version -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <h5
+                  class="ant-typography css-var-root"
+                  style="margin: 0px;"
+                >
+                  <!---->
+                  groupHeader
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </h5>
+                <!--v-if-->
+              </div>
+              <!-- Pin + Sample -->
+              <div
+                class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+                data-v-dfc8ebef=""
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <button
+                  class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  data-v-dfc8ebef=""
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      data-v-dfc8ebef=""
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                  <!---->
+                  <!---->
+                </button>
+                <!---->
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-root"
+              style="margin: 0px; font-size: 12px;"
+            >
+              <!---->
+              Group header element, with sticky positioning and background color
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+              <!---->
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`listy demo > renders basic correctly 1`] = `
+<div
+  class="ant-listy css-var-root ant-listy-css-var"
+  style="position: relative;"
+>
+  <div
+    class="ant-listy-holder"
+    style="max-height: 400px; overflow-y: hidden; overflow-anchor: none;"
+  >
+    <div
+      style="height: 470000px; position: relative; overflow: hidden;"
+    >
+      <div
+        class="ant-listy-holder-inner"
+        style="display: flex; flex-direction: column; transform: translateY(0px); margin-left: 0px; position: absolute; left: 0px; right: 0px; top: 0px;"
+      >
+        <div
+          class="ant-listy-item"
+        >
+          Item 0
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          Item 1
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          Item 2
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          Item 3
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          Item 4
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          Item 5
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          Item 6
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          Item 7
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          Item 8
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          Item 9
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          Item 10
+        </div>
+        <!---->
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-listy-scrollbar ant-listy-scrollbar-vertical ant-listy-scrollbar-visible"
+    style="position: absolute; width: 8px; top: 0px; bottom: 0px; right: 0px;"
+  >
+    <div
+      class="ant-listy-scrollbar-thumb"
+      style="position: absolute; border-radius: 99px; background: var(--vc-virtual-list-scrollbar-bg, rgba(0, 0, 0, 0.5)); cursor: pointer; user-select: none; width: 100%; height: 20px; top: 0px;"
+    />
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`listy demo > renders group correctly 1`] = `
+<div
+  class="ant-listy css-var-root ant-listy-css-var"
+  style="position: relative;"
+>
+  <div
+    class="ant-listy-holder"
+    style="max-height: 400px; overflow-y: hidden; overflow-anchor: none;"
+  >
+    <div
+      style="height: 10246px; position: relative; overflow: hidden;"
+    >
+      <div
+        class="ant-listy-holder-inner"
+        style="display: flex; flex-direction: column; transform: translateY(0px); margin-left: 0px; position: absolute; left: 0px; right: 0px; top: 0px;"
+      >
+        <div
+          class="ant-listy-group-header"
+        >
+          A
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+          >
+            <span
+              class="ant-avatar ant-avatar-sm ant-avatar-circle css-var-root ant-avatar-css-var"
+              style="background-color: rgb(245, 106, 0);"
+            >
+              <span
+                class="ant-avatar-string"
+                style="opacity: 0;"
+              >
+                A
+              </span>
+            </span>
+            <span>
+              Aaron Adams
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+          >
+            <span
+              class="ant-avatar ant-avatar-sm ant-avatar-circle css-var-root ant-avatar-css-var"
+              style="background-color: rgb(245, 106, 0);"
+            >
+              <span
+                class="ant-avatar-string"
+                style="opacity: 0;"
+              >
+                A
+              </span>
+            </span>
+            <span>
+              Aaron Foster
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+          >
+            <span
+              class="ant-avatar ant-avatar-sm ant-avatar-circle css-var-root ant-avatar-css-var"
+              style="background-color: rgb(245, 106, 0);"
+            >
+              <span
+                class="ant-avatar-string"
+                style="opacity: 0;"
+              >
+                A
+              </span>
+            </span>
+            <span>
+              Aaron Kim
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+          >
+            <span
+              class="ant-avatar ant-avatar-sm ant-avatar-circle css-var-root ant-avatar-css-var"
+              style="background-color: rgb(245, 106, 0);"
+            >
+              <span
+                class="ant-avatar-string"
+                style="opacity: 0;"
+              >
+                A
+              </span>
+            </span>
+            <span>
+              Aaron Parker
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+          >
+            <span
+              class="ant-avatar ant-avatar-sm ant-avatar-circle css-var-root ant-avatar-css-var"
+              style="background-color: rgb(245, 106, 0);"
+            >
+              <span
+                class="ant-avatar-string"
+                style="opacity: 0;"
+              >
+                A
+              </span>
+            </span>
+            <span>
+              Alice Carter
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+          >
+            <span
+              class="ant-avatar ant-avatar-sm ant-avatar-circle css-var-root ant-avatar-css-var"
+              style="background-color: rgb(245, 106, 0);"
+            >
+              <span
+                class="ant-avatar-string"
+                style="opacity: 0;"
+              >
+                A
+              </span>
+            </span>
+            <span>
+              Alice Hayes
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+          >
+            <span
+              class="ant-avatar ant-avatar-sm ant-avatar-circle css-var-root ant-avatar-css-var"
+              style="background-color: rgb(245, 106, 0);"
+            >
+              <span
+                class="ant-avatar-string"
+                style="opacity: 0;"
+              >
+                A
+              </span>
+            </span>
+            <span>
+              Alice Miller
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+          >
+            <span
+              class="ant-avatar ant-avatar-sm ant-avatar-circle css-var-root ant-avatar-css-var"
+              style="background-color: rgb(245, 106, 0);"
+            >
+              <span
+                class="ant-avatar-string"
+                style="opacity: 0;"
+              >
+                A
+              </span>
+            </span>
+            <span>
+              Alice Reed
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-listy-group-header"
+        >
+          B
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+          >
+            <span
+              class="ant-avatar ant-avatar-sm ant-avatar-circle css-var-root ant-avatar-css-var"
+              style="background-color: rgb(114, 101, 230);"
+            >
+              <span
+                class="ant-avatar-string"
+                style="opacity: 0;"
+              >
+                B
+              </span>
+            </span>
+            <span>
+              Bella Evans
+            </span>
+          </div>
+        </div>
+        <!---->
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-listy-scrollbar ant-listy-scrollbar-vertical ant-listy-scrollbar-visible"
+    style="position: absolute; width: 8px; top: 0px; bottom: 0px; right: 0px;"
+  >
+    <div
+      class="ant-listy-scrollbar-thumb"
+      style="position: absolute; border-radius: 99px; background: var(--vc-virtual-list-scrollbar-bg, rgba(0, 0, 0, 0.5)); cursor: pointer; user-select: none; width: 100%; height: 20px; top: 0px;"
+    />
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`listy demo > renders infinite correctly 1`] = `
+<div
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+>
+  <div
+    class="ant-listy css-var-root ant-listy-css-var"
+    style="position: relative;"
+  >
+    <div
+      class="ant-listy-holder"
+      style="max-height: 400px; overflow-y: hidden; overflow-anchor: none;"
+    >
+      <div
+        style="height: 2350px; position: relative; overflow: hidden;"
+      >
+        <div
+          class="ant-listy-holder-inner"
+          style="display: flex; flex-direction: column; transform: translateY(0px); margin-left: 0px; position: absolute; left: 0px; right: 0px; top: 0px;"
+        >
+          <div
+            class="ant-listy-item"
+          >
+            Item 0
+          </div>
+          <div
+            class="ant-listy-item"
+          >
+            Item 1
+          </div>
+          <div
+            class="ant-listy-item"
+          >
+            Item 2
+          </div>
+          <div
+            class="ant-listy-item"
+          >
+            Item 3
+          </div>
+          <div
+            class="ant-listy-item"
+          >
+            Item 4
+          </div>
+          <div
+            class="ant-listy-item"
+          >
+            Item 5
+          </div>
+          <div
+            class="ant-listy-item"
+          >
+            Item 6
+          </div>
+          <div
+            class="ant-listy-item"
+          >
+            Item 7
+          </div>
+          <div
+            class="ant-listy-item"
+          >
+            Item 8
+          </div>
+          <div
+            class="ant-listy-item"
+          >
+            Item 9
+          </div>
+          <div
+            class="ant-listy-item"
+          >
+            Item 10
+          </div>
+          <!---->
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-listy-scrollbar ant-listy-scrollbar-vertical ant-listy-scrollbar-visible"
+      style="position: absolute; width: 8px; top: 0px; bottom: 0px; right: 0px;"
+    >
+      <div
+        class="ant-listy-scrollbar-thumb"
+        style="position: absolute; border-radius: 99px; background: var(--vc-virtual-list-scrollbar-bg, rgba(0, 0, 0, 0.5)); cursor: pointer; user-select: none; width: 100%; height: 68px; top: 0px;"
+      />
+    </div>
+    <!---->
+  </div>
+  <div
+    class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-center"
+    style="height: 24px;"
+  >
+    <span
+      class="ant-typography ant-typography-secondary css-var-root"
+    >
+      <!---->
+      50 items loaded 
+      <!---->
+      <!---->
+      <!---->
+      <!---->
+      <!---->
+      <!---->
+    </span>
+  </div>
+</div>
+`;
+
+exports[`listy demo > renders rich correctly 1`] = `
+<div
+  class="ant-listy css-var-root ant-listy-css-var"
+  style="position: relative;"
+>
+  <div
+    class="ant-listy-holder"
+    style="max-height: 400px; overflow-y: hidden; overflow-anchor: none;"
+  >
+    <div
+      style="height: 235000px; position: relative; overflow: hidden;"
+    >
+      <div
+        class="ant-listy-holder-inner"
+        style="display: flex; flex-direction: column; transform: translateY(0px); margin-left: 0px; position: absolute; left: 0px; right: 0px; top: 0px;"
+      >
+        <div
+          class="ant-listy-item"
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-middle"
+          >
+            <span
+              class="ant-avatar ant-avatar-circle css-var-root ant-avatar-css-var"
+              style="background-color: rgb(245, 106, 0); flex: 0 0 auto;"
+            >
+              <span
+                class="ant-avatar-string"
+                style="opacity: 0;"
+              >
+                 {item.user[0]} 
+              </span>
+            </span>
+            <div
+              class="ant-flex css-var-root ant-flex-align-stretch ant-flex-vertical"
+              style="flex: 1 1 auto; min-width: 0px;"
+            >
+              <div
+                class="ant-flex css-var-root ant-flex-justify-space-between ant-flex-gap-small"
+              >
+                <span
+                  class="ant-typography css-var-root"
+                >
+                  <strong>
+                    <!---->
+                    Olivia
+                    <!---->
+                    <!---->
+                    <!---->
+                  </strong>
+                  <!---->
+                  <!---->
+                  <!---->
+                </span>
+                <span
+                  class="ant-typography ant-typography-secondary css-var-root"
+                >
+                  <!---->
+                  08:00
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </span>
+              </div>
+              <span
+                class="ant-typography ant-typography-secondary css-var-root"
+              >
+                <!---->
+                commented on your merge request
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-middle"
+          >
+            <span
+              class="ant-avatar ant-avatar-circle css-var-root ant-avatar-css-var"
+              style="background-color: rgb(114, 101, 230); flex: 0 0 auto;"
+            >
+              <span
+                class="ant-avatar-string"
+                style="opacity: 0;"
+              >
+                 {item.user[0]} 
+              </span>
+            </span>
+            <div
+              class="ant-flex css-var-root ant-flex-align-stretch ant-flex-vertical"
+              style="flex: 1 1 auto; min-width: 0px;"
+            >
+              <div
+                class="ant-flex css-var-root ant-flex-justify-space-between ant-flex-gap-small"
+              >
+                <span
+                  class="ant-typography css-var-root"
+                >
+                  <strong>
+                    <!---->
+                    Liam
+                    <!---->
+                    <!---->
+                    <!---->
+                  </strong>
+                  <!---->
+                  <!---->
+                  <!---->
+                </span>
+                <span
+                  class="ant-typography ant-typography-secondary css-var-root"
+                >
+                  <!---->
+                  09:17
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </span>
+              </div>
+              <span
+                class="ant-typography ant-typography-secondary css-var-root"
+              >
+                <!---->
+                invited you to the quarterly planning review. Please confirm your availability before Friday so the agenda can be finalized in time.
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-middle"
+          >
+            <span
+              class="ant-avatar ant-avatar-circle css-var-root ant-avatar-css-var"
+              style="background-color: rgb(255, 191, 0); flex: 0 0 auto;"
+            >
+              <span
+                class="ant-avatar-string"
+                style="opacity: 0;"
+              >
+                 {item.user[0]} 
+              </span>
+            </span>
+            <div
+              class="ant-flex css-var-root ant-flex-align-stretch ant-flex-vertical"
+              style="flex: 1 1 auto; min-width: 0px;"
+            >
+              <div
+                class="ant-flex css-var-root ant-flex-justify-space-between ant-flex-gap-small"
+              >
+                <span
+                  class="ant-typography css-var-root"
+                >
+                  <strong>
+                    <!---->
+                    Emma
+                    <!---->
+                    <!---->
+                    <!---->
+                  </strong>
+                  <!---->
+                  <!---->
+                  <!---->
+                </span>
+                <span
+                  class="ant-typography ant-typography-secondary css-var-root"
+                >
+                  <!---->
+                  10:34
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </span>
+              </div>
+              <span
+                class="ant-typography ant-typography-secondary css-var-root"
+              >
+                <!---->
+                mentioned you in the design review thread
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-middle"
+          >
+            <span
+              class="ant-avatar ant-avatar-circle css-var-root ant-avatar-css-var"
+              style="background-color: rgb(0, 162, 174); flex: 0 0 auto;"
+            >
+              <span
+                class="ant-avatar-string"
+                style="opacity: 0;"
+              >
+                 {item.user[0]} 
+              </span>
+            </span>
+            <div
+              class="ant-flex css-var-root ant-flex-align-stretch ant-flex-vertical"
+              style="flex: 1 1 auto; min-width: 0px;"
+            >
+              <div
+                class="ant-flex css-var-root ant-flex-justify-space-between ant-flex-gap-small"
+              >
+                <span
+                  class="ant-typography css-var-root"
+                >
+                  <strong>
+                    <!---->
+                    Noah
+                    <!---->
+                    <!---->
+                    <!---->
+                  </strong>
+                  <!---->
+                  <!---->
+                  <!---->
+                </span>
+                <span
+                  class="ant-typography ant-typography-secondary css-var-root"
+                >
+                  <!---->
+                  11:51
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </span>
+              </div>
+              <span
+                class="ant-typography ant-typography-secondary css-var-root"
+              >
+                <!---->
+                assigned you a task that is due next Monday. It covers the remaining accessibility issues found in the latest audit.
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-middle"
+          >
+            <span
+              class="ant-avatar ant-avatar-circle css-var-root ant-avatar-css-var"
+              style="background-color: rgb(245, 106, 0); flex: 0 0 auto;"
+            >
+              <span
+                class="ant-avatar-string"
+                style="opacity: 0;"
+              >
+                 {item.user[0]} 
+              </span>
+            </span>
+            <div
+              class="ant-flex css-var-root ant-flex-align-stretch ant-flex-vertical"
+              style="flex: 1 1 auto; min-width: 0px;"
+            >
+              <div
+                class="ant-flex css-var-root ant-flex-justify-space-between ant-flex-gap-small"
+              >
+                <span
+                  class="ant-typography css-var-root"
+                >
+                  <strong>
+                    <!---->
+                    Ava
+                    <!---->
+                    <!---->
+                    <!---->
+                  </strong>
+                  <!---->
+                  <!---->
+                  <!---->
+                </span>
+                <span
+                  class="ant-typography ant-typography-secondary css-var-root"
+                >
+                  <!---->
+                  12:08
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </span>
+              </div>
+              <span
+                class="ant-typography ant-typography-secondary css-var-root"
+              >
+                <!---->
+                starred the report you shared yesterday
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-middle"
+          >
+            <span
+              class="ant-avatar ant-avatar-circle css-var-root ant-avatar-css-var"
+              style="background-color: rgb(114, 101, 230); flex: 0 0 auto;"
+            >
+              <span
+                class="ant-avatar-string"
+                style="opacity: 0;"
+              >
+                 {item.user[0]} 
+              </span>
+            </span>
+            <div
+              class="ant-flex css-var-root ant-flex-align-stretch ant-flex-vertical"
+              style="flex: 1 1 auto; min-width: 0px;"
+            >
+              <div
+                class="ant-flex css-var-root ant-flex-justify-space-between ant-flex-gap-small"
+              >
+                <span
+                  class="ant-typography css-var-root"
+                >
+                  <strong>
+                    <!---->
+                    Ethan
+                    <!---->
+                    <!---->
+                    <!---->
+                  </strong>
+                  <!---->
+                  <!---->
+                  <!---->
+                </span>
+                <span
+                  class="ant-typography ant-typography-secondary css-var-root"
+                >
+                  <!---->
+                  13:25
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </span>
+              </div>
+              <span
+                class="ant-typography ant-typography-secondary css-var-root"
+              >
+                <!---->
+                requested changes on your pull request. Most of the comments are about naming and the test coverage of the new cache layer.
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-middle"
+          >
+            <span
+              class="ant-avatar ant-avatar-circle css-var-root ant-avatar-css-var"
+              style="background-color: rgb(255, 191, 0); flex: 0 0 auto;"
+            >
+              <span
+                class="ant-avatar-string"
+                style="opacity: 0;"
+              >
+                 {item.user[0]} 
+              </span>
+            </span>
+            <div
+              class="ant-flex css-var-root ant-flex-align-stretch ant-flex-vertical"
+              style="flex: 1 1 auto; min-width: 0px;"
+            >
+              <div
+                class="ant-flex css-var-root ant-flex-justify-space-between ant-flex-gap-small"
+              >
+                <span
+                  class="ant-typography css-var-root"
+                >
+                  <strong>
+                    <!---->
+                    Sophia
+                    <!---->
+                    <!---->
+                    <!---->
+                  </strong>
+                  <!---->
+                  <!---->
+                  <!---->
+                </span>
+                <span
+                  class="ant-typography ant-typography-secondary css-var-root"
+                >
+                  <!---->
+                  14:42
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </span>
+              </div>
+              <span
+                class="ant-typography ant-typography-secondary css-var-root"
+              >
+                <!---->
+                commented on your merge request
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-middle"
+          >
+            <span
+              class="ant-avatar ant-avatar-circle css-var-root ant-avatar-css-var"
+              style="background-color: rgb(0, 162, 174); flex: 0 0 auto;"
+            >
+              <span
+                class="ant-avatar-string"
+                style="opacity: 0;"
+              >
+                 {item.user[0]} 
+              </span>
+            </span>
+            <div
+              class="ant-flex css-var-root ant-flex-align-stretch ant-flex-vertical"
+              style="flex: 1 1 auto; min-width: 0px;"
+            >
+              <div
+                class="ant-flex css-var-root ant-flex-justify-space-between ant-flex-gap-small"
+              >
+                <span
+                  class="ant-typography css-var-root"
+                >
+                  <strong>
+                    <!---->
+                    Lucas
+                    <!---->
+                    <!---->
+                    <!---->
+                  </strong>
+                  <!---->
+                  <!---->
+                  <!---->
+                </span>
+                <span
+                  class="ant-typography ant-typography-secondary css-var-root"
+                >
+                  <!---->
+                  15:59
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </span>
+              </div>
+              <span
+                class="ant-typography ant-typography-secondary css-var-root"
+              >
+                <!---->
+                invited you to the quarterly planning review. Please confirm your availability before Friday so the agenda can be finalized in time.
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-middle"
+          >
+            <span
+              class="ant-avatar ant-avatar-circle css-var-root ant-avatar-css-var"
+              style="background-color: rgb(245, 106, 0); flex: 0 0 auto;"
+            >
+              <span
+                class="ant-avatar-string"
+                style="opacity: 0;"
+              >
+                 {item.user[0]} 
+              </span>
+            </span>
+            <div
+              class="ant-flex css-var-root ant-flex-align-stretch ant-flex-vertical"
+              style="flex: 1 1 auto; min-width: 0px;"
+            >
+              <div
+                class="ant-flex css-var-root ant-flex-justify-space-between ant-flex-gap-small"
+              >
+                <span
+                  class="ant-typography css-var-root"
+                >
+                  <strong>
+                    <!---->
+                    Olivia
+                    <!---->
+                    <!---->
+                    <!---->
+                  </strong>
+                  <!---->
+                  <!---->
+                  <!---->
+                </span>
+                <span
+                  class="ant-typography ant-typography-secondary css-var-root"
+                >
+                  <!---->
+                  16:16
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </span>
+              </div>
+              <span
+                class="ant-typography ant-typography-secondary css-var-root"
+              >
+                <!---->
+                mentioned you in the design review thread
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-middle"
+          >
+            <span
+              class="ant-avatar ant-avatar-circle css-var-root ant-avatar-css-var"
+              style="background-color: rgb(114, 101, 230); flex: 0 0 auto;"
+            >
+              <span
+                class="ant-avatar-string"
+                style="opacity: 0;"
+              >
+                 {item.user[0]} 
+              </span>
+            </span>
+            <div
+              class="ant-flex css-var-root ant-flex-align-stretch ant-flex-vertical"
+              style="flex: 1 1 auto; min-width: 0px;"
+            >
+              <div
+                class="ant-flex css-var-root ant-flex-justify-space-between ant-flex-gap-small"
+              >
+                <span
+                  class="ant-typography css-var-root"
+                >
+                  <strong>
+                    <!---->
+                    Liam
+                    <!---->
+                    <!---->
+                    <!---->
+                  </strong>
+                  <!---->
+                  <!---->
+                  <!---->
+                </span>
+                <span
+                  class="ant-typography ant-typography-secondary css-var-root"
+                >
+                  <!---->
+                  17:33
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </span>
+              </div>
+              <span
+                class="ant-typography ant-typography-secondary css-var-root"
+              >
+                <!---->
+                assigned you a task that is due next Monday. It covers the remaining accessibility issues found in the latest audit.
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+              </span>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-listy-item"
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-middle"
+          >
+            <span
+              class="ant-avatar ant-avatar-circle css-var-root ant-avatar-css-var"
+              style="background-color: rgb(255, 191, 0); flex: 0 0 auto;"
+            >
+              <span
+                class="ant-avatar-string"
+                style="opacity: 0;"
+              >
+                 {item.user[0]} 
+              </span>
+            </span>
+            <div
+              class="ant-flex css-var-root ant-flex-align-stretch ant-flex-vertical"
+              style="flex: 1 1 auto; min-width: 0px;"
+            >
+              <div
+                class="ant-flex css-var-root ant-flex-justify-space-between ant-flex-gap-small"
+              >
+                <span
+                  class="ant-typography css-var-root"
+                >
+                  <strong>
+                    <!---->
+                    Emma
+                    <!---->
+                    <!---->
+                    <!---->
+                  </strong>
+                  <!---->
+                  <!---->
+                  <!---->
+                </span>
+                <span
+                  class="ant-typography ant-typography-secondary css-var-root"
+                >
+                  <!---->
+                  18:50
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                  <!---->
+                </span>
+              </div>
+              <span
+                class="ant-typography ant-typography-secondary css-var-root"
+              >
+                <!---->
+                starred the report you shared yesterday
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+                <!---->
+              </span>
+            </div>
+          </div>
+        </div>
+        <!---->
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-listy-scrollbar ant-listy-scrollbar-vertical ant-listy-scrollbar-visible"
+    style="position: absolute; width: 8px; top: 0px; bottom: 0px; right: 0px;"
+  >
+    <div
+      class="ant-listy-scrollbar-thumb"
+      style="position: absolute; border-radius: 99px; background: var(--vc-virtual-list-scrollbar-bg, rgba(0, 0, 0, 0.5)); cursor: pointer; user-select: none; width: 100%; height: 20px; top: 0px;"
+    />
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`listy demo > renders scroll-to correctly 1`] = `
+<div
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <div
+    class="ant-flex css-var-root ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
+  >
+    <div
+      aria-label="segmented control"
+      aria-orientation="horizontal"
+      class="ant-segmented css-var-root css-var-root"
+      role="radiogroup"
+      size="middle"
+      tabindex="0"
+    >
+      <div
+        class="ant-segmented-group"
+      >
+        <!---->
+        <label
+          class="ant-segmented-item ant-segmented-item-selected"
+        >
+          <input
+            checked=""
+            class="ant-segmented-item-input"
+            name="v-0"
+            type="radio"
+          />
+          <div
+            class="ant-segmented-item-label"
+            title="top"
+          >
+            top
+          </div>
+        </label>
+        <label
+          class="ant-segmented-item"
+        >
+          <input
+            class="ant-segmented-item-input"
+            name="v-0"
+            type="radio"
+          />
+          <div
+            class="ant-segmented-item-label"
+            title="bottom"
+          >
+            bottom
+          </div>
+        </label>
+        <label
+          class="ant-segmented-item"
+        >
+          <input
+            class="ant-segmented-item-input"
+            name="v-0"
+            type="radio"
+          />
+          <div
+            class="ant-segmented-item-label"
+            title="auto"
+          >
+            auto
+          </div>
+        </label>
+      </div>
+    </div>
+    <div
+      class="ant-space-compact css-var-root"
+    >
+      <div
+        class="ant-input-number ant-input-number-mode-input css-var-root ant-input-number-css-var ant-input-number-compact-item ant-input-number-compact-first-item ant-input-number-outlined"
+        style="width: 70px;"
+      >
+        <!---->
+        <!---->
+        <input
+          aria-valuemax="999"
+          aria-valuemin="0"
+          aria-valuenow="600"
+          autocomplete="off"
+          class="ant-input-number-input"
+          role="spinbutton"
+          step="1"
+          value="600"
+        />
+        <!---->
+        <!---->
+        <div
+          class="ant-input-number-actions"
+        >
+          <span
+            aria-disabled="false"
+            aria-label="Increase Value"
+            class="ant-input-number-action ant-input-number-action-up"
+            role="button"
+            unselectable="on"
+          >
+            <span
+              aria-label="up"
+              class="anticon anticon-up"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="up"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                />
+              </svg>
+            </span>
+          </span>
+          <span
+            aria-disabled="false"
+            aria-label="Decrease Value"
+            class="ant-input-number-action ant-input-number-action-down"
+            role="button"
+            unselectable="on"
+          >
+            <span
+              aria-label="down"
+              class="anticon anticon-down"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="down"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                />
+              </svg>
+            </span>
+          </span>
+        </div>
+      </div>
+      <button
+        class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-last-item"
+        type="button"
+      >
+        <transition-stub
+          appear="false"
+          css="true"
+          enteractiveclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-prepare ant-btn-loading-icon-motion-enter-prepare "
+          enterfromclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-prepare ant-btn-loading-icon-motion-enter-prepare ant-btn-loading-icon-motion-enter-start"
+          entertoclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-active ant-btn-loading-icon-motion-enter-active"
+          leaveactiveclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave ant-btn-loading-icon-motion-leave-active"
+          leavefromclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave"
+          leavetoclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave ant-btn-loading-icon-motion-leave-active"
+          name="ant-btn-loading-icon-motion"
+          persisted="false"
+        >
+          <!---->
+        </transition-stub>
+        <span>
+           Scroll to item 
+        </span>
+        <!---->
+      </button>
+    </div>
+    <div
+      class="ant-space-compact css-var-root"
+    >
+      <!---->
+      <div
+        class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
+        style="width: 110px;"
+      >
+        <!---->
+        <div
+          class="ant-select-content ant-select-content-has-value"
+          title="Group 5"
+        >
+          Group 5
+          <input
+            aria-autocomplete="list"
+            aria-controls="test-id_list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-owns="test-id_list"
+            autocomplete="off"
+            class="ant-select-input"
+            id="test-id"
+            readonly=""
+            role="combobox"
+            type="search"
+            value=""
+          />
+        </div>
+        <div
+          class="ant-select-suffix"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+          <!---->
+        </div>
+        <!---->
+        <!---->
+      </div>
+      <!---->
+      <button
+        class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-last-item"
+        type="button"
+      >
+        <transition-stub
+          appear="false"
+          css="true"
+          enteractiveclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-prepare ant-btn-loading-icon-motion-enter-prepare "
+          enterfromclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-prepare ant-btn-loading-icon-motion-enter-prepare ant-btn-loading-icon-motion-enter-start"
+          entertoclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-active ant-btn-loading-icon-motion-enter-active"
+          leaveactiveclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave ant-btn-loading-icon-motion-leave-active"
+          leavefromclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave"
+          leavetoclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave ant-btn-loading-icon-motion-leave-active"
+          name="ant-btn-loading-icon-motion"
+          persisted="false"
+        >
+          <!---->
+        </transition-stub>
+        <span>
+           Scroll to group 
+        </span>
+        <!---->
+      </button>
+    </div>
+    <button
+      class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <transition-stub
+        appear="false"
+        css="true"
+        enteractiveclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-prepare ant-btn-loading-icon-motion-enter-prepare "
+        enterfromclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-prepare ant-btn-loading-icon-motion-enter-prepare ant-btn-loading-icon-motion-enter-start"
+        entertoclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-active ant-btn-loading-icon-motion-enter-active"
+        leaveactiveclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave ant-btn-loading-icon-motion-leave-active"
+        leavefromclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave"
+        leavetoclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave ant-btn-loading-icon-motion-leave-active"
+        name="ant-btn-loading-icon-motion"
+        persisted="false"
+      >
+        <!---->
+      </transition-stub>
+      <span>
+         Back to top 
+      </span>
+      <!---->
+    </button>
+  </div>
+  <div
+    class="ant-listy css-var-root ant-listy-css-var"
+    style="position: relative;"
+  >
+    <div
+      class="ant-listy-holder"
+      style="max-height: 400px; overflow-y: hidden; overflow-anchor: none;"
+    >
+      <div
+        style="height: 47470px; position: relative; overflow: hidden;"
+      >
+        <div
+          class="ant-listy-holder-inner"
+          style="display: flex; flex-direction: column; transform: translateY(0px); margin-left: 0px; position: absolute; left: 0px; right: 0px; top: 0px;"
+        >
+          <div
+            class="ant-listy-group-header"
+          >
+            Group 0
+          </div>
+          <div
+            class="ant-listy-item"
+          >
+            Item 0
+          </div>
+          <div
+            class="ant-listy-item"
+          >
+            Item 1
+          </div>
+          <div
+            class="ant-listy-item"
+          >
+            Item 2
+          </div>
+          <div
+            class="ant-listy-item"
+          >
+            Item 3
+          </div>
+          <div
+            class="ant-listy-item"
+          >
+            Item 4
+          </div>
+          <div
+            class="ant-listy-item"
+          >
+            Item 5
+          </div>
+          <div
+            class="ant-listy-item"
+          >
+            Item 6
+          </div>
+          <div
+            class="ant-listy-item"
+          >
+            Item 7
+          </div>
+          <div
+            class="ant-listy-item"
+          >
+            Item 8
+          </div>
+          <div
+            class="ant-listy-item"
+          >
+            Item 9
+          </div>
+          <!---->
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-listy-scrollbar ant-listy-scrollbar-vertical ant-listy-scrollbar-visible"
+      style="position: absolute; width: 8px; top: 0px; bottom: 0px; right: 0px;"
+    >
+      <div
+        class="ant-listy-scrollbar-thumb"
+        style="position: absolute; border-radius: 99px; background: var(--vc-virtual-list-scrollbar-bg, rgba(0, 0, 0, 0.5)); cursor: pointer; user-select: none; width: 100%; height: 20px; top: 0px;"
+      />
+    </div>
+    <!---->
+  </div>
+  <span
+    class="ant-typography ant-typography-secondary css-var-root"
+  >
+    <!---->
+     scrollTop: 0px 
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+  </span>
+</div>
+`;
+
+exports[`listy demo > renders style-class correctly 1`] = `
+<div
+  class="ant-listy listy-custom-root css-var-root ant-listy-css-var"
+  data-v-2652badc=""
+  style="position: relative;"
+>
+  <div
+    class="ant-listy-holder"
+    style="max-height: 260px; overflow-y: hidden; overflow-anchor: none;"
+  >
+    <div
+      style="height: 517px; position: relative; overflow: hidden;"
+    >
+      <div
+        class="ant-listy-holder-inner"
+        style="display: flex; flex-direction: column; transform: translateY(0px); margin-left: 0px; position: absolute; left: 0px; right: 0px; top: 0px;"
+      >
+        <div
+          class="ant-listy-group-header listy-custom-group-header"
+        >
+          Design
+        </div>
+        <div
+          class="ant-listy-item"
+          style="font-style: italic;"
+        >
+          Olivia
+        </div>
+        <div
+          class="ant-listy-item"
+          style="font-style: italic;"
+        >
+          Liam
+        </div>
+        <div
+          class="ant-listy-item"
+          style="font-style: italic;"
+        >
+          Emma
+        </div>
+        <div
+          class="ant-listy-group-header listy-custom-group-header"
+        >
+          Engineering
+        </div>
+        <div
+          class="ant-listy-item"
+          style="font-style: italic;"
+        >
+          Noah
+        </div>
+        <div
+          class="ant-listy-item"
+          style="font-style: italic;"
+        >
+          Ava
+        </div>
+        <div
+          class="ant-listy-item"
+          style="font-style: italic;"
+        >
+          Ethan
+        </div>
+        <!---->
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-listy-scrollbar ant-listy-scrollbar-vertical ant-listy-scrollbar-visible"
+    style="position: absolute; width: 8px; top: 0px; bottom: 0px; right: 0px;"
+  >
+    <div
+      class="ant-listy-scrollbar-thumb"
+      style="position: absolute; border-radius: 99px; background: var(--vc-virtual-list-scrollbar-bg, rgba(0, 0, 0, 0.5)); cursor: pointer; user-select: none; width: 100%; height: 130px; top: 0px;"
+    />
+  </div>
+  <!---->
+</div>
+`;
