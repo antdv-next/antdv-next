@@ -31,16 +31,15 @@ Common props ref: [Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| classes | Semantic class names | `{ root?, item?, groupHeader? }` | - | - | 6.6.0 |
+| classes | Semantic class names | `{ root?, item?, groupHeader? }` | - | - | 1.5.0 |
 | group | Grouping config, see [Group](#group) below | `Group<T, K>` | - | - | × |
 | height | Height of the scroll container; content scrolls when it overflows | number | - | - | × |
 | itemRender | Render a single row | `(item: T, index: number) => VNode` | - | - | × |
 | items | Data source of the list | `T[]` | `[]` | - | × |
 | rowKey | Unique key of an item, a field name or a getter | `keyof T \| (item: T) => Key` | - | - | × |
 | sticky | Whether group headers stick to the top | boolean | false | - | × |
-| styles | Semantic inline styles | `{ root?, item?, groupHeader? }` | - | - | 6.6.0 |
+| styles | Semantic inline styles | `{ root?, item?, groupHeader? }` | - | - | 1.5.0 |
 | virtual | Whether to enable virtual scrolling, rendering only rows in view | boolean | true | - | × |
-| onScroll | Native scroll event handler | `() => void` | - | - | × |
 
 ### Events {#events}
 
@@ -80,7 +79,7 @@ Common props ref: [Common props](/docs/react/common-props)
 
 ## Semantic DOM
 
-<demo src="./demo/_semantic.vue" simplify="true"></demo>
+<demo src="./demo/_semantic.vue" :simplify="true"></demo>
 
 ## Design Token
 

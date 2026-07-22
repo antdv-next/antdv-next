@@ -42,7 +42,7 @@ const notifications: Notification[] = Array.from({ length: 5000 }, (_, index) =>
 <template>
   <a-listy
     :items="notifications"
-    :row-key="id"
+    :row-key="(item: Notification) => item.id"
     :height="400"
   >
     <template #itemRender="item">

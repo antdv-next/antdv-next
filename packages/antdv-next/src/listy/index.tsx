@@ -35,6 +35,7 @@ const Listy = defineComponent<ListyProps, ListyEmits, string, ListySlots>((props
     style: contextStyle,
     classes: contextClassNames,
     styles: contextStyles,
+    virtual: contextVirtual,
   } = useComponentBaseConfig('listy')
   const prefixCls = computed(() => getPrefixCls('listy', props.prefixCls))
   const rootCls = useCSSVarCls(prefixCls)
@@ -42,16 +43,16 @@ const Listy = defineComponent<ListyProps, ListyEmits, string, ListySlots>((props
   const [, token] = useToken()
 
   const contextStyleRoot = useSemanticRootStyle(contextStyle)
-  const styleRoot = useSemanticRootStyle(contextStyle)
+  const styleRoot = useSemanticRootStyle(computed(() => attrs.style))
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     ListyClassNames,
     ListyStyles,
     ListyProps
   >(
-    useToArr(contextClassNames, props.classes),
-    useToArr(contextStyles, contextStyleRoot, props.styles, styleRoot),
-    useToProps(props),
+    useToArr(contextClassNames, computed(() => props.classes)),
+    useToArr(contextStyles, contextStyleRoot, computed(() => props.styles), styleRoot),
+    useToProps(computed(() => props)),
   )
   expose({
     scrollTo: (config?: number | { key?: number, groupKey?: string, align?: 'top' | 'bottom' | 'auto' }) => {
@@ -60,23 +61,27 @@ const Listy = defineComponent<ListyProps, ListyEmits, string, ListySlots>((props
   })
   return () => {
     const {
+      classes,
+      styles,
       rootClassName,
+      virtual,
       itemRender = slots.itemRender,
       ...restProps
     } = props
 
     const rootClassNames = clsx(
-      contextClassName,
+      contextClassName.value,
       mergedClassNames.value.root,
       rootClassName,
       attrs.class,
-      hashId,
-      cssVarCls,
-      rootCls,
+      hashId.value,
+      cssVarCls.value,
+      rootCls.value,
     )
 
+    const listyToken = { ...token.value, ...token.value.Listy }
     const itemHeight = Math.round(
-      token.value.fontSize * token.value.lineHeight + token.value.paddingSM * 2 + token.value.lineWidth,
+      listyToken.fontSize * listyToken.lineHeight + (listyToken.itemPaddingBlock ?? listyToken.paddingSM) * 2 + listyToken.lineWidth,
     )
     return (
       <VcListy
@@ -84,6 +89,7 @@ const Listy = defineComponent<ListyProps, ListyEmits, string, ListySlots>((props
         {...restProps}
         prefixCls={prefixCls.value}
         direction={direction.value}
+        virtual={virtual ?? contextVirtual.value ?? true}
         itemHeight={itemHeight}
         itemRender={itemRender}
         classNames={{ ...mergedClassNames.value, root: rootClassNames }}

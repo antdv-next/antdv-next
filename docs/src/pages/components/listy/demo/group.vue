@@ -114,9 +114,14 @@ function itemRender(contact: Contact) {
 
 <template>
   <a-listy
-    :items="contacts" :row-key="(item) => item.id" :height="400" :item-render="itemRender" :group="{
-      key: (contact) => contact.name[0],
-      title: (letter) => letter,
-    }" :sticky="true"
+    :items="contacts"
+    :row-key="(item: Contact) => item.id"
+    :height="400"
+    :item-render="itemRender"
+    :group="{
+      key: (contact: Contact) => contact.name[0],
+      title: (letter: unknown) => letter,
+    }"
+    :sticky="true"
   />
 </template>

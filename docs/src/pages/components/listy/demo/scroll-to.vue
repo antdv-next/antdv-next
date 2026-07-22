@@ -34,7 +34,7 @@ const scrollTop = ref(0)
     <a-flex gap="small" wrap align="center">
       <a-segmented v-model:value="align" :options="['top', 'bottom', 'auto']" />
       <a-space-Compact>
-        <a-input-number v-model:value="key" min="0" max="999" style="{{" width: 70 }} />
+        <a-input-number v-model:value="key" min="0" max="999" style="width: 70px" />
         <a-button @click="() => listRef?.scrollTo({ key: key ?? 0, align })">
           Scroll to item
         </a-button>
@@ -56,15 +56,15 @@ const scrollTop = ref(0)
     <a-listy
       ref="listRef"
       :items="items"
-      row-key="id"
+      :row-key="(item: Item) => item.id"
       :height="400"
       :sticky="true"
       :group="{
-        key: (item) => item.group,
-        title: (group) => group,
+        key: (item: Item) => item.group,
+        title: (group: unknown) => group,
       }"
-      :item-render=" (item) => `Item ${item.id}` "
-      @scroll=" (event) => scrollTop = Math.round(event.currentTarget.scrollTop)"
+      :item-render=" (item: Item) => `Item ${item.id}` "
+      @scroll=" (event: any) => scrollTop = Math.round(event.currentTarget.scrollTop)"
     />
     <a-typography-text type="secondary">
       scrollTop: {{ scrollTop }}px

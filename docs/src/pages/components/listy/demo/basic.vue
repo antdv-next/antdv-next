@@ -19,5 +19,5 @@ const items: Item[] = Array.from({ length: 10000 }, (_, index) => ({
 </script>
 
 <template>
-  <a-listy :items="items" :row-key="(item) => item.id" :height="400" :item-render="(item) => item.content" />
+  <a-listy :items="items" :row-key="(item: Item) => item.id" :height="400" :item-render="(item: Item) => item.content" />
 </template>

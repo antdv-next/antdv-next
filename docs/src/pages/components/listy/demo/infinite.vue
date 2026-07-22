@@ -26,7 +26,7 @@ const items = ref<Item[]>(makePage(0))
 const loading = ref(false)
 const loadingRef = ref(false)
 
-function onScroll(event: MouseEvent) {
+function onScroll(event: Event) {
   const { scrollTop, clientHeight, scrollHeight } = event.currentTarget
   if (scrollHeight - scrollTop - clientHeight > 200 || loadingRef.value) {
     return
@@ -45,9 +45,9 @@ function onScroll(event: MouseEvent) {
   <a-flex vertical gap="small">
     <a-listy
       :items="items"
-      :row-key="id"
+      :row-key="(item: Item) => item.id"
       :height="400"
-      :item-render="(item) => item.content"
+      :item-render="(item: Item) => item.content"
       @scroll="onScroll"
     />
     <a-flex justify="center" align="center" style="height: 24px">

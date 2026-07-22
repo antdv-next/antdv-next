@@ -39,11 +39,11 @@ const styles: ListyProps['styles'] = {
 <template>
   <a-listy
     :items="users"
-    row-key="id"
+    :row-key="(item: User) => item.id"
     :height="260"
     sticky
-    :group="{ key: (user) => user.team, title: (team) => team }"
-    :item-render="(user) => user.name"
+    :group="{ key: (user: User) => user.team, title: (team: unknown) => team }"
+    :item-render="(user: User) => user.name"
     :classes="classNames"
     :styles="styles"
   />
