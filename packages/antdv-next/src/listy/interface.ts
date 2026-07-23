@@ -3,8 +3,8 @@ import type {
   ListyRef,
   ListyScrollToConfig,
   ListyStyles,
-  ListyProps as RcListyProps,
   ScrollAlign,
+  ListyProps as VcListyProps,
 } from '@v-c/listy'
 import type { CSSProperties, VNode } from 'vue'
 import type { SemanticType } from '../_util/hooks/useMergeSemantic'
@@ -20,8 +20,8 @@ type ListyClassNamesType = SemanticType<ListyClassNames, ListyProps>
 type ListyStylesType = SemanticType<ListyStyles, ListyProps>
 
 export interface ListyProps
-  extends Omit<RcListyProps, 'itemHeight' | 'direction' | 'classNames' | 'styles' | 'itemRender'> {
-  rootClassName?: string
+  extends Omit<VcListyProps, 'itemHeight' | 'direction' | 'classNames' | 'styles' | 'itemRender'> {
+  rootClass?: string
   class?: string
   style?: CSSProperties
   classes?: ListyClassNamesType
