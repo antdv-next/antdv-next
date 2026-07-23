@@ -1,4 +1,4 @@
-import type { FixedType, GetComponentProps, Reference, RenderedCell as VcRenderedCell } from '@v-c/table'
+import type { FixedType, GetComponentProps, Reference, ColumnType as VcColumnType, RenderedCell as VcRenderedCell } from '@v-c/table'
 import type { Breakpoint } from '../_util/responsiveObserver.ts'
 import type { AnyObject, VueNode } from '../_util/type.ts'
 import type { CheckboxProps } from '../checkbox'
@@ -115,7 +115,7 @@ export interface CoverableDropdownProps extends DropdownProps {
 }
 
 export interface ColumnType<RecordType = AnyObject>
-  extends Omit<import('@v-c/table').ColumnType<RecordType>, 'title'> {
+  extends Omit<VcColumnType<RecordType>, 'title'> {
   title?: ColumnTitle<RecordType>
   // Sorter
   sorter?:
@@ -170,6 +170,14 @@ export interface ColumnType<RecordType = AnyObject>
 export interface ColumnGroupType<RecordType = AnyObject>
   extends Omit<ColumnType<RecordType>, 'dataIndex'> {
   children: ColumnsType<RecordType>
+  /**
+   * A group column carries no `dataIndex`. Declaring it as `never` (rather than
+   * omitting it) keeps the property present across the `ColumnGroupType |
+   * ColumnType` union, so `column.dataIndex` stays directly accessible without
+   * narrowing (a group reads back as `undefined`), while still forbidding an
+   * actual value. Narrow to a group with `'children' in column`. See #673.
+   */
+  dataIndex?: never
 }
 
 export type ColumnsType<RecordType = AnyObject> = (

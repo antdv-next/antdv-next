@@ -7,7 +7,7 @@
  * and are verified by `vue-tsc` (editors / manual typecheck). Keep this file
  * free of `@ts-expect-error` suppressions around the `h()` calls.
  */
-import type { TableProps } from '..'
+import type { ColumnsType, ColumnType, TableProps } from '..'
 import { describe, expect, it } from 'vitest'
 import { h, ref, shallowRef } from 'vue'
 import Table from '..'
@@ -15,6 +15,35 @@ import Table from '..'
 interface DataType {
   key: number
   name: string
+}
+
+// ============ issue #673: dataIndex accessible on the columns union ============
+// `TableProps['columns']` is `(ColumnGroupType | ColumnType)[]`. A group carries
+// `dataIndex?: never` (rather than omitting it), so `.dataIndex` stays directly
+// accessible when mapping the union — no narrowing required.
+export function mapColumnsDataIndex() {
+  const columns: TableProps['columns'] = [
+    { title: 'ID', dataIndex: 'id' },
+    { title: 'Name', dataIndex: 'name' },
+  ]
+  return columns.map(column => ({ dataIndex: column.dataIndex }))
+}
+
+// A mixed array (with a group) still exposes `.dataIndex`; the group reads back
+// as `undefined`. Narrow to the group with `'children' in column`.
+export function mapMixedColumns() {
+  const columns: ColumnsType<DataType> = [
+    { title: 'Group', children: [{ title: 'Name', dataIndex: 'name' }] },
+    { title: 'Key', dataIndex: 'key' },
+  ]
+  return columns.map((column) => {
+    if ('children' in column) {
+      const children: ColumnsType<DataType> = column.children
+      return children.length
+    }
+    const _dataIndex: ColumnType<DataType>['dataIndex'] = column.dataIndex
+    return _dataIndex
+  })
 }
 
 // ============ issue #634: wrapper forwarding props via h() ============
