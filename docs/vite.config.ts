@@ -46,6 +46,7 @@ export default defineConfig({
   optimizeDeps: {
     // include: ['@antdv-next/icons'],
     exclude: [
+      '@antdv-next/img-crop',
       '@v-c/segmented',
       '@v-c/trigger',
       '@v-c/tooltip',
@@ -63,6 +64,7 @@ export default defineConfig({
     include: [
       '@antdv-next/icons',
       '@antdv-next/icons/all',
+      '@antdv-next/img-crop > @antdv-next/vue-easy-crop',
       '@ant-design/icons-svg/es/asn/*',
     ],
   },
