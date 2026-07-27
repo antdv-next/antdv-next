@@ -2,6 +2,14 @@ export function isWindow(obj: any): obj is Window {
   return obj !== null && obj !== undefined && obj === obj.window
 }
 
+export function isDocument(val: Document | HTMLElement): val is Document {
+  return (
+    val instanceof Document
+    || val.constructor.name === 'HTMLDocument'
+    || val.nodeType === window.Node.DOCUMENT_NODE
+  )
+}
+
 function getScroll(target: HTMLElement | Window | Document | null): number {
   if (typeof window === 'undefined') {
     /* istanbul ignore next */
