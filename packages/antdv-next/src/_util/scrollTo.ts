@@ -1,7 +1,7 @@
 import raf from '@v-c/util/dist/raf'
 
 import { easeInOutCubic } from './easings'
-import getScroll, { isWindow } from './getScroll'
+import getScroll, { isDocument, isWindow } from './getScroll'
 
 interface ScrollToOptions {
   /** Scroll container, default as window */
@@ -23,13 +23,13 @@ export default function scrollTo(y: number, options: ScrollToOptions = {}) {
     const time = timestamp - startTime
     const nextScrollTop = easeInOutCubic(time > duration ? duration : time, scrollTop, y, duration)
     if (isWindow(container)) {
-      (container as Window).scrollTo(window.pageXOffset, nextScrollTop)
+      container.scrollTo(window.pageXOffset, nextScrollTop)
     }
-    else if (container instanceof Document || container.constructor.name === 'HTMLDocument') {
-      (container as Document).documentElement.scrollTop = nextScrollTop
+    else if (isDocument(container)) {
+      container.documentElement.scrollTop = nextScrollTop
     }
     else {
-      (container as HTMLElement).scrollTop = nextScrollTop
+      container.scrollTop = nextScrollTop
     }
     if (time < duration) {
       raf(frameFunc)

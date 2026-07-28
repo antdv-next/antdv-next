@@ -83,7 +83,7 @@ demo:
 | optionFilterProp | 搜索时过滤对应的 `option` 属性，如设置为 `children` 表示对内置 `option` 的 `children` 进行搜索。若通过 `options` 属性配置选项内容，建议设置 `optionFilterProp="label"` 来对内容进行搜索。当为字符串数组时，会使用 OR 匹配多个字段 | string \| string[] | value | - | × |
 | options | 数据化配置选项内容，相比 jsx 定义会获得更好的渲染性能 | &#123; label: VueNode; value: string &#125;[] | - | - | × |
 | optionRender | 自定义渲染下拉选项 | (option: FlattenOptionData&lt;BaseOptionType&gt;, info: &#123; index: number &#125;) =&gt; VueNode | - | - | × |
-| placeholder | 选择框默认文本 | string | - | - | × |
+| placeholder | 选择框默认文本 | VNode | - | - | × |
 | placement | 选择框弹出的位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft | - | × |
 | popupClassName | 下拉菜单的 className 属性，使用 `classes.popup.root` 替换 | string | - | - | × |
 | popupMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。`false` 时会关闭虚拟滚动 | boolean \| number | true | - | × |

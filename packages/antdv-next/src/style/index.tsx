@@ -45,6 +45,7 @@ export function resetIcon(): CSSObject {
 
     svg: {
       display: 'inline-block',
+      verticalAlign: 'inherit',
     },
   }
 }
@@ -159,9 +160,18 @@ export function genIconStyle(iconPrefixCls: string): CSSObject {
   return {
     [`.${iconPrefixCls}`]: {
       ...resetIcon(),
-      [`.${iconPrefixCls} .${iconPrefixCls}-icon`]: {
-        display: 'block',
+
+      '&::before': {
+        display: 'none',
       },
+
+      '&[tabindex]': {
+        cursor: 'pointer',
+      },
+    },
+
+    [`.${iconPrefixCls} .${iconPrefixCls}-icon`]: {
+      display: 'block',
     },
 
     [`.${iconPrefixCls}-spin`]: {
