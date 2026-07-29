@@ -9,7 +9,7 @@ Today, we are finally releasing the very first version of **Antdv Next — v1.0*
 After more than a year of design, experimentation, and development, we have completed the first full implementation of the **Ant Design v6 Design Token system** in the Vue ecosystem.
 
 Since Antdv Next is built upon the Ant Design v6 design system, we intentionally keep a high level of consistency with Ant Design in terms of design principles and specifications.
-For detailed explanations of Design Tokens, CSS Variables, and the styling runtime, we will not repeat them here. Instead, we recommend referring directly to the official Ant Design documentation and related articles, such as: [Ant Design 6.0 is Here!](https://github.com/ant-design/ant-design/issues/55804)  [Some Notes on V6](https://ant.design/docs/blog/css-tricks-cn).
+For detailed explanations of Design Tokens, CSS Variables, and the styling runtime, we will not repeat them here. Instead, we recommend referring directly to the official Ant Design documentation and related articles, such as: [Ant Design 6.0 is Here!](https://github.com/ant-design/ant-design/issues/55804)  [Some Notes on V6](https://ant.design/docs/blog/css-tricks).
 
 However, **Vue and React naturally differ in their component design paradigms**.
 Therefore, during the migration process, we did not simply "mirror the APIs", but made a series of necessary engineering-level adjustments based on Vue's idiomatic usage patterns.
