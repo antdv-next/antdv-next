@@ -83,7 +83,6 @@ exports[`select demo > renders _semantic correctly 1`] = `
             >
               <div
                 class="ant-select-placeholder semantic-mark-placeholder"
-                style="visibility: visible;"
               >
                 <!---->
               </div>
@@ -94,12 +93,12 @@ exports[`select demo > renders _semantic correctly 1`] = `
                 aria-expanded="true"
                 aria-haspopup="listbox"
                 aria-owns="test-id_list"
-                autocomplete="off"
+                autocomplete="new-password"
                 class="ant-select-input semantic-mark-input"
                 id="test-id"
                 readonly=""
                 role="combobox"
-                type="search"
+                type="text"
                 value=""
               />
             </div>
@@ -1387,7 +1386,6 @@ exports[`select demo > renders automatic-tokenization correctly 1`] = `
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           <!---->
         </div>
@@ -1403,11 +1401,11 @@ exports[`select demo > renders automatic-tokenization correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -1477,12 +1475,12 @@ exports[`select demo > renders basic correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -1536,13 +1534,13 @@ exports[`select demo > renders basic correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           disabled=""
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -1674,11 +1672,11 @@ exports[`select demo > renders big-data correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -1742,12 +1740,12 @@ exports[`select demo > renders clear-suffix-debug correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -1762,8 +1760,10 @@ exports[`select demo > renders clear-suffix-debug correctly 1`] = `
         </button>
         <!---->
       </div>
-      <div
+      <button
+        aria-label="Clear"
         class="ant-select-clear"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -1785,7 +1785,7 @@ exports[`select demo > renders clear-suffix-debug correctly 1`] = `
             />
           </svg>
         </span>
-      </div>
+      </button>
       <!---->
     </div>
     <!---->
@@ -1813,18 +1813,20 @@ exports[`select demo > renders clear-suffix-debug correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
       <!---->
-      <div
+      <button
+        aria-label="Clear"
         class="ant-select-clear"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -1846,7 +1848,7 @@ exports[`select demo > renders clear-suffix-debug correctly 1`] = `
             />
           </svg>
         </span>
-      </div>
+      </button>
       <!---->
     </div>
     <!---->
@@ -1879,12 +1881,12 @@ exports[`select demo > renders coordinate correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -1938,12 +1940,12 @@ exports[`select demo > renders coordinate correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -1995,7 +1997,6 @@ exports[`select demo > renders custom-dropdown-menu correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         custom dropdown render
       </div>
@@ -2005,12 +2006,12 @@ exports[`select demo > renders custom-dropdown-menu correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -2067,12 +2068,12 @@ exports[`select demo > renders custom-label-render correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -2204,11 +2205,11 @@ exports[`select demo > renders custom-tag-render correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -2264,7 +2265,6 @@ exports[`select demo > renders hide-selected correctly 1`] = `
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           Inserted are removed
         </div>
@@ -2280,11 +2280,11 @@ exports[`select demo > renders hide-selected correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -2342,12 +2342,12 @@ exports[`select demo > renders label-in-value correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -2449,11 +2449,11 @@ exports[`select demo > renders maxCount correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -2606,11 +2606,11 @@ exports[`select demo > renders multiple correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -2640,8 +2640,10 @@ exports[`select demo > renders multiple correctly 1`] = `
         </span>
         <!---->
       </div>
-      <div
+      <button
+        aria-label="Clear"
         class="ant-select-clear"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -2663,7 +2665,7 @@ exports[`select demo > renders multiple correctly 1`] = `
             />
           </svg>
         </span>
-      </div>
+      </button>
       <!---->
     </div>
     <!---->
@@ -2725,12 +2727,12 @@ exports[`select demo > renders multiple correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             disabled=""
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -2790,12 +2792,12 @@ exports[`select demo > renders optgroup correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -2858,12 +2860,12 @@ exports[`select demo > renders option-label-center correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -2891,8 +2893,10 @@ exports[`select demo > renders option-label-center correctly 1`] = `
           </span>
           <!---->
         </div>
-        <div
+        <button
+          aria-label="Clear"
           class="ant-select-clear"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -2914,7 +2918,7 @@ exports[`select demo > renders option-label-center correctly 1`] = `
               />
             </svg>
           </span>
-        </div>
+        </button>
         <!---->
       </div>
       <!---->
@@ -2934,7 +2938,6 @@ exports[`select demo > renders option-label-center correctly 1`] = `
         >
           <div
             class="ant-select-placeholder"
-            style="visibility: visible;"
           >
             Select a option
           </div>
@@ -2944,12 +2947,12 @@ exports[`select demo > renders option-label-center correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -3003,12 +3006,12 @@ exports[`select demo > renders option-label-center correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -3036,8 +3039,10 @@ exports[`select demo > renders option-label-center correctly 1`] = `
           </span>
           <!---->
         </div>
-        <div
+        <button
+          aria-label="Clear"
           class="ant-select-clear"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -3059,7 +3064,7 @@ exports[`select demo > renders option-label-center correctly 1`] = `
               />
             </svg>
           </span>
-        </div>
+        </button>
         <!---->
       </div>
       <!---->
@@ -3131,11 +3136,11 @@ exports[`select demo > renders option-label-center correctly 1`] = `
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="test-id_list"
-              autocomplete="off"
+              autocomplete="new-password"
               class="ant-select-input"
               id="test-id"
               role="combobox"
-              type="search"
+              type="text"
               value=""
             />
           </div>
@@ -3165,8 +3170,10 @@ exports[`select demo > renders option-label-center correctly 1`] = `
           </span>
           <!---->
         </div>
-        <div
+        <button
+          aria-label="Clear"
           class="ant-select-clear"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -3188,7 +3195,7 @@ exports[`select demo > renders option-label-center correctly 1`] = `
               />
             </svg>
           </span>
-        </div>
+        </button>
         <!---->
       </div>
       <!---->
@@ -3212,7 +3219,6 @@ exports[`select demo > renders option-label-center correctly 1`] = `
           >
             <div
               class="ant-select-placeholder"
-              style="visibility: visible;"
             >
               Select a option
             </div>
@@ -3228,11 +3234,11 @@ exports[`select demo > renders option-label-center correctly 1`] = `
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="test-id_list"
-              autocomplete="off"
+              autocomplete="new-password"
               class="ant-select-input"
               id="test-id"
               role="combobox"
-              type="search"
+              type="text"
               value=""
             />
           </div>
@@ -3338,11 +3344,11 @@ exports[`select demo > renders option-label-center correctly 1`] = `
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="test-id_list"
-              autocomplete="off"
+              autocomplete="new-password"
               class="ant-select-input"
               id="test-id"
               role="combobox"
-              type="search"
+              type="text"
               value=""
             />
           </div>
@@ -3372,8 +3378,10 @@ exports[`select demo > renders option-label-center correctly 1`] = `
           </span>
           <!---->
         </div>
-        <div
+        <button
+          aria-label="Clear"
           class="ant-select-clear"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -3395,7 +3403,7 @@ exports[`select demo > renders option-label-center correctly 1`] = `
               />
             </svg>
           </span>
-        </div>
+        </button>
         <!---->
       </div>
       <!---->
@@ -3423,7 +3431,6 @@ exports[`select demo > renders option-label-center correctly 1`] = `
           >
             <div
               class="ant-select-placeholder"
-              style="visibility: visible;"
             >
               请选择
             </div>
@@ -3439,11 +3446,11 @@ exports[`select demo > renders option-label-center correctly 1`] = `
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="test-id_list"
-              autocomplete="off"
+              autocomplete="new-password"
               class="ant-select-input"
               id="test-id"
               role="combobox"
-              type="search"
+              type="text"
               value=""
             />
           </div>
@@ -3497,7 +3504,6 @@ exports[`select demo > renders option-label-center correctly 1`] = `
         >
           <div
             class="ant-select-placeholder"
-            style="visibility: visible;"
           >
             请选择
           </div>
@@ -3507,11 +3513,11 @@ exports[`select demo > renders option-label-center correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -3570,11 +3576,11 @@ exports[`select demo > renders option-label-center correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -3602,8 +3608,10 @@ exports[`select demo > renders option-label-center correctly 1`] = `
           </span>
           <!---->
         </div>
-        <div
+        <button
+          aria-label="Clear"
           class="ant-select-clear"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -3625,7 +3633,7 @@ exports[`select demo > renders option-label-center correctly 1`] = `
               />
             </svg>
           </span>
-        </div>
+        </button>
         <!---->
       </div>
       <!---->
@@ -3656,11 +3664,11 @@ exports[`select demo > renders option-label-center correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -3688,8 +3696,10 @@ exports[`select demo > renders option-label-center correctly 1`] = `
           </span>
           <!---->
         </div>
-        <div
+        <button
+          aria-label="Clear"
           class="ant-select-clear"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -3711,7 +3721,7 @@ exports[`select demo > renders option-label-center correctly 1`] = `
               />
             </svg>
           </span>
-        </div>
+        </button>
         <!---->
       </div>
       <!---->
@@ -3783,7 +3793,6 @@ exports[`select demo > renders option-label-center correctly 1`] = `
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           Single
         </div>
@@ -3793,11 +3802,11 @@ exports[`select demo > renders option-label-center correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -3849,11 +3858,11 @@ exports[`select demo > renders option-label-center correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -3881,8 +3890,10 @@ exports[`select demo > renders option-label-center correctly 1`] = `
         </span>
         <!---->
       </div>
-      <div
+      <button
+        aria-label="Clear"
         class="ant-select-clear"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -3904,7 +3915,7 @@ exports[`select demo > renders option-label-center correctly 1`] = `
             />
           </svg>
         </span>
-      </div>
+      </button>
       <!---->
     </div>
     <!---->
@@ -3923,7 +3934,6 @@ exports[`select demo > renders option-label-center correctly 1`] = `
         >
           <div
             class="ant-select-placeholder"
-            style="visibility: visible;"
           >
             Multiple
           </div>
@@ -3939,11 +3949,11 @@ exports[`select demo > renders option-label-center correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -3995,7 +4005,6 @@ exports[`select demo > renders option-label-center correctly 1`] = `
         >
           <div
             class="ant-select-placeholder"
-            style="visibility: visible;"
           >
             Multiple
           </div>
@@ -4011,11 +4020,11 @@ exports[`select demo > renders option-label-center correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -4115,11 +4124,11 @@ exports[`select demo > renders option-label-center correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -4149,8 +4158,10 @@ exports[`select demo > renders option-label-center correctly 1`] = `
         </span>
         <!---->
       </div>
-      <div
+      <button
+        aria-label="Clear"
         class="ant-select-clear"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -4172,7 +4183,7 @@ exports[`select demo > renders option-label-center correctly 1`] = `
             />
           </svg>
         </span>
-      </div>
+      </button>
       <!---->
     </div>
     <!---->
@@ -4238,11 +4249,11 @@ exports[`select demo > renders option-label-center correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -4272,8 +4283,10 @@ exports[`select demo > renders option-label-center correctly 1`] = `
         </span>
         <!---->
       </div>
-      <div
+      <button
+        aria-label="Clear"
         class="ant-select-clear"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -4295,7 +4308,7 @@ exports[`select demo > renders option-label-center correctly 1`] = `
             />
           </svg>
         </span>
-      </div>
+      </button>
       <!---->
     </div>
     <!---->
@@ -4370,11 +4383,11 @@ exports[`select demo > renders option-render correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -4511,12 +4524,12 @@ exports[`select demo > renders placement correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -4606,12 +4619,12 @@ exports[`select demo > renders render-panel correctly 1`] = `
           aria-expanded="true"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -4692,11 +4705,11 @@ exports[`select demo > renders responsive correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -4750,7 +4763,6 @@ exports[`select demo > renders responsive correctly 1`] = `
         >
           <div
             class="ant-select-placeholder"
-            style="visibility: visible;"
           >
             Select Item...
           </div>
@@ -4766,12 +4778,12 @@ exports[`select demo > renders responsive correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             disabled=""
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -4849,11 +4861,11 @@ exports[`select demo > renders responsive correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -4906,7 +4918,6 @@ exports[`select demo > renders search correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Select a person
       </div>
@@ -4916,11 +4927,11 @@ exports[`select demo > renders search correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -4970,7 +4981,6 @@ exports[`select demo > renders search-box correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         input search text
       </div>
@@ -4980,11 +4990,11 @@ exports[`select demo > renders search-box correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -5010,7 +5020,6 @@ exports[`select demo > renders search-filter-option correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Select a person
       </div>
@@ -5020,11 +5029,11 @@ exports[`select demo > renders search-filter-option correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -5074,7 +5083,6 @@ exports[`select demo > renders search-sorts correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Search to Select
       </div>
@@ -5084,11 +5092,11 @@ exports[`select demo > renders search-sorts correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -5142,7 +5150,6 @@ exports[`select demo > renders search-users correctly 1`] = `
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           Select users
         </div>
@@ -5158,11 +5165,11 @@ exports[`select demo > renders search-users correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -5289,12 +5296,12 @@ exports[`select demo > renders size correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -5437,11 +5444,11 @@ exports[`select demo > renders size correctly 1`] = `
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="test-id_list"
-              autocomplete="off"
+              autocomplete="new-password"
               class="ant-select-input"
               id="test-id"
               role="combobox"
-              type="search"
+              type="text"
               value=""
             />
           </div>
@@ -5586,11 +5593,11 @@ exports[`select demo > renders size correctly 1`] = `
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="test-id_list"
-              autocomplete="off"
+              autocomplete="new-password"
               class="ant-select-input"
               id="test-id"
               role="combobox"
-              type="search"
+              type="text"
               value=""
             />
           </div>
@@ -5649,7 +5656,6 @@ exports[`select demo > renders status correctly 1`] = `
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           <!---->
         </div>
@@ -5659,12 +5665,12 @@ exports[`select demo > renders status correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -5712,7 +5718,6 @@ exports[`select demo > renders status correctly 1`] = `
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           <!---->
         </div>
@@ -5722,12 +5727,12 @@ exports[`select demo > renders status correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -5801,7 +5806,6 @@ exports[`select demo > renders style-class correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Object
       </div>
@@ -5811,12 +5815,12 @@ exports[`select demo > renders style-class correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -5883,7 +5887,6 @@ exports[`select demo > renders style-class correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Function
       </div>
@@ -5893,12 +5896,12 @@ exports[`select demo > renders style-class correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -5963,11 +5966,11 @@ exports[`select demo > renders suffix correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -5995,8 +5998,10 @@ exports[`select demo > renders suffix correctly 1`] = `
         </span>
         <!---->
       </div>
-      <div
+      <button
+        aria-label="Clear"
         class="ant-select-clear"
+        type="button"
       >
         <span
           aria-label="close-circle"
@@ -6018,7 +6023,7 @@ exports[`select demo > renders suffix correctly 1`] = `
             />
           </svg>
         </span>
-      </div>
+      </button>
       <!---->
     </div>
     <!---->
@@ -6044,12 +6049,12 @@ exports[`select demo > renders suffix correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -6103,13 +6108,13 @@ exports[`select demo > renders suffix correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           disabled=""
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -6219,11 +6224,11 @@ exports[`select demo > renders suffix correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -6325,11 +6330,11 @@ exports[`select demo > renders suffix correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -6405,12 +6410,12 @@ exports[`select demo > renders suffix correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             disabled=""
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -6468,7 +6473,6 @@ exports[`select demo > renders tags correctly 1`] = `
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           Tags Mode
         </div>
@@ -6484,11 +6488,11 @@ exports[`select demo > renders tags correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -6545,7 +6549,6 @@ exports[`select demo > renders variant correctly 1`] = `
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           Outlined
         </div>
@@ -6555,12 +6558,12 @@ exports[`select demo > renders variant correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -6655,11 +6658,11 @@ exports[`select demo > renders variant correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -6710,7 +6713,6 @@ exports[`select demo > renders variant correctly 1`] = `
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           Filled
         </div>
@@ -6720,12 +6722,12 @@ exports[`select demo > renders variant correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -6821,11 +6823,11 @@ exports[`select demo > renders variant correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -6876,7 +6878,6 @@ exports[`select demo > renders variant correctly 1`] = `
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           Borderless
         </div>
@@ -6886,12 +6887,12 @@ exports[`select demo > renders variant correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -6987,11 +6988,11 @@ exports[`select demo > renders variant correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -7042,7 +7043,6 @@ exports[`select demo > renders variant correctly 1`] = `
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           Underlined
         </div>
@@ -7052,12 +7052,12 @@ exports[`select demo > renders variant correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -7153,11 +7153,11 @@ exports[`select demo > renders variant correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>

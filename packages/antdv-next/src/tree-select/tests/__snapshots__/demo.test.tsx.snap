@@ -80,7 +80,6 @@ exports[`tree-select demo > renders _semantic correctly 1`] = `
           >
             <div
               class="ant-select-placeholder semantic-mark-placeholder"
-              style="visibility: visible;"
             >
               Please select
             </div>
@@ -90,11 +89,11 @@ exports[`tree-select demo > renders _semantic correctly 1`] = `
               aria-expanded="true"
               aria-haspopup="listbox"
               aria-owns="test-id_list"
-              autocomplete="off"
+              autocomplete="new-password"
               class="ant-select-input semantic-mark-input"
               id="test-id"
               role="combobox"
-              type="search"
+              type="text"
               value=""
             />
           </div>
@@ -1263,7 +1262,6 @@ exports[`tree-select demo > renders async correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -1273,12 +1271,12 @@ exports[`tree-select demo > renders async correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -1328,7 +1326,6 @@ exports[`tree-select demo > renders basic correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -1338,12 +1335,12 @@ exports[`tree-select demo > renders basic correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -1445,12 +1442,12 @@ exports[`tree-select demo > renders checkable correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -1554,12 +1551,12 @@ exports[`tree-select demo > renders maxCount correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -1618,7 +1615,6 @@ exports[`tree-select demo > renders maxCountNoEffect correctly 1`] = `
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           please select
         </div>
@@ -1634,12 +1630,12 @@ exports[`tree-select demo > renders maxCountNoEffect correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -1698,7 +1694,6 @@ exports[`tree-select demo > renders multiple correctly 1`] = `
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           Please select
         </div>
@@ -1714,11 +1709,11 @@ exports[`tree-select demo > renders multiple correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -1848,7 +1843,6 @@ exports[`tree-select demo > renders placement correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -1858,11 +1852,11 @@ exports[`tree-select demo > renders placement correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -1916,7 +1910,6 @@ exports[`tree-select demo > renders status correctly 1`] = `
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           Error
         </div>
@@ -1926,12 +1919,12 @@ exports[`tree-select demo > renders status correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -1983,7 +1976,6 @@ exports[`tree-select demo > renders status correctly 1`] = `
         >
           <div
             class="ant-select-placeholder"
-            style="visibility: visible;"
           >
             Warning multiple
           </div>
@@ -1999,12 +1991,12 @@ exports[`tree-select demo > renders status correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -2057,7 +2049,6 @@ exports[`tree-select demo > renders style-class correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Object
       </div>
@@ -2067,12 +2058,12 @@ exports[`tree-select demo > renders style-class correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -2115,7 +2106,6 @@ exports[`tree-select demo > renders style-class correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Function
       </div>
@@ -2125,12 +2115,12 @@ exports[`tree-select demo > renders style-class correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -2181,7 +2171,6 @@ exports[`tree-select demo > renders suffix correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -2191,11 +2180,11 @@ exports[`tree-select demo > renders suffix correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -2244,7 +2233,6 @@ exports[`tree-select demo > renders suffix correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -2254,11 +2242,11 @@ exports[`tree-select demo > renders suffix correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -2308,7 +2296,6 @@ exports[`tree-select demo > renders treeData correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -2318,12 +2305,12 @@ exports[`tree-select demo > renders treeData correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -2472,7 +2459,6 @@ exports[`tree-select demo > renders treeLine correctly 1`] = `
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           <!---->
         </div>
@@ -2482,12 +2468,12 @@ exports[`tree-select demo > renders treeLine correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -2539,7 +2525,6 @@ exports[`tree-select demo > renders variant correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -2549,12 +2534,12 @@ exports[`tree-select demo > renders variant correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -2597,7 +2582,6 @@ exports[`tree-select demo > renders variant correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -2607,12 +2591,12 @@ exports[`tree-select demo > renders variant correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -2655,7 +2639,6 @@ exports[`tree-select demo > renders variant correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -2665,12 +2648,12 @@ exports[`tree-select demo > renders variant correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -2713,7 +2696,6 @@ exports[`tree-select demo > renders variant correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -2723,12 +2705,12 @@ exports[`tree-select demo > renders variant correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
