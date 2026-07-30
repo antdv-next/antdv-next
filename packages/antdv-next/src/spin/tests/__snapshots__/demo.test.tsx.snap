@@ -590,6 +590,160 @@ exports[`spin demo > renders fullscreen correctly 1`] = `
 </div>
 `;
 
+exports[`spin demo > renders list-debug correctly 1`] = `
+<div
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <div
+    aria-busy="true"
+    aria-live="polite"
+    class="ant-spin ant-spin-spinning css-var-root"
+  >
+    <div
+      class="ant-spin-section"
+    >
+      <span
+        class="ant-spin-dot-holder"
+      >
+        <span
+          class="ant-spin-dot ant-spin-dot-spin"
+        >
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+        </span>
+      </span>
+      <!---->
+      <!---->
+    </div>
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+        style="padding: 16px; border: 1px solid rgb(217, 217, 217);"
+      >
+        <div
+          class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between"
+        >
+          <span>
+            Apple
+          </span>
+          <div
+            aria-busy="true"
+            aria-live="polite"
+            class="ant-spin ant-spin-sm ant-spin-spinning ant-spin-section css-var-root"
+          >
+            <span
+              class="ant-spin-dot-holder"
+            >
+              <span
+                class="ant-spin-dot ant-spin-dot-spin"
+              >
+                <i
+                  class="ant-spin-dot-item"
+                />
+                <i
+                  class="ant-spin-dot-item"
+                />
+                <i
+                  class="ant-spin-dot-item"
+                />
+                <i
+                  class="ant-spin-dot-item"
+                />
+              </span>
+            </span>
+            <!---->
+            <!---->
+            <!---->
+          </div>
+        </div>
+        <div
+          class="ant-flex css-var-root ant-flex-align-center ant-flex-justify-space-between"
+        >
+          <span>
+            Banana
+          </span>
+          <div
+            aria-busy="true"
+            aria-live="polite"
+            class="ant-spin ant-spin-sm ant-spin-spinning ant-spin-section css-var-root"
+          >
+            <span
+              class="ant-spin-dot-holder"
+            >
+              <span
+                class="ant-spin-dot ant-spin-dot-spin"
+              >
+                <i
+                  class="ant-spin-dot-item"
+                />
+                <i
+                  class="ant-spin-dot-item"
+                />
+                <i
+                  class="ant-spin-dot-item"
+                />
+                <i
+                  class="ant-spin-dot-item"
+                />
+              </span>
+            </span>
+            <!---->
+            <!---->
+            <!---->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-small"
+  >
+    <span>
+      Outer loading state:
+    </span>
+    <button
+      aria-checked="true"
+      checked="true"
+      class="ant-switch css-var-root ant-switch-checked"
+      role="switch"
+      type="button"
+    >
+      <div
+        class="ant-switch-handle"
+      >
+        <!---->
+      </div>
+      <span
+        class="ant-switch-inner"
+      >
+        <span
+          class="ant-switch-inner-checked"
+        >
+          <!---->
+        </span>
+        <span
+          class="ant-switch-inner-unchecked"
+        >
+          <!---->
+        </span>
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
 exports[`spin demo > renders nested correctly 1`] = `
 <div
   class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
