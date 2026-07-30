@@ -48,7 +48,7 @@ async function handlePreview(file: UploadFile) {
 </script>
 
 <template>
-  <ImgCrop :modal-title="t('cropModalTitle')" rotation-slider>
+  <ImgCrop :modal-title="t('cropModalTitle')" :reset-text="t('cropResetText')" rotation-slider>
     <a-upload
       v-model:file-list="fileList"
       action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"

@@ -61,7 +61,7 @@ catalogs:
     vitest: ^4.1.10
     vue-tsc: ^3.3.7
   docs:
-    '@antdv-next/img-crop': ^0.0.1
+    '@antdv-next/img-crop': ^0.0.2
     '@antdv-next/unocss': ^1.1.1
     '@codesandbox/sandpack-themes': ^2.0.21
     '@dnd-kit/dom': ^0.5.0
