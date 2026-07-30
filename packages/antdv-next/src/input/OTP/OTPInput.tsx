@@ -8,6 +8,8 @@ import { defineComponent, shallowRef } from 'vue'
 import { getAttrStyleAndClass } from '../../_util/hooks'
 import Input from '../Input'
 
+const DEFAULT_MASK_VALUE = '•'
+
 export interface OTPInputProps extends Omit<InputProps, 'onChange'> {
   prefixCls: string
   index: number
@@ -63,13 +65,12 @@ const OTPInput = defineComponent<
 
     const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
     const restInputProps = omit(props, ['prefixCls', 'index', 'onChange', 'onActiveChange', 'mask'])
-    const maskValue = typeof props.mask === 'string' ? props.mask : props.value
 
     return () => (
       <span class={`${props.prefixCls}-input-wrapper`} role="presentation">
         {props.mask && props.value !== '' && props.value !== undefined && (
           <span class={`${props.prefixCls}-mask-icon`} aria-hidden="true">
-            {maskValue}
+            {typeof props.mask === 'string' ? props.mask : DEFAULT_MASK_VALUE}
           </span>
         )}
         <Input
@@ -77,7 +78,7 @@ const OTPInput = defineComponent<
           {...restInputProps}
           ref={inputRef as any}
           value={props.value}
-          type={props.mask === true ? 'password' : (props.type ?? 'text')}
+          type={props.type ?? (props.mask ? 'password' : 'text')}
           class={clsx(className, { [`${props.prefixCls}-mask-input`]: props.mask })}
           style={style}
           onChange={handleChange}
