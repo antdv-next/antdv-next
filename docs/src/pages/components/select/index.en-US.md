@@ -37,6 +37,7 @@ demo:
   <demo src="./demo/custom-dropdown-menu.vue">Custom dropdown</demo>
   <demo src="./demo/hide-selected.vue">Hide Already Selected</demo>
   <demo src="./demo/variant.vue">Variants</demo>
+  <demo src="./demo/clear-suffix-debug.vue" debug>Clear suffix</demo>
   <demo src="./demo/custom-tag-render.vue">Custom Tag Render</demo>
   <demo src="./demo/custom-label-render.vue">Custom Selected Label Render</demo>
   <demo src="./demo/responsive.vue">Responsive maxTagCount</demo>

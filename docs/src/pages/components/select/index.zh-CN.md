@@ -38,6 +38,7 @@ demo:
   <demo src="./demo/custom-dropdown-menu.vue">扩展菜单</demo>
   <demo src="./demo/hide-selected.vue">隐藏已选择选项</demo>
   <demo src="./demo/variant.vue">形态变体</demo>
+  <demo src="./demo/clear-suffix-debug.vue" debug>清除后缀</demo>
   <demo src="./demo/custom-tag-render.vue">自定义选择标签</demo>
   <demo src="./demo/custom-label-render.vue">自定义选中 label</demo>
   <demo src="./demo/responsive.vue">响应式 maxTagCount</demo>
