@@ -35,12 +35,12 @@ exports[`calendar demo > renders _semantic correctly 1`] = `
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-owns="test-id_list"
-                autocomplete="off"
+                autocomplete="new-password"
                 class="ant-select-input"
                 id="test-id"
                 readonly=""
                 role="combobox"
-                type="search"
+                type="text"
                 value=""
               />
             </div>
@@ -88,12 +88,12 @@ exports[`calendar demo > renders _semantic correctly 1`] = `
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-owns="test-id_list"
-                autocomplete="off"
+                autocomplete="new-password"
                 class="ant-select-input"
                 id="test-id"
                 readonly=""
                 role="combobox"
-                type="search"
+                type="text"
                 value=""
               />
             </div>
@@ -623,11 +623,11 @@ exports[`calendar demo > renders _semantic correctly 1`] = `
                   </tr>
                   <tr>
                     <td
-                      class="ant-picker-cell semantic-mark-item ant-picker-cell-in-view"
+                      class="ant-picker-cell semantic-mark-item ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                       title="2017-09-17"
                     >
                       <div
-                        class="ant-picker-cell-inner ant-picker-calendar-date"
+                        class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
                       >
                         <div
                           class="ant-picker-calendar-date-value"
@@ -642,11 +642,11 @@ exports[`calendar demo > renders _semantic correctly 1`] = `
                       </div>
                     </td>
                     <td
-                      class="ant-picker-cell semantic-mark-item ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
+                      class="ant-picker-cell semantic-mark-item ant-picker-cell-in-view"
                       title="2017-09-18"
                     >
                       <div
-                        class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
+                        class="ant-picker-cell-inner ant-picker-calendar-date"
                       >
                         <div
                           class="ant-picker-calendar-date-value"
@@ -1850,12 +1850,12 @@ exports[`calendar demo > renders basic correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -1903,12 +1903,12 @@ exports[`calendar demo > renders basic correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -2438,11 +2438,11 @@ exports[`calendar demo > renders basic correctly 1`] = `
             </tr>
             <tr>
               <td
-                class="ant-picker-cell ant-picker-cell-in-view"
+                class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                 title="2017-09-17"
               >
                 <div
-                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                  class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
                 >
                   <div
                     class="ant-picker-calendar-date-value"
@@ -2457,11 +2457,11 @@ exports[`calendar demo > renders basic correctly 1`] = `
                 </div>
               </td>
               <td
-                class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
+                class="ant-picker-cell ant-picker-cell-in-view"
                 title="2017-09-18"
               >
                 <div
-                  class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
                   <div
                     class="ant-picker-calendar-date-value"
@@ -2878,12 +2878,12 @@ exports[`calendar demo > renders card correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -2932,12 +2932,12 @@ exports[`calendar demo > renders card correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -3467,11 +3467,11 @@ exports[`calendar demo > renders card correctly 1`] = `
               </tr>
               <tr>
                 <td
-                  class="ant-picker-cell ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                   title="2017-09-17"
                 >
                   <div
-                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                    class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
                   >
                     <div
                       class="ant-picker-calendar-date-value"
@@ -3486,11 +3486,11 @@ exports[`calendar demo > renders card correctly 1`] = `
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-09-18"
                 >
                   <div
-                    class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
                     <div
                       class="ant-picker-calendar-date-value"
@@ -3970,12 +3970,12 @@ exports[`calendar demo > renders customize-header correctly 1`] = `
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="test-id_list"
-              autocomplete="off"
+              autocomplete="new-password"
               class="ant-select-input"
               id="test-id"
               readonly=""
               role="combobox"
-              type="search"
+              type="text"
               value=""
             />
           </div>
@@ -4024,12 +4024,12 @@ exports[`calendar demo > renders customize-header correctly 1`] = `
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="test-id_list"
-              autocomplete="off"
+              autocomplete="new-password"
               class="ant-select-input"
               id="test-id"
               readonly=""
               role="combobox"
-              type="search"
+              type="text"
               value=""
             />
           </div>
@@ -4519,11 +4519,11 @@ exports[`calendar demo > renders customize-header correctly 1`] = `
               </tr>
               <tr>
                 <td
-                  class="ant-picker-cell ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                   title="2017-09-17"
                 >
                   <div
-                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                    class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
                   >
                     <div
                       class="ant-picker-calendar-date-value"
@@ -4538,11 +4538,11 @@ exports[`calendar demo > renders customize-header correctly 1`] = `
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-09-18"
                 >
                   <div
-                    class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
                     <div
                       class="ant-picker-calendar-date-value"
@@ -4967,12 +4967,12 @@ exports[`calendar demo > renders lunar correctly 1`] = `
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="test-id_list"
-              autocomplete="off"
+              autocomplete="new-password"
               class="ant-select-input"
               id="test-id"
               readonly=""
               role="combobox"
-              type="search"
+              type="text"
               value=""
             />
           </div>
@@ -5027,12 +5027,12 @@ exports[`calendar demo > renders lunar correctly 1`] = `
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="test-id_list"
-              autocomplete="off"
+              autocomplete="new-password"
               class="ant-select-input"
               id="test-id"
               readonly=""
               role="combobox"
-              type="search"
+              type="text"
               value=""
             />
           </div>
@@ -5740,11 +5740,11 @@ exports[`calendar demo > renders lunar correctly 1`] = `
               </tr>
               <tr>
                 <td
-                  class="ant-picker-cell ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                   title="2017-09-17"
                 >
                   <div
-                    class="dateCell"
+                    class="dateCell current today"
                     data-v-29990d89=""
                   >
                     <div
@@ -5767,11 +5767,11 @@ exports[`calendar demo > renders lunar correctly 1`] = `
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-09-18"
                 >
                   <div
-                    class="dateCell current today"
+                    class="dateCell"
                     data-v-29990d89=""
                   >
                     <div
@@ -6344,12 +6344,12 @@ exports[`calendar demo > renders notice-calendar correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -6397,12 +6397,12 @@ exports[`calendar demo > renders notice-calendar correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -7185,11 +7185,11 @@ exports[`calendar demo > renders notice-calendar correctly 1`] = `
             </tr>
             <tr>
               <td
-                class="ant-picker-cell ant-picker-cell-in-view"
+                class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                 title="2017-09-17"
               >
                 <div
-                  class="ant-picker-cell-inner ant-picker-calendar-date"
+                  class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
                 >
                   <div
                     class="ant-picker-calendar-date-value"
@@ -7207,11 +7207,11 @@ exports[`calendar demo > renders notice-calendar correctly 1`] = `
                 </div>
               </td>
               <td
-                class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
+                class="ant-picker-cell ant-picker-cell-in-view"
                 title="2017-09-18"
               >
                 <div
-                  class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
+                  class="ant-picker-cell-inner ant-picker-calendar-date"
                 >
                   <div
                     class="ant-picker-calendar-date-value"
@@ -7684,7 +7684,7 @@ exports[`calendar demo > renders select correctly 1`] = `
         <div
           class="ant-alert-title"
         >
-          You selected date: 2017-01-25
+          You selected date: 2017-01-24
         </div>
         <!---->
       </div>
@@ -7714,12 +7714,12 @@ exports[`calendar demo > renders select correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -7767,12 +7767,12 @@ exports[`calendar demo > renders select correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -8340,7 +8340,7 @@ exports[`calendar demo > renders select correctly 1`] = `
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view"
                   title="2017-01-24"
                 >
                   <div
@@ -8359,7 +8359,7 @@ exports[`calendar demo > renders select correctly 1`] = `
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-01-25"
                 >
                   <div
@@ -8744,12 +8744,12 @@ exports[`calendar demo > renders style-class correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -8798,12 +8798,12 @@ exports[`calendar demo > renders style-class correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -9333,11 +9333,11 @@ exports[`calendar demo > renders style-class correctly 1`] = `
               </tr>
               <tr>
                 <td
-                  class="ant-picker-cell ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                   title="2017-09-17"
                 >
                   <div
-                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                    class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
                   >
                     <div
                       class="ant-picker-calendar-date-value"
@@ -9352,11 +9352,11 @@ exports[`calendar demo > renders style-class correctly 1`] = `
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-09-18"
                 >
                   <div
-                    class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
                     <div
                       class="ant-picker-calendar-date-value"
@@ -9766,12 +9766,12 @@ exports[`calendar demo > renders style-class correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -9819,12 +9819,12 @@ exports[`calendar demo > renders style-class correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -10354,11 +10354,11 @@ exports[`calendar demo > renders style-class correctly 1`] = `
               </tr>
               <tr>
                 <td
-                  class="ant-picker-cell ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                   title="2017-09-17"
                 >
                   <div
-                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                    class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
                   >
                     <div
                       class="ant-picker-calendar-date-value"
@@ -10373,11 +10373,11 @@ exports[`calendar demo > renders style-class correctly 1`] = `
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-09-18"
                 >
                   <div
-                    class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
                     <div
                       class="ant-picker-calendar-date-value"
@@ -10792,12 +10792,12 @@ exports[`calendar demo > renders week correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -10845,12 +10845,12 @@ exports[`calendar demo > renders week correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -11424,11 +11424,11 @@ exports[`calendar demo > renders week correctly 1`] = `
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                   title="2017-09-17"
                 >
                   <div
-                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                    class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
                   >
                     <div
                       class="ant-picker-calendar-date-value"
@@ -11443,11 +11443,11 @@ exports[`calendar demo > renders week correctly 1`] = `
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-09-18"
                 >
                   <div
-                    class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
                     <div
                       class="ant-picker-calendar-date-value"
@@ -11875,12 +11875,12 @@ exports[`calendar demo > renders week correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -11929,12 +11929,12 @@ exports[`calendar demo > renders week correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -12508,11 +12508,11 @@ exports[`calendar demo > renders week correctly 1`] = `
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-in-view"
+                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
                   title="2017-09-17"
                 >
                   <div
-                    class="ant-picker-cell-inner ant-picker-calendar-date"
+                    class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
                   >
                     <div
                       class="ant-picker-calendar-date-value"
@@ -12527,11 +12527,11 @@ exports[`calendar demo > renders week correctly 1`] = `
                   </div>
                 </td>
                 <td
-                  class="ant-picker-cell ant-picker-cell-selected ant-picker-cell-in-view ant-picker-cell-today"
+                  class="ant-picker-cell ant-picker-cell-in-view"
                   title="2017-09-18"
                 >
                   <div
-                    class="ant-picker-cell-inner ant-picker-calendar-date ant-picker-calendar-date-today"
+                    class="ant-picker-cell-inner ant-picker-calendar-date"
                   >
                     <div
                       class="ant-picker-calendar-date-value"

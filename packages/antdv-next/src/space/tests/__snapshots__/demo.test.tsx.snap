@@ -1030,12 +1030,12 @@ exports[`space demo > renders compact correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -1063,8 +1063,10 @@ exports[`space demo > renders compact correctly 1`] = `
           </span>
           <!---->
         </div>
-        <div
+        <button
+          aria-label="Clear"
           class="ant-select-clear"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -1086,7 +1088,7 @@ exports[`space demo > renders compact correctly 1`] = `
               />
             </svg>
           </span>
-        </div>
+        </button>
         <!---->
       </div>
       <!---->
@@ -1168,11 +1170,11 @@ exports[`space demo > renders compact correctly 1`] = `
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="test-id_list"
-              autocomplete="off"
+              autocomplete="new-password"
               class="ant-select-input"
               id="test-id"
               role="combobox"
-              type="search"
+              type="text"
               value=""
             />
           </div>
@@ -1202,8 +1204,10 @@ exports[`space demo > renders compact correctly 1`] = `
           </span>
           <!---->
         </div>
-        <div
+        <button
+          aria-label="Clear"
           class="ant-select-clear"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -1225,7 +1229,7 @@ exports[`space demo > renders compact correctly 1`] = `
               />
             </svg>
           </span>
-        </div>
+        </button>
         <!---->
       </div>
       <!---->
@@ -1424,12 +1428,12 @@ exports[`space demo > renders compact correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -1863,12 +1867,12 @@ exports[`space demo > renders compact correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -1916,12 +1920,12 @@ exports[`space demo > renders compact correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -1978,12 +1982,12 @@ exports[`space demo > renders compact correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -2063,12 +2067,12 @@ exports[`space demo > renders compact correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -2111,7 +2115,6 @@ exports[`space demo > renders compact correctly 1`] = `
         >
           <div
             class="ant-select-placeholder"
-            style="visibility: visible;"
           >
             Email
           </div>
@@ -2121,7 +2124,7 @@ exports[`space demo > renders compact correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
@@ -2201,7 +2204,6 @@ exports[`space demo > renders compact correctly 1`] = `
         >
           <div
             class="ant-select-placeholder"
-            style="visibility: visible;"
           >
             Select Address
           </div>
@@ -2211,12 +2213,12 @@ exports[`space demo > renders compact correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -2369,11 +2371,11 @@ exports[`space demo > renders compact correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -2401,8 +2403,10 @@ exports[`space demo > renders compact correctly 1`] = `
           </span>
           <!---->
         </div>
-        <div
+        <button
+          aria-label="Clear"
           class="ant-select-clear"
+          type="button"
         >
           <span
             aria-label="close-circle"
@@ -2424,7 +2428,7 @@ exports[`space demo > renders compact correctly 1`] = `
               />
             </svg>
           </span>
-        </div>
+        </button>
         <!---->
       </div>
       <!---->
