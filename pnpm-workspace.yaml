@@ -165,7 +165,7 @@ catalogs:
     '@v-c/textarea': ^1.1.0
     '@v-c/tooltip': ^1.1.0
     '@v-c/tour': ^1.1.1
-    '@v-c/tree': ^1.1.2
+    '@v-c/tree': ^1.1.3
     '@v-c/tree-select': ^1.1.1
     '@v-c/trigger': ^1.1.0
     '@v-c/upload': ^1.0.0
