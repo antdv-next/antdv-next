@@ -207,6 +207,14 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           insetInlineEnd: 0,
           color: colorTextQuaternary,
           lineHeight: 1,
+          // The clear affordance is a real `<button>` for keyboard access, so
+          // the browser's default control chrome has to be reset away.
+          padding: 0,
+          fontSize: 'inherit',
+          fontFamily: 'inherit',
+          background: 'transparent',
+          border: 0,
+          appearance: 'none',
           transform: 'translateY(-50%)',
           cursor: 'pointer',
           opacity: 0,
