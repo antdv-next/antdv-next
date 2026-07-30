@@ -302,16 +302,21 @@ const Slider = defineComponent<
       const mergedTipFormatter = getTipFormatter(tipFormatter)
       const useActiveTooltipHandle = range && !lockOpen.value
       const handleRender: VcSliderProps['handleRender'] = contextHandleRender || (({ node, index, value }) => {
+        // Unlike React's `cloneElement`, Vue's `cloneVNode` merges `on*` props into an
+        // array and invokes every handler, so the listeners already present on the
+        // handle vnode fire on their own — re-dispatching them here would call the
+        // user's callbacks twice.
+        //
+        // The two focus events are not symmetric in vc-slider: `Handle` declares
+        // `onFocus` as a prop and puts its internal wrapper (which chains up to the
+        // user's `onFocus`) on the handle element, but it never declares `onBlur`, so
+        // blur falls through to attrs and never reaches the vnode. Focus therefore
+        // needs no explicit dispatch, while blur does.
         const nodeProps: Record<string, any> = {}
         function proxyEvent(
           eventName: keyof any,
           event: any,
-          triggerRestPropsEvent?: boolean,
         ) {
-          if (triggerRestPropsEvent) {
-            (restProps as any)[eventName]?.(event)
-          }
-
           (nodeProps as any)[eventName]?.(event)
         }
 
@@ -331,13 +336,12 @@ const Slider = defineComponent<
           },
           onFocus: (e: FocusEvent) => {
             setFocusOpen(true)
-            restProps?.onFocus?.(e)
-            proxyEvent('onFocus', e, true)
+            proxyEvent('onFocus', e)
           },
           onBlur: (e: FocusEvent) => {
             setFocusOpen(false)
             restProps?.onBlur?.(e)
-            proxyEvent('onBlur', e, true)
+            proxyEvent('onBlur', e)
           },
         }
 
