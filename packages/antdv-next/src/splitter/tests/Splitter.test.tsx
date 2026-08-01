@@ -489,6 +489,15 @@ describe('splitter', () => {
       expect(wrapper.find('[aria-valuemin]').attributes('aria-valuemin')).not.toBe('NaN')
       expect(wrapper.find('[aria-valuemax]').attributes('aria-valuemax')).not.toBe('NaN')
     })
+
+    it('should render percentage-based aria value range before resize', () => {
+      const wrapper = mountSplitter({
+        items: [{ defaultSize: 100, min: 100, max: 200 }, { min: 100, max: 200 }, { min: '20%' }],
+      })
+
+      const draggers = wrapper.findAll('.ant-splitter-bar-dragger')
+      expect(draggers[1]?.attributes('aria-valuemax')).toBe('80')
+    })
   })
 
   describe('collapsible', () => {

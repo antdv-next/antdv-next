@@ -187,3 +187,27 @@ ConfigProvider.config({
 ### 静态方法如何设置 prefixCls？ {#faq-set-prefix-cls}
 
 你可以通过 [`ConfigProvider.config`](/components/config-provider-cn#configproviderconfig-4130) 进行设置。
+
+### 为什么 `style="width: max-content"` 在 Notification 上不生效？ {#faq-notification-width}
+
+Notification 使用固定宽度布局，以保证堆叠卡片样式的一致性。因此不支持在通知外层节点上使用 `max-content`、`min-content`、`fit-content(...)` 这类 intrinsic width。
+
+如果你需要调整 Notification 的整体宽度，建议通过组件 token `width` 来配置：
+
+```vue
+<template>
+  <a-config-provider
+    :theme="{
+      components: {
+        Notification: {
+          width: 480,
+        },
+      },
+    }"
+  >
+    <a-app />
+  </a-config-provider>
+</template>
+```
+
+如果只需要内容自适应宽度，请在 `title` 或 `description` 中渲染自定义节点，并将 `max-content` 应用到内部节点，而不是通知的根节点上。

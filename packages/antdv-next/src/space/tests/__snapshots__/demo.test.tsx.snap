@@ -1726,7 +1726,7 @@ exports[`space demo > renders compact correctly 1`] = `
           <!---->
         </transition-stub>
         <span>
-           查询 
+           Search 
         </span>
         <!---->
       </button>

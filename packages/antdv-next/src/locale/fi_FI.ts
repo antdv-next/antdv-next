@@ -13,6 +13,8 @@ const localeValues: Locale = {
   Calendar,
   global: {
     close: 'Sulje',
+    placeholder: 'Ole hyvä ja valitse',
+    sortable: 'lajiteltava',
   },
   Table: {
     filterTitle: 'Suodatus valikko',
@@ -24,6 +26,14 @@ const localeValues: Locale = {
     triggerDesc: 'Lajittele laskevasti',
     triggerAsc: 'Lajittele nousevasti',
     cancelSort: 'Peruuta lajittelu',
+    filterEmptyText: 'Ei suodattimia',
+    filterCheckAll: 'Valitse kaikki kohteet',
+    filterSearchPlaceholder: 'Hae suodattimista',
+    emptyText: 'Ei dataa',
+    selectNone: 'Tyhjennä kaikki tiedot',
+    selectionAll: 'Valitse kaikki tiedot',
+    expand: 'Laajenna riviä',
+    collapse: 'Tiivistä rivi',
   },
   Tour: {
     Next: 'Seuraava',
@@ -44,6 +54,13 @@ const localeValues: Locale = {
     searchPlaceholder: 'Etsi täältä',
     itemUnit: 'kohde',
     itemsUnit: 'kohdetta',
+    remove: 'Poista',
+    selectAll: 'Valitse kaikki tiedot',
+    deselectAll: 'Poista kaikkien tietojen valinnat',
+    selectCurrent: 'Valitse nykyinen sivu',
+    selectInvert: 'Kääntää nykyinen sivu',
+    removeAll: 'Poista kaikki tiedot',
+    removeCurrent: 'Poista nykyinen sivu',
   },
   Upload: {
     uploading: 'Lähetetään...',
@@ -60,6 +77,18 @@ const localeValues: Locale = {
     copy: 'Kopioi',
     copied: 'Kopioitu',
     expand: 'Näytä lisää',
+    collapse: 'Kutista',
+  },
+  QRCode: {
+    expired: 'QR-koodi vanhentunut',
+    refresh: 'Päivitä',
+    scanned: 'Skannattu',
+  },
+  ColorPicker: {
+    presetEmpty: 'Tyhjä',
+    transparent: 'Läpinäkyvä',
+    singleColor: 'Yksivärinen',
+    gradientColor: 'Gradienttiväri',
   },
 }
 

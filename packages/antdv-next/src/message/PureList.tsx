@@ -1,4 +1,5 @@
-import type { CSSProperties, SlotsType, VueNode } from 'vue'
+import type { CSSProperties, SlotsType } from 'vue'
+import type { VueNode } from '../_util/type'
 import type {
   ArgsClassNamesType,
   MessageSemanticClassNames,
@@ -20,6 +21,7 @@ export interface PureListItem {
 }
 
 export interface PureListProps {
+  prefixCls?: string
   items: PureListItem[]
   classes?: ArgsClassNamesType
   style?: CSSProperties

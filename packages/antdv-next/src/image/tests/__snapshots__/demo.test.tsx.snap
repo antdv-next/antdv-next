@@ -1730,14 +1730,14 @@ exports[`image demo > renders style-class correctly 1`] = `
   class="ant-flex css-var-root ant-flex-gap-middle"
 >
   <div
-    aria-label="示例图片"
+    aria-label="Example image"
     class="ant-image css-var-root ant-image-css-var"
     role="button"
     style="width: 160px; padding: 4px; border-radius: 8px; overflow: hidden;"
     tabindex="0"
   >
     <img
-      alt="示例图片"
+      alt="Example image"
       class="ant-image-img"
       src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
       style="border-radius: 4px;"
@@ -1752,14 +1752,14 @@ exports[`image demo > renders style-class correctly 1`] = `
   </div>
   <!---->
   <div
-    aria-label="示例图片"
+    aria-label="Example image"
     class="ant-image css-var-root ant-image-css-var"
     role="button"
     style="width: 160px; border: 2px solid rgb(165, 148, 249); border-radius: 8px; padding: 4px; transition: all 0.3s ease;"
     tabindex="0"
   >
     <img
-      alt="示例图片"
+      alt="Example image"
       class="ant-image-img"
       src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
       style="border-radius: 4px; filter: grayscale(50%);"

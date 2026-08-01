@@ -174,7 +174,7 @@ const value = ref('leaf1')
       <a-range-picker style="width: 70%" />
       <a-input style="width: 30%" default-value="input content" />
       <a-button type="primary">
-        查询
+        Search
       </a-button>
     </a-space-compact>
     <a-space-compact block>

@@ -14,7 +14,7 @@ import { useComponentBaseConfig } from '../../config-provider/context'
 import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls'
 import { useFormContext, useFormItemProvider, useNoStyleItemContext } from '../context.tsx'
 import useStyle from '../style'
-import { getFieldId, initialValueFormat, toArray } from '../util.ts'
+import { getFieldId, initialValueFormat, toArray, toNamePathStr } from '../util.ts'
 import { validateRules } from '../utils/validateUtil.ts'
 import { getNamePath, getValue, setValue } from '../utils/valueUtil.ts'
 import ItemHolder from './ItemHolder.tsx'
@@ -452,6 +452,44 @@ const InternalFormItem = defineComponent<
     const rootClassName = computed(() => clsx(cssVarCls.value, rootCls.value, hashId.value, props.rootClass))
 
     const eventKey = computed(() => `form-item-${fieldId.value || namePath.value.join('-') || Math.random().toString(36).slice(2)}`)
+
+    // Register the rendered control instance under the joined name path so the
+    // form instance can hand it back through `getFieldInstance`.
+    let itemInstanceKey: string | undefined
+    let itemInstance: any = null
+
+    const setItemInstance = (instance: any) => {
+      itemInstance = instance
+      if (!hasName.value) {
+        return
+      }
+      const nextKey = toNamePathStr(namePath.value)
+      if (itemInstanceKey && itemInstanceKey !== nextKey) {
+        formContext.value?.removeItem?.(itemInstanceKey)
+      }
+      itemInstanceKey = nextKey
+      if (instance) {
+        formContext.value?.addItem?.(nextKey, instance)
+      }
+      else {
+        formContext.value?.removeItem?.(nextKey)
+      }
+    }
+
+    // Keep the registration in sync when the field is renamed while mounted.
+    watch(
+      [namePath, hasName],
+      () => {
+        if (itemInstanceKey) {
+          formContext.value?.removeItem?.(itemInstanceKey)
+          itemInstanceKey = undefined
+        }
+        if (itemInstance) {
+          setItemInstance(itemInstance)
+        }
+      },
+      { flush: 'post' },
+    )
     watch(
       hasName,
       (val, _, onCleanup) => {
@@ -500,6 +538,10 @@ const InternalFormItem = defineComponent<
         )
       }
       formContext.value?.removeField?.(eventKey.value)
+      if (itemInstanceKey) {
+        formContext.value?.removeItem?.(itemInstanceKey)
+        itemInstanceKey = undefined
+      }
     })
 
     useFormItemProvider({
@@ -569,6 +611,10 @@ const InternalFormItem = defineComponent<
               }
             }
           },
+          // Track the rendered control so `form.getFieldInstance(name)` can reach
+          // it. `createVNode(vnode, props)` merges refs, so a user supplied `ref`
+          // on the control still fires.
+          ref: setItemInstance,
         }
         baseChildren = createVNode(child, newChildProps)
       }

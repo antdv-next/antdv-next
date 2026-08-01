@@ -170,6 +170,38 @@ describe('splitter lazy', () => {
     expect(wrapper.element.querySelector('.ant-splitter-mask')).toBeFalsy()
   })
 
+  it('should not move preview when adjacent panels have zero size', async () => {
+    const onResize = vi.fn()
+    const onResizeEnd = vi.fn()
+
+    const wrapper = mount(SplitterDemo, {
+      props: {
+        items: [{ defaultSize: 0 }, { defaultSize: 0 }, {}],
+        onResize,
+        onResizeEnd,
+        lazy: true,
+      },
+      attachTo: document.body,
+    })
+    mountedWrappers.push(wrapper)
+
+    await resizeSplitter(wrapper)
+
+    const dragger = wrapper.element.querySelector('.ant-splitter-bar-dragger')!
+    dispatchMouseEvent(dragger, 'mousedown', 0, 0)
+    await nextTick()
+    dispatchMouseEvent(window, 'mousemove', 1000, 1000)
+    await nextTick()
+
+    const preview = wrapper.element.querySelector<HTMLElement>('.ant-splitter-bar-preview')!
+    expect(preview.style.getPropertyValue('--ant-splitter-bar-preview-offset')).toBe('0px')
+    expect(onResize).not.toHaveBeenCalled()
+
+    dispatchMouseEvent(window, 'mouseup', 1000, 1000)
+    await nextTick()
+    expect(onResizeEnd).toHaveBeenCalledWith([0, 0, 100])
+  })
+
   it('should work with touch events when lazy', async () => {
     const onResize = vi.fn()
     const onResizeEnd = vi.fn()

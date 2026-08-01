@@ -231,11 +231,13 @@ const Splitter = defineComponent<
 
               const resizableInfo = resizableInfos.value[idx]
               if (resizableInfo) {
-                const ariaMinStart = (stackSizes.value[idx - 1] || 0) + itemPtgMinSizes.value[idx]!
-                const ariaMinEnd = (stackSizes.value[idx + 1] || 100) - itemPtgMaxSizes.value[idx + 1]!
+                const prevStackSize = Number.isFinite(stackSizes.value[idx - 1]) ? stackSizes.value[idx - 1]! : 0
+                const nextStackSize = Number.isFinite(stackSizes.value[idx + 1]) ? stackSizes.value[idx + 1]! : 1
+                const ariaMinStart = prevStackSize + itemPtgMinSizes.value[idx]!
+                const ariaMinEnd = nextStackSize - itemPtgMaxSizes.value[idx + 1]!
 
-                const ariaMaxStart = (stackSizes.value[idx - 1] || 0) + itemPtgMaxSizes.value[idx]!
-                const ariaMaxEnd = (stackSizes.value[idx + 1] || 100) - itemPtgMinSizes.value[idx + 1]!
+                const ariaMaxStart = prevStackSize + itemPtgMaxSizes.value[idx]!
+                const ariaMaxEnd = nextStackSize - itemPtgMinSizes.value[idx + 1]!
 
                 splitBar = (
                   <SplitBar

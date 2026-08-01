@@ -66,7 +66,7 @@ demo:
 | headers | 设置上传的请求头部，IE10 以上有效 | object | - |  | × |
 | iconRender | 自定义显示 icon | (file: UploadFile, listType?: UploadListType) => VueNode | - |  | × |
 | isImageUrl | 自定义缩略图是否使用 &lt;img /> 标签进行显示 | (file: UploadFile) => boolean | [(内部实现)](https://github.com/ant-design/ant-design/blob/4ad5830eecfb87471cd8ac588c5d992862b70770/components/upload/utils.tsx#L47-L68) |  | × |
-| itemRender | 自定义上传列表项 | (originNode: VueNode, file: UploadFile, fileList: object\[], actions: \{ download: function, preview: function, remove: function \}) => React.VueNode | - | - | × |
+| itemRender | 自定义上传列表项 | (originNode: VueNode, file: UploadFile, fileList: object\[], actions: \{ download: function, preview: function, remove: function \}) => VueNode | - | - | × |
 | listType | 上传列表的内建样式，支持四种基本样式 `text`, `picture`, `picture-card` 和 `picture-circle` | string | `text` | - | × |
 | maxCount | 限制上传数量。当为 1 时，始终用最新上传的文件代替当前文件 | number | - | - | × |
 | method | 上传请求的 http method | string | `post` |  | × |
@@ -85,7 +85,7 @@ demo:
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | change | 上传文件改变时的回调，上传每个阶段都会触发该事件。详见 [onChange](#onchange) | function | - |  |
-| drop | 当文件被拖入上传区域时执行的回调功能 | (event: React.DragEvent) => void | - | - |
+| drop | 当文件被拖入上传区域时执行的回调功能 | (event: DragEvent) => void | - | - |
 | download | 点击下载文件时的回调，如果没有指定，则默认跳转到文件 url 对应的标签页 | function(file): void | (跳转新标签页) |  |
 | preview | 点击文件链接或预览图标时的回调 | function(file) | - |  |
 | remove | 点击移除文件时的回调，返回值为 false 时不移除。支持返回一个 Promise 对象，Promise 对象 resolve(false) 或 reject 时不移除 | function(file): boolean \| Promise | - |  |

@@ -16,6 +16,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Please select',
     close: 'Dún',
+    sortable: 'insocraithe',
   },
   Table: {
     filterTitle: 'Filter menu',
@@ -30,6 +31,11 @@ const localeValues: Locale = {
     triggerDesc: 'Click to sort descending',
     triggerAsc: 'Click to sort ascending',
     cancelSort: 'Click to cancel sorting',
+    filterEmptyText: 'Gan scagairí',
+    filterCheckAll: 'Roghnaigh gach mír',
+    filterSearchPlaceholder: 'Cuardaigh i scagairí',
+    emptyText: 'Gan sonraí',
+    selectNone: 'Glan na sonraí go léir',
   },
   Tour: {
     Next: 'Aghaidh',
@@ -56,6 +62,7 @@ const localeValues: Locale = {
     selectAll: 'Select all data',
     removeAll: 'Remove all data',
     selectInvert: 'Invert current page',
+    deselectAll: 'Díroghnaigh na sonraí go léir',
   },
   Upload: {
     uploading: 'Uploading...',
@@ -75,6 +82,7 @@ const localeValues: Locale = {
     copy: 'Copy',
     copied: 'Copied',
     expand: 'Expand',
+    collapse: 'Laghdaigh',
   },
   Form: {
     defaultValidateMessages: {
@@ -124,6 +132,17 @@ const localeValues: Locale = {
         mismatch: '${label} does not match the pattern ${pattern}',
       },
     },
+  },
+  QRCode: {
+    expired: 'Chuaigh an cód QR in éag',
+    refresh: 'Athnuaigh',
+    scanned: 'Scanta',
+  },
+  ColorPicker: {
+    presetEmpty: 'Folamh',
+    transparent: 'Trédhearcach',
+    singleColor: 'Dath aonair',
+    gradientColor: 'Dath grádán',
   },
 }
 

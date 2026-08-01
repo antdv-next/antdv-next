@@ -16,6 +16,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Maak een selectie',
     close: 'Sluiten',
+    sortable: 'sorteerbaar',
   },
   Table: {
     cancelSort: 'Klik om sortering te annuleren',
@@ -33,6 +34,8 @@ const localeValues: Locale = {
     sortTitle: 'Sorteren',
     triggerAsc: 'Klik om oplopend te sorteren',
     triggerDesc: 'Klik om aflopend te sorteren',
+    filterCheckAll: 'Selecteer alle artikelen',
+    filterSearchPlaceholder: 'Zoek in filters',
   },
   Tour: {
     Next: 'Volgende',
@@ -59,6 +62,7 @@ const localeValues: Locale = {
     selectCurrent: 'Selecteer huidige pagina',
     selectInvert: 'Huidige pagina omkeren',
     titles: ['', ''],
+    deselectAll: 'Deselecteer alle gegevens',
   },
   Upload: {
     downloadFile: 'Bestand downloaden',
@@ -78,6 +82,7 @@ const localeValues: Locale = {
     copy: 'kopiëren',
     copied: 'Gekopieerd',
     expand: 'Uitklappen',
+    collapse: 'Samenvouwen',
   },
   Form: {
     optional: '(optioneel)',
@@ -128,6 +133,17 @@ const localeValues: Locale = {
         mismatch: '${label} komt niet overeen met het patroon ${pattern}',
       },
     },
+  },
+  QRCode: {
+    expired: 'QR-code verlopen',
+    refresh: 'Vernieuwen',
+    scanned: 'Gescand',
+  },
+  ColorPicker: {
+    presetEmpty: 'Leeg',
+    transparent: 'Transparant',
+    singleColor: 'Enkele kleur',
+    gradientColor: 'Kleurverloop',
   },
 }
 

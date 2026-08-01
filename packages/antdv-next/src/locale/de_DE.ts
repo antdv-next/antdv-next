@@ -16,6 +16,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Bitte auswählen',
     close: 'Schließen',
+    sortable: 'sortierbar',
   },
   Table: {
     filterTitle: 'Filter-Menü',
@@ -34,6 +35,7 @@ const localeValues: Locale = {
     triggerDesc: 'Klicken zur absteigenden Sortierung',
     triggerAsc: 'Klicken zur aufsteigenden Sortierung',
     cancelSort: 'Klicken zum Abbrechen der Sortierung',
+    selectNone: 'Alle Daten löschen',
   },
   Tour: {
     Next: 'Weiter',
@@ -77,6 +79,7 @@ const localeValues: Locale = {
     copy: 'Kopieren',
     copied: 'Kopiert',
     expand: 'Erweitern',
+    collapse: 'Zusammenbruch',
   },
   Form: {
     defaultValidateMessages: {
@@ -130,6 +133,13 @@ const localeValues: Locale = {
   QRCode: {
     expired: 'QR-Code abgelaufen',
     refresh: 'Aktualisieren',
+    scanned: 'Gescannt',
+  },
+  ColorPicker: {
+    presetEmpty: 'Leer',
+    transparent: 'Transparent',
+    singleColor: 'Einfarbig',
+    gradientColor: 'Farbverlauf',
   },
 }
 

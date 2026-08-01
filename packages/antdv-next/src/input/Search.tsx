@@ -15,6 +15,7 @@ import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '..
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import Button from '../button'
 import { useComponentBaseConfig } from '../config-provider/context'
+import { useDisabledContext } from '../config-provider/DisabledContext.tsx'
 import { useSize } from '../config-provider/hooks/useSize'
 import { SpaceCompact } from '../space'
 import { useCompactItemContext } from '../space/Compact.tsx'
@@ -143,6 +144,9 @@ const InternalSearch = defineComponent<
       'variant',
     )
 
+    const contextDisabled = useDisabledContext()
+    const mergedDisabled = computed(() => customDisabled.value ?? contextDisabled.value)
+
     const [hashId, cssVarCls] = useStyle(prefixCls)
     const { compactSize } = useCompactItemContext(prefixCls, direction)
     const mergedSize = useSize<SizeType>(ctx => (customizeSize.value ?? compactSize.value ?? ctx) as SizeType)
@@ -260,16 +264,18 @@ const InternalSearch = defineComponent<
       const isAntdButton = isButtonVNode && Boolean((enterButtonNode.type as any)?.__ANT_BUTTON)
       const isNativeButton = isButtonVNode && (enterButtonNode.type as any) === 'button'
       if (isAntdButton || isNativeButton) {
+        const enterButtonProps = (enterButtonNode as any)?.props ?? {}
         buttonNode = cloneVNode(enterButtonNode as any, {
+          disabled: mergedDisabled.value || enterButtonProps.disabled || (!isAntdButton && props.loading),
           onMousedown: onMouseDown,
           onClick: (e: MouseEvent) => {
-            ;(enterButtonNode as any)?.props?.onClick?.(e)
+            enterButtonProps.onClick?.(e)
             onSearchClick(e)
           },
-          class: clsx((enterButtonNode as any)?.props?.class, btnClassName),
+          class: clsx(enterButtonProps.class, btnClassName),
           ...(isAntdButton
             ? {
-                loading: props.loading,
+                loading: props.loading || enterButtonProps.loading,
                 size: mergedSize.value,
               }
             : {}),

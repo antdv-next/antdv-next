@@ -4,7 +4,7 @@ import type {
   SegmentedValue as RcSegmentedValue,
   SegmentedRawOption,
 } from '@v-c/segmented'
-import type { App, CSSProperties, SlotsType } from 'vue'
+import type { App, CSSProperties, PublicProps, SlotsType } from 'vue'
 import type { Orientation, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { VueNode } from '../_util/type.ts'
 import type { SizeType } from '../config-provider/SizeContext.tsx'
@@ -70,10 +70,12 @@ export type SegmentedClassNamesType = SemanticClassNamesType<
 
 export type SegmentedStylesType = SemanticStylesType<SegmentedProps, SegmentedSemanticStyles>
 
-export interface SegmentedProps extends Omit<RCSegmentedProps, 'size' | 'options' | 'itemRender' | 'styles' | 'classNames' | 'onChange'>,
+export interface SegmentedProps<ValueType extends RcSegmentedValue = RcSegmentedValue> extends Omit<RCSegmentedProps, 'size' | 'options' | 'itemRender' | 'styles' | 'classNames' | 'onChange' | 'value' | 'defaultValue'>,
   /* @vue-ignore */
-  SegmentedEmitsProps {
-  options: SegmentedOptions
+  SegmentedEmitsProps<ValueType> {
+  value?: ValueType
+  defaultValue?: ValueType
+  options: SegmentedOptions<ValueType>
   rootClass?: string
   /** Option to fit width to its parent's width */
   block?: boolean
@@ -84,23 +86,23 @@ export interface SegmentedProps extends Omit<RCSegmentedProps, 'size' | 'options
   classes?: SegmentedClassNamesType
   styles?: SegmentedStylesType
   shape?: 'default' | 'round'
-  iconRender?: (option: SegmentedLabeledOption) => any
-  labelRender?: (option: SegmentedLabeledOption) => any
+  iconRender?: (option: SegmentedLabeledOption<ValueType>) => any
+  labelRender?: (option: SegmentedLabeledOption<ValueType>) => any
 }
 
-export interface SegmentedEmits {
-  'change': (value: RcSegmentedValue) => void
-  'update:value': (value: RcSegmentedValue) => void
+export interface SegmentedEmits<ValueType extends RcSegmentedValue = RcSegmentedValue> {
+  'change': (value: ValueType) => void
+  'update:value': (value: ValueType) => void
 }
-export interface SegmentedEmitsProps {
-  onChange?: SegmentedEmits['change']
-  'onUpdate:value'?: SegmentedEmits['update:value']
+export interface SegmentedEmitsProps<ValueType extends RcSegmentedValue = RcSegmentedValue> {
+  onChange?: SegmentedEmits<ValueType>['change']
+  'onUpdate:value'?: SegmentedEmits<ValueType>['update:value']
 }
 
-export interface SegmentedSlots {
+export interface SegmentedSlots<ValueType extends RcSegmentedValue = RcSegmentedValue> {
   // itemRender: (option: SegmentedLabeledOption | SegmentedRawOption, checked: boolean) => VueNode
-  iconRender: (option: SegmentedLabeledOption) => any
-  labelRender: (option: SegmentedLabeledOption) => any
+  iconRender: (option: SegmentedLabeledOption<ValueType>) => any
+  labelRender: (option: SegmentedLabeledOption<ValueType>) => any
 
 }
 
@@ -164,7 +166,7 @@ const InternalSegmented = defineComponent<
         // Only wrap the option when it actually carries an icon or a custom label,
         // otherwise keep the raw option so we don't render an empty icon wrapper.
         if (hasIcon || hasCustomLabel) {
-          const { label, icon: _icon, ...restOption } = _option
+          const { label, icon: _icon, ...restOption } = _option as SegmentedLabeledOptionWithIcon
           const mergedLabel = labelFromSlot.length > 0 ? labelFromSlot : label
           const showLabel = !!(labelFromSlot.length > 0) || !!label
           const icon = getSlotPropsFnRun({}, option, 'icon') ?? iconFromSlot
@@ -252,11 +254,32 @@ const InternalSegmented = defineComponent<
   },
 )
 
-const Segmented = InternalSegmented as typeof InternalSegmented & {
+interface SegmentedInstance<ValueType extends RcSegmentedValue = RcSegmentedValue> {
+  $props: SegmentedProps<ValueType> & PublicProps
+  $emit: {
+    (event: 'change', value: ValueType): void
+    (event: 'update:value', value: ValueType): void
+  }
+  $slots: SegmentedSlots<ValueType>
+}
+
+export interface SegmentedConstructor {
+  new<ValueType extends RcSegmentedValue = RcSegmentedValue>(
+    props: SegmentedProps<ValueType>
+  ): SegmentedInstance<ValueType>
+  /**
+   * Non-generic fallback signature. TypeScript infers from the last overload,
+   * so this keeps render-function usage like `h(Segmented, props)` resolvable
+   * against Vue's `Constructor<P>` overload of `h` (see #634), while the
+   * generic signature above still drives template/Volar inference.
+   */
+  new (props: SegmentedProps<any>): SegmentedInstance<any>
   install: (app: App) => void
 }
 
+const Segmented = InternalSegmented as unknown as SegmentedConstructor
+
 Segmented.install = (app: App) => {
-  app.component(Segmented.name, Segmented)
+  app.component(InternalSegmented.name, Segmented)
 }
 export default Segmented

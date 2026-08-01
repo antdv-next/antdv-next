@@ -37,7 +37,7 @@ export type PopoverClassNamesType = SemanticClassNamesType<PopoverProps, Popover
 
 export type PopoverStylesType = SemanticStylesType<PopoverProps, PopoverSemanticStyles>
 
-export interface PopoverProps extends TooltipProps,
+export interface PopoverProps extends Omit<TooltipProps, 'onOpenChange'>,
   /* @vue-ignore */
   PopoverEmitsProps {
   title?: VueNode

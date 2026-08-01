@@ -2,6 +2,7 @@ import type { TreeProps } from '..'
 import { describe, expect, it, vi } from 'vitest'
 import { nextTick } from 'vue'
 import Tree from '..'
+import { resetWarned } from '../../_util/warning'
 import { mount } from '/@tests/utils'
 
 describe('tree.Semantic', () => {
@@ -101,5 +102,45 @@ describe('tree.Semantic', () => {
     expect(root.classes()).toContain('dynamic-tree-root')
     const lastCall = stylesFn.mock.calls[stylesFn.mock.calls.length - 1]
     expect(lastCall?.[0].props.disabled).toBeTruthy()
+  })
+
+  it('should support deprecated rootStyle and warn', async () => {
+    resetWarned()
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
+
+    const wrapper = mount(Tree, {
+      props: {
+        treeData,
+        rootStyle: { color: 'rgb(255, 0, 0)' },
+      },
+    })
+    await nextTick()
+
+    expect(errSpy).toHaveBeenCalledWith(
+      expect.stringContaining(
+        'Warning: [antd: Tree] `rootStyle` is deprecated. Please use `styles.root` instead.',
+      ),
+    )
+    expect(wrapper.find('.ant-tree').element).toHaveStyle({ color: 'rgb(255, 0, 0)' })
+
+    errSpy.mockRestore()
+  })
+
+  it('styles.root should override deprecated rootStyle', async () => {
+    resetWarned()
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
+
+    const wrapper = mount(Tree, {
+      props: {
+        treeData,
+        rootStyle: { color: 'rgb(255, 0, 0)' },
+        styles: { root: { color: 'rgb(0, 0, 255)' } },
+      },
+    })
+    await nextTick()
+
+    expect(wrapper.find('.ant-tree').element).toHaveStyle({ color: 'rgb(0, 0, 255)' })
+
+    errSpy.mockRestore()
   })
 })

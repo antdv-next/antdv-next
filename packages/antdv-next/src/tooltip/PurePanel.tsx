@@ -1,7 +1,7 @@
 import type { TooltipClassNamesType, TooltipProps, TooltipStylesType } from '.'
 import { Popup } from '@v-c/tooltip'
 import { clsx } from '@v-c/util'
-import { omit } from 'es-toolkit'
+import { omit } from 'es-toolkit/compat'
 import { computed, defineComponent } from 'vue'
 import { useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'

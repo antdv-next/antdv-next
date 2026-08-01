@@ -16,6 +16,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Please select',
     close: 'Close',
+    sortable: 'sortable',
   },
   Table: {
     filterTitle: 'Filter menu',
@@ -61,6 +62,7 @@ const localeValues: Locale = {
     selectAll: 'Select all data',
     removeAll: 'Remove all data',
     selectInvert: 'Invert current page',
+    deselectAll: 'Deselect all data',
   },
   Upload: {
     uploading: 'Uploading...',
@@ -80,6 +82,7 @@ const localeValues: Locale = {
     copy: 'Copy',
     copied: 'Copied',
     expand: 'Expand',
+    collapse: 'Collapse',
   },
   Form: {
     optional: '(optional)',

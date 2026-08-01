@@ -15,6 +15,8 @@ const localeValues: Locale = {
   Calendar,
   global: {
     close: 'បិទ',
+    placeholder: 'សូមជ្រើសរើស',
+    sortable: 'អាចតម្រៀបបាន។',
   },
   Table: {
     filterTitle: 'បញ្ចីតម្រៀប',
@@ -32,6 +34,8 @@ const localeValues: Locale = {
     triggerDesc: 'ចុចដើម្បីរៀបតាមលំដាប់ធំ',
     triggerAsc: 'ចុចដើម្បីរៀបតាមលំដាប់តូច​',
     cancelSort: 'ចុចដើម្បីបោះបង់',
+    filterCheckAll: 'ជ្រើសរើសធាតុទាំងអស់។',
+    filterSearchPlaceholder: 'ស្វែងរកក្នុងតម្រង',
   },
   Tour: {
     Next: 'បន្ទាប់',
@@ -52,6 +56,13 @@ const localeValues: Locale = {
     searchPlaceholder: 'ស្វែងរកនៅទីនេះ',
     itemUnit: '',
     itemsUnit: 'items',
+    remove: 'ដកចេញ',
+    selectAll: 'ជ្រើសរើសទិន្នន័យទាំងអស់។',
+    deselectAll: 'ដកការជ្រើសរើសទិន្នន័យទាំងអស់។',
+    selectCurrent: 'ជ្រើសរើសទំព័របច្ចុប្បន្ន',
+    selectInvert: 'បញ្ច្រាសទំព័របច្ចុប្បន្ន',
+    removeAll: 'លុបទិន្នន័យទាំងអស់។',
+    removeCurrent: 'លុបទំព័របច្ចុប្បន្ន',
   },
   Upload: {
     uploading: 'កំពុងបញ្ចូលឡើង...',
@@ -111,6 +122,24 @@ const localeValues: Locale = {
         mismatch: '${label} does not match the pattern ${pattern}',
       },
     },
+  },
+  Text: {
+    edit: 'កែសម្រួល',
+    copy: 'ចម្លង',
+    copied: 'ចម្លង',
+    expand: 'ពង្រីក',
+    collapse: 'ដួលរលំ',
+  },
+  QRCode: {
+    expired: 'កូដ QR ផុតកំណត់',
+    refresh: 'ធ្វើឱ្យស្រស់',
+    scanned: 'ស្កេន',
+  },
+  ColorPicker: {
+    presetEmpty: 'ទទេ',
+    transparent: 'តម្លាភាព',
+    singleColor: 'ពណ៌តែមួយ',
+    gradientColor: 'ពណ៌ជម្រាល',
   },
 }
 

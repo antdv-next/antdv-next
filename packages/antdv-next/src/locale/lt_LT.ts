@@ -16,6 +16,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Pasirinkite',
     close: 'Uždaryti',
+    sortable: 'rūšiuojami',
   },
   Table: {
     filterTitle: 'Filtras',
@@ -61,6 +62,7 @@ const localeValues: Locale = {
     selectAll: 'Pasirinkti viską',
     removeAll: 'Ištrinti viską',
     selectInvert: 'Apversti pasirinkimą',
+    deselectAll: 'Panaikinkite visų duomenų pasirinkimą',
   },
   Upload: {
     uploading: 'Įkeliami duomenys...',
@@ -80,6 +82,7 @@ const localeValues: Locale = {
     copy: 'Kopijuoti',
     copied: 'Nukopijuota',
     expand: 'Plačiau',
+    collapse: 'Sutraukti',
   },
   Form: {
     optional: '(neprivaloma)',
@@ -134,6 +137,7 @@ const localeValues: Locale = {
   QRCode: {
     expired: 'QR kodo galiojimas baigėsi',
     refresh: 'Atnaujinti',
+    scanned: 'Nuskaityta',
   },
   ColorPicker: {
     presetEmpty: 'Tuščia',

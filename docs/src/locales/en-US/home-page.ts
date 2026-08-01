@@ -91,5 +91,9 @@ export default {
     bootstrap: 'Bootstrap Skeuomorphism',
     cartoon: 'Cartoon Style',
     illustration: 'Illustration Style',
+    lark: 'Document',
+    blossom: 'Blossom',
+    v4: 'Ant Design V4',
+    serene: 'Serene',
   },
 } as const

@@ -194,6 +194,36 @@ describe('tag', () => {
     expect(wrapper.find('span').classes()).toContain(`${prefixCls}-hidden`)
   })
 
+  it('should prevent navigation when closing a link tag', async () => {
+    const onClose = vi.fn()
+    const wrapper = mount(Tag, {
+      props: { href: '#target', closable: true, onClose },
+      slots: { default: () => 'Link' },
+    })
+    const closeIcon = wrapper.find(`.${prefixCls}-close-icon`).element
+    const clickEvent = new MouseEvent('click', { bubbles: true, cancelable: true })
+    closeIcon.dispatchEvent(clickEvent)
+    await nextTick()
+
+    expect(onClose).toHaveBeenCalledTimes(1)
+    expect(clickEvent.defaultPrevented).toBe(true)
+    expect(wrapper.find('a').classes()).toContain(`${prefixCls}-hidden`)
+  })
+
+  it('should not preventDefault when closing a non-link tag', async () => {
+    const wrapper = mount(Tag, {
+      props: { closable: true },
+      slots: { default: () => 'Closable' },
+    })
+    const closeIcon = wrapper.find(`.${prefixCls}-close-icon`).element
+    const clickEvent = new MouseEvent('click', { bubbles: true, cancelable: true })
+    closeIcon.dispatchEvent(clickEvent)
+    await nextTick()
+
+    expect(clickEvent.defaultPrevented).toBe(false)
+    expect(wrapper.find('span').classes()).toContain(`${prefixCls}-hidden`)
+  })
+
   it('should prevent hiding when close event calls preventDefault', async () => {
     const onClose = vi.fn((e: MouseEvent) => e.preventDefault())
     const wrapper = mount(Tag, {

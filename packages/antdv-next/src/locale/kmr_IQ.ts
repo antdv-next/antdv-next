@@ -13,6 +13,8 @@ const localeValues: Locale = {
   Calendar,
   global: {
     close: 'Betal ke',
+    placeholder: 'Ji kerema xwe hilbijêre',
+    sortable: 'sorkirin',
   },
   Table: {
     filterTitle: 'Menuê peldanka',
@@ -20,6 +22,18 @@ const localeValues: Locale = {
     filterReset: 'Jê bibe',
     selectAll: 'Hemî hilbijêre',
     selectInvert: 'Hilbijartinan veguhere',
+    filterEmptyText: 'Parzûn tune',
+    filterCheckAll: 'Hemî tiştan hilbijêrin',
+    filterSearchPlaceholder: 'Di parzûnan de bigerin',
+    emptyText: 'Daneyên tune',
+    selectNone: 'Hemî daneyan paqij bike',
+    selectionAll: 'Hemî daneyan hilbijêrin',
+    sortTitle: 'Sort',
+    expand: 'Rêzê berfireh bike',
+    collapse: 'Rêzê hilweşîne',
+    triggerDesc: 'Bikirtînin ji bo rêzkirina daketî',
+    triggerAsc: 'Ji bo rêzkirina hilkişînê bikirtînin',
+    cancelSort: 'Ji bo betalkirina dabeşkirinê bikirtînin',
   },
   Tour: {
     Next: 'Temam',
@@ -40,6 +54,13 @@ const localeValues: Locale = {
     searchPlaceholder: 'Lêgerîn',
     itemUnit: 'tişt',
     itemsUnit: 'tişt',
+    remove: 'Rakirin',
+    selectAll: 'Hemî daneyan hilbijêrin',
+    deselectAll: 'Hemî daneyan jêbirin',
+    selectCurrent: 'Rûpelê heyî hilbijêrin',
+    selectInvert: 'Rûpelê heyî berovajî bikin',
+    removeAll: 'Hemî daneyan jêbirin',
+    removeCurrent: 'Rûpelê heyî jêbirin',
   },
   Upload: {
     uploading: 'Bardike...',
@@ -50,6 +71,24 @@ const localeValues: Locale = {
   },
   Empty: {
     description: 'Agahî tune',
+  },
+  Text: {
+    edit: 'Sererast bike',
+    copy: 'Kopî bike',
+    copied: 'Kopî kirin',
+    expand: 'Zêdetir nîşan bide',
+    collapse: 'Hilweşîn',
+  },
+  QRCode: {
+    expired: 'Koda QR qediya',
+    refresh: 'Refresh',
+    scanned: 'Scanned',
+  },
+  ColorPicker: {
+    presetEmpty: 'Empty',
+    transparent: 'Transparent',
+    singleColor: 'Yek reng',
+    gradientColor: 'Rengê gradient',
   },
 }
 

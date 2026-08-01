@@ -2,6 +2,111 @@
 title: Component Changelog
 ---
 
+## V1.4.5
+
+Release Date: 2026-07-21
+
+Hotfix for the browser (CDN) bundles shipped in 1.4.4. The UMD/ESM builds referenced `process.env.NODE_ENV`, which does not exist in the browser, so loading `dist/antd.js` from unpkg/jsdelivr threw `ReferenceError: process is not defined` and the whole bundle failed. Fixing that surfaced a second problem: `app.use(window.antd)` never registered any components because the plugin's `install` was nested one level deeper on the global.
+
+**🐞 Fixes**
+
+* fix(build): define `process.env.NODE_ENV` in the browser-facing bundles (`antd.js`, `antd.esm.js`, `antd-with-locales.js`, `antd-with-locales.esm.js`) so they no longer reference the missing `process` global. The bundler entry (`dist/index.js`) is left untouched so tree-shaking consumers keep their own dev/prod branches ([#667](https://github.com/antdv-next/antdv-next/pull/667), fixes [#666](https://github.com/antdv-next/antdv-next/issues/666))
+* fix(build): expose `install` / `setPrefix` as named exports so the UMD/ESM global (`window.antd`) carries `install` at the top level; `app.use(window.antd)` now registers all components directly, without reaching for `window.antd.default` ([#667](https://github.com/antdv-next/antdv-next/pull/667))
+
+**🧰 Infrastructure**
+
+* build: add a post-build check that fails the build if any browser bundle references the `process` global unguarded, preventing this regression from shipping again ([#667](https://github.com/antdv-next/antdv-next/pull/667))
+
+## V1.4.4
+
+Release Date: 2026-07-20
+
+This release advances the ant-design upstream sync past **6.5.1** to `78c3d84619` ([#658](https://github.com/antdv-next/antdv-next/pull/658), [#664](https://github.com/antdv-next/antdv-next/pull/664)). Its main theme is **APIs that were declared and documented but never actually wired up**: Form `getFieldInstance` always returned `undefined`, Timeline's three render props were ignored, and Tree's `rootStyle` was silently discarded. It also makes the style and token build scripts read component sources directly instead of bundled output.
+
+**🐞 Fixes**
+
+* fix(form): `getFieldInstance(name)` now returns the rendered control instance instead of always returning `undefined`. The registry key no longer goes through `getFieldId`, so lookups work whether or not the Form declares a `name`, and `focusField` now prefers the control's own `focus()` before falling back to the DOM node ([#665](https://github.com/antdv-next/antdv-next/pull/665), fixes [#663](https://github.com/antdv-next/antdv-next/issues/663))
+* fix(timeline): wire up the `dotRender` / `labelRender` / `contentRender` props and slots — they were declared and documented but ignored by `useItems`, and leaked into the Steps pass-through. Slot results are normalized so a conditional slot that renders nothing correctly falls back to the item's `icon` / `title` / `content` ([#656](https://github.com/antdv-next/antdv-next/pull/656), fixes [#653](https://github.com/antdv-next/antdv-next/issues/653))
+* fix(tabs): `labelRender` / `contentRender` now infer their item type from `items` instead of hard-coding `TabItem`, and `InstanceType<typeof Tabs>` keeps the exposed `TabsRef` ([#661](https://github.com/antdv-next/antdv-next/pull/661), fixes [#660](https://github.com/antdv-next/antdv-next/issues/660))
+* fix(tree): restore `rootStyle` compatibility — it was inherited from the underlying props but silently overwritten by the semantic root style, making it a no-op. It now works again and is deprecated in favour of `styles.root` (#58709)
+* fix(input): a custom Search `enterButton` now syncs `disabled` with the form context, and a `loading` supplied on the custom Button is no longer overwritten (#58726)
+* fix(grid): support zero `flex` values — `:flex="0"` and responsive `:xs="{ flex: 0 }"` were dropped by a truthiness check (#58719)
+* fix(tag): closing a link tag no longer triggers navigation (#58720)
+* fix(splitter): correct percentage-based ARIA value ranges (#58702)
+* fix(style): respect the `lineWidth` / `lineType` border tokens in Typography, Tree, Collapse and Layout instead of hardcoding `1px solid`; the rendered CSS is unchanged at the default theme and only differs once those tokens are customized (#58740, #58741, #58742, #58743)
+* fix(segmented, radio): drop downstream-only `prefers-reduced-motion` styles that upstream never had, restoring parity with the React sources ([#654](https://github.com/antdv-next/antdv-next/pull/654))
+* fix(wave): avoid touching global `window` in the `attachListener` watch callback, which runs on Vue's async scheduler and could fire after the environment is torn down ([#662](https://github.com/antdv-next/antdv-next/pull/662))
+
+**📖 Docs**
+
+* docs(timeline): add a `dotRender` demo ([#656](https://github.com/antdv-next/antdv-next/pull/656))
+* docs(input-number): add a feedback suffix debug demo (#58703)
+* docs(anchor): correct the `offsetTop` default value (#58710)
+* docs(select): preserve the typed search text in the remote users demo (#58736)
+* docs(table): fix the English API links ([#657](https://github.com/antdv-next/antdv-next/pull/657))
+
+**🧰 Infrastructure**
+
+* refactor(build): `build:style` and `build:token-statistic` now load component sources through a vite SSR runner instead of importing `dist/components.js`, so a stale build can no longer produce outdated CSS or token statistics. Both outputs were verified identical to the dist-based runs ([#654](https://github.com/antdv-next/antdv-next/pull/654))
+
+## V1.4.3
+
+Release Date: 2026-07-15
+
+Hotfix for a style regression introduced in 1.4.2 while syncing upstream [ant-design#58685](https://github.com/ant-design/ant-design/pull/58685): after `genNoMotionStyle` expanded to `&::before / &::after`, six call sites that already live inside pseudo-element selectors produced invalid double pseudo-element selectors such as `.ant-border-beam::before::before` — browsers silently drop these rules (so `prefers-reduced-motion` never took effect there), and lightningcss-based static CSS minification fails the build outright.
+
+**🐞 Fixes**
+
+* fix(style): add a flat `genNoMotionRawStyle` variant and use it at the six pseudo-element call sites in Switch / Segmented / Radio / Checkbox / BorderBeam, removing the invalid `::before::before` selectors and restoring `prefers-reduced-motion` behavior there ([#651](https://github.com/antdv-next/antdv-next/pull/651))
+
+**🧰 Infrastructure**
+
+* ci: bump node to 24 in GitHub Actions workflows
+* chore: regenerate the static style output
+
+## V1.4.2
+
+Release Date: 2026-07-14
+
+This release advances the ant-design upstream sync to **6.5.1** ([#644](https://github.com/antdv-next/antdv-next/pull/644), [#647](https://github.com/antdv-next/antdv-next/pull/647), [#650](https://github.com/antdv-next/antdv-next/pull/650)) and focuses on **TypeScript type infrastructure** (generic constructor exports, type inference in `h()` usage). It also fixes a batch of component issues — Switch label centering and bare attribute parsing, AutoComplete filled background stacking, Modal lazy rendering — and upgrades `@v-c/table` 1.1.8, `@v-c/util` 1.0.21 and other dependencies.
+
+**✨ Features**
+
+* feat(types): export generic constructor types for Transfer / Cascader / TreeSelect / Segmented, enabling full generic inference in `h()` and TSX
+* feat(ecosystem): add the antdv-next-tiptap rich-text editor to the Awesome page
+
+**🐞 Fixes**
+
+* fix(switch): center label content with flex instead of aligning it to the text baseline, fixing the upward offset of icon content (#58672)
+* fix(switch, checkbox): bare `checked` / `default-checked` template attributes now correctly resolve to `true` (previously parsed as an empty string and rendered unchecked)
+* fix(input): prevent the Search button focus outline from being covered by adjacent elements (#58615)
+* fix(auto-complete): avoid duplicate filled background on custom input components (#58669)
+* fix(motion): `prefers-reduced-motion` now also disables transitions/animations on `::before` / `::after` pseudo elements (#58685)
+* fix(modal): keep default slot rendering lazy while loading; apply `styles.body` of Modal methods to the content
+* fix(pagination): keep the size changer width inside Form.Item
+* fix(button): align icons inside Card extra
+* fix(descriptions): restore view width in shrink-to-fit containers
+* fix(date-picker): expose `nativeElement` as an element instead of a function
+* fix(config-provider): component-level `classes` / `styles` config is no longer silently inferred as `any` ([#642](https://github.com/antdv-next/antdv-next/pull/642)); force `zeroRuntime` when the cssinjs layer is enabled
+* fix(locale): complete missing locale fields
+* fix(types): fix lost contextual callback types in `h()` usage, unresolvable `h(Table, props)`, and clean up remaining type errors in component sources
+* fix(deps): bump `@v-c/util` to 1.0.21, fixing Select dropdown misalignment inside Space.Compact under vue 3.5.39
+* build: externalize `@vueuse/core` to silence rolldown build warnings
+
+**📖 Docs**
+
+* docs(layout): add a "Collapsible overlay" demo (#58566)
+* docs(grid): document the semantic difference between number and string values of Col `flex` (#58624)
+* docs(border-beam): add a "Show on hover" demo (#58683)
+* docs(auto-complete): add a filled custom input debug demo (#58669)
+* docs(table): add an auto-height demo, a performance troubleshooting FAQ (Vue DevTools), `change` event typing examples, and more
+* docs(notification): add a fixed-width usage FAQ
+* docs(site): add an "All" filter to icon search; add Serene / Dashboard preview themes; align component overview card hover with ant-design
+
+**🧰 Dependencies**
+
+* chore(deps): bump `@v-c/table` ^1.1.8, `@v-c/virtual-list` ^1.1.0, `@v-c/mentions` ^1.1.2, `@v-c/util` ^1.0.21, `@antdv-next/happy-work-theme` 1.0.1
+
 ## V1.4.1
 
 Release Date: 2026-07-02

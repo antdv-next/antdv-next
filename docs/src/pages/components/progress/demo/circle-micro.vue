@@ -14,8 +14,8 @@ Responsive circular progress bar. When `size` is smaller than 20, progress infor
       :percent="60"
       :stroke-width="20"
       :size="14"
-      :format="number => `进行中，已完成${number}%`"
+      :format="number => `In progress, ${number}% complete`"
     />
-    <span>代码发布</span>
+    <span>Code release</span>
   </a-flex>
 </template>

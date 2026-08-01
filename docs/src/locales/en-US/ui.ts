@@ -33,6 +33,7 @@ export default {
 
   iconSearch: {
     themes: {
+      all: 'All',
       outlined: 'Outlined',
       filled: 'Filled',
       twoTone: 'TwoTone',

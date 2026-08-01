@@ -17,6 +17,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'ದಯವಿಟ್ಟು ಆರಿಸಿ',
     close: 'ಮುಚ್ಚಿ',
+    sortable: 'ವಿಂಗಡಿಸಬಹುದಾದ',
   },
   Table: {
     filterTitle: 'ಪಟ್ಟಿ ಸೋಸಿ',
@@ -57,6 +58,13 @@ const localeValues: Locale = {
     searchPlaceholder: 'ಇಲ್ಲಿ ಹುಡುಕಿ',
     itemUnit: 'ವಿಷಯ',
     itemsUnit: 'ವಿಷಯಗಳು',
+    remove: 'ತೆಗೆದುಹಾಕಿ',
+    selectAll: 'ಎಲ್ಲಾ ಡೇಟಾವನ್ನು ಆಯ್ಕೆಮಾಡಿ',
+    deselectAll: 'ಎಲ್ಲಾ ಡೇಟಾವನ್ನು ಆಯ್ಕೆ ರದ್ದುಮಾಡಿ',
+    selectCurrent: 'ಪ್ರಸ್ತುತ ಪುಟವನ್ನು ಆಯ್ಕೆಮಾಡಿ',
+    selectInvert: 'ಪ್ರಸ್ತುತ ಪುಟವನ್ನು ತಿರುಗಿಸಿ',
+    removeAll: 'ಎಲ್ಲಾ ಡೇಟಾವನ್ನು ತೆಗೆದುಹಾಕಿ',
+    removeCurrent: 'ಪ್ರಸ್ತುತ ಪುಟವನ್ನು ತೆಗೆದುಹಾಕಿ',
   },
   Upload: {
     uploading: 'ಏರಿಸಿ...',
@@ -131,6 +139,13 @@ const localeValues: Locale = {
   QRCode: {
     expired: 'QR ಕೋಡ್ ಅವಧಿ ಮೀರಿದೆ',
     refresh: 'ನವೀಕರಿಸಿ',
+    scanned: 'ಸ್ಕ್ಯಾನ್ ಮಾಡಲಾಗಿದೆ',
+  },
+  ColorPicker: {
+    presetEmpty: 'ಖಾಲಿ',
+    transparent: 'ಪಾರದರ್ಶಕ',
+    singleColor: 'ಏಕ ಬಣ್ಣ',
+    gradientColor: 'ಗ್ರೇಡಿಯಂಟ್ ಬಣ್ಣ',
   },
 }
 

@@ -1,5 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import { defineComponent, onMounted } from 'vue'
 import Modal from '..'
+import App from '../../app'
 import ConfigProvider from '../../config-provider'
 import zhCN from '../../locale/zh_CN'
 import Popover from '../../popover'
@@ -76,6 +78,133 @@ describe('modal static', () => {
       .map(node => node.textContent?.replace(/\s+/g, '').trim())
 
     expect(buttons).toEqual(['取消', '确定'])
+  })
+
+  it('bodyStyle should apply to confirm content instead of modal body', async () => {
+    Modal.confirm({
+      title: 'Bamboo',
+      content: 'Little',
+      bodyStyle: { width: '500px' },
+    })
+
+    await waitFakeTimer(1, 5)
+
+    const content = document.querySelector<HTMLElement>('.ant-modal-confirm-content')!
+    expect(content.style.width).toBe('500px')
+    expect(document.querySelector<HTMLElement>('.ant-modal-body')!.style.width).toBe('')
+  })
+
+  it('styles.body should apply to confirm content instead of modal body', async () => {
+    Modal.confirm({
+      title: 'Bamboo',
+      content: 'Little',
+      styles: { body: { width: '500px' } },
+    })
+
+    await waitFakeTimer(1, 5)
+
+    const content = document.querySelector<HTMLElement>('.ant-modal-confirm-content')!
+    expect(content.style.width).toBe('500px')
+    expect(document.querySelector<HTMLElement>('.ant-modal-body')!.style.width).toBe('')
+  })
+
+  it('styles function should apply body semantic config to confirm content', async () => {
+    Modal.confirm({
+      title: 'Bamboo',
+      content: 'Little',
+      styles: () => ({ body: { width: '500px' } }),
+    })
+
+    await waitFakeTimer(1, 5)
+
+    const content = document.querySelector<HTMLElement>('.ant-modal-confirm-content')!
+    expect(content.style.width).toBe('500px')
+    expect(document.querySelector<HTMLElement>('.ant-modal-body')!.style.width).toBe('')
+  })
+
+  it('should apply body semantic config to confirm content in App.useApp modal method', async () => {
+    const Confirm = defineComponent(() => {
+      const { modal } = App.useApp()
+      onMounted(() => {
+        modal.confirm({
+          title: 'Bamboo',
+          content: 'Little',
+        })
+      })
+      return () => null
+    })
+
+    mount(
+      () => (
+        <ConfigProvider
+          modal={{
+            classes: { body: 'custom-confirm-content' },
+            styles: { body: { margin: '24px' } },
+          }}
+        >
+          <App>
+            <Confirm />
+          </App>
+        </ConfigProvider>
+      ),
+      { attachTo: document.body },
+    )
+
+    await waitFakeTimer()
+
+    const modalBody = document.querySelector<HTMLElement>('.ant-modal-body')!
+    const title = document.querySelector<HTMLElement>('.ant-modal-confirm-title')!
+    const content = document.querySelector<HTMLElement>('.ant-modal-confirm-content')!
+
+    expect(modalBody.classList.contains('custom-confirm-content')).toBe(false)
+    expect(modalBody.style.margin).toBe('')
+    expect(title.closest('.custom-confirm-content')).toBeFalsy()
+    expect(content.classList.contains('custom-confirm-content')).toBe(true)
+    expect(content.style.margin).toBe('24px')
+  })
+
+  it('should resolve confirm content body semantics with merged Modal props', async () => {
+    const Confirm = defineComponent(() => {
+      const { modal } = App.useApp()
+      onMounted(() => {
+        modal.confirm({
+          title: 'Bamboo',
+          content: 'Little',
+        })
+      })
+      return () => null
+    })
+
+    mount(
+      () => (
+        <ConfigProvider
+          modal={{
+            classes: ({ props }: any) => ({
+              body: props.focusable?.trap === false ? 'custom-focusable-content' : '',
+            }),
+            focusable: { trap: false },
+            styles: ({ props }: any) => ({
+              body: { width: props.focusable?.trap === false ? '500px' : '300px' },
+            }),
+          }}
+        >
+          <App>
+            <Confirm />
+          </App>
+        </ConfigProvider>
+      ),
+      { attachTo: document.body },
+    )
+
+    await waitFakeTimer()
+
+    const modalBody = document.querySelector<HTMLElement>('.ant-modal-body')!
+    const content = document.querySelector<HTMLElement>('.ant-modal-confirm-content')!
+
+    expect(modalBody.classList.contains('custom-focusable-content')).toBe(false)
+    expect(modalBody.style.width).toBe('')
+    expect(content.classList.contains('custom-focusable-content')).toBe(true)
+    expect(content.style.width).toBe('500px')
   })
 })
 
@@ -169,6 +298,26 @@ describe('modal integration', () => {
     await waitFakeTimer(1, 5)
 
     expect(document.activeElement).toBe(popupInput)
+  })
+
+  it('should not invoke default slot while loading', async () => {
+    const slotSpy = vi.fn(() => <div id="lazy-slot-content">Hello</div>)
+    mount(Modal, {
+      attachTo: document.body,
+      props: {
+        open: true,
+        loading: true,
+        title: 'Loading Modal',
+      },
+      slots: {
+        default: slotSpy,
+      },
+    })
+
+    await waitFakeTimer(20, 10)
+
+    expect(document.querySelector('.ant-modal-body-skeleton')).not.toBeNull()
+    expect(slotSpy).not.toHaveBeenCalled()
   })
 
   it('should render content when forceRender is true even if modal is closed', async () => {

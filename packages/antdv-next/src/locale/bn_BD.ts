@@ -16,6 +16,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'অনুগ্রহ করে নির্বাচন করুন',
     close: 'বন্ধ',
+    sortable: 'বাছাইযোগ্য',
   },
   Table: {
     filterTitle: 'ফিল্টার মেনু',
@@ -33,6 +34,8 @@ const localeValues: Locale = {
     triggerDesc: 'অবতরণকে সাজানোর জন্য ক্লিক করুন',
     triggerAsc: 'আরোহী বাছাই করতে ক্লিক করুন',
     cancelSort: 'বাছাই বাতিল করতে ক্লিক করুন',
+    filterCheckAll: 'সব আইটেম নির্বাচন করুন',
+    filterSearchPlaceholder: 'ফিল্টারে অনুসন্ধান করুন',
   },
   Tour: {
     Next: 'পরবর্তী',
@@ -59,6 +62,7 @@ const localeValues: Locale = {
     selectAll: 'সমস্ত ডেটা নির্বাচন করুন',
     removeAll: 'সমস্ত ডেটা সরান',
     selectInvert: 'বর্তমান পৃষ্ঠাটি উল্টে দিন',
+    deselectAll: 'সমস্ত ডেটা অনির্বাচন করুন',
   },
   Upload: {
     uploading: 'আপলোড হচ্ছে ...',
@@ -78,6 +82,7 @@ const localeValues: Locale = {
     copy: 'অনুলিপি',
     copied: 'অনুলিপি হয়েছে',
     expand: 'বিস্তৃত করা',
+    collapse: 'সঙ্কুচিত',
   },
   Form: {
     optional: '(ঐচ্ছিক)',
@@ -128,6 +133,17 @@ const localeValues: Locale = {
         mismatch: '${label} এই ${pattern} প্যাটার্নের সাথে মেলে না',
       },
     },
+  },
+  QRCode: {
+    expired: 'QR কোডের মেয়াদ শেষ',
+    refresh: 'রিফ্রেশ',
+    scanned: 'স্ক্যান করা হয়েছে',
+  },
+  ColorPicker: {
+    presetEmpty: 'খালি',
+    transparent: 'স্বচ্ছ',
+    singleColor: 'একক রঙ',
+    gradientColor: 'গ্রেডিয়েন্ট রঙ',
   },
 }
 

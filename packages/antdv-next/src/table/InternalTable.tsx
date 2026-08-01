@@ -47,6 +47,7 @@ import Pagination from '../pagination'
 import Spin from '../spin'
 import { useToken } from '../theme/internal'
 import renderExpandIcon from './ExpandIcon.tsx'
+import useColumnTitleProps from './hooks/useColumnTitleProps.ts'
 import useContainerWidth from './hooks/useContainerWidth.ts'
 import useFilledColumns from './hooks/useFilledColumns.ts'
 import useFilter, { collectFilterStates, generateFilterInfo, getFilterData, getMergedFilterStates } from './hooks/useFilter'
@@ -54,9 +55,11 @@ import useLazyKVMap from './hooks/useLazyKVMap.ts'
 import usePagination, { DEFAULT_PAGE_SIZE, getPaginationParam } from './hooks/usePagination.ts'
 import useSelection from './hooks/useSelection.tsx'
 import useSorter, { getSortData } from './hooks/useSorter.tsx'
+import useSpinProps from './hooks/useSpinProps.ts'
 import useTitleColumns from './hooks/useTitleColumns.ts'
 import useStyle from './style'
 import { TableMeasureRowContextProvider } from './TableMeasureRowContext.ts'
+import { getPaginationSize, normalizePlacement } from './util.ts'
 import { convertColumnsToColumnProps } from './utils.ts'
 
 const EMPTY_LIST: AnyObject[] = []
@@ -633,15 +636,7 @@ const InternalTable = defineComponent<
 
     expose(tableExpose)
 
-    const spinProps = computed<SpinProps | undefined>(() => {
-      if (typeof props.loading === 'boolean') {
-        return { spinning: props.loading }
-      }
-      if (typeof props.loading === 'object' && props.loading !== null) {
-        return { spinning: true, ...props.loading }
-      }
-      return undefined
-    })
+    const spinProps = useSpinProps(computed(() => props.loading))
 
     const mergedVirtual = computed(() => props.virtual ?? contextVirtual.value)
     const TableComponent = computed(() => mergedVirtual.value ? VcVirtualTable : VcTable)
@@ -682,21 +677,10 @@ const InternalTable = defineComponent<
       }
       return node
     }
+    const columnTitleProps = useColumnTitleProps(sorterTitleProps, filters)
+
     return () => {
-      const columnTitlePropsFn = () => {
-        const mergedFilters: Record<string, FilterValue> = {}
-        Object.keys(filters.value).forEach((filterKey) => {
-          if (filters.value[filterKey] !== null) {
-            mergedFilters[filterKey] = filters.value[filterKey] as FilterValue
-          }
-        })
-        return {
-          ...sorterTitleProps.value,
-          filters: mergedFilters,
-        }
-      }
-      const columnTitleProps = columnTitlePropsFn()
-      const [transformTitleColumns] = useTitleColumns(columnTitleProps)
+      const [transformTitleColumns] = useTitleColumns(columnTitleProps.value)
 
       const renderExpandedRow = slots.expandedRowRender
         ? (record: AnyObject, index: number, indent: number, expanded: boolean) =>
@@ -788,11 +772,12 @@ const InternalTable = defineComponent<
           classes={mergedClassNames.value.pagination}
           styles={mergedStyles.value.pagination}
           class={clsx(
-            `${prefixCls.value}-pagination ${prefixCls.value}-pagination-${placement}`,
+            `${prefixCls.value}-pagination`,
+            `${prefixCls.value}-pagination-${placement}`,
             (mergedPagination.value as any).class,
             (mergedPagination.value as any).className,
           )}
-          size={mergedPagination.value.size || (mergedSize.value === 'small' || mergedSize.value === 'middle' || mergedSize.value === 'medium' ? 'small' : undefined)}
+          size={getPaginationSize(mergedPagination.value.size, mergedSize.value)}
         />
       )
       const paginationNodes = (() => {
@@ -805,13 +790,6 @@ const InternalTable = defineComponent<
 
         const { placement, position } = mergedPagination.value
         const mergedPlacement = placement ?? position
-        const normalizePlacement = (pos: string) => {
-          const lowerPos = pos.toLowerCase()
-          if (lowerPos.includes('center')) {
-            return 'center'
-          }
-          return lowerPos.includes('left') || lowerPos.includes('start') ? 'start' : 'end'
-        }
 
         if (Array.isArray(mergedPlacement)) {
           const [topPos, bottomPos] = ['top', 'bottom'].map(dir => mergedPlacement.find(p => p.includes(dir)))

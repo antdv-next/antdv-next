@@ -142,6 +142,9 @@ const InternalTag = defineComponent<
       if (e.defaultPrevented) {
         return
       }
+      if (href.value) {
+        e.preventDefault()
+      }
       visible.value = false
     }
 

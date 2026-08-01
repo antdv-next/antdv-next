@@ -5,7 +5,7 @@ import { computed, onBeforeUnmount, ref } from 'vue'
 import { useLocale } from '@/composables/use-locale'
 import CopyableIcon from './CopyableIcon.vue'
 
-export type ThemeType = 'Filled' | 'Outlined' | 'TwoTone'
+export type ThemeType = 'All' | 'Filled' | 'Outlined' | 'TwoTone'
 
 const props = defineProps<{
   title: CategoriesKeys

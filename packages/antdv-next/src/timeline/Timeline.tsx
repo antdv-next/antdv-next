@@ -6,6 +6,7 @@ import type { ComponentBaseProps } from '../config-provider/context.ts'
 import type { StepItem, StepsProps, StepsSemanticClassNames, StepsSemanticName, StepsSemanticStyles } from '../steps'
 import { useUnstableProvider } from '@v-c/steps/dist/UnstableContext.js'
 import { classNames as clsx } from '@v-c/util'
+import { filterEmpty } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, ref, toRefs } from 'vue'
 import { useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
@@ -76,9 +77,9 @@ export interface TimelineProps extends ComponentBaseProps {
   reverse?: boolean
   mode?: 'left' | 'alternate' | 'right' | 'start' | 'end'
   items?: TimelineItemType[]
-  dotRender?: (params: { item: TimelineItemType, index: number }) => void
-  labelRender?: (params: { item: TimelineItemType, index: number }) => void
-  contentRender?: (params: { item: TimelineItemType, index: number }) => void
+  dotRender?: (params: { item: TimelineItemType, index: number }) => VueNode
+  labelRender?: (params: { item: TimelineItemType, index: number }) => VueNode
+  contentRender?: (params: { item: TimelineItemType, index: number }) => VueNode
   orientation?: 'horizontal' | 'vertical'
   variant?: StepsProps['variant']
   classes?: TimelineClassNamesType
@@ -91,9 +92,9 @@ export type TimelineStylesType = SemanticStylesType<TimelineProps, TimelineSeman
 export interface TimelineSlots {
   pending?: () => void
   pendingDot?: () => void
-  dotRender?: (params: { item: TimelineItemType, index: number }) => void
-  labelRender?: (params: { item: TimelineItemType, index: number }) => void
-  contentRender?: (params: { item: TimelineItemType, index: number }) => void
+  dotRender?: (params: { item: TimelineItemType, index: number }) => any
+  labelRender?: (params: { item: TimelineItemType, index: number }) => any
+  contentRender?: (params: { item: TimelineItemType, index: number }) => any
 }
 
 const defaults = {
@@ -165,7 +166,27 @@ const Timeline = defineComponent<
     }))
 
     // ===================== Data =======================
-    const rawItems = useItems(rootPrefixCls, prefixCls, mergedMode, items, pending, pendingDot)
+    // 插槽优先，其次 props(与 getSlotPropFnRun 的约定一致)。
+    // 插槽结果是规范化后的 VNode 数组(条件不渲染时为注释节点),须过滤后
+    // 判空,空结果返回 undefined 以触发 item 自身字段的回退。
+    const wrapRender = (fn: any): TimelineProps['dotRender'] => {
+      if (typeof fn !== 'function')
+        return undefined
+      return (params) => {
+        const node = fn(params)
+        const nodes = filterEmpty(Array.isArray(node) ? node : [node])
+          .filter(n => n !== undefined && n !== null)
+        if (!nodes.length)
+          return undefined
+        return nodes.length === 1 ? nodes[0] : nodes
+      }
+    }
+    const itemRenders = computed(() => ({
+      dotRender: wrapRender(slots.dotRender ?? props.dotRender),
+      labelRender: wrapRender(slots.labelRender ?? props.labelRender),
+      contentRender: wrapRender(slots.contentRender ?? props.contentRender),
+    }))
+    const rawItems = useItems(rootPrefixCls, prefixCls, mergedMode, items, pending, pendingDot, itemRenders)
 
     const mergedItems = computed(() => {
       return (props.reverse ? [...rawItems.value].reverse() : rawItems.value) as StepItem[]
@@ -222,7 +243,7 @@ const Timeline = defineComponent<
       return (
         <Steps
           {...omit(attrs, ['class', 'style'])}
-          {...omit(props, ['items', 'prefixCls', 'titleSpan'])}
+          {...omit(props, ['items', 'prefixCls', 'titleSpan', 'dotRender', 'labelRender', 'contentRender'])}
           class={clsx(
             contextClassName.value,
             timeline.value?.class,

@@ -1,5 +1,5 @@
 import type { CSSProperties } from 'vue'
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
+import type { Resolvable } from '../_util/hooks/useMergeSemantic'
 import type { InputStatus } from '../_util/statusUtils'
 import type { VueNode } from '../_util/type'
 import type { ComponentBaseProps } from '../config-provider/context'
@@ -124,12 +124,16 @@ export interface TransferSemanticStyles {
   target?: TransferSectionSemanticStyles
 }
 
-export type TransferClassNamesType = SemanticClassNamesType<
-  TransferProps,
-  TransferSemanticClassNames
->
+/*
+ * Written with `Resolvable` directly (not SemanticClassNamesType/StylesType,
+ * whose flat-value constraint rejects the nested source/target shape): the
+ * runtime resolves function-form classes/styles through useMergeSemantic and
+ * then reads `source`/`target` off the result, so resolver returns must be
+ * allowed to carry the nested keys too.
+ */
+export type TransferClassNamesType = Resolvable<Readonly<TransferSemanticClassNames>, TransferProps>
 
-export type TransferStylesType = SemanticStylesType<TransferProps, TransferSemanticStyles>
+export type TransferStylesType = Resolvable<Readonly<TransferSemanticStyles>, TransferProps>
 
 export interface TransferListProps<RecordType> extends TransferLocale {
   prefixCls: string

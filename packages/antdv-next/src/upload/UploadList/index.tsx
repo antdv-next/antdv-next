@@ -90,7 +90,7 @@ const UploadList = defineComponent<
       { immediate: true },
     )
 
-    const onInternalPreview = (file: UploadFile, e?: MouseEvent) => {
+    const onInternalPreview = (file: UploadFile, e?: MouseEvent | KeyboardEvent) => {
       if (!hasPreviewListener.value) {
         return
       }
@@ -102,7 +102,7 @@ const UploadList = defineComponent<
       props?.onDownload?.(file)
     }
 
-    const onInternalClose = (file: UploadFile) => {
+    const onInternalClose = (file: UploadFile, _e?: MouseEvent | KeyboardEvent) => {
       props.onRemove?.(file)
     }
 

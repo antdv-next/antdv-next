@@ -16,6 +16,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Будь ласка, оберіть',
     close: 'Закрити',
+    sortable: 'сортувальний',
   },
   Table: {
     filterTitle: 'Фільтрувати',
@@ -81,6 +82,7 @@ const localeValues: Locale = {
     copy: 'Скопіювати',
     copied: 'Скопійовано',
     expand: 'Розширити',
+    collapse: 'Згорнути',
   },
   Form: {
     optional: '(опціонально)',
@@ -135,6 +137,13 @@ const localeValues: Locale = {
   QRCode: {
     expired: 'QR-код закінчився',
     refresh: 'Оновити',
+    scanned: 'Відскановані',
+  },
+  ColorPicker: {
+    presetEmpty: 'Порожній',
+    transparent: 'Прозорий',
+    singleColor: 'Одноколірний',
+    gradientColor: 'Градієнтний колір',
   },
 }
 

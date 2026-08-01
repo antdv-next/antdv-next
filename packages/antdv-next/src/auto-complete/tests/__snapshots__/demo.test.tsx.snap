@@ -1807,6 +1807,153 @@ exports[`auto-complete demo > renders disabled-custom-debug correctly 1`] = `
 </div>
 `;
 
+exports[`auto-complete demo > renders filled-custom-debug correctly 1`] = `
+<div
+  class="ant-flex css-var-root ant-flex-wrap-wrap"
+  style="gap: 24px;"
+>
+  <form
+    class="ant-form ant-form-vertical css-var-root ant-form-css-var"
+    style="width: 280px;"
+  >
+    <div
+      class="ant-form-item css-var-root ant-form-css-var ant-form-item-vertical"
+    >
+      <div
+        class="ant-row css-var-root ant-form-item-row"
+      >
+        <div
+          class="ant-col css-var-root ant-form-item-label"
+        >
+          <label
+            title="AutoComplete TextArea"
+          >
+            AutoComplete TextArea
+          </label>
+        </div>
+        <div
+          class="ant-col css-var-root ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <!---->
+              <div
+                class="ant-select ant-select-filled ant-select-in-form-item ant-select-auto-complete ant-select-customize css-var-root ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
+              >
+                <!---->
+                <div
+                  class="ant-select-content"
+                >
+                  <!---->
+                  <textarea
+                    aria-autocomplete="list"
+                    aria-controls="test-id_list"
+                    aria-expanded="false"
+                    aria-haspopup="listbox"
+                    aria-owns="test-id_list"
+                    autocomplete="off"
+                    class="ant-input ant-input-filled css-var-root ant-input-css-var ant-select-input"
+                    id="test-id"
+                    placeholder="Custom TextArea"
+                    role="combobox"
+                    type="text"
+                    value=""
+                  />
+                </div>
+                <!---->
+                <!---->
+                <!---->
+              </div>
+              <!---->
+            </div>
+          </div>
+          <div
+            class="ant-form-item-additional"
+          >
+            <transition-stub
+              appear="true"
+              css="true"
+              enteractiveclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-prepare ant-form-show-help-enter-prepare "
+              enterfromclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-prepare ant-form-show-help-enter-prepare ant-form-show-help-enter-start"
+              entertoclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-active ant-form-show-help-enter-active"
+              leaveactiveclass="ant-form-show-help ant-form-show-help-leave ant-form-show-help-leave-active"
+              leavefromclass="ant-form-show-help ant-form-show-help-leave"
+              leavetoclass="ant-form-show-help ant-form-show-help-leave ant-form-show-help-leave-active"
+              name="ant-form-show-help"
+              persisted="false"
+            >
+              <!---->
+            </transition-stub>
+            <!---->
+          </div>
+        </div>
+        <!---->
+      </div>
+      <!---->
+    </div>
+    <div
+      class="ant-form-item css-var-root ant-form-css-var ant-form-item-vertical"
+    >
+      <div
+        class="ant-row css-var-root ant-form-item-row"
+      >
+        <div
+          class="ant-col css-var-root ant-form-item-label"
+        >
+          <label
+            title="Input TextArea"
+          >
+            Input TextArea
+          </label>
+        </div>
+        <div
+          class="ant-col css-var-root ant-form-item-control"
+        >
+          <div
+            class="ant-form-item-control-input"
+          >
+            <div
+              class="ant-form-item-control-input-content"
+            >
+              <textarea
+                class="ant-input ant-input-filled css-var-root ant-input-css-var"
+                placeholder="Compare TextArea"
+                value=""
+              />
+            </div>
+          </div>
+          <div
+            class="ant-form-item-additional"
+          >
+            <transition-stub
+              appear="true"
+              css="true"
+              enteractiveclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-prepare ant-form-show-help-enter-prepare "
+              enterfromclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-prepare ant-form-show-help-enter-prepare ant-form-show-help-enter-start"
+              entertoclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-active ant-form-show-help-enter-active"
+              leaveactiveclass="ant-form-show-help ant-form-show-help-leave ant-form-show-help-leave-active"
+              leavefromclass="ant-form-show-help ant-form-show-help-leave"
+              leavetoclass="ant-form-show-help ant-form-show-help-leave ant-form-show-help-leave-active"
+              name="ant-form-show-help"
+              persisted="false"
+            >
+              <!---->
+            </transition-stub>
+            <!---->
+          </div>
+        </div>
+        <!---->
+      </div>
+      <!---->
+    </div>
+  </form>
+</div>
+`;
+
 exports[`auto-complete demo > renders non-case-sensitive correctly 1`] = `
 <div
   data-v-app=""

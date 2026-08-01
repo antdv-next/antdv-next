@@ -1,6 +1,8 @@
 import { describe, expect, it, vi } from 'vitest'
 import { h, nextTick, ref } from 'vue'
 import Input from '..'
+import Button from '../../button'
+import ConfigProvider from '../../config-provider'
 import rtlTest from '/@tests/shared/rtlTest'
 import { mount } from '/@tests/utils'
 
@@ -105,6 +107,97 @@ describe('search', () => {
       },
     })
     expect(wrapper.find('.ant-btn-loading').exists()).toBe(true)
+  })
+
+  describe('custom enterButton disabled/loading', () => {
+    it('should disable custom Button when disabled prop is true', async () => {
+      const onSearch = vi.fn()
+      const wrapper = mount(() => (
+        <Search disabled enterButton={<Button>ok</Button>} onSearch={onSearch} />
+      ))
+
+      const button = wrapper.find('button')
+      expect(button.attributes('disabled')).toBeDefined()
+      await button.trigger('click')
+      expect(onSearch).not.toHaveBeenCalled()
+    })
+
+    it('should disable custom native button when disabled prop is true', async () => {
+      const onSearch = vi.fn()
+      const wrapper = mount(() => (
+        <Search disabled enterButton={<button type="button">ok</button>} onSearch={onSearch} />
+      ))
+
+      const button = wrapper.find('button')
+      expect(button.attributes('disabled')).toBeDefined()
+      await button.trigger('click')
+      expect(onSearch).not.toHaveBeenCalled()
+    })
+
+    it('should preserve disabled context for custom Button', async () => {
+      const onSearch = vi.fn()
+      const wrapper = mount(() => (
+        <ConfigProvider componentDisabled>
+          <Search enterButton={<Button>ok</Button>} onSearch={onSearch} />
+        </ConfigProvider>
+      ))
+
+      const button = wrapper.find('button')
+      expect(button.attributes('disabled')).toBeDefined()
+      await button.trigger('click')
+      expect(onSearch).not.toHaveBeenCalled()
+    })
+
+    it('should disable custom native button with disabled context', async () => {
+      const onSearch = vi.fn()
+      const wrapper = mount(() => (
+        <ConfigProvider componentDisabled>
+          <Search enterButton={<button type="button">ok</button>} onSearch={onSearch} />
+        </ConfigProvider>
+      ))
+
+      const button = wrapper.find('button')
+      expect(button.attributes('disabled')).toBeDefined()
+      await button.trigger('click')
+      expect(onSearch).not.toHaveBeenCalled()
+    })
+
+    it('should set custom Button to loading when loading prop is true', () => {
+      const onSearch = vi.fn()
+      const wrapper = mount(() => (
+        <Search loading enterButton={<Button>ok</Button>} onSearch={onSearch} />
+      ))
+
+      expect(wrapper.find('.ant-btn-loading').exists()).toBe(true)
+    })
+
+    it('should keep custom Button loading when its own loading is true', () => {
+      const wrapper = mount(() => (
+        <Search enterButton={<Button loading>ok</Button>} />
+      ))
+
+      expect(wrapper.find('.ant-btn-loading').exists()).toBe(true)
+    })
+
+    it('should keep custom Button disabled when its own disabled is true', () => {
+      const wrapper = mount(() => (
+        <Search enterButton={<Button disabled>ok</Button>} />
+      ))
+
+      expect(wrapper.find('button').attributes('disabled')).toBeDefined()
+    })
+
+    it('should disable custom native button when loading prop is true', async () => {
+      const onSearch = vi.fn()
+      const wrapper = mount(() => (
+        <Search loading enterButton={<button type="button">ok</button>} onSearch={onSearch} />
+      ))
+
+      const button = wrapper.find('button')
+      expect(button.attributes('disabled')).toBeDefined()
+      await button.trigger('click')
+      expect(onSearch).not.toHaveBeenCalled()
+    })
   })
 
   it('should support size prop', () => {

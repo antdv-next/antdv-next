@@ -16,6 +16,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Escolla',
     close: 'Cerrar',
+    sortable: 'clasificable',
   },
   Table: {
     filterTitle: 'Filtrar menú',
@@ -24,6 +25,17 @@ const localeValues: Locale = {
     selectAll: 'Seleccionar todo',
     selectInvert: 'Invertir selección',
     sortTitle: 'Ordenar',
+    filterEmptyText: 'Sen filtros',
+    filterCheckAll: 'Selecciona todos os elementos',
+    filterSearchPlaceholder: 'Busca en filtros',
+    emptyText: 'Sen datos',
+    selectNone: 'Borrar todos os datos',
+    selectionAll: 'Seleccione todos os datos',
+    expand: 'Expandir fila',
+    collapse: 'Contraer fila',
+    triggerDesc: 'Fai clic para ordenar descendente',
+    triggerAsc: 'Fai clic para ordenar ascendente',
+    cancelSort: 'Fai clic para cancelar a clasificación',
   },
   Tour: {
     Next: 'Avanzar',
@@ -44,6 +56,13 @@ const localeValues: Locale = {
     searchPlaceholder: 'Buscar aquí',
     itemUnit: 'elemento',
     itemsUnit: 'elementos',
+    remove: 'Eliminar',
+    selectAll: 'Seleccione todos os datos',
+    deselectAll: 'Deseleccione todos os datos',
+    selectCurrent: 'Seleccione a páxina actual',
+    selectInvert: 'Inverte a páxina actual',
+    removeAll: 'Elimina todos os datos',
+    removeCurrent: 'Eliminar a páxina actual',
   },
   Upload: {
     uploading: 'Subindo...',
@@ -63,6 +82,7 @@ const localeValues: Locale = {
     copy: 'copiar',
     copied: 'copiado',
     expand: 'expandir',
+    collapse: 'Colapsar',
   },
   Form: {
     defaultValidateMessages: {
@@ -112,6 +132,17 @@ const localeValues: Locale = {
         mismatch: '${label} non coincide co patrón ${pattern}',
       },
     },
+  },
+  QRCode: {
+    expired: 'O código QR caducou',
+    refresh: 'Actualizar',
+    scanned: 'Escaneado',
+  },
+  ColorPicker: {
+    presetEmpty: 'Baleiro',
+    transparent: 'Transparente',
+    singleColor: 'Cor única',
+    gradientColor: 'Cor degradado',
   },
 }
 

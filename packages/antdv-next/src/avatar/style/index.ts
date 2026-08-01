@@ -1,4 +1,5 @@
 import type { CSSObject } from '@antdv-next/cssinjs'
+import type { CSSProperties } from 'vue'
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal'
 
 import { unit } from '@antdv-next/cssinjs'

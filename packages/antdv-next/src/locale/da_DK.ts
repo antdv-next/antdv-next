@@ -14,6 +14,8 @@ const localeValues: Locale = {
   Pagination,
   global: {
     close: 'Luk',
+    placeholder: 'Vælg venligst',
+    sortable: 'sorterbar',
   },
   Table: {
     filterTitle: 'Filtermenu',
@@ -31,6 +33,8 @@ const localeValues: Locale = {
     triggerDesc: 'Klik for at sortere faldende',
     triggerAsc: 'Klik for at sortere stigende',
     cancelSort: 'Klik for at annullere sortering',
+    filterCheckAll: 'Vælg alle elementer',
+    filterSearchPlaceholder: 'Søg i filtre',
   },
   Tour: {
     Next: 'Næste',
@@ -51,6 +55,13 @@ const localeValues: Locale = {
     searchPlaceholder: 'Søg her',
     itemUnit: 'element',
     itemsUnit: 'elementer',
+    remove: 'Fjern',
+    selectAll: 'Vælg alle data',
+    deselectAll: 'Fravælg alle data',
+    selectCurrent: 'Vælg den aktuelle side',
+    selectInvert: 'Inverter den aktuelle side',
+    removeAll: 'Fjern alle data',
+    removeCurrent: 'Fjern den aktuelle side',
   },
   Upload: {
     uploading: 'Uploader...',
@@ -111,6 +122,24 @@ const localeValues: Locale = {
         mismatch: '${label} stemmer ikke overens med mønsteret ${pattern}',
       },
     },
+  },
+  Text: {
+    edit: 'Rediger',
+    copy: 'Kopiér',
+    copied: 'Kopieret',
+    expand: 'Udvid',
+    collapse: 'Kollaps',
+  },
+  QRCode: {
+    expired: 'QR-koden er udløbet',
+    refresh: 'Opdater',
+    scanned: 'Scannet',
+  },
+  ColorPicker: {
+    presetEmpty: 'Tom',
+    transparent: 'Gennemsigtig',
+    singleColor: 'Enkelt farve',
+    gradientColor: 'Gradient farve',
   },
 }
 

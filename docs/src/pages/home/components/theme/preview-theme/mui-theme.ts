@@ -26,7 +26,7 @@ function createHolder(node: HTMLElement) {
 function createDot(holder: HTMLElement, color: string, left: number, top: number, size = 0) {
   const dot = document.createElement('div')
   dot.style.position = 'absolute'
-  dot.style.left = `${left}px`
+  dot.style.insetInlineStart = `${left}px`
   dot.style.top = `${top}px`
   dot.style.width = `${size}px`
   dot.style.height = `${size}px`
@@ -111,6 +111,16 @@ const useStyles = createStyles(({ css }) => {
       borderRadius: '4px',
       boxShadow:
         '0px 5px 5px -3px rgba(0,0,0,0.2), 0px 8px 10px 1px rgba(0,0,0,0.14), 0px 3px 14px 2px rgba(0,0,0,0.12)',
+    }),
+    notificationRoot: css({
+      '&.ant-notification-notice, & .ant-notification-notice': {
+        borderRadius: 4,
+        boxShadow:
+          '0px 5px 5px -3px rgba(0,0,0,0.2), 0px 8px 10px 1px rgba(0,0,0,0.14), 0px 3px 14px 2px rgba(0,0,0,0.12)',
+      },
+    }),
+    notificationTitle: css({
+      fontWeight: 500,
     }),
   }
 })
@@ -227,6 +237,7 @@ function useMuiTheme() {
           borderRadiusLG: 4,
         },
         Progress: {
+          circleTextColor: 'rgba(33, 33, 33, 0.87)',
           defaultColor: '#1976d2',
           remainingColor: 'rgba(25, 118, 210, 0.12)',
         },
@@ -246,6 +257,32 @@ function useMuiTheme() {
         ColorPicker: {
           borderRadius: 4,
         },
+        Notification: {
+          colorSuccessBg: '#e8f5e9',
+          colorErrorBg: '#ffebee',
+          colorInfoBg: '#e1f5fe',
+          colorWarningBg: '#fff3e0',
+        },
+        Layout: {
+          bodyBg: '#f5f5f5',
+          footerBg: '#f5f5f5',
+          headerBg: '#1976d2',
+          headerColor: '#ffffff',
+          siderBg: '#ffffff',
+          triggerBg: '#eeeeee',
+          triggerColor: 'rgba(33, 33, 33, 0.87)',
+        },
+        Menu: {
+          activeBarBorderWidth: 0,
+          itemBg: 'transparent',
+          subMenuItemBg: 'transparent',
+        },
+        Card: {},
+        Tooltip: {},
+        Radio: {},
+        Select: {},
+        Input: {},
+        Switch: {},
       },
     },
     wave: {
@@ -261,16 +298,37 @@ function useMuiTheme() {
       }),
     },
     input: {
-      classes: {
-        root: styles.inputRoot,
+      classes: ({ props }: { props: { status?: string } }) => ({
+        root: cx(styles.inputRoot, props.status === 'error' && styles.inputError),
         input: styles.inputElement,
-      },
+      }),
     },
     select: {
       classes: {
         root: styles.selectRoot,
       },
     },
+    notification: {
+      classes: {
+        root: styles.notificationRoot,
+        title: styles.notificationTitle,
+      },
+    },
+    app: {},
+    card: {},
+    modal: {},
+    alert: {},
+    colorPicker: {},
+    checkbox: {},
+    dropdown: {},
+    datePicker: {},
+    inputNumber: {},
+    popover: {},
+    tooltip: {},
+    switch: {},
+    radio: {},
+    segmented: {},
+    progress: {},
   }))
 }
 

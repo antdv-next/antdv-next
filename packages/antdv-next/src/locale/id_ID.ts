@@ -16,6 +16,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Silahkan pilih',
     close: 'Tutup',
+    sortable: 'dapat diurutkan',
   },
   Table: {
     filterTitle: 'Menu filter',

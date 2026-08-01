@@ -845,7 +845,7 @@ exports[`tooltip demo > renders auto-adjust-overflow correctly 1`] = `
           <!---->
         </transition-stub>
         <span>
-          Adjust automatically / 自动调整
+          Adjust automatically
         </span>
         <!---->
       </button>
@@ -870,7 +870,7 @@ exports[`tooltip demo > renders auto-adjust-overflow correctly 1`] = `
           <!---->
         </transition-stub>
         <span>
-          Ignore / 不处理
+          Ignore
         </span>
         <!---->
       </button>
@@ -917,7 +917,7 @@ exports[`tooltip demo > renders auto-adjust-overflow correctly 1`] = `
           <!---->
         </transition-stub>
         <span>
-          Adjust automatically / 自动调整
+          Adjust automatically
         </span>
         <!---->
       </button>
@@ -942,7 +942,7 @@ exports[`tooltip demo > renders auto-adjust-overflow correctly 1`] = `
           <!---->
         </transition-stub>
         <span>
-          Ignore / 不处理
+          Ignore
         </span>
         <!---->
       </button>

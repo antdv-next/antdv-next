@@ -1,16 +1,21 @@
 <docs lang="zh-CN">
-配合 [antd-img-crop](https://github.com/nanxiaobei/antd-img-crop) 实现上传前裁切图片。
+配合 [@antdv-next/img-crop](https://github.com/antdv-next/img-crop) 实现上传前裁切图片。
 </docs>
 
 <docs lang="en-US">
-Use [antd-img-crop](https://github.com/nanxiaobei/antd-img-crop) to crop image before uploading.
+Use [@antdv-next/img-crop](https://github.com/antdv-next/img-crop) to crop image before uploading.
 </docs>
 
 <script setup lang="ts">
-import type { UploadEmits, UploadFile, UploadProps } from 'antdv-next'
+import type { UploadFile, UploadProps } from 'antdv-next'
+import { ImgCrop } from '@antdv-next/img-crop'
 import { ref } from 'vue'
+import { useComponentLocale } from '@/composables/use-locale'
+import { locales } from '../locales'
 
 type FileType = Parameters<NonNullable<UploadProps['beforeUpload']>>[0]
+
+const { t } = useComponentLocale(locales)
 
 const fileList = ref<UploadFile[]>([
   {
@@ -30,51 +35,6 @@ function getBase64(file: FileType) {
   })
 }
 
-function loadImage(src: string) {
-  return new Promise<HTMLImageElement>((resolve, reject) => {
-    const img = new Image()
-    img.onload = () => resolve(img)
-    img.onerror = reject
-    img.src = src
-  })
-}
-
-async function cropToSquare(file: FileType) {
-  if (!file.type.startsWith('image/')) {
-    return file
-  }
-  const dataUrl = await getBase64(file)
-  const img = await loadImage(dataUrl)
-  const size = Math.min(img.width, img.height)
-  const canvas = document.createElement('canvas')
-  canvas.width = size
-  canvas.height = size
-  const ctx = canvas.getContext('2d')
-  if (!ctx) {
-    return file
-  }
-  const startX = (img.width - size) / 2
-  const startY = (img.height - size) / 2
-  ctx.drawImage(img, startX, startY, size, size, 0, 0, size, size)
-  return new Promise<File>((resolve) => {
-    canvas.toBlob((blob) => {
-      if (!blob) {
-        resolve(file as File)
-        return
-      }
-      resolve(new File([blob], file.name, { type: file.type || 'image/png' }))
-    }, file.type || 'image/png')
-  })
-}
-
-const beforeUpload: UploadProps['beforeUpload'] = async (file) => {
-  return cropToSquare(file)
-}
-
-const handleChange: UploadEmits['change'] = ({ fileList: newFileList }) => {
-  fileList.value = newFileList
-}
-
 async function handlePreview(file: UploadFile) {
   let src = file.url as string
   if (!src && file.originFileObj) {
@@ -88,16 +48,16 @@ async function handlePreview(file: UploadFile) {
 </script>
 
 <template>
-  <a-upload
-    v-model:file-list="fileList"
-    action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
-    list-type="picture-card"
-    :before-upload="beforeUpload"
-    :on-preview="handlePreview"
-    @change="handleChange"
-  >
-    <template v-if="fileList.length < 5">
-      + Upload
-    </template>
-  </a-upload>
+  <ImgCrop :modal-title="t('cropModalTitle')" :reset-text="t('cropResetText')" rotation-slider>
+    <a-upload
+      v-model:file-list="fileList"
+      action="https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload"
+      list-type="picture-card"
+      @preview="handlePreview"
+    >
+      <template v-if="fileList.length < 5">
+        + Upload
+      </template>
+    </a-upload>
+  </ImgCrop>
 </template>

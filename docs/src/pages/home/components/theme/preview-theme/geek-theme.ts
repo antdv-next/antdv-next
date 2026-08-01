@@ -10,7 +10,7 @@ const useStyles = createStyles(({ css, cssVar }) => {
   }
 
   return {
-    lightBorder: css(lightBorder),
+    lightBorder,
     app: css({
       textShadow: '0 0 5px color-mix(in srgb, currentColor 50%, transparent)',
     }),
@@ -27,11 +27,10 @@ const useStyles = createStyles(({ css, cssVar }) => {
         ...lightBorder,
         content: '""',
         position: 'absolute',
-        left: 0,
-        right: 0,
+        insetInline: 0,
         bottom: 0,
         border: 0,
-        height: `${cssVar.lineWidth}px`,
+        height: cssVar.lineWidth,
         background: cssVar.colorPrimary,
       },
     }),
@@ -44,7 +43,7 @@ const useStyles = createStyles(({ css, cssVar }) => {
 
     buttonRoot: css({
       boxShadow: lightBorder.boxShadow,
-      borderWidth: `${cssVar.lineWidth}`,
+      borderWidth: cssVar.lineWidth,
       borderColor: cssVar.colorPrimary,
     }),
     buttonRootSolid: css({
@@ -60,14 +59,35 @@ const useStyles = createStyles(({ css, cssVar }) => {
       pointerEvents: 'none',
     }),
     tooltipRoot: css({
-      padding: `${cssVar.padding}`,
+      padding: cssVar.padding,
     }),
     tooltipContainer: css({
       ...lightBorder,
       color: cssVar.colorPrimary,
     }),
+    notificationRoot: css({
+      '&.ant-notification-notice, & .ant-notification-notice': {
+        ...lightBorder,
+        background: cssVar.colorBgContainer,
+        color: cssVar.colorPrimary,
+      },
+    }),
+    notificationText: css({
+      color: cssVar.colorPrimary,
+    }),
+    notificationClose: css({
+      color: cssVar.colorPrimary,
+    }),
     progressTrack: css({
       backgroundColor: cssVar.colorPrimary,
+    }),
+    menuRoot: css({
+      '&.ant-menu.ant-menu-dark .ant-menu-submenu-selected > .ant-menu-submenu-title': {
+        color: cssVar.colorPrimary,
+      },
+      '&.ant-menu.ant-menu-dark .ant-menu-item-selected': {
+        color: '#000',
+      },
     }),
   }
 })
@@ -86,6 +106,52 @@ function useGeekTheme() {
         colorInfo: '#39ff14',
         controlHeightSM: 26,
         controlHeight: 34,
+      },
+      components: {
+        Notification: {
+          colorSuccessBg: 'rgba(57, 255, 20, 0.08)',
+          colorErrorBg: 'rgba(255, 77, 79, 0.12)',
+          colorInfoBg: 'rgba(57, 255, 20, 0.08)',
+          colorWarningBg: 'rgba(250, 219, 20, 0.12)',
+        },
+        Layout: {
+          bodyBg: '#030603',
+          footerBg: '#030603',
+          headerBg: '#051105',
+          headerColor: '#39ff14',
+          siderBg: '#030603',
+          triggerBg: '#051105',
+          triggerColor: '#39ff14',
+        },
+        Menu: {
+          darkGroupTitleColor: 'rgba(57, 255, 20, 0.45)',
+          darkItemBg: 'transparent',
+          darkItemColor: 'rgba(57, 255, 20, 0.72)',
+          darkItemHoverBg: 'rgba(57, 255, 20, 0.12)',
+          darkItemHoverColor: '#39ff14',
+          darkItemSelectedBg: '#39ff14',
+          darkItemSelectedColor: '#39ff14',
+          darkPopupBg: '#030603',
+          darkSubMenuItemBg: 'transparent',
+        },
+        Button: {},
+        Alert: {},
+        Modal: {},
+        Card: {},
+        Tooltip: {},
+        Checkbox: {},
+        Radio: {},
+        Select: {},
+        Input: {},
+        Switch: {},
+        Progress: {
+          circleTextColor: '#39ff14',
+          defaultColor: '#39ff14',
+          remainingColor: 'rgba(57, 255, 20, 0.18)',
+        },
+        Steps: {},
+        Slider: {},
+        ColorPicker: {},
       },
     },
     app: {
@@ -146,11 +212,32 @@ function useGeekTheme() {
         container: styles.tooltipContainer,
       },
     },
+    notification: {
+      classes: {
+        root: styles.notificationRoot,
+        title: styles.notificationText,
+        description: styles.notificationText,
+        close: styles.notificationClose,
+      },
+    },
     progress: {
       classes: {
         track: styles.progressTrack,
       },
     },
+    wave: {},
+    card: {},
+    checkbox: {},
+    dropdown: {},
+    popover: {},
+    menu: {
+      classes: {
+        root: styles.menuRoot,
+      },
+    },
+    switch: {},
+    radio: {},
+    segmented: {},
   }))
 }
 

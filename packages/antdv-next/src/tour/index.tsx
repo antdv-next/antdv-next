@@ -146,7 +146,7 @@ const Tour = defineComponent<
             type={type}
             stepProps={{
               ...stepProps,
-              classes: stepProps?.classes ?? stepProps?.classNames,
+              classes: (stepProps as any)?.classes ?? (stepProps as any)?.classNames,
             } as any}
             current={stepCurrent}
             indicatorsRender={indicatorsRender}

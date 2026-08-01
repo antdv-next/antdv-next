@@ -84,7 +84,7 @@ group:
 
 | 事件 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
-| `click` | 点击按钮时的回调 | (event: React.MouseEvent&lt;HTMLElement, MouseEvent&gt;) =&gt; void | - |
+| `click` | 点击按钮时的回调 | (event: MouseEvent) =&gt; void | - |
 
 ### 插槽 {#slots}
 

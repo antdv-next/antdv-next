@@ -186,3 +186,27 @@ Then `notification.open`, `notification.success` and other static methods will r
 ### How to set static methods prefixCls? {#faq-set-prefix-cls}
 
 You can config with [`ConfigProvider.config`](/components/config-provider#configproviderconfig-4130).
+
+### Why doesn't `style="width: max-content"` work on Notification? {#faq-notification-width}
+
+Notification uses a fixed-width layout so the stacked card style can stay consistent. Because of this, intrinsic widths such as `max-content`, `min-content`, and `fit-content(...)` are not supported on the outer notification node.
+
+If you need to customize the notification width, use the component token `width`:
+
+```vue
+<template>
+  <a-config-provider
+    :theme="{
+      components: {
+        Notification: {
+          width: 480,
+        },
+      },
+    }"
+  >
+    <a-app />
+  </a-config-provider>
+</template>
+```
+
+If you only need the content to size itself, render your own node in `title` or `description`, and apply `max-content` to the inner node instead of the notification root.

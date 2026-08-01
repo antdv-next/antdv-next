@@ -10,7 +10,7 @@ You can customize the [semantic dom](#semantic-dom) style of Image by passing ob
 const sharedProps = {
   src: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
   width: 160,
-  alt: '示例图片',
+  alt: 'Example image',
 }
 
 const imageStyles = {

@@ -16,6 +16,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Palun vali',
     close: 'Sulge',
+    sortable: 'sorteeritav',
   },
   Table: {
     filterTitle: 'Filtri menüü',
@@ -61,6 +62,7 @@ const localeValues: Locale = {
     selectAll: 'Vali kõik',
     removeAll: 'Eemalda kõik andmed',
     selectInvert: 'Inverteeri valik',
+    deselectAll: 'Tühista kõik andmed',
   },
   Upload: {
     uploading: 'Üleslaadimine...',
@@ -80,6 +82,7 @@ const localeValues: Locale = {
     copy: 'Kopeeri',
     copied: 'Kopeeritud',
     expand: 'Laienda',
+    collapse: 'Ahenda',
   },
   Form: {
     optional: '(valikuline)',
@@ -130,6 +133,17 @@ const localeValues: Locale = {
         mismatch: '${label} ei vasta mustrile ${pattern}',
       },
     },
+  },
+  QRCode: {
+    expired: 'QR-kood aegus',
+    refresh: 'Värskenda',
+    scanned: 'Skaneeritud',
+  },
+  ColorPicker: {
+    presetEmpty: 'Tühi',
+    transparent: 'Läbipaistev',
+    singleColor: 'Ühevärviline',
+    gradientColor: 'Gradiendi värv',
   },
 }
 

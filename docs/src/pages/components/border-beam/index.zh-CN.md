@@ -23,6 +23,7 @@ tag: 1.3.0
 
 <demo-group>
   <demo src="./demo/basic.vue">基础用法</demo>
+  <demo src="./demo/hover.vue">鼠标悬浮时显示</demo>
   <demo src="./demo/customized-color.vue">渐变色</demo>
   <demo src="./demo/non-uniform-radius.vue" debug>不规则圆角</demo>
   <demo src="./demo/component-token.vue" debug>线宽</demo>

@@ -64,6 +64,7 @@ Style of a navigation should conform to its level.
   <demo src="./demo/top-side-2.vue" compact background="grey">Header Sider 2</demo>
   <demo src="./demo/side.vue" iframe="360">Sider</demo>
   <demo src="./demo/custom-trigger.vue" compact background="grey">Custom trigger</demo>
+  <demo src="./demo/collapsible-overlay.vue" compact background="grey">Collapsible overlay</demo>
   <demo src="./demo/responsive.vue" compact background="grey">Responsive</demo>
   <demo src="./demo/fixed.vue" iframe="360">Fixed Header</demo>
   <demo src="./demo/fixed-sider.vue" iframe="360">Fixed Sider</demo>

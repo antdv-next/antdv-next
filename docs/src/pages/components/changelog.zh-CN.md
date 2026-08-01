@@ -2,6 +2,111 @@
 title: 组件更新日志
 ---
 
+## V1.4.5
+
+发布日期：2026-07-21
+
+紧急修复 1.4.4 发布的浏览器（CDN）产物。UMD/ESM 构建引用了浏览器中并不存在的 `process.env.NODE_ENV`，导致从 unpkg/jsdelivr 加载 `dist/antd.js` 抛出 `ReferenceError: process is not defined`，整包无法加载。修复该问题后又暴露出第二个问题：`app.use(window.antd)` 完全没有注册任何组件——因为带 `install` 的插件在全局对象上多嵌套了一层。
+
+**🐞 问题修复 Fixes**
+
+* fix(build)：在面向浏览器的产物（`antd.js`、`antd.esm.js`、`antd-with-locales.js`、`antd-with-locales.esm.js`）中替换 `process.env.NODE_ENV`，不再引用缺失的 `process` 全局。打包器入口（`dist/index.js`）保持不动，让 tree-shaking 消费方自行决定 dev/prod 分支（[#667](https://github.com/antdv-next/antdv-next/pull/667)，修复 [#666](https://github.com/antdv-next/antdv-next/issues/666)）
+* fix(build)：将 `install` / `setPrefix` 提为命名导出，使 UMD/ESM 全局（`window.antd`）在顶层直接携带 `install`；`app.use(window.antd)` 现在可直接注册全部组件，无需再取 `window.antd.default`（[#667](https://github.com/antdv-next/antdv-next/pull/667)）
+
+**🧰 工程 Infrastructure**
+
+* build：新增构建后校验，若任一浏览器产物出现未守卫的 `process` 全局引用则构建失败，防止该回归再次发布（[#667](https://github.com/antdv-next/antdv-next/pull/667)）
+
+## V1.4.4
+
+发布日期：2026-07-20
+
+本次版本将 ant-design 上游同步从 **6.5.1** 继续推进到 `78c3d84619`（[#658](https://github.com/antdv-next/antdv-next/pull/658)、[#664](https://github.com/antdv-next/antdv-next/pull/664)）。主线是修复一批**已声明、已写进文档、但实际从未接通的 API**：Form 的 `getFieldInstance` 恒返回 `undefined`、Timeline 的三个 render 属性被完全忽略、Tree 的 `rootStyle` 被静默丢弃。同时将样式与 token 构建脚本改为直接读取组件源码，不再依赖打包产物。
+
+**🐞 问题修复 Fixes**
+
+* fix(form)：`getFieldInstance(name)` 现在返回渲染出的控件实例，而不再恒为 `undefined`。注册键不再经过 `getFieldId`，因此 Form 是否声明 `name` 都不影响查找；`focusField` 也改为优先调用控件自身的 `focus()`，再回落到 DOM 节点（[#665](https://github.com/antdv-next/antdv-next/pull/665)，修复 [#663](https://github.com/antdv-next/antdv-next/issues/663)）
+* fix(timeline)：接通 `dotRender` / `labelRender` / `contentRender` 属性与插槽——三者此前已声明并写入文档，但 `useItems` 完全忽略，且会透传进 Steps。插槽返回值现在会做规范化处理，条件插槽渲染为空时可正确回落到 item 的 `icon` / `title` / `content`（[#656](https://github.com/antdv-next/antdv-next/pull/656)，修复 [#653](https://github.com/antdv-next/antdv-next/issues/653)）
+* fix(tabs)：`labelRender` / `contentRender` 的 item 类型改为从 `items` 推断，不再硬编码为 `TabItem`；`InstanceType<typeof Tabs>` 保留暴露的 `TabsRef`（[#661](https://github.com/antdv-next/antdv-next/pull/661)，修复 [#660](https://github.com/antdv-next/antdv-next/issues/660)）
+* fix(tree)：恢复 `rootStyle` 兼容——该属性虽从底层 props 继承，但会被语义化根样式静默覆盖，实际不生效。现已恢复可用，并标记为废弃，建议改用 `styles.root`（#58709）
+* fix(input)：Search 自定义 `enterButton` 的 `disabled` 现在与表单上下文同步，且不再覆盖用户在自定义 Button 上传入的 `loading`（#58726）
+* fix(grid)：支持 `flex` 取值为 0——`:flex="0"` 与响应式 `:xs="{ flex: 0 }"` 此前被真值判断丢弃（#58719）
+* fix(tag)：关闭链接形态的标签不再触发页面跳转（#58720）
+* fix(splitter)：修正基于百分比的 ARIA 取值范围（#58702）
+* fix(style)：Typography、Tree、Collapse、Layout 改用 `lineWidth` / `lineType` 边框 token，不再硬编码 `1px solid`；默认主题下产出的 CSS 完全一致，仅在自定义这两个 token 时才产生差异（#58740、#58741、#58742、#58743）
+* fix(segmented, radio)：移除上游从未有过的下游自有 `prefers-reduced-motion` 样式，与 React 源码保持一致（[#654](https://github.com/antdv-next/antdv-next/pull/654)）
+* fix(wave)：`attachListener` 的 watch 回调不再访问全局 `window`——该回调走 Vue 异步调度，可能在运行环境销毁后才触发（[#662](https://github.com/antdv-next/antdv-next/pull/662)）
+
+**📖 文档 Docs**
+
+* docs(timeline)：新增 `dotRender` demo（[#656](https://github.com/antdv-next/antdv-next/pull/656)）
+* docs(input-number)：新增反馈图标 suffix 的 Debug demo（#58703）
+* docs(anchor)：修正 `offsetTop` 的默认值（#58710）
+* docs(select)：远程搜索用户 demo 保留已输入的搜索文本（#58736）
+* docs(table)：修正英文文档的 API 链接（[#657](https://github.com/antdv-next/antdv-next/pull/657)）
+
+**🧰 工程 Infrastructure**
+
+* refactor(build)：`build:style` 与 `build:token-statistic` 改为通过 vite SSR runner 加载组件源码，不再 import `dist/components.js`，避免陈旧的构建产物产出过时的 CSS 或 token 统计；两者产物均已验证与原基于 dist 的结果完全一致（[#654](https://github.com/antdv-next/antdv-next/pull/654)）
+
+## V1.4.3
+
+发布日期：2026-07-15
+
+紧急修复 1.4.2 同步上游 [ant-design#58685](https://github.com/ant-design/ant-design/pull/58685) 时引入的样式回归：`genNoMotionStyle` 展开为 `&::before / &::after` 后，6 处本身位于伪元素选择器内部的调用点会生成 `.ant-border-beam::before::before` 这类非法双伪元素选择器——浏览器会静默丢弃这些规则（`prefers-reduced-motion` 在这些位置实际失效），基于 lightningcss 的静态 CSS 压缩则会直接构建失败。
+
+**🐞 问题修复 Fixes**
+
+* fix(style)：新增平铺变体 `genNoMotionRawStyle`，替换 Switch / Segmented / Radio / Checkbox / BorderBeam 中位于伪元素内部的 6 处调用，消除非法 `::before::before` 选择器，`prefers-reduced-motion` 在相应位置恢复生效（[#651](https://github.com/antdv-next/antdv-next/pull/651)）
+
+**🧰 工程 Infrastructure**
+
+* ci：GitHub Actions 的 node 版本升级至 24
+* chore：重新生成静态样式产物
+
+## V1.4.2
+
+发布日期：2026-07-14
+
+本次版本将 ant-design 上游同步推进到 **6.5.1**（[#644](https://github.com/antdv-next/antdv-next/pull/644)、[#647](https://github.com/antdv-next/antdv-next/pull/647)、[#650](https://github.com/antdv-next/antdv-next/pull/650)），重点完善 **TypeScript 类型基建**（泛型组件构造器导出、`h()` 场景类型推断），并修复 Switch 标签居中与裸属性解析、AutoComplete filled 背景叠加、Modal 惰性渲染等一批组件问题；同步升级 `@v-c/table` 1.1.8、`@v-c/util` 1.0.21 等依赖。
+
+**✨ 新功能 Features**
+
+* feat(types)：Transfer / Cascader / TreeSelect / Segmented 导出泛型构造器类型，`h()` 与 TSX 下可获得完整泛型推断
+* feat(ecosystem)：Awesome 页面新增 antdv-next-tiptap 富文本编辑器
+
+**🐞 问题修复 Fixes**
+
+* fix(switch)：标签内容改为 flex 居中，修复图标类内容按文字基线对齐导致的向上偏移（#58672）
+* fix(switch, checkbox)：模板中裸写 `checked` / `default-checked` 现在正确解析为 `true`（原会解析为空字符串导致不选中）
+* fix(input)：修复 Search 按钮获得焦点时 focus 轮廓被相邻元素遮挡（#58615）
+* fix(auto-complete)：修复 filled 形态下自定义输入组件背景色叠加两层（#58669）
+* fix(motion)：`prefers-reduced-motion` 下同时禁用 `::before` / `::after` 伪元素的过渡与动画（#58685）
+* fix(modal)：loading 期间默认插槽保持惰性渲染；Modal 方法调用的 `styles.body` 正确应用到 content
+* fix(pagination)：修复 Form.Item 中页码尺寸切换器宽度异常
+* fix(button)：修复 Card extra 中按钮图标对齐
+* fix(descriptions)：恢复 shrink-to-fit 容器下的视图宽度
+* fix(date-picker)：`nativeElement` 暴露为元素本身而非函数
+* fix(config-provider)：组件级配置的 `classes` / `styles` 不再被静默推断为 `any`（[#642](https://github.com/antdv-next/antdv-next/pull/642)）；开启 cssinjs layer 时强制 `zeroRuntime`
+* fix(locale)：补齐多语言包缺失字段
+* fix(types)：修复 `h()` 用法下回调参数上下文类型丢失、`h(Table, props)` 无法解析等类型问题，清理组件源码遗留类型错误
+* fix(deps)：升级 `@v-c/util` 1.0.21，修复 vue 3.5.39 下 Space.Compact 中 Select 弹层首开错位
+* build：外置 `@vueuse/core`，消除 rolldown 构建告警
+
+**📖 文档 Docs**
+
+* docs(layout)：新增「折叠覆盖布局」demo（#58566）
+* docs(grid)：补充 Col `flex` 数字与字符串取值的语义差异（#58624）
+* docs(border-beam)：新增「鼠标悬浮时显示」demo（#58683）
+* docs(auto-complete)：新增 filled 形态自定义输入 Debug demo（#58669）
+* docs(table)：新增自适应高度 demo、性能排查 FAQ（Vue DevTools）、`change` 事件类型示例等
+* docs(notification)：新增固定宽度用法 FAQ
+* docs(site)：图标搜索新增「全部」筛选；主题预览新增 Serene / Dashboard；组件总览卡片 hover 效果对齐 ant-design
+
+**🧰 依赖更新 Dependencies**
+
+* chore(deps)：升级 `@v-c/table` ^1.1.8、`@v-c/virtual-list` ^1.1.0、`@v-c/mentions` ^1.1.2、`@v-c/util` ^1.0.21、`@antdv-next/happy-work-theme` 1.0.1
+
 ## V1.4.1
 
 发布日期：2026-07-02

@@ -65,7 +65,7 @@ demo:
 | loadData | 异步加载数据 | function(node) | - | - | × |
 | loadedKeys | （受控）已经加载的节点，需要配合 `loadData` 使用 | string[] | [] | - | × |
 | multiple | 支持点选多个节点（节点本身） | boolean | false | - | × |
-| rootStyle | 添加在 Tree 最外层的 style | CSSProperties | - | - | × |
+| ~~rootStyle~~ | Tree 最外层样式，请使用 `styles.root` 替代 | CSSProperties | - | - | × |
 | selectable | 是否可选中 | boolean | true | - | × |
 | selectedKeys | （受控）设置选中的树节点，多选需设置 `multiple` 为 true，支持 `v-model:selected-keys` | string[] | - | - | × |
 | showIcon | 控制是否展示 `icon` 节点，没有默认样式 | boolean | false | - | × |

@@ -14,6 +14,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Ве молиме означете',
     close: 'Затвори',
+    sortable: 'подредливи',
   },
   Table: {
     filterTitle: 'Мени за филтрирање',
@@ -21,6 +22,18 @@ const localeValues: Locale = {
     filterReset: 'Избриши',
     selectAll: 'Одбери страница',
     selectInvert: 'Инвертирај страница',
+    filterEmptyText: 'Нема филтри',
+    filterCheckAll: 'Изберете ги сите ставки',
+    filterSearchPlaceholder: 'Барај во филтри',
+    emptyText: 'Нема податоци',
+    selectNone: 'Исчистете ги сите податоци',
+    selectionAll: 'Изберете ги сите податоци',
+    sortTitle: 'Подреди',
+    expand: 'Проширете го редот',
+    collapse: 'Собери ред',
+    triggerDesc: 'Кликнете за да сортирате опаѓачки',
+    triggerAsc: 'Кликнете за да сортирате растечки',
+    cancelSort: 'Кликнете за да го откажете сортирањето',
   },
   Tour: {
     Next: 'Следно',
@@ -41,6 +54,13 @@ const localeValues: Locale = {
     searchPlaceholder: 'Пребарај тука',
     itemUnit: 'предмет',
     itemsUnit: 'предмети',
+    remove: 'Отстрани',
+    selectAll: 'Изберете ги сите податоци',
+    deselectAll: 'Деселектирај ги сите податоци',
+    selectCurrent: 'Изберете тековна страница',
+    selectInvert: 'Превртете ја тековната страница',
+    removeAll: 'Отстранете ги сите податоци',
+    removeCurrent: 'Отстранете ја моменталната страница',
   },
   Upload: {
     uploading: 'Се прикачува...',
@@ -60,6 +80,18 @@ const localeValues: Locale = {
     copy: 'Копирај',
     copied: 'Копирано',
     expand: 'Зголеми',
+    collapse: 'Колапс',
+  },
+  QRCode: {
+    expired: 'QR-кодот е истечен',
+    refresh: 'Освежи',
+    scanned: 'Скенирано',
+  },
+  ColorPicker: {
+    presetEmpty: 'Празен',
+    transparent: 'Транспарентен',
+    singleColor: 'Еднобојна',
+    gradientColor: 'Боја на градиент',
   },
 }
 

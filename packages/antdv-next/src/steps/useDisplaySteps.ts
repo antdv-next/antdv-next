@@ -42,8 +42,8 @@ function getEllipsisStep(
   nextIndex: number,
   prefixCls: string,
 ): DisplayStep {
-  const prevKey = items[prevIndex].key ?? prevIndex
-  const nextKey = items[nextIndex].key ?? nextIndex
+  const prevKey = (items[prevIndex]!.key ?? prevIndex) as string | number
+  const nextKey = (items[nextIndex]!.key ?? nextIndex) as string | number
   const hasError = items.slice(prevIndex + 1, nextIndex).some(step => step.status === 'error')
   const ellipsisStatus = hasError ? 'error' : nextIndex - 1 < currentIndex ? 'finish' : 'wait'
 
@@ -98,7 +98,7 @@ function getCollapsedIndexes(
   return Array.from(indexes)
     .sort((a, b) => a - b)
     .flatMap((index, order, sortedIndexes) =>
-      order > 0 && index - sortedIndexes[order - 1] > 1 ? [null, index] : [index],
+      order > 0 && index - sortedIndexes[order - 1]! > 1 ? [null, index] : [index],
     )
 }
 
@@ -136,7 +136,7 @@ export default function useDisplaySteps(
             collapsedIndexes[collapsedIndex + 1] as number,
             prefixCls.value,
           )
-        : getDisplayStep(mergedItems.value[index], index),
+        : getDisplayStep(mergedItems.value[index]!, index),
     )
   })
 

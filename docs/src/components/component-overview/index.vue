@@ -145,10 +145,13 @@ onMounted(() => {
 
   &-card {
     cursor: pointer;
-    transition: all 0.5s ease 0s;
+    transition: all 0.5s;
 
     &:hover {
-      box-shadow: var(--shadow-2);
+      box-shadow:
+        0 6px 16px -8px #00000014,
+        0 9px 28px #0000000d,
+        0 12px 48px 16px #00000008;
     }
   }
 
@@ -171,7 +174,7 @@ onMounted(() => {
   padding: 0;
   font-size: 20px;
   border: 0;
-  box-shadow: none;
+  box-shadow: none !important;
 
   input {
     font-size: 20px;
@@ -179,6 +182,13 @@ onMounted(() => {
 
   .anticon {
     color: var(--ant-color-text-placeholder);
+  }
+
+  // 对齐 ant-design 组件总览搜索框的可访问性覆盖：
+  // borderless 变体在 :focus-visible 时会绘制 outline，这里强制移除
+  &:focus-visible,
+  &:has(input:focus-visible) {
+    outline: none !important;
   }
 }
 

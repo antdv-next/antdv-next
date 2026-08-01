@@ -89,12 +89,20 @@ describe('config-provider static methods', () => {
 
     await waitFakeTimer(1, 5)
 
-    const iconStyles = Array.from(document.querySelectorAll('style'))
-      .filter(style => style.innerHTML.includes('.anticon'))
+    // https://github.com/ant-design/ant-design/pull/58559
+    // Layer mode forces zeroRuntime: the icon package must not inject (or
+    // rewrite) its global runtime style into `@layer antd` — demoting that
+    // shared style would break icons rendered outside the layered subtree.
+    const runtimeStyle = document.querySelector('style[vc-util-key="@ant-design-icons"]')
+    if (runtimeStyle) {
+      expect(runtimeStyle.innerHTML).not.toContain('@layer antd')
+    }
 
-    expect(iconStyles.length).toBeGreaterThan(0)
-    iconStyles.forEach((style) => {
-      expect(style.innerHTML).toContain('@layer antd')
-    })
+    // The layered icon reset is served by cssinjs instead.
+    expect(
+      Array.from(document.querySelectorAll('style')).some(
+        style => style.innerHTML.includes('@layer antd') && style.innerHTML.includes('.anticon'),
+      ),
+    ).toBeTruthy()
   })
 })

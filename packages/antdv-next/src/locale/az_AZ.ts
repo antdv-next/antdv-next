@@ -16,6 +16,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Zəhmət olmasa seçin',
     close: 'Bağla',
+    sortable: 'çeşidlənən',
   },
   Table: {
     filterTitle: 'Filter menyu',

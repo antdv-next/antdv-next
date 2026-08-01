@@ -16,6 +16,7 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Vänligen välj',
     close: 'Stäng',
+    sortable: 'sorterbar',
   },
   Table: {
     filterTitle: 'Filtermeny',
@@ -61,6 +62,7 @@ const localeValues: Locale = {
     selectAll: 'Markera all data',
     removeAll: 'Ta bort all data',
     selectInvert: 'Invertera nuvarande sida',
+    deselectAll: 'Avmarkera all data',
   },
   Upload: {
     uploading: 'Laddar upp...',
@@ -80,6 +82,7 @@ const localeValues: Locale = {
     copy: 'Kopiera',
     copied: 'Kopierad',
     expand: 'Expandera',
+    collapse: 'Kollapsa',
   },
   Form: {
     optional: '(valfritt)',
@@ -134,6 +137,13 @@ const localeValues: Locale = {
   QRCode: {
     expired: 'QR-koden har upphört att gälla',
     refresh: 'Uppdatera',
+    scanned: 'Skannat',
+  },
+  ColorPicker: {
+    presetEmpty: 'Tom',
+    transparent: 'Transparent',
+    singleColor: 'Enfärgad',
+    gradientColor: 'Gradient färg',
   },
 }
 

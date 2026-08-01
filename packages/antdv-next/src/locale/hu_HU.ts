@@ -13,6 +13,8 @@ const localeValues: Locale = {
   Calendar,
   global: {
     close: 'Bezárás',
+    placeholder: 'Kérem válasszon',
+    sortable: 'válogatható',
   },
   Table: {
     filterTitle: 'Szűrők',
@@ -21,6 +23,17 @@ const localeValues: Locale = {
     selectAll: 'Jelenlegi oldal kiválasztása',
     selectInvert: 'Jelenlegi oldal inverze',
     sortTitle: 'Rendezés',
+    filterEmptyText: 'Nincsenek szűrők',
+    filterCheckAll: 'Válassza ki az összes elemet',
+    filterSearchPlaceholder: 'Keresés a szűrőkben',
+    emptyText: 'Nincs adat',
+    selectNone: 'Minden adat törlése',
+    selectionAll: 'Válassza ki az összes adatot',
+    expand: 'Sor kibontása',
+    collapse: 'Sor összecsukása',
+    triggerDesc: 'Kattintson ide a csökkenő sorrendbe rendezéshez',
+    triggerAsc: 'Kattintson a növekvő sorrendbe rendezéshez',
+    cancelSort: 'Kattintson a rendezés megszakításához',
   },
   Modal: {
     okText: 'Alkalmazás',
@@ -36,6 +49,13 @@ const localeValues: Locale = {
     searchPlaceholder: 'Keresés',
     itemUnit: 'elem',
     itemsUnit: 'elemek',
+    remove: 'Távolítsa el',
+    selectAll: 'Válassza ki az összes adatot',
+    deselectAll: 'Törölje az összes adat kijelölését',
+    selectCurrent: 'Válassza ki az aktuális oldalt',
+    selectInvert: 'Az aktuális oldal megfordítása',
+    removeAll: 'Távolítsa el az összes adatot',
+    removeCurrent: 'Az aktuális oldal eltávolítása',
   },
   Upload: {
     uploading: 'Feltöltés...',
@@ -51,6 +71,24 @@ const localeValues: Locale = {
     Next: 'Következő',
     Previous: 'Előző',
     Finish: 'Befejezés',
+  },
+  Text: {
+    edit: 'Szerkesztés',
+    copy: 'Másolás',
+    copied: 'Másolva',
+    expand: 'Bontsa ki',
+    collapse: 'Összeomlás',
+  },
+  QRCode: {
+    expired: 'A QR kód lejárt',
+    refresh: 'Frissítés',
+    scanned: 'Beolvasva',
+  },
+  ColorPicker: {
+    presetEmpty: 'Üres',
+    transparent: 'Átlátszó',
+    singleColor: 'Egyszínű',
+    gradientColor: 'Gradiens szín',
   },
 }
 

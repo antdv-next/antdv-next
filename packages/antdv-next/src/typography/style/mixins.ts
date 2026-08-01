@@ -86,7 +86,7 @@ export const getResetStyles: GenerateStyle<TypographyToken, CSSObject> = token =
     fontSize: '85%',
     fontFamily: token.fontFamilyCode,
     background: 'rgba(150, 150, 150, 0.1)',
-    border: '1px solid rgba(100, 100, 100, 0.2)',
+    border: `${unit(token.lineWidth)} ${token.lineType} rgba(100, 100, 100, 0.2)`,
     borderRadius: 3,
   },
 
@@ -97,7 +97,7 @@ export const getResetStyles: GenerateStyle<TypographyToken, CSSObject> = token =
     fontSize: '90%',
     fontFamily: token.fontFamilyCode,
     background: 'rgba(150, 150, 150, 0.06)',
-    border: '1px solid rgba(100, 100, 100, 0.2)',
+    border: `${unit(token.lineWidth)} ${token.lineType} rgba(100, 100, 100, 0.2)`,
     borderBottomWidth: 2,
     borderRadius: 3,
   },
@@ -157,7 +157,7 @@ export const getResetStyles: GenerateStyle<TypographyToken, CSSObject> = token =
     whiteSpace: 'pre-wrap',
     wordWrap: 'break-word',
     background: 'rgba(150, 150, 150, 0.1)',
-    border: '1px solid rgba(100, 100, 100, 0.2)',
+    border: `${unit(token.lineWidth)} ${token.lineType} rgba(100, 100, 100, 0.2)`,
     borderRadius: 3,
     fontFamily: token.fontFamilyCode,
 

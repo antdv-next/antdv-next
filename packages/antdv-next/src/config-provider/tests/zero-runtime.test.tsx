@@ -1,5 +1,6 @@
 /** @vitest-environment jsdom */
 
+import { createCache, StyleProvider } from '@antdv-next/cssinjs'
 import { SmileOutlined } from '@antdv-next/icons'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import { h, nextTick } from 'vue'
@@ -44,6 +45,30 @@ describe('configProvider theme.zeroRuntime', () => {
     )
     await flush()
     expect(document.head.querySelector(ICON_STYLE_SELECTOR)).toBeTruthy()
+    wrapper.unmount()
+  })
+
+  // https://github.com/ant-design/ant-design/pull/58559
+  it('does not rewrite icon runtime style when cssinjs layer is enabled', async () => {
+    const wrapper = mount(
+      () => h(
+        StyleProvider,
+        { layer: true, cache: createCache() },
+        { default: () => h(ConfigProvider, null, { default: () => h(SmileOutlined) }) },
+      ),
+      { attachTo: document.body },
+    )
+    await flush()
+    // Layer mode forces zeroRuntime so the icon package must not inject its
+    // own runtime style (which would live outside `@layer antd` and win the
+    // cascade over layered antd styles).
+    expect(document.head.querySelector(ICON_STYLE_SELECTOR)).toBeFalsy()
+    // The icon styles are served by cssinjs inside the antd layer instead.
+    expect(
+      Array.from(document.querySelectorAll('style')).some(
+        style => style.innerHTML.includes('@layer antd') && style.innerHTML.includes('.anticon'),
+      ),
+    ).toBeTruthy()
     wrapper.unmount()
   })
 })

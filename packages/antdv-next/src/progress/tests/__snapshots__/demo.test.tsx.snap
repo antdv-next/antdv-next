@@ -1052,7 +1052,7 @@ exports[`progress demo > renders circle-micro correctly 1`] = `
     <!---->
   </div>
   <span>
-    代码发布
+    Code release
   </span>
 </div>
 `;

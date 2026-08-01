@@ -27,6 +27,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5WDvQp_H7LUAAA
   <demo src="./demo/meta.vue">支持更多内容配置</demo>
   <demo src="./demo/style-class.vue">自定义语义结构的样式和类</demo>
   <demo src="./demo/no-body-debug.vue" debug>封面和操作区不渲染 body</demo>
+  <demo src="./demo/button-alignment-debug.vue" debug>调试 Card extra 中按钮图标对齐</demo>
 </demo-group>
 
 ## API

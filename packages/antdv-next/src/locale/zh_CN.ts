@@ -16,6 +16,7 @@ const localeValues: Locale = {
   global: {
     placeholder: '请选择',
     close: '关闭',
+    sortable: '可排序',
   },
   Table: {
     filterTitle: '筛选',

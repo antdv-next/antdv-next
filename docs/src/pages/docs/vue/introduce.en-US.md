@@ -121,5 +121,5 @@ We provide `antd.js` and `reset.css` under the `dist` folder in antdv-next's npm
 
 ## Links
 
-- [Home page](/index-cn)
-- [Components](/components/overview-cn)
+- [Home page](/)
+- [Components](/components/overview)

@@ -47,7 +47,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | classes | Customize class for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: &#123; props &#125;)=&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - | ✓ |
 | getContainer | Scrolling container | () =&gt; HTMLElement | () =&gt; window | - | × |
 | getCurrentAnchor | Customize the anchor highlight | (activeLink: string) =&gt; string | - | - | × |
-| offsetTop | Pixels to offset from top when calculating position of scroll | number | - | - | × |
+| offsetTop | Pixels to offset from top when calculating position of scroll | number | 0 | - | × |
 | showInkInFixed | Whether show ink-square when `affix={false}` | boolean| false | - | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;)=&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - | ✓ |
 | targetOffset | Anchor scroll offset, default as `offsetTop`, [example](#anchor-demo-targetoffset) | number | - | - | × |

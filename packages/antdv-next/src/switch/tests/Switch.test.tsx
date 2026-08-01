@@ -56,6 +56,14 @@ describe('switch', () => {
     expect(wrapper.find('button').attributes('aria-checked')).toBe('true')
   })
 
+  it('should treat bare default-checked attribute as true', () => {
+    // 模板里裸写 default-checked 时 prop 值为空字符串，须经 Boolean 转换为 true
+    const wrapper = mount(Switch, {
+      props: { defaultChecked: '' },
+    })
+    expect(wrapper.find('button').attributes('aria-checked')).toBe('true')
+  })
+
   // ===================== defaultValue prop (alias for defaultChecked) =====================
 
   it('should support defaultValue as alias for defaultChecked', () => {
