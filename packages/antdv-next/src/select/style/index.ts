@@ -19,7 +19,11 @@ const genBaseStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
     [`${componentCls}-clear`]: {
       opacity: 1,
     },
-    [`${componentCls}-suffix:not(:last-child)`]: {
+    // Hide the suffix so it does not sit under the clear button — but never a
+    // suffix that holds keyboard focus. A custom suffix may be focusable, and
+    // `pointer-events: none` does not take it out of the tab order, so hiding
+    // it would strand focus on an invisible control.
+    [`${componentCls}-suffix:not(:last-child):not(:focus-within)`]: {
       opacity: 0,
       pointerEvents: 'none',
     },
