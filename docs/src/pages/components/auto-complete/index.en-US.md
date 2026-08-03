@@ -36,6 +36,7 @@ The differences with Select are:
   <demo src="./demo/style-class.vue">Custom semantic dom styling</demo>
   <demo src="./demo/disabled-custom-debug.vue" debug>Disabled custom input debug</demo>
   <demo src="./demo/filled-custom-debug.vue" debug>Filled custom input debug</demo>
+  <demo src="./demo/disabled-in-form-debug.vue" debug>Disabled text colour in Form debug</demo>
 </demo-group>
 
 ## API
