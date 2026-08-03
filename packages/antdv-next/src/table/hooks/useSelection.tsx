@@ -263,12 +263,16 @@ export default function useSelection<RecordType extends AnyObject = AnyObject>(
             text: tableLocale.value.selectionAll,
             onSelect() {
               setSelectedKeys(
-                data.value
-                  .map((record, index) => getRowKey.value(record, index))
-                  .filter((key) => {
-                    const checkProps = checkboxPropsMap.value.get(key)
-                    return !checkProps?.disabled || derivedSelectedKeySet.value.has(key)
-                  }),
+                data.value.reduce<Key[]>((keys, record, index) => {
+                  const key = getRowKey.value(record, index)
+                  // `checkboxPropsMap` only covers the current page, so records
+                  // from other pages would look enabled. Derive it from the
+                  // record instead so disabled rows stay skipped across pages.
+                  if (!isCheckboxDisabled(record) || derivedSelectedKeySet.value.has(key)) {
+                    keys.push(key)
+                  }
+                  return keys
+                }, []),
                 'all',
               )
             },
