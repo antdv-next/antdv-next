@@ -41,12 +41,12 @@ const text = `
 const items = [
   {
     key: '1',
-    label: () => h('span', [h(SmileOutlined), ' Panel with an Ant Design icon']),
+    label: h('span', [h(SmileOutlined), ' Panel with an Ant Design icon']),
     content: h('p', text),
   },
   {
     key: '2',
-    label: () => h('span', [h(ChartIcon), ' Panel with a third-party icon']),
+    label: h('span', [h(ChartIcon), ' Panel with a third-party icon']),
     content: h('p', text),
   },
 ]
