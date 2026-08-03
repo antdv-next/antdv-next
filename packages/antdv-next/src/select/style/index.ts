@@ -2,7 +2,7 @@ import type { CSSObject } from '@antdv-next/cssinjs'
 
 import type { GenerateStyle } from '../../theme/internal'
 import type { ComponentToken, SelectToken } from './token'
-import { resetComponent, textEllipsis } from '../../style'
+import { genFocusOutline, resetComponent, textEllipsis } from '../../style'
 import { genCompactItemStyle } from '../../style/compact-item'
 import { genStyleHooks, mergeToken } from '../../theme/internal'
 import genDropdownStyle from './dropdown'
@@ -95,10 +95,19 @@ const genBaseStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         '&:hover': {
           color: token.colorIcon,
         },
+
+        // The clear affordance is a focusable `<button>`, so it must become
+        // visible and outlined when reached by keyboard — otherwise Tab lands
+        // on an invisible control. Mirrors the DatePicker rules.
+        '&:focus-visible': {
+          color: token.colorIcon,
+          borderRadius: token.borderRadiusSM,
+          ...genFocusOutline(token),
+        },
       },
 
       '@media(hover:none)': hoverShowClearStyle,
-      '&:hover': hoverShowClearStyle,
+      '&:hover, &:focus-within': hoverShowClearStyle,
     },
 
     // ========================= Feedback ==========================
