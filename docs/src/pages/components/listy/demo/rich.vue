@@ -1,9 +1,9 @@
 <docs lang="zh-CN">
-`itemRender` 可以渲染任意复杂的内容。行高不必相同，虚拟滚动会实测每一行的实际高度。
+`itemRender` 可以渲染任意复杂的内容。行高不必相同。
 </docs>
 
 <docs lang="en-US">
-`itemRender` can render arbitrarily rich content. Rows do not need the same height — virtual scrolling measures the actual height of each row.
+`itemRender` can render arbitrarily rich content, and rows do not need the same height.
 </docs>
 
 <script setup lang="ts">
@@ -31,7 +31,7 @@ const colorOf = (user: string) => colors[users.indexOf(user) % colors.length]
 
 const pad = (value: number) => String(value).padStart(2, '0')
 
-const notifications: Notification[] = Array.from({ length: 5000 }, (_, index) => ({
+const notifications: Notification[] = Array.from({ length: 12 }, (_, index) => ({
   id: index,
   user: users[index % users.length],
   message: messages[index % messages.length],

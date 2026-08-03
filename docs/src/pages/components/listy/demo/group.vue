@@ -7,109 +7,39 @@ Use `group` to derive a group key from each item and render group headers. With 
 </docs>
 
 <script setup lang="ts">
-import { Avatar, Flex } from 'antdv-next'
-import { h } from 'vue'
-
 interface Contact {
   id: number
   name: string
 }
 
-const firstNames = [
-  'Aaron',
-  'Alice',
-  'Bella',
-  'Brian',
-  'Chloe',
-  'Colin',
-  'Daisy',
-  'David',
-  'Elena',
-  'Eric',
-  'Fiona',
-  'Frank',
-  'Grace',
-  'Gavin',
-  'Hannah',
-  'Henry',
-  'Iris',
-  'Ivan',
-  'Jack',
-  'Julia',
-  'Kevin',
-  'Kylie',
-  'Laura',
-  'Leo',
-  'Mason',
-  'Mia',
-  'Nina',
-  'Noah',
-  'Olivia',
-  'Oscar',
-  'Peter',
-  'Paula',
-  'Quinn',
-  'Rachel',
-  'Ryan',
-  'Sara',
-  'Steve',
-  'Tina',
-  'Tom',
-  'Uma',
-  'Victor',
-  'Vera',
-  'Wendy',
-  'Will',
-  'Xander',
-  'Yara',
-  'Zack',
-  'Zoe',
+const names = [
+  'Aaron Baker',
+  'Alice Adams',
+  'Bella Carter',
+  'Brian Diaz',
+  'Chloe Evans',
+  'Colin Foster',
+  'Daisy Garcia',
+  'David Hayes',
+  'Elena Ingram',
+  'Eric Jensen',
+  'Fiona Kim',
+  'Frank Lopez',
+  'Grace Miller',
+  'Gavin Nguyen',
+  'Hannah Ortiz',
+  'Henry Parker',
+  'Iris Quincy',
+  'Ivan Reed',
+  'Jack Smith',
+  'Julia Turner',
 ]
 
-const lastNames = [
-  'Adams',
-  'Baker',
-  'Carter',
-  'Diaz',
-  'Evans',
-  'Foster',
-  'Garcia',
-  'Hayes',
-  'Ingram',
-  'Jensen',
-  'Kim',
-  'Lopez',
-  'Miller',
-  'Nguyen',
-  'Ortiz',
-  'Parker',
-  'Quincy',
-  'Reed',
-  'Smith',
-  'Turner',
-]
-
-const contacts: Contact[] = firstNames
-  .flatMap((firstName, i) =>
-    Array.from(
-      { length: 4 },
-      (_, j) => `${firstName} ${lastNames[(i * 7 + j * 5) % lastNames.length]}`,
-    ),
-  )
-  .sort()
-  .map((name, id) => ({ id, name }))
+const contacts = names.map<Contact>((name, id) => ({ id, name }))
 
 const colors = ['#f56a00', '#7265e6', '#ffbf00', '#00a2ae', '#87d068']
 
 const colorOf = (letter: string) => colors[(letter.charCodeAt(0) - 65) % colors.length]
-
-function itemRender(contact: Contact) {
-  const letter = contact.name[0]
-  return h(Flex, { gap: 'small', align: 'center' }, () => [
-    h(Avatar, { size: 'small', style: { backgroundColor: colorOf(letter) } }, () => letter),
-    h('span', {}, contact.name),
-  ])
-};
 </script>
 
 <template>
@@ -117,11 +47,21 @@ function itemRender(contact: Contact) {
     :items="contacts"
     :row-key="(item: Contact) => item.id"
     :height="400"
-    :item-render="itemRender"
     :group="{
       key: (contact: Contact) => contact.name[0],
       title: (letter: unknown) => letter,
     }"
-    :sticky="true"
-  />
+    sticky
+  >
+    <template #itemRender="item">
+      <a-flex gap="small" align="center">
+        <a-avatar :style="{ backgroundColor: colorOf(item.name[0]) }">
+          {{ item.name[0] }}
+        </a-avatar>
+        <a-typography-text>
+          {{ item.name }}
+        </a-typography-text>
+      </a-flex>
+    </template>
+  </a-listy>
 </template>

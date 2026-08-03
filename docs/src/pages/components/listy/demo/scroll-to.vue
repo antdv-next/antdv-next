@@ -16,16 +16,16 @@ interface Item {
 
 type Align = 'top' | 'bottom' | 'auto'
 
-const items: Item[] = Array.from({ length: 1000 }, (_, index) => ({
+const items: Item[] = Array.from({ length: 60 }, (_, index) => ({
   id: index,
-  group: `Group ${Math.floor(index / 100)}`,
+  group: `Group ${Math.floor(index / 10)}`,
 }))
 
-const groups = Array.from({ length: 10 }, (_, index) => `Group ${index}`)
+const groups = Array.from({ length: 6 }, (_, index) => `Group ${index}`)
 const listRef = ref(null)
 const align = ref<Align>('top')
-const key = ref<number | null>(600)
-const groupKey = ref('Group 5')
+const key = ref<number | null>(40)
+const groupKey = ref('Group 3')
 const scrollTop = ref(0)
 </script>
 
@@ -34,7 +34,7 @@ const scrollTop = ref(0)
     <a-flex gap="small" wrap align="center">
       <a-segmented v-model:value="align" :options="['top', 'bottom', 'auto']" />
       <a-space-Compact>
-        <a-input-number v-model:value="key" min="0" max="999" style="width: 70px" />
+        <a-input-number v-model:value="key" min="0" max="59" style="width: 70px" />
         <a-button @click="() => listRef?.scrollTo({ key: key ?? 0, align })">
           Scroll to item
         </a-button>

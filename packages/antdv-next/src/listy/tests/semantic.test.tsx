@@ -23,7 +23,7 @@ function renderListy(props = {}) {
     <Listy
       height={200}
       items={users}
-      rowKey="id"
+      rowKey={item => item.id}
       group={{ key: user => user.group, title: group => group }}
       itemRender={user => user.name}
       {...props}

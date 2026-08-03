@@ -63,7 +63,7 @@ const Listy = defineComponent<ListyProps, ListyEmits, string, ListySlots>((props
     const {
       classes,
       styles,
-      rootClassName,
+      rootClass,
       virtual,
       itemRender = slots.itemRender,
       ...restProps
@@ -72,7 +72,7 @@ const Listy = defineComponent<ListyProps, ListyEmits, string, ListySlots>((props
     const rootClassNames = clsx(
       contextClassName.value,
       mergedClassNames.value.root,
-      rootClassName,
+      rootClass,
       attrs.class,
       hashId.value,
       cssVarCls.value,
@@ -80,16 +80,15 @@ const Listy = defineComponent<ListyProps, ListyEmits, string, ListySlots>((props
     )
 
     const listyToken = { ...token.value, ...token.value.Listy }
-    const itemHeight = Math.round(
-      listyToken.fontSize * listyToken.lineHeight + (listyToken.itemPaddingBlock ?? listyToken.paddingSM) * 2 + listyToken.lineWidth,
-    )
+    const itemHeight = listyToken.fontHeight + (listyToken.itemPaddingBlock ?? listyToken.paddingSM) * 2
+    const mergedVirtual = virtual ?? contextVirtual.value ?? false
     return (
       <VcListy
         ref={listyRef}
         {...restProps}
         prefixCls={prefixCls.value}
         direction={direction.value}
-        virtual={virtual ?? contextVirtual.value ?? true}
+        virtual={mergedVirtual}
         itemHeight={itemHeight}
         itemRender={itemRender}
         classNames={{ ...mergedClassNames.value, root: rootClassNames }}

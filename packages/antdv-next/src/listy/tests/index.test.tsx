@@ -20,7 +20,7 @@ function renderListy(props = {}) {
     <Listy
       height={200}
       items={items}
-      rowKey="id"
+      rowKey={item => item.id}
       itemRender={item => item.title}
       {...props}
     />
