@@ -149,6 +149,7 @@ type TransformAction
     | 'doubleClick'
     | 'move'
     | 'dragRebound'
+    | 'reset'
 ```
 
 ### ToolbarRenderInfoType
@@ -176,6 +177,7 @@ type TransformAction
   };
   transform: TransformType,
   current: number;
+  total: number;
   image: ImgInfo
 }
 ```

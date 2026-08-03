@@ -14,7 +14,6 @@ exports[`autoComplete > rtl render > component should be rendered correctly in R
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         <!---->
       </div>
@@ -24,7 +23,7 @@ exports[`autoComplete > rtl render > component should be rendered correctly in R
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         role="combobox"

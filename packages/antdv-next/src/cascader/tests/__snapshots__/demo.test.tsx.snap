@@ -89,12 +89,12 @@ exports[`cascader demo > renders _semantic correctly 1`] = `
                 aria-expanded="true"
                 aria-haspopup="listbox"
                 aria-owns="test-id_list"
-                autocomplete="off"
+                autocomplete="new-password"
                 class="ant-select-input semantic-mark-input"
                 id="test-id"
                 readonly=""
                 role="combobox"
-                type="search"
+                type="text"
                 value=""
               />
             </div>
@@ -122,8 +122,10 @@ exports[`cascader demo > renders _semantic correctly 1`] = `
               </span>
               <!---->
             </div>
-            <div
+            <button
+              aria-label="Clear"
               class="ant-select-clear semantic-mark-clear"
+              type="button"
             >
               <span
                 aria-label="close-circle"
@@ -145,7 +147,7 @@ exports[`cascader demo > renders _semantic correctly 1`] = `
                   />
                 </svg>
               </span>
-            </div>
+            </button>
             <!---->
           </div>
           <!---->
@@ -1400,7 +1402,6 @@ exports[`cascader demo > renders basic correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -1410,12 +1411,12 @@ exports[`cascader demo > renders basic correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -1464,7 +1465,6 @@ exports[`cascader demo > renders change-on-select correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         <!---->
       </div>
@@ -1474,12 +1474,12 @@ exports[`cascader demo > renders change-on-select correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -1528,7 +1528,6 @@ exports[`cascader demo > renders component-token correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -1538,12 +1537,12 @@ exports[`cascader demo > renders component-token correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -1592,7 +1591,6 @@ exports[`cascader demo > renders custom-dropdown correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -1602,12 +1600,12 @@ exports[`cascader demo > renders custom-dropdown correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -1675,12 +1673,12 @@ exports[`cascader demo > renders custom-render correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -1708,8 +1706,10 @@ exports[`cascader demo > renders custom-render correctly 1`] = `
       </span>
       <!---->
     </div>
-    <div
+    <button
+      aria-label="Clear"
       class="ant-select-clear"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -1731,7 +1731,7 @@ exports[`cascader demo > renders custom-render correctly 1`] = `
           />
         </svg>
       </span>
-    </div>
+    </button>
     <!---->
   </div>
   <!---->
@@ -1769,12 +1769,12 @@ exports[`cascader demo > renders default-value correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -1802,8 +1802,10 @@ exports[`cascader demo > renders default-value correctly 1`] = `
       </span>
       <!---->
     </div>
-    <div
+    <button
+      aria-label="Clear"
       class="ant-select-clear"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -1825,7 +1827,7 @@ exports[`cascader demo > renders default-value correctly 1`] = `
           />
         </svg>
       </span>
-    </div>
+    </button>
     <!---->
   </div>
   <!---->
@@ -1846,7 +1848,6 @@ exports[`cascader demo > renders disabled-option correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         <!---->
       </div>
@@ -1856,12 +1857,12 @@ exports[`cascader demo > renders disabled-option correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -1910,7 +1911,6 @@ exports[`cascader demo > renders fields-name correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -1920,12 +1920,12 @@ exports[`cascader demo > renders fields-name correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -1974,7 +1974,6 @@ exports[`cascader demo > renders hover correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         <!---->
       </div>
@@ -1984,12 +1983,12 @@ exports[`cascader demo > renders hover correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -2038,7 +2037,6 @@ exports[`cascader demo > renders lazy correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         <!---->
       </div>
@@ -2048,12 +2046,12 @@ exports[`cascader demo > renders lazy correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -2107,7 +2105,6 @@ exports[`cascader demo > renders multiple correctly 1`] = `
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           <!---->
         </div>
@@ -2123,12 +2120,12 @@ exports[`cascader demo > renders multiple correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -2536,7 +2533,6 @@ exports[`cascader demo > renders placement correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -2546,12 +2542,12 @@ exports[`cascader demo > renders placement correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -2606,7 +2602,6 @@ exports[`cascader demo > renders render-panel correctly 1`] = `
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           Please select
         </div>
@@ -2616,12 +2611,12 @@ exports[`cascader demo > renders render-panel correctly 1`] = `
           aria-expanded="true"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -2671,7 +2666,6 @@ exports[`cascader demo > renders search correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -2681,11 +2675,11 @@ exports[`cascader demo > renders search correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -2761,12 +2755,12 @@ exports[`cascader demo > renders showCheckedStrategy correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -2796,8 +2790,10 @@ exports[`cascader demo > renders showCheckedStrategy correctly 1`] = `
       </span>
       <!---->
     </div>
-    <div
+    <button
+      aria-label="Clear"
       class="ant-select-clear"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -2819,7 +2815,7 @@ exports[`cascader demo > renders showCheckedStrategy correctly 1`] = `
           />
         </svg>
       </span>
-    </div>
+    </button>
     <!---->
   </div>
   <!---->
@@ -2862,12 +2858,12 @@ exports[`cascader demo > renders showCheckedStrategy correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -2897,8 +2893,10 @@ exports[`cascader demo > renders showCheckedStrategy correctly 1`] = `
       </span>
       <!---->
     </div>
-    <div
+    <button
+      aria-label="Clear"
       class="ant-select-clear"
+      type="button"
     >
       <span
         aria-label="close-circle"
@@ -2920,7 +2918,7 @@ exports[`cascader demo > renders showCheckedStrategy correctly 1`] = `
           />
         </svg>
       </span>
-    </div>
+    </button>
     <!---->
   </div>
   <!---->
@@ -2941,7 +2939,6 @@ exports[`cascader demo > renders size correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         <!---->
       </div>
@@ -2951,12 +2948,12 @@ exports[`cascader demo > renders size correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -3000,7 +2997,6 @@ exports[`cascader demo > renders size correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         <!---->
       </div>
@@ -3010,12 +3006,12 @@ exports[`cascader demo > renders size correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -3059,7 +3055,6 @@ exports[`cascader demo > renders size correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         <!---->
       </div>
@@ -3069,12 +3064,12 @@ exports[`cascader demo > renders size correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -3128,7 +3123,6 @@ exports[`cascader demo > renders status correctly 1`] = `
       >
         <div
           class="ant-select-placeholder"
-          style="visibility: visible;"
         >
           Error
         </div>
@@ -3138,12 +3132,12 @@ exports[`cascader demo > renders status correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -3194,7 +3188,6 @@ exports[`cascader demo > renders status correctly 1`] = `
         >
           <div
             class="ant-select-placeholder"
-            style="visibility: visible;"
           >
             Warning multiple
           </div>
@@ -3210,12 +3203,12 @@ exports[`cascader demo > renders status correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -3274,7 +3267,6 @@ exports[`cascader demo > renders style-class correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Object styles
       </div>
@@ -3284,12 +3276,12 @@ exports[`cascader demo > renders style-class correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -3337,7 +3329,6 @@ exports[`cascader demo > renders style-class correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Function styles
       </div>
@@ -3347,12 +3338,12 @@ exports[`cascader demo > renders style-class correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -3402,7 +3393,6 @@ exports[`cascader demo > renders suffix correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -3412,12 +3402,12 @@ exports[`cascader demo > renders suffix correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -3461,7 +3451,6 @@ exports[`cascader demo > renders suffix correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -3471,12 +3460,12 @@ exports[`cascader demo > renders suffix correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -3502,7 +3491,6 @@ exports[`cascader demo > renders suffix correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -3512,12 +3500,12 @@ exports[`cascader demo > renders suffix correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -3561,7 +3549,6 @@ exports[`cascader demo > renders suffix correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -3571,12 +3558,12 @@ exports[`cascader demo > renders suffix correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -3642,7 +3629,6 @@ exports[`cascader demo > renders suffix correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -3652,12 +3638,12 @@ exports[`cascader demo > renders suffix correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -3706,7 +3692,6 @@ exports[`cascader demo > renders variant correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -3716,12 +3701,12 @@ exports[`cascader demo > renders variant correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -3763,7 +3748,6 @@ exports[`cascader demo > renders variant correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -3773,12 +3757,12 @@ exports[`cascader demo > renders variant correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -3820,7 +3804,6 @@ exports[`cascader demo > renders variant correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -3830,12 +3813,12 @@ exports[`cascader demo > renders variant correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>
@@ -3877,7 +3860,6 @@ exports[`cascader demo > renders variant correctly 1`] = `
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         Please select
       </div>
@@ -3887,12 +3869,12 @@ exports[`cascader demo > renders variant correctly 1`] = `
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>

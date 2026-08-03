@@ -35,12 +35,12 @@ exports[`calendar demo > renders _semantic correctly 1`] = `
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-owns="test-id_list"
-                autocomplete="off"
+                autocomplete="new-password"
                 class="ant-select-input"
                 id="test-id"
                 readonly=""
                 role="combobox"
-                type="search"
+                type="text"
                 value=""
               />
             </div>
@@ -88,12 +88,12 @@ exports[`calendar demo > renders _semantic correctly 1`] = `
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-owns="test-id_list"
-                autocomplete="off"
+                autocomplete="new-password"
                 class="ant-select-input"
                 id="test-id"
                 readonly=""
                 role="combobox"
-                type="search"
+                type="text"
                 value=""
               />
             </div>
@@ -1850,12 +1850,12 @@ exports[`calendar demo > renders basic correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -1903,12 +1903,12 @@ exports[`calendar demo > renders basic correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -2878,12 +2878,12 @@ exports[`calendar demo > renders card correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -2932,12 +2932,12 @@ exports[`calendar demo > renders card correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -3970,12 +3970,12 @@ exports[`calendar demo > renders customize-header correctly 1`] = `
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="test-id_list"
-              autocomplete="off"
+              autocomplete="new-password"
               class="ant-select-input"
               id="test-id"
               readonly=""
               role="combobox"
-              type="search"
+              type="text"
               value=""
             />
           </div>
@@ -4024,12 +4024,12 @@ exports[`calendar demo > renders customize-header correctly 1`] = `
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="test-id_list"
-              autocomplete="off"
+              autocomplete="new-password"
               class="ant-select-input"
               id="test-id"
               readonly=""
               role="combobox"
-              type="search"
+              type="text"
               value=""
             />
           </div>
@@ -4967,12 +4967,12 @@ exports[`calendar demo > renders lunar correctly 1`] = `
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="test-id_list"
-              autocomplete="off"
+              autocomplete="new-password"
               class="ant-select-input"
               id="test-id"
               readonly=""
               role="combobox"
-              type="search"
+              type="text"
               value=""
             />
           </div>
@@ -5027,12 +5027,12 @@ exports[`calendar demo > renders lunar correctly 1`] = `
               aria-expanded="false"
               aria-haspopup="listbox"
               aria-owns="test-id_list"
-              autocomplete="off"
+              autocomplete="new-password"
               class="ant-select-input"
               id="test-id"
               readonly=""
               role="combobox"
-              type="search"
+              type="text"
               value=""
             />
           </div>
@@ -6344,12 +6344,12 @@ exports[`calendar demo > renders notice-calendar correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -6397,12 +6397,12 @@ exports[`calendar demo > renders notice-calendar correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>
@@ -7714,12 +7714,12 @@ exports[`calendar demo > renders select correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -7767,12 +7767,12 @@ exports[`calendar demo > renders select correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -8744,12 +8744,12 @@ exports[`calendar demo > renders style-class correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -8798,12 +8798,12 @@ exports[`calendar demo > renders style-class correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -9766,12 +9766,12 @@ exports[`calendar demo > renders style-class correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -9819,12 +9819,12 @@ exports[`calendar demo > renders style-class correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -10792,12 +10792,12 @@ exports[`calendar demo > renders week correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -10845,12 +10845,12 @@ exports[`calendar demo > renders week correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -11875,12 +11875,12 @@ exports[`calendar demo > renders week correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -11929,12 +11929,12 @@ exports[`calendar demo > renders week correctly 1`] = `
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>

@@ -25,6 +25,7 @@ When part of the page is waiting for asynchronous data or during a rendering pro
   <demo src="./demo/percent.vue">Progress</demo>
   <demo src="./demo/style-class.vue">Custom semantic dom styling</demo>
   <demo src="./demo/fullscreen.vue">Fullscreen</demo>
+  <demo src="./demo/list-debug.vue" debug>Nested debug</demo>
 </demo-group>
 
 ## API

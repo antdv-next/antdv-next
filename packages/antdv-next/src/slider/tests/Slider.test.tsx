@@ -644,8 +644,10 @@ describe('slider', () => {
       const handle = wrapper.find('.ant-slider-handle')
       await handle.trigger('focus')
       vi.advanceTimersByTime(100)
-      // Source L328-331: passedProps.onFocus calls restProps.onFocus(e)
-      expect(onFocus).toHaveBeenCalled()
+      // The handle vnode already carries vc-slider's internal focus wrapper, which
+      // chains up to this handler, and Vue's cloneVNode merges rather than replaces
+      // listeners. Dispatching it again in passedProps would fire it more than once.
+      expect(onFocus).toHaveBeenCalledTimes(1)
       wrapper.unmount()
     })
 
@@ -661,8 +663,9 @@ describe('slider', () => {
       vi.advanceTimersByTime(100)
       await handle.trigger('blur')
       vi.advanceTimersByTime(100)
-      // Source L332-337: passedProps.onBlur calls restProps.onBlur(e)
-      expect(onBlur).toHaveBeenCalled()
+      // vc-slider's Handle never declares `onBlur` as a prop, so it never lands on the
+      // handle vnode and passedProps must dispatch it — exactly once.
+      expect(onBlur).toHaveBeenCalledTimes(1)
       wrapper.unmount()
     })
 

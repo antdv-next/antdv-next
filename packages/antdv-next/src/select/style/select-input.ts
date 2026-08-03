@@ -199,6 +199,9 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
           color: token.colorTextQuaternary,
           fontSize: token.fontSizeIcon,
           lineHeight: 1,
+          transition: ['opacity', 'color']
+            .map(prop => `${prop} ${token.motionDurationMid} ease`)
+            .join(', '),
 
           '> :not(:last-child)': {
             marginInlineEnd: token.marginXS,
@@ -218,7 +221,10 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         // ==========================================================
         '&-disabled': {
           background: token.colorBgContainerDisabled,
-          color: token.colorTextDisabled,
+          // Set the CSS variable rather than `color`: the inner input reads
+          // its colour from the variable, so a plain `color` never reaches a
+          // customized input such as AutoComplete's.
+          [varName('color')]: token.colorTextDisabled,
           cursor: 'not-allowed',
 
           input: {

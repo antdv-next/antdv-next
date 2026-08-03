@@ -26,6 +26,7 @@ demo:
   <demo src="./demo/percent.vue">进度</demo>
   <demo src="./demo/style-class.vue">自定义语义结构的样式和类</demo>
   <demo src="./demo/fullscreen.vue">全屏</demo>
+  <demo src="./demo/list-debug.vue" debug>嵌套调试</demo>
 </demo-group>
 
 ## API

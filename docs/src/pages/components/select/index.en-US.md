@@ -37,6 +37,7 @@ demo:
   <demo src="./demo/custom-dropdown-menu.vue">Custom dropdown</demo>
   <demo src="./demo/hide-selected.vue">Hide Already Selected</demo>
   <demo src="./demo/variant.vue">Variants</demo>
+  <demo src="./demo/clear-suffix-debug.vue" debug>Clear suffix</demo>
   <demo src="./demo/custom-tag-render.vue">Custom Tag Render</demo>
   <demo src="./demo/custom-label-render.vue">Custom Selected Label Render</demo>
   <demo src="./demo/responsive.vue">Responsive maxTagCount</demo>
@@ -82,7 +83,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | optionFilterProp | Which prop value of option will be used for filter if filterOption is true. If options is set, it should be set to label. When a string[] is provided, multiple fields are searched using OR matching | string \| string[] | value | - | × |
 | options | Select options. Will get better perf than jsx definition | &#123; label: VueNode; value: string &#125;[] | - | - | × |
 | optionRender | Customize the rendering dropdown options | (option: FlattenOptionData&lt;BaseOptionType&gt;, info: &#123; index: number &#125;) =&gt; VueNode | - | - | × |
-| placeholder | The placeholder of select | string | - | - | × |
+| placeholder | The placeholder of select | VNode | - | - | × |
 | placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft | - | × |
 | popupClassName | The className of dropdown menu, use `classes.popup.root` instead | string | - | - | × |
 | popupMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true | - | × |

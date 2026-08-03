@@ -2,6 +2,52 @@
 title: 组件更新日志
 ---
 
+## V1.4.6
+
+发布日期：2026-08-03
+
+本次版本将 ant-design 上游同步从 **6.5.1** 一路推进到 **6.5.3** 之后（`49c4a03cc9`），并升级了全部 12 个 `@v-c/*` 底层包（[#668](https://github.com/antdv-next/antdv-next/pull/668)、[#678](https://github.com/antdv-next/antdv-next/pull/678)、[#681](https://github.com/antdv-next/antdv-next/pull/681)）。
+
+两条主线值得留意。其一是 **DatePicker 的 RangePicker 交互重构**——上游把「未确认的区间不应在失焦时提交」的修复放在了 `@rc-component/picker` 内部，我们相应地在 `@v-c/picker@1.3.0` 重写了整套交互状态机，本次随依赖升级落地。其二是**清除按钮由 `<span>` 改为 `<button>`** 带来的一系列连锁调整：浏览器默认按钮外观需要重置、键盘聚焦时需要可见并带焦点环、持有焦点的自定义 suffix 不能被隐藏。这部分 antd 尚未跟进（其 `rc-select` 仍是不可聚焦的 `<span>`），无障碍处理由本仓库先行补齐。
+
+**🐞 问题修复 Fixes**
+
+* fix(date-picker)：`showTime` 搭配 `allowEmpty` 时，失焦不再提交未确认的半个区间。修复源自 `@v-c/picker@1.3.0` 的 RangePicker 交互流程重构，每次交互先解析为唯一 action 再统一执行，事件来源不再各自提交或重置值（[#681](https://github.com/antdv-next/antdv-next/pull/681)，#58803）
+* fix(slider)：`onFocus` / `onBlur` 不再重复触发。Vue 的 `cloneVNode` 会把 `on*` 合并成数组并逐个调用（React 的 `cloneElement` 是覆盖），叠加显式派发导致回调多次执行；同时 `@v-c/slider` 的 `Handle` 声明了 `onFocus` 却未声明 `onBlur`，两条路径并不对称（[#681](https://github.com/antdv-next/antdv-next/pull/681)，#58711）
+* fix(table)：全选「所有数据」时不再选中其他分页上的禁用行。此前依赖只覆盖当前页的 `checkboxPropsMap`，跨页记录取不到 `disabled` 便被当作可选（[#681](https://github.com/antdv-next/antdv-next/pull/681)，#58843）
+* fix(table)：`dataIndex` 在 columns 联合类型上恢复可访问（[#673](https://github.com/antdv-next/antdv-next/pull/673)）
+* fix(transfer)：筛选状态下的「取消全选」不再误判。此前比较 key 数量，而筛选时只覆盖可见项，会把已全选读成未全选（[#681](https://github.com/antdv-next/antdv-next/pull/681)，#58844）
+* fix(transfer)：保留自定义操作项的禁用状态（[#668](https://github.com/antdv-next/antdv-next/pull/668)，#58718）
+* fix(input)：`Input.OTP` 的 `mask` 为字符串时不再直接渲染原值——遮罩层此前形同虚设；同时用户显式传入的 `type` 优先于 `mask` 推导值（[#681](https://github.com/antdv-next/antdv-next/pull/681)，#58805、#58835）
+* fix(input)：触屏设备上隐藏 `Input.TextArea` 的缩放手柄（[#681](https://github.com/antdv-next/antdv-next/pull/681)，#58812）
+* fix(select)：自定义主题色下，suffix 图标与已选内容不再与清除图标重叠（[#681](https://github.com/antdv-next/antdv-next/pull/681)，#58581）
+* fix(select)：清除按钮键盘可达——聚焦时可见并带焦点环，且持有焦点的自定义 suffix 不会被隐藏。清除区域现为可聚焦的 `<button>`，而 `pointer-events: none` 并不会将其移出 Tab 序列（[#681](https://github.com/antdv-next/antdv-next/pull/681)）
+* fix(auto-complete)：禁用态文字颜色现在能作用到输入框——需设置 CSS 变量而非 `color`，否则到不了自定义 input（[#681](https://github.com/antdv-next/antdv-next/pull/681)，#58838）
+* fix(spin)：嵌套场景下独立 `Spin` 不再被外层的居中定位样式影响（[#681](https://github.com/antdv-next/antdv-next/pull/681)，#58801）
+* fix(typography)：可编辑 textarea 的字号与所编辑内容保持一致（[#681](https://github.com/antdv-next/antdv-next/pull/681)，#58551）
+* fix(upload)：默认下载改用 `noopener` 打开，新标签页无法再访问 opener 页面（[#681](https://github.com/antdv-next/antdv-next/pull/681)，#58817）
+
+**💄 样式 Styles**
+
+* fix(date-picker, select)：重置清除按钮的浏览器默认外观。该区域已改为 `<button>`，若不重置会露出灰底、边框、内边距与自带字体（[#681](https://github.com/antdv-next/antdv-next/pull/681)，#58403）
+* fix：Tabs、Segmented、Breadcrumb、Collapse、Tag 中来自第三方图标库的裸 `<svg>` 现在与文字垂直居中对齐。`<svg>` 没有自身基线，会按下外边距边缘对齐而浮在文字上方；`display: inline-block` 另可在 `svg { display: block }` 这类 reset（如 Tailwind Preflight）下保持对齐（[#681](https://github.com/antdv-next/antdv-next/pull/681)，#58847、#58862、#58868、#58869、#58870；Tag 见 [#668](https://github.com/antdv-next/antdv-next/pull/668)，#58723）
+* fix(style)：`theme.zeroRuntime` 或启用 CSS layers 时，补全 Icon 的基础样式（[#678](https://github.com/antdv-next/antdv-next/pull/678)，#58763）
+* fix(style)：Button、ColorPicker、Select、Space 的边框改为遵循 `lineType` token（[#668](https://github.com/antdv-next/antdv-next/pull/668)，#58755）
+* fix(tree)：`showLine` 下遵循 `margin-inline-start` 设计 token（[#668](https://github.com/antdv-next/antdv-next/pull/668)，#58745）
+* fix(table)：自定义内容内的嵌套表格保留顶部边框（[#668](https://github.com/antdv-next/antdv-next/pull/668)，#58746）
+
+**📖 文档 Documentation**
+
+* docs(faq)：说明 in-DOM 模板的标签小写化会导致 CDN 场景下 camelCase 插槽失效（[#671](https://github.com/antdv-next/antdv-next/pull/671)）
+* feat(docs)：补充 Upload 演示
+* docs：新增 Collapse 面板图标演示，通过 `labelRender` 插槽渲染，并覆盖第三方裸 `<svg>` 图标（[#681](https://github.com/antdv-next/antdv-next/pull/681)）
+* docs：修正英文站的介绍页与发布博客链接
+
+**🧰 工程 Infrastructure**
+
+* chore：升级全部 12 个 `@v-c/*` 依赖——util 1.1.0、trigger 1.1.0、tooltip 1.1.0、menu 1.3.0、dropdown 1.0.5、select 1.2.0、tabs 1.3.0、mentions 1.2.0、input-number 1.0.7、tree 1.1.3、pagination 1.1.0、picker 1.3.0（[#681](https://github.com/antdv-next/antdv-next/pull/681)）
+* test：快照统一在 UTC+8 时区下生成。此前部分快照混入了生成机器的时区，在其他时区会误报失败（[#681](https://github.com/antdv-next/antdv-next/pull/681)）
+
 ## V1.4.5
 
 发布日期：2026-07-21

@@ -442,7 +442,7 @@ const InternalUpload = defineComponent<
               props?.onDownload?.(file)
             }
             else if (file.url) {
-              window.open(file.url)
+              window.open(file.url, '_blank', 'noopener')
             }
           }}
           onRemove={handleRemove}

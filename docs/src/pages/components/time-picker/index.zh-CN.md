@@ -69,7 +69,7 @@ demo:
 | secondStep | 秒选项间隔 | number | 1 |  | × |
 | showNow | 面板是否显示“此刻”按钮 | boolean | - | 4.4.0 | × |
 | size | 输入框大小，`large` 高度为 40px，`small` 为 24px，默认是 32px | `large` \| `middle` \| `small` | - |  | × |
-| status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 | × |
+| status | 设置校验状态 | 'error' \| 'warning' \| 'success' \| 'validating' | - | 4.19.0 | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: \{ props \})=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | ✓ |
 | suffixIcon | 自定义的选择框后缀图标 | VueNode | - |  | ✓ |
 | use12Hours | 使用 12 小时制，为 true 时 `format` 默认为 `h:mm:ss a` | boolean | false |  | × |

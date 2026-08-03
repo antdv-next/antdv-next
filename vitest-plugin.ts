@@ -47,4 +47,14 @@ export default defineConfig({
       },
     ],
   },
+  test: {
+    env: {
+      // Pin the timezone so date-dependent assertions and snapshots do not
+      // depend on where the suite happens to run. Several tests build dates
+      // from a UTC instant (e.g. `dayjs('2025-06-15T00:00:00Z')`) and assert
+      // the rendered day, which shifts by one in any UTC- zone; committed
+      // snapshots were recorded at UTC+8.
+      TZ: 'Asia/Shanghai',
+    },
+  },
 })
