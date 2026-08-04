@@ -1,9 +1,9 @@
-import type { App } from 'vue'
-import type { ListyClassNames, ListyProps, ListyStyles } from './interface'
+import type { App, SlotsType } from 'vue'
+import type { ListyClassNames, ListyProps, ListyRef, ListyScrollToConfig, ListyStyles } from './interface'
 import VcListy from '@v-c/listy'
 import { clsx } from '@v-c/util'
 import { computed, defineComponent, shallowRef, useAttrs } from 'vue'
-import { useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks/useMergeSemantic'
+import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks/useMergeSemantic'
 import { useComponentBaseConfig } from '../config-provider/context'
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
 import { useToken } from '../theme/internal'
@@ -25,9 +25,10 @@ interface ListySlots {
   itemRender: (item: any) => any
 }
 
-const Listy = defineComponent<ListyProps, ListyEmits, string, ListySlots>((props, { expose, slots }) => {
-  const listyRef = shallowRef<InstanceType<typeof VcListy>>()
+const Listy = defineComponent<ListyProps, ListyEmits, string, SlotsType<ListySlots>>((props, { expose, slots }) => {
+  const listyRef = shallowRef<InstanceType<typeof VcListy> & ListyRef>()
   const attrs = useAttrs()
+  const { style, className, restAttrs } = getAttrStyleAndClass(attrs)
   const {
     getPrefixCls,
     direction,
@@ -43,7 +44,7 @@ const Listy = defineComponent<ListyProps, ListyEmits, string, ListySlots>((props
   const [, token] = useToken()
 
   const contextStyleRoot = useSemanticRootStyle(contextStyle)
-  const styleRoot = useSemanticRootStyle(computed(() => attrs.style))
+  const styleRoot = useSemanticRootStyle(computed(() => style))
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     ListyClassNames,
@@ -55,7 +56,7 @@ const Listy = defineComponent<ListyProps, ListyEmits, string, ListySlots>((props
     useToProps(computed(() => props)),
   )
   expose({
-    scrollTo: (config?: number | { key?: number, groupKey?: string, align?: 'top' | 'bottom' | 'auto' }) => {
+    scrollTo: (config?: ListyScrollToConfig) => {
       listyRef.value?.scrollTo(config)
     },
   })
@@ -73,7 +74,7 @@ const Listy = defineComponent<ListyProps, ListyEmits, string, ListySlots>((props
       contextClassName.value,
       mergedClassNames.value.root,
       rootClass,
-      attrs.class,
+      className,
       hashId.value,
       cssVarCls.value,
       rootCls.value,
@@ -86,6 +87,7 @@ const Listy = defineComponent<ListyProps, ListyEmits, string, ListySlots>((props
       <VcListy
         ref={listyRef}
         {...restProps}
+        {...restAttrs}
         prefixCls={prefixCls.value}
         direction={direction.value}
         virtual={mergedVirtual}
@@ -101,7 +103,7 @@ const Listy = defineComponent<ListyProps, ListyEmits, string, ListySlots>((props
   inheritAttrs: false,
 })
 
-Listy.install = (app: App) => {
+;(Listy as any).install = (app: App) => {
   app.component(Listy.name, Listy)
   return app
 }

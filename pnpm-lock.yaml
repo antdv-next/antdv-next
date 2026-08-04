@@ -372,8 +372,8 @@ catalogs:
       specifier: ^1.0.7
       version: 1.0.7
     '@v-c/listy':
-      specifier: ^1.0.1
-      version: 1.0.1
+      specifier: ^1.0.2
+      version: 1.0.2
     '@v-c/mentions':
       specifier: ^1.2.0
       version: 1.2.0
@@ -853,7 +853,7 @@ importers:
         version: 1.0.7(vue@3.5.40(typescript@5.9.3))
       '@v-c/listy':
         specifier: catalog:vc
-        version: 1.0.1(vue@3.5.40(typescript@5.9.3))
+        version: 1.0.2(vue@3.5.40(typescript@5.9.3))
       '@v-c/mentions':
         specifier: catalog:vc
         version: 1.2.0(vue@3.5.40(typescript@5.9.3))
@@ -2966,13 +2966,8 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
-  '@v-c/listy@1.0.1':
-    resolution: {integrity: sha512-tpvcoGTWNMIrm/fPVX4vNP1kziPqZTqjRhpWjonA+7aCIBBEaDeRZKEkxFNXvGkyZON2f49/O3jBYSj+rocWiw==}
-    peerDependencies:
-      vue: ^3.0.0
-
-  '@v-c/mentions@1.1.3':
-    resolution: {integrity: sha512-D0oJBs2eadW6Z0bhrWhg6VELMGl715HqCYD3gBdsBOWfS4z8cabkbDpj415lxa/IT7WUhgXZoheND144ZLFscQ==}
+  '@v-c/listy@1.0.2':
+    resolution: {integrity: sha512-hYC9cGtVeOSbqYDobNOd2BmL6TLMkjtVTVAbNvM3739L8p+2ZcKHKIIHKbofmzTh+aDZIg8646Y1EQfQIlPc7Q==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -8768,21 +8763,12 @@ snapshots:
       '@v-c/util': 1.1.0(vue@3.5.40(typescript@5.9.3))
       vue: 3.5.40(typescript@5.9.3)
 
-  '@v-c/listy@1.0.1(vue@3.5.40(typescript@5.9.3))':
+  '@v-c/listy@1.0.2(vue@3.5.40(typescript@5.9.3))':
     dependencies:
       '@v-c/portal': 1.0.8(vue@3.5.40(typescript@5.9.3))
       '@v-c/resize-observer': 1.1.3(vue@3.5.40(typescript@5.9.3))
       '@v-c/util': 1.1.0(vue@3.5.40(typescript@5.9.3))
       '@v-c/virtual-list': 1.1.0(vue@3.5.40(typescript@5.9.3))
-      vue: 3.5.40(typescript@5.9.3)
-
-  '@v-c/mentions@1.1.3(vue@3.5.40(typescript@5.9.3))':
-    dependencies:
-      '@v-c/input': 1.1.1(vue@3.5.40(typescript@5.9.3))
-      '@v-c/menu': 1.3.0(vue@3.5.40(typescript@5.9.3))
-      '@v-c/textarea': 1.1.0(vue@3.5.40(typescript@5.9.3))
-      '@v-c/trigger': 1.1.0(vue@3.5.40(typescript@5.9.3))
-      '@v-c/util': 1.1.0(vue@3.5.40(typescript@5.9.3))
       vue: 3.5.40(typescript@5.9.3)
 
   '@v-c/mentions@1.2.0(vue@3.5.40(typescript@5.9.3))':
@@ -9429,7 +9415,7 @@ snapshots:
       '@v-c/image': 1.0.12(vue@3.5.40(typescript@5.9.3))
       '@v-c/input': 1.1.1(vue@3.5.40(typescript@5.9.3))
       '@v-c/input-number': 1.0.7(vue@3.5.40(typescript@5.9.3))
-      '@v-c/mentions': 1.1.3(vue@3.5.40(typescript@5.9.3))
+      '@v-c/mentions': 1.2.0(vue@3.5.40(typescript@5.9.3))
       '@v-c/menu': 1.3.0(vue@3.5.40(typescript@5.9.3))
       '@v-c/mutate-observer': 1.0.2(vue@3.5.40(typescript@5.9.3))
       '@v-c/notification': 2.0.2(vue@3.5.40(typescript@5.9.3))

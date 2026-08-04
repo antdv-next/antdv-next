@@ -55,7 +55,7 @@ const styles: ListyProps['styles'] = {
   border-radius: 8px;
   overflow: hidden;
 }
-.listy-custom-group-header {
+:deep(.listy-custom-group-header) {
   color: #1677ff;
   background: #e6f4ff;
 }

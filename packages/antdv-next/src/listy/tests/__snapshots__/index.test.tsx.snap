@@ -7,7 +7,7 @@ exports[`Listy > rtl render > component should be rendered correctly in RTL dire
   <div
     class="ant-listy ant-listy-rtl css-var-root ant-listy-css-var"
     dir="rtl"
-    style="overflow-y: auto; overflow-anchor: none;"
+    style="max-height: 200px; overflow-y: auto; overflow-anchor: none;"
   >
     <div
       class="ant-listy-item"

@@ -15,7 +15,7 @@ exports[`listy demo > renders _semantic correctly 1`] = `
     >
       <div
         class="ant-listy semantic-mark-root css-var-v-0 ant-listy-css-var"
-        style="overflow-y: auto; overflow-anchor: none; width: 100%;"
+        style="max-height: 260px; overflow-y: auto; overflow-anchor: none; width: 100%;"
       >
         <div
           class="ant-listy-group-section"
@@ -458,7 +458,7 @@ exports[`listy demo > renders _semantic correctly 1`] = `
 exports[`listy demo > renders basic correctly 1`] = `
 <div
   class="ant-listy css-var-root ant-listy-css-var"
-  style="overflow-y: auto; overflow-anchor: none;"
+  style="max-height: 400px; overflow-y: auto; overflow-anchor: none;"
 >
   <div
     class="ant-listy-item"
@@ -586,7 +586,7 @@ exports[`listy demo > renders basic correctly 1`] = `
 exports[`listy demo > renders group correctly 1`] = `
 <div
   class="ant-listy css-var-root ant-listy-css-var"
-  style="overflow-y: auto; overflow-anchor: none;"
+  style="max-height: 400px; overflow-y: auto; overflow-anchor: none;"
 >
   <div
     class="ant-listy-group-section"
@@ -1443,7 +1443,7 @@ exports[`listy demo > renders infinite correctly 1`] = `
 exports[`listy demo > renders rich correctly 1`] = `
 <div
   class="ant-listy css-var-root ant-listy-css-var"
-  style="overflow-y: auto; overflow-anchor: none;"
+  style="max-height: 400px; overflow-y: auto; overflow-anchor: none;"
 >
   <div
     class="ant-listy-item"
@@ -2530,7 +2530,7 @@ exports[`listy demo > renders scroll-to correctly 1`] = `
   </div>
   <div
     class="ant-listy css-var-root ant-listy-css-var"
-    style="overflow-y: auto; overflow-anchor: none;"
+    style="max-height: 400px; overflow-y: auto; overflow-anchor: none;"
   >
     <div
       class="ant-listy-group-section"
@@ -2972,7 +2972,7 @@ exports[`listy demo > renders style-class correctly 1`] = `
 <div
   class="ant-listy listy-custom-root css-var-root ant-listy-css-var"
   data-v-2652badc=""
-  style="overflow-y: auto; overflow-anchor: none;"
+  style="max-height: 260px; overflow-y: auto; overflow-anchor: none;"
 >
   <div
     class="ant-listy-group-section"
