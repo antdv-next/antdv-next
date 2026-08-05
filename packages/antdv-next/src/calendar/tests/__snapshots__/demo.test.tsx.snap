@@ -175,17 +175,7 @@ exports[`calendar demo > renders _semantic correctly 1`] = `
           >
             <!---->
             <div
-              cellrender="(date, info) => mergedCellRender(date, {
-		...info,
-		range: range?.value
-	})"
               class="ant-picker-body semantic-mark-body"
-              generateconfig="[object Object]"
-              locale="[object Object]"
-              pickervalue="Mon, 18 Sep 2017 03:30:07 GMT"
-              prefixcls="ant-picker"
-              value="Mon, 18 Sep 2017 03:30:07 GMT"
-              values="Mon, 18 Sep 2017 03:30:07 GMT"
             >
               <table
                 class="ant-picker-content semantic-mark-content"
@@ -1990,17 +1980,7 @@ exports[`calendar demo > renders basic correctly 1`] = `
     >
       <!---->
       <div
-        cellrender="(date, info) => mergedCellRender(date, {
-		...info,
-		range: range?.value
-	})"
         class="ant-picker-body"
-        generateconfig="[object Object]"
-        locale="[object Object]"
-        pickervalue="Mon, 18 Sep 2017 03:30:07 GMT"
-        prefixcls="ant-picker"
-        value="Mon, 18 Sep 2017 03:30:07 GMT"
-        values="Mon, 18 Sep 2017 03:30:07 GMT"
       >
         <table
           class="ant-picker-content"
@@ -3019,17 +2999,7 @@ exports[`calendar demo > renders card correctly 1`] = `
       >
         <!---->
         <div
-          cellrender="(date, info) => mergedCellRender(date, {
-		...info,
-		range: range?.value
-	})"
           class="ant-picker-body"
-          generateconfig="[object Object]"
-          locale="[object Object]"
-          pickervalue="Mon, 18 Sep 2017 03:30:07 GMT"
-          prefixcls="ant-picker"
-          value="Mon, 18 Sep 2017 03:30:07 GMT"
-          values="Mon, 18 Sep 2017 03:30:07 GMT"
         >
           <table
             class="ant-picker-content"
@@ -4071,17 +4041,7 @@ exports[`calendar demo > renders customize-header correctly 1`] = `
       >
         <!---->
         <div
-          cellrender="(date, info) => mergedCellRender(date, {
-		...info,
-		range: range?.value
-	})"
           class="ant-picker-body"
-          generateconfig="[object Object]"
-          locale="[object Object]"
-          pickervalue="Mon, 18 Sep 2017 03:30:07 GMT"
-          prefixcls="ant-picker"
-          value="Mon, 18 Sep 2017 03:30:07 GMT"
-          values="Mon, 18 Sep 2017 03:30:07 GMT"
         >
           <table
             class="ant-picker-content"
@@ -5124,17 +5084,7 @@ exports[`calendar demo > renders lunar correctly 1`] = `
       >
         <!---->
         <div
-          cellrender="(date, info) => mergedCellRender(date, {
-		...info,
-		range: range?.value
-	})"
           class="ant-picker-body"
-          generateconfig="[object Object]"
-          locale="[object Object]"
-          pickervalue="Mon, 18 Sep 2017 03:30:07 GMT"
-          prefixcls="ant-picker"
-          value="Mon, 18 Sep 2017 03:30:07 GMT"
-          values="Mon, 18 Sep 2017 03:30:07 GMT"
         >
           <table
             class="ant-picker-content"
@@ -6484,17 +6434,7 @@ exports[`calendar demo > renders notice-calendar correctly 1`] = `
     >
       <!---->
       <div
-        cellrender="(date, info) => mergedCellRender(date, {
-		...info,
-		range: range?.value
-	})"
         class="ant-picker-body"
-        generateconfig="[object Object]"
-        locale="[object Object]"
-        pickervalue="Mon, 18 Sep 2017 03:30:07 GMT"
-        prefixcls="ant-picker"
-        value="Mon, 18 Sep 2017 03:30:07 GMT"
-        values="Mon, 18 Sep 2017 03:30:07 GMT"
       >
         <table
           class="ant-picker-content"
@@ -7854,17 +7794,7 @@ exports[`calendar demo > renders select correctly 1`] = `
       >
         <!---->
         <div
-          cellrender="(date, info) => mergedCellRender(date, {
-		...info,
-		range: range?.value
-	})"
           class="ant-picker-body"
-          generateconfig="[object Object]"
-          locale="[object Object]"
-          pickervalue="Wed, 25 Jan 2017 00:00:00 GMT"
-          prefixcls="ant-picker"
-          value="Wed, 25 Jan 2017 00:00:00 GMT"
-          values="Wed, 25 Jan 2017 00:00:00 GMT"
         >
           <table
             class="ant-picker-content"
@@ -8885,17 +8815,7 @@ exports[`calendar demo > renders style-class correctly 1`] = `
       >
         <!---->
         <div
-          cellrender="(date, info) => mergedCellRender(date, {
-		...info,
-		range: range?.value
-	})"
           class="ant-picker-body"
-          generateconfig="[object Object]"
-          locale="[object Object]"
-          pickervalue="Mon, 18 Sep 2017 03:30:07 GMT"
-          prefixcls="ant-picker"
-          value="Mon, 18 Sep 2017 03:30:07 GMT"
-          values="Mon, 18 Sep 2017 03:30:07 GMT"
         >
           <table
             class="ant-picker-content"
@@ -9906,17 +9826,7 @@ exports[`calendar demo > renders style-class correctly 1`] = `
       >
         <!---->
         <div
-          cellrender="(date, info) => mergedCellRender(date, {
-		...info,
-		range: range?.value
-	})"
           class="ant-picker-body"
-          generateconfig="[object Object]"
-          locale="[object Object]"
-          pickervalue="Mon, 18 Sep 2017 03:30:07 GMT"
-          prefixcls="ant-picker"
-          value="Mon, 18 Sep 2017 03:30:07 GMT"
-          values="Mon, 18 Sep 2017 03:30:07 GMT"
         >
           <table
             class="ant-picker-content"
@@ -10932,18 +10842,7 @@ exports[`calendar demo > renders week correctly 1`] = `
       >
         <!---->
         <div
-          cellrender="(date, info) => mergedCellRender(date, {
-		...info,
-		range: range?.value
-	})"
           class="ant-picker-body"
-          generateconfig="[object Object]"
-          locale="[object Object]"
-          pickervalue="Mon, 18 Sep 2017 03:30:07 GMT"
-          prefixcls="ant-picker"
-          showweek="true"
-          value="Mon, 18 Sep 2017 03:30:07 GMT"
-          values="Mon, 18 Sep 2017 03:30:07 GMT"
         >
           <table
             class="ant-picker-content"
@@ -12016,18 +11915,7 @@ exports[`calendar demo > renders week correctly 1`] = `
       >
         <!---->
         <div
-          cellrender="(date, info) => mergedCellRender(date, {
-		...info,
-		range: range?.value
-	})"
           class="ant-picker-body"
-          generateconfig="[object Object]"
-          locale="[object Object]"
-          pickervalue="Mon, 18 Sep 2017 03:30:07 GMT"
-          prefixcls="ant-picker"
-          showweek="true"
-          value="Mon, 18 Sep 2017 03:30:07 GMT"
-          values="Mon, 18 Sep 2017 03:30:07 GMT"
         >
           <table
             class="ant-picker-content"

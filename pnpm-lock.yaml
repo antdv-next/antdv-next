@@ -384,8 +384,8 @@ catalogs:
       specifier: ^1.1.0
       version: 1.1.0
     '@v-c/picker':
-      specifier: ^1.3.0
-      version: 1.3.0
+      specifier: ^1.3.2
+      version: 1.3.2
     '@v-c/progress':
       specifier: ^1.0.1
       version: 1.0.1
@@ -865,7 +865,7 @@ importers:
         version: 1.1.0(vue@3.5.40(typescript@5.9.3))
       '@v-c/picker':
         specifier: catalog:vc
-        version: 1.3.0(dayjs@1.11.21)(vue@3.5.40(typescript@5.9.3))
+        version: 1.3.2(dayjs@1.11.21)(vue@3.5.40(typescript@5.9.3))
       '@v-c/progress':
         specifier: catalog:vc
         version: 1.0.1(vue@3.5.40(typescript@5.9.3))
@@ -2995,6 +2995,24 @@ packages:
 
   '@v-c/picker@1.3.0':
     resolution: {integrity: sha512-Qn6miglyloid1YKQ+MtlMdPGAiA6JGtPq39IM9BFlf/Vl2pksOcXFqefK/LZmZV9NRXXr8Cr4Iigt2LrtHomWQ==}
+    peerDependencies:
+      date-fns: '>= 2.x'
+      dayjs: '>= 1.x'
+      luxon: '>= 3.x'
+      moment: '>= 2.x'
+      vue: ^3.0.0
+    peerDependenciesMeta:
+      date-fns:
+        optional: true
+      dayjs:
+        optional: true
+      luxon:
+        optional: true
+      moment:
+        optional: true
+
+  '@v-c/picker@1.3.2':
+    resolution: {integrity: sha512-XY9+cXmHBqPtyf7ks4lvc7664/vM5XybbCyeVtIm1Ukrx+0hnVgjnsjdfDN7qJLmjsye6Q/G0pE9ROCPKw7oMw==}
     peerDependencies:
       date-fns: '>= 2.x'
       dayjs: '>= 1.x'
@@ -8793,6 +8811,16 @@ snapshots:
       vue: 3.5.40(typescript@5.9.3)
 
   '@v-c/picker@1.3.0(dayjs@1.11.21)(vue@3.5.40(typescript@5.9.3))':
+    dependencies:
+      '@v-c/overflow': 1.1.1(vue@3.5.40(typescript@5.9.3))
+      '@v-c/resize-observer': 1.1.3(vue@3.5.40(typescript@5.9.3))
+      '@v-c/trigger': 1.1.0(vue@3.5.40(typescript@5.9.3))
+      '@v-c/util': 1.1.0(vue@3.5.40(typescript@5.9.3))
+      vue: 3.5.40(typescript@5.9.3)
+    optionalDependencies:
+      dayjs: 1.11.21
+
+  '@v-c/picker@1.3.2(dayjs@1.11.21)(vue@3.5.40(typescript@5.9.3))':
     dependencies:
       '@v-c/overflow': 1.1.1(vue@3.5.40(typescript@5.9.3))
       '@v-c/resize-observer': 1.1.3(vue@3.5.40(typescript@5.9.3))
