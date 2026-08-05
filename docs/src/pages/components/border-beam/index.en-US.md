@@ -23,9 +23,13 @@ tag: 1.3.0
 <demo-group>
   <demo src="./demo/basic.vue">Basic</demo>
   <demo src="./demo/hover.vue">Show on hover</demo>
+  <demo src="./demo/custom-container.vue">Custom Container</demo>
   <demo src="./demo/customized-color.vue">Gradients</demo>
+  <demo src="./demo/duration.vue">Duration</demo>
+  <demo src="./demo/size.vue">Size</demo>
+  <demo src="./demo/line-width.vue">Line Width</demo>
   <demo src="./demo/non-uniform-radius.vue" debug>Non-uniform radius</demo>
-  <demo src="./demo/component-token.vue" debug>Line width</demo>
+  <demo src="./demo/component-token.vue" debug>Component Token</demo>
 </demo-group>
 
 ## API
@@ -37,7 +41,10 @@ Common props ref：[Common props](/docs/vue/common-props)
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | color | Beam color configuration. Supports a single color string or gradient stops. `percent` uses the `0 ~ 100` input range and BorderBeam reserves tail space for the transparent fade | `string \| { color: string, percent: number }[]` | - | - | × |
+| duration | Time in seconds for the beam to complete one loop | number | 6 | - | × |
+| lineWidth | Width of the beam line. Numbers are treated as pixels | `number \| string` | `1px` | - | × |
 | outset | Outset distance of the beam layer from the container edge. Set to `0` for clipped containers | `number \| string` | - | - | × |
+| size | Size of the visible beam segment. Numbers are treated as pixels | `number \| string` | 100 | - | × |
 
 ### Slots
 
