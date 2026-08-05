@@ -378,7 +378,7 @@ exports[`border-beam demo > renders duration correctly 1`] = `
             <span
               class="ant-tag ant-tag-filled css-var-root"
             >
-              3s
+              3s 
               <!---->
               <!---->
               <!---->
@@ -431,7 +431,7 @@ exports[`border-beam demo > renders duration correctly 1`] = `
             <span
               class="ant-tag ant-tag-filled css-var-root"
             >
-              6s
+              6s 
               <!---->
               <!---->
               <!---->
@@ -484,7 +484,7 @@ exports[`border-beam demo > renders duration correctly 1`] = `
             <span
               class="ant-tag ant-tag-filled css-var-root"
             >
-              12s
+              12s 
               <!---->
               <!---->
               <!---->
@@ -704,7 +704,7 @@ exports[`border-beam demo > renders size correctly 1`] = `
             <span
               class="ant-tag ant-tag-filled css-var-root"
             >
-              100px
+              100px 
               <!---->
               <!---->
               <!---->
@@ -757,7 +757,7 @@ exports[`border-beam demo > renders size correctly 1`] = `
             <span
               class="ant-tag ant-tag-filled css-var-root"
             >
-              56px
+              56px 
               <!---->
               <!---->
               <!---->
@@ -812,7 +812,7 @@ exports[`border-beam demo > renders size correctly 1`] = `
             <span
               class="ant-tag ant-tag-filled css-var-root"
             >
-              160px
+              160px 
               <!---->
               <!---->
               <!---->
