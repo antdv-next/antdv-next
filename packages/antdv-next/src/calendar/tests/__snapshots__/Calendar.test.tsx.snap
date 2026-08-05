@@ -166,17 +166,7 @@ exports[`calendar > rtl render > component should be rendered correctly in RTL d
       >
         <!---->
         <div
-          cellrender="(date, info) => mergedCellRender(date, {
-		...info,
-		range: range?.value
-	})"
           class="ant-picker-body"
-          generateconfig="[object Object]"
-          locale="[object Object]"
-          pickervalue="Mon, 18 Sep 2017 03:30:07 GMT"
-          prefixcls="ant-picker"
-          value="Mon, 18 Sep 2017 03:30:07 GMT"
-          values="Mon, 18 Sep 2017 03:30:07 GMT"
         >
           <table
             class="ant-picker-content"
@@ -1056,10 +1046,7 @@ exports[`calendar > should match default snapshot 1`] = `
   <div class="ant-picker-panel">
     <div class="ant-picker-date-panel">
       <!---->
-      <div class="ant-picker-body" prefixcls="ant-picker" pickervalue="Wed, 15 Jan 2025 00:00:00 GMT" locale="[object Object]" generateconfig="[object Object]" values="Wed, 15 Jan 2025 00:00:00 GMT" cellrender="(date, info) => mergedCellRender(date, {
-		...info,
-		range: range?.value
-	})" value="Wed, 15 Jan 2025 00:00:00 GMT">
+      <div class="ant-picker-body">
         <table class="ant-picker-content">
           <thead>
             <tr>
@@ -1459,10 +1446,7 @@ exports[`calendar > should match mini snapshot 1`] = `
   <div class="ant-picker-panel">
     <div class="ant-picker-date-panel">
       <!---->
-      <div class="ant-picker-body" prefixcls="ant-picker" pickervalue="Wed, 15 Jan 2025 00:00:00 GMT" locale="[object Object]" generateconfig="[object Object]" values="Wed, 15 Jan 2025 00:00:00 GMT" cellrender="(date, info) => mergedCellRender(date, {
-		...info,
-		range: range?.value
-	})" value="Wed, 15 Jan 2025 00:00:00 GMT">
+      <div class="ant-picker-body">
         <table class="ant-picker-content">
           <thead>
             <tr>
