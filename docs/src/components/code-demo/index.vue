@@ -1,11 +1,12 @@
 <script setup lang="ts">
+import type { DemoModule, DemoSourceData } from 'virtual:demos'
 import type { CSSProperties } from 'vue'
 import { CheckOutlined, CodeOutlined, CopyOutlined, EditOutlined, ThunderboltOutlined } from '@antdv-next/icons'
 import { aquaBlue, atomDark } from '@codesandbox/sandpack-themes'
 import { useClipboard, useDebounceFn } from '@vueuse/core'
 import { SandpackProvider } from 'sandpack-vue3'
 import demos from 'virtual:demos'
-import { computed, defineAsyncComponent, markRaw, shallowRef, watch } from 'vue'
+import { computed, defineAsyncComponent, markRaw, onBeforeUnmount, shallowRef, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import CodeEditorBridge from '@/components/code-demo/code-editor-bridge.vue'
 import ExpandIcon from '@/components/code-demo/expand-icon.vue'
@@ -20,18 +21,6 @@ import antdvPkg from '../../../../packages/antdv-next/package.json'
 import { openStackBlitz } from './utils/stackblitz'
 
 type DemoCodeType = 'ts' | 'js'
-
-interface DemoMeta {
-  component?: any
-  locales?: Record<string, {
-    html?: string
-    title?: string
-  }>
-  source?: string
-  jsSource?: string
-  html?: string
-  jsHtml?: string
-}
 
 defineOptions({
   name: 'Demo',
@@ -48,7 +37,63 @@ const { src, compact, background, simplify, debug } = defineProps<{
 
 // Debug demos are visible while developing but stripped from the production docs.
 const hidden = computed(() => Boolean(debug) && import.meta.env.PROD)
-const demo = computed<DemoMeta | undefined>(() => demos[src])
+const demo = computed<DemoModule | undefined>(() => demos[src])
+
+// 按需加载的源码数据
+const sourceData = shallowRef<DemoSourceData | null>(null)
+const sourceLoading = shallowRef(false)
+const sourceLoadError = shallowRef<Error | null>(null)
+let sourceLoadPromise: Promise<void> | null = null
+let sourceAbortController: AbortController | null = null
+// HMR 发生在面板收起期间时标记过期，下次展开时重新加载
+let sourceStale = false
+
+function releaseSource() {
+  sourceAbortController?.abort()
+  sourceAbortController = null
+  sourceData.value = null
+  sourceLoadError.value = null
+  sourceLoadPromise = null
+  sourceLoading.value = false
+  sourceStale = false
+}
+
+async function ensureSourceLoaded() {
+  // 如果源码已过期（HMR 发生在收起期间），先释放旧数据
+  if (sourceStale) releaseSource()
+  if (sourceData.value || !demo.value) return
+  if (sourceLoadPromise) return sourceLoadPromise
+
+  const currentDemo = demo.value
+  const abortController = new AbortController()
+  sourceAbortController = abortController
+  sourceLoading.value = true
+  sourceLoadError.value = null
+
+  const request = currentDemo
+    .loadSource(abortController.signal)
+    .then(data => {
+      if (demo.value === currentDemo && !abortController.signal.aborted)
+        sourceData.value = data
+    })
+    .catch(error => {
+      if (abortController.signal.aborted) return
+      const loadError =
+        error instanceof Error ? error : new Error(String(error))
+      if (demo.value === currentDemo) sourceLoadError.value = loadError
+      throw loadError
+    })
+    .finally(() => {
+      if (sourceLoadPromise === request) {
+        sourceAbortController = null
+        sourceLoadPromise = null
+        sourceLoading.value = false
+      }
+    })
+
+  sourceLoadPromise = request
+  return request
+}
 const route = useRoute()
 const router = useRouter()
 const appStore = useAppStore()
@@ -64,7 +109,7 @@ const codeType = computed<DemoCodeType>({
 })
 
 const hasJsSource = computed(() => {
-  const jsSource = demo.value?.jsSource?.trim()
+  const jsSource = sourceData.value?.jsSource?.trim()
   return Boolean(jsSource)
 })
 
@@ -81,8 +126,8 @@ const activeCodeType = computed<DemoCodeType>({
 
 const activeSourceCode = computed(() => {
   if (activeCodeType.value === 'js')
-    return demo.value?.jsSource ?? demo.value?.source ?? ''
-  return demo.value?.source ?? ''
+    return sourceData.value?.jsSource ?? sourceData.value?.source ?? ''
+  return sourceData.value?.source ?? ''
 })
 
 const description = computed(() => {
@@ -105,12 +150,42 @@ const editorBridgeRef = shallowRef<{ resetCode: (code: string) => void }>()
 function handleShowCode() {
   showCode.value = !showCode.value
   if (!showCode.value) {
-    // Revert to original when code collapsed
+    // 收起时只重置实时编辑状态，保留源码以便快速重新展开
     liveComponent.value = null
     compileError.value = null
     currentCode.value = null
   }
+  else {
+    // 展开时按需加载源码（ensureSourceLoaded 内部会处理过期重载）
+    void ensureSourceLoaded().catch(() => {})
+  }
 }
+
+// 切换 demo 时释放旧源码
+watch(demo, releaseSource, { flush: 'sync' })
+
+// 展开代码面板时触发加载（收起时不释放，保留源码）
+watch([showCode, demo], ([visible, currentDemo]) => {
+  if (!visible) return
+  if (currentDemo) void ensureSourceLoaded().catch(() => {})
+})
+
+// HMR 触发的 sourceVersion 变化：展开时立即重载，收起时标记过期
+watch(
+  () => demo.value?.sourceVersion,
+  (version, previousVersion) => {
+    if (version === previousVersion) return
+    if (showCode.value) {
+      releaseSource()
+      void ensureSourceLoaded().catch(() => {})
+    }
+    else if (sourceData.value) {
+      sourceStale = true
+    }
+  },
+)
+
+onBeforeUnmount(releaseSource)
 
 // Reset live component and editor code when tab changes
 watch(activeCodeType, () => {
@@ -155,7 +230,14 @@ function handleScroll(e: Event) {
 
 const titleRef = shallowRef<HTMLElement>()
 
-function handleStackBlitz() {
+async function handleStackBlitz() {
+  try {
+    await ensureSourceLoaded()
+  }
+  catch {
+    showCode.value = true
+    return
+  }
   if (activeSourceCode.value) {
     const title = `${titleRef.value?.textContent || 'Antdv Next Demo'} - antdv-next@${antdvPkg.version}`
     openStackBlitz(title, activeSourceCode.value)
@@ -197,7 +279,14 @@ const cls = computed(() => {
   return cls
 })
 
-function handleOpenPlayground() {
+async function handleOpenPlayground() {
+  try {
+    await ensureSourceLoaded()
+  }
+  catch {
+    showCode.value = true
+    return
+  }
   const url = loadPlaygroundUrl(activeSourceCode.value ?? '')
   if (url) {
     window.open(url, '_blank', 'noopener,noreferrer')
@@ -267,6 +356,16 @@ function handleOpenPlayground() {
       </section>
       <!-- Code editor (only when expanded) -->
       <template v-if="showCode">
+        <!-- 加载中 -->
+        <div v-if="sourceLoading" class="ant-doc-demo-box-code-loading">
+          <a-spin />
+        </div>
+        <!-- 加载失败 -->
+        <div v-else-if="sourceLoadError" class="ant-doc-demo-box-code">
+          <a-alert type="error" :message="t('ui.codeDemo.action.loadError')" />
+        </div>
+        <!-- 正常展示 -->
+        <template v-else>
         <div class="ant-doc-demo-box-code-tabs">
           <a-tabs
             v-model:active-key="activeCodeType"
@@ -301,6 +400,7 @@ function handleOpenPlayground() {
           <ExpandIcon :expanded="showCode" />
           <span>{{ t('ui.codeDemo.action.expandedCode') }}</span>
         </div>
+        </template>
       </template>
     </template>
   </section>
@@ -424,6 +524,13 @@ function handleOpenPlayground() {
     &:hover {
       color: var(--ant-color-primary);
     }
+  }
+
+  &-code-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
   }
 
   &-code {

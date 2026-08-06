@@ -28,6 +28,7 @@ export default {
       stackblitz: 'Open in StackBlitz',
       copied: 'Copied Success',
       copy: 'Copy Code',
+      loadError: 'Failed to load source code',
     },
   },
 
