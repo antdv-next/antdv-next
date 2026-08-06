@@ -30,6 +30,7 @@ import type {
   InputConfig,
   InputNumberConfig,
   InputSearchConfig,
+  ListyConfig,
   MasonryConfig,
   MentionsConfig,
   MenuConfig,
@@ -136,6 +137,7 @@ export interface ConfigProviderProps {
   image?: ImageConfig
   layout?: ComponentStyleConfig
   // list?: ListConfig;
+  listy?: ListyConfig
   modal?: ModalConfig
   progress?: ProgressConfig
   result?: ResultConfig

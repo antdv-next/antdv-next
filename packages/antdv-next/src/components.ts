@@ -106,6 +106,14 @@ export type {
 } from './input-number'
 export { default as Layout, LayoutContent, LayoutFooter, LayoutHeader, LayoutSider, useLayoutSider } from './layout'
 export type { LayoutProps } from './layout'
+export { default as Listy } from './listy'
+export type {
+  ListyClassNames,
+  ListyProps,
+  ListyRef,
+  ListyScrollToConfig,
+  ListyStyles,
+} from './listy'
 export { default as Masonry } from './masonry'
 export type { MasonryEmits, MasonryProps, MasonryRef, MasonrySlots } from './masonry'
 export { default as Mentions, Option as MentionsOption } from './mentions'

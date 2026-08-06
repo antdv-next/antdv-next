@@ -214,6 +214,7 @@
     "@v-c/image": "catalog:vc",
     "@v-c/input": "catalog:vc",
     "@v-c/input-number": "catalog:vc",
+    "@v-c/listy": "catalog:vc",
     "@v-c/mentions": "catalog:vc",
     "@v-c/menu": "catalog:vc",
     "@v-c/mutate-observer": "catalog:vc",

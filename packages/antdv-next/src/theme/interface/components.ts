@@ -29,6 +29,7 @@ import type { ComponentToken as ImageComponentToken } from '../../image/style'
 import type { ComponentToken as InputNumberComponentToken } from '../../input-number/style'
 import type { ComponentToken as InputComponentToken } from '../../input/style'
 import type { ComponentToken as LayoutComponentToken } from '../../layout/style'
+import type { ComponentToken as ListyComponentToken } from '../../listy/style'
 import type { ComponentToken as MasonryComponentToken } from '../../masonry/style'
 import type { ComponentToken as MentionsComponentToken } from '../../mentions/style'
 import type { ComponentToken as MenuComponentToken } from '../../menu/style'
@@ -95,6 +96,7 @@ export interface ComponentTokenMap {
   Input?: InputComponentToken
   InputNumber?: InputNumberComponentToken
   Layout?: LayoutComponentToken
+  Listy?: ListyComponentToken
   Mentions?: MentionsComponentToken
   Notification?: NotificationComponentToken
   Pagination?: PaginationComponentToken
