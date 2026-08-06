@@ -29,7 +29,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAA
 
 ## API
 
-通用属性参考：[通用属性](/docs/react/common-props)
+通用属性参考：[通用属性](/docs/vue/common-props)
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |

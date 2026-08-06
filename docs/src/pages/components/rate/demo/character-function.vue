@@ -1,9 +1,9 @@
 <docs lang="zh-CN">
-可以使用 `(RateProps) => ReactNode` 的方式自定义每一个字符。
+可以使用 `(RateProps) => VueNode` 的方式自定义每一个字符。
 </docs>
 
 <docs lang="en-US">
-Can customize each character using `(RateProps) => ReactNode`.
+Can customize each character using `(RateProps) => VueNode`.
 </docs>
 
 <script lang="ts" setup>

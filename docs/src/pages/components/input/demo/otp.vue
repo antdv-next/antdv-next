@@ -44,7 +44,7 @@ function onInput(value: string) {
     <a-input-otp mask="🔒" @change="onChange" @input="onInput" />
 
     <a-typography-title :level="5">
-      With custom ReactNode separator
+      With custom VueNode separator
     </a-typography-title>
     <a-input-otp @change="onChange" @input="onInput">
       <template #separator>
