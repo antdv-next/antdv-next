@@ -554,10 +554,11 @@ exports[`border-beam demo > renders hover correctly 1`] = `
 
 exports[`border-beam demo > renders line-width correctly 1`] = `
 <div
-  style="width: 320px;"
+  style="width: 360px;"
 >
   <div
     class="ant-card ant-card-bordered css-var-root"
+    style="border-width: 2px;"
   >
     <div
       class="ant-card-head"

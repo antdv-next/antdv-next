@@ -28,7 +28,18 @@ export default function useBorderSize(domNode: Ref<HTMLElement | SVGElement | nu
         borderInfo.value = DEFAULT_BORDER_INFO
         return
       }
-      const { borderTopWidth, borderRightWidth, borderBottomWidth, borderLeftWidth, borderRadius } = getComputedStyle(node)
+      // `getComputedStyle` may throw in non-browser environments (e.g. jsdom
+      // fails to fold border longhands back into a `var()`-based shorthand).
+      // Fall back to the default so the beam never breaks the host tree.
+      let computedStyle: CSSStyleDeclaration
+      try {
+        computedStyle = getComputedStyle(node)
+      }
+      catch {
+        borderInfo.value = DEFAULT_BORDER_INFO
+        return
+      }
+      const { borderTopWidth, borderRightWidth, borderBottomWidth, borderLeftWidth, borderRadius } = computedStyle
       borderInfo.value = {
         borderWidth: [
           parseBorderWidth(borderTopWidth),
