@@ -24,9 +24,13 @@ tag: 1.3.0
 <demo-group>
   <demo src="./demo/basic.vue">基础用法</demo>
   <demo src="./demo/hover.vue">鼠标悬浮时显示</demo>
+  <demo src="./demo/custom-container.vue">自定义容器</demo>
   <demo src="./demo/customized-color.vue">渐变色</demo>
+  <demo src="./demo/duration.vue">动画时长</demo>
+  <demo src="./demo/size.vue">尺寸</demo>
+  <demo src="./demo/line-width.vue">线宽</demo>
   <demo src="./demo/non-uniform-radius.vue" debug>不规则圆角</demo>
-  <demo src="./demo/component-token.vue" debug>线宽</demo>
+  <demo src="./demo/component-token.vue" debug>组件 Token</demo>
 </demo-group>
 
 ## API
@@ -38,7 +42,10 @@ tag: 1.3.0
 | 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | color | 流光颜色配置，支持单色字符串或渐变停靠点数组。`percent` 使用 `0 ~ 100` 的输入区间，组件会在内部为尾部透明过渡预留空间 | `string \| { color: string, percent: number }[]` | - | - | × |
+| duration | 流光完成一圈动画的时间，单位秒 | number | 6 | - | × |
+| lineWidth | 流光线宽，数字类型按像素处理 | `number \| string` | `1px` | - | × |
 | outset | 流光层相对容器边缘的外扩距离，遇到裁剪容器时可设为 `0` | `number \| string` | - | - | × |
+| size | 流光可见段的尺寸，数字类型按像素处理 | `number \| string` | 100 | - | × |
 
 ### 插槽 {#slots}
 

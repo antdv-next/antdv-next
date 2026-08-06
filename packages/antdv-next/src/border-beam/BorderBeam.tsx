@@ -1,14 +1,15 @@
 import type { App, CSSProperties, SlotsType, VNode } from 'vue'
 import type { VueNode } from '../_util/type'
 import type { BorderBeamColor } from './util'
+import { unit } from '@antdv-next/cssinjs'
 import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { unrefElement } from '@vueuse/core'
 import { cloneVNode, computed, defineComponent, isVNode, shallowRef, Teleport } from 'vue'
-import isNonNullable from '../_util/isNonNullable.ts'
+import { isNonNullable, isNumber } from '../_util/is'
 import { useComponentBaseConfig } from '../config-provider/context'
 import { genCssVar } from '../theme/util/genStyleUtils'
-import useBorderSize from './hooks/useBorderSize.ts'
+import useBorderSize from './hooks/useBorderSize'
 import useStyle from './style'
 import { getBorderBeamGradient } from './util'
 
@@ -18,7 +19,10 @@ export interface BorderBeamProps {
   prefixCls?: string
   rootClass?: string
   color?: BorderBeamColor
+  duration?: number
+  lineWidth?: number | string
   outset?: number | string
+  size?: number | string
 }
 
 export interface BorderBeamSlots {
@@ -66,11 +70,15 @@ const BorderBeam = defineComponent<
     }
 
     return () => {
+      const { duration, lineWidth, size } = props
       const children = filterEmpty(slots.default?.() ?? [])
       const beamStyle: CSSProperties & Record<`--${string}`, string> = {
         ...(contextStyle?.value ?? {}),
         ...((attrs as any).style ?? {}),
         ...(beamGradient.value && { [varName.value('beam-gradient')]: beamGradient.value }),
+        ...(isNumber(duration) && duration > 0 && { [varName.value('duration')]: `${duration}s` }),
+        ...(isNonNullable(lineWidth) && { [varName.value('line-width')]: unit(lineWidth) }),
+        ...(isNonNullable(size) && { [varName.value('size')]: unit(size) }),
         [varName.value('inset-offset')]: insetOffset.value,
         [varName.value('border-radius')]: borderInfo.value.borderRadius,
       }
