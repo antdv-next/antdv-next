@@ -112,7 +112,7 @@ The sidebar.
 | reverseArrow | Reverse direction of arrow, for a sider that expands from the right | boolean | false |  |
 | styles | Semantic structure inline style (`root`, `body`) for the Sider, supports object or function | Record<string, CSSProperties> \| (info: { props }) => Record<string, CSSProperties> | - | 1.4.0 |
 | theme | Color theme of the sidebar | `light` \| `dark` | `dark` |  |
-| trigger | Specify the customized trigger, set to null to hide the trigger | ReactNode | - |  |
+| trigger | Specify the customized trigger, set to null to hide the trigger | VueNode | - |  |
 | width | Width of the sidebar | number \| string | 200 |  |
 | zeroWidthTriggerStyle | To customize the styles of the special trigger that appears when `collapsedWidth` is 0 | object | - |  |
 

@@ -111,7 +111,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAA
 | reverseArrow | 翻转折叠提示箭头的方向，当 Sider 在右边时可以使用 | boolean | false |  |
 | styles | 用于自定义 Sider 组件内部各语义化结构（`root`、`body`）的行内 style，支持对象或函数 | Record<string, CSSProperties> \| (info: { props }) => Record<string, CSSProperties> | - | 1.4.0 |
 | theme | 主题颜色 | `light` \| `dark` | `dark` |  |
-| trigger | 自定义 trigger，设置为 null 时隐藏 trigger | ReactNode | - |  |
+| trigger | 自定义 trigger，设置为 null 时隐藏 trigger | VueNode | - |  |
 | width | 宽度 | number \| string | 200 |  |
 | zeroWidthTriggerStyle | 指定当 `collapsedWidth` 为 0 时出现的特殊 trigger 的样式 | object | - |  |
 
