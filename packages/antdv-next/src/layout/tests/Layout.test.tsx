@@ -257,9 +257,27 @@ describe('layout', () => {
     })
 
     describe('collapsible', () => {
-      it('should not render trigger without trigger slot', () => {
+      it('should render default trigger without custom trigger', () => {
         const wrapper = mount(() => (
           <Layout><LayoutSider collapsible>Sider</LayoutSider></Layout>
+        ))
+        expect(wrapper.find('.ant-layout-sider-trigger').exists()).toBe(true)
+        expect(wrapper.find('.ant-layout-sider-has-trigger').exists()).toBe(true)
+      })
+
+      it('should render trigger with trigger prop', () => {
+        const wrapper = mount(() => (
+          <Layout>
+            <LayoutSider collapsible trigger={<span class="my-trigger-prop">T</span>}>Sider</LayoutSider>
+          </Layout>
+        ))
+        expect(wrapper.find('.ant-layout-sider-trigger').exists()).toBe(true)
+        expect(wrapper.find('.my-trigger-prop').exists()).toBe(true)
+      })
+
+      it('should hide trigger when trigger prop is null', () => {
+        const wrapper = mount(() => (
+          <Layout><LayoutSider collapsible trigger={null}>Sider</LayoutSider></Layout>
         ))
         expect(wrapper.find('.ant-layout-sider-trigger').exists()).toBe(false)
         expect(wrapper.find('.ant-layout-sider-has-trigger').exists()).toBe(false)
