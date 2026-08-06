@@ -28,6 +28,7 @@ export default {
       stackblitz: '在 StackBlitz 中打开',
       copied: '复制成功',
       copy: '复制代码',
+      loadError: '源码加载失败',
     },
   },
 
