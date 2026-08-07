@@ -54,5 +54,5 @@ export default function useMergedPickerSemantic<P extends AnyObject = AnyObject>
     }
   })
 
-  return [filledClassNames, filledStyles] as unknown as RequiredSemanticPicker
+  return [filledClassNames, filledStyles] as const as unknown as RequiredSemanticPicker
 }

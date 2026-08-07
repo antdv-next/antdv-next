@@ -261,6 +261,24 @@ describe('alert', () => {
     expect(wrapper.find('[aria-label="Close"]').exists()).toBe(true)
   })
 
+  it('should show close button when closable is configured by object only', async () => {
+    const onClose = vi.fn()
+    const wrapper = mount(() => (
+      <Alert
+        title="Warning Text"
+        type="warning"
+        closable={{ 'aria-label': 'Dismiss' }}
+        onClose={onClose}
+      />
+    ))
+
+    const closeButton = wrapper.find('[aria-label="Dismiss"]')
+    expect(closeButton.exists()).toBe(true)
+
+    await closeButton.trigger('click')
+    expect(onClose).toHaveBeenCalledTimes(1)
+  })
+
   it('close button should be support custom icon by closable', async () => {
     const closable = ref<{ closeIcon?: string } | undefined>(undefined)
     const wrapper = mount(() => <Alert closable={closable.value} />)

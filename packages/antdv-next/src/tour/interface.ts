@@ -64,7 +64,7 @@ export interface TourProps extends ComponentBaseProps, Omit<
   prefixCls?: string
   current?: number
   indicatorsRender?: (current: number, total: number) => any
-  actionsRender?: TourStepProps['actionsRender']
+  actionsRender?: (originNode: any, info: { current: number, total: number }) => any
   // default type, affects the background color and text color
   type?: 'default' | 'primary'
   classes?: TourClassNamesType
@@ -106,8 +106,6 @@ export interface TourStepProps extends Omit<VcTourStepProps, 'className'> {
     class?: string
     style?: CSSProperties
   }
-  indicatorsRender?: (current: number, total: number) => any
-  actionsRender?: (originNode: any, info: { current: number, total: number }) => any
   // default type, affects the background color and text color
   type?: 'default' | 'primary'
   classes?: SemanticClassNames<TourSemanticName>

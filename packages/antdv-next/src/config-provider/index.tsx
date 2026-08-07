@@ -50,6 +50,7 @@ const PASSED_PROPS: Exclude<
   'treeSelect',
   'button',
   'alert',
+  'app',
   'cascader',
   'borderBeam',
   'transformCellText',

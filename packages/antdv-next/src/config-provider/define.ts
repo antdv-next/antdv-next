@@ -119,6 +119,7 @@ export interface ConfigProviderProps {
   theme?: ThemeConfig
   warning?: WarningContextProps
   alert?: AlertConfig
+  app?: ComponentStyleConfig
   anchor?: AnchorStyleConfig
   button?: ButtonConfig
   calendar?: CalendarConfig

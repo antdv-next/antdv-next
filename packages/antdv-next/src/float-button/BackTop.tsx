@@ -122,9 +122,10 @@ const BackTop = defineComponent<
     const transitionProps = computed(() => getTransitionProps(`${rootPrefixCls.value}-fade`))
 
     const scrollToTop = (e: MouseEvent) => {
+      const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')
       scrollTo(0, {
         getContainer: (target.value || getDefaultTarget) as any,
-        duration: duration.value ?? 450,
+        duration: prefersReducedMotion?.matches ? 0 : duration.value ?? 450,
       })
       emit('click', e)
     }

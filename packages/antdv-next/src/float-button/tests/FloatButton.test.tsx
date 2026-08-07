@@ -483,6 +483,24 @@ describe('backTop', () => {
     expect(onClick).toHaveBeenCalled()
   })
 
+  it('should scroll to top immediately when reduced motion is enabled', async () => {
+    vi.spyOn(window, 'matchMedia').mockReturnValueOnce({ matches: true } as MediaQueryList)
+    const scrollToSpy = vi.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
+      window.scrollY = y
+      window.pageYOffset = y
+      document.documentElement.scrollTop = y
+    })
+    window.scrollTo(0, 400)
+
+    const wrapper = mount(BackTop, {
+      props: { visibilityHeight: 0 },
+    })
+    await wrapper.find('.ant-float-btn').trigger('click')
+
+    expect(document.documentElement.scrollTop).toBe(0)
+    scrollToSpy.mockRestore()
+  })
+
   it('should support content via default slot', () => {
     const wrapper = mount(BackTop, {
       props: { visibilityHeight: 0 },

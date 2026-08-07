@@ -282,6 +282,28 @@ describe('checkboxGroup', () => {
     expect(items![0]!.text()).toBe('1')
   })
 
+  it('should ignore options with nullish values', async () => {
+    const onChange = vi.fn()
+    const wrapper = mount(CheckboxGroup, {
+      props: {
+        options: [
+          { label: 'undefined', value: undefined },
+          { label: 'null', value: null },
+          { label: 'valid', value: 0 },
+        ],
+        onChange,
+      },
+    })
+
+    const items = wrapper.findAll('.ant-checkbox-wrapper')
+    expect(items).toHaveLength(1)
+    expect(items[0]?.text()).toBe('valid')
+
+    await wrapper.find('input').trigger('change')
+    await nextTick()
+    expect(onChange).toHaveBeenCalledWith([0])
+  })
+
   it('should support value prop', () => {
     const wrapper = mount(CheckboxGroup, {
       props: { options, value: ['Apple'] },

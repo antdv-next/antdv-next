@@ -76,15 +76,19 @@ const CheckboxGroup = defineComponent<
       },
     )
     const memoizedOptions = computed(() => {
-      return (props?.options ?? []).map((option) => {
-        if (typeof option === 'string' || typeof option === 'number') {
-          return {
-            label: option,
-            value: option,
+      return (props?.options ?? [])
+        .map((option) => {
+          if (typeof option === 'string' || typeof option === 'number') {
+            return {
+              label: option,
+              value: option,
+            }
           }
-        }
-        return option
-      })
+          return option
+        })
+        .filter((item): item is CheckboxOptionType =>
+          item !== null && item !== undefined && item.value !== null && item.value !== undefined,
+        )
     })
 
     const cancelValue = (val: any) => {
@@ -133,13 +137,13 @@ const CheckboxGroup = defineComponent<
 
     useGroupContextProvider(memoizedContext)
     return () => {
-      const { options = [], rootClass, role } = props
+      const { rootClass, role } = props
       const restProps = omit(props, ['options', 'rootClass', 'defaultValue', 'prefixCls'])
       const children = slots?.default?.()
       const { restAttrs, className, style } = getAttrStyleAndClass(attrs)
 
       const labelRender = slots?.labelRender ?? props?.labelRender
-      const childrenNode = options.length
+      const childrenNode = memoizedOptions.value.length
         ? memoizedOptions.value.map((option, index) => {
             const _label = labelRender ? labelRender({ item: option, index }) : option.label
             return (
