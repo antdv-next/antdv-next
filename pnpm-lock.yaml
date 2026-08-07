@@ -399,8 +399,8 @@ catalogs:
       specifier: ^1.0.1
       version: 1.0.1
     '@v-c/segmented':
-      specifier: ^1.0.3
-      version: 1.0.3
+      specifier: ^1.0.4
+      version: 1.0.4
     '@v-c/select':
       specifier: ^1.2.0
       version: 1.2.0
@@ -417,7 +417,7 @@ catalogs:
       specifier: ^1.0.1
       version: 1.0.1
     '@v-c/table':
-      specifier: ^1.1.8
+      specifier: ^1.1.9
       version: 1.1.8
     '@v-c/tabs':
       specifier: ^1.3.0
@@ -886,7 +886,7 @@ importers:
         version: 1.1.3(vue@3.5.40(typescript@5.9.3))
       '@v-c/segmented':
         specifier: catalog:vc
-        version: 1.0.3(vue@3.5.40(typescript@5.9.3))
+        version: 1.0.4(vue@3.5.40(typescript@5.9.3))
       '@v-c/select':
         specifier: catalog:vc
         version: 1.2.0(vue@3.5.40(typescript@5.9.3))
@@ -1889,6 +1889,13 @@ packages:
 
   '@napi-rs/wasm-runtime@1.2.1':
     resolution: {integrity: sha512-KjZdi8Q1wh89gsVmghvbrMgWl6ZWmRmHV6wjB7/g4Zf0dyO+hH3neZUtuDNPO00qq5YE5RITVWvrIZKRaAmzGQ==}
+    engines: {node: ^20.19.0 || ^22.13.0 || >=23.5.0}
+    peerDependencies:
+      '@emnapi/core': ^1.7.1 || ^2.0.0-alpha.3
+      '@emnapi/runtime': ^1.7.1 || ^2.0.0-alpha.3
+
+  '@napi-rs/wasm-runtime@1.2.2':
+    resolution: {integrity: sha512-JfB4kuJQjaoHuCTseIINHtHWeJnvgEcxjwA5t/Y00ZgaOO1Crz3fjT/p8kT28zA/Caz7oiUMn3d6H2yOVCVwuw==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=23.5.0}
     peerDependencies:
       '@emnapi/core': ^1.7.1 || ^2.0.0-alpha.3
@@ -3004,24 +3011,6 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
-  '@v-c/picker@1.3.0':
-    resolution: {integrity: sha512-Qn6miglyloid1YKQ+MtlMdPGAiA6JGtPq39IM9BFlf/Vl2pksOcXFqefK/LZmZV9NRXXr8Cr4Iigt2LrtHomWQ==}
-    peerDependencies:
-      date-fns: '>= 2.x'
-      dayjs: '>= 1.x'
-      luxon: '>= 3.x'
-      moment: '>= 2.x'
-      vue: ^3.0.0
-    peerDependenciesMeta:
-      date-fns:
-        optional: true
-      dayjs:
-        optional: true
-      luxon:
-        optional: true
-      moment:
-        optional: true
-
   '@v-c/picker@1.3.2':
     resolution: {integrity: sha512-XY9+cXmHBqPtyf7ks4lvc7664/vM5XybbCyeVtIm1Ukrx+0hnVgjnsjdfDN7qJLmjsye6Q/G0pE9ROCPKw7oMw==}
     peerDependencies:
@@ -3068,8 +3057,8 @@ packages:
   '@v-c/resolve-types@0.0.1':
     resolution: {integrity: sha512-M9ETzAuDE5ExNeYnrV5DGMMKpEqr3WbFEZQ747tpraXWe/gzJ+CzG3DNtauhvbneE33+e3Mmz5EgZt+uAL6Wog==}
 
-  '@v-c/segmented@1.0.3':
-    resolution: {integrity: sha512-+XHRu0Oou6FSAQUjIPnEQLjQUIDhMYQ4eUh8nRpg/S5BCju32/bh8ycmyqrGpQ2z7o+s2ZjKS5vy2b81Lh6xUw==}
+  '@v-c/segmented@1.0.4':
+    resolution: {integrity: sha512-QNEHEvT37gFlRaNuoO4IcHJvj2xwz+r8Nx/f7x+eLEoVectYn1cJN0b1uzpFeGWPNPUbz7u5TOLUR6VOWzr1qQ==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -3100,6 +3089,11 @@ packages:
 
   '@v-c/table@1.1.8':
     resolution: {integrity: sha512-F/z+muG/aQ4+qZgVJbxp6DxdkZzje0iXKnAoiBpRURo90xr1xwv/eDIH6COvgTWsBPhT8l56t2ZiLAQRHIi4PA==}
+    peerDependencies:
+      vue: ^3.0.0
+
+  '@v-c/table@1.1.9':
+    resolution: {integrity: sha512-W70JIN8DN5yequ1wLlIpDu8ghj1JePXNHmSoYingW4kCW/Vs43NYQj0qkirqvrFK6ie9GhbXtgm0CneqFNmkVg==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -3663,8 +3657,8 @@ packages:
     resolution: {integrity: sha512-kLpxurY4Z4r9sgMsyG0Z9uzsBlgiU/EFKhj/h91/8yHu0edo7XuixOIH3VcJ8kkxs6/jPzoI6U9Vj3WqbMQ94g==}
     engines: {node: 18 || 20 || >=22}
 
-  brace-expansion@5.0.8:
-    resolution: {integrity: sha512-JZyDyq3D4AUifKTPOB7DELf6XsB3WdPuNxCtob1vFXPsSXhdAiHBWJ/tJ8HAc9aH84BK+5JFZLNkJKx3G9kzQg==}
+  brace-expansion@5.0.9:
+    resolution: {integrity: sha512-ScQ4IuvIEF1TMlP7Zt+vjJ//9zlPb2SDcxWxM3bk8s6t6GGdJ7KO1dCcTidOPJKePW30LE/2cT7wCyPho9/Wxg==}
     engines: {node: 20 || >=22}
 
   braces@3.0.3:
@@ -7858,6 +7852,13 @@ snapshots:
       '@tybys/wasm-util': 0.10.3
     optional: true
 
+  '@napi-rs/wasm-runtime@1.2.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2)':
+    dependencies:
+      '@emnapi/core': 1.11.2
+      '@emnapi/runtime': 1.11.2
+      '@tybys/wasm-util': 0.10.3
+    optional: true
+
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
       '@nodelib/fs.stat': 2.0.5
@@ -8155,7 +8156,7 @@ snapshots:
 
   '@rolldown/binding-wasm32-wasi@1.0.0-rc.9(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2)':
     dependencies:
-      '@napi-rs/wasm-runtime': 1.2.1(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2)
+      '@napi-rs/wasm-runtime': 1.2.2(@emnapi/core@1.11.2)(@emnapi/runtime@1.11.2)
     transitivePeerDependencies:
       - '@emnapi/core'
       - '@emnapi/runtime'
@@ -8456,8 +8457,8 @@ snapshots:
 
   '@typescript-eslint/project-service@8.56.1(typescript@5.9.3)':
     dependencies:
-      '@typescript-eslint/tsconfig-utils': 8.57.1(typescript@5.9.3)
-      '@typescript-eslint/types': 8.57.1
+      '@typescript-eslint/tsconfig-utils': 8.56.1(typescript@5.9.3)
+      '@typescript-eslint/types': 8.56.1
       debug: 4.4.3
       typescript: 5.9.3
     transitivePeerDependencies:
@@ -8829,16 +8830,6 @@ snapshots:
       '@v-c/util': 1.1.0(vue@3.5.40(typescript@5.9.3))
       vue: 3.5.40(typescript@5.9.3)
 
-  '@v-c/picker@1.3.0(dayjs@1.11.21)(vue@3.5.40(typescript@5.9.3))':
-    dependencies:
-      '@v-c/overflow': 1.1.1(vue@3.5.40(typescript@5.9.3))
-      '@v-c/resize-observer': 1.1.3(vue@3.5.40(typescript@5.9.3))
-      '@v-c/trigger': 1.1.0(vue@3.5.40(typescript@5.9.3))
-      '@v-c/util': 1.1.0(vue@3.5.40(typescript@5.9.3))
-      vue: 3.5.40(typescript@5.9.3)
-    optionalDependencies:
-      dayjs: 1.11.21
-
   '@v-c/picker@1.3.2(dayjs@1.11.21)(vue@3.5.40(typescript@5.9.3))':
     dependencies:
       '@v-c/overflow': 1.1.1(vue@3.5.40(typescript@5.9.3))
@@ -8891,7 +8882,7 @@ snapshots:
       - '@emnapi/runtime'
       - typescript
 
-  '@v-c/segmented@1.0.3(vue@3.5.40(typescript@5.9.3))':
+  '@v-c/segmented@1.0.4(vue@3.5.40(typescript@5.9.3))':
     dependencies:
       '@v-c/util': 1.1.0(vue@3.5.40(typescript@5.9.3))
       vue: 3.5.40(typescript@5.9.3)
@@ -8926,6 +8917,13 @@ snapshots:
       vue: 3.5.40(typescript@5.9.3)
 
   '@v-c/table@1.1.8(vue@3.5.40(typescript@5.9.3))':
+    dependencies:
+      '@v-c/resize-observer': 1.1.3(vue@3.5.40(typescript@5.9.3))
+      '@v-c/util': 1.1.0(vue@3.5.40(typescript@5.9.3))
+      '@v-c/virtual-list': 1.1.0(vue@3.5.40(typescript@5.9.3))
+      vue: 3.5.40(typescript@5.9.3)
+
+  '@v-c/table@1.1.9(vue@3.5.40(typescript@5.9.3))':
     dependencies:
       '@v-c/resize-observer': 1.1.3(vue@3.5.40(typescript@5.9.3))
       '@v-c/util': 1.1.0(vue@3.5.40(typescript@5.9.3))
@@ -9448,18 +9446,18 @@ snapshots:
       '@v-c/mutate-observer': 1.0.2(vue@3.5.40(typescript@5.9.3))
       '@v-c/notification': 2.0.2(vue@3.5.40(typescript@5.9.3))
       '@v-c/pagination': 1.1.0(vue@3.5.40(typescript@5.9.3))
-      '@v-c/picker': 1.3.0(dayjs@1.11.21)(vue@3.5.40(typescript@5.9.3))
+      '@v-c/picker': 1.3.2(dayjs@1.11.21)(vue@3.5.40(typescript@5.9.3))
       '@v-c/progress': 1.0.1(vue@3.5.40(typescript@5.9.3))
       '@v-c/qrcode': 1.0.1(vue@3.5.40(typescript@5.9.3))
       '@v-c/rate': 1.0.1(vue@3.5.40(typescript@5.9.3))
       '@v-c/resize-observer': 1.1.3(vue@3.5.40(typescript@5.9.3))
-      '@v-c/segmented': 1.0.3(vue@3.5.40(typescript@5.9.3))
+      '@v-c/segmented': 1.0.4(vue@3.5.40(typescript@5.9.3))
       '@v-c/select': 1.2.0(vue@3.5.40(typescript@5.9.3))
       '@v-c/slick': 1.0.2(vue@3.5.40(typescript@5.9.3))
       '@v-c/slider': 1.1.0(vue@3.5.40(typescript@5.9.3))
       '@v-c/steps': 1.0.0(vue@3.5.40(typescript@5.9.3))
       '@v-c/switch': 1.0.1(vue@3.5.40(typescript@5.9.3))
-      '@v-c/table': 1.1.8(vue@3.5.40(typescript@5.9.3))
+      '@v-c/table': 1.1.9(vue@3.5.40(typescript@5.9.3))
       '@v-c/tabs': 1.3.0(vue@3.5.40(typescript@5.9.3))
       '@v-c/textarea': 1.1.0(vue@3.5.40(typescript@5.9.3))
       '@v-c/tooltip': 1.1.0(vue@3.5.40(typescript@5.9.3))
@@ -9575,7 +9573,7 @@ snapshots:
     dependencies:
       balanced-match: 4.0.4
 
-  brace-expansion@5.0.8:
+  brace-expansion@5.0.9:
     dependencies:
       balanced-match: 4.0.4
 
@@ -11613,7 +11611,7 @@ snapshots:
 
   minimatch@10.2.6:
     dependencies:
-      brace-expansion: 5.0.8
+      brace-expansion: 5.0.9
 
   minimatch@3.1.5:
     dependencies:
