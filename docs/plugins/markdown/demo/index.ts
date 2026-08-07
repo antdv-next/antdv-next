@@ -113,7 +113,8 @@ export function demoPlugin(): PluginOption {
 
   function getDevParsedDemo(filePath: string) {
     const currentTask = devDemoParseTasks.get(filePath)
-    if (currentTask) return currentTask
+    if (currentTask)
+      return currentTask
 
     const task = parseDemoFile(filePath, md).finally(() => {
       if (devDemoParseTasks.get(filePath) === task)
@@ -136,16 +137,17 @@ export function demoPlugin(): PluginOption {
       const sourcePath = `${base === '/' ? '' : base.replace(/\/$/, '')}${DEV_SOURCE_PATH}`
       server.middlewares.use(async (request, response, next) => {
         const url = new URL(request.url ?? '', 'http://vite.local')
-        if (url.pathname !== sourcePath) return next()
+        if (url.pathname !== sourcePath)
+          return next()
 
         const id = url.searchParams.get('id')
         const filePath = id ? path.resolve(root, `.${id}`) : ''
         const relativePath = filePath ? path.relative(root, filePath) : '..'
         if (
-          !id?.startsWith('/') ||
-          relativePath.startsWith('..') ||
-          path.isAbsolute(relativePath) ||
-          !isDemoFile(filePath, root, DEMO_GLOB)
+          !id?.startsWith('/')
+          || relativePath.startsWith('..')
+          || path.isAbsolute(relativePath)
+          || !isDemoFile(filePath, root, DEMO_GLOB)
         ) {
           response.statusCode = 400
           response.end('Invalid demo source path')
@@ -299,7 +301,8 @@ export default demoData
       }
     },
     async handleHotUpdate(ctx) {
-      if (!isDemoFile(ctx.file, ctx.server.config.root, DEMO_GLOB)) return
+      if (!isDemoFile(ctx.file, ctx.server.config.root, DEMO_GLOB))
+        return
 
       const normalizedFile = normalizePath(ctx.file)
 

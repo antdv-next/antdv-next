@@ -60,9 +60,12 @@ function releaseSource() {
 
 async function ensureSourceLoaded() {
   // 如果源码已过期（HMR 发生在收起期间），先释放旧数据
-  if (sourceStale) releaseSource()
-  if (sourceData.value || !demo.value) return
-  if (sourceLoadPromise) return sourceLoadPromise
+  if (sourceStale)
+    releaseSource()
+  if (sourceData.value || !demo.value)
+    return
+  if (sourceLoadPromise)
+    return sourceLoadPromise
 
   const currentDemo = demo.value
   const abortController = new AbortController()
@@ -72,15 +75,17 @@ async function ensureSourceLoaded() {
 
   const request = currentDemo
     .loadSource(abortController.signal)
-    .then(data => {
+    .then((data) => {
       if (demo.value === currentDemo && !abortController.signal.aborted)
         sourceData.value = data
     })
-    .catch(error => {
-      if (abortController.signal.aborted) return
-      const loadError =
-        error instanceof Error ? error : new Error(String(error))
-      if (demo.value === currentDemo) sourceLoadError.value = loadError
+    .catch((error) => {
+      if (abortController.signal.aborted)
+        return
+      const loadError
+        = error instanceof Error ? error : new Error(String(error))
+      if (demo.value === currentDemo)
+        sourceLoadError.value = loadError
       throw loadError
     })
     .finally(() => {
@@ -166,15 +171,18 @@ watch(demo, releaseSource, { flush: 'sync' })
 
 // 展开代码面板时触发加载（收起时不释放，保留源码）
 watch([showCode, demo], ([visible, currentDemo]) => {
-  if (!visible) return
-  if (currentDemo) void ensureSourceLoaded().catch(() => {})
+  if (!visible)
+    return
+  if (currentDemo)
+    void ensureSourceLoaded().catch(() => {})
 })
 
 // HMR 触发的 sourceVersion 变化：展开时立即重载，收起时标记过期
 watch(
   () => demo.value?.sourceVersion,
   (version, previousVersion) => {
-    if (version === previousVersion) return
+    if (version === previousVersion)
+      return
     if (showCode.value) {
       releaseSource()
       void ensureSourceLoaded().catch(() => {})
@@ -366,40 +374,40 @@ async function handleOpenPlayground() {
         </div>
         <!-- 正常展示 -->
         <template v-else>
-        <div class="ant-doc-demo-box-code-tabs">
-          <a-tabs
-            v-model:active-key="activeCodeType"
-            centered
-            size="small"
-          >
-            <a-tab-pane key="ts" :tab="t('ui.codeDemo.type.typescript')" />
-            <a-tab-pane key="js" :tab="t('ui.codeDemo.type.javascript')" />
-          </a-tabs>
-        </div>
-        <div class="ant-doc-demo-box-code">
-          <a-tooltip :title="t(`ui.codeDemo.action.${copied ? 'copied' : 'copy'}`)">
-            <div class="ant-doc-demo-box-code-copy" :class="copied ? 'ant-doc-demo-box-code-copied' : ''" @click="copy()">
-              <CopyOutlined v-if="!copied" />
-              <CheckOutlined v-else />
-            </div>
-          </a-tooltip>
-          <SandpackProvider
-            template="vite-vue-ts"
-            :files="sandpackFiles"
-            :theme="sandpackTheme"
-            :options="{ autorun: false }"
-          >
-            <CodeEditorBridge
-              ref="editorBridgeRef"
-              @update:code="handleCodeChange"
-            />
-          </SandpackProvider>
-        </div>
-        <!-- Collapse button at bottom -->
-        <div class="ant-doc-demo-box-collapse-btn" @click="handleShowCode">
-          <ExpandIcon :expanded="showCode" />
-          <span>{{ t('ui.codeDemo.action.expandedCode') }}</span>
-        </div>
+          <div class="ant-doc-demo-box-code-tabs">
+            <a-tabs
+              v-model:active-key="activeCodeType"
+              centered
+              size="small"
+            >
+              <a-tab-pane key="ts" :tab="t('ui.codeDemo.type.typescript')" />
+              <a-tab-pane key="js" :tab="t('ui.codeDemo.type.javascript')" />
+            </a-tabs>
+          </div>
+          <div class="ant-doc-demo-box-code">
+            <a-tooltip :title="t(`ui.codeDemo.action.${copied ? 'copied' : 'copy'}`)">
+              <div class="ant-doc-demo-box-code-copy" :class="copied ? 'ant-doc-demo-box-code-copied' : ''" @click="copy()">
+                <CopyOutlined v-if="!copied" />
+                <CheckOutlined v-else />
+              </div>
+            </a-tooltip>
+            <SandpackProvider
+              template="vite-vue-ts"
+              :files="sandpackFiles"
+              :theme="sandpackTheme"
+              :options="{ autorun: false }"
+            >
+              <CodeEditorBridge
+                ref="editorBridgeRef"
+                @update:code="handleCodeChange"
+              />
+            </SandpackProvider>
+          </div>
+          <!-- Collapse button at bottom -->
+          <div class="ant-doc-demo-box-collapse-btn" @click="handleShowCode">
+            <ExpandIcon :expanded="showCode" />
+            <span>{{ t('ui.codeDemo.action.expandedCode') }}</span>
+          </div>
         </template>
       </template>
     </template>
