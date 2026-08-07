@@ -135,4 +135,30 @@ describe('date-picker.Semantic', () => {
     await nextTick()
     wrapper.unmount()
   })
+
+  it('should pass props to RangePicker semantic callbacks', () => {
+    const classesFn = vi.fn((info: { props: Record<string, unknown> }) => ({
+      root: info.props.disabled ? 'range-disabled-root' : 'range-enabled-root',
+    }))
+
+    const stylesFn = vi.fn((info: { props: Record<string, unknown> }) => ({
+      root: { fontSize: info.props.size === 'large' ? '18px' : '14px' },
+    }))
+
+    const wrapper = mount(DatePicker.RangePicker, {
+      props: {
+        disabled: true,
+        classes: classesFn as any,
+        styles: stylesFn as any,
+        size: 'large',
+      },
+    })
+
+    expect(classesFn).toHaveBeenCalled()
+    expect(stylesFn).toHaveBeenCalled()
+
+    const root = wrapper.find('.ant-picker')
+    expect(root.classes()).toContain('range-disabled-root')
+    expect((root.element as HTMLElement).style.fontSize).toBe('18px')
+  })
 })

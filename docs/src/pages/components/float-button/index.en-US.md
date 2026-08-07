@@ -103,7 +103,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| duration | Time to return to top（ms） | number | 450 | - |
+| duration | Time to return to top (ms). This property is ignored when reduced motion (`prefers-reduced-motion: reduce`) is enabled | number | 450 | - |
 | target | Specifies the scrollable area dom node | () =&gt; HTMLElement | () =&gt; window | - |
 | visibilityHeight | The BackTop button will not show until the scroll height reaches this value | number | 400 | - |
 | target | Specifies where to display the linked URL | '_self' \| '_blank' \| '_parent' \| '_top' \| string | - | - |

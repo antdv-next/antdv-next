@@ -57,6 +57,9 @@ const App = defineComponent<AppProps>(
     return () => {
       const { rootClass } = props
       const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
+      const hasRootProps = Boolean(
+        className || rootClass || style || contextClassName.value || contextStyle.value,
+      )
       const customClassName = clsx(
         hashId.value,
         prefixCls.value,
@@ -70,8 +73,9 @@ const App = defineComponent<AppProps>(
       const { component = 'div' } = props
 
       // https://github.com/ant-design/ant-design/issues/48802#issuecomment-2097813526
+      // https://github.com/ant-design/ant-design/issues/58876
       devUseWarning('App')(
-        !(cssVarCls.value && component === false),
+        !(cssVarCls.value && component === false && hasRootProps),
         'usage',
         'When using cssVar, ensure `component` is assigned a valid Vue component string.',
       )
