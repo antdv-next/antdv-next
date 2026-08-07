@@ -2,6 +2,38 @@
 title: 组件更新日志
 ---
 
+## V1.5.0
+
+发布日期：2026-08-07
+
+本次版本将 ant-design 上游同步推进到 **6.5.4**（`5ade9944d6`），并新增实验性虚拟列表组件 **Listy**。Listy 面向长列表与分组列表场景，支持虚拟滚动、吸顶分组标题、语义化样式以及命令式滚动；BorderBeam 同时补齐动画时长、光束宽度和尺寸控制。本次还修复了 Layout Sider 自定义触发器、Segmented 受控值、Checkbox 非法选项以及 BackTop 减少动态效果等问题。
+
+**✨ 新功能 Features**
+
+* feat(listy)：新增实验性 Listy 组件，支持普通列表、虚拟滚动、分组与吸顶标题、无限加载场景、`classes` / `styles` 语义化定制，以及通过 `scrollTo` 滚动到指定位置、数据项或分组（[#670](https://github.com/antdv-next/antdv-next/pull/670)）
+* feat(border-beam)：新增 `duration`、`lineWidth` 与 `size`，可分别控制动画时长、光束线宽和光束尺寸；补充自定义容器及对应参数演示
+
+**🐞 问题修复 Fixes**
+
+* fix(layout)：Layout Sider 的 `trigger` 同时支持属性与插槽；未传入时恢复默认触发器，显式传入 `null` 时可隐藏触发器
+* fix(segmented)：受控模式下触发 `change` 后，若外部没有更新 `value`，选中项会继续保持为受控值，不再错误切换到用户点击项；底层升级至 `@v-c/segmented@1.0.4`
+* fix(alert)：`closable` 传入对象时，即使未提供 `closeIcon` 也会正确启用关闭能力
+* fix(checkbox)：Checkbox Group 会忽略 `null` / `undefined` 选项以及缺少有效 `value` 的选项，避免渲染无效复选框
+* fix(float-button)：BackTop 在用户开启 `prefers-reduced-motion` 时立即回到顶部，不再播放滚动动画；公共 `scrollTo` 工具同时支持零时长滚动与取消未完成动画
+* fix(app)：使用 CSS 变量且 `component={false}` 时，仅在根节点 class 或 style 确实会丢失的情况下显示警告（#58876）
+* fix(border-beam)：宿主元素的 `getComputedStyle` 抛错时回落到默认边框信息，避免 BorderBeam 中断整棵组件树
+* fix(types)：修正 DatePicker 语义化返回值与 Tour `actionsRender` 的类型声明，使其与实际组件级 API 保持一致
+
+**📖 文档 Documentation**
+
+* docs(listy)：新增中英文组件文档以及基础、虚拟滚动、分组、命令式滚动、复杂内容、无限加载和语义化样式演示
+* perf(docs)：组件 demo 源码改为在展开代码面板时按需加载，避免浏览器在页面初始化时解析全部源码与高亮结果；开发环境继续支持 HMR，折叠与重复展开也会复用已加载内容
+
+**🧰 依赖更新 Dependencies**
+
+* chore(sync)：同步 ant-design **6.5.4** 上游变更
+* chore(deps)：新增 `@v-c/listy@1.0.2`，升级 `@v-c/picker` 至 1.3.2（[#684](https://github.com/antdv-next/antdv-next/pull/684)）、`@v-c/segmented` 至 1.0.4、`@v-c/table` 至 1.1.9
+
 ## V1.4.6
 
 发布日期：2026-08-03

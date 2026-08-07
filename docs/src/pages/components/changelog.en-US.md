@@ -2,6 +2,38 @@
 title: Component Changelog
 ---
 
+## V1.5.0
+
+Release Date: 2026-08-07
+
+This release advances the ant-design upstream sync to **6.5.4** (`5ade9944d6`) and introduces the experimental **Listy** virtual-list component. Listy targets long and grouped lists with virtual scrolling, sticky group headers, semantic styling and imperative scrolling, while BorderBeam gains controls for animation duration, beam width and beam size. It also fixes Layout Sider custom triggers, controlled Segmented values, invalid Checkbox options, reduced-motion behavior in BackTop and more.
+
+**✨ Features**
+
+* feat(listy): add the experimental Listy component with standard and virtual lists, grouped data and sticky headers, infinite-loading scenarios, semantic `classes` / `styles`, and a `scrollTo` API for scrolling to a position, item or group ([#670](https://github.com/antdv-next/antdv-next/pull/670))
+* feat(border-beam): add `duration`, `lineWidth` and `size` to control animation duration, beam width and beam size respectively; add demos for these options and custom containers
+
+**🐞 Fixes**
+
+* fix(layout): support both a `trigger` prop and slot on Layout Sider; restore the default trigger when neither is supplied, and allow an explicit `null` to hide it
+* fix(segmented): in controlled mode, keep the selected item on the controlled value when the consumer does not update `value` after `change`, instead of incorrectly switching to the clicked item; upgrade the primitive to `@v-c/segmented@1.0.4`
+* fix(alert): an object-valued `closable` now enables closing even when it does not provide `closeIcon`
+* fix(checkbox): Checkbox Group ignores `null` / `undefined` options and options without a valid `value`, avoiding invalid checkbox items
+* fix(float-button): BackTop jumps to the top without animation when the user enables `prefers-reduced-motion`; the shared `scrollTo` utility now also supports zero-duration scrolling and cancellation of unfinished animations
+* fix(app): with CSS variables and `component={false}`, only warn when root classes or styles would actually be dropped (#58876)
+* fix(border-beam): fall back to default border information when `getComputedStyle` throws on the host element, preventing BorderBeam from breaking the component tree
+* fix(types): correct the DatePicker semantic return value and Tour `actionsRender` declarations to match the actual component-level APIs
+
+**📖 Documentation**
+
+* docs(listy): add Chinese and English component docs with demos for basic usage, virtual scrolling, grouping, imperative scrolling, rich content, infinite loading and semantic styling
+* perf(docs): load component demo source only when the code panel is expanded, so the browser no longer parses every demo's source and highlighted output during page initialization; development HMR remains supported and loaded source is reused across collapse and re-expand
+
+**🧰 Dependencies**
+
+* chore(sync): sync upstream changes from ant-design **6.5.4**
+* chore(deps): add `@v-c/listy@1.0.2` and upgrade `@v-c/picker` to 1.3.2 ([#684](https://github.com/antdv-next/antdv-next/pull/684)), `@v-c/segmented` to 1.0.4 and `@v-c/table` to 1.1.9
+
 ## V1.4.6
 
 Release Date: 2026-08-03
