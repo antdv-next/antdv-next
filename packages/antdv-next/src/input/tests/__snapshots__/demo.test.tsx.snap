@@ -4859,7 +4859,7 @@ exports[`input demo > renders otp correctly 1`] = `
     class="ant-typography css-var-root"
   >
     <!---->
-     With custom ReactNode separator 
+     With custom VueNode separator 
     <!---->
     <!---->
     <!---->

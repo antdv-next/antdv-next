@@ -9,7 +9,7 @@ Use `lineWidth` to adjust the beam width of an individual BorderBeam. The defaul
 <template>
   <div :style="{ width: '360px' }">
     <a-border-beam :line-width="2">
-      <a-card title="Custom line width" :style="{ borderWidth: '2px' }">
+      <a-card title="Custom line width" style="border-width: 2px">
         Set lineWidth to match the border width of this container.
       </a-card>
     </a-border-beam>
