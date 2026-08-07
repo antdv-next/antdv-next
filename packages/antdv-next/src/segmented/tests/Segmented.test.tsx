@@ -183,6 +183,31 @@ describe('segmented', () => {
     })
   })
 
+  describe('value prop', () => {
+    it('should keep controlled selected item when value is not updated after change', async () => {
+      const onChange = vi.fn()
+      const value = ref('Daily')
+      const wrapper = mount(() => (
+        <Segmented
+          value={value.value}
+          options={['Daily', 'Weekly', 'Monthly']}
+          onChange={onChange}
+        />
+      ))
+
+      const weeklyInput = wrapper.findAll(`.${prefixCls}-item-input`)[1]!.element as HTMLInputElement
+      weeklyInput.checked = true
+      weeklyInput.dispatchEvent(new Event('change', { bubbles: true }))
+      await nextTick()
+      await nextTick()
+
+      const items = wrapper.findAll(`.${prefixCls}-item`)
+      expect(onChange).toHaveBeenCalledWith('Weekly')
+      expect(items[0]!.classes()).toContain(`${prefixCls}-item-selected`)
+      expect(items[1]!.classes()).not.toContain(`${prefixCls}-item-selected`)
+    })
+  })
+
   describe('name prop', () => {
     it('should set name attribute on radio inputs', () => {
       const wrapper = mount(Segmented, {
