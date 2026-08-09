@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import type { DemoModule, DemoSourceData } from 'virtual:demos'
+import type { DemoExtraFile, DemoModule, DemoSourceData } from 'virtual:demos'
 import type { CSSProperties } from 'vue'
 import { CheckOutlined, CodeOutlined, CopyOutlined, EditOutlined, ThunderboltOutlined } from '@antdv-next/icons'
 import { aquaBlue, atomDark } from '@codesandbox/sandpack-themes'
 import { useClipboard, useDebounceFn } from '@vueuse/core'
 import { SandpackProvider } from 'sandpack-vue3'
 import demos from 'virtual:demos'
-import { computed, defineAsyncComponent, markRaw, onBeforeUnmount, shallowRef, watch } from 'vue'
+import { computed, defineAsyncComponent, markRaw, nextTick, onBeforeUnmount, shallowRef, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import CodeEditorBridge from '@/components/code-demo/code-editor-bridge.vue'
 import ExpandIcon from '@/components/code-demo/expand-icon.vue'
@@ -118,21 +118,63 @@ const hasJsSource = computed(() => {
   return Boolean(jsSource)
 })
 
-const activeCodeType = computed<DemoCodeType>({
+const extraFiles = computed<DemoExtraFile[]>(() => sourceData.value?.extraFiles ?? [])
+
+const codeTabKeys = computed(() => {
+  const keys: string[] = ['ts']
+  if (hasJsSource.value)
+    keys.push('js')
+  for (const file of extraFiles.value)
+    keys.push(file.name)
+  return keys
+})
+
+// 当前激活的代码 tab。ts/js 偏好持久化到全局 store，多文件 tab 仅作用于当前 demo。
+const localCodeKey = shallowRef<string | null>(null)
+
+const activeCodeType = computed<string>({
   get() {
-    if (codeType.value === 'js' && hasJsSource.value)
-      return 'js'
+    const preferred = localCodeKey.value ?? codeType.value
+    if (codeTabKeys.value.includes(preferred))
+      return preferred
     return 'ts'
   },
   set(value) {
-    codeType.value = value
+    if (value === 'ts' || value === 'js') {
+      codeType.value = value
+      localCodeKey.value = null
+    }
+    else {
+      localCodeKey.value = value
+    }
   },
 })
 
-const activeSourceCode = computed(() => {
+const activeExtraFile = computed(() =>
+  extraFiles.value.find(file => file.name === activeCodeType.value),
+)
+
+/** 将 demo 相对导入路径映射为 sandpack 虚拟文件路径 */
+function extraFileToSandpackPath(name: string) {
+  return `/src/${name.replace(/^(\.\.?\/)+/, '')}`
+}
+
+/** 代码 tab 显示名（去掉 ./ 前缀） */
+function displayFileName(name: string) {
+  return name.replace(/^(\.\.?\/)+/, '')
+}
+
+const mainSourceCode = computed(() => {
   if (activeCodeType.value === 'js')
     return sourceData.value?.jsSource ?? sourceData.value?.source ?? ''
   return sourceData.value?.source ?? ''
+})
+
+// 编辑器当前展示的源码（主 demo 或伴生文件）
+const activeSourceCode = computed(() => {
+  if (activeExtraFile.value)
+    return activeExtraFile.value.code
+  return mainSourceCode.value
 })
 
 const description = computed(() => {
@@ -166,8 +208,11 @@ function handleShowCode() {
   }
 }
 
-// 切换 demo 时释放旧源码
-watch(demo, releaseSource, { flush: 'sync' })
+// 切换 demo 时释放旧源码并重置多文件 tab
+watch(demo, () => {
+  localCodeKey.value = null
+  releaseSource()
+}, { flush: 'sync' })
 
 // 展开代码面板时触发加载（收起时不释放，保留源码）
 watch([showCode, demo], ([visible, currentDemo]) => {
@@ -200,13 +245,19 @@ watch(activeCodeType, () => {
   liveComponent.value = null
   compileError.value = null
   currentCode.value = null
-  editorBridgeRef.value?.resetCode(activeSourceCode.value)
+  // 等 sandpack 完成 activeFile 切换后再重置内容，避免写入错误的文件
+  nextTick(() => {
+    editorBridgeRef.value?.resetCode(activeSourceCode.value)
+  })
 })
 
 const handleCodeChange = useDebounceFn(async (newCode: string) => {
   currentCode.value = newCode
+  // 伴生文件 tab 不参与主 demo 的实时编译
+  if (activeExtraFile.value)
+    return
   // Code matches original source (e.g. after tab switch reset), skip compilation
-  if (newCode === activeSourceCode.value) {
+  if (newCode === mainSourceCode.value) {
     liveComponent.value = null
     compileError.value = null
     return
@@ -223,9 +274,22 @@ const handleCodeChange = useDebounceFn(async (newCode: string) => {
 
 const sandpackTheme = computed(() => appStore.darkMode ? atomDark : aquaBlue)
 
-const sandpackFiles = computed(() => ({
-  '/src/App.vue': activeSourceCode.value,
-}))
+const sandpackFiles = computed(() => {
+  const files: Record<string, string> = {
+    '/src/App.vue': mainSourceCode.value,
+  }
+  for (const file of extraFiles.value) {
+    files[extraFileToSandpackPath(file.name)] = file.code
+  }
+  return files
+})
+
+// 当前激活的 sandpack 文件（多文件 tab 时切换）
+const sandpackActiveFile = computed(() => {
+  if (activeExtraFile.value)
+    return extraFileToSandpackPath(activeExtraFile.value.name)
+  return '/src/App.vue'
+})
 const active = computed(() => route.hash === `#${id.value}`)
 function handleScroll(e: Event) {
   e.preventDefault()
@@ -246,9 +310,9 @@ async function handleStackBlitz() {
     showCode.value = true
     return
   }
-  if (activeSourceCode.value) {
+  if (mainSourceCode.value) {
     const title = `${titleRef.value?.textContent || 'Antdv Next Demo'} - antdv-next@${antdvPkg.version}`
-    openStackBlitz(title, activeSourceCode.value)
+    openStackBlitz(title, mainSourceCode.value)
   }
 }
 
@@ -295,7 +359,7 @@ async function handleOpenPlayground() {
     showCode.value = true
     return
   }
-  const url = loadPlaygroundUrl(activeSourceCode.value ?? '')
+  const url = loadPlaygroundUrl(mainSourceCode.value ?? '')
   if (url) {
     window.open(url, '_blank', 'noopener,noreferrer')
   }
@@ -382,6 +446,11 @@ async function handleOpenPlayground() {
             >
               <a-tab-pane key="ts" :tab="t('ui.codeDemo.type.typescript')" />
               <a-tab-pane key="js" :tab="t('ui.codeDemo.type.javascript')" />
+              <a-tab-pane
+                v-for="file in extraFiles"
+                :key="file.name"
+                :tab="displayFileName(file.name)"
+              />
             </a-tabs>
           </div>
           <div class="ant-doc-demo-box-code">
@@ -395,7 +464,7 @@ async function handleOpenPlayground() {
               template="vite-vue-ts"
               :files="sandpackFiles"
               :theme="sandpackTheme"
-              :options="{ autorun: false }"
+              :options="{ autorun: false, activeFile: sandpackActiveFile }"
             >
               <CodeEditorBridge
                 ref="editorBridgeRef"
