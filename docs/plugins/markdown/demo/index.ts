@@ -11,6 +11,76 @@ interface ParsedDemoFile {
   locales: Record<string, { html: string, title: string }>
   sourceCode: string
   jsSourceCode: string
+  extraFiles: DemoExtraFile[]
+}
+
+interface DemoExtraFile {
+  name: string
+  lang: string
+  code: string
+  html: string
+}
+
+const EXT_LANG_MAP: Record<string, string> = {
+  '.json': 'json',
+  '.ts': 'ts',
+  '.tsx': 'tsx',
+  '.js': 'js',
+  '.jsx': 'jsx',
+  '.mjs': 'js',
+  '.cjs': 'js',
+  '.vue': 'vue',
+  '.css': 'css',
+  '.less': 'less',
+  '.scss': 'scss',
+  '.md': 'md',
+  '.html': 'html',
+}
+
+function extLang(ext: string) {
+  return EXT_LANG_MAP[ext.toLowerCase()] ?? 'text'
+}
+
+/**
+ * 收集 demo 内相对导入的伴生文件（用于多文件代码 tab 展示）。
+ * 跳过无扩展名的导入（如目录 index），避免内联无关模块。
+ */
+async function collectExtraFiles(
+  filePath: string,
+  sourceCode: string,
+  md: ReturnType<ReturnType<typeof createMarkdown>>,
+): Promise<DemoExtraFile[]> {
+  const dir = path.dirname(filePath)
+  const seen = new Set<string>()
+  const files: DemoExtraFile[] = []
+
+  // Match `from './xxx'` or side-effect `import './xxx'`.
+  const importRegex = /(?:from|import)\s*(?:\(\s*)?["'](\.{1,2}\/[^"']+)["']/g
+
+  // `for` 的 update 表达式在 continue 时也会执行，避免重复/无扩展名导入导致死循环
+  for (
+    let match = importRegex.exec(sourceCode);
+    match !== null;
+    match = importRegex.exec(sourceCode)
+  ) {
+    const rel = match[1]
+    const ext = path.extname(rel)
+    if (seen.has(rel) || !ext)
+      continue
+    seen.add(rel)
+
+    const resolved = path.resolve(dir, rel)
+    try {
+      const content = await fs.readFile(resolved, 'utf-8')
+      const lang = extLang(ext)
+      const html = await md.renderAsync(`\`\`\`${lang}\n${content}\n\`\`\``)
+      files.push({ name: rel, lang, code: content, html })
+    }
+    catch {
+      // ignore non-existent / non-readable files
+    }
+  }
+  return files
 }
 
 /**
@@ -46,11 +116,13 @@ async function parseDemoFile(
 
   const sourceCode = code.replace(/<docs[^>]*>[\s\S]*?<\/docs>/g, '').trim()
   const jsSourceCode = await tsToJs(sourceCode)
+  const extraFiles = await collectExtraFiles(filePath, sourceCode, md)
 
   return {
     locales,
     sourceCode,
     jsSourceCode,
+    extraFiles,
   }
 }
 
@@ -163,6 +235,7 @@ export function demoPlugin(): PluginOption {
             JSON.stringify({
               source: parsed.sourceCode,
               jsSource: parsed.jsSourceCode,
+              extraFiles: parsed.extraFiles,
             }),
           )
         }
@@ -219,6 +292,11 @@ export function demoPlugin(): PluginOption {
               md,
             )
 
+        // 监听伴生文件，保证多文件 demo 的 HMR 重新解析
+        for (const file of parsed?.extraFiles ?? []) {
+          this.addWatchFile(path.resolve(path.dirname(filePath), file.name))
+        }
+
         // Build: 生成 JSON asset
         const sourceUrl = isServe
           ? undefined
@@ -229,6 +307,7 @@ export function demoPlugin(): PluginOption {
                 source: JSON.stringify({
                   source: parsed!.sourceCode,
                   jsSource: parsed!.jsSourceCode,
+                  extraFiles: parsed!.extraFiles,
                 }),
               }),
             )

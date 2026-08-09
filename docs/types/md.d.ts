@@ -4,9 +4,17 @@ declare module 'virtual:demos' {
     title?: string
   }
 
+  export interface DemoExtraFile {
+    name: string
+    lang: string
+    code: string
+    html: string
+  }
+
   export interface DemoSourceData {
     source: string
     jsSource: string
+    extraFiles: DemoExtraFile[]
   }
 
   export interface DemoModule {
