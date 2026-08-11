@@ -59,4 +59,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Run tests
-        run: pnpm test
+        strategy:
+          matrix:
+            shard: [1/2, 2/2]
+        run: pnpm test --maxWorkers=2 --shard=${{matrix.shard}}
