@@ -53,24 +53,13 @@ jobs:
   test:
     needs: check
     if: ${{ needs.check.outputs.should-run == 'true' }}
-    name: test (${{ matrix.project }} ${{ matrix.shardIndex }}/${{ matrix.shardTotal }})
+    name: test (${{ matrix.shardIndex }}/${{ matrix.shardTotal }})
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - project: antdv-next
-            shardIndex: 1
-            shardTotal: 3
-          - project: antdv-next
-            shardIndex: 2
-            shardTotal: 3
-          - project: antdv-next
-            shardIndex: 3
-            shardTotal: 3
-          - project: cssinjs
-            shardIndex: 1
-            shardTotal: 1
+        shardIndex: [1, 2, 3, 4]
+        shardTotal: [4]
 
     steps:
       - uses: actions/checkout@v7
@@ -94,18 +83,15 @@ jobs:
       - name: Run tests
         run: >
           pnpm exec vitest run
-          --project=${{ matrix.project }}
           --reporter=blob
-          --outputFile=.vitest-reports/blob-${{ matrix.project }}-${{ matrix.shardIndex }}-${{ matrix.shardTotal }}.json
+          --outputFile=.vitest-reports/blob-${{ matrix.shardIndex }}-${{ matrix.shardTotal }}.json
           --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
-        env:
-          VITEST_BLOB_LABEL: ${{ matrix.project }}-${{ matrix.shardIndex }}
 
       - name: Upload Vitest results
         if: ${{ !cancelled() }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
-          name: vitest-results-${{ matrix.project }}-${{ matrix.shardIndex }}
+          name: vitest-results-${{ matrix.shardIndex }}
           path: .vitest-reports
           include-hidden-files: true
           retention-days: 1
@@ -133,7 +119,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Download Vitest results
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           path: .vitest-reports
           pattern: vitest-results-*
