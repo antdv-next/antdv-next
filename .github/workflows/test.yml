@@ -82,7 +82,12 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Run tests
-        run: pnpm exec vitest run --project=${{ matrix.project }} --reporter=blob --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+        run: >
+          pnpm exec vitest run
+          --project=${{ matrix.project }}
+          --reporter=blob
+          --outputFile=.vitest-reports/blob-${{ matrix.project }}-${{ matrix.shardIndex }}-${{ matrix.shardTotal }}.json
+          --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
         env:
           VITEST_BLOB_LABEL: ${{ matrix.project }}-${{ matrix.shardIndex }}
 
