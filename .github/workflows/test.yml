@@ -15,15 +15,12 @@ concurrency:
 
 jobs:
   test:
+    name: test (${{ matrix.project }} ${{ matrix.shardIndex }}/${{ matrix.shardTotal }})
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
-        project:
-          - name: antdv-next
-            config: packages/antdv-next/vitest.config.ts
-          - name: cssinjs
-            config: packages/cssinjs/vitest.config.ts
+        project: [antdv-next, cssinjs]
         shardIndex: [1, 2]
         shardTotal: [2]
 
@@ -69,16 +66,16 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Run tests
-        run: pnpm exec vitest run --config=${{ matrix.project.config }} --reporter=blob --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+        run: pnpm exec vitest run --project=${{ matrix.project }} --reporter=blob --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
         env:
-          VITEST_BLOB_LABEL: ${{ matrix.project.name }}-${{ matrix.shardIndex }}
+          VITEST_BLOB_LABEL: ${{ matrix.project }}-${{ matrix.shardIndex }}
 
       - name: Upload Vitest results
         if: ${{ !cancelled() }}
         uses: actions/upload-artifact@v4
         with:
-          name: vitest-results-${{ matrix.project.name }}-${{ matrix.shardIndex }}
-          path: .vitest
+          name: vitest-results-${{ matrix.project }}-${{ matrix.shardIndex }}
+          path: .vitest-reports
           include-hidden-files: true
           retention-days: 1
 
@@ -107,9 +104,9 @@ jobs:
       - name: Download Vitest results
         uses: actions/download-artifact@v4
         with:
-          path: .vitest
+          path: .vitest-reports
           pattern: vitest-results-*
           merge-multiple: true
 
       - name: Merge reports
-        run: pnpm exec vitest --merge-reports --reporter=default --reporter=github-actions
+        run: pnpm exec vitest --merge-reports .vitest-reports --reporter=default --reporter=github-actions

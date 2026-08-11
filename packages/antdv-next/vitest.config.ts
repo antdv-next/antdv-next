@@ -3,6 +3,7 @@ import vitestPlugin from '../../vitest-plugin.ts'
 
 export default mergeConfig(vitestPlugin, defineProject({
   test: {
+    name: 'antdv-next',
     include: [
       '**/tests/**/*.test.ts',
       '**/tests/**/*.test.tsx',
