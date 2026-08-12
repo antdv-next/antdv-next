@@ -156,22 +156,22 @@ catalogs:
     '@v-c/rate': ^1.0.1
     '@v-c/resize-observer': ^1.1.3
     '@v-c/segmented': ^1.0.4
-    '@v-c/select': ^1.2.0
+    '@v-c/select': ^1.2.1
     '@v-c/slick': ^1.0.2
     '@v-c/slider': ^1.1.0
     '@v-c/steps': ^1.0.0
     '@v-c/switch': ^1.0.1
-    '@v-c/table': ^1.1.9
+    '@v-c/table': ^1.2.0
     '@v-c/tabs': ^1.3.0
     '@v-c/textarea': ^1.1.0
     '@v-c/tooltip': ^1.1.0
     '@v-c/tour': ^1.1.1
-    '@v-c/tree': ^1.1.3
-    '@v-c/tree-select': ^1.1.1
+    '@v-c/tree': ^1.2.0
+    '@v-c/tree-select': ^1.1.2
     '@v-c/trigger': ^1.1.0
     '@v-c/upload': ^1.0.0
     '@v-c/util': ^1.1.0
-    '@v-c/virtual-list': ^1.1.0
+    '@v-c/virtual-list': ^1.1.1
 onlyBuiltDependencies:
   - esbuild
   - less
