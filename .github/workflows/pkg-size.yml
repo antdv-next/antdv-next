@@ -1,0 +1,59 @@
+name: Pkg Size
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+
+jobs:
+  pkg-size:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: lts/*
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+
+      - name: Get pack size
+        id: size
+        run: |
+          PACK=$(npm pack --dry-run --json 2>&1 | sed -n '/^\[/,/^\]/p' | jq '.[0]')
+          echo "size=$(echo "$PACK" | jq '.size')" >> "$GITHUB_OUTPUT"
+          echo "unpack_size=$(echo "$PACK" | jq '.unpackedSize')" >> "$GITHUB_OUTPUT"
+
+      - name: Get base branch size
+        if: github.event_name == 'pull_request'
+        id: base_size
+        run: |
+          git fetch origin ${{ github.base_ref }} --depth=1
+          git checkout FETCH_HEAD -- . 2>/dev/null || true
+          npm ci
+          npm build
+          PACK=$(npm pack --dry-run --json 2>&1 | sed -n '/^\[/,/^\]/p' | jq '.[0]')
+          echo "size=$(echo "$PACK" | jq '.size')" >> "$GITHUB_OUTPUT"
+          echo "unpack_size=$(echo "$PACK" | jq '.unpackedSize')" >> "$GITHUB_OUTPUT"
+
+      - name: Comment on PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const run = require('./scripts/pkg-size-comment.cjs');
+            await run({
+              github,
+              context,
+              size: parseInt('${{ steps.size.outputs.size }}'),
+              unpackSize: parseInt('${{ steps.size.outputs.unpack_size }}'),
+              baseSize: parseInt('${{ steps.base_size.outputs.size }}') || parseInt('${{ steps.size.outputs.size }}'),
+              baseUnpackSize: parseInt('${{ steps.base_size.outputs.unpack_size }}') || parseInt('${{ steps.size.outputs.unpack_size }}'),
+            });
