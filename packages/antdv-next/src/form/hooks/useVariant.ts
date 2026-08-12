@@ -8,6 +8,9 @@ import { useVariantContext } from '../context.tsx'
 type VariantComponents = keyof Pick<
   ConfigProviderProps,
   | 'input'
+  | 'inputPassword'
+  | 'inputSearch'
+  | 'otp'
   | 'inputNumber'
   | 'textArea'
   | 'mentions'
@@ -24,9 +27,19 @@ export default function useVariant(
   component: VariantComponents,
   variant?: Ref<Variant | undefined>,
   legacyBordered?: Ref<boolean | undefined> | boolean,
+  fallbackComponent?: VariantComponents,
 ) {
   const config = useConfig()
   const formVariant = useVariantContext()
+
+  const configComponentVariant = computed<Variant | undefined>(() => {
+    const componentConfigVariant = (config.value as any)?.[component]?.variant
+    const fallbackConfigVariant = fallbackComponent
+      ? (config.value as any)?.[fallbackComponent]?.variant
+      : undefined
+
+    return componentConfigVariant ?? fallbackConfigVariant
+  })
 
   const mergedVariant = computed<Variant>(() => {
     if (typeof variant?.value !== 'undefined') {
@@ -39,15 +52,23 @@ export default function useVariant(
       return 'borderless'
     }
 
-    const componentConfigVariant = (config.value as any)?.[component]?.variant
-    const globalVariant = config.value?.variant
-
-    return formVariant.value ?? componentConfigVariant ?? globalVariant ?? 'outlined'
+    // form variant > component global variant > fallback component global variant > global variant
+    return formVariant.value ?? configComponentVariant.value ?? config.value?.variant ?? 'outlined'
   })
 
   const enableVariantCls = computed(() => Variants.includes(mergedVariant.value))
 
-  return [mergedVariant, enableVariantCls] as const
+  const isVariantConfigured = computed(() => {
+    const borderedValue = typeof legacyBordered === 'object' ? legacyBordered.value : legacyBordered
+
+    return typeof variant?.value !== 'undefined'
+      || borderedValue === false
+      || typeof formVariant.value !== 'undefined'
+      || typeof configComponentVariant.value !== 'undefined'
+      || typeof config.value?.variant !== 'undefined'
+  })
+
+  return [mergedVariant, enableVariantCls, isVariantConfigured] as const
 }
 
 export const useVariants = useVariant

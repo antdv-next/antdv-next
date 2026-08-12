@@ -14,6 +14,7 @@ import { devUseWarning, isDev } from '../../_util/warning'
 import { useComponentBaseConfig } from '../../config-provider/context'
 import { useSize } from '../../config-provider/hooks/useSize'
 import { useFormItemInputContext, useFormItemInputContextProvider } from '../../form/context.tsx'
+import useVariant from '../../form/hooks/useVariant'
 import useStyle from '../style/otp'
 import OTPInput from './OTPInput'
 
@@ -111,9 +112,16 @@ const OTP = defineComponent<
     }))
     useFormItemInputContextProvider(proxyFormContext)
 
-    const { classes, styles } = toPropsRefs(props, 'classes', 'styles')
+    const { classes, styles, variant: customizeVariant } = toPropsRefs(props, 'classes', 'styles', 'variant')
 
-    const mergedProps = computed(() => ({ ...props, length: mergedLength.value }))
+    // `otp` global config, falling back to the `input` one
+    const [mergedVariant] = useVariant('otp', customizeVariant, undefined, 'input')
+
+    const mergedProps = computed(() => ({
+      ...props,
+      length: mergedLength.value,
+      variant: mergedVariant.value,
+    }))
 
     const contextStyleRoot = useSemanticRootStyle(contextStyle)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
@@ -246,7 +254,7 @@ const OTP = defineComponent<
                 type={props.type}
                 inputMode={props.inputMode}
                 size={mergedSize.value}
-                variant={props.variant}
+                variant={mergedVariant.value}
                 status={mergedStatus.value}
                 disabled={props.disabled}
                 class={clsx(`${prefixCls.value}-input`, mergedClassNames.value.input)}

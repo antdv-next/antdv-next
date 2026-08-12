@@ -46,6 +46,7 @@ ConfigProvider 使用 Vue 的 provide/inject 特性，只需在应用外围包�
   <demo src="./demo/wave.vue">自定义波纹</demo>
   <demo src="./demo/holder-render.vue">静态方法</demo>
   <demo src="./demo/use-config.vue">获取配置</demo>
+  <demo src="./demo/focus-outline.vue">聚焦描边</demo>
 </demo-group>
 
 ## API
@@ -149,6 +150,7 @@ const { componentDisabled, componentSize } = config.value
 - `image`：[Image](/components/image-cn#api)
 - `input`：[Input](/components/input-cn#input)
 - `inputNumber`：[InputNumber](/components/input-number-cn#api)
+- `inputPassword`：[Input.Password](/components/input-cn#input-password)
 - `inputSearch`：[Input.Search](/components/input-cn#input-search)
 - `layout`：[Layout](/components/layout-cn#api)
 - `masonry`：[Masonry](/components/masonry-cn#api)

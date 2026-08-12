@@ -247,8 +247,12 @@ describe('upload List', () => {
         </Upload>
       ),
     })
+    // ant-design #58690: the 300ms reveal is owned by `useDelayState`
+    await vi.advanceTimersByTimeAsync(200)
+    expect(wrapper.find('.ant-upload-list-item-progress .ant-progress').exists()).toBe(false)
+
     // progress bar shows after a 300ms delay in ListItem
-    await vi.advanceTimersByTimeAsync(400)
+    await vi.advanceTimersByTimeAsync(200)
 
     expect(wrapper.find('.ant-upload-list-item-progress .ant-progress').exists()).toBe(true)
     // showInfo defaults to false → no progress text

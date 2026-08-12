@@ -110,12 +110,16 @@ const InternalPopconfirm = defineComponent<
       styles: contextStyles,
       arrow: contextArrow,
       trigger: contextTrigger,
+      mouseEnterDelay: contextMouseEnterDelay,
+      mouseLeaveDelay: contextMouseLeaveDelay,
       prefixCls,
-    } = useComponentBaseConfig('popconfirm', props, ['arrow', 'trigger'])
+    } = useComponentBaseConfig('popconfirm', props, ['arrow', 'trigger', 'mouseEnterDelay', 'mouseLeaveDelay'])
     const { arrow: arrowProp, classes, styles } = toPropsRefs(props, 'arrow', 'classes', 'styles')
     const [hashId, cssVarCls] = useStyle(prefixCls)
     const mergedArrow = useMergedArrow(arrowProp, contextArrow)
     const mergedTrigger = computed(() => props?.trigger ?? contextTrigger.value ?? 'click')
+    const mergedMouseEnterDelay = computed(() => props?.mouseEnterDelay ?? contextMouseEnterDelay.value ?? 0.1)
+    const mergedMouseLeaveDelay = computed(() => props?.mouseLeaveDelay ?? contextMouseLeaveDelay.value ?? 0.1)
     const popoverRef = shallowRef<TooltipRef>()
 
     const open = shallowRef(props.open ?? props.defaultOpen ?? false)
@@ -173,6 +177,8 @@ const InternalPopconfirm = defineComponent<
     const mergedProps = computed(() => ({
       ...props,
       trigger: mergedTrigger.value,
+      mouseEnterDelay: mergedMouseEnterDelay.value,
+      mouseLeaveDelay: mergedMouseLeaveDelay.value,
     }))
 
     const contextStyleRoot = useSemanticRootStyle(contextStyle)
@@ -227,6 +233,8 @@ const InternalPopconfirm = defineComponent<
           {...attrs}
           {...removeUndefined(restProps)}
           trigger={mergedTrigger.value}
+          mouseEnterDelay={mergedMouseEnterDelay.value}
+          mouseLeaveDelay={mergedMouseLeaveDelay.value}
           ref={popoverRef as any}
           open={open.value}
           arrow={mergedArrow.value}

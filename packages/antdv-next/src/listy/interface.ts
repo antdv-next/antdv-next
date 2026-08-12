@@ -6,8 +6,9 @@ import type {
   ScrollAlign,
   ListyProps as VcListyProps,
 } from '@v-c/listy'
-import type { CSSProperties, VNode } from 'vue'
+import type { CSSProperties } from 'vue'
 import type { SemanticType } from '../_util/hooks/useMergeSemantic'
+import type { VueNode } from '../_util/type'
 
 export type { ListyClassNames, ListyRef, ListyScrollToConfig, ListyStyles, ScrollAlign }
 
@@ -26,5 +27,5 @@ export interface ListyProps
   style?: CSSProperties
   classes?: ListyClassNamesType
   styles?: ListyStylesType
-  itemRender?: (item: any) => VNode
+  itemRender?: (item: any, index: number) => VueNode
 }

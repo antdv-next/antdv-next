@@ -65,8 +65,6 @@ export interface PopoverSlots {
 
 const defaults = {
   placement: 'top',
-  mouseEnterDelay: 0.1,
-  mouseLeaveDelay: 0.1,
 } as any
 const InternalPopover = defineComponent<
   PopoverProps,
@@ -83,13 +81,17 @@ const InternalPopover = defineComponent<
       styles: contextStyles,
       arrow: contextArrow,
       trigger: contextTrigger,
+      mouseEnterDelay: contextMouseEnterDelay,
+      mouseLeaveDelay: contextMouseLeaveDelay,
       prefixCls,
-    } = useComponentBaseConfig('popover', props, ['arrow', 'trigger'])
+    } = useComponentBaseConfig('popover', props, ['arrow', 'trigger', 'mouseEnterDelay', 'mouseLeaveDelay'])
     const { arrow: popoverArrow, classes, styles } = toPropsRefs(props, 'arrow', 'classes', 'styles')
     const rootCls = computed(() => getPrefixCls())
     const [hashId, cssVarCls] = useStyle(prefixCls)
     const mergedArrow = useMergedArrow(popoverArrow, contextArrow)
     const mergedTrigger = computed(() => props?.trigger ?? contextTrigger.value ?? 'hover')
+    const mergedMouseEnterDelay = computed(() => props?.mouseEnterDelay ?? contextMouseEnterDelay.value ?? 0.1)
+    const mergedMouseLeaveDelay = computed(() => props?.mouseLeaveDelay ?? contextMouseLeaveDelay.value ?? 0.1)
     const popoverRef = shallowRef()
 
     const forceAlign = () => {
@@ -105,6 +107,8 @@ const InternalPopover = defineComponent<
     const mergedProps = computed(() => ({
       ...props,
       trigger: mergedTrigger.value,
+      mouseEnterDelay: mergedMouseEnterDelay.value,
+      mouseLeaveDelay: mergedMouseLeaveDelay.value,
     }))
     const contextStyleRoot = useSemanticRootStyle(contextStyle)
 
@@ -149,8 +153,8 @@ const InternalPopover = defineComponent<
       const children = filterEmpty(slots?.default?.() ?? [])?.[0]
       const {
         placement,
-        mouseLeaveDelay,
-        mouseEnterDelay,
+        mouseLeaveDelay: _mouseLeaveDelay,
+        mouseEnterDelay: _mouseEnterDelay,
         motion,
         ...restProps
       } = props
@@ -169,8 +173,8 @@ const InternalPopover = defineComponent<
           arrow={mergedArrow.value}
           placement={placement}
           trigger={mergedTrigger.value}
-          mouseLeaveDelay={mouseLeaveDelay}
-          mouseEnterDelay={mouseEnterDelay}
+          mouseLeaveDelay={mergedMouseLeaveDelay.value}
+          mouseEnterDelay={mergedMouseEnterDelay.value}
           {...removeUndefined(restProps)}
           prefixCls={prefixCls.value}
           classes={{

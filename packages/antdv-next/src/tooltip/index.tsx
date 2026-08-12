@@ -88,6 +88,7 @@ export interface TriggerCommonApi extends ComponentBaseProps {
   color?: LiteralUnion<PresetColorType>
   open?: boolean
   defaultOpen?: boolean
+  disabled?: boolean
   getPopupContainer?: (triggerNode: HTMLElement) => HTMLElement
   destroyOnHidden?: boolean
   zIndex?: number
@@ -139,8 +140,6 @@ interface InternalTooltipProps extends TooltipProps {
 const defaults = {
   autoAdjustOverflow: true,
   placement: 'top',
-  mouseEnterDelay: 0.1,
-  mouseLeaveDelay: 0.1,
 } as any
 const InternalTooltip = defineComponent<
   InternalTooltipProps,
@@ -160,8 +159,10 @@ const InternalTooltip = defineComponent<
       classes: rawContextClassNames,
       styles: rawContextStyles,
       trigger: rawContextTrigger,
+      mouseEnterDelay: rawContextMouseEnterDelay,
+      mouseLeaveDelay: rawContextMouseLeaveDelay,
       getPopupContainer: getContextPopupContainer,
-    } = useComponentBaseConfig('tooltip', props, ['arrow', 'trigger'])
+    } = useComponentBaseConfig('tooltip', props, ['arrow', 'trigger', 'mouseEnterDelay', 'mouseLeaveDelay'])
     const {
       arrow: tooltipArrow,
       builtinPlacements,
@@ -176,6 +177,10 @@ const InternalTooltip = defineComponent<
     const contextClassNames = computed(() => injectFromPopover.value ? {} : rawContextClassNames.value)
     const contextStyles = computed(() => injectFromPopover.value ? {} : rawContextStyles.value)
     const contextTrigger = computed(() => injectFromPopover.value ? undefined : rawContextTrigger.value)
+    const contextMouseEnterDelay = computed(() => injectFromPopover.value ? undefined : rawContextMouseEnterDelay.value)
+    const contextMouseLeaveDelay = computed(() => injectFromPopover.value ? undefined : rawContextMouseLeaveDelay.value)
+    const mergedMouseEnterDelay = computed(() => props?.mouseEnterDelay ?? contextMouseEnterDelay.value ?? 0.1)
+    const mergedMouseLeaveDelay = computed(() => props?.mouseLeaveDelay ?? contextMouseLeaveDelay.value ?? 0.1)
     const mergedArrow = useMergedArrow(tooltipArrow, contextArrow)
     const mergedTrigger = computed(() => props?.trigger ?? contextTrigger.value ?? 'hover')
     const mergedShowArrow = computed(() => mergedArrow.value?.show)
@@ -235,6 +240,8 @@ const InternalTooltip = defineComponent<
       return {
         ...props,
         trigger: mergedTrigger.value,
+        mouseEnterDelay: mergedMouseEnterDelay.value,
+        mouseLeaveDelay: mergedMouseLeaveDelay.value,
       } as TooltipProps
     })
 
@@ -258,8 +265,8 @@ const InternalTooltip = defineComponent<
         color,
         rootClass,
         placement,
-        mouseLeaveDelay,
-        mouseEnterDelay,
+        mouseLeaveDelay: _mouseLeaveDelay,
+        mouseEnterDelay: _mouseEnterDelay,
         getPopupContainer,
         getTooltipContainer,
         afterOpenChange,
@@ -313,8 +320,8 @@ const InternalTooltip = defineComponent<
           zIndex={zIndex.value}
           showArrow={mergedShowArrow.value}
           placement={placement}
-          mouseLeaveDelay={mouseLeaveDelay}
-          mouseEnterDelay={mouseEnterDelay}
+          mouseLeaveDelay={mergedMouseLeaveDelay.value}
+          mouseEnterDelay={mergedMouseEnterDelay.value}
           prefixCls={prefixCls.value}
           classNames={{
             root: rootClassNames,
@@ -351,7 +358,7 @@ const InternalTooltip = defineComponent<
           }
           destroyOnHidden={destroyOnHidden}
         >
-          {tempOpen ? createVNode(child, { class: childCls }) : child}
+          {tempOpen && !props.disabled ? createVNode(child, { class: childCls }) : child}
         </VcTooltip>
       )
       return <ZIndexProvider value={contextZIndex.value}>{content}</ZIndexProvider>

@@ -3,6 +3,7 @@ import type { BlockProps, CopyConfig, EditConfig, EllipsisConfig, TypographyBase
 import { EditOutlined } from '@antdv-next/icons'
 import ResizeObserver from '@v-c/resize-observer'
 import { classNames } from '@v-c/util'
+import useDelayState from '@v-c/util/dist/hooks/useDelayState'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import {
   computed,
@@ -283,8 +284,8 @@ const Base = defineComponent<
     }
 
     const ellipsisWidth = shallowRef(0)
-    const isHoveringOperations = shallowRef(false)
-    const isHoveringTypography = shallowRef(false)
+    const [isHoveringOperations, setIsHoveringOperations] = useDelayState(false)
+
     const onResize = ({ offsetWidth }: { offsetWidth: number }) => {
       ellipsisWidth.value = offsetWidth
     }
@@ -449,12 +450,11 @@ const Base = defineComponent<
             },
           )}
           style={mergedStyles.value.actions}
-          onMouseenter={() => {
-            isHoveringOperations.value = true
-          }}
-          onMouseleave={() => {
-            isHoveringOperations.value = false
-          }}
+          onMouseenter={() => setIsHoveringOperations(true, true)}
+          onMouseleave={() => setIsHoveringOperations(false, {
+            // Delay 500ms for better user experience
+            ms: 500,
+          })}
         >
           {expandNode}
           {editNode}
@@ -488,12 +488,6 @@ const Base = defineComponent<
 
     return () => {
       const { className: attrClass, style: attrStyle, restAttrs } = getAttrStyleAndClass(attrs)
-      const onMouseenter = (restAttrs as any).onMouseenter ?? (restAttrs as any).onMouseEnter
-      const onMouseleave = (restAttrs as any).onMouseleave ?? (restAttrs as any).onMouseLeave
-      delete (restAttrs as any).onMouseenter
-      delete (restAttrs as any).onMouseEnter
-      delete (restAttrs as any).onMouseleave
-      delete (restAttrs as any).onMouseLeave
       const children = filterEmpty(slots?.default?.())
       childrenNodes.value = children
       const clickHandler = triggerType.value.includes('text')
@@ -536,7 +530,7 @@ const Base = defineComponent<
             tooltipProps={tooltipProps.value}
             enableEllipsis={mergedEnableEllipsis.value}
             isEllipsis={isMergedEllipsis.value}
-            open={isHoveringTypography.value && !isHoveringOperations.value}
+            disabled={isHoveringOperations.value}
           >
             <Typography
               class={mergedClassName}
@@ -546,14 +540,6 @@ const Base = defineComponent<
               ref={typographyRef}
               direction={mergedDirection.value}
               onClick={clickHandler}
-              onMouseenter={(e: MouseEvent) => {
-                isHoveringTypography.value = true
-                onMouseenter?.(e)
-              }}
-              onMouseleave={(e: MouseEvent) => {
-                isHoveringTypography.value = false
-                onMouseleave?.(e)
-              }}
               title={props.title!}
               aria-label={topAriaLabel.value as any}
               rootClass={props.rootClass}

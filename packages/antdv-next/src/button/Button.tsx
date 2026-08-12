@@ -5,6 +5,7 @@ import type { ComponentBaseProps } from '../config-provider/context.ts'
 import type { SizeType } from '../config-provider/SizeContext'
 import type { ButtonColorType, ButtonHTMLType, ButtonShape, ButtonType, ButtonVariantType } from './buttonHelper.tsx'
 import { classNames } from '@v-c/util'
+import useDelayState from '@v-c/util/dist/hooks/useDelayState'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { toArray } from 'es-toolkit/compat'
@@ -226,7 +227,7 @@ const InternalCompoundedButton = defineComponent<
     const loadingOrDelay = computed<LoadingConfigType>(() => {
       return getLoadingConfig(props.loading)
     })
-    const innerLoading = shallowRef(loadingOrDelay.value.loading)
+    const [innerLoading, setInnerLoading] = useDelayState(loadingOrDelay.value.loading)
     const hasTwoCNChar = shallowRef(false)
     const buttonRef = shallowRef<HTMLButtonElement | HTMLAnchorElement>()
     const isMountRef = shallowRef(true)
@@ -239,26 +240,16 @@ const InternalCompoundedButton = defineComponent<
     onBeforeUnmount(() => {
       isMountRef.value = true
     })
-    let delayTimer: ReturnType<typeof setTimeout> | null = null
     // Update loading state
     watch(
       [() => loadingOrDelay.value.delay, () => loadingOrDelay.value.loading],
-      async (_new, _old, onCleanup) => {
+      () => {
         if (loadingOrDelay.value.delay > 0) {
-          delayTimer = setTimeout(() => {
-            delayTimer = null
-            innerLoading.value = true
-          }, loadingOrDelay.value.delay)
+          setInnerLoading(true, { ms: loadingOrDelay.value.delay })
         }
         else {
-          innerLoading.value = loadingOrDelay.value.loading
+          setInnerLoading(loadingOrDelay.value.loading, true)
         }
-        onCleanup(() => {
-          if (delayTimer) {
-            clearTimeout(delayTimer)
-            delayTimer = null
-          }
-        })
       },
       {
         flush: 'sync',
