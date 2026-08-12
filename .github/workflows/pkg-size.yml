@@ -1,10 +1,7 @@
 name: Pkg Size
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+  pull_request: {}
 
 permissions:
   contents: read
@@ -30,7 +27,7 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
 
-      - name: Get pack size
+      - name: Get npm package size
         id: size
         shell: bash
         run: |
