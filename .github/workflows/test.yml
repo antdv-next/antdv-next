@@ -14,35 +14,54 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  test:
+  check:
     runs-on: ubuntu-latest
+    outputs:
+      should-run: ${{ steps.check.outputs.should-run }}
+
+    steps:
+      - id: check
+        name: Skip push if branch has open PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+
+          if [ "${GITHUB_EVENT_NAME}" != "push" ]; then
+            echo "should-run=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          BRANCH="${GITHUB_REF_NAME}"
+
+          PR_COUNT=$(gh api \
+            "repos/$GITHUB_REPOSITORY/pulls?state=open&head=${GITHUB_REPOSITORY_OWNER}:${BRANCH}" \
+            --jq 'length')
+
+          echo "Branch: $BRANCH"
+          echo "Open PR count: $PR_COUNT"
+
+          if [ "$PR_COUNT" -gt 0 ]; then
+            echo "should-run=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "should-run=true" >> "$GITHUB_OUTPUT"
+          fi
+
+  test:
+    needs: check
+    if: ${{ needs.check.outputs.should-run == 'true' }}
+    name: test (${{ matrix.shardIndex }}/${{ matrix.shardTotal }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        shardIndex: [1, 2, 3, 4]
+        shardTotal: [4]
 
     steps:
       - uses: actions/checkout@v7
         with:
           fetch-depth: 0
-
-      - name: Skip push if branch has open PR
-        if: ${{ github.event_name == 'push' }}
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          set -euo pipefail
-          BRANCH="${GITHUB_REF_NAME}"
-          echo "Checking open PRs for branch: $BRANCH"
-
-          PR_COUNT=$(gh pr list \
-            --head "$BRANCH" \
-            --state open \
-            --json number \
-            --jq 'length')
-
-          echo "Open PR count: $PR_COUNT"
-
-          if [ "$PR_COUNT" -gt 0 ]; then
-            echo "Open PR exists for this branch. Skipping push workflow."
-            exit 0
-          fi
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v6
@@ -59,4 +78,49 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Run tests
-        run: pnpm test
+        run: >
+          pnpm exec vitest run
+          --reporter=blob
+          --outputFile=.vitest-reports/blob-${{ matrix.shardIndex }}-${{ matrix.shardTotal }}.json
+          --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+
+      - name: Upload Vitest results
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: vitest-results-${{ matrix.shardIndex }}
+          path: .vitest-reports
+          include-hidden-files: true
+          retention-days: 1
+
+  merge-reports:
+    needs: [check, test]
+    if: ${{ always() && !cancelled() && needs.check.outputs.should-run == 'true' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          run_install: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: lts/*
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Download Vitest results
+        uses: actions/download-artifact@v7
+        with:
+          path: .vitest-reports
+          pattern: vitest-results-*
+          merge-multiple: true
+
+      - name: Merge reports
+        run: pnpm exec vitest --merge-reports .vitest-reports --reporter=default --reporter=github-actions
