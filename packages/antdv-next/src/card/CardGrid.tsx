@@ -1,5 +1,5 @@
 import { clsx } from '@v-c/util'
-import { defineComponent } from 'vue'
+import { defineComponent, shallowRef } from 'vue'
 import { getAttrStyleAndClass } from '../_util/hooks'
 import { useBaseConfig } from '../config-provider/context.ts'
 
@@ -8,13 +8,23 @@ export interface CardGridProps {
   hoverable?: boolean
 }
 
+export interface CardGridRef {
+  nativeElement: HTMLDivElement
+}
+
 const defaultProps: CardGridProps = {
   hoverable: true,
 }
 
 const CardGrid = defineComponent<CardGridProps>(
-  (props = defaultProps, { attrs, slots }) => {
+  (props = defaultProps, { attrs, slots, expose }) => {
     const { prefixCls } = useBaseConfig('card', props)
+
+    const nativeElementRef = shallowRef<HTMLDivElement>()
+    expose({
+      nativeElement: nativeElementRef,
+    })
+
     return () => {
       const prefix = `${prefixCls.value}-grid`
       const { className, restAttrs, style } = getAttrStyleAndClass(attrs)
@@ -22,7 +32,7 @@ const CardGrid = defineComponent<CardGridProps>(
         [`${prefix}-hoverable`]: props.hoverable,
       })
       return (
-        <div {...restAttrs} class={classString} style={style}>
+        <div ref={nativeElementRef} {...restAttrs} class={classString} style={style}>
           {slots?.default?.()}
         </div>
       )

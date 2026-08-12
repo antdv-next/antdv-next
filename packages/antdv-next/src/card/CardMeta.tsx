@@ -2,7 +2,7 @@ import type { CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { EmptyEmit, VueNode } from '../_util/type.ts'
 import { clsx } from '@v-c/util'
-import { computed, defineComponent } from 'vue'
+import { computed, defineComponent, shallowRef } from 'vue'
 import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { useComponentBaseConfig } from '../config-provider/context.ts'
@@ -41,6 +41,10 @@ export interface CardMetaProps {
   styles?: CardMetaStylesType
 }
 
+export interface CardMetaRef {
+  nativeElement: HTMLDivElement
+}
+
 export interface CardMetaSlots {
   avatar?: () => any
   title?: () => any
@@ -54,7 +58,7 @@ const CardMeta = defineComponent<
   string,
   SlotsType<CardMetaSlots>
 >(
-  (props, { slots, attrs }) => {
+  (props, { slots, attrs, expose }) => {
     const {
       prefixCls,
       class: contextClassName,
@@ -72,6 +76,12 @@ const CardMeta = defineComponent<
       CardMetaStylesType,
       CardMetaProps
     >(useToArr(contextClassNames, cardMetaClassNames), useToArr(contextStyles, contextStyleRoot as any, styles), useToProps(mergedProps))
+
+    const nativeElementRef = shallowRef<HTMLDivElement>()
+    expose({
+      nativeElement: nativeElementRef,
+    })
+
     return () => {
       const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
       const rootClassNames = clsx(
@@ -122,7 +132,7 @@ const CardMeta = defineComponent<
           )
         : null
       return (
-        <div {...restAttrs} class={rootClassNames} style={rootStyles}>
+        <div ref={nativeElementRef} {...restAttrs} class={rootClassNames} style={rootStyles}>
           {avatarDom}
           {metaDetail}
         </div>

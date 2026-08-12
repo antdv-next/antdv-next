@@ -40,7 +40,7 @@ describe('borderBeam', () => {
     wrapper.unmount()
   })
 
-  it('writes the outset / border-radius CSS variables when outset is supplied', async () => {
+  it('writes the inset-offset CSS variable when outset is supplied', async () => {
     const wrapper = renderWith({ outset: 4 })
     await nextTick()
     await nextTick()
@@ -52,8 +52,62 @@ describe('borderBeam', () => {
     const inline = beam.getAttribute('style') ?? ''
     expect(inline).toContain('--ant-border-beam-inset-offset')
     expect(inline).toContain('-4px')
+    // The radius is inherited through CSS instead of being measured.
+    expect(inline).not.toContain('--ant-border-beam-border-radius')
 
     wrapper.unmount()
+  })
+
+  it('renders the configured number of evenly distributed beams', async () => {
+    const wrapper = renderWith()
+    await nextTick()
+    await nextTick()
+
+    const host = document.querySelector('.host') as HTMLElement
+    expect(host.querySelectorAll('.ant-border-beam')).toHaveLength(1)
+    expect(
+      (host.querySelector('.ant-border-beam') as HTMLElement).style.getPropertyValue(
+        '--ant-border-beam-delay',
+      ),
+    ).toBe('')
+
+    wrapper.unmount()
+
+    const multiple = renderWith({ count: 3, duration: 12 })
+    await nextTick()
+    await nextTick()
+
+    const multipleHost = document.querySelector('.host') as HTMLElement
+    const beams = multipleHost.querySelectorAll<HTMLElement>('.ant-border-beam')
+    expect(beams).toHaveLength(3)
+    expect(
+      Array.from(beams, item => item.style.getPropertyValue('--ant-border-beam-delay')),
+    ).toEqual(['', '-4s', '-8s'])
+
+    multiple.unmount()
+  })
+
+  it('normalizes invalid or fractional count values', async () => {
+    const cases: Array<[count: any, expected: number]> = [
+      [0, 1],
+      [-1, 1],
+      [Number.NaN, 1],
+      [Number.POSITIVE_INFINITY, 1],
+      ['3', 1],
+      [2.7, 2],
+    ]
+
+    for (const [count, expected] of cases) {
+      const wrapper = renderWith({ count })
+      await nextTick()
+      await nextTick()
+
+      const host = document.querySelector('.host') as HTMLElement
+      expect(host.querySelectorAll('.ant-border-beam')).toHaveLength(expected)
+
+      wrapper.unmount()
+      document.body.innerHTML = ''
+    }
   })
 
   it('writes the color gradient CSS variable', async () => {

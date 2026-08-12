@@ -9,6 +9,7 @@ import { getTransitionName } from '@v-c/util/dist/utils/transition'
 import { computed, createVNode, defineComponent, shallowRef, watch } from 'vue'
 import {
   useMergeSemantic,
+  useSemanticRootStyle,
   useToArr,
   useToProps,
 } from '../_util/hooks'
@@ -105,11 +106,13 @@ const InternalPopover = defineComponent<
       ...props,
       trigger: mergedTrigger.value,
     }))
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
+
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       PopoverClassNamesType,
       PopoverStylesType,
       PopoverProps
-    >(useToArr(contextClassNames, classes), useToArr(contextStyles, styles), useToProps(mergedProps))
+    >(useToArr(contextClassNames, classes), useToArr(contextStyles, contextStyleRoot as any, styles), useToProps(mergedProps))
     const open = shallowRef(props?.open ?? props?.defaultOpen ?? false)
     watch(
       () => props.open,
@@ -176,7 +179,7 @@ const InternalPopover = defineComponent<
             arrow: mergedClassNames.value?.arrow,
           }}
           styles={{
-            root: { ...mergedStyles.value?.root, ...contextStyle.value },
+            root: mergedStyles.value?.root,
             container: mergedStyles.value?.container,
             arrow: mergedStyles.value?.arrow,
           }}

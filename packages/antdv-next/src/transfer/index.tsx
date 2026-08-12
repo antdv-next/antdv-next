@@ -30,6 +30,7 @@ export type {
   TransferStylesType,
 } from './interface'
 export type { TransferSearchEmits, TransferSearchProps, TransferSearchSlots } from './search'
+export type { TransferRef } from './Transfer'
 export type TransferProps<RecordType = any> = InternalTransferProps<RecordType>
 
 interface TransferInstance<RecordType = any> {

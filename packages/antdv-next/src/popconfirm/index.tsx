@@ -9,7 +9,7 @@ import { clsx } from '@v-c/util'
 import { removeUndefined } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, shallowRef, watch } from 'vue'
-import { useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { getSlotPropsFnRun, toPropsRefs, useLiveListener } from '../_util/tools'
 import { useComponentBaseConfig } from '../config-provider/context'
 import Popover from '../popover'
@@ -175,11 +175,13 @@ const InternalPopconfirm = defineComponent<
       trigger: mergedTrigger.value,
     }))
 
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
+
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       PopconfirmClassNamesType,
       PopconfirmStylesType,
       PopconfirmProps
-    >(useToArr(contextClassNames, classes), useToArr(contextStyles, styles), useToProps(mergedProps))
+    >(useToArr(contextClassNames, classes), useToArr(contextStyles, contextStyleRoot as any, styles), useToProps(mergedProps))
 
     const rootClassNames = computed(() =>
       clsx(
@@ -236,7 +238,7 @@ const InternalPopconfirm = defineComponent<
             arrow: mergedClassNames.value.arrow,
           }}
           styles={{
-            root: { ...mergedStyles.value.root, ...contextStyle.value },
+            root: mergedStyles.value.root,
             container: mergedStyles.value.container,
             arrow: mergedStyles.value.arrow,
           }}

@@ -1,12 +1,12 @@
 import type { TourProps as VcTourProps } from '@v-c/tour'
-import type { App, SlotsType } from 'vue'
+import type { App, CSSProperties, SlotsType } from 'vue'
 import type { TourProps as BaseTourProps, TourClassNamesType, TourEmits, TourSlots, TourStepProps, TourStylesType } from './interface'
 import VcTour from '@v-c/tour'
 import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent } from 'vue'
-import { pureAttrs, useMergeSemantic, useToArr, useToProps, useZIndex } from '../_util/hooks'
+import { pureAttrs, resolveStyleOrClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps, useZIndex } from '../_util/hooks'
 import getPlacements from '../_util/placements'
 import { toPropsRefs } from '../_util/tools'
 import { checkRenderNode } from '../_util/vueNode.ts'
@@ -92,11 +92,37 @@ const Tour = defineComponent<
       } as BaseTourProps
     })
 
+    // The legacy inline `style` of Tour, and the semantic `styles.root`, both target
+    // the mask node. Fold them into `styles.mask` at the matching priority instead of
+    // overriding the merged mask style afterwards.
+    const resolvedContextStyles = computed(() =>
+      resolveStyleOrClass(contextStyles.value as any, { props: mergedProps.value }))
+    const resolvedStyles = computed(() =>
+      resolveStyleOrClass((styles.value ?? {}) as any, { props: mergedProps.value }))
+    const contextStylesRootMask = useSemanticRootStyle(computed(() => resolvedContextStyles.value?.root), 'mask')
+    const contextStyleMask = useSemanticRootStyle(contextStyle, 'mask')
+    const stylesRootMask = useSemanticRootStyle(computed(() => resolvedStyles.value?.root), 'mask')
+    const styleMask = useSemanticRootStyle(
+      computed(() => (attrs as any).style as CSSProperties | undefined),
+      'mask',
+    )
+
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       TourClassNamesType,
       TourStylesType,
       BaseTourProps
-    >(useToArr(contextClassNames, classes), useToArr(contextStyles, styles), useToProps(mergedProps))
+    >(
+      useToArr(contextClassNames, classes),
+      useToArr(
+        contextStylesRootMask as any,
+        contextStyles,
+        contextStyleMask as any,
+        stylesRootMask as any,
+        styles,
+        styleMask as any,
+      ),
+      useToProps(mergedProps),
+    )
 
     const builtinPlacements: BaseTourProps['builtinPlacements'] = config => getPlacements({
       arrowPointAtCenter: config?.arrowPointAtCenter ?? true,
@@ -126,22 +152,13 @@ const Tour = defineComponent<
         (attrs as any).class,
       )
 
-      const semanticStyles = {
-        ...mergedStyles.value,
-        mask: {
-          ...mergedStyles.value?.root,
-          ...mergedStyles.value?.mask,
-          ...contextStyle.value,
-          ...(attrs as any).style,
-        },
-      }
       const indicatorsRender = slots?.indicatorsRender ?? props?.indicatorsRender
       const actionsRender = slots?.actionsRender ?? props?.actionsRender
 
       const mergedRenderPanel: VcTourProps['renderPanel'] = (stepProps, stepCurrent) => {
         return (
           <TourPanel
-            styles={semanticStyles}
+            styles={mergedStyles.value}
             classes={mergedClassNames.value}
             type={type}
             stepProps={{
@@ -170,7 +187,7 @@ const Tour = defineComponent<
           <VcTour
             {...pureAttrs(attrs)}
             {...restProps}
-            styles={semanticStyles}
+            styles={mergedStyles.value}
             classNames={mergedClassNames.value}
             closeIcon={closeIcon ?? contextCloseIcon.value}
             zIndex={zIndex.value}

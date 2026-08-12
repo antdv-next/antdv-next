@@ -2331,7 +2331,7 @@ exports[`masonry demo > renders style-class correctly 1`] = `
     </h4>
     <div
       class="ant-masonry custom-masonry-root css-var-root"
-      style="height: 0px;"
+      style="height: 260px; border-radius: 12px; padding: 20px; background-color: rgba(250, 250, 250, 0.5);"
     >
       <transition-group-stub
         appear="true"
@@ -2525,7 +2525,7 @@ exports[`masonry demo > renders style-class correctly 1`] = `
     </h4>
     <div
       class="ant-masonry custom-masonry-root css-var-root"
-      style="height: 0px;"
+      style="height: 280px; border: 2px solid rgb(24, 144, 255); padding: 20px; background-color: rgba(240, 248, 255, 0.6);"
     >
       <transition-group-stub
         appear="true"

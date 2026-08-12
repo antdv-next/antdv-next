@@ -10,7 +10,7 @@ import { filterEmpty } from '@v-c/util/dist/props-util'
 import { getTransitionProps } from '@v-c/util/dist/utils/transition'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, nextTick, onBeforeUnmount, onMounted, shallowRef, Transition, watch } from 'vue'
-import { pureAttrs, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { pureAttrs, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { useZIndex } from '../_util/hooks/useZIndex'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { useComponentBaseConfig } from '../config-provider/context'
@@ -248,13 +248,15 @@ const InternalFloatButtonGroup = defineComponent<
       placement: mergedPlacement.value,
     }))
 
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
+
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       FloatButtonGroupClassNamesType,
       FloatButtonGroupStylesType,
       FloatButtonGroupProps
     >(
       useToArr(contextClasses, classes),
-      useToArr(contextStyles, styles),
+      useToArr(contextStyles, contextStyleRoot as any, styles),
       useToProps(mergedProps),
     )
 
@@ -381,7 +383,6 @@ const InternalFloatButtonGroup = defineComponent<
               },
             )}
             style={[
-              contextStyle.value,
               mergedStyles.value.root,
               props.style,
               (attrs as any).style,

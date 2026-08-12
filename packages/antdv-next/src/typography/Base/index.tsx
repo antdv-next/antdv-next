@@ -15,7 +15,7 @@ import {
   watch,
   watchEffect,
 } from 'vue'
-import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '../../_util/hooks'
+import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../../_util/hooks'
 import { isStyleSupport } from '../../_util/styleChecker'
 import { toPropsRefs } from '../../_util/tools'
 import { useComponentBaseConfig } from '../../config-provider/context'
@@ -110,13 +110,15 @@ const Base = defineComponent<
       }
     })
 
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
+
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       TypographyClassNamesType,
       TypographyStylesType,
       BlockProps
     >(
       useToArr(contextClassNames, classes),
-      useToArr(contextStyles, styles),
+      useToArr(contextStyles, contextStyleRoot as any, styles),
       useToProps(mergedProps),
     )
 
@@ -517,7 +519,7 @@ const Base = defineComponent<
             }}
             prefixCls={prefixCls.value}
             className={classNames(attrClass, props.rootClass, contextClassName.value)}
-            style={[contextStyle.value, attrStyle] as any}
+            style={attrStyle as any}
             direction={mergedDirection.value}
             component={props.component as any}
             maxLength={editConfig.value.maxLength}

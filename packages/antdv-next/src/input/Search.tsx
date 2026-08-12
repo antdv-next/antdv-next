@@ -11,7 +11,7 @@ import { clsx } from '@v-c/util'
 import pickAttrs from '@v-c/util/dist/pickAttrs'
 import { omit } from 'es-toolkit'
 import { cloneVNode, computed, defineComponent, isVNode, shallowRef } from 'vue'
-import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import Button from '../button'
 import { useComponentBaseConfig } from '../config-provider/context'
@@ -153,13 +153,15 @@ const InternalSearch = defineComponent<
 
     const mergedProps = computed(() => ({ ...props, enterButton: props.enterButton }))
 
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
+
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       InputSearchClassNamesType,
       InputSearchStylesType,
       SearchProps
     >(
       useToArr(contextClassNames, classes),
-      useToArr(contextStyles, styles),
+      useToArr(contextStyles, contextStyleRoot as any, styles),
       useToProps(mergedProps),
       computed(() => schema),
     )
@@ -240,7 +242,6 @@ const InternalSearch = defineComponent<
 
       const mergedRootStyle = {
         ...mergedStyles.value.root,
-        ...contextStyle.value,
         ...style,
       }
 

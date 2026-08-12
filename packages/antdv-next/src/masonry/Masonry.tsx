@@ -11,7 +11,7 @@ import isEqual from '@v-c/util/dist/isEqual'
 import { getTransitionGroupProps } from '@v-c/util/dist/utils/transition'
 import { createElementRef } from '@v-c/util/dist/vnode'
 import { computed, defineComponent, onMounted, ref, shallowRef, TransitionGroup, watch } from 'vue'
-import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { useChildLoadEvents } from '../_util/hooks/useChildLoadEvents.ts'
 import { responsiveArray } from '../_util/responsiveObserver'
 import { toPropsRefs } from '../_util/tools'
@@ -182,11 +182,13 @@ const Masonry = defineComponent<
       } as MasonryProps
     })
 
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
+
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       MasonryClassNamesType,
       MasonryStylesType,
       MasonryProps
-    >(useToArr(contextClassNames, classes), useToArr(contextStyles, styles), useToProps(mergedProps))
+    >(useToArr(contextClassNames, classes), useToArr(contextStyles, contextStyleRoot as any, styles), useToProps(mergedProps))
 
     // ================== Items Position ==================
     const itemHeights = ref<ItemHeightData[]>([])
@@ -303,8 +305,7 @@ const Masonry = defineComponent<
             )}
             style={{
               height: `${totalHeight.value}px`,
-              ...contextStyles.value.root,
-              ...contextStyle.value,
+              ...mergedStyles.value.root,
               ...style,
             }}
           >

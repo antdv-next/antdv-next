@@ -12,7 +12,7 @@ import { classNames } from '@v-c/util'
 import pickAttrs from '@v-c/util/dist/pickAttrs'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent } from 'vue'
-import { useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { toPropsRefs } from '../_util/tools.ts'
 import { devUseWarning, isDev } from '../_util/warning.ts'
 import { useComponentBaseConfig } from '../config-provider/context'
@@ -81,13 +81,15 @@ const QRCode = defineComponent<
     const mergedProps = computed(() => {
       return props
     })
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
+
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       QRCodeClassNamesType,
       QRCodeStylesType,
       BaseQRCodeProps
     >(
       useToArr(contextClassNames, classes),
-      useToArr(contextStyles, styles),
+      useToArr(contextStyles, contextStyleRoot as any, styles),
       useToProps(mergedProps),
     )
 
@@ -162,7 +164,6 @@ const QRCode = defineComponent<
       const rootStyle: CSSProperties = {
         backgroundColor: bgColor,
         ...mergedStyles.value?.root,
-        ...contextStyle.value,
         ...style,
         width: _width,
         height: _height,

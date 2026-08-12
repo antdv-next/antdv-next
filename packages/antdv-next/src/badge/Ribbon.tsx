@@ -10,6 +10,7 @@ import { computed, defineComponent } from 'vue'
 import { isPresetColor } from '../_util/colors.ts'
 import {
   useMergeSemantic,
+  useSemanticRootStyle,
   useToArr,
   useToProps,
 } from '../_util/hooks'
@@ -81,15 +82,26 @@ export default defineComponent<
       return props
     })
 
+    // The legacy inline `style` of Ribbon targets the indicator node, not the root.
+    const contextIndicatorStyle = useSemanticRootStyle(contextStyle, 'indicator')
+    const indicatorStyle = useSemanticRootStyle(
+      computed(() => (attrs as any).style as CSSProperties | undefined),
+      'indicator',
+    )
+
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       RibbonClassNamesType,
       RibbonStylesType,
       RibbonProps
-    >(useToArr(contextClassNames, ribbonClassNames), useToArr(contextStyles, styles), useToProps(mergedProps))
+    >(
+      useToArr(contextClassNames, ribbonClassNames),
+      useToArr(contextStyles, contextIndicatorStyle as any, styles, indicatorStyle as any),
+      useToProps(mergedProps),
+    )
 
     return () => {
       const { placement = 'end', color } = props
-      const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
+      const { className, restAttrs } = getAttrStyleAndClass(attrs)
       const colorInPreset = isPresetColor(props.color, false)
 
       const ribbonCls = clsx(
@@ -123,7 +135,7 @@ export default defineComponent<
           <div
             {...restAttrs}
             class={clsx(ribbonCls, hashId.value)}
-            style={[colorStyle, mergedStyles.value?.indicator, contextStyle.value, style]}
+            style={[colorStyle, mergedStyles.value?.indicator]}
           >
             <span
               class={clsx(`${prefixCls.value}-content`, mergedClassNames.value.content)}

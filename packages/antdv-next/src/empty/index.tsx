@@ -4,7 +4,7 @@ import type { EmptyEmit, VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
 import { classNames } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
-import { computed, defineComponent } from 'vue'
+import { computed, defineComponent, shallowRef } from 'vue'
 import { pureAttrs, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { useComponentBaseConfig, useComponentConfig } from '../config-provider/context.ts'
@@ -50,6 +50,10 @@ export interface EmptyProps extends ComponentBaseProps {
   description?: VueNode
 }
 
+export interface EmptyRef {
+  nativeElement: HTMLDivElement
+}
+
 export interface EmptySlots {
   image: () => any
   description: () => any
@@ -67,7 +71,7 @@ const Empty = defineComponent<
   string,
   SlotsType<EmptySlots>
 >(
-  (props = defaultProps, { slots, attrs }) => {
+  (props = defaultProps, { slots, attrs, expose }) => {
     const componentConfig = useComponentConfig('empty')
     const {
       prefixCls,
@@ -91,6 +95,12 @@ const Empty = defineComponent<
     )
 
     const [locale] = useLocale('Empty')
+
+    const nativeElementRef = shallowRef<HTMLDivElement>()
+    expose({
+      nativeElement: nativeElementRef,
+    })
+
     return () => {
       const description = getSlotPropsFnRun(slots, props, 'description')
       const des = description ?? locale?.value?.description
@@ -106,6 +116,7 @@ const Empty = defineComponent<
       const children = filterEmpty(slots?.default?.() ?? [])
       return (
         <div
+          ref={nativeElementRef}
           class={classNames(
             hashId.value,
             cssVarCls.value,

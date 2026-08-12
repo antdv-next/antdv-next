@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest'
-import { h } from 'vue'
+import { h, nextTick, ref } from 'vue'
 import Card, { CardGrid, CardMeta } from '..'
 import ConfigProvider from '../../config-provider'
 import rtlTest from '/@tests/shared/rtlTest'
@@ -356,5 +356,14 @@ describe('card', () => {
       </Card>
     ))
     expect(wrapper.html()).toMatchSnapshot()
+  })
+
+  // ========================= Ref =========================
+  it('should support Card.Grid nativeElement ref', async () => {
+    const gridRef = ref<any>()
+    const wrapper = mount(() => <Card.Grid ref={gridRef}>Grid</Card.Grid>)
+    await nextTick()
+    expect(gridRef.value?.nativeElement).toBeInstanceOf(HTMLElement)
+    expect(gridRef.value.nativeElement).toBe(wrapper.find('.ant-card-grid').element)
   })
 })

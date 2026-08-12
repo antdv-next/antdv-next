@@ -13,7 +13,7 @@ import { filterEmpty, removeUndefined } from '@v-c/util/dist/props-util'
 import { getTransitionName } from '@v-c/util/dist/utils/transition'
 import { computed, createVNode, defineComponent, isVNode, shallowRef, watch } from 'vue'
 import { ContextIsolator } from '../_util/ContextIsolator.tsx'
-import { useMergeSemantic, useToArr, useToProps, useZIndex } from '../_util/hooks'
+import { useMergeSemantic, useSemanticRootStyle, useToArr, useToProps, useZIndex } from '../_util/hooks'
 import getPlacements from '../_util/placements.ts'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { ZIndexProvider } from '../_util/zindexContext.ts'
@@ -238,11 +238,13 @@ const InternalTooltip = defineComponent<
       } as TooltipProps
     })
 
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
+
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       TooltipClassNamesType,
       TooltipStylesType,
       TooltipProps
-    >(useToArr(contextClassNames, classes), useToArr(contextStyles, styles), useToProps(mergedProps))
+    >(useToArr(contextClassNames, classes), useToArr(contextStyles, contextStyleRoot as any, styles), useToProps(mergedProps))
     const inTableMeasureRow = useTableMeasureRowContext()
 
     // Style
@@ -324,7 +326,6 @@ const InternalTooltip = defineComponent<
             root: {
               ...arrowContentStyle,
               ...mergedStyles.value?.root,
-              ...contextStyle.value,
             },
             container: containerStyle,
             uniqueContainer: containerStyle,

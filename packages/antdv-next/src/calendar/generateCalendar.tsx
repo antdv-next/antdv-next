@@ -6,7 +6,7 @@ import type { AnyObject, VueNode } from '../_util/type'
 import { PickerPanel } from '@v-c/picker'
 import { clsx } from '@v-c/util'
 import { computed, defineComponent, ref, watch } from 'vue'
-import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { devUseWarning, isDev } from '../_util/warning'
 import { useComponentBaseConfig } from '../config-provider/context'
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
@@ -174,13 +174,15 @@ function generateCalendar<DateType extends AnyObject>(generateConfig: GenerateCo
         showWeek: props.showWeek,
       }))
 
+      const contextStyleRoot = useSemanticRootStyle(contextStyle)
+
       const [mergedClassNames, mergedStyles] = useMergeSemantic<
         CalendarClassNamesType<DateType>,
         CalendarStylesType<DateType>,
         CalendarProps<DateType>
       >(
         useToArr(contextClassNames, computed(() => props.classes)),
-        useToArr(contextStyles, computed(() => props.styles)),
+        useToArr(contextStyles, contextStyleRoot as any, computed(() => props.styles)),
         useToProps(mergedProps as any),
       )
 
@@ -434,7 +436,6 @@ function generateCalendar<DateType extends AnyObject>(generateConfig: GenerateCo
             )}
             style={{
               ...rootStyle,
-              ...contextStyle.value,
               ...style,
             }}
             {...restAttrs}

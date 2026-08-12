@@ -5,8 +5,8 @@ import CardMeta from './CardMeta'
 
 export type { CardEmits, CardProps, CardSize, CardSlots, CardTabListType } from './Card'
 
-export type { CardGridProps } from './CardGrid'
-export type { CardMetaProps } from './CardMeta'
+export type { CardGridProps, CardGridRef } from './CardGrid'
+export type { CardMetaProps, CardMetaRef } from './CardMeta'
 
 (Card as any).Grid = CardGrid;
 (Card as any).Meta = CardMeta;

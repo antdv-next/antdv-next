@@ -158,6 +158,7 @@ function generatePicker<DateType extends AnyObject = AnyObject>(generateConfig: 
           popupClassName,
           popupStyle,
           mergedProps,
+          contextStyle,
         )
 
         const innerRef = shallowRef<PickerRef>()
@@ -338,7 +339,6 @@ function generatePicker<DateType extends AnyObject = AnyObject>(generateConfig: 
           )
 
           const mergedStyle = {
-            ...contextStyle?.value,
             ...style,
           }
 

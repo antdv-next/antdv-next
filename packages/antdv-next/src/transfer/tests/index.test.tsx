@@ -137,6 +137,16 @@ describe('transfer', () => {
     expect(wrapper.element).toMatchSnapshot()
   })
 
+  it('should support nativeElement ref', async () => {
+    const transferRef = ref<any>()
+    const wrapper = mount(() => <Transfer ref={transferRef} dataSource={[]} targetKeys={[]} />)
+
+    await nextTick()
+
+    expect(transferRef.value?.nativeElement).toBeInstanceOf(HTMLElement)
+    expect(transferRef.value.nativeElement).toBe(wrapper.find('.ant-transfer').element)
+  })
+
   it('should forward data and aria attributes to root element', () => {
     const wrapper = mount(Transfer, {
       props: {

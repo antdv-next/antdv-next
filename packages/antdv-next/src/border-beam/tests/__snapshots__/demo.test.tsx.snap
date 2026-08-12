@@ -126,6 +126,68 @@ exports[`border-beam demo > renders component-token correctly 1`] = `
 </div>
 `;
 
+exports[`border-beam demo > renders count correctly 1`] = `
+<div
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-vertical"
+  style="gap: 16px;"
+>
+  <div
+    class="ant-card ant-card-bordered css-var-root"
+  >
+    <div
+      class="ant-card-head"
+    >
+      <div
+        class="ant-card-head-wrapper"
+      >
+        <div
+          class="ant-card-head-title"
+        >
+          Multiple beams
+        </div>
+        <!---->
+      </div>
+      <!---->
+    </div>
+    <!---->
+    <div
+      class="ant-card-body"
+    >
+       Set count to distribute multiple beams evenly around the container border. 
+    </div>
+    <!---->
+  </div>
+  <!---->
+  <div
+    class="ant-card ant-card-bordered css-var-root"
+  >
+    <div
+      class="ant-card-head"
+    >
+      <div
+        class="ant-card-head-wrapper"
+      >
+        <div
+          class="ant-card-head-title"
+        >
+          Multiple beams
+        </div>
+        <!---->
+      </div>
+      <!---->
+    </div>
+    <!---->
+    <div
+      class="ant-card-body"
+    >
+       Set count to distribute multiple beams evenly around the container border. 
+    </div>
+    <!---->
+  </div>
+  <!---->
+</div>
+`;
+
 exports[`border-beam demo > renders custom-container correctly 1`] = `
 <div
   data-v-app=""

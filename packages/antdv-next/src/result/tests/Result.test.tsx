@@ -332,6 +332,15 @@ describe('result', () => {
     expect(wrapper.element).toMatchSnapshot()
   })
 
+  // ========================= Ref =========================
+  it('should support nativeElement ref', async () => {
+    const resultRef = ref<any>()
+    const wrapper = mount(() => <Result ref={resultRef} />)
+    await nextTick()
+    expect(resultRef.value?.nativeElement).toBeInstanceOf(HTMLElement)
+    expect(resultRef.value.nativeElement).toBe(wrapper.find('.ant-result').element)
+  })
+
   describe('static properties', () => {
     it('should have PRESENTED_IMAGE_403', () => {
       expect(Result.PRESENTED_IMAGE_403).toBeDefined()

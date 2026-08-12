@@ -5,6 +5,7 @@ export type {
   BreadcrumbItemRenderContext,
   ItemType as BreadcrumbItemType,
   BreadcrumbProps,
+  BreadcrumbRef,
   BreadcrumbSlots,
 } from './Breadcrumb'
 export {

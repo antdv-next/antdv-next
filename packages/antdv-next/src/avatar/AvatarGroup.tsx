@@ -4,7 +4,7 @@ import type { PopoverProps } from '../popover'
 import type { AvatarSize } from './AvatarContext'
 import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
-import { computed, createVNode, defineComponent, isVNode } from 'vue'
+import { computed, createVNode, defineComponent, isVNode, shallowRef } from 'vue'
 import { getAttrStyleAndClass } from '../_util/hooks'
 import { useComponentBaseConfig } from '../config-provider/context'
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
@@ -28,8 +28,12 @@ export interface AvatarGroupProps extends ComponentBaseProps {
   shape?: 'circle' | 'square'
 }
 
+export interface AvatarGroupRef {
+  nativeElement: HTMLDivElement
+}
+
 const AvatarGroup = defineComponent<AvatarGroupProps>(
-  (props, { slots, attrs }) => {
+  (props, { slots, attrs, expose }) => {
     const { prefixCls, direction } = useComponentBaseConfig('avatar', props)
     const groupPrefixCls = computed(() => `${prefixCls.value}-group`)
     const rootCls = useCSSVarCls(prefixCls)
@@ -42,6 +46,12 @@ const AvatarGroup = defineComponent<AvatarGroupProps>(
     })
 
     useAvatarProvider(contextValue)
+
+    const nativeElementRef = shallowRef<HTMLDivElement>()
+    expose({
+      nativeElement: nativeElementRef,
+    })
+
     return () => {
       const { rootClass, max } = props
       const children = filterEmpty(slots?.default?.() ?? [])
@@ -90,13 +100,13 @@ const AvatarGroup = defineComponent<AvatarGroupProps>(
         )
 
         return (
-          <div {...restAttrs} class={cls} style={style}>
+          <div ref={nativeElementRef} {...restAttrs} class={cls} style={style}>
             {childrenShow}
           </div>
         )
       }
       return (
-        <div {...restAttrs} class={cls} style={style}>
+        <div ref={nativeElementRef} {...restAttrs} class={cls} style={style}>
           {childrenWithProps}
         </div>
       )

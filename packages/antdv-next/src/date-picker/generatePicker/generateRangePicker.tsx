@@ -138,6 +138,7 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
         popupClassName,
         popupStyle,
         mergedProps,
+        computed(() => contextStyle?.value ?? null),
       )
 
       const innerRef = shallowRef<PickerRef>()
@@ -293,7 +294,6 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
         )
 
         const mergedStyle = {
-          ...contextStyle?.value,
           ...style,
         }
 
