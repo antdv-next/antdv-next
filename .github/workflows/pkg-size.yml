@@ -2,7 +2,7 @@ name: Pkg Size
 
 on:
   pull_request_target:
-    types: [opened]
+    types: [opened, synchronize, reopened]
 
 permissions:
   contents: read
