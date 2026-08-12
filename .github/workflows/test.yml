@@ -116,7 +116,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Download Vitest results
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v7
         with:
           path: .vitest-reports
           pattern: vitest-results-*
