@@ -445,6 +445,38 @@ describe('drawer', () => {
     wrapper.unmount()
   })
 
+  // https://github.com/ant-design/ant-design/pull/58853
+  it('disabled close button should not trigger close', async () => {
+    const onClose = vi.fn()
+    const wrapper = mount(Drawer, {
+      props: { open: true, title: 'Drawer', closable: { disabled: true }, onClose },
+      slots: { default: () => <p>Body</p> },
+      attachTo: document.body,
+    })
+    await nextTick()
+    await nextTick()
+    const closeBtn = document.querySelector<HTMLButtonElement>('.ant-drawer-close')!
+    expect(closeBtn).toBeTruthy()
+    expect(closeBtn.disabled).toBe(true)
+    closeBtn.click()
+    await nextTick()
+    expect(onClose).not.toHaveBeenCalled()
+    wrapper.unmount()
+  })
+
+  it('close button is not disabled by default', async () => {
+    const wrapper = mount(Drawer, {
+      props: { open: true, title: 'Drawer' },
+      slots: { default: () => <p>Body</p> },
+      attachTo: document.body,
+    })
+    await nextTick()
+    await nextTick()
+    const closeBtn = document.querySelector<HTMLButtonElement>('.ant-drawer-close')!
+    expect(closeBtn.disabled).toBe(false)
+    wrapper.unmount()
+  })
+
   // ========================= Closable placement =========================
   it('supports closable placement end', async () => {
     const wrapper = mount(Drawer, {

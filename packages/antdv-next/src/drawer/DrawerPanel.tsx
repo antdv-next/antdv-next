@@ -1,5 +1,5 @@
 import type { DrawerProps as VcDrawerProps } from '@v-c/drawer'
-import type { CSSProperties } from 'vue'
+import type { CSSProperties, VNodeChild } from 'vue'
 import type { DrawerProps } from '.'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { ClosableType } from '../_util/hooks/useClosable'
@@ -9,6 +9,7 @@ import { computed, defineComponent } from 'vue'
 import { useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
 import useClosable, { pickClosable } from '../_util/hooks/useClosable'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
+import { cloneElement } from '../_util/vueNode'
 import { useComponentBaseConfig } from '../config-provider/context'
 import Skeleton from '../skeleton'
 
@@ -178,7 +179,8 @@ const DrawerPanel = defineComponent<DrawerPanelProps>(
       const title = getSlotPropsFnRun(slots, props, 'title')
       const footer = getSlotPropsFnRun(slots, props, 'footer')
       const extra = getSlotPropsFnRun(slots, props, 'extra')
-      const [mergedClosable, mergedCloseIcon] = closableInfo.value!
+      const [mergedClosable, mergedCloseIcon, closeBtnIsDisabled] = closableInfo.value!
+      const mergedCloseButton = cloneElement(mergedCloseIcon as VNodeChild, { disabled: closeBtnIsDisabled })
       const renderHeader = () => {
         if (!title && !mergedClosable) {
           return null
@@ -194,7 +196,7 @@ const DrawerPanel = defineComponent<DrawerPanelProps>(
             })}
           >
             <div class={`${prefixCls}-header-title`}>
-              {closablePlacement.value === 'start' && mergedCloseIcon}
+              {closablePlacement.value === 'start' && mergedCloseButton}
               {!!title && (
                 <div
                   class={clsx(`${prefixCls}-title`, mergedClassNames.value.title)}
@@ -212,7 +214,7 @@ const DrawerPanel = defineComponent<DrawerPanelProps>(
                 )
               }
             </div>
-            {closablePlacement.value === 'end' && mergedCloseIcon}
+            {closablePlacement.value === 'end' && mergedCloseButton}
           </div>
         )
       }

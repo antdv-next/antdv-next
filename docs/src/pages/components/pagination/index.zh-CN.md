@@ -29,6 +29,7 @@ demo:
   <demo src="./demo/total.vue">总数</demo>
   <demo src="./demo/all.vue">全部展示</demo>
   <demo src="./demo/itemRender.vue">上一步和下一步</demo>
+  <demo src="./demo/components.vue">定制组件</demo>
   <demo src="./demo/style-class.vue">语义化样式</demo>
 </demo-group>
 
@@ -42,6 +43,7 @@ demo:
 | --- | --- | --- | --- | --- | --- |
 | align | 对齐方式 | `start` \| `center` \| `end` | - | - | × |
 | classes | 自定义组件内部各语义化结构的类名，支持对象或函数 | PaginationClassNamesType | - | - | ✓ |
+| components | 自定义内部组件 | &#123; sizeChanger?: Component&lt;PaginationSizeChangerProps&gt; &#125; | - | - | × |
 | current | 当前页数 | number | - | - | × |
 | defaultCurrent | 默认的当前页数 | number | 1 | - | × |
 | defaultPageSize | 默认的每页条数 | number | 10 | - | × |

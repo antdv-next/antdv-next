@@ -91,6 +91,41 @@ describe('table expand', () => {
     expect(wrapper.find('.ant-table-row-expand-icon-expanded').exists()).toBe(false)
   })
 
+  it('should force render expanded rows before expansion', () => {
+    const wrapper = mount(Table, {
+      props: {
+        columns,
+        dataSource: [data[0]],
+        pagination: false,
+        expandable: { forceRender: true },
+      },
+      slots: {
+        expandedRowRender: ({ record }: any) => h('p', { class: 'expanded-content' }, record.name),
+      },
+    })
+
+    const expandedRow = wrapper.find('.ant-table-expanded-row')
+    expect(expandedRow.exists()).toBe(true)
+    expect(expandedRow.element).toHaveStyle({ display: 'none' })
+    expect(wrapper.find('.expanded-content').text()).toBe('John')
+  })
+
+  it('should not render expanded rows without forceRender', () => {
+    const wrapper = mount(Table, {
+      props: {
+        columns,
+        dataSource: [data[0]],
+        pagination: false,
+      },
+      slots: {
+        expandedRowRender: ({ record }: any) => h('p', { class: 'expanded-content' }, record.name),
+      },
+    })
+
+    expect(wrapper.find('.ant-table-expanded-row').exists()).toBe(false)
+    expect(wrapper.find('.expanded-content').exists()).toBe(false)
+  })
+
   it('should support defaultExpandedRowKeys', () => {
     const wrapper = mount(Table, {
       props: {

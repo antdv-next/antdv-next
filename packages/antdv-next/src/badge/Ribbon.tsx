@@ -6,7 +6,7 @@ import type { EmptyEmit, VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
 import { clsx } from '@v-c/util'
 import { getAttrStyleAndClass } from '@v-c/util/dist/props-util'
-import { computed, defineComponent } from 'vue'
+import { computed, defineComponent, shallowRef } from 'vue'
 import { isPresetColor } from '../_util/colors.ts'
 import {
   useMergeSemantic,
@@ -46,6 +46,10 @@ export interface RibbonProps extends ComponentBaseProps {
   styles?: RibbonStylesType
 }
 
+export interface RibbonRef {
+  nativeElement: HTMLDivElement
+}
+
 export interface RibbonSlots {
   default?: () => any
   text?: () => any
@@ -61,7 +65,7 @@ export default defineComponent<
   string,
   SlotsType<RibbonSlots>
 >(
-  (props = defaults, { slots, attrs }) => {
+  (props = defaults, { slots, attrs, expose }) => {
     const {
       styles,
       classes: ribbonClassNames,
@@ -99,6 +103,11 @@ export default defineComponent<
       useToProps(mergedProps),
     )
 
+    const nativeElementRef = shallowRef<HTMLDivElement>()
+    expose({
+      nativeElement: nativeElementRef,
+    })
+
     return () => {
       const { placement = 'end', color } = props
       const { className, restAttrs } = getAttrStyleAndClass(attrs)
@@ -128,6 +137,7 @@ export default defineComponent<
 
       return (
         <div
+          ref={nativeElementRef}
           class={clsx(wrapperCls.value, props.rootClass, hashId.value, cssVarCls.value, mergedClassNames.value?.root)}
           style={mergedStyles.value?.root}
         >

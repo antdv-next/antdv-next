@@ -76,6 +76,10 @@ export interface FloatButtonGroupProps extends Omit<FloatButtonProps, 'classes' 
   style?: CSSProperties
 }
 
+export interface FloatButtonGroupRef {
+  nativeElement: HTMLDivElement
+}
+
 export interface FloatButtonGroupSlots {
   default?: () => any
   closeIcon?: () => any
@@ -117,7 +121,7 @@ const InternalFloatButtonGroup = defineComponent<
   string,
   SlotsType<FloatButtonGroupSlots>
 >(
-  (props = defaults, { slots, attrs, emit }) => {
+  (props = defaults, { slots, attrs, emit, expose }) => {
     const componentConfig = useComponentBaseConfig('floatButtonGroup', props, ['closeIcon'], floatButtonPrefixCls)
     const {
       class: contextClassName,
@@ -187,7 +191,12 @@ const InternalFloatButtonGroup = defineComponent<
       emit('openChange', nextOpen)
     }
 
-    const groupRef = shallowRef<HTMLElement>()
+    const groupRef = shallowRef<HTMLDivElement>()
+
+    // ============================= Refs =============================
+    expose({
+      nativeElement: groupRef,
+    })
 
     const handleDocClick = (event: MouseEvent) => {
       if (!clickTrigger.value) {

@@ -26,6 +26,7 @@ Almost anything can be represented in a tree structure. Examples include directo
   <demo src="./demo/directory.vue">directory</demo>
   <demo src="./demo/switcher-icon.vue">Customize collapse/expand icon</demo>
   <demo src="./demo/virtual-scroll.vue">Virtual scroll</demo>
+  <demo src="./demo/scroll-to.vue">Scroll to nested node</demo>
   <demo src="./demo/block-node.vue">Block Node</demo>
   <demo src="./demo/big-data.vue" debug>Big data</demo>
   <demo src="./demo/multiple-line.vue" debug>Multiple lines</demo>
@@ -106,7 +107,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 | Name | Description |
 | --- | --- |
-| scrollTo(&#123; key: Key, align?: 'top' \| 'bottom' \| 'auto', offset?: number &#125;) | Scroll to key item in virtual scroll |
+| scrollTo(&#123; key: Key, align?: 'top' \| 'bottom' \| 'auto', offset?: number, autoExpand?: boolean &#125;) | Scroll to key item in virtual scroll. `autoExpand` expands the target node in uncontrolled mode |
 
 ### TreeNode
 
@@ -130,6 +131,20 @@ Common props ref：[Common props](/docs/vue/common-props)
 | Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | expandAction | Directory opening logic, options: false \| `click` \| `doubleClick` | string \| boolean | `click` |
+
+### Tree Hooks
+
+#### useTree {#use-tree}
+
+`type useTree = (treeData: MaybeRefOrGetter<TreeDataNode[]>, config?: { fieldNames?: MaybeRefOrGetter<FieldNames> }) => TreeInstance`
+
+Provides Tree data utilities. `getPath(key)` returns the node entities from the root to the target node, which can be used to update `expandedKeys` in controlled mode. Also available as `Tree.useTree`.
+
+```ts
+import { useTree } from 'antdv-next'
+
+const { getPath } = useTree(treeData)
+```
 
 ## Semantic DOM {#semantic-dom}
 

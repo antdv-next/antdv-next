@@ -43,6 +43,10 @@ export interface WatermarkProps {
   onRemove?: (() => void) | undefined
 }
 
+export interface WatermarkRef {
+  nativeElement: HTMLDivElement
+}
+
 /**
  * Only return `next` when size changed.
  * This is only used for elements compare, not a shallow equal!
@@ -68,7 +72,7 @@ const defaults = {
 } as any
 
 const Watermark = defineComponent<WatermarkProps>(
-  (props = defaults, { slots, attrs }) => {
+  (props = defaults, { slots, attrs, expose }) => {
     const [,token] = useToken()
     const mergedZIndex = computed(() => props.zIndex ?? token.value.zIndexPopupBase - WATERMARK_Z_INDEX_OFFSET)
     const onRemove = computed(() => props.onRemove)
@@ -127,7 +131,12 @@ const Watermark = defineComponent<WatermarkProps>(
       mergedMarkStyle.backgroundPosition = `${positionLeft}px ${positionTop}px`
       return mergedMarkStyle
     })
-    const container = shallowRef<HTMLElement | null>(null)
+    const container = shallowRef<HTMLDivElement | null>(null)
+
+    // The container element is the component root, so it doubles as `nativeElement`.
+    expose({
+      nativeElement: container,
+    })
 
     // Used for nest case like Modal, Drawer
     const subElements = ref(new Set<HTMLElement>())

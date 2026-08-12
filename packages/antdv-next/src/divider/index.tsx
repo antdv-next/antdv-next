@@ -4,7 +4,7 @@ import type { ComponentBaseProps } from '../config-provider/context.ts'
 import type { SizeType } from '../config-provider/SizeContext.tsx'
 import { classNames } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
-import { computed, defineComponent } from 'vue'
+import { computed, defineComponent, shallowRef } from 'vue'
 import { pureAttrs, useMergeSemantic, useOrientation, useSemanticRootStyle, useToArr } from '../_util/hooks'
 import { toPropsRefs } from '../_util/tools.ts'
 import { useComponentBaseConfig } from '../config-provider/context.ts'
@@ -61,6 +61,10 @@ export interface DividerProps extends ComponentBaseProps {
   styles?: DividerStylesType
 }
 
+export interface DividerRef {
+  nativeElement: HTMLDivElement
+}
+
 const defaultProps = {
   orientation: 'center',
   variant: 'solid',
@@ -68,7 +72,7 @@ const defaultProps = {
   orientationMargin: undefined,
 } as any
 const Divider = defineComponent<DividerProps>(
-  (props = defaultProps, { slots, attrs }) => {
+  (props = defaultProps, { slots, attrs, expose }) => {
     const {
       class: contextClassName,
       style: contextStyle,
@@ -127,6 +131,12 @@ const Divider = defineComponent<DividerProps>(
       }
       return orientationMargin!
     })
+
+    const nativeElementRef = shallowRef<HTMLDivElement>()
+    expose({
+      nativeElement: nativeElementRef,
+    })
+
     return () => {
       const {
         variant,
@@ -167,6 +177,7 @@ const Divider = defineComponent<DividerProps>(
       }
       return (
         <div
+          ref={nativeElementRef}
           class={classString}
           style={[
             mergedStyles.value.root,

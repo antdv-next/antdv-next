@@ -1,5 +1,5 @@
 import type { PaginationProps as VcPaginationProps } from '@v-c/pagination'
-import type { CSSProperties } from 'vue'
+import type { Component, CSSProperties } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { VueNode } from '../_util/type'
 import type { SizeType } from '../config-provider/SizeContext'
@@ -43,6 +43,24 @@ export type PaginationClassNamesType = SemanticClassNamesType<
 
 export type PaginationStylesType = SemanticStylesType<PaginationProps, PaginationSemanticStyles>
 
+export interface PaginationSizeChangerProps {
+  /** Current `pageSize` */
+  value: number
+  /** Whether the pagination is disabled */
+  disabled: boolean
+  /**
+   * Emitted as the `change` event when the user picks another page size.
+   * Also accepted as an `onChange` prop.
+   */
+  onChange?: (value: number) => void
+  /** Injected through attrs, `ant-pagination-options-size-changer` */
+  class?: string
+}
+
+export interface PaginationComponents {
+  sizeChanger?: Component<PaginationSizeChangerProps>
+}
+
 export interface PaginationProps extends Omit<VcPaginationProps, | 'className'
   | 'style'
   | 'classNames'
@@ -54,6 +72,7 @@ export interface PaginationProps extends Omit<VcPaginationProps, | 'className'
   | 'nextIcon'
   | 'jumpPrevIcon'
   | 'jumpNextIcon'
+  | 'sizeChangerRender'
   | 'onChange'
   | 'onShowSizeChange'> {
   showQuickJumper?: boolean | { goButton?: VueNode }
@@ -61,6 +80,7 @@ export interface PaginationProps extends Omit<VcPaginationProps, | 'className'
   responsive?: boolean
   totalBoundaryShowSizeChanger?: number
   rootClass?: string
+  components?: PaginationComponents
   showSizeChanger?: boolean | SelectProps
   pageSizeOptions?: (string | number)[]
   classes?: PaginationClassNamesType

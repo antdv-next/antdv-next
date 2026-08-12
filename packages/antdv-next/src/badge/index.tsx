@@ -6,7 +6,7 @@ import type { EmptyEmit, VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
 import type { SizeType } from '../config-provider/SizeContext.tsx'
 import type { PresetColorKey } from '../theme/interface'
-import type { RibbonProps } from './Ribbon.tsx'
+import type { RibbonProps, RibbonRef } from './Ribbon.tsx'
 import { classNames } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { getTransitionProps } from '@v-c/util/dist/utils/transition'
@@ -369,3 +369,5 @@ export const BadgeRibbon = Ribbon
 export default Badge
 
 export type BadgeRibbonProps = RibbonProps
+
+export type BadgeRibbonRef = RibbonRef

@@ -572,4 +572,13 @@ describe('spin', () => {
     })
     expect(wrapper.html()).toMatchSnapshot()
   })
+
+  // ========================= Ref =========================
+  it('should support nativeElement ref', async () => {
+    const spinRef = ref<any>()
+    const wrapper = mount(() => <Spin ref={spinRef} />)
+    await nextTick()
+    expect(spinRef.value?.nativeElement).toBeInstanceOf(HTMLElement)
+    expect(spinRef.value.nativeElement).toBe(wrapper.find(`.${prefixCls}`).element)
+  })
 })

@@ -75,6 +75,10 @@ export interface SpinProps extends ComponentBaseProps {
   styles?: SpinStylesType
 }
 
+export interface SpinRef {
+  nativeElement: HTMLDivElement
+}
+
 export interface SpinSlots {
   indicator?: () => any
   /** @deprecated Please use `description` instead */
@@ -102,7 +106,7 @@ const Spin = defineComponent<
   string,
   SlotsType<SpinSlots>
 >(
-  (props = defaultSpinProps, { slots, attrs }) => {
+  (props = defaultSpinProps, { slots, attrs, expose }) => {
     const componentCtx = useComponentConfig('spin')
     const {
       direction,
@@ -161,6 +165,12 @@ const Spin = defineComponent<
       SpinStylesType,
       SpinProps
     >(useToArr(contextClassNames, classes), useToArr(contextStyles, contextStyleRoot as any, styles), useToProps(mergedProps))
+
+    const nativeElementRef = shallowRef<HTMLDivElement>()
+    expose({
+      nativeElement: nativeElementRef,
+    })
+
     return () => {
       const { fullscreen, size, rootClass, wrapperClassName } = props
       const children = filterEmpty(slots?.default?.() || [])
@@ -224,6 +234,7 @@ const Spin = defineComponent<
 
       return (
         <div
+          ref={nativeElementRef}
           {...restAttrs}
           class={classNames(
             prefixCls.value,

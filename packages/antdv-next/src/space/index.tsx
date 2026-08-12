@@ -213,3 +213,5 @@ const Space = InternalSpace
 export default Space
 export const SpaceCompact = Compact
 export const SpaceAddon = Addon
+
+export type { SpaceCompactProps, SpaceCompactRef } from './Compact.tsx'

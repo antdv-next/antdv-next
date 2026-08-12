@@ -5,7 +5,7 @@ import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { AnyObject, VueNode } from '../_util/type'
 import { PickerPanel } from '@v-c/picker'
 import { clsx } from '@v-c/util'
-import { computed, defineComponent, ref, watch } from 'vue'
+import { computed, defineComponent, ref, shallowRef, watch } from 'vue'
 import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { devUseWarning, isDev } from '../_util/warning'
 import { useComponentBaseConfig } from '../config-provider/context'
@@ -89,6 +89,10 @@ export interface CalendarProps<DateType> extends
   // onSelect?: (date: DateType, selectInfo: SelectInfo) => void
 }
 
+export interface CalendarRef {
+  nativeElement: HTMLDivElement
+}
+
 export const calendarProps = [
   'prefixCls',
   'rootClass',
@@ -157,7 +161,7 @@ function generateCalendar<DateType extends AnyObject>(generateConfig: GenerateCo
     string,
     SlotsType<CalendarSlots>
   >(
-    (props = { fullscreen: true }, { slots, attrs, emit }) => {
+    (props = { fullscreen: true }, { slots, attrs, emit, expose }) => {
       const {
         prefixCls,
         direction,
@@ -397,6 +401,11 @@ function generateCalendar<DateType extends AnyObject>(generateConfig: GenerateCo
         }
       })
 
+      const nativeElementRef = shallowRef<HTMLDivElement>()
+      expose({
+        nativeElement: nativeElementRef,
+      })
+
       return () => {
         const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
 
@@ -419,6 +428,7 @@ function generateCalendar<DateType extends AnyObject>(generateConfig: GenerateCo
 
         return (
           <div
+            ref={nativeElementRef}
             class={clsx(
               calendarPrefixCls.value,
               {
