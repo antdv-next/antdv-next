@@ -32,9 +32,13 @@ jobs:
       - name: Get pack size
         id: size
         run: |
-          PACK=$(npm pack --dry-run --json 2>&1 | sed -n '/^\[/,/^\]/p' | jq '.[0]')
-          echo "size=$(echo "$PACK" | jq '.size')" >> "$GITHUB_OUTPUT"
-          echo "unpack_size=$(echo "$PACK" | jq '.unpackedSize')" >> "$GITHUB_OUTPUT"
+          PACK=$(npm pack --dry-run --json)
+
+          SIZE=$(echo "$PACK" | jq -r '.[0].size')
+          UNPACK_SIZE=$(echo "$PACK" | jq -r '.[0].unpackedSize')
+
+          echo "size=$SIZE" >> "$GITHUB_OUTPUT"
+          echo "unpack_size=$UNPACK_SIZE" >> "$GITHUB_OUTPUT"
 
       - name: Get base branch size
         if: github.event_name == 'pull_request'
@@ -42,11 +46,16 @@ jobs:
         run: |
           git fetch origin ${{ github.base_ref }} --depth=1
           git checkout FETCH_HEAD -- . 2>/dev/null || true
-          npm ci
-          npm build
-          PACK=$(npm pack --dry-run --json 2>&1 | sed -n '/^\[/,/^\]/p' | jq '.[0]')
-          echo "size=$(echo "$PACK" | jq '.size')" >> "$GITHUB_OUTPUT"
-          echo "unpack_size=$(echo "$PACK" | jq '.unpackedSize')" >> "$GITHUB_OUTPUT"
+          pnpm ci
+          pnpm build
+
+          PACK=$(npm pack --dry-run --json)
+
+          SIZE=$(echo "$PACK" | jq -r '.[0].size')
+          UNPACK_SIZE=$(echo "$PACK" | jq -r '.[0].unpackedSize')
+
+          echo "size=$SIZE" >> "$GITHUB_OUTPUT"
+          echo "unpack_size=$UNPACK_SIZE" >> "$GITHUB_OUTPUT"
 
       - name: Comment on PR
         if: github.event_name == 'pull_request'
