@@ -14,6 +14,7 @@ permissions:
 jobs:
   pkg-size:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v7
 
@@ -31,11 +32,16 @@ jobs:
 
       - name: Get pack size
         id: size
+        shell: bash
         run: |
-          PACK=$(npm pack --dry-run --json)
+          PACK=$(npm pack ./packages/antdv-next \
+            --dry-run \
+            --json \
+            --ignore-scripts \
+            --loglevel=error)
 
-          SIZE=$(echo "$PACK" | jq -r '.[0].size')
-          UNPACK_SIZE=$(echo "$PACK" | jq -r '.[0].unpackedSize')
+          SIZE=$(jq -r '.[0].size' <<< "$PACK")
+          UNPACK_SIZE=$(jq -r '.[0].unpackedSize' <<< "$PACK")
 
           echo "size=$SIZE" >> "$GITHUB_OUTPUT"
           echo "unpack_size=$UNPACK_SIZE" >> "$GITHUB_OUTPUT"
@@ -43,16 +49,22 @@ jobs:
       - name: Get base branch size
         if: github.event_name == 'pull_request'
         id: base_size
+        shell: bash
         run: |
           git fetch origin ${{ github.base_ref }} --depth=1
           git checkout FETCH_HEAD -- . 2>/dev/null || true
-          pnpm ci
+
+          pnpm install --frozen-lockfile
           pnpm build
 
-          PACK=$(npm pack --dry-run --json)
+          PACK=$(npm pack ./packages/antdv-next \
+            --dry-run \
+            --json \
+            --ignore-scripts \
+            --loglevel=error)
 
-          SIZE=$(echo "$PACK" | jq -r '.[0].size')
-          UNPACK_SIZE=$(echo "$PACK" | jq -r '.[0].unpackedSize')
+          SIZE=$(jq -r '.[0].size' <<< "$PACK")
+          UNPACK_SIZE=$(jq -r '.[0].unpackedSize' <<< "$PACK")
 
           echo "size=$SIZE" >> "$GITHUB_OUTPUT"
           echo "unpack_size=$UNPACK_SIZE" >> "$GITHUB_OUTPUT"
