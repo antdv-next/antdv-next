@@ -16,7 +16,7 @@ jobs:
       contents: read
       pull-requests: read # for amannn/action-semantic-pull-request to analyze PRs
       statuses: write # for amannn/action-semantic-pull-request to mark status of analyzed PR
-    if: github.repository == 'antdv-next'
+    if: github.repository == 'antdv-next/antdv-next'
     runs-on: ubuntu-slim
     name: 🏷️ Validate PR title
     steps:
