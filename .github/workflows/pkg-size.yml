@@ -21,7 +21,6 @@ jobs:
         uses: actions/setup-node@v7
         with:
           node-version: lts/*
-          cache: pnpm
 
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
