@@ -1,7 +1,7 @@
 name: Validate PR title
 
 on:
-  pull_request_target:
+  pull_request:
     types:
       - opened
       - edited
@@ -17,7 +17,7 @@ jobs:
       pull-requests: read # for amannn/action-semantic-pull-request to analyze PRs
       statuses: write # for amannn/action-semantic-pull-request to mark status of analyzed PR
     if: github.repository == 'antdv-next/antdv-next'
-    runs-on: ubuntu-slim
+    runs-on: ubuntu-latest
     name: 🏷️ Validate PR title
     steps:
       - name: Validate PR title
