@@ -1,5 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
+import { ref } from 'vue'
 import Watermark from '../index'
 import mountTest from '/@tests/shared/mountTest'
 import rtlTest from '/@tests/shared/rtlTest'
@@ -241,5 +242,16 @@ describe('watermark', () => {
     wrapper.unmount()
     await waitFakeTimer()
     expect(onRemove).not.toHaveBeenCalled()
+  })
+
+  // ========================= Ref =========================
+  it('should support nativeElement ref', async () => {
+    const watermarkRef = ref<any>()
+    const wrapper = mount(() => (
+      <Watermark ref={watermarkRef} class="watermark-ref" content="Ant Design" />
+    ))
+    await waitFakeTimer()
+    expect(watermarkRef.value?.nativeElement).toBeInstanceOf(HTMLElement)
+    expect(watermarkRef.value.nativeElement).toBe(wrapper.find('.watermark-ref').element)
   })
 })

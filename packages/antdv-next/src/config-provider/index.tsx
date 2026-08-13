@@ -105,6 +105,8 @@ const PASSED_PROPS: Exclude<
   'flex',
   'typography',
   'collapse',
+  'inputSearch',
+  'inputPassword',
   'otp',
   'anchor',
 ]

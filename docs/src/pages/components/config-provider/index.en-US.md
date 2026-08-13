@@ -45,6 +45,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
   <demo src="./demo/wave.vue">Custom Wave</demo>
   <demo src="./demo/holder-render.vue">Static function</demo>
   <demo src="./demo/use-config.vue">useConfig</demo>
+  <demo src="./demo/focus-outline.vue">Focus outline</demo>
 </demo-group>
 
 ## API
@@ -148,6 +149,7 @@ The following config keys set common props for corresponding components or globa
 - `image`: [Image](/components/image#api)
 - `input`: [Input](/components/input#input)
 - `inputNumber`: [InputNumber](/components/input-number#api)
+- `inputPassword`: [Input.Password](/components/input#input-password)
 - `inputSearch`: [Input.Search](/components/input#input-search)
 - `layout`: [Layout](/components/layout#api)
 - `masonry`: [Masonry](/components/masonry#api)

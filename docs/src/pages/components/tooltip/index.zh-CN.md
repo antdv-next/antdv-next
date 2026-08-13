@@ -49,8 +49,8 @@ demo:
 | placement | 气泡框位置 | TooltipPlacement | top | - | × |
 | trigger | 触发行为 | ActionType \| ActionType[] | - | - | ✓ |
 | fresh | 在隐藏状态也更新内容 | boolean | - | - | × |
-| mouseEnterDelay | 鼠标移入后显示延时，单位秒 | number | 0.1 | - | × |
-| mouseLeaveDelay | 鼠标移出后隐藏延时，单位秒 | number | 0.1 | - | × |
+| mouseEnterDelay | 鼠标移入后显示延时，单位秒 | number | 0.1 | - | ✓ |
+| mouseLeaveDelay | 鼠标移出后隐藏延时，单位秒 | number | 0.1 | - | ✓ |
 | classes | 语义化结构 class，支持对象或函数 | TooltipClassNamesType | - | - | ✓ |
 | styles | 语义化结构 style，支持对象或函数 | TooltipStylesType | - | - | ✓ |
 | getTooltipContainer | `getPopupContainer` 的兼容别名 | (node: HTMLElement) =&gt; HTMLElement | - | - | × |

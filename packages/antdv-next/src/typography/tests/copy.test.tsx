@@ -369,6 +369,28 @@ describe('typography copy', () => {
     })
   })
 
+  // ant-design #58690: `copied` is a `useDelayState`, set immediately on copy
+  // and reset 3s later.
+  it('copied state resets after 3s', async () => {
+    const wrapper = mount(Base, {
+      props: {
+        component: 'p',
+        copyable: {},
+      },
+      slots: { default: () => 'test copy' },
+    })
+
+    await wrapper.find('.ant-typography-copy').trigger('click')
+    await flushPromises()
+    expect(wrapper.find('.ant-typography-copy-success').exists()).toBe(true)
+
+    await vi.advanceTimersByTimeAsync(2900)
+    expect(wrapper.find('.ant-typography-copy-success').exists()).toBe(true)
+
+    await vi.advanceTimersByTimeAsync(200)
+    expect(wrapper.find('.ant-typography-copy-success').exists()).toBe(false)
+  })
+
   it('not block copy text change', async () => {
     const wrapper = mount(Base, {
       props: {

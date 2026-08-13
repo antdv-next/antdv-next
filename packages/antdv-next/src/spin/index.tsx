@@ -7,7 +7,7 @@ import { classNames } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { debounce } from 'throttle-debounce'
 import { computed, defineComponent, shallowRef, watch } from 'vue'
-import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { devUseWarning, isDev } from '../_util/warning.ts'
 import { useComponentBaseConfig, useComponentConfig } from '../config-provider/context'
@@ -75,6 +75,10 @@ export interface SpinProps extends ComponentBaseProps {
   styles?: SpinStylesType
 }
 
+export interface SpinRef {
+  nativeElement: HTMLDivElement
+}
+
 export interface SpinSlots {
   indicator?: () => any
   /** @deprecated Please use `description` instead */
@@ -102,7 +106,7 @@ const Spin = defineComponent<
   string,
   SlotsType<SpinSlots>
 >(
-  (props = defaultSpinProps, { slots, attrs }) => {
+  (props = defaultSpinProps, { slots, attrs, expose }) => {
     const componentCtx = useComponentConfig('spin')
     const {
       direction,
@@ -154,11 +158,19 @@ const Spin = defineComponent<
       } as SpinProps
     })
     // ========================= Style ==========================
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
+
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       SpinClassNamesType,
       SpinStylesType,
       SpinProps
-    >(useToArr(contextClassNames, classes), useToArr(contextStyles, styles), useToProps(mergedProps))
+    >(useToArr(contextClassNames, classes), useToArr(contextStyles, contextStyleRoot as any, styles), useToProps(mergedProps))
+
+    const nativeElementRef = shallowRef<HTMLDivElement>()
+    expose({
+      nativeElement: nativeElementRef,
+    })
+
     return () => {
       const { fullscreen, size, rootClass, wrapperClassName } = props
       const children = filterEmpty(slots?.default?.() || [])
@@ -222,6 +234,7 @@ const Spin = defineComponent<
 
       return (
         <div
+          ref={nativeElementRef}
           {...restAttrs}
           class={classNames(
             prefixCls.value,
@@ -245,7 +258,6 @@ const Spin = defineComponent<
             ...mergedStyles.value.root,
             ...(!isNested ? mergedStyles.value.section : {}),
             ...(fullscreen ? mergedStyles.value.mask : {}),
-            ...contextStyle.value,
             ...style,
           }}
           aria-live="polite"

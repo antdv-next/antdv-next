@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { h } from 'vue'
+import { h, nextTick, ref } from 'vue'
 import Badge from '..'
 import rtlTest from '/@tests/shared/rtlTest'
 import { mount } from '/@tests/utils'
@@ -81,5 +81,18 @@ describe('badge.Ribbon', () => {
       </Badge.Ribbon>
     ))
     expect(wrapper.html()).toMatchSnapshot()
+  })
+
+  // ========================= Ref =========================
+  it('should support nativeElement ref', async () => {
+    const ribbonRef = ref<any>()
+    const wrapper = mount(() => (
+      <Badge.Ribbon ref={ribbonRef} text="Ribbon">
+        <div />
+      </Badge.Ribbon>
+    ))
+    await nextTick()
+    expect(ribbonRef.value?.nativeElement).toBeInstanceOf(HTMLElement)
+    expect(ribbonRef.value.nativeElement).toBe(wrapper.find('.ant-ribbon-wrapper').element)
   })
 })

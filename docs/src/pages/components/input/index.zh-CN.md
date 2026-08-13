@@ -21,6 +21,7 @@ demo:
   <demo src="./demo/basic.vue">基本使用</demo>
   <demo src="./demo/size.vue">三种大小</demo>
   <demo src="./demo/variant.vue" >形态变体</demo>
+  <demo src="./demo/subcomponent-variant.vue">子组件变体配置</demo>
   <demo src="./demo/compact-style.vue">紧凑模式</demo>
   <demo src="./demo/search-input.vue">搜索框</demo>
   <demo src="./demo/search-input-loading.vue">搜索框 loading</demo>
@@ -118,6 +119,7 @@ Input 的其他属性和 Vue 自带的 [input](https://cn.vuejs.org/guide/essent
 | enterButton | 是否有确认按钮，可设为按钮文字。该属性会与 `addonAfter` 冲突。 | VueNode | false | - | × |
 | loading | 搜索 loading | boolean | false | - | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-search), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-search), CSSProperties&gt; | - | - | ✓ |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - | ✓ |
 
 其余属性和 Input 一致。
 
@@ -131,12 +133,13 @@ Input 的其他属性和 Vue 自带的 [input](https://cn.vuejs.org/guide/essent
 
 #### 属性 {#input-password-props}
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| classes | 语义化结构 class | Record&lt;[SemanticDOM](#semantic-password), string&gt; | - | - |
-| iconRender | 自定义切换按钮 | (visible) =&gt; VueNode | (visible) =&gt; (visible ? &lt;EyeOutlined /> : &lt;EyeInvisibleOutlined />) | - |
-| styles | 语义化结构 style | Record&lt;[SemanticDOM](#semantic-password), CSSProperties&gt; | - | - |
-| visibilityToggle | 是否显示切换按钮或者控制密码显隐 | boolean \| [VisibilityToggle](#visibilitytoggle) | true | - |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| classes | 语义化结构 class | Record&lt;[SemanticDOM](#semantic-password), string&gt; | - | - | × |
+| iconRender | 自定义切换按钮 | (visible) =&gt; VueNode | (visible) =&gt; (visible ? &lt;EyeOutlined /> : &lt;EyeInvisibleOutlined />) | - | × |
+| styles | 语义化结构 style | Record&lt;[SemanticDOM](#semantic-password), CSSProperties&gt; | - | - | × |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - | ✓ |
+| visibilityToggle | 是否显示切换按钮或者控制密码显隐 | boolean \| [VisibilityToggle](#visibilitytoggle) | true | - | × |
 
 ### InputOTP {#input-otp}
 

@@ -194,10 +194,18 @@ export function useToProps<T>(props: Ref<T>) {
  * semantic `{ root: style }` object so it can be merged into the `styles` list at a
  * defined priority instead of being applied directly on the root element (which would
  * clobber the semantic `styles.root`). Aligns root semantic style priority.
- * sync ant-design#58474
+ *
+ * `key` lets components whose legacy inline `style` targets a non-root semantic node
+ * (e.g. Drawer `section`, Upload `trigger`, Badge `indicator`) reuse the same wrapper.
+ * It accepts a ref for the cases where the target node depends on the current props
+ * (e.g. Badge switches between `root` and `indicator`).
+ * sync ant-design#58474 ant-design#58564
  */
-export function useSemanticRootStyle<Style = CSSProperties>(style: Ref<Style | undefined>) {
-  return computed(() => (style.value ? { root: style.value } : undefined))
+export function useSemanticRootStyle<Style = CSSProperties, Key extends string = 'root'>(
+  style: Ref<Style | undefined>,
+  key: Key | Ref<Key> = 'root' as Key,
+) {
+  return computed(() => (style.value ? ({ [unref(key)]: style.value } as Partial<Record<Key, Style>>) : undefined))
 }
 
 interface RemoveBaseAttributesOptions {

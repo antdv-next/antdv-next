@@ -6,6 +6,7 @@ subtitle: 虚拟列表
 description: 高性能列表，支持分组，并可为长列表开启虚拟滚动。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EYuhSpw1iSwAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAAAAAAAAAAAADrJ8AQ/original
+tag: 1.5.0
 ---
 
 ## 何时使用 {#when-to-use}

@@ -2,6 +2,7 @@ import type { PickerMode, PickerRef } from '@v-c/picker'
 import type { GenerateConfig } from '@v-c/picker/generate'
 import type { SlotsType } from 'vue'
 import type { AnyObject, VueNode } from '../../_util/type'
+import type { SizeType } from '../../config-provider/SizeContext'
 import type { RangePickerProps } from './interface'
 import { SwapRightOutlined } from '@antdv-next/icons'
 import { RangePicker } from '@v-c/picker'
@@ -115,18 +116,19 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
       } = useComponentBaseConfig('rangePicker' as any, props as any, ['separator'], 'picker')
 
       const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction)
-      const mergedSize = useSize(ctx => customizeSize.value ?? compactSize.value ?? ctx)
+      const mergedSize = useSize<SizeType>(ctx => customizeSize.value ?? compactSize.value ?? ctx)
 
       const disabled = useDisabledContext()
       const mergedDisabled = computed(() => customDisabled.value ?? disabled.value)
 
-      const mergedProps = computed(() => ({
+      // =========== Merged Props for Semantic ===========
+      const mergedProps = computed<DateRangePickerProps>(() => ({
         ...props,
         size: mergedSize.value,
         disabled: mergedDisabled.value,
         status: customStatus.value,
         variant: customVariant.value,
-      } as DateRangePickerProps))
+      }))
 
       const popupClassName = computed(() => props.popupClassName || props.dropdownClassName)
       const popupStyle = computed(() => props.popupStyle)
@@ -138,6 +140,7 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
         popupClassName,
         popupStyle,
         mergedProps,
+        computed(() => contextStyle?.value ?? null),
       )
 
       const innerRef = shallowRef<PickerRef>()
@@ -293,7 +296,6 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
         )
 
         const mergedStyle = {
-          ...contextStyle?.value,
           ...style,
         }
 

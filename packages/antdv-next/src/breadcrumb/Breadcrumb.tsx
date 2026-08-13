@@ -8,7 +8,7 @@ import { DownOutlined } from '@antdv-next/icons'
 import { clsx } from '@v-c/util'
 import pickAttrs from '@v-c/util/dist/pickAttrs'
 import { filterEmpty } from '@v-c/util/dist/props-util'
-import { cloneVNode, computed, defineComponent, isVNode } from 'vue'
+import { cloneVNode, computed, defineComponent, isVNode, shallowRef } from 'vue'
 import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { useComponentBaseConfig } from '../config-provider/context'
@@ -99,6 +99,10 @@ export interface BreadcrumbProps<T extends AnyObject = AnyObject> extends
   menuExtraRender?: (params: { item: ItemType, index: number, menu: MenuItem }) => any
 }
 
+export interface BreadcrumbRef {
+  nativeElement: HTMLElement
+}
+
 export interface BreadcrumbEmits {
   clickItem: (item: ItemType, event: MouseEvent) => void
   [keys: string]: (...args: any[]) => any
@@ -135,7 +139,7 @@ const Breadcrumb = defineComponent<
   string,
   SlotsType<BreadcrumbSlots>
 >(
-  (props, { slots, attrs, emit }) => {
+  (props, { slots, attrs, emit, expose }) => {
     const {
       prefixCls,
       direction,
@@ -180,6 +184,12 @@ const Breadcrumb = defineComponent<
     })
 
     useBreadcrumbProvider(contextValue)
+
+    const nativeElementRef = shallowRef<HTMLElement>()
+    expose({
+      nativeElement: nativeElementRef,
+    })
+
     return () => {
       const {
         params = {},
@@ -305,7 +315,7 @@ const Breadcrumb = defineComponent<
       }
 
       return (
-        <nav class={breadcrumbClassName} style={mergedStyle} {...restAttrs}>
+        <nav ref={nativeElementRef} class={breadcrumbClassName} style={mergedStyle} {...restAttrs}>
           <ol>{crumbs}</ol>
         </nav>
       )

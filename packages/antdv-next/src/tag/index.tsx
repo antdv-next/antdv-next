@@ -8,7 +8,7 @@ import type { ComponentBaseProps } from '../config-provider/context.ts'
 import { classNames } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { computed, createVNode, defineComponent, shallowRef } from 'vue'
-import { pureAttrs, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { pureAttrs, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import useClosable, { pickClosable } from '../_util/hooks/useClosable.tsx'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { replaceElement } from '../_util/vueNode.ts'
@@ -122,13 +122,15 @@ const InternalTag = defineComponent<
     })
 
     // ====================== Styles ======================
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
+
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       TagClassNamesType,
       TagStylesType,
       TagProps
     >(
       useToArr(contextClassNames, classes),
-      useToArr(contextStyles, styles),
+      useToArr(contextStyles, contextStyleRoot as any, styles),
       useToProps(mergedProps),
     )
     expose({ tagRef })
@@ -212,7 +214,7 @@ const InternalTag = defineComponent<
     )
 
     const tagStyle = computed(() => {
-      let nextTagStyle: any = { ...mergedStyles.value?.root, ...contextStyle.value, ...(attrs as any).style }
+      let nextTagStyle: any = { ...mergedStyles.value?.root, ...(attrs as any).style }
       if (!mergedDisabled.value) {
         nextTagStyle = { ...customTagStyle.value, ...nextTagStyle }
       }

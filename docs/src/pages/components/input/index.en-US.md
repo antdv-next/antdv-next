@@ -20,6 +20,7 @@ demo:
   <demo src="./demo/basic.vue">Basic usage</demo>
   <demo src="./demo/size.vue">Three sizes of Input</demo>
   <demo src="./demo/variant.vue" >Variants</demo>
+  <demo src="./demo/subcomponent-variant.vue">Subcomponent variant config</demo>
   <demo src="./demo/compact-style.vue">Compact Style</demo>
   <demo src="./demo/search-input.vue">Search box</demo>
   <demo src="./demo/search-input-loading.vue">Search box with loading</demo>
@@ -115,6 +116,7 @@ The rest of the props of `Input.TextArea` are the same as the original [textarea
 | enterButton | false displays the default button color, true uses the primary color, or you can provide a custom button. Conflicts with addonAfter. | VueNode | false | - | × |
 | loading | Search box with loading | boolean | false | - | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-search), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-search), CSSProperties&gt; | - | - | ✓ |
+| variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - | ✓ |
 
 Supports all props of `Input`.
 
@@ -128,12 +130,13 @@ Supports all props of `Input`.
 
 #### Props {#input-password-props}
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| classes | Semantic DOM class | Record&lt;[SemanticDOM](#semantic-password), string&gt; | - | - |
-| iconRender | Custom toggle button | (visible) =&gt; VueNode | (visible) =&gt; (visible ? &lt;EyeOutlined /> : &lt;EyeInvisibleOutlined />) | - |
-| styles | Semantic DOM style | Record&lt;[SemanticDOM](#semantic-password), CSSProperties&gt; | - | - |
-| visibilityToggle | Whether show toggle button or control password visible | boolean \| [VisibilityToggle](#visibilitytoggle) | true | - |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| classes | Semantic DOM class | Record&lt;[SemanticDOM](#semantic-password), string&gt; | - | - | × |
+| iconRender | Custom toggle button | (visible) =&gt; VueNode | (visible) =&gt; (visible ? &lt;EyeOutlined /> : &lt;EyeInvisibleOutlined />) | - | × |
+| styles | Semantic DOM style | Record&lt;[SemanticDOM](#semantic-password), CSSProperties&gt; | - | - | × |
+| variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - | ✓ |
+| visibilityToggle | Whether show toggle button or control password visible | boolean \| [VisibilityToggle](#visibilitytoggle) | true | - | × |
 
 ### InputOTP {#input-otp}
 

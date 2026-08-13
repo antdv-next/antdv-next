@@ -2,8 +2,10 @@ import type { MentionsProps } from '..'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { h, ref } from 'vue'
 import Mentions from '..'
+import Button from '../../button'
 import ConfigProvider from '../../config-provider'
 import { useFormItemInputContextProvider } from '../../form/context'
+import { SpaceCompact } from '../../space'
 import mountTest from '/@tests/shared/mountTest'
 import rtlTest from '/@tests/shared/rtlTest'
 import { mount, waitFakeTimer } from '/@tests/utils'
@@ -577,6 +579,106 @@ describe('mentions', () => {
     await wrapper.setProps({ variant: 'filled' })
     expect(document.querySelector('.ant-mentions-outlined')).toBeFalsy()
     expect(document.querySelector('.ant-mentions-filled')).toBeTruthy()
+  })
+
+  // === popupRender ===
+
+  describe('popupRender', () => {
+    async function openPopup(textarea: HTMLTextAreaElement) {
+      textarea.dispatchEvent(new FocusEvent('focus'))
+      await flushMentionsTimer()
+      textarea.value = '@'
+      textarea.selectionStart = 1
+      textarea.selectionEnd = 1
+      textarea.dispatchEvent(new Event('input', { bubbles: true }))
+      textarea.dispatchEvent(new KeyboardEvent('keyup', { key: '@', bubbles: true }))
+      await flushMentionsTimer()
+    }
+
+    it('customizes the dropdown via popupRender prop', async () => {
+      mount(Mentions, {
+        attachTo: document.body,
+        props: {
+          options: defaultOptions,
+          popupRender: (menu: any) => (
+            <div class="custom-popup-wrapper">
+              <div class="custom-popup-header">Custom Header</div>
+              {menu}
+            </div>
+          ),
+        },
+      })
+
+      await openPopup(document.querySelector('textarea')!)
+
+      expect(document.querySelector('.custom-popup-wrapper')).toBeTruthy()
+      expect(document.querySelector('.custom-popup-header')?.textContent).toBe('Custom Header')
+      // Original menu is still rendered inside the custom wrapper
+      expect(
+        document.querySelector('.custom-popup-wrapper .ant-mentions-dropdown-menu'),
+      ).toBeTruthy()
+    })
+
+    it('customizes the dropdown via popupRender slot', async () => {
+      mount(Mentions, {
+        attachTo: document.body,
+        props: { options: defaultOptions },
+        slots: {
+          popupRender: (menu: any) => (
+            <div class="slot-popup-wrapper">
+              <div class="slot-popup-header">Slot Header</div>
+              {menu}
+            </div>
+          ),
+        },
+      })
+
+      await openPopup(document.querySelector('textarea')!)
+
+      expect(document.querySelector('.slot-popup-wrapper')).toBeTruthy()
+      expect(document.querySelector('.slot-popup-header')?.textContent).toBe('Slot Header')
+      expect(
+        document.querySelector('.slot-popup-wrapper .ant-mentions-dropdown-menu'),
+      ).toBeTruthy()
+    })
+
+    it('isolates the compact context inside popupRender', async () => {
+      mount({
+        render() {
+          return (
+            <SpaceCompact>
+              <Mentions
+                options={defaultOptions}
+                popupRender={(menu: any) => (
+                  <div class="custom-popup-wrapper">
+                    <Button>extra</Button>
+                    {menu}
+                  </div>
+                )}
+              />
+            </SpaceCompact>
+          )
+        },
+      }, { attachTo: document.body })
+
+      await openPopup(document.querySelector('textarea')!)
+
+      const button = document.querySelector('.custom-popup-wrapper .ant-btn')
+      expect(button).toBeTruthy()
+      expect(button?.className).not.toContain('ant-btn-compact-item')
+    })
+
+    it('renders the default dropdown without popupRender', async () => {
+      mount(Mentions, {
+        attachTo: document.body,
+        props: { options: defaultOptions },
+      })
+
+      await openPopup(document.querySelector('textarea')!)
+
+      expect(document.querySelector('.ant-mentions-dropdown-menu')).toBeTruthy()
+      expect(document.querySelector('.custom-popup-wrapper')).toBeFalsy()
+    })
   })
 
   // === Snapshot ===

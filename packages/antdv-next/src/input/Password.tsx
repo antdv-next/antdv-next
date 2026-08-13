@@ -8,6 +8,7 @@ import { computed, defineComponent, shallowRef, watch } from 'vue'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { useComponentBaseConfig } from '../config-provider/context'
 import { useDisabledContext } from '../config-provider/DisabledContext.tsx'
+import useVariant from '../form/hooks/useVariant'
 import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout'
 import Input from './Input'
 
@@ -58,7 +59,12 @@ const InternalPassword = defineComponent<
   SlotsType<PasswordSlots>
 >(
   (props, { slots, attrs, emit, expose }) => {
-    const { disabled: customDisabled, inputPrefixCls: customizeInputPrefixCls } = toPropsRefs(props, 'disabled', 'inputPrefixCls')
+    const {
+      disabled: customDisabled,
+      inputPrefixCls: customizeInputPrefixCls,
+      variant: customizeVariant,
+      bordered,
+    } = toPropsRefs(props, 'disabled', 'inputPrefixCls', 'variant', 'bordered')
     const {
       getPrefixCls,
     } = useComponentBaseConfig('input', props)
@@ -67,6 +73,9 @@ const InternalPassword = defineComponent<
 
     const disabledContext = useDisabledContext()
     const mergedDisabled = computed(() => customDisabled.value ?? disabledContext.value)
+
+    // `inputPassword` global config, falling back to the `input` one
+    const [mergedVariant] = useVariant('inputPassword', customizeVariant, bordered, 'input')
 
     const inputRef = shallowRef<InputRef>()
     const removePasswordTimeout = useRemovePasswordTimeout(inputRef)
@@ -180,6 +189,7 @@ const InternalPassword = defineComponent<
           type={visible.value ? 'text' : 'password'}
           suffix={mergedSuffix}
           disabled={mergedDisabled.value}
+          variant={mergedVariant.value}
           rootClass={clsx(passwordPrefixCls.value, props.rootClass, { [`${passwordPrefixCls.value}-${props.size}`]: props.size })}
           onChange={handleChange}
           onFocus={handleFocus}

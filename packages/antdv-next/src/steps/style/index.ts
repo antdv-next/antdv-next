@@ -2,7 +2,7 @@ import type { CSSObject } from '@antdv-next/cssinjs'
 import type { CSSProperties } from 'vue'
 
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal'
-import { resetComponent, textEllipsis } from '../../style'
+import { genFocusOutline, resetComponent, textEllipsis } from '../../style'
 import { genStyleHooks, mergeToken } from '../../theme/internal'
 import { genCssVar } from '../../theme/util/genStyleUtils'
 import genHorizontalStyle from './horizontal'
@@ -178,6 +178,8 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       },
 
       // ========================= Clickable ==========================
+      [`${itemCls}[role='button']:focus-visible`]: genFocusOutline(token),
+
       [`${itemCls}[role='button']:not(${itemCls}-active):hover`]: {
         cursor: 'pointer',
       },

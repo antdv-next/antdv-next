@@ -1,4 +1,5 @@
-import { onBeforeUnmount, shallowRef, unref } from 'vue'
+import useDelayState from '@v-c/util/dist/hooks/useDelayState'
+import { shallowRef, unref } from 'vue'
 import copy from '../../_util/copy'
 import toList from '../../_util/toList'
 import { getTextByNode } from '../../_util/vueNode'
@@ -10,18 +11,9 @@ function useCopyClick({
   copyConfig: any
   getText?: () => any
 }) {
-  const copied = shallowRef(false)
+  const [copied, setCopied] = useDelayState(false)
 
   const copyLoading = shallowRef(false)
-
-  const copyIdRef = shallowRef<ReturnType<typeof setTimeout> | null>(null)
-
-  const cleanCopyId = () => {
-    if (copyIdRef.value) {
-      clearTimeout(copyIdRef.value)
-      copyIdRef.value = null
-    }
-  }
 
   const getClipboardText = async () => {
     const config = unref(copyConfig)
@@ -42,8 +34,6 @@ function useCopyClick({
     return textList.join('')
   }
 
-  onBeforeUnmount(cleanCopyId)
-
   const onClick = async (e?: MouseEvent) => {
     e?.preventDefault()
     e?.stopPropagation()
@@ -58,13 +48,10 @@ function useCopyClick({
       await copy(text == null ? '' : String(text), copyOptions)
       copyLoading.value = false
 
-      copied.value = true
+      setCopied(true, true)
 
       // Trigger tips update
-      cleanCopyId()
-      copyIdRef.value = setTimeout(() => {
-        copied.value = false
-      }, 3000)
+      setCopied(false, { ms: 3000 })
 
       unref(copyConfig)?.onCopy?.(e)
     }

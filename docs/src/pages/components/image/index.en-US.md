@@ -83,6 +83,7 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | scaleStep | Each step's zoom multiplier is 1 + scaleStep | number | 0.5 | - |
 | src | Custom preview src | string | - | - |
 | styles | Custom semantic structure styles | Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | - |
+| wheel | Whether to enable mouse wheel zoom | boolean | true | - |
 | onOpenChange | Callback when preview open state changes | (visible: boolean) => void | - | - |
 | onTransform | Callback for preview transform changes | { transform: [TransformType](#transformtype), action: [TransformAction](#transformaction) } | - | - |
 
@@ -113,6 +114,7 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | open | Whether to display preview | boolean | - | - |
 | styles | Custom semantic structure styles | Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | - |
 | scaleStep | Each step's zoom multiplier is 1 + scaleStep | number | 0.5 | - |
+| wheel | Whether to enable mouse wheel zoom | boolean | true | - |
 | onOpenChange | Callback when preview open state changes, includes current preview index | (visible: boolean, info: { current: number }) => void | - | - |
 | onChange | Callback when changing preview image | (current: number, prevCurrent: number) => void | - | - |
 | onTransform | Callback for preview transform changes | { transform: [TransformType](#transformtype), action: [TransformAction](#transformaction) } | - | - |

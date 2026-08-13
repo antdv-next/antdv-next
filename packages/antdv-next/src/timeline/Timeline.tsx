@@ -9,7 +9,7 @@ import { classNames as clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, ref, toRefs } from 'vue'
-import { useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import isNonNullable from '../_util/isNonNullable.ts'
 import { toPropsRefs } from '../_util/tools'
 import { resolveSlotsNode } from '../_util/vnode'
@@ -203,13 +203,16 @@ const Timeline = defineComponent<
       } as TimelineProps
     })
 
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
+    const styleRoot = useSemanticRootStyle(computed(() => (attrs as any).style as CSSProperties | undefined))
+
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       TimelineClassNamesType,
       TimelineStylesType,
       TimelineProps
     >(
       useToArr(stepsClassNames, contextClassNames, classes),
-      useToArr(contextStyles, styles),
+      useToArr(contextStyles, contextStyleRoot as any, styles, styleRoot as any),
       useToProps(mergedProps),
     )
 
@@ -225,11 +228,7 @@ const Timeline = defineComponent<
       const { variant = 'outlined', titleSpan } = props
 
       // ==================== Styles ======================
-      const stepStyle: CSSProperties = {
-        ...contextStyle.value,
-        ...(timeline?.value?.style || {}),
-        ...((attrs as any).style || {}),
-      }
+      const stepStyle: CSSProperties = {}
 
       if (isNonNullable(titleSpan) && mergedMode.value !== 'alternate') {
         if (typeof titleSpan === 'number' && !Number.isNaN(titleSpan)) {

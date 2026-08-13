@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { h } from 'vue'
+import { h, nextTick, ref } from 'vue'
 import { CardMeta } from '..'
 import { mount } from '/@tests/utils'
 
@@ -75,5 +75,14 @@ describe('cardMeta', () => {
       />
     ))
     expect(wrapper.html()).toMatchSnapshot()
+  })
+
+  // ========================= Ref =========================
+  it('should support Card.Meta nativeElement ref', async () => {
+    const metaRef = ref<any>()
+    const wrapper = mount(() => <CardMeta ref={metaRef} title="Title" />)
+    await nextTick()
+    expect(metaRef.value?.nativeElement).toBeInstanceOf(HTMLElement)
+    expect(metaRef.value.nativeElement).toBe(wrapper.find('.ant-card-meta').element)
   })
 })

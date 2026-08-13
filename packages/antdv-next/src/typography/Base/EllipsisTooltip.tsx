@@ -13,7 +13,12 @@ export interface EllipsisTooltipProps extends
   tooltipProps?: TooltipProps
   enableEllipsis: boolean
   isEllipsis?: boolean
-  open: boolean
+  /**
+   * Suppress the tooltip without taking control of its open state, so hover
+   * handling stays inside Tooltip and it re-opens when moving from the actions
+   * back to the text.
+   */
+  disabled: boolean
 }
 
 export interface EllipsisTooltipSlots {
@@ -34,9 +39,8 @@ const EllipsisTooltip = defineComponent<
         return slots.default?.()
       }
 
-      const mergedOpen = props.open && props.isEllipsis
       return (
-        <Tooltip open={mergedOpen} {...props.tooltipProps}>
+        <Tooltip {...props.tooltipProps} disabled={!props.isEllipsis || props.disabled}>
           {slots.default?.()}
         </Tooltip>
       )

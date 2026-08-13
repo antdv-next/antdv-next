@@ -246,6 +246,51 @@ describe('cascader', () => {
     expect(wrapper.find('.ant-select-clear').exists()).toBe(false)
   })
 
+  // The clear affordance is a `<button>`, so clearing happens on `click` (it has
+  // to work for keyboard activation too). `mousedown` alone must not clear.
+  // See ant-design#58572.
+  it('should clear selection when clear button is clicked', async () => {
+    const wrapper = mount(Cascader, {
+      props: {
+        options,
+        defaultValue: ['zhejiang', 'hangzhou'],
+      },
+    })
+    expect(wrapper.find('.ant-select-content').text()).toBe('Zhejiang / Hangzhou')
+
+    const clear = wrapper.find('.ant-select-clear')
+    await clear.trigger('mousedown')
+    await clear.trigger('click')
+    await nextTick()
+
+    expect(wrapper.find('.ant-select-content').text()).not.toContain('Zhejiang / Hangzhou')
+    // The restored placeholder must not carry an explicit `visibility: visible`,
+    // otherwise it would break inheritance from a hidden ancestor.
+    // See ant-design#58572.
+    expect(wrapper.find('.ant-select-placeholder').attributes('style')).toBeUndefined()
+  })
+
+  it('should clear search input when clear selection', async () => {
+    const wrapper = mount(Cascader, {
+      props: {
+        options,
+        defaultValue: ['zhejiang', 'hangzhou'],
+        showSearch: true,
+      },
+    })
+
+    const input = wrapper.find('input')
+    await input.setValue('xxx')
+    expect((input.element as HTMLInputElement).value).toBe('xxx')
+
+    const clear = wrapper.find('.ant-select-clear')
+    await clear.trigger('mousedown')
+    await clear.trigger('click')
+    await nextTick()
+
+    expect((input.element as HTMLInputElement).value).toBe('')
+  })
+
   // ============ Multiple mode tests ============
 
   it('should support multiple mode', () => {

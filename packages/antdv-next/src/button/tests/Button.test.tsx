@@ -1,6 +1,6 @@
 import { SearchOutlined } from '@antdv-next/icons'
 import { describe, expect, it, vi } from 'vitest'
-import { h } from 'vue'
+import { defineComponent, h, ref } from 'vue'
 import Button from '..'
 import rtlTest from '/@tests/shared/rtlTest'
 import { mount } from '/@tests/utils'
@@ -113,6 +113,73 @@ describe('button', () => {
     ))
     // With delay, loading class should not appear immediately
     expect(wrapper.find('.ant-btn-loading').exists()).toBe(false)
+  })
+
+  // ant-design #58690: the delayed loading flip is owned by `useDelayState`,
+  // which cancels any pending update whenever a new one comes in.
+  describe('delayed loading state', () => {
+    const specialDelay = 200
+
+    function mountToggle() {
+      const Content = defineComponent(() => {
+        const loading = ref(false)
+        const visible = ref(true)
+        return () => (
+          <div>
+            <button id="toggle_loading" type="button" onClick={() => { loading.value = !loading.value }}>
+              loading
+            </button>
+            <button id="toggle_visible" type="button" onClick={() => { visible.value = !visible.value }}>
+              visible
+            </button>
+            {visible.value
+              ? <Button loading={loading.value ? { delay: specialDelay } : false}>Button</Button>
+              : null}
+          </div>
+        )
+      })
+      return mount(Content)
+    }
+
+    it('turns loading on only after the delay elapses', async () => {
+      vi.useFakeTimers()
+      const wrapper = mountToggle()
+
+      await wrapper.find('#toggle_loading').trigger('click')
+      expect(wrapper.find('.ant-btn-loading').exists()).toBe(false)
+
+      await vi.advanceTimersByTimeAsync(specialDelay)
+      expect(wrapper.find('.ant-btn-loading').exists()).toBe(true)
+
+      await wrapper.find('#toggle_loading').trigger('click')
+      expect(wrapper.find('.ant-btn-loading').exists()).toBe(false)
+
+      vi.useRealTimers()
+    })
+
+    it('cancels the pending flip when loading is turned off again', async () => {
+      vi.useFakeTimers()
+      const wrapper = mountToggle()
+
+      await wrapper.find('#toggle_loading').trigger('click')
+      await wrapper.find('#toggle_loading').trigger('click')
+      await vi.advanceTimersByTimeAsync(specialDelay)
+      expect(wrapper.find('.ant-btn-loading').exists()).toBe(false)
+
+      vi.useRealTimers()
+    })
+
+    it('cancels the pending flip when the button unmounts', async () => {
+      vi.useFakeTimers()
+      const wrapper = mountToggle()
+
+      await wrapper.find('#toggle_loading').trigger('click')
+      await wrapper.find('#toggle_visible').trigger('click')
+      await vi.advanceTimersByTimeAsync(specialDelay)
+      expect(wrapper.find('.ant-btn').exists()).toBe(false)
+
+      vi.useRealTimers()
+    })
   })
 
   it('should auto focus when autoFocus is true', () => {

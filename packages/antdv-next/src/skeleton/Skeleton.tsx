@@ -7,7 +7,7 @@ import type { SkeletonParagraphProps } from './Paragraph'
 import type { SkeletonTitleProps } from './Title'
 import { classNames } from '@v-c/util'
 import { omit } from 'es-toolkit'
-import { computed, defineComponent } from 'vue'
+import { computed, defineComponent, shallowRef } from 'vue'
 import { useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { toPropsRefs } from '../_util/tools.ts'
 import { useComponentBaseConfig } from '../config-provider/context'
@@ -60,6 +60,10 @@ export interface SkeletonProps extends ComponentBaseProps {
   round?: boolean
   classes?: SkeletonClassNamesType
   styles?: SkeletonStylesType
+}
+
+export interface SkeletonRef {
+  nativeElement: HTMLDivElement | null
 }
 
 export interface SkeletonSlots {
@@ -121,7 +125,7 @@ const defaults = {
 } as any
 
 const Skeleton = defineComponent<SkeletonProps, EmptyEmit, string, SlotsType<SkeletonSlots>>(
-  (props = defaults, { attrs, slots }) => {
+  (props = defaults, { attrs, slots, expose }) => {
     const {
       prefixCls,
       direction,
@@ -146,6 +150,12 @@ const Skeleton = defineComponent<SkeletonProps, EmptyEmit, string, SlotsType<Ske
       useToArr(contextStyles, contextStyleRoot as any, styles),
       useToProps(mergedProps),
     )
+
+    // `null` when `loading={false}` since the skeleton root is not rendered then.
+    const nativeElementRef = shallowRef<HTMLDivElement | null>(null)
+    expose({
+      nativeElement: nativeElementRef,
+    })
 
     return () => {
       const {
@@ -253,6 +263,7 @@ const Skeleton = defineComponent<SkeletonProps, EmptyEmit, string, SlotsType<Ske
 
         return (
           <div
+            ref={nativeElementRef}
             class={cls}
             {...omit(attrs, ['class', 'style'])}
             style={[mergedStyles.value.root, (attrs as any)?.style]}

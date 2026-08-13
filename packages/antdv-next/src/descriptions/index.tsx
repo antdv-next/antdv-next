@@ -8,7 +8,7 @@ import type { SizeType } from '../config-provider/SizeContext.tsx'
 import type { DescriptionsItemProps } from './Item.tsx'
 import { classNames } from '@v-c/util'
 import { omit } from 'es-toolkit'
-import { computed, defineComponent } from 'vue'
+import { computed, defineComponent, shallowRef } from 'vue'
 import {
 
   useMergeSemantic,
@@ -93,6 +93,10 @@ export interface DescriptionsProps extends ComponentBaseProps {
   id?: string
 }
 
+export interface DescriptionsRef {
+  nativeElement: HTMLDivElement
+}
+
 const defaults = {
   colon: true,
 } as any
@@ -111,7 +115,7 @@ const Descriptions = defineComponent<
   string,
   SlotsType<DescriptionsSlots>
 >(
-  (props = defaults, { slots, attrs }) => {
+  (props = defaults, { slots, attrs, expose }) => {
     const {
       class: contextClassName,
       style: contextStyle,
@@ -195,6 +199,12 @@ const Descriptions = defineComponent<
       }
     })
     useDescriptionsProvider(contextValue)
+
+    const nativeElementRef = shallowRef<HTMLDivElement>()
+    expose({
+      nativeElement: nativeElementRef,
+    })
+
     return () => {
       const { bordered, rootClass, colon, layout } = props
       const title = getSlotPropsFnRun(slots, props, 'title')
@@ -203,6 +213,7 @@ const Descriptions = defineComponent<
       const contentRender = slots?.contentRender ?? props?.contentRender
       return (
         <div
+          ref={nativeElementRef}
           class={classNames(
             prefixCls.value,
             contextClassName.value,

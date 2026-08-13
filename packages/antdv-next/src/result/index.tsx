@@ -6,7 +6,7 @@ import { CheckCircleFilled, CloseCircleFilled, ExclamationCircleFilled, WarningF
 import { classNames } from '@v-c/util'
 import pickAttrs from '@v-c/util/dist/pickAttrs'
 import { filterEmpty, getAttrStyleAndClass } from '@v-c/util/dist/props-util'
-import { computed, createVNode, defineComponent } from 'vue'
+import { computed, createVNode, defineComponent, shallowRef } from 'vue'
 import {
   useMergeSemantic,
   useSemanticRootStyle,
@@ -68,6 +68,10 @@ export interface ResultProps extends ComponentBaseProps {
   extra?: VueNode
   classes?: ResultClassNamesType
   styles?: ResultStylesType
+}
+
+export interface ResultRef {
+  nativeElement: HTMLDivElement
 }
 
 // ExceptionImageMap keys
@@ -161,7 +165,7 @@ const Result = defineComponent<
   string,
   SlotsType<ResultSlots>
 >(
-  (props = defaultResultProps, { slots, attrs }) => {
+  (props = defaultResultProps, { slots, attrs, expose }) => {
     const {
       prefixCls,
       direction,
@@ -186,6 +190,11 @@ const Result = defineComponent<
       useToArr(contextStyles, contextStyleRoot as any, styles),
       useToProps(mergedProps),
     )
+
+    const nativeElementRef = shallowRef<HTMLDivElement>()
+    expose({
+      nativeElement: nativeElementRef,
+    })
 
     return () => {
       const { status, rootClass } = props
@@ -225,7 +234,7 @@ const Result = defineComponent<
       const restProps = pickAttrs(restAttrs, { aria: true, data: true })
 
       return (
-        <div {...restProps} class={rootClassNames} style={rootStyles}>
+        <div ref={nativeElementRef} {...restProps} class={rootClassNames} style={rootStyles}>
           <Icon class={iconClassNames} status={status!} icon={icon} style={mergedStyles.value.icon} />
           {!!title && <div class={titleClassNames} style={mergedStyles.value.title}>{title}</div>}
           {!!subTitle && <div class={subTitleClassNames} style={mergedStyles.value.subTitle}>{subTitle}</div>}

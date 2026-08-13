@@ -14,7 +14,7 @@ import enUS from '@v-c/pagination/locale/zh_CN'
 import { clsx } from '@v-c/util'
 import { getAttrStyleAndClass } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
-import { computed, defineComponent } from 'vue'
+import { computed, defineComponent, h } from 'vue'
 import { useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { devUseWarning, isDev } from '../_util/warning'
@@ -38,6 +38,7 @@ const omitKeys = [
   'showSizeChanger',
   'pageSizeOptions',
   'selectComponentClass',
+  'components',
 ] as const
 
 export interface InternalPaginationProps extends PaginationProps,
@@ -128,6 +129,16 @@ const Pagination = defineComponent<
         className: sizeChangerClassName,
         options,
       } = info
+
+      const SizeChangerComponent = props.components?.sizeChanger
+      if (SizeChangerComponent) {
+        return h(SizeChangerComponent, {
+          'value': pageSize,
+          'disabled': !!disabled,
+          'onChange': onSizeChange,
+          'class': sizeChangerClassName,
+        })
+      }
 
       const selectProps = mergedShowSizeChangerSelectProps.value ?? {}
       const propSelectClass = (selectProps as any).class ?? (selectProps as any).className

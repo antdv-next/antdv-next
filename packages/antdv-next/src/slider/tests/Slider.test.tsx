@@ -567,6 +567,16 @@ describe('slider', () => {
       document.body.innerHTML = ''
     })
 
+    function isTooltipOpen() {
+      const ele = document.querySelector<HTMLElement>('.ant-slider-tooltip')
+      if (!ele || ele.classList.contains('ant-tooltip-hidden')) {
+        return false
+      }
+      return ele.style.display !== 'none'
+    }
+
+    // ant-design #58690: hover/focus/dragging are `useDelayState`, so switching
+    // on is immediate while switching off is deferred by one frame.
     it('should trigger hoverOpen on handle mouseenter', async () => {
       const wrapper = mount(Slider, {
         props: { defaultValue: 30 },
@@ -574,9 +584,9 @@ describe('slider', () => {
       })
       const handle = wrapper.find('.ant-slider-handle')
       await handle.trigger('mouseenter')
-      vi.advanceTimersByTime(100)
-      // hoverOpen is set to true via useRafLock
-      expect(handle.exists()).toBe(true)
+      await nextTick()
+      // `setHoverOpen(true, true)` applies without waiting for a frame
+      expect(isTooltipOpen()).toBe(true)
       wrapper.unmount()
     })
 
@@ -587,10 +597,16 @@ describe('slider', () => {
       })
       const handle = wrapper.find('.ant-slider-handle')
       await handle.trigger('mouseenter')
-      vi.advanceTimersByTime(100)
+      await nextTick()
+      expect(isTooltipOpen()).toBe(true)
+
       await handle.trigger('mouseleave')
-      vi.advanceTimersByTime(100)
-      expect(handle.exists()).toBe(true)
+      await nextTick()
+      // `setHoverOpen(false)` is deferred, keeping the tooltip for one frame
+      expect(isTooltipOpen()).toBe(true)
+
+      await vi.advanceTimersByTimeAsync(100)
+      expect(isTooltipOpen()).toBe(false)
       wrapper.unmount()
     })
 

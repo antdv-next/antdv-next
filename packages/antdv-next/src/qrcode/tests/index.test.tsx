@@ -1,6 +1,6 @@
 import type { QRCodeProps } from '..'
 import { describe, expect, it, vi } from 'vitest'
-import { defineComponent, h, ref } from 'vue'
+import { defineComponent, h, nextTick, ref } from 'vue'
 import QRCode from '..'
 import { mountTest, rtlTest } from '/@tests/shared'
 import { mount } from '/@tests/utils'
@@ -260,5 +260,14 @@ describe('qrcode test', () => {
 
     // viewBox side length increases by 2 * marginSize
     expect(nCustom - nBase).toBeGreaterThanOrEqual(2 * margin)
+  })
+
+  // ========================= Ref =========================
+  it('should support nativeElement ref', async () => {
+    const qrcodeRef = ref<any>()
+    const wrapper = mount(() => <QRCode ref={qrcodeRef} value="Ant Design" />)
+    await nextTick()
+    expect(qrcodeRef.value?.nativeElement).toBeInstanceOf(HTMLElement)
+    expect(qrcodeRef.value.nativeElement).toBe(wrapper.find('.ant-qrcode').element)
   })
 })

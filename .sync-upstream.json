@@ -23,11 +23,11 @@
           "description": "Ant Design React \u4e3b\u7ec4\u4ef6\u5e93 -> antdv-next \u4e3b\u5305"
         }
       ],
-      "last_synced_commit": "5ade9944d67cb53bc0e7eab3b4edd986625e8c76",
-      "last_synced_commit_short": "5ade9944d6",
-      "last_synced_at": "2026-08-07T07:58:26Z",
-      "last_synced_tag": "6.5.4",
-      "sync_count": 27
+      "last_synced_commit": "a5bbbf962d88971e3f36c15010e7642f95854b83",
+      "last_synced_commit_short": "a5bbbf962d",
+      "last_synced_at": "2026-08-12T00:00:00Z",
+      "last_synced_tag": "6.6.0",
+      "sync_count": 28
     },
     {
       "name": "cssinjs",

@@ -24,6 +24,7 @@ When you need to mention someone or something.
   <demo src="./demo/prefix.vue">Customize Trigger Token</demo>
   <demo src="./demo/readonly.vue">disabled or readOnly</demo>
   <demo src="./demo/placement.vue">Placement</demo>
+  <demo src="./demo/popup-render.vue">Customize Popup</demo>
   <demo src="./demo/allow-clear.vue">With clear icon</demo>
   <demo src="./demo/auto-size.vue">autoSize</demo>
   <demo src="./demo/status.vue">Status</demo>
@@ -43,6 +44,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | status | Set validation status | InputStatus | - | - | × |
 | options | Option Configuration | MentionsOptionProps[] | \[] | - | × |
 | popupClassName | - | string | - | - | × |
+| popupRender | Customize the dropdown menu rendering | (menu: VueNode) =&gt; VueNode | - | - | × |
 | variant | Variants of Input | Variant | `outlined` | - | ✓ |
 | classes | Customize class for each semantic structure inside the component. Supports object or function. | MentionsClassNamesType | - | - | ✓ |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | MentionsStylesType | - | - | ✓ |
@@ -68,6 +70,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | Slot | Description | Type | Version |
 | --- | --- | --- | --- |
 | suffix | - | () =&gt; any | - |
+| popupRender | Customize the dropdown menu rendering | (menu: VueNode) =&gt; VueNode | - |
 | labelRender | - | (ctx: &#123; option: MentionsOptionProps, index: number &#125;) =&gt; any | - |
 
 ## Semantic DOM {#semantic-dom}

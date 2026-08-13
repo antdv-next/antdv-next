@@ -12,7 +12,7 @@ import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { computed, defineComponent, shallowRef, watch } from 'vue'
 import { ContextIsolator } from '../_util/ContextIsolator.tsx'
-import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import genPurePanel from '../_util/PurePanel.tsx'
 import { getStatusClassNames } from '../_util/statusUtils.ts'
 import { toPropsRefs } from '../_util/tools'
@@ -124,13 +124,15 @@ const ColorPicker = defineComponent<
       } as ColorPickerProps
     })
 
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
+
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       NonNullable<ColorPickerProps['classes']>,
       NonNullable<ColorPickerProps['styles']>,
       ColorPickerProps
     >(
       useToArr(contextClassNames, classes),
-      useToArr(contextStyles, styles),
+      useToArr(contextStyles, contextStyleRoot as any, styles),
       useToProps(mergedProps),
       computed(() => ({
         popup: {
@@ -308,10 +310,6 @@ const ColorPicker = defineComponent<
         autoAdjustOverflow,
         destroyOnHidden,
       }
-      const mergedStyle = {
-        ...contextStyle.value,
-        ...style,
-      }
       const mergedShowText = showText ? (typeof showText === 'function' ? (color: AggregationColor) => showText({ color }) : showText) : undefined
       const panelNode = (
         <ContextIsolator form>
@@ -354,7 +352,7 @@ const ColorPicker = defineComponent<
               activeIndex={popupOpen.value ? activeIndex.value : -1}
               open={popupOpen.value}
               className={mergedCls}
-              style={mergedStyle}
+              style={style}
               prefixCls={prefixCls.value}
               disabled={mergedDisabled.value}
               showText={mergedShowText as any}

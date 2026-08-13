@@ -6,7 +6,7 @@ import SlickCarousel from '@v-c/slick'
 import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
-import { computed, defineComponent, shallowRef, watch } from 'vue'
+import { computed, defineComponent, onMounted, shallowRef, watch } from 'vue'
 import { getAttrStyleAndClass } from '../_util/hooks'
 import { getSlotPropsFnRun } from '../_util/tools.ts'
 import { devUseWarning, isDev } from '../_util/warning.ts'
@@ -56,6 +56,7 @@ export interface CarouselEmitsProps {
 }
 
 export interface CarouselRef {
+  nativeElement: HTMLDivElement
   goTo: (slide: number, dontAnimate?: boolean) => void
   next: () => void
   prev: () => void
@@ -141,11 +142,13 @@ const Carousel = defineComponent<
       style: contextStyle,
     } = useComponentBaseConfig('carousel', props)
     const slickRef = shallowRef()
+    const nativeElementRef = shallowRef<HTMLDivElement>()
 
     const goTo = (slide: number, dontAnimate = false) => {
       slickRef.value?.slickGoTo?.(slide, dontAnimate)
     }
     expose({
+      nativeElement: nativeElementRef,
       goTo,
       autoPlay: playType => slickRef?.value?.innerSlider?.autoPlay?.(playType),
       next: () => slickRef?.value?.innerSlider?.slickNext?.(),
@@ -156,15 +159,23 @@ const Carousel = defineComponent<
     const count = shallowRef(0)
     const isRTL = computed(() => (props?.rtl ?? direction.value === 'rtl') && !props.vertical)
 
-    watch([count, () => props?.initialSlide, isRTL], () => {
+    // Only sync back to `initialSlide` when `initialSlide` / RTL changes, never when the
+    // children count changes. Otherwise adding or removing a slide resets the carousel
+    // back to the initial slide.
+    // https://github.com/ant-design/ant-design/pull/58845
+    const syncInitialSlide = () => {
       const { initialSlide = 0 } = props
       if (count.value > 0) {
         const newIndex = isRTL.value ? count.value - initialSlide - 1 : initialSlide
         goTo(newIndex, false)
       }
-    }, {
-      immediate: true,
-    })
+    }
+
+    // `count` is only known after the first render, so the initial sync happens on mounted
+    // to mirror React's effect running with the rendered children count already available.
+    onMounted(syncInitialSlide)
+
+    watch([() => props?.initialSlide, isRTL], syncInitialSlide)
 
     // ========================== Warn ==========================
     if (isDev) {
@@ -250,7 +261,7 @@ const Carousel = defineComponent<
       const prevArrow = getSlotPropsFnRun(slots, props, 'prevArrow')
       const nextArrow = getSlotPropsFnRun(slots, props, 'nextArrow')
       return (
-        <div {...restAttrs} class={className} id={id} style={dotDurationStyle}>
+        <div ref={nativeElementRef} {...restAttrs} class={className} id={id} style={dotDurationStyle}>
           <SlickCarousel
             ref={slickRef}
             {...onAttrs}

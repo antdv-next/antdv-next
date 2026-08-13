@@ -1066,6 +1066,20 @@ exports[`mentions demo > renders placement correctly 1`] = `
 </div>
 `;
 
+exports[`mentions demo > renders popup-render correctly 1`] = `
+<div
+  class="ant-mentions css-var-root ant-mentions-css-var ant-mentions-outlined ant-mentions css-var-root ant-mentions-css-var"
+  style="width: 100%;"
+>
+  <textarea
+    class="vc-textarea"
+    rows="1"
+    value=""
+  />
+  <!---->
+</div>
+`;
+
 exports[`mentions demo > renders prefix correctly 1`] = `
 <div
   class="ant-mentions css-var-root ant-mentions-css-var ant-mentions-outlined ant-mentions css-var-root ant-mentions-css-var"

@@ -352,4 +352,13 @@ describe('divider', () => {
     await nextTick()
     expect(wrapper.find('.ant-divider-dashed').exists()).toBe(true)
   })
+
+  // ========================= Ref =========================
+  it('should support nativeElement ref', async () => {
+    const dividerRef = ref<any>()
+    const wrapper = mount(() => <Divider ref={dividerRef} />)
+    await nextTick()
+    expect(dividerRef.value?.nativeElement).toBeInstanceOf(HTMLElement)
+    expect(dividerRef.value.nativeElement).toBe(wrapper.find('.ant-divider').element)
+  })
 })

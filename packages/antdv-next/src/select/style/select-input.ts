@@ -84,7 +84,7 @@ function genSelectInputVariantStyle(token: SelectToken, variant: string, colors:
 
 function genSelectInputFocusVisibleStyle(token: SelectToken, outlineColor: string): CSSObject {
   return {
-    outline: `${unit(token.lineWidth)} ${token.lineType} ${outlineColor}`,
+    outline: `${unit(token.lineWidthFocus)} ${token.lineType} ${outlineColor}`,
     outlineOffset: unit(token.calc(token.lineWidth).mul(-1).equal()),
     transition: [`outline-offset`, `outline`].map(prop => `${prop} 0s`).join(', '),
   }

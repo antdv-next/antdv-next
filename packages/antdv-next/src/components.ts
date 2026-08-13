@@ -17,14 +17,14 @@ export type {
   DataSourceItemType,
 } from './auto-complete'
 export { default as Avatar, AvatarGroup } from './avatar'
-export type { AvatarEmits, AvatarGroupProps, AvatarProps, AvatarSlots } from './avatar'
+export type { AvatarEmits, AvatarGroupProps, AvatarGroupRef, AvatarProps, AvatarSlots } from './avatar'
 export { default as Badge, BadgeRibbon } from './badge'
 export type { BadgeProps, BadgeSlots } from './badge'
-export type { RibbonProps as BadgeRibbonProps } from './badge/Ribbon'
+export type { RibbonProps as BadgeRibbonProps, RibbonRef as BadgeRibbonRef } from './badge/Ribbon'
 export { default as BorderBeam } from './border-beam'
 export type { BorderBeamColor, BorderBeamGradient, BorderBeamProps } from './border-beam'
 export { default as Breadcrumb, BreadcrumbItem, BreadcrumbSeparator } from './breadcrumb'
-export type { BreadcrumbEmits, BreadcrumbItemProps, BreadcrumbItemType, BreadcrumbProps, BreadcrumbSlots } from './breadcrumb'
+export type { BreadcrumbEmits, BreadcrumbItemProps, BreadcrumbItemType, BreadcrumbProps, BreadcrumbRef, BreadcrumbSlots } from './breadcrumb'
 export { default as Button } from './button'
 export type {
   ButtonColorType,
@@ -40,9 +40,9 @@ export type {
   LegacyButtonType,
 } from './button'
 export { default as Calendar } from './calendar'
-export type { CalendarMode, CalendarProps } from './calendar'
+export type { CalendarMode, CalendarProps, CalendarRef } from './calendar'
 export { default as Card, CardGrid, CardMeta } from './card'
-export type { CardEmits, CardGridProps, CardMetaProps, CardProps, CardSize, CardSlots, CardTabListType } from './card'
+export type { CardEmits, CardGridProps, CardGridRef, CardMetaProps, CardMetaRef, CardProps, CardSize, CardSlots, CardTabListType } from './card'
 export { default as Carousel } from './carousel'
 export type { CarouselEmits, CarouselProps, CarouselRef, CarouselSlots } from './carousel'
 export { default as Cascader, CascaderPanel } from './cascader'
@@ -59,19 +59,19 @@ export type { ConfigProviderProps } from './config-provider'
 export { DateMonthPicker, default as DatePicker, DateQuarterPicker, DateRangePicker, DateWeekPicker, DateYearPicker } from './date-picker'
 export type { DatePickerEmits, DatePickerProps, DatePickerSlots, MonthPickerProps, RangePickerProps, WeekPickerProps } from './date-picker'
 export { default as Descriptions, DescriptionsItem } from './descriptions'
-export type { DescriptionsItemProps, DescriptionsItemSlots, DescriptionsItemType, DescriptionsProps, DescriptionsSlots } from './descriptions'
+export type { DescriptionsItemProps, DescriptionsItemSlots, DescriptionsItemType, DescriptionsProps, DescriptionsRef, DescriptionsSlots } from './descriptions'
 export { default as Divider } from './divider'
-export type { DividerProps } from './divider'
+export type { DividerProps, DividerRef } from './divider'
 export { default as Drawer } from './drawer'
 export type { DrawerEmits, DrawerProps, DrawerResizableConfig, DrawerSlots } from './drawer'
 export { default as Dropdown } from './dropdown'
 export type { DropdownArrowOptions, DropdownEmits, DropdownProps, DropdownSlots } from './dropdown'
 export { default as Empty } from './empty'
-export type { EmptyProps, EmptySlots } from './empty'
+export type { EmptyProps, EmptyRef, EmptySlots } from './empty'
 export { default as Flex } from './flex'
 export type { FlexProps, FlexSlots } from './flex'
 export { BackTop, default as FloatButton, FloatButtonGroup } from './float-button'
-export type { FloatButtonGroupProps, FloatButtonProps, FloatButtonRef } from './float-button'
+export type { FloatButtonGroupProps, FloatButtonGroupRef, FloatButtonProps, FloatButtonRef } from './float-button'
 export { default as Form, FormItem, useForm, useFormInstance } from './form'
 export type { FormEmits, FormHookInstance, FormInstance, FormItemEmits, FormItemProps, FormItemSlots, FormProps, FormSlots, Rule, RuleObject, RuleRender, RuleType } from './form'
 export { Col, Row } from './grid'
@@ -136,11 +136,13 @@ export { default as notification, useNotification } from './notification'
 export { default as Pagination } from './pagination'
 export type {
   PaginationClassNamesType,
+  PaginationComponents,
   PaginationConfig,
   PaginationEmits,
   PaginationLocale,
   PaginationPosition,
   PaginationProps,
+  PaginationSizeChangerProps,
   PaginationSlots,
   PaginationStylesType,
 } from './pagination'
@@ -151,27 +153,27 @@ export type { PopoverEmits, PopoverProps, PopoverRef, PopoverSlots } from './pop
 export type { ProgressProps } from './progress'
 export { default as Progress } from './progress/progress'
 export { default as QRCode } from './qrcode'
-export type { QRCodeEmits, QRCodeProps } from './qrcode'
+export type { QRCodeEmits, QRCodeProps, QRCodeRef } from './qrcode'
 export { default as Radio, RadioButton, RadioGroup } from './radio'
 export type { RadioChangeEvent, RadioEmits, RadioGroupEmits, RadioGroupOptionType, RadioGroupProps, RadioGroupSlots, RadioOptionType, RadioProps, RadioSlots } from './radio'
 export { default as Rate } from './rate'
 export type { RateEmits, RateProps } from './rate'
 export { default as Result } from './result'
-export type { ResultProps, ResultSlots, ResultStatusType } from './result'
+export type { ResultProps, ResultRef, ResultSlots, ResultStatusType } from './result'
 export { default as Segmented } from './segmented'
 export type { SegmentedEmits, SegmentedOptions, SegmentedProps, SegmentedSlots } from './segmented'
 export { default as Select, SelectOptGroup, SelectOption } from './select'
 export type { SelectEmits, SelectProps, SelectSlots, SelectValue } from './select'
 export { default as Skeleton, SkeletonAvatar, SkeletonButton, SkeletonImage, SkeletonInput, SkeletonNode } from './skeleton'
-export type { SkeletonProps } from './skeleton'
+export type { SkeletonProps, SkeletonRef } from './skeleton'
 export { default as Slider } from './slider'
 export type { SliderEmits, SliderProps } from './slider'
 export { default as Space, SpaceAddon, SpaceCompact } from './space'
-export type { SpaceProps, SpaceSize, SpaceSlots } from './space'
+export type { SpaceCompactProps, SpaceCompactRef, SpaceProps, SpaceSize, SpaceSlots } from './space'
 export { default as Spin } from './spin'
-export type { SpinProps, SpinSlots } from './spin'
+export type { SpinProps, SpinRef, SpinSlots } from './spin'
 export { default as Splitter, SplitterPanel } from './splitter'
-export type { SplitterEmits, SplitterProps, SplitterSlots } from './splitter'
+export type { SplitterEmits, SplitterProps, SplitterRef, SplitterSlots } from './splitter'
 export { default as Statistic, StatisticTimer } from './statistic'
 export type { StatisticProps, StatisticTimerProps } from './statistic'
 export { default as Steps } from './steps'
@@ -240,6 +242,7 @@ export type {
   TransferOperationProps,
   PaginationType as TransferPaginationType,
   TransferProps,
+  TransferRef,
   TransferRender,
   TransferSearchEmits,
   TransferSearchOption,
@@ -248,7 +251,7 @@ export type {
   TransferSlots,
   TransferStylesType,
 } from './transfer'
-export { DirectoryTree, default as Tree } from './tree'
+export { DirectoryTree, default as Tree, useTree } from './tree'
 export type {
   AntdTreeNodeAttribute,
   AntTreeNode,
@@ -264,8 +267,10 @@ export type {
   DirectoryTreeSlots,
   DataNode as TreeDataNode,
   TreeEmits,
+  TreeInstance,
   TreeProps,
   TreeSlots,
+  UseTreeConfig as TreeUseTreeConfig,
 } from './tree'
 export { default as TreeSelect } from './tree-select'
 export type { TreeSelectEmits, TreeSelectNode, TreeSelectProps, TreeSelectSlots } from './tree-select'
@@ -286,4 +291,4 @@ export type {
 export { default as Upload, UploadDragger } from './upload'
 export type { UploadChangeParam, DraggerProps as UploadDraggerProps, UploadEmits, UploadFile, UploadProps, UploadSlots } from './upload'
 export { default as Watermark } from './watermark'
-export type { WatermarkProps } from './watermark'
+export type { WatermarkProps, WatermarkRef } from './watermark'

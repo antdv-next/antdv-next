@@ -6,7 +6,7 @@ import type { EmptyEmit, VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
 import type { SizeType } from '../config-provider/SizeContext.tsx'
 import type { PresetColorKey } from '../theme/interface'
-import type { RibbonProps } from './Ribbon.tsx'
+import type { RibbonProps, RibbonRef } from './Ribbon.tsx'
 import { classNames } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { getTransitionProps } from '@v-c/util/dist/utils/transition'
@@ -15,6 +15,7 @@ import { isPresetColor } from '../_util/colors.ts'
 
 import {
   useMergeSemantic,
+  useSemanticRootStyle,
   useToArr,
   useToProps,
 } from '../_util/hooks'
@@ -95,15 +96,6 @@ const InternalBadge = defineComponent<
 
     // =========== Merged Props for Semantic ===========
     const mergedProps = computed(() => props)
-    const [mergedClassNames, mergedStyles] = useMergeSemantic<
-      BadgeClassNamesType,
-      BadgeStylesType,
-      BadgeProps
-    >(
-      useToArr(contextClassNames, classes),
-      useToArr(contextStyles, styles),
-      useToProps(mergedProps),
-    )
 
     const badgeRef = shallowRef<HTMLSpanElement>()
     expose({ badgeRef })
@@ -172,36 +164,68 @@ const InternalBadge = defineComponent<
     })
 
     // =============================== Styles ===============================
-    const mergedStyle = computed(() => {
+    const childrenNodes = computed(() => filterEmpty(slots.default?.() ?? []))
+    const hasTextSlot = computed(() => textNodes.value.length > 0)
+    const showStatusTextNode = computed(() => !isHidden.value && (hasTextSlot.value
+      ? true
+      : (props.text === 0 ? props.showZero : !!props.text && props.text !== true)))
+    const isStatusBadge = computed(() => Boolean(
+      !childrenNodes.value.length
+      && hasStatus.value
+      && (showStatusTextNode.value || hasStatusValue.value || !ignoreCount.value),
+    ))
+
+    const offsetStyle = computed<CSSProperties | undefined>(() => {
       if (!props.offset) {
-        return { ...contextStyle.value, ...(attrs.style as CSSProperties) }
+        return undefined
       }
 
       const horizontalOffset = Number.parseInt(props.offset[0] as string, 10)
       const insetInlineEnd = direction.value === 'rtl' ? horizontalOffset : -horizontalOffset
-      const insetInlineEndUnit = formatUnit(insetInlineEnd)!
 
-      const offsetStyle: CSSProperties = {
+      return {
         marginTop: formatUnit(props.offset[1]),
-        insetInlineEnd: insetInlineEndUnit,
+        insetInlineEnd: formatUnit(insetInlineEnd)!,
       }
-      return { ...contextStyle.value, ...offsetStyle, ...(attrs.style as CSSProperties) }
     })
+
+    const mergedStyle = computed(() => ({
+      ...offsetStyle.value,
+      ...contextStyle.value,
+      ...(attrs.style as CSSProperties),
+    }))
+
+    // The legacy inline `style` of Badge targets the indicator node, except for the
+    // status badge where the indicator is rendered inside the root node.
+    const legacyStyleKey = computed<'root' | 'indicator'>(() => (isStatusBadge.value ? 'root' : 'indicator'))
+    const contextLegacyStyle = useSemanticRootStyle(contextStyle, legacyStyleKey)
+    const componentLegacyStyle = useSemanticRootStyle(
+      computed(() => attrs.style as CSSProperties | undefined),
+      legacyStyleKey,
+    )
+
+    const [mergedClassNames, mergedStyles] = useMergeSemantic<
+      BadgeClassNamesType,
+      BadgeStylesType,
+      BadgeProps
+    >(
+      useToArr(contextClassNames, classes),
+      useToArr(contextStyles, contextLegacyStyle as any, styles, componentLegacyStyle as any),
+      useToProps(mergedProps),
+    )
 
     const displayCount = computed(() => displayCountRef.value)
     const isInternalColor = computed(() => isPresetColor(props.color, false))
 
     return () => {
       const { class: attrClass, style: attrStyle, ...restAttrs } = attrs
-      const children = filterEmpty(slots.default?.() ?? [])
+      const children = childrenNodes.value
       let livingCount: any = countCacheRef.value
       if (typeof livingCount === 'function') {
         livingCount = livingCount()
       }
       const fallbackTitleNode = typeof livingCount === 'string' || typeof livingCount === 'number' ? livingCount : undefined
       const titleNode = props.title === null || props.title === false ? undefined : (props.title ?? fallbackTitleNode)
-      const hasTextSlot = textNodes.value.length > 0
-      const showStatusTextNode = !isHidden.value && (hasTextSlot ? true : (props.text === 0 ? props.showZero : !!props.text && props.text !== true))
 
       const statusCls = clsx(
         mergedClassNames.value.indicator,
@@ -234,24 +258,24 @@ const InternalBadge = defineComponent<
       }
 
       const renderStatusText = (style?: CSSProperties) => {
-        if (!showStatusTextNode) {
+        if (!showStatusTextNode.value) {
           return null
         }
         return (
           <span class={`${prefixCls.value}-status-text`} style={style}>
-            {hasTextSlot ? textNodes.value : props.text}
+            {hasTextSlot.value ? textNodes.value : props.text}
           </span>
         )
       }
 
-      if (!children.length && hasStatus.value && (showStatusTextNode || hasStatusValue.value || !ignoreCount.value)) {
-        const statusTextColor = mergedStyle.value?.color
+      if (isStatusBadge.value) {
+        const statusTextColor = mergedStyles.value.root?.color
         return (
           <span
             {...restAttrs}
             ref={badgeRef}
             class={badgeClassName}
-            style={[mergedStyles.value.root, mergedStyle.value]}
+            style={[offsetStyle.value, mergedStyles.value.root]}
           >
             <span
               class={statusCls}
@@ -310,7 +334,7 @@ const InternalBadge = defineComponent<
                       class={scrollNumberCls}
                       count={displayCount.value}
                       title={titleNode}
-                      style={[mergedStyles.value?.indicator, mergedStyle.value, scrollNumberStyle]}
+                      style={[offsetStyle.value, mergedStyles.value?.indicator, scrollNumberStyle]}
                     >
                       {clonedNode}
                     </ScrollNumber>
@@ -345,3 +369,5 @@ export const BadgeRibbon = Ribbon
 export default Badge
 
 export type BadgeRibbonProps = RibbonProps
+
+export type BadgeRibbonRef = RibbonRef

@@ -32,13 +32,17 @@ export interface InternalSplitterProps extends SplitterProps,
 
 export interface SplitterEmitsProps {}
 
+export interface SplitterRef {
+  nativeElement: HTMLDivElement
+}
+
 const Splitter = defineComponent<
   InternalSplitterProps,
   SplitterEmits,
   string,
   SlotsType<SplitterSlots>
 >(
-  (props, { slots, attrs }) => {
+  (props, { slots, attrs, expose }) => {
     const {
       prefixCls,
       rootPrefixCls,
@@ -176,6 +180,12 @@ const Splitter = defineComponent<
       }
       return mergedSizes
     })
+
+    const nativeElementRef = shallowRef<HTMLDivElement>()
+    expose({
+      nativeElement: nativeElementRef,
+    })
+
     return () => {
       const {
         rootClass,
@@ -213,7 +223,7 @@ const Splitter = defineComponent<
       }
       return (
         <ResizeObserver onResize={onContainerResize}>
-          <div {...restAttrs} style={mergedStyle} class={containerClassName}>
+          <div ref={nativeElementRef} {...restAttrs} style={mergedStyle} class={containerClassName}>
             {items.value?.map?.((item, idx) => {
               const panelProps = {
                 ...omit(item, ['_$slots']),

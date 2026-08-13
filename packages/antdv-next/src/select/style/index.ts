@@ -75,8 +75,8 @@ const genBaseStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         textTransform: 'none',
         // The clear affordance is a real `<button>` for keyboard access, so
         // the browser's default control chrome has to be reset away.
-        // antd still renders a `<span>` here (rc-select ~1.8.2), so this reset
-        // has no React counterpart yet — it mirrors the DatePicker one.
+        // antd caught up in 6.6.0 (rc-select ~1.9.1) and now ships the same
+        // reset — see ant-design#58572 and ant-design#58928.
         padding: 0,
         fontFamily: 'inherit',
         background: 'transparent',

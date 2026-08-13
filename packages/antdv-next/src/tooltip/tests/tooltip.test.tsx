@@ -843,3 +843,42 @@ describe('tooltip', () => {
     })
   })
 })
+
+describe('tooltip disabled', () => {
+  beforeEach(() => {
+    vi.useFakeTimers()
+  })
+
+  afterEach(() => {
+    vi.useRealTimers()
+  })
+
+  it('does not mark the child as open while disabled', async () => {
+    const wrapper = mount(() => (
+      <Tooltip title="hello" disabled>
+        <span class="target">target</span>
+      </Tooltip>
+    ), { attachTo: document.body })
+
+    await wrapper.find('.target').trigger('mouseenter')
+    await flushTooltipTimer()
+
+    expect(wrapper.find('.target').classes()).not.toContain(`${defaultPrefixCls}-tooltip-open`)
+    expect(isTooltipOpen()).toBe(false)
+    wrapper.unmount()
+  })
+
+  it('still marks the child as open when not disabled', async () => {
+    const wrapper = mount(() => (
+      <Tooltip title="hello">
+        <span class="target">target</span>
+      </Tooltip>
+    ), { attachTo: document.body })
+
+    await wrapper.find('.target').trigger('mouseenter')
+    await flushTooltipTimer()
+
+    expect(wrapper.find('.target').classes()).toContain(`${defaultPrefixCls}-tooltip-open`)
+    wrapper.unmount()
+  })
+})

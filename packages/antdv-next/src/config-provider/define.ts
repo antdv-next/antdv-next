@@ -29,6 +29,7 @@ import type {
   ImageConfig,
   InputConfig,
   InputNumberConfig,
+  InputPasswordConfig,
   InputSearchConfig,
   ListyConfig,
   MasonryConfig,
@@ -89,6 +90,7 @@ export interface ConfigProviderProps {
   textArea?: TextAreaConfig
   mentions?: MentionsConfig
   inputSearch?: InputSearchConfig
+  inputPassword?: InputPasswordConfig
   otp?: OTPConfig
   select?: SelectConfig
   form?: FormConfig

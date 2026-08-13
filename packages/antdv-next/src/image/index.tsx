@@ -8,7 +8,7 @@ import { clsx } from '@v-c/util'
 import { getAttrStyleAndClass } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, ref } from 'vue'
-import { useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { devUseWarning, isDev } from '../_util/warning'
 import { useComponentBaseConfig } from '../config-provider/context'
@@ -218,13 +218,20 @@ const Image = defineComponent<
       }
     })
 
+    // The legacy inline `style` of Image targets the `img` node, not the root wrapper.
+    const contextImageStyle = useSemanticRootStyle(contextStyle, 'image')
+    const imageStyle = useSemanticRootStyle(
+      computed(() => (attrs as any).style as CSSProperties | undefined),
+      'image',
+    )
+
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       ImageClassNamesType,
       ImageStylesType,
       ImageProps
     >(
       useToArr(contextClassNames, classes, mergedLegacyClassNames, computed(() => ({ popup: mergedPopupClassNames.value }))),
-      useToArr(contextStyles, computed(() => ({ root: props.wrapperStyle })), styles),
+      useToArr(contextStyles, computed(() => ({ root: props.wrapperStyle })), contextImageStyle as any, styles, imageStyle as any),
       useToProps(mergedProps),
       computed(() => {
         return {
@@ -235,13 +242,10 @@ const Image = defineComponent<
     return () => {
       const mergedFallback = getSlotPropsFnRun(slots, props, 'fallback') ?? contextFallback.value
       const placeholder = getSlotPropsFnRun(slots, props, 'placeholder', false)
-      const { style, className, restAttrs } = getAttrStyleAndClass(attrs)
+      const { className, restAttrs } = getAttrStyleAndClass(attrs)
       const mergedClassName = clsx(className, hashId.value, contextClassName.value)
 
-      const mergedStyle = {
-        ...contextStyle.value,
-        ...style,
-      }
+      const { image: mergedImageStyle, ...restMergedStyles } = mergedStyles.value
       const otherProps = omit(props, [
         'prefixCls',
         'preview',
@@ -274,13 +278,13 @@ const Image = defineComponent<
           preview={(mergedPreviewConfig.value || false) as any}
           rootClassName={mergedRootClassName.value}
           class={mergedClassName}
-          style={mergedStyle}
+          style={mergedImageStyle}
           fallback={mergedFallback}
           {...omit(otherProps, ['placeholder'])}
           {...onEvents}
           placeholder={placeholder}
           classNames={mergedClassNames.value}
-          styles={mergedStyles.value}
+          styles={restMergedStyles}
         />
       )
     }

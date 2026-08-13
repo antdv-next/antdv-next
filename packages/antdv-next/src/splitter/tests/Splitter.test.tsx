@@ -2,7 +2,7 @@ import type { SplitterProps } from '..'
 import type { Orientation } from '../../_util/hooks'
 import type { PanelProps } from '../interface'
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
-import { defineComponent, nextTick } from 'vue'
+import { defineComponent, nextTick, ref } from 'vue'
 import Splitter, { SplitterPanel } from '..'
 import { resetWarned } from '../../_util/warning'
 import ConfigProvider from '../../config-provider'
@@ -121,6 +121,21 @@ describe('splitter', () => {
     expect(wrapper.find('.ant-splitter').exists()).toBe(true)
     expect(wrapper.findAll('.ant-splitter-panel')).toHaveLength(2)
     expect(wrapper.find('.ant-splitter-bar').exists()).toBe(true)
+  })
+
+  it('should support nativeElement ref', async () => {
+    const splitterRef = ref<any>()
+    const wrapper = trackWrapper(mount(() => (
+      <Splitter ref={splitterRef}>
+        <SplitterPanel>First</SplitterPanel>
+        <SplitterPanel>Second</SplitterPanel>
+      </Splitter>
+    ), { attachTo: document.body }))
+
+    await nextTick()
+
+    expect(splitterRef.value?.nativeElement).toBeInstanceOf(HTMLElement)
+    expect(splitterRef.value.nativeElement).toBe(wrapper.find('.ant-splitter').element)
   })
 
   it('should correct render panel size', async () => {

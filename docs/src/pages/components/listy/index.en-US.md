@@ -5,6 +5,7 @@ title: Listy
 description: A high-performance list that supports grouping and can virtualize long data sets.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EYuhSpw1iSwAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAAAAAAAAAAAADrJ8AQ/original
+tag: 1.5.0
 ---
 
 ## When To Use
