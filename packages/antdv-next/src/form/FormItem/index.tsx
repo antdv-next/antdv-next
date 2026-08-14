@@ -13,6 +13,7 @@ import { checkRenderNode } from '../../_util/vueNode.ts'
 import { useComponentBaseConfig } from '../../config-provider/context'
 import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls'
 import { useFormContext, useFormItemProvider, useNoStyleItemContext } from '../context.tsx'
+import { useFormInstance } from '../hooks/useForm.ts'
 import useStyle from '../style'
 import { getFieldId, initialValueFormat, toArray, toNamePathStr } from '../util.ts'
 import { validateRules } from '../utils/validateUtil.ts'
@@ -97,6 +98,7 @@ const InternalFormItem = defineComponent<
 >(
   (props, { slots, attrs }) => {
     const formContext = useFormContext()
+    const formInstance = useFormInstance()
     const mergedValidateTrigger = computed<TriggerType | TriggerType[] | false>(() => {
       const { trigger, validateTrigger } = props
       return (validateTrigger !== undefined
@@ -157,7 +159,11 @@ const InternalFormItem = defineComponent<
       if (props.rules) {
         collectedRules.push(...props.rules)
       }
-      return collectedRules as RuleObject[]
+      // Resolve function rules (RuleRender) with the form instance so both
+      // validation and the required-mark derivation see plain rule objects.
+      return collectedRules.map(rule =>
+        typeof rule === 'function' ? rule(formInstance as any) : rule,
+      ) as RuleObject[]
     })
 
     const isRequired = computed(
