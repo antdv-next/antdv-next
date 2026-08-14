@@ -141,6 +141,11 @@ const RadioGroup = defineComponent<
               class={option.class}
               id={option.id}
               required={option.required}
+              {
+                ...{
+                  onChange: option.onChange,
+                }
+              }
             >
               {_label}
             </Radio>
