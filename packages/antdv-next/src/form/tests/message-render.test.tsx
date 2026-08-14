@@ -1,6 +1,6 @@
 import type { FormInstance } from '..'
 import { describe, expect, it, vi } from 'vitest'
-import { defineComponent, h, nextTick, reactive, ref, shallowRef } from 'vue'
+import { computed, defineComponent, h, nextTick, reactive, ref, shallowRef } from 'vue'
 import Form, { FormItem } from '..'
 import { flushPromises, mount } from '/@tests/utils'
 
@@ -93,6 +93,39 @@ describe('form rule message as render function', () => {
     await flushForm()
 
     expect(wrapper.find('.ant-form-item-explain .custom-message').text()).toBe('Required')
+
+    wrapper.unmount()
+  })
+
+  it('works with form-level rules, including computed ones', async () => {
+    const formRef = shallowRef<FormInstance>()
+    const model = reactive<{ username?: string }>({ username: undefined })
+    const locale = ref<'en' | 'zh'>('en')
+
+    const rules = computed(() => ({
+      username: [{
+        required: true,
+        message: () => (locale.value === 'zh' ? '请输入用户名' : 'Username is required'),
+      }],
+    }))
+
+    const wrapper = mount(defineComponent(() => () => (
+      <Form ref={formRef as any} model={model} rules={rules.value}>
+        <FormItem name="username">
+          <input />
+        </FormItem>
+      </Form>
+    )), { attachTo: document.body })
+
+    await formRef.value!.validateFields().catch(() => {})
+    await flushForm()
+
+    expect(wrapper.find('.ant-form-item-explain').text()).toBe('Username is required')
+
+    locale.value = 'zh'
+    await flushForm()
+
+    expect(wrapper.find('.ant-form-item-explain').text()).toBe('请输入用户名')
 
     wrapper.unmount()
   })
