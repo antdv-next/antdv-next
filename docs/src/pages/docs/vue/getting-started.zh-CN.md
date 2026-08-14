@@ -44,13 +44,13 @@ const value = ref()
 
 ### 引入按需加载
 
-`antdv-next`默认支持基于 ES modules 的 tree shaking，直接引入 `import { Button } from 'antdv-next';` 就会有按需加载的效果。
+`antdv-next` 默认支持基于 ES modules 的 tree shaking，直接引入 `import { Button } from 'antdv-next';` 就会有按需加载的效果。
 
-### 借助`unplugin-vue-components`实现自动按需加载
+### 借助 `unplugin-vue-components` 实现自动按需加载
 
-你可以通过 [unplugin-vue-components](https://github.com/unplugin/unplugin-vue-components)来实现自动按需加载。
+你可以通过 [unplugin-vue-components](https://github.com/unplugin/unplugin-vue-components) 来实现自动按需加载。
 
-我们提供了库适配器的库`@antdv-next/auto-import-resolver`
+我们提供了库适配器的库 `@antdv-next/auto-import-resolver`
 
 #### 安装
 
@@ -63,7 +63,7 @@ const value = ref()
 
 #### 使用
 
-> 这里只介绍vite的使用方式，具体的请参考[@antdv-next/auto-import-resolver](https://www.npmjs.com/package/@antdv-next/auto-import-resolver)
+> 这里只介绍vite的使用方式，具体的请参考 [@antdv-next/auto-import-resolver](https://www.npmjs.com/package/@antdv-next/auto-import-resolver)
 
 ```ts
 import { AntdvNextResolver } from '@antdv-next/auto-import-resolver'
