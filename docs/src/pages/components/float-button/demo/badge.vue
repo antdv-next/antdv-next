@@ -13,7 +13,7 @@ import { QuestionCircleOutlined } from '@antdv-next/icons'
 <template>
   <a-float-button shape="circle" style="inset-inline-end: calc(24px + 70px + 70px)" :badge="{ dot: true }" />
   <a-float-button-group shape="circle" style="inset-inline-end: calc(24px + 70px)">
-    <a-float-button href="https://antdv-next.com" :badge="{ count: 5, color: 'blue' }">
+    <a-float-button :badge="{ count: 5, color: 'blue' }">
       <template #tooltip>
         <div>Custom badge color</div>
       </template>

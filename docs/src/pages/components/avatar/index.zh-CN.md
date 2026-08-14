@@ -22,6 +22,7 @@ group:
  <demo src="./demo/dynamic.vue">自动调整字符大小</demo>
  <demo src="./demo/badge.vue">带徽标的头像</demo>
  <demo src="./demo/group.vue">Avatar.Group</demo>
+ <demo src="./demo/max-count.vue">maxCount 包含溢出元素</demo>
  <demo src="./demo/responsive.vue">响应式尺寸</demo>
 </demo-group>
 

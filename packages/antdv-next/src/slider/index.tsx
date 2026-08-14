@@ -143,6 +143,11 @@ export interface SliderEmitsProps {
   onChangeComplete?: SliderEmits['changeComplete']
 }
 
+export interface SliderRef {
+  focus: () => void
+  blur: () => void
+}
+
 export interface SliderSlots {
 
 }
