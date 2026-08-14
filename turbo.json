@@ -17,13 +17,17 @@
       "inputs": ["src/**", "package.json", "tsconfig.json", "tsdown.config.ts"],
       "outputs": ["dist/**"]
     },
+    "antdv-next#build:style": {
+      "inputs": ["src/**", "package.json", "tsconfig.json"],
+      "outputs": ["dist/antd.css", "../../docs/src/assets/antd.css"]
+    },
     "@antdv-next/cssinjs#build": {
       "dependsOn": ["^build"],
       "inputs": ["src/**", "package.json", "tsconfig.json", "tsdown.config.ts"],
       "outputs": ["dist/**"]
     },
     "build": {
-      "dependsOn": ["antdv-next#build:token", "^build"],
+      "dependsOn": ["antdv-next#build:token", "antdv-next#build:style", "^build"],
       "inputs": ["src/**", "package.json", "tsconfig.json"],
       "outputs": ["dist/**"]
     },
