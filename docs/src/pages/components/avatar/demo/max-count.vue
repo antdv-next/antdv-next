@@ -8,9 +8,9 @@ Wrap `Avatar.Group` to add `overflowInFinal` prop. When enabled, `max.count` rep
 
 <script setup lang="ts">
 import type { AvatarGroupProps } from 'antdv-next'
-import type { FunctionalComponent, VNode } from 'vue'
+import type { PropType, VNode } from 'vue'
 import { AvatarGroup } from 'antdv-next'
-import { Fragment, h, ref } from 'vue'
+import { defineComponent, Fragment, h, ref } from 'vue'
 
 function flattenChildren(nodes: VNode[]): VNode[] {
   return nodes.flatMap(node =>
@@ -20,25 +20,33 @@ function flattenChildren(nodes: VNode[]): VNode[] {
   )
 }
 
-const AvatarGroupOverflow: FunctionalComponent<AvatarGroupProps & { overflowInFinal?: boolean }> = (props, { slots, attrs }) => {
-  const mergedMaxCount = props.max?.count ?? 3
-  const children = flattenChildren(slots.default?.() ?? [])
-  const reserveOverflowSlot = props.overflowInFinal && mergedMaxCount < children.length
-  return h(
-    AvatarGroup,
-    {
-      ...attrs,
-      max: reserveOverflowSlot
-        ? { ...props.max, count: Math.max(1, mergedMaxCount - 1) }
-        : props.max,
-    },
-    () => children,
-  )
-}
-AvatarGroupOverflow.props = ['overflowInFinal', 'max']
+const AvatarGroupOverflow = defineComponent({
+  name: 'AvatarGroupOverflow',
+  props: {
+    overflowInFinal: { type: Boolean, default: false },
+    max: { type: Object as PropType<AvatarGroupProps['max']>, default: undefined },
+  },
+  setup(props, { slots, attrs }) {
+    return () => {
+      const children = flattenChildren(slots.default?.() ?? [])
+      const mergedMaxCount = props.max?.count ?? 3
+      const reserveOverflowSlot = props.overflowInFinal && mergedMaxCount < children.length
+      return h(
+        AvatarGroup,
+        {
+          ...attrs,
+          max: reserveOverflowSlot
+            ? { ...props.max, count: Math.max(1, mergedMaxCount - 1) }
+            : props.max,
+        },
+        () => children,
+      )
+    }
+  },
+})
 
 const avatarCount = ref(4)
-const overflowInFinal = ref(true)
+const enableOverflowInFinal = ref(true)
 </script>
 
 <template>
@@ -56,14 +64,14 @@ const overflowInFinal = ref(true)
     </a-flex>
     <a-flex :gap="8" align="center">
       <span>overflowInFinal: </span>
-      <a-switch v-model:checked="overflowInFinal" aria-label="overflowInFinal" />
+      <a-switch v-model:checked="enableOverflowInFinal" aria-label="overflowInFinal" />
     </a-flex>
     <AvatarGroupOverflow
       :max="{
         count: 3,
         style: { backgroundColor: '#52c41a', color: '#fff' },
       }"
-      :overflow-in-final="overflowInFinal"
+      :overflow-in-final="enableOverflowInFinal"
     >
       <a-avatar v-for="i in avatarCount" :key="i" style="background-color: #f56a00;">
         {{ String.fromCharCode(64 + i) }}
