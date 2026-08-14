@@ -43,7 +43,7 @@ Thank you!
 
 > - Read [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)! Track your changes, like a cat tracks a laser pointer.
 > - Describe the impact of the changes on developers, not the solution approach.
-> - Reference: https://ant.design/changelog
+> - Reference: https://www.antdv-next.com/components/changelog
 
 | Language   | Changelog |
 | ---------- | --------- |
