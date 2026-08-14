@@ -30,6 +30,13 @@ function replaceMessage(template: string, kv: Record<string, string>): string {
 
 const CODE_LOGIC_ERROR = 'CODE_LOGIC_ERROR'
 
+// async-validator resolves function messages while validating (its
+// `complementError` calls them), which would freeze a reactive message into a
+// static string. Swap the function for this token before validating and put
+// the function back on the produced errors, so ErrorList can invoke it on
+// each render instead.
+const CODE_FUNCTION_MESSAGE = 'CODE_FUNCTION_MESSAGE'
+
 async function validateRule(
   name: string,
   value: StoreValue,
@@ -48,6 +55,13 @@ async function validateRule(
 
   // https://github.com/ant-design/ant-design/issues/40497#issuecomment-1422282378
   AsyncValidator.warning = () => void 0
+
+  const functionMessage = typeof cloneRule.message === 'function'
+    ? cloneRule.message as () => any
+    : null
+  if (functionMessage) {
+    cloneRule.message = CODE_FUNCTION_MESSAGE
+  }
 
   if (cloneRule.validator) {
     const originValidator = cloneRule.validator
@@ -84,6 +98,10 @@ async function validateRule(
   catch (errObj: any) {
     if (errObj.errors) {
       result = errObj.errors.map(({ message }: any, index: number) => {
+        if (functionMessage && message === CODE_FUNCTION_MESSAGE) {
+          return functionMessage
+        }
+
         const mergedMessage = message === CODE_LOGIC_ERROR ? messages.default : message
 
         return isVNode(mergedMessage)

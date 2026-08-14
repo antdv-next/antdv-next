@@ -9694,6 +9694,255 @@ exports[`form demo > renders login correctly 1`] = `
 </form>
 `;
 
+exports[`form demo > renders message-render correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-root"
+  style="width: 100%;"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-radio-group ant-radio-group-outline css-var-root ant-radio-css-var"
+    >
+      <label
+        class="ant-radio-wrapper ant-radio-wrapper-checked css-var-root ant-radio-css-var"
+      >
+        <span
+          class="ant-radio ant-wave-target ant-radio-checked ant-wave-target"
+          name="v-0"
+        >
+          <input
+            checked=""
+            class="ant-radio-input"
+            type="radio"
+          />
+        </span>
+        <span
+          class="ant-radio-label"
+        >
+           English 
+        </span>
+      </label>
+      <label
+        class="ant-radio-wrapper css-var-root ant-radio-css-var"
+      >
+        <span
+          class="ant-radio ant-wave-target ant-wave-target"
+          name="v-0"
+        >
+          <input
+            class="ant-radio-input"
+            type="radio"
+          />
+        </span>
+        <span
+          class="ant-radio-label"
+        >
+           中文 
+        </span>
+      </label>
+    </div>
+  </div>
+  <!---->
+  <div
+    class="ant-space-item"
+  >
+    <form
+      class="ant-form ant-form-vertical css-var-root ant-form-css-var"
+      style="max-width: 600px;"
+    >
+      <div
+        class="ant-form-item css-var-root ant-form-css-var ant-form-item-vertical"
+      >
+        <div
+          class="ant-row css-var-root ant-form-item-row"
+        >
+          <div
+            class="ant-col css-var-root ant-form-item-label"
+          >
+            <label
+              class="ant-form-item-required"
+              for="username"
+              title="Username"
+            >
+              Username
+            </label>
+          </div>
+          <div
+            class="ant-col css-var-root ant-form-item-control"
+          >
+            <div
+              class="ant-form-item-control-input"
+            >
+              <div
+                class="ant-form-item-control-input-content"
+              >
+                <input
+                  aria-required="true"
+                  class="ant-input ant-input-outlined css-var-root ant-input-css-var"
+                  id="username"
+                  placeholder="username"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="ant-form-item-additional"
+            >
+              <transition-stub
+                appear="true"
+                css="true"
+                enteractiveclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-prepare ant-form-show-help-enter-prepare "
+                enterfromclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-prepare ant-form-show-help-enter-prepare ant-form-show-help-enter-start"
+                entertoclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-active ant-form-show-help-enter-active"
+                leaveactiveclass="ant-form-show-help ant-form-show-help-leave ant-form-show-help-leave-active"
+                leavefromclass="ant-form-show-help ant-form-show-help-leave"
+                leavetoclass="ant-form-show-help ant-form-show-help-leave ant-form-show-help-leave-active"
+                name="ant-form-show-help"
+                persisted="false"
+              >
+                <!---->
+              </transition-stub>
+              <!---->
+            </div>
+          </div>
+          <!---->
+        </div>
+        <!---->
+      </div>
+      <div
+        class="ant-form-item css-var-root ant-form-css-var ant-form-item-vertical"
+      >
+        <div
+          class="ant-row css-var-root ant-form-item-row"
+        >
+          <div
+            class="ant-col css-var-root ant-form-item-label"
+          >
+            <label
+              class="ant-form-item-required"
+              for="email"
+              title="Email"
+            >
+              Email
+            </label>
+          </div>
+          <div
+            class="ant-col css-var-root ant-form-item-control"
+          >
+            <div
+              class="ant-form-item-control-input"
+            >
+              <div
+                class="ant-form-item-control-input-content"
+              >
+                <input
+                  aria-required="true"
+                  class="ant-input ant-input-outlined css-var-root ant-input-css-var"
+                  id="email"
+                  placeholder="email"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="ant-form-item-additional"
+            >
+              <transition-stub
+                appear="true"
+                css="true"
+                enteractiveclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-prepare ant-form-show-help-enter-prepare "
+                enterfromclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-prepare ant-form-show-help-enter-prepare ant-form-show-help-enter-start"
+                entertoclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-active ant-form-show-help-enter-active"
+                leaveactiveclass="ant-form-show-help ant-form-show-help-leave ant-form-show-help-leave-active"
+                leavefromclass="ant-form-show-help ant-form-show-help-leave"
+                leavetoclass="ant-form-show-help ant-form-show-help-leave ant-form-show-help-leave-active"
+                name="ant-form-show-help"
+                persisted="false"
+              >
+                <!---->
+              </transition-stub>
+              <!---->
+            </div>
+          </div>
+          <!---->
+        </div>
+        <!---->
+      </div>
+      <div
+        class="ant-form-item css-var-root ant-form-css-var ant-form-item-vertical"
+      >
+        <div
+          class="ant-row css-var-root ant-form-item-row"
+        >
+          <!---->
+          <div
+            class="ant-col css-var-root ant-form-item-control"
+          >
+            <div
+              class="ant-form-item-control-input"
+            >
+              <div
+                class="ant-form-item-control-input-content"
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+                  type="submit"
+                >
+                  <transition-stub
+                    appear="false"
+                    css="true"
+                    enteractiveclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-prepare ant-btn-loading-icon-motion-enter-prepare "
+                    enterfromclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-prepare ant-btn-loading-icon-motion-enter-prepare ant-btn-loading-icon-motion-enter-start"
+                    entertoclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-active ant-btn-loading-icon-motion-enter-active"
+                    leaveactiveclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave ant-btn-loading-icon-motion-leave-active"
+                    leavefromclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave"
+                    leavetoclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave ant-btn-loading-icon-motion-leave-active"
+                    name="ant-btn-loading-icon-motion"
+                    persisted="false"
+                  >
+                    <!---->
+                  </transition-stub>
+                  <span>
+                     Submit 
+                  </span>
+                  <!---->
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-form-item-additional"
+            >
+              <transition-stub
+                appear="true"
+                css="true"
+                enteractiveclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-prepare ant-form-show-help-enter-prepare "
+                enterfromclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-prepare ant-form-show-help-enter-prepare ant-form-show-help-enter-start"
+                entertoclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-active ant-form-show-help-enter-active"
+                leaveactiveclass="ant-form-show-help ant-form-show-help-leave ant-form-show-help-leave-active"
+                leavefromclass="ant-form-show-help ant-form-show-help-leave"
+                leavetoclass="ant-form-show-help ant-form-show-help-leave ant-form-show-help-leave-active"
+                name="ant-form-show-help"
+                persisted="false"
+              >
+                <!---->
+              </transition-stub>
+              <!---->
+            </div>
+          </div>
+          <!---->
+        </div>
+        <!---->
+      </div>
+    </form>
+  </div>
+  <!---->
+</div>
+`;
+
 exports[`form demo > renders nest-messages correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal css-var-root ant-form-css-var"

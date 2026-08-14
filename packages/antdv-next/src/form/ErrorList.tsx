@@ -156,7 +156,7 @@ const ErrorList = defineComponent<
                       )}
                       style={{ ...props.helpItemStyle, ...itemStyle }}
                     >
-                      {error}
+                      {typeof error === 'function' ? error() : error}
                     </div>
                   )
                 })}

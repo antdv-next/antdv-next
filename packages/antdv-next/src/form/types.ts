@@ -1,5 +1,14 @@
-import type { Component } from 'vue'
+import type { Component, VNode } from 'vue'
 import type { DeepNamePath } from './namePathType'
+
+/**
+ * Render function form of a rule message. Kept as-is through validation and
+ * only invoked while rendering the error, so any reactive state it reads
+ * (locale, i18n `t`, ...) updates the displayed message without re-validating.
+ */
+export type RuleMessageRender = () => string | number | VNode
+
+export type RuleMessage = string | Component | RuleMessageRender
 
 export type ReducerAction = UpdateAction | ValidateAction
 
@@ -68,7 +77,7 @@ export type RuleRender = (form: FormInstance) => RuleObject
 
 export interface ValidatorRule {
   warningOnly?: boolean
-  message?: string | Component
+  message?: RuleMessage
   validator: Validator
 }
 
@@ -79,7 +88,7 @@ interface BaseRule {
   enum?: StoreValue[]
   len?: number
   max?: number
-  message?: string | Component
+  message?: RuleMessage
   min?: number
   pattern?: RegExp
   required?: boolean
