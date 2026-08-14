@@ -31,6 +31,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
   <demo src="./demo/useWatch.vue">Watch Hooks</demo>
   <demo src="./demo/validate-trigger.vue">Validate Trigger</demo>
   <demo src="./demo/validate-only.vue">Validate Only</demo>
+  <demo src="./demo/message-render.vue">Reactive Message</demo>
   <demo src="./demo/form-zod.vue">Validate with zod</demo>
   <demo src="./demo/form-item-path.vue">Path Prefix</demo>
   <demo src="./demo/dynamic-form-item.vue">Dynamic Form Item</demo>
@@ -217,7 +218,7 @@ interface RuleObject {
   enum?: any[]
   len?: number
   max?: number
-  message?: string | Component
+  message?: string | Component | (() => VueNode)
   min?: number
   pattern?: RegExp
   required?: boolean
@@ -240,6 +241,7 @@ Notes:
 - `Form.Item.rules` is typed as `Rule[]`
 - `validateTrigger` has higher priority than `trigger`
 - When `type: 'array'` is used, `defaultField` can define rules for array items
+- `message` accepts a render function (e.g. `() => t('required')`): it is kept as-is through validation and only invoked while rendering the error, so any reactive state it reads (locale, i18n, ...) updates the displayed message without re-validating. Function messages skip `${label}`-style template interpolation
 
 ### validateMessages
 
