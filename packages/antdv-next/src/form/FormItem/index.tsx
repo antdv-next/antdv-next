@@ -556,7 +556,7 @@ const InternalFormItem = defineComponent<
         if (_onFocus) {
           delete child.props.onFocus
         }
-        const newChildProps = {
+        const newChildProps: Record<string, any> = {
           id: childProps.id || currentFieldId,
           onBlur: (...args: any[]) => {
             onFieldBlur()
@@ -594,6 +594,26 @@ const InternalFormItem = defineComponent<
           // it. `createVNode(vnode, props)` merges refs, so a user supplied `ref`
           // on the control still fires.
           ref: setItemInstance,
+        }
+        // Accessibility attributes, aligned with antd React FormItem.
+        const helpNode = getSlotPropsFnRun(slots, props, 'help')
+        const extraNode = getSlotPropsFnRun(slots, props, 'extra')
+        const { errors: itemErrors, warnings: itemWarnings } = mergedErrorList.value
+        if (currentFieldId && (helpNode || itemErrors.length > 0 || itemWarnings.length > 0 || extraNode)) {
+          const describedbyArr: string[] = []
+          if (helpNode || itemErrors.length > 0) {
+            describedbyArr.push(`${currentFieldId}_help`)
+          }
+          if (extraNode) {
+            describedbyArr.push(`${currentFieldId}_extra`)
+          }
+          newChildProps['aria-describedby'] = describedbyArr.join(' ')
+        }
+        if (itemErrors.length > 0) {
+          newChildProps['aria-invalid'] = 'true'
+        }
+        if (props.required ?? isRequiredMark) {
+          newChildProps['aria-required'] = 'true'
         }
         baseChildren = createVNode(child, newChildProps)
       }
