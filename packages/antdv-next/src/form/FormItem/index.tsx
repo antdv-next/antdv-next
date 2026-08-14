@@ -148,7 +148,10 @@ const InternalFormItem = defineComponent<
     // 获取初始值的类型，如果是单个的值，直接复制，如果是个对象，就需要进行深拷贝
     const initialValue = shallowRef<any>(initialValueFormat(formContext.value?.getFieldValue?.(namePath.value)))
 
-    const mergedRules = computed<RuleObject[]>(() => {
+    // Deliberately a plain function instead of a computed: function rules
+    // (RuleRender) may read non-reactive state, so validation must re-resolve
+    // them on every call rather than reuse a cached result.
+    const getMergedRules = (): RuleObject[] => {
       const collectedRules: (Rule | RuleObject)[] = []
       const formRules = formContext.value?.rules
         ? getValue(formContext.value.rules, namePath.value)
@@ -159,15 +162,13 @@ const InternalFormItem = defineComponent<
       if (props.rules) {
         collectedRules.push(...props.rules)
       }
-      // Resolve function rules (RuleRender) with the form instance so both
-      // validation and the required-mark derivation see plain rule objects.
       return collectedRules.map(rule =>
         typeof rule === 'function' ? rule(formInstance as any) : rule,
       ) as RuleObject[]
-    })
+    }
 
     const isRequired = computed(
-      () => mergedRules.value.some(rule => (rule as RuleObject)?.required && !(rule as RuleObject)?.warningOnly),
+      () => getMergedRules().some(rule => (rule as RuleObject)?.required && !(rule as RuleObject)?.warningOnly),
     )
 
     const messageVariables = computed(() => {
@@ -229,7 +230,7 @@ const InternalFormItem = defineComponent<
       if (!namePath.value.length) {
         return Promise.resolve()
       }
-      let filteredRules = mergedRules.value
+      let filteredRules = getMergedRules()
       const { triggerName, validateOnly = false } = options
       if (triggerName) {
         if (mergedValidateTrigger.value === false) {
@@ -329,7 +330,7 @@ const InternalFormItem = defineComponent<
       if (mergedValidateTrigger.value === false) {
         return
       }
-      const hasMatchedRule = mergedRules.value.some(rule => getRuleTriggerList(rule).includes(triggerName))
+      const hasMatchedRule = getMergedRules().some(rule => getRuleTriggerList(rule).includes(triggerName))
       if (!hasMatchedRule) {
         return
       }
@@ -478,7 +479,7 @@ const InternalFormItem = defineComponent<
             namePath: () => namePath.value,
             getValue: () => fieldValue.value,
             getMeta: () => meta.value,
-            rules: () => mergedRules.value,
+            rules: () => getMergedRules(),
             // Touched or validated or has initialValue
             isFieldDirty: () => meta.value.touched || meta.value.validated || initialValue.value !== undefined,
             // @ts-expect-error this
