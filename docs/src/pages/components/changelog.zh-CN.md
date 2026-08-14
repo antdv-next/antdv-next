@@ -2,6 +2,62 @@
 title: 组件更新日志
 ---
 
+## V1.5.1
+
+发布日期：2026-08-14
+
+本次版本将 ant-design 上游同步推进到 **6.6.0**（`a5bbbf962d`，[#703](https://github.com/antdv-next/antdv-next/pull/703)、[#710](https://github.com/antdv-next/antdv-next/pull/710)）。两条主线：其一是 6.6.0 全量同步——约 20 个组件补齐 `nativeElement` ref、Tree `scrollTo` 自动展开、Table 展开行 `forceRender`、BackTop 滚动进度环、ConfigProvider 全局气泡延迟与输入类变体配置等；其二是 **Form 的一轮集中修复与增强**——修复规则解析与重复校验问题、补齐无障碍属性，并新增函数式校验消息：`message` 支持渲染函数，切换语言时已显示的错误提示会响应式更新且不重新触发校验。
+
+**✨ 新功能 Features**
+
+* feat：约 20 个组件补齐 `nativeElement` ref——Avatar.Group、Badge.Ribbon、Breadcrumb、Calendar、Card.Grid、Card.Meta、Carousel、Descriptions、Divider、Empty、FloatButton.Group、QRCode、Result、Skeleton、Space.Compact、Spin、Splitter、Transfer、Watermark，对应 ref 类型从入口导出（#58627~#58667）
+* feat(form)：规则 `message` 支持渲染函数 `() => VueNode`，校验时原样保留、渲染错误时才调用，函数内读取的响应式状态（locale、i18n 等）变化时已显示的提示自动更新，且不重新执行校验器；Form 级与计算属性形式的 `rules` 同样适用（[#714](https://github.com/antdv-next/antdv-next/pull/714)）
+* feat(tree)：`scrollTo` 支持 `autoExpand` 自动展开目标节点，新增 `Tree.useTree`，导出 `TreeInstance` / `UseTreeConfig`（#58841）
+* feat(table)：展开行支持 `forceRender` 强制渲染（#58860）
+* feat(float-button)：BackTop 新增 `showProgress`，以圆环展示滚动进度（#58894）
+* feat(pagination)：新增 `components.sizeChanger`，可自定义页码切换器（#58831）
+* feat(mentions)：支持 `popupRender` 自定义下拉内容（#58582）
+* feat(input)：ConfigProvider 变体配置支持 `inputSearch` / `inputPassword` / `otp` 子组件，子组件优先读取自身配置（#58784）
+* feat(tooltip, popover, popconfirm)：`mouseEnterDelay` / `mouseLeaveDelay` 支持通过 ConfigProvider 全局配置（#58892）
+* feat(theme)：新增 `focusOutline` seed token 统一焦点轮廓，Input、Select、Rate、Splitter、Steps 均已接入；Alert 新增 `borderRadius` 组件 token（#58647、#58708、#57765）
+* feat(image)：预览支持 `wheel` 控制鼠标滚轮缩放（`@v-c/image@1.1.0`，#58728）
+* feat(border-beam)：新增 `count` 配置光束数量，多条光束均匀分布（#58691）
+* feat(locale)：新增阿尔巴尼亚语 `sq_AL`；繁体中文用语修正，DatePicker 使用台湾周相关用语（#58618、#58947、#58951）
+
+**🐞 问题修复 Fixes**
+
+* fix(form)：`required` 与 `type` 并存的规则不再重复执行类型校验；FormItem 的 `required` 属性不再派生校验规则，仅用于必填标记展示，与 antd 行为对齐
+* fix(form)：函数式规则以表单实例为入参解析，且每次校验时重新求值，规则可读取最新的外部状态
+* fix(form)：表单控件补齐 `aria-required`，并通过 `aria-describedby` 关联帮助与错误信息，提升无障碍体验
+* fix(table)：`columns` 来自 `ref()` / `reactive()` 时，显式放置的 `Table.EXPAND_COLUMN` 不再因响应式代理丢失标识而产生一列空的幽灵列（`@v-c/table@1.2.0`）
+* fix(tree-select)：保留禁用子项的选中状态（`@v-c/tree-select@1.1.2`）
+* fix(select)：清除按钮键盘可达（`@v-c/select@1.2.1`）
+* fix(virtual-list)：`scrollTo({ key })` 以最新数据解析目标，数据更新后自动重试（`@v-c/virtual-list@1.1.1`）
+* fix(carousel)：动态新增子项时保持当前页，不再重置回第一页（#58845）
+* fix(drawer)：关闭按钮支持禁用（#58853）
+* fix：语义化样式优先级修正——ConfigProvider 根 `style` 插入到上下文样式与组件样式之间，覆盖 Badge、Calendar、ColorPicker、DatePicker、Drawer、Dropdown、Modal 等 20+ 组件；顺带修复 Divider 将整个语义化样式对象误铺到根节点、Masonry 丢失组件级 `styles.root`、message Holder 合并顺序错误（#58550、#58564）
+* fix(config-provider)：`inputSearch` 组件级配置此前未接入上下文、静默失效，现已修复
+* fix(typography)：省略 Tooltip 恢复可交互，悬停浮层本身不再使其消失（#58661、#58722）
+* fix(button)：对齐 loading 图标样式，移除多余的居中与块级声明（#58712）
+* fix(types)：补充导出 `UploadRef`、`StatisticRef`、`SliderRef` 等缺失的类型（#58700、#58798）
+* fix(site)：加固文档站的中国大陆访问检测
+
+**💄 样式 Styles**
+
+* fix(select, table, tree)：虚拟滚动条增加 `cursor: pointer` 与 hover 反馈（#58658、#58679）
+
+**📖 文档 Documentation**
+
+* docs：新增设计系统文档（[#707](https://github.com/antdv-next/antdv-next/pull/707)），更新快速上手
+* feat(docs)：代码面板支持多文件 demo 页签
+* docs：新增 Avatar `overflowInFinal`、Form 响应式校验信息、Tabs `more.popupRender` 等演示，补充 Image 预览 `wheel` 文档
+
+**🧰 依赖更新 Dependencies**
+
+* chore(sync)：同步 ant-design **6.6.0** 上游变更（[#703](https://github.com/antdv-next/antdv-next/pull/703)、[#710](https://github.com/antdv-next/antdv-next/pull/710)）
+* chore(deps)：升级 `@v-c/virtual-list@1.1.1`、`@v-c/tree@1.2.0`、`@v-c/select@1.2.1`、`@v-c/tree-select@1.1.2`、`@v-c/table@1.2.0`、`@v-c/image@1.1.0`
+* refactor：Button 延迟 loading、Slider 提示开关、Upload 进度展示与 Typography 复制反馈统一迁移至共享的 `useDelayState`（#58690）
+
 ## V1.5.0
 
 发布日期：2026-08-07

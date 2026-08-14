@@ -2,6 +2,62 @@
 title: Component Changelog
 ---
 
+## V1.5.1
+
+Release Date: 2026-08-14
+
+This release advances the ant-design upstream sync to **6.6.0** (`a5bbbf962d`, [#703](https://github.com/antdv-next/antdv-next/pull/703), [#710](https://github.com/antdv-next/antdv-next/pull/710)). Two main threads: the full 6.6.0 sync — `nativeElement` refs across ~20 components, Tree `scrollTo` auto-expand, Table expandable `forceRender`, a BackTop scroll-progress ring, global tooltip delays and input variant config via ConfigProvider — and a focused round of **Form fixes and enhancements**: rule resolution and duplicate-validation fixes, aria attributes, and render-function validation messages — `message` now accepts a render function, so displayed errors update reactively on locale switch without re-validating.
+
+**✨ Features**
+
+* feat: expose `nativeElement` refs on ~20 components — Avatar.Group, Badge.Ribbon, Breadcrumb, Calendar, Card.Grid, Card.Meta, Carousel, Descriptions, Divider, Empty, FloatButton.Group, QRCode, Result, Skeleton, Space.Compact, Spin, Splitter, Transfer and Watermark — with the ref types exported from the entry (#58627~#58667)
+* feat(form): rule `message` accepts a render function `() => VueNode`; it is kept as-is through validation and only invoked while rendering the error, so any reactive state it reads (locale, i18n, ...) updates the displayed message without re-running validators; works with form-level and computed `rules` as well ([#714](https://github.com/antdv-next/antdv-next/pull/714))
+* feat(tree): `scrollTo` supports `autoExpand`, add `Tree.useTree` and export `TreeInstance` / `UseTreeConfig` (#58841)
+* feat(table): support `forceRender` for expandable rows (#58860)
+* feat(float-button): BackTop gains `showProgress`, rendering scroll progress as a ring (#58894)
+* feat(pagination): add `components.sizeChanger` to customize the size changer (#58831)
+* feat(mentions): support `popupRender` to customize the dropdown (#58582)
+* feat(input): ConfigProvider variant config supports the `inputSearch` / `inputPassword` / `otp` subcomponents, each resolving its own config first (#58784)
+* feat(tooltip, popover, popconfirm): `mouseEnterDelay` / `mouseLeaveDelay` configurable globally via ConfigProvider (#58892)
+* feat(theme): add the `focusOutline` seed token for shared focus styles, honored by Input, Select, Rate, Splitter and Steps; Alert gains a `borderRadius` component token (#58647, #58708, #57765)
+* feat(image): preview supports `wheel` to control mouse-wheel zoom (`@v-c/image@1.1.0`, #58728)
+* feat(border-beam): add `count` to configure the number of beams, evenly distributed (#58691)
+* feat(locale): add Albanian `sq_AL`; refine Traditional Chinese terminology and use Taiwan week wording in DatePicker (#58618, #58947, #58951)
+
+**🐞 Fixes**
+
+* fix(form): rules combining `required` and `type` no longer run type validation twice; FormItem `required` no longer derives a validation rule and only drives the required mark, aligning with antd
+* fix(form): function rules resolve with the form instance as argument and are re-resolved on every validation, so they can read the latest external state
+* fix(form): form controls now carry `aria-required` and link help and error text via `aria-describedby`
+* fix(table): an explicitly placed `Table.EXPAND_COLUMN` no longer loses its identity through `ref()` / `reactive()` proxies, removing the phantom empty column (`@v-c/table@1.2.0`)
+* fix(tree-select): preserve the selection state of disabled child nodes (`@v-c/tree-select@1.1.2`)
+* fix(select): the clear icon is reachable by keyboard (`@v-c/select@1.2.1`)
+* fix(virtual-list): `scrollTo({ key })` resolves against the latest data and retries after a data update (`@v-c/virtual-list@1.1.1`)
+* fix(carousel): keep the current slide when children are added instead of resetting to the first (#58845)
+* fix(drawer): support a disabled close button (#58853)
+* fix: correct semantic style priority — ConfigProvider's root `style` now sits between context styles and component styles across 20+ components including Badge, Calendar, ColorPicker, DatePicker, Drawer, Dropdown and Modal; also fixes Divider spreading the whole semantic styles object onto its root, Masonry dropping component-level `styles.root`, and the message Holder merge order (#58550, #58564)
+* fix(config-provider): the `inputSearch` component config previously never reached the context and was silently dead; it now applies
+* fix(typography): restore the interactive ellipsis tooltip — hovering the popup no longer dismisses it (#58661, #58722)
+* fix(button): align loading icon styles, dropping the redundant centering and block declarations (#58712)
+* fix(types): export the missing `UploadRef`, `StatisticRef` and `SliderRef` types (#58700, #58798)
+* fix(site): harden mainland China detection for the docs site switch
+
+**💄 Styles**
+
+* fix(select, table, tree): virtual scrollbars gain `cursor: pointer` and hover feedback (#58658, #58679)
+
+**📖 Documentation**
+
+* docs: add the design system documentation ([#707](https://github.com/antdv-next/antdv-next/pull/707)) and refresh the getting-started guide
+* feat(docs): support multi-file demo tabs in the code panel
+* docs: add demos for Avatar `overflowInFinal`, reactive Form validation messages and Tabs `more.popupRender`; document the Image preview `wheel` prop
+
+**🧰 Dependencies**
+
+* chore(sync): sync ant-design **6.6.0** upstream changes ([#703](https://github.com/antdv-next/antdv-next/pull/703), [#710](https://github.com/antdv-next/antdv-next/pull/710))
+* chore(deps): upgrade `@v-c/virtual-list@1.1.1`, `@v-c/tree@1.2.0`, `@v-c/select@1.2.1`, `@v-c/tree-select@1.1.2`, `@v-c/table@1.2.0`, `@v-c/image@1.1.0`
+* refactor: Button's delayed loading, Slider's tooltip toggle, Upload's progress reveal and Typography's copy feedback all move onto the shared `useDelayState` (#58690)
+
 ## V1.5.0
 
 Release Date: 2026-08-07
