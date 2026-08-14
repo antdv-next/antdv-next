@@ -68,6 +68,10 @@ export interface StatisticEmits {
   mouseleave: (e: MouseEvent) => void
 }
 
+export interface StatisticRef {
+  nativeElement: HTMLDivElement | null
+}
+
 export interface StatisticSlots {
   default: () => any
   title: () => any

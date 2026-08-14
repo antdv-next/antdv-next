@@ -11,6 +11,7 @@ export type {
   UploadFile,
   UploadSlots,
 } from './interface'
+export type { UploadRef } from './Upload'
 export type UploadProps = InternalUploadProps
 export type UploadListProps = InternalUploadListProps
 

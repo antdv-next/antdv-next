@@ -4,6 +4,7 @@ import type { InternalStatisticTimerProps } from './Timer'
 import Statistic from './Statistic'
 import Timer from './Timer'
 
+export type { StatisticRef } from './Statistic'
 export type StatisticProps = InternalStatisticProps
 export type StatisticTimerProps = InternalStatisticTimerProps
 export const StatisticTimer = Timer
