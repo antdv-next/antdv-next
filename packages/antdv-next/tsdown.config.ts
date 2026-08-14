@@ -34,15 +34,6 @@ export default defineConfig({
   ],
   deps: {
     onlyBundle: false,
-    skipNodeModulesBundle: true,
-    neverBundle: [
-      'vue',
-      '@antdv-next/icons',
-      '@antdv-next/cssinjs/cssinjs-utils',
-      '@antdv-next/cssinjs',
-      'csstype',
-      '@v-c/util',
-      '@vueuse/core',
-    ],
+    neverBundle: true,
   },
 })
