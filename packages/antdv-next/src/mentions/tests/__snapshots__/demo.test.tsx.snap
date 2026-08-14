@@ -912,6 +912,7 @@ exports[`mentions demo > renders form correctly 1`] = `
               class="ant-mentions css-var-root ant-mentions-css-var ant-mentions-outlined ant-mentions css-var-root ant-mentions-css-var"
             >
               <textarea
+                aria-required="true"
                 class="vc-textarea"
                 id="bio"
                 placeholder="You can use @ to ref user here"

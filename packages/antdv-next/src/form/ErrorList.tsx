@@ -129,6 +129,7 @@ const ErrorList = defineComponent<
         <Transition {...transitionProps}>
           {!!filledKeyFullKeyList.length && (
             <div
+              {...helpProps}
               class={clsx(
                 baseClassName.value,
                 cssVarCls.value,

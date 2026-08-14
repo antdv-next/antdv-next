@@ -48,6 +48,8 @@ exports[`form demo > renders _semantic correctly 1`] = `
                   class="ant-form-item-control-input-content semantic-mark-content"
                 >
                   <input
+                    aria-describedby="basic_username_help"
+                    aria-required="true"
                     class="ant-input ant-input-outlined css-var-v-0 ant-input-css-var"
                     id="basic_username"
                     type="text"
@@ -72,6 +74,7 @@ exports[`form demo > renders _semantic correctly 1`] = `
                 >
                   <div
                     class="ant-form-item-explain css-var-v-0 ant-form-css-var ant-form-item-explain-connected semantic-mark-help"
+                    id="basic_username_help"
                   >
                     <transition-group-stub
                       appear="true"
@@ -132,6 +135,8 @@ exports[`form demo > renders _semantic correctly 1`] = `
                   >
                     <!---->
                     <input
+                      aria-describedby="basic_password_extra"
+                      aria-required="true"
                       class="ant-input"
                       id="basic_password"
                       type="password"
@@ -1048,6 +1053,7 @@ exports[`form demo > renders advanced-search correctly 1`] = `
                 >
                   <!---->
                   <div
+                    aria-required="true"
                     class="ant-select ant-select-outlined ant-select-in-form-item css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
                   >
                     <!---->
@@ -1160,6 +1166,7 @@ exports[`form demo > renders advanced-search correctly 1`] = `
                   class="ant-form-item-control-input-content"
                 >
                   <input
+                    aria-required="true"
                     class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                     id="advanced_search_field-1"
                     placeholder="placeholder"
@@ -1224,6 +1231,7 @@ exports[`form demo > renders advanced-search correctly 1`] = `
                   class="ant-form-item-control-input-content"
                 >
                   <input
+                    aria-required="true"
                     class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                     id="advanced_search_field-2"
                     placeholder="placeholder"
@@ -1289,6 +1297,7 @@ exports[`form demo > renders advanced-search correctly 1`] = `
                 >
                   <!---->
                   <div
+                    aria-required="true"
                     class="ant-select ant-select-outlined ant-select-in-form-item css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
                   >
                     <!---->
@@ -1401,6 +1410,7 @@ exports[`form demo > renders advanced-search correctly 1`] = `
                   class="ant-form-item-control-input-content"
                 >
                   <input
+                    aria-required="true"
                     class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                     id="advanced_search_field-4"
                     placeholder="placeholder"
@@ -1465,6 +1475,7 @@ exports[`form demo > renders advanced-search correctly 1`] = `
                   class="ant-form-item-control-input-content"
                 >
                   <input
+                    aria-required="true"
                     class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                     id="advanced_search_field-5"
                     placeholder="placeholder"
@@ -1652,6 +1663,7 @@ exports[`form demo > renders basic correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="username"
               type="text"
@@ -1714,6 +1726,7 @@ exports[`form demo > renders basic correctly 1`] = `
             >
               <!---->
               <input
+                aria-required="true"
                 class="ant-input"
                 id="password"
                 type="password"
@@ -1949,6 +1962,7 @@ exports[`form demo > renders col-24-debug correctly 1`] = `
               class="ant-form-item-control-input-content"
             >
               <input
+                aria-required="true"
                 class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                 id="col-24-debug_username"
                 type="text"
@@ -2011,6 +2025,7 @@ exports[`form demo > renders col-24-debug correctly 1`] = `
               >
                 <!---->
                 <input
+                  aria-required="true"
                   class="ant-input"
                   id="col-24-debug_password"
                   type="password"
@@ -2331,6 +2346,7 @@ exports[`form demo > renders col-24-debug correctly 1`] = `
               class="ant-form-item-control-input-content"
             >
               <input
+                aria-required="true"
                 class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                 id="responsive_username"
                 type="text"
@@ -2393,6 +2409,7 @@ exports[`form demo > renders col-24-debug correctly 1`] = `
               >
                 <!---->
                 <input
+                  aria-required="true"
                   class="ant-input"
                   id="responsive_password"
                   type="password"
@@ -2789,6 +2806,7 @@ exports[`form demo > renders complex-form-control correctly 1`] = `
                 class="ant-space-item"
               >
                 <input
+                  aria-required="true"
                   class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                   id="complex-form_username"
                   placeholder="Please input"
@@ -2873,6 +2891,7 @@ exports[`form demo > renders complex-form-control correctly 1`] = `
             >
               <!---->
               <div
+                aria-required="true"
                 class="ant-select ant-select-outlined ant-select-in-form-item ant-select-compact-item ant-select-compact-first-item css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
               >
                 <!---->
@@ -2928,6 +2947,7 @@ exports[`form demo > renders complex-form-control correctly 1`] = `
               </div>
               <!---->
               <input
+                aria-required="true"
                 class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-last-item css-var-root ant-input-css-var"
                 id="complex-form_address_street"
                 placeholder="Input street"
@@ -3005,6 +3025,7 @@ exports[`form demo > renders complex-form-control correctly 1`] = `
                       class="ant-form-item-control-input-content"
                     >
                       <input
+                        aria-required="true"
                         class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                         id="complex-form_year"
                         placeholder="Input birth year"
@@ -3055,6 +3076,7 @@ exports[`form demo > renders complex-form-control correctly 1`] = `
                       class="ant-form-item-control-input-content"
                     >
                       <input
+                        aria-required="true"
                         class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                         id="complex-form_month"
                         placeholder="Input birth month"
@@ -3216,6 +3238,7 @@ exports[`form demo > renders component-token correctly 1`] = `
               class="ant-form-item-control-input-content"
             >
               <input
+                aria-required="true"
                 class="ant-input ant-input-outlined css-var-v-0 ant-input-css-var"
                 id="username"
                 type="text"
@@ -3278,6 +3301,7 @@ exports[`form demo > renders component-token correctly 1`] = `
               >
                 <!---->
                 <input
+                  aria-required="true"
                   class="ant-input"
                   id="password"
                   type="password"
@@ -3450,6 +3474,7 @@ exports[`form demo > renders control-hooks correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="control-hooks_note"
               type="text"
@@ -3509,6 +3534,7 @@ exports[`form demo > renders control-hooks correctly 1`] = `
           >
             <!---->
             <div
+              aria-required="true"
               class="ant-select ant-select-outlined ant-select-in-form-item css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
             >
               <!---->
@@ -3761,6 +3787,7 @@ exports[`form demo > renders custom-feedback-icons correctly 1`] = `
             >
               <!---->
               <input
+                aria-required="true"
                 class="ant-input"
                 id="custom-feedback-icons_test1"
                 type="text"
@@ -3794,6 +3821,7 @@ exports[`form demo > renders custom-feedback-icons correctly 1`] = `
           >
             <div
               class="ant-form-item-explain css-var-root ant-form-css-var ant-form-item-explain-connected"
+              id="custom-feedback-icons_test1_help"
             >
               <transition-group-stub
                 appear="true"
@@ -3852,6 +3880,7 @@ exports[`form demo > renders custom-feedback-icons correctly 1`] = `
             >
               <!---->
               <input
+                aria-required="true"
                 class="ant-input"
                 id="custom-feedback-icons_test2"
                 type="text"
@@ -3885,6 +3914,7 @@ exports[`form demo > renders custom-feedback-icons correctly 1`] = `
           >
             <div
               class="ant-form-item-explain css-var-root ant-form-css-var ant-form-item-explain-connected"
+              id="custom-feedback-icons_test2_help"
             >
               <transition-group-stub
                 appear="true"
@@ -5231,6 +5261,7 @@ exports[`form demo > renders dynamic-form-item correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="dynamic_form_item_names_0"
               placeholder="passenger name"
@@ -5491,6 +5522,7 @@ exports[`form demo > renders dynamic-form-items correctly 1`] = `
                 class="ant-form-item-control-input-content"
               >
                 <input
+                  aria-required="true"
                   class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                   id="dynamic_form_nest_item_users_0_first"
                   placeholder="First Name"
@@ -5545,6 +5577,7 @@ exports[`form demo > renders dynamic-form-items correctly 1`] = `
                 class="ant-form-item-control-input-content"
               >
                 <input
+                  aria-required="true"
                   class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                   id="dynamic_form_nest_item_users_0_last"
                   placeholder="Last Name"
@@ -6092,6 +6125,7 @@ exports[`form demo > renders dynamic-form-items-no-style correctly 1`] = `
                     class="ant-space-item"
                   >
                     <input
+                      aria-required="true"
                       class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                       id="dynamic_form_nest_item_no_style_items_0_first"
                       placeholder="First Name"
@@ -6104,6 +6138,7 @@ exports[`form demo > renders dynamic-form-items-no-style correctly 1`] = `
                     class="ant-space-item"
                   >
                     <input
+                      aria-required="true"
                       class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                       id="dynamic_form_nest_item_no_style_items_0_last"
                       placeholder="Last Name"
@@ -6284,6 +6319,7 @@ exports[`form demo > renders dynamic-rule correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="dynamic_rule_username"
               placeholder="Please input your name"
@@ -6538,6 +6574,7 @@ exports[`form demo > renders form-context correctly 1`] = `
               class="ant-form-item-control-input-content"
             >
               <input
+                aria-required="true"
                 class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                 id="basicForm_group"
                 type="text"
@@ -6831,6 +6868,7 @@ exports[`form demo > renders form-dependencies correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="dependencies_password"
               type="text"
@@ -6889,6 +6927,7 @@ exports[`form demo > renders form-dependencies correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="dependencies_password2"
               type="text"
@@ -7019,6 +7058,7 @@ exports[`form demo > renders form-item-path correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="user_name"
               type="text"
@@ -7165,6 +7205,7 @@ exports[`form demo > renders form-item-path correctly 1`] = `
                           class="ant-form-item-control-input-content"
                         >
                           <input
+                            aria-required="true"
                             class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                             id="addresses_0_city"
                             type="text"
@@ -7869,6 +7910,7 @@ exports[`form demo > renders global-state correctly 1`] = `
               class="ant-form-item-control-input-content"
             >
               <input
+                aria-required="true"
                 class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                 id="global_state_username"
                 type="text"
@@ -8028,6 +8070,7 @@ exports[`form demo > renders inline-login correctly 1`] = `
                 </span>
               </span>
               <input
+                aria-required="true"
                 class="ant-input"
                 id="horizontal_login_username"
                 placeholder="Username"
@@ -8105,6 +8148,7 @@ exports[`form demo > renders inline-login correctly 1`] = `
                 </span>
               </span>
               <input
+                aria-required="true"
                 class="ant-input"
                 id="horizontal_login_password"
                 placeholder="Password"
@@ -8733,6 +8777,7 @@ exports[`form demo > renders layout-can-wrap correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="wrap_username"
               type="text"
@@ -8793,6 +8838,7 @@ exports[`form demo > renders layout-can-wrap correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="wrap_password"
               type="text"
@@ -8998,6 +9044,7 @@ exports[`form demo > renders layout-multiple correctly 1`] = `
               class="ant-form-item-control-input-content"
             >
               <input
+                aria-required="true"
                 class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                 id="layout-multiple-horizontal_horizontal"
                 type="text"
@@ -9056,6 +9103,7 @@ exports[`form demo > renders layout-multiple correctly 1`] = `
               class="ant-form-item-control-input-content"
             >
               <input
+                aria-required="true"
                 class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                 id="layout-multiple-horizontal_vertical"
                 type="text"
@@ -9114,6 +9162,7 @@ exports[`form demo > renders layout-multiple correctly 1`] = `
               class="ant-form-item-control-input-content"
             >
               <input
+                aria-required="true"
                 class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                 id="layout-multiple-horizontal_vertical2"
                 type="text"
@@ -9184,6 +9233,7 @@ exports[`form demo > renders layout-multiple correctly 1`] = `
               class="ant-form-item-control-input-content"
             >
               <input
+                aria-required="true"
                 class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                 id="layout-multiple-vertical_vertical"
                 type="text"
@@ -9242,6 +9292,7 @@ exports[`form demo > renders layout-multiple correctly 1`] = `
               class="ant-form-item-control-input-content"
             >
               <input
+                aria-required="true"
                 class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                 id="layout-multiple-vertical_vertical2"
                 type="text"
@@ -9300,6 +9351,7 @@ exports[`form demo > renders layout-multiple correctly 1`] = `
               class="ant-form-item-control-input-content"
             >
               <input
+                aria-required="true"
                 class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                 id="layout-multiple-vertical_horizontal"
                 type="text"
@@ -9385,6 +9437,7 @@ exports[`form demo > renders login correctly 1`] = `
                 </span>
               </span>
               <input
+                aria-required="true"
                 class="ant-input"
                 id="login_username"
                 placeholder="Username"
@@ -9462,6 +9515,7 @@ exports[`form demo > renders login correctly 1`] = `
                 </span>
               </span>
               <input
+                aria-required="true"
                 class="ant-input"
                 id="login_password"
                 placeholder="Password"
@@ -9674,6 +9728,7 @@ exports[`form demo > renders nest-messages correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="nest-messages_user_name"
               type="text"
@@ -10276,6 +10331,7 @@ exports[`form demo > renders register correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="register_email"
               type="text"
@@ -10338,6 +10394,7 @@ exports[`form demo > renders register correctly 1`] = `
             >
               <!---->
               <input
+                aria-required="true"
                 class="ant-input"
                 id="register_password"
                 type="password"
@@ -10438,6 +10495,7 @@ exports[`form demo > renders register correctly 1`] = `
             >
               <!---->
               <input
+                aria-required="true"
                 class="ant-input"
                 id="register_confirm"
                 type="password"
@@ -10562,6 +10620,7 @@ exports[`form demo > renders register correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="register_nickname"
               type="text"
@@ -10621,6 +10680,7 @@ exports[`form demo > renders register correctly 1`] = `
           >
             <!---->
             <div
+              aria-required="true"
               class="ant-select ant-cascader ant-select-outlined ant-select-in-form-item ant-select-css-var ant-cascader-css-var css-var-root ant-select-single ant-select-allow-clear ant-select-show-arrow"
             >
               <!---->
@@ -10750,6 +10810,7 @@ exports[`form demo > renders register correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-required="true"
               class="ant-space-compact css-var-root ant-space-compact-block"
               id="register_phone"
             >
@@ -10867,6 +10928,7 @@ exports[`form demo > renders register correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-required="true"
               class="ant-space-compact css-var-root ant-space-compact-block"
               id="register_donation"
             >
@@ -11053,6 +11115,7 @@ exports[`form demo > renders register correctly 1`] = `
           >
             <!---->
             <div
+              aria-required="true"
               class="ant-select ant-select-outlined ant-select-in-form-item ant-select-auto-complete css-var-root ant-select-css-var ant-select-single ant-select-show-search"
             >
               <!---->
@@ -11141,6 +11204,7 @@ exports[`form demo > renders register correctly 1`] = `
             >
               <!---->
               <textarea
+                aria-required="true"
                 class="ant-input"
                 id="register_intro"
                 value=""
@@ -11211,6 +11275,7 @@ exports[`form demo > renders register correctly 1`] = `
           >
             <!---->
             <div
+              aria-required="true"
               class="ant-select ant-select-outlined ant-select-in-form-item css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
             >
               <!---->
@@ -11321,6 +11386,7 @@ exports[`form demo > renders register correctly 1`] = `
                 style="padding-left: 4px; padding-right: 4px;"
               >
                 <input
+                  aria-required="true"
                   class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                   id="register_captcha"
                   type="text"
@@ -11714,6 +11780,7 @@ exports[`form demo > renders required-mark correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               placeholder="input placeholder"
               type="text"
@@ -12483,6 +12550,7 @@ exports[`form demo > renders style-class correctly 1`] = `
               style="padding-inline-start: 12px;"
             >
               <input
+                aria-required="true"
                 class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                 data-v-86e4aa7a=""
                 id="username"
@@ -12546,6 +12614,7 @@ exports[`form demo > renders style-class correctly 1`] = `
               style="padding-inline-start: 12px;"
             >
               <input
+                aria-required="true"
                 class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                 data-v-86e4aa7a=""
                 id="email"
@@ -12723,6 +12792,7 @@ exports[`form demo > renders style-class correctly 1`] = `
               style="padding-inline-start: 12px;"
             >
               <input
+                aria-required="true"
                 class="ant-input ant-input-filled css-var-root ant-input-css-var"
                 data-v-86e4aa7a=""
                 id="username"
@@ -12786,6 +12856,7 @@ exports[`form demo > renders style-class correctly 1`] = `
               style="padding-inline-start: 12px;"
             >
               <input
+                aria-required="true"
                 class="ant-input ant-input-filled css-var-root ant-input-css-var"
                 data-v-86e4aa7a=""
                 id="email"
@@ -13722,6 +13793,7 @@ exports[`form demo > renders use-form correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="use-form_note"
               type="text"
@@ -13781,6 +13853,7 @@ exports[`form demo > renders use-form correctly 1`] = `
           >
             <!---->
             <div
+              aria-required="true"
               class="ant-select ant-select-outlined ant-select-in-form-item css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
             >
               <!---->
@@ -14084,6 +14157,7 @@ exports[`form demo > renders use-form-name correctly 1`] = `
                     class="ant-form-item-control-input-content"
                   >
                     <input
+                      aria-required="true"
                       class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                       id="login_username"
                       type="text"
@@ -14767,6 +14841,7 @@ exports[`form demo > renders validate-only correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="username"
               placeholder="username"
@@ -14830,6 +14905,7 @@ exports[`form demo > renders validate-only correctly 1`] = `
             >
               <!---->
               <input
+                aria-required="true"
                 class="ant-input"
                 id="password"
                 placeholder="password"
@@ -15095,6 +15171,7 @@ exports[`form demo > renders validate-other correctly 1`] = `
           >
             <!---->
             <div
+              aria-required="true"
               class="ant-select ant-select-outlined ant-select-in-form-item ant-select-has-feedback css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
             >
               <!---->
@@ -15203,6 +15280,7 @@ exports[`form demo > renders validate-other correctly 1`] = `
           >
             <!---->
             <div
+              aria-required="true"
               class="ant-select ant-select-outlined ant-select-in-form-item css-var-root ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
             >
               <!---->
@@ -15790,6 +15868,7 @@ exports[`form demo > renders validate-other correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-required="true"
               class="ant-radio-group ant-radio-group-outline css-var-root ant-radio-css-var"
               id="validate_other_radioButton"
             >
@@ -16549,6 +16628,7 @@ exports[`form demo > renders validate-scroll-to-field correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="username"
               type="text"
@@ -16771,6 +16851,7 @@ exports[`form demo > renders validate-scroll-to-field correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <textarea
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="bio"
               rows="6"
@@ -17821,6 +17902,7 @@ exports[`form demo > renders validate-trigger correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="blurInput"
               placeholder="blur to validate"
@@ -17880,6 +17962,7 @@ exports[`form demo > renders validate-trigger correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="changeInput"
               placeholder="change to validate"
@@ -18076,6 +18159,7 @@ exports[`form demo > renders variant correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="username"
               placeholder="username"
@@ -18139,6 +18223,7 @@ exports[`form demo > renders variant correctly 1`] = `
             >
               <!---->
               <input
+                aria-required="true"
                 class="ant-input"
                 id="password"
                 placeholder="password"
@@ -18243,6 +18328,7 @@ exports[`form demo > renders warning-only correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="url"
               placeholder="input placeholder"
