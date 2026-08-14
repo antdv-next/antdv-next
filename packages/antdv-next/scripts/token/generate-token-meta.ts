@@ -17,7 +17,12 @@ const repoRoot = path.resolve(__dirname, '../../../../')
 const playgroundDir = path.resolve(repoRoot, 'docs')
 const packageRoot = path.resolve(repoRoot, 'packages/antdv-next')
 const srcRoot = path.resolve(packageRoot, 'src')
-const output = path.resolve(playgroundDir, 'src/assets/token-meta.json')
+// docs copy feeds the site; the dist copy ships in the published package,
+// mirroring antd's `{lib,es}/version/token-meta.json`.
+const outputs = [
+  path.resolve(playgroundDir, 'src/assets/token-meta.json'),
+  path.resolve(packageRoot, 'dist/version/token-meta.json'),
+]
 
 const specialComponentNames: Record<string, string> = {
   qrcode: 'QRCode',
@@ -179,9 +184,11 @@ async function main() {
       return acc
     }, {})
 
-    fs.ensureDirSync(path.dirname(output))
-    fs.writeJsonSync(output, finalMeta, 'utf8')
-    console.log(`Token meta has been written to ${output}`)
+    for (const output of outputs) {
+      fs.ensureDirSync(path.dirname(output))
+      fs.writeJsonSync(output, finalMeta, 'utf8')
+      console.log(`Token meta has been written to ${output}`)
+    }
   }
 }
 

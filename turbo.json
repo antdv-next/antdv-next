@@ -5,7 +5,12 @@
     "build:token": {
       "dependsOn": ["@antdv-next/cssinjs#build", "build:esm"],
       "inputs": ["src/**", "package.json", "tsconfig.json"],
-      "outputs": ["../../docs/src/assets/token.json", "../../docs/src/assets/token-meta.json"]
+      "outputs": [
+        "../../docs/src/assets/token.json",
+        "../../docs/src/assets/token-meta.json",
+        "dist/version/token.json",
+        "dist/version/token-meta.json"
+      ]
     },
     "build:esm": {
       "dependsOn": ["^build:esm"],
