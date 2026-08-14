@@ -43,7 +43,7 @@ Pull Request 会在至少一位协作者审核通过后合并。
 
 > - 建议阅读 [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)。
 > - 变更日志应描述对开发者的影响，而不是实现过程。
-> - 参考：https://ant.design/changelog
+> - 参考：https://www.antdv-next.com/components/changelog-cn
 
 | 语言 | 变更日志 |
 | ---- | -------- |
