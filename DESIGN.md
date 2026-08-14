@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Antdv Next
-description: Enterprise-grade React UI design system from Ant Group, built around the values Natural, Certain, Meaningful, and Growing.
+description: According to the guidelines of Ant Design, we have developed the Vue UI library antdv-next, with the core values of "natural, definite, meaningful, and continuous growth".
 colors:
   primary: '#1677FF'
   success: '#52C41A'
