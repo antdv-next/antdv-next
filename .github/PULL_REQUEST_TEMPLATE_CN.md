@@ -6,7 +6,7 @@ Pull Request 会在至少一位协作者审核通过后合并。
 谢谢！
 -->
 
-[English template / 英文模板](./PULL_REQUEST_TEMPLATE.md)
+[English template / 英文模板](https://github.com/antdv-next/antdv-next/blob/main/.github/PULL_REQUEST_TEMPLATE.md)
 
 ### 🤔 本次变更属于 ...
 
