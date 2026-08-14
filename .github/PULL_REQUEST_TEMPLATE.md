@@ -6,7 +6,7 @@ Your pull requests will be merged after one of the collaborators approves.
 Thank you!
 -->
 
-[中文版模板 / Chinese template](./PULL_REQUEST_TEMPLATE_CN.md)
+[中文版模板 / Chinese template](https://github.com/antdv-next/antdv-next/blob/main/.github/PULL_REQUEST_TEMPLATE_CN.md)
 
 ### 🤔 This is a ...
 
