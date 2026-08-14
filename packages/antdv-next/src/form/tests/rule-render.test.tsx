@@ -73,6 +73,35 @@ describe('function rules (RuleRender)', () => {
     wrapper.unmount()
   })
 
+  it('re-evaluates function rules on each validation', async () => {
+    const formRef = shallowRef<FormInstance>()
+    const model = reactive({ username: '' })
+    // Plain (non-reactive) state: the rule factory must be re-invoked per
+    // validation instead of reusing a cached resolution.
+    let usernameRequired = false
+
+    const wrapper = mount(defineComponent(() => () => (
+      <Form ref={formRef as any} model={model}>
+        <FormItem
+          name="username"
+          rules={[() => ({ required: usernameRequired, message: 'Username required' })]}
+        >
+          <input value={model.username} />
+        </FormItem>
+      </Form>
+    )), { attachTo: document.body })
+
+    await flushForm()
+    await expect(formRef.value!.validateFields()).resolves.toBeTruthy()
+
+    usernameRequired = true
+    await expect(formRef.value!.validateFields()).rejects.toMatchObject({
+      errorFields: [{ name: ['username'], errors: ['Username required'] }],
+    })
+
+    wrapper.unmount()
+  })
+
   it('derives the required mark from function rules', async () => {
     const model = reactive({ username: '' })
 
