@@ -1,4 +1,5 @@
-import type { Component, VNode } from 'vue'
+import type { Component } from 'vue'
+import type { VueNode } from '../_util/type'
 import type { DeepNamePath } from './namePathType'
 
 /**
@@ -6,7 +7,7 @@ import type { DeepNamePath } from './namePathType'
  * only invoked while rendering the error, so any reactive state it reads
  * (locale, i18n `t`, ...) updates the displayed message without re-validating.
  */
-export type RuleMessageRender = () => string | number | VNode
+export type RuleMessageRender = () => VueNode
 
 export type RuleMessage = string | Component | RuleMessageRender
 
