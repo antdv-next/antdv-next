@@ -46,6 +46,7 @@ superpowers
 .sync-upstream.local.json
 .sync-checklist-*.md
 .sync-report.md
+.mcp.json
 
 # pnpm
 .pnpm-store
