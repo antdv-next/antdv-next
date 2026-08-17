@@ -23,5 +23,5 @@ title: Awesome
 | Name | Description |
 | ---- | ---- |
 | [Fantastic-admin](https://fantastic-admin.hurui.me/) | AI-oriented admin system framework |
-| [antdv-next-tiptap](https://pengyinghao.github.io/antdv-next-tiptap/) | A rich text editor built with Vue3, antdv-next, and tiptap.
-|
+| [antdv-next-tiptap](https://pengyinghao.github.io/antdv-next-tiptap/) | A rich text editor built with Vue3, antdv-next, and tiptap |
+| [Naive Admin](https://naiveadmin.com) | Out-of-the-box front-end and back-end framework |
