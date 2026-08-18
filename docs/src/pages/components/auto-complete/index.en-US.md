@@ -34,6 +34,7 @@ The differences with Select are:
   <demo src="./demo/variant.vue">Variants</demo>
   <demo src="./demo/allowClear.vue">Customize clear button</demo>
   <demo src="./demo/style-class.vue">Custom semantic dom styling</demo>
+  <demo src="./demo/customize-clear-debug.vue" debug>Custom input with allowClear debug</demo>
   <demo src="./demo/disabled-custom-debug.vue" debug>Disabled custom input debug</demo>
   <demo src="./demo/filled-custom-debug.vue" debug>Filled custom input debug</demo>
   <demo src="./demo/disabled-in-form-debug.vue" debug>Disabled text colour in Form debug</demo>

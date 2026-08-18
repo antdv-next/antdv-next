@@ -27,7 +27,7 @@ const genBaseStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
       opacity: 0,
       pointerEvents: 'none',
     },
-    [`&${componentCls}-allow-clear:not(${componentCls}-show-arrow) ${componentCls}-content`]: {
+    [`&${componentCls}-allow-clear:not(${componentCls}-show-arrow):not(${componentCls}-customize) ${componentCls}-content`]: {
       marginInlineEnd: token.showArrowPaddingInlineEnd,
     },
   }
