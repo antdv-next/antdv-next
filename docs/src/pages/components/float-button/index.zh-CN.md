@@ -23,7 +23,7 @@ demo:
   <demo src="./demo/shape.vue" iframe="360">形状</demo>
   <demo src="./demo/content.vue" iframe="360">描述</demo>
   <demo src="./demo/tooltip.vue" iframe="360">含有气泡卡片的悬浮按钮</demo>
-  <demo src="./demo/group.vue" iframe="360">浮动按钮组</demo>
+  <demo src="./demo/group.vue" iframe="360">悬浮按钮组</demo>
   <demo src="./demo/group-menu.vue" iframe="360">菜单模式</demo>
   <demo src="./demo/controlled.vue" iframe="360">受控模式</demo>
   <demo src="./demo/placement.vue" iframe="380">弹出方向</demo>
