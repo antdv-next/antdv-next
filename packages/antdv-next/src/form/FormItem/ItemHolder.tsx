@@ -46,7 +46,10 @@ const ItemHolder = defineComponent<ItemHolderProps>(
       immediate: true,
     })
     const onErrorVisibleChanged = (visible: boolean) => {
-      if (!visible) {
+      // Keep the compensated margin when a new error is already showing,
+      // otherwise rapid validation changes cause height fluctuation.
+      // https://github.com/ant-design/ant-design/pull/59008
+      if (!visible && !hasError.value) {
         marginBottom.value = null
       }
     }
