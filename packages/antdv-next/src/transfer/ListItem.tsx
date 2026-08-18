@@ -23,6 +23,7 @@ interface ListItemProps<RecordType> {
   onRemove?: (item: RecordType) => void
   item: RecordType
   showRemove?: boolean
+  removeLabel?: string
 }
 
 const ListItem = defineComponent<
@@ -43,6 +44,7 @@ const ListItem = defineComponent<
         onClick,
         onRemove,
         showRemove,
+        removeLabel,
       } = props
       const mergedDisabled = disabled || item?.disabled
       const classes = clsx(`${prefixCls}-content-item`, classNames.item, {
@@ -72,7 +74,7 @@ const ListItem = defineComponent<
               type="button"
               disabled={mergedDisabled}
               class={`${prefixCls}-content-item-remove`}
-              aria-label={contextLocale?.value?.remove}
+              aria-label={removeLabel ?? contextLocale?.value?.remove}
               onClick={() => onRemove?.(item)}
             >
               <DeleteOutlined />
