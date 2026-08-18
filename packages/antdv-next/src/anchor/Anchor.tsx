@@ -9,7 +9,7 @@ import { classNames } from '@v-c/util'
 import canUseDom from '@v-c/util/dist/Dom/canUseDom'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import scrollIntoView from 'scroll-into-view-if-needed'
-import { computed, defineComponent, nextTick, ref, shallowRef, watch } from 'vue'
+import { computed, defineComponent, nextTick, ref, shallowRef, watch, watchEffect } from 'vue'
 import getScroll from '../_util/getScroll'
 import {
   useMergeSemantic,
@@ -329,17 +329,13 @@ const Anchor = defineComponent<
       },
     )
 
-    watch(
-      () => props.getCurrentAnchor,
-      () => {
-        if (typeof props.getCurrentAnchor === 'function') {
-          setCurrentActiveLink(rawActiveLink.value || '')
-        }
-      },
-      {
-        immediate: true,
-      },
-    )
+    // Keep watchEffect so reactive values read inside a stable `getCurrentAnchor`
+    // callback stay tracked; pass the raw link to avoid remapping mapped results.
+    watchEffect(() => {
+      if (typeof props.getCurrentAnchor === 'function') {
+        setCurrentActiveLink(rawActiveLink.value || '')
+      }
+    })
     watch(
       [() => props.direction, () => props.getCurrentAnchor, dependencyListItem, activeLink],
       async () => {
