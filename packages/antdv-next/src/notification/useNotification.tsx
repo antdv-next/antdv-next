@@ -21,6 +21,8 @@ import { toPropsRefs } from '../_util/tools.ts'
 import { devUseWarning } from '../_util/warning.ts'
 import { useBaseConfig, useComponentBaseConfig } from '../config-provider/context'
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
+import defaultLocale from '../locale/en_US'
+import useLocale from '../locale/useLocale'
 import { useToken } from '../theme/internal.ts'
 import { getCloseIcon, getIconWrapperClassName, resolveIconNode } from './PurePanel.tsx'
 import useStyle from './style'
@@ -42,6 +44,7 @@ interface HolderRef extends NotificationAPI {
   notification?: CPNotificationConfig
   classNames: NotificationSemanticClassNames
   styles: NotificationSemanticStyles
+  closeLabel: string
 }
 
 const Wrapper = defineComponent<{
@@ -81,6 +84,7 @@ const holderDefaultProps = {
 const Holder = defineComponent<HolderProps>(
   (props = holderDefaultProps, { expose }) => {
     const { getPrefixCls, getPopupContainer, notification, direction } = useBaseConfig('notification')
+    const [contextLocale] = useLocale('global', defaultLocale.global)
 
     const { classes: contextClassNames, style: contextStyle, styles: contextStyles } = useComponentBaseConfig('notification', props)
     const { classes, styles } = toPropsRefs(props, 'classes', 'styles')
@@ -144,6 +148,7 @@ const Holder = defineComponent<HolderProps>(
       notification,
       classNames: mergedClassNames,
       styles: mergedStyles,
+      closeLabel: computed(() => contextLocale.value?.close ?? defaultLocale.global?.close ?? 'Close'),
     })
     return () => {
       return holder?.() as any
@@ -184,6 +189,7 @@ export function useInternalNotification(
         notification,
         classNames: originClassNames,
         styles: originStyles,
+        closeLabel,
       } = holderRef.value
       const contextClassName = notification?.class || {}
       const noticePrefixCls = `${prefixCls}-notice`
@@ -221,6 +227,7 @@ export function useInternalNotification(
           closable: true,
           closeIcon: realCloseIcon,
         })),
+        closeLabel,
       )
 
       const mergedClosable = rawClosable

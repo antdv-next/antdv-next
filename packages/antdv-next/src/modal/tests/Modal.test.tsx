@@ -4,6 +4,7 @@ import Modal from '..'
 import App from '../../app'
 import ConfigProvider from '../../config-provider'
 import zhCN from '../../locale/zh_CN'
+import zhTW from '../../locale/zh_TW'
 import Popover from '../../popover'
 import { mount, waitFakeTimer } from '/@tests/utils'
 
@@ -338,6 +339,27 @@ describe('modal integration', () => {
     const content = document.getElementById('force-render-content')
     expect(content).not.toBeNull()
     expect(content!.textContent).toBe('Hello')
+
+    wrapper.unmount()
+  })
+
+  it('should localize the close button accessible name', async () => {
+    const wrapper = mount(
+      defineComponent({
+        setup() {
+          return () => (
+            <ConfigProvider locale={zhTW}>
+              <Modal open />
+            </ConfigProvider>
+          )
+        },
+      }),
+      { attachTo: document.body },
+    )
+
+    await waitFakeTimer(20, 10)
+
+    expect(document.body.querySelector('.ant-modal-close')?.getAttribute('aria-label')).toBe('關閉')
 
     wrapper.unmount()
   })
