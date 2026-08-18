@@ -23,6 +23,7 @@ tag: 1.5.0
   <demo src="./demo/group.vue">Grouping and sticky headers</demo>
   <demo src="./demo/scroll-to.vue" debug>Scroll control</demo>
   <demo src="./demo/rich.vue">Rich content</demo>
+  <demo src="./demo/drag-sorting.vue">Drag sorting</demo>
   <demo src="./demo/infinite.vue">Infinite loading</demo>
   <demo src="./demo/style-class.vue">Custom semantic dom styling</demo>
 </demo-group>
