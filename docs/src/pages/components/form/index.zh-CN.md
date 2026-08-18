@@ -159,7 +159,7 @@ const formRef = ref<FormInstance>()
 | help | 提示信息，不配置则按校验规则生成 | VueNode | - | - |
 | hasFeedback | 配合 `validateStatus` 展示状态图标 | boolean \| \{ icons: FeedbackIcons \} | false | - |
 | validateStatus | 校验状态 | ValidateStatus | - | - |
-| required | 是否显示必选样式 | boolean | false | - |
+| required | 必填样式设置。如不设置，则会根据校验规则自动生成。设置为 `false` 可禁用该样式 | boolean | - | - |
 | rules | 校验规则 | Rule[] | - | - |
 | validateTrigger | 触发校验的时机。设为 `false` 时禁用当前字段的所有交互事件校验，即使规则单独声明了 `trigger` 或 `validateTrigger`；显式调用 `validateFields` 或提交时仍会校验 | string \| string[] \| false | `change` | - |
 | validateDebounce | 延迟校验时间（毫秒） | number | - | - |
