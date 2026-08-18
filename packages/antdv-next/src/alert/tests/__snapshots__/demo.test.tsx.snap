@@ -3228,6 +3228,7 @@ exports[`alert demo > renders smooth-closed correctly 1`] = `
   </p>
   <button
     aria-checked="true"
+    aria-label="Alert visibility"
     checked="true"
     class="ant-switch css-var-root ant-switch-checked ant-switch-disabled"
     disabled=""
