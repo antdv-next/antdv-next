@@ -11,6 +11,8 @@ import { getAttrStyleAndClass } from '../_util/hooks'
 import { getSlotPropsFnRun } from '../_util/tools.ts'
 import { devUseWarning, isDev } from '../_util/warning.ts'
 import { useComponentBaseConfig } from '../config-provider/context.ts'
+import defaultLocale from '../locale/en_US'
+import useLocale from '../locale/useLocale'
 import useStyle, { DotDuration } from './style'
 
 export type CarouselEffect = 'scrollx' | 'fade'
@@ -141,6 +143,7 @@ const Carousel = defineComponent<
       class: contextClassName,
       style: contextStyle,
     } = useComponentBaseConfig('carousel', props)
+    const [contextLocale] = useLocale('Carousel', defaultLocale.Carousel)
     const slickRef = shallowRef()
     const nativeElementRef = shallowRef<HTMLDivElement>()
 
@@ -269,8 +272,8 @@ const Carousel = defineComponent<
             dots={enableDots}
             dotsClass={dsClass}
             arrows={arrows}
-            prevArrow={prevArrow ?? <ArrowButton aria-label={isRTL.value ? 'next' : 'prev'} />}
-            nextArrow={nextArrow ?? <ArrowButton aria-label={isRTL.value ? 'prev' : 'next'} />}
+            prevArrow={prevArrow ?? <ArrowButton aria-label={isRTL.value ? contextLocale.value.nextSlide : contextLocale.value.prevSlide} />}
+            nextArrow={nextArrow ?? <ArrowButton aria-label={isRTL.value ? contextLocale.value.prevSlide : contextLocale.value.nextSlide} />}
             draggable={draggable}
             verticalSwiping={mergedVertical.value}
             autoplaySpeed={autoplaySpeed}

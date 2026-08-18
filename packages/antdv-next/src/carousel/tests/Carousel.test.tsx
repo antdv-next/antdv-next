@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { defineComponent, h, nextTick, ref } from 'vue'
 import Carousel from '..'
 import ConfigProvider from '../../config-provider'
+import zhCN from '../../locale/zh_CN'
 import rtlTest from '/@tests/shared/rtlTest'
 import { mount } from '/@tests/utils'
 
@@ -224,6 +225,28 @@ describe('carousel', () => {
     })
     expect(wrapper.find('.custom-prev').exists()).toBe(true)
     expect(wrapper.find('.custom-next').exists()).toBe(true)
+  })
+
+  it('should use localized aria-labels for arrows by default', async () => {
+    const wrapper = mount(Carousel, {
+      props: { arrows: true },
+      slots: { default: () => createSlides(3) },
+    })
+    await nextTick()
+    expect(wrapper.find('.slick-prev').attributes('aria-label')).toBe('Previous slide')
+    expect(wrapper.find('.slick-next').attributes('aria-label')).toBe('Next slide')
+  })
+
+  it('should use localized aria-labels when a custom locale is provided', async () => {
+    const wrapper = mount(ConfigProvider, {
+      props: { locale: zhCN },
+      slots: {
+        default: () => h(Carousel, { arrows: true }, { default: () => createSlides(3) }),
+      },
+    })
+    await nextTick()
+    expect(wrapper.find('.slick-prev').attributes('aria-label')).toBe('上一张幻灯片')
+    expect(wrapper.find('.slick-next').attributes('aria-label')).toBe('下一张幻灯片')
   })
 
   // ============ Expose methods tests ============
