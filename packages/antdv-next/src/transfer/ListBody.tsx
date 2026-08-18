@@ -96,6 +96,7 @@ const TransferListBody = defineComponent<
         disabled,
         onScroll,
         selectedKeys,
+        remove,
       } = props
       const paginationNode = mergedPagination.value
         ? (
@@ -136,6 +137,7 @@ const TransferListBody = defineComponent<
                 showRemove={showRemove}
                 onClick={onInternalClick}
                 onRemove={onRemove}
+                removeLabel={remove}
                 checked={selectedKeys.includes(item.key)}
                 disabled={disabled}
               />
