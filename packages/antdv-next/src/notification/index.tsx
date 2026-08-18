@@ -141,6 +141,7 @@ const GlobalHolderWrapper = defineComponent<{ onReady?: (holder: GlobalHolderRef
           prefixCls={global.getRootPrefixCls()}
           iconPrefixCls={global.getIconPrefixCls()}
           theme={global.theme.value as any}
+          locale={globalConfig().locale}
         >
           {holderNode}
         </ConfigProvider>
