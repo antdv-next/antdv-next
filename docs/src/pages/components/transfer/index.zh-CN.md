@@ -50,7 +50,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*g9vUQq2nkpEAAA
 | disabled | 是否禁用 | boolean | false | - | × |
 | filterOption | 根据搜索内容进行筛选，接收 `inputValue` `option` `direction` 三个参数，当 `option` 符合筛选条件时，应返回 true，反之则返回 false | (inputValue: string, option: TransferItem, direction: `left` \| `right`) =&gt; boolean | - | - | × |
 | footer | 底部渲染函数 | (props: TransferListProps, direction: `left` \| `right`) =&gt; VueNode | - | - | × |
-| locale | 各种语言 | TransferLocale | - | - | × |
+| locale | 各种语言 | TransferLocale | &#123; itemUnit: `项`, itemsUnit: `项`, searchPlaceholder: `请输入搜索内容`, notFoundContent: `该项列表为空` &#125; | - | × |
 | oneWay | 展示为单向样式 | boolean | false | - | × |
 | pagination | 使用分页样式，自定义渲染列表下无效 | boolean \| &#123; pageSize: number; simple: boolean; showSizeChanger?: boolean; showLessItems?: boolean &#125; | false | - | × |
 | render | 每行数据渲染函数，该函数的入参为 `dataSource` 中的项，返回值为 VueNode。或者返回一个普通对象，其中 `label` 字段为 VueNode，`value` 字段为 title | (record: TransferItem) =&gt; VueNode | - | - | × |
