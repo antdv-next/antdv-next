@@ -125,7 +125,7 @@ const localeValues: Locale = {
       },
       array: {
         len: '${len} ${label} байх ёстой',
-        min: 'Дор хаяж ${мин} ${label}',
+        min: 'Дор хаяж ${min} ${label}',
         max: 'Хамгийн ихдээ ${max} ${label}',
         range: '${label}-н хэмжээ ${min}-${max} хооронд байх ёстой',
       },
