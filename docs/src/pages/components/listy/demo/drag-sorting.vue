@@ -20,6 +20,12 @@ interface Item {
   content: string
 }
 
+interface SortableItemProps {
+  id: number
+  index: number
+  content: string
+}
+
 const items = Array.from<any, Item>({ length: 20 }, (_, index) => ({
   id: index,
   content: `Item ${index}`,
@@ -27,15 +33,17 @@ const items = Array.from<any, Item>({ length: 20 }, (_, index) => ({
 
 const data = ref<Item[]>(items)
 
-const SortableItem = defineComponent({
-  props: {
-    id: { type: Number, required: true },
-    index: { type: Number, required: true },
-    content: { type: String, required: true },
-  },
-  setup(props) {
+const SortableItem = defineComponent<SortableItemProps>(
+  (props) => {
+    // useSortable needs real DOM elements: unwrap component instances to their $el
     const element = ref<HTMLElement>()
-    const handle = ref<InstanceType<typeof Button>>()
+    const handle = ref<HTMLElement>()
+    const setElement = (el: any) => {
+      element.value = el?.$el ?? el ?? undefined
+    }
+    const setHandle = (el: any) => {
+      handle.value = el?.$el ?? el ?? undefined
+    }
     const { isDragging } = useSortable({
       id: () => props.id,
       index: () => props.index,
@@ -45,14 +53,14 @@ const SortableItem = defineComponent({
     return () => h(
       Flex,
       {
-        ref: element,
+        ref: setElement,
         align: 'center',
         gap: 'small',
         style: isDragging.value ? { position: 'relative', zIndex: 1 } : undefined,
       },
       () => [
         h(Button, {
-          ref: handle,
+          ref: setHandle,
           type: 'text',
           size: 'small',
           style: { cursor: 'move' },
@@ -62,7 +70,10 @@ const SortableItem = defineComponent({
       ],
     )
   },
-})
+  {
+    props: ['id', 'index', 'content'],
+  },
+)
 
 const sensors = [
   PointerSensor.configure({
