@@ -104,6 +104,7 @@ function genClearStyle(token: ColorPickerToken, size: number, extraStyle?: CSSOb
       position: 'relative',
       overflow: 'hidden',
       cursor: 'inherit',
+      userSelect: 'none',
       transition: `all ${token.motionDurationFast}`,
 
       ...extraStyle,
