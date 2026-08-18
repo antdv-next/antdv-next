@@ -6,7 +6,7 @@ import { Item } from '@v-c/menu'
 import { clsx } from '@v-c/util'
 import { filterEmpty, getAttrStyleAndClass } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit/compat'
-import { createVNode, defineComponent, isVNode } from 'vue'
+import { computed, createVNode, defineComponent, isVNode, shallowRef, watch } from 'vue'
 import { pureAttrs } from '../_util/hooks'
 import { getSlotPropsFnRun } from '../_util/tools.ts'
 import { useSiderCtx } from '../layout/Sider.tsx'
@@ -47,6 +47,17 @@ const MenuItem = defineComponent<
   (props, { slots, attrs }) => {
     const menuContext = useMenuContext()
     const { siderCollapsed } = useSiderCtx()
+
+    const mergedCollapsed = computed(() => !!(siderCollapsed?.value || menuContext.value.inlineCollapsed))
+
+    // Controlled tooltip state to prevent flash during collapse/expand transitions
+    // ref: https://github.com/ant-design/ant-design/issues/56528
+    const tooltipOpen = shallowRef(false)
+
+    watch(mergedCollapsed, () => {
+      tooltipOpen.value = false
+    })
+
     return () => {
       const extra = getSlotPropsFnRun(slots, props, 'extra')
       const icon = getSlotPropsFnRun(slots, props, 'icon')
@@ -92,11 +103,19 @@ const MenuItem = defineComponent<
 
       const tooltipProps: TooltipProps = { title: tooltipTitle }
 
-      if (!siderCollapsed?.value && !isInlineCollapsed) {
+      if (!mergedCollapsed.value) {
         tooltipProps.title = null
         // Reset `open` to fix control mode tooltip display not correct
         // ref: https://github.com/ant-design/ant-design/issues/16742
         tooltipProps.open = false
+      }
+      else {
+        // When collapsed, use controlled state to prevent flash during transitions
+        // ref: https://github.com/ant-design/ant-design/issues/56528
+        tooltipProps.open = tooltipOpen.value
+        tooltipProps.onOpenChange = (open) => {
+          tooltipOpen.value = open
+        }
       }
       const childrenLength = children.length
       let returnNode = (

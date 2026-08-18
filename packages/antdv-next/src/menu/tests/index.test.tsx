@@ -1,11 +1,11 @@
 import type { MenuProps } from '..'
 import { MailOutlined } from '@antdv-next/icons'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { nextTick } from 'vue'
+import { nextTick, ref } from 'vue'
 import Menu, { MenuItem, MenuItemGroup, SubMenu } from '..'
 import ConfigProvider from '../../config-provider'
 import { mountTest, rtlTest } from '/@tests/shared'
-import { mount } from '/@tests/utils'
+import { mount, waitFakeTimer } from '/@tests/utils'
 
 const items: NonNullable<MenuProps['items']> = [
   {
@@ -250,6 +250,47 @@ describe('menu', () => {
     expect(wrapper.find('.menu-prop-icon').exists()).toBe(true)
     expect(wrapper.find('.ant-menu-item-extra').exists()).toBe(true)
     expect(wrapper.find('.ant-menu-item-icon').exists()).toBe(true)
+  })
+
+  // https://github.com/ant-design/ant-design/issues/56528
+  it('should not flash Tooltip when collapsing while hovered', async () => {
+    vi.useFakeTimers()
+    try {
+      const inlineCollapsed = ref(false)
+      const wrapper = mount(() => (
+        <Menu
+          mode="inline"
+          inlineCollapsed={inlineCollapsed.value}
+          items={[{ key: '1', label: 'Home', title: 'Home' }]}
+        />
+      ), { attachTo: document.body })
+
+      const item = wrapper.find('li.ant-menu-item')
+      await item.trigger('mouseenter')
+      await waitFakeTimer()
+      expect(document.querySelector('.ant-tooltip-container')).toBeFalsy()
+
+      inlineCollapsed.value = true
+      await nextTick()
+      await waitFakeTimer()
+
+      // Fresh Tooltip mounts closed; stale hover from expanded state should not open it.
+      expect(document.querySelector('.ant-tooltip-open')).toBeFalsy()
+      expect(
+        document.querySelector('.ant-tooltip:not(.ant-tooltip-hidden) .ant-tooltip-container'),
+      ).toBeFalsy()
+
+      // A fresh hover after collapsing should still open the tooltip via controlled state.
+      await wrapper.find('li.ant-menu-item').trigger('mouseenter')
+      await waitFakeTimer()
+      expect(document.querySelector('.ant-tooltip:not(.ant-tooltip-hidden)')).toBeTruthy()
+
+      wrapper.unmount()
+    }
+    finally {
+      vi.clearAllTimers()
+      vi.useRealTimers()
+    }
   })
 
   it('aligns inline-collapsed icon when collapsedIconSize is customized', async () => {
