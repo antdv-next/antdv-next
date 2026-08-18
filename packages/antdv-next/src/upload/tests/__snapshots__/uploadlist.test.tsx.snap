@@ -85,6 +85,7 @@ exports[`upload List > should be uploading when upload a file 1`] = `
         >
           <!---->
           <button
+            aria-label="Remove file"
             class="ant-btn css-var-root ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only ant-upload-list-item-action"
             title="Remove file"
             type="button"

@@ -248,6 +248,7 @@ const ListItem = defineComponent<
                 rel="noopener noreferrer"
                 onClick={e => onPreview(file, e)}
                 title={locale.previewFile}
+                aria-label={locale.previewFile || undefined}
               >
                 {typeof customPreviewIcon === 'function'
                   ? customPreviewIcon(file)
