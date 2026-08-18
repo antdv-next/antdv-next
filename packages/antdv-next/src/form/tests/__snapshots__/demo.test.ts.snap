@@ -2785,6 +2785,7 @@ exports[`form demo > renders complex-form-control correctly 1`] = `
         class="ant-col ant-col-8 css-var-root ant-form-item-label"
       >
         <label
+          for="username"
           title="Username"
         >
           Username
@@ -2808,7 +2809,7 @@ exports[`form demo > renders complex-form-control correctly 1`] = `
                 <input
                   aria-required="true"
                   class="ant-input ant-input-outlined css-var-root ant-input-css-var"
-                  id="complex-form_username"
+                  id="username"
                   placeholder="Please input"
                   style="width: 160px;"
                   type="text"

@@ -1,9 +1,13 @@
 <docs lang="zh-CN">
 在同一行组合多个控件。
+
+当带有 `label` 的外层 `a-form-item` 没有 `name` 时，它无法自动推断内层控件的 ID。如果该标签对应一个控件，请为外层设置 `html-for`，并为内层控件设置相同的 `id`，以保留点击标签聚焦和屏幕阅读器关联。
 </docs>
 
 <docs lang="en-US">
 Combine multiple controls in one line.
+
+When the outer labeled `a-form-item` has no `name`, it cannot infer the nested control's ID. If the label describes a single control, set `html-for` on the outer item and the same `id` on the nested control to preserve label-click focus and screen reader association.
 </docs>
 
 <script setup lang="ts">
@@ -38,14 +42,14 @@ function handleFinish(values: any) {
     style="max-width: 600px"
     @finish="handleFinish"
   >
-    <a-form-item label="Username">
+    <a-form-item label="Username" html-for="username">
       <a-space>
         <a-form-item
           name="username"
           no-style
           :rules="[{ required: true, message: 'Username is required' }]"
         >
-          <a-input v-model:value="model.username" style="width: 160px" placeholder="Please input" />
+          <a-input id="username" v-model:value="model.username" style="width: 160px" placeholder="Please input" />
         </a-form-item>
         <a-tooltip title="Useful information">
           <a-typography-link href="#API">
