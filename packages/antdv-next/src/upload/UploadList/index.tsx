@@ -145,7 +145,8 @@ const UploadList = defineComponent<
             size="small"
             {
               ...{
-                title,
+                'title': title,
+                'aria-label': title || undefined,
               }
             }
             class={`${actionPrefixCls}-list-item-action`}
@@ -162,7 +163,8 @@ const UploadList = defineComponent<
           size="small"
           {
             ...{
-              title,
+              'title': title,
+              'aria-label': title || undefined,
             }
           }
           class={`${actionPrefixCls}-list-item-action`}
