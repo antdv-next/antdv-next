@@ -33,7 +33,8 @@ exports[`collapse demo > renders _semantic correctly 1`] = `
                 class="ant-collapse-expand-icon semantic-mark-icon"
               >
                 <span
-                  aria-label="expanded"
+                  aria-hidden="true"
+                  aria-label="right"
                   class="anticon anticon-right ant-collapse-arrow"
                   role="img"
                 >
@@ -764,7 +765,8 @@ exports[`collapse demo > renders accordion correctly 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -814,7 +816,8 @@ exports[`collapse demo > renders accordion correctly 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -864,7 +867,8 @@ exports[`collapse demo > renders accordion correctly 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -921,7 +925,8 @@ exports[`collapse demo > renders basic correctly 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="expanded"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -984,7 +989,8 @@ exports[`collapse demo > renders basic correctly 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -1034,7 +1040,8 @@ exports[`collapse demo > renders basic correctly 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -1091,7 +1098,8 @@ exports[`collapse demo > renders borderless correctly 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="expanded"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -1154,7 +1162,8 @@ exports[`collapse demo > renders borderless correctly 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -1204,7 +1213,8 @@ exports[`collapse demo > renders borderless correctly 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -1416,7 +1426,8 @@ exports[`collapse demo > renders collapsible correctly 1`] = `
             class="ant-collapse-expand-icon"
           >
             <span
-              aria-label="collapsed"
+              aria-hidden="true"
+              aria-label="right"
               class="anticon anticon-right ant-collapse-arrow"
               role="img"
             >
@@ -1653,7 +1664,8 @@ exports[`collapse demo > renders extra correctly 1`] = `
           class="ant-collapse-expand-icon"
         >
           <span
-            aria-label="expanded"
+            aria-hidden="true"
+            aria-label="right"
             class="anticon anticon-right ant-collapse-arrow"
             role="img"
           >
@@ -1739,7 +1751,8 @@ exports[`collapse demo > renders extra correctly 1`] = `
           class="ant-collapse-expand-icon"
         >
           <span
-            aria-label="collapsed"
+            aria-hidden="true"
+            aria-label="right"
             class="anticon anticon-right ant-collapse-arrow"
             role="img"
           >
@@ -1812,7 +1825,8 @@ exports[`collapse demo > renders extra correctly 1`] = `
           class="ant-collapse-expand-icon"
         >
           <span
-            aria-label="collapsed"
+            aria-hidden="true"
+            aria-label="right"
             class="anticon anticon-right ant-collapse-arrow"
             role="img"
           >
@@ -1951,7 +1965,8 @@ exports[`collapse demo > renders ghost correctly 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="expanded"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -2014,7 +2029,8 @@ exports[`collapse demo > renders ghost correctly 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -2064,7 +2080,8 @@ exports[`collapse demo > renders ghost correctly 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -2121,7 +2138,8 @@ exports[`collapse demo > renders icon correctly 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="expanded"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -2203,7 +2221,8 @@ exports[`collapse demo > renders icon correctly 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -2276,7 +2295,8 @@ exports[`collapse demo > renders mix correctly 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -2326,7 +2346,8 @@ exports[`collapse demo > renders mix correctly 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -2376,7 +2397,8 @@ exports[`collapse demo > renders mix correctly 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -2433,7 +2455,8 @@ exports[`collapse demo > renders noarrow correctly 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="expanded"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -2531,7 +2554,8 @@ exports[`collapse demo > renders sfc correctly 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="expanded"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -2592,7 +2616,8 @@ exports[`collapse demo > renders sfc correctly 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -2681,7 +2706,8 @@ exports[`collapse demo > renders size correctly 1`] = `
           class="ant-collapse-expand-icon"
         >
           <span
-            aria-label="collapsed"
+            aria-hidden="true"
+            aria-label="right"
             class="anticon anticon-right ant-collapse-arrow"
             role="img"
           >
@@ -2751,7 +2777,8 @@ exports[`collapse demo > renders size correctly 1`] = `
           class="ant-collapse-expand-icon"
         >
           <span
-            aria-label="collapsed"
+            aria-hidden="true"
+            aria-label="right"
             class="anticon anticon-right ant-collapse-arrow"
             role="img"
           >
@@ -2821,7 +2848,8 @@ exports[`collapse demo > renders size correctly 1`] = `
           class="ant-collapse-expand-icon"
         >
           <span
-            aria-label="collapsed"
+            aria-hidden="true"
+            aria-label="right"
             class="anticon anticon-right ant-collapse-arrow"
             role="img"
           >
@@ -2884,7 +2912,8 @@ exports[`collapse demo > renders style-class correctly 1`] = `
           class="ant-collapse-expand-icon"
         >
           <span
-            aria-label="expanded"
+            aria-hidden="true"
+            aria-label="right"
             class="anticon anticon-right ant-collapse-arrow"
             role="img"
           >
@@ -2946,7 +2975,8 @@ exports[`collapse demo > renders style-class correctly 1`] = `
           class="ant-collapse-expand-icon"
         >
           <span
-            aria-label="collapsed"
+            aria-hidden="true"
+            aria-label="right"
             class="anticon anticon-right ant-collapse-arrow"
             role="img"
           >
@@ -2997,7 +3027,8 @@ exports[`collapse demo > renders style-class correctly 1`] = `
           class="ant-collapse-expand-icon"
         >
           <span
-            aria-label="collapsed"
+            aria-hidden="true"
+            aria-label="right"
             class="anticon anticon-right ant-collapse-arrow"
             role="img"
           >
@@ -3053,7 +3084,8 @@ exports[`collapse demo > renders style-class correctly 1`] = `
           class="ant-collapse-expand-icon"
         >
           <span
-            aria-label="collapsed"
+            aria-hidden="true"
+            aria-label="right"
             class="anticon anticon-right ant-collapse-arrow"
             role="img"
           >
@@ -3104,7 +3136,8 @@ exports[`collapse demo > renders style-class correctly 1`] = `
           class="ant-collapse-expand-icon"
         >
           <span
-            aria-label="expanded"
+            aria-hidden="true"
+            aria-label="right"
             class="anticon anticon-right ant-collapse-arrow"
             role="img"
           >
@@ -3166,7 +3199,8 @@ exports[`collapse demo > renders style-class correctly 1`] = `
           class="ant-collapse-expand-icon"
         >
           <span
-            aria-label="collapsed"
+            aria-hidden="true"
+            aria-label="right"
             class="anticon anticon-right ant-collapse-arrow"
             role="img"
           >
