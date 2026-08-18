@@ -11,6 +11,7 @@ import { getTransitionName } from '@v-c/util/dist/utils/transition'
 import { computed, defineComponent, shallowRef } from 'vue'
 import { ContextIsolator } from '../../_util/ContextIsolator'
 import { getAttrStyleAndClass, useZIndex } from '../../_util/hooks'
+import { isNonNullable } from '../../_util/is'
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils'
 import { getSlotPropsFnRun, toPropsRefs } from '../../_util/tools'
 import { devUseWarning, isDev } from '../../_util/warning'
@@ -327,6 +328,7 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
         }, 'separator', false)
         const separator = getSlotPropsFnRun(slots, props, 'separator', false) || _contextSeparator
         const mergedSeparator = separator ?? _contextSeparator
+        const hasCustomSeparator = isNonNullable(mergedSeparator)
 
         return (
           <ContextIsolator space>
@@ -335,8 +337,11 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
               {...restProps}
               ref={innerRef as any}
               separator={(
-                <span aria-label="to" class={`${prefixCls.value}-separator`}>
-                  { mergedSeparator ?? <SwapRightOutlined />}
+                <span
+                  aria-hidden={hasCustomSeparator ? undefined : true}
+                  class={`${prefixCls.value}-separator`}
+                >
+                  {hasCustomSeparator ? mergedSeparator : <SwapRightOutlined />}
                 </span>
               )}
               disabled={mergedDisabled.value}

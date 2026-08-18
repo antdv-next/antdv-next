@@ -1490,7 +1490,7 @@ exports[`date-picker demo > renders allow-empty correctly 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -2210,7 +2210,7 @@ exports[`date-picker demo > renders cell-render correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -2544,7 +2544,7 @@ exports[`date-picker demo > renders disabled correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -2642,7 +2642,7 @@ exports[`date-picker demo > renders disabled correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -2942,7 +2942,7 @@ exports[`date-picker demo > renders disabled-date correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -3039,7 +3039,7 @@ exports[`date-picker demo > renders disabled-date correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -3343,7 +3343,7 @@ exports[`date-picker demo > renders extra-footer correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -3440,7 +3440,7 @@ exports[`date-picker demo > renders extra-footer correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -3886,7 +3886,7 @@ exports[`date-picker demo > renders format correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -4653,7 +4653,7 @@ exports[`date-picker demo > renders placement correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -4806,7 +4806,7 @@ exports[`date-picker demo > renders preset-ranges correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -4903,7 +4903,7 @@ exports[`date-picker demo > renders preset-ranges correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -5008,7 +5008,7 @@ exports[`date-picker demo > renders range-picker correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -5105,7 +5105,7 @@ exports[`date-picker demo > renders range-picker correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -5202,7 +5202,7 @@ exports[`date-picker demo > renders range-picker correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -5299,7 +5299,7 @@ exports[`date-picker demo > renders range-picker correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -5396,7 +5396,7 @@ exports[`date-picker demo > renders range-picker correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -5494,7 +5494,7 @@ exports[`date-picker demo > renders range-picker correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -5671,7 +5671,7 @@ exports[`date-picker demo > renders select-in-range correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -5785,7 +5785,7 @@ exports[`date-picker demo > renders select-in-range correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -6050,7 +6050,7 @@ exports[`date-picker demo > renders size correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -6302,7 +6302,7 @@ exports[`date-picker demo > renders status correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -6400,7 +6400,7 @@ exports[`date-picker demo > renders status correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -6694,7 +6694,7 @@ exports[`date-picker demo > renders suffix correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -6891,7 +6891,7 @@ exports[`date-picker demo > renders suffix correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -7140,7 +7140,7 @@ exports[`date-picker demo > renders suffix correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -7241,7 +7241,7 @@ exports[`date-picker demo > renders suffix correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -7511,7 +7511,7 @@ exports[`date-picker demo > renders time correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -7712,7 +7712,7 @@ exports[`date-picker demo > renders value-format correctly 1`] = `
             class="ant-picker-range-separator"
           >
             <span
-              aria-label="to"
+              aria-hidden="true"
               class="ant-picker-separator"
             >
               <span
@@ -7897,7 +7897,7 @@ exports[`date-picker demo > renders variant correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -8037,7 +8037,7 @@ exports[`date-picker demo > renders variant correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -8177,7 +8177,7 @@ exports[`date-picker demo > renders variant correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -8317,7 +8317,7 @@ exports[`date-picker demo > renders variant correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span

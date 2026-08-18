@@ -1860,7 +1860,7 @@ exports[`time-picker demo > renders range-picker correctly 1`] = `
       class="ant-picker-range-separator"
     >
       <span
-        aria-label="to"
+        aria-hidden="true"
         class="ant-picker-separator"
       >
         <span
@@ -2386,7 +2386,7 @@ exports[`time-picker demo > renders status correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -2486,7 +2486,7 @@ exports[`time-picker demo > renders status correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -2794,7 +2794,7 @@ exports[`time-picker demo > renders suffix correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -3054,7 +3054,7 @@ exports[`time-picker demo > renders value-format correctly 1`] = `
             class="ant-picker-range-separator"
           >
             <span
-              aria-label="to"
+              aria-hidden="true"
               class="ant-picker-separator"
             >
               <span
@@ -3245,7 +3245,7 @@ exports[`time-picker demo > renders variant correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -3391,7 +3391,7 @@ exports[`time-picker demo > renders variant correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -3537,7 +3537,7 @@ exports[`time-picker demo > renders variant correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
@@ -3683,7 +3683,7 @@ exports[`time-picker demo > renders variant correctly 1`] = `
         class="ant-picker-range-separator"
       >
         <span
-          aria-label="to"
+          aria-hidden="true"
           class="ant-picker-separator"
         >
           <span
