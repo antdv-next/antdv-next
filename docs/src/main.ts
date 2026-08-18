@@ -29,4 +29,9 @@ app.component('IconSearch', IconSearch)
 app.component('stackblitz', StackBlitz)
 app.component('TokenTable', TokenTable)
 app.use(createPinia())
+
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual'
+}
+
 app.mount('#app')

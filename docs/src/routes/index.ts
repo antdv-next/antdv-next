@@ -55,6 +55,36 @@ function waitForHashTarget(targetId: string, timeout = 5000) {
   })
 }
 
+/** 连续若干帧位置不变，认为布局已稳定 */
+async function waitForStablePosition(el: HTMLElement, frames = 3, timeout = 3000) {
+  return new Promise<void>((resolve) => {
+    let lastTop = el.getBoundingClientRect().top
+    let stable = 0
+    const start = performance.now()
+
+    const tick = () => {
+      const top = el.getBoundingClientRect().top
+      if (Math.abs(top - lastTop) < 1) {
+        stable += 1
+        if (stable >= frames) {
+          resolve()
+          return
+        }
+      }
+      else {
+        stable = 0
+        lastTop = top
+      }
+      if (performance.now() - start > timeout) {
+        resolve()
+        return
+      }
+      requestAnimationFrame(tick)
+    }
+    requestAnimationFrame(tick)
+  })
+}
+
 export const router = createRouter({
   routes: [
     {
@@ -79,16 +109,19 @@ export const router = createRouter({
     if (to.hash) {
       const targetId = decodeURIComponent(to.hash.slice(1))
       const element = await waitForHashTarget(targetId)
-      if (element) {
-        const headerHeight = 70
-        const rect = element.getBoundingClientRect()
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop
-        const targetTop = rect.top + scrollTop - headerHeight
-        return {
-          left: 0,
-          top: Math.max(targetTop, headerHeight),
-          behavior: 'smooth',
-        }
+      if (!element)
+        return { top: 0, left: 0 }
+
+      await waitForStablePosition(element)
+
+      const headerHeight = 70
+      const rect = element.getBoundingClientRect()
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+      const targetTop = rect.top + scrollTop - headerHeight
+      return {
+        left: 0,
+        top: Math.max(targetTop, headerHeight),
+        behavior: 'instant',
       }
     }
     else if (savedPosition) {
