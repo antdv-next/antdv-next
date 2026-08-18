@@ -1,3 +1,4 @@
+import type { ColumnsType, FilterDropdownProps } from '../interface'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { h } from 'vue'
 import Table from '..'
@@ -170,6 +171,48 @@ describe('table filter', () => {
       attachTo: document.body,
     })
     expect(wrapper.find('.ant-table-filter-trigger').exists()).toBe(true)
+    wrapper.unmount()
+  })
+
+  // https://github.com/ant-design/ant-design/issues/17833
+  it('should not confirm a column filterDropdown when closing it from the trigger', async () => {
+    const onChange = vi.fn()
+    const onOpenChange = vi.fn()
+    const columns: ColumnsType<(typeof data)[number]> = [
+      {
+        title: 'Name',
+        dataIndex: 'name',
+        key: 'name',
+        filterDropdown: ({ setSelectedKeys }: FilterDropdownProps) => h(
+          'button',
+          {
+            class: 'stage-custom-filter',
+            onClick: () => setSelectedKeys(['John']),
+          },
+          'Stage filter',
+        ),
+        filterDropdownProps: { onOpenChange },
+        onFilter: (value, record) => record.name === value,
+      },
+    ]
+    const wrapper = mount(Table, {
+      props: { columns, dataSource: data, pagination: false, onChange },
+      attachTo: document.body,
+    })
+
+    await wrapper.find('.ant-table-filter-trigger').trigger('click')
+    await waitFakeTimer()
+    const stageButton = document.querySelector<HTMLButtonElement>('.stage-custom-filter')
+    expect(stageButton).toBeTruthy()
+    stageButton?.click()
+    await waitFakeTimer()
+
+    await wrapper.find('.ant-table-filter-trigger').trigger('click')
+    await waitFakeTimer()
+
+    expect(onChange).not.toHaveBeenCalled()
+    expect(onOpenChange.mock.calls).toEqual([[true], [false]])
+    expect(wrapper.findAll('tbody tr')).toHaveLength(data.length)
     wrapper.unmount()
   })
 
