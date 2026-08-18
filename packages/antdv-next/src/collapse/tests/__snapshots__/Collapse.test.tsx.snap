@@ -29,7 +29,8 @@ exports[`collapse > should match snapshot 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="expanded"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
@@ -90,7 +91,8 @@ exports[`collapse > should match snapshot 1`] = `
         class="ant-collapse-expand-icon"
       >
         <span
-          aria-label="collapsed"
+          aria-hidden="true"
+          aria-label="right"
           class="anticon anticon-right ant-collapse-arrow"
           role="img"
         >
