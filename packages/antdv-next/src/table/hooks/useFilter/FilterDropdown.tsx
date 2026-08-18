@@ -325,10 +325,11 @@ const FilterDropdown = defineComponent<
           setFilteredKeysSync(wrapStringListType(propFilteredKeys.value))
         }
 
-        triggerVisible(newVisible)
-
         if (!newVisible && !hasPropDropdownRender && props.filterOnClose) {
           onConfirm()
+        }
+        else {
+          triggerVisible(newVisible)
         }
       }
     }
