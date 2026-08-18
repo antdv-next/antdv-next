@@ -543,6 +543,63 @@ describe('anchor Render', () => {
       wrapper.unmount()
     })
 
+    it('should trigger onChange when a raw link matches the mapped active link', async () => {
+      const hash1 = getHashUrl()
+      const hash2 = getHashUrl()
+      const onChange = vi.fn()
+      const wrapper = mount(Anchor, {
+        props: {
+          affix: false,
+          onChange,
+          getCurrentAnchor: (link: string) => (link === `#${hash1}` ? `#${hash2}` : link),
+          items: [
+            { key: hash1, href: `#${hash1}`, title: hash1 },
+            { key: hash2, href: `#${hash2}`, title: hash2 },
+          ],
+        },
+        attachTo: document.body,
+      })
+
+      await waitFakeTimer()
+      await wrapper.find(`a[href="#${hash1}"]`).trigger('click')
+      expect(wrapper.element.querySelector(`.ant-anchor-link-title-active`)?.textContent).toBe(hash2)
+      expect(onChange).toHaveBeenLastCalledWith(`#${hash1}`)
+      onChange.mockClear()
+      await wrapper.find(`a[href="#${hash2}"]`).trigger('click')
+      expect(onChange).toHaveBeenCalledTimes(1)
+      expect(onChange).toHaveBeenCalledWith(`#${hash2}`)
+      wrapper.unmount()
+    })
+
+    it('should not trigger onChange repeatedly when scrolling with getCurrentAnchor', async () => {
+      const hash1 = getHashUrl()
+      const hash2 = getHashUrl()
+      const onChange = vi.fn()
+      const getCurrentAnchor = vi.fn(() => `#${hash2}`)
+      const wrapper = mount(Anchor, {
+        props: {
+          affix: false,
+          onChange,
+          getCurrentAnchor,
+          items: [
+            { key: hash1, href: `#${hash1}`, title: hash1 },
+            { key: hash2, href: `#${hash2}`, title: hash2 },
+          ],
+        },
+        attachTo: document.body,
+      })
+
+      await waitFakeTimer()
+      onChange.mockClear()
+      getCurrentAnchor.mockClear()
+      window.dispatchEvent(new Event('scroll'))
+      window.dispatchEvent(new Event('scroll'))
+      await waitFakeTimer()
+      expect(getCurrentAnchor).toHaveBeenCalledTimes(2)
+      expect(onChange).not.toHaveBeenCalled()
+      wrapper.unmount()
+    })
+
     it('getCurrentAnchor have default link as argument', async () => {
       const hash1 = getHashUrl()
       const hash2 = getHashUrl()
@@ -598,6 +655,53 @@ describe('anchor Render', () => {
       await waitFakeTimer()
       expect(wrapper.element.querySelector(`.ant-anchor-link-title-active`)?.textContent).toBe(hash1)
       await wrapper.setProps({ current: hash2 })
+      await waitFakeTimer()
+      expect(wrapper.element.querySelector(`.ant-anchor-link-title-active`)?.textContent).toBe(hash2)
+      wrapper.unmount()
+    })
+
+    it('should apply getCurrentAnchor once when it changes', async () => {
+      const hash1 = getHashUrl()
+      const hash2 = getHashUrl()
+      const hash3 = getHashUrl()
+      const Demo = defineComponent<{ mappedLink: string }>({
+        props: {
+          mappedLink: {
+            type: String,
+            required: true,
+          },
+        },
+        setup(props) {
+          return () => (
+            <Anchor
+              affix={false}
+              getCurrentAnchor={(link) => {
+                if (link === `#${hash1}`) {
+                  return `#${hash2}`
+                }
+                if (link === `#${hash2}`) {
+                  return `#${props.mappedLink}`
+                }
+                return link
+              }}
+              items={[
+                { key: hash1, href: `#${hash1}`, title: hash1 },
+                { key: hash2, href: `#${hash2}`, title: hash2 },
+                { key: hash3, href: `#${hash3}`, title: hash3 },
+              ]}
+            />
+          )
+        },
+      })
+      const wrapper = mount(Demo, {
+        props: { mappedLink: hash2 },
+        attachTo: document.body,
+      })
+      await waitFakeTimer()
+      await wrapper.find(`a[href="#${hash1}"]`).trigger('click')
+      expect(wrapper.element.querySelector(`.ant-anchor-link-title-active`)?.textContent).toBe(hash2)
+
+      await wrapper.setProps({ mappedLink: hash3 })
       await waitFakeTimer()
       expect(wrapper.element.querySelector(`.ant-anchor-link-title-active`)?.textContent).toBe(hash2)
       wrapper.unmount()
