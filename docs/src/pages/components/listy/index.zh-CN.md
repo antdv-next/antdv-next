@@ -24,6 +24,7 @@ tag: 1.5.0
   <demo src="./demo/group.vue">分组与吸顶</demo>
   <demo src="./demo/scroll-to.vue" debug>滚动控制</demo>
   <demo src="./demo/rich.vue">复杂内容</demo>
+  <demo src="./demo/drag-sorting.vue">拖拽排序</demo>
   <demo src="./demo/infinite.vue">无限加载</demo>
   <demo src="./demo/style-class.vue">自定义语义结构的样式和类</demo>
 </demo-group>
