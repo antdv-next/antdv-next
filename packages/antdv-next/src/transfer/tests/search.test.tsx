@@ -71,6 +71,7 @@ describe('transfer.Search', () => {
     clearIcons[0]?.dispatchEvent(new MouseEvent('click', { bubbles: true }))
     await nextTick()
 
+    expect(onSearch).toHaveBeenCalledTimes(1)
     expect(onSearch).toHaveBeenCalledWith('left', '')
 
     wrapper.unmount()
