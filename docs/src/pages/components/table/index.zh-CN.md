@@ -79,6 +79,7 @@ const columns = [
   <demo src="./demo/summary.vue">汇总行</demo>
   <demo src="./demo/custom-empty.vue">自定义空状态</demo>
   <demo src="./demo/custom-filter-panel.vue">自定义筛选</demo>
+  <demo src="./demo/custom-filter-close.vue">关闭自定义筛选面板</demo>
   <demo src="./demo/filter-search.vue">筛选搜索</demo>
   <demo src="./demo/filter-in-tree.vue">树形筛选</demo>
   <demo src="./demo/head.vue">排序与筛选</demo>

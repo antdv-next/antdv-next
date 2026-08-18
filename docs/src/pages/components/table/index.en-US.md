@@ -78,6 +78,7 @@ const columns = [
   <demo src="./demo/summary.vue">Summary</demo>
   <demo src="./demo/custom-empty.vue">Custom Empty</demo>
   <demo src="./demo/custom-filter-panel.vue">Custom Filter Panel</demo>
+  <demo src="./demo/custom-filter-close.vue">Close Custom Filter Panel</demo>
   <demo src="./demo/filter-search.vue">Filter Search</demo>
   <demo src="./demo/filter-in-tree.vue">Tree Filter</demo>
   <demo src="./demo/head.vue">Sorting & Filtering</demo>
