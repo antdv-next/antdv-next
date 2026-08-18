@@ -43,6 +43,30 @@ describe('range-picker', () => {
     wrapper.unmount()
   })
 
+  // https://github.com/ant-design/ant-design/pull/58999
+  it('hides the default separator from the accessibility tree', () => {
+    const wrapper = mount(RangePicker)
+    const separator = wrapper.find('.ant-picker-separator')
+
+    expect(separator.attributes('aria-hidden')).toBe('true')
+    expect(separator.attributes('aria-label')).toBeUndefined()
+    expect(separator.find('.anticon-swap-right').exists()).toBe(true)
+  })
+
+  it('preserves a custom separator accessible name', () => {
+    const wrapper = mount(RangePicker, {
+      props: {
+        separator: () => <span aria-label="Custom range separator">test</span>,
+      },
+    })
+    const separator = wrapper.find('.ant-picker-separator')
+
+    expect(separator.attributes('aria-hidden')).toBeUndefined()
+    expect(separator.attributes('aria-label')).toBeUndefined()
+    expect(wrapper.find('[aria-label="Custom range separator"]').exists()).toBe(true)
+    expect(separator.text()).toContain('test')
+  })
+
   it('should support custom separator', () => {
     const wrapper = mount(RangePicker, {
       props: {
@@ -51,6 +75,7 @@ describe('range-picker', () => {
     })
 
     expect(wrapper.find('.ant-picker-separator').text()).toContain('test')
+    expect(wrapper.find('.ant-picker-separator').attributes('aria-hidden')).toBeUndefined()
   })
 
   it('should use default placeholders when placeholder is undefined', () => {

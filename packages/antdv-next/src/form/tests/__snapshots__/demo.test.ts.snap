@@ -13599,7 +13599,7 @@ exports[`form demo > renders time-related-controls correctly 1`] = `
                 class="ant-picker-range-separator"
               >
                 <span
-                  aria-label="to"
+                  aria-hidden="true"
                   class="ant-picker-separator"
                 >
                   <span
@@ -13745,7 +13745,7 @@ exports[`form demo > renders time-related-controls correctly 1`] = `
                 class="ant-picker-range-separator"
               >
                 <span
-                  aria-label="to"
+                  aria-hidden="true"
                   class="ant-picker-separator"
                 >
                   <span

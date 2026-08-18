@@ -1635,7 +1635,7 @@ exports[`space demo > renders compact correctly 1`] = `
           class="ant-picker-range-separator"
         >
           <span
-            aria-label="to"
+            aria-hidden="true"
             class="ant-picker-separator"
           >
             <span
@@ -1772,7 +1772,7 @@ exports[`space demo > renders compact correctly 1`] = `
           class="ant-picker-range-separator"
         >
           <span
-            aria-label="to"
+            aria-hidden="true"
             class="ant-picker-separator"
           >
             <span
@@ -2281,7 +2281,7 @@ exports[`space demo > renders compact correctly 1`] = `
           class="ant-picker-range-separator"
         >
           <span
-            aria-label="to"
+            aria-hidden="true"
             class="ant-picker-separator"
           >
             <span
