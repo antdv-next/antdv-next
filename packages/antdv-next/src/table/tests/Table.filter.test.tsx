@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { h } from 'vue'
 import Table from '..'
-import { mount } from '/@tests/utils'
+import { mount, waitFakeTimer } from '/@tests/utils'
 
 const data = [
   { key: '1', name: 'John', age: 32 },
@@ -39,6 +39,37 @@ describe('table filter', () => {
       attachTo: document.body,
     })
     expect(wrapper.find('.ant-table-filter-trigger').exists()).toBe(true)
+    wrapper.unmount()
+  })
+
+  it('fires change event when visible change', async () => {
+    const onFilterDropdownOpenChange = vi.fn()
+    const onOpenChange = vi.fn()
+    const columns = [
+      {
+        title: 'Name',
+        dataIndex: 'name',
+        key: 'name',
+        filters: [
+          { text: 'John', value: 'John' },
+          { text: 'Jim', value: 'Jim' },
+        ],
+        filterDropdownProps: {
+          onOpenChange,
+        },
+        onFilterDropdownOpenChange,
+      },
+    ]
+    const wrapper = mount(Table, {
+      props: { columns, dataSource: data, pagination: false },
+      attachTo: document.body,
+    })
+    await wrapper.find('.ant-table-filter-trigger').trigger('click')
+    await waitFakeTimer()
+    await wrapper.find('.ant-table-filter-trigger').trigger('click')
+    await waitFakeTimer()
+    expect(onOpenChange.mock.calls).toEqual([[true], [false]])
+    expect(onFilterDropdownOpenChange.mock.calls).toEqual([[true], [false]])
     wrapper.unmount()
   })
 
