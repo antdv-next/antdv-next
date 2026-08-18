@@ -35,10 +35,11 @@ const Search = defineComponent<
 >(
   (props, { emit, slots }) => {
     const handleChange = (e: Event) => {
-      emit('change', e)
-      const target = e?.target as HTMLInputElement | null
-      if (!target?.value) {
+      if (e.type === 'click') {
         emit('clear')
+      }
+      else {
+        emit('change', e)
       }
     }
 
