@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { SearchOutlined } from '@antdv-next/icons'
+import { theme } from 'antdv-next'
 import { storeToRefs } from 'pinia'
 import { onMounted, ref, useTemplateRef } from 'vue'
 import { RouterLink } from 'vue-router'
@@ -9,6 +10,7 @@ import { covers } from './covers'
 
 defineOptions({ name: 'ComponentOverview' })
 
+const { token } = theme.useToken()
 const search = ref('')
 const inputRef = useTemplateRef('searchInput')
 const searchBarAffixed = ref(false)
@@ -100,19 +102,21 @@ onMounted(() => {
           <template v-for="comp in group.children" :key="comp.key">
             <a-col :xs="24" :sm="12" :lg="8" :xl="6">
               <RouterLink :to="locale === 'zh-CN' ? `${comp.key}-cn` : comp.key" style="text-decoration: none; color: inherit;">
-                <a-card size="small" class="components-overview-card">
-                  <template #title>
-                    <div class="components-overview-title">
-                      {{ siderLocales?.[comp.key]?.[locale] ?? comp.label }}
+                <a-border-beam :duration="6" :line-width="2">
+                  <a-card size="small" class="components-overview-card" :class="[siderLocales?.[comp.key]?.[locale] === 'BorderBeam' ? 'hasBorderBeam' : '']">
+                    <template #title>
+                      <div class="components-overview-title">
+                        {{ siderLocales?.[comp.key]?.[locale] ?? comp.label }}
+                      </div>
+                    </template>
+                    <div class="components-overview-img">
+                      <img
+                        :src="darkMode ? covers?.[getComponentName(comp.key)]?.coverDark : covers?.[getComponentName(comp.key)]?.cover"
+                        :alt="siderLocales?.[comp.key]?.[locale] ?? comp.label"
+                      >
                     </div>
-                  </template>
-                  <div class="components-overview-img">
-                    <img
-                      :src="darkMode ? covers?.[getComponentName(comp.key)]?.coverDark : covers?.[getComponentName(comp.key)]?.cover"
-                      :alt="siderLocales?.[comp.key]?.[locale] ?? comp.label"
-                    >
-                  </div>
-                </a-card>
+                  </a-card>
+                </a-border-beam>
               </RouterLink>
             </a-col>
           </template>
@@ -196,5 +200,22 @@ onMounted(() => {
   object-fit: cover;
   max-height: 100%;
   max-width: 100%;
+}
+
+.components-overview-card :deep(.ant-border-beam) {
+  opacity: 0;
+  transition: opacity v-bind('token.motionDurationMid');
+}
+
+.components-overview-card :deep(.ant-border-beam)::before {
+  animation-play-state: paused;
+}
+
+.hasBorderBeam :deep(.ant-border-beam) {
+  opacity: 1;
+}
+
+.hasBorderBeam :deep(.ant-border-beam)::before {
+  animation-play-state: running;
 }
 </style>
