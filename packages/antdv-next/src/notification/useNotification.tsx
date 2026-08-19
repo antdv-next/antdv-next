@@ -95,7 +95,7 @@ const Holder = defineComponent<HolderProps>(
     })
     // =============================== Style ===============================
     const getStyle = (placement: NotificationPlacement) => {
-      return getPlacementStyle(placement, props?.top ?? DEFAULT_OFFSET, props?.bottom ?? DEFAULT_DURATION)
+      return getPlacementStyle(placement, props?.top ?? DEFAULT_OFFSET, props?.bottom ?? DEFAULT_OFFSET)
     }
     const getClassName = () => clsx({
       [`${prefixCls.value}-rtl`]: props.rtl ?? direction.value === 'rtl',
