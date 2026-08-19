@@ -103,6 +103,15 @@ export const router = createRouter({
       component: () => import('@/layouts/demo/index.vue'),
       children: demoRoutes,
     },
+    // 七夕彩蛋：独立于 root 布局的全屏沉浸页
+    {
+      path: '/qixi',
+      component: () => import('@/pages/qixi/index.vue'),
+    },
+    {
+      path: '/qixi-cn',
+      component: () => import('@/pages/qixi/index.vue'),
+    },
   ],
   history: createWebHistory(),
   async scrollBehavior(to, _from, savedPosition) {
