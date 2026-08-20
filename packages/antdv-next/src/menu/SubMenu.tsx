@@ -9,7 +9,7 @@ import { pureAttrs, useZIndex } from '../_util/hooks'
 import { getSlotPropsFnRun } from '../_util/tools.ts'
 import { useMenuContext, useMenuContextProvider } from './MenuContext.tsx'
 
-export interface SubMenuProps extends Omit<SubMenuType, 'key' | 'label' | 'children'> {
+export interface SubMenuProps extends Omit<SubMenuType, 'key' | 'label' | 'children' | 'title'> {
   title?: VueNode
 }
 
