@@ -2,6 +2,7 @@ import type { DataNode, Key } from '@v-c/tree'
 import type { TreeProps } from '../Tree'
 
 import { fillFieldNames } from '@v-c/tree'
+import { isNonNullable } from '../../_util/is'
 
 const RECORD_NONE = 0
 const RECORD_START = 1
@@ -46,11 +47,11 @@ export function calcRangeKeys({
   const keys: Key[] = []
   let record: Record = RECORD_NONE
 
-  if (startKey && startKey === endKey) {
-    return [startKey]
-  }
-  if (!startKey || !endKey) {
+  if (!isNonNullable(startKey) || !isNonNullable(endKey)) {
     return []
+  }
+  if (startKey === endKey) {
+    return [startKey]
   }
 
   function matchKey(key: Key) {
