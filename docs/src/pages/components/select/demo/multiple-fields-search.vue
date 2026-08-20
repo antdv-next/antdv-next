@@ -18,7 +18,6 @@ const options = [
 <template>
   <a-select
     placeholder="Select an option"
-    style="width: 200px"
     :show-search="{ optionFilterProp: ['label', 'otherField'] }"
     :options="options"
   />
