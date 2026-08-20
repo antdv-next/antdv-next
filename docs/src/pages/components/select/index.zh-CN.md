@@ -22,6 +22,7 @@ demo:
 <demo-group>
   <demo src="./demo/basic.vue">基本使用</demo>
   <demo src="./demo/search.vue">带搜索框</demo>
+  <demo src="./demo/multiple-fields-search.vue">多字段搜索</demo>
   <demo src="./demo/search-filter-option.vue">自定义搜索</demo>
   <demo src="./demo/multiple.vue">多选</demo>
   <demo src="./demo/size.vue">三种大小</demo>
