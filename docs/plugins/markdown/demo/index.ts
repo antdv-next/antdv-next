@@ -337,9 +337,6 @@ const demoData = {
 
 if (import.meta.hot) {
   import.meta.hot.accept()
-  import.meta.hot.on('vite:beforeUpdate', () => {
-    sourceVersionRef.value = Date.now()
-  })
   import.meta.hot.on(${JSON.stringify(`demo-update:${normalizedFile}`)}, (data) => {
     if ('locales' in data) localesRef.value = data.locales
     if ('timestamp' in data) sourceVersionRef.value = data.timestamp
