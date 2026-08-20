@@ -1,9 +1,9 @@
 <docs lang="zh-CN">
-多字段搜索，使用 `showSearch.optionFilterProp` 传入数组对多个字段进行匹配。
+多字段搜索，使用 `optionFilterProp` 传入数组对多个字段进行匹配。
 </docs>
 
 <docs lang="en-US">
-Multiple fields search with `showSearch.optionFilterProp` as array.
+Multiple fields search with `optionFilterProp` as array.
 </docs>
 
 <script setup lang="ts">
@@ -18,7 +18,8 @@ const options = [
 <template>
   <a-select
     placeholder="Select an option"
-    :show-search="{ optionFilterProp: ['label', 'otherField'] }"
+    show-search
+    :option-filter-prop="['label', 'otherField']"
     :options="options"
   />
 </template>
