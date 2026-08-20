@@ -256,11 +256,6 @@ watch(activeCodeType, () => {
   })
 })
 
-function handleCodeChange(newCode: string) {
-  currentCode.value = newCode
-  debouncedCompile(newCode)
-}
-
 const debouncedCompile = useDebounceFn(async (newCode: string) => {
   // 伴生文件 tab 不参与主 demo 的实时编译
   if (activeExtraFile.value)
@@ -280,6 +275,11 @@ const debouncedCompile = useDebounceFn(async (newCode: string) => {
     compileError.value = error
   }
 }, 300)
+
+function handleCodeChange(newCode: string) {
+  currentCode.value = newCode
+  debouncedCompile(newCode)
+}
 
 const sandpackTheme = computed(() => appStore.darkMode ? atomDark : aquaBlue)
 
