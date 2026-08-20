@@ -228,6 +228,11 @@ watch(
   (version, previousVersion) => {
     if (version === previousVersion)
       return
+    // 如果用户正在编辑，暂缓重载，避免覆盖编辑内容
+    if (currentCode.value !== null || liveComponent.value !== null) {
+      sourceStale = true
+      return
+    }
     if (showCode.value) {
       releaseSource()
       void ensureSourceLoaded().catch(() => {})
@@ -251,8 +256,7 @@ watch(activeCodeType, () => {
   })
 })
 
-const handleCodeChange = useDebounceFn(async (newCode: string) => {
-  currentCode.value = newCode
+const debouncedCompile = useDebounceFn(async (newCode: string) => {
   // 伴生文件 tab 不参与主 demo 的实时编译
   if (activeExtraFile.value)
     return
@@ -272,6 +276,11 @@ const handleCodeChange = useDebounceFn(async (newCode: string) => {
   }
 }, 300)
 
+function handleCodeChange(newCode: string) {
+  currentCode.value = newCode
+  debouncedCompile(newCode)
+}
+
 const sandpackTheme = computed(() => appStore.darkMode ? atomDark : aquaBlue)
 
 const sandpackFiles = computed(() => {
@@ -290,6 +299,11 @@ const sandpackActiveFile = computed(() => {
     return extraFileToSandpackPath(activeExtraFile.value.name)
   return '/src/App.vue'
 })
+
+const sandpackOptions = computed(() => ({
+  autorun: false,
+  activeFile: sandpackActiveFile.value,
+}))
 const active = computed(() => route.hash === `#${id.value}`)
 function handleScroll(e: Event) {
   e.preventDefault()
@@ -464,7 +478,7 @@ async function handleOpenPlayground() {
               template="vite-vue-ts"
               :files="sandpackFiles"
               :theme="sandpackTheme"
-              :options="{ autorun: false, activeFile: sandpackActiveFile }"
+              :options="sandpackOptions"
             >
               <CodeEditorBridge
                 ref="editorBridgeRef"
