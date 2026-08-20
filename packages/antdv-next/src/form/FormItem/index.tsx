@@ -9,7 +9,6 @@ import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { computed, createVNode, defineComponent, isVNode, onBeforeUnmount, shallowRef, watch } from 'vue'
 import { getSlotPropsFnRun } from '../../_util/tools.ts'
-import { checkRenderNode } from '../../_util/vueNode.ts'
 import { useComponentBaseConfig } from '../../config-provider/context'
 import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls'
 import { useFormContext, useFormItemProvider, useNoStyleItemContext } from '../context.tsx'
@@ -532,7 +531,10 @@ const InternalFormItem = defineComponent<
       triggerFocus: onFieldFocus,
     })
     return () => {
-      const children: any = checkRenderNode(filterEmpty(slots.default?.() ?? []))
+      // Keep children as a flat array so toggling a sibling (e.g. `v-if`) only
+      // patches positionally instead of swapping between a bare vnode and a
+      // Fragment wrapper, which would remount every child. See issue #762.
+      const children: any = filterEmpty(slots.default?.() ?? [])
       return renderLayout(
         children,
         fieldId.value,
@@ -546,8 +548,8 @@ const InternalFormItem = defineComponent<
       isRequiredMark?: boolean,
     ) {
       // 判断children是否为单一的元素，如果是则塞入onBlur用以触发校验
-      if ((Array.isArray(baseChildren) && baseChildren.length === 1 && isVNode(baseChildren[0])) || isVNode(baseChildren)) {
-        const child = isVNode(baseChildren) ? baseChildren : baseChildren[0]
+      if (Array.isArray(baseChildren) && baseChildren.length === 1 && isVNode(baseChildren[0])) {
+        const child = baseChildren[0]
         const childProps = child.props || {}
         const _onBlur = childProps.onBlur
         const _onFocus = childProps.onFocus
@@ -616,7 +618,8 @@ const InternalFormItem = defineComponent<
         if (props.required ?? isRequiredMark) {
           newChildProps['aria-required'] = 'true'
         }
-        baseChildren = createVNode(child, newChildProps)
+        // Keep the array shape stable across renders (see issue #762).
+        baseChildren = [createVNode(child, newChildProps)]
       }
       if (props.noStyle && !props.hidden) {
         return (

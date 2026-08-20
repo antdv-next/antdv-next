@@ -38,7 +38,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | --- | --- | --- | --- | --- | --- |
 | direction | Direction control | 'ltr' \| 'rtl' | - | - | × |
 
-### Typography.Text {#typography-text}
+### TypographyText {#typography-text}
 
 #### Props {#typography-text-props}
 
@@ -65,7 +65,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | --- | --- | --- | --- |
 | click | Set the handler to handle click event | (event: MouseEvent) =&gt; void | - |
 
-### Typography.Title {#typography-title}
+### TypographyTitle {#typography-title}
 
 #### Props {#typography-title-props}
 
@@ -91,7 +91,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | --- | --- | --- | --- |
 | click | Set the handler to handle click event | (event: MouseEvent) =&gt; void | - |
 
-### Typography.Paragraph {#typography-paragraph}
+### TypographyParagraph {#typography-paragraph}
 
 #### Props {#typography-paragraph-props}
 

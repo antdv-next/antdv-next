@@ -2124,6 +2124,7 @@ exports[`card demo > renders loading correctly 1`] = `
 >
   <button
     aria-checked="false"
+    aria-label="Show card content"
     checked="false"
     class="ant-switch css-var-root"
     data-v-b2133cf4=""

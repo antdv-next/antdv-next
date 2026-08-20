@@ -79,7 +79,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | maxTagTextLength | Max tag text length to show | number | - | - | × |
 | menuItemSelectedIcon | The custom menuItemSelected icon with multiple options | VueNode | - | - | ✓ |
 | mode | Set mode of Select | 'multiple' \| 'tags' | - | - | × |
-| notFoundContent | Specify content to show when no result matches | VueNode | `Not Found` | - | × |
+| notFoundContent | Specify content to show when no result matches | VueNode | `No data` | - | × |
 | open | Controlled open state of dropdown | boolean | - | - | × |
 | optionFilterProp | Which prop value of option will be used for filter if filterOption is true. If options is set, it should be set to label. When a string[] is provided, multiple fields are searched using OR matching | string \| string[] | value | - | × |
 | options | Select options. Will get better perf than jsx definition | &#123; label: VueNode; value: string &#125;[] | - | - | × |

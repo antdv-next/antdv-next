@@ -104,15 +104,6 @@ const router = useRouter()
 const appStore = useAppStore()
 const { t } = useLocale()
 
-const codeType = computed<DemoCodeType>({
-  get() {
-    return appStore.demoCodeType
-  },
-  set(value) {
-    appStore.setDemoCodeType(value)
-  },
-})
-
 const hasJsSource = computed(() => {
   const jsSource = sourceData.value?.jsSource?.trim()
   return Boolean(jsSource)
@@ -129,19 +120,26 @@ const codeTabKeys = computed(() => {
   return keys
 })
 
-// 当前激活的代码 tab。ts/js 偏好持久化到全局 store，多文件 tab 仅作用于当前 demo。
+// ts/js 切换改为 demo 级别隔离：每个 Demo 实例维护独立的偏好，
+// 初始值取自全局 store 以保持刷新后持久化，切换时同步写回全局 store
+// 但不通过 computed 依赖全局状态，避免一个 demo 切换导致所有 demo 同步切换。
+const localTsJs = shallowRef<DemoCodeType>(appStore.demoCodeType)
 const localCodeKey = shallowRef<string | null>(null)
 
 const activeCodeType = computed<string>({
   get() {
-    const preferred = localCodeKey.value ?? codeType.value
+    if (localCodeKey.value && codeTabKeys.value.includes(localCodeKey.value))
+      return localCodeKey.value
+    const preferred = localTsJs.value
     if (codeTabKeys.value.includes(preferred))
       return preferred
     return 'ts'
   },
   set(value) {
     if (value === 'ts' || value === 'js') {
-      codeType.value = value
+      localTsJs.value = value
+      // 持久化到全局，供新挂载的 demo 或刷新后使用，但不触发已挂载 demo 的联动
+      appStore.setDemoCodeType(value)
       localCodeKey.value = null
     }
     else {
@@ -228,6 +226,11 @@ watch(
   (version, previousVersion) => {
     if (version === previousVersion)
       return
+    // 如果用户正在编辑，暂缓重载，避免覆盖编辑内容
+    if (currentCode.value !== null || liveComponent.value !== null) {
+      sourceStale = true
+      return
+    }
     if (showCode.value) {
       releaseSource()
       void ensureSourceLoaded().catch(() => {})
@@ -251,8 +254,7 @@ watch(activeCodeType, () => {
   })
 })
 
-const handleCodeChange = useDebounceFn(async (newCode: string) => {
-  currentCode.value = newCode
+const debouncedCompile = useDebounceFn(async (newCode: string) => {
   // 伴生文件 tab 不参与主 demo 的实时编译
   if (activeExtraFile.value)
     return
@@ -272,6 +274,11 @@ const handleCodeChange = useDebounceFn(async (newCode: string) => {
   }
 }, 300)
 
+function handleCodeChange(newCode: string) {
+  currentCode.value = newCode
+  debouncedCompile(newCode)
+}
+
 const sandpackTheme = computed(() => appStore.darkMode ? atomDark : aquaBlue)
 
 const sandpackFiles = computed(() => {
@@ -290,6 +297,11 @@ const sandpackActiveFile = computed(() => {
     return extraFileToSandpackPath(activeExtraFile.value.name)
   return '/src/App.vue'
 })
+
+const sandpackOptions = computed(() => ({
+  autorun: false,
+  activeFile: sandpackActiveFile.value,
+}))
 const active = computed(() => route.hash === `#${id.value}`)
 function handleScroll(e: Event) {
   e.preventDefault()
@@ -464,7 +476,7 @@ async function handleOpenPlayground() {
               template="vite-vue-ts"
               :files="sandpackFiles"
               :theme="sandpackTheme"
-              :options="{ autorun: false, activeFile: sandpackActiveFile }"
+              :options="sandpackOptions"
             >
               <CodeEditorBridge
                 ref="editorBridgeRef"
