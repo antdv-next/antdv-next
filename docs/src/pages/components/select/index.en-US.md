@@ -21,6 +21,7 @@ demo:
 <demo-group>
   <demo src="./demo/basic.vue">Basic Usage</demo>
   <demo src="./demo/search.vue">Select with search field</demo>
+  <demo src="./demo/multiple-fields-search.vue">Multiple fields search</demo>
   <demo src="./demo/search-filter-option.vue">Custom Search</demo>
   <demo src="./demo/multiple.vue">Multiple selection</demo>
   <demo src="./demo/size.vue">Sizes</demo>
