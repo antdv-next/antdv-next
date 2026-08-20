@@ -136,7 +136,7 @@ export const components: AntdvMenuItem[] = [
       { key: '/components/empty', label: '/components/empty' },
       { key: '/components/image', label: '/components/image' },
       // { key: '/components/list', label: '/components/list', tag: 'DEPRECATED' },
-      { key: '/components/listy', label: '/components/listy', tag: 'beta' },
+      { key: '/components/listy', label: '/components/listy', tag: '1.5.0' },
       { key: '/components/popover', label: '/components/popover' },
       { key: '/components/qr-code', label: '/components/qr-code' },
       { key: '/components/segmented', label: '/components/segmented' },
