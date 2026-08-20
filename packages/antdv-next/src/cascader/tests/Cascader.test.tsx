@@ -385,6 +385,25 @@ describe('cascader', () => {
     expect(Cascader.Panel).toBe(CascaderPanel)
   })
 
+  it('should support notFoundContent={null}', async () => {
+    document.body.innerHTML = ''
+    const wrapper = mount(Cascader, {
+      props: { open: true, options: [], notFoundContent: null },
+      attachTo: document.body,
+    })
+    await nextTick()
+    expect(document.querySelector('.ant-empty')).toBeNull()
+    wrapper.unmount()
+  })
+
+  it('should support notFoundContent={null} in panel', () => {
+    const wrapper = mount(CascaderPanel, {
+      props: { options: [], notFoundContent: null },
+    })
+    expect(wrapper.find('.ant-empty').exists()).toBe(false)
+    wrapper.unmount()
+  })
+
   it('should support Cascader.SHOW_PARENT and SHOW_CHILD', () => {
     expect(Cascader.SHOW_PARENT).toBeDefined()
     expect(Cascader.SHOW_CHILD).toBeDefined()
