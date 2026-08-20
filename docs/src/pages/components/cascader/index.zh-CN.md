@@ -88,7 +88,7 @@ demo:
 | displayRender | 选择后展示的渲染函数 | (label, selectedOptions) => VueNode | - |
 | expandIcon | 自定义次级菜单展开图标 | VueNode | - |
 | loadingIcon | 延迟加载的外观（现已无用） | VueNode | - |
-| notFoundContent | 当下拉列表为空时显示的内容 | VueNode | - |
+| notFoundContent | 当下拉列表为空时显示的内容 | VueNode | `暂无数据` |
 | optionRender | 自定义渲染下拉选项 | (option: Option) => VueNode | - |
 | popupRender | 自定义下拉框内容 | (menus: VueNode) => VueNode | - |
 | prefix | 自定义前缀 | VueNode | - |

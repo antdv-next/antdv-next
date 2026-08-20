@@ -82,7 +82,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | displayRender | The render function of displaying selected options | (label, selectedOptions) => VueNode | - |
 | expandIcon | Customize the current item expand icon | VueNode | - |
 | loadingIcon | The appearance of lazy loading (now is useless) | VueNode | - |
-| notFoundContent | Specify content to show when no result matches | VueNode | - |
+| notFoundContent | Specify content to show when no result matches | VueNode | `No data` |
 | optionRender | Customize the rendering dropdown options | (option: Option) => VueNode | - |
 | popupRender | Customize dropdown content | (menus: VueNode) => VueNode | - |
 | prefix | The custom prefix | VueNode | - |

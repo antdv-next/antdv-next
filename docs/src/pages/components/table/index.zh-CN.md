@@ -319,7 +319,7 @@ const onHeaderRow: TableProps['onHeaderRow'] = (columns, index) => {
 | renderCell | 渲染勾选框，用法与 Column 的 `render` 相同 | (checked: boolean, record: T, index: number, originNode: VueNode): VueNode | - | - |
 | selectedRowKeys | 指定选中项的 key 数组，需要和 onChange 进行配合 | string\[] \| number\[] | \[] | - |
 | defaultSelectedRowKeys | 默认选中项的 key 数组 | string\[] \| number\[] | \[] | - |
-| selections | 自定义选择项 [配置项](#selection), 设为 `true` 时使用默认选择项 | object\[] \| boolean | true | - |
+| selections | 自定义选择项 [配置项](#selection), 设为 `true` 时使用默认选择项 | object\[] \| boolean | - | - |
 | type | 多选/单选 | `checkbox` \| `radio` | `checkbox` | - |
 | onCell | 设置单元格属性，用法与 Column 的 `onCell` 相同 | function(record, rowIndex) | - | - |
 | onChange | 选中项发生变化时的回调 | function(selectedRowKeys, selectedRows, info: \{ type \}) | - | - |
