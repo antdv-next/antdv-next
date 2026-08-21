@@ -64,6 +64,7 @@ catalogs:
     '@antdv-next/img-crop': ^0.0.2
     '@antdv-next/unocss': ^1.1.1
     '@codesandbox/sandpack-themes': ^2.0.21
+    '@dnd-kit/abstract': ^0.5.0
     '@dnd-kit/dom': ^0.5.0
     '@dnd-kit/vue': ^0.5.0
     '@mdit-vue/plugin-frontmatter': 3.0.2

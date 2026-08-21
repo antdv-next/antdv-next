@@ -9,6 +9,7 @@ Implement drag sorting for list items by integrating the third-party library [dn
 <script setup lang="ts">
 import type { DragEndEvent } from '@dnd-kit/vue'
 import { HolderOutlined } from '@antdv-next/icons'
+import { RestrictToVerticalAxis } from '@dnd-kit/abstract/modifiers'
 import { PointerActivationConstraints } from '@dnd-kit/dom'
 import { DragDropProvider, KeyboardSensor, PointerSensor } from '@dnd-kit/vue'
 import { isSortable, useSortable } from '@dnd-kit/vue/sortable'
@@ -35,28 +36,26 @@ const data = ref<Item[]>(items)
 
 const SortableItem = defineComponent<SortableItemProps>(
   (props) => {
-    // useSortable needs real DOM elements: unwrap component instances to their $el
-    const element = ref<HTMLElement>()
+    const contentEl = ref<HTMLElement>()
     const handle = ref<HTMLElement>()
-    const setElement = (el: any) => {
-      element.value = el?.$el ?? el ?? undefined
+    const setContentEl = (el: any) => {
+      contentEl.value = el?.$el ?? el ?? undefined
     }
     const setHandle = (el: any) => {
       handle.value = el?.$el ?? el ?? undefined
     }
-    const { isDragging } = useSortable({
+    useSortable({
       id: () => props.id,
       index: () => props.index,
-      element,
+      element: () => contentEl.value?.parentElement,
       handle,
     })
     return () => h(
       Flex,
       {
-        ref: setElement,
+        ref: setContentEl,
         align: 'center',
         gap: 'small',
-        style: isDragging.value ? { position: 'relative', zIndex: 1 } : undefined,
       },
       () => [
         h(Button, {
@@ -84,6 +83,8 @@ const sensors = [
   KeyboardSensor,
 ]
 
+const modifiers = [RestrictToVerticalAxis]
+
 function onDragEnd(event: DragEndEvent) {
   if (event.canceled)
     return
@@ -104,7 +105,7 @@ function onDragEnd(event: DragEndEvent) {
 </script>
 
 <template>
-  <DragDropProvider :sensors="sensors" @drag-end="onDragEnd">
+  <DragDropProvider :sensors="sensors" :modifiers="modifiers" @drag-end="onDragEnd">
     <a-listy
       :items="data"
       :height="400"
@@ -113,3 +114,10 @@ function onDragEnd(event: DragEndEvent) {
     />
   </DragDropProvider>
 </template>
+
+<style scoped>
+:deep(.ant-listy-item[data-dnd-dragging]) {
+  background: var(--ant-color-bg-container);
+  box-shadow: var(--ant-box-shadow-tertiary);
+}
+</style>
