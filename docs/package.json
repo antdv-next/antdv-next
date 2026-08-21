@@ -22,6 +22,7 @@
     "@antdv-next/img-crop": "catalog:docs",
     "@antdv-next/unocss": "catalog:docs",
     "@codesandbox/sandpack-themes": "catalog:docs",
+    "@dnd-kit/abstract": "catalog:docs",
     "@dnd-kit/dom": "catalog:docs",
     "@dnd-kit/vue": "catalog:docs",
     "@vue/compiler-sfc": "catalog:docs",

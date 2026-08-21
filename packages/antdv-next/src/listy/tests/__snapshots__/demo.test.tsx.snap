@@ -1412,6 +1412,9 @@ exports[`listy demo > renders drag-sorting correctly 1`] = `
       </div>
     </div>
   </div>
+  <div
+    data-dnd-overlay="true"
+  />
 </div>
 `;
 
