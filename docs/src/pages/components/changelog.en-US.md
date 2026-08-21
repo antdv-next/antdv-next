@@ -2,6 +2,51 @@
 title: Component Changelog
 ---
 
+## V1.5.2
+
+Release Date: 2026-08-21
+
+This release advances the ant-design upstream sync through **6.6.1** and onward to `e216c46b1e`. It focuses on stability and accessibility: Form fixes rapid-validation layout shifts, vertical-layout offsets and conditional children being remounted; Table, Transfer, Anchor and Radio correct duplicate callbacks or interaction semantics; and Carousel, Modal, Notification and Upload gain localized accessible labels. Published packages now also include design-token metadata for direct consumption by theming tools.
+
+**✨ Features**
+
+* feat(build): ship `token.json` and `token-meta.json` under `dist/version`, with `antdv-next/version/token.json` and `antdv-next/version/token-meta.json` export paths for theme editors and design tools
+* feat(carousel): localize the default previous/next arrow `aria-label` values through ConfigProvider locale instead of hard-coding English `prev` / `next` (#59014)
+
+**🐞 Fixes**
+
+* fix(form): retain the compensated bottom margin while validation errors switch rapidly, preventing form height fluctuation (#59008); preserve Form's `labelCol.offset` in vertical layout (#58981)
+* fix(form): keep the FormItem child array shape stable so conditionally rendering a sibling no longer remounts form controls or loses their input and internal state ([#764](https://github.com/antdv-next/antdv-next/pull/764))
+* fix(form, locale): correct placeholders in the number, string and array `min` validation messages (#58965)
+* fix(table): avoid duplicate callbacks when a filter menu closes; preserve caller-controlled close and confirm semantics for custom `filterDropdown`; restore first-row radii when the header is hidden (#59023, #57035)
+* fix(transfer): honor component-level `locale.remove` for one-way removal buttons; emit `onSearch` only once when clearing the search input (#58955, #59016)
+* fix(upload): preserve files added while an asynchronous removal is pending; use localized `title` and `aria-label` values for preview, download and remove actions ([#724](https://github.com/antdv-next/antdv-next/pull/724), #58953)
+* fix(radio): fire an option's own `onChange` before the group-level `change` when Radio.Group renders from `options` ([#716](https://github.com/antdv-next/antdv-next/pull/716))
+* fix(anchor): avoid duplicate `change` emissions when `getCurrentAnchor` is provided while retaining reactive tracking inside the function (#58834)
+* fix(menu): prevent Tooltip flashes when an inline menu collapses while hovered, remove icon jitter during collapse, and resolve the conflicting `SubMenuProps.title` type (#58865, #59018, [#759](https://github.com/antdv-next/antdv-next/pull/759))
+* fix(color-picker): keep color selection draggable after clearing; apply trigger description text styling from `styles.description` instead of mistakenly reading `classes.description` (#58995)
+* fix(float-button): keep the BackTop scroll-progress ring visible whenever the button is shown (#58982)
+* fix(notification, modal): localize close-button names and pass the global locale to the static Notification API; restore the default `24px` bottom offset instead of mistakenly using the `4.5`-second default duration ([#756](https://github.com/antdv-next/antdv-next/pull/756), #58957)
+* fix(collapse, date-picker): hide decorative collapse arrows and range separators from screen readers to prevent duplicate announcements ([#741](https://github.com/antdv-next/antdv-next/pull/741), [#740](https://github.com/antdv-next/antdv-next/pull/740))
+* fix(tree): handle a node key of `0` correctly in DirectoryTree range selection ([#757](https://github.com/antdv-next/antdv-next/pull/757))
+* fix(select): keep customized inputs aligned while hovering the clear button ([#727](https://github.com/antdv-next/antdv-next/pull/727))
+
+**💄 Styles**
+
+* fix(listy): improve virtual scrollbar track hover feedback (#58964)
+
+**📖 Documentation**
+
+* docs(listy): add a drag-sorting demo; add a Select multiple-fields search demo ([#768](https://github.com/antdv-next/antdv-next/pull/768))
+* fix(docs): prevent demo edits from being reverted after lazy HTTP loading and isolate each demo's TypeScript / JavaScript toggle state ([#765](https://github.com/antdv-next/antdv-next/pull/765), [#766](https://github.com/antdv-next/antdv-next/pull/766))
+* docs: sync upstream API tables and heading anchors, clarify Form label association, Alert accessibility and the Transfer locale default, and add a Qixi festival easter-egg page
+
+**🧰 Infrastructure & Dependencies**
+
+* chore(sync): sync ant-design **6.6.1** and subsequent changes through `e216c46b1e`
+* chore(deps): upgrade `@v-c/select` to 1.2.4 and `@v-c/pagination` to 1.1.1
+* build: generate the docs site's `antd.css` at build time instead of committing the generated asset; update tsdown external-dependency configuration for the newer API
+
 ## V1.5.1
 
 Release Date: 2026-08-14

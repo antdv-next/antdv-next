@@ -2,6 +2,51 @@
 title: 组件更新日志
 ---
 
+## V1.5.2
+
+发布日期：2026-08-21
+
+本次版本将 ant-design 上游同步推进到 **6.6.1** 之后的 `e216c46b1e`。更新重点是稳定性与可访问性：Form 修复快速校验抖动、垂直布局偏移和条件子节点被重挂载；Table、Transfer、Anchor、Radio 等组件修正重复回调或交互语义；Carousel、Modal、Notification 与 Upload 补齐本地化的无障碍标签。同时，发布包开始携带设计 token 元数据，方便主题工具直接消费。
+
+**✨ 新功能 Features**
+
+* feat(build)：在发布包的 `dist/version` 中提供 `token.json` 与 `token-meta.json`，并开放 `antdv-next/version/token.json`、`antdv-next/version/token-meta.json` 导出路径，便于主题编辑器和设计工具读取 token 数据
+* feat(carousel)：默认前后切换按钮的 `aria-label` 接入 ConfigProvider locale，不再固定使用英文 `prev` / `next`（#59014）
+
+**🐞 问题修复 Fixes**
+
+* fix(form)：快速切换校验错误时保留已补偿的底部间距，避免表单高度抖动（#59008）；垂直布局继续遵循 Form 的 `labelCol.offset`（#58981）
+* fix(form)：FormItem 始终保持子节点数组结构稳定，条件渲染相邻节点时不再重挂载表单控件，避免输入状态和组件内部状态意外丢失（[#764](https://github.com/antdv-next/antdv-next/pull/764)）
+* fix(form, locale)：修正数字、字符串与数组 `min` 校验消息中的占位符（#58965）
+* fix(table)：筛选菜单关闭时不再重复触发回调；自定义 `filterDropdown` 继续由调用方控制关闭与确认语义；隐藏表头时首行恢复圆角（#59023、#57035）
+* fix(transfer)：单向模式的移除按钮遵循组件级 `locale.remove`；点击清除搜索框时 `onSearch` 仅触发一次（#58955、#59016）
+* fix(upload)：异步移除文件期间新加入的文件不再被旧状态覆盖；预览、下载和移除操作使用本地化的 `title` 与 `aria-label`（[#724](https://github.com/antdv-next/antdv-next/pull/724)，#58953）
+* fix(radio)：Radio.Group 通过 `options` 渲染时，选项自身的 `onChange` 会在组级 `change` 之前正确触发（[#716](https://github.com/antdv-next/antdv-next/pull/716)）
+* fix(anchor)：提供 `getCurrentAnchor` 时避免重复触发 `change`，同时保留函数内部响应式依赖的追踪（#58834）
+* fix(menu)：内联菜单在鼠标悬停期间收起时不再闪现 Tooltip，移除收起过程中的图标抖动；修正 `SubMenuProps.title` 的冲突类型（#58865、#59018、[#759](https://github.com/antdv-next/antdv-next/pull/759)）
+* fix(color-picker)：清空颜色后仍可继续拖动选择；触发器描述文本正确使用 `styles.description`，不再误用 `classes.description`（#58995）
+* fix(float-button)：BackTop 的滚动进度圆环在按钮可见时保持显示（#58982）
+* fix(notification, modal)：关闭按钮名称遵循 locale，静态 Notification API 会继承全局 locale；底部通知未配置偏移时恢复使用默认偏移量 `24px`，不再误用默认持续时间 `4.5`（#58957、[#756](https://github.com/antdv-next/antdv-next/pull/756)）
+* fix(collapse, date-picker)：将折叠箭头与日期范围分隔符标记为装饰元素，避免屏幕阅读器重复朗读（[#741](https://github.com/antdv-next/antdv-next/pull/741)、[#740](https://github.com/antdv-next/antdv-next/pull/740)）
+* fix(tree)：DirectoryTree 范围选择正确处理值为 `0` 的节点 key（[#757](https://github.com/antdv-next/antdv-next/pull/757)）
+* fix(select)：修复自定义输入框在清除按钮悬停时的对齐问题（[#727](https://github.com/antdv-next/antdv-next/pull/727)）
+
+**💄 样式 Styles**
+
+* fix(listy)：增强虚拟滚动条轨道的 hover 反馈（#58964）
+
+**📖 文档 Documentation**
+
+* docs(listy)：新增拖拽排序演示；Select 新增多字段搜索演示（[#768](https://github.com/antdv-next/antdv-next/pull/768)）
+* fix(docs)：修复远程按需加载 demo 后编辑内容被还原，以及不同 demo 的 TypeScript / JavaScript 切换状态互相影响的问题（[#765](https://github.com/antdv-next/antdv-next/pull/765)、[#766](https://github.com/antdv-next/antdv-next/pull/766)）
+* docs：同步上游 API 表格与标题锚点，补充表单标签关联、Alert 可访问性、Transfer locale 默认值等说明；新增七夕主题彩蛋页
+
+**🧰 工程与依赖 Infrastructure & Dependencies**
+
+* chore(sync)：同步 ant-design **6.6.1** 及后续变更至 `e216c46b1e`
+* chore(deps)：升级 `@v-c/select` 至 1.2.4、`@v-c/pagination` 至 1.1.1
+* build：文档站的 `antd.css` 改为构建时生成，不再提交生成产物；更新 tsdown 外部依赖配置以适配新版 API
+
 ## V1.5.1
 
 发布日期：2026-08-14
