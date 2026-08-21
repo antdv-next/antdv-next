@@ -274,4 +274,17 @@ describe('avatar.Group', () => {
     ))
     expect(wrapper.html()).toMatchSnapshot()
   })
+
+  // ========================= Ref =========================
+  it('should support Avatar.Group nativeElement ref', async () => {
+    const groupRef = ref<any>()
+    const wrapper = mount(() => (
+      <Avatar.Group ref={groupRef}>
+        <Avatar>A</Avatar>
+      </Avatar.Group>
+    ))
+    await nextTick()
+    expect(groupRef.value?.nativeElement).toBeInstanceOf(HTMLElement)
+    expect(groupRef.value.nativeElement).toBe(wrapper.find('.ant-avatar-group').element)
+  })
 })

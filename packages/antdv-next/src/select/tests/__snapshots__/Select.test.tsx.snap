@@ -14,7 +14,6 @@ exports[`select > rtl render > component should be rendered correctly in RTL dir
     >
       <div
         class="ant-select-placeholder"
-        style="visibility: visible;"
       >
         <!---->
       </div>
@@ -24,12 +23,12 @@ exports[`select > rtl render > component should be rendered correctly in RTL dir
         aria-expanded="false"
         aria-haspopup="listbox"
         aria-owns="test-id_list"
-        autocomplete="off"
+        autocomplete="new-password"
         class="ant-select-input"
         id="test-id"
         readonly=""
         role="combobox"
-        type="search"
+        type="text"
         value=""
       />
     </div>

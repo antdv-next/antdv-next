@@ -912,6 +912,7 @@ exports[`mentions demo > renders form correctly 1`] = `
               class="ant-mentions css-var-root ant-mentions-css-var ant-mentions-outlined ant-mentions css-var-root ant-mentions-css-var"
             >
               <textarea
+                aria-required="true"
                 class="vc-textarea"
                 id="bio"
                 placeholder="You can use @ to ref user here"
@@ -1053,6 +1054,20 @@ exports[`mentions demo > renders form correctly 1`] = `
 `;
 
 exports[`mentions demo > renders placement correctly 1`] = `
+<div
+  class="ant-mentions css-var-root ant-mentions-css-var ant-mentions-outlined ant-mentions css-var-root ant-mentions-css-var"
+  style="width: 100%;"
+>
+  <textarea
+    class="vc-textarea"
+    rows="1"
+    value=""
+  />
+  <!---->
+</div>
+`;
+
+exports[`mentions demo > renders popup-render correctly 1`] = `
 <div
   class="ant-mentions css-var-root ant-mentions-css-var ant-mentions-outlined ant-mentions css-var-root ant-mentions-css-var"
   style="width: 100%;"

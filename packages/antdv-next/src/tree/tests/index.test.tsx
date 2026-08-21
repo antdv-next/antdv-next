@@ -443,6 +443,50 @@ describe('tree', () => {
     expect(item.element).toHaveStyle(testStyles.item)
   })
 
+  describe('scrollTo', () => {
+    const scrollTreeData = [
+      {
+        title: 'parent',
+        key: 'parent',
+        children: [{ title: 'child', key: 'child' }],
+      },
+    ]
+
+    it('support autoExpand', async () => {
+      const treeRef = ref<any>()
+      const wrapper = mount({
+        render: () => <Tree ref={treeRef} treeData={scrollTreeData} />,
+      })
+
+      expect(wrapper.findAll('.ant-tree-treenode[role="treeitem"]')).toHaveLength(1)
+
+      treeRef.value?.scrollTo({ key: 'parent', autoExpand: true })
+      await nextTick()
+
+      expect(wrapper.findAll('.ant-tree-treenode[role="treeitem"]')).toHaveLength(2)
+    })
+
+    it('autoExpand should not touch controlled expandedKeys', async () => {
+      const treeRef = ref<any>()
+      const wrapper = mount({
+        render: () => <Tree ref={treeRef} treeData={scrollTreeData} expandedKeys={[]} />,
+      })
+
+      treeRef.value?.scrollTo({ key: 'parent', autoExpand: true })
+      await nextTick()
+
+      expect(wrapper.findAll('.ant-tree-treenode[role="treeitem"]')).toHaveLength(1)
+    })
+  })
+
+  it('support useTree', () => {
+    const { getPath } = Tree.useTree([
+      { title: 'bamboo', key: 'bamboo', children: [{ title: 'little', key: 'little' }] },
+    ])
+
+    expect(getPath('little').map(({ key }) => key)).toEqual(['bamboo', 'little'])
+  })
+
   describe('form disabled', () => {
     it('should support Form disabled', () => {
       const wrapper = mount({

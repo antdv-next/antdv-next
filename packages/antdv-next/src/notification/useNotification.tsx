@@ -14,13 +14,15 @@ import type {
 import { useNotificationProvider, useNotification as useVcNotification } from '@v-c/notification'
 import { clsx } from '@v-c/util'
 import { computed, defineComponent, shallowRef, unref } from 'vue'
-import { mergeClassNames, mergeStyles, resolveStyleOrClass, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { mergeClassNames, mergeStyles, resolveStyleOrClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { computeClosable, pickClosable } from '../_util/hooks/useClosable.tsx'
 import { isRenderable } from '../_util/is.ts'
 import { toPropsRefs } from '../_util/tools.ts'
 import { devUseWarning } from '../_util/warning.ts'
 import { useBaseConfig, useComponentBaseConfig } from '../config-provider/context'
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
+import defaultLocale from '../locale/en_US'
+import useLocale from '../locale/useLocale'
 import { useToken } from '../theme/internal.ts'
 import { getCloseIcon, getIconWrapperClassName, resolveIconNode } from './PurePanel.tsx'
 import useStyle from './style'
@@ -42,6 +44,7 @@ interface HolderRef extends NotificationAPI {
   notification?: CPNotificationConfig
   classNames: NotificationSemanticClassNames
   styles: NotificationSemanticStyles
+  closeLabel: string
 }
 
 const Wrapper = defineComponent<{
@@ -81,8 +84,9 @@ const holderDefaultProps = {
 const Holder = defineComponent<HolderProps>(
   (props = holderDefaultProps, { expose }) => {
     const { getPrefixCls, getPopupContainer, notification, direction } = useBaseConfig('notification')
+    const [contextLocale] = useLocale('global', defaultLocale.global)
 
-    const { classes: contextClassNames, styles: contextStyles } = useComponentBaseConfig('notification', props)
+    const { classes: contextClassNames, style: contextStyle, styles: contextStyles } = useComponentBaseConfig('notification', props)
     const { classes, styles } = toPropsRefs(props, 'classes', 'styles')
     const [,token] = useToken()
     const prefixCls = computed(() => props.prefixCls || getPrefixCls('notification'))
@@ -91,7 +95,7 @@ const Holder = defineComponent<HolderProps>(
     })
     // =============================== Style ===============================
     const getStyle = (placement: NotificationPlacement) => {
-      return getPlacementStyle(placement, props?.top ?? DEFAULT_OFFSET, props?.bottom ?? DEFAULT_DURATION)
+      return getPlacementStyle(placement, props?.top ?? DEFAULT_OFFSET, props?.bottom ?? DEFAULT_OFFSET)
     }
     const getClassName = () => clsx({
       [`${prefixCls.value}-rtl`]: props.rtl ?? direction.value === 'rtl',
@@ -126,11 +130,16 @@ const Holder = defineComponent<HolderProps>(
     const [api, holder] = useVcNotification(vcConfig as any)
 
     const mergedProps = computed(() => props)
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       NotificationClassNamesType,
       NotificationStylesType,
       HolderProps
-    >(useToArr(contextClassNames, classes), useToArr(contextStyles, styles), useToProps(mergedProps))
+    >(
+      useToArr(contextClassNames, classes),
+      useToArr(contextStyles, contextStyleRoot as any, styles),
+      useToProps(mergedProps),
+    )
 
     // ================================ Ref ================================
     expose({
@@ -139,6 +148,7 @@ const Holder = defineComponent<HolderProps>(
       notification,
       classNames: mergedClassNames,
       styles: mergedStyles,
+      closeLabel: computed(() => contextLocale.value?.close ?? defaultLocale.global?.close ?? 'Close'),
     })
     return () => {
       return holder?.() as any
@@ -179,9 +189,9 @@ export function useInternalNotification(
         notification,
         classNames: originClassNames,
         styles: originStyles,
+        closeLabel,
       } = holderRef.value
       const contextClassName = notification?.class || {}
-      const contextStyle = notification?.style || {}
       const noticePrefixCls = `${prefixCls}-notice`
 
       const {
@@ -217,6 +227,7 @@ export function useInternalNotification(
           closable: true,
           closeIcon: realCloseIcon,
         })),
+        closeLabel,
       )
 
       const mergedClosable = rawClosable
@@ -273,7 +284,7 @@ export function useInternalNotification(
           contextClassName,
           mergedClassNames.root,
         ),
-        style: { ...contextStyle, ...mergedStyles.root, ...style } as any,
+        style: { ...mergedStyles.root, ...style } as any,
         closable: mergedClosable,
       } as any)
     }

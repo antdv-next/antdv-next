@@ -48,6 +48,8 @@ exports[`form demo > renders _semantic correctly 1`] = `
                   class="ant-form-item-control-input-content semantic-mark-content"
                 >
                   <input
+                    aria-describedby="basic_username_help"
+                    aria-required="true"
                     class="ant-input ant-input-outlined css-var-v-0 ant-input-css-var"
                     id="basic_username"
                     type="text"
@@ -72,6 +74,7 @@ exports[`form demo > renders _semantic correctly 1`] = `
                 >
                   <div
                     class="ant-form-item-explain css-var-v-0 ant-form-css-var ant-form-item-explain-connected semantic-mark-help"
+                    id="basic_username_help"
                   >
                     <transition-group-stub
                       appear="true"
@@ -132,6 +135,8 @@ exports[`form demo > renders _semantic correctly 1`] = `
                   >
                     <!---->
                     <input
+                      aria-describedby="basic_password_extra"
+                      aria-required="true"
                       class="ant-input"
                       id="basic_password"
                       type="password"
@@ -1048,6 +1053,7 @@ exports[`form demo > renders advanced-search correctly 1`] = `
                 >
                   <!---->
                   <div
+                    aria-required="true"
                     class="ant-select ant-select-outlined ant-select-in-form-item css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
                   >
                     <!---->
@@ -1056,7 +1062,6 @@ exports[`form demo > renders advanced-search correctly 1`] = `
                     >
                       <div
                         class="ant-select-placeholder"
-                        style="visibility: visible;"
                       >
                         Select
                       </div>
@@ -1066,12 +1071,12 @@ exports[`form demo > renders advanced-search correctly 1`] = `
                         aria-expanded="false"
                         aria-haspopup="listbox"
                         aria-owns="advanced_search_field-0_list"
-                        autocomplete="off"
+                        autocomplete="new-password"
                         class="ant-select-input"
                         id="advanced_search_field-0"
                         readonly=""
                         role="combobox"
-                        type="search"
+                        type="text"
                         value=""
                       />
                     </div>
@@ -1161,6 +1166,7 @@ exports[`form demo > renders advanced-search correctly 1`] = `
                   class="ant-form-item-control-input-content"
                 >
                   <input
+                    aria-required="true"
                     class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                     id="advanced_search_field-1"
                     placeholder="placeholder"
@@ -1225,6 +1231,7 @@ exports[`form demo > renders advanced-search correctly 1`] = `
                   class="ant-form-item-control-input-content"
                 >
                   <input
+                    aria-required="true"
                     class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                     id="advanced_search_field-2"
                     placeholder="placeholder"
@@ -1290,6 +1297,7 @@ exports[`form demo > renders advanced-search correctly 1`] = `
                 >
                   <!---->
                   <div
+                    aria-required="true"
                     class="ant-select ant-select-outlined ant-select-in-form-item css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
                   >
                     <!---->
@@ -1298,7 +1306,6 @@ exports[`form demo > renders advanced-search correctly 1`] = `
                     >
                       <div
                         class="ant-select-placeholder"
-                        style="visibility: visible;"
                       >
                         Select
                       </div>
@@ -1308,12 +1315,12 @@ exports[`form demo > renders advanced-search correctly 1`] = `
                         aria-expanded="false"
                         aria-haspopup="listbox"
                         aria-owns="advanced_search_field-3_list"
-                        autocomplete="off"
+                        autocomplete="new-password"
                         class="ant-select-input"
                         id="advanced_search_field-3"
                         readonly=""
                         role="combobox"
-                        type="search"
+                        type="text"
                         value=""
                       />
                     </div>
@@ -1403,6 +1410,7 @@ exports[`form demo > renders advanced-search correctly 1`] = `
                   class="ant-form-item-control-input-content"
                 >
                   <input
+                    aria-required="true"
                     class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                     id="advanced_search_field-4"
                     placeholder="placeholder"
@@ -1467,6 +1475,7 @@ exports[`form demo > renders advanced-search correctly 1`] = `
                   class="ant-form-item-control-input-content"
                 >
                   <input
+                    aria-required="true"
                     class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                     id="advanced_search_field-5"
                     placeholder="placeholder"
@@ -1654,6 +1663,7 @@ exports[`form demo > renders basic correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="username"
               type="text"
@@ -1716,6 +1726,7 @@ exports[`form demo > renders basic correctly 1`] = `
             >
               <!---->
               <input
+                aria-required="true"
                 class="ant-input"
                 id="password"
                 type="password"
@@ -1951,6 +1962,7 @@ exports[`form demo > renders col-24-debug correctly 1`] = `
               class="ant-form-item-control-input-content"
             >
               <input
+                aria-required="true"
                 class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                 id="col-24-debug_username"
                 type="text"
@@ -2013,6 +2025,7 @@ exports[`form demo > renders col-24-debug correctly 1`] = `
               >
                 <!---->
                 <input
+                  aria-required="true"
                   class="ant-input"
                   id="col-24-debug_password"
                   type="password"
@@ -2171,11 +2184,11 @@ exports[`form demo > renders col-24-debug correctly 1`] = `
                       aria-expanded="false"
                       aria-haspopup="listbox"
                       aria-owns="col-24-debug_select_list"
-                      autocomplete="off"
+                      autocomplete="new-password"
                       class="ant-select-input"
                       id="col-24-debug_select"
                       role="combobox"
-                      type="search"
+                      type="text"
                       value=""
                     />
                   </div>
@@ -2333,6 +2346,7 @@ exports[`form demo > renders col-24-debug correctly 1`] = `
               class="ant-form-item-control-input-content"
             >
               <input
+                aria-required="true"
                 class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                 id="responsive_username"
                 type="text"
@@ -2395,6 +2409,7 @@ exports[`form demo > renders col-24-debug correctly 1`] = `
               >
                 <!---->
                 <input
+                  aria-required="true"
                   class="ant-input"
                   id="responsive_password"
                   type="password"
@@ -2628,11 +2643,11 @@ exports[`form demo > renders col-24-debug correctly 1`] = `
                       aria-expanded="false"
                       aria-haspopup="listbox"
                       aria-owns="select_list"
-                      autocomplete="off"
+                      autocomplete="new-password"
                       class="ant-select-input"
                       id="select"
                       role="combobox"
-                      type="search"
+                      type="text"
                       value=""
                     />
                   </div>
@@ -2770,6 +2785,7 @@ exports[`form demo > renders complex-form-control correctly 1`] = `
         class="ant-col ant-col-8 css-var-root ant-form-item-label"
       >
         <label
+          for="username"
           title="Username"
         >
           Username
@@ -2791,8 +2807,9 @@ exports[`form demo > renders complex-form-control correctly 1`] = `
                 class="ant-space-item"
               >
                 <input
+                  aria-required="true"
                   class="ant-input ant-input-outlined css-var-root ant-input-css-var"
-                  id="complex-form_username"
+                  id="username"
                   placeholder="Please input"
                   style="width: 160px;"
                   type="text"
@@ -2875,6 +2892,7 @@ exports[`form demo > renders complex-form-control correctly 1`] = `
             >
               <!---->
               <div
+                aria-required="true"
                 class="ant-select ant-select-outlined ant-select-in-form-item ant-select-compact-item ant-select-compact-first-item css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
               >
                 <!---->
@@ -2883,7 +2901,6 @@ exports[`form demo > renders complex-form-control correctly 1`] = `
                 >
                   <div
                     class="ant-select-placeholder"
-                    style="visibility: visible;"
                   >
                     Select province
                   </div>
@@ -2893,12 +2910,12 @@ exports[`form demo > renders complex-form-control correctly 1`] = `
                     aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-owns="complex-form_address_province_list"
-                    autocomplete="off"
+                    autocomplete="new-password"
                     class="ant-select-input"
                     id="complex-form_address_province"
                     readonly=""
                     role="combobox"
-                    type="search"
+                    type="text"
                     value=""
                   />
                 </div>
@@ -2931,6 +2948,7 @@ exports[`form demo > renders complex-form-control correctly 1`] = `
               </div>
               <!---->
               <input
+                aria-required="true"
                 class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-last-item css-var-root ant-input-css-var"
                 id="complex-form_address_street"
                 placeholder="Input street"
@@ -3008,6 +3026,7 @@ exports[`form demo > renders complex-form-control correctly 1`] = `
                       class="ant-form-item-control-input-content"
                     >
                       <input
+                        aria-required="true"
                         class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                         id="complex-form_year"
                         placeholder="Input birth year"
@@ -3058,6 +3077,7 @@ exports[`form demo > renders complex-form-control correctly 1`] = `
                       class="ant-form-item-control-input-content"
                     >
                       <input
+                        aria-required="true"
                         class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                         id="complex-form_month"
                         placeholder="Input birth month"
@@ -3219,6 +3239,7 @@ exports[`form demo > renders component-token correctly 1`] = `
               class="ant-form-item-control-input-content"
             >
               <input
+                aria-required="true"
                 class="ant-input ant-input-outlined css-var-v-0 ant-input-css-var"
                 id="username"
                 type="text"
@@ -3281,6 +3302,7 @@ exports[`form demo > renders component-token correctly 1`] = `
               >
                 <!---->
                 <input
+                  aria-required="true"
                   class="ant-input"
                   id="password"
                   type="password"
@@ -3453,6 +3475,7 @@ exports[`form demo > renders control-hooks correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="control-hooks_note"
               type="text"
@@ -3512,6 +3535,7 @@ exports[`form demo > renders control-hooks correctly 1`] = `
           >
             <!---->
             <div
+              aria-required="true"
               class="ant-select ant-select-outlined ant-select-in-form-item css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
             >
               <!---->
@@ -3520,7 +3544,6 @@ exports[`form demo > renders control-hooks correctly 1`] = `
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility: visible;"
                 >
                   Select a option and change input text above
                 </div>
@@ -3530,12 +3553,12 @@ exports[`form demo > renders control-hooks correctly 1`] = `
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-owns="control-hooks_gender_list"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="control-hooks_gender"
                   readonly=""
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -3765,6 +3788,7 @@ exports[`form demo > renders custom-feedback-icons correctly 1`] = `
             >
               <!---->
               <input
+                aria-required="true"
                 class="ant-input"
                 id="custom-feedback-icons_test1"
                 type="text"
@@ -3798,6 +3822,7 @@ exports[`form demo > renders custom-feedback-icons correctly 1`] = `
           >
             <div
               class="ant-form-item-explain css-var-root ant-form-css-var ant-form-item-explain-connected"
+              id="custom-feedback-icons_test1_help"
             >
               <transition-group-stub
                 appear="true"
@@ -3856,6 +3881,7 @@ exports[`form demo > renders custom-feedback-icons correctly 1`] = `
             >
               <!---->
               <input
+                aria-required="true"
                 class="ant-input"
                 id="custom-feedback-icons_test2"
                 type="text"
@@ -3889,6 +3915,7 @@ exports[`form demo > renders custom-feedback-icons correctly 1`] = `
           >
             <div
               class="ant-form-item-explain css-var-root ant-form-css-var ant-form-item-explain-connected"
+              id="custom-feedback-icons_test2_help"
             >
               <transition-group-stub
                 appear="true"
@@ -4226,12 +4253,12 @@ exports[`form demo > renders customized-form-controls correctly 1`] = `
                     aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-owns="test-id_list"
-                    autocomplete="off"
+                    autocomplete="new-password"
                     class="ant-select-input"
                     id="test-id"
                     readonly=""
                     role="combobox"
-                    type="search"
+                    type="text"
                     value=""
                   />
                 </div>
@@ -4652,7 +4679,6 @@ exports[`form demo > renders disabled correctly 1`] = `
                   >
                     <div
                       class="ant-select-placeholder"
-                      style="visibility: visible;"
                     >
                       <!---->
                     </div>
@@ -4662,13 +4688,13 @@ exports[`form demo > renders disabled correctly 1`] = `
                       aria-expanded="false"
                       aria-haspopup="listbox"
                       aria-owns="select_list"
-                      autocomplete="off"
+                      autocomplete="new-password"
                       class="ant-select-input"
                       disabled=""
                       id="select"
                       readonly=""
                       role="combobox"
-                      type="search"
+                      type="text"
                       value=""
                     />
                   </div>
@@ -4990,13 +5016,13 @@ exports[`form demo > renders disabled-input-debug correctly 1`] = `
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-owns="level_list"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   disabled=""
                   id="level"
                   readonly=""
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -5236,6 +5262,7 @@ exports[`form demo > renders dynamic-form-item correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="dynamic_form_item_names_0"
               placeholder="passenger name"
@@ -5496,6 +5523,7 @@ exports[`form demo > renders dynamic-form-items correctly 1`] = `
                 class="ant-form-item-control-input-content"
               >
                 <input
+                  aria-required="true"
                   class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                   id="dynamic_form_nest_item_users_0_first"
                   placeholder="First Name"
@@ -5550,6 +5578,7 @@ exports[`form demo > renders dynamic-form-items correctly 1`] = `
                 class="ant-form-item-control-input-content"
               >
                 <input
+                  aria-required="true"
                   class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                   id="dynamic_form_nest_item_users_0_last"
                   placeholder="Last Name"
@@ -6097,6 +6126,7 @@ exports[`form demo > renders dynamic-form-items-no-style correctly 1`] = `
                     class="ant-space-item"
                   >
                     <input
+                      aria-required="true"
                       class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                       id="dynamic_form_nest_item_no_style_items_0_first"
                       placeholder="First Name"
@@ -6109,6 +6139,7 @@ exports[`form demo > renders dynamic-form-items-no-style correctly 1`] = `
                     class="ant-space-item"
                   >
                     <input
+                      aria-required="true"
                       class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                       id="dynamic_form_nest_item_no_style_items_0_last"
                       placeholder="Last Name"
@@ -6289,6 +6320,7 @@ exports[`form demo > renders dynamic-rule correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="dynamic_rule_username"
               placeholder="Please input your name"
@@ -6543,6 +6575,7 @@ exports[`form demo > renders form-context correctly 1`] = `
               class="ant-form-item-control-input-content"
             >
               <input
+                aria-required="true"
                 class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                 id="basicForm_group"
                 type="text"
@@ -6836,6 +6869,7 @@ exports[`form demo > renders form-dependencies correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="dependencies_password"
               type="text"
@@ -6894,6 +6928,7 @@ exports[`form demo > renders form-dependencies correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="dependencies_password2"
               type="text"
@@ -7024,6 +7059,7 @@ exports[`form demo > renders form-item-path correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="user_name"
               type="text"
@@ -7170,6 +7206,7 @@ exports[`form demo > renders form-item-path correctly 1`] = `
                           class="ant-form-item-control-input-content"
                         >
                           <input
+                            aria-required="true"
                             class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                             id="addresses_0_city"
                             type="text"
@@ -7715,9 +7752,10 @@ exports[`form demo > renders getValueProps-normalize correctly 1`] = `
                   </span>
                   <!---->
                 </span>
-                <span
+                <button
+                  aria-label="Clear"
                   class="ant-picker-clear"
-                  role="button"
+                  type="button"
                 >
                   <span
                     aria-label="close-circle"
@@ -7739,7 +7777,7 @@ exports[`form demo > renders getValueProps-normalize correctly 1`] = `
                       />
                     </svg>
                   </span>
-                </span>
+                </button>
               </div>
             </div>
             <!---->
@@ -7873,6 +7911,7 @@ exports[`form demo > renders global-state correctly 1`] = `
               class="ant-form-item-control-input-content"
             >
               <input
+                aria-required="true"
                 class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                 id="global_state_username"
                 type="text"
@@ -8032,6 +8071,7 @@ exports[`form demo > renders inline-login correctly 1`] = `
                 </span>
               </span>
               <input
+                aria-required="true"
                 class="ant-input"
                 id="horizontal_login_username"
                 placeholder="Username"
@@ -8109,6 +8149,7 @@ exports[`form demo > renders inline-login correctly 1`] = `
                 </span>
               </span>
               <input
+                aria-required="true"
                 class="ant-input"
                 id="horizontal_login_password"
                 placeholder="Password"
@@ -8737,6 +8778,7 @@ exports[`form demo > renders layout-can-wrap correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="wrap_username"
               type="text"
@@ -8797,6 +8839,7 @@ exports[`form demo > renders layout-can-wrap correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="wrap_password"
               type="text"
@@ -9002,6 +9045,7 @@ exports[`form demo > renders layout-multiple correctly 1`] = `
               class="ant-form-item-control-input-content"
             >
               <input
+                aria-required="true"
                 class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                 id="layout-multiple-horizontal_horizontal"
                 type="text"
@@ -9060,6 +9104,7 @@ exports[`form demo > renders layout-multiple correctly 1`] = `
               class="ant-form-item-control-input-content"
             >
               <input
+                aria-required="true"
                 class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                 id="layout-multiple-horizontal_vertical"
                 type="text"
@@ -9118,6 +9163,7 @@ exports[`form demo > renders layout-multiple correctly 1`] = `
               class="ant-form-item-control-input-content"
             >
               <input
+                aria-required="true"
                 class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                 id="layout-multiple-horizontal_vertical2"
                 type="text"
@@ -9188,6 +9234,7 @@ exports[`form demo > renders layout-multiple correctly 1`] = `
               class="ant-form-item-control-input-content"
             >
               <input
+                aria-required="true"
                 class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                 id="layout-multiple-vertical_vertical"
                 type="text"
@@ -9246,6 +9293,7 @@ exports[`form demo > renders layout-multiple correctly 1`] = `
               class="ant-form-item-control-input-content"
             >
               <input
+                aria-required="true"
                 class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                 id="layout-multiple-vertical_vertical2"
                 type="text"
@@ -9304,6 +9352,7 @@ exports[`form demo > renders layout-multiple correctly 1`] = `
               class="ant-form-item-control-input-content"
             >
               <input
+                aria-required="true"
                 class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                 id="layout-multiple-vertical_horizontal"
                 type="text"
@@ -9389,6 +9438,7 @@ exports[`form demo > renders login correctly 1`] = `
                 </span>
               </span>
               <input
+                aria-required="true"
                 class="ant-input"
                 id="login_username"
                 placeholder="Username"
@@ -9466,6 +9516,7 @@ exports[`form demo > renders login correctly 1`] = `
                 </span>
               </span>
               <input
+                aria-required="true"
                 class="ant-input"
                 id="login_password"
                 placeholder="Password"
@@ -9644,6 +9695,255 @@ exports[`form demo > renders login correctly 1`] = `
 </form>
 `;
 
+exports[`form demo > renders message-render correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-root"
+  style="width: 100%;"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-radio-group ant-radio-group-outline css-var-root ant-radio-css-var"
+    >
+      <label
+        class="ant-radio-wrapper ant-radio-wrapper-checked css-var-root ant-radio-css-var"
+      >
+        <span
+          class="ant-radio ant-wave-target ant-radio-checked ant-wave-target"
+          name="v-0"
+        >
+          <input
+            checked=""
+            class="ant-radio-input"
+            type="radio"
+          />
+        </span>
+        <span
+          class="ant-radio-label"
+        >
+           English 
+        </span>
+      </label>
+      <label
+        class="ant-radio-wrapper css-var-root ant-radio-css-var"
+      >
+        <span
+          class="ant-radio ant-wave-target ant-wave-target"
+          name="v-0"
+        >
+          <input
+            class="ant-radio-input"
+            type="radio"
+          />
+        </span>
+        <span
+          class="ant-radio-label"
+        >
+           中文 
+        </span>
+      </label>
+    </div>
+  </div>
+  <!---->
+  <div
+    class="ant-space-item"
+  >
+    <form
+      class="ant-form ant-form-vertical css-var-root ant-form-css-var"
+      style="max-width: 600px;"
+    >
+      <div
+        class="ant-form-item css-var-root ant-form-css-var ant-form-item-vertical"
+      >
+        <div
+          class="ant-row css-var-root ant-form-item-row"
+        >
+          <div
+            class="ant-col css-var-root ant-form-item-label"
+          >
+            <label
+              class="ant-form-item-required"
+              for="username"
+              title="Username"
+            >
+              Username
+            </label>
+          </div>
+          <div
+            class="ant-col css-var-root ant-form-item-control"
+          >
+            <div
+              class="ant-form-item-control-input"
+            >
+              <div
+                class="ant-form-item-control-input-content"
+              >
+                <input
+                  aria-required="true"
+                  class="ant-input ant-input-outlined css-var-root ant-input-css-var"
+                  id="username"
+                  placeholder="username"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="ant-form-item-additional"
+            >
+              <transition-stub
+                appear="true"
+                css="true"
+                enteractiveclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-prepare ant-form-show-help-enter-prepare "
+                enterfromclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-prepare ant-form-show-help-enter-prepare ant-form-show-help-enter-start"
+                entertoclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-active ant-form-show-help-enter-active"
+                leaveactiveclass="ant-form-show-help ant-form-show-help-leave ant-form-show-help-leave-active"
+                leavefromclass="ant-form-show-help ant-form-show-help-leave"
+                leavetoclass="ant-form-show-help ant-form-show-help-leave ant-form-show-help-leave-active"
+                name="ant-form-show-help"
+                persisted="false"
+              >
+                <!---->
+              </transition-stub>
+              <!---->
+            </div>
+          </div>
+          <!---->
+        </div>
+        <!---->
+      </div>
+      <div
+        class="ant-form-item css-var-root ant-form-css-var ant-form-item-vertical"
+      >
+        <div
+          class="ant-row css-var-root ant-form-item-row"
+        >
+          <div
+            class="ant-col css-var-root ant-form-item-label"
+          >
+            <label
+              class="ant-form-item-required"
+              for="email"
+              title="Email"
+            >
+              Email
+            </label>
+          </div>
+          <div
+            class="ant-col css-var-root ant-form-item-control"
+          >
+            <div
+              class="ant-form-item-control-input"
+            >
+              <div
+                class="ant-form-item-control-input-content"
+              >
+                <input
+                  aria-required="true"
+                  class="ant-input ant-input-outlined css-var-root ant-input-css-var"
+                  id="email"
+                  placeholder="email"
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="ant-form-item-additional"
+            >
+              <transition-stub
+                appear="true"
+                css="true"
+                enteractiveclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-prepare ant-form-show-help-enter-prepare "
+                enterfromclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-prepare ant-form-show-help-enter-prepare ant-form-show-help-enter-start"
+                entertoclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-active ant-form-show-help-enter-active"
+                leaveactiveclass="ant-form-show-help ant-form-show-help-leave ant-form-show-help-leave-active"
+                leavefromclass="ant-form-show-help ant-form-show-help-leave"
+                leavetoclass="ant-form-show-help ant-form-show-help-leave ant-form-show-help-leave-active"
+                name="ant-form-show-help"
+                persisted="false"
+              >
+                <!---->
+              </transition-stub>
+              <!---->
+            </div>
+          </div>
+          <!---->
+        </div>
+        <!---->
+      </div>
+      <div
+        class="ant-form-item css-var-root ant-form-css-var ant-form-item-vertical"
+      >
+        <div
+          class="ant-row css-var-root ant-form-item-row"
+        >
+          <!---->
+          <div
+            class="ant-col css-var-root ant-form-item-control"
+          >
+            <div
+              class="ant-form-item-control-input"
+            >
+              <div
+                class="ant-form-item-control-input-content"
+              >
+                <button
+                  class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+                  type="submit"
+                >
+                  <transition-stub
+                    appear="false"
+                    css="true"
+                    enteractiveclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-prepare ant-btn-loading-icon-motion-enter-prepare "
+                    enterfromclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-prepare ant-btn-loading-icon-motion-enter-prepare ant-btn-loading-icon-motion-enter-start"
+                    entertoclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-active ant-btn-loading-icon-motion-enter-active"
+                    leaveactiveclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave ant-btn-loading-icon-motion-leave-active"
+                    leavefromclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave"
+                    leavetoclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave ant-btn-loading-icon-motion-leave-active"
+                    name="ant-btn-loading-icon-motion"
+                    persisted="false"
+                  >
+                    <!---->
+                  </transition-stub>
+                  <span>
+                     Submit 
+                  </span>
+                  <!---->
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-form-item-additional"
+            >
+              <transition-stub
+                appear="true"
+                css="true"
+                enteractiveclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-prepare ant-form-show-help-enter-prepare "
+                enterfromclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-prepare ant-form-show-help-enter-prepare ant-form-show-help-enter-start"
+                entertoclass="ant-form-show-help ant-form-show-help-enter ant-form-show-help-appear ant-form-show-help-appear-active ant-form-show-help-enter-active"
+                leaveactiveclass="ant-form-show-help ant-form-show-help-leave ant-form-show-help-leave-active"
+                leavefromclass="ant-form-show-help ant-form-show-help-leave"
+                leavetoclass="ant-form-show-help ant-form-show-help-leave ant-form-show-help-leave-active"
+                name="ant-form-show-help"
+                persisted="false"
+              >
+                <!---->
+              </transition-stub>
+              <!---->
+            </div>
+          </div>
+          <!---->
+        </div>
+        <!---->
+      </div>
+    </form>
+  </div>
+  <!---->
+</div>
+`;
+
 exports[`form demo > renders nest-messages correctly 1`] = `
 <form
   class="ant-form ant-form-horizontal css-var-root ant-form-css-var"
@@ -9678,6 +9978,7 @@ exports[`form demo > renders nest-messages correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="nest-messages_user_name"
               type="text"
@@ -10280,6 +10581,7 @@ exports[`form demo > renders register correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="register_email"
               type="text"
@@ -10342,6 +10644,7 @@ exports[`form demo > renders register correctly 1`] = `
             >
               <!---->
               <input
+                aria-required="true"
                 class="ant-input"
                 id="register_password"
                 type="password"
@@ -10442,6 +10745,7 @@ exports[`form demo > renders register correctly 1`] = `
             >
               <!---->
               <input
+                aria-required="true"
                 class="ant-input"
                 id="register_confirm"
                 type="password"
@@ -10566,6 +10870,7 @@ exports[`form demo > renders register correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="register_nickname"
               type="text"
@@ -10625,6 +10930,7 @@ exports[`form demo > renders register correctly 1`] = `
           >
             <!---->
             <div
+              aria-required="true"
               class="ant-select ant-cascader ant-select-outlined ant-select-in-form-item ant-select-css-var ant-cascader-css-var css-var-root ant-select-single ant-select-allow-clear ant-select-show-arrow"
             >
               <!---->
@@ -10639,12 +10945,12 @@ exports[`form demo > renders register correctly 1`] = `
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-owns="register_residence_list"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="register_residence"
                   readonly=""
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -10672,8 +10978,10 @@ exports[`form demo > renders register correctly 1`] = `
                 </span>
                 <!---->
               </div>
-              <div
+              <button
+                aria-label="Clear"
                 class="ant-select-clear"
+                type="button"
               >
                 <span
                   aria-label="close-circle"
@@ -10695,7 +11003,7 @@ exports[`form demo > renders register correctly 1`] = `
                     />
                   </svg>
                 </span>
-              </div>
+              </button>
               <!---->
             </div>
             <!---->
@@ -10752,6 +11060,7 @@ exports[`form demo > renders register correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-required="true"
               class="ant-space-compact css-var-root ant-space-compact-block"
               id="register_phone"
             >
@@ -10772,12 +11081,12 @@ exports[`form demo > renders register correctly 1`] = `
                     aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-owns="test-id_list"
-                    autocomplete="off"
+                    autocomplete="new-password"
                     class="ant-select-input"
                     id="test-id"
                     readonly=""
                     role="combobox"
-                    type="search"
+                    type="text"
                     value=""
                   />
                 </div>
@@ -10869,6 +11178,7 @@ exports[`form demo > renders register correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-required="true"
               class="ant-space-compact css-var-root ant-space-compact-block"
               id="register_donation"
             >
@@ -10963,12 +11273,12 @@ exports[`form demo > renders register correctly 1`] = `
                     aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-owns="test-id_list"
-                    autocomplete="off"
+                    autocomplete="new-password"
                     class="ant-select-input"
                     id="test-id"
                     readonly=""
                     role="combobox"
-                    type="search"
+                    type="text"
                     value=""
                   />
                 </div>
@@ -11055,6 +11365,7 @@ exports[`form demo > renders register correctly 1`] = `
           >
             <!---->
             <div
+              aria-required="true"
               class="ant-select ant-select-outlined ant-select-in-form-item ant-select-auto-complete css-var-root ant-select-css-var ant-select-single ant-select-show-search"
             >
               <!---->
@@ -11063,7 +11374,6 @@ exports[`form demo > renders register correctly 1`] = `
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility: visible;"
                 >
                   website
                 </div>
@@ -11073,7 +11383,7 @@ exports[`form demo > renders register correctly 1`] = `
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-owns="register_website_list"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="register_website"
                   role="combobox"
@@ -11144,6 +11454,7 @@ exports[`form demo > renders register correctly 1`] = `
             >
               <!---->
               <textarea
+                aria-required="true"
                 class="ant-input"
                 id="register_intro"
                 value=""
@@ -11214,6 +11525,7 @@ exports[`form demo > renders register correctly 1`] = `
           >
             <!---->
             <div
+              aria-required="true"
               class="ant-select ant-select-outlined ant-select-in-form-item css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
             >
               <!---->
@@ -11228,12 +11540,12 @@ exports[`form demo > renders register correctly 1`] = `
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-owns="register_gender_list"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="register_gender"
                   readonly=""
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -11324,6 +11636,7 @@ exports[`form demo > renders register correctly 1`] = `
                 style="padding-left: 4px; padding-right: 4px;"
               >
                 <input
+                  aria-required="true"
                   class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                   id="register_captcha"
                   type="text"
@@ -11717,6 +12030,7 @@ exports[`form demo > renders required-mark correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               placeholder="input placeholder"
               type="text"
@@ -12094,7 +12408,6 @@ exports[`form demo > renders size correctly 1`] = `
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility: visible;"
                 >
                   <!---->
                 </div>
@@ -12104,12 +12417,12 @@ exports[`form demo > renders size correctly 1`] = `
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-owns="select_list"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="select"
                   readonly=""
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -12487,6 +12800,7 @@ exports[`form demo > renders style-class correctly 1`] = `
               style="padding-inline-start: 12px;"
             >
               <input
+                aria-required="true"
                 class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                 data-v-86e4aa7a=""
                 id="username"
@@ -12550,6 +12864,7 @@ exports[`form demo > renders style-class correctly 1`] = `
               style="padding-inline-start: 12px;"
             >
               <input
+                aria-required="true"
                 class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                 data-v-86e4aa7a=""
                 id="email"
@@ -12727,6 +13042,7 @@ exports[`form demo > renders style-class correctly 1`] = `
               style="padding-inline-start: 12px;"
             >
               <input
+                aria-required="true"
                 class="ant-input ant-input-filled css-var-root ant-input-css-var"
                 data-v-86e4aa7a=""
                 id="username"
@@ -12790,6 +13106,7 @@ exports[`form demo > renders style-class correctly 1`] = `
               style="padding-inline-start: 12px;"
             >
               <input
+                aria-required="true"
                 class="ant-input ant-input-filled css-var-root ant-input-css-var"
                 data-v-86e4aa7a=""
                 id="email"
@@ -13282,7 +13599,7 @@ exports[`form demo > renders time-related-controls correctly 1`] = `
                 class="ant-picker-range-separator"
               >
                 <span
-                  aria-label="to"
+                  aria-hidden="true"
                   class="ant-picker-separator"
                 >
                   <span
@@ -13428,7 +13745,7 @@ exports[`form demo > renders time-related-controls correctly 1`] = `
                 class="ant-picker-range-separator"
               >
                 <span
-                  aria-label="to"
+                  aria-hidden="true"
                   class="ant-picker-separator"
                 >
                   <span
@@ -13726,6 +14043,7 @@ exports[`form demo > renders use-form correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="use-form_note"
               type="text"
@@ -13785,6 +14103,7 @@ exports[`form demo > renders use-form correctly 1`] = `
           >
             <!---->
             <div
+              aria-required="true"
               class="ant-select ant-select-outlined ant-select-in-form-item css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
             >
               <!---->
@@ -13793,7 +14112,6 @@ exports[`form demo > renders use-form correctly 1`] = `
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility: visible;"
                 >
                   Select a option
                 </div>
@@ -13803,12 +14121,12 @@ exports[`form demo > renders use-form correctly 1`] = `
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-owns="use-form_gender_list"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="use-form_gender"
                   readonly=""
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -14089,6 +14407,7 @@ exports[`form demo > renders use-form-name correctly 1`] = `
                     class="ant-form-item-control-input-content"
                   >
                     <input
+                      aria-required="true"
                       class="ant-input ant-input-outlined css-var-root ant-input-css-var"
                       id="login_username"
                       type="text"
@@ -14772,6 +15091,7 @@ exports[`form demo > renders validate-only correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="username"
               placeholder="username"
@@ -14835,6 +15155,7 @@ exports[`form demo > renders validate-only correctly 1`] = `
             >
               <!---->
               <input
+                aria-required="true"
                 class="ant-input"
                 id="password"
                 placeholder="password"
@@ -15100,6 +15421,7 @@ exports[`form demo > renders validate-other correctly 1`] = `
           >
             <!---->
             <div
+              aria-required="true"
               class="ant-select ant-select-outlined ant-select-in-form-item ant-select-has-feedback css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
             >
               <!---->
@@ -15108,7 +15430,6 @@ exports[`form demo > renders validate-other correctly 1`] = `
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility: visible;"
                 >
                   Please select a country
                 </div>
@@ -15118,12 +15439,12 @@ exports[`form demo > renders validate-other correctly 1`] = `
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-owns="validate_other_select_list"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="validate_other_select"
                   readonly=""
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -15209,6 +15530,7 @@ exports[`form demo > renders validate-other correctly 1`] = `
           >
             <!---->
             <div
+              aria-required="true"
               class="ant-select ant-select-outlined ant-select-in-form-item css-var-root ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
             >
               <!---->
@@ -15221,7 +15543,6 @@ exports[`form demo > renders validate-other correctly 1`] = `
                 >
                   <div
                     class="ant-select-placeholder"
-                    style="visibility: visible;"
                   >
                     Please select favourite colors
                   </div>
@@ -15237,11 +15558,11 @@ exports[`form demo > renders validate-other correctly 1`] = `
                     aria-expanded="false"
                     aria-haspopup="listbox"
                     aria-owns="validate_other_selectMultiple_list"
-                    autocomplete="off"
+                    autocomplete="new-password"
                     class="ant-select-input"
                     id="validate_other_selectMultiple"
                     role="combobox"
-                    type="search"
+                    type="text"
                     value=""
                   />
                 </div>
@@ -15797,6 +16118,7 @@ exports[`form demo > renders validate-other correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
+              aria-required="true"
               class="ant-radio-group ant-radio-group-outline css-var-root ant-radio-css-var"
               id="validate_other_radioButton"
             >
@@ -16556,6 +16878,7 @@ exports[`form demo > renders validate-scroll-to-field correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="username"
               type="text"
@@ -16622,7 +16945,6 @@ exports[`form demo > renders validate-scroll-to-field correctly 1`] = `
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility: visible;"
                 >
                   <!---->
                 </div>
@@ -16632,12 +16954,12 @@ exports[`form demo > renders validate-scroll-to-field correctly 1`] = `
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-owns="occupation_list"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="occupation"
                   readonly=""
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -16779,6 +17101,7 @@ exports[`form demo > renders validate-scroll-to-field correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <textarea
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="bio"
               rows="6"
@@ -17427,7 +17750,6 @@ exports[`form demo > renders validate-static correctly 1`] = `
               >
                 <div
                   class="ant-select-placeholder"
-                  style="visibility: visible;"
                 >
                   I'm Select
                 </div>
@@ -17437,12 +17759,12 @@ exports[`form demo > renders validate-static correctly 1`] = `
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-owns="test-id_list"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="test-id"
                   readonly=""
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -17830,6 +18152,7 @@ exports[`form demo > renders validate-trigger correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="blurInput"
               placeholder="blur to validate"
@@ -17889,6 +18212,7 @@ exports[`form demo > renders validate-trigger correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="changeInput"
               placeholder="change to validate"
@@ -18085,6 +18409,7 @@ exports[`form demo > renders variant correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="username"
               placeholder="username"
@@ -18148,6 +18473,7 @@ exports[`form demo > renders variant correctly 1`] = `
             >
               <!---->
               <input
+                aria-required="true"
                 class="ant-input"
                 id="password"
                 placeholder="password"
@@ -18252,6 +18578,7 @@ exports[`form demo > renders warning-only correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <input
+              aria-required="true"
               class="ant-input ant-input-outlined css-var-root ant-input-css-var"
               id="url"
               placeholder="input placeholder"

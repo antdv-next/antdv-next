@@ -8,10 +8,7 @@ export default defineConfig({
   ],
   dts: true,
   deps: {
-    skipNodeModulesBundle: true,
-    neverBundle: [
-      'vue',
-    ],
+    neverBundle: true,
   },
   outExtensions() {
     return {

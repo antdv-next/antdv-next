@@ -2,7 +2,7 @@ import type { CSSObject } from '@antdv-next/cssinjs'
 
 import type { GenerateStyle } from '../../theme/internal'
 import type { ComponentToken, SelectToken } from './token'
-import { resetComponent, textEllipsis } from '../../style'
+import { genFocusOutline, resetComponent, textEllipsis } from '../../style'
 import { genCompactItemStyle } from '../../style/compact-item'
 import { genStyleHooks, mergeToken } from '../../theme/internal'
 import genDropdownStyle from './dropdown'
@@ -18,8 +18,17 @@ const genBaseStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
   const hoverShowClearStyle: CSSObject = {
     [`${componentCls}-clear`]: {
       opacity: 1,
-      background: token.colorBgBase,
-      borderRadius: '50%',
+    },
+    // Hide the suffix so it does not sit under the clear button — but never a
+    // suffix that holds keyboard focus. A custom suffix may be focusable, and
+    // `pointer-events: none` does not take it out of the tab order, so hiding
+    // it would strand focus on an invisible control.
+    [`${componentCls}-suffix:not(:last-child):not(:focus-within)`]: {
+      opacity: 0,
+      pointerEvents: 'none',
+    },
+    [`&${componentCls}-allow-clear:not(${componentCls}-show-arrow):not(${componentCls}-customize) ${componentCls}-content`]: {
+      marginInlineEnd: token.showArrowPaddingInlineEnd,
     },
   }
 
@@ -64,6 +73,15 @@ const genBaseStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         lineHeight: 1,
         textAlign: 'center',
         textTransform: 'none',
+        // The clear affordance is a real `<button>` for keyboard access, so
+        // the browser's default control chrome has to be reset away.
+        // antd caught up in 6.6.0 (rc-select ~1.9.1) and now ships the same
+        // reset — see ant-design#58572 and ant-design#58928.
+        padding: 0,
+        fontFamily: 'inherit',
+        background: 'transparent',
+        border: 0,
+        appearance: 'none',
         cursor: 'pointer',
         opacity: 0,
         transition: ['color', 'opacity']
@@ -81,10 +99,19 @@ const genBaseStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         '&:hover': {
           color: token.colorIcon,
         },
+
+        // The clear affordance is a focusable `<button>`, so it must become
+        // visible and outlined when reached by keyboard — otherwise Tab lands
+        // on an invisible control. Mirrors the DatePicker rules.
+        '&:focus-visible': {
+          color: token.colorIcon,
+          borderRadius: token.borderRadiusSM,
+          ...genFocusOutline(token),
+        },
       },
 
       '@media(hover:none)': hoverShowClearStyle,
-      '&:hover': hoverShowClearStyle,
+      '&:hover, &:focus-within': hoverShowClearStyle,
     },
 
     // ========================= Feedback ==========================

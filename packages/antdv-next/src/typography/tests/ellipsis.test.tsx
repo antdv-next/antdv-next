@@ -600,6 +600,101 @@ describe('typography.Ellipsis', () => {
     })
   })
 
+  // ant-design #58661 / #58722: the ellipsis Tooltip is only `disabled`, never
+  // `open`-controlled, so hover handling stays inside Tooltip itself.
+  describe('interactive ellipsis tooltip', () => {
+    function isTooltipOpen() {
+      const ele = document.querySelector<HTMLElement>('.ant-tooltip')
+      if (!ele || ele.classList.contains('ant-tooltip-hidden')) {
+        return false
+      }
+      return ele.style.display !== 'none'
+    }
+
+    async function getWrapper() {
+      const wrapper = mount(Base, {
+        attachTo: document.body,
+        props: {
+          ellipsis: { tooltip: 'Bamboo is Light' },
+          copyable: {},
+          component: 'p',
+        },
+        slots: { default: () => fullStr },
+      })
+      triggerResize(wrapper.find('.ant-typography').element)
+      await waitFakeTimer()
+      return wrapper
+    }
+
+    it('stays open when the pointer moves onto the popup', async () => {
+      const wrapper = await getWrapper()
+
+      await wrapper.find('.ant-typography').trigger('mouseenter')
+      await waitFakeTimer()
+      expect(isTooltipOpen()).toBeTruthy()
+
+      // Leaving the text towards the popup must not close it. A fully
+      // controlled `open` would drop it the moment the text is left.
+      const popup = document.querySelector<HTMLElement>('.ant-tooltip')!
+      await wrapper.find('.ant-typography').trigger('mouseleave')
+      popup.dispatchEvent(new MouseEvent('mouseenter'))
+      await waitFakeTimer()
+      expect(isTooltipOpen()).toBeTruthy()
+
+      // ... and leaving the popup finally closes it
+      popup.dispatchEvent(new MouseEvent('mouseleave'))
+      await waitFakeTimer()
+      expect(isTooltipOpen()).toBeFalsy()
+
+      wrapper.unmount()
+    })
+
+    it('hides while the actions are hovered and restores after 500ms', async () => {
+      const wrapper = await getWrapper()
+      const actions = wrapper.find('.ant-typography-actions')
+      expect(actions.exists()).toBe(true)
+
+      await wrapper.find('.ant-typography').trigger('mouseenter')
+      await waitFakeTimer()
+      expect(isTooltipOpen()).toBeTruthy()
+
+      // `mouseenter` does not bubble, so moving onto the copy button keeps the
+      // text hovered - exactly what a real pointer does.
+      await actions.trigger('mouseenter')
+      await nextTick()
+      expect(isTooltipOpen()).toBeFalsy()
+
+      // Restoring is delayed by 500ms via `useDelayState`
+      await actions.trigger('mouseleave')
+      await vi.advanceTimersByTimeAsync(400)
+      expect(isTooltipOpen()).toBeFalsy()
+
+      await vi.advanceTimersByTimeAsync(200)
+      expect(isTooltipOpen()).toBeTruthy()
+
+      wrapper.unmount()
+    })
+
+    // Base no longer wraps the hover handlers, it lets them flow through attrs.
+    // Tooltip clones the child so both its own and the user's handler must run.
+    it('still forwards user mouse handlers exactly once', async () => {
+      const onMouseenter = vi.fn()
+      const onMouseleave = vi.fn()
+      const wrapper = mount(Base, {
+        props: { component: 'p', ellipsis: { tooltip: 'Bamboo is Light' } },
+        attrs: { onMouseenter, onMouseleave },
+        slots: { default: () => fullStr },
+      })
+
+      await wrapper.find('.ant-typography').trigger('mouseenter')
+      await wrapper.find('.ant-typography').trigger('mouseleave')
+      expect(onMouseenter).toHaveBeenCalledTimes(1)
+      expect(onMouseleave).toHaveBeenCalledTimes(1)
+
+      wrapper.unmount()
+    })
+  })
+
   it('js ellipsis should show aria-label', () => {
     const titleWrapper = mount(Base, {
       props: {

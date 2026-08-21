@@ -48,6 +48,37 @@ describe('skeleton', () => {
     expect(wrapper.text()).toBe('0')
   })
 
+  // ==================== Ref ====================
+
+  it('should support nativeElement ref', async () => {
+    const skeletonRef = ref<any>()
+    const wrapper = mount(() => <Skeleton ref={skeletonRef} />)
+    await nextTick()
+    expect(skeletonRef.value?.nativeElement).toBeInstanceOf(HTMLElement)
+    expect(skeletonRef.value.nativeElement).toBe(wrapper.find('.ant-skeleton').element)
+  })
+
+  it('should return null nativeElement when not loading', async () => {
+    const skeletonRef = ref<any>()
+    mount(() => <Skeleton ref={skeletonRef} loading={false} />)
+    await nextTick()
+    expect(skeletonRef.value).not.toBeNull()
+    expect(skeletonRef.value.nativeElement).toBeNull()
+  })
+
+  it('should update nativeElement when loading changes', async () => {
+    const skeletonRef = ref<any>()
+    const loading = ref(true)
+    const wrapper = mount(() => <Skeleton ref={skeletonRef} loading={loading.value} />)
+    await nextTick()
+    expect(skeletonRef.value.nativeElement).toBe(wrapper.find('.ant-skeleton').element)
+
+    loading.value = false
+    await nextTick()
+    expect(skeletonRef.value).not.toBeNull()
+    expect(skeletonRef.value.nativeElement).toBeNull()
+  })
+
   // ==================== active ====================
 
   it('should render active class', () => {

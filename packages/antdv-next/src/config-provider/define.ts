@@ -29,7 +29,9 @@ import type {
   ImageConfig,
   InputConfig,
   InputNumberConfig,
+  InputPasswordConfig,
   InputSearchConfig,
+  ListyConfig,
   MasonryConfig,
   MentionsConfig,
   MenuConfig,
@@ -88,6 +90,7 @@ export interface ConfigProviderProps {
   textArea?: TextAreaConfig
   mentions?: MentionsConfig
   inputSearch?: InputSearchConfig
+  inputPassword?: InputPasswordConfig
   otp?: OTPConfig
   select?: SelectConfig
   form?: FormConfig
@@ -118,6 +121,7 @@ export interface ConfigProviderProps {
   theme?: ThemeConfig
   warning?: WarningContextProps
   alert?: AlertConfig
+  app?: ComponentStyleConfig
   anchor?: AnchorStyleConfig
   button?: ButtonConfig
   calendar?: CalendarConfig
@@ -136,6 +140,7 @@ export interface ConfigProviderProps {
   image?: ImageConfig
   layout?: ComponentStyleConfig
   // list?: ListConfig;
+  listy?: ListyConfig
   modal?: ModalConfig
   progress?: ProgressConfig
   result?: ResultConfig

@@ -182,20 +182,55 @@ describe('collapse', () => {
   })
 
   // ==================== expand icon ====================
-  it('should render default expand icon with aria-label=collapsed', () => {
-    const wrapper = mount(Collapse, { props: { items: basicItems } })
-    const arrow = wrapper.find('.ant-collapse-arrow')
-    expect(arrow.exists()).toBe(true)
-    expect(arrow.attributes('aria-label')).toBe('collapsed')
+  it('hides the default expand icon and exposes state on the header', async () => {
+    const activeKey = ref<string[]>(['1'])
+    const wrapper = mount(() => (
+      <Collapse items={basicItems} activeKey={activeKey.value} />
+    ))
+    const header = wrapper.find('.ant-collapse-header')
+    const icon = wrapper.find('.ant-collapse-arrow')
+
+    expect(header.attributes('aria-expanded')).toBe('true')
+    expect(icon.attributes('aria-hidden')).toBe('true')
+
+    activeKey.value = []
+    await nextTick()
+
+    expect(header.attributes('aria-expanded')).toBe('false')
+    expect(icon.attributes('aria-hidden')).toBe('true')
   })
 
-  it('should show aria-label=expanded when panel is active', () => {
-    const wrapper = mount(Collapse, {
-      props: { items: basicItems, defaultActiveKey: ['1'] },
-    })
-    const arrow = wrapper.findAll('.ant-collapse-arrow')[0]!
-    expect(arrow.attributes('aria-label')).toBe('expanded')
+  it('preserves the accessible name of a custom expand icon', () => {
+    const wrapper = mount(() => (
+      <Collapse
+        items={basicItems}
+        expandIcon={() => <span role="img" aria-label="Custom status" />}
+      />
+    ))
+    const customIcon = wrapper.find('[role="img"]')
+    expect(customIcon.exists()).toBe(true)
+    expect(customIcon.attributes('aria-label')).toBe('Custom status')
   })
+
+  it.each(['header', 'icon'] as const)(
+    'keeps a state name when the default icon is interactive for collapsible=%s',
+    async (collapsible) => {
+      const activeKey = ref<string[]>(['1'])
+      const wrapper = mount(() => (
+        <Collapse items={basicItems} activeKey={activeKey.value} collapsible={collapsible} />
+      ))
+      const icon = wrapper.find('.ant-collapse-arrow')
+
+      expect(icon.attributes('aria-label')).toBe('expanded')
+      expect(icon.attributes('aria-hidden')).toBeUndefined()
+
+      activeKey.value = []
+      await nextTick()
+
+      expect(icon.attributes('aria-label')).toBe('collapsed')
+      expect(icon.attributes('aria-hidden')).toBeUndefined()
+    },
+  )
 
   it('should rotate arrow 90deg when active (LTR)', () => {
     const wrapper = mount(Collapse, {

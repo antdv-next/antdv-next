@@ -382,4 +382,17 @@ describe('space', () => {
     const whiteSpace = styles.getPropertyValue('white-space')
     expect(whiteSpace).toBe('nowrap')
   })
+
+  // ========================= Ref =========================
+  it('should support Space.Compact nativeElement ref', async () => {
+    const compactRef = ref<any>()
+    const wrapper = mount(() => (
+      <SpaceCompact ref={compactRef}>
+        <Input />
+      </SpaceCompact>
+    ))
+    await nextTick()
+    expect(compactRef.value?.nativeElement).toBeInstanceOf(HTMLElement)
+    expect(compactRef.value.nativeElement).toBe(wrapper.find('.ant-space-compact').element)
+  })
 })

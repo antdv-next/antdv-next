@@ -30,6 +30,7 @@ web-types.json
 web-tags.json
 docs/src/assets/token-meta.json
 docs/src/assets/token.json
+docs/src/assets/antd.css
 docs/public/llms.txt
 docs/public/llms-full.txt
 docs/public/llms-full-cn.txt
@@ -44,3 +45,8 @@ docs/superpowers
 superpowers
 .sync-upstream.local.json
 .sync-checklist-*.md
+.sync-report.md
+.mcp.json
+
+# pnpm
+.pnpm-store

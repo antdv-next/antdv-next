@@ -1,11 +1,12 @@
 <script setup lang="ts">
+import type { DemoExtraFile, DemoModule, DemoSourceData } from 'virtual:demos'
 import type { CSSProperties } from 'vue'
 import { CheckOutlined, CodeOutlined, CopyOutlined, EditOutlined, ThunderboltOutlined } from '@antdv-next/icons'
 import { aquaBlue, atomDark } from '@codesandbox/sandpack-themes'
 import { useClipboard, useDebounceFn } from '@vueuse/core'
 import { SandpackProvider } from 'sandpack-vue3'
 import demos from 'virtual:demos'
-import { computed, defineAsyncComponent, markRaw, shallowRef, watch } from 'vue'
+import { computed, defineAsyncComponent, markRaw, nextTick, onBeforeUnmount, shallowRef, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import CodeEditorBridge from '@/components/code-demo/code-editor-bridge.vue'
 import ExpandIcon from '@/components/code-demo/expand-icon.vue'
@@ -20,18 +21,6 @@ import antdvPkg from '../../../../packages/antdv-next/package.json'
 import { openStackBlitz } from './utils/stackblitz'
 
 type DemoCodeType = 'ts' | 'js'
-
-interface DemoMeta {
-  component?: any
-  locales?: Record<string, {
-    html?: string
-    title?: string
-  }>
-  source?: string
-  jsSource?: string
-  html?: string
-  jsHtml?: string
-}
 
 defineOptions({
   name: 'Demo',
@@ -48,41 +37,142 @@ const { src, compact, background, simplify, debug } = defineProps<{
 
 // Debug demos are visible while developing but stripped from the production docs.
 const hidden = computed(() => Boolean(debug) && import.meta.env.PROD)
-const demo = computed<DemoMeta | undefined>(() => demos[src])
+const demo = computed<DemoModule | undefined>(() => demos[src])
+
+// 按需加载的源码数据
+const sourceData = shallowRef<DemoSourceData | null>(null)
+const sourceLoading = shallowRef(false)
+const sourceLoadError = shallowRef<Error | null>(null)
+let sourceLoadPromise: Promise<void> | null = null
+let sourceAbortController: AbortController | null = null
+// HMR 发生在面板收起期间时标记过期，下次展开时重新加载
+let sourceStale = false
+
+function releaseSource() {
+  sourceAbortController?.abort()
+  sourceAbortController = null
+  sourceData.value = null
+  sourceLoadError.value = null
+  sourceLoadPromise = null
+  sourceLoading.value = false
+  sourceStale = false
+}
+
+async function ensureSourceLoaded() {
+  // 如果源码已过期（HMR 发生在收起期间），先释放旧数据
+  if (sourceStale)
+    releaseSource()
+  if (sourceData.value || !demo.value)
+    return
+  if (sourceLoadPromise)
+    return sourceLoadPromise
+
+  const currentDemo = demo.value
+  const abortController = new AbortController()
+  sourceAbortController = abortController
+  sourceLoading.value = true
+  sourceLoadError.value = null
+
+  const request = currentDemo
+    .loadSource(abortController.signal)
+    .then((data) => {
+      if (demo.value === currentDemo && !abortController.signal.aborted)
+        sourceData.value = data
+    })
+    .catch((error) => {
+      if (abortController.signal.aborted)
+        return
+      const loadError
+        = error instanceof Error ? error : new Error(String(error))
+      if (demo.value === currentDemo)
+        sourceLoadError.value = loadError
+      throw loadError
+    })
+    .finally(() => {
+      if (sourceLoadPromise === request) {
+        sourceAbortController = null
+        sourceLoadPromise = null
+        sourceLoading.value = false
+      }
+    })
+
+  sourceLoadPromise = request
+  return request
+}
 const route = useRoute()
 const router = useRouter()
 const appStore = useAppStore()
 const { t } = useLocale()
 
-const codeType = computed<DemoCodeType>({
-  get() {
-    return appStore.demoCodeType
-  },
-  set(value) {
-    appStore.setDemoCodeType(value)
-  },
-})
-
 const hasJsSource = computed(() => {
-  const jsSource = demo.value?.jsSource?.trim()
+  const jsSource = sourceData.value?.jsSource?.trim()
   return Boolean(jsSource)
 })
 
-const activeCodeType = computed<DemoCodeType>({
+const extraFiles = computed<DemoExtraFile[]>(() => sourceData.value?.extraFiles ?? [])
+
+const codeTabKeys = computed(() => {
+  const keys: string[] = ['ts']
+  if (hasJsSource.value)
+    keys.push('js')
+  for (const file of extraFiles.value)
+    keys.push(file.name)
+  return keys
+})
+
+// ts/js 切换改为 demo 级别隔离：每个 Demo 实例维护独立的偏好，
+// 初始值取自全局 store 以保持刷新后持久化，切换时同步写回全局 store
+// 但不通过 computed 依赖全局状态，避免一个 demo 切换导致所有 demo 同步切换。
+const localTsJs = shallowRef<DemoCodeType>(appStore.demoCodeType)
+const localCodeKey = shallowRef<string | null>(null)
+
+const activeCodeType = computed<string>({
   get() {
-    if (codeType.value === 'js' && hasJsSource.value)
-      return 'js'
+    if (localCodeKey.value && codeTabKeys.value.includes(localCodeKey.value))
+      return localCodeKey.value
+    const preferred = localTsJs.value
+    if (codeTabKeys.value.includes(preferred))
+      return preferred
     return 'ts'
   },
   set(value) {
-    codeType.value = value
+    if (value === 'ts' || value === 'js') {
+      localTsJs.value = value
+      // 持久化到全局，供新挂载的 demo 或刷新后使用，但不触发已挂载 demo 的联动
+      appStore.setDemoCodeType(value)
+      localCodeKey.value = null
+    }
+    else {
+      localCodeKey.value = value
+    }
   },
 })
 
-const activeSourceCode = computed(() => {
+const activeExtraFile = computed(() =>
+  extraFiles.value.find(file => file.name === activeCodeType.value),
+)
+
+/** 将 demo 相对导入路径映射为 sandpack 虚拟文件路径 */
+function extraFileToSandpackPath(name: string) {
+  return `/src/${name.replace(/^(\.\.?\/)+/, '')}`
+}
+
+/** 代码 tab 显示名（去掉 ./ 前缀） */
+function displayFileName(name: string) {
+  return name.replace(/^(\.\.?\/)+/, '')
+}
+
+const mainSourceCode = computed(() => {
   if (activeCodeType.value === 'js')
-    return demo.value?.jsSource ?? demo.value?.source ?? ''
-  return demo.value?.source ?? ''
+    return sourceData.value?.jsSource ?? sourceData.value?.source ?? ''
+  return sourceData.value?.source ?? ''
+})
+
+// 编辑器当前展示的源码（主 demo 或伴生文件）
+const activeSourceCode = computed(() => {
+  if (activeExtraFile.value)
+    return activeExtraFile.value.code
+  return mainSourceCode.value
 })
 
 const description = computed(() => {
@@ -105,25 +195,71 @@ const editorBridgeRef = shallowRef<{ resetCode: (code: string) => void }>()
 function handleShowCode() {
   showCode.value = !showCode.value
   if (!showCode.value) {
-    // Revert to original when code collapsed
+    // 收起时只重置实时编辑状态，保留源码以便快速重新展开
     liveComponent.value = null
     compileError.value = null
     currentCode.value = null
   }
+  else {
+    // 展开时按需加载源码（ensureSourceLoaded 内部会处理过期重载）
+    void ensureSourceLoaded().catch(() => {})
+  }
 }
+
+// 切换 demo 时释放旧源码并重置多文件 tab
+watch(demo, () => {
+  localCodeKey.value = null
+  releaseSource()
+}, { flush: 'sync' })
+
+// 展开代码面板时触发加载（收起时不释放，保留源码）
+watch([showCode, demo], ([visible, currentDemo]) => {
+  if (!visible)
+    return
+  if (currentDemo)
+    void ensureSourceLoaded().catch(() => {})
+})
+
+// HMR 触发的 sourceVersion 变化：展开时立即重载，收起时标记过期
+watch(
+  () => demo.value?.sourceVersion,
+  (version, previousVersion) => {
+    if (version === previousVersion)
+      return
+    // 如果用户正在编辑，暂缓重载，避免覆盖编辑内容
+    if (currentCode.value !== null || liveComponent.value !== null) {
+      sourceStale = true
+      return
+    }
+    if (showCode.value) {
+      releaseSource()
+      void ensureSourceLoaded().catch(() => {})
+    }
+    else if (sourceData.value) {
+      sourceStale = true
+    }
+  },
+)
+
+onBeforeUnmount(releaseSource)
 
 // Reset live component and editor code when tab changes
 watch(activeCodeType, () => {
   liveComponent.value = null
   compileError.value = null
   currentCode.value = null
-  editorBridgeRef.value?.resetCode(activeSourceCode.value)
+  // 等 sandpack 完成 activeFile 切换后再重置内容，避免写入错误的文件
+  nextTick(() => {
+    editorBridgeRef.value?.resetCode(activeSourceCode.value)
+  })
 })
 
-const handleCodeChange = useDebounceFn(async (newCode: string) => {
-  currentCode.value = newCode
+const debouncedCompile = useDebounceFn(async (newCode: string) => {
+  // 伴生文件 tab 不参与主 demo 的实时编译
+  if (activeExtraFile.value)
+    return
   // Code matches original source (e.g. after tab switch reset), skip compilation
-  if (newCode === activeSourceCode.value) {
+  if (newCode === mainSourceCode.value) {
     liveComponent.value = null
     compileError.value = null
     return
@@ -138,10 +274,33 @@ const handleCodeChange = useDebounceFn(async (newCode: string) => {
   }
 }, 300)
 
+function handleCodeChange(newCode: string) {
+  currentCode.value = newCode
+  debouncedCompile(newCode)
+}
+
 const sandpackTheme = computed(() => appStore.darkMode ? atomDark : aquaBlue)
 
-const sandpackFiles = computed(() => ({
-  '/src/App.vue': activeSourceCode.value,
+const sandpackFiles = computed(() => {
+  const files: Record<string, string> = {
+    '/src/App.vue': mainSourceCode.value,
+  }
+  for (const file of extraFiles.value) {
+    files[extraFileToSandpackPath(file.name)] = file.code
+  }
+  return files
+})
+
+// 当前激活的 sandpack 文件（多文件 tab 时切换）
+const sandpackActiveFile = computed(() => {
+  if (activeExtraFile.value)
+    return extraFileToSandpackPath(activeExtraFile.value.name)
+  return '/src/App.vue'
+})
+
+const sandpackOptions = computed(() => ({
+  autorun: false,
+  activeFile: sandpackActiveFile.value,
 }))
 const active = computed(() => route.hash === `#${id.value}`)
 function handleScroll(e: Event) {
@@ -155,10 +314,17 @@ function handleScroll(e: Event) {
 
 const titleRef = shallowRef<HTMLElement>()
 
-function handleStackBlitz() {
-  if (activeSourceCode.value) {
+async function handleStackBlitz() {
+  try {
+    await ensureSourceLoaded()
+  }
+  catch {
+    showCode.value = true
+    return
+  }
+  if (mainSourceCode.value) {
     const title = `${titleRef.value?.textContent || 'Antdv Next Demo'} - antdv-next@${antdvPkg.version}`
-    openStackBlitz(title, activeSourceCode.value)
+    openStackBlitz(title, mainSourceCode.value)
   }
 }
 
@@ -197,8 +363,15 @@ const cls = computed(() => {
   return cls
 })
 
-function handleOpenPlayground() {
-  const url = loadPlaygroundUrl(activeSourceCode.value ?? '')
+async function handleOpenPlayground() {
+  try {
+    await ensureSourceLoaded()
+  }
+  catch {
+    showCode.value = true
+    return
+  }
+  const url = loadPlaygroundUrl(mainSourceCode.value ?? '')
   if (url) {
     window.open(url, '_blank', 'noopener,noreferrer')
   }
@@ -267,40 +440,56 @@ function handleOpenPlayground() {
       </section>
       <!-- Code editor (only when expanded) -->
       <template v-if="showCode">
-        <div class="ant-doc-demo-box-code-tabs">
-          <a-tabs
-            v-model:active-key="activeCodeType"
-            centered
-            size="small"
-          >
-            <a-tab-pane key="ts" :tab="t('ui.codeDemo.type.typescript')" />
-            <a-tab-pane key="js" :tab="t('ui.codeDemo.type.javascript')" />
-          </a-tabs>
+        <!-- 加载中 -->
+        <div v-if="sourceLoading" class="ant-doc-demo-box-code-loading">
+          <a-spin />
         </div>
-        <div class="ant-doc-demo-box-code">
-          <a-tooltip :title="t(`ui.codeDemo.action.${copied ? 'copied' : 'copy'}`)">
-            <div class="ant-doc-demo-box-code-copy" :class="copied ? 'ant-doc-demo-box-code-copied' : ''" @click="copy()">
-              <CopyOutlined v-if="!copied" />
-              <CheckOutlined v-else />
-            </div>
-          </a-tooltip>
-          <SandpackProvider
-            template="vite-vue-ts"
-            :files="sandpackFiles"
-            :theme="sandpackTheme"
-            :options="{ autorun: false }"
-          >
-            <CodeEditorBridge
-              ref="editorBridgeRef"
-              @update:code="handleCodeChange"
-            />
-          </SandpackProvider>
+        <!-- 加载失败 -->
+        <div v-else-if="sourceLoadError" class="ant-doc-demo-box-code">
+          <a-alert type="error" :message="t('ui.codeDemo.action.loadError')" />
         </div>
-        <!-- Collapse button at bottom -->
-        <div class="ant-doc-demo-box-collapse-btn" @click="handleShowCode">
-          <ExpandIcon :expanded="showCode" />
-          <span>{{ t('ui.codeDemo.action.expandedCode') }}</span>
-        </div>
+        <!-- 正常展示 -->
+        <template v-else>
+          <div class="ant-doc-demo-box-code-tabs">
+            <a-tabs
+              v-model:active-key="activeCodeType"
+              centered
+              size="small"
+            >
+              <a-tab-pane key="ts" :tab="t('ui.codeDemo.type.typescript')" />
+              <a-tab-pane key="js" :tab="t('ui.codeDemo.type.javascript')" />
+              <a-tab-pane
+                v-for="file in extraFiles"
+                :key="file.name"
+                :tab="displayFileName(file.name)"
+              />
+            </a-tabs>
+          </div>
+          <div class="ant-doc-demo-box-code">
+            <a-tooltip :title="t(`ui.codeDemo.action.${copied ? 'copied' : 'copy'}`)">
+              <div class="ant-doc-demo-box-code-copy" :class="copied ? 'ant-doc-demo-box-code-copied' : ''" @click="copy()">
+                <CopyOutlined v-if="!copied" />
+                <CheckOutlined v-else />
+              </div>
+            </a-tooltip>
+            <SandpackProvider
+              template="vite-vue-ts"
+              :files="sandpackFiles"
+              :theme="sandpackTheme"
+              :options="sandpackOptions"
+            >
+              <CodeEditorBridge
+                ref="editorBridgeRef"
+                @update:code="handleCodeChange"
+              />
+            </SandpackProvider>
+          </div>
+          <!-- Collapse button at bottom -->
+          <div class="ant-doc-demo-box-collapse-btn" @click="handleShowCode">
+            <ExpandIcon :expanded="showCode" />
+            <span>{{ t('ui.codeDemo.action.expandedCode') }}</span>
+          </div>
+        </template>
       </template>
     </template>
   </section>
@@ -424,6 +613,13 @@ function handleOpenPlayground() {
     &:hover {
       color: var(--ant-color-primary);
     }
+  }
+
+  &-code-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0;
   }
 
   &-code {

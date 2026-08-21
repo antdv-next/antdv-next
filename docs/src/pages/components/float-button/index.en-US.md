@@ -27,6 +27,7 @@ demo:
   <demo src="./demo/controlled.vue" iframe="360">Controlled mode</demo>
   <demo src="./demo/placement.vue" iframe="380">placement</demo>
   <demo src="./demo/back-top.vue" iframe="360">BackTop</demo>
+  <demo src="./demo/progress-ring.vue" iframe="360">Progress ring</demo>
   <demo src="./demo/badge.vue" iframe="360">badge</demo>
   <demo src="./demo/style-class.vue" iframe="360">Custom semantic dom styling</demo>
 </demo-group>
@@ -103,7 +104,8 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| duration | Time to return to top（ms） | number | 450 | - |
+| duration | Time to return to top (ms). This property is ignored when reduced motion (`prefers-reduced-motion: reduce`) is enabled | number | 450 | - |
+| showProgress | Show the current scroll progress ring around the BackTop button edge | boolean | false | - |
 | target | Specifies the scrollable area dom node | () =&gt; HTMLElement | () =&gt; window | - |
 | visibilityHeight | The BackTop button will not show until the scroll height reaches this value | number | 400 | - |
 | target | Specifies where to display the linked URL | '_self' \| '_blank' \| '_parent' \| '_top' \| string | - | - |

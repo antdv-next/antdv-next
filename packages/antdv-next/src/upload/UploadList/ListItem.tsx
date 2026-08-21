@@ -11,8 +11,9 @@ import type {
 } from '../interface'
 import { DeleteOutlined, DownloadOutlined, EyeOutlined } from '@antdv-next/icons'
 import { clsx } from '@v-c/util'
+import useDelayState from '@v-c/util/dist/hooks/useDelayState'
 import { getTransitionProps } from '@v-c/util/dist/utils/transition'
-import { computed, defineComponent, onBeforeUnmount, onMounted, shallowRef, Transition, watch } from 'vue'
+import { computed, defineComponent, onMounted, shallowRef, Transition, watch } from 'vue'
 import { getAttrStyleAndClass } from '../../_util/hooks'
 import { useComponentBaseConfig } from '../../config-provider/context.ts'
 import Progress from '../../progress'
@@ -66,20 +67,10 @@ const ListItem = defineComponent<
       },
     )
 
-    const showProgress = shallowRef(false)
-    let progressTimer: ReturnType<typeof setTimeout> | null = null
-
+    // Delay to show the progress bar
+    const [showProgress, setShowProgress] = useDelayState(false)
     onMounted(() => {
-      progressTimer = setTimeout(() => {
-        showProgress.value = true
-      }, 300)
-    })
-
-    onBeforeUnmount(() => {
-      if (progressTimer) {
-        clearTimeout(progressTimer)
-        progressTimer = null
-      }
+      setShowProgress(true, { ms: 300 })
     })
 
     const { rootPrefixCls } = useComponentBaseConfig('upload')
@@ -257,6 +248,7 @@ const ListItem = defineComponent<
                 rel="noopener noreferrer"
                 onClick={e => onPreview(file, e)}
                 title={locale.previewFile}
+                aria-label={locale.previewFile || undefined}
               >
                 {typeof customPreviewIcon === 'function'
                   ? customPreviewIcon(file)

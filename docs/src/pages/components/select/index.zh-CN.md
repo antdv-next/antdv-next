@@ -22,6 +22,7 @@ demo:
 <demo-group>
   <demo src="./demo/basic.vue">基本使用</demo>
   <demo src="./demo/search.vue">带搜索框</demo>
+  <demo src="./demo/multiple-fields-search.vue">多字段搜索</demo>
   <demo src="./demo/search-filter-option.vue">自定义搜索</demo>
   <demo src="./demo/multiple.vue">多选</demo>
   <demo src="./demo/size.vue">三种大小</demo>
@@ -38,6 +39,7 @@ demo:
   <demo src="./demo/custom-dropdown-menu.vue">扩展菜单</demo>
   <demo src="./demo/hide-selected.vue">隐藏已选择选项</demo>
   <demo src="./demo/variant.vue">形态变体</demo>
+  <demo src="./demo/clear-suffix-debug.vue" debug>清除后缀</demo>
   <demo src="./demo/custom-tag-render.vue">自定义选择标签</demo>
   <demo src="./demo/custom-label-render.vue">自定义选中 label</demo>
   <demo src="./demo/responsive.vue">响应式 maxTagCount</demo>
@@ -78,7 +80,7 @@ demo:
 | maxTagTextLength | 最大显示的 tag 文本长度 | number | - | - | × |
 | menuItemSelectedIcon | 自定义多选时当前选中的条目图标 | VueNode | - | - | ✓ |
 | mode | 设置 Select 的模式为多选或标签 | 'multiple' \| 'tags' | - | - | × |
-| notFoundContent | 当下拉列表为空时显示的内容 | VueNode | `Not Found` | - | × |
+| notFoundContent | 当下拉列表为空时显示的内容 | VueNode | `暂无数据` | - | × |
 | open | 是否展开下拉菜单 | boolean | - | - | × |
 | optionFilterProp | 搜索时过滤对应的 `option` 属性，如设置为 `children` 表示对内置 `option` 的 `children` 进行搜索。若通过 `options` 属性配置选项内容，建议设置 `optionFilterProp="label"` 来对内容进行搜索。当为字符串数组时，会使用 OR 匹配多个字段 | string \| string[] | value | - | × |
 | options | 数据化配置选项内容，相比 jsx 定义会获得更好的渲染性能 | &#123; label: VueNode; value: string &#125;[] | - | - | × |

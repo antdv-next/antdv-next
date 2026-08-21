@@ -20,14 +20,14 @@
         {
           "upstream_path": ".",
           "downstream_path": "packages/antdv-next",
-          "description": "Ant Design React 主组件库 -> antdv-next 主包"
+          "description": "Ant Design React \u4e3b\u7ec4\u4ef6\u5e93 -> antdv-next \u4e3b\u5305"
         }
       ],
-      "last_synced_commit": "912a9927357bb9d5b47295fd8f9f408e5f79dd56",
-      "last_synced_commit_short": "912a992735",
-      "last_synced_at": "2026-07-26T00:00:00Z",
-      "last_synced_tag": "6.5.2",
-      "sync_count": 24
+      "last_synced_commit": "e216c46b1e435efb6ed5e2bea6a2cea350292961",
+      "last_synced_commit_short": "e216c46b1e",
+      "last_synced_at": "2026-08-19T13:25:00Z",
+      "last_synced_tag": "6.6.1",
+      "sync_count": 30
     },
     {
       "name": "cssinjs",
@@ -38,13 +38,13 @@
         {
           "upstream_path": ".",
           "downstream_path": "packages/cssinjs",
-          "description": "Ant Design cssinjs -> antdv-next cssinjs 包"
+          "description": "Ant Design cssinjs -> antdv-next cssinjs \u5305"
         }
       ],
       "last_synced_commit": "116099459d6fc8b3c4affb051ccdf3e7b5ceaacf",
       "last_synced_commit_short": "1160994",
-      "last_synced_at": "2026-04-14T03:53:35Z",
-      "sync_count": 1
+      "last_synced_at": "2026-07-29T00:00:00Z",
+      "sync_count": 2
     }
   ]
 }

@@ -5,7 +5,7 @@ import { Panel } from '@v-c/dialog'
 import { clsx } from '@v-c/util'
 import { toPropsRefs } from '@v-c/util/dist/props-util'
 import { computed, defineComponent } from 'vue'
-import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { withPureRenderTheme } from '../_util/PurePanel'
 import { getSlotPropsFnRun } from '../_util/tools.ts'
 import { useComponentBaseConfig } from '../config-provider/context'
@@ -56,9 +56,11 @@ const PurePanel = defineComponent<
     } = toPropsRefs(props, 'classes', 'styles')
     const rootPrefixCls = computed(() => getPrefixCls(undefined, ''))
 
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
+
     const [mergedClassNames, mergedStyles] = useMergeSemantic<ModalClassNamesType, ModalStylesType, PurePanelProps>(
       useToArr(contextClassNames, classes),
-      useToArr(contextStyles, styles),
+      useToArr(contextStyles, contextStyleRoot as any, styles),
       useToProps(computed(() => props)),
     )
     const rootCls = useCSSVarCls(rootPrefixCls)
@@ -113,7 +115,7 @@ const PurePanel = defineComponent<
             mergedClassNames.value?.root,
           )}
           animationVisible={true}
-          style={[contextStyle, mergedStyles.value?.root, attrStyle]}
+          style={[mergedStyles.value?.root, attrStyle]}
           {...restAttrs as any}
           closeIcon={renderCloseIcon(prefixCls.value, slots.closeIcon || closeIcon)}
           closable={closable}

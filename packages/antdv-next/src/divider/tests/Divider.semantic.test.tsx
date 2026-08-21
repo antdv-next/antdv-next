@@ -1,6 +1,8 @@
 import type { DividerProps } from '..'
 import { describe, expect, it, vi } from 'vitest'
+import { h } from 'vue'
 import Divider from '..'
+import ConfigProvider from '../../config-provider'
 import { mount } from '/@tests/utils'
 
 describe('divider.Semantic', () => {
@@ -137,5 +139,32 @@ describe('divider.Semantic', () => {
 
     await wrapper.setProps({ plain: true })
     expect(wrapper.find('.ant-divider').classes()).toContain('plain-root')
+  })
+  // sync ant-design#58550: root semantic style priority is
+  // ConfigProvider `styles.root` -> ConfigProvider `style` -> `styles.root` -> `style`
+  it('should respect root semantic style priority', () => {
+    const wrapper = mount(ConfigProvider, {
+      props: {
+        divider: {
+          style: { color: 'rgb(0, 0, 255)', margin: '1px' },
+          styles: { root: { color: 'rgb(0, 128, 0)', padding: '2px' } },
+        },
+      },
+      slots: {
+        default: () => h(Divider, {
+          style: { color: 'rgb(255, 255, 0)' },
+          styles: { root: { color: 'rgb(255, 0, 0)', borderWidth: '3px' } },
+        }),
+      },
+    })
+
+    const style = wrapper.find('.ant-divider').attributes('style')
+    // component `style` wins over every semantic source
+    expect(style).toContain('color: rgb(255, 255, 0)')
+    // ConfigProvider `style` overrides ConfigProvider `styles.root`
+    expect(style).toContain('margin: 1px')
+    expect(style).toContain('padding: 2px')
+    // component `styles.root` still applies for keys nobody else sets
+    expect(style).toContain('border-width: 3px')
   })
 })

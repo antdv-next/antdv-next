@@ -29,6 +29,7 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
 import { useSize } from '../config-provider/hooks/useSize'
 import { useFormItemInputContext } from '../form/context'
 import useVariant from '../form/hooks/useVariant'
+import usePopupRender from '../select/usePopupRender'
 import Spin from '../spin'
 import useStyle from './style'
 
@@ -123,6 +124,7 @@ export interface MentionsSlots {
   suffix?: () => any
   default?: () => any
   labelRender?: (ctx: { option: MentionsOptionProps, index: number }) => any
+  popupRender?: MentionProps['popupRender']
 }
 
 export interface MentionsProps extends MentionProps {}
@@ -153,6 +155,7 @@ const omitKeys: string[] = [
   'allowClear',
   'filterOption',
   'popupClassName',
+  'popupRender',
   'options',
   'notFoundContent',
 ]
@@ -382,6 +385,9 @@ const InternalMentions = defineComponent<
         suffix: mergedStyles.value.suffix,
       }
 
+      const popupRender = slots?.popupRender ?? props?.popupRender
+      const mergedPopupRender = usePopupRender(popupRender)
+
       const restProps = omit(props, omitKeys as any)
       return (
         <VcMentions
@@ -394,6 +400,7 @@ const InternalMentions = defineComponent<
           classNames={classNames as any}
           styles={mergedStylesValue as any}
           popupClassName={props.popupClassName}
+          popupRender={mergedPopupRender}
           notFoundContent={notFoundContent.value}
           disabled={mergedDisabled.value}
           allowClear={mergedAllowClear.value}

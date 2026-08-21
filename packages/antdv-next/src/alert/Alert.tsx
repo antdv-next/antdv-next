@@ -218,7 +218,7 @@ const Alert = defineComponent<
       // closeable when closeText or closeIcon is assigned
       const isClosableFn = () => {
         const closeIcon = getSlotPropsFnRun(slots, props, 'closeIcon')
-        if (typeof closable === 'object' && closable.closeIcon)
+        if (typeof closable === 'object')
           return true
         if (typeof closable === 'boolean') {
           return closable

@@ -1,0 +1,90 @@
+---
+category: Components
+group: 数据展示
+title: Listy
+subtitle: 虚拟列表
+description: 高性能列表，支持分组，并可为长列表开启虚拟滚动。
+cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EYuhSpw1iSwAAAAAAAAAAAAADrJ8AQ/original
+coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAAAAAAAAAAAADrJ8AQ/original
+tag: 1.5.0
+---
+
+## 何时使用 {#when-to-use}
+
+- 需要渲染长列表，又不想为每一行都付出挂载成本时 —— 开启 `virtual` 后只渲染视口内的行。
+- 列表需要分组，并让分组标题吸顶时。
+- 需要以命令式方式控制滚动位置（跳到某一项、某个分组或某个像素位置）时。
+
+## 代码演示 {#examples}
+
+<!-- prettier-ignore -->
+<demo-group>
+  <demo src="./demo/basic.vue">基础用法</demo>
+  <demo src="./demo/virtual.vue">虚拟滚动</demo>
+  <demo src="./demo/group.vue">分组与吸顶</demo>
+  <demo src="./demo/scroll-to.vue" debug>滚动控制</demo>
+  <demo src="./demo/rich.vue">复杂内容</demo>
+  <demo src="./demo/drag-sorting.vue">拖拽排序</demo>
+  <demo src="./demo/infinite.vue">无限加载</demo>
+  <demo src="./demo/style-class.vue">自定义语义结构的样式和类</demo>
+</demo-group>
+
+## API
+
+通用属性参考：[通用属性](/docs/vue/common-props)
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| classes | 语义化结构 class | `{ root?, item?, groupHeader? }` | - | 1.5.0 | 1.5.0 |
+| group | 分组配置，见下方 [Group](#group) | `Group<T, K>` | - | 1.5.0 | × |
+| height | 滚动容器高度，内容超出后滚动 | number | - | 1.5.0 | × |
+| itemRender | 渲染单行 | `(item: T, index: number) => VNode` | - | 1.5.0 | × |
+| items | 列表数据源 | `T[]` | `[]` | 1.5.0 | × |
+| rowKey | 每一项的唯一键，字段名或取值函数 | `keyof T \| (item: T) => Key` | - | 1.5.0 | × |
+| sticky | 分组标题是否吸顶 | boolean | false | 1.5.0 | × |
+| styles | 语义化结构 style | `{ root?, item?, groupHeader? }` | - | 1.5.0 | 1.5.0 |
+| virtual | 是否开启虚拟滚动，仅渲染视口内的行，需配合 `height` 使用 | boolean | false | 1.5.0 | × |
+
+### 事件 {#events}
+
+| 事件 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| scroll | 原生滚动事件回调 | `(e: Event) => void` | - |
+
+### 插槽 {#slots}
+
+| 插槽 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| itemRender | 自定义项渲染插槽 | (item: any, index: number) => any | - |
+
+### Group
+
+| 参数 | 说明 | 类型 |
+| --- | --- | --- |
+| key | 计算每条数据所属的分组键，返回值相同的数据归为一组 | `(item: T) => K` |
+| title | 渲染分组标题，入参为分组键与该组数据 | `(groupKey: K, items: T[]) => VNode` |
+
+### Ref
+
+| 名称     | 说明                             | 类型                                |
+| -------- | -------------------------------- | ----------------------------------- |
+| scrollTo | 滚动到某个位置、某一项或某个分组 | `(config?: ListyScrollToConfig) => void` |
+
+`ListyScrollToConfig` 为以下之一：
+
+| 形态                            | 说明                                |
+| ------------------------------- | ----------------------------------- |
+| number                          | 滚动到某个像素位置（scrollTop）     |
+| `{ top?, left? }`               | 滚动到绝对像素坐标                  |
+| `{ key, align?, offset? }`      | 滚动到 `rowKey` 等于 `key` 的数据项 |
+| `{ groupKey, align?, offset? }` | 滚动到某个分组标题                  |
+
+`align` 可选 `'top' | 'bottom' | 'auto'`；`offset` 为对齐后额外的像素偏移。
+
+## Semantic DOM
+
+<demo src="./demo/_semantic.vue" :simplify="true"></demo>
+
+## 主题变量（Design Token）{#design-token}
+
+<ComponentTokenTable component="Listy"></ComponentTokenTable>

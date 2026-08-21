@@ -16,7 +16,7 @@ import type {
 import { useNotificationProvider, useNotification as useVcNotification } from '@v-c/notification'
 import { clsx } from '@v-c/util'
 import { computed, defineComponent, shallowRef, unref } from 'vue'
-import { mergeClassNames, mergeStyles, resolveStyleOrClass, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { mergeClassNames, mergeStyles, resolveStyleOrClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { toPropsRefs } from '../_util/tools'
 import { devUseWarning } from '../_util/warning'
 import { useBaseConfig, useComponentBaseConfig } from '../config-provider/context'
@@ -122,13 +122,14 @@ const Holder = defineComponent<HolderProps>(
     })
 
     const mergedProps = computed(() => props)
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       ArgsClassNamesType,
       ArgsStylesType,
       HolderProps
     >(
-      useToArr(classes, contextClasses),
-      useToArr(styles, contextStyles),
+      useToArr(contextClasses, classes),
+      useToArr(contextStyles, contextStyleRoot as any, styles),
       useToProps(mergedProps),
     )
 
@@ -181,7 +182,6 @@ export function useInternalMessage(messageConfig?: MaybeRef<HolderProps>) {
         open: originOpen,
         prefixCls,
         contextClassName,
-        contextStyle,
         contextClasses,
         contextStyles,
         classNames: originClassNames,
@@ -258,7 +258,6 @@ export function useInternalMessage(messageConfig?: MaybeRef<HolderProps>) {
           ),
           style: {
             ...mergedStyles.root,
-            ...contextStyle,
             ...style,
           },
           onClose: () => {

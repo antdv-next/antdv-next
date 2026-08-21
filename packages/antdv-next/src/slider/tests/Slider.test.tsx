@@ -567,6 +567,16 @@ describe('slider', () => {
       document.body.innerHTML = ''
     })
 
+    function isTooltipOpen() {
+      const ele = document.querySelector<HTMLElement>('.ant-slider-tooltip')
+      if (!ele || ele.classList.contains('ant-tooltip-hidden')) {
+        return false
+      }
+      return ele.style.display !== 'none'
+    }
+
+    // ant-design #58690: hover/focus/dragging are `useDelayState`, so switching
+    // on is immediate while switching off is deferred by one frame.
     it('should trigger hoverOpen on handle mouseenter', async () => {
       const wrapper = mount(Slider, {
         props: { defaultValue: 30 },
@@ -574,9 +584,9 @@ describe('slider', () => {
       })
       const handle = wrapper.find('.ant-slider-handle')
       await handle.trigger('mouseenter')
-      vi.advanceTimersByTime(100)
-      // hoverOpen is set to true via useRafLock
-      expect(handle.exists()).toBe(true)
+      await nextTick()
+      // `setHoverOpen(true, true)` applies without waiting for a frame
+      expect(isTooltipOpen()).toBe(true)
       wrapper.unmount()
     })
 
@@ -587,10 +597,16 @@ describe('slider', () => {
       })
       const handle = wrapper.find('.ant-slider-handle')
       await handle.trigger('mouseenter')
-      vi.advanceTimersByTime(100)
+      await nextTick()
+      expect(isTooltipOpen()).toBe(true)
+
       await handle.trigger('mouseleave')
-      vi.advanceTimersByTime(100)
-      expect(handle.exists()).toBe(true)
+      await nextTick()
+      // `setHoverOpen(false)` is deferred, keeping the tooltip for one frame
+      expect(isTooltipOpen()).toBe(true)
+
+      await vi.advanceTimersByTimeAsync(100)
+      expect(isTooltipOpen()).toBe(false)
       wrapper.unmount()
     })
 
@@ -644,8 +660,10 @@ describe('slider', () => {
       const handle = wrapper.find('.ant-slider-handle')
       await handle.trigger('focus')
       vi.advanceTimersByTime(100)
-      // Source L328-331: passedProps.onFocus calls restProps.onFocus(e)
-      expect(onFocus).toHaveBeenCalled()
+      // The handle vnode already carries vc-slider's internal focus wrapper, which
+      // chains up to this handler, and Vue's cloneVNode merges rather than replaces
+      // listeners. Dispatching it again in passedProps would fire it more than once.
+      expect(onFocus).toHaveBeenCalledTimes(1)
       wrapper.unmount()
     })
 
@@ -661,8 +679,9 @@ describe('slider', () => {
       vi.advanceTimersByTime(100)
       await handle.trigger('blur')
       vi.advanceTimersByTime(100)
-      // Source L332-337: passedProps.onBlur calls restProps.onBlur(e)
-      expect(onBlur).toHaveBeenCalled()
+      // vc-slider's Handle never declares `onBlur` as a prop, so it never lands on the
+      // handle vnode and passedProps must dispatch it — exactly once.
+      expect(onBlur).toHaveBeenCalledTimes(1)
       wrapper.unmount()
     })
 

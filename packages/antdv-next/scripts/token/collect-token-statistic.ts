@@ -11,7 +11,12 @@ type RenderFn = (component: any) => RenderNode
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const repoRoot = path.resolve(__dirname, '../../../../')
-const output = path.resolve(repoRoot, 'docs/src/assets/token.json')
+// docs copy feeds the site; the dist copy ships in the published package,
+// mirroring antd's `{lib,es}/version/token.json`.
+const outputs = [
+  path.resolve(repoRoot, 'docs/src/assets/token.json'),
+  path.resolve(repoRoot, 'packages/antdv-next/dist/version/token.json'),
+]
 
 let antd: Record<string, any> = {}
 let statistic: Record<string, { global: string[], component: Record<string, string | number> }> = {}
@@ -196,7 +201,9 @@ export async function collectTokenStatistic() {
   resetStatistic()
   await collect({ hashed: false }, 'default')
   await collect({ hashed: false, token: { wireframe: true } }, 'wireframe')
-  fs.ensureDirSync(path.dirname(output))
-  fs.writeJsonSync(output, statistic, 'utf8')
-  console.log(`Collected token statistics successfully, check it in ${output}`)
+  for (const output of outputs) {
+    fs.ensureDirSync(path.dirname(output))
+    fs.writeJsonSync(output, statistic, 'utf8')
+    console.log(`Collected token statistics successfully, check it in ${output}`)
+  }
 }

@@ -131,7 +131,7 @@ Radio group can wrap a group of `Radio`.
 | disabled | Specifies whether the Radio option is disabled | `boolean` | `false` | - |
 | title | Adds the Title attribute value | `string` | - | - |
 | id | Adds the Radio Id attribute value | `string` | - | - |
-| onChange | Triggered when the value of the Radio Group changes | `(e: CheckboxChangeEvent) => void;` | - | - |
+| onChange | Triggered when this option is checked, before the Radio Group `change` event | `(e: RadioChangeEvent) => void` | - | - |
 | required | Specifies whether the Radio option is required | `boolean` | `false` | - |
 
 ## Semantic DOM

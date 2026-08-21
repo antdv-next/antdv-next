@@ -10,7 +10,7 @@ import type {
 } from './interface'
 import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
-import { computed, defineComponent } from 'vue'
+import { computed, defineComponent, shallowRef } from 'vue'
 import { getAttrStyleAndClass, useMergeSemantic, useMultipleSelect, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
@@ -53,13 +53,17 @@ export interface TransferEmitsProps {
   'onUpdate:selectedKeys'?: TransferEmits['update:selectedKeys']
 }
 
+export interface TransferRef {
+  nativeElement: HTMLDivElement
+}
+
 const Transfer = defineComponent<
   InternalTransferProps,
   TransferEmits,
   string,
   SlotsType<TransferSlots>
 >(
-  (props = defaults, { slots, attrs, emit }) => {
+  (props = defaults, { slots, attrs, emit, expose }) => {
     const {
       prefixCls,
       direction,
@@ -424,6 +428,11 @@ const Transfer = defineComponent<
       })
     }
 
+    const nativeElementRef = shallowRef<HTMLDivElement>()
+    expose({
+      nativeElement: nativeElementRef,
+    })
+
     return () => {
       const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
       const mergedClassName = clsx(
@@ -452,7 +461,7 @@ const Transfer = defineComponent<
       const rightTitle = titles.value[1]
 
       return (
-        <div class={mergedClassName} style={rootStyle} {...restAttrs}>
+        <div ref={nativeElementRef} class={mergedClassName} style={rootStyle} {...restAttrs}>
           <Section
             prefixCls={prefixCls.value}
             style={handleListStyle('left')}

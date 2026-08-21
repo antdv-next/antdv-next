@@ -11,8 +11,8 @@ import { QRCodeCanvas, QRCodeSVG } from '@v-c/qrcode'
 import { classNames } from '@v-c/util'
 import pickAttrs from '@v-c/util/dist/pickAttrs'
 import { omit } from 'es-toolkit'
-import { computed, defineComponent } from 'vue'
-import { useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { computed, defineComponent, shallowRef } from 'vue'
+import { useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { toPropsRefs } from '../_util/tools.ts'
 import { devUseWarning, isDev } from '../_util/warning.ts'
 import { useComponentBaseConfig } from '../config-provider/context'
@@ -44,13 +44,17 @@ export interface QRCodeEmitsProps {
   onRefresh?: QRCodeEmits['refresh']
 }
 
+export interface QRCodeRef {
+  nativeElement: HTMLDivElement
+}
+
 const QRCode = defineComponent<
   InternalQRCodeProps,
   QRCodeEmits,
   string,
   SlotsType<QRCodeSlots>
 >(
-  (props = defaults, { emit, attrs, slots }) => {
+  (props = defaults, { emit, attrs, slots, expose }) => {
     const {
       prefixCls,
       class: contextClassName,
@@ -81,15 +85,22 @@ const QRCode = defineComponent<
     const mergedProps = computed(() => {
       return props
     })
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
+
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       QRCodeClassNamesType,
       QRCodeStylesType,
       BaseQRCodeProps
     >(
       useToArr(contextClassNames, classes),
-      useToArr(contextStyles, styles),
+      useToArr(contextStyles, contextStyleRoot as any, styles),
       useToProps(mergedProps),
     )
+
+    const nativeElementRef = shallowRef<HTMLDivElement>()
+    expose({
+      nativeElement: nativeElementRef,
+    })
 
     return () => {
       const {
@@ -162,13 +173,12 @@ const QRCode = defineComponent<
       const rootStyle: CSSProperties = {
         backgroundColor: bgColor,
         ...mergedStyles.value?.root,
-        ...contextStyle.value,
         ...style,
         width: _width,
         height: _height,
       }
       return (
-        <div {...restProps} class={mergedCls} style={rootStyle}>
+        <div ref={nativeElementRef} {...restProps} class={mergedCls} style={rootStyle}>
           {status !== 'active' && (
             <div
               class={[`${prefixCls.value}-cover`, mergedClassNames.value.cover]}

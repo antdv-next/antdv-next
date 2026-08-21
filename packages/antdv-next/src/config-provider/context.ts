@@ -1,4 +1,5 @@
 import type { DerivativeFunc } from '@antdv-next/cssinjs'
+import type { MoreProps as TabsMoreProps } from '@v-c/tabs'
 import type { CSSProperties, InjectionKey, Ref } from 'vue'
 import type { MaskType } from '../_util/hooks'
 import type { AnyObject, VueNode } from '../_util/type.ts'
@@ -30,8 +31,10 @@ import type { ImageProps } from '../image/index.tsx'
 import type { InputNumberProps } from '../input-number'
 import type { InputProps } from '../input/Input.tsx'
 import type { OTPProps } from '../input/OTP'
+import type { PasswordProps } from '../input/Password.tsx'
 import type { SearchProps } from '../input/Search.tsx'
 import type { TextAreaProps } from '../input/TextArea.tsx'
+import type { ListyProps } from '../listy'
 import type { Locale } from '../locale'
 import type { MasonryProps } from '../masonry/Masonry.tsx'
 import type { MenuProps } from '../menu'
@@ -296,7 +299,7 @@ export type FloatButtonGroupConfig = ComponentStyleConfig & Pick<FloatButtonGrou
   closeIcon?: VueNode
 }
 
-export type TooltipConfig = ComponentStyleConfig & Pick<TooltipProps, 'styles' | 'classes' | 'arrow' | 'trigger'> & {
+export interface TooltipUniqueConfig {
   /**
    * @descCN 是否开启 Tooltip 流畅过渡动画
    * @descEN Whether to enable smooth transition for tooltips
@@ -305,9 +308,15 @@ export type TooltipConfig = ComponentStyleConfig & Pick<TooltipProps, 'styles' |
   unique?: boolean
 }
 
-export type PopoverConfig = ComponentStyleConfig & Pick<PopoverProps, 'classes' | 'styles' | 'arrow' | 'trigger'>
+export type TooltipConfig = ComponentStyleConfig
+  & Pick<TooltipProps, 'styles' | 'classes' | 'arrow' | 'trigger' | 'mouseEnterDelay' | 'mouseLeaveDelay'>
+  & TooltipUniqueConfig
 
-export type PopconfirmConfig = ComponentStyleConfig & Pick<PopconfirmProps, 'classes' | 'styles' | 'arrow' | 'trigger'>
+export type PopoverConfig = ComponentStyleConfig
+  & Pick<PopoverProps, 'classes' | 'styles' | 'arrow' | 'trigger' | 'mouseEnterDelay' | 'mouseLeaveDelay'>
+
+export type PopconfirmConfig = ComponentStyleConfig
+  & Pick<PopconfirmProps, 'classes' | 'styles' | 'arrow' | 'trigger' | 'mouseEnterDelay' | 'mouseLeaveDelay'>
 
 export type SegmentedConfig = ComponentStyleConfig & Pick<SegmentedProps, 'classes' | 'styles'>
 
@@ -341,6 +350,8 @@ export type RadioConfig = ComponentStyleConfig & Pick<RadioProps, 'classes' | 's
 
 export type CheckboxConfig = ComponentStyleConfig & Pick<CheckboxProps, 'classes' | 'styles'>
 
+export type ListyConfig = ComponentStyleConfig & Pick<ListyProps, 'classes' | 'styles'>
+
 export type SwitchStyleConfig = ComponentStyleConfig & Pick<SwitchProps, 'classes' | 'styles'>
 
 export type TransferConfig = ComponentStyleConfig & Pick<TransferProps, 'selectionsIcon' | 'classes' | 'styles'>
@@ -357,24 +368,38 @@ export type TextAreaConfig = ComponentStyleConfig
 export type MentionsConfig = ComponentStyleConfig
   & Pick<TextAreaProps, 'classes' | 'styles' | 'allowClear' | 'variant'>
 
-export type InputSearchConfig = ComponentStyleConfig & Pick<SearchProps, 'classes' | 'styles' | 'searchIcon'>
+export type InputSearchConfig = ComponentStyleConfig & Pick<SearchProps, 'classes' | 'styles' | 'searchIcon' | 'variant'>
+
+/**
+ * Only `variant` is consumed for now: Input.Password does not read semantic
+ * class/style context yet, so exposing them here would be misleading.
+ */
+export type InputPasswordConfig = Pick<PasswordProps, 'variant'>
 
 export type OTPConfig = ComponentStyleConfig & Pick<OTPProps, 'classes' | 'styles' | 'variant'>
 
 export type SliderConfig = ComponentStyleConfig & Pick<SliderProps, 'styles' | 'classes'>
+
+export interface TabsMoreConfig {
+  /**
+   * `popupRender` is intentionally excluded: it is a per-instance render
+   * function and makes no sense as a global configuration.
+   */
+  more?: Omit<TabsMoreProps, 'popupRender'>
+}
 
 export type TabsConfig = ComponentStyleConfig
   & Pick<
     TabsProps,
     | 'indicator'
     | 'indicatorSize'
-    | 'more'
     | 'moreIcon'
     | 'addIcon'
     | 'removeIcon'
     | 'classes'
     | 'styles'
   >
+  & TabsMoreConfig
 
 export type SelectConfig = ComponentStyleConfig
   & Pick<SelectProps, 'showSearch' | 'variant' | 'classes' | 'styles' | 'allowClear' | 'suffixIcon' | 'removeIcon'>
@@ -478,6 +503,7 @@ export interface ConfigComponentProps {
   mentions?: MentionsConfig
   pagination?: PaginationConfig
   inputSearch?: InputSearchConfig
+  inputPassword?: InputPasswordConfig
   otp?: OTPConfig
   space?: SpaceConfig
   splitter?: SplitterConfig
@@ -505,6 +531,7 @@ export interface ConfigComponentProps {
   image?: ImageConfig
   layout?: ComponentStyleConfig
   // list?: ListConfig;
+  listy?: ListyConfig
   modal?: ModalConfig
   progress?: ProgressConfig
   result?: ResultConfig

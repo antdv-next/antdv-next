@@ -466,6 +466,19 @@ describe('table', () => {
     expect(wrapper.find('thead').exists()).toBe(false)
   })
 
+  it('should add no-header class only when header and title are absent', async () => {
+    const wrapper = mount(Table, {
+      props: { columns, dataSource: data, pagination: false, bordered: true, showHeader: false },
+    })
+    expect(wrapper.find('.ant-table').classes()).toContain('ant-table-no-header')
+
+    await wrapper.setProps({ showHeader: true })
+    expect(wrapper.find('.ant-table').classes()).not.toContain('ant-table-no-header')
+
+    await wrapper.setProps({ showHeader: false, title: () => 'Title' })
+    expect(wrapper.find('.ant-table').classes()).not.toContain('ant-table-no-header')
+  })
+
   // ========================= Snapshot =========================
   it('should match snapshot', () => {
     const wrapper = mount(Table, {

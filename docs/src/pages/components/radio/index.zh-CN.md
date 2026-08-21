@@ -132,7 +132,7 @@ const value = ref()
 | disabled | 指定 Radio 选项是否要禁用 | `boolean` | `false` | - |
 | title | 添加 Title 属性值 | `string` | - | - |
 | id | 添加 Radio Id 属性值 | `string` | - | - |
-| onChange | 当 Radio Group 的值发送改变时触发 | `(e: CheckboxChangeEvent) => void;` | - | - |
+| onChange | 当该选项被选中时触发，早于 Radio Group 的 `change` 事件 | `(e: RadioChangeEvent) => void` | - | - |
 | required | 指定 Radio 选项是否必填 | `boolean` | `false` | - |
 
 ## 语义化 DOM {#semantic-dom}

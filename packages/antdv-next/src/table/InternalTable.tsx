@@ -835,21 +835,22 @@ const InternalTable = defineComponent<
 
       const mergedStyle = { ...mergedStyles.value.root, ...style }
 
+      const title = resolvePanelRender(slots, props, 'title')
+      const footer = resolvePanelRender(slots, props, 'footer')
+      const summary = resolvePanelRender(slots, props, 'summary')
+
       const tableClassName = clsx(
         {
           [`${prefixCls.value}-medium`]: mergedSize.value === 'middle' || mergedSize.value === 'medium',
           [`${prefixCls.value}-small`]: mergedSize.value === 'small',
           [`${prefixCls.value}-bordered`]: props.bordered,
           [`${prefixCls.value}-empty`]: rawData.value.length === 0,
+          [`${prefixCls.value}-no-header`]: !title && props.showHeader === false,
         },
         cssVarCls.value,
         rootCls.value,
         hashId.value,
       )
-
-      const title = resolvePanelRender(slots, props, 'title')
-      const footer = resolvePanelRender(slots, props, 'footer')
-      const summary = resolvePanelRender(slots, props, 'summary')
 
       const TableComp = TableComponent.value as any
       const virtualProps = mergedVirtual.value ? { listItemHeight: listItemHeight.value } : {}

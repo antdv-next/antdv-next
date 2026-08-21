@@ -78,6 +78,7 @@ const columns = [
   <demo src="./demo/summary.vue">Summary</demo>
   <demo src="./demo/custom-empty.vue">Custom Empty</demo>
   <demo src="./demo/custom-filter-panel.vue">Custom Filter Panel</demo>
+  <demo src="./demo/custom-filter-close.vue">Close Custom Filter Panel</demo>
   <demo src="./demo/filter-search.vue">Filter Search</demo>
   <demo src="./demo/filter-in-tree.vue">Tree Filter</demo>
   <demo src="./demo/head.vue">Sorting & Filtering</demo>
@@ -291,6 +292,7 @@ Properties for expandable.
 | expandIcon | Customize row expand Icon. Ref [example](https://stackblitz.com/edit/vitejs-vite-jezqinto?file=src%2FApp.vue) | function(props): VueNode | - | - |
 | expandRowByClick | Whether to expand row by clicking anywhere in the whole row | boolean | false | - |
 | fixed | Whether the expansion icon is fixed. Optional true `left` `right` | boolean \| string | false | - |
+| forceRender | Force render expanded row content before expansion. In virtual mode, only rows currently mounted by the virtual list are force-rendered; off-screen rows may still be unmounted | boolean | false | - |
 | indentSize | Indent size in pixels of tree data | number | 15 | - |
 | rowExpandable | Enable row can be expandable | (record) => boolean | - | - |
 | showExpandColumn | Show expand column | boolean | true | - |

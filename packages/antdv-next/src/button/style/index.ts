@@ -53,7 +53,6 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => {
       [`${componentCls}-icon`]: {
         display: 'inline-flex',
         alignItems: 'center',
-        justifyContent: 'center',
 
         [iconCls]: {
           verticalAlign: 'middle',

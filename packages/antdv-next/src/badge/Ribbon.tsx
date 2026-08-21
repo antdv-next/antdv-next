@@ -6,10 +6,11 @@ import type { EmptyEmit, VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
 import { clsx } from '@v-c/util'
 import { getAttrStyleAndClass } from '@v-c/util/dist/props-util'
-import { computed, defineComponent } from 'vue'
+import { computed, defineComponent, shallowRef } from 'vue'
 import { isPresetColor } from '../_util/colors.ts'
 import {
   useMergeSemantic,
+  useSemanticRootStyle,
   useToArr,
   useToProps,
 } from '../_util/hooks'
@@ -45,6 +46,10 @@ export interface RibbonProps extends ComponentBaseProps {
   styles?: RibbonStylesType
 }
 
+export interface RibbonRef {
+  nativeElement: HTMLDivElement
+}
+
 export interface RibbonSlots {
   default?: () => any
   text?: () => any
@@ -60,7 +65,7 @@ export default defineComponent<
   string,
   SlotsType<RibbonSlots>
 >(
-  (props = defaults, { slots, attrs }) => {
+  (props = defaults, { slots, attrs, expose }) => {
     const {
       styles,
       classes: ribbonClassNames,
@@ -81,15 +86,31 @@ export default defineComponent<
       return props
     })
 
+    // The legacy inline `style` of Ribbon targets the indicator node, not the root.
+    const contextIndicatorStyle = useSemanticRootStyle(contextStyle, 'indicator')
+    const indicatorStyle = useSemanticRootStyle(
+      computed(() => (attrs as any).style as CSSProperties | undefined),
+      'indicator',
+    )
+
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       RibbonClassNamesType,
       RibbonStylesType,
       RibbonProps
-    >(useToArr(contextClassNames, ribbonClassNames), useToArr(contextStyles, styles), useToProps(mergedProps))
+    >(
+      useToArr(contextClassNames, ribbonClassNames),
+      useToArr(contextStyles, contextIndicatorStyle as any, styles, indicatorStyle as any),
+      useToProps(mergedProps),
+    )
+
+    const nativeElementRef = shallowRef<HTMLDivElement>()
+    expose({
+      nativeElement: nativeElementRef,
+    })
 
     return () => {
       const { placement = 'end', color } = props
-      const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
+      const { className, restAttrs } = getAttrStyleAndClass(attrs)
       const colorInPreset = isPresetColor(props.color, false)
 
       const ribbonCls = clsx(
@@ -116,6 +137,7 @@ export default defineComponent<
 
       return (
         <div
+          ref={nativeElementRef}
           class={clsx(wrapperCls.value, props.rootClass, hashId.value, cssVarCls.value, mergedClassNames.value?.root)}
           style={mergedStyles.value?.root}
         >
@@ -123,7 +145,7 @@ export default defineComponent<
           <div
             {...restAttrs}
             class={clsx(ribbonCls, hashId.value)}
-            style={[colorStyle, mergedStyles.value?.indicator, contextStyle.value, style]}
+            style={[colorStyle, mergedStyles.value?.indicator]}
           >
             <span
               class={clsx(`${prefixCls.value}-content`, mergedClassNames.value.content)}

@@ -256,10 +256,39 @@ describe('app', () => {
       wrapper.unmount()
     })
 
-    it('should warn if component is false and cssVarCls is not empty', () => {
+    it('should not warn if component is false without root props', () => {
       const wrapper = mount(() => (
         <ConfigProvider>
-          <App component={false} />
+          <App component={false}>
+            <p />
+          </App>
+        </ConfigProvider>
+      ))
+
+      expect(wrapper.find('.ant-app').exists()).toBe(false)
+      expect(errorSpy).not.toHaveBeenCalled()
+      wrapper.unmount()
+    })
+
+    it('should warn if component is false and root props are provided', () => {
+      const wrapper = mount(() => (
+        <App component={false} class="custom-class" rootClass="custom-root-class" style={{ color: 'red' }}>
+          <p />
+        </App>
+      ))
+
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: App] When using cssVar, ensure `component` is assigned a valid Vue component string.',
+      )
+      wrapper.unmount()
+    })
+
+    it('should warn if component is false and context root props are provided', () => {
+      const wrapper = mount(() => (
+        <ConfigProvider app={{ class: 'custom-class', style: { color: 'red' } } as any}>
+          <App component={false}>
+            <p />
+          </App>
         </ConfigProvider>
       ))
 

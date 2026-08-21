@@ -4,6 +4,7 @@ import Panel from './Panel'
 import Splitter from './Splitter'
 
 export type { SplitterEmits, SplitterSlots } from './interface'
+export type { SplitterRef } from './Splitter'
 export type SplitterProps = InternalSplitterProps
 
 (Splitter as any).Panel = Panel;

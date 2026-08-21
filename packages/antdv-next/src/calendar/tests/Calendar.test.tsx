@@ -1,6 +1,6 @@
 import dayjs from 'dayjs'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { h } from 'vue'
+import { h, nextTick, ref } from 'vue'
 import Calendar from '..'
 import rtlTest from '/@tests/shared/rtlTest'
 import { mount, resetMockDate, setMockDate } from '/@tests/utils'
@@ -225,5 +225,14 @@ describe('calendar', () => {
       <Calendar value={dayjs('2025-01-15T00:00:00Z')} fullscreen={false} />
     ))
     expect(wrapper.html()).toMatchSnapshot()
+  })
+
+  // ========================= Ref =========================
+  it('should support nativeElement ref', async () => {
+    const calendarRef = ref<any>()
+    const wrapper = mount(() => <Calendar ref={calendarRef} fullscreen={false} />)
+    await nextTick()
+    expect(calendarRef.value?.nativeElement).toBeInstanceOf(HTMLElement)
+    expect(calendarRef.value.nativeElement).toBe(wrapper.find('.ant-picker-calendar').element)
   })
 })

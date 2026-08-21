@@ -30,6 +30,7 @@ Antdv Next 依次提供了三级选项卡，分别用于不同的场景。
 <demo src="./demo/extra.vue">附加内容</demo>
 <demo src="./demo/size.vue">大小</demo>
 <demo src="./demo/placement.vue">位置</demo>
+<demo src="./demo/popup-render-search.vue">自定义折叠菜单搜索</demo>
 <demo src="./demo/card.vue">卡片式页签</demo>
 <demo src="./demo/editable-card.vue">新增和关闭页签</demo>
 <demo src="./demo/custom-add-trigger.vue">自定义新增页签触发器</demo>
@@ -87,6 +88,7 @@ Antdv Next 依次提供了三级选项卡，分别用于不同的场景。
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | icon | 自定义折叠图标 | VueNode | - | - |
+| popupRender | 自定义折叠菜单渲染 | (menu: VueNode, info: \{ restTabs: Tab[], onClose: () => void \}) => VueNode | - | - |
 | DropdownProps | Dropdown 属性 | DropdownProps | - | - |
 
 ### 事件 {#events}

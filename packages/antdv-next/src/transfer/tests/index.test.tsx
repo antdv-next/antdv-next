@@ -137,6 +137,16 @@ describe('transfer', () => {
     expect(wrapper.element).toMatchSnapshot()
   })
 
+  it('should support nativeElement ref', async () => {
+    const transferRef = ref<any>()
+    const wrapper = mount(() => <Transfer ref={transferRef} dataSource={[]} targetKeys={[]} />)
+
+    await nextTick()
+
+    expect(transferRef.value?.nativeElement).toBeInstanceOf(HTMLElement)
+    expect(transferRef.value.nativeElement).toBe(wrapper.find('.ant-transfer').element)
+  })
+
   it('should forward data and aria attributes to root element', () => {
     const wrapper = mount(Transfer, {
       props: {
@@ -973,17 +983,21 @@ describe('transfer', () => {
     })
   })
 
-  it('remove by click icon', () => {
+  it('should use the component locale for one-way item removal', () => {
     const onChange = vi.fn()
     const wrapper = mount(Transfer, {
       props: {
         ...listCommonProps,
+        locale: { remove: 'Remove target item' },
         onChange,
         oneWay: true,
       },
     })
 
-    clickElement(wrapper.element.querySelectorAll('.ant-transfer-list-content-item-remove')[0])
+    const removeButton = wrapper.element.querySelector('button[aria-label="Remove target item"]')
+    expect(removeButton).toBeTruthy()
+
+    clickElement(removeButton)
 
     expect(onChange).toHaveBeenCalledWith([], 'left', ['b'])
   })

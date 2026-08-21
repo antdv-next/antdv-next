@@ -1,6 +1,6 @@
 import type { App } from 'vue'
 import type { FloatButtonProps, FloatButtonRef } from './FloatButton'
-import type { FloatButtonGroupProps } from './FloatButtonGroup'
+import type { FloatButtonGroupProps, FloatButtonGroupRef } from './FloatButtonGroup'
 import BackTop from './BackTop'
 import FloatButton from './FloatButton'
 import FloatButtonGroup from './FloatButtonGroup'
@@ -16,7 +16,7 @@ import PurePanel from './PurePanel'
   app.component(BackTop.name, BackTop)
 }
 
-export type { FloatButtonGroupProps, FloatButtonProps, FloatButtonRef }
+export type { FloatButtonGroupProps, FloatButtonGroupRef, FloatButtonProps, FloatButtonRef }
 
 export { BackTop, FloatButtonGroup }
 

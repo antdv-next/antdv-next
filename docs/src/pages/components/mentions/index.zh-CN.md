@@ -25,6 +25,7 @@ demo:
   <demo src="./demo/prefix.vue">自定义触发字符</demo>
   <demo src="./demo/readonly.vue">无效或只读</demo>
   <demo src="./demo/placement.vue">向上展开</demo>
+  <demo src="./demo/popup-render.vue">自定义弹出层</demo>
   <demo src="./demo/allow-clear.vue">带移除图标</demo>
   <demo src="./demo/auto-size.vue">自动大小</demo>
   <demo src="./demo/status.vue">自定义状态</demo>
@@ -44,6 +45,7 @@ demo:
 | status | 设置校验状态 | InputStatus | - | - | × |
 | options | 选项配置 | MentionsOptionProps[] | [] | - | × |
 | popupClassName | - | string | - | - | × |
+| popupRender | 自定义下拉菜单渲染 | (menu: VueNode) =&gt; VueNode | - | - | × |
 | variant | 形态变体 | Variant | `outlined` | - | ✓ |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | MentionsClassNamesType | - | - | ✓ |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | MentionsStylesType | - | - | ✓ |
@@ -69,6 +71,7 @@ demo:
 | 插槽 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
 | suffix | - | () =&gt; any | - |
+| popupRender | 自定义下拉菜单渲染 | (menu: VueNode) =&gt; VueNode | - |
 | labelRender | - | (ctx: &#123; option: MentionsOptionProps, index: number &#125;) =&gt; any | - |
 
 ## 语义化 DOM {#semantic-dom}

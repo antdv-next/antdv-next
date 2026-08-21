@@ -26,12 +26,12 @@ exports[`calendar > rtl render > component should be rendered correctly in RTL d
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -79,12 +79,12 @@ exports[`calendar > rtl render > component should be rendered correctly in RTL d
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-owns="test-id_list"
-            autocomplete="off"
+            autocomplete="new-password"
             class="ant-select-input"
             id="test-id"
             readonly=""
             role="combobox"
-            type="search"
+            type="text"
             value=""
           />
         </div>
@@ -166,17 +166,7 @@ exports[`calendar > rtl render > component should be rendered correctly in RTL d
       >
         <!---->
         <div
-          cellrender="(date, info) => mergedCellRender(date, {
-		...info,
-		range: range?.value
-	})"
           class="ant-picker-body"
-          generateconfig="[object Object]"
-          locale="[object Object]"
-          pickervalue="Mon, 18 Sep 2017 03:30:07 GMT"
-          prefixcls="ant-picker"
-          value="Mon, 18 Sep 2017 03:30:07 GMT"
-          values="Mon, 18 Sep 2017 03:30:07 GMT"
         >
           <table
             class="ant-picker-content"
@@ -1032,7 +1022,7 @@ exports[`calendar > should match default snapshot 1`] = `
     <!---->
     <div class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow">
       <!---->
-      <div class="ant-select-content ant-select-content-has-value" title="2025">2025<input id="test-id" type="search" readonly="" autocomplete="off" class="ant-select-input" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-owns="test-id_list" aria-autocomplete="list" aria-controls="test-id_list" value=""></div>
+      <div class="ant-select-content ant-select-content-has-value" title="2025">2025<input id="test-id" type="text" readonly="" autocomplete="new-password" class="ant-select-input" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-owns="test-id_list" aria-autocomplete="list" aria-controls="test-id_list" value=""></div>
       <div class="ant-select-suffix"><span role="img" aria-label="down" class="anticon anticon-down"><svg data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true" viewBox="64 64 896 896" focusable="false"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path></svg></span>
         <!---->
       </div>
@@ -1043,7 +1033,7 @@ exports[`calendar > should match default snapshot 1`] = `
     <!---->
     <div class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow">
       <!---->
-      <div class="ant-select-content ant-select-content-has-value" title="Jan">Jan<input id="test-id" type="search" readonly="" autocomplete="off" class="ant-select-input" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-owns="test-id_list" aria-autocomplete="list" aria-controls="test-id_list" value=""></div>
+      <div class="ant-select-content ant-select-content-has-value" title="Jan">Jan<input id="test-id" type="text" readonly="" autocomplete="new-password" class="ant-select-input" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-owns="test-id_list" aria-autocomplete="list" aria-controls="test-id_list" value=""></div>
       <div class="ant-select-suffix"><span role="img" aria-label="down" class="anticon anticon-down"><svg data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true" viewBox="64 64 896 896" focusable="false"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path></svg></span>
         <!---->
       </div>
@@ -1056,10 +1046,7 @@ exports[`calendar > should match default snapshot 1`] = `
   <div class="ant-picker-panel">
     <div class="ant-picker-date-panel">
       <!---->
-      <div class="ant-picker-body" prefixcls="ant-picker" pickervalue="Wed, 15 Jan 2025 00:00:00 GMT" locale="[object Object]" generateconfig="[object Object]" values="Wed, 15 Jan 2025 00:00:00 GMT" cellrender="(date, info) => mergedCellRender(date, {
-		...info,
-		range: range?.value
-	})" value="Wed, 15 Jan 2025 00:00:00 GMT">
+      <div class="ant-picker-body">
         <table class="ant-picker-content">
           <thead>
             <tr>
@@ -1435,7 +1422,7 @@ exports[`calendar > should match mini snapshot 1`] = `
     <!---->
     <div size="small" class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-year-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow">
       <!---->
-      <div class="ant-select-content ant-select-content-has-value" title="2025">2025<input id="test-id" type="search" readonly="" autocomplete="off" class="ant-select-input" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-owns="test-id_list" aria-autocomplete="list" aria-controls="test-id_list" value=""></div>
+      <div class="ant-select-content ant-select-content-has-value" title="2025">2025<input id="test-id" type="text" readonly="" autocomplete="new-password" class="ant-select-input" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-owns="test-id_list" aria-autocomplete="list" aria-controls="test-id_list" value=""></div>
       <div class="ant-select-suffix"><span role="img" aria-label="down" class="anticon anticon-down"><svg data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true" viewBox="64 64 896 896" focusable="false"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path></svg></span>
         <!---->
       </div>
@@ -1446,7 +1433,7 @@ exports[`calendar > should match mini snapshot 1`] = `
     <!---->
     <div size="small" class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-month-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow">
       <!---->
-      <div class="ant-select-content ant-select-content-has-value" title="Jan">Jan<input id="test-id" type="search" readonly="" autocomplete="off" class="ant-select-input" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-owns="test-id_list" aria-autocomplete="list" aria-controls="test-id_list" value=""></div>
+      <div class="ant-select-content ant-select-content-has-value" title="Jan">Jan<input id="test-id" type="text" readonly="" autocomplete="new-password" class="ant-select-input" role="combobox" aria-expanded="false" aria-haspopup="listbox" aria-owns="test-id_list" aria-autocomplete="list" aria-controls="test-id_list" value=""></div>
       <div class="ant-select-suffix"><span role="img" aria-label="down" class="anticon anticon-down"><svg data-icon="down" width="1em" height="1em" fill="currentColor" aria-hidden="true" viewBox="64 64 896 896" focusable="false"><path d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"></path></svg></span>
         <!---->
       </div>
@@ -1459,10 +1446,7 @@ exports[`calendar > should match mini snapshot 1`] = `
   <div class="ant-picker-panel">
     <div class="ant-picker-date-panel">
       <!---->
-      <div class="ant-picker-body" prefixcls="ant-picker" pickervalue="Wed, 15 Jan 2025 00:00:00 GMT" locale="[object Object]" generateconfig="[object Object]" values="Wed, 15 Jan 2025 00:00:00 GMT" cellrender="(date, info) => mergedCellRender(date, {
-		...info,
-		range: range?.value
-	})" value="Wed, 15 Jan 2025 00:00:00 GMT">
+      <div class="ant-picker-body">
         <table class="ant-picker-content">
           <thead>
             <tr>

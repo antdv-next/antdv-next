@@ -28,6 +28,7 @@ demo:
   <demo src="./demo/total.vue">Total number</demo>
   <demo src="./demo/all.vue">Show All</demo>
   <demo src="./demo/itemRender.vue">Prev and next</demo>
+  <demo src="./demo/components.vue">Custom component</demo>
   <demo src="./demo/style-class.vue">Custom semantic dom styling</demo>
 </demo-group>
 
@@ -41,6 +42,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | --- | --- | --- | --- | --- | --- |
 | align | Alignment of pagination | `start` \| `center` \| `end` | - | - | × |
 | classes | Customize class for each semantic structure inside the component. Supports object or function | PaginationClassNamesType | - | - | ✓ |
+| components | Customize internal components | &#123; sizeChanger?: Component&lt;PaginationSizeChangerProps&gt; &#125; | - | - | × |
 | current | Current page number | number | - | - | × |
 | defaultCurrent | Default initial page number | number | 1 | - | × |
 | defaultPageSize | Default number of data items per page | number | 10 | - | × |

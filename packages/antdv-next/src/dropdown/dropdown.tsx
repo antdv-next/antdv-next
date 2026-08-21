@@ -11,7 +11,7 @@ import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { computed, createVNode, defineComponent, isVNode, shallowRef, watch } from 'vue'
-import { useMergeSemantic, useToArr, useToProps, useZIndex } from '../_util/hooks'
+import { useMergeSemantic, useSemanticRootStyle, useToArr, useToProps, useZIndex } from '../_util/hooks'
 import getPlacements from '../_util/placements'
 import genPurePanel from '../_util/PurePanel.tsx'
 import { toPropsRefs } from '../_util/tools'
@@ -149,11 +149,13 @@ const Dropdown = defineComponent<
       return props
     })
 
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
+
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       DropdownClassNamesType,
       DropdownStylesType,
       DropdownProps
-    >(useToArr(contextClassNames, classes), useToArr(contextStyles, styles), useToProps(mergedProps))
+    >(useToArr(contextClassNames, classes), useToArr(contextStyles, contextStyleRoot as any, styles), useToProps(mergedProps))
 
     const memoPlacement = computed(() => {
       const { placement } = props
@@ -227,7 +229,6 @@ const Dropdown = defineComponent<
     }
     const mergedRootStyles = computed(() => {
       return {
-        ...contextStyle.value,
         ...mergedStyles.value.root,
       }
     })

@@ -2,6 +2,7 @@ import antd from 'antdv-next'
 import { createPinia } from 'pinia'
 import { createApp } from 'vue'
 import DocHeading from '@/components/docs/heading.vue'
+import { printQixiConsoleEgg } from '@/pages/qixi/egg'
 import { router } from '@/routes'
 import { setupRouterGuard } from '@/routes/guard'
 import App from './App.vue'
@@ -29,4 +30,11 @@ app.component('IconSearch', IconSearch)
 app.component('stackblitz', StackBlitz)
 app.component('TokenTable', TokenTable)
 app.use(createPinia())
+
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual'
+}
+
+printQixiConsoleEgg()
+
 app.mount('#app')

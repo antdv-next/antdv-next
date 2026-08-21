@@ -156,6 +156,36 @@ describe('directory Tree', () => {
     wrapper.unmount()
   })
 
+  it('select range when the first selected key is 0', async () => {
+    const onSelect = vi.fn()
+    const treeData = [
+      { title: 'Zero', key: 0 },
+      { title: 'One', key: 1 },
+      { title: 'Two', key: 2 },
+    ]
+    const wrapper = mount(DirectoryTree, {
+      props: {
+        multiple: true,
+        treeData,
+        onSelect,
+      },
+    })
+    await waitFakeTimer(0, 1)
+
+    const nodes = wrapper.findAll('.ant-tree-node-content-wrapper')
+    await nodes[0]!.trigger('click')
+    await waitFakeTimer(0, 1)
+    await nodes[2]!.trigger('click', { shiftKey: true })
+    await waitFakeTimer(0, 1)
+
+    expect(wrapper.findAll('.ant-tree-node-selected')).toHaveLength(3)
+    expect(onSelect).toHaveBeenLastCalledWith(
+      [0, 1, 2],
+      expect.objectContaining({ selectedNodes: treeData }),
+    )
+    wrapper.unmount()
+  })
+
   it('directoryTree should expend all when use treeData and defaultExpandAll is true', async () => {
     const treeData = [
       {

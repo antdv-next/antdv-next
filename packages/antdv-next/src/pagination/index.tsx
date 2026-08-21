@@ -3,10 +3,12 @@ import Pagination from './Pagination'
 
 export type {
   PaginationClassNamesType,
+  PaginationComponents,
   PaginationConfig,
   PaginationEmits,
   PaginationLocale,
   PaginationPosition,
+  PaginationSizeChangerProps,
   PaginationSlots,
   PaginationStylesType,
 } from './interface'

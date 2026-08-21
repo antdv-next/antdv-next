@@ -25,5 +25,5 @@ function handleAfterClose() {
     :after-close="handleAfterClose"
   />
   <p>click the close button to see the effect</p>
-  <a-switch v-model:checked="visible" :disabled="visible" />
+  <a-switch v-model:checked="visible" aria-label="Alert visibility" :disabled="visible" />
 </template>

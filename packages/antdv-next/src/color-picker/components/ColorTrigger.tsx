@@ -120,7 +120,7 @@ export default defineComponent<
           {props.showText && (
             <div
               class={[colorTextPrefixCls.value, classes.description]}
-              style={classes.description}
+              style={styles.description}
             >
               {desc.value}
             </div>

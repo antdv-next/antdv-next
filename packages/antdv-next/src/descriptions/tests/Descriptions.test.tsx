@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { h } from 'vue'
+import { h, nextTick, ref } from 'vue'
 import Descriptions, { DescriptionsItem } from '..'
 import { matchScreen } from '../../_util/responsiveObserver.ts'
 import ConfigProvider from '../../config-provider'
@@ -570,6 +570,15 @@ describe('descriptions', () => {
       },
     })
     expect(wrapper.element).toMatchSnapshot()
+  })
+
+  // ========================= Ref =========================
+  it('should support nativeElement ref', async () => {
+    const descriptionsRef = ref<any>()
+    const wrapper = mount(() => <Descriptions ref={descriptionsRef} items={basicItems} />)
+    await nextTick()
+    expect(descriptionsRef.value?.nativeElement).toBeInstanceOf(HTMLElement)
+    expect(descriptionsRef.value.nativeElement).toBe(wrapper.find('.ant-descriptions').element)
   })
 
   // Verify the mobile-first cascade fix: matchScreen(screens, userColumn) is tried

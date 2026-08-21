@@ -1657,13 +1657,13 @@ exports[`tooltip demo > renders disabled-children correctly 1`] = `
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-owns="test-id_list"
-          autocomplete="off"
+          autocomplete="new-password"
           class="ant-select-input"
           disabled=""
           id="test-id"
           readonly=""
           role="combobox"
-          type="search"
+          type="text"
           value=""
         />
       </div>

@@ -59,6 +59,7 @@ export default {
     empty: 'Empty 空状态',
     image: 'Image 图片',
     list: 'List 列表',
+    listy: 'Listy 虚拟列表',
     popover: 'Popover 气泡卡片',
     qrCode: 'QRCode 二维码',
     segmented: 'Segmented 分段控制器',

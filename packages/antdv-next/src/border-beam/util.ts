@@ -1,4 +1,4 @@
-// Ported from ant-design/components/border-beam/util.ts (6.4.0).
+import { isString } from '../_util/is'
 
 export interface BorderBeamGradientItem {
   color: string
@@ -6,8 +6,12 @@ export interface BorderBeamGradientItem {
 }
 
 export type BorderBeamGradient = BorderBeamGradientItem[]
+
 export type BorderBeamColor = string | BorderBeamGradient
 
+export type BorderWidth = readonly [number, number, number, number]
+
+export const DEFAULT_BORDER_BEAM_DURATION = 6
 export const MAX_BEAM_COLOR_STOP_PERCENT = 70
 
 function getLinearGradient(...colorStops: string[]): string {
@@ -15,9 +19,7 @@ function getLinearGradient(...colorStops: string[]): string {
 }
 
 function normalizeBorderBeamColor(value?: BorderBeamColor): BorderBeamGradient {
-  return typeof value === 'string'
-    ? [{ color: value, percent: 0 }]
-    : (value ?? [])
+  return isString(value) ? [{ color: value, percent: 0 }] : (value ?? [])
 }
 
 function fillGradientEnd(items: BorderBeamGradient): BorderBeamGradient {
@@ -46,4 +48,8 @@ export function getBorderBeamGradient(value?: BorderBeamColor): string | undefin
   return normalizedStops.length
     ? getLinearGradient(...normalizedStops.map(item => `${item.color} ${item.percent}%`))
     : undefined
+}
+
+export function isSameBorderWidth(left: BorderWidth, right: BorderWidth): boolean {
+  return left[0] === right[0] && left[1] === right[1] && left[2] === right[2] && left[3] === right[3]
 }

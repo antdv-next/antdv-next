@@ -152,12 +152,16 @@ const Collapse = defineComponent<
 
     const renderExpandIcon = (panelProps: PanelProps = {}) => {
       const mergedExpandIcon = slots?.expandIcon ?? props?.expandIcon ?? expandIcon.value
+      const iconIsInteractive
+        = panelProps.collapsible === 'header' || panelProps.collapsible === 'icon'
       const icon = typeof mergedExpandIcon === 'function'
         ? mergedExpandIcon?.(panelProps)
         : (
             <RightOutlined
               rotate={panelProps.isActive ? (direction.value === 'rtl' ? -90 : 90) : undefined}
-              aria-label={panelProps.isActive ? 'expanded' : 'collapsed'}
+              {...(iconIsInteractive
+                ? { 'aria-label': panelProps.isActive ? 'expanded' : 'collapsed' }
+                : { 'aria-hidden': 'true' })}
             />
           )
       return cloneElement(icon, () => {

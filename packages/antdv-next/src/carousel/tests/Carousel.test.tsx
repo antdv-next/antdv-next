@@ -1,9 +1,16 @@
 import { describe, expect, it } from 'vitest'
-import { h } from 'vue'
+import { defineComponent, h, nextTick, ref } from 'vue'
 import Carousel from '..'
 import ConfigProvider from '../../config-provider'
+import zhCN from '../../locale/zh_CN'
 import rtlTest from '/@tests/shared/rtlTest'
 import { mount } from '/@tests/utils'
+
+async function waitAnimation() {
+  await nextTick()
+  await new Promise(resolve => setTimeout(resolve, 600))
+  await nextTick()
+}
 
 function createSlides(count = 4) {
   return Array.from({ length: count }, (_, i) =>
@@ -220,6 +227,28 @@ describe('carousel', () => {
     expect(wrapper.find('.custom-next').exists()).toBe(true)
   })
 
+  it('should use localized aria-labels for arrows by default', async () => {
+    const wrapper = mount(Carousel, {
+      props: { arrows: true },
+      slots: { default: () => createSlides(3) },
+    })
+    await nextTick()
+    expect(wrapper.find('.slick-prev').attributes('aria-label')).toBe('Previous slide')
+    expect(wrapper.find('.slick-next').attributes('aria-label')).toBe('Next slide')
+  })
+
+  it('should use localized aria-labels when a custom locale is provided', async () => {
+    const wrapper = mount(ConfigProvider, {
+      props: { locale: zhCN },
+      slots: {
+        default: () => h(Carousel, { arrows: true }, { default: () => createSlides(3) }),
+      },
+    })
+    await nextTick()
+    expect(wrapper.find('.slick-prev').attributes('aria-label')).toBe('上一张幻灯片')
+    expect(wrapper.find('.slick-next').attributes('aria-label')).toBe('下一张幻灯片')
+  })
+
   // ============ Expose methods tests ============
 
   it('should expose goTo method', () => {
@@ -242,6 +271,62 @@ describe('carousel', () => {
       slots: { default: () => createSlides() },
     })
     expect(typeof wrapper.vm.autoPlay).toBe('function')
+  })
+
+  // ============ Ref ============
+
+  it('should support nativeElement ref', async () => {
+    const carouselRef = ref<any>()
+    const wrapper = mount(() => (
+      h(Carousel, { ref: carouselRef }, { default: () => createSlides(2) })
+    ))
+    await nextTick()
+    expect(carouselRef.value?.nativeElement).toBeInstanceOf(HTMLElement)
+    expect(carouselRef.value.nativeElement).toBe(wrapper.find('.ant-carousel').element)
+  })
+
+  // ============ Children change ============
+  // https://github.com/ant-design/ant-design/pull/58845
+
+  it('should keep current slide when children are added', async () => {
+    const carouselRef = ref<any>()
+    const total = ref(2)
+    const Demo = defineComponent(() => () => (
+      h(Carousel, { ref: carouselRef }, { default: () => createSlides(total.value) })
+    ))
+    const wrapper = mount(Demo)
+    await nextTick()
+
+    // Go to second slide (index 1)
+    carouselRef.value.goTo(1)
+    await waitAnimation()
+    expect(wrapper.find('.slick-current').attributes('data-index')).toBe('1')
+
+    // Add a new child, should stay on the second slide instead of jumping to the first
+    total.value = 3
+    await waitAnimation()
+    expect(wrapper.find('.slick-current').attributes('data-index')).toBe('1')
+    expect(wrapper.find('.slick-current').text()).toBe('Slide 2')
+  })
+
+  it('should not overflow when children are removed', async () => {
+    const carouselRef = ref<any>()
+    const total = ref(5)
+    const Demo = defineComponent(() => () => (
+      h(Carousel, { ref: carouselRef }, { default: () => createSlides(total.value) })
+    ))
+    const wrapper = mount(Demo)
+    await nextTick()
+
+    carouselRef.value.goTo(4)
+    await waitAnimation()
+    expect(wrapper.find('.slick-current').attributes('data-index')).toBe('4')
+
+    // Reduce to 2 children, should clamp to the last valid index instead of overflowing
+    total.value = 2
+    await waitAnimation()
+    expect(wrapper.find('.slick-current').attributes('data-index')).toBe('1')
+    expect(wrapper.find('.slick-current').text()).toBe('Slide 2')
   })
 
   // ============ Snapshots ============

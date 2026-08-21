@@ -7,7 +7,7 @@ import { classNames } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { computed, defineComponent, shallowRef } from 'vue'
 import { isPresetSize, isValidGapNumber } from '../_util/gapSize.ts'
-import { pureAttrs, useMergeSemantic, useOrientation, useToArr, useToProps } from '../_util/hooks'
+import { pureAttrs, useMergeSemantic, useOrientation, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { getSlotPropFn, toPropsRefs } from '../_util/tools.ts'
 import { useComponentBaseConfig } from '../config-provider/context.ts'
 import Addon from './Addon.tsx'
@@ -107,13 +107,15 @@ const InternalSpace = defineComponent<
       }
     })
 
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
+
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       SpaceClassNamesType,
       SpaceStylesType,
       SpaceProps
     >(
       useToArr(contextClassNames, classes),
-      useToArr(contextStyles, styles),
+      useToArr(contextStyles, contextStyleRoot as any, styles),
       useToProps(mergedProps),
     )
 
@@ -186,7 +188,7 @@ const InternalSpace = defineComponent<
       return (
         <div
           class={cls}
-          style={[gapStyle, mergedStyles.value.root, contextStyle.value, (attrs as any).style]}
+          style={[gapStyle, mergedStyles.value.root, (attrs as any).style]}
           {...pureAttrs(attrs)}
         >
           {nodes}
@@ -211,3 +213,5 @@ const Space = InternalSpace
 export default Space
 export const SpaceCompact = Compact
 export const SpaceAddon = Addon
+
+export type { SpaceCompactProps, SpaceCompactRef } from './Compact.tsx'

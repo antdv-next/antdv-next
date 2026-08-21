@@ -21,6 +21,7 @@ demo:
 <demo-group>
   <demo src="./demo/basic.vue">Basic Usage</demo>
   <demo src="./demo/search.vue">Select with search field</demo>
+  <demo src="./demo/multiple-fields-search.vue">Multiple fields search</demo>
   <demo src="./demo/search-filter-option.vue">Custom Search</demo>
   <demo src="./demo/multiple.vue">Multiple selection</demo>
   <demo src="./demo/size.vue">Sizes</demo>
@@ -37,6 +38,7 @@ demo:
   <demo src="./demo/custom-dropdown-menu.vue">Custom dropdown</demo>
   <demo src="./demo/hide-selected.vue">Hide Already Selected</demo>
   <demo src="./demo/variant.vue">Variants</demo>
+  <demo src="./demo/clear-suffix-debug.vue" debug>Clear suffix</demo>
   <demo src="./demo/custom-tag-render.vue">Custom Tag Render</demo>
   <demo src="./demo/custom-label-render.vue">Custom Selected Label Render</demo>
   <demo src="./demo/responsive.vue">Responsive maxTagCount</demo>
@@ -77,7 +79,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | maxTagTextLength | Max tag text length to show | number | - | - | × |
 | menuItemSelectedIcon | The custom menuItemSelected icon with multiple options | VueNode | - | - | ✓ |
 | mode | Set mode of Select | 'multiple' \| 'tags' | - | - | × |
-| notFoundContent | Specify content to show when no result matches | VueNode | `Not Found` | - | × |
+| notFoundContent | Specify content to show when no result matches | VueNode | `No data` | - | × |
 | open | Controlled open state of dropdown | boolean | - | - | × |
 | optionFilterProp | Which prop value of option will be used for filter if filterOption is true. If options is set, it should be set to label. When a string[] is provided, multiple fields are searched using OR matching | string \| string[] | value | - | × |
 | options | Select options. Will get better perf than jsx definition | &#123; label: VueNode; value: string &#125;[] | - | - | × |

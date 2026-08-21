@@ -8,6 +8,7 @@ interface Author {
   id?: number
   avatar_url?: string
   html_url?: string
+  type?: 'User' | 'Organization' | 'Bot'
 }
 
 interface Committer {
@@ -41,6 +42,30 @@ const REPO_OWNER = 'antdv-next'
 const REPO_NAME = 'antdv-next'
 const REPO_PATH = `${REPO_OWNER}/${REPO_NAME}`
 
+// Bot accounts should not be credited as contributors. `author.type === 'Bot'`
+// covers most of them, but GitHub reports some app accounts as `User`, so the
+// login list stays as a fallback. Keep in sync with ant-design#58915.
+const BOT_EXCLUDES = [
+  'github-actions',
+  'github-actions[bot]',
+  'copilot',
+  'renovate',
+  'renovate[bot]',
+  'dependabot',
+  'dependabot[bot]',
+  'dependabot-preview',
+  'dependabot-preview[bot]',
+  'depfu[bot]',
+  'gemini-code-assist[bot]',
+]
+
+function isBotAuthor(author: Author) {
+  if (author.type === 'Bot')
+    return true
+  const login = author.login?.toLowerCase() ?? ''
+  return BOT_EXCLUDES.some(item => login.includes(item))
+}
+
 const { t } = useLocale()
 const route = useRoute()
 const contributors = ref<ResultData[]>([])
@@ -49,7 +74,7 @@ function filterData(data: CommitsData[]) {
   const contributorMap = new Map<string, ResultData>()
 
   data.forEach((item) => {
-    if (item.author?.login) {
+    if (item.author?.login && !isBotAuthor(item.author)) {
       const login = item.author.login
       if (contributorMap.has(login)) {
         const existing = contributorMap.get(login)!

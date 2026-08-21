@@ -23,11 +23,12 @@ demo:
   <demo src="./demo/shape.vue" iframe="360">形状</demo>
   <demo src="./demo/content.vue" iframe="360">描述</demo>
   <demo src="./demo/tooltip.vue" iframe="360">含有气泡卡片的悬浮按钮</demo>
-  <demo src="./demo/group.vue" iframe="360">浮动按钮组</demo>
+  <demo src="./demo/group.vue" iframe="360">悬浮按钮组</demo>
   <demo src="./demo/group-menu.vue" iframe="360">菜单模式</demo>
   <demo src="./demo/controlled.vue" iframe="360">受控模式</demo>
   <demo src="./demo/placement.vue" iframe="380">弹出方向</demo>
   <demo src="./demo/back-top.vue" iframe="360">回到顶部</demo>
+  <demo src="./demo/progress-ring.vue" iframe="360">滚动进度</demo>
   <demo src="./demo/badge.vue" iframe="360">徽标数</demo>
   <demo src="./demo/style-class.vue" iframe="360">自定义语义结构的样式和类</demo>
 </demo-group>
@@ -104,7 +105,8 @@ demo:
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| duration | 回到顶部所需时间（ms） | number | 450 | - |
+| duration | 回到顶部所需时间（ms）；开启“减弱动态效果”（`prefers-reduced-motion: reduce`）时不生效 | number | 450 | - |
+| showProgress | 在 BackTop 按钮边缘展示当前滚动进度环 | boolean | false | - |
 | target | 设置需要监听其滚动事件的元素 | () =&gt; HTMLElement | () =&gt; window | - |
 | visibilityHeight | 滚动高度达到此参数值才出现 BackTop | number | 400 | - |
 | target | 相当于 a 标签的 target 属性，href 存在时生效 | '_self' \| '_blank' \| '_parent' \| '_top' \| string | - | - |

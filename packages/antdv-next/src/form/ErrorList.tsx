@@ -129,6 +129,7 @@ const ErrorList = defineComponent<
         <Transition {...transitionProps}>
           {!!filledKeyFullKeyList.length && (
             <div
+              {...helpProps}
               class={clsx(
                 baseClassName.value,
                 cssVarCls.value,
@@ -155,7 +156,7 @@ const ErrorList = defineComponent<
                       )}
                       style={{ ...props.helpItemStyle, ...itemStyle }}
                     >
-                      {error}
+                      {typeof error === 'function' ? error() : error}
                     </div>
                   )
                 })}

@@ -5,16 +5,16 @@ import { VerticalAlignTopOutlined } from '@antdv-next/icons'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { getTransitionProps } from '@v-c/util/dist/utils/transition'
 import { omit } from 'es-toolkit'
-import { computed, defineComponent, onBeforeUnmount, onMounted, shallowRef, Transition, watch } from 'vue'
-import getScroll from '../_util/getScroll'
+import { computed, defineComponent, shallowRef, Transition } from 'vue'
 import { getAttrStyleAndClass, pureAttrs } from '../_util/hooks'
 import scrollTo from '../_util/scrollTo'
-import throttleByAnimationFrame from '../_util/throttleByAnimationFrame'
 import { toPropsRefs } from '../_util/tools'
 import { useComponentBaseConfig, useConfig } from '../config-provider/context'
+import { genCssVar } from '../theme/util/genStyleUtils'
 import { useGroupContext } from './context'
 
 import FloatButton, { floatButtonPrefixCls } from './FloatButton'
+import useScroll from './hooks/useScroll'
 
 export interface BackTopProps extends Omit<FloatButtonProps, 'target'>, ComponentBaseProps,
   /* @vue-ignore */
@@ -22,6 +22,8 @@ export interface BackTopProps extends Omit<FloatButtonProps, 'target'>, Componen
   visibilityHeight?: number
   target?: () => HTMLElement | Window | Document
   duration?: number
+  /** @default false */
+  showProgress?: boolean
 }
 
 export interface BackTopEmits {
@@ -45,12 +47,11 @@ const BackTop = defineComponent<
   SlotsType<BackTopSlots>
 >(
   (props, { attrs, slots, emit, expose }) => {
-    const { backTopIcon } = useComponentBaseConfig('floatButton', props, ['backTopIcon'], floatButtonPrefixCls)
+    const { prefixCls, backTopIcon } = useComponentBaseConfig('floatButton', props, ['backTopIcon'], floatButtonPrefixCls)
     const globalConfig = useConfig()
     const groupContext = useGroupContext()
     const { target, visibilityHeight, duration } = toPropsRefs(props, 'target', 'visibilityHeight', 'duration')
 
-    const visible = shallowRef((visibilityHeight.value ?? 400) === 0)
     const floatButtonRef = shallowRef<FloatButtonRef | null>(null)
 
     expose({
@@ -58,54 +59,15 @@ const BackTop = defineComponent<
     })
 
     const getDefaultTarget = () => floatButtonRef.value?.nativeElement?.ownerDocument ?? (typeof window !== 'undefined' ? window : undefined)
-    const container = shallowRef<HTMLElement | Window | Document | null>(null)
 
     const mergedVisibility = computed(() => visibilityHeight.value ?? 400)
+    const showProgress = computed(() => props.showProgress ?? false)
+    const getTarget = computed(() => target.value || getDefaultTarget)
 
-    const handleScroll = throttleByAnimationFrame((event?: { target: any }) => {
-      const node = event?.target ?? container.value ?? getDefaultTarget()
-      const scrollTop = getScroll(node as any)
-      visible.value = scrollTop >= mergedVisibility.value
-    })
-
-    const bindScroll = () => {
-      const targetNode = target.value?.() ?? getDefaultTarget()
-      if (targetNode) {
-        container.value = targetNode
-        ;(targetNode as any).addEventListener?.('scroll', handleScroll)
-        handleScroll({ target: targetNode })
-      }
-    }
-
-    const removeScroll = () => {
-      const node = container.value as any
-      node?.removeEventListener?.('scroll', handleScroll)
-      container.value = null
-    }
-
-    onMounted(() => {
-      bindScroll()
-    })
-
-    onBeforeUnmount(() => {
-      handleScroll.cancel()
-      removeScroll()
-    })
-
-    watch(target, () => {
-      removeScroll()
-      bindScroll()
-    })
-
-    const triggerCheck = () => {
-      const node = container.value ?? getDefaultTarget()
-      if (node) {
-        handleScroll({ target: node })
-      }
-    }
-
-    watch(mergedVisibility, () => {
-      triggerCheck()
+    const { scrollProgress, visible } = useScroll({
+      getTarget,
+      showProgress,
+      visibilityHeight: mergedVisibility,
     })
 
     const mergedShape = computed<FloatButtonShape>(() => groupContext?.value?.shape ?? props.shape ?? 'circle')
@@ -121,10 +83,19 @@ const BackTop = defineComponent<
     const rootPrefixCls = computed(() => globalConfig.value?.getPrefixCls?.())
     const transitionProps = computed(() => getTransitionProps(`${rootPrefixCls.value}-fade`))
 
+    const progressStyle = computed(() => {
+      if (!showProgress.value) {
+        return undefined
+      }
+      const [varName] = genCssVar(rootPrefixCls.value ?? 'ant', floatButtonPrefixCls)
+      return { [varName('progress')]: `${scrollProgress.value}turn` }
+    })
+
     const scrollToTop = (e: MouseEvent) => {
+      const prefersReducedMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)')
       scrollTo(0, {
-        getContainer: (target.value || getDefaultTarget) as any,
-        duration: duration.value ?? 450,
+        getContainer: getTarget.value as any,
+        duration: prefersReducedMotion?.matches ? 0 : duration.value ?? 450,
       })
       emit('click', e)
     }
@@ -140,10 +111,13 @@ const BackTop = defineComponent<
                 ? (
                     <FloatButton
                       {...pureAttrs(attrs)}
-                      {...omit(props, ['visibilityHeight', 'target', 'duration'])}
+                      {...omit(props, ['visibilityHeight', 'target', 'duration', 'showProgress'])}
                       ref={floatButtonRef as any}
-                      class={className}
-                      style={style}
+                      class={[
+                        className,
+                        { [`${prefixCls.value}-progress`]: showProgress.value },
+                      ]}
+                      style={[progressStyle.value, style]}
                       shape={mergedShape.value}
                       icon={mergedIcon.value as any}
                       onClick={scrollToTop}

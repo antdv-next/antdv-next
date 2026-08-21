@@ -1,5 +1,5 @@
 import type { UploadProps as VcUploadProps } from '@v-c/upload'
-import type { SlotsType } from 'vue'
+import type { CSSProperties, SlotsType } from 'vue'
 import type {
   ShowUploadListInterface,
   UploadChangeParam,
@@ -16,7 +16,7 @@ import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, nextTick, shallowRef, watch } from 'vue'
-import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { toPropsRefs } from '../_util/tools'
 import { devUseWarning, isDev } from '../_util/warning'
 import { useComponentBaseConfig } from '../config-provider/context'
@@ -386,13 +386,20 @@ const InternalUpload = defineComponent<
       }
     })
 
+    // The legacy inline `style` of Upload targets the trigger node, not the root.
+    const contextTriggerStyle = useSemanticRootStyle(contextStyle, 'trigger')
+    const triggerStyle = useSemanticRootStyle(
+      computed(() => (attrs as any).style as CSSProperties | undefined),
+      'trigger',
+    )
+
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       UploadClassNamesType,
       UploadStylesType,
       UploadProps
     >(
       useToArr(contextClassNames, classes),
-      useToArr(contextStyles, styles),
+      useToArr(contextStyles, contextTriggerStyle as any, styles, triggerStyle as any),
       useToProps(mergedProps),
     )
 
@@ -442,7 +449,7 @@ const InternalUpload = defineComponent<
               props?.onDownload?.(file)
             }
             else if (file.url) {
-              window.open(file.url)
+              window.open(file.url, '_blank', 'noopener')
             }
           }}
           onRemove={handleRemove}
@@ -482,8 +489,7 @@ const InternalUpload = defineComponent<
       const children = filterEmpty(slots.default?.() ?? [])
       const hasChildren = children.length > 0
 
-      const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
-      const mergedStyle = { ...contextStyle.value, ...style }
+      const { className, restAttrs } = getAttrStyleAndClass(attrs)
 
       const rcUploadProps: any = {
         onBatchStart,
@@ -556,7 +562,7 @@ const InternalUpload = defineComponent<
           <span {...restAttrs} class={mergedRootCls} ref={wrapRef} style={mergedRootStyle}>
             <div
               class={dragCls}
-              style={[mergedStyle, mergedStyles.value.trigger]}
+              style={mergedStyles.value.trigger}
               onDrop={onFileDrop}
               onDragover={onFileDrop}
               onDragleave={onFileDrop}
@@ -581,7 +587,7 @@ const InternalUpload = defineComponent<
       )
 
       const uploadButton = (
-        <div class={uploadBtnCls} style={[mergedStyle, mergedStyles.value.trigger]}>
+        <div class={uploadBtnCls} style={mergedStyles.value.trigger}>
           <VcUpload {...rcUploadProps} ref={upload}>
             {children}
           </VcUpload>

@@ -77,6 +77,6 @@ watch(
         <WechatOutlined />
       </template>
     </a-float-button>
-    <a-float-back-top />
+    <a-float-back-top show-progress />
   </a-float-button-group>
 </template>

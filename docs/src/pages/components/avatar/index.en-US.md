@@ -21,6 +21,7 @@ group:
  <demo src="./demo/dynamic.vue">Autoset Font Size</demo>
  <demo src="./demo/badge.vue">With Badge</demo>
  <demo src="./demo/group.vue">Avatar.Group</demo>
+ <demo src="./demo/max-count.vue">maxCount includes overflow</demo>
  <demo src="./demo/responsive.vue">Responsive Size</demo>
 </demo-group>
 

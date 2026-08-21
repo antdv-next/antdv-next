@@ -152,7 +152,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 
 | 事件 | 说明 | 类型 |
 | --- | --- | --- |
-| change | 文本域编辑时触发 | (value: string) =&gt; void |
+| change | 文本域编辑完成时触发 | (value: string) =&gt; void |
 | cancel | 按 ESC 退出编辑状态时触发 | () =&gt; void |
 | start | 进入编辑中状态时触发 | () =&gt; void |
 | end | 按 ENTER 结束编辑状态时触发 | () =&gt; void |

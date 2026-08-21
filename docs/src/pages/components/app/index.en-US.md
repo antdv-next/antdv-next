@@ -138,4 +138,4 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 ### CSS Var doesn't work inside `<a-app :component="false">` {#faq-css-var-component-false}
 
-Make sure the App `component` is a valid html tag, so when you're turning on CSS variables, there's a container to hold the CSS class name. If not set, it defaults to the `div` tag. If set to `false`, no additional DOM nodes will be created, and no default styles will be provided.
+Antdv Next uses CSS variables by default. App needs a valid HTML element to hold its CSS variable class name. When `component` is `false`, App only provides context without rendering a root DOM node, so no App root class name or default styles are applied. The `class`, `rootClass`, and `style` properties cannot be applied in this mode and trigger a development warning. Keep the default `div` or specify another valid element when these styles are required.

@@ -27,6 +27,7 @@ demo:
   <demo src="./demo/directory.vue">目录</demo>
   <demo src="./demo/switcher-icon.vue">自定义展开/折叠图标</demo>
   <demo src="./demo/virtual-scroll.vue">虚拟滚动</demo>
+  <demo src="./demo/scroll-to.vue">滚动到嵌套节点</demo>
   <demo src="./demo/block-node.vue">占据整行</demo>
   <demo src="./demo/big-data.vue" debug>大数据</demo>
   <demo src="./demo/multiple-line.vue" debug>多行</demo>
@@ -107,7 +108,7 @@ demo:
 
 | 名称 | 说明 |
 | --- | --- |
-| scrollTo(&#123; key: Key, align?: 'top' \| 'bottom' \| 'auto', offset?: number &#125;) | 虚拟滚动下，滚动到指定 key 条目 |
+| scrollTo(&#123; key: Key, align?: 'top' \| 'bottom' \| 'auto', offset?: number, autoExpand?: boolean &#125;) | 虚拟滚动下，滚动到指定 key 条目。非受控模式下可通过 `autoExpand` 展开目标节点 |
 
 ### TreeNode
 
@@ -131,6 +132,20 @@ demo:
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
 | expandAction | 目录展开逻辑，可选：false \| `click` \| `doubleClick` | string \| boolean | `click` |
+
+### Tree Hooks
+
+#### useTree {#use-tree}
+
+`type useTree = (treeData: MaybeRefOrGetter<TreeDataNode[]>, config?: { fieldNames?: MaybeRefOrGetter<FieldNames> }) => TreeInstance`
+
+提供 Tree 数据工具。`getPath(key)` 返回从根节点到目标节点的实体路径，可用于在受控模式下更新 `expandedKeys`。同时也挂载为 `Tree.useTree`。
+
+```ts
+import { useTree } from 'antdv-next'
+
+const { getPath } = useTree(treeData)
+```
 
 ## 语义化 DOM {#semantic-dom}
 

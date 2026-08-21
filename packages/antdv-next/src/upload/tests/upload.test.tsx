@@ -472,6 +472,86 @@ describe('upload', () => {
     expect(file.status).toBe('removed')
   })
 
+  it('should remove from the latest file list after async onRemove resolves', async () => {
+    const removingFile: UploadFile = {
+      uid: '-1',
+      name: 'foo.png',
+      status: 'done',
+    }
+    const uploadRef = ref<any>()
+    let resolveRemove!: (value: boolean | PromiseLike<boolean>) => void
+
+    const wrapper = mount({
+      render: () => (
+        <Upload
+          ref={uploadRef}
+          defaultFileList={[removingFile]}
+          onRemove={() =>
+            new Promise<boolean>((resolve) => {
+              resolveRemove = resolve
+            })}
+        />
+      ),
+    })
+
+    await wrapper.find('div.ant-upload-list-item .anticon-delete').trigger('click')
+
+    const addedFile = new File([], 'bar.txt') as any
+    addedFile.uid = '-2'
+    uploadRef.value?.onBatchStart?.([{ file: addedFile, parsedFile: addedFile }])
+    await waitFakeTimer()
+
+    expect(uploadRef.value?.fileList.map((file: UploadFile) => file.name)).toEqual(['foo.png', 'bar.txt'])
+
+    resolveRemove(true)
+    await waitFakeTimer()
+
+    expect(uploadRef.value?.fileList.map((file: UploadFile) => file.name)).toEqual(['bar.txt'])
+  })
+
+  it('should use the latest controlled file list after async onRemove resolves', async () => {
+    const removingFile: UploadFile = {
+      uid: '-1',
+      name: 'foo.png',
+      status: 'done',
+    }
+    const addedFile: UploadFile = {
+      uid: '-2',
+      name: 'bar.txt',
+      status: 'done',
+    }
+    const onChange = vi.fn()
+    let resolveRemove!: (value: boolean | PromiseLike<boolean>) => void
+    const fileList = ref<UploadFile[]>([removingFile])
+
+    const wrapper = mount({
+      render: () => (
+        <Upload
+          fileList={fileList.value}
+          onChange={onChange}
+          onRemove={() =>
+            new Promise<boolean>((resolve) => {
+              resolveRemove = resolve
+            })}
+        />
+      ),
+    })
+
+    await wrapper.find('div.ant-upload-list-item .anticon-delete').trigger('click')
+
+    fileList.value = [removingFile, addedFile]
+    await nextTick()
+
+    resolveRemove(true)
+    await waitFakeTimer()
+
+    expect(onChange).toHaveBeenLastCalledWith(
+      expect.objectContaining({
+        fileList: [addedFile],
+      }),
+    )
+  })
+
   it('should not stop download when return use onDownload', async () => {
     const mockRemove = vi.fn(() => false)
     const props = {

@@ -10,4 +10,4 @@ export {
   SkeletonNode,
 } from './Skeleton'
 
-export type { SkeletonProps } from './Skeleton'
+export type { SkeletonProps, SkeletonRef } from './Skeleton'

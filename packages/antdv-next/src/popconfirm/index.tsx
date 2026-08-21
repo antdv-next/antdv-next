@@ -9,7 +9,7 @@ import { clsx } from '@v-c/util'
 import { removeUndefined } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, shallowRef, watch } from 'vue'
-import { useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { getSlotPropsFnRun, toPropsRefs, useLiveListener } from '../_util/tools'
 import { useComponentBaseConfig } from '../config-provider/context'
 import Popover from '../popover'
@@ -110,12 +110,16 @@ const InternalPopconfirm = defineComponent<
       styles: contextStyles,
       arrow: contextArrow,
       trigger: contextTrigger,
+      mouseEnterDelay: contextMouseEnterDelay,
+      mouseLeaveDelay: contextMouseLeaveDelay,
       prefixCls,
-    } = useComponentBaseConfig('popconfirm', props, ['arrow', 'trigger'])
+    } = useComponentBaseConfig('popconfirm', props, ['arrow', 'trigger', 'mouseEnterDelay', 'mouseLeaveDelay'])
     const { arrow: arrowProp, classes, styles } = toPropsRefs(props, 'arrow', 'classes', 'styles')
     const [hashId, cssVarCls] = useStyle(prefixCls)
     const mergedArrow = useMergedArrow(arrowProp, contextArrow)
     const mergedTrigger = computed(() => props?.trigger ?? contextTrigger.value ?? 'click')
+    const mergedMouseEnterDelay = computed(() => props?.mouseEnterDelay ?? contextMouseEnterDelay.value ?? 0.1)
+    const mergedMouseLeaveDelay = computed(() => props?.mouseLeaveDelay ?? contextMouseLeaveDelay.value ?? 0.1)
     const popoverRef = shallowRef<TooltipRef>()
 
     const open = shallowRef(props.open ?? props.defaultOpen ?? false)
@@ -173,13 +177,17 @@ const InternalPopconfirm = defineComponent<
     const mergedProps = computed(() => ({
       ...props,
       trigger: mergedTrigger.value,
+      mouseEnterDelay: mergedMouseEnterDelay.value,
+      mouseLeaveDelay: mergedMouseLeaveDelay.value,
     }))
+
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
 
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       PopconfirmClassNamesType,
       PopconfirmStylesType,
       PopconfirmProps
-    >(useToArr(contextClassNames, classes), useToArr(contextStyles, styles), useToProps(mergedProps))
+    >(useToArr(contextClassNames, classes), useToArr(contextStyles, contextStyleRoot as any, styles), useToProps(mergedProps))
 
     const rootClassNames = computed(() =>
       clsx(
@@ -225,6 +233,8 @@ const InternalPopconfirm = defineComponent<
           {...attrs}
           {...removeUndefined(restProps)}
           trigger={mergedTrigger.value}
+          mouseEnterDelay={mergedMouseEnterDelay.value}
+          mouseLeaveDelay={mergedMouseLeaveDelay.value}
           ref={popoverRef as any}
           open={open.value}
           arrow={mergedArrow.value}
@@ -236,7 +246,7 @@ const InternalPopconfirm = defineComponent<
             arrow: mergedClassNames.value.arrow,
           }}
           styles={{
-            root: { ...mergedStyles.value.root, ...contextStyle.value },
+            root: mergedStyles.value.root,
             container: mergedStyles.value.container,
             arrow: mergedStyles.value.arrow,
           }}

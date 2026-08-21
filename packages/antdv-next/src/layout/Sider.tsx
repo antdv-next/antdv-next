@@ -1,6 +1,7 @@
 import type { CSSProperties, InjectionKey, Ref, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { Breakpoint } from '../_util/responsiveObserver'
+import type { VueNode } from '../_util/type.ts'
 import { BarsOutlined, LeftOutlined, RightOutlined } from '@antdv-next/icons'
 import { classNames } from '@v-c/util'
 import canUseDom from '@v-c/util/dist/Dom/canUseDom'
@@ -71,6 +72,7 @@ export interface SiderProps extends
   defaultCollapsed?: boolean
   reverseArrow?: boolean
   zeroWidthTriggerStyle?: CSSProperties
+  trigger?: VueNode
   width?: number | string
   collapsedWidth?: number | string
   breakpoint?: Breakpoint
@@ -218,7 +220,7 @@ const Sider = defineComponent<
       theme,
       collapsible,
     } = props
-    const trigger = getSlotPropsFnRun(slots, props, 'trigger')
+    const trigger = getSlotPropsFnRun(slots, props, 'trigger', !!slots.trigger)
     // special trigger when collapsedWidth == 0
     const zeroWidthTrigger = Number.parseFloat(String(collapsedWidth || 0)) === 0
       ? (
@@ -245,7 +247,7 @@ const Sider = defineComponent<
     const defaultTrigger = iconObj[status]
 
     const triggerDom
-      = trigger != null
+      = trigger !== null
         ? zeroWidthTrigger || (
           <div class={`${prefixCls.value}-trigger`} onClick={toggle} style={{ width: `${siderWidth.value}` }}>
             {trigger || defaultTrigger}

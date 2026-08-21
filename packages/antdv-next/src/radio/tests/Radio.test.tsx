@@ -752,6 +752,23 @@ describe('radio group', () => {
     expect(onChange).toHaveBeenCalledTimes(1)
   })
 
+  // ===================== option onChange with options =====================
+
+  it('should trigger option onChange when using options', async () => {
+    const onOptionChange = vi.fn()
+    const wrapper = mount(RadioGroup, {
+      props: {
+        options: [
+          { label: 'Bamboo', value: 'Bamboo' },
+          { label: 'Light', value: 'Light', onChange: onOptionChange },
+        ],
+      },
+    })
+    const inputs = wrapper.findAll('input')
+    await inputs[1].trigger('change')
+    expect(onOptionChange).toHaveBeenCalledTimes(1)
+  })
+
   // ===================== Snapshot =====================
 
   it('should match snapshot with options', () => {

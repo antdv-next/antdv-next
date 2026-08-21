@@ -298,7 +298,10 @@ const TransferSection = defineComponent<
             label: checkStatus.value === 'all' ? props.deselectAll : props.selectAll,
             onClick() {
               const keys = getEnabledItemKeys(filteredItems.value.filterItems)
-              props.onItemSelectAll?.(keys, keys.length !== props.checkedKeys.length)
+              // Compare against the rendered check state, not the key counts:
+              // while filtering, `keys` covers only the visible items so the
+              // length comparison misreads a fully-checked list as unchecked.
+              props.onItemSelectAll?.(keys, checkStatus.value !== 'all')
             },
           },
           props.pagination

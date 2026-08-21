@@ -17,7 +17,7 @@ export default {
     globalComment: 'here is your global tokens',
     help: 'How to use?',
     customizeTokenLink: '/docs/vue/customize-theme#customize-design-token',
-    customizeComponentTokenLink: 'docs/react/customize-theme#customize-component-token',
+    customizeComponentTokenLink: '/docs/vue/customize-theme#customize-component-token',
   },
 
   semanticPreview: {

@@ -27,6 +27,7 @@ Antdv Next has 3 types of Tabs for different situations.
   <demo src="./demo/extra.vue">Extra content</demo>
   <demo src="./demo/size.vue">Size</demo>
   <demo src="./demo/placement.vue">Placement</demo>
+  <demo src="./demo/popup-render-search.vue">Custom Popup Search</demo>
   <demo src="./demo/card.vue">Card type tab</demo>
   <demo src="./demo/editable-card.vue">Add & close tab</demo>
   <demo src="./demo/custom-add-trigger.vue">Customized trigger of new tab</demo>
@@ -84,6 +85,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | icon | The custom icon | VueNode | - | - |
+| popupRender | Customize the dropdown menu render | (menu: VueNode, info: \{ restTabs: Tab[], onClose: () => void \}) => VueNode | - | - |
 | DropdownProps | Dropdown props | DropdownProps | - | - |
 
 ### Events {#events}

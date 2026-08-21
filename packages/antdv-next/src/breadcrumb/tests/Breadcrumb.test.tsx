@@ -1,6 +1,6 @@
 import { HomeOutlined } from '@antdv-next/icons'
 import { describe, expect, it, vi } from 'vitest'
-import { h } from 'vue'
+import { h, nextTick, ref } from 'vue'
 import Breadcrumb from '..'
 import rtlTest from '/@tests/shared/rtlTest'
 import { mount } from '/@tests/utils'
@@ -249,5 +249,16 @@ describe('breadcrumb', () => {
       />
     ))
     expect(wrapper.html()).toMatchSnapshot()
+  })
+
+  // ========================= Ref =========================
+  it('should support nativeElement ref', async () => {
+    const breadcrumbRef = ref<any>()
+    const wrapper = mount(() => (
+      <Breadcrumb ref={breadcrumbRef} items={[{ title: 'Home' }]} />
+    ))
+    await nextTick()
+    expect(breadcrumbRef.value?.nativeElement).toBeInstanceOf(HTMLElement)
+    expect(breadcrumbRef.value.nativeElement).toBe(wrapper.find('.ant-breadcrumb').element)
   })
 })

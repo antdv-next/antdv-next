@@ -6,7 +6,7 @@ Your pull requests will be merged after one of the collaborators approves.
 Thank you!
 -->
 
-[中文版模板 / Chinese template](./PULL_REQUEST_TEMPLATE_CN.md)
+[中文版模板 / Chinese template](https://github.com/antdv-next/antdv-next/blob/main/.github/PULL_REQUEST_TEMPLATE_CN.md)
 
 ### 🤔 This is a ...
 
@@ -43,7 +43,7 @@ Thank you!
 
 > - Read [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)! Track your changes, like a cat tracks a laser pointer.
 > - Describe the impact of the changes on developers, not the solution approach.
-> - Reference: https://ant.design/changelog
+> - Reference: https://www.antdv-next.com/components/changelog
 
 | Language   | Changelog |
 | ---------- | --------- |

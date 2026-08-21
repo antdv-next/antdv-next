@@ -267,6 +267,15 @@ describe('empty', () => {
     expect(wrapper.element).toMatchSnapshot()
   })
 
+  // ========================= Ref =========================
+  it('should support nativeElement ref', async () => {
+    const emptyRef = ref<any>()
+    const wrapper = mount(() => <Empty ref={emptyRef} />)
+    await nextTick()
+    expect(emptyRef.value?.nativeElement).toBeInstanceOf(HTMLElement)
+    expect(emptyRef.value.nativeElement).toBe(wrapper.find('.ant-empty').element)
+  })
+
   describe('static properties', () => {
     it('should have PRESENTED_IMAGE_DEFAULT', () => {
       expect(Empty.PRESENTED_IMAGE_DEFAULT).toBeDefined()

@@ -5,12 +5,21 @@
     "build:token": {
       "dependsOn": ["@antdv-next/cssinjs#build", "build:esm"],
       "inputs": ["src/**", "package.json", "tsconfig.json"],
-      "outputs": ["../../docs/src/assets/token.json", "../../docs/src/assets/token-meta.json"]
+      "outputs": [
+        "../../docs/src/assets/token.json",
+        "../../docs/src/assets/token-meta.json",
+        "dist/version/token.json",
+        "dist/version/token-meta.json"
+      ]
     },
     "build:esm": {
       "dependsOn": ["^build:esm"],
       "inputs": ["src/**", "package.json", "tsconfig.json", "tsdown.config.ts"],
       "outputs": ["dist/**"]
+    },
+    "antdv-next#build:style": {
+      "inputs": ["src/**", "package.json", "tsconfig.json"],
+      "outputs": ["dist/antd.css", "../../docs/src/assets/antd.css"]
     },
     "@antdv-next/cssinjs#build": {
       "dependsOn": ["^build"],
@@ -18,7 +27,7 @@
       "outputs": ["dist/**"]
     },
     "build": {
-      "dependsOn": ["antdv-next#build:token", "^build"],
+      "dependsOn": ["antdv-next#build:token", "antdv-next#build:style", "^build"],
       "inputs": ["src/**", "package.json", "tsconfig.json"],
       "outputs": ["dist/**"]
     },

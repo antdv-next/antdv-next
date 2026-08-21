@@ -1,6 +1,6 @@
 import type { DrawerProps as VcDrawerProps } from '@v-c/drawer'
 import type { CSSMotionProps } from '@v-c/util/dist/utils/transition'
-import type { App, SlotsType } from 'vue'
+import type { App, CSSProperties, SlotsType } from 'vue'
 import type { MaskType } from '../_util/hooks'
 import type { DrawerClassNamesType, DrawerPanelProps, DrawerStylesType } from './DrawerPanel'
 import type { FocusableConfig, OmitFocusType } from './useFocusable.ts'
@@ -9,7 +9,7 @@ import { clsx } from '@v-c/util'
 import { getTransitionName } from '@v-c/util/dist/utils/transition'
 import { computed, defineComponent, shallowRef, useId } from 'vue'
 import { ContextIsolator } from '../_util/ContextIsolator.tsx'
-import { getAttrStyleAndClass, useMergedMask, useMergeSemantic, useToArr, useToProps, useZIndex } from '../_util/hooks'
+import { getAttrStyleAndClass, useMergedMask, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps, useZIndex } from '../_util/hooks'
 import { toPropsRefs } from '../_util/tools.ts'
 import { devUseWarning, isDev } from '../_util/warning.ts'
 import { ZIndexProvider } from '../_util/zindexContext.ts'
@@ -211,13 +211,23 @@ const Drawer = defineComponent<
       } as DrawerProps
     })
 
+    // The legacy inline `style`/`drawerStyle` of Drawer target the section node, not the root.
+    const contextSectionStyle = useSemanticRootStyle(contextStyle, 'section')
+    const drawerSectionStyle = useSemanticRootStyle(computed(() => props.drawerStyle), 'section')
+    const sectionStyle = useSemanticRootStyle(
+      computed(() => (attrs as any).style as CSSProperties | undefined),
+      'section',
+    )
+
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       DrawerClassNamesType,
       DrawerStylesType,
       DrawerProps
-    >(useToArr(contextClassNames, classes), useToArr(contextStyles, styles), useToProps(
-      mergedProps,
-    ))
+    >(
+      useToArr(contextClassNames, classes),
+      useToArr(contextStyles, contextSectionStyle as any, styles, drawerSectionStyle as any, sectionStyle as any),
+      useToProps(mergedProps),
+    )
     return () => {
       const {
         rootClass,
@@ -236,7 +246,7 @@ const Drawer = defineComponent<
         size,
         ...rest
       } = props
-      const { className, restAttrs, style } = getAttrStyleAndClass(attrs)
+      const { className, restAttrs } = getAttrStyleAndClass(attrs)
       // =========================== Motion ===========================
       const maskMotion: CSSMotionProps = {
         name: getTransitionName(prefixCls.value, 'mask-motion'),
@@ -304,7 +314,7 @@ const Drawer = defineComponent<
               }}
               styles={{
                 mask: { ...mergedStyles.value.mask, ...maskStyle },
-                section: { ...mergedStyles.value.section, ...drawerStyle },
+                section: mergedStyles.value.section,
                 wrapper: { ...mergedStyles.value.wrapper, ...contentWrapperStyle },
                 dragger: mergedStyles.value.dragger,
               }}
@@ -319,8 +329,7 @@ const Drawer = defineComponent<
                 panelRef.value = panel
                 innerPanelRef(panel)
               }}
-              style={{ ...contextStyle.value, ...style }}
-              rootStyle={{ ...rootStyle, ...mergedStyles.value.root }}
+              rootStyle={{ ...mergedStyles.value.root, ...rootStyle }}
               class={clsx(contextClassName.value, className)}
               rootClassName={drawerClassName}
               getContainer={getContainer}

@@ -1164,6 +1164,36 @@ describe('notification', () => {
 
       wrapper.unmount()
     })
+
+    it('should use the locale around the context holder for the close button', async () => {
+      const { default: ConfigProvider } = await import('../../config-provider')
+      const { default: zhTW } = await import('../../locale/zh_TW')
+      let api!: NotificationInstance
+      const App = defineComponent({
+        setup() {
+          const [notificationApi, contextHolder] = useNotification()
+          api = notificationApi
+          return () => (
+            <ConfigProvider locale={zhTW}>
+              {contextHolder()}
+            </ConfigProvider>
+          )
+        },
+      })
+
+      const wrapper = mount(App, { attachTo: document.body })
+      await waitForNotification()
+
+      api.open({
+        title: 'Notification',
+        duration: 0,
+      })
+      await waitForNotification()
+
+      expect(document.querySelector('.ant-notification-notice-close')?.getAttribute('aria-label')).toBe('關閉')
+
+      wrapper.unmount()
+    })
   })
 
   // ========================= useNotification config =========================

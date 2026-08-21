@@ -143,6 +143,7 @@ const Anchor = defineComponent<
         _activeLink.value = val
       },
     })
+    const rawActiveLink = shallowRef(activeLink.value)
 
     const wrapperRef = shallowRef<HTMLElement>()
     const spanLinkNode = shallowRef<HTMLSpanElement>()
@@ -216,18 +217,22 @@ const Anchor = defineComponent<
       return ''
     }
 
-    const setCurrentActiveLink = (link: string) => {
-      // FIXME: Seems a bug since this compare is not equals
-      // `activeLinkRef` is parsed value which will always trigger `onChange` event.
-      if (activeLinkRef.value === link) {
-        return
-      }
+    const setCurrentActiveLink = (link: string, forceTriggerChange = false) => {
+      rawActiveLink.value = link
+
       // https://github.com/ant-design/ant-design/issues/30584
       const getCurrentAnchor = props.getCurrentAnchor
       const newLink = typeof getCurrentAnchor === 'function' ? getCurrentAnchor(link) : link
+      const isSameLink = activeLinkRef.value === newLink
 
-      activeLink.value = newLink
-      activeLinkRef.value = newLink
+      if (isSameLink && !forceTriggerChange) {
+        return
+      }
+
+      if (!isSameLink) {
+        activeLink.value = newLink
+        activeLinkRef.value = newLink
+      }
 
       // onChange should respect the original link (which may caused by
       // window scroll or user click), not the new link
@@ -247,7 +252,8 @@ const Anchor = defineComponent<
     }
     const handleScrollTo = (link: string, linkTargetOffset?: number) => {
       const { offsetTop, targetOffset } = props
-      setCurrentActiveLink(link)
+      const previousRawActiveLink = rawActiveLink.value
+      setCurrentActiveLink(link, previousRawActiveLink !== link)
       const sharpLinkMatch = sharpMatcherRegex.exec(link)
       if (!sharpLinkMatch) {
         return
@@ -323,9 +329,11 @@ const Anchor = defineComponent<
       },
     )
 
+    // Keep watchEffect so reactive values read inside a stable `getCurrentAnchor`
+    // callback stay tracked; pass the raw link to avoid remapping mapped results.
     watchEffect(() => {
       if (typeof props.getCurrentAnchor === 'function') {
-        setCurrentActiveLink(props?.getCurrentAnchor(activeLinkRef.value || ''))
+        setCurrentActiveLink(rawActiveLink.value || '')
       }
     })
     watch(

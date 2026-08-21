@@ -16,27 +16,45 @@ export default function scrollTo(y: number, options: ScrollToOptions = {}) {
   const { getContainer = () => window, callback, duration = 450 } = options
   const container = getContainer()
   const scrollTop = getScroll(container)
+
+  const scroll = (top: number) => {
+    if (isWindow(container)) {
+      container.scrollTo(window.pageXOffset, top)
+    }
+    else if (isDocument(container)) {
+      container.documentElement.scrollTop = top
+    }
+    else {
+      container.scrollTop = top
+    }
+  }
+
+  if (duration <= 0) {
+    scroll(y)
+    if (typeof callback === 'function') {
+      callback()
+    }
+    return () => {}
+  }
+
   const startTime = Date.now()
+  let rafId: number
 
   const frameFunc = () => {
     const timestamp = Date.now()
     const time = timestamp - startTime
     const nextScrollTop = easeInOutCubic(time > duration ? duration : time, scrollTop, y, duration)
-    if (isWindow(container)) {
-      container.scrollTo(window.pageXOffset, nextScrollTop)
-    }
-    else if (isDocument(container)) {
-      container.documentElement.scrollTop = nextScrollTop
-    }
-    else {
-      container.scrollTop = nextScrollTop
-    }
+    scroll(nextScrollTop)
     if (time < duration) {
-      raf(frameFunc)
+      rafId = raf(frameFunc)
     }
     else if (typeof callback === 'function') {
       callback()
     }
   }
-  raf(frameFunc)
+  rafId = raf(frameFunc)
+
+  return () => {
+    raf.cancel(rafId)
+  }
 }

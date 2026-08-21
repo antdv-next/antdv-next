@@ -79,6 +79,7 @@ const columns = [
   <demo src="./demo/summary.vue">汇总行</demo>
   <demo src="./demo/custom-empty.vue">自定义空状态</demo>
   <demo src="./demo/custom-filter-panel.vue">自定义筛选</demo>
+  <demo src="./demo/custom-filter-close.vue">关闭自定义筛选面板</demo>
   <demo src="./demo/filter-search.vue">筛选搜索</demo>
   <demo src="./demo/filter-in-tree.vue">树形筛选</demo>
   <demo src="./demo/head.vue">排序与筛选</demo>
@@ -293,6 +294,7 @@ const onHeaderRow: TableProps['onHeaderRow'] = (columns, index) => {
 | expandIcon | 自定义展开图标，参考[示例](https://stackblitz.com/edit/vitejs-vite-jezqinto?file=src%2FApp.vue) | function(props): VueNode | - | - |
 | expandRowByClick | 通过点击行来展开子行 | boolean | false | - |
 | fixed | 控制展开图标是否固定，可选 `true` `'left'` `'right'` | boolean \| string | false | - |
+| forceRender | 在展开前强制渲染展开行内容。虚拟模式下，仅强制渲染虚拟列表当前挂载的行；屏幕外的行仍可能被卸载 | boolean | false | - |
 | indentSize | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number | 15 | - |
 | rowExpandable | 设置是否允许行展开（`dataSource` 若存在 `children` 字段将不生效） | (record) => boolean | - | - |
 | showExpandColumn | 是否显示展开图标列 | boolean | true | - |
@@ -317,7 +319,7 @@ const onHeaderRow: TableProps['onHeaderRow'] = (columns, index) => {
 | renderCell | 渲染勾选框，用法与 Column 的 `render` 相同 | (checked: boolean, record: T, index: number, originNode: VueNode): VueNode | - | - |
 | selectedRowKeys | 指定选中项的 key 数组，需要和 onChange 进行配合 | string\[] \| number\[] | \[] | - |
 | defaultSelectedRowKeys | 默认选中项的 key 数组 | string\[] \| number\[] | \[] | - |
-| selections | 自定义选择项 [配置项](#selection), 设为 `true` 时使用默认选择项 | object\[] \| boolean | true | - |
+| selections | 自定义选择项 [配置项](#selection), 设为 `true` 时使用默认选择项 | object\[] \| boolean | - | - |
 | type | 多选/单选 | `checkbox` \| `radio` | `checkbox` | - |
 | onCell | 设置单元格属性，用法与 Column 的 `onCell` 相同 | function(record, rowIndex) | - | - |
 | onChange | 选中项发生变化时的回调 | function(selectedRowKeys, selectedRows, info: \{ type \}) | - | - |

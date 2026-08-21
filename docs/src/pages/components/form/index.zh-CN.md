@@ -32,6 +32,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
   <demo src="./demo/useWatch.vue">监听字段</demo>
   <demo src="./demo/validate-trigger.vue">校验触发时机</demo>
   <demo src="./demo/validate-only.vue">仅校验</demo>
+  <demo src="./demo/message-render.vue">响应式校验信息</demo>
   <demo src="./demo/form-zod.vue">接入 zod 校验</demo>
   <demo src="./demo/form-item-path.vue">路径前缀</demo>
   <demo src="./demo/dynamic-form-item.vue">动态表单项</demo>
@@ -158,7 +159,7 @@ const formRef = ref<FormInstance>()
 | help | 提示信息，不配置则按校验规则生成 | VueNode | - | - |
 | hasFeedback | 配合 `validateStatus` 展示状态图标 | boolean \| \{ icons: FeedbackIcons \} | false | - |
 | validateStatus | 校验状态 | ValidateStatus | - | - |
-| required | 是否显示必选样式 | boolean | false | - |
+| required | 必填样式设置。如不设置，则会根据校验规则自动生成。设置为 `false` 可禁用该样式 | boolean | - | - |
 | rules | 校验规则 | Rule[] | - | - |
 | validateTrigger | 触发校验的时机。设为 `false` 时禁用当前字段的所有交互事件校验，即使规则单独声明了 `trigger` 或 `validateTrigger`；显式调用 `validateFields` 或提交时仍会校验 | string \| string[] \| false | `change` | - |
 | validateDebounce | 延迟校验时间（毫秒） | number | - | - |
@@ -218,7 +219,7 @@ interface RuleObject {
   enum?: any[]
   len?: number
   max?: number
-  message?: string | Component
+  message?: string | Component | (() => VueNode)
   min?: number
   pattern?: RegExp
   required?: boolean
@@ -241,6 +242,7 @@ type Rule = RuleObject | RuleRender
 - `Form.Item.rules` 的类型为 `Rule[]`
 - `validateTrigger` 优先级高于 `trigger`
 - `type: 'array'` 时可通过 `defaultField` 为数组元素继续声明规则
+- `message` 支持渲染函数（如 `() => t('required')`）：校验时原样保留，渲染错误时才调用，因此函数内读取的响应式状态（locale、i18n 等）变化时，已显示的提示会自动更新，无需重新校验。注意函数形式不参与 `${label}` 等模板变量插值
 
 #### validateMessages {#validatemessages}
 

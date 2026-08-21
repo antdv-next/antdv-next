@@ -1,9 +1,35 @@
 import { CustomerServiceOutlined, QuestionCircleOutlined } from '@antdv-next/icons'
 import { describe, expect, it, vi } from 'vitest'
-import { h, nextTick } from 'vue'
+import { h, nextTick, ref } from 'vue'
 import FloatButton, { BackTop, FloatButtonGroup } from '..'
 import rtlTest from '/@tests/shared/rtlTest'
 import { mount } from '/@tests/utils'
+
+function setScrollMetrics(
+  element: HTMLElement,
+  scrollTop: number,
+  scrollHeight: number,
+  clientHeight: number,
+) {
+  Object.defineProperties(element, {
+    scrollTop: { configurable: true, value: scrollTop, writable: true },
+    scrollHeight: { configurable: true, value: scrollHeight },
+    clientHeight: { configurable: true, value: clientHeight },
+  })
+  return element
+}
+
+function createScrollHolder(scrollTop: number, scrollHeight = 2000, clientHeight = 1000) {
+  return setScrollMetrics(document.createElement('div'), scrollTop, scrollHeight, clientHeight)
+}
+
+function waitRaf() {
+  return new Promise<void>((resolve) => {
+    requestAnimationFrame(() => {
+      nextTick().then(resolve)
+    })
+  })
+}
 
 describe('floatButton', () => {
   rtlTest(() => h(FloatButton))
@@ -416,6 +442,19 @@ describe('floatButtonGroup', () => {
     expect(onUpdateOpen).toHaveBeenCalledWith(true)
   })
 
+  // ========================= Ref =========================
+  it('should support nativeElement ref', async () => {
+    const groupRef = ref<any>()
+    const wrapper = mount(() => (
+      <FloatButtonGroup ref={groupRef}>
+        <FloatButton />
+      </FloatButtonGroup>
+    ))
+    await nextTick()
+    expect(groupRef.value?.nativeElement).toBeInstanceOf(HTMLElement)
+    expect(groupRef.value.nativeElement).toBe(wrapper.find('.ant-float-btn-group').element)
+  })
+
   it('should match group snapshot', () => {
     const wrapper = mount(() => (
       <FloatButtonGroup>
@@ -483,6 +522,24 @@ describe('backTop', () => {
     expect(onClick).toHaveBeenCalled()
   })
 
+  it('should scroll to top immediately when reduced motion is enabled', async () => {
+    vi.spyOn(window, 'matchMedia').mockReturnValueOnce({ matches: true } as MediaQueryList)
+    const scrollToSpy = vi.spyOn(window, 'scrollTo').mockImplementation((_, y) => {
+      window.scrollY = y
+      window.pageYOffset = y
+      document.documentElement.scrollTop = y
+    })
+    window.scrollTo(0, 400)
+
+    const wrapper = mount(BackTop, {
+      props: { visibilityHeight: 0 },
+    })
+    await wrapper.find('.ant-float-btn').trigger('click')
+
+    expect(document.documentElement.scrollTop).toBe(0)
+    scrollToSpy.mockRestore()
+  })
+
   it('should support content via default slot', () => {
     const wrapper = mount(BackTop, {
       props: { visibilityHeight: 0 },
@@ -491,6 +548,80 @@ describe('backTop', () => {
       },
     })
     expect(wrapper.text()).toContain('Back')
+  })
+
+  // ===================== Progress ring =====================
+  // https://github.com/ant-design/ant-design/pull/58894
+  it('should not render progress ring by default', async () => {
+    const wrapper = mount(BackTop, {
+      props: { visibilityHeight: 0, target: () => createScrollHolder(500) },
+    })
+    await nextTick()
+    const button = wrapper.find('.ant-float-btn')
+    expect(button.classes()).not.toContain('ant-float-btn-progress')
+    expect(button.attributes('style') ?? '').not.toContain('--ant-float-btn-progress')
+  })
+
+  it('should render scroll progress ring when showProgress is enabled', async () => {
+    const wrapper = mount(BackTop, {
+      props: { visibilityHeight: 0, showProgress: true, target: () => createScrollHolder(500) },
+    })
+    await nextTick()
+    const button = wrapper.find('.ant-float-btn')
+    expect(button.classes()).toContain('ant-float-btn-progress')
+    expect(button.attributes('style')).toContain('--ant-float-btn-progress: 0.5turn')
+  })
+
+  it('should update the progress ring on scroll', async () => {
+    const holder = createScrollHolder(0)
+    const wrapper = mount(BackTop, {
+      props: { visibilityHeight: 0, showProgress: true, target: () => holder },
+    })
+    expect(wrapper.find('.ant-float-btn').attributes('style')).toContain('--ant-float-btn-progress: 0turn')
+
+    holder.scrollTop = 800
+    holder.dispatchEvent(new Event('scroll'))
+    await waitRaf()
+
+    expect(wrapper.find('.ant-float-btn').attributes('style')).toContain('--ant-float-btn-progress: 0.8turn')
+  })
+
+  it('should clamp the progress ring for non-scrollable targets', async () => {
+    const holder = createScrollHolder(0, 400, 400)
+    const wrapper = mount(BackTop, {
+      props: { visibilityHeight: 0, showProgress: true, target: () => holder },
+    })
+    await nextTick()
+    expect(wrapper.find('.ant-float-btn').attributes('style')).toContain('--ant-float-btn-progress: 0turn')
+  })
+
+  it('should recalculate the progress ring on resize', async () => {
+    const holder = createScrollHolder(500)
+    const wrapper = mount(BackTop, {
+      props: { visibilityHeight: 0, showProgress: true, target: () => holder },
+    })
+    await nextTick()
+    expect(wrapper.find('.ant-float-btn').attributes('style')).toContain('--ant-float-btn-progress: 0.5turn')
+
+    Object.defineProperty(holder, 'clientHeight', { configurable: true, value: 1500 })
+    window.dispatchEvent(new Event('resize'))
+    await waitRaf()
+
+    expect(wrapper.find('.ant-float-btn').attributes('style')).toContain('--ant-float-btn-progress: 1turn')
+  })
+
+  it('should compute the progress ring for document targets', async () => {
+    setScrollMetrics(document.documentElement, 700, 2000, 1000)
+    try {
+      const wrapper = mount(BackTop, {
+        props: { visibilityHeight: 0, showProgress: true, target: () => document },
+      })
+      await nextTick()
+      expect(wrapper.find('.ant-float-btn').attributes('style')).toContain('--ant-float-btn-progress: 0.7turn')
+    }
+    finally {
+      setScrollMetrics(document.documentElement, 0, 0, 0)
+    }
   })
 
   it('should match snapshot', () => {

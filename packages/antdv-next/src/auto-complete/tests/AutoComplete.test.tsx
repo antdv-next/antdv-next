@@ -165,7 +165,10 @@ describe('autoComplete', () => {
       },
     })
 
+    // The clear affordance is a <button> now; clearing happens on click so it
+    // also works for keyboard activation (@v-c/select #1224).
     await wrapper.find('.ant-select-clear').trigger('mousedown')
+    await wrapper.find('.ant-select-clear').trigger('click')
     expect(onClear).toHaveBeenCalled()
   })
 

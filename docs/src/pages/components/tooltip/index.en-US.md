@@ -49,8 +49,8 @@ Common props ref：[Common props](/docs/vue/common-props)
 | placement | Tooltip placement | TooltipPlacement | top | - | × |
 | trigger | Trigger action | ActionType \| ActionType[] | - | - | ✓ |
 | fresh | Update content even when tooltip is hidden | boolean | - | - | × |
-| mouseEnterDelay | Delay in seconds before showing tooltip | number | 0.1 | - | × |
-| mouseLeaveDelay | Delay in seconds before hiding tooltip | number | 0.1 | - | × |
+| mouseEnterDelay | Delay in seconds before showing tooltip | number | 0.1 | - | ✓ |
+| mouseLeaveDelay | Delay in seconds before hiding tooltip | number | 0.1 | - | ✓ |
 | classes | Semantic DOM class. Supports object or function | TooltipClassNamesType | - | - | ✓ |
 | styles | Semantic DOM style. Supports object or function | TooltipStylesType | - | - | ✓ |
 | getTooltipContainer | Legacy alias of `getPopupContainer` | (node: HTMLElement) =&gt; HTMLElement | - | - | × |

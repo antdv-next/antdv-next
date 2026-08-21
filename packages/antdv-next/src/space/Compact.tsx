@@ -3,7 +3,7 @@ import type { ComponentBaseProps, DirectionType } from '../config-provider/conte
 import type { SizeType } from '../config-provider/SizeContext'
 import { classNames } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
-import { computed, defineComponent, inject, provide, ref, toRefs } from 'vue'
+import { computed, defineComponent, inject, provide, ref, shallowRef, toRefs } from 'vue'
 import { useOrientation } from '../_util/hooks/useOrientation.ts'
 import { useConfig } from '../config-provider/context.ts'
 import { useSize } from '../config-provider/hooks/useSize.ts'
@@ -16,6 +16,10 @@ export interface SpaceCompactProps extends ComponentBaseProps {
   orientation?: 'horizontal' | 'vertical'
   vertical?: boolean
 }
+export interface SpaceCompactRef {
+  nativeElement: HTMLDivElement
+}
+
 export interface SpaceCompactItemContextType {
   compactSize?: SizeType
   compactDirection?: 'horizontal' | 'vertical'
@@ -75,7 +79,7 @@ const CompactItem = defineComponent<SpaceCompactItemContextType>(
 )
 
 const Compact = defineComponent<SpaceCompactProps>(
-  (props, { slots, attrs }) => {
+  (props, { slots, attrs, expose }) => {
     const mergedSize = useSize<SizeType>(ctx => (props?.size ?? ctx) as SizeType)
     const configContext = useConfig()
     const prefixCls = computed(() => configContext.value?.getPrefixCls?.('space-compact', props.prefixCls))
@@ -85,6 +89,11 @@ const Compact = defineComponent<SpaceCompactProps>(
     const { direction, vertical, orientation } = toRefs(props)
 
     const [mergedOrientation, mergedVertical] = useOrientation(orientation, vertical, direction)
+
+    const nativeElementRef = shallowRef<HTMLDivElement>()
+    expose({
+      nativeElement: nativeElementRef,
+    })
 
     return () => {
       const { rootClass, block } = props
@@ -126,7 +135,7 @@ const Compact = defineComponent<SpaceCompactProps>(
       }
 
       return (
-        <div class={clx} {...attrs}>
+        <div ref={nativeElementRef} class={clx} {...attrs}>
           {nodes}
         </div>
       )

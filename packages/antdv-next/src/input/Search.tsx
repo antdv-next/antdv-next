@@ -11,12 +11,13 @@ import { clsx } from '@v-c/util'
 import pickAttrs from '@v-c/util/dist/pickAttrs'
 import { omit } from 'es-toolkit'
 import { cloneVNode, computed, defineComponent, isVNode, shallowRef } from 'vue'
-import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import Button from '../button'
 import { useComponentBaseConfig } from '../config-provider/context'
 import { useDisabledContext } from '../config-provider/DisabledContext.tsx'
 import { useSize } from '../config-provider/hooks/useSize'
+import useVariant from '../form/hooks/useVariant'
 import { SpaceCompact } from '../space'
 import { useCompactItemContext } from '../space/Compact.tsx'
 import Input from './Input'
@@ -135,23 +136,44 @@ const InternalSearch = defineComponent<
 
     const inputPrefixCls = computed(() => getPrefixCls('input', props.inputPrefixCls))
 
-    const { classes, styles, size: customizeSize, disabled: customDisabled, variant } = toPropsRefs(
+    const {
+      classes,
+      styles,
+      size: customizeSize,
+      disabled: customDisabled,
+      variant: customizeVariant,
+      bordered,
+    } = toPropsRefs(
       props,
       'classes',
       'styles',
       'size',
       'disabled',
       'variant',
+      'bordered',
     )
 
     const contextDisabled = useDisabledContext()
     const mergedDisabled = computed(() => customDisabled.value ?? contextDisabled.value)
 
+    // The search button only reacts when the variant is explicitly configured
+    // (component prop, Form context, `inputSearch` or the global `variant`).
+    const [searchVariant, , isVariantConfigured] = useVariant('inputSearch', customizeVariant, bordered)
+    const variant = computed(() => (isVariantConfigured.value ? searchVariant.value : undefined))
+    // The inner Input additionally falls back to the `input` global config
+    const [inputVariant] = useVariant('inputSearch', customizeVariant, bordered, 'input')
+
     const [hashId, cssVarCls] = useStyle(prefixCls)
     const { compactSize } = useCompactItemContext(prefixCls, direction)
     const mergedSize = useSize<SizeType>(ctx => (customizeSize.value ?? compactSize.value ?? ctx) as SizeType)
 
-    const mergedProps = computed(() => ({ ...props, enterButton: props.enterButton }))
+    const mergedProps = computed(() => ({
+      ...props,
+      enterButton: props.enterButton,
+      variant: variant.value,
+    }))
+
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
 
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       InputSearchClassNamesType,
@@ -159,7 +181,7 @@ const InternalSearch = defineComponent<
       SearchProps
     >(
       useToArr(contextClassNames, classes),
-      useToArr(contextStyles, styles),
+      useToArr(contextStyles, contextStyleRoot as any, styles),
       useToProps(mergedProps),
       computed(() => schema),
     )
@@ -240,7 +262,6 @@ const InternalSearch = defineComponent<
 
       const mergedRootStyle = {
         ...mergedStyles.value.root,
-        ...contextStyle.value,
         ...style,
       }
 
@@ -331,7 +352,7 @@ const InternalSearch = defineComponent<
             disabled={customDisabled.value}
             classes={inputClassNames}
             styles={inputStyles}
-            variant={variant.value}
+            variant={inputVariant.value}
             onChange={handleChange}
             onFocus={(e: any) => emit('focus', e)}
             onBlur={(e: any) => emit('blur', e)}

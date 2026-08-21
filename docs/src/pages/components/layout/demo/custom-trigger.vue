@@ -35,7 +35,7 @@ function toggleCollapsed() {
 
 <template>
   <a-layout>
-    <a-layout-sider v-model:collapsed="collapsed" collapsible>
+    <a-layout-sider v-model:collapsed="collapsed" collapsible :trigger="null">
       <div class="demo-logo-vertical" />
       <a-menu
         theme="dark"

@@ -197,8 +197,9 @@ exports[`table demo > renders _semantic correctly 1`] = `
               <!---->
               <li
                 aria-disabled="true"
+                aria-label="上一页"
                 class="ant-pagination-prev semantic-mark-pagination-item ant-pagination-disabled"
-                title="上一页"
+                role="button"
               >
                 <button
                   class="ant-pagination-item-link"
@@ -228,32 +229,42 @@ exports[`table demo > renders _semantic correctly 1`] = `
                 </button>
               </li>
               <li
+                aria-current="page"
+                aria-label="页 1"
                 class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active semantic-mark-pagination-item"
+                role="button"
                 tabindex="0"
                 title="1"
               >
                 <a
+                  aria-hidden="true"
                   rel="nofollow"
+                  tabindex="-1"
                 >
                   1
                 </a>
               </li>
               <li
+                aria-label="页 2"
                 class="ant-pagination-item ant-pagination-item-2 semantic-mark-pagination-item"
+                role="button"
                 tabindex="0"
                 title="2"
               >
                 <a
+                  aria-hidden="true"
                   rel="nofollow"
+                  tabindex="-1"
                 >
                   2
                 </a>
               </li>
               <li
                 aria-disabled="false"
+                aria-label="下一页"
                 class="ant-pagination-next semantic-mark-pagination-item"
+                role="button"
                 tabindex="0"
-                title="下一页"
               >
                 <button
                   class="ant-pagination-item-link"
@@ -2495,8 +2506,9 @@ exports[`table demo > renders auto-height correctly 1`] = `
             <!---->
             <li
               aria-disabled="true"
+              aria-label="上一页"
               class="ant-pagination-prev ant-pagination-disabled"
-              title="上一页"
+              role="button"
             >
               <button
                 class="ant-pagination-item-link"
@@ -2526,43 +2538,57 @@ exports[`table demo > renders auto-height correctly 1`] = `
               </button>
             </li>
             <li
+              aria-current="page"
+              aria-label="页 1"
               class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+              role="button"
               tabindex="0"
               title="1"
             >
               <a
+                aria-hidden="true"
                 rel="nofollow"
+                tabindex="-1"
               >
                 1
               </a>
             </li>
             <li
+              aria-label="页 2"
               class="ant-pagination-item ant-pagination-item-2"
+              role="button"
               tabindex="0"
               title="2"
             >
               <a
+                aria-hidden="true"
                 rel="nofollow"
+                tabindex="-1"
               >
                 2
               </a>
             </li>
             <li
+              aria-label="页 3"
               class="ant-pagination-item ant-pagination-item-3"
+              role="button"
               tabindex="0"
               title="3"
             >
               <a
+                aria-hidden="true"
                 rel="nofollow"
+                tabindex="-1"
               >
                 3
               </a>
             </li>
             <li
               aria-disabled="false"
+              aria-label="下一页"
               class="ant-pagination-next"
+              role="button"
               tabindex="0"
-              title="下一页"
             >
               <button
                 class="ant-pagination-item-link"
@@ -2959,8 +2985,9 @@ exports[`table demo > renders basic correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
+          aria-label="上一页"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="上一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -2990,20 +3017,26 @@ exports[`table demo > renders basic correctly 1`] = `
           </button>
         </li>
         <li
+          aria-current="page"
+          aria-label="页 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          role="button"
           tabindex="0"
           title="1"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             1
           </a>
         </li>
         <li
           aria-disabled="true"
+          aria-label="下一页"
           class="ant-pagination-next ant-pagination-disabled"
-          title="下一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -3199,8 +3232,9 @@ exports[`table demo > renders bordered correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
+          aria-label="上一页"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="上一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -3230,20 +3264,26 @@ exports[`table demo > renders bordered correctly 1`] = `
           </button>
         </li>
         <li
+          aria-current="page"
+          aria-label="页 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          role="button"
           tabindex="0"
           title="1"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             1
           </a>
         </li>
         <li
           aria-disabled="true"
+          aria-label="下一页"
           class="ant-pagination-next ant-pagination-disabled"
-          title="下一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -3454,8 +3494,9 @@ exports[`table demo > renders bug-test correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
+            aria-label="上一页"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="上一页"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -3485,20 +3526,26 @@ exports[`table demo > renders bug-test correctly 1`] = `
             </button>
           </li>
           <li
+            aria-current="page"
+            aria-label="页 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            role="button"
             tabindex="0"
             title="1"
           >
             <a
+              aria-hidden="true"
               rel="nofollow"
+              tabindex="-1"
             >
               1
             </a>
           </li>
           <li
             aria-disabled="true"
+            aria-label="下一页"
             class="ant-pagination-next ant-pagination-disabled"
-            title="下一页"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -3758,8 +3805,9 @@ exports[`table demo > renders cell-slot correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
+          aria-label="上一页"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="上一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -3789,20 +3837,26 @@ exports[`table demo > renders cell-slot correctly 1`] = `
           </button>
         </li>
         <li
+          aria-current="page"
+          aria-label="页 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          role="button"
           tabindex="0"
           title="1"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             1
           </a>
         </li>
         <li
           aria-disabled="true"
+          aria-label="下一页"
           class="ant-pagination-next ant-pagination-disabled"
-          title="下一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -4157,8 +4211,9 @@ exports[`table demo > renders colspan-rowspan correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
+          aria-label="上一页"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="上一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -4188,20 +4243,26 @@ exports[`table demo > renders colspan-rowspan correctly 1`] = `
           </button>
         </li>
         <li
+          aria-current="page"
+          aria-label="页 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          role="button"
           tabindex="0"
           title="1"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             1
           </a>
         </li>
         <li
           aria-disabled="true"
+          aria-label="下一页"
           class="ant-pagination-next ant-pagination-disabled"
-          title="下一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -4320,6 +4381,201 @@ exports[`table demo > renders custom-empty correctly 1`] = `
       </div>
     </div>
   </div>
+</div>
+`;
+
+exports[`table demo > renders custom-filter-close correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-root"
+  data-v-8203daa8=""
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="custom-filter-status"
+      data-v-8203daa8=""
+    >
+      <span
+        data-testid="change-count"
+        data-v-8203daa8=""
+      >
+        Change events: 0
+      </span>
+      <span
+        data-testid="applied-filter"
+        data-v-8203daa8=""
+      >
+        Applied filter: none
+      </span>
+    </div>
+  </div>
+  <!---->
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="css-var-root ant-table-css-var ant-table-wrapper"
+      data-allow-mismatch="true"
+      data-v-8203daa8=""
+    >
+      <div
+        aria-busy="false"
+        aria-live="polite"
+        class="ant-spin css-var-root"
+      >
+        <!---->
+        <div
+          class="ant-spin-container"
+        >
+          <div
+            class="ant-table css-var-root ant-table-css-var"
+          >
+            <!---->
+            <div
+              class="ant-table-container"
+            >
+              <div
+                class="ant-table-content"
+              >
+                <table
+                  style="table-layout: auto;"
+                >
+                  <!---->
+                  <!---->
+                  <thead
+                    class="ant-table-thead"
+                  >
+                    <tr
+                      class=""
+                    >
+                      <th
+                        class="ant-table-cell"
+                        colend="0"
+                        colstart="0"
+                        scope="col"
+                      >
+                        <!---->
+                        <div
+                          class="ant-table-filter-column"
+                        >
+                          <span
+                            class="ant-table-column-title"
+                          >
+                            Name
+                          </span>
+                          <span
+                            class="ant-table-filter-trigger ant-dropdown-trigger"
+                            role="button"
+                            tabindex="-1"
+                          >
+                            <span
+                              aria-label="filter"
+                              class="anticon anticon-filter"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="filter"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="64 64 896 896"
+                                width="1em"
+                              >
+                                <path
+                                  d="M349 838c0 17.7 14.2 32 31.8 32h262.4c17.6 0 31.8-14.3 31.8-32V642H349v196zm531.1-684H143.9c-24.5 0-39.8 26.7-27.5 48l221.3 376h348.8l221.3-376c12.1-21.3-3.2-48-27.7-48z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                          <!---->
+                        </div>
+                      </th>
+                      <th
+                        class="ant-table-cell"
+                        colend="1"
+                        colstart="1"
+                        scope="col"
+                      >
+                        <!---->
+                        Age
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody
+                    class="ant-table-tbody"
+                  >
+                    <!---->
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="1"
+                    >
+                      <td
+                        class="ant-table-cell"
+                        scope="row"
+                      >
+                        <!---->
+                        John
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                        scope="row"
+                      >
+                        <!---->
+                        32
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="2"
+                    >
+                      <td
+                        class="ant-table-cell"
+                        scope="row"
+                      >
+                        <!---->
+                        Jim
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                        scope="row"
+                      >
+                        <!---->
+                        42
+                      </td>
+                    </tr>
+                    <tr
+                      class="ant-table-row ant-table-row-level-0"
+                      data-row-key="3"
+                    >
+                      <td
+                        class="ant-table-cell"
+                        scope="row"
+                      >
+                        <!---->
+                        Joe
+                      </td>
+                      <td
+                        class="ant-table-cell"
+                        scope="row"
+                      >
+                        <!---->
+                        22
+                      </td>
+                    </tr>
+                  </tbody>
+                  <!---->
+                </table>
+              </div>
+            </div>
+            <!---->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!---->
 </div>
 `;
 
@@ -4677,8 +4933,9 @@ exports[`table demo > renders custom-filter-panel correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
+          aria-label="上一页"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="上一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -4708,20 +4965,26 @@ exports[`table demo > renders custom-filter-panel correctly 1`] = `
           </button>
         </li>
         <li
+          aria-current="page"
+          aria-label="页 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          role="button"
           tabindex="0"
           title="1"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             1
           </a>
         </li>
         <li
           aria-disabled="true"
+          aria-label="下一页"
           class="ant-pagination-next ant-pagination-disabled"
-          title="下一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -4920,8 +5183,9 @@ exports[`table demo > renders drag-sorting correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
+          aria-label="上一页"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="上一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -4951,20 +5215,26 @@ exports[`table demo > renders drag-sorting correctly 1`] = `
           </button>
         </li>
         <li
+          aria-current="page"
+          aria-label="页 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          role="button"
           tabindex="0"
           title="1"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             1
           </a>
         </li>
         <li
           aria-disabled="true"
+          aria-label="下一页"
           class="ant-pagination-next ant-pagination-disabled"
-          title="下一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -5208,8 +5478,9 @@ exports[`table demo > renders drag-sorting-handler correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
+          aria-label="上一页"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="上一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -5239,20 +5510,26 @@ exports[`table demo > renders drag-sorting-handler correctly 1`] = `
           </button>
         </li>
         <li
+          aria-current="page"
+          aria-label="页 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          role="button"
           tabindex="0"
           title="1"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             1
           </a>
         </li>
         <li
           aria-disabled="true"
+          aria-label="下一页"
           class="ant-pagination-next ant-pagination-disabled"
-          title="下一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -8078,8 +8355,9 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
+            aria-label="上一页"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="上一页"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -8109,20 +8387,26 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
             </button>
           </li>
           <li
+            aria-current="page"
+            aria-label="页 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            role="button"
             tabindex="0"
             title="1"
           >
             <a
+              aria-hidden="true"
               rel="nofollow"
+              tabindex="-1"
             >
               1
             </a>
           </li>
           <li
             aria-disabled="true"
+            aria-label="下一页"
             class="ant-pagination-next ant-pagination-disabled"
-            title="下一页"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -8356,8 +8640,9 @@ exports[`table demo > renders edit-cell correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
+            aria-label="上一页"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="上一页"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -8387,20 +8672,26 @@ exports[`table demo > renders edit-cell correctly 1`] = `
             </button>
           </li>
           <li
+            aria-current="page"
+            aria-label="页 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            role="button"
             tabindex="0"
             title="1"
           >
             <a
+              aria-hidden="true"
               rel="nofollow"
+              tabindex="-1"
             >
               1
             </a>
           </li>
           <li
             aria-disabled="true"
+            aria-label="下一页"
             class="ant-pagination-next ant-pagination-disabled"
-            title="下一页"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -8981,8 +9272,9 @@ exports[`table demo > renders edit-row correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
+            aria-label="上一页"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="上一页"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -9012,64 +9304,86 @@ exports[`table demo > renders edit-row correctly 1`] = `
             </button>
           </li>
           <li
+            aria-current="page"
+            aria-label="页 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            role="button"
             tabindex="0"
             title="1"
           >
             <a
+              aria-hidden="true"
               rel="nofollow"
+              tabindex="-1"
             >
               1
             </a>
           </li>
           <li
+            aria-label="页 2"
             class="ant-pagination-item ant-pagination-item-2"
+            role="button"
             tabindex="0"
             title="2"
           >
             <a
+              aria-hidden="true"
               rel="nofollow"
+              tabindex="-1"
             >
               2
             </a>
           </li>
           <li
+            aria-label="页 3"
             class="ant-pagination-item ant-pagination-item-3"
+            role="button"
             tabindex="0"
             title="3"
           >
             <a
+              aria-hidden="true"
               rel="nofollow"
+              tabindex="-1"
             >
               3
             </a>
           </li>
           <li
+            aria-label="页 4"
             class="ant-pagination-item ant-pagination-item-4"
+            role="button"
             tabindex="0"
             title="4"
           >
             <a
+              aria-hidden="true"
               rel="nofollow"
+              tabindex="-1"
             >
               4
             </a>
           </li>
           <li
+            aria-label="页 5"
             class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next"
+            role="button"
             tabindex="0"
             title="5"
           >
             <a
+              aria-hidden="true"
               rel="nofollow"
+              tabindex="-1"
             >
               5
             </a>
           </li>
           <li
+            aria-label="向后 5 页"
             class="ant-pagination-jump-next ant-pagination-jump-next-custom-icon"
+            role="button"
             tabindex="0"
-            title="向后 5 页"
           >
             <a
               class="ant-pagination-item-link"
@@ -9123,21 +9437,26 @@ exports[`table demo > renders edit-row correctly 1`] = `
             </a>
           </li>
           <li
+            aria-label="页 10"
             class="ant-pagination-item ant-pagination-item-10"
+            role="button"
             tabindex="0"
             title="10"
           >
             <a
+              aria-hidden="true"
               rel="nofollow"
+              tabindex="-1"
             >
               10
             </a>
           </li>
           <li
             aria-disabled="false"
+            aria-label="下一页"
             class="ant-pagination-next"
+            role="button"
             tabindex="0"
-            title="下一页"
           >
             <button
               class="ant-pagination-item-link"
@@ -9185,11 +9504,11 @@ exports[`table demo > renders edit-row correctly 1`] = `
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-owns="test-id_list"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="test-id"
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -9509,8 +9828,9 @@ exports[`table demo > renders ellipsis correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
+          aria-label="上一页"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="上一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -9540,20 +9860,26 @@ exports[`table demo > renders ellipsis correctly 1`] = `
           </button>
         </li>
         <li
+          aria-current="page"
+          aria-label="页 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          role="button"
           tabindex="0"
           title="1"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             1
           </a>
         </li>
         <li
           aria-disabled="true"
+          aria-label="下一页"
           class="ant-pagination-next ant-pagination-disabled"
-          title="下一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -9935,8 +10261,9 @@ exports[`table demo > renders ellipsis-custom-tooltip correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
+          aria-label="上一页"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="上一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -9966,20 +10293,26 @@ exports[`table demo > renders ellipsis-custom-tooltip correctly 1`] = `
           </button>
         </li>
         <li
+          aria-current="page"
+          aria-label="页 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          role="button"
           tabindex="0"
           title="1"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             1
           </a>
         </li>
         <li
           aria-disabled="true"
+          aria-label="下一页"
           class="ant-pagination-next ant-pagination-disabled"
-          title="下一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -10302,8 +10635,9 @@ exports[`table demo > renders expand correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
+          aria-label="上一页"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="上一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -10333,20 +10667,26 @@ exports[`table demo > renders expand correctly 1`] = `
           </button>
         </li>
         <li
+          aria-current="page"
+          aria-label="页 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          role="button"
           tabindex="0"
           title="1"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             1
           </a>
         </li>
         <li
           aria-disabled="true"
+          aria-label="下一页"
           class="ant-pagination-next ant-pagination-disabled"
-          title="下一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -10715,8 +11055,9 @@ exports[`table demo > renders expand-sticky correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
+          aria-label="上一页"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="上一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -10746,20 +11087,26 @@ exports[`table demo > renders expand-sticky correctly 1`] = `
           </button>
         </li>
         <li
+          aria-current="page"
+          aria-label="页 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          role="button"
           tabindex="0"
           title="1"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             1
           </a>
         </li>
         <li
           aria-disabled="true"
+          aria-label="下一页"
           class="ant-pagination-next ant-pagination-disabled"
-          title="下一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -11116,8 +11463,9 @@ exports[`table demo > renders filter-in-tree correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
+          aria-label="上一页"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="上一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -11147,20 +11495,26 @@ exports[`table demo > renders filter-in-tree correctly 1`] = `
           </button>
         </li>
         <li
+          aria-current="page"
+          aria-label="页 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          role="button"
           tabindex="0"
           title="1"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             1
           </a>
         </li>
         <li
           aria-disabled="true"
+          aria-label="下一页"
           class="ant-pagination-next ant-pagination-disabled"
-          title="下一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -11517,8 +11871,9 @@ exports[`table demo > renders filter-search correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
+          aria-label="上一页"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="上一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -11548,20 +11903,26 @@ exports[`table demo > renders filter-search correctly 1`] = `
           </button>
         </li>
         <li
+          aria-current="page"
+          aria-label="页 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          role="button"
           tabindex="0"
           title="1"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             1
           </a>
         </li>
         <li
           aria-disabled="true"
+          aria-label="下一页"
           class="ant-pagination-next ant-pagination-disabled"
-          title="下一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -14850,8 +15211,9 @@ exports[`table demo > renders fixed-columns-header correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
+          aria-label="上一页"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="上一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -14881,64 +15243,86 @@ exports[`table demo > renders fixed-columns-header correctly 1`] = `
           </button>
         </li>
         <li
+          aria-current="page"
+          aria-label="页 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          role="button"
           tabindex="0"
           title="1"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             1
           </a>
         </li>
         <li
+          aria-label="页 2"
           class="ant-pagination-item ant-pagination-item-2"
+          role="button"
           tabindex="0"
           title="2"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             2
           </a>
         </li>
         <li
+          aria-label="页 3"
           class="ant-pagination-item ant-pagination-item-3"
+          role="button"
           tabindex="0"
           title="3"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             3
           </a>
         </li>
         <li
+          aria-label="页 4"
           class="ant-pagination-item ant-pagination-item-4"
+          role="button"
           tabindex="0"
           title="4"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             4
           </a>
         </li>
         <li
+          aria-label="页 5"
           class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next"
+          role="button"
           tabindex="0"
           title="5"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             5
           </a>
         </li>
         <li
+          aria-label="向后 5 页"
           class="ant-pagination-jump-next ant-pagination-jump-next-custom-icon"
+          role="button"
           tabindex="0"
-          title="向后 5 页"
         >
           <a
             class="ant-pagination-item-link"
@@ -14992,21 +15376,26 @@ exports[`table demo > renders fixed-columns-header correctly 1`] = `
           </a>
         </li>
         <li
+          aria-label="页 10"
           class="ant-pagination-item ant-pagination-item-10"
+          role="button"
           tabindex="0"
           title="10"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             10
           </a>
         </li>
         <li
           aria-disabled="false"
+          aria-label="下一页"
           class="ant-pagination-next"
+          role="button"
           tabindex="0"
-          title="下一页"
         >
           <button
             class="ant-pagination-item-link"
@@ -15054,11 +15443,11 @@ exports[`table demo > renders fixed-columns-header correctly 1`] = `
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-owns="test-id_list"
-                autocomplete="off"
+                autocomplete="new-password"
                 class="ant-select-input"
                 id="test-id"
                 role="combobox"
-                type="search"
+                type="text"
                 value=""
               />
             </div>
@@ -17470,8 +17859,9 @@ exports[`table demo > renders fixed-header correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
+          aria-label="上一页"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="上一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -17501,32 +17891,42 @@ exports[`table demo > renders fixed-header correctly 1`] = `
           </button>
         </li>
         <li
+          aria-current="page"
+          aria-label="页 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          role="button"
           tabindex="0"
           title="1"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             1
           </a>
         </li>
         <li
+          aria-label="页 2"
           class="ant-pagination-item ant-pagination-item-2"
+          role="button"
           tabindex="0"
           title="2"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             2
           </a>
         </li>
         <li
           aria-disabled="false"
+          aria-label="下一页"
           class="ant-pagination-next"
+          role="button"
           tabindex="0"
-          title="下一页"
         >
           <button
             class="ant-pagination-item-link"
@@ -17574,11 +17974,11 @@ exports[`table demo > renders fixed-header correctly 1`] = `
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-owns="test-id_list"
-                autocomplete="off"
+                autocomplete="new-password"
                 class="ant-select-input"
                 id="test-id"
                 role="combobox"
-                type="search"
+                type="text"
                 value=""
               />
             </div>
@@ -18760,8 +19160,9 @@ exports[`table demo > renders grouping-columns correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
+          aria-label="上一页"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="上一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -18791,64 +19192,86 @@ exports[`table demo > renders grouping-columns correctly 1`] = `
           </button>
         </li>
         <li
+          aria-current="page"
+          aria-label="页 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          role="button"
           tabindex="0"
           title="1"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             1
           </a>
         </li>
         <li
+          aria-label="页 2"
           class="ant-pagination-item ant-pagination-item-2"
+          role="button"
           tabindex="0"
           title="2"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             2
           </a>
         </li>
         <li
+          aria-label="页 3"
           class="ant-pagination-item ant-pagination-item-3"
+          role="button"
           tabindex="0"
           title="3"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             3
           </a>
         </li>
         <li
+          aria-label="页 4"
           class="ant-pagination-item ant-pagination-item-4"
+          role="button"
           tabindex="0"
           title="4"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             4
           </a>
         </li>
         <li
+          aria-label="页 5"
           class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next"
+          role="button"
           tabindex="0"
           title="5"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             5
           </a>
         </li>
         <li
+          aria-label="向后 5 页"
           class="ant-pagination-jump-next ant-pagination-jump-next-custom-icon"
+          role="button"
           tabindex="0"
-          title="向后 5 页"
         >
           <a
             class="ant-pagination-item-link"
@@ -18902,21 +19325,26 @@ exports[`table demo > renders grouping-columns correctly 1`] = `
           </a>
         </li>
         <li
+          aria-label="页 10"
           class="ant-pagination-item ant-pagination-item-10"
+          role="button"
           tabindex="0"
           title="10"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             10
           </a>
         </li>
         <li
           aria-disabled="false"
+          aria-label="下一页"
           class="ant-pagination-next"
+          role="button"
           tabindex="0"
-          title="下一页"
         >
           <button
             class="ant-pagination-item-link"
@@ -18965,11 +19393,11 @@ exports[`table demo > renders grouping-columns correctly 1`] = `
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-owns="test-id_list"
-                autocomplete="off"
+                autocomplete="new-password"
                 class="ant-select-input"
                 id="test-id"
                 role="combobox"
-                type="search"
+                type="text"
                 value=""
               />
             </div>
@@ -19364,8 +19792,9 @@ exports[`table demo > renders head correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
+          aria-label="上一页"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="上一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -19395,20 +19824,26 @@ exports[`table demo > renders head correctly 1`] = `
           </button>
         </li>
         <li
+          aria-current="page"
+          aria-label="页 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          role="button"
           tabindex="0"
           title="1"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             1
           </a>
         </li>
         <li
           aria-disabled="true"
+          aria-label="下一页"
           class="ant-pagination-next ant-pagination-disabled"
-          title="下一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -19860,8 +20295,9 @@ exports[`table demo > renders hidden-columns correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
+            aria-label="上一页"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="上一页"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -19891,20 +20327,26 @@ exports[`table demo > renders hidden-columns correctly 1`] = `
             </button>
           </li>
           <li
+            aria-current="page"
+            aria-label="页 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            role="button"
             tabindex="0"
             title="1"
           >
             <a
+              aria-hidden="true"
               rel="nofollow"
+              tabindex="-1"
             >
               1
             </a>
           </li>
           <li
             aria-disabled="true"
+            aria-label="下一页"
             class="ant-pagination-next ant-pagination-disabled"
-            title="下一页"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -20511,8 +20953,9 @@ exports[`table demo > renders measure-row-render correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
+          aria-label="上一页"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="上一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -20542,20 +20985,26 @@ exports[`table demo > renders measure-row-render correctly 1`] = `
           </button>
         </li>
         <li
+          aria-current="page"
+          aria-label="页 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          role="button"
           tabindex="0"
           title="1"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             1
           </a>
         </li>
         <li
           aria-disabled="true"
+          aria-label="下一页"
           class="ant-pagination-next ant-pagination-disabled"
-          title="下一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -20991,8 +21440,9 @@ exports[`table demo > renders multiple-sorter correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
+          aria-label="上一页"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="上一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -21022,20 +21472,26 @@ exports[`table demo > renders multiple-sorter correctly 1`] = `
           </button>
         </li>
         <li
+          aria-current="page"
+          aria-label="页 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          role="button"
           tabindex="0"
           title="1"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             1
           </a>
         </li>
         <li
           aria-disabled="true"
+          aria-label="下一页"
           class="ant-pagination-next ant-pagination-disabled"
-          title="下一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -21416,9 +21872,10 @@ exports[`table demo > renders narrow correctly 1`] = `
           <!---->
           <li
             aria-disabled="false"
+            aria-label="上一页"
             class="ant-pagination-prev"
+            role="button"
             tabindex="0"
-            title="上一页"
           >
             <button
               class="ant-pagination-item-link"
@@ -21447,20 +21904,25 @@ exports[`table demo > renders narrow correctly 1`] = `
             </button>
           </li>
           <li
+            aria-label="页 1"
             class="ant-pagination-item ant-pagination-item-1"
+            role="button"
             tabindex="0"
             title="1"
           >
             <a
+              aria-hidden="true"
               rel="nofollow"
+              tabindex="-1"
             >
               1
             </a>
           </li>
           <li
+            aria-label="向前 5 页"
             class="ant-pagination-jump-prev ant-pagination-jump-prev-custom-icon"
+            role="button"
             tabindex="0"
-            title="向前 5 页"
           >
             <a
               class="ant-pagination-item-link"
@@ -21514,42 +21976,56 @@ exports[`table demo > renders narrow correctly 1`] = `
             </a>
           </li>
           <li
+            aria-label="页 12"
             class="ant-pagination-item ant-pagination-item-12 ant-pagination-item-after-jump-prev"
+            role="button"
             tabindex="0"
             title="12"
           >
             <a
+              aria-hidden="true"
               rel="nofollow"
+              tabindex="-1"
             >
               12
             </a>
           </li>
           <li
+            aria-current="page"
+            aria-label="页 13"
             class="ant-pagination-item ant-pagination-item-13 ant-pagination-item-active"
+            role="button"
             tabindex="0"
             title="13"
           >
             <a
+              aria-hidden="true"
               rel="nofollow"
+              tabindex="-1"
             >
               13
             </a>
           </li>
           <li
+            aria-label="页 14"
             class="ant-pagination-item ant-pagination-item-14 ant-pagination-item-before-jump-next"
+            role="button"
             tabindex="0"
             title="14"
           >
             <a
+              aria-hidden="true"
               rel="nofollow"
+              tabindex="-1"
             >
               14
             </a>
           </li>
           <li
+            aria-label="向后 5 页"
             class="ant-pagination-jump-next ant-pagination-jump-next-custom-icon"
+            role="button"
             tabindex="0"
-            title="向后 5 页"
           >
             <a
               class="ant-pagination-item-link"
@@ -21603,21 +22079,26 @@ exports[`table demo > renders narrow correctly 1`] = `
             </a>
           </li>
           <li
+            aria-label="页 20"
             class="ant-pagination-item ant-pagination-item-20"
+            role="button"
             tabindex="0"
             title="20"
           >
             <a
+              aria-hidden="true"
               rel="nofollow"
+              tabindex="-1"
             >
               20
             </a>
           </li>
           <li
             aria-disabled="false"
+            aria-label="下一页"
             class="ant-pagination-next"
+            role="button"
             tabindex="0"
-            title="下一页"
           >
             <button
               class="ant-pagination-item-link"
@@ -21666,11 +22147,11 @@ exports[`table demo > renders narrow correctly 1`] = `
                   aria-expanded="false"
                   aria-haspopup="listbox"
                   aria-owns="test-id_list"
-                  autocomplete="off"
+                  autocomplete="new-password"
                   class="ant-select-input"
                   id="test-id"
                   role="combobox"
-                  type="search"
+                  type="text"
                   value=""
                 />
               </div>
@@ -22450,8 +22931,9 @@ exports[`table demo > renders nested-table correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
+            aria-label="上一页"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="上一页"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -22481,20 +22963,26 @@ exports[`table demo > renders nested-table correctly 1`] = `
             </button>
           </li>
           <li
+            aria-current="page"
+            aria-label="页 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            role="button"
             tabindex="0"
             title="1"
           >
             <a
+              aria-hidden="true"
               rel="nofollow"
+              tabindex="-1"
             >
               1
             </a>
           </li>
           <li
             aria-disabled="true"
+            aria-label="下一页"
             class="ant-pagination-next ant-pagination-disabled"
-            title="下一页"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -23263,8 +23751,9 @@ exports[`table demo > renders nested-table correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
+            aria-label="上一页"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="上一页"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -23294,20 +23783,26 @@ exports[`table demo > renders nested-table correctly 1`] = `
             </button>
           </li>
           <li
+            aria-current="page"
+            aria-label="页 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            role="button"
             tabindex="0"
             title="1"
           >
             <a
+              aria-hidden="true"
               rel="nofollow"
+              tabindex="-1"
             >
               1
             </a>
           </li>
           <li
             aria-disabled="true"
+            aria-label="下一页"
             class="ant-pagination-next ant-pagination-disabled"
-            title="下一页"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -24076,8 +24571,9 @@ exports[`table demo > renders nested-table correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
+            aria-label="上一页"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="上一页"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -24107,20 +24603,26 @@ exports[`table demo > renders nested-table correctly 1`] = `
             </button>
           </li>
           <li
+            aria-current="page"
+            aria-label="页 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            role="button"
             tabindex="0"
             title="1"
           >
             <a
+              aria-hidden="true"
               rel="nofollow"
+              tabindex="-1"
             >
               1
             </a>
           </li>
           <li
             aria-disabled="true"
+            aria-label="下一页"
             class="ant-pagination-next ant-pagination-disabled"
-            title="下一页"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -24511,8 +25013,9 @@ exports[`table demo > renders order-column correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
+          aria-label="上一页"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="上一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -24542,20 +25045,26 @@ exports[`table demo > renders order-column correctly 1`] = `
           </button>
         </li>
         <li
+          aria-current="page"
+          aria-label="页 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          role="button"
           tabindex="0"
           title="1"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             1
           </a>
         </li>
         <li
           aria-disabled="true"
+          aria-label="下一页"
           class="ant-pagination-next ant-pagination-disabled"
-          title="下一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -24771,8 +25280,9 @@ exports[`table demo > renders pagination correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
+            aria-label="上一页"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="上一页"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -24802,20 +25312,26 @@ exports[`table demo > renders pagination correctly 1`] = `
             </button>
           </li>
           <li
+            aria-current="page"
+            aria-label="页 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            role="button"
             tabindex="0"
             title="1"
           >
             <a
+              aria-hidden="true"
               rel="nofollow"
+              tabindex="-1"
             >
               1
             </a>
           </li>
           <li
             aria-disabled="true"
+            aria-label="下一页"
             class="ant-pagination-next ant-pagination-disabled"
-            title="下一页"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -25192,8 +25708,9 @@ exports[`table demo > renders pagination correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
+            aria-label="上一页"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="上一页"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -25223,20 +25740,26 @@ exports[`table demo > renders pagination correctly 1`] = `
             </button>
           </li>
           <li
+            aria-current="page"
+            aria-label="页 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            role="button"
             tabindex="0"
             title="1"
           >
             <a
+              aria-hidden="true"
               rel="nofollow"
+              tabindex="-1"
             >
               1
             </a>
           </li>
           <li
             aria-disabled="true"
+            aria-label="下一页"
             class="ant-pagination-next ant-pagination-disabled"
-            title="下一页"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -25811,8 +26334,9 @@ exports[`table demo > renders reset-filter correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
+            aria-label="上一页"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="上一页"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -25842,20 +26366,26 @@ exports[`table demo > renders reset-filter correctly 1`] = `
             </button>
           </li>
           <li
+            aria-current="page"
+            aria-label="页 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            role="button"
             tabindex="0"
             title="1"
           >
             <a
+              aria-hidden="true"
               rel="nofollow"
+              tabindex="-1"
             >
               1
             </a>
           </li>
           <li
             aria-disabled="true"
+            aria-label="下一页"
             class="ant-pagination-next ant-pagination-disabled"
-            title="下一页"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -26206,8 +26736,9 @@ exports[`table demo > renders resizable-column correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
+          aria-label="上一页"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="上一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -26237,20 +26768,26 @@ exports[`table demo > renders resizable-column correctly 1`] = `
           </button>
         </li>
         <li
+          aria-current="page"
+          aria-label="页 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          role="button"
           tabindex="0"
           title="1"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             1
           </a>
         </li>
         <li
           aria-disabled="true"
+          aria-label="下一页"
           class="ant-pagination-next ant-pagination-disabled"
-          title="下一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -26364,8 +26901,9 @@ exports[`table demo > renders responsive correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
+          aria-label="上一页"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="上一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -26395,20 +26933,26 @@ exports[`table demo > renders responsive correctly 1`] = `
           </button>
         </li>
         <li
+          aria-current="page"
+          aria-label="页 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          role="button"
           tabindex="0"
           title="1"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             1
           </a>
         </li>
         <li
           aria-disabled="true"
+          aria-label="下一页"
           class="ant-pagination-next ant-pagination-disabled"
-          title="下一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -26802,8 +27346,9 @@ exports[`table demo > renders row-selection correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
+            aria-label="上一页"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="上一页"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -26833,20 +27378,26 @@ exports[`table demo > renders row-selection correctly 1`] = `
             </button>
           </li>
           <li
+            aria-current="page"
+            aria-label="页 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            role="button"
             tabindex="0"
             title="1"
           >
             <a
+              aria-hidden="true"
               rel="nofollow"
+              tabindex="-1"
             >
               1
             </a>
           </li>
           <li
             aria-disabled="true"
+            aria-label="下一页"
             class="ant-pagination-next ant-pagination-disabled"
-            title="下一页"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -27488,8 +28039,9 @@ exports[`table demo > renders row-selection-and-operation correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
+            aria-label="上一页"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="上一页"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -27519,65 +28071,87 @@ exports[`table demo > renders row-selection-and-operation correctly 1`] = `
             </button>
           </li>
           <li
+            aria-current="page"
+            aria-label="页 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            role="button"
             tabindex="0"
             title="1"
           >
             <a
+              aria-hidden="true"
               rel="nofollow"
+              tabindex="-1"
             >
               1
             </a>
           </li>
           <li
+            aria-label="页 2"
             class="ant-pagination-item ant-pagination-item-2"
+            role="button"
             tabindex="0"
             title="2"
           >
             <a
+              aria-hidden="true"
               rel="nofollow"
+              tabindex="-1"
             >
               2
             </a>
           </li>
           <li
+            aria-label="页 3"
             class="ant-pagination-item ant-pagination-item-3"
+            role="button"
             tabindex="0"
             title="3"
           >
             <a
+              aria-hidden="true"
               rel="nofollow"
+              tabindex="-1"
             >
               3
             </a>
           </li>
           <li
+            aria-label="页 4"
             class="ant-pagination-item ant-pagination-item-4"
+            role="button"
             tabindex="0"
             title="4"
           >
             <a
+              aria-hidden="true"
               rel="nofollow"
+              tabindex="-1"
             >
               4
             </a>
           </li>
           <li
+            aria-label="页 5"
             class="ant-pagination-item ant-pagination-item-5"
+            role="button"
             tabindex="0"
             title="5"
           >
             <a
+              aria-hidden="true"
               rel="nofollow"
+              tabindex="-1"
             >
               5
             </a>
           </li>
           <li
             aria-disabled="false"
+            aria-label="下一页"
             class="ant-pagination-next"
+            role="button"
             tabindex="0"
-            title="下一页"
           >
             <button
               class="ant-pagination-item-link"
@@ -28213,8 +28787,9 @@ exports[`table demo > renders row-selection-custom correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
+          aria-label="上一页"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="上一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -28244,65 +28819,87 @@ exports[`table demo > renders row-selection-custom correctly 1`] = `
           </button>
         </li>
         <li
+          aria-current="page"
+          aria-label="页 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          role="button"
           tabindex="0"
           title="1"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             1
           </a>
         </li>
         <li
+          aria-label="页 2"
           class="ant-pagination-item ant-pagination-item-2"
+          role="button"
           tabindex="0"
           title="2"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             2
           </a>
         </li>
         <li
+          aria-label="页 3"
           class="ant-pagination-item ant-pagination-item-3"
+          role="button"
           tabindex="0"
           title="3"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             3
           </a>
         </li>
         <li
+          aria-label="页 4"
           class="ant-pagination-item ant-pagination-item-4"
+          role="button"
           tabindex="0"
           title="4"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             4
           </a>
         </li>
         <li
+          aria-label="页 5"
           class="ant-pagination-item ant-pagination-item-5"
+          role="button"
           tabindex="0"
           title="5"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             5
           </a>
         </li>
         <li
           aria-disabled="false"
+          aria-label="下一页"
           class="ant-pagination-next"
+          role="button"
           tabindex="0"
-          title="下一页"
         >
           <button
             class="ant-pagination-item-link"
@@ -28516,8 +29113,9 @@ exports[`table demo > renders size correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
+            aria-label="上一页"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="上一页"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -28547,20 +29145,26 @@ exports[`table demo > renders size correctly 1`] = `
             </button>
           </li>
           <li
+            aria-current="page"
+            aria-label="页 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            role="button"
             tabindex="0"
             title="1"
           >
             <a
+              aria-hidden="true"
               rel="nofollow"
+              tabindex="-1"
             >
               1
             </a>
           </li>
           <li
             aria-disabled="true"
+            aria-label="下一页"
             class="ant-pagination-next ant-pagination-disabled"
-            title="下一页"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -28769,8 +29373,9 @@ exports[`table demo > renders size correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
+            aria-label="上一页"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="上一页"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -28800,20 +29405,26 @@ exports[`table demo > renders size correctly 1`] = `
             </button>
           </li>
           <li
+            aria-current="page"
+            aria-label="页 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            role="button"
             tabindex="0"
             title="1"
           >
             <a
+              aria-hidden="true"
               rel="nofollow"
+              tabindex="-1"
             >
               1
             </a>
           </li>
           <li
             aria-disabled="true"
+            aria-label="下一页"
             class="ant-pagination-next ant-pagination-disabled"
-            title="下一页"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -30157,8 +30768,9 @@ exports[`table demo > renders sticky correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
+          aria-label="上一页"
           class="ant-pagination-prev ant-pagination-disabled"
-          title="上一页"
+          role="button"
         >
           <button
             class="ant-pagination-item-link"
@@ -30188,64 +30800,86 @@ exports[`table demo > renders sticky correctly 1`] = `
           </button>
         </li>
         <li
+          aria-current="page"
+          aria-label="页 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          role="button"
           tabindex="0"
           title="1"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             1
           </a>
         </li>
         <li
+          aria-label="页 2"
           class="ant-pagination-item ant-pagination-item-2"
+          role="button"
           tabindex="0"
           title="2"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             2
           </a>
         </li>
         <li
+          aria-label="页 3"
           class="ant-pagination-item ant-pagination-item-3"
+          role="button"
           tabindex="0"
           title="3"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             3
           </a>
         </li>
         <li
+          aria-label="页 4"
           class="ant-pagination-item ant-pagination-item-4"
+          role="button"
           tabindex="0"
           title="4"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             4
           </a>
         </li>
         <li
+          aria-label="页 5"
           class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next"
+          role="button"
           tabindex="0"
           title="5"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             5
           </a>
         </li>
         <li
+          aria-label="向后 5 页"
           class="ant-pagination-jump-next ant-pagination-jump-next-custom-icon"
+          role="button"
           tabindex="0"
-          title="向后 5 页"
         >
           <a
             class="ant-pagination-item-link"
@@ -30299,21 +30933,26 @@ exports[`table demo > renders sticky correctly 1`] = `
           </a>
         </li>
         <li
+          aria-label="页 10"
           class="ant-pagination-item ant-pagination-item-10"
+          role="button"
           tabindex="0"
           title="10"
         >
           <a
+            aria-hidden="true"
             rel="nofollow"
+            tabindex="-1"
           >
             10
           </a>
         </li>
         <li
           aria-disabled="false"
+          aria-label="下一页"
           class="ant-pagination-next"
+          role="button"
           tabindex="0"
-          title="下一页"
         >
           <button
             class="ant-pagination-item-link"
@@ -30361,11 +31000,11 @@ exports[`table demo > renders sticky correctly 1`] = `
                 aria-expanded="false"
                 aria-haspopup="listbox"
                 aria-owns="test-id_list"
-                autocomplete="off"
+                autocomplete="new-password"
                 class="ant-select-input"
                 id="test-id"
                 role="combobox"
-                type="search"
+                type="text"
                 value=""
               />
             </div>
@@ -30652,8 +31291,9 @@ exports[`table demo > renders style-class correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
+            aria-label="上一页"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="上一页"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -30701,8 +31341,9 @@ exports[`table demo > renders style-class correctly 1`] = `
           </li>
           <li
             aria-disabled="false"
+            aria-label="下一页"
             class="ant-pagination-next"
-            title="下一页"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -30940,9 +31581,10 @@ exports[`table demo > renders style-class correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
+            aria-label="上一页"
             class="ant-pagination-prev ant-pagination-disabled"
+            role="button"
             style="color: rgb(184, 189, 253);"
-            title="上一页"
           >
             <button
               class="ant-pagination-item-link"
@@ -30991,9 +31633,10 @@ exports[`table demo > renders style-class correctly 1`] = `
           </li>
           <li
             aria-disabled="false"
+            aria-label="下一页"
             class="ant-pagination-next"
+            role="button"
             style="color: rgb(184, 189, 253);"
-            title="下一页"
           >
             <button
               class="ant-pagination-item-link"
@@ -32112,8 +32755,9 @@ exports[`table demo > renders tree-data correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
+            aria-label="上一页"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="上一页"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -32143,20 +32787,26 @@ exports[`table demo > renders tree-data correctly 1`] = `
             </button>
           </li>
           <li
+            aria-current="page"
+            aria-label="页 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            role="button"
             tabindex="0"
             title="1"
           >
             <a
+              aria-hidden="true"
               rel="nofollow"
+              tabindex="-1"
             >
               1
             </a>
           </li>
           <li
             aria-disabled="true"
+            aria-label="下一页"
             class="ant-pagination-next ant-pagination-disabled"
-            title="下一页"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -32924,8 +33574,9 @@ exports[`table demo > renders tree-table-ellipsis correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
+            aria-label="上一页"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="上一页"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -32955,20 +33606,26 @@ exports[`table demo > renders tree-table-ellipsis correctly 1`] = `
             </button>
           </li>
           <li
+            aria-current="page"
+            aria-label="页 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            role="button"
             tabindex="0"
             title="1"
           >
             <a
+              aria-hidden="true"
               rel="nofollow"
+              tabindex="-1"
             >
               1
             </a>
           </li>
           <li
             aria-disabled="true"
+            aria-label="下一页"
             class="ant-pagination-next ant-pagination-disabled"
-            title="下一页"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -33484,8 +34141,9 @@ exports[`table demo > renders tree-table-preserveSelectedRowKeys correctly 1`] =
           <!---->
           <li
             aria-disabled="true"
+            aria-label="上一页"
             class="ant-pagination-prev ant-pagination-disabled"
-            title="上一页"
+            role="button"
           >
             <button
               class="ant-pagination-item-link"
@@ -33515,43 +34173,57 @@ exports[`table demo > renders tree-table-preserveSelectedRowKeys correctly 1`] =
             </button>
           </li>
           <li
+            aria-current="page"
+            aria-label="页 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+            role="button"
             tabindex="0"
             title="1"
           >
             <a
+              aria-hidden="true"
               rel="nofollow"
+              tabindex="-1"
             >
               1
             </a>
           </li>
           <li
+            aria-label="页 2"
             class="ant-pagination-item ant-pagination-item-2"
+            role="button"
             tabindex="0"
             title="2"
           >
             <a
+              aria-hidden="true"
               rel="nofollow"
+              tabindex="-1"
             >
               2
             </a>
           </li>
           <li
+            aria-label="页 3"
             class="ant-pagination-item ant-pagination-item-3"
+            role="button"
             tabindex="0"
             title="3"
           >
             <a
+              aria-hidden="true"
               rel="nofollow"
+              tabindex="-1"
             >
               3
             </a>
           </li>
           <li
             aria-disabled="false"
+            aria-label="下一页"
             class="ant-pagination-next"
+            role="button"
             tabindex="0"
-            title="下一页"
           >
             <button
               class="ant-pagination-item-link"

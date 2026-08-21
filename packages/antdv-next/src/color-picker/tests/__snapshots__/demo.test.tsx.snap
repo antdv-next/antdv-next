@@ -31,7 +31,6 @@ exports[`color-picker demo > renders _semantic correctly 1`] = `
           </div>
           <div
             class="ant-color-picker-trigger-text semantic-mark-description"
-            style=""
           >
             #1677FF
           </div>

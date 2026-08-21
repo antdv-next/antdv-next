@@ -109,6 +109,7 @@ export function initComponentToken(token: AliasToken & Partial<SharedComponentTo
     fontSize,
     lineHeight,
     lineWidth,
+    lineWidthFocus,
     controlHeightSM,
     controlHeightLG,
     fontSizeLG,
@@ -140,7 +141,8 @@ export function initComponentToken(token: AliasToken & Partial<SharedComponentTo
   const paddingBlockLG
     = Math.ceil(((controlHeightLG - mergedFontSizeLG * lineHeightLG) / 2) * 10) / 10 - lineWidth
 
-  return {
+  const componentToken = {
+    lineWidthFocus: lineWidthFocus === 0 ? 0 : lineWidth,
     paddingBlock: Math.max(paddingBlock, 0),
     paddingBlockSM: Math.max(paddingBlockSM, 0),
     paddingBlockLG: Math.max(paddingBlockLG, 0),
@@ -159,4 +161,6 @@ export function initComponentToken(token: AliasToken & Partial<SharedComponentTo
     inputFontSizeLG: mergedFontSizeLG,
     inputFontSizeSM: mergedFontSizeSM,
   }
+
+  return componentToken
 }

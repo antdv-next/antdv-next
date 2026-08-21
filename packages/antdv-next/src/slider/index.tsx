@@ -4,6 +4,7 @@ import type { Orientation, SemanticClassNamesType, SemanticStylesType } from '..
 import type { TooltipPlacement, TriggerCommonApi } from '../tooltip'
 import VcSlider from '@v-c/slider'
 import { clsx } from '@v-c/util'
+import useDelayState from '@v-c/util/dist/hooks/useDelayState'
 import raf from '@v-c/util/dist/raf'
 import { omit } from 'es-toolkit/compat'
 import { cloneVNode, computed, defineComponent, onMounted, onUnmounted, shallowRef } from 'vue'
@@ -21,8 +22,6 @@ import { useDisabledContext } from '../config-provider/DisabledContext.tsx'
 import { useSliderInternalContext } from './Context'
 import SliderTooltip from './SliderTooltip.tsx'
 import useStyle from './style'
-
-import useRafLock from './useRafLock'
 
 export type SliderMarks = VcSliderProps['marks']
 
@@ -144,6 +143,11 @@ export interface SliderEmitsProps {
   onChangeComplete?: SliderEmits['changeComplete']
 }
 
+export interface SliderRef {
+  focus: () => void
+  blur: () => void
+}
+
 export interface SliderSlots {
 
 }
@@ -207,8 +211,8 @@ const Slider = defineComponent<
     const isRTL = computed(() => mergedDirection.value === 'rtl')
 
     // =============================== Open ===============================
-    const [hoverOpen, setHoverOpen] = useRafLock()
-    const [focusOpen, setFocusOpen] = useRafLock()
+    const [hoverOpen, setHoverOpen] = useDelayState(false)
+    const [focusOpen, setFocusOpen] = useDelayState(false)
 
     const tooltipProps = computed(() => {
       return {
@@ -220,7 +224,7 @@ const Slider = defineComponent<
     const activeOpen = computed(() => (hoverOpen.value || focusOpen.value) && lockOpen.value !== false)
 
     // ============================= Change ==============================
-    const [dragging, setDragging] = useRafLock()
+    const [dragging, setDragging] = useDelayState(false)
 
     const onInternalChangeComplete: VcSliderProps['onChangeComplete'] = (nextValues) => {
       emit('changeComplete', nextValues)
@@ -243,7 +247,7 @@ const Slider = defineComponent<
     // ============================== Handle ==============================
     const onMouseUp = () => {
       raf(() => {
-        focusOpen.value = false
+        setFocusOpen(false)
       }, 1)
     }
     onMounted(() => {
@@ -302,22 +306,27 @@ const Slider = defineComponent<
       const mergedTipFormatter = getTipFormatter(tipFormatter)
       const useActiveTooltipHandle = range && !lockOpen.value
       const handleRender: VcSliderProps['handleRender'] = contextHandleRender || (({ node, index, value }) => {
+        // Unlike React's `cloneElement`, Vue's `cloneVNode` merges `on*` props into an
+        // array and invokes every handler, so the listeners already present on the
+        // handle vnode fire on their own — re-dispatching them here would call the
+        // user's callbacks twice.
+        //
+        // The two focus events are not symmetric in vc-slider: `Handle` declares
+        // `onFocus` as a prop and puts its internal wrapper (which chains up to the
+        // user's `onFocus`) on the handle element, but it never declares `onBlur`, so
+        // blur falls through to attrs and never reaches the vnode. Focus therefore
+        // needs no explicit dispatch, while blur does.
         const nodeProps: Record<string, any> = {}
         function proxyEvent(
           eventName: keyof any,
           event: any,
-          triggerRestPropsEvent?: boolean,
         ) {
-          if (triggerRestPropsEvent) {
-            (restProps as any)[eventName]?.(event)
-          }
-
           (nodeProps as any)[eventName]?.(event)
         }
 
         const passedProps: Record<string, any> = {
           onMouseenter: (e: MouseEvent) => {
-            setHoverOpen(true)
+            setHoverOpen(true, true)
             proxyEvent('onMouseenter', e)
           },
           onMouseleave: (e: MouseEvent) => {
@@ -325,19 +334,18 @@ const Slider = defineComponent<
             proxyEvent('onMouseleave', e)
           },
           onMousedown: (e: MouseEvent) => {
-            setFocusOpen(true)
-            setDragging(true)
+            setFocusOpen(true, true)
+            setDragging(true, true)
             proxyEvent('onMousedown', e)
           },
           onFocus: (e: FocusEvent) => {
-            setFocusOpen(true)
-            restProps?.onFocus?.(e)
-            proxyEvent('onFocus', e, true)
+            setFocusOpen(true, true)
+            proxyEvent('onFocus', e)
           },
           onBlur: (e: FocusEvent) => {
             setFocusOpen(false)
             restProps?.onBlur?.(e)
-            proxyEvent('onBlur', e, true)
+            proxyEvent('onBlur', e)
           },
         }
 

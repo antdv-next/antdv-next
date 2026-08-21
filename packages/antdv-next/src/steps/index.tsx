@@ -8,7 +8,7 @@ import VcSteps from '@v-c/steps'
 import { clsx } from '@v-c/util'
 import { getAttrStyleAndClass } from '@v-c/util/dist/props-util'
 import { computed, defineComponent } from 'vue'
-import { useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { devUseWarning, isDev } from '../_util/warning'
 import Wave from '../_util/wave'
@@ -260,13 +260,16 @@ const Steps = defineComponent<
     })
 
     // ============================ Styles ============================
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
+    const styleRoot = useSemanticRootStyle(computed(() => (attrs as any).style as CSSProperties | undefined))
+
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       StepsClassNamesType,
       StepsStylesType,
       StepsProps
     >(
       useToArr(computed(() => waveEffectClassNames), contextClassNames, classes),
-      useToArr(contextStyles, styles),
+      useToArr(contextStyles, contextStyleRoot as any, styles, styleRoot as any),
       useToProps(mergedProps),
     )
 
@@ -302,7 +305,7 @@ const Steps = defineComponent<
         maxCount: _maxCount,
         ...restProps
       } = props
-      const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
+      const { className, restAttrs } = getAttrStyleAndClass(attrs)
       // const icon = getSlotPropsFnRun(slots,props,"icon")
       const iconRender = slots?.iconRender || props?.iconRender
 
@@ -420,8 +423,6 @@ const Steps = defineComponent<
       // ============================ Styles ============================
       const mergedStyle = {
         [varName('items-offset')]: `${offset}`,
-        ...contextStyle.value,
-        ...style,
       }
 
       const stepsClassName = clsx(

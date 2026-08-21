@@ -206,4 +206,32 @@ describe('image.PreviewGroup', () => {
     expect(document.querySelector('.ant-image-preview-mask-blur')).toBeNull()
     wrapper3.unmount()
   })
+  it('should forward preview.wheel to the preview image', async () => {
+    async function zoomWithWheel(wheel?: boolean) {
+      const wrapper = mount(Image, {
+        props: {
+          src,
+          preview: { open: true, ...(wheel === undefined ? {} : { wheel }) },
+        },
+      })
+      await new Promise(resolve => setTimeout(resolve, 100))
+
+      const previewImg = document.querySelector('.ant-image-preview-img') as HTMLImageElement
+      expect(previewImg).not.toBeNull()
+
+      previewImg.dispatchEvent(new WheelEvent('wheel', { deltaY: -100, clientX: 0, clientY: 0 }))
+      await new Promise(resolve => setTimeout(resolve, 100))
+
+      const { transform } = previewImg.style
+      wrapper.unmount()
+      return transform
+    }
+
+    // default: wheel zoom enabled
+    expect(await zoomWithWheel()).toContain('scale3d(1.5, 1.5, 1)')
+    // explicitly enabled
+    expect(await zoomWithWheel(true)).toContain('scale3d(1.5, 1.5, 1)')
+    // disabled: scale must stay untouched
+    expect(await zoomWithWheel(false)).toContain('scale3d(1, 1, 1)')
+  })
 })
