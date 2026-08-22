@@ -83,4 +83,20 @@ describe('Listy', () => {
     expect(root.attributes('style')).toContain('background: rgb(255, 0, 0)')
     expect(wrapper.find('.custom-item').exists()).toBe(true)
   })
+
+  it('wraps each itemRender result in a single item element', () => {
+    const wrapper = mount(() =>
+      renderListy({
+        itemRender: (item: DataItem) => <span class="custom-content">{item.title}</span>,
+      }),
+    )
+    const renderedItems = wrapper.findAll('.ant-listy-item')
+    expect(renderedItems.length).toBe(items.length)
+    renderedItems.forEach((item) => {
+      expect(item.element.children.length).toBe(1)
+      const child = item.element.firstElementChild!
+      expect(child.classList.contains('custom-content')).toBe(true)
+      expect(child.parentElement).toBe(item.element)
+    })
+  })
 })

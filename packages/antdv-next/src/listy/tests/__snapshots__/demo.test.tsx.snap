@@ -1412,6 +1412,11 @@ exports[`listy demo > renders drag-sorting correctly 1`] = `
       </div>
     </div>
   </div>
+  <div
+    class="ant-listy-item"
+    data-dnd-overlay="true"
+    style="width: 100%; box-sizing: border-box;"
+  />
 </div>
 `;
 
