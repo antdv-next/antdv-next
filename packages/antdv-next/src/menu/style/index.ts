@@ -429,7 +429,6 @@ const genMenuItemStyle: GenerateStyle<MenuToken, CSSObject> = (token) => {
       transition: [
         `border-color ${motionDurationSlow}`,
         `background-color ${motionDurationSlow}`,
-        `padding calc(${motionDurationSlow} + 0.1s) ${motionEaseInOut}`,
       ].join(','),
 
       [`${componentCls}-item-icon, ${iconCls}`]: {

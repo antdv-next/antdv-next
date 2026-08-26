@@ -47,6 +47,23 @@ describe('menu', () => {
     expect(wrapper.text()).toContain('Navigation Two')
   })
 
+  it('does not animate item padding during inline collapse', () => {
+    mount(Menu, {
+      props: {
+        mode: 'inline',
+        inlineCollapsed: true,
+        items,
+      },
+    })
+
+    const menuStyles = Array.from(document.head.querySelectorAll('style'))
+      .map(style => style.textContent)
+      .filter(Boolean)
+      .join('\n')
+
+    expect(menuStyles).not.toContain('padding calc(')
+  })
+
   it('exposes Item/SubMenu/Divider static members', () => {
     expect(Menu.Item).toBe(MenuItem)
     expect(Menu.SubMenu).toBe(SubMenu)
