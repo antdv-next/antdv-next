@@ -15,6 +15,9 @@ function flattenDocsLocales(nestedLocales: Menu) {
     '/docs/vue/ai': vue.ai,
     '/docs/vue/llms': vue.llms,
     '/docs/vue/skills': vue.skills,
+    '/docs/vue/cli': vue.cli,
+    '/docs/vue/mcp': vue.mcp,
+    '/docs/vue/for-agents': vue.forAgents,
     '/docs/vue/nuxt': vue.nuxt,
     '/docs/vue/advanced/use': vue.advancedUse,
     '/docs/vue/secondary-development': vue.secondaryDevelopment,
@@ -74,12 +77,27 @@ export const docsMenus: Record<string, AntdvMenuItem[]> = {
       type: 'group',
       children: [
         {
+          key: '/docs/vue/for-agents',
+          label: '/docs/vue/for-agents',
+          tag: 'New',
+        },
+        {
           key: '/docs/vue/llms',
           label: '/docs/vue/llms',
         },
         {
           key: '/docs/vue/skills',
           label: '/docs/vue/skills',
+          tag: 'New',
+        },
+        {
+          key: '/docs/vue/mcp',
+          label: '/docs/vue/mcp',
+          tag: 'New',
+        },
+        {
+          key: '/docs/vue/cli',
+          label: '/docs/vue/cli',
           tag: 'New',
         },
       ],
