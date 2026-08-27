@@ -67,7 +67,6 @@ demo:
 | 事件 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
 | openChange | 显隐变化时回调 | (open: boolean) =&gt; void | - |
-| update:open | 显隐变化时触发 | (open: boolean) =&gt; void | - |
 
 ### 插槽 {#slots}
 

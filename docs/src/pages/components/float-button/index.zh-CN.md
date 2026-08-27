@@ -55,7 +55,6 @@ demo:
 
 | 事件 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
-| update:open | 展开收起时的回调，需配合 trigger 一起使用 | (open: boolean) =&gt; void | - |
 | click | 点击按钮时的回调（仅在菜单模式中有效） | (e: MouseEvent) =&gt; void | - |
 
 #### 插槽 {#floatbuttongroup-slots}

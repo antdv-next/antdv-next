@@ -67,7 +67,6 @@ Common props ref：[Common props](/docs/vue/common-props)
 | Event | Description | Type | Version |
 | --- | --- | --- | --- |
 | openChange | Callback when tooltip visibility changes | (open: boolean) =&gt; void | - |
-| update:open | Emit when tooltip visibility changes | (open: boolean) =&gt; void | - |
 
 ### Slots
 

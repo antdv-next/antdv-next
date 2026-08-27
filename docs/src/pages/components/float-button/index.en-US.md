@@ -54,7 +54,6 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 | Event | Description | Type | Version |
 | --- | --- | --- | --- |
-| update:open | Callback executed when active menu is changed, use it with trigger | (open: boolean) =&gt; void | - |
 | click | Set the handler to handle `click` event (only work in Menu mode) | (e: MouseEvent) =&gt; void | - |
 
 #### Slots {#floatbuttongroup-slots}
