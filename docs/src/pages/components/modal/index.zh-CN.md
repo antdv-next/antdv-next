@@ -89,7 +89,6 @@ demo:
 | --- | --- | --- | --- |
 | ok | 点击确定回调 | (e: MouseEvent) => void | - |
 | cancel | 点击遮罩层或右上角叉或取消按钮的回调 | (e: MouseEvent) => void | - |
-| update:open | 对话框显隐变化 | (open: boolean) => void | - |
 
 ### 插槽 {#slots}
 
