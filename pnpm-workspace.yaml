@@ -23,6 +23,7 @@ catalogs:
   dev:
     '@antfu/eslint-config': ^7.7.3
     '@changesets/cli': ^2.31.1
+    '@octokit/rest': ^22.0.1
     '@testing-library/jest-dom': ^6.9.1
     '@vitejs/plugin-vue': ^6.0.8
     '@vitejs/plugin-vue-jsx': ^5.1.6

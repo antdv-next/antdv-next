@@ -1,117 +1,62 @@
 <script setup lang="ts">
-import { ref, watchEffect } from 'vue'
+import { computed } from 'vue'
 import { useRoute } from 'vue-router'
+import contributorsData from '@/assets/contributors.json'
 import { useLocale } from '@/composables/use-locale'
 
-interface Author {
-  login?: string
-  id?: number
-  avatar_url?: string
-  html_url?: string
-  type?: 'User' | 'Organization' | 'Bot'
+type ContributorModule = 'components' | 'blog' | 'docs/vue'
+
+interface ContributorData {
+  logins: string[]
+  components: Record<string, number[]>
+  blog: Record<string, number[]>
+  'docs/vue': Record<string, number[]>
 }
 
-interface Committer {
-  author: {
-    date: string
-  }
-}
-
-interface CommitsData {
-  sha: string
-  node_id: string
-  commit: Committer
+interface Contributor {
+  login: string
   url: string
-  html_url: string
-  comments_url: string
-  author: Author
-  committer: object
-  parents: []
-}
-
-interface ResultData {
-  login?: string
-  url?: string
-  avatar?: string
-  count?: number
+  avatar: string
 }
 
 defineOptions({ name: 'Contributors' })
 
-const REPO_OWNER = 'antdv-next'
-const REPO_NAME = 'antdv-next'
-const REPO_PATH = `${REPO_OWNER}/${REPO_NAME}`
-
-// Bot accounts should not be credited as contributors. `author.type === 'Bot'`
-// covers most of them, but GitHub reports some app accounts as `User`, so the
-// login list stays as a fallback. Keep in sync with ant-design#58915.
-const BOT_EXCLUDES = [
-  'github-actions',
-  'github-actions[bot]',
-  'copilot',
-  'renovate',
-  'renovate[bot]',
-  'dependabot',
-  'dependabot[bot]',
-  'dependabot-preview',
-  'dependabot-preview[bot]',
-  'depfu[bot]',
-  'gemini-code-assist[bot]',
-]
-
-function isBotAuthor(author: Author) {
-  if (author.type === 'Bot')
-    return true
-  const login = author.login?.toLowerCase() ?? ''
-  return BOT_EXCLUDES.some(item => login.includes(item))
-}
-
 const { t } = useLocale()
 const route = useRoute()
-const contributors = ref<ResultData[]>([])
+const data = contributorsData as ContributorData
 
-function filterData(data: CommitsData[]) {
-  const contributorMap = new Map<string, ResultData>()
-
-  data.forEach((item) => {
-    if (item.author?.login && !isBotAuthor(item.author)) {
-      const login = item.author.login
-      if (contributorMap.has(login)) {
-        const existing = contributorMap.get(login)!
-        existing.count = (existing.count || 0) + 1
-      }
-      else {
-        contributorMap.set(login, {
-          login: item.author.login,
-          url: item.author.html_url,
-          avatar: item.author.avatar_url,
-          count: 1,
-        })
-      }
-    }
-  })
-  contributors.value = Array.from(contributorMap.values())
-    .sort((a, b) => (b.count || 0) - (a.count || 0))
-}
-async function getContributors() {
-  const path = route.path
-  const parts = path.split('/')
-  const name = parts[2]
-  if (name) {
-    const componentName = name.includes('-') ? name.replace('-cn', '') : name
-    const url = `https://api.github.com/repos/${REPO_PATH}/commits?path=/docs/src/pages/${parts[1]}/${componentName}`
-    try {
-      const req = await fetch(url)
-      const res = await req.json()
-      filterData(res)
-    }
-    catch {
-      return null
-    }
+const documentKey = computed<{ module: ContributorModule, key: string } | null>(() => {
+  const routePath = route.path.replace(/-cn$/, '')
+  if (routePath.startsWith('/components/')) {
+    return { module: 'components', key: routePath.slice('/components/'.length) }
   }
-}
-watchEffect(() => {
-  getContributors()
+  if (routePath.startsWith('/blog/')) {
+    return { module: 'blog', key: routePath.slice('/blog/'.length) }
+  }
+  if (routePath.startsWith('/docs/vue/')) {
+    return { module: 'docs/vue', key: routePath.slice('/docs/vue/'.length) }
+  }
+  return null
+})
+
+const contributors = computed<Contributor[]>(() => {
+  const document = documentKey.value
+  if (!document) {
+    return []
+  }
+
+  const indexes = data[document.module][document.key] ?? []
+  return indexes.flatMap((index) => {
+    const login = data.logins[index]
+    if (!login) {
+      return []
+    }
+    return [{
+      login,
+      url: `https://github.com/${login}`,
+      avatar: `https://github.com/${login}.png?size=24`,
+    }]
+  })
 })
 </script>
 
@@ -123,8 +68,8 @@ watchEffect(() => {
     <div class="contributors-list">
       <ul class="contributors" style="margin-left: 0; padding-left: 0;">
         <li v-for="item in contributors" :key="item.login">
-          <a-tooltip :title="`${item.login}`">
-            <a :href="item.url" target="_blank">
+          <a-tooltip :title="item.login">
+            <a :href="item.url" target="_blank" rel="noopener noreferrer">
               <a-avatar :src="item.avatar" size="small" />
             </a>
           </a-tooltip>
@@ -157,7 +102,6 @@ watchEffect(() => {
 .contributors {
   display: -webkit-box;
   display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
   -webkit-box-flex-wrap: wrap;
   -webkit-flex-wrap: wrap;

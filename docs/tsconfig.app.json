@@ -3,7 +3,6 @@
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
     "lib": ["esnext", "dom"],
-    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
       "@antdv-next/cssinjs": ["../packages/cssinjs/src/index.ts"],
