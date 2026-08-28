@@ -13,6 +13,7 @@ import { omit } from 'es-toolkit/compat'
 import { computed, defineComponent, shallowRef } from 'vue'
 import convertToTooltipProps from '../_util/convertToTooltipProps'
 import { pureAttrs, useMergeSemantic, useToArr, useToProps, useZIndex } from '../_util/hooks'
+import { isRenderable } from '../_util/is'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import Badge from '../badge'
 import Button from '../button'
@@ -172,7 +173,7 @@ const InternalFloatButton = defineComponent<
 
       const hasContent = Array.isArray(contentNodes)
         ? contentNodes.length > 0
-        : contentNodes !== null && contentNodes !== undefined && contentNodes !== false
+        : isRenderable(contentNodes)
 
       const iconNode = getSlotPropsFnRun(slots, props, 'icon')
       const mergedIcon = iconNode ?? props.icon ?? (!hasContent ? <FileTextOutlined /> : null)

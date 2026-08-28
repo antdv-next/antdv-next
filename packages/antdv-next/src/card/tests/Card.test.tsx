@@ -304,6 +304,16 @@ describe('card', () => {
     expect(wrapper.html()).toMatchSnapshot()
   })
 
+  it('should render numeric zero for title, extra, and cover', () => {
+    const wrapper = mount(Card, {
+      props: { title: 0, extra: 0, cover: 0 },
+    })
+
+    expect(wrapper.find('.ant-card-head-title').text()).toBe('0')
+    expect(wrapper.find('.ant-card-extra').text()).toBe('0')
+    expect(wrapper.find('.ant-card-cover').text()).toBe('0')
+  })
+
   it('should match snapshot - loading', () => {
     const wrapper = mount(() => (
       <Card title="Card Title" loading>

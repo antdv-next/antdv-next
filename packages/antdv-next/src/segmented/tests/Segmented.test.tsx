@@ -561,6 +561,21 @@ describe('segmented', () => {
   // ===================== Snapshot =====================
 
   describe('snapshot', () => {
+    it('should render numeric zero label when icon is configured', () => {
+      const wrapper = mount(Segmented, {
+        props: {
+          options: [
+            { icon: h('span', { class: 'zero-icon' }), label: 0, value: 'zero' },
+            { label: 'one', value: 'one' },
+          ],
+        },
+      })
+
+      const firstLabel = wrapper.find(`.${prefixCls}-item-label`)
+      expect(firstLabel.text()).toContain('0')
+      expect(firstLabel.findAll('span').at(-1)?.text()).toBe('0')
+    })
+
     it('should match snapshot with various options', () => {
       const wrapper = mount(Segmented, {
         props: {

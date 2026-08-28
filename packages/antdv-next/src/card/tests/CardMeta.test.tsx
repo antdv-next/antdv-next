@@ -66,6 +66,16 @@ describe('cardMeta', () => {
     expect(wrapper.find('.ant-card-meta-section').exists()).toBe(false)
   })
 
+  it('should render numeric zero for avatar, title, and description', () => {
+    const wrapper = mount(CardMeta, {
+      props: { avatar: 0, title: 0, description: 0 },
+    })
+
+    expect(wrapper.find('.ant-card-meta-avatar').text()).toBe('0')
+    expect(wrapper.find('.ant-card-meta-title').text()).toBe('0')
+    expect(wrapper.find('.ant-card-meta-description').text()).toBe('0')
+  })
+
   it('should match snapshot', () => {
     const wrapper = mount(() => (
       <CardMeta
