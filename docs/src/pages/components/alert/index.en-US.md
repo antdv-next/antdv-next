@@ -42,7 +42,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | type | Type of Alert styles, options: `success`, `info`, `warning`, `error` | 'success' \| 'info' \| 'warning' \| 'error' | `info`, in `banner` mode default is `warning` | - | × |
-| closable | The config of closable, &gt;=5.15.0: support `aria-*` | ClosableType | `false` | - | ✓ |
+| closable | The config of closable | ClosableType | `false` | `closable.closeIcon`, `closable.aria-*`: 5.15.0 | ✓ |
 | title | Content of Alert | VueNode | - | - | × |
 | message | Content of Alert, please use `title` instead | VueNode | - | - | × |
 | description | Additional content of Alert | VueNode | - | - | × |

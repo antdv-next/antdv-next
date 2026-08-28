@@ -16,6 +16,22 @@ type StylesOf<K extends keyof ConfigProviderProps> = NonNullable<ConfigProviderP
   ? T
   : never
 
+type AlertConfig = NonNullable<ConfigProviderProps['alert']>
+
+const validAlertConfigs: AlertConfig[] = [
+  { closable: true },
+  { closable: false },
+  { closable: {} },
+  { closable: { closeIcon: 'close', 'aria-label': 'Close alert' } },
+]
+
+const invalidAlertConfig: AlertConfig = {
+  closable: {
+    // @ts-expect-error ConfigProvider must not expose instance-only disabled state
+    disabled: true,
+  },
+}
+
 const classAssertions: [
   ExpectFalse<IsAny<ClassesOf<'anchor'>>>,
   ExpectFalse<IsAny<ClassesOf<'breadcrumb'>>>,
@@ -100,5 +116,7 @@ describe('config-provider.TypeScript', () => {
   it('semantic config entries should expose typed classes and styles', () => {
     expect(classAssertions).toHaveLength(18)
     expect(styleAssertions).toHaveLength(18)
+    expect(validAlertConfigs).toHaveLength(4)
+    expect(invalidAlertConfig).toBeDefined()
   })
 })
