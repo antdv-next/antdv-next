@@ -837,14 +837,13 @@ exports[`checkbox demo > renders group correctly 1`] = `
       </span>
     </label>
     <label
-      class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-group-item css-var-root ant-checkbox-css-var"
+      class="ant-checkbox-wrapper ant-checkbox-group-item css-var-root ant-checkbox-css-var"
     >
       <span
-        class="ant-checkbox ant-wave-target ant-checkbox-disabled ant-wave-target"
+        class="ant-checkbox ant-wave-target ant-wave-target"
       >
         <input
           class="ant-checkbox-input"
-          disabled=""
           type="checkbox"
         />
       </span>
