@@ -5,6 +5,7 @@ import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } 
 import { nextTick } from 'vue'
 import Upload from '..'
 import ConfigProvider from '../../config-provider'
+import { previewImage } from '../utils'
 import { setup, teardown } from './mock'
 import { errorRequest, successRequest } from './requests'
 
@@ -608,5 +609,16 @@ describe('upload List', () => {
         expect((width > height ? offsetX : offsetY) === 0).toBeTruthy()
       })
     })
+  })
+
+  it('should not leave a canvas after generating a GIF preview', async () => {
+    const mockFile = new File([''], 'foo.gif', { type: 'image/gif' })
+    const canvasCount = document.body.querySelectorAll('canvas').length
+
+    const preview = previewImage(mockFile)
+    await vi.runAllTimersAsync()
+    await preview
+
+    expect(document.body.querySelectorAll('canvas')).toHaveLength(canvasCount)
   })
 })
