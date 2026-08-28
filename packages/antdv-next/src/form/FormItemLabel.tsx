@@ -8,6 +8,7 @@ import { clsx } from '@v-c/util'
 import { omit } from 'es-toolkit'
 import { defineComponent } from 'vue'
 import convertToTooltipProps from '../_util/convertToTooltipProps.ts'
+import { isRenderable } from '../_util/is.ts'
 import { getSlotPropsFnRun } from '../_util/tools.ts'
 import { Col } from '../grid'
 import defaultLocale from '../locale/en_US'
@@ -65,7 +66,7 @@ const FormItemLabel = defineComponent<
         tooltip: contextTooltip,
       } = formContext.value
       const label = getSlotPropsFnRun(slots, props, 'label')
-      if (!label) {
+      if (!isRenderable(label)) {
         return null
       }
       const mergedLabelCol: ColPropsWithClass = labelCol || contextLabelCol || {} as ColPropsWithClass

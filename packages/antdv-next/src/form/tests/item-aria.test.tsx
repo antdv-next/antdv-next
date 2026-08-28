@@ -11,6 +11,25 @@ async function flushForm() {
 }
 
 describe('formItem aria attributes', () => {
+  it('renders and associates a numeric zero label', async () => {
+    const wrapper = mount(defineComponent(() => () => (
+      <Form>
+        <FormItem name="field" label={0}>
+          <input />
+        </FormItem>
+      </Form>
+    )), { attachTo: document.body })
+
+    await flushForm()
+    const label = wrapper.find('label')
+    const input = wrapper.find('input')
+    expect(label.text()).toBe('0')
+    expect(label.attributes('for')).toBe('field')
+    expect(input.attributes('id')).toBe('field')
+
+    wrapper.unmount()
+  })
+
   it('sets aria-required when the required prop is set', async () => {
     const model = reactive({ username: '' })
 
