@@ -197,6 +197,28 @@ describe('grid', () => {
 
     // ==================== dynamic props ====================
     describe('dynamic props', () => {
+      it('should clear align and justify when props are removed or no responsive value matches', async () => {
+        const wrapper = mount(Row, {
+          props: { align: 'middle', justify: 'center' },
+        })
+        expect(wrapper.find('.ant-row-middle').exists()).toBe(true)
+        expect(wrapper.find('.ant-row-center').exists()).toBe(true)
+
+        await wrapper.setProps({ align: undefined, justify: undefined })
+
+        expect(wrapper.find('.ant-row-middle').exists()).toBe(false)
+        expect(wrapper.find('.ant-row-center').exists()).toBe(false)
+
+        await wrapper.setProps({ align: { xs: 'middle' }, justify: { xs: 'center' } })
+        await nextTick()
+        expect(wrapper.find('.ant-row-middle').exists()).toBe(true)
+        expect(wrapper.find('.ant-row-center').exists()).toBe(true)
+
+        await wrapper.setProps({ align: {}, justify: {} })
+        expect(wrapper.find('.ant-row-middle').exists()).toBe(false)
+        expect(wrapper.find('.ant-row-center').exists()).toBe(false)
+      })
+
       it('should update justify class reactively', async () => {
         const justify = ref<'start' | 'end'>('start')
         const wrapper = mount(() => <Row justify={justify.value}>content</Row>)
