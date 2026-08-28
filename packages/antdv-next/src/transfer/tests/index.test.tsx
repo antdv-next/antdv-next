@@ -464,6 +464,30 @@ describe('transfer', () => {
     expect(wrapper.text()).toContain('1 item')
   })
 
+  it('should disable select all when filtered items are all disabled', async () => {
+    const wrapper = mount(Transfer, {
+      props: {
+        dataSource: [
+          { key: 'enabled', title: 'Enabled item' },
+          { key: 'disabled', title: 'Disabled item', disabled: true },
+        ],
+        selectedKeys: [],
+        targetKeys: [],
+        showSearch: true,
+        render: item => item.title,
+      },
+    })
+
+    const sourceSection = wrapper.element.querySelectorAll('.ant-transfer-section')[0]
+    const searchInput = sourceSection?.querySelector('input[type="text"]') as HTMLInputElement
+    await setInputValue(searchInput, 'Disabled item')
+
+    const selectAll = sourceSection?.querySelector(
+      '.ant-transfer-list-header input[type="checkbox"]',
+    ) as HTMLInputElement
+    expect(selectAll.disabled).toBe(true)
+  })
+
   it('should display the correct locale', () => {
     const emptyProps = { dataSource: [], selectedKeys: [], targetKeys: [] }
     const locale = { itemUnit: 'Person', notFoundContent: 'Nothing', searchPlaceholder: 'Search' }

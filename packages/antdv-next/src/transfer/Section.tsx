@@ -238,7 +238,7 @@ const TransferSection = defineComponent<
     return () => {
       const checkBox = (
         <Checkbox
-          disabled={!dataSource.value.some(d => !d.disabled) || props.disabled}
+          disabled={!filteredItems.value.filterItems.some(d => !d.disabled) || props.disabled}
           checked={checkStatus.value === 'all'}
           indeterminate={checkStatus.value === 'part'}
           class={`${listPrefixCls.value}-checkbox`}
