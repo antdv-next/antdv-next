@@ -54,6 +54,35 @@ describe('table sorter', () => {
     expect(sortedCells[3]!.text()).toBe('42')
   })
 
+  it('should trigger custom header keydown handlers for every key and sort only on Enter', async () => {
+    const onKeyDown = vi.fn()
+    const columns = [
+      {
+        title: 'Age',
+        dataIndex: 'age',
+        key: 'age',
+        sorter: (a: any, b: any) => a.age - b.age,
+        onHeaderCell: () => ({ onKeyDown }),
+      },
+    ]
+    const wrapper = mount(Table, {
+      props: { columns, dataSource: data, pagination: false },
+    })
+    const header = wrapper.find('.ant-table-column-has-sorters')
+    const renderedAges = () => wrapper.findAll('tbody tr td').map(cell => cell.text())
+    const nonSortingKeys = ['Escape', ' ', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight']
+
+    for (const [index, key] of nonSortingKeys.entries()) {
+      await header.trigger('keydown', { key })
+      expect(onKeyDown).toHaveBeenCalledTimes(index + 1)
+      expect(renderedAges()).toEqual(['32', '42', '22', '18'])
+    }
+
+    await header.trigger('keydown', { key: 'Enter', keyCode: 13 })
+    expect(onKeyDown).toHaveBeenCalledTimes(nonSortingKeys.length + 1)
+    expect(renderedAges()).toEqual(['18', '22', '32', '42'])
+  })
+
   it('should toggle sort order: ascend -> descend -> cancel', async () => {
     const columns = [
       { title: 'Age', dataIndex: 'age', key: 'age', sorter: (a: any, b: any) => a.age - b.age },

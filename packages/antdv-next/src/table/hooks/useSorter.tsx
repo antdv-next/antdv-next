@@ -213,8 +213,8 @@ function injectSorter<RecordType extends AnyObject = AnyObject>(prefixCls: strin
                 sortOrder: nextSortOrder!,
                 multiplePriority: getMultiplePriority<RecordType>(column),
               })
-              originOnKeydown?.(event)
             }
+            originOnKeydown?.(event)
           }
 
           const renderTitle = safeColumnTitle(column.title, {})
