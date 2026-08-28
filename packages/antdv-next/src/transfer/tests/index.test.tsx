@@ -944,6 +944,34 @@ describe('transfer', () => {
       expect(wrapper.element.querySelectorAll('[title="1/1"]')).toHaveLength(2)
     })
 
+    it('should restore the first page after empty filtered results', async () => {
+      const wrapper = mount(Transfer, {
+        props: {
+          dataSource: [
+            { key: 'a', title: 'a' },
+            { key: 'b', title: 'b' },
+          ],
+          targetKeys: [],
+          showSearch: true,
+          pagination: { pageSize: 1 },
+          render: item => item.title,
+        },
+      })
+
+      const sourceSection = wrapper.element.querySelectorAll('.ant-transfer-section')[0]!
+      clickElement(sourceSection.querySelector('.ant-pagination-next .ant-pagination-item-link'))
+      await nextTick()
+      expect(sourceSection.querySelector('[title="2/2"]')).toBeTruthy()
+
+      const searchInput = sourceSection.querySelector('input[type="text"]') as HTMLInputElement
+      await setInputValue(searchInput, 'missing')
+      expect(sourceSection.querySelectorAll('.ant-transfer-list-content-item')).toHaveLength(0)
+
+      await setInputValue(searchInput, '')
+      expect(sourceSection.querySelectorAll('.ant-transfer-list-content-item')).toHaveLength(1)
+      expect(sourceSection.querySelector('[title="1/2"]')).toBeTruthy()
+    })
+
     it('should support change pageSize', async () => {
       const dataSource = generateData()
 
