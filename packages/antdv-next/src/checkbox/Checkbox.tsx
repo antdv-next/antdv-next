@@ -132,7 +132,7 @@ const InternalCheckbox = defineComponent<
     const formItemInputContext = useFormItemInputContext()
     const formItemContext = useFormItemContext()
     const contextDisabled = useDisabledContext()
-    const mergedDisabled = computed(() => (checkboxGroup?.value?.disabled || props?.disabled) ?? contextDisabled.value)
+    const mergedDisabled = computed(() => props.disabled ?? checkboxGroup?.value?.disabled ?? contextDisabled.value)
 
     // ===================== Checked Value =====================
     // 获取选中和非选中的值，默认为 true/false
