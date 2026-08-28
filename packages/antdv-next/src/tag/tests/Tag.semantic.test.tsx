@@ -1,7 +1,7 @@
 import type { TagProps } from '..'
 import { describe, expect, it, vi } from 'vitest'
 import { h } from 'vue'
-import Tag from '..'
+import Tag, { CheckableTagGroup } from '..'
 import ConfigProvider from '../../config-provider'
 import { mount } from '/@tests/utils'
 
@@ -185,6 +185,50 @@ describe('tag.semantic', () => {
         },
       })
       expect(wrapper.find(`.${prefixCls}`).attributes('style')).toContain('background: rgb(200, 200, 200)')
+    })
+
+    it('should prioritize local CheckableTag style over context style', () => {
+      const wrapper = mount({
+        render() {
+          return h(
+            ConfigProvider,
+            { tag: { style: { color: 'rgb(255, 0, 0)' } } },
+            {
+              default: () => h(
+                Tag.CheckableTag,
+                { checked: true, style: { color: 'rgb(0, 0, 255)' } },
+                { default: () => 'Bamboo' },
+              ),
+            },
+          )
+        },
+      })
+
+      expect(wrapper.find('.ant-tag-checkable').attributes('style')).toContain('color: rgb(0, 0, 255)')
+    })
+
+    it('should prioritize group item and option styles over context style', () => {
+      const wrapper = mount({
+        render() {
+          return h(
+            ConfigProvider,
+            { tag: { style: { color: 'rgb(255, 0, 0)' } } },
+            {
+              default: () => h(CheckableTagGroup, {
+                styles: { item: { color: 'rgb(0, 128, 0)' } },
+                options: [
+                  { label: 'Bamboo', value: 'bamboo' },
+                  { label: 'Little', value: 'little', style: { color: 'rgb(0, 0, 255)' } },
+                ],
+              }),
+            },
+          )
+        },
+      })
+
+      const items = wrapper.findAll('.ant-tag-checkable')
+      expect(items[0]!.attributes('style')).toContain('color: rgb(0, 128, 0)')
+      expect(items[1]!.attributes('style')).toContain('color: rgb(0, 0, 255)')
     })
 
     it('should apply ConfigProvider tag variant', () => {
