@@ -33,6 +33,16 @@ describe('panelArrow', () => {
     expect(wrapper.find('path').attributes('d')).toBe('M 0 0 L 100 50 L 0 100')
   })
 
+  it('should hide the decorative arrow from assistive technology', () => {
+    const wrapper = mount(PanelArrow, {
+      props: { prefixCls: 'ant-steps' },
+    })
+    const svg = wrapper.find('svg')
+
+    expect(svg.attributes('aria-hidden')).toBe('true')
+    expect(svg.find('title').exists()).toBe(false)
+  })
+
   it('should apply custom prefixCls', () => {
     const wrapper = mount(PanelArrow, {
       props: {
