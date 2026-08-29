@@ -18,7 +18,7 @@ title: 组件更新日志
 * fix(upload)：生成 GIF 缩略图后及时释放临时 canvas，避免反复预览时积累无用画布资源（[#791](https://github.com/antdv-next/antdv-next/pull/791)，#59137）
 * fix(select, auto-complete)：内部 `onPopupVisibleChange` 不再作为公开属性或 DOM attrs 向下透传；AutoComplete 会根据实际监听器正确派发 `openChange` 或兼容的 `dropdownVisibleChange`（[#792](https://github.com/antdv-next/antdv-next/pull/792)，#59142）
 * fix(tag)：CheckableTag.Group 的组件级 `classes` / `styles` 优先于 ConfigProvider 中继承的语义化配置，局部定制不再被全局样式覆盖（[#785](https://github.com/antdv-next/antdv-next/pull/785)，#59087）
-* fix(menu)：内联菜单收起时仅在根级菜单项覆盖 padding 过渡，其他菜单模式继续保留原有动画；同时升级底层依赖，修复 hover 触发场景下菜单无法收起的问题（[#795](https://github.com/antdv-next/antdv-next/pull/795)，#59085）
+* fix(dropdown, menu)：Dropdown 以 hover 触发且内容包含 SubMenu 时，鼠标从子菜单弹层直接移到页面空白处后，一级弹层会正常自动收起；同时将内联菜单收起时的 padding 过渡覆盖限制在根级菜单项，其他菜单模式继续保留原有动画（[#793](https://github.com/antdv-next/antdv-next/issues/793)、[#795](https://github.com/antdv-next/antdv-next/pull/795)，#59085）
 * fix(image)：PreviewGroup 使用与方向一致的合并图标配置，RTL 模式下“上一张”显示右箭头、“下一张”显示左箭头（[#796](https://github.com/antdv-next/antdv-next/pull/796)，#59145）
 * fix(steps)：将 Steps 面板箭头标记为装饰元素并对辅助技术隐藏，避免屏幕阅读器朗读无意义内容（[#787](https://github.com/antdv-next/antdv-next/pull/787)，#59105）
 * fix(alert)：ConfigProvider 中 Alert 的全局 `closable` 配置收窄为实际支持的类型，避免声明允许但运行时无法生效的属性（[#786](https://github.com/antdv-next/antdv-next/pull/786)，#59100）
