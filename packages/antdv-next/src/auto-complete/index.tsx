@@ -16,7 +16,7 @@ import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { toArray } from 'es-toolkit/compat'
-import { computed, defineComponent, isVNode, Text } from 'vue'
+import { computed, defineComponent, getCurrentInstance, isVNode, Text } from 'vue'
 import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
 import genPurePanel from '../_util/PurePanel.tsx'
 import { toPropsRefs } from '../_util/tools'
@@ -76,7 +76,6 @@ type RcEventKeys
     | 'onMouseEnter'
     | 'onFocus'
     | 'onPopupScroll'
-    | 'onPopupVisibleChange'
     | 'onSelect'
     | 'onSearch'
 
@@ -187,6 +186,8 @@ const omitKeys: (keyof AutoCompleteProps)[] = [
   'classes',
   'styles',
   'popupRender',
+  'onOpenChange',
+  'onDropdownVisibleChange',
 ]
 
 const InternalAutoComplete = defineComponent<
@@ -198,6 +199,16 @@ const InternalAutoComplete = defineComponent<
   (props, { slots, emit, attrs }) => {
     const { prefixCls } = useComponentBaseConfig('select', props)
     const { classes, styles } = toPropsRefs(props, 'classes', 'styles')
+    const instance = getCurrentInstance()
+
+    const mergedOnOpenChange = (open: boolean) => {
+      if (instance?.vnode.props?.onOpenChange) {
+        emit('openChange', open)
+      }
+      else {
+        emit('dropdownVisibleChange', open)
+      }
+    }
 
     const mergedProps = computed(() => {
       return {
@@ -224,6 +235,7 @@ const InternalAutoComplete = defineComponent<
 
     return () => {
       const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
+      const forwardedAttrs = omit(restAttrs, ['onOpenChange', 'onDropdownVisibleChange'])
       const childNodes = toArray(filterEmpty(slots.default?.() ?? []))
       const hasSelectOptions = !!childNodes.length && isSelectOptionOrSelectOptGroup(childNodes[0])
 
@@ -394,18 +406,12 @@ const InternalAutoComplete = defineComponent<
         onSearch: (value: any) => {
           emit('search', value)
         },
-        onOpenChange: (open: boolean) => {
-          emit('openChange', open)
-        },
-        onDropdownVisibleChange: (open: boolean) => {
-          emit('dropdownVisibleChange', open)
-        },
       }
 
       const inputProps = getInputElement ? ({ getInputElement } as any) : {}
       return (
         <Select
-          {...restAttrs}
+          {...forwardedAttrs}
           {...selectProps}
           {...onAttrs}
           {...inputProps}
@@ -418,6 +424,7 @@ const InternalAutoComplete = defineComponent<
           popupMatchSelectWidth={mergedPopupMatchSelectWidth}
           mode={(Select as any).SECRET_COMBOBOX_MODE_DO_NOT_USE as SelectProps['mode']}
           suffixIcon={null}
+          onOpenChange={mergedOnOpenChange}
           {...{
             'onUpdate:value': (value: any) => emit('update:value', value),
           }}

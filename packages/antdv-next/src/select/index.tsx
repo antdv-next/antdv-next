@@ -51,7 +51,7 @@ export interface LabeledValue {
 export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[] | undefined
 
 export interface InternalSelectProps
-  extends ComponentBaseProps, Omit<VcSelectProps, 'mode' | 'classNames' | 'className' | 'style' | 'prefix' | 'styles'> {
+  extends ComponentBaseProps, Omit<VcSelectProps, 'mode' | 'classNames' | 'className' | 'style' | 'prefix' | 'styles' | 'onPopupVisibleChange'> {
   prefix?: VueNode
   suffixIcon?: VueNode
   size?: SizeType
@@ -138,7 +138,6 @@ type RcEventKeys
     | 'onMouseEnter'
     | 'onFocus'
     | 'onPopupScroll'
-    | 'onPopupVisibleChange'
     | 'onSelect'
     | 'optionRender'
 

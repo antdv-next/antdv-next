@@ -76,6 +76,47 @@ describe('autoComplete', () => {
     expect(onSearch).toHaveBeenCalledWith('test')
   })
 
+  it('should prefer onOpenChange over deprecated onDropdownVisibleChange', async () => {
+    const onOpenChange = vi.fn()
+    const onDropdownVisibleChange = vi.fn()
+    const wrapper = mount(AutoComplete, {
+      props: {
+        options: [{ value: 'test' }],
+        onOpenChange,
+        onDropdownVisibleChange,
+      },
+      attachTo: document.body,
+    })
+
+    await wrapper.find('.ant-select-content').trigger('mousedown')
+    await nextTick()
+
+    expect(onOpenChange).toHaveBeenCalledTimes(1)
+    expect(onOpenChange).toHaveBeenCalledWith(true)
+    expect(onDropdownVisibleChange).not.toHaveBeenCalled()
+
+    wrapper.unmount()
+  })
+
+  it('should fall back to deprecated onDropdownVisibleChange', async () => {
+    const onDropdownVisibleChange = vi.fn()
+    const wrapper = mount(AutoComplete, {
+      props: {
+        options: [{ value: 'test' }],
+        onDropdownVisibleChange,
+      },
+      attachTo: document.body,
+    })
+
+    await wrapper.find('.ant-select-content').trigger('mousedown')
+    await nextTick()
+
+    expect(onDropdownVisibleChange).toHaveBeenCalledTimes(1)
+    expect(onDropdownVisibleChange).toHaveBeenCalledWith(true)
+
+    wrapper.unmount()
+  })
+
   it('should trigger onSelect when option is selected', async () => {
     const onSelect = vi.fn()
     const value = ref('')
