@@ -2,6 +2,40 @@
 title: Component Changelog
 ---
 
+## V1.5.3
+
+Release Date: 2026-08-29
+
+This release advances ant-design upstream tracking to **6.6.2** (`621b63dff5`) and brings in a focused round of stability, typing and accessibility fixes. Component work covers numeric `0` content being mistaken for empty, stale responsive Grid alignment classes, Checkbox disabled-state precedence, Select / AutoComplete popup event forwarding, GIF preview resource cleanup in Upload, Menu collapse transitions and RTL navigation in Image. The documentation site also gains CLI, MCP and AI-agent integration guides and now generates contributor data during the build.
+
+**🐞 Fixes**
+
+* fix: render numeric `0` correctly in Breadcrumb separators, Card titles/extras/covers and Meta, FloatButton content, Segmented labels and Tag content; Form labels no longer treat `0` as empty either ([#789](https://github.com/antdv-next/antdv-next/pull/789), [#784](https://github.com/antdv-next/antdv-next/pull/784), #59117, #59079)
+* fix(grid): remove stale alignment classes when responsive `align` / `justify` moves to an unmatched breakpoint or is cleared, instead of retaining an outdated layout state ([#781](https://github.com/antdv-next/antdv-next/pull/781), #59066)
+* fix(checkbox): resolve `disabled` from Checkbox itself before Checkbox.Group and then the ConfigProvider global context, allowing local settings to override their parent correctly ([#788](https://github.com/antdv-next/antdv-next/pull/788), #59109)
+* fix(table): preserve custom `keydown` handlers supplied through `onHeaderCell` on sortable headers while retaining built-in keyboard sorting ([#783](https://github.com/antdv-next/antdv-next/pull/783), #59078)
+* fix(transfer): disable select-all when every visible search result is disabled, avoiding an actionable-looking control that cannot select anything ([#790](https://github.com/antdv-next/antdv-next/pull/790), #59121)
+* fix(upload): release the temporary canvas after generating a GIF thumbnail so repeated previews do not accumulate unused canvas resources ([#791](https://github.com/antdv-next/antdv-next/pull/791), #59137)
+* fix(select, auto-complete): stop exposing or forwarding the internal `onPopupVisibleChange` callback through DOM attrs; AutoComplete now emits `openChange` or the compatible `dropdownVisibleChange` according to the listener actually provided ([#792](https://github.com/antdv-next/antdv-next/pull/792), #59142)
+* fix(tag): give CheckableTag.Group's component-level `classes` / `styles` priority over inherited ConfigProvider semantic config, so local customization is not overwritten globally ([#785](https://github.com/antdv-next/antdv-next/pull/785), #59087)
+* fix(menu): scope the inline-collapse padding-transition override to root menu items so other Menu modes retain their existing animation; upgrade the underlying primitives to fix hover-triggered menus that would not collapse ([#795](https://github.com/antdv-next/antdv-next/pull/795), #59085)
+* fix(image): pass direction-aware icons into PreviewGroup's merged config so RTL navigation uses a right arrow for previous and a left arrow for next ([#796](https://github.com/antdv-next/antdv-next/pull/796), #59145)
+* fix(steps): mark Steps panel arrows as decorative and hide them from assistive technology, preventing meaningless screen-reader announcements ([#787](https://github.com/antdv-next/antdv-next/pull/787), #59105)
+* fix(alert): narrow ConfigProvider's global Alert `closable` option to the type actually supported at runtime, removing properties that were declared but ineffective ([#786](https://github.com/antdv-next/antdv-next/pull/786), #59100)
+
+**📖 Documentation**
+
+* docs: add bilingual guides for the CLI, MCP integration and using the component library with AI agents, together with the corresponding documentation navigation
+* docs(site): generate static contributor JSON from the GitHub API during the documentation build for a more accurate and stable contributor list ([#779](https://github.com/antdv-next/antdv-next/pull/779))
+* fix(docs): repair the broken interaction in the Listy drag-sorting demo and add regression coverage ([#770](https://github.com/antdv-next/antdv-next/pull/770))
+* docs: remove nonexistent `update:open` event entries from the FloatButton, Modal and Tooltip documentation
+
+**🧰 Infrastructure & Dependencies**
+
+* chore(sync): advance ant-design upstream tracking to **6.6.2** at `621b63dff5`, porting the fixes applicable to the Vue implementation in this release
+* chore(deps): upgrade `@v-c/menu` to 1.3.1 and `@v-c/trigger` to 1.1.1 to fix hover-triggered menu collapse behavior
+* test(transfer): add regression coverage ensuring pagination remains on a valid page after the result set becomes empty ([#782](https://github.com/antdv-next/antdv-next/pull/782), #59074)
+
 ## V1.5.2
 
 Release Date: 2026-08-21

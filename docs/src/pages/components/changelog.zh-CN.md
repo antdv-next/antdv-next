@@ -2,6 +2,40 @@
 title: 组件更新日志
 ---
 
+## V1.5.3
+
+发布日期：2026-08-29
+
+本次版本将 ant-design 上游跟踪推进到 **6.6.2**（`621b63dff5`），集中同步了一轮稳定性、类型与无障碍修复。组件层面重点处理数字 `0` 内容被误判为空、Grid 响应式对齐类残留、Checkbox 禁用状态优先级、Select / AutoComplete 弹层事件透传、Upload GIF 预览资源释放，以及 Menu 收起动画和 Image RTL 导航等问题。文档站同时补充 CLI、MCP 与 AI Agent 集成指南，并改为在构建阶段生成贡献者数据。
+
+**🐞 问题修复 Fixes**
+
+* fix：Breadcrumb 分隔符、Card 标题/附加内容/封面与 Meta、FloatButton 内容、Segmented 标签和 Tag 内容现在都能正确渲染数字 `0`；Form 标签同样不再将 `0` 误判为空（[#789](https://github.com/antdv-next/antdv-next/pull/789)、[#784](https://github.com/antdv-next/antdv-next/pull/784)，#59117、#59079）
+* fix(grid)：响应式 `align` / `justify` 配置切换到未命中的断点或被清空时，会移除旧的对齐 class，不再保留过期布局状态（[#781](https://github.com/antdv-next/antdv-next/pull/781)，#59066）
+* fix(checkbox)：Checkbox 自身的 `disabled` 优先级高于 Checkbox.Group，组级配置又高于 ConfigProvider 全局禁用上下文，因此局部组件可以正确覆盖外层状态（[#788](https://github.com/antdv-next/antdv-next/pull/788)，#59109）
+* fix(table)：可排序表头会保留通过 `onHeaderCell` 提供的自定义 `keydown` 处理器，同时继续支持内置键盘排序行为（[#783](https://github.com/antdv-next/antdv-next/pull/783)，#59078）
+* fix(transfer)：当搜索结果全部禁用时禁用“全选”，避免展示可操作但不会产生有效选择的控件（[#790](https://github.com/antdv-next/antdv-next/pull/790)，#59121）
+* fix(upload)：生成 GIF 缩略图后及时释放临时 canvas，避免反复预览时积累无用画布资源（[#791](https://github.com/antdv-next/antdv-next/pull/791)，#59137）
+* fix(select, auto-complete)：内部 `onPopupVisibleChange` 不再作为公开属性或 DOM attrs 向下透传；AutoComplete 会根据实际监听器正确派发 `openChange` 或兼容的 `dropdownVisibleChange`（[#792](https://github.com/antdv-next/antdv-next/pull/792)，#59142）
+* fix(tag)：CheckableTag.Group 的组件级 `classes` / `styles` 优先于 ConfigProvider 中继承的语义化配置，局部定制不再被全局样式覆盖（[#785](https://github.com/antdv-next/antdv-next/pull/785)，#59087）
+* fix(menu)：内联菜单收起时仅在根级菜单项覆盖 padding 过渡，其他菜单模式继续保留原有动画；同时升级底层依赖，修复 hover 触发场景下菜单无法收起的问题（[#795](https://github.com/antdv-next/antdv-next/pull/795)，#59085）
+* fix(image)：PreviewGroup 使用与方向一致的合并图标配置，RTL 模式下“上一张”显示右箭头、“下一张”显示左箭头（[#796](https://github.com/antdv-next/antdv-next/pull/796)，#59145）
+* fix(steps)：将 Steps 面板箭头标记为装饰元素并对辅助技术隐藏，避免屏幕阅读器朗读无意义内容（[#787](https://github.com/antdv-next/antdv-next/pull/787)，#59105）
+* fix(alert)：ConfigProvider 中 Alert 的全局 `closable` 配置收窄为实际支持的类型，避免声明允许但运行时无法生效的属性（[#786](https://github.com/antdv-next/antdv-next/pull/786)，#59100）
+
+**📖 文档 Documentation**
+
+* docs：新增中英文 CLI 使用指南、MCP 接入说明与面向 AI Agent 的组件库使用指南，补齐相关文档菜单
+* docs(site)：贡献者数据改为在文档构建阶段通过 GitHub API 生成静态 JSON，提升贡献者列表的准确性与页面加载稳定性（[#779](https://github.com/antdv-next/antdv-next/pull/779)）
+* fix(docs)：修复 Listy 拖拽排序演示的异常交互，并补充对应测试（[#770](https://github.com/antdv-next/antdv-next/pull/770)）
+* docs：移除 FloatButton、Modal 与 Tooltip 文档中并不存在的 `update:open` 事件条目
+
+**🧰 工程与依赖 Infrastructure & Dependencies**
+
+* chore(sync)：将 ant-design 上游跟踪位置推进到 **6.6.2** 的 `621b63dff5`，同步本版本适用于 Vue 实现的修复
+* chore(deps)：升级 `@v-c/menu` 至 1.3.1、`@v-c/trigger` 至 1.1.1，修复 hover 触发菜单的收起行为
+* test(transfer)：补充空结果后分页仍停留在有效页码的回归覆盖（[#782](https://github.com/antdv-next/antdv-next/pull/782)，#59074）
+
 ## V1.5.2
 
 发布日期：2026-08-21
