@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'vue'
 import type { SemanticClassNames, SemanticStyles } from '../_util/hooks'
 import type { VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
@@ -14,6 +15,8 @@ export interface CheckableTagOption<CheckableTagValue = CheckableTagDefaultValue
   value: CheckableTagValue
   label: VueNode
   disabled?: boolean
+  class?: string
+  style?: CSSProperties
 }
 
 interface CheckableTagGroupSingleProps<CheckableTagValue = CheckableTagDefaultValue> {
@@ -150,8 +153,8 @@ const CheckableTagGroup = defineComponent<
           return (
             <CheckableTag
               key={option.value}
-              class={clsx(`${groupPrefixCls.value}-item`, mergedClassNames.value.item)}
-              style={mergedStyles.value.item}
+              class={clsx(`${groupPrefixCls.value}-item`, mergedClassNames.value.item, option.class)}
+              style={[mergedStyles.value.item, option.style]}
               checked={multiple ? (mergedValue.value as CheckableTagDefaultValue[] || []).includes(option.value) : mergedValue.value === option.value}
               onChange={(checked: boolean) => handleChange(checked, option)}
               disabled={option.disabled ?? disabled}
