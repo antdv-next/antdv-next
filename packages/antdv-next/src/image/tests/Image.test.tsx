@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from 'vitest'
 import { h } from 'vue'
 import Image, { ImagePreviewGroup } from '..'
+import ConfigProvider from '../../config-provider'
 import rtlTest from '/@tests/shared/rtlTest'
 import { mount } from '/@tests/utils'
 
@@ -149,6 +150,28 @@ describe('image.PreviewGroup', () => {
       },
     })
     expect(wrapper.find('.ant-image').exists()).toBe(true)
+  })
+
+  it('should use RTL switch icons in preview config', async () => {
+    const wrapper = mount(() => (
+      <ConfigProvider direction="rtl">
+        <ImagePreviewGroup preview={{ open: true }}>
+          <Image src={src} />
+          <Image src="https://example.com/test2.png" />
+        </ImagePreviewGroup>
+      </ConfigProvider>
+    ))
+
+    await new Promise(resolve => setTimeout(resolve, 100))
+
+    expect(
+      document.querySelector('.ant-image-preview-switch-prev .anticon-right'),
+    ).not.toBeNull()
+    expect(
+      document.querySelector('.ant-image-preview-switch-next .anticon-left'),
+    ).not.toBeNull()
+
+    wrapper.unmount()
   })
 
   it('should disable preview when preview is false', () => {
