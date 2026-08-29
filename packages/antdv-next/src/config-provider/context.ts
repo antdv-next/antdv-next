@@ -1,6 +1,6 @@
 import type { DerivativeFunc } from '@antdv-next/cssinjs'
 import type { MoreProps as TabsMoreProps } from '@v-c/tabs'
-import type { CSSProperties, InjectionKey, Ref } from 'vue'
+import type { AriaAttributes, CSSProperties, InjectionKey, Ref } from 'vue'
 import type { MaskType } from '../_util/hooks'
 import type { AnyObject, VueNode } from '../_util/type.ts'
 import type { WarningContextProps } from '../_util/warning.ts'
@@ -252,7 +252,8 @@ export type ButtonConfig = ComponentStyleConfig
 
 export type FlexConfig = ComponentStyleConfig & Pick<FlexProps, 'vertical'>
 
-export type AlertConfig = ComponentStyleConfig & Pick<AlertProps, 'variant' | 'closable' | 'closeIcon' | 'classes' | 'styles'> & {
+export type AlertConfig = ComponentStyleConfig & Pick<AlertProps, 'variant' | 'closeIcon' | 'classes' | 'styles'> & {
+  closable?: boolean | ({ closeIcon?: VueNode } & AriaAttributes)
   successIcon?: VueNode
   infoIcon?: VueNode
   warningIcon?: VueNode

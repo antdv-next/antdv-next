@@ -43,7 +43,7 @@ group:
 | 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | type | 指定警告提示的样式，有四种选择 `success`、`info`、`warning`、`error` | 'success' \| 'info' \| 'warning' \| 'error' | `info`，`banner` 模式下默认值为 `warning` | - | × |
-| closable | 可关闭配置，&gt;=5.15.0: 支持 `aria-*` | ClosableType | `false` | - | ✓ |
+| closable | 可关闭配置 | ClosableType | `false` | `closable.closeIcon`、`closable.aria-*`：5.15.0 | ✓ |
 | title | 警告提示内容 | VueNode | - | - | × |
 | message | 警告提示内容，请使用 `title` 替换 | VueNode | - | - | × |
 | description | 警告提示的辅助性文字介绍 | VueNode | - | - | × |
