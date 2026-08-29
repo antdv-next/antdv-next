@@ -324,6 +324,15 @@ describe('menu', () => {
     expect(dynamicStyleText).toMatch(/ant-menu-inline-collapsed[\s\S]*justify-content:flex-start/)
     expect(dynamicStyleText).toMatch(/ant-menu-inline-collapsed[\s\S]*ant-menu-title-content\{width:0;opacity:0;overflow:hidden/)
 
+    const collapsedTransitionRule = dynamicStyleText.match(
+      /ant-menu-inline-collapsed[^{}]*ant-menu-root[^{}]*ant-menu-item[^{}]*\{([^{}]*)\}/,
+    )?.[1]
+
+    expect(collapsedTransitionRule).toContain(
+      'transition:border-color var(--ant-motion-duration-slow),background-color var(--ant-motion-duration-slow)',
+    )
+    expect(collapsedTransitionRule).not.toContain('padding')
+
     wrapper.unmount()
   })
 })
