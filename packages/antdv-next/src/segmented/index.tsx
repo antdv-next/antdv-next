@@ -14,6 +14,7 @@ import { clsx } from '@v-c/util'
 import { filterEmpty, removeUndefined } from '@v-c/util/dist/props-util'
 import { computed, defineComponent, useId } from 'vue'
 import { pureAttrs, useMergeSemantic, useOrientation, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
+import { isRenderable } from '../_util/is.ts'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { useComponentBaseConfig } from '../config-provider/context.ts'
 import { useSize } from '../config-provider/hooks/useSize.ts'
@@ -168,7 +169,7 @@ const InternalSegmented = defineComponent<
         if (hasIcon || hasCustomLabel) {
           const { label, icon: _icon, ...restOption } = _option as SegmentedLabeledOptionWithIcon
           const mergedLabel = labelFromSlot.length > 0 ? labelFromSlot : label
-          const showLabel = !!(labelFromSlot.length > 0) || !!label
+          const showLabel = labelFromSlot.length > 0 || isRenderable(label)
           const icon = getSlotPropsFnRun({}, option, 'icon') ?? iconFromSlot
           return {
             ...restOption,

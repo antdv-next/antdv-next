@@ -7,6 +7,7 @@ import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { computed, defineComponent, isVNode } from 'vue'
 import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
+import { isRenderable } from '../_util/is'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { devUseWarning, isDev } from '../_util/warning'
 import { useComponentBaseConfig } from '../config-provider/context'
@@ -260,7 +261,7 @@ const Card = defineComponent<
             />
           )
         : null
-      if (title || extra || tabs) {
+      if (isRenderable(title) || isRenderable(extra) || tabs) {
         const headClasses = clsx(`${prefixCls.value}-head`, mergedClassNames.value.header)
         const titleClasses = clsx(`${prefixCls.value}-head-title`, mergedClassNames.value.title)
         const extraClasses = clsx(`${prefixCls.value}-extra`, mergedClassNames.value.extra)
@@ -271,12 +272,12 @@ const Card = defineComponent<
         head = (
           <div class={headClasses} style={mergedHeadStyle}>
             <div class={`${prefixCls.value}-head-wrapper`}>
-              {!!title && (
+              {isRenderable(title) && (
                 <div class={titleClasses} style={mergedStyles.value.title}>
                   {title}
                 </div>
               )}
-              {!!extra && (
+              {isRenderable(extra) && (
                 <div class={extraClasses} style={mergedStyles.value.extra}>
                   {extra}
                 </div>
@@ -288,7 +289,7 @@ const Card = defineComponent<
       }
       const coverClasses = clsx(`${prefixCls.value}-cover`, mergedClassNames.value.cover)
 
-      const coverDom = cover
+      const coverDom = isRenderable(cover)
         ? (
             <div class={coverClasses} style={mergedStyles.value.cover}>{cover}</div>
           )

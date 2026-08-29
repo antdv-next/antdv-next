@@ -6,6 +6,7 @@ import type { ItemType } from './Breadcrumb'
 import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { defineComponent } from 'vue'
+import { isRenderable } from '../_util/is'
 import isNonNullable from '../_util/isNonNullable'
 import { getSlotPropsFnRun } from '../_util/tools'
 import { checkRenderNode } from '../_util/vueNode'
@@ -102,7 +103,7 @@ export const InternalBreadcrumbItem = defineComponent<
             <li class={clsx(`${prefixCls}-item`, mergedClassNames?.item)} style={mergedStyles?.item}>
               {link}
             </li>
-            {!!separator && <BreadcrumbSeparator>{separator}</BreadcrumbSeparator>}
+            {isRenderable(separator) && <BreadcrumbSeparator>{separator}</BreadcrumbSeparator>}
           </>
         )
       }

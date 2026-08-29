@@ -87,6 +87,16 @@ describe('floatButton', () => {
     expect(wrapper.find('.ant-float-btn-icon-only').exists()).toBe(false)
   })
 
+  it('should render numeric zero content without fallback icon', () => {
+    const wrapper = mount(FloatButton, {
+      props: { content: 0, shape: 'square' },
+    })
+
+    expect(wrapper.find('.ant-float-btn-icon-only').exists()).toBe(false)
+    expect(wrapper.find('.anticon-file-text').exists()).toBe(false)
+    expect(wrapper.text()).toContain('0')
+  })
+
   it('should render content via default slot', () => {
     const wrapper = mount(FloatButton, {
       slots: { default: () => 'Slot Content' },

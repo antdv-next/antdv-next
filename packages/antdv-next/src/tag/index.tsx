@@ -10,6 +10,7 @@ import { filterEmpty } from '@v-c/util/dist/props-util'
 import { computed, createVNode, defineComponent, shallowRef } from 'vue'
 import { pureAttrs, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import useClosable, { pickClosable } from '../_util/hooks/useClosable.tsx'
+import { isRenderable } from '../_util/is.ts'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { replaceElement } from '../_util/vueNode.ts'
 import Wave from '../_util/wave'
@@ -255,7 +256,7 @@ const InternalTag = defineComponent<
         ? (
             <>
               {iconNodes}
-              {children && (
+              {isRenderable(children) && (
                 <span
                   class={mergedClassNames.value.content}
                   style={mergedStyles.value.content}

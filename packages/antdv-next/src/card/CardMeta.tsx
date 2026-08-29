@@ -4,6 +4,7 @@ import type { EmptyEmit, VueNode } from '../_util/type.ts'
 import { clsx } from '@v-c/util'
 import { computed, defineComponent, shallowRef } from 'vue'
 import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
+import { isRenderable } from '../_util/is'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { useComponentBaseConfig } from '../config-provider/context.ts'
 
@@ -105,19 +106,19 @@ const CardMeta = defineComponent<
       const avatar = getSlotPropsFnRun(slots, props, 'avatar')
       const title = getSlotPropsFnRun(slots, props, 'title')
       const description = getSlotPropsFnRun(slots, props, 'description')
-      const avatarDom = avatar
+      const avatarDom = isRenderable(avatar)
         ? (
             <div class={avatarClassNames} style={mergedStyles.value.avatar}>{avatar}</div>
           )
         : null
 
-      const titleDom = title
+      const titleDom = isRenderable(title)
         ? (
             <div class={titleClassNames} style={mergedStyles.value.title}>{title}</div>
           )
         : null
 
-      const descriptionDom = description
+      const descriptionDom = isRenderable(description)
         ? (
             <div class={descriptionClassNames} style={mergedStyles.value.description}>{description}</div>
           )

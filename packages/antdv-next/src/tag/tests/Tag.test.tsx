@@ -47,6 +47,18 @@ describe('tag', () => {
     expect(a.attributes('target')).toBe('_blank')
   })
 
+  it('should render numeric zero inside content span when icon is present', () => {
+    const wrapper = mount(Tag, {
+      slots: {
+        icon: () => h('span', { class: 'my-icon' }),
+        default: () => 0,
+      },
+    })
+
+    expect(wrapper.find('.ant-tag').text()).toContain('0')
+    expect(wrapper.findAll('.ant-tag > span').at(-1)?.text()).toBe('0')
+  })
+
   // ===================== color prop =====================
 
   it('should apply preset color class', () => {

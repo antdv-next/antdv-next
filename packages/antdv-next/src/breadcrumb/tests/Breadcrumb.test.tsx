@@ -48,6 +48,17 @@ describe('breadcrumb', () => {
     expect(wrapper.find('.ant-breadcrumb-separator').text()).toBe('>')
   })
 
+  it('should render numeric zero separator', () => {
+    const wrapper = mount(Breadcrumb, {
+      props: {
+        separator: 0,
+        items: [{ title: 'foo' }, { title: 'bar' }],
+      },
+    })
+
+    expect(wrapper.find('.ant-breadcrumb-separator').text()).toBe('0')
+  })
+
   it('should render item with href as link', () => {
     const wrapper = mount(Breadcrumb, {
       props: {
