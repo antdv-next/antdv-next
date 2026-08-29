@@ -2,7 +2,7 @@ import type { App, CSSProperties, Ref } from 'vue'
 import type { Breakpoint, ScreenMap } from '../_util/responsiveObserver.ts'
 import { classNames } from '@v-c/util'
 import { getAttrStyleAndClass } from '@v-c/util/dist/props-util'
-import { computed, defineComponent, shallowRef, watch } from 'vue'
+import { computed, defineComponent } from 'vue'
 import { responsiveArray } from '../_util/responsiveObserver.ts'
 import { useConfig } from '../config-provider/context.ts'
 import { useBreakpoint } from './hooks/useBreakpoint.tsx'
@@ -40,37 +40,27 @@ function useMergedPropByScreen(
   oriProp: Ref<RowProps['align'] | RowProps['justify']>,
   screen: Ref<ScreenMap | null>,
 ) {
-  const prop = shallowRef(typeof oriProp.value === 'string' ? oriProp.value : '')
-  const calcMergedAlignOrJustify = () => {
-    if (typeof oriProp.value === 'string') {
-      prop.value = oriProp.value
+  return computed(() => {
+    const value = oriProp.value
+    if (typeof value === 'string') {
+      return value
     }
-    if (typeof oriProp.value !== 'object') {
-      return
-    }
-    for (let i = 0; i < responsiveArray.length; i++) {
-      const breakpoint: Breakpoint = responsiveArray[i]!
-      // if do not match, do nothing
-      if (!screen.value || !screen.value[breakpoint]) {
-        continue
-      }
-      const curVal = oriProp.value[breakpoint]
-      if (curVal !== undefined) {
-        prop.value = curVal
-        return
+
+    if (typeof value === 'object') {
+      for (let i = 0; i < responsiveArray.length; i++) {
+        const breakpoint: Breakpoint = responsiveArray[i]!
+        if (!screen.value || !screen.value[breakpoint]) {
+          continue
+        }
+        const curVal = value[breakpoint]
+        if (curVal !== undefined) {
+          return curVal
+        }
       }
     }
-  }
-  watch(
-    [() => JSON.stringify(oriProp.value), screen],
-    () => {
-      calcMergedAlignOrJustify()
-    },
-    {
-      immediate: true,
-    },
-  )
-  return prop
+
+    return ''
+  })
 }
 const defaults = {
   gutter: 0,
