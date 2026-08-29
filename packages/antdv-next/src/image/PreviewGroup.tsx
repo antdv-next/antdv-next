@@ -102,7 +102,7 @@ const InternalPreviewGroup = defineComponent<PreviewGroupProps>(
       prefixCls,
       mergedRootClassName,
       getContextPopupContainer,
-      computed(() => icons),
+      memoizedIcons,
     )
 
     const mergedMask = computed(() => mergedPreview.value?.mask)
