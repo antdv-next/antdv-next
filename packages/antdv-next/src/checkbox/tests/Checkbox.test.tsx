@@ -328,6 +328,18 @@ describe('checkboxGroup', () => {
     expect(disabledItems.length).toBe(3)
   })
 
+  it('should let an enabled group override global disabled context', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider componentDisabled>
+        <CheckboxGroup disabled={false}>
+          <Checkbox value="Apple" />
+        </CheckboxGroup>
+      </ConfigProvider>
+    ))
+
+    expect((wrapper.find('input[type="checkbox"]').element as HTMLInputElement).disabled).toBe(false)
+  })
+
   it('should support individual option disabled', () => {
     const wrapper = mount(CheckboxGroup, {
       props: {
