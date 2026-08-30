@@ -15,6 +15,7 @@ overrides:
   '@v-c/util': catalog:vc
   vite: catalog:dev
 catalog:
+  '@antdv-next/docs-plugins': ^0.0.1
   '@vitest/coverage-v8': ^4.1.10
   '@vitest/ui': 4.1.10
   flexsearch: ^0.8.212
