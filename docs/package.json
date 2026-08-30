@@ -17,7 +17,7 @@
     "@ant-design/colors": "catalog:prod",
     "@ant-design/fast-color": "catalog:prod",
     "@antdv-next/cssinjs": "workspace:^",
-    "@antdv-next/docs-plugins": "catalog:",
+    "@antdv-next/docs-plugins": "catalog:docs",
     "@antdv-next/happy-work-theme": "catalog:prod",
     "@antdv-next/icons": "catalog:prod",
     "@antdv-next/img-crop": "catalog:docs",

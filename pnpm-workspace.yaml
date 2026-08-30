@@ -15,7 +15,6 @@ overrides:
   '@v-c/util': catalog:vc
   vite: catalog:dev
 catalog:
-  '@antdv-next/docs-plugins': ^0.0.1
   '@vitest/coverage-v8': ^4.1.10
   '@vitest/ui': 4.1.10
   flexsearch: ^0.8.212
@@ -63,6 +62,7 @@ catalogs:
     vitest: ^4.1.10
     vue-tsc: ^3.3.9
   docs:
+    '@antdv-next/docs-plugins': ^0.0.1
     '@antdv-next/img-crop': ^0.0.2
     '@antdv-next/unocss': ^1.1.1
     '@codesandbox/sandpack-themes': ^2.0.21

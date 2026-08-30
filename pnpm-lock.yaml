@@ -6,9 +6,6 @@ settings:
 
 catalogs:
   default:
-    '@antdv-next/docs-plugins':
-      specifier: ^0.0.1
-      version: 0.0.1
     '@vitest/coverage-v8':
       specifier: ^4.1.10
       version: 4.1.10
@@ -137,6 +134,9 @@ catalogs:
       specifier: ^3.3.9
       version: 3.3.9
   docs:
+    '@antdv-next/docs-plugins':
+      specifier: ^0.0.1
+      version: 0.0.1
     '@antdv-next/img-crop':
       specifier: ^0.0.2
       version: 0.0.2
@@ -632,7 +632,7 @@ importers:
         specifier: workspace:^
         version: link:../packages/cssinjs
       '@antdv-next/docs-plugins':
-        specifier: 'catalog:'
+        specifier: catalog:docs
         version: 0.0.1(@types/markdown-it@14.1.2)(@types/node@25.9.5)(esbuild@0.28.1)(jiti@2.7.0)(less@4.8.1)(terser@5.44.1)(tsx@4.23.5)(typescript@5.9.3)(yaml@2.9.0)
       '@antdv-next/happy-work-theme':
         specifier: catalog:prod
