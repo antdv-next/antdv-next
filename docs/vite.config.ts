@@ -1,5 +1,6 @@
 import * as path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { createOxfmtJsFormatter, mdPlugin, postcssIsolateStyles } from '@antdv-next/docs-plugins'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import Unocss from 'unocss/vite'
@@ -9,8 +10,6 @@ import inspect from 'vite-plugin-inspect'
 import { tsxResolveTypes } from 'vite-plugin-tsx-resolve-types'
 
 import virtualAntdCss from './plugins/css-plugin'
-import { mdPlugin } from './plugins/markdown'
-import { postcssIsolateStyles } from './plugins/markdown/isolateStyles.ts'
 
 const baseUrl = fileURLToPath(new URL('.', import.meta.url))
 const docsBuildTarget = [
@@ -28,7 +27,12 @@ export default defineConfig({
       development: false,
     }),
     dayjsPlugin(),
-    mdPlugin(),
+    mdPlugin({
+      demo: {
+        // antfu 风格(无分号、单引号),与 TS 源码页签观感一致
+        jsFormatter: createOxfmtJsFormatter({ semi: false, singleQuote: true }),
+      },
+    }),
     tsxResolveTypes({
       defaultPropsToUndefined: ['Boolean'],
     }),
@@ -69,6 +73,17 @@ export default defineConfig({
     ],
   },
   resolve: {
+    dedupe: [
+      'vue',
+      'vue-router',
+      '@vueuse/core',
+      'antdv-style',
+      '@antdv-next/icons',
+      'sandpack-vue3',
+      '@codesandbox/sandpack-themes',
+      '@vue/compiler-sfc',
+      'sucrase',
+    ],
     alias: [
       {
         find: /^antdv-next/,
