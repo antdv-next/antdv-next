@@ -1,0 +1,319 @@
+name: Size Report
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'packages/**/src/**'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: size-pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  size:
+    name: Package size report
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      # Build the exact PR head. This also works when the PR comes from a fork.
+      - name: Checkout PR head
+        uses: actions/checkout@v7
+        with:
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: lts/*
+          cache: pnpm
+
+      - name: Write size measurement script
+        run: |
+          cat > /tmp/size-report.mjs <<'MEOF'
+          import {
+            brotliCompressSync,
+            constants,
+            gzipSync,
+          } from 'node:zlib'
+          import {
+            existsSync,
+            readFileSync,
+            readdirSync,
+            writeFileSync,
+          } from 'node:fs'
+          import { join, relative, sep } from 'node:path'
+
+          const MAX_COMMENT_BYTES = 60_000
+          const [command, firstArg, secondArg, thirdArg] = process.argv.slice(2)
+
+          function listFiles(dir, files = []) {
+            if (!existsSync(dir))
+              return files
+
+            for (const entry of readdirSync(dir, { withFileTypes: true })) {
+              const file = join(dir, entry.name)
+              if (entry.isDirectory()) {
+                listFiles(file, files)
+              }
+              else if (entry.isFile() && /\.(?:js|css)$/.test(entry.name)) {
+                files.push(file)
+              }
+            }
+
+            return files
+          }
+
+          function measurePackage(packageDir) {
+            const packageJson = JSON.parse(
+              readFileSync(join(packageDir, 'package.json'), 'utf8'),
+            )
+            const files = {}
+
+            for (const file of listFiles(join(packageDir, 'dist')).sort()) {
+              const content = readFileSync(file)
+              const relativeFile = relative(packageDir, file).split(sep).join('/')
+              files[relativeFile] = {
+                size: content.length,
+                gzip: gzipSync(content, { level: 9, mtime: 0 }).length,
+                brotli: brotliCompressSync(content, {
+                  params: {
+                    [constants.BROTLI_PARAM_QUALITY]: 11,
+                  },
+                }).length,
+              }
+            }
+
+            return {
+              name: packageJson.name,
+              files,
+            }
+          }
+
+          function measureWorkspace(outputFile) {
+            const packages = {}
+            if (existsSync('packages')) {
+              for (const entry of readdirSync('packages', { withFileTypes: true })) {
+                if (!entry.isDirectory())
+                  continue
+
+                const packageDir = join('packages', entry.name)
+                if (!existsSync(join(packageDir, 'package.json')))
+                  continue
+
+                const measured = measurePackage(packageDir)
+                packages[measured.name] = { files: measured.files }
+              }
+            }
+
+            writeFileSync(outputFile, `${JSON.stringify({ packages }, null, 2)}\n`)
+          }
+
+          function formatBytes(value) {
+            const units = ['B', 'kB', 'MB', 'GB']
+            let amount = value
+            let unit = 0
+
+            while (amount >= 1024 && unit < units.length - 1) {
+              amount /= 1024
+              unit++
+            }
+
+            return `${unit === 0 || amount >= 100 ? amount.toFixed(0) : amount.toFixed(1)} ${units[unit]}`
+          }
+
+          function formatSignedBytes(value) {
+            if (value === 0)
+              return '±0 B'
+            return `${value > 0 ? '+' : '-'}${formatBytes(Math.abs(value))}`
+          }
+
+          function formatAfterMetric(after, before) {
+            if (before === undefined)
+              return `${formatBytes(after)} (new, N/A)`
+
+            const delta = after - before
+            const rate = before === 0
+              ? 'N/A'
+              : `${delta > 0 ? '+' : ''}${(delta * 100 / before).toFixed(1)}%`
+            return `${formatBytes(after)} (${formatSignedBytes(delta)}, ${rate})`
+          }
+
+          function formatBeforeMetric(value) {
+            return formatBytes(value)
+          }
+
+          function packageNames(before, after) {
+            const preferred = ['antdv-next', '@antdv-next/cssinjs']
+            const names = new Set([
+              ...Object.keys(before.packages),
+              ...Object.keys(after.packages),
+            ])
+
+            return [...names].sort((a, b) => {
+              const aIndex = preferred.indexOf(a)
+              const bIndex = preferred.indexOf(b)
+              if (aIndex !== -1 || bIndex !== -1)
+                return (aIndex === -1 ? preferred.length : aIndex) - (bIndex === -1 ? preferred.length : bIndex)
+              return a.localeCompare(b)
+            })
+          }
+
+          function hasChanged(beforeFile, afterFile) {
+            if (!beforeFile || !afterFile)
+              return Boolean(beforeFile || afterFile)
+
+            return beforeFile.size !== afterFile.size
+              || beforeFile.gzip !== afterFile.gzip
+              || beforeFile.brotli !== afterFile.brotli
+          }
+
+          function buildReport(before, after, onlyChanged = false) {
+            const lines = ['Size Report', '---', '']
+
+            if (onlyChanged) {
+              lines.push('Only changed, added, or deleted files are shown because the full report is too large for one PR comment.', '')
+            }
+
+            for (const packageName of packageNames(before, after)) {
+              const beforeFiles = before.packages[packageName]?.files ?? {}
+              const afterFiles = after.packages[packageName]?.files ?? {}
+              const allFiles = [...new Set([
+                ...Object.keys(afterFiles),
+                ...Object.keys(beforeFiles),
+              ])].sort()
+              const files = onlyChanged
+                ? allFiles.filter(file => hasChanged(beforeFiles[file], afterFiles[file]))
+                : allFiles
+
+              lines.push(`Package: ${packageName}`)
+              lines.push('after                                      | before')
+              lines.push('files|size|gzip|brotli                    | files|size|gzip|brotli')
+
+              if (files.length === 0) {
+                lines.push(onlyChanged ? 'No changed files' : '—|—|—|—                                 | —|—|—|—')
+              }
+              else {
+                for (const file of files) {
+                  const afterFile = afterFiles[file]
+                  const beforeFile = beforeFiles[file]
+                  const afterFields = afterFile
+                    ? [
+                        beforeFile ? file : `${file} (new)`,
+                        formatAfterMetric(afterFile.size, beforeFile?.size),
+                        formatAfterMetric(afterFile.gzip, beforeFile?.gzip),
+                        formatAfterMetric(afterFile.brotli, beforeFile?.brotli),
+                      ]
+                    : ['—', '—', '—', '—']
+                  const beforeFields = beforeFile
+                    ? [
+                        afterFile ? file : `${file} (deleted)`,
+                        formatBeforeMetric(beforeFile.size),
+                        formatBeforeMetric(beforeFile.gzip),
+                        formatBeforeMetric(beforeFile.brotli),
+                      ]
+                    : ['—', '—', '—', '—']
+
+                  lines.push(`${afterFields.join('|')} | ${beforeFields.join('|')}`)
+                }
+              }
+
+              lines.push('')
+            }
+
+            // Keep the marker hidden while allowing later runs to update one comment.
+            lines.push('<!-- size-report -->')
+            return `${lines.join('\n')}\n`
+          }
+
+          function writeReport(beforeFile, afterFile, outputFile) {
+            const before = JSON.parse(readFileSync(beforeFile, 'utf8'))
+            const after = JSON.parse(readFileSync(afterFile, 'utf8'))
+            const fullReport = buildReport(before, after)
+            const report = Buffer.byteLength(fullReport, 'utf8') <= MAX_COMMENT_BYTES
+              ? fullReport
+              : buildReport(before, after, true)
+
+            if (Buffer.byteLength(report, 'utf8') > MAX_COMMENT_BYTES)
+              throw new Error('Changed file size report is too large to publish as one PR comment')
+
+            writeFileSync(outputFile, report)
+          }
+
+          if (command === 'measure') {
+            measureWorkspace(firstArg)
+          }
+          else if (command === 'report') {
+            writeReport(firstArg, secondArg, thirdArg)
+          }
+          else {
+            throw new Error('Usage: measure <output.json> or report <before.json> <after.json> <output.md>')
+          }
+          MEOF
+
+      - name: Install PR head dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build PR head packages
+        run: |
+          rm -rf packages/*/dist
+          pnpm -r --filter "./packages/*" run build
+
+      - name: Measure PR head
+        run: node /tmp/size-report.mjs measure /tmp/size-after.json
+
+      # Re-checkout the exact target-branch commit. The two builds are isolated
+      # by clearing dist so stale files cannot affect the comparison.
+      - name: Checkout PR base
+        uses: actions/checkout@v7
+        with:
+          repository: ${{ github.repository }}
+          ref: ${{ github.event.pull_request.base.sha }}
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Install PR base dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build PR base packages
+        run: |
+          rm -rf packages/*/dist
+          pnpm -r --filter "./packages/*" run build
+
+      - name: Measure PR base
+        run: node /tmp/size-report.mjs measure /tmp/size-before.json
+
+      - name: Generate PR size report
+        run: node /tmp/size-report.mjs report /tmp/size-before.json /tmp/size-after.json /tmp/size-report.md
+
+      - name: Publish PR comment
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+
+          comment_id=$(gh api "repos/${REPOSITORY}/issues/${PR_NUMBER}/comments" \
+            --paginate \
+            --jq '.[] | select((.body // "") | contains("<!-- size-report -->")) | .id' \
+            | head -n1 || true)
+
+          if [ -n "$comment_id" ]; then
+            gh api --method PATCH "repos/${REPOSITORY}/issues/comments/${comment_id}" \
+              -F "body=@/tmp/size-report.md" > /dev/null
+          else
+            gh api --method POST "repos/${REPOSITORY}/issues/${PR_NUMBER}/comments" \
+              -F "body=@/tmp/size-report.md" > /dev/null
+          fi
