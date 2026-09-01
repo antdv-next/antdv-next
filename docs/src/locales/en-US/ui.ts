@@ -70,4 +70,10 @@ export default {
     okText: 'Switch Now',
     cancelText: 'Stay Here',
   },
+
+  notFound: {
+    title: '404',
+    subTitle: 'Sorry, the page you visited does not exist.',
+    backHome: 'Back Home',
+  },
 } as const
