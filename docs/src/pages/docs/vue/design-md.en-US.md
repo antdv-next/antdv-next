@@ -5,6 +5,10 @@ tag: New
 
 `design.md` is a design language description file following the [google-labs-code/design.md](https://github.com/google-labs-code/design.md) specification. It is intended for AI design tools such as Figma Make and Google Stitch, giving them a structured understanding of the antdv-next default Light theme — visual language, component patterns, and theme Tokens — so generated UIs match the library out of the box.
 
+## Where It Comes From
+
+`design.md` is generated from the component library's theme Tokens by the [`@antdv-next/cli`](https://github.com/antdv-next/cli) tooling (`scripts/tokens.ts` extracts Tokens, `antdv design.md` outputs the file). The published file is the single source of truth for both the CLI and this site.
+
 ## Where to Get It
 
 The file is available from multiple sources:
@@ -23,47 +27,45 @@ The front matter of `design.md` carries machine-readable tokens. Key values of t
 
 | Token | Value | Usage |
 | --- | --- | --- |
-| `colorPrimary` | `#1677ff` | Brand color for primary actions, links, focus states |
-| `colorSuccess` | `#52c41a` | Success feedback |
-| `colorWarning` | `#faad14` | Warning feedback |
-| `colorError` | `#ff4d4f` | Error feedback |
-| `colorInfo` | `#1677ff` | Neutral information |
-| `colorText` | `rgba(0, 0, 0, 0.88)` | Primary text |
-| `colorTextSecondary` | `rgba(0, 0, 0, 0.65)` | Secondary text |
-| `colorTextTertiary` | `rgba(0, 0, 0, 0.45)` | Tertiary text, placeholders |
-| `colorBorder` | `#d9d9d9` | Default borders |
-| `colorBorderSecondary` | `#f0f0f0` | Lighter borders, dividers |
-| `colorBgContainer` | `#ffffff` | Container backgrounds |
-| `colorBgLayout` | `#f5f5f5` | Page background |
-| `colorFillSecondary` | `rgba(0, 0, 0, 0.06)` | Hover fills |
+| `primary` | `#1677FF` | Brand color for primary actions, links, focus states |
+| `success` / `warning` / `error` / `info` | `#52C41A` / `#FAAD14` / `#FF4D4F` / `#1677FF` | Semantic feedback colors |
+| `surface` | `#FFFFFF` | Container surfaces (buttons, inputs, cards) |
+| `surface-container` | `#FAFAFA` | Muted containers: table headers, tags, hovers |
+| `surface-layout` | `#F5F5F5` | Page background |
+| `on-surface` | `#1F1F1F` | Primary text on surfaces |
+| `on-surface-variant` | `#595959` | Secondary text |
+| `on-surface-disabled` | `#BFBFBF` | Disabled text |
+| `outline` | `#D9D9D9` | Default borders |
+| `outline-variant` | `#F0F0F0` | Lighter borders, dividers |
 
 ### Typography
 
 | Token | Value |
 | --- | --- |
-| `fontFamily` | `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'` |
+| `fontFamily` | `-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif` |
 | `fontFamilyCode` | `'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace` |
-| `fontSize` | `14px` |
+| `display-lg` → `body-sm` | `38px` → `12px` scale (headings `600` weight, body `400`) |
 
 ### Shapes, Spacing & Size
 
 | Token | Value |
 | --- | --- |
-| `borderRadius` | `6px` (SM `4px`, LG `8px`) |
-| `sizeUnit` / `sizeStep` | `4px` spacing grid |
-| `controlHeight` | `32px` default control height |
+| `rounded` | `none 0 / sm 2 / md 4 / DEFAULT 6 / lg 8 / xl 16 / full 9999px` |
+| `spacing.unit` | `4px` grid (`xs 4 / sm 8 / md 16 / lg 24 / xl 32`) |
+| `control-height` | `32px` default control height |
 
 ## Component Patterns
 
 `design.md` also describes the component layer of the design system — how Tokens combine into recurring UI patterns:
 
-- **Button (primary)** — `#1677ff` background, white text, `6px` radius, `32px` height; hover `#4096ff`, active `#0958d9`
-- **Button (default)** — white background, `rgba(0, 0, 0, 0.88)` text, `#d9d9d9` border
-- **Input / Select** — white background, `#d9d9d9` border, `6px` radius, `32px` height, focus border `#1677ff` with `2px` outline
-- **Card** — white background, `#f0f0f0` border, `8px` radius, `24px` padding
-- **Modal / Drawer** — elevated white surface, `8px` radius, `box-shadow` elevation
-- **Tag** — `4px` radius, subtle fill from the semantic color scale
-- **Table** — `#fafafa` header background, row hover `rgba(0, 0, 0, 0.04)`, divider `#f0f0f0`
+- **Button (primary)** — `#1677FF` background, white text, `6px` radius, `32px` height, `0 15px` padding; hover `#4096FF`, active `#0958D9`
+- **Button (default)** — `surface` background, `on-surface` text
+- **Input / Select** — `surface` background, `32px` height, `6px` radius; focus `#4096FF` border
+- **Card** — `surface` background, `8px` radius, `24px` padding
+- **Modal** — `surface` background, `8px` radius, `20px 24px` padding
+- **Tag** — `surface-container` background, `4px` radius, `0 7px` padding, `12px` text
+- **Table header** — `surface-container` background, `600` weight `14px` text, `16px` padding
+- **Menu selected** — `#E6F4FF` background with primary text
 
 ## Validation
 
