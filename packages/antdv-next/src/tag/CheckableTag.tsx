@@ -71,9 +71,11 @@ const CheckableTag = defineComponent<
       }
       if (e.key === ' ') {
         e.preventDefault()
-        const checked = !props.checked
-        emit('change', checked)
-        emit('update:checked', checked)
+        if (!e.repeat) {
+          const checked = !props.checked
+          emit('change', checked)
+          emit('update:checked', checked)
+        }
       }
     }
     const [hashId, cssVarCls] = useStyle(prefixCls)
