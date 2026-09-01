@@ -154,6 +154,13 @@ jobs:
             return formatBytes(value)
           }
 
+          function formatTableRow(fields) {
+            const escapedFields = fields.map(field => String(field)
+              .replaceAll('|', '\\|')
+              .replace(/\r?\n/g, '<br>'))
+            return `| ${escapedFields.join(' | ')} |`
+          }
+
           function packageNames(before, after) {
             const preferred = ['antdv-next', '@antdv-next/cssinjs']
             const names = new Set([
@@ -197,12 +204,21 @@ jobs:
                 ? allFiles.filter(file => hasChanged(beforeFiles[file], afterFiles[file]))
                 : allFiles
 
-              lines.push(`Package: ${packageName}`)
-              lines.push('after                                      | before')
-              lines.push('files|size|gzip|brotli                    | files|size|gzip|brotli')
+              lines.push(`### Package: \`${packageName}\``)
+              lines.push('| After file | Size | Gzip | Brotli | Before file | Size | Gzip | Brotli |')
+              lines.push('| --- | ---: | ---: | ---: | --- | ---: | ---: | ---: |')
 
               if (files.length === 0) {
-                lines.push(onlyChanged ? 'No changed files' : '—|—|—|—                                 | —|—|—|—')
+                lines.push(formatTableRow([
+                  onlyChanged ? 'No changed files' : 'No files',
+                  '—',
+                  '—',
+                  '—',
+                  '—',
+                  '—',
+                  '—',
+                  '—',
+                ]))
               }
               else {
                 for (const file of files) {
@@ -225,7 +241,7 @@ jobs:
                       ]
                     : ['—', '—', '—', '—']
 
-                  lines.push(`${afterFields.join('|')} | ${beforeFields.join('|')}`)
+                  lines.push(formatTableRow([...afterFields, ...beforeFields]))
                 }
               }
 
