@@ -29,7 +29,7 @@ exports[`menu demo > renders _semantic correctly 1`] = `
           >
             <!---->
             <label
-              class="ant-segmented-item ant-segmented-item-selected"
+              class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
             >
               <input
                 checked=""
@@ -89,7 +89,7 @@ exports[`menu demo > renders _semantic correctly 1`] = `
             <!---->
             <li
               class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected semantic-mark-item"
-              data-menu-id="vc-menu-uuid-mail"
+              data-menu-id="vc-menu-uuid-test-id-mail"
               label="Navigation One"
               role="menuitem"
               style="opacity: 1; order: 0;"
@@ -128,7 +128,7 @@ exports[`menu demo > renders _semantic correctly 1`] = `
               style="opacity: 1; order: 1;"
             >
               <div
-                aria-controls="vc-menu-uuid-SubMenu-popup"
+                aria-controls="vc-menu-uuid-test-id-SubMenu-popup"
                 aria-disabled="false"
                 aria-expanded="false"
                 aria-haspopup="true"
@@ -173,12 +173,12 @@ exports[`menu demo > renders _semantic correctly 1`] = `
               style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none; position: absolute;"
             >
               <div
-                aria-controls="vc-menu-uuid-vc-menu-more-popup"
+                aria-controls="vc-menu-uuid-test-id-vc-menu-more-popup"
                 aria-disabled="false"
                 aria-expanded="false"
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
-                data-menu-id="vc-menu-uuid-vc-menu-more"
+                data-menu-id="vc-menu-uuid-test-id-vc-menu-more"
                 role="menuitem"
                 tabindex="-1"
                 title="..."
@@ -1452,7 +1452,7 @@ exports[`menu demo > renders custom-popup-render correctly 1`] = `
     <!---->
     <li
       class="ant-menu-overflow-item ant-menu-item ant-menu-item-only-child"
-      data-menu-id="vc-menu-uuid-home"
+      data-menu-id="vc-menu-uuid-test-id-home"
       label="Home"
       role="menuitem"
       style="opacity: 1; order: 0;"
@@ -1473,7 +1473,7 @@ exports[`menu demo > renders custom-popup-render correctly 1`] = `
       style="opacity: 1; order: 1;"
     >
       <div
-        aria-controls="vc-menu-uuid-features-popup"
+        aria-controls="vc-menu-uuid-test-id-features-popup"
         aria-disabled="false"
         aria-expanded="false"
         aria-haspopup="true"
@@ -1498,7 +1498,7 @@ exports[`menu demo > renders custom-popup-render correctly 1`] = `
       style="opacity: 1; order: 2;"
     >
       <div
-        aria-controls="vc-menu-uuid-resources-popup"
+        aria-controls="vc-menu-uuid-test-id-resources-popup"
         aria-disabled="false"
         aria-expanded="false"
         aria-haspopup="true"
@@ -1524,12 +1524,12 @@ exports[`menu demo > renders custom-popup-render correctly 1`] = `
       style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none; position: absolute;"
     >
       <div
-        aria-controls="vc-menu-uuid-vc-menu-more-popup"
+        aria-controls="vc-menu-uuid-test-id-vc-menu-more-popup"
         aria-disabled="false"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="vc-menu-uuid-vc-menu-more"
+        data-menu-id="vc-menu-uuid-test-id-vc-menu-more"
         role="menuitem"
         tabindex="-1"
         title="..."
@@ -1572,7 +1572,7 @@ exports[`menu demo > renders horizontal correctly 1`] = `
     <!---->
     <li
       class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected"
-      data-menu-id="vc-menu-uuid-mail"
+      data-menu-id="vc-menu-uuid-test-id-mail"
       label="Navigation One"
       role="menuitem"
       style="opacity: 1; order: 0;"
@@ -1645,7 +1645,7 @@ exports[`menu demo > renders horizontal correctly 1`] = `
       style="opacity: 1; order: 2;"
     >
       <div
-        aria-controls="vc-menu-uuid-SubMenu-popup"
+        aria-controls="vc-menu-uuid-test-id-SubMenu-popup"
         aria-disabled="false"
         aria-expanded="false"
         aria-haspopup="true"
@@ -1712,12 +1712,12 @@ exports[`menu demo > renders horizontal correctly 1`] = `
       style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none; position: absolute;"
     >
       <div
-        aria-controls="vc-menu-uuid-vc-menu-more-popup"
+        aria-controls="vc-menu-uuid-test-id-vc-menu-more-popup"
         aria-disabled="false"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="vc-menu-uuid-vc-menu-more"
+        data-menu-id="vc-menu-uuid-test-id-vc-menu-more"
         role="menuitem"
         tabindex="-1"
         title="..."
@@ -1761,7 +1761,7 @@ exports[`menu demo > renders horizontal-dark correctly 1`] = `
     <!---->
     <li
       class="ant-menu-overflow-item ant-menu-item ant-menu-item-selected"
-      data-menu-id="vc-menu-uuid-mail"
+      data-menu-id="vc-menu-uuid-test-id-mail"
       label="Navigation One"
       role="menuitem"
       style="opacity: 1; order: 0;"
@@ -1834,7 +1834,7 @@ exports[`menu demo > renders horizontal-dark correctly 1`] = `
       style="opacity: 1; order: 2;"
     >
       <div
-        aria-controls="vc-menu-uuid-SubMenu-popup"
+        aria-controls="vc-menu-uuid-test-id-SubMenu-popup"
         aria-disabled="false"
         aria-expanded="false"
         aria-haspopup="true"
@@ -1901,12 +1901,12 @@ exports[`menu demo > renders horizontal-dark correctly 1`] = `
       style="opacity: 0; height: 0px; overflow-y: hidden; order: 9007199254740991; pointer-events: none; position: absolute;"
     >
       <div
-        aria-controls="vc-menu-uuid-vc-menu-more-popup"
+        aria-controls="vc-menu-uuid-test-id-vc-menu-more-popup"
         aria-disabled="false"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="vc-menu-uuid-vc-menu-more"
+        data-menu-id="vc-menu-uuid-test-id-vc-menu-more"
         role="menuitem"
         tabindex="-1"
         title="..."
@@ -1954,12 +1954,12 @@ exports[`menu demo > renders inline correctly 1`] = `
       role="none"
     >
       <div
-        aria-controls="vc-menu-uuid-sub1-popup"
+        aria-controls="vc-menu-uuid-test-id-sub1-popup"
         aria-disabled="false"
         aria-expanded="true"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="vc-menu-uuid-sub1"
+        data-menu-id="vc-menu-uuid-test-id-sub1"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -2008,7 +2008,7 @@ exports[`menu demo > renders inline correctly 1`] = `
         <ul
           class="ant-menu ant-menu-sub ant-menu-inline"
           data-menu-list="true"
-          id="vc-menu-uuid-sub1-popup"
+          id="vc-menu-uuid-test-id-sub1-popup"
           role="menu"
         >
           <li
@@ -2028,7 +2028,7 @@ exports[`menu demo > renders inline correctly 1`] = `
             >
               <li
                 class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
-                data-menu-id="vc-menu-uuid-1"
+                data-menu-id="vc-menu-uuid-test-id-1"
                 label="Option 1"
                 role="menuitem"
                 style="padding-left: 48px;"
@@ -2045,7 +2045,7 @@ exports[`menu demo > renders inline correctly 1`] = `
               <!---->
               <li
                 class="ant-menu-item ant-menu-item-only-child"
-                data-menu-id="vc-menu-uuid-2"
+                data-menu-id="vc-menu-uuid-test-id-2"
                 label="Option 2"
                 role="menuitem"
                 style="padding-left: 48px;"
@@ -2079,7 +2079,7 @@ exports[`menu demo > renders inline correctly 1`] = `
             >
               <li
                 class="ant-menu-item ant-menu-item-only-child"
-                data-menu-id="vc-menu-uuid-3"
+                data-menu-id="vc-menu-uuid-test-id-3"
                 label="Option 3"
                 role="menuitem"
                 style="padding-left: 48px;"
@@ -2096,7 +2096,7 @@ exports[`menu demo > renders inline correctly 1`] = `
               <!---->
               <li
                 class="ant-menu-item ant-menu-item-only-child"
-                data-menu-id="vc-menu-uuid-4"
+                data-menu-id="vc-menu-uuid-test-id-4"
                 label="Option 4"
                 role="menuitem"
                 style="padding-left: 48px;"
@@ -2121,12 +2121,12 @@ exports[`menu demo > renders inline correctly 1`] = `
       role="none"
     >
       <div
-        aria-controls="vc-menu-uuid-sub2-popup"
+        aria-controls="vc-menu-uuid-test-id-sub2-popup"
         aria-disabled="false"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="vc-menu-uuid-sub2"
+        data-menu-id="vc-menu-uuid-test-id-sub2"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -2185,12 +2185,12 @@ exports[`menu demo > renders inline correctly 1`] = `
       role="none"
     >
       <div
-        aria-controls="vc-menu-uuid-sub4-popup"
+        aria-controls="vc-menu-uuid-test-id-sub4-popup"
         aria-disabled="false"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="vc-menu-uuid-sub4"
+        data-menu-id="vc-menu-uuid-test-id-sub4"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -2256,7 +2256,7 @@ exports[`menu demo > renders inline correctly 1`] = `
       >
         <li
           class="ant-menu-item ant-menu-item-only-child"
-          data-menu-id="vc-menu-uuid-13"
+          data-menu-id="vc-menu-uuid-test-id-13"
           label="Option 13"
           role="menuitem"
           style="padding-left: 24px;"
@@ -2273,7 +2273,7 @@ exports[`menu demo > renders inline correctly 1`] = `
         <!---->
         <li
           class="ant-menu-item ant-menu-item-only-child"
-          data-menu-id="vc-menu-uuid-14"
+          data-menu-id="vc-menu-uuid-test-id-14"
           label="Option 14"
           role="menuitem"
           style="padding-left: 24px;"
@@ -2370,7 +2370,7 @@ exports[`menu demo > renders inline-collapsed correctly 1`] = `
     <!---->
     <li
       class="ant-menu-item ant-menu-item-selected"
-      data-menu-id="vc-menu-uuid-1"
+      data-menu-id="vc-menu-uuid-test-id-1"
       label="Option 1"
       role="menuitem"
       style="padding-left: 24px;"
@@ -2405,7 +2405,7 @@ exports[`menu demo > renders inline-collapsed correctly 1`] = `
     <!---->
     <li
       class="ant-menu-item"
-      data-menu-id="vc-menu-uuid-2"
+      data-menu-id="vc-menu-uuid-test-id-2"
       label="Option 2"
       role="menuitem"
       style="padding-left: 24px;"
@@ -2440,7 +2440,7 @@ exports[`menu demo > renders inline-collapsed correctly 1`] = `
     <!---->
     <li
       class="ant-menu-item"
-      data-menu-id="vc-menu-uuid-3"
+      data-menu-id="vc-menu-uuid-test-id-3"
       label="Option 3"
       role="menuitem"
       style="padding-left: 24px;"
@@ -2478,12 +2478,12 @@ exports[`menu demo > renders inline-collapsed correctly 1`] = `
       role="none"
     >
       <div
-        aria-controls="vc-menu-uuid-sub1-popup"
+        aria-controls="vc-menu-uuid-test-id-sub1-popup"
         aria-disabled="false"
         aria-expanded="true"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="vc-menu-uuid-sub1"
+        data-menu-id="vc-menu-uuid-test-id-sub1"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -2532,12 +2532,12 @@ exports[`menu demo > renders inline-collapsed correctly 1`] = `
         <ul
           class="ant-menu ant-menu-sub ant-menu-inline"
           data-menu-list="true"
-          id="vc-menu-uuid-sub1-popup"
+          id="vc-menu-uuid-test-id-sub1-popup"
           role="menu"
         >
           <li
             class="ant-menu-item ant-menu-item-only-child"
-            data-menu-id="vc-menu-uuid-5"
+            data-menu-id="vc-menu-uuid-test-id-5"
             label="Option 5"
             role="menuitem"
             style="padding-left: 48px;"
@@ -2554,7 +2554,7 @@ exports[`menu demo > renders inline-collapsed correctly 1`] = `
           <!---->
           <li
             class="ant-menu-item ant-menu-item-only-child"
-            data-menu-id="vc-menu-uuid-6"
+            data-menu-id="vc-menu-uuid-test-id-6"
             label="Option 6"
             role="menuitem"
             style="padding-left: 48px;"
@@ -2571,7 +2571,7 @@ exports[`menu demo > renders inline-collapsed correctly 1`] = `
           <!---->
           <li
             class="ant-menu-item ant-menu-item-only-child"
-            data-menu-id="vc-menu-uuid-7"
+            data-menu-id="vc-menu-uuid-test-id-7"
             label="Option 7"
             role="menuitem"
             style="padding-left: 48px;"
@@ -2588,7 +2588,7 @@ exports[`menu demo > renders inline-collapsed correctly 1`] = `
           <!---->
           <li
             class="ant-menu-item ant-menu-item-only-child"
-            data-menu-id="vc-menu-uuid-8"
+            data-menu-id="vc-menu-uuid-test-id-8"
             label="Option 8"
             role="menuitem"
             style="padding-left: 48px;"
@@ -2611,12 +2611,12 @@ exports[`menu demo > renders inline-collapsed correctly 1`] = `
       role="none"
     >
       <div
-        aria-controls="vc-menu-uuid-sub2-popup"
+        aria-controls="vc-menu-uuid-test-id-sub2-popup"
         aria-disabled="false"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="vc-menu-uuid-sub2"
+        data-menu-id="vc-menu-uuid-test-id-sub2"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -2836,7 +2836,7 @@ exports[`menu demo > renders sfc correctly 1`] = `
       <!---->
       <li
         class="ant-menu-item ant-menu-item-selected"
-        data-menu-id="vc-menu-uuid-1"
+        data-menu-id="vc-menu-uuid-test-id-1"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -2870,7 +2870,7 @@ exports[`menu demo > renders sfc correctly 1`] = `
       <!---->
       <li
         class="ant-menu-item"
-        data-menu-id="vc-menu-uuid-2"
+        data-menu-id="vc-menu-uuid-test-id-2"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -2907,12 +2907,12 @@ exports[`menu demo > renders sfc correctly 1`] = `
         role="none"
       >
         <div
-          aria-controls="vc-menu-uuid-sub1-popup"
+          aria-controls="vc-menu-uuid-test-id-sub1-popup"
           aria-disabled="false"
           aria-expanded="true"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
-          data-menu-id="vc-menu-uuid-sub1"
+          data-menu-id="vc-menu-uuid-test-id-sub1"
           role="menuitem"
           style="padding-left: 24px;"
           tabindex="-1"
@@ -2961,12 +2961,12 @@ exports[`menu demo > renders sfc correctly 1`] = `
           <ul
             class="ant-menu ant-menu-sub ant-menu-inline"
             data-menu-list="true"
-            id="vc-menu-uuid-sub1-popup"
+            id="vc-menu-uuid-test-id-sub1-popup"
             role="menu"
           >
             <li
               class="ant-menu-item ant-menu-item-only-child"
-              data-menu-id="vc-menu-uuid-3"
+              data-menu-id="vc-menu-uuid-test-id-3"
               role="menuitem"
               style="padding-left: 48px;"
               tabindex="-1"
@@ -2982,7 +2982,7 @@ exports[`menu demo > renders sfc correctly 1`] = `
             <!---->
             <li
               class="ant-menu-item ant-menu-item-only-child"
-              data-menu-id="vc-menu-uuid-4"
+              data-menu-id="vc-menu-uuid-test-id-4"
               role="menuitem"
               style="padding-left: 48px;"
               tabindex="-1"
@@ -3001,12 +3001,12 @@ exports[`menu demo > renders sfc correctly 1`] = `
               role="none"
             >
               <div
-                aria-controls="vc-menu-uuid-sub1-2-popup"
+                aria-controls="vc-menu-uuid-test-id-sub1-2-popup"
                 aria-disabled="false"
                 aria-expanded="false"
                 aria-haspopup="true"
                 class="ant-menu-submenu-title"
-                data-menu-id="vc-menu-uuid-sub1-2"
+                data-menu-id="vc-menu-uuid-test-id-sub1-2"
                 role="menuitem"
                 style="padding-left: 48px;"
                 tabindex="-1"
@@ -3044,12 +3044,12 @@ exports[`menu demo > renders sfc correctly 1`] = `
         role="none"
       >
         <div
-          aria-controls="vc-menu-uuid-sub2-popup"
+          aria-controls="vc-menu-uuid-test-id-sub2-popup"
           aria-disabled="false"
           aria-expanded="false"
           aria-haspopup="true"
           class="ant-menu-submenu-title"
-          data-menu-id="vc-menu-uuid-sub2"
+          data-menu-id="vc-menu-uuid-test-id-sub2"
           role="menuitem"
           style="padding-left: 24px;"
           tabindex="-1"
@@ -3100,7 +3100,7 @@ exports[`menu demo > renders sfc correctly 1`] = `
       </li>
       <li
         class="ant-menu-item"
-        data-menu-id="vc-menu-uuid-link"
+        data-menu-id="vc-menu-uuid-test-id-link"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -3190,12 +3190,12 @@ exports[`menu demo > renders sider-current correctly 1`] = `
       role="none"
     >
       <div
-        aria-controls="vc-menu-uuid-1-popup"
+        aria-controls="vc-menu-uuid-test-id-1-popup"
         aria-disabled="false"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="vc-menu-uuid-1"
+        data-menu-id="vc-menu-uuid-test-id-1"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -3249,12 +3249,12 @@ exports[`menu demo > renders sider-current correctly 1`] = `
       role="none"
     >
       <div
-        aria-controls="vc-menu-uuid-2-popup"
+        aria-controls="vc-menu-uuid-test-id-2-popup"
         aria-disabled="false"
         aria-expanded="true"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="vc-menu-uuid-2"
+        data-menu-id="vc-menu-uuid-test-id-2"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -3303,12 +3303,12 @@ exports[`menu demo > renders sider-current correctly 1`] = `
         <ul
           class="ant-menu ant-menu-sub ant-menu-inline"
           data-menu-list="true"
-          id="vc-menu-uuid-2-popup"
+          id="vc-menu-uuid-test-id-2-popup"
           role="menu"
         >
           <li
             class="ant-menu-item ant-menu-item-only-child"
-            data-menu-id="vc-menu-uuid-21"
+            data-menu-id="vc-menu-uuid-test-id-21"
             label="Option 1"
             role="menuitem"
             style="padding-left: 48px;"
@@ -3325,7 +3325,7 @@ exports[`menu demo > renders sider-current correctly 1`] = `
           <!---->
           <li
             class="ant-menu-item ant-menu-item-only-child"
-            data-menu-id="vc-menu-uuid-22"
+            data-menu-id="vc-menu-uuid-test-id-22"
             label="Option 2"
             role="menuitem"
             style="padding-left: 48px;"
@@ -3345,12 +3345,12 @@ exports[`menu demo > renders sider-current correctly 1`] = `
             role="none"
           >
             <div
-              aria-controls="vc-menu-uuid-23-popup"
+              aria-controls="vc-menu-uuid-test-id-23-popup"
               aria-disabled="false"
               aria-expanded="true"
               aria-haspopup="true"
               class="ant-menu-submenu-title"
-              data-menu-id="vc-menu-uuid-23"
+              data-menu-id="vc-menu-uuid-test-id-23"
               role="menuitem"
               style="padding-left: 48px;"
               tabindex="-1"
@@ -3380,12 +3380,12 @@ exports[`menu demo > renders sider-current correctly 1`] = `
               <ul
                 class="ant-menu ant-menu-sub ant-menu-inline"
                 data-menu-list="true"
-                id="vc-menu-uuid-23-popup"
+                id="vc-menu-uuid-test-id-23-popup"
                 role="menu"
               >
                 <li
                   class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
-                  data-menu-id="vc-menu-uuid-231"
+                  data-menu-id="vc-menu-uuid-test-id-231"
                   label="Option 1"
                   role="menuitem"
                   style="padding-left: 72px;"
@@ -3402,7 +3402,7 @@ exports[`menu demo > renders sider-current correctly 1`] = `
                 <!---->
                 <li
                   class="ant-menu-item ant-menu-item-only-child"
-                  data-menu-id="vc-menu-uuid-232"
+                  data-menu-id="vc-menu-uuid-test-id-232"
                   label="Option 2"
                   role="menuitem"
                   style="padding-left: 72px;"
@@ -3419,7 +3419,7 @@ exports[`menu demo > renders sider-current correctly 1`] = `
                 <!---->
                 <li
                   class="ant-menu-item ant-menu-item-only-child"
-                  data-menu-id="vc-menu-uuid-233"
+                  data-menu-id="vc-menu-uuid-test-id-233"
                   label="Option 3"
                   role="menuitem"
                   style="padding-left: 72px;"
@@ -3442,12 +3442,12 @@ exports[`menu demo > renders sider-current correctly 1`] = `
             role="none"
           >
             <div
-              aria-controls="vc-menu-uuid-24-popup"
+              aria-controls="vc-menu-uuid-test-id-24-popup"
               aria-disabled="false"
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-menu-submenu-title"
-              data-menu-id="vc-menu-uuid-24"
+              data-menu-id="vc-menu-uuid-test-id-24"
               role="menuitem"
               style="padding-left: 48px;"
               tabindex="-1"
@@ -3485,12 +3485,12 @@ exports[`menu demo > renders sider-current correctly 1`] = `
       role="none"
     >
       <div
-        aria-controls="vc-menu-uuid-3-popup"
+        aria-controls="vc-menu-uuid-test-id-3-popup"
         aria-disabled="false"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="vc-menu-uuid-3"
+        data-menu-id="vc-menu-uuid-test-id-3"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -3584,12 +3584,12 @@ exports[`menu demo > renders slot-render correctly 1`] = `
       role="none"
     >
       <div
-        aria-controls="vc-menu-uuid-sub1-popup"
+        aria-controls="vc-menu-uuid-test-id-sub1-popup"
         aria-disabled="false"
         aria-expanded="true"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="vc-menu-uuid-sub1"
+        data-menu-id="vc-menu-uuid-test-id-sub1"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -3645,7 +3645,7 @@ exports[`menu demo > renders slot-render correctly 1`] = `
         <ul
           class="ant-menu ant-menu-sub ant-menu-inline"
           data-menu-list="true"
-          id="vc-menu-uuid-sub1-popup"
+          id="vc-menu-uuid-test-id-sub1-popup"
           role="menu"
         >
           <li
@@ -3669,7 +3669,7 @@ exports[`menu demo > renders slot-render correctly 1`] = `
             >
               <li
                 class="ant-menu-item ant-menu-item-selected"
-                data-menu-id="vc-menu-uuid-1"
+                data-menu-id="vc-menu-uuid-test-id-1"
                 label="Option 1"
                 role="menuitem"
                 style="padding-left: 48px;"
@@ -3729,7 +3729,7 @@ exports[`menu demo > renders slot-render correctly 1`] = `
               <!---->
               <li
                 class="ant-menu-item"
-                data-menu-id="vc-menu-uuid-2"
+                data-menu-id="vc-menu-uuid-test-id-2"
                 label="Option 2"
                 role="menuitem"
                 style="padding-left: 48px;"
@@ -3810,7 +3810,7 @@ exports[`menu demo > renders slot-render correctly 1`] = `
             >
               <li
                 class="ant-menu-item"
-                data-menu-id="vc-menu-uuid-3"
+                data-menu-id="vc-menu-uuid-test-id-3"
                 label="Option 3"
                 role="menuitem"
                 style="padding-left: 48px;"
@@ -3870,7 +3870,7 @@ exports[`menu demo > renders slot-render correctly 1`] = `
               <!---->
               <li
                 class="ant-menu-item"
-                data-menu-id="vc-menu-uuid-4"
+                data-menu-id="vc-menu-uuid-test-id-4"
                 label="Option 4"
                 role="menuitem"
                 style="padding-left: 48px;"
@@ -3938,12 +3938,12 @@ exports[`menu demo > renders slot-render correctly 1`] = `
       role="none"
     >
       <div
-        aria-controls="vc-menu-uuid-sub2-popup"
+        aria-controls="vc-menu-uuid-test-id-sub2-popup"
         aria-disabled="false"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="vc-menu-uuid-sub2"
+        data-menu-id="vc-menu-uuid-test-id-sub2"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -4009,12 +4009,12 @@ exports[`menu demo > renders slot-render correctly 1`] = `
       role="none"
     >
       <div
-        aria-controls="vc-menu-uuid-sub4-popup"
+        aria-controls="vc-menu-uuid-test-id-sub4-popup"
         aria-disabled="false"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="vc-menu-uuid-sub4"
+        data-menu-id="vc-menu-uuid-test-id-sub4"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -4091,7 +4091,7 @@ exports[`menu demo > renders slot-render correctly 1`] = `
       >
         <li
           class="ant-menu-item"
-          data-menu-id="vc-menu-uuid-13"
+          data-menu-id="vc-menu-uuid-test-id-13"
           label="Option 13"
           role="menuitem"
           style="padding-left: 24px;"
@@ -4151,7 +4151,7 @@ exports[`menu demo > renders slot-render correctly 1`] = `
         <!---->
         <li
           class="ant-menu-item"
-          data-menu-id="vc-menu-uuid-14"
+          data-menu-id="vc-menu-uuid-test-id-14"
           label="Option 14"
           role="menuitem"
           style="padding-left: 24px;"
@@ -4255,12 +4255,12 @@ exports[`menu demo > renders style-class correctly 1`] = `
       role="none"
     >
       <div
-        aria-controls="vc-menu-uuid-SubMenu-popup"
+        aria-controls="vc-menu-uuid-test-id-SubMenu-popup"
         aria-disabled="false"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="vc-menu-uuid-SubMenu"
+        data-menu-id="vc-menu-uuid-test-id-SubMenu"
         role="menuitem"
         tabindex="-1"
       >
@@ -4278,7 +4278,7 @@ exports[`menu demo > renders style-class correctly 1`] = `
     </li>
     <li
       class="ant-menu-item _item_7a0174 ant-menu-item-only-child"
-      data-menu-id="vc-menu-uuid-mail"
+      data-menu-id="vc-menu-uuid-test-id-mail"
       label="Navigation Two"
       role="menuitem"
       style="color: rgb(22, 119, 255);"
@@ -4318,12 +4318,12 @@ exports[`menu demo > renders style-class correctly 1`] = `
       role="none"
     >
       <div
-        aria-controls="vc-menu-uuid-SubMenu-popup"
+        aria-controls="vc-menu-uuid-test-id-SubMenu-popup"
         aria-disabled="false"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="vc-menu-uuid-SubMenu"
+        data-menu-id="vc-menu-uuid-test-id-SubMenu"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -4355,7 +4355,7 @@ exports[`menu demo > renders style-class correctly 1`] = `
     </li>
     <li
       class="ant-menu-item _item_7a0174 ant-menu-item-only-child"
-      data-menu-id="vc-menu-uuid-mail"
+      data-menu-id="vc-menu-uuid-test-id-mail"
       label="Navigation Two"
       role="menuitem"
       style="padding-left: 24px;"
@@ -4429,12 +4429,12 @@ exports[`menu demo > renders submenu-theme correctly 1`] = `
       role="none"
     >
       <div
-        aria-controls="vc-menu-uuid-sub1-popup"
+        aria-controls="vc-menu-uuid-test-id-sub1-popup"
         aria-disabled="false"
         aria-expanded="true"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="vc-menu-uuid-sub1"
+        data-menu-id="vc-menu-uuid-test-id-sub1"
         role="menuitem"
         tabindex="-1"
       >
@@ -4471,7 +4471,7 @@ exports[`menu demo > renders submenu-theme correctly 1`] = `
     </li>
     <li
       class="ant-menu-item ant-menu-item-only-child"
-      data-menu-id="vc-menu-uuid-5"
+      data-menu-id="vc-menu-uuid-test-id-5"
       label="Option 5"
       role="menuitem"
       tabindex="-1"
@@ -4487,7 +4487,7 @@ exports[`menu demo > renders submenu-theme correctly 1`] = `
     <!---->
     <li
       class="ant-menu-item ant-menu-item-only-child"
-      data-menu-id="vc-menu-uuid-6"
+      data-menu-id="vc-menu-uuid-test-id-6"
       label="Option 6"
       role="menuitem"
       tabindex="-1"
@@ -4596,7 +4596,7 @@ exports[`menu demo > renders switch-mode correctly 1`] = `
     <!---->
     <li
       class="ant-menu-item ant-menu-item-selected"
-      data-menu-id="vc-menu-uuid-1"
+      data-menu-id="vc-menu-uuid-test-id-1"
       label="Navigation One"
       role="menuitem"
       style="padding-left: 24px;"
@@ -4631,7 +4631,7 @@ exports[`menu demo > renders switch-mode correctly 1`] = `
     <!---->
     <li
       class="ant-menu-item"
-      data-menu-id="vc-menu-uuid-2"
+      data-menu-id="vc-menu-uuid-test-id-2"
       label="Navigation Two"
       role="menuitem"
       style="padding-left: 24px;"
@@ -4669,12 +4669,12 @@ exports[`menu demo > renders switch-mode correctly 1`] = `
       role="none"
     >
       <div
-        aria-controls="vc-menu-uuid-sub1-popup"
+        aria-controls="vc-menu-uuid-test-id-sub1-popup"
         aria-disabled="false"
         aria-expanded="true"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="vc-menu-uuid-sub1"
+        data-menu-id="vc-menu-uuid-test-id-sub1"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -4723,12 +4723,12 @@ exports[`menu demo > renders switch-mode correctly 1`] = `
         <ul
           class="ant-menu ant-menu-sub ant-menu-inline"
           data-menu-list="true"
-          id="vc-menu-uuid-sub1-popup"
+          id="vc-menu-uuid-test-id-sub1-popup"
           role="menu"
         >
           <li
             class="ant-menu-item ant-menu-item-only-child"
-            data-menu-id="vc-menu-uuid-3"
+            data-menu-id="vc-menu-uuid-test-id-3"
             label="Option 3"
             role="menuitem"
             style="padding-left: 48px;"
@@ -4745,7 +4745,7 @@ exports[`menu demo > renders switch-mode correctly 1`] = `
           <!---->
           <li
             class="ant-menu-item ant-menu-item-only-child"
-            data-menu-id="vc-menu-uuid-4"
+            data-menu-id="vc-menu-uuid-test-id-4"
             label="Option 4"
             role="menuitem"
             style="padding-left: 48px;"
@@ -4765,12 +4765,12 @@ exports[`menu demo > renders switch-mode correctly 1`] = `
             role="none"
           >
             <div
-              aria-controls="vc-menu-uuid-sub1-2-popup"
+              aria-controls="vc-menu-uuid-test-id-sub1-2-popup"
               aria-disabled="false"
               aria-expanded="false"
               aria-haspopup="true"
               class="ant-menu-submenu-title"
-              data-menu-id="vc-menu-uuid-sub1-2"
+              data-menu-id="vc-menu-uuid-test-id-sub1-2"
               role="menuitem"
               style="padding-left: 48px;"
               tabindex="-1"
@@ -4808,12 +4808,12 @@ exports[`menu demo > renders switch-mode correctly 1`] = `
       role="none"
     >
       <div
-        aria-controls="vc-menu-uuid-sub2-popup"
+        aria-controls="vc-menu-uuid-test-id-sub2-popup"
         aria-disabled="false"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="vc-menu-uuid-sub2"
+        data-menu-id="vc-menu-uuid-test-id-sub2"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -4864,7 +4864,7 @@ exports[`menu demo > renders switch-mode correctly 1`] = `
     </li>
     <li
       class="ant-menu-item"
-      data-menu-id="vc-menu-uuid-link"
+      data-menu-id="vc-menu-uuid-test-id-link"
       label="[object Object]"
       role="menuitem"
       style="padding-left: 24px;"
@@ -4972,12 +4972,12 @@ exports[`menu demo > renders theme correctly 1`] = `
       role="none"
     >
       <div
-        aria-controls="vc-menu-uuid-sub1-popup"
+        aria-controls="vc-menu-uuid-test-id-sub1-popup"
         aria-disabled="false"
         aria-expanded="true"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="vc-menu-uuid-sub1"
+        data-menu-id="vc-menu-uuid-test-id-sub1"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -5026,12 +5026,12 @@ exports[`menu demo > renders theme correctly 1`] = `
         <ul
           class="ant-menu ant-menu-sub ant-menu-inline"
           data-menu-list="true"
-          id="vc-menu-uuid-sub1-popup"
+          id="vc-menu-uuid-test-id-sub1-popup"
           role="menu"
         >
           <li
             class="ant-menu-item ant-menu-item-selected ant-menu-item-only-child"
-            data-menu-id="vc-menu-uuid-1"
+            data-menu-id="vc-menu-uuid-test-id-1"
             label="Option 1"
             role="menuitem"
             style="padding-left: 48px;"
@@ -5048,7 +5048,7 @@ exports[`menu demo > renders theme correctly 1`] = `
           <!---->
           <li
             class="ant-menu-item ant-menu-item-only-child"
-            data-menu-id="vc-menu-uuid-2"
+            data-menu-id="vc-menu-uuid-test-id-2"
             label="Option 2"
             role="menuitem"
             style="padding-left: 48px;"
@@ -5065,7 +5065,7 @@ exports[`menu demo > renders theme correctly 1`] = `
           <!---->
           <li
             class="ant-menu-item ant-menu-item-only-child"
-            data-menu-id="vc-menu-uuid-3"
+            data-menu-id="vc-menu-uuid-test-id-3"
             label="Option 3"
             role="menuitem"
             style="padding-left: 48px;"
@@ -5082,7 +5082,7 @@ exports[`menu demo > renders theme correctly 1`] = `
           <!---->
           <li
             class="ant-menu-item ant-menu-item-only-child"
-            data-menu-id="vc-menu-uuid-4"
+            data-menu-id="vc-menu-uuid-test-id-4"
             label="Option 4"
             role="menuitem"
             style="padding-left: 48px;"
@@ -5105,12 +5105,12 @@ exports[`menu demo > renders theme correctly 1`] = `
       role="none"
     >
       <div
-        aria-controls="vc-menu-uuid-sub2-popup"
+        aria-controls="vc-menu-uuid-test-id-sub2-popup"
         aria-disabled="false"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="vc-menu-uuid-sub2"
+        data-menu-id="vc-menu-uuid-test-id-sub2"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -5164,12 +5164,12 @@ exports[`menu demo > renders theme correctly 1`] = `
       role="none"
     >
       <div
-        aria-controls="vc-menu-uuid-sub4-popup"
+        aria-controls="vc-menu-uuid-test-id-sub4-popup"
         aria-disabled="false"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="vc-menu-uuid-sub4"
+        data-menu-id="vc-menu-uuid-test-id-sub4"
         role="menuitem"
         style="padding-left: 24px;"
         tabindex="-1"
@@ -5259,12 +5259,12 @@ exports[`menu demo > renders vertical correctly 1`] = `
       role="none"
     >
       <div
-        aria-controls="vc-menu-uuid-sub1-popup"
+        aria-controls="vc-menu-uuid-test-id-sub1-popup"
         aria-disabled="false"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="vc-menu-uuid-sub1"
+        data-menu-id="vc-menu-uuid-test-id-sub1"
         role="menuitem"
         tabindex="-1"
       >
@@ -5304,12 +5304,12 @@ exports[`menu demo > renders vertical correctly 1`] = `
       role="none"
     >
       <div
-        aria-controls="vc-menu-uuid-sub2-popup"
+        aria-controls="vc-menu-uuid-test-id-sub2-popup"
         aria-disabled="false"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="vc-menu-uuid-sub2"
+        data-menu-id="vc-menu-uuid-test-id-sub2"
         role="menuitem"
         tabindex="-1"
       >
@@ -5349,12 +5349,12 @@ exports[`menu demo > renders vertical correctly 1`] = `
       role="none"
     >
       <div
-        aria-controls="vc-menu-uuid-sub4-popup"
+        aria-controls="vc-menu-uuid-test-id-sub4-popup"
         aria-disabled="false"
         aria-expanded="false"
         aria-haspopup="true"
         class="ant-menu-submenu-title"
-        data-menu-id="vc-menu-uuid-sub4"
+        data-menu-id="vc-menu-uuid-test-id-sub4"
         role="menuitem"
         tabindex="-1"
       >

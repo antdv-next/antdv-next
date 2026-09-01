@@ -656,6 +656,7 @@ exports[`notification demo > renders render-panel correctly 1`] = `
     <button
       aria-label="Close"
       class="ant-notification-notice-close"
+      type="button"
     >
       <span
         aria-label="Close"
