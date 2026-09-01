@@ -20,7 +20,11 @@ Visit [Antdv Next Start Template](https://stackblitz.com/edit/vitejs-vite-stk21c
 
 ### 2. Use a Component
 
-Replace the contents of `App.vue` with the following code. As you can see, you can directly use `antdv-next` components with the SFC approach.
+If you are working in a local Vue project, install `antdv-next` first. The StackBlitz created above already includes this dependency.
+
+<InstallDependencies npm='$ npm install antdv-next --save' yarn='$ yarn add antdv-next' pnpm='$ pnpm install antdv-next --save' bun='$ bun add antdv-next'></InstallDependencies>
+
+Then replace the contents of your application's `App.vue` file with the following code. As you can see, you can directly use `antdv-next` components with the SFC approach.
 
 ```vue
 <script setup lang="ts">
