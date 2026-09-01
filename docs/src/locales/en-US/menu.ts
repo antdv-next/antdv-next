@@ -23,6 +23,7 @@ const menuLocales = {
       cli: 'CLI',
       mcp: 'MCP Server',
       forAgents: 'For Agents',
+      designMd: 'Design.md',
       nuxt: 'Nuxt',
       advancedUse: 'Advanced Usage',
       secondaryDevelopment: 'Secondary Development',
