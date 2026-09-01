@@ -140,7 +140,9 @@ const InternalPassword = defineComponent<
           onKeydown={(e: KeyboardEvent) => {
             if (e.key === 'Enter' || e.key === ' ') {
               e.preventDefault()
-              triggerVisibleChange()
+              if (!e.repeat) {
+                triggerVisibleChange()
+              }
             }
           }}
           {...triggerProps}
