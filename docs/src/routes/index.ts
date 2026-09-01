@@ -95,6 +95,12 @@ export const router = createRouter({
       children: [
         ...componentRoutes,
         ...pagesRoutes,
+        // 兜底 404：未匹配路由时显示 404 页面，避免白屏
+        {
+          path: '/:pathMatch(.*)*',
+          name: 'NOT_FOUND',
+          component: () => import('@/pages/not-found/index.vue'),
+        },
       ],
     },
     {

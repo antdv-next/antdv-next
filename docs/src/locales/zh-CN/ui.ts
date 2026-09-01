@@ -70,4 +70,10 @@ export default {
     okText: '立即切换',
     cancelText: '继续访问当前站点',
   },
+
+  notFound: {
+    title: '404',
+    subTitle: '抱歉，您访问的页面不存在。',
+    backHome: '返回首页',
+  },
 } as const
