@@ -406,6 +406,18 @@ describe('slider', () => {
     expect(handle.attributes('aria-label')).toBe('Volume')
   })
 
+  // https://github.com/ant-design/ant-design/pull/59110
+  it('should support aria-describedby for handle', () => {
+    const wrapper = mount(Slider, {
+      props: {
+        defaultValue: 30,
+        ariaDescribedByForHandle: 'volume-description',
+      },
+    })
+    const handle = wrapper.find('.ant-slider-handle')
+    expect(handle.attributes('aria-describedby')).toBe('volume-description')
+  })
+
   it('should have default tabindex on handle', () => {
     const wrapper = mount(Slider, {
       props: { defaultValue: 30 },
