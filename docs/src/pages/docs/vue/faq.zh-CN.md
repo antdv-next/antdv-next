@@ -32,6 +32,21 @@ npm ls dayjs
 
 一般来说，如果项目中依赖的 dayjs 版本和 antdv-next 依赖的 dayjs 版本 无法兼容（semver 无法匹配，比如项目中的 dayjs 版本写死且较低），则会导致使用两个不同版本的 dayjs 实例，这样也会导致国际化失效。
 
+## 为什么有些空内容仍然会渲染 DOM？ {#vue-renderable}
+
+antdv-next 在判断是否需要创建内容的包裹 DOM 时，采用内部的 `isRenderable` 工具函数。它的设计目标是做兼容性的“内容存在性”检查，而不是验证一个值是否为合法的 Vue 节点，也不会递归预测 Vue 最终能否渲染出可见内容。
+
+`isRenderable` 只将 `null`、`undefined`、`false` 和空字符串 `''` 判定为无内容，其他值均判定为有内容。因此，在由它控制包裹 DOM 是否渲染的场景中：
+
+| 传入值 | `isRenderable` | 渲染结果 |
+| --- | --- | --- |
+| `null`、`undefined`、`false`、`''` | `false` | 不创建包裹 DOM，也不渲染内容 |
+| `true` | `true` | 创建包裹 DOM，但 Vue 不会为 `true` 渲染文本内容 |
+| `0` | `true` | 创建包裹 DOM，并正常渲染 `0` |
+| 非空字符串、其他数字、VNode 等 | `true` | 创建包裹 DOM，并交由 Vue 渲染内容 |
+
+其中 `false` 被视为显式的无内容标记，而 `true` 则表示内容已提供。虽然 `true` 本身不会产生文本节点，但包裹 DOM 仍然会被创建。类似地，空数组、空 Fragment 或最终返回 `null` 的组件也会通过检查。数字 `0` 则不会被误判为空内容，会被正常渲染。
+
 ## 通过 CDN（UMD 产物）使用时，`#tagRender` 等驼峰插槽 / 渲染属性不生效？
 
 这是 Vue **DOM 内模板（in-DOM template）** 的解析限制，并非组件的问题。当你把模板直接写在页面的 HTML 里（例如写在 `<div id="app">` 内部）时，浏览器的 HTML 解析器会把标签名和属性名（包括插槽名 `#tagRender`）**强制转为小写**，组件实际收到的是 `tagrender` 而不是 `tagRender`，因此驼峰命名的插槽和渲染属性都不会生效。这对所有驼峰插槽（如 `tagRender`、`maxTagPlaceholder`、`popupRender` 等）都成立，把插槽名改成小写 `#tagrender` 同样无效。详见 Vue 官方文档 [DOM 内模板解析注意事项](https://cn.vuejs.org/guide/essentials/component-basics.html#in-dom-template-parsing-caveats)。
