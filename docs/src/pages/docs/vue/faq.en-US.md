@@ -26,6 +26,21 @@ npm ls dayjs
 
 If you are using a mismatched version of dayjs with antdv-next dependent dayjs in your project. That would be a problem cause locale not working.
 
+## Why is a DOM node still rendered for some empty content? {#vue-renderable}
+
+antdv-next uses the internal `isRenderable` utility to determine whether a content wrapper DOM should be created. It is designed as a compatibility-oriented content presence check, not a validator for valid Vue nodes, and it does not recursively predict whether Vue will eventually produce visible content.
+
+`isRenderable` treats only `null`, `undefined`, `false`, and the empty string `''` as having no content. All other values are treated as content. Therefore, when it controls whether a wrapper DOM is rendered:
+
+| Value | `isRenderable` | Result |
+| --- | --- | --- |
+| `null`, `undefined`, `false`, `''` | `false` | Neither the wrapper DOM nor any content is rendered |
+| `true` | `true` | The wrapper DOM is created, but Vue renders no text content for `true` |
+| `0` | `true` | The wrapper DOM is created and `0` is rendered normally |
+| Non-empty strings, other numbers, VNodes, etc. | `true` | The wrapper DOM is created and Vue handles the content |
+
+Here, `false` is treated as an explicit no-content marker, while `true` means that content was provided. Although `true` itself produces no text node, the wrapper DOM is still created. Similarly, an empty array, an empty Fragment, or a component that eventually returns `null` passes the check. The number `0` is not mistaken for empty content and is rendered normally.
+
 ## Camelcase slots / render props (e.g. `#tagRender`) don't work when using the CDN (UMD) build?
 
 This is a limitation of Vue **in-DOM templates**, not a component bug. When the template is written directly in the page's HTML (e.g. inside `<div id="app">`), the browser's HTML parser **lowercases** tag and attribute names — including slot names, so `#tagRender` reaches the component as `tagrender` instead of `tagRender`, and the camelCase slot never fires. This applies to every camelCase slot (`tagRender`, `maxTagPlaceholder`, `popupRender`, …), and writing `#tagrender` in lowercase does not help either. See the Vue docs on [in-DOM template parsing caveats](https://vuejs.org/guide/essentials/component-basics.html#in-dom-template-parsing-caveats).
