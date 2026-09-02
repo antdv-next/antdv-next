@@ -154,7 +154,9 @@ const InternalTag = defineComponent<
     const handleCloseKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault()
-        ;(e.currentTarget as HTMLElement)?.click()
+        if (!e.repeat) {
+          ;(e.currentTarget as HTMLElement)?.click()
+        }
       }
     }
 

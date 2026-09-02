@@ -284,6 +284,28 @@ describe('tag', () => {
     expect(wrapper.find('span').classes()).toContain(`${prefixCls}-hidden`)
   })
 
+  it.each(['Enter', ' '])('should ignore repeated %s key activation on close controls', async (key) => {
+    const onClose = vi.fn()
+    const wrapper = mount(Tag, {
+      props: { closable: true, onClose },
+      slots: { default: () => 'Closable' },
+    })
+    const closeIcon = wrapper.find(`.${prefixCls}-close-icon`).element
+    const keydownEvent = new KeyboardEvent('keydown', {
+      key,
+      repeat: true,
+      bubbles: true,
+      cancelable: true,
+    })
+
+    closeIcon.dispatchEvent(keydownEvent)
+    await nextTick()
+
+    expect(onClose).not.toHaveBeenCalled()
+    expect(wrapper.find('span').classes()).not.toContain(`${prefixCls}-hidden`)
+    expect(keydownEvent.defaultPrevented).toBe(true)
+  })
+
   // ===================== closeIcon slot =====================
 
   it('should render closeIcon slot', () => {
@@ -625,6 +647,26 @@ describe('checkable-tag', () => {
     })
     await wrapper.find('span').trigger('keydown', { key: ' ' })
     expect(onChange).toHaveBeenCalledWith(true)
+  })
+
+  it('should ignore repeated Space key activation', () => {
+    const onChange = vi.fn()
+    const wrapper = mount(CheckableTag, {
+      props: { checked: false, onChange },
+      slots: { default: () => 'Toggle' },
+    })
+    const tag = wrapper.find('span').element
+    const keydownEvent = new KeyboardEvent('keydown', {
+      key: ' ',
+      repeat: true,
+      bubbles: true,
+      cancelable: true,
+    })
+
+    tag.dispatchEvent(keydownEvent)
+
+    expect(onChange).not.toHaveBeenCalled()
+    expect(keydownEvent.defaultPrevented).toBe(true)
   })
 
   it('should not trigger change when key event is prevented', async () => {
