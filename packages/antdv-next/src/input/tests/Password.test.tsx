@@ -82,6 +82,23 @@ describe('password', () => {
     expect(wrapper.find('input').attributes('type')).toBe('password')
   })
 
+  it.each(['Enter', ' '])('should ignore repeated %s key activation', async (key) => {
+    const onVisibleChange = vi.fn()
+    const wrapper = mount(Password, {
+      props: {
+        visibilityToggle: { onVisibleChange },
+      },
+    })
+
+    await wrapper.find('.ant-input-password-icon').trigger('keydown', {
+      key,
+      repeat: true,
+    })
+
+    expect(onVisibleChange).not.toHaveBeenCalled()
+    expect(wrapper.find('input').attributes('type')).toBe('password')
+  })
+
   it('should support visibilityToggle=false', () => {
     const wrapper = mount(Password, {
       props: {
