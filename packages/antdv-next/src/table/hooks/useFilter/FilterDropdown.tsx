@@ -231,7 +231,7 @@ const FilterDropdown = defineComponent<
     ) => {
       const { node, checked } = info as { node: EventDataNode<FilterTreeDataNode>, checked: boolean }
       if (!props.filterMultiple) {
-        onSelectKeys({ selectedKeys: checked && node.key ? [node.key as string] : [] })
+        onSelectKeys({ selectedKeys: checked ? [node.key as string] : [] })
       }
       else {
         onSelectKeys({ selectedKeys: keys as string[] })

@@ -277,6 +277,45 @@ describe('table filter', () => {
     expect(wrapper.findAll('tbody tr')).toHaveLength(1)
   })
 
+  it('supports empty string values in single-select tree filters', async () => {
+    const dataSource = [
+      { key: 'blank', status: '', name: 'Blank row' },
+      { key: 'filled', status: 'filled', name: 'Filled row' },
+    ]
+    const columns = [
+      { title: 'Name', dataIndex: 'name' },
+      {
+        title: 'Status',
+        dataIndex: 'status',
+        filterMode: 'tree' as const,
+        filterMultiple: false,
+        filters: [
+          { text: 'Empty value', value: '' },
+          { text: 'Filled value', value: 'filled' },
+        ],
+        onFilter: (value: any, record: (typeof dataSource)[number]) => record.status === value,
+      },
+    ]
+    const wrapper = mount(Table, {
+      props: { columns, dataSource, pagination: false },
+      attachTo: document.body,
+    })
+
+    await wrapper.find('.ant-table-filter-trigger').trigger('click')
+    await waitFakeTimer()
+    const emptyValueCheckbox = document.querySelector<HTMLElement>('.ant-tree-checkbox')
+    emptyValueCheckbox?.click()
+    await waitFakeTimer()
+
+    expect(document.querySelectorAll('.ant-tree-checkbox-checked')).toHaveLength(1)
+
+    document.querySelector<HTMLElement>('.ant-table-filter-dropdown-btns .ant-btn-primary')?.click()
+    await waitFakeTimer()
+    expect(wrapper.findAll('tbody tr')).toHaveLength(1)
+    expect(wrapper.find('tbody tr').text()).toContain('Blank row')
+    wrapper.unmount()
+  })
+
   it('should filter with nested children data', () => {
     const nestedData = [
       { key: '1', name: 'John', age: 32, children: [{ key: '1-1', name: 'John Jr', age: 5 }] },
