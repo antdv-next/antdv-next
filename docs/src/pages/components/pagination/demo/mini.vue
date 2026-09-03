@@ -13,7 +13,7 @@ const showTotal: PaginationProps['showTotal'] = total => `Total ${total} items`
 </script>
 
 <template>
-  <a-space direction="vertical" size="middle" style="width: 100%">
+  <a-space direction="vertical" size="medium" style="width: 100%">
     <a-pagination size="small" :total="50" />
     <a-pagination size="small" :total="50" show-size-changer show-quick-jumper />
     <a-pagination size="small" :total="50" :show-total="showTotal" />

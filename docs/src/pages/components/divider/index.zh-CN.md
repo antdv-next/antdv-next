@@ -41,7 +41,7 @@ group:
 | dashed | 是否虚线 | boolean | false | × |
 | orientation | 水平或垂直类型 | `horizontal` \| `vertical` | `horizontal` | × |
 | plain | 文字是否显示为普通正文样式 | boolean | false | × |
-| size | 间距大小，仅对水平布局有效 | `small` \| `middle` \| `large` | - | × |
+| size | 间距大小，仅对水平布局有效 | `small` \| `medium` \| `large` | - | × |
 | titlePlacement | 分割线标题的位置 | `start` \| `end` \| `center` | `center` | × |
 | variant | 分割线是虚线、点线还是实线 | `dashed` \| `dotted` \| `solid` | `solid` | × |
 | vertical | 是否垂直，和 orientation 同时配置以 orientation 优先 | boolean | false | × |

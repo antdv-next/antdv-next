@@ -38,7 +38,7 @@ const sharedProps: SpinProps = {
 </script>
 
 <template>
-  <a-flex align="center" gap="middle">
+  <a-flex align="center" gap="medium">
     <a-spin v-bind="sharedProps" :styles="stylesObject" />
     <a-spin v-bind="sharedProps" :styles="stylesFn" size="small" />
   </a-flex>

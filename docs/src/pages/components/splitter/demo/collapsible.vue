@@ -7,7 +7,7 @@ Collapsible panel.
 </docs>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-splitter style="height: 200px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)">
       <a-splitter-panel collapsible min="20%">
         <a-flex justify="center" align="center" style="height: 100%">

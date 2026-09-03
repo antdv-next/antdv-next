@@ -68,7 +68,7 @@ demo:
 | popupMenuColumnStyle | 下拉菜单列的样式 | CSSProperties | - | - | × |
 | showCheckedStrategy | 定义选中项回填的方式（仅在 `multiple` 为 `true` 时生效）。`Cascader.SHOW_CHILD`: 只显示选中的子节点。`Cascader.SHOW_PARENT`: 只显示父节点（当父节点下所有子节点都选中时）。 | `Cascader.SHOW_PARENT` \| `Cascader.SHOW_CHILD` | `Cascader.SHOW_PARENT` | - | × |
 | showSearch | 在选择框中显示搜索框 | boolean \| [Object](#showsearch) | false | - | × |
-| size | 输入框大小 | `large` \| `middle` \| `small` | - | - | × |
+| size | 输入框大小 | `large` \| `medium` \| `small` | `medium` | - | × |
 | status | 设置校验状态 | 'error' \| 'warning' | - | - | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: \{ props \})=&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - | ✓ |
 | value | 指定选中项，支持 `v-model:value` | string\[] \| number\[] | - | - | × |

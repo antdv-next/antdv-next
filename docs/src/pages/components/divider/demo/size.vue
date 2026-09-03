@@ -16,7 +16,7 @@ Control the size of divider by `size`, only works for horizontal layout.
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista
     probare, quae sunt a te dicta? Refert tamen, quo modo.
   </p>
-  <a-divider size="middle" />
+  <a-divider size="medium" />
   <p>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed nonne merninisti licere mihi ista
     probare, quae sunt a te dicta? Refert tamen, quo modo.

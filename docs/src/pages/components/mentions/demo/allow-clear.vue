@@ -17,7 +17,7 @@ const customAllowClear = {
 </script>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-mentions v-model:value="value" allow-clear />
     <a-mentions v-model:value="value" :allow-clear="customAllowClear" />
     <a-mentions v-model:value="value" allow-clear :rows="3" />

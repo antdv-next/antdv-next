@@ -48,7 +48,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5WDvQp_H7LUAAA
 | loading | 当卡片内容还在加载中时，可以用 loading 展示一个占位 | boolean | false | - | × |
 | hoverable | 鼠标移过时可浮起 | boolean | false | - | × |
 | id | - | string | - | - | × |
-| size | card 的尺寸 | CardSize | `default` | - | × |
+| size | card 的尺寸 | CardSize | `medium` | - | × |
 | type | 卡片类型，可设置为 `inner` 或 不设置 | CardType | - | - | × |
 | cover | 卡片封面 | VueNode | - | - | × |
 | actions | 卡片操作组，位置在卡片底部 | VueNode[] | - | - | × |

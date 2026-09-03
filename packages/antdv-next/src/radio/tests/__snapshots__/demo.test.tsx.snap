@@ -719,7 +719,7 @@ exports[`radio demo > renders radio-group correctly 1`] = `
 
 exports[`radio demo > renders radiobutton correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-radio-group ant-radio-group-outline css-var-root ant-radio-css-var"
@@ -962,7 +962,7 @@ exports[`radio demo > renders radiobutton correctly 1`] = `
 
 exports[`radio demo > renders radiobutton-solid correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-radio-group ant-radio-group-solid css-var-root ant-radio-css-var"
@@ -1300,7 +1300,7 @@ exports[`radio demo > renders radiogroup correctly 1`] = `
 
 exports[`radio demo > renders radiogroup-block correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-radio-group ant-radio-group-outline ant-radio-group-block css-var-root ant-radio-css-var"
@@ -1635,7 +1635,7 @@ exports[`radio demo > renders radiogroup-more correctly 1`] = `
 
 exports[`radio demo > renders radiogroup-options correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-radio-group ant-radio-group-outline css-var-root ant-radio-css-var"
@@ -1962,7 +1962,7 @@ exports[`radio demo > renders radiogroup-with-name correctly 1`] = `
 
 exports[`radio demo > renders size correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-radio-group ant-radio-group-outline ant-radio-group-small css-var-root ant-radio-css-var"

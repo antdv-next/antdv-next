@@ -57,7 +57,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | moreIcon | Custom icon of the collapse menu | VueNode | `<EllipsisOutlined />` | - | ✓ |
 | removeIcon | The custom icon of remove, only works with `type="editable-card"` | VueNode | `<CloseOutlined />` | - | ✓ |
 | renderTabBar | Replace the TabBar | (ctx: \{ props: any; TabNavListComponent: any \}) => VueNode | - | - | × |
-| size | Preset tab bar size | `large` \| `middle` \| `small` | `middle` | - | × |
+| size | Preset tab bar size | `large` \| `medium` \| `small` | `medium` | - | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function | TabsStylesType | - | - | ✓ |
 | tabBarExtraContent | Extra content in tab bar | VueNode \| \{ left?: VueNode, right?: VueNode \} | - | - | × |
 | tabBarGutter | The gap between tabs | number | - | - | × |

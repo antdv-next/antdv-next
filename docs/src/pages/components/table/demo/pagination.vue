@@ -116,7 +116,7 @@ function getTagColor(tag: string) {
           </a-space>
         </template>
         <template v-else-if="column.key === 'action'">
-          <a-space size="middle">
+          <a-space size="medium">
             <a>Invite {{ record.name }}</a>
             <a>Delete</a>
           </a-space>

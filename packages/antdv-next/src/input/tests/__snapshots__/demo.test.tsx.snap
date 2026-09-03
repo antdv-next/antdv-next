@@ -3891,7 +3891,7 @@ exports[`input demo > renders basic correctly 1`] = `
 
 exports[`input demo > renders compact-style correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+  class="ant-space ant-space-vertical ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
 >
   <div
     class="ant-space-item"
@@ -4314,7 +4314,7 @@ exports[`input demo > renders focus correctly 1`] = `
 
 exports[`input demo > renders otp correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-medium ant-flex-vertical"
 >
   <h5
     class="ant-typography css-var-root"
@@ -6210,7 +6210,7 @@ exports[`input demo > renders show-count correctly 1`] = `
 
 exports[`input demo > renders size correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <span
     class="ant-input-affix-wrapper ant-input-affix-wrapper-lg ant-input-outlined css-var-root ant-input-css-var"
@@ -6481,7 +6481,7 @@ exports[`input demo > renders style-class correctly 1`] = `
     </span>
   </span>
   <span
-    class="ant-input-affix-wrapper ant-input-outlined ant-input-password ant-input-password-middle css-var-root ant-input-css-var effect"
+    class="ant-input-affix-wrapper ant-input-outlined ant-input-password ant-input-password-medium css-var-root ant-input-css-var effect"
     data-v-769a5a90=""
     style="border-color: rgb(245, 211, 196);"
   >

@@ -14,7 +14,7 @@ exports[`time-picker demo > renders _semantic correctly 1`] = `
       data-v-dfc8ebef=""
     >
       <div
-        class="ant-flex css-var-v-0 ant-flex-align-center ant-flex-gap-middle ant-flex-vertical"
+        class="ant-flex css-var-v-0 ant-flex-align-center ant-flex-gap-medium ant-flex-vertical"
         style="align-self: flex-start;"
       >
         <div
@@ -22,7 +22,6 @@ exports[`time-picker demo > renders _semantic correctly 1`] = `
           aria-orientation="horizontal"
           class="ant-segmented css-var-v-0 css-var-v-0"
           role="radiogroup"
-          size="middle"
           tabindex="0"
         >
           <div
@@ -30,7 +29,7 @@ exports[`time-picker demo > renders _semantic correctly 1`] = `
           >
             <!---->
             <label
-              class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
+              class="ant-segmented-item ant-segmented-item-selected"
             >
               <input
                 checked=""
@@ -2566,7 +2565,7 @@ exports[`time-picker demo > renders status correctly 1`] = `
 
 exports[`time-picker demo > renders style-class correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
   data-v-854379e5=""
 >
   <div

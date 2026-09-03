@@ -2790,7 +2790,7 @@ exports[`timeline demo > renders horizontal correctly 1`] = `
 
 exports[`timeline demo > renders pending correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-medium ant-flex-vertical"
 >
   <ol
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline css-var-root"
@@ -3255,7 +3255,7 @@ exports[`timeline demo > renders sfc correctly 1`] = `
 
 exports[`timeline demo > renders style-class correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
   data-v-7ce82335=""
 >
   <ol
@@ -3713,7 +3713,7 @@ exports[`timeline demo > renders title correctly 1`] = `
 
 exports[`timeline demo > renders title-span correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <h5
     class="ant-typography css-var-root"

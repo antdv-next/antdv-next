@@ -1782,7 +1782,7 @@ exports[`popconfirm demo > renders shift correctly 1`] = `
 
 exports[`popconfirm demo > renders style-class correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-gap-middle"
+  class="ant-flex css-var-root ant-flex-gap-medium"
 >
   <button
     class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"

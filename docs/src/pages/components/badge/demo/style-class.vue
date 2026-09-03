@@ -28,7 +28,7 @@ const ribbonStyles = {
 }
 
 function badgeStylesFn(info: any) {
-  if (info.props.size === 'default' || info.props.size === 'medium') {
+  if (info.props.size === 'medium') {
     return {
       indicator: {
         fontSize: '14px',
@@ -56,7 +56,7 @@ function ribbonStylesFn(info: any) {
 
 <template>
   <a-space size="large" vertical>
-    <a-flex gap="middle">
+    <a-flex gap="medium">
       <a-badge size="small" :count="5" :classes="badgeClasses" :styles="badgeStyles">
         <a-avatar shape="square" size="large" />
       </a-badge>
@@ -64,7 +64,7 @@ function ribbonStylesFn(info: any) {
         <a-avatar shape="square" size="large" />
       </a-badge>
     </a-flex>
-    <a-flex vertical gap="middle">
+    <a-flex vertical gap="medium">
       <a-badge-ribbon text="Custom Ribbon" :classes="ribbonClasses" :styles="ribbonStyles">
         <a-card title="Card with custom ribbon" size="small">
           This card has a customized ribbon with semantic classNames and styles.

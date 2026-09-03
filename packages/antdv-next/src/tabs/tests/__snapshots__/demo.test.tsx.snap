@@ -2488,7 +2488,6 @@ exports[`tabs demo > renders custom-indicator correctly 1`] = `
     aria-orientation="horizontal"
     class="ant-segmented css-var-root css-var-root"
     role="radiogroup"
-    size="middle"
     style="margin-bottom: 8px;"
     tabindex="0"
   >
@@ -2512,7 +2511,7 @@ exports[`tabs demo > renders custom-indicator correctly 1`] = `
         </div>
       </label>
       <label
-        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
+        class="ant-segmented-item ant-segmented-item-selected"
       >
         <input
           checked=""
@@ -4828,7 +4827,7 @@ exports[`tabs demo > renders size correctly 1`] = `
       <span
         class="ant-radio-button-label"
       >
-         Middle 
+         Medium 
       </span>
     </label>
     <label
@@ -6040,7 +6039,7 @@ exports[`tabs demo > renders slide correctly 1`] = `
 
 exports[`tabs demo > renders style-class correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-tabs ant-tabs-top custom-tabs-root css-var-root ant-tabs-css-var"

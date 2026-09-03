@@ -50,7 +50,7 @@ const watermarkProps = computed<WatermarkProps>(() => ({
 </script>
 
 <template>
-  <a-flex gap="middle">
+  <a-flex gap="medium">
     <a-watermark v-bind="watermarkProps">
       <a-typography>
         <a-typography-paragraph>

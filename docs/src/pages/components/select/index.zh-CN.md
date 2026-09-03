@@ -94,7 +94,7 @@ demo:
 | removeIcon | 自定义的多选框清除图标 | VueNode | - | - | ✓ |
 | searchValue | 控制搜索文本 | string | - | - | × |
 | showSearch | 配置是否可搜索 | boolean \| Object | 单选为 false，多选为 true | - | ✓ |
-| size | 选择框大小 | `large` \| `middle` \| `small` | - | - | × |
+| size | 选择框大小 | `large` \| `medium` \| `small` | `medium` | - | × |
 | status | 设置校验状态 | 'error' \| 'warning' | - | - | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - | ✓ |
 | suffixIcon | 自定义的选择框后缀图标。以防止图标被用于其他交互，替换的图标默认不会响应展开、收缩事件，可以通过添加 `pointer-events: none` 样式透传 | VueNode | `<DownOutlined />` | - | ✓ |

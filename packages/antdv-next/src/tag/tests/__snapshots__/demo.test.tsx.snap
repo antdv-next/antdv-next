@@ -1854,7 +1854,7 @@ exports[`tag demo > renders disabled correctly 1`] = `
   data-v-app=""
 >
   <div
-    class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+    class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
   >
     <div
       class="ant-flex css-var-root ant-flex-wrap-wrap ant-flex-gap-small"
@@ -3135,7 +3135,7 @@ exports[`tag demo > renders style-class correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-flex css-var-root ant-flex-gap-middle"
+      class="ant-flex css-var-root ant-flex-gap-medium"
       data-v-7f4de261=""
     >
       <span
@@ -3219,7 +3219,7 @@ exports[`tag demo > renders style-class correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+      class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
       data-v-7f4de261=""
     >
       <div

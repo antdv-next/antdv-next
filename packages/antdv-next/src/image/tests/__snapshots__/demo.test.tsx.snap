@@ -1727,7 +1727,7 @@ exports[`image demo > renders previewSrc correctly 1`] = `
 
 exports[`image demo > renders style-class correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-gap-middle"
+  class="ant-flex css-var-root ant-flex-gap-medium"
 >
   <div
     aria-label="Example image"

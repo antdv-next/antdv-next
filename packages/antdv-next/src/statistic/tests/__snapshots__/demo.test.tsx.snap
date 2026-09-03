@@ -1298,7 +1298,7 @@ exports[`statistic demo > renders card correctly 1`] = `
 
 exports[`statistic demo > renders style-class correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
   data-v-739f6bf9=""
 >
   <div

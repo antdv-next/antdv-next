@@ -4587,7 +4587,7 @@ exports[`steps demo > renders nav correctly 1`] = `
 
 exports[`steps demo > renders panel correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled ant-steps-panel css-var-root"
@@ -4955,7 +4955,7 @@ exports[`steps demo > renders panel correctly 1`] = `
 
 exports[`steps demo > renders progress-dot correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-filled ant-steps-dot css-var-root"
@@ -5196,7 +5196,7 @@ exports[`steps demo > renders progress-dot correctly 1`] = `
     <!---->
   </div>
   <div
-    class="ant-flex css-var-root ant-flex-gap-middle"
+    class="ant-flex css-var-root ant-flex-gap-medium"
   >
     <div
       class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled ant-steps-dot css-var-root"
@@ -5436,7 +5436,7 @@ exports[`steps demo > renders progress-dot correctly 1`] = `
 
 exports[`steps demo > renders style-class correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled css-var-root steps-demo-root"
@@ -5734,7 +5734,7 @@ exports[`steps demo > renders style-class correctly 1`] = `
 
 exports[`steps demo > renders title-placement correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-filled ant-steps-ellipsis css-var-root"

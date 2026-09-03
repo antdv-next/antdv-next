@@ -37,7 +37,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | spinning | Whether Spin is visible | boolean | true | - | × |
-| size | The size of Spin, options: `small`, `default` and `large` | SpinSize | `default` | - | × |
+| size | The size of Spin, options: `small`, `medium` and `large` | SpinSize | `medium` | - | × |
 | ~~tip~~ | `deprecated, use description`Customize description content when Spin has children | VueNode | - | - | × |
 | description | Customize description content | VueNode | - | - | × |
 | delay | Specifies a delay in milliseconds for loading state (prevent flush) | number | - | - | × |

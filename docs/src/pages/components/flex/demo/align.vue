@@ -31,7 +31,7 @@ const boxStyle: CSSProperties = {
 </script>
 
 <template>
-  <a-flex gap="middle" align="start" vertical>
+  <a-flex gap="medium" align="start" vertical>
     <p>Select justify :</p>
     <a-segmented v-model:value="justify" :options="justifyOptions" />
     <p>Select align :</p>

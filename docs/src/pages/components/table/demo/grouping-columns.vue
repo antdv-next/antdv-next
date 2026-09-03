@@ -103,7 +103,7 @@ const dataSource: DataType[] = Array.from({ length: 100 }).map((_, i) => ({
     :columns="columns"
     :data-source="dataSource"
     bordered
-    size="middle"
+    size="medium"
     :scroll="{ x: 'calc(700px + 50%)', y: 47 * 5 }"
   />
 </template>

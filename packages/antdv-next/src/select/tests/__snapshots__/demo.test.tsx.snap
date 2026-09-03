@@ -24,7 +24,6 @@ exports[`select demo > renders _semantic correctly 1`] = `
             aria-orientation="horizontal"
             class="ant-segmented css-var-v-0 css-var-v-0"
             role="radiogroup"
-            size="middle"
             tabindex="0"
           >
             <div
@@ -32,7 +31,7 @@ exports[`select demo > renders _semantic correctly 1`] = `
             >
               <!---->
               <label
-                class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
+                class="ant-segmented-item ant-segmented-item-selected"
               >
                 <input
                   checked=""
@@ -1715,7 +1714,7 @@ exports[`select demo > renders big-data correctly 1`] = `
 
 exports[`select demo > renders clear-suffix-debug correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
@@ -5343,7 +5342,7 @@ exports[`select demo > renders size correctly 1`] = `
       <!---->
       <div
         class="ant-select ant-select-outlined css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
-        size="middle"
+        size="medium"
         style="width: 200px;"
       >
         <!---->
@@ -5403,7 +5402,7 @@ exports[`select demo > renders size correctly 1`] = `
       <!---->
       <div
         class="ant-select ant-select-outlined css-var-root ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
-        size="middle"
+        size="medium"
         style="width: 100%;"
       >
         <!---->
@@ -5552,7 +5551,7 @@ exports[`select demo > renders size correctly 1`] = `
       <!---->
       <div
         class="ant-select ant-select-outlined css-var-root ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
-        size="middle"
+        size="medium"
         style="width: 100%;"
       >
         <!---->
@@ -5833,7 +5832,7 @@ exports[`select demo > renders status correctly 1`] = `
 
 exports[`select demo > renders style-class correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <!---->
   <div

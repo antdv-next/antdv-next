@@ -520,7 +520,7 @@ exports[`qr-code demo > renders customSize correctly 1`] = `
 
 exports[`qr-code demo > renders customStatusRender correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-wrap-wrap ant-flex-gap-middle"
+  class="ant-flex css-var-root ant-flex-wrap-wrap ant-flex-gap-medium"
 >
   <div
     class="ant-qrcode css-var-root"
@@ -719,7 +719,6 @@ exports[`qr-code demo > renders download correctly 1`] = `
       aria-orientation="horizontal"
       class="ant-segmented css-var-root css-var-root"
       role="radiogroup"
-      size="middle"
       tabindex="0"
     >
       <div
@@ -727,7 +726,7 @@ exports[`qr-code demo > renders download correctly 1`] = `
       >
         <!---->
         <label
-          class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
+          class="ant-segmented-item ant-segmented-item-selected"
         >
           <input
             checked=""
@@ -831,7 +830,6 @@ exports[`qr-code demo > renders errorLevel correctly 1`] = `
     aria-orientation="horizontal"
     class="ant-segmented css-var-root css-var-root"
     role="radiogroup"
-    size="middle"
     tabindex="0"
   >
     <div
@@ -854,7 +852,7 @@ exports[`qr-code demo > renders errorLevel correctly 1`] = `
         </div>
       </label>
       <label
-        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
+        class="ant-segmented-item ant-segmented-item-selected"
       >
         <input
           checked=""
@@ -925,7 +923,7 @@ exports[`qr-code demo > renders icon correctly 1`] = `
 
 exports[`qr-code demo > renders status correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-wrap-wrap ant-flex-gap-middle"
+  class="ant-flex css-var-root ant-flex-wrap-wrap ant-flex-gap-medium"
 >
   <div
     class="ant-qrcode css-var-root"

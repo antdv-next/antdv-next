@@ -59,7 +59,7 @@ const descriptionsProps: DescriptionsProps = {
 </script>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-descriptions v-bind="descriptionsProps" :styles="styles" size="small" />
     <a-descriptions v-bind="descriptionsProps" :styles="stylesFn" size="large" />
   </a-flex>

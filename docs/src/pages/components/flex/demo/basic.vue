@@ -18,7 +18,7 @@ const baseStyle: CSSProperties = {
 </script>
 
 <template>
-  <a-flex gap="middle" vertical>
+  <a-flex gap="medium" vertical>
     <a-radio-group v-model:value="value">
       <a-radio value="horizontal">
         horizontal

@@ -53,7 +53,7 @@ const stylesFn: MenuProps['styles'] = (info) => {
 </script>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-menu :classes="classes" :items="items" :styles="styles" />
     <a-menu mode="inline" :classes="classes" :items="items" :styles="stylesFn" />
   </a-flex>

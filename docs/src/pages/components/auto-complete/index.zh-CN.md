@@ -64,7 +64,7 @@ demo:
 | popupMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。false 时会关闭虚拟滚动 | boolean \| number | true | - | × |
 | popupRender | 自定义下拉框内容 | (menu: VueNode) =&gt; VueNode | - | - | × |
 | showSearch | 搜索配置 | boolean \| [SearchConfig](#showsearch) | true | - | × |
-| size | 控件大小 | `large` \| `middle` \| `small` | - | - | × |
+| size | 控件大小 | `large` \| `medium` \| `small` | - | - | × |
 | status | 设置校验状态 | `error` \| `warning` | - | - | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - | × |
 | value | 指定当前选中的条目，支持 `v-model:value` | string | - | - | × |

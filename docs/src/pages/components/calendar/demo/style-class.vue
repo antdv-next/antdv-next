@@ -35,7 +35,7 @@ const stylesFunction: CalendarProps<Dayjs>['styles'] = (info) => {
 </script>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-calendar :fullscreen="false" :classes="classes" :styles="stylesObject" />
     <a-calendar :classes="classes" :styles="stylesFunction" />
   </a-flex>

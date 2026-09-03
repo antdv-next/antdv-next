@@ -13,7 +13,7 @@ const loading = ref(false)
 </script>
 
 <template>
-  <a-flex gap="middle" vertical>
+  <a-flex gap="medium" vertical>
     <a-spin :spinning="loading">
       <a-alert
         message="Alert message title"

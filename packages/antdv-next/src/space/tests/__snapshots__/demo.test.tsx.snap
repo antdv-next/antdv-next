@@ -3685,7 +3685,7 @@ exports[`space demo > renders size correctly 1`] = `
       <span
         class="ant-radio-label"
       >
-         Middle 
+         Medium 
       </span>
     </label>
     <label
@@ -4045,7 +4045,7 @@ exports[`space demo > renders style-class correctly 1`] = `
 
 exports[`space demo > renders vertical correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+  class="ant-space ant-space-vertical ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
   style="display: flex;"
 >
   <div

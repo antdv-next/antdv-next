@@ -102,7 +102,7 @@ const value = ref()
 | options | 以配置形式设置子元素 | string\[] \| number\[] \| Array&lt;[CheckboxOptionType](#checkboxoptiontype)&gt; | - | - |
 | optionType | 用于设置 Radio `options` 类型 | `default` \| `button` | `default` | - |
 | orientation | 排列方向 | `horizontal` \| `vertical` | `horizontal` | - |
-| size | 大小，只对按钮样式生效 | `large` \| `middle` \| `small` | - | - |
+| size | 大小，只对按钮样式生效 | `large` \| `medium` \| `small` | - | - |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - |
 | value | 用于设置当前选中的值，支持 `v-model:value` | any | - | - |
 | vertical | 值为 true，Radio Group 为垂直方向。与 `orientation` 同时存在，以 `orientation` 优先 | boolean | false | - |

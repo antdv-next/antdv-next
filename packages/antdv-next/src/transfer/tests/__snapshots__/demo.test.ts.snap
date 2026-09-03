@@ -6408,7 +6408,7 @@ exports[`transfer demo > renders search correctly 1`] = `
 
 exports[`transfer demo > renders status correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-transfer ant-transfer-status-error css-var-root ant-transfer-css-var"

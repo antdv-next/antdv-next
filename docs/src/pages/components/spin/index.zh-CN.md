@@ -38,7 +38,7 @@ demo:
 | 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | spinning | 是否为加载中状态 | boolean | true | - | × |
-| size | 组件大小，可选值为 `small` `default` `large` | SpinSize | `default` | - | × |
+| size | 组件大小，可选值为 `small` `medium` `large` | SpinSize | `medium` | - | × |
 | ~~tip~~ | `已弃用，请使用description`当作为包裹元素时，可以自定义描述文案 | VueNode | - | - | × |
 | description | 可以自定义描述文案 | VueNode | - | - | × |
 | delay | 延迟显示加载效果的时间（防止闪烁） | number | - | - | × |

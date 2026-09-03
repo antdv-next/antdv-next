@@ -7,7 +7,7 @@ The size of progress.
 </docs>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-flex vertical gap="small" style="width: 300px">
       <a-progress :percent="50" />
       <a-progress :percent="50" size="small" />

@@ -42,7 +42,7 @@ const stylesFn: TimePickerProps['styles'] = (info) => {
 </script>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-time-picker :classes="customClasses" :styles="stylesObject" placeholder="Object" />
     <a-time-picker :classes="customClasses" :styles="stylesFn" placeholder="Function" size="large" />
   </a-flex>

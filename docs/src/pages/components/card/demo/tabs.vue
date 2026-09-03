@@ -82,7 +82,7 @@ const content2 = computed(() => contentListNoTitle[activeTabKey2.value])
       :tab-list="tabListNoTitle"
       :active-tab-key="activeTabKey2"
       :tab-props="{
-        size: 'middle',
+        size: 'medium',
       }"
       @tab-change="onTab2Change"
     >

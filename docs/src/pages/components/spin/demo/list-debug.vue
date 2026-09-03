@@ -15,7 +15,7 @@ const dataSource = ['Apple', 'Banana']
 </script>
 
 <template>
-  <a-flex gap="middle" vertical>
+  <a-flex gap="medium" vertical>
     <a-spin :spinning="loading">
       <a-flex vertical gap="small" :style="{ padding: '16px', border: '1px solid #d9d9d9' }">
         <a-flex v-for="item in dataSource" :key="item" align="center" justify="space-between">

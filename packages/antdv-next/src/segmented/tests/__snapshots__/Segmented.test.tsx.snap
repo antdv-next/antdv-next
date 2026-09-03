@@ -9,7 +9,6 @@ exports[`segmented > rtl render > component should be rendered correctly in RTL 
     aria-orientation="horizontal"
     class="ant-segmented ant-segmented-rtl css-var-root css-var-root"
     role="radiogroup"
-    size="middle"
     tabindex="0"
   >
     <div
@@ -27,7 +26,6 @@ exports[`segmented > should render empty segmented 1`] = `
   aria-orientation="horizontal"
   class="ant-segmented css-var-root css-var-root"
   role="radiogroup"
-  size="middle"
   tabindex="0"
 >
   <div
@@ -44,7 +42,6 @@ exports[`segmented > should render segmented with mixed options 1`] = `
   aria-orientation="horizontal"
   class="ant-segmented css-var-root css-var-root"
   role="radiogroup"
-  size="middle"
   tabindex="0"
 >
   <div
@@ -52,7 +49,7 @@ exports[`segmented > should render segmented with mixed options 1`] = `
   >
     <!---->
     <label
-      class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
+      class="ant-segmented-item ant-segmented-item-selected"
     >
       <input
         checked=""
@@ -107,7 +104,6 @@ exports[`segmented > should render segmented with string options 1`] = `
   aria-orientation="horizontal"
   class="ant-segmented css-var-root css-var-root"
   role="radiogroup"
-  size="middle"
   tabindex="0"
 >
   <div
@@ -115,7 +111,7 @@ exports[`segmented > should render segmented with string options 1`] = `
   >
     <!---->
     <label
-      class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
+      class="ant-segmented-item ant-segmented-item-selected"
     >
       <input
         checked=""
@@ -178,7 +174,7 @@ exports[`segmented > snapshot > should match snapshot with block and size 1`] = 
   >
     <!---->
     <label
-      class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
+      class="ant-segmented-item ant-segmented-item-selected"
     >
       <input
         checked=""
@@ -233,7 +229,6 @@ exports[`segmented > snapshot > should match snapshot with icon options 1`] = `
   aria-orientation="horizontal"
   class="ant-segmented css-var-root css-var-root"
   role="radiogroup"
-  size="middle"
   tabindex="0"
 >
   <div
@@ -241,7 +236,7 @@ exports[`segmented > snapshot > should match snapshot with icon options 1`] = `
   >
     <!---->
     <label
-      class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
+      class="ant-segmented-item ant-segmented-item-selected"
     >
       <input
         checked=""
@@ -301,7 +296,6 @@ exports[`segmented > snapshot > should match snapshot with round shape 1`] = `
   aria-orientation="horizontal"
   class="ant-segmented ant-segmented-shape-round css-var-root ant-segmented-shape-round css-var-root"
   role="radiogroup"
-  size="middle"
   tabindex="0"
 >
   <div
@@ -309,7 +303,7 @@ exports[`segmented > snapshot > should match snapshot with round shape 1`] = `
   >
     <!---->
     <label
-      class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
+      class="ant-segmented-item ant-segmented-item-selected"
     >
       <input
         checked=""
@@ -349,7 +343,6 @@ exports[`segmented > snapshot > should match snapshot with various options 1`] =
   aria-orientation="horizontal"
   class="ant-segmented css-var-root css-var-root"
   role="radiogroup"
-  size="middle"
   tabindex="0"
 >
   <div
@@ -357,7 +350,7 @@ exports[`segmented > snapshot > should match snapshot with various options 1`] =
   >
     <!---->
     <label
-      class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
+      class="ant-segmented-item ant-segmented-item-selected"
     >
       <input
         checked=""

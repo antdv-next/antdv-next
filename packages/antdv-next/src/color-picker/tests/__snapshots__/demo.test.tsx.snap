@@ -809,7 +809,7 @@ exports[`color-picker demo > renders disabled-alpha correctly 1`] = `
 
 exports[`color-picker demo > renders format correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+  class="ant-space ant-space-vertical ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
   style="display: flex;"
 >
   <div
@@ -1274,7 +1274,7 @@ exports[`color-picker demo > renders size correctly 1`] = `
 
 exports[`color-picker demo > renders style-class correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
   style="flex-wrap: wrap;"
 >
   <div

@@ -9,14 +9,14 @@ The height of the input field for the select defaults to 32px. If size is set to
 <script setup lang="ts">
 import { shallowRef } from 'vue'
 
-type SizeType = 'large' | 'middle' | 'small'
+type SizeType = 'large' | 'medium' | 'small'
 
 const options = Array.from({ length: 26 }, (_, i) => {
   const value = (i + 10).toString(36) + (i + 10)
   return { value, label: value }
 })
 
-const size = shallowRef<SizeType>('middle')
+const size = shallowRef<SizeType>('medium')
 const value1 = shallowRef('a10')
 const value2 = shallowRef(['a10', 'c12'])
 const value3 = shallowRef(['a10', 'c12'])
@@ -31,7 +31,7 @@ function handleChange(val: string | string[]) {
     <a-radio-button value="large">
       Large
     </a-radio-button>
-    <a-radio-button value="middle">
+    <a-radio-button value="medium">
       Default
     </a-radio-button>
     <a-radio-button value="small">

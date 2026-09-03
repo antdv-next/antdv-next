@@ -44,7 +44,7 @@ const items: StepsProps['items'] = [
 </script>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-steps :items="items" :current="1" :classes="classes" :styles="stylesObject" />
     <a-steps
       :items="items"

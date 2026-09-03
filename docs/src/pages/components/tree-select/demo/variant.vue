@@ -14,7 +14,7 @@ const style = {
 </script>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-tree-select :style="style" placeholder="Please select" variant="borderless" />
     <a-tree-select :style="style" placeholder="Please select" variant="filled" />
     <a-tree-select :style="style" placeholder="Please select" variant="outlined" />

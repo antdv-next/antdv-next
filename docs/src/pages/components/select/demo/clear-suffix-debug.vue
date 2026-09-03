@@ -27,7 +27,7 @@ function handleSuffixClick() {
 </script>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-flex vertical gap="small">
       <span>Interactive suffix</span>
       <a-select

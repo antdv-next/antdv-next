@@ -7,11 +7,11 @@ debug demo
 </docs>
 
 <script setup lang="ts">
-const sizes = ['small', 'middle', 'large'] as const
+const sizes = ['small', 'medium', 'large'] as const
 </script>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-flex v-for="size in sizes" :key="size" gap="small">
       <a-select
         value="centered"

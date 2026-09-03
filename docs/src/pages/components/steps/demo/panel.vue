@@ -35,7 +35,7 @@ function handleChange(value: number) {
 </script>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-steps
       v-model:current="current"
       type="panel"

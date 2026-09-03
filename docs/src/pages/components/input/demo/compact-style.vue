@@ -22,7 +22,7 @@ import { SearchOutlined } from '@antdv-next/icons'
 </script>
 
 <template>
-  <a-space direction="vertical" size="middle">
+  <a-space direction="vertical" size="medium">
     <a-space-compact>
       <a-input default-value="26888888" />
     </a-space-compact>

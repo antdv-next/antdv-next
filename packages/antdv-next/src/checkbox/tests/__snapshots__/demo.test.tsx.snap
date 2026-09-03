@@ -977,7 +977,7 @@ exports[`checkbox demo > renders layout correctly 1`] = `
 
 exports[`checkbox demo > renders style-class correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <label
     class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"

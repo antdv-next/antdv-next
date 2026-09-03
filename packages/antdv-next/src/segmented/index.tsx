@@ -108,7 +108,6 @@ export interface SegmentedSlots<ValueType extends RcSegmentedValue = RcSegmented
 }
 
 const defaults = {
-  size: 'middle',
   shape: 'default',
 } as any
 

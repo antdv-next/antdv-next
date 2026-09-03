@@ -53,7 +53,7 @@ const sharedProps = computed<ModalProps>(() => ({
 </script>
 
 <template>
-  <a-flex gap="middle">
+  <a-flex gap="medium">
     <a-button @click="modalOpen = true">
       Open Style Modal
     </a-button>

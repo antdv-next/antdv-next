@@ -62,7 +62,7 @@ Properties shared by all types.
 | success | Configs of successfully progress bar | SuccessProps | - | - | × |
 | trailColor | The color of unfilled part. Please use `railColor` instead | string | - | - | × |
 | width | Deprecated. Use `size` instead | number | - | - | × |
-| size | Progress size | number \| [number \| string, number] \| ProgressSize \| &#123; width?: number, height?: number &#125; | `default` | - | × |
+| size | Progress size | number \| [number \| string, number] \| ProgressSize \| &#123; width?: number, height?: number &#125; | `medium` | - | × |
 
 ### `type="line"` {#type-line}
 

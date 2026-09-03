@@ -13,7 +13,7 @@ exports[`watermark demo > renders basic correctly 1`] = `
 
 exports[`watermark demo > renders custom correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-gap-middle"
+  class="ant-flex css-var-root ant-flex-gap-medium"
 >
   <div
     class=""
@@ -1045,7 +1045,7 @@ exports[`watermark demo > renders portal correctly 1`] = `
   data-v-app=""
 >
   <div
-    class="ant-flex css-var-root ant-flex-gap-middle"
+    class="ant-flex css-var-root ant-flex-gap-medium"
   >
     <button
       class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"

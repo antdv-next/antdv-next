@@ -13,7 +13,7 @@ const { xl } = useResponsive()
 </script>
 
 <template>
-  <a-config-provider :component-size="xl ? 'middle' : 'small'">
+  <a-config-provider :component-size="xl ? 'medium' : 'small'">
     <a-flex vertical gap="small">
       <a-flex gap="small" wrap>
         <a-button color="default" variant="solid">

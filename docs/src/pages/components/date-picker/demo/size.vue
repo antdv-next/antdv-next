@@ -1,17 +1,17 @@
 <docs lang="zh-CN">
-三种大小的输入框，若不设置，则为 `middle`。
+三种大小的输入框，若不设置，则为 `medium`。
 </docs>
 
 <docs lang="en-US">
-The input box comes in three sizes: small, middle and large. The `middle` size will be used if `size` is omitted.
+The input box comes in three sizes: small, medium and large. The `medium` size will be used if `size` is omitted.
 </docs>
 
 <script setup lang="ts">
 import { shallowRef } from 'vue'
 
-type SizeType = 'large' | 'middle' | 'small'
+type SizeType = 'large' | 'medium' | 'small'
 
-const size = shallowRef<SizeType>('middle')
+const size = shallowRef<SizeType>('medium')
 </script>
 
 <template>
@@ -20,8 +20,8 @@ const size = shallowRef<SizeType>('middle')
       <a-radio-button value="large">
         Large
       </a-radio-button>
-      <a-radio-button value="middle">
-        middle
+      <a-radio-button value="medium">
+        medium
       </a-radio-button>
       <a-radio-button value="small">
         Small

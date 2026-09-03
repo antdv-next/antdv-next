@@ -14,18 +14,17 @@ exports[`progress demo > renders _semantic correctly 1`] = `
       data-v-dfc8ebef=""
     >
       <div
-        class="ant-flex css-var-v-0 ant-flex-align-center ant-flex-gap-middle ant-flex-vertical"
+        class="ant-flex css-var-v-0 ant-flex-align-center ant-flex-gap-medium ant-flex-vertical"
         style="width: 100%;"
       >
         <div
-          class="ant-flex css-var-v-0 ant-flex-align-center ant-flex-gap-middle"
+          class="ant-flex css-var-v-0 ant-flex-align-center ant-flex-gap-medium"
         >
           <div
             aria-label="segmented control"
             aria-orientation="horizontal"
             class="ant-segmented css-var-v-0 css-var-v-0"
             role="radiogroup"
-            size="middle"
             tabindex="0"
           >
             <div
@@ -33,7 +32,7 @@ exports[`progress demo > renders _semantic correctly 1`] = `
             >
               <!---->
               <label
-                class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
+                class="ant-segmented-item ant-segmented-item-selected"
               >
                 <input
                   checked=""
@@ -1354,7 +1353,7 @@ exports[`progress demo > renders circle-steps correctly 1`] = `
     <!---->
   </div>
   <div
-    class="ant-flex css-var-root ant-flex-wrap-wrap ant-flex-gap-middle"
+    class="ant-flex css-var-root ant-flex-wrap-wrap ant-flex-gap-medium"
     style="margin-top: 16px;"
   >
     <div
@@ -1560,7 +1559,6 @@ exports[`progress demo > renders dashboard correctly 1`] = `
       aria-orientation="horizontal"
       class="ant-segmented css-var-root css-var-root"
       role="radiogroup"
-      size="middle"
       tabindex="0"
     >
       <div
@@ -1568,7 +1566,7 @@ exports[`progress demo > renders dashboard correctly 1`] = `
       >
         <!---->
         <label
-          class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
+          class="ant-segmented-item ant-segmented-item-selected"
         >
           <input
             checked=""
@@ -1608,7 +1606,6 @@ exports[`progress demo > renders dashboard correctly 1`] = `
       aria-orientation="horizontal"
       class="ant-segmented css-var-root css-var-root"
       role="radiogroup"
-      size="middle"
       tabindex="0"
     >
       <div
@@ -1661,7 +1658,7 @@ exports[`progress demo > renders dashboard correctly 1`] = `
           </div>
         </label>
         <label
-          class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
+          class="ant-segmented-item ant-segmented-item-selected"
         >
           <input
             checked=""
@@ -2024,7 +2021,7 @@ exports[`progress demo > renders format correctly 1`] = `
 
 exports[`progress demo > renders gradient-line correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     aria-valuemax="100"
@@ -3591,7 +3588,7 @@ exports[`progress demo > renders segment correctly 1`] = `
 
 exports[`progress demo > renders size correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"

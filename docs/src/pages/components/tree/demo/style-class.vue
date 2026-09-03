@@ -71,7 +71,7 @@ const classes = {
 </script>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-tree
       :tree-data="treeData"
       :classes="classes"

@@ -36,7 +36,7 @@ const stylesFn: PaginationProps['styles'] = ({ props }) => {
 </script>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-pagination :total="500" :classes="classes" :styles="stylesObject" />
     <a-pagination :total="500" size="small" :classes="classes" :styles="stylesFn" />
   </a-flex>

@@ -64,7 +64,7 @@ const handleChange: UploadEmits['change'] = async (info) => {
 </script>
 
 <template>
-  <a-flex gap="middle" wrap>
+  <a-flex gap="medium" wrap>
     <a-upload
       name="avatar"
       list-type="picture-card"

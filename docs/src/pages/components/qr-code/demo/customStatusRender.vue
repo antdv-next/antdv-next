@@ -13,7 +13,7 @@ const value = 'https://antdv-next.com'
 </script>
 
 <template>
-  <a-flex gap="middle" wrap>
+  <a-flex gap="medium" wrap>
     <a-qrcode :value="value" status="loading">
       <template #statusRender="info">
         <template v-if="info.status === 'loading'">

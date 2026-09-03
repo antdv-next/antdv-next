@@ -8,7 +8,7 @@ Wireframe style.
 
 <template>
   <a-config-provider :theme="{ token: { wireframe: true } }">
-    <a-space direction="vertical" size="middle" style="width: 100%">
+    <a-space direction="vertical" size="medium" style="width: 100%">
       <a-pagination show-size-changer :default-current="3" :total="500" />
       <a-pagination show-size-changer :default-current="3" :total="500" disabled />
       <a-pagination size="small" :default-current="50" :total="500" />

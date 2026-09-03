@@ -21,7 +21,7 @@ const btnCls = {
 
 <template>
   <a-config-provider :button="{ classes: btnCls }">
-    <a-flex vertical gap="middle">
+    <a-flex vertical gap="medium">
       <a-card class="line-card" title="#57727 Card extra">
         <template #extra>
           <a-button>

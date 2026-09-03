@@ -2890,7 +2890,7 @@ exports[`collapse demo > renders size correctly 1`] = `
 
 exports[`collapse demo > renders style-class correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-collapse ant-collapse-icon-placement-start css-var-root demo-collapse-root"

@@ -67,7 +67,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | --- | --- | --- | --- | --- |
 | prefixCls | - | string | - | - |
 | max | - | &#123;     count?: number     style?: CSSProperties     popover?: PopoverProps   &#125; | - | - |
-| size | The size of the avatar | AvatarSize | `default` | - |
+| size | The size of the avatar | AvatarSize | `medium` | - |
 | shape | The shape of avatar | 'circle' \| 'square' | `circle` | - |
 
 ## Design Token

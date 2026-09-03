@@ -16,7 +16,7 @@ const value3 = ref(0)
 </script>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-rate v-model:value="value1" :character="h(HeartOutlined)" allow-half />
     <a-rate v-model:value="value2" character="A" allow-half style="font-size: 36px" />
     <a-rate v-model:value="value3" character="好" allow-half />

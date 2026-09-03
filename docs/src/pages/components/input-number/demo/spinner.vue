@@ -18,7 +18,7 @@ const value2 = ref(3)
 </script>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-input-number
       v-model:value="value1"
       mode="spinner"

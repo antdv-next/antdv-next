@@ -88,7 +88,7 @@ function getPopupContainer() {
     :semantics="semantics"
   >
     <template #default="{ classes }">
-      <a-flex ref="divRef" vertical gap="middle" align="center">
+      <a-flex ref="divRef" vertical gap="medium" align="center">
         <a-segmented
           :options="['horizontal', 'vertical', 'inline']"
           :value="mode"

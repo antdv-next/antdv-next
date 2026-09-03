@@ -14,7 +14,7 @@ const value = ref()
 </script>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-input v-model:value="value" size="large" placeholder="large size">
       <template #prefix>
         <UserOutlined />

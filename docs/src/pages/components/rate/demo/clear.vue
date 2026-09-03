@@ -14,12 +14,12 @@ const val1 = ref(3)
 </script>
 
 <template>
-  <a-flex gap="middle" vertical>
-    <a-flex gap="middle">
+  <a-flex gap="medium" vertical>
+    <a-flex gap="medium">
       <a-rate v-model:value="val" />
       <span>allowClear: true</span>
     </a-flex>
-    <a-flex gap="middle">
+    <a-flex gap="medium">
       <a-rate v-model:value="val1" :allow-clear="false" />
       <span>allowClear: false</span>
     </a-flex>

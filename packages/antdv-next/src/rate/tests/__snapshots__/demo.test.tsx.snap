@@ -300,7 +300,7 @@ exports[`rate demo > renders basic correctly 1`] = `
 
 exports[`rate demo > renders character correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <ul
     class="ant-rate css-var-root"
@@ -833,7 +833,7 @@ exports[`rate demo > renders character correctly 1`] = `
 
 exports[`rate demo > renders character-function correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <ul
     class="ant-rate css-var-root"
@@ -1250,10 +1250,10 @@ exports[`rate demo > renders character-function correctly 1`] = `
 
 exports[`rate demo > renders clear correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
-    class="ant-flex css-var-root ant-flex-gap-middle"
+    class="ant-flex css-var-root ant-flex-gap-medium"
   >
     <ul
       class="ant-rate css-var-root"
@@ -1555,7 +1555,7 @@ exports[`rate demo > renders clear correctly 1`] = `
     </span>
   </div>
   <div
-    class="ant-flex css-var-root ant-flex-gap-middle"
+    class="ant-flex css-var-root ant-flex-gap-medium"
   >
     <ul
       class="ant-rate css-var-root"
@@ -3654,7 +3654,7 @@ exports[`rate demo > renders size correctly 1`] = `
 
 exports[`rate demo > renders text correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <ul
     class="ant-rate css-var-root"

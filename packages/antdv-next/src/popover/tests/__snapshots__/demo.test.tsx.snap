@@ -9,7 +9,6 @@ exports[`popover demo > renders arrow correctly 1`] = `
     aria-orientation="horizontal"
     class="ant-segmented css-var-root css-var-root"
     role="radiogroup"
-    size="middle"
     style="margin-bottom: 24px;"
     tabindex="0"
   >
@@ -18,7 +17,7 @@ exports[`popover demo > renders arrow correctly 1`] = `
     >
       <!---->
       <label
-        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
+        class="ant-segmented-item ant-segmented-item-selected"
       >
         <input
           checked=""
@@ -931,7 +930,7 @@ exports[`popover demo > renders shift correctly 1`] = `
 
 exports[`popover demo > renders style-class correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-gap-middle"
+  class="ant-flex css-var-root ant-flex-gap-medium"
 >
   <button
     class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"

@@ -14,7 +14,7 @@ const openResponsive = ref(false)
 </script>
 
 <template>
-  <a-flex vertical gap="middle" align="flex-start">
+  <a-flex vertical gap="medium" align="flex-start">
     <a-button type="primary" @click="open = true">
       Open Modal of 1000px width
     </a-button>

@@ -88,7 +88,7 @@ const onChange: CascaderEmits['change'] = (value) => {
 </script>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-cascader
       :options="options"
       :classes="classes"

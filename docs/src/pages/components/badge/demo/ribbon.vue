@@ -10,7 +10,7 @@ Use ribbon badge.
 </script>
 
 <template>
-  <a-space vertical size="middle" style="width: 100%">
+  <a-space vertical size="medium" style="width: 100%">
     <a-badge-ribbon text="Hippies">
       <a-card title="Pushes open the window" size="small">
         and raises the spyglass.

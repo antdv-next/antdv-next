@@ -857,7 +857,6 @@ exports[`skeleton demo > renders _semantic_element correctly 1`] = `
           aria-orientation="horizontal"
           class="ant-segmented css-var-v-0 css-var-v-0"
           role="radiogroup"
-          size="middle"
           tabindex="0"
         >
           <div
@@ -865,7 +864,7 @@ exports[`skeleton demo > renders _semantic_element correctly 1`] = `
           >
             <!---->
             <label
-              class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
+              class="ant-segmented-item ant-segmented-item-selected"
             >
               <input
                 checked=""
@@ -2062,7 +2061,7 @@ exports[`skeleton demo > renders element correctly 1`] = `
 
 exports[`skeleton demo > renders style-class correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-gap-middle"
+  class="ant-flex css-var-root ant-flex-gap-medium"
   data-v-f65891a8=""
 >
   <div

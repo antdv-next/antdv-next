@@ -43,7 +43,7 @@ const classesFn: CheckboxProps['classes'] = (info) => {
 </script>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-checkbox :styles="stylesObject">
       Object styles
     </a-checkbox>
