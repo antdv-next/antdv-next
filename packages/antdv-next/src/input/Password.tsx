@@ -98,7 +98,9 @@ const InternalPassword = defineComponent<
         removePasswordTimeout()
       }
       const next = !visible.value
-      visible.value = next
+      if (!visibilityControlled.value) {
+        visible.value = next
+      }
       if (typeof visibilityToggle.value === 'object') {
         visibilityToggle.value.onVisibleChange?.(next)
       }

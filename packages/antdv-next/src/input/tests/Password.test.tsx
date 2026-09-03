@@ -124,6 +124,20 @@ describe('password', () => {
     expect(wrapper.find('input').attributes('type')).toBe('text')
   })
 
+  it('should not change password visibility in controlled mode', async () => {
+    const onVisibleChange = vi.fn()
+    const wrapper = mount(Password, {
+      props: {
+        visibilityToggle: { visible: false, onVisibleChange },
+      },
+    })
+
+    await wrapper.find('.ant-input-password-icon').trigger('click')
+
+    expect(wrapper.find('input').attributes('type')).toBe('password')
+    expect(onVisibleChange).toHaveBeenCalledWith(true)
+  })
+
   it('should support action=hover', async () => {
     const wrapper = mount(Password, {
       props: {
