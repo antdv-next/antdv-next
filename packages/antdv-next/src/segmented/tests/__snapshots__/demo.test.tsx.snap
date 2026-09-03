@@ -25,7 +25,7 @@ exports[`segmented demo > renders _semantic correctly 1`] = `
         >
           <!---->
           <label
-            class="ant-segmented-item semantic-mark-item ant-segmented-item-selected"
+            class="ant-segmented-item semantic-mark-item ant-segmented-item-selected ant-segmented-item-selected-text"
           >
             <input
               checked=""
@@ -653,7 +653,7 @@ exports[`segmented demo > renders basic correctly 1`] = `
   >
     <!---->
     <label
-      class="ant-segmented-item ant-segmented-item-selected"
+      class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
     >
       <input
         checked=""
@@ -745,7 +745,7 @@ exports[`segmented demo > renders block correctly 1`] = `
   >
     <!---->
     <label
-      class="ant-segmented-item ant-segmented-item-selected"
+      class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
     >
       <input
         checked=""
@@ -810,7 +810,7 @@ exports[`segmented demo > renders custom correctly 1`] = `
     >
       <!---->
       <label
-        class="ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
           checked=""
@@ -919,7 +919,7 @@ exports[`segmented demo > renders custom correctly 1`] = `
     >
       <!---->
       <label
-        class="ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
           checked=""
@@ -1041,7 +1041,7 @@ exports[`segmented demo > renders disabled correctly 1`] = `
     >
       <!---->
       <label
-        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-disabled ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text ant-segmented-item-disabled ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
           checked=""
@@ -1105,7 +1105,7 @@ exports[`segmented demo > renders disabled correctly 1`] = `
     >
       <!---->
       <label
-        class="ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
           checked=""
@@ -1203,7 +1203,7 @@ exports[`segmented demo > renders dynamic correctly 1`] = `
     >
       <!---->
       <label
-        class="ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
           checked=""
@@ -1294,7 +1294,7 @@ exports[`segmented demo > renders icon-only correctly 1`] = `
     >
       <!---->
       <label
-        class="ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
           checked=""
@@ -1384,7 +1384,7 @@ exports[`segmented demo > renders icon-only correctly 1`] = `
     >
       <!---->
       <label
-        class="ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
           checked=""
@@ -1494,7 +1494,7 @@ exports[`segmented demo > renders shape correctly 1`] = `
         </div>
       </label>
       <label
-        class="ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
           checked=""
@@ -1539,7 +1539,7 @@ exports[`segmented demo > renders shape correctly 1`] = `
     >
       <!---->
       <label
-        class="ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
           checked=""
@@ -1637,7 +1637,7 @@ exports[`segmented demo > renders size correctly 1`] = `
     >
       <!---->
       <label
-        class="ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
           checked=""
@@ -1728,7 +1728,7 @@ exports[`segmented demo > renders size correctly 1`] = `
     >
       <!---->
       <label
-        class="ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
           checked=""
@@ -1820,7 +1820,7 @@ exports[`segmented demo > renders size correctly 1`] = `
     >
       <!---->
       <label
-        class="ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
           checked=""
@@ -1919,7 +1919,7 @@ exports[`segmented demo > renders style-class correctly 1`] = `
     >
       <!---->
       <label
-        class="ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
           checked=""
@@ -2052,7 +2052,7 @@ exports[`segmented demo > renders style-class correctly 1`] = `
     >
       <!---->
       <label
-        class="ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
         style="text-align: start;"
       >
         <input
@@ -2194,7 +2194,7 @@ exports[`segmented demo > renders vertical correctly 1`] = `
   >
     <!---->
     <label
-      class="ant-segmented-item ant-segmented-item-selected"
+      class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
     >
       <input
         checked=""
@@ -2288,7 +2288,7 @@ exports[`segmented demo > renders with-icon correctly 1`] = `
     >
       <!---->
       <label
-        class="ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
           checked=""
@@ -2422,7 +2422,7 @@ exports[`segmented demo > renders with-icon correctly 1`] = `
     >
       <!---->
       <label
-        class="ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
           checked=""
@@ -2533,7 +2533,7 @@ exports[`segmented demo > renders with-name correctly 1`] = `
       </div>
     </label>
     <label
-      class="ant-segmented-item ant-segmented-item-selected"
+      class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
     >
       <input
         checked=""

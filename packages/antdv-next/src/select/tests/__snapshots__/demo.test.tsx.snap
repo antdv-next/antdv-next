@@ -31,7 +31,7 @@ exports[`select demo > renders _semantic correctly 1`] = `
             >
               <!---->
               <label
-                class="ant-segmented-item ant-segmented-item-selected"
+                class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
               >
                 <input
                   checked=""

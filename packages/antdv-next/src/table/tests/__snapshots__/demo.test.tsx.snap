@@ -34447,7 +34447,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                 </div>
               </label>
               <label
-                class="ant-segmented-item ant-segmented-item-selected"
+                class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
               >
                 <input
                   checked=""

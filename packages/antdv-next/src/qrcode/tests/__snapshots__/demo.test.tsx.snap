@@ -726,7 +726,7 @@ exports[`qr-code demo > renders download correctly 1`] = `
       >
         <!---->
         <label
-          class="ant-segmented-item ant-segmented-item-selected"
+          class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
         >
           <input
             checked=""
@@ -852,7 +852,7 @@ exports[`qr-code demo > renders errorLevel correctly 1`] = `
         </div>
       </label>
       <label
-        class="ant-segmented-item ant-segmented-item-selected"
+        class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-selected-text"
       >
         <input
           checked=""
