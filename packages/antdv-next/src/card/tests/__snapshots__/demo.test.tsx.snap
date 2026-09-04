@@ -1239,7 +1239,7 @@ exports[`card demo > renders button-alignment-debug correctly 1`] = `
   data-v-app=""
 >
   <div
-    class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+    class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
   >
     <div
       class="ant-card ant-card-bordered line-card css-var-root"
@@ -2119,7 +2119,7 @@ exports[`card demo > renders inner correctly 1`] = `
 
 exports[`card demo > renders loading correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-start ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-start ant-flex-gap-medium ant-flex-vertical"
   data-v-b2133cf4=""
 >
   <button
@@ -2585,7 +2585,7 @@ exports[`card demo > renders simple correctly 1`] = `
 
 exports[`card demo > renders style-class correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-gap-middle"
+  class="ant-flex css-var-root ant-flex-gap-medium"
   data-v-f3a6db99=""
 >
   <div

@@ -37,7 +37,7 @@ function stylesFn(info: any) {
 </script>
 
 <template>
-  <a-space size="middle" wrap>
+  <a-space size="medium" wrap>
     <a-color-picker
       v-model:value="color"
       :classes="classes"

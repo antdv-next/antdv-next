@@ -29,7 +29,7 @@ const divRef = ref<HTMLDivElement | null>(null)
     :semantics="semantics"
   >
     <template #default="{ classes }">
-      <a-flex ref="divRef" vertical :style="{ alignSelf: 'flex-start' }" gap="middle" align="center">
+      <a-flex ref="divRef" vertical :style="{ alignSelf: 'flex-start' }" gap="medium" align="center">
         <a-segmented
           :options="['Single', 'Multiple']"
           :value="type"

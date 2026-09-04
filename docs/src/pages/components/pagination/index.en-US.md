@@ -60,7 +60,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | showTitle | Show page item's title | boolean | true | - | × |
 | showTotal | To display the total number and range | (total: number, range: [number, number]) => VueNode | - | - | × |
 | simple | Whether to use simple mode | boolean \| \{ readOnly?: boolean \} | - | - | × |
-| size | Specify the size of `Pagination`, can be set to `small` | `default` \| `small` | `default` | - | × |
+| size | Component size | `large` \| `medium` \| `small` | `medium` | - | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function | PaginationStylesType | - | - | ✓ |
 | total | Total number of data items | number | 0 | - | × |
 | locale | Pagination locale | PaginationLocale | - | - | × |

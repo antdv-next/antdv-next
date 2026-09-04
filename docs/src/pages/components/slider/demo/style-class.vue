@@ -30,7 +30,7 @@ function stylesFn(info: any) {
 </script>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-slider v-model:value="value" class="custom-slider" :styles="stylesObject" />
     <a-slider
       v-model:value="valueVertical"

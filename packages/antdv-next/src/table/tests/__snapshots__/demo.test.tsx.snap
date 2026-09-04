@@ -2064,7 +2064,7 @@ exports[`table demo > renders ajax correctly 1`] = `
 
 exports[`table demo > renders auto-height correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-start ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-start ant-flex-gap-medium ant-flex-vertical"
 >
   <button
     aria-checked="true"
@@ -2781,7 +2781,7 @@ exports[`table demo > renders basic correctly 1`] = `
                   >
                     <!---->
                     <div
-                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
                     >
                       <div
                         class="ant-space-item"
@@ -2859,7 +2859,7 @@ exports[`table demo > renders basic correctly 1`] = `
                   >
                     <!---->
                     <div
-                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
                     >
                       <div
                         class="ant-space-item"
@@ -2950,7 +2950,7 @@ exports[`table demo > renders basic correctly 1`] = `
                   >
                     <!---->
                     <div
-                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
                     >
                       <div
                         class="ant-space-item"
@@ -6404,7 +6404,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                   <span
                     class="ant-radio-button-label"
                   >
-                     Middle 
+                     Medium 
                   </span>
                 </label>
                 <label
@@ -7239,7 +7239,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                     >
                       <!---->
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
                       >
                         <div
                           class="ant-space-item"
@@ -7355,7 +7355,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                     >
                       <!---->
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
                       >
                         <div
                           class="ant-space-item"
@@ -7471,7 +7471,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                     >
                       <!---->
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
                       >
                         <div
                           class="ant-space-item"
@@ -7587,7 +7587,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                     >
                       <!---->
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
                       >
                         <div
                           class="ant-space-item"
@@ -7703,7 +7703,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                     >
                       <!---->
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
                       >
                         <div
                           class="ant-space-item"
@@ -7819,7 +7819,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                     >
                       <!---->
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
                       >
                         <div
                           class="ant-space-item"
@@ -7935,7 +7935,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                     >
                       <!---->
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
                       >
                         <div
                           class="ant-space-item"
@@ -8051,7 +8051,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                     >
                       <!---->
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
                       >
                         <div
                           class="ant-space-item"
@@ -8167,7 +8167,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                     >
                       <!---->
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
                       >
                         <div
                           class="ant-space-item"
@@ -8283,7 +8283,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                     >
                       <!---->
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
                       >
                         <div
                           class="ant-space-item"
@@ -22520,7 +22520,7 @@ exports[`table demo > renders nested-table correctly 1`] = `
                                         >
                                           <!---->
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
                                           >
                                             <div
                                               class="ant-space-item"
@@ -22620,7 +22620,7 @@ exports[`table demo > renders nested-table correctly 1`] = `
                                         >
                                           <!---->
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
                                           >
                                             <div
                                               class="ant-space-item"
@@ -22720,7 +22720,7 @@ exports[`table demo > renders nested-table correctly 1`] = `
                                         >
                                           <!---->
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
                                           >
                                             <div
                                               class="ant-space-item"
@@ -23340,7 +23340,7 @@ exports[`table demo > renders nested-table correctly 1`] = `
                                         >
                                           <!---->
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
                                           >
                                             <div
                                               class="ant-space-item"
@@ -23440,7 +23440,7 @@ exports[`table demo > renders nested-table correctly 1`] = `
                                         >
                                           <!---->
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
                                           >
                                             <div
                                               class="ant-space-item"
@@ -23540,7 +23540,7 @@ exports[`table demo > renders nested-table correctly 1`] = `
                                         >
                                           <!---->
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
                                           >
                                             <div
                                               class="ant-space-item"
@@ -24160,7 +24160,7 @@ exports[`table demo > renders nested-table correctly 1`] = `
                                         >
                                           <!---->
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
                                           >
                                             <div
                                               class="ant-space-item"
@@ -24260,7 +24260,7 @@ exports[`table demo > renders nested-table correctly 1`] = `
                                         >
                                           <!---->
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
                                           >
                                             <div
                                               class="ant-space-item"
@@ -24360,7 +24360,7 @@ exports[`table demo > renders nested-table correctly 1`] = `
                                         >
                                           <!---->
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
                                           >
                                             <div
                                               class="ant-space-item"
@@ -25504,7 +25504,7 @@ exports[`table demo > renders pagination correctly 1`] = `
                     >
                       <!---->
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
                       >
                         <div
                           class="ant-space-item"
@@ -25582,7 +25582,7 @@ exports[`table demo > renders pagination correctly 1`] = `
                     >
                       <!---->
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
                       >
                         <div
                           class="ant-space-item"
@@ -25673,7 +25673,7 @@ exports[`table demo > renders pagination correctly 1`] = `
                     >
                       <!---->
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
                       >
                         <div
                           class="ant-space-item"
@@ -27436,10 +27436,10 @@ exports[`table demo > renders row-selection correctly 1`] = `
 
 exports[`table demo > renders row-selection-and-operation correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
-    class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-middle"
+    class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-medium"
   >
     <button
       class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
@@ -28948,7 +28948,7 @@ exports[`table demo > renders size correctly 1`] = `
     <span
       class="ant-divider-inner-text"
     >
-      Middle size table
+      Medium size table
     </span>
     <div
       class="ant-divider-rail ant-divider-rail-end"
@@ -31046,7 +31046,7 @@ exports[`table demo > renders sticky correctly 1`] = `
 
 exports[`table demo > renders style-class correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="css-var-root ant-table-css-var ant-table-wrapper custom-table-root"
@@ -34410,7 +34410,6 @@ exports[`table demo > renders virtual-list correctly 1`] = `
             aria-orientation="horizontal"
             class="ant-segmented css-var-root css-var-root"
             role="radiogroup"
-            size="middle"
             tabindex="0"
           >
             <div

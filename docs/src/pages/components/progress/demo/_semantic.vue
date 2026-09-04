@@ -29,8 +29,8 @@ const colorMap = {
     :semantics="semantics"
   >
     <template #default="{ classes }">
-      <a-flex vertical gap="middle" :style="{ width: '100%' }" align="center">
-        <a-flex align="center" gap="middle">
+      <a-flex vertical gap="medium" :style="{ width: '100%' }" align="center">
+        <a-flex align="center" gap="medium">
           <a-segmented
             :options="['line', 'steps', 'circle', 'dashboard']"
             :value="type"

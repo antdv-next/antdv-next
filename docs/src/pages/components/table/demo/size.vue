@@ -3,7 +3,7 @@
 </docs>
 
 <docs lang="en-US">
-There are two compacted table sizes: `middle` and `small`. The `small` size is used in Modals only.
+There are two compacted table sizes: `medium` and `small`. The `small` size is used in Modals only.
 
 <style>#table-demo-size h4 { margin-bottom: 16px; }</style>
 </docs>
@@ -32,8 +32,8 @@ const dataSource: DataType[] = [
 </script>
 
 <template>
-  <a-divider>Middle size table</a-divider>
-  <a-table :columns="columns" :data-source="dataSource" size="middle" />
+  <a-divider>Medium size table</a-divider>
+  <a-table :columns="columns" :data-source="dataSource" size="medium" />
   <a-divider>Small size table</a-divider>
   <a-table :columns="columns" :data-source="dataSource" size="small" />
 </template>

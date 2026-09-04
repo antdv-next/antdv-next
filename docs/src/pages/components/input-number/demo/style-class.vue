@@ -31,7 +31,7 @@ const styleFn: InputNumberProps['styles'] = ({ props }) => {
 </script>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-input-number :classes="shardStyle" :styles="styleObject" placeholder="Object" />
     <a-input-number :classes="shardStyle" :styles="styleFn" placeholder="Function" size="large" />
   </a-flex>

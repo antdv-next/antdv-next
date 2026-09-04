@@ -34,7 +34,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | bordered | Whether to display the border | boolean | false | - | × |
-| size | Set the size of the list. Can be set to `middle`,`small`, or not filled | 'middle' \| 'small' \| 'default' | - | - | × |
+| size | Set the size of the list. Can be set to `medium`,`small`, or not filled | `large` \| `medium` \| `small` | `large` | - | × |
 | title | The title of the description list, placed at the top | VueNode | - | - | × |
 | extra | The action area of the description list, placed at the top-right | VueNode | - | - | × |
 | labelRender | - | RenderDescriptionsItem | - | - | × |

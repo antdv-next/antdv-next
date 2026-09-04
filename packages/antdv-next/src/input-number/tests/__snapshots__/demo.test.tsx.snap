@@ -2151,7 +2151,7 @@ exports[`input-number demo > renders out-of-range correctly 1`] = `
 
 exports[`input-number demo > renders presuffix correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-input-number ant-input-number-mode-input css-var-root ant-input-number-css-var ant-input-number-outlined"
@@ -2692,7 +2692,7 @@ exports[`input-number demo > renders size correctly 1`] = `
 
 exports[`input-number demo > renders spinner correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-input-number ant-input-number-mode-spinner css-var-root ant-input-number-css-var ant-input-number-outlined"
@@ -3225,7 +3225,7 @@ exports[`input-number demo > renders status correctly 1`] = `
 
 exports[`input-number demo > renders style-class correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
   data-v-cbcba30a=""
 >
   <div

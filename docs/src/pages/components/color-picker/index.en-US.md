@@ -61,7 +61,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | panelRender | Custom Render Panel | (params: &#123; panel: any, extra: &#123; components: &#123; Picker: any, Presets: any &#125; &#125; &#125;) => any | - | - | × |
 | rootClass | Root container class | string | - | - | × |
 | showText | Show color text | boolean \| ((params: &#123; color: Color &#125;) => any) | false | - | × |
-| size | Setting the trigger size | SizeType | `middle` | - | × |
+| size | Setting the trigger size | SizeType | `medium` | - | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | ColorPickerStylesType | - | - | ✓ |
 | trigger | ColorPicker trigger mode | TriggerType | `click` | - | × |
 | valueFormat | Set the output format of color value, supporting `hex`, `rgb`, and `hsb`. After setting, `v-model:value` returns strings in the selected format. Demo: [Value Format](#color-picker-demo-value-format) | ColorFormatType | - | - | × |

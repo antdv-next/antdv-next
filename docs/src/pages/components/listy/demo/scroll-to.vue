@@ -30,7 +30,7 @@ const scrollTop = ref(0)
 </script>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-flex gap="small" wrap align="center">
       <a-segmented v-model:value="align" :options="['top', 'bottom', 'auto']" />
       <a-space-Compact>

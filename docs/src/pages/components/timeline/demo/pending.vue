@@ -33,7 +33,7 @@ const items = [
 </script>
 
 <template>
-  <a-flex vertical gap="middle" align="flex-start">
+  <a-flex vertical gap="medium" align="flex-start">
     <a-timeline :reverse="reverse" :items="items" />
     <a-button type="primary" @click="handleClick">
       Toggle Reverse

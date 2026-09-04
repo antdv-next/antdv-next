@@ -20,7 +20,7 @@ const conicColors = {
 </script>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-progress :percent="99.9" :stroke-color="twoColors" />
     <a-progress :percent="50" status="active" :stroke-color="{ from: '#108ee9', to: '#87d068' }" />
     <a-flex gap="small" wrap>

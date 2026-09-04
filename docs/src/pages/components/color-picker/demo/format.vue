@@ -37,7 +37,7 @@ const rgbString = computed(() => {
 </script>
 
 <template>
-  <a-space vertical size="middle" style="display: flex">
+  <a-space vertical size="medium" style="display: flex">
     <a-space>
       <a-color-picker
         v-model:value="colorHex"

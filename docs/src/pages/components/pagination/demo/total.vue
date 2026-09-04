@@ -14,7 +14,7 @@ const showRangeTotal: PaginationProps['showTotal'] = (total, range) => `${range[
 </script>
 
 <template>
-  <a-space direction="vertical" size="middle" style="width: 100%">
+  <a-space direction="vertical" size="medium" style="width: 100%">
     <a-pagination
       :total="85"
       :show-total="showTotal"

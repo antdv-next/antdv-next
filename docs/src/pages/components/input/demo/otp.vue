@@ -17,7 +17,7 @@ function onInput(value: string) {
 </script>
 
 <template>
-  <a-flex gap="middle" align="flex-start" vertical>
+  <a-flex gap="medium" align="flex-start" vertical>
     <a-typography-title :level="5">
       With formatter (Upcase)
     </a-typography-title>

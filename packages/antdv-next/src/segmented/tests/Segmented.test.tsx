@@ -485,8 +485,15 @@ describe('segmented', () => {
   // ===================== ConfigProvider =====================
 
   describe('configProvider integration', () => {
-    // Note: Segmented defaults `size: 'middle'`, so ConfigProvider componentSize
-    // is overridden by the default value (uses ?? operator in useSize)
+    it('applies componentSize from ConfigProvider when size not set', () => {
+      const wrapper = mount(() => (
+        <ConfigProvider componentSize="small">
+          <Segmented options={['A', 'B']} />
+        </ConfigProvider>
+      ))
+      expect(wrapper.find(`.${prefixCls}`).classes()).toContain(`${prefixCls}-sm`)
+      expect(wrapper.find(`.${prefixCls}`).classes()).not.toContain(`${prefixCls}-lg`)
+    })
 
     it('component size prop overrides ConfigProvider componentSize', () => {
       const wrapper = mount(() => (

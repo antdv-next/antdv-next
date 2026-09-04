@@ -49,7 +49,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | expandIcon | Allow to customize collapse icon | (panelProps: PanelProps) =&gt; any | - | - | ✓ |
 | expandIconPlacement | Set expand icon placement | `start` \| `end` | `start` | - | × |
 | ghost | Make the collapse borderless and its background transparent | boolean | false | - | × |
-| size | Set the size of collapse | SizeType | `middle` | - | × |
+| size | Set the size of collapse | SizeType | `medium` | - | × |
 | collapsible | Specify how to trigger Collapse. Either by clicking icon or by clicking any area in header or disable collapse functionality itself | `header` \| `icon` \| `disabled` | - | - | × |
 | labelRender | Custom render label | (params: &#123; item: CollapseItemType, index: number &#125;) =&gt; any | - | - | × |
 | contentRender | Custom render content | (params: &#123; item: CollapseItemType, index: number &#125;) =&gt; any | - | - | × |

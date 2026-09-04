@@ -64,7 +64,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | prefix | The custom prefix | VueNode | - | - | × |
 | showCheckedStrategy | The way show selected item in box when `treeCheckable` set. **Default:** just show child nodes. **`TreeSelect.SHOW_ALL`:** show all checked treeNodes (include parent treeNode). **`TreeSelect.SHOW_PARENT`:** show checked treeNodes (just show parent treeNode) | `TreeSelect.SHOW_ALL` \| `TreeSelect.SHOW_PARENT` \| `TreeSelect.SHOW_CHILD` | `TreeSelect.SHOW_CHILD` | - | × |
 | showSearch | Support search or not | boolean \| [Object](#showsearch) | single: false \| multiple: true | - | × |
-| size | To set the size of the select input | `large` \| `middle` \| `small` | - | - | × |
+| size | To set the size of the select input | `large` \| `medium` \| `small` | - | - | × |
 | status | Set validation status | `error` \| `warning` | - | - | × |
 | variant | Variants of selector | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - | ✓ |
 | suffixIcon | The custom suffix icon | VueNode | `&lt;DownOutlined /&gt;` | - | × |

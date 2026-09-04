@@ -813,7 +813,7 @@ exports[`avatar demo > renders group correctly 1`] = `
 
 exports[`avatar demo > renders max-count correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-flex css-var-root ant-flex-align-center"

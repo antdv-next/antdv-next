@@ -414,7 +414,6 @@ exports[`tooltip demo > renders arrow correctly 1`] = `
     aria-orientation="horizontal"
     class="ant-segmented css-var-root css-var-root"
     role="radiogroup"
-    size="middle"
     style="margin-bottom: 24px;"
     tabindex="0"
   >
@@ -2209,7 +2208,7 @@ exports[`tooltip demo > renders smooth-transition correctly 1`] = `
 
 exports[`tooltip demo > renders style-class correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-gap-middle"
+  class="ant-flex css-var-root ant-flex-gap-medium"
 >
   <button
     class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"

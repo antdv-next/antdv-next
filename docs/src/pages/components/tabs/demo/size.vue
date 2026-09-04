@@ -9,7 +9,7 @@ Large size tabs are usually used in page header, and small size could be used in
 <script setup lang="ts">
 import { ref } from 'vue'
 
-type TabSize = 'small' | 'middle' | 'large'
+type TabSize = 'small' | 'medium' | 'large'
 
 interface TabItem {
   key: string
@@ -81,8 +81,8 @@ function onEdit(targetKey: string | MouseEvent | KeyboardEvent, action: 'add' | 
       <a-radio-button value="small">
         Small
       </a-radio-button>
-      <a-radio-button value="middle">
-        Middle
+      <a-radio-button value="medium">
+        Medium
       </a-radio-button>
       <a-radio-button value="large">
         Large

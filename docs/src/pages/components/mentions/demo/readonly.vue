@@ -17,7 +17,7 @@ const options: MentionsProps['options'] = ['afc163', 'zombiej', 'yesmeck'].map(v
 </script>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-mentions
       style="width: 100%"
       placeholder="this is disabled Mentions"

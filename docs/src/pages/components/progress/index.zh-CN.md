@@ -63,7 +63,7 @@ demo:
 | success | 成功进度条相关配置 | SuccessProps | - | - | × |
 | trailColor | 未完成的分段的颜色。已废弃，请使用 `railColor` | string | - | - | × |
 | width | 已废弃，请使用 `size` | number | - | - | × |
-| size | 进度条的尺寸 | number \| [number \| string, number] \| ProgressSize \| &#123; width?: number, height?: number &#125; | `default` | - | × |
+| size | 进度条的尺寸 | number \| [number \| string, number] \| ProgressSize \| &#123; width?: number, height?: number &#125; | `medium` | - | × |
 
 ### `type="line"` {#type-line}
 

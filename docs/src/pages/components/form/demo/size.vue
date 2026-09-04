@@ -10,7 +10,7 @@ Change form size for built-in controls.
 import { reactive } from 'vue'
 
 const model = reactive({
-  size: 'middle',
+  size: 'medium',
   input: '',
   select: undefined as string | undefined,
   switch: true,
@@ -33,8 +33,8 @@ const selectOptions = [{ label: 'Demo', value: 'demo' }]
         <a-radio-button value="small">
           Small
         </a-radio-button>
-        <a-radio-button value="middle">
-          Middle
+        <a-radio-button value="medium">
+          Medium
         </a-radio-button>
         <a-radio-button value="large">
           Large

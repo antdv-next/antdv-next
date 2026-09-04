@@ -48,7 +48,7 @@ const items = [
 </script>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-timeline :items="items" orientation="horizontal" :styles="styles" :classes="classes" />
     <a-timeline :items="items" orientation="vertical" :styles="stylesFn" :classes="classes" />
   </a-flex>

@@ -46,7 +46,7 @@ const notifications: Notification[] = Array.from({ length: 12 }, (_, index) => (
     :height="400"
   >
     <template #itemRender="item">
-      <a-flex gap="middle" align="flex-start">
+      <a-flex gap="medium" align="flex-start">
         <a-avatar :style="{ backgroundColor: colorOf(item.user), flex: 'none' }">
           {item.user[0]}
         </a-avatar>

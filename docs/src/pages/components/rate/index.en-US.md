@@ -42,7 +42,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | count | Star count | number | 5 |  | × |
 | disabled | If read only, unable to interact | boolean | false |  | × |
 | keyboard | Support keyboard operation | boolean | true | 5.18.0 | × |
-| size | Star size | 'small' \| 'middle' \| 'large' | 'middle' |  | × |
+| size | Star size | 'small' \| 'medium' \| 'large' | 'medium' |  | × |
 | tooltips | Customize tooltip by each character | [TooltipProps](/components/tooltip#api)[\] \| string\[] | - |  | × |
 | value | The current value, support `v-model:value` | number | - |  | × |
 

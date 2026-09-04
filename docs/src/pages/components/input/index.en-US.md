@@ -59,7 +59,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | showCount | Whether to show character count | boolean \| &#123; formatter: (info: &#123; value: string, count: number, maxLength?: number &#125;) =&gt; VueNode &#125; | false | - | × |
 | status | Set validation status | 'error' \| 'warning' | - | - | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-input), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-input), CSSProperties&gt; | - | - | ✓ |
-| size | The size of the input box. Note: in the context of a form, the `middle` size is used | `large` \| `middle` \| `small` | - | - | × |
+| size | The size of the input box. Note: in the context of a form, the `medium` size is used | `large` \| `medium` \| `small` | - | - | × |
 | suffix | The suffix icon for the Input | VueNode | - | - | × |
 | type | The type of input, see: [MDN](https://developer.mozilla.org/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types)( use `Input.TextArea` instead of `type="textarea"`) | string | `text` | - | × |
 | value | The input content value, support `v-model:value` | string | - | - | × |
@@ -159,7 +159,7 @@ Added in `5.16.0`.
 | mask | Custom display, the original value will not be modified | boolean \| string | `false` | - | × |
 | length | The number of input elements | number | 6 | - | × |
 | status | Set validation status | 'error' \| 'warning' | - | - | × |
-| size | The size of the input box | `small` \| `middle` \| `large` | `middle` | - | × |
+| size | The size of the input box | `small` \| `medium` \| `large` | `medium` | - | × |
 | variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - | ✓ |
 | value | The input content value | string | - | - | × |
 

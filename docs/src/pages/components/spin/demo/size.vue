@@ -7,7 +7,7 @@ A small `Spin` is used for loading text, default sized `Spin` for loading a card
 </docs>
 
 <template>
-  <a-flex align="center" gap="middle">
+  <a-flex align="center" gap="medium">
     <a-spin size="small" />
     <a-spin />
     <a-spin size="large" />

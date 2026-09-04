@@ -40,7 +40,7 @@ const stylesFn: TabsProps['styles'] = (info) => {
 </script>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-tabs :items="items" :classes="classes" :styles="stylesObject" />
     <a-tabs type="card" :items="items" :classes="classes" :styles="stylesFn" />
   </a-flex>

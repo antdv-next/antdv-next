@@ -31,7 +31,7 @@ const styleFn: StatisticProps['styles'] = ({ props }) => {
 </script>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-statistic
       :value="93241"
       title="Monthly Active Users"

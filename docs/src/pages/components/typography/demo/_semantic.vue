@@ -24,7 +24,7 @@ const semantics = computed(() => [
     <template #default="{ classes }">
       <a-flex
         vertical
-        gap="middle"
+        gap="medium"
         align="start"
         :style="{ width: '100%', alignSelf: 'flex-start' }"
       >

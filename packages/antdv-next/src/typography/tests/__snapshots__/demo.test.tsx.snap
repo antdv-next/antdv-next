@@ -14,7 +14,7 @@ exports[`typography demo > renders _semantic correctly 1`] = `
       data-v-dfc8ebef=""
     >
       <div
-        class="ant-flex css-var-v-0 ant-flex-align-start ant-flex-gap-middle ant-flex-vertical"
+        class="ant-flex css-var-v-0 ant-flex-align-start ant-flex-gap-medium ant-flex-vertical"
         style="width: 100%; align-self: flex-start;"
       >
         <button

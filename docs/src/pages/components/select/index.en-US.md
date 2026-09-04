@@ -93,7 +93,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | removeIcon | The custom remove icon | VueNode | - | - | ✓ |
 | searchValue | The current input "search" text | string | - | - | × |
 | showSearch | Whether select is searchable | boolean \| Object | single: false, multiple: true | - | ✓ |
-| size | Size of Select input | `large` \| `middle` \| `small` | - | - | × |
+| size | Size of Select input | `large` \| `medium` \| `small` | `medium` | - | × |
 | status | Set validation status | 'error' \| 'warning' | - | - | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - | ✓ |
 | suffixIcon | The custom suffix icon. Customize icon will not response click open to avoid icon designed to do other interactive. You can use `pointer-events: none` style to bypass | VueNode | `<DownOutlined />` | - | ✓ |

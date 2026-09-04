@@ -2355,7 +2355,7 @@ exports[`drawer demo > renders style-class correctly 1`] = `
   data-v-app=""
 >
   <div
-    class="ant-flex css-var-root ant-flex-gap-middle"
+    class="ant-flex css-var-root ant-flex-gap-medium"
     data-v-8c42c6d7=""
   >
     <button

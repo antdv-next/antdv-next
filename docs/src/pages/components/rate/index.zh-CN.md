@@ -44,7 +44,7 @@ demo:
 | defaultValue | 默认值 | number | 0 |  | × |
 | disabled | 只读，无法进行交互 | boolean | false |  | × |
 | keyboard | 支持使用键盘操作 | boolean | true | - | × |
-| size | 星星尺寸 | 'small' \| 'middle' \| 'large' | 'middle' |  | × |
+| size | 星星尺寸 | 'small' \| 'medium' \| 'large' | 'medium' |  | × |
 | tooltips | 自定义每项的提示信息 | [TooltipProps](/components/tooltip-cn#api)[\] \| string\[] | - |  | × |
 | value | 当前数，受控值，支持 `v-model:value` | number | - |  | × |
 

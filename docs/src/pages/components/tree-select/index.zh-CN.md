@@ -66,7 +66,7 @@ demo:
 | prefix | 自定义前缀 | VueNode | - | - | × |
 | showCheckedStrategy | 配置 `treeCheckable` 时，定义选中项回填的方式。`TreeSelect.SHOW_ALL`: 显示所有选中节点（包括父节点）；`TreeSelect.SHOW_PARENT`: 只显示父节点（当父节点下所有子节点都选中时）；默认只显示子节点 | `TreeSelect.SHOW_ALL` \| `TreeSelect.SHOW_PARENT` \| `TreeSelect.SHOW_CHILD` | `TreeSelect.SHOW_CHILD` | - | × |
 | showSearch | 是否支持搜索框 | boolean \| [Object](#showsearch) | 单选：false \| 多选：true | - | × |
-| size | 选择框大小 | `large` \| `middle` \| `small` | - | - | × |
+| size | 选择框大小 | `large` \| `medium` \| `small` | - | - | × |
 | status | 设置校验状态 | 'error' \| 'warning' | - | - | × |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - | ✓ |
 | suffixIcon | 自定义的选择框后缀图标 | VueNode | `&lt;DownOutlined /&gt;` | - | × |

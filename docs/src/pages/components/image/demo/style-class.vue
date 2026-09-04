@@ -39,7 +39,7 @@ const previewImageStyles = {
 </script>
 
 <template>
-  <a-flex gap="middle">
+  <a-flex gap="medium">
     <a-image v-bind="sharedProps" :styles="imageStyles" />
     <a-image v-bind="sharedProps" :styles="previewImageStyles" :preview="{ open: false }" />
   </a-flex>

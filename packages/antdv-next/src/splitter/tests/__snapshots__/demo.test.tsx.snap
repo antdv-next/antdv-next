@@ -465,7 +465,7 @@ exports[`splitter demo > renders _semantic correctly 1`] = `
 
 exports[`splitter demo > renders collapsible correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-splitter ant-splitter-horizontal css-var-root ant-splitter-css-var"
@@ -801,7 +801,7 @@ exports[`splitter demo > renders collapsibleIcon correctly 1`] = `
 
 exports[`splitter demo > renders control correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-splitter ant-splitter-horizontal css-var-root ant-splitter-css-var"
@@ -875,7 +875,7 @@ exports[`splitter demo > renders control correctly 1`] = `
     <!---->
   </div>
   <div
-    class="ant-flex css-var-root ant-flex-justify-space-between ant-flex-gap-middle"
+    class="ant-flex css-var-root ant-flex-justify-space-between ant-flex-gap-medium"
   >
     <button
       aria-checked="true"

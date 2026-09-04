@@ -60,7 +60,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 
 ### Size
 
-`'small' | 'middle' | 'large' | number`
+`'small' | 'medium' | 'large' | number`
 
 ### SpaceCompact
 
@@ -82,7 +82,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 | --- | --- | --- | --- | --- |
 | block | 将宽度调整为父元素宽度的选项 | boolean | false | 4.24.0 |
 | orientation | 设置布局方向 | `vertical` \| `horizontal` | `horizontal` | - |
-| size | 设置子组件大小 | `large` \| `middle` \| `small` | `middle` | 4.24.0 |
+| size | 设置子组件大小 | `large` \| `medium` \| `small` | `medium` | 4.24.0 |
 | vertical | 是否垂直，和 `orientation` 同时配置以 `orientation` 优先 | boolean | false | - |
 
 ## 语义化 DOM {#semantic-dom}

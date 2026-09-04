@@ -70,7 +70,7 @@ const stylesFn: CollapseProps['styles'] = (info) => {
 </script>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-collapse :items="items" :classes="classes" :styles="stylesObject" :default-active-key="['1']" />
     <a-collapse :items="items" :classes="classes" :styles="stylesFn" size="large" :default-active-key="['2']" />
   </a-flex>

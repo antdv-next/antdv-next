@@ -13,7 +13,7 @@ const value = shallowRef('a')
 </script>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-radio-group v-model:value="value">
       <a-radio-button value="a">
         Hangzhou

@@ -116,7 +116,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | presets | The preset ranges for quick selection, Since `5.8.0`, preset value supports callback function. | { label: VueNode, value: Dayjs \| (() => Dayjs) }[] | - | - | × |
 | prevIcon | The custom prev icon | VueNode | - | - | × |
 | previewValue | When the user selects the date hover option, the value of the input field undergoes a temporary change | false \| hover | hover | - | × |
-| size | To determine the size of the input box, the height of `large` and `small`, are 40px and 24px respectively, while default size is 32px | `large` \| `middle` \| `small` | - | - | × |
+| size | To determine the size of the input box, the height of `large` and `small`, are 40px and 24px respectively, while default size is 32px | `large` \| `medium` \| `small` | - | - | × |
 | status | Set validation status | 'error' \| 'warning' | - | - | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | - | ✓ |
 | suffixIcon | The custom suffix icon | VueNode | - | - | ✓ |

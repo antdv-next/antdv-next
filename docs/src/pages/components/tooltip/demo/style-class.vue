@@ -38,7 +38,7 @@ const stylesFn: TooltipProps['styles'] = (info) => {
 </script>
 
 <template>
-  <a-flex gap="middle">
+  <a-flex gap="medium">
     <a-tooltip title="Object text" :classes="classes" :styles="stylesObject" :arrow="false">
       <a-button>Object Style</a-button>
     </a-tooltip>

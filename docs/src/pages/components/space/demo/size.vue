@@ -19,8 +19,8 @@ const customizeSize = ref(0)
     <a-radio value="small">
       Small
     </a-radio>
-    <a-radio value="middle">
-      Middle
+    <a-radio value="medium">
+      Medium
     </a-radio>
     <a-radio value="large">
       Large

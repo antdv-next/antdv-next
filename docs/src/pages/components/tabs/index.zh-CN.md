@@ -60,7 +60,7 @@ Antdv Next 依次提供了三级选项卡，分别用于不同的场景。
 | moreIcon | 自定义折叠图标 | VueNode | `<EllipsisOutlined />` | - | ✓ |
 | removeIcon | 自定义删除按钮，设置 `type="editable-card"` 时有效 | VueNode | `<CloseOutlined />` | - | ✓ |
 | renderTabBar | 替换 TabBar，用于二次封装标签头 | (ctx: \{ props: any; TabNavListComponent: any \}) => VueNode | - | - | × |
-| size | 大小，提供 `large` `middle` 和 `small` 三种大小 | `large` \| `middle` \| `small` | `middle` | - | × |
+| size | 大小，提供 `large` `medium` 和 `small` 三种大小 | `large` \| `medium` \| `small` | `medium` | - | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | TabsStylesType | - | - | ✓ |
 | tabBarExtraContent | tab bar 上额外的元素 | VueNode \| \{ left?: VueNode, right?: VueNode \} | - | - | × |
 | tabBarGutter | tabs 之间的间隙 | number | - | - | × |

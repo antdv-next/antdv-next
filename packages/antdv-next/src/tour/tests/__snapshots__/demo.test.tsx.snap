@@ -2619,10 +2619,10 @@ exports[`tour demo > renders placement correctly 1`] = `
 
 exports[`tour demo > renders style-class correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
-    class="ant-flex css-var-root ant-flex-gap-middle"
+    class="ant-flex css-var-root ant-flex-gap-medium"
   >
     <button
       class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"

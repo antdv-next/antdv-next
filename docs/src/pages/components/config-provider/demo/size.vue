@@ -49,8 +49,8 @@ const tabItems = [
     <a-radio-button value="small">
       Small
     </a-radio-button>
-    <a-radio-button value="middle">
-      Middle
+    <a-radio-button value="medium">
+      Medium
     </a-radio-button>
     <a-radio-button value="large">
       Large

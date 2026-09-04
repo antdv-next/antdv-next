@@ -166,8 +166,8 @@ function handleAction() {}
         <a-radio-button value="large">
           Large
         </a-radio-button>
-        <a-radio-button value="middle">
-          Middle
+        <a-radio-button value="medium">
+          Medium
         </a-radio-button>
         <a-radio-button value="small">
           Small
@@ -248,7 +248,7 @@ function handleAction() {}
     </template>
     <template #bodyCell="{ column }">
       <template v-if="column.key === 'action'">
-        <a-space size="middle">
+        <a-space size="medium">
           <a @click.prevent="handleAction">Delete</a>
           <a @click.prevent="handleAction">
             <a-space>

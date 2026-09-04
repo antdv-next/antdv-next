@@ -14,7 +14,7 @@ const classes: InputProps['classes'] = {
 }
 
 const stylesFn: InputProps['styles'] = (info) => {
-  if (info.props.size === 'middle') {
+  if (info.props.size === 'medium') {
     return {
       root: {
         borderColor: '#696FC7',
@@ -36,7 +36,7 @@ const stylesFnTextArea: TextAreaProps['styles'] = (info) => {
 }
 
 const stylesFnPassword: InputPasswordProps['styles'] = (info) => {
-  if (info.props.size === 'middle') {
+  if (info.props.size === 'medium') {
     return {
       root: {
         borderColor: '#F5D3C4',
@@ -47,7 +47,7 @@ const stylesFnPassword: InputPasswordProps['styles'] = (info) => {
 }
 
 const stylesFnOTP: InputOTPProps['styles'] = (info) => {
-  if (info.props.size === 'middle') {
+  if (info.props.size === 'medium') {
     return {
       root: {
         borderWidth: 0,
@@ -82,10 +82,10 @@ const stylesFnSearch: InputSearchProps['styles'] = (info) => {
 <template>
   <a-flex vertical gap="large">
     <a-input :classes="classes" placeholder="Object" name="input-object" />
-    <a-input :classes="classes" :styles="stylesFn" placeholder="Function" size="middle" name="input-fn" />
+    <a-input :classes="classes" :styles="stylesFn" placeholder="Function" size="medium" name="input-fn" />
     <a-textarea :classes="classes" :styles="stylesFnTextArea" placeholder="Textarea" show-count name="textarea-fn" />
-    <a-input-password :classes="classes" :styles="stylesFnPassword" placeholder="Password" size="middle" name="password-fn" />
-    <a-input-otp :classes="classes" :styles="stylesFnOTP" size="middle" :length="6" separator="*" name="otp-fn" />
+    <a-input-password :classes="classes" :styles="stylesFnPassword" placeholder="Password" size="medium" name="password-fn" />
+    <a-input-otp :classes="classes" :styles="stylesFnOTP" size="medium" :length="6" separator="*" name="otp-fn" />
     <a-input-search :classes="classes" :styles="stylesFnSearch" placeholder="Search" size="large" name="search-fn" />
   </a-flex>
 </template>

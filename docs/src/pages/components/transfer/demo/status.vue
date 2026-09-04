@@ -11,7 +11,7 @@ const emptyData: any[] = []
 </script>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-transfer :data-source="emptyData" status="error" />
     <a-transfer :data-source="emptyData" status="warning" show-search />
   </a-flex>

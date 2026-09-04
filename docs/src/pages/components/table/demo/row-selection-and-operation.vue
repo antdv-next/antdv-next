@@ -58,8 +58,8 @@ const hasSelected = computed(() => selectedRowKeys.value.length > 0)
 </script>
 
 <template>
-  <a-flex gap="middle" vertical>
-    <a-flex align="center" gap="middle">
+  <a-flex gap="medium" vertical>
+    <a-flex align="center" gap="medium">
       <a-button type="primary" :disabled="!hasSelected" :loading="loading" @click="start">
         Reload
       </a-button>

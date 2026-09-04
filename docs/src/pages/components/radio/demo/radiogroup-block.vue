@@ -19,7 +19,7 @@ const value = shallowRef('Apple')
 </script>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-radio-group v-model:value="value" block :options="options" />
     <a-radio-group
       v-model:value="value"

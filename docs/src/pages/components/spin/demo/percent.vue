@@ -49,7 +49,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <a-flex align="center" gap="middle">
+  <a-flex align="center" gap="medium">
     <a-switch
       v-model:checked="auto"
       checked-children="Auto"

@@ -45,7 +45,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | disabled | Disable all segments | boolean | false |  | × |
 | options | Set children optional | string\[] \| number\[] \| SegmentedItemType\[] | [] |  | × |
 | orientation | Orientation | `horizontal` \| `vertical` | `horizontal` |  | × |
-| size | The size of the Segmented. | `large` \| `middle` \| `small` | `middle` |  | × |
+| size | The size of the Segmented. | `large` \| `medium` \| `small` | `medium` |  | × |
 | styles | Customize inline style for each semantic structure inside the Segmented component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | ✓ |
 | vertical | Orientation，Simultaneously existing with `orientation`, `orientation` takes priority | boolean | `false` | - | × |
 | value | Currently selected value, support `v-model:value` | string \| number |  |  | × |

@@ -48,7 +48,7 @@ The whole of the step bar.
 | percent | Progress circle percentage of current step in `process` status (only works on basic Steps) | number | - | 4.5.0 | × |
 | progressDot | Steps with progress dot style, customize the progress dot by setting it to a function. `titlePlacement` will be `vertical` | boolean \| (iconDot, &#123; index, status, title, content &#125;) =&gt; VueNode | false | - | × |
 | responsive | Change to vertical direction when screen width smaller than `532px` | boolean | true | - | × |
-| size | To specify the size of the step bar, `default` and `small` are currently supported | `default` \| `small` | `default` | - | × |
+| size | To specify the size of the step bar, `medium` and `small` are currently supported | `medium` \| `small` | `medium` | - | × |
 | status | To specify the status of current step, can be set to one of the following values: `wait` `process` `finish` `error` | `wait` \| `process` \| `finish` \| `error` | `process` | - | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function | StepsStylesType | - | - | ✓ |
 | titlePlacement | Place title and content with `horizontal` or `vertical` direction | `horizontal` \| `vertical` | `horizontal` | - | × |

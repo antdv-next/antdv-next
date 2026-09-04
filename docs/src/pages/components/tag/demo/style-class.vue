@@ -68,7 +68,7 @@ const options2 = ['meet-student', 'thinkasany']
 
 <template>
   <a-space size="large" vertical>
-    <a-flex gap="middle">
+    <a-flex gap="medium">
       <a-tag :classes="{ root: 'custom-tag-root' }" :styles="tagStyles">
         <template #icon>
           <CheckCircleOutlined />
@@ -86,7 +86,7 @@ const options2 = ['meet-student', 'thinkasany']
         Function
       </a-tag>
     </a-flex>
-    <a-flex vertical gap="middle">
+    <a-flex vertical gap="medium">
       <a-checkable-tag-group
         :classes="{ root: 'custom-tag-root' }"
         :styles="groupStyles"

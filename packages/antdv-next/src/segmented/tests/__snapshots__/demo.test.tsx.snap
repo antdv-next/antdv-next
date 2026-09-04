@@ -18,7 +18,6 @@ exports[`segmented demo > renders _semantic correctly 1`] = `
         aria-orientation="horizontal"
         class="ant-segmented semantic-mark-root css-var-v-0 semantic-mark-root css-var-v-0"
         role="radiogroup"
-        size="middle"
         tabindex="0"
       >
         <div
@@ -647,7 +646,6 @@ exports[`segmented demo > renders basic correctly 1`] = `
   aria-orientation="horizontal"
   class="ant-segmented css-var-root css-var-root"
   role="radiogroup"
-  size="middle"
   tabindex="0"
 >
   <div
@@ -740,7 +738,6 @@ exports[`segmented demo > renders block correctly 1`] = `
   aria-orientation="horizontal"
   class="ant-segmented ant-segmented-block css-var-root ant-segmented-block css-var-root"
   role="radiogroup"
-  size="middle"
   tabindex="0"
 >
   <div
@@ -806,7 +803,6 @@ exports[`segmented demo > renders custom correctly 1`] = `
     aria-orientation="horizontal"
     class="ant-segmented css-var-root css-var-root"
     role="radiogroup"
-    size="middle"
     tabindex="0"
   >
     <div
@@ -916,7 +912,6 @@ exports[`segmented demo > renders custom correctly 1`] = `
     aria-orientation="horizontal"
     class="ant-segmented css-var-root css-var-root"
     role="radiogroup"
-    size="middle"
     tabindex="0"
   >
     <div
@@ -1040,7 +1035,6 @@ exports[`segmented demo > renders disabled correctly 1`] = `
     aria-orientation="horizontal"
     class="ant-segmented ant-segmented-disabled css-var-root css-var-root"
     role="radiogroup"
-    size="middle"
   >
     <div
       class="ant-segmented-group"
@@ -1104,7 +1098,6 @@ exports[`segmented demo > renders disabled correctly 1`] = `
     aria-orientation="horizontal"
     class="ant-segmented css-var-root css-var-root"
     role="radiogroup"
-    size="middle"
     tabindex="0"
   >
     <div
@@ -1203,7 +1196,6 @@ exports[`segmented demo > renders dynamic correctly 1`] = `
     aria-orientation="horizontal"
     class="ant-segmented css-var-root css-var-root"
     role="radiogroup"
-    size="middle"
     tabindex="0"
   >
     <div
@@ -1295,7 +1287,6 @@ exports[`segmented demo > renders icon-only correctly 1`] = `
     aria-orientation="horizontal"
     class="ant-segmented css-var-root css-var-root"
     role="radiogroup"
-    size="middle"
     tabindex="0"
   >
     <div
@@ -1386,7 +1377,6 @@ exports[`segmented demo > renders icon-only correctly 1`] = `
     aria-orientation="horizontal"
     class="ant-segmented css-var-root css-var-root"
     role="radiogroup"
-    size="middle"
     tabindex="0"
   >
     <div
@@ -1482,7 +1472,6 @@ exports[`segmented demo > renders shape correctly 1`] = `
     aria-orientation="horizontal"
     class="ant-segmented css-var-root css-var-root"
     role="radiogroup"
-    size="middle"
     tabindex="0"
   >
     <div
@@ -1515,9 +1504,9 @@ exports[`segmented demo > renders shape correctly 1`] = `
         />
         <div
           class="ant-segmented-item-label"
-          title="middle"
+          title="medium"
         >
-          middle
+          medium
         </div>
       </label>
       <label
@@ -1542,7 +1531,7 @@ exports[`segmented demo > renders shape correctly 1`] = `
     aria-orientation="horizontal"
     class="ant-segmented ant-segmented-shape-round css-var-root ant-segmented-shape-round css-var-root"
     role="radiogroup"
-    size="middle"
+    size="medium"
     tabindex="0"
   >
     <div
@@ -1732,7 +1721,6 @@ exports[`segmented demo > renders size correctly 1`] = `
     aria-orientation="horizontal"
     class="ant-segmented css-var-root css-var-root"
     role="radiogroup"
-    size="middle"
     tabindex="0"
   >
     <div
@@ -1914,7 +1902,7 @@ exports[`segmented demo > renders size correctly 1`] = `
 
 exports[`segmented demo > renders style-class correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
   data-v-0de51c46=""
 >
   <div
@@ -1923,7 +1911,6 @@ exports[`segmented demo > renders style-class correctly 1`] = `
     class="ant-segmented custom-segmented-root css-var-root custom-segmented-root css-var-root"
     data-v-0de51c46=""
     role="radiogroup"
-    size="middle"
     style="padding: 4px; width: 260px;"
     tabindex="0"
   >
@@ -2057,7 +2044,6 @@ exports[`segmented demo > renders style-class correctly 1`] = `
     class="ant-segmented ant-segmented-vertical custom-segmented-root ant-segmented-vertical css-var-root custom-segmented-root ant-segmented-vertical css-var-root"
     data-v-0de51c46=""
     role="radiogroup"
-    size="middle"
     style="border: 1px solid rgb(119, 190, 240); padding: 4px; width: 100px;"
     tabindex="0"
   >
@@ -2201,7 +2187,6 @@ exports[`segmented demo > renders vertical correctly 1`] = `
   class="ant-segmented ant-segmented-vertical ant-segmented-vertical css-var-root ant-segmented-vertical css-var-root"
   orientation="vertical"
   role="radiogroup"
-  size="middle"
   tabindex="0"
 >
   <div
@@ -2296,7 +2281,6 @@ exports[`segmented demo > renders with-icon correctly 1`] = `
     aria-orientation="horizontal"
     class="ant-segmented css-var-root css-var-root"
     role="radiogroup"
-    size="middle"
     tabindex="0"
   >
     <div
@@ -2431,7 +2415,6 @@ exports[`segmented demo > renders with-icon correctly 1`] = `
     aria-orientation="horizontal"
     class="ant-segmented css-var-root css-var-root"
     role="radiogroup"
-    size="middle"
     tabindex="0"
   >
     <div
@@ -2528,7 +2511,6 @@ exports[`segmented demo > renders with-name correctly 1`] = `
   aria-orientation="horizontal"
   class="ant-segmented css-var-root css-var-root"
   role="radiogroup"
-  size="middle"
   tabindex="0"
 >
   <div

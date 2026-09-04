@@ -1880,7 +1880,7 @@ exports[`descriptions demo > renders size correctly 1`] = `
       <span
         class="ant-radio-label"
       >
-         middle 
+         medium 
       </span>
     </label>
     <label
@@ -2325,7 +2325,7 @@ exports[`descriptions demo > renders size correctly 1`] = `
 
 exports[`descriptions demo > renders style-class correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
   data-v-5e3d78eb=""
 >
   <div

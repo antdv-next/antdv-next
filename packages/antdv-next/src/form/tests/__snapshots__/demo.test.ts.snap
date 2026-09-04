@@ -4387,7 +4387,7 @@ exports[`form demo > renders customized-form-controls correctly 1`] = `
 
 exports[`form demo > renders disabled correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+  class="ant-space ant-space-vertical ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
   style="width: 100%;"
 >
   <div
@@ -12202,7 +12202,7 @@ exports[`form demo > renders required-mark correctly 1`] = `
 
 exports[`form demo > renders size correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal ant-form-middle css-var-root ant-form-css-var"
+  class="ant-form ant-form-horizontal ant-form-medium css-var-root ant-form-css-var"
   style="max-width: 600px;"
 >
   <div
@@ -12268,7 +12268,7 @@ exports[`form demo > renders size correctly 1`] = `
                 <span
                   class="ant-radio-button-label"
                 >
-                   Middle 
+                   Medium 
                 </span>
               </label>
               <label

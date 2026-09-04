@@ -2,7 +2,7 @@
 
 exports[`layout demo > renders basic correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-wrap-wrap ant-flex-gap-middle"
+  class="ant-flex css-var-root ant-flex-wrap-wrap ant-flex-gap-medium"
   data-v-8a9a70e8=""
 >
   <div

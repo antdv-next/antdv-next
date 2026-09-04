@@ -64,7 +64,7 @@ const segmentedSharedProps: SegmentedProps = {
 </script>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-segmented v-bind="segmentedSharedProps" :styles="styles" />
     <a-segmented v-bind="segmentedSharedProps" :styles="styleFn" vertical />
   </a-flex>

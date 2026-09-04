@@ -14,7 +14,7 @@ exports[`date-picker demo > renders _semantic correctly 1`] = `
       data-v-dfc8ebef=""
     >
       <div
-        class="ant-flex css-var-v-0 ant-flex-align-center ant-flex-gap-middle ant-flex-vertical"
+        class="ant-flex css-var-v-0 ant-flex-align-center ant-flex-gap-medium ant-flex-vertical"
         style="align-self: flex-start;"
       >
         <div
@@ -22,7 +22,6 @@ exports[`date-picker demo > renders _semantic correctly 1`] = `
           aria-orientation="horizontal"
           class="ant-segmented css-var-v-0 css-var-v-0"
           role="radiogroup"
-          size="middle"
           tabindex="0"
         >
           <div
@@ -5905,7 +5904,7 @@ exports[`date-picker demo > renders size correctly 1`] = `
         <span
           class="ant-radio-button-label"
         >
-           middle 
+           medium 
         </span>
       </label>
       <label
@@ -5933,7 +5932,7 @@ exports[`date-picker demo > renders size correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-middle ant-picker-outlined css-var-root ant-picker-css-var"
+      class="ant-picker ant-picker-medium ant-picker-outlined css-var-root ant-picker-css-var"
     >
       <!---->
       <div
@@ -5981,7 +5980,7 @@ exports[`date-picker demo > renders size correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-middle ant-picker-outlined css-var-root ant-picker-css-var"
+      class="ant-picker ant-picker-medium ant-picker-outlined css-var-root ant-picker-css-var"
     >
       <!---->
       <div
@@ -6029,7 +6028,7 @@ exports[`date-picker demo > renders size correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-middle ant-picker-outlined css-var-root ant-picker-css-var"
+      class="ant-picker ant-picker-range ant-picker-medium ant-picker-outlined css-var-root ant-picker-css-var"
     >
       <!---->
       <div
@@ -6126,7 +6125,7 @@ exports[`date-picker demo > renders size correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-middle ant-picker-outlined css-var-root ant-picker-css-var"
+      class="ant-picker ant-picker-medium ant-picker-outlined css-var-root ant-picker-css-var"
     >
       <!---->
       <div
@@ -6477,7 +6476,7 @@ exports[`date-picker demo > renders status correctly 1`] = `
 
 exports[`date-picker demo > renders style-class correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
   data-v-c6e89a28=""
 >
   <div

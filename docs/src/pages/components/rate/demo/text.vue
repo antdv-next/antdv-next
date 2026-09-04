@@ -25,7 +25,7 @@ const value = ref(3)
 </script>
 
 <template>
-  <a-flex gap="middle" vertical>
+  <a-flex gap="medium" vertical>
     <a-rate v-model:value="value" :tooltips="desc" />
     <template v-if="value">
       <span>{{ getDescTitle(value, desc) }}</span>

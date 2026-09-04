@@ -45,7 +45,7 @@ const stylesFn: DrawerProps['styles'] = (info) => {
 </script>
 
 <template>
-  <a-flex gap="middle">
+  <a-flex gap="medium">
     <a-button @click="open = true">
       Object Style
     </a-button>

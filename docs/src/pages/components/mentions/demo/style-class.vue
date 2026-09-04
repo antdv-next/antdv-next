@@ -44,7 +44,7 @@ const stylesFn: MentionsProps['styles'] = ({ props }) => {
 </script>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-mentions
       :options="options"
       :classes="classes"

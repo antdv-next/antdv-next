@@ -802,7 +802,7 @@ exports[`badge demo > renders _semantic_ribbon correctly 1`] = `
 
 exports[`badge demo > renders basic correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
 >
   <div
     class="ant-space-item"
@@ -2133,7 +2133,7 @@ exports[`badge demo > renders overflow correctly 1`] = `
 
 exports[`badge demo > renders ribbon correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+  class="ant-space ant-space-vertical ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
   style="width: 100%;"
 >
   <div
@@ -2517,7 +2517,7 @@ exports[`badge demo > renders ribbon correctly 1`] = `
 
 exports[`badge demo > renders size correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
 >
   <div
     class="ant-space-item"
@@ -2794,7 +2794,7 @@ exports[`badge demo > renders style-class correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-flex css-var-root ant-flex-gap-middle"
+      class="ant-flex css-var-root ant-flex-gap-medium"
     >
       <span
         class="ant-badge css-var-root"
@@ -2893,7 +2893,7 @@ exports[`badge demo > renders style-class correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+      class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
     >
       <div
         class="ant-ribbon-wrapper css-var-root custom-ribbon-root"

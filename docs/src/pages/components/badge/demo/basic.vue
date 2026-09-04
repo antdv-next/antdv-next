@@ -11,7 +11,7 @@ import { ClockCircleOutlined } from '@antdv-next/icons'
 </script>
 
 <template>
-  <a-space size="middle">
+  <a-space size="medium">
     <a-badge :count="5">
       <a-avatar shape="square" size="large" />
     </a-badge>

@@ -66,7 +66,7 @@ const value = ref('')
 </script>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-auto-complete v-model:value="value" v-bind="sharedProps" placeholder="object styles" :styles="stylesObject" />
     <a-auto-complete
       v-model:value="value"

@@ -7,7 +7,7 @@ Variants of Cascader, there are four variants: `outlined` `filled` `borderless` 
 </docs>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-cascader placeholder="Please select" variant="borderless" />
     <a-cascader placeholder="Please select" variant="filled" />
     <a-cascader placeholder="Please select" variant="outlined" />

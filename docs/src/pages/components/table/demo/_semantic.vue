@@ -54,7 +54,7 @@ const data = [
         :style="{ width: '100%' }"
         :columns="columns"
         :data-source="data"
-        size="middle"
+        size="medium"
         :pagination="{ pageSize: 3 }"
         :classes="classes"
       >

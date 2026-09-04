@@ -15,7 +15,7 @@ const handleShowSizeChange: PaginationEmits['showSizeChange'] = (current, pageSi
 </script>
 
 <template>
-  <a-space direction="vertical" size="middle" style="width: 100%">
+  <a-space direction="vertical" size="medium" style="width: 100%">
     <a-pagination
       show-size-changer
       :default-current="3"

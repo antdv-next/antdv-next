@@ -2,6 +2,7 @@ import type { CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { VueNode } from '../_util/type'
 import type { ComponentBaseProps } from '../config-provider/context'
+import type { SizeType } from '../config-provider/SizeContext'
 import type { Tab, TabsSlots } from '../tabs'
 import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
@@ -19,7 +20,10 @@ import useStyle from './style'
 
 export type CardType = 'inner'
 
-export type CardSize = 'small' | 'medium' | 'middle' | 'default'
+/**
+ * Note: `default` is deprecated and will be removed in later versions, please use `medium` instead.
+ */
+export type CardSize = Exclude<SizeType, 'large'> | 'default'
 
 export interface CardTabListType extends Omit<Tab, 'label'> {
   key: string

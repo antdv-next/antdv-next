@@ -23,7 +23,7 @@ const stepsGap = ref(7)
       Custom gap:
     </a-typography-title>
     <a-slider v-model:value="stepsGap" :step="4" :min="0" :max="40" />
-    <a-flex wrap gap="middle" style="margin-top: 16px">
+    <a-flex wrap gap="medium" style="margin-top: 16px">
       <a-progress
         type="dashboard"
         :steps="8"

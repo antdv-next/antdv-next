@@ -22,7 +22,7 @@ const selectOptions = [{ label: 'Demo', value: 'demo' }]
 </script>
 
 <template>
-  <a-space direction="vertical" size="middle" style="width: 100%">
+  <a-space direction="vertical" size="medium" style="width: 100%">
     <a-checkbox v-model:checked="componentDisabled">
       Form disabled
     </a-checkbox>

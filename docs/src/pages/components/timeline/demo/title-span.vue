@@ -16,7 +16,7 @@ const items = [
 </script>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-typography-title :level="5" :style="{ margin: 0 }">
       titleSpan = 100px
     </a-typography-title>

@@ -50,7 +50,7 @@ const enableOverflowInFinal = ref(true)
 </script>
 
 <template>
-  <a-flex vertical gap="middle">
+  <a-flex vertical gap="medium">
     <a-flex :gap="24" align="center">
       <span>Avatar count: </span>
       <a-input-number

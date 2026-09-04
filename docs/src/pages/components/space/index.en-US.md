@@ -81,7 +81,7 @@ Use Space.Compact when child form components are compactly connected and the bor
 | --- | --- | --- | --- | --- |
 | block | Option to fit width to its parent's width | boolean | false | 4.24.0 |
 | orientation | Set direction of layout | `vertical` \| `horizontal` | `horizontal` | - |
-| size | Set child component size | `large` \| `middle` \| `small` | `middle` | 4.24.0 |
+| size | Set child component size | `large` \| `medium` \| `small` | `medium` | 4.24.0 |
 | vertical | Orientation, Simultaneously configure with `orientation` and prioritize `orientation` | boolean | false | - |
 
 ## Semantic DOM

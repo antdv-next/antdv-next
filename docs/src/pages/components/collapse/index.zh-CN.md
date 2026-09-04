@@ -49,7 +49,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sir-TK0HkWcAAA
 | expandIcon | 自定义切换图标 | (panelProps: PanelProps) =&gt; any | - | - | ✓ |
 | expandIconPlacement | 设置图标位置 | `start` \| `end` | `start` | - | × |
 | ghost | 使折叠面板透明且无边框 | boolean | false | - | × |
-| size | 设置折叠面板大小 | SizeType | `middle` | - | × |
+| size | 设置折叠面板大小 | SizeType | `medium` | - | × |
 | collapsible | 所有子面板是否可折叠或指定可折叠触发区域 | `header` \| `icon` \| `disabled` | - | - | × |
 | labelRender | 自定义渲染label | (params: &#123; item: CollapseItemType, index: number &#125;) =&gt; any | - | - | × |
 | contentRender | 自定义渲染内容 | (params: &#123; item: CollapseItemType, index: number &#125;) =&gt; any | - | - | × |

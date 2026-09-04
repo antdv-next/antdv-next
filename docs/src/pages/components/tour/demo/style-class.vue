@@ -96,8 +96,8 @@ const stylesFn: TourProps['styles'] = (info) => {
 </script>
 
 <template>
-  <a-flex vertical gap="middle">
-    <a-flex gap="middle">
+  <a-flex vertical gap="medium">
+    <a-flex gap="medium">
       <a-button type="primary" @click="open = true">
         Begin Tour Object
       </a-button>

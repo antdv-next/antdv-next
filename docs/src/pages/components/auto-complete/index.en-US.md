@@ -63,7 +63,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | popupMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true | - | × |
 | popupRender | Customize dropdown content | (menu: VueNode) =&gt; VueNode | - | - | × |
 | showSearch | Search configuration | boolean \| [SearchConfig](#showsearch) | true | - | × |
-| size | The size of the input box | `large` \| `middle` \| `small` | - | - | × |
+| size | The size of the input box | `large` \| `medium` \| `small` | - | - | × |
 | status | Set validation status | `error` \| `warning` | - | - | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - | × |
 | value | Selected option, support `v-model:value` | string | - | - | × |

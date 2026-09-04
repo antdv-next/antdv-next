@@ -140,7 +140,7 @@ const hasData = ref(true)
 </script>
 
 <template>
-  <a-flex vertical gap="middle" align="start">
+  <a-flex vertical gap="medium" align="start">
     <a-switch
       v-model:checked="hasData"
       checked-children="More Data"

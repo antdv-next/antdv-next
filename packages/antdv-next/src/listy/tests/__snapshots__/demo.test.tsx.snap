@@ -2287,7 +2287,7 @@ exports[`listy demo > renders rich correctly 1`] = `
     data-key="item:0"
   >
     <div
-      class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-middle"
+      class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-medium"
     >
       <span
         class="ant-avatar ant-avatar-circle css-var-root ant-avatar-css-var"
@@ -2354,7 +2354,7 @@ exports[`listy demo > renders rich correctly 1`] = `
     data-key="item:1"
   >
     <div
-      class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-middle"
+      class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-medium"
     >
       <span
         class="ant-avatar ant-avatar-circle css-var-root ant-avatar-css-var"
@@ -2421,7 +2421,7 @@ exports[`listy demo > renders rich correctly 1`] = `
     data-key="item:2"
   >
     <div
-      class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-middle"
+      class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-medium"
     >
       <span
         class="ant-avatar ant-avatar-circle css-var-root ant-avatar-css-var"
@@ -2488,7 +2488,7 @@ exports[`listy demo > renders rich correctly 1`] = `
     data-key="item:3"
   >
     <div
-      class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-middle"
+      class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-medium"
     >
       <span
         class="ant-avatar ant-avatar-circle css-var-root ant-avatar-css-var"
@@ -2555,7 +2555,7 @@ exports[`listy demo > renders rich correctly 1`] = `
     data-key="item:4"
   >
     <div
-      class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-middle"
+      class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-medium"
     >
       <span
         class="ant-avatar ant-avatar-circle css-var-root ant-avatar-css-var"
@@ -2622,7 +2622,7 @@ exports[`listy demo > renders rich correctly 1`] = `
     data-key="item:5"
   >
     <div
-      class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-middle"
+      class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-medium"
     >
       <span
         class="ant-avatar ant-avatar-circle css-var-root ant-avatar-css-var"
@@ -2689,7 +2689,7 @@ exports[`listy demo > renders rich correctly 1`] = `
     data-key="item:6"
   >
     <div
-      class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-middle"
+      class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-medium"
     >
       <span
         class="ant-avatar ant-avatar-circle css-var-root ant-avatar-css-var"
@@ -2756,7 +2756,7 @@ exports[`listy demo > renders rich correctly 1`] = `
     data-key="item:7"
   >
     <div
-      class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-middle"
+      class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-medium"
     >
       <span
         class="ant-avatar ant-avatar-circle css-var-root ant-avatar-css-var"
@@ -2823,7 +2823,7 @@ exports[`listy demo > renders rich correctly 1`] = `
     data-key="item:8"
   >
     <div
-      class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-middle"
+      class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-medium"
     >
       <span
         class="ant-avatar ant-avatar-circle css-var-root ant-avatar-css-var"
@@ -2890,7 +2890,7 @@ exports[`listy demo > renders rich correctly 1`] = `
     data-key="item:9"
   >
     <div
-      class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-middle"
+      class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-medium"
     >
       <span
         class="ant-avatar ant-avatar-circle css-var-root ant-avatar-css-var"
@@ -2957,7 +2957,7 @@ exports[`listy demo > renders rich correctly 1`] = `
     data-key="item:10"
   >
     <div
-      class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-middle"
+      class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-medium"
     >
       <span
         class="ant-avatar ant-avatar-circle css-var-root ant-avatar-css-var"
@@ -3024,7 +3024,7 @@ exports[`listy demo > renders rich correctly 1`] = `
     data-key="item:11"
   >
     <div
-      class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-middle"
+      class="ant-flex css-var-root ant-flex-align-flex-start ant-flex-gap-medium"
     >
       <span
         class="ant-avatar ant-avatar-circle css-var-root ant-avatar-css-var"
@@ -3091,7 +3091,7 @@ exports[`listy demo > renders rich correctly 1`] = `
 
 exports[`listy demo > renders scroll-to correctly 1`] = `
 <div
-  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-flex css-var-root ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-small"
@@ -3101,7 +3101,6 @@ exports[`listy demo > renders scroll-to correctly 1`] = `
       aria-orientation="horizontal"
       class="ant-segmented css-var-root css-var-root"
       role="radiogroup"
-      size="middle"
       tabindex="0"
     >
       <div

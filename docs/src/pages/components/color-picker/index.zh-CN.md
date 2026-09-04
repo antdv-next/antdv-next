@@ -62,7 +62,7 @@ group:
 | panelRender | 自定义渲染面板 | (params: &#123; panel: any, extra: &#123; components: &#123; Picker: any, Presets: any &#125; &#125; &#125;) => any | - | - | × |
 | rootClass | 根容器 class | string | - | - | × |
 | showText | 显示颜色文本 | boolean \| ((params: &#123; color: Color &#125;) => any) | false | - | × |
-| size | 设置触发器大小 | SizeType | `middle` | - | × |
+| size | 设置触发器大小 | SizeType | `medium` | - | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | ColorPickerStylesType | - | - | ✓ |
 | trigger | 颜色选择器的触发模式 | TriggerType | `click` | - | × |
 | valueFormat | 设置颜色值的输出格式，支持 `hex`、`rgb`、`hsb`。设置后 `v-model:value` 返回对应格式的字符串。示例：[值格式化](#color-picker-demo-value-format) | ColorFormatType | - | - | × |

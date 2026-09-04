@@ -89,7 +89,7 @@ const expandable = {
             <a-badge status="success" text="Finished" />
           </template>
           <template v-else-if="column.key === 'operation'">
-            <a-space size="middle">
+            <a-space size="medium">
               <a>Pause</a>
               <a>Stop</a>
               <a-dropdown :menu="{ items }">
@@ -113,7 +113,7 @@ const expandable = {
     :columns="columns"
     :data-source="dataSource"
     :expandable="expandable"
-    size="middle"
+    size="medium"
   >
     <template #expandedRowRender>
       <a-table
@@ -126,7 +126,7 @@ const expandable = {
             <a-badge status="success" text="Finished" />
           </template>
           <template v-else-if="column.key === 'operation'">
-            <a-space size="middle">
+            <a-space size="medium">
               <a>Pause</a>
               <a>Stop</a>
               <a-dropdown :menu="{ items }">
@@ -163,7 +163,7 @@ const expandable = {
             <a-badge status="success" text="Finished" />
           </template>
           <template v-else-if="column.key === 'operation'">
-            <a-space size="middle">
+            <a-space size="medium">
               <a>Pause</a>
               <a>Stop</a>
               <a-dropdown :menu="{ items }">

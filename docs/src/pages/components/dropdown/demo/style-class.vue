@@ -81,7 +81,7 @@ const sharedProps: DropdownProps = {
 </script>
 
 <template>
-  <a-flex gap="middle" wrap="wrap">
+  <a-flex gap="medium" wrap="wrap">
     <a-space direction="vertical" size="large">
       <a-dropdown v-bind="sharedProps" :styles="objectStyles">
         <a-button>

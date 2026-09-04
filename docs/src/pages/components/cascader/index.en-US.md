@@ -62,7 +62,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | showCheckedStrategy | The way to show selected items in the box (only effective when `multiple` is `true`). `Cascader.SHOW_CHILD`: just show child treeNode. `Cascader.SHOW_PARENT`: just show parent treeNode (when all child treeNode under the parent treeNode are checked) | `Cascader.SHOW_PARENT` \| `Cascader.SHOW_CHILD` | `Cascader.SHOW_PARENT` | - | × |
 | showSearch | Whether show search input in single mode | boolean \| [Object](#showsearch) | false | - | × |
 | ~~searchValue~~ | Set search value, Need work with `showSearch` | string | - | - | × |
-| size | The input size | `large` \| `middle` \| `small` | - | - | × |
+| size | The input size | `large` \| `medium` \| `small` | `medium` | - | × |
 | status | Set validation status | 'error' \| 'warning' | - | - | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: \{ props \})=&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - | ✓ |
 | value | The selected value, support `v-model:value` | string\[] \| number\[] | - | - | × |
