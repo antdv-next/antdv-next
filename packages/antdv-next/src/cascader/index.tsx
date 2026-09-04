@@ -1,5 +1,5 @@
 import type { DefaultOptionType, FieldNames, SearchConfig, CascaderProps as VcCascaderProps } from '@v-c/cascader'
-import type { App, CSSProperties, PublicProps, SlotsType } from 'vue'
+import type { App, CSSProperties, PublicProps, SlotsType, VNode, VNodeChild } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { SelectCommonPlacement } from '../_util/motion'
 import type { InputStatus } from '../_util/statusUtils'
@@ -151,6 +151,7 @@ export interface CascaderProps<
     | 'onChange'
     | 'onSearch'
     | 'onPopupVisibleChange'
+    | 'popupRender'
     | 'multiple'
     | 'value'
   >,
@@ -180,8 +181,8 @@ export interface CascaderProps<
   /** @deprecated Please use `styles.popup.root` instead */
   dropdownStyle?: CSSProperties
   /** @deprecated Please use `popupRender` instead */
-  dropdownRender?: (menu: any) => any
-  popupRender?: (menu: any) => any
+  dropdownRender?: (menu: VNode) => VNodeChild
+  popupRender?: (menu: VNode) => VNodeChild
   /** @deprecated Please use `popupMenuColumnStyle` instead */
   dropdownMenuColumnStyle?: CSSProperties
   popupMenuColumnStyle?: CSSProperties
@@ -197,7 +198,7 @@ export interface CascaderProps<
 export interface CascaderSlots<OptionType extends DefaultOptionType = DefaultOptionType> {
   suffixIcon?: () => any
   notFoundContent?: () => any
-  popupRender?: (menu: any) => any
+  popupRender?: (menu: VNode) => VNodeChild
   displayRender?: (data: { labels: string[], selectedOptions?: OptionType[] }) => any
   optionRender?: (option: OptionType) => any
   expandIcon?: () => any

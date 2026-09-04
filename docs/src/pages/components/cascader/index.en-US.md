@@ -84,7 +84,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | loadingIcon | The appearance of lazy loading (now is useless) | VueNode | - |
 | notFoundContent | Specify content to show when no result matches | VueNode | - |
 | optionRender | Customize the rendering dropdown options | (option: Option) => VueNode | - |
-| popupRender | Customize dropdown content | (menus: VueNode) => VueNode | - |
+| popupRender | Customize dropdown content | (menus: VNode) => VueNode | - |
 | prefix | The custom prefix | VueNode | - |
 | removeIcon | The custom remove icon | VueNode | - |
 | suffixIcon | The custom suffix icon | VueNode | - |

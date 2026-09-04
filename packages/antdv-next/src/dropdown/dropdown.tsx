@@ -1,6 +1,6 @@
 import type { MenuInfo, MenuProps as VcMenuProps } from '@v-c/menu'
 import type { AlignType } from '@v-c/trigger'
-import type { App, CSSProperties, SlotsType } from 'vue'
+import type { App, CSSProperties, SlotsType, VNode, VNodeChild } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { AdjustOverflow } from '../_util/placements'
 import type { ComponentBaseProps } from '../config-provider/context'
@@ -84,7 +84,7 @@ export interface DropdownProps extends ComponentBaseProps,
   autoFocus?: boolean
   arrow?: boolean | DropdownArrowOptions
   trigger?: ('click' | 'hover' | 'contextmenu' | 'contextMenu')[]
-  popupRender?: (Vnode: any) => any
+  popupRender?: (node: VNode) => VNodeChild
   // onOpenChange?: (open: boolean, info: { source: 'trigger' | 'menu' }) => void;
   open?: boolean
   disabled?: boolean
@@ -116,7 +116,7 @@ export interface DropdownEmitsProps {
 }
 
 export interface DropdownSlots extends MenuSlots {
-  popupRender: (info: { open: boolean, source: 'trigger' | 'menu' }) => any
+  popupRender: (node: VNode) => VNodeChild
 }
 
 const defaults = {
@@ -313,8 +313,9 @@ const Dropdown = defineComponent<
         if (mergedPopupRender) {
           overlayNode = mergedPopupRender(overlayNode)
         }
-        const overlayFiltered = filterEmpty(Array.isArray(overlayNode) ? overlayNode : [overlayNode]).filter(Boolean)
-        overlayNode = overlayFiltered.length === 1 ? (typeof overlayFiltered[0] === 'string' ? <span>{overlayFiltered}</span> : overlayFiltered) : overlayFiltered
+        if (typeof overlayNode === 'string') {
+          overlayNode = <span>{overlayNode}</span>
+        }
 
         return (
           <OverrideProvider

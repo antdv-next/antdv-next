@@ -48,7 +48,7 @@ demo:
 | defaultValue | 指定默认选中的条目 | string \| string[] | - | - | × |
 | disabled | 是否禁用 | boolean | false | - | × |
 | popupMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。false 时会关闭虚拟滚动 | boolean \| number | true | - | × |
-| popupRender | 自定义下拉框内容 | (menu: VueNode) =&gt; VueNode | - | - | × |
+| popupRender | 自定义下拉框内容 | (menu: VNode) =&gt; VueNode | - | - | × |
 | fieldNames | 自定义节点 label、value、children 的字段 | object | &#123; label: `label`, value: `value`, children: `children` &#125; | - | × |
 | getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | (triggerNode: HTMLElement) =&gt; HTMLElement | () =&gt; document.body | - | × |
 | labelInValue | 是否把每个选项的 label 包装到 value 中，会把 value 类型从 `string` 变为 &#123; value: string, label: VueNode, halfChecked: boolean &#125; 的格式 | boolean | false | - | × |

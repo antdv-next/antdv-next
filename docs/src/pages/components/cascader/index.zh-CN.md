@@ -90,7 +90,7 @@ demo:
 | loadingIcon | 延迟加载的外观（现已无用） | VueNode | - |
 | notFoundContent | 当下拉列表为空时显示的内容 | VueNode | - |
 | optionRender | 自定义渲染下拉选项 | (option: Option) => VueNode | - |
-| popupRender | 自定义下拉框内容 | (menus: VueNode) => VueNode | - |
+| popupRender | 自定义下拉框内容 | (menus: VNode) => VueNode | - |
 | prefix | 自定义前缀 | VueNode | - |
 | removeIcon | 自定义的多选框清除图标 | VueNode | - |
 | suffixIcon | 自定义的选择框后缀图标 | VueNode | - |

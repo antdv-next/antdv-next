@@ -46,7 +46,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | defaultValue | To set the initial selected treeNode(s) | string \| string[] | - | - | × |
 | disabled | Disabled or not | boolean | false | - | × |
 | popupMatchSelectWidth | Determine whether the popup menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true | - | × |
-| popupRender | Customize dropdown content | (menu: VueNode) =&gt; VueNode | - | - | × |
+| popupRender | Customize dropdown content | (menu: VNode) =&gt; VueNode | - | - | × |
 | fieldNames | Customize node label, value, children field name | object | &#123; label: `label`, value: `value`, children: `children` &#125; | - | × |
 | getPopupContainer | To set the container of the dropdown menu | (triggerNode: HTMLElement) =&gt; HTMLElement | () =&gt; document.body | - | × |
 | labelInValue | Whether to embed label in value, turn the format of value from `string` to &#123; value: string, label: VueNode, halfChecked: boolean &#125; | boolean | false | - | × |
