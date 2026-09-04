@@ -63,7 +63,7 @@ demo:
 | getContainer | 指定 Modal 挂载的节点，但依旧为全屏展示，`false` 为挂载在当前位置 | string \| HTMLElement \| (() => HTMLElement) \| false | document.body | - | × |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true | - | × |
 | loading | 显示骨架屏 | boolean | false | - | × |
-| mask | 遮罩效果 | boolean \| [MaskType](#masktype) | true | - | ✓ |
+| mask | 遮罩效果 | boolean \| `{enabled?: boolean, blur?: boolean, closable?: boolean}` | true | - | ✓ |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | true | - | × |
 | modalRender | 自定义渲染对话框 | (node: any) => any | - | - | × |
 | mousePosition | 设置动画起点位置 | MousePosition | - | - | × |
