@@ -1,4 +1,5 @@
-import { describe, expect, it } from 'vitest'
+import type { RadioProps } from '../interface'
+import { describe, expect, it, vi } from 'vitest'
 import Radio from '..'
 import ConfigProvider from '../../config-provider'
 import { expectSemanticRootStylePriority, semanticRootStylePriority } from '/@tests/shared/semanticStylePriority'
@@ -63,6 +64,27 @@ describe('radio semantic', () => {
     expect(wrapper.find(`.${prefixCls}`).attributes('style')).toContain('color: rgb(0, 255, 0)')
     expect(wrapper.find(`.${prefixCls}-label`).classes()).toContain('c-label')
     expect(wrapper.find(`.${prefixCls}-label`).attributes('style')).toContain('color: rgb(0, 0, 255)')
+  })
+
+  it.each([
+    {
+      props: { checked: true },
+      expected: { checked: true, disabled: false },
+    },
+    {
+      props: { checked: false, disabled: true },
+      expected: { checked: false, disabled: true },
+    },
+  ])('should pass merged checked and disabled states to semantic callbacks', ({ props, expected }) => {
+    const classes = vi.fn((_info: { props: RadioProps }) => ({}))
+    const styles = vi.fn((_info: { props: RadioProps }) => ({}))
+
+    mount(Radio, {
+      props: { ...props, classes, styles },
+    })
+
+    expect(classes).toHaveBeenCalledWith({ props: expect.objectContaining(expected) })
+    expect(styles).toHaveBeenCalledWith({ props: expect.objectContaining(expected) })
   })
 
   // ===================== ConfigProvider semantic merging =====================

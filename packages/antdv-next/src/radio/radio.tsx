@@ -113,7 +113,8 @@ const InternalRadio = defineComponent<
       return {
         ...props,
         ...radioProps.value,
-        disabled: mergedChecked.value,
+        disabled: radioProps.value.disabled,
+        checked: mergedChecked.value,
       }
     })
 
