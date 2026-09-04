@@ -5955,13 +5955,11 @@ exports[`steps demo > renders title-placement correctly 1`] = `
             aria-valuenow="60"
             class="ant-steps-item-progress-icon-svg"
             height="100%"
+            role="progressbar"
             viewBox="0 0 100 100"
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <title>
-              Progress
-            </title>
             <circle
               class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-rail"
             />
@@ -6120,13 +6118,11 @@ exports[`steps demo > renders title-placement correctly 1`] = `
             aria-valuenow="80"
             class="ant-steps-item-progress-icon-svg"
             height="100%"
+            role="progressbar"
             viewBox="0 0 100 100"
             width="100%"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <title>
-              Progress
-            </title>
             <circle
               class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-rail"
             />

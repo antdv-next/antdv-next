@@ -30,7 +30,7 @@ describe('progressIcon', () => {
     expect(circles[1]!.classes()).toContain('ant-steps-item-progress-icon-circle-ptg')
   })
 
-  it('should apply correct percent value', () => {
+  it('should expose the percent value as an unnamed progressbar', () => {
     const wrapper = mount(ProgressIcon, {
       props: {
         prefixCls: 'ant-steps',
@@ -39,9 +39,11 @@ describe('progressIcon', () => {
       },
     })
     const svg = wrapper.find('svg')
+    expect(svg.attributes('role')).toBe('progressbar')
     expect(svg.attributes('aria-valuenow')).toBe('75')
     expect(svg.attributes('aria-valuemin')).toBe('0')
     expect(svg.attributes('aria-valuemax')).toBe('100')
+    expect(svg.find('title').exists()).toBe(false)
   })
 
   it('should render slot content', () => {
