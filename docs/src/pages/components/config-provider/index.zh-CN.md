@@ -153,6 +153,7 @@ const { componentDisabled, componentSize } = config.value
 - `inputPassword`：[Input.Password](/components/input-cn#input-password)
 - `inputSearch`：[Input.Search](/components/input-cn#input-search)
 - `layout`：[Layout](/components/layout-cn#api)
+- `listy`：[Listy](/components/listy-cn#api)
 - `masonry`：[Masonry](/components/masonry-cn#api)
 - `mentions`：[Mentions](/components/mentions-cn#api)
 - `menu`：[Menu](/components/menu-cn#api)

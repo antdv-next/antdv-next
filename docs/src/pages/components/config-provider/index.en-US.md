@@ -152,6 +152,7 @@ The following config keys set common props for corresponding components or globa
 - `inputPassword`: [Input.Password](/components/input#input-password)
 - `inputSearch`: [Input.Search](/components/input#input-search)
 - `layout`: [Layout](/components/layout#api)
+- `listy`: [Listy](/components/listy#api)
 - `masonry`: [Masonry](/components/masonry#api)
 - `mentions`: [Mentions](/components/mentions#api)
 - `menu`: [Menu](/components/menu#api)
