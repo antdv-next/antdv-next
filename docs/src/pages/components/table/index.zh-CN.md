@@ -221,7 +221,7 @@ const onHeaderRow: TableProps['onHeaderRow'] = (columns, index) => {
 | filterDropdown | 可以自定义筛选菜单，此函数只负责渲染图层，需要自行编写各种交互 | VueNode \| (props: [FilterDropdownProps](https://github.com/antdv-next/antdv-next/blob/main/packages/antdv-next/src/table/interface.ts#L94)) => VueNode | - | - |
 | filtered | 是否处于筛选状态 | boolean | false | - |
 | filteredValue | 筛选的受控属性，外界可用此控制列的筛选状态，值为已筛选的 value 数组 | string\[] | - | - |
-| filterIcon | 自定义 filter 图标。 | VueNode \| (filtered: boolean) => VueNode | false | - |
+| filterIcon | 自定义 filter 图标。 | VueNode \| (filtered: boolean) => VueNode | - | - |
 | filterOnClose | 是否在筛选菜单关闭时触发筛选 | boolean | true | - |
 | filterMultiple | 是否多选 | boolean | true | - |
 | filterMode | 指定筛选菜单的用户界面 | 'menu' \| 'tree' | 'menu' | - |
