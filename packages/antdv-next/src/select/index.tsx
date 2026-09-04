@@ -1,5 +1,5 @@
 import type { BaseSelectRef, SelectProps as VcSelectProps } from '@v-c/select'
-import type { App, CSSProperties, SlotsType } from 'vue'
+import type { App, CSSProperties, SlotsType, VNode, VNodeChild } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { SelectCommonPlacement } from '../_util/motion'
 import type { InputStatus } from '../_util/statusUtils'
@@ -51,7 +51,7 @@ export interface LabeledValue {
 export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[] | undefined
 
 export interface InternalSelectProps
-  extends ComponentBaseProps, Omit<VcSelectProps, 'mode' | 'classNames' | 'className' | 'style' | 'prefix' | 'styles' | 'onPopupVisibleChange'> {
+  extends ComponentBaseProps, Omit<VcSelectProps, 'mode' | 'classNames' | 'className' | 'style' | 'prefix' | 'styles' | 'onPopupVisibleChange' | 'popupRender'> {
   prefix?: VueNode
   suffixIcon?: VueNode
   size?: SizeType
@@ -71,6 +71,7 @@ export interface InternalSelectProps
   variant?: Variant
   styles?: SelectStylesType
   classes?: SelectClassNamesType
+  popupRender?: (menu: VNode) => VNodeChild
 }
 
 export interface SelectSemanticClassNames {

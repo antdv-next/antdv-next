@@ -1,5 +1,5 @@
 import type { DataNode, TreeSelectProps as VcTreeSelectProps } from '@v-c/tree-select'
-import type { App, CSSProperties, PublicProps, SlotsType } from 'vue'
+import type { App, CSSProperties, PublicProps, SlotsType, VNode, VNodeChild } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { SelectCommonPlacement } from '../_util/motion'
 import type { InputStatus } from '../_util/statusUtils'
@@ -126,6 +126,7 @@ interface BaseTreeSelectProps<ValueType = any, OptionType extends DataNode = Dat
     | 'onPopupScroll'
     | 'onPopupVisibleChange'
     | 'onSearch'
+    | 'popupRender'
   > {
   size?: SizeType
   disabled?: boolean
@@ -149,8 +150,8 @@ export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = 
   /** @deprecated Please use `classNames.popup.root` instead */
   dropdownClassName?: string
   /** @deprecated Please use `popupRender` instead */
-  dropdownRender?: (menu: any) => any
-  popupRender?: (menu: any) => any
+  dropdownRender?: (menu: VNode) => VNodeChild
+  popupRender?: (menu: VNode) => VNodeChild
   /** @deprecated Please use `styles.popup.root` instead */
   dropdownStyle?: CSSProperties
   // /** @deprecated Please use `onOpenChange` instead */

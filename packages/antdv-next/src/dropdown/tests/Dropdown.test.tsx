@@ -626,6 +626,26 @@ describe('dropdown', () => {
     expect(document.querySelector('.custom-popup')).toBeTruthy()
   })
 
+  it.each([
+    ['null', null],
+    ['text', 'Custom popup'],
+    ['number', 1],
+    ['array', ['First', 'Second']],
+  ])('should support popupRender returning %s', async (_, popup) => {
+    expect(() => mount(Dropdown, {
+      attachTo: document.body,
+      props: {
+        menu,
+        popupRender: () => popup,
+        open: true,
+        mouseEnterDelay: 0,
+        mouseLeaveDelay: 0,
+      },
+      slots: { default: () => <span>trigger</span> },
+    })).not.toThrow()
+    await flushDropdownTimer()
+  })
+
   it('should support popupRender slot', async () => {
     mount(Dropdown, {
       attachTo: document.body,

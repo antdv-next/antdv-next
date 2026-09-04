@@ -1,5 +1,5 @@
 import type { SelectProps as VcSelectProps } from '@v-c/select'
-import type { App, CSSProperties, SlotsType } from 'vue'
+import type { App, CSSProperties, SlotsType, VNode, VNodeChild } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { InputStatus } from '../_util/statusUtils'
 import type { VueNode } from '../_util/type'
@@ -110,8 +110,8 @@ export interface AutoCompleteProps extends
   styles?: AutoCompleteStylesType
   classes?: AutoCompleteClassNamesType
   /** @deprecated Please use `popupRender` instead */
-  dropdownRender?: (menu: VueNode) => any
-  popupRender?: (menu: VueNode) => any
+  dropdownRender?: (menu: VNode) => VNodeChild
+  popupRender?: (menu: VNode) => VNodeChild
   /** @deprecated Please use `styles.popup.root` instead */
   dropdownStyle?: CSSProperties
   showSearch?: boolean | Pick<SearchConfig, 'filterOption' | 'onSearch'>

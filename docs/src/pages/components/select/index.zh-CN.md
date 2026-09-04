@@ -65,7 +65,7 @@ demo:
 | disabled | 是否禁用 | boolean | false | - | × |
 | dropdownClassName | 下拉菜单的 className 属性，**已废弃，请使用 `classes.popup.root` 替换** | string | - | - | × |
 | dropdownMatchSelectWidth | 下拉菜单和选择器同宽，**已废弃，请使用 `popupMatchSelectWidth` 替换** | boolean \| number | - | - | × |
-| dropdownRender | 自定义下拉框内容，**已废弃，请使用 `popupRender` 替换** | (originNode: VueNode) =&gt; VueNode | - | - | × |
+| dropdownRender | 自定义下拉框内容，**已废弃，请使用 `popupRender` 替换** | (originNode: VNode) =&gt; VueNode | - | - | × |
 | dropdownStyle | 下拉菜单的 style 属性，**已废弃，请使用 `styles.popup.root` 替换** | CSSProperties | - | - | × |
 | fieldNames | 自定义节点 label、value、options、groupLabel 的字段 | object | &#123; label: 'label', value: 'value', options: 'options', groupLabel: 'label' &#125; | - | × |
 | filterOption | 是否根据输入项进行筛选。当其为一个函数时，会接收 `inputValue` `option` 两个参数，当 `option` 符合筛选条件时，应返回 true，反之则返回 false | boolean \| (inputValue: string, option?: Option) =&gt; boolean | true | - | × |
@@ -89,7 +89,7 @@ demo:
 | placement | 选择框弹出的位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft | - | × |
 | popupClassName | 下拉菜单的 className 属性，使用 `classes.popup.root` 替换 | string | - | - | × |
 | popupMatchSelectWidth | 下拉菜单和选择器同宽。默认将设置 `min-width`，当值小于选择框宽度时会被忽略。`false` 时会关闭虚拟滚动 | boolean \| number | true | - | × |
-| popupRender | 自定义下拉框内容 | (originNode: VueNode) =&gt; VueNode | - | - | × |
+| popupRender | 自定义下拉框内容 | (originNode: VNode) =&gt; VueNode | - | - | × |
 | prefix | 自定义前缀 | VueNode | - | - | × |
 | removeIcon | 自定义的多选框清除图标 | VueNode | - | - | ✓ |
 | searchValue | 控制搜索文本 | string | - | - | × |
@@ -131,7 +131,7 @@ demo:
 | menuItemSelectedIcon | 自定义多选时当前选中的条目图标 | VueNode | - |
 | notFoundContent | 当下拉列表为空时显示的内容 | VueNode | - |
 | optionRender | 自定义渲染下拉选项 | (option: FlattenOptionData&lt;BaseOptionType&gt;, info: &#123; index: number &#125;) =&gt; VueNode | - |
-| popupRender | 自定义下拉框内容 | (originNode: VueNode) =&gt; VueNode | - |
+| popupRender | 自定义下拉框内容 | (originNode: VNode) =&gt; VueNode | - |
 | prefix | 自定义前缀 | VueNode | - |
 | removeIcon | 自定义的多选框清除图标 | VueNode | - |
 | suffixIcon | 自定义的选择框后缀图标。以防止图标被用于其他交互，替换的图标默认不会响应展开、收缩事件，可以通过添加 `pointer-events: none` 样式透传 | VueNode | - |

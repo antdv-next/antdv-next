@@ -61,7 +61,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | optionRender | Customize the rendering dropdown options | (option: FlattenOptionData&lt;BaseOptionType&gt;, info: &#123; index: number &#125;) =&gt; VueNode | - | - | × |
 | placeholder | The placeholder of input | string | - | - | × |
 | popupMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true | - | × |
-| popupRender | Customize dropdown content | (menu: VueNode) =&gt; VueNode | - | - | × |
+| popupRender | Customize dropdown content | (menu: VNode) =&gt; VueNode | - | - | × |
 | showSearch | Search configuration | boolean \| [SearchConfig](#showsearch) | true | - | × |
 | size | The size of the input box | `large` \| `medium` \| `small` | - | - | × |
 | status | Set validation status | `error` \| `warning` | - | - | × |
@@ -92,7 +92,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | labelRender | Customize selected label render | (props: LabelInValueType) =&gt; VueNode | - |
 | notFoundContent | Specify content to show when no result matches | () =&gt; VueNode | - |
 | optionRender | Customize the rendering dropdown options | (option: FlattenOptionData&lt;BaseOptionType&gt;, info: &#123; index: number &#125;) =&gt; VueNode | - |
-| popupRender | Customize dropdown content | (menu: VueNode) =&gt; VueNode | - |
+| popupRender | Customize dropdown content | (menu: VNode) =&gt; VueNode | - |
 | prefix | The custom prefix | () =&gt; VueNode | - |
 | suffixIcon | The custom suffix icon | () =&gt; VueNode | - |
 

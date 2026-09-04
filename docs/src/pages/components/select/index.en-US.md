@@ -64,7 +64,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | disabled | Whether disabled select | boolean | false | - | × |
 | dropdownClassName | The className of dropdown menu, **Deprecated. Use `classes.popup.root` instead** | string | - | - | × |
 | dropdownMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width, **Deprecated. Use `popupMatchSelectWidth` instead** | boolean \| number | - | - | × |
-| dropdownRender | Customize dropdown content, **Deprecated. Use `popupRender` instead** | (originNode: VueNode) =&gt; VueNode | - | - | × |
+| dropdownRender | Customize dropdown content, **Deprecated. Use `popupRender` instead** | (originNode: VNode) =&gt; VueNode | - | - | × |
 | dropdownStyle | The style of dropdown menu, **Deprecated. Use `styles.popup.root` instead** | CSSProperties | - | - | × |
 | fieldNames | Customize node label, value, options, groupLabel field name | object | &#123; label: 'label', value: 'value', options: 'options', groupLabel: 'label' &#125; | - | × |
 | filterOption | If true, filter options by input, if function, filter options against it. The function will receive two arguments, `inputValue` and `option`, if the function returns true, the option will be included in the filtered set; Otherwise, it will be excluded | boolean \| (inputValue: string, option?: Option) =&gt; boolean | true | - | × |
@@ -88,7 +88,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft | - | × |
 | popupClassName | The className of dropdown menu, use `classes.popup.root` instead | string | - | - | × |
 | popupMatchSelectWidth | Determine whether the dropdown menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true | - | × |
-| popupRender | Customize dropdown content | (originNode: VueNode) =&gt; VueNode | - | - | × |
+| popupRender | Customize dropdown content | (originNode: VNode) =&gt; VueNode | - | - | × |
 | prefix | The custom prefix | VueNode | - | - | × |
 | removeIcon | The custom remove icon | VueNode | - | - | ✓ |
 | searchValue | The current input "search" text | string | - | - | × |
@@ -130,7 +130,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | menuItemSelectedIcon | The custom menuItemSelected icon with multiple options | VueNode | - |
 | notFoundContent | Specify content to show when no result matches | VueNode | - |
 | optionRender | Customize the rendering dropdown options | (option: FlattenOptionData&lt;BaseOptionType&gt;, info: &#123; index: number &#125;) =&gt; VueNode | - |
-| popupRender | Customize dropdown content | (originNode: VueNode) =&gt; VueNode | - |
+| popupRender | Customize dropdown content | (originNode: VNode) =&gt; VueNode | - |
 | prefix | The custom prefix | VueNode | - |
 | removeIcon | The custom remove icon | VueNode | - |
 | suffixIcon | The custom suffix icon. Customize icon will not response click open to avoid icon designed to do other interactive. You can use `pointer-events: none` style to bypass | VueNode | - |
