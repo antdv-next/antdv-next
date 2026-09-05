@@ -84,6 +84,10 @@ const localeValues: Locale = {
     expand: 'הרחב',
     collapse: 'התמוטט',
   },
+  Carousel: {
+    prevSlide: 'השקופית הקודמת',
+    nextSlide: 'השקופית הבאה',
+  },
   Form: {
     defaultValidateMessages: {
       default: 'ערך השדה שגוי ${label}',

@@ -84,6 +84,10 @@ const localeValues: Locale = {
     expand: '展開',
     collapse: '收起',
   },
+  Carousel: {
+    prevSlide: '上一張幻燈片',
+    nextSlide: '下一張幻燈片',
+  },
   Form: {
     defaultValidateMessages: {
       default: '字段驗證錯誤${label}',

@@ -79,6 +79,10 @@ const localeValues: Locale = {
     expand: 'Izvērst',
     collapse: 'Sakļaut',
   },
+  Carousel: {
+    prevSlide: 'Iepriekšējais slaids',
+    nextSlide: 'Nākamais slaids',
+  },
   QRCode: {
     expired: 'QR kods ir beidzies',
     refresh: 'Atsvaidzināt',

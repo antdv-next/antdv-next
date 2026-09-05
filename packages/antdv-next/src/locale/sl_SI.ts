@@ -79,6 +79,10 @@ const localeValues: Locale = {
     expand: 'Razširi',
     collapse: 'Strni',
   },
+  Carousel: {
+    prevSlide: 'Prejšnja prosojnica',
+    nextSlide: 'Naslednja prosojnica',
+  },
   QRCode: {
     expired: 'Koda QR je potekla',
     refresh: 'Osveži',

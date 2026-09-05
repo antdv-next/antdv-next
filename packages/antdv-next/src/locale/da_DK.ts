@@ -130,6 +130,10 @@ const localeValues: Locale = {
     expand: 'Udvid',
     collapse: 'Kollaps',
   },
+  Carousel: {
+    prevSlide: 'Forrige slide',
+    nextSlide: 'Næste slide',
+  },
   QRCode: {
     expired: 'QR-koden er udløbet',
     refresh: 'Opdater',

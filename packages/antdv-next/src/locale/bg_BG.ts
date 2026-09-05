@@ -131,6 +131,10 @@ const localeValues: Locale = {
     expand: 'Разширяване',
     collapse: 'Свиване',
   },
+  Carousel: {
+    prevSlide: 'Предишен слайд',
+    nextSlide: 'Следващ слайд',
+  },
   QRCode: {
     expired: 'QR кодът е изтекъл',
     refresh: 'Опресняване',

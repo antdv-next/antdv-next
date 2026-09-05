@@ -84,6 +84,10 @@ const localeValues: Locale = {
     expand: 'expandir',
     collapse: 'Colapsar',
   },
+  Carousel: {
+    prevSlide: 'Diapositiva anterior',
+    nextSlide: 'Diapositiva seguinte',
+  },
   Form: {
     defaultValidateMessages: {
       default: 'Error de validación do campo ${label}',
