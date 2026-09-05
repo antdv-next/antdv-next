@@ -84,6 +84,10 @@ const localeValues: Locale = {
     expand: 'Utvid',
     collapse: 'Skjul',
   },
+  Carousel: {
+    prevSlide: 'Forrige lysbilde',
+    nextSlide: 'Neste lysbilde',
+  },
   Form: {
     optional: '(valgfritt)',
     defaultValidateMessages: {

@@ -81,6 +81,10 @@ const localeValues: Locale = {
     expand: 'Erweitern',
     collapse: 'Zusammenbruch',
   },
+  Carousel: {
+    prevSlide: 'Vorherige Folie',
+    nextSlide: 'Nächste Folie',
+  },
   Form: {
     defaultValidateMessages: {
       default: 'Feld-Validierungsfehler: ${label}',

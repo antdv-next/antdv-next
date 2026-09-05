@@ -79,6 +79,10 @@ const localeValues: Locale = {
     expand: 'Bontsa ki',
     collapse: 'Összeomlás',
   },
+  Carousel: {
+    prevSlide: 'Előző dia',
+    nextSlide: 'Következő dia',
+  },
   QRCode: {
     expired: 'A QR kód lejárt',
     refresh: 'Frissítés',
