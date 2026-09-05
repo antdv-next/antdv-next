@@ -40,7 +40,7 @@ demo:
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| count | 展示的数字，大于 overflowCount 时显示为 `$&#123;overflowCount&#125;+`，为 0 时隐藏 | VueNode | - | - | × |
+| count | 展示的数字，大于 overflowCount 时显示为 `${overflowCount}+`，为 0 时隐藏 | VueNode | - | - | × |
 | showZero | 当数值为 0 时，是否展示 Badge | boolean | false | - | × |
 | overflowCount | 展示封顶的数字值 | number | 99 | - | × |
 | dot | 不展示数字，只有一个小红点 | boolean | false | - | × |
@@ -58,7 +58,7 @@ demo:
 
 | 插槽 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
-| count | 展示的数字，大于 overflowCount 时显示为 `$&#123;overflowCount&#125;+`，为 0 时隐藏 | () =&gt; any | - |
+| count | 自定义徽标指示器内容 | () =&gt; any | - |
 | text | 在设置了 `status` 的前提下有效，设置状态点的文本 | () =&gt; any | - |
 
 ## 语义化 DOM

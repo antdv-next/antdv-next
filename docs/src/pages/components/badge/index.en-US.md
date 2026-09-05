@@ -57,7 +57,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 | Slot | Description | Type | Version |
 | --- | --- | --- | --- |
-| count | Number to show in badge | () =&gt; any | - |
+| count | Customize the badge indicator content | () =&gt; any | - |
 | text | If `status` is set, `text` sets the display text of the status `dot` | () =&gt; any | - |
 
 ## Semantic DOM
