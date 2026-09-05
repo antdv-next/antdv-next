@@ -7,7 +7,15 @@ import TimePickerLocale from '../../time-picker/locale/fi_FI'
 const locale: PickerLocale = {
   lang: {
     placeholder: 'Valitse päivä',
+    yearPlaceholder: 'Valitse vuosi',
+    quarterPlaceholder: 'Valitse vuosineljännes',
+    monthPlaceholder: 'Valitse kuukausi',
+    weekPlaceholder: 'Valitse viikko',
     rangePlaceholder: ['Alkamispäivä', 'Päättymispäivä'],
+    rangeYearPlaceholder: ['Alkamisvuosi', 'Päättymisvuosi'],
+    rangeQuarterPlaceholder: ['Alkamisvuosineljännes', 'Päättymisvuosineljännes'],
+    rangeMonthPlaceholder: ['Alkamiskuukausi', 'Päättymiskuukausi'],
+    rangeWeekPlaceholder: ['Alkamisviikko', 'Päättymisviikko'],
     ...CalendarLocale,
   },
   timePickerLocale: {

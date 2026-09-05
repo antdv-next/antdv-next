@@ -7,7 +7,15 @@ import TimePickerLocale from '../../time-picker/locale/de_DE'
 const locale: PickerLocale = {
   lang: {
     placeholder: 'Datum auswählen',
+    yearPlaceholder: 'Jahr auswählen',
+    quarterPlaceholder: 'Quartal auswählen',
+    monthPlaceholder: 'Monat auswählen',
+    weekPlaceholder: 'Woche auswählen',
     rangePlaceholder: ['Startdatum', 'Enddatum'],
+    rangeYearPlaceholder: ['Startjahr', 'Endjahr'],
+    rangeQuarterPlaceholder: ['Startquartal', 'Endquartal'],
+    rangeMonthPlaceholder: ['Startmonat', 'Endmonat'],
+    rangeWeekPlaceholder: ['Startwoche', 'Endwoche'],
     shortWeekDays: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
     shortMonths: [
       'Jan',
