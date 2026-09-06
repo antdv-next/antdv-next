@@ -2,23 +2,29 @@
 title: Getting Started
 ---
 
-Antdv Next is dedicated to providing a **good development experience** for programmers.
+Antdv Next is dedicated to providing a **good development experience** for programmers. Before starting, it is recommended to learn [Vue](https://vuejs.org/) first, and correctly install and configure [Node.js](https://nodejs.org/) v20 or above.
 
-> Before starting, it is recommended to learn [Vue](https://vuejs.dev) first, and correctly install and configure [Node.js](https://nodejs.org/) v20 or above. The official guide assumes that you have intermediate knowledge about HTML, CSS, and JavaScript, and have fully mastered the correct development approach with the Vue ecosystem. If you are just starting to learn front-end or Vue, it may not be the best idea to use the UI framework as your first step.
+The official guide assumes that you have intermediate knowledge about HTML, CSS, and JavaScript, and have fully mastered the correct development approach with the Vue ecosystem. If you are just starting to learn front-end or Vue, it may not be the best idea to use the UI framework as your first step.
 
 ---
 
-## Your First Example
+## Your First Example {#first-example}
 
-Here is a simple online stackblitz demo of an Antdv Next component to show the usage of Antdv Next.
+Here is a simple online StackBlitz demo of an Antdv Next component to show the usage of Antdv Next.
 
 <iframe src="https://stackblitz.com/edit/vitejs-vite-stk21cho?embed=1&file=src%2FApp.vue&hideExplorer=1&hideNavigation=1" width="100%" height="500px" frameborder="0"></iframe>
 
-### 1. Create a stackblitz
+Follow the steps below to play around with Antdv Next yourself:
 
-Visit [Antdv Next Start Template](https://stackblitz.com/edit/vitejs-vite-stk21cho?file=src%2FApp.vue) to create an online stackblitz example -- don't forget to save to create a new instance.
+### 1. Create a StackBlitz {#create-stackblitz}
 
-### 2. Use a Component
+Visit [Antdv Next Start Template](https://stackblitz.com/edit/vitejs-vite-stk21cho?file=src%2FApp.vue) to create an online StackBlitz example -- don't forget to save to create a new instance.
+
+### 2. Use a Component {#use-antdv-next-component}
+
+If you are working in a local Vue project, install `antdv-next` first. The StackBlitz created above already includes this dependency.
+
+<InstallDependencies npm='$ npm install antdv-next --save' yarn='$ yarn add antdv-next' pnpm='$ pnpm install antdv-next --save' bun='$ bun add antdv-next'></InstallDependencies>
 
 Replace the contents of `App.vue` with the following code. As you can see, you can directly use `antdv-next` components with the SFC approach.
 
@@ -34,13 +40,13 @@ const value = ref()
 </template>
 ```
 
-### 3. Explore More Components
+### 3. Explore More Components {#explore-components}
 
 You can view the list of components in the side menu of the Components page, such as the [Alert](/components/alert) component. Plenty of examples are also provided in the component pages and API documentation at the bottom.
 
-Find the first example in the code demo section and click the icon in the bottom right corner to expand the code. You can copy the code directly to your stackblitz to try and adjust it yourself.
+Find the first example in the code demo section and click the "Show Code" icon to expand the source code. You can copy the code directly to your StackBlitz to try and adjust it yourself.
 
-## Import on Demand
+## Import on Demand {#import-on-demand}
 
 ### Tree Shaking Import
 
