@@ -45,9 +45,9 @@ tag: 5.21.0
 | collapsibleIcon | 自定义折叠图标 | &#123; start?: VueNode; end?: VueNode &#125; | - | 6.0.0 | × |
 | draggerIcon | 自定义拖拽图标 | VueNode | - | 6.0.0 | × |
 | lazy | 延迟渲染模式 | boolean | false | 5.23.0 | × |
-| orientation | 布局方向 | `vertical` \| `horizontal` | `horizontal` | 6.0.0 | × |
+| orientation | 布局方向 | `vertical` \| `horizontal` | `horizontal` | 1.0.0 | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - | ✓ |
-| vertical | 排列方向，与 `orientation` 同时存在，以 `orientation` 优先 | boolean | false | 6.0.0 | × |
+| vertical | 排列方向，与 `orientation` 同时存在，以 `orientation` 优先 | boolean | false | 1.0.0 | × |
 
 #### 事件 {#splitter-events}
 
