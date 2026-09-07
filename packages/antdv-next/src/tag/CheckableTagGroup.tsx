@@ -97,7 +97,7 @@ const CheckableTagGroup = defineComponent<
       emit('update:value', value)
     },
     get() {
-      return props.value ?? _mergedValue.value
+      return props.value !== undefined ? props.value : _mergedValue.value
     },
   })
   const handleChange = (checked: boolean, option: CheckableTagOption) => {
