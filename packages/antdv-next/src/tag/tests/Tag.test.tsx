@@ -849,6 +849,16 @@ describe('checkable-tag-group', () => {
     expect(tags[0]!.classes()).not.toContain(`${prefixCls}-checkable-checked`)
   })
 
+  it('should clear the selected value when controlled value becomes null', async () => {
+    const wrapper = mount(CheckableTagGroup, {
+      props: { options, value: 'a' },
+    })
+
+    await wrapper.setProps({ value: null })
+
+    expect(wrapper.find(`.${prefixCls}-checkable-checked`).exists()).toBe(false)
+  })
+
   // ===================== multiple mode =====================
 
   it('should support multiple selection', async () => {
