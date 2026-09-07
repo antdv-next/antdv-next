@@ -1,3 +1,4 @@
+import type { MaskType } from '../../_util/hooks'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { defineComponent, onMounted } from 'vue'
 import Modal from '..'
@@ -41,6 +42,36 @@ describe('modal static', () => {
     await waitFakeTimer(1, 5)
 
     expect(document.querySelectorAll('.ant-modal-confirm-btns .ant-btn')).toHaveLength(2)
+  })
+
+  it('should not mutate the mask config object', async () => {
+    const mask: MaskType = { blur: true }
+
+    Modal.confirm({ mask })
+    await waitFakeTimer(1, 5)
+
+    expect(mask).toEqual({ blur: true })
+  })
+
+  it('should keep mask closable when the mask config object is reused', async () => {
+    const mask: MaskType = { blur: true }
+    Modal.confirm({ mask })
+    await waitFakeTimer(1, 5)
+    Modal.destroyAll()
+    await waitFakeTimer(1, 5)
+
+    const onCancel = vi.fn()
+    mount(Modal, {
+      attachTo: document.body,
+      props: { open: true, mask, onCancel },
+    })
+    await waitFakeTimer(20, 10)
+
+    const wrap = document.querySelector<HTMLElement>('.ant-modal-wrap')!
+    wrap.dispatchEvent(new MouseEvent('mousedown', { bubbles: true }))
+    wrap.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+
+    expect(onCancel).toHaveBeenCalled()
   })
 
   it('modal.confirm should support locale from holderRender config', async () => {
