@@ -66,7 +66,7 @@ group:
 
 | 事件 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
-| close | Callback when close Alert | (e: any) =&gt; any | - |
+| close | 关闭时触发的回调函数 | (e: any) =&gt; any | - |
 | mouseenter | - | (e: any) =&gt; any | - |
 | mouseleave | - | (e: any) =&gt; any | - |
 | click | - | (e: any) =&gt; any | - |
@@ -79,7 +79,7 @@ group:
 | title       | 警告提示内容 | () =&gt; any | - |
 | description | 警告提示的辅助性文字介绍 | () =&gt; any | - |
 | icon        | 自定义图标，`showIcon` 为 true 时有效 | () =&gt; any | - |
-| closeIcon   | - | () =&gt; any | - |
+| closeIcon   | 自定义关闭图标 | () =&gt; any | - |
 | action      | 自定义操作项 | () =&gt; any | 4.9.0 |
 
 ## 语义化 DOM {#semantic-dom}

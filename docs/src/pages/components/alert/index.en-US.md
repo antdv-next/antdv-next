@@ -78,7 +78,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | title       | Content of Alert| () =&gt; any | - |
 | description | Additional content of Alert | () =&gt; any | - |
 | icon        | Custom icon, effective when `showIcon` is true | () =&gt; any | - |
-| closeIcon   | - | () =&gt; any | - |
+| closeIcon   | Custom close icon | () =&gt; any | - |
 | action      | The action of Alert | () =&gt; any | 4.9.0 |
 
 ## Semantic DOM
