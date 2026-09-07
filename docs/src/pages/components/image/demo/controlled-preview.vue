@@ -31,8 +31,8 @@ const scaleStep = ref(0.5)
       open,
       scaleStep,
       src: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
-      onOpenChange(val: boolean) {
-        open = val
+      onOpenChange(nextOpen: boolean) {
+        open = nextOpen
       },
     }"
   />

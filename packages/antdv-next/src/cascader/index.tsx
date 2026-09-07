@@ -210,7 +210,7 @@ export interface CascaderEmits<
   ValueField extends keyof OptionType = keyof OptionType,
   Multiple extends boolean = boolean,
 > {
-  'openChange': (visible: boolean) => void
+  'openChange': (open: boolean) => void
   'dropdownVisibleChange': (visible: boolean) => void
   'popupVisibleChange': (visible: boolean) => void
   'change': NonNullable<VcCascaderProps<OptionType, ValueField, Multiple>['onChange']>

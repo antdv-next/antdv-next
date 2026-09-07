@@ -73,7 +73,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | Event | Description | Type | Version |
 | --- | --- | --- | --- |
 | change | Callback when finishing cascader select | (value, selectedOptions) =&gt; void | - |
-| openChange | Callback when popup shown or hidden | (value) =&gt; void | - |
+| openChange | Callback when popup shown or hidden | (open: boolean) =&gt; void | - |
 
 ### Slots
 

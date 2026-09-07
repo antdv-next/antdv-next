@@ -85,7 +85,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | src | 自定义预览 src | string | - | - |
 | styles | 自定义语义化结构样式 | Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | - |
 | wheel | 是否启用鼠标滚轮缩放 | boolean | true | - |
-| onOpenChange | 预览打开状态变化的回调 | (visible: boolean) => void | - | - |
+| onOpenChange | 预览打开状态变化的回调 | (open: boolean) => void | - | - |
 | onTransform | 预览图 transform 变化的回调 | { transform: [TransformType](#transformtype), action: [TransformAction](#transformaction) } | - | - |
 
 ### PreviewGroup
@@ -116,7 +116,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | styles | 自定义语义化结构样式 | Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | - |
 | scaleStep | `1 + scaleStep` 为缩放放大的每步倍数 | number | 0.5 | - |
 | wheel | 是否启用鼠标滚轮缩放 | boolean | true | - |
-| onOpenChange | 预览打开状态变化回调，额外携带当前预览图索引 | (visible: boolean, info: { current: number }) => void | - | - |
+| onOpenChange | 预览打开状态变化回调，额外携带当前预览图索引 | (open: boolean, info: { current: number }) => void | - | - |
 | onChange | 切换预览图的回调 | (current: number, prevCurrent: number) => void | - | - |
 | onTransform | 预览图 transform 变化的回调 | { transform: [TransformType](#transformtype), action: [TransformAction](#transformaction) } | - | - |
 

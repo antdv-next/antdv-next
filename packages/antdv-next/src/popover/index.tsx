@@ -131,12 +131,12 @@ const InternalPopover = defineComponent<
       { immediate: true },
     )
 
-    const settingOpen = (value: boolean, e?: MouseEvent | KeyboardEvent) => {
+    const settingOpen = (nextOpen: boolean, e?: MouseEvent | KeyboardEvent) => {
       if (props.open === undefined) {
-        open.value = value
+        open.value = nextOpen
       }
-      emit('openChange', value, e)
-      emit('update:open', value)
+      emit('openChange', nextOpen, e)
+      emit('update:open', nextOpen)
     }
 
     const onKeyDown = (e: KeyboardEvent) => {
@@ -145,8 +145,8 @@ const InternalPopover = defineComponent<
       }
     }
 
-    const onInternalOpenChange = (value: boolean) => {
-      settingOpen(value)
+    const onInternalOpenChange = (nextOpen: boolean) => {
+      settingOpen(nextOpen)
     }
 
     return () => {

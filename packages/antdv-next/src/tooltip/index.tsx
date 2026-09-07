@@ -211,13 +211,13 @@ const InternalTooltip = defineComponent<
       { immediate: true },
     )
     let noTitle = false
-    const onInternalOpenChange = (vis: boolean) => {
+    const onInternalOpenChange = (nextOpen: boolean) => {
       if (props.open === undefined) {
-        open.value = noTitle ? false : vis
+        open.value = noTitle ? false : nextOpen
       }
       if (!noTitle) {
-        emit('openChange', vis)
-        emit('update:open', vis)
+        emit('openChange', nextOpen)
+        emit('update:open', nextOpen)
       }
     }
 

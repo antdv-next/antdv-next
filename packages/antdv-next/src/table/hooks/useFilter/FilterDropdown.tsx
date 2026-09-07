@@ -188,10 +188,10 @@ const FilterDropdown = defineComponent<
       )
     })
 
-    const triggerVisible = (newVisible: boolean) => {
-      visible.value = newVisible
-      filterDropdownProps.value.onOpenChange?.(newVisible)
-      column.value.onFilterDropdownOpenChange?.(newVisible)
+    const triggerOpen = (nextOpen: boolean) => {
+      visible.value = nextOpen
+      filterDropdownProps.value.onOpenChange?.(nextOpen)
+      column.value.onFilterDropdownOpenChange?.(nextOpen)
     }
 
     if (isDev) {
@@ -284,7 +284,7 @@ const FilterDropdown = defineComponent<
     }
 
     const onConfirm = () => {
-      triggerVisible(false)
+      triggerOpen(false)
       internalTriggerFilter(filteredKeysSync.value)
     }
 
@@ -295,7 +295,7 @@ const FilterDropdown = defineComponent<
         internalTriggerFilter([])
       }
       if (closeDropdown) {
-        triggerVisible(false)
+        triggerOpen(false)
       }
 
       searchValue.value = ''
@@ -310,7 +310,7 @@ const FilterDropdown = defineComponent<
 
     const doFilter = ({ closeDropdown } = { closeDropdown: true }) => {
       if (closeDropdown) {
-        triggerVisible(false)
+        triggerOpen(false)
       }
       internalTriggerFilter(filteredKeysSync.value)
     }
@@ -319,14 +319,14 @@ const FilterDropdown = defineComponent<
       props.filterDropdownRender !== undefined || column.value?.filterDropdown !== undefined
     ))
 
-    const onVisibleChange: DropdownEmits['openChange'] = (newVisible, info) => {
+    const onDropdownOpenChange: DropdownEmits['openChange'] = (nextOpen, info) => {
       if (info?.source === 'trigger') {
-        if (newVisible && propFilteredKeys.value !== undefined) {
+        if (nextOpen && propFilteredKeys.value !== undefined) {
           setFilteredKeysSync(wrapStringListType(propFilteredKeys.value))
         }
 
         if (
-          !newVisible
+          !nextOpen
           && !hasPropDropdownRender
           && !column.value.filterDropdown
           && props.filterOnClose
@@ -334,7 +334,7 @@ const FilterDropdown = defineComponent<
           onConfirm()
         }
         else {
-          triggerVisible(newVisible)
+          triggerOpen(nextOpen)
         }
       }
     }
@@ -406,7 +406,7 @@ const FilterDropdown = defineComponent<
           filters: column.value.filters,
           visible: mergedVisible.value,
           close: () => {
-            triggerVisible(false)
+            triggerOpen(false)
           },
         }
 
@@ -638,7 +638,7 @@ const FilterDropdown = defineComponent<
         {
           ...filterDropdownProps.value,
           open: mergedVisible.value,
-          onOpenChange: onVisibleChange,
+          onOpenChange: onDropdownOpenChange,
           popupRender: () => {
             if (typeof filterDropdownProps.value.popupRender === 'function') {
               return filterDropdownProps.value.popupRender(dropdownContent)

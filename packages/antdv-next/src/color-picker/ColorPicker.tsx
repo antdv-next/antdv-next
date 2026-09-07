@@ -165,16 +165,16 @@ const ColorPicker = defineComponent<
       }
     }
 
-    const triggerOpenChange = (visible: boolean) => {
+    const triggerOpenChange = (nextOpen: boolean) => {
       if (open.value !== undefined) {
-        emit('openChange', visible)
-        emit('update:open', visible)
+        emit('openChange', nextOpen)
+        emit('update:open', nextOpen)
         return
       }
-      if (!visible || !mergedDisabled.value) {
-        internalPopupOpen.value = visible
-        emit('openChange', visible)
-        emit('update:open', visible)
+      if (!nextOpen || !mergedDisabled.value) {
+        internalPopupOpen.value = nextOpen
+        emit('openChange', nextOpen)
+        emit('update:open', nextOpen)
       }
     }
 

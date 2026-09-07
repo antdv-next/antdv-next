@@ -79,7 +79,7 @@ demo:
 | 事件 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
 | change | 选择完成后的回调 | (value, selectedOptions) =&gt; void | - |
-| openChange | 显示/隐藏浮层的回调 | (value) =&gt; void | - |
+| openChange | 显示/隐藏浮层的回调 | (open: boolean) =&gt; void | - |
 
 ### 插槽 {#slots}
 

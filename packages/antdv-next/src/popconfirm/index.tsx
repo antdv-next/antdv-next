@@ -136,12 +136,12 @@ const InternalPopconfirm = defineComponent<
       { immediate: true },
     )
 
-    const settingOpen = (value: boolean, e?: MouseEvent | KeyboardEvent) => {
+    const settingOpen = (nextOpen: boolean, e?: MouseEvent | KeyboardEvent) => {
       if (props.open === undefined) {
-        open.value = value
+        open.value = nextOpen
       }
-      emit('openChange', value, e)
-      emit('update:open', value)
+      emit('openChange', nextOpen, e)
+      emit('update:open', nextOpen)
     }
 
     const close = (e?: MouseEvent) => {
@@ -157,11 +157,11 @@ const InternalPopconfirm = defineComponent<
       emit('popupClick', e)
     }
 
-    const onInternalOpenChange = (value: boolean, e?: MouseEvent | KeyboardEvent) => {
+    const onInternalOpenChange = (nextOpen: boolean, e?: MouseEvent | KeyboardEvent) => {
       if (props.disabled) {
         return
       }
-      settingOpen(value, e)
+      settingOpen(nextOpen, e)
     }
 
     // 实时转发 confirm：避免组件被复用且仅 `@confirm` 回调变化时（如无 rowKey 的表格翻页）

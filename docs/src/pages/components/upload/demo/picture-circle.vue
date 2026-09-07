@@ -58,12 +58,12 @@ const handleChange: UploadEmits['change'] = ({ fileList: newFileList }) => {
   fileList.value = newFileList
 }
 
-function handlePreviewOpenChange(visible: boolean) {
-  previewOpen.value = visible
+function handlePreviewOpenChange(open: boolean) {
+  previewOpen.value = open
 }
 
-function handleAfterOpenChange(visible: boolean) {
-  if (!visible) {
+function handleAfterOpenChange(open: boolean) {
+  if (!open) {
     previewImage.value = ''
   }
 }
