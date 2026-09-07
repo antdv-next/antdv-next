@@ -1,14 +1,13 @@
-name: Size Report
+name: Size Report (Compute)
 
 on:
   pull_request:
     types: [opened, synchronize, reopened]
     paths:
-      - 'packages/**/src/**'
+      - 'packages/antdv-next/src/**'
 
 permissions:
   contents: read
-  pull-requests: write
 
 concurrency:
   group: size-pr-${{ github.event.pull_request.number }}
@@ -56,6 +55,7 @@ jobs:
           import { join, relative, sep } from 'node:path'
 
           const MAX_COMMENT_BYTES = 60_000
+          const TARGET_PACKAGE_NAME = 'antdv-next'
           const [command, firstArg, secondArg, thirdArg] = process.argv.slice(2)
 
           function listFiles(dir, files = []) {
@@ -113,6 +113,9 @@ jobs:
                   continue
 
                 const measured = measurePackage(packageDir)
+                if (measured.name !== TARGET_PACKAGE_NAME)
+                  continue
+
                 packages[measured.name] = { files: measured.files }
               }
             }
@@ -139,19 +142,27 @@ jobs:
             return `${value > 0 ? '+' : '-'}${formatBytes(Math.abs(value))}`
           }
 
-          function formatAfterMetric(after, before) {
-            if (before === undefined)
-              return `${formatBytes(after)} (new, N/A)`
+          // 核心：Before → After (delta, rate%)
+          function formatCompare(before, after) {
+            // 新增文件
+            if (before === undefined && after !== undefined) {
+              return `${formatBytes(after)} (new)`
+            }
+            // 删除文件
+            if (before !== undefined && after === undefined) {
+              return `${formatBytes(before)} → deleted`
+            }
+            // 无变化
+            if (before === after) {
+              return `${formatBytes(after)} (±0 B)`
+            }
 
             const delta = after - before
             const rate = before === 0
               ? 'N/A'
               : `${delta > 0 ? '+' : ''}${(delta * 100 / before).toFixed(1)}%`
-            return `${formatBytes(after)} (${formatSignedBytes(delta)}, ${rate})`
-          }
 
-          function formatBeforeMetric(value) {
-            return formatBytes(value)
+            return `${formatBytes(before)} → ${formatBytes(after)} (${formatSignedBytes(delta)}, ${rate})`
           }
 
           function formatTableRow(fields) {
@@ -159,22 +170,6 @@ jobs:
               .replaceAll('|', '\\|')
               .replace(/\r?\n/g, '<br>'))
             return `| ${escapedFields.join(' | ')} |`
-          }
-
-          function packageNames(before, after) {
-            const preferred = ['antdv-next', '@antdv-next/cssinjs']
-            const names = new Set([
-              ...Object.keys(before.packages),
-              ...Object.keys(after.packages),
-            ])
-
-            return [...names].sort((a, b) => {
-              const aIndex = preferred.indexOf(a)
-              const bIndex = preferred.indexOf(b)
-              if (aIndex !== -1 || bIndex !== -1)
-                return (aIndex === -1 ? preferred.length : aIndex) - (bIndex === -1 ? preferred.length : bIndex)
-              return a.localeCompare(b)
-            })
           }
 
           function hasChanged(beforeFile, afterFile) {
@@ -193,62 +188,50 @@ jobs:
               lines.push('Only changed, added, or deleted files are shown because the full report is too large for one PR comment.', '')
             }
 
-            for (const packageName of packageNames(before, after)) {
-              const beforeFiles = before.packages[packageName]?.files ?? {}
-              const afterFiles = after.packages[packageName]?.files ?? {}
-              const allFiles = [...new Set([
-                ...Object.keys(afterFiles),
-                ...Object.keys(beforeFiles),
-              ])].sort()
-              const files = onlyChanged
-                ? allFiles.filter(file => hasChanged(beforeFiles[file], afterFiles[file]))
-                : allFiles
+            const packageName = TARGET_PACKAGE_NAME
+            const beforeFiles = before.packages[packageName]?.files ?? {}
+            const afterFiles = after.packages[packageName]?.files ?? {}
+            const allFiles = [...new Set([
+              ...Object.keys(afterFiles),
+              ...Object.keys(beforeFiles),
+            ])].sort()
+            const files = onlyChanged
+              ? allFiles.filter(file => hasChanged(beforeFiles[file], afterFiles[file]))
+              : allFiles
 
-              lines.push(`### Package: \`${packageName}\``)
-              lines.push('| After file | Size | Gzip | Brotli | Before file | Size | Gzip | Brotli |')
-              lines.push('| --- | ---: | ---: | ---: | --- | ---: | ---: | ---: |')
+            lines.push(`### Package: \`${packageName}\``)
+            lines.push('| File | Size | Gzip | Brotli |')
+            lines.push('| --- | --- | --- | --- |')
 
-              if (files.length === 0) {
+            if (files.length === 0) {
+              lines.push(formatTableRow([
+                onlyChanged ? 'No changed files' : 'No files',
+                '—',
+                '—',
+                '—',
+              ]))
+            }
+            else {
+              for (const file of files) {
+                const beforeFile = beforeFiles[file]
+                const afterFile = afterFiles[file]
+
+                const fileLabel = !beforeFile
+                  ? `${file} (new)`
+                  : !afterFile
+                    ? `${file} (deleted)`
+                    : file
+
                 lines.push(formatTableRow([
-                  onlyChanged ? 'No changed files' : 'No files',
-                  '—',
-                  '—',
-                  '—',
-                  '—',
-                  '—',
-                  '—',
-                  '—',
+                  fileLabel,
+                  formatCompare(beforeFile?.size, afterFile?.size),
+                  formatCompare(beforeFile?.gzip, afterFile?.gzip),
+                  formatCompare(beforeFile?.brotli, afterFile?.brotli),
                 ]))
               }
-              else {
-                for (const file of files) {
-                  const afterFile = afterFiles[file]
-                  const beforeFile = beforeFiles[file]
-                  const afterFields = afterFile
-                    ? [
-                        beforeFile ? file : `${file} (new)`,
-                        formatAfterMetric(afterFile.size, beforeFile?.size),
-                        formatAfterMetric(afterFile.gzip, beforeFile?.gzip),
-                        formatAfterMetric(afterFile.brotli, beforeFile?.brotli),
-                      ]
-                    : ['—', '—', '—', '—']
-                  const beforeFields = beforeFile
-                    ? [
-                        afterFile ? file : `${file} (deleted)`,
-                        formatBeforeMetric(beforeFile.size),
-                        formatBeforeMetric(beforeFile.gzip),
-                        formatBeforeMetric(beforeFile.brotli),
-                      ]
-                    : ['—', '—', '—', '—']
-
-                  lines.push(formatTableRow([...afterFields, ...beforeFields]))
-                }
-              }
-
-              lines.push('')
             }
 
-            // Keep the marker hidden while allowing later runs to update one comment.
+            lines.push('')
             lines.push('<!-- size-report -->')
             return `${lines.join('\n')}\n`
           }
@@ -289,8 +272,6 @@ jobs:
       - name: Measure PR head
         run: node /tmp/size-report.mjs measure /tmp/size-after.json
 
-      # Re-checkout the exact target-branch commit. The two builds are isolated
-      # by clearing dist so stale files cannot affect the comparison.
       - name: Checkout PR base
         uses: actions/checkout@v7
         with:
@@ -313,23 +294,15 @@ jobs:
       - name: Generate PR size report
         run: node /tmp/size-report.mjs report /tmp/size-before.json /tmp/size-after.json /tmp/size-report.md
 
-      - name: Publish PR comment
-        env:
-          GH_TOKEN: ${{ github.token }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
-          REPOSITORY: ${{ github.repository }}
+      - name: Save PR info
         run: |
-          set -euo pipefail
+          echo '{"number": ${{ github.event.pull_request.number }}, "repository": "${{ github.repository }}"}' > /tmp/pr-info.json
 
-          comment_id=$(gh api "repos/${REPOSITORY}/issues/${PR_NUMBER}/comments" \
-            --paginate \
-            --jq '.[] | select((.body // "") | contains("<!-- size-report -->")) | .id' \
-            | head -n1 || true)
-
-          if [ -n "$comment_id" ]; then
-            gh api --method PATCH "repos/${REPOSITORY}/issues/comments/${comment_id}" \
-              -F "body=@/tmp/size-report.md" > /dev/null
-          else
-            gh api --method POST "repos/${REPOSITORY}/issues/${PR_NUMBER}/comments" \
-              -F "body=@/tmp/size-report.md" > /dev/null
-          fi
+      - name: Upload size report
+        uses: actions/upload-artifact@v4
+        with:
+          name: size-report
+          path: |
+            /tmp/size-report.md
+            /tmp/pr-info.json
+          retention-days: 1

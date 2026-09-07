@@ -1,0 +1,80 @@
+name: Size Report (Comment)
+
+on:
+  workflow_run:
+    workflows: ["Size Report (Compute)"]
+    types:
+      - completed
+
+permissions:
+  contents: read
+  pull-requests: write
+  actions: read
+
+jobs:
+  comment:
+    name: Publish size comment
+    runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+    steps:
+      - name: Download size report
+        uses: actions/download-artifact@v4
+        with:
+          name: size-report
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: /tmp/size-report
+
+      - name: Debug downloaded files
+        run: |
+          echo "=== Downloaded files ==="
+          find /tmp/size-report -type f || true
+          ls -la /tmp/size-report || true
+
+      - name: Publish PR comment
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          # 兼容不同下载路径结构
+          if [ -f /tmp/size-report/pr-info.json ]; then
+            INFO=/tmp/size-report/pr-info.json
+            REPORT=/tmp/size-report/size-report.md
+          else
+            INFO=$(find /tmp/size-report -name 'pr-info.json' | head -n1)
+            REPORT=$(find /tmp/size-report -name 'size-report.md' | head -n1)
+          fi
+
+          echo "INFO=$INFO"
+          echo "REPORT=$REPORT"
+
+          if [ -z "$INFO" ] || [ -z "$REPORT" ]; then
+            echo "ERROR: required files not found"
+            find /tmp/size-report -type f
+            exit 1
+          fi
+
+          PR_NUMBER=$(jq -r '.number' "$INFO")
+          REPOSITORY=$(jq -r '.repository' "$INFO")
+
+          echo "PR_NUMBER=$PR_NUMBER"
+          echo "REPOSITORY=$REPOSITORY"
+
+          comment_id=$(gh api "repos/${REPOSITORY}/issues/${PR_NUMBER}/comments" \
+            --paginate \
+            --jq '.[] | select((.body // "") | contains("<!-- size-report -->")) | .id' \
+            | head -n1 || true)
+
+          if [ -n "$comment_id" ]; then
+            echo "Updating existing comment id=$comment_id"
+            gh api --method PATCH "repos/${REPOSITORY}/issues/comments/${comment_id}" \
+              -F "body=@${REPORT}" > /dev/null
+          else
+            echo "Creating new comment"
+            gh api --method POST "repos/${REPOSITORY}/issues/${PR_NUMBER}/comments" \
+              -F "body=@${REPORT}" > /dev/null
+          fi
+
+          echo "Comment published successfully on PR #${PR_NUMBER}"
