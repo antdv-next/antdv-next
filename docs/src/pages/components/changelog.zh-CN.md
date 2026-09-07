@@ -2,6 +2,29 @@
 title: 组件更新日志
 ---
 
+## V1.5.4
+
+发布日期：2026-09-07
+
+本次版本将 ant-design 上游跟踪推进到 **6.6.3**（`6b46530a84`），将其中适用于 Vue 实现的渲染、交互、本地化与无障碍修复同步至 antdv-next。
+
+**🐞 问题修复 Fixes**
+
+* fix(date-picker, time-picker)：`prefix`、后缀图标、清除图标及额外页脚现在均能正确渲染数字 `0`；同时修正德语日期和日期时间的默认格式
+* fix(modal, drawer)：不再修改可复用的 `mask` 配置对象，确保点击遮罩关闭行为稳定（[#826](https://github.com/antdv-next/antdv-next/pull/826)，#59233）
+* fix(select, auto-complete, cascader, tree-select, dropdown)：`popupRender` 返回非元素内容时不再抛出异常（[#817](https://github.com/antdv-next/antdv-next/pull/817)，#59207）
+* fix(date-picker)：补齐年、季度、月、周及对应范围选择的本地化占位文案（[#822](https://github.com/antdv-next/antdv-next/pull/822)，#59219）；修正繁体中文日期选择器用语
+* fix(input-password)：遵循受控的密码可见状态，并忽略长按回车键或空格键产生的重复触发（[#808](https://github.com/antdv-next/antdv-next/pull/808)、[#802](https://github.com/antdv-next/antdv-next/pull/802)，#59168、#59135）
+* fix(radio)：Radio.Group 的 `value` 为 `undefined` 时也能正确更新选中项（[#815](https://github.com/antdv-next/antdv-next/pull/815)，#59162）
+* fix(table)：树形单选筛选支持选择空字符串值（[#809](https://github.com/antdv-next/antdv-next/pull/809)，#59141）
+* fix(tag)：Tag 关闭按钮和 CheckableTag 会忽略键盘长按产生的重复触发（[#803](https://github.com/antdv-next/antdv-next/pull/803)，#59134）
+* fix(steps)：进度图标使用 progressbar 语义并提供本地化的无障碍值（[#819](https://github.com/antdv-next/antdv-next/pull/819)，#59073）
+* fix(carousel)：为前后翻页箭头补充本地化的无障碍名称（[#823](https://github.com/antdv-next/antdv-next/pull/823)，#59218）
+
+**🧰 工程与依赖 Infrastructure & Dependencies**
+
+* chore(sync)：将 ant-design 上游跟踪位置推进到 **6.6.3** 的 `6b46530a84`，并通过已更新的底层包同步适用于当前实现的日期选择器与图标修复
+
 ## V1.5.3
 
 发布日期：2026-08-29

@@ -2,6 +2,29 @@
 title: Component Changelog
 ---
 
+## V1.5.4
+
+Release Date: 2026-09-07
+
+This release advances ant-design upstream tracking to **6.6.3** (`6b46530a84`) and brings the applicable rendering, interaction, localization and accessibility fixes to the Vue implementation.
+
+**🐞 Fixes**
+
+* fix(date-picker, time-picker): render numeric `0` correctly in prefixes, suffix icons, clear icons and extra footers; use the correct German date and date-time formats
+* fix(modal, drawer): avoid mutating reusable `mask` configuration objects, keeping mask-click close behavior stable ([#826](https://github.com/antdv-next/antdv-next/pull/826), #59233)
+* fix(select, auto-complete, cascader, tree-select, dropdown): support non-element `popupRender` results without throwing ([#817](https://github.com/antdv-next/antdv-next/pull/817), #59207)
+* fix(date-picker): add localized year, quarter, month, week and range placeholders ([#822](https://github.com/antdv-next/antdv-next/pull/822), #59219); correct Traditional Chinese picker wording
+* fix(input-password): respect controlled visibility and ignore repeated Enter or Space activation ([#808](https://github.com/antdv-next/antdv-next/pull/808), [#802](https://github.com/antdv-next/antdv-next/pull/802), #59168, #59135)
+* fix(radio): update Radio.Group selection correctly when `value` is `undefined` ([#815](https://github.com/antdv-next/antdv-next/pull/815), #59162)
+* fix(table): support empty-string values in single-select tree filters ([#809](https://github.com/antdv-next/antdv-next/pull/809), #59141)
+* fix(tag): ignore repeated keyboard activation on Tag close buttons and CheckableTag ([#803](https://github.com/antdv-next/antdv-next/pull/803), #59134)
+* fix(steps): expose the progress icon with progressbar semantics and a localized accessible value ([#819](https://github.com/antdv-next/antdv-next/pull/819), #59073)
+* fix(carousel): add localized accessible names for navigation arrows ([#823](https://github.com/antdv-next/antdv-next/pull/823), #59218)
+
+**🧰 Infrastructure & Dependencies**
+
+* chore(sync): advance ant-design upstream tracking to **6.6.3** at `6b46530a84`, including the applicable picker and icon fixes from the updated underlying packages
+
 ## V1.5.3
 
 Release Date: 2026-08-29
