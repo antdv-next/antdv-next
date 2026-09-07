@@ -44,9 +44,9 @@ Common props ref：[Common props](/docs/vue/common-props)
 | collapsibleIcon | Custom collapsible icon | &#123; start?: VueNode; end?: VueNode &#125; | - | 6.0.0 | × |
 | draggerIcon | Custom dragger icon | VueNode | - | 6.0.0 | × |
 | lazy | Lazy rendering mode | boolean | false | 5.23.0 | × |
-| orientation | Layout direction | `vertical` \| `horizontal` | `horizontal` | - | × |
+| orientation | Layout direction | `vertical` \| `horizontal` | `horizontal` | 6.0.0 | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - | ✓ |
-| vertical | Orientation, Simultaneously existing with `orientation`, `orientation` takes priority | boolean | false | - | × |
+| vertical | Orientation, Simultaneously existing with `orientation`, `orientation` takes priority | boolean | false | 6.0.0 | × |
 
 #### Events {#splitter-events}
 
