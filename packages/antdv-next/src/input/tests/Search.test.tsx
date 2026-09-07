@@ -187,6 +187,54 @@ describe('search', () => {
       expect(wrapper.find('button').attributes('disabled')).toBeDefined()
     })
 
+    it('should preserve custom Button mousedown and click handlers', async () => {
+      const onMousedown = vi.fn()
+      const onClick = vi.fn()
+      const onSearch = vi.fn()
+      const wrapper = mount(() => (
+        <Search
+          enterButton={(
+            <Button onMousedown={onMousedown} onClick={onClick}>
+              ok
+            </Button>
+          )}
+          onSearch={onSearch}
+        />
+      ))
+
+      const button = wrapper.find('button')
+      await button.trigger('mousedown')
+      expect(onMousedown).toHaveBeenCalledTimes(1)
+
+      await button.trigger('click')
+      expect(onClick).toHaveBeenCalledTimes(1)
+      expect(onSearch).toHaveBeenCalledTimes(1)
+    })
+
+    it('should preserve custom native button mousedown and click handlers', async () => {
+      const onMousedown = vi.fn()
+      const onClick = vi.fn()
+      const onSearch = vi.fn()
+      const wrapper = mount(() => (
+        <Search
+          enterButton={(
+            <button type="button" onMousedown={onMousedown} onClick={onClick}>
+              ok
+            </button>
+          )}
+          onSearch={onSearch}
+        />
+      ))
+
+      const button = wrapper.find('button')
+      await button.trigger('mousedown')
+      expect(onMousedown).toHaveBeenCalledTimes(1)
+
+      await button.trigger('click')
+      expect(onClick).toHaveBeenCalledTimes(1)
+      expect(onSearch).toHaveBeenCalledTimes(1)
+    })
+
     it('should disable custom native button when loading prop is true', async () => {
       const onSearch = vi.fn()
       const wrapper = mount(() => (

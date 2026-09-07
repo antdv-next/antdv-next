@@ -286,13 +286,14 @@ const InternalSearch = defineComponent<
       const isNativeButton = isButtonVNode && (enterButtonNode.type as any) === 'button'
       if (isAntdButton || isNativeButton) {
         const enterButtonProps = (enterButtonNode as any)?.props ?? {}
+        // `cloneVNode` merges `on*` listeners with `mergeProps`, so the custom
+        // button's own `onMousedown` / `onClick` keep running before ours.
+        // Do not call them again here, otherwise they fire twice.
+        // sync ant-design#59180
         buttonNode = cloneVNode(enterButtonNode as any, {
           disabled: mergedDisabled.value || enterButtonProps.disabled || (!isAntdButton && props.loading),
           onMousedown: onMouseDown,
-          onClick: (e: MouseEvent) => {
-            enterButtonProps.onClick?.(e)
-            onSearchClick(e)
-          },
+          onClick: onSearchClick,
           class: clsx(enterButtonProps.class, btnClassName),
           ...(isAntdButton
             ? {
