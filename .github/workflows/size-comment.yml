@@ -2,7 +2,7 @@ name: Size Report (Comment)
 
 on:
   workflow_run:
-    workflows: ["Size Report (Compute)"]
+    workflows: [Size Report (Compute)]
     types:
       - completed
 
