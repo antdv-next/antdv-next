@@ -198,6 +198,26 @@ describe('breadcrumb', () => {
     expect(wrapper.findAll('.ant-breadcrumb-link').length).toBe(3)
   })
 
+  it('should not mutate menu config when using menu render slots', () => {
+    const menu = {
+      items: [{ key: '1', label: 'App1' }],
+    }
+
+    mount(Breadcrumb, {
+      props: {
+        items: [{ title: 'Application', menu }],
+      },
+      slots: {
+        menuLabelRender: ({ menu: menuItem }: any) => menuItem.label,
+        menuExtraRender: ({ menu: menuItem }: any) => menuItem.key,
+      },
+    })
+
+    expect(menu).toEqual({
+      items: [{ key: '1', label: 'App1' }],
+    })
+  })
+
   it('should render dropdown icon when using BreadcrumbItem children with menu', () => {
     const wrapper = mount(() => (
       <Breadcrumb>
