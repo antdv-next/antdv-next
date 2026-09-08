@@ -54,7 +54,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 | Slot | Description | Type | Version |
 | --- | --- | --- | --- |
-| itemRender | Custom item renderer, work with vue-router | (route: ItemType, params: AnyObject, routes: ItemType[], paths: string[]) =&gt; any | - |
+| itemRender | Custom item renderer, work with vue-router | (context: \{ route: ItemType, params: AnyObject, routes: ItemType[], paths: string[] \}) =&gt; any | - |
 | titleRender | Custom title renderer | (params: \{ item: ItemType, index: number \}) =&gt; any | - |
 | separator | Custom separator | () =&gt; any | - |
 | menuLabelRender | Custom menu label renderer | (params: \{ item: ItemType, index: number, menu: MenuItem \}) =&gt; any | - |

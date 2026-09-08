@@ -55,7 +55,7 @@ demo:
 
 | 插槽 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
-| itemRender | 自定义链接函数，和 vue-router 配置使用 | (route: ItemType, params: AnyObject, routes: ItemType[], paths: string[]) =&gt; any | - |
+| itemRender | 自定义链接函数，和 vue-router 配置使用 | (context: \{ route: ItemType, params: AnyObject, routes: ItemType[], paths: string[] \}) =&gt; any | - |
 | titleRender | 自定义标题渲染 | (params: \{ item: ItemType, index: number \}) =&gt; any | - |
 | separator | 分隔符自定义 | () =&gt; any | - |
 | menuLabelRender | 自定义菜单标签渲染 | (params: \{ item: ItemType, index: number, menu: MenuItem \}) =&gt; any | - |
