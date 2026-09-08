@@ -14,28 +14,7 @@ const genGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
 
   const [varName, varRef] = genCssVar(antCls, 'float-btn')
 
-  // ==============================================================
-  // ==                       Hover Bridge                       ==
-  // ==============================================================
-  // The hover bridge is an invisible element that extends the hit area between the trigger and the popup.
-  // This prevents flickering when moving the mouse from the trigger to the popup, as it ensures that the mouse never crosses an un-owned gap.
   const bridgeGap = unit(token.calc(padding).mul(-1).equal())
-  const hoverBridgeStyle: CSSObject = {
-    content: '""',
-    position: 'absolute',
-  }
-  const topBottomHoverBridgeStyle: CSSObject = {
-    ...hoverBridgeStyle,
-    insetInlineStart: 0,
-    width: '100%',
-    height: unit(padding),
-  }
-  const leftRightHoverBridgeStyle: CSSObject = {
-    ...hoverBridgeStyle,
-    insetBlockStart: 0,
-    width: unit(padding),
-    height: '100%',
-  }
 
   return {
     [groupCls]: [
@@ -90,8 +69,16 @@ const genGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
         },
 
         // =========================== Menu ===========================
+        // The hover bridge is an invisible element that extends the hit area between the trigger and the popup.
+        // This prevents flickering when moving the mouse from the trigger to the popup, as it ensures that the mouse never crosses an un-owned gap.
         [`&-menu-mode ${listCls}`]: {
           position: 'absolute',
+
+          '&::after': {
+            content: '""',
+            position: 'absolute',
+            inset: 0,
+          },
         },
 
         // ========================== Motion ==========================
@@ -126,7 +113,7 @@ const genGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
             bottom: varRef('list-trigger-offset'),
 
             '&::after': {
-              ...topBottomHoverBridgeStyle,
+              top: '100%',
               bottom: bridgeGap,
             },
           },
@@ -138,8 +125,8 @@ const genGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
             top: varRef('list-trigger-offset'),
 
             '&::after': {
-              ...topBottomHoverBridgeStyle,
               top: bridgeGap,
+              bottom: '100%',
             },
           },
         },
@@ -150,7 +137,7 @@ const genGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
             right: varRef('list-trigger-offset'),
 
             '&::after': {
-              ...leftRightHoverBridgeStyle,
+              left: '100%',
               right: bridgeGap,
             },
           },
@@ -162,8 +149,8 @@ const genGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
             left: varRef('list-trigger-offset'),
 
             '&::after': {
-              ...leftRightHoverBridgeStyle,
               left: bridgeGap,
+              right: '100%',
             },
           },
         },
