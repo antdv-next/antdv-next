@@ -1,3 +1,4 @@
+import type { VNodeChild } from 'vue'
 import type { VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
 import { classNames } from '@v-c/util'
@@ -19,7 +20,7 @@ export interface AnchorLinkBaseProps extends ComponentBaseProps {
 }
 
 export interface AnchorLinkEmits {
-  click: (e: MouseEvent, params: { title: any, href: any }) => any
+  click: (e: MouseEvent, link: { title: VNodeChild, href: string }) => any
 }
 
 export interface AnchorLinkEmitsProps {
