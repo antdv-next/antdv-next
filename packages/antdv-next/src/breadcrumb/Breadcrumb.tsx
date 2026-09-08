@@ -244,15 +244,16 @@ const Breadcrumb = defineComponent<
           const itemProps: BreadcrumbItemProps = {}
           const isLastItem = index === mergedItems.value.length - 1
           if (menu) {
+            const mergedMenu = { ...menu }
             const menuLabelRender = slots?.menuLabelRender ?? props.menuLabelRender
             if (menuLabelRender) {
-              menu.labelRender = menuItem => menuLabelRender({ item, index, menu: menuItem })
+              mergedMenu.labelRender = menuItem => menuLabelRender({ item, index, menu: menuItem })
             }
             const menuExtraRender = slots?.menuExtraRender ?? props.menuExtraRender
             if (menuExtraRender) {
-              menu.extraRender = menuItem => menuExtraRender({ item, index, menu: menuItem })
+              mergedMenu.extraRender = menuItem => menuExtraRender({ item, index, menu: menuItem })
             }
-            itemProps.menu = menu
+            itemProps.menu = mergedMenu
           }
 
           let { href } = item
