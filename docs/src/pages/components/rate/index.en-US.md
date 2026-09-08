@@ -40,6 +40,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | allowHalf | Whether to allow semi selection | boolean | false |  | × |
 | character | The custom character of rate | VueNode \| (RateProps) => VueNode | &lt;StarFilled /> | function(): 4.4.0 | × |
 | count | Star count | number | 5 |  | × |
+| defaultValue | Default value | number | 0 |  | × |
 | disabled | If read only, unable to interact | boolean | false |  | × |
 | keyboard | Support keyboard operation | boolean | true | 5.18.0 | × |
 | size | Star size | 'small' \| 'medium' \| 'large' | 'medium' |  | × |
