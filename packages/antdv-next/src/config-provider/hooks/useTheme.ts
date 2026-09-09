@@ -19,6 +19,7 @@ export function useTheme(
         ...defaultConfig,
         hashed: parentTheme?.value?.hashed ?? defaultConfig.hashed,
         cssVar: parentTheme?.value?.cssVar,
+        zeroRuntime: parentTheme?.value?.zeroRuntime,
       }
     }
     return parentTheme.value
