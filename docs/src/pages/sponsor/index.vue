@@ -1019,7 +1019,7 @@ watch(scanPayVisible, (visible) => {
                   @{{ member.github }}
                 </a>
                 <div class="flex items-center justify-center gap-2 mt-3">
-                  <a-popover trigger="hover" placement="bottom">
+                  <a-popover trigger="hover" placement="bottom" :disabled="!member.alipayCode">
                     <template #content>
                       <a-qrcode
                         :value="member.alipayCode || 'not-available'"
@@ -1036,7 +1036,7 @@ watch(scanPayVisible, (visible) => {
                       支付宝
                     </button>
                   </a-popover>
-                  <a-popover trigger="hover" placement="bottom">
+                  <a-popover trigger="hover" placement="bottom" :disabled="!member.wxCode">
                     <template #content>
                       <a-qrcode
                         :value="member.wxCode || 'not-available'"
