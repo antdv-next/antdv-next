@@ -48,6 +48,26 @@ describe('configProvider theme.zeroRuntime', () => {
     wrapper.unmount()
   })
 
+  it('inherits zeroRuntime through nested themes with inheritance disabled', async () => {
+    const wrapper = mount(
+      () => h(
+        ConfigProvider,
+        { theme: { zeroRuntime: true } },
+        {
+          default: () => h(
+            ConfigProvider,
+            { theme: { inherit: false } },
+            { default: () => h(SmileOutlined) },
+          ),
+        },
+      ),
+      { attachTo: document.body },
+    )
+    await flush()
+    expect(document.head.querySelector(ICON_STYLE_SELECTOR)).toBeFalsy()
+    wrapper.unmount()
+  })
+
   // https://github.com/ant-design/ant-design/pull/58559
   it('does not rewrite icon runtime style when cssinjs layer is enabled', async () => {
     const wrapper = mount(
