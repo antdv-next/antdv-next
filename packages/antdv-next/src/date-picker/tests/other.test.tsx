@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { h, nextTick } from 'vue'
 import DatePicker from '..'
 import ConfigProvider from '../../config-provider'
+import deDE from '../../locale/de_DE'
 import jaJP from '../../locale/ja_JP'
 import zhCN from '../../locale/zh_CN'
 import zhTW from '../locale/zh_TW'
@@ -61,6 +62,23 @@ describe('date-picker.other', () => {
       render: () => h(ConfigProvider, { locale: myLocale as any }, { default: () => h(WeekPicker) }),
     })
     expect(weekWrapper.find('input').attributes('placeholder')).toBe('自定义周占位')
+  })
+
+  it('should use the German date formats', () => {
+    const date = dayjs('2000-01-01 00:00:00')
+    const dateWrapper = mount({
+      render: () => h(ConfigProvider, { locale: deDE }, {
+        default: () => h(DatePicker, { value: date }),
+      }),
+    })
+    expect(dateWrapper.find('input').element.value).toBe('01.01.2000')
+
+    const dateTimeWrapper = mount({
+      render: () => h(ConfigProvider, { locale: deDE }, {
+        default: () => h(DatePicker, { value: date, showTime: true }),
+      }),
+    })
+    expect(dateTimeWrapper.find('input').element.value).toBe('01.01.2000 00:00:00')
   })
 
   it('should render MonthPicker dropdown when open', async () => {
