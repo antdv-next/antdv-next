@@ -350,6 +350,22 @@ describe('layout', () => {
         expect(wrapper.find('.ant-layout-sider').attributes('style')).toContain('width: 80px')
       })
 
+      // sync ant-design#59175
+      it('should treat undefined collapsed as uncontrolled', async () => {
+        const onCollapse = vi.fn()
+        const wrapper = mount(() => (
+          <Layout>
+            <LayoutSider collapsible collapsed={undefined} onCollapse={onCollapse}>
+              {{ default: () => 'Sider', trigger: () => <span>T</span> }}
+            </LayoutSider>
+          </Layout>
+        ))
+
+        await wrapper.find('.ant-layout-sider-trigger').trigger('click')
+        expect(wrapper.find('.ant-layout-sider-collapsed').exists()).toBe(true)
+        expect(onCollapse).toHaveBeenCalledWith(true, 'clickTrigger')
+      })
+
       it('should not toggle internally in controlled mode', async () => {
         const wrapper = mount(() => (
           <Layout>
