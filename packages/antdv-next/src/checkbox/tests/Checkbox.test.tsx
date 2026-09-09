@@ -282,6 +282,30 @@ describe('checkboxGroup', () => {
     expect(items![0]!.text()).toBe('1')
   })
 
+  // sync ant-design#59217
+  describe('value is undefined', () => {
+    it('should use defaultValue when value is undefined', () => {
+      const wrapper = mount(CheckboxGroup, {
+        props: { defaultValue: ['A'], value: undefined, options: ['A'] },
+      })
+      expect(wrapper.findAll('.ant-checkbox-checked')).toHaveLength(1)
+    })
+
+    it('should update value when value is undefined', async () => {
+      const onChange = vi.fn()
+      const wrapper = mount(CheckboxGroup, {
+        props: { defaultValue: ['A'], value: undefined, options: ['A', 'B'], onChange },
+      })
+      const inputs = wrapper.findAll('input')
+      expect((inputs[0]!.element as HTMLInputElement).checked).toBe(true)
+
+      await inputs[1]!.trigger('change')
+      expect((inputs[0]!.element as HTMLInputElement).checked).toBe(true)
+      expect((inputs[1]!.element as HTMLInputElement).checked).toBe(true)
+      expect(onChange).toHaveBeenCalledWith(['A', 'B'])
+    })
+  })
+
   it('should ignore options with nullish values', async () => {
     const onChange = vi.fn()
     const wrapper = mount(CheckboxGroup, {
