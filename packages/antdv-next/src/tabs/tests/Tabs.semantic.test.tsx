@@ -1,5 +1,6 @@
 import type { Tab, TabsProps } from '..'
 import { afterEach, describe, expect, it } from 'vitest'
+import { nextTick } from 'vue'
 import Tabs from '..'
 import ConfigProvider from '../../config-provider'
 import { expectSemanticRootStylePriority, semanticRootStylePriority } from '/@tests/shared/semanticStylePriority'
@@ -18,11 +19,14 @@ describe('tabs.semantic', () => {
 
   // ========================= Object classes & styles =========================
   describe('object classes and styles', () => {
-    it('supports classes and styles as objects', () => {
+    it('supports classes and styles as objects', async () => {
       const wrapper = mount(Tabs, {
         props: {
           items: defaultItems,
           defaultActiveKey: '1',
+          // `more.visible` is spread over @v-c/tabs' own `visible`, so the popup mounts
+          // without having to fake element sizes to force tab overflow.
+          more: { visible: true },
           classes: {
             root: 'custom-root',
             item: 'custom-item',
@@ -30,6 +34,7 @@ describe('tabs.semantic', () => {
             header: 'custom-header',
             body: 'custom-body',
             content: 'custom-content',
+            popup: { root: 'custom-popup' },
           },
           styles: {
             root: { color: 'red' },
@@ -38,10 +43,12 @@ describe('tabs.semantic', () => {
             header: { color: 'green' },
             body: { color: 'orange' },
             content: { color: 'purple' },
+            popup: { root: { color: 'cyan' } },
           },
         } as any,
         attachTo: document.body,
       })
+      await nextTick()
 
       const root = document.querySelector('.ant-tabs')
       expect(root?.classList.contains('custom-root')).toBe(true)
@@ -66,6 +73,10 @@ describe('tabs.semantic', () => {
       const content = document.querySelector('.ant-tabs-content')
       expect(content?.classList.contains('custom-content')).toBe(true)
       expect((content as HTMLElement)?.style.color).toBe('purple')
+
+      const popup = document.querySelector('.ant-tabs-dropdown')
+      expect(popup?.classList.contains('custom-popup')).toBe(true)
+      expect((popup as HTMLElement)?.style.color).toBe('cyan')
 
       wrapper.unmount()
     })

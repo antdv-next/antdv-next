@@ -416,7 +416,8 @@ const InternalTabs = defineComponent<
           }}
           renderTabBar={renderTabBar}
           tabBarExtraContent={tabBarExtraContent}
-          styles={mergedStyles.value}
+          // `popup` is nested as `{ root }` in antdv-next but flat in @v-c/tabs, same as `classNames` above
+          styles={{ ...mergedStyles.value, popup: mergedStyles.value.popup?.root }}
           style={mergedStyle}
           editable={editable}
           more={mergedMore}
