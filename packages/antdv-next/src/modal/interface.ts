@@ -173,6 +173,7 @@ export interface ModalFuncProps extends ModalCommonProps {
   cancelText?: VueNode
   icon?: VueNode
   mask?: MaskType
+  /** @deprecated Please use `mask.closable` instead */
   maskClosable?: boolean
   zIndex?: number
   okCancel?: boolean
