@@ -374,6 +374,30 @@ describe('modal integration', () => {
     wrapper.unmount()
   })
 
+  it('should trigger both onCancel and cancelButtonProps.onClick', async () => {
+    const onCancel = vi.fn()
+    const onClick = vi.fn()
+    const wrapper = mount(Modal, {
+      attachTo: document.body,
+      props: {
+        open: true,
+        onCancel,
+        cancelButtonProps: { onClick },
+      },
+    })
+
+    await waitFakeTimer(20, 10)
+
+    const cancelBtn = document.body.querySelectorAll<HTMLButtonElement>('.ant-modal-footer .ant-btn')[0]
+    cancelBtn.click()
+    await waitFakeTimer(20, 10)
+
+    expect(onCancel).toHaveBeenCalledTimes(1)
+    expect(onClick).toHaveBeenCalledTimes(1)
+
+    wrapper.unmount()
+  })
+
   it('should localize the close button accessible name', async () => {
     const wrapper = mount(
       defineComponent({

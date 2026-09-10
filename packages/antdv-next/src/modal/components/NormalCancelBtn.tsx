@@ -14,8 +14,13 @@ const NormalCancelBtn = defineComponent(
     const context = useModalContext()
     return () => {
       const { onCancel, cancelTextLocale, cancelButtonProps } = context.value
+      const { onClick, ...restCancelButtonProps } = (cancelButtonProps ?? {}) as Record<string, any>
+      const onInternalClick = (event: MouseEvent) => {
+        onCancel?.(event)
+        onClick?.(event)
+      }
       return (
-        <Button onClick={onCancel} {...cancelButtonProps}>
+        <Button {...restCancelButtonProps} onClick={onInternalClick}>
           {cancelTextLocale}
         </Button>
       )
