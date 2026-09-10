@@ -2,7 +2,7 @@ name: Size Report (Compute)
 
 on:
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [ opened, synchronize, reopened ]
     paths:
       - 'packages/antdv-next/src/**'
 
@@ -58,6 +58,11 @@ jobs:
           const TARGET_PACKAGE_NAME = 'antdv-next'
           const [command, firstArg, secondArg, thirdArg] = process.argv.slice(2)
 
+          function isLocaleFile(filePath) {
+            const normalized = filePath.split(sep).join('/')
+            return /\/locales?\//.test(normalized)
+          }
+
           function listFiles(dir, files = []) {
             if (!existsSync(dir))
               return files
@@ -67,7 +72,11 @@ jobs:
               if (entry.isDirectory()) {
                 listFiles(file, files)
               }
-              else if (entry.isFile() && /\.(?:js|css)$/.test(entry.name)) {
+              else if (
+                entry.isFile()
+                && /\.(?:js|css)$/.test(entry.name)
+                && !isLocaleFile(file)
+              ) {
                 files.push(file)
               }
             }
