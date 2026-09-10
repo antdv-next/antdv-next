@@ -79,10 +79,20 @@ Deprecated: when using items, prefer configuring panels with `items`.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| header | - | VueNode | - | - |
-| showArrow | - | boolean | true | - |
-| extra | - | VueNode | - | - |
 | collapsible | Specify how to trigger Collapse. Either by clicking icon or by clicking any area in header or disable collapse functionality itself | `header` \| `icon` \| `disabled` | - | - |
+| extra | The extra element in the corner | VueNode | - | - |
+| forceRender | Forced render of content on panel, instead of lazy rendering after clicking on header | boolean | false | - |
+| header | Title of the panel | VueNode | - | - |
+| key | Unique key identifying the panel from among its siblings | string \| number | - | - |
+| showArrow | If false, panel will not show arrow icon. If false, collapsible can't be set as icon | boolean | true | - |
+
+#### Slots {#collapsepanel-slots}
+
+| Slot | Description | Type | Version |
+| --- | --- | --- | --- |
+| default | Body area content | VueNode | - |
+| header | Title of the panel | VueNode | - |
+| extra | The extra element in the corner | VueNode | - |
 
 ## Types
 

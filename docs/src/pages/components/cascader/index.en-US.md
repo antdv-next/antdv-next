@@ -18,6 +18,12 @@ demo:
 ## Examples {#examples}
 
 <demo-group>
+<demo src="./demo/basic.vue">Basic</demo>
+<demo src="./demo/default-value.vue">Default value</demo>
+<demo src="./demo/custom-trigger.vue">Custom trigger</demo>
+<demo src="./demo/hover.vue">Hover</demo>
+<demo src="./demo/disabled-option.vue">Disabled option</demo>
+<demo src="./demo/change-on-select.vue">Change on select</demo>
 <demo src="./demo/multiple.vue">Multiple</demo>
 <demo src="./demo/showCheckedStrategy.vue">ShowCheckedStrategy</demo>
 <demo src="./demo/size.vue">Size</demo>
@@ -61,7 +67,6 @@ Common props ref：[Common props](/docs/vue/common-props)
 | popupMenuColumnStyle | The style of the drop-down menu column | CSSProperties | - | - | × |
 | showCheckedStrategy | The way to show selected items in the box (only effective when `multiple` is `true`). `Cascader.SHOW_CHILD`: just show child treeNode. `Cascader.SHOW_PARENT`: just show parent treeNode (when all child treeNode under the parent treeNode are checked) | `Cascader.SHOW_PARENT` \| `Cascader.SHOW_CHILD` | `Cascader.SHOW_PARENT` | - | × |
 | showSearch | Whether show search input in single mode | boolean \| [Object](#showsearch) | false | - | × |
-| ~~searchValue~~ | Set search value, Need work with `showSearch` | string | - | - | × |
 | size | The input size | `large` \| `medium` \| `small` | `medium` | - | × |
 | status | Set validation status | 'error' \| 'warning' | - | - | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: \{ props \})=&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - | ✓ |
