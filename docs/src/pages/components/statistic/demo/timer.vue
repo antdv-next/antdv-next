@@ -27,7 +27,7 @@ function onChange(val?: number) {
       <a-statistic-timer type="countdown" :value="deadline" @finish="onFinish" />
     </a-col>
     <a-col :span="12">
-      <a-statistic-timer type="countdown" title="Million Seconds" :value="deadline" format="HH:mm:ss:SSS" />
+      <a-statistic-timer type="countdown" title="Milliseconds" :value="deadline" format="HH:mm:ss:SSS" />
     </a-col>
     <a-col :span="12">
       <a-statistic-timer

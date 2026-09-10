@@ -1465,7 +1465,7 @@ exports[`statistic demo > renders timer correctly 1`] = `
         <div
           class="ant-statistic-title"
         >
-          Million Seconds
+          Milliseconds
         </div>
       </div>
       <div
