@@ -766,20 +766,33 @@ const InternalTable = defineComponent<
 
         return expandable
       })()
-      const renderPagination = (placement: 'start' | 'end' | 'center' = 'end') => (
-        <Pagination
-          {...mergedPagination.value as any}
-          classes={mergedClassNames.value.pagination}
-          styles={mergedStyles.value.pagination}
-          class={clsx(
-            `${prefixCls.value}-pagination`,
-            `${prefixCls.value}-pagination-${placement}`,
-            (mergedPagination.value as any).class,
-            (mergedPagination.value as any).className,
-          )}
-          size={getPaginationSize(mergedPagination.value.size, mergedSize.value)}
-        />
-      )
+
+      const renderPagination = (placement: 'start' | 'end' | 'center' = 'end') => {
+        const paginationProps = mergedPagination.value
+        const paginationSize = getPaginationSize(paginationProps.size, mergedSize.value)
+
+        const tablePaginationClasses = mergedClassNames.value.pagination ?? {}
+        const tablePaginationStyles = mergedStyles.value.pagination ?? {}
+
+        // Prefer pagination-level config; retain Table-level semantic config as a legacy fallback.
+        const paginationClasses = paginationProps.classes
+          ?? (Object.keys(tablePaginationClasses).length > 0 ? tablePaginationClasses : undefined)
+        const paginationStyles = paginationProps.styles
+          ?? (Object.keys(tablePaginationStyles).length > 0 ? tablePaginationStyles : undefined)
+
+        return (
+          <Pagination
+            {...paginationProps}
+            classes={paginationClasses}
+            styles={paginationStyles}
+            class={clsx(
+              `${prefixCls.value}-pagination`,
+              `${prefixCls.value}-pagination-${placement}`,
+            )}
+            size={paginationSize}
+          />
+        )
+      }
       const paginationNodes = (() => {
         if (props.pagination === false || !mergedPagination.value.total) {
           return { top: null, bottom: null }

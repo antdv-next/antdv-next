@@ -191,4 +191,86 @@ describe('table pagination', () => {
     })
     expect(wrapper.find('.ant-pagination-mini').exists()).toBe(true)
   })
+
+  // https://github.com/antdv-next/antdv-next/issues/780
+  it('should forward pagination config classes/styles when Table-level semantic is absent', () => {
+    const wrapper = mount(() => (
+      <Table
+        columns={columns}
+        dataSource={generateData(20)}
+        pagination={{
+          total: 20,
+          classes: { root: 'cfg-pagination-cls' },
+          styles: { root: { marginBottom: '0px' } },
+        }}
+      />
+    ), { attachTo: document.body })
+
+    const pager = wrapper.find('.ant-pagination')
+    expect(pager.exists()).toBe(true)
+    expect(pager.classes()).toContain('cfg-pagination-cls')
+    expect((pager.element as HTMLElement).style.marginBottom).toBe('0px')
+    wrapper.unmount()
+  })
+
+  it('should keep pagination config classes/styles when Table classes/styles target the table root', () => {
+    const wrapper = mount(() => (
+      <Table
+        columns={columns}
+        dataSource={generateData(20)}
+        pagination={{
+          total: 20,
+          classes: { root: 'cfg-pagination-cls' },
+          styles: { root: { marginBottom: '0px' } },
+        }}
+        classes={{ root: 'table-root-cls' }}
+        styles={{ root: { marginTop: '8px' } }}
+      />
+    ), { attachTo: document.body })
+
+    const pager = wrapper.find('.ant-pagination')
+    expect(pager.classes()).toContain('cfg-pagination-cls')
+    expect((pager.element as HTMLElement).style.marginBottom).toBe('0px')
+    expect(wrapper.find('.ant-table-wrapper').classes()).toContain('table-root-cls')
+    expect((wrapper.find('.ant-table-wrapper').element as HTMLElement).style.marginTop).toBe('8px')
+    wrapper.unmount()
+  })
+
+  it('should keep supporting Table-level pagination classes/styles', () => {
+    const wrapper = mount(() => (
+      <Table
+        columns={columns}
+        dataSource={generateData(20)}
+        classes={{ pagination: { root: 'table-pagination-cls' } }}
+        styles={{ pagination: { root: { marginTop: '8px' } } }}
+      />
+    ), { attachTo: document.body })
+
+    const pager = wrapper.find('.ant-pagination')
+    expect(pager.classes()).toContain('table-pagination-cls')
+    expect((pager.element as HTMLElement).style.marginTop).toBe('8px')
+    wrapper.unmount()
+  })
+
+  it('should prefer pagination config classes/styles when both APIs are used', () => {
+    const wrapper = mount(() => (
+      <Table
+        columns={columns}
+        dataSource={generateData(20)}
+        pagination={{
+          classes: { root: 'config-pagination-cls' },
+          styles: { root: { marginBottom: '4px' } },
+        }}
+        classes={{ pagination: { root: 'table-pagination-cls' } }}
+        styles={{ pagination: { root: { marginTop: '8px' } } }}
+      />
+    ), { attachTo: document.body })
+
+    const pager = wrapper.find('.ant-pagination')
+    expect(pager.classes()).toContain('config-pagination-cls')
+    expect(pager.classes()).not.toContain('table-pagination-cls')
+    expect((pager.element as HTMLElement).style.marginBottom).toBe('4px')
+    expect((pager.element as HTMLElement).style.marginTop).toBe('')
+    wrapper.unmount()
+  })
 })
