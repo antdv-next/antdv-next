@@ -252,25 +252,48 @@ describe('table pagination', () => {
     wrapper.unmount()
   })
 
-  it('should prefer pagination config classes/styles when both APIs are used', () => {
+  it('should merge pagination config classes/styles when both APIs are used', () => {
     const wrapper = mount(() => (
       <Table
         columns={columns}
         dataSource={generateData(20)}
         pagination={{
-          classes: { root: 'config-pagination-cls' },
-          styles: { root: { marginBottom: '4px' } },
+          pageSize: 1,
+          classes: {
+            root: 'config-pagination-cls',
+            item: 'config-pagination-item-cls',
+          },
+          styles: {
+            root: { marginBottom: '4px', color: 'red' },
+            item: { color: 'red' },
+          },
         }}
-        classes={{ pagination: { root: 'table-pagination-cls' } }}
-        styles={{ pagination: { root: { marginTop: '8px' } } }}
+        classes={{
+          pagination: {
+            root: 'table-pagination-cls',
+            item: 'table-pagination-item-cls',
+          },
+        }}
+        styles={{
+          pagination: {
+            root: { marginTop: '8px', color: 'blue' },
+            item: { color: 'blue' },
+          },
+        }}
       />
     ), { attachTo: document.body })
 
     const pager = wrapper.find('.ant-pagination')
+    const paginationItem = wrapper.find('.ant-pagination-item')
+
     expect(pager.classes()).toContain('config-pagination-cls')
-    expect(pager.classes()).not.toContain('table-pagination-cls')
+    expect(pager.classes()).toContain('table-pagination-cls')
     expect((pager.element as HTMLElement).style.marginBottom).toBe('4px')
-    expect((pager.element as HTMLElement).style.marginTop).toBe('')
+    expect((pager.element as HTMLElement).style.marginTop).toBe('8px')
+    expect((pager.element as HTMLElement).style.color).toBe('blue')
+    expect(paginationItem.classes()).toContain('config-pagination-item-cls')
+    expect(paginationItem.classes()).toContain('table-pagination-item-cls')
+    expect((paginationItem.element as HTMLElement).style.color).toBe('blue')
     wrapper.unmount()
   })
 })

@@ -31,7 +31,7 @@ import pickAttrs from '@v-c/util/dist/pickAttrs'
 import { getAttrStyleAndClass } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, h, inject, provide, shallowRef, watch, watchEffect } from 'vue'
-import { useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
+import { mergeClassNames, mergeStyles, resolveStyleOrClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import scrollTo from '../_util/scrollTo.ts'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { devUseWarning, isDev } from '../_util/warning.ts'
@@ -771,14 +771,18 @@ const InternalTable = defineComponent<
         const paginationProps = mergedPagination.value
         const paginationSize = getPaginationSize(paginationProps.size, mergedSize.value)
 
-        const tablePaginationClasses = mergedClassNames.value.pagination ?? {}
-        const tablePaginationStyles = mergedStyles.value.pagination ?? {}
+        const paginationClasses: TablePaginationConfig['classes'] = info =>
+          mergeClassNames(
+            {},
+            mergedClassNames.value.pagination,
+            resolveStyleOrClass(paginationProps.classes, info),
+          )
 
-        // Prefer pagination-level config; retain Table-level semantic config as a legacy fallback.
-        const paginationClasses = paginationProps.classes
-          ?? (Object.keys(tablePaginationClasses).length > 0 ? tablePaginationClasses : undefined)
-        const paginationStyles = paginationProps.styles
-          ?? (Object.keys(tablePaginationStyles).length > 0 ? tablePaginationStyles : undefined)
+        const paginationStyles: TablePaginationConfig['styles'] = info =>
+          mergeStyles(
+            resolveStyleOrClass(paginationProps.styles, info),
+            mergedStyles.value.pagination,
+          )
 
         return (
           <Pagination
