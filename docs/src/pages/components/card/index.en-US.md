@@ -14,7 +14,7 @@ A card can be used to display content related to a single subject. The content c
 ## Examples {#examples}
 
 <demo-group>
-  <demo src="./demo/basic.vue">Basic card片</demo>
+  <demo src="./demo/basic.vue">Basic card</demo>
   <demo src="./demo/border-less.vue" background="grey">No border</demo>
   <demo src="./demo/simple.vue">Simple card</demo>
   <demo src="./demo/flexible-content.vue">Customized content</demo>
