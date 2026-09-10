@@ -33,6 +33,16 @@ describe('alert', () => {
     expect(wrapper.find('.ant-alert-description').text()).toBe('Success Description')
   })
 
+  it('should render numeric 0 for title, description and action', () => {
+    const wrapper = mount(Alert, {
+      props: { title: 0, description: 0, action: 0 },
+    })
+    expect(wrapper.find('.ant-alert-title').text()).toBe('0')
+    expect(wrapper.find('.ant-alert-description').text()).toBe('0')
+    expect(wrapper.find('.ant-alert-actions').text()).toBe('0')
+    expect(wrapper.find('.ant-alert-with-description').exists()).toBe(true)
+  })
+
   it('should render type correctly', () => {
     const types = ['success', 'info', 'warning', 'error'] as const
     types.forEach((type) => {

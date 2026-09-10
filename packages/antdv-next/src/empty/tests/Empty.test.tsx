@@ -156,6 +156,15 @@ describe('empty', () => {
       })
       expect(wrapper.find('.ant-empty-footer').exists()).toBe(false)
     })
+
+    it('should render numeric 0 for description and footer', () => {
+      const wrapper = mount(Empty, {
+        props: { description: 0 },
+        slots: { default: () => 0 },
+      })
+      expect(wrapper.find('.ant-empty-description').text()).toBe('0')
+      expect(wrapper.find('.ant-empty-footer').text()).toBe('0')
+    })
   })
 
   describe('semantic classes and styles', () => {

@@ -8,6 +8,7 @@ import { classNames, clsx } from '@v-c/util'
 import { filterEmpty, getAttrStyleAndClass } from '@v-c/util/dist/props-util'
 import { computed, defineComponent, shallowRef, Transition } from 'vue'
 import { pureAttrs, useMergeSemanticNoRef } from '../_util/hooks'
+import { isRenderable } from '../_util/is.ts'
 import { getSlotPropFn, getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { useComponentBaseConfig } from '../config-provider/context'
 import useStyle from './style'
@@ -238,11 +239,9 @@ const Alert = defineComponent<
         return !!contextClosable.value
       }
       const isClosable = isClosableFn()
-      let message = getSlotPropsFnRun(slots, props, 'message')
+      const message = getSlotPropsFnRun(slots, props, 'message')
       const title = getSlotPropsFnRun(slots, props, 'title')
-      if (title) {
-        message = title
-      }
+      const mergedTitle = title ?? message
       const description = getSlotPropsFnRun(slots, props, 'description')
       const action = getSlotPropsFnRun(slots, props, 'action')
       // banner mode defaults to Icon
@@ -271,7 +270,7 @@ const Alert = defineComponent<
         `${prefixCls.value}-${type.value}`,
         `${prefixCls.value}-${mergedVariant}`,
         {
-          [`${prefixCls.value}-with-description`]: !!description,
+          [`${prefixCls.value}-with-description`]: isRenderable(description),
           [`${prefixCls.value}-no-icon`]: !isShowIcon,
           [`${prefixCls.value}-banner`]: !!banner,
           [`${prefixCls.value}-rtl`]: direction.value === 'rtl',
@@ -352,17 +351,17 @@ const Alert = defineComponent<
                     class={[`${prefixCls.value}-section`, mergedClassNames.section]}
                     style={mergedStyles.section}
                   >
-                    {message
+                    {isRenderable(mergedTitle)
                       ? (
                           <div
                             class={[`${prefixCls.value}-title`, mergedClassNames.title]}
                             style={mergedStyles.title}
                           >
-                            {message}
+                            {mergedTitle}
                           </div>
                         )
                       : null}
-                    {description
+                    {isRenderable(description)
                       ? (
                           <div
                             class={[`${prefixCls.value}-description`, mergedClassNames.description]}
@@ -373,7 +372,7 @@ const Alert = defineComponent<
                         )
                       : null}
                   </div>
-                  {action
+                  {isRenderable(action)
                     ? (
                         <div
                           class={[`${prefixCls.value}-actions`, mergedClassNames.actions]}

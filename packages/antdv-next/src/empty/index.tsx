@@ -6,6 +6,7 @@ import { classNames } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { computed, defineComponent, shallowRef } from 'vue'
 import { pureAttrs, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
+import { isRenderable } from '../_util/is.ts'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { useComponentBaseConfig, useComponentConfig } from '../config-provider/context.ts'
 import useLocale from '../locale/useLocale.ts'
@@ -145,7 +146,7 @@ const Empty = defineComponent<
           >
             {imageNode}
           </div>
-          {des && (
+          {isRenderable(des) && (
             <div
               class={classNames(
                 `${prefixCls.value}-description`,
