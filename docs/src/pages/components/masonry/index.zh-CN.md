@@ -25,6 +25,7 @@ demo:
     <demo src="./demo/image.vue">图片</demo>
     <demo src="./demo/dynamic.vue">动态更新</demo>
     <demo src="./demo/style-class.vue">自定义语义结构的样式和类</demo>
+    <demo src="./demo/fresh.vue" debug>持续监听尺寸变化</demo>
 </demo-group>
 
 ## API
