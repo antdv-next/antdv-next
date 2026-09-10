@@ -63,8 +63,8 @@ demo:
 | getContainer | 指定 Modal 挂载的节点，但依旧为全屏展示，`false` 为挂载在当前位置 | string \| HTMLElement \| (() => HTMLElement) \| false | document.body | - | × |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true | - | × |
 | loading | 显示骨架屏 | boolean | false | - | × |
-| mask | 遮罩效果 | boolean \| `{enabled?: boolean, blur?: boolean, closable?: boolean}` | true | - | ✓ |
-| maskClosable | 点击蒙层是否允许关闭 | boolean | true | - | × |
+| mask | 遮罩效果 | boolean \| `{enabled?: boolean, blur?: boolean, closable?: boolean}` | true | mask.closable: 1.0.3 | ✓ |
+| ~~maskClosable~~ | 点击蒙层是否允许关闭。请使用 `mask.closable` 替代。 | boolean | true | - | × |
 | modalRender | 自定义渲染对话框 | (node: any) => any | - | - | × |
 | mousePosition | 设置动画起点位置 | MousePosition | - | - | × |
 | okButtonProps | ok 按钮 props | ButtonProps | - | - | ✓ |
@@ -137,7 +137,7 @@ demo:
 | icon | 自定义图标 | VueNode | &lt;ExclamationCircleFilled /> | - |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true | - |
 | mask | 遮罩效果 | boolean \| [MaskType](#masktype) | true |  |
-| ~~maskClosable~~ | 点击蒙层是否允许关闭 | boolean | false |  |
+| ~~maskClosable~~ | 点击蒙层是否允许关闭。请使用 `mask.closable` 替代。 | boolean | false |  |
 | okButtonProps | ok 按钮 props | ButtonProps | - | - |
 | okText | 确认按钮文字 | string | `确定` | - |
 | okType | 确认按钮类型 | LegacyButtonType | `primary` | - |

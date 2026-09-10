@@ -94,11 +94,6 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 <demo src="./demo/_semantic.vue" simplify></demo>
 
-| Name | Description |
-| --- | --- |
-| root | Root element, set flex layout, alignment, wrap and list styles |
-| item | Item element, set size, padding, border, background color, hover and active styles |
-
 ## Design Token {#design-token}
 
 <ComponentTokenTable component="Pagination"></ComponentTokenTable>

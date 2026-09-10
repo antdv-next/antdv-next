@@ -52,6 +52,8 @@ demo:
 | getPopupContainer | 设置 Tour 浮层的渲染节点，默认是 body | (node: HTMLElement) =&gt; HTMLElement | () =&gt; document.body | - | × |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | TourClassNamesType | - | - | ✓ |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | TourStylesType | - | - | ✓ |
+| rootClass | 根容器类名 | string | - | - | × |
+| prefixCls | - | string | - | - | × |
 
 ### 事件 {#events}
 

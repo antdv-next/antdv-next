@@ -63,7 +63,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | keyboard | Whether support press esc to close | boolean | true | - | × |
 | loading | Show the skeleton | boolean | false | - | × |
 | mask | Mask effect | boolean \| `{enabled?: boolean, blur?: boolean, closable?: boolean}` | true | mask.closable: 1.0.3 | ✓ |
-| ~~maskClosable~~ | Whether to close the modal dialog when the mask (area outside the modal) is clicked | boolean | true |  | × |
+| ~~maskClosable~~ | Whether to close the modal dialog when the mask (area outside the modal) is clicked. Please use `mask.closable` instead. | boolean | true |  | × |
 | modalRender | Custom modal content render | (node: any) => any | - | - | × |
 | mousePosition | Set animation start position | MousePosition | - | - | × |
 | okButtonProps | The ok button props | ButtonProps | - | - | ✓ |
@@ -136,7 +136,7 @@ The items listed above are all functions, expecting a settings object as paramet
 | icon | Custom icon | VueNode | &lt;ExclamationCircleFilled /> | - |
 | keyboard | Whether support press esc to close | boolean | true | - |
 | mask | Mask effect | boolean \| [MaskType](#masktype) | true | - |
-| maskClosable | Whether to close the modal dialog when the mask is clicked | boolean | false | - |
+| ~~maskClosable~~ | Whether to close the modal dialog when the mask is clicked. Please use `mask.closable` instead. | boolean | false | - |
 | okButtonProps | The ok button props | ButtonProps | - | - |
 | okText | Text of the OK button | string | `OK` | - |
 | okType | Button `type` of the OK button | LegacyButtonType | `primary` | - |

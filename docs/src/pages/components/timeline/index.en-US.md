@@ -18,18 +18,18 @@ demo:
 
 <demo-group>
 <demo src="./demo/basic.vue">Basic</demo>
+<demo src="./demo/variant.vue">Variant</demo>
+<demo src="./demo/pending.vue">Pending</demo>
 <demo src="./demo/alternate.vue">Alternate</demo>
+<demo src="./demo/horizontal.vue">Horizontal</demo>
 <demo src="./demo/custom.vue">Custom</demo>
 <demo src="./demo/dot-render.vue">Dot render</demo>
 <demo src="./demo/sfc.vue">SFC Mode</demo>
-<demo src="./demo/pending.vue">Pending</demo>
-<demo src="./demo/title.vue">Label</demo>
-<demo src="./demo/variant.vue">Variant</demo>
 <demo src="./demo/end.vue">Right Alternate</demo>
-<demo src="./demo/horizontal.vue">Horizontal</demo>
+<demo src="./demo/title.vue">Label</demo>
 <demo src="./demo/title-span.vue">Title Offset</demo>
-<demo src="./demo/semantic.vue">Semantic Sample</demo>
 <demo src="./demo/style-class.vue">Custom semantic dom styling</demo>
+<demo src="./demo/semantic.vue">Semantic Sample</demo>
 </demo-group>
 
 ## API
