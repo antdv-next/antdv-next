@@ -1469,7 +1469,9 @@ exports[`skeleton demo > renders element correctly 1`] = `
           class="ant-skeleton-image"
         >
           <svg
+            aria-hidden="true"
             class="ant-skeleton-image-svg"
+            focusable="false"
             viewBox="0 0 1098 1024"
             xmlns="http://www.w3.org/2000/svg"
           >

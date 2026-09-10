@@ -592,6 +592,15 @@ describe('skeleton', () => {
       expect(wrapper.find('.ant-skeleton-image-path').exists()).toBe(true)
     })
 
+    it('should hide the placeholder illustration from assistive technology', () => {
+      const wrapper = mount(Skeleton.Image)
+      const illustration = wrapper.find('.ant-skeleton-image-svg')
+
+      expect(illustration.attributes('aria-hidden')).toBe('true')
+      expect(illustration.attributes('focusable')).toBe('false')
+      expect(illustration.element).not.toHaveAccessibleName()
+    })
+
     it('should not render ant-skeleton-node when using Image', () => {
       const wrapper = mount(Skeleton.Image)
       expect(wrapper.find('.ant-skeleton-node').exists()).toBe(false)
