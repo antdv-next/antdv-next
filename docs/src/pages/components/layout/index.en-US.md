@@ -25,7 +25,7 @@ The first level navigation is left aligned near a logo, and the secondary menu i
 - When the current navigation item is collapsed, the style of the current navigation item is applied to its parent level;
 - The left side navigation bar has support for both the accordion and expanding styles; you can choose the one that fits your case the best.
 
-## Visualization rules
+### Visualization rules {#visualization-rules}
 
 Style of a navigation should conform to its level.
 
@@ -122,6 +122,12 @@ The sidebar.
 | --- | --- | --- | --- |
 | breakpoint | The callback function, executed when [breakpoints](/components/grid/#api) changed | (broken: boolean) => void | - |
 | collapse | The callback function, executed by clicking the trigger or activating the responsive layout | (collapsed: boolean, type: string) => void | - |
+
+#### Slots {#layoutsider-slots}
+
+| Slot | Description | Type | Version |
+| --- | --- | --- | --- |
+| trigger | Specify the customized trigger, set to null to hide the trigger | - | - |
 
 ## Types
 

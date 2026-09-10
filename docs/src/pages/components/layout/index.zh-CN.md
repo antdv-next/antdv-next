@@ -140,6 +140,7 @@ const breakpointWidth = {
   lg: '992px',
   xl: '1200px',
   xxl: '1600px',
+  xxxl: '1920px',
 }
 ```
 
