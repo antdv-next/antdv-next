@@ -24,9 +24,9 @@ describe('tabs.semantic', () => {
         props: {
           items: defaultItems,
           defaultActiveKey: '1',
-          // `more.visible` is spread over @v-c/tabs' own `visible`, so the popup mounts
+          // `more.open` is spread over @v-c/tabs' own `open`, so the popup mounts
           // without having to fake element sizes to force tab overflow.
-          more: { visible: true },
+          more: { open: true },
           classes: {
             root: 'custom-root',
             item: 'custom-item',

@@ -367,7 +367,7 @@ const Dropdown = defineComponent<
           {...omit(props, ['rootClass']) as any}
           mouseEnterDelay={mouseEnterDelay}
           mouseLeaveDelay={mouseLeaveDelay}
-          visible={mergedOpen.value}
+          open={mergedOpen.value}
           builtinPlacements={builtinPlacements.value}
           arrow={!!arrow}
           prefixCls={prefixCls.value}
@@ -376,7 +376,7 @@ const Dropdown = defineComponent<
           trigger={triggerActions.value}
           overlay={renderOverlay}
           placement={memoPlacement.value}
-          onVisibleChange={onInnerOpenChange}
+          onOpenChange={onInnerOpenChange}
           overlayStyle={{ ...mergedStyles.value?.root, zIndex: zIndex.value }}
           overlayClassName={overlayClassNameCustomized}
           autoDestroy={destroyOnHidden}
