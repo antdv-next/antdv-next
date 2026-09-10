@@ -347,7 +347,7 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
               disabled={mergedDisabled.value}
               placement={placement}
               placeholder={getRangePlaceholder(locale.value, props.picker, placeholder)}
-              suffixIcon={suffixNode}
+              suffix={suffixNode}
               prevIcon={<span class={`${prefixCls.value}-prev-icon`} />}
               nextIcon={<span class={`${prefixCls.value}-next-icon`} />}
               superPrevIcon={<span class={`${prefixCls.value}-super-prev-icon`} />}

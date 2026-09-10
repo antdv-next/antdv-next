@@ -376,7 +376,7 @@ function generatePicker<DateType extends AnyObject = AnyObject>(generateConfig: 
                 {...omit(restProps, ['onKeydown']) as any}
                 ref={innerRef}
                 placeholder={getPlaceholder(locale.value, mergedPicker.value, placeholder)}
-                suffixIcon={suffixNode}
+                suffix={suffixNode}
                 placement={placement}
                 prevIcon={<span class={`${prefixCls.value}-prev-icon`} />}
                 nextIcon={<span class={`${prefixCls.value}-next-icon`} />}
