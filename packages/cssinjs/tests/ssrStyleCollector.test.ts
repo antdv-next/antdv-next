@@ -23,7 +23,7 @@ describe('ssr style collector', () => {
   afterEach(() => {
     setStyleCollector?.(null)
     setStyleCollector = null
-    vi.unmock('@v-c/util/dist/Dom/canUseDom')
+    vi.doUnmock('@v-c/util/dist/Dom/canUseDom')
   })
 
   it('collects css vars from useCacheToken during SSR', async () => {

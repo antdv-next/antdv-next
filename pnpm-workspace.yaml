@@ -15,8 +15,8 @@ overrides:
   '@v-c/util': catalog:vc
   vite: catalog:dev
 catalog:
-  '@vitest/coverage-v8': ^4.1.10
-  '@vitest/ui': 4.1.10
+  '@vitest/coverage-v8': 5.0.0
+  '@vitest/ui': 5.0.0
   flexsearch: ^0.8.212
 
 catalogs:
@@ -27,7 +27,7 @@ catalogs:
     '@testing-library/jest-dom': ^6.9.1
     '@vitejs/plugin-vue': ^6.0.8
     '@vitejs/plugin-vue-jsx': ^5.1.6
-    '@vue/test-utils': ^2.4.11
+    '@vue/test-utils': ^2.5.0
     '@vue/tsconfig': ^0.8.1
     bumpp: ^10.4.1
     chalk: ^5.6.2
@@ -38,33 +38,33 @@ catalogs:
     fs-extra: ^11.4.0
     jiti: ^2.7.0
     jsdom: ^27.4.0
-    less: ^4.8.1
+    less: ^4.9.1
     lint-staged: ^16.4.0
     lunar-typescript: ^1.8.6
     mockdate: ^3.0.5
     npm-run-all: ^4.1.5
     picocolors: ^1.1.1
-    postcss: ^8.5.25
-    postcss-selector-parser: ^7.1.4
-    pretty-format: ^30.4.1
-    simple-git-hooks: ^2.13.1
+    postcss: ^8.5.28
+    postcss-selector-parser: ^7.1.6
+    pretty-format: ^30.5.1
+    simple-git-hooks: ^2.14.0
     tinyglobby: 0.2.17
     tsdown: 0.22.14
-    tsx: ^4.23.5
-    turbo: ^2.10.8
+    tsx: ^4.23.13
+    turbo: ^2.10.12
     typedoc: ^0.28.20
     typescript: ~5.9.3
-    unocss: ^66.7.5
-    vite: ^8.2.0
+    unocss: ^66.10.1
+    vite: ^8.3.0
     vite-plugin-dayjs: ^1.0.3
     vite-plugin-inspect: ^11.4.1
     vite-plugin-tsx-resolve-types: ^1.0.1
-    vitest: ^4.1.10
-    vue-tsc: ^3.3.9
+    vitest: 5.0.0
+    vue-tsc: ^3.3.11
   docs:
     '@antdv-next/docs-plugins': ^0.0.4
     '@antdv-next/img-crop': ^0.0.2
-    '@antdv-next/unocss': ^1.1.1
+    '@antdv-next/unocss': ^1.1.2
     '@codesandbox/sandpack-themes': ^2.0.21
     '@dnd-kit/abstract': ^0.5.0
     '@dnd-kit/dom': ^0.5.0
@@ -75,14 +75,14 @@ catalogs:
     '@mdit-vue/plugin-toc': ^3.0.2
     '@mdit-vue/shared': ^3.0.2
     '@mdit-vue/types': ^3.0.2
-    '@shikijs/langs': ^4.4.1
-    '@shikijs/markdown-it': ^4.4.1
-    '@shikijs/themes': ^4.4.1
-    '@shikijs/transformers': ^4.4.1
-    '@shikijs/twoslash': ^4.4.1
+    '@shikijs/langs': ^4.4.3
+    '@shikijs/markdown-it': ^4.4.3
+    '@shikijs/themes': ^4.4.3
+    '@shikijs/transformers': ^4.4.3
+    '@shikijs/twoslash': ^4.4.3
     '@stackblitz/sdk': ^1.11.1
-    '@vue/compiler-sfc': ^3.5.40
-    markdown-it: 14.3.0
+    '@vue/compiler-sfc': ^3.5.42
+    markdown-it: 14.3.1
     markdown-it-anchor: ^9.2.1
     markdown-it-async: ^2.2.0
     markdown-it-attrs: ^4.5.0
@@ -91,45 +91,45 @@ catalogs:
     markdown-it-ts: 0.0.2
     prismjs: ^1.30.0
     sandpack-vue3: ^3.1.12
-    shiki: ^4.4.1
+    shiki: ^4.4.3
     sucrase: ^3.35.1
   prod:
     '@ant-design/colors': ^8.0.1
     '@ant-design/fast-color': ^3.0.1
     '@antdv-next/happy-work-theme': ^1.0.1
-    '@antdv-next/icons': ^1.1.1
+    '@antdv-next/icons': ^1.1.2
     '@emotion/hash': ^0.8.0
     '@emotion/unitless': ^0.7.5
     '@vueuse/core': ^14.4.0
     antdv-style: 1.0.0-rc.1
     csstype: ^3.2.3
-    dayjs: ^1.11.21
+    dayjs: ^1.11.23
     dom-serializer: ^2.0.0
     domhandler: ^5.0.3
-    es-toolkit: 1.50.0
+    es-toolkit: 1.52.0
     htmlparser2: ^10.1.0
     lru-cache: ^11.5.2
     mlly: ^1.8.2
     nanoid: ^5.1.16
     pathe: ^2.0.3
-    picomatch: ^4.0.5
+    picomatch: ^4.0.7
     pinia: ^3.0.4
     scroll-into-view-if-needed: ^3.1.0
     stylis: ^4.4.0
     throttle-debounce: ^5.0.2
     tslib: ^2.8.1
     vanilla-tilt: ^1.8.1
-    vue: ^3.5.40
+    vue: ^3.5.42
     vue-router: ^4.6.4
-    zod: ^4.4.3
+    zod: ^4.6.1
   types:
     '@types/cli-progress': ^3.11.6
     '@types/fs-extra': ^11.0.4
     '@types/jsdom': ^27.0.0
-    '@types/markdown-it': 14.1.2
+    '@types/markdown-it': 14.2.0
     '@types/markdown-it-attrs': ^4.1.3
-    '@types/markdown-it-container': ^2.0.11
-    '@types/node': ^25.9.5
+    '@types/markdown-it-container': ^2.0.12
+    '@types/node': ^25.9.6
     '@types/picomatch': ^4.0.3
     '@types/stylis': ^4.2.7
     '@types/testing-library__jest-dom': ^6.0.0
