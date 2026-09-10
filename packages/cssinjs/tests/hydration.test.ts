@@ -1,7 +1,23 @@
+import { updateCSS } from '@v-c/util/dist/Dom/dynamicCSS'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { createSSRApp, defineComponent, h, nextTick, ref } from 'vue'
 import { renderToString } from 'vue/server-renderer'
+import { ATTR_MARK, createCache, StyleProvider } from '../src'
+import useStyleRegister from '../src/hooks/useStyleRegister'
 import { reset as resetCacheMap } from '../src/util/cacheMapUtil'
+
+// Hoisted module mock: wrap the real `updateCSS` so the same instance is shared by
+// this test and by the cssinjs source. `vi.doMock` + `vi.resetModules` with parallel
+// dynamic imports could hand the source a different module instance under Vitest 5.
+vi.mock('@v-c/util/dist/Dom/dynamicCSS', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('@v-c/util/dist/Dom/dynamicCSS')>()
+  return {
+    ...actual,
+    updateCSS: vi.fn(actual.updateCSS),
+  }
+})
+
+const updateCSSSpy = vi.mocked(updateCSS)
 
 describe('cssinjs hydration', () => {
   beforeEach(() => {
@@ -14,23 +30,10 @@ describe('cssinjs hydration', () => {
     document.head.innerHTML = ''
     document.body.innerHTML = ''
     resetCacheMap(undefined as any)
-    vi.restoreAllMocks()
   })
 
   it('reuses SSR style during hydration without duplicating style tags', async () => {
-    vi.resetModules()
-    const actualDynamicCSS = await vi.importActual<typeof import('@v-c/util/dist/Dom/dynamicCSS')>('@v-c/util/dist/Dom/dynamicCSS')
-    const updateCSSSpy = vi.fn(actualDynamicCSS.updateCSS)
-
-    vi.doMock('@v-c/util/dist/Dom/dynamicCSS', () => ({
-      ...actualDynamicCSS,
-      updateCSS: updateCSSSpy,
-    }))
-
-    const [{ ATTR_MARK, createCache, StyleProvider }, { default: useStyleRegister }] = await Promise.all([
-      import('../src'),
-      import('../src/hooks/useStyleRegister'),
-    ])
+    updateCSSSpy.mockClear()
 
     const theme = {} as any
     const token = { _tokenKey: 'hydration-token' }
