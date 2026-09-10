@@ -19,6 +19,8 @@ const SkeletonImage = defineComponent<SkeletonImageProps>(
             viewBox="0 0 1098 1024"
             xmlns="http://www.w3.org/2000/svg"
             class={`${prefixCls.value}-image-svg`}
+            aria-hidden="true"
+            focusable="false"
           >
             <title>Image placeholder</title>
             <path d={path} class={`${prefixCls.value}-image-path`} />
