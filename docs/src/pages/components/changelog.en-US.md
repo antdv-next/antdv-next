@@ -2,6 +2,58 @@
 title: Component Changelog
 ---
 
+## V1.5.4
+
+Release Date: 2026-09-10
+
+This release advances ant-design upstream tracking to **6.6.3** (`5d20a26a2b`). InputNumber gains `allowClear` and a fix for `defaultValue` never taking effect; size naming is unified to `medium` (`middle` keeps working); the `@v-c/*` foundation packages are upgraded across the board with Dropdown migrating internally to the `open` / `onOpenChange` API. It also ports a batch of upstream fixes: Modal cancel-button callbacks, mask config being mutated, Segmented selected-text color lag, uncontrolled DirectoryTree expansion, numeric `0` content mistaken for empty, plus locale and accessibility gaps. The test infrastructure moves to Vitest 5.
+
+**✨ Features**
+
+* feat(input-number): add `allowClear` (accepts a `{ clearIcon, disabled, label }` object), a `clearIcon` slot, a `clear` event and a `clear` semantic class / style, with clear-button styles; also fix `defaultValue` never being passed to the underlying component so the initial value was not shown
+* feat: unify component size naming on `medium` and update every `middle` usage in docs and demos; Card `size="default"` is deprecated in favor of `medium` ([#810](https://github.com/antdv-next/antdv-next/pull/810))
+* feat(slider): support `ariaDescribedByForHandle` to link `aria-describedby` on slider handles
+* feat(docs): add a `/design.md` page and static file as the single source of design guidance for AI agents
+
+**🐞 Fixes**
+
+* fix(modal): keep calling `onCancel` when `cancelButtonProps.onClick` is provided; both handlers now run (#59255)
+* fix(modal, drawer): stop writing `closable` back into a user-provided `mask` object, so dialogs sharing one config object no longer affect each other ([#826](https://github.com/antdv-next/antdv-next/pull/826), #59233)
+* fix(form): prevent `Form.Item` controls from shrinking in vertical layout (#59263)
+* fix(table): vertically center cell content in virtual tables (#59260); support empty-string values in tree filters ([#809](https://github.com/antdv-next/antdv-next/pull/809), #59141)
+* fix(tabs): apply `styles.popup.root` to the "more" dropdown (#59221)
+* fix(segmented): switch the selected item's text color in sync with the thumb motion instead of lagging behind (#59046, via `@v-c/segmented` 1.0.5)
+* fix(descriptions): preserve item state after reordering when an item's `key` is `0` (#59064)
+* fix(tree): DirectoryTree syncs its internal expanded state when `expandedKeys` is not provided, so Shift range selection no longer uses stale state (#59076)
+* fix(watermark): skip drawing when the clip size is `0` to avoid zero-sized canvas errors (#59077)
+* fix(menu): the horizontal item underline no longer intercepts the pointer, so moving along the bottom edge into a submenu does not close it (#59088)
+* fix(drawer): render the header when only `extra` is provided, and treat `0` as a valid `title` / `extra` (#59089)
+* fix(alert, empty, statistic): render titles, descriptions, actions, prefixes and suffixes whose content is the number `0` (#59094, #59101)
+* fix(skeleton, steps): hide the Skeleton image placeholder SVG from assistive technology; mark the Steps progress icon as a `progressbar` ([#851](https://github.com/antdv-next/antdv-next/pull/851), [#819](https://github.com/antdv-next/antdv-next/pull/819), #59107, #59073)
+* fix(config-provider): nested and isolated theme configs inherit `zeroRuntime` ([#844](https://github.com/antdv-next/antdv-next/pull/844), #59250)
+* fix(input): Search keeps custom `enterButton` `onMousedown` / `onClick` handlers and no longer fires them twice ([#832](https://github.com/antdv-next/antdv-next/pull/832), #59180); Password respects a controlled `visibilityToggle.visible` ([#808](https://github.com/antdv-next/antdv-next/pull/808), #59168); Password and Tag ignore key-repeat activations ([#802](https://github.com/antdv-next/antdv-next/pull/802), [#803](https://github.com/antdv-next/antdv-next/pull/803), #59135, #59134)
+* fix(tag): CheckableTag.Group clears the selection when the controlled `value` is `null`
+* fix(float-button): add an invisible hover bridge between the trigger and the popup so hover-triggered menus no longer flicker while the pointer moves ([#836](https://github.com/antdv-next/antdv-next/pull/836))
+* fix(breadcrumb): stop mutating the user-provided `menu` config object ([#842](https://github.com/antdv-next/antdv-next/pull/842))
+* fix(anchor): align the `click` event signature and parameter names to `(e, link: { title, href })` ([#843](https://github.com/antdv-next/antdv-next/pull/843))
+* fix(radio): semantic `classes` / `styles` callbacks receive the correct `checked` and `disabled` state ([#815](https://github.com/antdv-next/antdv-next/pull/815))
+* fix(dropdown, select, cascader, tree-select, auto-complete): `popupRender` may return strings, arrays and other non-element nodes; the type is widened to any `VueNode` ([#817](https://github.com/antdv-next/antdv-next/pull/817), #59207)
+* fix(date-picker, locale): use `DD.MM.YYYY` field formats for German ([#831](https://github.com/antdv-next/antdv-next/pull/831), #59151); fill in year / quarter / month / week placeholders for 32 locales ([#822](https://github.com/antdv-next/antdv-next/pull/822), #59219); add localized Carousel prev / next labels to 45 locales ([#823](https://github.com/antdv-next/antdv-next/pull/823), #59218); correct Traditional Chinese picker and gradient terms (#59129)
+
+**📖 Documentation**
+
+* docs: align zh-CN and en-US structure and API tables across all components, fix parity issues on Cascader, Collapse, Icon, Input and Layout, and repair broken heading anchors ([#853](https://github.com/antdv-next/antdv-next/pull/853), [#850](https://github.com/antdv-next/antdv-next/pull/850), [#846](https://github.com/antdv-next/antdv-next/pull/846), [#852](https://github.com/antdv-next/antdv-next/pull/852), [#821](https://github.com/antdv-next/antdv-next/pull/821))
+* docs: unify `openChange` parameter names ([#827](https://github.com/antdv-next/antdv-next/pull/827), #59236); document the `listy` ConfigProvider config ([#812](https://github.com/antdv-next/antdv-next/pull/812), #59202); add es_US and sq_AL to the i18n docs ([#816](https://github.com/antdv-next/antdv-next/pull/816)); correct the Table filter icon default ([#818](https://github.com/antdv-next/antdv-next/pull/818)), Grid / Splitter API metadata ([#828](https://github.com/antdv-next/antdv-next/pull/828)), the Breadcrumb `itemRender` slot signature ([#841](https://github.com/antdv-next/antdv-next/pull/841)), Rate `defaultValue` ([#837](https://github.com/antdv-next/antdv-next/pull/837)), Badge `count` ([#820](https://github.com/antdv-next/antdv-next/pull/820)), the Alert page ([#830](https://github.com/antdv-next/antdv-next/pull/830)) and Statistic milliseconds wording (#59102)
+* docs: add FAQ entries on SVG icon alignment and Vue renderable-content behavior ([#829](https://github.com/antdv-next/antdv-next/pull/829), [#807](https://github.com/antdv-next/antdv-next/pull/807)); align the getting-started guides ([#825](https://github.com/antdv-next/antdv-next/pull/825)); categorize brand icon variants correctly on the Icons page ([#811](https://github.com/antdv-next/antdv-next/pull/811))
+* docs(site): move to the shared `@antdv-next/docs-plugins` package and CodeDemo component ([#797](https://github.com/antdv-next/antdv-next/pull/797), [#824](https://github.com/antdv-next/antdv-next/pull/824)); stop sponsor popovers when payment buttons are disabled, fix the pro-components link and awesome page ([#848](https://github.com/antdv-next/antdv-next/pull/848), [#847](https://github.com/antdv-next/antdv-next/pull/847)); add a 404 catch-all route
+
+**🧰 Infrastructure & Dependencies**
+
+* chore(sync): advance ant-design upstream tracking to **6.6.3** at `5d20a26a2b`, porting the fixes applicable to the Vue implementation in this release
+* chore(deps): upgrade the foundation packages, including `@v-c/util` 1.2.0, `@v-c/dropdown` 1.1.0, `@v-c/picker` 1.4.0, `@v-c/input-number` 1.1.0, `@v-c/upload` 1.1.0, `@v-c/listy` 1.1.0, `@v-c/menu` 1.4.0, `@v-c/table` 1.3.0, `@v-c/tabs` 1.3.1, `@v-c/tree` 1.2.2, `@v-c/notification` 2.0.4 and `@v-c/select` 1.2.6; Dropdown now uses `open` / `onOpenChange` and DatePicker passes `suffix` internally, with no public API change
+* chore(test): move the test toolchain to Vitest 5.0.0 (with `@vitest/ui` and `@vitest/coverage-v8`), Vite 8.3 and `@vue/test-utils` 2.5
+* ci: add a package size report workflow with fork PR support and exclude locale bundles from the size check ([#801](https://github.com/antdv-next/antdv-next/pull/801), [#838](https://github.com/antdv-next/antdv-next/pull/838), [#855](https://github.com/antdv-next/antdv-next/pull/855))
+
 ## V1.5.3
 
 Release Date: 2026-08-29

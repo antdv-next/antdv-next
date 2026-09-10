@@ -46,7 +46,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | status | Set validation status | InputStatus | - | - | × |
 | disabled | If the input is disabled | boolean | false | - | × |
 | addonBefore | The label text displayed before (on the left side of) the input field, please use Space.Compact instead | VueNode | - | - | × |
-| allowClear | If allow to remove input content with clear icon | boolean \| &#123; clearIcon?: VueNode, disabled?: boolean, label?: string &#125; | false | 1.6.0 | × |
+| allowClear | If allow to remove input content with clear icon | boolean \| &#123; clearIcon?: VueNode, disabled?: boolean, label?: string &#125; | false | 1.5.4 | × |
 | addonAfter | The label text displayed after (on the right side of) the input field, please use Space.Compact instead | VueNode | - | - | × |
 | prefix | The prefix icon for the Input | VueNode | - | - | × |
 | suffix | The suffix icon for the Input | VueNode | - | - | × |
@@ -65,7 +65,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | Event | Description | Type | Version |
 | --- | --- | --- | --- |
 | change | The callback triggered when the value is changed | (value: any) =&gt; void | - |
-| clear | Callback when the clear icon is clicked | () =&gt; void | 1.6.0 |
+| clear | Callback when the clear icon is clicked | () =&gt; void | 1.5.4 |
 | update:value | - | (value: any) =&gt; void | - |
 | input | - | (text: string) =&gt; void | - |
 | pressEnter | The callback function that is triggered when Enter key is pressed | (e: KeyboardEvent) =&gt; void | - |
@@ -91,7 +91,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | --- | --- | --- | --- |
 | prefix | The prefix icon for the Input | () =&gt; any | - |
 | suffix | The suffix icon for the Input | () =&gt; any | - |
-| clearIcon | Custom clear icon | () =&gt; any | 1.6.0 |
+| clearIcon | Custom clear icon | () =&gt; any | 1.5.4 |
 | addonBefore | The label text displayed before (on the left side of) the input field, please use Space.Compact instead | () =&gt; any | - |
 | addonAfter | The label text displayed after (on the right side of) the input field, please use Space.Compact instead | () =&gt; any | - |
 
