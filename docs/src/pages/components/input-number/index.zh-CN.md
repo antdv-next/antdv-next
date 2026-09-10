@@ -28,6 +28,7 @@ demo:
   <demo src="./demo/spinner.vue">拨轮</demo>
   <demo src="./demo/out-of-range.vue">超出边界</demo>
   <demo src="./demo/presuffix.vue">前缀/后缀</demo>
+  <demo src="./demo/allow-clear.vue">清除图标</demo>
   <demo src="./demo/status.vue">自定义状态</demo>
   <demo src="./demo/focus.vue">聚焦</demo>
   <demo src="./demo/style-class.vue">自定义语义结构的样式和类</demo>
@@ -46,6 +47,7 @@ demo:
 | status | 设置校验状态 | InputStatus | - | - | × |
 | disabled | 禁用 | boolean | false | - | × |
 | addonBefore | 带标签的 input，设置前置标签，请使用 Space.Compact 替换 | VueNode | - | - | × |
+| allowClear | 可以点击清除图标删除内容 | boolean \| &#123; clearIcon?: VueNode, disabled?: boolean, label?: string &#125; | false | 1.6.0 | × |
 | addonAfter | 带标签的 input，设置后置标签，请使用 Space.Compact 替换 | VueNode | - | - | × |
 | prefix | 带有前缀图标的 input | VueNode | - | - | × |
 | suffix | 带有后缀图标的 input | VueNode | - | - | × |
@@ -64,6 +66,7 @@ demo:
 | 事件 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
 | change | 变化回调 | (value: any) =&gt; void | - |
+| clear | 点击清除图标时的回调 | () =&gt; void | 1.6.0 |
 | update:value | - | (value: any) =&gt; void | - |
 | input | - | (text: string) =&gt; void | - |
 | pressEnter | 按下回车的回调 | (e: KeyboardEvent) =&gt; void | - |
@@ -89,6 +92,7 @@ demo:
 | --- | --- | --- | --- |
 | prefix | 带有前缀图标的 input | () =&gt; any | - |
 | suffix | 带有后缀图标的 input | () =&gt; any | - |
+| clearIcon | 自定义清除图标 | () =&gt; any | 1.6.0 |
 | addonBefore | 带标签的 input，设置前置标签，请使用 Space.Compact 替换 | () =&gt; any | - |
 | addonAfter | 带标签的 input，设置后置标签，请使用 Space.Compact 替换 | () =&gt; any | - |
 

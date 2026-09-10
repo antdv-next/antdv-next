@@ -25,7 +25,7 @@ describe('inputNumber', () => {
     expect(value.value).toBe(123)
   })
 
-  it('should support defaultValue', () => {
+  it('should support value', () => {
     const wrapper = mount(InputNumber, {
       props: {
         value: 10,
@@ -33,6 +33,19 @@ describe('inputNumber', () => {
     })
     const input = wrapper.find('input')
     expect(input.element.value).toBe('10')
+  })
+
+  it('should support defaultValue', async () => {
+    const onChange = vi.fn()
+    const wrapper = mount(InputNumber, {
+      props: { defaultValue: 3, onChange },
+    })
+    const input = wrapper.find('input')
+    expect(input.element.value).toBe('3')
+
+    await input.setValue('5')
+    expect(input.element.value).toBe('5')
+    expect(onChange).toHaveBeenLastCalledWith(5)
   })
 
   it('should support disabled', () => {
@@ -251,5 +264,47 @@ describe('inputNumber', () => {
     placeholder.value = '请填写数字'
     await nextTick()
     expect(input.attributes('placeholder')).toBe('请填写数字')
+  })
+})
+
+describe('inputNumber allowClear', () => {
+  it('should render clear button and clear value on click', async () => {
+    const onClear = vi.fn()
+    const onChange = vi.fn()
+    const wrapper = mount(InputNumber, {
+      props: { allowClear: true, defaultValue: 3, onClear, onChange },
+    })
+
+    const clear = wrapper.find('.ant-input-number-clear-icon')
+    expect(clear.exists()).toBe(true)
+    expect(clear.classes()).not.toContain('ant-input-number-clear-icon-hidden')
+    expect(clear.attributes('type')).toBe('button')
+
+    await clear.trigger('click')
+    expect(onClear).toHaveBeenCalledTimes(1)
+    expect(onChange).toHaveBeenLastCalledWith(null)
+    expect((wrapper.find('input').element as HTMLInputElement).value).toBe('')
+    expect(wrapper.find('.ant-input-number-clear-icon').classes()).toContain('ant-input-number-clear-icon-hidden')
+  })
+
+  it('should not render clear button by default', () => {
+    const wrapper = mount(InputNumber, { props: { defaultValue: 3 } })
+    expect(wrapper.find('.ant-input-number-clear-icon').exists()).toBe(false)
+  })
+
+  it('should support clearIcon slot and clear semantic', () => {
+    const wrapper = mount(InputNumber, {
+      props: {
+        allowClear: true,
+        defaultValue: 3,
+        classes: { clear: 'custom-clear' },
+        styles: { clear: { color: 'red' } },
+      },
+      slots: { clearIcon: () => <span class="my-clear">x</span> },
+    })
+    const clear = wrapper.find('.ant-input-number-clear-icon')
+    expect(clear.find('.my-clear').exists()).toBe(true)
+    expect(clear.classes()).toContain('custom-clear')
+    expect((clear.element as HTMLElement).style.color).toBe('red')
   })
 })

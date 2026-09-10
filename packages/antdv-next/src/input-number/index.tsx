@@ -32,6 +32,7 @@ export interface InputNumberSemanticClassNames {
   root?: string
   prefix?: string
   suffix?: string
+  clear?: string
   input?: string
   actions?: string
   action?: string
@@ -41,6 +42,7 @@ export interface InputNumberSemanticStyles {
   root?: CSSProperties
   prefix?: CSSProperties
   suffix?: CSSProperties
+  clear?: CSSProperties
   input?: CSSProperties
   actions?: CSSProperties
   action?: CSSProperties
@@ -74,6 +76,8 @@ export interface InputNumberProps
   addonAfter?: VueNode
   prefix?: VueNode
   suffix?: VueNode
+  /** Show clear button, or customize it with `{ clearIcon, disabled, label }` */
+  allowClear?: boolean | { clearIcon?: VueNode, disabled?: boolean, label?: string }
   /** @deprecated Use `variant="borderless"` instead. */
   bordered?: boolean
   /**
@@ -93,6 +97,7 @@ export interface InputNumberEmits {
   'input': (text: string) => void
   'pressEnter': (e: KeyboardEvent) => void
   'step': (value: any, info: InputNumberStepContext) => void
+  'clear': () => void
   'mousedown': (e: MouseEvent) => void
   'click': (e: MouseEvent) => void
   'mouseup': (e: MouseEvent) => void
@@ -114,6 +119,7 @@ export interface InputNumberEmitsProps {
   onInput?: InputNumberEmits['input']
   onPressEnter?: InputNumberEmits['pressEnter']
   onStep?: InputNumberEmits['step']
+  onClear?: InputNumberEmits['clear']
   onMousedown?: InputNumberEmits['mousedown']
   onClick?: InputNumberEmits['click']
   onMouseup?: InputNumberEmits['mouseup']
@@ -133,6 +139,7 @@ export interface InputNumberEmitsProps {
 export interface InputNumberSlots {
   prefix?: () => any
   suffix?: () => any
+  clearIcon?: () => any
   addonBefore?: () => any
   addonAfter?: () => any
   default?: () => any
@@ -156,6 +163,8 @@ const omitKeys: (keyof InputNumberProps)[] = [
   'onInput',
   'onPressEnter',
   'onStep',
+  'onClear',
+  'allowClear',
   'onBeforeinput',
   'keyboard',
   'onClick',
@@ -362,6 +371,7 @@ const InputNumber = defineComponent<
     const handleFocusEvent = (eventName: keyof InputNumberEmits) => (e: FocusEvent) => emit(eventName as any, e)
     const handleCompositionEvent = (eventName: keyof InputNumberEmits) => (e: CompositionEvent) => emit(eventName as any, e)
     const handleBeforeInput: InputNumberEmits['beforeinput'] = e => emit('beforeinput', e)
+    const handleClear: InputNumberEmits['clear'] = () => emit('clear')
 
     return () => {
       const { restAttrs } = getAttrStyleAndClass(attrs)
@@ -381,12 +391,17 @@ const InputNumber = defineComponent<
         return suffixSlot
       }
       const mergedSuffix = mergedSuffixFn()
+      const clearIconNode = slots.clearIcon?.()
+      const mergedAllowClear = clearIconNode && props.allowClear
+        ? { ...(typeof props.allowClear === 'object' ? props.allowClear : {}), clearIcon: clearIconNode }
+        : props.allowClear
       const renderInputNode = () => (
         <VcInputNumber
           {...restAttrs}
           {...restProps}
           keyboard={props.keyboard}
           value={props.value}
+          defaultValue={props.defaultValue}
           ref={inputNumberRef as any}
           prefixCls={prefixCls.value}
           className={classesValue.value}
@@ -399,6 +414,8 @@ const InputNumber = defineComponent<
           downHandler={downIcon.value}
           prefix={prefixNode}
           suffix={mergedSuffix}
+          allowClear={mergedAllowClear}
+          onClear={handleClear}
           min={min}
           max={max}
           step={step}
