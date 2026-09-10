@@ -367,6 +367,48 @@ describe('directory Tree', () => {
     wrapper.unmount()
   })
 
+  // https://github.com/ant-design/ant-design/issues/49668
+  it('should stay uncontrolled when expandedKeys is undefined', async () => {
+    const wrapper = mountDirectoryTree({ expandedKeys: undefined })
+    await waitFakeTimer(0, 1)
+    expect(wrapper.findAll('[role="treeitem"]').length).toBe(2)
+
+    await wrapper.find('.ant-tree-node-content-wrapper').trigger('click')
+    await waitFakeTimer(0, 1)
+    expect(wrapper.findAll('[role="treeitem"]').length).toBe(4)
+    wrapper.unmount()
+  })
+
+  it('should support shift range selection when expandedKeys is undefined', async () => {
+    const onSelect = vi.fn()
+    const treeData = [
+      { title: 'Zero', key: 0, children: [{ title: 'Zero-Zero', key: '0-0', isLeaf: true }] },
+      { title: 'One', key: 1 },
+      { title: 'Two', key: 2 },
+    ]
+    const wrapper = mount(DirectoryTree, {
+      props: { multiple: true, expandedKeys: undefined, treeData, onSelect },
+      attachTo: document.body,
+    })
+    await waitFakeTimer(0, 1)
+
+    // Expand the first node in uncontrolled mode
+    await wrapper.find('.ant-tree-node-content-wrapper').trigger('click')
+    await waitFakeTimer(0, 1)
+    const nodes = wrapper.findAll('.ant-tree-node-content-wrapper')
+    expect(nodes).toHaveLength(4)
+
+    await nodes[0]!.trigger('click')
+    await nodes[3]!.trigger('click', { shiftKey: true })
+
+    // The range must include the expanded child node
+    expect(onSelect).toHaveBeenLastCalledWith(
+      [0, '0-0', 1, 2],
+      expect.objectContaining({ selectedNodes: [treeData[0], treeData[0]!.children![0], treeData[1], treeData[2]] }),
+    )
+    wrapper.unmount()
+  })
+
   it('ref support', async () => {
     const treeRef = ref()
     mount(() => (

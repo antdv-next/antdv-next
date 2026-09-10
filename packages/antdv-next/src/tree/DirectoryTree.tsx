@@ -109,6 +109,11 @@ const DirectoryTree = defineComponent<
         nativeEvent: MouseEvent
       },
     ) => {
+      // Keep the internal expanded state in sync in uncontrolled mode so that
+      // shift range selection can see the currently expanded nodes.
+      if (props.expandedKeys === undefined) {
+        expandedKeys.value = keys
+      }
       emit('update:expandedKeys', keys)
       emit('expand', keys, info)
     }
