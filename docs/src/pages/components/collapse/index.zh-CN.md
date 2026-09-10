@@ -82,7 +82,9 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sir-TK0HkWcAAA
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | collapsible | 是否可折叠或指定可折叠触发区域 | `header` \| `icon` \| `disabled` | - | - |
+| extra | 自定义渲染每个面板右上角的内容 | VueNode | - | - |
 | forceRender | 被隐藏时是否渲染 body 区域 DOM 结构 | boolean | false |  |
+| header | 面板标题 | VueNode | - | - |
 | key | 对应 activeKey | string \| number | - |  |
 | showArrow | 是否展示当前面板上的箭头（为 false 时，collapsible 不能设为 icon） | boolean | true |  |
 
@@ -90,6 +92,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sir-TK0HkWcAAA
 
 | 插槽 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
+| default | 面板内容 | VueNode | - |
 | header | 面板标题 | VueNode | - |
 | extra | 自定义渲染每个面板右上角的内容 | VueNode | - |
 
@@ -101,6 +104,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sir-TK0HkWcAAA
 | --- | --- | --- | --- | --- |
 | classes | 语义化结构 class | [`Record<header \| body, string>`](#semantic-dom) | - | - |
 | collapsible | 是否可折叠或指定可折叠触发区域 | `header` \| `icon` \| `disabled` | - |  |
+| content | 面板内容 | VueNode | - | - |
 | extra | 自定义渲染每个面板右上角的内容 | VueNode | - |  |
 | forceRender | 被隐藏时是否渲染 body 区域 DOM 结构 | boolean | false |  |
 | key | 对应 activeKey | string \| number | - |  |
