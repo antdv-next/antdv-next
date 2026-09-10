@@ -1477,11 +1477,12 @@ exports[`space demo > renders compact correctly 1`] = `
         <!---->
         <!---->
         <input
+          aria-valuenow="12"
           autocomplete="off"
           class="ant-input-number-input"
           role="spinbutton"
           step="1"
-          value=""
+          value="12"
         />
         <!---->
         <!---->

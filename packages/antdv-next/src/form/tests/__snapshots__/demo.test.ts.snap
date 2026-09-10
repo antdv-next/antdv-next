@@ -17885,6 +17885,7 @@ exports[`form demo > renders validate-static correctly 1`] = `
                 class="ant-input-number-suffix"
               >
                 <!---->
+                <!---->
                 <span
                   class="ant-form-item-feedback-icon ant-form-item-feedback-icon-success"
                 >
