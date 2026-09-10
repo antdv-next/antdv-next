@@ -224,6 +224,33 @@ describe('watermark', () => {
     spy.mockRestore()
   })
 
+  // https://github.com/ant-design/ant-design/pull/59077
+  it('should not draw a zero-sized canvas if content is undefined', async () => {
+    const spy = vi.spyOn(mockGetContext, 'drawImage')
+    mount(<Watermark rootClass="watermark" />)
+    await waitFakeTimer()
+
+    expect(
+      spy.mock.calls.some(
+        ([image]) => image instanceof HTMLCanvasElement && (!image.width || !image.height),
+      ),
+    ).toBe(false)
+    spy.mockRestore()
+  })
+
+  it('should not draw a zero-sized canvas if width or height is 0', async () => {
+    const spy = vi.spyOn(mockGetContext, 'drawImage')
+    mount(<Watermark content="Ant" width={0} height={0} rootClass="watermark" />)
+    await waitFakeTimer()
+
+    expect(
+      spy.mock.calls.some(
+        ([image]) => image instanceof HTMLCanvasElement && (!image.width || !image.height),
+      ),
+    ).toBe(false)
+    spy.mockRestore()
+  })
+
   it('should call onRemove when watermark is hard removed', async () => {
     const onRemove = vi.fn()
     const wrapper = mount(<Watermark content="Ant" onRemove={onRemove} />)

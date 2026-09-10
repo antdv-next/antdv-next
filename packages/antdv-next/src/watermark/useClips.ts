@@ -111,6 +111,10 @@ function useClips() {
     const [fCtx, fCanvas] = prepareCanvas(filledWidth, filledHeight)
 
     const drawImg = (targetX = 0, targetY = 0) => {
+      if (cutWidth <= 0 || cutHeight <= 0) {
+        return
+      }
+
       fCtx.drawImage(
         rCanvas,
         cutLeft,
