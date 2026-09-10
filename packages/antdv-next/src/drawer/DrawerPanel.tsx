@@ -8,6 +8,7 @@ import { clsx } from '@v-c/util'
 import { computed, defineComponent } from 'vue'
 import { useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
 import useClosable, { pickClosable } from '../_util/hooks/useClosable'
+import { isRenderable } from '../_util/is.ts'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { cloneElement } from '../_util/vueNode'
 import { useComponentBaseConfig } from '../config-provider/context'
@@ -181,8 +182,10 @@ const DrawerPanel = defineComponent<DrawerPanelProps>(
       const extra = getSlotPropsFnRun(slots, props, 'extra')
       const [mergedClosable, mergedCloseIcon, closeBtnIsDisabled] = closableInfo.value!
       const mergedCloseButton = cloneElement(mergedCloseIcon as VNodeChild, { disabled: closeBtnIsDisabled })
+      const hasTitle = isRenderable(title)
+      const hasExtra = isRenderable(extra)
       const renderHeader = () => {
-        if (!title && !mergedClosable) {
+        if (!hasTitle && !mergedClosable && !hasExtra) {
           return null
         }
         return (
@@ -192,12 +195,12 @@ const DrawerPanel = defineComponent<DrawerPanelProps>(
               ...headerStyle,
             }}
             class={clsx(`${prefixCls}-header`, mergedClassNames.value.header, {
-              [`${prefixCls}-header-close-only`]: mergedClosable && !title && !extra,
+              [`${prefixCls}-header-close-only`]: mergedClosable && !hasTitle && !hasExtra,
             })}
           >
             <div class={`${prefixCls}-header-title`}>
               {closablePlacement.value === 'start' && mergedCloseButton}
-              {!!title && (
+              {hasTitle && (
                 <div
                   class={clsx(`${prefixCls}-title`, mergedClassNames.value.title)}
                   style={mergedStyles.value.title}
@@ -207,7 +210,7 @@ const DrawerPanel = defineComponent<DrawerPanelProps>(
                 </div>
               )}
               {
-                !!extra && (
+                hasExtra && (
                   <div class={clsx(`${prefixCls}-extra`, mergedClassNames.value.extra)} style={mergedStyles.value.extra}>
                     {extra}
                   </div>

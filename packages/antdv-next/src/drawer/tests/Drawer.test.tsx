@@ -131,6 +131,32 @@ describe('drawer', () => {
     wrapper.unmount()
   })
 
+  it('renders header when only extra is provided', async () => {
+    const wrapper = mount(Drawer, {
+      props: { open: true, closable: false, extra: 0 },
+      slots: { default: () => <p>Body</p> },
+      attachTo: document.body,
+    })
+    await nextTick()
+    await nextTick()
+    expect(document.querySelector('.ant-drawer-header')).toBeTruthy()
+    expect(document.querySelector('.ant-drawer-extra')?.textContent).toBe('0')
+    wrapper.unmount()
+  })
+
+  it('renders title with zero value', async () => {
+    const wrapper = mount(Drawer, {
+      props: { open: true, closable: false, title: 0 },
+      slots: { default: () => <p>Body</p> },
+      attachTo: document.body,
+    })
+    await nextTick()
+    await nextTick()
+    expect(document.querySelector('.ant-drawer-header')).toBeTruthy()
+    expect(document.querySelector('.ant-drawer-title')?.textContent).toBe('0')
+    wrapper.unmount()
+  })
+
   it('does not render footer when no footer prop or slot', async () => {
     const wrapper = mount(Drawer, {
       props: { open: true, title: 'Drawer' },
