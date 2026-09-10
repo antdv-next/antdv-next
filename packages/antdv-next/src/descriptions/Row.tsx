@@ -36,6 +36,8 @@ function renderCells(
     let label = getSlotPropsFnRun({}, item, 'label')
     let children = getSlotPropsFnRun({}, item, 'content')
 
+    const mergedKey = key ?? index
+
     const className = item.class
     if (labelRender) {
       const _oldLabel = label
@@ -55,7 +57,7 @@ function renderCells(
     if (typeof component === 'string') {
       return (
         <Cell
-          key={`${type}-${key || index}`}
+          key={`${type}-${mergedKey}`}
           class={className}
           style={style}
           styles={{
@@ -82,7 +84,7 @@ function renderCells(
 
     return [
       <Cell
-        key={`label-${key || index}`}
+        key={`label-${mergedKey}`}
         class={className}
         style={{
           ...rootStyles?.label,
@@ -98,7 +100,7 @@ function renderCells(
         type="label"
       />,
       <Cell
-        key={`content-${key || index}`}
+        key={`content-${mergedKey}`}
         class={className}
         style={{
           ...rootStyles?.content,

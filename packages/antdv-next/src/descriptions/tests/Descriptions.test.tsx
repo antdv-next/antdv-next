@@ -484,6 +484,24 @@ describe('descriptions', () => {
     expect(wrapper.findAll('.ant-descriptions-item')).toHaveLength(2)
   })
 
+  it('should preserve item state after reordering when key is 0', async () => {
+    const items = [
+      { key: 0, label: 'Zero', content: () => h('input', { 'aria-label': 'Zero value' }) },
+      { key: 2, label: 'Two', content: () => h('input', { 'aria-label': 'Two value' }) },
+    ]
+    const wrapper = mount(Descriptions, {
+      props: { column: 2, items },
+    })
+    const input = wrapper.find('input[aria-label="Zero value"]').element as HTMLInputElement
+    input.value = 'edited'
+
+    await wrapper.setProps({ items: [...items].reverse() })
+
+    const nextInput = wrapper.find('input[aria-label="Zero value"]').element as HTMLInputElement
+    expect(nextInput).toBe(input)
+    expect(nextInput.value).toBe('edited')
+  })
+
   it('updates when bordered changes', async () => {
     const wrapper = mount(Descriptions, {
       props: { bordered: false, items: basicItems },
