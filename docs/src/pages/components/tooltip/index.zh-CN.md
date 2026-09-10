@@ -25,6 +25,7 @@ demo:
   <demo src="./demo/shift.vue" iframe="300">贴边偏移</demo>
   <demo src="./demo/colorful.vue">多彩文字提示</demo>
   <demo src="./demo/disabled.vue">禁用</demo>
+  <demo src="./demo/disabled-children.vue" debug>禁用子组件</demo>
   <demo src="./demo/wrap-custom-component.vue">自定义子组件</demo>
   <demo src="./demo/style-class.vue">自定义语义结构的样式和类</demo>
 </demo-group>

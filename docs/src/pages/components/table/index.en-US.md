@@ -121,6 +121,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | components | Override default table elements | [components](#components) | - | - | × |
 | dataSource | Data record array to be displayed | object[] | - | - | × |
 | expandable | Config expandable content | [expandable](#expandable) | - |  | ✓ |
+| footer | Table footer renderer. You can also use the `#footer` slot. | VueNode \| function(currentPageData) | - | - | × |
 | getPopupContainer | The render container of dropdowns in table| (triggerNode) => HTMLElement | () => TableHtmlElement | - | × |
 | loading | Loading status of table | boolean \| [Spin Props](/components/spin/#props) | false | - | × |
 | locale | The i18n text including filter, sort, empty text, etc | object | [默认值](https://github.com/ant-design/ant-design/blob/6dae4a7e18ad1ba193aedd5ab6867e1d823e2aa4/components/locale/zh_CN.tsx#L20-L37) | - | × |
@@ -316,6 +317,7 @@ Properties for row selection.
 | preserveSelectedRowKeys | Keep selection `key` even when it removed from `dataSource` | boolean | - | - |
 | renderCell | Renderer of the table cell. Same as `render` in column | (checked: boolean, record: T, index: number, originNode: VueNode): VueNode | - | - |
 | selectedRowKeys | Controlled selected row keys | string\[] \| number\[] | \[] | - |
+| defaultSelectedRowKeys | Default selected row keys | string\[] \| number\[] | \[] | - |
 | selections | Custom selection [config](#selection), only displays default selections when set to `true` | object\[] \| boolean | - | - |
 | type | `checkbox` or `radio` | `checkbox` \| `radio` | `checkbox` | - |
 | onCell | Set props on per cell. Same as `onCell` in column | function(record, rowIndex) | - | - |

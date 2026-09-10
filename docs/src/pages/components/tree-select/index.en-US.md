@@ -42,6 +42,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | allowClear | Show clear button | boolean \| &#123; clearIcon?: VueNode &#125; | false | - | × |
 | classes | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | - | ✓ |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | - | ✓ |
+| rootClass | Root container class | string | - | - | × |
 | defaultOpen | Initial open state of dropdown | boolean | - | - | × |
 | defaultValue | To set the initial selected treeNode(s) | string \| string[] | - | - | × |
 | disabled | Disabled or not | boolean | false | - | × |
