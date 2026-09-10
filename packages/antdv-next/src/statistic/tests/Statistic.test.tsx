@@ -155,6 +155,13 @@ describe('statistic', () => {
       const wrapper = mount(Statistic, { props: { value: 100 } })
       expect(wrapper.find('.ant-statistic-content-prefix').exists()).toBe(false)
     })
+
+    it('should render semantic nodes for zero title, prefix, and suffix', () => {
+      const wrapper = mount(Statistic, { props: { title: 0, prefix: 0, suffix: 0 } })
+      expect(wrapper.find('.ant-statistic-title').text()).toBe('0')
+      expect(wrapper.find('.ant-statistic-content-prefix').text()).toBe('0')
+      expect(wrapper.find('.ant-statistic-content-suffix').text()).toBe('0')
+    })
   })
 
   // ============= Suffix =============
