@@ -3,13 +3,6 @@ name: Size Report (Compute)
 on:
   pull_request:
     types: [opened, synchronize, reopened]
-    paths:
-      - 'packages/antdv-next/src/**/*.ts'
-      - 'packages/antdv-next/src/**/*.tsx'
-      - 'packages/antdv-next/src/**/*.css'
-      - '!packages/antdv-next/src/**/tests/**'
-      - '!packages/antdv-next/src/**/__snapshots__/**'
-      - '!packages/antdv-next/src/**/locale/**'
 
 permissions:
   contents: read
