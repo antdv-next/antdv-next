@@ -31,7 +31,7 @@ import pickAttrs from '@v-c/util/dist/pickAttrs'
 import { getAttrStyleAndClass } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, h, inject, provide, shallowRef, watch, watchEffect } from 'vue'
-import { useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
+import { mergeClassNames, mergeStyles, resolveStyleOrClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import scrollTo from '../_util/scrollTo.ts'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { devUseWarning, isDev } from '../_util/warning.ts'
@@ -766,20 +766,37 @@ const InternalTable = defineComponent<
 
         return expandable
       })()
-      const renderPagination = (placement: 'start' | 'end' | 'center' = 'end') => (
-        <Pagination
-          {...mergedPagination.value as any}
-          classes={mergedClassNames.value.pagination}
-          styles={mergedStyles.value.pagination}
-          class={clsx(
-            `${prefixCls.value}-pagination`,
-            `${prefixCls.value}-pagination-${placement}`,
-            (mergedPagination.value as any).class,
-            (mergedPagination.value as any).className,
-          )}
-          size={getPaginationSize(mergedPagination.value.size, mergedSize.value)}
-        />
-      )
+
+      const renderPagination = (placement: 'start' | 'end' | 'center' = 'end') => {
+        const paginationProps = mergedPagination.value
+        const paginationSize = getPaginationSize(paginationProps.size, mergedSize.value)
+
+        const paginationClasses: TablePaginationConfig['classes'] = info =>
+          mergeClassNames(
+            {},
+            mergedClassNames.value.pagination,
+            resolveStyleOrClass(paginationProps.classes, info),
+          )
+
+        const paginationStyles: TablePaginationConfig['styles'] = info =>
+          mergeStyles(
+            resolveStyleOrClass(paginationProps.styles, info),
+            mergedStyles.value.pagination,
+          )
+
+        return (
+          <Pagination
+            {...paginationProps}
+            classes={paginationClasses}
+            styles={paginationStyles}
+            class={clsx(
+              `${prefixCls.value}-pagination`,
+              `${prefixCls.value}-pagination-${placement}`,
+            )}
+            size={paginationSize}
+          />
+        )
+      }
       const paginationNodes = (() => {
         if (props.pagination === false || !mergedPagination.value.total) {
           return { top: null, bottom: null }
