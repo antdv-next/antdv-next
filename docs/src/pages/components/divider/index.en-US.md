@@ -39,7 +39,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | --- | --- | --- | --- | --- |
 | dashed | Whether line is dashed | boolean | false | × |
 | orientation | Whether line is horizontal or vertical | `horizontal` \| `vertical` | `horizontal` | × |
-| plain | Divider text show as plain style | boolean | true | × |
+| plain | Divider text show as plain style | boolean | false | × |
 | size | The size of divider. Only valid for horizontal layout | `small` \| `medium` \| `large` | - | × |
 | titlePlacement | The position of title inside divider | `start` \| `end` \| `center` | `center` | × |
 | variant | Whether line is dashed, dotted or solid | `dashed` \| `dotted` \| `solid` | `solid` | × |
