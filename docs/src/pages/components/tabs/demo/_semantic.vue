@@ -1,15 +1,24 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, nextTick, onMounted, ref } from 'vue'
 import { SemanticPreview } from '@/components/semantic'
 import { useComponentLocale } from '@/composables/use-locale'
 import { locales } from '../locales'
 
 const { t } = useComponentLocale(locales)
 
+const moreVisible = ref(false)
+
+onMounted(() => {
+  nextTick(() => {
+    moreVisible.value = true
+  })
+})
+
 const semantics = computed(() => [
   { name: 'root', desc: t('root') },
   { name: 'header', desc: t('header') },
   { name: 'item', desc: t('item') },
+  { name: 'remove', desc: t('remove') },
   { name: 'indicator', desc: t('indicator') },
   { name: 'body', desc: t('body') },
   { name: 'content', desc: t('content') },
@@ -27,6 +36,10 @@ const items = computed(() =>
     }
   }),
 )
+
+function getPopupContainer(triggerNode: HTMLElement): HTMLElement {
+  return triggerNode.closest<HTMLElement>('.semantic-preview-container') ?? document.body
+}
 </script>
 
 <template>
@@ -37,14 +50,23 @@ const items = computed(() =>
     <template #default="{ classes }">
       <a-tabs
         default-active-key="1"
+        type="editable-card"
         :style="{ height: '220px', width: '100%' }"
+        :get-popup-container="getPopupContainer"
         :styles="{
           popup: {
             root: { background: '#fff' },
           },
+          indicator: {
+            visibility: 'visible',
+          },
         }"
         :items="items"
         :classes="classes"
+        :more="{
+          visible: moreVisible,
+          placement: 'bottom',
+        }"
       />
     </template>
   </SemanticPreview>

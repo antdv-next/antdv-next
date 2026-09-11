@@ -2,6 +2,7 @@ export const locales = {
   cn: {
     'root': '根元素，包含标签页容器的基础样式、布局和方向控制',
     'item': 'Item 元素，包含相对定位、内边距、颜色、文本省略、圆角、过渡动画等标签项的样式和交互效果',
+    'remove': '删除按钮元素，包含可编辑标签页关闭按钮的尺寸、颜色、悬浮态和交互反馈等样式',
     'header': '头部元素，包含标签页头部导航的布局、背景、边框等样式',
     'indicator': '指示器元素，包含指示条的颜色、位置、尺寸、过渡动画等活跃状态指示样式',
     'body': '内容区域元素，包含标签页面板容器的布局、动画和尺寸控制',
@@ -11,6 +12,7 @@ export const locales = {
   en: {
     'root': 'Root element with basic tab container styles, layout and direction control',
     'item': 'Item element with relative positioning, padding, colors, text ellipsis, border-radius, transitions and other tab item styles and interactive effects',
+    'remove': 'Remove button element with editable tab close button size, color, hover state and other interactive feedback styles',
     'header': 'Header element with tab navigation header layout, background, borders and other styles',
     'indicator': 'Indicator element with indicator bar color, position, dimensions, transitions and other active state indication styles',
     'body': 'Body element with tab panel container layout, animation and size control styles',
