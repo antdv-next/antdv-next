@@ -56,7 +56,6 @@ jobs:
           import {
             existsSync,
             readFileSync,
-            readdirSync,
             writeFileSync,
           } from 'node:fs'
           import { join } from 'node:path'
@@ -70,9 +69,6 @@ jobs:
           const [command, firstArg, secondArg, thirdArg] = process.argv.slice(2)
 
           function measurePackage(packageDir) {
-            const packageJson = JSON.parse(
-              readFileSync(join(packageDir, 'package.json'), 'utf8'),
-            )
             const files = {}
 
             for (const relativeFile of MEASURED_BUNDLE_FILES) {
@@ -92,32 +88,16 @@ jobs:
               }
             }
 
-            return {
-              name: packageJson.name,
-              files,
-            }
+            return files
           }
 
           function measureWorkspace(outputFile) {
-            const packages = {}
-            if (existsSync('packages')) {
-              for (const entry of readdirSync('packages', { withFileTypes: true })) {
-                if (!entry.isDirectory())
-                  continue
-
-                const packageDir = join('packages', entry.name)
-                if (!existsSync(join(packageDir, 'package.json')))
-                  continue
-
-                const measured = measurePackage(packageDir)
-                if (measured.name !== TARGET_PACKAGE_NAME)
-                  continue
-
-                packages[measured.name] = { files: measured.files }
-              }
-            }
-
-            writeFileSync(outputFile, `${JSON.stringify({ packages }, null, 2)}\n`)
+            const files = measurePackage(join('packages', 'antdv-next'))
+            writeFileSync(outputFile, `${JSON.stringify({
+              packages: {
+                [TARGET_PACKAGE_NAME]: { files },
+              },
+            }, null, 2)}\n`)
           }
 
           function formatBytes(value) {
@@ -217,10 +197,12 @@ jobs:
       - name: Install PR head dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build PR head packages
+      - name: Build PR head bundles
         run: |
-          rm -rf packages/*/dist
-          pnpm -r --filter "./packages/*" run build
+          rm -rf packages/antdv-next/dist
+          pnpm --filter @antdv-next/cssinjs build
+          pnpm --filter antdv-next run build:umd
+          pnpm --filter antdv-next run build:full-esm
 
       - name: Measure PR head
         run: node /tmp/size-report.mjs measure /tmp/size-pr.json
@@ -236,31 +218,26 @@ jobs:
       - name: Install main dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build main packages
+      - name: Build main bundles
         run: |
-          rm -rf packages/*/dist
-          pnpm -r --filter "./packages/*" run build
+          rm -rf packages/antdv-next/dist
+          pnpm --filter @antdv-next/cssinjs build
+          pnpm --filter antdv-next run build:umd
+          pnpm --filter antdv-next run build:full-esm
 
       - name: Measure main
         run: node /tmp/size-report.mjs measure /tmp/size-main.json
 
       - name: Generate PR size report
-        run: node /tmp/size-report.mjs report /tmp/size-main.json /tmp/size-pr.json /tmp/size-report.md
-
-      - name: Save PR info
         env:
           PR_NUMBER: ${{ github.event.pull_request.number }}
-          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
-          MAIN_SHA=$(git rev-parse HEAD)
-          printf '{"number":%s,"headSha":"%s","mainSha":"%s"}\n' \
-            "$PR_NUMBER" "$HEAD_SHA" "$MAIN_SHA" > /tmp/pr-info.json
+          node /tmp/size-report.mjs report /tmp/size-main.json /tmp/size-pr.json /tmp/size-report.md
+          printf '\n<!-- pr-number:%s -->\n' "$PR_NUMBER" >> /tmp/size-report.md
 
       - name: Upload size report
         uses: actions/upload-artifact@v4
         with:
           name: size-report
-          path: |
-            /tmp/size-report.md
-            /tmp/pr-info.json
+          path: /tmp/size-report.md
           retention-days: 1

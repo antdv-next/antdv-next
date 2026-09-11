@@ -35,7 +35,6 @@ jobs:
         run: |
           set -euo pipefail
 
-          # 兼容不同下载路径结构
           if [ -f /tmp/size-report/size-report.md ]; then
             REPORT=/tmp/size-report/size-report.md
           else
@@ -50,20 +49,12 @@ jobs:
 
           PR_NUMBER="${EVENT_PR_NUMBER:-}"
           if [ -z "${PR_NUMBER}" ] || [ "${PR_NUMBER}" = "null" ]; then
-            PR_NUMBER=$(gh api "repos/${REPOSITORY}/commits/${HEAD_SHA}/pulls" \
-              --jq '.[0].number // empty')
+            PR_NUMBER=$(sed -n 's/.*<!-- pr-number:\([0-9][0-9]*\) -->.*/\1/p' "${REPORT}" | head -n1 || true)
           fi
 
           if [ -z "${PR_NUMBER}" ] || [ "${PR_NUMBER}" = "null" ]; then
-            if [ -f /tmp/size-report/pr-info.json ]; then
-              INFO=/tmp/size-report/pr-info.json
-            else
-              INFO=$(find /tmp/size-report -name 'pr-info.json' | head -n1 || true)
-            fi
-
-            if [ -n "${INFO}" ] && [ -f "${INFO}" ]; then
-              PR_NUMBER=$(jq -r '.number // empty' "${INFO}")
-            fi
+            PR_NUMBER=$(gh api "repos/${REPOSITORY}/commits/${HEAD_SHA}/pulls" \
+              --jq '.[0].number // empty')
           fi
 
           if [ -z "${PR_NUMBER}" ] || [ "${PR_NUMBER}" = "null" ]; then
