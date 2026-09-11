@@ -207,6 +207,7 @@ export interface TimePickerSlots {
   addon?: () => any
   renderExtraFooter?: (mode: PickerMode) => any
   suffixIcon?: () => any
+  prefix?: () => any
   [key: string]: any
 }
 

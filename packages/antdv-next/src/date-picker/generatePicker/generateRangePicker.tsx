@@ -46,6 +46,7 @@ export interface RangePickerEmits<DateType = AnyObject> {
 
 export interface RangePickerSlots {
   suffixIcon?: () => any
+  prefix?: () => any
   renderExtraFooter?: (mode: PickerMode) => any
   panelRender?: (originPanel: VueNode) => any
   inputRender?: (props: Record<string, any>) => any
@@ -244,6 +245,7 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
           components,
           placement,
           suffixIcon,
+          prefix,
           allowClear,
           popupClassName: _popupClassName,
           dropdownClassName: _dropdownClassName,
@@ -264,6 +266,7 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
         const { className, style, restAttrs } = getAttrStyleAndClass(attrs, undefined, props)
 
         const mergedSuffixIcon = getSlotPropsFnRun(slots, { suffixIcon }, 'suffixIcon', false)
+        const mergedPrefix = getSlotPropsFnRun(slots, { prefix }, 'prefix', false)
 
         const [mergedAllowClear] = useIcons({ allowClear }, prefixCls.value)
 
@@ -348,6 +351,7 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
               placement={placement}
               placeholder={getRangePlaceholder(locale.value, props.picker, placeholder)}
               suffix={suffixNode}
+              prefix={mergedPrefix}
               prevIcon={<span class={`${prefixCls.value}-prev-icon`} />}
               nextIcon={<span class={`${prefixCls.value}-next-icon`} />}
               superPrevIcon={<span class={`${prefixCls.value}-super-prev-icon`} />}

@@ -1,3 +1,4 @@
+import { SmileOutlined } from '@antdv-next/icons'
 import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
 import MockDate from 'mockdate'
@@ -638,5 +639,30 @@ describe('time-picker', () => {
       })
       expect(wrapper.html()).toMatchSnapshot()
     })
+  })
+
+  // ====================== Prefix ======================
+  it('should render prefix from slot and fall back to prop', () => {
+    const wrapper = mount({
+      render: () => <TimePicker v-slots={{ prefix: () => <SmileOutlined /> }} />,
+    })
+    expect(wrapper.find('.ant-picker-prefix').exists()).toBe(true)
+    expect(wrapper.find('.ant-picker-prefix .anticon-smile').exists()).toBe(true)
+    wrapper.unmount()
+
+    const propWrapper = mount(TimePicker, {
+      props: { prefix: <span class="custom-prefix">P</span> },
+    })
+    expect(propWrapper.find('.ant-picker-prefix .custom-prefix').exists()).toBe(true)
+    propWrapper.unmount()
+  })
+
+  it('should render prefix for RangePicker from slot', () => {
+    const wrapper = mount(RangePicker, {
+      slots: { prefix: () => <SmileOutlined /> },
+    })
+    expect(wrapper.find('.ant-picker-prefix').exists()).toBe(true)
+    expect(wrapper.find('.ant-picker-prefix .anticon-smile').exists()).toBe(true)
+    wrapper.unmount()
   })
 })
