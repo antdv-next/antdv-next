@@ -26,49 +26,63 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           path: /tmp/size-report
 
-      - name: Debug downloaded files
-        run: |
-          echo "=== Downloaded files ==="
-          find /tmp/size-report -type f || true
-          ls -la /tmp/size-report || true
-
       - name: Publish PR comment
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPOSITORY: ${{ github.repository }}
+          HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+          EVENT_PR_NUMBER: ${{ github.event.workflow_run.pull_requests[0].number || '' }}
         run: |
           set -euo pipefail
 
           # 兼容不同下载路径结构
-          if [ -f /tmp/size-report/pr-info.json ]; then
-            INFO=/tmp/size-report/pr-info.json
+          if [ -f /tmp/size-report/size-report.md ]; then
             REPORT=/tmp/size-report/size-report.md
           else
-            INFO=$(find /tmp/size-report -name 'pr-info.json' | head -n1)
-            REPORT=$(find /tmp/size-report -name 'size-report.md' | head -n1)
+            REPORT=$(find /tmp/size-report -name 'size-report.md' | head -n1 || true)
           fi
 
-          echo "INFO=$INFO"
-          echo "REPORT=$REPORT"
-
-          if [ -z "$INFO" ] || [ -z "$REPORT" ]; then
-            echo "ERROR: required files not found"
+          if [ -z "${REPORT}" ] || [ ! -f "${REPORT}" ]; then
+            echo "ERROR: size-report.md not found"
             find /tmp/size-report -type f
             exit 1
           fi
 
-          PR_NUMBER=$(jq -r '.number' "$INFO")
-          REPOSITORY=$(jq -r '.repository' "$INFO")
+          PR_NUMBER="${EVENT_PR_NUMBER:-}"
+          if [ -z "${PR_NUMBER}" ] || [ "${PR_NUMBER}" = "null" ]; then
+            PR_NUMBER=$(gh api "repos/${REPOSITORY}/commits/${HEAD_SHA}/pulls" \
+              --jq '.[0].number // empty')
+          fi
 
-          echo "PR_NUMBER=$PR_NUMBER"
-          echo "REPOSITORY=$REPOSITORY"
+          if [ -z "${PR_NUMBER}" ] || [ "${PR_NUMBER}" = "null" ]; then
+            if [ -f /tmp/size-report/pr-info.json ]; then
+              INFO=/tmp/size-report/pr-info.json
+            else
+              INFO=$(find /tmp/size-report -name 'pr-info.json' | head -n1 || true)
+            fi
+
+            if [ -n "${INFO}" ] && [ -f "${INFO}" ]; then
+              PR_NUMBER=$(jq -r '.number // empty' "${INFO}")
+            fi
+          fi
+
+          if [ -z "${PR_NUMBER}" ] || [ "${PR_NUMBER}" = "null" ]; then
+            echo "ERROR: unable to resolve PR number for ${HEAD_SHA}"
+            exit 1
+          fi
+
+          echo "REPOSITORY=${REPOSITORY}"
+          echo "PR_NUMBER=${PR_NUMBER}"
+          echo "HEAD_SHA=${HEAD_SHA}"
+          echo "REPORT=${REPORT}"
 
           comment_id=$(gh api "repos/${REPOSITORY}/issues/${PR_NUMBER}/comments" \
             --paginate \
             --jq '.[] | select((.body // "") | contains("<!-- size-report -->")) | .id' \
             | head -n1 || true)
 
-          if [ -n "$comment_id" ]; then
-            echo "Updating existing comment id=$comment_id"
+          if [ -n "${comment_id}" ]; then
+            echo "Updating existing comment id=${comment_id}"
             gh api --method PATCH "repos/${REPOSITORY}/issues/comments/${comment_id}" \
               -F "body=@${REPORT}" > /dev/null
           else

@@ -4,7 +4,12 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
     paths:
-      - 'packages/antdv-next/src/**'
+      - 'packages/antdv-next/src/**/*.ts'
+      - 'packages/antdv-next/src/**/*.tsx'
+      - 'packages/antdv-next/src/**/*.css'
+      - '!packages/antdv-next/src/**/tests/**'
+      - '!packages/antdv-next/src/**/__snapshots__/**'
+      - '!packages/antdv-next/src/**/locale/**'
 
 permissions:
   contents: read
@@ -31,11 +36,13 @@ jobs:
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v6
+        with:
+          version: 10.34.5
 
       - name: Setup Node
         uses: actions/setup-node@v7
         with:
-          node-version: lts/*
+          node-version: 22
           cache: pnpm
 
       - name: Write size measurement script
@@ -56,11 +63,21 @@ jobs:
 
           const MAX_COMMENT_BYTES = 60_000
           const TARGET_PACKAGE_NAME = 'antdv-next'
+          const IGNORED_BUNDLE_FILES = new Set([
+            'antd-with-locales.js',
+            'antd-with-locales.esm.js',
+          ])
           const [command, firstArg, secondArg, thirdArg] = process.argv.slice(2)
 
           function isLocaleFile(filePath) {
             const normalized = filePath.split(sep).join('/')
             return /\/locales?\//.test(normalized)
+          }
+
+          function isIgnoredBundle(filePath) {
+            const normalized = filePath.split(sep).join('/')
+            const fileName = normalized.split('/').pop()
+            return IGNORED_BUNDLE_FILES.has(fileName)
           }
 
           function listFiles(dir, files = []) {
@@ -76,6 +93,7 @@ jobs:
                 entry.isFile()
                 && /\.(?:js|css)$/.test(entry.name)
                 && !isLocaleFile(file)
+                && !isIgnoredBundle(file)
               ) {
                 files.push(file)
               }
@@ -151,27 +169,22 @@ jobs:
             return `${value > 0 ? '+' : '-'}${formatBytes(Math.abs(value))}`
           }
 
-          // 核心：Before → After (delta, rate%)
-          function formatCompare(before, after) {
-            // 新增文件
-            if (before === undefined && after !== undefined) {
-              return `${formatBytes(after)} (new)`
-            }
-            // 删除文件
-            if (before !== undefined && after === undefined) {
-              return `${formatBytes(before)} → deleted`
-            }
-            // 无变化
-            if (before === after) {
-              return `${formatBytes(after)} (±0 B)`
-            }
+          function formatCompare(main, pr) {
+            if (main === undefined && pr !== undefined)
+              return `${formatBytes(pr)} (new)`
 
-            const delta = after - before
-            const rate = before === 0
+            if (main !== undefined && pr === undefined)
+              return `${formatBytes(main)} (deleted)`
+
+            if (main === pr)
+              return `${formatBytes(pr)} (±0 B)`
+
+            const delta = pr - main
+            const rate = main === 0
               ? 'N/A'
-              : `${delta > 0 ? '+' : ''}${(delta * 100 / before).toFixed(1)}%`
+              : `${delta > 0 ? '+' : ''}${(delta * 100 / main).toFixed(1)}%`
 
-            return `${formatBytes(before)} → ${formatBytes(after)} (${formatSignedBytes(delta)}, ${rate})`
+            return `${formatBytes(main)} → ${formatBytes(pr)} (${formatSignedBytes(delta)}, ${rate})`
           }
 
           function formatTableRow(fields) {
@@ -181,40 +194,34 @@ jobs:
             return `| ${escapedFields.join(' | ')} |`
           }
 
-          function hasChanged(beforeFile, afterFile) {
-            if (!beforeFile || !afterFile)
-              return Boolean(beforeFile || afterFile)
+          function hasChanged(mainFile, prFile) {
+            if (!mainFile || !prFile)
+              return Boolean(mainFile || prFile)
 
-            return beforeFile.size !== afterFile.size
-              || beforeFile.gzip !== afterFile.gzip
-              || beforeFile.brotli !== afterFile.brotli
+            return mainFile.size !== prFile.size
+              || mainFile.gzip !== prFile.gzip
+              || mainFile.brotli !== prFile.brotli
           }
 
-          function buildReport(before, after, onlyChanged = false) {
+          function buildReport(main, pr) {
             const lines = ['Size Report', '---', '']
-
-            if (onlyChanged) {
-              lines.push('Only changed, added, or deleted files are shown because the full report is too large for one PR comment.', '')
-            }
-
             const packageName = TARGET_PACKAGE_NAME
-            const beforeFiles = before.packages[packageName]?.files ?? {}
-            const afterFiles = after.packages[packageName]?.files ?? {}
+            const mainFiles = main.packages[packageName]?.files ?? {}
+            const prFiles = pr.packages[packageName]?.files ?? {}
             const allFiles = [...new Set([
-              ...Object.keys(afterFiles),
-              ...Object.keys(beforeFiles),
+              ...Object.keys(prFiles),
+              ...Object.keys(mainFiles),
             ])].sort()
-            const files = onlyChanged
-              ? allFiles.filter(file => hasChanged(beforeFiles[file], afterFiles[file]))
-              : allFiles
+            const files = allFiles.filter(file => hasChanged(mainFiles[file], prFiles[file]))
 
             lines.push(`### Package: \`${packageName}\``)
+            lines.push('')
             lines.push('| File | Size | Gzip | Brotli |')
             lines.push('| --- | --- | --- | --- |')
 
             if (files.length === 0) {
               lines.push(formatTableRow([
-                onlyChanged ? 'No changed files' : 'No files',
+                'No changed files',
                 '—',
                 '—',
                 '—',
@@ -222,20 +229,14 @@ jobs:
             }
             else {
               for (const file of files) {
-                const beforeFile = beforeFiles[file]
-                const afterFile = afterFiles[file]
-
-                const fileLabel = !beforeFile
-                  ? `${file} (new)`
-                  : !afterFile
-                    ? `${file} (deleted)`
-                    : file
+                const mainFile = mainFiles[file]
+                const prFile = prFiles[file]
 
                 lines.push(formatTableRow([
-                  fileLabel,
-                  formatCompare(beforeFile?.size, afterFile?.size),
-                  formatCompare(beforeFile?.gzip, afterFile?.gzip),
-                  formatCompare(beforeFile?.brotli, afterFile?.brotli),
+                  file,
+                  formatCompare(mainFile?.size, prFile?.size),
+                  formatCompare(mainFile?.gzip, prFile?.gzip),
+                  formatCompare(mainFile?.brotli, prFile?.brotli),
                 ]))
               }
             }
@@ -245,13 +246,10 @@ jobs:
             return `${lines.join('\n')}\n`
           }
 
-          function writeReport(beforeFile, afterFile, outputFile) {
-            const before = JSON.parse(readFileSync(beforeFile, 'utf8'))
-            const after = JSON.parse(readFileSync(afterFile, 'utf8'))
-            const fullReport = buildReport(before, after)
-            const report = Buffer.byteLength(fullReport, 'utf8') <= MAX_COMMENT_BYTES
-              ? fullReport
-              : buildReport(before, after, true)
+          function writeReport(mainFile, prFile, outputFile) {
+            const main = JSON.parse(readFileSync(mainFile, 'utf8'))
+            const pr = JSON.parse(readFileSync(prFile, 'utf8'))
+            const report = buildReport(main, pr)
 
             if (Buffer.byteLength(report, 'utf8') > MAX_COMMENT_BYTES)
               throw new Error('Changed file size report is too large to publish as one PR comment')
@@ -266,7 +264,7 @@ jobs:
             writeReport(firstArg, secondArg, thirdArg)
           }
           else {
-            throw new Error('Usage: measure <output.json> or report <before.json> <after.json> <output.md>')
+            throw new Error('Usage: measure <output.json> or report <main.json> <pr.json> <output.md>')
           }
           MEOF
 
@@ -279,33 +277,38 @@ jobs:
           pnpm -r --filter "./packages/*" run build
 
       - name: Measure PR head
-        run: node /tmp/size-report.mjs measure /tmp/size-after.json
+        run: node /tmp/size-report.mjs measure /tmp/size-pr.json
 
-      - name: Checkout PR base
+      - name: Checkout main
         uses: actions/checkout@v7
         with:
           repository: ${{ github.repository }}
-          ref: ${{ github.event.pull_request.base.sha }}
+          ref: ${{ github.event.pull_request.base.ref }}
           fetch-depth: 1
           persist-credentials: false
 
-      - name: Install PR base dependencies
+      - name: Install main dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build PR base packages
+      - name: Build main packages
         run: |
           rm -rf packages/*/dist
           pnpm -r --filter "./packages/*" run build
 
-      - name: Measure PR base
-        run: node /tmp/size-report.mjs measure /tmp/size-before.json
+      - name: Measure main
+        run: node /tmp/size-report.mjs measure /tmp/size-main.json
 
       - name: Generate PR size report
-        run: node /tmp/size-report.mjs report /tmp/size-before.json /tmp/size-after.json /tmp/size-report.md
+        run: node /tmp/size-report.mjs report /tmp/size-main.json /tmp/size-pr.json /tmp/size-report.md
 
       - name: Save PR info
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
-          echo '{"number": ${{ github.event.pull_request.number }}, "repository": "${{ github.repository }}"}' > /tmp/pr-info.json
+          MAIN_SHA=$(git rev-parse HEAD)
+          printf '{"number":%s,"headSha":"%s","mainSha":"%s"}\n' \
+            "$PR_NUMBER" "$HEAD_SHA" "$MAIN_SHA" > /tmp/pr-info.json
 
       - name: Upload size report
         uses: actions/upload-artifact@v4
