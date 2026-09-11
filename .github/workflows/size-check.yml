@@ -59,48 +59,15 @@ jobs:
             readdirSync,
             writeFileSync,
           } from 'node:fs'
-          import { join, relative, sep } from 'node:path'
+          import { join } from 'node:path'
 
           const MAX_COMMENT_BYTES = 60_000
           const TARGET_PACKAGE_NAME = 'antdv-next'
-          const IGNORED_BUNDLE_FILES = new Set([
-            'antd-with-locales.js',
-            'antd-with-locales.esm.js',
-          ])
+          const MEASURED_BUNDLE_FILES = [
+            'dist/antd.js',
+            'dist/antd.esm.js',
+          ]
           const [command, firstArg, secondArg, thirdArg] = process.argv.slice(2)
-
-          function isLocaleFile(filePath) {
-            const normalized = filePath.split(sep).join('/')
-            return /\/locales?\//.test(normalized)
-          }
-
-          function isIgnoredBundle(filePath) {
-            const normalized = filePath.split(sep).join('/')
-            const fileName = normalized.split('/').pop()
-            return IGNORED_BUNDLE_FILES.has(fileName)
-          }
-
-          function listFiles(dir, files = []) {
-            if (!existsSync(dir))
-              return files
-
-            for (const entry of readdirSync(dir, { withFileTypes: true })) {
-              const file = join(dir, entry.name)
-              if (entry.isDirectory()) {
-                listFiles(file, files)
-              }
-              else if (
-                entry.isFile()
-                && /\.(?:js|css)$/.test(entry.name)
-                && !isLocaleFile(file)
-                && !isIgnoredBundle(file)
-              ) {
-                files.push(file)
-              }
-            }
-
-            return files
-          }
 
           function measurePackage(packageDir) {
             const packageJson = JSON.parse(
@@ -108,9 +75,12 @@ jobs:
             )
             const files = {}
 
-            for (const file of listFiles(join(packageDir, 'dist')).sort()) {
+            for (const relativeFile of MEASURED_BUNDLE_FILES) {
+              const file = join(packageDir, relativeFile)
+              if (!existsSync(file))
+                throw new Error(`Missing bundle file: ${relativeFile}`)
+
               const content = readFileSync(file)
-              const relativeFile = relative(packageDir, file).split(sep).join('/')
               files[relativeFile] = {
                 size: content.length,
                 gzip: gzipSync(content, { level: 9, mtime: 0 }).length,
@@ -194,51 +164,27 @@ jobs:
             return `| ${escapedFields.join(' | ')} |`
           }
 
-          function hasChanged(mainFile, prFile) {
-            if (!mainFile || !prFile)
-              return Boolean(mainFile || prFile)
-
-            return mainFile.size !== prFile.size
-              || mainFile.gzip !== prFile.gzip
-              || mainFile.brotli !== prFile.brotli
-          }
-
           function buildReport(main, pr) {
             const lines = ['Size Report', '---', '']
             const packageName = TARGET_PACKAGE_NAME
             const mainFiles = main.packages[packageName]?.files ?? {}
             const prFiles = pr.packages[packageName]?.files ?? {}
-            const allFiles = [...new Set([
-              ...Object.keys(prFiles),
-              ...Object.keys(mainFiles),
-            ])].sort()
-            const files = allFiles.filter(file => hasChanged(mainFiles[file], prFiles[file]))
 
             lines.push(`### Package: \`${packageName}\``)
             lines.push('')
             lines.push('| File | Size | Gzip | Brotli |')
             lines.push('| --- | --- | --- | --- |')
 
-            if (files.length === 0) {
-              lines.push(formatTableRow([
-                'No changed files',
-                '—',
-                '—',
-                '—',
-              ]))
-            }
-            else {
-              for (const file of files) {
-                const mainFile = mainFiles[file]
-                const prFile = prFiles[file]
+            for (const file of MEASURED_BUNDLE_FILES) {
+              const mainFile = mainFiles[file]
+              const prFile = prFiles[file]
 
-                lines.push(formatTableRow([
-                  file,
-                  formatCompare(mainFile?.size, prFile?.size),
-                  formatCompare(mainFile?.gzip, prFile?.gzip),
-                  formatCompare(mainFile?.brotli, prFile?.brotli),
-                ]))
-              }
+              lines.push(formatTableRow([
+                file,
+                formatCompare(mainFile?.size, prFile?.size),
+                formatCompare(mainFile?.gzip, prFile?.gzip),
+                formatCompare(mainFile?.brotli, prFile?.brotli),
+              ]))
             }
 
             lines.push('')
