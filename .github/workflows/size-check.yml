@@ -143,8 +143,6 @@ jobs:
             const mainFiles = main.packages[packageName]?.files ?? {}
             const prFiles = pr.packages[packageName]?.files ?? {}
 
-            lines.push(`### Package: \`${packageName}\``)
-            lines.push('')
             lines.push('| File | Size | Gzip | Brotli |')
             lines.push('| --- | --- | --- | --- |')
 
