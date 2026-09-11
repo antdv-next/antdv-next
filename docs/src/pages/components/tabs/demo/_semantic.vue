@@ -1,10 +1,18 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, nextTick, onMounted, ref } from 'vue'
 import { SemanticPreview } from '@/components/semantic'
 import { useComponentLocale } from '@/composables/use-locale'
 import { locales } from '../locales'
 
 const { t } = useComponentLocale(locales)
+
+const moreVisible = ref(false)
+
+onMounted(() => {
+  nextTick(() => {
+    moreVisible.value = true
+  })
+})
 
 const semantics = computed(() => [
   { name: 'root', desc: t('root') },
@@ -56,7 +64,7 @@ function getPopupContainer(triggerNode: HTMLElement): HTMLElement {
         :items="items"
         :classes="classes"
         :more="{
-          visible: true,
+          visible: moreVisible,
           placement: 'bottom',
         }"
       />
