@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { SmileOutlined } from '@antdv-next/icons'
-import { computed, ref } from 'vue'
+import { computed, h, ref } from 'vue'
 import { SemanticPreview } from '@/components/semantic'
 import { useComponentLocale } from '@/composables/use-locale'
 import { locales } from '../locales'
@@ -23,6 +23,7 @@ const semantics = computed(() => [
 
 const type = ref<'Single' | 'Multiple'>('Single')
 const divRef = ref<HTMLDivElement | null>(null)
+const prefixIcon = h(SmileOutlined)
 </script>
 
 <template>
@@ -44,11 +45,8 @@ const divRef = ref<HTMLDivElement | null>(null)
           :get-popup-container="() => divRef!"
           need-confirm
           :classes="classes"
-        >
-          <template #prefix>
-            <SmileOutlined />
-          </template>
-        </a-date-picker>
+          :prefix="prefixIcon"
+        />
         <a-range-picker
           v-else
           :z-index="1"
@@ -56,11 +54,8 @@ const divRef = ref<HTMLDivElement | null>(null)
           :get-popup-container="() => divRef!"
           need-confirm
           :classes="classes"
-        >
-          <template #prefix>
-            <SmileOutlined />
-          </template>
-        </a-range-picker>
+          :prefix="prefixIcon"
+        />
       </a-flex>
     </template>
   </SemanticPreview>

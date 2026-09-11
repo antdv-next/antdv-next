@@ -10,10 +10,12 @@ Custom `prefix` and `suffixIcon`.
 import { SmileOutlined } from '@antdv-next/icons'
 import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
+import { h } from 'vue'
 
 dayjs.extend(customParseFormat)
 
 const defaultOpenValue = dayjs('00:00:00', 'HH:mm:ss')
+const prefixIcon = h(SmileOutlined)
 
 function onChange(time: any, timeString: string) {
   console.log(time, timeString)
@@ -30,15 +32,7 @@ function onChange(time: any, timeString: string) {
         <SmileOutlined />
       </template>
     </a-time-picker>
-    <a-time-picker>
-      <template #prefix>
-        <SmileOutlined />
-      </template>
-    </a-time-picker>
-    <a-time-range-picker>
-      <template #prefix>
-        <SmileOutlined />
-      </template>
-    </a-time-range-picker>
+    <a-time-picker :prefix="prefixIcon" />
+    <a-time-range-picker :prefix="prefixIcon" />
   </a-space>
 </template>
