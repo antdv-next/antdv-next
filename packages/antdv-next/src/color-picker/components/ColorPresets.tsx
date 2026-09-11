@@ -26,10 +26,10 @@ export function isBright(value: AggregationColor, bgColorToken: string) {
 }
 
 function genPresetColor(list: PresetsItem[]) {
-  return list.map((value) => {
-    value.colors = value.colors.map(generateColor)
-    return value
-  })
+  return list.map(value => ({
+    ...value,
+    colors: value.colors.map(generateColor),
+  }))
 }
 
 function genCollapsePanelKey(preset: PresetsItem, index: number) {

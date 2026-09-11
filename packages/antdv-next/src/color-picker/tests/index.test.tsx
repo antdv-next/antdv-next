@@ -64,6 +64,23 @@ describe('color-picker', () => {
     expect(style).toContain('background: rgb(0, 0, 0)')
   })
 
+  it('does not mutate preset items', () => {
+    const preset = {
+      label: 'Brand',
+      colors: ['#1677ff'],
+    }
+    Object.freeze(preset)
+
+    expect(() => mount(ColorPicker, {
+      attachTo: document.body,
+      props: {
+        open: true,
+        presets: [preset],
+      },
+    })).not.toThrow()
+    expect(preset.colors).toEqual(['#1677ff'])
+  })
+
   it('supports custom trigger slot', async () => {
     mount(ColorPicker, {
       attachTo: document.body,
