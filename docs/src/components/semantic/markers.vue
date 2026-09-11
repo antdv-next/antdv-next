@@ -14,12 +14,91 @@ const props = defineProps<{
 
 const rectList = ref<RectType[]>([])
 
-// Check if element is visible (simplified version)
-function isVisible(element: HTMLElement): boolean {
-  if (!element)
-    return false
+interface Bounds {
+  left: number
+  top: number
+  right: number
+  bottom: number
+}
+
+const CLIPPING_OVERFLOWS = new Set(['auto', 'clip', 'hidden', 'scroll'])
+
+function getBounds(element: HTMLElement): Bounds {
+  const rect = element.getBoundingClientRect()
+  return {
+    left: rect.left,
+    top: rect.top,
+    right: rect.right,
+    bottom: rect.bottom,
+  }
+}
+
+function intersectBounds(first: Bounds, second: Bounds): Bounds | null {
+  const bounds = {
+    left: Math.max(first.left, second.left),
+    top: Math.max(first.top, second.top),
+    right: Math.min(first.right, second.right),
+    bottom: Math.min(first.bottom, second.bottom),
+  }
+
+  return bounds.right > bounds.left && bounds.bottom > bounds.top ? bounds : null
+}
+
+function isStyleVisible(element: HTMLElement, container: HTMLElement): boolean {
+  let currentElement: HTMLElement | null = element
+
+  while (currentElement) {
+    const style = window.getComputedStyle(currentElement)
+    const opacity = Number.parseFloat(style.opacity)
+
+    if (
+      style.display === 'none'
+      || style.visibility === 'hidden'
+      || style.visibility === 'collapse'
+      || opacity === 0
+    ) {
+      return false
+    }
+
+    if (currentElement === container) {
+      break
+    }
+
+    currentElement = currentElement.parentElement
+  }
+
+  return true
+}
+
+function isClippingElement(element: HTMLElement): boolean {
   const style = window.getComputedStyle(element)
-  return style.display !== 'none' && style.visibility !== 'hidden' && style.opacity !== '0'
+  return CLIPPING_OVERFLOWS.has(style.overflowX) || CLIPPING_OVERFLOWS.has(style.overflowY)
+}
+
+function getVisibleBounds(
+  element: HTMLElement,
+  container: HTMLElement,
+  containerBounds: Bounds,
+  elementBounds = getBounds(element),
+): Bounds | null {
+  if (!element.isConnected || !isStyleVisible(element, container)) {
+    return null
+  }
+
+  let bounds = intersectBounds(elementBounds, containerBounds)
+  if (!bounds) {
+    return null
+  }
+
+  let currentElement = element.parentElement
+  while (currentElement && currentElement !== container && bounds) {
+    if (isClippingElement(currentElement)) {
+      bounds = intersectBounds(bounds, getBounds(currentElement))
+    }
+    currentElement = currentElement.parentElement
+  }
+
+  return bounds
 }
 
 watch(
@@ -31,41 +110,25 @@ watch(
       return
     }
 
-    const allElements = props.targetClassName
+    const targetElements = props.targetClassName
       ? Array.from(container.querySelectorAll<HTMLElement>(`.${props.targetClassName}`))
       : []
 
-    // Filter out elements with opacity 0 in parent chain
-    const targetElements = allElements.filter((element) => {
-      let currentElement: HTMLElement | null = element
-      let count = 0
+    const containerBounds = getBounds(container)
 
-      while (currentElement && count <= 5) {
-        const computedStyle = window.getComputedStyle(currentElement)
-        const opacity = Number.parseFloat(computedStyle.opacity)
-
-        if (opacity === 0) {
-          return false
-        }
-
-        currentElement = currentElement.parentElement
-        count++
+    const targetRectList = targetElements.flatMap<RectType>((targetElement) => {
+      const elementBounds = getBounds(targetElement)
+      const visibleBounds = getVisibleBounds(targetElement, container, containerBounds, elementBounds)
+      if (!visibleBounds) {
+        return []
       }
 
-      return true
-    })
-
-    const containerRect = container.getBoundingClientRect()
-
-    const targetRectList = targetElements.map<RectType>((targetElement) => {
-      const rect = targetElement.getBoundingClientRect()
-
       return {
-        left: rect.left - containerRect.left,
-        top: rect.top - containerRect.top,
-        width: rect.width,
-        height: rect.height,
-        visible: isVisible(targetElement),
+        left: elementBounds.left - containerBounds.left,
+        top: elementBounds.top - containerBounds.top,
+        width: elementBounds.right - elementBounds.left,
+        height: elementBounds.bottom - elementBounds.top,
+        visible: true,
       }
     })
 
@@ -84,7 +147,7 @@ watch(
       }
     })
   },
-  { immediate: true },
+  { immediate: true, flush: 'post' },
 )
 </script>
 
