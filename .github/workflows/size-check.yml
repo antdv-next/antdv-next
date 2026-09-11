@@ -3,8 +3,6 @@ name: Size Report (Compute)
 on:
   pull_request:
     types: [opened, synchronize, reopened]
-    paths:
-      - 'packages/antdv-next/src/**'
 
 permissions:
   contents: read
@@ -31,11 +29,13 @@ jobs:
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v6
+        with:
+          version: 10.34.5
 
       - name: Setup Node
         uses: actions/setup-node@v7
         with:
-          node-version: lts/*
+          node-version: 22
           cache: pnpm
 
       - name: Write size measurement script
@@ -49,50 +49,27 @@ jobs:
           import {
             existsSync,
             readFileSync,
-            readdirSync,
             writeFileSync,
           } from 'node:fs'
-          import { join, relative, sep } from 'node:path'
+          import { join } from 'node:path'
 
           const MAX_COMMENT_BYTES = 60_000
           const TARGET_PACKAGE_NAME = 'antdv-next'
+          const MEASURED_BUNDLE_FILES = [
+            'dist/antd.js',
+            'dist/antd.esm.js',
+          ]
           const [command, firstArg, secondArg, thirdArg] = process.argv.slice(2)
 
-          function isLocaleFile(filePath) {
-            const normalized = filePath.split(sep).join('/')
-            return /\/locales?\//.test(normalized)
-          }
-
-          function listFiles(dir, files = []) {
-            if (!existsSync(dir))
-              return files
-
-            for (const entry of readdirSync(dir, { withFileTypes: true })) {
-              const file = join(dir, entry.name)
-              if (entry.isDirectory()) {
-                listFiles(file, files)
-              }
-              else if (
-                entry.isFile()
-                && /\.(?:js|css)$/.test(entry.name)
-                && !isLocaleFile(file)
-              ) {
-                files.push(file)
-              }
-            }
-
-            return files
-          }
-
           function measurePackage(packageDir) {
-            const packageJson = JSON.parse(
-              readFileSync(join(packageDir, 'package.json'), 'utf8'),
-            )
             const files = {}
 
-            for (const file of listFiles(join(packageDir, 'dist')).sort()) {
+            for (const relativeFile of MEASURED_BUNDLE_FILES) {
+              const file = join(packageDir, relativeFile)
+              if (!existsSync(file))
+                throw new Error(`Missing bundle file: ${relativeFile}`)
+
               const content = readFileSync(file)
-              const relativeFile = relative(packageDir, file).split(sep).join('/')
               files[relativeFile] = {
                 size: content.length,
                 gzip: gzipSync(content, { level: 9, mtime: 0 }).length,
@@ -104,32 +81,16 @@ jobs:
               }
             }
 
-            return {
-              name: packageJson.name,
-              files,
-            }
+            return files
           }
 
           function measureWorkspace(outputFile) {
-            const packages = {}
-            if (existsSync('packages')) {
-              for (const entry of readdirSync('packages', { withFileTypes: true })) {
-                if (!entry.isDirectory())
-                  continue
-
-                const packageDir = join('packages', entry.name)
-                if (!existsSync(join(packageDir, 'package.json')))
-                  continue
-
-                const measured = measurePackage(packageDir)
-                if (measured.name !== TARGET_PACKAGE_NAME)
-                  continue
-
-                packages[measured.name] = { files: measured.files }
-              }
-            }
-
-            writeFileSync(outputFile, `${JSON.stringify({ packages }, null, 2)}\n`)
+            const files = measurePackage(join('packages', 'antdv-next'))
+            writeFileSync(outputFile, `${JSON.stringify({
+              packages: {
+                [TARGET_PACKAGE_NAME]: { files },
+              },
+            }, null, 2)}\n`)
           }
 
           function formatBytes(value) {
@@ -151,27 +112,22 @@ jobs:
             return `${value > 0 ? '+' : '-'}${formatBytes(Math.abs(value))}`
           }
 
-          // 核心：Before → After (delta, rate%)
-          function formatCompare(before, after) {
-            // 新增文件
-            if (before === undefined && after !== undefined) {
-              return `${formatBytes(after)} (new)`
-            }
-            // 删除文件
-            if (before !== undefined && after === undefined) {
-              return `${formatBytes(before)} → deleted`
-            }
-            // 无变化
-            if (before === after) {
-              return `${formatBytes(after)} (±0 B)`
-            }
+          function formatCompare(main, pr) {
+            if (main === undefined && pr !== undefined)
+              return `${formatBytes(pr)} (new)`
 
-            const delta = after - before
-            const rate = before === 0
+            if (main !== undefined && pr === undefined)
+              return `${formatBytes(main)} (deleted)`
+
+            if (main === pr)
+              return `${formatBytes(pr)} (±0 B)`
+
+            const delta = pr - main
+            const rate = main === 0
               ? 'N/A'
-              : `${delta > 0 ? '+' : ''}${(delta * 100 / before).toFixed(1)}%`
+              : `${delta > 0 ? '+' : ''}${(delta * 100 / main).toFixed(1)}%`
 
-            return `${formatBytes(before)} → ${formatBytes(after)} (${formatSignedBytes(delta)}, ${rate})`
+            return `${formatBytes(main)} → ${formatBytes(pr)} (${formatSignedBytes(delta)}, ${rate})`
           }
 
           function formatTableRow(fields) {
@@ -181,63 +137,25 @@ jobs:
             return `| ${escapedFields.join(' | ')} |`
           }
 
-          function hasChanged(beforeFile, afterFile) {
-            if (!beforeFile || !afterFile)
-              return Boolean(beforeFile || afterFile)
-
-            return beforeFile.size !== afterFile.size
-              || beforeFile.gzip !== afterFile.gzip
-              || beforeFile.brotli !== afterFile.brotli
-          }
-
-          function buildReport(before, after, onlyChanged = false) {
+          function buildReport(main, pr) {
             const lines = ['Size Report', '---', '']
-
-            if (onlyChanged) {
-              lines.push('Only changed, added, or deleted files are shown because the full report is too large for one PR comment.', '')
-            }
-
             const packageName = TARGET_PACKAGE_NAME
-            const beforeFiles = before.packages[packageName]?.files ?? {}
-            const afterFiles = after.packages[packageName]?.files ?? {}
-            const allFiles = [...new Set([
-              ...Object.keys(afterFiles),
-              ...Object.keys(beforeFiles),
-            ])].sort()
-            const files = onlyChanged
-              ? allFiles.filter(file => hasChanged(beforeFiles[file], afterFiles[file]))
-              : allFiles
+            const mainFiles = main.packages[packageName]?.files ?? {}
+            const prFiles = pr.packages[packageName]?.files ?? {}
 
-            lines.push(`### Package: \`${packageName}\``)
             lines.push('| File | Size | Gzip | Brotli |')
             lines.push('| --- | --- | --- | --- |')
 
-            if (files.length === 0) {
+            for (const file of MEASURED_BUNDLE_FILES) {
+              const mainFile = mainFiles[file]
+              const prFile = prFiles[file]
+
               lines.push(formatTableRow([
-                onlyChanged ? 'No changed files' : 'No files',
-                '—',
-                '—',
-                '—',
+                file,
+                formatCompare(mainFile?.size, prFile?.size),
+                formatCompare(mainFile?.gzip, prFile?.gzip),
+                formatCompare(mainFile?.brotli, prFile?.brotli),
               ]))
-            }
-            else {
-              for (const file of files) {
-                const beforeFile = beforeFiles[file]
-                const afterFile = afterFiles[file]
-
-                const fileLabel = !beforeFile
-                  ? `${file} (new)`
-                  : !afterFile
-                    ? `${file} (deleted)`
-                    : file
-
-                lines.push(formatTableRow([
-                  fileLabel,
-                  formatCompare(beforeFile?.size, afterFile?.size),
-                  formatCompare(beforeFile?.gzip, afterFile?.gzip),
-                  formatCompare(beforeFile?.brotli, afterFile?.brotli),
-                ]))
-              }
             }
 
             lines.push('')
@@ -245,13 +163,10 @@ jobs:
             return `${lines.join('\n')}\n`
           }
 
-          function writeReport(beforeFile, afterFile, outputFile) {
-            const before = JSON.parse(readFileSync(beforeFile, 'utf8'))
-            const after = JSON.parse(readFileSync(afterFile, 'utf8'))
-            const fullReport = buildReport(before, after)
-            const report = Buffer.byteLength(fullReport, 'utf8') <= MAX_COMMENT_BYTES
-              ? fullReport
-              : buildReport(before, after, true)
+          function writeReport(mainFile, prFile, outputFile) {
+            const main = JSON.parse(readFileSync(mainFile, 'utf8'))
+            const pr = JSON.parse(readFileSync(prFile, 'utf8'))
+            const report = buildReport(main, pr)
 
             if (Buffer.byteLength(report, 'utf8') > MAX_COMMENT_BYTES)
               throw new Error('Changed file size report is too large to publish as one PR comment')
@@ -266,52 +181,54 @@ jobs:
             writeReport(firstArg, secondArg, thirdArg)
           }
           else {
-            throw new Error('Usage: measure <output.json> or report <before.json> <after.json> <output.md>')
+            throw new Error('Usage: measure <output.json> or report <main.json> <pr.json> <output.md>')
           }
           MEOF
 
       - name: Install PR head dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build PR head packages
+      - name: Build PR head bundles
         run: |
-          rm -rf packages/*/dist
-          pnpm -r --filter "./packages/*" run build
+          rm -rf packages/antdv-next/dist
+          pnpm --filter @antdv-next/cssinjs build
+          pnpm --filter antdv-next run build:umd
+          pnpm --filter antdv-next run build:full-esm
 
       - name: Measure PR head
-        run: node /tmp/size-report.mjs measure /tmp/size-after.json
+        run: node /tmp/size-report.mjs measure /tmp/size-pr.json
 
-      - name: Checkout PR base
+      - name: Checkout main
         uses: actions/checkout@v7
         with:
           repository: ${{ github.repository }}
-          ref: ${{ github.event.pull_request.base.sha }}
+          ref: ${{ github.event.pull_request.base.ref }}
           fetch-depth: 1
           persist-credentials: false
 
-      - name: Install PR base dependencies
+      - name: Install main dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build PR base packages
+      - name: Build main bundles
         run: |
-          rm -rf packages/*/dist
-          pnpm -r --filter "./packages/*" run build
+          rm -rf packages/antdv-next/dist
+          pnpm --filter @antdv-next/cssinjs build
+          pnpm --filter antdv-next run build:umd
+          pnpm --filter antdv-next run build:full-esm
 
-      - name: Measure PR base
-        run: node /tmp/size-report.mjs measure /tmp/size-before.json
+      - name: Measure main
+        run: node /tmp/size-report.mjs measure /tmp/size-main.json
 
       - name: Generate PR size report
-        run: node /tmp/size-report.mjs report /tmp/size-before.json /tmp/size-after.json /tmp/size-report.md
-
-      - name: Save PR info
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
-          echo '{"number": ${{ github.event.pull_request.number }}, "repository": "${{ github.repository }}"}' > /tmp/pr-info.json
+          node /tmp/size-report.mjs report /tmp/size-main.json /tmp/size-pr.json /tmp/size-report.md
+          printf '\n<!-- pr-number:%s -->\n' "$PR_NUMBER" >> /tmp/size-report.md
 
       - name: Upload size report
         uses: actions/upload-artifact@v4
         with:
           name: size-report
-          path: |
-            /tmp/size-report.md
-            /tmp/pr-info.json
+          path: /tmp/size-report.md
           retention-days: 1
