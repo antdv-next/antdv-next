@@ -10,6 +10,7 @@ import type {
   PickerProps,
   RangePickerProps,
 } from '../date-picker/generatePicker'
+import type { RangePickerSlots } from '../date-picker/generatePicker/generateRangePicker'
 import { computed, defineComponent, shallowRef } from 'vue'
 import genPurePanel from '../_util/PurePanel.tsx'
 import { toPropsRefs } from '../_util/tools'
@@ -112,9 +113,13 @@ export interface TimeRangePickerEmits<DateType = AnyObject> {
   'keydown': (e: KeyboardEvent, preventDefault: VoidFunction) => void
 }
 
+export interface TimeRangePickerSlots extends RangePickerSlots<number> {}
+
 const RangePicker = defineComponent<
   TimeRangePickerProps,
-  TimeRangePickerEmits
+  TimeRangePickerEmits,
+  string,
+  SlotsType<TimeRangePickerSlots>
 >(
   (props, { slots, emit, expose, attrs }) => {
     const rangeRef = shallowRef<PickerRef>()
@@ -191,6 +196,7 @@ export interface TimePickerProps
   extends BaseTimePickerProps,
   /* @vue-ignore */
   Omit<TimePickerEmitsProps, keyof BaseTimePickerProps> {
+  /** @deprecated Please use `renderExtraFooter` instead */
   addon?: () => VueNode
   status?: InputStatus
   /** @deprecated Please use `classes.popup` instead */
@@ -204,6 +210,7 @@ export interface TimePickerProps
 }
 
 export interface TimePickerSlots {
+  /** @deprecated Please use `renderExtraFooter` instead */
   addon?: () => any
   renderExtraFooter?: (mode: PickerMode) => any
   suffixIcon?: () => any
@@ -274,7 +281,7 @@ const TimePicker = defineComponent<
 
     if (isDev) {
       const warning = devUseWarning('TimePicker')
-      warning.deprecated(!props.addon, 'addon', 'renderExtraFooter')
+      warning.deprecated(!props.addon && !slots.addon, 'addon', 'renderExtraFooter')
     }
 
     const [mergedVariant] = useVariants('timePicker', variant, bordered)

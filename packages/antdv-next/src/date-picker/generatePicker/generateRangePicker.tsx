@@ -44,13 +44,13 @@ export interface RangePickerEmits<DateType = AnyObject> {
   'keydown': (e: KeyboardEvent, preventDefault: VoidFunction) => void
 }
 
-export interface RangePickerSlots {
+export interface RangePickerSlots<CurrentType = AnyObject> {
   suffixIcon?: () => any
   prefix?: () => any
   renderExtraFooter?: (mode: PickerMode) => any
   panelRender?: (originPanel: VueNode) => any
   inputRender?: (props: Record<string, any>) => any
-  cellRender?: (ctx: { current: AnyObject, info: any }) => any
+  cellRender?: (ctx: { current: CurrentType, info: any }) => any
   dateRender?: (ctx: { date: AnyObject, today: AnyObject }) => any
   monthCellRender?: (ctx: { date: AnyObject, locale: any }) => any
   [key: string]: any

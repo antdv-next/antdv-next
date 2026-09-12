@@ -215,6 +215,7 @@ export type {
   TimePickerSlots,
   TimeRangePickerEmits,
   TimeRangePickerProps,
+  TimeRangePickerSlots,
 } from './time-picker'
 export { default as Timeline, TimelineItem } from './timeline'
 export type { TimelineItemProps, TimelineItemSlots, TimelineItemType, TimelineProps } from './timeline'
