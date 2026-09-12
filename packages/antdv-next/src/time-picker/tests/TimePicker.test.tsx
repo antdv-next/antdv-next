@@ -1,3 +1,5 @@
+import type { TimeRangePickerSlots } from '../../components'
+import { SmileOutlined } from '@antdv-next/icons'
 import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
 import MockDate from 'mockdate'
@@ -11,6 +13,10 @@ import { mount } from '/@tests/utils'
 dayjs.extend(customParseFormat)
 
 const { RangePicker } = TimePicker
+
+type IsExact<A, B> = (<T>() => T extends A ? 1 : 2) extends (<T>() => T extends B ? 1 : 2)
+  ? true
+  : false
 
 describe('time-picker', () => {
   beforeEach(() => {
@@ -351,6 +357,11 @@ describe('time-picker', () => {
     await nextTick()
 
     expect(document.querySelector('.addon-slot')).toBeTruthy()
+    expect(errSpy).toHaveBeenCalledWith(
+      expect.stringContaining(
+        'Warning: [antd: TimePicker] `addon` is deprecated. Please use `renderExtraFooter` instead.',
+      ),
+    )
 
     errSpy.mockRestore()
     await wrapper.setProps({ open: false })
@@ -638,5 +649,57 @@ describe('time-picker', () => {
       })
       expect(wrapper.html()).toMatchSnapshot()
     })
+  })
+
+  // ====================== Prefix ======================
+  it('should prefer prefix slot and fall back to prop', () => {
+    const wrapper = mount({
+      render: () => (
+        <TimePicker
+          prefix={<span class="prop-prefix">P</span>}
+          v-slots={{ prefix: () => <SmileOutlined /> }}
+        />
+      ),
+    })
+    expect(wrapper.find('.ant-picker-prefix').exists()).toBe(true)
+    expect(wrapper.find('.ant-picker-prefix .anticon-smile').exists()).toBe(true)
+    expect(wrapper.find('.ant-picker-prefix .prop-prefix').exists()).toBe(false)
+    wrapper.unmount()
+
+    const propWrapper = mount(TimePicker, {
+      props: { prefix: <span class="custom-prefix">P</span> },
+    })
+    expect(propWrapper.find('.ant-picker-prefix .custom-prefix').exists()).toBe(true)
+    propWrapper.unmount()
+  })
+
+  it('should render prefix for RangePicker from slot', () => {
+    const wrapper = mount(RangePicker, {
+      props: { prefix: <span class="prop-prefix">P</span> },
+      slots: { prefix: () => <SmileOutlined /> },
+    })
+    expect(wrapper.find('.ant-picker-prefix').exists()).toBe(true)
+    expect(wrapper.find('.ant-picker-prefix .anticon-smile').exists()).toBe(true)
+    expect(wrapper.find('.ant-picker-prefix .prop-prefix').exists()).toBe(false)
+    wrapper.unmount()
+
+    const propWrapper = mount(RangePicker, {
+      props: { prefix: <span class="custom-prefix">P</span> },
+    })
+    expect(propWrapper.find('.ant-picker-prefix .custom-prefix').exists()).toBe(true)
+    propWrapper.unmount()
+  })
+
+  it('should expose typed RangePicker slots from the package entry', () => {
+    type CellRenderContext = Parameters<NonNullable<TimeRangePickerSlots['cellRender']>>[0]
+    const cellRenderCurrentTyped: IsExact<CellRenderContext['current'], number> = true
+    const slots: TimeRangePickerSlots = {
+      prefix: () => <span class="typed-prefix">P</span>,
+    }
+    const wrapper = mount(RangePicker, { slots })
+
+    expect(cellRenderCurrentTyped).toBe(true)
+    expect(wrapper.find('.typed-prefix').exists()).toBe(true)
+    wrapper.unmount()
   })
 })

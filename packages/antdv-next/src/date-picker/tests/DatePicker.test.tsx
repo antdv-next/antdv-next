@@ -1,3 +1,4 @@
+import { SmileOutlined } from '@antdv-next/icons'
 import dayjs from 'dayjs'
 import MockDate from 'mockdate'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
@@ -180,5 +181,48 @@ describe('date-picker', () => {
     open.value = false
     await nextTick()
     wrapper.unmount()
+  })
+
+  // ====================== Prefix ======================
+  it('should prefer prefix slot and fall back to prop', () => {
+    const wrapper = mount({
+      render: () => (
+        <DatePicker
+          prefix={<span class="prop-prefix">P</span>}
+          v-slots={{ prefix: () => <SmileOutlined /> }}
+        />
+      ),
+    })
+    expect(wrapper.find('.ant-picker-prefix').exists()).toBe(true)
+    expect(wrapper.find('.ant-picker-prefix .anticon-smile').exists()).toBe(true)
+    expect(wrapper.find('.ant-picker-prefix .prop-prefix').exists()).toBe(false)
+    wrapper.unmount()
+
+    const propWrapper = mount(DatePicker, {
+      props: { prefix: <span class="custom-prefix">P</span> },
+    })
+    expect(propWrapper.find('.ant-picker-prefix .custom-prefix').exists()).toBe(true)
+    propWrapper.unmount()
+  })
+
+  it('should render prefix for RangePicker from slot', () => {
+    const wrapper = mount({
+      render: () => (
+        <DatePicker.RangePicker
+          prefix={<span class="prop-prefix">P</span>}
+          v-slots={{ prefix: () => <SmileOutlined /> }}
+        />
+      ),
+    })
+    expect(wrapper.find('.ant-picker-prefix').exists()).toBe(true)
+    expect(wrapper.find('.ant-picker-prefix .anticon-smile').exists()).toBe(true)
+    expect(wrapper.find('.ant-picker-prefix .prop-prefix').exists()).toBe(false)
+    wrapper.unmount()
+
+    const propWrapper = mount(DatePicker.RangePicker, {
+      props: { prefix: <span class="custom-prefix">P</span> },
+    })
+    expect(propWrapper.find('.ant-picker-prefix .custom-prefix').exists()).toBe(true)
+    propWrapper.unmount()
   })
 })

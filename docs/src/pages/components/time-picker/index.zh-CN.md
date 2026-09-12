@@ -44,6 +44,7 @@ demo:
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | allowClear | 自定义清除按钮 | boolean \| \{ clearIcon?: VueNode \} | true | 5.8.0: 支持对象类型 | ✓ |
+| ~~addon~~ | TimePicker 面板底部的附加内容渲染函数，请使用 `renderExtraFooter` 替代 | () => VueNode | - | - | × |
 | cellRender | 自定义单元格的内容 | (current: number, info: \{ originNode: VueNode, today: dayjs, range?: 'start' \| 'end', subType: 'hour' \| 'minute' \| 'second' \| 'meridiem' \}) => VueNode | - | 5.4.0 | × |
 | changeOnScroll | 在滚动时改变选择值 | boolean | false | 5.14.0 | × |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: \{ props \})=> Record<[SemanticDOM](#semantic-dom), string> | - |  | ✓ |
@@ -95,14 +96,23 @@ type DisabledTime = (now: Dayjs) => {
 
 注意：`disabledMilliseconds` 为 `5.14.0` 新增。
 
-## 方法 {#methods}
+#### 方法 {#methods}
 
 | 名称    | 描述     | 版本 |
 | ------- | -------- | ---- |
 | blur()  | 移除焦点 |      |
 | focus() | 获取焦点 |      |
 
-## RangePicker
+#### 插槽 {#slots}
+
+| 插槽 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| ~~addon~~ | 已弃用，请使用 `renderExtraFooter` | () => any | - |
+| renderExtraFooter | 在时间选择面板底部显示自定义内容 | (mode: PickerMode) => any | - |
+| suffixIcon | 自定义的选择框后缀图标 | () => any | - |
+| prefix | 自定义前缀 | () => any | - |
+
+### RangePicker
 
 属性与 DatePicker 的 [RangePicker](/components/date-picker-cn#rangepicker) 相同。还包含以下属性：
 

@@ -56,6 +56,7 @@ export interface DatePickerEmits<DateType = AnyObject> {
 
 export interface DatePickerSlots {
   suffixIcon?: () => any
+  prefix?: () => any
   renderExtraFooter?: (mode: PickerMode) => any
   panelRender?: (originPanel: VueNode) => any
   inputRender?: (props: Record<string, any>) => any
@@ -283,6 +284,7 @@ function generatePicker<DateType extends AnyObject = AnyObject>(generateConfig: 
             components,
             placement,
             suffixIcon,
+            prefix,
             allowClear,
             popupClassName: _popupClassName,
             dropdownClassName: _dropdownClassName,
@@ -303,6 +305,7 @@ function generatePicker<DateType extends AnyObject = AnyObject>(generateConfig: 
           const { className, style, restAttrs } = getAttrStyleAndClass(attrs, undefined, props)
 
           const mergedSuffixIcon = getSlotPropsFnRun(slots, { suffixIcon }, 'suffixIcon', false)
+          const mergedPrefix = getSlotPropsFnRun(slots, { prefix }, 'prefix', false)
 
           const [mergedAllowClear, removeIcon] = useIcons({
             allowClear,
@@ -377,6 +380,7 @@ function generatePicker<DateType extends AnyObject = AnyObject>(generateConfig: 
                 ref={innerRef}
                 placeholder={getPlaceholder(locale.value, mergedPicker.value, placeholder)}
                 suffix={suffixNode}
+                prefix={mergedPrefix}
                 placement={placement}
                 prevIcon={<span class={`${prefixCls.value}-prev-icon`} />}
                 nextIcon={<span class={`${prefixCls.value}-next-icon`} />}
