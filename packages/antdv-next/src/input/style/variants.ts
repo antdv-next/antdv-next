@@ -203,10 +203,8 @@ export function genBorderlessStyle(token: InputToken, extraStyles?: CSSObject): 
   return {
     '&-borderless': {
       background: 'transparent',
-      // Keep the border box (same as Select) so variant switching only transitions colors.
-      borderWidth: token.lineWidth,
-      borderStyle: token.lineType,
-      borderColor: 'transparent',
+      // Reserve border space for consistent control heights and a stable transition origin.
+      border: `${unit(token.lineWidth)} ${token.lineType} transparent`,
 
       '&:focus, &:focus-within': {
         outline: 'none',
