@@ -459,6 +459,8 @@ describe('skeleton', () => {
     it('should render numeric size as inline style', () => {
       const wrapper = mount(Skeleton.Avatar, { props: { size: 20 } })
       const el = wrapper.find('.ant-skeleton-avatar')
+      expect(el.attributes('style')).toContain('width: 20px')
+      expect(el.attributes('style')).toContain('height: 20px')
       expect(el.attributes('style')).toContain('line-height: 20px')
     })
 

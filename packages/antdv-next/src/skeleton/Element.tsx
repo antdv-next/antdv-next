@@ -49,8 +49,8 @@ const Element = defineComponent<SkeletonElementProps>(
       })
       const sizeStyle = typeof size === 'number'
         ? {
-            width: size,
-            height: size,
+            width: `${size}px`,
+            height: `${size}px`,
             lineHeight: `${size}px`,
           }
         : {}
