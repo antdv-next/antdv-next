@@ -103,7 +103,7 @@ onMounted(() => {
             <a-col :xs="24" :sm="12" :lg="8" :xl="6">
               <RouterLink :to="locale === 'zh-CN' ? `${comp.key}-cn` : comp.key" style="text-decoration: none; color: inherit;">
                 <a-border-beam :duration="6" :line-width="2">
-                  <a-card size="small" class="components-overview-card" :class="[siderLocales?.[comp.key]?.[locale] === 'BorderBeam' ? 'hasBorderBeam' : '']">
+                  <a-card size="small" class="components-overview-card" :class="[getComponentName(comp.key) === 'BorderBeam' ? 'hasBorderBeam' : '']">
                     <template #title>
                       <div class="components-overview-title">
                         {{ siderLocales?.[comp.key]?.[locale] ?? comp.label }}
