@@ -90,39 +90,41 @@ onMounted(() => {
       </div>
     </a-affix>
     <a-divider />
-    <template v-for="group in searchMenus" :key="group.key">
-      <div class="component-overview">
-        <h2 class="component-overview-group-title">
-          <a-space>
-            {{ siderLocales?.[group.key]?.[locale] ?? group.label }}
-            <a-tag>{{ group.children.length }}</a-tag>
-          </a-space>
-        </h2>
-        <a-row :gutter="[24, 24]">
-          <template v-for="comp in group.children" :key="comp.key">
-            <a-col :xs="24" :sm="12" :lg="8" :xl="6">
-              <RouterLink :to="locale === 'zh-CN' ? `${comp.key}-cn` : comp.key" style="text-decoration: none; color: inherit;">
-                <a-border-beam :duration="6" :line-width="2">
-                  <a-card size="small" class="components-overview-card" :class="[getComponentName(comp.key) === 'BorderBeam' ? 'hasBorderBeam' : '']">
-                    <template #title>
-                      <div class="components-overview-title">
-                        {{ siderLocales?.[comp.key]?.[locale] ?? comp.label }}
+    <div class="components-overview-content">
+      <template v-for="group in searchMenus" :key="group.key">
+        <div class="component-overview">
+          <h2 class="component-overview-group-title">
+            <a-space>
+              {{ siderLocales?.[group.key]?.[locale] ?? group.label }}
+              <a-tag>{{ group.children.length }}</a-tag>
+            </a-space>
+          </h2>
+          <a-row :gutter="[24, 24]">
+            <template v-for="comp in group.children" :key="comp.key">
+              <a-col :xs="24" :sm="12" :lg="8" :xl="6">
+                <RouterLink :to="locale === 'zh-CN' ? `${comp.key}-cn` : comp.key" style="text-decoration: none; color: inherit;">
+                  <a-border-beam :duration="6" :line-width="2">
+                    <a-card size="small" class="components-overview-card" :class="[getComponentName(comp.key) === 'BorderBeam' ? 'hasBorderBeam' : '']">
+                      <template #title>
+                        <div class="components-overview-title">
+                          {{ siderLocales?.[comp.key]?.[locale] ?? comp.label }}
+                        </div>
+                      </template>
+                      <div class="components-overview-img">
+                        <img
+                          :src="darkMode ? covers?.[getComponentName(comp.key)]?.coverDark : covers?.[getComponentName(comp.key)]?.cover"
+                          :alt="siderLocales?.[comp.key]?.[locale] ?? comp.label"
+                        >
                       </div>
-                    </template>
-                    <div class="components-overview-img">
-                      <img
-                        :src="darkMode ? covers?.[getComponentName(comp.key)]?.coverDark : covers?.[getComponentName(comp.key)]?.cover"
-                        :alt="siderLocales?.[comp.key]?.[locale] ?? comp.label"
-                      >
-                    </div>
-                  </a-card>
-                </a-border-beam>
-              </RouterLink>
-            </a-col>
-          </template>
-        </a-row>
-      </div>
-    </template>
+                    </a-card>
+                  </a-border-beam>
+                </RouterLink>
+              </a-col>
+            </template>
+          </a-row>
+        </div>
+      </template>
+    </div>
   </section>
 </template>
 
@@ -170,6 +172,18 @@ onMounted(() => {
     border: 0 solid;
     background-color: var(--ant-color-bg-elevated);
     box-shadow: var(--ant-box-shadow-secondary);
+  }
+
+  // 搜索无匹配时容器为空，与 ant-design 一致地展示 Not Found 提示
+  &-content {
+    &:empty::after {
+      display: block;
+      padding: var(--ant-padding) 0 calc(var(--ant-padding-md) * 2);
+      color: var(--ant-color-text-disabled);
+      text-align: center;
+      border-bottom: 1px solid var(--ant-color-split);
+      content: 'Not Found';
+    }
   }
 }
 
