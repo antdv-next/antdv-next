@@ -5,6 +5,8 @@ export interface Frontmatter {
   subtitle?: string
   description?: string
   tag?: string
+  author?: string
+  datetime?: string
   demo?: {
     cols?: number
     class?: string

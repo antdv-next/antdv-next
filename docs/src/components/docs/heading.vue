@@ -5,6 +5,7 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { usePageInfo } from '@/composables/doc-page.ts'
 import ComponentMeta from './component-meta.vue'
+import DocMeta from './doc-meta.vue'
 
 defineOptions({
   name: 'DocHeading',
@@ -51,5 +52,6 @@ const githubUrl = computed(() => {
     </a-space>
   </a-typography-title>
   {{ frontmatter?.description }}
+  <DocMeta :frontmatter="frontmatter" />
   <ComponentMeta :frontmatter="frontmatter" />
 </template>
