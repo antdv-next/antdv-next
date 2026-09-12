@@ -69,6 +69,7 @@ const value = computed(() => {
         <div :style="{ display: 'flex', flexDirection: 'column', gap: '12px' }">
           <a-cascader
             prefix="prefix"
+            placeholder="Please select"
             :style="{ width: '300px' }"
             :options="options"
             :value="value"
