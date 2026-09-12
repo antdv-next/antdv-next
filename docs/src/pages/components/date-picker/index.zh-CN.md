@@ -255,6 +255,7 @@ export type FormatType
 
 | 插槽 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
+| prefix | 自定义前缀 | () => any | - |
 | suffixIcon | 自定义的选择框后缀图标 | () => any | - |
 | renderExtraFooter | 在面板中添加额外的页脚 | (mode: PickerMode) => any | - |
 | panelRender | 自定义渲染面板 | (originPanel: VueNode) => any | - |

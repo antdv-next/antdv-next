@@ -253,6 +253,7 @@ export type FormatType
 
 | Slot | Description | Type | Version |
 | --- | --- | --- | --- |
+| prefix | The custom prefix | () => any | - |
 | suffixIcon | The custom suffix icon | () => any | - |
 | renderExtraFooter | Render extra footer in panel | (mode: PickerMode) => any | - |
 | panelRender | Customize panel render | (originPanel: VueNode) => any | - |

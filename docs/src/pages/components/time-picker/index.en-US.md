@@ -43,6 +43,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | allowClear | Customize clear icon | boolean \| \{ clearIcon?: VueNode \} | true | 5.8.0: Support object type | ✓ |
+| ~~addon~~ | Called from time picker panel to render an addon to its bottom, please use `renderExtraFooter` instead | () => VueNode | - | - | × |
 | cellRender | Custom rendering function for picker cells | (current: number, info: \{ originNode: VueNode, today: dayjs, range?: 'start' \| 'end', subType: 'hour' \| 'minute' \| 'second' \| 'meridiem' \}) => VueNode | - | 5.4.0 | × |
 | changeOnScroll | Trigger selection when scroll the column | boolean | false | 5.14.0 | × |
 | classes | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: \{ props \})=> Record<[SemanticDOM](#semantic-dom), string> | - |  | ✓ |
@@ -94,12 +95,21 @@ type DisabledTime = (now: Dayjs) => {
 
 Note: `disabledMilliseconds` is added in `5.14.0`.
 
-## Methods
+#### Methods
 
 | Name    | Description  | Version |
 | ------- | ------------ | ------- |
 | blur()  | Remove focus |         |
 | focus() | Get focus    |         |
+
+#### Slots
+
+| Slot | Description | Type | Version |
+| --- | --- | --- | --- |
+| ~~addon~~ | Deprecated. Use `renderExtraFooter` instead | () => any | - |
+| renderExtraFooter | Called from time picker panel to render some addon to its bottom | (mode: PickerMode) => any | - |
+| suffixIcon | The custom suffix icon | () => any | - |
+| prefix | The custom prefix | () => any | - |
 
 ### RangePicker
 
