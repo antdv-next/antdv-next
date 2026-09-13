@@ -9,13 +9,13 @@ Customize semantic structure styles and class names. Supports both object and fu
 <script setup lang="ts">
 import type { SpaceProps } from 'antdv-next'
 
-const classNamesObject: SpaceProps['classes'] = {
+const classesObject: SpaceProps['classes'] = {
   root: 'demo-space-root',
   item: 'demo-space-item',
   separator: 'demo-space-separator',
 }
 
-const classNamesFn: SpaceProps['classes'] = (info) => {
+const classesFn: SpaceProps['classes'] = (info) => {
   if (info.props.orientation === 'vertical') {
     return {
       root: 'demo-space-root--vertical',
@@ -57,12 +57,12 @@ const stylesFn: SpaceProps['styles'] = (info) => {
 
 <template>
   <div>
-    <a-space :styles="stylesObject" :classes="classNamesObject" separator="•">
+    <a-space :styles="stylesObject" :classes="classesObject" separator="•">
       <a-button>Styled Button 1</a-button>
       <a-button>Styled Button 2</a-button>
       <a-button>Styled Button 3</a-button>
     </a-space>
-    <a-space size="large" :styles="stylesFn" :classes="classNamesFn">
+    <a-space size="large" :styles="stylesFn" :classes="classesFn">
       <a-button>Large Space Button 1</a-button>
       <a-button>Large Space Button 2</a-button>
       <a-button>Large Space Button 3</a-button>

@@ -26,7 +26,7 @@ const users: User[] = [
   { id: 7, name: 'Lucas', team: 'Marketing' },
 ]
 
-const classNames: ListyProps['classes'] = {
+const classes: ListyProps['classes'] = {
   root: 'listy-custom-root',
   groupHeader: 'listy-custom-group-header',
 }
@@ -44,7 +44,7 @@ const styles: ListyProps['styles'] = {
     sticky
     :group="{ key: (user: User) => user.team, title: (team: unknown) => team }"
     :item-render="(user: User) => user.name"
-    :classes="classNames"
+    :classes="classes"
     :styles="styles"
   />
 </template>

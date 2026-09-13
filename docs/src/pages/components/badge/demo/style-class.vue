@@ -67,7 +67,7 @@ function ribbonStylesFn(info: any) {
     <a-flex vertical gap="medium">
       <a-badge-ribbon text="Custom Ribbon" :classes="ribbonClasses" :styles="ribbonStyles">
         <a-card title="Card with custom ribbon" size="small">
-          This card has a customized ribbon with semantic classNames and styles.
+          This card has a customized ribbon with semantic classes and styles.
         </a-card>
       </a-badge-ribbon>
       <a-badge-ribbon
@@ -77,7 +77,7 @@ function ribbonStylesFn(info: any) {
         :styles="ribbonStylesFn"
       >
         <a-card title="Card with custom ribbon" size="small">
-          This card has a customized ribbon with semantic classNames and styles.
+          This card has a customized ribbon with semantic classes and styles.
         </a-card>
       </a-badge-ribbon>
     </a-flex>
