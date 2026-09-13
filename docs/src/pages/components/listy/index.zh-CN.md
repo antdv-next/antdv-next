@@ -81,7 +81,7 @@ tag: 1.5.0
 
 `align` 可选 `'top' | 'bottom' | 'auto'`；`offset` 为对齐后额外的像素偏移。
 
-## Semantic DOM
+## 语义化 DOM {#semantic-dom}
 
 <demo src="./demo/_semantic.vue" :simplify="true"></demo>
 
