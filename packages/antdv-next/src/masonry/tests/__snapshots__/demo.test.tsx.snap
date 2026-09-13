@@ -2321,7 +2321,7 @@ exports[`masonry demo > renders style-class correctly 1`] = `
       class="ant-typography css-var-root"
     >
       <!---->
-       classNames and styles Object 
+       classes and styles Object 
       <!---->
       <!---->
       <!---->
@@ -2515,7 +2515,7 @@ exports[`masonry demo > renders style-class correctly 1`] = `
       class="ant-typography css-var-root"
     >
       <!---->
-       classNames and styles Function 
+       classes and styles Function 
       <!---->
       <!---->
       <!---->

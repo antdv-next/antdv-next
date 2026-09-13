@@ -2920,7 +2920,7 @@ exports[`badge demo > renders style-class correctly 1`] = `
           <div
             class="ant-card-body"
           >
-             This card has a customized ribbon with semantic classNames and styles. 
+             This card has a customized ribbon with semantic classes and styles. 
           </div>
           <!---->
         </div>
@@ -2963,7 +2963,7 @@ exports[`badge demo > renders style-class correctly 1`] = `
           <div
             class="ant-card-body"
           >
-             This card has a customized ribbon with semantic classNames and styles. 
+             This card has a customized ribbon with semantic classes and styles. 
           </div>
           <!---->
         </div>
