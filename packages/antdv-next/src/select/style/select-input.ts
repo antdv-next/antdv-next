@@ -91,7 +91,7 @@ function genSelectInputFocusVisibleStyle(token: SelectToken, outlineColor: strin
 }
 
 const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
-  const { componentCls, fontHeight, controlHeight, iconCls, antCls, calc } = token
+  const { componentCls, controlHeight, iconCls, antCls, calc } = token
   const [varName, varRef] = genCssVar(antCls, 'select')
   const contentMarginInlineEnd = token.max(
     calc(token.showArrowPaddingInlineEnd).sub(token.fontSizeIcon).equal(),
@@ -110,14 +110,14 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         // Font
         [varName('font-size')]: token.fontSize,
         [varName('line-height')]: token.lineHeight,
-        [varName('font-height')]: fontHeight,
+        [varName('font-height')]: `calc(${varRef('font-size')} * ${varRef('line-height')})`,
         [varName('color')]: token.colorText,
         // Size
         [varName('height')]: controlHeight,
 
         [varName('padding-horizontal')]: calc(token.paddingSM).sub(token.lineWidth).equal(),
         [varName('padding-vertical')]:
-          `calc((${varRef('height')} - ${varRef('font-height')}) / 2 - ${varRef('border-size')})`,
+          `max(calc((${varRef('height')} - ${varRef('font-height')}) / 2 - ${varRef('border-size')}), 0px)`,
 
         // ==========================================================
         // ==                         Base                         ==
@@ -249,7 +249,6 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
           [varName('height')]: token.controlHeightLG,
           [varName('font-size')]: token.fontSizeLG,
           [varName('line-height')]: token.lineHeightLG,
-          [varName('font-height')]: token.fontHeightLG,
           [varName('border-radius')]: token.borderRadiusLG,
         },
       },

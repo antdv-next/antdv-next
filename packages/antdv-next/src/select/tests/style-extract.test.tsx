@@ -58,4 +58,12 @@ describe('select style extract', () => {
     expect(styleText).toContain('--ant-select-border-color:var(--ant-color-error-border-hover)')
     expect(styleText).toContain('--ant-select-color:var(--ant-color-error-text)')
   })
+
+  it('derives font-height from font-size and line-height instead of the static fontHeight token', async () => {
+    const styleText = await extractSelectStyle()
+
+    expect(styleText).toContain('--ant-select-font-height:calc(var(--ant-select-font-size) * var(--ant-select-line-height))')
+    expect(styleText).not.toContain('--ant-select-font-height:var(--ant-font-height)')
+    expect(styleText).toContain('max(calc((var(--ant-select-height) - var(--ant-select-font-height)) / 2 - var(--ant-select-border-size)), 0px)')
+  })
 })
