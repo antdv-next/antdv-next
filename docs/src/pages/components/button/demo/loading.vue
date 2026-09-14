@@ -44,8 +44,8 @@ function enterLoading(index: number) {
       <a-button type="primary" :loading="loadings[0]" @click="enterLoading(0)">
         Icon Start
       </a-button>
-      <a-button type="primary" :loading="loadings[2]" @click="enterLoading(2)">
-        IconEnd
+      <a-button type="primary" :loading="loadings[2]" icon-placement="end" @click="enterLoading(2)">
+        Icon End
       </a-button>
       <a-button type="primary" :loading="loadings[1]" @click="enterLoading(1)">
         Icon Replace

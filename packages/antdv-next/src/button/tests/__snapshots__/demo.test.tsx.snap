@@ -3856,7 +3856,7 @@ exports[`button demo > renders loading correctly 1`] = `
       <!---->
     </button>
     <button
-      class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-end"
       type="button"
     >
       <transition-stub
@@ -3874,7 +3874,7 @@ exports[`button demo > renders loading correctly 1`] = `
         <!---->
       </transition-stub>
       <span>
-         IconEnd 
+         Icon End 
       </span>
       <!---->
     </button>
