@@ -42,7 +42,7 @@ function downloadSvgQRCode() {
   <a-space vertical>
     <a-segmented v-model:value="renderType" :options="['canvas', 'svg']" />
     <div>
-      <a-qrcode ref="qrcode" :type="renderType" value="https://ant.design" bg-color="rgba(255,255,255,0.5)" style="margin-bottom: 16px;" icon="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" />
+      <a-qrcode ref="qrcode" :type="renderType" value="https://ant.design" bg-color="rgba(255,255,255,0.5)" style="margin-bottom: 16px;" icon="/antdv-next.svg" />
       <a-button type="primary" @click="renderType === 'canvas' ? downloadCanvasQRCode() : downloadSvgQRCode()">
         download
       </a-button>
