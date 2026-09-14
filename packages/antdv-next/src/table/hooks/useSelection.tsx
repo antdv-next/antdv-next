@@ -112,15 +112,22 @@ export default function useSelection<RecordType extends AnyObject = AnyObject>(
           record = preserveRecordsRef.value.get(key) as RecordType
         }
 
-        newCache.set(key, record)
+        // Selected keys can be restored before their records have loaded.
+        if (record !== undefined) {
+          newCache.set(key, record)
+        }
       })
       preserveRecordsRef.value = newCache
     }
   }
 
-  watch(mergedSelectedKeys, (nextKeys) => {
-    updatePreserveRecordsCache(nextKeys)
-  })
+  watch(
+    [mergedSelectedKeys, data, preserveSelectedRowKeys],
+    ([nextKeys]) => {
+      updatePreserveRecordsCache(nextKeys)
+    },
+    { immediate: true },
+  )
 
   const flattedData = computed(() =>
     flattenData(childrenColumnName.value as keyof RecordType, pageData.value as RecordType[]),
