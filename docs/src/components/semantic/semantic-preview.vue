@@ -229,8 +229,6 @@ function togglePin(semanticName: string) {
 .semantic-preview-container {
   position: relative;
   z-index: 0;
-  border: 1px solid var(--ant-color-border-secondary);
-  border-radius: var(--ant-border-radius-lg);
 }
 
 .semantic-preview-col {
