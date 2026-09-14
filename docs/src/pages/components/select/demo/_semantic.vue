@@ -69,6 +69,7 @@ const divRef = ref<HTMLDivElement | null>(null)
             :options="options"
             :value="value"
             :mode="mode === 'multiple' ? 'multiple' : undefined"
+            allow-clear
             open
             :get-popup-container="() => divRef!"
             :classes="classes"

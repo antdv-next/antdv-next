@@ -39,6 +39,7 @@ const divRef = ref<HTMLDivElement | null>(null)
           :style="{ width: '200px' }"
           :options="options"
           placeholder="input here"
+          allow-clear
           open
           :get-popup-container="() => divRef!"
           :classes="classes"
