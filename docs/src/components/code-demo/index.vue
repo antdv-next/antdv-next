@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { provideDemoContext } from '@antdv-next/docs-plugins/component/code-demo/context'
 import CodeDemo from '@antdv-next/docs-plugins/component/code-demo/index.vue'
+import { ThemeProvider } from 'antdv-style'
 import { h } from 'vue'
 import { useLocale } from '@/composables/use-locale'
 import { useAppStore } from '@/stores/app.ts'
@@ -51,7 +52,9 @@ provideDemoContext({
 </script>
 
 <template>
-  <CodeDemo v-bind="props">
-    <slot />
-  </CodeDemo>
+  <ThemeProvider>
+    <CodeDemo v-bind="props">
+      <slot />
+    </CodeDemo>
+  </ThemeProvider>
 </template>
