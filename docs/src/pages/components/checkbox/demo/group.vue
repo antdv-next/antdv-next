@@ -7,8 +7,6 @@ Generate a group of checkboxes from an array.
 </docs>
 
 <script setup lang="ts">
-import { shallowRef } from 'vue'
-
 const plainOptions = ['Apple', 'Pear', 'Orange']
 
 const options: any[] = [
@@ -23,15 +21,17 @@ const optionsWithDisabled: any[] = [
   { label: 'Orange', value: 'Orange', className: 'label-3', disabled: false },
 ]
 
-const val = shallowRef()
+function onChange(checkedValues: any[]) {
+  console.log('checked = ', checkedValues)
+}
 </script>
 
 <template>
-  <a-checkbox-group v-model:value="val" :default-value="['Apple']" :options="plainOptions" />
+  <a-checkbox-group :options="plainOptions" :default-value="['Apple']" @change="onChange" />
   <br>
   <br>
-  <a-checkbox-group v-model:value="val" :default-value="['Apple']" :options="options" />
+  <a-checkbox-group :options="options" :default-value="['Pear']" @change="onChange" />
   <br>
   <br>
-  <a-checkbox-group v-model:value="val" disabled :default-value="['Apple']" :options="optionsWithDisabled" />
+  <a-checkbox-group disabled :options="optionsWithDisabled" :default-value="['Apple']" @change="onChange" />
 </template>

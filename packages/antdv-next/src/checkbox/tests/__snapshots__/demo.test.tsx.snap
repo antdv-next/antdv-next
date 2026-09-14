@@ -741,13 +741,12 @@ exports[`checkbox demo > renders group correctly 1`] = `
     role="group"
   >
     <label
-      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item css-var-root ant-checkbox-css-var"
+      class="ant-checkbox-wrapper ant-checkbox-group-item css-var-root ant-checkbox-css-var"
     >
       <span
-        class="ant-checkbox ant-wave-target ant-checkbox-checked ant-wave-target"
+        class="ant-checkbox ant-wave-target ant-wave-target"
       >
         <input
-          checked=""
           class="ant-checkbox-input"
           type="checkbox"
         />
@@ -759,12 +758,13 @@ exports[`checkbox demo > renders group correctly 1`] = `
       </span>
     </label>
     <label
-      class="ant-checkbox-wrapper ant-checkbox-group-item css-var-root ant-checkbox-css-var"
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item css-var-root ant-checkbox-css-var"
     >
       <span
-        class="ant-checkbox ant-wave-target ant-wave-target"
+        class="ant-checkbox ant-wave-target ant-checkbox-checked ant-wave-target"
       >
         <input
+          checked=""
           class="ant-checkbox-input"
           type="checkbox"
         />
