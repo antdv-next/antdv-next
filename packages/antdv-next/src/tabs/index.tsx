@@ -404,7 +404,6 @@ const InternalTabs = defineComponent<
       return (
         <VcTabs
           ref={tabsRef}
-          direction={direction.value}
           getPopupContainer={getPopupContainer}
           {...restAttrs}
           {...restProps}
@@ -426,6 +425,9 @@ const InternalTabs = defineComponent<
           indicator={mergedIndicator.value}
           destroyOnHidden={props.destroyOnHidden ?? props.destroyInactiveTabPane}
           tabPosition={mergedPlacement.value}
+          // must stay after the spreads: `restProps` carries `direction: undefined`
+          // (inherited VcTabs prop) which would clobber the context-derived value (#883)
+          direction={props.direction ?? direction.value}
           onChange={onInternalChange}
           onTabClick={onInternalTabClick}
           onTabScroll={onInternalTabScroll}

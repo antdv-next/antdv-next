@@ -2,6 +2,7 @@ import type { Tab } from '..'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { h, nextTick } from 'vue'
 import Tabs from '..'
+import App from '../../app'
 import ConfigProvider from '../../config-provider'
 import TabPane from '../TabPane'
 import mountTest from '/@tests/shared/mountTest'
@@ -884,7 +885,7 @@ describe('tabs', () => {
 
   // ========================= RTL =========================
   describe('rTL', () => {
-    it('renders in rtl direction', () => {
+    it('adds -rtl class from ConfigProvider direction', () => {
       const wrapper = mount({
         render() {
           return (
@@ -895,8 +896,27 @@ describe('tabs', () => {
         },
       }, { attachTo: document.body })
       const root = document.querySelector('.ant-tabs')
-      // VcTabs handles RTL via direction prop
-      expect(root).toBeTruthy()
+      // VcTabs adds the -rtl class from the direction prop
+      expect(root?.classList.contains('ant-tabs-rtl')).toBe(true)
+      wrapper.unmount()
+    })
+
+    it('keeps -rtl class when wrapped in App (#883)', () => {
+      const wrapper = mount({
+        render() {
+          return (
+            <ConfigProvider direction="rtl">
+              <App>
+                <Tabs items={defaultItems} tabPlacement="start" />
+              </App>
+            </ConfigProvider>
+          )
+        },
+      }, { attachTo: document.body })
+      const root = document.querySelector('.ant-tabs')
+      expect(root?.classList.contains('ant-tabs-rtl')).toBe(true)
+      // start → right in RTL
+      expect(root?.classList.contains('ant-tabs-right')).toBe(true)
       wrapper.unmount()
     })
   })

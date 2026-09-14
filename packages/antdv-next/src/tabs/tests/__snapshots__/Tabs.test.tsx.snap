@@ -43,7 +43,7 @@ exports[`tabs > rtl render > component should be rendered correctly in RTL direc
   data-v-app=""
 >
   <div
-    class="ant-tabs ant-tabs-top css-var-root ant-tabs-css-var"
+    class="ant-tabs ant-tabs-top ant-tabs-rtl css-var-root ant-tabs-css-var"
   >
     <div
       aria-orientation="horizontal"
@@ -149,7 +149,7 @@ exports[`tabs > rtl render > component should be rendered correctly in RTL direc
     <div
       class="ant-tabs-body-holder"
       mobile="false"
-      rtl="false"
+      rtl="true"
     >
       <div
         class="ant-tabs-body ant-tabs-body-top"
