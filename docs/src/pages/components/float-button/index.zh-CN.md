@@ -109,8 +109,8 @@ demo:
 | target | 设置需要监听其滚动事件的元素 | () =&gt; HTMLElement | () =&gt; window | - |
 | visibilityHeight | 滚动高度达到此参数值才出现 BackTop | number | 400 | - |
 | target | 相当于 a 标签的 target 属性，href 存在时生效 | '_self' \| '_blank' \| '_parent' \| '_top' \| string | - | - |
-| badge | 带徽标数字的悬浮按钮（不支持 `status` 以及相关属性） | FloatButtonBadgeProps & &#123; class?: string &#125; | - | 5.4.0 |
-| htmlType | 设置 `button` 原生的 `type` 值，可选值请参考 [HTML 标准](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button#type) | ButtonHTMLType | `button` | 5.21.0 |
+| badge | 带徽标数字的悬浮按钮（不支持 `status` 以及相关属性） | FloatButtonBadgeProps & &#123; class?: string &#125; | - | - |
+| htmlType | 设置 `button` 原生的 `type` 值，可选值请参考 [HTML 标准](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/button#type) | ButtonHTMLType | `button` | - |
 | ariaLabel | - | string | - | - |
 | style | - | CSSProperties | - | - |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | FloatButtonClassNamesType | - | - |

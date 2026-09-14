@@ -43,7 +43,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| actions | A set of operations that are sorted from top to bottom. When an array of strings is provided, default buttons will be used; when an array of VueNode is provided, custom elements will be used | VueNode[] | [`>`, `<`] | 6.0.0 | × |
+| actions | A set of operations that are sorted from top to bottom. When an array of strings is provided, default buttons will be used; when an array of VueNode is provided, custom elements will be used | VueNode[] | [`>`, `<`] | - | × |
 | classes | Customize class for each semantic structure inside the component. Supports object or function | TransferClassNamesType | - | - | ✓ |
 | dataSource | Used for setting the source data. The elements that are part of this array will be present the left column. Except the elements whose keys are included in `targetKeys` prop | TransferItem[] | [] | - | × |
 | disabled | Whether disabled transfer | boolean | false | - | × |

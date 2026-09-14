@@ -45,7 +45,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*d27AQJrowGAAAA
 | colon | 配置 `Descriptions.Item` 的 `colon` 的默认值。表示是否显示 label 后面的冒号 | boolean | true | - | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | DescriptionsStylesType | - | - | ✓ |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | DescriptionsClassNamesType | - | - | ✓ |
-| items | 描述列表项内容 | DescriptionsItemType[] | - | 5.8.0 | × |
+| items | 描述列表项内容 | DescriptionsItemType[] | - | - | × |
 | id | - | string | - | - | × |
 
 ### 插槽 {#slots}

@@ -16,7 +16,7 @@ For displaying anchor hyperlinks on page and jumping between them.
 
 > Notes for developers
 >
-> After version `4.24.0`, we rewrite Anchor use FC, Some methods of obtaining `ref` and calling internal instance methods will invalid.
+> After version `-`, we rewrite Anchor use FC, Some methods of obtaining `ref` and calling internal instance methods will invalid.
 
 ## Examples {#examples}
 
@@ -103,7 +103,7 @@ See [Customize Theme](/docs/vue/customize-theme) to learn how to use Design Toke
 
 ## FAQ
 
-### In version `5.25.0+`, the `:target` pseudo-class of the destination element does not take effect as expected after anchor navigation. {#faq-target-pseudo-class}
+### In version `-`, the `:target` pseudo-class of the destination element does not take effect as expected after anchor navigation. {#faq-target-pseudo-class}
 
 For the purpose of page performance optimization, the implementation of anchor navigation has been changed from `window.location.href` to `window.history.pushState/replaceState`. Since `pushState/replaceState` does not trigger a page reload, the browser will not automatically update the matching state of the `:target` pseudo-class. To resolve this issue, you can manually construct the full URL: `href = window.location.origin + window.location.pathname + '#xxx'`.
 

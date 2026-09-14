@@ -44,7 +44,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*g9vUQq2nkpEAAA
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| actions | 操作文案集合，顺序从上至下。当为字符串数组时使用默认的按钮，当为 VueNode 数组时直接使用自定义元素 | VueNode[] | [`>`, `<`] | 6.0.0 | × |
+| actions | 操作文案集合，顺序从上至下。当为字符串数组时使用默认的按钮，当为 VueNode 数组时直接使用自定义元素 | VueNode[] | [`>`, `<`] | - | × |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | TransferClassNamesType | - | - | ✓ |
 | dataSource | 数据源，其中的数据将会被渲染到左边一栏中，`targetKeys` 中指定的除外 | TransferItem[] | [] | - | × |
 | disabled | 是否禁用 | boolean | false | - | × |

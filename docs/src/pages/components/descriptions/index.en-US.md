@@ -44,7 +44,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | colon | Change default props `colon` value of Descriptions.Item. Indicates whether the colon after the label is displayed | boolean | true | - | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | DescriptionsStylesType | - | - | ✓ |
 | classes | Customize class for each semantic structure inside the component. Supports object or function. | DescriptionsClassNamesType | - | - | ✓ |
-| items | Describe the contents of the list item | DescriptionsItemType[] | - | 5.8.0 | × |
+| items | Describe the contents of the list item | DescriptionsItemType[] | - | - | × |
 | id | - | string | - | - | × |
 
 ### Slots

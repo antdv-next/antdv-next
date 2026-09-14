@@ -43,7 +43,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | classes | Customize class for each semantic structure inside the component. Supports object or function. | ImageClassNamesType | - | - | ✓ |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | ImageStylesType | - | - | ✓ |
 | rootClass | - | string | - | - | × |
-| alt | Image description | string | - | _ | × |
+| alt | Image description | string | - | - | × |
 | height | Image height | string \| number | - | - | × |
 | src | Image URL | string | - | - | × |
 | width | Image width | string \| number | - | - | × |

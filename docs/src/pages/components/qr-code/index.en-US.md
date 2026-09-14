@@ -21,14 +21,14 @@ Used when the text needs to be converted into a QR Code.
 <demo src="./demo/base.vue">base</demo>
 <demo src="./demo/icon.vue">With Icon</demo>
 <demo src="./demo/status.vue">other status</demo>
-<demo src="./demo/customStatusRender.vue" version="5.20.0">custom status render</demo>
+<demo src="./demo/customStatusRender.vue" version="-">custom status render</demo>
 <demo src="./demo/type.vue">Custom Render Type</demo>
 <demo src="./demo/customSize.vue">Custom Size</demo>
 <demo src="./demo/customColor.vue">Custom Color</demo>
 <demo src="./demo/download.vue">Download QRCode</demo>
 <demo src="./demo/errorLevel.vue">Error Level</demo>
 <demo src="./demo/Popover.vue">Advanced Usage</demo>
-<!-- <demo src="./demo/style-class.vue" version="6.0.0">Custom semantic dom styling</demo> -->
+<!-- <demo src="./demo/style-class.vue" version="-">Custom semantic dom styling</demo> -->
 
 ## API
 

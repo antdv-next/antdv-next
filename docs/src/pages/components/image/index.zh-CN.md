@@ -44,7 +44,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | ImageClassNamesType | - | - | ✓ |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | ImageStylesType | - | - | ✓ |
 | rootClass | - | string | - | - | × |
-| alt | 图像描述 | string | - | _ | × |
+| alt | 图像描述 | string | - | - | × |
 | height | 图像高度 | string \| number | - | - | × |
 | src | 图片地址 | string | - | - | × |
 | width | 图像宽度 | string \| number | - | - | × |

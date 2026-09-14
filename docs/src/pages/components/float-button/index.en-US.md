@@ -108,8 +108,8 @@ Common props ref：[Common props](/docs/vue/common-props)
 | target | Specifies the scrollable area dom node | () =&gt; HTMLElement | () =&gt; window | - |
 | visibilityHeight | The BackTop button will not show until the scroll height reaches this value | number | 400 | - |
 | target | Specifies where to display the linked URL | '_self' \| '_blank' \| '_parent' \| '_top' \| string | - | - |
-| badge | Attach Badge to FloatButton. `status` and other props related are not supported. | FloatButtonBadgeProps & &#123; class?: string &#125; | - | 5.4.0 |
-| htmlType | Set the original html `type` of `button`, see: [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#type) | ButtonHTMLType | `button` | 5.21.0 |
+| badge | Attach Badge to FloatButton. `status` and other props related are not supported. | FloatButtonBadgeProps & &#123; class?: string &#125; | - | - |
+| htmlType | Set the original html `type` of `button`, see: [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#type) | ButtonHTMLType | `button` | - |
 | ariaLabel | - | string | - | - |
 | style | - | CSSProperties | - | - |
 | classes | Customize class for each semantic structure inside the component. Supports object or function. | FloatButtonClassNamesType | - | - |

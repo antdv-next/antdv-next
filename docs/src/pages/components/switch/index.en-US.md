@@ -40,14 +40,14 @@ Common props ref：[Common props](/docs/vue/common-props)
 | checkedValue | The value when checked | string \| number \| boolean \| object | true | - | × |
 | classes | Customize class for each semantic structure inside the component. Supports object or function | SwitchClassNamesType | - | - | ✓ |
 | defaultChecked | Whether to set the initial state | string \| number \| boolean \| object | false | - | × |
-| defaultValue | Alias for `defaultChecked` | string \| number \| boolean \| object | - | 5.12.0 | × |
+| defaultValue | Alias for `defaultChecked` | string \| number \| boolean \| object | - | - | × |
 | disabled | Disable switch | boolean | false | - | × |
 | loading | Loading state of switch | boolean | false | - | × |
 | size | The size of the Switch, options: `medium` `small` | `medium` \| `small` | `medium` | - | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function | SwitchStylesType | - | - | ✓ |
 | unCheckedChildren | The content to be shown when the state is unchecked | VueNode | - | - | × |
 | unCheckedValue | The value when unchecked | string \| number \| boolean \| object | false | - | × |
-| value | Alias for `checked`, support `v-model:value` | string \| number \| boolean \| object | - | 5.12.0 | × |
+| value | Alias for `checked`, support `v-model:value` | string \| number \| boolean \| object | - | - | × |
 
 ### Events {#events}
 

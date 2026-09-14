@@ -42,14 +42,14 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| align | Align items | `start` \| `end` \| `center` \| `baseline` | - | 4.2.0 | × |
+| align | Align items | `start` \| `end` \| `center` \| `baseline` | - | - | × |
 | classes | Customize class for each semantic structure inside the component. Supports object or function | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - | ✓ |
 | orientation | The space direction | `vertical` \| `horizontal` | `horizontal` | - | × |
 | separator | Set separator | VueNode | - | - | × |
-| size | The space size | [Size](#size) \| [[Size](#size), [Size](#size)] | `small` | 4.1.0 \| Array: 4.9.0 | ✓ |
+| size | The space size | [Size](#size) \| [[Size](#size), [Size](#size)] | `small` | - | ✓ |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - | ✓ |
 | vertical | Orientation, Simultaneously configure with `orientation` and prioritize `orientation` | boolean | false | - | × |
-| wrap | Auto wrap line, when `horizontal` effective | boolean | false | 4.9.0 | × |
+| wrap | Auto wrap line, when `horizontal` effective | boolean | false | - | × |
 
 #### Slots {#space-slots}
 
@@ -79,9 +79,9 @@ Use Space.Compact when child form components are compactly connected and the bor
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| block | Option to fit width to its parent's width | boolean | false | 4.24.0 |
+| block | Option to fit width to its parent's width | boolean | false | - |
 | orientation | Set direction of layout | `vertical` \| `horizontal` | `horizontal` | - |
-| size | Set child component size | `large` \| `medium` \| `small` | `medium` | 4.24.0 |
+| size | Set child component size | `large` \| `medium` \| `small` | `medium` | - |
 | vertical | Orientation, Simultaneously configure with `orientation` and prioritize `orientation` | boolean | false | - |
 
 ## Semantic DOM

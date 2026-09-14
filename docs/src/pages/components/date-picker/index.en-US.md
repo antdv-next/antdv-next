@@ -17,14 +17,14 @@ By clicking the input box, you can select a date from a popup calendar.
 <demo-group>
   <demo src="./demo/basic.vue">Basic</demo>
   <demo src="./demo/range-picker.vue">Range Picker</demo>
-  <demo src="./demo/multiple.vue" version="5.14.0">Multiple</demo>
-  <demo src="./demo/needConfirm.vue" version="5.14.0">Need Confirm</demo>
+  <demo src="./demo/multiple.vue" version="-">Multiple</demo>
+  <demo src="./demo/needConfirm.vue" version="-">Need Confirm</demo>
   <demo src="./demo/switchable.vue">Switchable picker</demo>
   <demo src="./demo/format.vue">Date Format</demo>
   <demo src="./demo/value-format.vue">Value Format</demo>
   <demo src="./demo/time.vue">Choose Time</demo>
-  <demo src="./demo/mask.vue" version="5.14.0">Mask Format</demo>
-  <demo src="./demo/date-range.vue" version="5.14.0">Limit Date Range</demo>
+  <demo src="./demo/mask.vue" version="-">Mask Format</demo>
+  <demo src="./demo/date-range.vue" version="-">Limit Date Range</demo>
   <demo src="./demo/disabled.vue">Disabled</demo>
   <demo src="./demo/disabled-date.vue">Disabled Date &amp; Time</demo>
   <demo src="./demo/allow-empty.vue">Allow Empty</demo>
@@ -33,12 +33,12 @@ By clicking the input box, you can select a date from a popup calendar.
   <demo src="./demo/extra-footer.vue">Extra Footer</demo>
   <demo src="./demo/size.vue">Three Sizes</demo>
   <demo src="./demo/cell-render.vue">Customized Cell Rendering</demo>
-  <demo src="./demo/components.vue" version="5.14.0">Customize Panel</demo>
+  <demo src="./demo/components.vue" version="-">Customize Panel</demo>
   <demo src="./demo/external-panel.vue">External use panel</demo>
-  <demo src="./demo/buddhist-era.vue" version="5.14.0">Buddhist Era</demo>
+  <demo src="./demo/buddhist-era.vue" version="-">Buddhist Era</demo>
   <demo src="./demo/status.vue">Status</demo>
-  <demo src="./demo/variant.vue" version="5.13.0">Variants</demo>
-  <demo src="./demo/style-class.vue" version="6.0.0">Custom semantic dom styling</demo>
+  <demo src="./demo/variant.vue" version="-">Variants</demo>
+  <demo src="./demo/style-class.vue" version="-">Custom semantic dom styling</demo>
   <demo src="./demo/placement.vue">Placement</demo>
   <demo src="./demo/suffix.vue">Prefix and Suffix</demo>
 </demo-group>
@@ -53,7 +53,7 @@ There are five kinds of picker:
 - DatePicker[picker="month"]
 - DatePicker[picker="week"]
 - DatePicker[picker="year"]
-- DatePicker[picker="quarter"] (Added in 4.1.0)
+- DatePicker[picker="quarter"] (Added in -)
 - RangePicker
 
 ### Localization
@@ -87,7 +87,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | --- | --- | --- | --- | --- | --- |
 | allowClear | Customize clear button | boolean \| \{ clearIcon?: VueNode \} | true | - | ✓ |
 | classes | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | - | ✓ |
-| dateRender | Custom rendering function for date cells, >= 5.4.0 use `cellRender` instead. | function(currentDate: dayjs, today: dayjs) => VueNode | - | - | × |
+| dateRender | Custom rendering function for date cells, >= - use `cellRender` instead. | function(currentDate: dayjs, today: dayjs) => VueNode | - | - | × |
 | cellRender | Custom rendering function for picker cells | (current: dayjs, info: { originNode: VueNode, today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => VueNode | - | - | × |
 | components | Custom panels. A custom panel component should set `inheritAttrs: false`; otherwise the picker-injected props (e.g. `prefixCls`) fall through to its root node, causing child components (such as Flex) to emit styles under the wrong prefix and break the panel layout | Record<Panel \| 'input', Component> | - | - | × |
 | defaultOpen | Initial open state of picker | boolean | - | - | × |
@@ -113,7 +113,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft | - | × |
 | ~~popupStyle~~ | To customize the style of the popup calendar, use `styles.popup.root` instead | CSSProperties | {} | - | × |
 | prefix | The custom prefix | VueNode | - | - | × |
-| presets | The preset ranges for quick selection, Since `5.8.0`, preset value supports callback function. | { label: VueNode, value: Dayjs \| (() => Dayjs) }[] | - | - | × |
+| presets | The preset ranges for quick selection, Since `-`, preset value supports callback function. | { label: VueNode, value: Dayjs \| (() => Dayjs) }[] | - | - | × |
 | prevIcon | The custom prev icon | VueNode | - | - | × |
 | previewValue | When the user selects the date hover option, the value of the input field undergoes a temporary change | false \| hover | hover | - | × |
 | size | To determine the size of the input box, the height of `large` and `small`, are 40px and 24px respectively, while default size is 32px | `large` \| `medium` \| `small` | - | - | × |
@@ -162,7 +162,7 @@ The following APIs are shared by DatePicker, RangePicker.
 
 ### DatePicker[picker=quarter]
 
-Added in `4.1.0`.
+Added in `-`.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
@@ -199,7 +199,7 @@ Added in `4.1.0`.
 | --- | --- | --- | --- | --- | --- |
 | allowEmpty | Allow start or end input leave empty | [boolean, boolean] | [false, false] | - | × |
 | cellRender | Custom rendering function for picker cells | (current: dayjs, info: { originNode: VueNode, today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => VueNode | - | - | × |
-| dateRender | Custom rendering function for date cells, >= 5.4.0 use `cellRender` instead. | function(currentDate: dayjs, today: dayjs) => VueNode | - | - | × |
+| dateRender | Custom rendering function for date cells, >= - use `cellRender` instead. | function(currentDate: dayjs, today: dayjs) => VueNode | - | - | × |
 | defaultPickerValue | Default panel date, will be reset when panel open | [dayjs](https://day.js.org/)[] | - | - | × |
 | defaultValue | To set default date | [dayjs](https://day.js.org/)[] | - | - | × |
 | disabled | If disable start or end | [boolean, boolean] | - | - | × |
@@ -207,7 +207,7 @@ Added in `4.1.0`.
 | format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY-MM-DD HH:mm:ss` | - | × |
 | id | Config input ids | `{ start?: string, end?: string }` | - | - | × |
 | pickerValue | Panel date. Used for controlled switching of panel date. Work with `onPanelChange` | [dayjs](https://day.js.org/)[] | - | - | × |
-| presets | The preset ranges for quick selection, Since `5.8.0`, preset value supports callback function. | { label: VueNode, value: (Dayjs \| (() => Dayjs))[] }[] | - | - | × |
+| presets | The preset ranges for quick selection, Since `-`, preset value supports callback function. | { label: VueNode, value: (Dayjs \| (() => Dayjs))[] }[] | - | - | × |
 | renderExtraFooter | Render extra footer in panel | () => VueNode | - | - | × |
 | separator | Set separator between inputs | VueNode | `<SwapRightOutlined />` | - | ✓ |
 | showTime | To provide an additional time selection | object \| boolean | [TimePicker Options](/components/time-picker/#api) | - | × |
@@ -239,11 +239,11 @@ export type FormatType
 | --- | --- | --- | --- |
 | change | Callback function, can be executed when the selected time is changing | (date: Dayjs \| Dayjs[] \| null, dateString: string \| string[] \| null) => void | - |
 | update:value | - | (date: Dayjs \| Dayjs[] \| null) => void | - |
-| calendarChange | Callback function, can be executed when the start time or the end time of the range is changing. `info` argument is added in 4.4.0 | (dates: [Dayjs, Dayjs], dateStrings: [string, string], info: { range: 'start' \| 'end' }) => void | - |
+| calendarChange | Callback function, can be executed when the start time or the end time of the range is changing. `info` argument is added in - | (dates: [Dayjs, Dayjs], dateStrings: [string, string], info: { range: 'start' \| 'end' }) => void | - |
 | panelChange | Callback when picker panel mode is changed | (value: Dayjs, mode: PickerMode) => void | - |
 | openChange | Callback function, can be executed whether the popup calendar is popped up or closed | (open: boolean) => void | - |
 | ok | Callback when click ok button | () => void | - |
-| clear | Callback when click clear button | () => void | 1.4.0 |
+| clear | Callback when click clear button | () => void | - |
 | select | - | (date: Dayjs) => void | - |
 | focus | Trigger when get focus | (event: FocusEvent, info: { range: 'start' \| 'end' }) => void | - |
 | blur | Trigger when lose focus | (event: FocusEvent, info: { range: 'start' \| 'end' }) => void | - |
@@ -259,7 +259,7 @@ export type FormatType
 | panelRender | Customize panel render | (originPanel: VueNode) => any | - |
 | inputRender | - | (props: Record<string, any>) => any | - |
 | cellRender | Custom rendering function for picker cells | (ctx: { current: AnyObject, info: any }) => any | - |
-| dateRender | Custom rendering function for date cells, >= 5.4.0 use `cellRender` instead. | (ctx: { date: AnyObject, today: AnyObject }) => any | - |
+| dateRender | Custom rendering function for date cells, >= - use `cellRender` instead. | (ctx: { date: AnyObject, today: AnyObject }) => any | - |
 | monthCellRender | - | (ctx: { date: AnyObject, locale: any }) => any | - |
 
 ## Semantic DOM {#semantic-dom}
