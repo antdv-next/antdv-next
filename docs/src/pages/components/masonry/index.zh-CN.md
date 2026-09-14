@@ -76,7 +76,7 @@ Gap 是项之间的间距，可以是固定值，也可以是响应式配置。
 type Gap = undefined | number | Partial<Record<'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl', number>>
 ```
 
-## Semantic DOM
+## 语义化 DOM {#semantic-dom}
 
 <demo src="./demo/_semantic.vue" simplify></demo>
 

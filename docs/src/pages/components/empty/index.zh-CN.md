@@ -74,7 +74,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*obM7S5lIxeMAAA
   }
 </style>
 
-## 语义化结构 {#semantic-dom}
+## 语义化 DOM {#semantic-dom}
 
 <demo src="./demo/_semantic.vue" simplify></demo>
 
