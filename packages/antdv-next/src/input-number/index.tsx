@@ -11,6 +11,7 @@ import { clsx } from '@v-c/util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, shallowRef } from 'vue'
 import { ContextIsolator } from '../_util/ContextIsolator.tsx'
+import getAllowClear from '../_util/getAllowClear'
 import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
@@ -210,7 +211,8 @@ const InputNumber = defineComponent<
       style: contextStyle,
       classes: contextClassNames,
       styles: contextStyles,
-    } = useComponentBaseConfig('inputNumber', props, [], 'input-number')
+      allowClear: contextAllowClear,
+    } = useComponentBaseConfig('inputNumber', props, ['allowClear'], 'input-number')
 
     const {
       classes,
@@ -392,9 +394,10 @@ const InputNumber = defineComponent<
       }
       const mergedSuffix = mergedSuffixFn()
       const clearIconNode = slots.clearIcon?.()
-      const mergedAllowClear = clearIconNode && props.allowClear
-        ? { ...(typeof props.allowClear === 'object' ? props.allowClear : {}), clearIcon: clearIconNode }
-        : props.allowClear
+      const allowClear = getAllowClear(props.allowClear ?? contextAllowClear.value)
+      const mergedAllowClear = clearIconNode && allowClear
+        ? { ...(typeof allowClear === 'object' ? allowClear : {}), clearIcon: clearIconNode }
+        : allowClear
       const renderInputNode = () => (
         <VcInputNumber
           {...restAttrs}

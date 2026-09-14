@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from 'vitest'
 import { h, nextTick, ref } from 'vue'
 import InputNumber from '..'
+import ConfigProvider from '../../config-provider'
 import rtlTest from '/@tests/shared/rtlTest'
 import { mount } from '/@tests/utils'
 
@@ -290,6 +291,16 @@ describe('inputNumber allowClear', () => {
   it('should not render clear button by default', () => {
     const wrapper = mount(InputNumber, { props: { defaultValue: 3 } })
     expect(wrapper.find('.ant-input-number-clear-icon').exists()).toBe(false)
+  })
+
+  it('should support allowClear from ConfigProvider', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider inputNumber={{ allowClear: true }}>
+        <InputNumber defaultValue={3} />
+      </ConfigProvider>
+    ))
+
+    expect(wrapper.find('.ant-input-number-clear-icon').exists()).toBe(true)
   })
 
   it('should support clearIcon slot and clear semantic', () => {

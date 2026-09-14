@@ -361,7 +361,7 @@ export type InputConfig = ComponentStyleConfig
   & Pick<InputProps, 'autoComplete' | 'autocomplete' | 'classes' | 'styles' | 'allowClear' | 'variant' | 'changeOnComposing'>
 
 export type InputNumberConfig = ComponentStyleConfig
-  & Pick<InputNumberProps, 'classes' | 'styles' | 'variant'>
+  & Pick<InputNumberProps, 'classes' | 'styles' | 'variant' | 'allowClear'>
 
 export type TextAreaConfig = ComponentStyleConfig
   & Pick<TextAreaProps, 'classes' | 'styles' | 'allowClear' | 'variant' | 'changeOnComposing'>
