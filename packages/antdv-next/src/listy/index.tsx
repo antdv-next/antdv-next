@@ -66,7 +66,7 @@ const Listy = defineComponent<ListyProps, ListyEmits, string, SlotsType<ListySlo
       styles,
       rootClass,
       virtual,
-      rowHoverable,
+      rowHoverable = true,
       itemRender = slots.itemRender,
       ...restProps
     } = props
@@ -76,13 +76,14 @@ const Listy = defineComponent<ListyProps, ListyEmits, string, SlotsType<ListySlo
       mergedClassNames.value.root,
       rootClass,
       className,
-      {
-        [`${prefixCls.value}-row-hoverable`]: rowHoverable !== false,
-      },
       hashId.value,
       cssVarCls.value,
       rootCls.value,
     )
+
+    const itemClassNames = clsx(mergedClassNames.value.item, {
+      [`${prefixCls.value}-item-hoverable`]: rowHoverable,
+    })
 
     const listyToken = { ...token.value, ...token.value.Listy }
     const itemHeight = listyToken.fontHeight + (listyToken.itemPaddingBlock ?? listyToken.paddingSM) * 2
@@ -97,7 +98,7 @@ const Listy = defineComponent<ListyProps, ListyEmits, string, SlotsType<ListySlo
         virtual={mergedVirtual}
         itemHeight={itemHeight}
         itemRender={itemRender}
-        classNames={{ ...mergedClassNames.value, root: rootClassNames }}
+        classNames={{ ...mergedClassNames.value, root: rootClassNames, item: itemClassNames }}
         styles={mergedStyles.value}
       />
     )

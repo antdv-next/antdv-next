@@ -31,14 +31,12 @@ async function extractListyStyle() {
 }
 
 describe('listy style extract', () => {
-  it('scopes the row hover style under the root -row-hoverable class', async () => {
+  it('scopes the row hover style to hoverable items', async () => {
     const style = await extractListyStyle()
 
-    expect(style).toContain('.ant-listy-row-hoverable .ant-listy-item:hover')
+    expect(style).toContain('.ant-listy .ant-listy-item-hoverable:hover')
     expect(style).toContain('background-color')
 
-    // The -row-hoverable class lives on the root element itself, so it must not
-    // be nested under a descendant `.ant-listy ` selector.
-    expect(style).not.toContain('.ant-listy .ant-listy-row-hoverable')
+    expect(style).not.toContain('.ant-listy-row-hoverable')
   })
 })
