@@ -40,10 +40,6 @@ const genListyStyle: GenerateStyle<ListyToken, CSSObject> = (token) => {
         padding: `${unit(itemPaddingBlock)} ${unit(itemPaddingInline)}`,
         borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
         transition: `background-color ${token.motionDurationMid} ${token.motionEaseInOut}`,
-
-        '&:hover': {
-          backgroundColor: token.controlItemBgHover,
-        },
       },
 
       // ==================== Group header ====================
@@ -94,6 +90,15 @@ const genListyStyle: GenerateStyle<ListyToken, CSSObject> = (token) => {
       // ========================= RTL ========================
       '&-rtl': {
         direction: 'rtl',
+      },
+    },
+
+    // ==================== Row hoverable ====================
+    [`${componentCls}-row-hoverable`]: {
+      [`${componentCls}-item`]: {
+        '&:hover': {
+          backgroundColor: token.controlItemBgHover,
+        },
       },
     },
   }

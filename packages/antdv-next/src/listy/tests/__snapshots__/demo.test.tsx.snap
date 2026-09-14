@@ -14,7 +14,7 @@ exports[`listy demo > renders _semantic correctly 1`] = `
       data-v-dfc8ebef=""
     >
       <div
-        class="ant-listy semantic-mark-root css-var-v-0 ant-listy-css-var"
+        class="ant-listy semantic-mark-root ant-listy-row-hoverable css-var-v-0 ant-listy-css-var"
         style="max-height: 260px; overflow-y: auto; overflow-anchor: none; width: 100%;"
       >
         <div
@@ -457,7 +457,7 @@ exports[`listy demo > renders _semantic correctly 1`] = `
 
 exports[`listy demo > renders basic correctly 1`] = `
 <div
-  class="ant-listy css-var-root ant-listy-css-var"
+  class="ant-listy ant-listy-row-hoverable css-var-root ant-listy-css-var"
   style="max-height: 400px; overflow-y: auto; overflow-anchor: none;"
 >
   <div
@@ -588,7 +588,7 @@ exports[`listy demo > renders drag-sorting correctly 1`] = `
   data-v-app=""
 >
   <div
-    class="ant-listy css-var-root ant-listy-css-var"
+    class="ant-listy ant-listy-row-hoverable css-var-root ant-listy-css-var"
     style="max-height: 400px; overflow-y: auto; overflow-anchor: none;"
   >
     <div
@@ -1422,7 +1422,7 @@ exports[`listy demo > renders drag-sorting correctly 1`] = `
 
 exports[`listy demo > renders group correctly 1`] = `
 <div
-  class="ant-listy css-var-root ant-listy-css-var"
+  class="ant-listy ant-listy-row-hoverable css-var-root ant-listy-css-var"
   style="max-height: 400px; overflow-y: auto; overflow-anchor: none;"
 >
   <div
@@ -2173,7 +2173,7 @@ exports[`listy demo > renders infinite correctly 1`] = `
   class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
 >
   <div
-    class="ant-listy css-var-root ant-listy-css-var"
+    class="ant-listy ant-listy-row-hoverable css-var-root ant-listy-css-var"
     style="position: relative;"
   >
     <div
@@ -2279,7 +2279,7 @@ exports[`listy demo > renders infinite correctly 1`] = `
 
 exports[`listy demo > renders rich correctly 1`] = `
 <div
-  class="ant-listy css-var-root ant-listy-css-var"
+  class="ant-listy ant-listy-row-hoverable css-var-root ant-listy-css-var"
   style="max-height: 400px; overflow-y: auto; overflow-anchor: none;"
 >
   <div
@@ -3365,7 +3365,7 @@ exports[`listy demo > renders scroll-to correctly 1`] = `
     </button>
   </div>
   <div
-    class="ant-listy css-var-root ant-listy-css-var"
+    class="ant-listy ant-listy-row-hoverable css-var-root ant-listy-css-var"
     style="max-height: 400px; overflow-y: auto; overflow-anchor: none;"
   >
     <div
@@ -3806,7 +3806,7 @@ exports[`listy demo > renders scroll-to correctly 1`] = `
 
 exports[`listy demo > renders style-class correctly 1`] = `
 <div
-  class="ant-listy listy-custom-root css-var-root ant-listy-css-var"
+  class="ant-listy listy-custom-root ant-listy-row-hoverable css-var-root ant-listy-css-var"
   data-v-2652badc=""
   style="max-height: 260px; overflow-y: auto; overflow-anchor: none;"
 >
@@ -3901,7 +3901,7 @@ exports[`listy demo > renders style-class correctly 1`] = `
 
 exports[`listy demo > renders virtual correctly 1`] = `
 <div
-  class="ant-listy css-var-root ant-listy-css-var"
+  class="ant-listy ant-listy-row-hoverable css-var-root ant-listy-css-var"
   style="position: relative;"
 >
   <div

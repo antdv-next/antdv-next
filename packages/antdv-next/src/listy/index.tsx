@@ -66,6 +66,7 @@ const Listy = defineComponent<ListyProps, ListyEmits, string, SlotsType<ListySlo
       styles,
       rootClass,
       virtual,
+      rowHoverable,
       itemRender = slots.itemRender,
       ...restProps
     } = props
@@ -75,6 +76,9 @@ const Listy = defineComponent<ListyProps, ListyEmits, string, SlotsType<ListySlo
       mergedClassNames.value.root,
       rootClass,
       className,
+      {
+        [`${prefixCls.value}-row-hoverable`]: rowHoverable !== false,
+      },
       hashId.value,
       cssVarCls.value,
       rootCls.value,
