@@ -20,7 +20,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*obM7S5lIxeMAAA
   <demo src="./demo/simple.vue">选择图片</demo>
   <demo src="./demo/customize.vue">自定义</demo>
   <demo src="./demo/config-provider.vue">ConfigProvider</demo>
-  <demo src="./demo/style-class.vue" version="-">自定义语义化结构样式</demo>
+  <demo src="./demo/style-class.vue">自定义语义化结构样式</demo>
   <demo src="./demo/description.vue">无描述</demo>
 </demo-group>
 

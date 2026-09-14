@@ -86,7 +86,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | lg | `screen ≥ 992px`, could be a `span` value or an object containing above props | number \| object | - |  | × |
 | xl | `screen ≥ 1200px`, could be a `span` value or an object containing above props | number \| object | - |  | × |
 | xxl | `screen ≥ 1600px`, could be a `span` value or an object containing above props | number \| object | - |  | × |
-| xxxl | `screen ≥ 1920px`, could be a `span` value or an object containing above props | number \| object | - | - | × |
+| xxxl | `screen ≥ 1920px`, could be a `span` value or an object containing above props | number \| object | - | 1.0.3 | × |
 
 ## Design Token
 

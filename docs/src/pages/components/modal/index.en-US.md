@@ -62,7 +62,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | getContainer | The mounted node for Modal but still display at fullscreen | string \| HTMLElement \| (() => HTMLElement) \| false | document.body | - | × |
 | keyboard | Whether support press esc to close | boolean | true | - | × |
 | loading | Show the skeleton | boolean | false | - | × |
-| mask | Mask effect | boolean \| `{enabled?: boolean, blur?: boolean, closable?: boolean}` | true | - | ✓ |
+| mask | Mask effect | boolean \| `{enabled?: boolean, blur?: boolean, closable?: boolean}` | true | mask.closable: 1.0.3 | ✓ |
 | ~~maskClosable~~ | Whether to close the modal dialog when the mask (area outside the modal) is clicked. Please use `mask.closable` instead. | boolean | true |  | × |
 | modalRender | Custom modal content render | (node: any) => any | - | - | × |
 | mousePosition | Set animation start position | MousePosition | - | - | × |
@@ -72,7 +72,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | open | Whether the modal dialog is visible or not, support `v-model:open` | boolean | false | - | × |
 | rootClass | Root container class | string | - | - | × |
 | rootStyle | Root container style | CSSProperties | - | - | × |
-| scrollLock | Whether to lock body scroll when modal opens | boolean | true | - | × |
+| scrollLock | Whether to lock body scroll when modal opens | boolean | true | 1.4.0 | × |
 | styles | Customize inline style for each semantic structure inside the Modal component. Supports object or function. | ModalStylesType | - | - | ✓ |
 | title | The modal dialog's title | VueNode | - | - | × |
 | transitionName | Transition name of dialog | string | - | - | × |
@@ -140,7 +140,7 @@ The items listed above are all functions, expecting a settings object as paramet
 | okButtonProps | The ok button props | ButtonProps | - | - |
 | okText | Text of the OK button | string | `OK` | - |
 | okType | Button `type` of the OK button | LegacyButtonType | `primary` | - |
-| scrollLock | Whether to lock body scroll when modal opens | boolean | true | - |
+| scrollLock | Whether to lock body scroll when modal opens | boolean | true | 1.4.0 |
 | style | Style of floating layer, typically used at least for adjusting the position | CSSProperties | - | - |
 | title | Title | VueNode | - | - |
 | type | Dialog type | `info` \| `success` \| `error` \| `warn` \| `warning` \| `confirm` | `confirm` | - |

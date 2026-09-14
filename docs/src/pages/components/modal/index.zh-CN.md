@@ -63,7 +63,7 @@ demo:
 | getContainer | 指定 Modal 挂载的节点，但依旧为全屏展示，`false` 为挂载在当前位置 | string \| HTMLElement \| (() => HTMLElement) \| false | document.body | - | × |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true | - | × |
 | loading | 显示骨架屏 | boolean | false | - | × |
-| mask | 遮罩效果 | boolean \| `{enabled?: boolean, blur?: boolean, closable?: boolean}` | true | - | ✓ |
+| mask | 遮罩效果 | boolean \| `{enabled?: boolean, blur?: boolean, closable?: boolean}` | true | mask.closable: 1.0.3 | ✓ |
 | ~~maskClosable~~ | 点击蒙层是否允许关闭。请使用 `mask.closable` 替代。 | boolean | true | - | × |
 | modalRender | 自定义渲染对话框 | (node: any) => any | - | - | × |
 | mousePosition | 设置动画起点位置 | MousePosition | - | - | × |
@@ -73,7 +73,7 @@ demo:
 | open | 对话框是否可见，支持 `v-model:open` | boolean | false | - | × |
 | rootClass | 根容器 class | string | - | - | × |
 | rootStyle | 根容器样式 | CSSProperties | - | - | × |
-| scrollLock | 弹窗打开时是否锁定 body 滚动 | boolean | true | - | × |
+| scrollLock | 弹窗打开时是否锁定 body 滚动 | boolean | true | 1.4.0 | × |
 | styles | 用于自定义 Modal 组件内部各语义化结构的行内 style，支持对象或函数 | ModalStylesType | - | - | ✓ |
 | title | 标题 | VueNode | - | - | × |
 | transitionName | 对话框过渡动效名称 | string | - | - | × |
@@ -141,7 +141,7 @@ demo:
 | okButtonProps | ok 按钮 props | ButtonProps | - | - |
 | okText | 确认按钮文字 | string | `确定` | - |
 | okType | 确认按钮类型 | LegacyButtonType | `primary` | - |
-| scrollLock | 弹窗打开时是否锁定 body 滚动 | boolean | true | - |
+| scrollLock | 弹窗打开时是否锁定 body 滚动 | boolean | true | 1.4.0 |
 | style | 可用于设置浮层的样式，调整浮层位置等 | CSSProperties | - | - |
 | title | 标题 | VueNode | - | - |
 | type | 对话框类型 | `info` \| `success` \| `error` \| `warn` \| `warning` \| `confirm` | `confirm` | - |

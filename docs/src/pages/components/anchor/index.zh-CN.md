@@ -100,7 +100,7 @@ group:
 
 ## FAQ
 
-### 在 `-` 版本中，锚点跳转后，目标元素的 `:target` 伪类未按预期生效 {#faq-target-pseudo-class}
+### 锚点跳转后，目标元素的 `:target` 伪类未按预期生效 {#faq-target-pseudo-class}
 
 出于页面性能优化考虑，锚点跳转的实现方式从 `window.location.href` 调整为 `window.history.pushState/replaceState`。由于 `pushState/replaceState` 不会触发页面重载，因此浏览器不会自动更新 `:target` 伪类的匹配状态。可以手动构造完整URL：`href = window.location.origin + window.location.pathname + '#xxx'` 来解决这问题。
 

@@ -24,7 +24,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
   <demo src="./demo/layout.vue">表单布局</demo>
   <demo src="./demo/layout-multiple.vue">混合布局</demo>
   <demo src="./demo/disabled.vue">禁用表单</demo>
-  <demo src="./demo/variant.vue" version="-">表单变体</demo>
+  <demo src="./demo/variant.vue">表单变体</demo>
   <demo src="./demo/required-mark.vue">必选样式</demo>
   <demo src="./demo/size.vue">表单尺寸</demo>
   <demo src="./demo/layout-can-wrap.vue">label 换行</demo>
@@ -56,7 +56,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
   <demo src="./demo/getValueProps-normalize.vue">值转换</demo>
   <demo src="./demo/validate-scroll-to-field.vue" iframe="240">滑动到错误字段</demo>
   <demo src="./demo/validate-other.vue">其他表单控件</demo>
-  <demo src="./demo/style-class.vue" version="-">自定义语义结构样式</demo>
+  <demo src="./demo/style-class.vue">自定义语义结构样式</demo>
   <demo src="./demo/col-24-debug.vue" debug>Col 24 布局调试</demo>
   <demo src="./demo/disabled-input-debug.vue" debug>禁用状态调试</demo>
   <demo src="./demo/label-debug.vue" debug>Label 省略调试</demo>

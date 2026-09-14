@@ -19,14 +19,14 @@ demo:
 <demo-group>
   <demo src="./demo/basic.vue">基本</demo>
   <demo src="./demo/range-picker.vue">范围选择器</demo>
-  <demo src="./demo/multiple.vue" version="-">多选</demo>
-  <demo src="./demo/needConfirm.vue" version="-">选择确认</demo>
+  <demo src="./demo/multiple.vue">多选</demo>
+  <demo src="./demo/needConfirm.vue">选择确认</demo>
   <demo src="./demo/switchable.vue">切换不同的选择器</demo>
   <demo src="./demo/format.vue">日期格式</demo>
   <demo src="./demo/value-format.vue">值格式化</demo>
   <demo src="./demo/time.vue">日期时间选择</demo>
-  <demo src="./demo/mask.vue" version="-">格式对齐</demo>
-  <demo src="./demo/date-range.vue" version="-">日期限定范围</demo>
+  <demo src="./demo/mask.vue">格式对齐</demo>
+  <demo src="./demo/date-range.vue">日期限定范围</demo>
   <demo src="./demo/disabled.vue">禁用</demo>
   <demo src="./demo/disabled-date.vue">不可选择日期和时间</demo>
   <demo src="./demo/allow-empty.vue">允许留空</demo>
@@ -35,12 +35,12 @@ demo:
   <demo src="./demo/extra-footer.vue">额外的页脚</demo>
   <demo src="./demo/size.vue">三种大小</demo>
   <demo src="./demo/cell-render.vue">定制单元格</demo>
-  <demo src="./demo/components.vue" version="-">定制面板</demo>
+  <demo src="./demo/components.vue">定制面板</demo>
   <demo src="./demo/external-panel.vue">外部使用面板</demo>
-  <demo src="./demo/buddhist-era.vue" version="-">佛历格式</demo>
+  <demo src="./demo/buddhist-era.vue">佛历格式</demo>
   <demo src="./demo/status.vue">自定义状态</demo>
-  <demo src="./demo/variant.vue" version="-">形态变体</demo>
-  <demo src="./demo/style-class.vue" version="-">自定义语义结构的样式和类</demo>
+  <demo src="./demo/variant.vue">形态变体</demo>
+  <demo src="./demo/style-class.vue">自定义语义结构的样式和类</demo>
   <demo src="./demo/placement.vue">弹出位置</demo>
   <demo src="./demo/suffix.vue">前后缀</demo>
 </demo-group>
@@ -55,7 +55,7 @@ demo:
 - DatePicker[picker="month"]
 - DatePicker[picker="week"]
 - DatePicker[picker="year"]
-- DatePicker[picker="quarter"] (- 新增)
+- DatePicker[picker="quarter"]
 - RangePicker
 
 ### 国际化配置 {#localization}
@@ -89,7 +89,7 @@ dayjs.locale('zh-cn')
 | --- | --- | --- | --- | --- | --- |
 | allowClear | 自定义清除按钮 | boolean \| \{ clearIcon?: VueNode \} | true | - | ✓ |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | - | ✓ |
-| dateRender | 自定义日期单元格的内容，>= - 起用 `cellRender` 代替 | function(currentDate: dayjs, today: dayjs) => VueNode | - | - | × |
+| dateRender | 自定义日期单元格的内容，已弃用，请使用 `cellRender` 替代 | function(currentDate: dayjs, today: dayjs) => VueNode | - | - | × |
 | cellRender | 自定义单元格的内容 | (current: dayjs, info: { originNode: VueNode, today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => VueNode | - | - | × |
 | components | 自定义面板。自定义面板组件请设置 `inheritAttrs: false`，否则 DatePicker 注入的 `prefixCls` 等会透传到根节点，导致子组件（如 Flex）以错误前缀生成样式并破坏面板布局 | Record<Panel \| 'input', Component> | - | - | × |
 | defaultOpen | 是否默认展开控制弹层 | boolean | - | - | × |
@@ -115,7 +115,7 @@ dayjs.locale('zh-cn')
 | placement | 选择框弹出的位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft | - | × |
 | ~~popupStyle~~ | 额外的弹出日历样式，使用 `styles.popup.root` 替代 | CSSProperties | {} | - | × |
 | prefix | 自定义前缀 | VueNode | - | - | × |
-| presets | 预设时间范围快捷选择, 自 `-` 起 value 支持函数返回值 | { label: VueNode, value: Dayjs \| (() => Dayjs) }[] | - | - | × |
+| presets | 预设时间范围快捷选择, value 支持函数返回值 | { label: VueNode, value: Dayjs \| (() => Dayjs) }[] | - | - | × |
 | prevIcon | 自定义上一个图标 | VueNode | - | - | × |
 | previewValue | 当用户选择日期悬停选项时，输入字段的值会发生临时更改 | false \| hover | hover | - | × |
 | size | 输入框大小，`large` 高度为 40px，`small` 为 24px，默认是 32px | `large` \| `medium` \| `small` | - | - | × |
@@ -164,7 +164,6 @@ dayjs.locale('zh-cn')
 
 ### DatePicker[picker=quarter] {#date-picker-picker-quarter}
 
-`-` 新增。
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -201,7 +200,7 @@ dayjs.locale('zh-cn')
 | --- | --- | --- | --- | --- | --- |
 | allowEmpty | 允许起始项部分为空 | [boolean, boolean] | [false, false] | - | × |
 | cellRender | 自定义单元格的内容 | (current: dayjs, info: { originNode: VueNode, today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => VueNode | - | - | × |
-| dateRender | 自定义日期单元格的内容，>= - 起用 `cellRender` 代替 | function(currentDate: dayjs, today: dayjs) => VueNode | - | - | × |
+| dateRender | 自定义日期单元格的内容，已弃用，请使用 `cellRender` 替代 | function(currentDate: dayjs, today: dayjs) => VueNode | - | - | × |
 | defaultPickerValue | 默认面板日期，每次面板打开时会被重置到该日期 | [dayjs](https://day.js.org/)[] | - | - | × |
 | defaultValue | 默认日期 | [dayjs](https://day.js.org/)[] | - | - | × |
 | disabled | 禁用起始项 | [boolean, boolean] | - | - | × |
@@ -209,7 +208,7 @@ dayjs.locale('zh-cn')
 | format | 展示的日期格式，配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)。 | [formatType](#formattype) | `YYYY-MM-DD HH:mm:ss` | - | × |
 | id | 设置输入框 `id` 属性。 | `{ start?: string, end?: string }` | - | - | × |
 | pickerValue | 面板日期，可以用于受控切换面板所在日期。配合 `onPanelChange` 使用。 | [dayjs](https://day.js.org/)[] | - | - | × |
-| presets | 预设时间范围快捷选择，自 `-` 起 value 支持函数返回值 | { label: VueNode, value: (Dayjs \| (() => Dayjs))[] }[] | - | - | × |
+| presets | 预设时间范围快捷选择，value 支持函数返回值 | { label: VueNode, value: (Dayjs \| (() => Dayjs))[] }[] | - | - | × |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => VueNode | - | - | × |
 | separator | 设置分隔符 | VueNode | `<SwapRightOutlined />` | - | ✓ |
 | showTime | 增加时间选择功能 | Object\|boolean | [TimePicker Options](/components/time-picker-cn#api) | - | × |
@@ -241,11 +240,11 @@ export type FormatType
 | --- | --- | --- | --- |
 | change | 时间发生变化的回调 | (date: Dayjs \| Dayjs[] \| null, dateString: string \| string[] \| null) => void | - |
 | update:value | - | (date: Dayjs \| Dayjs[] \| null) => void | - |
-| calendarChange | 待选日期发生变化的回调。`info` 参数自 - 添加 | (dates: [Dayjs, Dayjs], dateStrings: [string, string], info: { range: 'start' \| 'end' }) => void | - |
+| calendarChange | 待选日期发生变化的回调。支持 `info` 参数 | (dates: [Dayjs, Dayjs], dateStrings: [string, string], info: { range: 'start' \| 'end' }) => void | - |
 | panelChange | 日历面板切换的回调 | (value: Dayjs, mode: PickerMode) => void | - |
 | openChange | 弹出日历和关闭日历的回调 | (open: boolean) => void | - |
 | ok | 点击确定按钮的回调 | () => void | - |
-| clear | 点击清除按钮的回调 | () => void | - |
+| clear | 点击清除按钮的回调 | () => void | 1.4.0 |
 | select | - | (date: Dayjs) => void | - |
 | focus | 聚焦时回调 | (event: FocusEvent, info: { range: 'start' \| 'end' }) => void | - |
 | blur | 失焦时回调 | (event: FocusEvent, info: { range: 'start' \| 'end' }) => void | - |
@@ -261,7 +260,7 @@ export type FormatType
 | panelRender | 自定义渲染面板 | (originPanel: VueNode) => any | - |
 | inputRender | - | (props: Record<string, any>) => any | - |
 | cellRender | 自定义单元格的内容 | (ctx: { current: AnyObject, info: any }) => any | - |
-| dateRender | 自定义日期单元格的内容，>= - 起用 `cellRender` 代替 | (ctx: { date: AnyObject, today: AnyObject }) => any | - |
+| dateRender | 自定义日期单元格的内容，已弃用，请使用 `cellRender` 替代 | (ctx: { date: AnyObject, today: AnyObject }) => any | - |
 | monthCellRender | - | (ctx: { date: AnyObject, locale: any }) => any | - |
 
 ## 语义化 DOM {#semantic-dom}

@@ -5,7 +5,7 @@ title: Listy
 description: A high-performance list that supports grouping and can virtualize long data sets.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EYuhSpw1iSwAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAAAAAAAAAAAADrJ8AQ/original
-tag: -
+tag: 1.5.0
 ---
 
 ## When To Use
@@ -34,15 +34,15 @@ Common props ref: [Common props](/docs/vue/common-props)
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| classes | Semantic class names | `{ root?, item?, groupHeader? }` | - | - | - |
-| group | Grouping config, see [Group](#group) below | `Group<T, K>` | - | - | × |
-| height | Height of the scroll container; content scrolls when it overflows | number | - | - | × |
-| itemRender | Render a single row | `(item: T, index: number) => VNode` | - | - | × |
-| items | Data source of the list | `T[]` | `[]` | - | × |
-| rowKey | Unique key of an item, a field name or a getter | `keyof T \| (item: T) => Key` | - | - | × |
-| sticky | Whether group headers stick to the top | boolean | false | - | × |
-| styles | Semantic inline styles | `{ root?, item?, groupHeader? }` | - | - | - |
-| virtual | Whether to enable virtual scrolling, rendering only rows in view, requires `height` | boolean | false | - | × |
+| classes | Semantic class names | `{ root?, item?, groupHeader? }` | - | 1.5.0 | 1.5.0 |
+| group | Grouping config, see [Group](#group) below | `Group<T, K>` | - | 1.5.0 | × |
+| height | Height of the scroll container; content scrolls when it overflows | number | - | 1.5.0 | × |
+| itemRender | Render a single row | `(item: T, index: number) => VNode` | - | 1.5.0 | × |
+| items | Data source of the list | `T[]` | `[]` | 1.5.0 | × |
+| rowKey | Unique key of an item, a field name or a getter | `keyof T \| (item: T) => Key` | - | 1.5.0 | × |
+| sticky | Whether group headers stick to the top | boolean | false | 1.5.0 | × |
+| styles | Semantic inline styles | `{ root?, item?, groupHeader? }` | - | 1.5.0 | 1.5.0 |
+| virtual | Whether to enable virtual scrolling, rendering only rows in view, requires `height` | boolean | false | 1.5.0 | × |
 
 ### Events {#events}
 

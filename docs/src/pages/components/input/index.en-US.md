@@ -143,7 +143,6 @@ Supports all props of `Input`.
 
 ### InputOTP {#input-otp}
 
-Added in `-`.
 
 > Notes for developers
 >
@@ -194,7 +193,7 @@ interface CountConfig {
 
 ```tsx
 interface VisibilityToggle {
-  // tabIndex of the visibility toggle button (-)
+  // tabIndex of the visibility toggle button (1.4.0)
   tabIndex?: number
   // Whether the password is show or hide
   visible?: boolean

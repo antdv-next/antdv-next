@@ -144,7 +144,6 @@ Input 的其他属性和 Vue 自带的 [input](https://cn.vuejs.org/guide/essent
 
 ### InputOTP {#input-otp}
 
-`-` 新增。
 
 > 开发者注意事项：
 >
@@ -195,7 +194,7 @@ interface CountConfig {
 
 ```tsx
 interface VisibilityToggle {
-  // 设置切换按钮的 tabIndex（-）
+  // 设置切换按钮的 tabIndex（1.4.0）
   tabIndex?: number
   // 用于手动控制密码显隐
   visible?: boolean

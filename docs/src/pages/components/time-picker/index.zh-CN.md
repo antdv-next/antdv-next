@@ -21,18 +21,18 @@ demo:
 <demo src="./demo/value.vue">受控组件</demo>
 <demo src="./demo/value-format.vue">值格式化</demo>
 <demo src="./demo/size.vue">三种大小</demo>
-<demo src="./demo/need-confirm.vue" version="-">选择确认</demo>
+<demo src="./demo/need-confirm.vue">选择确认</demo>
 <demo src="./demo/disabled.vue">禁用</demo>
 <demo src="./demo/hide-column.vue">选择时分</demo>
 <demo src="./demo/interval-options.vue">步长选项</demo>
 <demo src="./demo/addon.vue">附加内容</demo>
 <demo src="./demo/12hours.vue">12 小时制</demo>
-<demo src="./demo/change-on-scroll.vue" version="-">滚动即改变</demo>
+<demo src="./demo/change-on-scroll.vue">滚动即改变</demo>
 <demo src="./demo/range-picker.vue">范围选择器</demo>
-<demo src="./demo/variant.vue" version="-">形态变体</demo>
+<demo src="./demo/variant.vue">形态变体</demo>
 <demo src="./demo/status.vue">自定义状态</demo>
 <demo src="./demo/suffix.vue">前后缀</demo>
-<demo src="./demo/style-class.vue" version="-">自定义语义结构的样式和类</demo>
+<demo src="./demo/style-class.vue">自定义语义结构的样式和类</demo>
 </demo-group>
 
 ## API
@@ -94,7 +94,6 @@ type DisabledTime = (now: Dayjs) => {
 }
 ```
 
-注意：`disabledMilliseconds` 为 `-` 新增。
 
 #### 方法 {#methods}
 

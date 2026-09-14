@@ -6,7 +6,7 @@ subtitle: 虚拟列表
 description: 高性能列表，支持分组，并可为长列表开启虚拟滚动。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EYuhSpw1iSwAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*tBzwQ7raKX8AAAAAAAAAAAAADrJ8AQ/original
-tag: -
+tag: 1.5.0
 ---
 
 ## 何时使用 {#when-to-use}
@@ -35,15 +35,15 @@ tag: -
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| classes | 语义化结构 class | `{ root?, item?, groupHeader? }` | - | - | - |
-| group | 分组配置，见下方 [Group](#group) | `Group<T, K>` | - | - | × |
-| height | 滚动容器高度，内容超出后滚动 | number | - | - | × |
-| itemRender | 渲染单行 | `(item: T, index: number) => VNode` | - | - | × |
-| items | 列表数据源 | `T[]` | `[]` | - | × |
-| rowKey | 每一项的唯一键，字段名或取值函数 | `keyof T \| (item: T) => Key` | - | - | × |
-| sticky | 分组标题是否吸顶 | boolean | false | - | × |
-| styles | 语义化结构 style | `{ root?, item?, groupHeader? }` | - | - | - |
-| virtual | 是否开启虚拟滚动，仅渲染视口内的行，需配合 `height` 使用 | boolean | false | - | × |
+| classes | 语义化结构 class | `{ root?, item?, groupHeader? }` | - | 1.5.0 | 1.5.0 |
+| group | 分组配置，见下方 [Group](#group) | `Group<T, K>` | - | 1.5.0 | × |
+| height | 滚动容器高度，内容超出后滚动 | number | - | 1.5.0 | × |
+| itemRender | 渲染单行 | `(item: T, index: number) => VNode` | - | 1.5.0 | × |
+| items | 列表数据源 | `T[]` | `[]` | 1.5.0 | × |
+| rowKey | 每一项的唯一键，字段名或取值函数 | `keyof T \| (item: T) => Key` | - | 1.5.0 | × |
+| sticky | 分组标题是否吸顶 | boolean | false | 1.5.0 | × |
+| styles | 语义化结构 style | `{ root?, item?, groupHeader? }` | - | 1.5.0 | 1.5.0 |
+| virtual | 是否开启虚拟滚动，仅渲染视口内的行，需配合 `height` 使用 | boolean | false | 1.5.0 | × |
 
 ### 事件 {#events}
 

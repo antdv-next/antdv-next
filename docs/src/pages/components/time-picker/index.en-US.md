@@ -20,18 +20,18 @@ By clicking the input box, you can select a time from a popup panel.
 <demo src="./demo/value.vue">Under Control</demo>
 <demo src="./demo/value-format.vue">Value Format</demo>
 <demo src="./demo/size.vue">Three Sizes</demo>
-<demo src="./demo/need-confirm.vue" version="-">Need Confirm</demo>
+<demo src="./demo/need-confirm.vue">Need Confirm</demo>
 <demo src="./demo/disabled.vue">disabled</demo>
 <demo src="./demo/hide-column.vue">Hour and minute</demo>
 <demo src="./demo/interval-options.vue">interval option</demo>
 <demo src="./demo/addon.vue">Addon</demo>
 <demo src="./demo/12hours.vue">12 hours</demo>
-<demo src="./demo/change-on-scroll.vue" version="-">Change on scroll</demo>
+<demo src="./demo/change-on-scroll.vue">Change on scroll</demo>
 <demo src="./demo/range-picker.vue">Time Range Picker</demo>
-<demo src="./demo/variant.vue" version="-">Variants</demo>
+<demo src="./demo/variant.vue">Variants</demo>
 <demo src="./demo/status.vue">Status</demo>
 <demo src="./demo/suffix.vue">Prefix and Suffix</demo>
-<demo src="./demo/style-class.vue" version="-">Custom semantic dom styling</demo>
+<demo src="./demo/style-class.vue">Custom semantic dom styling</demo>
 </demo-group>
 
 ## API
@@ -93,7 +93,6 @@ type DisabledTime = (now: Dayjs) => {
 }
 ```
 
-Note: `disabledMilliseconds` is added in `-`.
 
 #### Methods
 

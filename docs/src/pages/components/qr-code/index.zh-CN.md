@@ -22,14 +22,14 @@ group:
   <demo src="./demo/base.vue">基本使用</demo>
   <demo src="./demo/icon.vue">带 Icon 的例子</demo>
   <demo src="./demo/status.vue">不同的状态</demo>
-  <demo src="./demo/customStatusRender.vue" version="-">自定义状态渲染器</demo>
+  <demo src="./demo/customStatusRender.vue">自定义状态渲染器</demo>
   <demo src="./demo/type.vue">自定义渲染类型</demo>
   <demo src="./demo/customSize.vue">自定义尺寸</demo>
   <demo src="./demo/customColor.vue">自定义颜色</demo>
   <demo src="./demo/download.vue">下载二维码</demo>
   <demo src="./demo/errorLevel.vue">纠错比例</demo>
   <demo src="./demo/Popover.vue">高级用法</demo>
-  <!-- <demo src="./demo/style-class.vue" version="-">自定义语义结构的样式和类</demo> -->
+  <!-- <demo src="./demo/style-class.vue">自定义语义结构的样式和类</demo> -->
 </demo-group>
 
 ## API
