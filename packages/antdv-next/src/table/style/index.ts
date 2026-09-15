@@ -238,6 +238,9 @@ export interface TableToken extends FullToken<'Table'> {
   tableScrollBg: string
 }
 
+// 调整列宽时代理线需要高于固定列，而固定列层级会随列数动态增长，使用固定兜底值最稳妥。
+const zIndexTableResizeProxy = 9999
+
 const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
   const {
     componentCls,
@@ -263,7 +266,24 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
   return {
     [`${componentCls}-wrapper`]: {
       clear: 'both',
+      position: 'relative',
       maxWidth: '100%',
+
+      [`${componentCls}-resize-proxy`]: {
+        position: 'absolute',
+        display: 'none',
+        width: 0,
+        borderLeft: `${tableBorder}`,
+        pointerEvents: 'none',
+        willChange: 'transform',
+        // 固定列层级会随列数增长（zIndexTableFixed + --z-offset-reverse），
+        // 代理线需要稳定盖在所有固定单元格之上，这里给一个远大于实际列数的兜底值。
+        zIndex: zIndexTableResizeProxy,
+      },
+
+      [`${componentCls}-cell-resize-active, ${componentCls}-cell-resize-active *`]: {
+        cursor: 'col-resize !important',
+      },
       // fix https://github.com/ant-design/ant-design/issues/46177
       ['--rc-virtual-list-scrollbar-bg' as const]: token.tableScrollBg,
       ...clearFix(),

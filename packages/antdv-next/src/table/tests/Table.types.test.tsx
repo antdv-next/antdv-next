@@ -71,6 +71,17 @@ export function renderForwarded() {
   })
 }
 
+// ============ resizable columns ============
+export const resizableColumns: ColumnsType<DataType> = [
+  { title: 'Name', dataIndex: 'name', width: 200, resizable: true },
+]
+
+// ============ resizable is disallowed on group columns ============
+export const invalidGroupResizable: ColumnsType<DataType> = [
+  // @ts-expect-error group columns cannot be resized
+  { title: 'Group', resizable: true, children: [{ title: 'Name', dataIndex: 'name' }] },
+]
+
 // ============ h() with record-typed props (contravariant callbacks) ============
 declare const typedProps: TableProps<DataType>
 
