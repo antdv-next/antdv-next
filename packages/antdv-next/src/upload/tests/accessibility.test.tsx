@@ -2,6 +2,7 @@ import type { UploadProps } from '../interface'
 
 import { mount } from '@vue/test-utils'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
+import { nextTick, ref } from 'vue'
 import Upload from '..'
 import ConfigProvider from '../../config-provider'
 import zhTW from '../../locale/zh_TW'
@@ -19,6 +20,63 @@ const fileList: UploadProps['fileList'] = [
 describe('upload accessibility', () => {
   beforeEach(() => setup())
   afterEach(() => teardown())
+
+  it('does not make a file without a preview focusable', () => {
+    const wrapper = mount({
+      render: () => (
+        <Upload
+          defaultFileList={[{ uid: 'report', name: 'report.txt', status: 'done' }]}
+          showUploadList={{ showRemoveIcon: false }}
+        />
+      ),
+    })
+
+    const fileName = wrapper.find('.ant-upload-list-item-name')
+    expect(fileName.attributes('role')).toBeUndefined()
+    expect(fileName.attributes('tabindex')).toBeUndefined()
+  })
+
+  it('keeps the file name focusable when a preview handler exists', () => {
+    const wrapper = mount({
+      render: () => (
+        <Upload
+          defaultFileList={[{ uid: 'report', name: 'report.txt', status: 'done' }]}
+          showUploadList={{ showRemoveIcon: false }}
+          onPreview={() => {}}
+        />
+      ),
+    })
+
+    const fileName = wrapper.find('.ant-upload-list-item-name')
+    expect(fileName.attributes('role')).toBe('button')
+    expect(fileName.attributes('tabindex')).toBe('0')
+  })
+
+  it('updates focusable state when the preview handler is toggled', async () => {
+    const withPreview = ref(false)
+    const wrapper = mount({
+      setup() {
+        return () => (
+          <Upload
+            defaultFileList={[{ uid: 'report', name: 'report.txt', status: 'done' }]}
+            showUploadList={{ showRemoveIcon: false }}
+            onPreview={withPreview.value ? () => {} : undefined}
+          />
+        )
+      },
+    })
+
+    const fileName = () => wrapper.find('.ant-upload-list-item-name')
+    expect(fileName().attributes('role')).toBeUndefined()
+
+    withPreview.value = true
+    await nextTick()
+    expect(fileName().attributes('role')).toBe('button')
+
+    withPreview.value = false
+    await nextTick()
+    expect(fileName().attributes('role')).toBeUndefined()
+  })
 
   it('uses the merged locale for default file actions', () => {
     const wrapper = mount({
