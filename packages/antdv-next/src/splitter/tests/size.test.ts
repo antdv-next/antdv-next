@@ -80,6 +80,65 @@ describe('useSizes', () => {
     expect(sizes.value).toEqual([400, 600])
   })
 
+  it('should respect min when container shrinks', () => {
+    const [, postPxSizes] = getSizesResult(
+      [
+        { size: 200, min: 200 },
+        { size: 800 },
+      ],
+      600,
+    )
+
+    expect(postPxSizes.value[0]).toBeCloseTo(200)
+    expect(postPxSizes.value[1]).toBeCloseTo(400)
+  })
+
+  it('should respect percentage min when container shrinks', () => {
+    const [, postPxSizes] = getSizesResult(
+      [
+        { size: 200, min: '40%' },
+        { size: 800 },
+      ],
+      600,
+    )
+
+    expect(postPxSizes.value[0]).toBeCloseTo(240)
+    expect(postPxSizes.value[1]).toBeCloseTo(360)
+  })
+
+  it('should respect max when container grows', () => {
+    const [, postPxSizes] = getSizesResult([
+      { size: 100, max: 200 },
+      { size: 100 },
+    ])
+
+    expect(postPxSizes.value).toEqual([200, 800])
+  })
+
+  it('should keep collapsed panel at zero when container changes', () => {
+    const [, postPxSizes] = getSizesResult(
+      [
+        { size: 0, min: 200 },
+        { size: 1000 },
+      ],
+      600,
+    )
+
+    expect(postPxSizes.value).toEqual([0, 600])
+  })
+
+  it('should preserve proportions when limits cannot fit the container', () => {
+    const [, postPxSizes] = getSizesResult(
+      [
+        { size: 200, min: 400 },
+        { size: 800, min: 400 },
+      ],
+      600,
+    )
+
+    expect(postPxSizes.value).toEqual([120, 480])
+  })
+
   it('should correct when all size is 0', () => {
     const [, postPxSizes] = getSizesResult([
       {

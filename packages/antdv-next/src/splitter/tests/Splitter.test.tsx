@@ -389,6 +389,24 @@ describe('splitter', () => {
       expect(onResizeEnd).toHaveBeenCalledWith([10, 90])
     })
 
+    it('should respect min when container shrinks after drag', async () => {
+      containerSize = 1000
+
+      const wrapper = mountSplitter({ items: [{ min: 200 }, {}] })
+
+      await resizeSplitter()
+
+      await mockDrag(wrapper.find('.ant-splitter-bar-dragger').element, -300)
+
+      containerSize = 600
+      await resizeSplitter()
+
+      const panels = wrapper.element.querySelectorAll<HTMLElement>('.ant-splitter-panel')
+
+      expect(Number.parseFloat(panels[0]!.style.flexBasis)).toBeCloseTo(200)
+      expect(Number.parseFloat(panels[1]!.style.flexBasis)).toBeCloseTo(400)
+    })
+
     it('with max', async () => {
       const onResize = vi.fn()
       const onResizeEnd = vi.fn()
