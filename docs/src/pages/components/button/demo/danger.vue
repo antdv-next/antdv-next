@@ -1,9 +1,9 @@
 <docs lang="zh-CN">
-在 4.0 之后，危险成为一种按钮属性而不是按钮类型。
+`danger` 属性使按钮呈现危险语义样式，可与任意按钮类型组合使用。
 </docs>
 
 <docs lang="en-US">
-The `danger` is a property of buttons after antd 4.0.
+The `danger` property renders a button with danger semantics and can be combined with any button type.
 </docs>
 
 <template>
