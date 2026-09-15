@@ -235,8 +235,10 @@ export function getMergedFilterStates<RecordType extends AnyObject = AnyObject>(
   rawMergedColumns: ColumnsType<RecordType>,
   filterStates: FilterState<RecordType>[],
   warning?: ReturnType<typeof devUseWarning>,
+  /** Columns before applying the responsive filter. */
+  baseColumns?: ColumnsType<RecordType>,
 ) {
-  const mergedColumns = getMergedColumns<RecordType>(rawMergedColumns || [])
+  const mergedColumns = getMergedColumns<RecordType>(baseColumns ?? rawMergedColumns ?? [])
   const collectedStates = collectFilterStates(mergedColumns, false)
   if (collectedStates.length === 0) {
     return collectedStates
