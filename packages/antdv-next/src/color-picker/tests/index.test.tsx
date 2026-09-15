@@ -125,9 +125,29 @@ describe('color-picker', () => {
     })
     expect(wrapper.find('.ant-color-picker-trigger-disabled').exists()).toBe(true)
 
+    const clear = wrapper.find('.ant-color-picker-clear')
+    expect(clear.classes()).toContain('ant-color-picker-clear-disabled')
+    expect(clear.attributes('aria-disabled')).toBe('true')
+    expect(clear.attributes('tabindex')).toBe('-1')
+
     await wrapper.find('.ant-color-picker-trigger').trigger('click')
     await flushColorPickerTimer()
     expect(document.querySelector('.ant-color-picker')).toBeFalsy()
+  })
+
+  it('updates clear disabled state when disabled changes', async () => {
+    const wrapper = mount(ColorPicker, {
+      attachTo: document.body,
+    })
+
+    const clear = () => wrapper.find('.ant-color-picker-clear')
+    expect(clear().attributes('tabindex')).toBe('0')
+    expect(clear().classes()).not.toContain('ant-color-picker-clear-disabled')
+
+    await wrapper.setProps({ disabled: true })
+
+    expect(clear().attributes('tabindex')).toBe('-1')
+    expect(clear().classes()).toContain('ant-color-picker-clear-disabled')
   })
 
   it('supports allowClear and onClear', async () => {

@@ -7,12 +7,13 @@ export interface ColorClearProps {
   prefixCls: string
   value?: AggregationColor
   onChange?: (value: AggregationColor) => void
+  disabled?: boolean
 }
 
 export default defineComponent<ColorClearProps>(
   (props, { attrs }) => {
     const handleClick = () => {
-      if (!props.onChange || !props.value || props.value.cleared) {
+      if (props.disabled || !props.onChange || !props.value || props.value.cleared) {
         return
       }
       const hsba = props.value.toHsb()
@@ -35,8 +36,13 @@ export default defineComponent<ColorClearProps>(
         <div
           role="button"
           aria-label="Clear color"
-          tabindex={0}
-          class={[`${props.prefixCls}-clear`, className]}
+          aria-disabled={props.disabled ? 'true' : undefined}
+          tabindex={props.disabled ? -1 : 0}
+          class={[
+            `${props.prefixCls}-clear`,
+            className,
+            { [`${props.prefixCls}-clear-disabled`]: props.disabled },
+          ]}
           style={style}
           onClick={handleClick}
           onKeydown={handleKeyDown}

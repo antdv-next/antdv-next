@@ -76,13 +76,14 @@ export default defineComponent<
     })
 
     const containerNode = computed(() => {
-      const { color, prefixCls, classes, styles } = props
+      const { color, prefixCls, classes, styles, disabled } = props
       return color?.cleared
         ? (
             <ColorClear
               prefixCls={prefixCls}
               class={classes.body}
               style={styles.body}
+              disabled={disabled}
             />
           )
         : (
