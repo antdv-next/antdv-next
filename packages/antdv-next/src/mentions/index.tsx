@@ -43,6 +43,7 @@ export {
 
 export type MentionPlacement = 'top' | 'bottom'
 
+/** @deprecated Please use the `options` prop with `MentionsOptionProps` instead. */
 export interface OptionProps {
   value: string
   // children: ReactNode;
