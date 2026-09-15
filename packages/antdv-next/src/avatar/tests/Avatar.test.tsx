@@ -158,6 +158,48 @@ describe('avatar', () => {
     expect(wrapper.find('img').exists()).toBe(true)
   })
 
+  it('should render children fallback when image load fails', async () => {
+    const wrapper = mount(Avatar, {
+      props: { src: 'https://example.com/invalid.png' },
+      slots: { default: () => 'Fallback' },
+    })
+
+    await wrapper.find('img').trigger('error')
+    await nextTick()
+
+    expect(wrapper.find('img').exists()).toBe(false)
+    expect(wrapper.find('.ant-avatar-string').exists()).toBe(true)
+    expect(wrapper.text()).toContain('Fallback')
+    expect(wrapper.find('.ant-avatar').classes()).not.toContain('ant-avatar-image')
+  })
+
+  it('should render icon fallback when image load fails', async () => {
+    const wrapper = mount(Avatar, {
+      props: { src: 'https://example.com/invalid.png', icon: h(UserOutlined) },
+    })
+
+    await wrapper.find('img').trigger('error')
+    await nextTick()
+
+    expect(wrapper.find('img').exists()).toBe(false)
+    expect(wrapper.find('.anticon-user').exists()).toBe(true)
+  })
+
+  it('should retry when src changes after an error', async () => {
+    const src = ref('https://example.com/invalid.png')
+    const wrapper = mount(() => (
+      <Avatar src={src.value}>Fallback</Avatar>
+    ))
+
+    await wrapper.find('img').trigger('error')
+    await nextTick()
+    expect(wrapper.find('img').exists()).toBe(false)
+
+    src.value = 'https://example.com/avatar.png'
+    await nextTick()
+    expect(wrapper.find('img').exists()).toBe(true)
+    expect(wrapper.find('img').attributes('src')).toBe('https://example.com/avatar.png')
+  })
   it('should render icon', () => {
     const wrapper = mount(Avatar, {
       props: {
