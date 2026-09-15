@@ -47,7 +47,7 @@ demo:
 | status | 设置校验状态 | InputStatus | - | - | × |
 | disabled | 禁用 | boolean | false | - | × |
 | addonBefore | 带标签的 input，设置前置标签，请使用 Space.Compact 替换 | VueNode | - | - | × |
-| allowClear | 可以点击清除图标删除内容 | boolean \| &#123; clearIcon?: VueNode, disabled?: boolean, label?: string &#125; | false | 1.5.4 | × |
+| allowClear | 可以点击清除图标删除内容 | boolean \| &#123; clearIcon?: VueNode, disabled?: boolean, label?: string &#125; | false | 1.5.4 | ✓ |
 | addonAfter | 带标签的 input，设置后置标签，请使用 Space.Compact 替换 | VueNode | - | - | × |
 | prefix | 带有前缀图标的 input | VueNode | - | - | × |
 | suffix | 带有后缀图标的 input | VueNode | - | - | × |

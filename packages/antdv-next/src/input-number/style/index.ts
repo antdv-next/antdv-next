@@ -3,14 +3,14 @@ import type { GenerateStyle } from '../../theme/internal'
 
 import type { ComponentToken, InputNumberToken } from './token'
 import { unit } from '@antdv-next/cssinjs'
-import { genBasicInputStyle, genPlaceholderStyle, initInputToken } from '../../input/style'
+import { genAllowClearStyle, genBasicInputStyle, genPlaceholderStyle, initInputToken } from '../../input/style'
 import {
   genBorderlessStyle,
   genFilledStyle,
   genOutlinedStyle,
   genUnderlinedStyle,
 } from '../../input/style/variants'
-import { genFocusOutline, resetComponent, resetIcon } from '../../style'
+import { resetComponent, resetIcon } from '../../style'
 import { genCompactItemStyle } from '../../style/compact-item'
 import { genStyleHooks, mergeToken } from '../../theme/internal'
 import { genCssVar } from '../../theme/util/genStyleUtils'
@@ -263,6 +263,10 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
             textAlign: 'center',
             paddingInline: varRef('input-padding-inline'),
           },
+
+          [`${componentCls}-suffix`]: {
+            marginInlineEnd: varRef('input-padding-inline'),
+          },
         },
       },
     },
@@ -297,6 +301,8 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
     // ==========================================================
     {
       [componentCls]: {
+        ...genAllowClearStyle(token),
+
         [`${componentCls}-prefix, ${componentCls}-suffix`]: {
           display: 'flex',
           flex: 'none',
@@ -313,50 +319,22 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
           height: '100%',
           marginInlineStart: inputAffixPadding,
           transition: `margin ${motionDurationMid}`,
+
+          [`${componentCls}-clear-icon`]: {
+            flex: 'none',
+            pointerEvents: 'auto',
+          },
         },
 
-        [`&:hover:not(${componentCls}-without-controls)`]: {
+        [`&-mode-input:not(${componentCls}-without-controls)`]: {
           [`${componentCls}-suffix`]: {
-            marginInlineEnd: token.handleWidth,
-          },
-        },
-
-        // ========================= Clear =========================
-        [`${componentCls}-clear-icon`]: {
-          margin: 0,
-          padding: 0,
-          lineHeight: 0,
-          color: token.colorTextQuaternary,
-          fontSize: token.fontSizeIcon,
-          verticalAlign: -1,
-          cursor: 'pointer',
-          transition: `color ${motionDurationMid}`,
-          border: 'none',
-          outline: 'none',
-          backgroundColor: 'transparent',
-          // `-suffix` disables pointer events, re-enable for the clear button
-          pointerEvents: 'auto',
-
-          '&:hover': {
-            color: token.colorIcon,
+            marginInlineEnd: token.handleVisibleWidth,
           },
 
-          '&:focus-visible': {
-            color: token.colorIcon,
-            borderRadius: token.borderRadiusSM,
-            ...genFocusOutline(token),
-          },
-
-          '&:active': {
-            color: token.colorText,
-          },
-
-          '&-hidden': {
-            visibility: 'hidden',
-          },
-
-          '&-has-suffix': {
-            marginInlineEnd: inputAffixPadding,
+          [`&:hover, &${componentCls}-focused`]: {
+            [`${componentCls}-suffix`]: {
+              marginInlineEnd: token.handleWidth,
+            },
           },
         },
       },

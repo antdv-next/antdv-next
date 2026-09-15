@@ -46,7 +46,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | status | Set validation status | InputStatus | - | - | × |
 | disabled | If the input is disabled | boolean | false | - | × |
 | addonBefore | The label text displayed before (on the left side of) the input field, please use Space.Compact instead | VueNode | - | - | × |
-| allowClear | If allow to remove input content with clear icon | boolean \| &#123; clearIcon?: VueNode, disabled?: boolean, label?: string &#125; | false | 1.5.4 | × |
+| allowClear | If allow to remove input content with clear icon | boolean \| &#123; clearIcon?: VueNode, disabled?: boolean, label?: string &#125; | false | 1.5.4 | ✓ |
 | addonAfter | The label text displayed after (on the right side of) the input field, please use Space.Compact instead | VueNode | - | - | × |
 | prefix | The prefix icon for the Input | VueNode | - | - | × |
 | suffix | The suffix icon for the Input | VueNode | - | - | × |
