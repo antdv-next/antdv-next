@@ -109,6 +109,116 @@ describe('Table resizable columns', () => {
     expect(document.body.style.userSelect).toBe('')
   })
 
+  it.each(['column', 'onHeaderCell'] as const)('does not resize a merged header configured through %s', async (source) => {
+    const wrapper = renderTable({}, {
+      columns: [
+        {
+          title: 'Name',
+          dataIndex: 'name',
+          key: 'name',
+          width: 100,
+          resizable: true,
+          ...(source === 'column' ? { colSpan: 2 } : { onHeaderCell: () => ({ colSpan: 2 }) }),
+        },
+        { title: 'Age', dataIndex: 'age', key: 'age', width: 100, colSpan: 0 },
+      ],
+    })
+    prepareRects(wrapper)
+
+    try {
+      const header = wrapper.find('thead th')
+      expect(header.attributes('colspan')).toBe('2')
+      await header.trigger('mousemove', { clientX: 198 })
+      expect(header.classes()).not.toContain('ant-table-cell-resize-active')
+
+      await header.trigger('mousedown', { button: 0, clientX: 198 })
+      document.dispatchEvent(new MouseEvent('mousemove', { clientX: 218 }))
+      document.dispatchEvent(new MouseEvent('mouseup', { clientX: 218 }))
+      await nextTick()
+
+      expect(wrapper.findAll('col').map(col => col.attributes('style'))).toEqual([
+        'width: 100px;',
+        'width: 100px;',
+      ])
+      expect(wrapper.find('.ant-table-resize-proxy').attributes('style') ?? '').not.toContain('display: block')
+    }
+    finally {
+      wrapper.unmount()
+    }
+  })
+
+  it('cancels on window blur without committing and allows another drag', async () => {
+    const wrapper = renderTable({ resizable: true })
+    prepareRects(wrapper)
+    const removeDocumentListener = vi.spyOn(document, 'removeEventListener')
+    const removeWindowListener = vi.spyOn(window, 'removeEventListener')
+
+    try {
+      const header = wrapper.find('thead th')
+      await header.trigger('mousedown', { button: 0, clientX: 198 })
+      document.dispatchEvent(new MouseEvent('mousemove', { clientX: 238 }))
+      window.dispatchEvent(new Event('blur'))
+      await nextTick()
+
+      expect(header.classes()).not.toContain('ant-table-cell-resize-active')
+      expect(wrapper.find('.ant-table-resize-proxy').attributes('style')).toContain('display: none')
+      expect(document.body.style.cursor).toBe('')
+      expect(document.body.style.userSelect).toBe('')
+      expect(removeDocumentListener).toHaveBeenCalledWith('mousemove', expect.any(Function))
+      expect(removeDocumentListener).toHaveBeenCalledWith('mouseup', expect.any(Function))
+      expect(removeWindowListener).toHaveBeenCalledWith('blur', expect.any(Function))
+
+      document.dispatchEvent(new MouseEvent('mousemove', { clientX: 258 }))
+      document.dispatchEvent(new MouseEvent('mouseup', { clientX: 258 }))
+      await nextTick()
+      expect(wrapper.find('col').attributes('style')).toContain('200px')
+
+      await header.trigger('mousedown', { button: 0, clientX: 198 })
+      document.dispatchEvent(new MouseEvent('mousemove', { clientX: 218 }))
+      document.dispatchEvent(new MouseEvent('mouseup', { clientX: 218 }))
+      await nextTick()
+      expect(wrapper.find('col').attributes('style')).toContain('220px')
+    }
+    finally {
+      wrapper.unmount()
+    }
+  })
+
+  it.each(['mouseup', 'blur', 'unmount'] as const)('restores existing body styles after %s', async (ending) => {
+    document.body.style.setProperty('cursor', 'progress', 'important')
+    document.body.style.setProperty('user-select', 'text', 'important')
+    // The installed JSDOM drops priorities for these properties, so verify their restoration at the CSSOM boundary.
+    vi.spyOn(document.body.style, 'getPropertyPriority').mockReturnValue('important')
+    const setBodyStyle = vi.spyOn(document.body.style, 'setProperty')
+    const wrapper = renderTable({ resizable: true })
+    prepareRects(wrapper)
+
+    try {
+      await wrapper.find('thead th').trigger('mousedown', { button: 0, clientX: 198 })
+      document.dispatchEvent(new MouseEvent('mousemove', { clientX: 218 }))
+      if (ending === 'unmount') {
+        wrapper.unmount()
+      }
+      else if (ending === 'blur') {
+        window.dispatchEvent(new Event('blur'))
+      }
+      else {
+        document.dispatchEvent(new MouseEvent('mouseup', { clientX: 218 }))
+      }
+      await nextTick()
+
+      expect(document.body.style.cursor).toBe('progress')
+      expect(document.body.style.userSelect).toBe('text')
+      expect(setBodyStyle).toHaveBeenCalledWith('cursor', 'progress', 'important')
+      expect(setBodyStyle).toHaveBeenCalledWith('user-select', 'text', 'important')
+    }
+    finally {
+      if (ending !== 'unmount') {
+        wrapper.unmount()
+      }
+    }
+  })
+
   it('uses the rendered width when no width is configured', async () => {
     const wrapper = renderTable({ resizable: true, width: undefined })
     prepareRects(wrapper, 180)
