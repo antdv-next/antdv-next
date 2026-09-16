@@ -175,7 +175,6 @@ const InternalCheckbox = defineComponent<
       CheckboxProps
     >(useToArr(contextClassNames, classes), useToArr(contextStyles, contextStyleRoot as any, styles), useToProps(mergedProps))
 
-    const prevValue = shallowRef(props.value)
     const checkboxRef = shallowRef()
     if (isDev) {
       const warning = devUseWarning('Checkbox')
@@ -187,23 +186,19 @@ const InternalCheckbox = defineComponent<
       )
     }
     watch(
-      [() => props.value, () => props?.skipGroup],
-      (_n, _o, onCleanup) => {
-        if (props.skipGroup || !checkboxGroup?.value) {
+      [() => props.value, () => props.skipGroup],
+      ([value, skipGroup], _prev, onCleanup) => {
+        const group = checkboxGroup?.value
+        if (skipGroup || !group) {
           return
         }
-        if (prevValue.value !== props.value) {
-          checkboxGroup?.value?.registerValue?.(props.value)
-          prevValue.value = props.value
-        }
+        group.registerValue?.(value)
         onCleanup(() => {
-          checkboxGroup?.value?.cancelValue?.(prevValue.value)
+          group.cancelValue?.(value)
         })
       },
+      { immediate: true },
     )
-    if (checkboxGroup?.value) {
-      checkboxGroup?.value?.registerValue?.(prevValue.value)
-    }
 
     watch(
       () => props.indeterminate,
