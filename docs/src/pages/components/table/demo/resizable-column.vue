@@ -1,9 +1,9 @@
 <docs lang="zh-CN">
-在列配置中设置 `resizable`，即可拖动表头边缘调整列宽。拖动过程中仅移动代理线，松开后才更新表格布局。
+设置 `resizable`，可通过拖动表头来调整宽度。
 </docs>
 
 <docs lang="en-US">
-Set `resizable` on a column to resize it from the header edge. Only the proxy moves while dragging; the table layout updates on release.
+Set `resizable` to resize columns by dragging the header.
 </docs>
 
 <script setup lang="ts">
