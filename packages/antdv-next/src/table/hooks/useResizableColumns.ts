@@ -4,17 +4,24 @@ import type { ColumnsType, ColumnType } from '../interface'
 import { clsx } from '@v-c/util'
 import { computed, onBeforeUnmount, shallowRef, watch } from 'vue'
 
-const RESIZE_HANDLE_SIZE = 8
+const RESIZE_HIT_AREA_WIDTH = 8
 const DEFAULT_MIN_WIDTH = 40
 
 interface DragState {
-  cell: HTMLElement
-  key: string
-  startX: number
+  headerCell: HTMLElement
+  columnKey: string
+  startClientX: number
   startWidth: number
-  currentWidth: number
+  pendingWidth: number
   minWidth: number
   rtl: boolean
+}
+
+interface BodyStyleSnapshot {
+  cursor: string
+  cursorPriority: string
+  userSelect: string
+  userSelectPriority: string
 }
 
 interface ResizableColumnsOptions<RecordType> {
@@ -54,17 +61,23 @@ export default function useResizableColumns<RecordType extends AnyObject>(
   options: ResizableColumnsOptions<RecordType>,
 ) {
   const resizeProxyRef = shallowRef<HTMLDivElement | null>(null)
-  const resizedWidths = shallowRef(new Map<string, number>())
+  const resizedWidthsByKey = shallowRef(new Map<string, number>())
   let dragState: DragState | undefined
-  let suppressClick = false
-  let clickTimer: ReturnType<typeof setTimeout> | undefined
+  let originalBodyStyles: BodyStyleSnapshot | undefined
+  let suppressNextHeaderClick = false
+  let clickSuppressionTimer: ReturnType<typeof setTimeout> | undefined
 
-  function isResizeEdge(event: MouseEvent, cell: HTMLElement) {
-    const rect = cell.getBoundingClientRect()
+  function isPointerInResizeZone(event: MouseEvent, headerCell: HTMLElement) {
+    // 合并表头的实际宽度不对应单个叶子列，不能直接用于调整列宽。
+    if (Number(headerCell.getAttribute('colspan') ?? 1) !== 1) {
+      return false
+    }
+
+    const rect = headerCell.getBoundingClientRect()
     const distance = options.direction.value === 'rtl'
       ? event.clientX - rect.left
       : rect.right - event.clientX
-    return rect.width > RESIZE_HANDLE_SIZE * 2 && distance >= 0 && distance <= RESIZE_HANDLE_SIZE
+    return rect.width > RESIZE_HIT_AREA_WIDTH * 2 && distance >= 0 && distance <= RESIZE_HIT_AREA_WIDTH
   }
 
   function cleanupDrag() {
@@ -78,49 +91,54 @@ export default function useResizableColumns<RecordType extends AnyObject>(
       proxy.style.transform = ''
     }
 
-    dragState.cell.classList.remove(`${options.prefixCls.value}-cell-resize-active`)
-    document.body.style.cursor = ''
-    document.body.style.userSelect = ''
+    dragState.headerCell.classList.remove(`${options.prefixCls.value}-cell-resize-active`)
+    if (originalBodyStyles) {
+      document.body.style.setProperty('cursor', originalBodyStyles.cursor, originalBodyStyles.cursorPriority)
+      document.body.style.setProperty('user-select', originalBodyStyles.userSelect, originalBodyStyles.userSelectPriority)
+      originalBodyStyles = undefined
+    }
+
     dragState = undefined
-    document.removeEventListener('mousemove', onMouseMove)
-    document.removeEventListener('mouseup', onMouseUp)
+    document.removeEventListener('mousemove', handleDragMove)
+    document.removeEventListener('mouseup', handleDragEnd)
+    window.removeEventListener('blur', cleanupDrag)
   }
 
-  function onMouseMove(event: MouseEvent) {
+  function handleDragMove(event: MouseEvent) {
     if (!dragState) {
       return
     }
 
-    const delta = event.clientX - dragState.startX
-    dragState.currentWidth = Math.max(
+    const delta = event.clientX - dragState.startClientX
+    dragState.pendingWidth = Math.max(
       Math.round(dragState.startWidth + (dragState.rtl ? -delta : delta)),
       dragState.minWidth,
     )
 
     // 拖动过程中只移动代理线，松开后才更新表格布局。
-    const offset = (dragState.currentWidth - dragState.startWidth) * (dragState.rtl ? -1 : 1)
+    const offset = (dragState.pendingWidth - dragState.startWidth) * (dragState.rtl ? -1 : 1)
     const proxy = resizeProxyRef.value
     if (proxy) {
       proxy.style.transform = `translateX(${offset}px)`
     }
   }
 
-  function onMouseUp() {
+  function handleDragEnd() {
     if (!dragState) {
       return
     }
 
-    if (dragState.currentWidth !== dragState.startWidth) {
-      const nextWidths = new Map(resizedWidths.value)
-      nextWidths.set(dragState.key, dragState.currentWidth)
-      resizedWidths.value = nextWidths
+    if (dragState.pendingWidth !== dragState.startWidth) {
+      const nextResizedWidthsByKey = new Map(resizedWidthsByKey.value)
+      nextResizedWidthsByKey.set(dragState.columnKey, dragState.pendingWidth)
+      resizedWidthsByKey.value = nextResizedWidthsByKey
     }
 
     // mouseup 后紧跟着 click，短暂拦截一次，避免触发表头排序。
-    suppressClick = true
-    clearTimeout(clickTimer)
-    clickTimer = setTimeout(() => {
-      suppressClick = false
+    suppressNextHeaderClick = true
+    clearTimeout(clickSuppressionTimer)
+    clickSuppressionTimer = setTimeout(() => {
+      suppressNextHeaderClick = false
     }, 0)
 
     cleanupDrag()
@@ -129,10 +147,10 @@ export default function useResizableColumns<RecordType extends AnyObject>(
   function startDrag(
     event: MouseEvent,
     column: ColumnType<RecordType>,
-    key: string,
-    cell: HTMLElement,
+    columnKey: string,
+    headerCell: HTMLElement,
   ) {
-    if (dragState || event.button !== 0 || !isResizeEdge(event, cell)) {
+    if (dragState || event.button !== 0 || !isPointerInResizeZone(event, headerCell)) {
       return
     }
 
@@ -142,7 +160,7 @@ export default function useResizableColumns<RecordType extends AnyObject>(
       return
     }
 
-    const cellRect = cell.getBoundingClientRect()
+    const cellRect = headerCell.getBoundingClientRect()
     const rootRect = root.getBoundingClientRect()
 
     // 横向滚动条位于滚动容器底部，代理线只覆盖到可视内容区，避免盖住滚动条。
@@ -155,11 +173,11 @@ export default function useResizableColumns<RecordType extends AnyObject>(
     const startEdge = (rtl ? cellRect.left : cellRect.right) - rootRect.left
 
     dragState = {
-      cell,
-      key,
-      startX: event.clientX,
+      headerCell,
+      columnKey,
+      startClientX: event.clientX,
       startWidth,
-      currentWidth: startWidth,
+      pendingWidth: startWidth,
       minWidth: column.minWidth ?? DEFAULT_MIN_WIDTH,
       rtl,
     }
@@ -170,35 +188,46 @@ export default function useResizableColumns<RecordType extends AnyObject>(
     proxy.style.height = `${Math.max(contentBottom - cellRect.top, cellRect.height)}px`
     proxy.style.transform = 'translateX(0px)'
 
-    cell.classList.add(`${options.prefixCls.value}-cell-resize-active`)
+    originalBodyStyles = {
+      cursor: document.body.style.cursor,
+      cursorPriority: document.body.style.getPropertyPriority('cursor'),
+      userSelect: document.body.style.userSelect,
+      userSelectPriority: document.body.style.getPropertyPriority('user-select'),
+    }
+
+    headerCell.classList.add(`${options.prefixCls.value}-cell-resize-active`)
+
     document.body.style.cursor = 'col-resize'
     document.body.style.userSelect = 'none'
-    document.addEventListener('mousemove', onMouseMove)
-    document.addEventListener('mouseup', onMouseUp)
+
+    document.addEventListener('mousemove', handleDragMove)
+    document.addEventListener('mouseup', handleDragEnd)
+    window.addEventListener('blur', cleanupDrag)
+
     event.preventDefault()
     event.stopPropagation()
   }
 
   // 注入到 header cell 的事件处理，由 onHeaderCell 转发。
-  function handleMouseMove(event: MouseEvent, cell: HTMLElement) {
-    cell.classList.toggle(
+  function handleHeaderMouseMove(event: MouseEvent, headerCell: HTMLElement) {
+    headerCell.classList.toggle(
       `${options.prefixCls.value}-cell-resize-active`,
-      isResizeEdge(event, cell),
+      isPointerInResizeZone(event, headerCell),
     )
   }
 
-  function handleMouseLeave(cell: HTMLElement) {
+  function handleHeaderMouseLeave(headerCell: HTMLElement) {
     if (!dragState) {
-      cell.classList.remove(`${options.prefixCls.value}-cell-resize-active`)
+      headerCell.classList.remove(`${options.prefixCls.value}-cell-resize-active`)
     }
   }
 
-  function handleClickCapture(
+  function handleHeaderClickCapture(
     event: MouseEvent,
     next?: (event: MouseEvent) => void,
   ) {
-    if (suppressClick) {
-      suppressClick = false
+    if (suppressNextHeaderClick) {
+      suppressNextHeaderClick = false
       event.preventDefault()
       event.stopPropagation()
       return
@@ -206,7 +235,7 @@ export default function useResizableColumns<RecordType extends AnyObject>(
     next?.(event)
   }
 
-  function enhanceColumns(
+  function withResizableColumns(
     columns: ColumnsType<RecordType>,
     parentPath: number[] = [],
   ): ColumnsType<RecordType> {
@@ -214,20 +243,20 @@ export default function useResizableColumns<RecordType extends AnyObject>(
       const path = [...parentPath, index]
 
       if ('children' in column && column.children?.length) {
-        return { ...column, children: enhanceColumns(column.children, path) }
+        return { ...column, children: withResizableColumns(column.children, path) }
       }
       if (!column.resizable) {
         return column
       }
 
-      const key = getColumnKey(column, path)
-      const originOnHeaderCell = column.onHeaderCell
+      const columnKey = getColumnKey(column, path)
+      const originalOnHeaderCell = column.onHeaderCell
 
       return {
         ...column,
-        width: resizedWidths.value.get(key) ?? column.width,
+        width: resizedWidthsByKey.value.get(columnKey) ?? column.width,
         onHeaderCell: (currentColumn, columnIndex) => {
-          const cellProps = originOnHeaderCell?.(currentColumn, columnIndex) ?? {}
+          const cellProps = originalOnHeaderCell?.(currentColumn, columnIndex) ?? {}
           const {
             class: cellClass,
             className,
@@ -242,19 +271,19 @@ export default function useResizableColumns<RecordType extends AnyObject>(
             ...restCellProps,
             className: clsx(className, cellClass, `${options.prefixCls.value}-cell-resizable`),
             onMousemove: (event: MouseEvent) => {
-              handleMouseMove(event, event.currentTarget as HTMLElement)
+              handleHeaderMouseMove(event, event.currentTarget as HTMLElement)
               onMousemove?.(event)
             },
             onMouseleave: (event: MouseEvent) => {
-              handleMouseLeave(event.currentTarget as HTMLElement)
+              handleHeaderMouseLeave(event.currentTarget as HTMLElement)
               onMouseleave?.(event)
             },
             onMousedown: (event: MouseEvent) => {
-              startDrag(event, column, key, event.currentTarget as HTMLElement)
+              startDrag(event, column, columnKey, event.currentTarget as HTMLElement)
               onMousedown?.(event)
             },
             onClickCapture: (event: MouseEvent) => {
-              handleClickCapture(event, onClickCapture)
+              handleHeaderClickCapture(event, onClickCapture)
             },
           }
         },
@@ -262,37 +291,37 @@ export default function useResizableColumns<RecordType extends AnyObject>(
     })
   }
 
-  const sourceWidths = computed(() => {
-    const widths = new Map<string, ColumnType<RecordType>['width']>()
+  const configuredWidthsByKey = computed(() => {
+    const widthsByKey = new Map<string, ColumnType<RecordType>['width']>()
     walkLeafColumns(options.columns.value, (column, path) => {
       if (column.resizable) {
-        widths.set(getColumnKey(column, path), column.width)
+        widthsByKey.set(getColumnKey(column, path), column.width)
       }
     })
-    return widths
+    return widthsByKey
   })
 
-  let previousSourceWidths = new Map(sourceWidths.value)
-  watch(sourceWidths, (currentWidths) => {
-    const nextWidths = new Map(resizedWidths.value)
+  let previousConfiguredWidthsByKey = new Map(configuredWidthsByKey.value)
+  watch(configuredWidthsByKey, (currentConfiguredWidthsByKey) => {
+    const nextResizedWidthsByKey = new Map(resizedWidthsByKey.value)
     let changed = false
 
-    nextWidths.forEach((_width, key) => {
-      if (!currentWidths.has(key) || previousSourceWidths.get(key) !== currentWidths.get(key)) {
-        nextWidths.delete(key)
+    nextResizedWidthsByKey.forEach((_width, columnKey) => {
+      if (!currentConfiguredWidthsByKey.has(columnKey) || previousConfiguredWidthsByKey.get(columnKey) !== currentConfiguredWidthsByKey.get(columnKey)) {
+        nextResizedWidthsByKey.delete(columnKey)
         changed = true
       }
     })
 
     if (changed) {
-      resizedWidths.value = nextWidths
+      resizedWidthsByKey.value = nextResizedWidthsByKey
     }
 
-    previousSourceWidths = new Map(currentWidths)
+    previousConfiguredWidthsByKey = new Map(currentConfiguredWidthsByKey)
   })
 
   onBeforeUnmount(() => {
-    clearTimeout(clickTimer)
+    clearTimeout(clickSuppressionTimer)
     cleanupDrag()
   })
 
@@ -307,7 +336,7 @@ export default function useResizableColumns<RecordType extends AnyObject>(
   })
 
   return {
-    columns: computed(() => enhanceColumns(options.columns.value)),
+    columns: computed(() => withResizableColumns(options.columns.value)),
     hasResizableColumns,
     resizeProxyRef,
   }
