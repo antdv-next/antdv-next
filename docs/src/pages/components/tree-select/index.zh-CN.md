@@ -164,7 +164,7 @@ demo:
 
 ### 为何在搜索时 `loadData` 不会触发展开？ {#faq-load-data-expand}
 
-在早期版本中，搜索时会触发 `loadData`。但我们收到反馈，输入时会阻塞网络，因此改为搜索不触发 `loadData`。你仍然可以通过 `filterTreeNode` 处理异步加载逻辑：
+搜索时不会触发 `loadData`，以避免输入时阻塞网络。你仍然可以通过 `filterTreeNode` 处理异步加载逻辑：
 
 ```html
 <a-tree-select

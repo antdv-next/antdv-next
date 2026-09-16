@@ -10,7 +10,7 @@ Setting the `tooltip` property shows the FloatButton with a tooltip.
   <a-float-button
     style="inset-block-end: 108px;"
     :tooltip="{
-      title: 'Since 5.25.0+',
+      title: 'Tooltip',
       color: 'blue',
       placement: 'top',
     }"
