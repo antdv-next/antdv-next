@@ -40,7 +40,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-p-wQLik200AAA
 | locale | 国际化配置 | typeof enUS | [(默认配置)](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) | - | × |
 | validRange | 设置可以显示的日期 | [DateType, DateType] | - | - | × |
 | disabledDate | 不可选择的日期，参数为当前 `value`，注意使用时[不要直接修改](https://github.com/ant-design/ant-design/issues/30987) | (date: DateType) =&gt; boolean | - | - | × |
-| dateFullCellRender | 自定义渲染日期单元格，返回内容覆盖单元格，&gt;= 5.4.0 请用 `fullCellRender` | (date: DateType) =&gt; VueNode | - | - | × |
+| dateFullCellRender | 自定义渲染日期单元格，返回内容覆盖单元格，已弃用，请使用 `fullCellRender` | (date: DateType) =&gt; VueNode | - | - | × |
 | dateCellRender | Deprecated. | (date: DateType) =&gt; VueNode | - | - | × |
 | monthFullCellRender | Deprecated. | (date: DateType) =&gt; VueNode | - | - | × |
 | monthCellRender | Deprecated. | (date: DateType) =&gt; VueNode | - | - | × |
@@ -66,7 +66,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-p-wQLik200AAA
 
 | 插槽 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
-| dateFullCellRender | 自定义渲染日期单元格，返回内容覆盖单元格，&gt;= 5.4.0 请用 `fullCellRender` | (ctx: &#123; date: AnyObject &#125;) =&gt; any | - |
+| dateFullCellRender | 自定义渲染日期单元格，返回内容覆盖单元格，已弃用，请使用 `fullCellRender` | (ctx: &#123; date: AnyObject &#125;) =&gt; any | - |
 | dateCellRender | - | (ctx: &#123; date: AnyObject &#125;) =&gt; any | - |
 | monthFullCellRender | - | (ctx: &#123; date: AnyObject &#125;) =&gt; any | - |
 | monthCellRender | - | (ctx: &#123; date: AnyObject &#125;) =&gt; any | - |

@@ -38,11 +38,11 @@ Common props ref：[Common props](/docs/vue/common-props)
 | --- | --- | --- | --- | --- | --- |
 | allowClear | Whether to allow clear when click again | boolean | true |  | × |
 | allowHalf | Whether to allow semi selection | boolean | false |  | × |
-| character | The custom character of rate | VueNode \| (RateProps) => VueNode | &lt;StarFilled /> | function(): 4.4.0 | × |
+| character | The custom character of rate | VueNode \| (RateProps) => VueNode | &lt;StarFilled /> | - | × |
 | count | Star count | number | 5 |  | × |
 | defaultValue | Default value | number | 0 |  | × |
 | disabled | If read only, unable to interact | boolean | false |  | × |
-| keyboard | Support keyboard operation | boolean | true | 5.18.0 | × |
+| keyboard | Support keyboard operation | boolean | true | - | × |
 | size | Star size | 'small' \| 'medium' \| 'large' | 'medium' |  | × |
 | tooltips | Customize tooltip by each character | [TooltipProps](/components/tooltip#api)[\] \| string\[] | - |  | × |
 | value | The current value, support `v-model:value` | number | - |  | × |

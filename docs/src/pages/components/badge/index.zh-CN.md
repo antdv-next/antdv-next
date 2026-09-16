@@ -28,7 +28,7 @@ demo:
 <demo src="./demo/status.vue">状态点</demo>
 <demo src="./demo/colorful.vue">多彩徽标</demo>
 <demo src="./demo/ribbon.vue">缎带</demo>
-<demo src="./demo/style-class.vue" version="6.0.0">自定义语义结构的样式和类</demo>
+<demo src="./demo/style-class.vue">自定义语义结构的样式和类</demo>
 <demo src="./demo/title.vue" debug>自定义标题</demo>
 </demo-group>
 

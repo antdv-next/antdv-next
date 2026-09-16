@@ -144,7 +144,6 @@ Input 的其他属性和 Vue 自带的 [input](https://cn.vuejs.org/guide/essent
 
 ### InputOTP {#input-otp}
 
-`5.16.0` 新增。
 
 > 开发者注意事项：
 >

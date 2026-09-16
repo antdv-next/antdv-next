@@ -19,7 +19,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*obM7S5lIxeMAAA
   <demo src="./demo/simple.vue">Choose image</demo>
   <demo src="./demo/customize.vue">Customize</demo>
   <demo src="./demo/config-provider.vue">ConfigProvider</demo>
-  <demo src="./demo/style-class.vue" version="6.0.0">Custom semantic dom styling</demo>
+  <demo src="./demo/style-class.vue">Custom semantic dom styling</demo>
   <demo src="./demo/description.vue">No description</demo>
 </demo-group>
 

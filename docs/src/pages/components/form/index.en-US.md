@@ -23,7 +23,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
   <demo src="./demo/layout.vue">Form Layout</demo>
   <demo src="./demo/layout-multiple.vue">Form mix layout</demo>
   <demo src="./demo/disabled.vue">Form disabled</demo>
-  <demo src="./demo/variant.vue" version="5.13.0">Form variants</demo>
+  <demo src="./demo/variant.vue">Form variants</demo>
   <demo src="./demo/required-mark.vue">Required style</demo>
   <demo src="./demo/size.vue">Form size</demo>
   <demo src="./demo/layout-can-wrap.vue">label can wrap</demo>

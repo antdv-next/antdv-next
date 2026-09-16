@@ -36,7 +36,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | vertical | Is direction of the flex vertical, use `flex-direction: column` | boolean | `false` | - | ✓ |
-| wrap | Set whether the element is displayed in a single line or in multiple lines | boolean \| CSSProperties['flexWrap'] | nowrap | boolean: 5.17.0 | × |
+| wrap | Set whether the element is displayed in a single line or in multiple lines | boolean \| CSSProperties['flexWrap'] | nowrap | - | × |
 | justify | Sets the alignment of elements in the direction of the main axis | CSSProperties['justifyContent'] | normal | - | × |
 | align | Sets the alignment of elements in the direction of the cross axis | CSSProperties['alignItems'] | normal | - | × |
 | flex | flex CSS shorthand properties | CSSProperties['flex'] | normal | - | × |

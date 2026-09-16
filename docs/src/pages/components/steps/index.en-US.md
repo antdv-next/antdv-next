@@ -42,10 +42,10 @@ The whole of the step bar.
 | current | To set the current step, counting from 0. You can overwrite this state by using `status` of `Step`, support `v-model:current` | number | 0 | - | × |
 | iconRender | Custom render icon, please use `items.icon` first | (oriNode, info: &#123; index, active, item &#125;) =&gt; VueNode | - | - | × |
 | initial | Set the initial step, counting from 0 | number | 0 | - | × |
-| items | StepItem content | [StepItem](#stepitem)[] | [] | 4.24.0 | × |
+| items | StepItem content | [StepItem](#stepitem)[] | [] | - | × |
 | maxCount | Maximum number of step items to display (`>= 3`). Hidden step ranges are collapsed into disabled ellipsis steps | number | - | 1.4.0 | × |
 | orientation | To specify the orientation of the step bar, `horizontal` or `vertical` | `horizontal` \| `vertical` | `horizontal` | - | × |
-| percent | Progress circle percentage of current step in `process` status (only works on basic Steps) | number | - | 4.5.0 | × |
+| percent | Progress circle percentage of current step in `process` status (only works on basic Steps) | number | - | - | × |
 | progressDot | Steps with progress dot style, customize the progress dot by setting it to a function. `titlePlacement` will be `vertical` | boolean \| (iconDot, &#123; index, status, title, content &#125;) =&gt; VueNode | false | - | × |
 | responsive | Change to vertical direction when screen width smaller than `532px` | boolean | true | - | × |
 | size | To specify the size of the step bar, `medium` and `small` are currently supported | `medium` \| `small` | `medium` | - | × |

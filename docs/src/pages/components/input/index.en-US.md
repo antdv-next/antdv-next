@@ -143,7 +143,6 @@ Supports all props of `Input`.
 
 ### InputOTP {#input-otp}
 
-Added in `5.16.0`.
 
 > Notes for developers
 >

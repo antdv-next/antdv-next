@@ -27,7 +27,7 @@ tag: 1.0.0
   <demo src="./demo/group.vue">布局组合</demo>
   <demo src="./demo/size-mix.vue">尺寸混合</demo>
   <demo src="./demo/lazy.vue">延迟渲染</demo>
-  <demo src="./demo/reset.vue" version="1.0.3">双击重置</demo>
+  <demo src="./demo/reset.vue">双击重置</demo>
   <demo src="./demo/style-class.vue">自定义语义结构的样式和类</demo>
 </demo-group>
 

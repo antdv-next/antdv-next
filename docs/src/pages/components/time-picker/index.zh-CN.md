@@ -21,18 +21,18 @@ demo:
 <demo src="./demo/value.vue">受控组件</demo>
 <demo src="./demo/value-format.vue">值格式化</demo>
 <demo src="./demo/size.vue">三种大小</demo>
-<demo src="./demo/need-confirm.vue" version="5.14.0">选择确认</demo>
+<demo src="./demo/need-confirm.vue">选择确认</demo>
 <demo src="./demo/disabled.vue">禁用</demo>
 <demo src="./demo/hide-column.vue">选择时分</demo>
 <demo src="./demo/interval-options.vue">步长选项</demo>
 <demo src="./demo/addon.vue">附加内容</demo>
 <demo src="./demo/12hours.vue">12 小时制</demo>
-<demo src="./demo/change-on-scroll.vue" version="5.14.0">滚动即改变</demo>
+<demo src="./demo/change-on-scroll.vue">滚动即改变</demo>
 <demo src="./demo/range-picker.vue">范围选择器</demo>
-<demo src="./demo/variant.vue" version="5.13.0">形态变体</demo>
+<demo src="./demo/variant.vue">形态变体</demo>
 <demo src="./demo/status.vue">自定义状态</demo>
 <demo src="./demo/suffix.vue">前后缀</demo>
-<demo src="./demo/style-class.vue" version="6.0.0">自定义语义结构的样式和类</demo>
+<demo src="./demo/style-class.vue">自定义语义结构的样式和类</demo>
 </demo-group>
 
 ## API
@@ -43,14 +43,14 @@ demo:
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| allowClear | 自定义清除按钮 | boolean \| \{ clearIcon?: VueNode \} | true | 5.8.0: 支持对象类型 | ✓ |
+| allowClear | 自定义清除按钮 | boolean \| \{ clearIcon?: VueNode \} | true | - | ✓ |
 | ~~addon~~ | TimePicker 面板底部的附加内容渲染函数，请使用 `renderExtraFooter` 替代 | () => VueNode | - | - | × |
-| cellRender | 自定义单元格的内容 | (current: number, info: \{ originNode: VueNode, today: dayjs, range?: 'start' \| 'end', subType: 'hour' \| 'minute' \| 'second' \| 'meridiem' \}) => VueNode | - | 5.4.0 | × |
-| changeOnScroll | 在滚动时改变选择值 | boolean | false | 5.14.0 | × |
+| cellRender | 自定义单元格的内容 | (current: number, info: \{ originNode: VueNode, today: dayjs, range?: 'start' \| 'end', subType: 'hour' \| 'minute' \| 'second' \| 'meridiem' \}) => VueNode | - | - | × |
+| changeOnScroll | 在滚动时改变选择值 | boolean | false | - | × |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: \{ props \})=> Record<[SemanticDOM](#semantic-dom), string> | - |  | ✓ |
 | defaultValue | 默认时间 | [dayjs](http://day.js.org/) | - |  | × |
 | disabled | 禁用全部操作 | boolean | false |  | × |
-| disabledTime | 不可选择的时间 | [DisabledTime](#disabledtime) | - | 4.19.0 | × |
+| disabledTime | 不可选择的时间 | [DisabledTime](#disabledtime) | - | - | × |
 | format | 展示的时间格式 | string | `HH:mm:ss` |  | × |
 | valueFormat | 设置绑定值的格式。设置后 `value`、`defaultValue`、`v-model:value` 可使用格式化字符串，`change` 返回同格式字符串。示例：[值格式化](#time-picker-demo-value-format) | string | - |  | × |
 | getPopupContainer | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | - |  | × |
@@ -58,24 +58,24 @@ demo:
 | hourStep | 小时选项间隔 | number | 1 |  | × |
 | inputReadOnly | 设置输入框为只读（避免在移动设备上打开虚拟键盘） | boolean | false |  | × |
 | minuteStep | 分钟选项间隔 | number | 1 |  | × |
-| needConfirm | 是否需要确认按钮，为 `false` 时失去焦点即代表选择 | boolean | - | 5.14.0 | × |
+| needConfirm | 是否需要确认按钮，为 `false` 时失去焦点即代表选择 | boolean | - | - | × |
 | open | 面板是否打开 | boolean | false |  | × |
 | placeholder | 没有值的时候显示的内容 | string \| \[string, string] | `请选择时间` |  | × |
 | placement | 选择框弹出的位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  | × |
 | ~~popupClassName~~ | 弹出层类名，请使用 `classes.popup` 替换 | string | - |  | × |
 | ~~popupStyle~~ | 弹出层样式对象, 请使用 `styles.popup` 替换 | CSSProperties | - |  | × |
-| prefix | 自定义前缀 | VueNode | - | 5.22.0 | × |
-| previewValue | 当用户选择时间悬停选项时，输入字段的值会发生临时更改 | false \| hover | hover | 6.0.0 | × |
+| prefix | 自定义前缀 | VueNode | - | - | × |
+| previewValue | 当用户选择时间悬停选项时，输入字段的值会发生临时更改 | false \| hover | hover | - | × |
 | renderExtraFooter | 选择框底部显示自定义的内容 | () => VueNode | - |  | × |
 | secondStep | 秒选项间隔 | number | 1 |  | × |
-| showNow | 面板是否显示“此刻”按钮 | boolean | - | 4.4.0 | × |
+| showNow | 面板是否显示“此刻”按钮 | boolean | - | - | × |
 | size | 输入框大小，`large` 高度为 40px，`small` 为 24px，默认是 32px | `large` \| `medium` \| `small` | - |  | × |
-| status | 设置校验状态 | 'error' \| 'warning' \| 'success' \| 'validating' | - | 4.19.0 | × |
+| status | 设置校验状态 | 'error' \| 'warning' \| 'success' \| 'validating' | - | - | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: \{ props \})=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | ✓ |
 | suffixIcon | 自定义的选择框后缀图标 | VueNode | - |  | ✓ |
 | use12Hours | 使用 12 小时制，为 true 时 `format` 默认为 `h:mm:ss a` | boolean | false |  | × |
 | value | 当前时间，支持 `v-model:value` | [dayjs](http://day.js.org/) | - |  | × |
-| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 | ✓ |
+| variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - | ✓ |
 | onChange | 时间发生变化的回调 | function(time: dayjs, timeString: string): void | - |  | × |
 | onOpenChange | 面板打开/关闭时的回调 | (open: boolean) => void | - |  | × |
 
@@ -94,7 +94,6 @@ type DisabledTime = (now: Dayjs) => {
 }
 ```
 
-注意：`disabledMilliseconds` 为 `5.14.0` 新增。
 
 #### 方法 {#methods}
 
@@ -118,8 +117,8 @@ type DisabledTime = (now: Dayjs) => {
 
 | 参数         | 说明                 | 类型                                    | 默认值 | 版本   |
 | ------------ | -------------------- | --------------------------------------- | ------ | ------ |
-| disabledTime | 不可选择的时间       | [RangeDisabledTime](#rangedisabledtime) | -      | 4.19.0 |
-| order        | 始末时间是否自动排序 | boolean                                 | true   | 4.1.0  |
+| disabledTime | 不可选择的时间       | [RangeDisabledTime](#rangedisabledtime) | -      | - |
+| order        | 始末时间是否自动排序 | boolean                                 | true   | -  |
 
 ### RangeDisabledTime
 

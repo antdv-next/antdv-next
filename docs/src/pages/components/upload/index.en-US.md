@@ -56,7 +56,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | accept | File types that can be accepted. See [input accept Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#accept) | string \| [AcceptConfig](#acceptconfig) | - | - | ✓ |
 | action | Uploading URL | string \| (file) => Promise&lt;string> | - | - | × |
 | beforeUpload | Hook function which will be executed before uploading. Uploading will be stopped with `false` or a rejected Promise returned. When returned value is `Upload.LIST_IGNORE`, the list of files that have been uploaded will ignore it. **Warning：this function is not supported in IE9** | (file: [VcFile](#vcfile), fileList: [VcFile[]](#vcfile)) => boolean \| Promise&lt;File> \| `Upload.LIST_IGNORE` | - | - | × |
-| customRequest | Override for the default xhr behavior allowing for additional customization and the ability to implement your own XMLHttpRequest | ( options: [RequestOptions](#request-options), info: \{ defaultRequest: (option: [RequestOptions](#request-options)) => void; \} ) => void | - | defaultRequest: - | ✓ |
+| customRequest | Override for the default xhr behavior allowing for additional customization and the ability to implement your own XMLHttpRequest | ( options: [RequestOptions](#request-options), info: \{ defaultRequest: (option: [RequestOptions](#request-options)) => void; \} ) => void | - | - | ✓ |
 | classes | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: \{ props \})=> Record<[SemanticDOM](#semantic-dom), string> | - | - | ✓ |
 | data | Uploading extra params or function which can return uploading extra params | object \| (file) => object \| Promise&lt;object> | - | - | × |
 | directory | Support upload whole directory ([caniuse](https://caniuse.com/#feat=input-file-directory)) | boolean | false | - | × |
@@ -75,7 +75,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | pastable | Support paste file | boolean | false | - | × |
 | previewFile | Customize preview file logic | (file: File \| Blob) => Promise&lt;dataURL: string> | - | - | × |
 | progress | Custom progress bar | [ProgressProps](/components/progress#api) (support `type="line"` only) | \{ strokeWidth: 2, showInfo: false \} | - | ✓ |
-| showUploadList | Whether to show default upload list, could be an object to specify `extra`, `showPreviewIcon`, `showRemoveIcon`, `showDownloadIcon`, `removeIcon` and `downloadIcon` individually | boolean \| \{ extra?: VueNode \| (file: UploadFile) => VueNode, showPreviewIcon?: boolean \| (file: UploadFile) => boolean, showDownloadIcon?: boolean \| (file: UploadFile) => boolean, showRemoveIcon?: boolean \| (file: UploadFile) => boolean, previewIcon?: VueNode \| (file: UploadFile) => VueNode, removeIcon?: VueNode \| (file: UploadFile) => VueNode, downloadIcon?: VueNode \| (file: UploadFile) => VueNode \} | true | `extra`: -, `showPreviewIcon` function: -, `showRemoveIcon` function: -, `showDownloadIcon` function: - | × |
+| showUploadList | Whether to show default upload list, could be an object to specify `extra`, `showPreviewIcon`, `showRemoveIcon`, `showDownloadIcon`, `removeIcon` and `downloadIcon` individually | boolean \| \{ extra?: VueNode \| (file: UploadFile) => VueNode, showPreviewIcon?: boolean \| (file: UploadFile) => boolean, showDownloadIcon?: boolean \| (file: UploadFile) => boolean, showRemoveIcon?: boolean \| (file: UploadFile) => boolean, previewIcon?: VueNode \| (file: UploadFile) => VueNode, removeIcon?: VueNode \| (file: UploadFile) => VueNode, downloadIcon?: VueNode \| (file: UploadFile) => VueNode \} | true | - | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: \{ props \})=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | - | ✓ |
 | withCredentials | The ajax upload with cookie sent | boolean | false | - | × |
 
@@ -85,7 +85,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | --- | --- | --- | --- |
 | change | A callback function, can be executed when uploading state is changing. It will trigger by every uploading phase. see [onChange](#onchange) | function | - |
 | drop | A callback function executed when files are dragged and dropped into the upload area | (event: DragEvent) => void | - |
-| download | Click the method to download the file, pass the method to perform the method logic, and do not pass the default jump to the new TAB | function(file): void | (Jump to new TAB) |
+| download | Click the method to download the file, pass the method to perform the method logic, and do not pass the default jump to the new TAB | function(file): void | - |
 | preview | A callback function, will be executed when the file link or preview icon is clicked | function(file) | - |
 | remove | A callback function, will be executed when removing file button is clicked, remove event will be prevented when the return value is false or a Promise which resolve(false) or reject | function(file): boolean \| Promise | - |
 

@@ -41,14 +41,14 @@ demo:
 | checkedValue | 选中时的值 | string \| number \| boolean \| object | true | - | × |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | SwitchClassNamesType | - | - | ✓ |
 | defaultChecked | 初始是否选中 | string \| number \| boolean \| object | false | - | × |
-| defaultValue | `defaultChecked` 的别名 | string \| number \| boolean \| object | - | 5.12.0 | × |
+| defaultValue | `defaultChecked` 的别名 | string \| number \| boolean \| object | - | - | × |
 | disabled | 是否禁用 | boolean | false | - | × |
 | loading | 加载中的开关 | boolean | false | - | × |
 | size | 开关大小，可选值：`medium` `small` | `medium` \| `small` | `medium` | - | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | SwitchStylesType | - | - | ✓ |
 | unCheckedChildren | 非选中时的内容 | VueNode | - | - | × |
 | unCheckedValue | 非选中时的值 | string \| number \| boolean \| object | false | - | × |
-| value | `checked` 的别名，支持 `v-model:value` | string \| number \| boolean \| object | - | 5.12.0 | × |
+| value | `checked` 的别名，支持 `v-model:value` | string \| number \| boolean \| object | - | - | × |
 
 ### 事件 {#events}
 

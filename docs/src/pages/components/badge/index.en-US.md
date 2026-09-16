@@ -27,7 +27,7 @@ Badge normally appears in proximity to notifications or user avatars with eye-ca
 <demo src="./demo/status.vue">Status</demo>
 <demo src="./demo/colorful.vue">Colorful Badge</demo>
 <demo src="./demo/ribbon.vue">Ribbon</demo>
-<demo src="./demo/style-class.vue" version="6.0.0">Custom semantic dom styling</demo>
+<demo src="./demo/style-class.vue">Custom semantic dom styling</demo>
 <demo src="./demo/title.vue" debug>Title</demo>
 </demo-group>
 
