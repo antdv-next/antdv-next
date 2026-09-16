@@ -96,7 +96,7 @@ When using an image watermark and the image loads abnormally, you can add `conte
 
 ### Why `overflow: hidden` style is added? {#faq-overflow-hidden}
 
-Users can hide the watermark by setting the container height to 0 through the developer tool in previous versions. To avoid this situation, the container adds `overflow: hidden`. When the container height changes, the content is also hidden. You can override the style to modify this behavior:
+To prevent users from hiding the watermark by setting the container height to 0 through the developer tool, the container adds `overflow: hidden`. When the container height changes, the content is also hidden. You can override the style to modify this behavior:
 
 ```vue
 <template>

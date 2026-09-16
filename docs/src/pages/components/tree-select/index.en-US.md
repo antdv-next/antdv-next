@@ -163,7 +163,7 @@ You can ref Select [FAQ](/components/select).
 
 ### Why `loadData` not trigger when searching? {#faq-load-data-expand}
 
-In earlier version, `loadData` will be triggered when searching. But we got feedback that it will block network when inputting. So we change it to not trigger `loadData` when searching. But you can still handle async logic by `filterTreeNode`:
+`loadData` is not triggered when searching, to avoid blocking the network while typing. You can still handle async logic by `filterTreeNode`:
 
 ```html
 <a-tree-select
