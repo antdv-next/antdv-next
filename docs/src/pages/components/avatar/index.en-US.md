@@ -23,7 +23,6 @@ group:
  <demo src="./demo/group.vue">Avatar.Group</demo>
  <demo src="./demo/max-count.vue">maxCount includes overflow</demo>
  <demo src="./demo/responsive.vue">Responsive Size</demo>
- <demo src="./demo/fallback.vue">Fallback</demo>
 </demo-group>
 
 ## API

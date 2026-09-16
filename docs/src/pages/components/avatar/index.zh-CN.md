@@ -24,7 +24,6 @@ group:
  <demo src="./demo/group.vue">Avatar.Group</demo>
  <demo src="./demo/max-count.vue">maxCount 包含溢出元素</demo>
  <demo src="./demo/responsive.vue">响应式尺寸</demo>
- <demo src="./demo/fallback.vue">图片不存在时</demo>
 </demo-group>
 
 ## API
