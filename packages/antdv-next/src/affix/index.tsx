@@ -185,8 +185,8 @@ export const Affix = defineComponent<
           const fixedBottom = getFixedBottom(placeholderRect, targetRect, props.offsetBottom)
 
           if (
-            (fixedTop !== undefined && affixStyle.value.top === fixedTop)
-            || (fixedBottom !== undefined && affixStyle.value.bottom === fixedBottom)
+            (fixedTop !== undefined && affixStyle.value.top === `${fixedTop}px`)
+            || (fixedBottom !== undefined && affixStyle.value.bottom === `${fixedBottom}px`)
           ) {
             return
           }
