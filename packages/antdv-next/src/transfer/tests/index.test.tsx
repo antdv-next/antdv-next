@@ -273,6 +273,35 @@ describe('transfer', () => {
     expect(itemBCheckbox.checked).toBe(true)
   })
 
+  it('should clear stale selection when dataSource key type changes', async () => {
+    const stringKey = ref(false)
+    const Demo = defineComponent(() => {
+      return () => (
+        <Transfer
+          dataSource={[{ key: stringKey.value ? '1' : 1, title: 'item' }]}
+          render={item => item.title}
+        />
+      )
+    })
+
+    const wrapper = mount(Demo)
+
+    const getItemCheckbox = () =>
+      wrapper.element.querySelector('.ant-transfer-list-content input') as HTMLInputElement
+
+    clickElement(getItemCheckbox())
+    await nextTick()
+    expect(getItemCheckbox().checked).toBe(true)
+
+    stringKey.value = true
+    await nextTick()
+    expect(getItemCheckbox().checked).toBe(false)
+
+    stringKey.value = false
+    await nextTick()
+    expect(getItemCheckbox().checked).toBe(false)
+  })
+
   it('multiple select/deselect by hold down the shift key', () => {
     const handleSelectChange = vi.fn()
     const wrapper = mount(Transfer, {

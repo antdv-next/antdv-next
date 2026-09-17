@@ -1,5 +1,6 @@
 import { describe, expect, it, vi } from 'vitest'
 import ColorAlphaInput from '../components/ColorAlphaInput'
+import ColorClear from '../components/ColorClear'
 import ColorHexInput from '../components/ColorHexInput'
 import ColorHsbInput from '../components/ColorHsbInput'
 import ColorRgbInput from '../components/ColorRgbInput'
@@ -8,6 +9,49 @@ import { generateColor } from '../util'
 import { mount } from '/@tests/utils'
 
 describe('color-picker components', () => {
+  it('ColorClear should not emit change when disabled', async () => {
+    const handleChange = vi.fn()
+    const wrapper = mount(ColorClear, {
+      props: {
+        prefixCls: 'test',
+        value: generateColor('#1677ff'),
+        onChange: handleChange,
+        disabled: true,
+      },
+    })
+
+    const clear = wrapper.find('.test-clear')
+    expect(clear.classes()).toContain('test-clear-disabled')
+    expect(clear.attributes('aria-disabled')).toBe('true')
+    expect(clear.attributes('tabindex')).toBe('-1')
+
+    await clear.trigger('click')
+    await clear.trigger('keydown', { key: 'Enter' })
+    await clear.trigger('keydown', { key: ' ' })
+
+    expect(handleChange).not.toHaveBeenCalled()
+  })
+
+  it('ColorClear should emit change when enabled', async () => {
+    const handleChange = vi.fn()
+    const wrapper = mount(ColorClear, {
+      props: {
+        prefixCls: 'test',
+        value: generateColor('#1677ff'),
+        onChange: handleChange,
+      },
+    })
+
+    const clear = wrapper.find('.test-clear')
+    expect(clear.classes()).not.toContain('test-clear-disabled')
+    expect(clear.attributes('aria-disabled')).toBeUndefined()
+    expect(clear.attributes('tabindex')).toBe('0')
+
+    await clear.trigger('click')
+
+    expect(handleChange).toHaveBeenCalledTimes(1)
+  })
+
   it('ColorSteppers should render and emit change', async () => {
     const handleChange = vi.fn()
     const wrapper = mount(ColorSteppers, {

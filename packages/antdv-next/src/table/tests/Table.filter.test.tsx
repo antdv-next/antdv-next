@@ -96,6 +96,37 @@ describe('table filter', () => {
     expect(wrapper.find('tbody tr td').text()).toBe('John')
   })
 
+  // https://github.com/ant-design/ant-design/pull/59198
+  it('controlled filteredValue still applies when column is hidden by responsive', () => {
+    // The matchMedia mock only matches `max-width` queries, so a column with
+    // `responsive: ['md']` (min-width) is filtered out of `mergedColumns`.
+    // The controlled filter should still apply because base (pre-responsive)
+    // columns are used to collect filter states.
+    const columns = [
+      // Always-visible column we can read to assert the row.
+      { title: 'Name', dataIndex: 'name', key: 'name' },
+      {
+        title: 'AgeFiltered',
+        dataIndex: 'age',
+        key: 'age-filtered',
+        filters: [
+          { text: '32', value: 32 },
+          { text: '42', value: 42 },
+        ],
+        filteredValue: [32],
+        onFilter: (value: any, record: any) => record.age === value,
+        responsive: ['md'] as any,
+      },
+    ]
+    const wrapper = mount(Table, {
+      props: { columns, dataSource: data, pagination: false },
+    })
+    // The responsive filter column should not render a header.
+    expect(wrapper.findAll('thead th')).toHaveLength(1)
+    // But the data should still be filtered by the hidden column's filteredValue.
+    expect(wrapper.findAll('tbody tr td').map(c => c.text())).toEqual(['John'])
+  })
+
   it('should support defaultFilteredValue', () => {
     const columns = [
       {

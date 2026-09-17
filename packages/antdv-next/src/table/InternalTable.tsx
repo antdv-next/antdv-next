@@ -513,11 +513,20 @@ const InternalTable = defineComponent<
     )
 
     const filterStates = shallowRef<FilterState[]>(
-      collectFilterStates(mergedColumns.value as any, true),
+      // Use `baseColumns` (pre-responsive) so that controlled `filteredValue` on a
+      // `responsive` column still applies when the column is hidden at the current
+      // breakpoint.
+      // See: https://github.com/ant-design/ant-design/pull/59198
+      collectFilterStates((baseColumns.value ?? mergedColumns.value) as any, true),
     )
     const filterStateWarning = isDev ? devUseWarning('Table') : undefined
     const mergedFilterStates = computed(() =>
-      getMergedFilterStates(mergedColumns.value as any, filterStates.value, filterStateWarning),
+      getMergedFilterStates(
+        mergedColumns.value as any,
+        filterStates.value,
+        filterStateWarning,
+        baseColumns.value as any,
+      ),
     )
     const filters = computed(() => generateFilterInfo(mergedFilterStates.value))
     const onFilterChange = (filters: Record<string, FilterValue | null>, filterStates: FilterState[]) => {

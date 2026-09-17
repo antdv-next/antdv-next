@@ -16,6 +16,7 @@ import { useGroupContext } from './context'
 import FloatButton, { floatButtonPrefixCls } from './FloatButton'
 import useScroll from './hooks/useScroll'
 
+/** @deprecated Please use `ComponentProps<typeof FloatButton.BackTop>` instead. */
 export interface BackTopProps extends Omit<FloatButtonProps, 'target'>, ComponentBaseProps,
   /* @vue-ignore */
   BackTopEmitsProps {
@@ -25,6 +26,8 @@ export interface BackTopProps extends Omit<FloatButtonProps, 'target'>, Componen
   /** @default false */
   showProgress?: boolean
 }
+
+export interface FloatButtonBackTopProps extends BackTopProps {}
 
 export interface BackTopEmits {
   click: (e: MouseEvent) => void
@@ -41,7 +44,7 @@ export interface BackTopSlots {
 const defaultIcon = <VerticalAlignTopOutlined />
 
 const BackTop = defineComponent<
-  BackTopProps,
+  FloatButtonBackTopProps,
   BackTopEmits,
   string,
   SlotsType<BackTopSlots>
