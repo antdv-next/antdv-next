@@ -108,7 +108,7 @@ const Rate = defineComponent<
           disabled={mergedDisabled}
           characterRender={characterRender}
           {...restAttrs}
-          {...omit(restProps, ['characterRender'])}
+          {...omit(restProps, ['characterRender', 'size'])}
           class={clsx(
             {
               [`${ratePrefixCls.value}-large`]: mergedSize.value === 'large',
