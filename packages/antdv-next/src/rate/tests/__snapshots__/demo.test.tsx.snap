@@ -2764,7 +2764,6 @@ exports[`rate demo > renders size correctly 1`] = `
 >
   <ul
     class="ant-rate ant-rate-large css-var-root"
-    size="large"
     tabindex="0"
   >
     <li
@@ -3355,7 +3354,6 @@ exports[`rate demo > renders size correctly 1`] = `
   </ul>
   <ul
     class="ant-rate ant-rate-small css-var-root"
-    size="small"
     tabindex="0"
   >
     <li
