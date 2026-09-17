@@ -91,6 +91,41 @@ describe('anchor Link.targetOffset', () => {
     root.remove()
   })
 
+  it('uses the link targetOffset when calculating the active link', async () => {
+    const hash1 = getHashUrl()
+    const hash2 = getHashUrl()
+    const part1 = document.createElement('div')
+    part1.id = hash1
+    part1.getClientRects = () => [{ width: 100, height: 100, top: -900 }] as any
+    part1.getBoundingClientRect = () => ({ width: 100, height: 100, top: -900 }) as DOMRect
+
+    const part2 = document.createElement('div')
+    part2.id = hash2
+    part2.getClientRects = () => [{ width: 100, height: 100, top: 100 }] as any
+    part2.getBoundingClientRect = () => ({ width: 100, height: 100, top: 100 }) as DOMRect
+    document.body.append(part1, part2)
+
+    const wrapper = mount(Anchor, {
+      props: {
+        affix: false,
+        bounds: 5,
+        targetOffset: 0,
+        items: [
+          { key: hash1, href: `#${hash1}`, title: 'Part 1' },
+          { key: hash2, href: `#${hash2}`, title: 'Part 2', targetOffset: 300 },
+        ],
+      },
+      attachTo: document.body,
+    })
+
+    await waitFakeTimer()
+    expect(wrapper.element.querySelector('.ant-anchor-link-title-active')?.textContent).toBe('Part 2')
+
+    wrapper.unmount()
+    part1.remove()
+    part2.remove()
+  })
+
   it('targetOffset=0 is honoured (no fallback)', async () => {
     const hash = getHashUrl()
     const scrollToSpy = vi.spyOn(window, 'scrollTo').mockImplementation(() => {})

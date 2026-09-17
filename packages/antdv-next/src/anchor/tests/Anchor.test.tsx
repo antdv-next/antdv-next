@@ -135,7 +135,7 @@ describe('anchor Render', () => {
 
   it('actives the target when clicking a link', async () => {
     const hash = getHashUrl()
-    const href = `http://www.example.com/#${hash}`
+    const href = `#${hash}`
     const pushStateSpy = vi.spyOn(window.history, 'pushState').mockImplementation(() => {})
     const wrapper = mount(Anchor, {
       props: {
@@ -158,6 +158,32 @@ describe('anchor Render', () => {
     const activeLink = wrapper.element.querySelector('.ant-anchor-link-title-active')
     expect(activeLink).toBeTruthy()
     expect(activeLink?.getAttribute('href')).toBe(href)
+    pushStateSpy.mockRestore()
+    wrapper.unmount()
+  })
+
+  it('does not intercept external link clicks', () => {
+    const href = 'https://www.antdv-next.cn/index-cn'
+    const pushStateSpy = vi.spyOn(window.history, 'pushState').mockImplementation(() => {})
+    const wrapper = mount(Anchor, {
+      props: {
+        affix: false,
+        items: [{ key: 'external', href, title: 'External', target: '_blank' }],
+      },
+      attachTo: document.body,
+    })
+    const link = wrapper.find(`a[href="${href}"]`).element
+    let preventedByComponent: boolean | undefined
+
+    link.addEventListener('click', (event) => {
+      preventedByComponent = event.defaultPrevented
+      event.preventDefault()
+    }, { once: true })
+    link.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }))
+
+    expect(preventedByComponent).toBe(false)
+    expect(pushStateSpy).not.toHaveBeenCalled()
+
     pushStateSpy.mockRestore()
     wrapper.unmount()
   })
