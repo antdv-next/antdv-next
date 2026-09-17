@@ -102,6 +102,15 @@ const Avatar = defineComponent<
     })
 
     watch(
+      () => props.src,
+      () => {
+        isImgExist.value = true
+        scale.value = 1
+      },
+      { immediate: true },
+    )
+
+    watch(
       () => props.gap,
       async () => {
         await nextTick()
@@ -163,10 +172,6 @@ const Avatar = defineComponent<
       })
       const src = getSlotPropsFnRun(slots, props, 'src')
 
-      if (src) {
-        isImgExist.value = true
-        scale.value = 1
-      }
       const hasImageElement = isVNode(src)
 
       const mergedShape = shape || avatarCtx?.value?.shape || 'circle'
