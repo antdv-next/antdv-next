@@ -311,9 +311,9 @@ const Alert = defineComponent<
         <Transition
           name={`${prefixCls.value}-motion`}
           appear={false}
-          leaveFromClass="ant-alert-motion-leave"
-          leaveActiveClass="ant-alert-motion-leave ant-alert-motion-leave-active"
-          leaveToClass="ant-alert-motion-leave ant-alert-motion-leave-active"
+          leaveFromClass={`${prefixCls.value}-motion-leave`}
+          leaveActiveClass={`${prefixCls.value}-motion-leave ${prefixCls.value}-motion-leave-active`}
+          leaveToClass={`${prefixCls.value}-motion-leave ${prefixCls.value}-motion-leave-active`}
           onBeforeLeave={handleBeforeLeave}
           onAfterLeave={() => props?.afterClose?.()}
         >
