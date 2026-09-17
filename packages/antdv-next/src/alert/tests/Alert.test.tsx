@@ -78,6 +78,34 @@ describe('alert', () => {
     expect(wrapper.find('.anticon-smile').exists()).toBe(true)
   })
 
+  it('should allow custom icon via slot', () => {
+    const wrapper = mount(Alert, {
+      props: {
+        message: 'Success Text',
+        showIcon: true,
+      },
+      slots: {
+        icon: () => h(SmileOutlined),
+      },
+    })
+    expect(wrapper.find('.anticon-smile').exists()).toBe(true)
+  })
+
+  it('icon slot should take priority over icon prop', () => {
+    const wrapper = mount(Alert, {
+      props: {
+        message: 'Success Text',
+        icon: h('span', { class: 'icon-from-prop' }, 'prop'),
+        showIcon: true,
+      },
+      slots: {
+        icon: () => h('span', { class: 'icon-from-slot' }, 'slot'),
+      },
+    })
+    expect(wrapper.find('.icon-from-slot').exists()).toBe(true)
+    expect(wrapper.find('.icon-from-prop').exists()).toBe(false)
+  })
+
   it('should be closable', async () => {
     const onClose = vi.fn()
     const wrapper = mount(Alert, {

@@ -244,6 +244,7 @@ const Alert = defineComponent<
       const mergedTitle = title ?? message
       const description = getSlotPropsFnRun(slots, props, 'description')
       const action = getSlotPropsFnRun(slots, props, 'action')
+      const icon = getSlotPropsFnRun(slots, props, 'icon')
       // banner mode defaults to Icon
       const isShowIcon = banner && showIcon === undefined ? true : showIcon
 
@@ -337,7 +338,7 @@ const Alert = defineComponent<
                           class={mergedClassNames.icon}
                           style={mergedStyles.icon}
                           description={description}
-                          icon={props.icon}
+                          icon={icon}
                           prefixCls={prefixCls.value}
                           type={type.value}
                           successIcon={successIcon.value}
