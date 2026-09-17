@@ -67,7 +67,7 @@ const Avatar = defineComponent<
   string,
   SlotsType<AvatarSlots>
 >(
-  (props = defaults, { slots, attrs }) => {
+  (props = defaults, { slots, attrs, emit }) => {
     const scale = shallowRef(1)
     const mounted = shallowRef(false)
     const isImgExist = shallowRef(true)
@@ -126,6 +126,9 @@ const Avatar = defineComponent<
       if (errorFlag !== false) {
         isImgExist.value = false
       }
+    }
+    const handleClick = (e: MouseEvent) => {
+      emit('click', e)
     }
     const size = useSize(
       ctxSize => props?.size ?? avatarCtx.value?.size ?? ctxSize ?? 'medium',
@@ -249,6 +252,7 @@ const Avatar = defineComponent<
           {...restAttrs}
           style={{ ...sizeStyle, ...responsiveSizeStyle, ...contextStyle.value, ...style }}
           class={classString}
+          onClick={handleClick}
           ref={avatarNodeRef}
         >
           {childrenToRender}
