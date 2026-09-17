@@ -85,6 +85,13 @@ demo:
 | search | 搜索补全项的时候调用 | (value: string) =&gt; void | - |
 | select | 被选中时调用，参数为选中项的 value 值 | (value: string, option: Option) =&gt; void | - |
 
+### AutoComplete 方法 {#methods}
+
+| 名称 | 说明 | 版本 |
+| --- | --- | --- |
+| blur() | 取消焦点 | - |
+| focus() | 获取焦点 | - |
+
 ### 插槽 {#slots}
 
 | 插槽 | 说明 | 类型 | 版本 |
