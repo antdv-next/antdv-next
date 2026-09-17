@@ -1,11 +1,6 @@
-import { readFileSync } from 'node:fs'
-import { dirname, resolve } from 'node:path'
-import { fileURLToPath } from 'node:url'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 import demoTest from '/@tests/shared/demoTest'
-import { resetMockDate, setMockDate } from '/@tests/utils'
-
-const __dirname = dirname(fileURLToPath(import.meta.url))
+import { readDemoSource, resetMockDate, setMockDate } from '/@tests/utils'
 
 beforeAll(() => {
   setMockDate('2017-09-18T03:30:07.795Z')
@@ -19,10 +14,7 @@ demoTest('calendar')
 
 describe('calendar lunar demo', () => {
   it('keeps lunar demo selected and out-of-panel colors aligned with React demo semantics', () => {
-    const source = readFileSync(
-      resolve(__dirname, '../../../../../docs/src/pages/components/calendar/demo/lunar.vue'),
-      'utf-8',
-    )
+    const source = readDemoSource('calendar', 'lunar')
 
     expect(source).toContain('panelDate.value = value')
     expect(source).toContain('gray: !panelDate.isSame(date, \'month\')')

@@ -1,4 +1,7 @@
 import type { Component } from 'vue'
+import { readFileSync } from 'node:fs'
+import { dirname, resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 // @ts-expect-error this is an internal util
 import { _rs as onResize } from '@v-c/resize-observer/dist/utils/observerUtil'
 import { flushPromises, mount } from '@vue/test-utils'
@@ -17,6 +20,16 @@ export function setMockDate(dateString = '2017-09-18T03:30:07.795') {
 
 export function resetMockDate() {
   MockDate.reset()
+}
+
+const rootDir = resolve(dirname(fileURLToPath(import.meta.url)), '..')
+
+/** Read the raw source of a docs demo: docs/src/pages/components/<component>/demo/<demo>.vue */
+export function readDemoSource(component: string, demo: string): string {
+  return readFileSync(
+    resolve(rootDir, 'docs/src/pages/components', component, 'demo', `${demo}.vue`),
+    'utf-8',
+  )
 }
 
 const globalTimeout = global.setTimeout
