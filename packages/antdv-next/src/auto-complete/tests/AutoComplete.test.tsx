@@ -354,4 +354,13 @@ describe('autoComplete', () => {
     expect(select.attributes('data-test')).toBe('test-id')
     expect(select.attributes('data-id')).toBe('12345')
   })
+
+  it('should expose focus/blur/scrollTo methods', () => {
+    const wrapper = mount(AutoComplete)
+
+    const inst: any = wrapper.vm
+    expect(typeof inst.focus).toBe('function')
+    expect(typeof inst.blur).toBe('function')
+    expect(typeof inst.scrollTo).toBe('function')
+  })
 })

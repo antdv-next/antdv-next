@@ -84,6 +84,13 @@ Common props ref：[Common props](/docs/vue/common-props)
 | search | Called when searching items | (value: string) =&gt; void | - |
 | select | Called when an option is selected, the params are option's value (or key) and option instance | (value: string, option: Option) =&gt; void | - |
 
+### AutoComplete Methods {#methods}
+
+| Name | Description | Version |
+| --- | --- | --- |
+| blur() | Remove focus | - |
+| focus() | Get focus | - |
+
 ### Slots
 
 | Slot | Description | Type | Version |
