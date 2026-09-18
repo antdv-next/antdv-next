@@ -17,6 +17,7 @@ const genVirtualStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       [`${componentCls}-tbody-virtual`]: {
         [`${componentCls}-tbody-virtual-scrollbar`]: {
           cursor: 'pointer',
+          zIndex: 'var(--table-resize-scrollbar-z-index)',
 
           '&:hover': {
             backgroundColor: token.colorFillQuaternary,

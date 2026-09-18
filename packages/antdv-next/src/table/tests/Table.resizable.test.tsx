@@ -82,6 +82,129 @@ describe('Table resizable columns', () => {
     expect(header.classes()).toContain('ant-table-cell-resizable')
   })
 
+  it.each([
+    { fixed: false, sticky: false, expectedZIndex: 3 },
+    { fixed: true, sticky: false, expectedZIndex: 43 },
+    { fixed: true, sticky: true, expectedZIndex: 54 },
+  ])('keeps the resize proxy just above table layers (fixed=$fixed, sticky=$sticky)', async ({ fixed, sticky, expectedZIndex }) => {
+    const wrapper = renderTable({}, {
+      sticky,
+      scroll: fixed ? { x: 1000 } : undefined,
+      columns: [
+        { title: 'Name', dataIndex: 'name', width: 200, resizable: true, fixed: fixed ? 'start' : undefined },
+        { title: 'Age', dataIndex: 'age', width: 200, fixed: fixed ? 'start' : undefined },
+        { title: 'Other', dataIndex: 'name', width: 200 },
+      ],
+    })
+    document.body.appendChild(wrapper.element)
+    prepareRects(wrapper)
+    const header = wrapper.find('thead th')
+    const proxy = wrapper.find('.ant-table-resize-proxy').element as HTMLElement
+    // JSDOM does not resolve calc() with CSS variables; supply resolved values for table layers.
+    const fixedHeaders = wrapper.findAll('.ant-table-thead .ant-table-cell-fix')
+    if (fixed) {
+      expect(fixedHeaders).toHaveLength(2)
+      fixedHeaders.forEach((cell, index) => {
+        (cell.element as HTMLElement).style.zIndex = String(41 + index)
+      })
+    }
+    if (sticky) {
+      (wrapper.find('.ant-table-sticky-holder').element as HTMLElement).style.zIndex = '53'
+    }
+
+    try {
+      for (let attempt = 0; attempt < 2; attempt++) {
+        await header.trigger('mousedown', { button: 0, clientX: 198 })
+        document.dispatchEvent(new MouseEvent('mousemove', { clientX: 218 }))
+        expect(Number(getComputedStyle(proxy).zIndex)).toBe(expectedZIndex)
+        expect(Number(getComputedStyle(proxy).zIndex)).toBeLessThan(1000)
+        document.dispatchEvent(new MouseEvent('mouseup', { clientX: 218 }))
+        expect(proxy.style.zIndex).toBe('')
+      }
+    }
+    finally {
+      wrapper.unmount()
+      wrapper.element.remove()
+    }
+  })
+
+  it.each([
+    { mode: 'normal', virtual: false, scroll: undefined, selector: '.ant-table-content', top: 0, clientHeight: 208, expectedHeight: 208 },
+    { mode: 'scrollable', virtual: false, scroll: { x: 1000, y: 400 }, selector: '.ant-table-body', top: 48, clientHeight: 160, expectedHeight: 208 },
+    { mode: 'virtual', virtual: true, scroll: { x: 1000, y: 400 }, selector: '.ant-table-tbody-virtual-holder', top: 48, clientHeight: 400, expectedHeight: 448 },
+    { mode: 'short virtual', virtual: true, scroll: { x: 1000, y: 400 }, selector: '.ant-table-tbody-virtual-holder', top: 48, clientHeight: 80, expectedHeight: 128 },
+  ])('covers the visible viewport in $mode tables', async ({ virtual, scroll, selector, top, clientHeight, expectedHeight }) => {
+    const wrapper = renderTable({ resizable: true }, { virtual, scroll })
+    prepareRects(wrapper)
+    try {
+      const viewport = wrapper.find(selector).element
+      // Use the viewport height, not scroll.y, its full scrollHeight, or its scrollbar-inclusive bounds.
+      mockRect(viewport, { top, bottom: top + clientHeight + 16, height: clientHeight + 16 })
+      Object.defineProperty(viewport, 'clientHeight', { configurable: true, value: clientHeight })
+      Object.defineProperty(viewport, 'scrollHeight', { configurable: true, value: 10000 })
+      await wrapper.find('thead th').trigger('mousedown', { button: 0, clientX: 198 })
+      document.dispatchEvent(new MouseEvent('mousemove', { clientX: 218 }))
+
+      const proxy = wrapper.find('.ant-table-resize-proxy').element as HTMLElement
+      expect(proxy.style.height).toBe(`${expectedHeight}px`)
+      expect(proxy.style.top).toBe('0px')
+      document.dispatchEvent(new MouseEvent('mouseup', { clientX: 218 }))
+    }
+    finally {
+      wrapper.unmount()
+    }
+  })
+
+  it.each([
+    { direction: 'ltr', clientHeight: 400, sticky: false, scrollbarTop: 440 },
+    { direction: 'rtl', clientHeight: 400, sticky: false, scrollbarTop: 440 },
+    { direction: 'ltr', clientHeight: 80, sticky: false, scrollbarTop: 120 },
+    { direction: 'ltr', clientHeight: 400, sticky: true, scrollbarTop: 448 },
+  ] as const)('keeps a full-height proxy below virtual scrollbars as they hide and show ($direction, height=$clientHeight, sticky=$sticky)', async ({ direction, clientHeight, sticky, scrollbarTop }) => {
+    const wrapper = renderTable({ resizable: true }, {
+      virtual: true,
+      direction,
+      sticky,
+      scroll: { x: 1000, y: 400 },
+      dataSource: Array.from({ length: 20 }, (_, index) => ({ ...dataSource[0], key: String(index) })),
+    })
+    prepareRects(wrapper)
+    try {
+      const viewport = wrapper.find('.ant-table-tbody-virtual-holder').element
+      const scrollbar = wrapper.find('.ant-table-tbody-virtual-scrollbar-horizontal').element as HTMLElement
+      const root = wrapper.find('.ant-table-wrapper').element as HTMLElement
+      if (sticky) {
+        // JSDOM does not resolve the sticky holder's calc() z-index.
+        (wrapper.find('.ant-table-sticky-holder').element as HTMLElement).style.zIndex = '25'
+      }
+      mockRect(viewport, { top: 48, bottom: 48 + clientHeight, height: clientHeight })
+      Object.defineProperty(viewport, 'clientHeight', { configurable: true, value: clientHeight })
+      mockRect(scrollbar, { top: scrollbarTop, bottom: scrollbarTop + 8, height: 8 })
+      const startX = direction === 'rtl' ? 2 : 198
+      const endX = startX + (direction === 'rtl' ? -20 : 20)
+      await wrapper.find('thead th').trigger('mousedown', { button: 0, clientX: startX })
+      document.dispatchEvent(new MouseEvent('mousemove', { clientX: endX }))
+
+      const proxy = wrapper.find('.ant-table-resize-proxy').element as HTMLElement
+      expect(Number.parseFloat(proxy.style.height)).toBe(48 + clientHeight)
+      expect(Number(root.style.getPropertyValue('--table-resize-scrollbar-z-index'))).toBe(Number(proxy.style.zIndex) + 1)
+      for (const bar of wrapper.findAll('.ant-table-tbody-virtual-scrollbar')) {
+        // JSDOM leaves var() unresolved; verify the shared declaration and its supplied numeric value.
+        expect(getComputedStyle(bar.element).zIndex).toBe('var(--table-resize-scrollbar-z-index)')
+      }
+      for (const visibility of ['hidden', 'visible']) {
+        scrollbar.style.visibility = visibility
+        // No new mousemove is needed to keep the line continuous when the scrollbar hides.
+        expect(Number.parseFloat(proxy.style.height)).toBe(48 + clientHeight)
+      }
+      document.dispatchEvent(new MouseEvent('mouseup', { clientX: endX }))
+      expect(root.style.getPropertyValue('--table-resize-scrollbar-z-index')).toBe('')
+    }
+    finally {
+      wrapper.unmount()
+    }
+  })
+
   it('moves only the proxy while dragging and commits width on mouseup', async () => {
     const wrapper = renderTable({ resizable: true })
     prepareRects(wrapper)
@@ -91,7 +214,7 @@ describe('Table resizable columns', () => {
     const initialStyle = firstCol.attributes('style')
 
     await header.trigger('mousemove', { clientX: 198 })
-    expect(header.classes()).toContain('ant-table-cell-resize-active')
+    expect((header.element as HTMLElement).style.cursor).toBe('col-resize')
 
     await header.trigger('mousedown', { button: 0, clientX: 198 })
     document.dispatchEvent(new MouseEvent('mousemove', { clientX: 238 }))
@@ -129,7 +252,7 @@ describe('Table resizable columns', () => {
       const header = wrapper.find('thead th')
       expect(header.attributes('colspan')).toBe('2')
       await header.trigger('mousemove', { clientX: 198 })
-      expect(header.classes()).not.toContain('ant-table-cell-resize-active')
+      expect((header.element as HTMLElement).style.cursor).toBe('')
 
       await header.trigger('mousedown', { button: 0, clientX: 198 })
       document.dispatchEvent(new MouseEvent('mousemove', { clientX: 218 }))
@@ -160,7 +283,7 @@ describe('Table resizable columns', () => {
       window.dispatchEvent(new Event('blur'))
       await nextTick()
 
-      expect(header.classes()).not.toContain('ant-table-cell-resize-active')
+      expect((header.element as HTMLElement).style.cursor).toBe('')
       expect(wrapper.find('.ant-table-resize-proxy').attributes('style')).toContain('display: none')
       expect(document.body.style.cursor).toBe('')
       expect(document.body.style.userSelect).toBe('')
@@ -351,6 +474,380 @@ describe('Table resizable columns', () => {
     await nextTick()
 
     expect(wrapper.find('col').attributes('style')).toContain('240px')
+  })
+
+  it.each([
+    { direction: 'ltr', startX: 198, delta: 0 },
+    { direction: 'ltr', startX: 198, delta: 2 },
+    { direction: 'ltr', startX: 198, delta: -2 },
+    { direction: 'rtl', startX: 2, delta: 0 },
+    { direction: 'rtl', startX: 2, delta: 2 },
+    { direction: 'rtl', startX: 2, delta: -2 },
+  ] as const)('sorts on an edge click with $delta px movement in $direction', async ({ direction, startX, delta }) => {
+    const onChange = vi.fn()
+    const onClickCapture = vi.fn()
+    const wrapper = renderTable({ resizable: true, sorter: true, onHeaderCell: () => ({ onClickCapture }) }, { onChange, direction })
+    prepareRects(wrapper)
+    const sorter = wrapper.find('.ant-table-column-sorter').element
+
+    // Dispatch the full mouse sequence synchronously, including the click following mouseup.
+    sorter.dispatchEvent(new MouseEvent('mousedown', { bubbles: true, cancelable: true, button: 0, clientX: startX }))
+    if (delta) {
+      document.dispatchEvent(new MouseEvent('mousemove', { clientX: startX + delta }))
+    }
+    document.dispatchEvent(new MouseEvent('mouseup', { clientX: startX + delta }))
+    sorter.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, clientX: startX + delta }))
+    await nextTick()
+
+    expect(onChange).toHaveBeenCalledTimes(1)
+    expect(onClickCapture).toHaveBeenCalledTimes(1)
+    expect(wrapper.find('col').attributes('style')).toContain('200px')
+  })
+
+  it.each(['move-away', 'mouseleave', 'blur', 'unmount'] as const)('restores body and header cursors after hover ends via %s', async (ending) => {
+    const wrapper = renderTable({ resizable: true, sorter: true })
+    prepareRects(wrapper)
+    const header = wrapper.find('thead th')
+    const cell = header.element as HTMLElement
+    document.body.style.cursor = 'progress'
+    cell.style.cursor = 'crosshair'
+    try {
+      await header.trigger('mousemove', { clientX: 199 })
+      expect(document.body.style.cursor).toBe('col-resize')
+      expect(cell.style.cursor).toBe('col-resize')
+      expect(cell.classList.contains('ant-table-cell-resize-active')).toBe(false)
+      expect(document.body.style.userSelect).toBe('')
+      expect(wrapper.find('.ant-table-resize-proxy').attributes('style') ?? '').not.toContain('display: block')
+      if (ending === 'move-away') {
+        await header.trigger('mousemove', { clientX: 150 })
+      }
+      else if (ending === 'mouseleave') {
+        await header.trigger('mouseleave')
+      }
+      else if (ending === 'blur') {
+        window.dispatchEvent(new Event('blur'))
+      }
+      else {
+        wrapper.unmount()
+      }
+      expect(document.body.style.cursor).toBe('progress')
+      expect(cell.style.cursor).toBe('crosshair')
+      expect(cell.classList.contains('ant-table-cell-resize-active')).toBe(false)
+    }
+    finally {
+      if (ending !== 'unmount') {
+        wrapper.unmount()
+      }
+    }
+  })
+
+  it.each(['ltr', 'rtl'] as const)('keeps the cursor over adjacent sortable headers before and after the threshold in %s', async (direction) => {
+    const wrapper = renderTable({}, {
+      direction,
+      columns: [
+        { title: 'Name', dataIndex: 'name', width: 200, resizable: true, sorter: true },
+        { title: 'Age', dataIndex: 'age', width: 200, sorter: true },
+      ],
+    })
+    document.body.appendChild(wrapper.element)
+    prepareRects(wrapper)
+    const [header, adjacent] = wrapper.findAll('thead th')
+    const rtl = direction === 'rtl'
+    const startX = rtl ? 201 : 199
+    const sign = rtl ? -1 : 1
+    mockRect(header!.element, { left: rtl ? 200 : 0, right: rtl ? 400 : 200, width: 200, height: 48 })
+    mockRect(adjacent!.element, { left: rtl ? 0 : 200, right: rtl ? 200 : 400, width: 200, height: 48 })
+    const proxy = wrapper.find('.ant-table-resize-proxy').element as HTMLElement
+
+    try {
+      expect(getComputedStyle(adjacent!.element).cursor).toBe('pointer')
+      await header!.trigger('mousemove', { clientX: startX })
+      expect(document.body.style.cursor).toBe('col-resize')
+      expect(getComputedStyle(header!.element).cursor).toBe('col-resize')
+      await header!.trigger('mousedown', { button: 0, clientX: startX })
+      await header!.trigger('mouseleave')
+      expect(document.body.style.cursor).toBe('col-resize')
+
+      await adjacent!.trigger('mousemove', { clientX: startX + sign * 2 })
+      expect(getComputedStyle(adjacent!.element).cursor).toBe('col-resize')
+      expect(proxy.style.display).not.toBe('block')
+      expect(document.body.style.cursor).toBe('col-resize')
+      expect(document.body.style.userSelect).toBe('')
+
+      await adjacent!.trigger('mousemove', { clientX: startX + sign * 4 })
+      expect(getComputedStyle(adjacent!.element).cursor).toBe('col-resize')
+      expect(proxy.style.display).toBe('block')
+      document.dispatchEvent(new MouseEvent('mouseup', { clientX: startX + sign * 4 }))
+      await nextTick()
+      expect(getComputedStyle(adjacent!.element).cursor).toBe('pointer')
+      expect(document.body.style.cursor).toBe('')
+      expect(wrapper.find('col').attributes('style')).toContain('204px')
+    }
+    finally {
+      wrapper.unmount()
+      wrapper.element.remove()
+    }
+  })
+
+  it.each([0, 40])('restores the edge cursor after releasing with %i px movement', async (delta) => {
+    const wrapper = renderTable({ resizable: true, sorter: true })
+    document.body.appendChild(wrapper.element)
+    prepareRects(wrapper)
+    const header = wrapper.find('thead th')
+    try {
+      await header.trigger('mousemove', { clientX: 199, clientY: 20 })
+      await header.trigger('mousedown', { button: 0, clientX: 199, clientY: 20 })
+      if (delta) {
+        document.dispatchEvent(new MouseEvent('mousemove', { clientX: 199 + delta, clientY: 20 }))
+      }
+      document.dispatchEvent(new MouseEvent('mouseup', { clientX: 199 + delta, clientY: 20 }))
+      // JSDOM has no layout; simulate the geometry after the column width is committed.
+      mockRect(header.element, { left: 0, right: 200 + delta, top: 0, bottom: 48, width: 200 + delta, height: 48 })
+      await nextTick()
+
+      expect(getComputedStyle(header.element).cursor).toBe('col-resize')
+      expect(document.body.style.cursor).toBe('col-resize')
+      await header.trigger('mouseleave')
+      expect((header.element as HTMLElement).style.cursor).toBe('')
+      expect(document.body.style.cursor).toBe('')
+      expect(getComputedStyle(header.element).cursor).toBe('pointer')
+    }
+    finally {
+      wrapper.unmount()
+      wrapper.element.remove()
+    }
+  })
+
+  it.each([
+    { started: false, ending: 'mouseup' },
+    { started: false, ending: 'blur' },
+    { started: false, ending: 'unmount' },
+    { started: true, ending: 'mouseup' },
+    { started: true, ending: 'blur' },
+    { started: true, ending: 'unmount' },
+  ])('cleans up body and header cursors on $ending (started=$started)', async ({ started, ending }) => {
+    const wrapper = renderTable({ resizable: true, sorter: true })
+    prepareRects(wrapper)
+    const header = wrapper.find('thead th')
+    const cell = header.element as HTMLElement
+    const root = wrapper.find('.ant-table-wrapper').element as HTMLElement
+    try {
+      await header.trigger('mousedown', { button: 0, clientX: 199 })
+      expect(cell.style.cursor).toBe('col-resize')
+      expect(document.body.style.cursor).toBe('col-resize')
+      if (started) {
+        document.dispatchEvent(new MouseEvent('mousemove', { clientX: 219 }))
+      }
+      if (ending === 'unmount') {
+        wrapper.unmount()
+      }
+      else if (ending === 'blur') {
+        window.dispatchEvent(new Event('blur'))
+      }
+      else {
+        document.dispatchEvent(new MouseEvent('mouseup', { clientX: started ? 219 : 199 }))
+      }
+      expect(root.style.getPropertyValue('--table-resize-scrollbar-z-index')).toBe('')
+      expect(cell.style.cursor).toBe('')
+      expect(document.body.style.cursor).toBe('')
+      expect(document.body.style.userSelect).toBe('')
+    }
+    finally {
+      if (ending !== 'unmount') {
+        wrapper.unmount()
+      }
+    }
+  })
+
+  it.each([
+    { resizable: true, clientX: 198, button: 0, detail: 1, prevented: true },
+    { resizable: true, clientX: 198, button: 0, detail: 2, prevented: true },
+    { resizable: true, clientX: 198, button: 0, detail: 3, prevented: true },
+    { resizable: true, clientX: 100, button: 0, detail: 1, prevented: false },
+    { resizable: true, clientX: 198, button: 2, detail: 1, prevented: false },
+    { resizable: false, clientX: 198, button: 0, detail: 1, prevented: false },
+  ])('only prevents native selection for left presses in the resize zone ($resizable, $clientX, $button, $detail)', async ({ resizable, clientX, button, detail, prevented }) => {
+    const onChange = vi.fn()
+    const onMousedown = vi.fn()
+    const wrapper = renderTable({ resizable, sorter: true, onHeaderCell: () => ({ onMousedown }) }, { onChange })
+    prepareRects(wrapper)
+    const header = wrapper.find('thead th').element
+    const down = new MouseEvent('mousedown', { bubbles: true, cancelable: true, clientX, button, detail })
+    try {
+      header.dispatchEvent(down)
+      expect(down.defaultPrevented).toBe(prevented)
+      expect(onMousedown).toHaveBeenCalledWith(down)
+      document.dispatchEvent(new MouseEvent('mouseup', { clientX, button }))
+      if (button === 0) {
+        header.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true, clientX, button, detail }))
+        await nextTick()
+        expect(onChange).toHaveBeenCalledTimes(1)
+      }
+      expect(wrapper.find('col').attributes('style')).toContain('200px')
+    }
+    finally {
+      wrapper.unmount()
+    }
+  })
+
+  it('waits for the drag threshold before showing the proxy or disabling selection', async () => {
+    document.body.style.cursor = 'progress'
+    document.body.style.userSelect = 'text'
+    const wrapper = renderTable({ resizable: true, sorter: true })
+    prepareRects(wrapper)
+    const header = wrapper.find('thead th').element
+    const proxy = wrapper.find('.ant-table-resize-proxy').element as HTMLElement
+    const down = new MouseEvent('mousedown', { bubbles: true, cancelable: true, button: 0, clientX: 198 })
+    header.dispatchEvent(down)
+    const preventedOnDown = down.defaultPrevented
+    const displayOnDown = proxy.style.display
+    const cursorOnDown = document.body.style.cursor
+    const userSelectOnDown = document.body.style.userSelect
+
+    document.dispatchEvent(new MouseEvent('mousemove', { clientX: 200 }))
+    const displayBeforeThreshold = proxy.style.display
+    const cursorBeforeThreshold = document.body.style.cursor
+    const userSelectBeforeThreshold = document.body.style.userSelect
+    document.dispatchEvent(new MouseEvent('mousemove', { clientX: 201 }))
+    expect(proxy.style.display).toBe('block')
+    expect(proxy.style.transform).toBe('translateX(3px)')
+    expect(document.body.style.cursor).toBe('col-resize')
+    expect(document.body.style.userSelect).toBe('none')
+    document.dispatchEvent(new MouseEvent('mouseup', { clientX: 201 }))
+    await nextTick()
+
+    expect(preventedOnDown).toBe(true)
+    expect(displayOnDown).not.toBe('block')
+    expect(cursorOnDown).toBe('col-resize')
+    expect(userSelectOnDown).toBe('text')
+    expect(displayBeforeThreshold).not.toBe('block')
+    expect(cursorBeforeThreshold).toBe('col-resize')
+    expect(userSelectBeforeThreshold).toBe('text')
+    expect(wrapper.find('col').attributes('style')).toContain('203px')
+    expect(document.body.style.cursor).toBe('progress')
+    expect(document.body.style.userSelect).toBe('text')
+  })
+
+  it.each(['blur', 'unmount'] as const)('cleans up a pending drag on %s', async (ending) => {
+    const wrapper = renderTable({ resizable: true })
+    prepareRects(wrapper)
+    const removeDocumentListener = vi.spyOn(document, 'removeEventListener')
+    const removeWindowListener = vi.spyOn(window, 'removeEventListener')
+    await wrapper.find('thead th').trigger('mousedown', { button: 0, clientX: 198 })
+    if (ending === 'unmount') {
+      wrapper.unmount()
+    }
+    else {
+      window.dispatchEvent(new Event('blur'))
+    }
+    document.dispatchEvent(new MouseEvent('mousemove', { clientX: 238 }))
+    document.dispatchEvent(new MouseEvent('mouseup', { clientX: 238 }))
+    await nextTick()
+
+    expect(document.body.style.cursor).toBe('')
+    expect(document.body.style.userSelect).toBe('')
+    expect(removeDocumentListener).toHaveBeenCalledWith('mousemove', expect.any(Function))
+    expect(removeDocumentListener).toHaveBeenCalledWith('mouseup', expect.any(Function))
+    expect(removeWindowListener).toHaveBeenCalledWith('blur', expect.any(Function))
+    if (ending === 'blur') {
+      expect(wrapper.find('col').attributes('style')).toContain('200px')
+      await wrapper.find('thead th').trigger('mousedown', { button: 0, clientX: 198 })
+      document.dispatchEvent(new MouseEvent('mousemove', { clientX: 218 }))
+      document.dispatchEvent(new MouseEvent('mouseup', { clientX: 218 }))
+      await nextTick()
+      expect(wrapper.find('col').attributes('style')).toContain('220px')
+    }
+  })
+
+  it.each(['returned', 'clamped'] as const)('suppresses sorting after a real drag with unchanged width (%s)', async (mode) => {
+    const onChange = vi.fn()
+    const wrapper = renderTable({ resizable: true, sorter: true, minWidth: mode === 'clamped' ? 200 : undefined }, { onChange })
+    prepareRects(wrapper)
+    const header = wrapper.find('thead th')
+    await header.trigger('mousedown', { button: 0, clientX: 198 })
+    document.dispatchEvent(new MouseEvent('mousemove', { clientX: mode === 'clamped' ? 178 : 218 }))
+    if (mode === 'returned') {
+      document.dispatchEvent(new MouseEvent('mousemove', { clientX: 198 }))
+    }
+    document.dispatchEvent(new MouseEvent('mouseup', { clientX: 198 }))
+    await header.trigger('click')
+
+    expect(onChange).not.toHaveBeenCalled()
+    expect(wrapper.find('col').attributes('style')).toContain('200px')
+    await header.trigger('click')
+    expect(onChange).toHaveBeenCalledTimes(1)
+  })
+
+  it.each(['header', 'sorter'] as const)('only suppresses the resized header click, including clicks on its %s', async (target) => {
+    const onChange = vi.fn()
+    const onNameCapture = vi.fn()
+    const onAgeCapture = vi.fn()
+    const wrapper = renderTable({}, {
+      onChange,
+      columns: [
+        { title: 'Name', key: 'name', dataIndex: 'name', width: 200, resizable: true, sorter: true, onHeaderCell: () => ({ onClickCapture: onNameCapture }) },
+        { title: 'Age', key: 'age', dataIndex: 'age', width: 200, resizable: true, sorter: true, onHeaderCell: () => ({ onClickCapture: onAgeCapture }) },
+      ],
+    })
+    prepareRects(wrapper)
+    const [nameHeader, ageHeader] = wrapper.findAll('thead th')
+    const nameTarget = target === 'header' ? nameHeader! : nameHeader!.find('.ant-table-column-sorter')
+    const ageTarget = target === 'header' ? ageHeader! : ageHeader!.find('.ant-table-column-sorter')
+    try {
+      await nameHeader!.trigger('mousedown', { button: 0, clientX: 198 })
+      document.dispatchEvent(new MouseEvent('mousemove', { clientX: 218 }))
+      document.dispatchEvent(new MouseEvent('mouseup', { clientX: 218 }))
+      // Keep both clicks in the same task: the other header must neither be blocked nor consume the marker.
+      ageTarget.element.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }))
+      nameTarget.element.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }))
+      await nextTick()
+
+      expect(onChange).toHaveBeenCalledTimes(1)
+      expect(onChange.mock.calls[0]![2].columnKey).toBe('age')
+      expect(onAgeCapture).toHaveBeenCalledTimes(1)
+      expect(onNameCapture).not.toHaveBeenCalled()
+      await nameTarget.trigger('click')
+      expect(onChange).toHaveBeenCalledTimes(2)
+      expect(onNameCapture).toHaveBeenCalledTimes(1)
+    }
+    finally {
+      wrapper.unmount()
+    }
+  })
+
+  it('clears the suppression when no click follows the resize', async () => {
+    const onChange = vi.fn()
+    const wrapper = renderTable({ resizable: true, sorter: true }, { onChange })
+    prepareRects(wrapper)
+    const header = wrapper.find('thead th')
+    try {
+      await header.trigger('mousedown', { button: 0, clientX: 198 })
+      document.dispatchEvent(new MouseEvent('mousemove', { clientX: 218 }))
+      document.dispatchEvent(new MouseEvent('mouseup', { clientX: 218 }))
+      await new Promise(resolve => setTimeout(resolve, 0))
+      await header.trigger('click')
+      expect(onChange).toHaveBeenCalledTimes(1)
+    }
+    finally {
+      wrapper.unmount()
+    }
+  })
+
+  it('does not block keyboard sorting while a drag click is suppressed', async () => {
+    const onChange = vi.fn()
+    const wrapper = renderTable({ resizable: true, sorter: true }, { onChange })
+    prepareRects(wrapper)
+    const header = wrapper.find('thead th')
+    try {
+      await header.trigger('mousedown', { button: 0, clientX: 198 })
+      document.dispatchEvent(new MouseEvent('mousemove', { clientX: 218 }))
+      document.dispatchEvent(new MouseEvent('mouseup', { clientX: 218 }))
+      await header.trigger('keydown', { key: 'Enter', keyCode: 13 })
+      expect(onChange).toHaveBeenCalledTimes(1)
+    }
+    finally {
+      wrapper.unmount()
+    }
   })
 
   it('does not trigger sorting after a resize', async () => {
