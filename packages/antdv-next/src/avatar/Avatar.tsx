@@ -102,7 +102,7 @@ const Avatar = defineComponent<
     })
 
     watch(
-      () => props.src,
+      () => [props.src, props.srcSet],
       () => {
         isImgExist.value = true
         scale.value = 1

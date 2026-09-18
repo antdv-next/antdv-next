@@ -200,6 +200,23 @@ describe('avatar', () => {
     expect(wrapper.find('img').exists()).toBe(true)
     expect(wrapper.find('img').attributes('src')).toBe('https://example.com/avatar.png')
   })
+
+  it('should retry when srcSet changes after an error', async () => {
+    const srcSet = ref('https://example.com/invalid@2x.png 2x')
+    const wrapper = mount(() => (
+      <Avatar src="https://example.com/invalid.png" srcSet={srcSet.value}>Fallback</Avatar>
+    ))
+
+    await wrapper.find('img').trigger('error')
+    await nextTick()
+    expect(wrapper.find('img').exists()).toBe(false)
+
+    srcSet.value = 'https://example.com/avatar@2x.png 2x'
+    await nextTick()
+    expect(wrapper.find('img').exists()).toBe(true)
+    expect(wrapper.find('img').attributes('srcset')).toBe('https://example.com/avatar@2x.png 2x')
+  })
+
   it('should render icon', () => {
     const wrapper = mount(Avatar, {
       props: {
