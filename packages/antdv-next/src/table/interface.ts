@@ -118,7 +118,7 @@ export interface ColumnType<RecordType = AnyObject>
   extends Omit<VcColumnType<RecordType>, 'title'> {
   title?: ColumnTitle<RecordType>
   /**
-   * @version >= 1.5.5
+   * @since 1.5.5
    * @nameZH 是否可以拖动调整列宽
    * @nameEN Whether the column width can be resized
    * @desc 在表头边缘拖动时显示代理线，松开后更新列宽。
