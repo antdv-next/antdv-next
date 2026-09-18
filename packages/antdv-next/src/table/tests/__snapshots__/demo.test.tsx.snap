@@ -26455,13 +26455,13 @@ exports[`table demo > renders resizable-column correctly 1`] = `
                   style="width: 200px;"
                 />
                 <col
-                  style="width: 100px;"
+                  style="width: 120px;"
                 />
                 <col
-                  style="width: 100px;"
+                  style="width: 120px;"
                 />
                 <col
-                  style="width: 100px;"
+                  style="width: 160px;"
                 />
               </colgroup>
               <thead
@@ -26471,26 +26471,21 @@ exports[`table demo > renders resizable-column correctly 1`] = `
                   class=""
                 >
                   <th
-                    class="resizable-title ant-table-cell"
+                    class="ant-table-cell ant-table-cell-resizable"
                     colend="0"
                     colstart="0"
                     scope="col"
-                    style="width: 200px;"
                   >
                     <!---->
                     Date
-                    <span
-                      class="resizable-handle"
-                    />
                   </th>
                   <th
                     aria-description="sortable"
                     aria-label="Amount"
-                    class="resizable-title ant-table-cell ant-table-column-has-sorters"
+                    class="ant-table-cell ant-table-cell-resizable ant-table-column-has-sorters"
                     colend="1"
                     colstart="1"
                     scope="col"
-                    style="width: 100px;"
                     tabindex="0"
                   >
                     <!---->
@@ -26551,35 +26546,24 @@ exports[`table demo > renders resizable-column correctly 1`] = `
                       </span>
                     </div>
                     <!---->
-                    <span
-                      class="resizable-handle"
-                    />
                   </th>
                   <th
-                    class="resizable-title ant-table-cell"
+                    class="ant-table-cell ant-table-cell-resizable"
                     colend="2"
                     colstart="2"
                     scope="col"
-                    style="width: 100px;"
                   >
                     <!---->
                     Type
-                    <span
-                      class="resizable-handle"
-                    />
                   </th>
                   <th
-                    class="resizable-title ant-table-cell"
+                    class="ant-table-cell ant-table-cell-resizable"
                     colend="3"
                     colstart="3"
                     scope="col"
-                    style="width: 100px;"
                   >
                     <!---->
                     Note
-                    <span
-                      class="resizable-handle"
-                    />
                   </th>
                   <th
                     class="ant-table-cell"
@@ -26820,6 +26804,9 @@ exports[`table demo > renders resizable-column correctly 1`] = `
       </ul>
     </div>
   </div>
+  <div
+    class="ant-table-resize-proxy"
+  />
 </div>
 `;
 

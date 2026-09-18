@@ -117,6 +117,15 @@ export interface CoverableDropdownProps extends DropdownProps {
 export interface ColumnType<RecordType = AnyObject>
   extends Omit<VcColumnType<RecordType>, 'title'> {
   title?: ColumnTitle<RecordType>
+  /**
+   * @since 1.5.5
+   * @nameZH 是否可以拖动调整列宽
+   * @nameEN Whether the column width can be resized
+   * @desc 在表头边缘拖动时显示代理线，松开后更新列宽。
+   * @descEN Shows a proxy while dragging the header edge and updates the width on release.
+   */
+  resizable?: boolean
+
   // Sorter
   sorter?:
     | boolean
@@ -168,7 +177,7 @@ export interface ColumnType<RecordType = AnyObject>
 }
 
 export interface ColumnGroupType<RecordType = AnyObject>
-  extends Omit<ColumnType<RecordType>, 'dataIndex'> {
+  extends Omit<ColumnType<RecordType>, 'dataIndex' | 'resizable'> {
   children: ColumnsType<RecordType>
   /**
    * A group column carries no `dataIndex`. Declaring it as `never` (rather than
@@ -178,6 +187,7 @@ export interface ColumnGroupType<RecordType = AnyObject>
    * actual value. Narrow to a group with `'children' in column`. See #673.
    */
   dataIndex?: never
+  resizable?: never
 }
 
 export type ColumnsType<RecordType = AnyObject> = (

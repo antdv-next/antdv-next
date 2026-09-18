@@ -53,6 +53,7 @@ import useFilledColumns from './hooks/useFilledColumns.ts'
 import useFilter, { collectFilterStates, generateFilterInfo, getFilterData, getMergedFilterStates } from './hooks/useFilter'
 import useLazyKVMap from './hooks/useLazyKVMap.ts'
 import usePagination, { DEFAULT_PAGE_SIZE, getPaginationParam } from './hooks/usePagination.ts'
+import useResizableColumns from './hooks/useResizableColumns.ts'
 import useSelection from './hooks/useSelection.tsx'
 import useSorter, { getSortData } from './hooks/useSorter.tsx'
 import useSpinProps from './hooks/useSpinProps.ts'
@@ -352,6 +353,7 @@ const InternalTable = defineComponent<
     const internalRefs = {
       body: shallowRef<HTMLDivElement | null>(null),
     } as NonNullable<VcTableProps['internalRefs']>
+    const rootRef = shallowRef<HTMLDivElement | null>(null)
 
     const rootCls = useCSSVarCls(prefixCls)
     const [hashId, cssVarCls] = useStyle(prefixCls, rootCls)
@@ -371,10 +373,17 @@ const InternalTable = defineComponent<
 
     const needResponsive = computed(() => baseColumns.value.some((col: any) => col.responsive))
     const screens = useBreakpoint(needResponsive, null)
+    const mergedDirection = computed(() => props.direction ?? direction.value ?? 'ltr')
+    const { columns: resizableColumns, hasResizableColumns, resizeProxyRef } = useResizableColumns({
+      columns: baseColumns as any,
+      direction: mergedDirection,
+      prefixCls,
+      rootRef,
+    })
 
     const mergedColumns = computed(() => {
       const matched = new Set(Object.keys(screens.value || {}).filter(m => screens.value?.[m as Breakpoint]))
-      return baseColumns.value.filter((c: any) => !c.responsive || c.responsive.some((r: Breakpoint) => matched.has(r)))
+      return resizableColumns.value.filter((c: any) => !c.responsive || c.responsive.some((r: Breakpoint) => matched.has(r)))
     })
 
     const tableProps = computed(() =>
@@ -631,7 +640,6 @@ const InternalTable = defineComponent<
 
     const getContainerWidth = useContainerWidth(prefixCls.value)
 
-    const rootRef = shallowRef<HTMLDivElement | null>(null)
     const tblRef = shallowRef<any>(null)
 
     const tableExpose: TableExpose = {
@@ -903,7 +911,7 @@ const InternalTable = defineComponent<
               styles={mergedStyles.value as any}
               expandable={mergedExpandableConfig}
               prefixCls={prefixCls.value}
-              direction={props.direction ?? direction.value}
+              direction={mergedDirection.value}
               headerCell={slots.headerCell || contextHeaderCell.value || props.headerCell ? renderHeaderCell : undefined}
               bodyCell={slots.bodyCell || props.bodyCell || contextBodyCell.value || configCtx.value?.transformCellText ? renderBodyCell : undefined}
               className={tableClassName}
@@ -926,6 +934,7 @@ const InternalTable = defineComponent<
             />
             {paginationNodes.bottom}
           </Spin>
+          {hasResizableColumns.value ? <div ref={resizeProxyRef} class={`${prefixCls.value}-resize-proxy`} /> : []}
         </div>
       )
     }

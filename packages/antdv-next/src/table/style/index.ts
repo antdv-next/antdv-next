@@ -257,13 +257,29 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
     tableHeaderCellSplitColor,
     tableFooterTextColor,
     tableFooterBg,
+    zIndexTableFixed,
     calc,
   } = token
   const tableBorder = `${unit(lineWidth)} ${lineType} ${tableBorderColor}`
   return {
     [`${componentCls}-wrapper`]: {
       clear: 'both',
+      position: 'relative',
       maxWidth: '100%',
+
+      [`${componentCls}-resize-proxy`]: {
+        position: 'absolute',
+        display: 'none',
+        width: 0,
+        borderLeft: `${tableBorder}`,
+        pointerEvents: 'none',
+        willChange: 'transform',
+
+        // 固定列和粘性表头的实际层级在开始拖拽时计算。
+        // Resolve the actual z-index of fixed columns and sticky headers when dragging starts.
+        zIndex: zIndexTableFixed + 1,
+      },
+
       // fix https://github.com/ant-design/ant-design/issues/46177
       ['--rc-virtual-list-scrollbar-bg' as const]: token.tableScrollBg,
       ...clearFix(),
