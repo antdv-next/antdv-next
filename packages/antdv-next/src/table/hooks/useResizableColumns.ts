@@ -2,12 +2,14 @@ import type { ComputedRef, ShallowRef } from 'vue'
 import type { AnyObject } from '../../_util/type'
 import type { ColumnsType, ColumnType } from '../interface'
 import { clsx } from '@v-c/util'
-import { computed, onBeforeUnmount, shallowRef, watch } from 'vue'
+import { computed, nextTick, onBeforeUnmount, shallowRef, watch } from 'vue'
 
 const RESIZE_HIT_AREA_WIDTH = 8
+const RESIZE_DRAG_THRESHOLD = 3
 const DEFAULT_MIN_WIDTH = 40
 
 interface DragState {
+  started: boolean
   headerCell: HTMLElement
   columnKey: string
   startClientX: number
@@ -17,9 +19,15 @@ interface DragState {
   rtl: boolean
 }
 
+interface CursorState {
+  headerCell: HTMLElement
+  bodyCursor: string
+  bodyCursorPriority: string
+  headerCursor: string
+  headerCursorPriority: string
+}
+
 interface BodyStyleSnapshot {
-  cursor: string
-  cursorPriority: string
   userSelect: string
   userSelectPriority: string
 }
@@ -64,11 +72,13 @@ export default function useResizableColumns<RecordType extends AnyObject>(
   const resizedWidthsByKey = shallowRef(new Map<string, number>())
   let dragState: DragState | undefined
   let originalBodyStyles: BodyStyleSnapshot | undefined
-  let suppressNextHeaderClick = false
+  let cursorState: CursorState | undefined
+  let suppressedHeader: HTMLElement | undefined
   let clickSuppressionTimer: ReturnType<typeof setTimeout> | undefined
 
   function isPointerInResizeZone(event: MouseEvent, headerCell: HTMLElement) {
     // 合并表头的实际宽度不对应单个叶子列，不能直接用于调整列宽。
+    // Merged header widths span multiple leaf columns and cannot be used to resize a single column.
     if (Number(headerCell.getAttribute('colspan') ?? 1) !== 1) {
       return false
     }
@@ -80,7 +90,36 @@ export default function useResizableColumns<RecordType extends AnyObject>(
     return rect.width > RESIZE_HIT_AREA_WIDTH * 2 && distance >= 0 && distance <= RESIZE_HIT_AREA_WIDTH
   }
 
+  function clearResizeCursor() {
+    if (!cursorState) {
+      return
+    }
+    const { headerCell, bodyCursor, bodyCursorPriority, headerCursor, headerCursorPriority } = cursorState
+    document.body.style.setProperty('cursor', bodyCursor, bodyCursorPriority)
+    headerCell.style.setProperty('cursor', headerCursor, headerCursorPriority)
+    cursorState = undefined
+    window.removeEventListener('blur', cleanupDrag)
+  }
+
+  function setResizeCursor(headerCell: HTMLElement) {
+    if (cursorState?.headerCell === headerCell) {
+      return
+    }
+    clearResizeCursor()
+    cursorState = {
+      headerCell,
+      bodyCursor: document.body.style.cursor,
+      bodyCursorPriority: document.body.style.getPropertyPriority('cursor'),
+      headerCursor: headerCell.style.cursor,
+      headerCursorPriority: headerCell.style.getPropertyPriority('cursor'),
+    }
+    document.body.style.cursor = 'col-resize'
+    headerCell.style.cursor = 'col-resize'
+    window.addEventListener('blur', cleanupDrag)
+  }
+
   function cleanupDrag() {
+    clearResizeCursor()
     if (!dragState) {
       return
     }
@@ -89,11 +128,11 @@ export default function useResizableColumns<RecordType extends AnyObject>(
     if (proxy) {
       proxy.style.display = 'none'
       proxy.style.transform = ''
+      proxy.style.zIndex = ''
     }
+    options.rootRef.value?.style.removeProperty('--table-resize-scrollbar-z-index')
 
-    dragState.headerCell.classList.remove(`${options.prefixCls.value}-cell-resize-active`)
     if (originalBodyStyles) {
-      document.body.style.setProperty('cursor', originalBodyStyles.cursor, originalBodyStyles.cursorPriority)
       document.body.style.setProperty('user-select', originalBodyStyles.userSelect, originalBodyStyles.userSelectPriority)
       originalBodyStyles = undefined
     }
@@ -101,7 +140,6 @@ export default function useResizableColumns<RecordType extends AnyObject>(
     dragState = undefined
     document.removeEventListener('mousemove', handleDragMove)
     document.removeEventListener('mouseup', handleDragEnd)
-    window.removeEventListener('blur', cleanupDrag)
   }
 
   function handleDragMove(event: MouseEvent) {
@@ -109,13 +147,30 @@ export default function useResizableColumns<RecordType extends AnyObject>(
       return
     }
 
+    // 拖拽经过其他表头时也覆盖其 cursor: pointer，包括未开启 resizable 的排序列。
+    // Override the cursor on other headers during dragging, including sortable columns without resizable enabled.
+    const headerCell = event.target instanceof Element ? event.target.closest('th') : null
+    if (headerCell && options.rootRef.value?.contains(headerCell)) {
+      setResizeCursor(headerCell)
+    }
+
     const delta = event.clientX - dragState.startClientX
+
+    // 边缘单击和轻微抖动不启动拖拽，保留表头排序等点击行为。
+    // Treat edge clicks and small pointer movements as clicks, preserving header sorting and other click behavior.
+    if (!dragState.started && (Math.abs(delta) < RESIZE_DRAG_THRESHOLD || !activateDrag(dragState))) {
+      return
+    }
+
+    event.preventDefault()
+    event.stopPropagation()
     dragState.pendingWidth = Math.max(
       Math.round(dragState.startWidth + (dragState.rtl ? -delta : delta)),
       dragState.minWidth,
     )
 
     // 拖动过程中只移动代理线，松开后才更新表格布局。
+    // Move only the proxy during dragging; update the table layout on release.
     const offset = (dragState.pendingWidth - dragState.startWidth) * (dragState.rtl ? -1 : 1)
     const proxy = resizeProxyRef.value
     if (proxy) {
@@ -123,28 +178,44 @@ export default function useResizableColumns<RecordType extends AnyObject>(
     }
   }
 
-  function handleDragEnd() {
+  function handleDragEnd(event: MouseEvent) {
     if (!dragState) {
       return
     }
 
-    if (dragState.pendingWidth !== dragState.startWidth) {
-      const nextResizedWidthsByKey = new Map(resizedWidthsByKey.value)
-      nextResizedWidthsByKey.set(dragState.columnKey, dragState.pendingWidth)
-      resizedWidthsByKey.value = nextResizedWidthsByKey
+    const { headerCell, started } = dragState
+    if (started) {
+      if (dragState.pendingWidth !== dragState.startWidth) {
+        const nextResizedWidthsByKey = new Map(resizedWidthsByKey.value)
+        nextResizedWidthsByKey.set(dragState.columnKey, dragState.pendingWidth)
+        resizedWidthsByKey.value = nextResizedWidthsByKey
+      }
+
+      // 仅拦截实际拖拽表头随后的一次点击，不影响其他列；没有 click 时自动清除。
+      // Suppress only the resized header's next click; clear the marker if no click follows.
+      suppressedHeader = headerCell
+      clearTimeout(clickSuppressionTimer)
+      clickSuppressionTimer = setTimeout(() => {
+        suppressedHeader = undefined
+      }, 0)
     }
 
-    // mouseup 后紧跟着 click，短暂拦截一次，避免触发表头排序。
-    suppressNextHeaderClick = true
-    clearTimeout(clickSuppressionTimer)
-    clickSuppressionTimer = setTimeout(() => {
-      suppressNextHeaderClick = false
-    }, 0)
-
     cleanupDrag()
+
+    // 列宽提交后重新判断边缘位置，避免松开时先变回 pointer，等下次移动才恢复。
+    // Recheck the edge after committing the width so the resize cursor stays correct on release.
+    nextTick(() => {
+      if (dragState || !headerCell.isConnected) {
+        return
+      }
+      const rect = headerCell.getBoundingClientRect()
+      if (event.clientY >= rect.top && event.clientY <= rect.bottom) {
+        handleHeaderMouseMove(event, headerCell)
+      }
+    })
   }
 
-  function startDrag(
+  function prepareDrag(
     event: MouseEvent,
     column: ColumnType<RecordType>,
     columnKey: string,
@@ -154,34 +225,64 @@ export default function useResizableColumns<RecordType extends AnyObject>(
       return
     }
 
-    const root = options.rootRef.value
-    const proxy = resizeProxyRef.value
-    if (!root || !proxy) {
-      return
-    }
-
-    const cellRect = headerCell.getBoundingClientRect()
-    const rootRect = root.getBoundingClientRect()
-
-    // 横向滚动条位于滚动容器底部，代理线只覆盖到可视内容区，避免盖住滚动条。
-    const scrollContainer = root.querySelector(`.${options.prefixCls.value}-content`) ?? root.querySelector(`.${options.prefixCls.value}-body`)
-    const contentBottom = scrollContainer
-      ? scrollContainer.getBoundingClientRect().top + scrollContainer.clientHeight
-      : cellRect.bottom
-    const rtl = options.direction.value === 'rtl'
-    const startWidth = cellRect.width
-    const startEdge = (rtl ? cellRect.left : cellRect.right) - rootRect.left
-
+    const startWidth = headerCell.getBoundingClientRect().width
     dragState = {
+      started: false,
       headerCell,
       columnKey,
       startClientX: event.clientX,
       startWidth,
       pendingWidth: startWidth,
       minWidth: column.minWidth ?? DEFAULT_MIN_WIDTH,
-      rtl,
+      rtl: options.direction.value === 'rtl',
     }
 
+    // 按下时就阻止原生文字选择；是否拦截后续 click 仍由实际拖拽决定。
+    // Prevent native text selection on press; suppress the subsequent click only if a drag actually occurs.
+    event.preventDefault()
+    setResizeCursor(headerCell)
+    document.addEventListener('mousemove', handleDragMove)
+    document.addEventListener('mouseup', handleDragEnd)
+  }
+
+  function activateDrag(state: DragState) {
+    const root = options.rootRef.value
+    const proxy = resizeProxyRef.value
+    if (!root || !proxy) {
+      return false
+    }
+
+    const { headerCell, rtl } = state
+    const cellRect = headerCell.getBoundingClientRect()
+    const rootRect = root.getBoundingClientRect()
+
+    // clientHeight 排除原生滚动条；虚拟滚动条通过层级覆盖完整的代理线。
+    // clientHeight excludes native scrollbars; virtual scrollbars are layered above the full-height proxy.
+    const scrollContainer = root.querySelector(
+      `.${options.prefixCls.value}-content, .${options.prefixCls.value}-body, .${options.prefixCls.value}-tbody-virtual-holder`,
+    )
+    const contentBottom = scrollContainer
+      ? scrollContainer.getBoundingClientRect().top + scrollContainer.clientHeight
+      : cellRect.bottom
+    const startEdge = (rtl ? cellRect.left : cellRect.right) - rootRect.left
+
+    const header = headerCell.closest(`.${options.prefixCls.value}-thead`)!
+    const layers = Array.from(header.querySelectorAll(`.${options.prefixCls.value}-cell-fix`))
+    const stickyHolder = header.closest(`.${options.prefixCls.value}-sticky-holder`)
+    if (stickyHolder) {
+      layers.push(stickyHolder)
+    }
+
+    // 只高于表内固定层，不使用会覆盖 Tooltip 等浮层的超大 z-index。
+    // Stay just above fixed table layers without using a large z-index that would cover tooltips or other popups.
+    const zIndex = Math.max(
+      Number(getComputedStyle(proxy).zIndex),
+      ...layers.map(layer => Number(getComputedStyle(layer).zIndex) + 1),
+    )
+    proxy.style.zIndex = String(zIndex)
+    root.style.setProperty('--table-resize-scrollbar-z-index', String(zIndex + 1))
+
+    state.started = true
     proxy.style.display = 'block'
     proxy.style.left = `${startEdge}px`
     proxy.style.top = `${cellRect.top - rootRect.top}px`
@@ -189,50 +290,29 @@ export default function useResizableColumns<RecordType extends AnyObject>(
     proxy.style.transform = 'translateX(0px)'
 
     originalBodyStyles = {
-      cursor: document.body.style.cursor,
-      cursorPriority: document.body.style.getPropertyPriority('cursor'),
       userSelect: document.body.style.userSelect,
       userSelectPriority: document.body.style.getPropertyPriority('user-select'),
     }
 
-    headerCell.classList.add(`${options.prefixCls.value}-cell-resize-active`)
-
-    document.body.style.cursor = 'col-resize'
     document.body.style.userSelect = 'none'
-
-    document.addEventListener('mousemove', handleDragMove)
-    document.addEventListener('mouseup', handleDragEnd)
-    window.addEventListener('blur', cleanupDrag)
-
-    event.preventDefault()
-    event.stopPropagation()
+    return true
   }
 
   // 注入到 header cell 的事件处理，由 onHeaderCell 转发。
+  // Header cell event handlers are attached through onHeaderCell.
   function handleHeaderMouseMove(event: MouseEvent, headerCell: HTMLElement) {
-    headerCell.classList.toggle(
-      `${options.prefixCls.value}-cell-resize-active`,
-      isPointerInResizeZone(event, headerCell),
-    )
+    if (dragState || isPointerInResizeZone(event, headerCell)) {
+      setResizeCursor(headerCell)
+    }
+    else if (cursorState?.headerCell === headerCell) {
+      clearResizeCursor()
+    }
   }
 
   function handleHeaderMouseLeave(headerCell: HTMLElement) {
-    if (!dragState) {
-      headerCell.classList.remove(`${options.prefixCls.value}-cell-resize-active`)
+    if (!dragState && cursorState?.headerCell === headerCell) {
+      clearResizeCursor()
     }
-  }
-
-  function handleHeaderClickCapture(
-    event: MouseEvent,
-    next?: (event: MouseEvent) => void,
-  ) {
-    if (suppressNextHeaderClick) {
-      suppressNextHeaderClick = false
-      event.preventDefault()
-      event.stopPropagation()
-      return
-    }
-    next?.(event)
   }
 
   function withResizableColumns(
@@ -279,11 +359,18 @@ export default function useResizableColumns<RecordType extends AnyObject>(
               onMouseleave?.(event)
             },
             onMousedown: (event: MouseEvent) => {
-              startDrag(event, column, columnKey, event.currentTarget as HTMLElement)
+              prepareDrag(event, column, columnKey, event.currentTarget as HTMLElement)
               onMousedown?.(event)
             },
             onClickCapture: (event: MouseEvent) => {
-              handleHeaderClickCapture(event, onClickCapture)
+              if (event.currentTarget === suppressedHeader) {
+                suppressedHeader = undefined
+                event.preventDefault()
+                event.stopPropagation()
+              }
+              else {
+                onClickCapture?.(event)
+              }
             },
           }
         },
