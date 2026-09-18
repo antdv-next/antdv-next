@@ -238,6 +238,16 @@ describe('avatar', () => {
     expect(wrapper.find('[data-test="test-id"]').exists()).toBe(true)
   })
 
+  it('should emit click when clicked', async () => {
+    const onClick = vi.fn()
+    const wrapper = mount(Avatar, {
+      props: { onClick },
+      slots: { default: () => 'U' },
+    })
+    await wrapper.find('.ant-avatar').trigger('click')
+    expect(onClick).toHaveBeenCalledTimes(1)
+  })
+
   it('should match snapshot', () => {
     const wrapper = mount(() => (
       <Avatar src="https://example.com/avatar.png" size="large" shape="circle" />
