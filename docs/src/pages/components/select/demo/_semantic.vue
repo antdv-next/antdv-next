@@ -65,6 +65,7 @@ const divRef = ref<HTMLDivElement | null>(null)
         <div :style="{ display: 'flex', flexDirection: 'column', gap: '12px' }">
           <a-select
             prefix="prefix"
+            placeholder="Please select"
             :style="{ width: '300px' }"
             :options="options"
             :value="value"

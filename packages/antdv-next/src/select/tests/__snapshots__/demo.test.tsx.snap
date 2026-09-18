@@ -83,7 +83,7 @@ exports[`select demo > renders _semantic correctly 1`] = `
               <div
                 class="ant-select-placeholder semantic-mark-placeholder"
               >
-                <!---->
+                Please select
               </div>
               <input
                 aria-activedescendant="test-id_list_0"
