@@ -2,7 +2,7 @@ import type { AvatarGroupProps } from './AvatarGroup'
 import InternalAvatar from './Avatar'
 import AvatarGroup from './AvatarGroup'
 
-export type { AvatarEmits, AvatarProps, AvatarSlots } from './Avatar'
+export type { AvatarEmits, AvatarProps, AvatarRef, AvatarSlots } from './Avatar'
 export type { AvatarGroupRef } from './AvatarGroup'
 
 type CompoundedComponent = typeof InternalAvatar & {
