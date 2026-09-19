@@ -40,6 +40,7 @@ tag: 1.5.0
 | height | 滚动容器高度，内容超出后滚动 | number | - | 1.5.0 | × |
 | itemRender | 渲染单行 | `(item: T, index: number) => VNode` | - | 1.5.0 | × |
 | items | 列表数据源 | `T[]` | `[]` | 1.5.0 | × |
+| rowHoverable | 列表行是否开启 hover 交互 | boolean | true | 1.5.5 | × |
 | rowKey | 每一项的唯一键，字段名或取值函数 | `keyof T \| (item: T) => Key` | - | 1.5.0 | × |
 | sticky | 分组标题是否吸顶 | boolean | false | 1.5.0 | × |
 | styles | 语义化结构 style | `{ root?, item?, groupHeader? }` | - | 1.5.0 | 1.5.0 |
