@@ -98,6 +98,25 @@ describe('badge', () => {
     expect(wrapper.find('.ant-badge-status-text').text()).toBe('Success')
   })
 
+  it('should hide status text when text is "0" without showZero', () => {
+    const wrapper = mount(Badge, {
+      props: { color: 'blue', text: '0' },
+    })
+    expect(wrapper.find('.ant-badge-status-dot').exists()).toBe(true)
+    expect(wrapper.find('.ant-badge-status-text').exists()).toBe(false)
+  })
+
+  it('should hide whole badge when count and text is "0" without showZero', () => {
+    const wrapper = mount(Badge, {
+      props: { count: 5, text: '0' },
+      slots: {
+        default: () => h(Avatar, { shape: 'square' }),
+      },
+    })
+    expect(wrapper.find('.ant-badge-count').exists()).toBe(false)
+    expect(wrapper.find('.ant-badge-status-text').exists()).toBe(false)
+  })
+
   it('should render preset colors', () => {
     const colors = ['pink', 'red', 'yellow', 'orange', 'cyan', 'green', 'blue', 'purple'] as const
     colors.forEach((color) => {
