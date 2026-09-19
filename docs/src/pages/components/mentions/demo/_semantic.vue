@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useUnstableContextProvider } from '@v-c/mentions'
 import { computed, ref } from 'vue'
 import { SemanticPreview } from '@/components/semantic'
 import { useComponentLocale } from '@/composables/use-locale'
@@ -14,6 +15,9 @@ const semantics = computed(() => [
 ])
 
 const divRef = ref<HTMLDivElement | null>(null)
+const open = ref(true)
+
+useUnstableContextProvider({ open })
 
 const options = [
   { value: 'afc163', label: 'afc163' },
