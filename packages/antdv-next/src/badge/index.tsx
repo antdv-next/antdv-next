@@ -181,11 +181,10 @@ const InternalBadge = defineComponent<
       }
 
       const horizontalOffset = Number.parseInt(props.offset[0] as string, 10)
-      const insetInlineEnd = direction.value === 'rtl' ? horizontalOffset : -horizontalOffset
 
       return {
         marginTop: formatUnit(props.offset[1]),
-        insetInlineEnd: formatUnit(insetInlineEnd)!,
+        insetInlineEnd: formatUnit(-horizontalOffset)!,
       }
     })
 
