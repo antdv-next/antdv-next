@@ -19,6 +19,7 @@ import {
   useToArr,
   useToProps,
 } from '../_util/hooks'
+import { isRenderable } from '../_util/is.ts'
 import { formatUnit } from '../_util/styleUtils.ts'
 import { clsx, getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { devUseWarning, isDev } from '../_util/warning'
@@ -136,9 +137,9 @@ const InternalBadge = defineComponent<
 
     const mergedCount = computed(() => (showAsDot.value ? '' : numberedDisplayCount.value))
     const isHidden = computed(() => {
-      const textEmpty = textNodes.value.length === 0 && (props.text === undefined || props.text === null || props.text === '')
-      const isEmptyCount = (mergedCount.value === null || mergedCount.value === undefined || mergedCount.value === '') && countNodes.value.length === 0
-      return (isEmptyCount || (isZero.value && !props.showZero)) && !showAsDot.value && textEmpty
+      const isEmpty = !isRenderable(mergedCount.value) && countNodes.value.length === 0
+        && !isRenderable(props.text) && textNodes.value.length === 0
+      return (isEmpty || (isZero.value && !props.showZero)) && !showAsDot.value
     })
 
     const displayCountRef = shallowRef(mergedCount.value)
@@ -166,13 +167,12 @@ const InternalBadge = defineComponent<
     // =============================== Styles ===============================
     const childrenNodes = computed(() => filterEmpty(slots.default?.() ?? []))
     const hasTextSlot = computed(() => textNodes.value.length > 0)
-    const showStatusTextNode = computed(() => !isHidden.value && (hasTextSlot.value
-      ? true
-      : (props.text === 0 ? props.showZero : !!props.text && props.text !== true)))
+    const showStatusTextNode = computed(() => !isHidden.value
+      && (hasTextSlot.value || (props.text === 0 ? props.showZero : !!props.text && props.text !== true)))
     const isStatusBadge = computed(() => Boolean(
       !childrenNodes.value.length
       && hasStatus.value
-      && (showStatusTextNode.value || hasStatusValue.value || !ignoreCount.value),
+      && (hasTextSlot.value || !!props.text || hasStatusValue.value || !ignoreCount.value),
     ))
 
     const offsetStyle = computed<CSSProperties | undefined>(() => {
