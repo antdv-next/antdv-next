@@ -39,7 +39,10 @@ const UploadList = defineComponent<
     const forceUpdate = shallowRef(0)
     const motionAppear = shallowRef(false)
     const instance = getCurrentInstance()
-    const hasPreviewListener = computed(() => !!instance?.vnode.props?.onPreview)
+
+    // Read the listener during render so that adding / removing `@preview` stays in sync,
+    // matching the upstream `hasPreview={!!onPreview}` behavior.
+    const hasPreviewListener = () => !!instance?.vnode.props?.onPreview
 
     onMounted(() => {
       motionAppear.value = true
@@ -91,7 +94,7 @@ const UploadList = defineComponent<
     )
 
     const onInternalPreview = (file: UploadFile, e?: MouseEvent | KeyboardEvent) => {
-      if (!hasPreviewListener.value) {
+      if (!hasPreviewListener()) {
         return
       }
       e?.preventDefault?.()
@@ -244,6 +247,7 @@ const UploadList = defineComponent<
               actionIconRender={actionIconRender}
               itemRender={itemRender}
               onPreview={onInternalPreview}
+              hasPreview={hasPreviewListener()}
               onDownload={onInternalDownload}
               onClose={onInternalClose}
             />

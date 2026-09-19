@@ -44,6 +44,7 @@ export interface ListItemProps {
     acceptUploadDisabled?: boolean,
   ) => any
   itemRender?: ItemRender
+  hasPreview?: boolean
   onPreview: (file: UploadFile, e?: MouseEvent | KeyboardEvent) => void
   onClose: (file: UploadFile) => void
   onDownload: (file: UploadFile) => void
@@ -95,6 +96,7 @@ const ListItem = defineComponent<
         iconRender,
         actionIconRender,
         itemRender,
+        hasPreview,
         onPreview,
         onDownload,
         onClose,
@@ -226,11 +228,11 @@ const ListItem = defineComponent<
         : (
             <span
               key="view"
-              role="button"
-              tabindex={0}
+              role={hasPreview ? 'button' : undefined}
+              tabindex={hasPreview ? 0 : undefined}
               class={listItemNameClass}
-              onClick={e => onPreview(file, e)}
-              onKeydown={onPreviewKeyDown}
+              onClick={hasPreview ? e => onPreview(file, e) : undefined}
+              onKeydown={hasPreview ? onPreviewKeyDown : undefined}
               title={file.name}
             >
               {file.name}
