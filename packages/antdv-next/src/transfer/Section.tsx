@@ -252,9 +252,8 @@ const TransferSection = defineComponent<
         />
       )
 
-      const footerDom = props.footer && (props.footer.length < 2
-        ? props.footer(props)
-        : props.footer(props, { direction: props.direction }))
+      // Always forward `direction`; sniffing the callback arity is unreliable
+      const footerDom = props.footer?.(props, { direction: props.direction })
 
       const listFooter = footerDom
         ? (
