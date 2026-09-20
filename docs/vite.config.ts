@@ -86,11 +86,6 @@ export default defineConfig({
       'sucrase',
     ],
     alias: [
-      // Reuse antdv-next's @v-c/mentions instance so the preview context Symbol is shared.
-      {
-        find: /^@v-c\/mentions$/,
-        replacement: path.resolve(baseUrl, '../packages/antdv-next/node_modules/@v-c/mentions/dist/index.js'),
-      },
       {
         find: /^antdv-next/,
         replacement: path.resolve(baseUrl, '../packages/antdv-next/src'),

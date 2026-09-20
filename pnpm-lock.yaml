@@ -658,6 +658,9 @@ importers:
       '@dnd-kit/vue':
         specifier: catalog:docs
         version: 0.5.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/mentions':
+        specifier: catalog:vc
+        version: 1.2.1(vue@3.5.42(typescript@5.9.3))
       '@vue/compiler-sfc':
         specifier: catalog:docs
         version: 3.5.42
