@@ -52,7 +52,7 @@ demo:
 | classes | 用于自定义 Drawer 组件内部各语义化结构的 class，支持对象或函数 | DrawerClassNamesType | - | - | ✓ |
 | closable | 是否展示关闭按钮，可通过 `placement` 设置位置 | boolean \| \{ closeIcon?: VueNode, disabled?: boolean, placement?: 'start' \| 'end' \} | true | - | ✓ |
 | closeIcon | 自定义关闭图标 | VueNode | - | - | ✓ |
-| ~~destroyOnClose~~ | 关闭时销毁 Drawer 里的子元素 | boolean | false | - | × |
+| ~~destroyOnClose~~ | 关闭时销毁 Drawer 里的子元素，请使用 `destroyOnHidden` 替代 | boolean | false | - | × |
 | destroyOnHidden | 关闭时销毁 Drawer 里的子元素 | boolean | false | - | × |
 | extra | 右上角额外操作区域 | VueNode | - | - | × |
 | footer | 抽屉底部 | VueNode | - | - | × |
