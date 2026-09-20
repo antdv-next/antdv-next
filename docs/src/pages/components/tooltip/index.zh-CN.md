@@ -23,6 +23,7 @@ demo:
   <demo src="./demo/placement.vue">位置</demo>
   <demo src="./demo/arrow.vue">箭头展示</demo>
   <demo src="./demo/shift.vue" iframe="300">贴边偏移</demo>
+  <demo src="./demo/force-align.vue">布局变化后重新对齐</demo>
   <demo src="./demo/colorful.vue">多彩文字提示</demo>
   <demo src="./demo/disabled.vue">禁用</demo>
   <demo src="./demo/disabled-children.vue" debug>禁用子组件</demo>
@@ -144,3 +145,7 @@ Tooltip 默认在关闭时会缓存内容，以防止内容更新时出现闪烁
 <div>
 <img alt="no blink" height="50" src="https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*rUbsR4xWpMsAAAAAAAAAAAAADrJ8AQ/original" />
 </div>
+
+### 布局变化后 Tooltip 没有重新对齐？ {#faq-force-align}
+
+Tooltip 默认不会持续监听所有外部布局变化，以避免为每个打开的 Tooltip 带来额外开销。当异步加载数据、刷新列表或展开折叠区域导致触发元素的位置发生变化时，可以通过 `ref` 获取 `TooltipRef`，并在布局更新完成后调用 `forceAlign` 方法手动重新对齐（参考 [#57809](https://github.com/ant-design/ant-design/issues/57809)）。详见上方“布局变化后重新对齐” Demo。
