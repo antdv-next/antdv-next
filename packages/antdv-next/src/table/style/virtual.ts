@@ -17,7 +17,9 @@ const genVirtualStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       [`${componentCls}-tbody-virtual`]: {
         [`${componentCls}-tbody-virtual-scrollbar`]: {
           cursor: 'pointer',
-          zIndex: 'var(--table-resize-scrollbar-z-index)',
+          // 拖拽期间由 useResizableColumns 抬升层级；未定义时显式回退 auto。
+          // Raised by useResizableColumns while dragging; falls back to auto when undefined.
+          zIndex: 'var(--table-resize-scrollbar-z-index, auto)',
 
           '&:hover': {
             backgroundColor: token.colorFillQuaternary,

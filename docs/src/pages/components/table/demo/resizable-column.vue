@@ -1,9 +1,9 @@
 <docs lang="zh-CN">
-设置 `resizable`，可通过拖动表头来调整宽度。
+设置 `resizable`，可通过拖动表头来调整宽度。建议配合 `table-layout="fixed"` 获得精确列宽；`auto` 布局下列宽受内容影响，向内拖动可能无法收窄。
 </docs>
 
 <docs lang="en-US">
-Set `resizable` to resize columns by dragging the header.
+Set `resizable` to resize columns by dragging the header. Use it with `table-layout="fixed"` for exact widths; under `auto` layout the column width follows content, so dragging inward may not shrink the column.
 </docs>
 
 <script setup lang="ts">
@@ -33,7 +33,7 @@ const dataSource: DataType[] = [
 </script>
 
 <template>
-  <a-table bordered :columns="columns" :data-source="dataSource">
+  <a-table bordered table-layout="fixed" :columns="columns" :data-source="dataSource">
     <template #bodyCell="{ column }">
       <template v-if="column.key === 'action'">
         <a>Delete</a>

@@ -53,7 +53,7 @@ import useFilledColumns from './hooks/useFilledColumns.ts'
 import useFilter, { collectFilterStates, generateFilterInfo, getFilterData, getMergedFilterStates } from './hooks/useFilter'
 import useLazyKVMap from './hooks/useLazyKVMap.ts'
 import usePagination, { DEFAULT_PAGE_SIZE, getPaginationParam } from './hooks/usePagination.ts'
-import useResizableColumns from './hooks/useResizableColumns.ts'
+import useResizableColumns, { hasResizableLeafColumns } from './hooks/useResizableColumns.ts'
 import useSelection from './hooks/useSelection.tsx'
 import useSorter, { getSortData } from './hooks/useSorter.tsx'
 import useSpinProps from './hooks/useSpinProps.ts'
@@ -373,7 +373,7 @@ const InternalTable = defineComponent<
 
     const needResponsive = computed(() => baseColumns.value.some((col: any) => col.responsive))
     const screens = useBreakpoint(needResponsive, null)
-    const { columns: resizableColumns, hasResizableColumns, resizeProxyRef } = useResizableColumns({
+    const { columns: resizableColumns, resizeProxyRef } = useResizableColumns({
       columns: baseColumns as any,
       direction,
       prefixCls,
@@ -384,6 +384,10 @@ const InternalTable = defineComponent<
       const matched = new Set(Object.keys(screens.value || {}).filter(m => screens.value?.[m as Breakpoint]))
       return resizableColumns.value.filter((c: any) => !c.responsive || c.responsive.some((r: Breakpoint) => matched.has(r)))
     })
+
+    // 基于 responsive 过滤后的列判断，唯一的 resizable 列被隐藏时不渲染代理线节点。
+    // Derived from the responsive-filtered columns so no proxy node renders when the only resizable column is hidden.
+    const hasResizableColumns = computed(() => hasResizableLeafColumns(mergedColumns.value))
 
     const tableProps = computed(() =>
       omit(props, [
@@ -933,6 +937,7 @@ const InternalTable = defineComponent<
             />
             {paginationNodes.bottom}
           </Spin>
+          {/* `[]` 而非 null/undefined：Vue 会把 null 渲染成 <!----> 占位注释节点，空数组则不产生任何 DOM。 */}
           {hasResizableColumns.value ? <div ref={resizeProxyRef} class={`${prefixCls.value}-resize-proxy`} /> : []}
         </div>
       )

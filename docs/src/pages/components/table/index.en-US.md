@@ -230,6 +230,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | fixed | (IE not support) Set column to be fixed: `true`(same as `'start'`) `'start'` `'end'` | boolean \| string | false | - |
 | key | Unique key of this column, you can ignore this prop if you've set a unique `dataIndex` | string | - |  |
 | render | Renderer of the table cell. `value` is the value of current cell; `record` is the value object of current row; `index` is the row number. The return value should be a VueNode | (value: V, record: T, index: number): VueNode | - | - |
+| resizable | whether column width can be resized; the drag lower bound is `minWidth` (40px when unset) | boolean | false | 1.5.5 |
 | responsive | The list of breakpoints at which to display this column. Always visible if not set | [Breakpoint](https://github.com/antdv-next/antdv-next/blob/main/packages/antdv-next/src/_util/responsiveObserver.ts#L9)\[] | - | - |
 | rowScope | Set scope attribute for all cells in this column | `row` \| `rowgroup` | - | - |
 | shouldCellUpdate | Control cell render logic | (record, prevRecord) => boolean | - | - |
@@ -240,7 +241,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | sortIcon | Customized sort icon | (props: \{ sortOrder \}) => VueNode | - | - |
 | title | Title of this column | VueNode \| (\{ sortColumns, filters \}) => VueNode | - | - |
 | width | Width of this column ([width not working?](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)) | string \| number | - | - |
-| minWidth | Min width of this column, only works when `tableLayout="auto"` | number | - | - |
+| minWidth | Min width of this column; acts as the column width floor when `tableLayout="auto"` and as the drag lower bound when `resizable` | number | - | - |
 | hidden | Hidden this column | boolean | false | - |
 | onCell | Set props on per cell | function(record, rowIndex) | - | - |
 | onFilter | Function that determines if the row is displayed when filtered | function(value, record) => boolean | - | - |

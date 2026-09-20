@@ -26437,7 +26437,7 @@ exports[`table demo > renders resizable-column correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-bordered css-var-root ant-table-css-var"
+        class="ant-table ant-table-bordered css-var-root ant-table-css-var ant-table-layout-fixed"
       >
         <!---->
         <div
@@ -26447,7 +26447,7 @@ exports[`table demo > renders resizable-column correctly 1`] = `
             class="ant-table-content"
           >
             <table
-              style="table-layout: auto;"
+              style="table-layout: fixed;"
             >
               <!---->
               <colgroup>

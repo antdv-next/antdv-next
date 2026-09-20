@@ -41,7 +41,9 @@ interface ResizableColumnsOptions<RecordType> {
 
 function getColumnKey<RecordType>(column: ColumnType<RecordType>, path: number[]) {
   if (column.key !== undefined && column.key !== null) {
-    return `key:${String(column.key)}`
+    // 带类型前缀避免 `key: 0` 与 `key: '0'` 碰撞。
+    // Prefix the type so `key: 0` and `key: '0'` do not collide.
+    return `key:${typeof column.key}:${String(column.key)}`
   }
   if (column.dataIndex !== undefined && column.dataIndex !== null) {
     return `data:${JSON.stringify(column.dataIndex)}`
@@ -51,18 +53,34 @@ function getColumnKey<RecordType>(column: ColumnType<RecordType>, path: number[]
 
 function walkLeafColumns<RecordType>(
   columns: ColumnsType<RecordType>,
-  visit: (column: ColumnType<RecordType>, path: number[]) => void,
+  visit: (column: ColumnType<RecordType>, path: number[]) => void | false,
   parentPath: number[] = [],
 ) {
-  columns.forEach((column, index) => {
+  for (let index = 0; index < columns.length; index++) {
+    const column = columns[index]
     const path = [...parentPath, index]
     if ('children' in column && column.children?.length) {
-      walkLeafColumns(column.children, visit, path)
+      if (walkLeafColumns(column.children, visit, path) === false) {
+        return false
+      }
     }
-    else {
-      visit(column, path)
+    else if (visit(column, path) === false) {
+      return false
+    }
+  }
+}
+
+// 是否存在可拖拽的叶子列。导出供 InternalTable 对 responsive 过滤后的列复用。
+// Whether any leaf column is resizable. Exported for InternalTable to reuse on the responsive-filtered list.
+export function hasResizableLeafColumns<RecordType>(columns: ColumnsType<RecordType>) {
+  let found = false
+  walkLeafColumns(columns, (column) => {
+    if (column.resizable) {
+      found = true
+      return false
     }
   })
+  return found
 }
 
 export default function useResizableColumns<RecordType extends AnyObject>(
@@ -162,8 +180,9 @@ export default function useResizableColumns<RecordType extends AnyObject>(
       return
     }
 
+    // 阻止原生选区；监听器在 document 冒泡末端，无需 stopPropagation。
+    // Block native selection; the listener sits at the document bubble tail, so no stopPropagation is needed.
     event.preventDefault()
-    event.stopPropagation()
     dragState.pendingWidth = Math.max(
       Math.round(dragState.startWidth + (dragState.rtl ? -delta : delta)),
       dragState.minWidth,
@@ -275,9 +294,15 @@ export default function useResizableColumns<RecordType extends AnyObject>(
 
     // 只高于表内固定层，不使用会覆盖 Tooltip 等浮层的超大 z-index。
     // Stay just above fixed table layers without using a large z-index that would cover tooltips or other popups.
+    // 计算值可能是 calc()/auto，无法解析时按 0 处理，避免 NaN 污染 Math.max。
+    // Computed values may be calc()/auto; treat unparseable ones as 0 so NaN never poisons Math.max.
+    const toZIndex = (value: string) => {
+      const parsed = Number.parseInt(value, 10)
+      return Number.isNaN(parsed) ? 0 : parsed
+    }
     const zIndex = Math.max(
-      Number(getComputedStyle(proxy).zIndex),
-      ...layers.map(layer => Number(getComputedStyle(layer).zIndex) + 1),
+      toZIndex(getComputedStyle(proxy).zIndex),
+      ...layers.map(layer => toZIndex(getComputedStyle(layer).zIndex) + 1),
     )
     proxy.style.zIndex = String(zIndex)
     root.style.setProperty('--table-resize-scrollbar-z-index', String(zIndex + 1))
@@ -349,6 +374,8 @@ export default function useResizableColumns<RecordType extends AnyObject>(
 
           return {
             ...restCellProps,
+            // `-cell-resizable` 只是标记类，便于测试与用户定位；样式（cursor 等）由本 hook 内联控制。
+            // `-cell-resizable` is a marker class only (tests / user targeting); styling (cursor etc.) is set inline by this hook.
             className: clsx(className, cellClass, `${options.prefixCls.value}-cell-resizable`),
             onMousemove: (event: MouseEvent) => {
               handleHeaderMouseMove(event, event.currentTarget as HTMLElement)
@@ -412,19 +439,8 @@ export default function useResizableColumns<RecordType extends AnyObject>(
     cleanupDrag()
   })
 
-  const hasResizableColumns = computed(() => {
-    let found = false
-    walkLeafColumns(options.columns.value, (column) => {
-      if (column.resizable) {
-        found = true
-      }
-    })
-    return found
-  })
-
   return {
     columns: computed(() => withResizableColumns(options.columns.value)),
-    hasResizableColumns,
     resizeProxyRef,
   }
 }

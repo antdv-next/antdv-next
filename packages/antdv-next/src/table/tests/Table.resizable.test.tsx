@@ -190,7 +190,7 @@ describe('Table resizable columns', () => {
       expect(Number(root.style.getPropertyValue('--table-resize-scrollbar-z-index'))).toBe(Number(proxy.style.zIndex) + 1)
       for (const bar of wrapper.findAll('.ant-table-tbody-virtual-scrollbar')) {
         // JSDOM leaves var() unresolved; verify the shared declaration and its supplied numeric value.
-        expect(getComputedStyle(bar.element).zIndex).toBe('var(--table-resize-scrollbar-z-index)')
+        expect(getComputedStyle(bar.element).zIndex).toBe('var(--table-resize-scrollbar-z-index, auto)')
       }
       for (const visibility of ['hidden', 'visible']) {
         scrollbar.style.visibility = visibility
@@ -515,7 +515,7 @@ describe('Table resizable columns', () => {
       await header.trigger('mousemove', { clientX: 199 })
       expect(document.body.style.cursor).toBe('col-resize')
       expect(cell.style.cursor).toBe('col-resize')
-      expect(cell.classList.contains('ant-table-cell-resize-active')).toBe(false)
+      expect(cell.classList.contains('ant-table-cell-resizable')).toBe(true)
       expect(document.body.style.userSelect).toBe('')
       expect(wrapper.find('.ant-table-resize-proxy').attributes('style') ?? '').not.toContain('display: block')
       if (ending === 'move-away') {
@@ -532,7 +532,7 @@ describe('Table resizable columns', () => {
       }
       expect(document.body.style.cursor).toBe('progress')
       expect(cell.style.cursor).toBe('crosshair')
-      expect(cell.classList.contains('ant-table-cell-resize-active')).toBe(false)
+      expect(cell.classList.contains('ant-table-cell-resizable')).toBe(true)
     }
     finally {
       if (ending !== 'unmount') {

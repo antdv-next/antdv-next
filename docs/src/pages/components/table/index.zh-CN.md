@@ -231,6 +231,7 @@ const onHeaderRow: TableProps['onHeaderRow'] = (columns, index) => {
 | fixed | （IE 下无效）列是否固定，可选 `true` (等效于 `'start'`) `'start'` `'end'` | boolean \| string | false | - |
 | key | Vue 需要的 key，如果已经设置了唯一的 `dataIndex`，可以忽略这个属性 | string | - |  |
 | render | 生成复杂数据的渲染函数，参数分别为当前单元格的值，当前行数据，行索引 | (value: V, record: T, index: number): VueNode | - | - |
+| resizable | 对应列是否可以通过拖动改变宽度；拖动下限为 `minWidth`，未设置时为 40px | boolean | false | 1.5.5 |
 | responsive | 响应式 breakpoint 配置列表。未设置则始终可见。 | [Breakpoint](https://github.com/antdv-next/antdv-next/blob/main/packages/antdv-next/src/_util/responsiveObserver.ts#L9)\[] | - | - |
 | rowScope | 设置列范围 | `row` \| `rowgroup` | - | - |
 | shouldCellUpdate | 自定义单元格渲染时机 | (record, prevRecord) => boolean | - | - |
@@ -241,7 +242,7 @@ const onHeaderRow: TableProps['onHeaderRow'] = (columns, index) => {
 | sortIcon | 自定义 sort 图标 | (props: \{ sortOrder \}) => VueNode | - | - |
 | title | 列头显示文字（函数用法 `3.10.0` 后支持） | VueNode \| (\{ sortColumns, filters \}) => VueNode | - | - |
 | width | 列宽 | string \| number | - | - |
-| minWidth | 最小列宽度，只在 `tableLayout="auto"` 时有效 | number | - | - |
+| minWidth | 最小列宽度；`tableLayout="auto"` 时作为列宽下限，`resizable` 时作为拖拽下限 | number | - | - |
 | hidden | 隐藏列 | boolean | false | - |
 | onCell | 设置单元格属性 | function(record, rowIndex) | - | - |
 | onFilter | 本地模式下，确定筛选的运行函数 | function | - | - |

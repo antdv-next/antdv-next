@@ -177,7 +177,7 @@ export interface ColumnType<RecordType = AnyObject>
 }
 
 export interface ColumnGroupType<RecordType = AnyObject>
-  extends Omit<ColumnType<RecordType>, 'dataIndex' | 'resizable'> {
+  extends Omit<ColumnType<RecordType>, 'dataIndex'> {
   children: ColumnsType<RecordType>
   /**
    * A group column carries no `dataIndex`. Declaring it as `never` (rather than
@@ -187,6 +187,8 @@ export interface ColumnGroupType<RecordType = AnyObject>
    * actual value. Narrow to a group with `'children' in column`. See #673.
    */
   dataIndex?: never
+  // 组列不支持拖拽调整列宽；保留属性名而非 omit 的理由同 `dataIndex`。
+  // Group columns cannot be resized; kept as `never` (not omitted) for the same reason as `dataIndex`.
   resizable?: never
 }
 
