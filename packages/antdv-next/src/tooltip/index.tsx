@@ -1,4 +1,4 @@
-import type { placements as Placements, TooltipProps as VcTooltipProps } from '@v-c/tooltip'
+import type { placements as Placements } from '@v-c/tooltip'
 import type { ActionType, AlignType } from '@v-c/trigger'
 import type { LiteralUnion } from '@v-c/util/dist/type'
 import type { App, CSSProperties, SlotsType } from 'vue'
@@ -100,7 +100,8 @@ export interface TriggerCommonApi extends ComponentBaseProps {
   classes?: TooltipClassNamesType
   styles?: TooltipStylesType
   getTooltipContainer?: (node: HTMLElement) => HTMLElement
-  motion?: VcTooltipProps['motion']
+  /** Only the transition `name` is honoured; the rest of the motion config is managed internally */
+  motion?: { name?: string }
 }
 
 export interface TooltipProps extends TriggerCommonApi,

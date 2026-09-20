@@ -54,7 +54,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | classes | Semantic DOM class. Supports object or function | TooltipClassNamesType | - | - | ✓ |
 | styles | Semantic DOM style. Supports object or function | TooltipStylesType | - | - | ✓ |
 | getTooltipContainer | Legacy alias of `getPopupContainer` | (node: HTMLElement) =&gt; HTMLElement | - | - | × |
-| motion | Popup motion config | VcTooltipProps['motion'] | - | - | × |
+| motion | Popup motion config. Only `name` takes effect, the rest is managed internally | &#123; name?: string &#125; | - | - | × |
 | afterOpenChange | Callback after visibility change | (open: boolean) =&gt; void | - | - | × |
 | builtinPlacements | Built-in placement config | typeof Placements | - | - | × |
 | title | The text shown in the tooltip | VueNode | - | - | × |

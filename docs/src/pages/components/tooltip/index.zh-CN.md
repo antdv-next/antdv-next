@@ -55,7 +55,7 @@ demo:
 | classes | 语义化结构 class，支持对象或函数 | TooltipClassNamesType | - | - | ✓ |
 | styles | 语义化结构 style，支持对象或函数 | TooltipStylesType | - | - | ✓ |
 | getTooltipContainer | `getPopupContainer` 的兼容别名 | (node: HTMLElement) =&gt; HTMLElement | - | - | × |
-| motion | 浮层动画配置 | VcTooltipProps['motion'] | - | - | × |
+| motion | 浮层动画配置，仅 `name` 生效，其余配置由内部托管 | &#123; name?: string &#125; | - | - | × |
 | afterOpenChange | 显隐变化后的回调 | (open: boolean) =&gt; void | - | - | × |
 | builtinPlacements | 内置位置配置 | typeof Placements | - | - | × |
 | title | 提示文字 | VueNode | - | - | × |
