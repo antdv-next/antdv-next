@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest'
 import { h } from 'vue'
 import Badge from '..'
 import Avatar from '../../avatar'
+import ConfigProvider from '../../config-provider'
 import rtlTest from '/@tests/shared/rtlTest'
 import { mount } from '/@tests/utils'
 
@@ -157,6 +158,18 @@ describe('badge', () => {
     const style = count.attributes('style')
     expect(style).toContain('inset-inline-end: -10px')
     expect(style).toContain('margin-top: 10px')
+  })
+
+  it('should keep the same horizontal offset direction under rtl', () => {
+    const wrapper = mount(ConfigProvider, {
+      props: { direction: 'rtl' },
+      slots: {
+        default: () => h(Badge, { count: 5, offset: [10, 10] }, { default: () => h('span', 'test') }),
+      },
+    })
+    expect(wrapper.find('.ant-badge-rtl').exists()).toBe(true)
+    // The logical property mirrors automatically under rtl, same as antd
+    expect(wrapper.find('.ant-badge-count').attributes('style')).toContain('inset-inline-end: -10px')
   })
 
   it('should render custom count with slot', () => {
