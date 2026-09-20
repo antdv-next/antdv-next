@@ -8,6 +8,7 @@ import type { ItemHolderProps } from './ItemHolder.tsx'
 import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { computed, createVNode, defineComponent, isVNode, onBeforeUnmount, shallowRef, watch } from 'vue'
+import { isRenderable } from '../../_util/is.ts'
 import { getSlotPropsFnRun } from '../../_util/tools.ts'
 import { useComponentBaseConfig } from '../../config-provider/context'
 import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls'
@@ -601,13 +602,14 @@ const InternalFormItem = defineComponent<
         // Accessibility attributes, aligned with antd React FormItem.
         const helpNode = getSlotPropsFnRun(slots, props, 'help')
         const extraNode = getSlotPropsFnRun(slots, props, 'extra')
+        const hasExtra = isRenderable(extraNode)
         const { errors: itemErrors, warnings: itemWarnings } = mergedErrorList.value
-        if (currentFieldId && (helpNode || itemErrors.length > 0 || itemWarnings.length > 0 || extraNode)) {
+        if (currentFieldId && (helpNode || itemErrors.length > 0 || itemWarnings.length > 0 || hasExtra)) {
           const describedbyArr: string[] = []
           if (helpNode || itemErrors.length > 0) {
             describedbyArr.push(`${currentFieldId}_help`)
           }
-          if (extraNode) {
+          if (hasExtra) {
             describedbyArr.push(`${currentFieldId}_extra`)
           }
           newChildProps['aria-describedby'] = describedbyArr.join(' ')
