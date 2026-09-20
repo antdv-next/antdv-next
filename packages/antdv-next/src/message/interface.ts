@@ -40,6 +40,7 @@ export interface ConfigOptions {
   /**
    * @descCN 堆叠模式，超过阈值时会将所有消息收起
    * @descEN Stack mode. Messages are collapsed when the threshold is exceeded.
+   * @since 1.5.5
    */
   stack?: boolean | { threshold?: number }
   /**
