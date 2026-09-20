@@ -94,7 +94,7 @@ export type AnchorSlots = SlotsDefineType<{
 }>
 
 export interface AntAnchor {
-  registerLink: (link: string) => void
+  registerLink: (link: string, targetOffset?: number) => void
   unregisterLink: (link: string) => void
   activeLink: string | null
   scrollTo: (link: string, linkTargetOffset?: number) => void
@@ -135,6 +135,7 @@ const Anchor = defineComponent<
 >(
   (props = defaultProps, { slots, emit, attrs }) => {
     const links = ref<string[]>([])
+    const linkTargetOffsetRef = ref<Record<string, number>>({})
     const activeLink = shallowRef()
     const _activeLink = shallowRef(activeLink.value)
     const activeLinkRef = computed({
@@ -147,7 +148,10 @@ const Anchor = defineComponent<
 
     const wrapperRef = shallowRef<HTMLElement>()
     const spanLinkNode = shallowRef<HTMLSpanElement>()
-    const animating = shallowRef(false)
+
+    const animatingRef = shallowRef(false)
+    const scrollRequestIdRef = shallowRef<(() => void) | null>(null)
+
     const {
       prefixCls,
       direction,
@@ -165,14 +169,18 @@ const Anchor = defineComponent<
 
     const dependencyListItem = computed(() => JSON.stringify(links.value))
 
-    const registerLink: AntAnchor['registerLink'] = (link) => {
+    const registerLink: AntAnchor['registerLink'] = (link, targetOffset) => {
       if (!links.value.includes(link)) {
         links.value.push(link)
+      }
+      if (targetOffset !== undefined) {
+        linkTargetOffsetRef.value[link] = targetOffset
       }
     }
 
     const unregisterLink: AntAnchor['unregisterLink'] = (link) => {
       links.value = links.value.filter(item => item !== link)
+      delete linkTargetOffsetRef.value[link]
     }
 
     const updateInk = () => {
@@ -204,7 +212,8 @@ const Anchor = defineComponent<
         const target = document.getElementById(sharpLinkMatch[1]!)
         if (target) {
           const top = getOffsetTop(target, container)
-          if (top <= _offsetTop + _bounds) {
+          const linkOffsetTop = linkTargetOffsetRef.value[link] ?? _offsetTop
+          if (top <= linkOffsetTop + _bounds) {
             linkSections.push({ link, top })
           }
         }
@@ -240,7 +249,7 @@ const Anchor = defineComponent<
     }
 
     const handleScroll = () => {
-      if (animating.value) {
+      if (animatingRef.value) {
         return
       }
       const currentActiveLink = getInternalCurrentAnchor(
@@ -263,6 +272,13 @@ const Anchor = defineComponent<
         return
       }
 
+      if (animatingRef.value) {
+        if (previousRawActiveLink === link) {
+          return
+        }
+        scrollRequestIdRef.value?.()
+      }
+
       const container = getCurrentContainer()
       const scrollTop = getScroll(container)
       const eleOffsetTop = getOffsetTop(targetElement, container)
@@ -270,11 +286,13 @@ const Anchor = defineComponent<
       const resolvedOffset = linkTargetOffset
         ?? (targetOffset !== undefined ? targetOffset : offsetTop || 0)
       y -= resolvedOffset
-      animating.value = true
-      scrollTo(y, {
+
+      animatingRef.value = true
+      scrollRequestIdRef.value = scrollTo(y, {
         getContainer: getCurrentContainer,
         callback() {
-          animating.value = false
+          animatingRef.value = false
+          scrollRequestIdRef.value = null
         },
       })
     }

@@ -40,10 +40,10 @@ const AnchorLink = defineComponent<
     const { registerLink, direction, unregisterLink, activeLink, scrollTo, onClick, classes: mergedClassNames, styles: mergedStyles } = useAnchorContext() ?? {}
     const { prefixCls } = useBaseConfig('anchor', props)
     watch(
-      () => props.href,
-      async (href, _, onCleanup) => {
+      [() => props.href, () => props.targetOffset],
+      async ([href, targetOffset], _, onCleanup) => {
         await nextTick()
-        registerLink?.(href)
+        registerLink?.(href, targetOffset)
         onCleanup(() => {
           unregisterLink?.(href)
         })
@@ -70,6 +70,7 @@ const AnchorLink = defineComponent<
           e.preventDefault()
           window.location.replace(href)
         }
+        return
       }
       // Handling internal anchor link
       e.preventDefault()
