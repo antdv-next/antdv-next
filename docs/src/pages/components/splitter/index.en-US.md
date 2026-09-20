@@ -41,7 +41,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | classes | Customize class for each semantic structure inside the component. Supports object or function | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - | ✓ |
-| collapsible | Collapse configuration. Set `motion` to enable collapse animation; duration and easing follow the global `motionDurationSlow` and `motionEaseInOut` tokens. Use `icon` to customize collapse icons | &#123; motion?: boolean; icon?: &#123; start?: VueNode; end?: VueNode &#125; &#125; | - | - | × |
+| collapsible | `motion` to enable collapse animation, `icon` to customize collapse icons | &#123; motion?: boolean; icon?: &#123; start?: VueNode; end?: VueNode &#125; &#125; | - | - | × |
 | collapsibleIcon | Custom collapsible icon | &#123; start?: VueNode; end?: VueNode &#125; | - | 1.0.0 | × |
 | draggerIcon | Custom dragger icon | VueNode | - | 1.0.0 | × |
 | lazy | Lazy rendering mode | boolean | false | 1.0.0 | × |
