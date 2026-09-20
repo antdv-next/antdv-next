@@ -16,6 +16,7 @@ import {
   useToArr,
   useToProps,
 } from '../_util/hooks'
+import { isRenderable } from '../_util/is.ts'
 import { matchScreen } from '../_util/responsiveObserver.ts'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { resolveSlotsNode } from '../_util/vnode'
@@ -209,6 +210,8 @@ const Descriptions = defineComponent<
       const { bordered, rootClass, colon, layout } = props
       const title = getSlotPropsFnRun(slots, props, 'title')
       const extra = getSlotPropsFnRun(slots, props, 'extra')
+      const hasTitle = isRenderable(title)
+      const hasExtra = isRenderable(extra)
       const labelRender = slots?.labelRender ?? props?.labelRender
       const contentRender = slots?.contentRender ?? props?.contentRender
       return (
@@ -233,7 +236,7 @@ const Descriptions = defineComponent<
           style={[mergedStyles.value.root, (attrs as any).style]}
           {...omit(attrs, ['class', 'style'])}
         >
-          {(!!title || !!extra) && (
+          {(hasTitle || hasExtra) && (
             <div
               class={classNames(
                 `${prefixCls.value}-header`,
@@ -241,7 +244,7 @@ const Descriptions = defineComponent<
               )}
               style={mergedStyles.value.header}
             >
-              {!!title && (
+              {hasTitle && (
                 <div
                   class={classNames(
                     `${prefixCls.value}-title`,
@@ -252,7 +255,7 @@ const Descriptions = defineComponent<
                   {title}
                 </div>
               )}
-              {!!extra && (
+              {hasExtra && (
                 <div
                   class={classNames(
                     `${prefixCls.value}-extra`,
