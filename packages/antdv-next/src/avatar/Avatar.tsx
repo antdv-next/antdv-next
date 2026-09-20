@@ -58,6 +58,10 @@ export interface AvatarSlots {
   default: () => any
 }
 
+export interface AvatarRef {
+  nativeElement: HTMLSpanElement
+}
+
 const defaults = {
   gap: 4,
 } as any
@@ -67,13 +71,16 @@ const Avatar = defineComponent<
   string,
   SlotsType<AvatarSlots>
 >(
-  (props = defaults, { slots, attrs, emit }) => {
+  (props = defaults, { slots, attrs, emit, expose }) => {
     const scale = shallowRef(1)
     const mounted = shallowRef(false)
     const isImgExist = shallowRef(true)
 
     const avatarNodeRef = shallowRef<HTMLSpanElement>()
     const avatarChildrenRef = shallowRef<HTMLSpanElement>()
+    expose({
+      nativeElement: avatarNodeRef,
+    })
     const {
       class: contextClassName,
       style: contextStyle,

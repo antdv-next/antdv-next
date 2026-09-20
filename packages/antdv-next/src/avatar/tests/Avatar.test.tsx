@@ -345,6 +345,16 @@ describe('avatar.Group', () => {
   })
 
   // ========================= Ref =========================
+  it('should support Avatar nativeElement ref', async () => {
+    const avatarRef = ref<any>()
+    const wrapper = mount(() => (
+      <Avatar ref={avatarRef}>A</Avatar>
+    ))
+    await nextTick()
+    expect(avatarRef.value?.nativeElement).toBeInstanceOf(HTMLSpanElement)
+    expect(avatarRef.value.nativeElement).toBe(wrapper.find('.ant-avatar').element)
+  })
+
   it('should support Avatar.Group nativeElement ref', async () => {
     const groupRef = ref<any>()
     const wrapper = mount(() => (
