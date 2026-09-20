@@ -161,7 +161,10 @@ function togglePin(semanticName: string) {
         :class="{ 'semantic-preview-col-no-padding': !padding }"
       >
         <a-config-provider :theme="{ token: { motion } }">
-          <slot :classes="hoveredSemanticClasses" />
+          <slot
+            :classes="hoveredSemanticClasses"
+            :active-semantic="mergedSemantic"
+          />
         </a-config-provider>
       </a-col>
       <a-col :span="8">

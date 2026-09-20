@@ -61,8 +61,13 @@ const value = computed(() => {
     component-name="Cascader"
     :semantics="semantics"
   >
-    <template #default="{ classes }">
-      <div ref="divRef" :style="{ position: 'absolute', height: '200px' }">
+    <template #default="{ classes, activeSemantic }">
+      <div
+        ref="divRef"
+        class="cascader-semantic-demo"
+        :class="{ 'is-clear-active': activeSemantic === 'clear' }"
+        :style="{ position: 'absolute', height: '200px' }"
+      >
         <div :style="{ display: 'flex', justifyContent: 'center', marginBottom: '12px' }">
           <a-segmented v-model:value="mode" :options="['single', 'multiple']" />
         </div>
@@ -72,14 +77,27 @@ const value = computed(() => {
             placeholder="Please select"
             :style="{ width: '300px' }"
             :options="options"
-            :value="value"
+            :value="activeSemantic === 'placeholder' ? null : value"
             :multiple="mode === 'multiple'"
             open
             :get-popup-container="() => divRef!"
             :classes="classes"
+            :styles="{
+              clear: {
+                opacity: 1,
+                visibility: activeSemantic === 'clear' ? 'visible' : 'hidden',
+              },
+            }"
           />
         </div>
       </div>
     </template>
   </SemanticPreview>
 </template>
+
+<style scoped>
+.cascader-semantic-demo.is-clear-active :deep(.ant-select-suffix) {
+  visibility: hidden;
+  pointer-events: none;
+}
+</style>

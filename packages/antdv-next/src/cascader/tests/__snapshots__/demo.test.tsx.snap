@@ -3,6 +3,7 @@
 exports[`cascader demo > renders _semantic correctly 1`] = `
 <div
   class="semantic-preview-container"
+  data-v-a0c14671=""
   data-v-dfc8ebef=""
 >
   <div
@@ -14,15 +15,19 @@ exports[`cascader demo > renders _semantic correctly 1`] = `
       data-v-dfc8ebef=""
     >
       <div
+        class="cascader-semantic-demo"
+        data-v-a0c14671=""
         style="position: absolute; height: 200px;"
       >
         <div
+          data-v-a0c14671=""
           style="display: flex; justify-content: center; margin-bottom: 12px;"
         >
           <div
             aria-label="segmented control"
             aria-orientation="horizontal"
             class="ant-segmented css-var-v-0 css-var-v-0"
+            data-v-a0c14671=""
             role="radiogroup"
             tabindex="0"
           >
@@ -65,6 +70,7 @@ exports[`cascader demo > renders _semantic correctly 1`] = `
           </div>
         </div>
         <div
+          data-v-a0c14671=""
           style="display: flex; flex-direction: column; gap: 12px;"
         >
           <!---->
@@ -124,6 +130,7 @@ exports[`cascader demo > renders _semantic correctly 1`] = `
             <button
               aria-label="Clear"
               class="ant-select-clear semantic-mark-clear"
+              style="opacity: 1; visibility: hidden;"
               type="button"
             >
               <span
