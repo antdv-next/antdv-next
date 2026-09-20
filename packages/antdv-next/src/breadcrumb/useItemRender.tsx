@@ -39,14 +39,13 @@ export function renderItem(
     return null
   }
 
-  const { class: className, onClick, ...restItem } = item
+  const { class: className, ...restItem } = item
 
   const passedProps = {
     ...pickAttrs(restItem, {
       data: true,
       aria: true,
     }),
-    onClick,
   }
 
   if (href !== undefined) {

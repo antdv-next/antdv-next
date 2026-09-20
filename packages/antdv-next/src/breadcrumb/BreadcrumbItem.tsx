@@ -91,7 +91,7 @@ export const InternalBreadcrumbItem = defineComponent<
       return breadcrumbItem
     }
     return () => {
-      const { separator = '/', prefixCls } = props
+      const { separator = '/', prefixCls, onClick } = props
       const children = checkRenderNode(filterEmpty(slots?.default?.() ?? []))
       const { classes: mergedClassNames, styles: mergedStyles } = breadcrumbContext.value
       // wrap to dropDown
@@ -100,7 +100,7 @@ export const InternalBreadcrumbItem = defineComponent<
       if (isNonNullable(link)) {
         return (
           <>
-            <li class={clsx(`${prefixCls}-item`, mergedClassNames?.item)} style={mergedStyles?.item}>
+            <li class={clsx(`${prefixCls}-item`, mergedClassNames?.item)} style={mergedStyles?.item} onClick={onClick}>
               {link}
             </li>
             {isRenderable(separator) && <BreadcrumbSeparator>{separator}</BreadcrumbSeparator>}
