@@ -1,4 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
+import { defineComponent, nextTick, onMounted } from 'vue'
+import { useMessage } from '..'
 import ConfigProvider from '../../config-provider'
 import PurePanel from '../PurePanel'
 import { mount } from '/@tests/utils'
@@ -102,6 +104,42 @@ describe('message.Semantic', () => {
 
     const icon = document.querySelector('.ant-message-notice-icon')
     expect(icon?.classList.contains('provider-icon')).toBe(true)
+
+    wrapper.unmount()
+  })
+
+  it('should apply list and listContent semantics from useMessage config', async () => {
+    const wrapper = mount(defineComponent({
+      setup() {
+        const [api, holder] = useMessage({
+          classes: {
+            list: 'custom-list',
+            listContent: 'custom-list-content',
+          },
+          styles: {
+            list: { margin: '10px' },
+            listContent: { padding: '12px' },
+          },
+        })
+
+        onMounted(() => {
+          api.info({ content: 'Semantic List', duration: 0 })
+        })
+
+        return () => holder()
+      },
+    }), { attachTo: document.body })
+
+    await nextTick()
+    await nextTick()
+
+    const list = document.querySelector('.custom-list')
+    const listContent = document.querySelector('.custom-list-content')
+
+    expect(list).toBeTruthy()
+    expect((list as HTMLElement).style.margin).toBe('10px')
+    expect(listContent).toBeTruthy()
+    expect((listContent as HTMLElement).style.padding).toBe('12px')
 
     wrapper.unmount()
   })

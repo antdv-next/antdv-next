@@ -9,7 +9,9 @@ Use `message.useMessage` to get `contextHolder` with context accessible issue. P
 <script setup lang="ts">
 import { message } from 'antdv-next'
 
-const [messageApi, ContextHolder] = message.useMessage()
+const [messageApi, ContextHolder] = message.useMessage({
+  stack: true,
+})
 
 function info() {
   messageApi.info('Hello, Antdv Next!')

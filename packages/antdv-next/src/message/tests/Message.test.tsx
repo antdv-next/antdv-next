@@ -1,6 +1,6 @@
 import type { MessageInstance } from '../interface'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { defineComponent, nextTick } from 'vue'
+import { defineComponent, nextTick, reactive } from 'vue'
 import { useMessage } from '..'
 import PurePanel from '../PurePanel'
 import { mount } from '/@tests/utils'
@@ -153,7 +153,7 @@ describe('message', () => {
 
     let notices = document.querySelectorAll('.ant-message-notice')
     expect(notices.length).toBe(1)
-    expect(notices[0].textContent).toContain('First')
+    expect(notices[0]!.textContent).toContain('First')
 
     getApi().info({ content: 'Updated', key: 'update-key', duration: 0 })
     await nextTick()
@@ -161,7 +161,7 @@ describe('message', () => {
 
     notices = document.querySelectorAll('.ant-message-notice')
     expect(notices.length).toBe(1)
-    expect(notices[0].textContent).toContain('Updated')
+    expect(notices[0]!.textContent).toContain('Updated')
 
     wrapper.unmount()
   })
@@ -303,6 +303,87 @@ describe('message', () => {
 
     const notices = document.querySelectorAll('.ant-message-notice')
     expect(notices.length).toBe(3)
+
+    wrapper.unmount()
+  })
+
+  it('supports stack config', async () => {
+    const { wrapper, getApi } = mountMessage({ stack: true })
+    await nextTick()
+    await nextTick()
+
+    getApi().info({ content: 'Stacked', duration: 0 })
+    await nextTick()
+    await nextTick()
+
+    expect(document.querySelector('.ant-message-stack')).toBeTruthy()
+
+    wrapper.unmount()
+  })
+
+  it('disables stack when stack is false', async () => {
+    const { wrapper, getApi } = mountMessage({ stack: false })
+    await nextTick()
+    await nextTick()
+
+    getApi().info({ content: 'No Stack 1', key: 'ns1', duration: 0 })
+    getApi().info({ content: 'No Stack 2', key: 'ns2', duration: 0 })
+    await nextTick()
+    await nextTick()
+
+    expect(document.querySelector('.ant-message-stack')).toBeFalsy()
+    expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(2)
+
+    wrapper.unmount()
+  })
+
+  it('supports stack with custom threshold', async () => {
+    const { wrapper, getApi } = mountMessage({ stack: { threshold: 2 } })
+    await nextTick()
+    await nextTick()
+
+    getApi().info({ content: 'Stack 1', key: 'st1', duration: 0 })
+    getApi().info({ content: 'Stack 2', key: 'st2', duration: 0 })
+    getApi().info({ content: 'Stack 3', key: 'st3', duration: 0 })
+    await nextTick()
+    await nextTick()
+
+    expect(document.querySelector('.ant-message-stack')).toBeTruthy()
+    expect(document.querySelectorAll('.ant-message-notice-stack-in-threshold')).toHaveLength(2)
+
+    wrapper.unmount()
+  })
+
+  it('reacts to config changes', async () => {
+    const config = reactive({
+      prefixCls: 'first-message',
+    })
+    let api!: MessageInstance
+    const App = defineComponent({
+      setup() {
+        const [messageApi, contextHolder] = useMessage(config)
+        api = messageApi
+        return () => contextHolder()
+      },
+    })
+    const wrapper = mount(App, { attachTo: document.body })
+
+    await nextTick()
+    await nextTick()
+    api.info({ content: 'First', key: 'first', duration: 0 })
+    await nextTick()
+    await nextTick()
+
+    expect(document.querySelector('.first-message-notice')).toBeTruthy()
+
+    config.prefixCls = 'second-message'
+    await nextTick()
+    await nextTick()
+    api.info({ content: 'Second', key: 'second', duration: 0 })
+    await nextTick()
+    await nextTick()
+
+    expect(document.querySelector('.second-message-notice')).toBeTruthy()
 
     wrapper.unmount()
   })

@@ -28,6 +28,7 @@ import { getMotion, wrapPromiseFn } from './util'
 
 const DEFAULT_OFFSET = 8
 const DEFAULT_DURATION = 3
+const DEFAULT_STACK_CONFIG = false
 
 // ==============================================================================
 // ==                                  Holder                                  ==
@@ -94,6 +95,7 @@ const Holder = defineComponent<HolderProps>(
     })
     const mergedDuration = computed(() => props.duration ?? DEFAULT_DURATION)
     const mergedPauseOnHover = computed(() => (props.pauseOnHover === undefined ? true : props.pauseOnHover))
+    const mergedStack = computed(() => props.stack ?? DEFAULT_STACK_CONFIG)
 
     // Surface position via the --notification-top CSS variable so the new
     // placement.ts `inset` calc (--notification-top - --notification-margin-edge)
@@ -107,20 +109,6 @@ const Holder = defineComponent<HolderProps>(
 
     const getNotificationMotion = () => getMotion(prefixCls.value, props.transitionName)
 
-    const [api, holder] = useVcNotification({
-      prefixCls: prefixCls.value,
-      style: getStyle,
-      className: getClassName,
-      motion: getNotificationMotion,
-      closable: false,
-      duration: mergedDuration.value,
-      getContainer: () => props.getContainer?.() || getPopupContainer?.() || document.body,
-      maxCount: props.maxCount,
-      onAllRemoved: props.onAllRemoved,
-      renderNotifications,
-      pauseOnHover: mergedPauseOnHover.value,
-    })
-
     const mergedProps = computed(() => props)
     const contextStyleRoot = useSemanticRootStyle(contextStyle)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
@@ -132,6 +120,24 @@ const Holder = defineComponent<HolderProps>(
       useToArr(contextStyles, contextStyleRoot as any, styles),
       useToProps(mergedProps),
     )
+
+    const vcConfig = computed(() => ({
+      prefixCls: prefixCls.value,
+      style: getStyle,
+      className: getClassName,
+      motion: getNotificationMotion,
+      closable: false,
+      duration: mergedDuration.value,
+      getContainer: () => props.getContainer?.() || getPopupContainer?.() || document.body,
+      maxCount: props.maxCount,
+      onAllRemoved: props.onAllRemoved,
+      renderNotifications,
+      pauseOnHover: mergedPauseOnHover.value,
+      stack: mergedStack.value,
+      classNames: mergedClassNames.value,
+      styles: mergedStyles.value,
+    }))
+    const [api, holder] = useVcNotification(vcConfig as any)
 
     expose({
       ...api,
@@ -209,7 +215,7 @@ export function useInternalMessage(messageConfig?: MaybeRef<HolderProps>) {
         mergedKey = `antd-message-${keyIndex}`
       }
 
-      const contextConfig = { ...messageConfig, ...config }
+      const contextConfig = { ...unref(messageConfig), ...config }
 
       const resolvedContextClassNames = resolveStyleOrClass(contextClasses!, { props: contextConfig })
       const semanticClassNames = resolveStyleOrClass(configClassNames, { props: contextConfig })

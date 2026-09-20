@@ -38,6 +38,11 @@ export interface ConfigOptions {
   maxCount?: number
   rtl?: boolean
   /**
+   * @descCN 堆叠模式，超过阈值时会将所有消息收起
+   * @descEN Stack mode. Messages are collapsed when the threshold is exceeded.
+   */
+  stack?: boolean | { threshold?: number }
+  /**
    * @descCN 悬停时是否暂停计时器
    * @descEN keep the timer running or not on hover
    */
