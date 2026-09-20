@@ -51,6 +51,7 @@ export default defineConfig({
     // include: ['@antdv-next/icons'],
     exclude: [
       '@antdv-next/img-crop',
+      '@v-c/mentions',
       '@v-c/segmented',
       '@v-c/trigger',
       '@v-c/tooltip',

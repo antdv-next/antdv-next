@@ -26,6 +26,7 @@
     "@dnd-kit/abstract": "catalog:docs",
     "@dnd-kit/dom": "catalog:docs",
     "@dnd-kit/vue": "catalog:docs",
+    "@v-c/mentions": "catalog:vc",
     "@vue/compiler-sfc": "catalog:docs",
     "@vueuse/core": "catalog:prod",
     "antdv-style": "catalog:prod",

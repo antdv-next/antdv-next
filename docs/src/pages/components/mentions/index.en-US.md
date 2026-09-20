@@ -40,18 +40,19 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| loading | - | boolean | - | - | × |
+| loading | Indicate loading state | boolean | - | - | × |
 | status | Set validation status | InputStatus | - | - | × |
 | options | Option Configuration | MentionsOptionProps[] | \[] | - | × |
-| popupClassName | - | string | - | - | × |
+| filterOption | Customize filter option logic | false \| (input: string, option: OptionProps) =&gt; boolean | - | - | × |
+| popupClassName | The className of dropdown menu | string | - | - | × |
 | popupRender | Customize the dropdown menu rendering | (menu: VueNode) =&gt; VueNode | - | - | × |
 | variant | Variants of Input | Variant | `outlined` | - | ✓ |
 | classes | Customize class for each semantic structure inside the component. Supports object or function. | MentionsClassNamesType | - | - | ✓ |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | MentionsStylesType | - | - | ✓ |
-| size | - | SizeType | - | - | × |
-| labelRender | - | (ctx: &#123; option: MentionsOptionProps, index: number &#125;) =&gt; any | - | - | × |
+| size | The size of the input box | `large` \| `medium` \| `small` | - | - | × |
+| labelRender | Customize the rendering of option content | (ctx: &#123; option: MentionsOptionProps, index: number &#125;) =&gt; any | - | - | × |
 | allowClear | If allow to remove mentions content with clear icon | boolean \| &#123;     clearIcon?: VueNode   &#125; | false | - | ✓ |
-| disabled | - | boolean | - | - | × |
+| disabled | Whether disabled | boolean | - | - | × |
 
 ### Events
 
@@ -63,15 +64,25 @@ Common props ref：[Common props](/docs/vue/common-props)
 | select | Trigger when user select the option | (option: MentionsOptionProps, prefix: string) =&gt; void | - |
 | popupScroll | Trigger when mentions scroll | (event: Event) =&gt; void | - |
 | search | Trigger when prefix hit | (text: string, prefix: string) =&gt; void | - |
-| update:value | - | (value: string) =&gt; void | - |
+| update:value | Triggered when value updates, used for `v-model:value` | (value: string) =&gt; void | - |
+
+### Option {#option}
+
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| value | Value inserted when selected | string | - |
+| key | The key value of the option | string | - |
+| disabled | Whether the option is disabled | boolean | - |
+| class | Class name of the option | string | - |
+| style | The style of the option | CSSProperties | - |
 
 ### Slots
 
 | Slot | Description | Type | Version |
 | --- | --- | --- | --- |
-| suffix | - | () =&gt; any | - |
+| suffix | Customize the suffix content | () =&gt; any | - |
 | popupRender | Customize the dropdown menu rendering | (menu: VueNode) =&gt; VueNode | - |
-| labelRender | - | (ctx: &#123; option: MentionsOptionProps, index: number &#125;) =&gt; any | - |
+| labelRender | Customize the rendering of option content | (ctx: &#123; option: MentionsOptionProps, index: number &#125;) =&gt; any | - |
 
 ## Semantic DOM {#semantic-dom}
 

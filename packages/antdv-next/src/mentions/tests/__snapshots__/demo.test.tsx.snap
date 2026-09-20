@@ -27,7 +27,15 @@ exports[`mentions demo > renders _semantic correctly 1`] = `
             rows="1"
             value="Hi, @"
           />
-          <!---->
+          <div
+            class="ant-mentions-measure"
+          >
+            Hi, 
+            <span>
+              @
+            </span>
+            <!---->
+          </div>
           <span
             class="ant-mentions-suffix semantic-mark-suffix"
           >

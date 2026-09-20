@@ -41,18 +41,19 @@ demo:
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| loading | - | boolean | - | - | × |
+| loading | 加载中状态 | boolean | - | - | × |
 | status | 设置校验状态 | InputStatus | - | - | × |
 | options | 选项配置 | MentionsOptionProps[] | [] | - | × |
-| popupClassName | - | string | - | - | × |
+| filterOption | 自定义过滤逻辑 | false \| (input: string, option: OptionProps) =&gt; boolean | - | - | × |
+| popupClassName | 下拉菜单的 className 属性 | string | - | - | × |
 | popupRender | 自定义下拉菜单渲染 | (menu: VueNode) =&gt; VueNode | - | - | × |
 | variant | 形态变体 | Variant | `outlined` | - | ✓ |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | MentionsClassNamesType | - | - | ✓ |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | MentionsStylesType | - | - | ✓ |
-| size | - | SizeType | - | - | × |
-| labelRender | - | (ctx: &#123; option: MentionsOptionProps, index: number &#125;) =&gt; any | - | - | × |
+| size | 控件大小 | `large` \| `medium` \| `small` | - | - | × |
+| labelRender | 自定义选项内容渲染 | (ctx: &#123; option: MentionsOptionProps, index: number &#125;) =&gt; any | - | - | × |
 | allowClear | 可以点击清除图标删除内容 | boolean \| &#123;     clearIcon?: VueNode   &#125; | false | - | ✓ |
-| disabled | - | boolean | - | - | × |
+| disabled | 是否禁用 | boolean | - | - | × |
 
 ### 事件 {#events}
 
@@ -64,15 +65,25 @@ demo:
 | select | 选择选项时触发 | (option: MentionsOptionProps, prefix: string) =&gt; void | - |
 | popupScroll | 滚动时触发 | (event: Event) =&gt; void | - |
 | search | 搜索时触发 | (text: string, prefix: string) =&gt; void | - |
-| update:value | - | (value: string) =&gt; void | - |
+| update:value | 值更新时触发，用于支持 `v-model:value` | (value: string) =&gt; void | - |
+
+### Option {#option}
+
+| 参数 | 说明 | 类型 | 默认值 |
+| --- | --- | --- | --- |
+| value | 选择时填充的值 | string | - |
+| key | 选项的 key 值 | string | - |
+| disabled | 是否可选 | boolean | - |
+| class | 选项的 class 名 | string | - |
+| style | 选项样式 | CSSProperties | - |
 
 ### 插槽 {#slots}
 
 | 插槽 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
-| suffix | - | () =&gt; any | - |
+| suffix | 自定义后缀内容 | () =&gt; any | - |
 | popupRender | 自定义下拉菜单渲染 | (menu: VueNode) =&gt; VueNode | - |
-| labelRender | - | (ctx: &#123; option: MentionsOptionProps, index: number &#125;) =&gt; any | - |
+| labelRender | 自定义选项内容渲染 | (ctx: &#123; option: MentionsOptionProps, index: number &#125;) =&gt; any | - |
 
 ## 语义化 DOM {#semantic-dom}
 
