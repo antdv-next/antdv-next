@@ -18,6 +18,23 @@ describe('theme tokens', () => {
     expect(token.lineWidthFocus).toBe(token.lineWidth * 3)
   })
 
+  // https://github.com/ant-design/ant-design/pull/59298
+  it('fontHeight should follow fontSize and lineHeight', () => {
+    const token = theme.getDesignToken({
+      token: {
+        lineHeight: 2,
+        fontSizeSM: 12,
+        lineHeightSM: 1.5,
+        fontSizeLG: 20,
+        lineHeightLG: 1.6,
+      },
+    })
+
+    expect(token.fontHeight).toBe(28)
+    expect(token.fontHeightSM).toBe(18)
+    expect(token.fontHeightLG).toBe(32)
+  })
+
   it('focusOutline false token', () => {
     const token = theme.getDesignToken({ token: { focusOutline: false } })
 
