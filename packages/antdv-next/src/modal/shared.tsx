@@ -1,6 +1,7 @@
 import type { ModalEmits, ModalProps } from './interface.ts'
 import { CloseOutlined } from '@antdv-next/icons'
 import { computed, defineComponent } from 'vue'
+import { isRenderable } from '../_util/is.ts'
 import { getSlotPropsFnRun } from '../_util/tools.ts'
 import { DisabledContextProvider } from '../config-provider/DisabledContext.tsx'
 import useLocale from '../locale/useLocale.ts'
@@ -14,7 +15,7 @@ export function renderCloseIcon(prefixCls: string, closeIcon?: any) {
 
   return (
     <span class={`${prefixCls}-close-x`}>
-      {closeIcon || <CloseOutlined class={`${prefixCls}-close-icon`} />}
+      {isRenderable(closeIcon) ? closeIcon : <CloseOutlined class={`${prefixCls}-close-icon`} />}
     </span>
   )
 }

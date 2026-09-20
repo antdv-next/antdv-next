@@ -17,7 +17,7 @@ import {
   useToProps,
 } from '../_util/hooks'
 import useClosable, { pickClosable } from '../_util/hooks/useClosable'
-import isNonNullable from '../_util/isNonNullable'
+import { isRenderable } from '../_util/is'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { useBaseConfig, useComponentBaseConfig } from '../config-provider/context'
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
@@ -34,7 +34,7 @@ export function getCloseIcon(prefixCls: string, closeIcon?: VueNode): VueNode {
   if (closeIcon === null || closeIcon === false) {
     return null
   }
-  return closeIcon || <CloseOutlined class={`${prefixCls}-close-icon`} />
+  return isRenderable(closeIcon) ? closeIcon : <CloseOutlined class={`${prefixCls}-close-icon`} />
 }
 
 export interface PureContentProps {
@@ -62,7 +62,7 @@ export function resolveIconNode(
   icon: VueNode | undefined,
   type: IconType | undefined,
 ): VueNode {
-  if (icon) {
+  if (isRenderable(icon)) {
     return icon
   }
   if (type && typeToIcon[type]) {
@@ -71,8 +71,13 @@ export function resolveIconNode(
   return null
 }
 
-export function getIconWrapperClassName(prefixCls: string, type: IconType | undefined): string {
-  return type ? `${prefixCls}-icon-${type}` : ''
+export function getIconWrapperClassName(
+  prefixCls: string,
+  type: IconType | undefined,
+  icon?: VueNode,
+): string {
+  // A custom icon should not inherit the type-specific color
+  return !isRenderable(icon) && type ? `${prefixCls}-icon-${type}` : ''
 }
 
 const defaults = {
@@ -94,7 +99,7 @@ export const PureContent = defineComponent<PureContentProps>(
         classes: pureContentCls,
       } = props
       let iconNode: any
-      if (icon) {
+      if (isRenderable(icon)) {
         iconNode = (
           <span class={clsx(`${prefixCls}-icon`, pureContentCls.icon)} style={styles.icon}>
             {icon}
@@ -112,7 +117,7 @@ export const PureContent = defineComponent<PureContentProps>(
           iconNode = null
         }
       }
-      const hasTitle = isNonNullable(title) && title !== false && title !== ''
+      const hasTitle = isRenderable(title)
 
       return (
         <div class={clsx({ [`${prefixCls}-with-icon`]: iconNode })} role={role}>
@@ -248,8 +253,12 @@ const PurePanel = defineComponent<PurePanelProps>(
       const slotIcon = getSlotPropsFnRun(slots, props, 'icon')
       const mergedNcs = mergedClassNames.value as PureContentProps['classes']
       const mergedNss = mergedStyles.value as PureContentProps['styles']
-      const iconNode = resolveIconNode(slotIcon ?? props.icon, props.type)
-      const iconWrapperClass = clsx(getIconWrapperClassName(noticePrefixCls, props.type), mergedNcs?.icon)
+      const mergedIcon = slotIcon ?? props.icon
+      const iconNode = resolveIconNode(mergedIcon, props.type)
+      const iconWrapperClass = clsx(
+        getIconWrapperClassName(noticePrefixCls, props.type, mergedIcon),
+        mergedNcs?.icon,
+      )
       return (
         <div
           class={clsx(

@@ -13,6 +13,7 @@ import { clsx } from '@v-c/util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent } from 'vue'
 import { pureAttrs, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
+import { isRenderable } from '../_util/is'
 import { toPropsRefs } from '../_util/tools'
 import { useComponentBaseConfig } from '../config-provider/context'
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
@@ -45,7 +46,7 @@ export function resolveMessageIcon(
   icon: VueNode | undefined,
   type: NoticeType | undefined,
 ): VueNode {
-  if (icon !== undefined && icon !== null) {
+  if (isRenderable(icon)) {
     return icon as VueNode
   }
   const IconNode = type ? TypeIcon[type] : null
