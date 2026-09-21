@@ -5,12 +5,15 @@ import { defineComponent } from 'vue'
 export const InternalPanel = defineComponent<InternalPanelProps>(
   (props, { slots, attrs }) => {
     return () => {
-      const { prefixCls, class: className, size, style = {}, destroyOnHidden } = props
+      const { prefixCls, class: className, size, style = {}, destroyOnHidden, supportMotion } = props
 
       const isHidden = size === 0
       const panelClassName = clsx(
         `${prefixCls}-panel`,
-        { [`${prefixCls}-panel-hidden`]: isHidden },
+        {
+          [`${prefixCls}-panel-hidden`]: isHidden,
+          [`${prefixCls}-panel-transition`]: supportMotion,
+        },
         className,
       )
 

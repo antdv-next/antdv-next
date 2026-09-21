@@ -62,9 +62,10 @@ export interface SplitterProps extends ComponentBaseProps {
   vertical?: boolean
   draggerIcon?: VueNode
   /**
-   * Collapse configuration. ant-design 6.4.0 PR #57044.
+   * Collapse configuration. Set `motion: true` to enable collapse animation.
    */
   collapsible?: {
+    motion?: boolean
     icon?: {
       start?: VueNode
       end?: VueNode
@@ -126,6 +127,7 @@ export interface PanelProps {
 export interface InternalPanelProps extends PanelProps {
   class?: string
   prefixCls?: string
+  supportMotion?: boolean
 }
 
 export interface UseResizeProps {

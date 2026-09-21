@@ -42,6 +42,7 @@ tag: 1.0.0
 | 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - | ✓ |
+| collapsible | `motion` 是否开启折叠动画，`icon` 自定义折叠图标 | &#123; motion?: boolean; icon?: &#123; start?: VueNode; end?: VueNode &#125; &#125; | - | - | × |
 | collapsibleIcon | 自定义折叠图标 | &#123; start?: VueNode; end?: VueNode &#125; | - | 1.0.0 | × |
 | draggerIcon | 自定义拖拽图标 | VueNode | - | 1.0.0 | × |
 | lazy | 延迟渲染模式 | boolean | false | 1.0.0 | × |
@@ -74,6 +75,7 @@ tag: 1.0.0
 | --- | --- | --- | --- | --- |
 | collapsible | 启用折叠 | boolean \| &#123; start?: boolean; end?: boolean; showCollapsibleIcon?: boolean \| 'auto' &#125; | false | 1.0.0 |
 | defaultSize | 面板初始大小，支持像素和百分比 | number \| string | - | - |
+| destroyOnHidden | 折叠时（`size` 为 0）销毁面板内容 | boolean | false | - |
 | max | 最大阈值，支持像素和百分比 | number \| string | - | - |
 | min | 最小阈值，支持像素和百分比 | number \| string | - | - |
 | resizable | 是否启用拉伸 | boolean | true | - |

@@ -562,6 +562,73 @@ describe('splitter', () => {
       expect(wrapper.findAll('.ant-splitter-bar-collapse-end')).toHaveLength(1)
     })
 
+    it('applies panel transition when motion is enabled', async () => {
+      const wrapper = mountSplitter({
+        items: [{ collapsible: true }, { collapsible: true }],
+        collapsible: { motion: true },
+      })
+
+      await nextTick()
+
+      expect(wrapper.findAll('.ant-splitter-panel-transition')).toHaveLength(2)
+    })
+
+    it('does not apply panel transition when motion is disabled', async () => {
+      const wrapper = mountSplitter({
+        items: [{ collapsible: true }, { collapsible: true }],
+        collapsible: { motion: false },
+      })
+
+      await nextTick()
+
+      expect(wrapper.find('.ant-splitter-panel-transition').exists()).toBe(false)
+    })
+
+    it('removes panel transition while dragging', async () => {
+      const wrapper = mountSplitter({
+        items: [{ collapsible: true }, { collapsible: true }],
+        collapsible: { motion: true },
+      })
+
+      await nextTick()
+      expect(wrapper.findAll('.ant-splitter-panel-transition')).toHaveLength(2)
+
+      dispatchMouseEvent(wrapper.find('.ant-splitter-bar-dragger').element, 'mousedown', 0, 0)
+      await nextTick()
+
+      expect(wrapper.find('.ant-splitter-panel-transition').exists()).toBe(false)
+    })
+
+    it('uses global motion tokens for panel transition styles', async () => {
+      trackWrapper(mount(
+        <ConfigProvider
+          theme={{
+            token: {
+              motionDurationSlow: '0.5s',
+              motionEaseInOut: 'cubic-bezier(.92,.16,.35,1)',
+            },
+          }}
+        >
+          <SplitterDemo
+            items={[{ collapsible: true }, { collapsible: true }]}
+            collapsible={{ motion: true }}
+          />
+        </ConfigProvider>,
+      ))
+
+      await nextTick()
+
+      const dynamicStyleText = Array.from(document.querySelectorAll('style[data-css-hash]'))
+        .map(style => style.innerHTML)
+        .join('\n')
+
+      expect(dynamicStyleText).toContain('--ant-motion-duration-slow:0.5s')
+      expect(dynamicStyleText).toContain('--ant-motion-ease-in-out:cubic-bezier(.92,.16,.35,1)')
+      expect(dynamicStyleText).toContain(
+        'ant-splitter-panel-transition{transition:flex-basis var(--ant-motion-duration-slow) var(--ant-motion-ease-in-out)',
+      )
+    })
+
     it('collapsible - true', async () => {
       const onResize = vi.fn()
       const onResizeEnd = vi.fn()

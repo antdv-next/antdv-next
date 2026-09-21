@@ -232,7 +232,12 @@ const Splitter = defineComponent<
               }
               // Panel
               const panel = (
-                <InternalPanel {...panelProps} prefixCls={prefixCls.value} size={panelSizes.value[idx]}>
+                <InternalPanel
+                  {...panelProps}
+                  prefixCls={prefixCls.value}
+                  size={panelSizes.value[idx]}
+                  supportMotion={collapsible?.motion && movingIndex.value === undefined}
+                >
                   {item._$slots?.default?.()}
                 </InternalPanel>
               )

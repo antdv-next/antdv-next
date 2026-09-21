@@ -41,6 +41,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | classes | Customize class for each semantic structure inside the component. Supports object or function | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - | ✓ |
+| collapsible | `motion` to enable collapse animation, `icon` to customize collapse icons | &#123; motion?: boolean; icon?: &#123; start?: VueNode; end?: VueNode &#125; &#125; | - | - | × |
 | collapsibleIcon | Custom collapsible icon | &#123; start?: VueNode; end?: VueNode &#125; | - | 1.0.0 | × |
 | draggerIcon | Custom dragger icon | VueNode | - | 1.0.0 | × |
 | lazy | Lazy rendering mode | boolean | false | 1.0.0 | × |
@@ -73,6 +74,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | --- | --- | --- | --- | --- |
 | collapsible | Enable collapsible | boolean \| &#123; start?: boolean; end?: boolean; showCollapsibleIcon?: boolean \| 'auto' &#125; | false | 1.0.0 |
 | defaultSize | Initial panel size, supports px and percentage | number \| string | - | - |
+| destroyOnHidden | Destroy panel content when collapsed (`size` is 0) | boolean | false | - |
 | max | Maximum threshold, supports px and percentage | number \| string | - | - |
 | min | Minimum threshold, supports px and percentage | number \| string | - | - |
 | resizable | Whether to enable resize | boolean | true | - |

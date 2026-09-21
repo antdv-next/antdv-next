@@ -11,6 +11,7 @@ import { useMobile } from '@/composables/mobile'
 import { useLocale } from '@/composables/use-locale'
 import tokenMetaRes from '../../assets/token-meta.json'
 import tokenDataRes from '../../assets/token.json'
+import BezierVisualizer from '../bezier-visualizer/index.vue'
 import ColorChunk from '../color-chunk/index.vue'
 
 defineOptions({
@@ -112,6 +113,10 @@ function resolveValue(value: any): any {
   }
 
   return value
+}
+
+function isBezier(value: any): boolean {
+  return typeof value === 'string' && value.toLowerCase().trim().startsWith('cubic-bezier')
 }
 
 // Columns definition
@@ -305,6 +310,10 @@ const globalCode = computed(() => {
                 >
                   {{ text }}
                 </ColorChunk>
+                <BezierVisualizer
+                  v-else-if="isBezier(text)"
+                  :value="text"
+                />
                 <template v-else>
                   {{ text }}
                 </template>
@@ -376,6 +385,10 @@ const globalCode = computed(() => {
                 >
                   {{ text }}
                 </ColorChunk>
+                <BezierVisualizer
+                  v-else-if="isBezier(text)"
+                  :value="text"
+                />
                 <template v-else>
                   {{ text }}
                 </template>

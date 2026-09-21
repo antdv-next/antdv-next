@@ -2,6 +2,7 @@ import type { CSSObject } from '@antdv-next/cssinjs'
 
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal'
 import { genFocusOutline, resetComponent } from '../../style'
+import { genNoMotionStyle } from '../../style/motion'
 import { genStyleHooks } from '../../theme/internal'
 import { genCssVar } from '../../theme/util/genStyleUtils'
 
@@ -375,6 +376,11 @@ const genSplitterStyle: GenerateStyle<SplitterToken, CSSObject> = (token) => {
 
         [`&:has(${componentCls}:only-child)`]: {
           overflow: 'hidden',
+        },
+
+        '&-transition': {
+          transition: `flex-basis ${token.motionDurationSlow} ${token.motionEaseInOut}`,
+          ...genNoMotionStyle(),
         },
       },
     },
