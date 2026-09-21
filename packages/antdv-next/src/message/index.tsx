@@ -60,7 +60,7 @@ let defaultGlobalConfig: ConfigOptions = {}
 let act: (callback: VoidFunction) => Promise<void> | void = callback => callback()
 
 function getGlobalContext() {
-  const { getContainer, duration, rtl, maxCount, top, pauseOnHover, stack } = defaultGlobalConfig
+  const { getContainer, duration, rtl, maxCount, top, pauseOnHover, stack, classes, styles } = defaultGlobalConfig
   const mergedContainer = getContainer?.() || document.body
 
   let appContext = defaultGlobalConfig.appContext
@@ -79,6 +79,8 @@ function getGlobalContext() {
     top,
     pauseOnHover,
     stack,
+    classes,
+    styles,
     appContext,
   }
 }

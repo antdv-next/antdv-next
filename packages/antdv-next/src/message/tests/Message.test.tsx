@@ -3,7 +3,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import { defineComponent, nextTick, reactive } from 'vue'
 import { useMessage } from '..'
 import PurePanel from '../PurePanel'
-import { mount } from '/@tests/utils'
+import { DOMWrapper, mount } from '/@tests/utils'
 
 function mountMessage(config?: any) {
   let api!: MessageInstance
@@ -384,6 +384,119 @@ describe('message', () => {
     await nextTick()
 
     expect(document.querySelector('.second-message-notice')).toBeTruthy()
+
+    wrapper.unmount()
+  })
+
+  it('applies reactive duration config to new messages', async () => {
+    vi.useFakeTimers()
+    const config = reactive({ duration: 1 })
+    const { wrapper, getApi } = mountMessage(config)
+    await nextTick()
+    await nextTick()
+
+    const firstClose = vi.fn()
+    getApi().info({ content: 'One second', key: 'one-second', onClose: firstClose })
+    await nextTick()
+    await nextTick()
+
+    vi.advanceTimersByTime(1100)
+    await nextTick()
+
+    expect(firstClose).toHaveBeenCalledTimes(1)
+
+    config.duration = 2
+    await nextTick()
+
+    const secondClose = vi.fn()
+    getApi().info({ content: 'Two seconds', key: 'two-seconds', onClose: secondClose })
+    await nextTick()
+    await nextTick()
+
+    vi.advanceTimersByTime(1000)
+    await nextTick()
+    expect(secondClose).not.toHaveBeenCalled()
+
+    vi.advanceTimersByTime(1100)
+    await nextTick()
+    expect(secondClose).toHaveBeenCalledTimes(1)
+
+    wrapper.unmount()
+  })
+
+  it('applies reactive maxCount config when opening messages', async () => {
+    const config = reactive({ maxCount: 3 })
+    const { wrapper, getApi } = mountMessage(config)
+    await nextTick()
+    await nextTick()
+
+    getApi().info({ content: 'Message A', key: 'max-a', duration: 0 })
+    getApi().info({ content: 'Message B', key: 'max-b', duration: 0 })
+    getApi().info({ content: 'Message C', key: 'max-c', duration: 0 })
+    await nextTick()
+    await nextTick()
+    await nextTick()
+
+    expect(document.querySelectorAll('.ant-message-notice')).toHaveLength(3)
+
+    config.maxCount = 1
+    await nextTick()
+
+    getApi().info({ content: 'Message D', key: 'max-d', duration: 0 })
+    await nextTick()
+    await nextTick()
+    await nextTick()
+
+    const notices = document.querySelectorAll('.ant-message-notice')
+    expect(notices).toHaveLength(1)
+    expect(notices[0]?.textContent).toContain('Message D')
+
+    wrapper.unmount()
+  })
+
+  it('applies reactive pauseOnHover config to new messages', async () => {
+    vi.useFakeTimers()
+    const config = reactive({ duration: 0.1, pauseOnHover: false })
+    const { wrapper, getApi } = mountMessage(config)
+    await nextTick()
+    await nextTick()
+
+    const notPausedClose = vi.fn()
+    getApi().info({ content: 'Not paused', onClose: notPausedClose })
+    await nextTick()
+    await nextTick()
+
+    let notice = Array.from(document.querySelectorAll<HTMLElement>('.ant-message-notice'))
+      .find(item => item.textContent?.includes('Not paused'))
+    expect(notice).toBeTruthy()
+    await new DOMWrapper(notice!).trigger('mouseenter')
+    vi.advanceTimersByTime(200)
+    await nextTick()
+
+    expect(notPausedClose).toHaveBeenCalledTimes(1)
+
+    config.pauseOnHover = true
+    await nextTick()
+
+    const pausedClose = vi.fn()
+    getApi().info({ content: 'Paused', onClose: pausedClose })
+    await nextTick()
+    await nextTick()
+
+    notice = Array.from(document.querySelectorAll<HTMLElement>('.ant-message-notice'))
+      .find(item => item.textContent?.includes('Paused'))
+    expect(notice).toBeTruthy()
+    await new DOMWrapper(notice!).trigger('mouseenter')
+    vi.advanceTimersByTime(200)
+    await nextTick()
+
+    expect(pausedClose).not.toHaveBeenCalled()
+
+    await new DOMWrapper(notice!).trigger('mouseleave')
+    vi.advanceTimersByTime(200)
+    await nextTick()
+
+    expect(pausedClose).toHaveBeenCalledTimes(1)
 
     wrapper.unmount()
   })

@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { defineComponent, nextTick, onMounted } from 'vue'
+import { defineComponent, h, nextTick, onMounted } from 'vue'
 import { useMessage } from '..'
 import ConfigProvider from '../../config-provider'
 import PurePanel from '../PurePanel'
@@ -140,6 +140,97 @@ describe('message.Semantic', () => {
     expect((list as HTMLElement).style.margin).toBe('10px')
     expect(listContent).toBeTruthy()
     expect((listContent as HTMLElement).style.padding).toBe('12px')
+
+    wrapper.unmount()
+  })
+
+  it('should apply list and listContent semantics from ConfigProvider', async () => {
+    const Consumer = defineComponent({
+      setup() {
+        const [api, holder] = useMessage()
+
+        onMounted(() => {
+          api.info({ content: 'Provider Semantic List', duration: 0 })
+        })
+
+        return () => holder()
+      },
+    })
+
+    const wrapper = mount(ConfigProvider, {
+      props: {
+        message: {
+          classes: {
+            root: 'provider-root',
+            list: 'provider-list',
+            listContent: 'provider-list-content',
+          },
+          styles: {
+            root: { color: 'rgb(1, 2, 3)' },
+            list: { margin: '14px' },
+            listContent: { padding: '16px' },
+          },
+        },
+      },
+      slots: {
+        default: () => h(Consumer),
+      },
+    })
+
+    await nextTick()
+    await nextTick()
+
+    const notice = document.querySelector('.ant-message-notice')
+    const list = document.querySelector('.provider-list')
+    const listContent = document.querySelector('.provider-list-content')
+
+    expect(notice?.classList.contains('provider-root')).toBe(true)
+    expect((notice as HTMLElement).style.color).toBe('rgb(1, 2, 3)')
+    expect(list).toBeTruthy()
+    expect((list as HTMLElement).style.margin).toBe('14px')
+    expect(listContent).toBeTruthy()
+    expect((listContent as HTMLElement).style.padding).toBe('16px')
+
+    wrapper.unmount()
+  })
+
+  it('should not duplicate holder semantic classes on notices', async () => {
+    const wrapper = mount(defineComponent({
+      setup() {
+        const [api, holder] = useMessage({
+          classes: {
+            root: 'custom-root',
+            wrapper: 'custom-wrapper',
+            icon: 'custom-icon',
+            title: 'custom-title',
+            list: 'custom-list',
+            listContent: 'custom-list-content',
+          },
+        })
+
+        onMounted(() => {
+          api.info({ content: 'No duplicate classes', duration: 0 })
+        })
+
+        return () => holder()
+      },
+    }), { attachTo: document.body })
+
+    await nextTick()
+    await nextTick()
+
+    for (const selector of [
+      '.ant-message-notice',
+      '.ant-message-notice-wrapper',
+      '.ant-message-notice-icon',
+      '.ant-message-notice-title',
+      '.custom-list',
+      '.custom-list-content',
+    ]) {
+      const className = document.querySelector(selector)?.getAttribute('class') ?? ''
+      const tokens = className.split(/\s+/).filter(Boolean)
+      expect(new Set(tokens).size).toBe(tokens.length)
+    }
 
     wrapper.unmount()
   })
