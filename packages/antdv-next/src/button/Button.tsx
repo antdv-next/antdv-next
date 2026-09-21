@@ -59,7 +59,7 @@ export interface BaseButtonProps extends ComponentBaseProps {
   color?: ButtonColorType
   variant?: ButtonVariantType
   icon?: VueNode
-  iconPlacement?: 'start' | 'end' // deprecated
+  iconPlacement?: 'start' | 'end'
   shape?: ButtonShape
   size?: SizeType
   disabled?: boolean

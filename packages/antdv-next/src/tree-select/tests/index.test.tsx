@@ -120,7 +120,7 @@ describe('tree-select', () => {
     await nextTick()
     expect(errSpy).toHaveBeenCalledWith(
       expect.stringContaining(
-        'Warning: [antd: TreeSelect] `popupClassName` is deprecated. Please use `classNames.popup.root` instead.',
+        'Warning: [antd: TreeSelect] `popupClassName` is deprecated. Please use `classes.popup.root` instead.',
       ),
     )
     expect(document.querySelector('.legacy')).toBeTruthy()
@@ -144,7 +144,7 @@ describe('tree-select', () => {
     await nextTick()
     expect(errSpy).toHaveBeenCalledWith(
       expect.stringContaining(
-        'Warning: [antd: TreeSelect] `dropdownClassName` is deprecated. Please use `classNames.popup.root` instead.',
+        'Warning: [antd: TreeSelect] `dropdownClassName` is deprecated. Please use `classes.popup.root` instead.',
       ),
     )
     expect(document.querySelector('.legacy')).toBeTruthy()

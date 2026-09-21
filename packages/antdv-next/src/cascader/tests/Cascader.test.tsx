@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from 'vitest'
 import { h, nextTick } from 'vue'
 import Cascader, { CascaderPanel } from '..'
+import { resetWarned } from '../../_util/warning'
 import ConfigProvider from '../../config-provider'
 import rtlTest from '/@tests/shared/rtlTest'
 import { mount } from '/@tests/utils'
@@ -444,5 +445,36 @@ describe('cascader', () => {
       />
     ))
     expect(wrapper.html()).toMatchSnapshot()
+  })
+
+  // ========================= Deprecated =========================
+  it('should warn deprecated popupClassName and menu column styles', () => {
+    resetWarned()
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
+    const wrapper = mount(() => (
+      <Cascader
+        options={options}
+        popupClassName="legacy-popup"
+        dropdownMenuColumnStyle={{ width: 100 }}
+        popupMenuColumnStyle={{ width: 120 }}
+      />
+    ))
+    expect(errSpy).toHaveBeenCalledWith(
+      expect.stringContaining(
+        'Warning: [antd: Cascader] `popupClassName` is deprecated. Please use `classes.popup.root` instead.',
+      ),
+    )
+    expect(errSpy).toHaveBeenCalledWith(
+      expect.stringContaining(
+        'Warning: [antd: Cascader] `dropdownMenuColumnStyle` is deprecated. Please use `styles.popup.listItem` instead.',
+      ),
+    )
+    expect(errSpy).toHaveBeenCalledWith(
+      expect.stringContaining(
+        'Warning: [antd: Cascader] `popupMenuColumnStyle` is deprecated. Please use `styles.popup.listItem` instead.',
+      ),
+    )
+    errSpy.mockRestore()
+    wrapper.unmount()
   })
 })

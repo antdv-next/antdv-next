@@ -64,7 +64,6 @@ Common props ref：[Common props](/docs/vue/common-props)
 | options | The data options of cascade | [Option](#option)\[] | - | - | × |
 | placeholder | The input placeholder | string | - | - | × |
 | placement | Use preset popup align config from builtinPlacements | `bottomLeft` `bottomRight` `topLeft` `topRight` | `bottomLeft` | - | × |
-| popupMenuColumnStyle | The style of the drop-down menu column | CSSProperties | - | - | × |
 | showCheckedStrategy | The way to show selected items in the box (only effective when `multiple` is `true`). `Cascader.SHOW_CHILD`: just show child treeNode. `Cascader.SHOW_PARENT`: just show parent treeNode (when all child treeNode under the parent treeNode are checked) | `Cascader.SHOW_PARENT` \| `Cascader.SHOW_CHILD` | `Cascader.SHOW_PARENT` | - | × |
 | showSearch | Whether show search input in single mode | boolean \| [Object](#showsearch) | false | - | × |
 | size | The input size | `large` \| `medium` \| `small` | `medium` | - | × |

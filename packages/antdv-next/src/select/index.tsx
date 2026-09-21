@@ -158,9 +158,9 @@ export interface SelectProps
   placement?: SelectCommonPlacement
   mode?: 'multiple' | 'tags'
   status?: InputStatus
-  /** @deprecated Please use `classNames.popup.root` instead */
+  /** @deprecated Please use `classes.popup.root` instead */
   popupClassName?: string
-  /** @deprecated Please use `classNames.popup.root` instead */
+  /** @deprecated Please use `classes.popup.root` instead */
   dropdownClassName?: string
   /** @deprecated Please use `styles.popup` instead */
   dropdownStyle?: CSSProperties
@@ -383,8 +383,8 @@ const Select = defineComponent<
       const deprecatedProps = {
         dropdownMatchSelectWidth: 'popupMatchSelectWidth',
         dropdownStyle: 'styles.popup.root',
-        dropdownClassName: 'classNames.popup.root',
-        popupClassName: 'classNames.popup.root',
+        dropdownClassName: 'classes.popup.root',
+        popupClassName: 'classes.popup.root',
         dropdownRender: 'popupRender',
         onDropdownVisibleChange: 'onOpenChange',
         bordered: 'variant',
