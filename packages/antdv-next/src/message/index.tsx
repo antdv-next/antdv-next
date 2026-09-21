@@ -7,7 +7,7 @@ import type {
   NoticeType,
   TypeOpen,
 } from './interface'
-import { createVNode, defineComponent, getCurrentInstance, onMounted, render, shallowRef, watch } from 'vue'
+import { computed, createVNode, defineComponent, getCurrentInstance, onMounted, render, shallowRef, watch } from 'vue'
 import { useAppConfig } from '../app/context.ts'
 import { useBaseConfig } from '../config-provider/context.ts'
 import ConfigProvider, { globalConfig } from '../config-provider/index.tsx'
@@ -60,7 +60,7 @@ let defaultGlobalConfig: ConfigOptions = {}
 let act: (callback: VoidFunction) => Promise<void> | void = callback => callback()
 
 function getGlobalContext() {
-  const { getContainer, duration, rtl, maxCount, top, pauseOnHover } = defaultGlobalConfig
+  const { getContainer, duration, rtl, maxCount, top, pauseOnHover, stack, classes, styles } = defaultGlobalConfig
   const mergedContainer = getContainer?.() || document.body
 
   let appContext = defaultGlobalConfig.appContext
@@ -78,21 +78,24 @@ function getGlobalContext() {
     maxCount,
     top,
     pauseOnHover,
+    stack,
+    classes,
+    styles,
     appContext,
   }
 }
 
 const GlobalHolder = defineComponent<{ messageConfig: ConfigOptions, sync: () => void }>(
   (props, { expose }) => {
-    const { messageConfig, sync } = props
+    const { sync } = props
     const { getPrefixCls } = useBaseConfig()
-    const prefixCls = defaultGlobalConfig.prefixCls || getPrefixCls('message')
     const appConfig = useAppConfig()
-    const [api, holder] = useInternalMessage({
-      ...messageConfig,
-      prefixCls,
+    const mergedMessageConfig = computed(() => ({
+      ...props.messageConfig,
+      prefixCls: defaultGlobalConfig.prefixCls || getPrefixCls('message'),
       ...(appConfig.message || {}),
-    })
+    }))
+    const [api, holder] = useInternalMessage(mergedMessageConfig)
 
     onMounted(() => {
       sync?.()

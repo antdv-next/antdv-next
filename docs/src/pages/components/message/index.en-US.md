@@ -21,6 +21,7 @@ demo:
   <demo src="./demo/hooks.vue">Hooks usage (recommended)</demo>
   <demo src="./demo/other.vue">Other types of message</demo>
   <demo src="./demo/duration.vue">Customize duration</demo>
+  <demo src="./demo/stack.vue">Stacked messages</demo>
   <demo src="./demo/loading.vue">Message with loading indicator</demo>
   <demo src="./demo/thenable.vue">Promise interface</demo>
   <demo src="./demo/custom-style.vue">Customized style</demo>
@@ -90,6 +91,7 @@ message.config({
   maxCount: 3,
   rtl: true,
   prefixCls: 'my-message',
+  stack: true,
 })
 ```
 
@@ -100,6 +102,7 @@ message.config({
 | maxCount | Max message show, drop oldest if exceed limit | number | - | - | × |
 | prefixCls | The prefix class name of message node | string | `ant-message` | - | × |
 | rtl | Whether to enable RTL mode | boolean | false | - | × |
+| stack | Stack mode. Messages are collapsed when the threshold is exceeded, and collapsed mode only shows the latest message | boolean \| &#123; threshold: number &#125; | false | 1.5.5 | × |
 | top | Distance from top | string \| number | 8 | - | × |
 | transitionName | Animation name | string | - | - | × |
 | pauseOnHover | Keep the timer running or not on hover | boolean | true | - | × |

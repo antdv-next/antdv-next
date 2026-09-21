@@ -1,14 +1,11 @@
 import type { NotificationAPI, NotificationConfig as VcNotificationConfig } from '@v-c/notification'
 import type { Key, MaybeRef } from '@v-c/util/dist/type'
-import type { CSSProperties } from 'vue'
 import type {
   ArgsClassNamesType,
   ArgsProps,
   ArgsStylesType,
   ConfigOptions,
   MessageInstance,
-  MessageSemanticClassNames,
-  MessageSemanticStyles,
   MessageType,
   NoticeType,
   TypeOpen,
@@ -16,7 +13,7 @@ import type {
 import { useNotificationProvider, useNotification as useVcNotification } from '@v-c/notification'
 import { clsx } from '@v-c/util'
 import { computed, defineComponent, shallowRef, unref } from 'vue'
-import { mergeClassNames, mergeStyles, resolveStyleOrClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
+import { resolveStyleOrClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { toPropsRefs } from '../_util/tools'
 import { devUseWarning } from '../_util/warning'
 import { useBaseConfig, useComponentBaseConfig } from '../config-provider/context'
@@ -28,6 +25,7 @@ import { getMotion, wrapPromiseFn } from './util'
 
 const DEFAULT_OFFSET = 8
 const DEFAULT_DURATION = 3
+const DEFAULT_STACK_CONFIG = false
 
 // ==============================================================================
 // ==                                  Holder                                  ==
@@ -39,11 +37,6 @@ type HolderProps = ConfigOptions & {
 interface HolderRef extends NotificationAPI {
   prefixCls: string
   contextClassName?: string
-  contextStyle?: CSSProperties
-  contextClasses?: ArgsClassNamesType
-  contextStyles?: ArgsStylesType
-  classNames?: MessageSemanticClassNames
-  styles?: MessageSemanticStyles
 }
 
 const Wrapper = defineComponent<{ prefixCls: string }>(
@@ -94,6 +87,7 @@ const Holder = defineComponent<HolderProps>(
     })
     const mergedDuration = computed(() => props.duration ?? DEFAULT_DURATION)
     const mergedPauseOnHover = computed(() => (props.pauseOnHover === undefined ? true : props.pauseOnHover))
+    const mergedStack = computed(() => props.stack ?? DEFAULT_STACK_CONFIG)
 
     // Surface position via the --notification-top CSS variable so the new
     // placement.ts `inset` calc (--notification-top - --notification-margin-edge)
@@ -107,20 +101,6 @@ const Holder = defineComponent<HolderProps>(
 
     const getNotificationMotion = () => getMotion(prefixCls.value, props.transitionName)
 
-    const [api, holder] = useVcNotification({
-      prefixCls: prefixCls.value,
-      style: getStyle,
-      className: getClassName,
-      motion: getNotificationMotion,
-      closable: false,
-      duration: mergedDuration.value,
-      getContainer: () => props.getContainer?.() || getPopupContainer?.() || document.body,
-      maxCount: props.maxCount,
-      onAllRemoved: props.onAllRemoved,
-      renderNotifications,
-      pauseOnHover: mergedPauseOnHover.value,
-    })
-
     const mergedProps = computed(() => props)
     const contextStyleRoot = useSemanticRootStyle(contextStyle)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
@@ -133,15 +113,28 @@ const Holder = defineComponent<HolderProps>(
       useToProps(mergedProps),
     )
 
+    const vcConfig = computed(() => ({
+      prefixCls: prefixCls.value,
+      style: getStyle,
+      className: getClassName,
+      motion: getNotificationMotion,
+      closable: false,
+      duration: mergedDuration.value,
+      getContainer: () => props.getContainer?.() || getPopupContainer?.() || document.body,
+      maxCount: props.maxCount,
+      onAllRemoved: props.onAllRemoved,
+      renderNotifications,
+      pauseOnHover: mergedPauseOnHover.value,
+      stack: mergedStack.value,
+      classNames: mergedClassNames.value,
+      styles: mergedStyles.value,
+    }))
+    const [api, holder] = useVcNotification(vcConfig as any)
+
     expose({
       ...api,
       prefixCls,
       contextClassName,
-      contextStyle,
-      contextClasses,
-      contextStyles,
-      classNames: mergedClassNames,
-      styles: mergedStyles,
     })
 
     return () => holder?.() as any
@@ -182,10 +175,6 @@ export function useInternalMessage(messageConfig?: MaybeRef<HolderProps>) {
         open: originOpen,
         prefixCls,
         contextClassName,
-        contextClasses,
-        contextStyles,
-        classNames: originClassNames,
-        styles: originStyles,
       } = holderRef.value
 
       const noticePrefixCls = `${prefixCls}-notice`
@@ -209,25 +198,10 @@ export function useInternalMessage(messageConfig?: MaybeRef<HolderProps>) {
         mergedKey = `antd-message-${keyIndex}`
       }
 
-      const contextConfig = { ...messageConfig, ...config }
+      const contextConfig = { ...unref(messageConfig), ...config }
 
-      const resolvedContextClassNames = resolveStyleOrClass(contextClasses!, { props: contextConfig })
       const semanticClassNames = resolveStyleOrClass(configClassNames, { props: contextConfig })
-      const resolvedContextStyles = resolveStyleOrClass(contextStyles!, { props: contextConfig })
       const semanticStyles = resolveStyleOrClass(styles, { props: contextConfig })
-
-      const mergedClassNames = mergeClassNames(
-        undefined,
-        resolvedContextClassNames,
-        semanticClassNames,
-        originClassNames,
-      )
-
-      const mergedStyles = mergeStyles(
-        resolvedContextStyles,
-        semanticStyles,
-        originStyles,
-      )
 
       const iconNode = resolveMessageIcon(prefixCls, icon, type)
       const typeIconCls = type ? `${noticePrefixCls}-icon-${type}` : undefined
@@ -241,25 +215,17 @@ export function useInternalMessage(messageConfig?: MaybeRef<HolderProps>) {
           // wrapper (not on a content div). Mirrors ant-design 6.4 useMessage.
           title: content,
           classNames: {
-            wrapper: clsx(type && `${prefixCls}-${type}`, mergedClassNames.wrapper),
-            icon: clsx(typeIconCls, mergedClassNames.icon),
-            title: mergedClassNames.title,
+            ...semanticClassNames,
+            wrapper: clsx(type && `${prefixCls}-${type}`, semanticClassNames?.wrapper),
+            icon: clsx(typeIconCls, semanticClassNames?.icon),
           },
-          styles: {
-            wrapper: mergedStyles.wrapper,
-            icon: mergedStyles.icon,
-            title: mergedStyles.title,
-          },
+          styles: semanticStyles,
           class: clsx(
             { [`${noticePrefixCls}-${type}`]: !!type },
             className,
             contextClassName,
-            mergedClassNames.root,
           ),
-          style: {
-            ...mergedStyles.root,
-            ...style,
-          },
+          style,
           onClose: () => {
             onClose?.()
             resolve()
@@ -327,6 +293,6 @@ export function useInternalMessage(messageConfig?: MaybeRef<HolderProps>) {
   return [wrapAPI(), holderContext] as const
 }
 
-export default function useMessage(messageConfig?: ConfigOptions) {
+export default function useMessage(messageConfig?: MaybeRef<ConfigOptions>) {
   return useInternalMessage(messageConfig)
 }

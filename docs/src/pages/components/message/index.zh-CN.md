@@ -22,6 +22,7 @@ demo:
   <demo src="./demo/hooks.vue">Hooks 用法（推荐）</demo>
   <demo src="./demo/other.vue">其他类型</demo>
   <demo src="./demo/duration.vue">自定义时长</demo>
+  <demo src="./demo/stack.vue">堆叠消息</demo>
   <demo src="./demo/loading.vue">加载中</demo>
   <demo src="./demo/thenable.vue">Promise 接口</demo>
   <demo src="./demo/custom-style.vue">自定义样式</demo>
@@ -91,6 +92,7 @@ message.config({
   maxCount: 3,
   rtl: true,
   prefixCls: 'my-message',
+  stack: true,
 })
 ```
 
@@ -101,6 +103,7 @@ message.config({
 | maxCount | 最大显示数，超过限制时，最早的消息会被自动关闭 | number | - | - | × |
 | prefixCls | 消息节点的 class 前缀 | string | `ant-message` | - | × |
 | rtl | 是否开启 RTL 模式 | boolean | false | - | × |
+| stack | 堆叠模式，超过阈值时会将所有消息收起。折叠状态下仅展示最新的消息 | boolean \| &#123; threshold: number &#125; | false | 1.5.5 | × |
 | top | 消息距离顶部的位置 | string \| number | 8 | - | × |
 | transitionName | 动画名称 | string | - | - | × |
 | pauseOnHover | 悬停时是否暂停计时器 | boolean | true | - | × |
