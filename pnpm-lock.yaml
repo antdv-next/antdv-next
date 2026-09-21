@@ -384,8 +384,8 @@ catalogs:
       specifier: ^1.1.0
       version: 1.1.0
     '@v-c/mentions':
-      specifier: ^1.2.1
-      version: 1.2.1
+      specifier: ^1.2.2
+      version: 1.2.2
     '@v-c/menu':
       specifier: ^1.4.0
       version: 1.4.0
@@ -408,17 +408,17 @@ catalogs:
       specifier: ^1.0.1
       version: 1.0.1
     '@v-c/segmented':
-      specifier: ^1.0.5
-      version: 1.0.5
+      specifier: ^1.0.6
+      version: 1.0.6
     '@v-c/select':
-      specifier: ^1.2.6
-      version: 1.2.6
+      specifier: ^1.2.7
+      version: 1.2.7
     '@v-c/slick':
       specifier: ^1.0.2
       version: 1.0.2
     '@v-c/slider':
-      specifier: ^1.1.2
-      version: 1.1.2
+      specifier: ^1.1.3
+      version: 1.1.3
     '@v-c/steps':
       specifier: ^1.0.2
       version: 1.0.2
@@ -429,8 +429,8 @@ catalogs:
       specifier: ^1.3.0
       version: 1.3.0
     '@v-c/tabs':
-      specifier: ^1.3.1
-      version: 1.3.1
+      specifier: ^1.4.0
+      version: 1.4.0
     '@v-c/textarea':
       specifier: ^1.1.0
       version: 1.1.0
@@ -450,15 +450,15 @@ catalogs:
       specifier: ^1.1.0
       version: 1.1.0
     '@v-c/virtual-list':
-      specifier: ^1.1.1
-      version: 1.1.1
+      specifier: ^1.1.2
+      version: 1.1.2
 
 overrides:
   '@v-c/notification': ^2.0.4
   '@v-c/portal': ^1.0.8
   '@v-c/resize-observer': ^1.1.3
   '@v-c/trigger': ^1.1.1
-  '@v-c/util': ^1.2.0
+  '@v-c/util': ^1.2.1
   vite: ^8.3.0
 
 importers:
@@ -512,8 +512,8 @@ importers:
         specifier: ^1.1.1
         version: 1.1.1(vue@3.5.42(typescript@5.9.3))
       '@v-c/util':
-        specifier: ^1.2.0
-        version: 1.2.0(vue@3.5.42(typescript@5.9.3))
+        specifier: ^1.2.1
+        version: 1.2.1(vue@3.5.42(typescript@5.9.3))
       '@vitejs/plugin-vue':
         specifier: catalog:dev
         version: 6.0.8(vite@8.3.0(@types/node@25.9.6)(esbuild@0.28.1)(jiti@2.7.0)(less@4.9.1)(terser@5.44.1)(tsx@4.23.13)(yaml@2.9.0))(vue@3.5.42(typescript@5.9.3))
@@ -660,7 +660,7 @@ importers:
         version: 0.5.0(vue@3.5.42(typescript@5.9.3))
       '@v-c/mentions':
         specifier: catalog:vc
-        version: 1.2.1(vue@3.5.42(typescript@5.9.3))
+        version: 1.2.2(vue@3.5.42(typescript@5.9.3))
       '@vue/compiler-sfc':
         specifier: catalog:docs
         version: 3.5.42
@@ -877,7 +877,7 @@ importers:
         version: 1.1.0(vue@3.5.42(typescript@5.9.3))
       '@v-c/mentions':
         specifier: catalog:vc
-        version: 1.2.1(vue@3.5.42(typescript@5.9.3))
+        version: 1.2.2(vue@3.5.42(typescript@5.9.3))
       '@v-c/menu':
         specifier: catalog:vc
         version: 1.4.0(vue@3.5.42(typescript@5.9.3))
@@ -907,16 +907,16 @@ importers:
         version: 1.1.3(vue@3.5.42(typescript@5.9.3))
       '@v-c/segmented':
         specifier: catalog:vc
-        version: 1.0.5(vue@3.5.42(typescript@5.9.3))
+        version: 1.0.6(vue@3.5.42(typescript@5.9.3))
       '@v-c/select':
         specifier: catalog:vc
-        version: 1.2.6(vue@3.5.42(typescript@5.9.3))
+        version: 1.2.7(vue@3.5.42(typescript@5.9.3))
       '@v-c/slick':
         specifier: catalog:vc
         version: 1.0.2(vue@3.5.42(typescript@5.9.3))
       '@v-c/slider':
         specifier: catalog:vc
-        version: 1.1.2(vue@3.5.42(typescript@5.9.3))
+        version: 1.1.3(vue@3.5.42(typescript@5.9.3))
       '@v-c/steps':
         specifier: catalog:vc
         version: 1.0.2(vue@3.5.42(typescript@5.9.3))
@@ -928,7 +928,7 @@ importers:
         version: 1.3.0(vue@3.5.42(typescript@5.9.3))
       '@v-c/tabs':
         specifier: catalog:vc
-        version: 1.3.1(vue@3.5.42(typescript@5.9.3))
+        version: 1.4.0(vue@3.5.42(typescript@5.9.3))
       '@v-c/textarea':
         specifier: catalog:vc
         version: 1.1.0(vue@3.5.42(typescript@5.9.3))
@@ -951,11 +951,11 @@ importers:
         specifier: catalog:vc
         version: 1.1.0(vue@3.5.42(typescript@5.9.3))
       '@v-c/util':
-        specifier: ^1.2.0
-        version: 1.2.0(vue@3.5.42(typescript@5.9.3))
+        specifier: ^1.2.1
+        version: 1.2.1(vue@3.5.42(typescript@5.9.3))
       '@v-c/virtual-list':
         specifier: catalog:vc
-        version: 1.1.1(vue@3.5.42(typescript@5.9.3))
+        version: 1.1.2(vue@3.5.42(typescript@5.9.3))
       '@vueuse/core':
         specifier: catalog:prod
         version: 14.4.0(vue@3.5.42(typescript@5.9.3))
@@ -991,8 +991,8 @@ importers:
         specifier: catalog:prod
         version: 0.7.5
       '@v-c/util':
-        specifier: ^1.2.0
-        version: 1.2.0(vue@3.5.42(typescript@5.9.3))
+        specifier: ^1.2.1
+        version: 1.2.1(vue@3.5.42(typescript@5.9.3))
       csstype:
         specifier: catalog:prod
         version: 3.2.3
@@ -3348,6 +3348,11 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
+  '@v-c/mentions@1.2.2':
+    resolution: {integrity: sha512-sLVvvhWOOCXxhImQNt/LQeuqbdEct+3xSE4VcK3izZnylhHGvlc8xugz3H5/BqDH87EA918864GMQIdy3yzo1Q==}
+    peerDependencies:
+      vue: ^3.0.0
+
   '@v-c/menu@1.4.0':
     resolution: {integrity: sha512-cwCjM9cwbf/PmAhf6kabVibyS3YBzsEYffbc4vXnxgQMQo8JvmLk10DNNmltanPhF/GF7Tr5WnAzJTX4Q34LYQ==}
     peerDependencies:
@@ -3427,8 +3432,18 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
+  '@v-c/segmented@1.0.6':
+    resolution: {integrity: sha512-KSDJpdwQ79d9I47iiF+lbYmg9jWr+wxi5wxHTpOiurrxFbjhGYX5x9tnE8AQXu8cYu9RNx2XPYSVJdSlX4Ck2w==}
+    peerDependencies:
+      vue: ^3.0.0
+
   '@v-c/select@1.2.6':
     resolution: {integrity: sha512-Zfa+468Fr224r98dT8JOZGCJ4gbp0ZSAzCuccILIguX9ZBjVurSRgaHHH66/LHhfy/rhzSNbn/ZCb0Y/o13tVw==}
+    peerDependencies:
+      vue: ^3.0.0
+
+  '@v-c/select@1.2.7':
+    resolution: {integrity: sha512-sqCulnzKCXVT350QifNh9mYi4klxbs1C8AJtdV8EmHY3I/jt1qF5CtwldyP7lL2y8twQFxX0o7ypX0Ch3Rey+A==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -3439,6 +3454,11 @@ packages:
 
   '@v-c/slider@1.1.2':
     resolution: {integrity: sha512-eOhKd/sXSoKpoYTKB37S2aT5cBGATygzIy+pUjzbHi7VNopxgLnZe5G/lADNZ1R0mwbK8tqoq2r+nKZ8Klun2g==}
+    peerDependencies:
+      vue: ^3.0.0
+
+  '@v-c/slider@1.1.3':
+    resolution: {integrity: sha512-yUZo6BaQOFmCOjCOWu1YSgPjWStcuSai8vpV5lXgkjdi2bXiI8xJASgcPADG8SkBzx+/8G5Xp6KwgWy271Bdsw==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -3459,6 +3479,11 @@ packages:
 
   '@v-c/tabs@1.3.1':
     resolution: {integrity: sha512-pYiX2Q8l9KYasHVkRzdQq79RnDl8T/CxCA00EJ9mOIkjlu1Xz/1qwM9sE+7Ogw8enf2OVx544UpXZzO1nGMo6g==}
+    peerDependencies:
+      vue: ^3.0.0
+
+  '@v-c/tabs@1.4.0':
+    resolution: {integrity: sha512-g3S8koWdZKb+HNYbAmDNs8rSuYTX/Il4E3xl8W/DwdDz2wsh5l3p46ioaHLFNFGhz3WPUue6SOmJ4+2c1cL9gg==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -3497,13 +3522,18 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
-  '@v-c/util@1.2.0':
-    resolution: {integrity: sha512-VkzehzNooWiaI+53QSBmo/qo9tU+ZqZwgi7qizco6kpyVoVoSNqJvAFz8ePTo+V7qZJHn5/A8t6JdnzIEVBU+w==}
+  '@v-c/util@1.2.1':
+    resolution: {integrity: sha512-66vfo9BkixYyZydHeJGtUOcrVKIxAoJsiwhr3V1M/qb3k/9uDUj1BEPymd3/ctDzju2TyHumIN//ijn0TlLBew==}
     peerDependencies:
       vue: ^3.0.0
 
   '@v-c/virtual-list@1.1.1':
     resolution: {integrity: sha512-9884Bwt9oFW5dJGoBKUBA+xfd6GR+/lIzi4ScMEDciscL5PSEoRqMHZwiDnGhqwntmQGTbkEI43eCeFcvxxNuA==}
+    peerDependencies:
+      vue: ^3.0.0
+
+  '@v-c/virtual-list@1.1.2':
+    resolution: {integrity: sha512-NtLjItV85X0/1WXHYKeRQcqiCYdsBBsm+GZ08OPN7qN7Jcuic0bdLtlDETjU92lxcQ+Dl2d+fbkkman46N67Sg==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -7221,7 +7251,7 @@ snapshots:
     dependencies:
       '@emotion/hash': 0.8.0
       '@emotion/unitless': 0.7.5
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       csstype: 3.2.3
       stylis: 4.4.0
       vue: 3.5.42(typescript@5.9.3)
@@ -7279,7 +7309,7 @@ snapshots:
     dependencies:
       '@ant-design/colors': 7.2.1
       '@ant-design/icons-svg': 4.5.0
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@antdv-next/img-crop@0.0.2(antdv-next@1.3.7(vue@3.5.42(typescript@5.9.3)))(vue@3.5.42(typescript@5.9.3))':
@@ -9433,69 +9463,69 @@ snapshots:
 
   '@v-c/cascader@1.1.4(vue@3.5.42(typescript@5.9.3))':
     dependencies:
-      '@v-c/select': 1.2.6(vue@3.5.42(typescript@5.9.3))
+      '@v-c/select': 1.2.7(vue@3.5.42(typescript@5.9.3))
       '@v-c/tree': 1.2.2(vue@3.5.42(typescript@5.9.3))
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/checkbox@1.0.1(vue@3.5.42(typescript@5.9.3))':
     dependencies:
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/collapse@1.0.2(vue@3.5.42(typescript@5.9.3))':
     dependencies:
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/color-picker@1.0.6(vue@3.5.42(typescript@5.9.3))':
     dependencies:
       '@ant-design/fast-color': 3.0.1
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/dialog@1.2.1(vue@3.5.42(typescript@5.9.3))':
     dependencies:
       '@v-c/portal': 1.0.8(vue@3.5.42(typescript@5.9.3))
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/drawer@1.0.7(vue@3.5.42(typescript@5.9.3))':
     dependencies:
       '@v-c/portal': 1.0.8(vue@3.5.42(typescript@5.9.3))
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/dropdown@1.1.0(vue@3.5.42(typescript@5.9.3))':
     dependencies:
       '@v-c/trigger': 1.1.1(vue@3.5.42(typescript@5.9.3))
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/image@1.1.1(vue@3.5.42(typescript@5.9.3))':
     dependencies:
       '@v-c/portal': 1.0.8(vue@3.5.42(typescript@5.9.3))
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/input-number@1.1.0(vue@3.5.42(typescript@5.9.3))':
     dependencies:
       '@v-c/input': 1.1.2(vue@3.5.42(typescript@5.9.3))
       '@v-c/mini-decimal': 1.0.1
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/input@1.1.2(vue@3.5.42(typescript@5.9.3))':
     dependencies:
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/listy@1.1.0(vue@3.5.42(typescript@5.9.3))':
     dependencies:
       '@v-c/portal': 1.0.8(vue@3.5.42(typescript@5.9.3))
       '@v-c/resize-observer': 1.1.3(vue@3.5.42(typescript@5.9.3))
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
-      '@v-c/virtual-list': 1.1.1(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
+      '@v-c/virtual-list': 1.1.2(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/mentions@1.2.1(vue@3.5.42(typescript@5.9.3))':
@@ -9504,14 +9534,23 @@ snapshots:
       '@v-c/menu': 1.4.0(vue@3.5.42(typescript@5.9.3))
       '@v-c/textarea': 1.1.0(vue@3.5.42(typescript@5.9.3))
       '@v-c/trigger': 1.1.1(vue@3.5.42(typescript@5.9.3))
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
+      vue: 3.5.42(typescript@5.9.3)
+
+  '@v-c/mentions@1.2.2(vue@3.5.42(typescript@5.9.3))':
+    dependencies:
+      '@v-c/input': 1.1.2(vue@3.5.42(typescript@5.9.3))
+      '@v-c/menu': 1.4.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/textarea': 1.1.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/trigger': 1.1.1(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/menu@1.4.0(vue@3.5.42(typescript@5.9.3))':
     dependencies:
       '@v-c/overflow': 1.1.2(vue@3.5.42(typescript@5.9.3))
       '@v-c/trigger': 1.1.1(vue@3.5.42(typescript@5.9.3))
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/mini-decimal@1.0.1': {}
@@ -9519,23 +9558,23 @@ snapshots:
   '@v-c/mutate-observer@1.0.2(vue@3.5.42(typescript@5.9.3))':
     dependencies:
       '@v-c/resize-observer': 1.1.3(vue@3.5.42(typescript@5.9.3))
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/notification@2.0.4(vue@3.5.42(typescript@5.9.3))':
     dependencies:
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/overflow@1.1.2(vue@3.5.42(typescript@5.9.3))':
     dependencies:
       '@v-c/resize-observer': 1.1.3(vue@3.5.42(typescript@5.9.3))
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/pagination@1.1.2(vue@3.5.42(typescript@5.9.3))':
     dependencies:
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/picker@1.4.0(dayjs@1.11.23)(vue@3.5.42(typescript@5.9.3))':
@@ -9543,34 +9582,34 @@ snapshots:
       '@v-c/overflow': 1.1.2(vue@3.5.42(typescript@5.9.3))
       '@v-c/resize-observer': 1.1.3(vue@3.5.42(typescript@5.9.3))
       '@v-c/trigger': 1.1.1(vue@3.5.42(typescript@5.9.3))
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
     optionalDependencies:
       dayjs: 1.11.23
 
   '@v-c/portal@1.0.8(vue@3.5.42(typescript@5.9.3))':
     dependencies:
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/progress@1.0.3(vue@3.5.42(typescript@5.9.3))':
     dependencies:
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/qrcode@1.0.1(vue@3.5.42(typescript@5.9.3))':
     dependencies:
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/rate@1.0.1(vue@3.5.42(typescript@5.9.3))':
     dependencies:
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/resize-observer@1.1.3(vue@3.5.42(typescript@5.9.3))':
     dependencies:
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       resize-observer-polyfill: 1.5.1
       vue: 3.5.42(typescript@5.9.3)
 
@@ -9592,43 +9631,61 @@ snapshots:
 
   '@v-c/segmented@1.0.5(vue@3.5.42(typescript@5.9.3))':
     dependencies:
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
+      vue: 3.5.42(typescript@5.9.3)
+
+  '@v-c/segmented@1.0.6(vue@3.5.42(typescript@5.9.3))':
+    dependencies:
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/select@1.2.6(vue@3.5.42(typescript@5.9.3))':
     dependencies:
       '@v-c/overflow': 1.1.2(vue@3.5.42(typescript@5.9.3))
       '@v-c/trigger': 1.1.1(vue@3.5.42(typescript@5.9.3))
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       '@v-c/virtual-list': 1.1.1(vue@3.5.42(typescript@5.9.3))
+      vue: 3.5.42(typescript@5.9.3)
+
+  '@v-c/select@1.2.7(vue@3.5.42(typescript@5.9.3))':
+    dependencies:
+      '@v-c/overflow': 1.1.2(vue@3.5.42(typescript@5.9.3))
+      '@v-c/trigger': 1.1.1(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
+      '@v-c/virtual-list': 1.1.2(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/slick@1.0.2(vue@3.5.42(typescript@5.9.3))':
     dependencies:
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       es-toolkit: 1.52.0
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/slider@1.1.2(vue@3.5.42(typescript@5.9.3))':
     dependencies:
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
+      vue: 3.5.42(typescript@5.9.3)
+
+  '@v-c/slider@1.1.3(vue@3.5.42(typescript@5.9.3))':
+    dependencies:
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/steps@1.0.2(vue@3.5.42(typescript@5.9.3))':
     dependencies:
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/switch@1.0.1(vue@3.5.42(typescript@5.9.3))':
     dependencies:
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/table@1.3.0(vue@3.5.42(typescript@5.9.3))':
     dependencies:
       '@v-c/resize-observer': 1.1.3(vue@3.5.42(typescript@5.9.3))
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
-      '@v-c/virtual-list': 1.1.1(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
+      '@v-c/virtual-list': 1.1.2(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/tabs@1.3.1(vue@3.5.42(typescript@5.9.3))':
@@ -9637,62 +9694,77 @@ snapshots:
       '@v-c/menu': 1.4.0(vue@3.5.42(typescript@5.9.3))
       '@v-c/overflow': 1.1.2(vue@3.5.42(typescript@5.9.3))
       '@v-c/resize-observer': 1.1.3(vue@3.5.42(typescript@5.9.3))
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
+      vue: 3.5.42(typescript@5.9.3)
+
+  '@v-c/tabs@1.4.0(vue@3.5.42(typescript@5.9.3))':
+    dependencies:
+      '@v-c/dropdown': 1.1.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/menu': 1.4.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/overflow': 1.1.2(vue@3.5.42(typescript@5.9.3))
+      '@v-c/resize-observer': 1.1.3(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/textarea@1.1.0(vue@3.5.42(typescript@5.9.3))':
     dependencies:
       '@v-c/input': 1.1.2(vue@3.5.42(typescript@5.9.3))
       '@v-c/resize-observer': 1.1.3(vue@3.5.42(typescript@5.9.3))
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/tooltip@1.1.2(vue@3.5.42(typescript@5.9.3))':
     dependencies:
       '@v-c/trigger': 1.1.1(vue@3.5.42(typescript@5.9.3))
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/tour@1.1.1(vue@3.5.42(typescript@5.9.3))':
     dependencies:
       '@v-c/portal': 1.0.8(vue@3.5.42(typescript@5.9.3))
       '@v-c/trigger': 1.1.1(vue@3.5.42(typescript@5.9.3))
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/tree-select@1.1.2(vue@3.5.42(typescript@5.9.3))':
     dependencies:
-      '@v-c/select': 1.2.6(vue@3.5.42(typescript@5.9.3))
+      '@v-c/select': 1.2.7(vue@3.5.42(typescript@5.9.3))
       '@v-c/tree': 1.2.2(vue@3.5.42(typescript@5.9.3))
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/tree@1.2.2(vue@3.5.42(typescript@5.9.3))':
     dependencies:
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
-      '@v-c/virtual-list': 1.1.1(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
+      '@v-c/virtual-list': 1.1.2(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/trigger@1.1.1(vue@3.5.42(typescript@5.9.3))':
     dependencies:
       '@v-c/portal': 1.0.8(vue@3.5.42(typescript@5.9.3))
       '@v-c/resize-observer': 1.1.3(vue@3.5.42(typescript@5.9.3))
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/upload@1.1.0(vue@3.5.42(typescript@5.9.3))':
     dependencies:
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
-  '@v-c/util@1.2.0(vue@3.5.42(typescript@5.9.3))':
+  '@v-c/util@1.2.1(vue@3.5.42(typescript@5.9.3))':
     dependencies:
       vue: 3.5.42(typescript@5.9.3)
 
   '@v-c/virtual-list@1.1.1(vue@3.5.42(typescript@5.9.3))':
     dependencies:
       '@v-c/resize-observer': 1.1.3(vue@3.5.42(typescript@5.9.3))
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
+      vue: 3.5.42(typescript@5.9.3)
+
+  '@v-c/virtual-list@1.1.2(vue@3.5.42(typescript@5.9.3))':
+    dependencies:
+      '@v-c/resize-observer': 1.1.3(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
   '@vitejs/devtools-kit@0.7.3(cac@7.0.0)(crossws@0.4.12(srvx@1.0.4))(srvx@1.0.4)(vite@8.3.0(@types/node@25.9.6)(esbuild@0.28.1)(jiti@2.7.0)(less@4.9.1)(terser@5.44.1)(tsx@4.23.13)(yaml@2.9.0))':
@@ -10167,7 +10239,7 @@ snapshots:
       '@v-c/tree-select': 1.1.2(vue@3.5.42(typescript@5.9.3))
       '@v-c/trigger': 1.1.1(vue@3.5.42(typescript@5.9.3))
       '@v-c/upload': 1.1.0(vue@3.5.42(typescript@5.9.3))
-      '@v-c/util': 1.2.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.2.1(vue@3.5.42(typescript@5.9.3))
       '@v-c/virtual-list': 1.1.1(vue@3.5.42(typescript@5.9.3))
       '@vueuse/core': 14.4.0(vue@3.5.42(typescript@5.9.3))
       dayjs: 1.11.23
