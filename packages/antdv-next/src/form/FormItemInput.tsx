@@ -6,6 +6,7 @@ import { clsx, get, set } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, nextTick, shallowRef, watch } from 'vue'
+import { isRenderable } from '../_util/is'
 import { responsiveArrayReversed } from '../_util/responsiveObserver'
 import { getSlotPropsFnRun } from '../_util/tools'
 import { Col } from '../grid'
@@ -49,7 +50,7 @@ const FormItemInput = defineComponent<
       () => props.extra,
       async () => {
         await nextTick()
-        if (props.extra && extraRef.value) {
+        if (isRenderable(props.extra) && extraRef.value) {
           extraHeight.value = extraRef.value.clientHeight
         }
         else {
@@ -78,6 +79,7 @@ const FormItemInput = defineComponent<
       } = props
       const label = getSlotPropsFnRun({}, props, 'label')
       const extra = getSlotPropsFnRun({}, props, 'extra')
+      const hasExtra = isRenderable(extra)
       const help = getSlotPropsFnRun({}, props, 'help')
       const children = filterEmpty(slots?.default?.() ?? [])
       const mergedWrapperColFn = () => {
@@ -144,10 +146,7 @@ const FormItemInput = defineComponent<
         extraProps.id = `${fieldId}_extra`
       }
 
-      // If extra = 0, && will goes wrong
-      // 0&&error -> 0
-
-      const extraDom = extra
+      const extraDom = hasExtra
         ? (
             <div
               {...extraProps}
