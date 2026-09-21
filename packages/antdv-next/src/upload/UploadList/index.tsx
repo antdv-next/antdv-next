@@ -244,6 +244,7 @@ const UploadList = defineComponent<
               actionIconRender={actionIconRender}
               itemRender={itemRender}
               onPreview={onInternalPreview}
+              hasPreview={hasPreviewListener.value}
               onDownload={onInternalDownload}
               onClose={onInternalClose}
             />

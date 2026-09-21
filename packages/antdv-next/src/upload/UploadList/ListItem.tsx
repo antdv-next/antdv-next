@@ -45,6 +45,7 @@ export interface ListItemProps {
   ) => any
   itemRender?: ItemRender
   onPreview: (file: UploadFile, e?: MouseEvent | KeyboardEvent) => void
+  hasPreview?: boolean
   onClose: (file: UploadFile) => void
   onDownload: (file: UploadFile) => void
   progress?: UploadListProgressProps
@@ -96,6 +97,7 @@ const ListItem = defineComponent<
         actionIconRender,
         itemRender,
         onPreview,
+        hasPreview,
         onDownload,
         onClose,
         progress: progressProps,
@@ -207,6 +209,16 @@ const ListItem = defineComponent<
           onPreview(file, e)
         }
       }
+      // Without a preview handler the name is not interactive, so it must not
+      // be exposed as a focusable button.
+      const spanProps = hasPreview
+        ? {
+            role: 'button',
+            tabindex: 0,
+            onClick: (e: MouseEvent) => onPreview(file, e),
+            onKeydown: onPreviewKeyDown,
+          }
+        : {}
       const fileName = file.url
         ? (
             <a
@@ -226,11 +238,8 @@ const ListItem = defineComponent<
         : (
             <span
               key="view"
-              role="button"
-              tabindex={0}
               class={listItemNameClass}
-              onClick={e => onPreview(file, e)}
-              onKeydown={onPreviewKeyDown}
+              {...spanProps}
               title={file.name}
             >
               {file.name}
