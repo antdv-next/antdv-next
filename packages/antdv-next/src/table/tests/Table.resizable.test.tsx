@@ -2,6 +2,7 @@ import type { VueWrapper } from '@vue/test-utils'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { h, nextTick } from 'vue'
 import Table from '..'
+import ConfigProvider from '../../config-provider'
 import { mount } from '/@tests/utils'
 
 const dataSource = [{ key: '1', name: 'Bamboo', age: 32 }]
@@ -32,18 +33,28 @@ function prepareRects(wrapper: VueWrapper, width = 200) {
 }
 
 function renderTable(extraColumn: Record<string, any> = {}, tableProps: Record<string, any> = {}) {
-  return mount(Table, {
-    props: {
-      bordered: true,
-      pagination: false,
-      dataSource,
-      columns: [
-        { title: 'Name', dataIndex: 'name', key: 'name', width: 200, ...extraColumn },
-        { title: 'Age', dataIndex: 'age', key: 'age' },
-      ],
-      ...tableProps,
-    },
-  })
+  const { direction, ...restTableProps } = tableProps
+  const props = {
+    bordered: true,
+    pagination: false,
+    dataSource,
+    columns: [
+      { title: 'Name', dataIndex: 'name', key: 'name', width: 200, ...extraColumn },
+      { title: 'Age', dataIndex: 'age', key: 'age' },
+    ],
+    ...restTableProps,
+  }
+
+  if (direction) {
+    return mount(ConfigProvider, {
+      props: { direction },
+      slots: {
+        default: () => h(Table, props),
+      },
+    })
+  }
+
+  return mount(Table, { props })
 }
 
 describe('Table resizable columns', () => {
@@ -153,7 +164,7 @@ describe('Table resizable columns', () => {
     }
     finally {
       wrapper.unmount()
-      wrapper.element.remove()
+      wrapper.element?.remove()
     }
   })
 
@@ -650,7 +661,7 @@ describe('Table resizable columns', () => {
     }
     finally {
       wrapper.unmount()
-      wrapper.element.remove()
+      wrapper.element?.remove()
     }
   })
 
@@ -679,7 +690,7 @@ describe('Table resizable columns', () => {
     }
     finally {
       wrapper.unmount()
-      wrapper.element.remove()
+      wrapper.element?.remove()
     }
   })
 
