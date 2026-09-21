@@ -64,7 +64,7 @@ export const InternalBreadcrumbItem = defineComponent<
           mergeDropDownProps.menu = {
             ...menuProps,
             items: items?.map(({ key, title, label, path, ...itemProps }, index) => {
-              let mergedLabel: any = getSlotPropsFnRun({ label: title }, { label }, 'label')
+              let mergedLabel: any = getSlotPropsFnRun({}, { label: isNonNullable(label) ? label : title }, 'label')
 
               if (path) {
                 mergedLabel = <a href={`${href}${path}`}>{mergedLabel}</a>

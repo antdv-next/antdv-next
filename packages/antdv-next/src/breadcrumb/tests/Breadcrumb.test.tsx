@@ -238,6 +238,31 @@ describe('breadcrumb', () => {
     expect(wrapper.findAll('.ant-breadcrumb-link').length).toBe(3)
   })
 
+  it('menu item label should take priority over title', async () => {
+    const wrapper = mount(Breadcrumb, {
+      props: {
+        items: [
+          { title: 'Home' },
+          {
+            title: 'Application',
+            menu: {
+              items: [{ key: '1', title: 'ByTitle', label: 'ByLabel' }],
+            },
+            dropdownProps: { open: true },
+          },
+        ],
+      },
+      attachTo: document.body,
+    })
+    await nextTick()
+
+    const text = document.body.textContent ?? ''
+    expect(text).toContain('ByLabel')
+    expect(text).not.toContain('ByTitle')
+
+    wrapper.unmount()
+  })
+
   it('should not mutate menu config when using menu render slots', () => {
     const menu = {
       items: [{ key: '1', label: 'App1' }],
