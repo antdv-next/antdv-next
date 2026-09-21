@@ -145,9 +145,9 @@ export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = 
   disabled?: boolean
   placement?: SelectCommonPlacement
 
-  /** @deprecated Please use `classNames.popup.root` instead */
+  /** @deprecated Please use `classes.popup.root` instead */
   popupClassName?: string
-  /** @deprecated Please use `classNames.popup.root` instead */
+  /** @deprecated Please use `classes.popup.root` instead */
   dropdownClassName?: string
   /** @deprecated Please use `popupRender` instead */
   dropdownRender?: (menu: VNode) => VNodeChild
@@ -313,8 +313,8 @@ const InternalTreeSelect = defineComponent<
       const deprecatedProps = {
         dropdownMatchSelectWidth: 'popupMatchSelectWidth',
         dropdownStyle: 'styles.popup.root',
-        dropdownClassName: 'classNames.popup.root',
-        popupClassName: 'classNames.popup.root',
+        dropdownClassName: 'classes.popup.root',
+        popupClassName: 'classes.popup.root',
         dropdownRender: 'popupRender',
         onDropdownVisibleChange: 'onOpenChange',
         bordered: 'variant',

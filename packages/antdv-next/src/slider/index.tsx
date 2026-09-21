@@ -133,6 +133,7 @@ export interface SliderInternalProps extends SliderBaseProps,
 
 export interface SliderEmits {
   'change': (value: any) => void
+  /** @deprecated Please use `changeComplete` instead */
   'afterChange': (value: any) => void
   'update:value': (value: any) => void
   'changeComplete': (value: any) => void

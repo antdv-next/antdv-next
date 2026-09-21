@@ -100,7 +100,8 @@ yarn add @antdv-next/icons
     - `dropdownClassName` 弃用，变为 `classes.popup.root`。
     - `dropdownStyle` 弃用，变为 `styles.popup.root`。
     - `dropdownRender` 弃用，变为 `popupRender`。
-    - `dropdownMenuColumnStyle` 弃用，变为 `popupMenuColumnStyle`。
+    - `dropdownMenuColumnStyle` 弃用，变为 `styles.popup.listItem`。
+    - `popupMenuColumnStyle` 弃用，变为 `styles.popup.listItem`。
     - `onDropdownVisibleChange` 弃用，变为 `onOpenChange`。
     - `onPopupVisibleChange` 弃用，变为 `onOpenChange`。
     - `bordered` 弃用，变为 `variant`。

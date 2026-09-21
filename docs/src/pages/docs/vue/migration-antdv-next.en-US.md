@@ -100,7 +100,8 @@ yarn add @antdv-next/icons
     - `dropdownClassName` deprecated, changed to `classes.popup.root`.
     - `dropdownStyle` deprecated, changed to `styles.popup.root`.
     - `dropdownRender` deprecated, changed to `popupRender`.
-    - `dropdownMenuColumnStyle` deprecated, changed to `popupMenuColumnStyle`.
+    - `dropdownMenuColumnStyle` deprecated, changed to `styles.popup.listItem`.
+    - `popupMenuColumnStyle` deprecated, changed to `styles.popup.listItem`.
     - `onDropdownVisibleChange` deprecated, changed to `onOpenChange`.
     - `onPopupVisibleChange` deprecated, changed to `onOpenChange`.
     - `bordered` deprecated, changed to `variant`.

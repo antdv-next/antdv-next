@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from 'vitest'
 import { h, nextTick, ref } from 'vue'
 import Select, { SelectOption } from '..'
+import { resetWarned } from '../../_util/warning'
 import ConfigProvider from '../../config-provider'
 import rtlTest from '/@tests/shared/rtlTest'
 import { mount } from '/@tests/utils'
@@ -400,5 +401,24 @@ describe('select', () => {
 
     wrapper.unmount()
     popupContainer.remove()
+  })
+
+  // ========================= Deprecated =========================
+  it('should warn deprecated popupClassName', () => {
+    resetWarned()
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
+    const wrapper = mount(() => (
+      <Select
+        options={[{ value: 'test', label: 'Test' }]}
+        popupClassName="legacy-popup"
+      />
+    ))
+    expect(errSpy).toHaveBeenCalledWith(
+      expect.stringContaining(
+        'Warning: [antd: Select] `popupClassName` is deprecated. Please use `classes.popup.root` instead.',
+      ),
+    )
+    errSpy.mockRestore()
+    wrapper.unmount()
   })
 })

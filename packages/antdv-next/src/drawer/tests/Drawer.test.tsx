@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from 'vitest'
 import { nextTick, ref } from 'vue'
 import Drawer from '..'
+import { resetWarned } from '../../_util/warning'
 import Popover from '../../popover'
 import { mount, waitFakeTimer } from '/@tests/utils'
 
@@ -535,6 +536,29 @@ describe('drawer', () => {
     await nextTick()
     const section = document.querySelector('.ant-drawer-section')
     expect(section?.innerHTML).toMatchSnapshot()
+    wrapper.unmount()
+  })
+
+  // ========================= Deprecated =========================
+  it('should warn deprecated destroyOnClose', async () => {
+    resetWarned()
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
+    const wrapper = mount(Drawer, {
+      props: {
+        open: true,
+        destroyOnClose: true,
+      },
+      slots: {
+        default: () => <p>Drawer Content</p>,
+      },
+    })
+    await nextTick()
+    expect(errSpy).toHaveBeenCalledWith(
+      expect.stringContaining(
+        'Warning: [antd: Drawer] `destroyOnClose` is deprecated. Please use `destroyOnHidden` instead.',
+      ),
+    )
+    errSpy.mockRestore()
     wrapper.unmount()
   })
 })

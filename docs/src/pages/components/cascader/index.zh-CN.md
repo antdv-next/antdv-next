@@ -65,7 +65,6 @@ demo:
 | options | 可选项数据源 | [Option](#option)\[] | - | - | × |
 | placeholder | 输入框占位文本 | string | - | - | × |
 | placement | 浮层预设位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | `bottomLeft` | - | × |
-| popupMenuColumnStyle | 下拉菜单列的样式 | CSSProperties | - | - | × |
 | showCheckedStrategy | 定义选中项回填的方式（仅在 `multiple` 为 `true` 时生效）。`Cascader.SHOW_CHILD`: 只显示选中的子节点。`Cascader.SHOW_PARENT`: 只显示父节点（当父节点下所有子节点都选中时）。 | `Cascader.SHOW_PARENT` \| `Cascader.SHOW_CHILD` | `Cascader.SHOW_PARENT` | - | × |
 | showSearch | 在选择框中显示搜索框 | boolean \| [Object](#showsearch) | false | - | × |
 | size | 输入框大小 | `large` \| `medium` \| `small` | `medium` | - | × |

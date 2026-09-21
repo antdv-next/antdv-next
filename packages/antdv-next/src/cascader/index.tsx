@@ -174,17 +174,18 @@ export interface CascaderProps<
   status?: InputStatus
 
   rootClass?: string
-  /** @deprecated Please use `classNames.popup.root` instead */
+  /** @deprecated Please use `classes.popup.root` instead */
   popupClassName?: string
-  /** @deprecated Please use `classNames.popup.root` instead */
+  /** @deprecated Please use `classes.popup.root` instead */
   dropdownClassName?: string
   /** @deprecated Please use `styles.popup.root` instead */
   dropdownStyle?: CSSProperties
   /** @deprecated Please use `popupRender` instead */
   dropdownRender?: (menu: VNode) => VNodeChild
   popupRender?: (menu: VNode) => VNodeChild
-  /** @deprecated Please use `popupMenuColumnStyle` instead */
+  /** @deprecated Please use `styles.popup.listItem` instead */
   dropdownMenuColumnStyle?: CSSProperties
+  /** @deprecated Please use `styles.popup.listItem` instead */
   popupMenuColumnStyle?: CSSProperties
   /**
    * @since 5.13.0
@@ -332,11 +333,12 @@ const InternalCascader = defineComponent<
     if (isDev) {
       const warning = devUseWarning('Cascader')
       const deprecatedProps = {
-        popupClassName: 'classNames.popup.root',
-        dropdownClassName: 'classNames.popup.root',
+        popupClassName: 'classes.popup.root',
+        dropdownClassName: 'classes.popup.root',
         dropdownStyle: 'styles.popup.root',
         dropdownRender: 'popupRender',
-        dropdownMenuColumnStyle: 'popupMenuColumnStyle',
+        dropdownMenuColumnStyle: 'styles.popup.listItem',
+        popupMenuColumnStyle: 'styles.popup.listItem',
         bordered: 'variant',
       }
 
