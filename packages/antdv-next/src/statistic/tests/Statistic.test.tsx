@@ -60,6 +60,12 @@ describe('statistic', () => {
       })
     })
 
+    it('should ignore NaN precision', () => {
+      const wrapper = mount(Statistic, { props: { value: 11.28, precision: Number.NaN } })
+      expect(wrapper.find('.ant-statistic-content-value-int').text()).toBe('11')
+      expect(wrapper.find('.ant-statistic-content-value-decimal').text()).toBe('.28')
+    })
+
     it('should treat "-" as non-number', () => {
       const wrapper = mount(Statistic, { props: { value: '-' } })
       expect(wrapper.find('.ant-statistic-content-value').text()).toBe('-')
@@ -221,6 +227,13 @@ describe('statistic', () => {
     const wrapper = mount(Statistic, { props: { value: 100, valueRender } })
     expect(wrapper.find('.custom-value').exists()).toBe(true)
     expect(wrapper.find('.ant-statistic-content-value').exists()).toBe(true)
+  })
+
+  it('should ignore non-function valueRender', () => {
+    const wrapper = mount(Statistic, {
+      props: { value: 100, valueRender: true as any },
+    })
+    expect(wrapper.find('.ant-statistic-content-value').text()).toBe('100')
   })
 
   // ============= valueStyle =============
