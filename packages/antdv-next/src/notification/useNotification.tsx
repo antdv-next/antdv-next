@@ -253,7 +253,7 @@ export function useInternalNotification(
       )
       const iconNode = resolveIconNode(icon, type)
       const iconWrapperClass = clsx(
-        getIconWrapperClassName(noticePrefixCls, type),
+        getIconWrapperClassName(noticePrefixCls, type, icon),
         mergedClassNames.icon,
       )
       return originOpen({

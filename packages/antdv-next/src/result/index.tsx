@@ -13,6 +13,7 @@ import {
   useToArr,
   useToProps,
 } from '../_util/hooks'
+import { isRenderable } from '../_util/is.ts'
 import { clsx, getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { useComponentBaseConfig } from '../config-provider/context.ts'
 import noFound from './noFound'
@@ -112,7 +113,7 @@ const Icon = defineComponent<IconProps>(
         return null
       }
 
-      return <div {...attrs}>{icon || iconNode}</div>
+      return <div {...attrs}>{isRenderable(icon) ? icon : iconNode}</div>
     }
   },
   {

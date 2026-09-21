@@ -8,6 +8,7 @@ import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { computed, defineComponent, isVNode, nextTick, onMounted, shallowRef, watch } from 'vue'
 import { getAttrStyleAndClass } from '../_util/hooks'
+import { isRenderable } from '../_util/is'
 import { responsiveArray } from '../_util/responsiveObserver'
 import { getSlotPropsFnRun } from '../_util/tools.ts'
 import { useComponentBaseConfig } from '../config-provider/context'
@@ -150,6 +151,7 @@ const Avatar = defineComponent<
     return () => {
       const children = filterEmpty(slots?.default?.() ?? [])
       const icon = getSlotPropsFnRun(slots, props, 'icon')
+      const hasIcon = isRenderable(icon)
       const {
         shape,
         rootClass,
@@ -170,7 +172,7 @@ const Avatar = defineComponent<
           ? {
               width: `${currentSize}px`,
               height: `${currentSize}px`,
-              fontSize: currentSize && (icon || children.length) ? (`${currentSize / 2}px`) : '18px',
+              fontSize: currentSize && (hasIcon || children.length) ? (`${currentSize / 2}px`) : '18px',
             }
           : {}
       }
@@ -193,7 +195,7 @@ const Avatar = defineComponent<
         `${prefixCls.value}-${mergedShape}`,
         {
           [`${prefixCls.value}-image`]: hasImageElement || (src && isImgExist.value),
-          [`${prefixCls.value}-icon`]: !!icon,
+          [`${prefixCls.value}-icon`]: hasIcon,
         },
         cssVarCls.value,
         rootCls.value,
@@ -207,7 +209,7 @@ const Avatar = defineComponent<
           ? {
               width: `${size.value}px`,
               height: `${size.value}px`,
-              fontSize: icon ? (`${size.value / 2}px`) : '18px',
+              fontSize: hasIcon ? (`${size.value / 2}px`) : '18px',
             }
           : {}
 
@@ -227,7 +229,7 @@ const Avatar = defineComponent<
       else if (hasImageElement) {
         childrenToRender = src
       }
-      else if (icon) {
+      else if (hasIcon) {
         childrenToRender = icon
       }
       else if (mounted.value || scale.value !== 1) {
