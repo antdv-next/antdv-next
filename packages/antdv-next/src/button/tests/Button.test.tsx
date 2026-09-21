@@ -2,6 +2,7 @@ import { SearchOutlined } from '@antdv-next/icons'
 import { describe, expect, it, vi } from 'vitest'
 import { defineComponent, h, ref } from 'vue'
 import Button from '..'
+import ConfigProvider from '../../config-provider'
 import rtlTest from '/@tests/shared/rtlTest'
 import { mount } from '/@tests/utils'
 
@@ -310,6 +311,26 @@ describe('button', () => {
     })
     expect(wrapper.find('.ant-btn-color-dangerous').exists()).toBe(true)
     expect(wrapper.find('.ant-btn-variant-solid').exists()).toBe(true)
+  })
+
+  it('button variant should provide default color', () => {
+    const wrapper = mount(Button, {
+      props: { variant: 'solid' },
+      slots: { default: () => 'Button' },
+    })
+    expect(wrapper.find('.ant-btn-variant-solid').exists()).toBe(true)
+    expect(wrapper.find('.ant-btn-color-primary').exists()).toBe(true)
+  })
+
+  it('ConfigProvider button variant should provide default color', () => {
+    const wrapper = mount(ConfigProvider, {
+      props: { button: { variant: 'solid' } },
+      slots: {
+        default: () => <Button>Button</Button>,
+      },
+    })
+    expect(wrapper.find('.ant-btn-variant-solid').exists()).toBe(true)
+    expect(wrapper.find('.ant-btn-color-primary').exists()).toBe(true)
   })
 
   it('should support data attributes', () => {

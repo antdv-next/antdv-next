@@ -195,9 +195,15 @@ const InternalCompoundedButton = defineComponent<
         }
         return colorVariantPair
       }
+      if (variant === 'solid') {
+        return ['primary', variant]
+      }
       // >>> Context fallback
       if (contextColor?.value && contextVariant?.value) {
         return [contextColor.value, contextVariant.value]
+      }
+      if (contextVariant?.value === 'solid') {
+        return ['primary', contextVariant.value]
       }
       return ['default', 'outlined']
     })
