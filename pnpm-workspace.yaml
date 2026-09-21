@@ -149,7 +149,7 @@ catalogs:
     '@v-c/listy': ^1.1.0
     '@v-c/mentions': ^1.2.2
     '@v-c/menu': ^1.4.0
-    '@v-c/mutate-observer': ^1.0.2
+    '@v-c/mutate-observer': ^1.0.3
     '@v-c/notification': ^2.0.4
     '@v-c/pagination': ^1.1.2
     '@v-c/picker': ^1.4.0
