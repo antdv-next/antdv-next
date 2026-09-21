@@ -99,7 +99,36 @@ describe('breadcrumb', () => {
       },
     })
     await wrapper.find('.ant-breadcrumb-link').trigger('click')
-    expect(onClick).toHaveBeenCalled()
+    expect(onClick).toHaveBeenCalledTimes(1)
+  })
+
+  it('should emit clickItem with item and event when item clicked', async () => {
+    const onClick = vi.fn()
+    const items = [
+      { title: 'Home', onClick },
+      { title: 'Current' },
+    ]
+    const wrapper = mount(Breadcrumb, {
+      props: { items },
+    })
+    await wrapper.find('.ant-breadcrumb-link').trigger('click')
+    const emitted = wrapper.emitted('clickItem')
+    expect(emitted).toHaveLength(1)
+    expect((emitted![0] as any[])[0]).toStrictEqual(items[0])
+    expect((emitted![0] as any[])[1]).toBeInstanceOf(MouseEvent)
+    expect(onClick).toHaveBeenCalledTimes(1)
+  })
+
+  it('should support onClick on BreadcrumbItem children', async () => {
+    const onClick = vi.fn()
+    const wrapper = mount(() => (
+      <Breadcrumb>
+        <Breadcrumb.Item onClick={onClick}>Home</Breadcrumb.Item>
+        <Breadcrumb.Item>Current</Breadcrumb.Item>
+      </Breadcrumb>
+    ))
+    await wrapper.find('li.ant-breadcrumb-item').trigger('click')
+    expect(onClick).toHaveBeenCalledTimes(1)
   })
 
   it('should render with BreadcrumbItem children', () => {
