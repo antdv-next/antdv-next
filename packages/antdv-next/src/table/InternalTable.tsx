@@ -375,9 +375,10 @@ const InternalTable = defineComponent<
 
     const needResponsive = computed(() => baseColumns.value.some((col: any) => col.responsive))
     const screens = useBreakpoint(needResponsive, null)
+    const resizeDirection = computed<'ltr' | 'rtl'>(() => direction.value === 'rtl' ? 'rtl' : 'ltr')
     const { columns: resizableColumns, resizeProxyRef } = useResizableColumns({
       columns: baseColumns as any,
-      direction,
+      direction: resizeDirection,
       prefixCls,
       rootRef,
       onResizeColumn: (width, column) => emit('resizeColumn', width, column),

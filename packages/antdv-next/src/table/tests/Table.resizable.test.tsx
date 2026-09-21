@@ -49,12 +49,12 @@ function renderTable(extraColumn: Record<string, any> = {}, tableProps: Record<s
     return mount(ConfigProvider, {
       props: { direction },
       slots: {
-        default: () => h(Table, props),
+        default: () => h(Table as any, props),
       },
     })
   }
 
-  return mount(Table, { props })
+  return mount(Table, { props: props as any })
 }
 
 describe('Table resizable columns', () => {
