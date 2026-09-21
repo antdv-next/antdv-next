@@ -3,15 +3,17 @@ import type { AnyObject } from '../../_util/type'
 import type { ColumnsType, ColumnType } from '../interface'
 import { clsx } from '@v-c/util'
 import { computed, nextTick, onBeforeUnmount, shallowRef, watch } from 'vue'
+import { devUseWarning, isDev } from '../../_util/warning'
 
 const RESIZE_HIT_AREA_WIDTH = 8
 const RESIZE_DRAG_THRESHOLD = 3
 const DEFAULT_MIN_WIDTH = 40
 
-interface DragState {
+interface DragState<RecordType> {
   started: boolean
   headerCell: HTMLElement
   columnKey: string
+  column: ColumnType<RecordType>
   startClientX: number
   startWidth: number
   pendingWidth: number
@@ -37,9 +39,10 @@ interface ResizableColumnsOptions<RecordType> {
   direction: ComputedRef<'ltr' | 'rtl'>
   prefixCls: ComputedRef<string>
   rootRef: ShallowRef<HTMLElement | null>
+  onResizeColumn?: (width: number, column: ColumnType<RecordType>) => void
 }
 
-function getColumnKey<RecordType>(column: ColumnType<RecordType>, path: number[]) {
+function getColumnKey<RecordType>(column: ColumnType<RecordType>) {
   if (column.key !== undefined && column.key !== null) {
     // 带类型前缀避免 `key: 0` 与 `key: '0'` 碰撞。
     // Prefix the type so `key: 0` and `key: '0'` do not collide.
@@ -48,7 +51,7 @@ function getColumnKey<RecordType>(column: ColumnType<RecordType>, path: number[]
   if (column.dataIndex !== undefined && column.dataIndex !== null) {
     return `data:${JSON.stringify(column.dataIndex)}`
   }
-  return `path:${path.join('.')}`
+  return null
 }
 
 function walkLeafColumns<RecordType>(
@@ -57,7 +60,7 @@ function walkLeafColumns<RecordType>(
   parentPath: number[] = [],
 ) {
   for (let index = 0; index < columns.length; index++) {
-    const column = columns[index]
+    const column = columns[index]!
     const path = [...parentPath, index]
     if ('children' in column && column.children?.length) {
       if (walkLeafColumns(column.children, visit, path) === false) {
@@ -75,7 +78,7 @@ function walkLeafColumns<RecordType>(
 export function hasResizableLeafColumns<RecordType>(columns: ColumnsType<RecordType>) {
   let found = false
   walkLeafColumns(columns, (column) => {
-    if (column.resizable) {
+    if (column.resizable && getColumnKey(column)) {
       found = true
       return false
     }
@@ -86,13 +89,25 @@ export function hasResizableLeafColumns<RecordType>(columns: ColumnsType<RecordT
 export default function useResizableColumns<RecordType extends AnyObject>(
   options: ResizableColumnsOptions<RecordType>,
 ) {
+  const warning = isDev ? devUseWarning('Table') : undefined
   const resizeProxyRef = shallowRef<HTMLDivElement | null>(null)
   const resizedWidthsByKey = shallowRef(new Map<string, number>())
-  let dragState: DragState | undefined
+  let dragState: DragState<RecordType> | undefined
   let originalBodyStyles: BodyStyleSnapshot | undefined
   let cursorState: CursorState | undefined
-  let suppressedHeader: HTMLElement | undefined
+  let suppressedColumnKey: string | undefined
+  let suppressedHeaderRow: HTMLElement | undefined
+  let suppressedHeaderRowClick: ((event: MouseEvent) => void) | undefined
   let clickSuppressionTimer: ReturnType<typeof setTimeout> | undefined
+  let warnedMissingColumnIdentity = false
+
+  function clearHeaderRowClickSuppression() {
+    if (suppressedHeaderRow && suppressedHeaderRowClick) {
+      suppressedHeaderRow.removeEventListener('click', suppressedHeaderRowClick, true)
+    }
+    suppressedHeaderRow = undefined
+    suppressedHeaderRowClick = undefined
+  }
 
   function isPointerInResizeZone(event: MouseEvent, headerCell: HTMLElement) {
     // 合并表头的实际宽度不对应单个叶子列，不能直接用于调整列宽。
@@ -202,24 +217,52 @@ export default function useResizableColumns<RecordType extends AnyObject>(
       return
     }
 
-    const { headerCell, started } = dragState
-    if (started) {
-      if (dragState.pendingWidth !== dragState.startWidth) {
-        const nextResizedWidthsByKey = new Map(resizedWidthsByKey.value)
-        nextResizedWidthsByKey.set(dragState.columnKey, dragState.pendingWidth)
-        resizedWidthsByKey.value = nextResizedWidthsByKey
+    const { headerCell, started, column, columnKey, pendingWidth, startWidth } = dragState
+    try {
+      if (started) {
+        if (pendingWidth !== startWidth) {
+          const nextResizedWidthsByKey = new Map(resizedWidthsByKey.value)
+          nextResizedWidthsByKey.set(columnKey, pendingWidth)
+          resizedWidthsByKey.value = nextResizedWidthsByKey
+        }
+
+        // 仅拦截实际拖拽表头随后的一次点击，不影响其他列；没有 click 时自动清除。
+        // Suppress only the resized header's next click; clear the marker if no click follows.
+        suppressedColumnKey = columnKey
+        clearTimeout(clickSuppressionTimer)
+        clearHeaderRowClickSuppression()
+
+        const headerRow = headerCell.closest('tr')
+        if (headerRow) {
+          const suppressHeaderRowClick = (clickEvent: MouseEvent) => {
+            const target = clickEvent.target
+            const targetHeaderCell = target instanceof Element ? target.closest('th') : null
+            if (targetHeaderCell && targetHeaderCell !== headerCell) {
+              return
+            }
+            clickEvent.preventDefault()
+            clickEvent.stopPropagation()
+            suppressedColumnKey = undefined
+            clearHeaderRowClickSuppression()
+          }
+          suppressedHeaderRow = headerRow
+          suppressedHeaderRowClick = suppressHeaderRowClick
+          headerRow.addEventListener('click', suppressHeaderRowClick, true)
+        }
+
+        clickSuppressionTimer = setTimeout(() => {
+          suppressedColumnKey = undefined
+          clearHeaderRowClickSuppression()
+        }, 0)
+
+        if (pendingWidth !== startWidth) {
+          options.onResizeColumn?.(pendingWidth, column)
+        }
       }
-
-      // 仅拦截实际拖拽表头随后的一次点击，不影响其他列；没有 click 时自动清除。
-      // Suppress only the resized header's next click; clear the marker if no click follows.
-      suppressedHeader = headerCell
-      clearTimeout(clickSuppressionTimer)
-      clickSuppressionTimer = setTimeout(() => {
-        suppressedHeader = undefined
-      }, 0)
     }
-
-    cleanupDrag()
+    finally {
+      cleanupDrag()
+    }
 
     // 列宽提交后重新判断边缘位置，避免松开时先变回 pointer，等下次移动才恢复。
     // Recheck the edge after committing the width so the resize cursor stays correct on release.
@@ -249,6 +292,7 @@ export default function useResizableColumns<RecordType extends AnyObject>(
       started: false,
       headerCell,
       columnKey,
+      column,
       startClientX: event.clientX,
       startWidth,
       pendingWidth: startWidth,
@@ -264,7 +308,7 @@ export default function useResizableColumns<RecordType extends AnyObject>(
     document.addEventListener('mouseup', handleDragEnd)
   }
 
-  function activateDrag(state: DragState) {
+  function activateDrag(state: DragState<RecordType>) {
     const root = options.rootRef.value
     const proxy = resizeProxyRef.value
     if (!root || !proxy) {
@@ -286,7 +330,7 @@ export default function useResizableColumns<RecordType extends AnyObject>(
     const startEdge = (rtl ? cellRect.left : cellRect.right) - rootRect.left
 
     const header = headerCell.closest(`.${options.prefixCls.value}-thead`)!
-    const layers = Array.from(header.querySelectorAll(`.${options.prefixCls.value}-cell-fix`))
+    const layers: Element[] = Array.from(header.querySelectorAll(`.${options.prefixCls.value}-cell-fix`))
     const stickyHolder = header.closest(`.${options.prefixCls.value}-sticky-holder`)
     if (stickyHolder) {
       layers.push(stickyHolder)
@@ -354,7 +398,14 @@ export default function useResizableColumns<RecordType extends AnyObject>(
         return column
       }
 
-      const columnKey = getColumnKey(column, path)
+      const columnKey = getColumnKey(column)
+      if (!columnKey) {
+        if (!warnedMissingColumnIdentity) {
+          warnedMissingColumnIdentity = true
+          warning?.(false, 'usage', '`resizable` requires a stable `key` or `dataIndex` on the column.')
+        }
+        return column
+      }
       const originalOnHeaderCell = column.onHeaderCell
 
       return {
@@ -390,8 +441,8 @@ export default function useResizableColumns<RecordType extends AnyObject>(
               onMousedown?.(event)
             },
             onClickCapture: (event: MouseEvent) => {
-              if (event.currentTarget === suppressedHeader) {
-                suppressedHeader = undefined
+              if (columnKey === suppressedColumnKey) {
+                suppressedColumnKey = undefined
                 event.preventDefault()
                 event.stopPropagation()
               }
@@ -407,9 +458,10 @@ export default function useResizableColumns<RecordType extends AnyObject>(
 
   const configuredWidthsByKey = computed(() => {
     const widthsByKey = new Map<string, ColumnType<RecordType>['width']>()
-    walkLeafColumns(options.columns.value, (column, path) => {
-      if (column.resizable) {
-        widthsByKey.set(getColumnKey(column, path), column.width)
+    walkLeafColumns(options.columns.value, (column) => {
+      const columnKey = getColumnKey(column)
+      if (column.resizable && columnKey) {
+        widthsByKey.set(columnKey, column.width)
       }
     })
     return widthsByKey
@@ -436,6 +488,7 @@ export default function useResizableColumns<RecordType extends AnyObject>(
 
   onBeforeUnmount(() => {
     clearTimeout(clickSuppressionTimer)
+    clearHeaderRowClickSuppression()
     cleanupDrag()
   })
 

@@ -228,6 +228,7 @@ export interface TableEmits<RecordType = AnyObject> {
   ) => void
   'update:expandedRowKeys': (keys: readonly Key[]) => void
   'scroll': NonNullable<VcTableProps['onScroll']>
+  'resizeColumn': (width: number, column: ColumnType<RecordType>) => void
 }
 
 export interface TableExpose extends Reference {}
@@ -235,6 +236,7 @@ export interface TableEmitsProps<RecordType = AnyObject> {
   onChange?: TableEmits<RecordType>['change']
   'onUpdate:expandedRowKeys'?: TableEmits<RecordType>['update:expandedRowKeys']
   onScroll?: TableEmits<RecordType>['scroll']
+  onResizeColumn?: TableEmits<RecordType>['resizeColumn']
 }
 
 export interface TableSlots<RecordType = AnyObject> {
@@ -378,6 +380,7 @@ const InternalTable = defineComponent<
       direction,
       prefixCls,
       rootRef,
+      onResizeColumn: (width, column) => emit('resizeColumn', width, column),
     })
 
     const mergedColumns = computed(() => {

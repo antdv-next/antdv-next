@@ -151,6 +151,7 @@ const columns = [
 | change | 分页、排序、筛选变化时触发 | (     pagination: TablePaginationConfig,     filters: Record&lt;string, FilterValue \| null&gt;,     sorter: SorterResult&lt;RecordType&gt; \| SorterResult&lt;RecordType&gt;[],     extra: TableCurrentDataSource&lt;RecordType&gt;,   ) =&gt; void | - |
 | update:expandedRowKeys | - | (keys: readonly Key[]) =&gt; void | - |
 | scroll | 表格是否可滚动，也可以指定滚动区域的宽、高，[配置项](#scroll) | NonNullable&lt;VcTableProps['onScroll']&gt; | - |
+| resizeColumn | 拖动列时触发 | (width: number, column: ColumnType&lt;RecordType&gt;) =&gt; void | 1.5.5 |
 | headerRow | 设置头部行属性 | function(columns, index) | - | - |
 | row | 设置行属性 | function(record, index) | - | - |
 
@@ -231,7 +232,7 @@ const onHeaderRow: TableProps['onHeaderRow'] = (columns, index) => {
 | fixed | （IE 下无效）列是否固定，可选 `true` (等效于 `'start'`) `'start'` `'end'` | boolean \| string | false | - |
 | key | Vue 需要的 key，如果已经设置了唯一的 `dataIndex`，可以忽略这个属性 | string | - |  |
 | render | 生成复杂数据的渲染函数，参数分别为当前单元格的值，当前行数据，行索引 | (value: V, record: T, index: number): VueNode | - | - |
-| resizable | 对应列是否可以通过拖动改变宽度；拖动下限为 `minWidth`，未设置时为 40px | boolean | false | 1.5.5 |
+| resizable | 对应列是否可以通过拖动改变宽度；需提供稳定的 `key` 或 `dataIndex`，拖动下限为 `minWidth`，未设置时为 40px | boolean | false | 1.5.5 |
 | responsive | 响应式 breakpoint 配置列表。未设置则始终可见。 | [Breakpoint](https://github.com/antdv-next/antdv-next/blob/main/packages/antdv-next/src/_util/responsiveObserver.ts#L9)\[] | - | - |
 | rowScope | 设置列范围 | `row` \| `rowgroup` | - | - |
 | shouldCellUpdate | 自定义单元格渲染时机 | (record, prevRecord) => boolean | - | - |

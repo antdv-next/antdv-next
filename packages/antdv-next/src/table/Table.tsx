@@ -15,6 +15,16 @@ import {
 
 import InternalTable from './InternalTable.tsx'
 
+const tableOwnEmits = [
+  'change',
+  'update:expandedRowKeys',
+  'resizeColumn',
+] as const satisfies readonly (keyof TableEmits)[]
+
+const forwardedEventKeys = tableOwnEmits.map(
+  emit => `on${emit.charAt(0).toUpperCase()}${emit.slice(1)}`,
+) as (keyof InternalTableProps)[]
+
 export type TableEmitsProps<RecordType = AnyObject> = {
   [K in keyof TableEmits<RecordType> as `on${Capitalize<string & K>}`]?: TableEmits<RecordType>[K]
 }
@@ -29,6 +39,7 @@ type TableInstance<RecordType = AnyObject> = {
     (event: 'change', ...args: Parameters<TableEmits<RecordType>['change']>): void
     (event: 'update:expandedRowKeys', ...args: Parameters<TableEmits<RecordType>['update:expandedRowKeys']>): void
     (event: 'scroll', ...args: Parameters<TableEmits<RecordType>['scroll']>): void
+    (event: 'resizeColumn', ...args: Parameters<TableEmits<RecordType>['resizeColumn']>): void
   }
   $slots: TableSlots<RecordType>
 } & TableExpose
@@ -77,13 +88,16 @@ const Table = defineComponent<
 
     return () => (
       <InternalTable
-        {...omit(props, ['onUpdate:expandedRowKeys', 'onChange'])}
-        {...attrs}
+        {...omit(props, forwardedEventKeys)}
+        {...omit(attrs, forwardedEventKeys)}
         onChange={(pagination: any, filters: any, sorter: any, extra: any) => {
           emit('change', pagination, filters, sorter, extra)
         }}
         onUpdate:expandedRowKeys={(keys: any) => {
           emit('update:expandedRowKeys', keys)
+        }}
+        onResizeColumn={(width: any, column: any) => {
+          emit('resizeColumn', width, column)
         }}
         _renderTimes={renderTimesRef.value}
         ref={tableRef}
@@ -94,6 +108,7 @@ const Table = defineComponent<
   {
     name: 'ATable',
     inheritAttrs: false,
+    emits: [...tableOwnEmits],
   },
 )
 

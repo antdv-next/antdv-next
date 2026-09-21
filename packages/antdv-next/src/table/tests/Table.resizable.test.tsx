@@ -60,6 +60,35 @@ describe('Table resizable columns', () => {
     expect(wrapper.find('.ant-table-resize-proxy').exists()).toBe(false)
   })
 
+  it('emits resizeColumn once from a template listener without Vue warnings', async () => {
+    const onResizeColumn = vi.fn()
+    const consoleWarn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+    const wrapper = mount({
+      components: { 'a-table': Table },
+      setup() {
+        return {
+          columns: [
+            { title: 'Name', dataIndex: 'name', key: 'name', width: 200, resizable: true },
+            { title: 'Age', dataIndex: 'age', key: 'age' },
+          ],
+          dataSource,
+          onResizeColumn,
+        }
+      },
+      template: '<a-table bordered table-layout="fixed" :columns="columns" :data-source="dataSource" @resize-column="onResizeColumn" />',
+    })
+    prepareRects(wrapper)
+
+    const header = wrapper.find('thead th')
+    await header.trigger('mousedown', { button: 0, clientX: 198 })
+    document.dispatchEvent(new MouseEvent('mousemove', { clientX: 218 }))
+    document.dispatchEvent(new MouseEvent('mouseup', { clientX: 218 }))
+    await nextTick()
+
+    expect(onResizeColumn).toHaveBeenCalledTimes(1)
+    expect(consoleWarn).not.toHaveBeenCalledWith(expect.stringContaining('resizeColumn'))
+  })
+
   it('only marks resizable leaf columns', () => {
     const wrapper = renderTable({ resizable: true, onHeaderCell: () => ({ className: 'custom-header' }) })
     const headers = wrapper.findAll('thead th')
@@ -232,6 +261,28 @@ describe('Table resizable columns', () => {
     expect(document.body.style.userSelect).toBe('')
   })
 
+  it('emits resizeColumn with the committed width and column', async () => {
+    const onResizeColumn = vi.fn()
+    const wrapper = renderTable({ resizable: true }, { onResizeColumn })
+    prepareRects(wrapper)
+
+    const header = wrapper.find('thead th')
+    await header.trigger('mousedown', { button: 0, clientX: 198 })
+    document.dispatchEvent(new MouseEvent('mousemove', { clientX: 218 }))
+    document.dispatchEvent(new MouseEvent('mouseup', { clientX: 218 }))
+    await nextTick()
+
+    const expectedColumn = expect.objectContaining({
+      dataIndex: 'name',
+      key: 'name',
+      resizable: true,
+    })
+    expect(wrapper.emitted('resizeColumn')).toHaveLength(1)
+    expect(wrapper.emitted('resizeColumn')![0]).toEqual([220, expectedColumn])
+    expect(onResizeColumn).toHaveBeenCalledTimes(1)
+    expect(onResizeColumn).toHaveBeenCalledWith(220, expectedColumn)
+  })
+
   it.each(['column', 'onHeaderCell'] as const)('does not resize a merged header configured through %s', async (source) => {
     const wrapper = renderTable({}, {
       columns: [
@@ -390,48 +441,62 @@ describe('Table resizable columns', () => {
     expect(wrapper.find('col').attributes('style')).toContain('80px')
   })
 
-  it('keeps widths isolated for colliding column identifiers', async () => {
+  it('keeps widths isolated for stable column identifiers', async () => {
     const wrapper = mount(Table, {
       props: {
         bordered: true,
         pagination: false,
         dataSource,
         columns: [
-          {
-            title: 'Group',
-            children: [
-              { title: 'Named', key: '0-1', dataIndex: 'name', width: 100, resizable: true },
-              { title: 'Path', width: 120, resizable: true },
-            ],
-          },
+          { title: 'Numeric', key: 0, width: 100, resizable: true },
+          { title: 'String', dataIndex: '0', width: 140, resizable: true },
         ],
       },
     })
     const root = wrapper.find('.ant-table-wrapper').element
     const table = wrapper.find('.ant-table').element
     const headers = wrapper.findAll('thead th')
-    const columns = wrapper.findAll('col')
 
     mockRect(root, { left: 0, top: 0, right: 500, bottom: 300, width: 500, height: 300 })
     mockRect(table, { left: 0, top: 0, right: 500, bottom: 200, width: 500, height: 200 })
-    mockRect(headers[1]!.element, { left: 0, top: 0, right: 100, bottom: 48, width: 100, height: 48 })
-    mockRect(headers[2]!.element, { left: 100, top: 0, right: 220, bottom: 48, width: 120, height: 48 })
+    mockRect(headers[0]!.element, { left: 0, top: 0, right: 100, bottom: 48, width: 100, height: 48 })
+    mockRect(headers[1]!.element, { left: 100, top: 0, right: 240, bottom: 48, width: 140, height: 48 })
 
-    await headers[1]!.trigger('mousedown', { button: 0, clientX: 98 })
+    await headers[0]!.trigger('mousedown', { button: 0, clientX: 98 })
     document.dispatchEvent(new MouseEvent('mousemove', { clientX: 118 }))
     document.dispatchEvent(new MouseEvent('mouseup', { clientX: 118 }))
     await nextTick()
 
-    expect(columns[0]!.attributes('style')).toContain('120px')
-    expect(columns[1]!.attributes('style')).toContain('120px')
+    expect(wrapper.findAll('col')[0]!.attributes('style')).toContain('120px')
+    expect(wrapper.findAll('col')[1]!.attributes('style')).toContain('140px')
 
-    await headers[2]!.trigger('mousedown', { button: 0, clientX: 218 })
-    document.dispatchEvent(new MouseEvent('mousemove', { clientX: 238 }))
-    document.dispatchEvent(new MouseEvent('mouseup', { clientX: 238 }))
+    await headers[1]!.trigger('mousedown', { button: 0, clientX: 238 })
+    document.dispatchEvent(new MouseEvent('mousemove', { clientX: 258 }))
+    document.dispatchEvent(new MouseEvent('mouseup', { clientX: 258 }))
     await nextTick()
 
     expect(wrapper.findAll('col')[0]!.attributes('style')).toContain('120px')
-    expect(wrapper.findAll('col')[1]!.attributes('style')).toContain('140px')
+    expect(wrapper.findAll('col')[1]!.attributes('style')).toContain('160px')
+  })
+
+  it('does not enable resizing without a stable key or dataIndex', () => {
+    const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {})
+    const wrapper = mount(Table, {
+      props: {
+        bordered: true,
+        pagination: false,
+        dataSource,
+        columns: [
+          { title: 'Name', width: 200, resizable: true },
+          { title: 'Age', width: 100, resizable: true },
+        ],
+      },
+    })
+
+    expect(wrapper.find('.ant-table-cell-resizable').exists()).toBe(false)
+    expect(wrapper.find('.ant-table-resize-proxy').exists()).toBe(false)
+    expect(consoleError).toHaveBeenCalledTimes(1)
+    expect(consoleError.mock.calls[0]![0]).toContain('`resizable` requires a stable `key` or `dataIndex`')
   })
 
   it('supports nested leaf columns without making the group resizable', () => {
@@ -809,6 +874,49 @@ describe('Table resizable columns', () => {
       await nameTarget.trigger('click')
       expect(onChange).toHaveBeenCalledTimes(2)
       expect(onNameCapture).toHaveBeenCalledTimes(1)
+    }
+    finally {
+      wrapper.unmount()
+    }
+  })
+
+  it('suppresses the header row click after a resize', async () => {
+    const onHeaderRowClick = vi.fn()
+    const wrapper = renderTable({ resizable: true }, {
+      onHeaderRow: () => ({ onClick: onHeaderRowClick }),
+    })
+    prepareRects(wrapper)
+
+    const header = wrapper.find('thead th')
+    await header.trigger('mousedown', { button: 0, clientX: 198 })
+    document.dispatchEvent(new MouseEvent('mousemove', { clientX: 218 }))
+    document.dispatchEvent(new MouseEvent('mouseup', { clientX: 218 }))
+    await wrapper.find('thead tr').trigger('click')
+
+    expect(onHeaderRowClick).not.toHaveBeenCalled()
+  })
+
+  it('suppresses the next click after the header DOM is re-created', async () => {
+    const onChange = vi.fn()
+    const RecreatedHeaderCell = (_props: any, { attrs, slots }: any) =>
+      h('th', { ...attrs, 'data-recreated': 'true' }, slots.default?.())
+    const wrapper = renderTable({ resizable: true, sorter: true }, { onChange })
+    prepareRects(wrapper)
+    const originalHeader = wrapper.find('thead th')
+    try {
+      await originalHeader.trigger('mousedown', { button: 0, clientX: 198 })
+      document.dispatchEvent(new MouseEvent('mousemove', { clientX: 218 }))
+      document.dispatchEvent(new MouseEvent('mouseup', { clientX: 218 }))
+
+      await wrapper.setProps({ components: { header: { cell: RecreatedHeaderCell } } })
+      await nextTick()
+
+      const recreatedHeader = wrapper.find('thead th')
+      expect(recreatedHeader.element).not.toBe(originalHeader.element)
+      expect(recreatedHeader.attributes('data-recreated')).toBe('true')
+
+      await recreatedHeader.trigger('click')
+      expect(onChange).not.toHaveBeenCalled()
     }
     finally {
       wrapper.unmount()
