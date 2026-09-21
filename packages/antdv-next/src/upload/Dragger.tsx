@@ -4,6 +4,7 @@ import type { UploadProps, UploadSlots } from './interface'
 import type { UploadRef } from './Upload'
 import { computed, defineComponent, shallowRef } from 'vue'
 import { getAttrStyleAndClass } from '../_util/hooks'
+import { isNonNullable, isNumber } from '../_util/is'
 import Upload from './Upload'
 
 export type DraggerProps<T = any> = UploadProps<T> & { height?: number }
@@ -30,7 +31,11 @@ const Dragger = defineComponent<
     return () => {
       const { height, hasControlInside = false, ...restProps } = props
       const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
-      const mergedStyle = { ...style, height }
+      // Keep `style.height` when `height` is unset. `style` may be a string,
+      // so merge through an array binding instead of spreading it.
+      const mergedStyle = isNonNullable(height)
+        ? [style, { height: isNumber(height) ? `${height}px` : height }]
+        : style
 
       return (
         <Upload
