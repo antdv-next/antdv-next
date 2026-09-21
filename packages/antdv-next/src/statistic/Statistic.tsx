@@ -13,7 +13,7 @@ import {
   useToArr,
   useToProps,
 } from '../_util/hooks'
-import { isRenderable } from '../_util/is.ts'
+import { isFunction, isRenderable } from '../_util/is.ts'
 import { clsx, getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { useComponentBaseConfig } from '../config-provider/context.ts'
 import Skeleton from '../skeleton'
@@ -219,7 +219,7 @@ const Statistic = defineComponent<
                   {prefix}
                 </span>
               )}
-              {valueRender ? valueRender(valueNode) : valueNode}
+              {isFunction(valueRender) ? valueRender(valueNode) : valueNode}
               {isRenderable(suffix) && (
                 <span
                   class={suffixClassNames}

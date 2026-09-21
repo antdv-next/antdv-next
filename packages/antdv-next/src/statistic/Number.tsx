@@ -1,6 +1,7 @@
 import type { CSSProperties } from 'vue'
 import type { FormatConfig, valueType } from './utils.ts'
 import { defineComponent } from 'vue'
+import { isNumber } from '../_util/is.ts'
 
 interface NumberProps extends FormatConfig {
   value: valueType
@@ -36,7 +37,7 @@ const StatisticNumber = defineComponent<NumberProps>(
 
           int = int.replace(/\B(?=(\d{3})+(?!\d))/g, groupSeparator)
 
-          if (typeof precision === 'number') {
+          if (isNumber(precision)) {
             decimal = decimal.padEnd(precision, '0').slice(0, precision > 0 ? precision : 0)
           }
 
