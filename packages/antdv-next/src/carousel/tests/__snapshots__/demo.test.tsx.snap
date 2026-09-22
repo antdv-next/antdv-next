@@ -831,7 +831,6 @@ exports[`carousel demo > renders fade correctly 1`] = `
   <div
     class="slick-slider slick-initialized"
     dir="ltr"
-    effect="fade"
   >
     <!---->
     <div

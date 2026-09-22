@@ -238,6 +238,11 @@ const Carousel = defineComponent<
       if (newProps.effect === 'fade') {
         newProps.fade = true
       }
+      // react-slick silently ignores unknown settings, but @v-c/slick leaks them
+      // to the DOM through attrs fallthrough, so strip keys it does not declare.
+      delete newProps.effect
+      delete newProps.prefixCls
+      delete newProps.slickGoTo
       const className = clsx(
         prefixCls.value,
         {
