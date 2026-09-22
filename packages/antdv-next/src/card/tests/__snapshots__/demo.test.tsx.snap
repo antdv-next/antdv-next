@@ -2761,6 +2761,7 @@ exports[`card demo > renders style-class correctly 1`] = `
   <div
     class="ant-card ant-card-bordered css-var-root custom-card-root"
     data-v-f3a6db99=""
+    style="border-color: rgb(105, 111, 199); box-shadow: 0 2px 8px #A7AAE1; border-radius: 8px;"
   >
     <div
       class="ant-card-head custom-card-header"
@@ -2770,11 +2771,13 @@ exports[`card demo > renders style-class correctly 1`] = `
       >
         <div
           class="ant-card-head-title"
+          style="font-size: 16px; font-weight: 500; color: rgb(167, 170, 225);"
         >
           Function Card
         </div>
         <div
           class="ant-card-extra"
+          style="color: rgb(105, 111, 199);"
         >
           <button
             class="ant-btn css-var-root ant-btn-link ant-btn-color-link ant-btn-variant-link"

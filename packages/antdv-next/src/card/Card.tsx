@@ -165,7 +165,7 @@ const Card = defineComponent<
       return {
         ...props,
         size: mergedSize.value,
-        variant: customVariant.value,
+        variant: variant.value,
       } as CardProps
     })
 

@@ -113,6 +113,23 @@ describe('card semantic DOM', () => {
     expect(body.classes()).toContain('fn-body-small')
   })
 
+  it('should pass resolved variant to semantic functions', () => {
+    const collectVariants: string[] = []
+    const classNamesFn = (info: { props: CardProps }) => {
+      collectVariants.push(info.props.variant!)
+      return {}
+    }
+
+    mount(Card, { props: { classes: classNamesFn } })
+    mount(Card, { props: { bordered: false, classes: classNamesFn } })
+    mount(ConfigProvider, {
+      props: { card: { variant: 'borderless' } },
+      slots: { default: () => <Card classes={classNamesFn} /> },
+    })
+
+    expect(collectVariants).toEqual(['outlined', 'borderless', 'borderless'])
+  })
+
   it('should merge context and component classNames and styles', () => {
     const wrapper = mount(ConfigProvider, {
       props: {
