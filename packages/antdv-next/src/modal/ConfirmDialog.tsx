@@ -68,7 +68,7 @@ export const ConfirmContent = defineComponent<
       warning(
         !(typeof icon === 'string' && (icon as any)?.length > 2),
         'breaking',
-        `\`icon\` is using VueNode instead of string naming in v4. Please check \`${icon as any}\` at https://ant.design/components/icon`,
+        `\`icon\` is using VueNode instead of string naming. Please check \`${icon as any}\` at https://ant.design/components/icon`,
       )
     }
 
