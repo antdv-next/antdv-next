@@ -12,7 +12,11 @@ export interface ColumnSlots {
 }
 
 /**
- * Syntactic sugar for `columns` prop. HOC will not work on this.
+ * Syntactic sugar for the `columns` prop.
+ *
+ * Kebab-case template attributes (`data-index`, `min-width`, ...) are
+ * remapped to the camelCase field names the table understands in
+ * `convertColumnsToColumnProps` (see `./utils.ts`).
  */
 const Column = defineComponent<ColumnProps, EmptyEmit, string, SlotsType<ColumnSlots>>(
   () => {
