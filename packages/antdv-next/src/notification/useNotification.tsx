@@ -7,14 +7,12 @@ import type {
   NotificationConfig,
   NotificationInstance,
   NotificationPlacement,
-  NotificationSemanticClassNames,
-  NotificationSemanticStyles,
   NotificationStylesType,
 } from './interface'
 import { useNotificationProvider, useNotification as useVcNotification } from '@v-c/notification'
 import { clsx } from '@v-c/util'
 import { computed, defineComponent, shallowRef, unref } from 'vue'
-import { mergeClassNames, mergeStyles, resolveStyleOrClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
+import { resolveStyleOrClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { computeClosable, pickClosable } from '../_util/hooks/useClosable.tsx'
 import { isRenderable } from '../_util/is.ts'
 import { toPropsRefs } from '../_util/tools.ts'
@@ -42,8 +40,6 @@ type HolderProps = NotificationConfig & {
 interface HolderRef extends NotificationAPI {
   prefixCls: string
   notification?: CPNotificationConfig
-  classNames: NotificationSemanticClassNames
-  styles: NotificationSemanticStyles
   closeLabel: string
 }
 
@@ -104,6 +100,18 @@ const Holder = defineComponent<HolderProps>(
     // ============================== Motion ===============================
     const getNotificationMotion = () => getMotion(prefixCls.value)
 
+    const mergedProps = computed(() => props)
+    const contextStyleRoot = useSemanticRootStyle(contextStyle)
+    const [mergedClassNames, mergedStyles] = useMergeSemantic<
+      NotificationClassNamesType,
+      NotificationStylesType,
+      HolderProps
+    >(
+      useToArr(contextClassNames, classes),
+      useToArr(contextStyles, contextStyleRoot as any, styles),
+      useToProps(mergedProps),
+    )
+
     // ============================== Origin ===============================
     const vcConfig = computed(() => ({
       prefixCls: prefixCls.value,
@@ -125,29 +133,16 @@ const Holder = defineComponent<HolderProps>(
             offset: 8,
             gap: token.value?.margin,
           },
-
+      classNames: mergedClassNames.value,
+      styles: mergedStyles.value,
     }))
     const [api, holder] = useVcNotification(vcConfig as any)
-
-    const mergedProps = computed(() => props)
-    const contextStyleRoot = useSemanticRootStyle(contextStyle)
-    const [mergedClassNames, mergedStyles] = useMergeSemantic<
-      NotificationClassNamesType,
-      NotificationStylesType,
-      HolderProps
-    >(
-      useToArr(contextClassNames, classes),
-      useToArr(contextStyles, contextStyleRoot as any, styles),
-      useToProps(mergedProps),
-    )
 
     // ================================ Ref ================================
     expose({
       ...api,
       prefixCls,
       notification,
-      classNames: mergedClassNames,
-      styles: mergedStyles,
       closeLabel: computed(() => contextLocale.value?.close ?? defaultLocale.global?.close ?? 'Close'),
     })
     return () => {
@@ -187,8 +182,6 @@ export function useInternalNotification(
         open: originOpen,
         prefixCls,
         notification,
-        classNames: originClassNames,
-        styles: originStyles,
         closeLabel,
       } = holderRef.value
       const contextClassName = notification?.class || {}
@@ -240,21 +233,10 @@ export function useInternalNotification(
 
       const semanticClassNames = resolveStyleOrClass(configClassNames, { props: config })
       const semanticStyles = resolveStyleOrClass(styles, { props: config })
-
-      const mergedClassNames = mergeClassNames(
-        undefined,
-        originClassNames,
-        semanticClassNames,
-      )
-
-      const mergedStyles = mergeStyles(
-        originStyles,
-        semanticStyles,
-      )
       const iconNode = resolveIconNode(icon, type)
       const iconWrapperClass = clsx(
         getIconWrapperClassName(noticePrefixCls, type, icon),
-        mergedClassNames.icon,
+        semanticClassNames?.icon,
       )
       return originOpen({
         // use placement from props instead of hard-coding "topRight"
@@ -267,24 +249,24 @@ export function useInternalNotification(
         role,
         classNames: {
           icon: iconWrapperClass,
-          title: mergedClassNames.title,
-          description: mergedClassNames.description,
-          actions: mergedClassNames.actions,
+          title: semanticClassNames?.title,
+          description: semanticClassNames?.description,
+          actions: semanticClassNames?.actions,
         },
         styles: {
-          icon: mergedStyles.icon,
-          title: mergedStyles.title,
-          description: mergedStyles.description,
-          actions: mergedStyles.actions,
+          icon: semanticStyles?.icon,
+          title: semanticStyles?.title,
+          description: semanticStyles?.description,
+          actions: semanticStyles?.actions,
         },
         class: clsx(
           { [`${noticePrefixCls}-${type}`]: type },
           { [`${noticePrefixCls}-with-icon`]: !!iconNode },
           className,
           contextClassName,
-          mergedClassNames.root,
+          semanticClassNames?.root,
         ),
-        style: { ...mergedStyles.root, ...style } as any,
+        style: { ...semanticStyles?.root, ...style } as any,
         closable: mergedClosable,
       } as any)
     }

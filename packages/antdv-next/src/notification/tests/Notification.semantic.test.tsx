@@ -1,6 +1,6 @@
 import type { NotificationInstance } from '../interface'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { defineComponent, nextTick } from 'vue'
+import { defineComponent, h, nextTick } from 'vue'
 import { useNotification } from '..'
 import ConfigProvider from '../../config-provider'
 import PurePanel from '../PurePanel'
@@ -317,6 +317,168 @@ describe('notification.semantic', () => {
 
       const title = document.querySelector('.ant-notification-notice-title')
       expect(title?.classList.contains('open-title')).toBe(true)
+
+      wrapper.unmount()
+    })
+
+    it('applies list and listContent semantics from useNotification config', async () => {
+      let api!: NotificationInstance
+      const App = defineComponent({
+        setup() {
+          const [notificationApi, contextHolder] = useNotification({
+            classes: {
+              list: 'hook-list',
+              listContent: 'hook-list-content',
+            },
+            styles: {
+              list: { margin: '12px' },
+              listContent: { padding: '14px' },
+            },
+          })
+          api = notificationApi
+          return () => contextHolder()
+        },
+      })
+
+      const wrapper = mount(App, { attachTo: document.body })
+      await waitForNotification()
+
+      api.open({ title: 'List Semantic', duration: 0 })
+      await waitForNotification()
+
+      const list = document.querySelector('.hook-list')
+      const listContent = document.querySelector('.hook-list-content')
+      expect(list).toBeTruthy()
+      expect((list as HTMLElement).style.margin).toBe('12px')
+      expect(listContent).toBeTruthy()
+      expect((listContent as HTMLElement).style.padding).toBe('14px')
+
+      wrapper.unmount()
+    })
+
+    it('applies list and listContent semantics from ConfigProvider', async () => {
+      let api!: NotificationInstance
+      const Consumer = defineComponent({
+        setup() {
+          const [notificationApi, contextHolder] = useNotification()
+          api = notificationApi
+          return () => contextHolder()
+        },
+      })
+
+      const wrapper = mount(ConfigProvider, {
+        props: {
+          notification: {
+            classes: {
+              list: 'provider-list',
+              listContent: 'provider-list-content',
+            },
+            styles: {
+              list: { margin: '16px' },
+              listContent: { padding: '18px' },
+            },
+          },
+        },
+        slots: {
+          default: () => h(Consumer),
+        },
+        attachTo: document.body,
+      })
+      await waitForNotification()
+
+      api.open({ title: 'Provider List Semantic', duration: 0 })
+      await waitForNotification()
+
+      const list = document.querySelector('.provider-list')
+      const listContent = document.querySelector('.provider-list-content')
+      expect(list).toBeTruthy()
+      expect((list as HTMLElement).style.margin).toBe('16px')
+      expect(listContent).toBeTruthy()
+      expect((listContent as HTMLElement).style.padding).toBe('18px')
+
+      wrapper.unmount()
+    })
+
+    it('keeps holder semantic styles when open has no styles', async () => {
+      let api!: NotificationInstance
+      const App = defineComponent({
+        setup() {
+          const [notificationApi, contextHolder] = useNotification({
+            classes: {
+              icon: 'holder-style-icon',
+              title: 'holder-style-title',
+            },
+            styles: {
+              icon: { color: 'red' },
+              title: { color: 'blue' },
+            },
+          })
+          api = notificationApi
+          return () => contextHolder()
+        },
+      })
+
+      const wrapper = mount(App, { attachTo: document.body })
+      await waitForNotification()
+
+      api.open({
+        title: 'Holder Styles',
+        type: 'info',
+        duration: 0,
+      })
+      await waitForNotification()
+
+      const icon = document.querySelector('.ant-notification-notice-icon')
+      expect(icon?.classList.contains('holder-style-icon')).toBe(true)
+      expect((icon as HTMLElement).style.color).toBe('red')
+
+      const title = document.querySelector('.ant-notification-notice-title')
+      expect(title?.classList.contains('holder-style-title')).toBe(true)
+      expect((title as HTMLElement).style.color).toBe('blue')
+
+      wrapper.unmount()
+    })
+    it('does not duplicate holder semantic classes on notices', async () => {
+      let api!: NotificationInstance
+      const App = defineComponent({
+        setup() {
+          const [notificationApi, contextHolder] = useNotification({
+            classes: {
+              root: 'hook-root',
+              icon: 'hook-icon',
+              title: 'hook-title',
+              description: 'hook-description',
+            },
+          })
+          api = notificationApi
+          return () => contextHolder()
+        },
+      })
+
+      const wrapper = mount(App, { attachTo: document.body })
+      await waitForNotification()
+
+      api.open({
+        title: 'No duplicate classes',
+        description: 'Desc',
+        type: 'info',
+        duration: 0,
+        classes: {
+          root: 'open-root',
+        },
+      })
+      await waitForNotification()
+
+      for (const selector of [
+        '.ant-notification-notice',
+        '.ant-notification-notice-icon',
+        '.ant-notification-notice-title',
+        '.ant-notification-notice-description',
+      ]) {
+        const className = document.querySelector(selector)?.getAttribute('class') ?? ''
+        const tokens = className.split(/\s+/).filter(Boolean)
+        expect(new Set(tokens).size).toBe(tokens.length)
+      }
 
       wrapper.unmount()
     })
