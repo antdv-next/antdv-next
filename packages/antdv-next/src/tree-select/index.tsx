@@ -173,7 +173,6 @@ export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = 
    */
   showArrow?: boolean
   /**
-   * @since 5.13.0
    * @default "outlined"
    */
   variant?: Variant

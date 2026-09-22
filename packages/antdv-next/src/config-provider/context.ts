@@ -154,14 +154,12 @@ export interface ThemeConfig {
    * @descCN 是否开启 `hashed` 属性。如果你的应用中只存在一个版本的 antd，你可以设置为 `false` 来进一步减小样式体积。
    * @descEN Whether to enable the `hashed` attribute. If there is only one version of antd in your application, you can set `false` to reduce the bundle size.
    * @default true
-   * @since 5.0.0
    */
   hashed?: boolean
   /**
    * @descCN 通过 `cssVar` 配置来开启 CSS 变量模式，这个配置会被继承。
    * @descEN Enable CSS variable mode through `cssVar` configuration, This configuration will be inherited.
    * @default false
-   * @since 5.12.0
    */
   /*
    * `true` only (not `boolean`): CSS variables are always on in v6 —
@@ -185,7 +183,6 @@ export interface ThemeConfig {
    * @descCN 开启零运行时模式，不会在运行时产生样式，需要手动引入 CSS 文件。
    * @descEN Enable zero-runtime mode, which will not generate style at runtime, need to import additional CSS file.
    * @default true
-   * @since 6.0.0
    * @example
    * ```tsx
    * import { ConfigProvider } from 'antd';

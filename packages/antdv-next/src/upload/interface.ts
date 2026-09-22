@@ -136,9 +136,6 @@ export interface UploadProps<T = any> {
   customRequest?: (
     options: VcCustomRequestOptions<T>,
     info: {
-      /**
-       * @since 5.28.0
-       */
       defaultRequest: (option: VcCustomRequestOptions<T>) => void
     },
   ) => void

@@ -179,7 +179,7 @@ export function useInternalNotification(
         warning(
           false,
           'usage',
-          'You are calling notice in render which will break in React 18 concurrent mode. Please trigger in effect instead.',
+          'You are calling notice in render which will not take effect. Please trigger in effect instead.',
         )
         return
       }

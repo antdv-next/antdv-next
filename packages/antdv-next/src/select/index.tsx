@@ -65,7 +65,6 @@ export interface InternalSelectProps
    */
   showArrow?: boolean
   /**
-   * @since 5.13.0
    * @default "outlined"
    */
   variant?: Variant

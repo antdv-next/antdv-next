@@ -107,7 +107,7 @@ export default function usePreviewConfig<T extends PreviewConfig | GroupPreviewC
         // @ts-expect-error this is dev only
         !isVNode(rawPreviewConfig.value?.mask),
         'deprecated',
-        '`mask` used as ReactNode is deprecated. Please use `cover` instead.',
+        '`mask` used as VueNode is deprecated. Please use `cover` instead.',
       )
       warning(
         !('forceRender' in rawPreviewConfig.value),

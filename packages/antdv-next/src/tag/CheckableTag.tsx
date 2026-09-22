@@ -17,9 +17,6 @@ export interface CheckableTagProps extends ComponentBaseProps,
    * .zh-cn 该组件为完全受控组件，不支持非受控用法。
    */
   checked: boolean
-  /**
-   * @since 5.27.0
-   */
   icon?: VueNode
   disabled?: boolean
 }

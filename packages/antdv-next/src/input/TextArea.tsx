@@ -80,7 +80,6 @@ export interface TextAreaProps
   bordered?: boolean
   size?: SizeType
   status?: InputStatus
-  /** @since 5.13.0 */
   variant?: Variant
   classes?: TextAreaClassNamesType
   styles?: TextAreaStylesType

@@ -38,7 +38,6 @@ export interface UploadRef<T = any> {
   upload: any | null
   /**
    * Get native element for wrapping upload
-   * @since 5.17.0
    */
   nativeElement: HTMLSpanElement | null
 }
