@@ -1551,7 +1551,7 @@ exports[`card demo > renders component-token correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-tabs ant-tabs-top ant-tabs-large css-var-v-0 ant-tabs-css-var ant-card-head-size"
+        class="ant-tabs ant-tabs-top ant-tabs-large css-var-v-0 ant-tabs-css-var ant-card-head-tabs"
       >
         <div
           aria-orientation="horizontal"
@@ -2960,7 +2960,7 @@ exports[`card demo > renders tabs correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-tabs ant-tabs-top ant-tabs-large css-var-root ant-tabs-css-var ant-card-head-size"
+        class="ant-tabs ant-tabs-top ant-tabs-large css-var-root ant-tabs-css-var ant-card-head-tabs"
       >
         <div
           aria-orientation="horizontal"
@@ -3097,7 +3097,7 @@ exports[`card demo > renders tabs correctly 1`] = `
         <!---->
       </div>
       <div
-        class="ant-tabs ant-tabs-top css-var-root ant-tabs-css-var ant-card-head-size"
+        class="ant-tabs ant-tabs-top css-var-root ant-tabs-css-var ant-card-head-tabs"
       >
         <div
           aria-orientation="horizontal"
