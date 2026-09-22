@@ -250,7 +250,7 @@ const Card = defineComponent<
             <Tabs
               size={tabSize}
               {...extraProps}
-              class={`${prefixCls.value}-head-size`}
+              class={`${prefixCls.value}-head-tabs`}
               {
                 ... {
                   'onUpdate:activeKey': (key: string) => {
