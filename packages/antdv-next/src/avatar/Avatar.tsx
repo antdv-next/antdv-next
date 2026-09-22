@@ -10,6 +10,7 @@ import { computed, defineComponent, isVNode, nextTick, onMounted, shallowRef, wa
 import { getAttrStyleAndClass } from '../_util/hooks'
 import { isRenderable } from '../_util/is'
 import { responsiveArray } from '../_util/responsiveObserver'
+import { normalizeStyle } from '../_util/styleUtils'
 import { getSlotPropsFnRun } from '../_util/tools.ts'
 import { useComponentBaseConfig } from '../config-provider/context'
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
@@ -259,7 +260,7 @@ const Avatar = defineComponent<
       return (
         <span
           {...restAttrs}
-          style={{ ...sizeStyle, ...responsiveSizeStyle, ...contextStyle.value, ...style }}
+          style={{ ...sizeStyle, ...responsiveSizeStyle, ...(normalizeStyle(contextStyle.value) || {}), ...(normalizeStyle(style) || {}) }}
           class={classString}
           onClick={handleClick}
           ref={avatarNodeRef}

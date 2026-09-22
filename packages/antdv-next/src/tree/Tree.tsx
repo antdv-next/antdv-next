@@ -16,6 +16,7 @@ import {
   useToProps,
 } from '../_util/hooks'
 import initCollapseMotion from '../_util/motion.ts'
+import { normalizeStyle } from '../_util/styleUtils'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { devUseWarning, isDev } from '../_util/warning'
 import { useComponentBaseConfig } from '../config-provider/context.ts'
@@ -525,7 +526,7 @@ const Tree = defineComponent<
             cssVarCls.value,
           )}
           tabIndex={tabindex}
-          style={{ ...contextStyle.value, ...style }}
+          style={{ ...(normalizeStyle(contextStyle.value) || {}), ...(normalizeStyle(style) || {}) }}
           rootClassName={clsx(mergedClassNames.value?.root, rootClass)}
           rootStyle={mergedStyles.value?.root}
           classNames={mergedClassNames.value}

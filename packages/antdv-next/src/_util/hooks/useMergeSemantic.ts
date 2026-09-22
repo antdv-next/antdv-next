@@ -3,6 +3,7 @@ import type { AnyObject, EmptyObject, ValidChar } from '../type'
 import { classNames as clsx } from '@v-c/util'
 import { omit } from 'es-toolkit'
 import { computed, unref } from 'vue'
+import { normalizeStyle } from '../styleUtils'
 
 export type SemanticSchema = { _default?: string } & {
   [key: `${ValidChar}${string}`]: SemanticSchema
@@ -73,10 +74,13 @@ function useSemanticClassNames<ClassNamesType extends AnyObject>(schema?: Semant
 // =========================== Styles ===========================
 export function mergeStyles<StylesType extends AnyObject>(...styles: (Partial<StylesType> | undefined)[]) {
   return styles
+    // A user `style` prop may be a string/array (Vue passes those through
+    // untouched); normalize so merging never produces numeric-indexed keys.
+    .map(s => (s ? normalizeStyle(s as any) : s))
     .filter(Boolean)
     .reduce<Record<PropertyKey, CSSProperties>>((acc, cur = {}) => {
       Object.keys(cur).forEach((key) => {
-        acc[key] = { ...acc[key], ...cur[key] }
+        acc[key] = { ...acc[key], ...(normalizeStyle((cur as any)[key]) || {}) }
       })
       return acc
     }, {})
@@ -235,7 +239,9 @@ export function pureAttrs(attrs: Record<string, any>, options: RemoveBaseAttribu
 export function getAttrStyleAndClass(attrs: Record<string, any>, options?: RemoveBaseAttributesOptions, props?: Record<string, any>) {
   return {
     className: attrs.class ?? props?.class,
-    style: attrs.style ?? props?.style,
+    // Normalize so callers can safely spread the style (a user `style` may be
+    // a string/array, which Vue passes through untouched).
+    style: normalizeStyle(attrs.style ?? props?.style),
     restAttrs: pureAttrs(attrs, options),
   } as { className: any, style: any, restAttrs: Record<string, any> }
 }
