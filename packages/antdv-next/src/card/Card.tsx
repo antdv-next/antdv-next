@@ -201,7 +201,6 @@ const Card = defineComponent<
         activeTabKey,
         tabProps,
         defaultActiveTabKey,
-        tabBarExtraContent,
         tabList,
         headStyle,
         bodyStyle,
@@ -228,13 +227,12 @@ const Card = defineComponent<
         </Skeleton>
       )
       const hasActiveTabKey = activeTabKey !== undefined
-      const tabBarExtraContentSlot = typeof tabBarExtraContent === 'object' && tabBarExtraContent ? tabBarExtraContent : getSlotPropsFnRun(slots, props, 'tabBarExtraContent')
       const extraProps = {
         ...tabProps,
         [hasActiveTabKey ? 'activeKey' : 'defaultActiveKey']: hasActiveTabKey
           ? activeTabKey
           : defaultActiveTabKey,
-        tabBarExtraContent: tabBarExtraContentSlot,
+        tabBarExtraContent: getSlotPropsFnRun(slots, props, 'tabBarExtraContent'),
       }
 
       let head: any
