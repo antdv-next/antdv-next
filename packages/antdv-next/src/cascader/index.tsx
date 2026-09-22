@@ -188,7 +188,6 @@ export interface CascaderProps<
   /** @deprecated Please use `styles.popup.listItem` instead */
   popupMenuColumnStyle?: CSSProperties
   /**
-   * @since 5.13.0
    * @default "outlined"
    */
   variant?: Variant

@@ -88,7 +88,6 @@ export interface MentionProps extends
   options?: MentionsOptionProps[]
   popupClassName?: string
   /**
-   * @since 5.13.0
    * @default "outlined"
    */
   variant?: Variant

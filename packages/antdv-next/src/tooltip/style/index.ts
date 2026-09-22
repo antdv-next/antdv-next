@@ -17,7 +17,6 @@ import { genCssVar } from '../../theme/util/genStyleUtils'
 
 export interface ComponentToken extends ArrowOffsetToken, ArrowToken {
   /**
-   * @since 6.2.0
    * @desc 文字提示最大宽度
    * @descEN Max width of tooltip
    */

@@ -62,9 +62,6 @@ export interface CollapseProps extends
   defaultActiveKey?: Array<string | number> | string | number
   /** 手风琴效果 */
   accordion?: boolean
-  /**
-   * @since 5.25.0
-   */
   destroyOnHidden?: boolean
   rootClass?: string
   bordered?: boolean

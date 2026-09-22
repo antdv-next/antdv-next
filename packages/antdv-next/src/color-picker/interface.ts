@@ -31,13 +31,11 @@ export interface PresetsItem {
   colors: (string | AggregationColor)[]
   /**
    * Whether the initial state is collapsed
-   * @since 5.11.0
    * @default true
    */
   defaultOpen?: boolean
   /**
    * The key of the panel
-   * @since 5.23.0
    */
   key?: Key
 }

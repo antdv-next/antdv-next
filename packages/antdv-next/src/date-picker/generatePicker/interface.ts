@@ -145,7 +145,6 @@ export type InjectDefaultProps<Props> = Omit<
   bordered?: boolean
   status?: InputStatus
   /**
-   * @since 5.13.0
    * @default "outlined"
    */
   variant?: Variant
@@ -175,7 +174,6 @@ export interface BaseDefaultProps<Props> {
   bordered?: boolean
   status?: InputStatus
   /**
-   * @since 5.13.0
    * @default "outlined"
    */
   variant?: Variant

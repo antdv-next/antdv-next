@@ -50,9 +50,6 @@ export interface DrawerProps
   afterOpenChange?: (open: boolean) => void
   /** @deprecated Please use `destroyOnHidden` instead */
   destroyOnClose?: boolean
-  /**
-   * @since 5.25.0
-   */
   destroyOnHidden?: boolean
   mask?: MaskType
   /** @deprecated Please use `mask.closable` instead */

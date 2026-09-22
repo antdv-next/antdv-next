@@ -51,7 +51,6 @@ export interface DividerProps extends ComponentBaseProps {
   orientationMargin?: string | number
   dashed?: boolean
   /**
-   * @since 5.20.0
    * @default solid
    */
   variant?: 'dashed' | 'dotted' | 'solid'

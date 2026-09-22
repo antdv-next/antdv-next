@@ -49,12 +49,10 @@ export interface SwitchProps extends ComponentBaseProps,
   defaultChecked?: CheckedValueType
   /**
    * Alias for `checked`.
-   * @since 5.12.0
    */
   value?: CheckedValueType
   /**
    * Alias for `defaultChecked`.
-   * @since 5.12.0
    */
   defaultValue?: CheckedValueType
   /**

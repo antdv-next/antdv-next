@@ -146,7 +146,6 @@ export interface ColumnType<RecordType = AnyObject>
   onFilter?: (value: Key | boolean, record: RecordType) => boolean
   /**
    * Can cover `<Dropdown>` props
-   * @since 5.22.0
    */
   filterDropdownProps?: CoverableDropdownProps
   filterResetToDefaultFilteredValue?: boolean
@@ -157,12 +156,10 @@ export interface ColumnType<RecordType = AnyObject>
   // Deprecated
   /**
    * @deprecated Please use `filterDropdownProps.open` instead.
-   * @since 4.23.0
    */
   filterDropdownOpen?: boolean
   /**
    * @deprecated Please use `filterDropdownProps.onOpenChange` instead.
-   * @since 4.23.0
    */
   onFilterDropdownOpenChange?: (open: boolean) => void
 }

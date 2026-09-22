@@ -97,9 +97,6 @@ export interface ModalProps extends ModalCommonProps {
   cancelButtonProps?: ButtonProps
   /** @deprecated Please use `destroyOnHidden` instead */
   destroyOnClose?: boolean
-  /**
-   * @since 5.25.0
-   */
   destroyOnHidden?: boolean
   wrapClassName?: string
   maskTransitionName?: string
@@ -127,9 +124,6 @@ export interface ModalProps extends ModalCommonProps {
   modalRender?: (node: any) => any
   focusTriggerAfterClose?: boolean
   mousePosition?: MousePosition
-  /**
-   * @since 5.18.0
-   */
   loading?: boolean
   focusable?: FocusableConfig
 }
