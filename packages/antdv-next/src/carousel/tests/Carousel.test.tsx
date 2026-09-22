@@ -149,7 +149,10 @@ describe('carousel', () => {
       props: { effect: 'fade' },
       slots: { default: () => createSlides() },
     })
-    expect(wrapper.find('.slick-slider').exists()).toBe(true)
+    const slickSlider = wrapper.find('.slick-slider')
+    expect(slickSlider.exists()).toBe(true)
+    // `effect` must not leak into the DOM through attrs fallthrough
+    expect(slickSlider.attributes('effect')).toBeUndefined()
   })
 
   // ============ RTL tests ============
