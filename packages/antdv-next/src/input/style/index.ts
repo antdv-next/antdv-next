@@ -440,7 +440,6 @@ export const genAffixStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
     motionDurationSlow,
     colorIcon,
     colorIconHover,
-    iconCls,
   } = token
 
   const affixCls = `${componentCls}-affix-wrapper`
@@ -510,20 +509,21 @@ export const genAffixStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
         '&-suffix': {
           marginInlineStart: inputAffixPadding,
         },
+
+        // password
+        '&-password-icon': {
+          display: 'inline-flex',
+          color: colorIcon,
+          cursor: 'pointer',
+          transition: `all ${motionDurationSlow}`,
+
+          '&:hover': {
+            color: colorIconHover,
+          },
+        },
       },
 
       ...genAllowClearStyle(token),
-
-      // password
-      [`${iconCls}${componentCls}-password-icon`]: {
-        color: colorIcon,
-        cursor: 'pointer',
-        transition: `all ${motionDurationSlow}`,
-
-        '&:hover': {
-          color: colorIconHover,
-        },
-      },
     },
 
     // 覆盖 affix-wrapper borderRadius！
@@ -533,7 +533,7 @@ export const genAffixStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
 
     [affixClsDisabled]: {
       // password disabled
-      [`${iconCls}${componentCls}-password-icon`]: {
+      [`${componentCls}-password-icon`]: {
         color: colorIcon,
         cursor: 'not-allowed',
 
