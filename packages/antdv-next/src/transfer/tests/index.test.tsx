@@ -326,6 +326,66 @@ describe('transfer', () => {
     expect(handleSelectChange).toHaveBeenLastCalledWith(['a'], [])
   })
 
+  it('only shift selects items matching the current filter', async () => {
+    const handleSelectChange = vi.fn()
+    const dataSource = [
+      { key: 'a', title: 'Apple 1' },
+      { key: 'b', title: 'Banana' },
+      { key: 'c', title: 'Apple 2', disabled: true },
+      { key: 'd', title: 'Apple 3' },
+    ]
+    const wrapper = mount(Transfer, {
+      props: {
+        dataSource,
+        showSearch: true,
+        targetKeys: [],
+        onSelectChange: handleSelectChange,
+        render: item => item.title,
+      },
+    })
+
+    const search = wrapper.element.querySelectorAll('.ant-transfer-list-search input')[0] as HTMLInputElement
+    await setInputValue(search, 'Apple')
+    expect(getTransferItemByTitle(wrapper, 'Banana')).toBeNull()
+
+    clickElement(getTransferItemByTitle(wrapper, 'Apple 1'))
+    clickElement(getTransferItemByTitle(wrapper, 'Apple 3'), { shiftKey: true })
+
+    expect(handleSelectChange).toHaveBeenLastCalledWith(['a', 'd'], [])
+  })
+
+  it('resets shift selection range when search changes or clears', async () => {
+    const handleSelectChange = vi.fn()
+    const dataSource = [
+      { key: 'a', title: 'Banana' },
+      { key: 'b', title: 'Apple 1' },
+      { key: 'c', title: 'Apple 2' },
+      { key: 'd', title: 'Apple 3' },
+    ]
+    const wrapper = mount(Transfer, {
+      props: {
+        dataSource,
+        showSearch: true,
+        targetKeys: [],
+        onSelectChange: handleSelectChange,
+        render: item => item.title,
+      },
+    })
+
+    clickElement(getTransferItemByTitle(wrapper, 'Banana'))
+    const search = wrapper.element.querySelector('.ant-transfer-list-search input') as HTMLInputElement
+    await setInputValue(search, 'Apple')
+    clickElement(getTransferItemByTitle(wrapper, 'Apple 3'), { shiftKey: true })
+
+    expect(handleSelectChange).toHaveBeenLastCalledWith(['a', 'd'], [])
+
+    const clearIcon = wrapper.element.querySelector('.ant-transfer-section .ant-input-clear-icon')
+    clickElement(clearIcon)
+    await nextTick()
+    clickElement(getTransferItemByTitle(wrapper, 'Apple 1'), { shiftKey: true })
+
+    expect(handleSelectChange).toHaveBeenLastCalledWith(['a', 'd', 'b'], [])
+  })
   it('multiple select targetKeys by hold down the shift key', () => {
     const handleSelectChange = vi.fn()
     const wrapper = mount(Transfer, {

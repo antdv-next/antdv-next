@@ -146,7 +146,7 @@ export interface TransferListProps<RecordType> extends TransferLocale {
   filterOption?: (filterText: string, item: RecordType, direction: TransferDirection) => boolean
   checkedKeys: TransferKey[]
   handleFilter: (e: Event) => void
-  onItemSelect: (key: TransferKey, check: boolean, e?: MouseEvent) => void
+  onItemSelect: (key: TransferKey, check: boolean, e?: MouseEvent, filteredItems?: RecordType[]) => void
   onItemSelectAll: (dataSource: TransferKey[], checkAll: boolean | 'replace') => void
   onItemRemove?: (keys: TransferKey[]) => void
   handleClear: () => void

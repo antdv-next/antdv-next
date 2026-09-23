@@ -70,7 +70,7 @@ const TransferListBody = defineComponent<
     })
 
     const onInternalClick = (item: KeyWiseTransferItem, e: MouseEvent) => {
-      props.onItemSelect(item.key, !props.selectedKeys.includes(item.key), e)
+      props.onItemSelect(item.key, !props.selectedKeys.includes(item.key), e, props.filteredItems)
     }
 
     const onRemove = (item: KeyWiseTransferItem) => {
