@@ -74,19 +74,19 @@ const TourPanel = defineComponent<
 
       const isLastStep = current === total - 1
 
-      const prevBtnClick = () => {
+      const prevBtnClick: ButtonProps['onClick'] = (e) => {
         onPrev?.()
-        prevButtonProps?.onClick?.()
+        prevButtonProps?.onClick?.(e)
       }
 
-      const nextBtnClick = () => {
+      const nextBtnClick: ButtonProps['onClick'] = (e) => {
         if (isLastStep) {
           onFinish?.()
         }
         else {
           onNext?.()
         }
-        nextButtonProps?.onClick?.()
+        nextButtonProps?.onClick?.(e)
       }
 
       const _title = getSlotPropsFnRun({}, { title }, 'title')
@@ -164,8 +164,16 @@ const TourPanel = defineComponent<
 
       // Exclude `children` from spread — it is extracted above for slot content
       // and must not leak as a DOM prop onto the <button> element.
-      const { children: _prevChildren, ...prevBtnRest } = prevButtonProps ?? {} as any
-      const { children: _nextChildren, ...nextBtnRest } = nextButtonProps ?? {} as any
+      const {
+        children: _prevChildren,
+        onClick: _prevOnClick,
+        ...prevBtnRest
+      } = prevButtonProps ?? {} as any
+      const {
+        children: _nextChildren,
+        onClick: _nextOnClick,
+        ...nextBtnRest
+      } = nextButtonProps ?? {} as any
 
       const defaultActionsNode = (
         <>

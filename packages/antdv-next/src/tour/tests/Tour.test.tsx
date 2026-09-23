@@ -556,6 +556,41 @@ describe('tour', () => {
 
   // =================== Button Props ===================
 
+  it.each([
+    ['Next', 0, 'next'],
+    ['Previous', 1, 'prev'],
+    ['Finish', 1, 'next'],
+  ] as const)('should pass click event to %s button callback', async (buttonName, current, type) => {
+    const onClick = vi.fn((event: MouseEvent) => event.currentTarget)
+    const steps: any[] = [
+      { title: 'First' },
+      { title: 'Second' },
+    ]
+    const buttonPropsKey = type === 'next' ? 'nextButtonProps' : 'prevButtonProps'
+    steps[current][buttonPropsKey] = { onClick }
+
+    mount(Tour, {
+      attachTo: document.body,
+      props: {
+        open: true,
+        current,
+        steps,
+      },
+    })
+    await flushTour()
+
+    const button = type === 'next' ? queryNextBtn() : queryPrevBtn()
+    button?.dispatchEvent(new MouseEvent('click', { bubbles: true, ctrlKey: true }))
+    await flushTour()
+
+    expect(onClick).toHaveBeenCalledTimes(1)
+    expect(onClick).toHaveBeenCalledWith(expect.objectContaining({
+      type: 'click',
+      ctrlKey: true,
+    }))
+    expect(onClick).toHaveReturnedWith(button)
+  })
+
   it('should call nextButtonProps.onClick on Next click', async () => {
     const onClick = vi.fn()
     mount(Tour, {

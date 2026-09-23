@@ -10,6 +10,7 @@ import type {
   SemanticStylesType,
 } from '../_util/hooks'
 import type { VueNode } from '../_util/type.ts'
+import type { ButtonProps } from '../button'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
 
 export type TourSemanticName = keyof TourSemanticClassNames & keyof TourSemanticStyles
@@ -96,13 +97,13 @@ export interface TourStepProps extends Omit<VcTourStepProps, 'className'> {
   cover?: VueNode
   nextButtonProps?: {
     children?: VueNode
-    onClick?: () => void
+    onClick?: ButtonProps['onClick']
     class?: string
     style?: CSSProperties
   }
   prevButtonProps?: {
     children?: VueNode
-    onClick?: () => void
+    onClick?: ButtonProps['onClick']
     class?: string
     style?: CSSProperties
   }
