@@ -460,8 +460,7 @@ const InternalCascader = defineComponent<
         showSuffixIcon,
         suffixIcon: mergedSuffixIcon,
         removeIcon: (rest as any).removeIcon ?? contextRemoveIcon.value,
-        clearIcon: ((rest as any).allowClear && typeof (rest as any).allowClear === 'object' && (rest as any).allowClear.clearIcon)
-          || contextClearIcon.value,
+        clearIcon: (rest as any).clearIcon ?? contextClearIcon.value,
         prefixCls: prefixCls.value,
         componentName: 'Cascader',
       } as any)
