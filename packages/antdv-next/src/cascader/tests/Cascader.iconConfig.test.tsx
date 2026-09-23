@@ -1,6 +1,7 @@
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import { h } from 'vue'
 import Cascader, { CascaderPanel } from '..'
+import { resetWarned } from '../../_util/warning'
 import ConfigProvider from '../../config-provider'
 import { mount } from '/@tests/utils'
 
@@ -70,6 +71,33 @@ describe('cascader ConfigProvider icons', () => {
       },
     })
     expect(wrapper.find('.cfg-clear').exists()).toBe(true)
+  })
+
+  it('top-level clearIcon wins over ConfigProvider and warns deprecated', () => {
+    resetWarned()
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
+    const wrapper = mount(ConfigProvider, {
+      props: {
+        cascader: { clearIcon: h('span', { class: 'cfg-clear' }, '×') },
+      },
+      slots: {
+        default: () =>
+          h(Cascader, {
+            options,
+            value: ['zj', 'hz'],
+            clearIcon: h('span', { class: 'inline-clear' }, '×'),
+          }),
+      },
+    })
+    expect(wrapper.find('.inline-clear').exists()).toBe(true)
+    expect(wrapper.find('.cfg-clear').exists()).toBe(false)
+    expect(errSpy).toHaveBeenCalledWith(
+      expect.stringContaining(
+        'Warning: [antd: Cascader] `clearIcon` is deprecated. Please use `allowClear={{ clearIcon: VueNode }}` instead.',
+      ),
+    )
+    errSpy.mockRestore()
+    wrapper.unmount()
   })
 
   it('uses ConfigProvider.cascader.removeIcon for multi-select tag remove buttons', () => {
