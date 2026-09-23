@@ -180,7 +180,7 @@ const InternalBadge = defineComponent<
         return undefined
       }
 
-      const horizontalOffset = Number.parseInt(props.offset[0] as string, 10)
+      const horizontalOffset = Number.parseFloat(props.offset[0] as string)
 
       return {
         marginTop: formatUnit(props.offset[1]),
