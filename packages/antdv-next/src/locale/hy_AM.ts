@@ -5,7 +5,15 @@ const datePickerLocale: PickerLocale = {
   lang: {
     locale: 'hy-am',
     placeholder: 'Ընտրեք ամսաթիվը',
+    yearPlaceholder: 'Ընտրեք տարին',
+    quarterPlaceholder: 'Ընտրեք եռամսյակը',
+    monthPlaceholder: 'Ընտրեք ամիսը',
+    weekPlaceholder: 'Ընտրեք շաբաթը',
     rangePlaceholder: ['Մեկնարկի ամսաթիվ', 'Ավարտի ամսաթիվը'],
+    rangeYearPlaceholder: ['Մեկնարկի տարին', 'Ավարտի տարին'],
+    rangeQuarterPlaceholder: ['Մեկնարկի եռամսյակը', 'Ավարտի եռամսյակը'],
+    rangeMonthPlaceholder: ['Մեկնարկի ամիսը', 'Ավարտի ամիսը'],
+    rangeWeekPlaceholder: ['Մեկնարկի շաբաթը', 'Ավարտի շաբաթը'],
     today: 'Այսօր',
     now: 'Հիմա',
     backToToday: 'Վերադառնալ այսօր',
@@ -34,6 +42,7 @@ const datePickerLocale: PickerLocale = {
   },
   timePickerLocale: {
     placeholder: 'Ընտրեք ժամը',
+    rangePlaceholder: ['Մեկնարկի ժամը', 'Ավարտի ժամը'],
   },
 }
 
@@ -57,6 +66,7 @@ const localeValues: Locale = {
   DatePicker: datePickerLocale,
   TimePicker: {
     placeholder: 'Ընտրեք ժամը',
+    rangePlaceholder: ['Մեկնարկի ժամը', 'Ավարտի ժամը'],
   },
   Calendar: datePickerLocale,
   global: {
@@ -140,6 +150,10 @@ const localeValues: Locale = {
     transparent: 'Թափանցիկ',
     singleColor: 'Մեկ գույն',
     gradientColor: 'Գրադիենտ գույն',
+  },
+  Carousel: {
+    prevSlide: 'Նախորդ սլայդը',
+    nextSlide: 'Հաջորդ սլայդը',
   },
 }
 

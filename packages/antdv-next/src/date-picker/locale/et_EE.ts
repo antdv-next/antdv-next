@@ -8,6 +8,14 @@ const locale: PickerLocale = {
   lang: {
     placeholder: 'Vali kuupäev',
     rangePlaceholder: ['Algus kuupäev', 'Lõpu kuupäev'],
+    yearPlaceholder: 'Vali aasta',
+    quarterPlaceholder: 'Vali kvartal',
+    monthPlaceholder: 'Vali kuu',
+    weekPlaceholder: 'Vali nädal',
+    rangeYearPlaceholder: ['Algus aasta', 'Lõpu aasta'],
+    rangeQuarterPlaceholder: ['Algus kvartal', 'Lõpu kvartal'],
+    rangeMonthPlaceholder: ['Algus kuu', 'Lõpu kuu'],
+    rangeWeekPlaceholder: ['Algus nädal', 'Lõpu nädal'],
     ...CalendarLocale,
   },
   timePickerLocale: {

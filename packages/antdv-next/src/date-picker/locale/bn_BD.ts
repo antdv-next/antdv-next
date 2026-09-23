@@ -15,6 +15,7 @@ const locale: PickerLocale = {
     rangeYearPlaceholder: ['শুরুর বছর', 'শেষ বছর'],
     rangeMonthPlaceholder: ['শুরুর মাস', 'শেষ মাস'],
     rangeWeekPlaceholder: ['শুরুর সপ্তাহ', 'শেষ সপ্তাহ'],
+    rangeQuarterPlaceholder: ['শুরুর কোয়ার্টার', 'শেষ কোয়ার্টার'],
     ...CalendarLocale,
   },
   timePickerLocale: {

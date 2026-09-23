@@ -8,6 +8,14 @@ const locale: PickerLocale = {
   lang: {
     placeholder: 'Огноо сонгох',
     rangePlaceholder: ['Эхлэх огноо', 'Дуусах огноо'],
+    yearPlaceholder: 'Он сонгох',
+    quarterPlaceholder: 'Улирал сонгох',
+    monthPlaceholder: 'Сар сонгох',
+    weekPlaceholder: 'Долоо хоног сонгох',
+    rangeYearPlaceholder: ['Эхлэх он', 'Дуусах он'],
+    rangeQuarterPlaceholder: ['Эхлэх улирал', 'Дуусах улирал'],
+    rangeMonthPlaceholder: ['Эхлэх сар', 'Дуусах сар'],
+    rangeWeekPlaceholder: ['Эхлэх долоо хоног', 'Дуусах долоо хоног'],
     ...CalendarLocale,
   },
   timePickerLocale: {

@@ -15,6 +15,7 @@ const locale: PickerLocale = {
     rangeYearPlaceholder: ['آغاز سال', 'آخر سال'],
     rangeMonthPlaceholder: ['مہینہ شروع', 'اختتامی مہینہ'],
     rangeWeekPlaceholder: ['ہفتے شروع کریں', 'اختتام ہفتہ'],
+    rangeQuarterPlaceholder: ['آغاز کوارٹر', 'آخر کوارٹر'],
     ...CalendarLocale,
   },
   timePickerLocale: {

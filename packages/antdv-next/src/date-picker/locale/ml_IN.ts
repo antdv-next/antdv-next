@@ -15,6 +15,7 @@ const locale: PickerLocale = {
     rangeYearPlaceholder: ['ആരംഭ വർഷം', 'അവസാന വർഷം'],
     rangeMonthPlaceholder: ['ആരംഭ മാസം', 'അവസാന മാസം'],
     rangeWeekPlaceholder: ['ആരംഭ വാരം', 'അവസാന വാരം'],
+    rangeQuarterPlaceholder: ['ആരംഭ ത്രൈമാസം', 'അവസാന ത്രൈമാസം'],
     ...CalendarLocale,
   },
   timePickerLocale: {

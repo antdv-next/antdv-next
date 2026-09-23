@@ -14,6 +14,7 @@ const locale: PickerLocale = {
     rangeYearPlaceholder: ['საწყისი წელი', 'საბოლოო წელი'],
     rangeMonthPlaceholder: ['საწყისი თვე', 'საბოლოო თვე'],
     rangeWeekPlaceholder: ['საწყისი კვირა', 'საბოლოო კვირა'],
+    rangeQuarterPlaceholder: ['საწყისი მეოთხედი', 'საბოლოო მეოთხედი'],
     ...CalendarLocale,
   },
   timePickerLocale: {

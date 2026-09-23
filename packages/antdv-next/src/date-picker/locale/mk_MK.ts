@@ -8,6 +8,14 @@ const locale: PickerLocale = {
   lang: {
     placeholder: 'Избери датум',
     rangePlaceholder: ['Од датум', 'До датум'],
+    yearPlaceholder: 'Избери година',
+    quarterPlaceholder: 'Избери квартал',
+    monthPlaceholder: 'Избери месец',
+    weekPlaceholder: 'Избери недела',
+    rangeYearPlaceholder: ['Од година', 'До година'],
+    rangeQuarterPlaceholder: ['Од квартал', 'До квартал'],
+    rangeMonthPlaceholder: ['Од месец', 'До месец'],
+    rangeWeekPlaceholder: ['Од недела', 'До недела'],
     ...CalendarLocale,
   },
   timePickerLocale: {

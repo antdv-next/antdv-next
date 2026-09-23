@@ -84,6 +84,10 @@ const localeValues: Locale = {
     refresh: 'Refresh',
     scanned: 'Scanned',
   },
+  Carousel: {
+    prevSlide: 'Slayda berê',
+    nextSlide: 'Slayda pêş',
+  },
   ColorPicker: {
     presetEmpty: 'Empty',
     transparent: 'Transparent',

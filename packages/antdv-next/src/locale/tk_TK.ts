@@ -84,6 +84,10 @@ const localeValues: Locale = {
     expand: 'Ýygnamak',
     collapse: 'Apseykylmak',
   },
+  Carousel: {
+    prevSlide: 'Öňki slayd',
+    nextSlide: 'Indiki slayd',
+  },
   Form: {
     defaultValidateMessages: {
       default: '${label} meýdany barlanmady',
