@@ -13,13 +13,14 @@ import pickAttrs from '@v-c/util/dist/pickAttrs'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, shallowRef } from 'vue'
 import { useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
+import { normalizeStyle } from '../_util/styleUtils'
 import { toPropsRefs } from '../_util/tools.ts'
 import { devUseWarning, isDev } from '../_util/warning.ts'
 import { useComponentBaseConfig } from '../config-provider/context'
 import useLocale from '../locale/useLocale.ts'
 import { useToken } from '../theme/internal.ts'
-import QRcodeStatus from './QrcodeStatus.tsx'
 
+import QRcodeStatus from './QrcodeStatus.tsx'
 import useStyle from './style/index'
 
 export type {
@@ -173,7 +174,7 @@ const QRCode = defineComponent<
       const rootStyle: CSSProperties = {
         backgroundColor: bgColor,
         ...mergedStyles.value?.root,
-        ...style,
+        ...(normalizeStyle(style) || {}),
         width: _width,
         height: _height,
       }

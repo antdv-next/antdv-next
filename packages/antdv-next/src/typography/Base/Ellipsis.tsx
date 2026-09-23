@@ -2,6 +2,7 @@ import type { CSSProperties, SlotsType } from 'vue'
 import type { EmptyEmit, VueNode } from '../../_util/type'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { computed, defineComponent, nextTick, shallowRef, watch, watchEffect } from 'vue'
+import { normalizeStyle } from '../../_util/styleUtils'
 import toList from '../../_util/toList'
 import { getSlotPropsFnRun } from '../../_util/tools.ts'
 import { getTextNodeArr } from '../../_util/vueNode.ts'
@@ -43,7 +44,7 @@ const MeasureText = defineComponent<
           top: 0,
           pointerEvents: 'none',
           backgroundColor: 'rgba(255, 0, 0, 0.65)',
-          ...props.style,
+          ...(normalizeStyle(props.style) || {}),
         }}
       >
         {slots.default?.()}

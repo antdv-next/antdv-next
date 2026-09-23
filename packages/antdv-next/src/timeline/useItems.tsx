@@ -4,6 +4,7 @@ import type { TimelineItemType, TimelineMode, TimelineProps } from './Timeline'
 import { LoadingOutlined } from '@antdv-next/icons'
 import { classNames as clsx } from '@v-c/util'
 import { computed } from 'vue'
+import { normalizeStyle } from '../_util/styleUtils'
 import { genCssVar } from '../theme/util/genStyleUtils'
 
 export interface TimelineItemRenders {
@@ -62,7 +63,7 @@ function useItems(
         else {
           mergedStyle = {
             [varName('item-icon-dot-color')]: color,
-            ...style,
+            ...(normalizeStyle(style) || {}),
           }
         }
       }

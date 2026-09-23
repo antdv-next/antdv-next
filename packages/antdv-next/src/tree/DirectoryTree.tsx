@@ -4,9 +4,10 @@ import type { AntdTreeNodeAttribute, TreeEmits, TreeProps, TreeSlots } from './T
 import { FileOutlined, FolderOpenOutlined, FolderOutlined } from '@antdv-next/icons'
 import { conductExpandParent, convertDataToEntities, convertTreeToData } from '@v-c/tree'
 import { clsx } from '@v-c/util'
-import { filterEmpty, getAttrStyleAndClass } from '@v-c/util/dist/props-util'
+import { filterEmpty } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, shallowRef, watch } from 'vue'
+import { getAttrStyleAndClass } from '../_util/hooks'
 import { useComponentBaseConfig } from '../config-provider/context.ts'
 import Tree from './Tree.tsx'
 

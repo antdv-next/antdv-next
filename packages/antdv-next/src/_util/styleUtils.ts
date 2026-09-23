@@ -1,4 +1,4 @@
-import { camelize } from 'vue'
+import { normalizeStyle as vueNormalizeStyle } from 'vue'
 
 export function formatUnit(value: string | number | undefined | null): string | undefined {
   if (value === undefined || value === null) {
@@ -15,7 +15,7 @@ export function formatUnit(value: string | number | undefined | null): string | 
 
 /**
  * Normalize a user-provided `style` (string | object | array of them) into a
- * plain camelCase style object.
+ * plain style object.
  *
  * Vue passes string styles through `props.style` untouched (a string is a
  * legal vnode style, applied as `cssText`), so components that spread or
@@ -23,35 +23,17 @@ export function formatUnit(value: string | number | undefined | null): string | 
  * string produces numeric keys (`{0:'w', 1:'i', ...}`) which makes Vue's
  * `patchStyle` throw "Failed to set an indexed property [0] on
  * 'CSSStyleDeclaration'".
+ *
+ * Delegates to Vue's own `normalizeStyle`, which merges arrays (parsing each
+ * string entry with its parenthesis-aware cssText split, so values like
+ * `background-image: url("data:image/svg+xml;...")` stay intact). The only
+ * addition here is parsing a *top-level* string, which Vue intentionally
+ * leaves as-is because `patchStyle` can apply it directly as `cssText`.
  */
 export function normalizeStyle(style?: unknown): Record<PropertyKey, unknown> | undefined {
-  if (style === undefined || style === null || style === false) {
-    return undefined
+  const normalized = vueNormalizeStyle(style as any)
+  if (typeof normalized === 'string') {
+    return vueNormalizeStyle([normalized]) as Record<PropertyKey, unknown>
   }
-  if (typeof style === 'string') {
-    const ret: Record<PropertyKey, unknown> = {}
-    for (const item of style.split(';')) {
-      const idx = item.indexOf(':')
-      if (idx <= 0)
-        continue
-      const key = item.slice(0, idx).trim()
-      const val = item.slice(idx + 1).trim()
-      if (key && val)
-        ret[camelize(key)] = val
-    }
-    return ret
-  }
-  if (Array.isArray(style)) {
-    const ret: Record<PropertyKey, unknown> = {}
-    for (const item of style) {
-      const normalized = normalizeStyle(item)
-      if (normalized)
-        Object.assign(ret, normalized)
-    }
-    return ret
-  }
-  if (typeof style === 'object') {
-    return style as Record<PropertyKey, unknown>
-  }
-  return undefined
+  return normalized || undefined
 }

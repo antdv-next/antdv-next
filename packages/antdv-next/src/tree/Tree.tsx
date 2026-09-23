@@ -6,15 +6,9 @@ import type { VueNode } from '../_util/type.ts'
 import { HolderOutlined } from '@antdv-next/icons'
 import VcTree from '@v-c/tree'
 import { clsx } from '@v-c/util'
-import { getAttrStyleAndClass } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, shallowRef } from 'vue'
-import {
-  useMergeSemantic,
-  useSemanticRootStyle,
-  useToArr,
-  useToProps,
-} from '../_util/hooks'
+import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import initCollapseMotion from '../_util/motion.ts'
 import { normalizeStyle } from '../_util/styleUtils'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'

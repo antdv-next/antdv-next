@@ -344,7 +344,7 @@ describe('avatar.Group', () => {
     // 2 visible + 1 "+2" avatar
     const avatars = wrapper.findAll('.ant-avatar')
     expect(avatars.length).toBe(3)
-    expect(avatars[2].text()).toBe('+2')
+    expect(avatars[2]!.text()).toBe('+2')
   })
 
   it('should match group snapshot', () => {

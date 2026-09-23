@@ -10,16 +10,10 @@ import type { AntTreeNodeProps, TreeProps } from '../tree'
 import type { SwitcherIcon } from '../tree/Tree'
 import VcTreeSelect, { SHOW_ALL, SHOW_CHILD, SHOW_PARENT, TreeNode } from '@v-c/tree-select'
 import { clsx } from '@v-c/util'
-import { getAttrStyleAndClass } from '@v-c/util/dist/props-util'
 import { getTransitionName } from '@v-c/util/dist/utils/transition'
 import { omit } from 'es-toolkit/compat'
 import { computed, defineComponent, shallowRef } from 'vue'
-import {
-  useMergeSemantic,
-  useToArr,
-  useToProps,
-  useZIndex,
-} from '../_util/hooks'
+import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps, useZIndex } from '../_util/hooks'
 import genPurePanel from '../_util/PurePanel.tsx'
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'

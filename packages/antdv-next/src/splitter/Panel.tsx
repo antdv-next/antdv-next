@@ -1,6 +1,7 @@
 import type { InternalPanelProps, PanelProps } from './interface'
 import { clsx } from '@v-c/util'
 import { defineComponent } from 'vue'
+import { normalizeStyle } from '../_util/styleUtils'
 
 export const InternalPanel = defineComponent<InternalPanelProps>(
   (props, { slots, attrs }) => {
@@ -24,7 +25,7 @@ export const InternalPanel = defineComponent<InternalPanelProps>(
           {...attrs}
           class={panelClassName}
           style={{
-            ...style,
+            ...(normalizeStyle(style) || {}),
             // Use auto when start from ssr
             flexBasis: hasSize ? (typeof size === 'number' ? `${size}px` : size) : 'auto',
             flexGrow: hasSize ? 0 : 1,
