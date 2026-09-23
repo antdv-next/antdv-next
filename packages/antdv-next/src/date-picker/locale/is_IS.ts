@@ -8,6 +8,14 @@ const locale: PickerLocale = {
   lang: {
     placeholder: 'Veldu dag',
     rangePlaceholder: ['Upphafsdagur', 'Lokadagur'],
+    yearPlaceholder: 'Veldu ár',
+    quarterPlaceholder: 'Veldu fjórðung',
+    monthPlaceholder: 'Veldu mánuð',
+    weekPlaceholder: 'Veldu viku',
+    rangeYearPlaceholder: ['Upphafsár', 'Lokaár'],
+    rangeQuarterPlaceholder: ['Upphafsfjórðungur', 'Lokafjórðungur'],
+    rangeMonthPlaceholder: ['Upphafsmánuður', 'Lokamánuður'],
+    rangeWeekPlaceholder: ['Upphafsvika', 'Lokavika'],
     ...CalendarLocale,
   },
   timePickerLocale: {

@@ -15,6 +15,7 @@ const locale: PickerLocale = {
     rangeYearPlaceholder: ['Tús na bliana', 'Deireadh na bliana'],
     rangeMonthPlaceholder: ['Tosaigh mhí', 'Deireadh mhí'],
     rangeWeekPlaceholder: ['Tosaigh an tseachtain', 'Deireadh na seachtaine'],
+    rangeQuarterPlaceholder: ['Tús na ráithe', 'Deireadh na ráithe'],
     ...CalendarLocale,
   },
   timePickerLocale: {

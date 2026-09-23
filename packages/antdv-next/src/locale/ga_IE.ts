@@ -84,6 +84,10 @@ const localeValues: Locale = {
     expand: 'Expand',
     collapse: 'Laghdaigh',
   },
+  Carousel: {
+    prevSlide: 'An sleamhnán roimhe seo',
+    nextSlide: 'An chéad sleamhnán eile',
+  },
   Form: {
     defaultValidateMessages: {
       default: 'Field validation error for ${label}',

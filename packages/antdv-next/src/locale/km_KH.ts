@@ -74,6 +74,10 @@ const localeValues: Locale = {
   Empty: {
     description: 'គ្មានទិន្នន័យ',
   },
+  Carousel: {
+    prevSlide: 'ស្លាយមុន',
+    nextSlide: 'ស្លាយបន្ទាប់',
+  },
   Form: {
     defaultValidateMessages: {
       default: 'Field validation error for ${label}',

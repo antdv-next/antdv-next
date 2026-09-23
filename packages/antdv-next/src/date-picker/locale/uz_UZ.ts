@@ -15,6 +15,7 @@ const locale: PickerLocale = {
     rangeYearPlaceholder: ['Boshlanish yili', 'Tugallanish yili'],
     rangeMonthPlaceholder: ['Boshlanish oyi', 'Tugallanish oyi'],
     rangeWeekPlaceholder: ['Boshlanish haftasi', 'Tugallanish haftasi'],
+    rangeQuarterPlaceholder: ['Boshlanish choragi', 'Tugallanish choragi'],
     ...CalendarLocale,
   },
   timePickerLocale: {

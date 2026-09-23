@@ -16,6 +16,7 @@ const locale: PickerLocale = {
     rangeQuarterPlaceholder: ['காலாண்டு தொடக்கம்', 'இறுதி காலாண்டு'],
     rangeMonthPlaceholder: ['தொடக்க மாதம்', 'இறுதி மாதம்'],
     rangeWeekPlaceholder: ['வாரம் தொடங்கு', 'இறுதி வாரம்'],
+    yearPlaceholder: 'ஆண்டைத் தேர்ந்தெடுக்கவும்',
     ...CalendarLocale,
   },
   timePickerLocale: {

@@ -84,6 +84,10 @@ const localeValues: Locale = {
     expand: 'Жазу',
     collapse: 'Жыйрату',
   },
+  Carousel: {
+    prevSlide: 'Алдыңғы слайд',
+    nextSlide: 'Келесі слайд',
+  },
   Form: {
     defaultValidateMessages: {
       default: '${label} өрісін тексеру қателігі',

@@ -74,6 +74,10 @@ const localeValues: Locale = {
   Empty: {
     description: 'Engin gögn',
   },
+  Carousel: {
+    prevSlide: 'Fyrri skyggna',
+    nextSlide: 'Næsta skyggna',
+  },
   Form: {
     optional: '（Valfrjálst）',
     defaultValidateMessages: {

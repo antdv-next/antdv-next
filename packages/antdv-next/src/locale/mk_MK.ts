@@ -87,6 +87,10 @@ const localeValues: Locale = {
     refresh: 'Освежи',
     scanned: 'Скенирано',
   },
+  Carousel: {
+    prevSlide: 'Претходен слајд',
+    nextSlide: 'Следен слајд',
+  },
   ColorPicker: {
     presetEmpty: 'Празен',
     transparent: 'Транспарентен',
