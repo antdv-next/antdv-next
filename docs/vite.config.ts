@@ -35,6 +35,7 @@ export default defineConfig({
     }),
     tsxResolveTypes({
       defaultPropsToUndefined: ['Boolean'],
+      ignoreTypes: [/EmitsProps$/],
     }),
     vueJsx(),
     vue({

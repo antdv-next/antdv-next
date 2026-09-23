@@ -168,6 +168,7 @@ export default defineConfig(({ mode }) => {
       vcAutoRebuild(vcPackages, vcLocalDir),
       tsxResolveTypes({
         defaultPropsToUndefined: ['Boolean'],
+        ignoreTypes: [/EmitsProps$/],
       }),
       vueJsx(),
       vue(),
