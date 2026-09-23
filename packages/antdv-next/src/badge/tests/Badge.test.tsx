@@ -179,6 +179,18 @@ describe('badge', () => {
     expect(style).toContain('margin-top: 10px')
   })
 
+  it('should preserve fractional offset values', () => {
+    const wrapper = mount(Badge, {
+      props: { count: 5, offset: [10.5, 20.5] },
+      slots: {
+        default: () => h('span', 'test'),
+      },
+    })
+    const style = wrapper.find('.ant-badge-count').attributes('style')
+    expect(style).toContain('inset-inline-end: -10.5px')
+    expect(style).toContain('margin-top: 20.5px')
+  })
+
   it('should keep the same horizontal offset direction under rtl', () => {
     const wrapper = mount(ConfigProvider, {
       props: { direction: 'rtl' },
