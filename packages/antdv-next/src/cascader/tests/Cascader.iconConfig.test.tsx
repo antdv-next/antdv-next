@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { h } from 'vue'
-import Cascader from '..'
+import Cascader, { CascaderPanel } from '..'
 import ConfigProvider from '../../config-provider'
 import { mount } from '/@tests/utils'
 
@@ -13,6 +13,26 @@ const options = [
     ],
   },
 ]
+
+const asyncOptions = [
+  { value: 'zj', label: 'Zhejiang', isLeaf: false },
+]
+
+// A pending promise keeps the clicked column in its loading state
+const pendingLoadData = () => new Promise<void>(() => {})
+
+async function openAndExpandFirstItem(props: Record<string, any>, slots?: Record<string, any>) {
+  const wrapper = mount(Cascader, {
+    props: { open: true, loadData: pendingLoadData, ...props },
+    slots,
+    attachTo: document.body,
+  })
+  await new Promise(resolve => setTimeout(resolve, 0))
+  const firstItem = document.querySelector('.ant-cascader-menu-item') as HTMLElement
+  firstItem.click()
+  await new Promise(resolve => setTimeout(resolve, 0))
+  return wrapper
+}
 
 describe('cascader ConfigProvider icons', () => {
   it('uses ConfigProvider.cascader.suffixIcon when no component-level suffixIcon is given', () => {
@@ -62,5 +82,88 @@ describe('cascader ConfigProvider icons', () => {
       },
     })
     expect(wrapper.find('.cfg-remove').exists()).toBe(true)
+  })
+})
+
+describe('cascader loadingIcon', () => {
+  it('renders the default loading icon while loadData is pending', async () => {
+    const wrapper = await openAndExpandFirstItem({ options: asyncOptions })
+    const loadingIcon = document.querySelector('.ant-cascader-menu-item-loading-icon')
+    expect(loadingIcon).toBeTruthy()
+    expect(loadingIcon!.querySelector('.anticon-loading')).toBeTruthy()
+    wrapper.unmount()
+  })
+
+  it('renders the loadingIcon prop instead of the default icon while loading', async () => {
+    const wrapper = await openAndExpandFirstItem({
+      options: asyncOptions,
+      loadingIcon: h('span', { class: 'custom-loading' }, 'L'),
+    })
+    const loadingIcon = document.querySelector('.ant-cascader-menu-item-loading-icon')
+    expect(loadingIcon).toBeTruthy()
+    expect(loadingIcon!.querySelector('.custom-loading')).toBeTruthy()
+    expect(loadingIcon!.querySelector('.anticon-loading')).toBeFalsy()
+    wrapper.unmount()
+  })
+
+  it('uses ConfigProvider.cascader.loadingIcon when no prop is given', async () => {
+    const wrapper = mount(ConfigProvider, {
+      props: {
+        cascader: { loadingIcon: h('span', { class: 'cfg-loading' }, 'L') },
+      },
+      slots: {
+        default: () => h(Cascader, {
+          options: asyncOptions,
+          open: true,
+          loadData: pendingLoadData,
+        }),
+      },
+    })
+    await new Promise(resolve => setTimeout(resolve, 0))
+    const firstItem = document.querySelector('.ant-cascader-menu-item') as HTMLElement
+    firstItem.click()
+    await new Promise(resolve => setTimeout(resolve, 0))
+    const loadingIcon = document.querySelector('.ant-cascader-menu-item-loading-icon')
+    expect(loadingIcon).toBeTruthy()
+    expect(loadingIcon!.querySelector('.cfg-loading')).toBeTruthy()
+    wrapper.unmount()
+  })
+
+  it('renders the #loadingIcon slot while loadData is pending', async () => {
+    const wrapper = await openAndExpandFirstItem(
+      { options: asyncOptions },
+      { loadingIcon: () => h('span', { class: 'slot-loading' }, 'S') },
+    )
+    const loadingIcon = document.querySelector('.ant-cascader-menu-item-loading-icon')
+    expect(loadingIcon).toBeTruthy()
+    expect(loadingIcon!.querySelector('.slot-loading')).toBeTruthy()
+    wrapper.unmount()
+  })
+
+  it('#loadingIcon slot takes priority over loadingIcon prop', async () => {
+    const wrapper = await openAndExpandFirstItem(
+      { options: asyncOptions, loadingIcon: h('span', { class: 'prop-loading' }, 'P') },
+      { loadingIcon: () => h('span', { class: 'slot-loading' }, 'S') },
+    )
+    const loadingIcon = document.querySelector('.ant-cascader-menu-item-loading-icon')
+    expect(loadingIcon!.querySelector('.slot-loading')).toBeTruthy()
+    expect(loadingIcon!.querySelector('.prop-loading')).toBeFalsy()
+    wrapper.unmount()
+  })
+
+  it('renders the #loadingIcon slot in Panel while loadData is pending', async () => {
+    const wrapper = mount(CascaderPanel, {
+      props: { options: asyncOptions, loadData: pendingLoadData },
+      slots: { loadingIcon: () => h('span', { class: 'slot-loading' }, 'S') },
+      attachTo: document.body,
+    })
+    await new Promise(resolve => setTimeout(resolve, 0))
+    const firstItem = document.querySelector('.ant-cascader-menu-item') as HTMLElement
+    firstItem.click()
+    await new Promise(resolve => setTimeout(resolve, 0))
+    const loadingIcon = document.querySelector('.ant-cascader-menu-item-loading-icon')
+    expect(loadingIcon).toBeTruthy()
+    expect(loadingIcon!.querySelector('.slot-loading')).toBeTruthy()
+    wrapper.unmount()
   })
 })

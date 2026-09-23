@@ -55,6 +55,7 @@ export interface CascaderPanelEmitsProps {
 
 export interface CascaderPanelSlots {
   expandIcon?: () => any
+  loadingIcon?: () => any
   notFoundContent?: () => any
   optionRender?: (option: DefaultOptionType) => any
 }
@@ -103,11 +104,12 @@ const CascaderPanel = defineComponent<
       } = props
       const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
       const customExpandIcon = getSlotPropsFnRun(slots, props, 'expandIcon', false) ?? expandIcon
+      const customLoadingIcon = getSlotPropsFnRun(slots, props, 'loadingIcon', false) ?? loadingIcon
       const { expandIcon: mergedExpandIcon, loadingIcon: mergedLoadingIcon } = useIcons({
         contextExpandIcon: contextExpandIcon.value,
         contextLoadingIcon: contextLoadingIcon.value,
         expandIcon: customExpandIcon,
-        loadingIcon,
+        loadingIcon: customLoadingIcon,
         isRtl: isRtl.value,
       })
       const checkable = useCheckable(cascaderPrefixCls.value, multiple)

@@ -56,6 +56,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | fieldNames | Custom field name for label and value and children | object | \{ label: `label`, value: `value`, children: `children` \} | - | × |
 | getPopupContainer | Parent Node which the selector should be rendered to. Default to `body`. When position issues happen, try to modify it into scrollable content and position it relative. [example](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | function(triggerNode) | () =&gt; document.body | - | × |
 | loadData | To load option lazily, and it cannot work with `showSearch` | (selectedOptions) =&gt; void | - | - | × |
+| loadingIcon | Customize the loading icon while options are loading lazily | VueNode | - | - | ✓ |
 | maxTagCount | Max tag count to show. `responsive` will cost render performance | number \| `responsive` | - | - | × |
 | maxTagPlaceholder | Placeholder for not showing tags | VueNode \| function(omittedValues) | - | - | × |
 | maxTagTextLength | Max tag text length to show | number | - | - | × |
@@ -85,7 +86,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | --- | --- | --- | --- |
 | displayRender | The render function of displaying selected options | (label, selectedOptions) => VueNode | - |
 | expandIcon | Customize the current item expand icon | VueNode | - |
-| loadingIcon | The appearance of lazy loading (now is useless) | VueNode | - |
+| loadingIcon | Customize the loading icon while options are loading lazily | VueNode | - |
 | notFoundContent | Specify content to show when no result matches | VueNode | - |
 | optionRender | Customize the rendering dropdown options | (option: Option) => VueNode | - |
 | popupRender | Customize dropdown content | (menus: VNode) => VueNode | - |

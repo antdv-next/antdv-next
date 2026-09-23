@@ -202,6 +202,7 @@ export interface CascaderSlots<OptionType extends DefaultOptionType = DefaultOpt
   displayRender?: (data: { labels: string[], selectedOptions?: OptionType[] }) => any
   optionRender?: (option: OptionType) => any
   expandIcon?: () => any
+  loadingIcon?: () => any
   default?: () => any
 }
 
@@ -423,6 +424,7 @@ const InternalCascader = defineComponent<
         showArrow,
         allowClear,
         expandIcon,
+        loadingIcon,
         transitionName,
         choiceTransitionName,
         builtinPlacements,
@@ -470,11 +472,12 @@ const InternalCascader = defineComponent<
       const mergedPopupMenuColumnStyle = popupMenuColumnStyle ?? dropdownMenuColumnStyle
 
       const customExpandIcon = getSlotPropsFnRun(slots, props, 'expandIcon', false) ?? expandIcon
+      const customLoadingIcon = getSlotPropsFnRun(slots, props, 'loadingIcon', false) ?? loadingIcon
       const { expandIcon: mergedExpandIcon, loadingIcon: mergedLoadingIcon } = useIcons({
         contextExpandIcon: contextExpandIcon.value,
         contextLoadingIcon: contextLoadingIcon.value,
         expandIcon: customExpandIcon,
-        loadingIcon: undefined,
+        loadingIcon: customLoadingIcon,
         isRtl: isRtl.value,
       })
 

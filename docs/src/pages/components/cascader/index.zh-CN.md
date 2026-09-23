@@ -57,6 +57,7 @@ demo:
 | fieldNames | 自定义 options 中 label value children 的字段 | object | \{ label: `label`, value: `value`, children: `children` \} | - | × |
 | getPopupContainer | 菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | function(triggerNode) | () =&gt; document.body | - | × |
 | loadData | 用于动态加载选项，无法与 `showSearch` 一起使用 | (selectedOptions) =&gt; void | - | - | × |
+| loadingIcon | 自定义动态加载时的加载图标 | VueNode | - | - | ✓ |
 | maxTagCount | 最多显示多少个 tag，响应式模式会对性能产生损耗 | number \| `responsive` | - | - | × |
 | maxTagPlaceholder | 隐藏 tag 时显示的内容 | VueNode \| function(omittedValues) | - | - | × |
 | maxTagTextLength | 最大显示的 tag 文本长度 | number | - | - | × |
@@ -86,7 +87,7 @@ demo:
 | --- | --- | --- | --- |
 | displayRender | 选择后展示的渲染函数 | (label, selectedOptions) => VueNode | - |
 | expandIcon | 自定义次级菜单展开图标 | VueNode | - |
-| loadingIcon | 延迟加载的外观（现已无用） | VueNode | - |
+| loadingIcon | 自定义动态加载时的加载图标 | VueNode | - |
 | notFoundContent | 当下拉列表为空时显示的内容 | VueNode | - |
 | optionRender | 自定义渲染下拉选项 | (option: Option) => VueNode | - |
 | popupRender | 自定义下拉框内容 | (menus: VNode) => VueNode | - |
