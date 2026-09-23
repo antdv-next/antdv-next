@@ -441,6 +441,8 @@ const InternalCascader = defineComponent<
         variant: _variant,
         classes: _classes,
         styles: _styles,
+        popupStyle: _popupStyle,
+        dropdownStyle: _dropdownStyle,
         ...rest
       } = props
       const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
