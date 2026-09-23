@@ -1,5 +1,6 @@
 import type { SlotsType } from 'vue'
 import type {
+  KeyWiseTransferItem,
   TransferClassNamesType,
   TransferDirection,
   TransferEmits,
@@ -123,6 +124,10 @@ const Transfer = defineComponent<
 
     const [leftMultipleSelect, updateLeftPrevSelectedIndex] = useMultipleSelect((item: any) => item.key)
     const [rightMultipleSelect, updateRightPrevSelectedIndex] = useMultipleSelect((item: any) => item.key)
+    const prevDataKeysRef: Record<TransferDirection, TransferKey[]> = {
+      left: [],
+      right: [],
+    }
 
     const setStateKeys = (
       directionValue: TransferDirection,
@@ -143,6 +148,26 @@ const Transfer = defineComponent<
         ? updateLeftPrevSelectedIndex
         : updateRightPrevSelectedIndex
       updatePrevSelectedIndex(value)
+    }
+
+    const leftFilter = (e: Event) => {
+      setPrevSelectedIndex('left', null)
+      emit('search', 'left', (e.target as HTMLInputElement)?.value || '')
+    }
+
+    const rightFilter = (e: Event) => {
+      setPrevSelectedIndex('right', null)
+      emit('search', 'right', (e.target as HTMLInputElement)?.value || '')
+    }
+
+    const handleLeftClear = () => {
+      setPrevSelectedIndex('left', null)
+      emit('search', 'left', '')
+    }
+
+    const handleRightClear = () => {
+      setPrevSelectedIndex('right', null)
+      emit('search', 'right', '')
     }
 
     const handleSelectChange = (directionValue: TransferDirection, holder: TransferKey[]) => {
@@ -272,14 +297,21 @@ const Transfer = defineComponent<
       selectedKey: TransferKey,
       checked: boolean,
       multiple?: boolean,
+      filteredItems?: KeyWiseTransferItem[],
     ) => {
       const isLeftDirection = directionValue === 'left'
       const holder = [...(isLeftDirection ? sourceSelectedKeys.value : targetSelectedKeys.value)]
       const holderSet = new Set(holder)
-      const data = [...(isLeftDirection ? leftDataSource.value : rightDataSource.value)]
+      const data = (filteredItems ?? (isLeftDirection ? leftDataSource.value : rightDataSource.value))
         .filter(item => !item?.disabled)
       const currentSelectedIndex = data.findIndex(item => item.key === selectedKey)
-      if (multiple && holder.length > 0) {
+      const dataKeys = data.map(item => item.key)
+      const prevDataKeys = prevDataKeysRef[directionValue]
+      const isSameData = dataKeys.length === prevDataKeys.length
+        && dataKeys.every((key, index) => key === prevDataKeys[index])
+      prevDataKeysRef[directionValue] = dataKeys
+
+      if (multiple && holder.length > 0 && isSameData) {
         handleMultipleSelect(directionValue, data as any, holderSet, currentSelectedIndex)
       }
       else {
@@ -294,12 +326,22 @@ const Transfer = defineComponent<
       emitSelectedKeysUpdate(nextSourceKeys, nextTargetKeys)
     }
 
-    const onLeftItemSelect = (selectedKey: TransferKey, checked: boolean, e?: MouseEvent) => {
-      onItemSelect('left', selectedKey, checked, e?.shiftKey)
+    const onLeftItemSelect = (
+      selectedKey: TransferKey,
+      checked: boolean,
+      e?: MouseEvent,
+      filteredItems?: KeyWiseTransferItem[],
+    ) => {
+      onItemSelect('left', selectedKey, checked, e?.shiftKey, filteredItems)
     }
 
-    const onRightItemSelect = (selectedKey: TransferKey, checked: boolean, e?: MouseEvent) => {
-      onItemSelect('right', selectedKey, checked, e?.shiftKey)
+    const onRightItemSelect = (
+      selectedKey: TransferKey,
+      checked: boolean,
+      e?: MouseEvent,
+      filteredItems?: KeyWiseTransferItem[],
+    ) => {
+      onItemSelect('right', selectedKey, checked, e?.shiftKey, filteredItems)
     }
 
     const onRightItemRemove = (keys: TransferKey[]) => {
@@ -471,8 +513,8 @@ const Transfer = defineComponent<
             dataSource={leftDataSource.value as any}
             filterOption={props.filterOption}
             checkedKeys={sourceSelectedKeys.value}
-            handleFilter={(e: Event) => emit('search', 'left', (e.target as HTMLInputElement)?.value || '')}
-            handleClear={() => emit('search', 'left', '')}
+            handleFilter={leftFilter}
+            handleClear={handleLeftClear}
             onItemSelect={onLeftItemSelect}
             onItemSelectAll={onLeftItemSelectAll as any}
             render={mergedRender.value}
@@ -513,8 +555,8 @@ const Transfer = defineComponent<
             dataSource={rightDataSource.value as any}
             filterOption={props.filterOption}
             checkedKeys={targetSelectedKeys.value}
-            handleFilter={(e: Event) => emit('search', 'right', (e.target as HTMLInputElement)?.value || '')}
-            handleClear={() => emit('search', 'right', '')}
+            handleFilter={rightFilter}
+            handleClear={handleRightClear}
             onItemSelect={onRightItemSelect}
             onItemSelectAll={onRightItemSelectAll as any}
             onItemRemove={onRightItemRemove}
