@@ -12,8 +12,8 @@ import { camelize, isVNode } from 'vue'
 //
 // The cast targets are the Column attributes whose declared types include
 // `boolean` (from `ColumnSharedType`/`ColumnType`): `hidden` (boolean),
-// `ellipsis` (object | boolean), `sorter` (boolean | function | object).
-// `fixed` is `FixedType` where a bare attribute means left-fixed by antd
+// `ellipsis` (object | boolean), `sorter` (boolean | function | object),
+// `resizable` (boolean). `fixed` is `FixedType` where a bare attribute means left-fixed by antd
 // convention. (The runtime props emitted by tsx-resolve-types carry no
 // usable type info for these generic column types, so the list is explicit
 // and must be extended when new boolean column attributes are added.)
@@ -21,6 +21,7 @@ const COLUMN_BOOLEAN_PROPS: Record<string, () => any> = {
   hidden: () => true,
   ellipsis: () => true,
   sorter: () => true,
+  resizable: () => true,
   fixed: () => 'left',
 }
 

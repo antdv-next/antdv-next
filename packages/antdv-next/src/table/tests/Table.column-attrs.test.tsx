@@ -29,7 +29,7 @@ describe('table column attributes', () => {
     // { ellipsis: '', fixed: '', hidden: '', sorter: '' } — without casting
     // these no-ops silently (the table only acts on real booleans).
     const children = [
-      createVNode(Column, { 'data-index': 'name', ellipsis: '', fixed: '', hidden: '', sorter: '' }),
+      createVNode(Column, { 'data-index': 'name', ellipsis: '', fixed: '', hidden: '', sorter: '', resizable: '' }),
     ]
     const columns = convertColumnsToColumnProps(children)
     expect(columns).toHaveLength(1)
@@ -37,6 +37,7 @@ describe('table column attributes', () => {
     expect(column.ellipsis).toBe(true)
     expect(column.hidden).toBe(true)
     expect(column.sorter).toBe(true)
+    expect(column.resizable).toBe(true)
     // Bare `fixed` means left-fixed by antd convention (its type is
     // FixedType, where '' would not be boolean-cast by Vue's rules).
     expect(column.fixed).toBe('left')
@@ -57,6 +58,22 @@ describe('table column attributes', () => {
     const column = columns[0]!
     expect(column.dataIndex).toBe('age')
     expect(column.width).toBe(80)
+  })
+
+  it('renders a resize handle for a bare `resizable` Column attribute', async () => {
+    const wrapper = mount(Table, {
+      props: { dataSource: [{ name: 'Alice', age: 30 }], pagination: false },
+      slots: {
+        default: () => [
+          h(Column, { 'data-index': 'name', title: 'Name', width: 200, resizable: '' }),
+          h(Column, { 'data-index': 'age', title: 'Age', width: 200 }),
+        ],
+      },
+    })
+    await nextTick()
+    const headers = wrapper.findAll('thead th')
+    expect(headers[0]!.find('.ant-table-resize-handle').exists()).toBe(true)
+    expect(headers[1]!.find('.ant-table-resize-handle').exists()).toBe(false)
   })
 
   it('renders cell content when columns are declared with kebab-case attrs', async () => {
