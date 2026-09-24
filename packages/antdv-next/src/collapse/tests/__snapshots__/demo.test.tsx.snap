@@ -752,7 +752,6 @@ exports[`collapse demo > renders accordion correctly 1`] = `
 >
   <div
     class="ant-collapse-item"
-    content="[object Object]"
   >
     <div
       aria-disabled="false"
@@ -803,7 +802,6 @@ exports[`collapse demo > renders accordion correctly 1`] = `
   </div>
   <div
     class="ant-collapse-item"
-    content="[object Object]"
   >
     <div
       aria-disabled="false"
@@ -854,7 +852,6 @@ exports[`collapse demo > renders accordion correctly 1`] = `
   </div>
   <div
     class="ant-collapse-item"
-    content="[object Object]"
   >
     <div
       aria-disabled="false"
@@ -912,7 +909,6 @@ exports[`collapse demo > renders basic correctly 1`] = `
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
-    content="[object Object]"
   >
     <div
       aria-disabled="false"
@@ -976,7 +972,6 @@ exports[`collapse demo > renders basic correctly 1`] = `
   </div>
   <div
     class="ant-collapse-item"
-    content="[object Object]"
   >
     <div
       aria-disabled="false"
@@ -1027,7 +1022,6 @@ exports[`collapse demo > renders basic correctly 1`] = `
   </div>
   <div
     class="ant-collapse-item"
-    content="[object Object]"
   >
     <div
       aria-disabled="false"
@@ -1085,7 +1079,6 @@ exports[`collapse demo > renders borderless correctly 1`] = `
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
-    content="[object Object]"
   >
     <div
       aria-disabled="false"
@@ -1149,7 +1142,6 @@ exports[`collapse demo > renders borderless correctly 1`] = `
   </div>
   <div
     class="ant-collapse-item"
-    content="[object Object]"
   >
     <div
       aria-disabled="false"
@@ -1200,7 +1192,6 @@ exports[`collapse demo > renders borderless correctly 1`] = `
   </div>
   <div
     class="ant-collapse-item"
-    content="[object Object]"
   >
     <div
       aria-disabled="false"
@@ -1265,7 +1256,6 @@ exports[`collapse demo > renders collapsible correctly 1`] = `
     >
       <div
         class="ant-collapse-item ant-collapse-item-active"
-        content="[object Object]"
       >
         <div
           class="ant-collapse-header ant-collapse-collapsible-header"
@@ -1341,7 +1331,6 @@ exports[`collapse demo > renders collapsible correctly 1`] = `
     >
       <div
         class="ant-collapse-item ant-collapse-item-active"
-        content="[object Object]"
       >
         <div
           class="ant-collapse-header ant-collapse-collapsible-icon"
@@ -1413,7 +1402,6 @@ exports[`collapse demo > renders collapsible correctly 1`] = `
     >
       <div
         class="ant-collapse-item ant-collapse-item-disabled"
-        content="[object Object]"
       >
         <div
           aria-disabled="true"
@@ -1475,7 +1463,6 @@ exports[`collapse demo > renders custom correctly 1`] = `
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
-    content="[object Object]"
     style="margin-bottom: 24px; border: medium;"
   >
     <div
@@ -1539,7 +1526,6 @@ exports[`collapse demo > renders custom correctly 1`] = `
   </div>
   <div
     class="ant-collapse-item"
-    content="[object Object]"
     style="margin-bottom: 24px; border: medium;"
   >
     <div
@@ -1590,7 +1576,6 @@ exports[`collapse demo > renders custom correctly 1`] = `
   </div>
   <div
     class="ant-collapse-item"
-    content="[object Object]"
     style="margin-bottom: 24px; border: medium;"
   >
     <div
@@ -1651,7 +1636,6 @@ exports[`collapse demo > renders extra correctly 1`] = `
   >
     <div
       class="ant-collapse-item ant-collapse-item-active"
-      content="[object Object]"
     >
       <div
         aria-disabled="false"
@@ -1738,7 +1722,6 @@ exports[`collapse demo > renders extra correctly 1`] = `
     </div>
     <div
       class="ant-collapse-item"
-      content="[object Object]"
     >
       <div
         aria-disabled="false"
@@ -1812,7 +1795,6 @@ exports[`collapse demo > renders extra correctly 1`] = `
     </div>
     <div
       class="ant-collapse-item"
-      content="[object Object]"
     >
       <div
         aria-disabled="false"
@@ -1952,7 +1934,6 @@ exports[`collapse demo > renders ghost correctly 1`] = `
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
-    content="[object Object]"
   >
     <div
       aria-disabled="false"
@@ -2016,7 +1997,6 @@ exports[`collapse demo > renders ghost correctly 1`] = `
   </div>
   <div
     class="ant-collapse-item"
-    content="[object Object]"
   >
     <div
       aria-disabled="false"
@@ -2067,7 +2047,6 @@ exports[`collapse demo > renders ghost correctly 1`] = `
   </div>
   <div
     class="ant-collapse-item"
-    content="[object Object]"
   >
     <div
       aria-disabled="false"
@@ -2125,7 +2104,6 @@ exports[`collapse demo > renders icon correctly 1`] = `
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
-    content="[object Object]"
   >
     <div
       aria-disabled="false"
@@ -2208,7 +2186,6 @@ exports[`collapse demo > renders icon correctly 1`] = `
   </div>
   <div
     class="ant-collapse-item"
-    content="[object Object]"
   >
     <div
       aria-disabled="false"
@@ -2282,7 +2259,6 @@ exports[`collapse demo > renders mix correctly 1`] = `
 >
   <div
     class="ant-collapse-item"
-    content="[object Object]"
   >
     <div
       aria-disabled="false"
@@ -2333,7 +2309,6 @@ exports[`collapse demo > renders mix correctly 1`] = `
   </div>
   <div
     class="ant-collapse-item"
-    content="[object Object]"
   >
     <div
       aria-disabled="false"
@@ -2384,7 +2359,6 @@ exports[`collapse demo > renders mix correctly 1`] = `
   </div>
   <div
     class="ant-collapse-item"
-    content="[object Object]"
   >
     <div
       aria-disabled="false"
@@ -2442,7 +2416,6 @@ exports[`collapse demo > renders noarrow correctly 1`] = `
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
-    content="[object Object]"
   >
     <div
       aria-disabled="false"
@@ -2506,7 +2479,6 @@ exports[`collapse demo > renders noarrow correctly 1`] = `
   </div>
   <div
     class="ant-collapse-item"
-    content="[object Object]"
   >
     <div
       aria-disabled="false"
@@ -2541,7 +2513,6 @@ exports[`collapse demo > renders sfc correctly 1`] = `
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
-    content="[object Object]"
   >
     <div
       aria-disabled="false"
@@ -2603,7 +2574,6 @@ exports[`collapse demo > renders sfc correctly 1`] = `
   </div>
   <div
     class="ant-collapse-item"
-    content="[object Object]"
   >
     <div
       aria-disabled="false"
@@ -2693,7 +2663,6 @@ exports[`collapse demo > renders size correctly 1`] = `
   >
     <div
       class="ant-collapse-item"
-      content="[object Object]"
     >
       <div
         aria-disabled="false"
@@ -2764,7 +2733,6 @@ exports[`collapse demo > renders size correctly 1`] = `
   >
     <div
       class="ant-collapse-item"
-      content="[object Object]"
     >
       <div
         aria-disabled="false"
@@ -2835,7 +2803,6 @@ exports[`collapse demo > renders size correctly 1`] = `
   >
     <div
       class="ant-collapse-item"
-      content="[object Object]"
     >
       <div
         aria-disabled="false"
@@ -2898,7 +2865,6 @@ exports[`collapse demo > renders style-class correctly 1`] = `
   >
     <div
       class="ant-collapse-item ant-collapse-item-active"
-      content="[object Object]"
     >
       <div
         aria-disabled="false"
@@ -2961,7 +2927,6 @@ exports[`collapse demo > renders style-class correctly 1`] = `
     </div>
     <div
       class="ant-collapse-item"
-      content="[object Object]"
     >
       <div
         aria-disabled="false"
@@ -3013,7 +2978,6 @@ exports[`collapse demo > renders style-class correctly 1`] = `
     </div>
     <div
       class="ant-collapse-item"
-      content="[object Object]"
     >
       <div
         aria-disabled="false"
@@ -3070,7 +3034,6 @@ exports[`collapse demo > renders style-class correctly 1`] = `
   >
     <div
       class="ant-collapse-item"
-      content="[object Object]"
     >
       <div
         aria-disabled="false"
@@ -3122,7 +3085,6 @@ exports[`collapse demo > renders style-class correctly 1`] = `
     </div>
     <div
       class="ant-collapse-item ant-collapse-item-active"
-      content="[object Object]"
     >
       <div
         aria-disabled="false"
@@ -3185,7 +3147,6 @@ exports[`collapse demo > renders style-class correctly 1`] = `
     </div>
     <div
       class="ant-collapse-item"
-      content="[object Object]"
     >
       <div
         aria-disabled="false"

@@ -16,7 +16,6 @@ exports[`collapse > should match snapshot 1`] = `
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
-    content="[object Object]"
   >
     <div
       aria-disabled="false"
@@ -78,7 +77,6 @@ exports[`collapse > should match snapshot 1`] = `
   </div>
   <div
     class="ant-collapse-item"
-    content="[object Object]"
   >
     <div
       aria-disabled="false"
