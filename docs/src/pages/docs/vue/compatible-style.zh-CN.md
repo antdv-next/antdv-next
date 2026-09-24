@@ -324,7 +324,7 @@ render(
 
 在 SSR 场景下，样式往往会通过 `<style />` 内联渲染到 HTML 中。此时请务必确保你的样式顺序中指定 `@layer` 优先级顺序的样式在 `@layer` 被使用之前被加载。
 
-#### ❌ 错误的写法 {#❌-wrong}
+#### ❌ 错误的写法 {#wrong}
 
 ```html
 <head>
@@ -344,7 +344,7 @@ render(
 </head>
 ```
 
-#### ✅ 正确的写法 {#✅-correct}
+#### ✅ 正确的写法 {#correct}
 
 ```html
 <head>

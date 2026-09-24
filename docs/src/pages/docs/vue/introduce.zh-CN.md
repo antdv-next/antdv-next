@@ -14,7 +14,7 @@ title: Ant Design of Vue
 
 ---
 
-## ✨ 特性 {#✨-features}
+## ✨ 特性 {#features}
 
 - 🌈 提炼自企业级中后台产品的交互语言和视觉风格。
 - 📦 开箱即用的高质量 Vue3 组件。

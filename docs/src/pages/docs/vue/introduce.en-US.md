@@ -14,7 +14,7 @@ Following the Ant Design specification, we developed a Vue UI library `antdv-nex
 
 ---
 
-## ✨ Features
+## ✨ Features {#features}
 
 - 🌈 Enterprise-class UI designed for web applications.
 - 📦 A set of high-quality Vue3 components out of the box.
