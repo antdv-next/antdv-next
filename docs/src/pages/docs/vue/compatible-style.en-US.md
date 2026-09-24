@@ -95,7 +95,7 @@ When toggled, styles will downgrade CSS logical properties:
 }
 ```
 
-## `@layer` Specificity Lowering
+## `@layer` Specificity Lowering {#layer-specificity-lowering}
 
 - Support Version: `>=1.0.0`
 - MDN: [@layer](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer)
@@ -269,7 +269,7 @@ As mentioned earlier, when using StyleProvider, you must wrap ConfigProvider to 
 
 ### TailwindCSS Arrange `@layer`
 
-Before starting the following configuration, you need to enable [`@layer`](#layer) feature.
+Before starting the following configuration, you need to enable [`@layer`](#layer-specificity-lowering) feature.
 
 #### TailwindCSS v3
 

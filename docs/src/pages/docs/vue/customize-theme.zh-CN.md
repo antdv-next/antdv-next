@@ -21,7 +21,7 @@ Antdv Next 设计规范和技术上支持灵活的样式定制，以满足业务
 当你需要 context 信息（例如 ConfigProvider 配置的内容）时，可以通过 `Modal.useModal` 方法返回 modal 实体以及 contextHolder 节点，将其插入到你需要获取 context 位置即可。也可通过 [App 包裹组件](/components/app-cn) 简化 useModal 等方法需要手动植入 contextHolder 的问题。
 :::
 
-### 修改主题变量
+### 修改主题变量 {#customize-design-token}
 
 通过 `theme` 中的 `token` 属性，可以修改一些主题变量。部分主题变量会引起其他主题变量的变化，我们把这些主题变量称为 Seed Token。
 
@@ -75,7 +75,7 @@ import { theme } from 'antdv-next'
 </script>
 ```
 
-### 修改组件变量
+### 修改组件变量 {#customize-component-token}
 
 除了整体的 Design Token，各个组件也会开放自己的 Component Token 来实现针对组件的样式定制能力，不同的组件之间不会相互影响。同样地，也可以通过这种方式来覆盖组件的其他 Design Token。
 

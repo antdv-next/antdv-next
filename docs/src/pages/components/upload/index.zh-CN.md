@@ -108,7 +108,7 @@ demo:
 | uid | 唯一标识符，不设置时会自动生成 | string | - | - |
 | lastModifiedDate | 上次修改文件的日期和时间 | date | - | - |
 
-### UploadFile
+### UploadFile {#uploadfile}
 
 继承自 [File](https://developer.mozilla.org/zh-CN/docs/Web/API/File)，附带额外属性用于渲染。
 

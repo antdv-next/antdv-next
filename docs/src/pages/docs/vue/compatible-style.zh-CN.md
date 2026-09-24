@@ -127,7 +127,7 @@ import { autoPrefixTransformer } from '@antdv-next/cssinjs'
   }
 ```
 
-## `@layer` 样式优先级降权
+## `@layer` 样式优先级降权 {#layer-specificity-lowering}
 
 - 支持版本：`>=1.0.0`
 - MDN 文档：[@layer](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer)
@@ -269,7 +269,7 @@ render(
 
 ### TailwindCSS 排布 `@layer`
 
-在开始以下配置前，你需要先启用 [`@layer`](#layer-样式优先级降权) 功能。
+在开始以下配置前，你需要先启用 [`@layer`](#layer-specificity-lowering) 功能。
 
 #### TailwindCSS v3
 

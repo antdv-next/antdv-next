@@ -22,7 +22,7 @@ Breadcrumb、Collapse、Segmented、Tabs、Tag 等组件会对相应图标插槽
 
 如果日期组件的国际化仍未生效，请配置 `dayjs.locale('zh-cn')` 并**检查你本地的 `dayjs` 版本和 `antdv-next` 依赖的 `dayjs` 版本是否一致**。
 
-## 为什么时间类组件的国际化 locale 设置不生效？
+## 为什么时间类组件的国际化 locale 设置不生效？ {#date-related-components-locale-is-not-working}
 
 请检查是否正确设置了 dayjs 语言包。
 

@@ -12,7 +12,7 @@ title: 贡献指南
 
 我们所有的开发工作都是在 [Github](https://github.com/antdv-next/antdv-next) 上进行的。不管是团队成员还是社区贡献者的 pull request 都需要经过同样的流程 review。
 
-## 分支管理
+## 分支管理 {#branch-management}
 
 我们目前长期维护两个分支 `main` 和 `feat`。如果你需要修复一个 bug，那么请发 pull request 到 main，每隔一段时间(最长一个月)我们从 `main` 发布一个 `patch` 版本;如果你需要添加一个新功能的 pull request,那么请基于 `feat` 分支来做，我们尽可能的会在两个月内从 `feat` 合并到 `main`，并发布一个包含新特性的 `minor` 版本。
 
@@ -38,7 +38,7 @@ Antdv Next Team 会关注所有的 pull request，我们会 review 以及合并�
 
 **在你发送 Pull Request 之前**，请确认你是按照下面的步骤来做的：
 
-1. 基于 [正确的分支](#分支管理) 做修改。
+1. 基于 [正确的分支](#branch-management) 做修改。
 2. 在项目根目录下运行了 `pnpm install`。
 3. 如果你修复了一个 bug 或者新增了一个功能，请确保编写了相应的测试，这很重要。
 

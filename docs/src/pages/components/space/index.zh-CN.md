@@ -76,7 +76,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 - TimePicker
 - TreeSelect
 
-#### 属性 {#spacecompact-props}
+#### 属性 {#space-compact-props}
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
