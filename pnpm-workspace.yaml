@@ -54,7 +54,7 @@ catalogs:
     turbo: ^2.10.12
     typedoc: ^0.28.20
     typescript: ~5.9.3
-    unocss: ^66.10.1
+    unocss: ^66.10.5
     vite: ^8.3.0
     vite-plugin-dayjs: ^1.0.3
     vite-plugin-inspect: ^11.4.1
