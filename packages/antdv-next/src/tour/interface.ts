@@ -2,7 +2,7 @@ import type {
   TourProps as VcTourProps,
   TourStepProps as VcTourStepProps,
 } from '@v-c/tour'
-import type { CSSProperties } from 'vue'
+import type { CSSProperties, StyleValue } from 'vue'
 import type {
   SemanticClassNames,
   SemanticClassNamesType,
@@ -99,13 +99,13 @@ export interface TourStepProps extends Omit<VcTourStepProps, 'className'> {
     children?: VueNode
     onClick?: ButtonProps['onClick']
     class?: string
-    style?: CSSProperties
+    style?: StyleValue
   }
   prevButtonProps?: {
     children?: VueNode
     onClick?: ButtonProps['onClick']
     class?: string
-    style?: CSSProperties
+    style?: StyleValue
   }
   // default type, affects the background color and text color
   type?: 'default' | 'primary'

@@ -1,4 +1,4 @@
-import type { CSSProperties, SlotsType } from 'vue'
+import type { CSSProperties, SlotsType, StyleValue } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { VueNode } from '../_util/type'
 import type { BadgeProps } from '../badge'
@@ -62,7 +62,7 @@ export interface FloatButtonProps extends ComponentBaseProps,
   disabled?: boolean
   htmlType?: ButtonHTMLType
   ariaLabel?: string
-  style?: CSSProperties
+  style?: StyleValue
   classes?: FloatButtonClassNamesType
   styles?: FloatButtonStylesType
 }
@@ -155,7 +155,7 @@ const InternalFloatButton = defineComponent<
     })
 
     // ============================ zIndex ============================
-    const [zIndex] = useZIndex('FloatButton', computed(() => style.value?.zIndex as number | undefined))
+    const [zIndex] = useZIndex('FloatButton', computed(() => (style.value && typeof style.value === 'object' && !Array.isArray(style.value) ? (style.value as CSSProperties).zIndex : undefined) as number | undefined))
     const zIndexStyle = computed(() => (zIndex.value === undefined ? undefined : { zIndex: zIndex.value }))
 
     return () => {
