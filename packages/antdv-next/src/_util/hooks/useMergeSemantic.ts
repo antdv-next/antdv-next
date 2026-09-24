@@ -74,13 +74,13 @@ function useSemanticClassNames<ClassNamesType extends AnyObject>(schema?: Semant
 // =========================== Styles ===========================
 export function mergeStyles<StylesType extends AnyObject>(...styles: (Partial<StylesType> | undefined)[]) {
   return styles
-    // A user `style` prop may be a string/array (Vue passes those through
-    // untouched); normalize so merging never produces numeric-indexed keys.
-    .map(s => (s ? (normalizeStyle(s as any) as Partial<StylesType>) : s))
     .filter(Boolean)
     .reduce<Record<PropertyKey, CSSProperties>>((acc, cur = {}) => {
       Object.keys(cur).forEach((key) => {
-        acc[key] = { ...acc[key], ...cur[key] }
+        // A semantic part value may be a string/array (e.g.
+        // useSemanticRootStyle wraps a user `style` as { root: 'color: …' });
+        // normalize so merging never produces numeric-indexed keys.
+        acc[key] = { ...acc[key], ...(normalizeStyle(cur[key]) as CSSProperties) }
       })
       return acc
     }, {})

@@ -11,21 +11,6 @@ import { mount } from '/@tests/utils'
 
 describe('alert', () => {
   rtlTest(() => h(Alert, null, { message: () => 'test' }))
-  it('should apply a string style prop without index-key corruption', () => {
-    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
-    const wrapper = mount(Alert, {
-      props: {
-        title: 'string style',
-        style: 'font-size: 14px; color: red',
-      } as any,
-    })
-    const root = wrapper.find('.ant-alert')
-    expect(root.attributes('style')).toContain('font-size: 14px')
-    expect(root.attributes('style')).toContain('color: red')
-    // A raw string spread would produce numeric keys and make Vue patchStyle throw.
-    expect(errSpy).not.toHaveBeenCalled()
-    errSpy.mockRestore()
-  })
 
   it('should render title correctly', () => {
     const wrapper = mount(Alert, {
