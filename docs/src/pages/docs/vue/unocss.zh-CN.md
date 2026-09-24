@@ -16,7 +16,7 @@ title: UnoCSS
 
 这个包提供了面向 Ant Design 设计 Token 的 UnoCSS 预设，适合希望继续使用 UnoCSS / Wind 风格语法，同时保持运行时主题切换能力的项目。
 
-## 版本兼容
+## 版本兼容 {#version-compatibility}
 
 `@antdv-next/unocss` 跟随 `antdv-next` 一起演进，请按下表选择匹配的版本：
 
@@ -27,12 +27,12 @@ title: UnoCSS
 
 > 升级 antdv-next 到 1.3.0 时，请同时升级 `@antdv-next/unocss` 到 `>=1.1.0`；反过来如果你的 antdv-next 仍在 1.2.x 以下，请固定 `@antdv-next/unocss` 在 1.0.x。
 
-## 包信息
+## 包信息 {#package-info}
 
 - 包名：`@antdv-next/unocss`
 - `peerDependencies`：`unocss >= 66.0.0`
 
-## 安装
+## 安装 {#installation}
 
 搭配 antdv-next 1.3.0+：
 
@@ -46,7 +46,7 @@ pnpm add -D unocss @antdv-next/unocss@^1.1.0
 pnpm add -D unocss @antdv-next/unocss@~1.0
 ```
 
-## 什么时候用它
+## 什么时候用它 {#when-to-use-it}
 
 适合以下场景：
 
@@ -57,7 +57,7 @@ pnpm add -D unocss @antdv-next/unocss@~1.0
 
 如果你正在使用 Tailwind CSS，可以查看 [Tailwind CSS](/docs/vue/tailwindcss) 文档。
 
-## 提供的两个预设
+## 提供的两个预设 {#available-presets}
 
 ### `presetAntd`
 
@@ -118,21 +118,21 @@ export default defineConfig({
 - `shadow`
 - `defaults`
 
-## 如何选择
+## 如何选择 {#which-one-should-you-choose}
 
-### 选择 `presetAntd`
+### 选择 `presetAntd` {#choose-presetantd}
 
 - 你已经有一套 UnoCSS 配置
 - 你更希望保持标准 UnoCSS 主题结构
 - 你在配合 Wind3、Attributify 等预设使用
 
-### 选择 `presetAntdTailwind4`
+### 选择 `presetAntdTailwind4` {#choose-presetantdtailwind4}
 
 - 你更习惯 Tailwind CSS v4 的主题命名
 - 你正在从 Tailwind v4 迁移到 UnoCSS，或者两套方案混合使用
 - 你希望使用 `radius`、`shadow`、`text` 这类键名
 
-## 三种工具类写法（1.1.0 起）
+## 三种工具类写法（1.1.0 起） {#three-utility-patterns-since-1-1-0}
 
 两个预设默认同时发出三类工具类，可以独立开关：
 
@@ -187,14 +187,14 @@ export default defineConfig({
 
 > `allowUnprefixed: false` 只关闭旧裸写法，**不会改变** `theme.colors.primary` 等键的命名。`a-bg-primary` 与 `bg-ant-primary` 仍然可用。
 
-## 间距 token（与 antdv 1.3.0 对齐）
+## 间距 token（与 antdv 1.3.0 对齐） {#spacing-tokens-aligned-with-antdv-1-3-0}
 
 - Padding：`xxs`、`xs`、`sm`、`md`、`lg`、`xl`
 - Margin：`xxs`、`xs`、`sm`、`md`、`lg`、`xl`、`xxl`
 
 > 1.1.0 起 `p-xxl`、`p-xxxl`、`m-xxxl` 不再生成，因为 antdv 1.3.0 已移除对应 CSS 变量。如果你仍在 1.2.x 及之前的 antdv-next，请固定 `@antdv-next/unocss` 在 1.0.x。
 
-## 工具类示例
+## 工具类示例 {#utility-examples}
 
 ```vue
 <template>
@@ -220,9 +220,9 @@ export default defineConfig({
 - 阴影：`shadow-*`
 - 文本：`text-*`
 
-## 常用类名示例
+## 常用类名示例 {#common-utility-reference}
 
-### 颜色与背景
+### 颜色与背景 {#colors-and-backgrounds}
 
 | 稳定前缀 | namespace 安全 | 说明 |
 | --- | --- | --- |
@@ -235,7 +235,7 @@ export default defineConfig({
 | `a-border-border` | `border-ant-border` | 默认边框色 |
 | `a-border-t-primary` | `border-t-ant-primary` | 顶部主色边框 |
 
-### 间距与布局
+### 间距与布局 {#spacing-and-layout}
 
 | 稳定前缀 | namespace 安全 | 说明 |
 | --- | --- | --- |
@@ -246,7 +246,7 @@ export default defineConfig({
 | `a-mx-lg` | `mx-ant-lg` | 水平 24px 外边距 |
 | `a-my-xs` | `my-ant-xs` | 垂直 8px 外边距 |
 
-### 圆角、阴影与文字
+### 圆角、阴影与文字 {#radius-shadow-typography}
 
 | 稳定前缀 | namespace 安全 | 说明 |
 | --- | --- | --- |
@@ -258,7 +258,7 @@ export default defineConfig({
 | `a-text-lg` | `text-ant-lg` | 大号文字 |
 | `a-text-h1` | `text-ant-h1` | 一级标题字号 |
 
-## 1.3.0 新增的 token（1.1.0 起可用）
+## 1.3.0 新增的 token（1.1.0 起可用） {#new-tokens-added-in-1-3-0-available-since-1-1-0}
 
 完整的语义 token 都已对齐 antdv 1.3.0：
 
@@ -272,13 +272,13 @@ export default defineConfig({
 - 图标：`icon`、`icon-hover`
 - 其它：`highlight`、`white`
 
-## 主题与变量说明
+## 主题与变量说明 {#theme-and-variables}
 
 这个预设本质上是把工具类映射到 Ant Design 的 CSS 变量，例如颜色、圆角、阴影和字号都会跟随当前主题变量变化。
 
 因此在使用时，建议确保应用已经正确接入 `ConfigProvider`，并按需结合 [定制主题](/docs/vue/customize-theme) 调整设计 Token。
 
-## 注意事项
+## 注意事项 {#notes}
 
 - 该预设主要扩展 `m-*` / `p-*` 相关类，不会覆盖 UnoCSS 全局 spacing 规则（`w-*`、`max-w-*`、`gap-*` 等保持 UnoCSS 默认）。
 - `prefix` 默认是 `a`，生成的类名通常是 `a-bg-primary`、`a-p-lg` 这种形式。

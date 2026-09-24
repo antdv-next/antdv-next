@@ -2,7 +2,7 @@
 title: 社区生态
 ---
 
-## 官方生态
+## 官方生态 {#official-ecosystem}
 
 | 名称 | 详情 |
 | ---- | ---- |
@@ -18,7 +18,7 @@ title: 社区生态
 | [docs-base](https://github.com/antdv-next/docs-base) | 二次开发模板 |
 | [vite-plugin-dayjs](https://github.com/antdv-next/vite-plugin-dayjs) | 将 Day.js 的 CommonJS 导入转换为 ESM 格式 |
 
-## 社区生态
+## 社区生态 {#community-ecosystem}
 
 | 名称 | 详情 |
 | ---- | ---- |

@@ -167,7 +167,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | rows | Max rows of content | number | - | - |
 | suffix | Suffix of ellipsis content | string | - | - |
 | symbol | Custom description of ellipsis | VueNode \| ((expanded: boolean) =&gt; VueNode) | `Expand` `Collapse` | - |
-| tooltip | Show tooltip when ellipsis | VueNode \| [TooltipProps](/components/tooltip/#api) | - | - |
+| tooltip | Show tooltip when ellipsis | VueNode \| [TooltipProps](/components/tooltip#api) | - | - |
 | defaultExpanded | Default expand or collapse | boolean | - | - |
 | expanded | Expand or Collapse | boolean | - | - |
 

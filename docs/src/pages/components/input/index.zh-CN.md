@@ -203,7 +203,7 @@ interface VisibilityToggle {
 }
 ```
 
-## 语义化 DOM
+## 语义化 DOM {#semantic-dom}
 
 ### Input {#semantic-input}
 

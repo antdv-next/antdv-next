@@ -14,9 +14,9 @@ author: aibayanyu20
 但与此同时，**Vue 与 React 在组件设计范式上存在天然差异**。
 因此在迁移过程中，我们并不是简单地“对齐 API”，而是结合 Vue 的使用习惯，对部分设计做了必要的工程级调整。
 
-## 设计调整
+## 设计调整 {#design-adjustments}
 
-### 属性调整
+### 属性调整 {#property-adjustments}
 
 既然选择在 Vue 生态中重新实现一套设计系统，我们就必须尊重 Vue 本身的设计范式，而不是机械复制 React 的接口风格。
 
@@ -33,7 +33,7 @@ author: aibayanyu20
 对于一些 Ant Design 未来版本中计划移除、或仅用于兼容历史实现的属性，我们暂时仍然保留，以保证平滑迁移体验。
 但在后续的大版本中，这类带有明显 React 风格的 API 将会逐步彻底移除，我们也不再推荐继续使用。
 
-### 插槽支持
+### 插槽支持 {#slot-support}
 
 Vue 提供了天然的插槽机制（Slots），这是 Vue 在组件组合能力上最重要的语言级特性之一；
 而在 React 中，组件的子节点内容通常通过 props 进行传递，本质上是一种函数式组合模型。
@@ -44,7 +44,7 @@ Vue 提供了天然的插槽机制（Slots），这是 Vue 在组件组合能力
 同时，为了兼容部分偏好 JSX / TSX 风格的用户，
 Antdv Next 仍然完整支持通过 props 传递节点内容，你可以继续保留原有的 React 风格使用方式。
 
-#### 单一上下文参数设计
+#### 单一上下文参数设计 {#unified-context-parameter-design}
 
 为了更好地支持插槽能力，我们对部分多参数回调形式的 props API 做了统一设计调整。
 
@@ -76,7 +76,7 @@ Antdv Next 仍然完整支持通过 props 传递节点内容，你可以继续�
 
 ---
 
-### 内容渲染语义调整
+### 内容渲染语义调整 {#semantic-adjustments-for-content-rendering}
 
 在部分组件中，Ant Design 为了兼容 React 的 `children` 模型，将节点内容直接作为 `ReactNode` 进行传递。
 但在 Antdv Next 中，我们认为 `children` 的核心语义应当是“树形结构的嵌套关系”，而不是“内容容器”。
@@ -90,7 +90,7 @@ Antdv Next 仍然完整支持通过 props 传递节点内容，你可以继续�
 
 ---
 
-### 标准化渲染插槽约定
+### 标准化渲染插槽约定 {#standardized-render-slot-conventions}
 
 在 Antdv Next 中，我们为常见的“内容渲染型属性”统一定义了一套插槽命名规范：
 
@@ -102,7 +102,7 @@ Antdv Next 仍然完整支持通过 props 传递节点内容，你可以继续�
 这套命名规范将作为 Antdv Next 的基础设计标准，
 后续在更多类似场景中，我们也将遵循这一约定持续补充和扩展。
 
-## 文档优化
+## 文档优化 {#documentation-improvements}
 
 在 v1.0 中，我们也对整体文档结构进行了系统性的重构。
 
@@ -118,7 +118,7 @@ Antdv Next 仍然完整支持通过 props 传递节点内容，你可以继续�
 文档本身仍然在持续完善中，如果你在使用过程中发现任何问题，
 欢迎通过 [Issue](https://github.com/antdv-next/antdv-next/issues) 或 [PR](https://github.com/antdv-next/antdv-next/pulls) 的方式参与共建，我们非常乐意一起把这套文档打磨得更好。
 
-## AI 支持
+## AI 支持 {#ai-support}
 
 本次我们对文档系统增加了对 AI 的支持能力。
 
@@ -126,7 +126,7 @@ Antdv Next 仍然完整支持通过 props 传递节点内容，你可以继续�
 2. skills 支持，配合目前比较流行的本地技能库 [Antfu Skills 集合](https://github.com/antfu/skills) 一起使用，可以减少 AI 幻觉导致的一些问题。
 
 
-## 声明
+## 声明 {#disclaimer}
 
 Antdv Next 并非 Ant Design 官方项目，而是由社区发起并维护的一个独立项目。
 
@@ -139,7 +139,7 @@ Antdv Next 并非 Ant Design 官方项目，而是由社区发起并维护的一
 如果您的项目已经是成熟且在生产环境中运行的项目，建议您在升级前先评估可能的风险和影响，再考虑是不是有升级的必要，以免对现有系统造成不必要的影响。
 
 
-## 致谢
+## 致谢 {#acknowledgements}
 
 感谢所有在过去一年多时间里，为 Antdv Next 贡献代码、文档和建议的社区伙伴们。
 没有你们的支持与投入，这个项目不可能走到今天。
@@ -156,7 +156,7 @@ Antdv Next 并非 Ant Design 官方项目，而是由社区发起并维护的一
   <img src="https://contrib.rocks/image?repo=antdv-next/antdv-next&max=100&columns=15" />
 </a>
 
-## 未来展望
+## 未来展望 {#future-outlook}
 
 我们希望 Antdv Next 能够在未来持续稳定地维护下去，
 并逐步成长为 Vue 生态中一套成熟、可靠、可长期演进的设计系统基础设施。
@@ -167,13 +167,13 @@ Antdv Next 并非 Ant Design 官方项目，而是由社区发起并维护的一
 如果你对 Antdv Next 感兴趣，欢迎访问我们的
 [GitHub 仓库](https://github.com/antdv-next/antdv-next) 了解更多细节，也欢迎通过 Issue / PR 的方式参与共建。
 
-### 关于可持续性
+### 关于可持续性 {#on-sustainability}
 
 为了项目能够长期稳定地发展，我们后续也会尝试一些合理的商业化方式，例如赞助支持等，用于补贴核心维护成本，保障项目可以持续投入时间与精力进行维护与演进。
 
 如果你在使用过程中看到相关赞助信息，也希望能够理解并支持，这将直接帮助我们把项目做得更久、更稳、更好。
 
-### 关于社区治理
+### 关于社区治理 {#on-community-governance}
 
 Antdv Next 虽然由个人发起，但我们并不希望它成为“个人项目”。
 一个健康的开源项目，应该具备良好的社区传承能力，而不是依赖某一个人的长期投入。

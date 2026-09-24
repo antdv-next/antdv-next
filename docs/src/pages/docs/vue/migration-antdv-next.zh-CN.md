@@ -6,7 +6,7 @@ title: 从 Ant Design Vue 迁移到 Antdv Next
 
 `antdv-next`原本对`ant-design-vue`做了一些兼容处理，但是仍然存在部分的`api`无法直接兼容的情况。在升级前您需要确保您的环境满足新的要求。
 
-## 升级准备
+## 升级准备 {#upgrade-preparation}
 
 1. 请升级到最新的`ant-design-vue@4`的版本，以确保您使用的是最新的antdv的`api`。
 2. 建议升级vue3到`3.5.x`的版本。
@@ -21,9 +21,9 @@ npm install antdv-next
 yarn add antdv-next
 ```
 
-## 有哪些不兼容的变化
+## 有哪些不兼容的变化 {#what-are-the-incompatible-changes}
 
-### @ant-design/icons-vue替换
+### @ant-design/icons-vue替换 {#replacing-ant-design-icons-vue}
 
 -  ⚠️ **重要：**`@ant-design/icons-vue`本身是对`antdv-next`没有适配的，所以可能会导致切换主题和`layer`模式不生效，请确保安装并使用`@antdv-next/icons`。
 
@@ -35,13 +35,13 @@ npm install @antdv-next/icons
 yarn add @antdv-next/icons
 ```
 
-### DOM结构调整
+### DOM结构调整 {#dom-structure-adjustments}
 
 - antdv-next对大量组件的DOM结构进行了升级优化，以提升可维护性和一致性。
 - 对于大多数正常使用`ant-design-vue`样式的项目，这不会产生太大的影响。
 - ⚠️ 如果你的项目中存在针对组件内部 DOM 节点的自定义样式（例如依赖特定选择器或层级结构），升级后可能需要手动检查并调整样式。
 
-### API调整
+### API调整 {#api-adjustments}
 
 ⚠️ 下列 API 已被标记为**废弃（Deprecated）**。尽管这些属性当前仍可使用，但控制台会提示弃用警告，并将在 2.0 中被移除。为保持代码的可维护性和兼容性，**建议尽快迁移到对应的替代属性**。
 
@@ -320,7 +320,7 @@ yarn add @antdv-next/icons
     - `btn` 弃用，变为 `actions`。
     - `close` 弃用，变为 `destroy`。
 
-### 弹层类组件（Modal、Drawer 等）
+### 弹层类组件（Modal、Drawer 等） {#overlay-components-modal-drawer-etc}
 
 - 新增 `mask` 蒙层功能，并支持模糊效果。
 - 默认开启，可通过以下方式关闭模糊：
@@ -345,7 +345,7 @@ yarn add @antdv-next/icons
 </template>
 ```
 
-### Tag margin 调整
+### Tag margin 调整 {#tag-margin-adjustment}
 
 `antdv-next` 移除了 `Tag` 组件末尾的默认外边距（以前 Tag 末尾会额外留出一段 `margin-inline-end`）。如果你的布局或自定义样式依赖这一行为，请使用 `ConfigProvider` 的 `tag.styles` 进行补充：
 
@@ -367,16 +367,16 @@ yarn add @antdv-next/icons
 </template>
 ```
 
-### Tooltip调整
+### Tooltip调整 {#tooltip-adjustments}
 
 插槽`overlay`已被移除，改为使用`popupRender`来代替。
 
-### Form 调整
+### Form 调整 {#form-adjustments}
 
 - 去掉了`a-form-rest`取消被动收集的组件，默认情况下我们不会主动收集`a-form-item`内的组件作为表单域，需要手动通过`name`属性指定。
 - `model` 表单数据对象不能是平面化对象，必须是嵌套对象，否则 `validate` 无法获取对象属性和无法正常表单验证，例如：`{ 'employee.office.officeCode': '' }` 变更为 `{ employee: { office: 'officeCode' : '' } }`。
 
-## 升级影响排查 Checklist
+## 升级影响排查 Checklist {#upgrade-impact-investigation-checklist}
 
 为了确保升级到 `antdv-next` 后项目正常运行，请参考以下检查清单逐项确认：
 
@@ -388,6 +388,6 @@ yarn add @antdv-next/icons
 - **构建工具配置**：确认升级后构建无报错，CSS 变量和 CSS-in-JS 能正常工作。
 - **控制台 warning**：运行应用并观察控制台，处理所有 `legacy API` 的提示。
 
-## 遇到问题
+## 遇到问题 {#encountering-issues}
 
 如果您在升级过程中遇到问题，请到 [GitHub issues](https://github.com/antdv-next/antdv-next/issues/) 进行反馈。我们会尽快响应并在文档中完善相关说明。

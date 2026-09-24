@@ -74,7 +74,7 @@ demo:
 | autoPlay | - | (playType?: 'update' \| 'leave' \| 'blur') =&gt; void | - |
 | innerSlider | - | any | - |
 
-## 主题变量（Design Token）
+## 主题变量（Design Token） {#design-token}
 
 <ComponentTokenTable component="Carousel" />
 

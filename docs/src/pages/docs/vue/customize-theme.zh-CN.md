@@ -11,7 +11,7 @@ Antdv Next 设计规范和技术上支持灵活的样式定制，以满足业务
 3. 支持针对某个/某些组件修改主题变量；
 4. ...
 
-## 配置主题
+## 配置主题 {#configure-theme}
 
 我们把影响主题的最小元素称为 **Design Token**。通过修改 Design Token，我们可以呈现出各种各样的主题或者组件。通过在 `ConfigProvider` 中传入 `theme` 属性，可以配置主题。
 
@@ -44,7 +44,7 @@ Antdv Next 设计规范和技术上支持灵活的样式定制，以满足业务
 </template>
 ```
 
-### 使用预设算法
+### 使用预设算法 {#use-preset-algorithms}
 
 通过修改算法可以快速生成风格迥异的主题，我们默认提供三套预设算法，分别是:
 
@@ -131,7 +131,7 @@ import { theme } from 'antdv-next'
 </template>
 ```
 
-### 禁用动画
+### 禁用动画 {#disable-motion}
 
 antdv-next 默认内置了一些组件交互动效让企业级页面更加富有细节，在一些极端场景可能会影响页面交互性能，如需关闭动画可以 `token` 中的 `motion` 修改为 `false`：
 
@@ -177,7 +177,7 @@ onBeforeUnmount(() => {
 </script>
 ```
 
-## 进阶使用
+## 进阶使用 {#advanced}
 
 ### 零运行时 zeroRuntime {#zero-runtime}
 
@@ -204,7 +204,7 @@ import 'antdv-next/dist/antd.css'
 
 `antdv-next/dist/antd.css` 包含了所有 antdv-next 组件的样式，但是不会包含 hashed class。
 
-### 动态切换
+### 动态切换 {#switch-themes-dynamically}
 
 动态切换主题对用户来说是非常简单的，你可以在任何时候通过 `ConfigProvider` 的 `theme` 属性来动态切换主题，而不需要任何额外配置。
 
@@ -236,7 +236,7 @@ const primary = ref('#1677ff')
 </script>
 ```
 
-### 局部主题（嵌套主题）
+### 局部主题（嵌套主题） {#nested-theme}
 
 可以嵌套使用 `ConfigProvider` 来实现局部主题的更换。在子主题中未被改变的 Design Token 将会继承父主题。
 
@@ -267,7 +267,7 @@ const primary = ref('#1677ff')
 
 ```
 
-### 使用 Design Token
+### 使用 Design Token {#consume-design-token}
 
 如果你希望使用当前主题下的 Design Token，我们提供了 `useToken` 这个 hook 来获取 Design Token。
 
@@ -294,11 +294,11 @@ const { token } = useToken()
 </script>
 ```
 
-### 静态消费（如 原子化CSS）
+### 静态消费（如 原子化CSS） {#static-consume-e-g-atomic-css}
 
 正常情况下我们推荐使用原子化的方式来消费Design Token，我们提供了`unocss`的插件，可以让你更简单的使用Design Token。
 
-#### 安装
+#### 安装 {#installation}
 
 ```shell
 npm install -D @antdv-next/unocss
@@ -308,7 +308,7 @@ pnpm add -D @antdv-next/unocss
 
 ```
 
-#### 配置
+#### 配置 {#configuration}
 
 在`uno.config.ts`中引入插件：
 ```ts
@@ -321,7 +321,7 @@ export default defineConfig({
 })
 ```
 
-#### 使用
+#### 使用 {#usage}
 
 请在`vscode`或者`webstorm`中安装`unocss`插件以获得更好的提示。
 
@@ -340,15 +340,15 @@ export default defineConfig({
 
 这两种用法我们都支持，由于我们在插件中提供了补全，所以这里我们不再赘述。
 
-## 基本概念
+## 基本概念 {#design-token}
 
 在 Design Token 中我们提供了一套更加贴合设计的三层结构，将 Design Token 拆解为 Seed Token、Map Token 和 Alias Token 三部分。这三组 Token 并不是简单的分组，而是一个三层的派生关系，由 Seed Token 派生 Map Token，再由 Map Token 派生 Alias Token。在大部分情况下，使用 Seed Token 就可以满足定制主题的需要。但如果您需要更高程度的主题定制，您需要了解 antd 中 Design Token 的生命周期。
 
-### 演变过程
+### 演变过程 {#life-of-design-token}
 
 ![token](https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*uF3kTrY4InUAAAAAAAAAAAAAARQnAQ)
 
-### 基础变量（Seed Token）
+### 基础变量（Seed Token） {#seed-token}
 
 Seed Token 意味着所有设计意图的起源。比如我们可以通过改变 `colorPrimary` 来改变主题色，antd 内部的算法会自动的根据 Seed Token 计算出对应的一系列颜色并应用：
 
@@ -360,7 +360,7 @@ const theme = {
 }
 ```
 
-### 梯度变量（Map Token）
+### 梯度变量（Map Token） {#map-token}
 
 Map Token 是基于 Seed 派生的梯度变量。定制 Map Token 推荐通过 `theme.algorithm` 来实现，这样可以保证 Map Token 之间的梯度关系。也可以通过 `theme.token` 覆盖，用于单独修改一些 map token 的值。
 
@@ -372,7 +372,7 @@ const theme = {
 }
 ```
 
-### 别名变量（Alias Token）
+### 别名变量（Alias Token） {#alias-token}
 
 Alias Token 用于批量控制某些共性组件的样式，基本上是 Map Token 别名，或者特殊处理过的 Map Token。
 
@@ -384,7 +384,7 @@ const theme = {
 }
 ```
 
-### 基本算法（algorithm)
+### 基本算法（algorithm) {#algorithm}
 
 基本算法用于将 Seed Token 展开为 Map Token，比如由一个基本色算出一个梯度色板，或者由一个基本的圆角算出各种大小的圆角。算法可以单独使用，也可以任意地组合使用，比如可以将暗色算法和紧凑算法组合使用，得到一个暗色和紧凑相结合的主题。
 
@@ -445,6 +445,6 @@ const theme = {
 
 ## FAQ
 
-### 为什么 `theme` 从 `undefined` 变为对象或者变为 `undefined` 时组件重新 mount 了？
+### 为什么 `theme` 从 `undefined` 变为对象或者变为 `undefined` 时组件重新 mount 了？ {#why-component-re-mounted-when-theme-changed-from-undefined-to-some-object-or-to-undefined}
 
 在 ConfigProvider 中我们通过 `DesignTokenContext` 传递 context，`theme` 为 `undefined` 时不会套一层 Provider，所以从无到有或者从有到无时 Vue 的 VirtualDOM 结构变化，导致组件重新 mount。解决方法：将 `undefined` 替换为空对象 `{}` 即可。

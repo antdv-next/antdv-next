@@ -131,7 +131,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | tooltips | 自定义提示文案，为 false 时隐藏文案 | \[VueNode, VueNode] | \[`复制`, `复制成功`] |
 | tabIndex | 自定义复制按钮的 tabIndex | number | 0 |
 
-#### 事件
+#### 事件 {#events}
 
 | 事件 | 说明 | 类型 |
 | --- | --- | --- |
@@ -151,7 +151,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | enterIcon | 在编辑段中自定义"enter"图标（传递"null"将删除图标） | VueNode | &lt;EnterOutlined /&gt; |
 | tabIndex | 自定义编辑按钮的 tabIndex | number | 0 |
 
-#### 事件
+#### 事件 {#events-1}
 
 | 事件 | 说明 | 类型 |
 | --- | --- | --- |
@@ -168,11 +168,11 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | rows | 最多显示的行数 | number | - |
 | suffix | 自定义省略内容后缀 | string | - |
 | symbol | 自定义展开描述文案 | VueNode \| ((expanded: boolean) =&gt; VueNode) | `展开` `收起` |
-| tooltip | 省略时，展示提示信息 | VueNode \| [TooltipProps](/components/tooltip-cn/#api) | - |
+| tooltip | 省略时，展示提示信息 | VueNode \| [TooltipProps](/components/tooltip-cn#api) | - |
 | defaultExpanded | 默认展开或收起 | boolean | - |
 | expanded | 展开或收起 | boolean | - |
 
-#### 事件
+#### 事件 {#events-2}
 
 | 事件 | 说明 | 类型 |
 | --- | --- | --- |

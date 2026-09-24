@@ -44,7 +44,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8yArQ43EGccAAA
 | gap | 设置网格之间的间隙 | CSSProperties['gap'] \| SizeType | - | - | × |
 | component | 自定义元素类型 | any | `div` | - | × |
 
-## 主题变量（Design Token）
+## 主题变量（Design Token） {#design-token}
 
 <ComponentTokenTable component="Flex" />
 

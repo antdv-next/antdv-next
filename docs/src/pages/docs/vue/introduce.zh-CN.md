@@ -14,7 +14,7 @@ title: Ant Design of Vue
 
 ---
 
-## ✨ 特性
+## ✨ 特性 {#✨-features}
 
 - 🌈 提炼自企业级中后台产品的交互语言和视觉风格。
 - 📦 开箱即用的高质量 Vue3 组件。
@@ -23,7 +23,7 @@ title: Ant Design of Vue
 - 🌍 数十个国际化语言支持。
 - 🎨 深入每个细节的主题定制能力。
 
-## 兼容环境
+## 兼容环境 {#environment-support}
 
 - 现代浏览器
 - 支持服务端渲染。
@@ -35,13 +35,13 @@ title: Ant Design of Vue
 
 > `vue3` 之后不再支持 IE8。 `antdv-next` 默认不支持 IE。推荐从`vue@3.5.x`版本开始使。
 
-## 版本
+## 版本 {#version}
 
 - 稳定版：[![npm package](https://img.shields.io/npm/v/antdv-next.svg?style=flat-square)](https://www.npmjs.org/package/antdv-next)
 
-## 安装
+## 安装 {#installation}
 
-### 使用 npm 或 yarn 或 pnpm 或 bun 安装
+### 使用 npm 或 yarn 或 pnpm 或 bun 安装 {#using-npm-or-yarn-or-pnpm-or-bun}
 
 **我们推荐使用 [npm](https://www.npmjs.com/) 或 [yarn](https://github.com/yarnpkg/yarn/) 或 [pnpm](https://pnpm.io/zh/) 或 [bun](https://bun.sh/) 的方式进行开发**，不仅可在开发环境轻松调试，也可放心地在生产环境打包部署使用，享受整个生态圈和工具链带来的诸多好处。
 
@@ -49,7 +49,7 @@ title: Ant Design of Vue
 
 如果你的网络环境不佳，推荐使用 [cnpm](https://github.com/cnpm/cnpm)。
 
-### 浏览器引入
+### 浏览器引入 {#import-in-browser}
 
 在浏览器中使用 `script` 和 `link` 标签直接引入文件，并使用全局变量 `antd`。
 
@@ -103,7 +103,7 @@ title: Ant Design of Vue
 </html>
 ```
 
-## 示例
+## 示例 {#usage}
 
 ```vue
 <template>
@@ -111,7 +111,7 @@ title: Ant Design of Vue
 </template>
 ```
 
-### 按需加载
+### 按需加载 {#use-modularized-antdv-next}
 
 `antdv-next` 是一个完全的 Pure ESM 的项目，默认支持 tree shaking。
 
@@ -119,7 +119,7 @@ title: Ant Design of Vue
 
 `antdv-next` 使用 TypeScript 进行书写并提供了完整的定义文件。
 
-## 链接
+## 链接 {#links}
 
 - [首页](/index-cn)
 - [所有组件](/components/overview-cn)

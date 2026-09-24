@@ -8,12 +8,12 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ZiJ3SbOH9SUAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAAAAAAAAAAAADrJ8AQ/original
 ---
 
-## 何时使用
+## 何时使用 {#when-to-use}
 
 - 避免组件紧贴在一起，设置统一的间距。
 - 当子表单组件紧密连接并且边框折叠时，使用 Space.Compact。
 
-### 与 Flex 组件的区别
+### 与 Flex 组件的区别 {#difference-with-flex-component}
 
 - Space 用于设置内联元素之间的间距。它会为每个子元素添加一个包装元素进行内联对齐。适用于多个子元素在行列中的等距排列。
 - Flex 用于设置块级元素的布局。它不会添加包装元素。适用于子元素在垂直或水平方向的布局，并提供更多的灵活性和控制。
@@ -89,7 +89,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 
 <demo src="./demo/_semantic.vue" simplify></demo>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token） {#design-token}
 
 <ComponentTokenTable component="Space" />
 

@@ -183,7 +183,7 @@ const formRef = ref<FormInstance>()
 | extra | 自定义额外提示信息（优先于 `extra` 属性） | () =&gt; any | - |
 | help | 自定义帮助/错误提示（优先于 `help` 属性） | () =&gt; any | - |
 
-### 类型
+### 类型 {#types}
 
 #### Rule {#rule}
 

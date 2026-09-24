@@ -5,11 +5,11 @@ tag: New
 
 `design.md` 是一份遵循 [google-labs-code/design.md](https://github.com/google-labs-code/design.md) 规范的设计语言描述文件。它面向 AI 设计工具(如 Figma Make、Google Stitch),用结构化方式描述 antdv-next 默认 Light 主题的视觉语言、组件范式和主题 Token,让 AI 生成的 UI 能直接匹配组件库风格。
 
-## 文件来源
+## 文件来源 {#where-it-comes-from}
 
 `design.md` 由 [`@antdv-next/cli`](https://github.com/antdv-next/cli) 工具链从组件库主题 Token 自动生成(`scripts/tokens.ts` 提取 Token,`antdv design.md` 输出文件)。CLI 与本站发布的文件共用同一份权威版本。
 
-## 获取方式
+## 获取方式 {#where-to-get-it}
 
 文件可通过以下途径获取:
 
@@ -23,7 +23,7 @@ tag: New
 
 `design.md` 的 front matter 携带机器可读的 Token。默认 Light 主题的关键值:
 
-### 颜色
+### 颜色 {#colors}
 
 | Token | 值 | 用途 |
 | --- | --- | --- |
@@ -38,7 +38,7 @@ tag: New
 | `outline` | `#D9D9D9` | 默认边框 |
 | `outline-variant` | `#F0F0F0` | 浅色边框、分割线 |
 
-### 字体
+### 字体 {#typography}
 
 | Token | 值 |
 | --- | --- |
@@ -46,7 +46,7 @@ tag: New
 | `fontFamilyCode` | `'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace` |
 | `display-lg` → `body-sm` | `38px` → `12px` 字号阶梯(标题 `600`,正文 `400`) |
 
-### 圆角、间距与尺寸
+### 圆角、间距与尺寸 {#shapes-spacing-size}
 
 | Token | 值 |
 | --- | --- |
@@ -54,7 +54,7 @@ tag: New
 | `spacing.unit` | `4px` 网格(`xs 4 / sm 8 / md 16 / lg 24 / xl 32`) |
 | `control-height` | `32px` 默认控件高度 |
 
-## 组件范式
+## 组件范式 {#component-patterns}
 
 `design.md` 同时描述组件层 — Token 如何组合成可复用的 UI 模式:
 
@@ -67,7 +67,7 @@ tag: New
 - **Table 表头** — `surface-container` 背景、`600` 字重 `14px` 文字、`16px` 内边距
 - **Menu 选中** — `#E6F4FF` 背景 + 主色文字
 
-## 校验
+## 校验 {#validation}
 
 `design.md` 是一份正式规范 — 可用官方 CLI 校验结构、检查 WCAG 对比度、对比 token 回归:
 
@@ -76,7 +76,7 @@ npx @google/design.md lint design.md
 npx @google/design.md diff design.md design-v2.md
 ```
 
-## 相关链接
+## 相关链接 {#related}
 
 - [LLMs.txt 指南](/docs/vue/llms-cn) — 面向 AI 工具的结构化文档
 - [CLI 指南](/docs/vue/cli-cn) — `antdv design.md` 等离线命令

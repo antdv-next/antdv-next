@@ -4,11 +4,11 @@ title: 贡献指南
 
 这篇指南会帮助你了解如何为 Antdv Next 贡献一份自己的力量，请你在提 issue 或者 pull request 之前花几分钟来阅读一遍这篇指南。
 
-## 行为准则
+## 行为准则 {#code-of-conduct}
 
 我们使用了与 Ant Design 社区相同的 [行为准则](https://github.com/antdv-next/antdv-next/blob/main/CODE_OF_CONDUCT.md), 希望所有的贡献者都能遵守，请花时间阅读一遍全文以确保你能明白哪些是可以做的，哪些是不能做的。
 
-## 开发透明
+## 开发透明 {#transparent-development}
 
 我们所有的开发工作都是在 [Github](https://github.com/antdv-next/antdv-next) 上进行的。不管是团队成员还是社区贡献者的 pull request 都需要经过同样的流程 review。
 
@@ -20,7 +20,7 @@ title: 贡献指南
 我们无法像 Ant Design 那样有一个庞大的团队来支持频繁的版本发布，所以我们只能尽可能的在保证质量的前提下，尽快的发布新版本。希望大家理解。
 :::
 
-## 第一次贡献
+## 第一次贡献 {#first-contribution}
 
 如果你还不清楚怎么在 GitHub 上提 Pull Request ，可以阅读下面这篇文章来学习：
 
@@ -44,7 +44,7 @@ Antdv Next Team 会关注所有的 pull request，我们会 review 以及合并�
 
 由于 antdv-next 的大部分是基于 `vue-components` 的，所以有时候你需要给 [vue-components](https://github.com/antdv-next/vue-components) 仓库发送一个 pull request。如果你修复了某个 bug，那么我们在合并你的修改后会尽快发布一个 patch 版本，然后你只要重新安装你的依赖就可以使用新发布的版本了。如果你的 pull request 是新增了某个功能，那么在你的修改合并并且发布版本后，你还需要发送一个 pull request 到 Antdv Next 来升级响应的依赖、文档以及 Typescript 类型定义。
 
-## 开发流程
+## 开发流程 {#development-workflow}
 
 我们项目默认是一个 monorepo 仓库，使用 [pnpm workspace](https://pnpm.io/workspaces) 来管理多个子包(package)，所以在你开始贡献代码之前，请确保你已经了解了 pnpm workspace 的基本使用方法。
 
@@ -59,7 +59,7 @@ Antdv Next Team 会关注所有的 pull request，我们会 review 以及合并�
 7. 站点构建：`pnpm build`。
 8. 编译构建：`pnpm build:antdv`
 
-## 致谢
+## 致谢 {#acknowledgements}
 
 感谢所有为 Antdv Next 贡献代码和文档的朋友们，是你们让这个项目变得更好！我们期待更多的贡献者加入到这个项目中来，共同推动 Antdv Next 的发展。
 

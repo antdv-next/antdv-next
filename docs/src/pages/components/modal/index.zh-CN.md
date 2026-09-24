@@ -102,7 +102,7 @@ demo:
 | closeIcon | 自定义关闭图标 | () => any | - |
 | modalRender | 自定义渲染内容 | (node: any) => any | - |
 
-### 注意
+### 注意 {#note}
 
 - `<a-modal />` 默认关闭后状态不会自动清空，如果希望每次打开都是新内容，请设置 `destroyOnHidden`。
 - `<a-modal />` 和 Form 一起配合使用时，设置 `destroyOnHidden` 也不会在 Modal 关闭时销毁表单字段数据，需要设置 `<a-form :preserve="false" />`。

@@ -11,7 +11,7 @@ demo:
 tag: 1.0.0
 ---
 
-## 何时使用
+## 何时使用 {#when-to-use}
 
 提供可拖动的分割面板，用于创建复杂的多列或多行布局。
 
@@ -85,7 +85,7 @@ tag: 1.0.0
 
 <demo src="./demo/_semantic.vue" simplify></demo>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token） {#design-token}
 
 <ComponentTokenTable component="Splitter" />
 

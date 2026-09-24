@@ -144,7 +144,7 @@ const breakpointWidth = {
 }
 ```
 
-## 主题变量（Design Token）
+## 主题变量（Design Token） {#design-token}
 
 <ComponentTokenTable component="Layout" />
 

@@ -289,7 +289,7 @@ export type FormatType
 
 DatePicker 在 v4 默认将 `locale` 设置为 `en`，你可以通过 DatePicker 的 `locale` 属性或 [ConfigProvider `locale`](/components/config-provider) 属性来指定语言。
 
-#### 日期相关的组件语言为什么不生效？
+#### 日期相关的组件语言为什么不生效？ {#date-related-components-locale-is-not-working}
 
 请查看 FAQ [Date-related-components-locale-is-not-working?](/docs/vue/faq#date-related-components-locale-is-not-working)
 

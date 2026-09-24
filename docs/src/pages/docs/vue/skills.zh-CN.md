@@ -5,11 +5,11 @@ tag: New
 
 Agent Skills 是扩展 AI 功能的模块化能力。Antdv Next Skills 为 AI Agent 提供 Antdv Next 组件库的专业知识，让 AI 能够准确理解和使用组件。
 
-## 什么是 Agent Skills？
+## 什么是 Agent Skills？ {#what-are-agent-skills}
 
 Agent Skills 是可重用的、基于文件系统的资源，为 AI Agent 提供特定领域的专业知识：工作流、上下文和最佳实践，将通用代理转变为专家。与提示不同（提示是对话级别的一次性任务指令），**Skills 按需加载，无需在多个对话中重复提供相同的指导**。
 
-### 为什么使用 Antdv Next Skills？
+### 为什么使用 Antdv Next Skills？ {#why-use-antdv-next-skills}
 
 **主要优势**：
 - **专业化 AI**：为 Antdv Next 组件开发定制功能，让 AI 成为组件库专家
@@ -18,13 +18,13 @@ Agent Skills 是可重用的、基于文件系统的资源，为 AI Agent 提供
 - **减少幻觉**：通过提供真实的文档和示例，避免 AI 生成不存在的 Props 或错误的用法
 - **离线可用**：Skills 将文档内容本地化，不依赖外部链接，确保稳定可靠
 
-## Skills 如何工作
+## Skills 如何工作 {#how-skills-work}
 
 Skills 利用 AI Agent 的虚拟机环境提供超越仅使用提示可能实现的功能。AI Agent 在具有文件系统访问权限的虚拟机中运行，允许 Skills 作为包含指令、可执行代码和参考资料的目录存在。
 
 这种基于文件系统的架构支持**渐进式披露**：AI Agent 按需分阶段加载信息，而不是预先消耗上下文。
 
-### 三级加载机制
+### 三级加载机制 {#three-level-loading-mechanism}
 
 Skills 可以包含三种类型的内容，每种在不同时间加载：
 
@@ -42,7 +42,7 @@ Skills 可以包含三种类型的内容，每种在不同时间加载：
 
 > 💡 **类比**：就像为新团队成员准备的入职指南。他们知道指南的存在（元数据），需要时打开相关章节（指令），必要时查看详细附录（资源）。
 
-## 安装
+## 安装 {#installation}
 
 ::: tip 需要注意的是
 
@@ -56,7 +56,7 @@ Skills 可以包含三种类型的内容，每种在不同时间加载：
 npx skills add antdv-next/skills
 ```
 
-## 使用方法
+## 使用方法 {#usage}
 
 安装后，AI Agent 会在与 Antdv Next 组件相关的请求中**自动使用** Skills。为了获得最稳定的效果，建议在提示词前显式声明：
 
@@ -66,7 +66,7 @@ use antdv-next skill, <你的需求>
 
 这样可以显式触发技能；否则可能因匹配度不足导致触发不稳定。
 
-### 使用示例
+### 使用示例 {#usage-examples}
 
 **基础组件开发**：
 ```
@@ -88,9 +88,9 @@ use antdv-next skill, 根据 AGENTS.md 规范重构 Button 组件，确保 Props
 use antdv-next skill, 为什么我的 Form 组件验证不生效？
 ```
 
-## 技术实现
+## 技术实现 {#technical-implementation}
 
-### Skill 结构
+### Skill 结构 {#skill-structure}
 
 Antdv Next Skills 遵循标准 Skill 结构：
 
@@ -112,7 +112,7 @@ description: Antdv Next 组件库开发专家...
 有关具体组件用法，请参阅 [references/components/](references/components/)
 ```
 
-### 生成流程
+### 生成流程 {#generation-process}
 
 1. **文档提取**：从 playground 提取组件文档的 markdown 文件
 2. **示例转换**：将 Vue SFC 示例转换为 markdown 格式
@@ -127,7 +127,7 @@ pnpm run generate:en  # 生成英文版本
 pnpm run generate:zh  # 生成中文版本
 ```
 
-## 支持的AI平台
+## 支持的AI平台 {#supported-ai-platforms}
 
 Antdv Next Skills 作为**自定义 Skills** 可在多个 AI 平台使用：
 
@@ -138,6 +138,6 @@ Antdv Next Skills 作为**自定义 Skills** 可在多个 AI 平台使用：
 5. Antigravity
 6. ...
 
-## 贡献
+## 贡献 {#contributing}
 
 该项目是一个**早期实验**，旨在为 AI Agent 提供面向 Antdv Next 的专用技能。欢迎通过 [GitHub Issues](https://github.com/antdv-next/skills/issues) 提供反馈，帮助我们提升覆盖范围与准确性。

@@ -56,13 +56,13 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cFsBQLA0b7UAAA
 | type | 步骤条类型，可选 `default` `dot` `inline` `navigation` `panel` | `default` \| `dot` \| `inline` \| `navigation` \| `panel` | `default` | - | × |
 | variant | 设置样式变体 | `filled` \| `outlined` | `filled` | - | × |
 
-### 事件 {events}
+### 事件 {#events}
 
 | 事件 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
 | change | 点击切换步骤时触发 | (current: number) =&gt; void | - |
 
-### 插槽 {slots}
+### 插槽 {#slots}
 
 | 插槽 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |

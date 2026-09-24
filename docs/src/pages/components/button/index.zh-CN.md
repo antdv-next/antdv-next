@@ -93,7 +93,7 @@ group:
 | `icon` | 设置按钮的图标组件 | - | - |
 | `loadingIcon` | 设置按钮载入的图标组件 | - | - |
 
-## 类型
+## 类型 {#types}
 
 ### PresetColors
 
@@ -103,7 +103,7 @@ group:
 
 <demo src="./demo/_semantic.vue" simplify></demo>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token） {#design-token}
 
 <ComponentTokenTable component="Button" />
 

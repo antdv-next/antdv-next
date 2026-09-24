@@ -4,14 +4,14 @@ title: Nuxt支持
 
 `@antdv-next/nuxt` 是 `antdv-next` 官方提供的 Nuxt 模块。
 
-## 版本要求
+## 版本要求 {#version-requirements}
 
 - Nuxt >= 4.0.0
 - Vue >= 3.5.0
 - antdv-next >= 1.0.4
 - @antdv-next/icons >= 1.0.1
 
-## 安装
+## 安装 {#installation}
 
 ```shell
 npx nuxi@latest module add @antdv-next/nuxt
@@ -26,7 +26,7 @@ npx nuxi@latest module add @antdv-next/nuxt
   bun='$ bun add -D @antdv-next/nuxt antdv-next @antdv-next/icons'
 />
 
-## 配置
+## 配置 {#configuration}
 
 ```ts
 export default defineNuxtConfig({
@@ -39,7 +39,7 @@ export default defineNuxtConfig({
 
 模块的配置键是 `antd`。
 
-## 使用
+## 使用 {#usage}
 
 ```vue
 <template>
@@ -50,7 +50,7 @@ export default defineNuxtConfig({
 
 默认情况下，组件会以 `A` 前缀注册，比如 `AButton`、`ATable`、`AQrcode`。
 
-## 样式
+## 样式 {#styles}
 
 引入基础重置样式：
 
@@ -71,7 +71,7 @@ export default defineNuxtConfig({
 })
 ```
 
-## 选项
+## 选项 {#options}
 
 | 选项 | 类型 | 默认值 | 说明 |
 | --- | --- | --- | --- |
@@ -87,7 +87,7 @@ export default defineNuxtConfig({
 - `includeIcons` 和 `excludeIcons` 仅在 `icon` 开启时生效。
 - `ComponentName` 和 `IconName` 类型可从模块类型定义中获取。
 
-## 完整示例
+## 完整示例 {#full-example}
 
 `assets/entry.css`
 
