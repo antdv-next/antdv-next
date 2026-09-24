@@ -1,9 +1,13 @@
 <docs lang="zh-CN">
 给列设置 `resizable`，即可拖动表头边缘调整列宽，松开后触发 `resizeColumn`。未回写 `columns` 时表格会自行记住拖出的宽度；下面的示例通过 `resizeColumn` 回写宽度，并可一键恢复默认。
+
+开启后各列的 `width` 请使用数字（px），不需要固定宽度的列可以不写；使用 `'20%'`、`'200px'` 等字符串时，松手位置的精确对齐和对无宽度列的保护都不会生效。
 </docs>
 
 <docs lang="en-US">
 Set `resizable` on a column to resize it by dragging the header edge; `resizeColumn` fires on release. The table keeps the dragged width on its own when `columns` is not updated. This demo writes the width back through `resizeColumn` and can reset it.
+
+Use numeric (px) `width` values on resizable tables and leave `width` unset on columns that should stay flexible. With string widths such as `'20%'` or `'200px'`, the drop position is not kept exact and columns without a width are no longer protected from being squeezed.
 </docs>
 
 <script setup lang="ts">
