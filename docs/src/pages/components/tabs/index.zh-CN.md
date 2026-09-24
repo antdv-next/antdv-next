@@ -26,6 +26,7 @@ Antdv Next 依次提供了三级选项卡，分别用于不同的场景。
 <demo src="./demo/centered.vue">居中</demo>
 <demo src="./demo/icon.vue">图标</demo>
 <demo src="./demo/custom-indicator.vue">指示条</demo>
+<demo src="./demo/scroll-position.vue">滚动位置</demo>
 <demo src="./demo/slide.vue">滑动</demo>
 <demo src="./demo/extra.vue">附加内容</demo>
 <demo src="./demo/size.vue">大小</demo>
@@ -60,6 +61,7 @@ Antdv Next 依次提供了三级选项卡，分别用于不同的场景。
 | moreIcon | 自定义折叠图标 | VueNode | `<EllipsisOutlined />` | - | ✓ |
 | removeIcon | 自定义删除按钮，设置 `type="editable-card"` 时有效 | VueNode | `<CloseOutlined />` | - | ✓ |
 | renderTabBar | 替换 TabBar，用于二次封装标签头 | (ctx: \{ props: any; TabNavListComponent: any \}) => VueNode | - | - | × |
+| scrollPosition | 切换标签时激活标签的滚动对齐方式。`auto` 仅在激活标签超出可视区域时滚动并对齐到最近的边缘 | `auto` \| `start` \| `center` \| `end` \| number | `auto` | 1.5.5 | ✓ |
 | size | 大小，提供 `large` `medium` 和 `small` 三种大小 | `large` \| `medium` \| `small` | `medium` | - | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | TabsStylesType | - | - | ✓ |
 | tabBarExtraContent | tab bar 上额外的元素 | VueNode \| \{ left?: VueNode, right?: VueNode \} | - | - | × |

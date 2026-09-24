@@ -396,6 +396,7 @@ export type TabsConfig = ComponentStyleConfig
     | 'removeIcon'
     | 'classes'
     | 'styles'
+    | 'scrollPosition'
   >
   & TabsMoreConfig
 

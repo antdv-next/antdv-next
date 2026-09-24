@@ -1,4 +1,5 @@
 import type { Tab } from '..'
+import VcTabs from '@v-c/tabs'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { h, nextTick } from 'vue'
 import Tabs from '..'
@@ -517,6 +518,49 @@ describe('tabs', () => {
         },
       }, { attachTo: document.body })
       expect(document.querySelector('.ant-tabs-ink-bar')).toBeTruthy()
+      wrapper.unmount()
+    })
+  })
+
+  // ========================= Scroll Position =========================
+  describe('scrollPosition', () => {
+    it('passes scrollPosition to VcTabs', () => {
+      const wrapper = mount(Tabs, {
+        props: { items: defaultItems, scrollPosition: 'center' },
+        attachTo: document.body,
+      })
+
+      expect(wrapper.findComponent(VcTabs).props('scrollPosition')).toBe('center')
+      wrapper.unmount()
+    })
+
+    it('merges scrollPosition from ConfigProvider', () => {
+      const wrapper = mount({
+        render() {
+          return (
+            <ConfigProvider tabs={{ scrollPosition: 'end' }}>
+              <Tabs items={defaultItems} />
+            </ConfigProvider>
+          )
+        },
+      }, { attachTo: document.body })
+
+      expect(wrapper.findComponent(VcTabs).props('scrollPosition')).toBe('end')
+      wrapper.unmount()
+    })
+
+    it('component scrollPosition overrides ConfigProvider', () => {
+      const wrapper = mount({
+        render() {
+          return (
+            <ConfigProvider tabs={{ scrollPosition: 'start' }}>
+              <Tabs items={defaultItems} scrollPosition="center" />
+            </ConfigProvider>
+          )
+        },
+      }, { attachTo: document.body })
+
+      expect(wrapper.findComponent(VcTabs).props('scrollPosition')).toBe('center')
       wrapper.unmount()
     })
   })

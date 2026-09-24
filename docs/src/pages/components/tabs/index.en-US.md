@@ -23,6 +23,7 @@ Antdv Next has 3 types of Tabs for different situations.
   <demo src="./demo/centered.vue">Centered</demo>
   <demo src="./demo/icon.vue">Icon</demo>
   <demo src="./demo/custom-indicator.vue">Indicator</demo>
+  <demo src="./demo/scroll-position.vue">Scroll position</demo>
   <demo src="./demo/slide.vue">Slide</demo>
   <demo src="./demo/extra.vue">Extra content</demo>
   <demo src="./demo/size.vue">Size</demo>
@@ -57,6 +58,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | moreIcon | Custom icon of the collapse menu | VueNode | `<EllipsisOutlined />` | - | ✓ |
 | removeIcon | The custom icon of remove, only works with `type="editable-card"` | VueNode | `<CloseOutlined />` | - | ✓ |
 | renderTabBar | Replace the TabBar | (ctx: \{ props: any; TabNavListComponent: any \}) => VueNode | - | - | × |
+| scrollPosition | Scroll alignment of the active tab when switching. `auto` scrolls only when the active tab overflows and aligns it to the nearest edge | `auto` \| `start` \| `center` \| `end` \| number | `auto` | 1.5.5 | ✓ |
 | size | Preset tab bar size | `large` \| `medium` \| `small` | `medium` | - | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function | TabsStylesType | - | - | ✓ |
 | tabBarExtraContent | Extra content in tab bar | VueNode \| \{ left?: VueNode, right?: VueNode \} | - | - | × |

@@ -90,6 +90,8 @@ export interface BaseTabsProps<Item extends Tab = TabItem> extends ComponentBase
   /** @deprecated please use `tabPlacement` instead */
   tabPosition?: TabPosition
   tabPlacement?: TabPlacement
+  /** Scroll alignment of the active tab when switching. `auto` keeps the legacy edge-aligned behavior. */
+  scrollPosition?: VcTabsProps['scrollPosition']
   /** @deprecated Please use `indicator={{ size: ... }}` instead */
   indicatorSize?: GetIndicatorSize
   items?: Item[]
@@ -191,9 +193,11 @@ const InternalTabs = defineComponent<
       styles: contextStyles,
       getPopupContainer,
       getPrefixCls,
-    } = useComponentBaseConfig('tabs', props)
+      scrollPosition: contextScrollPosition,
+    } = useComponentBaseConfig('tabs', props, ['scrollPosition'])
 
     const size = useSize(customSize)
+    const mergedScrollPosition = computed(() => props.scrollPosition ?? contextScrollPosition.value)
 
     const mergedPlacement = computed<TabPosition | undefined>(() => {
       const placement = tabPlacementProp.value ?? tabPosition.value
@@ -423,6 +427,7 @@ const InternalTabs = defineComponent<
           prefixCls={prefixCls.value}
           animated={mergedAnimated.value}
           indicator={mergedIndicator.value}
+          scrollPosition={mergedScrollPosition.value}
           destroyOnHidden={props.destroyOnHidden ?? props.destroyInactiveTabPane}
           tabPosition={mergedPlacement.value}
           // must stay after the spreads: `restProps` carries `direction: undefined`
