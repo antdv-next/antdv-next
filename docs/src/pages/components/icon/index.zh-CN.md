@@ -83,7 +83,7 @@ import { StarFilled, StarOutlined, StarTwoTone } from '@antdv-next/icons'
 </template>
 ```
 
-### 双色图标主色 {#set-two-tone-color}
+### 双色图标主色 {#set-twotone-color}
 
 对于双色图标，可以通过使用 `getTwoToneColor()` 和 `setTwoToneColor(colorString)` 来全局设置图标主色。
 

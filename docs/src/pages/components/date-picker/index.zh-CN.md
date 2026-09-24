@@ -152,7 +152,7 @@ dayjs.locale('zh-cn')
 | showWeek | DatePicker 下展示当前周 | boolean | false | - |
 | value | 日期，支持 `v-model:value` | [dayjs](https://day.js.org/) | - | - |
 
-### DatePicker[picker=year] {#date-picker-picker-year}
+### DatePicker[picker=year] {#datepicker-picker-year}
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -162,7 +162,7 @@ dayjs.locale('zh-cn')
 | renderExtraFooter | 在面板中添加额外的页脚 | () => VueNode | - | - |
 | value | 日期，支持 `v-model:value` | [dayjs](https://day.js.org/) | - | - |
 
-### DatePicker[picker=quarter] {#date-picker-picker-quarter}
+### DatePicker[picker=quarter] {#datepicker-picker-quarter}
 
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
@@ -173,7 +173,7 @@ dayjs.locale('zh-cn')
 | renderExtraFooter | 在面板中添加额外的页脚 | () => VueNode | - | - |
 | value | 日期，支持 `v-model:value` | [dayjs](https://day.js.org/) | - | - |
 
-### DatePicker[picker=month] {#date-picker-picker-month}
+### DatePicker[picker=month] {#datepicker-picker-month}
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
@@ -183,7 +183,7 @@ dayjs.locale('zh-cn')
 | renderExtraFooter | 在面板中添加额外的页脚 | () => VueNode | - | - |
 | value | 日期，支持 `v-model:value` | [dayjs](https://day.js.org/) | - | - |
 
-### DatePicker[picker=week] {#date-picker-picker-week}
+### DatePicker[picker=week] {#datepicker-picker-week}
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |

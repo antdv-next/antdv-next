@@ -87,7 +87,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 ## Types
 
-#### ColorValueType
+### ColorValueType
 
 ```ts
 type ColorValueType
@@ -97,7 +97,7 @@ type ColorValueType
     | null
 ```
 
-#### PresetsItem
+### PresetsItem
 
 ```ts
 interface PresetsItem {

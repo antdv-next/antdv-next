@@ -63,7 +63,7 @@ demo:
 | closeIcon | 自定义关闭按钮。设置为 `null` 或 `false` 时隐藏关闭按钮 | () =&gt; VueNode | - |
 | icon | 设置图标 | () =&gt; VueNode | - |
 
-### TagCheckableTag
+### Tag.CheckableTag
 
 #### 属性 {#checkable-tag-props}
 
@@ -78,7 +78,7 @@ demo:
 | --- | --- | --- | --- |
 | change | 点击标签时触发的回调 | (checked: boolean) =&gt; void | - |
 
-### TagCheckableTagGroup
+### Tag.CheckableTagGroup
 
 #### 属性 {#checkable-tag-group-props}
 

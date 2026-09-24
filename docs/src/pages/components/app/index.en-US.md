@@ -96,7 +96,7 @@ App provides upstream and downstream method calls through `provide/inject`, beca
 
 Note: App.useApp must be available under App.
 
-#### Embedded usage scenarios (if not necessary, try not to do nesting)
+### Embedded usage scenarios (if not necessary, try not to do nesting)
 
 ```html
 <a-app>

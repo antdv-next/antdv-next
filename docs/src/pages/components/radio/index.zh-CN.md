@@ -66,7 +66,7 @@ const value = ref()
 
 通用属性参考：[通用属性](/docs/vue/common-props)
 
-### Radio/RadioButton {#radio}
+### Radio/RadioButton {#radio-radiobutton}
 
 #### Props {#radio-props}
 

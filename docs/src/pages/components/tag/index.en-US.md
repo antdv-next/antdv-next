@@ -62,7 +62,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | closeIcon | Custom close icon. Setting to `null` or `false` hides the close button | () =&gt; VueNode | - |
 | icon | Set the icon of tag | () =&gt; VueNode | - |
 
-### CheckableTag
+### Tag.CheckableTag
 
 #### Props {#checkable-tag-props}
 
@@ -77,7 +77,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | --- | --- | --- | --- |
 | change | Callback executed when Tag is checked/unchecked | (checked: boolean) =&gt; void | - |
 
-### CheckableTagGroup
+### Tag.CheckableTagGroup
 
 #### Props {#checkable-tag-group-props}
 
