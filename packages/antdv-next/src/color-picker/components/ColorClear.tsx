@@ -1,6 +1,6 @@
 import type { AggregationColor } from '../color'
-import { getAttrStyleAndClass } from '@v-c/util/dist/props-util'
 import { defineComponent } from 'vue'
+import { getAttrStyleAndClass } from '../../_util/hooks'
 import { generateColor } from '../util'
 
 export interface ColorClearProps {

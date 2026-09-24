@@ -4,6 +4,7 @@ import type { DescriptionsContextProps } from './DescriptionsContext.ts'
 import type { InternalDescriptionsItemType, RenderDescriptionsItem } from './index.tsx'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { defineComponent } from 'vue'
+import { normalizeStyle } from '../_util/styleUtils'
 import { getSlotPropsFnRun } from '../_util/tools.ts'
 import Cell from './Cell.tsx'
 import { useDescriptionsCtx } from './DescriptionsContext.ts'
@@ -88,7 +89,7 @@ function renderCells(
         class={className}
         style={{
           ...rootStyles?.label,
-          ...style,
+          ...(normalizeStyle(style) || {}),
           ...styles?.label,
         }}
         span={1}
@@ -104,7 +105,7 @@ function renderCells(
         class={className}
         style={{
           ...rootStyles?.content,
-          ...style,
+          ...(normalizeStyle(style) || {}),
           ...styles?.content,
         }}
         span={span * 2 - 1}

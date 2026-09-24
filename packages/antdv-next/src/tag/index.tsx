@@ -11,6 +11,7 @@ import { computed, createVNode, defineComponent, shallowRef } from 'vue'
 import { pureAttrs, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import useClosable, { pickClosable } from '../_util/hooks/useClosable.tsx'
 import { isRenderable } from '../_util/is.ts'
+import { normalizeStyle } from '../_util/styleUtils'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { replaceElement } from '../_util/vueNode.ts'
 import Wave from '../_util/wave'
@@ -217,7 +218,7 @@ const InternalTag = defineComponent<
     )
 
     const tagStyle = computed(() => {
-      let nextTagStyle: any = { ...mergedStyles.value?.root, ...(attrs as any).style }
+      let nextTagStyle: any = { ...mergedStyles.value?.root, ...(normalizeStyle((attrs as any).style) || {}) }
       if (!mergedDisabled.value) {
         nextTagStyle = { ...customTagStyle.value, ...nextTagStyle }
       }

@@ -68,6 +68,19 @@ describe('avatar', () => {
     expect(style).toContain('height: 64px')
   })
 
+  it('should apply a string style prop without index-key corruption', () => {
+    const errSpy = vi.spyOn(console, 'error')
+    const wrapper = mount(Avatar, {
+      props: { style: 'background-color: red;' },
+      slots: { default: () => 'U' },
+    })
+    const style = wrapper.find('.ant-avatar').attributes('style') || ''
+    expect(style).toContain('background-color: red')
+    expect(style).not.toContain('undefined')
+    expect(errSpy).not.toHaveBeenCalled()
+    errSpy.mockRestore()
+  })
+
   it('should render image when src is provided', () => {
     const wrapper = mount(Avatar, {
       props: {
@@ -331,7 +344,7 @@ describe('avatar.Group', () => {
     // 2 visible + 1 "+2" avatar
     const avatars = wrapper.findAll('.ant-avatar')
     expect(avatars.length).toBe(3)
-    expect(avatars[2].text()).toBe('+2')
+    expect(avatars[2]!.text()).toBe('+2')
   })
 
   it('should match group snapshot', () => {

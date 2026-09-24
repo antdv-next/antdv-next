@@ -5,6 +5,26 @@ import ConfigProvider from '../../config-provider'
 import rtlTest from '/@tests/shared/rtlTest'
 import { mount } from '/@tests/utils'
 
+describe('image string style', () => {
+  it('applies a string style prop to the img node', () => {
+    // Regression: a string `style` wrapped by useSemanticRootStyle used to be
+    // spread un-normalized inside mergeStyles, producing numeric-indexed keys
+    // that Vue's patchStyle rejects ("Failed to set an indexed property").
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
+    const wrapper = mount(Image, {
+      props: {
+        src: 'test_src',
+        style: 'max-width: 100px; color: red',
+      } as any,
+    })
+    const img = wrapper.find('img')
+    expect(img.attributes('style')).toContain('max-width: 100px')
+    expect(img.attributes('style')).toContain('color: red')
+    expect(errSpy).not.toHaveBeenCalled()
+    errSpy.mockRestore()
+  })
+})
+
 const src = 'https://example.com/test.png'
 
 describe('image', () => {

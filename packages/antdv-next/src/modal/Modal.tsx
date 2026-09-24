@@ -12,6 +12,7 @@ import { ContextIsolator } from '../_util/ContextIsolator.tsx'
 import { getAttrStyleAndClass, useMergedMask, useMergeSemantic, useToArr, useToProps, useZIndex } from '../_util/hooks'
 import useClosable, { pickClosable } from '../_util/hooks/useClosable.tsx'
 import { canUseDocElement } from '../_util/styleChecker'
+import { normalizeStyle } from '../_util/styleUtils'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { devUseWarning, isDev } from '../_util/warning'
 import { ZIndexProvider } from '../_util/zindexContext.ts'
@@ -406,7 +407,7 @@ const Modal = defineComponent<
               maskClosable={mergeMaskClosable.value}
               scrollLock={props.scrollLock}
               className={mergedClassName}
-              style={{ ...contextStyle.value, ...responsiveWidthVars.value, ...attrStyle }}
+              style={{ ...(normalizeStyle(contextStyle.value) || {}), ...responsiveWidthVars.value, ...(normalizeStyle(attrStyle) || {}) }}
               classNames={{
                 ...dialogClassNames,
                 wrapper: clsx(dialogClassNames.wrapper, wrapClassNameExtended),

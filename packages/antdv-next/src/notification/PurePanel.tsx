@@ -18,6 +18,7 @@ import {
 } from '../_util/hooks'
 import useClosable, { pickClosable } from '../_util/hooks/useClosable'
 import { isRenderable } from '../_util/is'
+import { normalizeStyle } from '../_util/styleUtils'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { useBaseConfig, useComponentBaseConfig } from '../config-provider/context'
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
@@ -275,7 +276,7 @@ const PurePanel = defineComponent<PurePanelProps>(
           <Notification
             style={{
               ...contextStyle.value,
-              ...style,
+              ...(normalizeStyle(style) || {}),
             }}
             {...pureAttrs(attrs)}
             {...restProps as any}

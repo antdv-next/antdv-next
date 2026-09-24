@@ -5,15 +5,9 @@ import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { EmptyEmit, VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context.ts'
 import { clsx } from '@v-c/util'
-import { getAttrStyleAndClass } from '@v-c/util/dist/props-util'
 import { computed, defineComponent, shallowRef } from 'vue'
 import { isPresetColor } from '../_util/colors.ts'
-import {
-  useMergeSemantic,
-  useSemanticRootStyle,
-  useToArr,
-  useToProps,
-} from '../_util/hooks'
+import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { useComponentBaseConfig } from '../config-provider/context.ts'
 import useStyle from './style/ribbon.ts'

@@ -7,6 +7,7 @@ import { EnterOutlined } from '@antdv-next/icons'
 import { clsx } from '@v-c/util'
 import KeyCode from '@v-c/util/dist/KeyCode'
 import { defineComponent, onMounted, shallowRef, watch } from 'vue'
+import { normalizeStyle } from '../_util/styleUtils'
 import { toPropsRefs } from '../_util/tools.ts'
 import { cloneElement } from '../_util/vueNode'
 import TextArea from '../input/TextArea'
@@ -137,7 +138,7 @@ const Editable = defineComponent<
         cssVarCls.value,
       )
       return (
-        <div class={textAreaClassName} style={{ ...styles.root, ...props.style }}>
+        <div class={textAreaClassName} style={{ ...styles.root, ...(normalizeStyle(props.style) || {}) }}>
           <TextArea
             ref={ref}
             maxlength={maxLength.value}

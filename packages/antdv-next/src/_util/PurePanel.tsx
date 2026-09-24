@@ -2,6 +2,7 @@ import type { CSSProperties } from 'vue'
 import { defineComponent, shallowRef, useAttrs, useSlots, watch } from 'vue'
 import ConfigProvider from '../config-provider'
 import { useBaseConfig } from '../config-provider/context.ts'
+import { normalizeStyle } from './styleUtils'
 
 export interface BaseProps {
   prefixCls?: string
@@ -87,7 +88,7 @@ function genPurePanel(
         let mergedProps: any = {
           ...props,
           style: {
-            ...style,
+            ...(normalizeStyle(style) || {}),
             margin: 0,
           },
           open: open.value,
