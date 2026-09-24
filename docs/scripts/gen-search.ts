@@ -8,6 +8,7 @@ import { titlePlugin } from '@mdit-vue/plugin-title'
 import { slugify } from '@mdit-vue/shared'
 import { Charset, Document } from 'flexsearch'
 import MarkdownIt from 'markdown-it'
+import attrsPlugin from 'markdown-it-attrs'
 import { glob } from 'tinyglobby'
 
 type Locale = 'en-US' | 'zh-CN'
@@ -59,6 +60,10 @@ md.use(headersPlugin, {
   slugify,
 })
 md.use(titlePlugin)
+// 与文档站渲染管线保持一致：显式 `{#anchor}` 会写入 heading 的 id 属性，
+// headersPlugin 通过 `token.attrGet('id') ?? slugify(title)` 取用，
+// 缺少该插件时中文页面会退化成「中文标题 slug」，与页面真实 id 不一致。
+md.use(attrsPlugin)
 
 function normalizePath(value: string) {
   return value.split(path.sep).join(path.posix.sep)

@@ -97,7 +97,7 @@ App 组件通过 `provide/inject` 提供上下文方法调用，因而 useApp �
 
 注意：App.useApp 必须在 App 之下方可使用。
 
-### 内嵌使用场景（如无必要，尽量不做嵌套）
+### 内嵌使用场景（如无必要，尽量不做嵌套） {#embedded-usage-scenarios-if-not-necessary-try-not-to-do-nesting}
 
 ```html
 <a-app>
@@ -108,7 +108,7 @@ App 组件通过 `provide/inject` 提供上下文方法调用，因而 useApp �
 </a-app>
 ```
 
-#### 与 ConfigProvider 先后顺序
+#### 与 ConfigProvider 先后顺序 {#sequence-with-configprovider}
 
 App 组件只能在 `ConfigProvider` 之下才能使用 Design Token， 如果需要使用其样式重置能力，则 ConfigProvider 与 App 组件必须成对出现。
 

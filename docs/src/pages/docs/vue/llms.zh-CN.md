@@ -5,18 +5,18 @@ tag: New
 
 本指南介绍如何让 Cursor、Windsurf 和 Claude 等 AI 工具更好地理解 Antdv Next。
 
-## 什么是 LLMs.txt？
+## 什么是 LLMs.txt？ {#what-is-llms-txt}
 
 我们支持通过 [LLMs.txt](https://llmstxt.org/) 文件向大语言模型（LLMs）提供 Antdv Next 文档。此功能可帮助 AI 工具更好地理解我们的组件库、API 及使用模式。
 
-## 可用资源
+## 可用资源 {#available-routes}
 
 我们提供多个 LLMs.txt 路由来帮助 AI 工具访问文档：
 
 - [llms.txt](https://antdv-next.com/llms.txt) - 包含所有组件及其文档链接的结构化概览
 - [llms-full.txt](https://antdv-next.com/llms-full.txt) - 提供包含实现细节和示例的完整文档
 
-## 在 AI 工具中的使用
+## 在 AI 工具中的使用 {#usage-with-ai-tools}
 
 ### Cursor
 
@@ -54,6 +54,6 @@ tag: New
 
 [详细了解 Qoder 配置方法](https://docs.qoder.com/)
 
-### 其他 AI 工具
+### 其他 AI 工具 {#other-ai-tools}
 
 任何支持 LLMs.txt 的 AI 工具均可使用以上路径来更好地理解 Antdv Next。

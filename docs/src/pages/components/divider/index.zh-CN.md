@@ -52,7 +52,7 @@ group:
 
 <demo src="./demo/_semantic.vue" simplify></demo>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token） {#design-token}
 
 <ComponentTokenTable component="Divider" />
 

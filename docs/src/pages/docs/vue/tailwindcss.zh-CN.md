@@ -16,7 +16,7 @@ title: Tailwind CSS
 
 这个插件会把 Ant Design 的 CSS 变量映射到 Tailwind 的主题系统中，让你在使用 `bg-primary`、`shadow-card`、`text-h1` 这类类名时，仍然能跟随 `antdv-next` 的运行时主题变化。
 
-## 版本兼容
+## 版本兼容 {#version-compatibility}
 
 `@antdv-next/tailwind` 跟随 `antdv-next` 一起演进，请按下表选择匹配的版本：
 
@@ -27,12 +27,12 @@ title: Tailwind CSS
 
 > 升级 antdv-next 到 1.3.0 时，请同时升级 `@antdv-next/tailwind` 到 `>=1.1.0`；反过来如果你的 antdv-next 仍在 1.2.x 以下，请固定 `@antdv-next/tailwind` 在 1.0.x。
 
-## 包信息
+## 包信息 {#package-info}
 
 - 包名：`@antdv-next/tailwind`
 - `peerDependencies`：`tailwindcss >= 3.0.0`
 
-## 安装
+## 安装 {#installation}
 
 搭配 antdv-next 1.3.0+：
 
@@ -46,7 +46,7 @@ pnpm add -D tailwindcss @antdv-next/tailwind@^1.1.0
 pnpm add -D tailwindcss @antdv-next/tailwind@~1.0
 ```
 
-## 什么时候用它
+## 什么时候用它 {#when-to-use-it}
 
 适合以下场景：
 
@@ -57,7 +57,7 @@ pnpm add -D tailwindcss @antdv-next/tailwind@~1.0
 
 如果你更偏向 UnoCSS 方案，可以查看 [UnoCSS](/docs/vue/unocss) 文档。
 
-## Tailwind CSS v4（推荐）
+## Tailwind CSS v4（推荐） {#tailwind-css-v4-recommended}
 
 Tailwind CSS v4 通过 `@theme` 机制接入主题变量。`@antdv-next/tailwind` 在 1.1.0 起提供 **两个并存入口**，你可以按项目需要二选一：
 
@@ -68,7 +68,7 @@ Tailwind CSS v4 通过 `@theme` 机制接入主题变量。`@antdv-next/tailwind
 
 > 详细背景参考 [css-plugin Issue #7 (RFC)](https://github.com/antdv-next/css-plugin/issues/7)。
 
-### 方式 1：直接引入主题文件
+### 方式 1：直接引入主题文件 {#option-1-import-the-theme-file-directly}
 
 ```css
 @import "tailwindcss";
@@ -80,7 +80,7 @@ Tailwind CSS v4 通过 `@theme` 机制接入主题变量。`@antdv-next/tailwind
 @import "@antdv-next/tailwind/compat.css";
 ```
 
-### 方式 2：动态生成主题 CSS
+### 方式 2：动态生成主题 CSS {#option-2-generate-theme-css-dynamically}
 
 如果你需要自定义 CSS 变量前缀或命名空间，可以使用 `v4` 导出的生成函数：
 
@@ -104,7 +104,7 @@ const compatCss = generateCompatThemeCSS({
 })
 ```
 
-### compat.css 配置说明
+### compat.css 配置说明 {#compat-css-options}
 
 - `antPrefix`：antdv-next CSS 变量前缀（对应 `ConfigProvider` 的 `prefixCls`）
 - `tokenPrefix`：注入 Tailwind v4 theme token 的命名空间，例如 `--color-ant-primary`、`--padding-ant-lg`、`--text-ant-lg`。同时会生成 `@utility p-ant-lg { padding: var(--padding-ant-lg) }` 这类安全的方向性 utility，避免覆盖 Tailwind 原生 `p-*`
@@ -115,7 +115,7 @@ const compatCss = generateCompatThemeCSS({
 
 如果你仍在使用 Tailwind CSS v3，可以通过插件方式接入。
 
-### 基础配置
+### 基础配置 {#basic-setup}
 
 ```ts
 import antdPlugin from '@antdv-next/tailwind'
@@ -126,7 +126,7 @@ export default {
 }
 ```
 
-### 自定义配置
+### 自定义配置 {#custom-setup}
 
 ```ts
 import { createAntdPlugin } from '@antdv-next/tailwind'
@@ -141,7 +141,7 @@ export default {
 }
 ```
 
-## 使用示例
+## 使用示例 {#usage-example}
 
 ```vue
 <template>
@@ -168,7 +168,7 @@ export default {
 </template>
 ```
 
-## Tailwind v4 工具类对照
+## Tailwind v4 工具类对照 {#tailwind-v4-utility-mapping}
 
 | 类别 | 经典 `theme.css` | 推荐 `compat.css` | 简写 |
 | --- | --- | --- | --- |
@@ -179,9 +179,9 @@ export default {
 | Font size | `text-h1` | `text-ant-h1` | `a-text-h1` |
 | Shadow | `shadow-card` | `shadow-ant-card` | `a-shadow-card` |
 
-## 常用类名示例
+## 常用类名示例 {#common-utility-reference}
 
-### 颜色与背景
+### 颜色与背景 {#colors-and-backgrounds}
 
 | 经典 `theme.css` | namespace 安全 `compat.css` | 说明 |
 | --- | --- | --- |
@@ -192,7 +192,7 @@ export default {
 | `bg-container` | `bg-ant-container` | 容器背景色 |
 | `border-border` | `border-ant-border` | 默认边框颜色 |
 
-### 间距与布局
+### 间距与布局 {#spacing-and-layout}
 
 | 经典 | namespace 安全 | 说明 |
 | --- | --- | --- |
@@ -203,7 +203,7 @@ export default {
 | `mt-sm` | `mt-ant-sm` | 顶部小外边距 |
 | `rounded-lg` | `rounded-ant-lg` | 大圆角 |
 
-### 文字与阴影
+### 文字与阴影 {#typography-and-shadows}
 
 | 经典 | namespace 安全 | 说明 |
 | --- | --- | --- |
@@ -214,14 +214,14 @@ export default {
 | `shadow-sec` | `shadow-ant-sec` | 次级阴影 |
 | `shadow-ter` | `shadow-ant-ter` | 第三级阴影 |
 
-## 间距 token（与 antdv 1.3.0 对齐）
+## 间距 token（与 antdv 1.3.0 对齐） {#spacing-tokens-aligned-with-antdv-1-3-0}
 
 - Padding：`xxs`、`xs`、`sm`、`md`、`lg`、`xl`
 - Margin：`xxs`、`xs`、`sm`、`md`、`lg`、`xl`、`xxl`
 
 > 1.1.0 起 `p-xxl`、`p-xxxl`、`m-xxxl` 不再生成，因为 antdv 1.3.0 已移除对应 CSS 变量。如果你仍在 1.2.x 及之前的 antdv-next，请固定 `@antdv-next/tailwind` 在 1.0.x。
 
-## 1.3.0 新增的 token（1.1.0 起可用）
+## 1.3.0 新增的 token（1.1.0 起可用） {#new-tokens-added-in-1-3-0-available-since-1-1-0}
 
 完整的语义 token 都已对齐 antdv 1.3.0：
 
@@ -235,7 +235,7 @@ export default {
 - 图标：`icon`、`icon-hover`
 - 其它：`highlight`、`white`
 
-## 与主题系统的关系
+## 与主题系统的关系 {#relation-to-theming}
 
 该插件依赖 Ant Design 的 CSS 变量体系，所以建议确保应用已正确包裹 `ConfigProvider`，并按需结合 [定制主题](/docs/vue/customize-theme) 调整 Token。
 
@@ -251,7 +251,7 @@ import { ConfigProvider } from 'antdv-next'
 </template>
 ```
 
-## 注意事项
+## 注意事项 {#notes}
 
 - v4 推荐直接引入 `compat.css`：命名空间安全、不与 Tailwind 内置 utility 冲突；如需迁移老项目可暂时使用 `theme.css`。
 - 1.1.0 起 `theme.css` 已移除 `p-xxl` / `p-xxxl` / `m-xxxl`，以匹配 antdv 1.3.0 的真实 CSS 变量。

@@ -13,7 +13,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8yArQ43EGccAAA
 - 适合设置元素之间的间距。
 - 适合设置各种水平、垂直对齐方式。
 
-### 与 Space 组件的区别 {#difference-with-space}
+### 与 Space 组件的区别 {#difference-with-space-component}
 
 - Space 为内联元素提供间距，其本身会为每一个子元素添加包裹元素用于内联对齐。适用于行、列中多个子元素的等距排列。
 - Flex 为块级元素提供间距，其本身不会添加包裹元素。适用于垂直或水平方向上的子元素布局，并提供了更多的灵活性和控制能力。
@@ -44,7 +44,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*8yArQ43EGccAAA
 | gap | 设置网格之间的间隙 | CSSProperties['gap'] \| SizeType | - | - | × |
 | component | 自定义元素类型 | any | `div` | - | × |
 
-## 主题变量（Design Token）
+## 主题变量（Design Token） {#design-token}
 
 <ComponentTokenTable component="Flex" />
 

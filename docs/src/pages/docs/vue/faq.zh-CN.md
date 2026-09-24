@@ -2,7 +2,7 @@
 title: FAQ
 ---
 
-## 多个组件放一排时没有垂直对齐怎么办？
+## 多个组件放一排时没有垂直对齐怎么办？ {#components-are-not-vertically-aligned-when-placed-in-single-row}
 
 尝试使用 [Space](/components/space-cn) 组件来使他们对齐。
 
@@ -16,13 +16,13 @@ Breadcrumb、Collapse、Segmented、Tabs、Tag 等组件会对相应图标插槽
 
 这套样式针对直接传入的 SVG；`@antdv-next/icons` 的 SVG 有额外容器包裹，使用自身的对齐样式。不同字体、图标内部留白或图标自带的 `vertical-align` 都可能影响最终效果。如果图标已经自行处理对齐，或纯图标场景无需文字对齐补偿，可以局部覆盖对应 SVG 的 `margin-block-end: 0`，并结合图标自身样式调整。
 
-## 我的组件默认语言是英文的？如何切回中文的。
+## 我的组件默认语言是英文的？如何切回中文的。 {#how-to-switch-the-default-locale-to-chinese}
 
 请尝试使用 [ConfigProvider](/components/config-provider-cn#config-provider-demo-locale) 组件来包裹你的应用。
 
 如果日期组件的国际化仍未生效，请配置 `dayjs.locale('zh-cn')` 并**检查你本地的 `dayjs` 版本和 `antdv-next` 依赖的 `dayjs` 版本是否一致**。
 
-## 为什么时间类组件的国际化 locale 设置不生效？
+## 为什么时间类组件的国际化 locale 设置不生效？ {#date-related-components-locale-is-not-working}
 
 请检查是否正确设置了 dayjs 语言包。
 
@@ -57,7 +57,7 @@ antdv-next 在判断是否需要创建内容的包裹 DOM 时，采用内部的 
 
 其中 `false` 被视为显式的无内容标记，而 `true` 则表示内容已提供。虽然 `true` 本身不会产生文本节点，但包裹 DOM 仍然会被创建。类似地，空数组、空 Fragment 或最终返回 `null` 的组件也会通过检查。数字 `0` 则不会被误判为空内容，会被正常渲染。
 
-## 通过 CDN（UMD 产物）使用时，`#tagRender` 等驼峰插槽 / 渲染属性不生效？
+## 通过 CDN（UMD 产物）使用时，`#tagRender` 等驼峰插槽 / 渲染属性不生效？ {#camelcase-slots-render-props-e-g-tagrender-don-t-work-when-using-the-cdn-umd-build}
 
 这是 Vue **DOM 内模板（in-DOM template）** 的解析限制，并非组件的问题。当你把模板直接写在页面的 HTML 里（例如写在 `<div id="app">` 内部）时，浏览器的 HTML 解析器会把标签名和属性名（包括插槽名 `#tagRender`）**强制转为小写**，组件实际收到的是 `tagrender` 而不是 `tagRender`，因此驼峰命名的插槽和渲染属性都不会生效。这对所有驼峰插槽（如 `tagRender`、`maxTagPlaceholder`、`popupRender` 等）都成立，把插槽名改成小写 `#tagrender` 同样无效。详见 Vue 官方文档 [DOM 内模板解析注意事项](https://cn.vuejs.org/guide/essentials/component-basics.html#in-dom-template-parsing-caveats)。
 

@@ -16,6 +16,12 @@ However, the center of the x-height is usually lower than the center of capital 
 
 These styles target directly rendered SVGs. Icons from `@antdv-next/icons` wrap their SVG in an extra container and use their own alignment styles. Different fonts, internal icon whitespace, or an icon's own `vertical-align` can affect the result. If an icon already handles its own alignment, or an icon-only use case does not need text alignment compensation, you can locally override the corresponding SVG with `margin-block-end: 0` and adjust its own styles as needed.
 
+## My component's default locale is English, how do I switch back to Chinese? {#how-to-switch-the-default-locale-to-chinese}
+
+Try wrapping your app with the [ConfigProvider](/components/config-provider#config-provider-demo-locale) component.
+
+If the locale of date components still does not take effect, set `dayjs.locale('zh-cn')` and **check whether the `dayjs` version in your project matches the `dayjs` version required by `antdv-next`**.
+
 ## Date-related components locale is not working?
 
 Please check whether you have imported dayjs locale correctly.

@@ -95,7 +95,7 @@ When toggled, styles will downgrade CSS logical properties:
 }
 ```
 
-## `@layer` Specificity Lowering
+## `@layer` Specificity Lowering {#layer-specificity-lowering}
 
 - Support Version: `>=1.0.0`
 - MDN: [@layer](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer)
@@ -269,7 +269,7 @@ As mentioned earlier, when using StyleProvider, you must wrap ConfigProvider to 
 
 ### TailwindCSS Arrange `@layer`
 
-Before starting the following configuration, you need to enable [`@layer`](#layer) feature.
+Before starting the following configuration, you need to enable [`@layer`](#layer-specificity-lowering) feature.
 
 #### TailwindCSS v3
 
@@ -324,7 +324,7 @@ After configuring `@layer` for antd, you don't need to do any additional configu
 
 When using SSR, styles are often rendered inline in HTML through `<style />`. At this time, please make sure that the styles with the specified `@layer` priority order are loaded before `@layer` is used.
 
-#### ❌ Wrong
+#### ❌ Wrong {#wrong}
 
 ```html
 <head>
@@ -344,7 +344,7 @@ When using SSR, styles are often rendered inline in HTML through `<style />`. At
 </head>
 ```
 
-#### ✅ Correct
+#### ✅ Correct {#correct}
 
 ```html
 <head>

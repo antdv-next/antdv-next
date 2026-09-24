@@ -19,7 +19,7 @@ The file is available from multiple sources:
 | `antdv design.md` | CLI command that outputs the same content ([CLI guide](/docs/vue/cli)) |
 | [llms.txt](https://antdv-next.com/llms.txt) | Navigation file that links to design.md and all component docs |
 
-## Design Tokens
+## Design Token
 
 The front matter of `design.md` carries machine-readable tokens. Key values of the default Light theme:
 

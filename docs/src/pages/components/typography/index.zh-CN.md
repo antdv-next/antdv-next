@@ -31,7 +31,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 
 通用属性参考：[通用属性](/docs/vue/common-props)
 
-### Typography
+### Typography {#typography}
 
 #### 属性 {#typography-props}
 
@@ -39,9 +39,9 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | --- | --- | --- | --- | --- | --- |
 | direction | 方向控制 | 'ltr' \| 'rtl' | - | - | × |
 
-### TypographyText
+### TypographyText {#typography-text}
 
-#### 属性 {#typographytext-props}
+#### 属性 {#typography-text-props}
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
@@ -60,15 +60,15 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | TypographyClassNamesType | - | - | ✓ |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | TypographyStylesType | - | - | ✓ |
 
-#### 事件 {#typographytext-events}
+#### 事件 {#typography-text-events}
 
 | 事件 | 说明 | 类型 |
 | --- | --- | --- |
 | click | 点击时的回调 | (event: MouseEvent) =&gt; void |
 
-### TypographyTitle
+### TypographyTitle {#typography-title}
 
-#### 属性 {#typographytitle-props}
+#### 属性 {#typography-title-props}
 
 | 参数 | 说明 | 类型 | 默认值 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- |
@@ -86,15 +86,15 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | TypographyClassNamesType | - | ✓ |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | TypographyStylesType | - | ✓ |
 
-#### 事件 {#typographytitle-events}
+#### 事件 {#typography-title-events}
 
 | 事件 | 说明 | 类型 |
 | --- | --- | --- |
 | click | 点击时的回调 | (event: MouseEvent) =&gt; void |
 
-### TypographyParagraph
+### TypographyParagraph {#typography-paragraph}
 
-#### 属性 {#typographyparagraph-props}
+#### 属性 {#typography-paragraph-props}
 
 | 参数 | 说明 | 类型 | 默认值 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- |
@@ -112,7 +112,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | TypographyClassNamesType | - | ✓ |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | TypographyStylesType | - | ✓ |
 
-#### 事件 {#typographyparagraph-events}
+#### 事件 {#typography-paragraph-events}
 
 | 事件 | 说明 | 类型 |
 | --- | --- | --- |
@@ -121,7 +121,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 
 ## 类型 {#types}
 
-### copyable
+### copyable {#copyable}
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -131,13 +131,13 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | tooltips | 自定义提示文案，为 false 时隐藏文案 | \[VueNode, VueNode] | \[`复制`, `复制成功`] |
 | tabIndex | 自定义复制按钮的 tabIndex | number | 0 |
 
-#### 事件
+#### 事件 {#events}
 
 | 事件 | 说明 | 类型 |
 | --- | --- | --- |
 | copy | 拷贝成功的回调函数 | (event: MouseEvent) =&gt; void |
 
-### editable
+### editable {#editable}
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -151,7 +151,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | enterIcon | 在编辑段中自定义"enter"图标（传递"null"将删除图标） | VueNode | &lt;EnterOutlined /&gt; |
 | tabIndex | 自定义编辑按钮的 tabIndex | number | 0 |
 
-#### 事件
+#### 事件 {#events-1}
 
 | 事件 | 说明 | 类型 |
 | --- | --- | --- |
@@ -160,7 +160,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | start | 进入编辑中状态时触发 | () =&gt; void |
 | end | 按 ENTER 结束编辑状态时触发 | () =&gt; void |
 
-### ellipsis
+### ellipsis {#ellipsis}
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
@@ -168,11 +168,11 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | rows | 最多显示的行数 | number | - |
 | suffix | 自定义省略内容后缀 | string | - |
 | symbol | 自定义展开描述文案 | VueNode \| ((expanded: boolean) =&gt; VueNode) | `展开` `收起` |
-| tooltip | 省略时，展示提示信息 | VueNode \| [TooltipProps](/components/tooltip-cn/#api) | - |
+| tooltip | 省略时，展示提示信息 | VueNode \| [TooltipProps](/components/tooltip-cn#api) | - |
 | defaultExpanded | 默认展开或收起 | boolean | - |
 | expanded | 展开或收起 | boolean | - |
 
-#### 事件
+#### 事件 {#events-2}
 
 | 事件 | 说明 | 类型 |
 | --- | --- | --- |

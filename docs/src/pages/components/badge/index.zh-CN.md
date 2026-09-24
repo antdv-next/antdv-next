@@ -61,7 +61,7 @@ demo:
 | count | 自定义徽标指示器内容 | () =&gt; any | - |
 | text | 在设置了 `status` 的前提下有效，设置状态点的文本 | () =&gt; any | - |
 
-## 语义化 DOM
+## 语义化 DOM {#semantic-dom}
 
 ### Badge
 
@@ -71,7 +71,7 @@ demo:
 
 <demo src="./demo/_semantic_ribbon.vue" simplify></demo>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token） {#design-token}
 
 <ComponentTokenTable component="Badge" />
 

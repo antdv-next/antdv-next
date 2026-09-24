@@ -36,7 +36,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sir-TK0HkWcAAA
 通用属性参考：[通用属性](/docs/vue/common-props)
 ### Collapse
 
-#### 属性 {#props}
+#### 属性 {#collapse-props}
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
@@ -57,13 +57,13 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sir-TK0HkWcAAA
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | CollapseStylesType | - | - | ✓ |
 | items | 折叠项目内容 | CollapseItemType[] | - | - | × |
 
-#### 事件 {#events}
+#### 事件 {#collapse-events}
 
 | 事件 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
 | change | 切换面板的回调 | (key: string[]) =&gt; void | - |
 
-#### 插槽 {#slots}
+#### 插槽 {#collapse-slots}
 
 | 插槽 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |

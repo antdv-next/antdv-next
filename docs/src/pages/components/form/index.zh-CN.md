@@ -183,9 +183,9 @@ const formRef = ref<FormInstance>()
 | extra | 自定义额外提示信息（优先于 `extra` 属性） | () =&gt; any | - |
 | help | 自定义帮助/错误提示（优先于 `help` 属性） | () =&gt; any | - |
 
-### 类型
+## 类型 {#types}
 
-#### Rule {#rule}
+### Rule {#rule}
 
 `rules` 支持在 `Form` 上按字段批量声明，也支持在 `Form.Item` 上为单个字段声明。当前实现的主要类型如下：
 
@@ -244,7 +244,7 @@ type Rule = RuleObject | RuleRender
 - `type: 'array'` 时可通过 `defaultField` 为数组元素继续声明规则
 - `message` 支持渲染函数（如 `() => t('required')`）：校验时原样保留，渲染错误时才调用，因此函数内读取的响应式状态（locale、i18n 等）变化时，已显示的提示会自动更新，无需重新校验。注意函数形式不参与 `${label}` 等模板变量插值
 
-#### validateMessages {#validatemessages}
+### validateMessages {#validatemessages}
 
 Form 提供默认校验提示文案，你可以通过 `validateMessages` 自定义模板：
 

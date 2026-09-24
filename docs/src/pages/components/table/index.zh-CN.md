@@ -345,7 +345,7 @@ const onHeaderRow: TableProps['onHeaderRow'] = (columns, index) => {
 
 <demo src="./demo/_semantic.vue" simplify></demo>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token） {#design-token}
 
 <ComponentTokenTable component="Table" />
 
