@@ -77,13 +77,16 @@ const Table = defineComponent<
 
     return () => (
       <InternalTable
-        {...omit(props, ['onUpdate:expandedRowKeys', 'onChange'])}
+        {...omit(props, ['onUpdate:expandedRowKeys', 'onChange', 'onResizeColumn'])}
         {...attrs}
         onChange={(pagination: any, filters: any, sorter: any, extra: any) => {
           emit('change', pagination, filters, sorter, extra)
         }}
         onUpdate:expandedRowKeys={(keys: any) => {
           emit('update:expandedRowKeys', keys)
+        }}
+        onResizeColumn={(width: number, column: any, columnKey: any) => {
+          emit('resizeColumn', width, column, columnKey)
         }}
         _renderTimes={renderTimesRef.value}
         ref={tableRef}

@@ -1,14 +1,14 @@
 <docs lang="zh-CN">
-可调整列宽。
+给列设置 `resizable`，即可拖动表头边缘调整列宽，松开后触发 `resizeColumn`。未回写 `columns` 时表格会自行记住拖出的宽度；下面的示例通过 `resizeColumn` 回写宽度，并可一键恢复默认。
 </docs>
 
 <docs lang="en-US">
-Resizable column width.
+Set `resizable` on a column to resize it by dragging the header edge; `resizeColumn` fires on release. The table keeps the dragged width on its own when `columns` is not updated. This demo writes the width back through `resizeColumn` and can reset it.
 </docs>
 
 <script setup lang="ts">
 import type { TableProps } from 'antdv-next'
-import { computed, defineComponent, h, onBeforeUnmount, ref } from 'vue'
+import { ref } from 'vue'
 
 interface DataType {
   key: number
@@ -18,200 +18,42 @@ interface DataType {
   note: string
 }
 
-interface ResizeInfo {
-  size: {
-    width: number
-  }
+type Columns = NonNullable<TableProps<DataType>['columns']>
+
+function defaultColumns(): Columns {
+  return [
+    { title: 'Date', dataIndex: 'date', key: 'date', width: 200, resizable: true },
+    { title: 'Amount', dataIndex: 'amount', key: 'amount', width: 120, resizable: true, minWidth: 80, sorter: (a, b) => a.amount - b.amount },
+    { title: 'Type', dataIndex: 'type', key: 'type', width: 120, resizable: true },
+    { title: 'Note', dataIndex: 'note', key: 'note', width: 160, resizable: true },
+    { title: 'Action', key: 'action' },
+  ]
 }
 
-interface ResizableTitleProps {
-  width?: number
-  onResize?: (event: MouseEvent, info: ResizeInfo) => void
-}
-
-type ColumnsType = NonNullable<TableProps['columns']>
-
-const ResizableTitle = defineComponent<ResizableTitleProps>({
-  name: 'ResizableTitle',
-  inheritAttrs: false,
-  props: ['width', 'onResize'] as any,
-  setup(props, { slots, attrs }) {
-    const dragging = ref(false)
-    const stopNextClick = ref(false)
-    let startX = 0
-    let startWidth = 0
-
-    const onMouseMove = (event: MouseEvent) => {
-      if (!dragging.value) {
-        return
-      }
-      stopNextClick.value = true
-      const nextWidth = Math.max(startWidth + event.clientX - startX, 40)
-      props.onResize?.(event, { size: { width: nextWidth } })
-    }
-
-    const onMouseUp = () => {
-      dragging.value = false
-      document.removeEventListener('mousemove', onMouseMove)
-      document.removeEventListener('mouseup', onMouseUp)
-      setTimeout(() => {
-        stopNextClick.value = false
-      }, 0)
-    }
-
-    const onMouseDown = (event: MouseEvent) => {
-      event.preventDefault()
-      event.stopPropagation()
-      dragging.value = true
-      stopNextClick.value = false
-      startX = event.clientX
-      startWidth = props.width || (event.currentTarget as HTMLElement).parentElement?.offsetWidth || 0
-      document.addEventListener('mousemove', onMouseMove)
-      document.addEventListener('mouseup', onMouseUp)
-    }
-
-    const onClickCapture = (event: MouseEvent) => {
-      if (stopNextClick.value) {
-        event.stopPropagation()
-        event.preventDefault()
-        stopNextClick.value = false
-      }
-    }
-
-    onBeforeUnmount(() => {
-      document.removeEventListener('mousemove', onMouseMove)
-      document.removeEventListener('mouseup', onMouseUp)
-    })
-
-    return () => {
-      if (!props.width) {
-        return h('th', attrs, slots.default?.())
-      }
-
-      return h(
-        'th',
-        {
-          ...attrs,
-          class: ['resizable-title', attrs.class],
-          style: { ...(attrs.style as any), width: `${props.width}px` },
-          onClickCapture,
-        },
-        [
-          slots.default?.(),
-          h('span', {
-            class: 'resizable-handle',
-            onMousedown: onMouseDown,
-          }),
-        ],
-      )
-    }
-  },
-})
-
-const columns = ref<ColumnsType>([
-  {
-    title: 'Date',
-    dataIndex: 'date',
-    width: 200,
-  },
-  {
-    title: 'Amount',
-    dataIndex: 'amount',
-    width: 100,
-    sorter: (a, b) => a.amount - b.amount,
-  },
-  {
-    title: 'Type',
-    dataIndex: 'type',
-    width: 100,
-  },
-  {
-    title: 'Note',
-    dataIndex: 'note',
-    width: 100,
-  },
-  {
-    title: 'Action',
-    key: 'action',
-  },
-])
+const columns = ref<Columns>(defaultColumns())
 
 const dataSource: DataType[] = [
-  {
-    key: 0,
-    date: '2018-02-11',
-    amount: 120,
-    type: 'income',
-    note: 'transfer',
-  },
-  {
-    key: 1,
-    date: '2018-03-11',
-    amount: 243,
-    type: 'income',
-    note: 'transfer',
-  },
-  {
-    key: 2,
-    date: '2018-04-11',
-    amount: 98,
-    type: 'income',
-    note: 'transfer',
-  },
+  { key: 0, date: '2018-02-11', amount: 120, type: 'income', note: 'transfer' },
+  { key: 1, date: '2018-03-11', amount: 243, type: 'income', note: 'transfer' },
+  { key: 2, date: '2018-04-11', amount: 98, type: 'income', note: 'transfer' },
 ]
 
-function handleResize(index: number) {
-  return (_event: MouseEvent, { size }: ResizeInfo) => {
-    columns.value = columns.value.map((col, colIndex) =>
-      colIndex === index ? { ...col, width: size.width } : col,
-    )
-  }
-}
-
-const mergedColumns = computed<TableProps['columns']>(() =>
-  columns.value.map((col, index) => ({
-    ...col,
-    onHeaderCell: (column: any) => ({
-      width: column.width,
-      onResize: handleResize(index),
-    }),
-  })),
-)
-
-const components = {
-  header: {
-    cell: ResizableTitle,
-  },
+const onResizeColumn: TableProps<DataType>['onResizeColumn'] = (width, _column, columnKey) => {
+  columns.value = columns.value.map(col => (col.key === columnKey ? { ...col, width } : col))
 }
 </script>
 
 <template>
-  <a-table
-    bordered
-    :components="components"
-    :columns="mergedColumns"
-    :data-source="dataSource"
-  >
-    <template #bodyCell="{ column }">
-      <template v-if="column.key === 'action'">
-        <a>Delete</a>
+  <a-space direction="vertical" style="width: 100%">
+    <a-button @click="columns = defaultColumns()">
+      Reset widths
+    </a-button>
+    <a-table bordered :columns="columns" :data-source="dataSource" @resize-column="onResizeColumn">
+      <template #bodyCell="{ column }">
+        <template v-if="column.key === 'action'">
+          <a>Delete</a>
+        </template>
       </template>
-    </template>
-  </a-table>
+    </a-table>
+  </a-space>
 </template>
-
-<style>
-.resizable-title {
-  position: relative;
-}
-
-.resizable-handle {
-  position: absolute;
-  top: 0;
-  right: -4px;
-  width: 8px;
-  height: 100%;
-  cursor: col-resize;
-  user-select: none;
-}
-</style>

@@ -150,6 +150,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | change | Callback executed when pagination, filters or sorter is changed | (     pagination: TablePaginationConfig,     filters: Record&lt;string, FilterValue \| null&gt;,     sorter: SorterResult&lt;RecordType&gt; \| SorterResult&lt;RecordType&gt;[],     extra: TableCurrentDataSource&lt;RecordType&gt;,   ) =&gt; void | - |
 | update:expandedRowKeys | - | (keys: readonly Key[]) =&gt; void | - |
 | scroll | Whether the table can be scrollable, [config](#scroll) | NonNullable&lt;VcTableProps['onScroll']&gt; | - |
+| resizeColumn | Fired once per drag after a `resizable` column is resized; `columnKey` is the key the width is tracked by (the column `key`, or a positional key when unset) | (width: number, column: ColumnType, columnKey: Key) =&gt; void | 1.5.5 |
 | headerRow | Set props on per header row | function(columns, index) | - | - |
 | row | Set props on per row | function(record, index) | - | - |
 
@@ -230,6 +231,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | fixed | (IE not support) Set column to be fixed: `true`(same as `'start'`) `'start'` `'end'` | boolean \| string | false | - |
 | key | Unique key of this column, you can ignore this prop if you've set a unique `dataIndex` | string | - |  |
 | render | Renderer of the table cell. `value` is the value of current cell; `record` is the value object of current row; `index` is the row number. The return value should be a VueNode | (value: V, record: T, index: number): VueNode | - | - |
+| resizable | Whether the column can be resized by dragging its header edge; leaf columns only. Enables horizontal scroll and `tableLayout="fixed"`. Widths are tracked by `key`, so give the column a stable `key` when columns can be added, removed or reordered | boolean | false | 1.5.5 |
 | responsive | The list of breakpoints at which to display this column. Always visible if not set | [Breakpoint](https://github.com/antdv-next/antdv-next/blob/main/packages/antdv-next/src/_util/responsiveObserver.ts#L9)\[] | - | - |
 | rowScope | Set scope attribute for all cells in this column | `row` \| `rowgroup` | - | - |
 | shouldCellUpdate | Control cell render logic | (record, prevRecord) => boolean | - | - |
@@ -240,7 +242,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | sortIcon | Customized sort icon | (props: \{ sortOrder \}) => VueNode | - | - |
 | title | Title of this column | VueNode \| (\{ sortColumns, filters \}) => VueNode | - | - |
 | width | Width of this column ([width not working?](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)) | string \| number | - | - |
-| minWidth | Min width of this column, only works when `tableLayout="auto"` | number | - | - |
+| minWidth | Min width of this column; the width floor when `tableLayout="auto"` and the drag lower bound when `resizable` (default 40) | number | - | - |
 | hidden | Hidden this column | boolean | false | - |
 | onCell | Set props on per cell | function(record, rowIndex) | - | - |
 | onFilter | Function that determines if the row is displayed when filtered | function(value, record) => boolean | - | - |

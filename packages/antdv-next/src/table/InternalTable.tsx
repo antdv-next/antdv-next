@@ -190,6 +190,7 @@ export interface TableProps<RecordType = AnyObject>
     | 'getPopupContainer'
     | 'onUpdate:expandedRowKeys'
     | 'onScroll'
+    | 'onResizeColumn'
   > {
   classes?: TableClassNamesType<RecordType>
   styles?: TableStylesType<RecordType>
@@ -227,6 +228,8 @@ export interface TableEmits<RecordType = AnyObject> {
   ) => void
   'update:expandedRowKeys': (keys: readonly Key[]) => void
   'scroll': NonNullable<VcTableProps['onScroll']>
+  /** Fired once per drag on a `resizable` column. `columnKey` is the key the width is tracked by (the column `key`, or its position when unset). */
+  'resizeColumn': (width: number, column: ColumnType<RecordType>, columnKey: Key) => void
 }
 
 export interface TableExpose extends Reference {}
@@ -234,6 +237,7 @@ export interface TableEmitsProps<RecordType = AnyObject> {
   onChange?: TableEmits<RecordType>['change']
   'onUpdate:expandedRowKeys'?: TableEmits<RecordType>['update:expandedRowKeys']
   onScroll?: TableEmits<RecordType>['scroll']
+  onResizeColumn?: TableEmits<RecordType>['resizeColumn']
 }
 
 export interface TableSlots<RecordType = AnyObject> {
@@ -923,6 +927,7 @@ const InternalTable = defineComponent<
               footer={footer as any}
               summary={summary as any}
               onUpdate:expandedRowKeys={(keys: readonly Key[]) => emit('update:expandedRowKeys', keys)}
+              onResizeColumn={(width: number, column: ColumnType, columnKey: Key) => emit('resizeColumn', width, column, columnKey)}
             />
             {paginationNodes.bottom}
           </Spin>

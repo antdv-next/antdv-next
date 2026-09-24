@@ -426,8 +426,8 @@ catalogs:
       specifier: ^1.0.1
       version: 1.0.1
     '@v-c/table':
-      specifier: ^1.3.1
-      version: 1.3.1
+      specifier: ^1.3.3
+      version: 1.3.3
     '@v-c/tabs':
       specifier: ^1.4.0
       version: 1.4.0
@@ -925,7 +925,7 @@ importers:
         version: 1.0.1(vue@3.5.42(typescript@5.9.3))
       '@v-c/table':
         specifier: catalog:vc
-        version: 1.3.1(vue@3.5.42(typescript@5.9.3))
+        version: 1.3.3(vue@3.5.42(typescript@5.9.3))
       '@v-c/tabs':
         specifier: catalog:vc
         version: 1.4.0(vue@3.5.42(typescript@5.9.3))
@@ -3446,8 +3446,13 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
-  '@v-c/table@1.3.1':
-    resolution: {integrity: sha512-4JIoBLbfZGwv791FyK8vKz61me2sLaADsd3wTH2Y0xWhyarVzCl93HN2tBEEoI/usAJtFvG+TGY3zi1mofdWKQ==}
+  '@v-c/table@1.3.2':
+    resolution: {integrity: sha512-FBuDWaSnlgyRbHcJMXsDfWtY6Pvzo0QAM0IW64rEtu2z5WzDyAopuKvMqrE70Zp0pJ+lMMBemdHYssejGKf0zA==}
+    peerDependencies:
+      vue: ^3.0.0
+
+  '@v-c/table@1.3.3':
+    resolution: {integrity: sha512-XhNJUUP/UDVUi5LB9n3MFq60A1m0YQzSeXuvK4P3+lHzKkncDWeVK2+Uiud/DpgoTPhXUzvltxoXudGQ2VBzNA==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -9605,7 +9610,14 @@ snapshots:
       '@v-c/util': 1.3.0(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
-  '@v-c/table@1.3.1(vue@3.5.42(typescript@5.9.3))':
+  '@v-c/table@1.3.2(vue@3.5.42(typescript@5.9.3))':
+    dependencies:
+      '@v-c/resize-observer': 1.1.3(vue@3.5.42(typescript@5.9.3))
+      '@v-c/util': 1.3.0(vue@3.5.42(typescript@5.9.3))
+      '@v-c/virtual-list': 1.1.2(vue@3.5.42(typescript@5.9.3))
+      vue: 3.5.42(typescript@5.9.3)
+
+  '@v-c/table@1.3.3(vue@3.5.42(typescript@5.9.3))':
     dependencies:
       '@v-c/resize-observer': 1.1.3(vue@3.5.42(typescript@5.9.3))
       '@v-c/util': 1.3.0(vue@3.5.42(typescript@5.9.3))
@@ -10125,7 +10137,7 @@ snapshots:
       '@v-c/slider': 1.1.4(vue@3.5.42(typescript@5.9.3))
       '@v-c/steps': 1.0.3(vue@3.5.42(typescript@5.9.3))
       '@v-c/switch': 1.0.1(vue@3.5.42(typescript@5.9.3))
-      '@v-c/table': 1.3.1(vue@3.5.42(typescript@5.9.3))
+      '@v-c/table': 1.3.2(vue@3.5.42(typescript@5.9.3))
       '@v-c/tabs': 1.4.0(vue@3.5.42(typescript@5.9.3))
       '@v-c/textarea': 1.1.1(vue@3.5.42(typescript@5.9.3))
       '@v-c/tooltip': 1.1.3(vue@3.5.42(typescript@5.9.3))

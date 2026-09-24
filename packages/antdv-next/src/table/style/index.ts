@@ -257,6 +257,7 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
     tableHeaderCellSplitColor,
     tableFooterTextColor,
     tableFooterBg,
+    zIndexTableFixed,
     calc,
   } = token
   const tableBorder = `${unit(lineWidth)} ${lineType} ${tableBorderColor}`
@@ -270,11 +271,21 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
 
       [componentCls]: {
         ...resetComponent(token),
+        // Containing block for the column resize proxy line.
+        position: 'relative',
         fontSize: tableFontSize,
         background: tableBg,
         borderRadius: `${unit(tableRadius)} ${unit(tableRadius)} 0 0`,
         // https://github.com/ant-design/ant-design/issues/47486
         scrollbarColor: `${token.tableScrollThumbBg} ${token.tableScrollBg}`,
+      },
+
+      // ======================== Resizable columns ========================
+      // Proxy line moved by `@v-c/table` while a header edge is dragged; it
+      // sits above sticky headers and fixed columns (see sticky.ts).
+      [`${componentCls}-resize-proxy`]: {
+        borderLeft: `${unit(lineWidth)} solid ${token.colorPrimary}`,
+        zIndex: `calc(var(--columns-count, 0) * 2 + ${zIndexTableFixed} + 2)`,
       },
       // https://github.com/ant-design/ant-design/issues/17611
       table: {
@@ -338,6 +349,40 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
 
         '> tr:not(:last-child) > th[colspan]': {
           borderBottom: 0,
+        },
+
+        // Drag handle rendered on `resizable` leaf header cells, straddling
+        // the cell edge; the last cell keeps it inside so the table does not
+        // gain a few pixels of horizontal scroll.
+        [`${componentCls}-resize-handle`]: {
+          position: 'absolute',
+          top: 0,
+          insetInlineEnd: calc(lineWidth).mul(-4).equal(),
+          width: calc(lineWidth).mul(8).equal(),
+          height: '100%',
+          cursor: 'col-resize',
+          userSelect: 'none',
+          zIndex: 1,
+
+          '&::after': {
+            position: 'absolute',
+            top: 0,
+            bottom: 0,
+            insetInlineStart: calc(lineWidth).mul(3).equal(),
+            width: calc(lineWidth).mul(2).equal(),
+            background: token.colorPrimary,
+            opacity: 0,
+            transition: `opacity ${motionDurationMid}`,
+            content: '""',
+          },
+
+          '&:hover::after': {
+            opacity: 1,
+          },
+        },
+
+        [`> tr > th:last-child > ${componentCls}-resize-handle, > tr > ${componentCls}-cell-ellipsis > ${componentCls}-resize-handle`]: {
+          insetInlineEnd: 0,
         },
       },
 
