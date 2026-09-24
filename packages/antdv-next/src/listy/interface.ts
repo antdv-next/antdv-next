@@ -6,7 +6,7 @@ import type {
   ScrollAlign,
   ListyProps as VcListyProps,
 } from '@v-c/listy'
-import type { CSSProperties } from 'vue'
+import type { StyleValue } from 'vue'
 import type { SemanticType } from '../_util/hooks/useMergeSemantic'
 import type { VueNode } from '../_util/type'
 
@@ -24,7 +24,7 @@ export interface ListyProps
   extends Omit<VcListyProps, 'itemHeight' | 'direction' | 'classNames' | 'styles' | 'itemRender'> {
   rootClass?: string
   class?: string
-  style?: CSSProperties
+  style?: StyleValue
   classes?: ListyClassNamesType
   styles?: ListyStylesType
   itemRender?: (item: any, index: number) => VueNode

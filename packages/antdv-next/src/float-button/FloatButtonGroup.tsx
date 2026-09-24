@@ -1,4 +1,4 @@
-import type { CSSProperties, SlotsType } from 'vue'
+import type { CSSProperties, SlotsType, StyleValue } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { VueNode } from '../_util/type'
 import type { ComponentBaseProps } from '../config-provider/context'
@@ -73,7 +73,7 @@ export interface FloatButtonGroupProps extends Omit<FloatButtonProps, 'classes' 
   // UI
   closeIcon?: VueNode
   placement?: 'top' | 'left' | 'right' | 'bottom'
-  style?: CSSProperties
+  style?: StyleValue
 }
 
 export interface FloatButtonGroupRef {
@@ -160,7 +160,7 @@ const InternalFloatButtonGroup = defineComponent<
     const mergedType = computed(() => type.value ?? 'default')
 
     // ============================ zIndex ============================
-    const [zIndex] = useZIndex('FloatButton', computed(() => style.value?.zIndex as number | undefined))
+    const [zIndex] = useZIndex('FloatButton', computed(() => (style.value && typeof style.value === 'object' && !Array.isArray(style.value) ? (style.value as CSSProperties).zIndex : undefined) as number | undefined))
     const zIndexStyle = computed(() => (zIndex.value === undefined ? undefined : { zIndex: zIndex.value }))
 
     const open = shallowRef(props.open ?? props.defaultOpen ?? false)
