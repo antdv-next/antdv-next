@@ -2,6 +2,7 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import process from 'node:process'
 import { fileURLToPath } from 'node:url'
+import { umdGlobals } from './umd-globals'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const distDir = path.resolve(__dirname, '../dist')
@@ -17,6 +18,32 @@ const BROWSER_BUNDLES = [
   'antd-with-locales.js',
   'antd-with-locales.esm.js',
 ]
+
+// UMD bundles read their externals from globals. Each external in the AMD
+// dependency list must be passed the global its CDN build actually defines —
+// for dayjs that is read from dayjs's own UMD files (see scripts/umd-globals.ts).
+// A missing mapping makes rolldown guess a name from the module id, e.g.
+// `dayjs_plugin_weekday_js`, which is undefined in the browser and breaks the
+// whole bundle.
+const UMD_BUNDLES = new Set(['antd.js', 'antd-with-locales.js'])
+
+function findUmdGlobalMismatches(code: string): string[] {
+  const header = code.slice(0, 5000)
+  const amd = /define\(\[([^\]]*)\]/.exec(header)
+  const globalCall = /\.antd=\{\},([^)]*)\)/.exec(header)
+  if (!amd || !globalCall) {
+    return ['cannot parse the UMD wrapper']
+  }
+  const ids = amd[1]!.split(',').map(s => s.trim().replace(/^[`'"]|[`'"]$/g, '')).filter(id => id !== 'exports')
+  const globals = globalCall[1]!.split(',').map(s => s.trim().replace(/^\w+\./, ''))
+  if (ids.length !== globals.length) {
+    return [`${ids.length} externals but ${globals.length} globals`]
+  }
+  return ids.flatMap((id, i) => {
+    const expected = umdGlobals(id)
+    return globals[i] === expected ? [] : [`"${id}" reads \`${globals[i]}\` instead of \`${expected}\``]
+  })
+}
 
 function findUnguardedProcess(code: string): number[] {
   const offsets: number[] = []
@@ -52,6 +79,16 @@ async function main() {
     }
     else {
       console.log(`✓ ${file}: no unguarded process reference`)
+    }
+
+    if (UMD_BUNDLES.has(file)) {
+      const mismatches = findUmdGlobalMismatches(code)
+      if (mismatches.length) {
+        failures.push(`${file}: UMD globals do not match their CDN builds: ${mismatches.join('; ')}`)
+      }
+      else {
+        console.log(`✓ ${file}: UMD globals match the CDN builds of their externals`)
+      }
     }
   }
 

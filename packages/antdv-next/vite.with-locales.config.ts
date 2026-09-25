@@ -2,6 +2,7 @@ import type { UserConfig } from 'vite'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import { defineConfig } from 'vite'
 import { tsxResolveTypes } from 'vite-plugin-tsx-resolve-types'
+import { umdGlobals } from './scripts/umd-globals'
 
 export default defineConfig(
   () => {
@@ -29,16 +30,7 @@ export default defineConfig(
             exports: 'named',
             ...(isUmd
               ? {
-                  globals: {
-                    'vue': 'Vue',
-                    'dayjs': 'dayjs',
-                    'dayjs/plugin/advancedFormat': 'dayjs_plugin_advancedFormat',
-                    'dayjs/plugin/customParseFormat': 'dayjs_plugin_customParseFormat',
-                    'dayjs/plugin/localeData': 'dayjs_plugin_localeData',
-                    'dayjs/plugin/weekday': 'dayjs_plugin_weekday',
-                    'dayjs/plugin/weekOfYear': 'dayjs_plugin_weekOfYear',
-                    'dayjs/plugin/weekYear': 'dayjs_plugin_weekYear',
-                  },
+                  globals: umdGlobals,
                 }
               : {}),
           },
