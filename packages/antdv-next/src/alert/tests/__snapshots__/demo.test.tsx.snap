@@ -28,7 +28,7 @@ exports[`alert demo > renders _semantic correctly 1`] = `
           role="alert"
         >
           <span
-            class="ant-alert-icon semantic-mark-icon semantic-mark-icon"
+            class="ant-alert-icon semantic-mark-icon"
           >
             <span
               aria-label="info-circle"
@@ -121,7 +121,6 @@ exports[`alert demo > renders _semantic correctly 1`] = `
           </div>
           <button
             class="ant-alert-close-icon semantic-mark-close semantic-mark-close"
-            tabindex="0"
             type="button"
           >
             <span
@@ -1152,7 +1151,6 @@ exports[`alert demo > renders action correctly 1`] = `
       </div>
       <button
         class="ant-alert-close-icon"
-        tabindex="0"
         type="button"
       >
         <span
@@ -1316,7 +1314,6 @@ exports[`alert demo > renders action correctly 1`] = `
       </div>
       <button
         class="ant-alert-close-icon"
-        tabindex="0"
         type="button"
       >
         <span
@@ -1429,7 +1426,6 @@ exports[`alert demo > renders action correctly 1`] = `
       </div>
       <button
         class="ant-alert-close-icon"
-        tabindex="0"
         type="button"
       >
         <span
@@ -1564,7 +1560,6 @@ exports[`alert demo > renders banner correctly 1`] = `
       <!---->
       <button
         class="ant-alert-close-icon"
-        tabindex="0"
         type="button"
       >
         <span
@@ -1741,7 +1736,6 @@ exports[`alert demo > renders closable correctly 1`] = `
       <button
         aria-label="close"
         class="ant-alert-close-icon"
-        tabindex="0"
         type="button"
       >
         <span
@@ -1797,7 +1791,6 @@ exports[`alert demo > renders closable correctly 1`] = `
       <button
         aria-label="close"
         class="ant-alert-close-icon"
-        tabindex="0"
         type="button"
       >
         <span
@@ -1853,7 +1846,6 @@ exports[`alert demo > renders closable correctly 1`] = `
       <button
         aria-label="close"
         class="ant-alert-close-icon"
-        tabindex="0"
         type="button"
       >
         <span
@@ -1909,7 +1901,6 @@ exports[`alert demo > renders closable correctly 1`] = `
       <button
         aria-label="close"
         class="ant-alert-close-icon"
-        tabindex="0"
         type="button"
       >
         <span
@@ -2768,7 +2759,6 @@ exports[`alert demo > renders icon correctly 1`] = `
       <!---->
       <button
         class="ant-alert-close-icon"
-        tabindex="0"
         type="button"
       >
         <span
@@ -3014,7 +3004,6 @@ exports[`alert demo > renders icon correctly 1`] = `
       <!---->
       <button
         class="ant-alert-close-icon"
-        tabindex="0"
         type="button"
       >
         <span
@@ -3197,7 +3186,6 @@ exports[`alert demo > renders smooth-closed correctly 1`] = `
       <!---->
       <button
         class="ant-alert-close-icon"
-        tabindex="0"
         type="button"
       >
         <span

@@ -101,8 +101,6 @@ export interface AlertEmitsProps {
 interface IconNodeProps {
   type: AlertProps['type']
   icon?: AlertProps['icon']
-  prefixCls: AlertProps['prefixCls']
-  description: AlertProps['description']
   successIcon?: VueNode
   infoIcon?: VueNode
   warningIcon?: VueNode
@@ -129,7 +127,7 @@ const IconNode = defineComponent<IconNodeProps>(
         warning: warningIcon ?? <ExclamationCircleFilled />,
       }
       return (
-        <span class={clsx(`${props.prefixCls}-icon`, className)} style={style}>
+        <span class={className} style={style}>
           {icon ?? iconMapFilled[type!]}
         </span>
       )
@@ -158,7 +156,6 @@ const CloseIconNode = defineComponent<CloseIconProps>(
               type="button"
               onClick={handleClose}
               class={clsx(`${prefixCls}-close-icon`, className)}
-              tabindex={0}
               style={style}
               {...ariaProps}
             >
@@ -335,11 +332,9 @@ const Alert = defineComponent<
                   {isShowIcon
                     ? (
                         <IconNode
-                          class={mergedClassNames.icon}
+                          class={clsx(`${prefixCls.value}-icon`, mergedClassNames.icon)}
                           style={mergedStyles.icon}
-                          description={description}
                           icon={icon}
-                          prefixCls={prefixCls.value}
                           type={type.value}
                           successIcon={successIcon.value}
                           infoIcon={infoIcon.value}
