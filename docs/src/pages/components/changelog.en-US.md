@@ -2,6 +2,20 @@
 title: Component Changelog
 ---
 
+## V1.5.7
+
+Release Date: 2026-09-25
+
+This release fixes the 1.5.6 UMD bundles (`antd.js`, `antd-with-locales.js`) failing to load in the browser. Projects installing from npm or using the ESM bundles are not affected.
+
+**🐞 Fixes**
+
+* fix(build): the 1.5.6 UMD bundles read dayjs plugin globals that do not exist (e.g. `dayjs_plugin_weekday_js`), so loading them from a CDN failed entirely and `window.antd` was undefined. The global names of `dayjs` and its plugins and locales are now read from dayjs's own UMD files, so they always match the dayjs builds on the CDN
+
+**🧰 Infrastructure & Dependencies**
+
+* chore(build): the post-build browser bundle check now verifies the global every external dependency of the UMD bundles reads, and the build fails on an external without a configured global instead of letting the bundler guess its name
+
 ## V1.5.6
 
 Release Date: 2026-09-25
