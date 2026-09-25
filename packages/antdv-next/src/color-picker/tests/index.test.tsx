@@ -226,7 +226,7 @@ describe('color-picker', () => {
       props: {
         defaultValue: '#1677ff',
         showText: (ctx: any) => {
-          return ctx.color?.toHexString?.() || ctx.color?.color?.toHexString?.() || ''
+          return ctx.color?.toHexString?.() || ''
         },
       },
     })
