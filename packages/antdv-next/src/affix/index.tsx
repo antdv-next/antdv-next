@@ -125,22 +125,10 @@ export const Affix = defineComponent<
         const targetRect = getTargetRect(targetNode)
         const fixedTop = getFixedTop(placeholderRect, targetRect, internalOffsetTop.value)
         const fixedBottom = getFixedBottom(placeholderRect, targetRect, props.offsetBottom)
-        if (fixedTop !== undefined) {
+        if (fixedTop !== undefined || fixedBottom !== undefined) {
           newState.affixStyle = {
             position: 'fixed',
-            top: `${fixedTop}px`,
-            width: `${placeholderRect.width}px`,
-            height: `${contentHeight}px`,
-          }
-          newState.placeholderStyle = {
-            width: `${placeholderRect.width}px`,
-            height: `${contentHeight}px`,
-          }
-        }
-        else if (fixedBottom !== undefined) {
-          newState.affixStyle = {
-            position: 'fixed',
-            bottom: `${fixedBottom}px`,
+            ...(fixedTop !== undefined ? { top: `${fixedTop}px` } : { bottom: `${fixedBottom}px` }),
             width: `${placeholderRect.width}px`,
             height: `${contentHeight}px`,
           }
