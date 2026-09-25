@@ -136,6 +136,49 @@ describe('typography.Editable', () => {
     expect(wrapper.find('textarea').exists()).toBe(true)
   })
 
+  it.each<{ triggerType: ('icon' | 'text')[] }>([
+    { triggerType: ['text'] },
+    { triggerType: ['icon', 'text'] },
+  ])('should start editing and emit click with $triggerType triggers', async ({ triggerType }) => {
+    const onClick = vi.fn()
+    const onStart = vi.fn()
+    const wrapper = mount(Paragraph, {
+      props: {
+        editable: { triggerType, onStart },
+        onClick,
+      } as any,
+      slots: { default: () => 'Bamboo' },
+    })
+
+    await wrapper.find('.ant-typography').trigger('click')
+
+    expect(onClick).toHaveBeenCalledTimes(1)
+    expect(onClick).toHaveBeenCalledWith(expect.any(MouseEvent))
+    expect(onStart).toHaveBeenCalledTimes(1)
+    expect(wrapper.find('textarea').element.value).toBe('Bamboo')
+  })
+
+  it.each<{ editable: any }>([
+    { editable: undefined },
+    { editable: false },
+    { editable: true },
+    { editable: { triggerType: [] } },
+  ])('should preserve click without text editing for $editable', async ({ editable }) => {
+    const onClick = vi.fn()
+    const wrapper = mount(Paragraph, {
+      props: {
+        editable,
+        onClick,
+      } as any,
+      slots: { default: () => 'Bamboo' },
+    })
+
+    await wrapper.find('.ant-typography').trigger('click')
+
+    expect(onClick).toHaveBeenCalledTimes(1)
+    expect(wrapper.find('textarea').exists()).toBe(false)
+  })
+
   it('should trigger onChange', async () => {
     const onChange = vi.fn()
     const wrapper = mount(Paragraph, {

@@ -490,9 +490,12 @@ const Base = defineComponent<
       const { className: attrClass, style: attrStyle, restAttrs } = getAttrStyleAndClass(attrs)
       const children = filterEmpty(slots?.default?.())
       childrenNodes.value = children
-      const clickHandler = triggerType.value.includes('text')
-        ? onEditClick
-        : (e: MouseEvent) => emit('click', e)
+      const clickHandler = (e: MouseEvent) => {
+        if (triggerType.value.includes('text')) {
+          onEditClick(e)
+        }
+        emit('click', e)
+      }
       const mergedClassName = classNames(componentCls.value, attrClass)
       const mergedStyle = [
         mergedStyles.value.root,
