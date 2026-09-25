@@ -1,3 +1,4 @@
+import SlickCarousel from '@v-c/slick'
 import { describe, expect, it } from 'vitest'
 import { defineComponent, h, nextTick, ref } from 'vue'
 import Carousel from '..'
@@ -153,6 +154,18 @@ describe('carousel', () => {
     expect(slickSlider.exists()).toBe(true)
     // `effect` must not leak into the DOM through attrs fallthrough
     expect(slickSlider.attributes('effect')).toBeUndefined()
+  })
+
+  it('should derive verticalSwiping from vertical and not leak it to the DOM', () => {
+    const wrapper = mount(Carousel, {
+      props: { dotPlacement: 'start' },
+      attrs: { 'verticalSwiping': false, 'vertical-swiping': false },
+      slots: { default: () => createSlides() },
+    })
+    expect(wrapper.findComponent(SlickCarousel).props('verticalSwiping')).toBe(true)
+    const root = wrapper.find('.ant-carousel')
+    expect(root.attributes('verticalswiping')).toBeUndefined()
+    expect(root.attributes('vertical-swiping')).toBeUndefined()
   })
 
   // ============ RTL tests ============

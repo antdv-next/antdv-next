@@ -18,7 +18,7 @@ import useStyle, { DotDuration } from './style'
 export type CarouselEffect = 'scrollx' | 'fade'
 export type DotPlacement = 'top' | 'bottom' | 'start' | 'end'
 export interface CarouselProps extends
-  Omit<Settings, 'prevArrow' | 'nextArrow' | 'dots' | 'className' | 'style' | 'dotsClass' | 'autoplay' | 'onInit' | 'onReInit' | 'onEdge' | 'onSwipe' | 'onLazyLoad' | 'onLazyLoadError'>, ComponentBaseProps,
+  Omit<Settings, 'prevArrow' | 'nextArrow' | 'dots' | 'className' | 'style' | 'dotsClass' | 'autoplay' | 'verticalSwiping' | 'onInit' | 'onReInit' | 'onEdge' | 'onSwipe' | 'onLazyLoad' | 'onLazyLoadError'>, ComponentBaseProps,
   /* @vue-ignore */
   CarouselEmitsProps {
   effect?: CarouselEffect
@@ -82,6 +82,10 @@ const omitKeys = [
   'autoplaySpeed',
   'rtl',
 ] as const satisfies readonly (keyof CarouselProps)[]
+
+// `verticalSwiping` is always derived from `vertical`, so it is not a prop. Strip
+// it from attrs to keep it from falling through to the root element.
+const ignoredAttrKeys = ['verticalSwiping', 'vertical-swiping']
 
 const dotsClass = 'slick-dots'
 
@@ -269,7 +273,7 @@ const Carousel = defineComponent<
       const prevArrow = getSlotPropsFnRun(slots, props, 'prevArrow')
       const nextArrow = getSlotPropsFnRun(slots, props, 'nextArrow')
       return (
-        <div ref={nativeElementRef} {...restAttrs} class={className} id={id} style={dotDurationStyle}>
+        <div ref={nativeElementRef} {...omit(restAttrs, ignoredAttrKeys)} class={className} id={id} style={dotDurationStyle}>
           <SlickCarousel
             ref={slickRef}
             {...onAttrs}
