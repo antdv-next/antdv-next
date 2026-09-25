@@ -91,3 +91,48 @@ h(window.antd.TreeSelect, { treeData, multiple: true }, {
 ```
 
 **Option 3: Use a Single-File Component (`.vue`) with a build tool** such as Vite / webpack. Recommended for real projects — the SFC compiler preserves case and is not affected by this limitation.
+
+## Why do popups have no animation, or flash at the viewport edge before settling? {#popup-animation-missing-with-reduced-motion}
+
+This is usually not a component issue but a global "reduced motion" style on the page. Many projects copy this CSS from boilerplate:
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+```
+
+It only takes effect when the operating system asks for reduced motion. This is an OS setting, not a browser one:
+
+- Windows 11: Settings → Accessibility → Visual effects, when "Animation effects" is turned off (on Windows 10: Settings → Ease of Access → Display → "Show animations in Windows"). It is also often off over Remote Desktop, in virtual machines, and when the performance options are set to "Adjust for best performance".
+- macOS: System Settings → Accessibility → Display, when "Reduce motion" is turned on. It is off by default.
+
+That is why the problem looks like it "only happens on some Windows machines". Once the style applies:
+
+1. `animation-duration` shortens the enter/leave animations (CSS keyframes) of popups such as Dropdown, Select and Tooltip to 0.01ms, so they look like they have no animation.
+2. `transition-property` defaults to `all`, so `transition-duration` gives every element a transition it never declared, including the popup's position properties. Popups aligned to the right or bottom (e.g. a `bottomRight` dropdown or a `top` Tooltip) may then appear at the viewport edge in the first frame after opening and jump into place afterwards.
+
+**How to check**: run `matchMedia('(prefers-reduced-motion: reduce)').matches` in the browser console. `true` means the OS asks for reduced motion. On another machine you can reproduce it by emulating `prefers-reduced-motion: reduce` in the Rendering panel of Chrome DevTools.
+
+**How to fix**:
+
+- If animations should look the same on every device, remove the global style and write reduced-motion rules only for the elements that need them. antdv-next components do not follow this OS setting themselves, which matches antd.
+- If you want to keep the global rule but let popups animate as usual, exclude the popup root elements from it. If you changed `prefixCls`, replace `ant` with your prefix:
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  *:not(.ant-dropdown, .ant-select-dropdown, .ant-cascader-dropdown, .ant-picker-dropdown, .ant-tooltip, .ant-popover),
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+```

@@ -91,3 +91,48 @@ h(window.antd.TreeSelect, { treeData, multiple: true }, {
 ```
 
 **方式三：使用单文件组件（`.vue`）配合 Vite / webpack 等构建工具**。正式项目推荐此方式，SFC 编译器完整保留大小写，不受该限制影响。
+
+## 为什么弹层没有动画，或者打开时先闪到视口边缘再归位？ {#popup-animation-missing-with-reduced-motion}
+
+这通常不是组件的问题，而是页面里的「减弱动效」全局样式在起作用。很多项目会从样板代码里复制下面这段 CSS：
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+```
+
+它只在操作系统开启了「减少动态效果」时生效，这是系统设置，不在浏览器里：
+
+- Windows 11：设置 → 辅助功能 → 视觉效果，关闭「动画效果」时生效（Windows 10 对应设置 → 轻松使用 → 显示 →「在 Windows 中显示动画」）。远程桌面、虚拟机，以及性能选项选择了「调整为最佳性能」时，这个开关也常常是关闭的。
+- macOS：系统设置 → 辅助功能 → 显示，开启「减少动态效果」时生效，默认关闭。
+
+因此问题看起来像是「只在部分 Windows 电脑上出现」。这段样式生效后：
+
+1. `animation-duration` 会把 Dropdown、Select、Tooltip 等弹层的进出场动画（CSS keyframes）压缩到 0.01ms，看起来就是没有动画。
+2. `transition-property` 的默认值是 `all`，所以 `transition-duration` 会让每个元素都凭空获得一个过渡，也包括弹层的定位属性。靠右或靠下对齐的弹层（如 `bottomRight` 的下拉菜单、`top` 的 Tooltip）可能因此在打开的第一帧出现在视口边缘，随后才跳到正确位置。
+
+**排查方法**：在浏览器控制台执行 `matchMedia('(prefers-reduced-motion: reduce)').matches`，返回 `true` 说明系统开启了减少动态效果。在其他电脑上可以通过 Chrome DevTools 的 Rendering 面板，把 `prefers-reduced-motion` 模拟为 `reduce` 来复现。
+
+**处理方式**：
+
+- 如果希望所有设备上的动画保持一致，删除这段全局样式，只为自己需要的元素单独编写减弱动效规则。antdv-next 的组件本身不跟随这个系统设置，这与 antd 的行为一致。
+- 如果希望保留全局规则，但让弹层照常播放动画，把弹层的根节点排除在外。若修改过 `prefixCls`，请把 `ant` 替换为对应的前缀：
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  *:not(.ant-dropdown, .ant-select-dropdown, .ant-cascader-dropdown, .ant-picker-dropdown, .ant-tooltip, .ant-popover),
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+```
