@@ -120,7 +120,7 @@ exports[`alert demo > renders _semantic correctly 1`] = `
             </div>
           </div>
           <button
-            class="ant-alert-close-icon semantic-mark-close semantic-mark-close"
+            class="ant-alert-close-icon semantic-mark-close"
             type="button"
           >
             <span

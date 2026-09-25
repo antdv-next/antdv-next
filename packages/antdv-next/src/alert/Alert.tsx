@@ -133,6 +133,7 @@ const IconNode = defineComponent<IconNodeProps>(
       )
     }
   },
+  { inheritAttrs: false },
 )
 
 interface CloseIconProps {
@@ -165,6 +166,7 @@ const CloseIconNode = defineComponent<CloseIconProps>(
         : null
     }
   },
+  { inheritAttrs: false },
 )
 const Alert = defineComponent<
   AlertProps,

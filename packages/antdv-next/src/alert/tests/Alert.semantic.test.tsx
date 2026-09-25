@@ -107,6 +107,23 @@ describe('alert.Semantic', () => {
     expect(titleStyle).toContain('font-weight: bold')
   })
 
+  it('should apply icon and close semantic classes exactly once', () => {
+    const wrapper = mount(Alert, {
+      props: {
+        title: 'Test Alert',
+        showIcon: true,
+        closable: true,
+        classes: { icon: 'custom-icon', close: 'custom-close' },
+        styles: { close: { color: 'red' } },
+      },
+    })
+
+    expect(wrapper.find('.ant-alert-icon').attributes('class')).toBe('ant-alert-icon custom-icon')
+    const closeElement = wrapper.find('.ant-alert-close-icon')
+    expect(closeElement.attributes('class')).toBe('ant-alert-close-icon custom-close')
+    expect(closeElement.attributes('style')).toBe('color: red;')
+  })
+
   // https://github.com/ant-design/ant-design/pull/58474
   it('aligns root semantic style priority', () => {
     const wrapper = mount(() => (
