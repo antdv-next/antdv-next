@@ -248,16 +248,7 @@ const ColorPicker = defineComponent<
     const [hashId, cssVarCls] = useStyle(prefixCls, rootCls)
 
     const handleClear = () => {
-      const cleared = new AggregationColor('')
-      setColor(cleared)
       emit('clear')
-      emit('change', cleared, cleared.toCssString())
-      emit(
-        'update:value',
-        valueFormat.value
-          ? formatColorValue(cleared, valueFormat.value)
-          : cleared.toCssString(),
-      )
     }
 
     expose({

@@ -153,6 +153,8 @@ describe('color-picker', () => {
 
   it('supports allowClear and onClear', async () => {
     const onClear = vi.fn()
+    const onChange = vi.fn()
+    const onUpdateValue = vi.fn()
     mount(ColorPicker, {
       attachTo: document.body,
       props: {
@@ -160,6 +162,8 @@ describe('color-picker', () => {
         defaultValue: '#1677ff',
         allowClear: true,
         onClear,
+        onChange,
+        'onUpdate:value': onUpdateValue,
       },
     })
     await flushColorPickerTimer()
@@ -173,6 +177,11 @@ describe('color-picker', () => {
     expect(
       document.querySelector<HTMLInputElement>('.ant-color-picker-alpha-input input')?.value,
     ).toContain('0')
+
+    expect(onChange).toHaveBeenCalledTimes(1)
+    expect(onChange).toHaveBeenCalledWith(expect.anything(), 'rgba(22,119,255,0)')
+    expect(onUpdateValue).toHaveBeenCalledTimes(1)
+    expect(onUpdateValue.mock.calls[0][0].toCssString()).toBe('rgba(22,119,255,0)')
   })
 
   it('should allowClear work with keyboard', async () => {
