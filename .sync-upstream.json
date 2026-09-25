@@ -45,6 +45,25 @@
       "last_synced_commit_short": "1160994",
       "last_synced_at": "2026-07-29T00:00:00Z",
       "sync_count": 2
+    },
+    {
+      "name": "cssinjs-utils",
+      "repo": "ant-design/cssinjs-util",
+      "remote_url": "https://github.com/ant-design/cssinjs-util.git",
+      "local_path": null,
+      "packages": [
+        {
+          "upstream_path": "src",
+          "downstream_path": "packages/cssinjs/src/cssinjs-utils",
+          "description": "Ant Design cssinjs-util -> @antdv-next/cssinjs/cssinjs-utils 子模块"
+        }
+      ],
+      "last_synced_commit": "e968a8ad58a47d9b32b00ca7be035b3a31b63263",
+      "last_synced_commit_short": "e968a8a",
+      "last_synced_at": "2026-09-24T00:00:00Z",
+      "last_synced_tag": "v2.0.2",
+      "sync_count": 0,
+      "notes": "#38 (nonce in genCSSVarRegister) already ported ahead of cursor; #36/#37 (extraCssVarPrefixCls) pending"
     }
   ]
 }
