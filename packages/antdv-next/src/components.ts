@@ -128,7 +128,7 @@ export type {
   MentionsStylesType,
 } from './mentions'
 export { default as Menu, MenuDivider, MenuItem, MenuItemGroup, SubMenu } from './menu'
-export type { MenuEmits, MenuItemGroupProps, MenuItemProps, MenuItemType, MenuProps, MenuRef, MenuSlots, SubMenuProps } from './menu'
+export type { MenuEmits, MenuInfo, MenuItemGroupProps, MenuItemProps, MenuItemType, MenuProps, MenuRef, MenuSlots, SelectInfo, SubMenuProps } from './menu'
 export { default as message, useMessage } from './message'
 export { default as Modal, useModal } from './modal'
 export type { ModalEmits, ModalProps, ModalSlots } from './modal'

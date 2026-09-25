@@ -16,6 +16,7 @@ import SubMenu from './SubMenu'
 
 export type MenuItemType = ItemType
 export type { MenuEmits, MenuItemGroupProps, MenuItemProps, MenuSlots, SubMenuProps }
+export type { MenuInfo, SelectInfo } from '@v-c/menu'
 
 export interface MenuRef {
   menu: VcMenuRef | null
