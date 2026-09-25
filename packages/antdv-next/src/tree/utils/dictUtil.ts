@@ -60,7 +60,7 @@ export function calcRangeKeys({
 
   traverseNodesKey(
     treeData,
-    (key) => {
+    (key, node) => {
       if (record === RECORD_END) {
         return false
       }
@@ -77,7 +77,7 @@ export function calcRangeKeys({
           return false
         }
       }
-      else if (record === RECORD_START) {
+      else if (record === RECORD_START && !node.disabled && node.selectable !== false) {
         // Append selection
         keys.push(key as any)
       }

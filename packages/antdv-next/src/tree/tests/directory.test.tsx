@@ -156,6 +156,66 @@ describe('directory Tree', () => {
     wrapper.unmount()
   })
 
+  it.each([false, true])('skip unselectable nodes in shift selection (reverse: %s)', async (reverse) => {
+    const onSelect = vi.fn()
+    const treeData = [
+      { title: 'A', key: 'a' },
+      {
+        title: 'B',
+        key: 'b',
+        selectable: false,
+        children: [{ title: 'B child', key: 'b-child' }],
+      },
+      {
+        title: 'D',
+        key: 'd',
+        disabled: true,
+        children: [{ title: 'D child', key: 'd-child' }],
+      },
+      { title: 'C', key: 'c' },
+    ]
+    const wrapper = mount(DirectoryTree, {
+      props: {
+        multiple: true,
+        defaultExpandAll: true,
+        expandAction: false,
+        treeData,
+        onSelect,
+      },
+    })
+    await waitFakeTimer(0, 1)
+
+    const getNode = (title: string) => wrapper
+      .findAll('.ant-tree-node-content-wrapper')
+      .find(node => node.find('.ant-tree-title').text() === title)!
+
+    await getNode('B').trigger('click')
+    await getNode('D').trigger('click')
+    await waitFakeTimer(0, 1)
+    expect(onSelect).not.toHaveBeenCalled()
+
+    await getNode(reverse ? 'C' : 'A').trigger('click')
+    await waitFakeTimer(0, 1)
+    await getNode(reverse ? 'A' : 'C').trigger('click', { shiftKey: true })
+    await waitFakeTimer(0, 1)
+
+    expect(onSelect).toHaveBeenLastCalledWith(
+      reverse ? ['c', 'a', 'b-child', 'd-child'] : ['a', 'b-child', 'd-child', 'c'],
+      expect.objectContaining({
+        selectedNodes: [
+          treeData[0],
+          treeData[1]!.children![0],
+          treeData[2]!.children![0],
+          treeData[3],
+        ],
+      }),
+    )
+    expect(
+      wrapper.findAll('.ant-tree-node-selected .ant-tree-title').map(node => node.text()),
+    ).toEqual(['A', 'B child', 'D child', 'C'])
+    wrapper.unmount()
+  })
+
   it('select range when the first selected key is 0', async () => {
     const onSelect = vi.fn()
     const treeData = [
