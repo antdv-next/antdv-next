@@ -292,6 +292,42 @@ describe('genStyleUtils', () => {
     wrapper.unmount()
   })
 
+  it('passes nonce to CSS var styles', async () => {
+    const testNonce = 'test-nonce-12345'
+    const { config } = createMockConfig()
+    config.useCSP = vi.fn(() => ref({ nonce: testNonce }))
+    const { genStyleHooks } = genStyleUtils<TestCompTokenMap, AliasToken, AliasToken>(config)
+
+    const useStyle = genStyleHooks(
+      'TestComponent',
+      () => ({}),
+      () => ({
+        color: 'red',
+        size: 16,
+      }),
+    )
+
+    const TestComponent = defineComponent({
+      name: 'TestNonce',
+      setup() {
+        useStyle(ref('test-prefix'))
+        return () => null
+      },
+    })
+
+    const wrapper = mountWithStyleProvider(TestComponent)
+    await nextTick()
+
+    const cssVarStyles = Array.from(document.querySelectorAll('style'))
+      .filter(style => style.textContent?.includes('--css-test-component-'))
+    expect(cssVarStyles.length).toBeGreaterThan(0)
+    cssVarStyles.forEach((style) => {
+      expect(style.getAttribute('nonce')).toBe(testNonce)
+    })
+
+    wrapper.unmount()
+  })
+
   it('injects layer dependencies into styles', async () => {
     const { config } = createMockConfig()
     const { genSubStyleComponent } = genStyleUtils<TestCompTokenMap, AliasToken, AliasToken>(config)

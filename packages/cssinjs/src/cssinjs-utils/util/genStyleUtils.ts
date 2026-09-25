@@ -244,6 +244,7 @@ function genStyleUtils<
     const { unitless: compUnitless, prefixToken, ignore } = options
     return (rootCls: Ref<string | string[] | undefined>) => {
       const { cssVar, realToken } = useToken()
+      const csp = useCSP()
       useCSSVarRegister(
         computed(() => {
           const _cssVar = cssVar!.value!
@@ -255,6 +256,7 @@ function genStyleUtils<
             ignore,
             token: realToken?.value,
             scope: rootCls.value,
+            nonce: () => csp.value.nonce!,
           } as any
         }),
         () => {
