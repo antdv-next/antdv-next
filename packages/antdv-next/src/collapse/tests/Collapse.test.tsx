@@ -407,6 +407,30 @@ describe('collapse', () => {
     expect(wrapper.emitted('change')![0]).toEqual([['1']])
   })
 
+  it('should emit update:activeKey and change on panel click', async () => {
+    const onUpdateActiveKey = vi.fn()
+    const wrapper = mount(Collapse, {
+      props: { items: basicItems, 'onUpdate:activeKey': onUpdateActiveKey },
+    })
+    await wrapper.find('.ant-collapse-header').trigger('click')
+    expect(wrapper.emitted('update:activeKey')![0]).toEqual([['1']])
+    expect(onUpdateActiveKey).toHaveBeenCalledWith(['1'])
+  })
+
+  it('should support v-model:active-key binding', async () => {
+    const activeKeys = ref<string[]>(['1'])
+    const wrapper = mount(() => (
+      <Collapse v-model:activeKey={activeKeys.value} items={basicItems} />
+    ))
+
+    expect(wrapper.findAll('.ant-collapse-item')[0].classes()).toContain('ant-collapse-item-active')
+    await wrapper.findAll('.ant-collapse-header')[1].trigger('click')
+    expect(activeKeys.value).toEqual(['1', '2'])
+    expect(wrapper.findAll('.ant-collapse-item')[1].classes()).toContain('ant-collapse-item-active')
+    await wrapper.findAll('.ant-collapse-header')[0].trigger('click')
+    expect(activeKeys.value).toEqual(['2'])
+  })
+
   // ==================== rootClass ====================
   it('should support rootClass prop', () => {
     const wrapper = mount(Collapse, {
