@@ -40,7 +40,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*sir-TK0HkWcAAA
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| activeKey | 当前激活 tab 面板的 key | Array&lt;string \| number&gt; \| string \| number | 手风琴模式下为第一个元素 | - | × |
+| activeKey | 当前激活 tab 面板的 key，支持 `v-model:active-key` | Array&lt;string \| number&gt; \| string \| number | 手风琴模式下为第一个元素 | - | × |
 | defaultActiveKey | 初始化选中面板的 key | Array&lt;string \| number&gt; \| string \| number | - | - | × |
 | accordion | 手风琴模式 | boolean | false | - | × |
 | destroyOnHidden | 销毁折叠隐藏的面板 | boolean | false | - | × |

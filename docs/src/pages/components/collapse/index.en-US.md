@@ -40,7 +40,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| activeKey | Key of the active panel | Array&lt;string \| number&gt; \| string \| number | No default value. In accordion mode, it's the key of the first panel | - | × |
+| activeKey | Key of the active panel, support `v-model:active-key` | Array&lt;string \| number&gt; \| string \| number | No default value. In accordion mode, it's the key of the first panel | - | × |
 | defaultActiveKey | Key of the initial active panel | Array&lt;string \| number&gt; \| string \| number | - | - | × |
 | accordion | If true, Collapse renders as Accordion | boolean | false | - | × |
 | destroyOnHidden | Destroy Inactive Panel | boolean | false | - | × |

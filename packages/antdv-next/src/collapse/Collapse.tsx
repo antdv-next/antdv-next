@@ -79,9 +79,11 @@ export interface CollapseProps extends
 }
 
 export interface CollapseEmits {
+  'update:activeKey': (key: string[]) => void
   change: (key: string[]) => void
 }
 export interface CollapseEmitsProps {
+  'onUpdate:activeKey'?: CollapseEmits['update:activeKey']
   onChange?: CollapseEmits['change']
 }
 
@@ -235,7 +237,10 @@ const Collapse = defineComponent<
           expandIcon={renderExpandIcon}
           classNames={mergedClassNames.value}
           styles={mergedStyles.value}
-          onChange={key => emit('change', key as string[])}
+          onChange={(key) => {
+            emit('update:activeKey', key as string[])
+            emit('change', key as string[])
+          }}
           destroyOnHidden={destroyOnHidden}
           items={items}
         />
