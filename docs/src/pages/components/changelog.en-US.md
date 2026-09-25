@@ -2,6 +2,34 @@
 title: Component Changelog
 ---
 
+## V1.5.6
+
+Release Date: 2026-09-25
+
+This release fixes popups that land in the wrong place for one frame when the page carries a global transition style: a common "reduced motion" reset takes effect when the OS asks for reduced motion (e.g. Windows with "Animation effects" turned off), and popups aligned to the right or bottom such as Dropdown, Select and Tooltip used to paint their first frame at the viewport edge before jumping into place. It also upgrades a batch of `@v-c/*` foundation packages: the time panel gains keyboard navigation and screen-reader semantics, Tab and `autoFocus` move focus into the Dropdown menu, and DatePicker's default dayjs config loads in native Node ESM. Collapse `v-model:active-key` now updates, and the Menu event types are exported.
+
+**✨ Features**
+
+* feat(time-picker, date-picker): keyboard navigation in the time panel — Arrow Up / Down move the cursor and skip disabled cells, Enter / Space select it; time columns and cells get `listbox` / `option` semantics with localized labels (via `@v-c/picker` 1.5.0)
+* feat(listy): a function `rowKey` receives the item's index in `items` as its second argument; grouping does not change it (via `@v-c/listy` 1.2.0)
+* feat(menu): export the `MenuInfo` and `SelectInfo` event types ([#961](https://github.com/antdv-next/antdv-next/pull/961), [#693](https://github.com/antdv-next/antdv-next/issues/693))
+
+**🐞 Fixes**
+
+* fix(trigger): with a global `transition-duration` on the page (e.g. the common `prefers-reduced-motion` reset), right- or bottom-aligned popups (a `bottomRight` Dropdown, a `top` Tooltip, …) no longer paint their first frame at the viewport edge; the Tooltip frame could also make the page briefly scrollable (via `@v-c/trigger` 1.1.5)
+* fix(dropdown): pressing Tab while the popup is open moves focus into the menu instead of closing it, also when the menu is wrapped in another element; `autoFocus` now works and focuses without scrolling the page, matching antd (via `@v-c/dropdown` 1.1.1)
+* fix(menu): calling `focus()` through the ref no longer throws (via `@v-c/menu` 1.4.1)
+* fix(date-picker): the default dayjs config loads in native Node ESM (e.g. when SSR externalizes dependencies) instead of failing with `ERR_MODULE_NOT_FOUND` (via `@v-c/picker` 1.5.0)
+* fix(collapse): the `v-model:active-key` binding updates as expected ([#960](https://github.com/antdv-next/antdv-next/pull/960))
+
+**📖 Documentation**
+
+* docs(faq): add ["Why do popups have no animation, or flash at the viewport edge before settling?"](/docs/vue/faq#popup-animation-missing-with-reduced-motion), covering how the reduced-motion reset affects popups, the OS settings that trigger it, how to check it and how to fix it
+
+**🧰 Infrastructure & Dependencies**
+
+* chore(deps): upgrade `@v-c/trigger` 1.1.5, `@v-c/util` 1.3.1, `@v-c/menu` 1.4.1, `@v-c/dropdown` 1.1.1, `@v-c/listy` 1.2.0 and `@v-c/picker` 1.5.0. In `@v-c/util`, `dynamicCSS` no longer throws when the page has no `<head>` / `<body>`, and `set` no longer mutates the source object when removing a nested value
+
 ## V1.5.5
 
 Release Date: 2026-09-25

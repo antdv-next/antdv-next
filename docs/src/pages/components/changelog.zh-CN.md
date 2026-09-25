@@ -2,6 +2,34 @@
 title: 组件更新日志
 ---
 
+## V1.5.6
+
+发布日期：2026-09-25
+
+本次版本修复了弹层在页面存在全局过渡样式时的首帧错位问题：常见的「减弱动效」全局样式会在系统开启减少动态效果时生效（例如 Windows 关闭了「动画效果」），此时 Dropdown、Select、Tooltip 等靠右或靠下对齐的弹层，打开的第一帧会先出现在视口边缘再跳回原位。同时升级了一批 `@v-c/*` 基础组件：时间面板支持键盘操作和读屏语义，Dropdown 的 Tab 键与 `autoFocus` 可以把焦点移入菜单，DatePicker 的默认 dayjs 配置可以在 Node 原生 ESM 下加载；另外修复了 Collapse 的 `v-model:active-key` 不更新的问题，并新增导出 Menu 的事件类型。
+
+**✨ 新功能 Features**
+
+* feat(time-picker, date-picker)：时间面板支持键盘操作，上下方向键移动光标并跳过禁用项，Enter / 空格选中；时间列与选项补充 `listbox` / `option` 读屏语义和本地化标签（依赖 `@v-c/picker` 1.5.0）
+* feat(listy)：`rowKey` 为函数时，第二个参数传入该项在 `items` 中的索引，分组不会改变这个索引（依赖 `@v-c/listy` 1.2.0）
+* feat(menu)：导出 `MenuInfo`、`SelectInfo` 事件类型（[#961](https://github.com/antdv-next/antdv-next/pull/961)，[#693](https://github.com/antdv-next/antdv-next/issues/693)）
+
+**🐞 问题修复 Fixes**
+
+* fix(trigger)：页面存在全局 `transition-duration` 时（例如常见的 `prefers-reduced-motion` 重置样式），靠右或靠下对齐的弹层（`bottomRight` 的 Dropdown、`top` 的 Tooltip 等）打开的第一帧不再出现在视口边缘；此前 Tooltip 的这一帧还可能让页面短暂出现滚动条（依赖 `@v-c/trigger` 1.1.5）
+* fix(dropdown)：弹层打开后按 Tab 会把焦点移入菜单（此前会直接关闭弹层），菜单外层有包裹元素时同样生效；`autoFocus` 生效，且聚焦时不会滚动页面，与 antd 行为一致（依赖 `@v-c/dropdown` 1.1.1）
+* fix(menu)：通过 ref 调用 `focus()` 不再报错（依赖 `@v-c/menu` 1.4.1）
+* fix(date-picker)：默认的 dayjs 日期配置可以在 Node 原生 ESM 下加载（例如 SSR 时依赖被外部化），不再报 `ERR_MODULE_NOT_FOUND`（依赖 `@v-c/picker` 1.5.0）
+* fix(collapse)：`v-model:active-key` 双向绑定的值正常更新（[#960](https://github.com/antdv-next/antdv-next/pull/960)）
+
+**📖 文档 Documentation**
+
+* docs(faq)：新增[「为什么弹层没有动画，或者打开时先闪到视口边缘再归位？」](/docs/vue/faq-cn#popup-animation-missing-with-reduced-motion)，说明减弱动效全局样式的影响、触发它的系统设置、排查方法与处理方式
+
+**🧰 工程与依赖 Infrastructure & Dependencies**
+
+* chore(deps)：升级 `@v-c/trigger` 1.1.5、`@v-c/util` 1.3.1、`@v-c/menu` 1.4.1、`@v-c/dropdown` 1.1.1、`@v-c/listy` 1.2.0、`@v-c/picker` 1.5.0。其中 `@v-c/util` 的 `dynamicCSS` 在页面缺少 `<head>` / `<body>` 时不再报错，`set` 删除嵌套值时不再修改原对象
+
 ## V1.5.5
 
 发布日期：2026-09-25
