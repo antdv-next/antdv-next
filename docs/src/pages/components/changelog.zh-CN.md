@@ -2,20 +2,6 @@
 title: 组件更新日志
 ---
 
-## V1.5.7
-
-发布日期：2026-09-25
-
-本次版本修复了 1.5.6 的 UMD 产物（`antd.js`、`antd-with-locales.js`）在浏览器中无法加载的问题。通过 npm 安装或使用 ESM 产物的项目不受影响。
-
-**🐞 问题修复 Fixes**
-
-* fix(build)：1.5.6 的 UMD 产物读取了不存在的 dayjs 插件全局变量（如 `dayjs_plugin_weekday_js`），通过 CDN 引入时整个包加载失败，`window.antd` 不存在。现在 `dayjs` 及其插件、语言包的全局变量名直接读取自 dayjs 自身的 UMD 文件，与 CDN 上的 dayjs 产物保持一致
-
-**🧰 工程与依赖 Infrastructure & Dependencies**
-
-* chore(build)：构建后的浏览器产物校验会逐一核对 UMD 产物中每个外部依赖读取的全局变量；遇到未配置全局变量的外部依赖时，构建直接失败，不再由打包工具猜测变量名
-
 ## V1.5.6
 
 发布日期：2026-09-25
@@ -43,6 +29,7 @@ title: 组件更新日志
 **🧰 工程与依赖 Infrastructure & Dependencies**
 
 * chore(deps)：升级 `@v-c/trigger` 1.1.5、`@v-c/util` 1.3.1、`@v-c/menu` 1.4.1、`@v-c/dropdown` 1.1.1、`@v-c/listy` 1.2.0、`@v-c/picker` 1.5.0。其中 `@v-c/util` 的 `dynamicCSS` 在页面缺少 `<head>` / `<body>` 时不再报错，`set` 删除嵌套值时不再修改原对象
+* chore(build)：UMD 产物中 `dayjs` 及其插件、语言包的全局变量名改为直接读取自 dayjs 自身的 UMD 文件，与 CDN 上的 dayjs 产物保持一致（`@v-c/picker` 1.5.0 起以带 `.js` 后缀的路径引入 dayjs 插件）；构建后的浏览器产物校验会逐一核对 UMD 产物中每个外部依赖读取的全局变量，遇到未配置全局变量的外部依赖时构建直接失败，不再由打包工具猜测变量名
 
 ## V1.5.5
 

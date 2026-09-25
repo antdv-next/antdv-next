@@ -2,20 +2,6 @@
 title: Component Changelog
 ---
 
-## V1.5.7
-
-Release Date: 2026-09-25
-
-This release fixes the 1.5.6 UMD bundles (`antd.js`, `antd-with-locales.js`) failing to load in the browser. Projects installing from npm or using the ESM bundles are not affected.
-
-**🐞 Fixes**
-
-* fix(build): the 1.5.6 UMD bundles read dayjs plugin globals that do not exist (e.g. `dayjs_plugin_weekday_js`), so loading them from a CDN failed entirely and `window.antd` was undefined. The global names of `dayjs` and its plugins and locales are now read from dayjs's own UMD files, so they always match the dayjs builds on the CDN
-
-**🧰 Infrastructure & Dependencies**
-
-* chore(build): the post-build browser bundle check now verifies the global every external dependency of the UMD bundles reads, and the build fails on an external without a configured global instead of letting the bundler guess its name
-
 ## V1.5.6
 
 Release Date: 2026-09-25
@@ -43,6 +29,7 @@ This release fixes popups that land in the wrong place for one frame when the pa
 **🧰 Infrastructure & Dependencies**
 
 * chore(deps): upgrade `@v-c/trigger` 1.1.5, `@v-c/util` 1.3.1, `@v-c/menu` 1.4.1, `@v-c/dropdown` 1.1.1, `@v-c/listy` 1.2.0 and `@v-c/picker` 1.5.0. In `@v-c/util`, `dynamicCSS` no longer throws when the page has no `<head>` / `<body>`, and `set` no longer mutates the source object when removing a nested value
+* chore(build): the UMD bundles now read the global names of `dayjs` and its plugins and locales from dayjs's own UMD files, so they always match the dayjs builds on the CDN (`@v-c/picker` 1.5.0 imports dayjs plugins with a `.js` extension); the post-build browser bundle check verifies the global every external dependency of the UMD bundles reads, and the build fails on an external without a configured global instead of letting the bundler guess its name
 
 ## V1.5.5
 
