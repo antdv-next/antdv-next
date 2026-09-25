@@ -2,6 +2,7 @@ import type {
   AcceptConfig,
   VcFile as OriVcFile,
   UploadRequestOption as VcCustomRequestOptions,
+  UploadProps as VcUploadProps,
 } from '@v-c/upload'
 import type { CSSProperties, ImgHTMLAttributes, VNodeChild } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
@@ -83,6 +84,14 @@ export type ItemRender<T = any> = (
 
 type PreviewFileHandler = (file: File | Blob) => PromiseLike<string>
 type BeforeUploadValueType = void | boolean | string | Blob | File
+type UploadRequestResult = ReturnType<NonNullable<VcUploadProps['customRequest']>>
+
+type UploadCustomRequest<T, R> = (
+  options: VcCustomRequestOptions<T>,
+  info: {
+    defaultRequest: (option: VcCustomRequestOptions<T>) => UploadRequestResult
+  },
+) => R
 
 export type UploadSemanticName = keyof UploadSemanticClassNames & keyof UploadSemanticStyles
 
@@ -133,12 +142,7 @@ export interface UploadProps<T = any> {
   supportServerRender?: boolean
   disabled?: boolean
   prefixCls?: string
-  customRequest?: (
-    options: VcCustomRequestOptions<T>,
-    info: {
-      defaultRequest: (option: VcCustomRequestOptions<T>) => void
-    },
-  ) => void
+  customRequest?: UploadCustomRequest<T, void> | UploadCustomRequest<T, UploadRequestResult>
   withCredentials?: boolean
   openFileDialogOnClick?: boolean
   locale?: UploadLocale
