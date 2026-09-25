@@ -94,4 +94,70 @@ describe('extraCssVarPrefixCls', () => {
 
     wrapper.unmount()
   })
+
+  it('should support function type for extraCssVarPrefixCls', async () => {
+    const useStyle = genStyleHooks(
+      'TestComponent',
+      token => ({
+        [`${token.componentCls}`]: {
+          color: token.colorPrimary,
+          fontSize: token.fontSize,
+        },
+      }),
+      () => ({
+        colorPrimary: '#ff0000',
+        fontSize: 16,
+      }),
+      {
+        extraCssVarPrefixCls: ({ prefixCls, rootCls }) => [
+          `${prefixCls}-container`,
+          `${rootCls}-wrapper`,
+        ],
+      },
+    )
+
+    const TestComponent = defineComponent(() => {
+      const [hashId, cssVarCls] = useStyle(ref('custom-list'), ref('custom'))
+      return () => h('div', { class: [hashId.value, cssVarCls.value] }, hashId.value)
+    })
+
+    const wrapper = mountWithStyleProvider(TestComponent)
+    await nextTick()
+
+    const totalStyle = getTotalStyle()
+    expect(totalStyle).toContain('.custom-list-container')
+    expect(totalStyle).toContain('.custom-wrapper')
+
+    wrapper.unmount()
+  })
+
+  it('should re-resolve function type when prefixCls changes', async () => {
+    const useStyle = genStyleHooks(
+      'TestComponent',
+      () => ({}),
+      () => ({
+        colorPrimary: '#ff0000',
+        fontSize: 16,
+      }),
+      {
+        extraCssVarPrefixCls: ({ prefixCls }) => [`${prefixCls}-container`],
+      },
+    )
+
+    const prefixCls = ref('first')
+    const TestComponent = defineComponent(() => {
+      useStyle(prefixCls)
+      return () => null
+    })
+
+    const wrapper = mountWithStyleProvider(TestComponent)
+    await nextTick()
+    expect(getTotalStyle()).toContain('.first-container')
+
+    prefixCls.value = 'second'
+    await nextTick()
+    expect(getTotalStyle()).toContain('.second-container')
+
+    wrapper.unmount()
+  })
 })

@@ -158,16 +158,21 @@ function genStyleUtils<
       injectStyle?: boolean
       /**
        * Extra prefixCls to inject CSS variables.
-       * 为额外的 prefixCls 注入 CSS 变量（不注入样式）。
        *
        * @example
        * ```typescript
        * {
        *   extraCssVarPrefixCls: ['my-comp-compact', 'my-comp-large']
        * }
+       * // or
+       * {
+       *   extraCssVarPrefixCls: ({ prefixCls, rootCls }) => [`${prefixCls}-container`]
+       * }
        * ```
        */
-      extraCssVarPrefixCls?: string[]
+      extraCssVarPrefixCls?:
+        | string[]
+        | ((info: { prefixCls: string, rootCls: string }) => string[])
     },
   ) {
     const componentName = Array.isArray(component) ? component[0] : component
@@ -205,11 +210,18 @@ function genStyleUtils<
 
     return (prefixCls: Ref<string>, rootCls: Ref<string | undefined> = prefixCls) => {
       const hashId = useStyle(prefixCls, rootCls)
-      const cssVarCls = useCSSVar(computed(() =>
-        options?.extraCssVarPrefixCls?.length
-          ? [rootCls.value!, ...options.extraCssVarPrefixCls]
-          : rootCls.value,
-      ))
+
+      const cssVarCls = useCSSVar(computed(() => {
+        // Resolve function type to get dynamic extra prefix
+        const extraPrefixCls = options?.extraCssVarPrefixCls
+        const resolvedExtraPrefixCls = typeof extraPrefixCls === 'function'
+          ? extraPrefixCls({ prefixCls: prefixCls.value, rootCls: rootCls.value! })
+          : extraPrefixCls
+
+        return resolvedExtraPrefixCls?.length
+          ? [rootCls.value!, ...resolvedExtraPrefixCls]
+          : rootCls.value
+      }))
 
       return [hashId, cssVarCls] as const
     }
