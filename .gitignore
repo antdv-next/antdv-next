@@ -47,6 +47,7 @@ superpowers
 .sync-checklist-*.md
 .sync-report.md
 .mcp.json
+ai-captures/
 
 # pnpm
 .pnpm-store
