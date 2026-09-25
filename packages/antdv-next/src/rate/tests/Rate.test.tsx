@@ -177,6 +177,17 @@ describe('rate', () => {
       ))
       expect(wrapper.find('.ant-rate-rtl').exists()).toBe(true)
     })
+
+    it('should ignore direction attribute and follow ConfigProvider', () => {
+      const wrapper = mount(() => (
+        <ConfigProvider direction="ltr">
+          <Rate {...{ direction: 'rtl' } as any} />
+        </ConfigProvider>
+      ))
+      const rate = wrapper.find('.ant-rate')
+      expect(rate.classes()).not.toContain('ant-rate-rtl')
+      expect(rate.attributes('direction')).toBeUndefined()
+    })
   })
 
   // rate is NOT in ConfigProvider PASSED_PROPS,

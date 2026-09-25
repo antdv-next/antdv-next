@@ -24,7 +24,7 @@ const defaults = {
 } as any
 export interface RateProps extends Omit<
   VcRateProps,
-'onChange' | 'onHoverChange' | 'onFocus' | 'onBlur' | 'onKeyDown' | 'onMouseLeave' | 'onUpdate:value'
+'onChange' | 'onHoverChange' | 'onFocus' | 'onBlur' | 'onKeyDown' | 'onMouseLeave' | 'onUpdate:value' | 'direction'
 >,
   /* @vue-ignore */
   RateEmitsProps {
