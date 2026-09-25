@@ -3,6 +3,7 @@ import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } 
 import { nextTick, reactive, shallowRef } from 'vue'
 import ColorPicker from '..'
 import Form, { FormItem } from '../../form'
+import { AggregationColor } from '../color'
 import mountTest from '/@tests/shared/mountTest'
 import rtlTest from '/@tests/shared/rtlTest'
 import { mount, waitFakeTimer } from '/@tests/utils'
@@ -232,6 +233,33 @@ describe('color-picker', () => {
     })
 
     expect(wrapper.find('.ant-color-picker-trigger-text').text()).toBe('#1677ff')
+  })
+
+  it('passes { color: AggregationColor } to showText function', () => {
+    const showText = vi.fn(({ color }: { color: AggregationColor }) => color.toHexString())
+    const wrapper = mount(ColorPicker, {
+      props: {
+        defaultValue: '#1677ff',
+        showText,
+      },
+    })
+
+    expect(showText).toHaveBeenCalled()
+    expect(showText.mock.calls[0]![0].color).toBeInstanceOf(AggregationColor)
+    expect(wrapper.find('.ant-color-picker-trigger-text').text()).toBe('#1677ff')
+  })
+
+  it('passes { color: AggregationColor } to showText slot', () => {
+    const wrapper = mount(ColorPicker, {
+      props: {
+        defaultValue: '#1677ff',
+      },
+      slots: {
+        showText: ({ color }: { color: AggregationColor }) => `Custom (${color.toHexString()})`,
+      },
+    })
+
+    expect(wrapper.find('.ant-color-picker-trigger-text').text()).toBe('Custom (#1677ff)')
   })
 
   it('shows transparent text for null defaultValue', () => {
