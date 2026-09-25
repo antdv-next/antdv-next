@@ -1363,7 +1363,7 @@ exports[`color-picker demo > renders text-render correctly 1`] = `
         class="ant-color-picker-trigger-text"
       >
         <span>
-          Custom Text ()
+          Custom Text (#1677ff)
         </span>
       </div>
     </div>
