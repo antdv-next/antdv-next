@@ -662,12 +662,13 @@ exports[`splitter demo > renders collapsibleIcon correctly 1`] = `
         class="ant-radio-wrapper css-var-root ant-radio-css-var"
       >
         <span
-          class="ant-radio ant-wave-target ant-wave-target"
-          name="v-0"
+          class="ant-radio ant-wave-target"
         >
           <input
             class="ant-radio-input"
+            name="v-0"
             type="radio"
+            value="auto"
           />
         </span>
         <span
@@ -680,13 +681,14 @@ exports[`splitter demo > renders collapsibleIcon correctly 1`] = `
         class="ant-radio-wrapper ant-radio-wrapper-checked css-var-root ant-radio-css-var"
       >
         <span
-          class="ant-radio ant-wave-target ant-radio-checked ant-wave-target"
-          name="v-0"
+          class="ant-radio ant-wave-target ant-radio-checked"
         >
           <input
             checked=""
             class="ant-radio-input"
+            name="v-0"
             type="radio"
+            value="true"
           />
         </span>
         <span
@@ -699,12 +701,13 @@ exports[`splitter demo > renders collapsibleIcon correctly 1`] = `
         class="ant-radio-wrapper css-var-root ant-radio-css-var"
       >
         <span
-          class="ant-radio ant-wave-target ant-wave-target"
-          name="v-0"
+          class="ant-radio ant-wave-target"
         >
           <input
             class="ant-radio-input"
+            name="v-0"
             type="radio"
+            value="false"
           />
         </span>
         <span
@@ -1699,12 +1702,13 @@ exports[`splitter demo > renders size-mix correctly 1`] = `
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
-        name="v-0"
       >
         <input
           checked=""
           class="ant-radio-button-input"
+          name="v-0"
           type="radio"
+          value="1"
         />
       </span>
       <span
@@ -1718,11 +1722,12 @@ exports[`splitter demo > renders size-mix correctly 1`] = `
     >
       <span
         class="ant-radio-button"
-        name="v-0"
       >
         <input
           class="ant-radio-button-input"
+          name="v-0"
           type="radio"
+          value="2"
         />
       </span>
       <span

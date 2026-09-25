@@ -408,9 +408,14 @@ describe('radio group', () => {
         ],
       },
     })
-    // VcCheckbox renders name on the wrapper span, not the native input
+    const inputs = wrapper.findAll(`.${prefixCls}-input`)
+    expect(inputs).toHaveLength(2)
+    inputs.forEach((input) => {
+      expect(input.attributes('name')).toBe('my-group')
+    })
+    // The name belongs on the native input only, not on the wrapper span.
     wrapper.findAll(`.${prefixCls}`).forEach((radio) => {
-      expect(radio.attributes('name')).toBe('my-group')
+      expect(radio.attributes('name')).toBeUndefined()
     })
   })
 

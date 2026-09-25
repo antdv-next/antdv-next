@@ -17,7 +17,7 @@ exports[`transfer > rtl render > component should be rendered correctly in RTL d
           class="ant-checkbox-wrapper ant-checkbox-rtl ant-checkbox-wrapper-disabled ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
         >
           <span
-            class="ant-checkbox ant-wave-target ant-checkbox-disabled ant-wave-target"
+            class="ant-checkbox ant-wave-target ant-checkbox-disabled"
           >
             <input
               class="ant-checkbox-input"
@@ -193,7 +193,7 @@ exports[`transfer > rtl render > component should be rendered correctly in RTL d
           class="ant-checkbox-wrapper ant-checkbox-rtl ant-checkbox-wrapper-disabled ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
         >
           <span
-            class="ant-checkbox ant-wave-target ant-checkbox-disabled ant-wave-target"
+            class="ant-checkbox ant-wave-target ant-checkbox-disabled"
           >
             <input
               class="ant-checkbox-input"
@@ -311,7 +311,7 @@ exports[`transfer > should render correctly 1`] = `
         class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
       >
         <span
-          class="ant-checkbox ant-wave-target ant-checkbox-checked ant-wave-target"
+          class="ant-checkbox ant-wave-target ant-checkbox-checked"
         >
           <input
             checked=""
@@ -366,7 +366,7 @@ exports[`transfer > should render correctly 1`] = `
             class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
           >
             <span
-              class="ant-checkbox ant-wave-target ant-checkbox-checked ant-wave-target"
+              class="ant-checkbox ant-wave-target ant-checkbox-checked"
             >
               <input
                 checked=""
@@ -390,7 +390,7 @@ exports[`transfer > should render correctly 1`] = `
             class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
           >
             <span
-              class="ant-checkbox ant-wave-target ant-checkbox-disabled ant-wave-target"
+              class="ant-checkbox ant-wave-target ant-checkbox-disabled"
             >
               <input
                 class="ant-checkbox-input"
@@ -486,7 +486,7 @@ exports[`transfer > should render correctly 1`] = `
         class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
       >
         <span
-          class="ant-checkbox ant-wave-target ant-wave-target"
+          class="ant-checkbox ant-wave-target"
         >
           <input
             class="ant-checkbox-input"
@@ -540,7 +540,7 @@ exports[`transfer > should render correctly 1`] = `
             class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
           >
             <span
-              class="ant-checkbox ant-wave-target ant-wave-target"
+              class="ant-checkbox ant-wave-target"
             >
               <input
                 class="ant-checkbox-input"
@@ -578,7 +578,7 @@ exports[`transfer > should show sorted targetKey 1`] = `
         class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
       >
         <span
-          class="ant-checkbox ant-wave-target ant-wave-target"
+          class="ant-checkbox ant-wave-target"
         >
           <input
             class="ant-checkbox-input"
@@ -632,7 +632,7 @@ exports[`transfer > should show sorted targetKey 1`] = `
             class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
           >
             <span
-              class="ant-checkbox ant-wave-target ant-wave-target"
+              class="ant-checkbox ant-wave-target"
             >
               <input
                 class="ant-checkbox-input"
@@ -728,7 +728,7 @@ exports[`transfer > should show sorted targetKey 1`] = `
         class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
       >
         <span
-          class="ant-checkbox ant-wave-target ant-wave-target"
+          class="ant-checkbox ant-wave-target"
         >
           <input
             class="ant-checkbox-input"
@@ -782,7 +782,7 @@ exports[`transfer > should show sorted targetKey 1`] = `
             class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
           >
             <span
-              class="ant-checkbox ant-wave-target ant-wave-target"
+              class="ant-checkbox ant-wave-target"
             >
               <input
                 class="ant-checkbox-input"
@@ -805,7 +805,7 @@ exports[`transfer > should show sorted targetKey 1`] = `
             class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
           >
             <span
-              class="ant-checkbox ant-wave-target ant-wave-target"
+              class="ant-checkbox ant-wave-target"
             >
               <input
                 class="ant-checkbox-input"
@@ -842,7 +842,7 @@ exports[`transfer > should support render value and label in item 1`] = `
         class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
       >
         <span
-          class="ant-checkbox ant-wave-target ant-wave-target"
+          class="ant-checkbox ant-wave-target"
         >
           <input
             class="ant-checkbox-input"
@@ -896,7 +896,7 @@ exports[`transfer > should support render value and label in item 1`] = `
             class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
           >
             <span
-              class="ant-checkbox ant-wave-target ant-wave-target"
+              class="ant-checkbox ant-wave-target"
             >
               <input
                 class="ant-checkbox-input"
@@ -992,7 +992,7 @@ exports[`transfer > should support render value and label in item 1`] = `
         class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
       >
         <span
-          class="ant-checkbox ant-wave-target ant-checkbox-disabled ant-wave-target"
+          class="ant-checkbox ant-wave-target ant-checkbox-disabled"
         >
           <input
             class="ant-checkbox-input"
@@ -1109,7 +1109,7 @@ exports[`transfer immutable data > dataSource is frozen 1`] = `
         class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
       >
         <span
-          class="ant-checkbox ant-wave-target ant-wave-target"
+          class="ant-checkbox ant-wave-target"
         >
           <input
             class="ant-checkbox-input"
@@ -1163,7 +1163,7 @@ exports[`transfer immutable data > dataSource is frozen 1`] = `
             class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
           >
             <span
-              class="ant-checkbox ant-wave-target ant-wave-target"
+              class="ant-checkbox ant-wave-target"
             >
               <input
                 class="ant-checkbox-input"
@@ -1259,7 +1259,7 @@ exports[`transfer immutable data > dataSource is frozen 1`] = `
         class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
       >
         <span
-          class="ant-checkbox ant-wave-target ant-checkbox-disabled ant-wave-target"
+          class="ant-checkbox ant-wave-target ant-checkbox-disabled"
         >
           <input
             class="ant-checkbox-input"

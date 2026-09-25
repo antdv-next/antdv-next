@@ -17,7 +17,7 @@ exports[`checkbox demo > renders _semantic correctly 1`] = `
         class="ant-checkbox-wrapper semantic-mark-root css-var-v-0 ant-checkbox-css-var"
       >
         <span
-          class="ant-checkbox semantic-mark-icon ant-wave-target semantic-mark-icon ant-wave-target"
+          class="ant-checkbox semantic-mark-icon ant-wave-target"
         >
           <input
             class="ant-checkbox-input"
@@ -440,7 +440,7 @@ exports[`checkbox demo > renders basic correctly 1`] = `
   class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
 >
   <span
-    class="ant-checkbox ant-wave-target ant-wave-target"
+    class="ant-checkbox ant-wave-target"
   >
     <input
       class="ant-checkbox-input"
@@ -463,7 +463,7 @@ exports[`checkbox demo > renders check-all correctly 1`] = `
     class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
   >
     <span
-      class="ant-checkbox ant-checkbox-indeterminate ant-wave-target ant-checkbox-indeterminate ant-wave-target"
+      class="ant-checkbox ant-checkbox-indeterminate ant-wave-target"
     >
       <input
         class="ant-checkbox-input"
@@ -490,12 +490,13 @@ exports[`checkbox demo > renders check-all correctly 1`] = `
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item css-var-root ant-checkbox-css-var"
     >
       <span
-        class="ant-checkbox ant-wave-target ant-checkbox-checked ant-wave-target"
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
           checked=""
           class="ant-checkbox-input"
           type="checkbox"
+          value="Apple"
         />
       </span>
       <span
@@ -508,11 +509,12 @@ exports[`checkbox demo > renders check-all correctly 1`] = `
       class="ant-checkbox-wrapper ant-checkbox-group-item css-var-root ant-checkbox-css-var"
     >
       <span
-        class="ant-checkbox ant-wave-target ant-wave-target"
+        class="ant-checkbox ant-wave-target"
       >
         <input
           class="ant-checkbox-input"
           type="checkbox"
+          value="Pear"
         />
       </span>
       <span
@@ -525,12 +527,13 @@ exports[`checkbox demo > renders check-all correctly 1`] = `
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item css-var-root ant-checkbox-css-var"
     >
       <span
-        class="ant-checkbox ant-wave-target ant-checkbox-checked ant-wave-target"
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
           checked=""
           class="ant-checkbox-input"
           type="checkbox"
+          value="Orange"
         />
       </span>
       <span
@@ -554,7 +557,7 @@ exports[`checkbox demo > renders controller correctly 1`] = `
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked css-var-root ant-checkbox-css-var"
     >
       <span
-        class="ant-checkbox ant-wave-target ant-checkbox-checked ant-wave-target"
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
           checked=""
@@ -629,7 +632,7 @@ exports[`checkbox demo > renders disabled correctly 1`] = `
     class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled css-var-root ant-checkbox-css-var"
   >
     <span
-      class="ant-checkbox ant-wave-target ant-checkbox-disabled ant-wave-target"
+      class="ant-checkbox ant-wave-target ant-checkbox-disabled"
     >
       <input
         class="ant-checkbox-input"
@@ -644,7 +647,7 @@ exports[`checkbox demo > renders disabled correctly 1`] = `
     class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled css-var-root ant-checkbox-css-var"
   >
     <span
-      class="ant-checkbox ant-checkbox-indeterminate ant-wave-target ant-checkbox-disabled ant-checkbox-indeterminate ant-wave-target"
+      class="ant-checkbox ant-checkbox-indeterminate ant-wave-target ant-checkbox-disabled"
     >
       <input
         class="ant-checkbox-input"
@@ -659,7 +662,7 @@ exports[`checkbox demo > renders disabled correctly 1`] = `
     class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled css-var-root ant-checkbox-css-var"
   >
     <span
-      class="ant-checkbox ant-wave-target ant-checkbox-checked ant-checkbox-disabled ant-wave-target"
+      class="ant-checkbox ant-wave-target ant-checkbox-checked ant-checkbox-disabled"
     >
       <input
         checked=""
@@ -685,12 +688,13 @@ exports[`checkbox demo > renders group correctly 1`] = `
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item css-var-root ant-checkbox-css-var"
     >
       <span
-        class="ant-checkbox ant-wave-target ant-checkbox-checked ant-wave-target"
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
           checked=""
           class="ant-checkbox-input"
           type="checkbox"
+          value="Apple"
         />
       </span>
       <span
@@ -703,11 +707,12 @@ exports[`checkbox demo > renders group correctly 1`] = `
       class="ant-checkbox-wrapper ant-checkbox-group-item css-var-root ant-checkbox-css-var"
     >
       <span
-        class="ant-checkbox ant-wave-target ant-wave-target"
+        class="ant-checkbox ant-wave-target"
       >
         <input
           class="ant-checkbox-input"
           type="checkbox"
+          value="Pear"
         />
       </span>
       <span
@@ -720,11 +725,12 @@ exports[`checkbox demo > renders group correctly 1`] = `
       class="ant-checkbox-wrapper ant-checkbox-group-item css-var-root ant-checkbox-css-var"
     >
       <span
-        class="ant-checkbox ant-wave-target ant-wave-target"
+        class="ant-checkbox ant-wave-target"
       >
         <input
           class="ant-checkbox-input"
           type="checkbox"
+          value="Orange"
         />
       </span>
       <span
@@ -744,11 +750,12 @@ exports[`checkbox demo > renders group correctly 1`] = `
       class="ant-checkbox-wrapper ant-checkbox-group-item css-var-root ant-checkbox-css-var"
     >
       <span
-        class="ant-checkbox ant-wave-target ant-wave-target"
+        class="ant-checkbox ant-wave-target"
       >
         <input
           class="ant-checkbox-input"
           type="checkbox"
+          value="Apple"
         />
       </span>
       <span
@@ -761,12 +768,13 @@ exports[`checkbox demo > renders group correctly 1`] = `
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item css-var-root ant-checkbox-css-var"
     >
       <span
-        class="ant-checkbox ant-wave-target ant-checkbox-checked ant-wave-target"
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
           checked=""
           class="ant-checkbox-input"
           type="checkbox"
+          value="Pear"
         />
       </span>
       <span
@@ -779,11 +787,12 @@ exports[`checkbox demo > renders group correctly 1`] = `
       class="ant-checkbox-wrapper ant-checkbox-group-item css-var-root ant-checkbox-css-var"
     >
       <span
-        class="ant-checkbox ant-wave-target ant-wave-target"
+        class="ant-checkbox ant-wave-target"
       >
         <input
           class="ant-checkbox-input"
           type="checkbox"
+          value="Orange"
         />
       </span>
       <span
@@ -803,13 +812,14 @@ exports[`checkbox demo > renders group correctly 1`] = `
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled ant-checkbox-group-item css-var-root ant-checkbox-css-var"
     >
       <span
-        class="ant-checkbox ant-wave-target ant-checkbox-checked ant-checkbox-disabled ant-wave-target"
+        class="ant-checkbox ant-wave-target ant-checkbox-checked ant-checkbox-disabled"
       >
         <input
           checked=""
           class="ant-checkbox-input"
           disabled=""
           type="checkbox"
+          value="Apple"
         />
       </span>
       <span
@@ -822,12 +832,13 @@ exports[`checkbox demo > renders group correctly 1`] = `
       class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-checkbox-group-item css-var-root ant-checkbox-css-var"
     >
       <span
-        class="ant-checkbox ant-wave-target ant-checkbox-disabled ant-wave-target"
+        class="ant-checkbox ant-wave-target ant-checkbox-disabled"
       >
         <input
           class="ant-checkbox-input"
           disabled=""
           type="checkbox"
+          value="Pear"
         />
       </span>
       <span
@@ -840,11 +851,12 @@ exports[`checkbox demo > renders group correctly 1`] = `
       class="ant-checkbox-wrapper ant-checkbox-group-item css-var-root ant-checkbox-css-var"
     >
       <span
-        class="ant-checkbox ant-wave-target ant-wave-target"
+        class="ant-checkbox ant-wave-target"
       >
         <input
           class="ant-checkbox-input"
           type="checkbox"
+          value="Orange"
         />
       </span>
       <span
@@ -873,11 +885,12 @@ exports[`checkbox demo > renders layout correctly 1`] = `
         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
       >
         <span
-          class="ant-checkbox ant-wave-target ant-wave-target"
+          class="ant-checkbox ant-wave-target"
         >
           <input
             class="ant-checkbox-input"
             type="checkbox"
+            value="A"
           />
         </span>
         <span
@@ -894,11 +907,12 @@ exports[`checkbox demo > renders layout correctly 1`] = `
         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
       >
         <span
-          class="ant-checkbox ant-wave-target ant-wave-target"
+          class="ant-checkbox ant-wave-target"
         >
           <input
             class="ant-checkbox-input"
             type="checkbox"
+            value="B"
           />
         </span>
         <span
@@ -915,11 +929,12 @@ exports[`checkbox demo > renders layout correctly 1`] = `
         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
       >
         <span
-          class="ant-checkbox ant-wave-target ant-wave-target"
+          class="ant-checkbox ant-wave-target"
         >
           <input
             class="ant-checkbox-input"
             type="checkbox"
+            value="C"
           />
         </span>
         <span
@@ -936,11 +951,12 @@ exports[`checkbox demo > renders layout correctly 1`] = `
         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
       >
         <span
-          class="ant-checkbox ant-wave-target ant-wave-target"
+          class="ant-checkbox ant-wave-target"
         >
           <input
             class="ant-checkbox-input"
             type="checkbox"
+            value="D"
           />
         </span>
         <span
@@ -957,11 +973,12 @@ exports[`checkbox demo > renders layout correctly 1`] = `
         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
       >
         <span
-          class="ant-checkbox ant-wave-target ant-wave-target"
+          class="ant-checkbox ant-wave-target"
         >
           <input
             class="ant-checkbox-input"
             type="checkbox"
+            value="E"
           />
         </span>
         <span
@@ -983,7 +1000,7 @@ exports[`checkbox demo > renders style-class correctly 1`] = `
     class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
   >
     <span
-      class="ant-checkbox ant-wave-target ant-wave-target"
+      class="ant-checkbox ant-wave-target"
       style="border-radius: 6px;"
     >
       <input
@@ -1002,7 +1019,7 @@ exports[`checkbox demo > renders style-class correctly 1`] = `
     class="ant-checkbox-wrapper ant-checkbox-wrapper-checked checkbox-demo-root css-var-root ant-checkbox-css-var"
   >
     <span
-      class="ant-checkbox checkbox-demo-icon checkbox-demo-icon-checked ant-wave-target ant-checkbox-checked checkbox-demo-icon checkbox-demo-icon-checked ant-wave-target"
+      class="ant-checkbox checkbox-demo-icon checkbox-demo-icon-checked ant-wave-target ant-checkbox-checked"
     >
       <input
         checked=""

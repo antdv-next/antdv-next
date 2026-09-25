@@ -4483,12 +4483,13 @@ exports[`tabs demo > renders extra correctly 1`] = `
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item css-var-root ant-checkbox-css-var"
     >
       <span
-        class="ant-checkbox ant-wave-target ant-checkbox-checked ant-wave-target"
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
           checked=""
           class="ant-checkbox-input"
           type="checkbox"
+          value="left"
         />
       </span>
       <span
@@ -4501,12 +4502,13 @@ exports[`tabs demo > renders extra correctly 1`] = `
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item css-var-root ant-checkbox-css-var"
     >
       <span
-        class="ant-checkbox ant-wave-target ant-checkbox-checked ant-wave-target"
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
           checked=""
           class="ant-checkbox-input"
           type="checkbox"
+          value="right"
         />
       </span>
       <span
@@ -4925,11 +4927,12 @@ exports[`tabs demo > renders placement correctly 1`] = `
         >
           <span
             class="ant-radio-button"
-            name="v-0"
           >
             <input
               class="ant-radio-button-input"
+              name="v-0"
               type="radio"
+              value="top"
             />
           </span>
           <span
@@ -4943,11 +4946,12 @@ exports[`tabs demo > renders placement correctly 1`] = `
         >
           <span
             class="ant-radio-button"
-            name="v-0"
           >
             <input
               class="ant-radio-button-input"
+              name="v-0"
               type="radio"
+              value="bottom"
             />
           </span>
           <span
@@ -4961,12 +4965,13 @@ exports[`tabs demo > renders placement correctly 1`] = `
         >
           <span
             class="ant-radio-button ant-radio-button-checked"
-            name="v-0"
           >
             <input
               checked=""
               class="ant-radio-button-input"
+              name="v-0"
               type="radio"
+              value="start"
             />
           </span>
           <span
@@ -4980,11 +4985,12 @@ exports[`tabs demo > renders placement correctly 1`] = `
         >
           <span
             class="ant-radio-button"
-            name="v-0"
           >
             <input
               class="ant-radio-button-input"
+              name="v-0"
               type="radio"
+              value="end"
             />
           </span>
           <span
@@ -5762,12 +5768,13 @@ exports[`tabs demo > renders scroll-position correctly 1`] = `
       >
         <span
           class="ant-radio-button ant-radio-button-checked"
-          name="v-0"
         >
           <input
             checked=""
             class="ant-radio-button-input"
+            name="v-0"
             type="radio"
+            value="top"
           />
         </span>
         <span
@@ -5781,11 +5788,12 @@ exports[`tabs demo > renders scroll-position correctly 1`] = `
       >
         <span
           class="ant-radio-button"
-          name="v-0"
         >
           <input
             class="ant-radio-button-input"
+            name="v-0"
             type="radio"
+            value="start"
           />
         </span>
         <span
@@ -6492,12 +6500,13 @@ exports[`tabs demo > renders size correctly 1`] = `
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
-        name="v-0"
       >
         <input
           checked=""
           class="ant-radio-button-input"
+          name="v-0"
           type="radio"
+          value="small"
         />
       </span>
       <span
@@ -6511,11 +6520,12 @@ exports[`tabs demo > renders size correctly 1`] = `
     >
       <span
         class="ant-radio-button"
-        name="v-0"
       >
         <input
           class="ant-radio-button-input"
+          name="v-0"
           type="radio"
+          value="medium"
         />
       </span>
       <span
@@ -6529,11 +6539,12 @@ exports[`tabs demo > renders size correctly 1`] = `
     >
       <span
         class="ant-radio-button"
-        name="v-0"
       >
         <input
           class="ant-radio-button-input"
+          name="v-0"
           type="radio"
+          value="large"
         />
       </span>
       <span
@@ -7078,12 +7089,13 @@ exports[`tabs demo > renders slide correctly 1`] = `
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
-        name="v-0"
       >
         <input
           checked=""
           class="ant-radio-button-input"
+          name="v-0"
           type="radio"
+          value="top"
         />
       </span>
       <span
@@ -7097,11 +7109,12 @@ exports[`tabs demo > renders slide correctly 1`] = `
     >
       <span
         class="ant-radio-button"
-        name="v-0"
       >
         <input
           class="ant-radio-button-input"
+          name="v-0"
           type="radio"
+          value="left"
         />
       </span>
       <span

@@ -207,6 +207,27 @@ describe('checkbox', () => {
     expect(wrapper.vm.input).toBeDefined()
   })
 
+  // ============ Native input ============
+
+  it('should pass id and name to the native input', () => {
+    const wrapper = mount(Checkbox, {
+      props: { id: 'agree', name: 'agreement' },
+    })
+    const input = wrapper.find('input')
+    expect(input.attributes('id')).toBe('agree')
+    expect(input.attributes('name')).toBe('agreement')
+    expect(wrapper.find('.ant-checkbox').attributes('name')).toBeUndefined()
+  })
+
+  it('should emit blur when the native input loses focus', async () => {
+    const onBlur = vi.fn()
+    const wrapper = mount(Checkbox, {
+      props: { onBlur },
+    })
+    await wrapper.find('input').trigger('blur')
+    expect(onBlur).toHaveBeenCalledTimes(1)
+  })
+
   // ============ Mouse events ============
 
   it('should emit mouseenter and mouseleave events', async () => {
@@ -465,9 +486,12 @@ describe('checkboxGroup', () => {
     // Name is passed to internal Checkbox components via group context
     const checkboxes = wrapper.findAll('.ant-checkbox-wrapper')
     expect(checkboxes.length).toBe(3)
-    // Verify group renders all checkboxes correctly
+    // ...and lands on each native input
     const inputs = wrapper.findAll('input[type="checkbox"]')
     expect(inputs.length).toBe(3)
+    inputs.forEach((input) => {
+      expect(input.attributes('name')).toBe('fruits')
+    })
   })
 
   it('should render with children slots', () => {

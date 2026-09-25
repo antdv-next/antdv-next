@@ -124,12 +124,13 @@ exports[`calendar > rtl render > component should be rendered correctly in RTL d
         >
           <span
             class="ant-radio-button ant-radio-button-checked"
-            name="v-5"
           >
             <input
               checked=""
               class="ant-radio-button-input"
+              name="v-5"
               type="radio"
+              value="month"
             />
           </span>
           <span
@@ -143,11 +144,12 @@ exports[`calendar > rtl render > component should be rendered correctly in RTL d
         >
           <span
             class="ant-radio-button"
-            name="v-5"
           >
             <input
               class="ant-radio-button-input"
+              name="v-5"
               type="radio"
+              value="year"
             />
           </span>
           <span
@@ -1041,7 +1043,7 @@ exports[`calendar > should match default snapshot 1`] = `
       <!---->
     </div>
     <!---->
-    <div class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-root ant-radio-css-var"><label class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-root ant-radio-css-var"><span class="ant-radio-button ant-radio-button-checked" name="v-4"><input class="ant-radio-button-input" checked="" type="radio"></span><span class="ant-radio-button-label">Month</span></label><label class="ant-radio-button-wrapper css-var-root ant-radio-css-var"><span class="ant-radio-button" name="v-4"><input class="ant-radio-button-input" type="radio"></span><span class="ant-radio-button-label">Year</span></label></div>
+    <div class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-root ant-radio-css-var"><label class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-root ant-radio-css-var"><span class="ant-radio-button ant-radio-button-checked"><input name="v-4" class="ant-radio-button-input" checked="" type="radio" value="month"></span><span class="ant-radio-button-label">Month</span></label><label class="ant-radio-button-wrapper css-var-root ant-radio-css-var"><span class="ant-radio-button"><input name="v-4" class="ant-radio-button-input" type="radio" value="year"></span><span class="ant-radio-button-label">Year</span></label></div>
   </div>
   <div class="ant-picker-panel">
     <div class="ant-picker-date-panel">
@@ -1441,7 +1443,7 @@ exports[`calendar > should match mini snapshot 1`] = `
       <!---->
     </div>
     <!---->
-    <div class="ant-radio-group ant-radio-group-outline ant-radio-group-small ant-picker-calendar-mode-switch css-var-root ant-radio-css-var"><label class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-root ant-radio-css-var"><span class="ant-radio-button ant-radio-button-checked" name="v-4"><input class="ant-radio-button-input" checked="" type="radio"></span><span class="ant-radio-button-label">Month</span></label><label class="ant-radio-button-wrapper css-var-root ant-radio-css-var"><span class="ant-radio-button" name="v-4"><input class="ant-radio-button-input" type="radio"></span><span class="ant-radio-button-label">Year</span></label></div>
+    <div class="ant-radio-group ant-radio-group-outline ant-radio-group-small ant-picker-calendar-mode-switch css-var-root ant-radio-css-var"><label class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-root ant-radio-css-var"><span class="ant-radio-button ant-radio-button-checked"><input name="v-4" class="ant-radio-button-input" checked="" type="radio" value="month"></span><span class="ant-radio-button-label">Month</span></label><label class="ant-radio-button-wrapper css-var-root ant-radio-css-var"><span class="ant-radio-button"><input name="v-4" class="ant-radio-button-input" type="radio" value="year"></span><span class="ant-radio-button-label">Year</span></label></div>
   </div>
   <div class="ant-picker-panel">
     <div class="ant-picker-date-panel">

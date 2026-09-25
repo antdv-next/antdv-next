@@ -1761,12 +1761,13 @@ exports[`tree-select demo > renders placement correctly 1`] = `
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
-        name="v-0"
       >
         <input
           checked=""
           class="ant-radio-button-input"
+          name="v-0"
           type="radio"
+          value="topLeft"
         />
       </span>
       <span
@@ -1780,11 +1781,12 @@ exports[`tree-select demo > renders placement correctly 1`] = `
     >
       <span
         class="ant-radio-button"
-        name="v-0"
       >
         <input
           class="ant-radio-button-input"
+          name="v-0"
           type="radio"
+          value="topRight"
         />
       </span>
       <span
@@ -1798,11 +1800,12 @@ exports[`tree-select demo > renders placement correctly 1`] = `
     >
       <span
         class="ant-radio-button"
-        name="v-0"
       >
         <input
           class="ant-radio-button-input"
+          name="v-0"
           type="radio"
+          value="bottomLeft"
         />
       </span>
       <span
@@ -1816,11 +1819,12 @@ exports[`tree-select demo > renders placement correctly 1`] = `
     >
       <span
         class="ant-radio-button"
-        name="v-0"
       >
         <input
           class="ant-radio-button-input"
+          name="v-0"
           type="radio"
+          value="bottomRight"
         />
       </span>
       <span

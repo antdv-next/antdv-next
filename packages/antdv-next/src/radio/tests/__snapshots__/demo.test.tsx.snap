@@ -17,7 +17,7 @@ exports[`radio demo > renders _semantic correctly 1`] = `
         class="ant-radio-wrapper semantic-mark-root css-var-v-0 ant-radio-css-var"
       >
         <span
-          class="ant-radio semantic-mark-icon ant-wave-target semantic-mark-icon ant-wave-target"
+          class="ant-radio semantic-mark-icon ant-wave-target"
         >
           <input
             class="ant-radio-input"
@@ -440,7 +440,7 @@ exports[`radio demo > renders basic correctly 1`] = `
   class="ant-radio-wrapper css-var-root ant-radio-css-var"
 >
   <span
-    class="ant-radio ant-wave-target ant-wave-target"
+    class="ant-radio ant-wave-target"
   >
     <input
       class="ant-radio-input"
@@ -472,7 +472,7 @@ exports[`radio demo > renders disabled correctly 1`] = `
           class="ant-radio-wrapper ant-radio-wrapper-disabled css-var-root ant-radio-css-var"
         >
           <span
-            class="ant-radio ant-wave-target ant-radio-disabled ant-wave-target"
+            class="ant-radio ant-wave-target ant-radio-disabled"
           >
             <input
               class="ant-radio-input"
@@ -495,7 +495,7 @@ exports[`radio demo > renders disabled correctly 1`] = `
           class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-disabled css-var-root ant-radio-css-var"
         >
           <span
-            class="ant-radio ant-wave-target ant-radio-checked ant-radio-disabled ant-wave-target"
+            class="ant-radio ant-wave-target ant-radio-checked ant-radio-disabled"
           >
             <input
               checked=""
@@ -554,12 +554,13 @@ exports[`radio demo > renders radio-group correctly 1`] = `
     class="ant-radio-wrapper option-1 css-var-root ant-radio-css-var"
   >
     <span
-      class="ant-radio ant-wave-target ant-wave-target"
-      name="v-0"
+      class="ant-radio ant-wave-target"
     >
       <input
         class="ant-radio-input"
+        name="v-0"
         type="radio"
+        value="1"
       />
     </span>
     <span
@@ -595,12 +596,13 @@ exports[`radio demo > renders radio-group correctly 1`] = `
     class="ant-radio-wrapper option-2 css-var-root ant-radio-css-var"
   >
     <span
-      class="ant-radio ant-wave-target ant-wave-target"
-      name="v-0"
+      class="ant-radio ant-wave-target"
     >
       <input
         class="ant-radio-input"
+        name="v-0"
         type="radio"
+        value="2"
       />
     </span>
     <span
@@ -636,12 +638,13 @@ exports[`radio demo > renders radio-group correctly 1`] = `
     class="ant-radio-wrapper option-3 css-var-root ant-radio-css-var"
   >
     <span
-      class="ant-radio ant-wave-target ant-wave-target"
-      name="v-0"
+      class="ant-radio ant-wave-target"
     >
       <input
         class="ant-radio-input"
+        name="v-0"
         type="radio"
+        value="3"
       />
     </span>
     <span
@@ -677,12 +680,13 @@ exports[`radio demo > renders radio-group correctly 1`] = `
     class="ant-radio-wrapper option-4 css-var-root ant-radio-css-var"
   >
     <span
-      class="ant-radio ant-wave-target ant-wave-target"
-      name="v-0"
+      class="ant-radio ant-wave-target"
     >
       <input
         class="ant-radio-input"
+        name="v-0"
         type="radio"
+        value="4"
       />
     </span>
     <span
@@ -729,12 +733,13 @@ exports[`radio demo > renders radiobutton correctly 1`] = `
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
-        name="v-0"
       >
         <input
           checked=""
           class="ant-radio-button-input"
+          name="v-0"
           type="radio"
+          value="a"
         />
       </span>
       <span
@@ -748,11 +753,12 @@ exports[`radio demo > renders radiobutton correctly 1`] = `
     >
       <span
         class="ant-radio-button"
-        name="v-0"
       >
         <input
           class="ant-radio-button-input"
+          name="v-0"
           type="radio"
+          value="b"
         />
       </span>
       <span
@@ -766,11 +772,12 @@ exports[`radio demo > renders radiobutton correctly 1`] = `
     >
       <span
         class="ant-radio-button"
-        name="v-0"
       >
         <input
           class="ant-radio-button-input"
+          name="v-0"
           type="radio"
+          value="c"
         />
       </span>
       <span
@@ -784,11 +791,12 @@ exports[`radio demo > renders radiobutton correctly 1`] = `
     >
       <span
         class="ant-radio-button"
-        name="v-0"
       >
         <input
           class="ant-radio-button-input"
+          name="v-0"
           type="radio"
+          value="d"
         />
       </span>
       <span
@@ -806,12 +814,13 @@ exports[`radio demo > renders radiobutton correctly 1`] = `
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
-        name="v-1"
       >
         <input
           checked=""
           class="ant-radio-button-input"
+          name="v-1"
           type="radio"
+          value="a"
         />
       </span>
       <span
@@ -825,12 +834,13 @@ exports[`radio demo > renders radiobutton correctly 1`] = `
     >
       <span
         class="ant-radio-button ant-radio-button-disabled"
-        name="v-1"
       >
         <input
           class="ant-radio-button-input"
           disabled=""
+          name="v-1"
           type="radio"
+          value="b"
         />
       </span>
       <span
@@ -844,11 +854,12 @@ exports[`radio demo > renders radiobutton correctly 1`] = `
     >
       <span
         class="ant-radio-button"
-        name="v-1"
       >
         <input
           class="ant-radio-button-input"
+          name="v-1"
           type="radio"
+          value="c"
         />
       </span>
       <span
@@ -862,11 +873,12 @@ exports[`radio demo > renders radiobutton correctly 1`] = `
     >
       <span
         class="ant-radio-button"
-        name="v-1"
       >
         <input
           class="ant-radio-button-input"
+          name="v-1"
           type="radio"
+          value="d"
         />
       </span>
       <span
@@ -884,13 +896,14 @@ exports[`radio demo > renders radiobutton correctly 1`] = `
     >
       <span
         class="ant-radio-button ant-radio-button-checked ant-radio-button-disabled"
-        name="v-2"
       >
         <input
           checked=""
           class="ant-radio-button-input"
           disabled=""
+          name="v-2"
           type="radio"
+          value="a"
         />
       </span>
       <span
@@ -904,12 +917,13 @@ exports[`radio demo > renders radiobutton correctly 1`] = `
     >
       <span
         class="ant-radio-button ant-radio-button-disabled"
-        name="v-2"
       >
         <input
           class="ant-radio-button-input"
           disabled=""
+          name="v-2"
           type="radio"
+          value="b"
         />
       </span>
       <span
@@ -923,12 +937,13 @@ exports[`radio demo > renders radiobutton correctly 1`] = `
     >
       <span
         class="ant-radio-button ant-radio-button-disabled"
-        name="v-2"
       >
         <input
           class="ant-radio-button-input"
           disabled=""
+          name="v-2"
           type="radio"
+          value="c"
         />
       </span>
       <span
@@ -942,12 +957,13 @@ exports[`radio demo > renders radiobutton correctly 1`] = `
     >
       <span
         class="ant-radio-button ant-radio-button-disabled"
-        name="v-2"
       >
         <input
           class="ant-radio-button-input"
           disabled=""
+          name="v-2"
           type="radio"
+          value="d"
         />
       </span>
       <span
@@ -972,12 +988,13 @@ exports[`radio demo > renders radiobutton-solid correctly 1`] = `
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
-        name="v-0"
       >
         <input
           checked=""
           class="ant-radio-button-input"
+          name="v-0"
           type="radio"
+          value="a"
         />
       </span>
       <span
@@ -991,11 +1008,12 @@ exports[`radio demo > renders radiobutton-solid correctly 1`] = `
     >
       <span
         class="ant-radio-button"
-        name="v-0"
       >
         <input
           class="ant-radio-button-input"
+          name="v-0"
           type="radio"
+          value="b"
         />
       </span>
       <span
@@ -1009,11 +1027,12 @@ exports[`radio demo > renders radiobutton-solid correctly 1`] = `
     >
       <span
         class="ant-radio-button"
-        name="v-0"
       >
         <input
           class="ant-radio-button-input"
+          name="v-0"
           type="radio"
+          value="c"
         />
       </span>
       <span
@@ -1027,11 +1046,12 @@ exports[`radio demo > renders radiobutton-solid correctly 1`] = `
     >
       <span
         class="ant-radio-button"
-        name="v-0"
       >
         <input
           class="ant-radio-button-input"
+          name="v-0"
           type="radio"
+          value="d"
         />
       </span>
       <span
@@ -1049,12 +1069,13 @@ exports[`radio demo > renders radiobutton-solid correctly 1`] = `
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
-        name="v-1"
       >
         <input
           checked=""
           class="ant-radio-button-input"
+          name="v-1"
           type="radio"
+          value="a"
         />
       </span>
       <span
@@ -1068,12 +1089,13 @@ exports[`radio demo > renders radiobutton-solid correctly 1`] = `
     >
       <span
         class="ant-radio-button ant-radio-button-disabled"
-        name="v-1"
       >
         <input
           class="ant-radio-button-input"
           disabled=""
+          name="v-1"
           type="radio"
+          value="b"
         />
       </span>
       <span
@@ -1087,11 +1109,12 @@ exports[`radio demo > renders radiobutton-solid correctly 1`] = `
     >
       <span
         class="ant-radio-button"
-        name="v-1"
       >
         <input
           class="ant-radio-button-input"
+          name="v-1"
           type="radio"
+          value="c"
         />
       </span>
       <span
@@ -1105,11 +1128,12 @@ exports[`radio demo > renders radiobutton-solid correctly 1`] = `
     >
       <span
         class="ant-radio-button"
-        name="v-1"
       >
         <input
           class="ant-radio-button-input"
+          name="v-1"
           type="radio"
+          value="d"
         />
       </span>
       <span
@@ -1130,13 +1154,14 @@ exports[`radio demo > renders radiogroup correctly 1`] = `
     class="ant-radio-wrapper ant-radio-wrapper-checked option-1 css-var-root ant-radio-css-var"
   >
     <span
-      class="ant-radio ant-wave-target ant-radio-checked ant-wave-target"
-      name="v-0"
+      class="ant-radio ant-wave-target ant-radio-checked"
     >
       <input
         checked=""
         class="ant-radio-input"
+        name="v-0"
         type="radio"
+        value="1"
       />
     </span>
     <span
@@ -1173,12 +1198,13 @@ exports[`radio demo > renders radiogroup correctly 1`] = `
     class="ant-radio-wrapper option-2 css-var-root ant-radio-css-var"
   >
     <span
-      class="ant-radio ant-wave-target ant-wave-target"
-      name="v-0"
+      class="ant-radio ant-wave-target"
     >
       <input
         class="ant-radio-input"
+        name="v-0"
         type="radio"
+        value="2"
       />
     </span>
     <span
@@ -1215,12 +1241,13 @@ exports[`radio demo > renders radiogroup correctly 1`] = `
     class="ant-radio-wrapper option-3 css-var-root ant-radio-css-var"
   >
     <span
-      class="ant-radio ant-wave-target ant-wave-target"
-      name="v-0"
+      class="ant-radio ant-wave-target"
     >
       <input
         class="ant-radio-input"
+        name="v-0"
         type="radio"
+        value="3"
       />
     </span>
     <span
@@ -1257,12 +1284,13 @@ exports[`radio demo > renders radiogroup correctly 1`] = `
     class="ant-radio-wrapper option-4 css-var-root ant-radio-css-var"
   >
     <span
-      class="ant-radio ant-wave-target ant-wave-target"
-      name="v-0"
+      class="ant-radio ant-wave-target"
     >
       <input
         class="ant-radio-input"
+        name="v-0"
         type="radio"
+        value="4"
       />
     </span>
     <span
@@ -1309,13 +1337,14 @@ exports[`radio demo > renders radiogroup-block correctly 1`] = `
       class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-block css-var-root ant-radio-css-var"
     >
       <span
-        class="ant-radio ant-wave-target ant-radio-checked ant-wave-target"
-        name="v-0"
+        class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
           checked=""
           class="ant-radio-input"
+          name="v-0"
           type="radio"
+          value="Apple"
         />
       </span>
       <span
@@ -1328,12 +1357,13 @@ exports[`radio demo > renders radiogroup-block correctly 1`] = `
       class="ant-radio-wrapper ant-radio-wrapper-block css-var-root ant-radio-css-var"
     >
       <span
-        class="ant-radio ant-wave-target ant-wave-target"
-        name="v-0"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
+          name="v-0"
           type="radio"
+          value="Pear"
         />
       </span>
       <span
@@ -1346,12 +1376,13 @@ exports[`radio demo > renders radiogroup-block correctly 1`] = `
       class="ant-radio-wrapper ant-radio-wrapper-block css-var-root ant-radio-css-var"
     >
       <span
-        class="ant-radio ant-wave-target ant-wave-target"
-        name="v-0"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
+          name="v-0"
           type="radio"
+          value="Orange"
         />
       </span>
       <span
@@ -1369,12 +1400,13 @@ exports[`radio demo > renders radiogroup-block correctly 1`] = `
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
-        name="v-1"
       >
         <input
           checked=""
           class="ant-radio-button-input"
+          name="v-1"
           type="radio"
+          value="Apple"
         />
       </span>
       <span
@@ -1388,11 +1420,12 @@ exports[`radio demo > renders radiogroup-block correctly 1`] = `
     >
       <span
         class="ant-radio-button"
-        name="v-1"
       >
         <input
           class="ant-radio-button-input"
+          name="v-1"
           type="radio"
+          value="Pear"
         />
       </span>
       <span
@@ -1406,11 +1439,12 @@ exports[`radio demo > renders radiogroup-block correctly 1`] = `
     >
       <span
         class="ant-radio-button"
-        name="v-1"
       >
         <input
           class="ant-radio-button-input"
+          name="v-1"
           type="radio"
+          value="Orange"
         />
       </span>
       <span
@@ -1428,12 +1462,13 @@ exports[`radio demo > renders radiogroup-block correctly 1`] = `
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
-        name="v-2"
       >
         <input
           checked=""
           class="ant-radio-button-input"
+          name="v-2"
           type="radio"
+          value="Apple"
         />
       </span>
       <span
@@ -1447,11 +1482,12 @@ exports[`radio demo > renders radiogroup-block correctly 1`] = `
     >
       <span
         class="ant-radio-button"
-        name="v-2"
       >
         <input
           class="ant-radio-button-input"
+          name="v-2"
           type="radio"
+          value="Pear"
         />
       </span>
       <span
@@ -1465,11 +1501,12 @@ exports[`radio demo > renders radiogroup-block correctly 1`] = `
     >
       <span
         class="ant-radio-button"
-        name="v-2"
       >
         <input
           class="ant-radio-button-input"
+          name="v-2"
           type="radio"
+          value="Orange"
         />
       </span>
       <span
@@ -1496,13 +1533,14 @@ exports[`radio demo > renders radiogroup-more correctly 1`] = `
         class="ant-radio-wrapper ant-radio-wrapper-checked css-var-root ant-radio-css-var"
       >
         <span
-          class="ant-radio ant-wave-target ant-radio-checked ant-wave-target"
-          name="v-0"
+          class="ant-radio ant-wave-target ant-radio-checked"
         >
           <input
             checked=""
             class="ant-radio-input"
+            name="v-0"
             type="radio"
+            value="1"
           />
         </span>
         <span
@@ -1515,12 +1553,13 @@ exports[`radio demo > renders radiogroup-more correctly 1`] = `
         class="ant-radio-wrapper css-var-root ant-radio-css-var"
       >
         <span
-          class="ant-radio ant-wave-target ant-wave-target"
-          name="v-0"
+          class="ant-radio ant-wave-target"
         >
           <input
             class="ant-radio-input"
+            name="v-0"
             type="radio"
+            value="2"
           />
         </span>
         <span
@@ -1533,12 +1572,13 @@ exports[`radio demo > renders radiogroup-more correctly 1`] = `
         class="ant-radio-wrapper css-var-root ant-radio-css-var"
       >
         <span
-          class="ant-radio ant-wave-target ant-wave-target"
-          name="v-0"
+          class="ant-radio ant-wave-target"
         >
           <input
             class="ant-radio-input"
+            name="v-0"
             type="radio"
+            value="3"
           />
         </span>
         <span
@@ -1551,12 +1591,13 @@ exports[`radio demo > renders radiogroup-more correctly 1`] = `
         class="ant-radio-wrapper css-var-root ant-radio-css-var"
       >
         <span
-          class="ant-radio ant-wave-target ant-wave-target"
-          name="v-0"
+          class="ant-radio ant-wave-target"
         >
           <input
             class="ant-radio-input"
+            name="v-0"
             type="radio"
+            value="4"
           />
         </span>
         <span
@@ -1578,11 +1619,12 @@ exports[`radio demo > renders radiogroup-more correctly 1`] = `
       >
         <span
           class="ant-radio-button"
-          name="v-1"
         >
           <input
             class="ant-radio-button-input"
+            name="v-1"
             type="radio"
+            value="Apple"
           />
         </span>
         <span
@@ -1596,11 +1638,12 @@ exports[`radio demo > renders radiogroup-more correctly 1`] = `
       >
         <span
           class="ant-radio-button"
-          name="v-1"
         >
           <input
             class="ant-radio-button-input"
+            name="v-1"
             type="radio"
+            value="Pear"
           />
         </span>
         <span
@@ -1615,11 +1658,12 @@ exports[`radio demo > renders radiogroup-more correctly 1`] = `
       >
         <span
           class="ant-radio-button"
-          name="v-1"
         >
           <input
             class="ant-radio-button-input"
+            name="v-1"
             type="radio"
+            value="Orange"
           />
         </span>
         <span
@@ -1644,13 +1688,14 @@ exports[`radio demo > renders radiogroup-options correctly 1`] = `
       class="ant-radio-wrapper ant-radio-wrapper-checked css-var-root ant-radio-css-var"
     >
       <span
-        class="ant-radio ant-wave-target ant-radio-checked ant-wave-target"
-        name="v-0"
+        class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
           checked=""
           class="ant-radio-input"
+          name="v-0"
           type="radio"
+          value="Apple"
         />
       </span>
       <span
@@ -1663,12 +1708,13 @@ exports[`radio demo > renders radiogroup-options correctly 1`] = `
       class="ant-radio-wrapper css-var-root ant-radio-css-var"
     >
       <span
-        class="ant-radio ant-wave-target ant-wave-target"
-        name="v-0"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
+          name="v-0"
           type="radio"
+          value="Pear"
         />
       </span>
       <span
@@ -1681,12 +1727,13 @@ exports[`radio demo > renders radiogroup-options correctly 1`] = `
       class="ant-radio-wrapper css-var-root ant-radio-css-var"
     >
       <span
-        class="ant-radio ant-wave-target ant-wave-target"
-        name="v-0"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
+          name="v-0"
           type="radio"
+          value="Orange"
         />
       </span>
       <span
@@ -1703,13 +1750,14 @@ exports[`radio demo > renders radiogroup-options correctly 1`] = `
       class="ant-radio-wrapper ant-radio-wrapper-checked css-var-root ant-radio-css-var"
     >
       <span
-        class="ant-radio ant-wave-target ant-radio-checked ant-wave-target"
-        name="v-1"
+        class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
           checked=""
           class="ant-radio-input"
+          name="v-1"
           type="radio"
+          value="Apple"
         />
       </span>
       <span
@@ -1722,12 +1770,13 @@ exports[`radio demo > renders radiogroup-options correctly 1`] = `
       class="ant-radio-wrapper css-var-root ant-radio-css-var"
     >
       <span
-        class="ant-radio ant-wave-target ant-wave-target"
-        name="v-1"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
+          name="v-1"
           type="radio"
+          value="Pear"
         />
       </span>
       <span
@@ -1740,13 +1789,14 @@ exports[`radio demo > renders radiogroup-options correctly 1`] = `
       class="ant-radio-wrapper ant-radio-wrapper-disabled css-var-root ant-radio-css-var"
     >
       <span
-        class="ant-radio ant-wave-target ant-radio-disabled ant-wave-target"
-        name="v-1"
+        class="ant-radio ant-wave-target ant-radio-disabled"
       >
         <input
           class="ant-radio-input"
           disabled=""
+          name="v-1"
           type="radio"
+          value="Orange"
         />
       </span>
       <span
@@ -1765,12 +1815,13 @@ exports[`radio demo > renders radiogroup-options correctly 1`] = `
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
-        name="v-2"
       >
         <input
           checked=""
           class="ant-radio-button-input"
+          name="v-2"
           type="radio"
+          value="Apple"
         />
       </span>
       <span
@@ -1784,11 +1835,12 @@ exports[`radio demo > renders radiogroup-options correctly 1`] = `
     >
       <span
         class="ant-radio-button"
-        name="v-2"
       >
         <input
           class="ant-radio-button-input"
+          name="v-2"
           type="radio"
+          value="Pear"
         />
       </span>
       <span
@@ -1803,11 +1855,12 @@ exports[`radio demo > renders radiogroup-options correctly 1`] = `
     >
       <span
         class="ant-radio-button"
-        name="v-2"
       >
         <input
           class="ant-radio-button-input"
+          name="v-2"
           type="radio"
+          value="Orange"
         />
       </span>
       <span
@@ -1825,12 +1878,13 @@ exports[`radio demo > renders radiogroup-options correctly 1`] = `
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
-        name="v-3"
       >
         <input
           checked=""
           class="ant-radio-button-input"
+          name="v-3"
           type="radio"
+          value="Apple"
         />
       </span>
       <span
@@ -1844,11 +1898,12 @@ exports[`radio demo > renders radiogroup-options correctly 1`] = `
     >
       <span
         class="ant-radio-button"
-        name="v-3"
       >
         <input
           class="ant-radio-button-input"
+          name="v-3"
           type="radio"
+          value="Pear"
         />
       </span>
       <span
@@ -1862,12 +1917,13 @@ exports[`radio demo > renders radiogroup-options correctly 1`] = `
     >
       <span
         class="ant-radio-button ant-radio-button-disabled"
-        name="v-3"
       >
         <input
           class="ant-radio-button-input"
           disabled=""
+          name="v-3"
           type="radio"
+          value="Orange"
         />
       </span>
       <span
@@ -1888,13 +1944,14 @@ exports[`radio demo > renders radiogroup-with-name correctly 1`] = `
     class="ant-radio-wrapper ant-radio-wrapper-checked css-var-root ant-radio-css-var"
   >
     <span
-      class="ant-radio ant-wave-target ant-radio-checked ant-wave-target"
-      name="radiogroup"
+      class="ant-radio ant-wave-target ant-radio-checked"
     >
       <input
         checked=""
         class="ant-radio-input"
+        name="radiogroup"
         type="radio"
+        value="1"
       />
     </span>
     <span
@@ -1907,12 +1964,13 @@ exports[`radio demo > renders radiogroup-with-name correctly 1`] = `
     class="ant-radio-wrapper css-var-root ant-radio-css-var"
   >
     <span
-      class="ant-radio ant-wave-target ant-wave-target"
-      name="radiogroup"
+      class="ant-radio ant-wave-target"
     >
       <input
         class="ant-radio-input"
+        name="radiogroup"
         type="radio"
+        value="2"
       />
     </span>
     <span
@@ -1925,12 +1983,13 @@ exports[`radio demo > renders radiogroup-with-name correctly 1`] = `
     class="ant-radio-wrapper css-var-root ant-radio-css-var"
   >
     <span
-      class="ant-radio ant-wave-target ant-wave-target"
-      name="radiogroup"
+      class="ant-radio ant-wave-target"
     >
       <input
         class="ant-radio-input"
+        name="radiogroup"
         type="radio"
+        value="3"
       />
     </span>
     <span
@@ -1943,12 +2002,13 @@ exports[`radio demo > renders radiogroup-with-name correctly 1`] = `
     class="ant-radio-wrapper css-var-root ant-radio-css-var"
   >
     <span
-      class="ant-radio ant-wave-target ant-wave-target"
-      name="radiogroup"
+      class="ant-radio ant-wave-target"
     >
       <input
         class="ant-radio-input"
+        name="radiogroup"
         type="radio"
+        value="4"
       />
     </span>
     <span
@@ -1972,12 +2032,13 @@ exports[`radio demo > renders size correctly 1`] = `
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
-        name="v-0"
       >
         <input
           checked=""
           class="ant-radio-button-input"
+          name="v-0"
           type="radio"
+          value="a"
         />
       </span>
       <span
@@ -1991,11 +2052,12 @@ exports[`radio demo > renders size correctly 1`] = `
     >
       <span
         class="ant-radio-button"
-        name="v-0"
       >
         <input
           class="ant-radio-button-input"
+          name="v-0"
           type="radio"
+          value="b"
         />
       </span>
       <span
@@ -2009,11 +2071,12 @@ exports[`radio demo > renders size correctly 1`] = `
     >
       <span
         class="ant-radio-button"
-        name="v-0"
       >
         <input
           class="ant-radio-button-input"
+          name="v-0"
           type="radio"
+          value="c"
         />
       </span>
       <span
@@ -2027,11 +2090,12 @@ exports[`radio demo > renders size correctly 1`] = `
     >
       <span
         class="ant-radio-button"
-        name="v-0"
       >
         <input
           class="ant-radio-button-input"
+          name="v-0"
           type="radio"
+          value="d"
         />
       </span>
       <span
@@ -2049,12 +2113,13 @@ exports[`radio demo > renders size correctly 1`] = `
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
-        name="v-1"
       >
         <input
           checked=""
           class="ant-radio-button-input"
+          name="v-1"
           type="radio"
+          value="a"
         />
       </span>
       <span
@@ -2068,11 +2133,12 @@ exports[`radio demo > renders size correctly 1`] = `
     >
       <span
         class="ant-radio-button"
-        name="v-1"
       >
         <input
           class="ant-radio-button-input"
+          name="v-1"
           type="radio"
+          value="b"
         />
       </span>
       <span
@@ -2086,11 +2152,12 @@ exports[`radio demo > renders size correctly 1`] = `
     >
       <span
         class="ant-radio-button"
-        name="v-1"
       >
         <input
           class="ant-radio-button-input"
+          name="v-1"
           type="radio"
+          value="c"
         />
       </span>
       <span
@@ -2104,11 +2171,12 @@ exports[`radio demo > renders size correctly 1`] = `
     >
       <span
         class="ant-radio-button"
-        name="v-1"
       >
         <input
           class="ant-radio-button-input"
+          name="v-1"
           type="radio"
+          value="d"
         />
       </span>
       <span
@@ -2126,13 +2194,14 @@ exports[`radio demo > renders size correctly 1`] = `
     >
       <span
         class="ant-radio-button ant-radio-button-checked ant-radio-button-disabled"
-        name="v-2"
       >
         <input
           checked=""
           class="ant-radio-button-input"
           disabled=""
+          name="v-2"
           type="radio"
+          value="a"
         />
       </span>
       <span
@@ -2146,12 +2215,13 @@ exports[`radio demo > renders size correctly 1`] = `
     >
       <span
         class="ant-radio-button ant-radio-button-disabled"
-        name="v-2"
       >
         <input
           class="ant-radio-button-input"
           disabled=""
+          name="v-2"
           type="radio"
+          value="b"
         />
       </span>
       <span
@@ -2165,12 +2235,13 @@ exports[`radio demo > renders size correctly 1`] = `
     >
       <span
         class="ant-radio-button ant-radio-button-disabled"
-        name="v-2"
       >
         <input
           class="ant-radio-button-input"
           disabled=""
+          name="v-2"
           type="radio"
+          value="c"
         />
       </span>
       <span
@@ -2184,12 +2255,13 @@ exports[`radio demo > renders size correctly 1`] = `
     >
       <span
         class="ant-radio-button ant-radio-button-disabled"
-        name="v-2"
       >
         <input
           class="ant-radio-button-input"
           disabled=""
+          name="v-2"
           type="radio"
+          value="d"
         />
       </span>
       <span

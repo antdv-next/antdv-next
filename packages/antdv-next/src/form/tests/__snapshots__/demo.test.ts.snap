@@ -1816,12 +1816,12 @@ exports[`form demo > renders basic correctly 1`] = `
               class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-in-form-item css-var-root ant-checkbox-css-var"
             >
               <span
-                class="ant-checkbox ant-wave-target ant-checkbox-checked ant-wave-target"
-                id="remember"
+                class="ant-checkbox ant-wave-target ant-checkbox-checked"
               >
                 <input
                   checked=""
                   class="ant-checkbox-input"
+                  id="remember"
                   type="checkbox"
                 />
               </span>
@@ -4397,7 +4397,7 @@ exports[`form demo > renders disabled correctly 1`] = `
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked css-var-root ant-checkbox-css-var"
     >
       <span
-        class="ant-checkbox ant-wave-target ant-checkbox-checked ant-wave-target"
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
           checked=""
@@ -4449,13 +4449,13 @@ exports[`form demo > renders disabled correctly 1`] = `
                   class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item css-var-root ant-checkbox-css-var"
                 >
                   <span
-                    class="ant-checkbox ant-wave-target ant-checkbox-checked ant-checkbox-disabled ant-wave-target"
-                    id="checkbox"
+                    class="ant-checkbox ant-wave-target ant-checkbox-checked ant-checkbox-disabled"
                   >
                     <input
                       checked=""
                       class="ant-checkbox-input"
                       disabled=""
+                      id="checkbox"
                       type="checkbox"
                     />
                   </span>
@@ -4524,14 +4524,15 @@ exports[`form demo > renders disabled correctly 1`] = `
                     class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-disabled ant-radio-wrapper-in-form-item css-var-root ant-radio-css-var"
                   >
                     <span
-                      class="ant-radio ant-wave-target ant-radio-checked ant-radio-disabled ant-wave-target"
-                      name="radio"
+                      class="ant-radio ant-wave-target ant-radio-checked ant-radio-disabled"
                     >
                       <input
                         checked=""
                         class="ant-radio-input"
                         disabled=""
+                        name="radio"
                         type="radio"
+                        value="apple"
                       />
                     </span>
                     <span
@@ -4544,13 +4545,14 @@ exports[`form demo > renders disabled correctly 1`] = `
                     class="ant-radio-wrapper ant-radio-wrapper-disabled ant-radio-wrapper-in-form-item css-var-root ant-radio-css-var"
                   >
                     <span
-                      class="ant-radio ant-wave-target ant-radio-disabled ant-wave-target"
-                      name="radio"
+                      class="ant-radio ant-wave-target ant-radio-disabled"
                     >
                       <input
                         class="ant-radio-input"
                         disabled=""
+                        name="radio"
                         type="radio"
+                        value="pear"
                       />
                     </span>
                     <span
@@ -6431,7 +6433,7 @@ exports[`form demo > renders dynamic-rule correctly 1`] = `
               class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item css-var-root ant-checkbox-css-var"
             >
               <span
-                class="ant-checkbox ant-wave-target ant-wave-target"
+                class="ant-checkbox ant-wave-target"
               >
                 <input
                   class="ant-checkbox-input"
@@ -8481,12 +8483,13 @@ exports[`form demo > renders layout correctly 1`] = `
               >
                 <span
                   class="ant-radio-button ant-radio-button-checked"
-                  name="layout"
                 >
                   <input
                     checked=""
                     class="ant-radio-button-input"
+                    name="layout"
                     type="radio"
+                    value="horizontal"
                   />
                 </span>
                 <span
@@ -8500,11 +8503,12 @@ exports[`form demo > renders layout correctly 1`] = `
               >
                 <span
                   class="ant-radio-button"
-                  name="layout"
                 >
                   <input
                     class="ant-radio-button-input"
+                    name="layout"
                     type="radio"
+                    value="vertical"
                   />
                 </span>
                 <span
@@ -8518,11 +8522,12 @@ exports[`form demo > renders layout correctly 1`] = `
               >
                 <span
                   class="ant-radio-button"
-                  name="layout"
                 >
                   <input
                     class="ant-radio-button-input"
+                    name="layout"
                     type="radio"
+                    value="inline"
                   />
                 </span>
                 <span
@@ -9574,12 +9579,12 @@ exports[`form demo > renders login correctly 1`] = `
                 class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-in-form-item css-var-root ant-checkbox-css-var"
               >
                 <span
-                  class="ant-checkbox ant-wave-target ant-checkbox-checked ant-wave-target"
-                  id="login_remember"
+                  class="ant-checkbox ant-wave-target ant-checkbox-checked"
                 >
                   <input
                     checked=""
                     class="ant-checkbox-input"
+                    id="login_remember"
                     type="checkbox"
                   />
                 </span>
@@ -9710,13 +9715,14 @@ exports[`form demo > renders message-render correctly 1`] = `
         class="ant-radio-wrapper ant-radio-wrapper-checked css-var-root ant-radio-css-var"
       >
         <span
-          class="ant-radio ant-wave-target ant-radio-checked ant-wave-target"
-          name="v-0"
+          class="ant-radio ant-wave-target ant-radio-checked"
         >
           <input
             checked=""
             class="ant-radio-input"
+            name="v-0"
             type="radio"
+            value="en"
           />
         </span>
         <span
@@ -9729,12 +9735,13 @@ exports[`form demo > renders message-render correctly 1`] = `
         class="ant-radio-wrapper css-var-root ant-radio-css-var"
       >
         <span
-          class="ant-radio ant-wave-target ant-wave-target"
-          name="v-0"
+          class="ant-radio ant-wave-target"
         >
           <input
             class="ant-radio-input"
+            name="v-0"
             type="radio"
+            value="zh"
           />
         </span>
         <span
@@ -11722,11 +11729,11 @@ exports[`form demo > renders register correctly 1`] = `
               class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item css-var-root ant-checkbox-css-var"
             >
               <span
-                class="ant-checkbox ant-wave-target ant-wave-target"
-                id="register_agreement"
+                class="ant-checkbox ant-wave-target"
               >
                 <input
                   class="ant-checkbox-input"
+                  id="register_agreement"
                   type="checkbox"
                 />
               </span>
@@ -11881,11 +11888,12 @@ exports[`form demo > renders required-mark correctly 1`] = `
               >
                 <span
                   class="ant-radio-button"
-                  name="requiredMarkValue"
                 >
                   <input
                     class="ant-radio-button-input"
+                    name="requiredMarkValue"
                     type="radio"
+                    value="true"
                   />
                 </span>
                 <span
@@ -11899,12 +11907,13 @@ exports[`form demo > renders required-mark correctly 1`] = `
               >
                 <span
                   class="ant-radio-button ant-radio-button-checked"
-                  name="requiredMarkValue"
                 >
                   <input
                     checked=""
                     class="ant-radio-button-input"
+                    name="requiredMarkValue"
                     type="radio"
+                    value="optional"
                   />
                 </span>
                 <span
@@ -11918,11 +11927,12 @@ exports[`form demo > renders required-mark correctly 1`] = `
               >
                 <span
                   class="ant-radio-button"
-                  name="requiredMarkValue"
                 >
                   <input
                     class="ant-radio-button-input"
+                    name="requiredMarkValue"
                     type="radio"
+                    value="false"
                   />
                 </span>
                 <span
@@ -11936,11 +11946,12 @@ exports[`form demo > renders required-mark correctly 1`] = `
               >
                 <span
                   class="ant-radio-button"
-                  name="requiredMarkValue"
                 >
                   <input
                     class="ant-radio-button-input"
+                    name="requiredMarkValue"
                     type="radio"
+                    value="customize"
                   />
                 </span>
                 <span
@@ -12239,11 +12250,12 @@ exports[`form demo > renders size correctly 1`] = `
               >
                 <span
                   class="ant-radio-button"
-                  name="size"
                 >
                   <input
                     class="ant-radio-button-input"
+                    name="size"
                     type="radio"
+                    value="small"
                   />
                 </span>
                 <span
@@ -12257,12 +12269,13 @@ exports[`form demo > renders size correctly 1`] = `
               >
                 <span
                   class="ant-radio-button ant-radio-button-checked"
-                  name="size"
                 >
                   <input
                     checked=""
                     class="ant-radio-button-input"
+                    name="size"
                     type="radio"
+                    value="medium"
                   />
                 </span>
                 <span
@@ -12276,11 +12289,12 @@ exports[`form demo > renders size correctly 1`] = `
               >
                 <span
                   class="ant-radio-button"
-                  name="size"
                 >
                   <input
                     class="ant-radio-button-input"
+                    name="size"
                     type="radio"
+                    value="large"
                   />
                 </span>
                 <span
@@ -16013,13 +16027,14 @@ exports[`form demo > renders validate-other correctly 1`] = `
                 class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-in-form-item css-var-root ant-radio-css-var"
               >
                 <span
-                  class="ant-radio ant-wave-target ant-radio-checked ant-wave-target"
-                  name="radioGroup"
+                  class="ant-radio ant-wave-target ant-radio-checked"
                 >
                   <input
                     checked=""
                     class="ant-radio-input"
+                    name="radioGroup"
                     type="radio"
+                    value="a"
                   />
                 </span>
                 <span
@@ -16032,12 +16047,13 @@ exports[`form demo > renders validate-other correctly 1`] = `
                 class="ant-radio-wrapper ant-radio-wrapper-in-form-item css-var-root ant-radio-css-var"
               >
                 <span
-                  class="ant-radio ant-wave-target ant-wave-target"
-                  name="radioGroup"
+                  class="ant-radio ant-wave-target"
                 >
                   <input
                     class="ant-radio-input"
+                    name="radioGroup"
                     type="radio"
+                    value="b"
                   />
                 </span>
                 <span
@@ -16050,12 +16066,13 @@ exports[`form demo > renders validate-other correctly 1`] = `
                 class="ant-radio-wrapper ant-radio-wrapper-in-form-item css-var-root ant-radio-css-var"
               >
                 <span
-                  class="ant-radio ant-wave-target ant-wave-target"
-                  name="radioGroup"
+                  class="ant-radio ant-wave-target"
                 >
                   <input
                     class="ant-radio-input"
+                    name="radioGroup"
                     type="radio"
+                    value="c"
                   />
                 </span>
                 <span
@@ -16127,12 +16144,13 @@ exports[`form demo > renders validate-other correctly 1`] = `
               >
                 <span
                   class="ant-radio-button ant-radio-button-checked"
-                  name="radioButton"
                 >
                   <input
                     checked=""
                     class="ant-radio-button-input"
+                    name="radioButton"
                     type="radio"
+                    value="a"
                   />
                 </span>
                 <span
@@ -16146,11 +16164,12 @@ exports[`form demo > renders validate-other correctly 1`] = `
               >
                 <span
                   class="ant-radio-button"
-                  name="radioButton"
                 >
                   <input
                     class="ant-radio-button-input"
+                    name="radioButton"
                     type="radio"
+                    value="b"
                   />
                 </span>
                 <span
@@ -16164,11 +16183,12 @@ exports[`form demo > renders validate-other correctly 1`] = `
               >
                 <span
                   class="ant-radio-button"
-                  name="radioButton"
                 >
                   <input
                     class="ant-radio-button-input"
+                    name="radioButton"
                     type="radio"
+                    value="c"
                   />
                 </span>
                 <span
@@ -16238,12 +16258,13 @@ exports[`form demo > renders validate-other correctly 1`] = `
                 class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-in-form-item ant-checkbox-group-item css-var-root ant-checkbox-css-var"
               >
                 <span
-                  class="ant-checkbox ant-wave-target ant-checkbox-checked ant-wave-target"
+                  class="ant-checkbox ant-wave-target ant-checkbox-checked"
                 >
                   <input
                     checked=""
                     class="ant-checkbox-input"
                     type="checkbox"
+                    value="A"
                   />
                 </span>
                 <span
@@ -16256,13 +16277,14 @@ exports[`form demo > renders validate-other correctly 1`] = `
                 class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled ant-checkbox-wrapper-in-form-item ant-checkbox-group-item css-var-root ant-checkbox-css-var"
               >
                 <span
-                  class="ant-checkbox ant-wave-target ant-checkbox-checked ant-checkbox-disabled ant-wave-target"
+                  class="ant-checkbox ant-wave-target ant-checkbox-checked ant-checkbox-disabled"
                 >
                   <input
                     checked=""
                     class="ant-checkbox-input"
                     disabled=""
                     type="checkbox"
+                    value="B"
                   />
                 </span>
                 <span
@@ -16275,11 +16297,12 @@ exports[`form demo > renders validate-other correctly 1`] = `
                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item css-var-root ant-checkbox-css-var"
               >
                 <span
-                  class="ant-checkbox ant-wave-target ant-wave-target"
+                  class="ant-checkbox ant-wave-target"
                 >
                   <input
                     class="ant-checkbox-input"
                     type="checkbox"
+                    value="C"
                   />
                 </span>
                 <span
@@ -16292,11 +16315,12 @@ exports[`form demo > renders validate-other correctly 1`] = `
                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item css-var-root ant-checkbox-css-var"
               >
                 <span
-                  class="ant-checkbox ant-wave-target ant-wave-target"
+                  class="ant-checkbox ant-wave-target"
                 >
                   <input
                     class="ant-checkbox-input"
                     type="checkbox"
+                    value="D"
                   />
                 </span>
                 <span
@@ -16309,11 +16333,12 @@ exports[`form demo > renders validate-other correctly 1`] = `
                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item css-var-root ant-checkbox-css-var"
               >
                 <span
-                  class="ant-checkbox ant-wave-target ant-wave-target"
+                  class="ant-checkbox ant-wave-target"
                 >
                   <input
                     class="ant-checkbox-input"
                     type="checkbox"
+                    value="E"
                   />
                 </span>
                 <span
@@ -16326,11 +16351,12 @@ exports[`form demo > renders validate-other correctly 1`] = `
                 class="ant-checkbox-wrapper ant-checkbox-wrapper-in-form-item ant-checkbox-group-item css-var-root ant-checkbox-css-var"
               >
                 <span
-                  class="ant-checkbox ant-wave-target ant-wave-target"
+                  class="ant-checkbox ant-wave-target"
                 >
                   <input
                     class="ant-checkbox-input"
                     type="checkbox"
+                    value="F"
                   />
                 </span>
                 <span
@@ -18288,12 +18314,13 @@ exports[`form demo > renders variant correctly 1`] = `
               >
                 <span
                   class="ant-radio-button ant-radio-button-checked"
-                  name="variant"
                 >
                   <input
                     checked=""
                     class="ant-radio-button-input"
+                    name="variant"
                     type="radio"
+                    value="outlined"
                   />
                 </span>
                 <span
@@ -18307,11 +18334,12 @@ exports[`form demo > renders variant correctly 1`] = `
               >
                 <span
                   class="ant-radio-button"
-                  name="variant"
                 >
                   <input
                     class="ant-radio-button-input"
+                    name="variant"
                     type="radio"
+                    value="filled"
                   />
                 </span>
                 <span
@@ -18325,11 +18353,12 @@ exports[`form demo > renders variant correctly 1`] = `
               >
                 <span
                   class="ant-radio-button"
-                  name="variant"
                 >
                   <input
                     class="ant-radio-button-input"
+                    name="variant"
                     type="radio"
+                    value="borderless"
                   />
                 </span>
                 <span
@@ -18343,11 +18372,12 @@ exports[`form demo > renders variant correctly 1`] = `
               >
                 <span
                   class="ant-radio-button"
-                  name="variant"
                 >
                   <input
                     class="ant-radio-button-input"
+                    name="variant"
                     type="radio"
+                    value="underlined"
                   />
                 </span>
                 <span

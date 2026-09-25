@@ -972,12 +972,13 @@ exports[`carousel demo > renders placement correctly 1`] = `
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
-        name="v-0"
       >
         <input
           checked=""
           class="ant-radio-button-input"
+          name="v-0"
           type="radio"
+          value="top"
         />
       </span>
       <span
@@ -991,11 +992,12 @@ exports[`carousel demo > renders placement correctly 1`] = `
     >
       <span
         class="ant-radio-button"
-        name="v-0"
       >
         <input
           class="ant-radio-button-input"
+          name="v-0"
           type="radio"
+          value="bottom"
         />
       </span>
       <span
@@ -1009,11 +1011,12 @@ exports[`carousel demo > renders placement correctly 1`] = `
     >
       <span
         class="ant-radio-button"
-        name="v-0"
       >
         <input
           class="ant-radio-button-input"
+          name="v-0"
           type="radio"
+          value="start"
         />
       </span>
       <span
@@ -1027,11 +1030,12 @@ exports[`carousel demo > renders placement correctly 1`] = `
     >
       <span
         class="ant-radio-button"
-        name="v-0"
       >
         <input
           class="ant-radio-button-input"
+          name="v-0"
           type="radio"
+          value="end"
         />
       </span>
       <span

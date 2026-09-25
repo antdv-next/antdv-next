@@ -1749,11 +1749,12 @@ exports[`skeleton demo > renders element correctly 1`] = `
                     >
                       <span
                         class="ant-radio-button"
-                        name="v-0"
                       >
                         <input
                           class="ant-radio-button-input"
+                          name="v-0"
                           type="radio"
+                          value="large"
                         />
                       </span>
                       <span
@@ -1767,12 +1768,13 @@ exports[`skeleton demo > renders element correctly 1`] = `
                     >
                       <span
                         class="ant-radio-button ant-radio-button-checked"
-                        name="v-0"
                       >
                         <input
                           checked=""
                           class="ant-radio-button-input"
+                          name="v-0"
                           type="radio"
+                          value="medium"
                         />
                       </span>
                       <span
@@ -1786,11 +1788,12 @@ exports[`skeleton demo > renders element correctly 1`] = `
                     >
                       <span
                         class="ant-radio-button"
-                        name="v-0"
                       >
                         <input
                           class="ant-radio-button-input"
+                          name="v-0"
                           type="radio"
+                          value="small"
                         />
                       </span>
                       <span
@@ -1863,12 +1866,13 @@ exports[`skeleton demo > renders element correctly 1`] = `
                     >
                       <span
                         class="ant-radio-button ant-radio-button-checked"
-                        name="v-1"
                       >
                         <input
                           checked=""
                           class="ant-radio-button-input"
+                          name="v-1"
                           type="radio"
+                          value="default"
                         />
                       </span>
                       <span
@@ -1882,11 +1886,12 @@ exports[`skeleton demo > renders element correctly 1`] = `
                     >
                       <span
                         class="ant-radio-button"
-                        name="v-1"
                       >
                         <input
                           class="ant-radio-button-input"
+                          name="v-1"
                           type="radio"
+                          value="square"
                         />
                       </span>
                       <span
@@ -1900,11 +1905,12 @@ exports[`skeleton demo > renders element correctly 1`] = `
                     >
                       <span
                         class="ant-radio-button"
-                        name="v-1"
                       >
                         <input
                           class="ant-radio-button-input"
+                          name="v-1"
                           type="radio"
+                          value="round"
                         />
                       </span>
                       <span
@@ -1918,11 +1924,12 @@ exports[`skeleton demo > renders element correctly 1`] = `
                     >
                       <span
                         class="ant-radio-button"
-                        name="v-1"
                       >
                         <input
                           class="ant-radio-button-input"
+                          name="v-1"
                           type="radio"
+                          value="circle"
                         />
                       </span>
                       <span
@@ -1995,11 +2002,12 @@ exports[`skeleton demo > renders element correctly 1`] = `
                     >
                       <span
                         class="ant-radio-button"
-                        name="v-2"
                       >
                         <input
                           class="ant-radio-button-input"
+                          name="v-2"
                           type="radio"
+                          value="square"
                         />
                       </span>
                       <span
@@ -2013,12 +2021,13 @@ exports[`skeleton demo > renders element correctly 1`] = `
                     >
                       <span
                         class="ant-radio-button ant-radio-button-checked"
-                        name="v-2"
                       >
                         <input
                           checked=""
                           class="ant-radio-button-input"
+                          name="v-2"
                           type="radio"
+                          value="circle"
                         />
                       </span>
                       <span

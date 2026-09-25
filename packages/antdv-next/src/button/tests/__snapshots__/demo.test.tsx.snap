@@ -3175,11 +3175,12 @@ exports[`button demo > renders icon-placement correctly 1`] = `
         >
           <span
             class="ant-radio-button"
-            name="v-0"
           >
             <input
               class="ant-radio-button-input"
+              name="v-0"
               type="radio"
+              value="start"
             />
           </span>
           <span
@@ -3193,12 +3194,13 @@ exports[`button demo > renders icon-placement correctly 1`] = `
         >
           <span
             class="ant-radio-button ant-radio-button-checked"
-            name="v-0"
           >
             <input
               checked=""
               class="ant-radio-button-input"
+              name="v-0"
               type="radio"
+              value="end"
             />
           </span>
           <span
@@ -4099,12 +4101,13 @@ exports[`button demo > renders size correctly 1`] = `
     >
       <span
         class="ant-radio-button ant-radio-button-checked"
-        name="v-0"
       >
         <input
           checked=""
           class="ant-radio-button-input"
+          name="v-0"
           type="radio"
+          value="large"
         />
       </span>
       <span
@@ -4118,11 +4121,12 @@ exports[`button demo > renders size correctly 1`] = `
     >
       <span
         class="ant-radio-button"
-        name="v-0"
       >
         <input
           class="ant-radio-button-input"
+          name="v-0"
           type="radio"
+          value="default"
         />
       </span>
       <span
@@ -4136,11 +4140,12 @@ exports[`button demo > renders size correctly 1`] = `
     >
       <span
         class="ant-radio-button"
-        name="v-0"
       >
         <input
           class="ant-radio-button-input"
+          name="v-0"
           type="radio"
+          value="small"
         />
       </span>
       <span

@@ -949,7 +949,7 @@ exports[`empty demo > renders config-provider correctly 1`] = `
               class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
             >
               <span
-                class="ant-checkbox ant-wave-target ant-checkbox-disabled ant-wave-target"
+                class="ant-checkbox ant-wave-target ant-checkbox-disabled"
               >
                 <input
                   class="ant-checkbox-input"
@@ -1103,7 +1103,7 @@ exports[`empty demo > renders config-provider correctly 1`] = `
               class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
             >
               <span
-                class="ant-checkbox ant-wave-target ant-checkbox-disabled ant-wave-target"
+                class="ant-checkbox ant-wave-target ant-checkbox-disabled"
               >
                 <input
                   class="ant-checkbox-input"

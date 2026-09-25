@@ -3505,13 +3505,14 @@ exports[`timeline demo > renders title correctly 1`] = `
       class="ant-radio-wrapper ant-radio-wrapper-checked css-var-root ant-radio-css-var"
     >
       <span
-        class="ant-radio ant-wave-target ant-radio-checked ant-wave-target"
-        name="v-0"
+        class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
           checked=""
           class="ant-radio-input"
+          name="v-0"
           type="radio"
+          value="start"
         />
       </span>
       <span
@@ -3524,12 +3525,13 @@ exports[`timeline demo > renders title correctly 1`] = `
       class="ant-radio-wrapper css-var-root ant-radio-css-var"
     >
       <span
-        class="ant-radio ant-wave-target ant-wave-target"
-        name="v-0"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
+          name="v-0"
           type="radio"
+          value="end"
         />
       </span>
       <span
@@ -3542,12 +3544,13 @@ exports[`timeline demo > renders title correctly 1`] = `
       class="ant-radio-wrapper css-var-root ant-radio-css-var"
     >
       <span
-        class="ant-radio ant-wave-target ant-wave-target"
-        name="v-0"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
+          name="v-0"
           type="radio"
+          value="alternate"
         />
       </span>
       <span

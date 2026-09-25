@@ -2236,7 +2236,7 @@ exports[`input-number demo > renders keyboard correctly 1`] = `
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked css-var-root ant-checkbox-css-var"
     >
       <span
-        class="ant-checkbox ant-wave-target ant-checkbox-checked ant-wave-target"
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
           checked=""

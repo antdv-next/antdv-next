@@ -133,12 +133,13 @@ exports[`calendar demo > renders _semantic correctly 1`] = `
             >
               <span
                 class="ant-radio-button ant-radio-button-checked"
-                name="v-5"
               >
                 <input
                   checked=""
                   class="ant-radio-button-input"
+                  name="v-5"
                   type="radio"
+                  value="month"
                 />
               </span>
               <span
@@ -152,11 +153,12 @@ exports[`calendar demo > renders _semantic correctly 1`] = `
             >
               <span
                 class="ant-radio-button"
-                name="v-5"
               >
                 <input
                   class="ant-radio-button-input"
+                  name="v-5"
                   type="radio"
+                  value="year"
                 />
               </span>
               <span
@@ -1938,12 +1940,13 @@ exports[`calendar demo > renders basic correctly 1`] = `
       >
         <span
           class="ant-radio-button ant-radio-button-checked"
-          name="v-4"
         >
           <input
             checked=""
             class="ant-radio-button-input"
+            name="v-4"
             type="radio"
+            value="month"
           />
         </span>
         <span
@@ -1957,11 +1960,12 @@ exports[`calendar demo > renders basic correctly 1`] = `
       >
         <span
           class="ant-radio-button"
-          name="v-4"
         >
           <input
             class="ant-radio-button-input"
+            name="v-4"
             type="radio"
+            value="year"
           />
         </span>
         <span
@@ -2957,12 +2961,13 @@ exports[`calendar demo > renders card correctly 1`] = `
         >
           <span
             class="ant-radio-button ant-radio-button-checked"
-            name="v-4"
           >
             <input
               checked=""
               class="ant-radio-button-input"
+              name="v-4"
               type="radio"
+              value="month"
             />
           </span>
           <span
@@ -2976,11 +2981,12 @@ exports[`calendar demo > renders card correctly 1`] = `
         >
           <span
             class="ant-radio-button"
-            name="v-4"
           >
             <input
               class="ant-radio-button-input"
+              name="v-4"
               type="radio"
+              value="year"
             />
           </span>
           <span
@@ -3889,12 +3895,13 @@ exports[`calendar demo > renders customize-header correctly 1`] = `
           >
             <span
               class="ant-radio-button ant-radio-button-checked"
-              name="v-0"
             >
               <input
                 checked=""
                 class="ant-radio-button-input"
+                name="v-0"
                 type="radio"
+                value="month"
               />
             </span>
             <span
@@ -3909,11 +3916,12 @@ exports[`calendar demo > renders customize-header correctly 1`] = `
           >
             <span
               class="ant-radio-button"
-              name="v-0"
             >
               <input
                 class="ant-radio-button-input"
+                name="v-0"
                 type="radio"
+                value="year"
               />
             </span>
             <span
@@ -5040,12 +5048,13 @@ exports[`calendar demo > renders lunar correctly 1`] = `
           >
             <span
               class="ant-radio-button ant-radio-button-checked"
-              name="v-4"
             >
               <input
                 checked=""
                 class="ant-radio-button-input"
+                name="v-4"
                 type="radio"
+                value="month"
               />
             </span>
             <span
@@ -5060,11 +5069,12 @@ exports[`calendar demo > renders lunar correctly 1`] = `
           >
             <span
               class="ant-radio-button"
-              name="v-4"
             >
               <input
                 class="ant-radio-button-input"
+                name="v-4"
                 type="radio"
+                value="year"
               />
             </span>
             <span
@@ -6392,12 +6402,13 @@ exports[`calendar demo > renders notice-calendar correctly 1`] = `
       >
         <span
           class="ant-radio-button ant-radio-button-checked"
-          name="v-4"
         >
           <input
             checked=""
             class="ant-radio-button-input"
+            name="v-4"
             type="radio"
+            value="month"
           />
         </span>
         <span
@@ -6411,11 +6422,12 @@ exports[`calendar demo > renders notice-calendar correctly 1`] = `
       >
         <span
           class="ant-radio-button"
-          name="v-4"
         >
           <input
             class="ant-radio-button-input"
+            name="v-4"
             type="radio"
+            value="year"
           />
         </span>
         <span
@@ -7752,12 +7764,13 @@ exports[`calendar demo > renders select correctly 1`] = `
         >
           <span
             class="ant-radio-button ant-radio-button-checked"
-            name="v-4"
           >
             <input
               checked=""
               class="ant-radio-button-input"
+              name="v-4"
               type="radio"
+              value="month"
             />
           </span>
           <span
@@ -7771,11 +7784,12 @@ exports[`calendar demo > renders select correctly 1`] = `
         >
           <span
             class="ant-radio-button"
-            name="v-4"
           >
             <input
               class="ant-radio-button-input"
+              name="v-4"
               type="radio"
+              value="year"
             />
           </span>
           <span
@@ -8773,12 +8787,13 @@ exports[`calendar demo > renders style-class correctly 1`] = `
         >
           <span
             class="ant-radio-button ant-radio-button-checked"
-            name="v-4"
           >
             <input
               checked=""
               class="ant-radio-button-input"
+              name="v-4"
               type="radio"
+              value="month"
             />
           </span>
           <span
@@ -8792,11 +8807,12 @@ exports[`calendar demo > renders style-class correctly 1`] = `
         >
           <span
             class="ant-radio-button"
-            name="v-4"
           >
             <input
               class="ant-radio-button-input"
+              name="v-4"
               type="radio"
+              value="year"
             />
           </span>
           <span
@@ -9784,12 +9800,13 @@ exports[`calendar demo > renders style-class correctly 1`] = `
         >
           <span
             class="ant-radio-button ant-radio-button-checked"
-            name="v-9"
           >
             <input
               checked=""
               class="ant-radio-button-input"
+              name="v-9"
               type="radio"
+              value="month"
             />
           </span>
           <span
@@ -9803,11 +9820,12 @@ exports[`calendar demo > renders style-class correctly 1`] = `
         >
           <span
             class="ant-radio-button"
-            name="v-9"
           >
             <input
               class="ant-radio-button-input"
+              name="v-9"
               type="radio"
+              value="year"
             />
           </span>
           <span
@@ -10800,12 +10818,13 @@ exports[`calendar demo > renders week correctly 1`] = `
         >
           <span
             class="ant-radio-button ant-radio-button-checked"
-            name="v-4"
           >
             <input
               checked=""
               class="ant-radio-button-input"
+              name="v-4"
               type="radio"
+              value="month"
             />
           </span>
           <span
@@ -10819,11 +10838,12 @@ exports[`calendar demo > renders week correctly 1`] = `
         >
           <span
             class="ant-radio-button"
-            name="v-4"
           >
             <input
               class="ant-radio-button-input"
+              name="v-4"
               type="radio"
+              value="year"
             />
           </span>
           <span
@@ -11873,12 +11893,13 @@ exports[`calendar demo > renders week correctly 1`] = `
         >
           <span
             class="ant-radio-button ant-radio-button-checked"
-            name="v-9"
           >
             <input
               checked=""
               class="ant-radio-button-input"
+              name="v-9"
               type="radio"
+              value="month"
             />
           </span>
           <span
@@ -11892,11 +11913,12 @@ exports[`calendar demo > renders week correctly 1`] = `
         >
           <span
             class="ant-radio-button"
-            name="v-9"
           >
             <input
               class="ant-radio-button-input"
+              name="v-9"
               type="radio"
+              value="year"
             />
           </span>
           <span

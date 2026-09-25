@@ -6375,12 +6375,13 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                 >
                   <span
                     class="ant-radio-button ant-radio-button-checked"
-                    name="v-0"
                   >
                     <input
                       checked=""
                       class="ant-radio-button-input"
+                      name="v-0"
                       type="radio"
+                      value="large"
                     />
                   </span>
                   <span
@@ -6394,11 +6395,12 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                 >
                   <span
                     class="ant-radio-button"
-                    name="v-0"
                   >
                     <input
                       class="ant-radio-button-input"
+                      name="v-0"
                       type="radio"
+                      value="medium"
                     />
                   </span>
                   <span
@@ -6412,11 +6414,12 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                 >
                   <span
                     class="ant-radio-button"
-                    name="v-0"
                   >
                     <input
                       class="ant-radio-button-input"
+                      name="v-0"
                       type="radio"
+                      value="small"
                     />
                   </span>
                   <span
@@ -6484,12 +6487,13 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                 >
                   <span
                     class="ant-radio-button ant-radio-button-checked"
-                    name="v-1"
                   >
                     <input
                       checked=""
                       class="ant-radio-button-input"
+                      name="v-1"
                       type="radio"
+                      value="unset"
                     />
                   </span>
                   <span
@@ -6503,11 +6507,12 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                 >
                   <span
                     class="ant-radio-button"
-                    name="v-1"
                   >
                     <input
                       class="ant-radio-button-input"
+                      name="v-1"
                       type="radio"
+                      value="scroll"
                     />
                   </span>
                   <span
@@ -6521,11 +6526,12 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                 >
                   <span
                     class="ant-radio-button"
-                    name="v-1"
                   >
                     <input
                       class="ant-radio-button-input"
+                      name="v-1"
                       type="radio"
+                      value="fixed"
                     />
                   </span>
                   <span
@@ -6593,12 +6599,13 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                 >
                   <span
                     class="ant-radio-button ant-radio-button-checked"
-                    name="v-2"
                   >
                     <input
                       checked=""
                       class="ant-radio-button-input"
+                      name="v-2"
                       type="radio"
+                      value="unset"
                     />
                   </span>
                   <span
@@ -6612,11 +6619,12 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                 >
                   <span
                     class="ant-radio-button"
-                    name="v-2"
                   >
                     <input
                       class="ant-radio-button-input"
+                      name="v-2"
                       type="radio"
+                      value="fixed"
                     />
                   </span>
                   <span
@@ -6684,11 +6692,12 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                 >
                   <span
                     class="ant-radio-button"
-                    name="v-3"
                   >
                     <input
                       class="ant-radio-button-input"
+                      name="v-3"
                       type="radio"
+                      value="topStart"
                     />
                   </span>
                   <span
@@ -6702,11 +6711,12 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                 >
                   <span
                     class="ant-radio-button"
-                    name="v-3"
                   >
                     <input
                       class="ant-radio-button-input"
+                      name="v-3"
                       type="radio"
+                      value="topCenter"
                     />
                   </span>
                   <span
@@ -6720,11 +6730,12 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                 >
                   <span
                     class="ant-radio-button"
-                    name="v-3"
                   >
                     <input
                       class="ant-radio-button-input"
+                      name="v-3"
                       type="radio"
+                      value="topEnd"
                     />
                   </span>
                   <span
@@ -6738,12 +6749,13 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                 >
                   <span
                     class="ant-radio-button ant-radio-button-checked"
-                    name="v-3"
                   >
                     <input
                       checked=""
                       class="ant-radio-button-input"
+                      name="v-3"
                       type="radio"
+                      value="none"
                     />
                   </span>
                   <span
@@ -6811,11 +6823,12 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                 >
                   <span
                     class="ant-radio-button"
-                    name="v-4"
                   >
                     <input
                       class="ant-radio-button-input"
+                      name="v-4"
                       type="radio"
+                      value="bottomStart"
                     />
                   </span>
                   <span
@@ -6829,11 +6842,12 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                 >
                   <span
                     class="ant-radio-button"
-                    name="v-4"
                   >
                     <input
                       class="ant-radio-button-input"
+                      name="v-4"
                       type="radio"
+                      value="bottomCenter"
                     />
                   </span>
                   <span
@@ -6847,12 +6861,13 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                 >
                   <span
                     class="ant-radio-button ant-radio-button-checked"
-                    name="v-4"
                   >
                     <input
                       checked=""
                       class="ant-radio-button-input"
+                      name="v-4"
                       type="radio"
+                      value="bottomEnd"
                     />
                   </span>
                   <span
@@ -6866,11 +6881,12 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                 >
                   <span
                     class="ant-radio-button"
-                    name="v-4"
                   >
                     <input
                       class="ant-radio-button-input"
+                      name="v-4"
                       type="radio"
+                      value="none"
                     />
                   </span>
                   <span
@@ -6971,7 +6987,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                           class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                         >
                           <span
-                            class="ant-checkbox ant-wave-target ant-wave-target"
+                            class="ant-checkbox ant-wave-target"
                           >
                             <input
                               class="ant-checkbox-input"
@@ -7202,7 +7218,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -7318,7 +7334,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -7434,7 +7450,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -7550,7 +7566,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -7666,7 +7682,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -7782,7 +7798,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -7898,7 +7914,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -8014,7 +8030,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -8130,7 +8146,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -8246,7 +8262,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -19905,12 +19921,13 @@ exports[`table demo > renders hidden-columns correctly 1`] = `
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item css-var-root ant-checkbox-css-var"
     >
       <span
-        class="ant-checkbox ant-wave-target ant-checkbox-checked ant-wave-target"
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
           checked=""
           class="ant-checkbox-input"
           type="checkbox"
+          value="1"
         />
       </span>
       <span
@@ -19923,12 +19940,13 @@ exports[`table demo > renders hidden-columns correctly 1`] = `
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item css-var-root ant-checkbox-css-var"
     >
       <span
-        class="ant-checkbox ant-wave-target ant-checkbox-checked ant-wave-target"
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
           checked=""
           class="ant-checkbox-input"
           type="checkbox"
+          value="2"
         />
       </span>
       <span
@@ -19941,12 +19959,13 @@ exports[`table demo > renders hidden-columns correctly 1`] = `
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item css-var-root ant-checkbox-css-var"
     >
       <span
-        class="ant-checkbox ant-wave-target ant-checkbox-checked ant-wave-target"
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
           checked=""
           class="ant-checkbox-input"
           type="checkbox"
+          value="3"
         />
       </span>
       <span
@@ -19959,12 +19978,13 @@ exports[`table demo > renders hidden-columns correctly 1`] = `
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item css-var-root ant-checkbox-css-var"
     >
       <span
-        class="ant-checkbox ant-wave-target ant-checkbox-checked ant-wave-target"
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
           checked=""
           class="ant-checkbox-input"
           type="checkbox"
+          value="4"
         />
       </span>
       <span
@@ -19977,12 +19997,13 @@ exports[`table demo > renders hidden-columns correctly 1`] = `
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item css-var-root ant-checkbox-css-var"
     >
       <span
-        class="ant-checkbox ant-wave-target ant-checkbox-checked ant-wave-target"
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
           checked=""
           class="ant-checkbox-input"
           type="checkbox"
+          value="5"
         />
       </span>
       <span
@@ -19995,12 +20016,13 @@ exports[`table demo > renders hidden-columns correctly 1`] = `
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item css-var-root ant-checkbox-css-var"
     >
       <span
-        class="ant-checkbox ant-wave-target ant-checkbox-checked ant-wave-target"
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
           checked=""
           class="ant-checkbox-input"
           type="checkbox"
+          value="6"
         />
       </span>
       <span
@@ -20013,12 +20035,13 @@ exports[`table demo > renders hidden-columns correctly 1`] = `
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item css-var-root ant-checkbox-css-var"
     >
       <span
-        class="ant-checkbox ant-wave-target ant-checkbox-checked ant-wave-target"
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
           checked=""
           class="ant-checkbox-input"
           type="checkbox"
+          value="7"
         />
       </span>
       <span
@@ -20031,12 +20054,13 @@ exports[`table demo > renders hidden-columns correctly 1`] = `
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item css-var-root ant-checkbox-css-var"
     >
       <span
-        class="ant-checkbox ant-wave-target ant-checkbox-checked ant-wave-target"
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
       >
         <input
           checked=""
           class="ant-checkbox-input"
           type="checkbox"
+          value="8"
         />
       </span>
       <span
@@ -24744,7 +24768,7 @@ exports[`table demo > renders order-column correctly 1`] = `
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -24810,7 +24834,7 @@ exports[`table demo > renders order-column correctly 1`] = `
                       class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
-                        class="ant-checkbox ant-wave-target ant-wave-target"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -24867,7 +24891,7 @@ exports[`table demo > renders order-column correctly 1`] = `
                       class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
-                        class="ant-checkbox ant-wave-target ant-wave-target"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -24924,7 +24948,7 @@ exports[`table demo > renders order-column correctly 1`] = `
                       class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
-                        class="ant-checkbox ant-wave-target ant-wave-target"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -24981,7 +25005,7 @@ exports[`table demo > renders order-column correctly 1`] = `
                       class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
-                        class="ant-checkbox ant-wave-target ant-wave-target"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -25111,13 +25135,14 @@ exports[`table demo > renders pagination correctly 1`] = `
         class="ant-radio-wrapper ant-radio-wrapper-checked css-var-root ant-radio-css-var"
       >
         <span
-          class="ant-radio ant-wave-target ant-radio-checked ant-wave-target"
-          name="v-0"
+          class="ant-radio ant-wave-target ant-radio-checked"
         >
           <input
             checked=""
             class="ant-radio-input"
+            name="v-0"
             type="radio"
+            value="topStart"
           />
         </span>
         <span
@@ -25130,12 +25155,13 @@ exports[`table demo > renders pagination correctly 1`] = `
         class="ant-radio-wrapper css-var-root ant-radio-css-var"
       >
         <span
-          class="ant-radio ant-wave-target ant-wave-target"
-          name="v-0"
+          class="ant-radio ant-wave-target"
         >
           <input
             class="ant-radio-input"
+            name="v-0"
             type="radio"
+            value="topCenter"
           />
         </span>
         <span
@@ -25148,12 +25174,13 @@ exports[`table demo > renders pagination correctly 1`] = `
         class="ant-radio-wrapper css-var-root ant-radio-css-var"
       >
         <span
-          class="ant-radio ant-wave-target ant-wave-target"
-          name="v-0"
+          class="ant-radio ant-wave-target"
         >
           <input
             class="ant-radio-input"
+            name="v-0"
             type="radio"
+            value="topEnd"
           />
         </span>
         <span
@@ -25166,12 +25193,13 @@ exports[`table demo > renders pagination correctly 1`] = `
         class="ant-radio-wrapper css-var-root ant-radio-css-var"
       >
         <span
-          class="ant-radio ant-wave-target ant-wave-target"
-          name="v-0"
+          class="ant-radio ant-wave-target"
         >
           <input
             class="ant-radio-input"
+            name="v-0"
             type="radio"
+            value="none"
           />
         </span>
         <span
@@ -25190,12 +25218,13 @@ exports[`table demo > renders pagination correctly 1`] = `
       class="ant-radio-wrapper css-var-root ant-radio-css-var"
     >
       <span
-        class="ant-radio ant-wave-target ant-wave-target"
-        name="v-1"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
+          name="v-1"
           type="radio"
+          value="bottomStart"
         />
       </span>
       <span
@@ -25208,12 +25237,13 @@ exports[`table demo > renders pagination correctly 1`] = `
       class="ant-radio-wrapper css-var-root ant-radio-css-var"
     >
       <span
-        class="ant-radio ant-wave-target ant-wave-target"
-        name="v-1"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
+          name="v-1"
           type="radio"
+          value="bottomCenter"
         />
       </span>
       <span
@@ -25226,13 +25256,14 @@ exports[`table demo > renders pagination correctly 1`] = `
       class="ant-radio-wrapper ant-radio-wrapper-checked css-var-root ant-radio-css-var"
     >
       <span
-        class="ant-radio ant-wave-target ant-radio-checked ant-wave-target"
-        name="v-1"
+        class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
           checked=""
           class="ant-radio-input"
+          name="v-1"
           type="radio"
+          value="bottomEnd"
         />
       </span>
       <span
@@ -25245,12 +25276,13 @@ exports[`table demo > renders pagination correctly 1`] = `
       class="ant-radio-wrapper css-var-root ant-radio-css-var"
     >
       <span
-        class="ant-radio ant-wave-target ant-wave-target"
-        name="v-1"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
+          name="v-1"
           type="radio"
+          value="none"
         />
       </span>
       <span
@@ -27138,13 +27170,14 @@ exports[`table demo > renders row-selection correctly 1`] = `
       class="ant-radio-wrapper ant-radio-wrapper-checked css-var-root ant-radio-css-var"
     >
       <span
-        class="ant-radio ant-wave-target ant-radio-checked ant-wave-target"
-        name="v-0"
+        class="ant-radio ant-wave-target ant-radio-checked"
       >
         <input
           checked=""
           class="ant-radio-input"
+          name="v-0"
           type="radio"
+          value="checkbox"
         />
       </span>
       <span
@@ -27157,12 +27190,13 @@ exports[`table demo > renders row-selection correctly 1`] = `
       class="ant-radio-wrapper css-var-root ant-radio-css-var"
     >
       <span
-        class="ant-radio ant-wave-target ant-wave-target"
-        name="v-0"
+        class="ant-radio ant-wave-target"
       >
         <input
           class="ant-radio-input"
+          name="v-0"
           type="radio"
+          value="radio"
         />
       </span>
       <span
@@ -27231,7 +27265,7 @@ exports[`table demo > renders row-selection correctly 1`] = `
                           class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                         >
                           <span
-                            class="ant-checkbox ant-wave-target ant-wave-target"
+                            class="ant-checkbox ant-wave-target"
                           >
                             <input
                               class="ant-checkbox-input"
@@ -27290,11 +27324,11 @@ exports[`table demo > renders row-selection correctly 1`] = `
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
-                          name="John Brown"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
+                            name="John Brown"
                             type="checkbox"
                           />
                         </span>
@@ -27339,11 +27373,11 @@ exports[`table demo > renders row-selection correctly 1`] = `
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
-                          name="Jim Green"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
+                            name="Jim Green"
                             type="checkbox"
                           />
                         </span>
@@ -27388,11 +27422,11 @@ exports[`table demo > renders row-selection correctly 1`] = `
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
-                          name="Joe Black"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
+                            name="Joe Black"
                             type="checkbox"
                           />
                         </span>
@@ -27437,12 +27471,12 @@ exports[`table demo > renders row-selection correctly 1`] = `
                         class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-checkbox-disabled ant-wave-target"
-                          name="Disabled User"
+                          class="ant-checkbox ant-wave-target ant-checkbox-disabled"
                         >
                           <input
                             class="ant-checkbox-input"
                             disabled=""
+                            name="Disabled User"
                             type="checkbox"
                           />
                         </span>
@@ -27661,7 +27695,7 @@ exports[`table demo > renders row-selection-and-operation correctly 1`] = `
                           class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                         >
                           <span
-                            class="ant-checkbox ant-wave-target ant-wave-target"
+                            class="ant-checkbox ant-wave-target"
                           >
                             <input
                               class="ant-checkbox-input"
@@ -27720,7 +27754,7 @@ exports[`table demo > renders row-selection-and-operation correctly 1`] = `
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -27766,7 +27800,7 @@ exports[`table demo > renders row-selection-and-operation correctly 1`] = `
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -27812,7 +27846,7 @@ exports[`table demo > renders row-selection-and-operation correctly 1`] = `
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -27858,7 +27892,7 @@ exports[`table demo > renders row-selection-and-operation correctly 1`] = `
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -27904,7 +27938,7 @@ exports[`table demo > renders row-selection-and-operation correctly 1`] = `
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -27950,7 +27984,7 @@ exports[`table demo > renders row-selection-and-operation correctly 1`] = `
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -27996,7 +28030,7 @@ exports[`table demo > renders row-selection-and-operation correctly 1`] = `
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -28042,7 +28076,7 @@ exports[`table demo > renders row-selection-and-operation correctly 1`] = `
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -28088,7 +28122,7 @@ exports[`table demo > renders row-selection-and-operation correctly 1`] = `
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -28134,7 +28168,7 @@ exports[`table demo > renders row-selection-and-operation correctly 1`] = `
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -28382,7 +28416,7 @@ exports[`table demo > renders row-selection-custom correctly 1`] = `
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -28468,7 +28502,7 @@ exports[`table demo > renders row-selection-custom correctly 1`] = `
                       class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
-                        class="ant-checkbox ant-wave-target ant-wave-target"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -28514,7 +28548,7 @@ exports[`table demo > renders row-selection-custom correctly 1`] = `
                       class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
-                        class="ant-checkbox ant-wave-target ant-wave-target"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -28560,7 +28594,7 @@ exports[`table demo > renders row-selection-custom correctly 1`] = `
                       class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
-                        class="ant-checkbox ant-wave-target ant-wave-target"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -28606,7 +28640,7 @@ exports[`table demo > renders row-selection-custom correctly 1`] = `
                       class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
-                        class="ant-checkbox ant-wave-target ant-wave-target"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -28652,7 +28686,7 @@ exports[`table demo > renders row-selection-custom correctly 1`] = `
                       class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
-                        class="ant-checkbox ant-wave-target ant-wave-target"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -28698,7 +28732,7 @@ exports[`table demo > renders row-selection-custom correctly 1`] = `
                       class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
-                        class="ant-checkbox ant-wave-target ant-wave-target"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -28744,7 +28778,7 @@ exports[`table demo > renders row-selection-custom correctly 1`] = `
                       class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
-                        class="ant-checkbox ant-wave-target ant-wave-target"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -28790,7 +28824,7 @@ exports[`table demo > renders row-selection-custom correctly 1`] = `
                       class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
-                        class="ant-checkbox ant-wave-target ant-wave-target"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -28836,7 +28870,7 @@ exports[`table demo > renders row-selection-custom correctly 1`] = `
                       class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
-                        class="ant-checkbox ant-wave-target ant-wave-target"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -28882,7 +28916,7 @@ exports[`table demo > renders row-selection-custom correctly 1`] = `
                       class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
-                        class="ant-checkbox ant-wave-target ant-wave-target"
+                        class="ant-checkbox ant-wave-target"
                       >
                         <input
                           class="ant-checkbox-input"
@@ -32727,7 +32761,7 @@ exports[`table demo > renders tree-data correctly 1`] = `
                           class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                         >
                           <span
-                            class="ant-checkbox ant-wave-target ant-wave-target"
+                            class="ant-checkbox ant-wave-target"
                           >
                             <input
                               class="ant-checkbox-input"
@@ -32786,7 +32820,7 @@ exports[`table demo > renders tree-data correctly 1`] = `
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -32841,7 +32875,7 @@ exports[`table demo > renders tree-data correctly 1`] = `
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -33092,7 +33126,7 @@ exports[`table demo > renders tree-table-ellipsis correctly 1`] = `
                           class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                         >
                           <span
-                            class="ant-checkbox ant-wave-target ant-wave-target"
+                            class="ant-checkbox ant-wave-target"
                           >
                             <input
                               class="ant-checkbox-input"
@@ -33158,7 +33192,7 @@ exports[`table demo > renders tree-table-ellipsis correctly 1`] = `
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -33220,7 +33254,7 @@ exports[`table demo > renders tree-table-ellipsis correctly 1`] = `
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -33282,7 +33316,7 @@ exports[`table demo > renders tree-table-ellipsis correctly 1`] = `
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -33344,7 +33378,7 @@ exports[`table demo > renders tree-table-ellipsis correctly 1`] = `
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -33406,7 +33440,7 @@ exports[`table demo > renders tree-table-ellipsis correctly 1`] = `
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -33468,7 +33502,7 @@ exports[`table demo > renders tree-table-ellipsis correctly 1`] = `
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -33530,7 +33564,7 @@ exports[`table demo > renders tree-table-ellipsis correctly 1`] = `
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -33592,7 +33626,7 @@ exports[`table demo > renders tree-table-ellipsis correctly 1`] = `
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -33654,7 +33688,7 @@ exports[`table demo > renders tree-table-ellipsis correctly 1`] = `
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -33948,7 +33982,7 @@ exports[`table demo > renders tree-table-preserveSelectedRowKeys correctly 1`] =
                           class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                         >
                           <span
-                            class="ant-checkbox ant-wave-target ant-wave-target"
+                            class="ant-checkbox ant-wave-target"
                           >
                             <input
                               class="ant-checkbox-input"
@@ -34007,7 +34041,7 @@ exports[`table demo > renders tree-table-preserveSelectedRowKeys correctly 1`] =
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -34062,7 +34096,7 @@ exports[`table demo > renders tree-table-preserveSelectedRowKeys correctly 1`] =
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -34117,7 +34151,7 @@ exports[`table demo > renders tree-table-preserveSelectedRowKeys correctly 1`] =
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -34172,7 +34206,7 @@ exports[`table demo > renders tree-table-preserveSelectedRowKeys correctly 1`] =
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -34227,7 +34261,7 @@ exports[`table demo > renders tree-table-preserveSelectedRowKeys correctly 1`] =
                         class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
-                          class="ant-checkbox ant-wave-target ant-wave-target"
+                          class="ant-checkbox ant-wave-target"
                         >
                           <input
                             class="ant-checkbox-input"
@@ -34837,7 +34871,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                               class="ant-radio-wrapper css-var-root ant-radio-css-var"
                             >
                               <span
-                                class="ant-radio ant-wave-target ant-wave-target"
+                                class="ant-radio ant-wave-target"
                               >
                                 <input
                                   class="ant-radio-input"
@@ -34965,7 +34999,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                               class="ant-radio-wrapper css-var-root ant-radio-css-var"
                             >
                               <span
-                                class="ant-radio ant-wave-target ant-wave-target"
+                                class="ant-radio ant-wave-target"
                               >
                                 <input
                                   class="ant-radio-input"
@@ -35091,7 +35125,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                               class="ant-radio-wrapper css-var-root ant-radio-css-var"
                             >
                               <span
-                                class="ant-radio ant-wave-target ant-wave-target"
+                                class="ant-radio ant-wave-target"
                               >
                                 <input
                                   class="ant-radio-input"
@@ -35217,7 +35251,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                               class="ant-radio-wrapper css-var-root ant-radio-css-var"
                             >
                               <span
-                                class="ant-radio ant-wave-target ant-wave-target"
+                                class="ant-radio ant-wave-target"
                               >
                                 <input
                                   class="ant-radio-input"
@@ -35343,7 +35377,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                               class="ant-radio-wrapper css-var-root ant-radio-css-var"
                             >
                               <span
-                                class="ant-radio ant-wave-target ant-wave-target"
+                                class="ant-radio ant-wave-target"
                               >
                                 <input
                                   class="ant-radio-input"
@@ -35471,7 +35505,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                               class="ant-radio-wrapper css-var-root ant-radio-css-var"
                             >
                               <span
-                                class="ant-radio ant-wave-target ant-wave-target"
+                                class="ant-radio ant-wave-target"
                               >
                                 <input
                                   class="ant-radio-input"
@@ -35597,7 +35631,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                               class="ant-radio-wrapper css-var-root ant-radio-css-var"
                             >
                               <span
-                                class="ant-radio ant-wave-target ant-wave-target"
+                                class="ant-radio ant-wave-target"
                               >
                                 <input
                                   class="ant-radio-input"
@@ -35723,7 +35757,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                               class="ant-radio-wrapper css-var-root ant-radio-css-var"
                             >
                               <span
-                                class="ant-radio ant-wave-target ant-wave-target"
+                                class="ant-radio ant-wave-target"
                               >
                                 <input
                                   class="ant-radio-input"
@@ -35849,7 +35883,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                               class="ant-radio-wrapper css-var-root ant-radio-css-var"
                             >
                               <span
-                                class="ant-radio ant-wave-target ant-wave-target"
+                                class="ant-radio ant-wave-target"
                               >
                                 <input
                                   class="ant-radio-input"
@@ -35977,7 +36011,7 @@ exports[`table demo > renders virtual-list correctly 1`] = `
                               class="ant-radio-wrapper css-var-root ant-radio-css-var"
                             >
                               <span
-                                class="ant-radio ant-wave-target ant-wave-target"
+                                class="ant-radio ant-wave-target"
                               >
                                 <input
                                   class="ant-radio-input"
