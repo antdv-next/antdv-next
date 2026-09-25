@@ -55,7 +55,6 @@ interface AffixState {
   placeholderStyle?: CSSProperties
   status: AffixStatus
   lastAffix: boolean
-  prevTarget: Window | HTMLElement | null
 }
 
 export interface AffixRef {
@@ -101,7 +100,6 @@ export const Affix = defineComponent<
         status.value !== AFFIX_STATUS_PREPARE
         || !fixedNodeRef.value
         || !placeholderNodeRef.value
-        || !targetFunc.value
       ) {
         return
       }
@@ -176,7 +174,7 @@ export const Affix = defineComponent<
 
     const lazyUpdatePosition = throttleByAnimationFrameFn(() => {
       // Check position change before measure to make Safari smooth
-      if (targetFunc.value && affixStyle.value) {
+      if (affixStyle.value) {
         const targetNode = targetFunc.value()
         if (targetNode && placeholderNodeRef.value) {
           const targetRect = getTargetRect(targetNode)
@@ -198,7 +196,7 @@ export const Affix = defineComponent<
     })
 
     const addListeners = () => {
-      const listenerTarget = targetFunc.value?.()
+      const listenerTarget = targetFunc.value()
       if (!listenerTarget) {
         return
       }
@@ -213,7 +211,7 @@ export const Affix = defineComponent<
     }
 
     const removeListeners = () => {
-      const newTarget = targetFunc.value?.()
+      const newTarget = targetFunc.value()
       TRIGGER_EVENTS.forEach((eventName) => {
         newTarget?.removeEventListener(eventName, lazyUpdatePosition)
         if (prevListener.value) {
