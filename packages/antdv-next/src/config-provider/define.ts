@@ -9,6 +9,7 @@ import type {
   ButtonConfig,
   CalendarConfig,
   CardConfig,
+  CardMetaConfig,
   CascaderConfig,
   CheckboxConfig,
   CollapseConfig,
@@ -46,6 +47,7 @@ import type {
   RadioConfig,
   RangePickerConfig,
   ResultConfig,
+  RibbonConfig,
   SegmentedConfig,
   SelectConfig,
   SkeletonConfig,
@@ -155,6 +157,7 @@ export interface ConfigProviderProps {
   badge?: BadgeConfig
   radio?: RadioConfig
   rate?: ComponentStyleConfig
+  ribbon?: RibbonConfig
   switch?: SwitchStyleConfig
   transfer?: TransferConfig
   avatar?: ComponentStyleConfig
@@ -162,6 +165,7 @@ export interface ConfigProviderProps {
   tag?: TagConfig
   table?: TableConfig
   card?: CardConfig
+  cardMeta?: CardMetaConfig
   tabs?: TabsConfig
   timeline?: TimelineConfig
   timePicker?: TimePickerConfig
