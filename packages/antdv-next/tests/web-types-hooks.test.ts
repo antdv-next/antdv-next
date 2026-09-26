@@ -5,6 +5,7 @@ import { applyMarkdownHooks } from '../scripts/web-types/hooks'
 describe('web-types hooks', () => {
   it('applies props/events/slots hooks', () => {
     const component: ComponentApiData = {
+      name: 'ADemo',
       tagName: 'a-demo',
       componentName: 'Demo',
       description: 'Demo component',
