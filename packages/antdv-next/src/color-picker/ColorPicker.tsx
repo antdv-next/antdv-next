@@ -269,7 +269,7 @@ const ColorPicker = defineComponent<
         autoAdjustOverflow,
         destroyOnHidden,
       } = props
-      const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
+      const { className, style, restAttrs } = getAttrStyleAndClass(attrs, undefined, props as any)
       const children = filterEmpty(slots?.default?.() ?? [])
       const showText = slots?.showText ?? props?.showText
       const panelRender = slots?.panelRender ?? props?.panelRender
@@ -304,7 +304,6 @@ const ColorPicker = defineComponent<
       const panelNode = (
         <ContextIsolator form>
           <ColorPickerPanel
-            {...restAttrs}
             prefixCls={prefixCls.value}
             presets={presets.value}
             panelRender={panelRender}
@@ -347,6 +346,7 @@ const ColorPicker = defineComponent<
               disabled={mergedDisabled.value}
               showText={showText}
               format={formatValue.value}
+              {...restAttrs}
               color={mergedColor.value as any}
               classes={mergedClassNames.value}
               styles={mergedStyles.value}

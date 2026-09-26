@@ -1105,6 +1105,7 @@ exports[`color-picker demo > renders pure-panel correctly 1`] = `
     <div
       aria-describedby="test-id"
       class="ant-popover-open ant-color-picker-trigger css-var-v-0 ant-color-picker-css-var ant-color-picker-trigger-active"
+      style="margin: 0px;"
     >
       <div
         class="ant-color-picker-color-block"
