@@ -43,10 +43,9 @@ export const supplements: SupplementDefinition[] = [
   {
     component: 'ATextarea',
     description: { zh: '多行文本输入框，支持自适应高度。除自身属性外，同 Input 属性。', en: 'Multi-line text input with auto size support. Accepts all Input props in addition to its own.' },
-    extends: ['AInput'],
+    extends: [{ component: 'AInput', omit: ['addonAfter', 'addonBefore', 'prefix', 'type'] }],
     attributes: [
       { name: 'rows', description: 'Number of visible text lines.', type: 'number' },
-      { name: 'cols', description: 'Visible width of the textarea in average character widths.', type: 'number' },
     ],
   },
   {
@@ -57,7 +56,7 @@ export const supplements: SupplementDefinition[] = [
   {
     component: 'AInputPassword',
     description: { zh: '密码输入框，同 Input 属性。', en: 'Password input. Accepts all Input props.' },
-    extends: ['AInput'],
+    extends: [{ component: 'AInput', omit: ['type'] }],
   },
   {
     component: 'AInputGroup',
@@ -182,8 +181,6 @@ export const supplements: SupplementDefinition[] = [
       { name: 'label', description: 'Deprecated, use `title` instead.', type: 'VueNode', deprecated: true },
       { name: 'icon', description: 'Custom dot.', type: 'VueNode' },
       { name: 'dot', description: 'Deprecated, use `icon` instead.', type: 'VueNode', deprecated: true },
-      { name: 'classes', description: 'Semantic class names.', type: 'Record<string, string>' },
-      { name: 'styles', description: 'Semantic inline styles.', type: 'Record<string, CSSProperties>' },
     ],
     slots: [
       { name: 'title', description: 'Custom title.' },
@@ -288,12 +285,26 @@ export const supplements: SupplementDefinition[] = [
   },
   {
     component: 'ATimePicker',
-    extends: [{ component: 'ADatePicker', pick: ['events'] }],
+    extends: [{ component: 'ADatePicker', pick: ['events'], omit: ['clear'] }],
   },
   {
     component: 'ATimeRangePicker',
     description: { zh: '时间范围选择器，除自身属性外，同 RangePicker 属性。', en: 'Time range picker. Accepts all RangePicker props in addition to its own.' },
-    extends: ['ARangePicker', { component: 'ATimePicker', pick: ['slots'] }],
+    extends: [
+      { component: 'ARangePicker', omit: ['picker', 'showTime', 'clear', 'select'] },
+      { component: 'ATimePicker', pick: ['slots'], omit: ['addon'] },
+    ],
+  },
+
+  // --------------------------------------------------- Popover / Popconfirm
+  // The docs only list their own props and say "also supports all Tooltip / Popover props".
+  {
+    component: 'APopover',
+    extends: ['ATooltip'],
+  },
+  {
+    component: 'APopconfirm',
+    extends: [{ component: 'APopover', omit: ['content'] }],
   },
 
   // ------------------------------------------------------------------ Tree

@@ -56,6 +56,8 @@ export interface InheritanceRef {
   component: string
   /** Parts to inherit. Defaults to attributes, events and slots. */
   pick?: ApiPart[]
+  /** Item names (camelCase or kebab-case) that must not be inherited. */
+  omit?: string[]
 }
 
 export interface SupplementDefinition {

@@ -106,3 +106,27 @@ describe('web-types assemble', () => {
     expect(tags[0]?.attributes.map(attr => attr.name)).toEqual(['force-render'])
   })
 })
+
+describe('web-types assemble omit', () => {
+  it('skips omitted items when inheriting, matching camelCase or kebab-case', () => {
+    const registry = Registry.fromNames(['AInput', 'ATextarea'])
+    const map: ComponentLangMap = new Map([
+      ['AInput', { en: component('AInput', {
+        attributes: [
+          { name: 'value', description: 'Value', type: 'string' },
+          { name: 'addon-after', description: 'Addon', type: 'VueNode' },
+          { name: 'type', description: 'Type', type: 'string' },
+        ],
+        events: [{ name: 'change', description: 'Change', type: '() => void' }, { name: 'clear', description: 'Clear', type: '() => void' }],
+      }) }],
+    ])
+
+    const tags = assembleTags(registry, map, [
+      { component: 'ATextarea', extends: [{ component: 'AInput', omit: ['addonAfter', 'type', 'clear'] }] },
+    ])
+
+    const textarea = tags.find(tag => tag.name === 'ATextarea')!
+    expect(textarea.attributes.map(attr => attr.name)).toEqual(['value'])
+    expect(textarea.events.map(event => event.name)).toEqual(['change'])
+  })
+})

@@ -89,8 +89,9 @@ export function assembleTags(
         return
       }
       visit(ref.component, [...stack, name])
+      const omitted = new Set((ref.omit ?? []).flatMap(name => [name, toKebabCase(name)]))
       const parts = ref.pick ?? ALL_PARTS
-      parts.forEach(part => addMissingItems(tag[part], parent[part]))
+      parts.forEach(part => addMissingItems(tag[part], parent[part].filter(item => !omitted.has(item.name))))
     })
     resolved.add(name)
   }

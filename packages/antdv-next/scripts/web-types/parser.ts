@@ -24,6 +24,8 @@ const NAME_HEADERS = new Set([
 const DESC_HEADERS = new Set(['description', '说明', '描述'])
 const TYPE_HEADERS = new Set(['type', '类型'])
 const DEFAULT_HEADERS = new Set(['default', 'default value', '默认值'])
+/** Rows such as `loadingIcon | （仅支持全局配置）...` describe ConfigProvider options, not component props. */
+const GLOBAL_CONFIG_ONLY_RE = /^[（(]\s*(?:仅支持全局配置|only supports global configuration|global config(?:uration)? only)\s*[）)]/i
 
 type SectionState = SectionType | 'infer' | 'skip'
 
@@ -214,14 +216,20 @@ function toItem(row: string[], columns: TableColumns, section: SectionType): Api
   // `showTime.defaultOpenValue` documents a nested config key, not an attribute.
   if (section === 'props' && name.includes('.'))
     return null
+  // `class` / `style` are native attributes every element already has.
+  if (section === 'props' && /^(?:class|style)$/.test(name))
+    return null
 
-  const descRaw = columns.description >= 0 ? row[columns.description] : ''
+  const descRaw = columns.description >= 0 ? row[columns.description] ?? '' : ''
   const typeRaw = columns.type >= 0 ? row[columns.type] : ''
   const defaultRaw = columns.default >= 0 ? row[columns.default] : ''
 
+  if (section === 'props' && GLOBAL_CONFIG_ONLY_RE.test(descRaw))
+    return null
+
   return {
     name: section === 'props' ? toKebabCase(name) : name,
-    description: descRaw ?? '',
+    description: descRaw,
     type: typeRaw && typeRaw !== '-' ? typeRaw : 'any',
     default: defaultRaw && defaultRaw !== '-' ? defaultRaw : undefined,
     deprecated: deprecated || undefined,
@@ -247,7 +255,10 @@ function parseApiSections(
   let inApi = false
   /** Components receiving the tables that follow. */
   let targets: RegistryEntry[] = []
-  /** Components set by the current level-3 heading, receiving level-4 sections. */
+  /**
+   * Components set by the current level-3 heading, receiving level-4 sections.
+   * `null` means page-level context, `[]` an unmatched heading whose sub-sections are ignored.
+   */
   let h3Targets: RegistryEntry[] | null = null
   let section: SectionState = 'skip'
 
@@ -303,7 +314,7 @@ function parseApiSections(
         }
         else {
           targets = []
-          h3Targets = null
+          h3Targets = []
           section = 'skip'
           unmatchedHeadings.push(headingText)
         }

@@ -384,3 +384,62 @@ describe('web-types section inference', () => {
     expect(inferSection(['method', 'description', 'version'])).toBe('methods')
   })
 })
+
+describe('web-types parser filtering', () => {
+  it('ignores sub-sections of headings that are not global components', () => {
+    const result = parse(`---
+title: Tree
+---
+
+## API
+
+### Tree
+
+#### Props
+
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| checkable | Checkable | boolean | false |
+
+### TreeNode
+
+#### Props {#treenode-props}
+
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| isLeaf | Leaf | boolean | false |
+
+### DirectoryTree
+
+#### Props
+
+| Property | Description | Type | Default |
+| --- | --- | --- | --- |
+| expandAction | Expand action | string | click |
+`, 'tree', ['ATree', 'ADirectoryTree'])
+
+    expect(find(result, 'ATree')?.attributes.map(attr => attr.name)).toEqual(['checkable'])
+    expect(find(result, 'ADirectoryTree')?.attributes.map(attr => attr.name)).toEqual(['expand-action'])
+    expect(result.unmatchedHeadings).toEqual(['TreeNode'])
+  })
+
+  it('drops native class/style rows and global-config-only rows', () => {
+    const result = parse(`---
+title: Button
+---
+
+## API
+
+### Props
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/x) |
+| --- | --- | --- | --- | --- | --- |
+| class | 类名 | string | - | - | × |
+| style | 样式 | CSSProperties | - | - | × |
+| loadingIcon | （仅支持全局配置）设置按钮的加载图标 | VueNode | - | - | ✓ |
+| type | 类型 | string | - | - | × |
+`, 'button', ['AButton'])
+
+    expect(find(result, 'AButton')?.attributes.map(attr => attr.name)).toEqual(['type'])
+  })
+})
