@@ -227,9 +227,16 @@ const ProviderChildren = defineComponent<
         theme: mergedTheme.value,
         direction: props.direction,
         virtual: props.virtual,
+        popupMatchSelectWidth: props.popupMatchSelectWidth,
+        popupOverflow: props.popupOverflow,
         locale: locale.value || props.legacyLocale,
         space: props.space,
         variant: props.variant,
+        calendar: props.calendar,
+        carousel: props.carousel,
+        cardMeta: props.cardMeta,
+        ribbon: props.ribbon,
+        warning: props.warning,
       } as ConfigConsumerProps
 
       const config: ConfigConsumerProps = {
