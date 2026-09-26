@@ -28,4 +28,12 @@ export interface ListyProps
   classes?: ListyClassNamesType
   styles?: ListyStylesType
   itemRender?: (item: any, index: number) => VueNode
+  /**
+   * @version >= 1.5.5
+   * @nameZH 是否启用行 hover 效果
+   * @nameEN Whether to enable the row hover effect
+   * @desc 是否在鼠标悬停行时显示背景色，默认 true。
+   * @descEN Whether to show the hover background color on row hover, default true.
+   */
+  rowHoverable?: boolean
 }
