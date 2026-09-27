@@ -102,16 +102,11 @@ describe('Listy', () => {
 
   it('enables row hoverable by default', () => {
     const wrapper = mount(() => renderListy())
-    expect(wrapper.find('.ant-listy-item-hoverable').exists()).toBe(true)
+    expect(wrapper.find('.ant-listy-hoverable').exists()).toBe(true)
   })
 
   it('removes row hoverable when rowHoverable is false', () => {
     const wrapper = mount(() => renderListy({ rowHoverable: false }))
-    expect(wrapper.find('.ant-listy-item-hoverable').exists()).toBe(false)
-  })
-
-  it('keeps row hoverable when rowHoverable is true', () => {
-    const wrapper = mount(() => renderListy({ rowHoverable: true }))
-    expect(wrapper.find('.ant-listy-item-hoverable').exists()).toBe(true)
+    expect(wrapper.find('.ant-listy-hoverable').exists()).toBe(false)
   })
 })

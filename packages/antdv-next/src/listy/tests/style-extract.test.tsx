@@ -31,12 +31,12 @@ async function extractListyStyle() {
 }
 
 describe('listy style extract', () => {
-  it('scopes the row hover style to hoverable items', async () => {
+  it('scopes the row hover style to the hoverable root', async () => {
     const style = await extractListyStyle()
 
-    expect(style).toContain('.ant-listy .ant-listy-item-hoverable:hover')
+    expect(style).toContain('.ant-listy.ant-listy-hoverable .ant-listy-item:hover')
     expect(style).toContain('background-color')
 
-    expect(style).not.toContain('.ant-listy-row-hoverable')
+    expect(style).not.toContain('.ant-listy-item-hoverable')
   })
 })
