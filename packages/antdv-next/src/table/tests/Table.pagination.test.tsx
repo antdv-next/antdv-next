@@ -1,7 +1,13 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { nextTick, ref } from 'vue'
 import Table from '..'
+import scrollTo from '../../_util/scrollTo'
+import ConfigProvider from '../../config-provider'
 import { mount } from '/@tests/utils'
+
+vi.mock('../../_util/scrollTo', () => ({
+  default: vi.fn(),
+}))
 
 const columns = [
   { title: 'Name', dataIndex: 'name', key: 'name' },
@@ -94,6 +100,46 @@ describe('table pagination', () => {
     expect(args[0].current).toBe(2)
     // Fourth arg is extra with action
     expect(args[3].action).toBe('paginate')
+  })
+
+  it('should scroll to first row when page changes with scroll from ConfigProvider', async () => {
+    vi.mocked(scrollTo).mockClear()
+
+    const wrapper = mount(() => (
+      <ConfigProvider table={{ scroll: { y: 20 } }}>
+        <Table
+          columns={columns}
+          dataSource={generateData(20)}
+          pagination={{ pageSize: 2 }}
+        />
+      </ConfigProvider>
+    ), { attachTo: document.body })
+
+    expect(scrollTo).toHaveBeenCalledTimes(0)
+
+    await wrapper.find('.ant-pagination-next').trigger('click')
+
+    expect(scrollTo).toHaveBeenCalledTimes(1)
+    wrapper.unmount()
+  })
+
+  it('should respect scrollToFirstRowOnChange from ConfigProvider', async () => {
+    vi.mocked(scrollTo).mockClear()
+
+    const wrapper = mount(() => (
+      <ConfigProvider table={{ scroll: { y: 20, scrollToFirstRowOnChange: false } }}>
+        <Table
+          columns={columns}
+          dataSource={generateData(20)}
+          pagination={{ pageSize: 2 }}
+        />
+      </ConfigProvider>
+    ), { attachTo: document.body })
+
+    await wrapper.find('.ant-pagination-next').trigger('click')
+
+    expect(scrollTo).not.toHaveBeenCalled()
+    wrapper.unmount()
   })
 
   it('should support controlled pagination via current', async () => {

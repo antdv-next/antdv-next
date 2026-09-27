@@ -294,6 +294,8 @@ const InternalTable = defineComponent<
 
     const configCtx = useConfig()
 
+    const mergedScroll = computed(() => props.scroll ?? contextScroll.value)
+
     // Aria props passed to <a-table> land in attrs; re-apply them to the scroll
     // header table via a custom `components.header.table` (#58339).
     const ariaProps = computed(() => pickAttrs(attrs, { aria: true }) as Record<string, any>)
@@ -467,7 +469,11 @@ const InternalTable = defineComponent<
         }
       }
 
-      if (props.scroll?.scrollToFirstRowOnChange !== false && internalRefs.body?.value) {
+      if (
+        mergedScroll.value
+        && mergedScroll.value.scrollToFirstRowOnChange !== false
+        && internalRefs.body?.value
+      ) {
         scrollTo(0, {
           getContainer: () => internalRefs.body.value!,
         })
@@ -885,7 +891,6 @@ const InternalTable = defineComponent<
       const virtualProps = mergedVirtual.value ? { listItemHeight: listItemHeight.value } : {}
 
       // ============================ Scroll ============================
-      const mergedScroll = props.scroll ?? contextScroll.value
 
       return (
         <div ref={rootRef} class={wrapperCls} style={mergedStyle} data-allow-mismatch>
@@ -914,7 +919,7 @@ const InternalTable = defineComponent<
               internalRefs={internalRefs}
               transformColumns={transformColumns as any}
               getContainerWidth={getContainerWidth}
-              scroll={mergedScroll}
+              scroll={mergedScroll.value}
               measureRowRender={(measureRow: any) => (
                 <TableMeasureRowContextProvider value={true}>
                   <ConfigProvider getPopupContainer={node => node as HTMLElement}>
