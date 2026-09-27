@@ -1,6 +1,9 @@
 import type { PickerMode } from '@v-c/picker'
+import type { AllowClear } from '../_util/hooks/useAllowClear'
+import type { VueNode } from '../_util/type'
 import type { PickerLocale, PickerProps } from './generatePicker'
 import { cloneVNode, isVNode } from 'vue'
+import useAllowClear from '../_util/hooks/useAllowClear'
 import useSelectIcons from '../select/useIcons'
 
 export function getPlaceholder(
@@ -58,28 +61,34 @@ export function getRangePlaceholder(
 }
 
 export function useIcons(
-  props: Pick<PickerProps, 'allowClear' | 'removeIcon'>,
+  props: Pick<PickerProps, 'allowClear' | 'clearIcon' | 'removeIcon'>,
   prefixCls: string,
+  context?: { allowClear?: AllowClear, clearIcon?: VueNode },
 ) {
-  const { allowClear = true } = props
-
-  const { clearIcon, removeIcon } = useSelectIcons({
+  const { removeIcon } = useSelectIcons({
     ...props,
     prefixCls,
     componentName: 'DatePicker',
   } as any)
 
-  if (allowClear === false) {
+  const mergedAllowClear = useAllowClear({
+    allowClear: props.allowClear,
+    clearIcon: props.clearIcon,
+    contextAllowClear: context?.allowClear,
+    contextClearIcon: context?.clearIcon,
+    defaultAllowClear: true,
+  })
+
+  if (!mergedAllowClear) {
     return [false, removeIcon] as const
   }
 
-  const allowClearConfig = allowClear === true ? {} : allowClear
-  const mergedClearIcon = isVNode(clearIcon) ? cloneVNode(clearIcon) : clearIcon
+  const { clearIcon: mergedClearIcon, ...rest } = mergedAllowClear
 
   return [
     {
-      clearIcon: mergedClearIcon,
-      ...allowClearConfig,
+      clearIcon: isVNode(mergedClearIcon) ? cloneVNode(mergedClearIcon) : mergedClearIcon,
+      ...rest,
     },
     removeIcon,
   ] as const

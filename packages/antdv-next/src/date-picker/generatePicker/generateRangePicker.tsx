@@ -117,6 +117,12 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
         separator: contextSeparator,
       } = useComponentBaseConfig('rangePicker' as any, props as any, ['separator'], 'picker')
 
+      // allowClear / clearIcon come from the datePicker / timePicker config, not rangePicker (upstream parity)
+      const {
+        allowClear: contextAllowClear,
+        clearIcon: contextClearIcon,
+      } = useComponentBaseConfig(pickerType.value as any, props as any, ['allowClear', 'clearIcon'], 'picker')
+
       const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction)
       const mergedSize = useSize<SizeType>(ctx => customizeSize.value ?? compactSize.value ?? ctx)
 
@@ -247,6 +253,7 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
           suffixIcon,
           prefix,
           allowClear,
+          clearIcon,
           popupClassName: _popupClassName,
           dropdownClassName: _dropdownClassName,
           popupStyle: _popupStyle,
@@ -268,7 +275,10 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
         const mergedSuffixIcon = getSlotPropsFnRun(slots, { suffixIcon }, 'suffixIcon', false)
         const mergedPrefix = getSlotPropsFnRun(slots, { prefix }, 'prefix', false)
 
-        const [mergedAllowClear] = useIcons({ allowClear }, prefixCls.value)
+        const [mergedAllowClear] = useIcons({ allowClear, clearIcon }, prefixCls.value, {
+          allowClear: contextAllowClear?.value,
+          clearIcon: contextClearIcon?.value,
+        })
 
         const mergedComponents = useComponents(components as any)
 

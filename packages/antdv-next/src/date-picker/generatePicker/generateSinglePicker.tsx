@@ -132,7 +132,9 @@ function generatePicker<DateType extends AnyObject = AnyObject>(generateConfig: 
           class: contextClassName,
           style: contextStyle,
           suffixIcon: contextSuffixIcon,
-        } = useComponentBaseConfig(pickerType as any, props as any, ['suffixIcon'], 'picker')
+          allowClear: contextAllowClear,
+          clearIcon: contextClearIcon,
+        } = useComponentBaseConfig(pickerType as any, props as any, ['suffixIcon', 'allowClear', 'clearIcon'], 'picker')
 
         const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction)
 
@@ -286,6 +288,7 @@ function generatePicker<DateType extends AnyObject = AnyObject>(generateConfig: 
             suffixIcon,
             prefix,
             allowClear,
+            clearIcon,
             popupClassName: _popupClassName,
             dropdownClassName: _dropdownClassName,
             popupStyle: _popupStyle,
@@ -309,8 +312,12 @@ function generatePicker<DateType extends AnyObject = AnyObject>(generateConfig: 
 
           const [mergedAllowClear, removeIcon] = useIcons({
             allowClear,
+            clearIcon,
             removeIcon: (props as any).removeIcon,
-          }, prefixCls.value)
+          }, prefixCls.value, {
+            allowClear: contextAllowClear?.value,
+            clearIcon: contextClearIcon?.value,
+          })
 
           const mergedComponents = useComponents(components as any)
 

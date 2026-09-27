@@ -464,9 +464,9 @@ export type DatePickerConfig = ComponentStyleConfig
   & Pick<DatePickerProps, 'classes' | 'styles' | 'variant' | 'suffixIcon' | 'allowClear'>
   & { clearIcon?: any }
 
+// RangePicker reads allowClear / clearIcon from the datePicker / timePicker config, so only `variant` / `separator` live here
 export type RangePickerConfig = ComponentStyleConfig
-  & Pick<RangePickerProps, 'classes' | 'styles' | 'variant' | 'separator' | 'suffixIcon' | 'allowClear'>
-  & { clearIcon?: any }
+  & Pick<RangePickerProps, 'variant' | 'separator'>
 
 export type TimePickerConfig = ComponentStyleConfig
   & Pick<TimePickerProps, 'classes' | 'styles' | 'variant' | 'suffixIcon' | 'allowClear'>
