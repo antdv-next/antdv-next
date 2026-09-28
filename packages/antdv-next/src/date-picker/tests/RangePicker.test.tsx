@@ -3,6 +3,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { nextTick, ref } from 'vue'
 import DatePicker from '..'
 import { resetWarned } from '../../_util/warning'
+import ConfigProvider from '../../config-provider'
 import enUS from '../locale/en_US'
 import { mount, resetMockDate, setMockDate } from '/@tests/utils'
 
@@ -226,5 +227,26 @@ describe('range-picker', () => {
     open.value = false
     await nextTick()
     wrapper.unmount()
+  })
+
+  it('should hide clear icon when ConfigProvider datePicker allowClear is false', () => {
+    const wrapper = mount(
+      <ConfigProvider datePicker={{ allowClear: false }}>
+        <RangePicker value={[dayjs('2023-08-01'), dayjs('2023-08-02')]} />
+      </ConfigProvider>,
+    )
+
+    expect(wrapper.find('.ant-picker-clear').exists()).toBe(false)
+  })
+
+  it('should use clear icon from ConfigProvider datePicker config', () => {
+    const wrapper = mount(
+      <ConfigProvider datePicker={{ clearIcon: <span data-testid="config-range-clear">x</span> }}>
+        <RangePicker value={[dayjs('2023-08-01'), dayjs('2023-08-02')]} />
+      </ConfigProvider>,
+    )
+
+    expect(wrapper.find('.ant-picker-clear').exists()).toBe(true)
+    expect(wrapper.find('[data-testid="config-range-clear"]').exists()).toBe(true)
   })
 })
