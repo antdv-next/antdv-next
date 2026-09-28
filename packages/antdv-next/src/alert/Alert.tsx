@@ -5,11 +5,12 @@ import type { SlotsDefineType, VueNode } from '../_util/type.ts'
 import type { ComponentBaseProps } from '../config-provider/context'
 import { CheckCircleFilled, CloseCircleFilled, CloseOutlined, ExclamationCircleFilled, InfoCircleFilled } from '@antdv-next/icons'
 import { classNames, clsx } from '@v-c/util'
+import pickAttrs from '@v-c/util/dist/pickAttrs'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { computed, defineComponent, shallowRef, Transition } from 'vue'
 import { getAttrStyleAndClass, pureAttrs, useMergeSemanticNoRef } from '../_util/hooks'
 import { isRenderable } from '../_util/is.ts'
-import { getSlotPropFn, getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
+import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { useComponentBaseConfig } from '../config-provider/context'
 import useStyle from './style'
 
@@ -36,6 +37,11 @@ export interface AlertSemanticType {
 export type AlertClassNamesType = SemanticType<AlertProps, AlertSemanticType['classes']>
 export type AlertStylesType = SemanticType<AlertProps, AlertSemanticType['styles']>
 
+export type AlertClosableType = boolean | (Exclude<ClosableType, boolean> & {
+  onClose?: (e?: MouseEvent) => void
+  afterClose?: () => void
+})
+
 export type AlertVariant = 'filled' | 'outlined'
 
 export interface AlertProps extends ComponentBaseProps,
@@ -50,7 +56,7 @@ export interface AlertProps extends ComponentBaseProps,
    */
   variant?: AlertVariant
   /** Whether Alert can be closed */
-  closable?: ClosableType
+  closable?: AlertClosableType
   /** Content of Alert */
   title?: VueNode
   /**
@@ -139,7 +145,7 @@ const IconNode = defineComponent<IconNodeProps>(
 interface CloseIconProps {
   isClosable: boolean
   prefixCls: AlertProps['prefixCls']
-  closeIcon: AlertProps['closeIcon']
+  closeIcon?: AlertProps['closeIcon']
   handleClose: (e: MouseEvent) => void
   ariaProps: AriaAttributes
 }
@@ -149,8 +155,8 @@ const CloseIconNode = defineComponent<CloseIconProps>(
     return () => {
       const { isClosable, prefixCls, handleClose, ariaProps } = props
       const { className, style } = getAttrStyleAndClass(attrs)
-      const closeIcon = getSlotPropsFnRun(slots, props, 'closeIcon')
-      const mergedCloseIcon = !closeIcon ? <CloseOutlined /> : closeIcon
+      const closeIcon = getSlotPropsFnRun(slots, props, 'closeIcon', false)
+      const mergedCloseIcon = closeIcon === true || closeIcon === undefined ? <CloseOutlined /> : closeIcon
       return isClosable
         ? (
             <button
@@ -174,7 +180,7 @@ const Alert = defineComponent<
   string,
   SlotsType<AlertSlots>
 >(
-  (props = alertDefaultProps, { slots, emit, attrs }) => {
+  (props = alertDefaultProps, { slots, emit, attrs, expose }) => {
     const {
       closable: contextClosable,
       closeIcon: contextCloseIcon,
@@ -193,10 +199,17 @@ const Alert = defineComponent<
     const { classes, styles } = toPropsRefs(props, 'classes', 'styles')
     const closed = shallowRef(false)
     const internalRef = shallowRef<HTMLDivElement>()
+    expose({ nativeElement: internalRef })
     const [hashId, cssVarCls] = useStyle(prefixCls)
     const handleClose = (e?: MouseEvent) => {
       closed.value = true
-      emit('close', e)
+      const closable = props.closable
+      if (typeof closable === 'object' && closable?.onClose) {
+        closable.onClose(e)
+      }
+      else {
+        emit('close', e)
+      }
     }
 
     const type = computed(() => {
@@ -283,15 +296,15 @@ const Alert = defineComponent<
         hashId.value,
       )
       const mergedCloseIconFn = () => {
-        if (typeof closable === 'object' && closable.closeIcon) {
+        if (typeof closable === 'object' && closable?.closeIcon) {
           return closable.closeIcon
         }
-        const closeIcon = getSlotPropFn(slots, props, 'closeIcon')
-        if (closeIcon) {
+        const closeIcon = getSlotPropsFnRun(slots, props, 'closeIcon', false)
+        if (closeIcon !== undefined) {
           return closeIcon
         }
-        if (typeof contextClosable.value === 'object' && contextClosable.value) {
-          return contextClosable.value
+        if (typeof contextClosable.value === 'object' && contextClosable.value?.closeIcon) {
+          return contextClosable.value.closeIcon
         }
         return contextCloseIcon.value
       }
@@ -299,9 +312,8 @@ const Alert = defineComponent<
 
       const mergedAriaPropsFn = () => {
         const merged = closable ?? contextClosable.value
-        if (typeof merged === 'object') {
-          const { closeIcon: _, ...ariaProps } = merged
-          return ariaProps
+        if (typeof merged === 'object' && merged) {
+          return pickAttrs(merged, { aria: true, data: true })
         }
         return {}
       }
@@ -315,7 +327,14 @@ const Alert = defineComponent<
           leaveActiveClass={`${prefixCls.value}-motion-leave ${prefixCls.value}-motion-leave-active`}
           leaveToClass={`${prefixCls.value}-motion-leave ${prefixCls.value}-motion-leave-active`}
           onBeforeLeave={handleBeforeLeave}
-          onAfterLeave={() => props?.afterClose?.()}
+          onAfterLeave={() => {
+            if (typeof closable === 'object' && closable?.afterClose) {
+              closable.afterClose()
+            }
+            else {
+              props?.afterClose?.()
+            }
+          }}
         >
           {!closed.value
             ? (

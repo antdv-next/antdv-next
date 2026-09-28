@@ -3,6 +3,7 @@ import type { CellSemanticClassNames, CellSemanticStyles } from './DescriptionsC
 import { classNames } from '@v-c/util'
 import { defineComponent } from 'vue'
 import { isRenderable } from '../_util/is'
+import { normalizeStyle } from '../_util/styleUtils'
 import { getSlotPropsFnRun } from '../_util/tools.ts'
 import { useDescriptionsCtx } from './DescriptionsContext'
 
@@ -29,6 +30,12 @@ const Cell = defineComponent<CellProps>(
       const label = getSlotPropsFnRun(slots, props, 'label')
       const content = getSlotPropsFnRun(slots, props, 'content')
       if (bordered) {
+        let typeStyle: CellSemanticStyles['label']
+        if (type === 'label')
+          typeStyle = styles?.label
+        if (type === 'content')
+          typeStyle = styles?.content
+        const mergedCellStyle = { ...normalizeStyle(attrs.style), ...typeStyle }
         return (
           <Component
             class={classNames(
@@ -43,9 +50,10 @@ const Cell = defineComponent<CellProps>(
             {
               ...attrs
             }
+            style={mergedCellStyle}
           >
-            {isRenderable(label) && <span style={styles?.label} class={classes?.label}>{label}</span>}
-            {isRenderable(content) && <span style={styles?.content} class={classes?.content}>{content}</span>}
+            {isRenderable(label) && <span>{label}</span>}
+            {isRenderable(content) && <span>{content}</span>}
           </Component>
         )
       }
@@ -87,6 +95,9 @@ const Cell = defineComponent<CellProps>(
         </Component>
       )
     }
+  },
+  {
+    inheritAttrs: false,
   },
 )
 
