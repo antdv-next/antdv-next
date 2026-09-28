@@ -132,6 +132,77 @@ describe('alert', () => {
     expect(wrapper.find('.anticon-smile').exists()).toBe(true)
   })
 
+  it('should use global closeIcon from ConfigProvider', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider alert={{ closeIcon: h('span', { class: 'global-close-icon' }, 'G') }}>
+        <Alert title="Success Text" closable />
+      </ConfigProvider>
+    ))
+
+    expect(wrapper.find('.global-close-icon').exists()).toBe(true)
+  })
+
+  it('should use global closable.closeIcon from ConfigProvider', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider alert={{ closable: { closeIcon: h('span', { class: 'global-closable-icon' }, 'C') } }}>
+        <Alert title="Success Text" />
+      </ConfigProvider>
+    ))
+
+    expect(wrapper.find('.global-closable-icon').exists()).toBe(true)
+  })
+
+  it('should use the default close icon when closeIcon is true', () => {
+    const wrapper = mount(Alert, {
+      props: {
+        title: 'Success Text',
+        closable: true,
+        closeIcon: true,
+      },
+    })
+
+    expect(wrapper.find('.ant-alert-close-icon .anticon-close').exists()).toBe(true)
+  })
+
+  it('should call closable.onClose with priority over onClose', async () => {
+    const closableOnClose = vi.fn()
+    const onClose = vi.fn()
+    const wrapper = mount(Alert, {
+      props: {
+        title: 'Success Text',
+        closable: { onClose: closableOnClose },
+        onClose,
+      },
+    })
+
+    await wrapper.find('.ant-alert-close-icon').trigger('click')
+    expect(closableOnClose).toHaveBeenCalledTimes(1)
+    expect(onClose).not.toHaveBeenCalled()
+  })
+
+  it('should only pass aria and data props from closable to close button', () => {
+    const wrapper = mount(Alert, {
+      props: {
+        title: 'Success Text',
+        closable: {
+          'aria-label': 'Close',
+          'data-test': 'close',
+          disabled: true,
+        } as any,
+      },
+    })
+
+    const closeButton = wrapper.find('.ant-alert-close-icon')
+    expect(closeButton.attributes('aria-label')).toBe('Close')
+    expect(closeButton.attributes('data-test')).toBe('close')
+    expect(closeButton.attributes('disabled')).toBeUndefined()
+  })
+
+  it('should expose nativeElement', () => {
+    const wrapper = mount(Alert, { props: { title: 'Success Text' } })
+    expect((wrapper.vm as any).nativeElement).toBe(wrapper.find('.ant-alert').element)
+  })
+
   it('should support banner mode', () => {
     const wrapper = mount(Alert, {
       props: {
