@@ -2,13 +2,10 @@ import type { VueNode } from '../_util/type.ts'
 import type { CellSemanticClassNames, CellSemanticStyles } from './DescriptionsContext'
 import { classNames } from '@v-c/util'
 import { defineComponent } from 'vue'
+import { isRenderable } from '../_util/is'
 import { normalizeStyle } from '../_util/styleUtils'
 import { getSlotPropsFnRun } from '../_util/tools.ts'
 import { useDescriptionsCtx } from './DescriptionsContext'
-
-function notEmpty(val: any) {
-  return val !== undefined && val !== null
-}
 
 export interface CellProps {
   itemPrefixCls: string
@@ -55,8 +52,8 @@ const Cell = defineComponent<CellProps>(
             }
             style={mergedCellStyle}
           >
-            {notEmpty(label) && <span>{label}</span>}
-            {notEmpty(content) && <span>{content}</span>}
+            {isRenderable(label) && <span>{label}</span>}
+            {isRenderable(content) && <span>{content}</span>}
           </Component>
         )
       }
