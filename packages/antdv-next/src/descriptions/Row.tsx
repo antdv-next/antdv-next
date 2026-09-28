@@ -4,7 +4,6 @@ import type { DescriptionsContextProps } from './DescriptionsContext.ts'
 import type { InternalDescriptionsItemType, RenderDescriptionsItem } from './index.tsx'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { defineComponent } from 'vue'
-import { normalizeStyle } from '../_util/styleUtils'
 import { getSlotPropsFnRun } from '../_util/tools.ts'
 import Cell from './Cell.tsx'
 import { useDescriptionsCtx } from './DescriptionsContext.ts'
@@ -83,15 +82,22 @@ function renderCells(
       )
     }
 
+    const mergedStyles = {
+      label: {
+        ...rootStyles?.label,
+        ...styles?.label,
+      },
+      content: {
+        ...rootStyles?.content,
+        ...styles?.content,
+      },
+    }
     return [
       <Cell
         key={`label-${mergedKey}`}
         class={className}
-        style={{
-          ...rootStyles?.label,
-          ...(normalizeStyle(style) || {}),
-          ...styles?.label,
-        }}
+        style={style}
+        styles={mergedStyles}
         span={1}
         colon={colon}
         component={component[0]}
@@ -103,11 +109,8 @@ function renderCells(
       <Cell
         key={`content-${mergedKey}`}
         class={className}
-        style={{
-          ...rootStyles?.content,
-          ...(normalizeStyle(style) || {}),
-          ...styles?.content,
-        }}
+        style={style}
+        styles={mergedStyles}
         span={span * 2 - 1}
         component={component[1]}
         itemPrefixCls={itemPrefixCls}
