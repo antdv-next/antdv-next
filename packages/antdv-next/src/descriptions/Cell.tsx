@@ -2,12 +2,9 @@ import type { VueNode } from '../_util/type.ts'
 import type { CellSemanticClassNames, CellSemanticStyles } from './DescriptionsContext'
 import { classNames } from '@v-c/util'
 import { defineComponent } from 'vue'
+import { isRenderable } from '../_util/is'
 import { getSlotPropsFnRun } from '../_util/tools.ts'
 import { useDescriptionsCtx } from './DescriptionsContext'
-
-function notEmpty(val: any) {
-  return val !== undefined && val !== null
-}
 
 export interface CellProps {
   itemPrefixCls: string
@@ -47,8 +44,8 @@ const Cell = defineComponent<CellProps>(
               ...attrs
             }
           >
-            {notEmpty(label) && <span style={styles?.label} class={classes?.label}>{label}</span>}
-            {notEmpty(content) && <span style={styles?.content} class={classes?.content}>{content}</span>}
+            {isRenderable(label) && <span style={styles?.label} class={classes?.label}>{label}</span>}
+            {isRenderable(content) && <span style={styles?.content} class={classes?.content}>{content}</span>}
           </Component>
         )
       }
