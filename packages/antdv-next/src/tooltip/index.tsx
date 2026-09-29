@@ -286,7 +286,7 @@ const InternalTooltip = defineComponent<
       )
       const children = filterEmpty(slots.default?.())
       let child = children?.[0]
-      child = isVNode(child) ? child : <span>{child}</span>
+      child = isVNode(child) && typeof child.type !== 'symbol' ? child : <span>{child}</span>
       const childProps = child?.props ?? {}
       const childCls = !childProps?.class || typeof childProps?.class === 'string' ? clsx(childProps.class, openClass || `${prefixCls.value}-open`) : childProps.class
 

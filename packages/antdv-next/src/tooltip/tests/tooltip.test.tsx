@@ -1,6 +1,6 @@
 import type { TooltipPlacement } from '..'
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
-import { defineComponent, nextTick, ref } from 'vue'
+import { createTextVNode, defineComponent, nextTick, ref } from 'vue'
 import Tooltip from '..'
 import getPlacements from '../../_util/placements'
 import Button from '../../button'
@@ -160,6 +160,21 @@ describe('tooltip', () => {
     expect(onOpenChange.mock.calls.length).toBe(lastCount)
     expect(isTooltipOpen()).toBeFalsy()
     expect(wrapper.find('.ant-tooltip-open').exists()).toBe(false)
+  })
+
+  it('should wrap plain text child in span and open on hover', async () => {
+    const wrapper = mount(Tooltip, {
+      attachTo: document.body,
+      props: { title: 'Have a nice day!', mouseEnterDelay: 0, mouseLeaveDelay: 0 },
+      slots: { default: () => [createTextVNode('text trigger')] },
+    })
+    const trigger = wrapper.find('span')
+    expect(trigger.element.tagName).toBe('SPAN')
+    expect(trigger.text()).toBe('text trigger')
+
+    await trigger.trigger('mouseenter')
+    await flushTooltipTimer()
+    expect(isTooltipOpen()).toBe(true)
   })
 
   it('should switch to uncontrolled mode when controlled open path becomes undefined', async () => {
