@@ -165,7 +165,7 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
         rootClass.value,
       ))
 
-      const [contextLocale] = useLocale('Calendar', enUS)
+      const [contextLocale] = useLocale('DatePicker', enUS)
       const locale = computed(() => ({
         ...contextLocale?.value,
         ...(props.locale ?? {}),

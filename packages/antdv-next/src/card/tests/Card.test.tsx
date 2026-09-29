@@ -242,6 +242,40 @@ describe('card', () => {
     expect(activeTab.text()).toBe('Tab 2')
   })
 
+  it('should use tabProps.defaultActiveKey and allow switching tabs', async () => {
+    const wrapper = mount(Card, {
+      props: {
+        tabList: [
+          { key: 'tab1', label: 'Tab 1' },
+          { key: 'tab2', label: 'Tab 2' },
+        ],
+        tabProps: { defaultActiveKey: 'tab2' },
+      },
+      slots: { default: () => 'content' },
+    })
+
+    expect(wrapper.find('.ant-tabs-tab-active').text()).toBe('Tab 2')
+
+    await wrapper.findAll('.ant-tabs-tab')[0].trigger('click')
+    expect(wrapper.find('.ant-tabs-tab-active').text()).toBe('Tab 1')
+  })
+
+  it('should prioritize defaultActiveTabKey over tabProps.defaultActiveKey', () => {
+    const wrapper = mount(Card, {
+      props: {
+        tabList: [
+          { key: 'tab1', label: 'Tab 1' },
+          { key: 'tab2', label: 'Tab 2' },
+        ],
+        defaultActiveTabKey: 'tab2',
+        tabProps: { defaultActiveKey: 'tab1' },
+      },
+      slots: { default: () => 'content' },
+    })
+
+    expect(wrapper.find('.ant-tabs-tab-active').text()).toBe('Tab 2')
+  })
+
   const cardTabList = [
     { key: 'tab1', label: 'Tab 1' },
     { key: 'tab2', label: 'Tab 2' },
