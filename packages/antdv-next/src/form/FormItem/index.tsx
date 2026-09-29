@@ -144,6 +144,9 @@ const InternalFormItem = defineComponent<
     const errors = shallowRef<any[]>([])
     const warnings = shallowRef<any[]>([])
     const validateDisabled = shallowRef(false)
+    // Bumped on every validate / clear / reset, mirroring rc-field-form's `validatePromise`:
+    // a pending async validation that is no longer the latest one must not write its result.
+    let validateId = 0
     const subFieldErrors = shallowRef<Record<string, FieldError>>({})
     // 获取初始值的类型，如果是单个的值，直接复制，如果是个对象，就需要进行深拷贝
     const initialValue = shallowRef<any>(initialValueFormat(formContext.value?.getFieldValue?.(namePath.value)))
@@ -248,6 +251,7 @@ const InternalFormItem = defineComponent<
         if (validateOnly) {
           return Promise.resolve()
         }
+        validateId++
         errors.value = []
         warnings.value = []
         updateMeta({
@@ -264,6 +268,8 @@ const InternalFormItem = defineComponent<
       if (!validateOnly) {
         updateMeta({ validating: true, validated: true })
       }
+      // validateOnly never writes state, so it must not invalidate other pending validations
+      const currentValidateId = validateOnly ? validateId : ++validateId
 
       const promise = validateRules(
         namePath.value,
@@ -307,18 +313,21 @@ const InternalFormItem = defineComponent<
             }
           })
 
-          errors.value = mergedErrors
-          warnings.value = mergedWarnings
+          // Stale result (superseded by a newer validation, or cleared / reset meanwhile): drop it
+          if (currentValidateId === validateId) {
+            errors.value = mergedErrors
+            warnings.value = mergedWarnings
 
-          updateMeta({
-            errors: mergedErrors,
-            warnings: mergedWarnings,
-            validating: false,
-            validated: true,
-            touched: meta.value.touched,
-          })
-          formContext.value?.onValidate?.(namePath.value, mergedErrors.length === 0, mergedErrors.length ? mergedErrors : null)
-          formContext.value?.triggerFieldsChange?.([namePath.value])
+            updateMeta({
+              errors: mergedErrors,
+              warnings: mergedWarnings,
+              validating: false,
+              validated: true,
+              touched: meta.value.touched,
+            })
+            formContext.value?.onValidate?.(namePath.value, mergedErrors.length === 0, mergedErrors.length ? mergedErrors : null)
+            formContext.value?.triggerFieldsChange?.([namePath.value])
+          }
 
           if (mergedErrors.length) {
             return Promise.reject(results)
@@ -339,6 +348,7 @@ const InternalFormItem = defineComponent<
     }
 
     const clearValidate = () => {
+      validateId++
       errors.value = []
       warnings.value = []
       updateMeta({
@@ -349,7 +359,7 @@ const InternalFormItem = defineComponent<
     }
 
     const resetField = () => {
-      validateDisabled.value = true
+      validateId++
       errors.value = []
       warnings.value = []
       updateMeta({
@@ -360,10 +370,16 @@ const InternalFormItem = defineComponent<
         validated: false,
       })
       if (hasName.value && formContext.value?.model) {
+        const nextValue = initialValueFormat(initialValue.value)
+        // Only skip the validation triggered by the reset when the value really changes;
+        // otherwise the watcher never runs and the flag would swallow the user's next change.
+        if (!Object.is(fieldValue.value, nextValue)) {
+          validateDisabled.value = true
+        }
         const newStore = setValue(
           formContext.value.model,
           namePath.value,
-          initialValueFormat(initialValue.value),
+          nextValue,
         )
         Object.assign(formContext.value.model, newStore)
       }
