@@ -77,7 +77,6 @@ demo:
 
 | 事件 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
-| afterOpenChange | 切换抽屉时动画结束后的回调 | (open: boolean) => void | - |
 | close | 抽屉关闭回调 | (e: MouseEvent \| KeyboardEvent) => void | - |
 | keydown | 键盘按下回调 | (e: KeyboardEvent) => void | - |
 | keyup | 键盘抬起回调 | (e: KeyboardEvent) => void | - |

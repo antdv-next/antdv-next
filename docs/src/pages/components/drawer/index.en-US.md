@@ -76,7 +76,6 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 | Event | Description | Type | Version |
 | --- | --- | --- | --- |
-| afterOpenChange | Callback after the animation ends when switching drawers | (open: boolean) => void | - |
 | close | Callback when drawer is closed | (e: MouseEvent \| KeyboardEvent) => void | - |
 | keydown | Keyboard keydown event | (e: KeyboardEvent) => void | - |
 | keyup | Keyboard keyup event | (e: KeyboardEvent) => void | - |

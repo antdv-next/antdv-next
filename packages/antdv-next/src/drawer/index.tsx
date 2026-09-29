@@ -59,7 +59,6 @@ export interface DrawerProps
 
 export interface DrawerEmits {
   'update:open': (open: boolean) => void
-  'afterOpenChange': (open: boolean) => void
   'close': (e: MouseEvent | KeyboardEvent) => void
   'keydown': (e: KeyboardEvent) => void
   'keyup': (e: KeyboardEvent) => void
@@ -70,7 +69,6 @@ export interface DrawerEmits {
 }
 export interface DrawerEmitsProps {
   'onUpdate:open'?: DrawerEmits['update:open']
-  onAfterOpenChange?: DrawerEmits['afterOpenChange']
   onClose?: DrawerEmits['close']
   onKeydown?: DrawerEmits['keydown']
   onKeyup?: DrawerEmits['keyup']
