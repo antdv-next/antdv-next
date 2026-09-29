@@ -6,7 +6,7 @@ import { clsx } from '@v-c/util'
 import KeyCode from '@v-c/util/dist/KeyCode'
 import { filterEmpty, removeUndefined } from '@v-c/util/dist/props-util'
 import { getTransitionName } from '@v-c/util/dist/utils/transition'
-import { computed, createVNode, defineComponent, shallowRef, watch } from 'vue'
+import { computed, createVNode, defineComponent, isVNode, shallowRef, watch } from 'vue'
 import {
   useMergeSemantic,
   useSemanticRootStyle,
@@ -150,7 +150,8 @@ const InternalPopover = defineComponent<
     }
 
     return () => {
-      const children = filterEmpty(slots?.default?.() ?? [])?.[0]
+      const firstChild = filterEmpty(slots?.default?.() ?? [])[0]
+      const child = firstChild && !(isVNode(firstChild) && typeof firstChild.type !== 'symbol') ? <span>{firstChild}</span> : firstChild
       const {
         placement,
         mouseLeaveDelay: _mouseLeaveDelay,
@@ -212,7 +213,7 @@ const InternalPopover = defineComponent<
           dataPopoverInject={true}
           ref={popoverRef}
         >
-          { children ? createVNode(children, { onKeydown: onKeyDown }) : null}
+          { child ? createVNode(child, { onKeydown: onKeyDown }) : null}
         </Tooltip>
       )
     }

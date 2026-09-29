@@ -1,7 +1,7 @@
 import type { PopoverRef } from '..'
 import KeyCode from '@v-c/util/dist/KeyCode'
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
-import { nextTick, ref } from 'vue'
+import { createTextVNode, nextTick, ref } from 'vue'
 import Popover from '..'
 import ConfigProvider from '../../config-provider'
 import mountTest from '/@tests/shared/mountTest'
@@ -49,6 +49,26 @@ describe('popover', () => {
     if (originOffsetParentDescriptor) {
       Object.defineProperty(HTMLElement.prototype, 'offsetParent', originOffsetParentDescriptor)
     }
+  })
+
+  it('should wrap plain text child in span and open on hover', async () => {
+    const wrapper = mount(Popover, {
+      attachTo: document.body,
+      props: {
+        title: 'Popover Title',
+        content: 'Popover Content',
+        mouseEnterDelay: 0,
+        mouseLeaveDelay: 0,
+      },
+      slots: { default: () => [createTextVNode('text trigger')] },
+    })
+    const trigger = wrapper.find('span')
+    expect(trigger.element.tagName).toBe('SPAN')
+    expect(trigger.text()).toBe('text trigger')
+
+    await trigger.trigger('mouseenter')
+    await flushPopoverTimer()
+    expect(isPopoverOpen()).toBe(true)
   })
 
   it('renders title prop in overlay', async () => {
