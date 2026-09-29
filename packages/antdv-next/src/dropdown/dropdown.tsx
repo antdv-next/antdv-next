@@ -255,7 +255,8 @@ const Dropdown = defineComponent<
 
     return () => {
       const children = filterEmpty(slots?.default?.())
-      const child = children.length === 1 ? (isVNode(children[0]) ? children[0] : <span>{children}</span>) : <span>{children}</span>
+      const firstChild = children[0]
+      const child = children.length === 1 && isVNode(firstChild) && typeof firstChild.type !== 'symbol' ? firstChild : <span>{children}</span>
       const {
         menu,
         popupRender,
