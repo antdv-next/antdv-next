@@ -209,14 +209,14 @@ const DrawerPanel = defineComponent<DrawerPanelProps>(
                   {title}
                 </div>
               )}
-              {
-                hasExtra && (
-                  <div class={clsx(`${prefixCls}-extra`, mergedClassNames.value.extra)} style={mergedStyles.value.extra}>
-                    {extra}
-                  </div>
-                )
-              }
             </div>
+            {
+              hasExtra && (
+                <div class={clsx(`${prefixCls}-extra`, mergedClassNames.value.extra)} style={mergedStyles.value.extra}>
+                  {extra}
+                </div>
+              )
+            }
             {closablePlacement.value === 'end' && mergedCloseButton}
           </div>
         )
