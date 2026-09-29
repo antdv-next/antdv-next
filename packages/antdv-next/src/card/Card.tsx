@@ -231,7 +231,7 @@ const Card = defineComponent<
         ...tabProps,
         [hasActiveTabKey ? 'activeKey' : 'defaultActiveKey']: hasActiveTabKey
           ? activeTabKey
-          : defaultActiveTabKey,
+          : defaultActiveTabKey ?? tabProps?.defaultActiveKey,
         tabBarExtraContent: getSlotPropsFnRun(slots, props, 'tabBarExtraContent'),
       }
 

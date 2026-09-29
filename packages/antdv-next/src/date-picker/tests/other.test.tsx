@@ -34,6 +34,36 @@ describe('date-picker.other', () => {
     expect(inputs[1]?.attributes('placeholder')).toBe('結束日期')
   })
 
+  it('should apply DatePicker locale from ConfigProvider to RangePicker', () => {
+    const customLocale = {
+      ...zhCN,
+      Calendar: {
+        ...zhCN.Calendar,
+        lang: {
+          ...zhCN.Calendar.lang,
+          rangePlaceholder: ['Calendar start', 'Calendar end'],
+        },
+      },
+      DatePicker: {
+        ...zhCN.DatePicker,
+        lang: {
+          ...zhCN.DatePicker.lang,
+          rangePlaceholder: ['DatePicker start', 'DatePicker end'],
+        },
+      },
+    } as any
+
+    const wrapper = mount({
+      render: () => h(ConfigProvider, { locale: customLocale }, {
+        default: () => h(DatePicker.RangePicker),
+      }),
+    })
+
+    const inputs = wrapper.findAll('input')
+    expect(inputs[0]?.attributes('placeholder')).toBe('DatePicker start')
+    expect(inputs[1]?.attributes('placeholder')).toBe('DatePicker end')
+  })
+
   it('should apply custom locale placeholders from ConfigProvider', () => {
     const myLocale = {
       ...zhCN,
