@@ -87,6 +87,9 @@ describe('drawer', () => {
     await nextTick()
     const extra = document.querySelector('.ant-drawer-extra .extra-content')
     expect(extra?.textContent).toBe('Extra')
+    const extraNode = document.querySelector('.ant-drawer-extra')
+    expect(extraNode?.parentElement?.classList.contains('ant-drawer-header')).toBe(true)
+    expect(extraNode?.parentElement?.classList.contains('ant-drawer-header-title')).toBe(false)
     wrapper.unmount()
   })
 

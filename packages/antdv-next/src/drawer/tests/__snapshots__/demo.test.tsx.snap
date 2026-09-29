@@ -96,33 +96,33 @@ exports[`drawer demo > renders _semantic correctly 1`] = `
                   >
                     Title
                   </div>
-                  <div
-                    class="ant-drawer-extra semantic-mark-extra"
+                </div>
+                <div
+                  class="ant-drawer-extra semantic-mark-extra"
+                >
+                  <button
+                    class="ant-btn css-var-v-0 ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+                    type="button"
                   >
-                    <button
-                      class="ant-btn css-var-v-0 ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-                      type="button"
+                    <transition-stub
+                      appear="false"
+                      css="true"
+                      enteractiveclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-prepare ant-btn-loading-icon-motion-enter-prepare "
+                      enterfromclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-prepare ant-btn-loading-icon-motion-enter-prepare ant-btn-loading-icon-motion-enter-start"
+                      entertoclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-active ant-btn-loading-icon-motion-enter-active"
+                      leaveactiveclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave ant-btn-loading-icon-motion-leave-active"
+                      leavefromclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave"
+                      leavetoclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave ant-btn-loading-icon-motion-leave-active"
+                      name="ant-btn-loading-icon-motion"
+                      persisted="false"
                     >
-                      <transition-stub
-                        appear="false"
-                        css="true"
-                        enteractiveclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-prepare ant-btn-loading-icon-motion-enter-prepare "
-                        enterfromclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-prepare ant-btn-loading-icon-motion-enter-prepare ant-btn-loading-icon-motion-enter-start"
-                        entertoclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-enter ant-btn-loading-icon-motion-appear ant-btn-loading-icon-motion-appear-active ant-btn-loading-icon-motion-enter-active"
-                        leaveactiveclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave ant-btn-loading-icon-motion-leave-active"
-                        leavefromclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave"
-                        leavetoclass="ant-btn-loading-icon-motion ant-btn-loading-icon-motion-leave ant-btn-loading-icon-motion-leave-active"
-                        name="ant-btn-loading-icon-motion"
-                        persisted="false"
-                      >
-                        <!---->
-                      </transition-stub>
-                      <span>
-                        Cancel
-                      </span>
                       <!---->
-                    </button>
-                  </div>
+                    </transition-stub>
+                    <span>
+                      Cancel
+                    </span>
+                    <!---->
+                  </button>
                 </div>
                 <!---->
               </div>
@@ -2146,8 +2146,8 @@ exports[`drawer demo > renders render-panel correctly 1`] = `
         >
           Hello Title
         </div>
-        <!---->
       </div>
+      <!---->
       <!---->
     </div>
     <div
