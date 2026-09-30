@@ -47,7 +47,7 @@ const Flex = defineComponent<FlexProps, EmptyEmit, string, SlotsType<FlexSlots>>
           [`${prefixCls.value}-vertical`]: mergedVertical,
         },
       )
-      const mergedStyle: CSSProperties = {}
+      const mergedStyle: CSSProperties = { ...ctxFlex?.style }
       if (flex) {
         mergedStyle.flex = flex
       }

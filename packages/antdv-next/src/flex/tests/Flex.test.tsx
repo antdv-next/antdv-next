@@ -261,8 +261,31 @@ describe('flex', () => {
     })
   })
 
-  // flex is NOT in ConfigProvider PASSED_PROPS or baseConfig,
-  // so flex.vertical and flex.class from ConfigProvider do not reach the component
+  describe('ConfigProvider flex config', () => {
+    it('should apply style from ConfigProvider flex config', () => {
+      const wrapper = mount(() => (
+        <ConfigProvider flex={{ style: { color: 'red' } }}>
+          <Flex>
+            <div>test</div>
+          </Flex>
+        </ConfigProvider>
+      ))
+      expect(wrapper.find('.ant-flex').attributes('style')).toContain('color: red')
+    })
+
+    it('should override ConfigProvider flex style with component style', () => {
+      const wrapper = mount(() => (
+        <ConfigProvider flex={{ style: { color: 'red' } }}>
+          <Flex style={{ color: 'blue' }}>
+            <div>test</div>
+          </Flex>
+        </ConfigProvider>
+      ))
+      const style = wrapper.find('.ant-flex').attributes('style') || ''
+      expect(style).toContain('color: blue')
+      expect(style).not.toContain('color: red')
+    })
+  })
 
   it('should update when props change dynamically', async () => {
     const vertical = ref(false)
