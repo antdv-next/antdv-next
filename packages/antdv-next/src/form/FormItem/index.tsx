@@ -595,10 +595,10 @@ const InternalFormItem = defineComponent<
         const _onBlur = childProps.onBlur
         const _onFocus = childProps.onFocus
         if (_onBlur) {
-          delete child.props.onBlur
+          delete childProps.onBlur
         }
         if (_onFocus) {
-          delete child.props.onFocus
+          delete childProps.onFocus
         }
         const newChildProps: Record<string, any> = {
           id: childProps.id || currentFieldId,
