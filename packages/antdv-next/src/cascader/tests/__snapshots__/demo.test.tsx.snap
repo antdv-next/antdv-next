@@ -2597,8 +2597,6 @@ exports[`cascader demo > renders render-panel correctly 1`] = `
   data-v-app=""
 >
   <div
-    options="[object Object],[object Object]"
-    placeholder="Please select"
     style="padding-bottom: 0px; position: relative; min-width: 0px;"
   >
     <!---->

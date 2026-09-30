@@ -2265,7 +2265,6 @@ exports[`dropdown demo > renders render-panel correctly 1`] = `
   data-v-app=""
 >
   <div
-    menu="[object Object]"
     style="padding-bottom: 0px; position: relative; min-width: 0px;"
   >
     <span
