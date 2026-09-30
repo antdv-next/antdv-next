@@ -229,7 +229,7 @@ const InternalFormItem = defineComponent<
       return toArray(ruleTrigger)
     }
 
-    const validateRulesInner = (options: ValidateOptions & { triggerName?: TriggerType } = {}) => {
+    const validateRulesInner = async (options: ValidateOptions & { triggerName?: TriggerType } = {}) => {
       if (!namePath.value.length) {
         return Promise.resolve()
       }
@@ -270,6 +270,19 @@ const InternalFormItem = defineComponent<
       }
       // validateOnly never writes state, so it must not invalidate other pending validations
       const currentValidateId = validateOnly ? validateId : ++validateId
+
+      // `validateDebounce` postpones the rule run of event driven validation (change / blur /
+      // focus) while `validating` is published right away, matching the upstream `Field`
+      // behaviour. `validateFields`, `submit` and rule checks pass no `triggerName` and stay
+      // immediate. A run already superseded by a newer event, `clearValidate` or `resetField`
+      // is dropped so only the latest value reports a result.
+      const validateDebounce = triggerName && !validateOnly ? props.validateDebounce : undefined
+      if (validateDebounce) {
+        await new Promise(resolve => setTimeout(resolve, validateDebounce))
+        if (currentValidateId !== validateId) {
+          return Promise.resolve()
+        }
+      }
 
       const promise = validateRules(
         namePath.value,
