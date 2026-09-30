@@ -10,7 +10,7 @@ import rtlTest from '/@tests/shared/rtlTest'
 import { mount } from '/@tests/utils'
 
 describe('alert', () => {
-  rtlTest(() => h(Alert, null, { message: () => 'test' }))
+  rtlTest(() => h(Alert, null, { title: () => 'test' }))
 
   it('should render title correctly', () => {
     const wrapper = mount(Alert, {
@@ -25,7 +25,7 @@ describe('alert', () => {
   it('should render description correctly', () => {
     const wrapper = mount(Alert, {
       props: {
-        message: 'Success Text',
+        title: 'Success Text',
         description: 'Success Description',
         type: 'success',
       },
@@ -48,7 +48,7 @@ describe('alert', () => {
     types.forEach((type) => {
       const wrapper = mount(Alert, {
         props: {
-          message: 'Text',
+          title: 'Text',
           type,
         },
       })
@@ -59,7 +59,7 @@ describe('alert', () => {
   it('should show icon', () => {
     const wrapper = mount(Alert, {
       props: {
-        message: 'Success Text',
+        title: 'Success Text',
         type: 'success',
         showIcon: true,
       },
@@ -70,7 +70,7 @@ describe('alert', () => {
   it('should allow custom icon', () => {
     const wrapper = mount(Alert, {
       props: {
-        message: 'Success Text',
+        title: 'Success Text',
         icon: h(SmileOutlined),
         showIcon: true,
       },
@@ -81,7 +81,7 @@ describe('alert', () => {
   it('should allow custom icon via slot', () => {
     const wrapper = mount(Alert, {
       props: {
-        message: 'Success Text',
+        title: 'Success Text',
         showIcon: true,
       },
       slots: {
@@ -94,7 +94,7 @@ describe('alert', () => {
   it('icon slot should take priority over icon prop', () => {
     const wrapper = mount(Alert, {
       props: {
-        message: 'Success Text',
+        title: 'Success Text',
         icon: h('span', { class: 'icon-from-prop' }, 'prop'),
         showIcon: true,
       },
@@ -110,7 +110,7 @@ describe('alert', () => {
     const onClose = vi.fn()
     const wrapper = mount(Alert, {
       props: {
-        message: 'Success Text',
+        title: 'Success Text',
         closable: true,
         onClose,
       },
@@ -125,7 +125,7 @@ describe('alert', () => {
   it('should allow custom close icon', () => {
     const wrapper = mount(Alert, {
       props: {
-        message: 'Success Text',
+        title: 'Success Text',
         closable: { closeIcon: h(SmileOutlined) },
       },
     })
@@ -206,7 +206,7 @@ describe('alert', () => {
   it('should support banner mode', () => {
     const wrapper = mount(Alert, {
       props: {
-        message: 'Banner Text',
+        title: 'Banner Text',
         banner: true,
       },
     })
@@ -217,7 +217,7 @@ describe('alert', () => {
   it('should support action slot', () => {
     const wrapper = mount(Alert, {
       props: {
-        message: 'Text',
+        title: 'Text',
       },
       slots: {
         action: () => h('button', 'Action'),
@@ -237,11 +237,22 @@ describe('alert', () => {
     expect(wrapper.find('.ant-alert-description').text()).toBe('Description Slot')
   })
 
+  it('should support deprecated message prop and slot', () => {
+    const propWrapper = mount(Alert, { props: { message: 'Message Text' } })
+    expect(propWrapper.find('.ant-alert-title').text()).toBe('Message Text')
+
+    const slotWrapper = mount(Alert, { slots: { message: () => 'Message Slot' } })
+    expect(slotWrapper.find('.ant-alert-title').text()).toBe('Message Slot')
+
+    const priorityWrapper = mount(Alert, { props: { title: 'Title Text', message: 'Message Text' } })
+    expect(priorityWrapper.find('.ant-alert-title').text()).toBe('Title Text')
+  })
+
   it('should show close button and could be closed', async () => {
     const onClose = vi.fn()
     const wrapper = mount(() => (
       <Alert
-        message="Warning Text Warning Text Warning Text Warning Text Warning Text Warning TextWarning Text"
+        title="Warning Text Warning Text Warning Text Warning Text Warning Text Warning TextWarning Text"
         type="warning"
         closable={true}
         onClose={onClose}
@@ -254,7 +265,7 @@ describe('alert', () => {
   it('custom action', () => {
     const wrapper = mount(() => (
       <Alert
-        message="Success Tips"
+        title="Success Tips"
         type="success"
         showIcon={true}
         closable={true}
@@ -272,7 +283,7 @@ describe('alert', () => {
         data-test="test-id"
         data-id="12345"
         aria-describedby="some-label"
-        message={null}
+        title={null}
       />
     ))
     const alert = wrapper.find('[role="alert"]')
@@ -285,7 +296,7 @@ describe('alert', () => {
     const wrapper = mount(() => (
       <Alert
         role="status"
-        message={null}
+        title={null}
       />
     ))
     expect(wrapper.find('[role="status"]').exists()).toBe(true)
@@ -295,7 +306,7 @@ describe('alert', () => {
     const wrapper = mount(() => (
       <Tooltip title="xxx" mouseEnterDelay={0}>
         <Alert
-          message="Warning Text"
+          title="Warning Text"
           type="warning"
         />
       </Tooltip>
@@ -309,7 +320,7 @@ describe('alert', () => {
     const wrapper = mount(() => (
       <Popconfirm title="xxx">
         <Alert
-          message="Warning Text"
+          title="Warning Text"
           type="warning"
         />
       </Popconfirm>

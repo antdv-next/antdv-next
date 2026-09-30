@@ -19,7 +19,7 @@ describe('divider', () => {
 
   it('should render vertical divider', () => {
     const wrapper = mount(Divider, {
-      props: { type: 'vertical' },
+      props: { orientation: 'vertical' },
     })
     expect(wrapper.find('.ant-divider-vertical').exists()).toBe(true)
   })
@@ -33,7 +33,7 @@ describe('divider', () => {
 
   it('not show children when vertical', () => {
     const wrapper = mount(Divider, {
-      props: { type: 'vertical' },
+      props: { orientation: 'vertical' },
       slots: { default: () => 'Bamboo' },
     })
     expect(wrapper.find('.ant-divider-inner-text').exists()).toBe(false)
@@ -319,7 +319,7 @@ describe('divider', () => {
 
   it('vertical divider should not render rail-start/rail-end', () => {
     const wrapper = mount(Divider, {
-      props: { type: 'vertical' },
+      props: { orientation: 'vertical' },
       slots: { default: () => 'Text' },
     })
     expect(wrapper.find('.ant-divider-rail-start').exists()).toBe(false)

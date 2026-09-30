@@ -85,7 +85,7 @@ describe('spin', () => {
 
   it('should not apply size class for default size', () => {
     const wrapper = mount(Spin, {
-      props: { size: 'default' },
+      props: { size: 'medium' },
     })
     expect(wrapper.find(`.${prefixCls}`).classes()).not.toContain(`${prefixCls}-sm`)
     expect(wrapper.find(`.${prefixCls}`).classes()).not.toContain(`${prefixCls}-lg`)

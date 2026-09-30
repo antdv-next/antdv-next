@@ -106,7 +106,7 @@ describe('steps', () => {
   })
 
   it('should render different sizes', () => {
-    const sizes = ['default', 'small'] as const
+    const sizes = ['medium', 'small'] as const
     sizes.forEach((size) => {
       const wrapper = mount(Steps, {
         props: {
@@ -432,7 +432,7 @@ describe('steps', () => {
     const wrapper = mount(Steps, {
       props: {
         type: 'panel',
-        direction: 'vertical',
+        orientation: 'vertical',
         items: [{ title: 'Step 1' }],
       },
     })

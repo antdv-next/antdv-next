@@ -128,7 +128,7 @@ describe('alert.Semantic', () => {
   it('aligns root semantic style priority', () => {
     const wrapper = mount(() => (
       <ConfigProvider alert={{ style: semanticRootStylePriority.contextStyle, styles: semanticRootStylePriority.contextStyles }}>
-        <Alert message="test" style={semanticRootStylePriority.style} styles={semanticRootStylePriority.styles} />
+        <Alert title="test" style={semanticRootStylePriority.style} styles={semanticRootStylePriority.styles} />
       </ConfigProvider>
     ), { attachTo: document.body })
 

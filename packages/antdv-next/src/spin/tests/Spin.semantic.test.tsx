@@ -163,7 +163,7 @@ describe('spin.semantic', () => {
       const wrapper = mount(Spin, {
         props: {
           classes: classesFn,
-          size: 'default',
+          size: 'medium',
         },
       })
       expect(wrapper.find(`.${prefixCls}`).classes()).toContain('not-small')

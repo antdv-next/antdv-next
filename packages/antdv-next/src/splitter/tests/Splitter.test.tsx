@@ -1119,13 +1119,16 @@ describe('splitter', () => {
       expect(draggerEle.find('.customize-dragger-icon').exists()).toBe(true)
     })
 
-    it('customize collapsibleIcon', async () => {
+    it.each([
+      ['collapsible.icon', (icon: any) => ({ collapsible: { icon } })],
+      ['deprecated collapsibleIcon', (icon: any) => ({ collapsibleIcon: icon })],
+    ])('customize %s', async (_, getIconProps) => {
       const wrapper = mountSplitter({
         items: [{ size: 20, collapsible: true }, { collapsible: true }],
-        collapsibleIcon: {
+        ...getIconProps({
           start: <span class="customize-icon-start" />,
           end: <span class="customize-icon-end" />,
-        },
+        }),
       })
 
       await resizeSplitter()

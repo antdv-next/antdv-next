@@ -48,12 +48,11 @@ describe('tree-select', () => {
         render: () => (
           <TreeSelect
             showSearch
-            clearIcon={<span>clear</span>}
             removeIcon={<span>remove</span>}
             value={['leaf1', 'leaf2']}
             placeholder="Please select"
             multiple
-            allowClear
+            allowClear={{ clearIcon: <span>clear</span> }}
             treeDefaultExpandAll
             treeData={treeData}
           >

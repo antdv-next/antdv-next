@@ -190,7 +190,7 @@ describe('table', () => {
 
   it('should support loading as object', () => {
     const wrapper = mount(Table, {
-      props: { columns, dataSource: data, loading: { tip: 'Loading...' } },
+      props: { columns, dataSource: data, loading: { description: 'Loading...' } },
     })
     expect(wrapper.find('.ant-spin-spinning').exists()).toBe(true)
   })

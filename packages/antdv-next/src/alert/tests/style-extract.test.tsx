@@ -13,7 +13,7 @@ async function extractAlertStyle(theme?: ThemeConfig) {
       h(ConfigProvider as any, { theme: { hashed: false, cssVar: false, ...theme } }, {
         default: () =>
           h(StyleProvider, { cache, mock: 'server' }, {
-            default: () => h(Alert, { message: 'Alert', closable: true }),
+            default: () => h(Alert, { title: 'Alert', closable: true }),
           }),
       }),
   })

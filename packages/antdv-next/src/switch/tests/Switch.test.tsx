@@ -151,7 +151,7 @@ describe('switch', () => {
 
   it('should not apply small class for default size', () => {
     const wrapper = mount(Switch, {
-      props: { size: 'default' },
+      props: { size: 'medium' },
     })
     expect(wrapper.find('button').classes()).not.toContain(`${prefixCls}-small`)
   })
