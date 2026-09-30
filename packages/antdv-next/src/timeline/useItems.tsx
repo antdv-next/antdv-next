@@ -1,4 +1,4 @@
-import type { ComputedRef } from 'vue'
+import type { ComputedRef, CSSProperties } from 'vue'
 
 import type { TimelineItemType, TimelineMode, TimelineProps } from './Timeline'
 import { LoadingOutlined } from '@antdv-next/icons'
@@ -63,7 +63,7 @@ function useItems(
         else {
           mergedStyle = {
             [varName('item-icon-dot-color')]: color,
-            ...(normalizeStyle(style) || {}),
+            ...(normalizeStyle(style) as CSSProperties | undefined),
           }
         }
       }

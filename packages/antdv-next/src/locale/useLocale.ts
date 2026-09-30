@@ -30,7 +30,7 @@ function useLocale<C extends LocaleComponentName = LocaleComponentName>(
     return localeCode!
   })
 
-  return [getLocale, getLocaleCode]
+  return [getLocale, getLocaleCode] as const
 }
 
 export default useLocale

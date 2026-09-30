@@ -793,12 +793,12 @@ const InternalTable = defineComponent<
           mergeClassNames(
             {},
             mergedClassNames.value.pagination,
-            resolveStyleOrClass(paginationProps.classes, info),
+            resolveStyleOrClass(paginationProps.classes ?? {}, info),
           )
 
         const paginationStyles: TablePaginationConfig['styles'] = info =>
           mergeStyles(
-            resolveStyleOrClass(paginationProps.styles, info),
+            resolveStyleOrClass(paginationProps.styles ?? {}, info),
             mergedStyles.value.pagination,
           )
 

@@ -157,11 +157,11 @@ const Carousel = defineComponent<
     expose({
       nativeElement: nativeElementRef,
       goTo,
-      autoPlay: playType => slickRef?.value?.innerSlider?.autoPlay?.(playType),
+      autoPlay: (playType: Parameters<CarouselRef['autoPlay']>[0]) => slickRef?.value?.innerSlider?.autoPlay?.(playType),
       next: () => slickRef?.value?.innerSlider?.slickNext?.(),
       prev: () => slickRef?.value?.innerSlider?.slickPrev?.(),
       innerSlider: computed(() => slickRef.value?.innerSlider),
-    } as CarouselRef)
+    })
 
     const count = shallowRef(0)
     const isRTL = computed(() => (props?.rtl ?? direction.value === 'rtl') && !props.vertical)

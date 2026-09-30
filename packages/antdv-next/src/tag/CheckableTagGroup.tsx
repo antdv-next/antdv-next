@@ -57,9 +57,8 @@ export interface CheckableTagGroupEmitsProps<CheckableTagValue = CheckableTagDef
   'onUpdate:value'?: CheckableTagGroupEmits<CheckableTagValue>['update:value']
 }
 
-interface InternalCheckableTagGroupProps extends CheckableTagGroupProps,
-  /* @vue-ignore */
-  CheckableTagGroupEmitsProps {}
+type InternalCheckableTagGroupProps = CheckableTagGroupProps
+  & /* @vue-ignore */ CheckableTagGroupEmitsProps
 
 const CheckableTagGroup = defineComponent<
   InternalCheckableTagGroupProps,
