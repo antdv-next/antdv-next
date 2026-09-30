@@ -462,12 +462,15 @@ const InternalCascader = defineComponent<
         showSuffixIcon,
         suffixIcon: mergedSuffixIcon,
         removeIcon: (rest as any).removeIcon ?? contextRemoveIcon.value,
-        clearIcon: (rest as any).clearIcon ?? contextClearIcon.value,
+        // Only the deprecated `clearIcon` prop reaches useSelectIcons (which warns about it);
+        // the ConfigProvider `cascader.clearIcon` is merged below without a warning.
+        clearIcon: (rest as any).clearIcon,
         prefixCls: prefixCls.value,
         componentName: 'Cascader',
       } as any)
 
-      const mergedAllowClear = (allowClear ?? true) === true ? { clearIcon } : allowClear
+      const mergedClearIcon = (rest as any).clearIcon ?? contextClearIcon.value ?? clearIcon
+      const mergedAllowClear = (allowClear ?? true) === true ? { clearIcon: mergedClearIcon } : allowClear
 
       const mergedPopupRender = usePopupRender((slots.popupRender ?? popupRender) || dropdownRender)
       const mergedPopupMenuColumnStyle = popupMenuColumnStyle ?? dropdownMenuColumnStyle

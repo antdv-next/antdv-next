@@ -62,6 +62,8 @@ describe('cascader ConfigProvider icons', () => {
   })
 
   it('uses ConfigProvider.cascader.clearIcon as the clear button icon', () => {
+    resetWarned()
+    const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
     const wrapper = mount(ConfigProvider, {
       props: {
         cascader: { clearIcon: h('span', { class: 'cfg-clear' }, '×') },
@@ -71,6 +73,9 @@ describe('cascader ConfigProvider icons', () => {
       },
     })
     expect(wrapper.find('.cfg-clear').exists()).toBe(true)
+    // the context icon is not the deprecated `clearIcon` prop, so it must not warn
+    expect(errSpy).not.toHaveBeenCalledWith(expect.stringContaining('`clearIcon` is deprecated'))
+    errSpy.mockRestore()
   })
 
   it('top-level clearIcon wins over ConfigProvider and warns deprecated', () => {
