@@ -122,6 +122,7 @@ function genPurePanel(
         )
       }
     },
+    { inheritAttrs: false },
   )
 
   return withPureRenderTheme(PurePanel)

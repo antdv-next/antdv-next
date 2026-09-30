@@ -4690,10 +4690,7 @@ exports[`select demo > renders render-panel correctly 1`] = `
     </span>
   </button>
   <div
-    options="[object Object],[object Object],[object Object],[object Object]"
     style="padding-bottom: 0px; position: relative; min-width: 0px;"
-    value="lucy"
-    virtual="false"
   >
     <!---->
     <div

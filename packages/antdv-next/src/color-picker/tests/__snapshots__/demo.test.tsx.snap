@@ -1100,7 +1100,6 @@ exports[`color-picker demo > renders pure-panel correctly 1`] = `
 >
   <div
     style="padding-bottom: 0px; position: relative; min-width: 0px;"
-    value="#1677ff"
   >
     <div
       aria-describedby="test-id"

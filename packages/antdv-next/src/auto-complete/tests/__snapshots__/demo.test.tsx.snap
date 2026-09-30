@@ -2322,8 +2322,6 @@ exports[`auto-complete demo > renders render-panel correctly 1`] = `
     </span>
   </button>
   <div
-    default-value="lucy"
-    options="[object Object],[object Object],[object Object],[object Object]"
     style="padding-bottom: 0px; position: relative; min-width: 0px;"
   >
     <!---->
