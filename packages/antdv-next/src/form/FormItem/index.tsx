@@ -147,6 +147,8 @@ const InternalFormItem = defineComponent<
     // Bumped on every validate / clear / reset, mirroring rc-field-form's `validatePromise`:
     // a pending async validation that is no longer the latest one must not write its result.
     let validateId = 0
+    // Ends the pending `validateDebounce` wait early (its run then sees a newer validateId and skips)
+    let cancelDebounce: (() => void) | undefined
     const subFieldErrors = shallowRef<Record<string, FieldError>>({})
     // 获取初始值的类型，如果是单个的值，直接复制，如果是个对象，就需要进行深拷贝
     const initialValue = shallowRef<any>(initialValueFormat(formContext.value?.getFieldValue?.(namePath.value)))
@@ -290,7 +292,15 @@ const InternalFormItem = defineComponent<
       )
       const validateDebounce = triggerName && !validateOnly ? props.validateDebounce : undefined
       const promise = validateDebounce
-        ? new Promise(resolve => setTimeout(resolve, validateDebounce))
+        ? new Promise<void>((resolve) => {
+            // Only one timer per item: a newer event releases the previous wait right away
+            cancelDebounce?.()
+            const timer = setTimeout(resolve, validateDebounce)
+            cancelDebounce = () => {
+              clearTimeout(timer)
+              resolve()
+            }
+          })
             .then(() => (currentValidateId === validateId ? runRules() : []))
         : runRules()
 
@@ -540,6 +550,7 @@ const InternalFormItem = defineComponent<
     onBeforeUnmount(() => {
       // Drop pending (debounced or async) validations so they never report for a removed item
       validateId++
+      cancelDebounce?.()
       if (props.noStyle && notifyParentMetaChange) {
         notifyParentMetaChange(
           { ...meta.value, destroy: true } as Meta & { destroy: boolean },

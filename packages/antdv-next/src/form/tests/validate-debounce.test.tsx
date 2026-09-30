@@ -69,19 +69,23 @@ describe('form item validateDebounce', () => {
       return Promise.resolve()
     }
     const { model, errors } = mountForm({ rules: [{ validator }], validateDebounce: 60 })
+    const baseTimerCount = vi.getTimerCount()
 
     model.name = 'a'
     await nextTick()
-    await advance(30)
+    await advance(20)
     model.name = 'ab'
     await nextTick()
-    await advance(30)
+    await advance(20)
     model.name = 'abc'
     await nextTick()
-    await advance(30)
+    // superseded waits are released instead of left running
+    expect(vi.getTimerCount()).toBe(baseTimerCount + 1)
+
+    await advance(59)
     expect(calls).toEqual([])
 
-    await advance(30)
+    await advance(1)
     expect(calls).toEqual(['abc'])
     expect(errors()).toEqual([])
   })
@@ -123,10 +127,16 @@ describe('form item validateDebounce', () => {
     const validator = vi.fn(() => Promise.resolve())
     const { model, visible, onValidate } = mountForm({ rules: [{ validator }], validateDebounce: 60 })
 
+    const setTimeoutSpy = vi.spyOn(globalThis, 'setTimeout')
+    const clearTimeoutSpy = vi.spyOn(globalThis, 'clearTimeout')
     model.name = 'a'
     await nextTick()
+    const debounceCall = setTimeoutSpy.mock.calls.findIndex(([, delay]) => delay === 60)
+    const debounceTimer = setTimeoutSpy.mock.results[debounceCall]!.value
     visible.value = false
     await nextTick()
+    // the pending wait is released on unmount instead of left running
+    expect(clearTimeoutSpy).toHaveBeenCalledWith(debounceTimer)
     await advance(100)
     expect(validator).not.toHaveBeenCalled()
     expect(onValidate).not.toHaveBeenCalled()
