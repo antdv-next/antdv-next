@@ -229,7 +229,7 @@ const InternalFormItem = defineComponent<
       return toArray(ruleTrigger)
     }
 
-    const validateRulesInner = async (options: ValidateOptions & { triggerName?: TriggerType } = {}) => {
+    const validateRulesInner = (options: ValidateOptions & { triggerName?: TriggerType } = {}) => {
       if (!namePath.value.length) {
         return Promise.resolve()
       }
@@ -274,17 +274,10 @@ const InternalFormItem = defineComponent<
       // `validateDebounce` postpones the rule run of event driven validation (change / blur /
       // focus) while `validating` is published right away, matching the upstream `Field`
       // behaviour. `validateFields`, `submit` and rule checks pass no `triggerName` and stay
-      // immediate. A run already superseded by a newer event, `clearValidate` or `resetField`
-      // is dropped so only the latest value reports a result.
-      const validateDebounce = triggerName && !validateOnly ? props.validateDebounce : undefined
-      if (validateDebounce) {
-        await new Promise(resolve => setTimeout(resolve, validateDebounce))
-        if (currentValidateId !== validateId) {
-          return Promise.resolve()
-        }
-      }
-
-      const promise = validateRules(
+      // immediate. A run already superseded by a newer event, `clearValidate`, `resetField`
+      // (or unmount) skips its rules and resolves with no result, so only the latest value
+      // reports a result.
+      const runRules = () => validateRules(
         namePath.value,
         fieldValue.value,
         filteredRules as RuleObject[],
@@ -295,6 +288,11 @@ const InternalFormItem = defineComponent<
         props.validateFirst ?? false,
         messageVariables.value,
       )
+      const validateDebounce = triggerName && !validateOnly ? props.validateDebounce : undefined
+      const promise = validateDebounce
+        ? new Promise(resolve => setTimeout(resolve, validateDebounce))
+            .then(() => (currentValidateId === validateId ? runRules() : []))
+        : runRules()
 
       // Validate only and not trigger UI and Field status update
       if (validateOnly) {
@@ -540,6 +538,8 @@ const InternalFormItem = defineComponent<
     )
 
     onBeforeUnmount(() => {
+      // Drop pending (debounced or async) validations so they never report for a removed item
+      validateId++
       if (props.noStyle && notifyParentMetaChange) {
         notifyParentMetaChange(
           { ...meta.value, destroy: true } as Meta & { destroy: boolean },
