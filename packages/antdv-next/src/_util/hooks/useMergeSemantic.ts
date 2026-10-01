@@ -129,11 +129,17 @@ export function useMergeSemantic<
   info: Ref<{ props: Props }>,
   schema?: Ref<SemanticSchema>,
 ) {
+  // Only touch `info.value` for function-form entries: the merged props object
+  // behind it is usually a full spread of the component props, and evaluating
+  // it for every instance just to pass it to a plain object is pure waste.
+  const resolveLazy = <T extends AnyObject>(value: MaybeFn<T, Props>) =>
+    typeof value === 'function' ? value(info.value) : value
+
   const resolvedClassNamesList = computed(() => {
-    return classNamesList.value.map(classNames => classNames ? resolveStyleOrClass(classNames, info.value) : undefined)
+    return classNamesList.value.map(classNames => classNames ? resolveLazy(classNames) : undefined)
   })
   const resolvedStylesList = computed(() => {
-    return stylesList.value.map(styles => styles ? resolveStyleOrClass(styles, info.value) : undefined)
+    return stylesList.value.map(styles => styles ? resolveLazy(styles) : undefined)
   })
 
   const mergedClassNames = computed(() => useSemanticClassNames(schema?.value, ...resolvedClassNamesList.value) as ObjectOnly<ClassNamesType>)
