@@ -92,7 +92,7 @@ export default function useCSSVarRegister<V, T extends Record<string, V>>(
   })
 
   return useGlobalCache<CSSVarCacheValue<V, T>>(
-    computed(() => CSS_VAR_PREFIX),
+    CSS_VAR_PREFIX,
     stylePath,
     () => {
       const originToken = fn()

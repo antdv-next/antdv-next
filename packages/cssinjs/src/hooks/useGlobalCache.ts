@@ -1,8 +1,8 @@
-import type { Ref } from 'vue'
+import type { ComputedRef, Ref } from 'vue'
 import type CacheEntity from '../Cache'
 import type { KeyType } from '../Cache'
 import type { StyleContextProps } from '../StyleContext'
-import { computed, onBeforeMount, onBeforeUnmount, shallowRef, watch } from 'vue'
+import { computed, onBeforeMount, onBeforeUnmount, unref, watch } from 'vue'
 import { pathKey } from '../Cache'
 import { useStyleContext } from '../StyleContext'
 import { isClientSide } from '../util'
@@ -160,33 +160,40 @@ function consumeDelayedRemove(cache: CacheEntity, pathStr: string) {
 }
 
 /**
- * Global cache for CSS-in-JS styles
+ * A reference-counted global cache entry.
  *
- * This hook manages a reference-counted cache to ensure styles are properly
- * created, shared, and cleaned up across component instances.
- *
- * Key differences from React version:
- * - No useInsertionEffect needed - Vue's watchEffect handles timing naturally
- * - No StrictMode double-mounting issues - Vue doesn't double-mount
- * - HMR handling is simpler - can rely on Vue's reactivity system
- * - Uses onBeforeUnmount for cleanup instead of watch's onCleanup to have
- *   better control over cleanup timing (important for Transition animations)
+ * The entry itself is reactive state only (no lifecycle hooks), so one entry
+ * can be shared by any number of component instances: each instance calls
+ * `useGlobalCacheEntry(entry)` to register its own reference.
  */
-export function useGlobalCache<CacheType>(
-  prefix: Ref<string>,
+export interface GlobalCacheEntry<CacheType> {
+  /** Cached value for the current path. */
+  value: ComputedRef<CacheType>
+  /** Current full cache path. */
+  pathStr: ComputedRef<string>
+  /** Add one reference to `newPath` (and release `oldPath` immediately when given). */
+  activate: (newPath: string, oldPath?: string) => void
+  /** Release one reference to `pathStr` (delayed on the client to survive Transition). */
+  release: (pathStr: string) => void
+}
+
+/**
+ * Create a cache entry without binding it to the current component.
+ *
+ * Use this together with `useGlobalCacheEntry` when the same derived value
+ * (for example the design token) should be computed once and shared across
+ * many instances. `useGlobalCache` is the one-instance shortcut.
+ */
+export function createGlobalCache<CacheType>(
+  styleContext: Ref<StyleContextProps>,
+  prefix: Ref<string> | string,
   keyPath: Ref<KeyType[]>,
   cacheFn: () => CacheType,
   onCacheRemove?: OnCacheRemove<CacheType>,
   // Add additional effect trigger
   onCacheEffect?: (cachedValue: CacheType) => void,
-): Ref<CacheType> {
-  const styleContext = useStyleContext()
-  const fullPath = computed(() => [prefix.value, ...keyPath.value])
-  const fullPathStr = computed(() => pathKey(fullPath.value))
-
-  // 记录当前的 path，用于在 onBeforeUnmount 中清理
-  const currentPathRef = shallowRef(fullPathStr.value)
-  const isMountedRef = shallowRef(false)
+): GlobalCacheEntry<CacheType> {
+  const pathStr = computed(() => pathKey([unref(prefix), ...keyPath.value]))
 
   const globalCache = () => styleContext.value.cache
   const isServerSide = () => styleContext.value.mock !== undefined
@@ -194,7 +201,7 @@ export function useGlobalCache<CacheType>(
     : !isClientSide
 
   // 清理缓存的函数
-  const clearCache = (pathStr: string, immediate = false) => {
+  const clearCache = (path: string, immediate = false) => {
     if (isServerSide()) {
       return
     }
@@ -206,62 +213,56 @@ export function useGlobalCache<CacheType>(
       // 立即清理：
       // 1. path 变化时清理旧缓存
       // 2. 服务端渲染时不需要延迟（没有 Transition 动画）
-      applyDecrement(cache, pathStr, 1, onCacheRemove, context)
+      applyDecrement(cache, path, 1, onCacheRemove, context)
       return
     }
 
     // 延迟清理（用于客户端组件卸载时，等待可能的 Transition 动画完成）
-    const currentRefCount = cache.opGet(pathStr)?.[0] ?? 0
+    const currentRefCount = cache.opGet(path)?.[0] ?? 0
 
     // 仍有其他实例在使用同一路径时，不需要延迟移除，直接递减引用计数。
     // 这样可以避免虚拟滚动场景里高频 clear/setTimeout 抖动。
-    if (!getDelayedRemoveInfo(cache, pathStr) && currentRefCount > 1) {
-      applyDecrement(cache, pathStr, 1, onCacheRemove, context)
+    if (!getDelayedRemoveInfo(cache, path) && currentRefCount > 1) {
+      applyDecrement(cache, path, 1, onCacheRemove, context)
       return
     }
 
-    scheduleDelayedRemove(cache, pathStr, onCacheRemove, context)
+    scheduleDelayedRemove(cache, path, onCacheRemove, context)
   }
 
   const cacheContent = computed(() => {
-    let entity = globalCache().opGet(fullPathStr.value)
+    let entity = globalCache().opGet(pathStr.value)
 
     // 在所有环境下检查 entity 是否存在，避免生产环境下主题切换时缓存为空导致的错误
     if (!entity) {
-      globalCache().opUpdate(fullPathStr.value, (prevCache) => {
+      globalCache().opUpdate(pathStr.value, (prevCache) => {
         const [times = 0, cache] = prevCache || [undefined, undefined]
         const mergedCache = cache || cacheFn()
         return [times, mergedCache]
       })
-      entity = globalCache().opGet(fullPathStr.value)
+      entity = globalCache().opGet(pathStr.value)
     }
 
     return entity![1]!
   })
-  // Align with React cssinjs `useMemo`: create the cache entry during setup/render,
-  // then apply side effects in mount/update timing.
-  // eslint-disable-next-line ts/no-unused-expressions
-  cacheContent.value
 
-  const triggerCacheEffect = (pathStr: string) => {
-    if (!onCacheEffect || effectMap.has(pathStr)) {
+  const triggerCacheEffect = (path: string) => {
+    if (!onCacheEffect || effectMap.has(path)) {
       return
     }
 
     const cachedValue = cacheContent.value
-    effectMap.set(pathStr, true)
+    effectMap.set(path, true)
     onCacheEffect(cachedValue)
     Promise.resolve().then(() => {
-      effectMap.delete(pathStr)
+      effectMap.delete(path)
     })
   }
 
-  const activatePath = (newPath: string, oldPath?: string) => {
+  const activate = (newPath: string, oldPath?: string) => {
     if (oldPath && oldPath !== newPath) {
       clearCache(oldPath, true)
     }
-
-    currentPathRef.value = newPath
 
     const cache = globalCache()
     if (!consumeDelayedRemove(cache, newPath)) {
@@ -277,26 +278,34 @@ export function useGlobalCache<CacheType>(
     triggerCacheEffect(newPath)
   }
 
-  watch(
-    fullPathStr,
-    (newPath) => {
-      if (!isMountedRef.value) {
-        currentPathRef.value = newPath
-      }
-    },
-    {
-      flush: 'sync',
-    },
-  )
+  return {
+    value: cacheContent,
+    pathStr,
+    activate,
+    release: path => clearCache(path),
+  }
+}
+
+/**
+ * Hold one reference to a cache entry for the lifetime of the current component.
+ */
+export function useGlobalCacheEntry<CacheType>(entry: GlobalCacheEntry<CacheType>): Ref<CacheType> {
+  // Align with React cssinjs `useMemo`: create the cache entry during setup/render,
+  // then apply side effects in mount/update timing.
+  // eslint-disable-next-line ts/no-unused-expressions
+  entry.value.value
+
+  // 记录当前的 path，用于在 onBeforeUnmount 中清理
+  let currentPath = entry.pathStr.value
+  let mounted = false
 
   watch(
-    fullPathStr,
+    entry.pathStr,
     (newPath, oldPath) => {
-      if (!isMountedRef.value) {
-        return
+      if (mounted) {
+        entry.activate(newPath, oldPath)
       }
-
-      activatePath(newPath, oldPath)
+      currentPath = newPath
     },
     {
       flush: 'sync',
@@ -304,17 +313,44 @@ export function useGlobalCache<CacheType>(
   )
 
   onBeforeMount(() => {
-    isMountedRef.value = true
-    activatePath(currentPathRef.value)
+    mounted = true
+    entry.activate(currentPath)
   })
 
   // 组件卸载时清理缓存
   // 使用 onBeforeUnmount 而不是 watch 的 onCleanup，
   // 这样可以更好地控制清理时机（对 Transition 动画很重要）
   onBeforeUnmount(() => {
-    isMountedRef.value = false
-    clearCache(currentPathRef.value)
+    mounted = false
+    entry.release(currentPath)
   })
 
-  return cacheContent
+  return entry.value
+}
+
+/**
+ * Global cache for CSS-in-JS styles
+ *
+ * This hook manages a reference-counted cache to ensure styles are properly
+ * created, shared, and cleaned up across component instances.
+ *
+ * Key differences from React version:
+ * - No useInsertionEffect needed - Vue's watchEffect handles timing naturally
+ * - No StrictMode double-mounting issues - Vue doesn't double-mount
+ * - HMR handling is simpler - can rely on Vue's reactivity system
+ * - Uses onBeforeUnmount for cleanup instead of watch's onCleanup to have
+ *   better control over cleanup timing (important for Transition animations)
+ */
+export function useGlobalCache<CacheType>(
+  prefix: Ref<string> | string,
+  keyPath: Ref<KeyType[]>,
+  cacheFn: () => CacheType,
+  onCacheRemove?: OnCacheRemove<CacheType>,
+  // Add additional effect trigger
+  onCacheEffect?: (cachedValue: CacheType) => void,
+): Ref<CacheType> {
+  const styleContext = useStyleContext()
+  return useGlobalCacheEntry(
+    createGlobalCache(styleContext, prefix, keyPath, cacheFn, onCacheRemove, onCacheEffect),
+  )
 }

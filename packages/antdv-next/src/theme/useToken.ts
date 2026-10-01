@@ -1,9 +1,10 @@
-import type { Theme } from '@antdv-next/cssinjs'
+import type { GlobalCacheEntry, StyleProviderProps, Theme } from '@antdv-next/cssinjs'
 import type { Ref } from 'vue'
+import type { ConfigConsumerProps } from '../config-provider/context'
 import type { DesignTokenProviderProps } from './context'
 import type { AliasToken, GlobalToken, SeedToken } from './interface'
-import { useCacheToken } from '@antdv-next/cssinjs'
-import { computed } from 'vue'
+import { createCacheToken, useGlobalCacheEntry, useStyleContext } from '@antdv-next/cssinjs'
+import { computed, effectScope } from 'vue'
 import { useConfig } from '../config-provider/context'
 import version from '../version'
 import { defaultTheme, useDesignToken } from './context'
@@ -100,16 +101,31 @@ export function getComputedToken(originToken: SeedToken, overrideToken: DesignTo
 }
 
 // ================================== Hook ==================================
-export default function useToken(): [
-    theme: Ref<Theme<SeedToken, AliasToken>>,
-    token: Ref<GlobalToken>,
-    hashId: Ref<string>,
-    realToken: Ref<GlobalToken>,
-    cssVar: Ref<DesignTokenProviderProps['cssVar']>,
-    zeroRuntime: Ref<boolean>,
-] {
-  const designContext = useDesignToken()
-  const config = useConfig()
+export type UseTokenResult = [
+  theme: Ref<Theme<SeedToken, AliasToken>>,
+  token: Ref<GlobalToken>,
+  hashId: Ref<string>,
+  realToken: Ref<GlobalToken>,
+  cssVar: Ref<{ prefix: string, key: string }>,
+  zeroRuntime: Ref<boolean>,
+]
+
+interface SharedToken {
+  entry: GlobalCacheEntry<any>
+  result: UseTokenResult
+}
+
+/**
+ * The derived token only depends on the three injected contexts, so compute it
+ * once per (design token, config, style context) triple and let every component
+ * instance under those providers reuse the same computeds. Each instance only
+ * holds a reference on the cache entry (`useGlobalCacheEntry`).
+ */
+function createSharedToken(
+  designContext: Ref<DesignTokenProviderProps>,
+  config: Ref<ConfigConsumerProps>,
+  styleContext: Ref<StyleProviderProps>,
+): SharedToken {
   const salt = computed(() => `${version}-${designContext.value.hashed || ''}`)
   const mergedTheme = computed(() => designContext.value?.theme || defaultTheme)
   const cssVar = computed(() => {
@@ -119,7 +135,8 @@ export default function useToken(): [
       key: cssVar?.key ?? 'css-var-root',
     }
   })
-  const cachedToken = useCacheToken<GlobalToken, SeedToken>(
+  const entry = createCacheToken<GlobalToken, SeedToken>(
+    styleContext,
     mergedTheme,
     computed(() => [defaultSeedToken, designContext.value.token]),
     computed(() => {
@@ -137,8 +154,50 @@ export default function useToken(): [
       } as any
     }),
   )
+  const cachedToken = entry.value
   const realToken = computed(() => cachedToken.value[2])
   const hashId = computed(() => designContext.value.hashed ? cachedToken.value[1] : '')
   const token = computed(() => cachedToken.value[0])
-  return [mergedTheme, realToken, hashId, token, cssVar, computed(() => !!designContext.value?.zeroRuntime)]
+  const zeroRuntime = computed(() => !!designContext.value?.zeroRuntime)
+  return {
+    entry,
+    result: [mergedTheme, realToken, hashId, token, cssVar, zeroRuntime],
+  }
+}
+
+type SharedTokenMap = WeakMap<object, WeakMap<object, WeakMap<object, SharedToken>>>
+const sharedTokenMap: SharedTokenMap = new WeakMap()
+
+function getSharedToken(
+  designContext: Ref<DesignTokenProviderProps>,
+  config: Ref<ConfigConsumerProps>,
+  styleContext: Ref<StyleProviderProps>,
+): SharedToken {
+  let byConfig = sharedTokenMap.get(designContext)
+  if (!byConfig) {
+    byConfig = new WeakMap()
+    sharedTokenMap.set(designContext, byConfig)
+  }
+  let byStyle = byConfig.get(config)
+  if (!byStyle) {
+    byStyle = new WeakMap()
+    byConfig.set(config, byStyle)
+  }
+  let shared = byStyle.get(styleContext)
+  if (!shared) {
+    // Detached scope: the shared computeds must outlive the component that
+    // happens to create them first.
+    shared = effectScope(true).run(() => createSharedToken(designContext, config, styleContext))!
+    byStyle.set(styleContext, shared)
+  }
+  return shared
+}
+
+export default function useToken(): UseTokenResult {
+  const designContext = useDesignToken()
+  const config = useConfig()
+  const styleContext = useStyleContext()
+  const shared = getSharedToken(designContext, config, styleContext)
+  useGlobalCacheEntry(shared.entry)
+  return shared.result
 }

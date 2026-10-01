@@ -23,16 +23,15 @@ export const { genComponentStyleHook, genStyleHooks, genSubStyleComponent } = ge
     })
   },
   useToken() {
+    // `hashId` is already '' when not hashed and `cssVar` always carries
+    // prefix / key, so the refs can be passed through without extra computeds.
     const [theme, realToken, hashId, token, cssVar, zeroRuntime] = useLocalToken()
     return {
       theme,
       realToken,
-      hashId: computed(() => hashId.value ?? ''),
+      hashId,
       token,
-      cssVar: computed(() => cssVar?.value ?? {
-        prefix: '',
-        key: '',
-      }),
+      cssVar,
       zeroRuntime,
     }
   },

@@ -432,7 +432,7 @@ export default function useStyleRegister(
   })
 
   useGlobalCache<StyleCacheValue>(
-    computed(() => STYLE_PREFIX),
+    STYLE_PREFIX,
     fullPath,
     () => {
       const cachePath = fullPath.value.join('|')

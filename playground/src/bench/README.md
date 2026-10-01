@@ -15,17 +15,21 @@ pnpm -F antdv-next test tests/perf
 UPDATE_PERF_BASELINE=1 pnpm -F antdv-next test tests/perf
 ```
 
-Reference (2026-10-01, `main` at 366836ad):
+Reference (2026-10-01, after sharing `useToken()` per context, commit on top of 366836ad):
 
 | scenario | computed / instance | watch / instance | components / instance |
 |---|---:|---:|---:|
-| button | 218.9 | 21 | 4 |
-| input | 263 | 25 | 3 |
-| select | 329 | 44 | 15 |
-| date-picker | 367 | 49 | 13 |
-| menu-item | 262 | 40 | 14 |
-| form-item-input | 901 | 95 | 17 |
+| button | 97.6 | 12 | 4 |
+| input | 113 | 14 | 3 |
+| select | 189 | 36 | 15 |
+| date-picker | 253 | 42 | 13 |
+| menu-item | 122 | 32 | 14 |
+| form-item-input | 331 | 53 | 17 |
 | table-row | 47 | 1 | 7 |
+
+Before that change (`main` at 366836ad) the same scenarios measured: button
+218.9 / 21, input 263 / 25, select 329 / 44, date-picker 367 / 49, menu-item
+262 / 40, form-item-input 901 / 95 (computed / watch per instance).
 
 ## 2. Browser timings and memory (local, real Chrome)
 
@@ -44,8 +48,22 @@ Absolute numbers depend on the machine. Compare runs on the same machine, and
 prefer `--build`: the dev server adds Vite transform overhead to module loading
 and Vue's dev build keeps extra per-instance bookkeeping.
 
-Reference (2026-10-01, `main` at 366836ad plus the delayed-removal fix, Apple
-M2 Pro, 32 GB, Chrome 154, production build, 3 pages x 5 hot runs):
+Reference (2026-10-01, Apple M2 Pro, 32 GB, Chrome 154, production build,
+3 pages x 5 hot runs).
+
+After sharing `useToken()` per context:
+
+| scene | n | cold ms | hot ms | heap MB | retained@300ms MB | retained@1.5s MB | DOM nodes | style tags | CSS KB |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| button | 1000 | 195.4 | 135.4 | 56.4 | 2.4 | 2.4 | 2000 | 6 | 38 |
+| input | 500 | 119.1 | 75.9 | 32.0 | 1.8 | 1.7 | 500 | 7 | 47 |
+| date-picker | 200 | 451.1 | 373.5 | 54.8 | 3.4 | 3.4 | 1400 | 13 | 68 |
+| menu | 500 | 290.8 | 196.1 | 58.2 | 4.1 | 4.0 | 1052 | 15 | 78 |
+| form | 100 | 120.5 | 65.0 | 23.6 | 2.5 | 2.4 | 901 | 13 | 127 |
+| table | 1000 | 447.9 | 186.0 | 63.5 | 2.8 | 2.7 | 7016 | 9 | 65 |
+| admin | 1 | 157.5 | 46.8 | 15.0 | 5.0 | 4.6 | 407 | 44 | 376 |
+
+`main` at 366836ad plus only the delayed-removal fix:
 
 | scene | n | cold ms | hot ms | heap MB | retained@300ms MB | retained@1.5s MB | DOM nodes | style tags | CSS KB |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|

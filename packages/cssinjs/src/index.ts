@@ -4,8 +4,9 @@ import type { StyleProviderProps } from './StyleContext'
 import type { AbstractCalculator, DerivativeFunc, TokenType } from './theme'
 import type { Transformer } from './transformers/interface'
 import extractStyle from './extractStyle'
-import useCacheToken, { getComputedToken } from './hooks/useCacheToken'
+import useCacheToken, { createCacheToken, getComputedToken } from './hooks/useCacheToken'
 import useCSSVarRegister from './hooks/useCSSVarRegister'
+import { createGlobalCache, useGlobalCache, useGlobalCacheEntry } from './hooks/useGlobalCache'
 import useStyleRegister from './hooks/useStyleRegister'
 import Keyframes from './Keyframes'
 import {
@@ -27,6 +28,8 @@ export {
   autoPrefixTransformer,
   collectStyleText,
   createCache,
+  createCacheToken,
+  createGlobalCache,
   createTheme,
   extractStyle,
   genCalc,
@@ -51,12 +54,15 @@ export {
   unit,
   useCacheToken,
   useCSSVarRegister,
+  useGlobalCache,
+  useGlobalCacheEntry,
 
   // StyleContext,
   useStyleContext,
   useStyleContextProvide,
   useStyleRegister,
 }
+export * from './cssinjs-utils'
 export type {
   AbstractCalculator,
   CSSInterpolation,
@@ -72,4 +78,4 @@ export const _experimental = {
   supportModernCSS: () => supportWhere() && supportLogicProps(),
 }
 
-export * from './cssinjs-utils'
+export type { GlobalCacheEntry } from './hooks/useGlobalCache'

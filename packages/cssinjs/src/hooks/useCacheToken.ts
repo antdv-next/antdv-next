@@ -1,7 +1,8 @@
 import type { Ref } from 'vue'
+import type { StyleContextProps } from '../StyleContext'
 import type Theme from '../theme/Theme'
 import type { Nonce } from '../util'
-import type { ExtractStyle, OnCacheRemove } from './useGlobalCache'
+import type { ExtractStyle, GlobalCacheEntry, OnCacheRemove } from './useGlobalCache'
 import canUseDom from '@v-c/util/dist/Dom/canUseDom'
 import { updateCSS } from '@v-c/util/dist/Dom/dynamicCSS'
 import { computed } from 'vue'
@@ -10,7 +11,7 @@ import { ATTR_MARK, ATTR_TOKEN, CSS_IN_JS_INSTANCE, useStyleContext } from '../S
 import { flattenToken, injectCSPNonce, memoResult, token2key, toStyleStr } from '../util'
 import { transformToken } from '../util/css-variables'
 import hash from '../util/resolveHash'
-import { useGlobalCache } from './useGlobalCache'
+import { createGlobalCache, useGlobalCacheEntry } from './useGlobalCache'
 
 const EMPTY_OVERRIDE = {}
 
@@ -179,75 +180,79 @@ export const extract: ExtractStyle<TokenCacheValue<any>> = (
 }
 
 /**
- * Cache theme derivative token as global shared one
+ * Create the derivative-token cache entry without binding it to a component.
+ *
+ * Everything in here is plain reactive state, so the returned entry can be
+ * shared by every component under the same theme / config context; each
+ * component then only registers a reference via `useGlobalCacheEntry`.
+ * @param styleContext Style context the cache lives in
  * @param theme Theme entity
  * @param tokens List of tokens, used for cache. Please do not dynamic generate object directly
  * @param option Additional config
- * @returns Call Theme.getDerivativeToken(tokenObject) to get token
  */
-export default function useCacheToken<
+export function createCacheToken<
   DerivativeToken = Record<string, any>,
   DesignToken = DerivativeToken,
 >(
+  styleContext: Ref<StyleContextProps>,
   theme: Ref<Theme<any, any>>,
   tokens: Ref<(Partial<DesignToken> | (() => Partial<DesignToken>))[]>,
   option: Ref<Option<DerivativeToken, DesignToken>>,
-) {
-  const styleContext = useStyleContext()
+): GlobalCacheEntry<TokenCacheValue<DerivativeToken>> {
+  const mergedToken = computed(() => {
+    const resolvedTokens = tokens.value.map(token => (typeof token === 'function' ? token() : token))
+    return memoResult(() => Object.assign({}, ...resolvedTokens), resolvedTokens)
+  })
 
-  const salt = computed(() => option.value.salt ?? '')
-  const override = computed(() => option.value.override ? option.value.override : EMPTY_OVERRIDE)
-  const formatToken = computed(() => option.value.formatToken)
-  const compute = computed(() => option.value.getComputedToken)
-  const cssVar = computed(() => option.value.cssVar)
-  const nonce = computed(() => option.value.nonce)
+  const keyPath = computed(() => {
+    const { salt = '', override, cssVar } = option.value
+    return [
+      salt,
+      theme.value.id,
+      flattenToken(mergedToken.value),
+      flattenToken(override || EMPTY_OVERRIDE),
+      flattenToken(cssVar),
+    ]
+  })
 
-  const resolvedTokens = computed(() => tokens.value.map(token => (typeof token === 'function' ? token() : token)))
-
-  const mergedToken = computed(() => memoResult(
-    () => Object.assign({}, ...resolvedTokens.value),
-    resolvedTokens.value,
-  ))
-
-  const tokenStr = computed(() => flattenToken(mergedToken.value))
-  const overrideTokenStr = computed(() => flattenToken(override.value))
-  const cssVarStr = computed(() => flattenToken(cssVar.value))
-
-  return useGlobalCache<TokenCacheValue<DerivativeToken>>(
-    computed(() => TOKEN_PREFIX),
-    computed(() => [salt.value, theme.value.id, tokenStr.value, overrideTokenStr.value, cssVarStr.value]),
+  return createGlobalCache<TokenCacheValue<DerivativeToken>>(
+    styleContext,
+    TOKEN_PREFIX,
+    keyPath,
     () => {
-      const mergedDerivativeToken = compute.value
-        ? compute.value(mergedToken.value as DesignToken, override.value, theme.value)
-        : getComputedToken(mergedToken.value as DesignToken, override.value, theme.value, formatToken.value)
+      const { salt = '', formatToken, getComputedToken: compute, cssVar } = option.value
+      const override = option.value.override || EMPTY_OVERRIDE
+      const mergedDerivativeToken = compute
+        ? compute(mergedToken.value as DesignToken, override, theme.value)
+        : getComputedToken(mergedToken.value as DesignToken, override, theme.value, formatToken)
 
       const actualToken = { ...mergedDerivativeToken }
       // Optimize for `useStyleRegister` performance
-      const mergedSalt = `${salt.value}_${cssVar.value.prefix || ''}`
+      const mergedSalt = `${salt}_${cssVar.prefix || ''}`
       const hashId = hash(mergedSalt)
       const hashCls = `${hashPrefix}-${hashId}`
       actualToken._tokenKey = token2key(actualToken, mergedSalt)
 
       const [tokenWithCssVar, cssVarsStr] = transformToken(
         mergedDerivativeToken,
-        cssVar.value.key,
+        cssVar.key,
         {
-          prefix: cssVar.value.prefix,
-          ignore: cssVar.value.ignore,
-          unitless: cssVar.value.unitless,
-          preserve: cssVar.value.preserve,
+          prefix: cssVar.prefix,
+          ignore: cssVar.ignore,
+          unitless: cssVar.unitless,
+          preserve: cssVar.preserve,
           hashPriority: styleContext.value.hashPriority,
-          hashCls: cssVar.value.hashed ? hashCls : undefined,
+          hashCls: cssVar.hashed ? hashCls : undefined,
         },
       ) as [any, string]
       tokenWithCssVar._hashId = hashId
-      recordCleanToken(cssVar.value.key)
+      recordCleanToken(cssVar.key)
       return [
         tokenWithCssVar,
         hashCls,
         actualToken,
         cssVarsStr,
-        cssVar.value.key,
+        cssVar.key,
       ]
     },
     removeTokenCache,
@@ -271,7 +276,7 @@ export default function useCacheToken<
         priority: -999,
       }
 
-      mergedCSSConfig = injectCSPNonce(mergedCSSConfig, nonce.value)
+      mergedCSSConfig = injectCSPNonce(mergedCSSConfig, option.value.nonce)
 
       const style = updateCSS(
         cssVarsStr,
@@ -284,4 +289,23 @@ export default function useCacheToken<
       style.setAttribute(ATTR_TOKEN, themeKey)
     },
   )
+}
+
+/**
+ * Cache theme derivative token as global shared one
+ * @param theme Theme entity
+ * @param tokens List of tokens, used for cache. Please do not dynamic generate object directly
+ * @param option Additional config
+ * @returns Call Theme.getDerivativeToken(tokenObject) to get token
+ */
+export default function useCacheToken<
+  DerivativeToken = Record<string, any>,
+  DesignToken = DerivativeToken,
+>(
+  theme: Ref<Theme<any, any>>,
+  tokens: Ref<(Partial<DesignToken> | (() => Partial<DesignToken>))[]>,
+  option: Ref<Option<DerivativeToken, DesignToken>>,
+) {
+  const styleContext = useStyleContext()
+  return useGlobalCacheEntry(createCacheToken(styleContext, theme, tokens, option))
 }

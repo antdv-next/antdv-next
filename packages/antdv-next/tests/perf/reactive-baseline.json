@@ -1,32 +1,32 @@
 {
   "button": {
-    "computed": 218.9,
-    "watch": 21,
+    "computed": 97.6,
+    "watch": 12,
     "instances": 4
   },
   "input": {
-    "computed": 263,
-    "watch": 25,
+    "computed": 113,
+    "watch": 14,
     "instances": 3
   },
   "select": {
-    "computed": 329,
-    "watch": 44,
+    "computed": 189,
+    "watch": 36,
     "instances": 15
   },
   "date-picker": {
-    "computed": 367,
-    "watch": 49,
+    "computed": 253,
+    "watch": 42,
     "instances": 13
   },
   "menu-item": {
-    "computed": 262,
-    "watch": 40,
+    "computed": 122,
+    "watch": 32,
     "instances": 14
   },
   "form-item-input": {
-    "computed": 901,
-    "watch": 95,
+    "computed": 331,
+    "watch": 53,
     "instances": 17
   },
   "table-row": {

@@ -72,8 +72,12 @@ export function provideStyleContext(app: App, props: Ref<StyleContextProps>) {
   app.provide(StyleContextKey, props)
 }
 
+// One shared fallback ref: components without a StyleProvider must resolve to
+// the same context object so shared caches (e.g. the design token) can key on it.
+const defaultStyleContextRef = ref<StyleContextProps>(defaultStyleContext)
+
 export function useStyleContext() {
-  return inject(StyleContextKey, ref<StyleContextProps>(defaultStyleContext))
+  return inject(StyleContextKey, defaultStyleContextRef)
 }
 export type HashPriority = 'low' | 'high'
 

@@ -612,12 +612,16 @@ function defaultGetPrefixCls(suffixCls?: string, customizePrefixCls?: string) {
   return suffixCls ? `${defaultPrefixCls}-${suffixCls}` : defaultPrefixCls
 }
 
+// One shared fallback ref: components without a ConfigProvider must resolve to
+// the same context object so shared caches (e.g. the design token) can key on it.
+const defaultConfigRef = ref({
+  // We provide a default function for Context without provider
+  getPrefixCls: defaultGetPrefixCls,
+  iconPrefixCls: defaultIconPrefixCls,
+}) as Ref<ConfigConsumerProps>
+
 export function useConfig() {
-  return inject(ConfigConsumerKey, ref({
-    // We provide a default function for Context without provider
-    getPrefixCls: defaultGetPrefixCls,
-    iconPrefixCls: defaultIconPrefixCls,
-  }) as Ref<ConfigConsumerProps>)
+  return inject(ConfigConsumerKey, defaultConfigRef)
 }
 
 /**

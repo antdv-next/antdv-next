@@ -66,6 +66,10 @@ export const DesignTokenProvider = defineComponent(
   },
 )
 
+// One shared fallback ref: components outside any DesignTokenProvider must
+// resolve to the same ref so `useToken` can share its derived state by context.
+const defaultDesignTokenRef = computed<DesignTokenProviderProps>(() => defaultConfig)
+
 export function useDesignToken() {
-  return inject(DesignTokenContextKey, computed(() => defaultConfig))
+  return inject(DesignTokenContextKey, defaultDesignTokenRef)
 }
