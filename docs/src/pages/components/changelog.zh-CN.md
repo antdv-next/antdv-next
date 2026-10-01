@@ -2,6 +2,72 @@
 title: 组件更新日志
 ---
 
+## V1.5.7
+
+发布日期：2026-10-02
+
+本次版本是一轮性能专项：共享设计 token 的派生链、样式 hook 只解析一次 token、各封装层只向 `@v-c/*` 转发实际设置的属性、Table 向 `@v-c/table` 传递引用稳定的列配置，并修复了样式延迟卸载定时器把已卸载组件树留在内存里的问题。生产构建下 1000 个 Button 的热挂载从 157 ms 降到 116 ms、堆内存从 92 MB 降到 48 MB，200 个 DatePicker 从 368 ms 降到 156 ms，1000 行 Table 的冷挂载从 439 ms 降到 225 ms。`@antdv-next/cssinjs` 同步发布 1.1.0，`@v-c/util`、`trigger`、`picker`、`select`、`table`、`menu`、`tooltip` 全部升级到配套的正式版。同时把 ant-design 上游跟踪推进到 `820e1a8c2d`，并集中修复了一批 Form 校验、Alert、Drawer、Descriptions、ColorPicker、ConfigProvider 等组件的问题；IDE 的 web-types 改为从 `global.d.ts` 生成，覆盖全部 128 个全局组件。
+
+**⚡ 性能 Performance**
+
+以下数据均为生产构建、同一台机器（Apple M2 Pro，Chrome 154）、3 页 × 5 次热挂载取均值，对比对象是 1.5.6：
+
+| 场景 | 实例数 | 热挂载 ms | 堆内存 MB |
+| --- | ---: | ---: | ---: |
+| Button | 1000 | 157 → 116 | 92 → 48 |
+| Input | 500 | 91 → 65 | 54 → 27 |
+| Select | 500 | 305 → 200 | 80 → 77 |
+| DatePicker | 200 | 368 → 156 | 61 → 47 |
+| Menu（inline，500 项） | 1 | 206 → 143 | 77 → 47 |
+| Form（100 个 Form.Item + Input） | 1 | 84 → 57 | 40 → 21 |
+| Table（1000 行，冷挂载） | 1 | 439 → 225 | 64 → 57 |
+| 典型后台页（菜单 + 筛选表单 + 分页表格） | 1 | 50 → 38 | 18 → 13 |
+
+* perf(theme)：派生设计 token 在同一组 ConfigProvider / DesignTokenProvider / StyleProvider 下只计算一次并由所有组件实例共享；此前每个样式 hook 都会重建一整条 token 派生链，一个 Button 要付 4 次。每个组件实例的 computed 数量：Button 219 → 51，Input 263 → 65，FormItem + Input 901 → 178（依赖 `@antdv-next/cssinjs` 1.1.0）
+* perf(theme)：`genStyleHooks` 只解析一次 `useToken()` 并同时交给组件样式 hook 与 CSS 变量注册；`useStyleRegister` 只保留缓存路径一个 computed，`useBaseConfig` / `useComponentBaseConfig` 改用 getter ref，`usePrefix` / `useCSP` 按配置引用记忆化
+* perf(date-picker, select, menu)：封装层只向 `@v-c/picker`、`@v-c/select`、`@v-c/menu` 转发实际设置的属性，不再把整包声明属性（绝大多数是 `undefined`）展开到下层逐层归一化；DatePicker 的 props 归一化与响应式代理展开此前占挂载时间约三分之一
+* perf(table)：`InternalTable` 向 `@v-c/table` 传递引用稳定的列数组、列转换函数与展开配置，`responsive` 列不存在时直接复用原列表；此前每次渲染都重建这些对象，`@v-c/table` 视为列变化而把每行每格重新渲染一遍。现在行与单元格每次挂载只渲染一次，1000 行冷挂载 439 → 225 ms
+* perf(semantic)：`classes` / `styles` 只在函数形式时才解析合并后的组件属性对象，普通对象形式不再为每个实例做一次完整展开
+* perf(form)：`validateDebounce` 的等待计时器在新事件到来或卸载时立即释放，每个 Form.Item 最多保留一个计时器而不是每次输入一个
+* fix(cssinjs)：样式延迟卸载的 500 ms 定时器改到模块级，不再通过闭包持有已卸载组件树（computed、DOM 引用、应用根）。1000 个 Button 卸载后 300 ms 时的残留堆内存从 79 MB 降到 2.4 MB；为 Transition 保留的 500 ms 延迟不变
+* perf(vc)：`@v-c/trigger` 1.1.6 的对齐 / 位置跟踪 effect 延迟到首次打开时创建，闭合状态的 Trigger 不再持有它们；`@v-c/table` 1.3.4 每行只保留一个 hover 记忆而不是每格每次渲染一个 computed，滚动条只在 `scroll.y` / `sticky` 时测量；`@v-c/picker` 1.5.2、`@v-c/select` 1.2.8、`@v-c/menu` 1.4.2、`@v-c/tooltip` 1.1.4 的各层同样只转发已设置的属性，并用 getter ref 替换逐属性 computed。每个实例的 computed 数量：Select 329 → 140，DatePicker 367 → 111，Menu 项 262 → 70，Table 行 47 → 9
+
+**🐞 问题修复 Fixes**
+
+* fix(form)：事件触发的校验（change / blur / focus）遵守 `validateDebounce`，`validating` 立即发布而规则延后执行；`validateFields`、`submit` 与规则检查仍然立即执行（[#981](https://github.com/antdv-next/antdv-next/pull/981)）
+* fix(form)：被更新的校验、`clearValidate`、`resetField` 取代的旧异步校验结果不再写回状态；`resetField` 后的值不变时不再吞掉用户的下一次输入校验（[#977](https://github.com/antdv-next/antdv-next/pull/977)）
+* fix(table)：选择列的 checkbox 按住 Shift 点击时正确触发范围选择，`rowSelection.onSelect` 收到点击事件而不是 change 事件；开启 `preserveSelectedRowKeys` 时 `onSelect` / `onSelectAll` / `onSelectMultiple` 的记录参数包含已不在当前数据里的保留行（#59449）；固定选择列表头的 `z-index` 与 ant-design 对齐（[#968](https://github.com/antdv-next/antdv-next/pull/968)）；分页、排序、筛选后滚动到首行时读取合并了 ConfigProvider `table.scroll` 的配置（[#969](https://github.com/antdv-next/antdv-next/pull/969)）
+* fix(alert)：`closable` 支持对象形式的 `onClose` / `afterClose` 回调与 `disabled`，ConfigProvider 的 `alert.closeIcon` 生效，ref 暴露 `nativeElement`（[#971](https://github.com/antdv-next/antdv-next/pull/971)，#59432）；关闭按钮的语义化 class 不再重复输出，图标的语义化 class 与 React 一致（#59384）
+* fix(drawer)：`extra` 渲染为 header 的直接子元素，不再嵌套在 `header-title` 里（[#975](https://github.com/antdv-next/antdv-next/pull/975)）；移除从未实现的 `afterOpenChange` 事件声明与文档（[#976](https://github.com/antdv-next/antdv-next/pull/976)）
+* fix(descriptions)：bordered 模式下语义化 `classes` / `styles` 作用到单元格而不是内部 `span`，`attrs.style` 一并合并（[#972](https://github.com/antdv-next/antdv-next/pull/972)）；label / content 为空时不再渲染空的 `span`（[#973](https://github.com/antdv-next/antdv-next/pull/973)）
+* fix(color-picker)：`class` / `style` 及其他 attrs 作用到触发器而不是面板（[#966](https://github.com/antdv-next/antdv-next/pull/966)）；清除颜色时 `change` 与 `update:value` 不再触发两次（[#964](https://github.com/antdv-next/antdv-next/pull/964)）；`showText` 函数与插槽收到 `{ color }` 而不是二次包裹的对象（[#962](https://github.com/antdv-next/antdv-next/pull/962)，[#963](https://github.com/antdv-next/antdv-next/pull/963)）
+* fix(config-provider)：`popupMatchSelectWidth`、`popupOverflow`、`calendar`、`carousel`、`cardMeta`、`ribbon`、`warning` 配置正确下发到组件（[#967](https://github.com/antdv-next/antdv-next/pull/967)）
+* fix(date-picker)：消费 ConfigProvider 的 `datePicker.allowClear` / `clearIcon` 配置（[#970](https://github.com/antdv-next/antdv-next/pull/970)）；RangePicker 读取 `DatePicker` 的本地化文案而不是 `Calendar` 的（[#978](https://github.com/antdv-next/antdv-next/pull/978)）
+* fix(card)：未设置 `defaultActiveTabKey` 时使用 `tabProps.defaultActiveKey`（[#978](https://github.com/antdv-next/antdv-next/pull/978)）
+* fix(cascader)：ConfigProvider 的 `cascader.clearIcon` 不再触发 `clearIcon` 已废弃的警告
+* fix(dropdown, tooltip, popover)：触发器的默认插槽是纯文本或 Fragment 时自动包一层 `span`，不再因为无法挂载事件而失效（[#979](https://github.com/antdv-next/antdv-next/pull/979)）
+* fix(select, dropdown, mentions)：`_InternalPanelDoNotUseOrYouWillBeFired` 纯面板不再把未声明的 attrs 泄漏到外层 `div`（[#980](https://github.com/antdv-next/antdv-next/pull/980)）
+* fix(float-button)：`update:open` 只在开关状态真正变化时触发（[#983](https://github.com/antdv-next/antdv-next/pull/983)）
+* fix(flex)：ConfigProvider 的 `flex.style` 作用到渲染结果（[#982](https://github.com/antdv-next/antdv-next/pull/982)）
+* fix(carousel)：垂直走马灯在 RTL 下不再被镜像，`dotPlacement` 推导出的方向同样生效（#59436）
+* fix(mentions, tree-select)：空状态调用 `renderEmpty` 时传入正确的组件名 `Mentions` / `TreeSelect`（#59364）
+* fix(breadcrumb)：菜单项没有 `href` 时链接不再拼出 `undefined` 前缀（#59423）
+* fix(tree)：DirectoryTree 使用数字 key 时 Shift 范围选择恢复正常（#59375）
+* fix(transfer)：单向模式移除项时清空右侧选中项（#59428）
+* fix(types)：修复 vue-tsc 在源码中报告的类型错误：`useLocale` 返回只读元组，Carousel、Table、Tag、Timeline、FormItem 的若干内部类型收紧，运行时行为不变
+
+**📖 文档 Documentation**
+
+* docs(table)：`scroll` 的三个子项标注支持全局配置；docs(form)：说明 `horizontal` 布局在视口不超过 `575px` 时自动改为上下排列，以及用 `labelCol` / `wrapperCol` 的 `xs` 自定义（#59398，#59417）
+
+**🧰 工程与依赖 Infrastructure & Dependencies**
+
+* chore(cssinjs)：`@antdv-next/cssinjs` 1.1.0 新增 `createGlobalCache` + `useGlobalCacheEntry`（可共享的响应式缓存项 + 每实例引用计数）、`createCacheToken`、`GlobalCacheEntry` 与 `UseToken` 类型导出；`onCacheRemove` 回调新增第三个参数 `StyleContextProps`，可以写成模块级函数而不必闭包持有 hook 作用域
+* chore(deps)：升级 `@v-c/util` 1.3.2（新增 `pickDefined`）、`@v-c/trigger` 1.1.6、`@v-c/picker` 1.5.2、`@v-c/select` 1.2.8、`@v-c/table` 1.3.4、`@v-c/menu` 1.4.2、`@v-c/tooltip` 1.1.4、`@v-c/notification` 2.0.5（重复暂停时不再把暂停时长计入已过时间）、`@v-c/tree-select` 1.1.3
+* chore(web-types)：IDE 的 web-types 改为以 `global.d.ts` 为唯一标签来源，覆盖全部 128 个全局组件（此前 25 个组件如 layout 各区块、radio、textarea、tab pane、table column 没有条目，另有 17 个 `a-参数` 之类的伪标签）；文档标题映射到真实组件，`~~prop~~` 标记为 deprecated，`extends` 支持排除父级属性，属性类型中的 markdown 转义与实体被清理（`Record<K, V>` 不再被当成 HTML 标签剥掉）；`a-textarea` 属性 3 → 24，中文描述覆盖 1603 / 1685 个属性；`global.d.ts` 补充 `AListy`、`ATableColumnGroup`、`ACheckableTagGroup`、`AMentionsOption`、`AMenuDivider` 声明（[#965](https://github.com/antdv-next/antdv-next/issues/965)）
+* chore(perf)：新增 `tests/perf` 响应式计数回归测试（统计每个组件实例的 computed / watch / 子组件数量，超过基线即失败）、`pnpm bench` 浏览器基准（CDP 驱动无头 Chrome，报告冷 / 热挂载耗时、挂载堆内存、卸载后残留内存与交互耗时，`--profile` 记录 CPU profile）、`VC_LOCAL` 本地 `@v-c/*` 联调别名
+* chore(sync)：ant-design 上游跟踪推进到 `820e1a8c2d`（6.6.5 之后）；测试中附带的废弃 API 用法迁移到当前 API
+
 ## V1.5.6
 
 发布日期：2026-09-25
