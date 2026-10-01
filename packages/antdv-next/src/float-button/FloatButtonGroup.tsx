@@ -180,11 +180,11 @@ const InternalFloatButtonGroup = defineComponent<
       if (mergedDisabled.value) {
         return
       }
-      emit('update:open', nextOpen)
-      if (props.open !== undefined) {
+      if (open.value === nextOpen) {
         return
       }
-      if (open.value === nextOpen) {
+      emit('update:open', nextOpen)
+      if (props.open !== undefined) {
         return
       }
       open.value = nextOpen
