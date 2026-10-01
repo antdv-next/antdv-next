@@ -1,3 +1,5 @@
+export type { UseToken, UseTokenReturn } from './hooks/useToken'
+
 export type {
   ComponentToken,
   ComponentTokenKey,
@@ -21,7 +23,6 @@ export type {
   SubStyleComponentProps,
   TokenWithCommonCls,
 } from './util/genStyleUtils.ts'
-
 export { default as genStyleUtils } from './util/genStyleUtils.ts'
 
 export {

@@ -1,4 +1,4 @@
-import type { ComputedRef } from 'vue'
+import type { Ref } from 'vue'
 import type {
   AliasToken,
   CSSUtil,
@@ -80,9 +80,9 @@ export const prepareComponentToken: GetDefaultToken<'TreeSelect'> = initComponen
 
 // ============================== Export ==============================
 export default function useTreeSelectStyle(
-  prefixCls: ComputedRef<string>,
-  treePrefixCls: ComputedRef<string>,
-  rootCls: ComputedRef<string>,
+  prefixCls: Ref<string>,
+  treePrefixCls: Ref<string>,
+  rootCls: Ref<string>,
 ) {
   return genStyleHooks(
     'TreeSelect',

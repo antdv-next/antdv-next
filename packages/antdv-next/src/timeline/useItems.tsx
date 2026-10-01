@@ -1,4 +1,4 @@
-import type { ComputedRef, CSSProperties } from 'vue'
+import type { ComputedRef, CSSProperties, Ref } from 'vue'
 
 import type { TimelineItemType, TimelineMode, TimelineProps } from './Timeline'
 import { LoadingOutlined } from '@antdv-next/icons'
@@ -14,8 +14,8 @@ export interface TimelineItemRenders {
 }
 
 function useItems(
-  rootPrefixCls: ComputedRef<string>,
-  prefixCls: ComputedRef<string>,
+  rootPrefixCls: Ref<string>,
+  prefixCls: Ref<string>,
   mode: ComputedRef<TimelineMode>,
   items?: ComputedRef<TimelineItemType[] | undefined>,
   pending?: ComputedRef<TimelineProps['pending']>,

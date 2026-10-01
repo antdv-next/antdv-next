@@ -71,7 +71,7 @@ import type { TreeProps } from '../tree/Tree.tsx'
 import type { BlockProps as TypographyBaseProps } from '../typography/interface'
 import type { UploadProps } from '../upload/interface.ts'
 import type { RenderEmptyHandler } from './defaultRenderEmpty'
-import { computed, inject, provide, ref } from 'vue'
+import { computed, inject, provide, ref, toRef } from 'vue'
 
 export const defaultPrefixCls = 'ant'
 export const defaultIconPrefixCls = 'anticon'
@@ -638,18 +638,16 @@ export type ConfigRefs<R extends ConfigConsumerProps = ConfigConsumerProps> = {
 
 export function useBaseConfig<K extends string>(suffixCls?: K, props?: ComponentBaseProps) {
   const config = useConfig()
+  // `toRef(getter)` refs are plain getters: no ComputedRefImpl / Dep / Link per
+  // instance, while reads inside render or computed still track `config`.
   return {
-    result: computed(() => config.value?.result),
-    modal: computed(() => config.value?.modal),
-    timeline: computed(() => config.value?.timeline),
-    notification: computed(() => config.value?.notification),
+    result: toRef(() => config.value?.result),
+    modal: toRef(() => config.value?.modal),
+    timeline: toRef(() => config.value?.timeline),
+    notification: toRef(() => config.value?.notification),
     getPrefixCls: (suffixCls?: string, prefixCls?: string) => config.value?.getPrefixCls(suffixCls, prefixCls),
-    prefixCls: computed(() => {
-      return config.value?.getPrefixCls(suffixCls, props?.prefixCls)
-    }),
-    direction: computed(() => {
-      return config.value?.direction
-    }),
+    prefixCls: toRef(() => config.value?.getPrefixCls(suffixCls, props?.prefixCls)),
+    direction: toRef(() => config.value?.direction),
     getPopupContainer: config?.value.getPopupContainer,
   }
 }
@@ -684,48 +682,44 @@ export function useComponentBaseConfig<
   K extends keyof NonNullable<ConfigComponentProps[T]> = keyof NonNullable<ConfigComponentProps[T]>,
 >(propName: T, props?: ComponentBaseProps, keys?: readonly K[], suffixCls?: string) {
   const context = useConfig()
-  const propValue = computed(() => {
-    // Index through `any`: with real (non-any) config types the raw indexed
-    // access forms a union of every component config, which trips TS2590
-    // (union too complex). The result is cast to the precise type anyway.
-    return (context.value as any)[propName] as { classes?: any, styles?: any } & ConfigComponentProps[T]
-  })
-  const toRefs = <TValue>(propValues: Ref<TValue>) => {
+  // Index through `any`: with real (non-any) config types the raw indexed
+  // access forms a union of every component config, which trips TS2590
+  // (union too complex). The result is cast to the precise type anyway.
+  const getPropValue = () => (context.value as any)[propName] as { classes?: any, styles?: any } & ConfigComponentProps[T]
+
+  // Every field is a `toRef(getter)`: a plain getter object instead of a
+  // computed, so a component pays no reactive bookkeeping for config fields.
+  const toRefs = <TValue>(getPropValues: () => TValue) => {
     const result: any = {
-      classes: computed(() => (propValues.value as any)?.classes ?? EMPTY_OBJECT),
-      styles: computed(() => (propValues.value as any)?.styles ?? EMPTY_OBJECT),
-      class: computed(() => (propValues.value as any)?.class),
-      style: computed(() => (propValues.value as any)?.style),
+      classes: toRef(() => (getPropValues() as any)?.classes ?? EMPTY_OBJECT),
+      styles: toRef(() => (getPropValues() as any)?.styles ?? EMPTY_OBJECT),
+      class: toRef(() => (getPropValues() as any)?.class),
+      style: toRef(() => (getPropValues() as any)?.style),
     }
-    const __keys = Object.keys(result)
-    for (const key in propValues.value) {
-      if (!__keys.includes(key)) {
-        result[key] = computed(() => propValues.value[key])
+    const addKey = (key: string) => {
+      if (!result[key]) {
+        result[key] = toRef(() => (getPropValues() as any)?.[key])
       }
     }
-    if (keys && keys.length) {
-      keys.forEach((key) => {
-        if (!result[key]) {
-          result[key] = computed(() => propValues.value?.[key])
-        }
-      })
+    const current = getPropValues()
+    if (current) {
+      Object.keys(current).forEach(addKey)
     }
+    keys?.forEach(key => addKey(key as string))
     return result as { [Key in keyof TValue]-?: Ref<TValue[Key]> }
   }
-  const refsData = toRefs(propValue)
+  const refsData = toRefs(getPropValue)
   return {
     ...refsData,
-    direction: computed(() => context.value.direction),
-    prefixCls: computed(() => {
-      return context.value?.getPrefixCls(suffixCls ?? propName, props?.prefixCls)
-    }),
-    rootPrefixCls: computed(() => context.value?.getPrefixCls()),
+    direction: toRef(() => context.value.direction),
+    prefixCls: toRef(() => context.value?.getPrefixCls(suffixCls ?? propName, props?.prefixCls)),
+    rootPrefixCls: toRef(() => context.value?.getPrefixCls()),
     getPopupContainer: context.value.getPopupContainer,
     getPrefixCls: context.value.getPrefixCls,
     getTargetContainer: context.value.getTargetContainer,
-    virtual: computed(() => context.value.virtual),
-    renderEmpty: computed(() => context.value.renderEmpty),
-    popupMatchSelectWidth: computed(() => context.value.popupMatchSelectWidth),
-    popupOverflow: computed(() => context.value.popupOverflow),
+    virtual: toRef(() => context.value.virtual),
+    renderEmpty: toRef(() => context.value.renderEmpty),
+    popupMatchSelectWidth: toRef(() => context.value.popupMatchSelectWidth),
+    popupOverflow: toRef(() => context.value.popupOverflow),
   }
 }

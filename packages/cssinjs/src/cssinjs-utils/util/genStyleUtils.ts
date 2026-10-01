@@ -1,16 +1,16 @@
-import type { Ref, UnwrapRef } from 'vue'
+import type { ComputedRef, Ref, UnwrapRef } from 'vue'
 import type { AbstractCalculator, CSSInterpolation, CSSObject, TokenType } from '../../index'
 import type { UseCSP } from '../hooks/useCSP'
 import type { UsePrefix } from '../hooks/usePrefix'
 
-import type { UseToken } from '../hooks/useToken'
+import type { UseToken, UseTokenReturn } from '../hooks/useToken'
 import type {
   ComponentTokenKey,
   GlobalTokenWithComponent,
   TokenMap,
   TokenMapKey,
 } from '../interface'
-import { computed, defineComponent } from 'vue'
+import { computed, defineComponent, effectScope } from 'vue'
 
 import { genCalc, token2CSSVar, useCSSVarRegister, useStyleRegister } from '../../index'
 import useUniqueMemo from '../_util/hooks/useUniqueMemo'
@@ -99,6 +99,24 @@ export type GetCompUnitless<CompTokenMap extends TokenMap, AliasToken extends To
   component: C | [C, string],
 ) => Partial<Record<ComponentTokenKey<CompTokenMap, AliasToken, C>, boolean>>
 
+/**
+ * `cssVar.key` only depends on the (shared) cssVar ref, so derive it once per
+ * ref instead of once per component instance.
+ */
+const cssVarKeyCache = new WeakMap<object, ComputedRef<string | undefined>>()
+
+function getCssVarKeyRef(cssVar: Ref<{ key?: string } | undefined> | undefined) {
+  if (!cssVar) {
+    return computed(() => undefined)
+  }
+  let keyRef = cssVarKeyCache.get(cssVar)
+  if (!keyRef) {
+    keyRef = effectScope(true).run(() => computed(() => cssVar.value?.key))!
+    cssVarKeyCache.set(cssVar, keyRef)
+  }
+  return keyRef
+}
+
 function genStyleUtils<
   CompTokenMap extends TokenMap,
   AliasToken extends TokenType,
@@ -126,6 +144,8 @@ function genStyleUtils<
     getCommonStyle,
     getCompUnitless,
   } = config
+
+  type TokenResult = UseTokenReturn<CompTokenMap, AliasToken, DesignToken>
 
   function genStyleHooks<C extends TokenMapKey<CompTokenMap>>(
     component: C | [C, string],
@@ -208,20 +228,30 @@ function genStyleUtils<
 
     const useCSSVar = genCSSVarRegister(componentName, getDefaultToken, mergedOptions)
 
-    return (prefixCls: Ref<string>, rootCls: Ref<string | undefined> = prefixCls) => {
-      const hashId = useStyle(prefixCls, rootCls)
+    return (
+      prefixCls: Ref<string>,
+      rootCls: Ref<string | undefined> = prefixCls,
+      // Resolve the token once and share it between the style and the CSS var hook.
+      tokenResult: TokenResult = useToken(),
+    ) => {
+      const hashId = useStyle(prefixCls, rootCls, tokenResult)
 
-      const cssVarCls = useCSSVar(computed(() => {
-        // Resolve function type to get dynamic extra prefix
-        const extraPrefixCls = options?.extraCssVarPrefixCls
-        const resolvedExtraPrefixCls = typeof extraPrefixCls === 'function'
-          ? extraPrefixCls({ prefixCls: prefixCls.value, rootCls: rootCls.value! })
-          : extraPrefixCls
+      const extraPrefixCls = options?.extraCssVarPrefixCls
+      const cssVarCls = useCSSVar(
+        extraPrefixCls
+          ? computed(() => {
+              // Resolve function type to get dynamic extra prefix
+              const resolvedExtraPrefixCls = typeof extraPrefixCls === 'function'
+                ? extraPrefixCls({ prefixCls: prefixCls.value, rootCls: rootCls.value! })
+                : extraPrefixCls
 
-        return resolvedExtraPrefixCls?.length
-          ? [rootCls.value!, ...resolvedExtraPrefixCls]
-          : rootCls.value
-      }))
+              return resolvedExtraPrefixCls?.length
+                ? [rootCls.value!, ...resolvedExtraPrefixCls]
+                : rootCls.value
+            })
+          : rootCls,
+        tokenResult,
+      )
 
       return [hashId, cssVarCls] as const
     }
@@ -242,8 +272,8 @@ function genStyleUtils<
     },
   ) {
     const { unitless: compUnitless, prefixToken, ignore } = options
-    return (rootCls: Ref<string | string[] | undefined>) => {
-      const { cssVar, realToken } = useToken()
+    return (rootCls: Ref<string | string[] | undefined>, tokenResult: TokenResult = useToken()) => {
+      const { cssVar, realToken } = tokenResult
       const csp = useCSP()
       useCSSVarRegister(
         computed(() => {
@@ -283,7 +313,7 @@ function genStyleUtils<
         },
       )
 
-      return computed(() => cssVar?.value?.key)
+      return getCssVarKeyRef(cssVar)
     }
   }
 
@@ -323,14 +353,15 @@ function genStyleUtils<
     }
 
     // Return new style hook
-    return (prefixCls: Ref<string>, rootCls?: Ref<string | undefined>) => {
-      const { theme, hashId, token, realToken, cssVar, zeroRuntime } = useToken()
+    return (
+      prefixCls: Ref<string>,
+      rootCls?: Ref<string | undefined>,
+      tokenResult: TokenResult = useToken(),
+    ) => {
+      const { theme, hashId, token, realToken, cssVar, zeroRuntime } = tokenResult
 
-      // Update of `disabledRuntimeStyle` would cause React hook error, so memoized it and never update.
-      const mergedZeroRuntime = computed(() => {
-        return zeroRuntime?.value
-      })
-      if (mergedZeroRuntime.value) {
+      // Update of `disabledRuntimeStyle` would cause React hook error, so read it once and never update.
+      if (zeroRuntime?.value) {
         return hashId!
       }
 
@@ -340,35 +371,31 @@ function genStyleUtils<
       const type = 'css'
 
       // Use unique memo to share the result across all instances
-      const calc = computed(() => {
-        return useUniqueMemo(() => {
-          const unitlessCssVar = new Set<string>()
-          Object.keys(options.unitless || {}).forEach((key) => {
-            // Some component proxy the AliasToken (e.g. Image) and some not (e.g. Modal)
-            // We should both pass in `unitlessCssVar` to make sure the CSSVar can be unitless.
-            unitlessCssVar.add(token2CSSVar(key, cssVar?.value?.prefix))
-            unitlessCssVar.add(token2CSSVar(key, getCompVarPrefix(component, cssVar?.value?.prefix)))
-          })
+      const getCalc = () => useUniqueMemo(() => {
+        const unitlessCssVar = new Set<string>()
+        Object.keys(options.unitless || {}).forEach((key) => {
+          // Some component proxy the AliasToken (e.g. Image) and some not (e.g. Modal)
+          // We should both pass in `unitlessCssVar` to make sure the CSSVar can be unitless.
+          unitlessCssVar.add(token2CSSVar(key, cssVar?.value?.prefix))
+          unitlessCssVar.add(token2CSSVar(key, getCompVarPrefix(component, cssVar?.value?.prefix)))
+        })
 
-          return genCalc(type, unitlessCssVar)
-        }, [type, component, cssVar?.value?.prefix])
-      })
+        return genCalc(type, unitlessCssVar)
+      }, [type, component, cssVar?.value?.prefix])
 
       const { max, min } = genMaxMin(type)
 
       // Shared config
-      const sharedConfig = computed(() => {
-        return {
-          theme: theme?.value,
-          token: token.value,
-          hashId: hashId?.value,
-          nonce: () => csp.value.nonce!,
-          clientOnly: options.clientOnly,
-          layer: mergedLayer,
+      const getSharedConfig = () => ({
+        theme: theme?.value,
+        token: token.value,
+        hashId: hashId?.value,
+        nonce: () => csp.value.nonce!,
+        clientOnly: options.clientOnly,
+        layer: mergedLayer,
 
-          // antd is always at top of styles
-          order: options.order || -999,
-        }
+        // antd is always at top of styles
+        order: options.order || -999,
       })
 
       // This if statement is safe, as it will only be used if the generator has the function. It's not dynamic.
@@ -376,17 +403,14 @@ function genStyleUtils<
         // Generate style for all need reset tags.
         useStyleRegister(
           computed(() => ({
-            ...sharedConfig.value,
+            ...getSharedConfig(),
             clientOnly: false,
             path: ['Shared', prefix.value?.rootPrefixCls],
           } as any)),
           () => getResetStyles(
             token.value,
             {
-              prefix: computed(() => ({
-                rootPrefixCls: prefix.value.rootPrefixCls,
-                iconPrefixCls: prefix.value.iconPrefixCls,
-              })),
+              prefix,
               csp,
             },
           ),
@@ -395,7 +419,7 @@ function genStyleUtils<
       useStyleRegister(
         computed(() => {
           return {
-            ...sharedConfig.value,
+            ...getSharedConfig(),
             path: [concatComponent, prefixCls.value, prefix.value.iconPrefixCls],
           } as any
         }),
@@ -435,7 +459,7 @@ function genStyleUtils<
               prefixCls: prefixCls.value,
               iconCls: `.${prefix.value.iconPrefixCls}`,
               antCls: `.${prefix.value.rootPrefixCls}`,
-              calc: calc.value,
+              calc: getCalc(),
               max,
               min,
             },

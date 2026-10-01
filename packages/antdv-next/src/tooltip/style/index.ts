@@ -1,5 +1,5 @@
 import type { CSSObject } from '@antdv-next/cssinjs'
-import type { ComputedRef } from 'vue'
+import type { Ref } from 'vue'
 
 import type { ArrowOffsetToken } from '../../style/placementArrow'
 import type { ArrowToken } from '../../style/roundedArrow'
@@ -213,7 +213,7 @@ export const prepareComponentToken: GetDefaultToken<'Tooltip'> = token => ({
     }),
   ),
 })
-export default (prefixCls: ComputedRef<string>, rootCls: ComputedRef<string>, injectStyle = true) => {
+export default (prefixCls: Ref<string>, rootCls: Ref<string>, injectStyle = true) => {
   const useStyle = genStyleHooks(
     'Tooltip',
     (token) => {

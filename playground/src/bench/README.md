@@ -15,21 +15,31 @@ pnpm -F antdv-next test tests/perf
 UPDATE_PERF_BASELINE=1 pnpm -F antdv-next test tests/perf
 ```
 
-Reference (2026-10-01, after sharing `useToken()` per context, commit on top of 366836ad):
+Reference (2026-10-01, after phase 1 of the perf plan: shared `useToken()`,
+one token lookup per component, trimmed style-register computeds, getter refs
+in `useComponentBaseConfig`):
 
 | scenario | computed / instance | watch / instance | components / instance |
 |---|---:|---:|---:|
-| button | 97.6 | 12 | 4 |
-| input | 113 | 14 | 3 |
-| select | 189 | 36 | 15 |
-| date-picker | 253 | 42 | 13 |
-| menu-item | 122 | 32 | 14 |
-| form-item-input | 331 | 53 | 17 |
+| button | 51.4 | 10 | 4 |
+| input | 65 | 11 | 3 |
+| select | 160 | 34 | 15 |
+| date-picker | 222 | 40 | 13 |
+| menu-item | 90 | 30 | 14 |
+| form-item-input | 178 | 43 | 17 |
 | table-row | 47 | 1 | 7 |
 
-Before that change (`main` at 366836ad) the same scenarios measured: button
-218.9 / 21, input 263 / 25, select 329 / 44, date-picker 367 / 49, menu-item
-262 / 40, form-item-input 901 / 95 (computed / watch per instance).
+History (computed / watch per instance):
+
+| scenario | `main` 366836ad | + shared useToken | + rest of phase 1 |
+|---|---:|---:|---:|
+| button | 218.9 / 21 | 97.6 / 12 | 51.4 / 10 |
+| input | 263 / 25 | 113 / 14 | 65 / 11 |
+| select | 329 / 44 | 189 / 36 | 160 / 34 |
+| date-picker | 367 / 49 | 253 / 42 | 222 / 40 |
+| menu-item | 262 / 40 | 122 / 32 | 90 / 30 |
+| form-item-input | 901 / 95 | 331 / 53 | 178 / 43 |
+| table-row | 47 / 1 | 47 / 1 | 47 / 1 |
 
 ## 2. Browser timings and memory (local, real Chrome)
 
@@ -51,7 +61,20 @@ and Vue's dev build keeps extra per-instance bookkeeping.
 Reference (2026-10-01, Apple M2 Pro, 32 GB, Chrome 154, production build,
 3 pages x 5 hot runs).
 
-After sharing `useToken()` per context:
+After the rest of phase 1 (one token lookup per component, trimmed
+style-register computeds, getter refs in `useComponentBaseConfig`):
+
+| scene | n | cold ms | hot ms | heap MB | retained@300ms MB | retained@1.5s MB | DOM nodes | style tags | CSS KB |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| button | 1000 | 187.7 | 123.6 | 49.4 | 2.4 | 2.4 | 2000 | 6 | 38 |
+| input | 500 | 116.3 | 70.0 | 28.1 | 1.8 | 1.7 | 500 | 7 | 47 |
+| date-picker | 200 | 423.9 | 365.2 | 53.8 | 3.4 | 3.4 | 1400 | 13 | 68 |
+| menu | 500 | 270.0 | 178.8 | 55.7 | 4.1 | 4.0 | 1052 | 15 | 78 |
+| form | 100 | 112.4 | 58.3 | 20.8 | 2.4 | 2.3 | 901 | 13 | 127 |
+| table | 1000 | 434.3 | 171.4 | 63.6 | 2.8 | 2.7 | 7016 | 9 | 65 |
+| admin | 1 | 144.0 | 43.5 | 14.6 | 5.0 | 4.6 | 407 | 44 | 376 |
+
+After sharing `useToken()` per context only:
 
 | scene | n | cold ms | hot ms | heap MB | retained@300ms MB | retained@1.5s MB | DOM nodes | style tags | CSS KB |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|

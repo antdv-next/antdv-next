@@ -5,6 +5,7 @@ import { filterEmpty } from '@v-c/util/dist/props-util'
 import { unrefElement } from '@vueuse/core'
 import { cloneVNode, computed, defineComponent, isVNode, onBeforeUnmount, onMounted, shallowRef, watch } from 'vue'
 import { useConfig } from '../../config-provider/context.ts'
+import { useStyleToken } from '../../theme/util/genStyleUtils'
 import useStyle from './style'
 
 import useWave from './useWave'
@@ -59,11 +60,13 @@ export default defineComponent<WaveProps, WaveEmits, string, SlotsType<WaveSlots
     const containerRef = shallowRef<HTMLElement | null>(null)
 
     const prefixCls = computed(() => configCtx.value.getPrefixCls('wave'))
-    const hashId = useStyle(prefixCls)
+    // Resolve the token once for both the style hook and the wave effect.
+    const tokenResult = useStyleToken()
+    const hashId = useStyle(prefixCls, undefined, tokenResult)
     const colorSource = computed(() => props.colorSource)
     const waveClassName = computed(() => classNames(prefixCls.value, hashId.value))
 
-    const showWave = useWave(containerRef, waveClassName, computed(() => props.component), colorSource)
+    const showWave = useWave(containerRef, waveClassName, computed(() => props.component), colorSource, tokenResult)
 
     const handleEvent = (event: Event) => {
       const node = containerRef.value

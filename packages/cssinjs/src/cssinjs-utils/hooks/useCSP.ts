@@ -5,6 +5,9 @@ export type UseCSP = () => Ref<{
   nonce?: string
 }>
 
-const useDefaultCSP: UseCSP = () => (ref({}))
+// Shared empty config: nothing ever writes to it, so one ref serves every caller.
+const defaultCSP = ref({})
+
+const useDefaultCSP: UseCSP = () => defaultCSP
 
 export default useDefaultCSP
