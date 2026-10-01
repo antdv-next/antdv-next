@@ -89,6 +89,20 @@ describe('carousel', () => {
     expect(wrapper.find('.slick-dots-top').exists()).toBe(true)
   })
 
+  it('should not mirror vertical carousel from dotPlacement in RTL', () => {
+    const wrapper = mount({
+      render: () => (
+        <ConfigProvider direction="rtl">
+          <Carousel dotPlacement="start">{createSlides()}</Carousel>
+        </ConfigProvider>
+      ),
+    })
+
+    expect(wrapper.find('.ant-carousel-vertical').exists()).toBe(true)
+    expect(wrapper.find('.ant-carousel-rtl').exists()).toBe(false)
+    expect(wrapper.findAll('.slick-dots li')[0]!.classes()).toContain('slick-active')
+  })
+
   it('should support dotPlacement start (vertical)', () => {
     const wrapper = mount(Carousel, {
       props: { dotPlacement: 'start' },

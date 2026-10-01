@@ -164,7 +164,7 @@ const Carousel = defineComponent<
     })
 
     const count = shallowRef(0)
-    const isRTL = computed(() => (props?.rtl ?? direction.value === 'rtl') && !props.vertical)
+    const isRTL = computed(() => (props?.rtl ?? direction.value === 'rtl') && !mergedVertical.value)
 
     // Only sync back to `initialSlide` when `initialSlide` / RTL changes, never when the
     // children count changes. Otherwise adding or removing a slide resets the carousel
