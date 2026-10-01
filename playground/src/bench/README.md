@@ -15,31 +15,30 @@ pnpm -F antdv-next test tests/perf
 UPDATE_PERF_BASELINE=1 pnpm -F antdv-next test tests/perf
 ```
 
-Reference (2026-10-01, after phase 1 of the perf plan: shared `useToken()`,
-one token lookup per component, trimmed style-register computeds, getter refs
-in `useComponentBaseConfig`):
+Reference (2026-10-01, after phase 1 of the perf plan plus @v-c/util 1.3.2-rc.0,
+@v-c/picker 1.5.2-rc.0 and @v-c/select 1.2.8-rc.0):
 
 | scenario | computed / instance | watch / instance | components / instance |
 |---|---:|---:|---:|
 | button | 51.4 | 10 | 4 |
 | input | 65 | 11 | 3 |
 | select | 160 | 34 | 15 |
-| date-picker | 222 | 40 | 13 |
+| date-picker | 131 | 40 | 13 |
 | menu-item | 90 | 30 | 14 |
 | form-item-input | 178 | 43 | 17 |
 | table-row | 47 | 1 | 7 |
 
 History (computed / watch per instance):
 
-| scenario | `main` 366836ad | + shared useToken | + rest of phase 1 |
-|---|---:|---:|---:|
-| button | 218.9 / 21 | 97.6 / 12 | 51.4 / 10 |
-| input | 263 / 25 | 113 / 14 | 65 / 11 |
-| select | 329 / 44 | 189 / 36 | 160 / 34 |
-| date-picker | 367 / 49 | 253 / 42 | 222 / 40 |
-| menu-item | 262 / 40 | 122 / 32 | 90 / 30 |
-| form-item-input | 901 / 95 | 331 / 53 | 178 / 43 |
-| table-row | 47 / 1 | 47 / 1 | 47 / 1 |
+| scenario | `main` 366836ad | + shared useToken | + rest of phase 1 | + vc rc packages |
+|---|---:|---:|---:|---:|
+| button | 218.9 / 21 | 97.6 / 12 | 51.4 / 10 | 51.4 / 10 |
+| input | 263 / 25 | 113 / 14 | 65 / 11 | 65 / 11 |
+| select | 329 / 44 | 189 / 36 | 160 / 34 | 160 / 34 |
+| date-picker | 367 / 49 | 253 / 42 | 222 / 40 | 131 / 40 |
+| menu-item | 262 / 40 | 122 / 32 | 90 / 30 | 90 / 30 |
+| form-item-input | 901 / 95 | 331 / 53 | 178 / 43 | 178 / 43 |
+| table-row | 47 / 1 | 47 / 1 | 47 / 1 | 47 / 1 |
 
 ## 2. Browser timings and memory (local, real Chrome)
 
@@ -60,6 +59,24 @@ and Vue's dev build keeps extra per-instance bookkeeping.
 
 Reference (2026-10-01, Apple M2 Pro, 32 GB, Chrome 154, production build,
 3 pages x 5 hot runs).
+
+Current: phase 1 plus "forward only defined props" in the DatePicker / Select
+wrappers and in @v-c/picker 1.5.2-rc.0, @v-c/select 1.2.8-rc.0, @v-c/util
+1.3.2-rc.0, plus lazy merged props in useMergeSemantic:
+
+| scene | n | cold ms | hot ms | heap MB | retained@300ms MB | retained@1.5s MB | DOM nodes | style tags | CSS KB |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| button | 1000 | 167.9 | 115.4 | 48.3 | 2.4 | 2.4 | 2000 | 6 | 38 |
+| input | 500 | 111.2 | 64.7 | 27.1 | 1.8 | 1.7 | 500 | 7 | 47 |
+| select | 500 | 293.4 | 223.0 | 81.8 | 3.9 | 3.7 | 3500 | 13 | 50 |
+| date-picker | 200 | 234.0 | 164.0 | 49.0 | 3.3 | 3.3 | 1400 | 13 | 68 |
+| menu | 500 | 255.6 | 174.5 | 55.1 | 4.1 | 4.0 | 1052 | 15 | 78 |
+| form | 100 | 109.2 | 56.7 | 20.6 | 2.4 | 2.3 | 901 | 13 | 127 |
+| table | 1000 | 431.8 | 166.5 | 63.6 | 2.8 | 2.7 | 7016 | 9 | 65 |
+| admin | 1 | 139.0 | 39.5 | 14.4 | 5.0 | 4.6 | 407 | 44 | 376 |
+
+The `select` scene (500 closed selects) was added with this step; before the
+vc changes it measured 305 ms hot / 472 ms cold on the same machine.
 
 After the rest of phase 1 (one token lookup per component, trimmed
 style-register computeds, getter refs in `useComponentBaseConfig`):
