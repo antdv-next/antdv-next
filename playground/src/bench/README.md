@@ -16,29 +16,30 @@ UPDATE_PERF_BASELINE=1 pnpm -F antdv-next test tests/perf
 ```
 
 Reference (2026-10-01, after phase 1 of the perf plan plus @v-c/util 1.3.2-rc.0,
-@v-c/picker 1.5.2-rc.0 and @v-c/select 1.2.8-rc.0):
+@v-c/picker 1.5.2-rc.0, @v-c/select 1.2.8-rc.0, @v-c/table 1.3.4-rc.0 and
+@v-c/trigger 1.1.6-rc.0):
 
 | scenario | computed / instance | watch / instance | components / instance |
 |---|---:|---:|---:|
 | button | 51.4 | 10 | 4 |
 | input | 65 | 11 | 3 |
-| select | 160 | 34 | 15 |
-| date-picker | 131 | 40 | 13 |
-| menu-item | 90 | 30 | 14 |
+| select | 141 | 32 | 15 |
+| date-picker | 112 | 38 | 13 |
+| menu-item | 71 | 28 | 14 |
 | form-item-input | 178 | 43 | 17 |
-| table-row | 47 | 1 | 7 |
+| table-row | 9 | 1 | 7 |
 
 History (computed / watch per instance):
 
-| scenario | `main` 366836ad | + shared useToken | + rest of phase 1 | + vc rc packages |
-|---|---:|---:|---:|---:|
-| button | 218.9 / 21 | 97.6 / 12 | 51.4 / 10 | 51.4 / 10 |
-| input | 263 / 25 | 113 / 14 | 65 / 11 | 65 / 11 |
-| select | 329 / 44 | 189 / 36 | 160 / 34 | 160 / 34 |
-| date-picker | 367 / 49 | 253 / 42 | 222 / 40 | 131 / 40 |
-| menu-item | 262 / 40 | 122 / 32 | 90 / 30 | 90 / 30 |
-| form-item-input | 901 / 95 | 331 / 53 | 178 / 43 | 178 / 43 |
-| table-row | 47 / 1 | 47 / 1 | 47 / 1 | 47 / 1 |
+| scenario | `main` 366836ad | + shared useToken | + rest of phase 1 | + picker/select rc | + table/trigger rc |
+|---|---:|---:|---:|---:|---:|
+| button | 218.9 / 21 | 97.6 / 12 | 51.4 / 10 | 51.4 / 10 | 51.4 / 10 |
+| input | 263 / 25 | 113 / 14 | 65 / 11 | 65 / 11 | 65 / 11 |
+| select | 329 / 44 | 189 / 36 | 160 / 34 | 160 / 34 | 141 / 32 |
+| date-picker | 367 / 49 | 253 / 42 | 222 / 40 | 131 / 40 | 112 / 38 |
+| menu-item | 262 / 40 | 122 / 32 | 90 / 30 | 90 / 30 | 71 / 28 |
+| form-item-input | 901 / 95 | 331 / 53 | 178 / 43 | 178 / 43 | 178 / 43 |
+| table-row | 47 / 1 | 47 / 1 | 47 / 1 | 47 / 1 | 9 / 1 |
 
 ## 2. Browser timings and memory (local, real Chrome)
 
@@ -60,7 +61,22 @@ and Vue's dev build keeps extra per-instance bookkeeping.
 Reference (2026-10-01, Apple M2 Pro, 32 GB, Chrome 154, production build,
 3 pages x 5 hot runs).
 
-Current: phase 1 plus "forward only defined props" in the DatePicker / Select
+Current: everything below plus @v-c/table 1.3.4-rc.0 (row-level hover memo,
+getter refs in cells / rows) and @v-c/trigger 1.1.6-rc.0 (getter refs, no
+mirror watchers):
+
+| scene | n | cold ms | hot ms | heap MB | retained@300ms MB | retained@1.5s MB | DOM nodes | style tags | CSS KB |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| button | 1000 | 168.9 | 115.7 | 48.3 | 2.4 | 2.4 | 2000 | 6 | 38 |
+| input | 500 | 114.5 | 64.9 | 27.1 | 1.8 | 1.7 | 500 | 7 | 47 |
+| select | 500 | 290.4 | 230.1 | 80.0 | 3.9 | 3.7 | 3500 | 13 | 50 |
+| date-picker | 200 | 230.2 | 162.7 | 48.2 | 3.3 | 3.2 | 1400 | 13 | 68 |
+| menu | 500 | 257.9 | 175.2 | 53.3 | 4.1 | 4.0 | 1052 | 15 | 78 |
+| form | 100 | 110.7 | 57.7 | 20.6 | 2.4 | 2.3 | 901 | 13 | 127 |
+| table | 1000 | 451.2 | 173.6 | 57.6 | 2.8 | 2.7 | 7016 | 9 | 65 |
+| admin | 1 | 144.8 | 39.6 | 14.1 | 5.0 | 4.6 | 407 | 44 | 376 |
+
+Phase 1 plus "forward only defined props" in the DatePicker / Select
 wrappers and in @v-c/picker 1.5.2-rc.0, @v-c/select 1.2.8-rc.0, @v-c/util
 1.3.2-rc.0, plus lazy merged props in useMergeSemantic:
 
