@@ -8,6 +8,7 @@ import { filterEmpty } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit/compat'
 import { computed, createVNode, defineComponent, isVNode, shallowRef, watch } from 'vue'
 import { getAttrStyleAndClass, pureAttrs } from '../_util/hooks'
+import { omitUndefined } from '../_util/omitUndefined'
 import { getSlotPropsFnRun } from '../_util/tools.ts'
 import { useSiderCtx } from '../layout/Sider.tsx'
 import Tooltip from '../tooltip'
@@ -121,7 +122,7 @@ const MenuItem = defineComponent<
       let returnNode = (
         <Item
           {...omit(pureAttrs(attrs), ['itemData']) as any}
-          {...omit(props, ['title', 'icon', 'danger', 'itemData'])}
+          {...omitUndefined(props as any, ['title', 'icon', 'danger', 'itemData'])}
           class={clsx(
             firstLevel ? classes?.item : classes?.subMenu?.item,
             {
