@@ -81,6 +81,15 @@ Common props ref：[Common props](/docs/vue/common-props)
 | closeIcon   | Custom close icon | () =&gt; any | - |
 | action      | The action of Alert | () =&gt; any | - |
 
+### ClosableType {#closable-type}
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| afterClose | Called when close animation is finished | () =&gt; void | - | - |
+| closeIcon | Custom close icon | VueNode | - | - |
+| disabled | Whether the close button is disabled | boolean | false | - |
+| onClose | Callback when Alert is closed | (e: MouseEvent) =&gt; void | - | - |
+
 ## Semantic DOM
 
 <demo src="./demo/_semantic.vue" simplify></demo>

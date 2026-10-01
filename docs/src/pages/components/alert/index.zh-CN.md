@@ -82,6 +82,15 @@ group:
 | closeIcon   | 自定义关闭图标 | () =&gt; any | - |
 | action      | 自定义操作项 | () =&gt; any | - |
 
+### ClosableType {#closable-type}
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| afterClose | 关闭动画结束后触发的回调函数 | () =&gt; void | - | - |
+| closeIcon | 自定义关闭图标 | VueNode | - | - |
+| disabled | 是否禁用关闭按钮 | boolean | false | - |
+| onClose | 关闭时触发的回调函数 | (e: MouseEvent) =&gt; void | - | - |
+
 ## 语义化 DOM {#semantic-dom}
 
 <demo src="./demo/_semantic.vue" simplify></demo>

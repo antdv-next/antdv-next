@@ -187,7 +187,7 @@ describe('alert', () => {
         closable: {
           'aria-label': 'Close',
           'data-test': 'close',
-          disabled: true,
+          'title': 'close-title',
         } as any,
       },
     })
@@ -195,7 +195,29 @@ describe('alert', () => {
     const closeButton = wrapper.find('.ant-alert-close-icon')
     expect(closeButton.attributes('aria-label')).toBe('Close')
     expect(closeButton.attributes('data-test')).toBe('close')
-    expect(closeButton.attributes('disabled')).toBeUndefined()
+    expect(closeButton.attributes('title')).toBeUndefined()
+  })
+
+  it('should not close while closable.disabled is true and close after it is false', async () => {
+    const onClose = vi.fn()
+    const afterClose = vi.fn()
+    const wrapper = mount(Alert, {
+      props: {
+        title: 'Notice',
+        closable: { disabled: true, onClose, afterClose },
+      },
+    })
+
+    const closeButton = wrapper.find('.ant-alert-close-icon')
+    expect((closeButton.element as HTMLButtonElement).disabled).toBe(true)
+    await closeButton.trigger('click')
+    expect(wrapper.find('.ant-alert').exists()).toBe(true)
+    expect(onClose).not.toHaveBeenCalled()
+
+    await wrapper.setProps({ closable: { disabled: false, onClose, afterClose } })
+    expect((wrapper.find('.ant-alert-close-icon').element as HTMLButtonElement).disabled).toBe(false)
+    await wrapper.find('.ant-alert-close-icon').trigger('click')
+    expect(onClose).toHaveBeenCalledTimes(1)
   })
 
   it('should expose nativeElement', () => {

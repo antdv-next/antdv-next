@@ -144,6 +144,7 @@ const IconNode = defineComponent<IconNodeProps>(
 
 interface CloseIconProps {
   isClosable: boolean
+  disabled?: boolean
   prefixCls: AlertProps['prefixCls']
   closeIcon?: AlertProps['closeIcon']
   handleClose: (e: MouseEvent) => void
@@ -153,7 +154,7 @@ interface CloseIconProps {
 const CloseIconNode = defineComponent<CloseIconProps>(
   (props, { slots, attrs }) => {
     return () => {
-      const { isClosable, prefixCls, handleClose, ariaProps } = props
+      const { isClosable, disabled, prefixCls, handleClose, ariaProps } = props
       const { className, style } = getAttrStyleAndClass(attrs)
       const closeIcon = getSlotPropsFnRun(slots, props, 'closeIcon', false)
       const mergedCloseIcon = closeIcon === true || closeIcon === undefined ? <CloseOutlined /> : closeIcon
@@ -161,6 +162,7 @@ const CloseIconNode = defineComponent<CloseIconProps>(
         ? (
             <button
               type="button"
+              disabled={disabled}
               onClick={handleClose}
               class={clsx(`${prefixCls}-close-icon`, className)}
               style={style}
@@ -403,6 +405,7 @@ const Alert = defineComponent<
                     class={mergedClassNames.close}
                     style={mergedStyles.close}
                     isClosable={isClosable}
+                    disabled={typeof closable === 'object' ? closable?.disabled : undefined}
                     prefixCls={prefixCls.value}
                     ariaProps={mergedAriaProps}
                     handleClose={handleClose}
