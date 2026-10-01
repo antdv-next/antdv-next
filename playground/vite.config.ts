@@ -148,6 +148,8 @@ export default defineConfig(({ mode }) => {
       },
     },
     resolve: {
+      // A locally built @v-c package must share this app's Vue copy.
+      dedupe: vcPackages.length ? ['vue'] : undefined,
       alias: [
         ...vcAliases,
         {
