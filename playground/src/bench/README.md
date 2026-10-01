@@ -16,30 +16,30 @@ UPDATE_PERF_BASELINE=1 pnpm -F antdv-next test tests/perf
 ```
 
 Reference (2026-10-01, after phase 1 of the perf plan plus @v-c/util 1.3.2-rc.0,
-@v-c/picker 1.5.2-rc.0, @v-c/select 1.2.8-rc.0, @v-c/table 1.3.4-rc.0 and
-@v-c/trigger 1.1.6-rc.0):
+@v-c/picker 1.5.2-rc.0, @v-c/select 1.2.8-rc.0, @v-c/table 1.3.4-rc.1,
+@v-c/trigger 1.1.6-rc.1, @v-c/menu 1.4.2-rc.0 and @v-c/tooltip 1.1.4-rc.0):
 
 | scenario | computed / instance | watch / instance | components / instance |
 |---|---:|---:|---:|
 | button | 51.4 | 10 | 4 |
 | input | 65 | 11 | 3 |
-| select | 141 | 32 | 15 |
-| date-picker | 112 | 38 | 13 |
-| menu-item | 71 | 28 | 14 |
+| select | 140 | 24 | 15 |
+| date-picker | 111 | 30 | 13 |
+| menu-item | 70 | 20 | 14 |
 | form-item-input | 178 | 43 | 17 |
 | table-row | 9 | 1 | 7 |
 
 History (computed / watch per instance):
 
-| scenario | `main` 366836ad | + shared useToken | + rest of phase 1 | + picker/select rc | + table/trigger rc |
-|---|---:|---:|---:|---:|---:|
-| button | 218.9 / 21 | 97.6 / 12 | 51.4 / 10 | 51.4 / 10 | 51.4 / 10 |
-| input | 263 / 25 | 113 / 14 | 65 / 11 | 65 / 11 | 65 / 11 |
-| select | 329 / 44 | 189 / 36 | 160 / 34 | 160 / 34 | 141 / 32 |
-| date-picker | 367 / 49 | 253 / 42 | 222 / 40 | 131 / 40 | 112 / 38 |
-| menu-item | 262 / 40 | 122 / 32 | 90 / 30 | 90 / 30 | 71 / 28 |
-| form-item-input | 901 / 95 | 331 / 53 | 178 / 43 | 178 / 43 | 178 / 43 |
-| table-row | 47 / 1 | 47 / 1 | 47 / 1 | 47 / 1 | 9 / 1 |
+| scenario | `main` 366836ad | + shared useToken | + rest of phase 1 | + picker/select rc | + table/trigger rc.0 | + trigger lazy, menu, tooltip rc |
+|---|---:|---:|---:|---:|---:|---:|
+| button | 218.9 / 21 | 97.6 / 12 | 51.4 / 10 | 51.4 / 10 | 51.4 / 10 | 51.4 / 10 |
+| input | 263 / 25 | 113 / 14 | 65 / 11 | 65 / 11 | 65 / 11 | 65 / 11 |
+| select | 329 / 44 | 189 / 36 | 160 / 34 | 160 / 34 | 141 / 32 | 140 / 24 |
+| date-picker | 367 / 49 | 253 / 42 | 222 / 40 | 131 / 40 | 112 / 38 | 111 / 30 |
+| menu-item | 262 / 40 | 122 / 32 | 90 / 30 | 90 / 30 | 71 / 28 | 70 / 20 |
+| form-item-input | 901 / 95 | 331 / 53 | 178 / 43 | 178 / 43 | 178 / 43 | 178 / 43 |
+| table-row | 47 / 1 | 47 / 1 | 47 / 1 | 47 / 1 | 9 / 1 | 9 / 1 |
 
 ## 2. Browser timings and memory (local, real Chrome)
 
@@ -61,9 +61,30 @@ and Vue's dev build keeps extra per-instance bookkeeping.
 Reference (2026-10-01, Apple M2 Pro, 32 GB, Chrome 154, production build,
 3 pages x 5 hot runs).
 
-Current: everything below plus @v-c/table 1.3.4-rc.0 (row-level hover memo,
-getter refs in cells / rows) and @v-c/trigger 1.1.6-rc.0 (getter refs, no
-mirror watchers):
+Current: everything below plus @v-c/table 1.3.4-rc.1 (row-level hover memo,
+getter refs, scrollbar measured only with `scroll.y` / `sticky`, stable
+slot-children columns), @v-c/trigger 1.1.6-rc.1 (getter refs, no mirror
+watchers, alignment / tracking effects created on first open), @v-c/menu
+1.4.2-rc.0 and @v-c/tooltip 1.1.4-rc.0 (forward only defined props), and the
+antdv-next InternalTable handing @v-c/table referentially stable columns,
+transforms and expandable config (rows and cells render once per mount):
+
+| scene | n | cold ms | hot ms | heap MB | retained@300ms MB | retained@1.5s MB | DOM nodes | style tags | CSS KB |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| button | 1000 | 166.7 | 116.3 | 48.3 | 2.4 | 2.4 | 2000 | 6 | 38 |
+| input | 500 | 111.0 | 64.8 | 27.1 | 1.8 | 1.7 | 500 | 7 | 47 |
+| select | 500 | 267.7 | 199.9 | 76.5 | 4.1 | 4.0 | 3500 | 13 | 50 |
+| date-picker | 200 | 215.9 | 155.6 | 46.7 | 3.2 | 3.2 | 1400 | 13 | 68 |
+| tooltip | 300 | 121.4 | 73.2 | 33.0 | 2.4 | 2.4 | 601 | 12 | 49 |
+| menu | 500 | 205.4 | 142.6 | 47.3 | 3.9 | 3.8 | 1052 | 15 | 78 |
+| form | 100 | 109.0 | 57.0 | 20.6 | 2.4 | 2.3 | 901 | 13 | 127 |
+| table | 1000 | 224.5 | 159.7 | 57.3 | 2.6 | 2.5 | 7016 | 9 | 65 |
+| admin | 1 | 133.9 | 38.1 | 13.3 | 4.7 | 4.3 | 407 | 44 | 376 |
+
+The `tooltip` scene (300 closed tooltips, placement top, click trigger) was
+added with this step.
+
+Previous step, @v-c/table 1.3.4-rc.0 and @v-c/trigger 1.1.6-rc.0:
 
 | scene | n | cold ms | hot ms | heap MB | retained@300ms MB | retained@1.5s MB | DOM nodes | style tags | CSS KB |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|

@@ -10,18 +10,18 @@
     "instances": 3
   },
   "select": {
-    "computed": 141,
-    "watch": 32,
+    "computed": 140,
+    "watch": 24,
     "instances": 15
   },
   "date-picker": {
-    "computed": 112,
-    "watch": 38,
+    "computed": 111,
+    "watch": 30,
     "instances": 13
   },
   "menu-item": {
-    "computed": 71,
-    "watch": 28,
+    "computed": 70,
+    "watch": 20,
     "instances": 14
   },
   "form-item-input": {
