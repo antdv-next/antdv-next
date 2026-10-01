@@ -51,3 +51,4 @@ ai-captures/
 
 # pnpm
 .pnpm-store
+.claude/launch.json
