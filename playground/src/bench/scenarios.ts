@@ -75,6 +75,17 @@ export const scenarios: Record<string, Scenario> = {
       render: () => range(n).map(i => h(Input, { key: i, value: `value ${i}` })),
     }),
   },
+  'select': {
+    defaultN: 500,
+    component: n => defineComponent({
+      render: () => range(n).map(i => h(Select, {
+        key: i,
+        value: 'a',
+        options: [{ value: 'a', label: 'A' }, { value: 'b', label: 'B' }, { value: 'c', label: 'C' }],
+        style: { width: '160px' },
+      })),
+    }),
+  },
   'date-picker': {
     defaultN: 200,
     component: n => defineComponent({

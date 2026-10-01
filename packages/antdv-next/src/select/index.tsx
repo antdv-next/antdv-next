@@ -9,7 +9,6 @@ import type { SizeType } from '../config-provider/SizeContext'
 import VcSelect, { OptGroup, Option } from '@v-c/select'
 import { clsx } from '@v-c/util'
 import { getTransitionName } from '@v-c/util/dist/utils/transition'
-import { omit } from 'es-toolkit'
 import { computed, defineComponent, shallowRef, watch } from 'vue'
 import {
   getAttrStyleAndClass,
@@ -19,6 +18,7 @@ import {
   useToProps,
   useZIndex,
 } from '../_util/hooks'
+import { omitUndefined } from '../_util/omitUndefined'
 import genPurePanel from '../_util/PurePanel.tsx'
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
@@ -483,7 +483,9 @@ const Select = defineComponent<
 
       const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear
 
-      const selectProps: Record<string, any> = omit(rest as any, [
+      // Forward only props that are set: every undefined key costs a normalisation
+      // pass in @v-c/select and each layer below it.
+      const selectProps: Record<string, any> = omitUndefined(rest as any, [
         'suffixIcon',
         'classes',
         'styles',
