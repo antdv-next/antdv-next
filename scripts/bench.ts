@@ -48,7 +48,7 @@ interface Options {
 
 function parseArgs(argv: string[]): Options {
   const options: Options = {
-    scenes: ['button', 'input', 'select', 'date-picker', 'tooltip', 'menu', 'form', 'table', 'admin'],
+    scenes: ['button', 'input', 'select', 'date-picker', 'tooltip', 'menu', 'form', 'table', 'admin', 'table-update', 'form-change', 'form-validate'],
     build: false,
     cpu: 1,
     pages: 3,
@@ -367,6 +367,7 @@ interface PageResult {
   retained1500: number
   errors: string[]
   profile?: ProfileSummary
+  updateMs?: number
 }
 
 async function measurePage(endpoint: string, url: string, options: Options, profile = false): Promise<PageResult> {
@@ -435,6 +436,7 @@ interface SceneSummary {
   heapMounted: number
   retained300: number
   retained1500: number
+  updateMs?: number
   domNodes: number
   styleTags: number
   cssBytes: number
@@ -451,6 +453,7 @@ function summarize(scene: string, pages: PageResult[], n: number): SceneSummary 
     heapMounted: median(pages.map(p => p.heapMounted)),
     retained300: median(pages.map(p => p.retained300)),
     retained1500: median(pages.map(p => p.retained1500)),
+    updateMs: pages[0]!.updateMs === undefined ? undefined : median(pages.map(p => p.updateMs!)),
     domNodes: pages[0]!.domNodes,
     styleTags: pages[0]!.styleTags,
     cssBytes: pages[0]!.cssBytes,
@@ -462,10 +465,10 @@ function summarize(scene: string, pages: PageResult[], n: number): SceneSummary 
 function printTable(summaries: SceneSummary[], options: Options) {
   const mode = `${options.build ? 'production build' : 'dev server'}, cpu x${options.cpu}, ${options.pages} pages x ${options.runs} hot runs`
   console.info(`\n### antdv-next bench (${mode})\n`)
-  console.info('| scene | n | cold ms | hot ms | heap MB | retained@300ms MB | retained@1.5s MB | DOM nodes | style tags | CSS KB |')
-  console.info('|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|')
+  console.info('| scene | n | cold ms | hot ms | update ms | heap MB | retained@300ms MB | retained@1.5s MB | DOM nodes | style tags | CSS KB |')
+  console.info('|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|')
   for (const s of summaries) {
-    console.info(`| ${s.scene} | ${s.n} | ${ms(s.cold)} | ${ms(s.hot)} | ${mb(s.heapMounted)} | ${mb(s.retained300)} | ${mb(s.retained1500)} | ${s.domNodes} | ${s.styleTags} | ${(s.cssBytes / 1024).toFixed(0)} |`)
+    console.info(`| ${s.scene} | ${s.n} | ${ms(s.cold)} | ${ms(s.hot)} | ${s.updateMs === undefined ? '-' : ms(s.updateMs)} | ${mb(s.heapMounted)} | ${mb(s.retained300)} | ${mb(s.retained1500)} | ${s.domNodes} | ${s.styleTags} | ${(s.cssBytes / 1024).toFixed(0)} |`)
   }
   console.info('')
   for (const s of summaries) {
