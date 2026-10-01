@@ -1,7 +1,7 @@
 import type { Ref } from 'vue'
 import type Theme from '../theme/Theme'
 import type { Nonce } from '../util'
-import type { ExtractStyle } from './useGlobalCache'
+import type { ExtractStyle, OnCacheRemove } from './useGlobalCache'
 import canUseDom from '@v-c/util/dist/Dom/canUseDom'
 import { updateCSS } from '@v-c/util/dist/Dom/dynamicCSS'
 import { computed } from 'vue'
@@ -141,6 +141,12 @@ type TokenCacheValue<DerivativeToken> = [
   cssVarKey: string,
 ]
 
+// Module-level on purpose: see `OnCacheRemove` in useGlobalCache.ts.
+const removeTokenCache: OnCacheRemove<TokenCacheValue<any>> = (cacheValue, _fromHMR, context) => {
+  const [, , , , themeKey] = cacheValue
+  cleanTokenStyle(themeKey, context.cache.instanceId)
+}
+
 export const extract: ExtractStyle<TokenCacheValue<any>> = (
   cache,
   _effectStyles,
@@ -244,9 +250,7 @@ export default function useCacheToken<
         cssVar.value.key,
       ]
     },
-    ([, , , , themeKey]) => {
-      cleanTokenStyle(themeKey, styleContext.value.cache.instanceId)
-    },
+    removeTokenCache,
     (cacheValue) => {
       const [, , , cssVarsStr, themeKey] = cacheValue
       if (!canUseDom()) {

@@ -6,7 +6,7 @@ import type { HashPriority } from '../StyleContext'
 import type Theme from '../theme/Theme'
 import type { Transformer } from '../transformers/interface.ts'
 import type { Nonce } from '../util'
-import type { ExtractStyle } from './useGlobalCache'
+import type { ExtractStyle, OnCacheRemove } from './useGlobalCache'
 import { removeCSS, updateCSS } from '@v-c/util/dist/Dom/dynamicCSS'
 
 import { compile, middleware, prefixer, serialize, stringify } from 'stylis'
@@ -381,6 +381,15 @@ type StyleCacheValue = [
     clientOnly: boolean | undefined,
     order: number,
 ]
+
+// Module-level on purpose: see `OnCacheRemove` in useGlobalCache.ts.
+const removeStyleCache: OnCacheRemove<StyleCacheValue> = (cacheValue, fromHMR) => {
+  const [, styleId] = cacheValue
+  if (fromHMR && isClientSide) {
+    removeCSS(styleId, { mark: ATTR_MARK })
+  }
+}
+
 export default function useStyleRegister(
   info: Ref<{
     theme: Theme<any, any>
@@ -466,13 +475,7 @@ export default function useStyleRegister(
       ]
     },
     // Remove cache if no need
-
-    (cacheValue, fromHMR) => {
-      const [, styleId] = cacheValue
-      if (fromHMR && isClientSide) {
-        removeCSS(styleId, { mark: ATTR_MARK })
-      }
-    },
+    removeStyleCache,
     // Effect: Inject style here
     (cacheValue) => {
       const [styleStr, styleId, effectStyle, , priority] = cacheValue

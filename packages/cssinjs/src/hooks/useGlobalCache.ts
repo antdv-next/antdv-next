@@ -1,5 +1,7 @@
 import type { Ref } from 'vue'
+import type CacheEntity from '../Cache'
 import type { KeyType } from '../Cache'
+import type { StyleContextProps } from '../StyleContext'
 import { computed, onBeforeMount, onBeforeUnmount, shallowRef, watch } from 'vue'
 import { pathKey } from '../Cache'
 import { useStyleContext } from '../StyleContext'
@@ -13,6 +15,21 @@ export type ExtractStyle<CacheValue> = (
     autoPrefix?: boolean
   },
 ) => [order: number, styleId: string, style: string] | null
+
+/**
+ * Called when the last reference of a cache entry is released.
+ *
+ * IMPORTANT: pass a module-level function here, never a closure created inside
+ * a component / hook scope. The delayed removal timer keeps this callback alive
+ * for `REMOVE_STYLE_DELAY` after unmount, and a closure would drag the whole
+ * component scope (its computeds, DOM refs, ...) along with it.
+ */
+export type OnCacheRemove<CacheType> = (
+  cache: CacheType,
+  fromHMR: boolean,
+  context: StyleContextProps,
+) => void
+
 const effectMap = new Map<string, boolean>()
 
 /**
@@ -25,6 +42,7 @@ const REMOVE_STYLE_DELAY = 500
  * 延迟移除信息
  * - timer: 延迟定时器
  * - pendingDecrements: 待执行的 decrement 次数
+ * - onCacheRemove / context: 定时器触发时执行清理所需的全部信息
  *
  * 这个设计解决了两个问题：
  * 1. 组件快速重新挂载时，通过减少 pendingDecrements 来抵消，而不是简单取消定时器
@@ -33,9 +51,113 @@ const REMOVE_STYLE_DELAY = 500
 interface DelayedRemoveInfo {
   timer: ReturnType<typeof setTimeout>
   pendingDecrements: number
+  onCacheRemove?: OnCacheRemove<any>
+  context: StyleContextProps
 }
 
-const delayedRemoveInfo = new Map<string, DelayedRemoveInfo>()
+/**
+ * 按 cache 实例隔离的延迟移除表。
+ *
+ * 这里的所有函数都定义在模块顶层，只接收 cache / pathStr 等纯数据，
+ * 因此 setTimeout 的闭包不会捕获任何组件或 hook 作用域。
+ * 否则已卸载的整棵组件树会一直被定时器引用到 REMOVE_STYLE_DELAY 之后才能释放。
+ */
+const delayedRemoveMap = new WeakMap<CacheEntity, Map<string, DelayedRemoveInfo>>()
+
+function getDelayedRemoveInfo(cache: CacheEntity, pathStr: string) {
+  return delayedRemoveMap.get(cache)?.get(pathStr)
+}
+
+function applyDecrement(
+  cache: CacheEntity,
+  pathStr: string,
+  decrementCount: number,
+  onCacheRemove: OnCacheRemove<any> | undefined,
+  context: StyleContextProps,
+) {
+  if (decrementCount <= 0) {
+    return
+  }
+
+  cache.opUpdate(pathStr, (prevCache) => {
+    if (!prevCache) {
+      return null
+    }
+
+    const [times = 0, value] = prevCache
+    const nextCount = times - decrementCount
+
+    if (nextCount <= 0) {
+      // Last reference, remove cache
+      onCacheRemove?.(value, false, context)
+      effectMap.delete(pathStr)
+      return null
+    }
+
+    return [nextCount, value]
+  })
+}
+
+function createDelayedRemoveTimer(cache: CacheEntity, pathStr: string) {
+  return setTimeout(() => {
+    const map = delayedRemoveMap.get(cache)
+    const info = map?.get(pathStr)
+    if (!map || !info) {
+      return
+    }
+    map.delete(pathStr)
+    applyDecrement(cache, pathStr, info.pendingDecrements, info.onCacheRemove, info.context)
+  }, REMOVE_STYLE_DELAY)
+}
+
+function scheduleDelayedRemove(
+  cache: CacheEntity,
+  pathStr: string,
+  onCacheRemove: OnCacheRemove<any> | undefined,
+  context: StyleContextProps,
+) {
+  let map = delayedRemoveMap.get(cache)
+  if (!map) {
+    map = new Map()
+    delayedRemoveMap.set(cache, map)
+  }
+
+  const existingInfo = map.get(pathStr)
+  if (existingInfo) {
+    // 已有 pending info，增加 pendingDecrements 并重置定时器
+    clearTimeout(existingInfo.timer)
+  }
+
+  map.set(pathStr, {
+    timer: createDelayedRemoveTimer(cache, pathStr),
+    pendingDecrements: (existingInfo?.pendingDecrements ?? 0) + 1,
+    onCacheRemove,
+    context,
+  })
+}
+
+/**
+ * 组件（重新）挂载到一个正在等待延迟移除的路径时，
+ * 抵消一次待执行的 decrement，而不是再增加引用计数。
+ * @returns 是否抵消成功；false 表示该路径没有 pending 的延迟移除
+ */
+function consumeDelayedRemove(cache: CacheEntity, pathStr: string) {
+  const map = delayedRemoveMap.get(cache)
+  const info = map?.get(pathStr)
+  if (!map || !info) {
+    return false
+  }
+
+  const nextPendingDecrements = info.pendingDecrements - 1
+  if (nextPendingDecrements <= 0) {
+    clearTimeout(info.timer)
+    map.delete(pathStr)
+  }
+  else {
+    info.pendingDecrements = nextPendingDecrements
+  }
+  return true
+}
 
 /**
  * Global cache for CSS-in-JS styles
@@ -54,7 +176,7 @@ export function useGlobalCache<CacheType>(
   prefix: Ref<string>,
   keyPath: Ref<KeyType[]>,
   cacheFn: () => CacheType,
-  onCacheRemove?: (cache: CacheType, fromHMR: boolean) => void,
+  onCacheRemove?: OnCacheRemove<CacheType>,
   // Add additional effect trigger
   onCacheEffect?: (cachedValue: CacheType) => void,
 ): Ref<CacheType> {
@@ -71,86 +193,34 @@ export function useGlobalCache<CacheType>(
     ? styleContext.value.mock === 'server'
     : !isClientSide
 
-  const applyDecrement = (pathStr: string, decrementCount = 1) => {
-    if (decrementCount <= 0) {
-      return
-    }
-
-    globalCache().opUpdate(pathStr, (prevCache) => {
-      if (!prevCache) {
-        return null
-      }
-
-      const [times = 0, cache] = prevCache
-      const nextCount = times - decrementCount
-
-      if (nextCount <= 0) {
-        // Last reference, remove cache
-        onCacheRemove?.(cache, false)
-        effectMap.delete(pathStr)
-        return null
-      }
-
-      return [nextCount, cache]
-    })
-  }
-
-  const createDelayedRemoveTimer = (pathStr: string) => setTimeout(() => {
-    const info = delayedRemoveInfo.get(pathStr)
-    if (!info) {
-      return
-    }
-    delayedRemoveInfo.delete(pathStr)
-    applyDecrement(pathStr, info.pendingDecrements)
-  }, REMOVE_STYLE_DELAY)
-
   // 清理缓存的函数
   const clearCache = (pathStr: string, immediate = false) => {
     if (isServerSide()) {
       return
     }
 
+    const cache = globalCache()
+    const context = styleContext.value
+
     if (immediate || !isClientSide) {
       // 立即清理：
       // 1. path 变化时清理旧缓存
       // 2. 服务端渲染时不需要延迟（没有 Transition 动画）
-      applyDecrement(pathStr)
+      applyDecrement(cache, pathStr, 1, onCacheRemove, context)
+      return
     }
-    else {
-      // 延迟清理（用于客户端组件卸载时，等待可能的 Transition 动画完成）
-      const existingInfo = delayedRemoveInfo.get(pathStr)
-      const currentCache = globalCache().opGet(pathStr)
-      const currentRefCount = currentCache?.[0] ?? 0
 
-      // 仍有其他实例在使用同一路径时，不需要延迟移除，直接递减引用计数。
-      // 这样可以避免虚拟滚动场景里高频 clear/setTimeout 抖动。
-      if (!existingInfo && currentRefCount > 1) {
-        applyDecrement(pathStr)
-        return
-      }
+    // 延迟清理（用于客户端组件卸载时，等待可能的 Transition 动画完成）
+    const currentRefCount = cache.opGet(pathStr)?.[0] ?? 0
 
-      if (existingInfo) {
-        // 已有 pending info，增加 pendingDecrements 并重置定时器
-        clearTimeout(existingInfo.timer)
-        const newPendingDecrements = existingInfo.pendingDecrements + 1
-
-        const timer = createDelayedRemoveTimer(pathStr)
-
-        delayedRemoveInfo.set(pathStr, {
-          timer,
-          pendingDecrements: newPendingDecrements,
-        })
-      }
-      else {
-        // 创建新的 pending info
-        const timer = createDelayedRemoveTimer(pathStr)
-
-        delayedRemoveInfo.set(pathStr, {
-          timer,
-          pendingDecrements: 1,
-        })
-      }
+    // 仍有其他实例在使用同一路径时，不需要延迟移除，直接递减引用计数。
+    // 这样可以避免虚拟滚动场景里高频 clear/setTimeout 抖动。
+    if (!getDelayedRemoveInfo(cache, pathStr) && currentRefCount > 1) {
+      applyDecrement(cache, pathStr, 1, onCacheRemove, context)
+      return
     }
+
+    scheduleDelayedRemove(cache, pathStr, onCacheRemove, context)
   }
 
   const cacheContent = computed(() => {
@@ -193,26 +263,11 @@ export function useGlobalCache<CacheType>(
 
     currentPathRef.value = newPath
 
-    const existingInfo = delayedRemoveInfo.get(newPath)
-
-    if (existingInfo) {
-      const newPendingDecrements = existingInfo.pendingDecrements - 1
-
-      if (newPendingDecrements <= 0) {
-        clearTimeout(existingInfo.timer)
-        delayedRemoveInfo.delete(newPath)
-      }
-      else {
-        delayedRemoveInfo.set(newPath, {
-          timer: existingInfo.timer,
-          pendingDecrements: newPendingDecrements,
-        })
-      }
-    }
-    else {
-      globalCache().opUpdate(newPath, (prevCache) => {
-        const [times = 0, cache] = prevCache || [undefined, undefined]
-        const mergedCache = cache || cacheFn()
+    const cache = globalCache()
+    if (!consumeDelayedRemove(cache, newPath)) {
+      cache.opUpdate(newPath, (prevCache) => {
+        const [times = 0, cacheValue] = prevCache || [undefined, undefined]
+        const mergedCache = cacheValue || cacheFn()
         return [times + 1, mergedCache]
       })
     }

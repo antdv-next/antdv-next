@@ -1,7 +1,7 @@
 import type { Ref } from 'vue'
 import type { Nonce } from '../util'
 import type { TokenWithCSSVar } from '../util/css-variables'
-import type { ExtractStyle } from './useGlobalCache'
+import type { ExtractStyle, OnCacheRemove } from './useGlobalCache'
 import canUseDom from '@v-c/util/dist/Dom/canUseDom'
 import { removeCSS, updateCSS } from '@v-c/util/dist/Dom/dynamicCSS'
 import { computed } from 'vue'
@@ -31,6 +31,14 @@ export interface CSSVarRegisterConfig {
   token: any
   hashId?: string
   nonce?: Nonce
+}
+
+// Module-level on purpose: see `OnCacheRemove` in useGlobalCache.ts.
+const removeCSSVarCache: OnCacheRemove<CSSVarCacheValue<any>> = (cacheValue, _fromHMR, context) => {
+  const [, , styleId] = cacheValue
+  if (isClientSide) {
+    removeCSS(styleId, { mark: ATTR_MARK, attachTo: context.container })
+  }
 }
 
 export const extract: ExtractStyle<CSSVarCacheValue<any>> = (
@@ -101,11 +109,7 @@ export default function useCSSVarRegister<V, T extends Record<string, V>>(
       const styleId = uniqueHash(stylePath.value, cssVarsStr)
       return [mergedToken, cssVarsStr, styleId, key]
     },
-    ([, , styleId]) => {
-      if (isClientSide) {
-        removeCSS(styleId, { mark: ATTR_MARK, attachTo: styleContext.value.container })
-      }
-    },
+    removeCSSVarCache,
     (cacheValue) => {
       const [, cssVarsStr, styleId] = cacheValue
       if (!canUseDom()) {
