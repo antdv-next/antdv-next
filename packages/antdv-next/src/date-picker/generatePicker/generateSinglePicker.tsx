@@ -6,10 +6,10 @@ import type { GenericTimePickerProps, PickerProps } from './interface'
 import Picker from '@v-c/picker'
 import { clsx } from '@v-c/util'
 import { getTransitionName } from '@v-c/util/dist/utils/transition'
-import { omit } from 'es-toolkit/compat'
 import { computed, defineComponent, shallowRef } from 'vue'
 import { ContextIsolator } from '../../_util/ContextIsolator'
 import { getAttrStyleAndClass, useZIndex } from '../../_util/hooks'
+import { omitUndefined } from '../../_util/omitUndefined'
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils'
 import { getSlotPropsFnRun, toPropsRefs } from '../../_util/tools'
 import { devUseWarning, isDev } from '../../_util/warning'
@@ -383,7 +383,7 @@ function generatePicker<DateType extends AnyObject = AnyObject>(generateConfig: 
               <Picker
                 {...restAttrs}
                 {...additionalProps}
-                {...omit(restProps, ['onKeydown']) as any}
+                {...omitUndefined(restProps as any, ['onKeydown'])}
                 ref={innerRef}
                 placeholder={getPlaceholder(locale.value, mergedPicker.value, placeholder)}
                 suffix={suffixNode}

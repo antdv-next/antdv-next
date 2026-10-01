@@ -18,6 +18,7 @@
  *   pnpm bench --cpu 4                      # 4x CPU throttling
  *   pnpm bench --pages 5 --runs 5           # fresh pages per scene / hot runs per page
  *   pnpm bench --out bench-results.json     # also write raw numbers
+ *   pnpm bench --build --profile            # CPU profile per scene (unminified build)
  *
  * Requires Google Chrome (override with CHROME_PATH).
  */
@@ -41,6 +42,8 @@ interface Options {
   out?: string
   port: number
   devtoolsPort: number
+  /** Record a CPU profile of the first page of each scene and print the hottest functions. */
+  profile: boolean
 }
 
 function parseArgs(argv: string[]): Options {
@@ -52,6 +55,7 @@ function parseArgs(argv: string[]): Options {
     runs: 5,
     port: 5199,
     devtoolsPort: 9333,
+    profile: false,
   }
   for (let i = 0; i < argv.length; i += 1) {
     const arg = argv[i]
@@ -80,6 +84,9 @@ function parseArgs(argv: string[]): Options {
         break
       case '--devtools-port':
         options.devtoolsPort = Number(next())
+        break
+      case '--profile':
+        options.profile = true
         break
       default:
         throw new Error(`Unknown argument: ${arg}`)
@@ -226,6 +233,8 @@ async function startServer(options: Options) {
       build: {
         outDir,
         emptyOutDir: true,
+        // Keep function names readable in CPU profiles.
+        minify: options.profile ? false : undefined,
         rollupOptions: { input: path.join(playgroundDir, 'bench.html') },
       },
     })
@@ -299,6 +308,52 @@ async function launchChrome(devtoolsPort: number) {
 // ---------------------------------------------------------------------------
 // Measurement
 // ---------------------------------------------------------------------------
+interface ProfileEntry {
+  key: string
+  selfMs: number
+}
+
+interface ProfileSummary {
+  totalMs: number
+  byFunction: ProfileEntry[]
+  byFile: ProfileEntry[]
+}
+
+/**
+ * Collapse a CDP CPU profile into self time per function and per file.
+ * Self time = samples attributed to the node itself, not to callees.
+ */
+function summarizeProfile(profile: any): ProfileSummary {
+  const { nodes, samples, timeDeltas } = profile as {
+    nodes: { id: number, callFrame: { functionName: string, url: string, lineNumber: number } }[]
+    samples: number[]
+    timeDeltas: number[]
+  }
+  const selfByNode = new Map<number, number>()
+  for (let i = 0; i < samples.length; i += 1) {
+    const delta = (timeDeltas[i] ?? 0) / 1000
+    selfByNode.set(samples[i]!, (selfByNode.get(samples[i]!) ?? 0) + delta)
+  }
+  const byFunction = new Map<string, number>()
+  const byFile = new Map<string, number>()
+  let totalMs = 0
+  for (const node of nodes) {
+    const self = selfByNode.get(node.id) ?? 0
+    if (!self)
+      continue
+    totalMs += self
+    const file = node.callFrame.url ? path.basename(node.callFrame.url.split('?')[0]!) : '(native)'
+    const fn = node.callFrame.functionName || '(anonymous)'
+    const fnKey = `${fn}  ${file}:${node.callFrame.lineNumber + 1}`
+    byFunction.set(fnKey, (byFunction.get(fnKey) ?? 0) + self)
+    byFile.set(file, (byFile.get(file) ?? 0) + self)
+  }
+  const sorted = (map: Map<string, number>) => [...map.entries()]
+    .map(([key, selfMs]) => ({ key, selfMs }))
+    .sort((a, b) => b.selfMs - a.selfMs)
+  return { totalMs, byFunction: sorted(byFunction), byFile: sorted(byFile) }
+}
+
 interface PageResult {
   scene: string
   n: number
@@ -311,9 +366,10 @@ interface PageResult {
   retained300: number
   retained1500: number
   errors: string[]
+  profile?: ProfileSummary
 }
 
-async function measurePage(endpoint: string, url: string, options: Options): Promise<PageResult> {
+async function measurePage(endpoint: string, url: string, options: Options, profile = false): Promise<PageResult> {
   const tab = await (await fetch(`${endpoint}/json/new?about:blank`, { method: 'PUT' })).json() as { id: string, webSocketDebuggerUrl: string }
   const cdp = new CDP(tab.webSocketDebuggerUrl)
   await cdp.connect()
@@ -339,9 +395,19 @@ async function measurePage(endpoint: string, url: string, options: Options): Pro
     await waitFor(() => cdp.evaluate<boolean>('!!(window.__bench && window.__bench.ready)').catch(() => false))
 
     const heapBefore = await cdp.heapUsed()
-    const run = await cdp.evaluate<Omit<PageResult, 'heapMounted' | 'retained300' | 'retained1500' | 'errors'>>(
+    if (profile) {
+      await cdp.send('Profiler.enable')
+      await cdp.send('Profiler.setSamplingInterval', { interval: 100 })
+      await cdp.send('Profiler.start')
+    }
+    const run = await cdp.evaluate<Omit<PageResult, 'heapMounted' | 'retained300' | 'retained1500' | 'errors' | 'profile'>>(
       `window.__bench.run(${options.runs})`,
     )
+    let profileSummary: ProfileSummary | undefined
+    if (profile) {
+      const { profile: raw } = await cdp.send('Profiler.stop')
+      profileSummary = summarizeProfile(raw)
+    }
     const heapMounted = await cdp.heapUsed() - heapBefore
 
     await cdp.evaluate('window.__bench.unmount()')
@@ -353,7 +419,7 @@ async function measurePage(endpoint: string, url: string, options: Options): Pro
     await sleep(Math.max(0, 1500 - (Date.now() - unmountedAt)))
     const retained1500 = await cdp.heapUsed() - heapBefore
 
-    return { ...run, heapMounted, retained300, retained1500, errors }
+    return { ...run, heapMounted, retained300, retained1500, errors, profile: profileSummary }
   }
   finally {
     cdp.close()
@@ -408,6 +474,18 @@ function printTable(summaries: SceneSummary[], options: Options) {
       s.errors.slice(0, 5).forEach(err => console.warn(`  - ${err.split('\n')[0]}`))
     }
   }
+  for (const s of summaries) {
+    const profile = s.pages[0]?.profile
+    if (!profile)
+      continue
+    const pct = (v: number) => `${((v / profile.totalMs) * 100).toFixed(1).padStart(5)}%`
+    console.info(`#### ${s.scene}: CPU profile of cold + ${options.runs} hot mounts (${ms(profile.totalMs)} ms sampled)\n`)
+    console.info('self time by file:')
+    profile.byFile.slice(0, 12).forEach(e => console.info(`  ${pct(e.selfMs)}  ${ms(e.selfMs).padStart(8)} ms  ${e.key}`))
+    console.info('\nself time by function:')
+    profile.byFunction.slice(0, 40).forEach(e => console.info(`  ${pct(e.selfMs)}  ${ms(e.selfMs).padStart(8)} ms  ${e.key}`))
+    console.info('')
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -425,7 +503,7 @@ async function main() {
       const pages: PageResult[] = []
       for (let i = 0; i < options.pages; i += 1) {
         process.stdout.write(`[bench] ${scene} page ${i + 1}/${options.pages}\r`)
-        pages.push(await measurePage(chrome.endpoint, url, options))
+        pages.push(await measurePage(chrome.endpoint, url, options, options.profile && i === 0))
       }
       // `n` is resolved in the page (query string or scene default).
       summaries.push(summarize(scene, pages, pages[0]!.n))
