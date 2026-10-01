@@ -22,6 +22,7 @@
     "build:llm": "pnpm -F antdv-next run build:llm",
     "build:search": "pnpm -F docs run gen:search",
     "contributors": "tsx scripts/generate-contributors.ts",
+    "bench": "tsx scripts/bench.ts",
     "build:p": "run-p build:llm build:search",
     "build": "run-s build:p build:site",
     "build:site": "run-s contributors build:site:run",

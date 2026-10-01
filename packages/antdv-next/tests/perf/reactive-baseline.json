@@ -1,0 +1,37 @@
+{
+  "button": {
+    "computed": 218.9,
+    "watch": 21,
+    "instances": 4
+  },
+  "input": {
+    "computed": 263,
+    "watch": 25,
+    "instances": 3
+  },
+  "select": {
+    "computed": 329,
+    "watch": 44,
+    "instances": 15
+  },
+  "date-picker": {
+    "computed": 367,
+    "watch": 49,
+    "instances": 13
+  },
+  "menu-item": {
+    "computed": 262,
+    "watch": 40,
+    "instances": 14
+  },
+  "form-item-input": {
+    "computed": 901,
+    "watch": 95,
+    "instances": 17
+  },
+  "table-row": {
+    "computed": 47,
+    "watch": 1,
+    "instances": 7
+  }
+}
