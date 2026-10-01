@@ -48,7 +48,7 @@ interface Options {
 
 function parseArgs(argv: string[]): Options {
   const options: Options = {
-    scenes: ['button', 'input', 'select', 'date-picker', 'menu', 'form', 'table', 'admin'],
+    scenes: ['button', 'input', 'select', 'date-picker', 'tooltip', 'menu', 'form', 'table', 'admin'],
     build: false,
     cpu: 1,
     pages: 3,

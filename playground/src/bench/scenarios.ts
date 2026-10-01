@@ -8,6 +8,7 @@ import {
   Menu,
   Select,
   Table,
+  Tooltip,
 } from 'antdv-next'
 import { defineComponent, h, reactive } from 'vue'
 
@@ -73,6 +74,20 @@ export const scenarios: Record<string, Scenario> = {
     defaultN: 500,
     component: n => defineComponent({
       render: () => range(n).map(i => h(Input, { key: i, value: `value ${i}` })),
+    }),
+  },
+  // Closed tooltips (one Trigger each). `trigger: 'click'` so a runner can
+  // open one deterministically; `placement: 'top'` so the popup is aligned via
+  // its bottom inset, the case the reduced-motion alignment fix guards.
+  'tooltip': {
+    defaultN: 300,
+    component: n => defineComponent({
+      render: () => h('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '8px', paddingTop: '120px' } }, range(n).map(i => h(Tooltip, {
+        key: i,
+        title: `Tooltip ${i}`,
+        placement: 'top',
+        trigger: 'click',
+      }, () => h(Button, null, () => `Tip ${i}`)))),
     }),
   },
   'select': {
