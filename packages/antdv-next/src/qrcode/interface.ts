@@ -34,7 +34,9 @@ export type QRCodeClassNamesType = SemanticClassNamesType<QRCodeProps, QRCodeSem
 
 export type QRCodeStylesType = SemanticStylesType<QRCodeProps, QRCodeSemanticStyles>
 
-export interface QRCodeProps extends QRProps, ComponentBaseProps {
+export interface QRCodeProps
+  extends Omit<QRProps, 'fgColor' | 'imageSettings' | 'includeMargin' | 'level' | 'minVersion'>,
+  ComponentBaseProps {
   type?: 'canvas' | 'svg'
   icon?: string
   iconSize?: number | { width: number, height: number }
