@@ -15,9 +15,9 @@ pnpm -F antdv-next test tests/perf
 UPDATE_PERF_BASELINE=1 pnpm -F antdv-next test tests/perf
 ```
 
-Reference (2026-10-01, after phase 1 of the perf plan plus @v-c/util 1.3.2-rc.0,
-@v-c/picker 1.5.2-rc.0, @v-c/select 1.2.8-rc.0, @v-c/table 1.3.4-rc.1,
-@v-c/trigger 1.1.6-rc.1, @v-c/menu 1.4.2-rc.0 and @v-c/tooltip 1.1.4-rc.0):
+Reference (2026-10-01, after phase 1 of the perf plan plus @v-c/util 1.3.2,
+@v-c/picker 1.5.2, @v-c/select 1.2.8, @v-c/table 1.3.4,
+@v-c/trigger 1.1.6, @v-c/menu 1.4.2 and @v-c/tooltip 1.1.4):
 
 | scenario | computed / instance | watch / instance | components / instance |
 |---|---:|---:|---:|
@@ -61,11 +61,11 @@ and Vue's dev build keeps extra per-instance bookkeeping.
 Reference (2026-10-01, Apple M2 Pro, 32 GB, Chrome 154, production build,
 3 pages x 5 hot runs).
 
-Current: everything below plus @v-c/table 1.3.4-rc.1 (row-level hover memo,
+Current: everything below plus @v-c/table 1.3.4 (row-level hover memo,
 getter refs, scrollbar measured only with `scroll.y` / `sticky`, stable
-slot-children columns), @v-c/trigger 1.1.6-rc.1 (getter refs, no mirror
+slot-children columns), @v-c/trigger 1.1.6 (getter refs, no mirror
 watchers, alignment / tracking effects created on first open), @v-c/menu
-1.4.2-rc.0 and @v-c/tooltip 1.1.4-rc.0 (forward only defined props), and the
+1.4.2-rc.0 and @v-c/tooltip 1.1.4 (forward only defined props), and the
 antdv-next InternalTable handing @v-c/table referentially stable columns,
 transforms and expandable config (rows and cells render once per mount):
 
@@ -98,7 +98,7 @@ Previous step, @v-c/table 1.3.4-rc.0 and @v-c/trigger 1.1.6-rc.0:
 | admin | 1 | 144.8 | 39.6 | 14.1 | 5.0 | 4.6 | 407 | 44 | 376 |
 
 Phase 1 plus "forward only defined props" in the DatePicker / Select
-wrappers and in @v-c/picker 1.5.2-rc.0, @v-c/select 1.2.8-rc.0, @v-c/util
+wrappers and in @v-c/picker 1.5.2, @v-c/select 1.2.8, @v-c/util
 1.3.2-rc.0, plus lazy merged props in useMergeSemantic:
 
 | scene | n | cold ms | hot ms | heap MB | retained@300ms MB | retained@1.5s MB | DOM nodes | style tags | CSS KB |
