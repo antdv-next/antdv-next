@@ -210,6 +210,7 @@ describe('table preserved selection records', () => {
         rowSelection,
         rowKey: 'name',
       },
+      attachTo: document.body,
     })
 
     await wrapper.get('tbody input[type="checkbox"]').setValue(true)
@@ -223,9 +224,7 @@ describe('table preserved selection records', () => {
       expect.anything(),
     )
 
-    const moonCheckbox = wrapper.findAll('tbody input[type="checkbox"]')[1]!
-    ;(moonCheckbox.element as HTMLInputElement).checked = true
-    await moonCheckbox.trigger('change', { shiftKey: true })
+    await wrapper.findAll('tbody input[type="checkbox"]')[1]!.trigger('click', { shiftKey: true })
     expect(onSelectMultiple).toHaveBeenCalledWith(
       true,
       [{ name: 'light' }, { name: 'bamboo' }, { name: 'moon' }],

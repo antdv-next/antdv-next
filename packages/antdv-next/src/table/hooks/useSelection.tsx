@@ -121,6 +121,15 @@ export default function useSelection<RecordType extends AnyObject = AnyObject>(
     }
   }
 
+  // The input `change` event carries no modifier keys, so keep the triggering
+  // click to read `shiftKey` from, like React's `onChange` nativeEvent does
+  let lastClickEvent: MouseEvent | undefined
+  const takeClickEvent = (event: any): MouseEvent => {
+    const clickEvent = lastClickEvent
+    lastClickEvent = undefined
+    return clickEvent ?? event?.nativeEvent
+  }
+
   // Preserved keys may no longer exist in `data`, so fall back to their cached records
   const getSelectedRecord = (key: Key) => {
     const record = getRecordByKey(key)
@@ -497,12 +506,14 @@ export default function useSelection<RecordType extends AnyObject = AnyObject>(
               {...checkboxProps as any}
               checked={checked}
               onClick={(e: any) => {
+                lastClickEvent = e
                 e.stopPropagation()
                 checkboxProps?.onClick?.(e)
               }}
               onChange={(event: any) => {
+                const nativeEvent = takeClickEvent(event)
                 if (!keySet.has(key)) {
-                  triggerSingleSelection(key, true, [key], (event as any).nativeEvent)
+                  triggerSingleSelection(key, true, [key], nativeEvent)
                 }
                 checkboxProps?.onChange?.(event)
               }}
@@ -542,12 +553,13 @@ export default function useSelection<RecordType extends AnyObject = AnyObject>(
               checked={checked}
               skipGroup
               onClick={(e: any) => {
+                lastClickEvent = e
                 e.stopPropagation()
                 checkboxProps?.onClick?.(e)
               }}
               onChange={(event: CheckboxChangeEvent) => {
-                const nativeEvent = event.nativeEvent
-                const { shiftKey } = nativeEvent
+                const nativeEvent = takeClickEvent(event)
+                const shiftKey = !!nativeEvent?.shiftKey
                 const currentSelectedIndex = recordKeys.indexOf(key)
                 const isMultiple
                   = derivedSelectedKeySet.value.size > 0

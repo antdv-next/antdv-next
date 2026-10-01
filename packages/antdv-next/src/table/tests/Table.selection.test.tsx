@@ -347,4 +347,29 @@ describe('table row selection', () => {
 
     expect(onSelect).toHaveBeenCalled()
   })
+
+  it('selects a range when shift-clicking row checkboxes', async () => {
+    const onChange = vi.fn()
+    const onSelect = vi.fn()
+    const onSelectMultiple = vi.fn()
+    const wrapper = mount(Table, {
+      props: {
+        columns,
+        dataSource: data,
+        pagination: false,
+        rowSelection: { onChange, onSelect, onSelectMultiple },
+      },
+      attachTo: document.body,
+    })
+
+    await wrapper.findAll('tbody input[type="checkbox"]')[0]!.trigger('click')
+    expect(onSelect).toHaveBeenLastCalledWith(data[0], true, [data[0]], expect.any(MouseEvent))
+
+    await wrapper.findAll('tbody input[type="checkbox"]')[2]!.trigger('click', { shiftKey: true })
+
+    expect(onSelectMultiple).toHaveBeenCalledWith(true, data, [data[1], data[2]])
+    expect(onChange).toHaveBeenLastCalledWith(['1', '2', '3'], data, { type: 'multiple' })
+    expect(wrapper.findAll('tbody tr.ant-table-row-selected')).toHaveLength(3)
+    wrapper.unmount()
+  })
 })
