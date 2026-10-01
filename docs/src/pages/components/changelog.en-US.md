@@ -2,11 +2,11 @@
 title: Component Changelog
 ---
 
-## V1.5.7
+## V1.6.0
 
 Release Date: 2026-10-02
 
-This release is a performance pass: the derived design token chain is shared across component instances, style hooks resolve the token once, the wrapper layers forward only the props that are actually set to `@v-c/*`, Table hands `@v-c/table` referentially stable column config, and the delayed style-removal timer no longer keeps unmounted component trees in memory. On a production build, 1000 Buttons hot-mount in 116 ms instead of 157 ms with the heap down from 92 MB to 48 MB, 200 DatePickers go from 368 ms to 156 ms, and a 1000-row Table cold-mounts in 225 ms instead of 439 ms. `@antdv-next/cssinjs` 1.1.0 ships alongside, and `@v-c/util`, `trigger`, `picker`, `select`, `table`, `menu` and `tooltip` move to their matching stable releases. It also advances ant-design upstream tracking to `820e1a8c2d` and fixes a batch of Form validation, Alert, Drawer, Descriptions, ColorPicker and ConfigProvider issues; the IDE web-types are now generated from `global.d.ts` and cover all 128 global components.
+This release is a performance pass: the derived design token chain is shared across component instances, style hooks resolve the token once, the wrapper layers forward only the props that are actually set to `@v-c/*`, Table hands `@v-c/table` referentially stable column config, and the delayed style-removal timer no longer keeps unmounted component trees in memory. On a production build, 1000 Buttons hot-mount in 116 ms instead of 157 ms with the heap down from 92 MB to 48 MB, 200 DatePickers go from 368 ms to 156 ms, and a 1000-row Table cold-mounts in 225 ms instead of 439 ms. `@antdv-next/cssinjs` 1.1.0 ships alongside with new public APIs, and `@v-c/util`, `trigger`, `picker`, `select`, `table`, `menu` and `tooltip` move to their matching stable releases; since the dependency floor moves as a whole, this is a minor release. It also advances ant-design upstream tracking to `820e1a8c2d` and fixes a batch of Form validation, Alert, Drawer, Descriptions, ColorPicker and ConfigProvider issues; the IDE web-types are now generated from `global.d.ts` and cover all 128 global components.
 
 **⚡ Performance**
 

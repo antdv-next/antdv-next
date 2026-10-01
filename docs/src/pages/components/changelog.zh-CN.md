@@ -2,11 +2,11 @@
 title: 组件更新日志
 ---
 
-## V1.5.7
+## V1.6.0
 
 发布日期：2026-10-02
 
-本次版本是一轮性能专项：共享设计 token 的派生链、样式 hook 只解析一次 token、各封装层只向 `@v-c/*` 转发实际设置的属性、Table 向 `@v-c/table` 传递引用稳定的列配置，并修复了样式延迟卸载定时器把已卸载组件树留在内存里的问题。生产构建下 1000 个 Button 的热挂载从 157 ms 降到 116 ms、堆内存从 92 MB 降到 48 MB，200 个 DatePicker 从 368 ms 降到 156 ms，1000 行 Table 的冷挂载从 439 ms 降到 225 ms。`@antdv-next/cssinjs` 同步发布 1.1.0，`@v-c/util`、`trigger`、`picker`、`select`、`table`、`menu`、`tooltip` 全部升级到配套的正式版。同时把 ant-design 上游跟踪推进到 `820e1a8c2d`，并集中修复了一批 Form 校验、Alert、Drawer、Descriptions、ColorPicker、ConfigProvider 等组件的问题；IDE 的 web-types 改为从 `global.d.ts` 生成，覆盖全部 128 个全局组件。
+本次版本是一轮性能专项：共享设计 token 的派生链、样式 hook 只解析一次 token、各封装层只向 `@v-c/*` 转发实际设置的属性、Table 向 `@v-c/table` 传递引用稳定的列配置，并修复了样式延迟卸载定时器把已卸载组件树留在内存里的问题。生产构建下 1000 个 Button 的热挂载从 157 ms 降到 116 ms、堆内存从 92 MB 降到 48 MB，200 个 DatePicker 从 368 ms 降到 156 ms，1000 行 Table 的冷挂载从 439 ms 降到 225 ms。`@antdv-next/cssinjs` 同步发布 1.1.0 并新增公开 API，`@v-c/util`、`trigger`、`picker`、`select`、`table`、`menu`、`tooltip` 全部升级到配套的正式版，依赖下限整体抬高，因此本次以 minor 版本发布。同时把 ant-design 上游跟踪推进到 `820e1a8c2d`，并集中修复了一批 Form 校验、Alert、Drawer、Descriptions、ColorPicker、ConfigProvider 等组件的问题；IDE 的 web-types 改为从 `global.d.ts` 生成，覆盖全部 128 个全局组件。
 
 **⚡ 性能 Performance**
 
