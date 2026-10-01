@@ -69,7 +69,7 @@ const DirectoryTree = defineComponent<
 
       let initExpandedKeys: Key[]
       if (defaultExpandAll) {
-        initExpandedKeys = Object.keys(keyEntities)
+        initExpandedKeys = Object.values(keyEntities).map(({ key }) => key)
       }
       else if (defaultExpandParent) {
         initExpandedKeys = conductExpandParent(

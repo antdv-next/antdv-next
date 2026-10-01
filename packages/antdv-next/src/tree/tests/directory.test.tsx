@@ -519,4 +519,44 @@ describe('directory Tree', () => {
     expect(onSelect.mock.calls[0]![1].selectedNodes.length).toBe(1)
     wrapper.unmount()
   })
+
+  it('selects a range of numeric keys with defaultExpandAll', async () => {
+    const onSelect = vi.fn()
+    const treeData = [
+      {
+        key: 1,
+        title: 'Folder',
+        children: [
+          { key: 2, title: 'File A' },
+          { key: 3, title: 'File B' },
+          { key: 4, title: 'File C' },
+        ],
+      },
+    ]
+    const wrapper = mount(DirectoryTree, {
+      props: {
+        multiple: true,
+        defaultExpandAll: true,
+        expandAction: 'doubleClick',
+        treeData,
+        onSelect,
+      },
+    })
+    await waitFakeTimer(0, 1)
+
+    const getNode = (title: string) => wrapper
+      .findAll('.ant-tree-node-content-wrapper')
+      .find(node => node.find('.ant-tree-title').text() === title)!
+
+    await getNode('File A').trigger('click')
+    await waitFakeTimer(0, 1)
+    await getNode('File C').trigger('click', { shiftKey: true })
+    await waitFakeTimer(0, 1)
+
+    expect(wrapper.findAll('.ant-tree-node-selected')).toHaveLength(3)
+    expect(onSelect).toHaveBeenLastCalledWith(
+      [2, 3, 4],
+      expect.objectContaining({ selectedNodes: treeData[0]!.children }),
+    )
+  })
 })
