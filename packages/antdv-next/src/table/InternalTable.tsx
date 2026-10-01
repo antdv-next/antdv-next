@@ -378,6 +378,12 @@ const InternalTable = defineComponent<
     const screens = useBreakpoint(needResponsive, null)
 
     const mergedColumns = computed(() => {
+      // Without responsive columns the list must stay referentially stable:
+      // `screens` is refreshed after mount, and a fresh array here would make
+      // @v-c/table rebuild every column and re-render every row.
+      if (!needResponsive.value) {
+        return baseColumns.value
+      }
       const matched = new Set(Object.keys(screens.value || {}).filter(m => screens.value?.[m as Breakpoint]))
       return baseColumns.value.filter((c: any) => !c.responsive || c.responsive.some((r: Breakpoint) => matched.has(r)))
     })
@@ -697,18 +703,92 @@ const InternalTable = defineComponent<
     }
     const columnTitleProps = useColumnTitleProps(sorterTitleProps, filters)
 
-    return () => {
-      const [transformTitleColumns] = useTitleColumns(columnTitleProps.value)
+    // ---- Everything handed to @v-c/table must be referentially stable ----
+    // @v-c/table rebuilds every column object and re-renders every row when
+    // `columns`, `transformColumns` or `expandable` change identity, so none of
+    // these may be recreated per render; the reactive inputs are read inside.
+    const transformTitleColumns = computed(() => useTitleColumns(columnTitleProps.value)[0])
 
-      const renderExpandedRow = slots.expandedRowRender
-        ? (record: AnyObject, index: number, indent: number, expanded: boolean) =>
-            getSlotPropsFnRun(slots, props as any, 'expandedRowRender', true, {
-              record,
-              index,
-              indent,
-              expanded,
-            })
-        : undefined
+    const renderExpandedRow = slots.expandedRowRender
+      ? (record: AnyObject, index: number, indent: number, expanded: boolean) =>
+          getSlotPropsFnRun(slots, props as any, 'expandedRowRender', true, {
+            record,
+            index,
+            indent,
+            expanded,
+          })
+      : undefined
+    const renderFilterDropdown = slots.filterDropdown
+      ? (ctx: FilterDropdownProps & { column: ColumnType }) =>
+          getSlotPropsFnRun(slots, props as any, 'filterDropdown', false, ctx)
+      : undefined
+    const renderFilterIcon = slots.filterIcon
+      ? (ctx: { column: ColumnType, filtered: boolean }) =>
+          getSlotPropsFnRun(slots, props as any, 'filterIcon', false, ctx)
+      : undefined
+    const transformFilterColumns = computed(() => useFilter({
+      prefixCls: prefixCls.value,
+      dropdownPrefixCls: getPrefixCls('dropdown', props.dropdownPrefixCls),
+      mergedFilterStates: mergedFilterStates.value,
+      filterStates,
+      onFilterChange,
+      filterDropdown: renderFilterDropdown,
+      filterIcon: renderFilterIcon,
+      getPopupContainer: props.getPopupContainer || contextGetPopupContainer,
+      locale: mergedLocale.value,
+      rootClassName: clsx(props.rootClass, cssVarCls.value, rootCls.value, hashId.value),
+    })[0])
+    const transformColumns = (innerColumns: ColumnsType): ColumnsType =>
+      transformTitleColumns.value(
+        transformSelectionColumns(
+          transformFilterColumns.value(
+            transformSorterColumns(innerColumns),
+          ),
+        ),
+      )
+    const expandType = computed(() => {
+      if (rawData.value.some(item => item?.[childrenColumnName.value])) {
+        return 'nest'
+      }
+      if (renderExpandedRow || mergedExpandable.value.expandedRowRender) {
+        return 'row'
+      }
+      return null
+    })
+    const mergedExpandableConfig = computed(() => {
+      const expandable = { ...mergedExpandable.value }
+      ;(expandable as any).__PARENT_RENDER_ICON__ = expandable.expandIcon
+
+      if (renderExpandedRow) {
+        expandable.expandedRowRender = renderExpandedRow as any
+      }
+
+      expandable.expandIcon = expandable.expandIcon || renderExpandIcon(mergedLocale.value)
+
+      if (expandType.value === 'nest' && expandable.expandIconColumnIndex === undefined) {
+        expandable.expandIconColumnIndex = mergedRowSelection.value ? 1 : 0
+      }
+      else if (expandType.value === 'nest' && expandable.expandIconColumnIndex! > 0 && mergedRowSelection.value) {
+        expandable.expandIconColumnIndex! -= 1
+      }
+
+      if (typeof expandable.indentSize !== 'number') {
+        expandable.indentSize = typeof props.indentSize === 'number' ? props.indentSize : 15
+      }
+
+      return expandable
+    })
+    const measureRowRender = (measureRow: any) => (
+      <TableMeasureRowContextProvider value={true}>
+        <ConfigProvider getPopupContainer={node => node as HTMLElement}>
+          {measureRow}
+        </ConfigProvider>
+      </TableMeasureRowContextProvider>
+    )
+    const onInternalUpdateExpandedRowKeys = (keys: readonly Key[]) => emit('update:expandedRowKeys', keys)
+    const onInternalResizeColumn = (width: number, column: ColumnType, columnKey: Key) => emit('resizeColumn', width, column, columnKey)
+
+    return () => {
       const { locale } = props
       const mergedEmptyNodeFn = () => {
         if (spinProps.value?.spinning && rawData.value === EMPTY_LIST) {
@@ -723,68 +803,6 @@ const InternalTable = defineComponent<
         return renderEmpty?.value?.('Table') || <DefaultRenderEmpty componentName="Table" />
       }
       const mergedEmptyNode = mergedEmptyNodeFn()
-      const mergedGetPopupContainer = props.getPopupContainer || contextGetPopupContainer
-      const renderFilterDropdown = slots.filterDropdown
-        ? (ctx: FilterDropdownProps & { column: ColumnType }) =>
-            getSlotPropsFnRun(slots, props as any, 'filterDropdown', false, ctx)
-        : undefined
-      const renderFilterIcon = slots.filterIcon
-        ? (ctx: { column: ColumnType, filtered: boolean }) =>
-            getSlotPropsFnRun(slots, props as any, 'filterIcon', false, ctx)
-        : undefined
-      const [transformFilterColumns] = useFilter({
-        prefixCls: prefixCls.value,
-        dropdownPrefixCls: getPrefixCls('dropdown', props.dropdownPrefixCls),
-        mergedFilterStates: mergedFilterStates.value,
-        filterStates,
-        onFilterChange,
-        filterDropdown: renderFilterDropdown,
-        filterIcon: renderFilterIcon,
-        getPopupContainer: mergedGetPopupContainer,
-        locale: mergedLocale.value,
-        rootClassName: clsx(props.rootClass, cssVarCls.value, rootCls.value, hashId.value),
-      })
-      const transformColumns = (innerColumns: ColumnsType): ColumnsType =>
-        transformTitleColumns(
-          transformSelectionColumns(
-            transformFilterColumns(
-              transformSorterColumns(innerColumns),
-            ),
-          ),
-        )
-      const expandType = (() => {
-        if (rawData.value.some(item => item?.[childrenColumnName.value])) {
-          return 'nest'
-        }
-        if (renderExpandedRow || mergedExpandable.value.expandedRowRender) {
-          return 'row'
-        }
-        return null
-      })()
-      const mergedExpandableConfig = (() => {
-        const expandable = { ...mergedExpandable.value }
-        ;(expandable as any).__PARENT_RENDER_ICON__ = expandable.expandIcon
-
-        if (renderExpandedRow) {
-          expandable.expandedRowRender = renderExpandedRow as any
-        }
-
-        expandable.expandIcon = expandable.expandIcon || renderExpandIcon(mergedLocale.value)
-
-        if (expandType === 'nest' && expandable.expandIconColumnIndex === undefined) {
-          expandable.expandIconColumnIndex = mergedRowSelection.value ? 1 : 0
-        }
-        else if (expandType === 'nest' && expandable.expandIconColumnIndex! > 0 && mergedRowSelection.value) {
-          expandable.expandIconColumnIndex! -= 1
-        }
-
-        if (typeof expandable.indentSize !== 'number') {
-          expandable.indentSize = typeof props.indentSize === 'number' ? props.indentSize : 15
-        }
-
-        return expandable
-      })()
-
       const renderPagination = (placement: 'start' | 'end' | 'center' = 'end') => {
         const paginationProps = mergedPagination.value
         const paginationSize = getPaginationSize(paginationProps.size, mergedSize.value)
@@ -909,7 +927,7 @@ const InternalTable = defineComponent<
               emptyText={mergedEmptyNode as any}
               classNames={mergedClassNames.value as any}
               styles={mergedStyles.value as any}
-              expandable={mergedExpandableConfig}
+              expandable={mergedExpandableConfig.value}
               prefixCls={prefixCls.value}
               direction={direction.value}
               headerCell={slots.headerCell || contextHeaderCell.value || props.headerCell ? renderHeaderCell : undefined}
@@ -920,18 +938,12 @@ const InternalTable = defineComponent<
               transformColumns={transformColumns as any}
               getContainerWidth={getContainerWidth}
               scroll={mergedScroll.value}
-              measureRowRender={(measureRow: any) => (
-                <TableMeasureRowContextProvider value={true}>
-                  <ConfigProvider getPopupContainer={node => node as HTMLElement}>
-                    {measureRow}
-                  </ConfigProvider>
-                </TableMeasureRowContextProvider>
-              )}
+              measureRowRender={measureRowRender}
               title={title as any}
               footer={footer as any}
               summary={summary as any}
-              onUpdate:expandedRowKeys={(keys: readonly Key[]) => emit('update:expandedRowKeys', keys)}
-              onResizeColumn={(width: number, column: ColumnType, columnKey: Key) => emit('resizeColumn', width, column, columnKey)}
+              onUpdate:expandedRowKeys={onInternalUpdateExpandedRowKeys}
+              onResizeColumn={onInternalResizeColumn}
             />
             {paginationNodes.bottom}
           </Spin>
