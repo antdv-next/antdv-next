@@ -238,6 +238,34 @@ describe('breadcrumb', () => {
     expect(wrapper.findAll('.ant-breadcrumb-link').length).toBe(3)
   })
 
+  it.each([
+    { item: {}, expectedHref: '/child' },
+    { item: { href: '/parent' }, expectedHref: '/parent/child' },
+    { item: { path: 'parent' }, expectedHref: '#/parent/child' },
+  ])('should render menu path as $expectedHref', async ({ item, expectedHref }) => {
+    const wrapper = mount(Breadcrumb, {
+      props: {
+        items: [
+          {
+            ...item,
+            title: 'Parent',
+            menu: { items: [{ path: '/child', title: 'Child' }] },
+            dropdownProps: { open: true },
+          },
+        ],
+      },
+      attachTo: document.body,
+    })
+    await nextTick()
+
+    const link = Array.from(document.body.querySelectorAll('a'))
+      .find(a => a.textContent === 'Child')
+    const href = link?.getAttribute('href')
+    wrapper.unmount()
+
+    expect(href).toBe(expectedHref)
+  })
+
   it('menu item label should take priority over title', async () => {
     const wrapper = mount(Breadcrumb, {
       props: {

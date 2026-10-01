@@ -67,7 +67,7 @@ export const InternalBreadcrumbItem = defineComponent<
               let mergedLabel: any = getSlotPropsFnRun({}, { label: isNonNullable(label) ? label : title }, 'label')
 
               if (path) {
-                mergedLabel = <a href={`${href}${path}`}>{mergedLabel}</a>
+                mergedLabel = <a href={`${href ?? ''}${path}`}>{mergedLabel}</a>
               }
 
               return {
