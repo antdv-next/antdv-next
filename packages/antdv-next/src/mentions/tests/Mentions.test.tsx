@@ -668,6 +668,22 @@ describe('mentions', () => {
       expect(button?.className).not.toContain('ant-btn-compact-item')
     })
 
+    it('should pass Mentions to ConfigProvider renderEmpty', async () => {
+      const renderEmpty = vi.fn((name: string) => name === 'Mentions' && <span>mentions empty</span>)
+      mount({
+        render: () => (
+          <ConfigProvider renderEmpty={renderEmpty as any}>
+            <Mentions />
+          </ConfigProvider>
+        ),
+      }, { attachTo: document.body })
+
+      await openPopup(document.querySelector('textarea')!)
+
+      expect(renderEmpty).toHaveBeenCalledWith('Mentions')
+      expect(document.querySelector('.ant-mentions-dropdown')?.textContent).toContain('mentions empty')
+    })
+
     it('renders the default dropdown without popupRender', async () => {
       mount(Mentions, {
         attachTo: document.body,

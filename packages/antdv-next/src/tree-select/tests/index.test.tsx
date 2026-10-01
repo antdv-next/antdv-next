@@ -92,6 +92,22 @@ describe('tree-select', () => {
     })
   })
 
+  it('should pass TreeSelect to ConfigProvider renderEmpty', async () => {
+    const renderEmpty = vi.fn((name: string) => name === 'TreeSelect' && <span>tree empty</span>)
+    const wrapper = mount({
+      render: () => (
+        <ConfigProvider renderEmpty={renderEmpty as any}>
+          <TreeSelect open treeData={[]} />
+        </ConfigProvider>
+      ),
+    }, { attachTo: document.body })
+
+    await nextTick()
+    expect(renderEmpty).toHaveBeenCalledWith('TreeSelect')
+    expect(document.querySelector('.ant-select-empty')?.textContent).toBe('tree empty')
+    wrapper.unmount()
+  })
+
   it('should support notFoundContent', async () => {
     const open = ref(true)
     const wrapper = mount({

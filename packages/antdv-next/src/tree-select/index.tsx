@@ -480,7 +480,7 @@ const InternalTreeSelect = defineComponent<
         mergedNotFound = notFoundContent
       }
       else {
-        mergedNotFound = configCtx?.value?.renderEmpty?.('Select') || <DefaultRenderEmpty componentName="Select" />
+        mergedNotFound = configCtx?.value?.renderEmpty?.('TreeSelect') || <DefaultRenderEmpty componentName="TreeSelect" />
       }
 
       // ==================== Render =====================
