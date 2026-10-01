@@ -75,7 +75,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | FormStylesType | - | - | ✓ |
 | colon | Configure the default value of `colon` for Form.Item. Indicates whether the colon after the label is displayed (only effective when prop layout is horizontal) | boolean | true | - | ✓ |
 | name | Form name. Will be the prefix of Field `id` | string | - | - | × |
-| layout | Form layout | FormLayout | `horizontal` | - | × |
+| layout | Form layout. By default, `horizontal` stacks labels above controls when the viewport width is `575px` or less. Use the `xs` settings in `labelCol` and `wrapperCol` to customize column widths on narrow screens | FormLayout | `horizontal` | - | × |
 | labelAlign | The text align of label of all items | FormLabelAlign | `right` | - | ✓ |
 | labelWrap | whether label can be wrap | boolean | false | - | × |
 | labelCol | Label layout, like `Col` component. Set `span` `offset` value like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` | ColProps | - | - | × |
