@@ -172,7 +172,7 @@ const InternalBadge = defineComponent<
     const isStatusBadge = computed(() => Boolean(
       !childrenNodes.value.length
       && hasStatus.value
-      && (hasTextSlot.value || !!props.text || hasStatusValue.value || !ignoreCount.value),
+      && (hasTextSlot.value || !!props.text || hasStatusValue.value),
     ))
 
     const offsetStyle = computed<CSSProperties | undefined>(() => {
