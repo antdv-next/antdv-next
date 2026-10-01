@@ -345,7 +345,11 @@ const Transfer = defineComponent<
     }
 
     const onRightItemRemove = (keys: TransferKey[]) => {
+      const hasTargetSelected = targetSelectedKeys.value.length > 0
       setStateKeys('right', [])
+      if (hasTargetSelected) {
+        handleSelectChange('right', [])
+      }
       emitSelectedKeysUpdate(sourceSelectedKeys.value, [])
       const nextTargetKeys = targetKeys.value.filter(key => !keys.includes(key))
       emit('update:targetKeys', nextTargetKeys)

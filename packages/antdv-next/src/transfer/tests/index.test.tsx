@@ -1143,6 +1143,65 @@ describe('transfer', () => {
     expect(onChange).toHaveBeenCalledWith([], 'left', ['b'])
   })
 
+  it('should not emit selectChange on one-way removal without target selection', () => {
+    const onSelectChange = vi.fn()
+    const wrapper = mount(Transfer, {
+      props: {
+        ...listCommonProps,
+        locale: { remove: 'Remove target item' },
+        onSelectChange,
+        oneWay: true,
+      },
+    })
+
+    clickElement(wrapper.element.querySelector('button[aria-label="Remove target item"]'))
+
+    expect(onSelectChange).not.toHaveBeenCalled()
+  })
+
+  it('should clear controlled target selection when removing a one-way item', async () => {
+    const onChange = vi.fn()
+    const onSelectChange = vi.fn()
+
+    const App = defineComponent(() => {
+      const targetKeys = ref<TransferProps['targetKeys']>(['b'])
+      const selectedKeys = ref<TransferProps['selectedKeys']>(['a', 'b'])
+
+      return () => (
+        <Transfer
+          dataSource={[
+            { key: 'a', title: 'a' },
+            { key: 'b', title: 'b' },
+          ]}
+          targetKeys={targetKeys.value}
+          selectedKeys={selectedKeys.value}
+          oneWay
+          locale={{ remove: 'Remove target item' }}
+          render={(item: any) => item.title}
+          onChange={(nextTargetKeys: any, direction: any, moveKeys: any) => {
+            onChange(nextTargetKeys, direction, moveKeys)
+            targetKeys.value = nextTargetKeys
+          }}
+          onSelectChange={(sourceSelectedKeys: any, targetSelectedKeys: any) => {
+            onSelectChange(sourceSelectedKeys, targetSelectedKeys)
+            selectedKeys.value = [...sourceSelectedKeys, ...targetSelectedKeys]
+          }}
+        />
+      )
+    })
+
+    const wrapper = mount(App)
+    clickElement(wrapper.element.querySelector('button[aria-label="Remove target item"]'))
+    await nextTick()
+
+    expect(onChange).toHaveBeenCalledWith([], 'left', ['b'])
+    expect(onSelectChange).toHaveBeenCalledWith(['a'], [])
+    expect(onSelectChange).toHaveBeenCalledTimes(1)
+    const itemB = Array.from(wrapper.element.querySelectorAll('.ant-transfer-list-content-item'))
+      .find(item => item.textContent === 'b')
+    expect(itemB?.querySelector('input')?.checked).toBe(false)
+  })
+
   it('control mode select all should not throw warning', () => {
     const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
 
