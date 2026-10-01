@@ -452,6 +452,31 @@ describe('floatButtonGroup', () => {
     expect(onUpdateOpen).toHaveBeenCalledWith(true)
   })
 
+  it('should only emit update:open on real open transitions', async () => {
+    const onUpdateOpen = vi.fn()
+    const wrapper = mount(FloatButtonGroup, {
+      props: { trigger: 'click', 'onUpdate:open': onUpdateOpen },
+      slots: {
+        default: () => h(FloatButton),
+      },
+      attachTo: document.body,
+    })
+
+    const trigger = wrapper.find('.ant-float-btn-group-trigger')
+    await trigger.trigger('click')
+    await trigger.trigger('click')
+
+    // Click outside while already closed
+    document.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+    document.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+    await nextTick()
+
+    expect(onUpdateOpen).toHaveBeenCalledTimes(2)
+    expect(onUpdateOpen).toHaveBeenNthCalledWith(1, true)
+    expect(onUpdateOpen).toHaveBeenNthCalledWith(2, false)
+    wrapper.unmount()
+  })
+
   // ========================= Ref =========================
   it('should support nativeElement ref', async () => {
     const groupRef = ref<any>()
