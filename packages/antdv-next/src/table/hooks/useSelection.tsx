@@ -121,6 +121,14 @@ export default function useSelection<RecordType extends AnyObject = AnyObject>(
     }
   }
 
+  // Preserved keys may no longer exist in `data`, so fall back to their cached records
+  const getSelectedRecord = (key: Key) => {
+    const record = getRecordByKey(key)
+    return !record && preserveSelectedRowKeys.value
+      ? preserveRecordsRef.value.get(key) as RecordType
+      : record
+  }
+
   watch(
     [mergedSelectedKeys, data, preserveSelectedRowKeys],
     ([nextKeys]) => {
@@ -247,7 +255,7 @@ export default function useSelection<RecordType extends AnyObject = AnyObject>(
 
   const triggerSingleSelection = (key: Key, selected: boolean, keys: Key[], event: Event) => {
     if (selectionConfig.value.onSelect) {
-      const rows = keys.map(k => getRecordByKey(k))
+      const rows = keys.map(k => getSelectedRecord(k))
       selectionConfig.value.onSelect(getRecordByKey(key), selected, rows, event)
     }
 
@@ -385,7 +393,7 @@ export default function useSelection<RecordType extends AnyObject = AnyObject>(
 
       selectionConfig.value.onSelectAll?.(
         !checkedCurrentAll,
-        keys.map(k => getRecordByKey(k)),
+        keys.map(k => getSelectedRecord(k)),
         changeKeys.map(k => getRecordByKey(k)),
       )
 
@@ -551,7 +559,7 @@ export default function useSelection<RecordType extends AnyObject = AnyObject>(
 
                   selectionConfig.value.onSelectMultiple?.(
                     !checked,
-                    keys.map(recordKey => getRecordByKey(recordKey)),
+                    keys.map(recordKey => getSelectedRecord(recordKey)),
                     changedKeys.map(recordKey => getRecordByKey(recordKey)),
                   )
 

@@ -191,4 +191,53 @@ describe('table preserved selection records', () => {
     )
     wrapper.unmount()
   })
+
+  it('passes preserved records to select callbacks', async () => {
+    const onSelect = vi.fn()
+    const onSelectMultiple = vi.fn()
+    const onSelectAll = vi.fn()
+    const rowSelection = {
+      onSelect,
+      onSelectMultiple,
+      onSelectAll,
+      preserveSelectedRowKeys: true,
+    }
+    const wrapper = mount(Table, {
+      props: {
+        columns,
+        dataSource: [{ name: 'light' }, { name: 'bamboo' }],
+        pagination: false,
+        rowSelection,
+        rowKey: 'name',
+      },
+    })
+
+    await wrapper.get('tbody input[type="checkbox"]').setValue(true)
+
+    await wrapper.setProps({ dataSource: [{ name: 'bamboo' }, { name: 'moon' }] })
+    await wrapper.findAll('tbody input[type="checkbox"]')[0]!.setValue(true)
+    expect(onSelect).toHaveBeenLastCalledWith(
+      { name: 'bamboo' },
+      true,
+      [{ name: 'light' }, { name: 'bamboo' }],
+      expect.anything(),
+    )
+
+    const moonCheckbox = wrapper.findAll('tbody input[type="checkbox"]')[1]!
+    ;(moonCheckbox.element as HTMLInputElement).checked = true
+    await moonCheckbox.trigger('change', { shiftKey: true })
+    expect(onSelectMultiple).toHaveBeenCalledWith(
+      true,
+      [{ name: 'light' }, { name: 'bamboo' }, { name: 'moon' }],
+      [{ name: 'moon' }],
+    )
+
+    await wrapper.get('thead input[type="checkbox"]').setValue(false)
+    expect(onSelectAll).toHaveBeenCalledWith(
+      false,
+      [{ name: 'light' }],
+      [{ name: 'bamboo' }, { name: 'moon' }],
+    )
+    wrapper.unmount()
+  })
 })
