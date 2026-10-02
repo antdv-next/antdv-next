@@ -18,7 +18,7 @@ function useMergedPreviewConfig<T extends PreviewConfig | GroupPreviewConfig>(
 ) {
   const [zIndex] = useZIndex('ImagePreview', computed(() => previewConfig.value?.zIndex))
 
-  const [mergedPreviewMask, blurClassName] = useMergedMask(
+  const [mergedPreviewMask, blurClassName, mergedMaskClosable] = useMergedMask(
     computed(() => previewConfig.value?.mask as MaskType),
     computed(() => contextPreviewConfig.value?.mask as MaskType),
     computed(() => `${prefixCls.value}-preview`),
@@ -46,6 +46,7 @@ function useMergedPreviewConfig<T extends PreviewConfig | GroupPreviewConfig>(
       closeIcon: closeIcon ?? contextCloseIcon,
       rootClassName: clsx(mergedRootClassName.value, previewRootClassName),
       mask: mergedPreviewMask.value,
+      maskClosable: mergedMaskClosable.value,
       blurClassName: blurClassName.value?.mask,
     }
   })

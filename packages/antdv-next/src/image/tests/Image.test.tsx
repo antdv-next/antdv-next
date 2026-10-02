@@ -172,6 +172,23 @@ describe('image.PreviewGroup', () => {
     expect(wrapper.find('.ant-image').exists()).toBe(true)
   })
 
+  it('should keep group preview open when clicking mask with mask.closable=false', async () => {
+    const wrapper = mount(ImagePreviewGroup, {
+      props: { preview: { mask: { closable: false } } },
+      slots: {
+        default: () => h(Image, { src }),
+      },
+    })
+    await new Promise(resolve => setTimeout(resolve, 200))
+    ;(wrapper.find('.ant-image').element as HTMLElement).click()
+    await new Promise(resolve => setTimeout(resolve, 200))
+    expect(document.querySelector('.ant-image-preview')).not.toBeNull()
+    ;(document.querySelector('.ant-image-preview-mask') as HTMLElement).click()
+    await new Promise(resolve => setTimeout(resolve, 500))
+    expect(document.querySelector('.ant-image-preview')).not.toBeNull()
+    wrapper.unmount()
+  })
+
   it('should use RTL switch icons in preview config', async () => {
     const wrapper = mount(() => (
       <ConfigProvider direction="rtl">
@@ -249,6 +266,19 @@ describe('image.PreviewGroup', () => {
     expect(document.querySelector('.ant-image-preview-mask-blur')).toBeNull()
     wrapper3.unmount()
   })
+  it('should keep preview open when clicking mask with mask.closable=false', async () => {
+    const wrapper = mount(Image, {
+      props: { src, preview: { mask: { closable: false } } },
+    })
+    ;(wrapper.find('.ant-image').element as HTMLElement).click()
+    await new Promise(resolve => setTimeout(resolve, 200))
+    expect(document.querySelector('.ant-image-preview')).not.toBeNull()
+    ;(document.querySelector('.ant-image-preview-mask') as HTMLElement).click()
+    await new Promise(resolve => setTimeout(resolve, 500))
+    expect(document.querySelector('.ant-image-preview')).not.toBeNull()
+    wrapper.unmount()
+  })
+
   it('should forward preview.wheel to the preview image', async () => {
     async function zoomWithWheel(wheel?: boolean) {
       const wrapper = mount(Image, {
