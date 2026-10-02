@@ -75,7 +75,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | focusTrap | 预览打开时是否在预览内捕获焦点 | boolean | true | - |
 | getContainer | 指定预览挂载的节点，但依旧为全屏展示，false 为挂载在当前位置 | string \| HTMLElement \| (() => HTMLElement) \| false | - | - |
 | imageRender | 自定义预览内容 | (originalNode: VNode, info: { transform: [TransformType](#transformtype), image: [ImgInfo](#imginfo) }) => VNode | - | - |
-| mask | 预览遮罩效果 | boolean \| \{ enabled?: boolean, blur?: boolean \} | true | - |
+| mask | 预览遮罩效果 | boolean \| \{ enabled?: boolean, blur?: boolean, closable?: boolean \} | true | - |
 | maxScale | 最大缩放倍数 | number | 50 | - |
 | minScale | 最小缩放倍数 | number | 1 | - |
 | movable | 预览图片大于视口时是否可拖拽移动 | boolean | true | - |
@@ -108,7 +108,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | current | 当前预览图的 index | number | - | - |
 | getContainer | 指定预览挂载的节点，但依旧为全屏展示，false 为挂载在当前位置 | string \| HTMLElement \| (() => HTMLElement) \| false | - | - |
 | imageRender | 自定义预览内容 | (originalNode: VNode, info: { transform: [TransformType](#transformtype), image: [ImgInfo](#imginfo), current: number }) => VNode | - | - |
-| mask | 预览遮罩效果 | boolean \| \{ enabled?: boolean, blur?: boolean \} | true | - |
+| mask | 预览遮罩效果 | boolean \| \{ enabled?: boolean, blur?: boolean, closable?: boolean \} | true | - |
 | minScale | 最小缩放倍数 | number | 1 | - |
 | maxScale | 最大放大倍数 | number | 50 | - |
 | movable | 预览图片大于视口时是否可拖拽移动 | boolean | true | - |

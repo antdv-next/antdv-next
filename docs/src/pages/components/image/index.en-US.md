@@ -74,7 +74,7 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | focusTrap | Whether to trap focus within the preview when open | boolean | true | - |
 | getContainer | Specify container for preview mounting; still full screen; false mounts at current location | string \| HTMLElement \| (() => HTMLElement) \| false | - | - |
 | imageRender | Custom preview content | (originalNode: VNode, info: { transform: [TransformType](#transformtype), image: [ImgInfo](#imginfo) }) => VNode | - | - |
-| mask | preview mask effect | boolean \| \{ enabled?: boolean, blur?: boolean \} | true | - |
+| mask | preview mask effect | boolean \| \{ enabled?: boolean, blur?: boolean, closable?: boolean \} | true | - |
 | maxScale | Maximum zoom scale | number | 50 | - |
 | minScale | Minimum zoom scale | number | 1 | - |
 | movable | Whether the preview image can be dragged when it is larger than the viewport | boolean | true | - |
@@ -107,7 +107,7 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | current | Index of the current preview image | number | - | - |
 | getContainer | Specify container for preview mounting; still full screen; false mounts at current location | string \| HTMLElement \| (() => HTMLElement) \| false | - | - |
 | imageRender | Custom preview content | (originalNode: VNode, info: { transform: [TransformType](#transformtype), image: [ImgInfo](#imginfo), current: number }) => VNode | - | - |
-| mask | preview mask effect | boolean \| \{ enabled?: boolean, blur?: boolean \} | true | - |
+| mask | preview mask effect | boolean \| \{ enabled?: boolean, blur?: boolean, closable?: boolean \} | true | - |
 | minScale | Minimum zoom scale | number | 1 | - |
 | maxScale | Maximum zoom scale | number | 50 | - |
 | movable | Whether the preview image can be dragged when it is larger than the viewport | boolean | true | - |
