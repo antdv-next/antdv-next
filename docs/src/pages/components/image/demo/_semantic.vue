@@ -23,8 +23,8 @@ const { token } = theme.useToken()
 const holderRef = ref<HTMLDivElement | null>(null)
 
 const previewItems = [
-  'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
-  'https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg',
+  'https://www.antdv-next.com/antdv-next.svg',
+  'https://cn.vuejs.org/logo.svg',
 ]
 </script>
 
