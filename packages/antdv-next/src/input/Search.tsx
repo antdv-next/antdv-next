@@ -347,6 +347,7 @@ const InternalSearch = defineComponent<
           <Input
             {...inputAttrs}
             {...restInputProps}
+            type="search"
             ref={inputRef as any}
             prefixCls={inputPrefixCls.value}
             size={mergedSize.value}
