@@ -2142,7 +2142,7 @@ exports[`input demo > renders _semantic-search correctly 1`] = `
             </span>
             <input
               class="ant-input semantic-mark-input"
-              type="text"
+              type="search"
               value="Hello, Antdv-Next"
             />
             <span
@@ -3949,7 +3949,7 @@ exports[`input demo > renders compact-style correctly 1`] = `
           <input
             class="ant-input"
             placeholder="input search text"
-            type="text"
+            type="search"
             value=""
           />
           <span
@@ -5590,7 +5590,7 @@ exports[`input demo > renders search-input correctly 1`] = `
       <input
         class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item css-var-root ant-input-css-var"
         placeholder="input search text"
-        type="text"
+        type="search"
         value=""
       />
       <button
@@ -5640,7 +5640,7 @@ exports[`input demo > renders search-input correctly 1`] = `
         <input
           class="ant-input"
           placeholder="input search text"
-          type="text"
+          type="search"
           value=""
         />
         <span
@@ -5728,7 +5728,7 @@ exports[`input demo > renders search-input correctly 1`] = `
           <input
             class="ant-input"
             placeholder="input search text"
-            type="text"
+            type="search"
             value=""
           />
           <span
@@ -5805,7 +5805,7 @@ exports[`input demo > renders search-input correctly 1`] = `
       <input
         class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item css-var-root ant-input-css-var"
         placeholder="input search text"
-        type="text"
+        type="search"
         value=""
       />
       <button
@@ -5854,7 +5854,7 @@ exports[`input demo > renders search-input correctly 1`] = `
         <input
           class="ant-input ant-input-lg"
           placeholder="input search text"
-          type="text"
+          type="search"
           value=""
         />
         <span
@@ -5927,7 +5927,7 @@ exports[`input demo > renders search-input correctly 1`] = `
         <input
           class="ant-input ant-input-lg"
           placeholder="input search text"
-          type="text"
+          type="search"
           value=""
         />
         <span
@@ -5995,7 +5995,7 @@ exports[`input demo > renders search-input-loading correctly 1`] = `
     <input
       class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item css-var-root ant-input-css-var"
       placeholder="input search loading default"
-      type="text"
+      type="search"
       value=""
     />
     <button
@@ -6037,7 +6037,7 @@ exports[`input demo > renders search-input-loading correctly 1`] = `
     <input
       class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item css-var-root ant-input-css-var"
       placeholder="input search loading with enterButton"
-      type="text"
+      type="search"
       value=""
     />
     <button
@@ -6079,7 +6079,7 @@ exports[`input demo > renders search-input-loading correctly 1`] = `
     <input
       class="ant-input ant-input-lg ant-input-outlined ant-input-compact-item ant-input-compact-first-item css-var-root ant-input-css-var"
       placeholder="input search text"
-      type="text"
+      type="search"
       value=""
     />
     <button
@@ -6659,7 +6659,7 @@ exports[`input demo > renders style-class correctly 1`] = `
       name="search-fn"
       placeholder="Search"
       style="color: rgb(77, 168, 218); border-color: rgb(77, 168, 218);"
-      type="text"
+      type="search"
       value=""
     />
     <button
@@ -6739,7 +6739,7 @@ exports[`input demo > renders subcomponent-variant correctly 1`] = `
       <input
         class="ant-input ant-input-filled ant-input-compact-item ant-input-compact-first-item css-var-root ant-input-css-var"
         placeholder="Filled"
-        type="text"
+        type="search"
         value=""
       />
       <button
@@ -6793,7 +6793,7 @@ exports[`input demo > renders subcomponent-variant correctly 1`] = `
       <input
         class="ant-input ant-input-filled ant-input-compact-item ant-input-compact-first-item css-var-root ant-input-css-var"
         placeholder="Filled"
-        type="text"
+        type="search"
         value=""
       />
       <button
@@ -6847,7 +6847,7 @@ exports[`input demo > renders subcomponent-variant correctly 1`] = `
       <input
         class="ant-input ant-input-filled ant-input-compact-item ant-input-compact-first-item css-var-root ant-input-css-var"
         placeholder="Filled"
-        type="text"
+        type="search"
         value=""
       />
       <button
@@ -7488,7 +7488,7 @@ exports[`input demo > renders variant correctly 1`] = `
     <input
       class="ant-input ant-input-filled ant-input-compact-item ant-input-compact-first-item css-var-root ant-input-css-var"
       placeholder="Filled"
-      type="text"
+      type="search"
       value=""
     />
     <button

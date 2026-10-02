@@ -1642,7 +1642,7 @@ exports[`auto-complete demo > renders certain-category correctly 1`] = `
           id="test-id"
           placeholder="input here"
           role="combobox"
-          type="text"
+          type="search"
           value=""
         />
         <button
@@ -2544,7 +2544,7 @@ exports[`auto-complete demo > renders uncertain-category correctly 1`] = `
           id="test-id"
           placeholder="input here"
           role="combobox"
-          type="text"
+          type="search"
           value=""
         />
         <button

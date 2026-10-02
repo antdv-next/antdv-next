@@ -4879,7 +4879,7 @@ exports[`tree demo > renders search correctly 1`] = `
     <input
       class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item css-var-root ant-input-css-var"
       placeholder="Search"
-      type="text"
+      type="search"
       value=""
     />
     <button

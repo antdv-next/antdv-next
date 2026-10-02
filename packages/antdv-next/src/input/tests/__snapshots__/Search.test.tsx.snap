@@ -9,7 +9,7 @@ exports[`search > rtl render > component should be rendered correctly in RTL dir
   >
     <input
       class="ant-input ant-input-rtl ant-input-outlined ant-input-compact-item ant-input-compact-first-item ant-input-compact-item-rtl css-var-root ant-input-css-var"
-      type="text"
+      type="search"
       value=""
     />
     <button

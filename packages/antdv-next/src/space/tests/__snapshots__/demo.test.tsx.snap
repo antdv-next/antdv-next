@@ -1254,7 +1254,7 @@ exports[`space demo > renders compact correctly 1`] = `
       >
         <input
           class="ant-input ant-input-outlined ant-input-compact-item ant-input-compact-first-item css-var-root ant-input-css-var"
-          type="text"
+          type="search"
           value="0571"
         />
         <button
@@ -1298,7 +1298,7 @@ exports[`space demo > renders compact correctly 1`] = `
           <!---->
           <input
             class="ant-input"
-            type="text"
+            type="search"
             value="26888888"
           />
           <span
@@ -1369,7 +1369,7 @@ exports[`space demo > renders compact correctly 1`] = `
       >
         <input
           class="ant-input ant-input-outlined ant-input-compact-item css-var-root ant-input-css-var"
-          type="text"
+          type="search"
           value="+1"
         />
         <button
