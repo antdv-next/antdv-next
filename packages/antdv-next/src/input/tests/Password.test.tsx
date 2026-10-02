@@ -108,6 +108,48 @@ describe('password', () => {
     expect(wrapper.find('.ant-input-password-icon').exists()).toBe(false)
   })
 
+  it('should not leak iconVisible to the native input', () => {
+    const wrapper = mount(Password, {
+      props: {
+        iconVisible: true,
+      },
+    })
+    expect(wrapper.find('input').attributes('iconvisible')).toBeUndefined()
+  })
+
+  it('should support v-model:iconVisible', async () => {
+    const iconVisible = ref(false)
+    const wrapper = mount(() => (
+      <Password value="secret" v-model:iconVisible={iconVisible.value} />
+    ))
+
+    expect(wrapper.find('input').attributes('type')).toBe('password')
+
+    await wrapper.find('.ant-input-password-icon').trigger('click')
+    expect(iconVisible.value).toBe(true)
+    await nextTick()
+    expect(wrapper.find('input').attributes('type')).toBe('text')
+
+    iconVisible.value = false
+    await nextTick()
+    expect(wrapper.find('input').attributes('type')).toBe('password')
+  })
+
+  it('should not change visibility in iconVisible controlled mode', async () => {
+    const onUpdateIconVisible = vi.fn()
+    const wrapper = mount(Password, {
+      props: {
+        iconVisible: false,
+        'onUpdate:iconVisible': onUpdateIconVisible,
+      },
+    })
+
+    await wrapper.find('.ant-input-password-icon').trigger('click')
+
+    expect(wrapper.find('input').attributes('type')).toBe('password')
+    expect(onUpdateIconVisible).toHaveBeenCalledWith(true)
+  })
+
   it('should support controlled visibility', async () => {
     const visible = ref(false)
     const wrapper = mount(() => (

@@ -138,6 +138,7 @@ Input 的其他属性和 Vue 自带的 [input](https://cn.vuejs.org/guide/essent
 | --- | --- | --- | --- | --- | --- |
 | classes | 语义化结构 class | Record&lt;[SemanticDOM](#semantic-password), string&gt; | - | - | × |
 | iconRender | 自定义切换按钮 | (visible) =&gt; VueNode | (visible) =&gt; (visible ? &lt;EyeOutlined /> : &lt;EyeInvisibleOutlined />) | - | × |
+| iconVisible | 密码是否可见，支持 `v-model:icon-visible` | boolean | false | - | × |
 | styles | 语义化结构 style | Record&lt;[SemanticDOM](#semantic-password), CSSProperties&gt; | - | - | × |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - | ✓ |
 | visibilityToggle | 是否显示切换按钮或者控制密码显隐 | boolean \| [VisibilityToggle](#visibilitytoggle) | true | - | × |

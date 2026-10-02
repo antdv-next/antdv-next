@@ -81,12 +81,16 @@ const InternalPassword = defineComponent<
     const removePasswordTimeout = useRemovePasswordTimeout(inputRef)
 
     const visibilityToggle = computed<VisibilityToggle>(() => props.visibilityToggle ?? true)
-    const visibilityControlled = computed(() => typeof visibilityToggle.value === 'object' && visibilityToggle.value.visible !== undefined)
-    const visible = shallowRef(visibilityControlled.value ? Boolean((visibilityToggle.value as any).visible) : false)
+    const visibilityControlled = computed(() =>
+      props.iconVisible !== undefined
+      || (typeof visibilityToggle.value === 'object' && visibilityToggle.value.visible !== undefined))
+    const visible = shallowRef(
+      props.iconVisible ?? (visibilityControlled.value ? Boolean((visibilityToggle.value as any).visible) : false),
+    )
 
-    watch(visibilityToggle, (next) => {
+    watch([visibilityToggle, () => props.iconVisible], ([toggle, iconVisible]) => {
       if (visibilityControlled.value) {
-        visible.value = Boolean((next as any).visible)
+        visible.value = iconVisible ?? Boolean((toggle as any).visible)
       }
     })
 
@@ -104,6 +108,7 @@ const InternalPassword = defineComponent<
       if (typeof visibilityToggle.value === 'object') {
         visibilityToggle.value.onVisibleChange?.(next)
       }
+      emit('update:iconVisible', next)
     }
 
     const action = computed<PasswordAction>(() => props.action ?? 'click')
@@ -172,7 +177,7 @@ const InternalPassword = defineComponent<
     })
 
     return () => {
-      const restInputProps = omit(props, ['iconRender', 'visibilityToggle', 'action', 'suffix', 'inputPrefixCls', 'rootClass', 'prefixCls'])
+      const restInputProps = omit(props, ['iconRender', 'visibilityToggle', 'action', 'suffix', 'inputPrefixCls', 'rootClass', 'prefixCls', 'iconVisible'])
       const suffixSlot = getSlotPropsFnRun(slots, props, 'suffix')
       const visibilityIcon = getIcon()
       const mergedSuffix = visibilityToggle.value && visibilityIcon
