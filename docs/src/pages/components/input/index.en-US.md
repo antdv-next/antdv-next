@@ -137,6 +137,7 @@ Supports all props of `Input`.
 | --- | --- | --- | --- | --- | --- |
 | classes | Semantic DOM class | Record&lt;[SemanticDOM](#semantic-password), string&gt; | - | - | × |
 | iconRender | Custom toggle button | (visible) =&gt; VueNode | (visible) =&gt; (visible ? &lt;EyeOutlined /> : &lt;EyeInvisibleOutlined />) | - | × |
+| iconVisible | Whether the password is visible, support `v-model:icon-visible` | boolean | false | - | × |
 | styles | Semantic DOM style | Record&lt;[SemanticDOM](#semantic-password), CSSProperties&gt; | - | - | × |
 | variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - | ✓ |
 | visibilityToggle | Whether show toggle button or control password visible | boolean \| [VisibilityToggle](#visibilitytoggle) | true | - | × |
