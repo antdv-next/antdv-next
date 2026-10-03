@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { AntDesignOutlined, CheckOutlined, CloseOutlined, DownOutlined } from '@antdv-next/icons'
+import { AntdvNextOutlined, CheckOutlined, CloseOutlined, DownOutlined } from '@antdv-next/icons'
 import { message, Modal, theme, Tooltip } from 'antdv-next'
 import { computed } from 'vue'
 import { useLocale } from '@/composables/use-locale'
@@ -106,7 +106,7 @@ const checkboxOptions = computed(() => [
       </a-button>
       <a-button class="ptg_20">
         <template #icon>
-          <AntDesignOutlined />
+          <AntdvNextOutlined />
         </template>
         {{ t('homePage.componentsBlock.icon') }}
       </a-button>

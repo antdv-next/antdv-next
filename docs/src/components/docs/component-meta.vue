@@ -42,7 +42,7 @@ const version = computed(() => props.frontmatter?.tag)
 // Some pages don't map 1:1 to a single named export or source directory, so
 // override the import snippet / source path for those (keyed by docs slug).
 const IMPORT_OVERRIDES: Record<string, string> = {
-  icon: `import { AntDesignOutlined } from '@antdv-next/icons'`,
+  icon: `import { AntdvNextOutlined } from '@antdv-next/icons'`,
   grid: `import { Row, Col } from 'antdv-next'`,
   message: `import { message } from 'antdv-next'`,
   notification: `import { notification } from 'antdv-next'`,
