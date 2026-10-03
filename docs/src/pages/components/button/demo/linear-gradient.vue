@@ -7,7 +7,7 @@ You can add custom styles by setting `button.classes` in ConfigProvider. This ex
 </docs>
 
 <script setup lang="ts">
-import { AntDesignOutlined } from '@antdv-next/icons'
+import { AntdvNextOutlined } from '@antdv-next/icons'
 </script>
 
 <template>
@@ -21,7 +21,7 @@ import { AntDesignOutlined } from '@antdv-next/icons'
     <a-space>
       <a-button type="primary" size="large">
         <template #icon>
-          <AntDesignOutlined />
+          <AntdvNextOutlined />
         </template>
         Gradient Button
       </a-button>
