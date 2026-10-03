@@ -19,6 +19,7 @@ tag: 1.5.0
 <!-- prettier-ignore -->
 <demo-group>
   <demo src="./demo/basic.vue">Basic</demo>
+  <demo src="./demo/row-hoverable-debug.vue" version="1.6.0" debug>Disable row hover</demo>
   <demo src="./demo/virtual.vue">Virtual scrolling</demo>
   <demo src="./demo/group.vue">Grouping and sticky headers</demo>
   <demo src="./demo/scroll-to.vue" debug>Scroll control</demo>
@@ -39,6 +40,7 @@ Common props ref: [Common props](/docs/vue/common-props)
 | height | Height of the scroll container; content scrolls when it overflows | number | - | 1.5.0 | × |
 | itemRender | Render a single row | `(item: T, index: number) => VNode` | - | 1.5.0 | × |
 | items | Data source of the list | `T[]` | `[]` | 1.5.0 | × |
+| rowHoverable | Whether rows are hoverable | boolean | true | 1.6.0 | × |
 | rowKey | Unique key of an item, a field name or a getter | `keyof T \| (item: T) => Key` | - | 1.5.0 | × |
 | sticky | Whether group headers stick to the top | boolean | false | 1.5.0 | × |
 | styles | Semantic inline styles | `{ root?, item?, groupHeader? }` | - | 1.5.0 | 1.5.0 |

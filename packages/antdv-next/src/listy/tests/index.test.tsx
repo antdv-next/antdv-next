@@ -99,4 +99,14 @@ describe('Listy', () => {
       expect(child.parentElement).toBe(item.element)
     })
   })
+
+  it('enables row hoverable by default', () => {
+    const wrapper = mount(() => renderListy())
+    expect(wrapper.find('.ant-listy-hoverable').exists()).toBe(true)
+  })
+
+  it('removes row hoverable when rowHoverable is false', () => {
+    const wrapper = mount(() => renderListy({ rowHoverable: false }))
+    expect(wrapper.find('.ant-listy-hoverable').exists()).toBe(false)
+  })
 })
