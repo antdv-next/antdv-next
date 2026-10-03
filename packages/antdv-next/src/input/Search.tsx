@@ -11,6 +11,7 @@ import { clsx } from '@v-c/util'
 import pickAttrs from '@v-c/util/dist/pickAttrs'
 import { omit } from 'es-toolkit'
 import { cloneVNode, computed, defineComponent, isVNode, shallowRef } from 'vue'
+import fallbackProp from '../_util/fallbackProp'
 import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import Button from '../button'
@@ -131,8 +132,9 @@ const InternalSearch = defineComponent<
       style: contextStyle,
       classes: contextClassNames,
       styles: contextStyles,
+      searchIcon: contextSearchIcon,
       getPrefixCls,
-    } = useComponentBaseConfig('inputSearch', props, undefined, 'input-search')
+    } = useComponentBaseConfig('inputSearch', props, ['searchIcon'], 'input-search')
 
     const inputPrefixCls = computed(() => getPrefixCls('input', props.inputPrefixCls))
 
@@ -272,10 +274,10 @@ const InternalSearch = defineComponent<
 
       const enterButtonValue = props.enterButton ?? false
       const isBooleanEnterButton = typeof enterButtonValue === 'boolean'
-      // Slot > prop > default SearchOutlined.
+      // Slot > prop > config > default SearchOutlined.
       const searchIconFromSlot = getSlotPropsFnRun(slots, props, 'searchIcon', false)
       const searchIcon = isBooleanEnterButton
-        ? (searchIconFromSlot ?? props.searchIcon ?? <SearchOutlined />)
+        ? fallbackProp(searchIconFromSlot, contextSearchIcon.value, <SearchOutlined />)
         : null
       const buttonChildren = isBooleanEnterButton ? undefined : enterButtonValue
 

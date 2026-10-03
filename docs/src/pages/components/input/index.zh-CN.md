@@ -119,6 +119,7 @@ Input 的其他属性和 Vue 自带的 [input](https://cn.vuejs.org/guide/essent
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-search), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-search), string&gt; | - | - | ✓ |
 | enterButton | 是否有确认按钮，可设为按钮文字。该属性会与 `addonAfter` 冲突。 | VueNode | false | - | × |
 | loading | 搜索 loading | boolean | false | - | × |
+| searchIcon | 自定义搜索图标 | VueNode | - | - | ✓ |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-search), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-search), CSSProperties&gt; | - | - | ✓ |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - | ✓ |
 
@@ -129,6 +130,14 @@ Input 的其他属性和 Vue 自带的 [input](https://cn.vuejs.org/guide/essent
 | 事件 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
 | search | 点击搜索图标、清除图标，或按下回车键时的回调 | function(value, event, &#123; source: "input" \| "clear" &#125;) | - |
+
+#### 插槽 {#input-search-slots}
+
+| 插槽 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| searchIcon | 自定义搜索图标，`enterButton` 为 boolean 时生效，优先级高于 `searchIcon` 属性 | - | - |
+
+其余插槽和 Input 一致。
 
 ### InputPassword {#input-password}
 
