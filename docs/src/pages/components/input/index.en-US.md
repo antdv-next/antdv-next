@@ -118,6 +118,7 @@ The rest of the props of `Input.TextArea` are the same as the original [textarea
 | classes | Customize class for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-search), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-search), string&gt; | - | - | ✓ |
 | enterButton | false displays the default button color, true uses the primary color, or you can provide a custom button. Conflicts with addonAfter. | VueNode | false | - | × |
 | loading | Search box with loading | boolean | false | - | × |
+| searchIcon | Customize the search icon | VueNode | - | - | ✓ |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-search), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-search), CSSProperties&gt; | - | - | ✓ |
 | variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - | ✓ |
 
@@ -128,6 +129,14 @@ Supports all props of `Input`.
 | Event | Description | Type | Version |
 | --- | --- | --- | --- |
 | search | The callback function triggered when you click on the search-icon, the clear-icon or press the Enter key | function(value, event, &#123; source: "input" \| "clear" &#125;) | - |
+
+#### Slots {#input-search-slots}
+
+| Slot | Description | Type | Version |
+| --- | --- | --- | --- |
+| searchIcon | Customize the search icon, effective when `enterButton` is a boolean, takes priority over the `searchIcon` prop | - | - |
+
+Supports all slots of `Input`.
 
 ### InputPassword {#input-password}
 

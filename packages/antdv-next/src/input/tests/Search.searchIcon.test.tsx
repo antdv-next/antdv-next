@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { h } from 'vue'
 import Input from '..'
+import ConfigProvider from '../../config-provider'
 import { mount } from '/@tests/utils'
 
 describe('input.Search searchIcon', () => {
@@ -35,5 +36,25 @@ describe('input.Search searchIcon', () => {
     })
     expect(wrapper.find('.ant-input-search-btn .from-slot').exists()).toBe(true)
     expect(wrapper.find('.ant-input-search-btn .from-prop').exists()).toBe(false)
+  })
+
+  it('uses searchIcon from ConfigProvider inputSearch config', () => {
+    const wrapper = mount(
+      <ConfigProvider inputSearch={{ searchIcon: <span class="from-config">C</span> }}>
+        <Input.Search enterButton />
+      </ConfigProvider>,
+    )
+    expect(wrapper.find('.ant-input-search-btn .from-config').exists()).toBe(true)
+    expect(wrapper.find('.ant-input-search-btn svg').exists()).toBe(false)
+  })
+
+  it('prefers the searchIcon prop over the ConfigProvider inputSearch config', () => {
+    const wrapper = mount(
+      <ConfigProvider inputSearch={{ searchIcon: <span class="from-config">C</span> }}>
+        <Input.Search enterButton searchIcon={<span class="from-prop">P</span>} />
+      </ConfigProvider>,
+    )
+    expect(wrapper.find('.ant-input-search-btn .from-prop').exists()).toBe(true)
+    expect(wrapper.find('.ant-input-search-btn .from-config').exists()).toBe(false)
   })
 })
