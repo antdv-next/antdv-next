@@ -72,7 +72,7 @@ function formRequiredMark(value: string | boolean) {
     </a-form-item>
     <a-form-item
       label="Field B"
-      :tooltip="{ title: 'Tooltip with customize icon', icon: InfoCircleOutlined }"
+      :tooltip="{ title: 'Tooltip with customize icon', icon: h(InfoCircleOutlined) }"
     >
       <a-input v-model:value="model.fieldB" placeholder="input placeholder" />
     </a-form-item>
