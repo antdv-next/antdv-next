@@ -220,4 +220,40 @@ describe('otp', () => {
     const inputs = wrapper.findAll('input')
     expect(inputs[0]!.attributes('autofocus')).toBe('true')
   })
+
+  it('should forward focus event to user onFocus', async () => {
+    const onFocus = vi.fn()
+    const wrapper = mount(OTP, {
+      props: {
+        length: 4,
+        onFocus,
+      },
+      attachTo: document.body,
+    })
+
+    const inputs = wrapper.findAll('input')
+    inputs[0]!.element.focus()
+    await nextTick()
+
+    expect(onFocus).toHaveBeenCalledTimes(1)
+    expect(onFocus.mock.calls[0]![0].target).toBe(inputs[0]!.element)
+    wrapper.unmount()
+  })
+
+  it('should move focus to the first empty cell on focus', async () => {
+    const wrapper = mount(OTP, {
+      props: {
+        length: 4,
+      },
+      attachTo: document.body,
+    })
+
+    const inputs = wrapper.findAll('input')
+    await inputs[0]!.setValue('a')
+    inputs[2]!.element.focus()
+    await nextTick()
+
+    expect(document.activeElement).toBe(inputs[1]!.element)
+    wrapper.unmount()
+  })
 })

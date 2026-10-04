@@ -62,6 +62,7 @@ export interface OTPEmits {
   'change': (value: string) => void
   'input': (cells: string[]) => void
   'update:value': (value: string) => void
+  'focus': (ev: FocusEvent) => void
 }
 export interface OTPEmitsProps {
   onChange?: OTPEmits['change']
@@ -200,6 +201,16 @@ const OTP = defineComponent<
       inputRefs.value[nextIndex]?.focus?.()
     }
 
+    const handleInputFocus = (event: FocusEvent, index: number) => {
+      for (let i = 0; i < index; i += 1) {
+        if (!inputRefs.value[i]?.input?.value) {
+          inputRefs.value[i]?.focus()
+          break
+        }
+      }
+      emit('focus', event)
+    }
+
     const renderSeparator = (index: number) => {
       const separator = slots.separator || props.separator
       const separatorNode = typeof separator === 'function' ? separator({ index }) : separator
@@ -249,6 +260,7 @@ const OTP = defineComponent<
                 value={valueCells.value[index] || ''}
                 onChange={handleInputChange}
                 onActiveChange={handleActiveChange}
+                onFocus={(event: FocusEvent) => handleInputFocus(event, index)}
                 autoFocus={index === 0 ? props.autoFocus : undefined}
                 mask={props.mask}
                 type={props.type}

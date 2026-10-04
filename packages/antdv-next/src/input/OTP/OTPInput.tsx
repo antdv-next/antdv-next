@@ -4,7 +4,7 @@ import type { InputEmits, InputProps, InputRef } from '../Input'
 import { clsx } from '@v-c/util'
 import raf from '@v-c/util/dist/raf'
 import { omit } from 'es-toolkit'
-import { defineComponent, shallowRef } from 'vue'
+import { computed, defineComponent, shallowRef } from 'vue'
 import { getAttrStyleAndClass } from '../../_util/hooks'
 import Input from '../Input'
 
@@ -16,6 +16,7 @@ export interface OTPInputProps extends Omit<InputProps, 'onChange'> {
   value?: string
   onChange: (index: number, value: string) => void
   onActiveChange: (nextIndex: number) => void
+  onFocus?: InputEmits['focus']
   mask?: boolean | string
 }
 
@@ -30,7 +31,7 @@ const OTPInput = defineComponent<
     expose({
       focus: (...args: Parameters<NonNullable<InputRef['focus']>>) => inputRef.value?.focus?.(...args),
       blur: () => inputRef.value?.blur?.(),
-      input: inputRef,
+      input: computed(() => inputRef.value?.input ?? null),
     })
 
     const syncSelection = () => {
@@ -44,6 +45,11 @@ const OTPInput = defineComponent<
 
     const handleChange: InputEmits['change'] = (e) => {
       props.onChange(props.index, (e?.target as HTMLInputElement)?.value ?? '')
+    }
+
+    const handleInternalFocus: InputEmits['focus'] = (e) => {
+      props.onFocus?.(e)
+      syncSelection()
     }
 
     const handleKeyDown: InputEmits['keydown'] = (event: KeyboardEvent) => {
@@ -64,7 +70,7 @@ const OTPInput = defineComponent<
     }
 
     const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
-    const restInputProps = omit(props, ['prefixCls', 'index', 'onChange', 'onActiveChange', 'mask'])
+    const restInputProps = omit(props, ['prefixCls', 'index', 'onChange', 'onActiveChange', 'onFocus', 'mask'])
 
     return () => (
       <span class={`${props.prefixCls}-input-wrapper`} role="presentation">
@@ -84,7 +90,7 @@ const OTPInput = defineComponent<
           onChange={handleChange}
           htmlSize={1}
           onKeydown={handleKeyDown}
-          onFocus={() => syncSelection()}
+          onFocus={handleInternalFocus}
           onMousedown={() => syncSelection()}
           onMouseup={() => syncSelection()}
           aria-label={`OTP Input ${props.index + 1}`}
