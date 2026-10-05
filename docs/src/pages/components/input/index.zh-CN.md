@@ -181,6 +181,7 @@ Input 的其他属性和 Vue 自带的 [input](https://cn.vuejs.org/guide/essent
 | 事件 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
 | change | 当输入框内容全部填充时触发回调 | (value: string) =&gt; void | - |
+| focus | 输入框聚焦时触发的回调 | (event: FocusEvent) =&gt; void | - |
 | input | 输入值变化时触发的回调 | (value: string[]) =&gt; void | - |
 
 ### Types {#types}

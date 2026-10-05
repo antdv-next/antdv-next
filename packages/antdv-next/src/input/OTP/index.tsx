@@ -38,7 +38,7 @@ export type OTPStylesType = SemanticStylesType<OTPProps, OTPSemanticStyles>
 
 export interface OTPProps extends ComponentBaseProps,
   /* @vue-ignore */
-  Omit<HTMLAttributes, 'onChange' | 'onInput'>,
+  Omit<HTMLAttributes, 'onChange' | 'onInput' | 'onFocus'>,
   /* @vue-ignore */
   OTPEmitsProps {
   length?: number
@@ -66,6 +66,7 @@ export interface OTPEmits {
 }
 export interface OTPEmitsProps {
   onChange?: OTPEmits['change']
+  onFocus?: OTPEmits['focus']
   onInput?: OTPEmits['input']
   'onUpdate:value'?: OTPEmits['update:value']
 }
@@ -190,11 +191,11 @@ const OTP = defineComponent<
 
     const handleInputChange = (index: number, txt: string) => {
       const nextCells = patchValue(index, txt)
+      triggerValueCellsChange(nextCells as any)
       const nextIndex = Math.min(index + txt.length, mergedLength.value - 1)
       if (nextIndex !== index && nextCells[index] !== undefined) {
         inputRefs.value[nextIndex]?.focus?.()
       }
-      triggerValueCellsChange(nextCells as any)
     }
 
     const handleActiveChange = (nextIndex: number) => {
@@ -203,7 +204,7 @@ const OTP = defineComponent<
 
     const handleInputFocus = (event: FocusEvent, index: number) => {
       for (let i = 0; i < index; i += 1) {
-        if (!inputRefs.value[i]?.input?.value) {
+        if (!valueCells.value[i]) {
           inputRefs.value[i]?.focus()
           break
         }

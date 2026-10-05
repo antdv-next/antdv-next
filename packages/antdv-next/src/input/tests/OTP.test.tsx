@@ -256,4 +256,20 @@ describe('otp', () => {
     expect(document.activeElement).toBe(inputs[1]!.element)
     wrapper.unmount()
   })
+
+  it('should keep focus on the next cell after paste', async () => {
+    const wrapper = mount(OTP, {
+      props: {
+        length: 6,
+      },
+      attachTo: document.body,
+    })
+
+    const inputs = wrapper.findAll('input')
+    await inputs[0]!.setValue('123')
+    await nextTick()
+
+    expect(document.activeElement).toBe(inputs[3]!.element)
+    wrapper.unmount()
+  })
 })
