@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { AntDesignOutlined, BgColorsOutlined, CopyOutlined } from '@antdv-next/icons'
+import { AntdvNextOutlined, BgColorsOutlined, CopyOutlined } from '@antdv-next/icons'
 import { clsx } from '@v-c/util'
 import { App, ConfigProvider, message, Modal, Segmented, theme, Tooltip } from 'antdv-next'
 import { createStyles } from 'antdv-style'
@@ -320,7 +320,7 @@ function handleAIGenerate() {
   const local = localStorage.getItem('locale')
   Modal.confirm({
     title: t('ui.themeBtn.aiThemeModal.title'),
-    icon: h(AntDesignOutlined),
+    icon: h(AntdvNextOutlined),
     content: t('ui.themeBtn.aiThemeModal.content'),
     okText: t('ui.themeBtn.aiThemeModal.okText'),
     cancelText: t('ui.themeBtn.aiThemeModal.cancelText'),

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { MenuProps } from 'antdv-next'
-import { AntDesignOutlined, BgColorsOutlined, CompressOutlined, LinkOutlined, MoonOutlined, ShopOutlined, SmileOutlined, SunOutlined, SyncOutlined } from '@antdv-next/icons'
+import { AntdvNextOutlined, BgColorsOutlined, CompressOutlined, LinkOutlined, MoonOutlined, ShopOutlined, SmileOutlined, SunOutlined, SyncOutlined } from '@antdv-next/icons'
 import { Modal } from 'antdv-next'
 import { storeToRefs } from 'pinia'
 import { computed, h } from 'vue'
@@ -101,7 +101,7 @@ function handleMenuClick(info: { key: string, domEvent: MouseEvent }) {
   else if (key === 'ai-theme') {
     confirm({
       title: t('ui.themeBtn.aiThemeModal.title'),
-      icon: h(AntDesignOutlined),
+      icon: h(AntdvNextOutlined),
       content: t('ui.themeBtn.aiThemeModal.content'),
       okText: t('ui.themeBtn.aiThemeModal.okText'),
       cancelText: t('ui.themeBtn.aiThemeModal.cancelText'),
