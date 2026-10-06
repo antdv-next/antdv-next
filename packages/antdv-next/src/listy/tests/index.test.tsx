@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import { ref } from 'vue'
 import Listy from '..'
 import ConfigProvider from '../../config-provider'
@@ -98,5 +98,18 @@ describe('Listy', () => {
       expect(child.classList.contains('custom-content')).toBe(true)
       expect(child.parentElement).toBe(item.element)
     })
+  })
+
+  it('emits scroll exactly once', () => {
+    const onScroll = vi.fn()
+    const wrapper = mount(() => renderListy({ onScroll } as any))
+    wrapper.find('.ant-listy').element.dispatchEvent(new Event('scroll'))
+    expect(onScroll).toHaveBeenCalledTimes(1)
+    expect(onScroll).toHaveBeenCalledWith(expect.any(Event))
+  })
+
+  it('does not declare onScroll as a runtime prop', () => {
+    expect((Listy as any).props).not.toHaveProperty('onScroll')
+    expect((Listy as any).emits).toContain('scroll')
   })
 })

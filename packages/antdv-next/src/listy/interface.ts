@@ -21,7 +21,7 @@ type ListyClassNamesType = SemanticType<ListyClassNames, ListyProps>
 type ListyStylesType = SemanticType<ListyStyles, ListyProps>
 
 export interface ListyProps
-  extends Omit<VcListyProps, 'itemHeight' | 'direction' | 'classNames' | 'styles' | 'itemRender'> {
+  extends Omit<VcListyProps, 'itemHeight' | 'direction' | 'classNames' | 'styles' | 'itemRender' | 'onScroll'> {
   rootClass?: string
   class?: string
   style?: StyleValue

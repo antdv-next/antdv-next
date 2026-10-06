@@ -19,13 +19,13 @@ export type {
 } from './interface'
 
 interface ListyEmits {
-  scroll: [event: Event]
+  scroll: (event: Event) => void
 }
 interface ListySlots {
   itemRender: (item: any) => any
 }
 
-const Listy = defineComponent<ListyProps, ListyEmits, string, SlotsType<ListySlots>>((props, { expose, slots }) => {
+const Listy = defineComponent<ListyProps, ListyEmits, string, SlotsType<ListySlots>>((props, { expose, slots, emit }) => {
   const listyRef = shallowRef<InstanceType<typeof VcListy> & ListyRef>()
   const attrs = useAttrs()
   const { style, className, restAttrs } = getAttrStyleAndClass(attrs)
@@ -93,6 +93,7 @@ const Listy = defineComponent<ListyProps, ListyEmits, string, SlotsType<ListySlo
         virtual={mergedVirtual}
         itemHeight={itemHeight}
         itemRender={itemRender}
+        onScroll={(e: Event) => emit('scroll', e)}
         classNames={{ ...mergedClassNames.value, root: rootClassNames }}
         styles={mergedStyles.value}
       />
