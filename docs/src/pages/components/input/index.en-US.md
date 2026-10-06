@@ -180,6 +180,7 @@ Supports all slots of `Input`.
 | Event | Description | Type | Version |
 | --- | --- | --- | --- |
 | change | Trigger when all the fields are filled | (value: string) =&gt; void | - |
+| focus | Trigger when an input gets focus | (event: FocusEvent) =&gt; void | - |
 | input | Trigger when the input value changes | (value: string[]) =&gt; void | - |
 
 ### Types {#types}
