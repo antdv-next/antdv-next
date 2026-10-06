@@ -19,7 +19,7 @@ Following the Ant Design specification, we developed a Vue UI library `antdv-nex
 - 🌈 Enterprise-class UI designed for web applications.
 - 📦 A set of high-quality Vue3 components out of the box.
 - 🛡 Written in TypeScript with predictable static types.
-- ⚙️ Share the <a href="https://ant.design/docs/resources-cn" target="_blank" rel="noopener noreferrer">Ant Design of React</a> design resource system.
+- ⚙️ Share the <a href="https://ant.design/docs/resources" target="_blank" rel="noopener noreferrer">Ant Design of React</a> design resource system.
 - 🌍 Internationalization support for dozens of languages.
 - 🎨 Powerful theme customization in every detail.
 
@@ -43,7 +43,7 @@ Following the Ant Design specification, we developed a Vue UI library `antdv-nex
 
 ### Using npm or yarn or pnpm or bun
 
-**We recommend using [npm](https://www.npmjs.com/) or [yarn](https://github.com/yarnpkg/yarn/) or [pnpm](https://pnpm.io/) or [bun](https://bun.sh/) to install**, it not only makes development easier, but also allow you to take advantage of the rich ecosystem of Javascript packages and tooling.
+**We recommend using [npm](https://www.npmjs.com/) or [yarn](https://github.com/yarnpkg/yarn/) or [pnpm](https://pnpm.io/) or [bun](https://bun.sh/) to install**, it not only makes development easier, but also allows you to take advantage of the rich ecosystem of JavaScript packages and tooling.
 
 <InstallDependencies npm='$ npm install antdv-next --save' yarn='$ yarn add antdv-next' pnpm='$ pnpm install antdv-next --save' bun='$ bun add antdv-next'></InstallDependencies>
 
@@ -53,21 +53,21 @@ If you are in a bad network environment, you can try other registries and tools 
 
 Add `script` and `link` tags in your browser and use the global variable `antd`.
 
-We provide `antd.js` and `reset.css` under the `dist` folder in antdv-next's npm package. You can also download these files directly from <!--[![CDNJS](https://img.shields.io/cdnjs/v/antdv-next.svg?style=flat-square)](https://cdnjs.com/libraries/antdv-next)，--> [![](https://data.jsdelivr.com/v1/package/npm/antdv-next/badge)](https://www.jsdelivr.com/package/npm/antdv-next) or [UNPKG](https://unpkg.com/antdv-next/dist/).
+We provide `antd.js`, `antd.css` and `reset.css` under the `dist` folder in antdv-next's npm package. You can also download these files directly from <!--[![CDNJS](https://img.shields.io/cdnjs/v/antdv-next.svg?style=flat-square)](https://cdnjs.com/libraries/antdv-next)，--> [![](https://data.jsdelivr.com/v1/package/npm/antdv-next/badge)](https://www.jsdelivr.com/package/npm/antdv-next) or [UNPKG](https://unpkg.com/antdv-next/dist/).
 
-> **We strongly discourage loading the entire files** this will add bloat to your application and make it more difficult to receive bugfixes and updates.
+> **We strongly discourage loading the entire files**, as this will add bloat to your application and make it more difficult to receive bugfixes and updates.
 
 > Note: You should import `vue`, `dayjs` before using `antd.js`.
 
 ```html
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Import in browser demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/antdv-next@1.0.5/dist/reset.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/antdv-next@1.0.5/dist/antd.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/antdv-next@1.6.0/dist/reset.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/antdv-next@1.6.0/dist/antd.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -86,7 +86,7 @@ We provide `antd.js` and `reset.css` under the `dist` folder in antdv-next's npm
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.9/plugin/weekday.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.9/plugin/weekOfYear.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.9/plugin/weekYear.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/antdv-next@1.0.5/dist/antd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/antdv-next@1.6.0/dist/antd.js"></script>
     <script>
       const { createApp } = Vue;
       const app = createApp({
