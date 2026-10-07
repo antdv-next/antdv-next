@@ -376,6 +376,30 @@ describe('slider', () => {
   // value changes in VcSlider's jsdom environment.
   // Event forwarding (onChange → emit('change') + emit('update:value'))
   // is verified structurally through handle interaction tests below.
+  describe('changeComplete emission', () => {
+    it('should report the finished value through changeComplete only', async () => {
+      const onChangeComplete = vi.fn()
+      const onAfterChange = vi.fn()
+      const wrapper = mount(Slider, {
+        props: { defaultValue: 30, onChangeComplete },
+        attrs: { onAfterChange },
+        attachTo: document.body,
+      })
+      const handle = wrapper.find('.ant-slider-handle')
+      await handle.trigger('mousedown')
+      await nextTick()
+      document.dispatchEvent(new MouseEvent('mouseup', { bubbles: true }))
+      await nextTick()
+
+      // `afterChange` is no longer part of the emits contract; the finished value
+      // is reported through `changeComplete` only, and a leftover `@after-change`
+      // listener is not forwarded to vc-slider (which would run it twice).
+      expect(wrapper.emitted('changeComplete')?.[0]).toEqual([30])
+      expect(onChangeComplete).toHaveBeenCalledWith(30)
+      expect(onAfterChange).not.toHaveBeenCalled()
+      wrapper.unmount()
+    })
+  })
 
   // ========================= Expose =========================
   describe('expose', () => {
