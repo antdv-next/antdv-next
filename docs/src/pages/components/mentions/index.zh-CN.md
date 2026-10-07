@@ -52,7 +52,7 @@ demo:
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | MentionsStylesType | - | - | ✓ |
 | size | 控件大小 | `large` \| `medium` \| `small` | - | - | × |
 | labelRender | 自定义选项内容渲染 | (ctx: &#123; option: MentionsOptionProps, index: number &#125;) =&gt; any | - | - | × |
-| allowClear | 可以点击清除图标删除内容 | boolean \| &#123;     clearIcon?: VueNode   &#125; | false | - | ✓ |
+| allowClear | 可以点击清除图标删除内容 | boolean \| &#123; clearIcon?: VueNode, disabled?: boolean &#125; | false | - | ✓ |
 | disabled | 是否禁用 | boolean | - | - | × |
 
 ### 事件 {#events}

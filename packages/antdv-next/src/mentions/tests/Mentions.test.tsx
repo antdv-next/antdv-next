@@ -298,6 +298,45 @@ describe('mentions', () => {
       await flushMentionsTimer()
       expect(document.querySelector('.custom-clear')).toBeTruthy()
     })
+
+    it('shows clear button when ConfigProvider mentions allowClear is true', async () => {
+      const wrapper = mount(
+        <ConfigProvider mentions={{ allowClear: true }}>
+          <Mentions options={defaultOptions} value="test" />
+        </ConfigProvider>,
+      )
+      await flushMentionsTimer()
+      expect(wrapper.find('.ant-mentions-clear-icon').exists()).toBe(true)
+    })
+
+    it('uses allowClear.clearIcon from ConfigProvider mentions config', async () => {
+      const wrapper = mount(
+        <ConfigProvider mentions={{ allowClear: { clearIcon: <span class="config-clear">C</span> } }}>
+          <Mentions options={defaultOptions} value="test" />
+        </ConfigProvider>,
+      )
+      await flushMentionsTimer()
+      expect(wrapper.find('.config-clear').exists()).toBe(true)
+    })
+
+    it('overrides ConfigProvider allowClear when prop is false', async () => {
+      const wrapper = mount(
+        <ConfigProvider mentions={{ allowClear: true }}>
+          <Mentions options={defaultOptions} value="test" allowClear={false} />
+        </ConfigProvider>,
+      )
+      await flushMentionsTimer()
+      expect(wrapper.find('.ant-mentions-clear-icon').exists()).toBe(false)
+    })
+
+    it('hides clear button when allowClear.disabled is true', async () => {
+      mount(Mentions, {
+        attachTo: document.body,
+        props: { options: defaultOptions, allowClear: { disabled: true }, value: 'test' },
+      })
+      await flushMentionsTimer()
+      expect(document.querySelector('.ant-mentions-clear-icon-hidden')).toBeTruthy()
+    })
   })
 
   // === Loading ===
