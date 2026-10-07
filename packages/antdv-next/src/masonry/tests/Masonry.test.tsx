@@ -342,6 +342,27 @@ describe('masonry', () => {
     expect(wrapper.find('.prop-render').exists()).toBe(false)
   })
 
+  it('should prioritize item children over itemRender', async () => {
+    const items = [
+      { key: 'a', data: 100, children: <div class="item-children">children</div> },
+      { key: 'b', data: 100 },
+    ]
+    const wrapper = mount(() => (
+      <div style={{ width: '600px' }}>
+        <Masonry
+          columns={1}
+          items={items}
+          itemRender={({ key }) => (
+            <div class="bamboo" data-height="100">{key}</div>
+          )}
+        />
+      </div>
+    ))
+    await resizeMasonry()
+    expect(wrapper.find('.item-children').exists()).toBe(true)
+    expect(wrapper.findAll('.bamboo').length).toBe(1)
+  })
+
   // ==================== Events ====================
 
   it('should emit layoutChange with correct payload', async () => {
