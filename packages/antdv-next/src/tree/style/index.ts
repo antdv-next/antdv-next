@@ -136,7 +136,7 @@ export function genBaseStyle(prefixCls: string, token: TreeToken): CSSObject {
     [treeCls]: {
       ...resetComponent(token),
       // fix https://github.com/ant-design/ant-design/issues/50316
-      ['--rc-virtual-list-scrollbar-bg' as const]: token.colorSplit,
+      ['--vc-virtual-list-scrollbar-bg' as const]: token.colorSplit,
       background: token.colorBgContainer,
       borderRadius: token.borderRadius,
       transition: `background-color ${token.motionDurationSlow}`,
