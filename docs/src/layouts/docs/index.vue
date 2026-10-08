@@ -15,16 +15,12 @@ const docRef = shallowRef<{
   frontmatter?: Frontmatter
 }>()
 
-const scroll = shallowRef(false)
+const getScrolled = () => document.documentElement.scrollTop >= 400
+
+const scroll = shallowRef(getScrolled())
 
 window.addEventListener('scroll', throttleByAnimationFrameFn(() => {
-  const scrollTop = document.documentElement.scrollTop
-  if (scrollTop > 400) {
-    scroll.value = true
-  }
-  else if (scrollTop <= 400) {
-    scroll.value = false
-  }
+  scroll.value = getScrolled()
 }))
 
 const tooltip = {
