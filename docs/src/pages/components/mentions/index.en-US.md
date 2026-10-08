@@ -51,7 +51,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | MentionsStylesType | - | - | ✓ |
 | size | The size of the input box | `large` \| `medium` \| `small` | - | - | × |
 | labelRender | Customize the rendering of option content | (ctx: &#123; option: MentionsOptionProps, index: number &#125;) =&gt; any | - | - | × |
-| allowClear | If allow to remove mentions content with clear icon | boolean \| &#123;     clearIcon?: VueNode   &#125; | false | - | ✓ |
+| allowClear | If allow to remove mentions content with clear icon | boolean \| &#123; clearIcon?: VueNode, disabled?: boolean &#125; | false | - | ✓ |
 | disabled | Whether disabled | boolean | - | - | × |
 
 ### Events
