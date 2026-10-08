@@ -223,7 +223,7 @@ const DrawerPanel = defineComponent<DrawerPanelProps>(
       }
 
       const renderFooter = () => {
-        if (!footer) {
+        if (!isRenderable(footer)) {
           return null
         }
         return (
