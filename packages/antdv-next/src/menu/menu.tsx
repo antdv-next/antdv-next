@@ -1,6 +1,7 @@
 import type { MenuInfo, MenuItemProps, RenderIconInfo, SelectInfo, MenuProps as VcMenuProps } from '@v-c/menu'
 import type { CSSProperties, SlotsType } from 'vue'
 import type { VueNode } from '../_util/type.ts'
+import type { TooltipProps } from '../tooltip'
 import type { ItemType } from './interface.ts'
 import type { MenuContextProps, MenuTheme } from './MenuContext'
 import { EllipsisOutlined } from '@antdv-next/icons'
@@ -27,6 +28,7 @@ const omitPropKeys = [
   'theme',
   'expandIcon',
   '_internalDisableMenuItemTitleTooltip',
+  'tooltip',
   'inlineCollapsed',
   'siderCollapsed',
   'rootClass',
@@ -148,11 +150,13 @@ export interface MenuProps extends Omit<
 > {
   theme?: MenuTheme
   inlineIndent?: number
+  tooltip?: false | TooltipProps
 
   // >>>>> Private
   /**
    * @private Internal Usage. Not promise crash if used in production. Connect with chenshuai2144
    *   for removing.
+   * @deprecated Will be removed in next version. Use `tooltip={false}` instead.
    */
   _internalDisableMenuItemTitleTooltip?: boolean
   items?: ItemType[]
@@ -308,6 +312,7 @@ const InternalMenu = defineComponent<
       theme: props.theme,
       mode: mergedMode.value,
       disableMenuItemTitleTooltip: props._internalDisableMenuItemTitleTooltip,
+      tooltip: props.tooltip,
       classes: mergedClassNames.value as MenuContextProps['classes'],
       styles: mergedStyles.value as MenuContextProps['styles'],
     }))

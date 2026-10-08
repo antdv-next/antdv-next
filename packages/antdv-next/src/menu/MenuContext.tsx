@@ -1,5 +1,6 @@
 import type { InjectionKey, Ref } from 'vue'
 import type { DirectionType } from '../config-provider/context'
+import type { TooltipProps } from '../tooltip'
 import type {
   MenuPopupSemanticClassNames,
   MenuPopupSemanticStyles,
@@ -20,6 +21,7 @@ export interface MenuContextProps {
   firstLevel: boolean
   /** @internal Safe to remove */
   disableMenuItemTitleTooltip?: boolean
+  tooltip?: false | TooltipProps
   classes: MenuSemanticClassNames & {
     popup?: MenuPopupSemanticClassNames
     subMenu?: SubMenuSemanticClassNames
