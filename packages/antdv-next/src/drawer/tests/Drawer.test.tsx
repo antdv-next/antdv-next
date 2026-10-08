@@ -106,6 +106,19 @@ describe('drawer', () => {
     wrapper.unmount()
   })
 
+  it('renders footer with numeric zero', async () => {
+    const wrapper = mount(Drawer, {
+      props: { open: true, title: 'Drawer', footer: 0 },
+      slots: { default: () => <p>Body</p> },
+      attachTo: document.body,
+    })
+    await nextTick()
+    await nextTick()
+    const footer = document.querySelector('.ant-drawer-footer')
+    expect(footer?.textContent).toBe('0')
+    wrapper.unmount()
+  })
+
   it('renders footer slot', async () => {
     const wrapper = mount(Drawer, {
       props: { open: true, title: 'Drawer' },
