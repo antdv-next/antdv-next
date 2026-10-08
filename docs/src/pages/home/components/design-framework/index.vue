@@ -55,7 +55,8 @@ const gutter = computed(() => token.value?.marginXL || 24)
     <a-col
       v-for="item in mainlyList"
       :key="item.key"
-      :span="8"
+      :xs="24"
+      :md="8"
     >
       <a
         v-if="item.external"
