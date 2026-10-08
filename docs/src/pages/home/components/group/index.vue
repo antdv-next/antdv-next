@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { theme } from 'antdv-next'
 import { computed } from 'vue'
+import { useMobile } from '@/composables/mobile'
 
 const props = defineProps<{
   id?: string
@@ -15,6 +16,7 @@ const props = defineProps<{
 }>()
 
 const { token } = theme.useToken()
+const { isMobile } = useMobile()
 
 const backgroundStyle = computed(() => {
   if (!props.background)
@@ -49,7 +51,7 @@ const backgroundStyle = computed(() => {
               fontWeight: 900,
               color: titleColor,
               margin: 0,
-              fontSize: `${token?.fontSizeHeading1}px`,
+              fontSize: `${isMobile ? token?.fontSizeHeading2 : token?.fontSizeHeading1}px`,
             }"
           >
             {{ title }}
@@ -61,7 +63,8 @@ const backgroundStyle = computed(() => {
         <a-typography-paragraph
           :style="{
             color: titleColor,
-            marginBottom: `${token?.marginFarXS ?? 48}px`,
+            marginTop: `${token?.marginSM}px`,
+            marginBottom: `${isMobile ? token?.marginXXL ?? 48 : token?.marginFarXS ?? 48}px`,
           }"
         >
           {{ description }}

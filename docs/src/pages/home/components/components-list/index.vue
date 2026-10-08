@@ -1,13 +1,25 @@
 <script setup lang="ts">
+import type { VNode } from 'vue'
 import {
   CustomerServiceOutlined,
   QuestionCircleOutlined,
   SyncOutlined,
 } from '@antdv-next/icons'
-import { Card, DatePicker, FloatButton, Masonry, Splitter, SplitterPanel, Tour } from 'antdv-next'
+import {
+  Card,
+  DatePicker,
+  Flex,
+  FloatButton,
+  Masonry,
+  Splitter,
+  SplitterPanel,
+  Tour,
+  TypographyTitle,
+} from 'antdv-next'
 import dayjs from 'dayjs'
 import { storeToRefs } from 'pinia'
 import { computed, h } from 'vue'
+import { useMobile } from '@/composables/mobile'
 import { useLocale } from '@/composables/use-locale'
 import { useAppStore } from '@/stores/app.ts'
 import ComponentItem from './component-item.vue'
@@ -17,6 +29,7 @@ const { _InternalPanelDoNotUseOrYouWillBeFired: TourPanel } = Tour as any
 const { _InternalPanelDoNotUseOrYouWillBeFired: FloatButtonPanel } = FloatButton as any
 
 const { t } = useLocale()
+const { isMobile } = useMobile()
 
 const appStore = useAppStore()
 const { darkMode } = storeToRefs(appStore)
@@ -47,88 +60,143 @@ const masonryItems = [
 ]
 
 const splitterBackground = computed(() => darkMode.value ? '#1f1f1f' : '#ffffff')
+
+interface HomeComponentItem {
+  title: string
+  type: 'new' | 'update'
+  node: () => VNode
+}
+
+function datePickerNode() {
+  return h(DatePickerPanel, {
+    value: dayjs('2025-11-22 00:00:00'),
+    showToday: false,
+    presets: isMobile.value ? [] : datePickerPresets.value,
+  })
+}
+
+function tourNode() {
+  return h(TourPanel, {
+    title: 'Antdv Next',
+    description: t('homePage.componentsList.tour'),
+    style: { width: isMobile.value ? 'auto' : '350px' },
+    current: 3,
+    total: 9,
+  })
+}
+
+function floatButtonNode() {
+  return h(Flex, { align: 'center', gap: 'large' }, () => [
+    h(FloatButtonPanel, { shape: 'square', items: floatButtonItems.value }),
+    h(FloatButtonPanel, { backTop: true }),
+    h(FloatButtonPanel, { items: floatButtonItems.value }),
+  ])
+}
+
+function splitterNode() {
+  return h(
+    Splitter,
+    {
+      orientation: 'vertical',
+      style: {
+        height: '320px',
+        width: '200px',
+        background: splitterBackground.value,
+        boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+      },
+    },
+    () => [
+      h(
+        SplitterPanel,
+        { defaultSize: '40%', min: '20%', max: '70%' },
+        () =>
+          h(
+            Flex,
+            { justify: 'center', align: 'center', style: { height: '100%' } },
+            () =>
+              h(
+                TypographyTitle,
+                { type: 'secondary', level: 5, style: { whiteSpace: 'nowrap' } },
+                () => 'First',
+              ),
+          ),
+      ),
+      h(
+        SplitterPanel,
+        () =>
+          h(
+            Flex,
+            { justify: 'center', align: 'center', style: { height: '100%' } },
+            () =>
+              h(
+                TypographyTitle,
+                { type: 'secondary', level: 5, style: { whiteSpace: 'nowrap' } },
+                () => 'Second',
+              ),
+          ),
+      ),
+    ],
+  )
+}
+
+function masonryNode() {
+  return h(Masonry, {
+    columns: 2,
+    gutter: 8,
+    style: { width: '300px', height: '320px' },
+    items: masonryItems,
+    itemRender: ({ data, index }) =>
+      h(Card, { size: 'small', style: { height: `${data}px` } }, () => String(index + 1)),
+  })
+}
+
+const componentItems: HomeComponentItem[] = [
+  // DatePicker
+  { title: 'DatePicker', type: 'new', node: datePickerNode },
+
+  // Tour
+  { title: 'Tour', type: 'new', node: tourNode },
+
+  // FloatButton
+  { title: 'FloatButton', type: 'new', node: floatButtonNode },
+
+  // Splitter
+  { title: 'Splitter', type: 'new', node: splitterNode },
+
+  // Masonry
+  { title: 'Masonry', type: 'new', node: masonryNode },
+]
 </script>
 
 <template>
-  <a-flex justify="center" class="antdv-components-list">
+  <div v-if="isMobile" class="antdv-components-list-mobile">
+    <a-carousel
+      class="antdv-components-list-carousel"
+      :infinite="false"
+    >
+      <div v-for="(item, index) in componentItems" :key="item.title">
+        <ComponentItem
+          :title="item.title"
+          :type="item.type"
+          :index="index"
+          class="antdv-components-list-mobile-card"
+        >
+          <component :is="item.node" />
+        </ComponentItem>
+      </div>
+    </a-carousel>
+  </div>
+
+  <a-flex v-else justify="center" class="antdv-components-list">
     <a-flex align="stretch" gap="large">
-      <!-- DatePicker -->
-      <ComponentItem title="DatePicker" type="new" :index="0">
-        <DatePickerPanel
-          :value="dayjs('2025-11-22 00:00:00')"
-          :show-today="false"
-          :presets="datePickerPresets"
-        />
-      </ComponentItem>
-
-      <!-- Tour -->
-      <ComponentItem title="Tour" type="new" :index="1">
-        <TourPanel
-          title="Antdv Next"
-          :description="t('homePage.componentsList.tour')"
-          :style="{ width: '350px' }"
-          :current="3"
-          :total="9"
-        />
-      </ComponentItem>
-
-      <!-- FloatButton -->
-      <ComponentItem title="FloatButton" type="new" :index="2">
-        <a-flex align="center" gap="large">
-          <FloatButtonPanel
-            shape="square"
-            :items="floatButtonItems"
-          />
-          <FloatButtonPanel back-top />
-          <FloatButtonPanel
-            :items="floatButtonItems"
-          />
-        </a-flex>
-      </ComponentItem>
-
-      <!-- Splitter -->
-      <ComponentItem title="Splitter" type="new" :index="3">
-        <Splitter
-          orientation="vertical"
-          :style="{
-            height: '320px',
-            width: '200px',
-            background: splitterBackground,
-            boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
-          }"
-        >
-          <SplitterPanel default-size="40%" min="20%" max="70%">
-            <a-flex justify="center" align="center" style="height: 100%;">
-              <a-typography-title type="secondary" :level="5" style="white-space: nowrap;">
-                First
-              </a-typography-title>
-            </a-flex>
-          </SplitterPanel>
-
-          <SplitterPanel>
-            <a-flex justify="center" align="center" style="height: 100%;">
-              <a-typography-title type="secondary" :level="5" style="white-space: nowrap;">
-                Second
-              </a-typography-title>
-            </a-flex>
-          </SplitterPanel>
-        </Splitter>
-      </ComponentItem>
-
-      <!-- Masonry -->
-      <ComponentItem title="Masonry" type="new" :index="4">
-        <Masonry
-          :columns="2"
-          :gutter="8"
-          :style="{ width: '300px', height: '320px' }"
-          :items="masonryItems"
-        >
-          <template #itemRender="{ data, index }">
-            <Card size="small" :style="{ height: `${data}px` }">
-              {{ index + 1 }}
-            </Card>
-          </template>
-        </Masonry>
+      <ComponentItem
+        v-for="(item, index) in componentItems"
+        :key="item.title"
+        :title="item.title"
+        :type="item.type"
+        :index="index"
+      >
+        <component :is="item.node" />
       </ComponentItem>
     </a-flex>
   </a-flex>
@@ -138,5 +206,35 @@ const splitterBackground = computed(() => darkMode.value ? '#1f1f1f' : '#ffffff'
 .antdv-components-list {
   width: 100%;
   overflow: hidden;
+}
+
+.antdv-components-list-mobile {
+  margin: 0 var(--ant-margin);
+}
+
+.antdv-components-list-mobile-card {
+  height: 395px;
+}
+
+.antdv-components-list-carousel .slick-dots.slick-dots-bottom {
+  bottom: -22px;
+}
+
+.antdv-components-list-carousel .slick-dots.slick-dots-bottom li {
+  width: 6px;
+  height: 6px;
+  background: #e1eeff;
+  border-radius: 50%;
+}
+
+.antdv-components-list-carousel .slick-dots.slick-dots-bottom li button {
+  height: 6px;
+  background: #e1eeff;
+  border-radius: 50%;
+}
+
+.antdv-components-list-carousel .slick-dots.slick-dots-bottom li.slick-active,
+.antdv-components-list-carousel .slick-dots.slick-dots-bottom li.slick-active button {
+  background: #4b9cff;
 }
 </style>
