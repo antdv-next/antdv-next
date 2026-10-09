@@ -44,6 +44,24 @@ describe('modal static', () => {
     expect(document.querySelectorAll('.ant-modal-confirm-btns .ant-btn')).toHaveLength(2)
   })
 
+  it('icon can be false to hide default icon', async () => {
+    Modal.confirm({
+      title: 'some title',
+      content: 'some descriptions',
+      icon: false,
+    })
+    await waitFakeTimer(1, 5)
+
+    expect(
+      document.querySelector('.ant-modal-confirm-body')!.querySelector('.anticon'),
+    ).toBeFalsy()
+    expect(
+      document
+        .querySelector('.ant-modal-confirm-body')!
+        .classList.contains('ant-modal-confirm-body-no-icon'),
+    ).toBe(true)
+  })
+
   it('should not mutate the mask config object', async () => {
     const mask: MaskType = { blur: true }
 

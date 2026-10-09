@@ -7,7 +7,7 @@ import { clsx } from '@v-c/util'
 import { getTransitionName } from '@v-c/util/dist/utils/transition'
 import { computed, defineComponent } from 'vue'
 import { CONTAINER_MAX_OFFSET, normalizeMaskConfig } from '../_util/hooks'
-import isNonNullable from '../_util/isNonNullable.ts'
+import { isNonNullable, isRenderable } from '../_util/is.ts'
 import { getSlotPropsFnRun } from '../_util/tools.ts'
 import { devUseWarning, isDev } from '../_util/warning'
 import { useComponentBaseConfig } from '../config-provider/context'
@@ -113,7 +113,7 @@ export const ConfirmContent = defineComponent<
       const icon = getSlotPropsFnRun({}, props, 'icon', false)
       const title = getSlotPropsFnRun({}, props, 'title', false)
       let mergedIcon = icon as any
-      if (!icon && icon !== null) {
+      if (icon === undefined) {
         switch (mergedType.value) {
           case 'info':
             mergedIcon = <InfoCircleFilled />
@@ -130,7 +130,7 @@ export const ConfirmContent = defineComponent<
       }
 
       const hasTitle = isNonNullable(title) && title !== ''
-      const hasIcon = isNonNullable(mergedIcon)
+      const hasIcon = isRenderable(mergedIcon)
       const bodyCls = `${confirmPrefixCls}-body`
 
       const footerOriginNode = (
