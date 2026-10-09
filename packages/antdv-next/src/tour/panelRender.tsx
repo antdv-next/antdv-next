@@ -59,6 +59,12 @@ const TourPanel = defineComponent<
 
       const mergedType = stepType ?? type
 
+      const resolvedCloseIcon = getSlotPropsFnRun(
+        {},
+        { closeIcon: closable?.closeIcon },
+        'closeIcon',
+      )
+
       const mergedCloseIcon = (
         <button
           type="button"
@@ -68,7 +74,7 @@ const TourPanel = defineComponent<
           aria-label={contextLocaleGlobal?.value.close}
           {...ariaProps}
         >
-          {closable?.closeIcon || <CloseOutlined class={`${prefixCls}-close-icon`} />}
+          {resolvedCloseIcon || <CloseOutlined class={`${prefixCls}-close-icon`} />}
         </button>
       )
 
