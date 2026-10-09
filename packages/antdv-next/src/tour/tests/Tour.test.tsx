@@ -913,6 +913,40 @@ describe('tour', () => {
     expect(document.querySelector('.custom-close')?.textContent).toBe('X')
   })
 
+  it('should render render-function closeIcon from top-level prop', async () => {
+    mount(Tour, {
+      attachTo: document.body,
+      props: {
+        open: true,
+        closeIcon: () => h('span', { class: 'top-close-fn' }, 'T'),
+        steps: [{ title: 'Render Function Top' }],
+      },
+    })
+    await flushTour()
+
+    expect(document.querySelector('.top-close-fn')?.textContent).toBe('T')
+  })
+
+  it('should render render-function closeIcon from step closable', async () => {
+    mount(Tour, {
+      attachTo: document.body,
+      props: {
+        open: true,
+        steps: [
+          {
+            title: 'Render Function Step',
+            closable: {
+              closeIcon: () => h('span', { class: 'step-close-fn' }, 'S'),
+            },
+          },
+        ],
+      },
+    })
+    await flushTour()
+
+    expect(document.querySelector('.step-close-fn')?.textContent).toBe('S')
+  })
+
   it('should have default aria-label on close button', async () => {
     mount(Tour, {
       attachTo: document.body,
