@@ -133,14 +133,11 @@ export interface SliderInternalProps extends SliderBaseProps,
 
 export interface SliderEmits {
   'change': (value: any) => void
-  /** @deprecated Please use `changeComplete` instead */
-  'afterChange': (value: any) => void
   'update:value': (value: any) => void
   'changeComplete': (value: any) => void
 }
 export interface SliderEmitsProps {
   onChange?: SliderEmits['change']
-  onAfterChange?: SliderEmits['afterChange']
   'onUpdate:value'?: SliderEmits['update:value']
   onChangeComplete?: SliderEmits['changeComplete']
 }
@@ -302,6 +299,10 @@ const Slider = defineComponent<
         ]),
         ...restAttrs,
       }
+      // `afterChange` is not part of the emits contract: vc-slider keeps it as a
+      // deprecated callback that runs both through its own `emit` and through the
+      // prop, so a leftover `@after-change` listener must not be forwarded.
+      delete restProps.onAfterChange
       if (isRTL.value && !mergedVertical.value) {
         restProps.reverse = !restProps.reverse
       }

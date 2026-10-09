@@ -22,12 +22,12 @@ function onChangeComplete(val: number | number[]) {
 </script>
 
 <template>
-  <a-slider v-model:value="value" @change="onChange" @after-change="onChangeComplete" />
+  <a-slider v-model:value="value" @change="onChange" @change-complete="onChangeComplete" />
   <a-slider
     v-model:value="valueRange"
     range
     :step="10"
     @change="onChange"
-    @after-change="onChangeComplete"
+    @change-complete="onChangeComplete"
   />
 </template>
