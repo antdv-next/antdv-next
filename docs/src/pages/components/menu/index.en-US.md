@@ -24,6 +24,7 @@ More layouts with navigation: [Layout](/components/layout).
   <demo src="./demo/horizontal.vue">Top Navigation</demo>
   <demo src="./demo/inline.vue">Inline menu</demo>
   <demo src="./demo/inline-collapsed.vue">Collapsed inline menu</demo>
+  <demo src="./demo/tooltip.vue">Menu tooltip</demo>
   <demo src="./demo/sider-current.vue">Open current submenu only</demo>
   <demo src="./demo/vertical.vue">Vertical menu</demo>
   <demo src="./demo/theme.vue">Menu Themes</demo>
@@ -61,6 +62,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | selectedKeys | Array with the keys of currently selected menu items | string[] | - | - | × |
 | subMenuCloseDelay | Delay time to hide submenu when mouse leaves (in seconds) | number | 0.1 | - | × |
 | subMenuOpenDelay | Delay time to show submenu when mouse enters, (in seconds) | number | 0 | - | × |
+| tooltip | Config tooltip props for menu items in inline collapsed mode. Set to `false` to disable. | false \| TooltipProps | - | - | × |
 | theme | Color theme of the menu | `light` \| `dark` | `light` | - | × |
 | triggerSubMenuAction | Which action can trigger submenu open/close | `hover` \| `click` | `hover` | - | × |
 | getPopupContainer | To set the container of the submenu popup. The default is to create a div element in body, but you can reset it to the scrolling area and make a relative reposition | (triggerNode: HTMLElement) => HTMLElement | () => document.body | - | × |

@@ -1,13 +1,14 @@
 import type { MenuItemType } from '@v-c/menu'
 import type { SlotsType } from 'vue'
 import type { EmptyEmit, VueNode } from '../_util/type.ts'
-import type { TooltipProps } from '../tooltip'
+import type { TooltipProps, TooltipSemanticClassNames } from '../tooltip'
 import { Item } from '@v-c/menu'
 import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit/compat'
 import { computed, createVNode, defineComponent, isVNode, shallowRef, watch } from 'vue'
 import { getAttrStyleAndClass, pureAttrs } from '../_util/hooks'
+import { isFunction } from '../_util/is'
 import { omitUndefined } from '../_util/omitUndefined'
 import { getSlotPropsFnRun } from '../_util/tools.ts'
 import { useSiderCtx } from '../layout/Sider.tsx'
@@ -65,7 +66,7 @@ const MenuItem = defineComponent<
       const title = getSlotPropsFnRun(slots, props, 'title', false)
       const { className, style } = getAttrStyleAndClass(attrs)
       const { danger } = props
-      const { prefixCls, firstLevel, direction, disableMenuItemTitleTooltip, inlineCollapsed: isInlineCollapsed, styles, classes } = menuContext.value
+      const { prefixCls, firstLevel, direction, disableMenuItemTitleTooltip, tooltip, inlineCollapsed: isInlineCollapsed, styles, classes } = menuContext.value
       const children = filterEmpty(slots?.default?.())
       const renderItemChildren = (inlineCollapsed: boolean) => {
         const label = children?.[0]
@@ -102,7 +103,14 @@ const MenuItem = defineComponent<
         tooltipTitle = ''
       }
 
-      const tooltipProps: TooltipProps = { title: tooltipTitle }
+      const tooltipConfig = tooltip === false ? undefined : tooltip
+      const mergedTooltipTitle
+        = tooltipConfig && tooltipConfig.title !== undefined ? tooltipConfig.title : tooltipTitle
+
+      const tooltipProps: TooltipProps = {
+        ...(tooltipConfig ?? {}),
+        title: mergedTooltipTitle,
+      }
 
       if (!mergedCollapsed.value) {
         tooltipProps.title = null
@@ -113,9 +121,10 @@ const MenuItem = defineComponent<
       else {
         // When collapsed, use controlled state to prevent flash during transitions
         // ref: https://github.com/ant-design/ant-design/issues/56528
-        tooltipProps.open = tooltipOpen.value
+        tooltipProps.open = tooltipConfig?.open ?? tooltipOpen.value
         tooltipProps.onOpenChange = (open) => {
           tooltipOpen.value = open
+          tooltipConfig?.onOpenChange?.(open)
         }
       }
       const childrenLength = children.length
@@ -145,14 +154,35 @@ const MenuItem = defineComponent<
           {renderItemChildren(isInlineCollapsed)}
         </Item>
       )
-      if (!disableMenuItemTitleTooltip) {
+      if (!disableMenuItemTitleTooltip && tooltip !== false) {
+        const mergedTooltipPlacement
+          = tooltipConfig && tooltipConfig.placement
+            ? tooltipConfig.placement
+            : direction === 'rtl'
+              ? 'left'
+              : 'right'
+
+        const baseTooltipClassName = `${prefixCls}-inline-collapsed-tooltip`
+
+        const mergeTooltipRootClassName = (classNames?: TooltipSemanticClassNames) => ({
+          ...classNames,
+          root: clsx(baseTooltipClassName, classNames?.root),
+        })
+
+        const mergedTooltipClassNames = isFunction(tooltipConfig?.classes)
+          ? (info: { props: TooltipProps }) => {
+              const resolvedClassNames = (tooltipConfig!.classes as (info: {
+                props: TooltipProps
+              }) => TooltipSemanticClassNames)(info)
+              return mergeTooltipRootClassName(resolvedClassNames)
+            }
+          : mergeTooltipRootClassName(tooltipConfig?.classes)
+
         returnNode = (
           <Tooltip
             {...tooltipProps}
-            placement={direction === 'rtl' ? 'left' : 'right'}
-            classes={{
-              root: `${prefixCls}-inline-collapsed-tooltip`,
-            }}
+            placement={mergedTooltipPlacement}
+            classes={mergedTooltipClassNames}
           >
             {returnNode}
           </Tooltip>

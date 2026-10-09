@@ -25,6 +25,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Vn4XSqJFAxcAAA
   <demo src="./demo/horizontal.vue">顶部导航</demo>
   <demo src="./demo/inline.vue">内嵌菜单</demo>
   <demo src="./demo/inline-collapsed.vue">缩起内嵌菜单</demo>
+  <demo src="./demo/tooltip.vue">菜单项提示</demo>
   <demo src="./demo/sider-current.vue">只展开当前父级菜单</demo>
   <demo src="./demo/vertical.vue">垂直菜单</demo>
   <demo src="./demo/theme.vue">主题</demo>
@@ -62,6 +63,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Vn4XSqJFAxcAAA
 | selectedKeys | 当前选中的菜单项 key 数组 | string[] | - | - | × |
 | subMenuCloseDelay | 用户鼠标离开子菜单后关闭延时，单位：秒 | number | 0.1 | - | × |
 | subMenuOpenDelay | 用户鼠标进入子菜单后开启延时，单位：秒 | number | 0 | - | × |
+| tooltip | 配置 inline 折叠时的 MenuItem 悬浮提示，设为 `false` 可关闭 | false \| TooltipProps | - | - | × |
 | theme | 主题颜色 | `light` \| `dark` | `light` | - | × |
 | triggerSubMenuAction | SubMenu 展开/关闭的触发行为 | `hover` \| `click` | `hover` | - | × |
 | getPopupContainer | 菜单弹出层渲染容器，默认渲染到 body | (triggerNode: HTMLElement) => HTMLElement | () => document.body | - | × |
