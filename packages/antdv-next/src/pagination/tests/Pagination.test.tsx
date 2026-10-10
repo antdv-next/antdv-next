@@ -107,6 +107,32 @@ describe('pagination', () => {
     wrapper.unmount()
   })
 
+  it('renders quick jumper goButton render function', () => {
+    const goButton = vi.fn(() => <span class="custom-go-button">Go</span>)
+
+    const wrapper = mount(() => (
+      <Pagination
+        total={500}
+        showQuickJumper={{ goButton }}
+      />
+    ), { attachTo: document.body })
+
+    expect(goButton).toHaveBeenCalled()
+    expect(wrapper.find('.custom-go-button').exists()).toBe(true)
+    wrapper.unmount()
+  })
+
+  it('inherits config provider size changer select props when showSizeChanger is boolean', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider pagination={{ showSizeChanger: { showSearch: false } }}>
+        <Pagination total={500} showSizeChanger />
+      </ConfigProvider>
+    ), { attachTo: document.body })
+
+    expect(wrapper.find('.ant-pagination-options-size-changer .ant-select-show-search').exists()).toBe(false)
+    wrapper.unmount()
+  })
+
   // https://github.com/ant-design/ant-design/pull/58474
   it('aligns root semantic style priority', () => {
     const wrapper = mount(() => (
