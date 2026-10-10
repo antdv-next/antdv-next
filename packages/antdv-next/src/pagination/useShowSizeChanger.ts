@@ -5,7 +5,7 @@ export default function resolveShowSizeChanger(showSizeChanger?: PaginationProps
   if (typeof showSizeChanger === 'boolean') {
     return {
       show: showSizeChanger,
-      selectProps: {} as SelectProps,
+      selectProps: undefined,
     }
   }
 

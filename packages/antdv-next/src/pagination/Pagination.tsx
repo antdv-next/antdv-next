@@ -35,6 +35,7 @@ const omitKeys = [
   'classes',
   'styles',
   'showSizeChanger',
+  'showQuickJumper',
   'pageSizeOptions',
   'selectComponentClass',
   'components',
@@ -113,7 +114,22 @@ const Pagination = defineComponent<
     const propShowSizeChanger = computed(() => resolveShowSizeChanger(showSizeChanger.value))
     const contextShowSizeChanger = computed(() => resolveShowSizeChanger(contextShowSizeChangerConfig.value))
     const mergedShowSizeChanger = computed(() => propShowSizeChanger.value.show ?? contextShowSizeChanger.value.show)
-    const mergedShowSizeChangerSelectProps = computed(() => propShowSizeChanger.value.selectProps ?? contextShowSizeChanger.value.selectProps)
+    const mergedShowSizeChangerSelectProps = computed(() => ({
+      ...(contextShowSizeChanger.value.selectProps ?? {}),
+      ...(propShowSizeChanger.value.selectProps ?? {}),
+    }))
+
+    const mergedShowQuickJumper = computed<VcPaginationProps['showQuickJumper']>(() => {
+      const quickJumper = props.showQuickJumper
+      if (!quickJumper || typeof quickJumper !== 'object') {
+        return quickJumper
+      }
+      const { goButton } = quickJumper
+      return {
+        ...quickJumper,
+        goButton: typeof goButton === 'function' ? goButton() : goButton,
+      }
+    })
 
     const SizeChanger = computed(() => props.selectComponentClass || Select)
 
@@ -298,6 +314,7 @@ const Pagination = defineComponent<
             locale={mergedLocale.value}
             pageSizeOptions={mergedPageSizeOptions.value}
             showSizeChanger={mergedShowSizeChanger.value}
+            showQuickJumper={mergedShowQuickJumper.value}
             sizeChangerRender={sizeChangerRender}
             prevIcon={mergedPrevIcon.value as VueNode}
             nextIcon={mergedNextIcon.value as VueNode}
