@@ -27,21 +27,29 @@ export type NotificationSemanticName = keyof NotificationSemanticClassNames
 export interface NotificationSemanticClassNames {
   list?: string
   listContent?: string
+  wrapper?: string
   root?: string
   title?: string
   description?: string
   actions?: string
   icon?: string
+  section?: string
+  close?: string
+  progress?: string
 }
 
 export interface NotificationSemanticStyles {
   list?: CSSProperties
   listContent?: CSSProperties
+  wrapper?: CSSProperties
   root?: CSSProperties
   title?: CSSProperties
   description?: CSSProperties
   actions?: CSSProperties
   icon?: CSSProperties
+  section?: CSSProperties
+  close?: CSSProperties
+  progress?: CSSProperties
 }
 
 export type NotificationClassNamesType = SemanticClassNamesType<

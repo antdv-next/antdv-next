@@ -121,6 +121,42 @@ describe('notification.semantic', () => {
       wrapper.unmount()
     })
 
+    it('should support wrapper, section and close semantic keys', () => {
+      const wrapper = mount(PurePanel, {
+        props: {
+          type: 'info',
+          icon: <span>Icon</span>,
+          title: 'Four Keys',
+          description: 'Desc',
+          classes: {
+            wrapper: 'pure-wrapper',
+            section: 'pure-section',
+            close: 'pure-close',
+          },
+          styles: {
+            wrapper: { padding: '2px' },
+            section: { margin: '3px' },
+            close: { color: 'red' },
+          },
+        } as any,
+        attachTo: document.body,
+      })
+
+      const wrapperEl = document.querySelector('.ant-notification-notice-wrapper')
+      expect(wrapperEl?.classList.contains('pure-wrapper')).toBe(true)
+      expect((wrapperEl as HTMLElement)?.style.padding).toBe('2px')
+
+      const section = document.querySelector('.ant-notification-notice-section')
+      expect(section?.classList.contains('pure-section')).toBe(true)
+      expect((section as HTMLElement)?.style.margin).toBe('3px')
+
+      const close = document.querySelector('.ant-notification-notice-close')
+      expect(close?.classList.contains('pure-close')).toBe(true)
+      expect((close as HTMLElement)?.style.color).toBe('red')
+
+      wrapper.unmount()
+    })
+
     it('should support actions semantic', () => {
       const wrapper = mount(PurePanel, {
         props: {
@@ -395,6 +431,59 @@ describe('notification.semantic', () => {
       expect((list as HTMLElement).style.margin).toBe('16px')
       expect(listContent).toBeTruthy()
       expect((listContent as HTMLElement).style.padding).toBe('18px')
+
+      wrapper.unmount()
+    })
+
+    it('supports wrapper, section, close and progress semantic keys via open config', async () => {
+      let api!: NotificationInstance
+      const App = defineComponent({
+        setup() {
+          const [notificationApi, contextHolder] = useNotification()
+          api = notificationApi
+          return () => contextHolder()
+        },
+      })
+
+      const wrapper = mount(App, { attachTo: document.body })
+      await waitForNotification()
+
+      api.open({
+        title: 'Four Keys',
+        description: 'Desc',
+        type: 'info',
+        showProgress: true,
+        duration: 999999,
+        classes: {
+          wrapper: 'api-wrapper',
+          section: 'api-section',
+          close: 'api-close',
+          progress: 'api-progress',
+        },
+        styles: {
+          wrapper: { padding: '2px' },
+          section: { margin: '3px' },
+          close: { color: 'red' },
+          progress: { background: 'blue' },
+        },
+      })
+      await waitForNotification()
+
+      const wrapperEl = document.querySelector('.ant-notification-notice-wrapper')
+      expect(wrapperEl?.classList.contains('api-wrapper')).toBe(true)
+      expect((wrapperEl as HTMLElement)?.style.padding).toBe('2px')
+
+      const section = document.querySelector('.ant-notification-notice-section')
+      expect(section?.classList.contains('api-section')).toBe(true)
+      expect((section as HTMLElement)?.style.margin).toBe('3px')
+
+      const close = document.querySelector('.ant-notification-notice-close')
+      expect(close?.classList.contains('api-close')).toBe(true)
+      expect((close as HTMLElement)?.style.color).toBe('red')
+
+      const progress = document.querySelector('.ant-notification-notice-progress')
+      expect(progress?.classList.contains('api-progress')).toBe(true)
+      expect((progress as HTMLElement)?.style.background).toBe('blue')
 
       wrapper.unmount()
     })
