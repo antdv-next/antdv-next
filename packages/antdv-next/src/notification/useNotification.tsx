@@ -247,26 +247,15 @@ export function useInternalNotification(
         description,
         actions: mergedActions,
         role,
-        classNames: {
-          icon: iconWrapperClass,
-          title: semanticClassNames?.title,
-          description: semanticClassNames?.description,
-          actions: semanticClassNames?.actions,
-        },
-        styles: {
-          icon: semanticStyles?.icon,
-          title: semanticStyles?.title,
-          description: semanticStyles?.description,
-          actions: semanticStyles?.actions,
-        },
+        classNames: { ...semanticClassNames, icon: iconWrapperClass },
+        styles: semanticStyles,
         class: clsx(
           { [`${noticePrefixCls}-${type}`]: type },
           { [`${noticePrefixCls}-with-icon`]: !!iconNode },
           className,
           contextClassName,
-          semanticClassNames?.root,
         ),
-        style: { ...semanticStyles?.root, ...style } as any,
+        style: style as any,
         closable: mergedClosable,
       } as any)
     }
