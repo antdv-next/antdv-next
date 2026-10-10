@@ -353,7 +353,9 @@ const Masonry = defineComponent<
                         onResize: fresh ? collectItemSize : null,
                       } as any
                     }
-                  />
+                  >
+                    {item.children}
+                  </MasonryItem>
                 )
               })}
             </TransitionGroup>
