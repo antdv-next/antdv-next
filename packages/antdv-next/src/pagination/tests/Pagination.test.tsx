@@ -17,6 +17,14 @@ describe('pagination', () => {
     expect(wrapper.find('.ant-pagination').exists()).toBe(true)
   })
 
+  it('should use en_US as default locale', () => {
+    const wrapper = mount(() => (
+      <Pagination total={50} showQuickJumper />
+    ))
+
+    expect(wrapper.text()).toContain('Go to')
+  })
+
   it('should update current before change callback runs in controlled mode', async () => {
     const current = ref(1)
     const currentInChange: number[] = []

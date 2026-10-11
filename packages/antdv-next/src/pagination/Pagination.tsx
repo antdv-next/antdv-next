@@ -10,7 +10,7 @@ import type {
 } from './interface'
 import { DoubleLeftOutlined, DoubleRightOutlined, EllipsisOutlined, LeftOutlined, RightOutlined } from '@antdv-next/icons'
 import VcPagination from '@v-c/pagination'
-import enUS from '@v-c/pagination/locale/zh_CN'
+import enUS from '@v-c/pagination/locale/en_US'
 import { clsx } from '@v-c/util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, h } from 'vue'
