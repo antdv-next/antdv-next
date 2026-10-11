@@ -200,11 +200,11 @@ const InternalPopconfirm = defineComponent<
     )
 
     return () => {
-      const titleNode = getSlotPropsFnRun(slots, props, 'title') ?? props.title
-      const descriptionNode = getSlotPropsFnRun(slots, props, 'description') ?? props.description
-      const iconNode = getSlotPropsFnRun(slots, props, 'icon') ?? props.icon ?? defaultIcon
-      const okTextNode = getSlotPropsFnRun(slots, props, 'okText') ?? props.okText
-      const cancelTextNode = getSlotPropsFnRun(slots, props, 'cancelText') ?? props.cancelText
+      const titleNode = getSlotPropsFnRun(slots, props, 'title')
+      const descriptionNode = getSlotPropsFnRun(slots, props, 'description')
+      const iconNode = getSlotPropsFnRun(slots, props, 'icon') ?? defaultIcon
+      const okTextNode = getSlotPropsFnRun(slots, props, 'okText')
+      const cancelTextNode = getSlotPropsFnRun(slots, props, 'cancelText')
       const restProps = omit(props, OMITTED_PROP_KEYS)
 
       const content = (
