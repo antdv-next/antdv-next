@@ -103,8 +103,8 @@ const CascaderPanel = defineComponent<
         ...rest
       } = props
       const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
-      const customExpandIcon = getSlotPropsFnRun(slots, props, 'expandIcon', false) ?? expandIcon
-      const customLoadingIcon = getSlotPropsFnRun(slots, props, 'loadingIcon', false) ?? loadingIcon
+      const customExpandIcon = getSlotPropsFnRun(slots, props, 'expandIcon', false)
+      const customLoadingIcon = getSlotPropsFnRun(slots, props, 'loadingIcon', false)
       const { expandIcon: mergedExpandIcon, loadingIcon: mergedLoadingIcon } = useIcons({
         contextExpandIcon: contextExpandIcon.value,
         contextLoadingIcon: contextLoadingIcon.value,
