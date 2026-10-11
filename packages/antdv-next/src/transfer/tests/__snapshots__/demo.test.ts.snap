@@ -9219,7 +9219,7 @@ exports[`transfer demo > renders table-transfer correctly 1`] = `
                   <!---->
                   <li
                     aria-disabled="true"
-                    aria-label="上一页"
+                    aria-label="Previous Page"
                     class="ant-pagination-prev ant-pagination-disabled"
                     role="button"
                   >
@@ -9252,7 +9252,7 @@ exports[`transfer demo > renders table-transfer correctly 1`] = `
                   </li>
                   <li
                     aria-current="page"
-                    aria-label="页 1"
+                    aria-label="Page 1"
                     class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
                     role="button"
                     tabindex="0"
@@ -9267,7 +9267,7 @@ exports[`transfer demo > renders table-transfer correctly 1`] = `
                     </a>
                   </li>
                   <li
-                    aria-label="页 2"
+                    aria-label="Page 2"
                     class="ant-pagination-item ant-pagination-item-2"
                     role="button"
                     tabindex="0"
@@ -9283,7 +9283,7 @@ exports[`transfer demo > renders table-transfer correctly 1`] = `
                   </li>
                   <li
                     aria-disabled="false"
-                    aria-label="下一页"
+                    aria-label="Next Page"
                     class="ant-pagination-next"
                     role="button"
                     tabindex="0"

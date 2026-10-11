@@ -197,7 +197,7 @@ exports[`table demo > renders _semantic correctly 1`] = `
               <!---->
               <li
                 aria-disabled="true"
-                aria-label="上一页"
+                aria-label="Previous Page"
                 class="ant-pagination-prev semantic-mark-pagination-item ant-pagination-disabled"
                 role="button"
               >
@@ -230,7 +230,7 @@ exports[`table demo > renders _semantic correctly 1`] = `
               </li>
               <li
                 aria-current="page"
-                aria-label="页 1"
+                aria-label="Page 1"
                 class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active semantic-mark-pagination-item"
                 role="button"
                 tabindex="0"
@@ -245,7 +245,7 @@ exports[`table demo > renders _semantic correctly 1`] = `
                 </a>
               </li>
               <li
-                aria-label="页 2"
+                aria-label="Page 2"
                 class="ant-pagination-item ant-pagination-item-2 semantic-mark-pagination-item"
                 role="button"
                 tabindex="0"
@@ -261,7 +261,7 @@ exports[`table demo > renders _semantic correctly 1`] = `
               </li>
               <li
                 aria-disabled="false"
-                aria-label="下一页"
+                aria-label="Next Page"
                 class="ant-pagination-next semantic-mark-pagination-item"
                 role="button"
                 tabindex="0"
@@ -2506,7 +2506,7 @@ exports[`table demo > renders auto-height correctly 1`] = `
             <!---->
             <li
               aria-disabled="true"
-              aria-label="上一页"
+              aria-label="Previous Page"
               class="ant-pagination-prev ant-pagination-disabled"
               role="button"
             >
@@ -2539,7 +2539,7 @@ exports[`table demo > renders auto-height correctly 1`] = `
             </li>
             <li
               aria-current="page"
-              aria-label="页 1"
+              aria-label="Page 1"
               class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
               role="button"
               tabindex="0"
@@ -2554,7 +2554,7 @@ exports[`table demo > renders auto-height correctly 1`] = `
               </a>
             </li>
             <li
-              aria-label="页 2"
+              aria-label="Page 2"
               class="ant-pagination-item ant-pagination-item-2"
               role="button"
               tabindex="0"
@@ -2569,7 +2569,7 @@ exports[`table demo > renders auto-height correctly 1`] = `
               </a>
             </li>
             <li
-              aria-label="页 3"
+              aria-label="Page 3"
               class="ant-pagination-item ant-pagination-item-3"
               role="button"
               tabindex="0"
@@ -2585,7 +2585,7 @@ exports[`table demo > renders auto-height correctly 1`] = `
             </li>
             <li
               aria-disabled="false"
-              aria-label="下一页"
+              aria-label="Next Page"
               class="ant-pagination-next"
               role="button"
               tabindex="0"
@@ -2985,7 +2985,7 @@ exports[`table demo > renders basic correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
-          aria-label="上一页"
+          aria-label="Previous Page"
           class="ant-pagination-prev ant-pagination-disabled"
           role="button"
         >
@@ -3018,7 +3018,7 @@ exports[`table demo > renders basic correctly 1`] = `
         </li>
         <li
           aria-current="page"
-          aria-label="页 1"
+          aria-label="Page 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
           role="button"
           tabindex="0"
@@ -3034,7 +3034,7 @@ exports[`table demo > renders basic correctly 1`] = `
         </li>
         <li
           aria-disabled="true"
-          aria-label="下一页"
+          aria-label="Next Page"
           class="ant-pagination-next ant-pagination-disabled"
           role="button"
         >
@@ -3232,7 +3232,7 @@ exports[`table demo > renders bordered correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
-          aria-label="上一页"
+          aria-label="Previous Page"
           class="ant-pagination-prev ant-pagination-disabled"
           role="button"
         >
@@ -3265,7 +3265,7 @@ exports[`table demo > renders bordered correctly 1`] = `
         </li>
         <li
           aria-current="page"
-          aria-label="页 1"
+          aria-label="Page 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
           role="button"
           tabindex="0"
@@ -3281,7 +3281,7 @@ exports[`table demo > renders bordered correctly 1`] = `
         </li>
         <li
           aria-disabled="true"
-          aria-label="下一页"
+          aria-label="Next Page"
           class="ant-pagination-next ant-pagination-disabled"
           role="button"
         >
@@ -3494,7 +3494,7 @@ exports[`table demo > renders bug-test correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
-            aria-label="上一页"
+            aria-label="Previous Page"
             class="ant-pagination-prev ant-pagination-disabled"
             role="button"
           >
@@ -3527,7 +3527,7 @@ exports[`table demo > renders bug-test correctly 1`] = `
           </li>
           <li
             aria-current="page"
-            aria-label="页 1"
+            aria-label="Page 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
             role="button"
             tabindex="0"
@@ -3543,7 +3543,7 @@ exports[`table demo > renders bug-test correctly 1`] = `
           </li>
           <li
             aria-disabled="true"
-            aria-label="下一页"
+            aria-label="Next Page"
             class="ant-pagination-next ant-pagination-disabled"
             role="button"
           >
@@ -3805,7 +3805,7 @@ exports[`table demo > renders cell-slot correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
-          aria-label="上一页"
+          aria-label="Previous Page"
           class="ant-pagination-prev ant-pagination-disabled"
           role="button"
         >
@@ -3838,7 +3838,7 @@ exports[`table demo > renders cell-slot correctly 1`] = `
         </li>
         <li
           aria-current="page"
-          aria-label="页 1"
+          aria-label="Page 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
           role="button"
           tabindex="0"
@@ -3854,7 +3854,7 @@ exports[`table demo > renders cell-slot correctly 1`] = `
         </li>
         <li
           aria-disabled="true"
-          aria-label="下一页"
+          aria-label="Next Page"
           class="ant-pagination-next ant-pagination-disabled"
           role="button"
         >
@@ -4211,7 +4211,7 @@ exports[`table demo > renders colspan-rowspan correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
-          aria-label="上一页"
+          aria-label="Previous Page"
           class="ant-pagination-prev ant-pagination-disabled"
           role="button"
         >
@@ -4244,7 +4244,7 @@ exports[`table demo > renders colspan-rowspan correctly 1`] = `
         </li>
         <li
           aria-current="page"
-          aria-label="页 1"
+          aria-label="Page 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
           role="button"
           tabindex="0"
@@ -4260,7 +4260,7 @@ exports[`table demo > renders colspan-rowspan correctly 1`] = `
         </li>
         <li
           aria-disabled="true"
-          aria-label="下一页"
+          aria-label="Next Page"
           class="ant-pagination-next ant-pagination-disabled"
           role="button"
         >
@@ -4933,7 +4933,7 @@ exports[`table demo > renders custom-filter-panel correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
-          aria-label="上一页"
+          aria-label="Previous Page"
           class="ant-pagination-prev ant-pagination-disabled"
           role="button"
         >
@@ -4966,7 +4966,7 @@ exports[`table demo > renders custom-filter-panel correctly 1`] = `
         </li>
         <li
           aria-current="page"
-          aria-label="页 1"
+          aria-label="Page 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
           role="button"
           tabindex="0"
@@ -4982,7 +4982,7 @@ exports[`table demo > renders custom-filter-panel correctly 1`] = `
         </li>
         <li
           aria-disabled="true"
-          aria-label="下一页"
+          aria-label="Next Page"
           class="ant-pagination-next ant-pagination-disabled"
           role="button"
         >
@@ -5183,7 +5183,7 @@ exports[`table demo > renders drag-sorting correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
-          aria-label="上一页"
+          aria-label="Previous Page"
           class="ant-pagination-prev ant-pagination-disabled"
           role="button"
         >
@@ -5216,7 +5216,7 @@ exports[`table demo > renders drag-sorting correctly 1`] = `
         </li>
         <li
           aria-current="page"
-          aria-label="页 1"
+          aria-label="Page 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
           role="button"
           tabindex="0"
@@ -5232,7 +5232,7 @@ exports[`table demo > renders drag-sorting correctly 1`] = `
         </li>
         <li
           aria-disabled="true"
-          aria-label="下一页"
+          aria-label="Next Page"
           class="ant-pagination-next ant-pagination-disabled"
           role="button"
         >
@@ -5478,7 +5478,7 @@ exports[`table demo > renders drag-sorting-handler correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
-          aria-label="上一页"
+          aria-label="Previous Page"
           class="ant-pagination-prev ant-pagination-disabled"
           role="button"
         >
@@ -5511,7 +5511,7 @@ exports[`table demo > renders drag-sorting-handler correctly 1`] = `
         </li>
         <li
           aria-current="page"
-          aria-label="页 1"
+          aria-label="Page 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
           role="button"
           tabindex="0"
@@ -5527,7 +5527,7 @@ exports[`table demo > renders drag-sorting-handler correctly 1`] = `
         </li>
         <li
           aria-disabled="true"
-          aria-label="下一页"
+          aria-label="Next Page"
           class="ant-pagination-next ant-pagination-disabled"
           role="button"
         >
@@ -8371,7 +8371,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
-            aria-label="上一页"
+            aria-label="Previous Page"
             class="ant-pagination-prev ant-pagination-disabled"
             role="button"
           >
@@ -8404,7 +8404,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
           </li>
           <li
             aria-current="page"
-            aria-label="页 1"
+            aria-label="Page 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
             role="button"
             tabindex="0"
@@ -8420,7 +8420,7 @@ exports[`table demo > renders dynamic-settings correctly 1`] = `
           </li>
           <li
             aria-disabled="true"
-            aria-label="下一页"
+            aria-label="Next Page"
             class="ant-pagination-next ant-pagination-disabled"
             role="button"
           >
@@ -8656,7 +8656,7 @@ exports[`table demo > renders edit-cell correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
-            aria-label="上一页"
+            aria-label="Previous Page"
             class="ant-pagination-prev ant-pagination-disabled"
             role="button"
           >
@@ -8689,7 +8689,7 @@ exports[`table demo > renders edit-cell correctly 1`] = `
           </li>
           <li
             aria-current="page"
-            aria-label="页 1"
+            aria-label="Page 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
             role="button"
             tabindex="0"
@@ -8705,7 +8705,7 @@ exports[`table demo > renders edit-cell correctly 1`] = `
           </li>
           <li
             aria-disabled="true"
-            aria-label="下一页"
+            aria-label="Next Page"
             class="ant-pagination-next ant-pagination-disabled"
             role="button"
           >
@@ -9288,7 +9288,7 @@ exports[`table demo > renders edit-row correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
-            aria-label="上一页"
+            aria-label="Previous Page"
             class="ant-pagination-prev ant-pagination-disabled"
             role="button"
           >
@@ -9321,7 +9321,7 @@ exports[`table demo > renders edit-row correctly 1`] = `
           </li>
           <li
             aria-current="page"
-            aria-label="页 1"
+            aria-label="Page 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
             role="button"
             tabindex="0"
@@ -9336,7 +9336,7 @@ exports[`table demo > renders edit-row correctly 1`] = `
             </a>
           </li>
           <li
-            aria-label="页 2"
+            aria-label="Page 2"
             class="ant-pagination-item ant-pagination-item-2"
             role="button"
             tabindex="0"
@@ -9351,7 +9351,7 @@ exports[`table demo > renders edit-row correctly 1`] = `
             </a>
           </li>
           <li
-            aria-label="页 3"
+            aria-label="Page 3"
             class="ant-pagination-item ant-pagination-item-3"
             role="button"
             tabindex="0"
@@ -9366,7 +9366,7 @@ exports[`table demo > renders edit-row correctly 1`] = `
             </a>
           </li>
           <li
-            aria-label="页 4"
+            aria-label="Page 4"
             class="ant-pagination-item ant-pagination-item-4"
             role="button"
             tabindex="0"
@@ -9381,7 +9381,7 @@ exports[`table demo > renders edit-row correctly 1`] = `
             </a>
           </li>
           <li
-            aria-label="页 5"
+            aria-label="Page 5"
             class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next"
             role="button"
             tabindex="0"
@@ -9396,7 +9396,7 @@ exports[`table demo > renders edit-row correctly 1`] = `
             </a>
           </li>
           <li
-            aria-label="向后 5 页"
+            aria-label="Next 5 Pages"
             class="ant-pagination-jump-next ant-pagination-jump-next-custom-icon"
             role="button"
             tabindex="0"
@@ -9453,7 +9453,7 @@ exports[`table demo > renders edit-row correctly 1`] = `
             </a>
           </li>
           <li
-            aria-label="页 10"
+            aria-label="Page 10"
             class="ant-pagination-item ant-pagination-item-10"
             role="button"
             tabindex="0"
@@ -9469,7 +9469,7 @@ exports[`table demo > renders edit-row correctly 1`] = `
           </li>
           <li
             aria-disabled="false"
-            aria-label="下一页"
+            aria-label="Next Page"
             class="ant-pagination-next"
             role="button"
             tabindex="0"
@@ -9505,15 +9505,15 @@ exports[`table demo > renders edit-row correctly 1`] = `
           >
             <!---->
             <div
-              aria-label="页码"
+              aria-label="Page Size"
               class="ant-select ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
             >
               <!---->
               <div
                 class="ant-select-content ant-select-content-has-value"
-                title="10 条/页"
+                title="10 / page"
               >
-                10 条/页
+                10 / page
                 <input
                   aria-autocomplete="list"
                   aria-controls="test-id_list"
@@ -9844,7 +9844,7 @@ exports[`table demo > renders ellipsis correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
-          aria-label="上一页"
+          aria-label="Previous Page"
           class="ant-pagination-prev ant-pagination-disabled"
           role="button"
         >
@@ -9877,7 +9877,7 @@ exports[`table demo > renders ellipsis correctly 1`] = `
         </li>
         <li
           aria-current="page"
-          aria-label="页 1"
+          aria-label="Page 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
           role="button"
           tabindex="0"
@@ -9893,7 +9893,7 @@ exports[`table demo > renders ellipsis correctly 1`] = `
         </li>
         <li
           aria-disabled="true"
-          aria-label="下一页"
+          aria-label="Next Page"
           class="ant-pagination-next ant-pagination-disabled"
           role="button"
         >
@@ -10277,7 +10277,7 @@ exports[`table demo > renders ellipsis-custom-tooltip correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
-          aria-label="上一页"
+          aria-label="Previous Page"
           class="ant-pagination-prev ant-pagination-disabled"
           role="button"
         >
@@ -10310,7 +10310,7 @@ exports[`table demo > renders ellipsis-custom-tooltip correctly 1`] = `
         </li>
         <li
           aria-current="page"
-          aria-label="页 1"
+          aria-label="Page 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
           role="button"
           tabindex="0"
@@ -10326,7 +10326,7 @@ exports[`table demo > renders ellipsis-custom-tooltip correctly 1`] = `
         </li>
         <li
           aria-disabled="true"
-          aria-label="下一页"
+          aria-label="Next Page"
           class="ant-pagination-next ant-pagination-disabled"
           role="button"
         >
@@ -10651,7 +10651,7 @@ exports[`table demo > renders expand correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
-          aria-label="上一页"
+          aria-label="Previous Page"
           class="ant-pagination-prev ant-pagination-disabled"
           role="button"
         >
@@ -10684,7 +10684,7 @@ exports[`table demo > renders expand correctly 1`] = `
         </li>
         <li
           aria-current="page"
-          aria-label="页 1"
+          aria-label="Page 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
           role="button"
           tabindex="0"
@@ -10700,7 +10700,7 @@ exports[`table demo > renders expand correctly 1`] = `
         </li>
         <li
           aria-disabled="true"
-          aria-label="下一页"
+          aria-label="Next Page"
           class="ant-pagination-next ant-pagination-disabled"
           role="button"
         >
@@ -11071,7 +11071,7 @@ exports[`table demo > renders expand-sticky correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
-          aria-label="上一页"
+          aria-label="Previous Page"
           class="ant-pagination-prev ant-pagination-disabled"
           role="button"
         >
@@ -11104,7 +11104,7 @@ exports[`table demo > renders expand-sticky correctly 1`] = `
         </li>
         <li
           aria-current="page"
-          aria-label="页 1"
+          aria-label="Page 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
           role="button"
           tabindex="0"
@@ -11120,7 +11120,7 @@ exports[`table demo > renders expand-sticky correctly 1`] = `
         </li>
         <li
           aria-disabled="true"
-          aria-label="下一页"
+          aria-label="Next Page"
           class="ant-pagination-next ant-pagination-disabled"
           role="button"
         >
@@ -11479,7 +11479,7 @@ exports[`table demo > renders filter-in-tree correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
-          aria-label="上一页"
+          aria-label="Previous Page"
           class="ant-pagination-prev ant-pagination-disabled"
           role="button"
         >
@@ -11512,7 +11512,7 @@ exports[`table demo > renders filter-in-tree correctly 1`] = `
         </li>
         <li
           aria-current="page"
-          aria-label="页 1"
+          aria-label="Page 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
           role="button"
           tabindex="0"
@@ -11528,7 +11528,7 @@ exports[`table demo > renders filter-in-tree correctly 1`] = `
         </li>
         <li
           aria-disabled="true"
-          aria-label="下一页"
+          aria-label="Next Page"
           class="ant-pagination-next ant-pagination-disabled"
           role="button"
         >
@@ -11887,7 +11887,7 @@ exports[`table demo > renders filter-search correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
-          aria-label="上一页"
+          aria-label="Previous Page"
           class="ant-pagination-prev ant-pagination-disabled"
           role="button"
         >
@@ -11920,7 +11920,7 @@ exports[`table demo > renders filter-search correctly 1`] = `
         </li>
         <li
           aria-current="page"
-          aria-label="页 1"
+          aria-label="Page 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
           role="button"
           tabindex="0"
@@ -11936,7 +11936,7 @@ exports[`table demo > renders filter-search correctly 1`] = `
         </li>
         <li
           aria-disabled="true"
-          aria-label="下一页"
+          aria-label="Next Page"
           class="ant-pagination-next ant-pagination-disabled"
           role="button"
         >
@@ -15227,7 +15227,7 @@ exports[`table demo > renders fixed-columns-header correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
-          aria-label="上一页"
+          aria-label="Previous Page"
           class="ant-pagination-prev ant-pagination-disabled"
           role="button"
         >
@@ -15260,7 +15260,7 @@ exports[`table demo > renders fixed-columns-header correctly 1`] = `
         </li>
         <li
           aria-current="page"
-          aria-label="页 1"
+          aria-label="Page 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
           role="button"
           tabindex="0"
@@ -15275,7 +15275,7 @@ exports[`table demo > renders fixed-columns-header correctly 1`] = `
           </a>
         </li>
         <li
-          aria-label="页 2"
+          aria-label="Page 2"
           class="ant-pagination-item ant-pagination-item-2"
           role="button"
           tabindex="0"
@@ -15290,7 +15290,7 @@ exports[`table demo > renders fixed-columns-header correctly 1`] = `
           </a>
         </li>
         <li
-          aria-label="页 3"
+          aria-label="Page 3"
           class="ant-pagination-item ant-pagination-item-3"
           role="button"
           tabindex="0"
@@ -15305,7 +15305,7 @@ exports[`table demo > renders fixed-columns-header correctly 1`] = `
           </a>
         </li>
         <li
-          aria-label="页 4"
+          aria-label="Page 4"
           class="ant-pagination-item ant-pagination-item-4"
           role="button"
           tabindex="0"
@@ -15320,7 +15320,7 @@ exports[`table demo > renders fixed-columns-header correctly 1`] = `
           </a>
         </li>
         <li
-          aria-label="页 5"
+          aria-label="Page 5"
           class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next"
           role="button"
           tabindex="0"
@@ -15335,7 +15335,7 @@ exports[`table demo > renders fixed-columns-header correctly 1`] = `
           </a>
         </li>
         <li
-          aria-label="向后 5 页"
+          aria-label="Next 5 Pages"
           class="ant-pagination-jump-next ant-pagination-jump-next-custom-icon"
           role="button"
           tabindex="0"
@@ -15392,7 +15392,7 @@ exports[`table demo > renders fixed-columns-header correctly 1`] = `
           </a>
         </li>
         <li
-          aria-label="页 10"
+          aria-label="Page 10"
           class="ant-pagination-item ant-pagination-item-10"
           role="button"
           tabindex="0"
@@ -15408,7 +15408,7 @@ exports[`table demo > renders fixed-columns-header correctly 1`] = `
         </li>
         <li
           aria-disabled="false"
-          aria-label="下一页"
+          aria-label="Next Page"
           class="ant-pagination-next"
           role="button"
           tabindex="0"
@@ -15444,15 +15444,15 @@ exports[`table demo > renders fixed-columns-header correctly 1`] = `
         >
           <!---->
           <div
-            aria-label="页码"
+            aria-label="Page Size"
             class="ant-select ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <!---->
             <div
               class="ant-select-content ant-select-content-has-value"
-              title="10 条/页"
+              title="10 / page"
             >
-              10 条/页
+              10 / page
               <input
                 aria-autocomplete="list"
                 aria-controls="test-id_list"
@@ -17875,7 +17875,7 @@ exports[`table demo > renders fixed-header correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
-          aria-label="上一页"
+          aria-label="Previous Page"
           class="ant-pagination-prev ant-pagination-disabled"
           role="button"
         >
@@ -17908,7 +17908,7 @@ exports[`table demo > renders fixed-header correctly 1`] = `
         </li>
         <li
           aria-current="page"
-          aria-label="页 1"
+          aria-label="Page 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
           role="button"
           tabindex="0"
@@ -17923,7 +17923,7 @@ exports[`table demo > renders fixed-header correctly 1`] = `
           </a>
         </li>
         <li
-          aria-label="页 2"
+          aria-label="Page 2"
           class="ant-pagination-item ant-pagination-item-2"
           role="button"
           tabindex="0"
@@ -17939,7 +17939,7 @@ exports[`table demo > renders fixed-header correctly 1`] = `
         </li>
         <li
           aria-disabled="false"
-          aria-label="下一页"
+          aria-label="Next Page"
           class="ant-pagination-next"
           role="button"
           tabindex="0"
@@ -17975,15 +17975,15 @@ exports[`table demo > renders fixed-header correctly 1`] = `
         >
           <!---->
           <div
-            aria-label="页码"
+            aria-label="Page Size"
             class="ant-select ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <!---->
             <div
               class="ant-select-content ant-select-content-has-value"
-              title="50 条/页"
+              title="50 / page"
             >
-              50 条/页
+              50 / page
               <input
                 aria-autocomplete="list"
                 aria-controls="test-id_list"
@@ -19176,7 +19176,7 @@ exports[`table demo > renders grouping-columns correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
-          aria-label="上一页"
+          aria-label="Previous Page"
           class="ant-pagination-prev ant-pagination-disabled"
           role="button"
         >
@@ -19209,7 +19209,7 @@ exports[`table demo > renders grouping-columns correctly 1`] = `
         </li>
         <li
           aria-current="page"
-          aria-label="页 1"
+          aria-label="Page 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
           role="button"
           tabindex="0"
@@ -19224,7 +19224,7 @@ exports[`table demo > renders grouping-columns correctly 1`] = `
           </a>
         </li>
         <li
-          aria-label="页 2"
+          aria-label="Page 2"
           class="ant-pagination-item ant-pagination-item-2"
           role="button"
           tabindex="0"
@@ -19239,7 +19239,7 @@ exports[`table demo > renders grouping-columns correctly 1`] = `
           </a>
         </li>
         <li
-          aria-label="页 3"
+          aria-label="Page 3"
           class="ant-pagination-item ant-pagination-item-3"
           role="button"
           tabindex="0"
@@ -19254,7 +19254,7 @@ exports[`table demo > renders grouping-columns correctly 1`] = `
           </a>
         </li>
         <li
-          aria-label="页 4"
+          aria-label="Page 4"
           class="ant-pagination-item ant-pagination-item-4"
           role="button"
           tabindex="0"
@@ -19269,7 +19269,7 @@ exports[`table demo > renders grouping-columns correctly 1`] = `
           </a>
         </li>
         <li
-          aria-label="页 5"
+          aria-label="Page 5"
           class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next"
           role="button"
           tabindex="0"
@@ -19284,7 +19284,7 @@ exports[`table demo > renders grouping-columns correctly 1`] = `
           </a>
         </li>
         <li
-          aria-label="向后 5 页"
+          aria-label="Next 5 Pages"
           class="ant-pagination-jump-next ant-pagination-jump-next-custom-icon"
           role="button"
           tabindex="0"
@@ -19341,7 +19341,7 @@ exports[`table demo > renders grouping-columns correctly 1`] = `
           </a>
         </li>
         <li
-          aria-label="页 10"
+          aria-label="Page 10"
           class="ant-pagination-item ant-pagination-item-10"
           role="button"
           tabindex="0"
@@ -19357,7 +19357,7 @@ exports[`table demo > renders grouping-columns correctly 1`] = `
         </li>
         <li
           aria-disabled="false"
-          aria-label="下一页"
+          aria-label="Next Page"
           class="ant-pagination-next"
           role="button"
           tabindex="0"
@@ -19393,16 +19393,16 @@ exports[`table demo > renders grouping-columns correctly 1`] = `
         >
           <!---->
           <div
-            aria-label="页码"
+            aria-label="Page Size"
             class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
             size="small"
           >
             <!---->
             <div
               class="ant-select-content ant-select-content-has-value"
-              title="10 条/页"
+              title="10 / page"
             >
-              10 条/页
+              10 / page
               <input
                 aria-autocomplete="list"
                 aria-controls="test-id_list"
@@ -19808,7 +19808,7 @@ exports[`table demo > renders head correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
-          aria-label="上一页"
+          aria-label="Previous Page"
           class="ant-pagination-prev ant-pagination-disabled"
           role="button"
         >
@@ -19841,7 +19841,7 @@ exports[`table demo > renders head correctly 1`] = `
         </li>
         <li
           aria-current="page"
-          aria-label="页 1"
+          aria-label="Page 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
           role="button"
           tabindex="0"
@@ -19857,7 +19857,7 @@ exports[`table demo > renders head correctly 1`] = `
         </li>
         <li
           aria-disabled="true"
-          aria-label="下一页"
+          aria-label="Next Page"
           class="ant-pagination-next ant-pagination-disabled"
           role="button"
         >
@@ -20319,7 +20319,7 @@ exports[`table demo > renders hidden-columns correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
-            aria-label="上一页"
+            aria-label="Previous Page"
             class="ant-pagination-prev ant-pagination-disabled"
             role="button"
           >
@@ -20352,7 +20352,7 @@ exports[`table demo > renders hidden-columns correctly 1`] = `
           </li>
           <li
             aria-current="page"
-            aria-label="页 1"
+            aria-label="Page 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
             role="button"
             tabindex="0"
@@ -20368,7 +20368,7 @@ exports[`table demo > renders hidden-columns correctly 1`] = `
           </li>
           <li
             aria-disabled="true"
-            aria-label="下一页"
+            aria-label="Next Page"
             class="ant-pagination-next ant-pagination-disabled"
             role="button"
           >
@@ -20977,7 +20977,7 @@ exports[`table demo > renders measure-row-render correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
-          aria-label="上一页"
+          aria-label="Previous Page"
           class="ant-pagination-prev ant-pagination-disabled"
           role="button"
         >
@@ -21010,7 +21010,7 @@ exports[`table demo > renders measure-row-render correctly 1`] = `
         </li>
         <li
           aria-current="page"
-          aria-label="页 1"
+          aria-label="Page 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
           role="button"
           tabindex="0"
@@ -21026,7 +21026,7 @@ exports[`table demo > renders measure-row-render correctly 1`] = `
         </li>
         <li
           aria-disabled="true"
-          aria-label="下一页"
+          aria-label="Next Page"
           class="ant-pagination-next ant-pagination-disabled"
           role="button"
         >
@@ -21464,7 +21464,7 @@ exports[`table demo > renders multiple-sorter correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
-          aria-label="上一页"
+          aria-label="Previous Page"
           class="ant-pagination-prev ant-pagination-disabled"
           role="button"
         >
@@ -21497,7 +21497,7 @@ exports[`table demo > renders multiple-sorter correctly 1`] = `
         </li>
         <li
           aria-current="page"
-          aria-label="页 1"
+          aria-label="Page 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
           role="button"
           tabindex="0"
@@ -21513,7 +21513,7 @@ exports[`table demo > renders multiple-sorter correctly 1`] = `
         </li>
         <li
           aria-disabled="true"
-          aria-label="下一页"
+          aria-label="Next Page"
           class="ant-pagination-next ant-pagination-disabled"
           role="button"
         >
@@ -21896,7 +21896,7 @@ exports[`table demo > renders narrow correctly 1`] = `
           <!---->
           <li
             aria-disabled="false"
-            aria-label="上一页"
+            aria-label="Previous Page"
             class="ant-pagination-prev"
             role="button"
             tabindex="0"
@@ -21928,7 +21928,7 @@ exports[`table demo > renders narrow correctly 1`] = `
             </button>
           </li>
           <li
-            aria-label="页 1"
+            aria-label="Page 1"
             class="ant-pagination-item ant-pagination-item-1"
             role="button"
             tabindex="0"
@@ -21943,7 +21943,7 @@ exports[`table demo > renders narrow correctly 1`] = `
             </a>
           </li>
           <li
-            aria-label="向前 5 页"
+            aria-label="Previous 5 Pages"
             class="ant-pagination-jump-prev ant-pagination-jump-prev-custom-icon"
             role="button"
             tabindex="0"
@@ -22000,7 +22000,7 @@ exports[`table demo > renders narrow correctly 1`] = `
             </a>
           </li>
           <li
-            aria-label="页 12"
+            aria-label="Page 12"
             class="ant-pagination-item ant-pagination-item-12 ant-pagination-item-after-jump-prev"
             role="button"
             tabindex="0"
@@ -22016,7 +22016,7 @@ exports[`table demo > renders narrow correctly 1`] = `
           </li>
           <li
             aria-current="page"
-            aria-label="页 13"
+            aria-label="Page 13"
             class="ant-pagination-item ant-pagination-item-13 ant-pagination-item-active"
             role="button"
             tabindex="0"
@@ -22031,7 +22031,7 @@ exports[`table demo > renders narrow correctly 1`] = `
             </a>
           </li>
           <li
-            aria-label="页 14"
+            aria-label="Page 14"
             class="ant-pagination-item ant-pagination-item-14 ant-pagination-item-before-jump-next"
             role="button"
             tabindex="0"
@@ -22046,7 +22046,7 @@ exports[`table demo > renders narrow correctly 1`] = `
             </a>
           </li>
           <li
-            aria-label="向后 5 页"
+            aria-label="Next 5 Pages"
             class="ant-pagination-jump-next ant-pagination-jump-next-custom-icon"
             role="button"
             tabindex="0"
@@ -22103,7 +22103,7 @@ exports[`table demo > renders narrow correctly 1`] = `
             </a>
           </li>
           <li
-            aria-label="页 20"
+            aria-label="Page 20"
             class="ant-pagination-item ant-pagination-item-20"
             role="button"
             tabindex="0"
@@ -22119,7 +22119,7 @@ exports[`table demo > renders narrow correctly 1`] = `
           </li>
           <li
             aria-disabled="false"
-            aria-label="下一页"
+            aria-label="Next Page"
             class="ant-pagination-next"
             role="button"
             tabindex="0"
@@ -22155,16 +22155,16 @@ exports[`table demo > renders narrow correctly 1`] = `
           >
             <!---->
             <div
-              aria-label="页码"
+              aria-label="Page Size"
               class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
               size="small"
             >
               <!---->
               <div
                 class="ant-select-content ant-select-content-has-value"
-                title="10 条/页"
+                title="10 / page"
               >
-                10 条/页
+                10 / page
                 <input
                   aria-autocomplete="list"
                   aria-controls="test-id_list"
@@ -22955,7 +22955,7 @@ exports[`table demo > renders nested-table correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
-            aria-label="上一页"
+            aria-label="Previous Page"
             class="ant-pagination-prev ant-pagination-disabled"
             role="button"
           >
@@ -22988,7 +22988,7 @@ exports[`table demo > renders nested-table correctly 1`] = `
           </li>
           <li
             aria-current="page"
-            aria-label="页 1"
+            aria-label="Page 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
             role="button"
             tabindex="0"
@@ -23004,7 +23004,7 @@ exports[`table demo > renders nested-table correctly 1`] = `
           </li>
           <li
             aria-disabled="true"
-            aria-label="下一页"
+            aria-label="Next Page"
             class="ant-pagination-next ant-pagination-disabled"
             role="button"
           >
@@ -23775,7 +23775,7 @@ exports[`table demo > renders nested-table correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
-            aria-label="上一页"
+            aria-label="Previous Page"
             class="ant-pagination-prev ant-pagination-disabled"
             role="button"
           >
@@ -23808,7 +23808,7 @@ exports[`table demo > renders nested-table correctly 1`] = `
           </li>
           <li
             aria-current="page"
-            aria-label="页 1"
+            aria-label="Page 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
             role="button"
             tabindex="0"
@@ -23824,7 +23824,7 @@ exports[`table demo > renders nested-table correctly 1`] = `
           </li>
           <li
             aria-disabled="true"
-            aria-label="下一页"
+            aria-label="Next Page"
             class="ant-pagination-next ant-pagination-disabled"
             role="button"
           >
@@ -24595,7 +24595,7 @@ exports[`table demo > renders nested-table correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
-            aria-label="上一页"
+            aria-label="Previous Page"
             class="ant-pagination-prev ant-pagination-disabled"
             role="button"
           >
@@ -24628,7 +24628,7 @@ exports[`table demo > renders nested-table correctly 1`] = `
           </li>
           <li
             aria-current="page"
-            aria-label="页 1"
+            aria-label="Page 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
             role="button"
             tabindex="0"
@@ -24644,7 +24644,7 @@ exports[`table demo > renders nested-table correctly 1`] = `
           </li>
           <li
             aria-disabled="true"
-            aria-label="下一页"
+            aria-label="Next Page"
             class="ant-pagination-next ant-pagination-disabled"
             role="button"
           >
@@ -25037,7 +25037,7 @@ exports[`table demo > renders order-column correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
-          aria-label="上一页"
+          aria-label="Previous Page"
           class="ant-pagination-prev ant-pagination-disabled"
           role="button"
         >
@@ -25070,7 +25070,7 @@ exports[`table demo > renders order-column correctly 1`] = `
         </li>
         <li
           aria-current="page"
-          aria-label="页 1"
+          aria-label="Page 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
           role="button"
           tabindex="0"
@@ -25086,7 +25086,7 @@ exports[`table demo > renders order-column correctly 1`] = `
         </li>
         <li
           aria-disabled="true"
-          aria-label="下一页"
+          aria-label="Next Page"
           class="ant-pagination-next ant-pagination-disabled"
           role="button"
         >
@@ -25312,7 +25312,7 @@ exports[`table demo > renders pagination correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
-            aria-label="上一页"
+            aria-label="Previous Page"
             class="ant-pagination-prev ant-pagination-disabled"
             role="button"
           >
@@ -25345,7 +25345,7 @@ exports[`table demo > renders pagination correctly 1`] = `
           </li>
           <li
             aria-current="page"
-            aria-label="页 1"
+            aria-label="Page 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
             role="button"
             tabindex="0"
@@ -25361,7 +25361,7 @@ exports[`table demo > renders pagination correctly 1`] = `
           </li>
           <li
             aria-disabled="true"
-            aria-label="下一页"
+            aria-label="Next Page"
             class="ant-pagination-next ant-pagination-disabled"
             role="button"
           >
@@ -25740,7 +25740,7 @@ exports[`table demo > renders pagination correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
-            aria-label="上一页"
+            aria-label="Previous Page"
             class="ant-pagination-prev ant-pagination-disabled"
             role="button"
           >
@@ -25773,7 +25773,7 @@ exports[`table demo > renders pagination correctly 1`] = `
           </li>
           <li
             aria-current="page"
-            aria-label="页 1"
+            aria-label="Page 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
             role="button"
             tabindex="0"
@@ -25789,7 +25789,7 @@ exports[`table demo > renders pagination correctly 1`] = `
           </li>
           <li
             aria-disabled="true"
-            aria-label="下一页"
+            aria-label="Next Page"
             class="ant-pagination-next ant-pagination-disabled"
             role="button"
           >
@@ -26366,7 +26366,7 @@ exports[`table demo > renders reset-filter correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
-            aria-label="上一页"
+            aria-label="Previous Page"
             class="ant-pagination-prev ant-pagination-disabled"
             role="button"
           >
@@ -26399,7 +26399,7 @@ exports[`table demo > renders reset-filter correctly 1`] = `
           </li>
           <li
             aria-current="page"
-            aria-label="页 1"
+            aria-label="Page 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
             role="button"
             tabindex="0"
@@ -26415,7 +26415,7 @@ exports[`table demo > renders reset-filter correctly 1`] = `
           </li>
           <li
             aria-disabled="true"
-            aria-label="下一页"
+            aria-label="Next Page"
             class="ant-pagination-next ant-pagination-disabled"
             role="button"
           >
@@ -26906,7 +26906,7 @@ exports[`table demo > renders resizable-column correctly 1`] = `
             <!---->
             <li
               aria-disabled="true"
-              aria-label="上一页"
+              aria-label="Previous Page"
               class="ant-pagination-prev ant-pagination-disabled"
               role="button"
             >
@@ -26939,7 +26939,7 @@ exports[`table demo > renders resizable-column correctly 1`] = `
             </li>
             <li
               aria-current="page"
-              aria-label="页 1"
+              aria-label="Page 1"
               class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
               role="button"
               tabindex="0"
@@ -26955,7 +26955,7 @@ exports[`table demo > renders resizable-column correctly 1`] = `
             </li>
             <li
               aria-disabled="true"
-              aria-label="下一页"
+              aria-label="Next Page"
               class="ant-pagination-next ant-pagination-disabled"
               role="button"
             >
@@ -27074,7 +27074,7 @@ exports[`table demo > renders responsive correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
-          aria-label="上一页"
+          aria-label="Previous Page"
           class="ant-pagination-prev ant-pagination-disabled"
           role="button"
         >
@@ -27107,7 +27107,7 @@ exports[`table demo > renders responsive correctly 1`] = `
         </li>
         <li
           aria-current="page"
-          aria-label="页 1"
+          aria-label="Page 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
           role="button"
           tabindex="0"
@@ -27123,7 +27123,7 @@ exports[`table demo > renders responsive correctly 1`] = `
         </li>
         <li
           aria-disabled="true"
-          aria-label="下一页"
+          aria-label="Next Page"
           class="ant-pagination-next ant-pagination-disabled"
           role="button"
         >
@@ -27521,7 +27521,7 @@ exports[`table demo > renders row-selection correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
-            aria-label="上一页"
+            aria-label="Previous Page"
             class="ant-pagination-prev ant-pagination-disabled"
             role="button"
           >
@@ -27554,7 +27554,7 @@ exports[`table demo > renders row-selection correctly 1`] = `
           </li>
           <li
             aria-current="page"
-            aria-label="页 1"
+            aria-label="Page 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
             role="button"
             tabindex="0"
@@ -27570,7 +27570,7 @@ exports[`table demo > renders row-selection correctly 1`] = `
           </li>
           <li
             aria-disabled="true"
-            aria-label="下一页"
+            aria-label="Next Page"
             class="ant-pagination-next ant-pagination-disabled"
             role="button"
           >
@@ -28214,7 +28214,7 @@ exports[`table demo > renders row-selection-and-operation correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
-            aria-label="上一页"
+            aria-label="Previous Page"
             class="ant-pagination-prev ant-pagination-disabled"
             role="button"
           >
@@ -28247,7 +28247,7 @@ exports[`table demo > renders row-selection-and-operation correctly 1`] = `
           </li>
           <li
             aria-current="page"
-            aria-label="页 1"
+            aria-label="Page 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
             role="button"
             tabindex="0"
@@ -28262,7 +28262,7 @@ exports[`table demo > renders row-selection-and-operation correctly 1`] = `
             </a>
           </li>
           <li
-            aria-label="页 2"
+            aria-label="Page 2"
             class="ant-pagination-item ant-pagination-item-2"
             role="button"
             tabindex="0"
@@ -28277,7 +28277,7 @@ exports[`table demo > renders row-selection-and-operation correctly 1`] = `
             </a>
           </li>
           <li
-            aria-label="页 3"
+            aria-label="Page 3"
             class="ant-pagination-item ant-pagination-item-3"
             role="button"
             tabindex="0"
@@ -28292,7 +28292,7 @@ exports[`table demo > renders row-selection-and-operation correctly 1`] = `
             </a>
           </li>
           <li
-            aria-label="页 4"
+            aria-label="Page 4"
             class="ant-pagination-item ant-pagination-item-4"
             role="button"
             tabindex="0"
@@ -28307,7 +28307,7 @@ exports[`table demo > renders row-selection-and-operation correctly 1`] = `
             </a>
           </li>
           <li
-            aria-label="页 5"
+            aria-label="Page 5"
             class="ant-pagination-item ant-pagination-item-5"
             role="button"
             tabindex="0"
@@ -28323,7 +28323,7 @@ exports[`table demo > renders row-selection-and-operation correctly 1`] = `
           </li>
           <li
             aria-disabled="false"
-            aria-label="下一页"
+            aria-label="Next Page"
             class="ant-pagination-next"
             role="button"
             tabindex="0"
@@ -28962,7 +28962,7 @@ exports[`table demo > renders row-selection-custom correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
-          aria-label="上一页"
+          aria-label="Previous Page"
           class="ant-pagination-prev ant-pagination-disabled"
           role="button"
         >
@@ -28995,7 +28995,7 @@ exports[`table demo > renders row-selection-custom correctly 1`] = `
         </li>
         <li
           aria-current="page"
-          aria-label="页 1"
+          aria-label="Page 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
           role="button"
           tabindex="0"
@@ -29010,7 +29010,7 @@ exports[`table demo > renders row-selection-custom correctly 1`] = `
           </a>
         </li>
         <li
-          aria-label="页 2"
+          aria-label="Page 2"
           class="ant-pagination-item ant-pagination-item-2"
           role="button"
           tabindex="0"
@@ -29025,7 +29025,7 @@ exports[`table demo > renders row-selection-custom correctly 1`] = `
           </a>
         </li>
         <li
-          aria-label="页 3"
+          aria-label="Page 3"
           class="ant-pagination-item ant-pagination-item-3"
           role="button"
           tabindex="0"
@@ -29040,7 +29040,7 @@ exports[`table demo > renders row-selection-custom correctly 1`] = `
           </a>
         </li>
         <li
-          aria-label="页 4"
+          aria-label="Page 4"
           class="ant-pagination-item ant-pagination-item-4"
           role="button"
           tabindex="0"
@@ -29055,7 +29055,7 @@ exports[`table demo > renders row-selection-custom correctly 1`] = `
           </a>
         </li>
         <li
-          aria-label="页 5"
+          aria-label="Page 5"
           class="ant-pagination-item ant-pagination-item-5"
           role="button"
           tabindex="0"
@@ -29071,7 +29071,7 @@ exports[`table demo > renders row-selection-custom correctly 1`] = `
         </li>
         <li
           aria-disabled="false"
-          aria-label="下一页"
+          aria-label="Next Page"
           class="ant-pagination-next"
           role="button"
           tabindex="0"
@@ -29288,7 +29288,7 @@ exports[`table demo > renders size correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
-            aria-label="上一页"
+            aria-label="Previous Page"
             class="ant-pagination-prev ant-pagination-disabled"
             role="button"
           >
@@ -29321,7 +29321,7 @@ exports[`table demo > renders size correctly 1`] = `
           </li>
           <li
             aria-current="page"
-            aria-label="页 1"
+            aria-label="Page 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
             role="button"
             tabindex="0"
@@ -29337,7 +29337,7 @@ exports[`table demo > renders size correctly 1`] = `
           </li>
           <li
             aria-disabled="true"
-            aria-label="下一页"
+            aria-label="Next Page"
             class="ant-pagination-next ant-pagination-disabled"
             role="button"
           >
@@ -29548,7 +29548,7 @@ exports[`table demo > renders size correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
-            aria-label="上一页"
+            aria-label="Previous Page"
             class="ant-pagination-prev ant-pagination-disabled"
             role="button"
           >
@@ -29581,7 +29581,7 @@ exports[`table demo > renders size correctly 1`] = `
           </li>
           <li
             aria-current="page"
-            aria-label="页 1"
+            aria-label="Page 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
             role="button"
             tabindex="0"
@@ -29597,7 +29597,7 @@ exports[`table demo > renders size correctly 1`] = `
           </li>
           <li
             aria-disabled="true"
-            aria-label="下一页"
+            aria-label="Next Page"
             class="ant-pagination-next ant-pagination-disabled"
             role="button"
           >
@@ -30943,7 +30943,7 @@ exports[`table demo > renders sticky correctly 1`] = `
         <!---->
         <li
           aria-disabled="true"
-          aria-label="上一页"
+          aria-label="Previous Page"
           class="ant-pagination-prev ant-pagination-disabled"
           role="button"
         >
@@ -30976,7 +30976,7 @@ exports[`table demo > renders sticky correctly 1`] = `
         </li>
         <li
           aria-current="page"
-          aria-label="页 1"
+          aria-label="Page 1"
           class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
           role="button"
           tabindex="0"
@@ -30991,7 +30991,7 @@ exports[`table demo > renders sticky correctly 1`] = `
           </a>
         </li>
         <li
-          aria-label="页 2"
+          aria-label="Page 2"
           class="ant-pagination-item ant-pagination-item-2"
           role="button"
           tabindex="0"
@@ -31006,7 +31006,7 @@ exports[`table demo > renders sticky correctly 1`] = `
           </a>
         </li>
         <li
-          aria-label="页 3"
+          aria-label="Page 3"
           class="ant-pagination-item ant-pagination-item-3"
           role="button"
           tabindex="0"
@@ -31021,7 +31021,7 @@ exports[`table demo > renders sticky correctly 1`] = `
           </a>
         </li>
         <li
-          aria-label="页 4"
+          aria-label="Page 4"
           class="ant-pagination-item ant-pagination-item-4"
           role="button"
           tabindex="0"
@@ -31036,7 +31036,7 @@ exports[`table demo > renders sticky correctly 1`] = `
           </a>
         </li>
         <li
-          aria-label="页 5"
+          aria-label="Page 5"
           class="ant-pagination-item ant-pagination-item-5 ant-pagination-item-before-jump-next"
           role="button"
           tabindex="0"
@@ -31051,7 +31051,7 @@ exports[`table demo > renders sticky correctly 1`] = `
           </a>
         </li>
         <li
-          aria-label="向后 5 页"
+          aria-label="Next 5 Pages"
           class="ant-pagination-jump-next ant-pagination-jump-next-custom-icon"
           role="button"
           tabindex="0"
@@ -31108,7 +31108,7 @@ exports[`table demo > renders sticky correctly 1`] = `
           </a>
         </li>
         <li
-          aria-label="页 10"
+          aria-label="Page 10"
           class="ant-pagination-item ant-pagination-item-10"
           role="button"
           tabindex="0"
@@ -31124,7 +31124,7 @@ exports[`table demo > renders sticky correctly 1`] = `
         </li>
         <li
           aria-disabled="false"
-          aria-label="下一页"
+          aria-label="Next Page"
           class="ant-pagination-next"
           role="button"
           tabindex="0"
@@ -31160,15 +31160,15 @@ exports[`table demo > renders sticky correctly 1`] = `
         >
           <!---->
           <div
-            aria-label="页码"
+            aria-label="Page Size"
             class="ant-select ant-select-outlined ant-pagination-options-size-changer-select ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <!---->
             <div
               class="ant-select-content ant-select-content-has-value"
-              title="10 条/页"
+              title="10 / page"
             >
-              10 条/页
+              10 / page
               <input
                 aria-autocomplete="list"
                 aria-controls="test-id_list"
@@ -31466,7 +31466,7 @@ exports[`table demo > renders style-class correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
-            aria-label="上一页"
+            aria-label="Previous Page"
             class="ant-pagination-prev ant-pagination-disabled"
             role="button"
           >
@@ -31502,7 +31502,7 @@ exports[`table demo > renders style-class correctly 1`] = `
             title="1/2"
           >
             <input
-              aria-label="跳至"
+              aria-label="Go to"
               size="3"
               type="text"
               value="1"
@@ -31516,7 +31516,7 @@ exports[`table demo > renders style-class correctly 1`] = `
           </li>
           <li
             aria-disabled="false"
-            aria-label="下一页"
+            aria-label="Next Page"
             class="ant-pagination-next"
             role="button"
           >
@@ -31756,7 +31756,7 @@ exports[`table demo > renders style-class correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
-            aria-label="上一页"
+            aria-label="Previous Page"
             class="ant-pagination-prev ant-pagination-disabled"
             role="button"
             style="color: rgb(184, 189, 253);"
@@ -31794,7 +31794,7 @@ exports[`table demo > renders style-class correctly 1`] = `
             title="1/2"
           >
             <input
-              aria-label="跳至"
+              aria-label="Go to"
               size="3"
               type="text"
               value="1"
@@ -31808,7 +31808,7 @@ exports[`table demo > renders style-class correctly 1`] = `
           </li>
           <li
             aria-disabled="false"
-            aria-label="下一页"
+            aria-label="Next Page"
             class="ant-pagination-next"
             role="button"
             style="color: rgb(184, 189, 253);"
@@ -32930,7 +32930,7 @@ exports[`table demo > renders tree-data correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
-            aria-label="上一页"
+            aria-label="Previous Page"
             class="ant-pagination-prev ant-pagination-disabled"
             role="button"
           >
@@ -32963,7 +32963,7 @@ exports[`table demo > renders tree-data correctly 1`] = `
           </li>
           <li
             aria-current="page"
-            aria-label="页 1"
+            aria-label="Page 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
             role="button"
             tabindex="0"
@@ -32979,7 +32979,7 @@ exports[`table demo > renders tree-data correctly 1`] = `
           </li>
           <li
             aria-disabled="true"
-            aria-label="下一页"
+            aria-label="Next Page"
             class="ant-pagination-next ant-pagination-disabled"
             role="button"
           >
@@ -33749,7 +33749,7 @@ exports[`table demo > renders tree-table-ellipsis correctly 1`] = `
           <!---->
           <li
             aria-disabled="true"
-            aria-label="上一页"
+            aria-label="Previous Page"
             class="ant-pagination-prev ant-pagination-disabled"
             role="button"
           >
@@ -33782,7 +33782,7 @@ exports[`table demo > renders tree-table-ellipsis correctly 1`] = `
           </li>
           <li
             aria-current="page"
-            aria-label="页 1"
+            aria-label="Page 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
             role="button"
             tabindex="0"
@@ -33798,7 +33798,7 @@ exports[`table demo > renders tree-table-ellipsis correctly 1`] = `
           </li>
           <li
             aria-disabled="true"
-            aria-label="下一页"
+            aria-label="Next Page"
             class="ant-pagination-next ant-pagination-disabled"
             role="button"
           >
@@ -34316,7 +34316,7 @@ exports[`table demo > renders tree-table-preserveSelectedRowKeys correctly 1`] =
           <!---->
           <li
             aria-disabled="true"
-            aria-label="上一页"
+            aria-label="Previous Page"
             class="ant-pagination-prev ant-pagination-disabled"
             role="button"
           >
@@ -34349,7 +34349,7 @@ exports[`table demo > renders tree-table-preserveSelectedRowKeys correctly 1`] =
           </li>
           <li
             aria-current="page"
-            aria-label="页 1"
+            aria-label="Page 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
             role="button"
             tabindex="0"
@@ -34364,7 +34364,7 @@ exports[`table demo > renders tree-table-preserveSelectedRowKeys correctly 1`] =
             </a>
           </li>
           <li
-            aria-label="页 2"
+            aria-label="Page 2"
             class="ant-pagination-item ant-pagination-item-2"
             role="button"
             tabindex="0"
@@ -34379,7 +34379,7 @@ exports[`table demo > renders tree-table-preserveSelectedRowKeys correctly 1`] =
             </a>
           </li>
           <li
-            aria-label="页 3"
+            aria-label="Page 3"
             class="ant-pagination-item ant-pagination-item-3"
             role="button"
             tabindex="0"
@@ -34395,7 +34395,7 @@ exports[`table demo > renders tree-table-preserveSelectedRowKeys correctly 1`] =
           </li>
           <li
             aria-disabled="false"
-            aria-label="下一页"
+            aria-label="Next Page"
             class="ant-pagination-next"
             role="button"
             tabindex="0"

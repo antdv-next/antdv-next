@@ -163,7 +163,7 @@ exports[`table > rtl render > component should be rendered correctly in RTL dire
           <!---->
           <li
             aria-disabled="true"
-            aria-label="上一页"
+            aria-label="Previous Page"
             class="ant-pagination-prev ant-pagination-disabled"
             role="button"
           >
@@ -196,7 +196,7 @@ exports[`table > rtl render > component should be rendered correctly in RTL dire
           </li>
           <li
             aria-current="page"
-            aria-label="页 1"
+            aria-label="Page 1"
             class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
             role="button"
             tabindex="0"
@@ -212,7 +212,7 @@ exports[`table > rtl render > component should be rendered correctly in RTL dire
           </li>
           <li
             aria-disabled="true"
-            aria-label="下一页"
+            aria-label="Next Page"
             class="ant-pagination-next ant-pagination-disabled"
             role="button"
           >
