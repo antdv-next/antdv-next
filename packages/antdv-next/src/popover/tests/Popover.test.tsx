@@ -193,6 +193,29 @@ describe('popover', () => {
     expect(arrow).not.toHaveStyle({ background: 'red' })
   })
 
+  it('applies preset color background to panel container', async () => {
+    mount(Popover, {
+      attachTo: document.body,
+      props: {
+        color: 'blue',
+        content: 'hello',
+        open: true,
+      },
+      slots: {
+        default: () => <span>Show</span>,
+      },
+    })
+    await flushPopoverTimer()
+
+    expect(document.body.querySelector('.ant-popover-blue .ant-popover-container')).toBeTruthy()
+
+    const styleText = Array.from(document.querySelectorAll('style'))
+      .map(s => s.textContent)
+      .join('')
+    expect(styleText).toContain('ant-popover-blue .ant-popover-container')
+    expect(styleText).not.toContain('ant-popover-blue .ant-popover-inner')
+  })
+
   it('should not render overlay when both title and content are empty', async () => {
     mount(Popover, {
       attachTo: document.body,
