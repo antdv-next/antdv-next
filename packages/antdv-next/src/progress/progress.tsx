@@ -68,7 +68,9 @@ export type ProgressAriaProps = Pick<AriaAttributes, 'aria-label' | 'aria-labell
 export type GapPlacement = 'top' | 'bottom' | 'start' | 'end'
 export type GapPosition = 'top' | 'bottom' | 'left' | 'right'
 
-export interface ProgressProps extends ComponentBaseProps, ProgressAriaProps {
+export interface ProgressProps extends ComponentBaseProps,
+  /* @vue-ignore */
+  ProgressAriaProps {
   classes?: ProgressClassNamesType
   styles?: ProgressStylesType
   type?: ProgressType
@@ -338,14 +340,6 @@ const Progress = defineComponent<
         attrStyle,
       ]
 
-      const ariaProps: Record<string, any> = {}
-      if (props['aria-label'] !== undefined) {
-        ariaProps['aria-label'] = props['aria-label']
-      }
-      if (props['aria-labelledby'] !== undefined) {
-        ariaProps['aria-labelledby'] = props['aria-labelledby']
-      }
-
       return (
         <div
           {...restAttrs}
@@ -355,7 +349,6 @@ const Progress = defineComponent<
           aria-valuenow={percentNumber.value}
           aria-valuemin={0}
           aria-valuemax={100}
-          {...ariaProps}
         >
           {progress}
         </div>
