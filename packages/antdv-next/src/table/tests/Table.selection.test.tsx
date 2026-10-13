@@ -2,6 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { nextTick, ref } from 'vue'
 import Table from '..'
 import ConfigProvider from '../../config-provider'
+import Dropdown from '../../dropdown'
 import { mount } from '/@tests/utils'
 
 const columns = [
@@ -278,6 +279,45 @@ describe('table row selection', () => {
     expect(wrapper.findAll('tbody tr.ant-table-row-selected')).toHaveLength(0)
   })
 
+  it('should include tree descendants when SELECTION_ALL is used', async () => {
+    const onChange = vi.fn()
+    const treeData = [
+      {
+        key: 'parent',
+        name: 'Parent',
+        children: [
+          { key: 'child-1', name: 'Child 1' },
+          { key: 'child-2', name: 'Child 2' },
+        ],
+      },
+    ]
+    const wrapper = mount(Table, {
+      props: {
+        columns,
+        dataSource: treeData,
+        pagination: false,
+        expandable: { defaultExpandAllRows: true },
+        rowSelection: {
+          onChange,
+          selections: [Table.SELECTION_ALL],
+        },
+      },
+      attachTo: document.body,
+    })
+
+    const dropdown = wrapper.findComponent(Dropdown)
+    expect(dropdown.exists()).toBe(true)
+    dropdown.vm.$emit('menuClick', { key: 'all' })
+    await nextTick()
+    vi.advanceTimersByTime(100)
+    await nextTick()
+    expect(onChange).toHaveBeenCalledWith(
+      ['parent', 'child-1', 'child-2'],
+      expect.anything(),
+      { type: 'all' },
+    )
+    wrapper.unmount()
+  })
   it('should render selection dropdown when selections is true', () => {
     const wrapper = mount(Table, {
       props: {

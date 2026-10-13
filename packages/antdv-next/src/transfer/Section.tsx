@@ -12,6 +12,7 @@ import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, isVNode, ref } from 'vue'
+import { isRenderable } from '../_util/is'
 import { normalizeStyle } from '../_util/styleUtils'
 import { groupKeysMap } from '../_util/transKeys'
 import Checkbox from '../checkbox'
@@ -227,7 +228,7 @@ const TransferSection = defineComponent<
     }
 
     const getSelectAllLabel = (selectedCount: number, totalCount: number) => {
-      if (props.selectAllLabel) {
+      if (isRenderable(props.selectAllLabel)) {
         return typeof props.selectAllLabel === 'function'
           ? props.selectAllLabel({ selectedCount, totalCount })
           : props.selectAllLabel

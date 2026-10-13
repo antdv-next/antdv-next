@@ -964,6 +964,19 @@ describe('transfer', () => {
     expect(wrapper.text()).toContain('Checkbox Label')
   })
 
+  it('should render numeric zero selectAllLabels', () => {
+    const wrapper = mount(Transfer, {
+      props: {
+        ...listCommonProps,
+        selectAllLabels: [0, 0],
+      },
+    })
+
+    const labels = wrapper.findAll('.ant-transfer-list-header-selected')
+    expect(labels).toHaveLength(2)
+    expect(labels[0]!.text()).toBe('0')
+    expect(labels[1]!.text()).toBe('0')
+  })
   it('should render correct checkbox label when checkboxLabel is a function', () => {
     const selectAllLabels: SelectAllLabel[] = [
       ({ selectedCount, totalCount }: { selectedCount: number, totalCount: number }) => (

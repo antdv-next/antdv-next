@@ -9,7 +9,7 @@ import { filterEmpty } from '@v-c/util/dist/props-util'
 import { computed, defineComponent, isVNode, nextTick, onMounted, shallowRef, watch } from 'vue'
 import { getAttrStyleAndClass } from '../_util/hooks'
 import { isRenderable } from '../_util/is'
-import { responsiveArray } from '../_util/responsiveObserver'
+import { matchScreen, responsiveArray } from '../_util/responsiveObserver'
 import { normalizeStyle } from '../_util/styleUtils'
 import { getSlotPropsFnRun } from '../_util/tools.ts'
 import { useComponentBaseConfig } from '../config-provider/context'
@@ -167,8 +167,7 @@ const Avatar = defineComponent<
           return {}
         }
 
-        const currentBreakpoint: Breakpoint = responsiveArray.find(screen => screens.value![screen])!
-        const currentSize = (size.value as any)[currentBreakpoint] || size.value
+        const currentSize = matchScreen(screens.value!, size.value as any)
         return currentSize
           ? {
               width: `${currentSize}px`,
