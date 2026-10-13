@@ -157,6 +157,8 @@ const InternalPopover = defineComponent<
         mouseLeaveDelay: _mouseLeaveDelay,
         mouseEnterDelay: _mouseEnterDelay,
         motion,
+        title: _title,
+        content: _content,
         ...restProps
       } = props
       const titleNode = getSlotPropsFnRun(slots, props, 'title')
