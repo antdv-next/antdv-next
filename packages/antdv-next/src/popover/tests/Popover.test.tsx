@@ -124,6 +124,21 @@ describe('popover', () => {
     expect(popup?.textContent).toContain('0')
   })
 
+  it('should keep overlay structure when the title is the number 0', async () => {
+    mount(Popover, {
+      attachTo: document.body,
+      props: {
+        title: 0,
+        open: true,
+      },
+      slots: {
+        default: () => <span>show me your code</span>,
+      },
+    })
+    await flushPopoverTimer()
+    expect(document.querySelector('.ant-popover-title')?.textContent).toContain('0')
+  })
+
   it('renders title and content via slots', async () => {
     mount(Popover, {
       attachTo: document.body,
