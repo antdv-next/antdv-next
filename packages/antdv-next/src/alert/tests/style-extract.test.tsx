@@ -44,6 +44,25 @@ describe('alert style extract', () => {
     expect(token).toContain('--ant-alert-border-radius:3px')
   })
 
+  it('keeps a borderRadius override equal to the global borderRadius token', async () => {
+    // The global `borderRadius` alias token is also `6`, so this override used to
+    // be deduped out of the component token while the style kept referencing the
+    // component-level variable, leaving `--ant-alert-border-radius` undefined.
+    const { token } = await extractAlertStyle({
+      components: { Alert: { borderRadius: 6 } },
+    })
+
+    expect(token).toContain('--ant-alert-border-radius:6px')
+  })
+
+  it('unitizes a zero borderRadius override', async () => {
+    const { token } = await extractAlertStyle({
+      components: { Alert: { borderRadius: 0 } },
+    })
+
+    expect(token).toContain('--ant-alert-border-radius:0px')
+  })
+
   it('falls back borderRadius to borderRadiusLG', async () => {
     const { token } = await extractAlertStyle({
       token: { borderRadiusLG: 15 },

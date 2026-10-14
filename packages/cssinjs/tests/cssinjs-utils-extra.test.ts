@@ -57,6 +57,7 @@ describe('cssinjs-utils helpers', () => {
     )
 
     expect(mergedToken).toEqual({
+      color: 'red',
       size: 12,
       legacyColor: '#111',
     })
