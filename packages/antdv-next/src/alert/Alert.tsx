@@ -350,6 +350,9 @@ const Alert = defineComponent<
                     mergedStyles.root,
                     style,
                   ]}
+                  onMouseenter={e => emit('mouseenter', e)}
+                  onMouseleave={e => emit('mouseleave', e)}
+                  onClick={e => emit('click', e)}
                   {...pureAttrs(attrs)}
                 >
                   {isShowIcon
