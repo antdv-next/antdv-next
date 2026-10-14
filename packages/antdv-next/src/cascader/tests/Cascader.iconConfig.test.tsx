@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest'
-import { h } from 'vue'
+import { h, nextTick } from 'vue'
 import Cascader, { CascaderPanel } from '..'
 import { resetWarned } from '../../_util/warning'
 import ConfigProvider from '../../config-provider'
@@ -198,5 +198,35 @@ describe('cascader loadingIcon', () => {
     expect(loadingIcon).toBeTruthy()
     expect(loadingIcon!.querySelector('.slot-loading')).toBeTruthy()
     wrapper.unmount()
+  })
+})
+
+describe('cascader icon empty-slot fallback', () => {
+  it('falls back to the expandIcon prop when the slot renders empty', async () => {
+    const wrapper = mount(Cascader, {
+      props: { options, open: true, expandIcon: h('span', { class: 'prop-expand' }, 'E') },
+      slots: { expandIcon: () => [] },
+      attachTo: document.body,
+    })
+    await nextTick()
+    await nextTick()
+    const expandIcon = document.querySelector('.ant-cascader-menu-item-expand-icon')
+    wrapper.unmount()
+    expect(expandIcon).toBeTruthy()
+    expect(expandIcon!.querySelector('.prop-expand')).toBeTruthy()
+  })
+
+  it('does not render function source when expandIcon prop render fn returns undefined', async () => {
+    const wrapper = mount(Cascader, {
+      props: { options, open: true, expandIcon: () => undefined },
+      attachTo: document.body,
+    })
+    await nextTick()
+    await nextTick()
+    const expandIcon = document.querySelector('.ant-cascader-menu-item-expand-icon')
+    const text = expandIcon?.textContent ?? ''
+    wrapper.unmount()
+    expect(expandIcon).toBeTruthy()
+    expect(text).not.toContain('=>')
   })
 })
