@@ -46,14 +46,7 @@ function getComponentToken<
   const mergedToken: any = { ...defaultToken, ...customToken }
 
   Object.keys(mergedToken).forEach((key) => {
-    // A component token that mirrors the global alias token of the same name
-    // is dropped so no redundant CSS variable gets emitted. Keys the user set
-    // explicitly must never be dropped: the component style always references
-    // the component-level variable (`--ant-<component>-<key>`), so skipping it
-    // leaves a dangling `var()` reference. See e.g.
-    // `theme.components.Alert.borderRadius = 6` where the global
-    // `borderRadius` alias token happens to be `6` as well.
-    if (!(key in customToken) && mergedToken[key] === (token as any)[key]) {
+    if (mergedToken[key] === (token as any)[key]) {
       delete mergedToken[key]
     }
   })
