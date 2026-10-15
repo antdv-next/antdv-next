@@ -242,7 +242,6 @@ function genNotificationListStyle<Token extends NotificationToken>(token: Token,
         overflowY: 'auto',
         overscrollBehavior: 'contain',
         scrollbarWidth: 'none',
-        msOverflowStyle: 'none',
         pointerEvents: 'none',
 
         '&::-webkit-scrollbar': {
