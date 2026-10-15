@@ -15,6 +15,7 @@ import useDelayState from '@v-c/util/dist/hooks/useDelayState'
 import { getTransitionProps } from '@v-c/util/dist/utils/transition'
 import { computed, defineComponent, onMounted, shallowRef, Transition, watch } from 'vue'
 import { getAttrStyleAndClass } from '../../_util/hooks'
+import { isRenderable } from '../../_util/is'
 import { useComponentBaseConfig } from '../../config-provider/context.ts'
 import Progress from '../../progress'
 import Tooltip from '../../tooltip'
@@ -198,7 +199,7 @@ const ListItem = defineComponent<
       )
 
       const extraContent = typeof customExtra === 'function' ? customExtra(file) : customExtra
-      const extra = extraContent && (
+      const extra = isRenderable(extraContent) && (
         <span class={`${prefixCls}-list-item-extra`}>{extraContent}</span>
       )
 
