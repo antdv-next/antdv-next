@@ -621,4 +621,15 @@ describe('upload List', () => {
 
     expect(document.body.querySelectorAll('canvas')).toHaveLength(canvasCount)
   })
+
+  it('should render extra when it is the number 0', () => {
+    const wrapper = mount({
+      render: () => (
+        <Upload defaultFileList={fileList} showUploadList={{ extra: 0 }}>
+          <button type="button">upload</button>
+        </Upload>
+      ),
+    })
+    expect(wrapper.find('.ant-upload-list-item-extra').text()).toBe('0')
+  })
 })

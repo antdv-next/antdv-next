@@ -272,4 +272,11 @@ describe('otp', () => {
     expect(document.activeElement).toBe(inputs[3]!.element)
     wrapper.unmount()
   })
+
+  it('should render separator when it is the number 0', () => {
+    const wrapper = mount(OTP, {
+      props: { separator: 0 },
+    })
+    expect(wrapper.find('.ant-otp-separator').text()).toBe('0')
+  })
 })
