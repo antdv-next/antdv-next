@@ -40,10 +40,11 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| loading | Indicate loading state | boolean | - | - | × |
+| loading | Indicate loading state | boolean | false | - | × |
 | status | Set validation status | InputStatus | - | - | × |
 | options | Option Configuration | MentionsOptionProps[] | \[] | - | × |
 | filterOption | Customize filter option logic | false \| (input: string, option: OptionProps) =&gt; boolean | - | - | × |
+| validateSearch | Custom validation for search text. Return false to hide suggestions. | (text: string, split?: string) =&gt; boolean | - | - | × |
 | popupClassName | The className of dropdown menu | string | - | - | × |
 | popupRender | Customize the dropdown menu rendering | (menu: VueNode) =&gt; VueNode | - | - | × |
 | variant | Variants of Input | Variant | `outlined` | - | ✓ |
