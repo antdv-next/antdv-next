@@ -287,7 +287,7 @@ export default function useSelection<RecordType extends AnyObject = AnyObject>(
             text: tableLocale.value.selectionAll,
             onSelect() {
               setSelectedKeys(
-                data.value.reduce<Key[]>((keys, record, index) => {
+                flattenData(childrenColumnName.value as keyof RecordType, data.value).reduce<Key[]>((keys, record, index) => {
                   const key = getRowKey.value(record, index)
                   // `checkboxPropsMap` only covers the current page, so records
                   // from other pages would look enabled. Derive it from the

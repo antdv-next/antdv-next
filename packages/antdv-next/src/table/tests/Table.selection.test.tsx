@@ -15,6 +15,22 @@ const data = [
   { key: '3', name: 'Joe', age: 22 },
 ]
 
+function getSelections(wrapper: any) {
+  return wrapper
+    .findAll('tbody tr.ant-table-row')
+    .filter((row: any) => (row.find('input[type="checkbox"]').element as HTMLInputElement).checked)
+    .map((row: any) => row.attributes('data-row-key'))
+}
+
+async function clickSelectionMenuItem(wrapper: any) {
+  await wrapper.find('.ant-table-selection .ant-dropdown-trigger').trigger('mouseenter')
+  vi.runAllTimers()
+  await nextTick()
+  const item = document.body.querySelector<HTMLElement>('li.ant-dropdown-menu-item')!
+  item.click()
+  await nextTick()
+}
+
 describe('table row selection', () => {
   beforeEach(() => {
     vi.useFakeTimers()
@@ -347,6 +363,55 @@ describe('table row selection', () => {
 
     expect(onSelect).toHaveBeenCalled()
   })
+
+  it.each(['children', 'nodes'])(
+    'SELECTION_ALL should select tree descendants across pages with %s',
+    async (childrenColumnName) => {
+      const onChange = vi.fn()
+      const grandchild = { key: 'grandchild', name: 'Grandchild' }
+      const child = { key: 'child', name: 'Child', [childrenColumnName]: [grandchild] }
+      const parent = { key: 'parent', name: 'Parent', [childrenColumnName]: [child] }
+      const disabledChild = { key: 'disabled', name: 'Disabled', disabled: true }
+      const selectedChild = { key: 'selected', name: 'Selected', disabled: true }
+      const otherChild = { key: 'other-child', name: 'Other child' }
+      const otherParent = {
+        key: 'other-parent',
+        name: 'Other parent',
+        [childrenColumnName]: [disabledChild, selectedChild, otherChild],
+      }
+      const wrapper = mount(Table, {
+        props: {
+          columns,
+          dataSource: [parent, otherParent],
+          pagination: { pageSize: 1 },
+          expandable: { childrenColumnName, defaultExpandAllRows: true },
+          rowSelection: {
+            onChange,
+            defaultSelectedRowKeys: ['selected'],
+            getCheckboxProps: (record: any) => ({ disabled: record.disabled }),
+            selections: [Table.SELECTION_ALL],
+          },
+        },
+        attachTo: document.body,
+      })
+
+      await clickSelectionMenuItem(wrapper)
+
+      expect(onChange).toHaveBeenCalledWith(
+        ['parent', 'child', 'grandchild', 'other-parent', 'selected', 'other-child'],
+        [parent, child, grandchild, otherParent, selectedChild, otherChild],
+        { type: 'all' },
+      )
+      expect(getSelections(wrapper)).toEqual(['parent', 'child', 'grandchild'])
+      expect((wrapper.find('thead input[type="checkbox"]').element as HTMLInputElement).checked).toBe(true)
+      expect(wrapper.find('thead .ant-checkbox-indeterminate').exists()).toBe(false)
+
+      await wrapper.find('.ant-pagination-item-2').trigger('click')
+      await wrapper.find('.ant-table-row-expand-icon').trigger('click')
+      expect(getSelections(wrapper)).toEqual(['other-parent', 'selected', 'other-child'])
+      wrapper.unmount()
+    },
+  )
 
   it('selects a range when shift-clicking row checkboxes', async () => {
     const onChange = vi.fn()
