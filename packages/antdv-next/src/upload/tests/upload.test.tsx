@@ -383,6 +383,51 @@ describe('upload', () => {
     expect(linkNode.attributes('rel')).toBe('noopener')
   })
 
+  // https://github.com/ant-design/ant-design/pull/59324
+  it.each([
+    [false, false],
+    [false, true],
+    [true, false],
+    [true, true],
+  ])(
+    'should call linkProps.onClick with onPreview=%s and preventDefault=%s',
+    (hasPreview, preventDefault) => {
+      const onClick = vi.fn((event: MouseEvent) => {
+        if (preventDefault) {
+          event.preventDefault()
+        }
+      })
+      const onPreview = vi.fn()
+      const file: UploadFile = {
+        uid: '-1',
+        name: 'report.pdf',
+        status: 'done',
+        url: '#report',
+        linkProps: { onClick },
+      }
+      const wrapper = mount({
+        render: () => (
+          <Upload defaultFileList={[file]} onPreview={hasPreview ? onPreview : undefined} />
+        ),
+      })
+      const link = wrapper.find('a.ant-upload-list-item-name').element
+
+      const event = new MouseEvent('click', { bubbles: true, cancelable: true })
+      expect(link.dispatchEvent(event)).toBe(!hasPreview && !preventDefault)
+      expect(onClick).toHaveBeenCalledTimes(1)
+      expect(onClick).toHaveBeenCalledWith(
+        expect.objectContaining({ type: 'click', target: link }),
+      )
+      if (hasPreview && !preventDefault) {
+        expect(onPreview).toHaveBeenCalledTimes(1)
+        expect(onPreview).toHaveBeenCalledWith(expect.objectContaining({ uid: file.uid, name: file.name }))
+      }
+      else {
+        expect(onPreview).not.toHaveBeenCalled()
+      }
+    },
+  )
+
   it('should support linkProps as json stringify', () => {
     const linkPropsString = JSON.stringify({
       download: 'image',

@@ -157,6 +157,7 @@ const ListItem = defineComponent<
           linkProps = {}
         }
       }
+      const { onClick: linkOnClick, ...restLinkProps } = linkProps || {}
 
       const removeIcon
         = (typeof showRemoveIcon === 'function'
@@ -227,9 +228,14 @@ const ListItem = defineComponent<
               rel="noopener noreferrer"
               class={listItemNameClass}
               title={file.name}
-              {...linkProps}
+              {...restLinkProps}
               href={file.url}
-              onClick={e => onPreview(file, e)}
+              onClick={(e: MouseEvent) => {
+                linkOnClick?.(e)
+                if (!e.defaultPrevented) {
+                  onPreview(file, e)
+                }
+              }}
             >
               {file.name}
               {extra}
