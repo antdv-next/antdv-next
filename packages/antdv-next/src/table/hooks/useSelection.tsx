@@ -308,7 +308,7 @@ export default function useSelection<RecordType extends AnyObject = AnyObject>(
             text: tableLocale.value.selectInvert,
             onSelect() {
               const keySet = new Set(derivedSelectedKeySet.value)
-              pageData.value.forEach((record, index) => {
+              flattedData.value.forEach((record, index) => {
                 const key = getRowKey.value(record, index)
                 const checkProps = checkboxPropsMap.value.get(key)
 
@@ -340,8 +340,8 @@ export default function useSelection<RecordType extends AnyObject = AnyObject>(
               selectionConfig.value.onSelectNone?.()
               setSelectedKeys(
                 Array.from(derivedSelectedKeySet.value).filter((key) => {
-                  const checkProps = checkboxPropsMap.value.get(key)
-                  return checkProps?.disabled
+                  const record = getSelectedRecord(key)
+                  return record !== undefined && isCheckboxDisabled(record)
                 }),
                 'none',
               )

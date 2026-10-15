@@ -413,6 +413,109 @@ describe('table row selection', () => {
     },
   )
 
+  it.each(['children', 'nodes'])(
+    'SELECTION_INVERT should invert current-page descendants with %s',
+    async (childrenColumnName) => {
+      const onChange = vi.fn()
+      const grandchild = { key: 'grandchild', name: 'Grandchild' }
+      const child = { key: 'child', name: 'Child', [childrenColumnName]: [grandchild] }
+      const disabledChild = { key: 'disabled', name: 'Disabled', disabled: true }
+      const selectedChild = { key: 'selected', name: 'Selected', disabled: true }
+      const parent = {
+        key: 'parent',
+        name: 'Parent',
+        [childrenColumnName]: [child, disabledChild, selectedChild],
+      }
+      const otherParent = { key: 'other-parent', name: 'Other parent' }
+      const wrapper = mount(Table, {
+        props: {
+          columns,
+          dataSource: [parent, otherParent],
+          pagination: { pageSize: 1 },
+          expandable: { childrenColumnName, defaultExpandAllRows: true },
+          rowSelection: {
+            onChange,
+            defaultSelectedRowKeys: ['child', 'selected', 'other-parent'],
+            getCheckboxProps: (record: any) => ({ disabled: record.disabled }),
+            selections: [Table.SELECTION_INVERT],
+          },
+        },
+        attachTo: document.body,
+      })
+
+      await clickSelectionMenuItem(wrapper)
+
+      expect(onChange).toHaveBeenLastCalledWith(
+        ['selected', 'other-parent', 'parent', 'grandchild'],
+        [selectedChild, otherParent, parent, grandchild],
+        { type: 'invert' },
+      )
+      expect(getSelections(wrapper)).toEqual(['parent', 'grandchild', 'selected'])
+
+      await clickSelectionMenuItem(wrapper)
+
+      expect(onChange).toHaveBeenLastCalledWith(
+        ['selected', 'other-parent', 'child'],
+        [selectedChild, otherParent, child],
+        { type: 'invert' },
+      )
+      expect(getSelections(wrapper)).toEqual(['child', 'selected'])
+      wrapper.unmount()
+    },
+  )
+
+  const presetData = [
+    { key: 0, name: 'Jack' },
+    { key: 1, name: 'Lucy', disabled: true },
+    { key: 2, name: 'Tom' },
+  ]
+
+  it.each([1, 2])('SELECTION_NONE should preserve disabled rows from page %s', async (current) => {
+    const onChange = vi.fn()
+    const wrapper = mount(Table, {
+      props: {
+        columns,
+        dataSource: presetData,
+        pagination: { defaultCurrent: current, pageSize: 1 },
+        rowSelection: {
+          onChange,
+          defaultSelectedRowKeys: [0, 1, 2],
+          getCheckboxProps: (record: any) => ({ disabled: record.disabled }),
+          selections: [Table.SELECTION_NONE],
+        },
+      },
+      attachTo: document.body,
+    })
+
+    await clickSelectionMenuItem(wrapper)
+
+    expect(onChange).toHaveBeenCalledWith([1], [presetData[1]], { type: 'none' })
+    await wrapper.find('.ant-pagination-item-2').trigger('click')
+    expect(getSelections(wrapper)).toEqual(['1'])
+    wrapper.unmount()
+  })
+
+  it('SELECTION_NONE should use preserved records and ignore missing records', async () => {
+    const onChange = vi.fn()
+    const rowSelection = {
+      onChange,
+      defaultSelectedRowKeys: [1, 2, 'missing'],
+      preserveSelectedRowKeys: true,
+      getCheckboxProps: (record: any) => ({ disabled: record.disabled }),
+      selections: [Table.SELECTION_NONE],
+    }
+    const wrapper = mount(Table, {
+      props: { columns, dataSource: presetData, rowSelection },
+      attachTo: document.body,
+    })
+
+    await wrapper.setProps({ dataSource: [presetData[0]] })
+    await clickSelectionMenuItem(wrapper)
+
+    expect(onChange).toHaveBeenCalledWith([1], [presetData[1]], { type: 'none' })
+    wrapper.unmount()
+  })
+
   it('selects a range when shift-clicking row checkboxes', async () => {
     const onChange = vi.fn()
     const onSelect = vi.fn()
