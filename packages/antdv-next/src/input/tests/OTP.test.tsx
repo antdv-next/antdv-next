@@ -183,6 +183,32 @@ describe('otp', () => {
     expect(separators.length).toBe(1)
   })
 
+  it('renders separator when separator returns numeric zero', () => {
+    const wrapper = mount(OTP, {
+      props: {
+        separator: ({ index }: { index: number }) => index,
+        length: 4,
+      },
+    })
+    const separators = wrapper.findAll('.ant-otp-separator')
+    expect(separators.length).toBe(3)
+    expect(separators.map(separator => separator.text())).toEqual(['0', '1', '2'])
+  })
+
+  it('renders separator when separator is numeric zero', () => {
+    const wrapper = mount(OTP, {
+      props: {
+        separator: 0,
+        length: 4,
+      },
+    })
+    const separators = wrapper.findAll('.ant-otp-separator')
+    expect(separators.length).toBe(3)
+    separators.forEach((separator) => {
+      expect(separator.text()).toBe('0')
+    })
+  })
+
   it('should support formatter', async () => {
     const formatter = (value: string) => value.toUpperCase()
     const value = ref('')

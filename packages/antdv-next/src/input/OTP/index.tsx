@@ -8,6 +8,7 @@ import type { InputRef } from '../Input'
 import { clsx } from '@v-c/util'
 import { computed, defineComponent, shallowRef, watch } from 'vue'
 import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../../_util/hooks'
+import { isRenderable } from '../../_util/is'
 import { getMergedStatus } from '../../_util/statusUtils'
 import { toPropsRefs } from '../../_util/tools'
 import { devUseWarning, isDev } from '../../_util/warning'
@@ -215,7 +216,7 @@ const OTP = defineComponent<
     const renderSeparator = (index: number) => {
       const separator = slots.separator || props.separator
       const separatorNode = typeof separator === 'function' ? separator({ index }) : separator
-      if (!separatorNode) {
+      if (!isRenderable(separatorNode)) {
         return null
       }
       return (
