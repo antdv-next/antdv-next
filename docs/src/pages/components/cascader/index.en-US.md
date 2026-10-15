@@ -66,7 +66,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | placeholder | The input placeholder | string | - | - | × |
 | placement | Use preset popup align config from builtinPlacements | `bottomLeft` `bottomRight` `topLeft` `topRight` | `bottomLeft` | - | × |
 | showCheckedStrategy | The way to show selected items in the box (only effective when `multiple` is `true`). `Cascader.SHOW_CHILD`: just show child treeNode. `Cascader.SHOW_PARENT`: just show parent treeNode (when all child treeNode under the parent treeNode are checked) | `Cascader.SHOW_PARENT` \| `Cascader.SHOW_CHILD` | `Cascader.SHOW_PARENT` | - | × |
-| showSearch | Whether show search input in single mode | boolean \| [Object](#showsearch) | false | - | × |
+| showSearch | Whether show search input | boolean \| [Object](#showsearch) | false | - | × |
 | size | The input size | `large` \| `medium` \| `small` | `medium` | - | × |
 | status | Set validation status | 'error' \| 'warning' | - | - | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: \{ props \})=&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - | ✓ |

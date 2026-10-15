@@ -1,5 +1,5 @@
 <docs lang="zh-CN">
-通过 `prefix` 自定前缀，通过 `suffixIcon` 自定义选择框后缀图标，通过 `expandIcon` 自定义次级菜单展开图标。
+通过 `prefix` 自定义前缀，通过 `suffixIcon` 自定义选择框后缀图标，通过 `expandIcon` 自定义次级菜单展开图标。
 </docs>
 
 <docs lang="en-US">
