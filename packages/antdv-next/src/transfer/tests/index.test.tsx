@@ -987,6 +987,27 @@ describe('transfer', () => {
     expect(wrapper.text()).toContain('1 of 2')
   })
 
+  it.each<[string, SelectAllLabel, string[]]>([
+    ['numeric zero', 0, ['0', '0']],
+    ['string zero', '0', ['0', '0']],
+    ['callback returning zero', () => 0, ['0', '0']],
+    ['undefined', undefined, ['1 item', '0 item']],
+    ['null', null, ['1 item', '0 item']],
+    ['false', false, ['1 item', '0 item']],
+    ['empty string', '', ['1 item', '0 item']],
+  ])('should render selectAllLabels with %s', (_, label, expected) => {
+    const wrapper = mount(Transfer, {
+      props: {
+        dataSource: [{ key: 'a', title: 'a' }],
+        selectAllLabels: [label, label],
+      },
+    })
+
+    expect(
+      wrapper.findAll('.ant-transfer-list-header-selected').map(element => element.text()),
+    ).toEqual(expected)
+  })
+
   it('should disable transfer operation button when some items are set to selected but also disabled', () => {
     const dataSource = listDisabledProps.dataSource.map(item => ({
       ...item,
