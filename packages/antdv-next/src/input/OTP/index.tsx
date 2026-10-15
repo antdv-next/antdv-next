@@ -174,19 +174,19 @@ const OTP = defineComponent<
       else {
         nextCells = nextCells.slice(0, index).concat(strToArr(txt))
       }
-      nextCells = nextCells.slice(0, mergedLength.value)
       for (let i = nextCells.length - 1; i >= 0; i -= 1) {
         if (nextCells[i])
           break
         nextCells.pop()
       }
+      // Format before limiting the length to avoid losing valid characters.
       const formattedValue = internalFormatter(nextCells.map(cell => cell || ' ').join(''))
       return strToArr(formattedValue).map((cell, i) => {
         if (cell === ' ' && !nextCells[i]) {
           return nextCells[i]
         }
         return cell
-      })
+      }).slice(0, mergedLength.value)
     }
 
     const handleInputChange = (index: number, txt: string) => {
