@@ -22,8 +22,7 @@ export default function useLazyKVMap<RecordType extends AnyObject = AnyObject>(
     const mergedChildrenColumnName = unref(childrenColumnName)
     const mergedGetRowKey = unref(getRowKey)
     if (
-      !mapCacheRef.value
-      || mapCacheRef.value.data !== mergedData
+      mapCacheRef.value.data !== mergedData
       || mapCacheRef.value.childrenColumnName !== mergedChildrenColumnName
       || mapCacheRef.value.getRowKey !== mergedGetRowKey
     ) {
