@@ -280,6 +280,26 @@ describe('progress', () => {
     expect(wrapper.attributes('data-testid')).toBe('progress')
   })
 
+  it('forwards aria-label and aria-labelledby props to the root element', () => {
+    const wrapper = mount(Progress, {
+      props: {
+        percent: 50,
+        'aria-label': 'Loading',
+        'aria-labelledby': 'progress-label',
+      },
+    })
+    expect(wrapper.attributes('aria-label')).toBe('Loading')
+    expect(wrapper.attributes('aria-labelledby')).toBe('progress-label')
+  })
+
+  it('omits aria-label when not provided', () => {
+    const wrapper = mount(Progress, {
+      props: { percent: 50 },
+    })
+    expect(wrapper.attributes('aria-label')).toBeUndefined()
+    expect(wrapper.attributes('aria-labelledby')).toBeUndefined()
+  })
+
   it('has correct progressbar role and aria values', () => {
     const wrapper = mount(Progress, {
       props: { percent: 75 },
