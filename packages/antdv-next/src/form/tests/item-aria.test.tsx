@@ -133,6 +133,31 @@ describe('formItem aria attributes', () => {
     wrapper.unmount()
   })
 
+  it('points aria-describedby at the help id when there are only warnings', async () => {
+    const formRef = shallowRef<FormInstance>()
+    const model = reactive({ username: 'Invalid number' })
+
+    const wrapper = mount(defineComponent(() => () => (
+      <Form ref={formRef as any} model={model}>
+        <FormItem name="username" rules={[{ len: 3, warningOnly: true }]}>
+          <input value={model.username} />
+        </FormItem>
+      </Form>
+    )), { attachTo: document.body })
+
+    await flushForm()
+    await formRef.value!.validateFields()
+    await flushForm()
+
+    const input = wrapper.find('input')
+    expect(wrapper.find('.ant-form-item-explain-warning').exists()).toBe(true)
+    expect(input.attributes('aria-describedby')).toBe('username_help')
+    expect(input.attributes('aria-invalid')).toBeUndefined()
+    expect(wrapper.find('.ant-form-item-explain').attributes('id')).toBe('username_help')
+
+    wrapper.unmount()
+  })
+
   it('points aria-describedby at help and extra elements', async () => {
     const model = reactive({ username: '' })
 
