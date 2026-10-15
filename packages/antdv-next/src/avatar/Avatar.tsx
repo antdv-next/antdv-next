@@ -236,7 +236,6 @@ const Avatar = defineComponent<
       else if (mounted.value || scale.value !== 1) {
         const transformString = `scale(${scale.value})`
         const childrenStyle: CSSProperties = {
-          msTransform: transformString,
           WebkitTransform: transformString,
           transform: transformString,
         }
