@@ -443,6 +443,28 @@ describe('segmented', () => {
     })
   })
 
+  describe('declared props leak guard', () => {
+    it('should not leak size/orientation/iconRender/labelRender into DOM attributes', () => {
+      const wrapper = mount(Segmented, {
+        props: {
+          options: [{ value: 'A', label: 'A' }],
+          size: 'large',
+          orientation: 'vertical',
+          iconRender: () => h('span', 'i'),
+          labelRender: () => h('span', 'l'),
+        },
+      })
+      const attrs = wrapper.find(`.${prefixCls}`).attributes()
+      expect(attrs.size).toBeUndefined()
+      expect(attrs.orientation).toBeUndefined()
+      expect(attrs.iconrender).toBeUndefined()
+      expect(attrs.labelrender).toBeUndefined()
+      // props still take effect
+      expect(wrapper.find(`.${prefixCls}`).classes()).toContain(`${prefixCls}-lg`)
+      expect(attrs['aria-orientation']).toBe('vertical')
+    })
+  })
+
   // ===================== Semantic classes/styles =====================
 
   describe('semantic classes and styles', () => {

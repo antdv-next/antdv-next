@@ -166,7 +166,6 @@ exports[`segmented > snapshot > should match snapshot with block and size 1`] = 
   aria-orientation="horizontal"
   class="ant-segmented ant-segmented-block ant-segmented-sm css-var-root ant-segmented-block ant-segmented-sm css-var-root"
   role="radiogroup"
-  size="small"
   tabindex="0"
 >
   <div
