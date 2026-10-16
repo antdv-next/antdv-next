@@ -1,5 +1,6 @@
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { defineComponent } from 'vue'
+import { NoFormStyle } from '../form/context.tsx'
 import { NoCompactStyle } from '../space/Compact.tsx'
 
 export const ContextIsolator = defineComponent<{
@@ -15,11 +16,11 @@ export const ContextIsolator = defineComponent<{
       }
       let result: any = children
       if (form) {
-        // result = (
-        //     <NoFormStyle override status>
-        //         {result}
-        //     </NoFormStyle>
-        // );
+        result = (
+          <NoFormStyle override status>
+            {result}
+          </NoFormStyle>
+        )
       }
 
       if (space) {

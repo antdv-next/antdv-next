@@ -402,7 +402,7 @@ const Base = defineComponent<
                 tabindex={tabIndex}
                 style={mergedStyles.value.action}
               >
-                {icon || <EditOutlined {...{ role: 'button' }} />}
+                {icon || <EditOutlined />}
               </button>
             </Tooltip>
           )

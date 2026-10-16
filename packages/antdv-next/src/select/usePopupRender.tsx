@@ -6,7 +6,11 @@ function usePopupRender(renderFn?: RenderFunction) {
   if (!renderFn) {
     return undefined
   }
-  return (...args: any[]) => <ContextIsolator space>{renderFn(...args)}</ContextIsolator>
+  return (...args: any[]) => (
+    <ContextIsolator space form>
+      {renderFn(...args)}
+    </ContextIsolator>
+  )
 }
 
 export default usePopupRender

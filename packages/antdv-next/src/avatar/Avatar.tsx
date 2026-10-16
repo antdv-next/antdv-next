@@ -1,5 +1,5 @@
 import type { App, CSSProperties, SlotsType } from 'vue'
-import type { Breakpoint } from '../_util/responsiveObserver'
+import type { Breakpoint, ScreenSizeMap } from '../_util/responsiveObserver'
 import type { VueNode } from '../_util/type'
 import type { ComponentBaseProps } from '../config-provider/context'
 import type { AvatarSize } from './AvatarContext'
@@ -9,7 +9,7 @@ import { filterEmpty } from '@v-c/util/dist/props-util'
 import { computed, defineComponent, isVNode, nextTick, onMounted, shallowRef, watch } from 'vue'
 import { getAttrStyleAndClass } from '../_util/hooks'
 import { isRenderable } from '../_util/is'
-import { responsiveArray } from '../_util/responsiveObserver'
+import { matchScreen, responsiveArray } from '../_util/responsiveObserver'
 import { normalizeStyle } from '../_util/styleUtils'
 import { getSlotPropsFnRun } from '../_util/tools.ts'
 import { useComponentBaseConfig } from '../config-provider/context'
@@ -167,8 +167,7 @@ const Avatar = defineComponent<
           return {}
         }
 
-        const currentBreakpoint: Breakpoint = responsiveArray.find(screen => screens.value![screen])!
-        const currentSize = (size.value as any)[currentBreakpoint] || size.value
+        const currentSize = matchScreen(screens.value ?? {}, size.value as ScreenSizeMap)
         return currentSize
           ? {
               width: `${currentSize}px`,
@@ -236,7 +235,6 @@ const Avatar = defineComponent<
       else if (mounted.value || scale.value !== 1) {
         const transformString = `scale(${scale.value})`
         const childrenStyle: CSSProperties = {
-          msTransform: transformString,
           WebkitTransform: transformString,
           transform: transformString,
         }

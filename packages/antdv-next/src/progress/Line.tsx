@@ -91,7 +91,7 @@ const Line = defineComponent<
     }
 
     const mergedSize = computed(
-      () => props.size ?? [-1, props.strokeWidth || (props.size === 'small' ? 6 : 8)],
+      () => props.size ?? [-1, props.strokeWidth || 8],
     )
 
     return () => {

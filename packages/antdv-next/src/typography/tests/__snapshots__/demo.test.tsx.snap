@@ -65,7 +65,7 @@ exports[`typography demo > renders _semantic correctly 1`] = `
               <span
                 aria-label="edit"
                 class="anticon anticon-edit"
-                role="button"
+                role="img"
               >
                 <svg
                   aria-hidden="true"
@@ -1360,7 +1360,7 @@ exports[`typography demo > renders editable correctly 1`] = `
         <span
           aria-label="edit"
           class="anticon anticon-edit"
-          role="button"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -1404,7 +1404,7 @@ exports[`typography demo > renders editable correctly 1`] = `
         <span
           aria-label="edit"
           class="anticon anticon-edit"
-          role="button"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -1553,7 +1553,7 @@ exports[`typography demo > renders editable correctly 1`] = `
         <span
           aria-label="edit"
           class="anticon anticon-edit"
-          role="button"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -1682,7 +1682,7 @@ exports[`typography demo > renders editable correctly 1`] = `
         <span
           aria-label="edit"
           class="anticon anticon-edit"
-          role="button"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -1725,7 +1725,7 @@ exports[`typography demo > renders editable correctly 1`] = `
         <span
           aria-label="edit"
           class="anticon anticon-edit"
-          role="button"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -1769,7 +1769,7 @@ exports[`typography demo > renders editable correctly 1`] = `
         <span
           aria-label="edit"
           class="anticon anticon-edit"
-          role="button"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -1813,7 +1813,7 @@ exports[`typography demo > renders editable correctly 1`] = `
         <span
           aria-label="edit"
           class="anticon anticon-edit"
-          role="button"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -1857,7 +1857,7 @@ exports[`typography demo > renders editable correctly 1`] = `
         <span
           aria-label="edit"
           class="anticon anticon-edit"
-          role="button"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -1901,7 +1901,7 @@ exports[`typography demo > renders editable correctly 1`] = `
         <span
           aria-label="edit"
           class="anticon anticon-edit"
-          role="button"
+          role="img"
         >
           <svg
             aria-hidden="true"
@@ -1945,7 +1945,7 @@ exports[`typography demo > renders editable correctly 1`] = `
         <span
           aria-label="edit"
           class="anticon anticon-edit"
-          role="button"
+          role="img"
         >
           <svg
             aria-hidden="true"

@@ -141,11 +141,6 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
               appearance: 'none',
             },
         },
-        [`&:hover ${componentCls}-handler-wrap, &-focused ${componentCls}-handler-wrap`]: {
-          width: token.handleWidth,
-          opacity: 1,
-        },
-
         // ======================= Disabled =======================
         [`&-disabled ${componentCls}-input`]: {
           cursor: 'not-allowed',
@@ -165,7 +160,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
 
           userSelect: 'none',
           overflow: 'hidden',
-          fontWeight: 'bold',
+          fontWeight: 700,
           lineHeight: 0,
           textAlign: 'center',
           cursor: 'pointer',

@@ -105,6 +105,17 @@ describe('typography.Editable', () => {
     expect(wrapper.find('.ant-typography-edit').exists()).toBe(true)
   })
 
+  // https://github.com/ant-design/ant-design/pull/59112
+  it('does not expose the default edit icon as a second button', () => {
+    const wrapper = mount(Base, {
+      props: { component: 'p', editable: true },
+      slots: { default: () => 'test' },
+    })
+
+    const buttons = wrapper.element.querySelectorAll('button, [role="button"]')
+    expect(buttons).toHaveLength(1)
+  })
+
   it('tabIndex of edit button', async () => {
     const wrapper = mount(Base, {
       props: {

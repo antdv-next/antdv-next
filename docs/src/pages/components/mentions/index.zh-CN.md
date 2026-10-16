@@ -41,10 +41,11 @@ demo:
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| loading | 加载中状态 | boolean | - | - | × |
+| loading | 加载中状态 | boolean | false | - | × |
 | status | 设置校验状态 | InputStatus | - | - | × |
 | options | 选项配置 | MentionsOptionProps[] | [] | - | × |
 | filterOption | 自定义过滤逻辑 | false \| (input: string, option: OptionProps) =&gt; boolean | - | - | × |
+| validateSearch | 自定义搜索文本的校验逻辑，返回 false 时不显示建议列表 | (text: string, split?: string) =&gt; boolean | - | - | × |
 | popupClassName | 下拉菜单的 className 属性 | string | - | - | × |
 | popupRender | 自定义下拉菜单渲染 | (menu: VueNode) =&gt; VueNode | - | - | × |
 | variant | 形态变体 | Variant | `outlined` | - | ✓ |

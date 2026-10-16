@@ -23,7 +23,7 @@ const options: Option[] = [
     children: [
       {
         value: 'hangzhou',
-        label: 'Hanzhou',
+        label: 'Hangzhou',
         children: [
           {
             value: 'xihu',
