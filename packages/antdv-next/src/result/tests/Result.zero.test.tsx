@@ -20,4 +20,13 @@ describe('result numeric zero content', () => {
     })
     expect(wrapper.find('.ant-result-icon .anticon').exists()).toBe(true)
   })
+
+  it('should render title/subTitle/extra when they are the number 0', () => {
+    const wrapper = mount(Result, {
+      props: { status: '404', title: 0, subTitle: 0, extra: 0 },
+    })
+    expect(wrapper.find('.ant-result-title').text()).toBe('0')
+    expect(wrapper.find('.ant-result-subtitle').text()).toBe('0')
+    expect(wrapper.find('.ant-result-extra').text()).toBe('0')
+  })
 })
