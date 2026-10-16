@@ -115,6 +115,28 @@ describe('pagination', () => {
     wrapper.unmount()
   })
 
+  it('inherits config provider size changer select props when showSizeChanger is boolean', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider pagination={{ showSizeChanger: { showSearch: false } }}>
+        <Pagination total={500} showSizeChanger />
+      </ConfigProvider>
+    ), { attachTo: document.body })
+
+    expect(wrapper.find('.ant-pagination-options-size-changer.ant-select-show-search').exists()).toBe(false)
+    wrapper.unmount()
+  })
+
+  it('replaces config provider size changer select props when component passes an object', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider pagination={{ showSizeChanger: { showSearch: false } }}>
+        <Pagination total={500} showSizeChanger={{}} />
+      </ConfigProvider>
+    ), { attachTo: document.body })
+
+    expect(wrapper.find('.ant-pagination-options-size-changer.ant-select-show-search').exists()).toBe(true)
+    wrapper.unmount()
+  })
+
   // https://github.com/ant-design/ant-design/pull/58474
   it('aligns root semantic style priority', () => {
     const wrapper = mount(() => (

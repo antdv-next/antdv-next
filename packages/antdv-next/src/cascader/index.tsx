@@ -22,7 +22,7 @@ import {
 } from '../_util/hooks'
 import genPurePanel from '../_util/PurePanel.tsx'
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils'
-import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
+import { getSlotPropsFnRun, getSlotPropsFnRunWithFallback, toPropsRefs } from '../_util/tools'
 import { devUseWarning, isDev } from '../_util/warning'
 import { useComponentBaseConfig } from '../config-provider/context'
 import { DefaultRenderEmpty } from '../config-provider/defaultRenderEmpty'
@@ -475,8 +475,8 @@ const InternalCascader = defineComponent<
       const mergedPopupRender = usePopupRender((slots.popupRender ?? popupRender) || dropdownRender)
       const mergedPopupMenuColumnStyle = popupMenuColumnStyle ?? dropdownMenuColumnStyle
 
-      const customExpandIcon = getSlotPropsFnRun(slots, props, 'expandIcon', false) ?? expandIcon
-      const customLoadingIcon = getSlotPropsFnRun(slots, props, 'loadingIcon', false) ?? loadingIcon
+      const customExpandIcon = getSlotPropsFnRunWithFallback(slots, props, 'expandIcon')
+      const customLoadingIcon = getSlotPropsFnRunWithFallback(slots, props, 'loadingIcon')
       const { expandIcon: mergedExpandIcon, loadingIcon: mergedLoadingIcon } = useIcons({
         contextExpandIcon: contextExpandIcon.value,
         contextLoadingIcon: contextLoadingIcon.value,

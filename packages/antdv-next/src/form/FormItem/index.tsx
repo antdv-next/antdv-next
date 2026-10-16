@@ -646,7 +646,7 @@ const InternalFormItem = defineComponent<
         const { errors: itemErrors, warnings: itemWarnings } = mergedErrorList.value
         if (currentFieldId && (helpNode || itemErrors.length > 0 || itemWarnings.length > 0 || hasExtra)) {
           const describedbyArr: string[] = []
-          if (helpNode || itemErrors.length > 0) {
+          if (helpNode || itemErrors.length > 0 || itemWarnings.length > 0) {
             describedbyArr.push(`${currentFieldId}_help`)
           }
           if (hasExtra) {

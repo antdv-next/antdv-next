@@ -37,7 +37,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | effect | Transition effect | CarouselEffect | `scrollx` | - | × |
 | id | - | string | - | - | × |
 | slickGoTo | - | number | - | - | × |
-| dotPosition | The position of the dots, which can be one of `top` `bottom` `left` `right` `start` `end`, Please use `dotPlacement` instead | DotPlacement \| 'left' \| 'right' | `bottom` | - | × |
+| dotPosition | The position of the dots, which can be one of `top` `bottom` `left` `right` `start` `end`, please use `dotPlacement` instead | DotPlacement \| 'left' \| 'right' | `bottom` | - | × |
 | dotPlacement | The position of the dots, which can be one of `top` `bottom` `start` `end` | DotPlacement | `bottom` | - | × |
 | dots | Whether to show the dots at the bottom of the gallery, `object` for `dotsClass` | boolean \| &#123; class?: string &#125; | true | - | × |
 | waitForAnimate | Whether to wait for the animation when switching | boolean | false | - | × |

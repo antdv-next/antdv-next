@@ -15,6 +15,7 @@ import useDelayState from '@v-c/util/dist/hooks/useDelayState'
 import { getTransitionProps } from '@v-c/util/dist/utils/transition'
 import { computed, defineComponent, onMounted, shallowRef, Transition, watch } from 'vue'
 import { getAttrStyleAndClass } from '../../_util/hooks'
+import { isRenderable } from '../../_util/is'
 import { useComponentBaseConfig } from '../../config-provider/context.ts'
 import Progress from '../../progress'
 import Tooltip from '../../tooltip'
@@ -157,6 +158,7 @@ const ListItem = defineComponent<
           linkProps = {}
         }
       }
+      const { onClick: linkOnClick, ...restLinkProps } = linkProps || {}
 
       const removeIcon
         = (typeof showRemoveIcon === 'function'
@@ -197,7 +199,7 @@ const ListItem = defineComponent<
       )
 
       const extraContent = typeof customExtra === 'function' ? customExtra(file) : customExtra
-      const extra = extraContent && (
+      const extra = isRenderable(extraContent) && (
         <span class={`${prefixCls}-list-item-extra`}>{extraContent}</span>
       )
 
@@ -227,9 +229,14 @@ const ListItem = defineComponent<
               rel="noopener noreferrer"
               class={listItemNameClass}
               title={file.name}
-              {...linkProps}
+              {...restLinkProps}
               href={file.url}
-              onClick={e => onPreview(file, e)}
+              onClick={(e: MouseEvent) => {
+                linkOnClick?.(e)
+                if (!e.defaultPrevented) {
+                  onPreview(file, e)
+                }
+              }}
             >
               {file.name}
               {extra}

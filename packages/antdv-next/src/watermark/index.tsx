@@ -78,7 +78,7 @@ const Watermark = defineComponent<WatermarkProps>(
     const onRemove = computed(() => props.onRemove)
     const color = computed(() => props.font?.color ?? token.value.colorFill)
     const fontSize = computed(() => props?.font?.fontSize ?? token.value?.fontSizeLG)
-    const fontWeight = computed(() => props?.font?.fontWeight ?? 'normal')
+    const fontWeight = computed(() => props?.font?.fontWeight ?? 400)
     const fontStyle = computed(() => props?.font?.fontStyle ?? 'normal')
     const fontFamily = computed(() => props?.font?.fontFamily ?? 'sans-serif')
     const textAlign = computed(() => props?.font?.textAlign ?? 'center')

@@ -124,6 +124,21 @@ describe('popover', () => {
     expect(popup?.textContent).toContain('0')
   })
 
+  it('should keep overlay structure when the title is the number 0', async () => {
+    mount(Popover, {
+      attachTo: document.body,
+      props: {
+        title: 0,
+        open: true,
+      },
+      slots: {
+        default: () => <span>show me your code</span>,
+      },
+    })
+    await flushPopoverTimer()
+    expect(document.querySelector('.ant-popover-title')?.textContent).toContain('0')
+  })
+
   it('renders title and content via slots', async () => {
     mount(Popover, {
       attachTo: document.body,
@@ -191,6 +206,29 @@ describe('popover', () => {
 
     const arrow = document.querySelector<HTMLElement>('.ant-popover-arrow')
     expect(arrow).not.toHaveStyle({ background: 'red' })
+  })
+
+  it('applies preset color background to panel container', async () => {
+    mount(Popover, {
+      attachTo: document.body,
+      props: {
+        color: 'blue',
+        content: 'hello',
+        open: true,
+      },
+      slots: {
+        default: () => <span>Show</span>,
+      },
+    })
+    await flushPopoverTimer()
+
+    expect(document.body.querySelector('.ant-popover-blue .ant-popover-container')).toBeTruthy()
+
+    const styleText = Array.from(document.querySelectorAll('style'))
+      .map(s => s.textContent)
+      .join('')
+    expect(styleText).toContain('ant-popover-blue .ant-popover-container')
+    expect(styleText).not.toContain('ant-popover-blue .ant-popover-inner')
   })
 
   it('should not render overlay when both title and content are empty', async () => {

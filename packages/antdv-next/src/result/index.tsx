@@ -128,7 +128,7 @@ const Extra = defineComponent<ExtraProps>(
   (props = defaultExtraProps, { slots, attrs }) => {
     return () => {
       const extra = getSlotPropsFnRun(slots, props, 'extra')
-      if (!extra) {
+      if (!isRenderable(extra)) {
         return null
       }
       return <div {...attrs}>{extra}</div>
@@ -232,8 +232,8 @@ const Result = defineComponent<
       return (
         <div ref={nativeElementRef} {...restProps} class={rootClassNames} style={rootStyles}>
           <Icon class={iconClassNames} status={status!} icon={icon} style={mergedStyles.value.icon} />
-          {!!title && <div class={titleClassNames} style={mergedStyles.value.title}>{title}</div>}
-          {!!subTitle && <div class={subTitleClassNames} style={mergedStyles.value.subTitle}>{subTitle}</div>}
+          {isRenderable(title) && <div class={titleClassNames} style={mergedStyles.value.title}>{title}</div>}
+          {isRenderable(subTitle) && <div class={subTitleClassNames} style={mergedStyles.value.subTitle}>{subTitle}</div>}
           <Extra class={extraClassNames} extra={extra} style={mergedStyles.value.extra} />
           {!!children.length && <div class={bodyClassNames} style={mergedStyles.value.body}>{children}</div>}
         </div>

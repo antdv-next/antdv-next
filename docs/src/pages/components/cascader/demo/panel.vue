@@ -66,8 +66,8 @@ const onMultipleChange: CascaderEmits['change'] = (value) => {
   <a-flex vertical gap="small" align="flex-start">
     <a-switch
       v-model:checked="disabled"
-      checked-children="Enabled"
-      un-checked-children="Disabled"
+      checked-children="Disabled"
+      un-checked-children="Enabled"
       aria-label="disabled switch"
     />
     <a-cascader-panel :options="options" :disabled="disabled" @change="onChange" />

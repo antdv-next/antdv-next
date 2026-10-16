@@ -318,7 +318,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
             margin: 0,
             padding: `${unit(paddingBlock!)} ${unit(controlPaddingHorizontal)}`,
             color: token.colorText,
-            fontWeight: 'normal',
+            fontWeight: 400,
             fontSize,
             lineHeight: token.lineHeight,
             cursor: 'pointer',

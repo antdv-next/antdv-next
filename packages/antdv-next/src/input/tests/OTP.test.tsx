@@ -6,6 +6,10 @@ import { mount } from '/@tests/utils'
 
 const { OTP } = Input as any
 
+function getText(wrapper: any) {
+  return wrapper.findAll('input').map((input: any) => (input.element as HTMLInputElement).value).join('')
+}
+
 describe('otp', () => {
   rtlTest(() => h(OTP))
 
@@ -179,6 +183,32 @@ describe('otp', () => {
     expect(separators.length).toBe(1)
   })
 
+  it('renders separator when separator returns numeric zero', () => {
+    const wrapper = mount(OTP, {
+      props: {
+        separator: ({ index }: { index: number }) => index,
+        length: 4,
+      },
+    })
+    const separators = wrapper.findAll('.ant-otp-separator')
+    expect(separators.length).toBe(3)
+    expect(separators.map(separator => separator.text())).toEqual(['0', '1', '2'])
+  })
+
+  it('renders separator when separator is numeric zero', () => {
+    const wrapper = mount(OTP, {
+      props: {
+        separator: 0,
+        length: 4,
+      },
+    })
+    const separators = wrapper.findAll('.ant-otp-separator')
+    expect(separators.length).toBe(3)
+    separators.forEach((separator) => {
+      expect(separator.text()).toBe('0')
+    })
+  })
+
   it('should support formatter', async () => {
     const formatter = (value: string) => value.toUpperCase()
     const value = ref('')
@@ -257,6 +287,80 @@ describe('otp', () => {
     wrapper.unmount()
   })
 
+  it.each(['123 456', '123-456', '1 2 3 4 5 6'])(
+    'should format pasted text before limiting its length: %s',
+    async (text) => {
+      const onChange = vi.fn()
+      const onInput = vi.fn()
+      const wrapper = mount(OTP, {
+        props: {
+          formatter: (value: string) => value.replace(/\D/g, ''),
+          onChange,
+          onInput,
+        },
+        attachTo: document.body,
+      })
+
+      const inputs = wrapper.findAll('input')
+      await inputs[0]!.setValue(text)
+      await nextTick()
+
+      expect(getText(wrapper)).toBe('123456')
+      expect(onInput).toHaveBeenCalledTimes(1)
+      expect(onInput).toHaveBeenCalledWith(['1', '2', '3', '4', '5', '6'])
+      expect(onChange).toHaveBeenCalledTimes(1)
+      expect(onChange).toHaveBeenCalledWith('123456')
+      expect(document.activeElement).toBe(inputs[5]!.element)
+      wrapper.unmount()
+    },
+  )
+
+  it('should preserve preceding cells when pasting filtered text into a middle cell', async () => {
+    const onChange = vi.fn()
+    const wrapper = mount(OTP, {
+      props: {
+        defaultValue: '12',
+        formatter: (value: string) => value.replace(/\D/g, ''),
+        onChange,
+      },
+      attachTo: document.body,
+    })
+
+    const inputs = wrapper.findAll('input')
+    ;(inputs[2]!.element as HTMLInputElement).focus()
+    await inputs[2]!.setValue('3-456')
+    await nextTick()
+
+    expect(getText(wrapper)).toBe('123456')
+    expect(onChange).toHaveBeenCalledTimes(1)
+    expect(onChange).toHaveBeenCalledWith('123456')
+    expect(document.activeElement).toBe(inputs[5]!.element)
+    wrapper.unmount()
+  })
+
+  it.each(['123456789', '123 456 789'])(
+    'should limit formatted pasted text to the OTP length: %s',
+    async (text) => {
+      const onChange = vi.fn()
+      const onInput = vi.fn()
+      const wrapper = mount(OTP, {
+        props: {
+          length: 4,
+          formatter: (value: string) => value.replace(/\D/g, ''),
+          onChange,
+          onInput,
+        },
+      })
+
+      await wrapper.find('input').setValue(text)
+      await nextTick()
+
+      expect(getText(wrapper)).toBe('1234')
+      expect(onInput).toHaveBeenCalledWith(['1', '2', '3', '4'])
+      expect(onChange).toHaveBeenCalledWith('1234')
+    },
+  )
+
   it('should keep focus on the next cell after paste', async () => {
     const wrapper = mount(OTP, {
       props: {
@@ -271,5 +375,12 @@ describe('otp', () => {
 
     expect(document.activeElement).toBe(inputs[3]!.element)
     wrapper.unmount()
+  })
+
+  it('should render separator when it is the number 0', () => {
+    const wrapper = mount(OTP, {
+      props: { separator: 0 },
+    })
+    expect(wrapper.find('.ant-otp-separator').text()).toBe('0')
   })
 })

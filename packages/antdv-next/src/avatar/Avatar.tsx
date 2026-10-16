@@ -1,5 +1,5 @@
 import type { App, CSSProperties, SlotsType } from 'vue'
-import type { Breakpoint } from '../_util/responsiveObserver'
+import type { Breakpoint, ScreenSizeMap } from '../_util/responsiveObserver'
 import type { VueNode } from '../_util/type'
 import type { ComponentBaseProps } from '../config-provider/context'
 import type { AvatarSize } from './AvatarContext'
@@ -167,7 +167,7 @@ const Avatar = defineComponent<
           return {}
         }
 
-        const currentSize = matchScreen(screens.value!, size.value as any)
+        const currentSize = matchScreen(screens.value ?? {}, size.value as ScreenSizeMap)
         return currentSize
           ? {
               width: `${currentSize}px`,
@@ -235,7 +235,6 @@ const Avatar = defineComponent<
       else if (mounted.value || scale.value !== 1) {
         const transformString = `scale(${scale.value})`
         const childrenStyle: CSSProperties = {
-          msTransform: transformString,
           WebkitTransform: transformString,
           transform: transformString,
         }

@@ -394,6 +394,19 @@ describe('upload List', () => {
     expect(wrapper.findAll('div.ant-upload-list-item .anticon-download').length).toBe(0)
   })
 
+  // https://github.com/ant-design/ant-design/pull/59438
+  it('should render numeric 0 extra', () => {
+    const wrapper = mount({
+      render: () => <Upload defaultFileList={fileList} showUploadList={{ extra: 0 }} />,
+    })
+    expect(wrapper.find('.ant-upload-list-item-extra').text()).toBe('0')
+
+    const wrapper2 = mount({
+      render: () => <Upload defaultFileList={fileList} showUploadList={{ extra: () => 0 }} />,
+    })
+    expect(wrapper2.find('.ant-upload-list-item-extra').text()).toBe('0')
+  })
+
   it('should support onPreview', async () => {
     const handlePreview = vi.fn()
     const wrapper = mount({
@@ -620,5 +633,16 @@ describe('upload List', () => {
     await preview
 
     expect(document.body.querySelectorAll('canvas')).toHaveLength(canvasCount)
+  })
+
+  it('should render extra when it is the number 0', () => {
+    const wrapper = mount({
+      render: () => (
+        <Upload defaultFileList={fileList} showUploadList={{ extra: 0 }}>
+          <button type="button">upload</button>
+        </Upload>
+      ),
+    })
+    expect(wrapper.find('.ant-upload-list-item-extra').text()).toBe('0')
   })
 })

@@ -2,6 +2,7 @@ import type { Ref } from 'vue'
 import { classNames } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { getCurrentInstance, toHandlerKey, toRef } from 'vue'
+import fallbackProp from './fallbackProp'
 
 export function getSlotPropFn(slots: any, props: any, key: string) {
   // TODO: 需要考虑 function slot
@@ -32,6 +33,13 @@ export function getSlotPropsFnRun(slots: any, props: any, key: string, isNull = 
     return isNull ? null : undefined
   }
   return fn
+}
+
+/** Resolve a slot/prop render prop: slot first, empty slot (undefined / []) falls back to prop; explicit null is kept; function props are invoked, never leaked. */
+export function getSlotPropsFnRunWithFallback(slots: any, props: any, key: string, params?: any) {
+  const slotValue = getSlotPropsFnRun(slots, {}, key, false, params)
+  const propValue = getSlotPropsFnRun({}, props, key, false, params)
+  return fallbackProp(slotValue, propValue)
 }
 
 export function toPropsRefs<T extends Record<string, any>, K extends keyof T>(obj: T, ...args: K[]) {

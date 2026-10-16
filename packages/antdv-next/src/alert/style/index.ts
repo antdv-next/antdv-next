@@ -9,10 +9,10 @@ import { genStyleHooks } from '../../theme/internal'
 export interface ComponentToken {
   // Component token here
   /**
-   * @desc 组件圆角
-   * @descEN Border radius of alert
+   * @desc 容器圆角
+   * @descEN Border radius of the container
    */
-  borderRadius: CSSProperties['borderRadius']
+  containerBorderRadius: CSSProperties['borderRadius']
   /**
    * @desc 默认内间距
    * @descEN Default padding
@@ -54,7 +54,7 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
     fontSizeLG,
     lineHeight,
     motionEaseInOutCirc,
-    borderRadius,
+    containerBorderRadius,
     withDescriptionIconSize,
     colorText,
     colorTextHeading,
@@ -70,7 +70,7 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
       alignItems: 'center',
       padding: defaultPadding,
       wordWrap: 'break-word',
-      borderRadius,
+      borderRadius: containerBorderRadius,
 
       [`&${componentCls}-rtl`]: {
         direction: 'rtl',
@@ -244,7 +244,7 @@ export const genActionStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
 export const prepareComponentToken: GetDefaultToken<'Alert'> = (token) => {
   const paddingHorizontal = 12 // Fixed value here.
   return {
-    borderRadius: token.borderRadiusLG,
+    containerBorderRadius: token.borderRadiusLG,
     withDescriptionIconSize: token.fontSizeHeading3,
     defaultPadding: `${token.paddingContentVerticalSM}px ${paddingHorizontal}px`,
     withDescriptionPadding: `${token.paddingMD}px ${token.paddingContentHorizontalLG}px`,

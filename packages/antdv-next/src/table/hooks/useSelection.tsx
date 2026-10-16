@@ -287,7 +287,7 @@ export default function useSelection<RecordType extends AnyObject = AnyObject>(
             text: tableLocale.value.selectionAll,
             onSelect() {
               setSelectedKeys(
-                flattenData(childrenColumnName.value as keyof RecordType, data.value as RecordType[]).reduce<Key[]>((keys, record, index) => {
+                flattenData(childrenColumnName.value as keyof RecordType, data.value).reduce<Key[]>((keys, record, index) => {
                   const key = getRowKey.value(record, index)
                   // `checkboxPropsMap` only covers the current page, so records
                   // from other pages would look enabled. Derive it from the
@@ -308,7 +308,7 @@ export default function useSelection<RecordType extends AnyObject = AnyObject>(
             text: tableLocale.value.selectInvert,
             onSelect() {
               const keySet = new Set(derivedSelectedKeySet.value)
-              pageData.value.forEach((record, index) => {
+              flattedData.value.forEach((record, index) => {
                 const key = getRowKey.value(record, index)
                 const checkProps = checkboxPropsMap.value.get(key)
 
@@ -340,8 +340,8 @@ export default function useSelection<RecordType extends AnyObject = AnyObject>(
               selectionConfig.value.onSelectNone?.()
               setSelectedKeys(
                 Array.from(derivedSelectedKeySet.value).filter((key) => {
-                  const checkProps = checkboxPropsMap.value.get(key)
-                  return checkProps?.disabled
+                  const record = getSelectedRecord(key)
+                  return record !== undefined && isCheckboxDisabled(record)
                 }),
                 'none',
               )

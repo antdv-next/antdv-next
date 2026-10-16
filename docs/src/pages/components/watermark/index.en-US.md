@@ -57,7 +57,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | --- | --- | --- | --- | --- |
 | color | Font color | [CanvasFillStrokeStyles.fillStyle](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/fillStyle) | rgba(0,0,0,.15) | - |
 | fontSize | Font size | number \| string | 16 | - |
-| fontWeight | Font weight | `normal` \| `light` \| `weight` \| number | normal | - |
+| fontWeight | Font weight | `normal` \| `lighter` \| `bold` \| `bolder` \| number | 400 | - |
 | fontFamily | Font family | string | sans-serif | - |
 | fontStyle | Font style | `none` \| `normal` \| `italic` \| `oblique` | normal | - |
 | textAlign | Specify the text alignment direction | [CanvasTextAlign](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/textAlign) | `center` | - |

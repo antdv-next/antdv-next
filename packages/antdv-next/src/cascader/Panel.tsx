@@ -5,7 +5,7 @@ import { Panel as VcCascaderPanel } from '@v-c/cascader'
 import { clsx } from '@v-c/util'
 import { computed, defineComponent } from 'vue'
 import { getAttrStyleAndClass } from '../_util/hooks'
-import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
+import { getSlotPropsFnRun, getSlotPropsFnRunWithFallback, toPropsRefs } from '../_util/tools'
 import { useComponentBaseConfig } from '../config-provider/context'
 import { DefaultRenderEmpty } from '../config-provider/defaultRenderEmpty'
 import { useDisabledContext } from '../config-provider/DisabledContext'
@@ -103,8 +103,8 @@ const CascaderPanel = defineComponent<
         ...rest
       } = props
       const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
-      const customExpandIcon = getSlotPropsFnRun(slots, props, 'expandIcon', false) ?? expandIcon
-      const customLoadingIcon = getSlotPropsFnRun(slots, props, 'loadingIcon', false) ?? loadingIcon
+      const customExpandIcon = getSlotPropsFnRunWithFallback(slots, props, 'expandIcon')
+      const customLoadingIcon = getSlotPropsFnRunWithFallback(slots, props, 'loadingIcon')
       const { expandIcon: mergedExpandIcon, loadingIcon: mergedLoadingIcon } = useIcons({
         contextExpandIcon: contextExpandIcon.value,
         contextLoadingIcon: contextLoadingIcon.value,
