@@ -361,6 +361,8 @@ const InternalAutoComplete = defineComponent<
       }
 
       const selectProps: Record<string, any> = omit(props, omitKeys)
+      // Keep AutoComplete's default `false` instead of inheriting ConfigProvider `select.allowClear`.
+      selectProps.allowClear = props.allowClear ?? false
       if (selectProps.placeholder === undefined && customizeInputPlaceholder !== undefined) {
         selectProps.placeholder = customizeInputPlaceholder
       }
