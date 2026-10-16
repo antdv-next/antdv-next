@@ -54,6 +54,33 @@ describe('qrcode test', () => {
     expect(refresh).toHaveBeenCalled()
   })
 
+  it('should not render refresh button when onRefresh is not provided', () => {
+    const wrapper = mount(QRCode, {
+      props: {
+        value: 'test',
+        status: 'expired',
+      },
+    })
+    expect(wrapper.find('.ant-qrcode .ant-qrcode-expired').text()).toBe('QR code expired')
+    expect(wrapper.find('.ant-qrcode button.ant-btn-link').exists()).toBeFalsy()
+  })
+
+  it('should pass undefined onRefresh to statusRender when listener is absent', () => {
+    let infoOnRefresh: unknown
+    const customStatusRender: QRCodeProps['statusRender'] = (info) => {
+      infoOnRefresh = info.onRefresh
+      return <div class="custom-expired">{info.locale?.expired}</div>
+    }
+    mount(QRCode, {
+      props: {
+        value: 'test',
+        status: 'expired',
+        statusRender: customStatusRender,
+      },
+    })
+    expect(infoOnRefresh).toBeUndefined()
+  })
+
   it('support click', () => {
     const handleClick = vi.fn()
     const wrapper = mount(QRCode, {

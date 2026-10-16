@@ -11,7 +11,7 @@ import { QRCodeCanvas, QRCodeSVG } from '@v-c/qrcode'
 import { classNames } from '@v-c/util'
 import pickAttrs from '@v-c/util/dist/pickAttrs'
 import { omit } from 'es-toolkit'
-import { computed, defineComponent, shallowRef } from 'vue'
+import { computed, defineComponent, getCurrentInstance, shallowRef } from 'vue'
 import { useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { normalizeStyle } from '../_util/styleUtils'
 import { toPropsRefs } from '../_util/tools.ts'
@@ -64,6 +64,7 @@ const QRCode = defineComponent<
       styles: contextStyles,
     } = useComponentBaseConfig('qrcode', props)
     const { styles, classes } = toPropsRefs(props, 'styles', 'classes')
+    const instance = getCurrentInstance()
     const [hashId, cssVarCls] = useStyle(prefixCls)
     const [locale] = useLocale('QRCode')
     const [,token] = useToken()
@@ -118,6 +119,7 @@ const QRCode = defineComponent<
         marginSize,
       } = props
       const statusRender = slots?.statusRender ?? props?.statusRender
+      const hasRefreshListener = !!instance?.vnode?.props?.onRefresh
       const a11yProps = pickAttrs(attrs, true)
       const restProps = omit(attrs, Object.keys(a11yProps))
       const style = (attrs as any).style
@@ -189,9 +191,7 @@ const QRCode = defineComponent<
                 prefixCls={prefixCls.value}
                 locale={locale!.value!}
                 status={status!}
-                onRefresh={() => {
-                  emit('refresh')
-                }}
+                onRefresh={hasRefreshListener ? () => emit('refresh') : undefined}
                 statusRender={statusRender}
               />
             </div>
