@@ -36,6 +36,15 @@ describe('Listy', () => {
     expect(wrapper.find('.ant-listy').exists()).toBe(true)
   })
 
+  // https://github.com/ant-design/ant-design/pull/59273
+  it('supports rowHoverable', () => {
+    const wrapper = mount(() => renderListy())
+    expect(wrapper.find('.ant-listy').classes()).toContain('ant-listy-hoverable')
+
+    const disabled = mount(() => renderListy({ rowHoverable: false }))
+    expect(disabled.find('.ant-listy').classes()).not.toContain('ant-listy-hoverable')
+  })
+
   it('exposes scrollTo via ref', () => {
     const listyRef = ref() as any
     mount(() => (

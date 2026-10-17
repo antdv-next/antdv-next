@@ -28,4 +28,9 @@ export interface ListyProps
   classes?: ListyClassNamesType
   styles?: ListyStylesType
   itemRender?: (item: any, index: number) => VueNode
+  /**
+   * Whether rows are hoverable
+   * @default true
+   */
+  rowHoverable?: boolean
 }
