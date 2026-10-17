@@ -88,7 +88,9 @@ Common props ref：[Common props](/docs/vue/common-props)
 | --- | --- | --- | --- | --- |
 | icon | The custom icon | VueNode | - | - |
 | popupRender | Customize the dropdown menu render | (menu: VueNode, info: \{ restTabs: Tab[], onClose: () => void \}) => VueNode | - | - |
+| ~~visible~~ | Whether the dropdown menu is open, use `open` instead | boolean | - | - |
 | DropdownProps | Dropdown props | DropdownProps | - | - |
+| ~~onVisibleChange~~ | Called when the dropdown open state changes, use `onOpenChange` instead | (open: boolean) => void | - | - |
 
 ### Events {#events}
 

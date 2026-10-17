@@ -2,6 +2,7 @@ import type { Tab } from '..'
 import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from 'vitest'
 import { h } from 'vue'
 import Tabs from '..'
+import { resetWarned } from '../../_util/warning'
 import { mount, waitFakeTimer } from '/@tests/utils'
 
 const items: Tab[] = Array.from({ length: 10 }, (_, i) => ({
@@ -152,6 +153,51 @@ describe('tabs more popupRender', () => {
     await waitFakeTimer(100, 5)
     expect(document.querySelector('.ant-tabs-nav-more')!.getAttribute('aria-expanded')).toBe('false')
 
+    wrapper.unmount()
+  })
+})
+
+describe('tabs more open API', () => {
+  let restoreLayout: () => void
+
+  beforeAll(() => {
+    restoreLayout = mockLayout()
+    vi.useFakeTimers()
+  })
+
+  afterEach(() => {
+    document.body.innerHTML = ''
+  })
+
+  afterAll(() => {
+    vi.useRealTimers()
+    restoreLayout()
+  })
+
+  // https://github.com/ant-design/ant-design/pull/59259
+  it('support deprecated visible props in more', async () => {
+    resetWarned()
+    const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
+    const onVisibleChange = vi.fn()
+    const wrapper = await mountWithOverflow({ visible: true, onVisibleChange, trigger: ['click'] })
+
+    expect(document.querySelector('.ant-tabs-dropdown')).toBeTruthy()
+    await wrapper.find('.ant-tabs-nav-more').trigger('click')
+    await waitFakeTimer(100, 5)
+    expect(onVisibleChange).toHaveBeenCalledWith(false)
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Tabs] `more.visible` is deprecated. Please use `more.open` instead.',
+    )
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Tabs] `more.onVisibleChange` is deprecated. Please use `more.onOpenChange` instead.',
+    )
+    errorSpy.mockRestore()
+    wrapper.unmount()
+  })
+
+  it('supports controlled more.open', async () => {
+    const wrapper = await mountWithOverflow({ open: true, trigger: ['click'] })
+    expect(document.querySelector('.ant-tabs-dropdown')).toBeTruthy()
     wrapper.unmount()
   })
 })
