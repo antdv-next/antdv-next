@@ -61,6 +61,7 @@ export interface InternalUploadProps extends UploadProps,
 export interface UploadEmitsProps {
   onChange?: UploadEmits['change']
   onDrop?: UploadEmits['drop']
+  onFocus?: UploadEmits['focus']
   'onUpdate:fileList'?: UploadEmits['update:fileList']
 }
 
@@ -525,6 +526,11 @@ const InternalUpload = defineComponent<
         delete rcUploadProps.id
       }
 
+      // Focus does not bubble, listen to `focusin` so focus entering the trigger reaches consumers once
+      const onFocus = (e: FocusEvent) => {
+        emit('focus', e)
+      }
+
       const wrapperCls = `${prefixCls.value}-wrapper`
       const mergedRootCls = clsx(
         wrapperCls,
@@ -558,7 +564,7 @@ const InternalUpload = defineComponent<
         )
 
         return (
-          <span {...restAttrs} class={mergedRootCls} ref={wrapRef} style={mergedRootStyle}>
+          <span {...restAttrs} class={mergedRootCls} ref={wrapRef} style={mergedRootStyle} onFocusin={onFocus}>
             <div
               class={dragCls}
               style={mergedStyles.value.trigger}
@@ -595,14 +601,14 @@ const InternalUpload = defineComponent<
 
       if (listType.value === 'picture-card' || listType.value === 'picture-circle') {
         return (
-          <span {...restAttrs} class={mergedRootCls} ref={wrapRef} style={mergedRootStyle}>
+          <span {...restAttrs} class={mergedRootCls} ref={wrapRef} style={mergedRootStyle} onFocusin={onFocus}>
             {renderUploadList(uploadButton, hasChildren)}
           </span>
         )
       }
 
       return (
-        <span {...restAttrs} class={mergedRootCls} ref={wrapRef} style={mergedRootStyle}>
+        <span {...restAttrs} class={mergedRootCls} ref={wrapRef} style={mergedRootStyle} onFocusin={onFocus}>
           {uploadButton}
           {renderUploadList()}
         </span>
