@@ -95,7 +95,7 @@ const value = ref()
 | --- | --- | --- | --- | --- |
 | block | 将 RadioGroup 宽度调整为其父宽度的选项 | boolean | false | - |
 | buttonStyle | RadioButton 的风格样式，目前有描边和填色两种风格 | `outline` \| `solid` | `outline` | - |
-| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - |
+| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-group), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-group), string&gt; | - | 1.7.0 |
 | defaultValue | 默认选中的值 | any | - | - |
 | disabled | 禁选所有子单选器 | boolean | false | - |
 | name | RadioGroup 下所有 `input[type="radio"]` 的 `name` 属性。若未设置，则将回退到随机生成的名称 | string | - | - |
@@ -103,7 +103,7 @@ const value = ref()
 | optionType | 用于设置 Radio `options` 类型 | `default` \| `button` | `default` | - |
 | orientation | 排列方向 | `horizontal` \| `vertical` | `horizontal` | - |
 | size | 大小，只对按钮样式生效 | `large` \| `medium` \| `small` | - | - |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-group), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-group), CSSProperties&gt; | - | 1.7.0 |
 | value | 用于设置当前选中的值，支持 `v-model:value` | any | - | - |
 | vertical | 值为 true，Radio Group 为垂直方向。与 `orientation` 同时存在，以 `orientation` 优先 | boolean | false | - |
 
@@ -137,7 +137,13 @@ const value = ref()
 
 ## 语义化 DOM {#semantic-dom}
 
+### Radio
+
 <demo src="./demo/_semantic.vue" simplify></demo>
+
+### Radio.Group {#semantic-group}
+
+<demo src="./demo/_semantic_group.vue" simplify></demo>
 
 ## 主题变量（Design Token）{#design-token}
 
