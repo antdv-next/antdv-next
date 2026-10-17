@@ -7724,6 +7724,7 @@ exports[`form demo > renders getValueProps-normalize correctly 1`] = `
                 <input
                   aria-invalid="false"
                   aria-required="false"
+                  autocomplete="off"
                   id="getValueProps_date"
                   placeholder="Select date"
                   size="12"
@@ -13330,6 +13331,7 @@ exports[`form demo > renders time-related-controls correctly 1`] = `
                 <input
                   aria-invalid="false"
                   aria-required="false"
+                  autocomplete="off"
                   id="time_related_controls_datePicker"
                   placeholder="Select date"
                   size="12"
@@ -13427,6 +13429,7 @@ exports[`form demo > renders time-related-controls correctly 1`] = `
                 <input
                   aria-invalid="false"
                   aria-required="false"
+                  autocomplete="off"
                   id="time_related_controls_dateTimePicker"
                   placeholder="Select date"
                   size="21"
@@ -13524,6 +13527,7 @@ exports[`form demo > renders time-related-controls correctly 1`] = `
                 <input
                   aria-invalid="false"
                   aria-required="false"
+                  autocomplete="off"
                   id="time_related_controls_monthPicker"
                   placeholder="Select month"
                   size="12"
@@ -13620,6 +13624,7 @@ exports[`form demo > renders time-related-controls correctly 1`] = `
               >
                 <input
                   aria-invalid="false"
+                  autocomplete="off"
                   class="ant-picker-input-start"
                   data-range="start"
                   id="time_related_controls_rangePicker"
@@ -13663,6 +13668,7 @@ exports[`form demo > renders time-related-controls correctly 1`] = `
               >
                 <input
                   aria-invalid="false"
+                  autocomplete="off"
                   class="ant-picker-input-end"
                   data-range="end"
                   placeholder="End date"
@@ -13766,6 +13772,7 @@ exports[`form demo > renders time-related-controls correctly 1`] = `
               >
                 <input
                   aria-invalid="false"
+                  autocomplete="off"
                   class="ant-picker-input-start"
                   data-range="start"
                   id="time_related_controls_rangeTimePicker"
@@ -13809,6 +13816,7 @@ exports[`form demo > renders time-related-controls correctly 1`] = `
               >
                 <input
                   aria-invalid="false"
+                  autocomplete="off"
                   class="ant-picker-input-end"
                   data-range="end"
                   placeholder="End date"
@@ -13913,6 +13921,7 @@ exports[`form demo > renders time-related-controls correctly 1`] = `
                 <input
                   aria-invalid="false"
                   aria-required="false"
+                  autocomplete="off"
                   id="time_related_controls_timePicker"
                   placeholder="Select time"
                   size="10"
@@ -17681,6 +17690,7 @@ exports[`form demo > renders validate-static correctly 1`] = `
                 <input
                   aria-invalid="false"
                   aria-required="false"
+                  autocomplete="off"
                   placeholder="Select date"
                   size="12"
                   value=""

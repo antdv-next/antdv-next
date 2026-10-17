@@ -302,6 +302,8 @@ function generatePicker<DateType extends AnyObject = AnyObject>(generateConfig: 
             disabled: _disabled,
             locale: _locale,
             getPopupContainer: _getPopupContainer,
+            autoComplete,
+            autocomplete,
             ...restProps
           } = props as P
 
@@ -385,6 +387,7 @@ function generatePicker<DateType extends AnyObject = AnyObject>(generateConfig: 
                 {...additionalProps}
                 {...omitUndefined(restProps as any, ['onKeydown'])}
                 ref={innerRef}
+                autoComplete={autoComplete ?? autocomplete}
                 placeholder={getPlaceholder(locale.value, mergedPicker.value, placeholder)}
                 suffix={suffixNode}
                 prefix={mergedPrefix}

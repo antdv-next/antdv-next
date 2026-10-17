@@ -37,6 +37,19 @@ describe('date-picker', () => {
     expect(wrapper.find('input').attributes('placeholder')).toBe('Select date')
   })
 
+  it('should render autocomplete off by default and support override', () => {
+    expect(mount(DatePicker).find('input').attributes('autocomplete')).toBe('off')
+    expect(mount(DatePicker, { props: { autoComplete: 'new-password' } }).find('input').attributes('autocomplete')).toBe('new-password')
+    expect(mount(DatePicker, { attrs: { autocomplete: 'new-password' } }).find('input').attributes('autocomplete')).toBe('new-password')
+    expect(mount(DatePicker.MonthPicker, { attrs: { autocomplete: 'on' } }).find('input').attributes('autocomplete')).toBe('on')
+  })
+
+  it('should pass name and required to inner picker input', () => {
+    const input = mount(DatePicker, { props: { name: 'start', required: true } }).find('input')
+    expect(input.attributes('name')).toBe('start')
+    expect(input.attributes('required')).toBeDefined()
+  })
+
   it('should pass inputReadOnly to inner picker input', () => {
     const wrapper = mount(DatePicker, {
       props: {

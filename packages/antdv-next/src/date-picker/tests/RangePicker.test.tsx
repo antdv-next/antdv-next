@@ -24,6 +24,13 @@ describe('range-picker', () => {
     expect(wrapper.find('.ant-picker-range').exists()).toBe(true)
   })
 
+  it('should render autocomplete off by default and support override', () => {
+    const getAutoComplete = (wrapper: any) => wrapper.findAll('input').map((input: any) => input.attributes('autocomplete'))
+    expect(getAutoComplete(mount(RangePicker))).toEqual(['off', 'off'])
+    expect(getAutoComplete(mount(RangePicker, { props: { autoComplete: 'new-password' } }))).toEqual(['new-password', 'new-password'])
+    expect(getAutoComplete(mount(RangePicker, { attrs: { autocomplete: 'new-password' } }))).toEqual(['new-password', 'new-password'])
+  })
+
   // https://github.com/ant-design/ant-design/pull/58403
   it('emits clear when the clear icon is clicked', async () => {
     const onClear = vi.fn()

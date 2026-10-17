@@ -93,6 +93,7 @@ exports[`time-picker demo > renders _semantic correctly 1`] = `
             <input
               aria-invalid="false"
               aria-required="false"
+              autocomplete="off"
               class="semantic-mark-input"
               placeholder="Select time"
               size="10"
@@ -1262,6 +1263,7 @@ exports[`time-picker demo > renders 12hours correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select time"
           size="12"
           value=""
@@ -1313,6 +1315,7 @@ exports[`time-picker demo > renders 12hours correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select time"
           size="11"
           value=""
@@ -1364,6 +1367,7 @@ exports[`time-picker demo > renders 12hours correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select time"
           size="10"
           value=""
@@ -1419,6 +1423,7 @@ exports[`time-picker demo > renders addon correctly 1`] = `
       <input
         aria-invalid="false"
         aria-required="false"
+        autocomplete="off"
         placeholder="Select time"
         size="10"
         value=""
@@ -1472,6 +1477,7 @@ exports[`time-picker demo > renders basic correctly 1`] = `
       <input
         aria-invalid="false"
         aria-required="false"
+        autocomplete="off"
         placeholder="Select time"
         size="10"
         value=""
@@ -1525,6 +1531,7 @@ exports[`time-picker demo > renders change-on-scroll correctly 1`] = `
       <input
         aria-invalid="false"
         aria-required="false"
+        autocomplete="off"
         placeholder="Select time"
         size="10"
         value=""
@@ -1578,6 +1585,7 @@ exports[`time-picker demo > renders colored-popup correctly 1`] = `
       <input
         aria-invalid="false"
         aria-required="false"
+        autocomplete="off"
         placeholder="Select time"
         size="10"
         value=""
@@ -1631,6 +1639,7 @@ exports[`time-picker demo > renders disabled correctly 1`] = `
       <input
         aria-invalid="false"
         aria-required="false"
+        autocomplete="off"
         disabled=""
         placeholder="Select time"
         size="10"
@@ -1685,6 +1694,7 @@ exports[`time-picker demo > renders hide-column correctly 1`] = `
       <input
         aria-invalid="false"
         aria-required="false"
+        autocomplete="off"
         placeholder="Select time"
         size="10"
         value="12:08"
@@ -1763,6 +1773,7 @@ exports[`time-picker demo > renders interval-options correctly 1`] = `
       <input
         aria-invalid="false"
         aria-required="false"
+        autocomplete="off"
         placeholder="Select time"
         size="10"
         value=""
@@ -1816,6 +1827,7 @@ exports[`time-picker demo > renders need-confirm correctly 1`] = `
       <input
         aria-invalid="false"
         aria-required="false"
+        autocomplete="off"
         placeholder="Select time"
         size="10"
         value=""
@@ -1868,6 +1880,7 @@ exports[`time-picker demo > renders range-picker correctly 1`] = `
     >
       <input
         aria-invalid="false"
+        autocomplete="off"
         class="ant-picker-input-start"
         data-range="start"
         placeholder="Start time"
@@ -1910,6 +1923,7 @@ exports[`time-picker demo > renders range-picker correctly 1`] = `
     >
       <input
         aria-invalid="false"
+        autocomplete="off"
         class="ant-picker-input-end"
         data-range="end"
         placeholder="End time"
@@ -2000,6 +2014,7 @@ exports[`time-picker demo > renders render-panel correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select time"
           size="10"
           value=""
@@ -2058,6 +2073,7 @@ exports[`time-picker demo > renders size correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select time"
           size="10"
           value="12:08:23"
@@ -2134,6 +2150,7 @@ exports[`time-picker demo > renders size correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select time"
           size="10"
           value="12:08:23"
@@ -2210,6 +2227,7 @@ exports[`time-picker demo > renders size correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select time"
           size="10"
           value="12:08:23"
@@ -2293,6 +2311,7 @@ exports[`time-picker demo > renders status correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select time"
           size="10"
           value=""
@@ -2344,6 +2363,7 @@ exports[`time-picker demo > renders status correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select time"
           size="10"
           value=""
@@ -2394,6 +2414,7 @@ exports[`time-picker demo > renders status correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           placeholder="Start time"
@@ -2436,6 +2457,7 @@ exports[`time-picker demo > renders status correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           placeholder="End time"
@@ -2494,6 +2516,7 @@ exports[`time-picker demo > renders status correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           placeholder="Start time"
@@ -2536,6 +2559,7 @@ exports[`time-picker demo > renders status correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           placeholder="End time"
@@ -2601,6 +2625,7 @@ exports[`time-picker demo > renders style-class correctly 1`] = `
       <input
         aria-invalid="false"
         aria-required="false"
+        autocomplete="off"
         placeholder="Object"
         size="10"
         value=""
@@ -2648,6 +2673,7 @@ exports[`time-picker demo > renders style-class correctly 1`] = `
       <input
         aria-invalid="false"
         aria-required="false"
+        autocomplete="off"
         placeholder="Function"
         size="10"
         value=""
@@ -2706,6 +2732,7 @@ exports[`time-picker demo > renders suffix correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select time"
           size="10"
           value=""
@@ -2774,6 +2801,7 @@ exports[`time-picker demo > renders suffix correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select time"
           size="10"
           value=""
@@ -2846,6 +2874,7 @@ exports[`time-picker demo > renders suffix correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           placeholder="Start time"
@@ -2888,6 +2917,7 @@ exports[`time-picker demo > renders suffix correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           placeholder="End time"
@@ -2951,6 +2981,7 @@ exports[`time-picker demo > renders value correctly 1`] = `
       <input
         aria-invalid="false"
         aria-required="false"
+        autocomplete="off"
         placeholder="Select time"
         size="10"
         value=""
@@ -3014,6 +3045,7 @@ exports[`time-picker demo > renders value-format correctly 1`] = `
             <input
               aria-invalid="false"
               aria-required="false"
+              autocomplete="off"
               placeholder="Select time"
               size="10"
               value="12:08:23"
@@ -3106,6 +3138,7 @@ exports[`time-picker demo > renders value-format correctly 1`] = `
           >
             <input
               aria-invalid="false"
+              autocomplete="off"
               class="ant-picker-input-start"
               data-range="start"
               placeholder="Start time"
@@ -3148,6 +3181,7 @@ exports[`time-picker demo > renders value-format correctly 1`] = `
           >
             <input
               aria-invalid="false"
+              autocomplete="off"
               class="ant-picker-input-end"
               data-range="end"
               placeholder="End time"
@@ -3252,6 +3286,7 @@ exports[`time-picker demo > renders variant correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Outlined"
           size="10"
           value=""
@@ -3297,6 +3332,7 @@ exports[`time-picker demo > renders variant correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           placeholder="Outlined Start"
@@ -3339,6 +3375,7 @@ exports[`time-picker demo > renders variant correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           placeholder="Outlined End"
@@ -3398,6 +3435,7 @@ exports[`time-picker demo > renders variant correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Filled"
           size="10"
           value=""
@@ -3443,6 +3481,7 @@ exports[`time-picker demo > renders variant correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           placeholder="Filled Start"
@@ -3485,6 +3524,7 @@ exports[`time-picker demo > renders variant correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           placeholder="Filled End"
@@ -3544,6 +3584,7 @@ exports[`time-picker demo > renders variant correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Borderless"
           size="10"
           value=""
@@ -3589,6 +3630,7 @@ exports[`time-picker demo > renders variant correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           placeholder="Borderless Start"
@@ -3631,6 +3673,7 @@ exports[`time-picker demo > renders variant correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           placeholder="Borderless End"
@@ -3690,6 +3733,7 @@ exports[`time-picker demo > renders variant correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Underlined"
           size="10"
           value=""
@@ -3735,6 +3779,7 @@ exports[`time-picker demo > renders variant correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           placeholder="Underlined Start"
@@ -3777,6 +3822,7 @@ exports[`time-picker demo > renders variant correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           placeholder="Underlined End"

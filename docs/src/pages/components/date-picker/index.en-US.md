@@ -99,6 +99,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | ~~popupClassName~~ | To customize the className of the popup calendar, use `classes.popup.root` instead | string | - | - | × |
 | preserveInvalidOnBlur | Not clean input on blur even when the typing is invalidate | boolean | false | - | × |
 | getPopupContainer | To set the container of the floating layer, while the default is to create a `div` element in `body` | function(trigger) | - | - | × |
+| autoComplete | Native `autocomplete` attribute of the input, can also be written as `autocomplete` in templates | string | `off` | 1.6.1 | × |
 | inputReadOnly | Set the `readonly` attribute of the input tag (avoids virtual keyboard on touch devices) | boolean | false | - | × |
 | locale | Localization configuration | object | [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) | - | × |
 | minDate | The minimum date, which also limits the range of panel switching | dayjs | - | - | × |

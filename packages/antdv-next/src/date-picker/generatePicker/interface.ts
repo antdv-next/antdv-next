@@ -193,6 +193,10 @@ export interface BaseDefaultProps<Props> {
   popupStyle?: CSSProperties
   classes?: DatePickerClassNamesType<Props>
   styles?: DatePickerStylesType<Props>
+  /**
+   * Lowercase alias of `autoComplete`, matching the native `autocomplete` attribute in templates
+   */
+  autocomplete?: string
 }
 /** Base Single Picker props */
 // export type PickerProps<DateType extends AnyObject = any> = VcPickerProps<DateType> & BaseDefaultProps<VcPickerProps<DateType>>

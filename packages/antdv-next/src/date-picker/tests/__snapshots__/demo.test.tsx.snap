@@ -93,6 +93,7 @@ exports[`date-picker demo > renders _semantic correctly 1`] = `
             <input
               aria-invalid="false"
               aria-required="false"
+              autocomplete="off"
               class="semantic-mark-input"
               placeholder="Select date"
               size="12"
@@ -1498,6 +1499,7 @@ exports[`date-picker demo > renders allow-empty correctly 1`] = `
     >
       <input
         aria-invalid="false"
+        autocomplete="off"
         class="ant-picker-input-start"
         data-range="start"
         placeholder="Start Date"
@@ -1540,6 +1542,7 @@ exports[`date-picker demo > renders allow-empty correctly 1`] = `
     >
       <input
         aria-invalid="false"
+        autocomplete="off"
         class="ant-picker-input-end"
         data-range="end"
         placeholder="Till Now"
@@ -1598,6 +1601,7 @@ exports[`date-picker demo > renders basic correctly 1`] = `
       <input
         aria-invalid="false"
         aria-required="false"
+        autocomplete="off"
         placeholder="Select date"
         size="12"
         value=""
@@ -1641,6 +1645,7 @@ exports[`date-picker demo > renders basic correctly 1`] = `
       <input
         aria-invalid="false"
         aria-required="false"
+        autocomplete="off"
         placeholder="Select week"
         size="12"
         value=""
@@ -1684,6 +1689,7 @@ exports[`date-picker demo > renders basic correctly 1`] = `
       <input
         aria-invalid="false"
         aria-required="false"
+        autocomplete="off"
         placeholder="Select month"
         size="12"
         value=""
@@ -1727,6 +1733,7 @@ exports[`date-picker demo > renders basic correctly 1`] = `
       <input
         aria-invalid="false"
         aria-required="false"
+        autocomplete="off"
         placeholder="Select quarter"
         size="12"
         value=""
@@ -1770,6 +1777,7 @@ exports[`date-picker demo > renders basic correctly 1`] = `
       <input
         aria-invalid="false"
         aria-required="false"
+        autocomplete="off"
         placeholder="Select year"
         size="12"
         value=""
@@ -1843,6 +1851,7 @@ exports[`date-picker demo > renders buddhist-era correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select date"
           size="12"
           value="2567-01-01"
@@ -1916,6 +1925,7 @@ exports[`date-picker demo > renders buddhist-era correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select date"
           size="21"
           value="2567-01-01 00:00:00"
@@ -2014,6 +2024,7 @@ exports[`date-picker demo > renders buddhist-era correctly 1`] = `
             <input
               aria-invalid="false"
               aria-required="false"
+              autocomplete="off"
               placeholder="Select date"
               size="12"
               value="2567-01-01"
@@ -2087,6 +2098,7 @@ exports[`date-picker demo > renders buddhist-era correctly 1`] = `
             <input
               aria-invalid="false"
               aria-required="false"
+              autocomplete="off"
               placeholder="Select date"
               size="21"
               value="2567-01-01 00:00:00"
@@ -2171,6 +2183,7 @@ exports[`date-picker demo > renders cell-render correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select date"
           size="12"
           value=""
@@ -2218,6 +2231,7 @@ exports[`date-picker demo > renders cell-render correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           placeholder="Start date"
@@ -2260,6 +2274,7 @@ exports[`date-picker demo > renders cell-render correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           placeholder="End date"
@@ -2323,6 +2338,7 @@ exports[`date-picker demo > renders components correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select date"
           size="12"
           value=""
@@ -2375,6 +2391,7 @@ exports[`date-picker demo > renders date-range correctly 1`] = `
       <input
         aria-invalid="false"
         aria-required="false"
+        autocomplete="off"
         placeholder="Select date"
         size="12"
         value="2019-09-03"
@@ -2454,6 +2471,7 @@ exports[`date-picker demo > renders disabled correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           disabled=""
           placeholder="Select date"
           size="12"
@@ -2503,6 +2521,7 @@ exports[`date-picker demo > renders disabled correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           disabled=""
           placeholder="Select month"
           size="12"
@@ -2551,6 +2570,7 @@ exports[`date-picker demo > renders disabled correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           disabled=""
@@ -2594,6 +2614,7 @@ exports[`date-picker demo > renders disabled correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           disabled=""
@@ -2650,6 +2671,7 @@ exports[`date-picker demo > renders disabled correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           placeholder="Start date"
@@ -2692,6 +2714,7 @@ exports[`date-picker demo > renders disabled correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           disabled=""
@@ -2774,6 +2797,7 @@ exports[`date-picker demo > renders disabled correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select date"
           size="12"
           value="2019-09-03"
@@ -2855,6 +2879,7 @@ exports[`date-picker demo > renders disabled-date correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select date"
           size="21"
           value=""
@@ -2903,6 +2928,7 @@ exports[`date-picker demo > renders disabled-date correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select month"
           size="12"
           value=""
@@ -2950,6 +2976,7 @@ exports[`date-picker demo > renders disabled-date correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           placeholder="Start date"
@@ -2992,6 +3019,7 @@ exports[`date-picker demo > renders disabled-date correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           placeholder="End date"
@@ -3047,6 +3075,7 @@ exports[`date-picker demo > renders disabled-date correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           placeholder="Start date"
@@ -3089,6 +3118,7 @@ exports[`date-picker demo > renders disabled-date correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           placeholder="End date"
@@ -3256,6 +3286,7 @@ exports[`date-picker demo > renders extra-footer correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select date"
           size="12"
           value=""
@@ -3304,6 +3335,7 @@ exports[`date-picker demo > renders extra-footer correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select date"
           size="21"
           value=""
@@ -3351,6 +3383,7 @@ exports[`date-picker demo > renders extra-footer correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           placeholder="Start date"
@@ -3393,6 +3426,7 @@ exports[`date-picker demo > renders extra-footer correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           placeholder="End date"
@@ -3448,6 +3482,7 @@ exports[`date-picker demo > renders extra-footer correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           placeholder="Start date"
@@ -3490,6 +3525,7 @@ exports[`date-picker demo > renders extra-footer correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           placeholder="End date"
@@ -3546,6 +3582,7 @@ exports[`date-picker demo > renders extra-footer correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select month"
           size="12"
           value=""
@@ -3602,6 +3639,7 @@ exports[`date-picker demo > renders format correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select date"
           size="12"
           value="2015/01/01"
@@ -3675,6 +3713,7 @@ exports[`date-picker demo > renders format correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select date"
           size="12"
           value="01/01/2015"
@@ -3748,6 +3787,7 @@ exports[`date-picker demo > renders format correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select month"
           size="12"
           value="2015/01"
@@ -3821,6 +3861,7 @@ exports[`date-picker demo > renders format correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select week"
           readonly=""
           size="15"
@@ -3894,6 +3935,7 @@ exports[`date-picker demo > renders format correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           placeholder="Start date"
@@ -3936,6 +3978,7 @@ exports[`date-picker demo > renders format correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           placeholder="End date"
@@ -4017,6 +4060,7 @@ exports[`date-picker demo > renders format correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select date"
           readonly=""
           size="27"
@@ -4098,6 +4142,7 @@ exports[`date-picker demo > renders mask correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select date"
           size="12"
           value=""
@@ -4146,6 +4191,7 @@ exports[`date-picker demo > renders mask correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select date"
           size="21"
           value=""
@@ -4478,6 +4524,7 @@ exports[`date-picker demo > renders needConfirm correctly 1`] = `
       <input
         aria-invalid="false"
         aria-required="false"
+        autocomplete="off"
         placeholder="Select date"
         size="12"
         value=""
@@ -4618,6 +4665,7 @@ exports[`date-picker demo > renders placement correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select date"
           size="12"
           value=""
@@ -4665,6 +4713,7 @@ exports[`date-picker demo > renders placement correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           placeholder="Start date"
@@ -4707,6 +4756,7 @@ exports[`date-picker demo > renders placement correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           placeholder="End date"
@@ -4771,6 +4821,7 @@ exports[`date-picker demo > renders preset-ranges correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select date"
           size="12"
           value=""
@@ -4818,6 +4869,7 @@ exports[`date-picker demo > renders preset-ranges correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           placeholder="Start date"
@@ -4860,6 +4912,7 @@ exports[`date-picker demo > renders preset-ranges correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           placeholder="End date"
@@ -4915,6 +4968,7 @@ exports[`date-picker demo > renders preset-ranges correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           placeholder="Start date"
@@ -4957,6 +5011,7 @@ exports[`date-picker demo > renders preset-ranges correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           placeholder="End date"
@@ -5020,6 +5075,7 @@ exports[`date-picker demo > renders range-picker correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           placeholder="Start date"
@@ -5062,6 +5118,7 @@ exports[`date-picker demo > renders range-picker correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           placeholder="End date"
@@ -5117,6 +5174,7 @@ exports[`date-picker demo > renders range-picker correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           placeholder="Start date"
@@ -5159,6 +5217,7 @@ exports[`date-picker demo > renders range-picker correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           placeholder="End date"
@@ -5214,6 +5273,7 @@ exports[`date-picker demo > renders range-picker correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           placeholder="Start week"
@@ -5256,6 +5316,7 @@ exports[`date-picker demo > renders range-picker correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           placeholder="End week"
@@ -5311,6 +5372,7 @@ exports[`date-picker demo > renders range-picker correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           placeholder="Start month"
@@ -5353,6 +5415,7 @@ exports[`date-picker demo > renders range-picker correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           placeholder="End month"
@@ -5408,6 +5471,7 @@ exports[`date-picker demo > renders range-picker correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           placeholder="Start quarter"
@@ -5450,6 +5514,7 @@ exports[`date-picker demo > renders range-picker correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           placeholder="End quarter"
@@ -5505,6 +5570,7 @@ exports[`date-picker demo > renders range-picker correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           id="startInput"
@@ -5548,6 +5614,7 @@ exports[`date-picker demo > renders range-picker correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           id="endInput"
@@ -5613,6 +5680,7 @@ exports[`date-picker demo > renders render-panel correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select date"
           size="12"
           value=""
@@ -5683,6 +5751,7 @@ exports[`date-picker demo > renders select-in-range correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           placeholder="Start date"
@@ -5725,6 +5794,7 @@ exports[`date-picker demo > renders select-in-range correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           placeholder="End date"
@@ -5797,6 +5867,7 @@ exports[`date-picker demo > renders select-in-range correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           placeholder="Start month"
@@ -5839,6 +5910,7 @@ exports[`date-picker demo > renders select-in-range correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           placeholder="End month"
@@ -5970,6 +6042,7 @@ exports[`date-picker demo > renders size correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select date"
           size="12"
           value=""
@@ -6018,6 +6091,7 @@ exports[`date-picker demo > renders size correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select month"
           size="12"
           value=""
@@ -6065,6 +6139,7 @@ exports[`date-picker demo > renders size correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           placeholder="Start date"
@@ -6107,6 +6182,7 @@ exports[`date-picker demo > renders size correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           placeholder="End date"
@@ -6163,6 +6239,7 @@ exports[`date-picker demo > renders size correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select week"
           size="12"
           value=""
@@ -6220,6 +6297,7 @@ exports[`date-picker demo > renders status correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select date"
           size="12"
           value=""
@@ -6269,6 +6347,7 @@ exports[`date-picker demo > renders status correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select date"
           size="12"
           value=""
@@ -6317,6 +6396,7 @@ exports[`date-picker demo > renders status correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           placeholder="Start date"
@@ -6359,6 +6439,7 @@ exports[`date-picker demo > renders status correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           placeholder="End date"
@@ -6415,6 +6496,7 @@ exports[`date-picker demo > renders status correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           placeholder="Start date"
@@ -6457,6 +6539,7 @@ exports[`date-picker demo > renders status correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           placeholder="End date"
@@ -6518,6 +6601,7 @@ exports[`date-picker demo > renders style-class correctly 1`] = `
       <input
         aria-invalid="false"
         aria-required="false"
+        autocomplete="off"
         placeholder="Object"
         size="12"
         style="font-style: italic;"
@@ -6564,6 +6648,7 @@ exports[`date-picker demo > renders style-class correctly 1`] = `
       <input
         aria-invalid="false"
         aria-required="false"
+        autocomplete="off"
         placeholder="Function"
         size="12"
         value=""
@@ -6618,6 +6703,7 @@ exports[`date-picker demo > renders suffix correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select date"
           size="12"
           value=""
@@ -6664,6 +6750,7 @@ exports[`date-picker demo > renders suffix correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select month"
           size="12"
           value=""
@@ -6709,6 +6796,7 @@ exports[`date-picker demo > renders suffix correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           placeholder="Start date"
@@ -6751,6 +6839,7 @@ exports[`date-picker demo > renders suffix correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           placeholder="End date"
@@ -6805,6 +6894,7 @@ exports[`date-picker demo > renders suffix correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select week"
           size="12"
           value=""
@@ -6851,6 +6941,7 @@ exports[`date-picker demo > renders suffix correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select date"
           size="12"
           value=""
@@ -6879,6 +6970,7 @@ exports[`date-picker demo > renders suffix correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select month"
           size="12"
           value=""
@@ -6906,6 +6998,7 @@ exports[`date-picker demo > renders suffix correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           placeholder="Start date"
@@ -6948,6 +7041,7 @@ exports[`date-picker demo > renders suffix correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           placeholder="End date"
@@ -6984,6 +7078,7 @@ exports[`date-picker demo > renders suffix correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select week"
           size="12"
           value=""
@@ -7034,6 +7129,7 @@ exports[`date-picker demo > renders suffix correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select week"
           size="12"
           value=""
@@ -7086,6 +7182,7 @@ exports[`date-picker demo > renders suffix correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select week"
           size="12"
           value=""
@@ -7155,6 +7252,7 @@ exports[`date-picker demo > renders suffix correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           placeholder="Start week"
@@ -7197,6 +7295,7 @@ exports[`date-picker demo > renders suffix correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           placeholder="End week"
@@ -7256,6 +7355,7 @@ exports[`date-picker demo > renders suffix correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           placeholder="Start week"
@@ -7298,6 +7398,7 @@ exports[`date-picker demo > renders suffix correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           placeholder="End week"
@@ -7420,6 +7521,7 @@ exports[`date-picker demo > renders switchable correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select time"
           size="10"
           value=""
@@ -7479,6 +7581,7 @@ exports[`date-picker demo > renders time correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Select date"
           size="21"
           value=""
@@ -7526,6 +7629,7 @@ exports[`date-picker demo > renders time correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           placeholder="Start date"
@@ -7568,6 +7672,7 @@ exports[`date-picker demo > renders time correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           placeholder="End date"
@@ -7638,6 +7743,7 @@ exports[`date-picker demo > renders value-format correctly 1`] = `
             <input
               aria-invalid="false"
               aria-required="false"
+              autocomplete="off"
               placeholder="Select date"
               size="12"
               value="2026-02-12"
@@ -7727,6 +7833,7 @@ exports[`date-picker demo > renders value-format correctly 1`] = `
           >
             <input
               aria-invalid="false"
+              autocomplete="off"
               class="ant-picker-input-start"
               data-range="start"
               placeholder="Start date"
@@ -7769,6 +7876,7 @@ exports[`date-picker demo > renders value-format correctly 1`] = `
           >
             <input
               aria-invalid="false"
+              autocomplete="off"
               class="ant-picker-input-end"
               data-range="end"
               placeholder="End date"
@@ -7870,6 +7978,7 @@ exports[`date-picker demo > renders variant correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Outlined"
           size="12"
           value=""
@@ -7912,6 +8021,7 @@ exports[`date-picker demo > renders variant correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           placeholder="Outlined Start"
@@ -7954,6 +8064,7 @@ exports[`date-picker demo > renders variant correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           placeholder="Outlined End"
@@ -8010,6 +8121,7 @@ exports[`date-picker demo > renders variant correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Filled"
           size="12"
           value=""
@@ -8052,6 +8164,7 @@ exports[`date-picker demo > renders variant correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           placeholder="Filled Start"
@@ -8094,6 +8207,7 @@ exports[`date-picker demo > renders variant correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           placeholder="Filled End"
@@ -8150,6 +8264,7 @@ exports[`date-picker demo > renders variant correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Borderless"
           size="12"
           value=""
@@ -8192,6 +8307,7 @@ exports[`date-picker demo > renders variant correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           placeholder="Borderless Start"
@@ -8234,6 +8350,7 @@ exports[`date-picker demo > renders variant correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           placeholder="Borderless End"
@@ -8290,6 +8407,7 @@ exports[`date-picker demo > renders variant correctly 1`] = `
         <input
           aria-invalid="false"
           aria-required="false"
+          autocomplete="off"
           placeholder="Underlined"
           size="12"
           value=""
@@ -8332,6 +8450,7 @@ exports[`date-picker demo > renders variant correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-start"
           data-range="start"
           placeholder="Underlined Start"
@@ -8374,6 +8493,7 @@ exports[`date-picker demo > renders variant correctly 1`] = `
       >
         <input
           aria-invalid="false"
+          autocomplete="off"
           class="ant-picker-input-end"
           data-range="end"
           placeholder="Underlined End"
