@@ -198,6 +198,10 @@ const InternalSegmented = defineComponent<
         block,
         shape,
         classes,
+        size,
+        orientation,
+        iconRender,
+        labelRender,
         ...restProps
       } = props
       const cls = clsx(

@@ -1531,7 +1531,6 @@ exports[`segmented demo > renders shape correctly 1`] = `
     aria-orientation="horizontal"
     class="ant-segmented ant-segmented-shape-round css-var-root ant-segmented-shape-round css-var-root"
     role="radiogroup"
-    size="medium"
     tabindex="0"
   >
     <div
@@ -1629,7 +1628,6 @@ exports[`segmented demo > renders size correctly 1`] = `
     aria-orientation="horizontal"
     class="ant-segmented ant-segmented-lg css-var-root ant-segmented-lg css-var-root"
     role="radiogroup"
-    size="large"
     tabindex="0"
   >
     <div
@@ -1812,7 +1810,6 @@ exports[`segmented demo > renders size correctly 1`] = `
     aria-orientation="horizontal"
     class="ant-segmented ant-segmented-sm css-var-root ant-segmented-sm css-var-root"
     role="radiogroup"
-    size="small"
     tabindex="0"
   >
     <div
@@ -2185,7 +2182,6 @@ exports[`segmented demo > renders vertical correctly 1`] = `
   aria-label="segmented control"
   aria-orientation="vertical"
   class="ant-segmented ant-segmented-vertical ant-segmented-vertical css-var-root ant-segmented-vertical css-var-root"
-  orientation="vertical"
   role="radiogroup"
   tabindex="0"
 >
