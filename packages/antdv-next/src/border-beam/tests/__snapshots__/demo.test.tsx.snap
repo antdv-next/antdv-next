@@ -170,7 +170,7 @@ exports[`border-beam demo > renders count correctly 1`] = `
         <div
           class="ant-card-head-title"
         >
-          Multiple beams
+          Configured beams
         </div>
         <!---->
       </div>
@@ -180,7 +180,7 @@ exports[`border-beam demo > renders count correctly 1`] = `
     <div
       class="ant-card-body"
     >
-       Set count to distribute multiple beams evenly around the container border. 
+       Use items to customize the color and size of each beam. 
     </div>
     <!---->
   </div>

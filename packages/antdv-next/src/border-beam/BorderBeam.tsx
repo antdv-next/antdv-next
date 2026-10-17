@@ -7,6 +7,7 @@ import { filterEmpty } from '@v-c/util/dist/props-util'
 import { unrefElement } from '@vueuse/core'
 import { cloneVNode, computed, defineComponent, isVNode, shallowRef, Teleport } from 'vue'
 import { isNonNullable, isNumber } from '../_util/is'
+import { devUseWarning, isDev } from '../_util/warning'
 import { useComponentBaseConfig } from '../config-provider/context'
 import { genCssVar } from '../theme/util/genStyleUtils'
 import useBorderSize from './hooks/useBorderSize'
@@ -15,12 +16,20 @@ import { DEFAULT_BORDER_BEAM_DURATION, getBorderBeamGradient } from './util'
 
 export type { BorderBeamColor, BorderBeamGradient } from './util'
 
+export interface BorderBeamItem {
+  color?: BorderBeamColor
+  lineWidth?: number | string
+  outset?: number | string
+  size?: number | string
+}
+
 export interface BorderBeamProps {
   prefixCls?: string
   rootClass?: string
   color?: BorderBeamColor
   count?: number
   duration?: number
+  items?: BorderBeamItem[]
   lineWidth?: number | string
   outset?: number | string
   size?: number | string
@@ -59,8 +68,9 @@ const BorderBeam = defineComponent<
     const beamGradient = computed(() => getBorderBeamGradient(props.color))
 
     const mergedCount = computed<number>(() => {
-      const { count = 1 } = props
-      return isNumber(count) && Number.isFinite(count) && count >= 1 ? Math.floor(count) : 1
+      const { count, items } = props
+      return items?.length
+        ?? (isNumber(count) && Number.isFinite(count) && count >= 1 ? Math.floor(count) : 1)
     })
 
     const mergedDuration = computed<number>(() => {
@@ -81,21 +91,40 @@ const BorderBeam = defineComponent<
     }
 
     return () => {
-      const { duration, lineWidth, size } = props
+      const { duration, lineWidth, size, items } = props
       const children = filterEmpty(slots.default?.() ?? [])
       const count = mergedCount.value
-      const getBeamStyle = (index: number): CSSProperties & Record<`--${string}`, string> => ({
-        ...(contextStyle?.value ?? {}),
-        ...((attrs as any).style ?? {}),
-        ...(beamGradient.value && { [varName.value('beam-gradient')]: beamGradient.value }),
-        ...(isNumber(duration) && duration > 0 && { [varName.value('duration')]: `${duration}s` }),
-        ...(isNonNullable(lineWidth) && { [varName.value('line-width')]: unit(lineWidth) }),
-        ...(isNonNullable(size) && { [varName.value('size')]: unit(size) }),
-        ...(index > 0 && {
-          [varName.value('delay')]: `${(-mergedDuration.value * index) / count}s`,
-        }),
-        [varName.value('inset-offset')]: insetOffset.value,
-      })
+
+      // ============================ Warning ============================
+      if (isDev) {
+        const warning = devUseWarning('BorderBeam')
+        warning(
+          !isNonNullable(items) || !isNonNullable(props.count),
+          'usage',
+          '`count` is ignored when `items` is provided.',
+        )
+      }
+
+      const getBeamStyle = (index: number): CSSProperties & Record<`--${string}`, string> => {
+        const item = items?.[index] ?? {}
+        const beamPhase = index / count
+        const itemBeamGradient = item.color ? getBorderBeamGradient(item.color) : beamGradient.value
+        const itemLineWidth = item.lineWidth ?? lineWidth
+        const itemSize = item.size ?? size
+        const itemInsetOffset = isNonNullable(item.outset) ? getInset(item.outset) : insetOffset.value
+        return {
+          ...(contextStyle?.value ?? {}),
+          ...((attrs as any).style ?? {}),
+          ...(itemBeamGradient && { [varName.value('beam-gradient')]: itemBeamGradient }),
+          ...(isNumber(duration) && duration > 0 && { [varName.value('duration')]: `${duration}s` }),
+          ...(isNonNullable(itemLineWidth) && { [varName.value('line-width')]: unit(itemLineWidth) }),
+          ...(isNonNullable(itemSize) && { [varName.value('size')]: unit(itemSize) }),
+          ...(beamPhase > 0 && {
+            [varName.value('delay')]: `${-mergedDuration.value * beamPhase}s`,
+          }),
+          [varName.value('inset-offset')]: itemInsetOffset,
+        }
+      }
 
       const beamCls = clsx(
         prefixCls.value,
@@ -111,7 +140,7 @@ const BorderBeam = defineComponent<
             <Teleport to={hostDom.value}>
               {Array.from({ length: count }, (_, index) => (
                 <div
-                  key={index}
+                  key={`${count}-${index / count}`}
                   aria-hidden="true"
                   class={beamCls}
                   style={getBeamStyle(index)}
