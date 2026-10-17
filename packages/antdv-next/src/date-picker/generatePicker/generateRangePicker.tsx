@@ -267,6 +267,8 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
           disabled: _disabled,
           locale: _locale,
           getPopupContainer: _getPopupContainer,
+          autoComplete,
+          autocomplete,
           ...restProps
         } = props as DateRangePickerProps
 
@@ -349,6 +351,7 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
               {...restAttrs}
               {...restProps}
               ref={innerRef as any}
+              autoComplete={autoComplete ?? autocomplete}
               separator={(
                 <span
                   aria-hidden={hasCustomSeparator ? undefined : true}

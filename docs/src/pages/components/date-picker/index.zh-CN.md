@@ -101,6 +101,7 @@ dayjs.locale('zh-cn')
 | ~~popupClassName~~ | 额外的弹出日历 className，使用 `classes.popup.root` 替代 | string | - | - | × |
 | preserveInvalidOnBlur | 失去焦点是否要清空输入框内无效内容 | boolean | false | - | × |
 | getPopupContainer | 定义浮层的容器，默认为 body 上新建 div | function(trigger) | - | - | × |
+| autoComplete | 输入框的原生 `autocomplete` 属性，模板中也可写作 `autocomplete` | string | `off` | 1.6.1 | × |
 | inputReadOnly | 设置输入框为只读（避免在移动设备上打开虚拟键盘） | boolean | false | - | × |
 | locale | 国际化配置 | object | [默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) | - | × |
 | minDate | 最小日期，同样会限制面板的切换范围 | dayjs | - | - | × |
