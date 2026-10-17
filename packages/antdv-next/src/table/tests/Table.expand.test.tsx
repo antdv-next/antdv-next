@@ -607,6 +607,22 @@ describe('table expand', () => {
       expect(errSpy).not.toHaveBeenCalled()
     })
 
+    it('keeps expand-all icon when aria props re-apply the scroll header table', () => {
+      const wrapper = mount(() => (
+        <Table
+          aria-label="Users"
+          columns={columns}
+          dataSource={data}
+          pagination={false}
+          scroll={{ y: 100 }}
+          expandable={{ expandedRowRender, showExpandAll: true }}
+        />
+      ))
+
+      expect(wrapper.find('.ant-table-header table').attributes('aria-label')).toBe('Users')
+      expect(wrapper.find('thead .ant-table-row-expand-icon').attributes('aria-label')).toBe('Expand all rows')
+    })
+
     it('renders a spaced header icon when no rows are expandable', () => {
       const wrapper = mount(() => (
         <Table
