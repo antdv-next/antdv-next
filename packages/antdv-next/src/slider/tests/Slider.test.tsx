@@ -349,23 +349,29 @@ describe('slider', () => {
       expect(wrapper.find('.ant-slider').exists()).toBe(true)
     })
 
-    it('should default to right placement for vertical slider', () => {
+    it('should default to right placement for vertical slider', async () => {
       // getTooltipPlacement(undefined, true) → 'right'
       const wrapper = mount(Slider, {
-        props: { vertical: true, defaultValue: 30 },
+        props: { vertical: true, defaultValue: 30, tooltip: { open: true } },
+        attachTo: document.body,
       })
-      expect(wrapper.find('.ant-slider-vertical').exists()).toBe(true)
+      await nextTick()
+      const tooltip = document.querySelector('.ant-slider-tooltip')
+      expect(tooltip?.className).toContain('ant-tooltip-placement-right')
+      wrapper.unmount()
     })
 
-    it('should default to left placement for vertical in RTL', () => {
+    it('should default to left placement for vertical in RTL', async () => {
       // getTooltipPlacement(undefined, true) in RTL → 'left'
       const wrapper = mount(() => (
         <ConfigProvider direction="rtl">
-          <Slider vertical defaultValue={30} />
+          <Slider vertical defaultValue={30} tooltip={{ open: true }} />
         </ConfigProvider>
-      ))
-      expect(wrapper.find('.ant-slider-vertical').exists()).toBe(true)
-      expect(wrapper.find('.ant-slider-rtl').exists()).toBe(true)
+      ), { attachTo: document.body })
+      await nextTick()
+      const tooltip = document.querySelector('.ant-slider-tooltip')
+      expect(tooltip?.className).toContain('ant-tooltip-placement-left')
+      wrapper.unmount()
     })
   })
 
