@@ -1,9 +1,62 @@
 import type { TreeSelectProps } from '..'
-import { describe, expect, it, vi } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
+import { nextTick } from 'vue'
 import TreeSelect from '..'
+import ConfigProvider from '../../config-provider'
 import { mount } from '/@tests/utils'
 
 describe('treeSelect.Semantic', () => {
+  afterEach(() => {
+    document.body.innerHTML = ''
+  })
+
+  it('should isolate root class and style from popup root', async () => {
+    const rootStyle = { height: '40px', overflow: 'hidden' }
+    const popupRootStyle = { color: 'rgb(255, 0, 0)' }
+    const treeData = [{ value: 'node', title: 'Node' }]
+
+    const wrapper = mount(
+      () => (
+        <TreeSelect
+          open
+          treeData={treeData}
+          classes={{ root: 'custom-root', popup: { root: 'custom-popup-root' } }}
+          styles={{ root: rootStyle, popup: { root: popupRootStyle } }}
+        />
+      ),
+      { attachTo: document.body },
+    )
+    await nextTick()
+
+    const root = wrapper.find('.ant-tree-select')
+    const popup = document.querySelector<HTMLElement>('.ant-tree-select-dropdown')
+
+    expect(root.classes()).toContain('custom-root')
+    expect((root.element as HTMLElement).style.height).toBe('40px')
+    expect((root.element as HTMLElement).style.overflow).toBe('hidden')
+    expect(popup).toBeTruthy()
+    expect(popup!.classList.contains('custom-popup-root')).toBe(true)
+    expect(popup!.style.color).toBe('rgb(255, 0, 0)')
+    expect(popup!.classList.contains('custom-root')).toBe(false)
+    expect(popup!.style.height).toBe('')
+    expect(popup!.style.overflow).toBe('')
+    wrapper.unmount()
+  })
+
+  it('should consume ConfigProvider class and style', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider
+        treeSelect={{ class: 'cp-tree-select', style: { backgroundColor: 'rgb(255, 0, 0)' } }}
+      >
+        <TreeSelect treeData={[{ value: 'test-value', title: 'test-title' }]} />
+      </ConfigProvider>
+    ))
+
+    const root = wrapper.find('.ant-tree-select')
+    expect(root.classes()).toContain('cp-tree-select')
+    expect((root.element as HTMLElement).style.backgroundColor).toBe('rgb(255, 0, 0)')
+  })
+
   it('should support classNames and styles as functions', () => {
     const treeData = [
       {

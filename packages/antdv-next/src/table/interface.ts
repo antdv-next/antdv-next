@@ -36,6 +36,12 @@ export interface TableLocale {
   selectNone?: VueNode
   selectInvert?: VueNode
   selectionAll?: VueNode
+  /** Accessible label for a selectable row. */
+  selectRow?: string
+  /** Accessible label for a selected row. */
+  selectedRow?: string
+  /** Accessible label for the custom selection menu trigger. */
+  selectionMenu?: string
   sortTitle?: string
   expand?: string
   collapse?: string

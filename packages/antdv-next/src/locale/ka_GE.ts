@@ -28,6 +28,9 @@ const localeValues: Locale = {
     selectInvert: 'შეაბრუნეთ მიმდინარე გვერდი',
     selectNone: 'მონაცემების გასუფთავება',
     selectionAll: 'ყველას მონიშვნა',
+    selectRow: 'მწკრივის არჩევა',
+    selectedRow: 'მწკრივი არჩეულია',
+    selectionMenu: 'არჩევის მენიუ',
     sortTitle: 'დალაგება',
     expand: 'სტრიქონის გაშლა',
     collapse: 'სტრიქონის შეკუმშვა',
@@ -52,6 +55,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'კარგი',
     cancelText: 'გაუქმება',
+  },
+  Splitter: {
+    toggleStartPanel: 'საწყისი პანელის გადართვა',
+    toggleEndPanel: 'საბოლოო პანელის გადართვა',
   },
   Transfer: {
     titles: ['', ''],

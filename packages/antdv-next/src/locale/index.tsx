@@ -5,6 +5,7 @@ import type { ValidateMessages } from '../form/types.ts'
 import type { ModalLocale } from '../modal/interface.ts'
 import type { PaginationLocale } from '../pagination'
 import type { PopconfirmLocale } from '../popconfirm/PurePanel'
+import type { SplitterLocale } from '../splitter/interface'
 import type { TableLocale } from '../table'
 import type { TimePickerLocale } from '../time-picker'
 import type { TourLocale } from '../tour'
@@ -35,6 +36,7 @@ export interface Locale {
   Modal?: ModalLocale
   Tour?: TourLocale
   Popconfirm?: PopconfirmLocale
+  Splitter?: SplitterLocale
   Transfer?: TransferLocale
   Select?: Record<string, any>
   Upload?: UploadLocale

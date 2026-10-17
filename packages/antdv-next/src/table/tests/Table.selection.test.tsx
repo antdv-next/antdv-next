@@ -3,6 +3,9 @@ import { nextTick, ref } from 'vue'
 import Table from '..'
 import ConfigProvider from '../../config-provider'
 import Dropdown from '../../dropdown'
+import enUS from '../../locale/en_US'
+import frFR from '../../locale/fr_FR'
+import zhTW from '../../locale/zh_TW'
 import { mount } from '/@tests/utils'
 
 const columns = [
@@ -61,9 +64,132 @@ describe('table row selection', () => {
       props: { columns, dataSource: data, pagination: false, rowSelection: {} },
     })
     const checkboxes = wrapper.findAll('tbody .ant-checkbox-wrapper')
-    expect(checkboxes[0]!.attributes('aria-label')).toBe('Select row 1')
-    expect(checkboxes[1]!.attributes('aria-label')).toBe('Select row 2')
-    expect(checkboxes[2]!.attributes('aria-label')).toBe('Select row 3')
+    expect(checkboxes[0]!.attributes('aria-label')).toBe('Select row')
+    expect(checkboxes[1]!.attributes('aria-label')).toBe('Select row')
+    expect(checkboxes[2]!.attributes('aria-label')).toBe('Select row')
+  })
+
+  it('should have default aria-label on radios and selected rows', () => {
+    const radioWrapper = mount(Table, {
+      props: { columns, dataSource: data, pagination: false, rowSelection: { type: 'radio' } },
+    })
+    const radios = radioWrapper.findAll('tbody .ant-radio-wrapper')
+    expect(radios[0]!.attributes('aria-label')).toBe('Select row')
+    expect(radios[1]!.attributes('aria-label')).toBe('Select row')
+
+    const wrapper = mount(Table, {
+      props: { columns, dataSource: data, pagination: false, rowSelection: { defaultSelectedRowKeys: ['1', '2'] } },
+    })
+    const checkboxes = wrapper.findAll('tbody .ant-checkbox-wrapper')
+    expect(checkboxes[0]!.attributes('aria-label')).toBe('Row selected')
+    expect(checkboxes[1]!.attributes('aria-label')).toBe('Row selected')
+    expect(checkboxes[2]!.attributes('aria-label')).toBe('Select row')
+  })
+
+  it('should localize row selection accessible names', async () => {
+    const locale = ref<any>(zhTW)
+    const type = ref<'checkbox' | 'radio'>('checkbox')
+    const wrapper = mount(() => (
+      <ConfigProvider locale={locale.value}>
+        <Table
+          columns={columns}
+          dataSource={data}
+          pagination={false}
+          rowSelection={{ type: type.value, defaultSelectedRowKeys: ['1'], selections: true }}
+        />
+      </ConfigProvider>
+    ))
+
+    expect(wrapper.find('thead .ant-checkbox-wrapper').attributes('aria-label')).toBe('選取目前頁面')
+    const checkboxes = wrapper.findAll('tbody .ant-checkbox-wrapper')
+    expect(checkboxes[0]!.attributes('aria-label')).toBe('列已選取')
+    expect(checkboxes[1]!.attributes('aria-label')).toBe('選取列')
+    expect(wrapper.find('.ant-table-selection-extra [role="button"]').attributes('aria-label')).toBe('選取選單')
+
+    locale.value = frFR
+    await nextTick()
+    const frCheckboxes = wrapper.findAll('tbody .ant-checkbox-wrapper')
+    expect(frCheckboxes[0]!.attributes('aria-label')).toBe('Ligne sélectionnée')
+    expect(frCheckboxes[1]!.attributes('aria-label')).toBe('Sélectionner la ligne')
+    expect(wrapper.find('.ant-table-selection-extra [role="button"]').attributes('aria-label')).toBe('Menu de sélection')
+
+    locale.value = {
+      ...enUS,
+      locale: 'custom',
+      Table: {
+        ...enUS.Table,
+        selectAll: 'Choose all rows',
+        selectRow: 'Choose row',
+        selectedRow: 'Row chosen',
+        selectionMenu: 'Choose rows menu',
+      },
+    }
+    await nextTick()
+    expect(wrapper.find('thead .ant-checkbox-wrapper').attributes('aria-label')).toBe('Choose all rows')
+    expect(wrapper.findAll('tbody .ant-checkbox-wrapper')[1]!.attributes('aria-label')).toBe('Choose row')
+    expect(wrapper.find('.ant-table-selection-extra [role="button"]').attributes('aria-label')).toBe('Choose rows menu')
+
+    type.value = 'radio'
+    locale.value = zhTW
+    await nextTick()
+    expect(wrapper.findAll('tbody .ant-radio-wrapper')[1]!.attributes('aria-label')).toBe('選取列')
+  })
+
+  it('should fall back to English accessible names for a custom locale', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider locale={{ locale: 'custom' } as any}>
+        <Table
+          columns={columns}
+          dataSource={data}
+          pagination={false}
+          rowSelection={{ defaultSelectedRowKeys: ['1'], selections: true }}
+        />
+      </ConfigProvider>
+    ))
+    const checkboxes = wrapper.findAll('tbody .ant-checkbox-wrapper')
+    expect(checkboxes[0]!.attributes('aria-label')).toBe('Row selected')
+    expect(checkboxes[1]!.attributes('aria-label')).toBe('Select row')
+    expect(wrapper.find('.ant-table-selection-extra [role="button"]').attributes('aria-label')).toBe('Selection menu')
+  })
+
+  it('should fall back when selectAll is not a string', () => {
+    const wrapper = mount(() => (
+      <ConfigProvider locale={{ ...enUS, Table: { ...enUS.Table, selectAll: <span>Select all rows</span> } } as any}>
+        <Table columns={columns} dataSource={data} pagination={false} rowSelection={{}} />
+      </ConfigProvider>
+    ))
+    expect(wrapper.find('thead .ant-checkbox-wrapper').attributes('aria-label')).toBe('Select all')
+  })
+
+  it('should make the selection menu keyboard accessible', async () => {
+    const wrapper = mount(() => (
+      <ConfigProvider locale={zhTW}>
+        <Table columns={columns} dataSource={data} pagination={false} rowSelection={{ selections: true }} />
+      </ConfigProvider>
+    ), { attachTo: document.body })
+    const menuTrigger = wrapper.find('.ant-table-selection-extra [role="button"]')
+
+    expect(menuTrigger.element.tagName).toBe('SPAN')
+    expect(menuTrigger.attributes('tabindex')).toBe('0')
+    expect(menuTrigger.attributes('aria-label')).toBe('選取選單')
+    expect(menuTrigger.attributes('aria-haspopup')).toBe('menu')
+    expect(menuTrigger.attributes('aria-expanded')).toBe('false')
+
+    await menuTrigger.trigger('keydown', { key: 'Enter' })
+    vi.runAllTimers()
+    await nextTick()
+    expect(wrapper.find('.ant-table-selection-extra [role="button"]').attributes('aria-expanded')).toBe('true')
+
+    await wrapper.find('.ant-table-selection-extra [role="button"]').trigger('click')
+    vi.runAllTimers()
+    await nextTick()
+    expect(wrapper.find('.ant-table-selection-extra [role="button"]').attributes('aria-expanded')).toBe('false')
+
+    await wrapper.find('.ant-table-selection-extra [role="button"]').trigger('keydown', { key: ' ' })
+    vi.runAllTimers()
+    await nextTick()
+    expect(wrapper.find('.ant-table-selection-extra [role="button"]').attributes('aria-expanded')).toBe('true')
+    wrapper.unmount()
   })
 
   it('should support custom aria-label from getCheckboxProps', () => {

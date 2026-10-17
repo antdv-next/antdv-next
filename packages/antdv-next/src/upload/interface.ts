@@ -173,6 +173,7 @@ export interface UploadProps<T = any> {
 export interface UploadEmits<T = any> {
   'change': (info: UploadChangeParam<UploadFile<T>>) => void
   'drop': (event: DragEvent) => void
+  'focus': (event: FocusEvent) => void
   // 'preview': (file: UploadFile<T>) => void
   // 'download': (file: UploadFile<T>) => void
   'update:fileList': (fileList: UploadFile<T>[]) => void

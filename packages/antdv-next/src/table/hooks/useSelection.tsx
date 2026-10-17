@@ -18,7 +18,7 @@ import { DownOutlined } from '@antdv-next/icons'
 import { INTERNAL_COL_DEFINE } from '@v-c/table'
 import { arrAdd, arrDel, conductCheck, convertDataToEntities } from '@v-c/tree'
 import { clsx } from '@v-c/util'
-import { computed, shallowRef, unref, watch } from 'vue'
+import { computed, defineComponent, shallowRef, unref, watch } from 'vue'
 import { useMultipleSelect } from '../../_util/hooks'
 import { devUseWarning } from '../../_util/warning.ts'
 import Checkbox from '../../checkbox'
@@ -31,6 +31,57 @@ export const SELECTION_INVERT = 'SELECT_INVERT' as const
 export const SELECTION_NONE = 'SELECT_NONE' as const
 
 const EMPTY_LIST: Key[] = []
+
+interface SelectionMenuProps {
+  menu: Record<string, any>
+  getPopupContainer?: GetPopupContainer
+  label: string
+}
+
+interface SelectionMenuEmits {
+  menuClick: (info: any) => void
+  [key: string]: (...args: any[]) => void
+}
+
+const SelectionMenu = defineComponent<SelectionMenuProps, SelectionMenuEmits>(
+  (props, { emit }) => {
+    const open = shallowRef(false)
+
+    const onKeydown = (event: KeyboardEvent) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault()
+        ;(event.currentTarget as HTMLElement)?.click()
+      }
+    }
+
+    return () => (
+      <Dropdown
+        menu={props.menu}
+        getPopupContainer={props.getPopupContainer}
+        trigger={['click', 'hover']}
+        onOpenChange={(nextOpen: boolean) => {
+          open.value = nextOpen
+        }}
+        onMenuClick={(info: any) => emit('menuClick', info)}
+      >
+        <DownOutlined
+          {...{
+            'role': 'button',
+            'aria-label': props.label,
+            'aria-haspopup': 'menu',
+            'aria-expanded': open.value,
+            'onKeydown': onKeydown,
+          } as Record<string, any>}
+          tabIndex={0}
+        />
+      </Dropdown>
+    )
+  },
+  {
+    name: 'TableSelectionMenu',
+    inheritAttrs: false,
+  },
+)
 
 type MaybeRef<T> = T | Ref<T>
 
@@ -410,6 +461,13 @@ export default function useSelection<RecordType extends AnyObject = AnyObject>(
       updatePrevSelectedIndex(null)
     }
 
+    const {
+      selectAll,
+      selectRow = 'Select row',
+      selectedRow = 'Row selected',
+      selectionMenu: selectionMenuLabel = 'Selection menu',
+    } = tableLocale.value
+
     let title: any
     let columnTitleCheckbox: any
     if (selectionType.value !== 'radio') {
@@ -427,21 +485,18 @@ export default function useSelection<RecordType extends AnyObject = AnyObject>(
 
         customizeSelections = (
           <div class={`${prefixCls.value}-selection-extra`}>
-            <Dropdown
+            <SelectionMenu
               menu={{
                 getPopupContainer: getPopupContainer.value,
                 items: menuItems,
               }}
               getPopupContainer={getPopupContainer.value}
+              label={selectionMenuLabel}
               onMenuClick={(info: any) => {
                 const selection = selectionMap.get(info?.key)
                 selection?.onSelect?.(recordKeys)
               }}
-            >
-              <span>
-                <DownOutlined />
-              </span>
-            </Dropdown>
+            />
           </div>
         )
       }
@@ -460,9 +515,10 @@ export default function useSelection<RecordType extends AnyObject = AnyObject>(
       const allDisabledSomeChecked = allDisabled && allDisabledData.some(({ checked }) => checked)
       const customCheckboxProps = selectionConfig.value.getTitleCheckboxProps?.() || {}
       const { onChange, disabled } = customCheckboxProps as any
+      const selectAllLabel = typeof selectAll === 'string' && selectAll ? selectAll : 'Select all'
       columnTitleCheckbox = (
         <Checkbox
-          aria-label={customizeSelections ? 'Custom selection' : 'Select all'}
+          aria-label={selectAllLabel}
           {...customCheckboxProps as any}
           checked={!allDisabled ? !!flattedData.value.length && checkedCurrentAll : allDisabledAndChecked}
           indeterminate={
@@ -498,7 +554,7 @@ export default function useSelection<RecordType extends AnyObject = AnyObject>(
         const key = getRowKey.value(record, index)
         const checked = keySet.has(key)
         const checkboxProps = checkboxPropsMap.value.get(key)
-        const defaultAriaLabel = `Select row ${index + 1}`
+        const defaultAriaLabel = selectRow
         return {
           node: (
             <Radio
@@ -542,7 +598,7 @@ export default function useSelection<RecordType extends AnyObject = AnyObject>(
           mergedIndeterminate = (checkboxProps as any)?.indeterminate ?? indeterminate
         }
 
-        const defaultAriaLabel = checked ? `Row ${index + 1} selected` : `Select row ${index + 1}`
+        const defaultAriaLabel = checked ? selectedRow : selectRow
 
         return {
           node: (

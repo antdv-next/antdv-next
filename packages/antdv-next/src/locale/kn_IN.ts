@@ -32,6 +32,9 @@ const localeValues: Locale = {
     filterSearchPlaceholder: 'ಫಿಲ್ಟರ್‌ಗಳೊಂದಿಗೆ ಹುಡುಕಿ',
     selectNone: 'ಯಾವುದನ್ನೂ ಆಯ್ಕೆ ಮಾಡಬೇಡಿ',
     selectionAll: 'ಎಲ್ಲಾ ಡೇಟಾವನ್ನು ಆಯ್ಕೆಮಾಡಿ',
+    selectRow: 'ಸಾಲನ್ನು ಆಯ್ಕೆಮಾಡಿ',
+    selectedRow: 'ಸಾಲನ್ನು ಆಯ್ಕೆಮಾಡಲಾಗಿದೆ',
+    selectionMenu: 'ಆಯ್ಕೆ ಮೆನು',
     expand: 'ಶ್ರೇಣಿಯನ್ನು ವಿಸ್ತರಿಸಿ',
     collapse: 'ಸಾಲುಗಳನ್ನು ಸಂಕುಚಿಸಿ',
     expandAll: 'ಎಲ್ಲಾ ಸಾಲುಗಳನ್ನು ವಿಸ್ತರಿಸಿ',
@@ -53,6 +56,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'ಸರಿ',
     cancelText: 'ರದ್ದು',
+  },
+  Splitter: {
+    toggleStartPanel: 'ಆರಂಭ ಫಲಕವನ್ನು ಟಾಗಲ್ ಮಾಡಿ',
+    toggleEndPanel: 'ಅಂತ್ಯ ಫಲಕವನ್ನು ಟಾಗಲ್ ಮಾಡಿ',
   },
   Transfer: {
     titles: ['', ''],

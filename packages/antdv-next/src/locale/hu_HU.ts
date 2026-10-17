@@ -29,6 +29,9 @@ const localeValues: Locale = {
     emptyText: 'Nincs adat',
     selectNone: 'Minden adat törlése',
     selectionAll: 'Válassza ki az összes adatot',
+    selectRow: 'Sor kiválasztása',
+    selectedRow: 'Sor kiválasztva',
+    selectionMenu: 'Kijelölési menü',
     expand: 'Sor kibontása',
     collapse: 'Sor összecsukása',
     expandAll: 'Összes sor kibontása',
@@ -45,6 +48,10 @@ const localeValues: Locale = {
   Popconfirm: {
     okText: 'Alkalmazás',
     cancelText: 'Visszavonás',
+  },
+  Splitter: {
+    toggleStartPanel: 'Kezdőpanel váltása',
+    toggleEndPanel: 'Zárópanel váltása',
   },
   Transfer: {
     titles: ['', ''],

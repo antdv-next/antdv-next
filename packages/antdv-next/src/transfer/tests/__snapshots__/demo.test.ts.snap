@@ -8589,7 +8589,7 @@ exports[`transfer demo > renders table-transfer correctly 1`] = `
                                 class="ant-table-selection"
                               >
                                 <label
-                                  aria-label="Custom selection"
+                                  aria-label="Select current page"
                                   class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                                 >
                                   <span
@@ -8606,27 +8606,26 @@ exports[`transfer demo > renders table-transfer correctly 1`] = `
                                   class="ant-table-selection-extra"
                                 >
                                   <span
-                                    class="ant-dropdown-trigger"
+                                    aria-expanded="false"
+                                    aria-haspopup="menu"
+                                    aria-label="Selection menu"
+                                    class="anticon anticon-down ant-dropdown-trigger"
+                                    role="button"
+                                    tabindex="0"
                                   >
-                                    <span
-                                      aria-label="down"
-                                      class="anticon anticon-down"
-                                      role="img"
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="down"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
                                     >
-                                      <svg
-                                        aria-hidden="true"
-                                        data-icon="down"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="1em"
-                                        viewBox="64 64 896 896"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                        />
-                                      </svg>
-                                    </span>
+                                      <path
+                                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                      />
+                                    </svg>
                                   </span>
                                   <!---->
                                 </div>
@@ -8676,7 +8675,7 @@ exports[`transfer demo > renders table-transfer correctly 1`] = `
                             >
                               <!---->
                               <label
-                                aria-label="Select row 1"
+                                aria-label="Select row"
                                 class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                               >
                                 <span
@@ -8730,7 +8729,7 @@ exports[`transfer demo > renders table-transfer correctly 1`] = `
                             >
                               <!---->
                               <label
-                                aria-label="Select row 2"
+                                aria-label="Select row"
                                 class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                               >
                                 <span
@@ -8784,7 +8783,7 @@ exports[`transfer demo > renders table-transfer correctly 1`] = `
                             >
                               <!---->
                               <label
-                                aria-label="Select row 3"
+                                aria-label="Select row"
                                 class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                               >
                                 <span
@@ -8838,7 +8837,7 @@ exports[`transfer demo > renders table-transfer correctly 1`] = `
                             >
                               <!---->
                               <label
-                                aria-label="Select row 4"
+                                aria-label="Select row"
                                 class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                               >
                                 <span
@@ -8892,7 +8891,7 @@ exports[`transfer demo > renders table-transfer correctly 1`] = `
                             >
                               <!---->
                               <label
-                                aria-label="Select row 5"
+                                aria-label="Select row"
                                 class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                               >
                                 <span
@@ -8946,7 +8945,7 @@ exports[`transfer demo > renders table-transfer correctly 1`] = `
                             >
                               <!---->
                               <label
-                                aria-label="Select row 6"
+                                aria-label="Select row"
                                 class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                               >
                                 <span
@@ -9000,7 +8999,7 @@ exports[`transfer demo > renders table-transfer correctly 1`] = `
                             >
                               <!---->
                               <label
-                                aria-label="Select row 7"
+                                aria-label="Select row"
                                 class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                               >
                                 <span
@@ -9054,7 +9053,7 @@ exports[`transfer demo > renders table-transfer correctly 1`] = `
                             >
                               <!---->
                               <label
-                                aria-label="Select row 8"
+                                aria-label="Select row"
                                 class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                               >
                                 <span
@@ -9108,7 +9107,7 @@ exports[`transfer demo > renders table-transfer correctly 1`] = `
                             >
                               <!---->
                               <label
-                                aria-label="Select row 9"
+                                aria-label="Select row"
                                 class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                               >
                                 <span
@@ -9162,7 +9161,7 @@ exports[`transfer demo > renders table-transfer correctly 1`] = `
                             >
                               <!---->
                               <label
-                                aria-label="Select row 10"
+                                aria-label="Select row"
                                 class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                               >
                                 <span
@@ -9527,7 +9526,7 @@ exports[`transfer demo > renders table-transfer correctly 1`] = `
                                 class="ant-table-selection"
                               >
                                 <label
-                                  aria-label="Custom selection"
+                                  aria-label="Select current page"
                                   class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled css-var-root ant-checkbox-css-var"
                                 >
                                   <span
@@ -9545,27 +9544,26 @@ exports[`transfer demo > renders table-transfer correctly 1`] = `
                                   class="ant-table-selection-extra"
                                 >
                                   <span
-                                    class="ant-dropdown-trigger"
+                                    aria-expanded="false"
+                                    aria-haspopup="menu"
+                                    aria-label="Selection menu"
+                                    class="anticon anticon-down ant-dropdown-trigger"
+                                    role="button"
+                                    tabindex="0"
                                   >
-                                    <span
-                                      aria-label="down"
-                                      class="anticon anticon-down"
-                                      role="img"
+                                    <svg
+                                      aria-hidden="true"
+                                      data-icon="down"
+                                      fill="currentColor"
+                                      focusable="false"
+                                      height="1em"
+                                      viewBox="64 64 896 896"
+                                      width="1em"
                                     >
-                                      <svg
-                                        aria-hidden="true"
-                                        data-icon="down"
-                                        fill="currentColor"
-                                        focusable="false"
-                                        height="1em"
-                                        viewBox="64 64 896 896"
-                                        width="1em"
-                                      >
-                                        <path
-                                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                        />
-                                      </svg>
-                                    </span>
+                                      <path
+                                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                      />
+                                    </svg>
                                   </span>
                                   <!---->
                                 </div>

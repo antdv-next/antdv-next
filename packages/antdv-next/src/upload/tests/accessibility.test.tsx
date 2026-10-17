@@ -1,7 +1,7 @@
 import type { UploadProps } from '../interface'
 
 import { mount } from '@vue/test-utils'
-import { afterEach, beforeEach, describe, expect, it } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import Upload from '..'
 import ConfigProvider from '../../config-provider'
 import zhTW from '../../locale/zh_TW'
@@ -19,6 +19,27 @@ const fileList: UploadProps['fileList'] = [
 describe('upload accessibility', () => {
   beforeEach(() => setup())
   afterEach(() => teardown())
+
+  it.each<[string, Pick<UploadProps, 'type' | 'listType'>]>([
+    ['select', {}],
+    ['drag', { type: 'drag' }],
+    ['picture-card', { listType: 'picture-card' }],
+  ])('forwards focus events from the %s layout', async (_, uploadProps) => {
+    const onFocus = vi.fn()
+
+    const wrapper = mount({
+      render: () => (
+        <Upload {...uploadProps} onFocus={onFocus}>
+          <button type="button">Upload trigger</button>
+        </Upload>
+      ),
+    }, { attachTo: document.body })
+
+    await wrapper.find('button').trigger('focusin')
+
+    expect(onFocus).toHaveBeenCalledTimes(1)
+    wrapper.unmount()
+  })
 
   it('uses the merged locale for default file actions', () => {
     const wrapper = mount({
