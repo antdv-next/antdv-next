@@ -7,6 +7,24 @@ import type { SizeType } from '../config-provider/SizeContext.tsx'
 export type RadioGroupButtonStyle = 'outline' | 'solid'
 export type RadioGroupOptionType = 'default' | 'button'
 
+export interface RadioGroupSemanticClassNames {
+  root?: string
+  item?: string
+  itemIcon?: string
+  itemLabel?: string
+}
+
+export interface RadioGroupSemanticStyles {
+  root?: CSSProperties
+  item?: CSSProperties
+  itemIcon?: CSSProperties
+  itemLabel?: CSSProperties
+}
+
+export type RadioGroupClassNamesType = SemanticClassNamesType<RadioGroupProps, RadioGroupSemanticClassNames>
+
+export type RadioGroupStylesType = SemanticStylesType<RadioGroupProps, RadioGroupSemanticStyles>
+
 export interface RadioGroupProps extends AbstractCheckboxGroupProps {
   defaultValue?: any
   value?: any
@@ -20,6 +38,8 @@ export interface RadioGroupProps extends AbstractCheckboxGroupProps {
   block?: boolean
   vertical?: boolean
   labelRender?: (params: { item: CheckboxOptionType, index: number }) => any
+  classes?: RadioGroupClassNamesType
+  styles?: RadioGroupStylesType
   'onUpdate:value'?: (value: any) => void
 }
 
@@ -49,6 +69,8 @@ export interface RadioGroupContextProps {
    */
   optionType?: RadioGroupOptionType
   block?: boolean
+  classes?: RadioSemanticClassNames
+  styles?: RadioSemanticStyles
 }
 
 export type RadioSemanticName = keyof RadioSemanticClassNames & keyof RadioSemanticStyles

@@ -9,9 +9,13 @@ import Button from './radioButton'
 export type {
   RadioChangeEvent,
   RadioEmits,
+  RadioGroupClassNamesType,
   RadioGroupEmits,
   RadioGroupOptionType,
+  RadioGroupSemanticClassNames,
+  RadioGroupSemanticStyles,
   RadioGroupSlots,
+  RadioGroupStylesType,
   RadioSlots,
 } from './interface'
 export type RadioGroupProps = InternalRadioGroupProps

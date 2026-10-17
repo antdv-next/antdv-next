@@ -94,7 +94,7 @@ Radio group can wrap a group of `Radio`.
 | --- | --- | --- | --- | --- |
 | block | Option to fit RadioGroup width to its parent width | boolean | false | - |
 | buttonStyle | The style type of radio button | `outline` \| `solid` | `outline` |  |
-| classes | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | - |
+| classes | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-group), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-group), string> | - | 1.7.0 |
 | defaultValue | Default selected value | any | - |  |
 | disabled | Disable all radio buttons | boolean | false |  |
 | name | The `name` property of all `input[type="radio"]` children. If not set, it will fallback to a randomly generated name | string | - |  |
@@ -102,7 +102,7 @@ Radio group can wrap a group of `Radio`.
 | optionType | Set Radio optionType | `default` \| `button` | `default` | - |
 | orientation | Orientation | `horizontal` \| `vertical` | `horizontal` |  |
 | size | The size of radio button style | `large` \| `medium` \| `small` | - |  |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | - |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-group), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-group), CSSProperties> | - | 1.7.0 |
 | value | Used for setting the currently selected value, support `v-model:value` | any | - |  |
 | vertical | If true, the Radio group will be vertical. Simultaneously existing with `orientation`, `orientation` takes priority | boolean | false |  |
 
@@ -136,7 +136,13 @@ Radio group can wrap a group of `Radio`.
 
 ## Semantic DOM
 
+### Radio
+
 <demo src="./demo/_semantic.vue" simplify></demo>
+
+### Radio.Group {#semantic-group}
+
+<demo src="./demo/_semantic_group.vue" simplify></demo>
 
 ## Design Token
 

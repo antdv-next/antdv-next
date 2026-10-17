@@ -61,6 +61,8 @@ Common props ref：[Common props](/docs/vue/common-props)
 | name | The `name` property of all `input[type="checkbox"]` children | string | - | - |
 | value | Used for setting the currently selected value, support `v-model:value` | (string \| number \| boolean)\[] | \[] | - |
 | labelRender | - | (params: &#123; item: CheckboxOptionType, index: number &#125;) =&gt; any | - | - |
+| classes | Customize class for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-group), string&gt; \| (info: \{ props \})=&gt; Record&lt;[SemanticDOM](#semantic-group), string&gt; | - | 1.7.0 |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-group), CSSProperties&gt; \| (info: \{ props \})=&gt; Record&lt;[SemanticDOM](#semantic-group), CSSProperties&gt; | - | 1.7.0 |
 
 #### Events {#checkboxgroup-events}
 
@@ -76,7 +78,13 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 ## Semantic DOM {#semantic-dom}
 
+### Checkbox
+
 <demo src="./demo/_semantic.vue" simplify></demo>
+
+### Checkbox.Group {#semantic-group}
+
+<demo src="./demo/_semantic_group.vue" simplify></demo>
 
 ## Design Token
 

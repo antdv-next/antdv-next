@@ -5,7 +5,7 @@ import type { ComponentBaseProps } from '../config-provider/context'
 import VcCheckbox from '@v-c/checkbox'
 import { clsx } from '@v-c/util'
 import { omit } from 'es-toolkit'
-import { computed, defineComponent, nextTick, shallowRef, watch } from 'vue'
+import { computed, defineComponent, nextTick, shallowRef, toRef, watch } from 'vue'
 import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { isValueEqual } from '../_util/isEqual'
 import isNonNullable from '../_util/isNonNullable.ts'
@@ -168,11 +168,18 @@ const InternalCheckbox = defineComponent<
     })
 
     const contextStyleRoot = useSemanticRootStyle(contextStyle)
+    // Group semantic `item*` config flows to children; getter refs avoid extra computed per checkbox
+    const groupClassNames = toRef(() => (props.skipGroup ? undefined : checkboxGroup?.value?.classes))
+    const groupStyles = toRef(() => (props.skipGroup ? undefined : checkboxGroup?.value?.styles))
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       CheckboxClassNamesType,
       CheckboxStylesType,
       CheckboxProps
-    >(useToArr(contextClassNames, classes), useToArr(contextStyles, contextStyleRoot as any, styles), useToProps(mergedProps))
+    >(
+      useToArr(contextClassNames, groupClassNames, classes),
+      useToArr(contextStyles, contextStyleRoot as any, groupStyles, styles),
+      useToProps(mergedProps),
+    )
 
     const checkboxRef = shallowRef()
     if (isDev) {

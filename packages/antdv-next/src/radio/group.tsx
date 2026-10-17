@@ -1,13 +1,21 @@
 import type { SlotsType } from 'vue'
-import type { RadioChangeEvent, RadioGroupEmits, RadioGroupProps, RadioGroupSlots } from './interface'
+import type {
+  RadioChangeEvent,
+  RadioGroupClassNamesType,
+  RadioGroupEmits,
+  RadioGroupProps,
+  RadioGroupSlots,
+  RadioGroupStylesType,
+} from './interface'
 import { clsx } from '@v-c/util'
 import pickAttrs from '@v-c/util/dist/pickAttrs'
 import { filterEmpty } from '@v-c/util/dist/props-util'
-import { computed, defineComponent, ref, useId, watch } from 'vue'
-import { getAttrStyleAndClass, useOrientation } from '../_util/hooks'
+import { computed, defineComponent, ref, toRef, useId, watch } from 'vue'
+import { getAttrStyleAndClass, useMergeSemantic, useOrientation, useToArr, useToProps } from '../_util/hooks'
 import { toPropsRefs } from '../_util/tools.ts'
 import { checkRenderNode } from '../_util/vueNode.ts'
 import { useComponentBaseConfig } from '../config-provider/context'
+import { useDisabledContext } from '../config-provider/DisabledContext'
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
 import { useSize } from '../config-provider/hooks/useSize.ts'
 import { useFormItemContext, useFormItemInputContext } from '../form/context'
@@ -73,7 +81,32 @@ const RadioGroup = defineComponent<
     const rootCls = useCSSVarCls(prefixCls)
     const [hashId, cssVarCls] = useStyle(prefixCls, rootCls)
     const mergedSize = useSize(customizeSize)
-    const [, mergedVertical] = useOrientation(orientation, vertical)
+    const [mergedOrientation, mergedVertical] = useOrientation(orientation, vertical)
+
+    // =========== Merged Props for Semantic ==========
+    const contextDisabled = useDisabledContext()
+    const mergedProps = computed(() => ({
+      ...props,
+      value: value.value,
+      disabled: props.disabled ?? contextDisabled.value,
+      size: mergedSize.value,
+      buttonStyle: props.buttonStyle,
+      block: props.block,
+      name: name.value,
+      optionType: props.optionType ?? 'default',
+      orientation: mergedOrientation.value,
+      vertical: mergedVertical.value,
+    }) as RadioGroupProps)
+
+    const [mergedClassNames, mergedStyles] = useMergeSemantic<
+      RadioGroupClassNamesType,
+      RadioGroupStylesType,
+      RadioGroupProps
+    >(
+      useToArr(toRef(() => props.classes)),
+      useToArr(toRef(() => props.styles)),
+      useToProps(mergedProps),
+    )
 
     const memoizedValue = computed(() => {
       return {
@@ -83,6 +116,16 @@ const RadioGroup = defineComponent<
         name: name.value,
         optionType: props?.optionType,
         block: props?.block,
+        classes: {
+          root: mergedClassNames.value.item,
+          icon: mergedClassNames.value.itemIcon,
+          label: mergedClassNames.value.itemLabel,
+        },
+        styles: {
+          root: mergedStyles.value.item,
+          icon: mergedStyles.value.itemIcon,
+          label: mergedStyles.value.itemLabel,
+        },
       }
     })
     useRadioGroupContextProvider(memoizedValue)
@@ -103,6 +146,7 @@ const RadioGroup = defineComponent<
         },
         className,
         rootClass,
+        mergedClassNames.value.root,
         hashId.value,
         cssVarCls.value,
         rootCls.value,
@@ -158,7 +202,7 @@ const RadioGroup = defineComponent<
           class={clsx(classString, {
             [`${prefixCls.value}-group-vertical`]: mergedVertical.value,
           })}
-          style={style}
+          style={[mergedStyles.value.root, style]}
           onMouseenter={(e) => {
             emit('mouseenter', e)
           }}

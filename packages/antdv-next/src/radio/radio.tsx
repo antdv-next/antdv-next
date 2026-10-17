@@ -12,7 +12,7 @@ import VcCheckbox from '@v-c/checkbox'
 import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
-import { computed, defineComponent, shallowRef } from 'vue'
+import { computed, defineComponent, shallowRef, toRef } from 'vue'
 import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { toPropsRefs } from '../_util/tools'
 import { checkRenderNode } from '../_util/vueNode.ts'
@@ -119,11 +119,18 @@ const InternalRadio = defineComponent<
     })
 
     const contextStyleRoot = useSemanticRootStyle(contextStyle)
+    // Group semantic `item*` config flows to children; getter refs avoid extra computed per radio
+    const groupClassNames = toRef(() => groupContext?.value?.classes)
+    const groupStyles = toRef(() => groupContext?.value?.styles)
     const [mergedClassNames, mergedStyles] = useMergeSemantic<
       SemanticClassNamesType<RadioProps, RadioSemanticClassNames>,
       SemanticStylesType<RadioProps, RadioSemanticStyles>,
       RadioProps
-    >(useToArr(contextClassNames, classes), useToArr(contextStyles, contextStyleRoot as any, styles), useToProps(mergedProps))
+    >(
+      useToArr(contextClassNames, groupClassNames, classes),
+      useToArr(contextStyles, contextStyleRoot as any, groupStyles, styles),
+      useToProps(mergedProps),
+    )
 
     // ============================ Event Lock ============================
     const [onLabelClick, onInputClick] = useBubbleLock((e) => {
