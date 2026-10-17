@@ -6,7 +6,16 @@ import CheckboxGroup from './Group'
 
 export type { CheckboxEmits, CheckboxProps, CheckboxSlots } from './Checkbox'
 
-export type { CheckboxGroupEmits, CheckboxGroupProps, CheckboxGroupSlots, CheckboxOptionType } from './Group'
+export type {
+  CheckboxGroupClassNamesType,
+  CheckboxGroupEmits,
+  CheckboxGroupProps,
+  CheckboxGroupSemanticClassNames,
+  CheckboxGroupSemanticStyles,
+  CheckboxGroupSlots,
+  CheckboxGroupStylesType,
+  CheckboxOptionType,
+} from './Group'
 
 export { CheckboxGroup }
 ;(Checkbox as any).install = (app: App) => {

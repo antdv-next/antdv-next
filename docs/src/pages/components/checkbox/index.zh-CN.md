@@ -62,6 +62,8 @@ demo:
 | name | CheckboxGroup 下所有 `input[type="checkbox"]` 的 `name` 属性 | string | - | - |
 | value | 指定选中的选项，支持 `v-model:value` | (string \| number \| boolean)\[] | \[] | - |
 | labelRender | - | (params: &#123; item: CheckboxOptionType, index: number &#125;) =&gt; any | - | - |
+| classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-group), string&gt; \| (info: \{ props \})=&gt; Record&lt;[SemanticDOM](#semantic-group), string&gt; | - | 1.7.0 |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-group), CSSProperties&gt; \| (info: \{ props \})=&gt; Record&lt;[SemanticDOM](#semantic-group), CSSProperties&gt; | - | 1.7.0 |
 
 #### 事件 {#checkboxgroup-events}
 
@@ -77,7 +79,13 @@ demo:
 
 ## 语义化 DOM {#semantic-dom}
 
+### Checkbox
+
 <demo src="./demo/_semantic.vue" simplify></demo>
+
+### Checkbox.Group {#semantic-group}
+
+<demo src="./demo/_semantic_group.vue" simplify></demo>
 
 ## 主题变量（Design Token） {#design-token}
 
