@@ -45,7 +45,7 @@ import useLocale from '../locale/useLocale.ts'
 import Pagination from '../pagination'
 import Spin from '../spin'
 import { useToken } from '../theme/internal'
-import renderExpandIcon from './ExpandIcon.tsx'
+import createExpandIcon from './ExpandIcon.tsx'
 import useColumnTitleProps from './hooks/useColumnTitleProps.ts'
 import useContainerWidth from './hooks/useContainerWidth.ts'
 import useFilledColumns from './hooks/useFilledColumns.ts'
@@ -290,7 +290,8 @@ const InternalTable = defineComponent<
       rowKey: contextRowKey,
       scroll: contextScroll,
       column: contextColumn,
-    } = useComponentBaseConfig('table', props, ['bodyCell', 'headerCell', 'rowKey', 'scroll', 'column'])
+      expandable: contextExpandable,
+    } = useComponentBaseConfig('table', props, ['bodyCell', 'headerCell', 'rowKey', 'scroll', 'column', 'expandable'])
 
     const configCtx = useConfig()
 
@@ -304,20 +305,6 @@ const InternalTable = defineComponent<
       ariaProps: ariaProps.value,
       component: props.components?.header?.table,
     })))
-    const mergedComponents = computed(() => {
-      const components = props.components
-      if (!hasAriaProps.value) {
-        return components
-      }
-      return {
-        ...components,
-        header: {
-          ...components?.header,
-          table: HeaderTable,
-        },
-      } as typeof components
-    })
-
     const { classes, styles } = toPropsRefs(props, 'classes', 'styles')
 
     const mergedSize = useSize(computed(() => props.size))
@@ -755,15 +742,30 @@ const InternalTable = defineComponent<
       }
       return null
     })
+    if (isDev) {
+      const warning = devUseWarning('Table')
+      warning.deprecated(!props.expandable?.expandIcon, 'expandable.expandIcon', 'components.ExpandIcon')
+    }
+
+    // Row icons fall back to legacy renderers: slot > `expandable.expandIcon` > legacy `expandIcon` prop > ConfigProvider
+    const MergedExpandIcon = createExpandIcon(
+      () => mergedLocale.value,
+      () => props.components?.ExpandIcon,
+      () => [mergedExpandable.value.expandIcon, contextExpandable.value?.expandIcon],
+    )
+
     const mergedExpandableConfig = computed(() => {
       const expandable = { ...mergedExpandable.value }
+      // Pass origin render status into `@v-c/table`.
+      // We only check when origin props use the expand icon.
       ;(expandable as any).__PARENT_RENDER_ICON__ = expandable.expandIcon
 
       if (renderExpandedRow) {
         expandable.expandedRowRender = renderExpandedRow as any
       }
 
-      expandable.expandIcon = expandable.expandIcon || renderExpandIcon(mergedLocale.value)
+      // Remove legacy expand icon to use the merged `components.ExpandIcon`
+      expandable.expandIcon = undefined
 
       if (expandType.value === 'nest' && expandable.expandIconColumnIndex === undefined) {
         expandable.expandIconColumnIndex = mergedRowSelection.value ? 1 : 0
@@ -777,6 +779,24 @@ const InternalTable = defineComponent<
       }
 
       return expandable
+    })
+
+    // ========================== Components ==========================
+    const mergedComponents = computed(() => {
+      let components = props.components
+      if (hasAriaProps.value) {
+        components = {
+          ...components,
+          header: {
+            ...components?.header,
+            table: HeaderTable,
+          },
+        } as typeof components
+      }
+      return {
+        ...components,
+        ExpandIcon: MergedExpandIcon,
+      } as typeof components
     })
     const measureRowRender = (measureRow: any) => (
       <TableMeasureRowContextProvider value={true}>

@@ -33,6 +33,8 @@ const localeValues: Locale = {
     sortTitle: 'Zoradiť',
     expand: 'Rozbaliť riadok',
     collapse: 'Zbaliť riadok',
+    expandAll: 'Rozbaliť všetky riadky',
+    collapseAll: 'Zbaliť všetky riadky',
     triggerDesc: 'Kliknutím zoradíš zostupne',
     triggerAsc: 'Kliknutím zoradíš vzostupne',
     cancelSort: 'Kliknutím zrušíš zoradenie',

@@ -17,6 +17,7 @@ const localeValues: Locale = {
     placeholder: 'Please select',
     close: 'Close',
     sortable: 'sortable',
+    clear: 'Clear',
   },
   Table: {
     filterTitle: 'Filter menu',
@@ -33,6 +34,8 @@ const localeValues: Locale = {
     sortTitle: 'Sort',
     expand: 'Expand row',
     collapse: 'Collapse row',
+    expandAll: 'Expand all rows',
+    collapseAll: 'Collapse all rows',
     triggerDesc: 'Click to sort descending',
     triggerAsc: 'Click to sort ascending',
     cancelSort: 'Click to cancel sorting',

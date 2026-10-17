@@ -33,6 +33,8 @@ const localeValues: Locale = {
     sortTitle: 'Sırala',
     expand: 'Sıranı genişləndir',
     collapse: 'Sıranı qapadın',
+    expandAll: 'Bütün sətirləri genişləndir',
+    collapseAll: 'Bütün sətirləri yığ',
     triggerDesc: 'Azalan sıralama üçün klik edin',
     triggerAsc: 'Artan sıralama üçün klik edin',
     cancelSort: 'Sıralamayı ləğv edin',

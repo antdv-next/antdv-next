@@ -39,6 +39,8 @@ export interface TableLocale {
   sortTitle?: string
   expand?: string
   collapse?: string
+  expandAll?: string
+  collapseAll?: string
   triggerDesc?: string
   triggerAsc?: string
   cancelSort?: string

@@ -31,6 +31,7 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
 import { useSize } from '../config-provider/hooks/useSize'
 import { useFormItemInputContext } from '../form/context'
 import { useVariants } from '../form/hooks/useVariant'
+import { useLocaleGetter } from '../locale/useLocale'
 import mergedBuiltinPlacements from '../select/mergedBuiltinPlacements'
 import useSelectStyle from '../select/style'
 import useSelectIcons from '../select/useIcons'
@@ -253,6 +254,7 @@ const InternalCascader = defineComponent<
       removeIcon: contextRemoveIcon,
       suffixIcon: contextSuffixIcon,
     } = useComponentBaseConfig('cascader', props, ['expandIcon', 'loadingIcon', 'searchIcon', 'clearIcon', 'removeIcon', 'suffixIcon'])
+    const getGlobalLocale = useLocaleGetter('global')
     // contextSearchIcon is consumed downstream by useShowSearch; reserved for future inline search icon wiring
     void _contextSearchIcon
     const {
@@ -470,7 +472,14 @@ const InternalCascader = defineComponent<
       } as any)
 
       const mergedClearIcon = (rest as any).clearIcon ?? contextClearIcon.value ?? clearIcon
-      const mergedAllowClear = (allowClear ?? true) === true ? { clearIcon: mergedClearIcon } : allowClear
+      const finalAllowClear = allowClear ?? true
+      const mergedAllowClear = finalAllowClear
+        ? {
+            clearIcon: mergedClearIcon,
+            label: getGlobalLocale().clear,
+            ...(typeof finalAllowClear === 'object' ? finalAllowClear : {}),
+          }
+        : finalAllowClear
 
       const mergedPopupRender = usePopupRender((slots.popupRender ?? popupRender) || dropdownRender)
       const mergedPopupMenuColumnStyle = popupMenuColumnStyle ?? dropdownMenuColumnStyle

@@ -1,6 +1,8 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { h, nextTick, ref } from 'vue'
 import Table from '..'
+import { resetWarned } from '../../_util/warning'
+import ConfigProvider from '../../config-provider'
 import { mount } from '/@tests/utils'
 
 const columns = [
@@ -451,5 +453,193 @@ describe('table expand', () => {
     await wrapper.find('.ant-table-row-expand-icon').trigger('click')
     await nextTick()
     expect(onUpdate).toHaveBeenCalled()
+  })
+
+  // ====================== Expand all ======================
+  describe('expand all', () => {
+    const expandedRowRender = () => h('div', 'Expanded content')
+    const deprecatedWarning = 'Warning: [antd: Table] `expandable.expandIcon` is deprecated. Please use `components.ExpandIcon` instead.'
+    let errSpy: ReturnType<typeof vi.spyOn>
+
+    beforeEach(() => {
+      resetWarned()
+      errSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
+    })
+
+    afterEach(() => {
+      errSpy.mockRestore()
+    })
+
+    it('expands and collapses all rows on the current page', async () => {
+      const onExpandAll = vi.fn()
+      const onExpandedRowsChange = vi.fn()
+      const columnTitle = vi.fn(({ expandIcon }: any) => (
+        <div class="expand-column-title">
+          {expandIcon}
+          <span>Details</span>
+        </div>
+      ))
+      const wrapper = mount(() => (
+        <Table
+          columns={columns}
+          dataSource={data}
+          locale={{ collapseAll: 'Collapse current page', expandAll: 'Expand current page' }}
+          pagination={{ pageSize: 2 }}
+          expandable={{
+            columnTitle,
+            expandedRowRender,
+            onExpandAll,
+            onExpandedRowsChange,
+            showExpandAll: true,
+          }}
+        />
+      ))
+
+      const getExpandAllIcon = () => wrapper.find('thead .ant-table-row-expand-icon')
+      expect(columnTitle).toHaveBeenCalledWith({ expandIcon: expect.anything() })
+      expect(wrapper.find('.expand-column-title').text()).toContain('Details')
+      expect(getExpandAllIcon().attributes('aria-label')).toBe('Expand current page')
+      expect(getExpandAllIcon().attributes('aria-expanded')).toBe('false')
+      expect(getExpandAllIcon().classes()).toContain('ant-table-row-expand-icon-collapsed')
+
+      await getExpandAllIcon().trigger('click')
+      expect(getExpandAllIcon().attributes('aria-label')).toBe('Collapse current page')
+      expect(getExpandAllIcon().attributes('aria-expanded')).toBe('true')
+      expect(getExpandAllIcon().classes()).toContain('ant-table-row-expand-icon-expanded')
+      expect(wrapper.findAll('.ant-table-expanded-row')).toHaveLength(2)
+      expect(onExpandAll).toHaveBeenLastCalledWith(true)
+      expect(onExpandedRowsChange).toHaveBeenLastCalledWith(['1', '2'])
+
+      await getExpandAllIcon().trigger('click')
+      expect(getExpandAllIcon().attributes('aria-expanded')).toBe('false')
+      expect(onExpandAll).toHaveBeenLastCalledWith(false)
+      expect(onExpandedRowsChange).toHaveBeenLastCalledWith([])
+      expect(errSpy).not.toHaveBeenCalled()
+    })
+
+    it.each([false, true])('uses components.ExpandIcon with legacy icon: %s', async (withLegacyIcon) => {
+      const CustomExpandIcon = ({ type, record, expanded, expandable, onClick }: any) => (
+        <button
+          type="button"
+          class={type === 'all' ? 'custom-expand-all-icon' : 'custom-expand-row-icon'}
+          data-record-key={type === 'row' ? record.key : undefined}
+          aria-expanded={expanded}
+          disabled={!expandable}
+          onClick={onClick}
+        />
+      )
+      const wrapper = mount(() => (
+        <Table
+          columns={columns}
+          dataSource={data.slice(0, 2)}
+          pagination={false}
+          components={{ ExpandIcon: CustomExpandIcon }}
+          expandable={{
+            expandedRowRender,
+            expandIcon: withLegacyIcon ? () => <span class="legacy-expand-icon" /> : undefined,
+            showExpandAll: true,
+          }}
+        />
+      ))
+
+      expect(wrapper.find('thead .custom-expand-all-icon').exists()).toBe(true)
+      expect(wrapper.findAll('tbody .custom-expand-row-icon')).toHaveLength(2)
+      expect(wrapper.find('.legacy-expand-icon').exists()).toBe(false)
+
+      await wrapper.find('.custom-expand-all-icon').trigger('click')
+      expect(wrapper.findAll('.ant-table-expanded-row')).toHaveLength(2)
+
+      if (withLegacyIcon) {
+        expect(errSpy).toHaveBeenCalledWith(deprecatedWarning)
+      }
+      else {
+        expect(errSpy).not.toHaveBeenCalled()
+      }
+    })
+
+    it('keeps expandable.expandIcon as a row-only fallback', async () => {
+      const wrapper = mount(() => (
+        <Table
+          columns={columns}
+          dataSource={data.slice(0, 2)}
+          pagination={false}
+          expandable={{
+            expandedRowRender,
+            expandIcon: ({ onExpand, record }: any) => (
+              <button
+                type="button"
+                class="legacy-expand-icon"
+                onClick={(event: MouseEvent) => onExpand(record, event)}
+              />
+            ),
+            showExpandAll: true,
+          }}
+        />
+      ))
+
+      expect(wrapper.find('thead .ant-table-row-expand-icon').exists()).toBe(true)
+      expect(wrapper.find('thead .legacy-expand-icon').exists()).toBe(false)
+      expect(wrapper.findAll('tbody .legacy-expand-icon')).toHaveLength(2)
+      expect(errSpy).toHaveBeenCalledWith(deprecatedWarning)
+
+      await wrapper.find('tbody .legacy-expand-icon').trigger('click')
+      expect(wrapper.findAll('.ant-table-expanded-row')).toHaveLength(1)
+    })
+
+    it('uses ConfigProvider expandable.expandIcon for rows', async () => {
+      const wrapper = mount(() => (
+        <ConfigProvider
+          table={{
+            expandable: {
+              expandIcon: ({ onExpand, record }: any) => (
+                <button type="button" class="config-expand-icon" onClick={(e: MouseEvent) => onExpand(record, e)} />
+              ),
+            },
+          }}
+        >
+          <Table columns={columns} dataSource={data.slice(0, 2)} pagination={false} expandable={{ expandedRowRender }} />
+        </ConfigProvider>
+      ))
+
+      expect(wrapper.findAll('tbody .config-expand-icon')).toHaveLength(2)
+      await wrapper.find('tbody .config-expand-icon').trigger('click')
+      expect(wrapper.findAll('.ant-table-expanded-row')).toHaveLength(1)
+      expect(errSpy).not.toHaveBeenCalled()
+    })
+
+    it('keeps expand-all icon when aria props re-apply the scroll header table', () => {
+      const wrapper = mount(() => (
+        <Table
+          aria-label="Users"
+          columns={columns}
+          dataSource={data}
+          pagination={false}
+          scroll={{ y: 100 }}
+          expandable={{ expandedRowRender, showExpandAll: true }}
+        />
+      ))
+
+      expect(wrapper.find('.ant-table-header table').attributes('aria-label')).toBe('Users')
+      expect(wrapper.find('thead .ant-table-row-expand-icon').attributes('aria-label')).toBe('Expand all rows')
+    })
+
+    it('renders a spaced header icon when no rows are expandable', () => {
+      const wrapper = mount(() => (
+        <Table
+          columns={columns}
+          dataSource={data.slice(0, 1)}
+          expandable={{
+            expandedRowRender,
+            rowExpandable: () => false,
+            showExpandAll: true,
+          }}
+        />
+      ))
+
+      expect(
+        wrapper.find('thead span.ant-table-row-expand-icon.ant-table-row-expand-icon-spaced').exists(),
+      ).toBe(true)
+      expect(wrapper.find('thead button.ant-table-row-expand-icon').exists()).toBe(false)
+    })
   })
 })

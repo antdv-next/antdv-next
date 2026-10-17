@@ -33,4 +33,16 @@ function useLocale<C extends LocaleComponentName = LocaleComponentName>(
   return [getLocale, getLocaleCode] as const
 }
 
+/**
+ * Lightweight variant of `useLocale` that allocates no computed: returns a getter
+ * to read merged locale data during render. Prefer it in high-instance-count components.
+ */
+export function useLocaleGetter<C extends LocaleComponentName = LocaleComponentName>(componentName: C) {
+  const { locale: fullLocale } = useLocaleContext()
+  return (): NonNullable<Locale[C]> => ({
+    ...(defaultLocaleData[componentName] as any),
+    ...(fullLocale.value?.[componentName] as any),
+  })
+}
+
 export default useLocale

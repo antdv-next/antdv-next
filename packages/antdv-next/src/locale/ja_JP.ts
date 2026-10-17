@@ -33,6 +33,8 @@ const localeValues: Locale = {
     sortTitle: 'ソート',
     expand: '展開する',
     collapse: '折り畳む',
+    expandAll: 'すべての行を展開する',
+    collapseAll: 'すべての行を折り畳む',
     triggerDesc: 'クリックで降順にソート',
     triggerAsc: 'クリックで昇順にソート',
     cancelSort: 'ソートをキャンセル',

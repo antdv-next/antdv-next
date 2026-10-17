@@ -30,6 +30,7 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
 import { useSize } from '../config-provider/hooks/useSize'
 import { useFormItemInputContext } from '../form/context'
 import { useVariants } from '../form/hooks/useVariant'
+import { useLocaleGetter } from '../locale/useLocale'
 import { useCompactItemContext } from '../space/Compact'
 import { useToken } from '../theme/internal'
 import mergedBuiltinPlacements from './mergedBuiltinPlacements'
@@ -282,6 +283,7 @@ const Select = defineComponent<
       prefixCls,
       allowClear: contextAllowClear,
     } = useComponentBaseConfig('select', props, ['showSearch', 'allowClear'])
+    const getGlobalLocale = useLocaleGetter('global')
     const {
       listItemHeight: customListItemHeight,
       direction: propDirection,
@@ -483,7 +485,13 @@ const Select = defineComponent<
       } as any)
 
       const finalAllowClear = allowClear ?? contextAllowClear.value
-      const mergedAllowClear = finalAllowClear === true ? { clearIcon } : finalAllowClear
+      const mergedAllowClear = finalAllowClear
+        ? {
+            clearIcon,
+            label: getGlobalLocale().clear,
+            ...(typeof finalAllowClear === 'object' ? finalAllowClear : {}),
+          }
+        : finalAllowClear
 
       // Forward only props that are set: every undefined key costs a normalisation
       // pass in @v-c/select and each layer below it.
