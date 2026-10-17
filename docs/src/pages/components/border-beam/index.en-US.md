@@ -42,11 +42,21 @@ Common props ref：[Common props](/docs/vue/common-props)
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | color | Beam color configuration. Supports a single color string or gradient stops. `percent` uses the `0 ~ 100` input range and BorderBeam reserves tail space for the transparent fade | `string \| { color: string, percent: number }[]` | - | - | × |
-| count | Number of beams | number | 1 | - | × |
+| count | Number of evenly distributed beams. It should be a positive integer | number | 1 | - | × |
 | duration | Time in seconds for the beam to complete one loop | number | 6 | - | × |
+| items | Per-beam configurations. The array length determines the number of beams and takes precedence over `count`. Omitted item properties inherit the top-level `color`, `lineWidth`, `outset`, and `size` | [BorderBeamItem](#borderbeamitem)\[] | - | 1.7.0 | × |
 | lineWidth | Width of the beam line. Numbers are treated as pixels | `number \| string` | `1px` | - | × |
 | outset | Outset distance of the beam layer from the container edge. Set to `0` for clipped containers | `number \| string` | - | - | × |
 | size | Size of the visible beam segment. Numbers are treated as pixels | `number \| string` | 100 | - | × |
+
+### BorderBeamItem
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| color | Color configuration for this beam | `string \| { color: string, percent: number }[]` | - | 1.7.0 |
+| lineWidth | Line width for this beam. Numbers are treated as pixels | `number \| string` | - | 1.7.0 |
+| outset | Outset distance for this beam | `number \| string` | - | 1.7.0 |
+| size | Size of this beam's visible segment. Numbers are treated as pixels | `number \| string` | - | 1.7.0 |
 
 ### Slots
 

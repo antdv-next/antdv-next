@@ -2201,6 +2201,27 @@ exports[`typography demo > renders ellipsis-middle correctly 1`] = `
 </div>
 `;
 
+exports[`typography demo > renders shimmer correctly 1`] = `
+<div
+  data-v-app=""
+>
+  <span
+    aria-busy="true"
+    class="ant-typography ant-typography-shimmer css-var-root"
+    style="--ant-typography-shimmer-motion-time: 1; --ant-typography-shimmer-wait-time: 1;"
+  >
+    <!---->
+     Thinking... 
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+    <!---->
+  </span>
+</div>
+`;
+
 exports[`typography demo > renders suffix correctly 1`] = `
 <div>
   <div

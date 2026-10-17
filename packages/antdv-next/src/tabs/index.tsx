@@ -268,6 +268,14 @@ const InternalTabs = defineComponent<
         'destroyOnHidden',
       )
       // warning.deprecated(!slots.default, 'Tabs.TabPane', 'items')
+      if (more.value) {
+        ;([
+          ['visible', 'open'],
+          ['onVisibleChange', 'onOpenChange'],
+        ] as const).forEach(([deprecatedName, newName]) => {
+          warning.deprecated(!(deprecatedName in more.value!), `more.${deprecatedName}`, `more.${newName}`)
+        })
+      }
     }
 
     const rootCls = useCSSVarCls(prefixCls)
@@ -305,16 +313,24 @@ const InternalTabs = defineComponent<
 
       const mergedMoreFn = () => {
         const rootPrefixCls = getPrefixCls()
+        const { visible: moreVisible, ...restMoreProps } = (more.value ?? {}) as MoreProps
+        // Map deprecated `visible` to `open`. `onVisibleChange` is still invoked by `@v-c/dropdown`
+        // directly, so it is passed through instead of being merged into `onOpenChange`.
+        const legacyMoreProps = more.value && !('open' in more.value) && 'visible' in more.value
+          ? { open: moreVisible }
+          : {}
         if (!rootPrefixCls) {
           return {
             icon: moreIcon,
-            ...more.value,
+            ...restMoreProps,
+            ...legacyMoreProps,
           }
         }
         return {
           icon: moreIcon,
           transitionName: `${rootPrefixCls}-slide-up`,
-          ...more.value,
+          ...restMoreProps,
+          ...legacyMoreProps,
         }
       }
 

@@ -6,7 +6,7 @@ export default function useMergedConfig<Target>(propConfig: any, templateConfig?
   const config = computed<Target>(() => {
     const current = unref(propConfig)
     return {
-      ...templateConfig,
+      ...(support.value ? templateConfig : null),
       ...(support.value && typeof current === 'object' ? current : null),
     } as Target
   })

@@ -43,11 +43,21 @@ tag: 1.3.0
 | 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | color | 流光颜色配置，支持单色字符串或渐变停靠点数组。`percent` 使用 `0 ~ 100` 的输入区间，组件会在内部为尾部透明过渡预留空间 | `string \| { color: string, percent: number }[]` | - | - | × |
-| count | 流光数量 | number | 1 | - | × |
+| count | 均匀分布的流光数量，应为正整数 | number | 1 | - | × |
 | duration | 流光完成一圈动画的时间，单位秒 | number | 6 | - | × |
+| items | 每条流光的配置。数组长度决定流光数量，并且优先于 `count`。数组项未设置的属性会继承顶层的 `color`、`lineWidth`、`outset` 和 `size` | [BorderBeamItem](#borderbeamitem)\[] | - | 1.7.0 | × |
 | lineWidth | 流光线宽，数字类型按像素处理 | `number \| string` | `1px` | - | × |
 | outset | 流光层相对容器边缘的外扩距离，遇到裁剪容器时可设为 `0` | `number \| string` | - | - | × |
 | size | 流光可见段的尺寸，数字类型按像素处理 | `number \| string` | 100 | - | × |
+
+### BorderBeamItem {#borderbeamitem}
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| color | 当前流光的颜色配置 | `string \| { color: string, percent: number }[]` | - | 1.7.0 |
+| lineWidth | 当前流光的线宽，数字类型按像素处理 | `number \| string` | - | 1.7.0 |
+| outset | 当前流光相对容器边缘的外扩距离 | `number \| string` | - | 1.7.0 |
+| size | 当前流光可见段的尺寸，数字类型按像素处理 | `number \| string` | - | 1.7.0 |
 
 ### 插槽 {#slots}
 

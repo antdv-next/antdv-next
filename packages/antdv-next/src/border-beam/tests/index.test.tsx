@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils'
-import { afterEach, describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import { defineComponent, h, nextTick } from 'vue'
+import { resetWarned } from '../../_util/warning'
 import BorderBeam from '../index'
 import { getBorderBeamGradient, MAX_BEAM_COLOR_STOP_PERCENT } from '../util'
 import mountTest from '/@tests/shared/mountTest'
@@ -85,6 +86,55 @@ describe('borderBeam', () => {
     ).toEqual(['', '-4s', '-8s'])
 
     multiple.unmount()
+  })
+
+  // https://github.com/ant-design/ant-design/pull/59095
+  it('should prioritize items over count and support configuring individual beams', async () => {
+    resetWarned()
+    const warningSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
+    const wrapper = renderWith({
+      color: '#1677ff',
+      count: 4,
+      duration: 12,
+      items: [{ color: '#36cfc9', lineWidth: 3, outset: 4, size: 60 }, {}],
+      lineWidth: 2,
+      outset: 1,
+      size: 80,
+    })
+    await nextTick()
+    await nextTick()
+
+    const beams = document.querySelectorAll<HTMLElement>('.host .ant-border-beam')
+    expect(beams).toHaveLength(2)
+    expect(
+      Array.from(beams, beam => ({
+        color: beam.style.getPropertyValue('--ant-border-beam-beam-gradient'),
+        lineWidth: beam.style.getPropertyValue('--ant-border-beam-line-width'),
+        outset: beam.style.getPropertyValue('--ant-border-beam-inset-offset'),
+        size: beam.style.getPropertyValue('--ant-border-beam-size'),
+        delay: beam.style.getPropertyValue('--ant-border-beam-delay'),
+      })),
+    ).toEqual([
+      {
+        color: 'linear-gradient(to left, #36cfc9 0%, #36cfc9 70%, transparent)',
+        lineWidth: '3px',
+        outset: '-4px',
+        size: '60px',
+        delay: '',
+      },
+      {
+        color: 'linear-gradient(to left, #1677ff 0%, #1677ff 70%, transparent)',
+        lineWidth: '2px',
+        outset: '-1px',
+        size: '80px',
+        delay: '-6s',
+      },
+    ])
+    expect(warningSpy).toHaveBeenCalledWith(
+      'Warning: [antd: BorderBeam] `count` is ignored when `items` is provided.',
+    )
+    warningSpy.mockRestore()
+    wrapper.unmount()
   })
 
   it('normalizes invalid or fractional count values', async () => {
