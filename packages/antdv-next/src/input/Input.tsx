@@ -1,6 +1,7 @@
 import type { InputProps as VcInputProps, InputRef as VcInputRef } from '@v-c/input'
 import type { CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
+import type { AllowClear } from '../_util/hooks/useAllowClear'
 import type { InputStatus } from '../_util/statusUtils'
 import type { VueNode } from '../_util/type'
 import type { ComponentBaseProps, Variant } from '../config-provider/context'
@@ -10,7 +11,6 @@ import { clsx } from '@v-c/util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, shallowRef } from 'vue'
 import { ContextIsolator } from '../_util/ContextIsolator.tsx'
-import getAllowClear from '../_util/getAllowClear'
 import {
   getAttrStyleAndClass,
   useMergeSemantic,
@@ -18,6 +18,7 @@ import {
   useToArr,
   useToProps,
 } from '../_util/hooks'
+import useAllowClear, { useAllowClearLabel } from '../_util/hooks/useAllowClear'
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { devUseWarning, isDev } from '../_util/warning'
@@ -74,7 +75,7 @@ interface BaseVcInputProps {
   components?: VcInputProps['components']
   prefix?: VueNode
   suffix?: VueNode
-  allowClear?: VcInputProps['allowClear']
+  allowClear?: AllowClear
   changeOnComposing?: VcInputProps['changeOnComposing']
   autoFocus?: boolean
   inputMode?: string
@@ -247,9 +248,12 @@ const InternalInput = defineComponent<
 
     const removePasswordTimeout = useRemovePasswordTimeout(inputRef, true)
 
-    const mergedAllowClear = computed(() => {
-      return getAllowClear(props.allowClear ?? contextAllowClear.value)
-    })
+    const getClearLabel = useAllowClearLabel()
+    const mergedAllowClear = computed(() => useAllowClear({
+      allowClear: props.allowClear,
+      contextAllowClear: contextAllowClear.value,
+      defaultLabel: getClearLabel(),
+    }))
 
     const mergedAutoComplete = computed(() => props.autoComplete ?? props.autocomplete ?? contextAutoComplete.value ?? contextAutocomplete.value)
     const mergedChangeOnComposing = computed(() => props.changeOnComposing ?? contextChangeOnComposing.value)
@@ -410,7 +414,7 @@ const InternalInput = defineComponent<
           classNames={classNames as any}
           styles={mergedStyles.value as any}
           disabled={mergedDisabled.value}
-          allowClear={mergedAllowClear.value}
+          allowClear={mergedAllowClear.value as VcInputProps['allowClear']}
           autoComplete={mergedAutoComplete.value}
           changeOnComposing={mergedChangeOnComposing.value}
           suffix={mergedSuffix}

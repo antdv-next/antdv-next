@@ -374,9 +374,6 @@ catalogs:
     '@v-c/image':
       specifier: ^1.1.2
       version: 1.1.2
-    '@v-c/input':
-      specifier: ^1.1.2
-      version: 1.1.2
     '@v-c/input-number':
       specifier: ^1.1.1
       version: 1.1.1
@@ -454,6 +451,7 @@ catalogs:
       version: 1.1.2
 
 overrides:
+  '@v-c/input': ^1.2.0
   '@v-c/notification': ^2.0.5
   '@v-c/portal': ^1.0.8
   '@v-c/resize-observer': ^1.1.3
@@ -867,8 +865,8 @@ importers:
         specifier: catalog:vc
         version: 1.1.2(vue@3.5.42(typescript@5.9.3))
       '@v-c/input':
-        specifier: catalog:vc
-        version: 1.1.2(vue@3.5.42(typescript@5.9.3))
+        specifier: ^1.2.0
+        version: 1.2.0(vue@3.5.42(typescript@5.9.3))
       '@v-c/input-number':
         specifier: catalog:vc
         version: 1.1.1(vue@3.5.42(typescript@5.9.3))
@@ -3263,8 +3261,8 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
-  '@v-c/input@1.1.2':
-    resolution: {integrity: sha512-Vcxu2MeYdjY+0xiwIZzWRH2gds4fiEKSZitbnlLQEc8fRkSU2ZzW2slDsV/DO0EUe5fZhHiVOQwZFCAEWO0BLg==}
+  '@v-c/input@1.2.0':
+    resolution: {integrity: sha512-ycgI+cEdOsyydMBetMWTeGBbGcT9r0R8LX2t9oOBScT5A81ncfdUWvjdY+V6xLF7QBXr8fw0Pz220ecp2bB/Yg==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -3310,24 +3308,6 @@ packages:
     resolution: {integrity: sha512-ckIkFWJPLndgsfMybLzae7+1Da1vJ/5OXQiLYlTpbujGPHgEHMC9zxS8JW7ZYDOdqA3AkgGpIi3PaHD8XSuVWw==}
     peerDependencies:
       vue: ^3.0.0
-
-  '@v-c/picker@1.5.1':
-    resolution: {integrity: sha512-jKBQjGTXAEum+q/z6+EKV6FekEsDY3B4RYXDQ4OJRra3njt3WV6fR/lUq6KRW2L79RgprWN+AUmqbVxAu8jtjg==}
-    peerDependencies:
-      date-fns: '>= 2.x'
-      dayjs: '>= 1.x'
-      luxon: '>= 3.x'
-      moment: '>= 2.x'
-      vue: ^3.0.0
-    peerDependenciesMeta:
-      date-fns:
-        optional: true
-      dayjs:
-        optional: true
-      luxon:
-        optional: true
-      moment:
-        optional: true
 
   '@v-c/picker@1.5.2':
     resolution: {integrity: sha512-z5yBU3Q3RaqaLcXHDFVB/M2B392jR1szx35LnBk6xTepdHYH2w/ma72Brh9MpcJ0s57XQFCV/Cg9ioWqJWMNyQ==}
@@ -3380,11 +3360,6 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
-  '@v-c/select@1.2.7':
-    resolution: {integrity: sha512-sqCulnzKCXVT350QifNh9mYi4klxbs1C8AJtdV8EmHY3I/jt1qF5CtwldyP7lL2y8twQFxX0o7ypX0Ch3Rey+A==}
-    peerDependencies:
-      vue: ^3.0.0
-
   '@v-c/select@1.2.8':
     resolution: {integrity: sha512-rpgrEm2qGeS4seFCSRlj7jI7Yo1xWDKpbAy+b9vJW0Ctz60+XmoFmUFL85nTejXT64CUbtyqOCBIt2RuKJ4VDg==}
     peerDependencies:
@@ -3410,11 +3385,6 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
-  '@v-c/table@1.3.3':
-    resolution: {integrity: sha512-XhNJUUP/UDVUi5LB9n3MFq60A1m0YQzSeXuvK4P3+lHzKkncDWeVK2+Uiud/DpgoTPhXUzvltxoXudGQ2VBzNA==}
-    peerDependencies:
-      vue: ^3.0.0
-
   '@v-c/table@1.3.4':
     resolution: {integrity: sha512-7QqeoUSK5wm/HO2u6IEFb9r3jD+roimEYkqKPnTVvh9kzFpkSlAnfIZ9uMCsx6dfHSby9EFr36ydTHbEhM7eoQ==}
     peerDependencies:
@@ -3427,11 +3397,6 @@ packages:
 
   '@v-c/textarea@1.1.1':
     resolution: {integrity: sha512-hqxUvDr56/rrAyNJhAO0pID+C3jQUHuKCJZ5frpT0JchH7VcVl17KVduXort2okkQjmQ/xAMeQTMrKJ68gGKQw==}
-    peerDependencies:
-      vue: ^3.0.0
-
-  '@v-c/tooltip@1.1.3':
-    resolution: {integrity: sha512-AJf4cayOV0NCjb27g5V8ku7EJBLQ2WzoUT6Oql1wQKl8/jx+sf12yXJByJB35i35QF//o4CXjE4+yJuupW1f1w==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -3667,133 +3632,157 @@ packages:
     resolution: {integrity: sha512-/EKnnqwvN7xYoVDhQEIEJTdPDwGW1wkFz/2Eku3ES/IJd4lcQh/OaIDFBmoJKvpe12enrb1TIoYh1fxasGXolA==}
     cpu: [arm64]
     os: [android]
+    deprecated: yuku-codegen is pure JavaScript since 0.14
 
   '@yuku-codegen/binding-darwin-arm64@0.8.3':
     resolution: {integrity: sha512-DFAOliF5YIPv3ayNHGOJhIun6Af4kMaL/YXxf8ZtD1qrOIMFnX/AQBhwfvLalhwmmxuGA8AUteaKRHBvdKZFVA==}
     cpu: [arm64]
     os: [darwin]
+    deprecated: yuku-codegen is pure JavaScript since 0.14
 
   '@yuku-codegen/binding-darwin-x64@0.8.3':
     resolution: {integrity: sha512-WlMh4/oEibaTzE9j5Zq8qnsrH4Ii4kWdcDv/Pj2Rb/MYSrKghtg+bxbWpPe/6zJD21p9zZBApQUxl8ECpZOJuQ==}
     cpu: [x64]
     os: [darwin]
+    deprecated: yuku-codegen is pure JavaScript since 0.14
 
   '@yuku-codegen/binding-freebsd-x64@0.8.3':
     resolution: {integrity: sha512-hoDOpPP0FTxPSD+6w0Gs4p8iL1yXe6jjIXcdzNxyT1KE6B3JI6O0gTIWQISJ+8QyNpNjIwBb7nHCdRavktJM6A==}
     cpu: [x64]
     os: [freebsd]
+    deprecated: yuku-codegen is pure JavaScript since 0.14
 
   '@yuku-codegen/binding-linux-arm-gnu@0.8.3':
     resolution: {integrity: sha512-nNW0GGMJyF04pK4A7Kq7WAYtUWU9uI5ugDAoXl9yHpd3IIZ8UI+zFlM01e+ZGWnQcdxYYLumeRe/EjzZT9bVfQ==}
     cpu: [arm]
     os: [linux]
     libc: [glibc]
+    deprecated: yuku-codegen is pure JavaScript since 0.14
 
   '@yuku-codegen/binding-linux-arm-musl@0.8.3':
     resolution: {integrity: sha512-/jpxKhO8AV5TmXgT3R2Gv3YctKRUhyDzd5bQw8TiJ3O4z7qerHzoW2kE40fPAO3L434/IZtZbdhr8HuOqiwECA==}
     cpu: [arm]
     os: [linux]
     libc: [musl]
+    deprecated: yuku-codegen is pure JavaScript since 0.14
 
   '@yuku-codegen/binding-linux-arm64-gnu@0.8.3':
     resolution: {integrity: sha512-CYhLJfnCknabfLvUjsanxC5s3BBtZHUwfzdDL7GcqShIRQh2qqgG7pPfFrFJ6Jp56kkjKXkfluFGn9nnIv0nZg==}
     cpu: [arm64]
     os: [linux]
     libc: [glibc]
+    deprecated: yuku-codegen is pure JavaScript since 0.14
 
   '@yuku-codegen/binding-linux-arm64-musl@0.8.3':
     resolution: {integrity: sha512-c6gEdnI0MgA7/rVw6CACMciSbAcxVwLyD/jSBbMLWUeqqbysCNGrGPAHdpSaadpz3W1bd+OdXt9XWjfm66708w==}
     cpu: [arm64]
     os: [linux]
     libc: [musl]
+    deprecated: yuku-codegen is pure JavaScript since 0.14
 
   '@yuku-codegen/binding-linux-x64-gnu@0.8.3':
     resolution: {integrity: sha512-CRVZ9Rw5lIah/PpWeShWv7XiUCMY15N6rZRA2sEZrQvc5Az7Dv9/wsDMa6oBMkfQLXuDkFo4G1QOYyWbebjejg==}
     cpu: [x64]
     os: [linux]
     libc: [glibc]
+    deprecated: yuku-codegen is pure JavaScript since 0.14
 
   '@yuku-codegen/binding-linux-x64-musl@0.8.3':
     resolution: {integrity: sha512-G12Nhecjmv7OlbCX6Y4HU4wYYePd111kTE+yTjbitnt+P3m8bNegtYG4ZGo4scGTq8cKsLF4xcda1XNzCUA6nQ==}
     cpu: [x64]
     os: [linux]
     libc: [musl]
+    deprecated: yuku-codegen is pure JavaScript since 0.14
 
   '@yuku-codegen/binding-win32-arm64@0.8.3':
     resolution: {integrity: sha512-i8bpXWaMlik9DvFl+89emEx3RZFtSd21Vlt0UrnPvUC7h8NGElP2SwQcdcG+pPmihFIYJAoIuJLw7YdQcFcDkA==}
     cpu: [arm64]
     os: [win32]
+    deprecated: yuku-codegen is pure JavaScript since 0.14
 
   '@yuku-codegen/binding-win32-x64@0.8.3':
     resolution: {integrity: sha512-vlYymeTSsx+qxZoNvdl6KehgYDaQC4Sk/9KUnM3V2mriyCwSdhW7lqdpQGl+RLGsDTxyuRGjzGIjgRWk3lohmA==}
     cpu: [x64]
     os: [win32]
+    deprecated: yuku-codegen is pure JavaScript since 0.14
 
   '@yuku-parser/binding-android-arm64@0.8.3':
     resolution: {integrity: sha512-vySYRsMeul9ssvxeHdxgS9ZUIcq7gqljWNqgokjJE0uQWvVvOprihJ6hOsiifVqWsla0BMc3vAFBvNS9QqCw7g==}
     cpu: [arm64]
     os: [android]
+    deprecated: yuku-parser runs on yuku-core since 0.14
 
   '@yuku-parser/binding-darwin-arm64@0.8.3':
     resolution: {integrity: sha512-+wpB/wqhiZ685Y77I+lj6v9pHSAJ3Y+QMHJmvch0Q0ahIMbNwtKk3s54MhtjCMKO1qpjPbyN/PjuHDg2hbKaVQ==}
     cpu: [arm64]
     os: [darwin]
+    deprecated: yuku-parser runs on yuku-core since 0.14
 
   '@yuku-parser/binding-darwin-x64@0.8.3':
     resolution: {integrity: sha512-jKqiWejj4zVy7pPtEGu4/Ty+pG1h7ooQOXIkm7shKZTSwTU9X8X+eoH11uIeKHZi2SQWV0GhNz0J56eerseysQ==}
     cpu: [x64]
     os: [darwin]
+    deprecated: yuku-parser runs on yuku-core since 0.14
 
   '@yuku-parser/binding-freebsd-x64@0.8.3':
     resolution: {integrity: sha512-FC7zSwzFzd4z9bsId07CiHLR+Iw6yW/LzIQhL5AUtPUuVXLgEyx0rilgbRUYkl1CT3GJcLpkh63WuPZUSgCDzw==}
     cpu: [x64]
     os: [freebsd]
+    deprecated: yuku-parser runs on yuku-core since 0.14
 
   '@yuku-parser/binding-linux-arm-gnu@0.8.3':
     resolution: {integrity: sha512-So61j88b9/ygDnUPlWCm1EUPw4HSxAyDjrNHKgud5N3aRDQ3kw94nW7TriXbo7GBXID9oBHCMNm1r1Fof/Df5Q==}
     cpu: [arm]
     os: [linux]
     libc: [glibc]
+    deprecated: yuku-parser runs on yuku-core since 0.14
 
   '@yuku-parser/binding-linux-arm-musl@0.8.3':
     resolution: {integrity: sha512-Nmnn20yJvSSKL8ZdtqReBRSGCDkSMqR5jEk/Sk/cdIdZmqVD49Z6M7w2GbMjdrxMI1MBPbsWFMMWxa93cd5t5g==}
     cpu: [arm]
     os: [linux]
     libc: [musl]
+    deprecated: yuku-parser runs on yuku-core since 0.14
 
   '@yuku-parser/binding-linux-arm64-gnu@0.8.3':
     resolution: {integrity: sha512-Lfgw7AXJ0rxu6BMPGgfc8HLJWEIr8BHhCzcQp/75k+NM90uCLkHlBNqIg/K42KlSvBgAvu9euOvjdswib+4qJA==}
     cpu: [arm64]
     os: [linux]
     libc: [glibc]
+    deprecated: yuku-parser runs on yuku-core since 0.14
 
   '@yuku-parser/binding-linux-arm64-musl@0.8.3':
     resolution: {integrity: sha512-cfRyu87xsJ0tFkHNsnMC4Rq6+xsFJ6i2dc4VAH52d2qLvykEJU/Mdi3ul1O2PyOApX/LoLT3uQZ0fWs3D5XE4w==}
     cpu: [arm64]
     os: [linux]
     libc: [musl]
+    deprecated: yuku-parser runs on yuku-core since 0.14
 
   '@yuku-parser/binding-linux-x64-gnu@0.8.3':
     resolution: {integrity: sha512-GcQQCUuYxbm6P1n+io/A50rvWKDeWHutIp6rW0ycDOZuEQjOb8hDVgS88+NDyOnd9FfS0/Z6GXopcRFDyKpzOg==}
     cpu: [x64]
     os: [linux]
     libc: [glibc]
+    deprecated: yuku-parser runs on yuku-core since 0.14
 
   '@yuku-parser/binding-linux-x64-musl@0.8.3':
     resolution: {integrity: sha512-rMkImBGZzg7GZlj8krYtdiezyjYI4igjKWMut5T65jHyNWFigMQrEpn9mDIBflloW9FKhGE3mN6yTZ/N+4HRwg==}
     cpu: [x64]
     os: [linux]
     libc: [musl]
+    deprecated: yuku-parser runs on yuku-core since 0.14
 
   '@yuku-parser/binding-win32-arm64@0.8.3':
     resolution: {integrity: sha512-/2Pl2cAzCXWxah8FqJapEj/ikpt9cEutEZFCa0hnbfrshkn5+C+aBM3ZDq62d1jsgQjBMmqr5HVhJUA4OAG/Tg==}
     cpu: [arm64]
     os: [win32]
+    deprecated: yuku-parser runs on yuku-core since 0.14
 
   '@yuku-parser/binding-win32-x64@0.8.3':
     resolution: {integrity: sha512-Ntnvjoan9jnfLhn7Kn3h8j/bhsbVdQSVmKUqFULKtmwImLCJVHOJbLL4qbEJyrOQ7r/FBL1/c/dRvx/AQWzzXg==}
     cpu: [x64]
     os: [win32]
+    deprecated: yuku-parser runs on yuku-core since 0.14
 
   '@yuku-toolchain/types@0.8.3':
     resolution: {integrity: sha512-9LN3HYs3A9qSPVFunsxlbfwBcUgexti3TmhOzIxB/UH8zFuaHQJXTRDcN17DW6cp1GsyZtiZA7f18uIra36Jag==}
@@ -9322,12 +9311,12 @@ snapshots:
 
   '@v-c/input-number@1.1.1(vue@3.5.42(typescript@5.9.3))':
     dependencies:
-      '@v-c/input': 1.1.2(vue@3.5.42(typescript@5.9.3))
+      '@v-c/input': 1.2.0(vue@3.5.42(typescript@5.9.3))
       '@v-c/mini-decimal': 1.0.1
       '@v-c/util': 1.3.2(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
-  '@v-c/input@1.1.2(vue@3.5.42(typescript@5.9.3))':
+  '@v-c/input@1.2.0(vue@3.5.42(typescript@5.9.3))':
     dependencies:
       '@v-c/util': 1.3.2(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
@@ -9342,7 +9331,7 @@ snapshots:
 
   '@v-c/mentions@1.2.3(vue@3.5.42(typescript@5.9.3))':
     dependencies:
-      '@v-c/input': 1.1.2(vue@3.5.42(typescript@5.9.3))
+      '@v-c/input': 1.2.0(vue@3.5.42(typescript@5.9.3))
       '@v-c/menu': 1.4.1(vue@3.5.42(typescript@5.9.3))
       '@v-c/textarea': 1.1.1(vue@3.5.42(typescript@5.9.3))
       '@v-c/trigger': 1.1.6(vue@3.5.42(typescript@5.9.3))
@@ -9386,16 +9375,6 @@ snapshots:
     dependencies:
       '@v-c/util': 1.3.2(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
-
-  '@v-c/picker@1.5.1(dayjs@1.11.23)(vue@3.5.42(typescript@5.9.3))':
-    dependencies:
-      '@v-c/overflow': 1.1.2(vue@3.5.42(typescript@5.9.3))
-      '@v-c/resize-observer': 1.1.3(vue@3.5.42(typescript@5.9.3))
-      '@v-c/trigger': 1.1.6(vue@3.5.42(typescript@5.9.3))
-      '@v-c/util': 1.3.2(vue@3.5.42(typescript@5.9.3))
-      vue: 3.5.42(typescript@5.9.3)
-    optionalDependencies:
-      dayjs: 1.11.23
 
   '@v-c/picker@1.5.2(dayjs@1.11.23)(vue@3.5.42(typescript@5.9.3))':
     dependencies:
@@ -9454,14 +9433,6 @@ snapshots:
       '@v-c/util': 1.3.2(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
-  '@v-c/select@1.2.7(vue@3.5.42(typescript@5.9.3))':
-    dependencies:
-      '@v-c/overflow': 1.1.2(vue@3.5.42(typescript@5.9.3))
-      '@v-c/trigger': 1.1.6(vue@3.5.42(typescript@5.9.3))
-      '@v-c/util': 1.3.2(vue@3.5.42(typescript@5.9.3))
-      '@v-c/virtual-list': 1.1.2(vue@3.5.42(typescript@5.9.3))
-      vue: 3.5.42(typescript@5.9.3)
-
   '@v-c/select@1.2.8(vue@3.5.42(typescript@5.9.3))':
     dependencies:
       '@v-c/overflow': 1.1.2(vue@3.5.42(typescript@5.9.3))
@@ -9491,13 +9462,6 @@ snapshots:
       '@v-c/util': 1.3.2(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
-  '@v-c/table@1.3.3(vue@3.5.42(typescript@5.9.3))':
-    dependencies:
-      '@v-c/resize-observer': 1.1.3(vue@3.5.42(typescript@5.9.3))
-      '@v-c/util': 1.3.2(vue@3.5.42(typescript@5.9.3))
-      '@v-c/virtual-list': 1.1.2(vue@3.5.42(typescript@5.9.3))
-      vue: 3.5.42(typescript@5.9.3)
-
   '@v-c/table@1.3.4(vue@3.5.42(typescript@5.9.3))':
     dependencies:
       '@v-c/resize-observer': 1.1.3(vue@3.5.42(typescript@5.9.3))
@@ -9516,14 +9480,8 @@ snapshots:
 
   '@v-c/textarea@1.1.1(vue@3.5.42(typescript@5.9.3))':
     dependencies:
-      '@v-c/input': 1.1.2(vue@3.5.42(typescript@5.9.3))
+      '@v-c/input': 1.2.0(vue@3.5.42(typescript@5.9.3))
       '@v-c/resize-observer': 1.1.3(vue@3.5.42(typescript@5.9.3))
-      '@v-c/util': 1.3.2(vue@3.5.42(typescript@5.9.3))
-      vue: 3.5.42(typescript@5.9.3)
-
-  '@v-c/tooltip@1.1.3(vue@3.5.42(typescript@5.9.3))':
-    dependencies:
-      '@v-c/trigger': 1.1.6(vue@3.5.42(typescript@5.9.3))
       '@v-c/util': 1.3.2(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
@@ -9989,28 +9947,28 @@ snapshots:
       '@v-c/drawer': 1.0.8(vue@3.5.42(typescript@5.9.3))
       '@v-c/dropdown': 1.1.1(vue@3.5.42(typescript@5.9.3))
       '@v-c/image': 1.1.2(vue@3.5.42(typescript@5.9.3))
-      '@v-c/input': 1.1.2(vue@3.5.42(typescript@5.9.3))
+      '@v-c/input': 1.2.0(vue@3.5.42(typescript@5.9.3))
       '@v-c/input-number': 1.1.1(vue@3.5.42(typescript@5.9.3))
       '@v-c/mentions': 1.2.3(vue@3.5.42(typescript@5.9.3))
-      '@v-c/menu': 1.4.1(vue@3.5.42(typescript@5.9.3))
+      '@v-c/menu': 1.4.2(vue@3.5.42(typescript@5.9.3))
       '@v-c/mutate-observer': 1.0.3(vue@3.5.42(typescript@5.9.3))
       '@v-c/notification': 2.0.5(vue@3.5.42(typescript@5.9.3))
       '@v-c/pagination': 1.1.2(vue@3.5.42(typescript@5.9.3))
-      '@v-c/picker': 1.5.1(dayjs@1.11.23)(vue@3.5.42(typescript@5.9.3))
+      '@v-c/picker': 1.5.2(dayjs@1.11.23)(vue@3.5.42(typescript@5.9.3))
       '@v-c/progress': 1.0.3(vue@3.5.42(typescript@5.9.3))
       '@v-c/qrcode': 1.0.1(vue@3.5.42(typescript@5.9.3))
       '@v-c/rate': 1.0.1(vue@3.5.42(typescript@5.9.3))
       '@v-c/resize-observer': 1.1.3(vue@3.5.42(typescript@5.9.3))
       '@v-c/segmented': 1.0.6(vue@3.5.42(typescript@5.9.3))
-      '@v-c/select': 1.2.7(vue@3.5.42(typescript@5.9.3))
+      '@v-c/select': 1.2.8(vue@3.5.42(typescript@5.9.3))
       '@v-c/slick': 1.0.2(vue@3.5.42(typescript@5.9.3))
       '@v-c/slider': 1.1.4(vue@3.5.42(typescript@5.9.3))
       '@v-c/steps': 1.0.3(vue@3.5.42(typescript@5.9.3))
       '@v-c/switch': 1.0.1(vue@3.5.42(typescript@5.9.3))
-      '@v-c/table': 1.3.3(vue@3.5.42(typescript@5.9.3))
+      '@v-c/table': 1.3.4(vue@3.5.42(typescript@5.9.3))
       '@v-c/tabs': 1.4.2(vue@3.5.42(typescript@5.9.3))
       '@v-c/textarea': 1.1.1(vue@3.5.42(typescript@5.9.3))
-      '@v-c/tooltip': 1.1.3(vue@3.5.42(typescript@5.9.3))
+      '@v-c/tooltip': 1.1.4(vue@3.5.42(typescript@5.9.3))
       '@v-c/tour': 1.1.2(vue@3.5.42(typescript@5.9.3))
       '@v-c/tree': 1.2.3(vue@3.5.42(typescript@5.9.3))
       '@v-c/tree-select': 1.1.3(vue@3.5.42(typescript@5.9.3))

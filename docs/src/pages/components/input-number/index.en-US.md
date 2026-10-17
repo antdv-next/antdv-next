@@ -46,7 +46,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | status | Set validation status | InputStatus | - | - | × |
 | disabled | If the input is disabled | boolean | false | - | × |
 | addonBefore | The label text displayed before (on the left side of) the input field, please use Space.Compact instead | VueNode | - | - | × |
-| allowClear | If allow to remove input content with clear icon | boolean \| &#123; clearIcon?: VueNode, disabled?: boolean, label?: string &#125; | false | 1.5.4 | ✓ |
+| allowClear | Whether to show a clear button (cleared value: `null`) | boolean \| [AllowClearConfig](#allowclearconfig) | false | 1.5.4 | ✓ |
 | addonAfter | The label text displayed after (on the right side of) the input field, please use Space.Compact instead | VueNode | - | - | × |
 | prefix | The prefix icon for the Input | VueNode | - | - | × |
 | suffix | The suffix icon for the Input | VueNode | - | - | × |
@@ -84,6 +84,16 @@ Common props ref：[Common props](/docs/vue/common-props)
 | compositionstart | - | (e: CompositionEvent) =&gt; void | - |
 | compositionend | - | (e: CompositionEvent) =&gt; void | - |
 | beforeinput | - | (e: InputEvent) =&gt; void | - |
+
+### AllowClearConfig {#allowclearconfig}
+
+Fields that support global configuration use component values first, then global values, then defaults. `allowClear: true` inherits the global configuration; `disabled: false` overrides the global value.
+
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| clearIcon | Custom clear icon | VueNode | - | - | ✓ |
+| disabled | Disable the clear button | boolean | false | - | ✓ |
+| label | Accessible name of the clear button | string | Component locale text | 1.5.4 | ✓ |
 
 ### Slots {#slots}
 

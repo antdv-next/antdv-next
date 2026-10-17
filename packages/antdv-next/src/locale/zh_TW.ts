@@ -17,6 +17,7 @@ const localeValues: Locale = {
     placeholder: '請選擇',
     close: '關閉',
     sortable: '可排序',
+    clear: '清除',
   },
   Table: {
     filterTitle: '篩選器',

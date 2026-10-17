@@ -1,6 +1,7 @@
 import type { ValueType, InputNumberProps as VcInputNumberProps, InputNumberRef as VcInputNumberRef } from '@v-c/input-number'
 import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
+import type { AllowClear } from '../_util/hooks/useAllowClear'
 import type { InputStatus } from '../_util/statusUtils'
 import type { VueNode } from '../_util/type'
 import type { ComponentBaseProps, Variant } from '../config-provider/context'
@@ -11,8 +12,8 @@ import { clsx } from '@v-c/util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, shallowRef } from 'vue'
 import { ContextIsolator } from '../_util/ContextIsolator.tsx'
-import getAllowClear from '../_util/getAllowClear'
 import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
+import useAllowClear, { useAllowClearLabel } from '../_util/hooks/useAllowClear'
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { devUseWarning, isDev } from '../_util/warning'
@@ -77,8 +78,8 @@ export interface InputNumberProps
   addonAfter?: VueNode
   prefix?: VueNode
   suffix?: VueNode
-  /** Show clear button, or customize it with `{ clearIcon, disabled, label }` */
-  allowClear?: boolean | { clearIcon?: VueNode, disabled?: boolean, label?: string }
+  /** Show clear button (cleared value: `null`), or customize it with `AllowClearConfig` */
+  allowClear?: AllowClear
   /** @deprecated Use `variant="borderless"` instead. */
   bordered?: boolean
   /**
@@ -212,6 +213,7 @@ const InputNumber = defineComponent<
       styles: contextStyles,
       allowClear: contextAllowClear,
     } = useComponentBaseConfig('inputNumber', props, ['allowClear'], 'input-number')
+    const getClearLabel = useAllowClearLabel()
 
     const {
       classes,
@@ -393,7 +395,11 @@ const InputNumber = defineComponent<
       }
       const mergedSuffix = mergedSuffixFn()
       const clearIconNode = slots.clearIcon?.()
-      const allowClear = getAllowClear(props.allowClear ?? contextAllowClear.value)
+      const allowClear = useAllowClear({
+        allowClear: props.allowClear,
+        contextAllowClear: contextAllowClear.value,
+        defaultLabel: getClearLabel(),
+      })
       const mergedAllowClear = clearIconNode && allowClear
         ? { ...(typeof allowClear === 'object' ? allowClear : {}), clearIcon: clearIconNode }
         : allowClear

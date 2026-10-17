@@ -52,7 +52,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | MentionsStylesType | - | - | ✓ |
 | size | The size of the input box | `large` \| `medium` \| `small` | - | - | × |
 | labelRender | Customize the rendering of option content | (ctx: &#123; option: MentionsOptionProps, index: number &#125;) =&gt; any | - | - | × |
-| allowClear | If allow to remove mentions content with clear icon | boolean \| &#123; clearIcon?: VueNode, disabled?: boolean &#125; | false | - | ✓ |
+| allowClear | Whether to show a clear button | boolean \| [AllowClearConfig](#allowclearconfig) | false | - | ✓ |
 | disabled | Whether disabled | boolean | - | - | × |
 
 ### Events
@@ -66,6 +66,16 @@ Common props ref：[Common props](/docs/vue/common-props)
 | popupScroll | Trigger when mentions scroll | (event: Event) =&gt; void | - |
 | search | Trigger when prefix hit | (text: string, prefix: string) =&gt; void | - |
 | update:value | Triggered when value updates, used for `v-model:value` | (value: string) =&gt; void | - |
+
+### AllowClearConfig {#allowclearconfig}
+
+Fields that support global configuration use component values first, then global values, then defaults. `allowClear: true` inherits the global configuration; `disabled: false` and `tabIndex: 0` override global values.
+
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| clearIcon | Custom clear icon | VueNode | - | - | ✓ |
+| disabled | Disable the clear button | boolean | false | - | ✓ |
+| tabIndex | Tab order of the clear button. `-1` excludes it from Tab navigation | number | 0 | 1.7.0 | ✓ |
 
 ### Option {#option}
 
