@@ -33,6 +33,8 @@ const localeValues: Locale = {
     sortTitle: 'Trier',
     expand: 'Développer la ligne',
     collapse: 'Réduire la ligne',
+    expandAll: 'Développer toutes les lignes',
+    collapseAll: 'Réduire toutes les lignes',
     triggerDesc: 'Trier par ordre décroissant',
     triggerAsc: 'Trier par ordre croissant',
     cancelSort: 'Annuler le tri',

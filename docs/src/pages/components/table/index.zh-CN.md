@@ -94,6 +94,7 @@ const columns = [
   <demo src="./demo/ellipsis.vue">超出省略</demo>
   <demo src="./demo/ellipsis-custom-tooltip.vue">自定义省略提示</demo>
   <demo src="./demo/expand.vue">可展开行</demo>
+  <demo src="./demo/expand-all.vue">展开全部行</demo>
   <demo src="./demo/expand-sticky.vue">展开与粘性表头</demo>
   <demo src="./demo/nested-table.vue">嵌套表格</demo>
   <demo src="./demo/tree-data.vue">树形数据</demo>
@@ -119,7 +120,7 @@ const columns = [
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record\<[SemanticDOM](#semantic-dom), string\> \| (info: \{ props \})=> Record\<[SemanticDOM](#semantic-dom), string\> | - | - | ✓ |
 | column | 统一列配置，参考 [Column](#column)，仅在单列未声明同名属性时生效 | Partial\<[ColumnType](#column)\> | - | - | ✓ |
 | columns | 表格列的配置描述，具体项见下表 | [ColumnsType](#column)\[\] | - | - | × |
-| components | 覆盖默认的 table 元素 | [components](#components) | - | - | × |
+| components | 覆盖默认的 table 元素，包括通过 `ExpandIcon` 自定义行展开和全部展开图标 | [components](#components) | - | `ExpandIcon`: 1.7.0 | × |
 | dataSource | 数据数组 | object[] | - | - | × |
 | expandable | 配置展开属性 | [expandable](#expandable) | - |  | ✓ |
 | footer | 表格尾部，也可以使用 `#footer` 插槽 | VueNode \| function(currentPageData) | - | - | × |
@@ -268,6 +269,7 @@ const onHeaderRow: TableProps['onHeaderRow'] = (columns, index) => {
 | body.wrapper | 自定义表体 wrapper 元素 | Component | - |
 | body.row | 自定义表体行元素 | Component | - |
 | body.cell | 自定义表体单元格元素 | Component | - |
+| ExpandIcon | 自定义行展开和全部展开图标，接收 `{ type: 'row' \| 'all', prefixCls, record, expanded, expandable, onClick }` | Component | - |
 
 ### pagination
 
@@ -286,21 +288,23 @@ const onHeaderRow: TableProps['onHeaderRow'] = (columns, index) => {
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | childrenColumnName | 指定树形结构的列名 | string | children | - |
-| columnTitle | 自定义展开列表头 | VueNode | - | - |
+| columnTitle | 自定义展开列表头 | VueNode \| ({ expandIcon }) => VueNode | - | function: 1.7.0 |
 | columnWidth | 自定义展开列宽度 | string \| number | - | - |
 | defaultExpandAllRows | 初始时，是否展开所有行 | boolean | false | - |
 | defaultExpandedRowKeys | 默认展开的行 | string\[] | - | - |
 | expandedRowClassName | 展开行的 className | string \| (record, index, indent) => string | - | - |
 | expandedRowKeys | 展开的行，控制属性 | string\[] | - | - |
 | expandedRowRender | 额外的展开行 | function(record, index, indent, expanded): VueNode | - | - |
-| expandIcon | 自定义展开图标，参考[示例](https://stackblitz.com/edit/vitejs-vite-jezqinto?file=src%2FApp.vue) | function(props): VueNode | - | - |
+| ~~expandIcon~~ | 已废弃，请使用 `components.ExpandIcon`。此配置仅作为行展开图标的后备方案保留 | function(props): VueNode | - | - |
 | expandRowByClick | 通过点击行来展开子行 | boolean | false | - |
 | fixed | 控制展开图标是否固定，可选 `true` `'left'` `'right'` | boolean \| string | false | - |
 | forceRender | 在展开前强制渲染展开行内容。虚拟模式下，仅强制渲染虚拟列表当前挂载的行；屏幕外的行仍可能被卸载 | boolean | false | - |
 | indentSize | 展示树形数据时，每层缩进的宽度，以 px 为单位 | number | 15 | - |
 | rowExpandable | 设置是否允许行展开（`dataSource` 若存在 `children` 字段将不生效） | (record) => boolean | - | - |
+| showExpandAll | 是否显示当前页可展开行的全部展开控件，仅在使用 `expandedRowRender` 时可用 | boolean | false | 1.7.0 |
 | showExpandColumn | 是否显示展开图标列 | boolean | true | - |
 | onExpand | 点击展开图标时触发 | function(expanded, record) | - | - |
+| onExpandAll | 点击全部展开图标时触发 | (expanded: boolean) => void | - | 1.7.0 |
 | onExpandedRowsChange | 展开的行变化时触发 | function(expandedRows) | - | - |
 
 ### rowSelection

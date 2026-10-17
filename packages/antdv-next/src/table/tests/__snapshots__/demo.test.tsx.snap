@@ -10738,6 +10738,345 @@ exports[`table demo > renders expand correctly 1`] = `
 </div>
 `;
 
+exports[`table demo > renders expand-all correctly 1`] = `
+<div
+  class="css-var-root ant-table-css-var ant-table-wrapper"
+  data-allow-mismatch="true"
+>
+  <div
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-root"
+  >
+    <!---->
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table css-var-root ant-table-css-var"
+      >
+        <!---->
+        <div
+          class="ant-table-container"
+        >
+          <div
+            class="ant-table-content"
+          >
+            <table
+              style="table-layout: auto;"
+            >
+              <!---->
+              <colgroup>
+                <col
+                  class="ant-table-expand-icon-col"
+                />
+              </colgroup>
+              <thead
+                class="ant-table-thead"
+              >
+                <tr
+                  class=""
+                >
+                  <th
+                    class="ant-table-cell ant-table-row-expand-icon-cell"
+                    colend="0"
+                    colstart="0"
+                    scope="col"
+                  >
+                    <!---->
+                    <button
+                      aria-expanded="false"
+                      aria-label="Expand all rows"
+                      class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                      type="button"
+                    />
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    colend="1"
+                    colstart="1"
+                    scope="col"
+                  >
+                    <!---->
+                    Name
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    colend="2"
+                    colstart="2"
+                    scope="col"
+                  >
+                    <!---->
+                    Age
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    colend="3"
+                    colstart="3"
+                    scope="col"
+                  >
+                    <!---->
+                    Address
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <!---->
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
+                >
+                  <td
+                    class="ant-table-cell ant-table-row-expand-icon-cell"
+                    scope="row"
+                  >
+                    <!---->
+                    <button
+                      aria-expanded="false"
+                      aria-label="Expand row"
+                      class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                      type="button"
+                    />
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                    scope="row"
+                  >
+                    <!---->
+                    John Brown
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                    scope="row"
+                  >
+                    <!---->
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                    scope="row"
+                  >
+                    <!---->
+                    New York No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
+                >
+                  <td
+                    class="ant-table-cell ant-table-row-expand-icon-cell"
+                    scope="row"
+                  >
+                    <!---->
+                    <button
+                      aria-expanded="false"
+                      aria-label="Expand row"
+                      class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                      type="button"
+                    />
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                    scope="row"
+                  >
+                    <!---->
+                    Jim Green
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                    scope="row"
+                  >
+                    <!---->
+                    42
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                    scope="row"
+                  >
+                    <!---->
+                    London No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
+                >
+                  <td
+                    class="ant-table-cell ant-table-row-expand-icon-cell"
+                    scope="row"
+                  >
+                    <!---->
+                    <button
+                      aria-expanded="false"
+                      aria-label="Expand row"
+                      class="ant-table-row-expand-icon ant-table-row-expand-icon-spaced"
+                      type="button"
+                    />
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                    scope="row"
+                  >
+                    <!---->
+                    Not Expandable
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                    scope="row"
+                  >
+                    <!---->
+                    29
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                    scope="row"
+                  >
+                    <!---->
+                    Jiangsu No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="4"
+                >
+                  <td
+                    class="ant-table-cell ant-table-row-expand-icon-cell"
+                    scope="row"
+                  >
+                    <!---->
+                    <button
+                      aria-expanded="false"
+                      aria-label="Expand row"
+                      class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                      type="button"
+                    />
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                    scope="row"
+                  >
+                    <!---->
+                    Joe Black
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                    scope="row"
+                  >
+                    <!---->
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                    scope="row"
+                  >
+                    <!---->
+                    Sydney No. 1 Lake Park
+                  </td>
+                </tr>
+              </tbody>
+              <!---->
+            </table>
+          </div>
+        </div>
+        <!---->
+      </div>
+      <!---->
+      <ul
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-root"
+      >
+        <!---->
+        <li
+          aria-disabled="true"
+          aria-label="Previous Page"
+          class="ant-pagination-prev ant-pagination-disabled"
+          role="button"
+        >
+          <button
+            class="ant-pagination-item-link"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="left"
+              class="anticon anticon-left"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </span>
+          </button>
+        </li>
+        <li
+          aria-current="page"
+          aria-label="Page 1"
+          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          role="button"
+          tabindex="0"
+          title="1"
+        >
+          <a
+            aria-hidden="true"
+            rel="nofollow"
+            tabindex="-1"
+          >
+            1
+          </a>
+        </li>
+        <li
+          aria-disabled="true"
+          aria-label="Next Page"
+          class="ant-pagination-next ant-pagination-disabled"
+          role="button"
+        >
+          <button
+            class="ant-pagination-item-link"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="right"
+              class="anticon anticon-right"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                />
+              </svg>
+            </span>
+          </button>
+        </li>
+        <!---->
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`table demo > renders expand-sticky correctly 1`] = `
 <div
   class="css-var-root ant-table-css-var ant-table-wrapper"

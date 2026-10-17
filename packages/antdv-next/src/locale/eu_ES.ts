@@ -33,6 +33,8 @@ const localeValues: Locale = {
     sortTitle: 'Ordenatu',
     expand: 'Zabaldu',
     collapse: 'Itxi',
+    expandAll: 'Zabaldu errenkada guztiak',
+    collapseAll: 'Itxi errenkada guztiak',
     triggerDesc: 'Egin klik beheranzko ordenean ordenatzeko',
     triggerAsc: 'Egin klik goranzko ordenean ordenatzeko',
     cancelSort: 'Egin klik ordenamendua ezeztatzeko',

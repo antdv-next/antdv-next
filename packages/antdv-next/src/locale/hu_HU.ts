@@ -31,6 +31,8 @@ const localeValues: Locale = {
     selectionAll: 'Válassza ki az összes adatot',
     expand: 'Sor kibontása',
     collapse: 'Sor összecsukása',
+    expandAll: 'Összes sor kibontása',
+    collapseAll: 'Összes sor összecsukása',
     triggerDesc: 'Kattintson ide a csökkenő sorrendbe rendezéshez',
     triggerAsc: 'Kattintson a növekvő sorrendbe rendezéshez',
     cancelSort: 'Kattintson a rendezés megszakításához',

@@ -93,6 +93,7 @@ const columns = [
   <demo src="./demo/ellipsis.vue">Ellipsis</demo>
   <demo src="./demo/ellipsis-custom-tooltip.vue">Custom Ellipsis Tooltip</demo>
   <demo src="./demo/expand.vue">Expand</demo>
+  <demo src="./demo/expand-all.vue">Expand all rows</demo>
   <demo src="./demo/expand-sticky.vue">Expand Sticky</demo>
   <demo src="./demo/nested-table.vue">Nested Table</demo>
   <demo src="./demo/tree-data.vue">Tree Data</demo>
@@ -118,7 +119,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | classes | Customize class for each semantic structure inside the component. Supports object or function. | Record\<[SemanticDOM](#semantic-dom), string\> \| (info: \{ props \})=> Record\<[SemanticDOM](#semantic-dom), string\> | - | - | ✓ |
 | column | Default props for every column. See [Column](#column). It only applies when the column does not define the same property. | Partial\<[ColumnType](#column)\> | - | - | ✓ |
 | columns |  Columns of table | [ColumnsType](#column)\[\] | - | - | × |
-| components | Override default table elements | [components](#components) | - | - | × |
+| components | Override default table elements, including row and expand-all icons through `ExpandIcon` | [components](#components) | - | `ExpandIcon`: 1.7.0 | × |
 | dataSource | Data record array to be displayed | object[] | - | - | × |
 | expandable | Config expandable content | [expandable](#expandable) | - |  | ✓ |
 | footer | Table footer renderer. You can also use the `#footer` slot. | VueNode \| function(currentPageData) | - | - | × |
@@ -267,6 +268,7 @@ One of the Table `columns` prop for describing the table's columns, Column has t
 | body.wrapper | Customize body wrapper element | Component | - |
 | body.row | Customize body row element | Component | - |
 | body.cell | Customize body cell element | Component | - |
+| ExpandIcon | Customize row and expand-all icons. Receives `{ type: 'row' \| 'all', prefixCls, record, expanded, expandable, onClick }` | Component | - |
 
 ### pagination
 
@@ -285,21 +287,23 @@ Properties for expandable.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | childrenColumnName | The column contains children to display | string | children | - |
-| columnTitle | Set the title of the expand column | VueNode | - | - |
+| columnTitle | Set the title of the expand column | VueNode \| ({ expandIcon }) => VueNode | - | function: 1.7.0 |
 | columnWidth | Set the width of the expand column | string \| number | - | - |
 | defaultExpandAllRows | Expand all rows initially | boolean | false | - |
 | defaultExpandedRowKeys | Initial expanded row keys | string\[] | - | - |
 | expandedRowClassName | Expanded row's className | string \| (record, index, indent) => string | - | - |
 | expandedRowKeys | Current expanded row keys | string\[] | - | - |
 | expandedRowRender | Expanded container render for each row | function(record, index, indent, expanded): VueNode | - | - |
-| expandIcon | Customize row expand Icon. Ref [example](https://stackblitz.com/edit/vitejs-vite-jezqinto?file=src%2FApp.vue) | function(props): VueNode | - | - |
+| ~~expandIcon~~ | Deprecated. Use `components.ExpandIcon` instead. This remains a row-only fallback | function(props): VueNode | - | - |
 | expandRowByClick | Whether to expand row by clicking anywhere in the whole row | boolean | false | - |
 | fixed | Whether the expansion icon is fixed. Optional true `left` `right` | boolean \| string | false | - |
 | forceRender | Force render expanded row content before expansion. In virtual mode, only rows currently mounted by the virtual list are force-rendered; off-screen rows may still be unmounted | boolean | false | - |
 | indentSize | Indent size in pixels of tree data | number | 15 | - |
 | rowExpandable | Enable row can be expandable | (record) => boolean | - | - |
+| showExpandAll | Show an expand-all control for expandable rows on the current page. Only available with `expandedRowRender` | boolean | false | 1.7.0 |
 | showExpandColumn | Show expand column | boolean | true | - |
 | onExpand | Callback executed when the row expand icon is clicked | function(expanded, record) | - | - |
+| onExpandAll | Callback executed when the expand-all icon is clicked | (expanded: boolean) => void | - | 1.7.0 |
 | onExpandedRowsChange | Callback executed when the expanded rows change | function(expandedRows) | - | - |
 
 ### rowSelection
