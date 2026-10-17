@@ -31857,6 +31857,7 @@ exports[`table demo > renders style-class correctly 1`] = `
             aria-label="Next Page"
             class="ant-pagination-next"
             role="button"
+            tabindex="0"
           >
             <button
               class="ant-pagination-item-link"
@@ -32150,6 +32151,7 @@ exports[`table demo > renders style-class correctly 1`] = `
             class="ant-pagination-next"
             role="button"
             style="color: rgb(184, 189, 253);"
+            tabindex="0"
           >
             <button
               class="ant-pagination-item-link"
