@@ -37,23 +37,13 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VcjGQLSrYdcAAA
 | 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | active | 是否展示动画效果 | boolean | false | - | × |
-| avatar | 是否显示头像占位图 | boolean \| [SkeletonAvatarProps](#skeletonavatarprops) | false | - | × |
+| avatar | 是否显示头像占位图 | boolean \| [SkeletonAvatarProps](#skeletonavatar-props) | false | - | × |
 | loading | 为 true 时，显示占位图。反之则直接展示子组件 | boolean | - | - | × |
-| paragraph | 是否显示段落占位图 | boolean \| [SkeletonParagraphProps](#skeletonparagraphprops) | true | - | × |
+| paragraph | 是否显示段落占位图 | boolean \| [SkeletonParagraphProps](#skeletonparagraph-props) | true | - | × |
 | round | 为 true 时，段落和标题显示圆角 | boolean | false | - | × |
-| title | 是否显示标题占位图 | boolean \| [SkeletonTitleProps](#skeletontitleprops) | true | - | × |
+| title | 是否显示标题占位图 | boolean \| [SkeletonTitleProps](#skeletontitle-props) | true | - | × |
 | classes | 用于自定义组件内部各语义化结构的 class | SkeletonClassNamesType | - | - | ✓ |
 | styles | 用于自定义组件内部各语义化结构的行内 style | SkeletonStylesType | - | - | ✓ |
-
-### SkeletonAvatar
-
-#### 属性 {#skeletonavatar-props}
-
-| 属性 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| active | 是否展示动画效果，仅在单独使用头像骨架时生效 | boolean | false | - |
-| shape | 指定头像的形状 | `circle` \| `square` | `circle` | - |
-| size | 设置头像占位图的大小 | number \| `large` \| `medium` \| `small` | `medium` | - |
 
 ### SkeletonTitle
 
@@ -74,11 +64,11 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VcjGQLSrYdcAAA
 
 ### SkeletonAvatar
 
-#### 属性 {#skeletonavatar-avatar}
+#### 属性 {#skeletonavatar-props}
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| active | 是否展示动画效果 | boolean | false | - |
+| active | 是否展示动画效果，仅在单独使用头像骨架时生效 | boolean | false | - |
 | shape | 指定头像的形状 | `circle` \| `square` | `circle` | - |
 | size | 设置头像占位图的大小 | number \| `large` \| `medium` \| `small` | `medium` | - |
 | classes | 用于自定义组件内部各语义化结构的 class | SkeletonClassNamesType | - | - |

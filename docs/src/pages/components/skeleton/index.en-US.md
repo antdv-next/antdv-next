@@ -36,23 +36,13 @@ Common props ref：[Common props](/docs/vue/common-props)
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | active | Show animation effect | boolean | false | - | × |
-| avatar | Show avatar placeholder | boolean \| [SkeletonAvatarProps](#skeletonavatarprops) | false | - | × |
+| avatar | Show avatar placeholder | boolean \| [SkeletonAvatarProps](#skeletonavatar-props) | false | - | × |
 | loading | Display the skeleton when true | boolean | - | - | × |
-| paragraph | Show paragraph placeholder | boolean \| [SkeletonParagraphProps](#skeletonparagraphprops) | true | - | × |
+| paragraph | Show paragraph placeholder | boolean \| [SkeletonParagraphProps](#skeletonparagraph-props) | true | - | × |
 | round | Show paragraph and title radius when true | boolean | false | - | × |
-| title | Show title placeholder | boolean \| [SkeletonTitleProps](#skeletontitleprops) | true | - | × |
+| title | Show title placeholder | boolean \| [SkeletonTitleProps](#skeletontitle-props) | true | - | × |
 | classes | Customize class for each semantic structure inside the component | SkeletonClassNamesType | - | - | ✓ |
 | styles | Customize inline style for each semantic structure inside the component | SkeletonStylesType | - | - | ✓ |
-
-### SkeletonAvatar
-
-#### Props {#skeletonavatar-props}
-
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| active | Show animation effect, only valid when used avatar independently | boolean | false | - |
-| shape | Set the shape of avatar | `circle` \| `square` | `circle` | - |
-| size | Set the size of avatar | number \| `large` \| `medium` \| `small` | `medium` | - |
 
 ### SkeletonTitle
 
@@ -73,11 +63,11 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 ### SkeletonAvatar
 
-#### Props {#skeletonavatar-avatar}
+#### Props {#skeletonavatar-props}
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| active | Show animation effect | boolean | false | - |
+| active | Show animation effect, only valid when used avatar independently | boolean | false | - |
 | shape | Set the shape of avatar | `circle` \| `square` | `circle` | - |
 | size | Set the size of avatar | number \| `large` \| `medium` \| `small` | `medium` | - |
 | classes | Customize class for each semantic structure inside the component | SkeletonClassNamesType | - | - |
