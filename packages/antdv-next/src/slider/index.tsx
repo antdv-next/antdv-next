@@ -238,7 +238,7 @@ const Slider = defineComponent<
       if (!vert) {
         return 'top'
       }
-      return isRTL ? 'left' : 'right'
+      return isRTL.value ? 'left' : 'right'
     }
 
     const [hashId, cssVarCls] = useStyle(prefixCls)

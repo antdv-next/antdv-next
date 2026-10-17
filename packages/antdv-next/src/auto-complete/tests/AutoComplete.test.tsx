@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from 'vitest'
 import { h, nextTick, ref } from 'vue'
 import AutoComplete from '..'
+import ConfigProvider from '../../config-provider'
 import Input from '../../input'
 import rtlTest from '/@tests/shared/rtlTest'
 import { mount } from '/@tests/utils'
@@ -362,5 +363,38 @@ describe('autoComplete', () => {
     expect(typeof inst.focus).toBe('function')
     expect(typeof inst.blur).toBe('function')
     expect(typeof inst.scrollTo).toBe('function')
+  })
+  describe('allowClear with ConfigProvider', () => {
+    const mountWithConfig = (selectConfig: Record<string, any>, props: Record<string, any> = {}) =>
+      mount(ConfigProvider, {
+        props: { select: selectConfig } as any,
+        slots: {
+          default: () => h(AutoComplete, { defaultValue: 'abc', ...props }),
+        },
+      })
+
+    it('does not inherit allowClear from ConfigProvider select', () => {
+      const wrapper = mountWithConfig({ allowClear: true })
+      expect(wrapper.find('.ant-select-clear').exists()).toBe(false)
+    })
+
+    it('keeps an explicit allowClear true', () => {
+      const wrapper = mountWithConfig({ allowClear: false }, { allowClear: true })
+      expect(wrapper.find('.ant-select-clear').exists()).toBe(true)
+    })
+
+    it('keeps an explicit allowClear false', () => {
+      const wrapper = mountWithConfig({ allowClear: true }, { allowClear: false })
+      expect(wrapper.find('.ant-select-clear').exists()).toBe(false)
+    })
+
+    it('keeps a custom clearIcon from AutoComplete allowClear', () => {
+      const wrapper = mountWithConfig(
+        { allowClear: true },
+        { allowClear: { clearIcon: h('span', { class: 'custom-clear-icon' }, 'X') } },
+      )
+      expect(wrapper.find('.custom-clear-icon').exists()).toBe(true)
+      expect(wrapper.find('.ant-select-clear').exists()).toBe(true)
+    })
   })
 })
