@@ -1,6 +1,5 @@
 ---
 title: 技能
-tag: New
 ---
 
 Agent Skills 是扩展 AI 功能的模块化能力。Antdv Next Skills 为 AI Agent 提供 Antdv Next 组件库的专业知识，让 AI 能够准确理解和使用组件。

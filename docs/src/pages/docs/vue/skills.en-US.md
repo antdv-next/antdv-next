@@ -1,6 +1,5 @@
 ---
 title: Skills
-tag: New
 ---
 
 Agent Skills are modular capabilities that extend AI functionality. Antdv Next Skills provide AI Agents with specialized knowledge of the Antdv Next component library, enabling AI to accurately understand and use components.

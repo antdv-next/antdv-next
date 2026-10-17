@@ -94,7 +94,6 @@ export const docsMenus: Record<string, AntdvMenuItem[]> = {
         {
           key: '/docs/vue/skills',
           label: '/docs/vue/skills',
-          tag: 'New',
         },
         {
           key: '/docs/vue/mcp',
@@ -116,17 +115,14 @@ export const docsMenus: Record<string, AntdvMenuItem[]> = {
         {
           key: '/docs/vue/secondary-development',
           label: '/docs/vue/secondary-development',
-          tag: 'New',
         },
         {
           key: '/docs/vue/unocss',
           label: '/docs/vue/unocss',
-          tag: 'New',
         },
         {
           key: '/docs/vue/tailwindcss',
           label: '/docs/vue/tailwindcss',
-          tag: 'New',
         },
         {
           key: '/docs/vue/customize-theme',
@@ -147,7 +143,6 @@ export const docsMenus: Record<string, AntdvMenuItem[]> = {
         {
           key: '/docs/vue/nuxt',
           label: '/docs/vue/nuxt',
-          tag: 'New',
         },
       ],
     },
