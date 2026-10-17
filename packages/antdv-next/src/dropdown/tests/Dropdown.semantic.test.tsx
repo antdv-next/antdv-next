@@ -72,6 +72,34 @@ describe('dropdown.Semantic', () => {
     expect(dropdownEl?.classList.contains('custom-root')).toBe(true)
   })
 
+  // https://github.com/ant-design/ant-design/issues/58942
+  it('supports menu semantic classes and styles', async () => {
+    mount(Dropdown, {
+      attachTo: document.body,
+      props: {
+        menu: { ...menu, classes: { root: 'origin-menu-root' } },
+        classes: { root: 'test-root', menu: 'test-menu', item: 'test-menu-item' },
+        styles: { root: { backgroundColor: 'rgb(0, 0, 255)' }, menu: { width: '200px' } },
+        open: true,
+        mouseEnterDelay: 0,
+        mouseLeaveDelay: 0,
+      },
+      slots: { default: () => <span>trigger</span> },
+    })
+    await flushDropdownTimer()
+
+    const root = document.querySelector<HTMLElement>('.ant-dropdown')!
+    const menuEl = document.querySelector<HTMLElement>('.ant-dropdown-menu')!
+    expect(root.classList.contains('test-root')).toBe(true)
+    expect(root.classList.contains('test-menu')).toBe(false)
+    expect(menuEl.classList.contains('test-menu')).toBe(true)
+    expect(menuEl.classList.contains('origin-menu-root')).toBe(true)
+    expect(menuEl.classList.contains('test-root')).toBe(false)
+    expect(menuEl.style.width).toBe('200px')
+    expect(root.style.width).toBe('')
+    expect(document.querySelector('.ant-dropdown-menu-item')!.classList.contains('test-menu-item')).toBe(true)
+  })
+
   it('supports static object styles on root', async () => {
     const styles: DropdownProps['styles'] = {
       root: { backgroundColor: 'red' },

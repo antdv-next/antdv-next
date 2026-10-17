@@ -54,6 +54,7 @@ export type DropdownSemanticName = keyof DropdownSemanticClassNames & keyof Drop
 
 export interface DropdownSemanticClassNames {
   root?: string
+  menu?: string
   item?: string
   itemTitle?: string
   itemIcon?: string
@@ -62,6 +63,7 @@ export interface DropdownSemanticClassNames {
 
 export interface DropdownSemanticStyles {
   root?: CSSProperties
+  menu?: CSSProperties
   item?: CSSProperties
   itemTitle?: CSSProperties
   itemIcon?: CSSProperties
@@ -282,8 +284,12 @@ const Dropdown = defineComponent<
       const renderOverlay = () => {
         // @v-c/dropdown already can process the function of overlay, but we have check logic here.
         // So we need render the element to check and pass back to @v-c/dropdown.
-        const menuClassNames = omit(mergedClassNames.value, ['root'])
-        const menuStyles = omit(mergedStyles.value, ['root'])
+        const menuClassNames = omit(mergedClassNames.value, ['root', 'menu'])
+        const menuStyles = omit(mergedStyles.value, ['root', 'menu'])
+        const menuRootClassName = clsx((menu?.classes as any)?.root, mergedClassNames.value.menu) || undefined
+        const menuRootStyle = mergedStyles.value.menu
+          ? { ...(menu?.styles as any)?.root, ...mergedStyles.value.menu }
+          : (menu?.styles as any)?.root
         let overlayNode: any
         if (menu?.items) {
           overlayNode = (
@@ -295,6 +301,7 @@ const Dropdown = defineComponent<
               rootClass={clsx(menu?.rootClass)}
               classes={{
                 ...menu?.classes,
+                root: menuRootClassName,
                 ...menuClassNames,
                 subMenu: {
                   ...menuClassNames,
@@ -302,6 +309,7 @@ const Dropdown = defineComponent<
               }}
               styles={{
                 ...menu?.styles,
+                root: menuRootStyle,
                 ...menuStyles,
                 subMenu: {
                   ...menuStyles,
