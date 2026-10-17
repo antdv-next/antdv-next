@@ -68,6 +68,10 @@ export interface TypographySemanticStyles {
 export type TypographyClassNamesType = SemanticClassNamesType<BlockProps, TypographySemanticClassNames>
 export type TypographyStylesType = SemanticStylesType<BlockProps, TypographySemanticStyles>
 
+export interface ShimmerConfig {
+  duration?: number | [motionTime: number, waitTime: number]
+}
+
 export interface BlockProps extends ComponentBaseProps {
   title?: string
   editable?: boolean | EditConfig
@@ -75,6 +79,10 @@ export interface BlockProps extends ComponentBaseProps {
   type?: BaseType
   disabled?: boolean
   ellipsis?: boolean | EllipsisConfig
+  /**
+   * @since 1.7.0
+   */
+  shimmer?: boolean | ShimmerConfig
   /**
    * @since 1.3.0
    */

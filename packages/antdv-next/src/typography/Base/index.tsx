@@ -1,5 +1,5 @@
 import type { SlotsType } from 'vue'
-import type { BlockProps, CopyConfig, EditConfig, EllipsisConfig, TypographyBaseEmits, TypographyClassNamesType, TypographySlots, TypographyStylesType } from '../interface'
+import type { BlockProps, CopyConfig, EditConfig, EllipsisConfig, ShimmerConfig, TypographyBaseEmits, TypographyClassNamesType, TypographySlots, TypographyStylesType } from '../interface'
 import { EditOutlined } from '@antdv-next/icons'
 import ResizeObserver from '@v-c/resize-observer'
 import { classNames } from '@v-c/util'
@@ -21,6 +21,7 @@ import { isStyleSupport } from '../../_util/styleChecker'
 import { toPropsRefs } from '../../_util/tools'
 import { useComponentBaseConfig } from '../../config-provider/context'
 import useLocale from '../../locale/useLocale'
+import { genCssVar } from '../../theme/util/genStyleUtils'
 import Tooltip from '../../tooltip'
 import Editable from '../Editable'
 import useCopyClick from '../hooks/useCopyClick'
@@ -35,6 +36,9 @@ import EllipsisTooltip from './EllipsisTooltip'
 import { isEleEllipsis, isValidText, toList } from './util'
 
 const ELLIPSIS_STR = '...'
+
+const DEFAULT_SHIMMER_DURATION = 1
+const DEFAULT_SHIMMER_CONFIG: ShimmerConfig = { duration: DEFAULT_SHIMMER_DURATION }
 
 const DECORATION_PROPS: (keyof BlockProps)[] = [
   'delete',
@@ -93,6 +97,7 @@ const Base = defineComponent<
 
     const {
       prefixCls,
+      rootPrefixCls,
       direction: contextDirection,
       class: contextClassName,
       style: contextStyle,
@@ -173,6 +178,12 @@ const Base = defineComponent<
 
     // ========================== Copyable ==========================
     const [enableCopy, copyConfig] = useMergedConfig<CopyConfig>(computed(() => props.copyable))
+
+    // ========================== Shimmer ===========================
+    const [enableShimmer, shimmerConfig] = useMergedConfig<ShimmerConfig>(
+      computed(() => props.shimmer),
+      DEFAULT_SHIMMER_CONFIG,
+    )
 
     const childrenNodes = shallowRef<any[]>([])
 
@@ -478,6 +489,7 @@ const Base = defineComponent<
       {
         [`${prefixCls.value}-${props.type}`]: props.type,
         [`${prefixCls.value}-disabled`]: props.disabled,
+        [`${prefixCls.value}-shimmer`]: enableShimmer.value && !props.disabled,
         [`${prefixCls.value}-ellipsis`]: enableEllipsis.value,
         [`${prefixCls.value}-ellipsis-single-line`]: cssTextOverflow.value,
         [`${prefixCls.value}-ellipsis-multiple-line`]: cssLineClamp.value,
@@ -497,7 +509,19 @@ const Base = defineComponent<
         emit('click', e)
       }
       const mergedClassName = classNames(componentCls.value, attrClass)
+      const shimmerStyle = enableShimmer.value
+        ? (() => {
+            const [varName] = genCssVar(rootPrefixCls.value!, 'typography')
+            const duration = shimmerConfig.value?.duration
+            const [motionTime = DEFAULT_SHIMMER_DURATION, waitTime = 1] = Array.isArray(duration) ? duration : [duration]
+            return {
+              [varName('shimmer-motion-time')]: motionTime,
+              [varName('shimmer-wait-time')]: waitTime,
+            }
+          })()
+        : null
       const mergedStyle = [
+        shimmerStyle,
         mergedStyles.value.root,
         cssLineClamp.value ? { WebkitLineClamp: rows.value } : null,
         attrStyle,
@@ -545,6 +569,8 @@ const Base = defineComponent<
               onClick={clickHandler}
               title={props.title!}
               aria-label={topAriaLabel.value as any}
+              aria-busy={enableShimmer.value ? !props.disabled : undefined}
+              aria-disabled={enableShimmer.value && props.disabled ? true : undefined}
               rootClass={props.rootClass}
               {...restAttrs}
             >
