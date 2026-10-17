@@ -70,7 +70,7 @@ const genBaseStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         color: token.colorTextQuaternary,
         fontSize: token.fontSizeIcon,
         fontStyle: 'normal',
-        lineHeight: 1,
+        lineHeight: 0, // keeping the focus outline tight
         textAlign: 'center',
         textTransform: 'none',
         // The clear affordance is a real `<button>` for keyboard access, so

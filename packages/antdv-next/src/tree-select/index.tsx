@@ -25,6 +25,7 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
 import { useSize } from '../config-provider/hooks/useSize'
 import { useFormItemInputContext } from '../form/context'
 import useVariant from '../form/hooks/useVariant'
+import { useLocaleGetter } from '../locale/useLocale'
 import mergedBuiltinPlacements from '../select/mergedBuiltinPlacements.ts'
 import useSelectStyle from '../select/style'
 import useIcons from '../select/useIcons'
@@ -274,6 +275,7 @@ const InternalTreeSelect = defineComponent<
       getPrefixCls,
       rootPrefixCls,
     } = useComponentBaseConfig('treeSelect', props, ['switcherIcon'], 'tree-select')
+    const getGlobalLocale = useLocaleGetter('global')
     const configCtx = useConfig()
     const {
       prefixCls: customizePrefixCls,
@@ -471,7 +473,13 @@ const InternalTreeSelect = defineComponent<
         componentName: 'TreeSelect',
       } as any)
 
-      const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear
+      const mergedAllowClear = allowClear
+        ? {
+            clearIcon,
+            label: getGlobalLocale().clear,
+            ...(typeof allowClear === 'object' ? allowClear : {}),
+          }
+        : allowClear
       const notFoundContent = getSlotPropsFnRun(slots, props, 'notFoundContent', false)
 
       // ===================== Empty =====================
