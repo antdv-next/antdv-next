@@ -54,6 +54,10 @@ const localeValues: Locale = {
     okText: 'Tamam',
     cancelText: 'İptal',
   },
+  Splitter: {
+    toggleStartPanel: 'Başlangıç panelini değiştir',
+    toggleEndPanel: 'Bitiş panelini değiştir',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Arama',

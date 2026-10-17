@@ -54,6 +54,10 @@ const localeValues: Locale = {
     okText: 'تأكيد',
     cancelText: 'إلغاء',
   },
+  Splitter: {
+    toggleStartPanel: 'تبديل لوحة البداية',
+    toggleEndPanel: 'تبديل لوحة النهاية',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'ابحث هنا',

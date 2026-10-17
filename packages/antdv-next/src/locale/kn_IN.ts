@@ -55,6 +55,10 @@ const localeValues: Locale = {
     okText: 'ಸರಿ',
     cancelText: 'ರದ್ದು',
   },
+  Splitter: {
+    toggleStartPanel: 'ಆರಂಭ ಫಲಕವನ್ನು ಟಾಗಲ್ ಮಾಡಿ',
+    toggleEndPanel: 'ಅಂತ್ಯ ಫಲಕವನ್ನು ಟಾಗಲ್ ಮಾಡಿ',
+  },
   Transfer: {
     titles: ['', ''],
     notFoundContent: 'ದೊರೆತಿಲ್ಲ',

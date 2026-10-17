@@ -54,6 +54,10 @@ const localeValues: Locale = {
     okText: 'ٹھیک ہے',
     cancelText: 'منسوخ کریں',
   },
+  Splitter: {
+    toggleStartPanel: 'ابتدائی پینل ٹوگل کریں',
+    toggleEndPanel: 'اختتامی پینل ٹوگل کریں',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'یہاں تلاش کریں',

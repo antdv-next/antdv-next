@@ -54,6 +54,10 @@ const localeValues: Locale = {
     okText: 'OK',
     cancelText: 'Annulla',
   },
+  Splitter: {
+    toggleStartPanel: 'Attiva/disattiva pannello iniziale',
+    toggleEndPanel: 'Attiva/disattiva pannello finale',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Cerca qui',

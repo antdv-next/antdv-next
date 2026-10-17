@@ -54,6 +54,10 @@ const localeValues: Locale = {
     okText: 'Тийм',
     cancelText: 'Цуцлах',
   },
+  Splitter: {
+    toggleStartPanel: 'Эхлэх самбарыг сэлгэх',
+    toggleEndPanel: 'Төгсгөлийн самбарыг сэлгэх',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Хайх',

@@ -54,6 +54,10 @@ const localeValues: Locale = {
     okText: 'Áfram',
     cancelText: 'Hætta við',
   },
+  Splitter: {
+    toggleStartPanel: 'Víxla upphafsspjaldinu',
+    toggleEndPanel: 'Víxla lokaspjaldinu',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Leita hér',

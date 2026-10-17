@@ -6,6 +6,9 @@ import { defineComponent, nextTick, ref } from 'vue'
 import Splitter, { SplitterPanel } from '..'
 import { resetWarned } from '../../_util/warning'
 import ConfigProvider from '../../config-provider'
+import enUS from '../../locale/en_US'
+import frFR from '../../locale/fr_FR'
+import zhTW from '../../locale/zh_TW'
 import SplitBar from '../SplitBar'
 import { mount, triggerResize, waitFakeTimer } from '/@tests/utils'
 
@@ -534,6 +537,86 @@ describe('splitter', () => {
   })
 
   describe('collapsible', () => {
+    const mountLocaleSplitter = (render: () => any) =>
+      trackWrapper(mount({ render }, { attachTo: document.body }))
+
+    const getCollapseControls = () =>
+      Array.from(document.body.querySelectorAll<HTMLElement>('.ant-splitter-bar-collapse-bar'))
+
+    it('should localize collapse control names', async () => {
+      const locale = ref<any>(enUS)
+      const orientation = ref<'horizontal' | 'vertical'>('horizontal')
+      const direction = ref<'rtl' | undefined>()
+      mountLocaleSplitter(() => (
+        <ConfigProvider locale={locale.value} direction={direction.value}>
+          <SplitterDemo
+            orientation={orientation.value}
+            items={[{ collapsible: true }, { collapsible: true }]}
+          />
+        </ConfigProvider>
+      ))
+      await resizeSplitter()
+
+      expect(getCollapseControls()[0]!.getAttribute('aria-label')).toBe('Toggle start panel')
+      expect(getCollapseControls()[1]!.getAttribute('aria-label')).toBe('Toggle end panel')
+
+      locale.value = zhTW
+      orientation.value = 'vertical'
+      await nextTick()
+      expect(getCollapseControls()[0]!.getAttribute('aria-label')).toBe('切換起始面板')
+      expect(getCollapseControls()[1]!.getAttribute('aria-label')).toBe('切換結束面板')
+
+      orientation.value = 'horizontal'
+      direction.value = 'rtl'
+      await nextTick()
+      expect(getCollapseControls()[0]!.getAttribute('aria-label')).toBe('切換起始面板')
+      expect(getCollapseControls()[1]!.getAttribute('aria-label')).toBe('切換結束面板')
+    })
+
+    it('should localize collapse control names in French', async () => {
+      mountLocaleSplitter(() => (
+        <ConfigProvider locale={frFR}>
+          <SplitterDemo items={[{ collapsible: true }, { collapsible: true }]} />
+        </ConfigProvider>
+      ))
+      await resizeSplitter()
+
+      expect(getCollapseControls()[0]!.getAttribute('aria-label')).toBe('Basculer le panneau de début')
+      expect(getCollapseControls()[1]!.getAttribute('aria-label')).toBe('Basculer le panneau de fin')
+    })
+
+    it('should fall back to English collapse control names for a custom locale', async () => {
+      mountLocaleSplitter(() => (
+        <ConfigProvider locale={{ locale: 'custom' } as any}>
+          <SplitterDemo items={[{ collapsible: true }, { collapsible: true }]} />
+        </ConfigProvider>
+      ))
+      await resizeSplitter()
+
+      expect(getCollapseControls()[0]!.getAttribute('aria-label')).toBe('Toggle start panel')
+      expect(getCollapseControls()[1]!.getAttribute('aria-label')).toBe('Toggle end panel')
+    })
+
+    it('should use custom icon aria-labels for collapse controls', async () => {
+      mountLocaleSplitter(() => (
+        <ConfigProvider locale={zhTW}>
+          <SplitterDemo
+            items={[{ collapsible: true }, { collapsible: true }]}
+            collapsible={{
+              icon: {
+                start: <span aria-label="Toggle navigation">{'<'}</span>,
+                end: 'custom end icon',
+              },
+            }}
+          />
+        </ConfigProvider>
+      ))
+      await resizeSplitter()
+
+      expect(getCollapseControls()[0]!.getAttribute('aria-label')).toBe('Toggle navigation')
+      expect(getCollapseControls()[1]!.getAttribute('aria-label')).toBe('切換結束面板')
+    })
+
     it('basic', async () => {
       const wrapper = mountSplitter({
         items: [{ size: 20, collapsible: true }, { collapsible: true }],

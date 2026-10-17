@@ -54,6 +54,10 @@ const localeValues: Locale = {
     okText: 'Taip',
     cancelText: 'Atšaukti',
   },
+  Splitter: {
+    toggleStartPanel: 'Perjungti pradžios skydelį',
+    toggleEndPanel: 'Perjungti pabaigos skydelį',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Paieška',

@@ -56,6 +56,10 @@ const localeValues: Locale = {
     okText: 'Temam',
     cancelText: 'Betal ke',
   },
+  Splitter: {
+    toggleStartPanel: 'گۆڕینی دۆخی پانێڵی سەرەتا',
+    toggleEndPanel: 'گۆڕینی دۆخی پانێڵی کۆتایی',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Lêgerîn',

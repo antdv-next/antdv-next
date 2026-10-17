@@ -54,6 +54,10 @@ const localeValues: Locale = {
     okText: 'Bolýar',
     cancelText: 'Ýatyr',
   },
+  Splitter: {
+    toggleStartPanel: 'Başlangyç panelini çalyş',
+    toggleEndPanel: 'Ahyrky paneli çalyş',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Gözle',

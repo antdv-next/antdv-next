@@ -54,6 +54,10 @@ const localeValues: Locale = {
     okText: 'OK',
     cancelText: 'Anulare',
   },
+  Splitter: {
+    toggleStartPanel: 'Comută panoul de început',
+    toggleEndPanel: 'Comută panoul de sfârșit',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Căutare',

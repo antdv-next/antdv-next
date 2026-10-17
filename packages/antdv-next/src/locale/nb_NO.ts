@@ -54,6 +54,10 @@ const localeValues: Locale = {
     okText: 'OK',
     cancelText: 'Avbryt',
   },
+  Splitter: {
+    toggleStartPanel: 'Veksle startpanelet',
+    toggleEndPanel: 'Veksle sluttpanelet',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Søk her',

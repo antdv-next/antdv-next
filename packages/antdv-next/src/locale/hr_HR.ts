@@ -54,6 +54,10 @@ const localeValues: Locale = {
     okText: 'OK',
     cancelText: 'Odustani',
   },
+  Splitter: {
+    toggleStartPanel: 'Prebaci početnu ploču',
+    toggleEndPanel: 'Prebaci završnu ploču',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Pretraži ovdje',

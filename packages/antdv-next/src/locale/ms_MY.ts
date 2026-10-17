@@ -54,6 +54,10 @@ const localeValues: Locale = {
     okText: 'OK',
     cancelText: 'Batal',
   },
+  Splitter: {
+    toggleStartPanel: 'Togol panel mula',
+    toggleEndPanel: 'Togol panel akhir',
+  },
   Transfer: {
     titles: ['', ''],
     notFoundContent: 'Tidak dijumpai',

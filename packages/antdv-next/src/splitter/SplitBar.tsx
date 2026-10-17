@@ -2,8 +2,9 @@ import type { CSSProperties } from 'vue'
 import type { SplitterProps, SplitterSemanticDraggerClassNames } from './interface'
 import { DownOutlined, LeftOutlined, RightOutlined, UpOutlined } from '@antdv-next/icons'
 import { clsx } from '@v-c/util'
-import { computed, defineComponent, shallowRef, watch } from 'vue'
+import { computed, defineComponent, isVNode, shallowRef, watch } from 'vue'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
+import useLocale from '../locale/useLocale'
 import { genCssVar } from '../theme/util/genStyleUtils'
 
 export type ShowCollapsibleIconMode = boolean | 'auto'
@@ -35,6 +36,11 @@ export interface SplitBarProps {
   containerSize: number
 }
 
+function getAriaLabel(icon: any, defaultLabel?: string): string | undefined {
+  const node = Array.isArray(icon) && icon.length === 1 ? icon[0] : icon
+  return (isVNode(node) && node.props?.['aria-label']) || defaultLabel
+}
+
 function getValidNumber(num?: number): number {
   return typeof num === 'number' && !Number.isNaN(num) && Number.isFinite(num)
     ? Math.round(num)
@@ -45,6 +51,7 @@ const DOUBLE_CLICK_TIME_GAP = 300
 
 const SplitBar = defineComponent<SplitBarProps>(
   (props, { slots, attrs }) => {
+    const [locale] = useLocale('Splitter')
     const {
       vertical,
       resizable,
@@ -315,7 +322,7 @@ const SplitBar = defineComponent<SplitBarProps>(
               )}
               role="button"
               tabindex={0}
-              aria-label="Toggle start panel"
+              aria-label={getAriaLabel(startIcon, locale.value.toggleStartPanel)}
               onClick={() => onCollapse(index.value, 'start')}
               onKeydown={(e: KeyboardEvent) => onCollapseKeyDown(e, 'start')}
             >
@@ -343,7 +350,7 @@ const SplitBar = defineComponent<SplitBarProps>(
               )}
               role="button"
               tabindex={0}
-              aria-label="Toggle end panel"
+              aria-label={getAriaLabel(endIcon, locale.value.toggleEndPanel)}
               onClick={() => onCollapse(index.value, 'end')}
               onKeydown={(e: KeyboardEvent) => onCollapseKeyDown(e, 'end')}
             >

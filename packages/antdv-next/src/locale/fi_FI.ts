@@ -52,6 +52,10 @@ const localeValues: Locale = {
     okText: 'OK',
     cancelText: 'Peruuta',
   },
+  Splitter: {
+    toggleStartPanel: 'Vaihda aloituspaneelia',
+    toggleEndPanel: 'Vaihda lopetuspaneelia',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Etsi täältä',

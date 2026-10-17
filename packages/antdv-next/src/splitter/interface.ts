@@ -50,6 +50,11 @@ export type SplitterStylesType = SemanticStylesType<
   { dragger?: CSSProperties | DraggerSemanticStyles }
 >
 
+export interface SplitterLocale {
+  toggleStartPanel?: string
+  toggleEndPanel?: string
+}
+
 export interface SplitterProps extends ComponentBaseProps {
   classes?: SplitterClassNamesType
   styles?: SplitterStylesType

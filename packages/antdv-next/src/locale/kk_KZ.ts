@@ -54,6 +54,10 @@ const localeValues: Locale = {
     okText: 'Жарайды',
     cancelText: 'Болдырмау',
   },
+  Splitter: {
+    toggleStartPanel: 'Бастапқы панельді ауыстыру',
+    toggleEndPanel: 'Соңғы панельді ауыстыру',
+  },
   Transfer: {
     titles: ['', ''],
     searchPlaceholder: 'Іздеу',
