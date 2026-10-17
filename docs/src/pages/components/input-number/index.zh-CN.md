@@ -47,7 +47,7 @@ demo:
 | status | 设置校验状态 | InputStatus | - | - | × |
 | disabled | 禁用 | boolean | false | - | × |
 | addonBefore | 带标签的 input，设置前置标签，请使用 Space.Compact 替换 | VueNode | - | - | × |
-| allowClear | 可以点击清除图标删除内容 | boolean \| &#123; clearIcon?: VueNode, disabled?: boolean, label?: string &#125; | false | 1.5.4 | ✓ |
+| allowClear | 是否显示清除按钮，清空后的值为 `null` | boolean \| [AllowClearConfig](#allowclearconfig) | false | 1.5.4 | ✓ |
 | addonAfter | 带标签的 input，设置后置标签，请使用 Space.Compact 替换 | VueNode | - | - | × |
 | prefix | 带有前缀图标的 input | VueNode | - | - | × |
 | suffix | 带有后缀图标的 input | VueNode | - | - | × |
@@ -85,6 +85,16 @@ demo:
 | compositionstart | - | (e: CompositionEvent) =&gt; void | - |
 | compositionend | - | (e: CompositionEvent) =&gt; void | - |
 | beforeinput | - | (e: InputEvent) =&gt; void | - |
+
+### AllowClearConfig {#allowclearconfig}
+
+支持全局配置的字段按组件配置、全局配置、默认值的顺序取值。`allowClear` 为 `true` 时继承全局配置；`disabled: false` 可覆盖全局值。
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| clearIcon | 自定义清除图标 | VueNode | - | - | ✓ |
+| disabled | 禁用清除按钮 | boolean | false | - | ✓ |
+| label | 清除按钮的无障碍名称 | string | 组件的本地化文案 | 1.5.4 | ✓ |
 
 ### 插槽 {#slots}
 

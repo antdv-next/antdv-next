@@ -51,7 +51,7 @@ demo:
 | --- | --- | --- | --- | --- | --- |
 | ~~addonAfter~~ | 带标签的 input，设置后置标签，请使用 Space.Compact 替换 | VueNode | - | - | × |
 | ~~addonBefore~~ | 带标签的 input，设置前置标签，请使用 Space.Compact 替换 | VueNode | - | - | × |
-| allowClear | 可以点击清除图标删除内容 | boolean \| &#123; clearIcon: VueNode &#125; | - | - | ✓ |
+| allowClear | 是否显示清除按钮 | boolean \| [AllowClearConfig](#allowclearconfig) | - | - | ✓ |
 | ~~bordered~~ | 是否有边框, 请使用 `variant` 替换 | boolean | true | - | × |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-input), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-input), string&gt; | - | - | ✓ |
 | count | 字符计数配置 | [CountConfig](#countconfig) | - | - | × |
@@ -185,6 +185,16 @@ Input 的其他属性和 Vue 自带的 [input](https://cn.vuejs.org/guide/essent
 | input | 输入值变化时触发的回调 | (value: string[]) =&gt; void | - |
 
 ### Types {#types}
+
+#### AllowClearConfig {#allowclearconfig}
+
+支持全局配置的字段按组件配置、全局配置、默认值的顺序取值。`allowClear` 为 `true` 时继承全局配置；`disabled: false` 和 `tabIndex: 0` 可覆盖全局值。
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| clearIcon | 自定义清除图标 | VueNode | - | - | ✓ |
+| disabled | 禁用清除按钮 | boolean | false | - | ✓ |
+| tabIndex | 清除按钮的 Tab 键顺序。`-1` 表示不参与 Tab 键导航 | number | 0 | 1.7.0 | ✓ |
 
 #### CountConfig
 

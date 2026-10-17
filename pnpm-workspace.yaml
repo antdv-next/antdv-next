@@ -8,6 +8,7 @@ packages:
   - docs
 
 overrides:
+  '@v-c/input': catalog:vc
   '@v-c/notification': catalog:vc
   '@v-c/portal': catalog:vc
   '@v-c/resize-observer': catalog:vc
@@ -144,7 +145,7 @@ catalogs:
     '@v-c/drawer': ^1.0.8
     '@v-c/dropdown': ^1.1.1
     '@v-c/image': ^1.1.2
-    '@v-c/input': ^1.1.2
+    '@v-c/input': ^1.2.0
     '@v-c/input-number': ^1.1.1
     '@v-c/listy': ^1.2.0
     '@v-c/mentions': ^1.2.3

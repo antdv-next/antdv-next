@@ -5,6 +5,7 @@ import type {
 } from '@v-c/textarea'
 import type { CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
+import type { AllowClear } from '../_util/hooks/useAllowClear'
 import type { InputStatus } from '../_util/statusUtils'
 import type { ComponentBaseProps, Variant } from '../config-provider/context'
 import type { SizeType } from '../config-provider/SizeContext'
@@ -12,8 +13,8 @@ import VcTextArea from '@v-c/textarea'
 import { clsx } from '@v-c/util'
 import { omit } from 'es-toolkit/compat'
 import { computed, defineComponent, onBeforeUnmount, shallowRef } from 'vue'
-import getAllowClear from '../_util/getAllowClear'
 import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
+import useAllowClear, { useAllowClearLabel } from '../_util/hooks/useAllowClear'
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils'
 import { toPropsRefs } from '../_util/tools'
 import { devUseWarning, isDev } from '../_util/warning'
@@ -73,6 +74,7 @@ export interface TextAreaProps
     | 'maxLength'
     | 'readOnly'
     | 'minLength'
+    | 'allowClear'
   >,
   /* @vue-ignore */
   TextAreaEmitsProps {
@@ -88,6 +90,7 @@ export interface TextAreaProps
   minlength?: number
   readonly?: boolean
   showCount?: InputProps['showCount']
+  allowClear?: AllowClear
 }
 
 export interface TextAreaEmits {
@@ -204,7 +207,12 @@ const InternalTextArea = defineComponent<
 
     const [mergedVariant, enableVariantCls] = useVariant('textArea', customVariant, bordered)
 
-    const mergedAllowClear = computed(() => getAllowClear(props.allowClear ?? contextAllowClear.value))
+    const getClearLabel = useAllowClearLabel()
+    const mergedAllowClear = computed(() => useAllowClear({
+      allowClear: props.allowClear,
+      contextAllowClear: contextAllowClear.value,
+      defaultLabel: getClearLabel(),
+    }))
     const mergedChangeOnComposing = computed(() => props.changeOnComposing ?? contextChangeOnComposing.value)
 
     const isMouseDown = shallowRef(false)
@@ -328,7 +336,7 @@ const InternalTextArea = defineComponent<
           classNames={classNames as any}
           styles={mergedStyles.value as any}
           disabled={mergedDisabled.value}
-          allowClear={mergedAllowClear.value}
+          allowClear={mergedAllowClear.value as VcTextAreaProps['allowClear']}
           changeOnComposing={mergedChangeOnComposing.value}
           onPressEnter={handlePressEnter}
           onResize={handleResize}

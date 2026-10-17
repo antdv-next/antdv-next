@@ -53,7 +53,7 @@ demo:
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | MentionsStylesType | - | - | ✓ |
 | size | 控件大小 | `large` \| `medium` \| `small` | - | - | × |
 | labelRender | 自定义选项内容渲染 | (ctx: &#123; option: MentionsOptionProps, index: number &#125;) =&gt; any | - | - | × |
-| allowClear | 可以点击清除图标删除内容 | boolean \| &#123; clearIcon?: VueNode, disabled?: boolean &#125; | false | - | ✓ |
+| allowClear | 是否显示清除按钮 | boolean \| [AllowClearConfig](#allowclearconfig) | false | - | ✓ |
 | disabled | 是否禁用 | boolean | - | - | × |
 
 ### 事件 {#events}
@@ -67,6 +67,16 @@ demo:
 | popupScroll | 滚动时触发 | (event: Event) =&gt; void | - |
 | search | 搜索时触发 | (text: string, prefix: string) =&gt; void | - |
 | update:value | 值更新时触发，用于支持 `v-model:value` | (value: string) =&gt; void | - |
+
+### AllowClearConfig {#allowclearconfig}
+
+支持全局配置的字段按组件配置、全局配置、默认值的顺序取值。`allowClear` 为 `true` 时继承全局配置；`disabled: false` 和 `tabIndex: 0` 可覆盖全局值。
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| clearIcon | 自定义清除图标 | VueNode | - | - | ✓ |
+| disabled | 禁用清除按钮 | boolean | false | - | ✓ |
+| tabIndex | 清除按钮的 Tab 键顺序。`-1` 表示不参与 Tab 键导航 | number | 0 | 1.7.0 | ✓ |
 
 ### Option {#option}
 

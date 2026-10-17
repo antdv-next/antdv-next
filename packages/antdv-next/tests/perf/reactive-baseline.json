@@ -5,7 +5,7 @@
     "instances": 4
   },
   "input": {
-    "computed": 65,
+    "computed": 66,
     "watch": 11,
     "instances": 3
   },
@@ -25,7 +25,7 @@
     "instances": 14
   },
   "form-item-input": {
-    "computed": 178,
+    "computed": 179,
     "watch": 43,
     "instances": 17
   },
