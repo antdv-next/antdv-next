@@ -421,4 +421,44 @@ describe('select', () => {
     errSpy.mockRestore()
     wrapper.unmount()
   })
+  describe('allowClear with ConfigProvider', () => {
+    const options = [{ value: 'value', label: 'Label' }]
+    const mountWithConfig = (selectConfig: Record<string, any>, selectProps: Record<string, any> = {}) =>
+      mount(ConfigProvider, {
+        props: { select: selectConfig } as any,
+        slots: {
+          default: () => h(Select, { defaultValue: 'value', options, ...selectProps }),
+        },
+      })
+
+    it('inherits allowClear from ConfigProvider when the prop is undefined', () => {
+      const wrapper = mountWithConfig({ allowClear: true })
+      expect(wrapper.find('.ant-select-clear').exists()).toBe(true)
+    })
+
+    it('lets allowClear=false override ConfigProvider', () => {
+      const wrapper = mountWithConfig({ allowClear: true }, { allowClear: false })
+      expect(wrapper.find('.ant-select-clear').exists()).toBe(false)
+    })
+
+    it('lets allowClear=true override ConfigProvider false', () => {
+      const wrapper = mountWithConfig({ allowClear: false }, { allowClear: true })
+      expect(wrapper.find('.ant-select-clear').exists()).toBe(true)
+    })
+
+    it('inherits a custom clearIcon from ConfigProvider', () => {
+      const wrapper = mountWithConfig({ allowClear: { clearIcon: h('span', { class: 'custom-clear-icon' }, 'X') } })
+      expect(wrapper.find('.custom-clear-icon').exists()).toBe(true)
+      expect(wrapper.find('.ant-select-clear').exists()).toBe(true)
+    })
+
+    it('prefers the prop clearIcon over the ConfigProvider one', () => {
+      const wrapper = mountWithConfig(
+        { allowClear: { clearIcon: h('span', { class: 'context-icon' }, 'Ctx') } },
+        { allowClear: { clearIcon: h('span', { class: 'prop-icon' }, 'Prop') } },
+      )
+      expect(wrapper.find('.context-icon').exists()).toBe(false)
+      expect(wrapper.find('.prop-icon').exists()).toBe(true)
+    })
+  })
 })
