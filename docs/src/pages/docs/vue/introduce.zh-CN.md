@@ -66,8 +66,8 @@ title: Ant Design of Vue
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>浏览器引入 Demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/antdv-next@1.6.0/dist/reset.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/antdv-next@1.6.0/dist/antd.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/antdv-next@1.7.0/dist/reset.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/antdv-next@1.7.0/dist/antd.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -86,7 +86,7 @@ title: Ant Design of Vue
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.9/plugin/weekday.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.9/plugin/weekOfYear.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.9/plugin/weekYear.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/antdv-next@1.6.0/dist/antd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/antdv-next@1.7.0/dist/antd.js"></script>
     <script>
       const { createApp } = Vue;
       const app = createApp({
