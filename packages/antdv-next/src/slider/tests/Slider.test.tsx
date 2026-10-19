@@ -138,6 +138,22 @@ describe('slider', () => {
     expect(wrapper.find('strong').text()).toBe('100°C')
   })
 
+  it('should render custom mark content via mark slot', () => {
+    const marks = { 0: '0°C', 100: '100°C' }
+    const wrapper = mount(Slider, {
+      props: { marks, defaultValue: 0 },
+      slots: {
+        mark: ({ point, label }: { point: number, label?: any }) => (
+          <span class="custom-mark">{`${point}#${label}`}</span>
+        ),
+      },
+    })
+    const customMarks = wrapper.findAll('.custom-mark')
+    expect(customMarks.length).toBe(2)
+    expect(customMarks[0]?.text()).toBe('0#0°C')
+    expect(customMarks[1]?.text()).toBe('100#100°C')
+  })
+
   it('should render dots when dots=true', () => {
     const wrapper = mount(Slider, {
       props: { dots: true, step: 10, defaultValue: 50 },
