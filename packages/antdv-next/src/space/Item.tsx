@@ -7,6 +7,7 @@ import { useSpaceContext } from './context.ts'
 export interface ItemProps {
   index: number
   className: string
+  prefix: string
   classes: {
     separator?: string
   }
@@ -24,7 +25,7 @@ const Item = defineComponent<ItemProps, EmptyEmit, string, SlotsType<ItemSlots>>
   (props, { slots, attrs }) => {
     const spaceContext = useSpaceContext()
     return () => {
-      const { index, className, classes, styles } = props
+      const { index, className, prefix, classes, styles } = props
       const { latestIndex } = spaceContext.value
       const children = filterEmpty(slots?.default?.())
       const separator = filterEmpty(slots?.separator?.())
@@ -38,7 +39,7 @@ const Item = defineComponent<ItemProps, EmptyEmit, string, SlotsType<ItemSlots>>
           </div>
           {index < latestIndex && !!separator.length && (
             <span
-              class={[`${className}-item-separator`, classes.separator]}
+              class={[`${prefix}-item-separator`, classes.separator]}
               style={styles.separator}
             >
               {separator}

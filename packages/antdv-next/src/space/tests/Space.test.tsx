@@ -177,7 +177,7 @@ describe('space', () => {
         props: { separator: h('span', { class: 'sep' }, '|') },
         slots: { default: () => [<span>1</span>, <span>2</span>, <span>3</span>] },
       })
-      const separators = wrapper.findAll('.ant-space-item-item-separator')
+      const separators = wrapper.findAll('.ant-space-item-separator')
       // separator between items, not after last
       expect(separators.length).toBe(2)
     })
@@ -241,7 +241,7 @@ describe('space', () => {
           separator: () => <span>|</span>,
         },
       })
-      const sep = wrapper.find('.ant-space-item-item-separator')
+      const sep = wrapper.find('.ant-space-item-separator')
       expect(sep.classes()).toContain('c-sep')
       expect(sep.attributes('style')).toContain('color: rgb(255, 0, 0)')
     })

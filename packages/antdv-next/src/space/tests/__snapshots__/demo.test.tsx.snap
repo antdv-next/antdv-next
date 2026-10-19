@@ -44,7 +44,7 @@ exports[`space demo > renders _semantic correctly 1`] = `
           </button>
         </div>
         <span
-          class="ant-space-item semantic-mark-item-item-separator semantic-mark-separator"
+          class="ant-space-item-separator semantic-mark-separator"
         >
           <div
             class="ant-divider css-var-v-0 ant-divider-vertical ant-divider-rail"
@@ -81,7 +81,7 @@ exports[`space demo > renders _semantic correctly 1`] = `
           </button>
         </div>
         <span
-          class="ant-space-item semantic-mark-item-item-separator semantic-mark-separator"
+          class="ant-space-item-separator semantic-mark-separator"
         >
           <div
             class="ant-divider css-var-v-0 ant-divider-vertical ant-divider-rail"
@@ -3598,7 +3598,7 @@ exports[`space demo > renders separator correctly 1`] = `
     </a>
   </div>
   <span
-    class="ant-space-item-item-separator"
+    class="ant-space-item-separator"
   >
     <div
       class="ant-divider css-var-root ant-divider-vertical ant-divider-rail"
@@ -3624,7 +3624,7 @@ exports[`space demo > renders separator correctly 1`] = `
     </a>
   </div>
   <span
-    class="ant-space-item-item-separator"
+    class="ant-space-item-separator"
   >
     <div
       class="ant-divider css-var-root ant-divider-vertical ant-divider-rail"
@@ -3895,7 +3895,7 @@ exports[`space demo > renders style-class correctly 1`] = `
       </button>
     </div>
     <span
-      class="ant-space-item demo-space-item-item-separator demo-space-separator"
+      class="ant-space-item-separator demo-space-separator"
       style="color: red; font-weight: bold;"
     >
       •
@@ -3929,7 +3929,7 @@ exports[`space demo > renders style-class correctly 1`] = `
       </button>
     </div>
     <span
-      class="ant-space-item demo-space-item-item-separator demo-space-separator"
+      class="ant-space-item-separator demo-space-separator"
       style="color: red; font-weight: bold;"
     >
       •

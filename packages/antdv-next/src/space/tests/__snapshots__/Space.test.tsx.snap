@@ -71,7 +71,7 @@ exports[`space > should render correct snapshot with separator 1`] = `
     </span>
   </div>
   <span
-    class="ant-space-item-item-separator"
+    class="ant-space-item-separator"
   >
     <span>
       |
@@ -85,7 +85,7 @@ exports[`space > should render correct snapshot with separator 1`] = `
     </span>
   </div>
   <span
-    class="ant-space-item-item-separator"
+    class="ant-space-item-separator"
   >
     <span>
       |
