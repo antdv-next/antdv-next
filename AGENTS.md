@@ -212,6 +212,20 @@ pnpm -F antdv-next publish --access public
 
 ## 🤝 Agent Collaboration Guidelines
 
+### Upstream Sync
+
+- Every sync starts from `.sync-upstream.json` (cursor + package mapping) and
+  the `.agents/skills/cross-repo-pr-sync` skill; advance the cursor only in the
+  PR that lands the ports.
+- Sync **merged** upstream commits only. Unmerged (`open`/`draft`) PRs are out
+  of scope: do not enumerate them, file tracking issues for them, or port
+  them. When the cursor range is empty (`compare` returns `identical`), the
+  answer is "nothing to sync" — do not widen the scan to open PRs.
+- If a fix is wanted before its upstream PR merges, that is an explicit
+  maintainer decision outside the sync process; it needs its own
+  reconciliation plan. (See `antdv-next/x` #257/#258, 2026-10-19: five ports
+  from unmerged PRs were reverted within a week.)
+
 ### Responsibilities
 1. Maintain API parity with Ant Design.
 2. Follow all conventions defined in this document.
