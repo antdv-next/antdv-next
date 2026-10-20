@@ -1,4 +1,5 @@
 import type { VueNode } from '../../_util/type.ts'
+import { classNames } from '@v-c/util'
 import { createVNode, defineComponent, isVNode } from 'vue'
 import { getAttrStyleAndClass } from '../../_util/hooks'
 import { getSlotPropsFnRun } from '../../_util/tools.ts'
@@ -24,7 +25,7 @@ const Indicator = defineComponent<IndicatorProps>(
 
       if (indicator && isVNode(indicator)) {
         return createVNode(indicator, {
-          class: [dotClassName, className],
+          class: classNames(dotClassName, className),
           style,
           percent,
         })
