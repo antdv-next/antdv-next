@@ -262,7 +262,10 @@ const InternalForm = defineComponent<
       fields.value[eventKey] = field
     }
 
-    const removeField = (eventKey: string) => {
+    // 传入 field 时只在该 key 仍属于它时才移除，避免误删已接手该 key 的其他字段
+    const removeField = (eventKey: string, field?: FormFieldRegister) => {
+      if (field && fields.value[eventKey] !== field)
+        return
       delete fields.value[eventKey]
     }
 
