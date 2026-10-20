@@ -79,8 +79,8 @@ export const Affix = defineComponent<
 
     const status = shallowRef<AffixStatus>(AFFIX_STATUS_NONE)
 
-    const prevTarget = shallowRef<Window | HTMLElement | null>(null)
-    const prevListener = shallowRef<EventListener | null>(null)
+    let prevTarget: Window | HTMLElement | null = null
+    let prevListener: EventListener | null = null
 
     const placeholderNodeRef = shallowRef<HTMLDivElement>()
     const fixedNodeRef = shallowRef<HTMLDivElement>()
@@ -189,21 +189,20 @@ export const Affix = defineComponent<
         return
       }
       TRIGGER_EVENTS.forEach((eventName) => {
-        if (prevListener.value) {
-          prevTarget.value?.removeEventListener(eventName, prevListener.value)
+        if (prevListener) {
+          prevTarget?.removeEventListener(eventName, prevListener)
         }
         listenerTarget?.addEventListener(eventName, lazyUpdatePosition)
       })
-      prevTarget.value = listenerTarget
-      prevListener.value = lazyUpdatePosition
+      prevTarget = listenerTarget
+      prevListener = lazyUpdatePosition
     }
 
-    const removeListeners = () => {
-      const newTarget = targetFunc.value()
+    const removeListeners = (newTarget = targetFunc.value()) => {
       TRIGGER_EVENTS.forEach((eventName) => {
         newTarget?.removeEventListener(eventName, lazyUpdatePosition)
-        if (prevListener.value) {
-          prevTarget.value?.removeEventListener(eventName, prevListener.value)
+        if (prevListener) {
+          prevTarget?.removeEventListener(eventName, prevListener)
         }
       })
       updatePosition.cancel()
@@ -219,7 +218,9 @@ export const Affix = defineComponent<
       timer.value = setTimeout(addListeners)
     })
 
+    let unmounted = false
     onBeforeUnmount(() => {
+      unmounted = true
       if (timer.value) {
         clearTimeout(timer.value)
         timer.value = null
@@ -235,9 +236,15 @@ export const Affix = defineComponent<
       () => props.offsetBottom,
     ], async (_new, _old, onCleanup) => {
       await nextTick()
+      // 等待期间已卸载时不再添加监听，否则这里注册的 cleanup 永远不会执行
+      if (unmounted) {
+        return
+      }
       addListeners()
-
-      onCleanup(removeListeners)
+      // 卸载时 onCleanup 在父组件的渲染 effect 中执行，若在其中读 targetFunc 等
+      // computed，父组件会订阅到它而让已卸载的 Affix 无法回收，所以先取成普通值
+      const target = prevTarget
+      onCleanup(() => removeListeners(target))
     })
 
     watch([() => props.target, () => props.offsetTop, () => props.offsetBottom], async () => {
