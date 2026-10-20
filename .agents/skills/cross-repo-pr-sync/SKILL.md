@@ -35,6 +35,24 @@ description: >
 
 ---
 
+## 同步范围（硬性规则）
+
+**只同步已合并进上游默认分支的变更。** 游标区间 `last_synced_commit..HEAD`
+由已合并的 commit 组成，未合并的 PR（`open` / `draft`）按定义不在其中。
+
+因此，无论游标区间是否为空：
+
+- ⚪ **不枚举上游 open/draft PR**（`/pulls?state=open` 之类的手段一律不用）
+- ⚪ **不为其开 tracking issue、不建 `sync/*` 分支、不移植、不写 checklist**
+- ⚪ 下游如需提前拿到某个修复，由维护者显式决定并自行承担对账成本，
+  不属于本 skill 的同步流程
+
+上游 PR 合并后，其 merge commit 自然进入游标区间，下次 sync 按正常流程发现。
+区间为空（`compare` 返回 `identical`）时，结论就是"暂无同步项"，直接结束，
+不要用 open PR 列表"凑工作量"。
+
+---
+
 ## Step 0：读取同步状态（优先执行）
 
 在做任何事之前，先检查下游仓库根目录是否存在 `.sync-upstream.json`：
@@ -188,6 +206,10 @@ pro-components/form   → worker-3（upstream: packages/form,    downstream: pac
 
 ## Step 2（Worker 内）：获取 Commit 列表
 
+> 本步骤枚举的 `start_commit..HEAD` 只含**已合并** commit（见「同步范围」硬性
+> 规则）。区间内每个 commit 对应的 PR 必然已合并，可直接进入同步评估；不要
+> 在本步骤之外再引入 open PR 列表。
+
 ### 🖥️ Local / Auto-clone 模式（推荐）
 
 ```bash
@@ -250,6 +272,10 @@ GET https://api.github.com/repos/{upstream_repo}/commits/{sha}/pulls
 - 涉及的文件路径（推断影响的组件）
 - PR body 中的关联 issue
 - 合并时间
+
+**合并状态校验**：关联到的 PR 必须 `merged_at != null` 且 merge commit 落在
+游标区间内。若校验失败（例如 commit 是 cherry-pick / PR 实际未合并），丢弃该
+条目并在结果中标注原因，不要进入后续步骤。
 
 ---
 
@@ -541,6 +567,7 @@ NOW=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
 - GitHub API 未认证限流为 60次/小时，认证后为 5000次/小时，建议用户提供 token
 - 部分 commit 可能没有关联 PR（直接 push），这类提交单独列出供人工判断
 - "Skip" 类 PR 仍然列出，方便人工复核是否真的不适用
+- **上游 open/draft PR 不在同步范围内**：不开 issue、不建分支、不移植（见「同步范围」硬性规则）；区间为空就是"暂无同步项"，不要枚举 open PR 来凑数
 - 如果 PR 数量 > 50，建议分批处理或按时间段拆分
 - `.sync-upstream.json` 加入版本控制，团队共享同步进度；`.sync-upstream.local.json` 加入 `.gitignore`，存放个人本地路径，互不干扰
 - 详细 API 调用示例见 `references/github-api.md`
