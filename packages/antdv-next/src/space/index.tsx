@@ -157,6 +157,7 @@ const InternalSpace = defineComponent<
         const key = child?.key || `${itemClassName}-${i}`
         return (
           <Item
+            prefix={prefixCls.value}
             className={itemClassName}
             classes={mergedClassNames.value}
             styles={mergedStyles.value}
