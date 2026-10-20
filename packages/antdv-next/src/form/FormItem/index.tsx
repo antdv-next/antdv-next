@@ -510,8 +510,14 @@ const InternalFormItem = defineComponent<
     watch(
       hasName,
       (val, _, onCleanup) => {
-        if (val && formContext.value?.addField) {
-          formContext.value.addField(eventKey.value, {
+        // 卸载时 scope.stop() 会同步执行 onCleanup，此刻父组件的渲染 effect 仍处于
+        // 依赖收集状态。若在这里读 formContext / eventKey，父 effect 会订阅 Form 的
+        // 上下文 computed（其闭包捕获了 Form 实例），使已卸载的整棵 DOM 无法回收。
+        // 所以注册时就把 key 和上下文取成普通值，卸载阶段不再触碰响应式数据。
+        const fieldKey = eventKey.value
+        const formCtx = formContext.value
+        if (val && formCtx?.addField) {
+          formCtx.addField(fieldKey, {
             onFieldBlur,
             namePath: () => namePath.value,
             getValue: () => fieldValue.value,
@@ -537,11 +543,11 @@ const InternalFormItem = defineComponent<
             },
           })
           onCleanup(() => {
-            formContext.value?.removeField?.(eventKey.value)
+            formCtx.removeField?.(fieldKey)
           })
         }
         else {
-          formContext.value?.removeField?.(eventKey.value)
+          formCtx?.removeField?.(fieldKey)
         }
       },
       { immediate: true },
