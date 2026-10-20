@@ -69,6 +69,21 @@ describe('spin.semantic', () => {
       expect(indicator.exists()).toBe(true)
     })
 
+    it('should apply classes and styles to custom indicator', () => {
+      const wrapper = mount(Spin, {
+        props: {
+          indicator: h('span', { class: 'custom-indicator' }),
+          classes: { indicator: 'c-indicator' },
+          styles: { indicator: { background: 'rgb(0, 128, 0)' } },
+        },
+      })
+      const indicator = wrapper.find('.custom-indicator')
+      expect(indicator.exists()).toBe(true)
+      expect(indicator.classes()).toContain('ant-spin-dot')
+      expect(indicator.classes()).toContain('c-indicator')
+      expect(indicator.attributes('style')).toContain('background: rgb(0, 128, 0)')
+    })
+
     it('should apply classes and styles to description', () => {
       const wrapper = mount(Spin, {
         props: {
