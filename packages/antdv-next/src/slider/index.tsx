@@ -303,6 +303,8 @@ const Slider = defineComponent<
       // deprecated callback that runs both through its own `emit` and through the
       // prop, so a leftover `@after-change` listener must not be forwarded.
       delete restProps.onAfterChange
+      const onBlur = restProps.onBlur
+      delete restProps.onBlur
       if (isRTL.value && !mergedVertical.value) {
         restProps.reverse = !restProps.reverse
       }
@@ -347,7 +349,7 @@ const Slider = defineComponent<
           },
           onBlur: (e: FocusEvent) => {
             setFocusOpen(false)
-            restProps?.onBlur?.(e)
+            onBlur?.(e)
             proxyEvent('onBlur', e)
           },
         }

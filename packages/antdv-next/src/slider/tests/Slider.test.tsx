@@ -743,6 +743,18 @@ describe('slider', () => {
       wrapper.unmount()
     })
 
+    it('should forward onBlur to user handler exactly once in range mode', async () => {
+      const onBlur = vi.fn()
+      const wrapper = mount(Slider, {
+        props: { range: true, defaultValue: [20, 50] },
+        attrs: { onBlur },
+        attachTo: document.body,
+      })
+      await wrapper.find('.ant-slider-handle').trigger('blur')
+      expect(onBlur).toHaveBeenCalledTimes(1)
+      wrapper.unmount()
+    })
+
     it('should clear dragging on document mouseup', async () => {
       const wrapper = mount(Slider, {
         props: { defaultValue: 30 },
