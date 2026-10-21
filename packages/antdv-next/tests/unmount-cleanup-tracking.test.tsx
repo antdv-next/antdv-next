@@ -1,53 +1,61 @@
 import { mount } from '@vue/test-utils'
 import { describe, expect, it, vi } from 'vitest'
 import { defineComponent, getCurrentInstance, nextTick, ref } from 'vue'
-import { Affix, Avatar, Form, FormItem, Row } from '../src'
+import { Affix, Anchor, Avatar, Checkbox, CheckboxGroup, Form, FormItem, Row } from '../src'
 
-// 卸载时 scope.stop() 会在父组件的渲染 effect 中同步执行 watch 的 onCleanup，
-// 若 cleanup 读取了 computed，父组件会订阅到已卸载组件的 computed，使其（及其持有的
-// DOM）在父组件下次重新渲染前都无法回收。这里断言卸载后父组件没有订阅任何 computed。
-function getComputedDeps(instance: any) {
-  const deps: unknown[] = []
-  for (let link = instance.effect.deps; link; link = link.nextDep) {
-    if (link.dep.computed)
-      deps.push(link.dep.computed)
-  }
-  return deps
-}
-
+// 卸载时 scope.stop() 会在父组件的渲染 effect 中同步执行 watch 的 onCleanup，且不会
+// 暂停依赖收集。cleanup 中读到的响应式数据都会被父组件订阅：读 computed 会让已卸载的
+// 组件（及其 DOM）在父组件下次重新渲染前无法回收；先读后写同一个 ref 则会让父组件在
+// 同一轮更新里多渲染一次。这里断言卸载后父组件只渲染一次，且只依赖控制显隐的 `show`。
 async function mountAndUnmount(render: () => any, afterMount?: () => Promise<void>) {
   const show = ref(true)
   let parent: any
+  let renders = 0
   const wrapper = mount(defineComponent({
     setup() {
       parent = getCurrentInstance()
-      return () => <div>{show.value ? render() : null}</div>
+      return () => {
+        renders++
+        return <div>{show.value ? render() : null}</div>
+      }
     },
   }), { attachTo: document.body })
   await nextTick()
   await nextTick()
   await afterMount?.()
+  const rendersBefore = renders
   show.value = false
   await nextTick()
-  const deps = getComputedDeps(parent)
+  await new Promise(resolve => setTimeout(resolve, 20))
+  const deps: unknown[] = []
+  for (let link = parent.effect.deps; link; link = link.nextDep) {
+    if (link.dep !== (show as any).dep)
+      deps.push(link.dep)
+  }
+  const result = { deps, renders: renders - rendersBefore }
   wrapper.unmount()
-  return deps
+  return result
 }
 
-describe('unmount cleanup does not subscribe the parent render effect', () => {
-  it('useBreakpoint (Row / Avatar / FormItem)', async () => {
-    expect(await mountAndUnmount(() => <Row />)).toEqual([])
-    expect(await mountAndUnmount(() => <Avatar size={{ xs: 24, md: 40 }}>A</Avatar>)).toEqual([])
+const clean = { deps: [], renders: 1 }
+
+describe('unmount cleanup does not subscribe or re-render the parent', () => {
+  it('useBreakpoint (Row / Avatar)', async () => {
+    expect(await mountAndUnmount(() => <Row />)).toEqual(clean)
+    expect(await mountAndUnmount(() => <Avatar size={{ xs: 24, md: 40 }}>A</Avatar>)).toEqual(clean)
+  })
+
+  it('form', async () => {
     expect(await mountAndUnmount(() => (
       <Form model={{ a: '' }}>
         <FormItem name="a"><input /></FormItem>
       </Form>
-    ))).toEqual([])
+    ))).toEqual(clean)
   })
 
   it('affix', async () => {
     const offsetTop = ref(0)
-    const deps = await mountAndUnmount(
+    expect(await mountAndUnmount(
       () => <Affix offsetTop={offsetTop.value}><span>x</span></Affix>,
       async () => {
         // 触发监听 watch，使其注册 onCleanup
@@ -55,8 +63,21 @@ describe('unmount cleanup does not subscribe the parent render effect', () => {
         await nextTick()
         await nextTick()
       },
-    )
-    expect(deps).toEqual([])
+    )).toEqual(clean)
+  })
+
+  it('anchor', async () => {
+    expect(await mountAndUnmount(
+      () => <Anchor affix={false} items={[{ key: '1', href: '#a', title: 'a' }]} />,
+    )).toEqual(clean)
+  })
+
+  it('checkbox group', async () => {
+    expect(await mountAndUnmount(() => (
+      <CheckboxGroup>
+        <Checkbox value="a">a</Checkbox>
+      </CheckboxGroup>
+    ))).toEqual(clean)
   })
 
   it('useBreakpoint does not subscribe when unmounted before the deferred subscription', async () => {
