@@ -1,10 +1,13 @@
 import type { App } from 'vue'
+import type { DirectoryTreeConstructor } from './DirectoryTree'
+import type { TreeConstructor } from './Tree'
 
 import { TreeNode, useTree } from '@v-c/tree'
-import DirectoryTree from './DirectoryTree'
+import _DirectoryTree from './DirectoryTree'
 import TreePure from './Tree'
 
 export type {
+  DirectoryTreeConstructor,
   DirectoryTreeEmits,
   ExpandAction as DirectoryTreeExpandAction,
   DirectoryTreeProps,
@@ -19,6 +22,7 @@ export type {
   AntTreeNodeMouseEvent,
   AntTreeNodeProps,
   AntTreeNodeSelectedEvent,
+  TreeConstructor,
   TreeEmits,
   TreeProps,
   TreeSlots,
@@ -32,19 +36,22 @@ export type {
   UseTreeConfig,
 } from '@v-c/tree'
 
-const Tree = TreePure as typeof TreePure & {
-  DirectoryTree: typeof DirectoryTree
+const DirectoryTree = _DirectoryTree as unknown as DirectoryTreeConstructor
+
+const Tree = TreePure as unknown as TreeConstructor & {
+  DirectoryTree: DirectoryTreeConstructor
   TreeNode: typeof TreeNode
   useTree: typeof useTree
+  install: (app: App) => void
 }
 
 Tree.DirectoryTree = DirectoryTree
 Tree.TreeNode = TreeNode
 Tree.useTree = useTree
 
-;(Tree as any).install = (app: App) => {
-  app.component(Tree.name, Tree)
-  app.component(DirectoryTree.name, DirectoryTree)
+Tree.install = (app: App) => {
+  app.component(TreePure.name, TreePure)
+  app.component(_DirectoryTree.name, _DirectoryTree)
   app.component('ATreeOption', TreeNode)
 }
 export {

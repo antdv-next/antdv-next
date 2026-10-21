@@ -23,7 +23,7 @@ function renderTreeNodes() {
   )
 }
 
-function mountDirectoryTree(props?: DirectoryTreeProps<any> & { [prop: string]: unknown }) {
+function mountDirectoryTree(props?: DirectoryTreeProps & { [prop: string]: unknown }) {
   return mount(DirectoryTree, {
     props,
     slots: {

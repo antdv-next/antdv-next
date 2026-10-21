@@ -1,5 +1,5 @@
 import type { BasicDataNode, DataNode, EventDataNode, Key } from '@v-c/tree'
-import type { SlotsType } from 'vue'
+import type { EmitFn, PublicProps, SlotsType } from 'vue'
 import type { AntdTreeNodeAttribute, TreeEmits, TreeProps, TreeSlots } from './Tree.tsx'
 import { FileOutlined, FolderOpenOutlined, FolderOutlined } from '@antdv-next/icons'
 import { conductExpandParent, convertDataToEntities, convertTreeToData } from '@v-c/tree'
@@ -17,18 +17,32 @@ export type ExpandAction = false | 'click' | 'doubleClick'
 
 export interface DirectoryTreeProps<T extends BasicDataNode = DataNode> extends TreeProps<T>,
   /* @vue-ignore */
-  DirectoryTreeEmitsProps {
+  DirectoryTreeEmitsProps<T> {
   expandAction?: ExpandAction
 }
 
-export interface DirectoryTreeEmits extends TreeEmits {
+export interface DirectoryTreeEmits<T extends BasicDataNode = DataNode> extends TreeEmits<T> {
 
 }
-export type DirectoryTreeEmitsProps = {
-  [K in keyof DirectoryTreeEmits as `on${Capitalize<string & K>}`]?: DirectoryTreeEmits[K]
+export type DirectoryTreeEmitsProps<T extends BasicDataNode = DataNode> = {
+  [K in keyof DirectoryTreeEmits<T> as `on${Capitalize<string & K>}`]?: DirectoryTreeEmits<T>[K]
 }
 export type DirectoryTreeEmitsType = DirectoryTreeEmitsProps
-export interface DirectoryTreeSlots extends TreeSlots {}
+export interface DirectoryTreeSlots<T extends BasicDataNode = DataNode> extends TreeSlots<T> {}
+
+interface DirectoryTreeInstance<T extends BasicDataNode = DataNode> {
+  $props: DirectoryTreeProps<T> & PublicProps
+  $emit: EmitFn<DirectoryTreeEmits<T>>
+  $slots: DirectoryTreeSlots<T>
+}
+
+export interface DirectoryTreeConstructor {
+  new<T extends BasicDataNode = DataNode>(props: DirectoryTreeProps<T>): DirectoryTreeInstance<T>
+  /**
+   * Non-generic fallback signature, see `TreeConstructor` in `./Tree.tsx`.
+   */
+  new (props: DirectoryTreeProps<any>): DirectoryTreeInstance<any>
+}
 
 function getIcon(props: AntdTreeNodeAttribute) {
   const { isLeaf, expanded } = props
