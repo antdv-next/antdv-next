@@ -199,13 +199,7 @@ export default genStyleHooks(
     )
 
     return [
-      sharedGenerateStyle(messageToken, {
-        stackVisibleCount: 1,
-        itemStyle: generateMessageStyle,
-        // Message is centered per item and has no stack hover interaction, so the list
-        // content should stay transparent to pointer events like v5.
-        listContentPointerEvents: 'none',
-      }),
+      sharedGenerateStyle(messageToken, { stackVisibleCount: 1, itemStyle: generateMessageStyle }),
       generateMessageStackStyle(messageToken),
     ]
   },
