@@ -172,7 +172,7 @@ const Avatar = defineComponent<
           ? {
               width: `${currentSize}px`,
               height: `${currentSize}px`,
-              fontSize: currentSize && (hasIcon || children.length) ? (`${currentSize / 2}px`) : '18px',
+              fontSize: hasIcon || children.length ? (`${currentSize / 2}px`) : '18px',
             }
           : {}
       }
