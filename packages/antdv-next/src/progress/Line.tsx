@@ -12,6 +12,7 @@ import type {
 import { presetPrimaryColors } from '@ant-design/colors'
 import { clsx } from '@v-c/util'
 import { computed, defineComponent } from 'vue'
+import { isString } from '../_util/is.ts'
 import { devUseWarning, isDev } from '../_util/warning.ts'
 import { LineStrokeColorVar } from './style'
 import { getSize, getSuccessPercent, validProgress } from './utils.ts'
@@ -153,7 +154,7 @@ const Line = defineComponent<
           class={clsx(`${prefixCls}-body`, classes.body, {
             [`${prefixCls}-body-layout-bottom`]: infoAlign === 'center' && infoPosition === 'outer',
           })}
-          style={{ width: width > 0 ? width : '100%', ...styles.body }}
+          style={{ width: isString(width) || width > 0 ? width : '100%', ...styles.body }}
         >
           {/** ************ Rail */}
           <div

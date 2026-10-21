@@ -385,4 +385,13 @@ describe('progress', () => {
     })
     expect(wrapper.html()).toMatchSnapshot()
   })
+
+  // https://github.com/ant-design/ant-design/pull/59597
+  it('should support string width in `size` for line progress', () => {
+    const wrapper = mount(Progress, {
+      props: { percent: 50, size: ['50%', 20] },
+    })
+    expect((wrapper.find('.ant-progress-line .ant-progress-body').element as HTMLElement).style.width).toBe('50%')
+    expect((wrapper.find('.ant-progress-line .ant-progress-rail').element as HTMLElement).style.height).toBe('20px')
+  })
 })
