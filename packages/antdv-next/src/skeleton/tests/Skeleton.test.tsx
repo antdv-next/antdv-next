@@ -216,7 +216,7 @@ describe('skeleton', () => {
         props: { paragraph: { width: '80%' } },
       })
       const rows = wrapper.findAll('.ant-skeleton-paragraph > li')
-      const lastRow = rows[rows.length - 1]
+      const lastRow = rows[rows.length - 1]!
       expect(lastRow.attributes('style')).toContain('width: 80%')
     })
 
@@ -225,8 +225,8 @@ describe('skeleton', () => {
         props: { paragraph: { width: ['28%', '93%'], rows: 2 } },
       })
       const rows = wrapper.findAll('.ant-skeleton-paragraph > li')
-      expect(rows[0].attributes('style')).toContain('width: 28%')
-      expect(rows[1].attributes('style')).toContain('width: 93%')
+      expect(rows[0]!.attributes('style')).toContain('width: 28%')
+      expect(rows[1]!.attributes('style')).toContain('width: 93%')
     })
 
     it('should default to 3 rows when no avatar and has title', () => {
@@ -251,7 +251,7 @@ describe('skeleton', () => {
         props: { avatar: false, title: true, paragraph: true },
       })
       const rows = wrapper.findAll('.ant-skeleton-paragraph > li')
-      const lastRow = rows[rows.length - 1]
+      const lastRow = rows[rows.length - 1]!
       expect(lastRow.attributes('style')).toContain('width: 61%')
     })
   })

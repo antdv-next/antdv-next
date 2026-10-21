@@ -304,7 +304,7 @@ describe('statistic', () => {
     })
 
     it('should pass role attribute', () => {
-      const wrapper = mount(() => <Statistic role="status" value={100} />)
+      const wrapper = mount(Statistic, { props: { value: 100 }, attrs: { role: 'status' } })
       expect(wrapper.find('.ant-statistic').attributes('role')).toBe('status')
     })
 

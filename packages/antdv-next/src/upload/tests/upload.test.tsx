@@ -1,5 +1,5 @@
 import type { PropType } from 'vue'
-import type { UploadFile } from '../interface'
+import type { UploadChangeParam, UploadFile } from '../interface'
 
 import { mount } from '@vue/test-utils'
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
@@ -116,7 +116,7 @@ describe('upload', () => {
           }, 100)
         }),
       data,
-      onChange: ({ file }: { file: File & { status: string } }) => {
+      onChange: ({ file }: UploadChangeParam) => {
         if (file.status !== 'uploading') {
           expect(data).toHaveBeenCalled()
           expect(file.name).toEqual('test.png')

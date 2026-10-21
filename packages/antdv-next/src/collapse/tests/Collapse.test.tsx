@@ -423,11 +423,11 @@ describe('collapse', () => {
       <Collapse v-model:activeKey={activeKeys.value} items={basicItems} />
     ))
 
-    expect(wrapper.findAll('.ant-collapse-item')[0].classes()).toContain('ant-collapse-item-active')
-    await wrapper.findAll('.ant-collapse-header')[1].trigger('click')
+    expect(wrapper.findAll('.ant-collapse-item')[0]!.classes()).toContain('ant-collapse-item-active')
+    await wrapper.findAll('.ant-collapse-header')[1]!.trigger('click')
     expect(activeKeys.value).toEqual(['1', '2'])
-    expect(wrapper.findAll('.ant-collapse-item')[1].classes()).toContain('ant-collapse-item-active')
-    await wrapper.findAll('.ant-collapse-header')[0].trigger('click')
+    expect(wrapper.findAll('.ant-collapse-item')[1]!.classes()).toContain('ant-collapse-item-active')
+    await wrapper.findAll('.ant-collapse-header')[0]!.trigger('click')
     expect(activeKeys.value).toEqual(['2'])
   })
 

@@ -65,7 +65,7 @@ describe('calendar', () => {
     // Find the year radio input and click to switch mode
     const radioInputs = wrapper.findAll('.ant-radio-button-input')
     expect(radioInputs.length).toBeGreaterThan(1)
-    await radioInputs[1].setValue(true)
+    await radioInputs[1]!.setValue(true)
     expect(onPanelChange).toHaveBeenCalled()
   })
 
@@ -78,7 +78,7 @@ describe('calendar', () => {
     // Click a date cell that is different from the current value
     const cells = wrapper.findAll('.ant-picker-cell')
     expect(cells.length).toBeGreaterThan(0)
-    await cells[0].trigger('click')
+    await cells[0]!.trigger('click')
     expect(onSelect).toHaveBeenCalled()
     expect(onChange).toHaveBeenCalled()
   })

@@ -560,7 +560,7 @@ describe('tour', () => {
     ['Next', 0, 'next'],
     ['Previous', 1, 'prev'],
     ['Finish', 1, 'next'],
-  ] as const)('should pass click event to %s button callback', async (buttonName, current, type) => {
+  ] as const)('should pass click event to %s button callback', async (_buttonName, current, type) => {
     const onClick = vi.fn((event: MouseEvent) => event.currentTarget)
     const steps: any[] = [
       { title: 'First' },

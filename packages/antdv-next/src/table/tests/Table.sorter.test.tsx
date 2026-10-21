@@ -62,7 +62,8 @@ describe('table sorter', () => {
         dataIndex: 'age',
         key: 'age',
         sorter: (a: any, b: any) => a.age - b.age,
-        onHeaderCell: () => ({ onKeyDown }),
+        // React-style `onKeyDown` naming is also honoured by useSorter.
+        onHeaderCell: () => ({ onKeyDown }) as Record<string, any>,
       },
     ]
     const wrapper = mount(Table, {

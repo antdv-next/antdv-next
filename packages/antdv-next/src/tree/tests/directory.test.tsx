@@ -23,7 +23,7 @@ function renderTreeNodes() {
   )
 }
 
-function mountDirectoryTree(props?: DirectoryTreeProps & { [prop: string]: unknown }) {
+function mountDirectoryTree(props?: DirectoryTreeProps<any> & { [prop: string]: unknown }) {
   return mount(DirectoryTree, {
     props,
     slots: {
@@ -504,7 +504,6 @@ describe('directory Tree', () => {
     const wrapper = mount(DirectoryTree, {
       props: {
         defaultExpandAll: true,
-        // @ts-expect-error test field names mapping
         treeData,
         onSelect,
         fieldNames: { key: 'id', title: 'label', children: 'child' },

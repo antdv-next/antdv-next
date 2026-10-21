@@ -1,4 +1,9 @@
-import Breadcrumb from './Breadcrumb'
+import Breadcrumb, { BreadcrumbItem, BreadcrumbSeparator } from './Breadcrumb'
+
+type CompoundedBreadcrumb = typeof Breadcrumb & {
+  Item: typeof BreadcrumbItem
+  Separator: typeof BreadcrumbSeparator
+}
 
 export type {
   BreadcrumbEmits,
@@ -11,8 +16,8 @@ export type {
 export {
   BreadcrumbItem,
   BreadcrumbSeparator,
-} from './Breadcrumb'
+}
 
-export default Breadcrumb
+export default Breadcrumb as CompoundedBreadcrumb
 
 export type { BreadcrumbItemProps, SeparatorType } from './BreadcrumbItem'

@@ -1,3 +1,4 @@
+import type { ModalProps } from '..'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { h, nextTick, ref } from 'vue'
 import Modal from '..'
@@ -36,7 +37,12 @@ describe('modal focusable ConfigProvider', () => {
       setup() {
         const open = ref(true)
         return () => h(ConfigProvider, { modal: { focusable: { autoFocusButton: 'cancel' } } }, {
-          default: () => h(Modal, { open: open.value, title: 'hi', focusable: { autoFocusButton: 'ok' } }, { default: () => 'body' }),
+          default: () => h(Modal, {
+            open: open.value,
+            title: 'hi',
+            // `autoFocusButton` is only typed for confirm dialogs; this checks it does not break mounting.
+            focusable: { autoFocusButton: 'ok' } as ModalProps['focusable'],
+          }, { default: () => 'body' }),
         })
       },
     }

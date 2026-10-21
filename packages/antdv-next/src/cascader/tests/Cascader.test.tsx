@@ -139,8 +139,8 @@ describe('cascader', () => {
 
     const menuItems = document.querySelectorAll('.ant-cascader-menu-item')
     expect(menuItems.length).toBe(2)
-    expect(menuItems[0].textContent).toContain('Zhejiang')
-    expect(menuItems[1].textContent).toContain('Jiangsu')
+    expect(menuItems[0]!.textContent).toContain('Zhejiang')
+    expect(menuItems[1]!.textContent).toContain('Jiangsu')
 
     await wrapper.setProps({ open: false })
     await nextTick()
@@ -371,7 +371,7 @@ describe('cascader', () => {
     })
     const menuItems = wrapper.findAll('.ant-cascader-menu-item')
     expect(menuItems.length).toBe(2)
-    expect(menuItems[0].text()).toContain('Zhejiang')
+    expect(menuItems[0]!.text()).toContain('Zhejiang')
   })
 
   it('should support CascaderPanel multiple mode', () => {

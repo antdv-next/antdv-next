@@ -3,6 +3,11 @@ import Card from './Card'
 import CardGrid from './CardGrid'
 import CardMeta from './CardMeta'
 
+type CompoundedCard = typeof Card & {
+  Grid: typeof CardGrid
+  Meta: typeof CardMeta
+}
+
 export type { CardEmits, CardProps, CardSize, CardSlots, CardTabListType } from './Card'
 
 export type { CardGridProps, CardGridRef } from './CardGrid'
@@ -20,4 +25,4 @@ export {
   CardGrid,
   CardMeta,
 }
-export default Card
+export default Card as CompoundedCard

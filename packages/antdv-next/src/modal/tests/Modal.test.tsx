@@ -472,7 +472,7 @@ describe('modal integration', () => {
 
     await waitFakeTimer(20, 10)
 
-    const cancelBtn = document.body.querySelectorAll<HTMLButtonElement>('.ant-modal-footer .ant-btn')[0]
+    const cancelBtn = document.body.querySelectorAll<HTMLButtonElement>('.ant-modal-footer .ant-btn')[0]!
     cancelBtn.click()
     await waitFakeTimer(20, 10)
 

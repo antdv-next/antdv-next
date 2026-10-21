@@ -1,5 +1,8 @@
+// @ts-expect-error this is node
 import { readdirSync } from 'node:fs'
+// @ts-expect-error this is node
 import { basename, dirname, resolve } from 'node:path'
+// @ts-expect-error this is node
 import { fileURLToPath } from 'node:url'
 import { beforeAll, describe, expect, it } from 'vitest'
 import { mount } from '../utils'
@@ -17,7 +20,7 @@ export default function demoTest(component: string, options: DemoTestOptions = {
 
   let files: string[] = []
   try {
-    files = readdirSync(demoDir).filter(f => f.endsWith('.vue')).sort()
+    files = readdirSync(demoDir).filter((f: string) => f.endsWith('.vue')).sort()
   }
   catch {
     // No demo directory found

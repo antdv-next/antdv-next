@@ -128,7 +128,7 @@ describe('rate', () => {
     it('should emit change and update:value when star is clicked', async () => {
       const wrapper = mount(Rate)
       const stars = wrapper.findAll('[role="radio"]')
-      await stars[2].trigger('click')
+      await stars[2]!.trigger('click')
       expect(wrapper.emitted('change')).toBeTruthy()
       expect(wrapper.emitted('change')![0]).toEqual([3])
       expect(wrapper.emitted('update:value')).toBeTruthy()

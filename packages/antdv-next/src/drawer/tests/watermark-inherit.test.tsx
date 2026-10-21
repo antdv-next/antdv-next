@@ -28,7 +28,7 @@ describe('drawer watermark inheritance (#623)', () => {
     await flush()
 
     expect(add).toHaveBeenCalled()
-    expect(add.mock.calls.at(-1)?.[0]).toBeTruthy()
+    expect(add.mock.lastCall?.[0]).toBeTruthy()
 
     wrapper.unmount()
   })
@@ -50,7 +50,7 @@ describe('drawer watermark inheritance (#623)', () => {
     await flush()
 
     expect(add).toHaveBeenCalled()
-    expect(add.mock.calls.at(-1)?.[0]).toBeTruthy()
+    expect(add.mock.lastCall?.[0]).toBeTruthy()
 
     wrapper.unmount()
   })

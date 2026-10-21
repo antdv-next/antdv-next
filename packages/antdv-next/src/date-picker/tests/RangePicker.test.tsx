@@ -1,3 +1,4 @@
+import type { Dayjs } from 'dayjs'
 import dayjs from 'dayjs'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { nextTick, ref } from 'vue'
@@ -150,7 +151,7 @@ describe('range-picker', () => {
 
   it('should support allowClear and custom clearIcon', async () => {
     const open = ref(true)
-    const value = [dayjs('2023-08-01'), dayjs('2023-08-02')]
+    const value: [Dayjs, Dayjs] = [dayjs('2023-08-01'), dayjs('2023-08-02')]
     const wrapper = mount({
       render: () => (
         <RangePicker

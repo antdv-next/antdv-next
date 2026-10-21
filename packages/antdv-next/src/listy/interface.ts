@@ -17,8 +17,8 @@ export interface ListySemanticType {
   styles?: ListyStyles
 }
 
-type ListyClassNamesType = SemanticType<ListyClassNames, ListyProps>
-type ListyStylesType = SemanticType<ListyStyles, ListyProps>
+type ListyClassNamesType = SemanticType<ListyProps, ListyClassNames>
+type ListyStylesType = SemanticType<ListyProps, ListyStyles>
 
 export interface ListyProps
   extends Omit<VcListyProps, 'itemHeight' | 'direction' | 'classNames' | 'styles' | 'itemRender' | 'onScroll'> {

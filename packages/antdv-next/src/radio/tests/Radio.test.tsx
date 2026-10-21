@@ -124,8 +124,8 @@ describe('radio', () => {
       </RadioGroup>
     ))
     const labels = wrapper.findAll('label')
-    expect(labels[0].classes()).not.toContain(`${prefixCls}-wrapper-checked`)
-    expect(labels[1].classes()).toContain(`${prefixCls}-wrapper-checked`)
+    expect(labels[0]!.classes()).not.toContain(`${prefixCls}-wrapper-checked`)
+    expect(labels[1]!.classes()).toContain(`${prefixCls}-wrapper-checked`)
   })
 
   // ===================== Events =====================
@@ -271,8 +271,8 @@ describe('radio group', () => {
       },
     })
     const labels = wrapper.findAll('label')
-    expect(labels[0].classes()).not.toContain(`${prefixCls}-wrapper-checked`)
-    expect(labels[1].classes()).toContain(`${prefixCls}-wrapper-checked`)
+    expect(labels[0]!.classes()).not.toContain(`${prefixCls}-wrapper-checked`)
+    expect(labels[1]!.classes()).toContain(`${prefixCls}-wrapper-checked`)
   })
 
   // ===================== value (controlled) =====================
@@ -288,12 +288,12 @@ describe('radio group', () => {
       },
     })
     const labels = wrapper.findAll('label')
-    expect(labels[0].classes()).toContain(`${prefixCls}-wrapper-checked`)
-    expect(labels[1].classes()).not.toContain(`${prefixCls}-wrapper-checked`)
+    expect(labels[0]!.classes()).toContain(`${prefixCls}-wrapper-checked`)
+    expect(labels[1]!.classes()).not.toContain(`${prefixCls}-wrapper-checked`)
 
     await wrapper.setProps({ value: 'B' })
-    expect(labels[0].classes()).not.toContain(`${prefixCls}-wrapper-checked`)
-    expect(labels[1].classes()).toContain(`${prefixCls}-wrapper-checked`)
+    expect(labels[0]!.classes()).not.toContain(`${prefixCls}-wrapper-checked`)
+    expect(labels[1]!.classes()).toContain(`${prefixCls}-wrapper-checked`)
   })
 
   // ===================== change and update:value =====================
@@ -311,7 +311,7 @@ describe('radio group', () => {
       },
     })
     const inputs = wrapper.findAll('input')
-    await inputs[1].trigger('change')
+    await inputs[1]!.trigger('change')
     expect(onChange).toHaveBeenCalledTimes(1)
     expect(onUpdateValue).toHaveBeenCalledWith('B')
   })
@@ -328,7 +328,7 @@ describe('radio group', () => {
       },
     })
     const inputs = wrapper.findAll('input')
-    await inputs[0].trigger('change')
+    await inputs[0]!.trigger('change')
     expect(onChange).not.toHaveBeenCalled()
   })
 
@@ -345,9 +345,9 @@ describe('radio group', () => {
     const inputs = wrapper.findAll('input')
     const labels = wrapper.findAll('label')
 
-    await inputs[1].trigger('change')
+    await inputs[1]!.trigger('change')
     await nextTick()
-    expect(labels[1].classes()).toContain(`${prefixCls}-wrapper-checked`)
+    expect(labels[1]!.classes()).toContain(`${prefixCls}-wrapper-checked`)
   })
 
   it('should clear checked state when controlled value path becomes undefined', async () => {
@@ -368,15 +368,15 @@ describe('radio group', () => {
     ))
 
     let labels = wrapper.findAll('label')
-    expect(labels[0].classes()).toContain(`${prefixCls}-wrapper-checked`)
-    expect(labels[1].classes()).not.toContain(`${prefixCls}-wrapper-checked`)
+    expect(labels[0]!.classes()).toContain(`${prefixCls}-wrapper-checked`)
+    expect(labels[1]!.classes()).not.toContain(`${prefixCls}-wrapper-checked`)
 
     data.value = {}
     await nextTick()
 
     labels = wrapper.findAll('label')
-    expect(labels[0].classes()).not.toContain(`${prefixCls}-wrapper-checked`)
-    expect(labels[1].classes()).not.toContain(`${prefixCls}-wrapper-checked`)
+    expect(labels[0]!.classes()).not.toContain(`${prefixCls}-wrapper-checked`)
+    expect(labels[1]!.classes()).not.toContain(`${prefixCls}-wrapper-checked`)
   })
 
   // ===================== disabled =====================
@@ -392,8 +392,8 @@ describe('radio group', () => {
       },
     })
     const labels = wrapper.findAll('label')
-    expect(labels[0].classes()).toContain(`${prefixCls}-wrapper-disabled`)
-    expect(labels[1].classes()).toContain(`${prefixCls}-wrapper-disabled`)
+    expect(labels[0]!.classes()).toContain(`${prefixCls}-wrapper-disabled`)
+    expect(labels[1]!.classes()).toContain(`${prefixCls}-wrapper-disabled`)
   })
 
   // ===================== name =====================
@@ -532,7 +532,7 @@ describe('radio group', () => {
     expect(inputs.length).toBe(2)
     // Second option should be disabled
     const labels = wrapper.findAll('label')
-    expect(labels[1].classes()).toContain(`${prefixCls}-wrapper-disabled`)
+    expect(labels[1]!.classes()).toContain(`${prefixCls}-wrapper-disabled`)
   })
 
   it('should apply option style, class, title, id', () => {
@@ -559,8 +559,8 @@ describe('radio group', () => {
       },
     })
     const labels = wrapper.findAll('label')
-    expect(labels[0].classes()).not.toContain(`${prefixCls}-wrapper-disabled`)
-    expect(labels[1].classes()).toContain(`${prefixCls}-wrapper-disabled`)
+    expect(labels[0]!.classes()).not.toContain(`${prefixCls}-wrapper-disabled`)
+    expect(labels[1]!.classes()).toContain(`${prefixCls}-wrapper-disabled`)
   })
 
   it('should disable all options when group disabled overrides individual', () => {
@@ -574,8 +574,8 @@ describe('radio group', () => {
       },
     })
     const labels = wrapper.findAll('label')
-    expect(labels[0].classes()).toContain(`${prefixCls}-wrapper-disabled`)
-    expect(labels[1].classes()).toContain(`${prefixCls}-wrapper-disabled`)
+    expect(labels[0]!.classes()).toContain(`${prefixCls}-wrapper-disabled`)
+    expect(labels[1]!.classes()).toContain(`${prefixCls}-wrapper-disabled`)
   })
 
   // ===================== labelRender =====================
@@ -707,7 +707,7 @@ describe('radio group', () => {
         ],
       },
     })
-    expect(wrapper.findAll('label')[1].classes()).toContain(`${prefixCls}-wrapper-checked`)
+    expect(wrapper.findAll('label')[1]!.classes()).toContain(`${prefixCls}-wrapper-checked`)
   })
 
   // ===================== Both radio and group onChange =====================
@@ -725,7 +725,7 @@ describe('radio group', () => {
       },
     })
     const inputs = wrapper.findAll('input')
-    await inputs[1].trigger('change')
+    await inputs[1]!.trigger('change')
     expect(onRadioChange).toHaveBeenCalledTimes(1)
     expect(onGroupChange).toHaveBeenCalledTimes(1)
   })
@@ -770,7 +770,7 @@ describe('radio group', () => {
       },
     })
     const inputs = wrapper.findAll('input')
-    await inputs[1].trigger('change')
+    await inputs[1]!.trigger('change')
     expect(onOptionChange).toHaveBeenCalledTimes(1)
   })
 
@@ -843,7 +843,7 @@ describe('radio button', () => {
       </RadioGroup>
     ))
     const inputs = wrapper.findAll('input')
-    await inputs[1].trigger('change')
+    await inputs[1]!.trigger('change')
     expect(onChange).toHaveBeenCalledTimes(1)
   })
 
@@ -866,8 +866,8 @@ describe('radio button', () => {
       </RadioGroup>
     ))
     const labels = wrapper.findAll('label')
-    expect(labels[0].classes()).not.toContain(`${prefixCls}-button-wrapper-checked`)
-    expect(labels[1].classes()).toContain(`${prefixCls}-button-wrapper-checked`)
+    expect(labels[0]!.classes()).not.toContain(`${prefixCls}-button-wrapper-checked`)
+    expect(labels[1]!.classes()).toContain(`${prefixCls}-button-wrapper-checked`)
   })
 
   // ===================== Disabled =====================
@@ -902,7 +902,7 @@ describe('radio button', () => {
       </RadioGroup>
     ))
     expect(wrapper.find(`.${groupPrefixCls}`).classes()).toContain(`${groupPrefixCls}-solid`)
-    expect(wrapper.findAll('label')[0].classes()).toContain(`${prefixCls}-button-wrapper-checked`)
+    expect(wrapper.findAll('label')[0]!.classes()).toContain(`${prefixCls}-button-wrapper-checked`)
   })
 
   // ===================== Snapshot =====================

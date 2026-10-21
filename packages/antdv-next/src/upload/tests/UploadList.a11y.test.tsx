@@ -9,7 +9,7 @@ const items: UploadFile[] = [{ uid: '1', name: 'foo.png', status: 'done' }]
 describe('uploadList file name focusability', () => {
   it('is not focusable when no preview handler is registered', () => {
     const wrapper = mount({
-      render: () => <UploadList items={items} />,
+      render: () => <UploadList items={items} locale={{}} />,
     })
     const name = wrapper.find('.ant-upload-list-item-name')
     expect(name.exists()).toBe(true)
@@ -20,7 +20,7 @@ describe('uploadList file name focusability', () => {
   it('stays focusable and previewable when a preview handler is registered', async () => {
     const onPreview = vi.fn()
     const wrapper = mount({
-      render: () => <UploadList items={items} onPreview={onPreview} />,
+      render: () => <UploadList items={items} locale={{}} onPreview={onPreview} />,
     })
     const name = wrapper.find('.ant-upload-list-item-name')
     expect(name.attributes('role')).toBe('button')
@@ -35,7 +35,7 @@ describe('uploadList file name focusability', () => {
 
   it('keeps the anchor interactive for files with a url', () => {
     const wrapper = mount({
-      render: () => <UploadList items={[{ ...items[0], url: 'https://example.com/foo.png' }]} />,
+      render: () => <UploadList items={[{ ...items[0]!, url: 'https://example.com/foo.png' }]} locale={{}} />,
     })
     const link = wrapper.find('a.ant-upload-list-item-name')
     expect(link.exists()).toBe(true)

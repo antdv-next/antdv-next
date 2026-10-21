@@ -91,7 +91,8 @@ describe('date-picker', () => {
     const wrapper = mount(DatePicker, {
       props: {
         open: true,
-        components: { date: CustomPanel },
+        // `Components` from @v-c/picker expects `DefineComponent<SharedPanelProps>`; any panel component works at runtime.
+        components: { date: CustomPanel as any },
       },
       attachTo: document.body,
     })

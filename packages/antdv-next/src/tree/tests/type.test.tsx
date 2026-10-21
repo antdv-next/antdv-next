@@ -44,7 +44,8 @@ describe('tree.TypeScript', () => {
       ],
     }
 
-    const wrapper = mount(Tree, { props })
+    // Tree is not a generic component; `TreeProps<any>` bridges the typed props object.
+    const wrapper = mount(Tree, { props: props as TreeProps<any> })
     expect(wrapper.exists()).toBeTruthy()
   })
 
@@ -67,7 +68,8 @@ describe('tree.TypeScript', () => {
       ],
     }
 
-    const wrapper = mount(DirectoryTree, { props })
+    // DirectoryTree is not a generic component; `DirectoryTreeProps<any>` bridges the typed props object.
+    const wrapper = mount(DirectoryTree, { props: props as DirectoryTreeProps<any> })
     expect(wrapper.exists()).toBeTruthy()
   })
 
@@ -90,7 +92,8 @@ describe('tree.TypeScript', () => {
       switcherIcon: (props: AntTreeNodeProps) => (props.isLeaf ? 1 : 0),
     }
 
-    const wrapper = mount(Tree, { props })
+    // Tree is not a generic component; `TreeProps<any>` bridges the typed props object.
+    const wrapper = mount(Tree, { props: props as TreeProps<any> })
     expect(wrapper.exists()).toBeTruthy()
   })
 })

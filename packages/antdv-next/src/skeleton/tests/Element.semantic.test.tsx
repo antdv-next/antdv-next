@@ -63,7 +63,7 @@ describe('skeleton.element.semantic', () => {
     expect(paragraph.classes()).toContain('paragraph-attr')
     expect(paragraph.attributes('style')).toContain('color: rgb(0, 0, 255)')
     expect(paragraph.attributes('data-testid')).toBe('paragraph')
-    expect(wrapper.findAll('.ant-skeleton-paragraph-test > li')[1].attributes('style')).toContain('width: 70%')
+    expect(wrapper.findAll('.ant-skeleton-paragraph-test > li')[1]!.attributes('style')).toContain('width: 70%')
   })
 
   it('should support semantic root/content for Skeleton.Avatar', () => {

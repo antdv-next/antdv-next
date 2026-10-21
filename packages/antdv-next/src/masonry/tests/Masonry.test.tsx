@@ -93,8 +93,8 @@ describe('masonry', () => {
     await resizeMasonry()
     const bamboos = wrapper.findAll('.bamboo')
     expect(bamboos.length).toBe(5)
-    expect(bamboos[0].text()).toBe('1')
-    expect(bamboos[4].text()).toBe('5')
+    expect(bamboos[0]!.text()).toBe('1')
+    expect(bamboos[4]!.text()).toBe('5')
   })
 
   // ==================== Props ====================
@@ -316,7 +316,7 @@ describe('masonry', () => {
     ))
     await resizeMasonry()
     expect(wrapper.findAll('.slot-bamboo').length).toBe(2)
-    expect(wrapper.findAll('.slot-bamboo')[0].text()).toBe('slot-0')
+    expect(wrapper.findAll('.slot-bamboo')[0]!.text()).toBe('slot-0')
   })
 
   it('should prioritize itemRender slot over prop', async () => {
@@ -384,7 +384,7 @@ describe('masonry', () => {
     ))
     await resizeMasonry()
     expect(onLayoutChange).toHaveBeenCalled()
-    const payload = onLayoutChange.mock.calls[onLayoutChange.mock.calls.length - 1][0]
+    const payload = onLayoutChange.mock.calls[onLayoutChange.mock.calls.length - 1]![0]
     expect(payload).toHaveLength(3)
     payload.forEach((item: any) => {
       expect(item).toHaveProperty('key')

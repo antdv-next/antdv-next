@@ -136,7 +136,7 @@ describe('card', () => {
     expect(wrapper.find('.ant-card-actions').exists()).toBe(true)
     const items = wrapper.findAll('.ant-card-actions li')
     expect(items).toHaveLength(2)
-    expect(items[0].attributes('style')).toContain('width: 50%')
+    expect(items[0]!.attributes('style')).toContain('width: 50%')
   })
 
   it('should render actions via slot', () => {
@@ -204,7 +204,7 @@ describe('card', () => {
     })
     const tabs = wrapper.findAll('.ant-tabs-tab')
     expect(tabs.length).toBeGreaterThan(1)
-    await tabs[1].trigger('click')
+    await tabs[1]!.trigger('click')
     expect(onTabChange).toHaveBeenCalledWith('tab2')
   })
 
@@ -243,7 +243,7 @@ describe('card', () => {
       slots: { default: () => 'content' },
     })
     const tabs = wrapper.findAll('.ant-tabs-tab')
-    await tabs[1].trigger('click')
+    await tabs[1]!.trigger('click')
     expect(onUpdate).toHaveBeenCalledWith('tab2')
   })
 
@@ -277,7 +277,7 @@ describe('card', () => {
 
     expect(wrapper.find('.ant-tabs-tab-active').text()).toBe('Tab 2')
 
-    await wrapper.findAll('.ant-tabs-tab')[0].trigger('click')
+    await wrapper.findAll('.ant-tabs-tab')[0]!.trigger('click')
     expect(wrapper.find('.ant-tabs-tab-active').text()).toBe('Tab 1')
   })
 

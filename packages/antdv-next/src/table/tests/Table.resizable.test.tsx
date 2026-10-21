@@ -93,7 +93,7 @@ describe('table resizable columns', () => {
       props: {
         columns,
         dataSource,
-        onResizeColumn: (width: number, _column: any, columnKey: string) => {
+        onResizeColumn: (width: number, _column: any, columnKey: string | number) => {
           wrapper.setProps({ columns: columns.map(col => (col.key === columnKey ? { ...col, width } : col)) })
         },
       },

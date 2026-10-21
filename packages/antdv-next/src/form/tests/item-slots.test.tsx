@@ -29,7 +29,7 @@ describe('form item slots', () => {
   })
 
   it('uses slot content before prop values', () => {
-    const tooltipSlot = vi.fn(() => ({
+    const tooltipSlot = vi.fn((_ctx: Record<string, any>) => ({
       title: <span class="slot-tooltip-title">Slot Tooltip</span>,
     }))
 

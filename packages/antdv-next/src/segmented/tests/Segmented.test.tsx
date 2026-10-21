@@ -602,7 +602,8 @@ describe('segmented', () => {
 
       const firstLabel = wrapper.find(`.${prefixCls}-item-label`)
       expect(firstLabel.text()).toContain('0')
-      expect(firstLabel.findAll('span').at(-1)?.text()).toBe('0')
+      const spans = firstLabel.findAll('span')
+      expect(spans[spans.length - 1]?.text()).toBe('0')
     })
 
     it('should match snapshot with various options', () => {

@@ -12,7 +12,7 @@ async function extractDescriptionsStyle() {
       h(ConfigProvider, { theme: { hashed: false } }, {
         default: () =>
           h(StyleProvider, { cache, mock: 'server' }, {
-            default: () => h(Descriptions, { items: [{ label: 'a', children: 'b' }] }),
+            default: () => h(Descriptions, { items: [{ label: 'a', content: 'b' }] }),
           }),
       }),
   })

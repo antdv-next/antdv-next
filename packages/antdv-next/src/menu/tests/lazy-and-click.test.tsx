@@ -87,9 +87,9 @@ describe('menu lazy render and single event dispatch', () => {
     expect(itemClick).toHaveBeenCalledTimes(1)
     expect(menuClick).toHaveBeenCalledTimes(1)
     // Callbacks receive the info object, not the raw DOM event
-    expect(itemClick.mock.calls[0][0].key).toBe('1')
-    expect(itemClick.mock.calls[0][0].domEvent).toBeInstanceOf(MouseEvent)
-    expect(menuClick.mock.calls[0][0].key).toBe('1')
+    expect(itemClick.mock.calls[0]![0].key).toBe('1')
+    expect(itemClick.mock.calls[0]![0].domEvent).toBeInstanceOf(MouseEvent)
+    expect(menuClick.mock.calls[0]![0].key).toBe('1')
   })
 
   it('fires submenu child onClick exactly once in inline mode', async () => {

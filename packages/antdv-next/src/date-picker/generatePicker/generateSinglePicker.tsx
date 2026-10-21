@@ -1,5 +1,7 @@
 import type { PickerMode, PickerRef } from '@v-c/picker'
+import type { PanelMode } from '@v-c/picker/dist/interface'
 import type { GenerateConfig } from '@v-c/picker/generate'
+import type { VueNode as VcVueNode } from '@v-c/util/dist/type'
 import type { SlotsType } from 'vue'
 import type { AnyObject, VueNode } from '../../_util/type'
 import type { GenericTimePickerProps, PickerProps } from './interface'
@@ -370,11 +372,11 @@ function generatePicker<DateType extends AnyObject = AnyObject>(generateConfig: 
             : undefined
 
           const renderExtraFooter = slots.renderExtraFooter || (props as any).renderExtraFooter
-            ? (mode: PickerMode) => resolveRender('renderExtraFooter', [mode], mode)
+            ? (mode: PanelMode) => resolveRender('renderExtraFooter', [mode], mode)
             : undefined
 
           const panelRender = slots.panelRender || (props as any).panelRender
-            ? (panel: VueNode) => resolveRender('panelRender', [panel], panel)
+            ? (panel: VcVueNode) => resolveRender('panelRender', [panel], panel)
             : undefined
 
           const inputRender = slots.inputRender || (props as any).inputRender

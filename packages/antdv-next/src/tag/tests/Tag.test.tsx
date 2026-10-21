@@ -56,7 +56,8 @@ describe('tag', () => {
     })
 
     expect(wrapper.find('.ant-tag').text()).toContain('0')
-    expect(wrapper.findAll('.ant-tag > span').at(-1)?.text()).toBe('0')
+    const spans = wrapper.findAll('.ant-tag > span')
+    expect(spans[spans.length - 1]?.text()).toBe('0')
   })
 
   // ===================== color prop =====================
@@ -280,7 +281,7 @@ describe('tag', () => {
     expect(closeIcon.attributes('tabindex')).toBe('0')
     await closeIcon.trigger('keydown', { key })
     expect(onClose).toHaveBeenCalled()
-    expect(onClose.mock.calls[0][0].type).toBe('click')
+    expect(onClose.mock.calls[0]![0].type).toBe('click')
     expect(wrapper.find('span').classes()).toContain(`${prefixCls}-hidden`)
   })
 

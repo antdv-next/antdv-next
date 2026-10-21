@@ -5,12 +5,17 @@ describe('collapse motion', () => {
   it('tolerates missing elements in transition hooks', () => {
     const motion = initCollapseMotion('ant')
 
+    // Vue types transition hooks as `Hook<T> = T | T[]`; initCollapseMotion only sets functions.
+    const hooks = [
+      motion.onEnter,
+      motion.onBeforeLeave,
+      motion.onLeave,
+      motion.onAfterEnter,
+      motion.onAfterLeave,
+    ] as Array<((el: any) => void) | undefined>
+
     expect(() => {
-      motion.onEnter?.(null as any)
-      motion.onBeforeLeave?.(null as any)
-      motion.onLeave?.(null as any)
-      motion.onAfterEnter?.(null as any)
-      motion.onAfterLeave?.(null as any)
+      hooks.forEach(hook => hook?.(null))
     }).not.toThrow()
   })
 })

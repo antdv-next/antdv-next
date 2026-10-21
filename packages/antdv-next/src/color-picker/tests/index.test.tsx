@@ -181,7 +181,7 @@ describe('color-picker', () => {
     expect(onChange).toHaveBeenCalledTimes(1)
     expect(onChange).toHaveBeenCalledWith(expect.anything(), 'rgba(22,119,255,0)')
     expect(onUpdateValue).toHaveBeenCalledTimes(1)
-    expect(onUpdateValue.mock.calls[0][0].toCssString()).toBe('rgba(22,119,255,0)')
+    expect(onUpdateValue.mock.calls[0]![0].toCssString()).toBe('rgba(22,119,255,0)')
   })
 
   it('should allowClear work with keyboard', async () => {

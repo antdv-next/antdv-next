@@ -1,3 +1,4 @@
+import type { CarouselRef } from '..'
 import SlickCarousel from '@v-c/slick'
 import { describe, expect, it } from 'vitest'
 import { defineComponent, h, nextTick, ref } from 'vue'
@@ -285,22 +286,22 @@ describe('carousel', () => {
     const wrapper = mount(Carousel, {
       slots: { default: () => createSlides() },
     })
-    expect(typeof wrapper.vm.goTo).toBe('function')
+    expect(typeof (wrapper.vm as unknown as CarouselRef).goTo).toBe('function')
   })
 
   it('should expose next and prev methods', () => {
     const wrapper = mount(Carousel, {
       slots: { default: () => createSlides() },
     })
-    expect(typeof wrapper.vm.next).toBe('function')
-    expect(typeof wrapper.vm.prev).toBe('function')
+    expect(typeof (wrapper.vm as unknown as CarouselRef).next).toBe('function')
+    expect(typeof (wrapper.vm as unknown as CarouselRef).prev).toBe('function')
   })
 
   it('should expose autoPlay method', () => {
     const wrapper = mount(Carousel, {
       slots: { default: () => createSlides() },
     })
-    expect(typeof wrapper.vm.autoPlay).toBe('function')
+    expect(typeof (wrapper.vm as unknown as CarouselRef).autoPlay).toBe('function')
   })
 
   // ============ Ref ============

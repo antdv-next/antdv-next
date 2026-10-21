@@ -40,14 +40,14 @@ describe('date-picker.other', () => {
       Calendar: {
         ...zhCN.Calendar,
         lang: {
-          ...zhCN.Calendar.lang,
+          ...zhCN.Calendar!.lang,
           rangePlaceholder: ['Calendar start', 'Calendar end'],
         },
       },
       DatePicker: {
         ...zhCN.DatePicker,
         lang: {
-          ...zhCN.DatePicker.lang,
+          ...zhCN.DatePicker!.lang,
           rangePlaceholder: ['DatePicker start', 'DatePicker end'],
         },
       },

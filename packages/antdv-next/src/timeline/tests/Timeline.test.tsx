@@ -52,7 +52,7 @@ describe('timeline', () => {
     expect(wrapper.findAll('li.ant-timeline-item')).toHaveLength(2)
     expect(wrapper.find('.ant-timeline-item-title').text()).toBe('slot-title-1')
     expect(wrapper.find('.slot-content-2').exists()).toBe(true)
-    expect(wrapper.findAll('li.ant-timeline-item')[1].classes()).toContain('ant-timeline-item-color-green')
+    expect(wrapper.findAll('li.ant-timeline-item')[1]!.classes()).toContain('ant-timeline-item-color-green')
   })
 
   it('should resolve loading boolean prop from timeline item slot', () => {
@@ -196,9 +196,9 @@ describe('timeline', () => {
         />
       ))
       const items = wrapper.findAll('li.ant-timeline-item')
-      expect(items[0].classes()).toContain('ant-timeline-item-placement-start')
-      expect(items[1].classes()).toContain('ant-timeline-item-placement-end')
-      expect(items[2].classes()).toContain('ant-timeline-item-placement-start')
+      expect(items[0]!.classes()).toContain('ant-timeline-item-placement-start')
+      expect(items[1]!.classes()).toContain('ant-timeline-item-placement-end')
+      expect(items[2]!.classes()).toContain('ant-timeline-item-placement-start')
     })
 
     it('should support deprecated mode="left" as start', () => {

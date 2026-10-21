@@ -84,8 +84,8 @@ describe('breadcrumb', () => {
     })
     const links = wrapper.findAll('a')
     expect(links.length).toBe(2)
-    expect(links[0].attributes('href')).toBe('#/home')
-    expect(links[1].attributes('href')).toBe('#/home/detail')
+    expect(links[0]!.attributes('href')).toBe('#/home')
+    expect(links[1]!.attributes('href')).toBe('#/home/detail')
   })
 
   it('should support onClick on items', async () => {
@@ -209,11 +209,11 @@ describe('breadcrumb', () => {
 
     const items = wrapper.findAll('.slot-item-render')
     expect(items).toHaveLength(2)
-    expect(items[0].attributes('data-title')).toBe('Home')
-    expect(items[0].attributes('data-app-id')).toBe('detail')
-    expect(items[0].attributes('data-routes-length')).toBe('2')
-    expect(items[0].attributes('data-paths')).toBe('home')
-    expect(items[1].attributes('data-paths')).toBe('home/detail')
+    expect(items[0]!.attributes('data-title')).toBe('Home')
+    expect(items[0]!.attributes('data-app-id')).toBe('detail')
+    expect(items[0]!.attributes('data-routes-length')).toBe('2')
+    expect(items[0]!.attributes('data-paths')).toBe('home')
+    expect(items[1]!.attributes('data-paths')).toBe('home/detail')
   })
 
   it('should render item with menu dropdown', () => {

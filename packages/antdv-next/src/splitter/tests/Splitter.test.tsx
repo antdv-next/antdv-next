@@ -404,7 +404,7 @@ describe('splitter', () => {
       containerSize = 600
       await resizeSplitter()
 
-      const panels = wrapper.element.querySelectorAll<HTMLElement>('.ant-splitter-panel')
+      const panels = (wrapper.element as HTMLElement).querySelectorAll<HTMLElement>('.ant-splitter-panel')
 
       expect(Number.parseFloat(panels[0]!.style.flexBasis)).toBeCloseTo(200)
       expect(Number.parseFloat(panels[1]!.style.flexBasis)).toBeCloseTo(400)

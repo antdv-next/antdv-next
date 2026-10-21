@@ -24,8 +24,8 @@ describe('transfer footer direction', () => {
     expect(directions).toEqual(['left', 'right'])
     const footers = wrapper.findAll('.ant-transfer-list-footer')
     expect(footers).toHaveLength(2)
-    expect(footers[0].text()).toBe('left')
-    expect(footers[1].text()).toBe('right')
+    expect(footers[0]!.text()).toBe('left')
+    expect(footers[1]!.text()).toBe('right')
   })
 
   it('passes direction through the footer slot', () => {

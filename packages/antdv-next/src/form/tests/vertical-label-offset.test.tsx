@@ -22,10 +22,10 @@ describe('form vertical layout labelCol offset', () => {
     ))
 
     const labels = wrapper.findAll('.ant-form-item-label')
-    expect(labels[0].classes()).toEqual(
+    expect(labels[0]!.classes()).toEqual(
       expect.arrayContaining(['ant-col-24', 'ant-col-offset-6', 'ant-col-sm-24', 'ant-col-sm-offset-3']),
     )
-    expect(labels[1].classes()).toEqual(
+    expect(labels[1]!.classes()).toEqual(
       expect.arrayContaining(['ant-col-offset-4', 'ant-col-md-offset-0']),
     )
   })

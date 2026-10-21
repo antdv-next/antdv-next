@@ -1,5 +1,5 @@
 import type { DraggerProps } from '../Dragger'
-import type { UploadFile, UploadListProps, UploadProps } from '../interface'
+import type { UploadChangeParam, UploadFile, UploadListProps, UploadProps } from '../interface'
 
 import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
@@ -60,7 +60,7 @@ describe('upload.typescript', () => {
 
     const wrapper = mount({
       render: () => (
-        <Upload {...uploadProps} onChange={({ file }: { file: UploadFile<File>[] }) => file}>
+        <Upload {...uploadProps} onChange={({ file }: UploadChangeParam<UploadFile<File>>) => file}>
           <span>click to upload</span>
         </Upload>
       ),

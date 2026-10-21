@@ -1231,7 +1231,7 @@ describe('transfer', () => {
     expect(onChange).toHaveBeenCalledWith([], 'left', ['b'])
     expect(onSelectChange).toHaveBeenCalledWith(['a'], [])
     expect(onSelectChange).toHaveBeenCalledTimes(1)
-    const itemB = Array.from(wrapper.element.querySelectorAll('.ant-transfer-list-content-item'))
+    const itemB = Array.from((wrapper.element as HTMLElement).querySelectorAll('.ant-transfer-list-content-item'))
       .find(item => item.textContent === 'b')
     expect(itemB?.querySelector('input')?.checked).toBe(false)
   })

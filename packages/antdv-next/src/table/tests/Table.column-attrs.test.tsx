@@ -65,7 +65,8 @@ describe('table column attributes', () => {
       props: { dataSource: [{ name: 'Alice', age: 30 }], pagination: false },
       slots: {
         default: () => [
-          h(Column, { 'data-index': 'name', title: 'Name', width: 200, resizable: '' }),
+          // A bare `resizable` attribute in a template arrives as an empty string.
+          h(Column, { 'data-index': 'name', title: 'Name', width: 200, resizable: '' as unknown as boolean }),
           h(Column, { 'data-index': 'age', title: 'Age', width: 200 }),
         ],
       },

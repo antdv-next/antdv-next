@@ -121,7 +121,7 @@ describe('progress', () => {
     const wrapper = mount(Progress, {
       props: {
         percent: 50,
-        format: (percent: number) => `${percent} Days`,
+        format: (percent?: number) => `${percent} Days`,
       },
     })
     expect(wrapper.find('.ant-progress-indicator').text()).toBe('50 Days')
@@ -132,7 +132,7 @@ describe('progress', () => {
       props: {
         percent: 60,
         success: { percent: 30 },
-        format: (percent: number, successPercent: number) =>
+        format: (percent?: number, successPercent?: number) =>
           `${percent}% / ${successPercent}%`,
       },
     })

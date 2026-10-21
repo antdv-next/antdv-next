@@ -193,7 +193,7 @@ describe('splitter lazy', () => {
     dispatchMouseEvent(window, 'mousemove', 1000, 1000)
     await nextTick()
 
-    const preview = wrapper.element.querySelector<HTMLElement>('.ant-splitter-bar-preview')!
+    const preview = (wrapper.element as HTMLElement).querySelector<HTMLElement>('.ant-splitter-bar-preview')!
     expect(preview.style.getPropertyValue('--ant-splitter-bar-preview-offset')).toBe('0px')
     expect(onResize).not.toHaveBeenCalled()
 
