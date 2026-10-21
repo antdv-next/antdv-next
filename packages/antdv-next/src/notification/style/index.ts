@@ -1,4 +1,5 @@
 import type { CSSObject } from '@antdv-next/cssinjs'
+import type { CSSProperties } from 'vue'
 import type { AliasToken, FullToken, GenerateStyle, GenStyleFn } from '../../theme/internal'
 
 import { unit } from '@antdv-next/cssinjs'
@@ -18,6 +19,8 @@ interface SharedStyleConfig<Token extends NotificationToken> {
   listWidthKey?: WidthKey<Token>
   stackVisibleCount?: number
   itemStyle?: GenerateStyle<Token>
+  /** Whether the list content should capture pointer events (stack interaction needs it). */
+  listContentPointerEvents?: CSSProperties['pointerEvents']
 }
 
 /** Component only token. Which will handle additional calculation of alias token */
@@ -164,7 +167,10 @@ function getStackNoticeClipPath(offset: string | number) {
 }
 
 /** Generate shared list content and motion base styles. */
-const genNotificationListContentStyle: GenerateStyle<NotificationToken, CSSObject> = (token) => {
+function genNotificationListContentStyle(
+  token: NotificationToken,
+  pointerEvents: CSSProperties['pointerEvents'],
+): CSSObject {
   const { componentCls, motionDurationMid, motionDurationSlow, motionEaseInOut } = token
 
   const listCls = `${componentCls}-list`
@@ -180,7 +186,7 @@ const genNotificationListContentStyle: GenerateStyle<NotificationToken, CSSObjec
       width: '100%',
       willChange: 'height, transform',
       transition: 'none',
-      pointerEvents: 'auto',
+      pointerEvents,
 
       [`&${listContentCls}-decrease`]: {
         transition: `height calc(${motionDurationSlow} * 2) ${motionEaseInOut} ${motionDurationMid}`,
@@ -251,7 +257,7 @@ function genNotificationListStyle<Token extends NotificationToken>(token: Token,
         },
       },
 
-      ...genNotificationListContentStyle(token),
+      ...genNotificationListContentStyle(token, config.listContentPointerEvents ?? 'auto'),
 
       // ============================ Stack ============================
       [`&${componentCls}-stack`]: {
