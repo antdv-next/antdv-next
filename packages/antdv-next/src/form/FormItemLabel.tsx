@@ -87,7 +87,7 @@ const FormItemLabel = defineComponent<
 
       // Remove duplicated user input colon
       if (haveColon && typeof label === 'string' && label.trim()) {
-        labelChildren = label.replace(/[:|：]\s*$/, '')
+        labelChildren = label.replace(/[:：]\s*$/, '')
       }
 
       // Tooltip
