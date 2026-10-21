@@ -255,15 +255,20 @@ const InternalForm = defineComponent<
       FormProps
     >(useToArr(contextClassNames, classes), useToArr(contextStyles, contextStyleRoot as any, styles), useToProps(mergedProps))
 
-    const fields = shallowRef<Record<string, FormFieldRegister>>({})
+    // Plain bookkeeping (never rendered): FormItem unregisters from a watcher
+    // cleanup, which on unmount runs inside the parent's render effect.
+    const fields: Record<string, FormFieldRegister> = {}
     const lastValidatePromise = shallowRef<Promise<any>>()
 
     const addField = (eventKey: string, field: FormFieldRegister) => {
-      fields.value[eventKey] = field
+      fields[eventKey] = field
     }
 
-    const removeField = (eventKey: string) => {
-      delete fields.value[eventKey]
+    // 传入 field 时只在该 key 仍属于它时才移除，避免误删已接手该 key 的其他字段
+    const removeField = (eventKey: string, field?: FormFieldRegister) => {
+      if (field && fields[eventKey] !== field)
+        return
+      delete fields[eventKey]
     }
 
     // `items` tracks the rendered control instance of each Form.Item, keyed by
@@ -288,7 +293,7 @@ const InternalForm = defineComponent<
 
     const getFieldsByNameList = (namePathList?: InternalNamePath[], partialMatch = false) => {
       const mergedNamePathList = namePathList?.length ? namePathList : undefined
-      const fieldList = Object.values(fields.value)
+      const fieldList = Object.values(fields)
       if (!mergedNamePathList) {
         return fieldList
       }
@@ -301,7 +306,7 @@ const InternalForm = defineComponent<
 
     const getFieldsValue = (nameList: InternalNamePath[] | true = true) => {
       if (nameList === true) {
-        const allNameList = Object.values(fields.value).map(field => field.namePath())
+        const allNameList = Object.values(fields).map(field => field.namePath())
         return cloneByNamePathList(model.value ?? {}, allNameList)
       }
       return cloneByNamePathList(model.value ?? {}, nameList)
@@ -590,7 +595,7 @@ const InternalForm = defineComponent<
     const setFields = (data: FieldData[]) => {
       data.forEach((item) => {
         const namePath = getNamePath(item.name as NamePath)
-        const target = Object.values(fields.value).find(field => containsNamePath([field.namePath()], namePath))
+        const target = Object.values(fields).find(field => containsNamePath([field.namePath()], namePath))
         if (target?.setFieldState) {
           target.setFieldState({
             errors: item.errors || [],

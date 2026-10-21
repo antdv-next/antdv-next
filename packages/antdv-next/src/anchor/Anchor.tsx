@@ -135,7 +135,11 @@ const Anchor = defineComponent<
 >(
   (props = defaultProps, { slots, emit, attrs }) => {
     const links = ref<string[]>([])
-    const linkTargetOffsetRef = ref<Record<string, number>>({})
+    // Register / unregister only read these plain copies: AnchorLink unregisters
+    // from a watcher cleanup, which on unmount runs inside the parent's render
+    // effect, where reading `links` before writing it would re-render the parent.
+    let linkList: string[] = []
+    const linkTargetOffsets: Record<string, number> = {}
     const activeLink = shallowRef()
     const _activeLink = shallowRef(activeLink.value)
     const activeLinkRef = computed({
@@ -170,17 +174,19 @@ const Anchor = defineComponent<
     const dependencyListItem = computed(() => JSON.stringify(links.value))
 
     const registerLink: AntAnchor['registerLink'] = (link, targetOffset) => {
-      if (!links.value.includes(link)) {
-        links.value.push(link)
+      if (!linkList.includes(link)) {
+        linkList = [...linkList, link]
+        links.value = linkList
       }
       if (targetOffset !== undefined) {
-        linkTargetOffsetRef.value[link] = targetOffset
+        linkTargetOffsets[link] = targetOffset
       }
     }
 
     const unregisterLink: AntAnchor['unregisterLink'] = (link) => {
-      links.value = links.value.filter(item => item !== link)
-      delete linkTargetOffsetRef.value[link]
+      linkList = linkList.filter(item => item !== link)
+      links.value = linkList
+      delete linkTargetOffsets[link]
     }
 
     const updateInk = () => {
@@ -212,7 +218,7 @@ const Anchor = defineComponent<
         const target = document.getElementById(sharpLinkMatch[1]!)
         if (target) {
           const top = getOffsetTop(target, container)
-          const linkOffsetTop = linkTargetOffsetRef.value[link] ?? _offsetTop
+          const linkOffsetTop = linkTargetOffsets[link] ?? _offsetTop
           if (top <= linkOffsetTop + _bounds) {
             linkSections.push({ link, top })
           }

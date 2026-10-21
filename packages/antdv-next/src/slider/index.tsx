@@ -148,7 +148,7 @@ export interface SliderRef {
 }
 
 export interface SliderSlots {
-
+  mark?: (ctx: { point: number, label?: any }) => any
 }
 
 type SliderRange = VcSliderProps['range']
@@ -168,7 +168,7 @@ const Slider = defineComponent<
   string,
   SlotsType<SliderSlots>
 >(
-  (props, { attrs, emit, expose }) => {
+  (props, { attrs, emit, expose, slots }) => {
     const { classes, styles, vertical, orientation } = toPropsRefs(props, 'classes', 'styles', 'vertical', 'orientation')
     const [, mergedVertical] = useOrientation(orientation, vertical)
     const sliderRef = shallowRef()
@@ -303,6 +303,8 @@ const Slider = defineComponent<
       // deprecated callback that runs both through its own `emit` and through the
       // prop, so a leftover `@after-change` listener must not be forwarded.
       delete restProps.onAfterChange
+      const onBlur = restProps.onBlur
+      delete restProps.onBlur
       if (isRTL.value && !mergedVertical.value) {
         restProps.reverse = !restProps.reverse
       }
@@ -347,7 +349,7 @@ const Slider = defineComponent<
           },
           onBlur: (e: FocusEvent) => {
             setFocusOpen(false)
-            restProps?.onBlur?.(e)
+            onBlur?.(e)
             proxyEvent('onBlur', e)
           },
         }
@@ -425,6 +427,7 @@ const Slider = defineComponent<
             emit('change', ...args)
             emit('update:value', ...args)
           }}
+          v-slots={{ mark: slots.mark }}
           ref={sliderRef}
         />
       )

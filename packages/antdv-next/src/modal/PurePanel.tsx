@@ -71,7 +71,7 @@ const PurePanel = defineComponent<
     return () => {
       const { className: attrClassName, restAttrs, style: attrStyle } = getAttrStyleAndClass(attrs)
       const { type, closable, closeIcon } = props
-      const footer = getSlotPropsFnRun(slots, props, 'footer', false)
+      const footer = slots.footer ?? props.footer
       const title = getSlotPropsFnRun(slots, props, 'title', false)
       // Choose target props by confirm mark
       let additionalProps: Partial<DialogProps> = {}
@@ -95,7 +95,7 @@ const PurePanel = defineComponent<
         additionalProps = {
           closable: closable ?? true,
           title,
-          footer: footer !== null && <Footer {...props} footer={footer} />,
+          footer: props.footer !== null && <Footer {...props} footer={footer} />,
           children: slots.default?.(),
         }
       }

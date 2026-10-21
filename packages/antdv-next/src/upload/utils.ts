@@ -124,6 +124,11 @@ export function previewImage(file: File | Blob): Promise<string> {
       window.URL.revokeObjectURL(img.src)
       resolve(dataURL)
     }
+    img.onerror = () => {
+      document.body.removeChild(canvas)
+      window.URL.revokeObjectURL(img.src)
+      resolve('')
+    }
     img.crossOrigin = 'anonymous'
     if (file.type.startsWith('image/svg+xml')) {
       const reader = new FileReader()

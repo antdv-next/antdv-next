@@ -41,7 +41,7 @@ export interface FormContextProps {
   preserve?: boolean
   clearOnDestroy?: boolean
   addField?: (eventKey: string, field: FormFieldRegister) => void
-  removeField?: (eventKey: string) => void
+  removeField?: (eventKey: string, field?: FormFieldRegister) => void
   addItem?: (namePathStr: string, instance: any) => void
   removeItem?: (namePathStr: string) => void
   onValidate?: (name: InternalNamePath, status: boolean, errors: any[] | null) => void

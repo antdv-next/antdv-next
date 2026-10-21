@@ -1,5 +1,6 @@
 import type { SlotsType } from 'vue'
 import type { ComponentBaseProps } from '../../config-provider/context'
+import type { FormFieldRegister } from '../context.tsx'
 import type { FormItemLayout } from '../Form'
 import type { FormItemInputProps } from '../FormItemInput'
 import type { FormItemLabelProps } from '../FormItemLabel'
@@ -507,11 +508,20 @@ const InternalFormItem = defineComponent<
       },
       { flush: 'post' },
     )
+    // eventKey 跟随 name 变化，改名后需要用新 key 重新注册，否则旧 key 可能被其他
+    // FormItem 占用覆盖，导致 validateFields / resetFields 漏掉该字段。
     watch(
-      hasName,
-      (val, _, onCleanup) => {
-        if (val && formContext.value?.addField) {
-          formContext.value.addField(eventKey.value, {
+      [hasName, eventKey],
+      ([val], _, onCleanup) => {
+        // 卸载时 scope.stop() 会同步执行 onCleanup，此刻父组件的渲染 effect 仍处于
+        // 依赖收集状态。若在这里读 formContext / eventKey，父 effect 会订阅 Form 的
+        // 上下文 computed（其闭包捕获了 Form 实例），使已卸载的整棵 DOM 无法回收。
+        // 所以注册时就把 key 和上下文取成普通值，卸载阶段不再触碰响应式数据。
+        // 卸载时字段的注销也由这里的 onCleanup 完成。
+        const fieldKey = eventKey.value
+        const formCtx = formContext.value
+        if (val && formCtx?.addField) {
+          const field: FormFieldRegister = {
             onFieldBlur,
             namePath: () => namePath.value,
             getValue: () => fieldValue.value,
@@ -535,13 +545,12 @@ const InternalFormItem = defineComponent<
                 warnings: state.warnings ?? meta.value.warnings,
               })
             },
-          })
+          }
+          formCtx.addField(fieldKey, field)
+          // 只移除自己注册的那一项：同一轮更新里 key 可能已被其他 FormItem 接手
           onCleanup(() => {
-            formContext.value?.removeField?.(eventKey.value)
+            formCtx.removeField?.(fieldKey, field)
           })
-        }
-        else {
-          formContext.value?.removeField?.(eventKey.value)
         }
       },
       { immediate: true },
@@ -557,7 +566,6 @@ const InternalFormItem = defineComponent<
           meta.value.name,
         )
       }
-      formContext.value?.removeField?.(eventKey.value)
       if (itemInstanceKey) {
         formContext.value?.removeItem?.(itemInstanceKey)
         itemInstanceKey = undefined

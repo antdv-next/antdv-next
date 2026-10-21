@@ -90,7 +90,10 @@ const CheckboxGroup = defineComponent<
   (props = defaults, { slots, emit, attrs }) => {
     const { prefixCls, direction } = useBaseConfig('checkbox', props)
     const value = shallowRef(props?.value ?? props?.defaultValue ?? [])
-    const registeredValues = shallowRef<any[]>([])
+    // Only read when toggling, so a plain array is enough. Checkbox cancels from a
+    // watcher cleanup, which on unmount runs inside the parent's render effect,
+    // where reading and writing a ref would re-render the parent.
+    let registeredValues: any[] = []
     watch(
       () => props.value,
       () => {
@@ -114,10 +117,10 @@ const CheckboxGroup = defineComponent<
     })
 
     const cancelValue = (val: any) => {
-      registeredValues.value = registeredValues.value.filter(v => v !== val)
+      registeredValues = registeredValues.filter(v => v !== val)
     }
     const registerValue = (val: any) => {
-      registeredValues.value = [...registeredValues.value, val]
+      registeredValues = [...registeredValues, val]
     }
 
     const toggleOption: CheckboxGroupContext['toggleOption'] = (option) => {
@@ -130,7 +133,7 @@ const CheckboxGroup = defineComponent<
         newValue.splice(optionIndex, 1)
       }
       const sortVals = newValue
-        .filter(val => registeredValues.value.includes(val))
+        .filter(val => registeredValues.includes(val))
         .sort((a, b) => {
           const indexA = memoizedOptions.value.findIndex(opt => opt.value === a)
           const indexB = memoizedOptions.value.findIndex(opt => opt.value === b)

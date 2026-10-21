@@ -77,6 +77,7 @@ const AvatarGroup = defineComponent<AvatarGroupProps>(
       })
       const mergeCount = max?.count
       const numOfChildren = childrenWithProps.length
+      let childrenToRender = childrenWithProps
       if (mergeCount && mergeCount < numOfChildren) {
         const childrenShow = childrenWithProps.slice(0, mergeCount)
         const childrenHidden = childrenWithProps.slice(mergeCount, numOfChildren)
@@ -99,15 +100,11 @@ const AvatarGroup = defineComponent<AvatarGroupProps>(
           </Popover>,
         )
 
-        return (
-          <div ref={nativeElementRef} {...restAttrs} class={cls} style={style}>
-            {childrenShow}
-          </div>
-        )
+        childrenToRender = childrenShow
       }
       return (
         <div ref={nativeElementRef} {...restAttrs} class={cls} style={style}>
-          {childrenWithProps}
+          {childrenToRender}
         </div>
       )
     }

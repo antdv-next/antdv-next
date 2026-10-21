@@ -138,6 +138,22 @@ describe('slider', () => {
     expect(wrapper.find('strong').text()).toBe('100°C')
   })
 
+  it('should render custom mark content via mark slot', () => {
+    const marks = { 0: '0°C', 100: '100°C' }
+    const wrapper = mount(Slider, {
+      props: { marks, defaultValue: 0 },
+      slots: {
+        mark: ({ point, label }: { point: number, label?: any }) => (
+          <span class="custom-mark">{`${point}#${label}`}</span>
+        ),
+      },
+    })
+    const customMarks = wrapper.findAll('.custom-mark')
+    expect(customMarks.length).toBe(2)
+    expect(customMarks[0]?.text()).toBe('0#0°C')
+    expect(customMarks[1]?.text()).toBe('100#100°C')
+  })
+
   it('should render dots when dots=true', () => {
     const wrapper = mount(Slider, {
       props: { dots: true, step: 10, defaultValue: 50 },
@@ -723,6 +739,18 @@ describe('slider', () => {
       vi.advanceTimersByTime(100)
       // vc-slider's Handle never declares `onBlur` as a prop, so it never lands on the
       // handle vnode and passedProps must dispatch it — exactly once.
+      expect(onBlur).toHaveBeenCalledTimes(1)
+      wrapper.unmount()
+    })
+
+    it('should forward onBlur to user handler exactly once in range mode', async () => {
+      const onBlur = vi.fn()
+      const wrapper = mount(Slider, {
+        props: { range: true, defaultValue: [20, 50] },
+        attrs: { onBlur },
+        attachTo: document.body,
+      })
+      await wrapper.find('.ant-slider-handle').trigger('blur')
       expect(onBlur).toHaveBeenCalledTimes(1)
       wrapper.unmount()
     })

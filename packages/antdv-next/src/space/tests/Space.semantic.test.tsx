@@ -44,8 +44,6 @@ describe('space.semantic', () => {
     // default is horizontal
     expect(wrapper.find('.ant-space').classes()).toContain('fn-horizontal-root')
     expect(wrapper.find('.ant-space-item').classes()).toContain('fn-horizontal-item')
-    // separator element: use custom class to find it because itemClassName concatenation
-    // with item semantic class breaks the base class selector
     expect(wrapper.find('.fn-horizontal-sep').exists()).toBe(true)
     expect(wrapper.find('.ant-space').attributes('style')).toContain('color: rgb(255, 0, 0)')
 
@@ -78,7 +76,6 @@ describe('space.semantic', () => {
 
     expect(wrapper.find('.ant-space').classes()).toContain('obj-root')
     expect(wrapper.find('.ant-space-item').classes()).toContain('obj-item')
-    // find separator via custom class (base class selector breaks when item class is set)
     const sep = wrapper.find('.obj-sep')
     expect(sep.exists()).toBe(true)
 
