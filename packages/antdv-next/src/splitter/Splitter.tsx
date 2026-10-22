@@ -193,6 +193,7 @@ const Splitter = defineComponent<
         draggerIcon,
         collapsible,
         collapsibleIcon,
+        destroyOnHidden,
       } = props
       const mergedCollapsibleIcon = collapsible?.icon ?? collapsibleIcon
 
@@ -237,6 +238,7 @@ const Splitter = defineComponent<
                   prefixCls={prefixCls.value}
                   size={panelSizes.value[idx]}
                   supportMotion={collapsible?.motion && movingIndex.value === undefined}
+                  destroyOnHidden={item.destroyOnHidden ?? destroyOnHidden}
                 >
                   {item._$slots?.default?.()}
                 </InternalPanel>

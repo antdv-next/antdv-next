@@ -1,5 +1,6 @@
 import type { SplitterProps } from '..'
 import type { Orientation } from '../../_util/hooks'
+import type { VueNode } from '../../_util/type'
 import type { PanelProps } from '../interface'
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 import { defineComponent, nextTick, ref } from 'vue'
@@ -12,15 +13,17 @@ import zhTW from '../../locale/zh_TW'
 import SplitBar from '../SplitBar'
 import { mount, triggerResize, waitFakeTimer } from '/@tests/utils'
 
-const SplitterDemo = defineComponent<{ items?: PanelProps[] } & SplitterProps>((props) => {
+type DemoItem = PanelProps & { children?: VueNode }
+
+const SplitterDemo = defineComponent<{ items?: DemoItem[] } & SplitterProps>((props) => {
   return () => {
     const items = props.items ?? [{}, {}]
 
     return (
       <Splitter {...props}>
-        {items.map((item, idx) => {
+        {items.map(({ children, ...item }, idx) => {
           const key = `panel-${idx}`
-          return <SplitterPanel key={key} {...item} />
+          return <SplitterPanel key={key} {...item}>{children}</SplitterPanel>
         })}
       </Splitter>
     )
@@ -67,7 +70,7 @@ describe('splitter', () => {
   }
 
   const mountSplitter = (
-    props: { items?: PanelProps[] } & SplitterProps = {},
+    props: { items?: DemoItem[] } & SplitterProps = {},
     options: Parameters<typeof mount>[1] = {},
   ) => {
     return trackWrapper(mount(SplitterDemo, {
@@ -1294,5 +1297,48 @@ describe('splitter', () => {
         expect(warningMatched).toBe(true)
       }
     })
+  })
+
+  it('destroyOnHidden', async () => {
+    const onResize = vi.fn()
+
+    const wrapper = mountSplitter({
+      destroyOnHidden: true,
+      onResize,
+      items: [
+        {
+          collapsible: true,
+          children: <div data-testid="panel-1">Panel 1</div>,
+        },
+        {
+          collapsible: true,
+          destroyOnHidden: false,
+          children: <div data-testid="panel-2">Panel 2</div>,
+        },
+      ],
+    })
+
+    await resizeSplitter()
+
+    expect(wrapper.find('[data-testid="panel-1"]').exists()).toBe(true)
+    expect(wrapper.find('[data-testid="panel-2"]').exists()).toBe(true)
+
+    await wrapper.find('.ant-splitter-bar-collapse-start').trigger('click')
+    expect(onResize).toHaveBeenCalledWith([0, 100])
+
+    expect(wrapper.find('[data-testid="panel-1"]').exists()).toBe(false)
+    expect(wrapper.find('[data-testid="panel-2"]').exists()).toBe(true)
+
+    onResize.mockReset()
+    await wrapper.find('.ant-splitter-bar-collapse-end').trigger('click')
+
+    expect(wrapper.find('[data-testid="panel-1"]').exists()).toBe(true)
+    expect(wrapper.find('[data-testid="panel-2"]').exists()).toBe(true)
+
+    onResize.mockReset()
+    await wrapper.find('.ant-splitter-bar-collapse-end').trigger('click')
+
+    expect(wrapper.find('[data-testid="panel-1"]').exists()).toBe(true)
+    expect(wrapper.find('[data-testid="panel-2"]').exists()).toBe(true)
   })
 })

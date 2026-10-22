@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+import Splitter, { SplitterPanel } from '..'
 import { InternalPanel } from '../Panel'
 import { mount } from '/@tests/utils'
 
@@ -60,5 +61,45 @@ describe('splitter InternalPanel destroyOnHidden', () => {
     })
     expect(wrapper.find('.ant-splitter-panel-hidden').exists()).toBe(false)
     expect(wrapper.text()).toContain('still-visible')
+  })
+})
+
+describe('splitter destroyOnHidden fallback', () => {
+  it('drops collapsed panel content when top-level destroyOnHidden is true', () => {
+    const wrapper = mount(() => (
+      <Splitter destroyOnHidden>
+        <SplitterPanel defaultSize={0}>collapsed-content</SplitterPanel>
+        <SplitterPanel>visible-content</SplitterPanel>
+      </Splitter>
+    ))
+
+    expect(wrapper.findAll('.ant-splitter-panel-hidden')).toHaveLength(1)
+    expect(wrapper.text()).not.toContain('collapsed-content')
+    expect(wrapper.text()).toContain('visible-content')
+    expect(wrapper.find('.ant-splitter').attributes('destroyOnHidden')).toBeUndefined()
+  })
+
+  it('panel destroyOnHidden=false overrides top-level destroyOnHidden=true', () => {
+    const wrapper = mount(() => (
+      <Splitter destroyOnHidden>
+        <SplitterPanel defaultSize={0} destroyOnHidden={false}>kept-content</SplitterPanel>
+        <SplitterPanel>visible-content</SplitterPanel>
+      </Splitter>
+    ))
+
+    expect(wrapper.findAll('.ant-splitter-panel-hidden')).toHaveLength(1)
+    expect(wrapper.text()).toContain('kept-content')
+  })
+
+  it('keeps collapsed panel content when destroyOnHidden is not set', () => {
+    const wrapper = mount(() => (
+      <Splitter>
+        <SplitterPanel defaultSize={0}>collapsed-content</SplitterPanel>
+        <SplitterPanel>visible-content</SplitterPanel>
+      </Splitter>
+    ))
+
+    expect(wrapper.findAll('.ant-splitter-panel-hidden')).toHaveLength(1)
+    expect(wrapper.text()).toContain('collapsed-content')
   })
 })

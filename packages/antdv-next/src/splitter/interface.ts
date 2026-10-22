@@ -65,6 +65,7 @@ export interface SplitterProps extends ComponentBaseProps {
   layout?: Orientation
   orientation?: Orientation
   vertical?: boolean
+  destroyOnHidden?: boolean
   draggerIcon?: VueNode
   /**
    * Collapse configuration. Set `motion: true` to enable collapse animation.
