@@ -78,6 +78,7 @@ export interface StatisticSlots {
   title: () => any
   prefix: () => any
   suffix: () => any
+  formatter?: (ctx: { value: valueType }) => any
 }
 
 const defaults = {
@@ -153,6 +154,9 @@ const Statistic = defineComponent<
       const title = getSlotPropsFnRun(slots, props, 'title')
       const prefix = getSlotPropsFnRun(slots, props, 'prefix')
       const suffix = getSlotPropsFnRun(slots, props, 'suffix')
+      const mergedFormatter: StatisticProps['formatter'] = slots.formatter
+        ? (v: valueType) => getSlotPropsFnRun(slots, {}, 'formatter', true, { value: v })
+        : formatter
 
       const cls = classNames(
         prefixCls.value,
@@ -185,7 +189,7 @@ const Statistic = defineComponent<
           decimalSeparator={decimalSeparator}
           groupSeparator={groupSeparator}
           prefixCls={prefixCls.value}
-          formatter={formatter}
+          formatter={mergedFormatter}
           precision={precision}
           value={value!}
           className={valueClassNames}
