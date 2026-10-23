@@ -44,6 +44,7 @@ tag: 1.0.0
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - | ✓ |
 | collapsible | `motion` 是否开启折叠动画，`icon` 自定义折叠图标。可在自定义图标上设置 `aria-label` 覆盖本地化的控件名称 | &#123; motion?: boolean; icon?: &#123; start?: VueNode; end?: VueNode &#125; &#125; | - | `aria-label`: 1.7.0 | × |
 | collapsibleIcon | 自定义折叠图标 | &#123; start?: VueNode; end?: VueNode &#125; | - | 1.0.0 | × |
+| destroyOnHidden | 折叠时（`size` 为 0）销毁面板内容，应用于所有面板，可在单个面板上覆盖 | boolean | false | 1.7.1 | × |
 | draggerIcon | 自定义拖拽图标 | VueNode | - | 1.0.0 | × |
 | lazy | 延迟渲染模式 | boolean | false | 1.0.0 | × |
 | orientation | 布局方向 | `vertical` \| `horizontal` | `horizontal` | 1.0.0 | × |
@@ -75,7 +76,7 @@ tag: 1.0.0
 | --- | --- | --- | --- | --- |
 | collapsible | 启用折叠 | boolean \| &#123; start?: boolean; end?: boolean; showCollapsibleIcon?: boolean \| 'auto' &#125; | false | 1.0.0 |
 | defaultSize | 面板初始大小，支持像素和百分比 | number \| string | - | - |
-| destroyOnHidden | 折叠时（`size` 为 0）销毁面板内容 | boolean | false | - |
+| destroyOnHidden | 折叠时（`size` 为 0）销毁面板内容，覆盖 Splitter 的 `destroyOnHidden` | boolean | - | 1.3.0 |
 | max | 最大阈值，支持像素和百分比 | number \| string | - | - |
 | min | 最小阈值，支持像素和百分比 | number \| string | - | - |
 | resizable | 是否启用拉伸 | boolean | true | - |

@@ -43,6 +43,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | classes | Customize class for each semantic structure inside the component. Supports object or function | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - | ✓ |
 | collapsible | `motion` to enable collapse animation, `icon` to customize collapse icons. Set `aria-label` on a custom icon to override the localized control name | &#123; motion?: boolean; icon?: &#123; start?: VueNode; end?: VueNode &#125; &#125; | - | `aria-label`: 1.7.0 | × |
 | collapsibleIcon | Custom collapsible icon | &#123; start?: VueNode; end?: VueNode &#125; | - | 1.0.0 | × |
+| destroyOnHidden | Destroy panel content when collapsed (`size` is 0). Applies to all panels, can be overridden per panel | boolean | false | 1.7.1 | × |
 | draggerIcon | Custom dragger icon | VueNode | - | 1.0.0 | × |
 | lazy | Lazy rendering mode | boolean | false | 1.0.0 | × |
 | orientation | Layout direction | `vertical` \| `horizontal` | `horizontal` | 1.0.0 | × |
@@ -74,7 +75,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | --- | --- | --- | --- | --- |
 | collapsible | Enable collapsible | boolean \| &#123; start?: boolean; end?: boolean; showCollapsibleIcon?: boolean \| 'auto' &#125; | false | 1.0.0 |
 | defaultSize | Initial panel size, supports px and percentage | number \| string | - | - |
-| destroyOnHidden | Destroy panel content when collapsed (`size` is 0) | boolean | false | - |
+| destroyOnHidden | Destroy panel content when collapsed (`size` is 0). Overrides Splitter's `destroyOnHidden` | boolean | - | 1.3.0 |
 | max | Maximum threshold, supports px and percentage | number \| string | - | - |
 | min | Minimum threshold, supports px and percentage | number \| string | - | - |
 | resizable | Whether to enable resize | boolean | true | - |

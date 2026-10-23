@@ -1295,4 +1295,42 @@ describe('splitter', () => {
       }
     })
   })
+
+  it('destroyOnHidden', async () => {
+    const onResize = vi.fn()
+
+    const wrapper = trackWrapper(mount(() => (
+      <Splitter destroyOnHidden onResize={onResize}>
+        <SplitterPanel collapsible>
+          <div data-testid="panel-1">Panel 1</div>
+        </SplitterPanel>
+        <SplitterPanel collapsible destroyOnHidden={false}>
+          <div data-testid="panel-2">Panel 2</div>
+        </SplitterPanel>
+      </Splitter>
+    ), { attachTo: document.body }))
+
+    await resizeSplitter()
+
+    expect(wrapper.find('[data-testid="panel-1"]').exists()).toBe(true)
+    expect(wrapper.find('[data-testid="panel-2"]').exists()).toBe(true)
+
+    await wrapper.find('.ant-splitter-bar-collapse-start').trigger('click')
+    expect(onResize).toHaveBeenCalledWith([0, 100])
+
+    expect(wrapper.find('[data-testid="panel-1"]').exists()).toBe(false)
+    expect(wrapper.find('[data-testid="panel-2"]').exists()).toBe(true)
+
+    onResize.mockReset()
+    await wrapper.find('.ant-splitter-bar-collapse-end').trigger('click')
+
+    expect(wrapper.find('[data-testid="panel-1"]').exists()).toBe(true)
+    expect(wrapper.find('[data-testid="panel-2"]').exists()).toBe(true)
+
+    onResize.mockReset()
+    await wrapper.find('.ant-splitter-bar-collapse-end').trigger('click')
+
+    expect(wrapper.find('[data-testid="panel-1"]').exists()).toBe(true)
+    expect(wrapper.find('[data-testid="panel-2"]').exists()).toBe(true)
+  })
 })
