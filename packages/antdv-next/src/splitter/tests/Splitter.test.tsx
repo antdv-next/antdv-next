@@ -1,6 +1,5 @@
 import type { SplitterProps } from '..'
 import type { Orientation } from '../../_util/hooks'
-import type { VueNode } from '../../_util/type'
 import type { PanelProps } from '../interface'
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 import { defineComponent, nextTick, ref } from 'vue'
@@ -13,17 +12,15 @@ import zhTW from '../../locale/zh_TW'
 import SplitBar from '../SplitBar'
 import { mount, triggerResize, waitFakeTimer } from '/@tests/utils'
 
-type DemoItem = PanelProps & { children?: VueNode }
-
-const SplitterDemo = defineComponent<{ items?: DemoItem[] } & SplitterProps>((props) => {
+const SplitterDemo = defineComponent<{ items?: PanelProps[] } & SplitterProps>((props) => {
   return () => {
     const items = props.items ?? [{}, {}]
 
     return (
       <Splitter {...props}>
-        {items.map(({ children, ...item }, idx) => {
+        {items.map((item, idx) => {
           const key = `panel-${idx}`
-          return <SplitterPanel key={key} {...item}>{children}</SplitterPanel>
+          return <SplitterPanel key={key} {...item} />
         })}
       </Splitter>
     )
@@ -70,7 +67,7 @@ describe('splitter', () => {
   }
 
   const mountSplitter = (
-    props: { items?: DemoItem[] } & SplitterProps = {},
+    props: { items?: PanelProps[] } & SplitterProps = {},
     options: Parameters<typeof mount>[1] = {},
   ) => {
     return trackWrapper(mount(SplitterDemo, {
@@ -1302,21 +1299,16 @@ describe('splitter', () => {
   it('destroyOnHidden', async () => {
     const onResize = vi.fn()
 
-    const wrapper = mountSplitter({
-      destroyOnHidden: true,
-      onResize,
-      items: [
-        {
-          collapsible: true,
-          children: <div data-testid="panel-1">Panel 1</div>,
-        },
-        {
-          collapsible: true,
-          destroyOnHidden: false,
-          children: <div data-testid="panel-2">Panel 2</div>,
-        },
-      ],
-    })
+    const wrapper = trackWrapper(mount(() => (
+      <Splitter destroyOnHidden onResize={onResize}>
+        <SplitterPanel collapsible>
+          <div data-testid="panel-1">Panel 1</div>
+        </SplitterPanel>
+        <SplitterPanel collapsible destroyOnHidden={false}>
+          <div data-testid="panel-2">Panel 2</div>
+        </SplitterPanel>
+      </Splitter>
+    ), { attachTo: document.body }))
 
     await resizeSplitter()
 
