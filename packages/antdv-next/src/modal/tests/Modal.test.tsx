@@ -1,6 +1,6 @@
 import type { MaskType } from '../../_util/hooks'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { defineComponent, onMounted } from 'vue'
+import { defineComponent, h, onMounted } from 'vue'
 import Modal from '..'
 import App from '../../app'
 import ConfigProvider from '../../config-provider'
@@ -128,6 +128,34 @@ describe('modal static', () => {
       .map(node => node.textContent?.replace(/\s+/g, '').trim())
 
     expect(buttons).toEqual(['取消', '确定'])
+  })
+
+  // https://github.com/ant-design/ant-design/pull/59627
+  it('applies body typography to static and hook confirmation content', async () => {
+    const Confirm = defineComponent(() => {
+      const [modal, contextHolder] = Modal.useModal()
+      onMounted(() => {
+        modal.confirm({ content: 'Hook content' })
+      })
+      return () => h(contextHolder)
+    })
+
+    mount(Confirm, { attachTo: document.body })
+
+    ;(['info', 'success', 'error', 'warning', 'confirm'] as const).forEach((type) => {
+      Modal[type]({ content: `${type} content` })
+    })
+
+    await waitFakeTimer(1, 5)
+
+    const contents = document.querySelectorAll<HTMLElement>('.ant-modal-confirm-content')
+    expect(contents).toHaveLength(6)
+    contents.forEach((content) => {
+      const style = getComputedStyle(content)
+      expect(style.color).toBe('var(--ant-color-text)')
+      expect(style.fontSize).toBe('var(--ant-font-size)')
+      expect(style.lineHeight).toBe('var(--ant-line-height)')
+    })
   })
 
   it('bodyStyle should apply to confirm content instead of modal body', async () => {
