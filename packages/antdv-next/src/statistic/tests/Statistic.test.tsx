@@ -121,6 +121,30 @@ describe('statistic', () => {
     })
   })
 
+  // ============= Formatter slot =============
+  describe('formatter slot', () => {
+    it('should render formatter slot with value param', () => {
+      const wrapper = mount(Statistic, {
+        props: { value: 1128 },
+        slots: {
+          formatter: ({ value }: { value: any }) => <span class="slot-formatter">{value}</span>,
+        },
+      })
+      expect(wrapper.find('.slot-formatter').text()).toBe('1128')
+      expect(wrapper.find('.ant-statistic-content-value-int').exists()).toBe(false)
+    })
+
+    it('should prefer formatter slot over formatter prop', () => {
+      const wrapper = mount(Statistic, {
+        props: { value: 1128, formatter: () => 'prop' },
+        slots: {
+          formatter: () => <span class="slot-formatter">slot</span>,
+        },
+      })
+      expect(wrapper.find('.ant-statistic-content-value').text()).toBe('slot')
+    })
+  })
+
   // ============= Title =============
   describe('title', () => {
     it('should render title from prop', () => {
@@ -533,6 +557,19 @@ describe('statistic', () => {
 
       expect(wrapper.find('.ant-statistic-title').text()).toBe('Timer Title')
       expect(wrapper.find('.ant-statistic-content-suffix').text()).toBe('left')
+    })
+
+    it('should pass formatter slot through', async () => {
+      const now = Date.now()
+      const wrapper = mount(StatisticTimer, {
+        props: { type: 'countdown', value: now + 10000 },
+        slots: {
+          formatter: ({ value }: { value: any }) => <span class="slot-formatter">{value}</span>,
+        },
+      })
+      await nextTick()
+      await flushPromises()
+      expect(wrapper.find('.slot-formatter').exists()).toBe(true)
     })
   })
 
