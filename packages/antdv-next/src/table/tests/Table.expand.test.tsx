@@ -37,6 +37,35 @@ describe('table expand', () => {
     expect(wrapper.findAll('.ant-table-row-expand-icon').length).toBe(3)
   })
 
+  it('should react to an expandedRowRender slot registered after mount', async () => {
+    const expanded = ref(false)
+    const wrapper = mount(() => h(
+      Table,
+      {
+        columns,
+        dataSource: data,
+        pagination: false,
+        expandable: expanded.value ? { columnWidth: 48 } : undefined,
+      },
+      expanded.value
+        ? { expandedRowRender: ({ record }: any) => h('p', { class: 'expanded-content' }, record.name) }
+        : {},
+    ))
+    expect(wrapper.findAll('.ant-table-row-expand-icon').length).toBe(0)
+
+    expanded.value = true
+    await nextTick()
+    expect(wrapper.findAll('.ant-table-row-expand-icon').length).toBe(3)
+
+    await wrapper.find('.ant-table-row-expand-icon').trigger('click')
+    await nextTick()
+    expect(wrapper.find('.expanded-content').exists()).toBe(true)
+
+    expanded.value = false
+    await nextTick()
+    expect(wrapper.findAll('.ant-table-row-expand-icon').length).toBe(0)
+  })
+
   it('should expand row when clicking expand icon', async () => {
     const wrapper = mount(Table, {
       props: { columns, dataSource: data, pagination: false },
