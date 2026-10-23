@@ -236,10 +236,6 @@ function genNotificationListStyle<Token extends NotificationToken>(token: Token,
       overflow: 'hidden',
       overscrollBehavior: 'contain',
 
-      [`${componentCls}-hook-holder`]: {
-        position: 'relative',
-      },
-
       // ============================= List =============================
       [`&${listCls}`]: {
         maxHeight: '100vh',
