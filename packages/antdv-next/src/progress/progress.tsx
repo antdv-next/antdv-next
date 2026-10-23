@@ -346,7 +346,7 @@ const Progress = defineComponent<
           style={rootStyle}
           class={classString}
           role="progressbar"
-          aria-valuenow={percentNumber.value}
+          aria-valuenow={validProgress(mergedPercent.value)}
           aria-valuemin={0}
           aria-valuemax={100}
         >

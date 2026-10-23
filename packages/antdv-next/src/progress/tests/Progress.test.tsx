@@ -310,6 +310,23 @@ describe('progress', () => {
     expect(wrapper.attributes('aria-valuemax')).toBe('100')
   })
 
+  // https://github.com/ant-design/ant-design/pull/59634
+  it('aria-valuenow should reflect percent instead of success percent', async () => {
+    const wrapper = mount(Progress, {
+      props: { percent: 60, success: { percent: 30 } },
+    })
+    expect(wrapper.attributes('aria-valuenow')).toBe('60')
+
+    await wrapper.setProps({ type: 'circle' })
+    expect(wrapper.attributes('aria-valuenow')).toBe('60')
+
+    await wrapper.setProps({ type: 'line', success: undefined, percent: 120 })
+    expect(wrapper.attributes('aria-valuenow')).toBe('100')
+
+    await wrapper.setProps({ percent: -10 })
+    expect(wrapper.attributes('aria-valuenow')).toBe('0')
+  })
+
   // ========================= Circle size =========================
   it('renders inline circle when size <= 20', () => {
     const wrapper = mount(Progress, {
