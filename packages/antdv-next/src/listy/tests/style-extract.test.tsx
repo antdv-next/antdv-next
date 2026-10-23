@@ -31,6 +31,13 @@ async function extractListyStyle() {
 }
 
 describe('listy style extract', () => {
+  // https://github.com/ant-design/ant-design/issues/59633
+  it('uses colorSplit for the virtual scrollbar background', async () => {
+    const style = await extractListyStyle()
+
+    expect(style).toContain('--vc-virtual-list-scrollbar-bg:var(--ant-color-split);')
+  })
+
   it('scopes the row hover style to the hoverable root', async () => {
     const style = await extractListyStyle()
 
