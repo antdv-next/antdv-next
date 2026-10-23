@@ -52,7 +52,7 @@ demo:
 
 | 插槽 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
-| formatter | 自定义数值展示 | (value: number \| string) =&gt; VueNode | - |
+| formatter | 自定义数值展示 | (ctx: { value: number \| string }) =&gt; VueNode | - |
 | prefix | 设置数值的前缀 | () =&gt; VueNode | - |
 | suffix | 设置数值的后缀 | () =&gt; VueNode | - |
 | title | 数值的标题 | () =&gt; VueNode | - |

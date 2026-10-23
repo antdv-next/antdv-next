@@ -696,15 +696,13 @@ const InternalTable = defineComponent<
     // these may be recreated per render; the reactive inputs are read inside.
     const transformTitleColumns = computed(() => useTitleColumns(columnTitleProps.value)[0])
 
-    const renderExpandedRow = slots.expandedRowRender
-      ? (record: AnyObject, index: number, indent: number, expanded: boolean) =>
-          getSlotPropsFnRun(slots, props as any, 'expandedRowRender', true, {
-            record,
-            index,
-            indent,
-            expanded,
-          })
-      : undefined
+    const renderExpandedRow = (record: AnyObject, index: number, indent: number, expanded: boolean) =>
+      getSlotPropsFnRun(slots, props as any, 'expandedRowRender', true, {
+        record,
+        index,
+        indent,
+        expanded,
+      })
     const renderFilterDropdown = slots.filterDropdown
       ? (ctx: FilterDropdownProps & { column: ColumnType }) =>
           getSlotPropsFnRun(slots, props as any, 'filterDropdown', false, ctx)
@@ -737,7 +735,7 @@ const InternalTable = defineComponent<
       if (rawData.value.some(item => item?.[childrenColumnName.value])) {
         return 'nest'
       }
-      if (renderExpandedRow || mergedExpandable.value.expandedRowRender) {
+      if (slots.expandedRowRender || mergedExpandable.value.expandedRowRender) {
         return 'row'
       }
       return null
@@ -760,10 +758,6 @@ const InternalTable = defineComponent<
       // We only check when origin props use the expand icon.
       ;(expandable as any).__PARENT_RENDER_ICON__ = expandable.expandIcon
 
-      if (renderExpandedRow) {
-        expandable.expandedRowRender = renderExpandedRow as any
-      }
-
       // Remove legacy expand icon to use the merged `components.ExpandIcon`
       expandable.expandIcon = undefined
 
@@ -780,6 +774,25 @@ const InternalTable = defineComponent<
 
       return expandable
     })
+
+    // `#expandedRowRender` may be a dynamic slot (`v-if` on the template), so
+    // its presence has to be read at render time instead of setup time. Cache
+    // the derived object to keep the reference stable for `@v-c/table`.
+    let lastExpandableBase: any
+    let lastExpandableHasSlot = false
+    let lastExpandableConfig: any
+    const resolveExpandableConfig = () => {
+      const base = mergedExpandableConfig.value
+      const hasSlot = !!slots.expandedRowRender
+      if (base !== lastExpandableBase || hasSlot !== lastExpandableHasSlot) {
+        lastExpandableBase = base
+        lastExpandableHasSlot = hasSlot
+        lastExpandableConfig = hasSlot
+          ? { ...base, expandedRowRender: renderExpandedRow as any }
+          : base
+      }
+      return lastExpandableConfig
+    }
 
     // ========================== Components ==========================
     const mergedComponents = computed(() => {
@@ -947,7 +960,7 @@ const InternalTable = defineComponent<
               emptyText={mergedEmptyNode as any}
               classNames={mergedClassNames.value as any}
               styles={mergedStyles.value as any}
-              expandable={mergedExpandableConfig.value}
+              expandable={resolveExpandableConfig()}
               prefixCls={prefixCls.value}
               direction={direction.value}
               headerCell={slots.headerCell || contextHeaderCell.value || props.headerCell ? renderHeaderCell : undefined}

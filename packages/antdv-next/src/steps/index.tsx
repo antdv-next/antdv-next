@@ -3,7 +3,7 @@ import type { App, CSSProperties, SlotsType } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { VueNode } from '../_util/type'
 import type { SizeType } from '../config-provider/SizeContext.tsx'
-import { CheckOutlined } from '@antdv-next/icons'
+import { CheckOutlined, CloseOutlined } from '@antdv-next/icons'
 import VcSteps from '@v-c/steps'
 import { clsx } from '@v-c/util'
 import { computed, defineComponent } from 'vue'
@@ -337,7 +337,7 @@ const Steps = defineComponent<
               iconContent = <CheckOutlined class={`${itemIconCls.value}-finish`} />
               break
             case 'error':
-              iconContent = <CheckOutlined class={`${itemIconCls.value}-error`} />
+              iconContent = <CloseOutlined class={`${itemIconCls.value}-error`} />
               break
             default:{
               let numNode = <span class={`${itemIconCls.value}-number`}>{mappedIndex + 1}</span>
