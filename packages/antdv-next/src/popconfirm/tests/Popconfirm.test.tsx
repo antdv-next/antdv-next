@@ -186,6 +186,57 @@ describe('popconfirm', () => {
     wrapper.unmount()
   })
 
+  // https://github.com/ant-design/ant-design/pull/59294
+  it('should trigger both onConfirm and okButtonProps.onClick', async () => {
+    const onConfirm = vi.fn()
+    const onClick = vi.fn()
+    const onOpenChange = vi.fn()
+    const wrapper = mount(Popconfirm, {
+      props: { title: 'Sure?', okButtonProps: { onClick } as any },
+      attrs: { onConfirm, onOpenChange },
+      slots: {
+        default: () => <button>Del</button>,
+      },
+      attachTo: document.body,
+    })
+    await wrapper.find('button').trigger('click')
+    await nextTick()
+    await nextTick()
+    const okButtons = document.querySelectorAll<HTMLElement>('.ant-popconfirm-buttons .ant-btn-primary')
+    okButtons[okButtons.length - 1].click()
+    await nextTick()
+    expect(onConfirm).toHaveBeenCalledTimes(1)
+    expect(onClick).toHaveBeenCalledTimes(1)
+    expect(onOpenChange.mock.lastCall?.[0]).toBe(false)
+    wrapper.unmount()
+    document.body.innerHTML = ''
+  })
+
+  it('should trigger both onCancel and cancelButtonProps.onClick', async () => {
+    const onCancel = vi.fn()
+    const onClick = vi.fn()
+    const onOpenChange = vi.fn()
+    const wrapper = mount(Popconfirm, {
+      props: { title: 'Sure?', cancelButtonProps: { onClick } as any },
+      attrs: { onCancel, onOpenChange },
+      slots: {
+        default: () => <button>Del</button>,
+      },
+      attachTo: document.body,
+    })
+    await wrapper.find('button').trigger('click')
+    await nextTick()
+    await nextTick()
+    const cancelButtons = document.querySelectorAll<HTMLElement>('.ant-popconfirm-buttons .ant-btn:not(.ant-btn-primary)')
+    cancelButtons[cancelButtons.length - 1].click()
+    await nextTick()
+    expect(onCancel).toHaveBeenCalledTimes(1)
+    expect(onClick).toHaveBeenCalledTimes(1)
+    expect(onOpenChange.mock.lastCall?.[0]).toBe(false)
+    wrapper.unmount()
+    document.body.innerHTML = ''
+  })
+
   it('emits cancel on Cancel click', async () => {
     const onCancel = vi.fn()
     const wrapper = mount(Popconfirm, {
