@@ -151,6 +151,20 @@ describe('steps', () => {
     expect(items[3]!.classes()).toContain('ant-steps-item-error')
   })
 
+  it('should render check icon for finish and close icon for error', () => {
+    const wrapper = mount(Steps, {
+      props: {
+        items: [
+          { title: 'Step 1', status: 'finish' },
+          { title: 'Step 2', status: 'error' },
+        ],
+      },
+    })
+    const items = wrapper.findAll('.ant-steps-item')
+    expect(items[0]!.find('.ant-steps-item-icon-finish.anticon-check').exists()).toBe(true)
+    expect(items[1]!.find('.ant-steps-item-icon-error.anticon-close').exists()).toBe(true)
+  })
+
   it('should render item with content', () => {
     const wrapper = mount(Steps, {
       props: {
