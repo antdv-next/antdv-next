@@ -654,6 +654,7 @@ const genPaginationStyle: GenerateStyle<PaginationToken, CSSObject> = (token) =>
       ...resetComponent(token),
       display: 'flex',
       alignItems: 'center',
+      userSelect: 'none',
 
       '&-start': {
         justifyContent: 'start',
@@ -688,6 +689,7 @@ const genPaginationStyle: GenerateStyle<PaginationToken, CSSObject> = (token) =>
         marginInlineEnd: varRef(`item-spacing-actual`),
         lineHeight: unit(token.calc(varRef(`item-size-actual`)).sub(2).equal()),
         verticalAlign: 'middle',
+        userSelect: 'text',
       },
 
       // item style
