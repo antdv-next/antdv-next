@@ -1,13 +1,14 @@
 <docs lang="zh-CN">
-波纹效果带来了灵动性，可以通过 `component` 判断来自哪个组件。你也可以使用 [`@ant-design/happy-work-theme`](https://github.com/ant-design/happy-work-theme) 提供的 HappyProvider 实现动态波纹效果。
+波纹效果带来了灵动性，可以通过 `component` 判断来自哪个组件。你也可以使用 [`@antdv-next/happy-work-theme`](https://github.com/antdv-next/happy-work-theme) 提供的 HappyProvider 实现动态波纹效果。
 </docs>
 
 <docs lang="en-US">
-Wave effect brings dynamic. Use `component` to determine which component use it. You can also use HappyProvider from [`@ant-design/happy-work-theme`](https://github.com/ant-design/happy-work-theme) to implement dynamic wave effect.
+Wave effect brings dynamic. Use `component` to determine which component use it. You can also use HappyProvider from [`@antdv-next/happy-work-theme`](https://github.com/antdv-next/happy-work-theme) to implement dynamic wave effect.
 </docs>
 
 <script setup lang="ts">
 import type { ConfigProviderProps } from 'antdv-next'
+import { HappyProvider } from '@antdv-next/happy-work-theme'
 
 function createHolder(node: HTMLElement) {
   const { borderWidth } = getComputedStyle(node)
@@ -101,35 +102,11 @@ const showShakeEffect: WaveConfig['showEffect'] = (node: HTMLElement, { componen
   loop()
 }
 
-const showHappyEffect: WaveConfig['showEffect'] = (node: HTMLElement, { event, component }: { event: MouseEvent, component?: string }) => {
-  if (component !== 'Button') {
-    return
-  }
-
-  const holder = createHolder(node)
-  const rect = holder.getBoundingClientRect()
-  const left = event.clientX - rect.left
-  const top = event.clientY - rect.top
-  const color = `hsl(${Math.floor(Math.random() * 360)}, 80%, 70%)`
-
-  const dot = createDot(holder, color, left, top, 16)
-
-  requestAnimationFrame(() => {
-    dot.ontransitionend = () => {
-      holder.remove()
-    }
-    dot.style.width = '220px'
-    dot.style.height = '220px'
-    dot.style.opacity = '0'
-  })
-}
-
 const configs: Array<{ name: string, wave: WaveConfig }> = [
   { name: 'Disabled', wave: { disabled: true } },
   { name: 'Default', wave: {} },
   { name: 'Inset', wave: { showEffect: showInsetEffect } },
   { name: 'Shake', wave: { showEffect: showShakeEffect } },
-  { name: 'Happy', wave: { showEffect: showHappyEffect } },
 ]
 </script>
 
@@ -140,5 +117,12 @@ const configs: Array<{ name: string, wave: WaveConfig }> = [
         {{ item.name }}
       </a-button>
     </a-config-provider>
+    <HappyProvider v-slot="{ wave }" :enabled="true">
+      <a-config-provider :wave="wave">
+        <a-button type="primary">
+          Happy Work
+        </a-button>
+      </a-config-provider>
+    </HappyProvider>
   </a-flex>
 </template>
