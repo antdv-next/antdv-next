@@ -15,10 +15,7 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
     >
       <ol
         class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-v-0 ant-timeline ant-timeline-layout-alternate css-var-v-0 semantic-mark-root"
-        classes="[object Object]"
-        responsive="true"
         style="--ant-cmp-steps-items-offset: 0;"
-        type="dot"
       >
         <li
           class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item semantic-mark-item"
@@ -1279,11 +1276,8 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
 exports[`timeline demo > renders alternate correctly 1`] = `
 <ol
   class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline ant-timeline-layout-alternate css-var-root"
-  classes="[object Object]"
   mode="alternate"
-  responsive="true"
   style="--ant-cmp-steps-items-offset: 0;"
-  type="dot"
 >
   <li
     class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
@@ -1531,10 +1525,7 @@ exports[`timeline demo > renders alternate correctly 1`] = `
 exports[`timeline demo > renders basic correctly 1`] = `
 <ol
   class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline css-var-root"
-  classes="[object Object]"
-  responsive="true"
   style="--ant-cmp-steps-items-offset: 0;"
-  type="dot"
 >
   <li
     class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
@@ -1675,10 +1666,7 @@ exports[`timeline demo > renders component-token correctly 1`] = `
 >
   <ol
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-v-0 ant-timeline css-var-v-0"
-    classes="[object Object]"
-    responsive="true"
     style="--ant-cmp-steps-items-offset: 0;"
-    type="dot"
   >
     <li
       class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
@@ -1817,10 +1805,7 @@ exports[`timeline demo > renders component-token correctly 1`] = `
 exports[`timeline demo > renders custom correctly 1`] = `
 <ol
   class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline css-var-root"
-  classes="[object Object]"
-  responsive="true"
   style="--ant-cmp-steps-items-offset: 0;"
-  type="dot"
 >
   <li
     class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
@@ -1980,11 +1965,8 @@ exports[`timeline demo > renders custom correctly 1`] = `
 exports[`timeline demo > renders dot-render correctly 1`] = `
 <ol
   class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline css-var-root"
-  classes="[object Object]"
   data-v-3676b70a=""
-  responsive="true"
   style="--ant-cmp-steps-items-offset: 0;"
-  type="dot"
 >
   <li
     class="ant-steps-item ant-steps-item-finish ant-steps-item-custom ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
@@ -2192,11 +2174,8 @@ exports[`timeline demo > renders dot-render correctly 1`] = `
 exports[`timeline demo > renders end correctly 1`] = `
 <ol
   class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline css-var-root"
-  classes="[object Object]"
   mode="right"
-  responsive="true"
   style="--ant-cmp-steps-items-offset: 0;"
-  type="dot"
 >
   <li
     class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
@@ -2358,11 +2337,8 @@ exports[`timeline demo > renders horizontal correctly 1`] = `
 >
   <ol
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline ant-timeline-horizontal css-var-root"
-    classes="[object Object]"
     mode="start"
-    responsive="true"
     style="--ant-cmp-steps-items-offset: 0;"
-    type="dot"
   >
     <li
       class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
@@ -2503,11 +2479,8 @@ exports[`timeline demo > renders horizontal correctly 1`] = `
   </div>
   <ol
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline ant-timeline-horizontal css-var-root"
-    classes="[object Object]"
     mode="right"
-    responsive="true"
     style="--ant-cmp-steps-items-offset: 0;"
-    type="dot"
   >
     <li
       class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
@@ -2648,11 +2621,8 @@ exports[`timeline demo > renders horizontal correctly 1`] = `
   </div>
   <ol
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline ant-timeline-horizontal ant-timeline-layout-alternate css-var-root"
-    classes="[object Object]"
     mode="alternate"
-    responsive="true"
     style="--ant-cmp-steps-items-offset: 0;"
-    type="dot"
   >
     <li
       class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
@@ -2794,11 +2764,8 @@ exports[`timeline demo > renders pending correctly 1`] = `
 >
   <ol
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline css-var-root"
-    classes="[object Object]"
-    responsive="true"
     reverse="false"
     style="--ant-cmp-steps-items-offset: 0;"
-    type="dot"
   >
     <li
       class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
@@ -2978,10 +2945,7 @@ exports[`timeline demo > renders pending correctly 1`] = `
 exports[`timeline demo > renders semantic correctly 1`] = `
 <ol
   class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline css-var-root"
-  classes="[object Object]"
-  responsive="true"
   style="--ant-cmp-steps-items-offset: 0;"
-  type="dot"
 >
   <li
     class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
@@ -3158,10 +3122,7 @@ exports[`timeline demo > renders sfc correctly 1`] = `
 <div>
   <ol
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline css-var-root"
-    classes="[object Object]"
-    responsive="true"
     style="--ant-cmp-steps-items-offset: 0;"
-    type="dot"
   >
     <li
       class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
@@ -3260,11 +3221,8 @@ exports[`timeline demo > renders style-class correctly 1`] = `
 >
   <ol
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline ant-timeline-horizontal css-var-root custom-timeline-root"
-    classes="[object Object]"
     data-v-7ce82335=""
-    responsive="true"
     style="--ant-cmp-steps-items-offset: 0;"
-    type="dot"
   >
     <li
       class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
@@ -3377,11 +3335,8 @@ exports[`timeline demo > renders style-class correctly 1`] = `
   </ol>
   <ol
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline ant-timeline-layout-alternate css-var-root custom-timeline-root"
-    classes="[object Object]"
     data-v-7ce82335=""
-    responsive="true"
     style="--ant-cmp-steps-items-offset: 0; padding: 10px 6px; border: 1px solid rgb(162, 148, 249);"
-    type="dot"
   >
     <li
       class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
@@ -3562,11 +3517,8 @@ exports[`timeline demo > renders title correctly 1`] = `
   </div>
   <ol
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline ant-timeline-layout-alternate css-var-root"
-    classes="[object Object]"
     mode="start"
-    responsive="true"
     style="--ant-cmp-steps-items-offset: 0;"
-    type="dot"
   >
     <li
       class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
@@ -3733,10 +3685,7 @@ exports[`timeline demo > renders title-span correctly 1`] = `
   </h5>
   <ol
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline ant-timeline-layout-alternate css-var-root"
-    classes="[object Object]"
-    responsive="true"
     style="--ant-cmp-steps-items-offset: 0; --ant-timeline-head-span-ptg: 100px;"
-    type="dot"
   >
     <li
       class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
@@ -3896,10 +3845,7 @@ exports[`timeline demo > renders title-span correctly 1`] = `
   </h5>
   <ol
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline ant-timeline-layout-alternate css-var-root"
-    classes="[object Object]"
-    responsive="true"
     style="--ant-cmp-steps-items-offset: 0; --ant-timeline-head-span-ptg: 25%;"
-    type="dot"
   >
     <li
       class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
@@ -4059,11 +4005,8 @@ exports[`timeline demo > renders title-span correctly 1`] = `
   </h5>
   <ol
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline ant-timeline-layout-alternate css-var-root"
-    classes="[object Object]"
     mode="end"
-    responsive="true"
     style="--ant-cmp-steps-items-offset: 0; --ant-timeline-head-span: 18;"
-    type="dot"
   >
     <li
       class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-end ant-timeline-item"
@@ -4214,10 +4157,7 @@ exports[`timeline demo > renders title-span correctly 1`] = `
 exports[`timeline demo > renders variant correctly 1`] = `
 <ol
   class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled ant-steps-dot ant-timeline-css-var css-var-root ant-timeline css-var-root"
-  classes="[object Object]"
-  responsive="true"
   style="--ant-cmp-steps-items-offset: 0;"
-  type="dot"
 >
   <li
     class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"

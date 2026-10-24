@@ -19,8 +19,6 @@ exports[`steps demo > renders _semantic correctly 1`] = `
       >
         <div
           class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-filled css-var-v-0 semantic-mark-root"
-          classes="[object Object]"
-          responsive="true"
           style="--ant-cmp-steps-items-offset: 0; width: 100%;"
         >
           <div
@@ -176,11 +174,7 @@ exports[`steps demo > renders _semantic correctly 1`] = `
         </div>
         <div
           class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled ant-steps-panel ant-steps-small css-var-v-0 semantic-mark-root"
-          classes="[object Object]"
-          responsive="true"
-          size="small"
           style="--ant-cmp-steps-items-offset: 0; width: 100%;"
-          type="panel"
         >
           <div
             class="ant-steps-item ant-steps-item-finish semantic-mark-item"
@@ -1608,7 +1602,6 @@ exports[`steps demo > renders basic correctly 1`] = `
 >
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled css-var-root"
-    responsive="true"
     style="--ant-cmp-steps-items-offset: 0;"
   >
     <div
@@ -1754,7 +1747,6 @@ exports[`steps demo > renders basic correctly 1`] = `
   </div>
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-outlined css-var-root"
-    responsive="true"
     style="--ant-cmp-steps-items-offset: 0;"
   >
     <div
@@ -1900,8 +1892,6 @@ exports[`steps demo > renders basic correctly 1`] = `
   </div>
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled ant-steps-small css-var-root"
-    responsive="true"
-    size="small"
     style="--ant-cmp-steps-items-offset: 0;"
   >
     <div
@@ -2047,8 +2037,6 @@ exports[`steps demo > renders basic correctly 1`] = `
   </div>
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-outlined ant-steps-small css-var-root"
-    responsive="true"
-    size="small"
     style="--ant-cmp-steps-items-offset: 0;"
   >
     <div
@@ -2201,7 +2189,6 @@ exports[`steps demo > renders clickable correctly 1`] = `
 >
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled css-var-root"
-    responsive="true"
     style="--ant-cmp-steps-items-offset: 0;"
   >
     <div
@@ -2334,7 +2321,6 @@ exports[`steps demo > renders clickable correctly 1`] = `
   </div>
   <div
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled css-var-root"
-    responsive="true"
     style="--ant-cmp-steps-items-offset: 0;"
   >
     <div
@@ -2465,7 +2451,6 @@ exports[`steps demo > renders clickable correctly 1`] = `
 exports[`steps demo > renders error correctly 1`] = `
 <div
   class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled css-var-root"
-  responsive="true"
   style="--ant-cmp-steps-items-offset: 0;"
 >
   <div
@@ -2624,7 +2609,6 @@ exports[`steps demo > renders error correctly 1`] = `
 exports[`steps demo > renders icon correctly 1`] = `
 <div
   class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled css-var-root"
-  responsive="true"
   style="--ant-cmp-steps-items-offset: 0;"
 >
   <div
@@ -2877,9 +2861,7 @@ exports[`steps demo > renders inline correctly 1`] = `
     >
       <div
         class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-filled ant-steps-inline ant-steps-dot css-var-root"
-        responsive="true"
         style="--ant-cmp-steps-items-offset: 0;"
-        type="inline"
       >
         <div
           class="ant-steps-item ant-steps-item-process ant-steps-item-active"
@@ -3037,9 +3019,7 @@ exports[`steps demo > renders inline correctly 1`] = `
     >
       <div
         class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-filled ant-steps-inline ant-steps-dot css-var-root"
-        responsive="true"
         style="--ant-cmp-steps-items-offset: 0;"
-        type="inline"
       >
         <div
           class="ant-steps-item ant-steps-item-finish"
@@ -3197,9 +3177,7 @@ exports[`steps demo > renders inline correctly 1`] = `
     >
       <div
         class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-filled ant-steps-inline ant-steps-dot css-var-root"
-        responsive="true"
         style="--ant-cmp-steps-items-offset: 0;"
-        type="inline"
       >
         <div
           class="ant-steps-item ant-steps-item-finish"
@@ -3357,9 +3335,7 @@ exports[`steps demo > renders inline correctly 1`] = `
     >
       <div
         class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-filled ant-steps-inline ant-steps-dot css-var-root"
-        responsive="true"
         style="--ant-cmp-steps-items-offset: 0;"
-        type="inline"
       >
         <div
           class="ant-steps-item ant-steps-item-finish"
@@ -3485,9 +3461,7 @@ exports[`steps demo > renders inline-variant correctly 1`] = `
 >
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-filled ant-steps-inline ant-steps-dot css-var-root"
-    responsive="true"
     style="--ant-cmp-steps-items-offset: 0;"
-    type="inline"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -3705,9 +3679,7 @@ exports[`steps demo > renders inline-variant correctly 1`] = `
   </div>
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-filled ant-steps-inline ant-steps-dot css-var-root"
-    responsive="true"
     style="--ant-cmp-steps-items-offset: 0;"
-    type="inline"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -3939,9 +3911,7 @@ exports[`steps demo > renders inline-variant correctly 1`] = `
   </div>
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-filled ant-steps-inline ant-steps-dot css-var-root"
-    responsive="true"
     style="--ant-cmp-steps-items-offset: 2;"
-    type="inline"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -4080,10 +4050,7 @@ exports[`steps demo > renders nav correctly 1`] = `
 >
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled ant-steps-navigation ant-steps-small css-var-root"
-    responsive="true"
-    size="small"
     style="--ant-cmp-steps-items-offset: 0;"
-    type="navigation"
   >
     <div
       class="ant-steps-item ant-steps-item-finish ant-steps-item-active"
@@ -4238,9 +4205,7 @@ exports[`steps demo > renders nav correctly 1`] = `
   </div>
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled ant-steps-navigation css-var-root"
-    responsive="true"
     style="--ant-cmp-steps-items-offset: 0;"
-    type="navigation"
   >
     <div
       class="ant-steps-item ant-steps-item-finish ant-steps-item-active"
@@ -4405,10 +4370,7 @@ exports[`steps demo > renders nav correctly 1`] = `
   </div>
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled ant-steps-navigation ant-steps-small css-var-root"
-    responsive="true"
-    size="small"
     style="--ant-cmp-steps-items-offset: 0;"
-    type="navigation"
   >
     <div
       class="ant-steps-item ant-steps-item-finish ant-steps-item-active"
@@ -4592,9 +4554,7 @@ exports[`steps demo > renders panel correctly 1`] = `
 >
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled ant-steps-panel css-var-root"
-    responsive="true"
     style="--ant-cmp-steps-items-offset: 0;"
-    type="panel"
   >
     <div
       class="ant-steps-item ant-steps-item-process ant-steps-item-active"
@@ -4773,10 +4733,7 @@ exports[`steps demo > renders panel correctly 1`] = `
   </div>
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-outlined ant-steps-panel ant-steps-small css-var-root"
-    responsive="true"
-    size="small"
     style="--ant-cmp-steps-items-offset: 0;"
-    type="panel"
   >
     <div
       class="ant-steps-item ant-steps-item-process ant-steps-item-active"
@@ -4962,9 +4919,7 @@ exports[`steps demo > renders progress-dot correctly 1`] = `
 >
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-filled ant-steps-dot css-var-root"
-    responsive="true"
     style="--ant-cmp-steps-items-offset: 0;"
-    type="dot"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -5078,9 +5033,7 @@ exports[`steps demo > renders progress-dot correctly 1`] = `
   </div>
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-outlined ant-steps-dot css-var-root"
-    responsive="true"
     style="--ant-cmp-steps-items-offset: 0;"
-    type="dot"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -5203,9 +5156,7 @@ exports[`steps demo > renders progress-dot correctly 1`] = `
   >
     <div
       class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled ant-steps-dot css-var-root"
-      responsive="true"
       style="--ant-cmp-steps-items-offset: 0; flex: 1 1 auto;"
-      type="dot"
     >
       <div
         class="ant-steps-item ant-steps-item-finish"
@@ -5319,9 +5270,7 @@ exports[`steps demo > renders progress-dot correctly 1`] = `
     </div>
     <div
       class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot css-var-root"
-      responsive="true"
       style="--ant-cmp-steps-items-offset: 0; flex: 1 1 auto;"
-      type="dot"
     >
       <div
         class="ant-steps-item ant-steps-item-finish"
@@ -5443,8 +5392,6 @@ exports[`steps demo > renders style-class correctly 1`] = `
 >
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled css-var-root steps-demo-root"
-    classes="[object Object]"
-    responsive="true"
     style="--ant-cmp-steps-items-offset: 0;"
   >
     <div
@@ -5591,10 +5538,7 @@ exports[`steps demo > renders style-class correctly 1`] = `
   </div>
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled ant-steps-navigation css-var-root steps-demo-root"
-    classes="[object Object]"
-    responsive="true"
     style="--ant-cmp-steps-items-offset: 0; border-color: rgb(24, 144, 255);"
-    type="navigation"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -5741,7 +5685,6 @@ exports[`steps demo > renders title-placement correctly 1`] = `
 >
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-filled ant-steps-ellipsis css-var-root"
-    responsive="true"
     style="--ant-cmp-steps-items-offset: 0;"
   >
     <div
@@ -5882,8 +5825,6 @@ exports[`steps demo > renders title-placement correctly 1`] = `
   </div>
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-filled ant-steps-with-progress css-var-root"
-    percent="60"
-    responsive="true"
     style="--ant-cmp-steps-items-offset: 0;"
   >
     <div
@@ -6044,9 +5985,6 @@ exports[`steps demo > renders title-placement correctly 1`] = `
   </div>
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-filled ant-steps-with-progress ant-steps-small css-var-root"
-    percent="80"
-    responsive="true"
-    size="small"
     style="--ant-cmp-steps-items-offset: 0;"
   >
     <div
@@ -6217,7 +6155,6 @@ exports[`steps demo > renders vertical correctly 1`] = `
   >
     <div
       class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled css-var-root"
-      responsive="true"
       style="--ant-cmp-steps-items-offset: 0;"
     >
       <div
@@ -6362,8 +6299,6 @@ exports[`steps demo > renders vertical correctly 1`] = `
   >
     <div
       class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled ant-steps-small css-var-root"
-      responsive="true"
-      size="small"
       style="--ant-cmp-steps-items-offset: 0;"
     >
       <div
