@@ -28,7 +28,7 @@ const locales: Record<'cn' | 'en', Record<string, string>> = {
     statTitle: '程序员节',
     demoTitle: 'Hello 1024',
     demoDesc: '程序员节限定演示：敲完代码，按下按钮。',
-    gridHint: '点一下格子，翻转一个 bit',
+    gridHint: '点击翻转 bit，按住拖动可以连续涂抹',
     placeholder: '输入 help() 回车，Tab 补全',
     welcome1: '// 欢迎来到 antdv-next 的 1024 控制台',
     welcome2: '// 输入 help() 看看能做什么',
@@ -50,7 +50,7 @@ const locales: Record<'cn' | 'en', Record<string, string>> = {
     statTitle: 'Programmer\'s Day',
     demoTitle: 'Hello 1024',
     demoDesc: 'A Programmer\'s Day demo: type the code, press the button.',
-    gridHint: 'Click a cell to flip a bit',
+    gridHint: 'Click to flip a bit, or press and drag to paint',
     placeholder: 'Type help() and press Enter, Tab to complete',
     welcome1: '// Welcome to the antdv-next 1024 console',
     welcome2: '// Type help() to see what you can do',
@@ -351,12 +351,12 @@ function onGameEnd(state: BugGameState) {
   window.setTimeout(() => (gameState.value = null), 1600)
 }
 
-function onCellClick(i: number) {
-  if (game?.running) {
-    game.hit(i)
-    return
-  }
-  scene.value?.flip(i)
+/** 打虫子时点击交给游戏，不翻 bit；也不支持拖动连抓，免得一划全清 */
+function interceptPress(i: number) {
+  if (!game?.running)
+    return false
+  game.hit(i)
+  return true
 }
 
 // ---------------- Konami ----------------
@@ -388,7 +388,7 @@ onMounted(() => {
       slot: slotRef.value,
       shapes: [shape1024, shapeCode],
       reducedMotion,
-      onCellClick,
+      interceptPress,
     })
     scene.value = created
     game = createBugGame({
@@ -824,7 +824,9 @@ onBeforeUnmount(() => {
   width: min(44vw, calc(100vh - 200px), 560px);
   aspect-ratio: 1;
   cursor: pointer;
-  touch-action: manipulation;
+  // 按住拖动是在涂 bit，不能让浏览器拿去滚动页面
+  touch-action: none;
+  user-select: none;
 
   &.is-playing {
     cursor: crosshair;

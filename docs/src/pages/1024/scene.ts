@@ -26,7 +26,11 @@ export interface BitSceneOptions {
   /** 轮换展示的图形，第一张是比特雨收拢后的样子 */
   shapes: Shape[]
   reducedMotion?: boolean
-  onCellClick?: (index: number) => void
+  /**
+   * 按下某个格子时先问一下页面要不要接管（打虫子时由游戏处理），
+   * 返回 true 表示已处理，矩阵不再翻转 / 拖动涂抹
+   */
+  interceptPress?: (index: number) => boolean
 }
 
 export interface BitScene {
@@ -35,7 +39,6 @@ export interface BitScene {
   /** 跳过开场，直接进入常驻状态 */
   skipIntro: () => void
   setShapes: (shapes: Shape[]) => void
-  flip: (index: number) => void
   /** Konami：全部点亮 + 字符烟花 */
   celebrate: () => void
   /** sudo rm -rf /：矩阵故障一下 */
@@ -51,6 +54,8 @@ export interface BitScene {
 const T_RAIN_END = 1900
 const T_SHAPE_STEP = 1600
 const CYCLE_INTERVAL = 7000
+/** 用户亲手翻过 / 画过的图多留一会儿再轮换 */
+const USER_HOLD = 15000
 const INTRO_GROW = 800
 
 const PARTICLE_TEXTS = ['{', '}', ';', '</>', '0', '1', '=>', '()', '[]', '1024', '&&', '++']
@@ -144,6 +149,10 @@ export function createBitScene(canvas: HTMLCanvasElement, options: BitSceneOptio
   let dim = false
   let dimLevel = 1
   let hover = -1
+  /** 按住拖动时要涂成的状态（第一格翻转后的值），-1 表示没在拖 */
+  let paintValue = -1
+  let paintPointer = -1
+  let lastPainted = -1
   let nextTwinkleAt = 0
   let rect: Rect = { x: 0, y: 0, width: 0, height: 0 }
 
@@ -435,8 +444,73 @@ export function createBitScene(canvas: HTMLCanvasElement, options: BitSceneOptio
     return Math.floor(py / cell) * GRID + Math.floor(px / cell)
   }
 
+  /** 把格子设成指定状态，返回是否真的变了 */
+  function paintCell(i: number, on: boolean, now: number, sparks: number) {
+    if ((target[i]! >= 0.5) === on)
+      return false
+    setCell(i, on ? 1 : 0, on ? pick(RAIN_COLORS) : GREEN, 0, now)
+    bits[i] = bits[i]! ^ 1
+    if (on) {
+      const c = cellCenter(i)
+      burst(c.x, c.y, sparks, { colors: [VUE_GREEN, ANT_BLUE], speed: 2.4, life: 420 })
+    }
+    nextCycleAt = Math.max(nextCycleAt, now + USER_HOLD)
+    return true
+  }
+
+  /** 从 a 到 b 沿直线涂过去：鼠标移得快时中间的格子也不会漏掉 */
+  function paintLine(a: number, b: number, on: boolean, now: number) {
+    let x0 = a % GRID
+    let y0 = Math.floor(a / GRID)
+    const x1 = b % GRID
+    const y1 = Math.floor(b / GRID)
+    const dx = Math.abs(x1 - x0)
+    const dy = -Math.abs(y1 - y0)
+    const sx = x0 < x1 ? 1 : -1
+    const sy = y0 < y1 ? 1 : -1
+    let err = dx + dy
+    while (true) {
+      paintCell(y0 * GRID + x0, on, now, 2)
+      if (x0 === x1 && y0 === y1)
+        break
+      const e2 = 2 * err
+      if (e2 >= dy) {
+        err += dy
+        x0 += sx
+      }
+      if (e2 <= dx) {
+        err += dx
+        y0 += sy
+      }
+    }
+  }
+
+  function endPaint() {
+    if (paintPointer >= 0 && slot.hasPointerCapture?.(paintPointer))
+      slot.releasePointerCapture(paintPointer)
+    paintValue = -1
+    paintPointer = -1
+    lastPainted = -1
+  }
+
   function onPointerMove(ev: PointerEvent) {
-    hover = cellAt(ev)
+    const i = cellAt(ev)
+    hover = i
+    if (paintValue < 0 || ev.pointerId !== paintPointer)
+      return
+    // 拖出矩阵再拖回来时从新位置接着涂，不和出去前的位置连线
+    if (i < 0) {
+      lastPainted = -1
+      return
+    }
+    if (i === lastPainted)
+      return
+    const now = performance.now()
+    if (lastPainted >= 0)
+      paintLine(lastPainted, i, paintValue === 1, now)
+    else
+      paintCell(i, paintValue === 1, now, 2)
+    lastPainted = i
   }
 
   function onPointerLeave() {
@@ -444,11 +518,18 @@ export function createBitScene(canvas: HTMLCanvasElement, options: BitSceneOptio
   }
 
   function onPointerDown(ev: PointerEvent) {
-    if (introStart >= 0)
+    if (introStart >= 0 || (ev.pointerType === 'mouse' && ev.button !== 0))
       return
     const i = cellAt(ev)
-    if (i >= 0)
-      options.onCellClick?.(i)
+    if (i < 0 || options.interceptPress?.(i))
+      return
+    // 第一格翻转，之后拖过的格子都涂成和它一样的状态（来回拖不会闪）
+    const on = target[i]! < 0.5
+    paintCell(i, on, performance.now(), 6)
+    paintValue = on ? 1 : 0
+    paintPointer = ev.pointerId
+    lastPainted = i
+    slot.setPointerCapture?.(ev.pointerId)
   }
 
   resize()
@@ -458,6 +539,9 @@ export function createBitScene(canvas: HTMLCanvasElement, options: BitSceneOptio
   slot.addEventListener('pointermove', onPointerMove)
   slot.addEventListener('pointerleave', onPointerLeave)
   slot.addEventListener('pointerdown', onPointerDown)
+  slot.addEventListener('pointerup', endPaint)
+  slot.addEventListener('pointercancel', endPaint)
+  slot.addEventListener('lostpointercapture', endPaint)
   rafId = requestAnimationFrame(frame)
 
   return {
@@ -503,18 +587,6 @@ export function createBitScene(canvas: HTMLCanvasElement, options: BitSceneOptio
     setShapes(next) {
       shapes = next
       shapeIndex = Math.min(shapeIndex, Math.max(next.length - 1, 0))
-    },
-    flip(i) {
-      const now = performance.now()
-      const on = target[i]! < 0.5
-      setCell(i, on ? 1 : 0, on ? pick(RAIN_COLORS) : GREEN, 0, now)
-      bits[i] = bits[i]! ^ 1
-      if (on) {
-        const c = cellCenter(i)
-        burst(c.x, c.y, 6, { colors: [VUE_GREEN, ANT_BLUE], speed: 2.4, life: 420 })
-      }
-      // 点过之后多留一会儿再轮换，免得刚翻的 bit 被立刻冲掉
-      nextCycleAt = Math.max(nextCycleAt, now + CYCLE_INTERVAL)
     },
     celebrate() {
       const now = performance.now()
@@ -570,6 +642,9 @@ export function createBitScene(canvas: HTMLCanvasElement, options: BitSceneOptio
       slot.removeEventListener('pointermove', onPointerMove)
       slot.removeEventListener('pointerleave', onPointerLeave)
       slot.removeEventListener('pointerdown', onPointerDown)
+      slot.removeEventListener('pointerup', endPaint)
+      slot.removeEventListener('pointercancel', endPaint)
+      slot.removeEventListener('lostpointercapture', endPaint)
       particles.length = 0
       bugs.clear()
     },
