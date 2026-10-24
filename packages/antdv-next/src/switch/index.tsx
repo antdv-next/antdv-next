@@ -119,7 +119,7 @@ const Switch = defineComponent<
   string,
   SlotsType<SwitchSlots>
 >(
-  (props, { slots, emit, attrs }) => {
+  (props, { slots, emit, attrs, expose }) => {
     // 获取选中和非选中的值，默认为 true/false
     const mergedCheckedValue = computed(() => props.checkedValue ?? true)
     const mergedUnCheckedValue = computed(() => props.unCheckedValue ?? false)
@@ -200,6 +200,13 @@ const Switch = defineComponent<
       emit('update:checked', newValue)
       emit('update:value', newValue)
     }
+
+    const switchRef = shallowRef<HTMLButtonElement>()
+    expose({
+      nativeElement: switchRef,
+      focus: () => switchRef.value?.focus?.(),
+      blur: () => switchRef.value?.blur?.(),
+    })
     return () => {
       const {
         loading,
@@ -240,6 +247,7 @@ const Switch = defineComponent<
       return (
         <Wave component="Switch" disabled={mergedDisabled.value}>
           <VcSwitch
+            ref={switchRef}
             {...restAttrs}
             {...restProps as any}
             classNames={mergedClassNames.value}
