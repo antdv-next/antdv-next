@@ -2,7 +2,7 @@ import antd from 'antdv-next'
 import { createPinia } from 'pinia'
 import { createApp } from 'vue'
 import DocHeading from '@/components/docs/heading.vue'
-import { printQixiConsoleEgg } from '@/pages/qixi/egg'
+import { printCoderDayConsoleEgg } from '@/pages/1024/egg'
 import { router } from '@/routes'
 import { setupRouterGuard } from '@/routes/guard'
 import App from './App.vue'
@@ -35,6 +35,6 @@ if ('scrollRestoration' in history) {
   history.scrollRestoration = 'manual'
 }
 
-printQixiConsoleEgg()
+printCoderDayConsoleEgg()
 
 app.mount('#app')

@@ -109,14 +109,23 @@ export const router = createRouter({
       component: () => import('@/layouts/demo/index.vue'),
       children: demoRoutes,
     },
-    // 七夕彩蛋：独立于 root 布局的全屏沉浸页
+    // 1024 程序员节彩蛋：独立于 root 布局的全屏页
+    {
+      path: '/1024',
+      component: () => import('@/pages/1024/index.vue'),
+    },
+    {
+      path: '/1024-cn',
+      component: () => import('@/pages/1024/index.vue'),
+    },
+    // 七夕彩蛋已下线，旧链接回首页
     {
       path: '/qixi',
-      component: () => import('@/pages/qixi/index.vue'),
+      redirect: '/',
     },
     {
       path: '/qixi-cn',
-      component: () => import('@/pages/qixi/index.vue'),
+      redirect: '/',
     },
   ],
   history: createWebHistory(),

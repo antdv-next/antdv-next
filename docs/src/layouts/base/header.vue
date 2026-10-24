@@ -5,9 +5,9 @@ import { version } from 'antdv-next'
 import { storeToRefs } from 'pinia'
 import { computed, ref, shallowRef, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import CoderDayEntry from '@/components/1024/entry.vue'
 import DocSearch from '@/components/doc-search/index.vue'
 import DirectionIcon from '@/components/icons/directionIcon.vue'
-import QixiEntry from '@/components/qixi/entry.vue'
 import SponsorsNav from '@/components/sponsor/SponsorsNav.vue'
 import { useMobile } from '@/composables/mobile'
 import { useCommercialSponsors } from '@/composables/sponsors'
@@ -173,7 +173,7 @@ function getSiderMenuUrl(key: string) {
                 Antdv Next
               </span>
             </router-link>
-            <QixiEntry />
+            <CoderDayEntry />
           </h1>
           <div v-if="isMobile" class="ant-doc-header-search-mobile flex items-center">
             <DocSearch />
