@@ -476,6 +476,27 @@ describe('switch', () => {
     expect(wrapper.find(`.${prefixCls}-loading-icon`).exists()).toBe(false)
   })
 
+  // ===================== Ref: nativeElement / focus / blur =====================
+
+  it('should expose nativeElement ref', async () => {
+    const switchRef = ref<any>()
+    const wrapper = mount(() => <Switch ref={switchRef} />)
+    await nextTick()
+    expect(switchRef.value?.nativeElement).toBeInstanceOf(HTMLButtonElement)
+    expect(switchRef.value.nativeElement).toBe(wrapper.find('button').element)
+  })
+
+  it('should support focus() and blur() methods via ref', async () => {
+    const switchRef = ref<any>()
+    const wrapper = mount(() => <Switch ref={switchRef} />, { attachTo: document.body })
+    await nextTick()
+    switchRef.value.focus()
+    expect(document.activeElement).toBe(wrapper.find('button').element)
+    switchRef.value.blur()
+    expect(document.activeElement).not.toBe(wrapper.find('button').element)
+    wrapper.unmount()
+  })
+
   // ===================== snapshot =====================
 
   it('should match snapshot', () => {
