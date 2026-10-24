@@ -6,10 +6,7 @@ exports[`timeline > rtl render > component should be rendered correctly in RTL d
 >
   <ol
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-steps-rtl ant-timeline-css-var css-var-root ant-timeline ant-timeline-rtl css-var-root"
-    classes="[object Object]"
-    responsive="true"
     style="--ant-cmp-steps-items-offset: 0;"
-    type="dot"
   />
 </div>
 `;
@@ -17,10 +14,7 @@ exports[`timeline > rtl render > component should be rendered correctly in RTL d
 exports[`timeline > should render correct snapshot 1`] = `
 <ol
   class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline ant-timeline-layout-alternate css-var-root"
-  classes="[object Object]"
-  responsive="true"
   style="--ant-cmp-steps-items-offset: 0;"
-  type="dot"
 >
   <li
     class="ant-steps-item ant-steps-item-finish ant-timeline-item-color-green ant-timeline-item-placement-start ant-timeline-item"
