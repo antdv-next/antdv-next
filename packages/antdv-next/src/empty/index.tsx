@@ -8,6 +8,7 @@ import { computed, defineComponent, shallowRef } from 'vue'
 import { pureAttrs, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { isRenderable } from '../_util/is.ts'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
+import { cloneIfVNode } from '../_util/vueNode.ts'
 import { useComponentBaseConfig, useComponentConfig } from '../config-provider/context.ts'
 import useLocale from '../locale/useLocale.ts'
 import DefaultEmptyImg from './empty'
@@ -112,7 +113,7 @@ const Empty = defineComponent<
         imageNode = <img draggable={false} alt={alt} src={mergedImage} />
       }
       else {
-        imageNode = mergedImage
+        imageNode = cloneIfVNode(mergedImage)
       }
       const children = filterEmpty(slots?.default?.() ?? [])
       return (

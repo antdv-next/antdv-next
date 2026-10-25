@@ -1,4 +1,5 @@
 import { LeftOutlined, LoadingOutlined, RightOutlined } from '@antdv-next/icons'
+import { cloneIfVNode } from '../../_util/vueNode'
 
 const defaultLoadingIcon = <LoadingOutlined spin />
 const defaultExpandIcon = <RightOutlined />
@@ -20,7 +21,7 @@ export default function useIcons({
   isRtl,
 }: UseIconsOptions) {
   return {
-    expandIcon: expandIcon ?? contextExpandIcon ?? (isRtl ? defaultRtlExpandIcon : defaultExpandIcon),
-    loadingIcon: loadingIcon ?? contextLoadingIcon ?? defaultLoadingIcon,
+    expandIcon: expandIcon ?? contextExpandIcon ?? cloneIfVNode(isRtl ? defaultRtlExpandIcon : defaultExpandIcon),
+    loadingIcon: loadingIcon ?? contextLoadingIcon ?? cloneIfVNode(defaultLoadingIcon),
   }
 }

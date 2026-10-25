@@ -21,6 +21,19 @@ export function cloneElement(element: VNodeChild, props?: RenderProps) {
   return replaceElement(element, element, props)
 }
 
+/**
+ * 当传入值是 VNode 时返回一个全新的克隆，否则原样返回。
+ *
+ * 用于模块级共享的默认 vnode（图标 / 图片等）。一旦原始 vnode 被真正挂载，
+ * Vue 会把 el / component 写回它身上；而模块级常量是常驻的 GC Root，Vue 在
+ * unmount 时又不会清空这些字段，于是这条引用会把已卸载页面的整条实例链一直
+ * 保留下来，造成内存泄漏。渲染前克隆可让模块原始 vnode 永远保持未挂载
+ * （el 恒为 null），从而彻底切断该引用链。
+ */
+export function cloneIfVNode<T>(node: T): T {
+  return isVNode(node) ? (cloneVNode(node) as T) : node
+}
+
 export function getVNode(node: VueNode) {
   if (typeof node === 'function') {
     return node?.()

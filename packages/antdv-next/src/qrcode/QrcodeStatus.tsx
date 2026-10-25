@@ -2,6 +2,7 @@ import type { Locale } from '../locale'
 import type { QRCodeProps, StatusRenderInfo } from './interface.ts'
 import { ReloadOutlined } from '@antdv-next/icons'
 import { defineComponent } from 'vue'
+import { cloneIfVNode } from '../_util/vueNode'
 import Button from '../button'
 import Spin from '../spin'
 
@@ -34,7 +35,7 @@ const QRcodeStatus = defineComponent<QRcodeStatusProps>(
 
       const defaultNodes = {
         expired: defaultExpiredNode,
-        loading: defaultSpin,
+        loading: cloneIfVNode(defaultSpin),
         scanned: defaultScannedNode,
       }
 
