@@ -21,7 +21,7 @@ export default function useIcons({
   isRtl,
 }: UseIconsOptions) {
   return {
-    expandIcon: expandIcon ?? contextExpandIcon ?? cloneIfVNode(isRtl ? defaultRtlExpandIcon : defaultExpandIcon),
-    loadingIcon: loadingIcon ?? contextLoadingIcon ?? cloneIfVNode(defaultLoadingIcon),
+    expandIcon: cloneIfVNode(expandIcon ?? contextExpandIcon ?? (isRtl ? defaultRtlExpandIcon : defaultExpandIcon)),
+    loadingIcon: cloneIfVNode(loadingIcon ?? contextLoadingIcon ?? defaultLoadingIcon),
   }
 }

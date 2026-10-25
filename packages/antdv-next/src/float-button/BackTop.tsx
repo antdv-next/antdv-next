@@ -81,7 +81,7 @@ const BackTop = defineComponent<
       if (slotIcon.length) {
         return slotIcon
       }
-      return props.icon ?? backTopIcon?.value ?? cloneIfVNode(defaultIcon)
+      return cloneIfVNode(props.icon ?? backTopIcon?.value ?? defaultIcon)
     })
 
     const rootPrefixCls = computed(() => globalConfig.value?.getPrefixCls?.())

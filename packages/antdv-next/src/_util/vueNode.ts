@@ -22,7 +22,7 @@ export function cloneElement(element: VNodeChild, props?: RenderProps) {
 }
 
 /**
- * 当传入值是 VNode 时返回一个全新的克隆，否则原样返回。
+ * 当传入值是 VNode 时返回一个全新的克隆，数组会逐项处理，其余值原样返回。
  *
  * 用于模块级共享的默认 vnode（图标 / 图片等）。一旦原始 vnode 被真正挂载，
  * Vue 会把 el / component 写回它身上；而模块级常量是常驻的 GC Root，Vue 在
@@ -31,7 +31,17 @@ export function cloneElement(element: VNodeChild, props?: RenderProps) {
  * （el 恒为 null），从而彻底切断该引用链。
  */
 export function cloneIfVNode<T>(node: T): T {
-  return isVNode(node) ? (cloneVNode(node) as T) : node
+  if (Array.isArray(node)) {
+    return node.map(item => cloneIfVNode(item)) as unknown as T
+  }
+  if (!isVNode(node)) {
+    return node
+  }
+  const cloned = cloneVNode(node)
+  if (Array.isArray(cloned.children)) {
+    cloned.children = cloned.children.map(item => cloneIfVNode(item))
+  }
+  return cloned as unknown as T
 }
 
 export function getVNode(node: VueNode) {
