@@ -10,8 +10,6 @@ exports[`steps > rtl render > component should be rendered correctly in RTL dire
   >
     <div
       class="ant-steps-item ant-steps-item-process ant-steps-item-active"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -47,8 +45,6 @@ exports[`steps > rtl render > component should be rendered correctly in RTL dire
     </div>
     <div
       class="ant-steps-item ant-steps-item-wait"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -91,8 +87,6 @@ exports[`steps > should match snapshot with default config 1`] = `
 >
   <div
     class="ant-steps-item ant-steps-item-process ant-steps-item-active"
-    role="button"
-    tabindex="0"
   >
     <div
       class="ant-steps-item-wrapper"
@@ -132,8 +126,6 @@ exports[`steps > should match snapshot with default config 1`] = `
   </div>
   <div
     class="ant-steps-item ant-steps-item-wait"
-    role="button"
-    tabindex="0"
   >
     <div
       class="ant-steps-item-wrapper"
@@ -173,8 +165,6 @@ exports[`steps > should match snapshot with default config 1`] = `
   </div>
   <div
     class="ant-steps-item ant-steps-item-wait"
-    role="button"
-    tabindex="0"
   >
     <div
       class="ant-steps-item-wrapper"
@@ -220,8 +210,6 @@ exports[`steps > should match snapshot with dot type 1`] = `
 >
   <div
     class="ant-steps-item ant-steps-item-finish"
-    role="button"
-    tabindex="0"
   >
     <div
       class="ant-steps-item-wrapper"
@@ -257,8 +245,6 @@ exports[`steps > should match snapshot with dot type 1`] = `
   </div>
   <div
     class="ant-steps-item ant-steps-item-process ant-steps-item-active"
-    role="button"
-    tabindex="0"
   >
     <div
       class="ant-steps-item-wrapper"
@@ -300,8 +286,6 @@ exports[`steps > should match snapshot with navigation type 1`] = `
 >
   <div
     class="ant-steps-item ant-steps-item-finish"
-    role="button"
-    tabindex="0"
   >
     <div
       class="ant-steps-item-wrapper"
@@ -351,8 +335,6 @@ exports[`steps > should match snapshot with navigation type 1`] = `
   </div>
   <div
     class="ant-steps-item ant-steps-item-process ant-steps-item-active"
-    role="button"
-    tabindex="0"
   >
     <div
       class="ant-steps-item-wrapper"
@@ -388,8 +370,6 @@ exports[`steps > should match snapshot with navigation type 1`] = `
   </div>
   <div
     class="ant-steps-item ant-steps-item-wait"
-    role="button"
-    tabindex="0"
   >
     <div
       class="ant-steps-item-wrapper"
@@ -431,8 +411,6 @@ exports[`steps > should match snapshot with progress 1`] = `
 >
   <div
     class="ant-steps-item ant-steps-item-finish"
-    role="button"
-    tabindex="0"
   >
     <div
       class="ant-steps-item-wrapper"
@@ -482,8 +460,6 @@ exports[`steps > should match snapshot with progress 1`] = `
   </div>
   <div
     class="ant-steps-item ant-steps-item-process ant-steps-item-active"
-    role="button"
-    tabindex="0"
   >
     <div
       class="ant-steps-item-wrapper"
@@ -539,8 +515,6 @@ exports[`steps > should match snapshot with progress 1`] = `
   </div>
   <div
     class="ant-steps-item ant-steps-item-wait"
-    role="button"
-    tabindex="0"
   >
     <div
       class="ant-steps-item-wrapper"

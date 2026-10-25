@@ -27,6 +27,17 @@ export async function sleep(timeout = 0) {
 }
 
 /**
+ * Wait for one requestAnimationFrame tick plus a Vue nextTick.
+ */
+export function waitRaf() {
+  return new Promise<void>((resolve) => {
+    requestAnimationFrame(() => {
+      nextTick().then(resolve)
+    })
+  })
+}
+
+/**
  * Mount a Vue component for testing.
  * Returns the @vue/test-utils wrapper.
  */

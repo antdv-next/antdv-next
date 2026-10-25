@@ -23,8 +23,6 @@ exports[`steps demo > renders _semantic correctly 1`] = `
         >
           <div
             class="ant-steps-item ant-steps-item-finish semantic-mark-item"
-            role="button"
-            tabindex="0"
           >
             <div
               class="ant-steps-item-wrapper semantic-mark-itemWrapper"
@@ -83,8 +81,6 @@ exports[`steps demo > renders _semantic correctly 1`] = `
           </div>
           <div
             class="ant-steps-item ant-steps-item-process ant-steps-item-active semantic-mark-item"
-            role="button"
-            tabindex="0"
           >
             <div
               class="ant-steps-item-wrapper semantic-mark-itemWrapper"
@@ -129,8 +125,6 @@ exports[`steps demo > renders _semantic correctly 1`] = `
           </div>
           <div
             class="ant-steps-item ant-steps-item-wait semantic-mark-item"
-            role="button"
-            tabindex="0"
           >
             <div
               class="ant-steps-item-wrapper semantic-mark-itemWrapper"
@@ -178,8 +172,6 @@ exports[`steps demo > renders _semantic correctly 1`] = `
         >
           <div
             class="ant-steps-item ant-steps-item-finish semantic-mark-item"
-            role="button"
-            tabindex="0"
           >
             <div
               class="ant-steps-item-wrapper semantic-mark-itemWrapper"
@@ -249,8 +241,6 @@ exports[`steps demo > renders _semantic correctly 1`] = `
           </div>
           <div
             class="ant-steps-item ant-steps-item-process ant-steps-item-active semantic-mark-item"
-            role="button"
-            tabindex="0"
           >
             <div
               class="ant-steps-item-wrapper semantic-mark-itemWrapper"
@@ -306,8 +296,6 @@ exports[`steps demo > renders _semantic correctly 1`] = `
           </div>
           <div
             class="ant-steps-item ant-steps-item-wait semantic-mark-item"
-            role="button"
-            tabindex="0"
           >
             <div
               class="ant-steps-item-wrapper semantic-mark-itemWrapper"
@@ -1606,8 +1594,6 @@ exports[`steps demo > renders basic correctly 1`] = `
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -1661,8 +1647,6 @@ exports[`steps demo > renders basic correctly 1`] = `
     </div>
     <div
       class="ant-steps-item ant-steps-item-process ant-steps-item-active"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -1707,8 +1691,6 @@ exports[`steps demo > renders basic correctly 1`] = `
     </div>
     <div
       class="ant-steps-item ant-steps-item-wait"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -1751,8 +1733,6 @@ exports[`steps demo > renders basic correctly 1`] = `
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -1806,8 +1786,6 @@ exports[`steps demo > renders basic correctly 1`] = `
     </div>
     <div
       class="ant-steps-item ant-steps-item-process ant-steps-item-active"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -1852,8 +1830,6 @@ exports[`steps demo > renders basic correctly 1`] = `
     </div>
     <div
       class="ant-steps-item ant-steps-item-wait"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -1896,8 +1872,6 @@ exports[`steps demo > renders basic correctly 1`] = `
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -1951,8 +1925,6 @@ exports[`steps demo > renders basic correctly 1`] = `
     </div>
     <div
       class="ant-steps-item ant-steps-item-process ant-steps-item-active"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -1997,8 +1969,6 @@ exports[`steps demo > renders basic correctly 1`] = `
     </div>
     <div
       class="ant-steps-item ant-steps-item-wait"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -2041,8 +2011,6 @@ exports[`steps demo > renders basic correctly 1`] = `
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -2096,8 +2064,6 @@ exports[`steps demo > renders basic correctly 1`] = `
     </div>
     <div
       class="ant-steps-item ant-steps-item-process ant-steps-item-active"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -2142,8 +2108,6 @@ exports[`steps demo > renders basic correctly 1`] = `
     </div>
     <div
       class="ant-steps-item ant-steps-item-wait"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -2455,8 +2419,6 @@ exports[`steps demo > renders error correctly 1`] = `
 >
   <div
     class="ant-steps-item ant-steps-item-finish"
-    role="button"
-    tabindex="0"
   >
     <div
       class="ant-steps-item-wrapper"
@@ -2510,8 +2472,6 @@ exports[`steps demo > renders error correctly 1`] = `
   </div>
   <div
     class="ant-steps-item ant-steps-item-error ant-steps-item-active"
-    role="button"
-    tabindex="0"
   >
     <div
       class="ant-steps-item-wrapper"
@@ -2566,8 +2526,6 @@ exports[`steps demo > renders error correctly 1`] = `
   </div>
   <div
     class="ant-steps-item ant-steps-item-wait"
-    role="button"
-    tabindex="0"
   >
     <div
       class="ant-steps-item-wrapper"
@@ -2613,8 +2571,6 @@ exports[`steps demo > renders icon correctly 1`] = `
 >
   <div
     class="ant-steps-item ant-steps-item-finish ant-steps-item-custom ant-steps-item-active"
-    role="button"
-    tabindex="0"
   >
     <div
       class="ant-steps-item-wrapper"
@@ -2664,8 +2620,6 @@ exports[`steps demo > renders icon correctly 1`] = `
   </div>
   <div
     class="ant-steps-item ant-steps-item-finish ant-steps-item-custom"
-    role="button"
-    tabindex="0"
   >
     <div
       class="ant-steps-item-wrapper"
@@ -2715,8 +2669,6 @@ exports[`steps demo > renders icon correctly 1`] = `
   </div>
   <div
     class="ant-steps-item ant-steps-item-process ant-steps-item-custom"
-    role="button"
-    tabindex="0"
   >
     <div
       class="ant-steps-item-wrapper"
@@ -2766,8 +2718,6 @@ exports[`steps demo > renders icon correctly 1`] = `
   </div>
   <div
     class="ant-steps-item ant-steps-item-wait ant-steps-item-custom"
-    role="button"
-    tabindex="0"
   >
     <div
       class="ant-steps-item-wrapper"
@@ -2865,8 +2815,6 @@ exports[`steps demo > renders inline correctly 1`] = `
       >
         <div
           class="ant-steps-item ant-steps-item-process ant-steps-item-active"
-          role="button"
-          tabindex="0"
         >
           <div
             class="ant-steps-item-wrapper"
@@ -2903,8 +2851,6 @@ exports[`steps demo > renders inline correctly 1`] = `
         <!---->
         <div
           class="ant-steps-item ant-steps-item-wait"
-          role="button"
-          tabindex="0"
         >
           <div
             class="ant-steps-item-wrapper"
@@ -2941,8 +2887,6 @@ exports[`steps demo > renders inline correctly 1`] = `
         <!---->
         <div
           class="ant-steps-item ant-steps-item-wait"
-          role="button"
-          tabindex="0"
         >
           <div
             class="ant-steps-item-wrapper"
@@ -3023,8 +2967,6 @@ exports[`steps demo > renders inline correctly 1`] = `
       >
         <div
           class="ant-steps-item ant-steps-item-finish"
-          role="button"
-          tabindex="0"
         >
           <div
             class="ant-steps-item-wrapper"
@@ -3061,8 +3003,6 @@ exports[`steps demo > renders inline correctly 1`] = `
         <!---->
         <div
           class="ant-steps-item ant-steps-item-error ant-steps-item-active"
-          role="button"
-          tabindex="0"
         >
           <div
             class="ant-steps-item-wrapper"
@@ -3099,8 +3039,6 @@ exports[`steps demo > renders inline correctly 1`] = `
         <!---->
         <div
           class="ant-steps-item ant-steps-item-wait"
-          role="button"
-          tabindex="0"
         >
           <div
             class="ant-steps-item-wrapper"
@@ -3181,8 +3119,6 @@ exports[`steps demo > renders inline correctly 1`] = `
       >
         <div
           class="ant-steps-item ant-steps-item-finish"
-          role="button"
-          tabindex="0"
         >
           <div
             class="ant-steps-item-wrapper"
@@ -3219,8 +3155,6 @@ exports[`steps demo > renders inline correctly 1`] = `
         <!---->
         <div
           class="ant-steps-item ant-steps-item-finish"
-          role="button"
-          tabindex="0"
         >
           <div
             class="ant-steps-item-wrapper"
@@ -3257,8 +3191,6 @@ exports[`steps demo > renders inline correctly 1`] = `
         <!---->
         <div
           class="ant-steps-item ant-steps-item-process ant-steps-item-active"
-          role="button"
-          tabindex="0"
         >
           <div
             class="ant-steps-item-wrapper"
@@ -3339,8 +3271,6 @@ exports[`steps demo > renders inline correctly 1`] = `
       >
         <div
           class="ant-steps-item ant-steps-item-finish"
-          role="button"
-          tabindex="0"
         >
           <div
             class="ant-steps-item-wrapper"
@@ -3377,8 +3307,6 @@ exports[`steps demo > renders inline correctly 1`] = `
         <!---->
         <div
           class="ant-steps-item ant-steps-item-process ant-steps-item-active"
-          role="button"
-          tabindex="0"
         >
           <div
             class="ant-steps-item-wrapper"
@@ -3415,8 +3343,6 @@ exports[`steps demo > renders inline correctly 1`] = `
         <!---->
         <div
           class="ant-steps-item ant-steps-item-wait"
-          role="button"
-          tabindex="0"
         >
           <div
             class="ant-steps-item-wrapper"
@@ -3465,8 +3391,6 @@ exports[`steps demo > renders inline-variant correctly 1`] = `
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -3508,8 +3432,6 @@ exports[`steps demo > renders inline-variant correctly 1`] = `
     <!---->
     <div
       class="ant-steps-item ant-steps-item-process ant-steps-item-active"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -3551,8 +3473,6 @@ exports[`steps demo > renders inline-variant correctly 1`] = `
     <!---->
     <div
       class="ant-steps-item ant-steps-item-wait"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -3594,8 +3514,6 @@ exports[`steps demo > renders inline-variant correctly 1`] = `
     <!---->
     <div
       class="ant-steps-item ant-steps-item-wait"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -3637,8 +3555,6 @@ exports[`steps demo > renders inline-variant correctly 1`] = `
     <!---->
     <div
       class="ant-steps-item ant-steps-item-wait"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -3683,8 +3599,6 @@ exports[`steps demo > renders inline-variant correctly 1`] = `
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -3729,8 +3643,6 @@ exports[`steps demo > renders inline-variant correctly 1`] = `
     <!---->
     <div
       class="ant-steps-item ant-steps-item-finish"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -3775,8 +3687,6 @@ exports[`steps demo > renders inline-variant correctly 1`] = `
     <!---->
     <div
       class="ant-steps-item ant-steps-item-finish"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -3821,8 +3731,6 @@ exports[`steps demo > renders inline-variant correctly 1`] = `
     <!---->
     <div
       class="ant-steps-item ant-steps-item-finish"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -3867,8 +3775,6 @@ exports[`steps demo > renders inline-variant correctly 1`] = `
     <!---->
     <div
       class="ant-steps-item ant-steps-item-finish ant-steps-item-active"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -3915,8 +3821,6 @@ exports[`steps demo > renders inline-variant correctly 1`] = `
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -3958,8 +3862,6 @@ exports[`steps demo > renders inline-variant correctly 1`] = `
     <!---->
     <div
       class="ant-steps-item ant-steps-item-process ant-steps-item-active"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -4001,8 +3903,6 @@ exports[`steps demo > renders inline-variant correctly 1`] = `
     <!---->
     <div
       class="ant-steps-item ant-steps-item-wait"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -4923,8 +4823,6 @@ exports[`steps demo > renders progress-dot correctly 1`] = `
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -4960,8 +4858,6 @@ exports[`steps demo > renders progress-dot correctly 1`] = `
     </div>
     <div
       class="ant-steps-item ant-steps-item-process ant-steps-item-active"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -4997,8 +4893,6 @@ exports[`steps demo > renders progress-dot correctly 1`] = `
     </div>
     <div
       class="ant-steps-item ant-steps-item-wait"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -5037,8 +4931,6 @@ exports[`steps demo > renders progress-dot correctly 1`] = `
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -5074,8 +4966,6 @@ exports[`steps demo > renders progress-dot correctly 1`] = `
     </div>
     <div
       class="ant-steps-item ant-steps-item-process ant-steps-item-active"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -5111,8 +5001,6 @@ exports[`steps demo > renders progress-dot correctly 1`] = `
     </div>
     <div
       class="ant-steps-item ant-steps-item-wait"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -5160,8 +5048,6 @@ exports[`steps demo > renders progress-dot correctly 1`] = `
     >
       <div
         class="ant-steps-item ant-steps-item-finish"
-        role="button"
-        tabindex="0"
       >
         <div
           class="ant-steps-item-wrapper"
@@ -5197,8 +5083,6 @@ exports[`steps demo > renders progress-dot correctly 1`] = `
       </div>
       <div
         class="ant-steps-item ant-steps-item-process ant-steps-item-active"
-        role="button"
-        tabindex="0"
       >
         <div
           class="ant-steps-item-wrapper"
@@ -5234,8 +5118,6 @@ exports[`steps demo > renders progress-dot correctly 1`] = `
       </div>
       <div
         class="ant-steps-item ant-steps-item-wait"
-        role="button"
-        tabindex="0"
       >
         <div
           class="ant-steps-item-wrapper"
@@ -5274,8 +5156,6 @@ exports[`steps demo > renders progress-dot correctly 1`] = `
     >
       <div
         class="ant-steps-item ant-steps-item-finish"
-        role="button"
-        tabindex="0"
       >
         <div
           class="ant-steps-item-wrapper"
@@ -5311,8 +5191,6 @@ exports[`steps demo > renders progress-dot correctly 1`] = `
       </div>
       <div
         class="ant-steps-item ant-steps-item-process ant-steps-item-active"
-        role="button"
-        tabindex="0"
       >
         <div
           class="ant-steps-item-wrapper"
@@ -5348,8 +5226,6 @@ exports[`steps demo > renders progress-dot correctly 1`] = `
       </div>
       <div
         class="ant-steps-item ant-steps-item-wait"
-        role="button"
-        tabindex="0"
       >
         <div
           class="ant-steps-item-wrapper"
@@ -5396,8 +5272,6 @@ exports[`steps demo > renders style-class correctly 1`] = `
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -5453,8 +5327,6 @@ exports[`steps demo > renders style-class correctly 1`] = `
     </div>
     <div
       class="ant-steps-item ant-steps-item-process ant-steps-item-active"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -5496,8 +5368,6 @@ exports[`steps demo > renders style-class correctly 1`] = `
     </div>
     <div
       class="ant-steps-item ant-steps-item-wait"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -5542,8 +5412,6 @@ exports[`steps demo > renders style-class correctly 1`] = `
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -5597,8 +5465,6 @@ exports[`steps demo > renders style-class correctly 1`] = `
     </div>
     <div
       class="ant-steps-item ant-steps-item-process ant-steps-item-active"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -5638,8 +5504,6 @@ exports[`steps demo > renders style-class correctly 1`] = `
     </div>
     <div
       class="ant-steps-item ant-steps-item-wait"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -5689,8 +5553,6 @@ exports[`steps demo > renders title-placement correctly 1`] = `
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -5744,8 +5606,6 @@ exports[`steps demo > renders title-placement correctly 1`] = `
     </div>
     <div
       class="ant-steps-item ant-steps-item-process ant-steps-item-active"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -5785,8 +5645,6 @@ exports[`steps demo > renders title-placement correctly 1`] = `
     </div>
     <div
       class="ant-steps-item ant-steps-item-wait"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -5829,8 +5687,6 @@ exports[`steps demo > renders title-placement correctly 1`] = `
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -5884,8 +5740,6 @@ exports[`steps demo > renders title-placement correctly 1`] = `
     </div>
     <div
       class="ant-steps-item ant-steps-item-process ant-steps-item-active"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -5945,8 +5799,6 @@ exports[`steps demo > renders title-placement correctly 1`] = `
     </div>
     <div
       class="ant-steps-item ant-steps-item-wait"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -5989,8 +5841,6 @@ exports[`steps demo > renders title-placement correctly 1`] = `
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -6044,8 +5894,6 @@ exports[`steps demo > renders title-placement correctly 1`] = `
     </div>
     <div
       class="ant-steps-item ant-steps-item-process ant-steps-item-active"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -6105,8 +5953,6 @@ exports[`steps demo > renders title-placement correctly 1`] = `
     </div>
     <div
       class="ant-steps-item ant-steps-item-wait"
-      role="button"
-      tabindex="0"
     >
       <div
         class="ant-steps-item-wrapper"
@@ -6159,8 +6005,6 @@ exports[`steps demo > renders vertical correctly 1`] = `
     >
       <div
         class="ant-steps-item ant-steps-item-finish"
-        role="button"
-        tabindex="0"
       >
         <div
           class="ant-steps-item-wrapper"
@@ -6214,8 +6058,6 @@ exports[`steps demo > renders vertical correctly 1`] = `
       </div>
       <div
         class="ant-steps-item ant-steps-item-process ant-steps-item-active"
-        role="button"
-        tabindex="0"
       >
         <div
           class="ant-steps-item-wrapper"
@@ -6255,8 +6097,6 @@ exports[`steps demo > renders vertical correctly 1`] = `
       </div>
       <div
         class="ant-steps-item ant-steps-item-wait"
-        role="button"
-        tabindex="0"
       >
         <div
           class="ant-steps-item-wrapper"
@@ -6303,8 +6143,6 @@ exports[`steps demo > renders vertical correctly 1`] = `
     >
       <div
         class="ant-steps-item ant-steps-item-finish"
-        role="button"
-        tabindex="0"
       >
         <div
           class="ant-steps-item-wrapper"
@@ -6358,8 +6196,6 @@ exports[`steps demo > renders vertical correctly 1`] = `
       </div>
       <div
         class="ant-steps-item ant-steps-item-process ant-steps-item-active"
-        role="button"
-        tabindex="0"
       >
         <div
           class="ant-steps-item-wrapper"
@@ -6399,8 +6235,6 @@ exports[`steps demo > renders vertical correctly 1`] = `
       </div>
       <div
         class="ant-steps-item ant-steps-item-wait"
-        role="button"
-        tabindex="0"
       >
         <div
           class="ant-steps-item-wrapper"

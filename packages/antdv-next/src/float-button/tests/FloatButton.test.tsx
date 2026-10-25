@@ -3,7 +3,7 @@ import { describe, expect, it, vi } from 'vitest'
 import { h, nextTick, ref } from 'vue'
 import FloatButton, { BackTop, FloatButtonGroup } from '..'
 import rtlTest from '/@tests/shared/rtlTest'
-import { mount } from '/@tests/utils'
+import { mount, waitRaf } from '/@tests/utils'
 
 function setScrollMetrics(
   element: HTMLElement,
@@ -21,14 +21,6 @@ function setScrollMetrics(
 
 function createScrollHolder(scrollTop: number, scrollHeight = 2000, clientHeight = 1000) {
   return setScrollMetrics(document.createElement('div'), scrollTop, scrollHeight, clientHeight)
-}
-
-function waitRaf() {
-  return new Promise<void>((resolve) => {
-    requestAnimationFrame(() => {
-      nextTick().then(resolve)
-    })
-  })
 }
 
 describe('floatButton', () => {
