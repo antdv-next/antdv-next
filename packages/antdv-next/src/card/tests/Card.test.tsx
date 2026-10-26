@@ -208,6 +208,27 @@ describe('card', () => {
     expect(onTabChange).toHaveBeenCalledWith('tab2')
   })
 
+  // https://github.com/ant-design/ant-design/pull/59655
+  it('should trigger tabProps.onChange when switching tabs', async () => {
+    const onTabPropsChange = vi.fn()
+    const onTabChange = vi.fn()
+    const wrapper = mount(Card, {
+      props: {
+        tabList: [
+          { key: 'tab1', label: 'Tab 1' },
+          { key: 'tab2', label: 'Tab 2' },
+        ],
+        tabProps: { onChange: onTabPropsChange },
+        onTabChange,
+      },
+      slots: { default: () => 'content' },
+    })
+    await wrapper.findAll('.ant-tabs-tab')[1].trigger('click')
+    expect(onTabPropsChange).toHaveBeenCalledTimes(1)
+    expect(onTabPropsChange).toHaveBeenCalledWith('tab2')
+    expect(onTabChange).toHaveBeenCalledWith('tab2')
+  })
+
   it('should emit update:activeTabKey when tab changes', async () => {
     const onUpdate = vi.fn()
     const wrapper = mount(Card, {
