@@ -4,7 +4,7 @@ import Steps from '..'
 import ConfigProvider from '../../config-provider'
 import mountTest from '/@tests/shared/mountTest'
 import rtlTest from '/@tests/shared/rtlTest'
-import { mount } from '/@tests/utils'
+import { mount, waitRaf } from '/@tests/utils'
 
 describe('steps', () => {
   mountTest(Steps)
@@ -263,6 +263,7 @@ describe('steps', () => {
     const wrapper = mount(Steps, {
       props: {
         current: 0,
+        'onUpdate:current': () => {},
         items: [
           { title: 'Step 1' },
           { title: 'Step 2' },
@@ -271,6 +272,58 @@ describe('steps', () => {
     })
     await wrapper.findAll('.ant-steps-item')[1]!.trigger('click')
     expect(wrapper.emitted('update:current')?.[0]).toEqual([1])
+  })
+
+  it('should not render clickable semantics without change binding', async () => {
+    const wrapper = mount(Steps, {
+      props: {
+        current: 0,
+        items: [
+          { title: 'Step 1' },
+          { title: 'Step 2' },
+        ],
+      },
+    })
+    const items = wrapper.findAll('.ant-steps-item')
+    expect(items[0]!.attributes('role')).toBeUndefined()
+    expect(items[0]!.attributes('tabindex')).toBeUndefined()
+    await items[1]!.trigger('keydown', { key: 'Enter' })
+    await items[1]!.trigger('click')
+    expect(wrapper.emitted('update:current')).toBeUndefined()
+  })
+
+  it('should render clickable semantics with update:current listener', async () => {
+    const wrapper = mount(Steps, {
+      props: {
+        current: 0,
+        'onUpdate:current': () => {},
+        items: [
+          { title: 'Step 1' },
+          { title: 'Step 2' },
+        ],
+      },
+    })
+    const items = wrapper.findAll('.ant-steps-item')
+    expect(items[0]!.attributes('role')).toBe('button')
+    expect(items[0]!.attributes('tabindex')).toBe('0')
+    await items[1]!.trigger('keydown', { key: 'Enter' })
+    expect(wrapper.emitted('update:current')?.[0]).toEqual([1])
+  })
+
+  it('should trigger wave effect with update:current listener', async () => {
+    const showEffect = vi.fn()
+    const wrapper = mount(() => (
+      <ConfigProvider wave={{ showEffect }}>
+        <Steps
+          current={0}
+          onUpdate:current={() => {}}
+          items={[{ title: 'Step 1' }, { title: 'Step 2' }]}
+        />
+      </ConfigProvider>
+    ))
+    await wrapper.findAll('.ant-steps-item')[1]!.trigger('click')
+    await waitRaf()
+    expect(showEffect).toHaveBeenCalled()
   })
 
   it('should not trigger onChange when disabled', async () => {

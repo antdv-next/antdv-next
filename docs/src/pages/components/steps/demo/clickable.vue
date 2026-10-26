@@ -1,9 +1,9 @@
 <docs lang="zh-CN">
-设置 `onChange` 后，Steps 变为可点击状态。
+绑定 `v-model:current` 后，Steps 变为可点击状态。
 </docs>
 
 <docs lang="en-US">
-Setting `onChange` makes Steps clickable.
+Binding `v-model:current` makes Steps clickable.
 </docs>
 
 <script setup lang="ts">

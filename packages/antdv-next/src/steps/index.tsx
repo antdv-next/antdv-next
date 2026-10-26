@@ -6,7 +6,7 @@ import type { SizeType } from '../config-provider/SizeContext.tsx'
 import { CheckOutlined, CloseOutlined } from '@antdv-next/icons'
 import VcSteps from '@v-c/steps'
 import { clsx } from '@v-c/util'
-import { computed, defineComponent } from 'vue'
+import { computed, defineComponent, getCurrentInstance } from 'vue'
 import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { devUseWarning, isDev } from '../_util/warning'
@@ -170,6 +170,7 @@ const Steps = defineComponent<
   SlotsType<StepsSlots>
 >(
   (props = defaults, { slots, attrs, emit }) => {
+    const instance = getCurrentInstance()
     const internalContent = useInternalContext()
     const {
       direction: rtlDirection,
@@ -394,6 +395,7 @@ const Steps = defineComponent<
       }
 
       // ============================ Custom ============================
+      const hasChangeListener = !!(props.onChange || instance?.vnode?.props?.['onUpdate:current'])
       const itemRender: VcStepsProps['itemRender'] = (itemNode, itemInfo) => {
         let content = itemNode
         const itemContent = getSlotPropsFnRun({}, itemInfo.item, 'content')
@@ -408,7 +410,7 @@ const Steps = defineComponent<
         return (
           <Wave
             component="Steps"
-            disabled={itemInfo.item.disabled || !onChange}
+            disabled={itemInfo.item.disabled || !hasChangeListener}
             colorSource={variant === 'filled' ? 'color' : null}
           >
             {content}
@@ -469,13 +471,15 @@ const Steps = defineComponent<
           initial={0}
           current={mappedDisplayCurrent.value}
           items={displayItems.value as any}
-          onChange={(displayCurrent) => {
-            const target = displaySteps.value[displayCurrent]
-            const originIndex = target && target.originIndex >= 0 ? target.originIndex : displayCurrent
-            const next = mergedInitial.value + originIndex
-            onChange?.(next)
-            emit('update:current', next)
-          }}
+          onChange={hasChangeListener
+            ? (displayCurrent) => {
+                const target = displaySteps.value[displayCurrent]
+                const originIndex = target && target.originIndex >= 0 ? target.originIndex : displayCurrent
+                const next = mergedInitial.value + originIndex
+                onChange?.(next)
+                emit('update:current', next)
+              }
+            : undefined}
           // Render
           iconRender={internalIconRender}
           itemRender={itemRender}

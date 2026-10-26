@@ -18,8 +18,6 @@ exports[`timeline > should render correct snapshot 1`] = `
 >
   <li
     class="ant-steps-item ant-steps-item-finish ant-timeline-item-color-green ant-timeline-item-placement-start ant-timeline-item"
-    role="button"
-    tabindex="0"
   >
     <div
       class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -55,8 +53,6 @@ exports[`timeline > should render correct snapshot 1`] = `
   </li>
   <li
     class="ant-steps-item ant-steps-item-finish ant-timeline-item-color-blue ant-timeline-item-placement-start ant-timeline-item"
-    role="button"
-    tabindex="0"
   >
     <div
       class="ant-steps-item-wrapper ant-timeline-item-wrapper"
@@ -92,8 +88,6 @@ exports[`timeline > should render correct snapshot 1`] = `
   </li>
   <li
     class="ant-steps-item ant-steps-item-process ant-steps-item-custom ant-steps-item-active ant-timeline-item-placement-start ant-timeline-item"
-    role="button"
-    tabindex="0"
   >
     <div
       class="ant-steps-item-wrapper ant-timeline-item-wrapper"
