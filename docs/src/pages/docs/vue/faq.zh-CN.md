@@ -4,7 +4,7 @@ title: FAQ
 
 ## 多个组件放一排时没有垂直对齐怎么办？ {#components-are-not-vertically-aligned-when-placed-in-single-row}
 
-尝试使用 [Space](/components/space-cn) 组件来使他们对齐。
+尝试使用 [Space](/components/space-cn) 组件来使它们对齐。
 
 ## 为什么第三方 SVG 图标设置了 margin-block-end？ {#faq-icon-margin-block-end}
 
@@ -16,7 +16,7 @@ Breadcrumb、Collapse、Segmented、Tabs、Tag 等组件会对相应图标插槽
 
 这套样式针对直接传入的 SVG；`@antdv-next/icons` 的 SVG 有额外容器包裹，使用自身的对齐样式。不同字体、图标内部留白或图标自带的 `vertical-align` 都可能影响最终效果。如果图标已经自行处理对齐，或纯图标场景无需文字对齐补偿，可以局部覆盖对应 SVG 的 `margin-block-end: 0`，并结合图标自身样式调整。
 
-## 我的组件默认语言是英文的？如何切回中文的。 {#how-to-switch-the-default-locale-to-chinese}
+## 我的组件默认语言是英文的？如何切回中文？ {#how-to-switch-the-default-locale-to-chinese}
 
 请尝试使用 [ConfigProvider](/components/config-provider-cn#config-provider-demo-locale) 组件来包裹你的应用。
 
