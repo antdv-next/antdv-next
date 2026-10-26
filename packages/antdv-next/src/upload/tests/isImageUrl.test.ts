@@ -55,4 +55,19 @@ describe('upload isImageUrl', () => {
     expect(isImageUrl(mkFile({ name: 'report.pdf' }))).toBe(false)
     expect(isImageUrl(mkFile({ name: 'photo.png' }))).toBe(true)
   })
+
+  // https://github.com/ant-design/ant-design/pull/59649
+  it.each(['?redirect=/other.pdf', '#/other.pdf'])(
+    'treats image urls with suffix %s as images',
+    (suffix) => {
+      expect(isImageUrl(mkFile({ name: 'photo.png', url: `https://example.com/photo.png${suffix}` }))).toBe(true)
+    },
+  )
+
+  it.each(['?redirect=/other.png', '#/other.png'])(
+    'does not treat non-image urls with suffix %s as images',
+    (suffix) => {
+      expect(isImageUrl(mkFile({ name: 'report.pdf', url: `https://example.com/report.pdf${suffix}` }))).toBe(false)
+    },
+  )
 })
