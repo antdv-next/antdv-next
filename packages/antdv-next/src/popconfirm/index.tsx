@@ -11,6 +11,7 @@ import { omit } from 'es-toolkit'
 import { computed, defineComponent, shallowRef, watch } from 'vue'
 import { useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { getSlotPropsFnRun, toPropsRefs, useLiveListener } from '../_util/tools'
+import { cloneIfVNode } from '../_util/vueNode'
 import { useComponentBaseConfig } from '../config-provider/context'
 import Popover from '../popover'
 import useMergedArrow from '../tooltip/hooks/useMergedArrow'
@@ -202,7 +203,7 @@ const InternalPopconfirm = defineComponent<
     return () => {
       const titleNode = getSlotPropsFnRun(slots, props, 'title')
       const descriptionNode = getSlotPropsFnRun(slots, props, 'description')
-      const iconNode = getSlotPropsFnRun(slots, props, 'icon') ?? defaultIcon
+      const iconNode = cloneIfVNode(getSlotPropsFnRun(slots, props, 'icon') ?? defaultIcon)
       const okTextNode = getSlotPropsFnRun(slots, props, 'okText')
       const cancelTextNode = getSlotPropsFnRun(slots, props, 'cancelText')
       const restProps = omit(props, OMITTED_PROP_KEYS)

@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest'
-import { nextTick, ref } from 'vue'
+import { h, nextTick, ref } from 'vue'
 import Popconfirm from '..'
 import ConfigProvider from '../../config-provider'
 import { mount } from '/@tests/utils'
@@ -415,6 +415,25 @@ describe('popconfirm', () => {
     await nextTick()
     const popup = document.querySelector('.ant-popconfirm-inner-content')
     expect(popup?.innerHTML).toMatchSnapshot()
+    wrapper.unmount()
+  })
+
+  // ========================= Shared vnode =========================
+  it('should not mount a shared icon vnode passed by user', async () => {
+    const sharedIcon = h('span', { class: 'shared-icon' })
+    const wrapper = mount(Popconfirm, {
+      props: { open: true, title: 'Are you sure?', icon: sharedIcon },
+      slots: {
+        default: () => <button>Delete</button>,
+      },
+      attachTo: document.body,
+    })
+    await nextTick()
+    await nextTick()
+
+    expect(document.querySelector('.shared-icon')).not.toBeNull()
+    expect((sharedIcon as any).el).toBeNull()
+    expect((sharedIcon as any).component).toBeFalsy()
     wrapper.unmount()
   })
 })

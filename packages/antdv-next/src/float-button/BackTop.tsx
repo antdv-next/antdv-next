@@ -9,6 +9,7 @@ import { computed, defineComponent, shallowRef, Transition } from 'vue'
 import { getAttrStyleAndClass, pureAttrs } from '../_util/hooks'
 import scrollTo from '../_util/scrollTo'
 import { toPropsRefs } from '../_util/tools'
+import { cloneIfVNode } from '../_util/vueNode'
 import { useComponentBaseConfig, useConfig } from '../config-provider/context'
 import { genCssVar } from '../theme/util/genStyleUtils'
 import { useGroupContext } from './context'
@@ -80,7 +81,7 @@ const BackTop = defineComponent<
       if (slotIcon.length) {
         return slotIcon
       }
-      return props.icon ?? backTopIcon?.value ?? defaultIcon
+      return cloneIfVNode(props.icon ?? backTopIcon?.value ?? defaultIcon)
     })
 
     const rootPrefixCls = computed(() => globalConfig.value?.getPrefixCls?.())

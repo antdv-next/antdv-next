@@ -294,4 +294,23 @@ describe('empty', () => {
       expect(Empty.PRESENTED_IMAGE_SIMPLE).toBeDefined()
     })
   })
+
+  // ========================= Builtin image vnode =========================
+  describe('builtin image vnode', () => {
+    it('should keep module-level image vnode unmounted', () => {
+      const wrapper = mount(Empty)
+      expect(wrapper.find('.ant-empty-image svg').exists()).toBe(true)
+      expect((Empty.PRESENTED_IMAGE_DEFAULT as any).el).toBeNull()
+      expect((Empty.PRESENTED_IMAGE_DEFAULT as any).component).toBeFalsy()
+      wrapper.unmount()
+    })
+
+    it('should keep PRESENTED_IMAGE_SIMPLE unmounted and apply -normal', () => {
+      const wrapper = mount(Empty, { props: { image: Empty.PRESENTED_IMAGE_SIMPLE as any } })
+      expect(wrapper.find('.ant-empty-normal').exists()).toBe(true)
+      expect((Empty.PRESENTED_IMAGE_SIMPLE as any).el).toBeNull()
+      expect((Empty.PRESENTED_IMAGE_SIMPLE as any).component).toBeFalsy()
+      wrapper.unmount()
+    })
+  })
 })
