@@ -329,13 +329,14 @@ describe('mentions', () => {
       expect(wrapper.find('.ant-mentions-clear-icon').exists()).toBe(false)
     })
 
-    it('hides clear button when allowClear.disabled is true', async () => {
+    it('removes clear button when allowClear.disabled is true', async () => {
       mount(Mentions, {
         attachTo: document.body,
         props: { options: defaultOptions, allowClear: { disabled: true }, value: 'test' },
       })
       await flushMentionsTimer()
-      expect(document.querySelector('.ant-mentions-clear-icon-hidden')).toBeTruthy()
+      // @v-c/input#208: a disabled clear config renders no clear entry at all
+      expect(document.querySelector('.ant-mentions-clear-icon')).toBeNull()
     })
   })
 

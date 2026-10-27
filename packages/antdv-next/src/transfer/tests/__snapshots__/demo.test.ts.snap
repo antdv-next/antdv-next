@@ -110,6 +110,7 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                   class="ant-input-suffix"
                 >
                   <button
+                    aria-label="Clear"
                     class="ant-input-clear-icon ant-input-clear-icon-hidden"
                     type="button"
                   >
@@ -728,6 +729,7 @@ exports[`transfer demo > renders _semantic correctly 1`] = `
                   class="ant-input-suffix"
                 >
                   <button
+                    aria-label="Clear"
                     class="ant-input-clear-icon ant-input-clear-icon-hidden"
                     type="button"
                   >
@@ -3191,6 +3193,7 @@ exports[`transfer demo > renders advanced correctly 1`] = `
             class="ant-input-suffix"
           >
             <button
+              aria-label="Clear"
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
               type="button"
             >
@@ -3464,6 +3467,7 @@ exports[`transfer demo > renders advanced correctly 1`] = `
             class="ant-input-suffix"
           >
             <button
+              aria-label="Clear"
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
               type="button"
             >
@@ -6077,6 +6081,7 @@ exports[`transfer demo > renders search correctly 1`] = `
             class="ant-input-suffix"
           >
             <button
+              aria-label="Clear"
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
               type="button"
             >
@@ -6319,6 +6324,7 @@ exports[`transfer demo > renders search correctly 1`] = `
             class="ant-input-suffix"
           >
             <button
+              aria-label="Clear"
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
               type="button"
             >
@@ -6795,6 +6801,7 @@ exports[`transfer demo > renders status correctly 1`] = `
               class="ant-input-suffix"
             >
               <button
+                aria-label="Clear"
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
                 type="button"
               >
@@ -7037,6 +7044,7 @@ exports[`transfer demo > renders status correctly 1`] = `
               class="ant-input-suffix"
             >
               <button
+                aria-label="Clear"
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
                 type="button"
               >
@@ -8509,6 +8517,7 @@ exports[`transfer demo > renders table-transfer correctly 1`] = `
               class="ant-input-suffix"
             >
               <button
+                aria-label="Clear"
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
                 type="button"
               >
@@ -9217,14 +9226,14 @@ exports[`transfer demo > renders table-transfer correctly 1`] = `
                 >
                   <!---->
                   <li
-                    aria-disabled="true"
-                    aria-label="Previous Page"
                     class="ant-pagination-prev ant-pagination-disabled"
-                    role="button"
                   >
                     <button
+                      aria-disabled="true"
+                      aria-label="Previous Page"
                       class="ant-pagination-item-link"
                       disabled=""
+                      role="button"
                       tabindex="-1"
                       type="button"
                     >
@@ -9250,46 +9259,40 @@ exports[`transfer demo > renders table-transfer correctly 1`] = `
                     </button>
                   </li>
                   <li
-                    aria-current="page"
-                    aria-label="Page 1"
                     class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
-                    role="button"
-                    tabindex="0"
                     title="1"
                   >
                     <a
-                      aria-hidden="true"
+                      aria-current="page"
+                      aria-label="Page 1"
                       rel="nofollow"
-                      tabindex="-1"
+                      role="button"
+                      tabindex="0"
                     >
                       1
                     </a>
                   </li>
                   <li
-                    aria-label="Page 2"
                     class="ant-pagination-item ant-pagination-item-2"
-                    role="button"
-                    tabindex="0"
                     title="2"
                   >
                     <a
-                      aria-hidden="true"
+                      aria-label="Page 2"
                       rel="nofollow"
-                      tabindex="-1"
+                      role="button"
+                      tabindex="0"
                     >
                       2
                     </a>
                   </li>
                   <li
-                    aria-disabled="false"
-                    aria-label="Next Page"
                     class="ant-pagination-next"
-                    role="button"
-                    tabindex="0"
                   >
                     <button
+                      aria-label="Next Page"
                       class="ant-pagination-item-link"
-                      tabindex="-1"
+                      role="button"
+                      tabindex="0"
                       type="button"
                     >
                       <span
@@ -9446,6 +9449,7 @@ exports[`transfer demo > renders table-transfer correctly 1`] = `
               class="ant-input-suffix"
             >
               <button
+                aria-label="Clear"
                 class="ant-input-clear-icon ant-input-clear-icon-hidden"
                 type="button"
               >

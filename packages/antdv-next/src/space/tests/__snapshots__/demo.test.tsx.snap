@@ -1305,6 +1305,7 @@ exports[`space demo > renders compact correctly 1`] = `
             class="ant-input-suffix"
           >
             <button
+              aria-label="Clear"
               class="ant-input-clear-icon"
               type="button"
             >

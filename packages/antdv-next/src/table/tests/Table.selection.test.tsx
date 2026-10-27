@@ -572,7 +572,7 @@ describe('table row selection', () => {
       expect((wrapper.find('thead input[type="checkbox"]').element as HTMLInputElement).checked).toBe(true)
       expect(wrapper.find('thead .ant-checkbox-indeterminate').exists()).toBe(false)
 
-      await wrapper.find('.ant-pagination-item-2').trigger('click')
+      await wrapper.find('.ant-pagination-item-2 a').trigger('click')
       await wrapper.find('.ant-table-row-expand-icon').trigger('click')
       expect(getSelections(wrapper)).toEqual(['other-parent', 'selected', 'other-child'])
       wrapper.unmount()
@@ -656,7 +656,7 @@ describe('table row selection', () => {
     await clickSelectionMenuItem(wrapper)
 
     expect(onChange).toHaveBeenCalledWith([1], [presetData[1]], { type: 'none' })
-    await wrapper.find('.ant-pagination-item-2').trigger('click')
+    await wrapper.find('.ant-pagination-item-2 a').trigger('click')
     expect(getSelections(wrapper)).toEqual(['1'])
     wrapper.unmount()
   })

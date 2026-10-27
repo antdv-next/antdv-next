@@ -3842,6 +3842,7 @@ exports[`select demo > renders option-label-center correctly 1`] = `
         class="ant-input-suffix"
       >
         <button
+          aria-label="Clear"
           class="ant-input-clear-icon ant-input-clear-icon-hidden"
           type="button"
         >

@@ -92,7 +92,8 @@ describe('table pagination', () => {
     // Click page 2
     const page2 = wrapper.findAll('.ant-pagination-item').find(el => el.text() === '2')
     expect(page2).toBeDefined()
-    await page2!.trigger('click')
+    // @v-c/pagination#728 moves the click target onto the inner control
+    await page2!.find('a').trigger('click')
     await nextTick()
     expect(onChange).toHaveBeenCalled()
     const args = onChange.mock.calls[0]!
@@ -117,7 +118,7 @@ describe('table pagination', () => {
 
     expect(scrollTo).toHaveBeenCalledTimes(0)
 
-    await wrapper.find('.ant-pagination-next').trigger('click')
+    await wrapper.find('.ant-pagination-next button').trigger('click')
 
     expect(scrollTo).toHaveBeenCalledTimes(1)
     wrapper.unmount()
@@ -136,7 +137,7 @@ describe('table pagination', () => {
       </ConfigProvider>
     ), { attachTo: document.body })
 
-    await wrapper.find('.ant-pagination-next').trigger('click')
+    await wrapper.find('.ant-pagination-next button').trigger('click')
 
     expect(scrollTo).not.toHaveBeenCalled()
     wrapper.unmount()

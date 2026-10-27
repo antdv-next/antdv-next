@@ -3983,6 +3983,7 @@ exports[`form demo > renders custom-feedback-icons correctly 1`] = `
                 class="ant-mentions-suffix"
               >
                 <button
+                  aria-label="Clear"
                   class="ant-mentions-clear-icon ant-mentions-clear-icon-has-suffix"
                   type="button"
                 >
@@ -18090,6 +18091,7 @@ exports[`form demo > renders validate-static correctly 1`] = `
                 class="ant-input-suffix"
               >
                 <button
+                  aria-label="Clear"
                   class="ant-input-clear-icon ant-input-clear-icon-hidden ant-input-clear-icon-has-suffix"
                   type="button"
                 >

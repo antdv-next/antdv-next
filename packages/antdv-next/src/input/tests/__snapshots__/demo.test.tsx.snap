@@ -51,6 +51,7 @@ exports[`input demo > renders _semantic correctly 1`] = `
             class="ant-input-suffix semantic-mark-suffix"
           >
             <button
+              aria-label="Clear"
               class="ant-input-clear-icon semantic-mark-clear ant-input-clear-icon-has-suffix"
               type="button"
             >
@@ -3782,6 +3783,7 @@ exports[`input demo > renders allowClear correctly 1`] = `
       class="ant-input-suffix"
     >
       <button
+        aria-label="Clear"
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
         type="button"
       >
@@ -3825,6 +3827,7 @@ exports[`input demo > renders allowClear correctly 1`] = `
       class="ant-input-suffix"
     >
       <button
+        aria-label="Clear"
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
         tabindex="-1"
         type="button"
@@ -3868,6 +3871,7 @@ exports[`input demo > renders allowClear correctly 1`] = `
       class="ant-input-suffix"
     >
       <button
+        aria-label="Clear"
         class="ant-input-clear-icon ant-input-clear-icon-hidden"
         type="button"
       >
@@ -4000,6 +4004,7 @@ exports[`input demo > renders compact-style correctly 1`] = `
             class="ant-input-suffix"
           >
             <button
+              aria-label="Clear"
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
               type="button"
             >
@@ -5691,6 +5696,7 @@ exports[`input demo > renders search-input correctly 1`] = `
           class="ant-input-suffix"
         >
           <button
+            aria-label="Clear"
             class="ant-input-clear-icon ant-input-clear-icon-hidden"
             type="button"
           >
@@ -5779,6 +5785,7 @@ exports[`input demo > renders search-input correctly 1`] = `
             class="ant-input-suffix"
           >
             <button
+              aria-label="Clear"
               class="ant-input-clear-icon ant-input-clear-icon-hidden"
               type="button"
             >
@@ -5905,6 +5912,7 @@ exports[`input demo > renders search-input correctly 1`] = `
           class="ant-input-suffix"
         >
           <button
+            aria-label="Clear"
             class="ant-input-clear-icon ant-input-clear-icon-hidden"
             type="button"
           >

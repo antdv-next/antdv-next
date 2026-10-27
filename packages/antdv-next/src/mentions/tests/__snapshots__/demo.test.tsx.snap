@@ -40,6 +40,7 @@ exports[`mentions demo > renders _semantic correctly 1`] = `
             class="ant-mentions-suffix semantic-mark-suffix"
           >
             <button
+              aria-label="Clear"
               class="ant-mentions-clear-icon"
               type="button"
             >
@@ -621,6 +622,7 @@ exports[`mentions demo > renders allow-clear correctly 1`] = `
       class="ant-mentions-suffix"
     >
       <button
+        aria-label="Clear"
         class="ant-mentions-clear-icon"
         type="button"
       >
@@ -662,6 +664,7 @@ exports[`mentions demo > renders allow-clear correctly 1`] = `
       class="ant-mentions-suffix"
     >
       <button
+        aria-label="Clear"
         class="ant-mentions-clear-icon"
         type="button"
       >
@@ -703,6 +706,7 @@ exports[`mentions demo > renders allow-clear correctly 1`] = `
       class="ant-mentions-suffix"
     >
       <button
+        aria-label="Clear"
         class="ant-mentions-clear-icon"
         type="button"
       >
@@ -744,6 +748,7 @@ exports[`mentions demo > renders allow-clear correctly 1`] = `
       class="ant-mentions-suffix"
     >
       <button
+        aria-label="Clear"
         class="ant-mentions-clear-icon"
         tabindex="-1"
         type="button"
