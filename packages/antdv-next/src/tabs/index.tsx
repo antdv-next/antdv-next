@@ -193,7 +193,21 @@ const InternalTabs = defineComponent<
       getPopupContainer,
       getPrefixCls,
       scrollPosition: contextScrollPosition,
-    } = useComponentBaseConfig('tabs', props, ['scrollPosition'])
+      indicator: contextIndicator,
+      indicatorSize: contextIndicatorSize,
+      moreIcon: contextMoreIcon,
+      addIcon: contextAddIcon,
+      removeIcon: contextRemoveIcon,
+      more: contextMore,
+    } = useComponentBaseConfig('tabs', props, [
+      'scrollPosition',
+      'indicator',
+      'indicatorSize',
+      'moreIcon',
+      'addIcon',
+      'removeIcon',
+      'more',
+    ])
 
     const size = useSize(customSize)
     const mergedScrollPosition = computed(() => props.scrollPosition ?? contextScrollPosition.value)
@@ -239,8 +253,8 @@ const InternalTabs = defineComponent<
 
     const mergedAnimated = computed(() => useAnimateConfig(prefixCls.value, props.animated))
     const mergedIndicator = computed(() => ({
-      align: indicator.value?.align,
-      size: indicator.value?.size ?? indicatorSize.value,
+      align: indicator.value?.align ?? contextIndicator.value?.align,
+      size: indicator.value?.size ?? indicatorSize.value ?? contextIndicator.value?.size ?? contextIndicatorSize.value,
     }))
 
     const tabsRef = shallowRef<any>()
@@ -258,7 +272,11 @@ const InternalTabs = defineComponent<
         'breaking',
         '`onPrevClick` and `onNextClick` has been removed. Please use `onTabScroll` instead.',
       )
-      warning.deprecated(!(indicatorSize.value), 'indicatorSize', 'indicator')
+      warning.deprecated(
+        !(indicatorSize.value || contextIndicatorSize.value),
+        'indicatorSize',
+        'indicator',
+      )
       warning.deprecated(
         !(
           props.destroyInactiveTabPane
@@ -294,9 +312,9 @@ const InternalTabs = defineComponent<
 
     return () => {
       const { className: attrClassName, style: attrStyle, restAttrs } = getAttrStyleAndClass(attrs)
-      const addIcon = getSlotPropsFnRun(slots, props, 'addIcon') ?? <PlusOutlined />
-      const removeIcon = getSlotPropsFnRun(slots, props, 'removeIcon') ?? <CloseOutlined />
-      const moreIcon = getSlotPropsFnRun(slots, props, 'moreIcon') ?? <EllipsisOutlined />
+      const addIcon = (getSlotPropsFnRun(slots, props, 'addIcon') ?? contextAddIcon.value) || <PlusOutlined />
+      const removeIcon = getSlotPropsFnRun(slots, props, 'removeIcon') ?? contextRemoveIcon.value ?? <CloseOutlined />
+      const moreIcon = getSlotPropsFnRun(slots, props, 'moreIcon')
       const editableFn = () => {
         if (type.value !== 'editable-card') {
           return undefined
@@ -321,13 +339,13 @@ const InternalTabs = defineComponent<
           : {}
         if (!rootPrefixCls) {
           return {
-            icon: moreIcon,
+            icon: moreIcon ?? contextMore.value?.icon ?? contextMoreIcon.value ?? <EllipsisOutlined />,
             ...restMoreProps,
             ...legacyMoreProps,
           }
         }
         return {
-          icon: moreIcon,
+          icon: moreIcon ?? contextMore.value?.icon ?? contextMoreIcon.value ?? <EllipsisOutlined />,
           transitionName: `${rootPrefixCls}-slide-up`,
           ...restMoreProps,
           ...legacyMoreProps,
