@@ -498,7 +498,7 @@ describe('modal integration', () => {
     await waitFakeTimer(20, 10)
 
     const btns = document.body.querySelectorAll<HTMLButtonElement>('.ant-modal-footer .ant-btn')
-    btns[btns.length - 1].click()
+    btns[btns.length - 1]!.click()
     await waitFakeTimer(20, 10)
 
     expect(onOk).toHaveBeenCalledTimes(1)

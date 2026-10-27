@@ -223,7 +223,7 @@ describe('card', () => {
       },
       slots: { default: () => 'content' },
     })
-    await wrapper.findAll('.ant-tabs-tab')[1].trigger('click')
+    await wrapper.findAll('.ant-tabs-tab')[1]!.trigger('click')
     expect(onTabPropsChange).toHaveBeenCalledTimes(1)
     expect(onTabPropsChange).toHaveBeenCalledWith('tab2')
     expect(onTabChange).toHaveBeenCalledWith('tab2')
