@@ -127,7 +127,7 @@ function createSharedToken(
   styleContext: Ref<StyleProviderProps>,
 ): SharedToken {
   const salt = computed(() => `${version}-${designContext.value.hashed || ''}`)
-  const mergedTheme = computed(() => designContext.value?.theme || defaultTheme)
+  const mergedTheme = computed(() => (designContext.value?.theme || defaultTheme) as Theme<SeedToken, AliasToken>)
   const cssVar = computed(() => {
     const cssVar = designContext.value.cssVar
     return {

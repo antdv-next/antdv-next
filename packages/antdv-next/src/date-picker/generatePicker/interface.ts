@@ -1,10 +1,11 @@
 import type {
   PickerRef,
+  Components as VcComponents,
   Locale as VcPickerLocale,
   PickerProps as VcPickerProps,
   RangePickerProps as VcRangePickerProps,
 } from '@v-c/picker'
-import type { CSSProperties, Ref } from 'vue'
+import type { Component, CSSProperties, Ref } from 'vue'
 import type {
   SemanticClassNamesType,
   SemanticStylesType,
@@ -201,15 +202,24 @@ export interface BaseDefaultProps<Props> {
 /** Base Single Picker props */
 // export type PickerProps<DateType extends AnyObject = any> = VcPickerProps<DateType> & BaseDefaultProps<VcPickerProps<DateType>>
 
-export interface PickerProps<DateType extends AnyObject = any> extends BaseDefaultProps<DateType>, Omit<VcPickerProps, 'placement' | 'locale' | 'generateConfig' | 'hideHeader' | 'classNames' | 'styles' | RcEventKeys | 'className' | 'style' | 'rootClassName'> {
+/**
+ * Custom panel / button / input components. Like React's `ComponentType<SharedPanelProps>`,
+ * a component that only declares the panel props it uses is accepted.
+ */
+export type PickerComponents = Partial<Record<Exclude<keyof VcComponents, 'button' | 'input'>, Component>> & {
+  button?: Component | string
+  input?: Component | string
+}
 
+export interface PickerProps<DateType extends AnyObject = any> extends BaseDefaultProps<DateType>, Omit<VcPickerProps, 'placement' | 'locale' | 'generateConfig' | 'hideHeader' | 'classNames' | 'styles' | 'components' | RcEventKeys | 'className' | 'style' | 'rootClassName'> {
+  components?: PickerComponents
 }
 
 /** Base Range Picker props */
 export interface RangePickerProps<DateType extends AnyObject = any>
   extends BaseDefaultProps<DateType>,
-  Omit<VcRangePickerProps<DateType>, 'placement' | 'locale' | 'generateConfig' | 'hideHeader' | 'classNames' | 'styles' | RcEventKeys | 'className' | 'style' | 'rootClassName'> {
-
+  Omit<VcRangePickerProps<DateType>, 'placement' | 'locale' | 'generateConfig' | 'hideHeader' | 'classNames' | 'styles' | 'components' | RcEventKeys | 'className' | 'style' | 'rootClassName'> {
+  components?: PickerComponents
 }
 
 export type GenericTimePickerProps<DateType extends AnyObject = any> = Omit<

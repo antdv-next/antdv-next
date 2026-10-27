@@ -1,16 +1,43 @@
 import type {
   ListyClassNames,
-  ListyRef,
-  ListyScrollToConfig,
   ListyStyles,
   ScrollAlign,
   ListyProps as VcListyProps,
 } from '@v-c/listy'
+import type { Key } from '@v-c/util/dist/type'
 import type { StyleValue } from 'vue'
 import type { SemanticType } from '../_util/hooks/useMergeSemantic'
 import type { VueNode } from '../_util/type'
 
-export type { ListyClassNames, ListyRef, ListyScrollToConfig, ListyStyles, ScrollAlign }
+export type { ListyClassNames, ListyStyles, ScrollAlign }
+
+export interface ListyKeyScrollToConfig {
+  key: Key
+  align?: ScrollAlign
+  offset?: number
+}
+
+export interface ListyGroupScrollToConfig {
+  groupKey: Key
+  align?: ScrollAlign
+  offset?: number
+}
+
+export interface ListyPositionScrollToConfig {
+  left?: number
+  top?: number
+}
+
+export type ListyScrollToConfig
+  = | number
+    | null
+    | ListyKeyScrollToConfig
+    | ListyPositionScrollToConfig
+    | ListyGroupScrollToConfig
+
+export interface ListyRef {
+  scrollTo: (config?: ListyScrollToConfig) => void
+}
 
 export interface ListySemanticType {
   classes?: ListyClassNames

@@ -194,6 +194,7 @@ export type {
   ColumnType as TableColumnType,
   DataIndex as TableDataIndex,
   TableEmits,
+  FilterDropdownProps as TableFilterDropdownProps,
   TableLocale,
   TablePaginationConfig,
   TableProps,

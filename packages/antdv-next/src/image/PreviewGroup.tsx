@@ -1,5 +1,7 @@
 import type { PreviewGroupProps as VcPreviewGroupProps } from '@v-c/image'
+import type { SlotsType } from 'vue'
 import type { MaskType } from '../_util/hooks'
+import type { EmptyEmit } from '../_util/type'
 import type { DeprecatedPreviewConfig, ImageClassNamesType, ImageStylesType } from './index'
 import {
   CloseOutlined,
@@ -51,7 +53,18 @@ export interface PreviewGroupProps extends
   styles?: ImageStylesType
 }
 
-const InternalPreviewGroup = defineComponent<PreviewGroupProps>(
+export interface PreviewGroupSlots {
+  default?: () => any
+  countRender?: (...args: Parameters<NonNullable<OriginPreviewConfig['countRender']>>) => any
+  actionsRender?: (...args: Parameters<NonNullable<OriginPreviewConfig['actionsRender']>>) => any
+}
+
+const InternalPreviewGroup = defineComponent<
+  PreviewGroupProps,
+  EmptyEmit,
+  string,
+  SlotsType<PreviewGroupSlots>
+>(
   (props, { attrs, slots }) => {
     // =============================== MISC ===============================
     const {

@@ -115,14 +115,14 @@ export const calendarProps = [
   'showWeek',
 ]
 
-export interface CalendarSlots {
-  dateFullCellRender?: (ctx: { date: AnyObject }) => any
-  dateCellRender?: (ctx: { date: AnyObject }) => any
-  monthFullCellRender?: (ctx: { date: AnyObject }) => any
-  monthCellRender?: (ctx: { date: AnyObject }) => any
-  cellRender?: (ctx: { date: AnyObject, info: any }) => any
-  fullCellRender?: (ctx: { date: AnyObject, info: any }) => any
-  headerRender?: (config: { value: AnyObject, type: CalendarMode, onChange: (date: AnyObject) => void, onTypeChange: (type: CalendarMode) => void }) => any
+export interface CalendarSlots<DateType = AnyObject> {
+  dateFullCellRender?: (ctx: { date: DateType }) => any
+  dateCellRender?: (ctx: { date: DateType }) => any
+  monthFullCellRender?: (ctx: { date: DateType }) => any
+  monthCellRender?: (ctx: { date: DateType }) => any
+  cellRender?: (ctx: { date: DateType, info: any }) => any
+  fullCellRender?: (ctx: { date: DateType, info: any }) => any
+  headerRender?: (config: { value: DateType, type: CalendarMode, onChange: (date: DateType) => void, onTypeChange: (type: CalendarMode) => void }) => any
   [key: string]: any
 }
 
@@ -159,7 +159,7 @@ function generateCalendar<DateType extends AnyObject>(generateConfig: GenerateCo
     CalendarProps<DateType>,
     CalendarEmits<DateType>,
     string,
-    SlotsType<CalendarSlots>
+    SlotsType<CalendarSlots<DateType>>
   >(
     (props = { fullscreen: true }, { slots, attrs, emit, expose }) => {
       const {
@@ -279,7 +279,7 @@ function generateCalendar<DateType extends AnyObject>(generateConfig: GenerateCo
       }
 
       const resolveRender = (
-        key: keyof CalendarSlots,
+        key: keyof CalendarSlots<DateType>,
         args: any[],
         slotParams: any,
       ) => {

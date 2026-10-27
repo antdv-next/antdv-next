@@ -60,6 +60,7 @@ export interface CascaderSemanticClassNames {
   item?: string
   itemContent?: string
   itemRemove?: string
+  clear?: string
 }
 
 export interface CascaderSemanticStyles {
@@ -72,6 +73,7 @@ export interface CascaderSemanticStyles {
   item?: CSSProperties
   itemContent?: CSSProperties
   itemRemove?: CSSProperties
+  clear?: CSSProperties
 }
 
 function highlightKeyword(str: string, lowerKeyword: string, prefixCls?: string) {

@@ -12,7 +12,7 @@ import {
 } from './hooks/useSelection.tsx'
 import Table from './Table.tsx'
 
-export type { ColumnsType, ColumnType, ExpandType, FilterValue, SorterResult, SortOrder, TableLocale, TablePaginationConfig, TableRowSelection } from './interface.ts'
+export type { ColumnsType, ColumnType, ExpandType, FilterDropdownProps, FilterValue, SorterResult, SortOrder, TableLocale, TablePaginationConfig, TableRowSelection } from './interface.ts'
 export type { TableClassNamesType, TableEmits, TableExpose, TableProps, TableSlots, TableStylesType } from './InternalTable.tsx'
 export type { ForwardTableType as TableConstructor }
 export type { DataIndex, Reference }
