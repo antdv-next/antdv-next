@@ -29,7 +29,6 @@ function getComponentToken<
 
   if (options?.deprecatedTokens) {
     options.deprecatedTokens.forEach(([oldKey, newKey]) => {
-      // @ts-expect-error this is fine
       if (process.env.NODE_ENV !== 'production') {
         warning(
           !customToken?.[oldKey],

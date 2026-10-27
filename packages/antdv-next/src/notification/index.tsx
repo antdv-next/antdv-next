@@ -267,7 +267,6 @@ methods.forEach((type: keyof NoticeMethods) => {
 function noop() {}
 
 let _actWrapper: (wrapper: any) => void = noop
-// @ts-expect-error this
 if (process.env.NODE_ENV === 'test') {
   _actWrapper = (wrapper) => {
     act = wrapper
@@ -277,7 +276,6 @@ const actWrapper = _actWrapper
 export { actWrapper }
 
 let _actDestroy = noop
-// @ts-expect-error this
 if (process.env.NODE_ENV === 'test') {
   _actDestroy = () => {
     notification = null

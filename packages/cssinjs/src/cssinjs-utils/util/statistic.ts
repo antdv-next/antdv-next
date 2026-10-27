@@ -2,7 +2,6 @@ import type { TokenMap } from '../interface'
 
 declare const CSSINJS_STATISTIC: any
 
-// @ts-expect-error this is a global variable which injected by babel plugin
 const enableStatistic = process.env.NODE_ENV !== 'production' || typeof CSSINJS_STATISTIC !== 'undefined'
 
 let recording = true

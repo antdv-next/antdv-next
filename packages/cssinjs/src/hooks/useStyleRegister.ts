@@ -29,7 +29,6 @@ import hash from '../util/resolveHash'
 import unitless from '../util/resolveUnitless'
 import { useGlobalCache } from './useGlobalCache'
 
-// @ts-expect-error // FIXME:
 const isDev = process.env.NODE_ENV !== 'production'
 
 const SKIP_CHECK = '_skip_check_'
@@ -288,7 +287,6 @@ export function parseStyle(
         else {
           function appendStyle(cssKey: string, cssValue: any) {
             if (
-            // @ts-expect-error this is a valid check
               process.env.NODE_ENV !== 'production'
               && (typeof value !== 'object' || !(value as any)?.[SKIP_CHECK])
             ) {

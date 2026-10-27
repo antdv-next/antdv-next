@@ -96,7 +96,6 @@ function supportSelector(
     handleElement?.(ele)
     document.body.appendChild(ele)
 
-    // @ts-expect-error this is prototype
     if (process.env.NODE_ENV !== 'production') {
       ele.innerHTML = 'Test'
       ele.style.zIndex = '9999999'

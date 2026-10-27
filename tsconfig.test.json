@@ -7,7 +7,7 @@
     "paths": {
       "/@tests/*": ["./tests/*"]
     },
-    "types": ["@testing-library/jest-dom/vitest"],
+    "types": ["node", "@testing-library/jest-dom/vitest"],
     /* Linting */
     "strict": true,
     "noFallthroughCasesInSwitch": true,

@@ -11,7 +11,6 @@ export function resetWarned() {
   rcResetWarned()
 }
 
-// @ts-expect-error this is node
 export const isDev = process.env.NODE_ENV !== 'production'
 
 type Warning = (valid: boolean, component: string, message?: string) => void

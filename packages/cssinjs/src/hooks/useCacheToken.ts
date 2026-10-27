@@ -15,7 +15,6 @@ import { createGlobalCache, useGlobalCacheEntry } from './useGlobalCache'
 
 const EMPTY_OVERRIDE = {}
 
-// @ts-expect-error fix this
 const hashPrefix = process.env.NODE_ENV !== 'production'
   ? 'css-dev-only-do-not-override'
   : 'css'

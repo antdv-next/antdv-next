@@ -7,7 +7,7 @@
       "@v-c/portal": ["./node_modules/@v-c/portal"],
       "@v-c/portal/*": ["./node_modules/@v-c/portal/*"]
     },
-    "types": ["vite/client", "@testing-library/jest-dom/vitest"],
+    "types": ["node", "vite/client", "@testing-library/jest-dom/vitest"],
     /* Linting */
     "strict": true,
     "noFallthroughCasesInSwitch": true,
