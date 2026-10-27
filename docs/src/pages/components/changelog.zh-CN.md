@@ -2,6 +2,50 @@
 title: 组件更新日志
 ---
 
+## V1.7.1
+
+发布日期：2026-10-27
+
+本次版本将 ant-design 上游跟踪推进到 6.6.8 之后的 master（`912d4066db`），以问题修复为主。Splitter 支持在顶层统一配置 `destroyOnHidden`；集中修复了组件卸载后实例仍被引用、无法回收的问题（模块级共享的 vnode、卸载时的 watcher 清理、FormItem 持有的 DOM），以及 FormItem 改名后字段注册错乱、Steps 未绑定 `change` 时仍渲染可点击语义、Statistic 的 `#formatter` 插槽不生效等问题。同时升级了一批 `@v-c/*` 基础组件：输入类组件的 `allowClear` 配置统一，Pagination 的交互语义移到内部控件上。
+
+**✨ 新功能 Features**
+
+* feat(splitter)：Splitter 支持顶层 `destroyOnHidden`，作用于所有面板，可在单个面板上覆盖（[#1046](https://github.com/antdv-next/antdv-next/pull/1046)）
+
+**🐞 问题修复 Fixes**
+
+* fix(empty, popconfirm, float-button, cascader, qrcode)：模块级共享的内置图片 / 图标 vnode 以及从 props、插槽、ConfigProvider 传入的 vnode 会一直持有首次挂载的组件实例，导致卸载后无法回收；现在在渲染阶段克隆（[#1056](https://github.com/antdv-next/antdv-next/pull/1056)）
+* fix(anchor, checkbox, form, grid, affix)：卸载时的 watcher 清理不再读取响应式状态，子组件卸载不会让父组件多渲染一次，父组件也不再持有已卸载组件的 computed。涉及 Anchor、CheckboxGroup、Form、Affix，以及使用 `useBreakpoint` 的 Row、Table、Avatar、Pagination、Descriptions、Steps、Masonry、FormItem
+* fix(form)：FormItem 卸载后释放已脱离文档的 DOM（[#1040](https://github.com/antdv-next/antdv-next/pull/1040)）；FormItem 的 `name` 变化时重新注册字段，动态列表中新增的项不再覆盖改名的项，`validateFields` / `resetFields` 不再漏掉字段；字符串 label 末尾的 `|` 不再被去掉（#59599）
+* fix(steps)：未绑定 `change` 或 `v-model:current` 时不再渲染 `role="button"`、`tabindex` 等可点击语义，只绑定 `v-model:current` 时恢复波纹效果（[#1057](https://github.com/antdv-next/antdv-next/pull/1057)）；props 不再泄漏为根元素的 DOM 属性（[#1054](https://github.com/antdv-next/antdv-next/pull/1054)）；错误状态的步骤图标渲染为 `CloseOutlined`（[#1049](https://github.com/antdv-next/antdv-next/pull/1049)）
+* fix(statistic)：实现文档中的 `#formatter` 插槽，作用域参数为 `{ value }`，优先于 `formatter` 属性，Statistic.Timer 同样生效（[#1047](https://github.com/antdv-next/antdv-next/pull/1047)）
+* fix(modal)：恢复确认框内容的排版样式（[#1051](https://github.com/antdv-next/antdv-next/pull/1051)）；内部面板（PurePanel）的 `#footer` 插槽没有传入 `originNode` / `extra` 参数，解构时报错
+* fix(table)：动态注册的 `expandedRowRender` 插槽不渲染展开列（[#1048](https://github.com/antdv-next/antdv-next/pull/1048)）
+* fix(switch)：通过 ref 暴露 `nativeElement`、`focus`、`blur`（[#1055](https://github.com/antdv-next/antdv-next/pull/1055)）
+* fix(slider)：范围模式下 `blur` 事件只触发一次（[#1037](https://github.com/antdv-next/antdv-next/pull/1037)）；支持 `mark` 插槽渲染（[#1041](https://github.com/antdv-next/antdv-next/pull/1041)）
+* fix(spin)：语义化 classes / styles 作用到自定义指示器（[#1043](https://github.com/antdv-next/antdv-next/pull/1043)）
+* fix(space)：分隔符的 class 由 `prefixCls` 派生，与上游一致（[#1042](https://github.com/antdv-next/antdv-next/pull/1042)）
+* fix(listy)：虚拟滚动条背景色使用 `colorSplit`（[#1053](https://github.com/antdv-next/antdv-next/pull/1053)）
+* fix(message)：消息列表的内容区不再拦截指针事件（[#1045](https://github.com/antdv-next/antdv-next/pull/1045)）
+* fix(upload)：判断缩略图时忽略 URL 中的查询参数与 hash（#59649）；图片解码失败时预览 Promise 正常结束并清理资源（#59583）
+* fix(pagination)：分页禁止文本选中（#59638）；内部控件保留焦点样式（#59573）
+* fix(progress)：`aria-valuenow` 使用 `percent`，而不是成功进度（#59634）；线形进度条支持字符串形式的 `width`（#59597）
+* fix(card)：重置标题中 Typography 标题的外边距（#59613）
+* fix(color-picker)：恢复格式选择器的字号与间距（#59610）
+
+**📖 文档 Documentation**
+
+* docs(config-provider)：wave 示例改用 happy-work-theme 的 `HappyProvider`（[#1052](https://github.com/antdv-next/antdv-next/pull/1052)）
+* docs(spin)：语义化示例补充 `section` / `description` / `container`（[#1044](https://github.com/antdv-next/antdv-next/pull/1044)）
+* docs：修正 FAQ 错别字（#59656）；CDN 示例版本更新到 1.7.0；站点的七夕彩蛋替换为 1024 程序员节彩蛋（`/1024`）
+
+**🧰 工程与依赖 Infrastructure & Dependencies**
+
+* chore(deps)：升级 `@v-c/util` 1.4.0、`input` 1.3.0、`textarea` 1.2.0、`input-number` 1.2.0、`select` 1.3.0、`picker` 1.6.0、`mentions` 1.3.0，统一 `allowClear` 配置（`allowClear.disabled` 为 `true` 时不再渲染清除按钮）；`@v-c/pagination` 1.3.0，页码与上一页 / 下一页的交互语义从 `li` 移到内部控件上
+* chore(deps)：升级 `@v-c/menu` 1.4.4、`tabs` 1.4.3、`tour` 1.1.3、`slick` 1.0.3、`color-picker` 1.0.8（卸载清理修复：Menu、ColorPicker 卸载不再触发父组件重渲染，Tour 不再遗留 window 监听），以及 `virtual-list` 1.1.4、`progress` 1.1.0、`upload` 1.1.1、`switch` 1.0.2、`image` 1.1.3、`table` 1.3.5
+* refactor(style)：移除 Tabs（#59662）、Tooltip（#59644）、Notification（#59645）、Dropdown（#59605）、Input（#59604）中已失效的选择器与样式；Anchor 移除未使用的组件 token `anchorBallSize`（#59389）
+* chore(sync)：ant-design 上游跟踪推进到 6.6.8 之后的 master（`912d4066db`）
+
 ## V1.7.0
 
 发布日期：2026-10-17

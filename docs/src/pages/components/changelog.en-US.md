@@ -2,6 +2,50 @@
 title: Component Changelog
 ---
 
+## V1.7.1
+
+Release Date: 2026-10-27
+
+This release advances ant-design upstream tracking to master after 6.6.8 (`912d4066db`) and is mostly bug fixes. Splitter can set `destroyOnHidden` once at the top level. A group of fixes stops unmounted components from staying referenced and never being collected (module-level shared vnodes, watcher cleanups on unmount, DOM held by FormItem). It also fixes FormItem field registration after a rename, Steps rendering clickable semantics without a `change` binding, the Statistic `#formatter` slot being ignored, and more. A batch of `@v-c/*` packages is upgraded: `allowClear` is unified across the input components, and Pagination moves its interaction semantics onto the inner controls.
+
+**✨ Features**
+
+* feat(splitter): support a top-level `destroyOnHidden` that applies to every panel and can be overridden per panel ([#1046](https://github.com/antdv-next/antdv-next/pull/1046))
+
+**🐞 Fixes**
+
+* fix(empty, popconfirm, float-button, cascader, qrcode): module-level built-in image / icon vnodes, and vnodes passed in through props, slots or ConfigProvider, kept the component instance they were first mounted in, so it was never collected after unmounting; they are now cloned at render time ([#1056](https://github.com/antdv-next/antdv-next/pull/1056))
+* fix(anchor, checkbox, form, grid, affix): watcher cleanups on unmount no longer read reactive state, so unmounting a child no longer re-renders the parent and the parent no longer holds the unmounted component's computeds. This covers Anchor, CheckboxGroup, Form, Affix, and the components using `useBreakpoint`: Row, Table, Avatar, Pagination, Descriptions, Steps, Masonry and FormItem
+* fix(form): FormItem releases detached DOM after unmounting ([#1040](https://github.com/antdv-next/antdv-next/pull/1040)); FormItem re-registers its field when `name` changes, so in dynamic lists a newly added item no longer overwrites a renamed one and `validateFields` / `resetFields` no longer skip fields; a trailing `|` in a string label is kept (#59599)
+* fix(steps): steps no longer render clickable semantics such as `role="button"` and `tabindex` when neither `change` nor `v-model:current` is bound, and the wave effect is back when only `v-model:current` is bound ([#1057](https://github.com/antdv-next/antdv-next/pull/1057)); props no longer leak into root DOM attributes ([#1054](https://github.com/antdv-next/antdv-next/pull/1054)); the error step icon renders `CloseOutlined` ([#1049](https://github.com/antdv-next/antdv-next/pull/1049))
+* fix(statistic): implement the documented `#formatter` slot with a `{ value }` scope; it takes precedence over the `formatter` prop and works for Statistic.Timer too ([#1047](https://github.com/antdv-next/antdv-next/pull/1047))
+* fix(modal): restore the confirm content typography styles ([#1051](https://github.com/antdv-next/antdv-next/pull/1051)); the internal panel (PurePanel) called the `#footer` slot without `originNode` / `extra`, which threw when destructured
+* fix(table): a dynamically registered `expandedRowRender` slot did not render the expand column ([#1048](https://github.com/antdv-next/antdv-next/pull/1048))
+* fix(switch): expose `nativeElement`, `focus` and `blur` through the ref ([#1055](https://github.com/antdv-next/antdv-next/pull/1055))
+* fix(slider): `blur` fires exactly once in range mode ([#1037](https://github.com/antdv-next/antdv-next/pull/1037)); support rendering the `mark` slot ([#1041](https://github.com/antdv-next/antdv-next/pull/1041))
+* fix(spin): semantic classes / styles apply to a custom indicator ([#1043](https://github.com/antdv-next/antdv-next/pull/1043))
+* fix(space): the separator class is derived from `prefixCls`, matching upstream ([#1042](https://github.com/antdv-next/antdv-next/pull/1042))
+* fix(listy): the virtual scrollbar background uses `colorSplit` ([#1053](https://github.com/antdv-next/antdv-next/pull/1053))
+* fix(message): the message list content no longer captures pointer events ([#1045](https://github.com/antdv-next/antdv-next/pull/1045))
+* fix(upload): ignore the query and hash of a URL when detecting thumbnails (#59649); the preview promise settles and resources are cleaned up when an image fails to decode (#59583)
+* fix(pagination): keep the pagination unselectable (#59638); preserve focus styles on the inner controls (#59573)
+* fix(progress): `aria-valuenow` uses `percent` instead of the success percent (#59634); the line progress respects a string `width` (#59597)
+* fix(card): reset the margins of Typography titles in the card title (#59613)
+* fix(color-picker): restore the format selector font size and spacing (#59610)
+
+**📖 Documentation**
+
+* docs(config-provider): the wave demo uses `HappyProvider` from happy-work-theme ([#1052](https://github.com/antdv-next/antdv-next/pull/1052))
+* docs(spin): add `section` / `description` / `container` to the semantic demo ([#1044](https://github.com/antdv-next/antdv-next/pull/1044))
+* docs: fix typos in the FAQ (#59656); bump the CDN example to 1.7.0; replace the site's Qixi easter egg with a 1024 Programmer's Day egg (`/1024`)
+
+**🧰 Infrastructure & Dependencies**
+
+* chore(deps): upgrade `@v-c/util` 1.4.0, `input` 1.3.0, `textarea` 1.2.0, `input-number` 1.2.0, `select` 1.3.0, `picker` 1.6.0 and `mentions` 1.3.0, which unify the `allowClear` config (`allowClear.disabled: true` no longer renders a clear button at all); `@v-c/pagination` 1.3.0 moves the interaction semantics of page items and the prev / next buttons from the `li` onto the inner control
+* chore(deps): upgrade `@v-c/menu` 1.4.4, `tabs` 1.4.3, `tour` 1.1.3, `slick` 1.0.3 and `color-picker` 1.0.8 (unmount cleanup fixes: unmounting Menu or ColorPicker no longer re-renders the parent, and Tour no longer leaves window listeners behind), plus `virtual-list` 1.1.4, `progress` 1.1.0, `upload` 1.1.1, `switch` 1.0.2, `image` 1.1.3 and `table` 1.3.5
+* refactor(style): remove obsolete selectors and styles from Tabs (#59662), Tooltip (#59644), Notification (#59645), Dropdown (#59605) and Input (#59604); Anchor drops the unused `anchorBallSize` component token (#59389)
+* chore(sync): advance ant-design upstream tracking to master after 6.6.8 (`912d4066db`)
+
 ## V1.7.0
 
 Release Date: 2026-10-17
