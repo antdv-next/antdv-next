@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { PopoverProps } from 'antdv-next'
 import { computed } from 'vue'
 import { useMobile } from '@/composables/mobile'
 import { useCommercialSponsors } from '@/composables/sponsors'
@@ -10,7 +11,7 @@ const appStore = useAppStore()
 const { isMobile } = useMobile()
 const { homeSponsors } = useCommercialSponsors()
 const sponsorLocale = computed(() => appStore.locale === 'zh-CN' ? 'cn' : 'en')
-const popoverTrigger = computed(() => isMobile.value ? ['click'] : ['hover', 'focus'])
+const popoverTrigger = computed<PopoverProps['trigger']>(() => isMobile.value ? ['click'] : ['hover', 'focus'])
 </script>
 
 <template>

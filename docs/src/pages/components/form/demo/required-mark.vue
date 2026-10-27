@@ -11,8 +11,10 @@ import type { FormProps } from 'antdv-next'
 import { InfoCircleOutlined } from '@antdv-next/icons'
 import { h, reactive } from 'vue'
 
+type RequiredMarkValue = boolean | 'optional' | 'customize'
+
 const model = reactive({
-  requiredMarkValue: 'optional',
+  requiredMarkValue: 'optional' as RequiredMarkValue,
   fieldA: '',
   fieldB: '',
 })
@@ -48,7 +50,7 @@ const customizeRequiredMark: NonNullable<FormProps['requiredMark']> = (labelNode
   )
 }
 
-function formRequiredMark(value: string | boolean) {
+function formRequiredMark(value: RequiredMarkValue): FormProps['requiredMark'] {
   return value === 'customize' ? customizeRequiredMark : value
 }
 </script>
@@ -57,7 +59,7 @@ function formRequiredMark(value: string | boolean) {
   <a-form
     layout="vertical"
     :model="model"
-    :required-mark="formRequiredMark(model.requiredMarkValue as any)"
+    :required-mark="formRequiredMark(model.requiredMarkValue)"
     style="max-width: 600px"
   >
     <a-form-item label="Required Mark" name="requiredMarkValue">

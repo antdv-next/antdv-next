@@ -2372,7 +2372,6 @@ exports[`space demo > renders compact correctly 1`] = `
         <!---->
         <div
           class="ant-select-content ant-select-content-has-value"
-          title="leaf1"
         >
           leaf1
           <input

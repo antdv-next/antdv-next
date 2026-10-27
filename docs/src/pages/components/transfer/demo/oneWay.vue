@@ -7,7 +7,7 @@ Use `oneWay` to make Transfer the one way style.
 </docs>
 
 <script setup lang="ts">
-import type { TransferEmits } from 'antdv-next'
+import type { TransferEmits, TransferKey } from 'antdv-next'
 import { ref } from 'vue'
 
 interface RecordType {
@@ -26,7 +26,7 @@ const mockData = Array.from({ length: 20 }).map<RecordType>((_, i) => ({
 
 const oriTargetKeys = mockData.filter(item => Number(item.key) % 3 > 1).map(item => item.key)
 
-const targetKeys = ref(oriTargetKeys)
+const targetKeys = ref<TransferKey[]>(oriTargetKeys)
 const selectedKeys = ref<string[]>([])
 const disabled = ref(false)
 

@@ -48,8 +48,8 @@ const colorOf = (letter: string) => colors[(letter.charCodeAt(0) - 65) % colors.
     :row-key="(item: Contact) => item.id"
     :height="400"
     :group="{
-      key: (contact: Contact) => contact.name[0],
-      title: (letter: unknown) => letter,
+      key: (contact: Contact) => contact.name.charAt(0),
+      title: (letter) => letter,
     }"
     sticky
   >

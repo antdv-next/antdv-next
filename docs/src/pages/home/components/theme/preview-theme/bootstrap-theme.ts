@@ -173,7 +173,7 @@ function useBootstrapTheme() {
     },
 
     alert: {
-      classes: styles.alertRoot,
+      classes: { root: styles.alertRoot },
     },
     colorPicker: {
       arrow: false,

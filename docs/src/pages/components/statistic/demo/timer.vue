@@ -14,7 +14,7 @@ const tenSecondsLater = Date.now() + 10 * 1000
 function onFinish() {
   console.log('finished!')
 }
-function onChange(val?: number) {
+function onChange(val?: number | string) {
   if (typeof val === 'number' && 4.95 * 1000 < val && val < 5 * 1000) {
     console.log('changed!')
   }

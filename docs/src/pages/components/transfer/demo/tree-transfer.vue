@@ -7,7 +7,7 @@ Customize the render list with a Tree component.
 </docs>
 
 <script setup lang="ts">
-import type { TransferEmits } from 'antdv-next'
+import type { TransferEmits, TransferKey } from 'antdv-next'
 import { ref } from 'vue'
 
 interface TreeNode {
@@ -48,7 +48,7 @@ const transferDataSource = flattenData(treeData, []).map(item => ({
   title: item.title,
 }))
 
-const isChecked = (selectedKeys: string[], eventKey: string) => selectedKeys.includes(eventKey)
+const isChecked = (selectedKeys: TransferKey[], eventKey: TransferKey) => selectedKeys.includes(eventKey)
 
 function generateTree(treeNodes: TreeNode[] = [], checkedKeys: string[] = []): TreeNode[] {
   return treeNodes.map(({ children, ...props }) => ({

@@ -42,7 +42,7 @@ const styles: ListyProps['styles'] = {
     :row-key="(item: User) => item.id"
     :height="260"
     sticky
-    :group="{ key: (user: User) => user.team, title: (team: unknown) => team }"
+    :group="{ key: (user: User) => user.team, title: (team) => team }"
     :item-render="(user: User) => user.name"
     :classes="classes"
     :styles="styles"

@@ -23,8 +23,8 @@ const { token } = theme.useToken()
 
 const panelStyle = computed<CSSProperties>(() => ({
   marginBottom: '24px',
-  background: token.colorFillAlter,
-  borderRadius: token.borderRadiusLG,
+  background: token.value.colorFillAlter,
+  borderRadius: `${token.value.borderRadiusLG}px`,
   border: 'none',
 }))
 

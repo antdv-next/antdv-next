@@ -8,7 +8,7 @@ function waitForHashTarget(targetId: string, timeout = 5000) {
     const root = document.body ?? document.documentElement
     const getTarget = () => document.getElementById(targetId)
     let observer: MutationObserver | null = null
-    let timer: ReturnType<typeof window.setTimeout> | null = null
+    let timer: number | null = null
 
     const resolveWithCleanup = (element: HTMLElement | null) => {
       observer?.disconnect()

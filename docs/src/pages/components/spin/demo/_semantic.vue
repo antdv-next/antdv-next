@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { CSSProperties } from 'vue'
 import { computed } from 'vue'
 import { SemanticPreview } from '@/components/semantic'
 import { useComponentLocale } from '@/composables/use-locale'
@@ -14,7 +15,7 @@ const semantics = computed(() => [
   { name: 'container', desc: t('container'), version: '1.0.3' },
 ])
 
-const sharedStyles = {
+const sharedStyles: CSSProperties = {
   position: 'relative',
   display: 'flex',
   alignItems: 'center',

@@ -7,7 +7,9 @@ TimePicker of 12 hours format, with default format `h:mm:ss a`.
 </docs>
 
 <script setup lang="ts">
-function onChange(time: any, timeString: string) {
+import type { TimePickerEmits } from 'antdv-next'
+
+const onChange: TimePickerEmits['change'] = (time, timeString) => {
   console.log(time, timeString)
 }
 </script>

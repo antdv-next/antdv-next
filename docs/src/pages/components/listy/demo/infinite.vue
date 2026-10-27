@@ -27,7 +27,7 @@ const loading = ref(false)
 const loadingRef = ref(false)
 
 function onScroll(event: Event) {
-  const { scrollTop, clientHeight, scrollHeight } = event.currentTarget
+  const { scrollTop, clientHeight, scrollHeight } = event.currentTarget as HTMLElement
   if (scrollHeight - scrollTop - clientHeight > 200 || loadingRef.value) {
     return
   }

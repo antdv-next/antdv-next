@@ -1,8 +1,9 @@
 <script setup lang="ts">
+import type { InputNumberProps } from 'antdv-next'
 import { AlipayCircleOutlined, GithubOutlined, HeartOutlined, TeamOutlined, UserOutlined, WechatOutlined } from '@antdv-next/icons'
 import { message } from 'antdv-next'
 import dayjs from 'dayjs'
-import { computed, onMounted, onUnmounted, reactive, ref, shallowRef, watch } from 'vue'
+import { computed, onMounted, onUnmounted, reactive, shallowRef, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { useCommercialSponsors } from '@/composables/sponsors'
 import { getSponsorDescription, getSponsorUrl, sponsorApiBaseUrl } from '@/config/sponsors'
@@ -107,7 +108,7 @@ const enterpriseSponsorForm = reactive<EnterpriseSponsorForm>({
   websiteDescription: '',
 })
 
-const customInputStyles = {
+const customInputStyles: InputNumberProps['styles'] = {
   input: {
     textAlign: 'center',
     fontWeight: 700,
@@ -196,8 +197,6 @@ function loadMore() {
   displayedCount.value = Math.min(displayedCount.value + BATCH, allSponsors.value.length)
 }
 
-const scrollContainerRef = ref<HTMLElement>()
-
 function onSponsorScroll(e: Event) {
   const el = e.target as HTMLElement
   if (el.scrollTop + el.clientHeight >= el.scrollHeight - 80) {
@@ -206,8 +205,6 @@ function onSponsorScroll(e: Event) {
 }
 
 // Glow effect
-const sponsorGridRef = ref<HTMLElement>()
-
 function onGlowMove(e: MouseEvent) {
   const card = (e.target as HTMLElement).closest('.sponsor-card') as HTMLElement | null
   if (!card)
@@ -787,8 +784,8 @@ watch(scanPayVisible, (visible) => {
               </div>
 
               <!-- Scroll container -->
-              <div ref="scrollContainerRef" class="scroll-container" @scroll="onSponsorScroll">
-                <div ref="sponsorGridRef" class="grid grid-cols-1 sm:grid-cols-2 gap-3" @mousemove="onGlowMove">
+              <div class="scroll-container" @scroll="onSponsorScroll">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" @mousemove="onGlowMove">
                   <div
                     v-for="(item, index) in displayedSponsors"
                     :key="item.orderNo || index"

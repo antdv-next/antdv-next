@@ -5,6 +5,8 @@
     "lib": ["esnext", "dom"],
     "paths": {
       "@/*": ["./src/*"],
+      // docs-plugins@0.0.4 maps `./component/*` types to non-existent `*.d.ts` files
+      "@antdv-next/docs-plugins/component/*": ["./node_modules/@antdv-next/docs-plugins/src/components/*"],
       "@antdv-next/cssinjs": ["../packages/cssinjs/src/index.ts"],
       "@antdv-next/cssinjs/cssinjs-utils": ["../packages/cssinjs/src/cssinjs-utils/index.ts"],
       "antdv-next": ["../packages/antdv-next/src/index.ts"],

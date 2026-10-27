@@ -33,8 +33,8 @@ const pad = (value: number) => String(value).padStart(2, '0')
 
 const notifications: Notification[] = Array.from({ length: 12 }, (_, index) => ({
   id: index,
-  user: users[index % users.length],
-  message: messages[index % messages.length],
+  user: users[index % users.length]!,
+  message: messages[index % messages.length]!,
   time: `${pad((8 + index) % 24)}:${pad((index * 17) % 60)}`,
 }))
 </script>

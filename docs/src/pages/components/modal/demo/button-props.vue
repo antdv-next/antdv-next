@@ -14,12 +14,12 @@ function showModal() {
   open.value = true
 }
 
-function handleOk(e: MouseEvent) {
+function handleOk(e: MouseEvent | KeyboardEvent) {
   console.log(e)
   open.value = false
 }
 
-function handleCancel(e: MouseEvent) {
+function handleCancel(e: MouseEvent | KeyboardEvent) {
   console.log(e)
   open.value = false
 }

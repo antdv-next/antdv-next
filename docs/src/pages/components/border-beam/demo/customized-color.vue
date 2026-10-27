@@ -87,8 +87,8 @@ const presets: Preset[] = [
   },
 ]
 
-const currentKey = ref<string>(presets[0].key)
-const currentPreset = computed(() => presets.find(item => item.key === currentKey.value) ?? presets[0])
+const currentKey = ref<string>(presets[0]!.key)
+const currentPreset = computed(() => presets.find(item => item.key === currentKey.value) ?? presets[0]!)
 const segmentOptions = computed(() => presets.map(preset => ({ label: preset.name, value: preset.key })))
 </script>
 

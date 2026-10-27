@@ -7,7 +7,7 @@ Custom the labels for select all checkboxes.
 </docs>
 
 <script setup lang="ts">
-import type { TransferEmits, TransferProps } from 'antdv-next'
+import type { TransferEmits, TransferKey, TransferProps } from 'antdv-next'
 import { ref } from 'vue'
 
 interface RecordType {
@@ -26,10 +26,10 @@ const oriTargetKeys = mockData.filter(item => Number(item.key) % 3 > 1).map(item
 
 const selectAllLabels: TransferProps['selectAllLabels'] = [
   'Select All',
-  ({ selectedCount, totalCount }) => `${selectedCount}/${totalCount}`,
+  ({ selectedCount, totalCount }: { selectedCount: number, totalCount: number }) => `${selectedCount}/${totalCount}`,
 ]
 
-const targetKeys = ref(oriTargetKeys)
+const targetKeys = ref<TransferKey[]>(oriTargetKeys)
 
 const handleChange: TransferEmits['change'] = (newTargetKeys) => {
   targetKeys.value = newTargetKeys

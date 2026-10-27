@@ -12,13 +12,15 @@ import { UploadOutlined } from '@antdv-next/icons'
 import { message } from 'antdv-next'
 import { ref } from 'vue'
 
+type FileType = Parameters<NonNullable<UploadProps['beforeUpload']>>[0]
+
 const fileList = ref<UploadFile[]>([])
 const uploading = ref(false)
 
 function handleUpload() {
   const formData = new FormData()
   fileList.value.forEach((file) => {
-    formData.append('files[]', file as File)
+    formData.append('files[]', file as FileType)
   })
   uploading.value = true
   fetch('https://660d2bd96ddfa2943b33731c.mockapi.io/api/upload', {

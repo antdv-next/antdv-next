@@ -9,7 +9,7 @@ const mode = ref<'single' | 'multiple'>('single')
 const { t } = useComponentLocale(locales)
 
 const semantics = computed(() => {
-  const base = [
+  const base: { name: string, desc: string, version?: string }[] = [
     { name: 'root', desc: t('root') },
     { name: 'prefix', desc: t('prefix') },
     { name: 'placeholder', desc: t('placeholder') },

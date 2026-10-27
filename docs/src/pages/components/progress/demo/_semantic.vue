@@ -15,7 +15,13 @@ const semantics = computed(() => [
 ])
 
 const gradient = ref(false)
-const type = ref('line')
+type DemoType = 'line' | 'circle' | 'dashboard' | 'steps'
+
+const type = ref<DemoType>('line')
+
+function onTypeChange(val: string | number) {
+  type.value = val as DemoType
+}
 
 const colorMap = {
   '0%': '#108ee9',
@@ -34,7 +40,7 @@ const colorMap = {
           <a-segmented
             :options="['line', 'steps', 'circle', 'dashboard']"
             :value="type"
-            @change="(val: string) => type = val"
+            @change="onTypeChange"
           />
           <a-switch
             :checked="gradient"

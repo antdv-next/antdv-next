@@ -16,7 +16,7 @@ function getGradientColor(percentage: number) {
   const endColor = [255, 204, 199]
 
   const midColor = startColor.map((start, i) => {
-    const end = endColor[i]
+    const end = endColor[i]!
     const delta = end - start
     return (start + delta * percentage).toFixed(0)
   })
@@ -34,7 +34,7 @@ function getGradientColor(percentage: number) {
         background: 'transparent',
       },
       tracks: {
-        background: `linear-gradient(to right, ${getGradientColor(value[0] / 100)} 0%, ${getGradientColor(value[value.length - 1] / 100)} 100%)`,
+        background: `linear-gradient(to right, ${getGradientColor(value[0]! / 100)} 0%, ${getGradientColor(value[value.length - 1]! / 100)} 100%)`,
       },
     }"
   />

@@ -7,11 +7,12 @@ Focus with additional option.
 </docs>
 
 <script setup lang="ts">
+import type { InputNumberRef } from 'antdv-next'
 import { ref, useTemplateRef } from 'vue'
 
 const value = ref(999)
-const inputRef = useTemplateRef('input')
-function handleFocus(options: unknown) {
+const inputRef = useTemplateRef<InputNumberRef>('input')
+function handleFocus(options: Parameters<InputNumberRef['focus']>[0]) {
   inputRef.value?.focus(options)
 }
 </script>

@@ -32,7 +32,7 @@ const handleMenuClick: MenuProps['onClick'] = (info) => {
 }
 
 const pageTurning = computed(() => {
-  const menus: AntdvMenuItem[] = siderMenus.value.reduce(
+  const menus = siderMenus.value.reduce<AntdvMenuItem[]>(
     (pre, current) => {
       if (current.children) {
         return [...pre, ...current.children]

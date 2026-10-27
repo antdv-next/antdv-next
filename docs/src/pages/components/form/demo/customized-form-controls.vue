@@ -7,6 +7,7 @@ Customized form controls.
 </docs>
 
 <script setup lang="ts">
+import type { SelectValue } from 'antdv-next'
 import type { PropType } from 'vue'
 import { InputNumber, Select } from 'antdv-next'
 import { defineComponent, h, reactive, ref, watch } from 'vue'
@@ -59,9 +60,9 @@ const PriceInput = defineComponent({
       triggerChange({ number: newNumber })
     }
 
-    const onCurrencyChange = (value: Currency) => {
-      currency.value = value
-      triggerChange({ currency: value })
+    const onCurrencyChange = (value: SelectValue) => {
+      currency.value = value as Currency
+      triggerChange({ currency: value as Currency })
     }
 
     return () => h(

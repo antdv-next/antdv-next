@@ -27,7 +27,7 @@ const feedbackIcons: FormProps['feedbackIcons'] = ({ errors }) => ({
     Tooltip,
     {
       color: 'red',
-      title: renderErrors(errors),
+      title: () => renderErrors(errors),
     },
     {
       default: () => h(CloseSquareFilled),
@@ -41,7 +41,7 @@ function customItemIcons({ errors }: { errors?: string[] }) {
       Tooltip,
       {
         color: 'pink',
-        title: renderErrors(errors),
+        title: () => renderErrors(errors),
       },
       {
         default: () => h(AlertFilled),

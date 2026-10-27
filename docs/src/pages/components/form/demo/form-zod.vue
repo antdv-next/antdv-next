@@ -34,7 +34,7 @@ function zodValidator(field: ZodType): Rule {
     async validator(_rule, value) {
       const result = field.safeParse(value)
       if (!result.success)
-        throw new Error(result.error.issues[0].message)
+        throw new Error(result.error.issues[0]?.message)
     },
   }
 }

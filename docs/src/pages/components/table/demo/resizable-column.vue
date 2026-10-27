@@ -11,7 +11,7 @@ Use numeric (px) `width` values on resizable tables and leave `width` unset on c
 </docs>
 
 <script setup lang="ts">
-import type { TableProps } from 'antdv-next'
+import type { TableEmits, TableProps } from 'antdv-next'
 import { ref } from 'vue'
 
 interface DataType {
@@ -42,7 +42,7 @@ const dataSource: DataType[] = [
   { key: 2, date: '2018-04-11', amount: 98, type: 'income', note: 'transfer' },
 ]
 
-const onResizeColumn: TableProps<DataType>['onResizeColumn'] = (width, _column, columnKey) => {
+const onResizeColumn: TableEmits<DataType>['resizeColumn'] = (width, _column, columnKey) => {
   columns.value = columns.value.map(col => (col.key === columnKey ? { ...col, width } : col))
 }
 </script>

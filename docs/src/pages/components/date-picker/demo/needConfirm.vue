@@ -7,10 +7,10 @@ DatePicker will automatically determine whether to show a confirm button accordi
 </docs>
 
 <script setup lang="ts">
-import type { DatePickerProps } from 'antdv-next'
+import type { DatePickerEmits } from 'antdv-next'
 import type { Dayjs } from 'dayjs'
 
-const handleChange: DatePickerProps<Dayjs, false>['onChange'] = (date, dateString) => {
+const handleChange: DatePickerEmits<Dayjs>['change'] = (date, dateString) => {
   console.log(date, dateString)
 }
 </script>

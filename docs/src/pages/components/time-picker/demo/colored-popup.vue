@@ -7,6 +7,7 @@ Passing custom class to `TimePicker` popup.
 </docs>
 
 <script setup lang="ts">
+import type { TimePickerEmits } from 'antdv-next'
 import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
 
@@ -14,7 +15,7 @@ dayjs.extend(customParseFormat)
 
 const defaultOpenValue = dayjs('00:00:00', 'HH:mm:ss')
 
-function onChange(time: any, timeString: string) {
+const onChange: TimePickerEmits['change'] = (time, timeString) => {
   console.log(time, timeString)
 }
 </script>

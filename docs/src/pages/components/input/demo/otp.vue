@@ -11,7 +11,7 @@ function onChange(text: string) {
   console.log('onChange:', text)
 }
 
-function onInput(value: string) {
+function onInput(value: string[]) {
   console.log('onInput:', value)
 }
 </script>

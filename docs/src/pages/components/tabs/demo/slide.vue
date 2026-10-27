@@ -9,7 +9,7 @@ In order to fit in more tabs, they can slide left and right (or up and down).
 <script setup lang="ts">
 import { ref } from 'vue'
 
-type TabPlacement = 'top' | 'left'
+type TabPlacement = 'top' | 'start'
 
 interface TabItem {
   key: string
@@ -39,7 +39,7 @@ const activeKey = ref('0')
       <a-radio-button value="top">
         Horizontal
       </a-radio-button>
-      <a-radio-button value="left">
+      <a-radio-button value="start">
         Vertical
       </a-radio-button>
     </a-radio-group>

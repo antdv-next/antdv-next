@@ -43,7 +43,7 @@ generateData(z)
 const gData = ref<TreeDataNode[]>(defaultData)
 const expandedKeys = ref(['0-0', '0-0-0', '0-0-0-0'])
 
-const onDragEnter: TreeEmits['dragEnter'] = (info) => {
+const onDragEnter: TreeEmits['dragenter'] = (info) => {
   console.log(info)
   // expandedKeys, set it when controlled is needed
   // expandedKeys.value = info.expandedKeys

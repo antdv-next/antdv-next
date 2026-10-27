@@ -36,7 +36,7 @@ const stylesFn: TransferProps['styles'] = (info) => {
     return {
       section: { backgroundColor: 'rgba(246,255,237, 0.6)', borderColor: '#b7eb8f' },
       header: { color: '#8DBCC7', fontWeight: 'normal' },
-    } as TransferProps['styles']
+    }
   }
   return {}
 }

@@ -29,11 +29,11 @@ function removeItem(index: number) {
 }
 
 function addSubItem(index: number) {
-  model.items[index].list.push({ first: '', second: '' })
+  model.items[index]!.list.push({ first: '', second: '' })
 }
 
 function removeSubItem(itemIndex: number, subIndex: number) {
-  model.items[itemIndex].list.splice(subIndex, 1)
+  model.items[itemIndex]!.list.splice(subIndex, 1)
 }
 </script>
 

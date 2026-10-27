@@ -1463,7 +1463,7 @@ exports[`collapse demo > renders custom correctly 1`] = `
 >
   <div
     class="ant-collapse-item ant-collapse-item-active"
-    style="margin-bottom: 24px; border: medium;"
+    style="margin-bottom: 24px; background: rgba(0, 0, 0, 0.02); border-radius: 8px; border: medium;"
   >
     <div
       aria-disabled="false"
@@ -1526,7 +1526,7 @@ exports[`collapse demo > renders custom correctly 1`] = `
   </div>
   <div
     class="ant-collapse-item"
-    style="margin-bottom: 24px; border: medium;"
+    style="margin-bottom: 24px; background: rgba(0, 0, 0, 0.02); border-radius: 8px; border: medium;"
   >
     <div
       aria-disabled="false"
@@ -1576,7 +1576,7 @@ exports[`collapse demo > renders custom correctly 1`] = `
   </div>
   <div
     class="ant-collapse-item"
-    style="margin-bottom: 24px; border: medium;"
+    style="margin-bottom: 24px; background: rgba(0, 0, 0, 0.02); border-radius: 8px; border: medium;"
   >
     <div
       aria-disabled="false"

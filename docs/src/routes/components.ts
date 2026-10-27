@@ -113,7 +113,7 @@ function getRouteGroupChildren(
   const extras = Object.keys(routeMap)
     .filter(path => path.startsWith(prefix) && !used.has(path))
     .sort((a, b) => a.localeCompare(b))
-    .map(path => routeMap[path])
+    .map(path => routeMap[path]!)
 
   return [...ordered, ...extras]
 }

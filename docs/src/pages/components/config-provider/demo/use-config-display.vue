@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import { useConfig } from 'antdv-next/config-provider/context'
+import { ConfigProvider } from 'antdv-next'
 
-const config = useConfig()
+const { componentSize, componentDisabled } = ConfigProvider.useConfig()
 </script>
 
 <template>
   <a-form-item label="componentSize value">
-    <a-input :value="config.componentSize" />
+    <a-input :value="componentSize" />
   </a-form-item>
   <a-form-item label="componentDisabled value">
-    <a-input :value="String(config.componentDisabled)" :disabled="config.componentDisabled" />
+    <a-input :value="String(componentDisabled)" :disabled="componentDisabled" />
   </a-form-item>
 </template>

@@ -241,7 +241,7 @@ const value = ref('leaf1')
         tree-default-expand-all
         :tree-data="treeData"
       >
-        <template #title="{ value: val, title }">
+        <template #treeTitleRender="{ value: val, title }">
           <b v-if="val === 'leaf3'" style="color: #08c">{{ title }}</b>
           <template v-else>
             {{ title }}

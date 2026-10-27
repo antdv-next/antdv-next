@@ -619,7 +619,7 @@ exports[`checkbox demo > renders _semantic_group correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               <!---->
-              group.root
+              Root element of the checkbox group container, including layout, spacing and arrangement styles
               <!---->
               <!---->
               <!---->
@@ -749,7 +749,7 @@ exports[`checkbox demo > renders _semantic_group correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               <!---->
-              group.item
+              Item element wrapping a single Checkbox, including checked, disabled and other option styles
               <!---->
               <!---->
               <!---->
@@ -879,7 +879,7 @@ exports[`checkbox demo > renders _semantic_group correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               <!---->
-              group.itemIcon
+              Item icon element with size, background, border, border radius, checked state and other icon styles
               <!---->
               <!---->
               <!---->
@@ -1009,7 +1009,7 @@ exports[`checkbox demo > renders _semantic_group correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               <!---->
-              group.itemLabel
+              Item label element with padding, text color, alignment and other text styles
               <!---->
               <!---->
               <!---->

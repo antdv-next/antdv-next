@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { MenuProps } from 'antdv-next'
 import { AppstoreOutlined, MailOutlined } from '@antdv-next/icons'
 import { computed, h, ref } from 'vue'
 import { SemanticPreview } from '@/components/semantic'
@@ -36,7 +37,7 @@ const semantics = computed(() => {
   return [...baseLocale, ...additionalGroupLocale, ...additionalPopupLocale, ...subMenuLocale]
 })
 
-const items = [
+const items: NonNullable<MenuProps['items']> = [
   { label: 'Navigation One', key: 'mail', icon: h(MailOutlined) },
   {
     key: 'SubMenu',
@@ -56,7 +57,7 @@ const items = [
   },
 ]
 
-const groupItem = [
+const groupItem: NonNullable<MenuProps['items']> = [
   {
     key: 'grp',
     label: 'Navigation Three',

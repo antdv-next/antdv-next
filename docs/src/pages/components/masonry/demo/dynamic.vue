@@ -7,6 +7,7 @@ Dynamically add and remove items. The `layoutChange` event provides column infor
 </docs>
 
 <script setup lang="ts">
+import type { MasonryEmits } from 'antdv-next'
 import { CloseOutlined } from '@antdv-next/icons'
 import { theme } from 'antdv-next'
 import { ref } from 'vue'
@@ -44,7 +45,7 @@ function addItem() {
   ]
 }
 
-function handleLayoutChange(sortedItems: ItemType[]) {
+const handleLayoutChange: MasonryEmits['layoutChange'] = (sortedItems) => {
   items.value = items.value.map((item) => {
     const matchItem = sortedItems.find(sortedItem => sortedItem.key === item.key)
     return matchItem

@@ -9,6 +9,11 @@ Use nested paths for field names.
 <script setup lang="ts">
 import { reactive } from 'vue'
 
+interface Address {
+  city: string
+  street: string
+}
+
 const model = reactive({
   user: {
     name: '',
@@ -18,7 +23,7 @@ const model = reactive({
   },
   addresses: [
     { city: '', street: '' },
-  ],
+  ] as [Address],
 })
 </script>
 

@@ -7,7 +7,7 @@ Use warningOnly rules without blocking submit.
 </docs>
 
 <script setup lang="ts">
-import type { FormInstance } from 'antdv-next'
+import type { FormInstance, Rule } from 'antdv-next'
 import { message } from 'antdv-next'
 import { reactive, shallowRef } from 'vue'
 
@@ -16,7 +16,7 @@ const model = reactive({
   url: '',
 })
 
-const rules = [
+const rules: Rule[] = [
   { required: true },
   { type: 'url', warningOnly: true },
   { type: 'string', min: 6 },

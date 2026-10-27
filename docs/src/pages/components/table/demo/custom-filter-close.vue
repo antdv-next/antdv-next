@@ -7,7 +7,7 @@ Closing a custom filter panel does not submit staged values automatically. Stage
 </docs>
 
 <script setup lang="ts">
-import type { TableEmits, TableProps } from 'antdv-next'
+import type { TableEmits, TableFilterDropdownProps, TableProps } from 'antdv-next'
 import { Button, Input, Space } from 'antdv-next'
 import { h, ref } from 'vue'
 
@@ -32,7 +32,7 @@ const columns: TableProps<DataType>['columns'] = [
     dataIndex: 'name',
     key: 'name',
     onFilter: (value, record) => record.name.includes(String(value)),
-    filterDropdown: ({ clearFilters, confirm, selectedKeys, setSelectedKeys }) => h(
+    filterDropdown: ({ clearFilters, confirm, selectedKeys, setSelectedKeys }: TableFilterDropdownProps) => h(
       'div',
       {
         class: 'custom-filter-close-panel',

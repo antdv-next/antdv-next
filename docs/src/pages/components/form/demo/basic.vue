@@ -7,8 +7,7 @@ Basic form usage.
 </docs>
 
 <script setup lang="ts">
-import type { FormInstance } from 'antdv-next'
-import { reactive, shallowRef } from 'vue'
+import { reactive } from 'vue'
 
 const model = reactive({
   username: '',
@@ -21,12 +20,10 @@ function handleFinished(values: any) {
 function handleFinishFailed(errorInfo: any) {
   console.log('Failed:', errorInfo)
 }
-const formRef = shallowRef<FormInstance>()
 </script>
 
 <template>
   <a-form
-    ref="formRef"
     :model="model"
     :label-col="{ span: 8 }"
     :wrapper-col="{ span: 16 }"

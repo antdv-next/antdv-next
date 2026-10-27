@@ -620,7 +620,7 @@ exports[`radio demo > renders _semantic_group correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               <!---->
-              group.root
+              Root element of the radio group container, including layout direction, spacing, button style and other group layout styles
               <!---->
               <!---->
               <!---->
@@ -750,7 +750,7 @@ exports[`radio demo > renders _semantic_group correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               <!---->
-              group.item
+              Item element wrapping a single Radio, including checked, disabled, block layout and other option styles
               <!---->
               <!---->
               <!---->
@@ -880,7 +880,7 @@ exports[`radio demo > renders _semantic_group correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               <!---->
-              group.itemIcon
+              Item icon element with border radius, border, transition animations, hover and focus interactive styles
               <!---->
               <!---->
               <!---->
@@ -1010,7 +1010,7 @@ exports[`radio demo > renders _semantic_group correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               <!---->
-              group.itemLabel
+              Item label element with padding, text color, disabled states, alignment and other text styles
               <!---->
               <!---->
               <!---->

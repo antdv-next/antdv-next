@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import type { TooltipProps } from 'antdv-next'
 import type { Frontmatter } from '@/composables/doc-page.ts'
 import { WechatOutlined } from '@antdv-next/icons'
 import { QRCode } from 'antdv-next'
@@ -23,7 +24,7 @@ window.addEventListener('scroll', throttleByAnimationFrameFn(() => {
   scroll.value = getScrolled()
 }))
 
-const tooltip = {
+const tooltip: TooltipProps = {
   title: h(QRCode, {
     bordered: false,
     color: '#000',

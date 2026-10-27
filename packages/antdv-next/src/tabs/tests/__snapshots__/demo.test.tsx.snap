@@ -7114,7 +7114,7 @@ exports[`tabs demo > renders slide correctly 1`] = `
           class="ant-radio-button-input"
           name="v-0"
           type="radio"
-          value="left"
+          value="start"
         />
       </span>
       <span

@@ -28,7 +28,7 @@ function getMonthLabel(month: number, value: Dayjs) {
   return `${month + 1}月（${lunar}月）`
 }
 
-function getCellDate(date) {
+function getCellDate(date: Dayjs) {
   const d = Lunar.fromDate(date.toDate())
   const lunar = d.getDayInChinese()
   const solarTerm = d.getJieQi()
@@ -38,13 +38,13 @@ function getCellDate(date) {
   return { lunar, solarTerm, displayHoliday, isWeekend }
 }
 
-function getCellMonth(date) {
+function getCellMonth(date: Dayjs) {
   const d2 = Lunar.fromDate(new Date(date.get('year'), date.get('month')))
   const month = d2.getMonthInChinese()
   return month
 }
 
-function getMonthOptions(value) {
+function getMonthOptions(value: Dayjs) {
   const start = 0
   const end = 12
   const monthOptions = []
@@ -66,7 +66,7 @@ function getMonthOptions(value) {
   return monthOptions
 }
 
-function getOptions(value) {
+function getOptions(value: Dayjs) {
   const year = value.year()
   const options = []
   for (let i = year - 10; i < year + 10; i += 1) {
@@ -88,7 +88,7 @@ function onHeaderChange(value: Dayjs, onChange: (value: Dayjs) => void) {
   onChange(value)
 }
 
-function onSelect(value) {
+function onSelect(value: Dayjs) {
   selectDate.value = value
 }
 </script>

@@ -8,15 +8,11 @@ When you need to use a custom `Icon`, you can set the `Icon` component as the pr
 
 <script setup lang="ts">
 import { ArrowDownOutlined, ArrowUpOutlined } from '@antdv-next/icons'
+import { h } from 'vue'
+
+const controls = { upIcon: h(ArrowUpOutlined), downIcon: h(ArrowDownOutlined) }
 </script>
 
 <template>
-  <a-input-number>
-    <template #upIcon>
-      <ArrowUpOutlined />
-    </template>
-    <template #downIcon>
-      <ArrowDownOutlined />
-    </template>
-  </a-input-number>
+  <a-input-number :controls="controls" />
 </template>

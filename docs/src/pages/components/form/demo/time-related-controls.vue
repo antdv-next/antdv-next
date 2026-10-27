@@ -7,14 +7,15 @@ Time-related controls with validation and submit.
 </docs>
 
 <script setup lang="ts">
+import type { Dayjs } from 'dayjs'
 import { reactive } from 'vue'
 
 const model = reactive({
   datePicker: null as any,
   dateTimePicker: null as any,
   monthPicker: null as any,
-  rangePicker: [] as any[],
-  rangeTimePicker: [] as any[],
+  rangePicker: undefined as [Dayjs, Dayjs] | undefined,
+  rangeTimePicker: undefined as [Dayjs, Dayjs] | undefined,
   timePicker: null as any,
 })
 

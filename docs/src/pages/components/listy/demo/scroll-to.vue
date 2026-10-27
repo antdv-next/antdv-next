@@ -7,7 +7,8 @@ Use `scrollTo` on the ref to jump to a pixel position, an item or a group, with 
 </docs>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import type { ListyRef } from 'antdv-next'
+import { ref, shallowRef } from 'vue'
 
 interface Item {
   id: number
@@ -22,7 +23,7 @@ const items: Item[] = Array.from({ length: 60 }, (_, index) => ({
 }))
 
 const groups = Array.from({ length: 6 }, (_, index) => `Group ${index}`)
-const listRef = ref(null)
+const listRef = shallowRef<ListyRef | null>(null)
 const align = ref<Align>('top')
 const key = ref<number | null>(40)
 const groupKey = ref('Group 3')
@@ -61,7 +62,7 @@ const scrollTop = ref(0)
       :sticky="true"
       :group="{
         key: (item: Item) => item.group,
-        title: (group: unknown) => group,
+        title: (group) => group,
       }"
       :item-render=" (item: Item) => `Item ${item.id}` "
       @scroll=" (event: any) => scrollTop = Math.round(event.currentTarget.scrollTop)"

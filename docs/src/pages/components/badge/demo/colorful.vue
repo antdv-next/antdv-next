@@ -25,13 +25,13 @@ const colors = [
 </script>
 
 <template>
-  <a-divider orientation="left">
+  <a-divider title-placement="start">
     Presets
   </a-divider>
   <a-space vertical>
     <a-badge v-for="color in colors" :key="color" :color="color" :text="color" />
   </a-space>
-  <a-divider orientation="left">
+  <a-divider title-placement="start">
     Custom
   </a-divider>
   <a-space vertical>

@@ -29,7 +29,7 @@ const selectOptions = [
       <a-checkbox disabled />
     </a-tooltip>
     <a-tooltip title="Thanks for using antd. Have a nice day !">
-      <a-select disabled :options="selectOptions" :value="selectOptions[0].value" />
+      <a-select disabled :options="selectOptions" :value="selectOptions[0]!.value" />
     </a-tooltip>
   </a-space>
 </template>

@@ -45,14 +45,32 @@ export function useSemanticLocale(locales: Record<'cn' | 'en', Record<string, an
   })
 }
 
-export function useComponentLocale<T extends Record<string, string>>(locales: Record<'cn' | 'en', T>) {
+interface LocaleTree {
+  [key: string]: string | LocaleTree
+}
+
+/** Dot-separated paths to the string leaves of a locale tree, e.g. `'root' | 'group.item'` */
+type LocaleKey<T> = {
+  [K in keyof T & string]: T[K] extends string
+    ? K
+    : T[K] extends LocaleTree ? `${K}.${LocaleKey<T[K]>}` : never
+}[keyof T & string]
+
+export function useComponentLocale<T extends LocaleTree>(locales: Record<'cn' | 'en', T>) {
   const messages = computed(() => {
     const lang = localeStore.value.startsWith('zh') ? 'cn' : 'en'
     return locales[lang]
   })
 
-  function t(key: keyof T): string {
-    return messages.value[key] || String(key)
+  function t(key: LocaleKey<T>): string {
+    // Flat keys may contain dots themselves (e.g. `'popup.root'`), so try the key as-is first
+    let value: string | LocaleTree | undefined = messages.value[key]
+    if (value === undefined) {
+      value = messages.value
+      for (const part of key.split('.'))
+        value = typeof value === 'object' ? value[part] : undefined
+    }
+    return (typeof value === 'string' && value) || key
   }
 
   return { t }

@@ -47,7 +47,7 @@ function handleFinish(values: any) {
     style="max-width: 600px"
     @finish="handleFinish"
   >
-    <template v-for="(item, index) in model.names" :key="`passenger-${index}`">
+    <template v-for="(_, index) in model.names" :key="`passenger-${index}`">
       <a-form-item
         v-bind="index === 0 ? formItemLayout : formItemLayoutWithoutLabel"
         :label="index === 0 ? 'Passengers' : ''"

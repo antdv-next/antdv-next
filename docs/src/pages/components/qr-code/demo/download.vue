@@ -7,11 +7,11 @@ A way to download QRCode.
 </docs>
 
 <script setup lang="ts">
-import type { QRCodeProps } from 'antdv-next'
+import type { QRCodeProps, QRCodeRef } from 'antdv-next'
 import { ref, useTemplateRef } from 'vue'
 
 const renderType = ref<QRCodeProps['type']>('canvas')
-const qrcodeRef = useTemplateRef('qrcode')
+const qrcodeRef = useTemplateRef<QRCodeRef>('qrcode')
 function doDownload(url: string, fileName: string) {
   const a = document.createElement('a')
   a.download = fileName
@@ -22,15 +22,18 @@ function doDownload(url: string, fileName: string) {
 }
 
 function downloadCanvasQRCode() {
-  if (qrcodeRef.value) {
-    const url = qrcodeRef.value.toDataURL()
+  const canvas = qrcodeRef.value?.nativeElement?.querySelector<HTMLCanvasElement>('canvas')
+  if (canvas) {
+    const url = canvas.toDataURL()
     doDownload(url, 'QRCode.png')
   }
 }
 
 function downloadSvgQRCode() {
-  const svg = qrcodeRef.value.$el?.querySelector<SVGElement>('svg')
-  const svgData = new XMLSerializer().serializeToString(svg!)
+  const svg = qrcodeRef.value?.nativeElement?.querySelector<SVGElement>('svg')
+  if (!svg)
+    return
+  const svgData = new XMLSerializer().serializeToString(svg)
   const blob = new Blob([svgData], { type: 'image/svg+xml;charset=utf-8' })
   const url = URL.createObjectURL(blob)
 

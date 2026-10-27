@@ -40,7 +40,7 @@ const backgroundStyle = computed(() => {
 
     <div
       class="antdv-home-group-mask-layer"
-      :style="{ paddingBlock: `${token?.marginFarSM ?? 80}px` }"
+      :style="{ paddingBlock: '80px' }"
     >
       <div class="antdv-home-group-typography-wrapper text-center">
         <div class="antdv-home-group-title-row">
@@ -64,7 +64,7 @@ const backgroundStyle = computed(() => {
           :style="{
             color: titleColor,
             marginTop: `${token?.marginSM}px`,
-            marginBottom: `${isMobile ? token?.marginXXL ?? 48 : token?.marginFarXS ?? 48}px`,
+            marginBottom: `${isMobile ? token?.marginXXL ?? 48 : 48}px`,
           }"
         >
           {{ description }}

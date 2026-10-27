@@ -7,7 +7,7 @@ We can set preset ranges to RangePicker to improve user experience. Preset value
 </docs>
 
 <script setup lang="ts">
-import type { RangePickerProps } from 'antdv-next'
+import type { DatePickerEmits, RangePickerProps } from 'antdv-next'
 import type { Dayjs } from 'dayjs'
 import dayjs from 'dayjs'
 import { h } from 'vue'
@@ -19,7 +19,7 @@ const rangePresets: RangePickerProps['presets'] = [
   { label: 'Last 90 Days', value: [dayjs().add(-90, 'd'), dayjs()] },
 ]
 
-function handleChange(date: Dayjs | null) {
+const handleChange: DatePickerEmits<Dayjs>['change'] = (date) => {
   if (date) {
     console.log('Date: ', date)
   }

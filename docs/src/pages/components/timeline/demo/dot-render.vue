@@ -22,14 +22,14 @@ const items = [
 
 <template>
   <a-timeline :items="items">
-    <template #dotRender="{ item }">
+    <template #dotRender="{ index }">
       <CheckCircleOutlined
-        v-if="item.state === 'done'"
+        v-if="items[index]?.state === 'done'"
         class="dot-icon"
         :style="{ background: token.colorBgContainer }"
       />
       <CloseCircleOutlined
-        v-else-if="item.state === 'failed'"
+        v-else-if="items[index]?.state === 'failed'"
         class="dot-icon"
         :style="{ background: token.colorBgContainer }"
       />
