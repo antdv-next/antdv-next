@@ -219,6 +219,15 @@ describe('checkbox', () => {
     expect(wrapper.find('.ant-checkbox').attributes('name')).toBeUndefined()
   })
 
+  it('should emit focus when the native input gains focus', async () => {
+    const onFocus = vi.fn()
+    const wrapper = mount(Checkbox, {
+      props: { onFocus },
+    })
+    await wrapper.find('input').trigger('focus')
+    expect(onFocus).toHaveBeenCalledTimes(1)
+  })
+
   it('should emit blur when the native input loses focus', async () => {
     const onBlur = vi.fn()
     const wrapper = mount(Checkbox, {

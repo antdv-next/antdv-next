@@ -320,6 +320,9 @@ const InternalCheckbox = defineComponent<
               class={checkboxClass}
               style={mergedStyles.value.icon}
               disabled={mergedDisabled.value}
+              onFocus={(e: any) => {
+                emit('focus', e)
+              }}
               onBlur={(e: any) => {
                 formItemContext?.triggerBlur?.()
                 emit('blur', e)
