@@ -354,7 +354,6 @@ const InternalTooltip = defineComponent<
                 'zoom-big-fast',
                 typeof motion?.name === 'string' ? motion?.name : undefined,
               ),
-              duration: 1000,
             } as any
           }
           destroyOnHidden={destroyOnHidden}
