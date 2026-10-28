@@ -3,6 +3,7 @@ import VcTabs from '@v-c/tabs'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { h, nextTick } from 'vue'
 import Tabs from '..'
+import { resetWarned } from '../../_util/warning'
 import App from '../../app'
 import ConfigProvider from '../../config-provider'
 import TabPane from '../TabPane'
@@ -502,8 +503,7 @@ describe('tabs', () => {
           )
         },
       }, { attachTo: document.body })
-      // ConfigProvider indicator is merged and passed to VcTabs
-      expect(document.querySelector('.ant-tabs-ink-bar')).toBeTruthy()
+      expect(wrapper.findComponent(VcTabs).props('indicator')).toEqual({ align: undefined, size: 12 })
       wrapper.unmount()
     })
 
@@ -517,7 +517,145 @@ describe('tabs', () => {
           )
         },
       }, { attachTo: document.body })
-      expect(document.querySelector('.ant-tabs-ink-bar')).toBeTruthy()
+      expect(wrapper.findComponent(VcTabs).props('indicator')).toEqual({ align: undefined, size: 4 })
+      wrapper.unmount()
+    })
+
+    it('merges indicatorSize from ConfigProvider', () => {
+      const wrapper = mount({
+        render() {
+          return (
+            <ConfigProvider tabs={{ indicatorSize: 10 }}>
+              <Tabs items={defaultItems} />
+            </ConfigProvider>
+          )
+        },
+      }, { attachTo: document.body })
+      expect(wrapper.findComponent(VcTabs).props('indicator')).toEqual({ align: undefined, size: 10 })
+      wrapper.unmount()
+    })
+
+    it('merges indicator.align from ConfigProvider', () => {
+      const wrapper = mount({
+        render() {
+          return (
+            <ConfigProvider tabs={{ indicator: { align: 'start' } }}>
+              <Tabs items={defaultItems} />
+            </ConfigProvider>
+          )
+        },
+      }, { attachTo: document.body })
+      expect(wrapper.findComponent(VcTabs).props('indicator')).toEqual({ align: 'start', size: undefined })
+      wrapper.unmount()
+    })
+
+    it('warns deprecated indicatorSize from ConfigProvider', () => {
+      resetWarned()
+      const errorSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
+      const wrapper = mount({
+        render() {
+          return (
+            <ConfigProvider tabs={{ indicatorSize: 10 }}>
+              <Tabs items={defaultItems} />
+            </ConfigProvider>
+          )
+        },
+      }, { attachTo: document.body })
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Tabs] `indicatorSize` is deprecated. Please use `indicator` instead.',
+      )
+      errorSpy.mockRestore()
+      wrapper.unmount()
+    })
+  })
+
+  // ========================= ConfigProvider icons =========================
+  describe('configProvider icons', () => {
+    it('merges addIcon and removeIcon from ConfigProvider', () => {
+      const wrapper = mount({
+        render() {
+          return (
+            <ConfigProvider tabs={{ addIcon: 'CTX-ADD', removeIcon: 'CTX-REMOVE' }}>
+              <Tabs items={defaultItems} type="editable-card" />
+            </ConfigProvider>
+          )
+        },
+      }, { attachTo: document.body })
+      expect(document.querySelector('.ant-tabs-nav-add')?.textContent).toContain('CTX-ADD')
+      expect(document.querySelector('.ant-tabs-tab-remove')?.textContent).toContain('CTX-REMOVE')
+      wrapper.unmount()
+    })
+
+    it('component addIcon and removeIcon override ConfigProvider', () => {
+      const wrapper = mount({
+        render() {
+          return (
+            <ConfigProvider tabs={{ addIcon: 'CTX-ADD', removeIcon: 'CTX-REMOVE' }}>
+              <Tabs items={defaultItems} type="editable-card" addIcon="PROP-ADD" removeIcon="PROP-REMOVE" />
+            </ConfigProvider>
+          )
+        },
+      }, { attachTo: document.body })
+      expect(document.querySelector('.ant-tabs-nav-add')?.textContent).toContain('PROP-ADD')
+      expect(document.querySelector('.ant-tabs-tab-remove')?.textContent).toContain('PROP-REMOVE')
+      wrapper.unmount()
+    })
+
+    it('merges moreIcon from ConfigProvider', () => {
+      const wrapper = mount({
+        render() {
+          return (
+            <ConfigProvider tabs={{ moreIcon: 'CTX-MORE' }}>
+              <Tabs items={defaultItems} />
+            </ConfigProvider>
+          )
+        },
+      }, { attachTo: document.body })
+      expect(document.querySelector('.ant-tabs-nav-more')?.textContent).toContain('CTX-MORE')
+      wrapper.unmount()
+    })
+
+    it('prefers moreIcon slot over ConfigProvider', () => {
+      const wrapper = mount({
+        setup() {
+          return () => (
+            <ConfigProvider tabs={{ moreIcon: 'CTX-MORE' }}>
+              <Tabs items={defaultItems}>
+                {{ moreIcon: () => 'SLOT-MORE' }}
+              </Tabs>
+            </ConfigProvider>
+          )
+        },
+      }, { attachTo: document.body })
+      expect(document.querySelector('.ant-tabs-nav-more')?.textContent).toContain('SLOT-MORE')
+      wrapper.unmount()
+    })
+
+    it('merges more.icon from ConfigProvider', () => {
+      const wrapper = mount({
+        render() {
+          return (
+            <ConfigProvider tabs={{ more: { icon: 'CTX-MORE-ICON' } }}>
+              <Tabs items={defaultItems} />
+            </ConfigProvider>
+          )
+        },
+      }, { attachTo: document.body })
+      expect(document.querySelector('.ant-tabs-nav-more')?.textContent).toContain('CTX-MORE-ICON')
+      wrapper.unmount()
+    })
+
+    it('component more.icon overrides ConfigProvider more.icon', () => {
+      const wrapper = mount({
+        render() {
+          return (
+            <ConfigProvider tabs={{ more: { icon: 'CTX-MORE-ICON' } }}>
+              <Tabs items={defaultItems} more={{ icon: 'PROP-MORE' }} />
+            </ConfigProvider>
+          )
+        },
+      }, { attachTo: document.body })
+      expect(document.querySelector('.ant-tabs-nav-more')?.textContent).toContain('PROP-MORE')
       wrapper.unmount()
     })
   })
