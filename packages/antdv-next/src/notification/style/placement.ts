@@ -25,7 +25,6 @@ interface PlacementStyleConfig {
   horizontal: HorizontalPlacement
   inlineEnd: HorizontalPlacement
   motionOffset: PlacementMotionOffset
-  baseMotionOffset?: PlacementMotionOffset
   isCenterPlacement: boolean
 }
 
@@ -64,8 +63,7 @@ function getPlacementStyleConfig(placement: NotificationPlacement, motionOffset:
     blockEnd,
     horizontal,
     inlineEnd,
-    motionOffset: isCenterPlacement ? { x: '-50%', y: offset } : { x: offset },
-    baseMotionOffset: isCenterPlacement ? { x: '-50%' } : undefined,
+    motionOffset: isCenterPlacement ? { y: offset } : { x: offset },
     isCenterPlacement,
   }
 }
@@ -127,8 +125,8 @@ function genPlacementStyle(token: NotificationToken, config: PlacementStyleConfi
 
   // Transform used for enter start and leave end states.
   const enterTransform = getMotionTransform(config.motionOffset)
-  // Transform used when fully visible; top/bottom keep translateX(-50%) for centering.
-  const baseTransform = getMotionTransform(config.baseMotionOffset)
+  // Transform used when fully visible; centered placements keep horizontal centering in `translate`.
+  const baseTransform = getMotionTransform()
   const transformOrigin = getPlacementTransformOrigin(vertical)
 
   return {
@@ -154,6 +152,7 @@ function genPlacementStyle(token: NotificationToken, config: PlacementStyleConfi
         ...(isCenterPlacement
           ? {
               left: '50%',
+              translate: '-50% 0',
               transform: baseTransform,
             }
           : {
