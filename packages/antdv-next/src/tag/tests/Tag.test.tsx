@@ -60,6 +60,27 @@ describe('tag', () => {
     expect(spans[spans.length - 1]?.text()).toBe('0')
   })
 
+  it('should render all children when the default slot has multiple nodes', () => {
+    const wrapper = mount(Tag, {
+      slots: {
+        default: () => [h('span', 'A'), 'B', h('i', 'C')],
+      },
+    })
+    expect(wrapper.text()).toBe('ABC')
+  })
+
+  it('should render all children in content span when icon is present', () => {
+    const wrapper = mount(Tag, {
+      props: { icon: h('span', { class: 'my-icon' }, '!') },
+      slots: {
+        default: () => [h('span', 'A'), 'B'],
+      },
+    })
+    expect(wrapper.text()).toBe('!AB')
+    const spans = wrapper.findAll('.ant-tag > span')
+    expect(spans[spans.length - 1]?.text()).toBe('AB')
+  })
+
   // ===================== color prop =====================
 
   it('should apply preset color class', () => {

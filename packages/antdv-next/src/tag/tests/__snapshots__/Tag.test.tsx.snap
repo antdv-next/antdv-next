@@ -16,7 +16,6 @@ exports[`tag > rtl render > component should be rendered correctly in RTL direct
     <!---->
     <!---->
     <!---->
-    <!---->
   </span>
 </div>
 `;
