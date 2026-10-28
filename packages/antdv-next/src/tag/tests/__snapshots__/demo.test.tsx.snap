@@ -1814,6 +1814,7 @@ exports[`tag demo > renders control correctly 1`] = `
         />
       </svg>
     </span>
+     New Tag 
     <!---->
     <!---->
     <!---->

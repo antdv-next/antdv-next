@@ -10,7 +10,6 @@ import { filterEmpty } from '@v-c/util/dist/props-util'
 import { computed, createVNode, defineComponent, shallowRef } from 'vue'
 import { pureAttrs, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import useClosable, { pickClosable } from '../_util/hooks/useClosable.tsx'
-import { isRenderable } from '../_util/is.ts'
 import { normalizeStyle } from '../_util/styleUtils'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { replaceElement } from '../_util/vueNode.ts'
@@ -243,9 +242,9 @@ const InternalTag = defineComponent<
         hashId.value,
         cssVarCls.value,
       )
-      const children = filterEmpty(slots?.default?.())[0]
+      const children = filterEmpty(slots?.default?.())
       // ====================== Render ======================
-      const isNeedWave = (children && children.type === 'a') || typeof props.onClick === 'function'
+      const isNeedWave = (children.length === 1 && children[0].type === 'a') || typeof props.onClick === 'function'
       const iconNode = getSlotPropsFnRun(slots, props, 'icon')
       let iconNodes = iconNode
       if (iconNode) {
@@ -259,7 +258,7 @@ const InternalTag = defineComponent<
         ? (
             <>
               {iconNodes}
-              {isRenderable(children) && (
+              {children.length > 0 && (
                 <span
                   class={mergedClassNames.value.content}
                   style={mergedStyles.value.content}
