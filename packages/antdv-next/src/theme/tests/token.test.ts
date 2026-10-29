@@ -35,6 +35,14 @@ describe('theme tokens', () => {
     expect(token.fontHeightLG).toBe(32)
   })
 
+  // https://github.com/ant-design/ant-design/issues/59694
+  it('getDesignToken with empty algorithm array', () => {
+    const token = theme.getDesignToken({ algorithm: [] })
+
+    expect(token).toEqual(theme.getDesignToken())
+    expect(token.colorPrimary).toBe('#1677ff')
+  })
+
   it('focusOutline false token', () => {
     const token = theme.getDesignToken({ token: { focusOutline: false } })
 
