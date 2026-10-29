@@ -19,9 +19,7 @@ exports[`popconfirm demo > renders _semantic correctly 1`] = `
         <span
           aria-describedby="test-id"
           class="ant-popover-open"
-        >
-          <!---->
-        </span>
+        />
         <!---->
       </div>
     </div>

@@ -1,6 +1,6 @@
 import type { TooltipPlacement } from '..'
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
-import { createTextVNode, defineComponent, nextTick, ref } from 'vue'
+import { createTextVNode, defineComponent, h, nextTick, ref } from 'vue'
 import Tooltip from '..'
 import getPlacements from '../../_util/placements'
 import Button from '../../button'
@@ -593,16 +593,30 @@ describe('tooltip', () => {
       },
     })
 
-    const divElement = wrapper.find('.hello')
-    await triggerEnter(divElement)
+    const spanElement = wrapper.find('span')
+    await triggerEnter(spanElement)
     await flushTooltipTimer()
     expect(onOpenChange).toHaveBeenLastCalledWith(true)
     expect(isTooltipOpen()).toBeTruthy()
 
-    await triggerLeave(divElement)
+    await triggerLeave(spanElement)
     await flushTooltipTimer()
     expect(onOpenChange).toHaveBeenLastCalledWith(false)
     expect(isTooltipOpen()).toBeFalsy()
+  })
+
+  it('should render all nodes when the default slot has multiple children', () => {
+    const wrapper = mount(Tooltip, {
+      props: {
+        title: 'Have a nice day!',
+      },
+      slots: {
+        default: () => [h('button', { type: 'button' }, 'A'), 'B', h('button', { type: 'button' }, 'C')],
+      },
+    })
+
+    expect(wrapper.findAll('button').map(button => button.text())).toEqual(['A', 'C'])
+    expect(wrapper.text()).toBe('ABC')
   })
 
   it('not inject class when children class is not string type', async () => {
