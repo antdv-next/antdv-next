@@ -44,7 +44,7 @@ const StatusProvider = defineComponent<StatusProviderProps>(
       const itemPrefixCls = `${prefixCls}-item`
       const { feedbackIcons } = formContext.value ?? {}
 
-      const mergedValidateStatus = getStatus(
+      const selfValidateStatus = getStatus(
         errors,
         warnings,
         meta,
@@ -59,6 +59,12 @@ const StatusProvider = defineComponent<StatusProviderProps>(
         feedbackIcon: parentFeedbackIcon,
         name: parentName,
       } = formItemContext.value
+
+      // A touched `noStyle` field is implicitly `success`, so it follows the parent status instead
+      const mergedValidateStatus
+        = noStyle && parentStatus && validateStatus === undefined && selfValidateStatus === 'success'
+          ? parentStatus
+          : selfValidateStatus
 
       let feedbackIcon: any
       if (hasFeedback) {
