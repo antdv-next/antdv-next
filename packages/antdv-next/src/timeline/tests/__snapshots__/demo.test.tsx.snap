@@ -1268,7 +1268,6 @@ exports[`timeline demo > renders _semantic correctly 1`] = `
 exports[`timeline demo > renders alternate correctly 1`] = `
 <ol
   class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline ant-timeline-layout-alternate css-var-root"
-  mode="alternate"
   style="--ant-cmp-steps-items-offset: 0;"
 >
   <li
@@ -2122,7 +2121,6 @@ exports[`timeline demo > renders dot-render correctly 1`] = `
 exports[`timeline demo > renders end correctly 1`] = `
 <ol
   class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline css-var-root"
-  mode="right"
   style="--ant-cmp-steps-items-offset: 0;"
 >
   <li
@@ -2277,7 +2275,6 @@ exports[`timeline demo > renders horizontal correctly 1`] = `
 >
   <ol
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline ant-timeline-horizontal css-var-root"
-    mode="start"
     style="--ant-cmp-steps-items-offset: 0;"
   >
     <li
@@ -2411,7 +2408,6 @@ exports[`timeline demo > renders horizontal correctly 1`] = `
   </div>
   <ol
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline ant-timeline-horizontal css-var-root"
-    mode="right"
     style="--ant-cmp-steps-items-offset: 0;"
   >
     <li
@@ -2545,7 +2541,6 @@ exports[`timeline demo > renders horizontal correctly 1`] = `
   </div>
   <ol
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline ant-timeline-horizontal ant-timeline-layout-alternate css-var-root"
-    mode="alternate"
     style="--ant-cmp-steps-items-offset: 0;"
   >
     <li
@@ -2680,7 +2675,6 @@ exports[`timeline demo > renders pending correctly 1`] = `
 >
   <ol
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline css-var-root"
-    reverse="false"
     style="--ant-cmp-steps-items-offset: 0;"
   >
     <li
@@ -3399,7 +3393,6 @@ exports[`timeline demo > renders title correctly 1`] = `
   </div>
   <ol
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline ant-timeline-layout-alternate css-var-root"
-    mode="start"
     style="--ant-cmp-steps-items-offset: 0;"
   >
     <li
@@ -3863,7 +3856,6 @@ exports[`timeline demo > renders title-span correctly 1`] = `
   </h5>
   <ol
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline-css-var css-var-root ant-timeline ant-timeline-layout-alternate css-var-root"
-    mode="end"
     style="--ant-cmp-steps-items-offset: 0; --ant-timeline-head-span: 18;"
   >
     <li
