@@ -6,9 +6,7 @@ exports[`popover > rtl render > component should be rendered correctly in RTL di
 <div
   data-v-app=""
 >
-  <span>
-    <!---->
-  </span>
+  <span />
   <!---->
 </div>
 `;

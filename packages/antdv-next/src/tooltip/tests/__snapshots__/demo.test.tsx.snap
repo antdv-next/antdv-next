@@ -19,9 +19,7 @@ exports[`tooltip demo > renders _semantic correctly 1`] = `
         <span
           aria-describedby="test-id"
           class="ant-tooltip-open"
-        >
-          <!---->
-        </span>
+        />
         <!---->
       </div>
     </div>
