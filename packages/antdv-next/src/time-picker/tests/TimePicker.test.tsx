@@ -1,4 +1,4 @@
-import type { TimeRangePickerSlots } from '../../components'
+import type { TimePickerEmits, TimeRangePickerEmits, TimeRangePickerSlots } from '../../components'
 import { SmileOutlined } from '@antdv-next/icons'
 import dayjs from 'dayjs'
 import customParseFormat from 'dayjs/plugin/customParseFormat'
@@ -288,6 +288,27 @@ describe('time-picker', () => {
     wrapper.unmount()
   })
 
+  // https://github.com/ant-design/ant-design/pull/58403
+  it('emits clear when the clear icon is clicked', async () => {
+    const onClear = vi.fn()
+    const wrapper = mount(TimePicker, {
+      attachTo: document.body,
+      props: {
+        value: dayjs('12:00:00', 'HH:mm:ss'),
+        onClear,
+      },
+    })
+
+    const clearBtn = wrapper.find('.ant-picker-clear')
+    expect(clearBtn.exists()).toBe(true)
+    await clearBtn.trigger('mousedown')
+    await clearBtn.trigger('click')
+
+    expect(onClear).toHaveBeenCalledTimes(1)
+    expect(wrapper.vm.$attrs.onClear).toBeUndefined()
+    wrapper.unmount()
+  })
+
   // ====================== RenderExtraFooter / Addon ======================
   it('should support renderExtraFooter slot', async () => {
     const wrapper = mount(TimePicker, {
@@ -541,6 +562,27 @@ describe('time-picker', () => {
       expect(inputs[1]?.element.value).toBe('18:00:00')
     })
 
+    // https://github.com/ant-design/ant-design/pull/58403
+    it('emits clear when the clear icon is clicked', async () => {
+      const onClear = vi.fn()
+      const wrapper = mount(RangePicker, {
+        attachTo: document.body,
+        props: {
+          value: [dayjs('08:00:00', 'HH:mm:ss'), dayjs('18:00:00', 'HH:mm:ss')],
+          onClear,
+        },
+      })
+
+      const clearBtn = wrapper.find('.ant-picker-clear')
+      expect(clearBtn.exists()).toBe(true)
+      await clearBtn.trigger('mousedown')
+      await clearBtn.trigger('click')
+
+      expect(onClear).toHaveBeenCalledTimes(1)
+      expect(wrapper.vm.$attrs.onClear).toBeUndefined()
+      wrapper.unmount()
+    })
+
     it('should open popup when open=true', async () => {
       const wrapper = mount(RangePicker, {
         props: { open: true },
@@ -701,5 +743,15 @@ describe('time-picker', () => {
     expect(cellRenderCurrentTyped).toBe(true)
     expect(wrapper.find('.typed-prefix').exists()).toBe(true)
     wrapper.unmount()
+  })
+
+  it('should type onClear listener in JSX', () => {
+    const onClear: TimePickerEmits['clear'] = () => {}
+    const rangeOnClear: TimeRangePickerEmits['clear'] = () => {}
+    const node = <TimePicker onClear={onClear} />
+    const rangeNode = <RangePicker onClear={rangeOnClear} />
+
+    expect(node).toBeTruthy()
+    expect(rangeNode).toBeTruthy()
   })
 })

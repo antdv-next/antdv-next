@@ -75,8 +75,6 @@ Common props ref：[Common props](/docs/vue/common-props)
 | use12Hours | Display as 12 hours format, with default format `h:mm:ss a` | boolean | false |  | × |
 | value | To set time, support `v-model:value` | [dayjs](http://day.js.org/) | - |  | × |
 | variant | Variants of picker | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - | ✓ |
-| onChange | A callback function, can be executed when the selected time is changing | function(time: dayjs, timeString: string): void | - |  | × |
-| onOpenChange | A callback function which will be called while panel opening/closing | (open: boolean) => void | - |  | × |
 
 #### DisabledTime
 
@@ -131,6 +129,16 @@ type RangeDisabledTime = (
   disabledSeconds?: (selectedHour: number, selectedMinute: number) => number[]
 }
 ```
+
+### Events {#events}
+
+| Event | Description | Type | Version |
+| --- | --- | --- | --- |
+| calendarChange | A callback function, can be executed when the pending selected time is changing. The `info` argument is available. | (date: Dayjs \| Dayjs[], dateString: string \| string[], info: { range: 'start' \| 'end' }) => void | - |
+| change | A callback function, can be executed when the selected time is changing | (date: Dayjs \| Dayjs[] \| null, dateString: string \| string[] \| null) => void | - |
+| clear | Callback when click the clear button | () => void | 1.4.0 |
+| openChange | A callback function which will be called while panel opening/closing | (open: boolean) => void | - |
+| update:value | - | (date: Dayjs \| Dayjs[] \| null) => void | - |
 
 ## Semantic DOM
 

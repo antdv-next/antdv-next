@@ -109,6 +109,7 @@ export interface TimeRangePickerEmits<DateType = Dayjs> {
   'panelChange': (dates: DateType[], modes: [PickerMode, PickerMode]) => void
   'openChange': (open: boolean) => void
   'ok': (dates: DateType[]) => void
+  'clear': () => void
   'focus': (e: FocusEvent, info: any) => void
   'blur': (e: FocusEvent, info: any) => void
   'keydown': (e: KeyboardEvent, preventDefault: VoidFunction) => void
@@ -146,6 +147,10 @@ const RangePicker = defineComponent<
       emit('ok', dates)
     }
 
+    const onClear = () => {
+      emit('clear')
+    }
+
     const onFocus = (e: FocusEvent, info: any) => {
       emit('focus', e, info)
     }
@@ -177,6 +182,7 @@ const RangePicker = defineComponent<
           onPanelChange={onPanelChange}
           onOpenChange={onOpenChange}
           onOk={onOk}
+          onClear={onClear}
           onFocus={onFocus}
           onBlur={onBlur}
           onKeydown={onKeyDown}
@@ -226,6 +232,7 @@ export interface TimePickerEmits<DateType = Dayjs> {
   'panelChange': (date: DateType, mode: PickerMode) => void
   'openChange': (open: boolean) => void
   'ok': (date: DateType | DateType[]) => void
+  'clear': () => void
   'select': (date: DateType) => void
   'focus': (e: FocusEvent, info: any) => void
   'blur': (e: FocusEvent, info: any) => void
@@ -238,6 +245,7 @@ export interface TimeRangePickerEmitsProps<DateType = Dayjs> {
   onPanelChange?: TimeRangePickerEmits<DateType>['panelChange']
   onOpenChange?: TimeRangePickerEmits<DateType>['openChange']
   onOk?: TimeRangePickerEmits<DateType>['ok']
+  onClear?: TimeRangePickerEmits<DateType>['clear']
   onFocus?: TimeRangePickerEmits<DateType>['focus']
   onBlur?: TimeRangePickerEmits<DateType>['blur']
   onKeydown?: TimeRangePickerEmits<DateType>['keydown']
@@ -250,6 +258,7 @@ export interface TimePickerEmitsProps<DateType = Dayjs> {
   onPanelChange?: TimePickerEmits<DateType>['panelChange']
   onOpenChange?: TimePickerEmits<DateType>['openChange']
   onOk?: TimePickerEmits<DateType>['ok']
+  onClear?: TimePickerEmits<DateType>['clear']
   onSelect?: TimePickerEmits<DateType>['select']
   onFocus?: TimePickerEmits<DateType>['focus']
   onBlur?: TimePickerEmits<DateType>['blur']
@@ -324,6 +333,10 @@ const TimePicker = defineComponent<
       emit('ok', date)
     }
 
+    const onClear = () => {
+      emit('clear')
+    }
+
     const onSelect = (date: Dayjs) => {
       emit('select', date)
     }
@@ -396,6 +409,7 @@ const TimePicker = defineComponent<
               onPanelChange,
               onOpenChange,
               onOk,
+              onClear,
               onSelect,
               onFocus,
               onBlur,
