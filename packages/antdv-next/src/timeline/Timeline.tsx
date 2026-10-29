@@ -242,7 +242,7 @@ const Timeline = defineComponent<
       return (
         <Steps
           {...omit(attrs, ['class', 'style'])}
-          {...omit(props, ['items', 'prefixCls', 'titleSpan', 'dotRender', 'labelRender', 'contentRender'])}
+          {...omit(props, ['items', 'prefixCls', 'titleSpan', 'mode', 'reverse', 'pending', 'pendingDot', 'dotRender', 'labelRender', 'contentRender'])}
           class={clsx(
             contextClassName.value,
             timeline.value?.class,

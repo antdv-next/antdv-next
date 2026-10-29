@@ -720,6 +720,23 @@ describe('timeline', () => {
       ))
       expect(wrapper.find('ol.ant-timeline').attributes('dotrender')).toBeUndefined()
     })
+
+    it('should not leak mode/reverse/pending/pendingDot to DOM attrs', () => {
+      const wrapper = mount(() => (
+        <Timeline
+          items={items}
+          mode="alternate"
+          reverse
+          pending="Loading..."
+          pendingDot={<span class="pending-dot" />}
+        />
+      ))
+      const attrs = wrapper.find('ol.ant-timeline').attributes()
+      expect(attrs.mode).toBeUndefined()
+      expect(attrs.reverse).toBeUndefined()
+      expect(attrs.pending).toBeUndefined()
+      expect(attrs.pendingdot).toBeUndefined()
+    })
   })
 
   // ============================ Snapshot ============================
