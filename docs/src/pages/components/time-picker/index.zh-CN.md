@@ -76,8 +76,6 @@ demo:
 | use12Hours | 使用 12 小时制，为 true 时 `format` 默认为 `h:mm:ss a` | boolean | false |  | × |
 | value | 当前时间，支持 `v-model:value` | [dayjs](http://day.js.org/) | - |  | × |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - | ✓ |
-| onChange | 时间发生变化的回调 | function(time: dayjs, timeString: string): void | - |  | × |
-| onOpenChange | 面板打开/关闭时的回调 | (open: boolean) => void | - |  | × |
 
 #### DisabledTime
 
@@ -132,6 +130,16 @@ type RangeDisabledTime = (
   disabledSeconds?: (selectedHour: number, selectedMinute: number) => number[]
 }
 ```
+
+### 事件 {#events}
+
+| 事件 | 说明 | 类型 | 版本 |
+| --- | --- | --- | --- |
+| calendarChange | 待选时间发生变化的回调。支持 `info` 参数 | (date: Dayjs \| Dayjs[], dateString: string \| string[], info: { range: 'start' \| 'end' }) => void | - |
+| change | 时间发生变化的回调 | (date: Dayjs \| Dayjs[] \| null, dateString: string \| string[] \| null) => void | - |
+| clear | 点击清除按钮时的回调 | () => void | 1.4.0 |
+| openChange | 面板打开/关闭时的回调 | (open: boolean) => void | - |
+| update:value | - | (date: Dayjs \| Dayjs[] \| null) => void | - |
 
 ## 语义化 DOM {#semantic-dom}
 
