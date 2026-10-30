@@ -41,6 +41,7 @@ Common props ref：[Comon props](/docs/vue/common-props)
 | closeIcon | Customize close icon | VueNode | true | - | ✓ |
 | disabledInteraction | Disable interaction on highlighted area | boolean | false | - | × |
 | gap | Control the radius of the highlighted area and the offset between highlighted area and the element | &#123; offset?: number \| [number, number]; radius?: number &#125; | &#123; offset: 6, radius: 2 &#125; | - | × |
+| keyboard | Whether to enable keyboard shortcuts | boolean | true | - | × |
 | placement | Position of the guide card relative to the target element | `center` `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom` `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | `bottom` | - | × |
 | mask | Whether to enable masking, change mask style and fill color by pass custom props | boolean \| &#123; style?: CSSProperties; color?: string &#125; | true | - | × |
 | type | Type, affects the background color and text color | 'default' \| 'primary' | `default` | - | × |
