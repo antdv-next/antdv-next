@@ -65,7 +65,6 @@ Common props ref：[Common props](/docs/vue/common-props)
 | select | Trigger when user select the option | (option: MentionsOptionProps, prefix: string) =&gt; void | - |
 | popupScroll | Trigger when mentions scroll | (event: Event) =&gt; void | - |
 | search | Trigger when prefix hit | (text: string, prefix: string) =&gt; void | - |
-| update:value | Triggered when value updates, used for `v-model:value` | (value: string) =&gt; void | - |
 
 ### AllowClearConfig {#allowclearconfig}
 

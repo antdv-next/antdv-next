@@ -138,7 +138,6 @@ type RangeDisabledTime = (
 | change | A callback function, can be executed when the selected time is changing | (date: Dayjs \| Dayjs[] \| null, dateString: string \| string[] \| null) => void | - |
 | clear | Callback when click the clear button | () => void | 1.4.0 |
 | openChange | A callback function which will be called while panel opening/closing | (open: boolean) => void | - |
-| update:value | - | (date: Dayjs \| Dayjs[] \| null) => void | - |
 
 ## Semantic DOM
 

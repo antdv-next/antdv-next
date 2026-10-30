@@ -238,7 +238,6 @@ export type FormatType
 | Event | Description | Type | Version |
 | --- | --- | --- | --- |
 | change | Callback function, can be executed when the selected time is changing | (date: Dayjs \| Dayjs[] \| null, dateString: string \| string[] \| null) => void | - |
-| update:value | - | (date: Dayjs \| Dayjs[] \| null) => void | - |
 | calendarChange | Callback function, can be executed when the start time or the end time of the range is changing. The `info` argument is available. | (dates: [Dayjs, Dayjs], dateStrings: [string, string], info: { range: 'start' \| 'end' }) => void | - |
 | panelChange | Callback when picker panel mode is changed | (value: Dayjs, mode: PickerMode) => void | - |
 | openChange | Callback function, can be executed whether the popup calendar is popped up or closed | (open: boolean) => void | - |

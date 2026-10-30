@@ -139,7 +139,6 @@ type RangeDisabledTime = (
 | change | 时间发生变化的回调 | (date: Dayjs \| Dayjs[] \| null, dateString: string \| string[] \| null) => void | - |
 | clear | 点击清除按钮时的回调 | () => void | 1.4.0 |
 | openChange | 面板打开/关闭时的回调 | (open: boolean) => void | - |
-| update:value | - | (date: Dayjs \| Dayjs[] \| null) => void | - |
 
 ## 语义化 DOM {#semantic-dom}
 

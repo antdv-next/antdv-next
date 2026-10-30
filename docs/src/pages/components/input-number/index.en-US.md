@@ -66,7 +66,6 @@ Common props ref：[Common props](/docs/vue/common-props)
 | --- | --- | --- | --- |
 | change | The callback triggered when the value is changed | (value: any) =&gt; void | - |
 | clear | Callback when the clear icon is clicked | () =&gt; void | 1.5.4 |
-| update:value | - | (value: any) =&gt; void | - |
 | input | - | (text: string) =&gt; void | - |
 | pressEnter | The callback function that is triggered when Enter key is pressed | (e: KeyboardEvent) =&gt; void | - |
 | step | `@step`The callback function that is triggered when click up or down buttons / Keyboard / Wheel | (value: any, info: InputNumberStepContext) =&gt; void | - |

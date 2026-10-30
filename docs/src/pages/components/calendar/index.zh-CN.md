@@ -58,7 +58,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*-p-wQLik200AAA
 | 事件 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
 | change | 日期变化回调 | (date: DateType) =&gt; void | - |
-| update:value | - | (date: DateType) =&gt; void | - |
 | panelChange | 日期面板变化回调 | (date: DateType, mode: CalendarMode) =&gt; void | - |
 | select | 选择日期回调，包含来源信息 | (date: DateType, selectInfo: SelectInfo) =&gt; void | - |
 
