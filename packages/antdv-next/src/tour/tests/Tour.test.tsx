@@ -422,6 +422,26 @@ describe('tour', () => {
     expect(queryDescription()).toBeFalsy()
   })
 
+  it.each(['', false] as const)('should not render empty header/description/cover blocks when the value is %j', async (falsyValue) => {
+    for (const step of [{ title: falsyValue }, { description: falsyValue }, { cover: falsyValue }]) {
+      const wrapper = mount(Tour, {
+        attachTo: document.body,
+        props: {
+          open: true,
+          steps: [step as any],
+        },
+      })
+      await flushTour()
+
+      expect(queryHeader()).toBeFalsy()
+      expect(queryDescription()).toBeFalsy()
+      expect(queryCover()).toBeFalsy()
+
+      wrapper.unmount()
+      document.body.innerHTML = ''
+    }
+  })
+
   // =================== Indicators ===================
 
   it('should show indicators for multiple steps', async () => {

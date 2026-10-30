@@ -5,7 +5,7 @@ import { clsx } from '@v-c/util'
 import pickAttrs from '@v-c/util/dist/pickAttrs'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { defineComponent } from 'vue'
-import isNonNullable from '../_util/isNonNullable.ts'
+import { isRenderable } from '../_util/is'
 import { getSlotPropsFnRun } from '../_util/tools.ts'
 import Button from '../button'
 import defaultLocale from '../locale/en_US'
@@ -96,7 +96,7 @@ const TourPanel = defineComponent<
       }
 
       const _title = getSlotPropsFnRun({}, { title }, 'title')
-      const headerNode = isNonNullable(_title)
+      const headerNode = isRenderable(_title)
         ? (
             <div class={clsx(`${prefixCls}-header`, classes.header)} style={styles.header}>
               <div class={clsx(`${prefixCls}-title`, classes.title)} style={styles.title}>
@@ -107,7 +107,7 @@ const TourPanel = defineComponent<
         : null
 
       const _description = getSlotPropsFnRun({}, { description }, 'description')
-      const descriptionNode = isNonNullable(_description)
+      const descriptionNode = isRenderable(_description)
         ? (
             <div
               class={clsx(`${prefixCls}-description`, classes.description)}
@@ -119,7 +119,7 @@ const TourPanel = defineComponent<
         : null
 
       const _cover = getSlotPropsFnRun({}, { cover }, 'cover')
-      const coverNode = isNonNullable(_cover)
+      const coverNode = isRenderable(_cover)
         ? (
             <div class={clsx(`${prefixCls}-cover`, classes.cover)} style={styles.cover}>
               {_cover}
