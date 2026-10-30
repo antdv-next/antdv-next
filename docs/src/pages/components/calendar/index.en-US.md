@@ -57,7 +57,6 @@ Common props ref：[Common props](/docs/vue/common-props)
 | Event | Description | Type | Version |
 | --- | --- | --- | --- |
 | change | Callback for when date changes | (date: DateType) =&gt; void | - |
-| update:value | - | (date: DateType) =&gt; void | - |
 | panelChange | Callback for when panel changes | (date: DateType, mode: CalendarMode) =&gt; void | - |
 | select | Callback for when a date is selected, include source info | (date: DateType, selectInfo: SelectInfo) =&gt; void | - |
 

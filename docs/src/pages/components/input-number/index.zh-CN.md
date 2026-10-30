@@ -67,7 +67,6 @@ demo:
 | --- | --- | --- | --- |
 | change | 变化回调 | (value: any) =&gt; void | - |
 | clear | 点击清除图标时的回调 | () =&gt; void | 1.5.4 |
-| update:value | - | (value: any) =&gt; void | - |
 | input | - | (text: string) =&gt; void | - |
 | pressEnter | 按下回车的回调 | (e: KeyboardEvent) =&gt; void | - |
 | step | `@step`点击上下箭头、键盘、滚轮的回调 | (value: any, info: InputNumberStepContext) =&gt; void | - |

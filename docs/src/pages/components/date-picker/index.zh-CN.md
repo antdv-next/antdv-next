@@ -240,7 +240,6 @@ export type FormatType
 | 事件 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
 | change | 时间发生变化的回调 | (date: Dayjs \| Dayjs[] \| null, dateString: string \| string[] \| null) => void | - |
-| update:value | - | (date: Dayjs \| Dayjs[] \| null) => void | - |
 | calendarChange | 待选日期发生变化的回调。支持 `info` 参数 | (dates: [Dayjs, Dayjs], dateStrings: [string, string], info: { range: 'start' \| 'end' }) => void | - |
 | panelChange | 日历面板切换的回调 | (value: Dayjs, mode: PickerMode) => void | - |
 | openChange | 弹出日历和关闭日历的回调 | (open: boolean) => void | - |

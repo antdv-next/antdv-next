@@ -66,7 +66,6 @@ demo:
 | select | 选择选项时触发 | (option: MentionsOptionProps, prefix: string) =&gt; void | - |
 | popupScroll | 滚动时触发 | (event: Event) =&gt; void | - |
 | search | 搜索时触发 | (text: string, prefix: string) =&gt; void | - |
-| update:value | 值更新时触发，用于支持 `v-model:value` | (value: string) =&gt; void | - |
 
 ### AllowClearConfig {#allowclearconfig}
 
