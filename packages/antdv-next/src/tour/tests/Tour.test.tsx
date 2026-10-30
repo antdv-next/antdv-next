@@ -315,6 +315,27 @@ describe('tour', () => {
     expect(onUpdateOpen).toHaveBeenCalledWith(false)
   })
 
+  it('should only emit update:open once when finish clicked', async () => {
+    const onFinish = vi.fn()
+    const onUpdateOpen = vi.fn()
+    mount(Tour, {
+      attachTo: document.body,
+      props: {
+        open: true,
+        steps: [{ title: 'Only Step' }],
+        onFinish,
+        'onUpdate:open': onUpdateOpen,
+      },
+    })
+    await flushTour()
+
+    queryNextBtn()?.click()
+    await flushTour()
+    expect(onFinish).toHaveBeenCalledTimes(1)
+    expect(onUpdateOpen).toHaveBeenCalledTimes(1)
+    expect(onUpdateOpen).toHaveBeenCalledWith(false)
+  })
+
   it('should emit update:current when step changes', async () => {
     const onUpdateCurrent = vi.fn()
     mount(Tour, {

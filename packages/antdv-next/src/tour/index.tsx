@@ -207,7 +207,6 @@ const Tour = defineComponent<
             }}
             onFinish={() => {
               emit('finish')
-              emit('update:open', false)
             }}
             onPopupAlign={(el, info) => {
               emit('popupAlign', el, info)
