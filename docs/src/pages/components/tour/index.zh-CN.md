@@ -42,6 +42,7 @@ demo:
 | closeIcon | 自定义关闭按钮 | VueNode | true | - | ✓ |
 | disabledInteraction | 禁用高亮区域交互 | boolean | false | - | × |
 | gap | 控制高亮区域的圆角边框和显示间距 | &#123; offset?: number \| [number, number]; radius?: number &#125; | &#123; offset: 6, radius: 2 &#125; | - | × |
+| keyboard | 是否启用键盘快捷行为 | boolean | true | - | × |
 | placement | 引导卡片相对于目标元素的位置 | `center` `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom` `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | `bottom` | - | × |
 | mask | 是否启用蒙层，也可传入配置改变蒙层样式和填充色 | boolean \| &#123; style?: CSSProperties; color?: string &#125; | true | - | × |
 | type | 类型，影响底色与文字颜色 | 'default' \| 'primary' | `default` | - | × |
