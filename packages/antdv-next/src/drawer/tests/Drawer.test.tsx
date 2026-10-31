@@ -74,6 +74,37 @@ describe('drawer', () => {
     wrapper.unmount()
   })
 
+  it('links aria-labelledby to title when title only comes from slot', async () => {
+    const wrapper = mount(Drawer, {
+      props: { open: true },
+      slots: {
+        default: () => <p>Body</p>,
+        title: () => <span class="slot-title">Slot Title</span>,
+      },
+      attachTo: document.body,
+    })
+    await nextTick()
+    await nextTick()
+    const ariaId = document.querySelector('.ant-drawer-title')?.getAttribute('id')
+    expect(ariaId).toBeTruthy()
+    expect(document.querySelector(`[aria-labelledby="${ariaId}"]`)).toBeTruthy()
+    wrapper.unmount()
+  })
+
+  it('links aria-labelledby to title when title comes from prop', async () => {
+    const wrapper = mount(Drawer, {
+      props: { open: true, title: 'My Drawer' },
+      slots: { default: () => <p>Body</p> },
+      attachTo: document.body,
+    })
+    await nextTick()
+    await nextTick()
+    const ariaId = document.querySelector('.ant-drawer-title')?.getAttribute('id')
+    expect(ariaId).toBeTruthy()
+    expect(document.querySelector(`[aria-labelledby="${ariaId}"]`)).toBeTruthy()
+    wrapper.unmount()
+  })
+
   it('renders extra content', async () => {
     const wrapper = mount(Drawer, {
       props: { open: true, title: 'Drawer' },
