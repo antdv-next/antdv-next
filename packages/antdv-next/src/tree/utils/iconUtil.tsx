@@ -41,8 +41,8 @@ const SwitcherIconCom = defineComponent<SwitcherIconProps>(
         if (typeof showLeafIcon !== 'boolean' && !!showLeafIcon) {
           const leafIcon = typeof showLeafIcon === 'function' ? showLeafIcon(treeNodeProps) : showLeafIcon
           const leafCls = `${prefixCls}-switcher-line-custom-icon`
-          if (isVNode(showLeafIcon)) {
-            return createVNode(showLeafIcon, {
+          if (isVNode(leafIcon)) {
+            return createVNode(leafIcon, {
               class: leafCls,
             })
           }

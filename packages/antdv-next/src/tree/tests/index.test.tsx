@@ -112,6 +112,29 @@ describe('tree', () => {
     expect(wrapper.findAll('.customLeafIcon')).toHaveLength(2)
   })
 
+  it('leaf nodes should get switcher-line-custom-icon class when showLeafIcon is a render function', () => {
+    const treeData = [
+      {
+        title: 'parent',
+        key: '0-0',
+        children: [
+          { title: 'node1', key: '0-0-0' },
+          { title: 'node2', key: '0-0-1' },
+        ],
+      },
+    ]
+    const wrapper = mount(Tree, {
+      props: {
+        treeData,
+        defaultExpandAll: true,
+        showLine: { showLeafIcon: () => <i class="customLeafIcon" /> },
+      },
+    })
+
+    expect(wrapper.findAll('.customLeafIcon')).toHaveLength(2)
+    expect(wrapper.findAll('.ant-tree-switcher-line-custom-icon')).toHaveLength(2)
+  })
+
   it('leaf nodes should render custom icons when provided as string', () => {
     const treeData = [
       {
