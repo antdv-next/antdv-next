@@ -4,7 +4,7 @@ import type { SubMenuType } from './interface.ts'
 import { useFullPath, SubMenu as VcSubMenu } from '@v-c/menu'
 import { clsx } from '@v-c/util'
 import { omit } from 'es-toolkit'
-import { computed, createVNode, defineComponent } from 'vue'
+import { computed, createVNode, defineComponent, isVNode, Text } from 'vue'
 import { pureAttrs, useZIndex } from '../_util/hooks'
 import { getSlotPropsFnRun } from '../_util/tools.ts'
 import { useMenuContext, useMenuContextProvider } from './MenuContext.tsx'
@@ -47,10 +47,11 @@ const SubMenu = defineComponent<
       let titleNode: any
       const title = getSlotPropsFnRun(slots, props, 'title')
       const icon = getSlotPropsFnRun(slots, props, 'icon')
+      const titleText = isVNode(title) && title.type === Text ? title.children : title
       if (!icon) {
-        titleNode = inlineCollapsed && !parentPath.value?.length && title && typeof title === 'string'
+        titleNode = inlineCollapsed && !parentPath.value?.length && typeof titleText === 'string' && titleText
           ? (
-              <div class={`${prefixCls}-inline-collapsed-noicon`}>{title.charAt(0)}</div>
+              <div class={`${prefixCls}-inline-collapsed-noicon`}>{titleText.charAt(0)}</div>
             )
           : (<span class={`${prefixCls}-title-content`}>{title}</span>)
       }
