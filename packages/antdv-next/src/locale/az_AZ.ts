@@ -17,6 +17,8 @@ const localeValues: Locale = {
     placeholder: 'Zəhmət olmasa seçin',
     close: 'Bağla',
     sortable: 'çeşidlənən',
+    show: 'Göstər',
+    hide: 'Gizlət',
   },
   Table: {
     filterTitle: 'Filter menyu',

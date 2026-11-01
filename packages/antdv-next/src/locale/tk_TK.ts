@@ -17,6 +17,8 @@ const localeValues: Locale = {
     placeholder: 'Saýlaň',
     close: 'Ýagty',
     sortable: 'tertipli',
+    show: 'Görkez',
+    hide: 'Gizle',
   },
   Table: {
     filterTitle: 'Filter',

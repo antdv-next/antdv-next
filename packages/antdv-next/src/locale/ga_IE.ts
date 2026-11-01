@@ -17,6 +17,8 @@ const localeValues: Locale = {
     placeholder: 'Please select',
     close: 'Dún',
     sortable: 'insocraithe',
+    show: 'Taispeáin',
+    hide: 'Folaigh',
   },
   Table: {
     filterTitle: 'Filter menu',

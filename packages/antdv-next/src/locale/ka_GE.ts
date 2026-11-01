@@ -17,6 +17,8 @@ const localeValues: Locale = {
     placeholder: 'გთხოვთ აირჩიოთ',
     close: 'დახურვა',
     sortable: 'დასალაგებელი',
+    show: 'აჩვენე',
+    hide: 'დამალე',
   },
   Table: {
     filterTitle: 'ფილტრის მენიუ',

@@ -18,6 +18,8 @@ const localeValues: Locale = {
     placeholder: 'ದಯವಿಟ್ಟು ಆರಿಸಿ',
     close: 'ಮುಚ್ಚಿ',
     sortable: 'ವಿಂಗಡಿಸಬಹುದಾದ',
+    show: 'ತೋರಿಸಿ',
+    hide: 'ಮರೆಮಾಡಿ',
   },
   Table: {
     filterTitle: 'ಪಟ್ಟಿ ಸೋಸಿ',

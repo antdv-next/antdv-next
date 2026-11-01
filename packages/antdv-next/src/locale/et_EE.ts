@@ -17,6 +17,8 @@ const localeValues: Locale = {
     placeholder: 'Palun vali',
     close: 'Sulge',
     sortable: 'sorteeritav',
+    show: 'Näita',
+    hide: 'Peida',
   },
   Table: {
     filterTitle: 'Filtri menüü',

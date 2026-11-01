@@ -17,6 +17,8 @@ const localeValues: Locale = {
     placeholder: 'منتخب کریں',
     close: 'بند کریں',
     sortable: 'قابل ترتیب',
+    show: 'دکھائیں',
+    hide: 'چھپائیں',
   },
   Table: {
     filterTitle: 'فلٹر مینو',

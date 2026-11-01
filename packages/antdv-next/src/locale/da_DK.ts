@@ -16,6 +16,8 @@ const localeValues: Locale = {
     close: 'Luk',
     placeholder: 'Vælg venligst',
     sortable: 'sorterbar',
+    show: 'Vis',
+    hide: 'Skjul',
   },
   Table: {
     filterTitle: 'Filtermenu',

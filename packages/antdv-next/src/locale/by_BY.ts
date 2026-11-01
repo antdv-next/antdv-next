@@ -17,6 +17,8 @@ const localeValues: Locale = {
     placeholder: 'Калі ласка, выберыце',
     close: 'Закрыць',
     sortable: 'сартавальны',
+    show: 'Паказаць',
+    hide: 'Схаваць',
   },
   Table: {
     filterTitle: 'Фільтр',

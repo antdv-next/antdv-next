@@ -18,6 +18,8 @@ const localeValues: Locale = {
     placeholder: 'தேதியைத் தேர்ந்தெடுக்கவும்',
     close: 'மூடு',
     sortable: 'வரிசைப்படுத்தக்கூடிய',
+    show: 'காட்டு',
+    hide: 'மறை',
   },
   Table: {
     filterTitle: 'பட்டியலை மூடு',

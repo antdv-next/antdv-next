@@ -17,6 +17,8 @@ const localeValues: Locale = {
     placeholder: 'Seleccionar',
     close: 'Tancar',
     sortable: 'ordenable',
+    show: 'Mostra',
+    hide: 'Amaga',
   },
   Table: {
     filterTitle: 'Filtrar el menú',

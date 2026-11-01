@@ -17,6 +17,8 @@ const localeValues: Locale = {
     placeholder: 'Таңдаңыз',
     close: 'Жабу',
     sortable: 'сұрыпталатын',
+    show: 'Көрсету',
+    hide: 'Жасыру',
   },
   Table: {
     filterTitle: 'Фильтр',

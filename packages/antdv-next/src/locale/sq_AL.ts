@@ -26,6 +26,8 @@ const localeValues: Locale = {
     placeholder: 'Ju lutemi zgjidhni',
     close: 'Mbyll',
     sortable: 'i renditshëm',
+    show: 'Shfaq',
+    hide: 'Fshih',
   },
   Table: {
     filterTitle: 'Menuja e filtrimit',

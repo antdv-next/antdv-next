@@ -1420,6 +1420,7 @@ exports[`input demo > renders _semantic-password correctly 1`] = `
             </span>
             <span
               aria-disabled="false"
+              aria-label="Show"
               aria-pressed="false"
               class="ant-input-password-icon"
               role="button"
@@ -5172,6 +5173,7 @@ exports[`input demo > renders password-input correctly 1`] = `
         <!---->
         <span
           aria-disabled="false"
+          aria-label="Show"
           aria-pressed="false"
           class="ant-input-password-icon"
           role="button"
@@ -5225,6 +5227,7 @@ exports[`input demo > renders password-input correctly 1`] = `
         <!---->
         <span
           aria-disabled="false"
+          aria-label="Show"
           aria-pressed="false"
           class="ant-input-password-icon"
           role="button"
@@ -5284,6 +5287,7 @@ exports[`input demo > renders password-input correctly 1`] = `
             <!---->
             <span
               aria-disabled="false"
+              aria-label="Show"
               aria-pressed="false"
               class="ant-input-password-icon"
               role="button"
@@ -5370,6 +5374,7 @@ exports[`input demo > renders password-input correctly 1`] = `
         <!---->
         <span
           aria-disabled="true"
+          aria-label="Show"
           aria-pressed="false"
           class="ant-input-password-icon"
           role="button"
@@ -5541,6 +5546,7 @@ exports[`input demo > renders presuffix correctly 1`] = `
       <!---->
       <span
         aria-disabled="false"
+        aria-label="Show"
         aria-pressed="false"
         class="ant-input-password-icon"
         role="button"
@@ -6521,6 +6527,7 @@ exports[`input demo > renders style-class correctly 1`] = `
       <!---->
       <span
         aria-disabled="false"
+        aria-label="Show"
         aria-pressed="false"
         class="ant-input-password-icon"
         role="button"
@@ -6951,6 +6958,7 @@ exports[`input demo > renders subcomponent-variant correctly 1`] = `
         <!---->
         <span
           aria-disabled="false"
+          aria-label="Show"
           aria-pressed="false"
           class="ant-input-password-icon"
           role="button"
@@ -7013,6 +7021,7 @@ exports[`input demo > renders subcomponent-variant correctly 1`] = `
         <!---->
         <span
           aria-disabled="false"
+          aria-label="Show"
           aria-pressed="false"
           class="ant-input-password-icon"
           role="button"
@@ -7075,6 +7084,7 @@ exports[`input demo > renders subcomponent-variant correctly 1`] = `
         <!---->
         <span
           aria-disabled="false"
+          aria-label="Show"
           aria-pressed="false"
           class="ant-input-password-icon"
           role="button"

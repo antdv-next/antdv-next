@@ -17,6 +17,8 @@ const localeValues: Locale = {
     placeholder: 'لطفاً انتخاب کنید',
     close: 'بستن',
     sortable: 'قابل مرتب سازی',
+    show: 'نمایش',
+    hide: 'مخفی کردن',
   },
   Table: {
     filterTitle: 'منوی فیلتر',

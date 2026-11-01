@@ -17,6 +17,8 @@ const localeValues: Locale = {
     close: 'Loka',
     placeholder: 'Vinsamlegast veldu',
     sortable: 'flokkanlegt',
+    show: 'Sýna',
+    hide: 'Fela',
   },
   Table: {
     filterTitle: 'Afmarkanir',
