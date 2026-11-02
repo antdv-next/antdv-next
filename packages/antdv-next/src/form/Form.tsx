@@ -255,6 +255,24 @@ const InternalForm = defineComponent<
       FormProps
     >(useToArr(contextClassNames, classes), useToArr(contextStyles, contextStyleRoot as any, styles), useToProps(mergedProps))
 
+    // Cleanup runs in the parent render effect; keep unmount reads untracked.
+    let currentModel = model.value
+    let currentClearOnDestroy = props.clearOnDestroy
+    watch(
+      () => model.value,
+      (value) => {
+        currentModel = value
+      },
+      { flush: 'sync' },
+    )
+    watch(
+      () => props.clearOnDestroy,
+      (value) => {
+        currentClearOnDestroy = value
+      },
+      { flush: 'sync' },
+    )
+
     // Plain bookkeeping (never rendered): FormItem unregisters from a watcher
     // cleanup, which on unmount runs inside the parent's render effect.
     const fields: Record<string, FormFieldRegister> = {}
@@ -339,7 +357,7 @@ const InternalForm = defineComponent<
     }
 
     const isMergedPreserve = (field: FormFieldRegister) => {
-      return field.isPreserve?.() ?? props.preserve ?? true
+      return field.isPreserve ? field.isPreserve() : true
     }
 
     /**
@@ -753,8 +771,8 @@ const InternalForm = defineComponent<
     })
 
     onBeforeUnmount(() => {
-      const modelValue = model.value
-      if (props.clearOnDestroy && modelValue) {
+      const modelValue = currentModel
+      if (currentClearOnDestroy && modelValue) {
         Object.keys(modelValue).forEach((key) => {
           delete modelValue[key]
         })

@@ -16,7 +16,7 @@ export interface FormFieldRegister {
   getMeta: () => Meta
   rules?: () => Rule[]
   isFieldDirty?: () => boolean
-  isPreserve?: () => boolean | undefined
+  isPreserve?: () => boolean
   validateRules: (options?: Record<string, any>) => Promise<void>
   resetField: () => void
   clearValidate: () => void
