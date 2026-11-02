@@ -8,6 +8,7 @@ import type { InternalNamePath, Meta, NamePath, Rule, RuleError, RuleObject, Tri
 import type { ItemHolderProps } from './ItemHolder.tsx'
 import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
+import { omit } from 'es-toolkit'
 import { computed, createVNode, defineComponent, isVNode, onBeforeUnmount, shallowRef, watch } from 'vue'
 import { isRenderable } from '../../_util/is.ts'
 import { getSlotPropsFnRun } from '../../_util/tools.ts'
@@ -46,6 +47,7 @@ export interface BaseFormItemProps {
   validateTrigger?: TriggerType | TriggerType[] | false
   validateDebounce?: number
   validateFirst?: boolean | 'parallel'
+  preserve?: boolean
 }
 
 export type FormItemProps = BaseFormItemProps
@@ -529,6 +531,7 @@ const InternalFormItem = defineComponent<
             rules: () => getMergedRules(),
             // Touched or validated or has initialValue
             isFieldDirty: () => meta.value.touched || meta.value.validated || initialValue.value !== undefined,
+            isPreserve: () => props.preserve,
             // @ts-expect-error this
             validateRules: (options?: ValidateOptions) => validateRulesInner(options),
             resetField,
@@ -550,6 +553,7 @@ const InternalFormItem = defineComponent<
           // 只移除自己注册的那一项：同一轮更新里 key 可能已被其他 FormItem 接手
           onCleanup(() => {
             formCtx.removeField?.(fieldKey, field)
+            formCtx.removeFieldValue?.(field)
           })
         }
       },
@@ -715,7 +719,7 @@ const InternalFormItem = defineComponent<
 
       return (
         <ItemHolder
-          {...props}
+          {...omit(props, ['preserve'])}
           tooltip={mergedTooltip}
           label={getSlotPropsFnRun(slots, props, 'label')}
           extra={getSlotPropsFnRun(slots, props, 'extra')}

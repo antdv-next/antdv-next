@@ -19,7 +19,7 @@ import type {
 } from './types.ts'
 import { clsx, get, set } from '@v-c/util'
 import { getDOM } from '@v-c/util/dist/Dom/findDOMNode'
-import { pick } from 'es-toolkit'
+import { cloneDeep, pick } from 'es-toolkit'
 import scrollIntoView from 'scroll-into-view-if-needed'
 import { computed, defineComponent, getCurrentInstance, inject, onBeforeUnmount, onMounted, provide, shallowRef, watch } from 'vue'
 import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
@@ -37,7 +37,7 @@ import useStyle from './style'
 import { getFieldId, toArray, toNamePathStr } from './util.ts'
 import { allPromiseFinish } from './utils/asyncUtil'
 import { defaultValidateMessages } from './utils/messages'
-import { cloneByNamePathList, containsNamePath, getNamePath, setValue } from './utils/valueUtil.ts'
+import { cloneByNamePathList, containsNamePath, getNamePath, matchNamePath, setValue } from './utils/valueUtil.ts'
 
 import { useValidateMessagesContext, useValidateMessagesProvider } from './validateMessagesContext.tsx'
 
@@ -304,12 +304,14 @@ const InternalForm = defineComponent<
       return get(model.value ?? {}, namePath)
     }
 
-    const getFieldsValue = (nameList: InternalNamePath[] | true = true) => {
-      if (nameList === true) {
-        const allNameList = Object.values(fields).map(field => field.namePath())
-        return cloneByNamePathList(model.value ?? {}, allNameList)
-      }
-      return cloneByNamePathList(model.value ?? {}, nameList)
+    const getFieldsValue = (nameList?: InternalNamePath[] | true) => {
+      if (nameList === true)
+        return cloneDeep(model.value ?? {})
+
+      const registeredNameList = nameList?.length
+        ? nameList
+        : Object.values(fields).map(field => field.namePath())
+      return cloneByNamePathList(model.value ?? {}, registeredNameList)
     }
 
     const getFields = (namePathList?: InternalNamePath[]): FieldData[] => {
@@ -333,6 +335,38 @@ const InternalForm = defineComponent<
         const changedValues = setValue({}, namePath, value)
         emit('valuesChange', changedValues, model.value)
       }
+      triggerFieldsChange([namePath])
+    }
+
+    const isMergedPreserve = (field: FormFieldRegister) => {
+      return field.isPreserve?.() ?? props.preserve ?? true
+    }
+
+    /**
+     * Drop a value after the last owner is unregistered. The caller removes the
+     * current registration first, matching rc-field-form's unregister order.
+     */
+    const removeFieldValue = (field: FormFieldRegister) => {
+      if (isMergedPreserve(field))
+        return
+
+      const namePath = field.namePath()
+      const modelValue = model.value
+      if (!namePath.length || !modelValue)
+        return
+
+      const hasSamePathField = getFieldsByNameList().some(registeredField =>
+        matchNamePath(registeredField.namePath(), namePath),
+      )
+      if (hasSamePathField)
+        return
+
+      const nextModel = setValue(modelValue, namePath, undefined, true)
+      Object.keys(modelValue).forEach((key) => {
+        if (!(key in nextModel))
+          delete modelValue[key]
+      })
+      Object.assign(modelValue, nextModel)
       triggerFieldsChange([namePath])
     }
 
@@ -464,8 +498,11 @@ const InternalForm = defineComponent<
         tooltip: mergedTooltip.value,
         validateMessages: mergedValidateMessages.value,
         feedbackIcons: feedbackIcons.value,
+        preserve: props.preserve,
+        clearOnDestroy: props.clearOnDestroy,
         addField,
         removeField,
+        removeFieldValue,
         addItem,
         removeItem,
         onValidate,
@@ -716,6 +753,12 @@ const InternalForm = defineComponent<
     })
 
     onBeforeUnmount(() => {
+      const modelValue = model.value
+      if (props.clearOnDestroy && modelValue) {
+        Object.keys(modelValue).forEach((key) => {
+          delete modelValue[key]
+        })
+      }
       if (boundEntry && vm && boundEntry.boundBy === vm.uid) {
         boundEntry.boundBy = undefined
         boundEntry.instanceRef.value = undefined
