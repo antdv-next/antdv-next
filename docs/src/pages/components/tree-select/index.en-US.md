@@ -94,6 +94,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | Event | Description | Type | Version |
 | --- | --- | --- | --- |
 | change | A callback function, can be executed when selected treeNodes or input value change | function(value, label, extra) | - |
+| clear | Called when clear | () =&gt; void | - |
 | openChange | Callback when dropdown open state changes | (open: boolean) =&gt; void | - |
 | select | A callback function, can be executed when you select a treeNode | function(value, node, extra) | - |
 | treeExpand | A callback function, can be executed when treeNode expanded | function(expandedKeys) | - |

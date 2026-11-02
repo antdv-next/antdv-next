@@ -648,4 +648,29 @@ describe('tree-select', () => {
     wrapper.unmount()
     formWrapper.unmount()
   })
+
+  describe('clear event', () => {
+    const treeData = [{ value: 'light', title: 'Light' }]
+
+    it('should emit clear exactly once when clear button is clicked', async () => {
+      const onClear = vi.fn()
+      const wrapper = mount(TreeSelect, {
+        props: {
+          allowClear: true,
+          value: 'light',
+          treeData,
+          onClear,
+        },
+      })
+      expect(wrapper.find('.ant-select-clear').exists()).toBe(true)
+      await wrapper.find('.ant-select-clear').trigger('click')
+      expect(onClear).toHaveBeenCalledTimes(1)
+      wrapper.unmount()
+    })
+
+    it('does not declare onClear as a runtime prop', () => {
+      expect((TreeSelect as any).props).not.toHaveProperty('onClear')
+      expect((TreeSelect as any).emits).toContain('clear')
+    })
+  })
 })

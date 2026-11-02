@@ -122,6 +122,7 @@ interface BaseTreeSelectProps<ValueType = any, OptionType extends DataNode = Dat
     | 'onPopupVisibleChange'
     | 'onSearch'
     | 'popupRender'
+    | 'onClear'
   > {
   size?: SizeType
   disabled?: boolean
@@ -178,6 +179,7 @@ export interface TreeSelectEmits<ValueType = any, OptionType extends DataNode = 
   'blur': (e: FocusEvent) => void
   'openChange': (open: boolean) => void
   'dropdownVisibleChange': (open: boolean) => void
+  'clear': NonNullable<VcTreeSelectProps['onClear']>
   'select': NonNullable<VcTreeSelectProps<ValueType, OptionType>['onSelect']>
   'treeExpand': NonNullable<VcTreeSelectProps<ValueType, OptionType>['onTreeExpand']>
   'treeLoad': NonNullable<VcTreeSelectProps<ValueType, OptionType>['onTreeLoad']>
@@ -192,6 +194,7 @@ export interface TreeSelectEmitsProps<ValueType = any, OptionType extends DataNo
   onBlur?: TreeSelectEmits['blur']
   onOpenChange?: TreeSelectEmits['openChange']
   onDropdownVisibleChange?: TreeSelectEmits['dropdownVisibleChange']
+  onClear?: TreeSelectEmits['clear']
   onSelect?: TreeSelectEmits<ValueType, OptionType>['select']
   onTreeExpand?: TreeSelectEmits<ValueType, OptionType>['treeExpand']
   onTreeLoad?: TreeSelectEmits<ValueType, OptionType>['treeLoad']
@@ -504,6 +507,9 @@ const InternalTreeSelect = defineComponent<
         onSelect(value, option) {
           emit('select', value, option)
         },
+        onClear() {
+          emit('clear')
+        },
         onChange(value, labelList, extra) {
           emit('change', value, labelList, extra)
           emit('update:value', value)
@@ -635,6 +641,7 @@ interface TreeSelectInstance<ValueType = any, OptionType extends DataNode = Data
     (event: 'blur', ...args: Parameters<TreeSelectEmits['blur']>): void
     (event: 'openChange', ...args: Parameters<TreeSelectEmits['openChange']>): void
     (event: 'dropdownVisibleChange', ...args: Parameters<TreeSelectEmits['dropdownVisibleChange']>): void
+    (event: 'clear', ...args: Parameters<TreeSelectEmits['clear']>): void
     (event: 'select', ...args: Parameters<TreeSelectEmits<ValueType, OptionType>['select']>): void
     (event: 'treeExpand', ...args: Parameters<TreeSelectEmits<ValueType, OptionType>['treeExpand']>): void
     (event: 'treeLoad', ...args: Parameters<TreeSelectEmits<ValueType, OptionType>['treeLoad']>): void

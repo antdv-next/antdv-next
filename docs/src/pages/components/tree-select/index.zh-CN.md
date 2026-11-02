@@ -95,6 +95,7 @@ demo:
 | 事件 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
 | change | 选中树节点时调用此函数 | function(value, label, extra) | - |
+| clear | 清除内容时回调 | () =&gt; void | - |
 | openChange | 展开下拉菜单的回调 | (open: boolean) =&gt; void | - |
 | select | 被选中时调用 | function(value, node, extra) | - |
 | treeExpand | 展示节点时调用 | function(expandedKeys) | - |
