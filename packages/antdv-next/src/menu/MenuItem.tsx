@@ -6,7 +6,7 @@ import { Item } from '@v-c/menu'
 import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit/compat'
-import { computed, createVNode, defineComponent, isVNode, shallowRef, watch } from 'vue'
+import { computed, createVNode, defineComponent, isVNode, shallowRef, Text, watch } from 'vue'
 import { getAttrStyleAndClass, pureAttrs } from '../_util/hooks'
 import { isFunction } from '../_util/is'
 import { omitUndefined } from '../_util/omitUndefined'
@@ -69,7 +69,10 @@ const MenuItem = defineComponent<
       const { prefixCls, firstLevel, direction, disableMenuItemTitleTooltip, tooltip, inlineCollapsed: isInlineCollapsed, styles, classes } = menuContext.value
       const children = filterEmpty(slots?.default?.())
       const renderItemChildren = (inlineCollapsed: boolean) => {
-        const label = children?.[0]
+        const firstChild = children?.[0]
+        const label = isVNode(firstChild) && firstChild.type === Text
+          ? firstChild.children
+          : firstChild
         const wrapNode = (
           <span
             class={clsx(
@@ -87,9 +90,8 @@ const MenuItem = defineComponent<
 
         // inline-collapsed.md demo 依赖 span 来隐藏文字,有 icon 属性，则内部包裹一个 span
         // ref: https://github.com/ant-design/ant-design/pull/23456
-        const _children = children?.[0]
-        if (!icon || (isVNode(_children) && _children.type === 'span')) {
-          if (_children && inlineCollapsed && firstLevel && typeof label === 'string') {
+        if (!icon || (isVNode(firstChild) && firstChild.type === 'span')) {
+          if (firstChild && inlineCollapsed && firstLevel && typeof label === 'string') {
             return <div class={`${prefixCls}-inline-collapsed-noicon`}>{label.charAt(0)}</div>
           }
         }

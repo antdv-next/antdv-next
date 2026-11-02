@@ -99,6 +99,38 @@ describe('menu', () => {
     expect(wrapper.find('.ant-menu-item-selected').text()).toContain('Option 2-2')
   })
 
+  it('Use first char as Icon when collapsed', () => {
+    const wrapper = mount(() => (
+      <Menu mode="inline" inlineCollapsed>
+        <SubMenu key="sub1">
+          {{ title: () => 'Light' }}
+        </SubMenu>
+        <MenuItem key="bamboo">Bamboo</MenuItem>
+      </Menu>
+    ))
+
+    const noicons = wrapper.findAll('.ant-menu-inline-collapsed-noicon')
+    expect(noicons[0]?.text()).toBe('L')
+    expect(noicons[1]?.text()).toBe('B')
+  })
+
+  it('Use first char as Icon when collapsed with items', () => {
+    const wrapper = mount(Menu, {
+      props: {
+        mode: 'inline',
+        inlineCollapsed: true,
+        items: [
+          { key: 'sub1', label: 'Light', children: [{ key: '1', label: 'inner' }] },
+          { key: 'bamboo', label: 'Bamboo' },
+        ],
+      },
+    })
+
+    const noicons = wrapper.findAll('.ant-menu-inline-collapsed-noicon')
+    expect(noicons[0]?.text()).toBe('L')
+    expect(noicons[1]?.text()).toBe('B')
+  })
+
   it('supports menu divider in declarative mode', () => {
     const wrapper = mount(() => (
       <Menu mode="inline">
