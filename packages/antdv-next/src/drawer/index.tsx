@@ -11,7 +11,7 @@ import { computed, defineComponent, shallowRef, useId } from 'vue'
 import { ContextIsolator } from '../_util/ContextIsolator.tsx'
 import { getAttrStyleAndClass, useMergedMask, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps, useZIndex } from '../_util/hooks'
 import { isRenderable } from '../_util/is.ts'
-import { toPropsRefs } from '../_util/tools.ts'
+import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools.ts'
 import { devUseWarning, isDev } from '../_util/warning.ts'
 import { ZIndexProvider } from '../_util/zindexContext.ts'
 import { useComponentBaseConfig } from '../config-provider/context'
@@ -270,7 +270,7 @@ const Drawer = defineComponent<
           ? () => getPopupContainer(document.body)
           : customizeGetContainer
       const ariaLabelledby = restAttrs['aria-labelledby']
-      const ariaId = isRenderable(rest.title) ? id : undefined
+      const ariaId = isRenderable(getSlotPropsFnRun(slots, rest, 'title')) ? id : undefined
       return (
         <ContextIsolator form space>
           <ZIndexProvider value={contextZIndex.value}>
