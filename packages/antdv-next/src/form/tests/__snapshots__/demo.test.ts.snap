@@ -149,6 +149,7 @@ exports[`form demo > renders _semantic correctly 1`] = `
                       <!---->
                       <span
                         aria-disabled="false"
+                        aria-label="Show"
                         aria-pressed="false"
                         class="ant-input-password-icon"
                         role="button"
@@ -1739,6 +1740,7 @@ exports[`form demo > renders basic correctly 1`] = `
                 <!---->
                 <span
                   aria-disabled="false"
+                  aria-label="Show"
                   aria-pressed="false"
                   class="ant-input-password-icon"
                   role="button"
@@ -2038,6 +2040,7 @@ exports[`form demo > renders col-24-debug correctly 1`] = `
                   <!---->
                   <span
                     aria-disabled="false"
+                    aria-label="Show"
                     aria-pressed="false"
                     class="ant-input-password-icon"
                     role="button"
@@ -2422,6 +2425,7 @@ exports[`form demo > renders col-24-debug correctly 1`] = `
                   <!---->
                   <span
                     aria-disabled="false"
+                    aria-label="Show"
                     aria-pressed="false"
                     class="ant-input-password-icon"
                     role="button"
@@ -3315,6 +3319,7 @@ exports[`form demo > renders component-token correctly 1`] = `
                   <!---->
                   <span
                     aria-disabled="false"
+                    aria-label="Show"
                     aria-pressed="false"
                     class="ant-input-password-icon"
                     role="button"
@@ -7498,6 +7503,7 @@ exports[`form demo > renders form-zod correctly 1`] = `
                 <!---->
                 <span
                   aria-disabled="false"
+                  aria-label="Show"
                   aria-pressed="false"
                   class="ant-input-password-icon"
                   role="button"
@@ -8386,6 +8392,7 @@ exports[`form demo > renders label-debug correctly 1`] = `
                 <!---->
                 <span
                   aria-disabled="false"
+                  aria-label="Show"
                   aria-pressed="false"
                   class="ant-input-password-icon"
                   role="button"
@@ -10666,6 +10673,7 @@ exports[`form demo > renders register correctly 1`] = `
                 <!---->
                 <span
                   aria-disabled="false"
+                  aria-label="Show"
                   aria-pressed="false"
                   class="ant-input-password-icon"
                   role="button"
@@ -10767,6 +10775,7 @@ exports[`form demo > renders register correctly 1`] = `
                 <!---->
                 <span
                   aria-disabled="false"
+                  aria-label="Show"
                   aria-pressed="false"
                   class="ant-input-password-icon"
                   role="button"
@@ -14526,6 +14535,7 @@ exports[`form demo > renders use-form-name correctly 1`] = `
                         <!---->
                         <span
                           aria-disabled="false"
+                          aria-label="Show"
                           aria-pressed="false"
                           class="ant-input-password-icon"
                           role="button"
@@ -15214,6 +15224,7 @@ exports[`form demo > renders validate-only correctly 1`] = `
                 <!---->
                 <span
                   aria-disabled="false"
+                  aria-label="Show"
                   aria-pressed="false"
                   class="ant-input-password-icon"
                   role="button"
@@ -18551,6 +18562,7 @@ exports[`form demo > renders variant correctly 1`] = `
                 <!---->
                 <span
                   aria-disabled="false"
+                  aria-label="Show"
                   aria-pressed="false"
                   class="ant-input-password-icon"
                   role="button"

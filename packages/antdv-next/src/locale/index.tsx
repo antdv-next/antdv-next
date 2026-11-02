@@ -46,6 +46,8 @@ export interface Locale {
     close?: string
     sortable?: string
     clear?: string
+    show?: string
+    hide?: string
   }
   Icon?: Record<string, any>
   Text?: {

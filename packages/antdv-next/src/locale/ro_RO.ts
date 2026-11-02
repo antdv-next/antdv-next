@@ -17,6 +17,8 @@ const localeValues: Locale = {
     placeholder: 'Selectează',
     close: 'Închide',
     sortable: 'sortabil',
+    show: 'Arată',
+    hide: 'Ascunde',
   },
   Table: {
     filterTitle: 'Filtrează',

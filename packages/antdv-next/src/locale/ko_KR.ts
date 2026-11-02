@@ -17,6 +17,8 @@ const localeValues: Locale = {
     placeholder: '선택하세요',
     close: '닫기',
     sortable: '정렬 가능',
+    show: '표시',
+    hide: '숨기기',
   },
   Table: {
     filterTitle: '필터 메뉴',

@@ -15,6 +15,8 @@ const localeValues: Locale = {
     close: 'Betal ke',
     placeholder: 'Ji kerema xwe hilbijêre',
     sortable: 'sorkirin',
+    show: 'Nîşan bide',
+    hide: 'Veşêre',
   },
   Table: {
     filterTitle: 'Menuê peldanka',

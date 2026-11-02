@@ -22,6 +22,8 @@ const localeValues: Locale = {
     placeholder: 'Iltimos tanlang',
     close: 'Yopish',
     sortable: 'saralanadigan',
+    show: 'Ko\'rsat',
+    hide: 'Yashir',
   },
   Table: {
     filterTitle: 'Filtr',

@@ -17,6 +17,8 @@ const localeValues: Locale = {
     close: 'Fermer',
     placeholder: 'Veuillez sélectionner',
     sortable: 'triable',
+    show: 'Afficher',
+    hide: 'Masquer',
   },
   Table: {
     filterTitle: 'Filtrer',

@@ -1,6 +1,8 @@
 import { describe, expect, it, vi } from 'vitest'
 import { h, nextTick, ref } from 'vue'
 import Input from '..'
+import ConfigProvider from '../../config-provider'
+import zhCN from '../../locale/zh_CN'
 import rtlTest from '/@tests/shared/rtlTest'
 import { mount } from '/@tests/utils'
 
@@ -258,5 +260,27 @@ describe('password', () => {
       },
     })
     expect(wrapper.find('.ant-input-password-icon').text()).toBe('Hide')
+  })
+
+  it('should name the visibility toggle and switch the name with the state', async () => {
+    const wrapper = mount(Password)
+    expect(wrapper.find('.ant-input-password-icon').attributes('aria-label')).toBe('Show')
+
+    await wrapper.find('.ant-input-password-icon').trigger('click')
+    expect(wrapper.find('.ant-input-password-icon').attributes('aria-label')).toBe('Hide')
+    wrapper.unmount()
+  })
+
+  it('should localize the visibility toggle name', async () => {
+    const wrapper = mount(() => (
+      <ConfigProvider locale={zhCN}>
+        <Password />
+      </ConfigProvider>
+    ))
+    expect(wrapper.find('.ant-input-password-icon').attributes('aria-label')).toBe('显示')
+
+    await wrapper.find('.ant-input-password-icon').trigger('click')
+    expect(wrapper.find('.ant-input-password-icon').attributes('aria-label')).toBe('隐藏')
+    wrapper.unmount()
   })
 })

@@ -17,6 +17,8 @@ const localeValues: Locale = {
     placeholder: 'Sila pilih',
     close: 'Tutup',
     sortable: 'boleh disusun',
+    show: 'Tunjukkan',
+    hide: 'Sembunyikan',
   },
   Table: {
     filterTitle: 'Cari dengan tajuk',

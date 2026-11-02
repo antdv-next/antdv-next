@@ -18,6 +18,8 @@ const localeValues: Locale = {
     close: 'Close',
     sortable: 'sortable',
     clear: 'Clear',
+    show: 'Show',
+    hide: 'Hide',
   },
   Table: {
     filterTitle: 'Filter menu',

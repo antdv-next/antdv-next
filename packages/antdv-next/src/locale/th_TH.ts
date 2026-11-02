@@ -17,6 +17,8 @@ const localeValues: Locale = {
     placeholder: 'กรุณาเลือก',
     close: 'ปิด',
     sortable: 'จัดเรียงได้',
+    show: 'แสดง',
+    hide: 'ซ่อน',
   },
   Table: {
     filterTitle: 'ตัวกรอง',

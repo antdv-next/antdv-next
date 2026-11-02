@@ -9,6 +9,7 @@ import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { useComponentBaseConfig } from '../config-provider/context'
 import { useDisabledContext } from '../config-provider/DisabledContext.tsx'
 import useVariant from '../form/hooks/useVariant'
+import { useLocaleGetter } from '../locale/useLocale'
 import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout'
 import Input from './Input'
 
@@ -76,6 +77,7 @@ const InternalPassword = defineComponent<
 
     // `inputPassword` global config, falling back to the `input` one
     const [mergedVariant] = useVariant('inputPassword', customizeVariant, bordered, 'input')
+    const getGlobalLocale = useLocaleGetter('global')
 
     const inputRef = shallowRef<InputRef>()
     const removePasswordTimeout = useRemovePasswordTimeout(inputRef)
@@ -130,12 +132,14 @@ const InternalPassword = defineComponent<
       const toggle = visibilityToggle.value
       const iconTabIndex = typeof toggle === 'object' ? toggle.tabIndex : undefined
       const triggerProps = { [eventName]: () => triggerVisibleChange() }
+      const { show, hide } = getGlobalLocale()
       return (
         <span
           key="passwordIcon"
           role="button"
           tabindex={mergedDisabled.value ? -1 : (iconTabIndex ?? 0)}
           class={`${passwordPrefixCls.value}-icon`}
+          aria-label={visible.value ? hide : show}
           aria-disabled={mergedDisabled.value}
           aria-pressed={visible.value}
           // Prevent focused state lost

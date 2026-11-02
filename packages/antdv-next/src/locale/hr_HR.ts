@@ -17,6 +17,8 @@ const localeValues: Locale = {
     placeholder: 'Molimo označite',
     close: 'Zatvori',
     sortable: 'sortibilan',
+    show: 'Prikaži',
+    hide: 'Sakrij',
   },
   Table: {
     filterTitle: 'Filter meni',

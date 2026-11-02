@@ -17,6 +17,8 @@ const localeValues: Locale = {
     placeholder: 'कृपया छान्नुहोस्',
     close: 'बन्द',
     sortable: 'क्रमबद्ध',
+    show: 'देखाउनुहोस्',
+    hide: 'लुकाउनुहोस्',
   },
   Table: {
     filterTitle: 'फिल्टर मेनु',

@@ -17,6 +17,8 @@ const localeValues: Locale = {
     close: 'បិទ',
     placeholder: 'សូមជ្រើសរើស',
     sortable: 'អាចតម្រៀបបាន។',
+    show: 'បង្ហាញ',
+    hide: 'លាក់',
   },
   Table: {
     filterTitle: 'បញ្ចីតម្រៀប',
