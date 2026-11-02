@@ -406,7 +406,7 @@ const InternalTreeSelect = defineComponent<
     })
 
     // ============================ zIndex ============================
-    const [zIndex] = useZIndex('SelectLike', computed(() => mergedStyles.value?.root?.zIndex as number))
+    const [zIndex] = useZIndex('SelectLike', computed(() => mergedStyles.value?.popup?.root?.zIndex as number))
     const treeSelectRef = shallowRef()
     expose({
       focus: () => treeSelectRef.value?.focus(),

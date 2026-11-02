@@ -117,4 +117,38 @@ describe('treeSelect.Semantic', () => {
     expect(style).toContain('opacity: 1')
     expect(style).toMatch(/background-color:\s*(white|rgb\(255, 255, 255\))/)
   })
+
+  it('should apply zIndex from popup styles instead of root styles', async () => {
+    const treeData = [{ value: 'node', title: 'Node' }]
+
+    const popupWrapper = mount(
+      () => (
+        <TreeSelect
+          open
+          treeData={treeData}
+          styles={{ popup: { root: { zIndex: 1000 } } }}
+        />
+      ),
+      { attachTo: document.body },
+    )
+    await nextTick()
+    const popup = document.querySelector<HTMLElement>('.ant-tree-select-dropdown')
+    expect(popup!.style.zIndex).toBe('1000')
+    popupWrapper.unmount()
+
+    const rootWrapper = mount(
+      () => (
+        <TreeSelect
+          open
+          treeData={treeData}
+          styles={{ root: { zIndex: 1000 } }}
+        />
+      ),
+      { attachTo: document.body },
+    )
+    await nextTick()
+    const popupAgain = document.querySelector<HTMLElement>('.ant-tree-select-dropdown')
+    expect(popupAgain!.style.zIndex).toBe('')
+    rootWrapper.unmount()
+  })
 })
