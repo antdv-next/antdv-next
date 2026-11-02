@@ -523,16 +523,6 @@ const InternalFormItem = defineComponent<
         const fieldKey = eventKey.value
         const formCtx = formContext.value
         if (val && formCtx?.addField) {
-          // Snapshot the merged preserve decision. Cleanup runs inside the
-          // parent render effect, so it must not read reactive Form props.
-          let preserve = props.preserve ?? formCtx.preserve ?? true
-          const stopPreserveWatch = watch(
-            [() => props.preserve, () => formContext.value?.preserve],
-            () => {
-              preserve = props.preserve ?? formContext.value?.preserve ?? true
-            },
-            { flush: 'sync' },
-          )
           const field: FormFieldRegister = {
             onFieldBlur,
             namePath: () => namePath.value,
@@ -541,7 +531,7 @@ const InternalFormItem = defineComponent<
             rules: () => getMergedRules(),
             // Touched or validated or has initialValue
             isFieldDirty: () => meta.value.touched || meta.value.validated || initialValue.value !== undefined,
-            isPreserve: () => preserve,
+            isPreserve: () => props.preserve,
             // @ts-expect-error this
             validateRules: (options?: ValidateOptions) => validateRulesInner(options),
             resetField,
@@ -562,9 +552,12 @@ const InternalFormItem = defineComponent<
           formCtx.addField(fieldKey, field)
           // 只移除自己注册的那一项：同一轮更新里 key 可能已被其他 FormItem 接手
           onCleanup(() => {
-            stopPreserveWatch()
             formCtx.removeField?.(fieldKey, field)
-            formCtx.removeFieldValue?.(field)
+            // Cleanup runs inside the parent render effect. Defer value cleanup
+            // so it does not collect `model` / Form props as parent deps.
+            Promise.resolve().then(() => {
+              formCtx.removeFieldValue?.(field)
+            })
           })
         }
       },

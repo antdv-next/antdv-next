@@ -255,23 +255,9 @@ const InternalForm = defineComponent<
       FormProps
     >(useToArr(contextClassNames, classes), useToArr(contextStyles, contextStyleRoot as any, styles), useToProps(mergedProps))
 
-    // Cleanup runs in the parent render effect; keep unmount reads untracked.
+    // Plain snapshots updated during render; used by Form unmount cleanup.
     let currentModel = model.value
     let currentClearOnDestroy = props.clearOnDestroy
-    watch(
-      () => model.value,
-      (value) => {
-        currentModel = value
-      },
-      { flush: 'sync' },
-    )
-    watch(
-      () => props.clearOnDestroy,
-      (value) => {
-        currentClearOnDestroy = value
-      },
-      { flush: 'sync' },
-    )
 
     // Plain bookkeeping (never rendered): FormItem unregisters from a watcher
     // cleanup, which on unmount runs inside the parent's render effect.
@@ -356,8 +342,8 @@ const InternalForm = defineComponent<
       triggerFieldsChange([namePath])
     }
 
-    const isMergedPreserve = (field: FormFieldRegister) => {
-      return field.isPreserve ? field.isPreserve() : true
+    const isMergedPreserve = (field: FormFieldRegister): boolean => {
+      return field.isPreserve?.() ?? props.preserve ?? true
     }
 
     /**
@@ -773,8 +759,10 @@ const InternalForm = defineComponent<
     onBeforeUnmount(() => {
       const modelValue = currentModel
       if (currentClearOnDestroy && modelValue) {
-        Object.keys(modelValue).forEach((key) => {
-          delete modelValue[key]
+        Promise.resolve().then(() => {
+          Object.keys(modelValue).forEach((key) => {
+            delete modelValue[key]
+          })
         })
       }
       if (boundEntry && vm && boundEntry.boundBy === vm.uid) {
@@ -816,6 +804,8 @@ const InternalForm = defineComponent<
     }
 
     return () => {
+      currentModel = model.value
+      currentClearOnDestroy = props.clearOnDestroy
       const {
         layout,
         rootClass,
