@@ -673,4 +673,57 @@ describe('tree-select', () => {
       expect((TreeSelect as any).emits).toContain('clear')
     })
   })
+
+  describe('event listeners', () => {
+    const treeData = [{ value: 'light', title: 'Light' }]
+
+    it('does not declare any on* key as a runtime prop', () => {
+      const onKeys = Object.keys((TreeSelect as any).props).filter(key => /^on[A-Z]/.test(key))
+      expect(onKeys).toEqual([])
+      expect((TreeSelect as any).emits).toEqual(expect.arrayContaining([
+        'focus',
+        'blur',
+        'keydown',
+        'keyup',
+        'click',
+        'inputKeydown',
+        'mousedown',
+        'mouseenter',
+        'mouseleave',
+      ]))
+    })
+
+    it('calls each keyboard/mouse/focus listener exactly once', async () => {
+      const handlers = {
+        onFocus: vi.fn(),
+        onBlur: vi.fn(),
+        onKeydown: vi.fn(),
+        onKeyup: vi.fn(),
+        onClick: vi.fn(),
+        onInputKeydown: vi.fn(),
+        onMousedown: vi.fn(),
+        onMouseenter: vi.fn(),
+        onMouseleave: vi.fn(),
+      }
+      const wrapper = mount(TreeSelect, {
+        props: { treeData, showSearch: true, ...handlers },
+        attachTo: document.body,
+      })
+      const root = wrapper.find('.ant-select')
+      const input = wrapper.find('input')
+
+      await input.trigger('focus')
+      await input.trigger('keydown', { key: 'a' })
+      await input.trigger('keyup', { key: 'a' })
+      await root.trigger('mousedown')
+      await root.trigger('click')
+      await root.trigger('mouseenter')
+      await root.trigger('mouseleave')
+      await input.trigger('focusout')
+
+      for (const [name, fn] of Object.entries(handlers))
+        expect(fn, name).toHaveBeenCalledTimes(1)
+      wrapper.unmount()
+    })
+  })
 })

@@ -123,6 +123,15 @@ interface BaseTreeSelectProps<ValueType = any, OptionType extends DataNode = Dat
     | 'onSearch'
     | 'popupRender'
     | 'onClear'
+    | 'onBlur'
+    | 'onFocus'
+    | 'onKeyUp'
+    | 'onKeyDown'
+    | 'onMouseDown'
+    | 'onInputKeyDown'
+    | 'onMouseEnter'
+    | 'onMouseLeave'
+    | 'onClick'
   > {
   size?: SizeType
   disabled?: boolean
@@ -177,6 +186,13 @@ export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = 
 export interface TreeSelectEmits<ValueType = any, OptionType extends DataNode = DataNode> {
   'focus': (e: FocusEvent) => void
   'blur': (e: FocusEvent) => void
+  'keydown': NonNullable<VcTreeSelectProps['onKeyDown']>
+  'keyup': NonNullable<VcTreeSelectProps['onKeyUp']>
+  'click': NonNullable<VcTreeSelectProps['onClick']>
+  'inputKeydown': NonNullable<VcTreeSelectProps['onInputKeyDown']>
+  'mousedown': NonNullable<VcTreeSelectProps['onMouseDown']>
+  'mouseenter': NonNullable<VcTreeSelectProps['onMouseEnter']>
+  'mouseleave': NonNullable<VcTreeSelectProps['onMouseLeave']>
   'openChange': (open: boolean) => void
   'dropdownVisibleChange': (open: boolean) => void
   'clear': NonNullable<VcTreeSelectProps['onClear']>
@@ -192,6 +208,13 @@ export interface TreeSelectEmits<ValueType = any, OptionType extends DataNode = 
 export interface TreeSelectEmitsProps<ValueType = any, OptionType extends DataNode = DataNode> {
   onFocus?: TreeSelectEmits['focus']
   onBlur?: TreeSelectEmits['blur']
+  onKeydown?: TreeSelectEmits['keydown']
+  onKeyup?: TreeSelectEmits['keyup']
+  onClick?: TreeSelectEmits['click']
+  onInputKeydown?: TreeSelectEmits['inputKeydown']
+  onMousedown?: TreeSelectEmits['mousedown']
+  onMouseenter?: TreeSelectEmits['mouseenter']
+  onMouseleave?: TreeSelectEmits['mouseleave']
   onOpenChange?: TreeSelectEmits['openChange']
   onDropdownVisibleChange?: TreeSelectEmits['dropdownVisibleChange']
   onClear?: TreeSelectEmits['clear']
@@ -504,6 +527,21 @@ const InternalTreeSelect = defineComponent<
         onBlur(e) {
           emit('blur', e)
         },
+        onKeyDown(e) {
+          emit('keydown', e)
+        },
+        onKeyUp(e) {
+          emit('keyup', e)
+        },
+        onClick(e) {
+          emit('click', e)
+        },
+        onInputKeyDown(e) {
+          emit('inputKeydown', e)
+        },
+        onMouseDown(e) {
+          emit('mousedown', e)
+        },
         onSelect(value, option) {
           emit('select', value, option)
         },
@@ -528,6 +566,18 @@ const InternalTreeSelect = defineComponent<
         },
         onSearch(value) {
           emit('search', value)
+        },
+      }
+
+      // @v-c/select spreads onMouseEnter/onMouseLeave onto its root div as-is, and Vue
+      // binds camelCase DOM listeners as `mouse-enter`. Forward DOM-cased listeners
+      // instead so they fall through to the native events.
+      const mouseListeners = {
+        onMouseenter: (e: MouseEvent) => {
+          emit('mouseenter', e)
+        },
+        onMouseleave: (e: MouseEvent) => {
+          emit('mouseleave', e)
         },
       }
 
@@ -582,6 +632,7 @@ const InternalTreeSelect = defineComponent<
         <VcTreeSelect
           {...restAttrs}
           {...onAttrs}
+          {...mouseListeners}
           ref={treeSelectRef}
           classNames={mergedClassNames.value}
           styles={mergedStyles.value}
@@ -639,6 +690,13 @@ interface TreeSelectInstance<ValueType = any, OptionType extends DataNode = Data
   $emit: {
     (event: 'focus', ...args: Parameters<TreeSelectEmits['focus']>): void
     (event: 'blur', ...args: Parameters<TreeSelectEmits['blur']>): void
+    (event: 'keydown', ...args: Parameters<TreeSelectEmits['keydown']>): void
+    (event: 'keyup', ...args: Parameters<TreeSelectEmits['keyup']>): void
+    (event: 'click', ...args: Parameters<TreeSelectEmits['click']>): void
+    (event: 'inputKeydown', ...args: Parameters<TreeSelectEmits['inputKeydown']>): void
+    (event: 'mousedown', ...args: Parameters<TreeSelectEmits['mousedown']>): void
+    (event: 'mouseenter', ...args: Parameters<TreeSelectEmits['mouseenter']>): void
+    (event: 'mouseleave', ...args: Parameters<TreeSelectEmits['mouseleave']>): void
     (event: 'openChange', ...args: Parameters<TreeSelectEmits['openChange']>): void
     (event: 'dropdownVisibleChange', ...args: Parameters<TreeSelectEmits['dropdownVisibleChange']>): void
     (event: 'clear', ...args: Parameters<TreeSelectEmits['clear']>): void
