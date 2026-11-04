@@ -71,7 +71,8 @@ Common props ref：[Common props](/docs/vue/common-props)
 | size | To determine the size of the input box, the height of `large` and `small`, are 40px and 24px respectively, while default size is 32px | `large` \| `medium` \| `small` | - |  | × |
 | status | Set validation status | 'error' \| 'warning' \| 'success' \| 'validating' | - | - | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: \{ props \})=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | ✓ |
-| suffixIcon | The custom suffix icon | VueNode | - |  | ✓ |
+| suffix | The custom suffix | VueNode | - | 1.8.0 | 1.8.0 |
+| ~~suffixIcon~~ | The custom suffix icon, please use `suffix` instead | VueNode | - |  | ✓ |
 | use12Hours | Display as 12 hours format, with default format `h:mm:ss a` | boolean | false |  | × |
 | value | To set time, support `v-model:value` | [dayjs](http://day.js.org/) | - |  | × |
 | variant | Variants of picker | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - | ✓ |
@@ -105,7 +106,8 @@ type DisabledTime = (now: Dayjs) => {
 | --- | --- | --- | --- |
 | ~~addon~~ | Deprecated. Use `renderExtraFooter` instead | () => any | - |
 | renderExtraFooter | Called from time picker panel to render some addon to its bottom | (mode: PickerMode) => any | - |
-| suffixIcon | The custom suffix icon | () => any | - |
+| suffix | The custom suffix | () => any | 1.8.0 |
+| ~~suffixIcon~~ | The custom suffix icon, please use `suffix` instead | () => any | - |
 | prefix | The custom prefix | () => any | - |
 
 ### RangePicker

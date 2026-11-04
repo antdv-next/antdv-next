@@ -220,6 +220,8 @@ export interface TimePickerSlots {
   /** @deprecated Please use `renderExtraFooter` instead */
   addon?: () => any
   renderExtraFooter?: (mode: PickerMode) => any
+  suffix?: () => any
+  /** @deprecated Please use `suffix` instead */
   suffixIcon?: () => any
   prefix?: () => any
   [key: string]: any

@@ -302,4 +302,88 @@ describe('date-picker', () => {
     expect(wrapper.find('.ant-picker-clear').exists()).toBe(true)
     wrapper.unmount()
   })
+
+  describe('suffix', () => {
+    it('renders default / hidden / custom suffix', async () => {
+      const wrapper = mount(DatePicker)
+      expect(wrapper.find('.ant-picker-suffix').element.children.length).toBeTruthy()
+
+      await wrapper.setProps({ suffix: true })
+      expect(wrapper.find('.ant-picker-suffix').element.children.length).toBeTruthy()
+
+      await wrapper.setProps({ suffix: false })
+      expect(wrapper.find('.ant-picker-suffix').exists()).toBe(false)
+
+      await wrapper.setProps({ suffix: null })
+      expect(wrapper.find('.ant-picker-suffix').exists()).toBe(false)
+
+      await wrapper.setProps({ suffix: '123' })
+      expect(wrapper.find('.ant-picker-suffix').text()).toBe('123')
+    })
+
+    it('should support deprecated suffixIcon prop', () => {
+      resetWarned()
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
+      const wrapper = mount(DatePicker, { props: { suffixIcon: 'foobar' } })
+      expect(wrapper.find('.ant-picker-suffix').text()).toBe('foobar')
+      expect(errSpy).toHaveBeenCalledWith(
+        expect.stringContaining('Warning: [antd: DatePicker] `suffixIcon` is deprecated. Please use `suffix` instead.'),
+      )
+      errSpy.mockRestore()
+    })
+
+    it('should support suffix prop and slot', () => {
+      expect(mount(DatePicker, { props: { suffix: 'foobar' } }).find('.ant-picker-suffix').text()).toBe('foobar')
+      const wrapper = mount(DatePicker, {
+        props: { suffix: 'prop' },
+        slots: { suffix: () => <span class="slot-suffix">slot</span> },
+      })
+      expect(wrapper.find('.ant-picker-suffix .slot-suffix').exists()).toBe(true)
+    })
+
+    it('should prefer suffix prop over suffixIcon prop', () => {
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
+      const wrapper = mount(DatePicker, { props: { suffix: null, suffixIcon: 'legacy' } })
+      expect(wrapper.find('.ant-picker-suffix').exists()).toBe(false)
+      errSpy.mockRestore()
+    })
+
+    it('should support suffix in config provider', () => {
+      const wrapper = mount(
+        <ConfigProvider datePicker={{ suffix: 'foobar' }}>
+          <DatePicker />
+        </ConfigProvider>,
+      )
+      expect(wrapper.find('.ant-picker-suffix').text()).toBe('foobar')
+    })
+
+    it('should support deprecated suffixIcon in config provider', () => {
+      const wrapper = mount(
+        <ConfigProvider datePicker={{ suffixIcon: 'foobar' }}>
+          <DatePicker />
+        </ConfigProvider>,
+      )
+      expect(wrapper.find('.ant-picker-suffix').text()).toBe('foobar')
+    })
+
+    it('should prefer suffix over suffixIcon in config provider', () => {
+      const wrapper = mount(
+        <ConfigProvider datePicker={{ suffix: 'foobar', suffixIcon: 'legacy' }}>
+          <DatePicker />
+        </ConfigProvider>,
+      )
+      expect(wrapper.find('.ant-picker-suffix').text()).toBe('foobar')
+    })
+
+    it('should prefer component suffixIcon prop over config provider suffix', () => {
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
+      const wrapper = mount(
+        <ConfigProvider datePicker={{ suffix: 'foobar' }}>
+          <DatePicker suffixIcon="bamboo" />
+        </ConfigProvider>,
+      )
+      expect(wrapper.find('.ant-picker-suffix').text()).toBe('bamboo')
+      errSpy.mockRestore()
+    })
+  })
 })

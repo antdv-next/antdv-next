@@ -257,4 +257,48 @@ describe('range-picker', () => {
     expect(wrapper.find('.ant-picker-clear').exists()).toBe(true)
     expect(wrapper.find('[data-testid="config-range-clear"]').exists()).toBe(true)
   })
+
+  describe('suffix', () => {
+    it('should render custom suffix', () => {
+      const wrapper = mount(RangePicker, {
+        props: { suffix: <div class="custom-suffix">Custom Suffix</div> },
+      })
+      expect(wrapper.find('.custom-suffix').exists()).toBe(true)
+    })
+
+    it('should render global suffix', () => {
+      const wrapper = mount(
+        <ConfigProvider datePicker={{ suffix: <div class="global-custom-suffix">Global Custom Suffix</div> }}>
+          <RangePicker />
+        </ConfigProvider>,
+      )
+      expect(wrapper.find('.global-custom-suffix').exists()).toBe(true)
+    })
+
+    it('should prefer custom suffix over global suffix', () => {
+      const wrapper = mount(
+        <ConfigProvider datePicker={{ suffix: <div class="global-custom-suffix">Global Custom Suffix</div> }}>
+          <RangePicker suffix={<div class="custom-suffix">Custom Suffix</div>} />
+        </ConfigProvider>,
+      )
+      expect(wrapper.find('.custom-suffix').exists()).toBe(true)
+      expect(wrapper.find('.global-custom-suffix').exists()).toBe(false)
+    })
+
+    it('should hide suffix when suffix is false', () => {
+      const wrapper = mount(RangePicker, { props: { suffix: false } })
+      expect(wrapper.find('.ant-picker-suffix').exists()).toBe(false)
+    })
+
+    it('should support deprecated suffixIcon prop', () => {
+      resetWarned()
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
+      const wrapper = mount(RangePicker, { props: { suffixIcon: 'legacy' } })
+      expect(wrapper.find('.ant-picker-suffix').text()).toBe('legacy')
+      expect(errSpy).toHaveBeenCalledWith(
+        expect.stringContaining('Warning: [antd: DatePicker.RangePicker] `suffixIcon` is deprecated. Please use `suffix` instead.'),
+      )
+      errSpy.mockRestore()
+    })
+  })
 })

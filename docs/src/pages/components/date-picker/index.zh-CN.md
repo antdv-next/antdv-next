@@ -122,7 +122,8 @@ dayjs.locale('zh-cn')
 | size | 输入框大小，`large` 高度为 40px，`small` 为 24px，默认是 32px | `large` \| `medium` \| `small` | - | - | × |
 | status | 设置校验状态 | 'error' \| 'warning' | - | - | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | - | ✓ |
-| suffixIcon | 自定义的选择框后缀图标 | VueNode | - | - | ✓ |
+| suffix | 自定义后缀 | VueNode | - | 1.8.0 | 1.8.0 |
+| ~~suffixIcon~~ | 自定义的选择框后缀图标，请使用 `suffix` 替代 | VueNode | - | - | ✓ |
 | superNextIcon | 自定义 `>>` 切换图标 | VueNode | - | - | × |
 | superPrevIcon | 自定义 `<<` 切换图标 | VueNode | - | - | × |
 | clearIcon | （仅支持全局配置）自定义清除图标 | VueNode | - | - | ✓ |
@@ -255,7 +256,8 @@ export type FormatType
 | 插槽 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
 | prefix | 自定义前缀 | () => any | - |
-| suffixIcon | 自定义的选择框后缀图标 | () => any | - |
+| suffix | 自定义后缀 | () => any | 1.8.0 |
+| ~~suffixIcon~~ | 自定义的选择框后缀图标，请使用 `suffix` 替代 | () => any | - |
 | renderExtraFooter | 在面板中添加额外的页脚 | (mode: PickerMode) => any | - |
 | panelRender | 自定义渲染面板 | (originPanel: VueNode) => any | - |
 | inputRender | - | (props: Record<string, any>) => any | - |

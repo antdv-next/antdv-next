@@ -461,7 +461,7 @@ export type UploadConfig = ComponentStyleConfig
   & Pick<UploadProps, 'classes' | 'styles' | 'customRequest' | 'progress' | 'accept'>
 
 export type DatePickerConfig = ComponentStyleConfig
-  & Pick<DatePickerProps, 'classes' | 'styles' | 'variant' | 'suffixIcon' | 'allowClear'>
+  & Pick<DatePickerProps, 'classes' | 'styles' | 'variant' | 'suffix' | 'suffixIcon' | 'allowClear'>
   & { clearIcon?: any }
 
 // RangePicker reads allowClear / clearIcon from the datePicker / timePicker config, so only `variant` / `separator` live here
@@ -469,7 +469,7 @@ export type RangePickerConfig = ComponentStyleConfig
   & Pick<RangePickerProps, 'variant' | 'separator'>
 
 export type TimePickerConfig = ComponentStyleConfig
-  & Pick<TimePickerProps, 'classes' | 'styles' | 'variant' | 'suffixIcon' | 'allowClear'>
+  & Pick<TimePickerProps, 'classes' | 'styles' | 'variant' | 'suffix' | 'suffixIcon' | 'allowClear'>
   & { clearIcon?: any }
 
 export interface TableConfig<RecordType extends AnyObject = AnyObject>

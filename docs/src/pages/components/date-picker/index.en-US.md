@@ -120,7 +120,8 @@ The following APIs are shared by DatePicker, RangePicker.
 | size | To determine the size of the input box, the height of `large` and `small`, are 40px and 24px respectively, while default size is 32px | `large` \| `medium` \| `small` | - | - | × |
 | status | Set validation status | 'error' \| 'warning' | - | - | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | - | ✓ |
-| suffixIcon | The custom suffix icon | VueNode | - | - | ✓ |
+| suffix | The custom suffix | VueNode | - | 1.8.0 | 1.8.0 |
+| ~~suffixIcon~~ | The custom suffix icon, please use `suffix` instead | VueNode | - | - | ✓ |
 | superNextIcon | The custom super next icon | VueNode | - | - | × |
 | superPrevIcon | The custom super prev icon | VueNode | - | - | × |
 | clearIcon | (Only supports global configuration) Custom clear icon | VueNode | - | - | ✓ |
@@ -253,7 +254,8 @@ export type FormatType
 | Slot | Description | Type | Version |
 | --- | --- | --- | --- |
 | prefix | The custom prefix | () => any | - |
-| suffixIcon | The custom suffix icon | () => any | - |
+| suffix | The custom suffix | () => any | 1.8.0 |
+| ~~suffixIcon~~ | The custom suffix icon, please use `suffix` instead | () => any | - |
 | renderExtraFooter | Render extra footer in panel | (mode: PickerMode) => any | - |
 | panelRender | Customize panel render | (originPanel: VueNode) => any | - |
 | inputRender | - | (props: Record<string, any>) => any | - |

@@ -10,6 +10,7 @@ import { clsx } from '@v-c/util'
 import { getTransitionName } from '@v-c/util/dist/utils/transition'
 import { computed, defineComponent, shallowRef } from 'vue'
 import { ContextIsolator } from '../../_util/ContextIsolator'
+import fallbackProp from '../../_util/fallbackProp'
 import { getAttrStyleAndClass, useZIndex } from '../../_util/hooks'
 import { isNonNullable } from '../../_util/is'
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils'
@@ -28,8 +29,8 @@ import enUS from '../locale/en_US'
 import useStyle from '../style'
 import { getRangePlaceholder, useIcons } from '../util'
 import { TIME } from './constant'
-import SuffixIcon from './SuffixIcon'
 import useComponents from './useComponents'
+import useSuffix from './useSuffix'
 
 export interface RangePickerEmits<DateType = AnyObject> {
   'change': (dates: DateType[] | null, dateStrings: [string, string]) => void
@@ -45,6 +46,8 @@ export interface RangePickerEmits<DateType = AnyObject> {
 }
 
 export interface RangePickerSlots<CurrentType = AnyObject> {
+  suffix?: () => any
+  /** @deprecated Please use `suffix` instead */
   suffixIcon?: () => any
   prefix?: () => any
   renderExtraFooter?: (mode: PickerMode) => any
@@ -117,11 +120,13 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
         separator: contextSeparator,
       } = useComponentBaseConfig('rangePicker' as any, props as any, ['separator'], 'picker')
 
-      // allowClear / clearIcon come from the datePicker / timePicker config, not rangePicker (upstream parity)
+      // suffix / allowClear / clearIcon come from the datePicker / timePicker config, not rangePicker (upstream parity)
       const {
+        suffix: contextSuffix,
+        suffixIcon: contextSuffixIcon,
         allowClear: contextAllowClear,
         clearIcon: contextClearIcon,
-      } = useComponentBaseConfig(pickerType.value as any, props as any, ['allowClear', 'clearIcon'], 'picker')
+      } = useComponentBaseConfig(pickerType.value as any, props as any, ['suffix', 'suffixIcon', 'allowClear', 'clearIcon'], 'picker')
 
       const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction)
       const mergedSize = useSize<SizeType>(ctx => customizeSize.value ?? compactSize.value ?? ctx)
@@ -227,7 +232,7 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
       }
 
       if (isDev) {
-        const warning = devUseWarning('DatePicker.RangePicker')
+        const warning = devUseWarning(props.picker === TIME ? 'TimePicker.RangePicker' : 'DatePicker.RangePicker')
         const deprecatedProps = {
           dropdownClassName: 'classes.popup.root',
           popupClassName: 'classes.popup.root',
@@ -237,6 +242,7 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
         Object.entries(deprecatedProps).forEach(([oldProp, newProp]) => {
           warning.deprecated(!((props as any)[oldProp]), oldProp, newProp)
         })
+        warning.deprecated(props.suffixIcon === undefined && !slots.suffixIcon, 'suffixIcon', 'suffix')
       }
 
       expose({
@@ -250,6 +256,7 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
           placeholder,
           components,
           placement,
+          suffix,
           suffixIcon,
           prefix,
           allowClear,
@@ -274,7 +281,8 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
 
         const { className, style, restAttrs } = getAttrStyleAndClass(attrs, undefined, props)
 
-        const mergedSuffixIcon = getSlotPropsFnRun(slots, { suffixIcon }, 'suffixIcon', false)
+        const customSuffix = getSlotPropsFnRun(slots, { suffix }, 'suffix', false)
+        const customSuffixIcon = getSlotPropsFnRun(slots, { suffixIcon }, 'suffixIcon', false)
         const mergedPrefix = getSlotPropsFnRun(slots, { prefix }, 'prefix', false)
 
         const [mergedAllowClear] = useIcons({ allowClear, clearIcon }, prefixCls.value, {
@@ -289,16 +297,12 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
 
         const mergedStatus = getMergedStatus(contextStatus, customStatus.value)
 
-        const suffixNode = (
-          <SuffixIcon
-            {...{
-              picker: props.picker,
-              hasFeedback,
-              feedbackIcon,
-              suffixIcon: mergedSuffixIcon,
-            }}
-          />
-        )
+        const mergedSuffix = useSuffix({
+          picker: props.picker,
+          hasFeedback,
+          feedbackIcon,
+          suffix: fallbackProp(customSuffix, customSuffixIcon, contextSuffix?.value, contextSuffixIcon?.value),
+        })
 
         const mergedClassName = clsx(
           {
@@ -363,7 +367,7 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
               disabled={mergedDisabled.value}
               placement={placement}
               placeholder={getRangePlaceholder(locale.value, props.picker, placeholder)}
-              suffix={suffixNode}
+              suffix={mergedSuffix}
               prefix={mergedPrefix}
               prevIcon={<span class={`${prefixCls.value}-prev-icon`} />}
               nextIcon={<span class={`${prefixCls.value}-next-icon`} />}

@@ -1,9 +1,9 @@
 <docs lang="zh-CN">
-自定义前缀 `prefix` 和后缀图标 `suffixIcon`。
+自定义前缀 `prefix` 和后缀 `suffix`。
 </docs>
 
 <docs lang="en-US">
-Custom `prefix` and `suffixIcon`.
+Custom `prefix` and `suffix`.
 </docs>
 
 <script setup lang="ts">
@@ -27,7 +27,7 @@ const onChange: TimePickerEmits['change'] = (time, timeString) => {
       :default-open-value="defaultOpenValue"
       @change="onChange"
     >
-      <template #suffixIcon>
+      <template #suffix>
         <SmileOutlined />
       </template>
     </a-time-picker>

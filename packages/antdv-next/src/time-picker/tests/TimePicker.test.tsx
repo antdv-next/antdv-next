@@ -754,4 +754,61 @@ describe('time-picker', () => {
     expect(node).toBeTruthy()
     expect(rangeNode).toBeTruthy()
   })
+
+  describe('suffix', () => {
+    it('should support suffix prop', () => {
+      const wrapper = mount(TimePicker, { props: { suffix: 'suffix' } })
+      expect(wrapper.find('.ant-picker-suffix').text()).toBe('suffix')
+    })
+
+    it('should support suffix slot', () => {
+      const wrapper = mount(TimePicker, { slots: { suffix: () => <span class="slot-suffix">slot</span> } })
+      expect(wrapper.find('.ant-picker-suffix .slot-suffix').exists()).toBe(true)
+    })
+
+    it('should support suffix in config provider', () => {
+      const wrapper = mount(
+        <ConfigProvider timePicker={{ suffix: 'suffix' }}>
+          <TimePicker />
+        </ConfigProvider>,
+      )
+      expect(wrapper.find('.ant-picker-suffix').text()).toBe('suffix')
+    })
+
+    it('should support suffix prop in RangePicker', () => {
+      const wrapper = mount(RangePicker, { props: { suffix: 'suffix' } })
+      expect(wrapper.find('.ant-picker-suffix').text()).toBe('suffix')
+    })
+
+    it('should support suffix from config provider in RangePicker', () => {
+      const wrapper = mount(
+        <ConfigProvider timePicker={{ suffix: 'suffix' }}>
+          <RangePicker />
+        </ConfigProvider>,
+      )
+      expect(wrapper.find('.ant-picker-suffix').text()).toBe('suffix')
+    })
+
+    it('should warn when using deprecated suffixIcon prop', () => {
+      resetWarned()
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
+      const wrapper = mount(TimePicker, { props: { suffixIcon: 'legacy' } })
+      expect(wrapper.find('.ant-picker-suffix').text()).toBe('legacy')
+      expect(errSpy).toHaveBeenCalledWith(
+        expect.stringContaining('Warning: [antd: TimePicker] `suffixIcon` is deprecated. Please use `suffix` instead.'),
+      )
+      errSpy.mockRestore()
+    })
+
+    it('should warn when using deprecated suffixIcon prop in RangePicker', () => {
+      resetWarned()
+      const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
+      const wrapper = mount(RangePicker, { props: { suffixIcon: 'legacy' } })
+      expect(wrapper.find('.ant-picker-suffix').text()).toBe('legacy')
+      expect(errSpy).toHaveBeenCalledWith(
+        expect.stringContaining('Warning: [antd: TimePicker.RangePicker] `suffixIcon` is deprecated. Please use `suffix` instead.'),
+      )
+      errSpy.mockRestore()
+    })
+  })
 })

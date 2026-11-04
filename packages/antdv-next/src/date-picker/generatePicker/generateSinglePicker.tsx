@@ -10,6 +10,7 @@ import { clsx } from '@v-c/util'
 import { getTransitionName } from '@v-c/util/dist/utils/transition'
 import { computed, defineComponent, shallowRef } from 'vue'
 import { ContextIsolator } from '../../_util/ContextIsolator'
+import fallbackProp from '../../_util/fallbackProp'
 import { getAttrStyleAndClass, useZIndex } from '../../_util/hooks'
 import { omitUndefined } from '../../_util/omitUndefined'
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils'
@@ -39,8 +40,8 @@ import {
   YEAR,
   YEARPICKER,
 } from './constant'
-import SuffixIcon from './SuffixIcon'
 import useComponents from './useComponents'
+import useSuffix from './useSuffix'
 
 export interface DatePickerEmits<DateType = AnyObject> {
   'change': (date: DateType | DateType[] | null, dateString: string | string[]) => void
@@ -57,6 +58,8 @@ export interface DatePickerEmits<DateType = AnyObject> {
 }
 
 export interface DatePickerSlots {
+  suffix?: () => any
+  /** @deprecated Please use `suffix` instead */
   suffixIcon?: () => any
   prefix?: () => any
   renderExtraFooter?: (mode: PickerMode) => any
@@ -133,10 +136,11 @@ function generatePicker<DateType extends AnyObject = AnyObject>(generateConfig: 
           rootPrefixCls,
           class: contextClassName,
           style: contextStyle,
+          suffix: contextSuffix,
           suffixIcon: contextSuffixIcon,
           allowClear: contextAllowClear,
           clearIcon: contextClearIcon,
-        } = useComponentBaseConfig(pickerType as any, props as any, ['suffixIcon', 'allowClear', 'clearIcon'], 'picker')
+        } = useComponentBaseConfig(pickerType as any, props as any, ['suffix', 'suffixIcon', 'allowClear', 'clearIcon'], 'picker')
 
         const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction)
 
@@ -274,6 +278,7 @@ function generatePicker<DateType extends AnyObject = AnyObject>(generateConfig: 
           Object.entries(deprecatedProps).forEach(([oldProp, newProp]) => {
             warning.deprecated(!((props as any)[oldProp]), oldProp, newProp)
           })
+          warning.deprecated(props.suffixIcon === undefined && !slots.suffixIcon, 'suffixIcon', 'suffix')
         }
 
         expose({
@@ -287,6 +292,7 @@ function generatePicker<DateType extends AnyObject = AnyObject>(generateConfig: 
             placeholder,
             components,
             placement,
+            suffix,
             suffixIcon,
             prefix,
             allowClear,
@@ -311,7 +317,8 @@ function generatePicker<DateType extends AnyObject = AnyObject>(generateConfig: 
 
           const { className, style, restAttrs } = getAttrStyleAndClass(attrs, undefined, props)
 
-          const mergedSuffixIcon = getSlotPropsFnRun(slots, { suffixIcon }, 'suffixIcon', false)
+          const customSuffix = getSlotPropsFnRun(slots, { suffix }, 'suffix', false)
+          const customSuffixIcon = getSlotPropsFnRun(slots, { suffixIcon }, 'suffixIcon', false)
           const mergedPrefix = getSlotPropsFnRun(slots, { prefix }, 'prefix', false)
 
           const [mergedAllowClear, removeIcon] = useIcons({
@@ -330,16 +337,12 @@ function generatePicker<DateType extends AnyObject = AnyObject>(generateConfig: 
 
           const mergedStatus = getMergedStatus(contextStatus, customStatus.value)
 
-          const suffixNode = (
-            <SuffixIcon
-              {...{
-                picker: mergedPicker.value,
-                hasFeedback,
-                feedbackIcon,
-                suffixIcon: mergedSuffixIcon === undefined ? contextSuffixIcon?.value : mergedSuffixIcon,
-              }}
-            />
-          )
+          const mergedSuffix = useSuffix({
+            picker: mergedPicker.value,
+            hasFeedback,
+            feedbackIcon,
+            suffix: fallbackProp(customSuffix, customSuffixIcon, contextSuffix?.value, contextSuffixIcon?.value),
+          })
 
           const mergedClassName = clsx(
             {
@@ -391,7 +394,7 @@ function generatePicker<DateType extends AnyObject = AnyObject>(generateConfig: 
                 ref={innerRef}
                 autoComplete={autoComplete ?? autocomplete}
                 placeholder={getPlaceholder(locale.value, mergedPicker.value, placeholder)}
-                suffix={suffixNode}
+                suffix={mergedSuffix}
                 prefix={mergedPrefix}
                 placement={placement}
                 prevIcon={<span class={`${prefixCls.value}-prev-icon`} />}

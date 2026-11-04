@@ -72,7 +72,8 @@ demo:
 | size | 输入框大小，`large` 高度为 40px，`small` 为 24px，默认是 32px | `large` \| `medium` \| `small` | - |  | × |
 | status | 设置校验状态 | 'error' \| 'warning' \| 'success' \| 'validating' | - | - | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: \{ props \})=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | ✓ |
-| suffixIcon | 自定义的选择框后缀图标 | VueNode | - |  | ✓ |
+| suffix | 自定义后缀 | VueNode | - | 1.8.0 | 1.8.0 |
+| ~~suffixIcon~~ | 自定义的选择框后缀图标，请使用 `suffix` 替代 | VueNode | - |  | ✓ |
 | use12Hours | 使用 12 小时制，为 true 时 `format` 默认为 `h:mm:ss a` | boolean | false |  | × |
 | value | 当前时间，支持 `v-model:value` | [dayjs](http://day.js.org/) | - |  | × |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - | ✓ |
@@ -106,7 +107,8 @@ type DisabledTime = (now: Dayjs) => {
 | --- | --- | --- | --- |
 | ~~addon~~ | 已弃用，请使用 `renderExtraFooter` | () => any | - |
 | renderExtraFooter | 在时间选择面板底部显示自定义内容 | (mode: PickerMode) => any | - |
-| suffixIcon | 自定义的选择框后缀图标 | () => any | - |
+| suffix | 自定义后缀 | () => any | 1.8.0 |
+| ~~suffixIcon~~ | 自定义的选择框后缀图标，请使用 `suffix` 替代 | () => any | - |
 | prefix | 自定义前缀 | () => any | - |
 
 ### RangePicker
