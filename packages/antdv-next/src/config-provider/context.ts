@@ -458,7 +458,7 @@ export type ImageConfig = ComponentStyleConfig
 export type TreeConfig = ComponentStyleConfig & Pick<TreeProps, 'classes' | 'styles'>
 
 export type TreeSelectConfig = ComponentStyleConfig
-  & Pick<TreeSelectProps, 'variant' | 'classes' | 'styles' | 'switcherIcon'>
+  & Pick<TreeSelectProps, 'allowClear' | 'variant' | 'classes' | 'styles' | 'switcherIcon'>
 
 export type UploadConfig = ComponentStyleConfig
   & Pick<UploadProps, 'classes' | 'styles' | 'customRequest' | 'progress' | 'accept'>

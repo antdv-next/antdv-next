@@ -32,6 +32,7 @@ const clearCases: {
   },
   {
     name: 'TreeSelect',
+    configKey: 'treeSelect',
     render: props => (
       <TreeSelect defaultValue="value" treeData={[{ value: 'value', title: 'Value' }]} {...props} />
     ),

@@ -306,10 +306,11 @@ const InternalTreeSelect = defineComponent<
       styles: contextStyles,
       classes: contextClassNames,
       switcherIcon,
+      allowClear: contextAllowClear,
       virtual,
       getPrefixCls,
       rootPrefixCls,
-    } = useComponentBaseConfig('treeSelect', props, ['switcherIcon'], 'tree-select')
+    } = useComponentBaseConfig('treeSelect', props, ['switcherIcon', 'allowClear'], 'tree-select')
     const getGlobalLocale = useLocaleGetter('global')
     const configCtx = useConfig()
     const {
@@ -516,6 +517,7 @@ const InternalTreeSelect = defineComponent<
 
       const mergedAllowClear = useAllowClear({
         allowClear,
+        contextAllowClear: contextAllowClear.value,
         clearIcon: (restProps as any).clearIcon,
         defaultLabel: getGlobalLocale().clear,
       })
