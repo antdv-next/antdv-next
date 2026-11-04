@@ -276,6 +276,25 @@ describe('button', () => {
     expect(wrapper.find('a').attributes('target')).toBe('_blank')
   })
 
+  // https://github.com/ant-design/ant-design/issues/59731
+  it('should respect tabIndex when href is not undefined', () => {
+    const wrapper = mount(() => (
+      <>
+        <Button href="https://ant.design" {...({ tabindex: -1 } as any)}>
+          link
+        </Button>
+        <Button href="https://ant.design" {...({ tabindex: 0 } as any)} disabled>
+          disabled link
+        </Button>
+        <Button href="https://ant.design">default link</Button>
+      </>
+    ))
+    const [link, disabledLink, defaultLink] = wrapper.findAll('a')
+    expect(link!.attributes('tabindex')).toBe('-1')
+    expect(disabledLink!.attributes('tabindex')).toBe('-1')
+    expect(defaultLink!.attributes('tabindex')).toBe('0')
+  })
+
   it('should render with htmlType', () => {
     const wrapper = mount(Button, {
       props: { htmlType: 'submit' },

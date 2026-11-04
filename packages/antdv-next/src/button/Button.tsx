@@ -437,15 +437,17 @@ const InternalCompoundedButton = defineComponent<
       const htmlType = props.htmlType ?? 'button'
 
       if (mergedHref !== undefined) {
+        const customTabIndex = (attrs as any).tabindex ?? (attrs as any).tabIndex
         return (
           <a
-            {...omit(attrs, ['class', 'style'])}
+            {...omit(attrs, ['class', 'style', 'tabindex', 'tabIndex'])}
             ref={buttonRef as any}
             class={[cls, { [`${prefixCls.value}-disabled`]: mergedDisabled.value }]}
             style={fullStyle}
             href={mergedDisabled.value ? undefined : mergedHref}
             onClick={handleClick}
             target={props.target}
+            tabindex={mergedDisabled.value ? -1 : (customTabIndex ?? 0)}
             aria-disabled={mergedDisabled.value}
           >
             {iconNode}

@@ -2514,6 +2514,7 @@ exports[`button demo > renders disabled correctly 1`] = `
       aria-disabled="false"
       class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       href="https://antdv-next.com/index-cn"
+      tabindex="0"
     >
       <transition-stub
         appear="false"
@@ -2536,6 +2537,7 @@ exports[`button demo > renders disabled correctly 1`] = `
     <a
       aria-disabled="true"
       class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-disabled"
+      tabindex="-1"
     >
       <transition-stub
         appear="false"
@@ -3148,6 +3150,7 @@ exports[`button demo > renders icon correctly 1`] = `
       aria-disabled="false"
       class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only"
       href="https://www.google.com"
+      tabindex="0"
       target="_blank"
     >
       <span
@@ -3540,6 +3543,7 @@ exports[`button demo > renders icon-placement correctly 1`] = `
         aria-disabled="false"
         class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-icon-end"
         href="https://www.google.com"
+        tabindex="0"
         target="_blank"
       >
         <span

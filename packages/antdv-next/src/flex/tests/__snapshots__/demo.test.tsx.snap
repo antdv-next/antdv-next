@@ -382,6 +382,7 @@ exports[`flex demo > renders combination correctly 1`] = `
           aria-disabled="false"
           class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           href="https://antdv.com"
+          tabindex="0"
           target="_blank"
         >
           <transition-stub
