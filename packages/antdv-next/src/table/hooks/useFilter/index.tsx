@@ -165,6 +165,7 @@ export function generateFilterInfo<RecordType extends AnyObject = AnyObject>(fil
 }
 
 export function getFilterData<RecordType extends AnyObject = AnyObject>(data: RecordType[], filterStates: FilterState<RecordType>[], childrenColumnName: string) {
+  let childrenFiltered = false
   const filterDatas = filterStates.reduce<RecordType[]>((currentData, filterState) => {
     const {
       column: { onFilter, filters },
@@ -184,10 +185,10 @@ export function getFilterData<RecordType extends AnyObject = AnyObject>(data: Re
         return keyMap.get(stringKey) ?? key
       })
 
-      return currentData.reduce<RecordType[]>((records, record) => {
+      const filteredData = currentData.reduce<RecordType[]>((records, record) => {
         const currentRecord = { ...record } as any
 
-        if (currentRecord[childrenColumnName]) {
+        if (!childrenFiltered && currentRecord[childrenColumnName]) {
           currentRecord[childrenColumnName] = getFilterData(
             currentRecord[childrenColumnName],
             filterStates,
@@ -200,6 +201,9 @@ export function getFilterData<RecordType extends AnyObject = AnyObject>(data: Re
 
         return records
       }, [])
+      // Descendants already passed all filters during the first active filter.
+      childrenFiltered = true
+      return filteredData
     }
     return currentData
   }, data)
