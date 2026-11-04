@@ -48,6 +48,7 @@ demo:
 | pendingDot | 当最后一个幽灵节点存在时，指定其时间图点，请使用 `item.icon` 代替 | VueNode | &lt;LoadingOutlined /&gt; | - | × |
 | reverse | 节点排序 | boolean | false | - | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;SemanticDOM, CSSProperties&gt; | - | - | ✓ |
+| variant | 设置样式变体 | `filled` \| `outlined` | `outlined` | - | 1.8.0 |
 | dotRender | 自定义时间轴点渲染函数 | (params: &#123; item: TimelineItemProps, index: number &#125;) =&gt; VueNode | - | - | × |
 | labelRender | 自定义时间轴标签渲染函数 | (params: &#123; item: TimelineItemProps, index: number &#125;) =&gt; VueNode | - | - | × |
 | contentRender | 自定义时间轴内容渲染函数 | (params: &#123; item: TimelineItemProps, index: number &#125;) =&gt; VueNode | - | - | × |

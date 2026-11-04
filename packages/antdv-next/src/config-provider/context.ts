@@ -443,7 +443,7 @@ export type ModalConfig = ComponentStyleConfig
 
 export type StepsConfig = ComponentStyleConfig & Pick<StepsProps, 'classes' | 'styles'>
 
-export type TimelineConfig = ComponentStyleConfig & Pick<TimelineProps, 'classes' | 'styles'>
+export type TimelineConfig = ComponentStyleConfig & Pick<TimelineProps, 'classes' | 'styles' | 'variant'>
 
 export type ImageConfig = ComponentStyleConfig
   & Pick<ImageProps, 'classes' | 'styles'> & {

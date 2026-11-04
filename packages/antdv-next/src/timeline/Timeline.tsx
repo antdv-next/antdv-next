@@ -8,13 +8,14 @@ import { useUnstableProvider } from '@v-c/steps/dist/UnstableContext.js'
 import { classNames as clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
-import { computed, defineComponent, ref, toRefs } from 'vue'
+import { computed, defineComponent, ref, toRef, toRefs } from 'vue'
 import { useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import isNonNullable from '../_util/isNonNullable.ts'
 import { toPropsRefs } from '../_util/tools'
 import { resolveSlotsNode } from '../_util/vnode'
 import { useBaseConfig, useComponentBaseConfig } from '../config-provider/context.ts'
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
+import useVariant from '../form/hooks/useVariant'
 import Steps from '../steps'
 import { provideInternalContext } from '../steps/context.ts'
 import { genCssVar } from '../theme/util/genStyleUtils.ts'
@@ -98,7 +99,6 @@ export interface TimelineSlots {
 }
 
 const defaults = {
-  variant: 'outlined',
   orientation: 'vertical',
 } as any
 
@@ -127,6 +127,10 @@ const Timeline = defineComponent<
 
     const { prefixCls, timeline, direction, getPrefixCls } = useBaseConfig('timeline', props)
     const rootPrefixCls = computed(() => getPrefixCls())
+    const [mergedVariant] = useVariant('timeline', toRef(() => props.variant), {
+      variants: ['filled', 'outlined'],
+      defaultVariant: 'outlined',
+    })
 
     const { classes, styles } = toPropsRefs(props, 'classes', 'styles')
     const items = computed(() => props.items || resolveSlotsNode(slots, 'default', undefined, TIMELINE_ITEM_MARK))
@@ -196,7 +200,7 @@ const Timeline = defineComponent<
     const mergedProps = computed(() => {
       return {
         ...props,
-        variant: props.variant || 'outlined',
+        variant: mergedVariant.value,
         mode: mergedMode.value,
         orientation: orientation.value,
         items: mergedItems.value,
@@ -225,7 +229,7 @@ const Timeline = defineComponent<
     )
 
     return () => {
-      const { variant = 'outlined', titleSpan } = props
+      const { titleSpan } = props
 
       // ==================== Styles ======================
       const stepStyle: CSSProperties = {}
@@ -261,7 +265,7 @@ const Timeline = defineComponent<
           styles={mergedStyles.value}
           style={stepStyle}
           // Design
-          variant={variant}
+          variant={mergedVariant.value}
           orientation={orientation.value}
           // Layout
           type="dot"
