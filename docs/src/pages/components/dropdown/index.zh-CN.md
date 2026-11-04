@@ -71,7 +71,7 @@ demo:
 
 | 事件 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
-| openChange | 菜单显示状态改变时调用，点击菜单按钮导致的消失不会触发 | (open: boolean, info: &#123; source: 'trigger' \| 'menu' &#125;) =&gt; void | - |
+| openChange | 菜单显示状态改变时调用 | (open: boolean, info: &#123; source: 'trigger' \| 'menu' &#125;) =&gt; void | - |
 | menuClick | 点击菜单项的回调 | MenuEmits['click'] | - |
 
 ### 插槽 {#slots}

@@ -67,7 +67,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 | Event | Description | Type | Version |
 | --- | --- | --- | --- |
-| openChange | Called when the open state is changed. Not trigger when hidden by click item | (open: boolean, info: &#123; source: 'trigger' \| 'menu' &#125;) =&gt; void | - |
+| openChange | Called when the open state is changed | (open: boolean, info: &#123; source: 'trigger' \| 'menu' &#125;) =&gt; void | - |
 | menuClick | Callback when menu item clicked | MenuEmits['click'] | - |
 
 ### Slots
