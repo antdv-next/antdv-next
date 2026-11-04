@@ -13,7 +13,7 @@ import FormItemLabel from '../FormItemLabel.tsx'
 import { getStatus } from '../util.ts'
 import StatusProvider from './StatusProvider.tsx'
 
-export type ItemHolderProps = FormItemProps & {
+export type ItemHolderProps = Omit<FormItemProps, 'preserve'> & {
   errors: any[]
   warnings: any[]
   meta: Meta

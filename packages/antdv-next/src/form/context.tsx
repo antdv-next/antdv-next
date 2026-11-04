@@ -16,6 +16,7 @@ export interface FormFieldRegister {
   getMeta: () => Meta
   rules?: () => Rule[]
   isFieldDirty?: () => boolean
+  isPreserve?: () => boolean | undefined
   validateRules: (options?: Record<string, any>) => Promise<void>
   resetField: () => void
   clearValidate: () => void
@@ -38,10 +39,9 @@ export interface FormContextProps {
   rules?: RulesMap
   validateTrigger?: string | string[] | false
   validateMessages?: ValidateMessages
-  preserve?: boolean
-  clearOnDestroy?: boolean
   addField?: (eventKey: string, field: FormFieldRegister) => void
   removeField?: (eventKey: string, field?: FormFieldRegister) => void
+  removeFieldValue?: (field: FormFieldRegister) => void
   addItem?: (namePathStr: string, instance: any) => void
   removeItem?: (namePathStr: string) => void
   onValidate?: (name: InternalNamePath, status: boolean, errors: any[] | null) => void
