@@ -140,6 +140,7 @@ type RcEventKeys
     | 'onFocus'
     | 'onPopupScroll'
     | 'onSelect'
+    | 'onSearch'
     | 'optionRender'
 
 export interface SelectProps
@@ -193,6 +194,7 @@ const omitKeys = [
   'onPopupScroll',
   'onPopupVisibleChange',
   'onSelect',
+  'onSearch',
   'popupRender',
   'labelRender',
   'optionRender',
@@ -219,6 +221,7 @@ export interface SelectEmits {
   'focus': NonNullable<VcSelectProps['onFocus']>
   'popupScroll': NonNullable<VcSelectProps['onPopupScroll']>
   'select': NonNullable<VcSelectProps['onSelect']>
+  'search': NonNullable<VcSelectProps['onSearch']>
 }
 export interface SelectEmitsProps {
   onOpenChange?: SelectEmits['openChange']
@@ -239,6 +242,7 @@ export interface SelectEmitsProps {
   onFocus?: SelectEmits['focus']
   onPopupScroll?: SelectEmits['popupScroll']
   onSelect?: SelectEmits['select']
+  onSearch?: SelectEmits['search']
 }
 
 type OptionParams = Parameters<NonNullable<VcSelectProps['optionRender']>>
@@ -575,14 +579,20 @@ const Select = defineComponent<
         onMouseDown: (e: any) => {
           emit('mousedown', e)
         },
-        onMouseLeave: (e: any) => {
+        // @v-c/select spreads onMouseEnter/onMouseLeave onto its root div as-is, and Vue
+        // binds camelCase DOM listeners as `mouse-enter`. Forward DOM-cased listeners
+        // instead so they fall through to the native events.
+        onMouseleave: (e: any) => {
           emit('mouseleave', e)
         },
-        onMouseEnter: (e: any) => {
+        onMouseenter: (e: any) => {
           emit('mouseenter', e)
         },
         onPopupScroll: (e: any) => {
           emit('popupScroll', e)
+        },
+        onSearch: (value: string) => {
+          emit('search', value)
         },
       }
       const labelRender = slots?.labelRender ?? props?.labelRender
