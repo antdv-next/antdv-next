@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+import csCZ from '../cs_CZ'
 import esUS from '../es_US'
 import neNP from '../ne_NP'
 import zhTW from '../zh_TW'
@@ -26,5 +27,17 @@ describe('locale ne_NP', () => {
     expect(neNP.Pagination?.prev_page).toBe('अघिल्लो पृष्ठ')
     expect(neNP.Pagination?.next_page).toBe('अर्को पृष्ठ')
     expect(neNP.Pagination?.page_size).toBe('पृष्ठ आकार')
+  })
+})
+
+// https://github.com/ant-design/ant-design/pull/59787
+describe('locale cs_CZ', () => {
+  it('uses improved Czech translations', () => {
+    expect(csCZ.global?.clear).toBe('Vymazat')
+    expect(csCZ.Transfer?.selectCurrent).toBe('Vybrat aktuální stránku')
+    expect(csCZ.Transfer?.deselectAll).toBe('Zrušit výběr všech')
+    expect((csCZ as any).Text?.collapse).toBe('Sbalit')
+
+    expect(csCZ.Input?.otpCell).toBe('Znak ${index} z ${total}')
   })
 })

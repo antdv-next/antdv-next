@@ -17,6 +17,7 @@ const localeValues: Locale = {
     placeholder: 'Prosím vyber',
     close: 'Zavřít',
     sortable: 'seřadit',
+    clear: 'Vymazat',
     show: 'Zobrazit',
     hide: 'Skrýt',
   },
@@ -68,12 +69,12 @@ const localeValues: Locale = {
     itemUnit: 'položka',
     itemsUnit: 'položek',
     remove: 'Odstranit',
-    selectCurrent: 'Vybrat aktuální stranu',
-    removeCurrent: 'Smazat aktuální stranu',
+    selectCurrent: 'Vybrat aktuální stránku',
+    removeCurrent: 'Odstranit aktuální stránku',
     selectAll: 'Označit vše',
-    removeAll: 'Odznačit vše',
+    removeAll: 'Odstranit vše',
     selectInvert: 'Opačný výběr',
-    deselectAll: 'Zrušte výběr všech dat',
+    deselectAll: 'Zrušit výběr všech',
   },
   Upload: {
     uploading: 'Nahrávání...',
@@ -91,9 +92,9 @@ const localeValues: Locale = {
   Text: {
     edit: 'Upravit',
     copy: 'Kopírovat',
-    copied: 'Zkopírované',
-    expand: 'Zvětšit',
-    collapse: 'kolaps',
+    copied: 'Zkopírováno',
+    expand: 'Rozbalit',
+    collapse: 'Sbalit',
   },
   Carousel: {
     prevSlide: 'Předchozí snímek',
@@ -159,6 +160,9 @@ const localeValues: Locale = {
     transparent: 'Průhledné',
     singleColor: 'Jednobarevné',
     gradientColor: 'Přechodové',
+  },
+  Input: {
+    otpCell: 'Znak ${index} z ${total}',
   },
 }
 
