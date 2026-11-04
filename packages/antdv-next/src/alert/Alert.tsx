@@ -7,11 +7,12 @@ import { CheckCircleFilled, CloseCircleFilled, CloseOutlined, ExclamationCircleF
 import { classNames, clsx } from '@v-c/util'
 import pickAttrs from '@v-c/util/dist/pickAttrs'
 import { filterEmpty } from '@v-c/util/dist/props-util'
-import { computed, defineComponent, shallowRef, Transition } from 'vue'
+import { computed, defineComponent, shallowRef, toRef, Transition } from 'vue'
 import { getAttrStyleAndClass, pureAttrs, useMergeSemanticNoRef } from '../_util/hooks'
 import { isRenderable } from '../_util/is.ts'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { useComponentBaseConfig } from '../config-provider/context'
+import useVariant from '../form/hooks/useVariant'
 import useStyle from './style'
 
 export interface AlertSemanticType {
@@ -196,8 +197,11 @@ const Alert = defineComponent<
       errorIcon,
       infoIcon,
       warningIcon,
-      variant: contextVariant,
-    } = useComponentBaseConfig('alert', props, ['closable', 'closeIcon', 'successIcon', 'errorIcon', 'infoIcon', 'warningIcon', 'variant'])
+    } = useComponentBaseConfig('alert', props, ['closable', 'closeIcon', 'successIcon', 'errorIcon', 'infoIcon', 'warningIcon'])
+    const [variant] = useVariant('alert', toRef(() => props.variant), {
+      variants: ['outlined', 'filled'],
+      defaultVariant: 'outlined',
+    })
     const { classes, styles } = toPropsRefs(props, 'classes', 'styles')
     const closed = shallowRef(false)
     const internalRef = shallowRef<HTMLDivElement>()
@@ -263,8 +267,10 @@ const Alert = defineComponent<
       const isShowIcon = banner && showIcon === undefined ? true : showIcon
 
       // =========== Merged Props for Semantic ==========
+      const mergedVariant = variant.value
       const mergedProps: AlertProps = {
         ...props,
+        variant: mergedVariant,
         prefixCls: prefixCls.value,
         type: type.value,
         showIcon: isShowIcon,
@@ -279,7 +285,6 @@ const Alert = defineComponent<
         props: mergedProps,
       })
 
-      const mergedVariant = props.variant ?? contextVariant?.value ?? 'outlined'
       const alertCls = classNames(
         prefixCls.value,
         `${prefixCls.value}-${type.value}`,
