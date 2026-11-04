@@ -8678,7 +8678,7 @@ exports[`form demo > renders layout-can-wrap correctly 1`] = `
       class="ant-row css-var-root ant-form-item-row"
     >
       <div
-        class="ant-col css-var-root ant-form-item-label ant-form-item-label-left ant-form-item-label-wrap"
+        class="ant-col css-var-root ant-form-item-label ant-form-item-label-start ant-form-item-label-left ant-form-item-label-wrap"
         style="flex: 0 0 110px;"
       >
         <label
@@ -8738,7 +8738,7 @@ exports[`form demo > renders layout-can-wrap correctly 1`] = `
       class="ant-row css-var-root ant-form-item-row"
     >
       <div
-        class="ant-col css-var-root ant-form-item-label ant-form-item-label-left ant-form-item-label-wrap"
+        class="ant-col css-var-root ant-form-item-label ant-form-item-label-start ant-form-item-label-left ant-form-item-label-wrap"
         style="flex: 0 0 110px;"
       >
         <label
@@ -8798,7 +8798,7 @@ exports[`form demo > renders layout-can-wrap correctly 1`] = `
       class="ant-row css-var-root ant-form-item-row"
     >
       <div
-        class="ant-col css-var-root ant-form-item-label ant-form-item-label-left ant-form-item-label-wrap"
+        class="ant-col css-var-root ant-form-item-label ant-form-item-label-start ant-form-item-label-left ant-form-item-label-wrap"
         style="flex: 0 0 110px;"
       >
         <label
@@ -8857,7 +8857,7 @@ exports[`form demo > renders layout-can-wrap correctly 1`] = `
       class="ant-row css-var-root ant-form-item-row"
     >
       <div
-        class="ant-col css-var-root ant-form-item-label ant-form-item-label-left ant-form-item-label-wrap"
+        class="ant-col css-var-root ant-form-item-label ant-form-item-label-start ant-form-item-label-left ant-form-item-label-wrap"
         style="flex: 0 0 110px;"
       >
         <label

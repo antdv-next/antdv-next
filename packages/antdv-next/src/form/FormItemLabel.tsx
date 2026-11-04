@@ -71,15 +71,13 @@ const FormItemLabel = defineComponent<
       }
       const mergedLabelCol: ColPropsWithClass = labelCol || contextLabelCol || {} as ColPropsWithClass
       const mergedLabelAlign: FormLabelAlign = (labelAlign || contextLabelAlign) as FormLabelAlign
+      const isStartAlign = mergedLabelAlign === 'left' || mergedLabelAlign === 'start'
       const labelClsBasic = `${prefixCls}-item-label`
-      const labelColClassName = clsx(
-        labelClsBasic,
-        mergedLabelAlign === 'left' && `${labelClsBasic}-left`,
-        mergedLabelCol.class,
-        {
-          [`${labelClsBasic}-wrap`]: !!labelWrap,
-        },
-      )
+      const labelColClassName = clsx(labelClsBasic, mergedLabelCol.class, {
+        // Remove the legacy `-left` class in v7.
+        [`${labelClsBasic}-start ${labelClsBasic}-left`]: isStartAlign,
+        [`${labelClsBasic}-wrap`]: !!labelWrap,
+      })
       let labelChildren = label
       // Keep label is original where there should have no colon
       const computedColon = colon === true || (contextColon !== false && colon !== false)

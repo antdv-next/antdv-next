@@ -21,7 +21,7 @@ const model = reactive({
     name="wrap"
     :model="model"
     :label-col="{ flex: '110px' }"
-    label-align="left"
+    label-align="start"
     label-wrap
     :wrapper-col="{ flex: 1 }"
     :colon="false"

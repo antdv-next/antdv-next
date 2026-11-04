@@ -77,7 +77,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 | colon | 配置 Form.Item 的 `colon` 的默认值。表示是否显示 label 后面的冒号 (只有在属性 layout 为 horizontal 时有效) | boolean | true | - | ✓ |
 | name | 表单名称，会作为表单字段 `id` 前缀使用 | string | - | - | × |
 | layout | 表单布局。`horizontal` 布局默认在视口宽度不超过 `575px` 时将标签和控件上下排列，可通过 `labelCol` 和 `wrapperCol` 的 `xs` 配置自定义窄屏下的列宽 | FormLayout | `horizontal` | - | × |
-| labelAlign | label 标签的文本对齐方式 | FormLabelAlign | `right` | - | ✓ |
+| labelAlign | 标签文本对齐方式 | `start` \| `end` | `end` | 1.8.0：`left` 改为 `start`，`right` 改为 `end` | ✓ |
 | labelWrap | label 标签的文本换行方式 | boolean | false | - | × |
 | labelCol | label 标签布局，同 `Col` 组件，设置 `span` `offset` 值，如 `{span: 3, offset: 12}` 或 `sm: {span: 3, offset: 12}` | ColProps | - | - | × |
 | wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | ColProps | - | - | × |
@@ -151,7 +151,7 @@ const formRef = ref<FormInstance>()
 | --- | --- | --- | --- | --- |
 | name | 字段名 | NamePath | - | - |
 | label | 标签文本 | VueNode | - | - |
-| labelAlign | label 标签的文本对齐方式 | FormLabelAlign | `right` | - |
+| labelAlign | 标签文本对齐方式 | `start` \| `end` | `end` | 1.8.0：`left` 改为 `start`，`right` 改为 `end` |
 | labelCol | label 标签布局，同 `Col` 组件 | ColProps | - | - |
 | wrapperCol | 需要为输入控件设置布局样式时，使用该属性，用法同 labelCol | ColProps | - | - |
 | colon | 配合 `label` 使用，是否显示 `:` | boolean | true | - |

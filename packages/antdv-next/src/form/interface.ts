@@ -5,4 +5,7 @@ export type ScrollFocusOptions = Options & {
 }
 
 export type ScrollOptions = ScrollFocusOptions // alias
-export type FormLabelAlign = 'left' | 'right'
+/**
+ * Note: `left` and `right` are deprecated and will be removed in v7. Please use `start` and `end` instead.
+ */
+export type FormLabelAlign = 'start' | 'end' | 'left' | 'right'

@@ -11,6 +11,7 @@ import { filterEmpty } from '@v-c/util/dist/props-util'
 import { computed, createVNode, defineComponent, isVNode, onBeforeUnmount, shallowRef, watch } from 'vue'
 import { isRenderable } from '../../_util/is.ts'
 import { getSlotPropsFnRun } from '../../_util/tools.ts'
+import { devUseWarning, isDev } from '../../_util/warning'
 import { useComponentBaseConfig } from '../../config-provider/context'
 import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls'
 import { useFormContext, useFormItemProvider, useNoStyleItemContext } from '../context.tsx'
@@ -110,6 +111,15 @@ const InternalFormItem = defineComponent<
           : formContext.value?.validateTrigger) as TriggerType | TriggerType[] | false
     })
     const { prefixCls } = useComponentBaseConfig('form', props)
+
+    if (isDev) {
+      const warning = devUseWarning('Form.Item')
+      warning.deprecated(
+        props.labelAlign !== 'left' && props.labelAlign !== 'right',
+        'labelAlign=left|right',
+        'labelAlign=start|end',
+      )
+    }
     const notifyParentMetaChange = useNoStyleItemContext()
     const hasName = computed(() => !(props.name === undefined || props.name === null))
     const namePath = computed<InternalNamePath>(() => (hasName.value ? getNamePath(props.name!) : []))

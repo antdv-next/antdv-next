@@ -24,7 +24,7 @@ import scrollIntoView from 'scroll-into-view-if-needed'
 import { computed, defineComponent, getCurrentInstance, inject, onBeforeUnmount, onMounted, provide, shallowRef, toRaw, watch } from 'vue'
 import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { toPropsRefs } from '../_util/tools.ts'
-import warning from '../_util/warning'
+import warning, { devUseWarning, isDev } from '../_util/warning'
 import { useComponentBaseConfig } from '../config-provider/context'
 import { useDisabledContext, useDisabledContextProvider } from '../config-provider/DisabledContext.tsx'
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls.ts'
@@ -216,6 +216,16 @@ const InternalForm = defineComponent<
 
     const mergedColon = computed(() => props.colon ?? contextColon.value)
     const mergedLabelAlign = computed(() => props.labelAlign ?? contextLabelAlign.value)
+
+    if (isDev) {
+      const formWarning = devUseWarning('Form')
+      const align = mergedLabelAlign.value
+      formWarning.deprecated(
+        align !== 'left' && align !== 'right',
+        'labelAlign=left|right',
+        'labelAlign=start|end',
+      )
+    }
     const mergedLabelWrap = computed(() => props.labelWrap ?? contextLabelWrap.value)
     const mergedAutoComplete = computed(() => props.autoComplete ?? props.autocomplete ?? contextAutoComplete.value ?? contextAutocomplete.value)
     const mergedTooltip = computed(() => {

@@ -76,7 +76,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | colon | Configure the default value of `colon` for Form.Item. Indicates whether the colon after the label is displayed (only effective when prop layout is horizontal) | boolean | true | - | ✓ |
 | name | Form name. Will be the prefix of Field `id` | string | - | - | × |
 | layout | Form layout. By default, `horizontal` stacks labels above controls when the viewport width is `575px` or less. Use the `xs` settings in `labelCol` and `wrapperCol` to customize column widths on narrow screens | FormLayout | `horizontal` | - | × |
-| labelAlign | The text align of label of all items | FormLabelAlign | `right` | - | ✓ |
+| labelAlign | Label text alignment | `start` \| `end` | `end` | 1.8.0: `left` → `start`, `right` → `end` | ✓ |
 | labelWrap | whether label can be wrap | boolean | false | - | × |
 | labelCol | Label layout, like `Col` component. Set `span` `offset` value like `{span: 3, offset: 12}` or `sm: {span: 3, offset: 12}` | ColProps | - | - | × |
 | wrapperCol | The layout for input controls, same as `labelCol` | ColProps | - | - | × |
@@ -150,7 +150,7 @@ const formRef = ref<FormInstance>()
 | --- | --- | --- | --- | --- |
 | name | Field name | NamePath | - | - |
 | label | Label text | VueNode | - | - |
-| labelAlign | The text align of label | FormLabelAlign | `right` | - |
+| labelAlign | Label text alignment | `start` \| `end` | `end` | 1.8.0: `left` → `start`, `right` → `end` |
 | labelCol | The layout of label. If both Form and Form.Item exists, use Item first | ColProps | - | - |
 | wrapperCol | The layout for input controls, same as `labelCol` | ColProps | - | - |
 | colon | Used with `label`, whether to display `:` after label text | boolean | true | - |
