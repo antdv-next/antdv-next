@@ -16,6 +16,7 @@ import { replaceElement } from '../_util/vueNode.ts'
 import Wave from '../_util/wave'
 import { useComponentBaseConfig, useConfig } from '../config-provider/context.ts'
 import { useDisabledContext } from '../config-provider/DisabledContext.tsx'
+import useVariant from '../form/hooks/useVariant'
 import CheckableTag from './CheckableTag.tsx'
 import CheckableTagGroup from './CheckableTagGroup.tsx'
 import useColor from './hooks/useColor.ts'
@@ -92,15 +93,18 @@ const InternalTag = defineComponent<
       prefixCls,
       direction,
       class: contextClassName,
-      variant: contextVariant,
       style: contextStyle,
       classes: contextClassNames,
       styles: contextStyles,
-    } = useComponentBaseConfig('tag', props, ['variant'])
+    } = useComponentBaseConfig('tag', props)
     const { variant, href, target, disabled: customDisabled, color, bordered, classes, styles } = toPropsRefs(props, 'classes', 'styles', 'variant', 'href', 'target', 'disabled', 'color', 'bordered')
     const [hashId, cssVarCls] = useStyle(prefixCls)
 
     // ====================== Colors ======================
+    const [contextVariant] = useVariant('tag', undefined, {
+      variants: ['filled', 'solid', 'outlined'],
+      defaultVariant: 'filled',
+    })
     const [mergedVariant, mergedColor, isPreset, isStatus, customTagStyle] = useColor(
       { bordered, variant, color },
       contextVariant,
