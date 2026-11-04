@@ -39,6 +39,7 @@ const clearCases: {
   },
   {
     name: 'Cascader',
+    configKey: 'cascader',
     render: props => (
       <Cascader defaultValue={['value']} options={[{ value: 'value', label: 'Value' }]} {...props} />
     ),

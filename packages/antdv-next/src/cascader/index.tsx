@@ -260,10 +260,11 @@ const InternalCascader = defineComponent<
       loadingIcon: contextLoadingIcon,
       searchIcon: _contextSearchIcon,
       clearIcon: contextClearIcon,
+      allowClear: contextAllowClear,
       removeIcon: contextRemoveIcon,
       suffix: contextSuffix,
       suffixIcon: contextSuffixIcon,
-    } = useComponentBaseConfig('cascader', props, ['expandIcon', 'loadingIcon', 'searchIcon', 'clearIcon', 'removeIcon', 'suffix', 'suffixIcon'])
+    } = useComponentBaseConfig('cascader', props, ['expandIcon', 'loadingIcon', 'searchIcon', 'clearIcon', 'allowClear', 'removeIcon', 'suffix', 'suffixIcon'])
     const getGlobalLocale = useLocaleGetter('global')
     // contextSearchIcon is consumed downstream by useShowSearch; reserved for future inline search icon wiring
     void _contextSearchIcon
@@ -488,7 +489,9 @@ const InternalCascader = defineComponent<
       } as any)
 
       const mergedAllowClear = useAllowClear({
-        allowClear: allowClear ?? true,
+        allowClear,
+        contextAllowClear: contextAllowClear.value,
+        defaultAllowClear: true,
         clearIcon: (rest as any).clearIcon,
         contextClearIcon: contextClearIcon.value,
         defaultLabel: getGlobalLocale().clear,
