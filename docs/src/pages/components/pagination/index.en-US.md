@@ -74,7 +74,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 | Event | Description | Type | Version |
 | --- | --- | --- | --- |
-| change | Called when the page number or `pageSize` is changed | (page: number, pageSize: number) => void | - |
+| change | Called when the page number or `pageSize` is changed. When `pageSize` changes, the third parameter `info.recommendPage` provides a recommended page number based on the new page size to help preserve the user's data position | (page: number, pageSize: number, info?: &#123; recommendPage?: number &#125;) => void | info: 1.8.0 |
 | showSizeChange | Called when `pageSize` is changed | (current: number, size: number) => void | - |
 | update:current | Update current page | (page: number) => void | - |
 | update:pageSize | Update page size | (pageSize: number) => void | - |

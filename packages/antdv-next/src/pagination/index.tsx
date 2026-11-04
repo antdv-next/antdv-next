@@ -14,4 +14,6 @@ export type {
 } from './interface'
 export type PaginationProps = InternalPaginationProps
 
+export type { PaginationOnChangeInfo } from '@v-c/pagination'
+
 export default Pagination

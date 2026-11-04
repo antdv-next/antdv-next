@@ -1,4 +1,4 @@
-import type { PaginationProps as VcPaginationProps } from '@v-c/pagination'
+import type { PaginationOnChangeInfo, PaginationProps as VcPaginationProps } from '@v-c/pagination'
 import type { Component, CSSProperties } from 'vue'
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import type { VueNode } from '../_util/type'
@@ -101,7 +101,7 @@ export interface PaginationConfig extends Omit<PaginationProps, 'rootClass'> {
 }
 
 export interface PaginationEmits {
-  'change': (page: number, pageSize: number) => void
+  'change': (page: number, pageSize: number, info?: PaginationOnChangeInfo) => void
   'showSizeChange': (current: number, size: number) => void
   'update:current': (page: number) => void
   'update:pageSize': (size: number) => void

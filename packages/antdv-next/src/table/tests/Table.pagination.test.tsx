@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { nextTick, ref } from 'vue'
+import { defineComponent, nextTick, ref } from 'vue'
 import Table from '..'
 import scrollTo from '../../_util/scrollTo'
 import ConfigProvider from '../../config-provider'
@@ -101,6 +101,46 @@ describe('table pagination', () => {
     expect(args[0].current).toBe(2)
     // Fourth arg is extra with action
     expect(args[3].action).toBe('paginate')
+  })
+
+  // https://github.com/ant-design/ant-design/pull/58604
+  it('should pass recommendPage to pagination.onChange when pageSize changes', async () => {
+    const onPaginationChange = vi.fn()
+    const SizeChanger = defineComponent({
+      props: {
+        value: { type: Number, required: true },
+        disabled: { type: Boolean, default: false },
+      },
+      emits: ['change'],
+      setup(_, { emit }) {
+        return () => (
+          <button type="button" class="custom-size-changer" onClick={() => emit('change', 20)}>
+            size
+          </button>
+        )
+      },
+    })
+    const wrapper = mount(Table, {
+      props: {
+        columns,
+        dataSource: generateData(100),
+        pagination: {
+          defaultCurrent: 5,
+          showSizeChanger: true,
+          components: { sizeChanger: SizeChanger },
+          onChange: onPaginationChange,
+        },
+      },
+    })
+
+    await wrapper.find('.custom-size-changer').trigger('click')
+    await nextTick()
+
+    expect(onPaginationChange).toHaveBeenCalledWith(
+      5,
+      20,
+      expect.objectContaining({ recommendPage: 3 }),
+    )
   })
 
   it('should scroll to first row when page changes with scroll from ConfigProvider', async () => {

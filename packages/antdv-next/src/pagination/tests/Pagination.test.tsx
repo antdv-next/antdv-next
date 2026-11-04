@@ -101,7 +101,54 @@ describe('pagination', () => {
     await sizeChanger.trigger('click')
     await nextTick()
 
-    expect(onChange).toHaveBeenCalledWith(1, 15)
+    expect(onChange).toHaveBeenCalledWith(1, 15, expect.objectContaining({ recommendPage: 1 }))
+    wrapper.unmount()
+  })
+
+  // https://github.com/ant-design/ant-design/pull/58604
+  it('should provide recommendPage in change when pageSize changes', async () => {
+    const onChange = vi.fn()
+
+    const SizeChanger = defineComponent({
+      props: {
+        value: { type: Number, required: true },
+        disabled: { type: Boolean, default: false },
+      },
+      emits: ['change'],
+      setup(_, { emit }) {
+        return () => (
+          <button
+            type="button"
+            class="custom-size-changer"
+            onClick={() => emit('change', 20)}
+          >
+            Custom size changer
+          </button>
+        )
+      },
+    })
+
+    const wrapper = mount(() => (
+      <Pagination
+        defaultCurrent={5}
+        total={500}
+        showSizeChanger
+        components={{ sizeChanger: SizeChanger }}
+        onChange={onChange}
+      />
+    ))
+
+    await wrapper.find('.custom-size-changer').trigger('click')
+    await nextTick()
+
+    expect(onChange).toHaveBeenCalledWith(5, 20, expect.objectContaining({ recommendPage: 3 }))
+
+    // Page change does not carry the info argument
+    onChange.mockClear()
+    await wrapper.find('.ant-pagination-next .ant-pagination-item-link').trigger('click')
+    await nextTick()
+    expect(onChange).toHaveBeenCalledWith(6, 20)
+    expect(onChange.mock.calls[0]).toHaveLength(2)
     wrapper.unmount()
   })
 

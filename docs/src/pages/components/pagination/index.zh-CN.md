@@ -75,7 +75,7 @@ demo:
 
 | 事件 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
-| change | 页码或 `pageSize` 改变的回调 | (page: number, pageSize: number) => void | - |
+| change | 页码或 `pageSize` 改变的回调。当 `pageSize` 改变时，第三个参数 `info.recommendPage` 会提供基于新页面大小的推荐页码，帮助保留用户当前的数据位置 | (page: number, pageSize: number, info?: &#123; recommendPage?: number &#125;) => void | info: 1.8.0 |
 | showSizeChange | pageSize 变化的回调 | (current: number, size: number) => void | - |
 | update:current | 更新当前页 | (page: number) => void | - |
 | update:pageSize | 更新每页条数 | (pageSize: number) => void | - |

@@ -240,14 +240,19 @@ const Pagination = defineComponent<
       return props.showTotal
     })
 
-    const handleChange: NonNullable<VcPaginationProps['onChange']> = (page, pageSize) => {
+    const handleChange: NonNullable<VcPaginationProps['onChange']> = (page, pageSize, info) => {
       if (props.current !== page) {
         emit('update:current', page)
       }
       if (props.pageSize !== pageSize) {
         emit('update:pageSize', pageSize)
       }
-      emit('change', page, pageSize)
+      if (info) {
+        emit('change', page, pageSize, info)
+      }
+      else {
+        emit('change', page, pageSize)
+      }
     }
 
     const handleShowSizeChange: NonNullable<VcPaginationProps['onShowSizeChange']> = (current, size) => {
