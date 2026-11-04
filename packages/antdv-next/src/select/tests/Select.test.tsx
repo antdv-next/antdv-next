@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest'
-import { h, nextTick, ref } from 'vue'
+import { defineComponent, h, nextTick, ref } from 'vue'
 import Select, { SelectOption } from '..'
 import { resetWarned } from '../../_util/warning'
 import ConfigProvider from '../../config-provider'
@@ -421,6 +421,39 @@ describe('select', () => {
     errSpy.mockRestore()
     wrapper.unmount()
   })
+  // https://github.com/ant-design/ant-design/pull/59632
+  it.each([undefined, 'multiple', 'tags'] as const)(
+    'should support autoComplete configuration in %s mode',
+    async (mode) => {
+      const config = ref<Record<string, any> | undefined>()
+      const autoComplete = ref<string | undefined>()
+      const wrapper = mount(defineComponent(() => () => (
+        <ConfigProvider select={config.value}>
+          <Select mode={mode} autoComplete={autoComplete.value} />
+        </ConfigProvider>
+      )))
+      const getAutoComplete = () => wrapper.find('input').attributes('autocomplete')
+      expect(getAutoComplete()).toBe('new-password')
+
+      config.value = { autoComplete: 'off' }
+      await nextTick()
+      expect(getAutoComplete()).toBe('off')
+
+      autoComplete.value = 'on'
+      await nextTick()
+      expect(getAutoComplete()).toBe('on')
+
+      autoComplete.value = undefined
+      await nextTick()
+      expect(getAutoComplete()).toBe('off')
+
+      config.value = undefined
+      await nextTick()
+      expect(getAutoComplete()).toBe('new-password')
+      wrapper.unmount()
+    },
+  )
+
   describe('allowClear with ConfigProvider', () => {
     const options = [{ value: 'value', label: 'Label' }]
     const mountWithConfig = (selectConfig: Record<string, any>, selectProps: Record<string, any> = {}) =>

@@ -294,10 +294,11 @@ const Select = defineComponent<
       classes: contextClassNames,
       prefixCls,
       allowClear: contextAllowClear,
+      autoComplete: contextAutoComplete,
       clearIcon: contextClearIcon,
       suffix: contextSuffix,
       suffixIcon: contextSuffixIcon,
-    } = useComponentBaseConfig('select', props, ['showSearch', 'allowClear', 'clearIcon', 'suffix', 'suffixIcon'])
+    } = useComponentBaseConfig('select', props, ['showSearch', 'allowClear', 'autoComplete', 'clearIcon', 'suffix', 'suffixIcon'])
     const getGlobalLocale = useLocaleGetter('global')
     const configCtx = useConfig()
     const {
@@ -653,6 +654,7 @@ const Select = defineComponent<
           menuItemSelectedIcon={itemIcon}
           removeIcon={removeIcon}
           allowClear={mergedAllowClear}
+          autoComplete={props.autoComplete ?? contextAutoComplete.value}
           notFoundContent={mergedNotFound}
           className={mergedClassName}
           getPopupContainer={getPopupContainer || getContextPopupContainer}

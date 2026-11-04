@@ -404,7 +404,7 @@ export type TabsConfig = ComponentStyleConfig
   & TabsMoreConfig
 
 export type SelectConfig = ComponentStyleConfig
-  & Pick<SelectProps, 'showSearch' | 'variant' | 'classes' | 'styles' | 'allowClear' | 'suffix' | 'suffixIcon' | 'removeIcon'>
+  & Pick<SelectProps, 'showSearch' | 'variant' | 'classes' | 'styles' | 'allowClear' | 'autoComplete' | 'suffix' | 'suffixIcon' | 'removeIcon'>
   & {
     clearIcon?: any
     loadingIcon?: any
