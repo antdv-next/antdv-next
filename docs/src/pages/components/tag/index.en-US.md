@@ -38,8 +38,8 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| closable | Whether the Tag can be closed | boolean | false | - | ✓ |
-| closeIcon | Custom close icon. Setting to `null` or `false` hides the close button | VueNode | - | - | ✓ |
+| closable | Whether to show the close button. An object can configure the close icon and `aria-*` attributes | boolean \| ({ closeIcon?: VueNode } & AriaAttributes) | false | - | ✓ |
+| closeIcon | Custom close icon, as a shorthand for `closable`. When `closable` is not set, `true` shows the default close button, while `null` or `false` hides it | VueNode | - | - | ✓ |
 | color | Color of the Tag | string | - | - | × |
 | classes | Customize class for each semantic structure inside the component. Supports object or function | TagClassNamesType | - | - | ✓ |
 | disabled | Whether the tag is disabled | boolean | false | - | × |

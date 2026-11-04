@@ -39,8 +39,8 @@ demo:
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| closable | 标签是否可以关闭 | boolean | false | - | ✓ |
-| closeIcon | 自定义关闭按钮。设置为 `null` 或 `false` 时隐藏关闭按钮 | VueNode | - | - | ✓ |
+| closable | 是否显示关闭按钮，也可通过对象配置关闭图标和 `aria-*` 属性 | boolean \| ({ closeIcon?: VueNode } & AriaAttributes) | false | - | ✓ |
+| closeIcon | 自定义关闭图标，是 `closable` 的简便配置方式。未设置 `closable` 时，设置为 `true` 显示默认关闭按钮，设置为 `null` 或 `false` 隐藏关闭按钮 | VueNode | - | - | ✓ |
 | color | 标签色 | string | - | - | × |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | TagClassNamesType | - | - | ✓ |
 | disabled | 是否禁用标签 | boolean | false | - | × |

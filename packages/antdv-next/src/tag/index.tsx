@@ -50,7 +50,7 @@ export interface TagProps extends ComponentBaseProps,
   /* @vue-ignore */
   TagEmitsProps {
   color?: LiteralUnion<PresetColorType | PresetStatusColorType>
-  /** Advised to use closeIcon instead. */
+  /** Configure the close button and its accessibility attributes. */
   closable?: ClosableType
   closeIcon?: VueNode
   icon?: VueNode

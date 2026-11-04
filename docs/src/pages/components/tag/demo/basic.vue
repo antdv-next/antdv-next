@@ -1,17 +1,18 @@
 <docs lang="zh-CN">
-基本标签的用法，可以通过设置 `closeIcon` 变为可关闭标签并自定义关闭按钮，设置为 `true` 时将使用默认关闭按钮。可关闭标签具有 `onClose` 事件。
+设置 `closable` 可显示默认关闭按钮，也可通过对象配置 `aria-label` 等无障碍属性，并通过 `closeIcon` 自定义关闭图标。顶层 `closeIcon` 是简便配置方式，可设置自定义关闭图标或设为 `true` 显示默认关闭按钮。可关闭标签具有 `close` 事件，可通过 `e.preventDefault()` 阻止关闭。
 </docs>
 
 <docs lang="en-US">
-Usage of basic Tag, and it could be closable and customize close button by set `closeIcon` property, will display default close button when `closeIcon` is setting to `true`. Closable Tag supports `onClose` events.
+Set `closable` to show the default close button, or use an object to configure accessibility attributes such as `aria-label`, with `closeIcon` customizing the close icon. The top-level `closeIcon` is a shorthand for setting a custom close icon or showing the default close button with `true`. Closable tags support the `close` event. Use `e.preventDefault()` to prevent closing.
 </docs>
 
 <script setup lang="ts">
 import { CloseCircleOutlined, DeleteOutlined } from '@antdv-next/icons'
 import { shallowRef } from 'vue'
 
-function preventDefault() {
-  console.log('Clicked! Default Not Close.')
+function preventDefault(e: MouseEvent) {
+  e.preventDefault()
+  console.log('Clicked! But prevent default.')
 }
 const tag2 = shallowRef(true)
 function handleCloseTag2() {
@@ -37,7 +38,7 @@ function handleClick() {
         Link
       </a>
     </a-tag>
-    <a-tag close-icon @close="preventDefault">
+    <a-tag closable @close="preventDefault">
       Prevent Default
     </a-tag>
     <a-tag v-if="tag2" @close="handleCloseTag2">
