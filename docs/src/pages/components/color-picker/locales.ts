@@ -2,6 +2,7 @@ export const locales = {
   cn: {
     'root': '触发器容器，包含边框样式、过渡动画、尺寸控制等样式，显示颜色块和文本内容',
     'popup.root': '弹出面板根容器，包含背景色、阴影效果、色彩选择面板、滑块控制和预设颜色等样式',
+    'popup.container': '弹出面板内容容器，包含背景色、内边距、圆角和阴影等样式',
     'body': '色块容器，包含底色、边框等样式',
     'content': '色块颜色元素，包含实际选择的颜色样式',
     'description': '描述文本内容，包含字体样式、颜色等样式',
@@ -9,6 +10,7 @@ export const locales = {
   en: {
     'root': 'Trigger container with border styles, transition animations, size controls, displaying color block and text content',
     'popup.root': 'Popup panel root container with background color, shadow effects, color selection panel, slider controls and preset colors',
+    'popup.container': 'Popup panel content container with background color, padding, border radius and shadow',
     'body': 'Color block container with background color, border styles',
     'content': 'Color block element with actual selected color styles',
     'description': 'Description text content with font styles and color',

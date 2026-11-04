@@ -12,6 +12,7 @@ const semantics = computed(() => [
   { name: 'content', desc: t('content') },
   { name: 'description', desc: t('description') },
   { name: 'popup.root', desc: t('popup.root') },
+  { name: 'popup.container', desc: t('popup.container'), version: '1.8.0' },
 ])
 
 const divRef = ref<HTMLDivElement | null>(null)

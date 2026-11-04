@@ -74,14 +74,15 @@ export interface ColorPickerSemanticStyles {
 export type ColorPickerClassNamesType = SemanticClassNamesType<
   ColorPickerProps,
   ColorPickerSemanticClassNames,
-  { popup?: { root?: string } }
+  { popup?: { root?: string, container?: string } }
 >
 
 export type ColorPickerStylesType = SemanticStylesType<
   ColorPickerProps,
   ColorPickerSemanticStyles,
   {
-    popup?: { root?: CSSProperties }
+    popup?: { root?: CSSProperties, container?: CSSProperties }
+    /** @deprecated Will be removed in v7. Please use `popup.container` instead. */
     popupOverlayInner?: CSSProperties
   }
 >

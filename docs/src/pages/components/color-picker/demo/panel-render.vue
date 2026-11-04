@@ -52,7 +52,7 @@ const presets = computed<any[]>(() => genPresets({
       <span>Horizontal layout:</span>
       <a-color-picker
         v-model:value="layoutColor"
-        :styles="{ popupOverlayInner: { width: '480px' } }"
+        :styles="{ popup: { container: { width: '480px' } } }"
         :presets="presets"
       >
         <template #panelRender="{ extra: { components } }">

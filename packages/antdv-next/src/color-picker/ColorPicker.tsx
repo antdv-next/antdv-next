@@ -16,6 +16,7 @@ import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr,
 import genPurePanel from '../_util/PurePanel.tsx'
 import { getStatusClassNames } from '../_util/statusUtils.ts'
 import { toPropsRefs } from '../_util/tools'
+import { devUseWarning, isDev } from '../_util/warning'
 import { useComponentBaseConfig } from '../config-provider/context'
 import { useDisabledContext } from '../config-provider/DisabledContext'
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
@@ -140,6 +141,21 @@ const ColorPicker = defineComponent<
         },
       })),
     )
+
+    if (isDev) {
+      const warning = devUseWarning('ColorPicker')
+      watch(
+        () => mergedStyles.value?.popupOverlayInner,
+        (popupOverlayInner) => {
+          warning.deprecated(
+            !popupOverlayInner,
+            'styles.popupOverlayInner',
+            'styles.popup.container',
+          )
+        },
+        { immediate: true },
+      )
+    }
 
     const internalPopupOpen = shallowRef(open.value ?? false)
     watch(
@@ -354,10 +370,13 @@ const ColorPicker = defineComponent<
           )
       return (
         <Popover
-          classes={{ root: mergedPopupCls }}
+          classes={{ root: mergedPopupCls, container: mergedClassNames.value?.popup?.container }}
           styles={{
             root: mergedStyles.value?.popup?.root,
-            container: styles.value?.popupOverlayInner,
+            container: {
+              ...mergedStyles.value?.popupOverlayInner,
+              ...mergedStyles.value?.popup?.container,
+            },
           }}
           onOpenChange={triggerOpenChange}
           content={panelNode}
