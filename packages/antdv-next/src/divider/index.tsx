@@ -4,11 +4,12 @@ import type { ComponentBaseProps } from '../config-provider/context.ts'
 import type { SizeType } from '../config-provider/SizeContext.tsx'
 import { classNames } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
-import { computed, defineComponent, shallowRef } from 'vue'
+import { computed, defineComponent, shallowRef, toRef } from 'vue'
 import { pureAttrs, useMergeSemantic, useOrientation, useSemanticRootStyle, useToArr } from '../_util/hooks'
 import { toPropsRefs } from '../_util/tools.ts'
 import { useComponentBaseConfig } from '../config-provider/context.ts'
 import { useSize } from '../config-provider/hooks/useSize.ts'
+import useVariant from '../form/hooks/useVariant'
 import useStyle from './style'
 
 export type TitlePlacement
@@ -66,7 +67,6 @@ export interface DividerRef {
 
 const defaultProps = {
   orientation: 'center',
-  variant: 'solid',
   type: 'horizontal',
   orientationMargin: undefined,
 } as any
@@ -81,6 +81,10 @@ const Divider = defineComponent<DividerProps>(
       prefixCls,
     } = useComponentBaseConfig('divider', props)
     const { type, vertical, orientation, classes, styles, size } = toPropsRefs(props, 'orientation', 'vertical', 'type', 'classes', 'styles', 'size')
+    const [variant] = useVariant('divider', toRef(() => props.variant), {
+      variants: ['dashed', 'dotted', 'solid'],
+      defaultVariant: 'solid',
+    })
     const [hashId, cssVarCls] = useStyle(prefixCls)
     const sizeFullName = useSize(size)
     const validTitlePlacement = computed(() => titlePlacementList.includes(orientation.value || ''))
@@ -103,6 +107,7 @@ const Divider = defineComponent<DividerProps>(
     const mergedProps = computed(() => {
       return {
         ...props,
+        variant: variant.value,
         orientation: mergedOrientation.value,
         titlePlacement: mergedTitlePlacement.value,
         size: sizeFullName.value,
@@ -137,8 +142,8 @@ const Divider = defineComponent<DividerProps>(
     })
 
     return () => {
+      const mergedVariant = variant.value
       const {
-        variant,
         dashed,
         plain,
         rootClass,
@@ -156,7 +161,7 @@ const Divider = defineComponent<DividerProps>(
           [`${prefixCls.value}-with-text`]: hasChildren,
           [`${prefixCls.value}-with-text-${mergedTitlePlacement.value}`]: hasChildren,
           [`${prefixCls.value}-dashed`]: !!dashed,
-          [`${prefixCls.value}-${variant}`]: variant !== 'solid',
+          [`${prefixCls.value}-${mergedVariant}`]: mergedVariant !== 'solid',
           [`${prefixCls.value}-plain`]: !!plain,
           [`${prefixCls.value}-rtl`]: direction.value === 'rtl',
           [`${prefixCls.value}-no-default-orientation-margin-start`]: hasMarginStart.value,

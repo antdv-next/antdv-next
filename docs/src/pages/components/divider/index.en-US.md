@@ -42,7 +42,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | plain | Divider text show as plain style | boolean | false | × |
 | size | The size of divider. Only valid for horizontal layout | `small` \| `medium` \| `large` | - | × |
 | titlePlacement | The position of title inside divider | `start` \| `end` \| `center` | `center` | × |
-| variant | Whether line is dashed, dotted or solid | `dashed` \| `dotted` \| `solid` | `solid` | × |
+| variant | Whether line is dashed, dotted or solid | `dashed` \| `dotted` \| `solid` | `solid` | 1.8.0 |
 | vertical | Orientation, Simultaneously configure with `orientation` and prioritize `orientation` | boolean | false | × |
 | classes | Customize class for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | ✓ |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | ✓ |

@@ -277,7 +277,7 @@ export type AnchorStyleConfig = ComponentStyleConfig & Pick<AnchorProps, 'classe
 
 export type PaginationConfig = ComponentStyleConfig & Pick<PaginationProps, 'showSizeChanger'>
 
-export type DividerConfig = ComponentStyleConfig & Pick<DividerProps, 'classes' | 'styles'>
+export type DividerConfig = ComponentStyleConfig & Pick<DividerProps, 'classes' | 'styles' | 'variant'>
 
 export type SkeletonConfig = ComponentStyleConfig & Pick<SkeletonProps, 'styles' | 'classes'>
 
