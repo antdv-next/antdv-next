@@ -39,8 +39,6 @@ export interface FormContextProps {
   rules?: RulesMap
   validateTrigger?: string | string[] | false
   validateMessages?: ValidateMessages
-  preserve?: boolean
-  clearOnDestroy?: boolean
   addField?: (eventKey: string, field: FormFieldRegister) => void
   removeField?: (eventKey: string, field?: FormFieldRegister) => void
   removeFieldValue?: (field: FormFieldRegister) => void

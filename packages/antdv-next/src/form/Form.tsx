@@ -21,7 +21,7 @@ import { clsx, get, set } from '@v-c/util'
 import { getDOM } from '@v-c/util/dist/Dom/findDOMNode'
 import { cloneDeep, pick } from 'es-toolkit'
 import scrollIntoView from 'scroll-into-view-if-needed'
-import { computed, defineComponent, getCurrentInstance, inject, onBeforeUnmount, onMounted, provide, shallowRef, watch } from 'vue'
+import { computed, defineComponent, getCurrentInstance, inject, onBeforeUnmount, onMounted, provide, shallowRef, toRaw, watch } from 'vue'
 import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { toPropsRefs } from '../_util/tools.ts'
 import warning from '../_util/warning'
@@ -37,7 +37,7 @@ import useStyle from './style'
 import { getFieldId, toArray, toNamePathStr } from './util.ts'
 import { allPromiseFinish } from './utils/asyncUtil'
 import { defaultValidateMessages } from './utils/messages'
-import { cloneByNamePathList, containsNamePath, getNamePath, matchNamePath, setValue } from './utils/valueUtil.ts'
+import { cloneByNamePathList, containsNamePath, getNamePath, getValue, matchNamePath, setValue } from './utils/valueUtil.ts'
 
 import { useValidateMessagesContext, useValidateMessagesProvider } from './validateMessagesContext.tsx'
 
@@ -312,9 +312,9 @@ const InternalForm = defineComponent<
       if (nameList === true)
         return cloneDeep(model.value ?? {})
 
-      const registeredNameList = nameList?.length
-        ? nameList
-        : Object.values(fields).map(field => field.namePath())
+      const registeredNameList = nameList === undefined
+        ? Object.values(fields).map(field => field.namePath())
+        : nameList
       return cloneByNamePathList(model.value ?? {}, registeredNameList)
     }
 
@@ -365,13 +365,11 @@ const InternalForm = defineComponent<
       if (hasSamePathField)
         return
 
-      const nextModel = setValue(modelValue, namePath, undefined, true)
-      Object.keys(modelValue).forEach((key) => {
-        if (!(key in nextModel))
-          delete modelValue[key]
-      })
-      Object.assign(modelValue, nextModel)
-      triggerFieldsChange([namePath])
+      const lastIndex = namePath.length - 1
+      const parentPath = namePath.slice(0, lastIndex)
+      const parent = parentPath.length ? getValue(modelValue, parentPath) : modelValue
+      if (parent && typeof parent === 'object')
+        delete (parent as any)[namePath[lastIndex]!]
     }
 
     const onValidate = (name: InternalNamePath, status: boolean, errors: any[] | null) => {
@@ -502,8 +500,6 @@ const InternalForm = defineComponent<
         tooltip: mergedTooltip.value,
         validateMessages: mergedValidateMessages.value,
         feedbackIcons: feedbackIcons.value,
-        preserve: props.preserve,
-        clearOnDestroy: props.clearOnDestroy,
         addField,
         removeField,
         removeFieldValue,
@@ -759,10 +755,8 @@ const InternalForm = defineComponent<
     onBeforeUnmount(() => {
       const modelValue = currentModel
       if (currentClearOnDestroy && modelValue) {
-        Promise.resolve().then(() => {
-          Object.keys(modelValue).forEach((key) => {
-            delete modelValue[key]
-          })
+        Object.keys(toRaw(modelValue)).forEach((key) => {
+          delete modelValue[key]
         })
       }
       if (boundEntry && vm && boundEntry.boundBy === vm.uid) {

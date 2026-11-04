@@ -1,5 +1,5 @@
 import type { FormInstance } from '..'
-import { afterEach, describe, expect, it } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import { defineComponent, nextTick, reactive, ref } from 'vue'
 import Form, { FormItem } from '..'
 import { flushPromises, mount } from '/@tests/utils'
@@ -160,6 +160,158 @@ describe('form preserve', () => {
       other: 'baz',
     })
 
+    wrapper.unmount()
+  })
+
+  it('clears the shared model before a keyed form remount resets its fields', async () => {
+    const formRef = ref<FormInstance>()
+    const model = reactive({ username: 'foo' })
+    const formKey = ref(0)
+
+    const wrapper = mount(defineComponent(() => () => (
+      <Form key={formKey.value} ref={formRef as any} model={model} clearOnDestroy>
+        <FormItem name="username">
+          <input />
+        </FormItem>
+      </Form>
+    )), { attachTo: document.body })
+
+    formKey.value++
+    await flushForm()
+
+    expect(model).toEqual({})
+
+    formRef.value?.resetFields()
+    await flushForm()
+
+    expect(model).toEqual({})
+    wrapper.unmount()
+  })
+
+  it('deletes nested values without replacing parent object or array references', async () => {
+    const formRef = ref<FormInstance>()
+    const address = { city: 'Hangzhou', street: 'West Lake' }
+    const users = [{ name: 'foo', age: 18 }]
+    const model = reactive({ address, users })
+    const addressRef = model.address
+    const usersRef = model.users
+    const visible = ref(true)
+
+    const wrapper = mount(defineComponent(() => () => (
+      <Form ref={formRef as any} model={model} preserve={false}>
+        {visible.value
+          ? (
+              <>
+                <FormItem name={['address', 'city']}>
+                  <input />
+                </FormItem>
+                <FormItem name={['users', 0, 'name']}>
+                  <input />
+                </FormItem>
+              </>
+            )
+          : null}
+      </Form>
+    )), { attachTo: document.body })
+
+    visible.value = false
+    await flushForm()
+
+    expect(model.address).toBe(addressRef)
+    expect(model.users).toBe(usersRef)
+    expect(address).toEqual({ street: 'West Lake' })
+    expect(users).toEqual([{ age: 18 }])
+    expect(formRef.value?.getFieldsValue(true)).toEqual({
+      address: { street: 'West Lake' },
+      users: [{ age: 18 }],
+    })
+
+    wrapper.unmount()
+  })
+
+  it('returns an empty object for getFieldsValue([])', async () => {
+    const { wrapper, formRef } = mountForm()
+
+    expect(formRef.value?.getFieldsValue([])).toEqual({})
+
+    wrapper.unmount()
+  })
+
+  it('does not emit fieldsChange when a removed field is unregistered', async () => {
+    const onFieldsChange = vi.fn()
+    const formRef = ref<FormInstance>()
+    const model = reactive({ username: 'foo' })
+    const visible = ref(true)
+
+    const wrapper = mount(defineComponent(() => () => (
+      <Form ref={formRef as any} model={model} preserve={false} onFieldsChange={onFieldsChange}>
+        {visible.value
+          ? (
+              <FormItem name="username">
+                <input />
+              </FormItem>
+            )
+          : null}
+      </Form>
+    )), { attachTo: document.body })
+
+    visible.value = false
+    await flushForm()
+
+    expect(model.username).toBeUndefined()
+    expect(onFieldsChange).not.toHaveBeenCalled()
+
+    wrapper.unmount()
+  })
+
+  it('clears nested model values on unmount when clearOnDestroy is true', async () => {
+    const model = reactive({ profile: { name: 'foo' } })
+
+    const wrapper = mount(defineComponent(() => () => (
+      <Form model={model} clearOnDestroy>
+        <FormItem name={['profile', 'name']}>
+          <input />
+        </FormItem>
+      </Form>
+    )), { attachTo: document.body })
+
+    wrapper.unmount()
+    await flushForm()
+
+    expect(model).toEqual({})
+  })
+
+  it('does not subscribe the parent to model keys during clearOnDestroy cleanup', async () => {
+    const model = reactive<Record<string, any>>({ username: 'foo' })
+    const show = ref(true)
+    let renders = 0
+
+    const wrapper = mount(defineComponent(() => () => {
+      renders++
+      return show.value
+        ? (
+            <Form model={model} clearOnDestroy>
+              <FormItem name="username">
+                <input />
+              </FormItem>
+            </Form>
+          )
+        : null
+    }), { attachTo: document.body })
+
+    await flushForm()
+    const rendersBeforeUnmount = renders
+
+    show.value = false
+    await flushForm()
+
+    expect(model).toEqual({})
+    expect(renders - rendersBeforeUnmount).toBe(1)
+
+    model.extra = 'bar'
+    await flushForm()
+
+    expect(renders - rendersBeforeUnmount).toBe(1)
     wrapper.unmount()
   })
 
