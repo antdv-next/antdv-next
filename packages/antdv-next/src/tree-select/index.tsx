@@ -6,6 +6,7 @@ import type { InputStatus } from '../_util/statusUtils'
 import type { VueNode } from '../_util/type'
 import type { Variant } from '../config-provider/context'
 import type { SizeType } from '../config-provider/SizeContext'
+import type { SelectSuffixRenderInfo } from '../select/useIcons'
 import type { AntTreeNodeProps, TreeProps } from '../tree'
 import type { SwitcherIcon } from '../tree/Tree'
 import VcTreeSelect, { SHOW_ALL, SHOW_CHILD, SHOW_PARENT, TreeNode } from '@v-c/tree-select'
@@ -28,7 +29,7 @@ import useVariant from '../form/hooks/useVariant'
 import { useLocaleGetter } from '../locale/useLocale'
 import mergedBuiltinPlacements from '../select/mergedBuiltinPlacements.ts'
 import useSelectStyle from '../select/style'
-import useIcons from '../select/useIcons'
+import useIcons, { getCustomSuffix } from '../select/useIcons'
 import usePopupRender from '../select/usePopupRender'
 import useShowArrow from '../select/useShowArrow'
 import { useCompactItemContext } from '../space/Compact'
@@ -145,6 +146,9 @@ export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = 
   TreeSelectEmitsProps<ValueType, OptionType> {
   styles?: TreeSelectStylesType
   classes?: TreeSelectClassNamesType
+  /** @since 1.8.0 */
+  suffix?: VueNode<[SelectSuffixRenderInfo]>
+  /** @deprecated Please use `suffix` instead. */
   suffixIcon?: VueNode
   size?: SizeType
   disabled?: boolean
@@ -174,7 +178,7 @@ export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = 
   popupMatchSelectWidth?: boolean | number
   /**
    * @deprecated `showArrow` is deprecated which will be removed in next major version. It will be a
-   *   default behavior, you can hide it by setting `suffixIcon` to null.
+   *   default behavior, you can hide it by setting `suffix` to null.
    */
   showArrow?: boolean
   /**
@@ -229,6 +233,8 @@ export interface TreeSelectEmitsProps<ValueType = any, OptionType extends DataNo
 }
 
 export interface TreeSelectSlots<OptionType extends DataNode = DataNode> {
+  suffix?: (info: SelectSuffixRenderInfo) => any
+  /** @deprecated Please use `suffix` slot instead. */
   suffixIcon?: () => any
   tagRender?: (props: any) => any
   notFoundContent?: () => any
@@ -341,11 +347,13 @@ const InternalTreeSelect = defineComponent<
         dropdownRender: 'popupRender',
         onDropdownVisibleChange: 'onOpenChange',
         bordered: 'variant',
+        suffixIcon: 'suffix',
       }
 
       Object.entries(deprecatedProps).forEach(([oldProp, newProp]) => {
         warning.deprecated(!((props as any)[oldProp] !== undefined), oldProp, newProp)
       })
+      warning.deprecated(!slots.suffixIcon, 'suffixIcon', 'suffix')
 
       warning(
         multiple !== false || !treeCheckable,
@@ -356,7 +364,7 @@ const InternalTreeSelect = defineComponent<
       warning(
         !(props.showArrow !== undefined),
         'deprecated',
-        '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
+        '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffix` to null.',
       )
     }
 
@@ -480,8 +488,11 @@ const InternalTreeSelect = defineComponent<
       )
       const { style, className, restAttrs } = getAttrStyleAndClass(attrs)
       const mergedPopupRender = usePopupRender(popupRender || dropdownRender)
-      const customSuffixIcon = getSlotPropsFnRun(slots, props, 'suffixIcon', false)
-      const showSuffixIcon = useShowArrow(customSuffixIcon, props.showArrow)
+      const customSuffix = getCustomSuffix(slots, props)
+      const mergedCustomSuffix = customSuffix !== undefined
+        ? customSuffix
+        : getSlotPropsFnRun(slots, props, 'suffixIcon', false)
+      const showSuffix = useShowArrow(mergedCustomSuffix, props.showArrow)
       const mergedPopupMatchSelectWidth = popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? configCtx.value?.popupMatchSelectWidth
       const isMultiple = !!(treeCheckable || multiple)
       const {
@@ -490,11 +501,12 @@ const InternalTreeSelect = defineComponent<
         isFormItemInput,
       } = formItemInputContext.value
       // ===================== Icons =====================
-      const { suffixIcon, removeIcon, clearIcon } = useIcons({
+      const { suffix: mergedSuffix, removeIcon, clearIcon } = useIcons({
         ...restProps,
-        suffixIcon: customSuffixIcon,
+        suffix: mergedCustomSuffix,
         multiple: isMultiple,
-        showSuffixIcon,
+        showSuffix,
+        showArrow: props.showArrow,
         hasFeedback,
         feedbackIcon,
         prefixCls: prefixCls.value,
@@ -582,6 +594,7 @@ const InternalTreeSelect = defineComponent<
       }
 
       const selectProps = omit(restProps, [
+        'suffix',
         'suffixIcon',
         'removeIcon',
         'clearIcon',
@@ -653,7 +666,7 @@ const InternalTreeSelect = defineComponent<
             treeCheckable ? <span class={`${prefixCls.value}-tree-checkbox-inner`} /> : treeCheckable
           }
           treeLine={!!treeLine}
-          suffixIcon={suffixIcon}
+          suffix={mergedSuffix}
           multiple={isMultiple}
           placement={memoizedPlacement.value}
           removeIcon={removeIcon}

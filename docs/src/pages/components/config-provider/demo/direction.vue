@@ -210,7 +210,7 @@ const handleTreeSelectScroll: TreeSelectEmits['popupScroll'] = (e) => {
             :placement="placement"
             @change="onCascaderChange"
           >
-            <template #suffixIcon>
+            <template #suffix>
               <SearchOutlined />
             </template>
           </a-cascader>
@@ -222,7 +222,7 @@ const handleTreeSelectScroll: TreeSelectEmits['popupScroll'] = (e) => {
             :show-search="{ filter: cascaderFilter } as any"
             @change="onCascaderChange"
           >
-            <template #suffixIcon>
+            <template #suffix>
               <SmileOutlined />
             </template>
           </a-cascader>

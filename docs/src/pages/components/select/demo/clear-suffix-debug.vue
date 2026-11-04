@@ -36,7 +36,7 @@ function handleSuffixClick() {
         :options="options"
         :style="selectStyle"
       >
-        <template #suffixIcon>
+        <template #suffix>
           <button
             type="button"
             :style="{
@@ -61,7 +61,7 @@ function handleSuffixClick() {
       <a-select
         v-model:value="value2"
         allow-clear
-        :suffix-icon="null"
+        :suffix="null"
         :options="options"
         :style="selectStyle"
       />

@@ -1,9 +1,9 @@
 <docs lang="zh-CN">
-自定义前缀 `prefix` 和后缀图标 `suffixIcon`。
+自定义前缀 `prefix` 和后缀 `suffix`。
 </docs>
 
 <docs lang="en-US">
-Custom `prefix` and `suffixIcon`.
+Custom `prefix` and `suffix`.
 </docs>
 
 <script setup lang="ts">
@@ -70,7 +70,7 @@ const onChange: TreeSelectEmits['change'] = (newValue) => {
     :tree-data="treeData"
     @change="onChange"
   >
-    <template #suffixIcon>
+    <template #suffix>
       <SmileOutlined />
     </template>
   </a-tree-select>

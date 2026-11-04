@@ -96,7 +96,8 @@ Common props ref：[Common props](/docs/vue/common-props)
 | size | Size of Select input | `large` \| `medium` \| `small` | `medium` | - | × |
 | status | Set validation status | 'error' \| 'warning' | - | - | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - | ✓ |
-| suffixIcon | The custom suffix icon. Customize icon will not response click open to avoid icon designed to do other interactive. You can use `pointer-events: none` style to bypass | VueNode | `<DownOutlined />` | - | ✓ |
+| suffix | The custom suffix. Custom suffixes will not respond to clicks to open, because the replaced suffix may be designed for other interactions. You can use `pointer-events: none` style to bypass | VueNode \| (info: &#123; open: boolean, searchValue: string, focused: boolean, showSearch?: boolean, loading?: boolean &#125;) =&gt; VueNode | `<DownOutlined />` | 1.8.0 | 1.8.0 |
+| suffixIcon | The custom suffix icon, **Deprecated. Use `suffix` instead** | VueNode | `<DownOutlined />` | - | ✓ |
 | tagRender | Customize tag render, only applies when `mode` is set to `multiple` or `tags` | (props) =&gt; VueNode | - | - | × |
 | labelRender | Customize selected label render | (props: LabelInValueType) =&gt; VueNode | - | - | × |
 | tokenSeparators | Separator used to tokenize, only applies when `mode="tags"` | string[] | - | - | × |
@@ -133,7 +134,8 @@ Common props ref：[Common props](/docs/vue/common-props)
 | popupRender | Customize dropdown content | (originNode: VNode) =&gt; VueNode | - |
 | prefix | The custom prefix | VueNode | - |
 | removeIcon | The custom remove icon | VueNode | - |
-| suffixIcon | The custom suffix icon. Customize icon will not response click open to avoid icon designed to do other interactive. You can use `pointer-events: none` style to bypass | VueNode | - |
+| suffix | The custom suffix. Custom suffixes will not respond to clicks to open, because the replaced suffix may be designed for other interactions. You can use `pointer-events: none` style to bypass | (info: &#123; open: boolean, searchValue: string, focused: boolean, showSearch?: boolean, loading?: boolean &#125;) =&gt; VueNode | 1.8.0 |
+| suffixIcon | The custom suffix icon, **Deprecated. Use `suffix` slot instead** | VueNode | - |
 | tagRender | Customize tag render, only applies when `mode` is set to `multiple` or `tags` | (props) =&gt; VueNode | - |
 
 ### Select Methods {#methods}

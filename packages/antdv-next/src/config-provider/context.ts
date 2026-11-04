@@ -401,7 +401,7 @@ export type TabsConfig = ComponentStyleConfig
   & TabsMoreConfig
 
 export type SelectConfig = ComponentStyleConfig
-  & Pick<SelectProps, 'showSearch' | 'variant' | 'classes' | 'styles' | 'allowClear' | 'suffixIcon' | 'removeIcon'>
+  & Pick<SelectProps, 'showSearch' | 'variant' | 'classes' | 'styles' | 'allowClear' | 'suffix' | 'suffixIcon' | 'removeIcon'>
   & {
     clearIcon?: any
     loadingIcon?: any
@@ -410,7 +410,7 @@ export type SelectConfig = ComponentStyleConfig
 
 export type CascaderConfig = ComponentStyleConfig
   & Pick<CascaderProps, 'variant' | 'classes' | 'styles' | 'expandIcon' | 'loadingIcon'>
-  & { searchIcon?: any, clearIcon?: any, removeIcon?: any, suffixIcon?: any }
+  & { searchIcon?: any, clearIcon?: any, removeIcon?: any, suffix?: CascaderProps['suffix'], suffixIcon?: any }
 
 export type CardMetaConfig = ComponentStyleConfig & Pick<CardMetaProps, 'classes' | 'styles'>
 

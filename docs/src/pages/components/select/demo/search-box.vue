@@ -66,7 +66,7 @@ function handleSearch(val: string) {
     placeholder="input search text"
     style="width: 200px"
     :default-active-first-option="false"
-    :suffix-icon="null"
+    :suffix="null"
     :not-found-content="null"
     :options="data"
     @search="handleSearch"

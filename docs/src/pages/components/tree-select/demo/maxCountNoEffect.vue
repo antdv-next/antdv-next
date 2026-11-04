@@ -64,7 +64,7 @@ const value = ref<string[]>([])
     style="width: 100%"
     :tree-data="treeData"
   >
-    <template #suffixIcon>
+    <template #suffix>
       <span>{{ value.length }} / {{ MAX_COUNT }}</span>
       <DownOutlined />
     </template>

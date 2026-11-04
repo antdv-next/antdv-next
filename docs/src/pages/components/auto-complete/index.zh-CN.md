@@ -66,6 +66,8 @@ demo:
 | showSearch | 搜索配置 | boolean \| [SearchConfig](#showsearch) | true | - | × |
 | size | 控件大小 | `large` \| `medium` \| `small` | - | - | × |
 | status | 设置校验状态 | `error` \| `warning` | - | - | × |
+| suffix | 自定义后缀 | VueNode \| (info: &#123; open: boolean, searchValue: string, focused: boolean, showSearch?: boolean, loading?: boolean &#125;) =&gt; VueNode | - | 1.8.0 | × |
+| suffixIcon | 自定义后缀图标。已废弃，请使用 `suffix` 替代 | VueNode | - | - | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - | × |
 | value | 指定当前选中的条目，支持 `v-model:value` | string | - | - | × |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - | × |
@@ -102,7 +104,8 @@ demo:
 | optionRender | 自定义下拉选项渲染 | (option: FlattenOptionData&lt;BaseOptionType&gt;, info: &#123; index: number &#125;) =&gt; VueNode | - |
 | popupRender | 自定义下拉框内容 | (menu: VNode) =&gt; VueNode | - |
 | prefix | 自定义前缀 | () =&gt; VueNode | - |
-| suffixIcon | 自定义后缀图标 | () =&gt; VueNode | - |
+| suffix | 自定义后缀 | (info: &#123; open: boolean, searchValue: string, focused: boolean, showSearch?: boolean, loading?: boolean &#125;) =&gt; VueNode | 1.8.0 |
+| suffixIcon | 自定义后缀图标。已废弃，请使用 `suffix` 插槽替代 | () =&gt; VueNode | - |
 
 ## 类型 {#types}
 

@@ -70,6 +70,8 @@ demo:
 | showSearch | 在选择框中显示搜索框 | boolean \| [Object](#showsearch) | false | - | × |
 | size | 输入框大小 | `large` \| `medium` \| `small` | `medium` | - | × |
 | status | 设置校验状态 | 'error' \| 'warning' | - | - | × |
+| suffix | 自定义的选择框后缀。以防止后缀被用于其他交互，替换的后缀默认不会响应展开、收缩事件，可以通过添加 `pointer-events: none` 样式透传 | VueNode \| (info: &#123; open: boolean, searchValue: string, focused: boolean, showSearch?: boolean, loading?: boolean &#125;) =&gt; VueNode | `&lt;DownOutlined /&gt;` | 1.8.0 | 1.8.0 |
+| suffixIcon | 自定义的选择框后缀图标。已废弃，请使用 `suffix` 替代 | VueNode | - | - | ✓ |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: \{ props \})=&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - | ✓ |
 | value | 指定选中项，支持 `v-model:value` | string\[] \| number\[] | - | - | × |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - | ✓ |
@@ -93,7 +95,8 @@ demo:
 | popupRender | 自定义下拉框内容 | (menus: VNode) => VueNode | - |
 | prefix | 自定义前缀 | VueNode | - |
 | removeIcon | 自定义的多选框清除图标 | VueNode | - |
-| suffixIcon | 自定义的选择框后缀图标 | VueNode | - |
+| suffix | 自定义的选择框后缀 | (info: &#123; open: boolean, searchValue: string, focused: boolean, showSearch?: boolean, loading?: boolean &#125;) =&gt; VueNode | 1.8.0 |
+| suffixIcon | 自定义的选择框后缀图标。已废弃，请使用 `suffix` 插槽替代 | VueNode | - |
 | tagRender | 自定义 tag 内容 render，仅在多选时生效 | (\{ label: string, onClose: function, value: string \}) =&gt; VueNode | - |
 
 ### 方法 {#methods}

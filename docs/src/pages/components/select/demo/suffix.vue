@@ -1,9 +1,9 @@
 <docs lang="zh-CN">
-自定义 `prefix` 和 `suffixIcon`。
+自定义前缀 `prefix` 和后缀 `suffix`。
 </docs>
 
 <docs lang="en-US">
-Custom `prefix` and `suffixIcon`.
+Custom `prefix` and `suffix`.
 </docs>
 
 <script setup lang="ts">
@@ -48,7 +48,7 @@ function handleChange(val: string | string[]) {
       :options="options"
       @change="handleChange"
     >
-      <template #suffixIcon>
+      <template #suffix>
         <SmileOutlined />
       </template>
     </a-select>
@@ -59,7 +59,7 @@ function handleChange(val: string | string[]) {
       disabled
       :options="[{ value: 'lucy', label: 'Lucy' }]"
     >
-      <template #suffixIcon>
+      <template #suffix>
         <MehOutlined />
       </template>
     </a-select>
@@ -81,7 +81,7 @@ function handleChange(val: string | string[]) {
       :options="options"
       @change="handleChange"
     >
-      <template #suffixIcon>
+      <template #suffix>
         <SmileOutlined />
       </template>
     </a-select>
@@ -93,7 +93,7 @@ function handleChange(val: string | string[]) {
       disabled
       :options="[{ value: 'lucy', label: 'Lucy' }]"
     >
-      <template #suffixIcon>
+      <template #suffix>
         <MehOutlined />
       </template>
     </a-select>

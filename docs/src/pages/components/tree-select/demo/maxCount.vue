@@ -59,7 +59,7 @@ const value = ref<string[]>(['child1-1'])
     :show-checked-strategy="SHOW_CHILD"
     placeholder="Please select"
   >
-    <template #suffixIcon>
+    <template #suffix>
       <span>{{ value.length }} / {{ MAX_COUNT }}</span>
       <DownOutlined />
     </template>

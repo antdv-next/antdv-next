@@ -8,13 +8,44 @@ import {
   LoadingOutlined,
   SearchOutlined,
 } from '@antdv-next/icons'
+import { filterEmpty } from '@v-c/util/dist/props-util'
+import fallbackProp from '../_util/fallbackProp'
+import { isFunction, isRenderable } from '../_util/is'
 import { getSlotPropsFnRun } from '../_util/tools.ts'
 import { devUseWarning, isDev } from '../_util/warning'
 
 type RenderNode = VueNode
 
+/** Render info passed to a function `suffix` / `#suffix` slot by the underlying `@v-c/select`. */
+export interface SelectSuffixRenderInfo {
+  searchValue: string
+  open: boolean
+  focused: boolean
+  showSearch?: boolean
+  loading?: boolean
+}
+
+/**
+ * Read the `suffix` render prop with slot priority. The slot (or a function prop) is kept as a
+ * function so `@v-c/select` can call it with the latest open / search state.
+ */
+export function getCustomSuffix(slots: Record<string, any>, props: { suffix?: any }): any {
+  const slot = slots?.suffix
+  if (slot) {
+    return (info: SelectSuffixRenderInfo) => {
+      const nodes = filterEmpty([slot(info)].flat()).filter(node => node !== undefined && node !== null)
+      if (!nodes.length) {
+        return undefined
+      }
+      return nodes.length === 1 ? nodes[0] : nodes
+    }
+  }
+  return props.suffix
+}
+
 export default function useIcons({
-  suffixIcon,
+  suffix,
+  contextSuffix,
   clearIcon,
   menuItemSelectedIcon,
   removeIcon,
@@ -22,12 +53,13 @@ export default function useIcons({
   loadingIcon,
   multiple,
   hasFeedback,
-  showSuffixIcon,
+  showSuffix,
   feedbackIcon,
   showArrow,
   componentName,
 }: {
-  suffixIcon?: VueNode
+  suffix?: RenderNode
+  contextSuffix?: RenderNode
   clearIcon?: RenderNode
   menuItemSelectedIcon?: RenderNode
   removeIcon?: RenderNode
@@ -37,7 +69,7 @@ export default function useIcons({
   hasFeedback?: boolean
   feedbackIcon?: VueNode
   prefixCls: string
-  showSuffixIcon?: boolean
+  showSuffix?: boolean
   showArrow?: boolean
   componentName: string
 }) {
@@ -51,33 +83,38 @@ export default function useIcons({
   const mergedClearIcon = clearIcon ?? <CloseCircleFilled />
 
   // Validation Feedback Icon
-  const getSuffixIconNode = (arrowIcon?: VueNode) => {
-    if (suffixIcon === null && !hasFeedback && !showArrow) {
+  const getSuffixNode = (suffixNode?: any) => {
+    if (!isRenderable(suffixNode) && !hasFeedback && !showArrow) {
       return null
     }
-    arrowIcon = getSlotPropsFnRun({}, { arrowIcon }, 'arrowIcon')
     return (
       <>
-        {showSuffixIcon !== false && arrowIcon}
+        {showSuffix !== false && suffixNode}
         {hasFeedback && feedbackIcon}
       </>
     )
   }
 
-  // Arrow item icon
-  let mergedSuffixIcon = null
-  if (suffixIcon !== undefined) {
-    mergedSuffixIcon = getSuffixIconNode(suffixIcon)
+  // Suffix
+  let mergedSuffix: RenderNode = null
+  if (suffix !== undefined) {
+    mergedSuffix = isFunction(suffix)
+      ? (props: SelectSuffixRenderInfo) => getSuffixNode(suffix(props))
+      : getSuffixNode(suffix)
   }
   else if (loading) {
-    mergedSuffixIcon = getSuffixIconNode(loadingIcon ?? <LoadingOutlined spin />)
+    mergedSuffix = getSuffixNode(
+      getSlotPropsFnRun({}, { loadingIcon }, 'loadingIcon') ?? <LoadingOutlined spin />,
+    )
   }
   else {
-    mergedSuffixIcon = ({ open, showSearch }: { open: boolean, showSearch: boolean }) => {
+    mergedSuffix = (props: SelectSuffixRenderInfo) => {
+      const { open, showSearch } = props
       if (open && showSearch) {
-        return getSuffixIconNode(<SearchOutlined />)
+        return getSuffixNode(<SearchOutlined />)
       }
-      return getSuffixIconNode(<DownOutlined />)
+      const fallbackSuffix = fallbackProp<any>(contextSuffix, <DownOutlined />)
+      return getSuffixNode(isFunction(fallbackSuffix) ? fallbackSuffix(props) : fallbackSuffix)
     }
   }
 
@@ -103,7 +140,7 @@ export default function useIcons({
   return {
     // TODO: remove as when all the deps bumped
     clearIcon: mergedClearIcon as VueNode,
-    suffixIcon: mergedSuffixIcon,
+    suffix: mergedSuffix,
     itemIcon: mergedItemIcon,
     removeIcon: mergedRemoveIcon,
   }

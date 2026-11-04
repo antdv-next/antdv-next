@@ -65,6 +65,8 @@ Common props ref：[Common props](/docs/vue/common-props)
 | showSearch | Search configuration | boolean \| [SearchConfig](#showsearch) | true | - | × |
 | size | The size of the input box | `large` \| `medium` \| `small` | - | - | × |
 | status | Set validation status | `error` \| `warning` | - | - | × |
+| suffix | The custom suffix | VueNode \| (info: &#123; open: boolean, searchValue: string, focused: boolean, showSearch?: boolean, loading?: boolean &#125;) =&gt; VueNode | - | 1.8.0 | × |
+| suffixIcon | The custom suffix icon. Deprecated. Use `suffix` instead | VueNode | - | - | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - | × |
 | value | Selected option, support `v-model:value` | string | - | - | × |
 | variant | Variants of input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - | × |
@@ -101,7 +103,8 @@ Common props ref：[Common props](/docs/vue/common-props)
 | optionRender | Customize the rendering dropdown options | (option: FlattenOptionData&lt;BaseOptionType&gt;, info: &#123; index: number &#125;) =&gt; VueNode | - |
 | popupRender | Customize dropdown content | (menu: VNode) =&gt; VueNode | - |
 | prefix | The custom prefix | () =&gt; VueNode | - |
-| suffixIcon | The custom suffix icon | () =&gt; VueNode | - |
+| suffix | The custom suffix | (info: &#123; open: boolean, searchValue: string, focused: boolean, showSearch?: boolean, loading?: boolean &#125;) =&gt; VueNode | 1.8.0 |
+| suffixIcon | The custom suffix icon. Deprecated. Use `suffix` slot instead | () =&gt; VueNode | - |
 
 ## Types
 

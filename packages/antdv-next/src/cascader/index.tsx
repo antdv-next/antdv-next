@@ -7,6 +7,7 @@ import type { VueNode } from '../_util/type'
 import type { Variant } from '../config-provider/context'
 import type { SizeType } from '../config-provider/SizeContext'
 import type { SelectPopupSemanticClassNames, SelectPopupSemanticStyles } from '../select'
+import type { SelectSuffixRenderInfo } from '../select/useIcons'
 import VcCascader, { SHOW_CHILD, SHOW_PARENT } from '@v-c/cascader'
 import { clsx } from '@v-c/util'
 import { getTransitionName } from '@v-c/util/dist/utils/transition'
@@ -34,7 +35,7 @@ import { useVariants } from '../form/hooks/useVariant'
 import { useLocaleGetter } from '../locale/useLocale'
 import mergedBuiltinPlacements from '../select/mergedBuiltinPlacements'
 import useSelectStyle from '../select/style'
-import useSelectIcons from '../select/useIcons'
+import useSelectIcons, { getCustomSuffix } from '../select/useIcons'
 import usePopupRender from '../select/usePopupRender'
 import useShowArrow from '../select/useShowArrow'
 import { useCompactItemContext } from '../space/Compact'
@@ -165,13 +166,16 @@ export interface CascaderProps<
   size?: SizeType
   /**
    * @deprecated `showArrow` is deprecated which will be removed in next major version. It will be a
-   *   default behavior, you can hide it by setting `suffixIcon` to null.
+   *   default behavior, you can hide it by setting `suffix` to null.
    */
   showArrow?: boolean
   disabled?: boolean
   /** @deprecated Use `variant` instead. */
   bordered?: boolean
   placement?: SelectCommonPlacement
+  /** @since 1.8.0 */
+  suffix?: VueNode<[SelectSuffixRenderInfo]>
+  /** @deprecated Please use `suffix` instead. */
   suffixIcon?: VueNode
   options?: OptionType[]
   status?: InputStatus
@@ -199,6 +203,8 @@ export interface CascaderProps<
 }
 
 export interface CascaderSlots<OptionType extends DefaultOptionType = DefaultOptionType> {
+  suffix?: (info: SelectSuffixRenderInfo) => any
+  /** @deprecated Please use `suffix` slot instead. */
   suffixIcon?: () => any
   notFoundContent?: () => any
   popupRender?: (menu: VNode) => VNodeChild
@@ -254,8 +260,9 @@ const InternalCascader = defineComponent<
       searchIcon: _contextSearchIcon,
       clearIcon: contextClearIcon,
       removeIcon: contextRemoveIcon,
+      suffix: contextSuffix,
       suffixIcon: contextSuffixIcon,
-    } = useComponentBaseConfig('cascader', props, ['expandIcon', 'loadingIcon', 'searchIcon', 'clearIcon', 'removeIcon', 'suffixIcon'])
+    } = useComponentBaseConfig('cascader', props, ['expandIcon', 'loadingIcon', 'searchIcon', 'clearIcon', 'removeIcon', 'suffix', 'suffixIcon'])
     const getGlobalLocale = useLocaleGetter('global')
     // contextSearchIcon is consumed downstream by useShowSearch; reserved for future inline search icon wiring
     void _contextSearchIcon
@@ -344,16 +351,18 @@ const InternalCascader = defineComponent<
         dropdownMenuColumnStyle: 'styles.popup.listItem',
         popupMenuColumnStyle: 'styles.popup.listItem',
         bordered: 'variant',
+        suffixIcon: 'suffix',
       }
 
       Object.entries(deprecatedProps).forEach(([oldProp, newProp]) => {
         warning.deprecated(!((props as any)[oldProp] !== undefined), oldProp, newProp)
       })
+      warning.deprecated(!slots.suffixIcon, 'suffixIcon', 'suffix')
 
       warning(
         !(props.showArrow !== undefined),
         'deprecated',
-        '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
+        '`showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffix` to null.',
       )
     }
 
@@ -450,21 +459,25 @@ const InternalCascader = defineComponent<
         ...rest
       } = props
       const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
-      const mergedSuffixIcon = getSlotPropsFnRun(slots, props, 'suffixIcon', false)
-        ?? contextSuffixIcon.value
-      const showSuffixIcon = useShowArrow(mergedSuffixIcon, showArrow)
+      const customSuffix = getCustomSuffix(slots, props)
+      const mergedCustomSuffix = customSuffix !== undefined
+        ? customSuffix
+        : getSlotPropsFnRun(slots, props, 'suffixIcon', false)
+      const showSuffix = useShowArrow(mergedCustomSuffix, showArrow)
       const {
         hasFeedback,
         isFormItemInput,
         feedbackIcon,
       } = formItemInputContext.value || {}
-      const { suffixIcon, removeIcon, clearIcon } = useSelectIcons({
+      const { suffix: mergedSuffix, removeIcon, clearIcon } = useSelectIcons({
         ...rest,
         multiple,
         hasFeedback,
         feedbackIcon,
-        showSuffixIcon,
-        suffixIcon: mergedSuffixIcon,
+        showSuffix,
+        showArrow,
+        suffix: mergedCustomSuffix,
+        contextSuffix: contextSuffix.value !== undefined ? contextSuffix.value : contextSuffixIcon.value,
         removeIcon: (rest as any).removeIcon ?? contextRemoveIcon.value,
         // Only the deprecated `clearIcon` prop reaches useSelectIcons (which warns about it);
         // the ConfigProvider `cascader.clearIcon` is merged below without a warning.
@@ -548,7 +561,7 @@ const InternalCascader = defineComponent<
       return (
         <VcCascader
           {...restAttrs as any}
-          {...omit(rest, ['suffixIcon'])}
+          {...omit(rest, ['suffix', 'suffixIcon'])}
           ref={cascaderRef}
           classNames={mergedClassNames.value}
           styles={mergedStyles.value as any}
@@ -568,7 +581,7 @@ const InternalCascader = defineComponent<
           expandIcon={mergedExpandIcon}
           loadingIcon={mergedLoadingIcon}
           checkable={checkable}
-          suffixIcon={suffixIcon}
+          suffix={mergedSuffix}
           removeIcon={removeIcon}
           getPopupContainer={getPopupContainer || getContextPopupContainer}
           popupRender={mergedPopupRender}

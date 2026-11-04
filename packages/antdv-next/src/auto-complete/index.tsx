@@ -19,10 +19,11 @@ import { toArray } from 'es-toolkit/compat'
 import { computed, defineComponent, getCurrentInstance, isVNode, shallowRef, Text } from 'vue'
 import { getAttrStyleAndClass, useMergeSemantic, useToArr, useToProps } from '../_util/hooks'
 import genPurePanel from '../_util/PurePanel.tsx'
-import { toPropsRefs } from '../_util/tools'
+import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { devUseWarning, isDev } from '../_util/warning'
 import { useComponentBaseConfig } from '../config-provider/context'
 import Select from '../select'
+import { getCustomSuffix } from '../select/useIcons'
 
 export interface AutoCompleteSemanticClassNames {
   root?: string
@@ -162,6 +163,8 @@ export interface AutoCompleteEmitsProps {
 
 export interface AutoCompleteSlots {
   default?: () => any
+  suffix?: SelectSlots['suffix']
+  /** @deprecated Please use `suffix` slot instead. */
   suffixIcon?: SelectSlots['suffixIcon']
   prefix?: SelectSlots['prefix']
   tagRender?: SelectSlots['tagRender']
@@ -188,6 +191,8 @@ const omitKeys: (keyof AutoCompleteProps)[] = [
   'popupRender',
   'onOpenChange',
   'onDropdownVisibleChange',
+  'suffix',
+  'suffixIcon',
 ]
 
 const InternalAutoComplete = defineComponent<
@@ -259,8 +264,12 @@ const InternalAutoComplete = defineComponent<
       const getInputElement = customizeInput ? () => customizeInput : undefined
       const customizeInputPlaceholder = customizeInput?.props?.placeholder
       const forwardedSlots = Object.fromEntries(
-        Object.entries(slots).filter(([key]) => key !== 'default'),
-      ) as Omit<AutoCompleteSlots, 'default'>
+        Object.entries(slots).filter(([key]) => key !== 'default' && key !== 'suffix' && key !== 'suffixIcon'),
+      ) as Omit<AutoCompleteSlots, 'default' | 'suffix' | 'suffixIcon'>
+      const customSuffix = getCustomSuffix(slots, props)
+      const mergedSuffix = customSuffix !== undefined
+        ? customSuffix
+        : (getSlotPropsFnRun(slots, props, 'suffixIcon', false) ?? null)
 
       let optionChildren: any = []
       if (hasSelectOptions) {
@@ -308,11 +317,13 @@ const InternalAutoComplete = defineComponent<
           popupClassName: 'classes.popup.root',
           dropdownRender: 'popupRender',
           dataSource: 'options',
+          suffixIcon: 'suffix',
         }
 
         Object.entries(deprecatedProps).forEach(([oldProp, newProp]) => {
           warning.deprecated(!((props as any)[oldProp]), oldProp, newProp)
         })
+        warning.deprecated(!slots.suffixIcon, 'suffixIcon', 'suffix')
       }
 
       const mergedPopupRender = props.popupRender ?? props.dropdownRender
@@ -433,7 +444,7 @@ const InternalAutoComplete = defineComponent<
           popupRender={mergedPopupRender}
           popupMatchSelectWidth={mergedPopupMatchSelectWidth}
           mode={(Select as any).SECRET_COMBOBOX_MODE_DO_NOT_USE as SelectProps['mode']}
-          suffixIcon={null}
+          suffix={mergedSuffix}
           onOpenChange={mergedOnOpenChange}
           {...{
             'onUpdate:value': (value: any) => emit('update:value', value),

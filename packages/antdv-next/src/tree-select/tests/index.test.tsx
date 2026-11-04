@@ -261,7 +261,7 @@ describe('tree-select', () => {
     const wrapper = mount(<TreeSelect showArrow />)
     expect(errSpy).toHaveBeenCalledWith(
       expect.stringContaining(
-        'Warning: [antd: TreeSelect] `showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffixIcon` to null.',
+        'Warning: [antd: TreeSelect] `showArrow` is deprecated which will be removed in next major version. It will be a default behavior, you can hide it by setting `suffix` to null.',
       ),
     )
     expect(wrapper.find('.ant-select-show-arrow').exists()).toBeTruthy()

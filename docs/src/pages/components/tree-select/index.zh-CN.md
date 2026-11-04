@@ -69,7 +69,8 @@ demo:
 | size | 选择框大小 | `large` \| `medium` \| `small` | - | - | × |
 | status | 设置校验状态 | 'error' \| 'warning' | - | - | × |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - | ✓ |
-| suffixIcon | 自定义的选择框后缀图标 | VueNode | `&lt;DownOutlined /&gt;` | - | × |
+| suffix | 自定义的选择框后缀。以防止后缀被用于其他交互，替换的后缀默认不会响应展开、收缩事件，可以通过添加 `pointer-events: none` 样式透传 | VueNode \| (info: &#123; open: boolean, searchValue: string, focused: boolean, showSearch?: boolean, loading?: boolean &#125;) =&gt; VueNode | `&lt;DownOutlined /&gt;` | 1.8.0 | × |
+| suffixIcon | 自定义的选择框后缀图标。已废弃，请使用 `suffix` 替代 | VueNode | `&lt;DownOutlined /&gt;` | - | × |
 | switcherIcon | 自定义树节点的展开/折叠图标 | VueNode \| ((props: AntTreeNodeProps) =&gt; VueNode) | - | - | ✓ |
 | tagRender | 自定义 tag 内容，多选时生效 | (props: any) =&gt; VueNode | - | - | × |
 | treeCheckable | 显示 Checkbox | boolean | false | - | × |
@@ -88,7 +89,7 @@ demo:
 | value | 指定当前选中的条目，支持 `v-model:value` | string \| string[] | - | - | × |
 | virtual | 设置 false 时关闭虚拟滚动 | boolean | true | - | × |
 | bordered | 已废弃。请使用 `variant` | boolean | - | - | × |
-| showArrow | 已废弃，设置 `suffixIcon` 为 null 可隐藏 | boolean | - | - | × |
+| showArrow | 已废弃，设置 `suffix` 为 null 可隐藏 | boolean | - | - | × |
 
 ### 事件 {#events}
 
@@ -105,7 +106,8 @@ demo:
 
 | 插槽 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
-| suffixIcon | 自定义的选择框后缀图标 | () =&gt; any | - |
+| suffix | 自定义的选择框后缀 | (info: &#123; open: boolean, searchValue: string, focused: boolean, showSearch?: boolean, loading?: boolean &#125;) =&gt; VueNode | 1.8.0 |
+| suffixIcon | 自定义的选择框后缀图标。已废弃，请使用 `suffix` 插槽替代 | () =&gt; any | - |
 | tagRender | 自定义 tag 内容，多选时生效 | (props: any) =&gt; any | - |
 | notFoundContent | 当下拉列表为空时显示的内容 | () =&gt; any | - |
 | switcherIcon | 自定义树节点的展开/折叠图标 | () =&gt; any | - |
