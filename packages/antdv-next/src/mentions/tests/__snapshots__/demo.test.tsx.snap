@@ -933,7 +933,6 @@ exports[`mentions demo > renders form correctly 1`] = `
           <!---->
         </div>
       </div>
-      <!---->
     </div>
     <!---->
   </div>
@@ -998,7 +997,6 @@ exports[`mentions demo > renders form correctly 1`] = `
           <!---->
         </div>
       </div>
-      <!---->
     </div>
     <!---->
   </div>
@@ -1101,7 +1099,6 @@ exports[`mentions demo > renders form correctly 1`] = `
           <!---->
         </div>
       </div>
-      <!---->
     </div>
     <!---->
   </div>

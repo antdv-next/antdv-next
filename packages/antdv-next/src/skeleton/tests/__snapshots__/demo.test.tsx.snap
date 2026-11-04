@@ -1626,7 +1626,6 @@ exports[`skeleton demo > renders element correctly 1`] = `
                 <!---->
               </div>
             </div>
-            <!---->
           </div>
           <!---->
         </div>
@@ -1708,7 +1707,6 @@ exports[`skeleton demo > renders element correctly 1`] = `
                 <!---->
               </div>
             </div>
-            <!---->
           </div>
           <!---->
         </div>
@@ -1825,7 +1823,6 @@ exports[`skeleton demo > renders element correctly 1`] = `
                 <!---->
               </div>
             </div>
-            <!---->
           </div>
           <!---->
         </div>
@@ -1961,7 +1958,6 @@ exports[`skeleton demo > renders element correctly 1`] = `
                 <!---->
               </div>
             </div>
-            <!---->
           </div>
           <!---->
         </div>
@@ -2059,7 +2055,6 @@ exports[`skeleton demo > renders element correctly 1`] = `
                 <!---->
               </div>
             </div>
-            <!---->
           </div>
           <!---->
         </div>

@@ -12,7 +12,6 @@ import { getSlotPropsFnRun } from '../_util/tools'
 import { Col } from '../grid'
 import { FormItemPrefixContextProvider, useFormContext, useFormContextProvider } from './context'
 import ErrorList from './ErrorList'
-import FallbackCmp from './style/fallbackCmp'
 
 const GRID_MAX = 24
 
@@ -176,12 +175,9 @@ const FormItemInput = defineComponent<
         </>
       )
       return (
-        <>
-          <Col {...mergedWrapperCol} class={className}>
-            {dom}
-          </Col>
-          <FallbackCmp prefixCls={prefixCls} />
-        </>
+        <Col {...mergedWrapperCol} class={className}>
+          {dom}
+        </Col>
       )
     }
   },

@@ -1009,7 +1009,6 @@ exports[`tag demo > renders checkable correctly 1`] = `
           <!---->
         </div>
       </div>
-      <!---->
     </div>
     <!---->
   </div>
@@ -1107,7 +1106,6 @@ exports[`tag demo > renders checkable correctly 1`] = `
           <!---->
         </div>
       </div>
-      <!---->
     </div>
     <!---->
   </div>
@@ -1205,7 +1203,6 @@ exports[`tag demo > renders checkable correctly 1`] = `
           <!---->
         </div>
       </div>
-      <!---->
     </div>
     <!---->
   </div>

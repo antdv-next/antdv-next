@@ -2025,7 +2025,6 @@ exports[`auto-complete demo > renders disabled-in-form-debug correctly 1`] = `
             <!---->
           </div>
         </div>
-        <!---->
       </div>
       <!---->
     </div>
@@ -2147,7 +2146,6 @@ exports[`auto-complete demo > renders filled-custom-debug correctly 1`] = `
             <!---->
           </div>
         </div>
-        <!---->
       </div>
       <!---->
     </div>
@@ -2202,7 +2200,6 @@ exports[`auto-complete demo > renders filled-custom-debug correctly 1`] = `
             <!---->
           </div>
         </div>
-        <!---->
       </div>
       <!---->
     </div>
