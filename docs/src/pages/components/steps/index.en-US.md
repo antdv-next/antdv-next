@@ -53,7 +53,7 @@ The whole of the step bar.
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function | StepsStylesType | - | - | ✓ |
 | titlePlacement | Place title and content with `horizontal` or `vertical` direction | `horizontal` \| `vertical` | `horizontal` | - | × |
 | type | Type of steps, can be set to one of the following values: `default` `dot` `inline` `navigation` `panel` | `default` \| `dot` \| `inline` \| `navigation` \| `panel` | `default` | - | × |
-| variant | Config style variant | `filled` \| `outlined` | `filled` | - | × |
+| variant | Config style variant | `filled` \| `outlined` | `filled` | - | 1.8.0 |
 
 ### Events
 

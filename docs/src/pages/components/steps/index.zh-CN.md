@@ -54,7 +54,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cFsBQLA0b7UAAA
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | StepsStylesType | - | - | ✓ |
 | titlePlacement | 指定标签放置位置，默认水平放图标右侧，可选 `vertical` 放图标下方 | `horizontal` \| `vertical` | `horizontal` | - | × |
 | type | 步骤条类型，可选 `default` `dot` `inline` `navigation` `panel` | `default` \| `dot` \| `inline` \| `navigation` \| `panel` | `default` | - | × |
-| variant | 设置样式变体 | `filled` \| `outlined` | `filled` | - | × |
+| variant | 设置样式变体 | `filled` \| `outlined` | `filled` | - | 1.8.0 |
 
 ### 事件 {#events}
 

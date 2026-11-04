@@ -441,7 +441,7 @@ export type ModalConfig = ComponentStyleConfig
     errorIcon?: any
   }
 
-export type StepsConfig = ComponentStyleConfig & Pick<StepsProps, 'classes' | 'styles'>
+export type StepsConfig = ComponentStyleConfig & Pick<StepsProps, 'classes' | 'styles' | 'variant'>
 
 export type TimelineConfig = ComponentStyleConfig & Pick<TimelineProps, 'classes' | 'styles' | 'variant'>
 

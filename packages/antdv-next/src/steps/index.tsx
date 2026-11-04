@@ -6,7 +6,7 @@ import type { SizeType } from '../config-provider/SizeContext.tsx'
 import { CheckOutlined, CloseOutlined } from '@antdv-next/icons'
 import VcSteps from '@v-c/steps'
 import { clsx } from '@v-c/util'
-import { computed, defineComponent, getCurrentInstance } from 'vue'
+import { computed, defineComponent, getCurrentInstance, toRef } from 'vue'
 import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { devUseWarning, isDev } from '../_util/warning'
@@ -14,6 +14,7 @@ import Wave from '../_util/wave'
 import { TARGET_CLS } from '../_util/wave/interface'
 import { useComponentBaseConfig } from '../config-provider/context'
 import { useSize } from '../config-provider/hooks/useSize'
+import useVariant from '../form/hooks/useVariant'
 import useBreakpoint from '../grid/hooks/useBreakpoint'
 import { genCssVar } from '../theme/util/genStyleUtils'
 import Tooltip from '../tooltip'
@@ -157,7 +158,6 @@ export interface StepsSlots {
 }
 
 const defaults = {
-  variant: 'filled',
   responsive: true,
   offset: 0,
   current: 0,
@@ -182,6 +182,10 @@ const Steps = defineComponent<
       rootPrefixCls,
     } = useComponentBaseConfig('steps', props)
     const { size, items, responsive, type, classes, styles } = toPropsRefs(props, 'size', 'items', 'responsive', 'type', 'classes', 'styles')
+    const [mergedVariant] = useVariant('steps', toRef(() => props.variant), {
+      variants: ['filled', 'outlined'],
+      defaultVariant: 'filled',
+    })
     const components = computed(() => {
       return {
         root: internalContent.value?.rootComponent,
@@ -251,6 +255,7 @@ const Steps = defineComponent<
     const mergedProps = computed(() => {
       return {
         ...props,
+        variant: mergedVariant.value,
         size: mergedSize.value,
         type: mergedType.value,
         orientation: mergedOrientation.value,
@@ -294,8 +299,9 @@ const Steps = defineComponent<
       )
     }
     return () => {
+      const variant = mergedVariant.value
       const {
-        variant,
+        variant: _variant,
         onChange,
         offset,
         ellipsis,
