@@ -42,7 +42,7 @@ Common props ref: [Common props](/docs/vue/common-props)
 | itemRender | Render a single row | `(item: T, index: number) => VNode` | - | 1.5.0 | × |
 | items | Data source of the list | `T[]` | `[]` | 1.5.0 | × |
 | rowHoverable | Whether rows are hoverable | boolean | true | 1.7.0 | × |
-| rowKey | Unique key of an item, a field name or a getter | `keyof T \| (item: T) => Key` | - | 1.5.0 | × |
+| rowKey | Unique key of an item, a field name or a getter | `keyof T \| (item: T, index: number) => Key` | - | 1.5.0 | × |
 | scrollWidth | Horizontal scroll width of the content; scrolls horizontally when it exceeds the container, only works with `virtual` | number | - | 1.8.0 | × |
 | sticky | Whether group headers stick to the top | boolean | false | 1.5.0 | × |
 | styles | Semantic inline styles | `{ root?, item?, groupHeader? }` | - | 1.5.0 | 1.5.0 |

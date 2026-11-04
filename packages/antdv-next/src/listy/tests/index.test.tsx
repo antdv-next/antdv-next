@@ -127,6 +127,13 @@ describe('Listy', () => {
     })
   })
 
+  // https://github.com/ant-design/ant-design/pull/59347
+  it('passes index to rowKey getter', () => {
+    const rowKey = vi.fn((item: DataItem, index: number) => `${item.id}-${index}`)
+    mount(() => renderListy({ rowKey }))
+    expect(rowKey).toHaveBeenCalledWith(items[3], 3)
+  })
+
   it('does not declare onScroll as a runtime prop', () => {
     expect((Listy as any).props).not.toHaveProperty('onScroll')
     expect((Listy as any).emits).toContain('scroll')
