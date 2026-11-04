@@ -13,6 +13,7 @@ const semantics = computed(() => [
   { name: 'suffix', desc: t('suffix') },
   { name: 'actions', desc: t('actions') },
   { name: 'action', desc: t('action') },
+  { name: 'clear', desc: t('clear'), version: '1.5.4' },
 ])
 </script>
 
@@ -24,6 +25,7 @@ const semantics = computed(() => [
     <template #default="{ classes }">
       <div :style="{ display: 'flex', flexDirection: 'column', gap: '16px' }">
         <a-input-number
+          allow-clear
           prefix="￥"
           suffix="RMB"
           :default-value="100"
@@ -32,6 +34,7 @@ const semantics = computed(() => [
           :classes="classes"
         />
         <a-input-number
+          allow-clear
           :default-value="100"
           :style="{ width: '200px' }"
           :styles="{ actions: { opacity: 1, width: '24px' }, suffix: { marginRight: '28px' } }"

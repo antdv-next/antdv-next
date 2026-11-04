@@ -6,6 +6,7 @@ export const locales = {
     suffix: '后缀的包裹元素，设置flex布局、边距和过渡动画样式',
     action: '单个操作按钮元素，设置按钮的样式、悬浮效果和点击交互',
     actions: '操作元素，设置绝对定位、宽度、flex布局和数值调节按钮样式',
+    clear: '清除按钮元素，设置图标颜色、大小和交互样式',
   },
   en: {
     root: 'Root element, sets inline-block layout, width, border radius and reset styles',
@@ -14,5 +15,6 @@ export const locales = {
     suffix: 'Suffix wrapper element, sets flex layout, margin and transition animation styles',
     action: 'Single action button element, sets button styling, hover effects and click interactions',
     actions: 'Actions element, sets absolute positioning, width, flex layout and number adjustment button styles',
+    clear: 'Clear button element, sets icon color, size and interaction styles',
   },
 }
