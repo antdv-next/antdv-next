@@ -375,6 +375,44 @@ describe('splitter', () => {
       expect(onResizeEnd).toHaveBeenCalledWith([0, 100])
     })
 
+    // https://github.com/ant-design/ant-design/pull/59712
+    it.each([false, true])('should finish a cancelled touch drag with lazy=%s', async (lazy) => {
+      const onResize = vi.fn()
+      const onResizeEnd = vi.fn()
+
+      const wrapper = mountSplitter({ items: [{}, {}], lazy, onResize, onResizeEnd })
+
+      await resizeSplitter()
+      const dragger = wrapper.find('.ant-splitter-bar-dragger').element
+      dispatchTouchEvent(dragger, 'touchstart', 0, 0)
+      await nextTick()
+      dispatchTouchEvent(window, 'touchmove', 10, 0)
+      await nextTick()
+      expect(wrapper.element.querySelector('.ant-splitter-mask')).toBeTruthy()
+      dispatchTouchEvent(window, 'touchcancel')
+      await nextTick()
+
+      expect(onResizeEnd).toHaveBeenCalledTimes(1)
+      expect(onResizeEnd).toHaveBeenCalledWith([60, 40])
+      expect(wrapper.element.querySelector('.ant-splitter-mask')).toBeFalsy()
+      expect(wrapper.element.querySelector('.ant-splitter-bar-dragger-active')).toBeFalsy()
+      expect(wrapper.element.querySelector('.ant-splitter-bar-preview-active')).toBeFalsy()
+
+      onResize.mockClear()
+      onResizeEnd.mockClear()
+      dispatchTouchEvent(window, 'touchmove', 30, 0)
+      await nextTick()
+      dispatchTouchEvent(window, 'touchend')
+      await nextTick()
+      expect(onResize).not.toHaveBeenCalled()
+      expect(onResizeEnd).not.toHaveBeenCalled()
+      expect(wrapper.find('.ant-splitter-panel').element).toHaveStyle('flex-basis: 60px')
+
+      await mockTouchDrag(wrapper.find('.ant-splitter-bar-dragger').element, -10)
+      expect(onResizeEnd).toHaveBeenCalledTimes(1)
+      expect(onResizeEnd).toHaveBeenCalledWith([50, 50])
+    })
+
     it('with min', async () => {
       const onResize = vi.fn()
       const onResizeEnd = vi.fn()

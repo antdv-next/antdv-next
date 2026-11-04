@@ -203,6 +203,7 @@ const SplitBar = defineComponent<SplitBarProps>(
           mouseup: onMouseUp,
           touchmove: handleTouchMove as EventListener,
           touchend: handleTouchEnd,
+          touchcancel: handleTouchEnd,
         }
 
         for (const [event, handler] of Object.entries(eventHandlerMap)) {
