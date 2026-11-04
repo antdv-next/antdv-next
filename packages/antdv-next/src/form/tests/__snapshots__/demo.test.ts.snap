@@ -13241,7 +13241,7 @@ exports[`form demo > renders style-class correctly 1`] = `
                   class="ant-space-item"
                 >
                   <button
-                    class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+                    class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-filled"
                     data-v-86e4aa7a=""
                     type="reset"
                   >

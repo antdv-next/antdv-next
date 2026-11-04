@@ -9,7 +9,7 @@ import useDelayState from '@v-c/util/dist/hooks/useDelayState'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { toArray } from 'es-toolkit/compat'
-import { computed, defineComponent, nextTick, onBeforeUnmount, onMounted, ref, shallowRef, watch } from 'vue'
+import { computed, defineComponent, nextTick, onBeforeUnmount, onMounted, ref, shallowRef, toRef, watch } from 'vue'
 import {
   useMergeSemantic,
   useSemanticRootStyle,
@@ -21,8 +21,10 @@ import Wave from '../_util/wave'
 import { useComponentBaseConfig } from '../config-provider/context.ts'
 import { useDisabledContext } from '../config-provider/DisabledContext.tsx'
 import { useSize } from '../config-provider/hooks/useSize.ts'
+import useVariant from '../form/hooks/useVariant'
 import { useCompactItemContext } from '../space/Compact.tsx'
 import {
+  _ButtonVariantTypes,
   isTwoCNChar,
   isUnBorderedButtonVariant,
   spaceChildren,
@@ -173,12 +175,15 @@ const InternalCompoundedButton = defineComponent<
       loadingIcon: contextLoadingIcon,
       shape: contextShape,
       color: contextColor,
-      variant: contextVariant,
       autoInsertSpace: contextAutoInsertSpace,
-    } = useComponentBaseConfig('button', props, ['autoInsertSpace', 'variant', 'shape', 'color', 'loadingIcon'], 'btn')
+    } = useComponentBaseConfig('button', props, ['autoInsertSpace', 'shape', 'color', 'loadingIcon'], 'btn')
     const { classes, styles } = toPropsRefs(props, 'classes', 'styles')
 
     const mergedShape = computed(() => props.shape || contextShape.value || 'default')
+    const [contextVariant, , isVariantConfigured] = useVariant('button', toRef(() => props.variant), {
+      variants: _ButtonVariantTypes,
+      defaultVariant: 'outlined',
+    })
 
     const parsedColorVariant = computed<ColorVariantPairType>(() => {
       const { color, variant, type, danger } = props
@@ -199,13 +204,13 @@ const InternalCompoundedButton = defineComponent<
         return ['primary', variant]
       }
       // >>> Context fallback
-      if (contextColor?.value && contextVariant?.value) {
+      if (contextColor?.value && isVariantConfigured.value) {
         return [contextColor.value, contextVariant.value]
       }
-      if (contextVariant?.value === 'solid') {
+      if (contextVariant.value === 'solid') {
         return ['primary', contextVariant.value]
       }
-      return ['default', 'outlined']
+      return ['default', contextVariant.value]
     })
 
     const mergedColorVariant = computed<ColorVariantPairType>(() => {
