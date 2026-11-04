@@ -7,6 +7,7 @@ import type { WarningContextProps } from '../_util/warning.ts'
 import type { ShowWaveEffect } from '../_util/wave/interface.ts'
 import type { AlertProps } from '../alert'
 import type { AnchorProps } from '../anchor'
+import type { AutoCompleteProps } from '../auto-complete'
 import type { BadgeProps } from '../badge'
 import type { RibbonProps } from '../badge/Ribbon.tsx'
 import type { BreadcrumbProps } from '../breadcrumb/Breadcrumb.tsx'
@@ -357,6 +358,8 @@ export type TransferConfig = ComponentStyleConfig & Pick<TransferProps, 'selecti
 export type InputConfig = ComponentStyleConfig
   & Pick<InputProps, 'autoComplete' | 'autocomplete' | 'classes' | 'styles' | 'allowClear' | 'variant' | 'changeOnComposing'>
 
+export type AutoCompleteConfig = Pick<AutoCompleteProps, 'allowClear'>
+
 export type InputNumberConfig = ComponentStyleConfig
   & Pick<InputNumberProps, 'classes' | 'styles' | 'variant' | 'allowClear'>
 
@@ -507,6 +510,7 @@ export interface ConfigComponentProps {
   space?: SpaceConfig
   splitter?: SplitterConfig
   form?: FormConfig
+  autoComplete?: AutoCompleteConfig
   select?: SelectConfig
   app?: ComponentStyleConfig
   alert?: AlertConfig

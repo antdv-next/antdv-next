@@ -48,7 +48,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| allowClear | Whether to show a clear button | boolean \| [AllowClearConfig](#allowclearconfig) | false | - | × |
+| allowClear | Whether to show a clear button | boolean \| [AllowClearConfig](#allowclearconfig) | false | - | 1.8.0 |
 | backfill | If backfill selected item the input when using keyboard | boolean | false | - | × |
 | classes | Customize class for each semantic structure inside the component. Supports object or function | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - | × |
 | defaultActiveFirstOption | Whether active first option by default | boolean | true | - | × |
@@ -110,12 +110,14 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 ### AllowClearConfig {#allowclearconfig}
 
+Supports global configuration through `ConfigProvider.autoComplete.allowClear` (1.8.0). Fields use component values first, then global values, then defaults. `allowClear: true` inherits the global configuration; `disabled: false` and `tabIndex: 0` override global values.
+
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| clearIcon | Custom clear icon | VueNode | - | - | × |
-| disabled | When `true`, equivalent to `allowClear: false` | boolean | false | 1.8.0 | × |
-| label | Accessible name of the clear button | string | Component locale text | - | × |
-| tabIndex | Tab order of the clear button. `-1` excludes it from Tab navigation | number | 0 | 1.8.0 | × |
+| clearIcon | Custom clear icon | VueNode | - | - | 1.8.0 |
+| disabled | When `true`, equivalent to `allowClear: false` | boolean | false | 1.8.0 | 1.8.0 |
+| label | Accessible name of the clear button | string | Component locale text | - | 1.8.0 |
+| tabIndex | Tab order of the clear button. `-1` excludes it from Tab navigation | number | 0 | 1.8.0 | 1.8.0 |
 
 ### showSearch
 

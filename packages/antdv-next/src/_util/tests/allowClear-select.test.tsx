@@ -17,7 +17,7 @@ interface ClearProps {
 
 const clearCases: {
   name: string
-  configKey?: 'select'
+  configKey?: 'select' | 'autoComplete' | 'treeSelect' | 'cascader'
   render: (props: ClearProps) => any
 }[] = [
   {
@@ -27,6 +27,7 @@ const clearCases: {
   },
   {
     name: 'AutoComplete',
+    configKey: 'autoComplete',
     render: props => <AutoComplete defaultValue="value" {...props} />,
   },
   {

@@ -4,6 +4,7 @@ import type { ColumnType } from '../table'
 import type {
   AlertConfig,
   AnchorStyleConfig,
+  AutoCompleteConfig,
   BadgeConfig,
   BreadcrumbConfig,
   ButtonConfig,
@@ -94,6 +95,7 @@ export interface ConfigProviderProps {
   inputSearch?: InputSearchConfig
   inputPassword?: InputPasswordConfig
   otp?: OTPConfig
+  autoComplete?: AutoCompleteConfig
   select?: SelectConfig
   form?: FormConfig
   pagination?: PaginationConfig

@@ -124,6 +124,7 @@ const { componentDisabled, componentSize } = config.value
 - `alert`：[Alert](/components/alert-cn#api)
 - `anchor`：[Anchor](/components/anchor-cn#api)
 - `app`：[App](/components/app-cn#api)
+- `autoComplete`：[AutoComplete](/components/auto-complete-cn#allowclearconfig)（1.8.0 起支持，仅支持 `allowClear`）
 - `avatar`：[Avatar](/components/avatar-cn#api)
 - `badge`：[Badge](/components/badge-cn#api)
 - `borderBeam`：[BorderBeam](/components/border-beam-cn#api)

@@ -25,7 +25,7 @@ import genPurePanel from '../_util/PurePanel.tsx'
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
 import { devUseWarning, isDev } from '../_util/warning'
-import { useComponentBaseConfig } from '../config-provider/context'
+import { useComponentBaseConfig, useConfig } from '../config-provider/context'
 import { DefaultRenderEmpty } from '../config-provider/defaultRenderEmpty'
 import { useDisabledContext } from '../config-provider/DisabledContext'
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls'
@@ -299,6 +299,7 @@ const Select = defineComponent<
       suffixIcon: contextSuffixIcon,
     } = useComponentBaseConfig('select', props, ['showSearch', 'allowClear', 'clearIcon', 'suffix', 'suffixIcon'])
     const getGlobalLocale = useLocaleGetter('global')
+    const configCtx = useConfig()
     const {
       listItemHeight: customListItemHeight,
       direction: propDirection,
@@ -509,8 +510,8 @@ const Select = defineComponent<
       const mergedAllowClear = useAllowClear({
         allowClear,
         clearIcon: (rest as any).clearIcon,
-        // AutoComplete does not inherit Select's allowClear configuration.
-        contextAllowClear: mode.value === 'combobox' ? undefined : contextAllowClear.value,
+        // AutoComplete uses its own allowClear configuration instead of Select's.
+        contextAllowClear: mode.value === 'combobox' ? configCtx.value.autoComplete?.allowClear : contextAllowClear.value,
         contextClearIcon: contextClearIcon.value,
         defaultLabel: getGlobalLocale().clear,
       })

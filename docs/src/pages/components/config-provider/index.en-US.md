@@ -123,6 +123,7 @@ The following config keys set common props for corresponding components or globa
 - `alert`: [Alert](/components/alert#api)
 - `anchor`: [Anchor](/components/anchor#api)
 - `app`: [App](/components/app#api)
+- `autoComplete`: [AutoComplete](/components/auto-complete#allowclearconfig) (supported since 1.8.0, only supports `allowClear`)
 - `avatar`: [Avatar](/components/avatar#api)
 - `badge`: [Badge](/components/badge#api)
 - `borderBeam`: [BorderBeam](/components/border-beam#api)

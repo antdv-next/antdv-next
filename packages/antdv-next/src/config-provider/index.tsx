@@ -46,6 +46,7 @@ const PASSED_PROPS: Exclude<
   'splitter',
   'mentions',
   'form',
+  'autoComplete',
   'select',
   'treeSelect',
   'button',
