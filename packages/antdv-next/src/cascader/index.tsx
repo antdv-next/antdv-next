@@ -21,6 +21,7 @@ import {
   useToProps,
   useZIndex,
 } from '../_util/hooks'
+import useAllowClear from '../_util/hooks/useAllowClear'
 import genPurePanel from '../_util/PurePanel.tsx'
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils'
 import { getSlotPropsFnRun, getSlotPropsFnRunWithFallback, toPropsRefs } from '../_util/tools'
@@ -469,7 +470,7 @@ const InternalCascader = defineComponent<
         isFormItemInput,
         feedbackIcon,
       } = formItemInputContext.value || {}
-      const { suffix: mergedSuffix, removeIcon, clearIcon } = useSelectIcons({
+      const { suffix: mergedSuffix, removeIcon } = useSelectIcons({
         ...rest,
         multiple,
         hasFeedback,
@@ -486,15 +487,12 @@ const InternalCascader = defineComponent<
         componentName: 'Cascader',
       } as any)
 
-      const mergedClearIcon = (rest as any).clearIcon ?? contextClearIcon.value ?? clearIcon
-      const finalAllowClear = allowClear ?? true
-      const mergedAllowClear = finalAllowClear
-        ? {
-            clearIcon: mergedClearIcon,
-            label: getGlobalLocale().clear,
-            ...(typeof finalAllowClear === 'object' ? finalAllowClear : {}),
-          }
-        : finalAllowClear
+      const mergedAllowClear = useAllowClear({
+        allowClear: allowClear ?? true,
+        clearIcon: (rest as any).clearIcon,
+        contextClearIcon: contextClearIcon.value,
+        defaultLabel: getGlobalLocale().clear,
+      })
 
       const mergedPopupRender = usePopupRender((slots.popupRender ?? popupRender) || dropdownRender)
       const mergedPopupMenuColumnStyle = popupMenuColumnStyle ?? dropdownMenuColumnStyle

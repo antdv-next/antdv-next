@@ -48,7 +48,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| allowClear | Show clear button | boolean \| \{ clearIcon?: VueNode; label?: string \} | true | - | × |
+| allowClear | Whether to show a clear button | boolean \| [AllowClearConfig](#allowclearconfig) | true | - | `clearIcon` |
 | changeOnSelect | Change value on each selection if set to true (always works when `multiple` is `true`) | boolean | false | - | × |
 | classes | Customize class for each semantic structure inside the component. Supports object or function. | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: \{ props \})=&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - | ✓ |
 | disabled | Whether disabled select | boolean | false | - | × |
@@ -106,6 +106,15 @@ Common props ref：[Common props](/docs/vue/common-props)
 | focus() | Get focus | - |
 
 ## Types
+
+### AllowClearConfig {#allowclearconfig}
+
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| clearIcon | Custom clear icon | VueNode | - | - | ✓ (`cascader.clearIcon`) |
+| disabled | When `true`, equivalent to `allowClear: false` | boolean | false | 1.8.0 | × |
+| label | Accessible name of the clear button | string | Component locale text | - | × |
+| tabIndex | Tab order of the clear button. `-1` excludes it from Tab navigation | number | 0 | 1.8.0 | × |
 
 ### showSearch
 

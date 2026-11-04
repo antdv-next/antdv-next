@@ -57,7 +57,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| allowClear | Show clear button | boolean \| &#123; clearIcon?: VueNode; label?: string &#125; | false | - | ✓ |
+| allowClear | Whether to show a clear button | boolean \| [AllowClearConfig](#allowclearconfig) | false | - | ✓ |
 | autoClearSearchValue | Whether the current search will be cleared on selecting an item. Only applies when `mode` is set to `multiple` or `tags` | boolean | true | - | × |
 | classes | Customize class for each semantic structure inside the component. Supports object or function | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - | ✓ |
 | defaultActiveFirstOption | Whether active first option by default | boolean | true | - | × |
@@ -144,6 +144,17 @@ Common props ref：[Common props](/docs/vue/common-props)
 | --- | --- | --- |
 | blur() | Remove focus | - |
 | focus() | Get focus | - |
+
+### AllowClearConfig {#allowclearconfig}
+
+Fields that support global configuration use component values first, then global values, then defaults. `allowClear: true` inherits the global configuration; `disabled: false` and `tabIndex: 0` override global values.
+
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| clearIcon | Custom clear icon | VueNode | - | - | ✓ |
+| disabled | When `true`, equivalent to `allowClear: false` | boolean | false | 1.8.0 | 1.8.0 |
+| label | Accessible name of the clear button | string | Component locale text | - | 1.8.0 |
+| tabIndex | Tab order of the clear button. `-1` excludes it from Tab navigation | number | 0 | 1.8.0 | 1.8.0 |
 
 ### showSearch {#showsearch}
 

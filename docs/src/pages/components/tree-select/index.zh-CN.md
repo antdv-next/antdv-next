@@ -40,7 +40,7 @@ demo:
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| allowClear | 显示清除按钮 | boolean \| &#123; clearIcon?: VueNode; label?: string &#125; | false | - | × |
+| allowClear | 是否显示清除按钮 | boolean \| [AllowClearConfig](#allowclearconfig) | false | - | × |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - | ✓ |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), CSSProperties&gt; | - | - | ✓ |
 | rootClass | 根节点 class | string | - | - | × |
@@ -121,6 +121,15 @@ demo:
 | focus() | 获取焦点 | - |
 
 ## 类型 {#types}
+
+### AllowClearConfig {#allowclearconfig}
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| clearIcon | 自定义清除图标 | VueNode | - | - | × |
+| disabled | `true` 时等同于 `allowClear: false` | boolean | false | 1.8.0 | × |
+| label | 清除按钮的无障碍名称 | string | 组件的本地化文案 | - | × |
+| tabIndex | 清除按钮的 Tab 键顺序。`-1` 表示不参与 Tab 键导航 | number | 0 | 1.8.0 | × |
 
 ### showSearch {#showsearch}
 

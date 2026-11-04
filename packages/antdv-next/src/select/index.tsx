@@ -19,6 +19,7 @@ import {
   useToProps,
   useZIndex,
 } from '../_util/hooks'
+import useAllowClear from '../_util/hooks/useAllowClear'
 import { omitUndefined } from '../_util/omitUndefined'
 import genPurePanel from '../_util/PurePanel.tsx'
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils'
@@ -293,9 +294,10 @@ const Select = defineComponent<
       classes: contextClassNames,
       prefixCls,
       allowClear: contextAllowClear,
+      clearIcon: contextClearIcon,
       suffix: contextSuffix,
       suffixIcon: contextSuffixIcon,
-    } = useComponentBaseConfig('select', props, ['showSearch', 'allowClear', 'suffix', 'suffixIcon'])
+    } = useComponentBaseConfig('select', props, ['showSearch', 'allowClear', 'clearIcon', 'suffix', 'suffixIcon'])
     const getGlobalLocale = useLocaleGetter('global')
     const {
       listItemHeight: customListItemHeight,
@@ -491,7 +493,7 @@ const Select = defineComponent<
       }
 
       // ===================== Icons =====================
-      const { suffix: mergedSuffix, itemIcon, removeIcon, clearIcon } = useIcons({
+      const { suffix: mergedSuffix, itemIcon, removeIcon } = useIcons({
         ...rest,
         multiple: isMultiple.value,
         hasFeedback,
@@ -504,14 +506,14 @@ const Select = defineComponent<
         componentName: 'Select',
       } as any)
 
-      const finalAllowClear = allowClear ?? contextAllowClear.value
-      const mergedAllowClear = finalAllowClear
-        ? {
-            clearIcon,
-            label: getGlobalLocale().clear,
-            ...(typeof finalAllowClear === 'object' ? finalAllowClear : {}),
-          }
-        : finalAllowClear
+      const mergedAllowClear = useAllowClear({
+        allowClear,
+        clearIcon: (rest as any).clearIcon,
+        // AutoComplete does not inherit Select's allowClear configuration.
+        contextAllowClear: mode.value === 'combobox' ? undefined : contextAllowClear.value,
+        contextClearIcon: contextClearIcon.value,
+        defaultLabel: getGlobalLocale().clear,
+      })
 
       // Forward only props that are set: every undefined key costs a normalisation
       // pass in @v-c/select and each layer below it.

@@ -15,6 +15,7 @@ import { getTransitionName } from '@v-c/util/dist/utils/transition'
 import { omit } from 'es-toolkit/compat'
 import { computed, defineComponent, shallowRef } from 'vue'
 import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps, useZIndex } from '../_util/hooks'
+import useAllowClear from '../_util/hooks/useAllowClear'
 import genPurePanel from '../_util/PurePanel.tsx'
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils'
 import { getSlotPropsFnRun, toPropsRefs } from '../_util/tools'
@@ -501,7 +502,7 @@ const InternalTreeSelect = defineComponent<
         isFormItemInput,
       } = formItemInputContext.value
       // ===================== Icons =====================
-      const { suffix: mergedSuffix, removeIcon, clearIcon } = useIcons({
+      const { suffix: mergedSuffix, removeIcon } = useIcons({
         ...restProps,
         suffix: mergedCustomSuffix,
         multiple: isMultiple,
@@ -513,13 +514,11 @@ const InternalTreeSelect = defineComponent<
         componentName: 'TreeSelect',
       } as any)
 
-      const mergedAllowClear = allowClear
-        ? {
-            clearIcon,
-            label: getGlobalLocale().clear,
-            ...(typeof allowClear === 'object' ? allowClear : {}),
-          }
-        : allowClear
+      const mergedAllowClear = useAllowClear({
+        allowClear,
+        clearIcon: (restProps as any).clearIcon,
+        defaultLabel: getGlobalLocale().clear,
+      })
       const notFoundContent = getSlotPropsFnRun(slots, props, 'notFoundContent', false)
 
       // ===================== Empty =====================
