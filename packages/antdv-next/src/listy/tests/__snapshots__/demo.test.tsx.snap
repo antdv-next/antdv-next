@@ -2168,6 +2168,373 @@ exports[`listy demo > renders group correctly 1`] = `
 </div>
 `;
 
+exports[`listy demo > renders horizontal correctly 1`] = `
+<div
+  class="ant-listy ant-listy-hoverable css-var-root ant-listy-css-var"
+  style="position: relative;"
+>
+  <div
+    class="ant-listy-holder"
+    style="max-height: 400px; overflow-y: hidden; overflow-anchor: none; overflow-x: hidden;"
+  >
+    <div
+      style="height: 46920px; position: relative; overflow: hidden;"
+    >
+      <div
+        class="ant-listy-holder-inner"
+        style="display: flex; flex-direction: column; transform: translateY(0px); margin-left: 0px; position: absolute; left: 0px; right: 0px; top: 0px;"
+      >
+        <div
+          class="ant-listy-group-header"
+          style="width: 1000px;"
+        >
+          User 0 - 49
+        </div>
+        <div
+          class="ant-listy-item"
+          style="width: 1000px;"
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-middle"
+          >
+            <span
+              style="flex: 0 0 100px;"
+            >
+              User 0
+            </span>
+            <span
+              style="flex: 0 0 220px;"
+            >
+              user.0@ant.design
+            </span>
+            <span
+              style="flex: 0 0 480px;"
+            >
+              No. 0 Zhongshan Road, Xihu District, Hangzhou, Zhejiang
+            </span>
+            <span
+              class="ant-tag ant-tag-filled ant-tag-default css-var-root"
+            >
+              Inactive
+              <!---->
+              <!---->
+              <!---->
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-listy-item"
+          style="width: 1000px;"
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-middle"
+          >
+            <span
+              style="flex: 0 0 100px;"
+            >
+              User 1
+            </span>
+            <span
+              style="flex: 0 0 220px;"
+            >
+              user.1@ant.design
+            </span>
+            <span
+              style="flex: 0 0 480px;"
+            >
+              No. 1 Zhongshan Road, Xihu District, Hangzhou, Zhejiang
+            </span>
+            <span
+              class="ant-tag ant-tag-filled ant-tag-green css-var-root"
+            >
+              Active
+              <!---->
+              <!---->
+              <!---->
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-listy-item"
+          style="width: 1000px;"
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-middle"
+          >
+            <span
+              style="flex: 0 0 100px;"
+            >
+              User 2
+            </span>
+            <span
+              style="flex: 0 0 220px;"
+            >
+              user.2@ant.design
+            </span>
+            <span
+              style="flex: 0 0 480px;"
+            >
+              No. 2 Zhongshan Road, Xihu District, Hangzhou, Zhejiang
+            </span>
+            <span
+              class="ant-tag ant-tag-filled ant-tag-default css-var-root"
+            >
+              Inactive
+              <!---->
+              <!---->
+              <!---->
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-listy-item"
+          style="width: 1000px;"
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-middle"
+          >
+            <span
+              style="flex: 0 0 100px;"
+            >
+              User 3
+            </span>
+            <span
+              style="flex: 0 0 220px;"
+            >
+              user.3@ant.design
+            </span>
+            <span
+              style="flex: 0 0 480px;"
+            >
+              No. 3 Zhongshan Road, Xihu District, Hangzhou, Zhejiang
+            </span>
+            <span
+              class="ant-tag ant-tag-filled ant-tag-green css-var-root"
+            >
+              Active
+              <!---->
+              <!---->
+              <!---->
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-listy-item"
+          style="width: 1000px;"
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-middle"
+          >
+            <span
+              style="flex: 0 0 100px;"
+            >
+              User 4
+            </span>
+            <span
+              style="flex: 0 0 220px;"
+            >
+              user.4@ant.design
+            </span>
+            <span
+              style="flex: 0 0 480px;"
+            >
+              No. 4 Zhongshan Road, Xihu District, Hangzhou, Zhejiang
+            </span>
+            <span
+              class="ant-tag ant-tag-filled ant-tag-default css-var-root"
+            >
+              Inactive
+              <!---->
+              <!---->
+              <!---->
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-listy-item"
+          style="width: 1000px;"
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-middle"
+          >
+            <span
+              style="flex: 0 0 100px;"
+            >
+              User 5
+            </span>
+            <span
+              style="flex: 0 0 220px;"
+            >
+              user.5@ant.design
+            </span>
+            <span
+              style="flex: 0 0 480px;"
+            >
+              No. 5 Zhongshan Road, Xihu District, Hangzhou, Zhejiang
+            </span>
+            <span
+              class="ant-tag ant-tag-filled ant-tag-green css-var-root"
+            >
+              Active
+              <!---->
+              <!---->
+              <!---->
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-listy-item"
+          style="width: 1000px;"
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-middle"
+          >
+            <span
+              style="flex: 0 0 100px;"
+            >
+              User 6
+            </span>
+            <span
+              style="flex: 0 0 220px;"
+            >
+              user.6@ant.design
+            </span>
+            <span
+              style="flex: 0 0 480px;"
+            >
+              No. 6 Zhongshan Road, Xihu District, Hangzhou, Zhejiang
+            </span>
+            <span
+              class="ant-tag ant-tag-filled ant-tag-default css-var-root"
+            >
+              Inactive
+              <!---->
+              <!---->
+              <!---->
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-listy-item"
+          style="width: 1000px;"
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-middle"
+          >
+            <span
+              style="flex: 0 0 100px;"
+            >
+              User 7
+            </span>
+            <span
+              style="flex: 0 0 220px;"
+            >
+              user.7@ant.design
+            </span>
+            <span
+              style="flex: 0 0 480px;"
+            >
+              No. 7 Zhongshan Road, Xihu District, Hangzhou, Zhejiang
+            </span>
+            <span
+              class="ant-tag ant-tag-filled ant-tag-green css-var-root"
+            >
+              Active
+              <!---->
+              <!---->
+              <!---->
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-listy-item"
+          style="width: 1000px;"
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-middle"
+          >
+            <span
+              style="flex: 0 0 100px;"
+            >
+              User 8
+            </span>
+            <span
+              style="flex: 0 0 220px;"
+            >
+              user.8@ant.design
+            </span>
+            <span
+              style="flex: 0 0 480px;"
+            >
+              No. 8 Zhongshan Road, Xihu District, Hangzhou, Zhejiang
+            </span>
+            <span
+              class="ant-tag ant-tag-filled ant-tag-default css-var-root"
+            >
+              Inactive
+              <!---->
+              <!---->
+              <!---->
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-listy-item"
+          style="width: 1000px;"
+        >
+          <div
+            class="ant-flex css-var-root ant-flex-align-center ant-flex-gap-middle"
+          >
+            <span
+              style="flex: 0 0 100px;"
+            >
+              User 9
+            </span>
+            <span
+              style="flex: 0 0 220px;"
+            >
+              user.9@ant.design
+            </span>
+            <span
+              style="flex: 0 0 480px;"
+            >
+              No. 9 Zhongshan Road, Xihu District, Hangzhou, Zhejiang
+            </span>
+            <span
+              class="ant-tag ant-tag-filled ant-tag-green css-var-root"
+            >
+              Active
+              <!---->
+              <!---->
+              <!---->
+            </span>
+          </div>
+        </div>
+        <!---->
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-listy-scrollbar ant-listy-scrollbar-vertical ant-listy-scrollbar-visible"
+    style="position: absolute; width: 8px; top: 0px; bottom: 0px; right: 0px;"
+  >
+    <div
+      class="ant-listy-scrollbar-thumb"
+      style="position: absolute; border-radius: 99px; background: var(--vc-virtual-list-scrollbar-bg, rgba(0, 0, 0, 0.5)); cursor: pointer; user-select: none; width: 100%; height: 20px; top: 0px;"
+    />
+  </div>
+  <div
+    class="ant-listy-scrollbar ant-listy-scrollbar-horizontal ant-listy-scrollbar-visible"
+    style="position: absolute; height: 8px; left: 0px; right: 0px; bottom: 0px;"
+  >
+    <div
+      class="ant-listy-scrollbar-thumb"
+      style="position: absolute; border-radius: 99px; background: var(--vc-virtual-list-scrollbar-bg, rgba(0, 0, 0, 0.5)); cursor: pointer; user-select: none; height: 100%; width: 20px; left: 0px;"
+    />
+  </div>
+</div>
+`;
+
 exports[`listy demo > renders infinite correctly 1`] = `
 <div
   class="ant-flex css-var-root ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"

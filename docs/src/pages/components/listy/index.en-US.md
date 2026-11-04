@@ -21,6 +21,7 @@ tag: 1.5.0
   <demo src="./demo/basic.vue">Basic</demo>
   <demo src="./demo/row-hoverable-debug.vue" debug>Disable row hover</demo>
   <demo src="./demo/virtual.vue">Virtual scrolling</demo>
+  <demo src="./demo/horizontal.vue">Horizontal scrolling</demo>
   <demo src="./demo/group.vue">Grouping and sticky headers</demo>
   <demo src="./demo/scroll-to.vue" debug>Scroll control</demo>
   <demo src="./demo/rich.vue">Rich content</demo>
@@ -42,6 +43,7 @@ Common props ref: [Common props](/docs/vue/common-props)
 | items | Data source of the list | `T[]` | `[]` | 1.5.0 | × |
 | rowHoverable | Whether rows are hoverable | boolean | true | 1.7.0 | × |
 | rowKey | Unique key of an item, a field name or a getter | `keyof T \| (item: T) => Key` | - | 1.5.0 | × |
+| scrollWidth | Horizontal scroll width of the content; scrolls horizontally when it exceeds the container, only works with `virtual` | number | - | 1.8.0 | × |
 | sticky | Whether group headers stick to the top | boolean | false | 1.5.0 | × |
 | styles | Semantic inline styles | `{ root?, item?, groupHeader? }` | - | 1.5.0 | 1.5.0 |
 | virtual | Whether to enable virtual scrolling, rendering only rows in view, requires `height` | boolean | false | 1.5.0 | × |

@@ -22,6 +22,7 @@ tag: 1.5.0
   <demo src="./demo/basic.vue">基础用法</demo>
   <demo src="./demo/row-hoverable-debug.vue" debug>关闭行悬浮效果</demo>
   <demo src="./demo/virtual.vue">虚拟滚动</demo>
+  <demo src="./demo/horizontal.vue">横向滚动</demo>
   <demo src="./demo/group.vue">分组与吸顶</demo>
   <demo src="./demo/scroll-to.vue" debug>滚动控制</demo>
   <demo src="./demo/rich.vue">复杂内容</demo>
@@ -43,6 +44,7 @@ tag: 1.5.0
 | items | 列表数据源 | `T[]` | `[]` | 1.5.0 | × |
 | rowHoverable | 列表行是否开启 hover 交互 | boolean | true | 1.7.0 | × |
 | rowKey | 每一项的唯一键，字段名或取值函数 | `keyof T \| (item: T) => Key` | - | 1.5.0 | × |
+| scrollWidth | 内容的横向滚动宽度，超出容器宽度时可横向滚动，仅在 `virtual` 下生效 | number | - | 1.8.0 | × |
 | sticky | 分组标题是否吸顶 | boolean | false | 1.5.0 | × |
 | styles | 语义化结构 style | `{ root?, item?, groupHeader? }` | - | 1.5.0 | 1.5.0 |
 | virtual | 是否开启虚拟滚动，仅渲染视口内的行，需配合 `height` 使用 | boolean | false | 1.5.0 | × |

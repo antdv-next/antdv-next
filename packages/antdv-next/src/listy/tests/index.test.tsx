@@ -117,6 +117,16 @@ describe('Listy', () => {
     expect(onScroll).toHaveBeenCalledWith(expect.any(Event))
   })
 
+  // https://github.com/ant-design/ant-design/pull/59197
+  it('supports scrollWidth in virtual mode', () => {
+    const wrapper = mount(() => renderListy({ virtual: true, scrollWidth: 1000 }))
+    const renderedItems = wrapper.findAll<HTMLElement>('.ant-listy-item')
+    expect(renderedItems.length).toBeGreaterThan(0)
+    renderedItems.forEach((item) => {
+      expect(item.element.style.width).toBe('1000px')
+    })
+  })
+
   it('does not declare onScroll as a runtime prop', () => {
     expect((Listy as any).props).not.toHaveProperty('onScroll')
     expect((Listy as any).emits).toContain('scroll')
