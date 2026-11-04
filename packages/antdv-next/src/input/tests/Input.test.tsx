@@ -2,6 +2,10 @@ import { describe, expect, it, vi } from 'vitest'
 import { h, nextTick, ref } from 'vue'
 import Input, { TextArea } from '..'
 import ConfigProvider from '../../config-provider'
+import deDE from '../../locale/de_DE'
+import frFR from '../../locale/fr_FR'
+import itIT from '../../locale/it_IT'
+import jaJP from '../../locale/ja_JP'
 import rtlTest from '/@tests/shared/rtlTest'
 import { mount } from '/@tests/utils'
 
@@ -312,5 +316,51 @@ describe('textarea changeOnComposing', () => {
       },
     })
     expect(wrapper.find('textarea').exists()).toBe(true)
+  })
+})
+
+// https://github.com/ant-design/ant-design/pull/59723
+describe('input allowClear a11y', () => {
+  const getClearLabel = (wrapper: any) => wrapper.find('.ant-input-clear-icon').attributes('aria-label')
+
+  it('should name the clear button from the locale', () => {
+    expect(getClearLabel(mount(() => <Input allowClear defaultValue="a" />))).toBe('Clear')
+
+    const wrapper = mount(() => (
+      <ConfigProvider locale={{ locale: 'fr', global: { clear: 'Effacer' } }}>
+        <Input allowClear defaultValue="a" />
+      </ConfigProvider>
+    ))
+    expect(getClearLabel(wrapper)).toBe('Effacer')
+  })
+
+  it.each([
+    [deDE, 'Löschen'],
+    [frFR, 'Effacer'],
+    [itIT, 'Cancella'],
+  ] as const)('uses the translated clear label with locale %#', (locale, label) => {
+    const wrapper = mount(() => (
+      <ConfigProvider locale={locale}>
+        <Input allowClear defaultValue="a" />
+      </ConfigProvider>
+    ))
+    expect(getClearLabel(wrapper)).toBe(label)
+  })
+
+  it('should fall back to the English clear name when the locale has none', () => {
+    expect(jaJP.global).not.toHaveProperty('clear')
+    const wrapper = mount(() => (
+      <ConfigProvider locale={jaJP}>
+        <Input allowClear defaultValue="a" />
+      </ConfigProvider>
+    ))
+    expect(getClearLabel(wrapper)).toBe('Clear')
+  })
+
+  it('should keep a custom clearIcon', () => {
+    const wrapper = mount(() => (
+      <Input allowClear={{ clearIcon: <span class="custom-clear" /> }} defaultValue="a" />
+    ))
+    expect(wrapper.find('.ant-input-clear-icon .custom-clear').exists()).toBe(true)
   })
 })

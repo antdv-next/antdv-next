@@ -15,6 +15,7 @@ const localeValues: Locale = {
   Calendar,
   global: {
     close: 'Fermer',
+    clear: 'Effacer',
     placeholder: 'Veuillez sélectionner',
     sortable: 'triable',
     show: 'Afficher',

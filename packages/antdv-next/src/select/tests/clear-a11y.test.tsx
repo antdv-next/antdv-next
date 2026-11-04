@@ -3,7 +3,7 @@ import { h } from 'vue'
 import Select from '..'
 import Cascader from '../../cascader'
 import ConfigProvider from '../../config-provider'
-import deDE from '../../locale/de_DE'
+import jaJP from '../../locale/ja_JP'
 import zhCN from '../../locale/zh_CN'
 import TreeSelect from '../../tree-select'
 import { mount } from '/@tests/utils'
@@ -74,8 +74,8 @@ describe.each(cases)('%s clear button accessibility', (_, Component, props) => {
   })
 
   it('should fall back to English for locales that do not translate `clear`', () => {
-    expect(deDE.global).not.toHaveProperty('clear')
-    const wrapper = render({}, deDE)
+    expect(jaJP.global).not.toHaveProperty('clear')
+    const wrapper = render({}, jaJP)
     expect(wrapper.find('.ant-select-clear').attributes('aria-label')).toBe('Clear')
   })
 
