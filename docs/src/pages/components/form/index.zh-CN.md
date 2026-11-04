@@ -162,7 +162,7 @@ const formRef = ref<FormInstance>()
 | required | 必填样式设置。如不设置，则会根据校验规则自动生成。设置为 `false` 可禁用该样式 | boolean | - | - |
 | rules | 校验规则 | Rule[] | - | - |
 | validateTrigger | 触发校验的时机。设为 `false` 时禁用当前字段的所有交互事件校验，即使规则单独声明了 `trigger` 或 `validateTrigger`；显式调用 `validateFields` 或提交时仍会校验 | string \| string[] \| false | `change` | - |
-| preserve | 当字段被删除时保留字段值 | boolean | - | - |
+| preserve | 当字段被删除时保留字段值。`preserve={false}` 时会删除 `model` 中的值 | boolean | - | 1.8.0 |
 | validateDebounce | 延迟校验时间（毫秒） | number | - | - |
 | validateFirst | 是否在第一个规则失败后停止 | boolean \| `parallel` | false | - |
 | noStyle | 为 `true` 时不带样式，仅作为字段控制 | boolean | false | - |
