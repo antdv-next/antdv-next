@@ -1,6 +1,6 @@
 import type { Locale } from '.'
 
-import Pagination from '@v-c/pagination/locale/en_US'
+import Pagination from '@v-c/pagination/locale/ne_NP'
 import Calendar from '../calendar/locale/en_US'
 import DatePicker from '../date-picker/locale/en_US'
 import TimePicker from '../time-picker/locale/en_US'
