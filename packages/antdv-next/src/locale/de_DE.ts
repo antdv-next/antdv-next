@@ -156,6 +156,9 @@ const localeValues: Locale = {
     singleColor: 'Einfarbig',
     gradientColor: 'Farbverlauf',
   },
+  Input: {
+    otpCell: 'Zeichen ${index} von ${total}',
+  },
 }
 
 export default localeValues

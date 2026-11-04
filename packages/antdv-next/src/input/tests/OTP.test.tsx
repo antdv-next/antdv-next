@@ -1,6 +1,7 @@
 import { describe, expect, it, vi } from 'vitest'
 import { h, nextTick, ref } from 'vue'
 import Input from '..'
+import ConfigProvider from '../../config-provider'
 import rtlTest from '/@tests/shared/rtlTest'
 import { mount } from '/@tests/utils'
 
@@ -382,5 +383,53 @@ describe('otp', () => {
       props: { separator: 0 },
     })
     expect(wrapper.find('.ant-otp-separator').text()).toBe('0')
+  })
+})
+
+// https://github.com/ant-design/ant-design/pull/59722
+describe('otp a11y', () => {
+  const getLabels = (wrapper: any) =>
+    wrapper.findAll('input').map((input: any) => input.attributes('aria-label'))
+
+  it('should name each cell from the locale', () => {
+    const wrapper = mount(() => <OTP length={4} />)
+    expect(getLabels(wrapper)).toEqual([
+      'Character 1 of 4',
+      'Character 2 of 4',
+      'Character 3 of 4',
+      'Character 4 of 4',
+    ])
+
+    const frWrapper = mount(() => (
+
+      <ConfigProvider locale={{ locale: 'fr', Input: { otpCell: 'Chiffre ${index} sur ${total}' } }}>
+        <OTP length={2} />
+      </ConfigProvider>
+    ))
+    expect(getLabels(frWrapper)).toEqual(['Chiffre 1 sur 2', 'Chiffre 2 sur 2'])
+  })
+
+  it('should set aria-invalid on the cells, not on the group', async () => {
+    const status = ref<'error' | undefined>()
+    const ariaInvalid = ref<boolean | undefined>(true)
+    const wrapper = mount(() => <OTP aria-invalid={ariaInvalid.value} status={status.value} />)
+    const group = wrapper.find('[role="group"]')
+    expect(group.attributes('aria-invalid')).toBeUndefined()
+    wrapper.findAll('input').forEach((input) => {
+      expect(input.attributes('aria-invalid')).toBe('true')
+    })
+
+    ariaInvalid.value = undefined
+    status.value = 'error'
+    await nextTick()
+    wrapper.findAll('input').forEach((input) => {
+      expect(input.attributes('aria-invalid')).toBe('true')
+    })
+
+    status.value = undefined
+    await nextTick()
+    wrapper.findAll('input').forEach((input) => {
+      expect(input.attributes('aria-invalid')).toBeUndefined()
+    })
   })
 })

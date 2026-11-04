@@ -16,6 +16,7 @@ import { useComponentBaseConfig } from '../../config-provider/context'
 import { useSize } from '../../config-provider/hooks/useSize'
 import { useFormItemInputContext, useFormItemInputContextProvider } from '../../form/context.tsx'
 import useVariant from '../../form/hooks/useVariant'
+import useLocale from '../../locale/useLocale'
 import useStyle from '../style/otp'
 import OTPInput from './OTPInput'
 
@@ -137,6 +138,8 @@ const OTP = defineComponent<
       useToProps(mergedProps),
     )
 
+    const [inputLocale] = useLocale('Input')
+
     const inputRefs = shallowRef<Record<number, InputRef | null>>({})
 
     const internalFormatter = (txt: string) => (props.formatter ? props.formatter(txt) : txt)
@@ -231,7 +234,14 @@ const OTP = defineComponent<
     }
 
     return () => {
-      const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
+      const { className, style, restAttrs: rootAttrs } = getAttrStyleAndClass(attrs)
+      // `aria-invalid` is not supported on `role="group"`, so it is set on each cell instead
+      const { 'aria-invalid': ariaInvalid, ...restAttrs } = rootAttrs as Record<string, any>
+      const mergedAriaInvalid = ariaInvalid ?? (mergedStatus.value === 'error' || undefined)
+      const otpCellLabel = inputLocale.value.otpCell
+      const getCellLabel = (index: number) => otpCellLabel
+        ?.replace(/\$\{index\}/g, String(index + 1))
+        .replace(/\$\{total\}/g, String(mergedLength.value))
 
       return (
         <div
@@ -259,6 +269,8 @@ const OTP = defineComponent<
                 key={`otp-${index}`}
                 prefixCls={prefixCls.value}
                 index={index}
+                aria-label={getCellLabel(index)}
+                aria-invalid={mergedAriaInvalid}
                 value={valueCells.value[index] || ''}
                 onChange={handleInputChange}
                 onActiveChange={handleActiveChange}

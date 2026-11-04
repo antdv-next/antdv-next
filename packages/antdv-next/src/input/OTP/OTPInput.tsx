@@ -69,35 +69,36 @@ const OTPInput = defineComponent<
       syncSelection()
     }
 
-    const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
-    const restInputProps = omit(props, ['prefixCls', 'index', 'onChange', 'onActiveChange', 'onFocus', 'mask'])
-
-    return () => (
-      <span class={`${props.prefixCls}-input-wrapper`} role="presentation">
-        {props.mask && props.value !== '' && props.value !== undefined && (
-          <span class={`${props.prefixCls}-mask-icon`} aria-hidden="true">
-            {typeof props.mask === 'string' ? props.mask : DEFAULT_MASK_VALUE}
-          </span>
-        )}
-        <Input
-          {...restAttrs}
-          {...restInputProps}
-          ref={inputRef as any}
-          value={props.value}
-          type={props.type ?? (props.mask ? 'password' : 'text')}
-          class={clsx(className, { [`${props.prefixCls}-mask-input`]: props.mask })}
-          style={style}
-          onChange={handleChange}
-          htmlSize={1}
-          onKeydown={handleKeyDown}
-          onFocus={handleInternalFocus}
-          onMousedown={() => syncSelection()}
-          onMouseup={() => syncSelection()}
-          aria-label={`OTP Input ${props.index + 1}`}
-          v-slots={slots}
-        />
-      </span>
-    )
+    return () => {
+      // Read attrs and props during render so updates (status, disabled, aria-*) reach the cell
+      const { className, style, restAttrs } = getAttrStyleAndClass(attrs)
+      const restInputProps = omit(props, ['prefixCls', 'index', 'onChange', 'onActiveChange', 'onFocus', 'mask'])
+      return (
+        <span class={`${props.prefixCls}-input-wrapper`} role="presentation">
+          {props.mask && props.value !== '' && props.value !== undefined && (
+            <span class={`${props.prefixCls}-mask-icon`} aria-hidden="true">
+              {typeof props.mask === 'string' ? props.mask : DEFAULT_MASK_VALUE}
+            </span>
+          )}
+          <Input
+            {...restAttrs}
+            {...restInputProps}
+            ref={inputRef as any}
+            value={props.value}
+            type={props.type ?? (props.mask ? 'password' : 'text')}
+            class={clsx(className, { [`${props.prefixCls}-mask-input`]: props.mask })}
+            style={style}
+            onChange={handleChange}
+            htmlSize={1}
+            onKeydown={handleKeyDown}
+            onFocus={handleInternalFocus}
+            onMousedown={() => syncSelection()}
+            onMouseup={() => syncSelection()}
+            v-slots={slots}
+          />
+        </span>
+      )
+    }
   },
   {
     name: 'AInputOTPInput',
