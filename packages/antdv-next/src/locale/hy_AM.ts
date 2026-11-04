@@ -1,5 +1,6 @@
 import type { Locale } from '.'
 import type { PickerLocale } from '../date-picker/generatePicker'
+import Pagination from '@v-c/pagination/locale/hy_AM'
 
 const datePickerLocale: PickerLocale = {
   lang: {
@@ -48,21 +49,7 @@ const datePickerLocale: PickerLocale = {
 
 const localeValues: Locale = {
   locale: 'hy-am',
-  Pagination: {
-    // Options.jsx
-    items_per_page: '/ էջ',
-    jump_to: 'Գնալ',
-    jump_to_confirm: 'հաստատել',
-    page: '',
-
-    // Pagination.jsx
-    prev_page: 'Նախորդ Էջ',
-    next_page: 'Հաջորդ Էջ',
-    prev_5: 'Նախորդ 5 Էջերը',
-    next_5: 'Հաջորդ 5 Էջերը',
-    prev_3: 'Նախորդ 3 Էջերը',
-    next_3: 'Հաջորդ 3 Էջերը',
-  },
+  Pagination,
   DatePicker: datePickerLocale,
   TimePicker: {
     placeholder: 'Ընտրեք ժամը',

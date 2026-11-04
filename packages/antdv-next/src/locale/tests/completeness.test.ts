@@ -21,6 +21,14 @@ describe('locale completeness', () => {
     expect(missing).toEqual([])
   })
 
+  // https://github.com/ant-design/ant-design/pull/59500
+  it('every locale defines Pagination page_size', () => {
+    const missing = locales
+      .filter(([, locale]) => !locale.Pagination?.page_size)
+      .map(([file]) => file)
+    expect(missing).toEqual([])
+  })
+
   it('base locales provide the newly added fields', () => {
     for (const locale of [zhCN, enUS]) {
       expect(typeof locale.Transfer?.deselectAll).toBe('string')
