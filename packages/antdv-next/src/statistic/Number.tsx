@@ -3,6 +3,13 @@ import type { FormatConfig, valueType } from './utils.ts'
 import { defineComponent } from 'vue'
 import { isNumber } from '../_util/is.ts'
 
+// `String(number)` uses exponential notation for very small or very large numbers.
+const plainNumberFormat = new Intl.NumberFormat('en-US', {
+  notation: 'standard',
+  useGrouping: false,
+  maximumSignificantDigits: 21,
+})
+
 interface NumberProps extends FormatConfig {
   value: valueType
   prefixCls?: string
@@ -23,7 +30,9 @@ const StatisticNumber = defineComponent<NumberProps>(
       }
       else {
         // Internal formatter
-        const val: string = String(value)
+        const rawValue = String(value)
+        const val: string
+          = isNumber(value) && rawValue.includes('e') ? plainNumberFormat.format(value) : rawValue
         const cells = val.match(/^(-?)(\d*)(\.(\d+))?$/)
 
         // Process if illegal number
