@@ -288,7 +288,7 @@ function generateRangePicker<DateType extends AnyObject = AnyObject>(generateCon
         const [mergedAllowClear] = useIcons({ allowClear, clearIcon }, prefixCls.value, {
           allowClear: contextAllowClear?.value,
           clearIcon: contextClearIcon?.value,
-        })
+        }, locale.value?.lang?.clear)
 
         const mergedComponents = useComponents(components as any)
 

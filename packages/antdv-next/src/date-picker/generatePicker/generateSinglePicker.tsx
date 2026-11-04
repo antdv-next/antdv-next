@@ -328,7 +328,7 @@ function generatePicker<DateType extends AnyObject = AnyObject>(generateConfig: 
           }, prefixCls.value, {
             allowClear: contextAllowClear?.value,
             clearIcon: contextClearIcon?.value,
-          })
+          }, locale.value?.lang?.clear)
 
           const mergedComponents = useComponents(components as any)
 

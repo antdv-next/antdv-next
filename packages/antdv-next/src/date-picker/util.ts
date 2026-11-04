@@ -64,6 +64,7 @@ export function useIcons(
   props: Pick<PickerProps, 'allowClear' | 'clearIcon' | 'removeIcon'>,
   prefixCls: string,
   context?: { allowClear?: AllowClear, clearIcon?: VueNode },
+  defaultLabel?: string,
 ) {
   const { removeIcon } = useSelectIcons({
     ...props,
@@ -77,6 +78,7 @@ export function useIcons(
     contextAllowClear: context?.allowClear,
     contextClearIcon: context?.clearIcon,
     defaultAllowClear: true,
+    defaultLabel,
   })
 
   if (!mergedAllowClear) {

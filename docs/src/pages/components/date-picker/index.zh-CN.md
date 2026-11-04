@@ -87,7 +87,7 @@ dayjs.locale('zh-cn')
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| allowClear | 自定义清除按钮 | boolean \| \{ clearIcon?: VueNode \} | true | - | ✓ |
+| allowClear | 是否显示清除按钮 | boolean \| [AllowClearConfig](#allowclearconfig) | true | - | ✓ |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | - | ✓ |
 | dateRender | 自定义日期单元格的内容，已弃用，请使用 `cellRender` 替代 | function(currentDate: dayjs, today: dayjs) => VueNode | - | - | × |
 | cellRender | 自定义单元格的内容 | (current: dayjs, info: { originNode: VueNode, today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => VueNode | - | - | × |
@@ -128,6 +128,17 @@ dayjs.locale('zh-cn')
 | superPrevIcon | 自定义 `<<` 切换图标 | VueNode | - | - | × |
 | clearIcon | （仅支持全局配置）自定义清除图标 | VueNode | - | - | ✓ |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - | ✓ |
+
+### AllowClearConfig {#allowclearconfig}
+
+支持全局配置的字段按组件配置、全局配置、默认值的顺序取值。`allowClear` 为 `true` 时继承全局配置；`disabled: false` 和 `tabIndex: 0` 可覆盖全局值。
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| clearIcon | 自定义清除图标 | VueNode | - | - | ✓ |
+| disabled | `true` 时等同于 `allowClear: false` | boolean | false | 1.8.0 | 1.8.0 |
+| label | 清除按钮的无障碍名称 | string | 组件的本地化文案 | 1.8.0 | 1.8.0 |
+| tabIndex | 清除按钮的 Tab 键顺序。`-1` 表示不参与 Tab 键导航 | number | 0 | 1.8.0 | 1.8.0 |
 
 ### 共同的方法 {#common-methods}
 
