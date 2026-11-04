@@ -2,13 +2,6 @@ import type { ComputedRef, CSSProperties, Ref } from 'vue'
 import { reactive } from 'vue'
 import { getStyleStr } from './utils.ts'
 
-/**
- * Base size of the canvas, 1 for parallel layout and 2 for alternate layout
- * Only alternate layout is currently supported
- */
-export const BaseSize = 2
-export const FontGap = 3
-
 // Prevent external hidden elements from adding accent styles
 const emphasizedStyle: CSSProperties = {
   visibility: 'visible !important',
