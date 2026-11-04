@@ -42,7 +42,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| align | Align items | `start` \| `end` \| `center` \| `baseline` | - | - | × |
+| align | Align items | `start` \| `end` \| `center` \| `baseline` \| `stretch` | - | `stretch`: 1.8.0 | × |
 | classes | Customize class for each semantic structure inside the component. Supports object or function | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - | ✓ |
 | orientation | The space direction | `vertical` \| `horizontal` | `horizontal` | - | × |
 | separator | Set separator | VueNode | - | - | × |

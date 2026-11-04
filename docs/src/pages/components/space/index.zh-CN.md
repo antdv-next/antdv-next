@@ -43,7 +43,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 
 | 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| align | 对齐方式 | `start` \| `end` \| `center` \| `baseline` | - | - | × |
+| align | 对齐方式 | `start` \| `end` \| `center` \| `baseline` \| `stretch` | - | `stretch`: 1.8.0 | × |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record&lt;[SemanticDOM](#semantic-dom), string&gt; \| (info: &#123; props &#125;) =&gt; Record&lt;[SemanticDOM](#semantic-dom), string&gt; | - | - | ✓ |
 | orientation | 间距方向 | `vertical` \| `horizontal` | `horizontal` | - | × |
 | separator | 设置分隔符 | VueNode | - | - | × |

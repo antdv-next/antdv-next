@@ -44,5 +44,14 @@ Set alignment.
         <span class="inline-block pt-8 px-2 pb-4 bg-[rgba(150,150,150,0.2)]">Block</span>
       </a-space>
     </div>
+    <div class="flex-none my-2 mx-1 p-1 border border-solid border-[#40a9ff]">
+      <a-space align="stretch">
+        stretch
+        <a-button type="primary">
+          Primary
+        </a-button>
+        <span class="inline-block pt-8 px-2 pb-4 bg-[rgba(150,150,150,0.2)]">Block</span>
+      </a-space>
+    </div>
   </div>
 </template>

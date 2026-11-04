@@ -151,6 +151,21 @@ describe('space', () => {
         expect(wrapper.find(`.ant-space-align-${align}`).exists()).toBe(true)
       },
     )
+
+    it.each([
+      ['horizontal', undefined, 'height'],
+      ['vertical', 'vertical', 'width'],
+    ] as const)('should stretch child elements in %s orientation', (_, orientation, sizeProp) => {
+      const wrapper = mount(() => (
+        <Space align="stretch" orientation={orientation}>
+          <span>1</span>
+        </Space>
+      ), { attachTo: document.body })
+
+      const span = wrapper.element.querySelector<HTMLSpanElement>('span')!
+      expect(getComputedStyle(span)[sizeProp]).toBe('100%')
+      wrapper.unmount()
+    })
   })
 
   describe('wrap', () => {

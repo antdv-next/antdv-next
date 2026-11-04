@@ -42,8 +42,7 @@ export interface SpaceProps extends ComponentBaseProps {
   direction?: Orientation
   orientation?: Orientation
   vertical?: boolean
-  // No `stretch` since many components do not support that.
-  align?: 'start' | 'end' | 'center' | 'baseline'
+  align?: 'start' | 'end' | 'center' | 'baseline' | 'stretch'
   separator?: VueNode
   wrap?: boolean
   classes?: SpaceClassNamesType
