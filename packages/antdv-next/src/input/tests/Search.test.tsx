@@ -16,6 +16,14 @@ describe('search', () => {
     expect(wrapper.find('.ant-input-search').exists()).toBe(true)
   })
 
+  // https://github.com/ant-design/ant-design/pull/59582
+  it('search with allowClear should have one rootClass only', () => {
+    const wrapper = mount(Search, { props: { allowClear: true, rootClass: 'bamboo' } })
+    expect(wrapper.findAll('.bamboo')).toHaveLength(1)
+    expect(wrapper.find('.ant-input-search').classes()).toContain('bamboo')
+    expect(wrapper.find('.ant-input-affix-wrapper').classes()).not.toContain('bamboo')
+  })
+
   it('should support v-model:value', async () => {
     const value = ref('')
     const wrapper = mount(() => (
