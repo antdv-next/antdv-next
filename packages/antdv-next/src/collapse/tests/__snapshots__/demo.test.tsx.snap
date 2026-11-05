@@ -23,6 +23,7 @@ exports[`collapse demo > renders _semantic correctly 1`] = `
             class="ant-collapse-item ant-collapse-item-active"
           >
             <div
+              aria-controls="test-id"
               aria-disabled="false"
               aria-expanded="true"
               class="ant-collapse-header semantic-mark-header"
@@ -69,6 +70,7 @@ exports[`collapse demo > renders _semantic correctly 1`] = `
             >
               <div
                 class="ant-collapse-panel ant-collapse-panel-active"
+                id="test-id"
               >
                 <div
                   class="ant-collapse-body semantic-mark-body"
@@ -911,6 +913,7 @@ exports[`collapse demo > renders basic correctly 1`] = `
     class="ant-collapse-item ant-collapse-item-active"
   >
     <div
+      aria-controls="test-id"
       aria-disabled="false"
       aria-expanded="true"
       class="ant-collapse-header"
@@ -957,6 +960,7 @@ exports[`collapse demo > renders basic correctly 1`] = `
     >
       <div
         class="ant-collapse-panel ant-collapse-panel-active"
+        id="test-id"
       >
         <div
           class="ant-collapse-body"
@@ -1081,6 +1085,7 @@ exports[`collapse demo > renders borderless correctly 1`] = `
     class="ant-collapse-item ant-collapse-item-active"
   >
     <div
+      aria-controls="test-id"
       aria-disabled="false"
       aria-expanded="true"
       class="ant-collapse-header"
@@ -1127,6 +1132,7 @@ exports[`collapse demo > renders borderless correctly 1`] = `
     >
       <div
         class="ant-collapse-panel ant-collapse-panel-active"
+        id="test-id"
       >
         <div
           class="ant-collapse-body"
@@ -1261,6 +1267,7 @@ exports[`collapse demo > renders collapsible correctly 1`] = `
           class="ant-collapse-header ant-collapse-collapsible-header"
         >
           <div
+            aria-controls="test-id"
             aria-disabled="false"
             aria-expanded="true"
             class="ant-collapse-expand-icon"
@@ -1289,6 +1296,7 @@ exports[`collapse demo > renders collapsible correctly 1`] = `
             </span>
           </div>
           <span
+            aria-controls="test-id"
             aria-disabled="false"
             aria-expanded="true"
             class="ant-collapse-title"
@@ -1307,6 +1315,7 @@ exports[`collapse demo > renders collapsible correctly 1`] = `
         >
           <div
             class="ant-collapse-panel ant-collapse-panel-active"
+            id="test-id"
           >
             <div
               class="ant-collapse-body"
@@ -1336,6 +1345,7 @@ exports[`collapse demo > renders collapsible correctly 1`] = `
           class="ant-collapse-header ant-collapse-collapsible-icon"
         >
           <div
+            aria-controls="test-id"
             aria-disabled="false"
             aria-expanded="true"
             class="ant-collapse-expand-icon"
@@ -1378,6 +1388,7 @@ exports[`collapse demo > renders collapsible correctly 1`] = `
         >
           <div
             class="ant-collapse-panel ant-collapse-panel-active"
+            id="test-id"
           >
             <div
               class="ant-collapse-body"
@@ -1466,6 +1477,7 @@ exports[`collapse demo > renders custom correctly 1`] = `
     style="margin-bottom: 24px; background: rgba(0, 0, 0, 0.02); border-radius: 8px; border: medium;"
   >
     <div
+      aria-controls="test-id"
       aria-disabled="false"
       aria-expanded="true"
       class="ant-collapse-header"
@@ -1511,6 +1523,7 @@ exports[`collapse demo > renders custom correctly 1`] = `
     >
       <div
         class="ant-collapse-panel ant-collapse-panel-active"
+        id="test-id"
       >
         <div
           class="ant-collapse-body"
@@ -1638,6 +1651,7 @@ exports[`collapse demo > renders extra correctly 1`] = `
       class="ant-collapse-item ant-collapse-item-active"
     >
       <div
+        aria-controls="test-id"
         aria-disabled="false"
         aria-expanded="true"
         class="ant-collapse-header"
@@ -1707,6 +1721,7 @@ exports[`collapse demo > renders extra correctly 1`] = `
       >
         <div
           class="ant-collapse-panel ant-collapse-panel-active"
+          id="test-id"
         >
           <div
             class="ant-collapse-body"
@@ -1937,6 +1952,7 @@ exports[`collapse demo > renders ghost correctly 1`] = `
     class="ant-collapse-item ant-collapse-item-active"
   >
     <div
+      aria-controls="test-id"
       aria-disabled="false"
       aria-expanded="true"
       class="ant-collapse-header"
@@ -1983,6 +1999,7 @@ exports[`collapse demo > renders ghost correctly 1`] = `
     >
       <div
         class="ant-collapse-panel ant-collapse-panel-active"
+        id="test-id"
       >
         <div
           class="ant-collapse-body"
@@ -2107,6 +2124,7 @@ exports[`collapse demo > renders icon correctly 1`] = `
     class="ant-collapse-item ant-collapse-item-active"
   >
     <div
+      aria-controls="test-id"
       aria-disabled="false"
       aria-expanded="true"
       class="ant-collapse-header"
@@ -2172,6 +2190,7 @@ exports[`collapse demo > renders icon correctly 1`] = `
     >
       <div
         class="ant-collapse-panel ant-collapse-panel-active"
+        id="test-id"
       >
         <div
           class="ant-collapse-body"
@@ -2419,6 +2438,7 @@ exports[`collapse demo > renders noarrow correctly 1`] = `
     class="ant-collapse-item ant-collapse-item-active"
   >
     <div
+      aria-controls="test-id"
       aria-disabled="false"
       aria-expanded="true"
       class="ant-collapse-header"
@@ -2465,6 +2485,7 @@ exports[`collapse demo > renders noarrow correctly 1`] = `
     >
       <div
         class="ant-collapse-panel ant-collapse-panel-active"
+        id="test-id"
       >
         <div
           class="ant-collapse-body"
@@ -2516,6 +2537,7 @@ exports[`collapse demo > renders sfc correctly 1`] = `
     class="ant-collapse-item ant-collapse-item-active"
   >
     <div
+      aria-controls="test-id"
       aria-disabled="false"
       aria-expanded="true"
       class="ant-collapse-header"
@@ -2562,6 +2584,7 @@ exports[`collapse demo > renders sfc correctly 1`] = `
     >
       <div
         class="ant-collapse-panel ant-collapse-panel-active"
+        id="test-id"
       >
         <div
           class="ant-collapse-body"
@@ -2868,6 +2891,7 @@ exports[`collapse demo > renders style-class correctly 1`] = `
       class="ant-collapse-item ant-collapse-item-active"
     >
       <div
+        aria-controls="test-id"
         aria-disabled="false"
         aria-expanded="true"
         class="ant-collapse-header"
@@ -2915,6 +2939,7 @@ exports[`collapse demo > renders style-class correctly 1`] = `
       >
         <div
           class="ant-collapse-panel ant-collapse-panel-active"
+          id="test-id"
         >
           <div
             class="ant-collapse-body"
@@ -3088,6 +3113,7 @@ exports[`collapse demo > renders style-class correctly 1`] = `
       class="ant-collapse-item ant-collapse-item-active"
     >
       <div
+        aria-controls="test-id"
         aria-disabled="false"
         aria-expanded="true"
         class="ant-collapse-header"
@@ -3135,6 +3161,7 @@ exports[`collapse demo > renders style-class correctly 1`] = `
       >
         <div
           class="ant-collapse-panel ant-collapse-panel-active"
+          id="test-id"
         >
           <div
             class="ant-collapse-body"

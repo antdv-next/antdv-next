@@ -2194,7 +2194,8 @@ exports[`table demo > renders auto-height correctly 1`] = `
                     <tr
                       aria-hidden="true"
                       class="ant-table-measure-row"
-                      style="height: 0px;"
+                      inert="true"
+                      style="height: 0px; visibility: hidden;"
                     >
                       <td
                         style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
@@ -12580,7 +12581,8 @@ exports[`table demo > renders fixed-columns correctly 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height: 0px;"
+                  inert="true"
+                  style="height: 0px; visibility: hidden;"
                 >
                   <td
                     style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
@@ -13554,7 +13556,8 @@ exports[`table demo > renders fixed-columns-header correctly 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height: 0px;"
+                  inert="true"
+                  style="height: 0px; visibility: hidden;"
                 >
                   <td
                     style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
@@ -16062,7 +16065,8 @@ exports[`table demo > renders fixed-gapped-columns correctly 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height: 0px;"
+                  inert="true"
+                  style="height: 0px; visibility: hidden;"
                 >
                   <td
                     style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
@@ -16779,7 +16783,8 @@ exports[`table demo > renders fixed-header correctly 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height: 0px;"
+                  inert="true"
+                  style="height: 0px; visibility: hidden;"
                 >
                   <td
                     style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
@@ -18611,7 +18616,8 @@ exports[`table demo > renders grouping-columns correctly 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height: 0px;"
+                  inert="true"
+                  style="height: 0px; visibility: hidden;"
                 >
                   <td
                     style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
@@ -20897,7 +20903,8 @@ exports[`table demo > renders measure-row-render correctly 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height: 0px;"
+                  inert="true"
+                  style="height: 0px; visibility: hidden;"
                 >
                   <td
                     style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
@@ -26855,7 +26862,8 @@ exports[`table demo > renders resizable-column correctly 1`] = `
                     <tr
                       aria-hidden="true"
                       class="ant-table-measure-row"
-                      style="height: 0px;"
+                      inert="true"
+                      style="height: 0px; visibility: hidden;"
                     >
                       <td
                         style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
@@ -30021,7 +30029,8 @@ exports[`table demo > renders sticky correctly 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  style="height: 0px;"
+                  inert="true"
+                  style="height: 0px; visibility: hidden;"
                 >
                   <td
                     style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
@@ -32332,7 +32341,8 @@ exports[`table demo > renders summary correctly 1`] = `
                   <tr
                     aria-hidden="true"
                     class="ant-table-measure-row"
-                    style="height: 0px;"
+                    inert="true"
+                    style="height: 0px; visibility: hidden;"
                   >
                     <td
                       style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"

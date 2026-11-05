@@ -18,6 +18,7 @@ exports[`collapse > should match snapshot 1`] = `
     class="ant-collapse-item ant-collapse-item-active"
   >
     <div
+      aria-controls="test-id"
       aria-disabled="false"
       aria-expanded="true"
       class="ant-collapse-header"
@@ -64,6 +65,7 @@ exports[`collapse > should match snapshot 1`] = `
     >
       <div
         class="ant-collapse-panel ant-collapse-panel-active"
+        id="test-id"
       >
         <div
           class="ant-collapse-body"
