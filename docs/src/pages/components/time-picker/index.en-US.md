@@ -46,7 +46,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 | ~~addon~~ | Called from time picker panel to render an addon to its bottom, please use `renderExtraFooter` instead | () => VueNode | - | - | × |
 | cellRender | Custom rendering function for picker cells | (current: number, info: \{ originNode: VueNode, today: dayjs, range?: 'start' \| 'end', subType: 'hour' \| 'minute' \| 'second' \| 'meridiem' \}) => VueNode | - | - | × |
 | changeOnScroll | Trigger selection when scroll the column | boolean | false | - | × |
-| components | Custom panels, input, and footer buttons. See [DatePicker Components](/components/date-picker#components) | [Components](/components/date-picker#components) | - | `nowButton` and `okButton`: 1.9.0 | × |
+| components | Custom panels, input, and footer buttons. See [DatePicker Components](/components/date-picker#components) | [Components](/components/date-picker#components) | - | `nowButton` and `okButton`: 1.8.1 | × |
 | classes | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: \{ props \})=> Record<[SemanticDOM](#semantic-dom), string> | - |  | ✓ |
 | defaultValue | To set default time | [dayjs](http://day.js.org/) | - |  | × |
 | disabled | Determine whether the TimePicker is disabled | boolean | false |  | × |

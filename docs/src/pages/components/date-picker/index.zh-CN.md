@@ -135,8 +135,8 @@ dayjs.locale('zh-cn')
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| nowButton | 自定义“今天／此刻”按钮 | Component \| string | `button` | 1.9.0 | × |
-| okButton | 自定义确认按钮 | Component \| string | 小号主按钮 | 1.9.0 | × |
+| nowButton | 自定义“今天／此刻”按钮 | Component \| string | `button` | 1.8.1 | × |
+| okButton | 自定义确认按钮 | Component \| string | 小号主按钮 | 1.8.1 | × |
 
 自定义按钮组件应将 `class`、`disabled`、`onClick` 和默认插槽传给实际渲染的按钮，并使用 `type="button"` 避免提交表单。
 

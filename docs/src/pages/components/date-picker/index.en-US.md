@@ -133,8 +133,8 @@ The following APIs are shared by DatePicker, RangePicker.
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| nowButton | Custom Today/Now button | Component \| string | `button` | 1.9.0 | × |
-| okButton | Custom confirmation button | Component \| string | Small primary Button | 1.9.0 | × |
+| nowButton | Custom Today/Now button | Component \| string | `button` | 1.8.1 | × |
+| okButton | Custom confirmation button | Component \| string | Small primary Button | 1.8.1 | × |
 
 Custom button components should pass `class`, `disabled`, `onClick`, and the default slot through to the rendered button, and use `type="button"` to avoid submitting a form.
 
