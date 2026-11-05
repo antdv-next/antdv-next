@@ -520,7 +520,7 @@ describe('tree', () => {
         </Tree>
       ), { attachTo: document.body })
 
-      const nodes = Array.from(wrapper.element.querySelectorAll<HTMLElement>('.ant-tree-treenode'))
+      const nodes = Array.from((wrapper.element as HTMLElement).querySelectorAll<HTMLElement>('.ant-tree-treenode'))
       const normalNode = nodes.find(node => node.textContent?.includes('normal'))
       const unselectableNode = nodes.find(node => node.textContent?.includes('unselectable'))
       const disabledNode = nodes.find(node => node.textContent?.includes('disabled'))
@@ -544,7 +544,7 @@ describe('tree', () => {
         </Tree>
       ))
 
-      const nodes = Array.from(wrapper.element.querySelectorAll<HTMLElement>('.ant-tree-treenode'))
+      const nodes = Array.from((wrapper.element as HTMLElement).querySelectorAll<HTMLElement>('.ant-tree-treenode'))
       const unselectableNode = nodes.find(node => node.textContent?.includes('unselectable'))
 
       expect(unselectableNode?.classList.contains('ant-tree-treenode-unselectable')).toBe(false)

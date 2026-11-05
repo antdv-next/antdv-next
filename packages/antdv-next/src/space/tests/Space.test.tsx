@@ -162,7 +162,7 @@ describe('space', () => {
         </Space>
       ), { attachTo: document.body })
 
-      const span = wrapper.element.querySelector<HTMLSpanElement>('span')!
+      const span = (wrapper.element as HTMLElement).querySelector<HTMLSpanElement>('span')!
       expect(getComputedStyle(span)[sizeProp]).toBe('100%')
       wrapper.unmount()
     })
