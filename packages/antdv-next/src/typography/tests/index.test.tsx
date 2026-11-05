@@ -8,6 +8,7 @@ import Link from '../Link'
 import Paragraph from '../Paragraph'
 import Text from '../Text'
 import Title from '../Title'
+import Typography from '../Typography'
 import mountTest from '/@tests/shared/mountTest'
 import rtlTest from '/@tests/shared/rtlTest'
 import { flushPromises, mount, waitFakeTimer } from '/@tests/utils'
@@ -538,6 +539,21 @@ describe('typography', () => {
     const span = wrapper.find('span')
     expect(span.exists()).toBe(true)
     expect(span.element instanceof HTMLSpanElement).toBe(true)
+  })
+
+  it('should pass id to the root element', () => {
+    const components: Array<[string, any]> = [
+      ['Base', Base],
+      ['Text', Text],
+      ['Title', Title],
+      ['Paragraph', Paragraph],
+      ['Link', Link],
+      ['Typography', Typography],
+    ]
+    components.forEach(([name, Component]) => {
+      const wrapper = mount(Component, { props: { id: 'probe-id' } })
+      expect(wrapper.find('.ant-typography').attributes('id'), name).toBe('probe-id')
+    })
   })
 
   it('should trigger callback when press {enter}', async () => {
