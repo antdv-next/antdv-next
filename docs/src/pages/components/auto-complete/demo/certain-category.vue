@@ -95,24 +95,11 @@ const options = [
 
 <style>
 .certain-category-search-dropdown .ant-select-item-group {
-  color: #666;
-  font-weight: bold;
+  color: var(--ant-color-text-secondary);
+  font-weight: var(--ant-font-weight-strong);
 }
 
-.certain-category-search-dropdown .ant-select-item-group:not(:last-child) {
-  border-bottom: 1px solid #f6f6f6;
-}
-
-.certain-category-search-dropdown .ant-select-item-option-grouped {
-  padding-inline-start: 16px;
-}
-
-.certain-category-search-dropdown .ant-select-item-option.show-all {
-  text-align: center;
-  cursor: default;
-}
-
-.certain-category-search-dropdown .rc-virtual-list-holder {
-  max-height: 300px;
+.certain-category-search-dropdown .ant-select-item-option {
+  padding-inline-start: var(--ant-padding);
 }
 </style>
