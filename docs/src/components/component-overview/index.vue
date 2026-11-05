@@ -169,7 +169,6 @@ onMounted(() => {
     padding: 12px;
     margin: -8px;
     border-radius: 6px;
-    border: 0 solid;
     background-color: var(--ant-color-bg-elevated);
     box-shadow: var(--ant-box-shadow-secondary);
   }
