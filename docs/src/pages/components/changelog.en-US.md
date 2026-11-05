@@ -2,6 +2,73 @@
 title: Component Changelog
 ---
 
+## V1.8.0
+
+Release Date: 2026-11-05
+
+This release advances ant-design upstream tracking to 6.7.0 (`550d75dbb3`) and adds a batch of ConfigProvider-level settings: Timeline, Steps, Divider, Alert, Tag and Button can set `variant` globally, AutoComplete, Cascader and TreeSelect can set `allowClear` globally, and Select can set `autoComplete` globally. Select-like components and DatePicker / TimePicker gain a `suffix` prop and slot, and `allowClear` options are unified across the selection and date components. Form's `labelAlign` accepts the logical values `start` / `end`, and Form now implements `preserve` and `clearOnDestroy`. Space supports `align="stretch"`, Listy supports `scrollWidth`, Pagination's `change` event provides `recommendPage`, and ColorPicker adds a `popup.container` semantic part. It also fixes a group of issues in Tour, Tooltip, Tag, Timeline, Tabs, TreeSelect and others, and makes vue-tsc pass for both antdv-next and the docs site.
+
+**✨ Features**
+
+* feat(config-provider): Timeline, Steps, Divider, Alert, Tag and Button can configure `variant` through ConfigProvider; `useVariant` supports per-component allowed values and defaults (#59576, #59577, #59578, #59587, #59588, #59589, #59581)
+* feat(select, cascader, tree-select, auto-complete): add a `suffix` prop and `#suffix` slot; the slot receives the open / search state. `suffixIcon` is deprecated but still works, and ConfigProvider `suffix` / `suffixIcon` are read (#59185)
+* feat(date-picker, time-picker): DatePicker, RangePicker and TimePicker add a `suffix` prop and slot, and `suffixIcon` is deprecated; RangePicker now reads `suffix` / `suffixIcon` from ConfigProvider; `suffix` set to `false` / `null` no longer renders an empty suffix wrapper (#59240)
+* feat(select, cascader, tree-select, date-picker, time-picker): `allowClear` is merged field by field with the ConfigProvider config and supports `disabled`, `label` and `tabIndex` (#59566, #59567)
+* feat(auto-complete, cascader, tree-select): support configuring `allowClear` through ConfigProvider, which gains an `autoComplete` component config (#59591, #59592, #59593)
+* feat(select): support configuring `autoComplete` through ConfigProvider (#59632)
+* feat(form): `labelAlign` accepts `start` / `end`; `left` / `right` are deprecated and warn (#59760); implement `preserve` and `clearOnDestroy`, and with `preserve={false}` a removed field's value is also deleted from `model` ([#1078](https://github.com/antdv-next/antdv-next/pull/1078))
+* feat(color-picker): add `popup.container` to `classes` / `styles`; the deprecated `styles.popupOverlayInner` is now read from the merged styles, so it works from ConfigProvider and in function form too (#59743)
+* feat(pagination): when pageSize changes, the `change` event receives `{ recommendPage }` as its third argument, and Table pagination forwards it; export the `PaginationOnChangeInfo` type (#58604)
+* feat(space): `align` supports `stretch` (#59005)
+* feat(listy): support horizontal scrolling with `scrollWidth` (#59197); a `rowKey` function receives `index` (#59347)
+* feat(tree): in non-checkable mode, `selectable={false}` nodes share the disabled style (#58906); Tree and DirectoryTree are generic over the data node type (`TreeConstructor` / `DirectoryTreeConstructor`)
+* feat(input): each Input.OTP cell gets a localized accessible name (`locale.Input.otpCell`), and `aria-invalid` is set on the cells instead of the container (#59722)
+* feat(time-picker): emit `clear` when the clear icon is clicked (#58403, [#1063](https://github.com/antdv-next/antdv-next/pull/1063))
+* feat(locale): add the clear button text to fr_FR, de_DE and it_IT (#59723); hy_AM and sq_AL use the Pagination locales shipped by `@v-c/pagination` (#59500)
+
+**🐞 Fixes**
+
+* fix(select): the default arrow, loading and search icons get `aria-hidden` (#59709); `showArrow` was overwritten internally and had no effect, and is now computed as `showArrow ?? suffix !== null`; Cascader's ConfigProvider `suffixIcon` replaces only the default down arrow and no longer the loading and search icons, matching upstream
+* fix(select, tree-select): declare `on*` listeners as emits, so `mouseenter` / `mouseleave` reach the native events and the `search` event is declared ([#1080](https://github.com/antdv-next/antdv-next/pull/1080)); TreeSelect declares the `clear` event ([#1079](https://github.com/antdv-next/antdv-next/pull/1079)); TreeSelect reads the popup `zIndex` from `styles.popup.root` instead of `styles.root` ([#1074](https://github.com/antdv-next/antdv-next/pull/1074))
+* fix(button): keep `tabIndex` when `href` is set, and use `-1` when disabled (#59732)
+* fix(statistic): expand exponential notation of very large or very small numbers before formatting (#59693)
+* fix(pagination): restore the disabled styles of custom links (#59780)
+* fix(splitter): finish the drag when a touch drag is cancelled (`touchcancel`) (#59712)
+* fix(form): edited `noStyle` items keep the parent's validation status (#59708)
+* fix(theme): `getDesignToken` supports an empty `algorithm` array (#59695)
+* fix(input): the password visibility toggle has an accessible name ([#1077](https://github.com/antdv-next/antdv-next/pull/1077)); Input.OTP cells update when `status`, `disabled` or `aria-*` change
+* fix(tour): `update:open` fires only once when finish is clicked ([#1070](https://github.com/antdv-next/antdv-next/pull/1070)); the title, `description` and `cover` areas are not rendered for empty strings or `false` ([#1069](https://github.com/antdv-next/antdv-next/pull/1069))
+* fix(tooltip, tag): render every child of the default slot instead of only the first ([#1065](https://github.com/antdv-next/antdv-next/pull/1065), [#1059](https://github.com/antdv-next/antdv-next/pull/1059))
+* fix(popover, tooltip): stop text shifting after the open motion on Windows ([#1062](https://github.com/antdv-next/antdv-next/pull/1062))
+* fix(timeline): `mode`, `reverse`, `pending` and `pendingDot` no longer leak into root DOM attributes ([#1064](https://github.com/antdv-next/antdv-next/pull/1064))
+* fix(tabs): read `indicator`, `indicatorSize`, `icons` and `more` from ConfigProvider ([#1058](https://github.com/antdv-next/antdv-next/pull/1058))
+* fix(drawer): keep `aria-labelledby` when the title comes from a slot ([#1071](https://github.com/antdv-next/antdv-next/pull/1071))
+* fix(tree): add the `switcher-line-custom-icon` class to the result of a function-form `showLeafIcon` ([#1073](https://github.com/antdv-next/antdv-next/pull/1073))
+* fix(menu): render the first letter as a fallback icon when collapsed and the item has no icon ([#1076](https://github.com/antdv-next/antdv-next/pull/1076))
+* fix(checkbox): emit `focus` when the native input gains focus ([#1060](https://github.com/antdv-next/antdv-next/pull/1060))
+* fix(message): prevent the message stack from flickering in Safari ([#1061](https://github.com/antdv-next/antdv-next/pull/1061))
+* fix(locale): ne_NP uses its own Pagination locale instead of falling back to en_US (#59499); improve the cs_CZ translations (#59787)
+* fix(types): vue-tsc now passes for the antdv-next source and the docs site, closing typing gaps in TimePicker (Dayjs values), Calendar (generic slots), Listy (Key-typed `ListyRef`), Cascader (the `clear` semantic part) and others, and fixing several demos the typecheck showed were broken at runtime
+
+**⚡ Performance**
+
+* perf(table): tree data filtering no longer re-filters descendants repeatedly (#59719)
+
+**📖 Documentation**
+
+* docs(tag): document the `closable` configuration and make the basic demo closable (#59720)
+* docs(dropdown): remove an outdated note from the `openChange` event (#59747)
+* docs(input-number): add the `clear` part to the semantic demo (#59251)
+* docs(auto-complete): fix the popup styles of the category search demo (#59767)
+* docs(tour): add the `keyboard` prop to the API tables ([#1068](https://github.com/antdv-next/antdv-next/pull/1068))
+* docs: remove leftover `update:value` rows from the event tables ([#1067](https://github.com/antdv-next/antdv-next/pull/1067))
+
+**🛠 Refactor & Maintenance**
+
+* refactor(form): remove the obsolete IE style fallback (`fallbackCmp`), so each form item renders one fewer comment node (#59510)
+* refactor(style): remove unused styles from Space (#59766) and QRCode (#59716), and unused constants from Watermark (#59407)
+* chore(sync): advance ant-design upstream tracking to 6.7.0 (`550d75dbb3`)
+
 ## V1.7.1
 
 Release Date: 2026-10-27
