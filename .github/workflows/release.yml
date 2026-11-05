@@ -1,0 +1,81 @@
+name: Release
+
+# Publishes antdv-next and @antdv-next/cssinjs when their version is tagged
+# (by `pnpm bump`, which pushes the release commit and tag) but not on npm yet.
+# See scripts/release.mjs for the rules.
+#
+# Pushes to `main` that touch a package.json are a second trigger: GitHub creates
+# no events at all when more than three tags are pushed at once. Other pushes to
+# `main` are filtered out, and `workflow_dispatch` re-runs a failed release.
+#
+# Publishing uses npm trusted publishing (OIDC), so there is no npm token secret.
+# Each package needs a trusted publisher pointing at this workflow file:
+#   npm trust github <name> --file release.yml --repo antdv-next/antdv-next --allow-publish -y
+
+on:
+  push:
+    branches: [main]
+    tags: ['antdv-next@*', '@antdv-next/**']
+    paths: ['packages/*/package.json']
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Build and pack, but run `npm publish --dry-run`
+        type: boolean
+        default: false
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  plan:
+    if: github.repository == 'antdv-next/antdv-next'
+    runs-on: ubuntu-latest
+    outputs:
+      count: ${{ steps.plan.outputs.count }}
+      stale: ${{ steps.plan.outputs.stale }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          # Release tags and their history are needed to check what was tagged.
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
+      - id: plan
+        run: node scripts/release.mjs plan
+
+  publish:
+    needs: plan
+    if: needs.plan.outputs.count != '0' || needs.plan.outputs.stale != '0'
+    runs-on: ubuntu-latest
+    environment: npm
+    permissions:
+      contents: read
+      # Required for npm trusted publishing.
+      id-token: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v6
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: pnpm
+          registry-url: https://registry.npmjs.org
+
+      # Trusted publishing needs npm >= 11.5.1.
+      - run: npm install -g npm@11
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: node scripts/release.mjs publish ${{ inputs.dry_run && '--dry-run' || '' }}
