@@ -108,6 +108,7 @@ exports[`select demo > renders _semantic correctly 1`] = `
               class="ant-select-suffix semantic-mark-suffix"
             >
               <span
+                aria-hidden="true"
                 aria-label="down"
                 class="anticon anticon-down"
                 role="img"
@@ -1443,6 +1444,7 @@ exports[`select demo > renders automatic-tokenization correctly 1`] = `
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -1516,6 +1518,7 @@ exports[`select demo > renders basic correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -1576,6 +1579,7 @@ exports[`select demo > renders basic correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -1714,6 +1718,7 @@ exports[`select demo > renders big-data correctly 1`] = `
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -1922,6 +1927,7 @@ exports[`select demo > renders coordinate correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -1981,6 +1987,7 @@ exports[`select demo > renders coordinate correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -2047,6 +2054,7 @@ exports[`select demo > renders custom-dropdown-menu correctly 1`] = `
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -2109,6 +2117,7 @@ exports[`select demo > renders custom-label-render correctly 1`] = `
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -2247,6 +2256,7 @@ exports[`select demo > renders custom-tag-render correctly 1`] = `
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -2322,6 +2332,7 @@ exports[`select demo > renders hide-selected correctly 1`] = `
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -2383,6 +2394,7 @@ exports[`select demo > renders label-in-value correctly 1`] = `
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -2648,6 +2660,7 @@ exports[`select demo > renders multiple correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -2770,6 +2783,7 @@ exports[`select demo > renders multiple correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -2834,6 +2848,7 @@ exports[`select demo > renders multiple-fields-search correctly 1`] = `
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -2895,6 +2910,7 @@ exports[`select demo > renders optgroup correctly 1`] = `
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -2963,6 +2979,7 @@ exports[`select demo > renders option-label-center correctly 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -3050,6 +3067,7 @@ exports[`select demo > renders option-label-center correctly 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -3109,6 +3127,7 @@ exports[`select demo > renders option-label-center correctly 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -3240,6 +3259,7 @@ exports[`select demo > renders option-label-center correctly 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -3338,6 +3358,7 @@ exports[`select demo > renders option-label-center correctly 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -3448,6 +3469,7 @@ exports[`select demo > renders option-label-center correctly 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -3550,6 +3572,7 @@ exports[`select demo > renders option-label-center correctly 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -3615,6 +3638,7 @@ exports[`select demo > renders option-label-center correctly 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -3678,6 +3702,7 @@ exports[`select demo > renders option-label-center correctly 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -3766,6 +3791,7 @@ exports[`select demo > renders option-label-center correctly 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -3905,6 +3931,7 @@ exports[`select demo > renders option-label-center correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -3961,6 +3988,7 @@ exports[`select demo > renders option-label-center correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -4054,6 +4082,7 @@ exports[`select demo > renders option-label-center correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -4125,6 +4154,7 @@ exports[`select demo > renders option-label-center correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -4229,6 +4259,7 @@ exports[`select demo > renders option-label-center correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -4354,6 +4385,7 @@ exports[`select demo > renders option-label-center correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -4488,6 +4520,7 @@ exports[`select demo > renders option-render correctly 1`] = `
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -4632,6 +4665,7 @@ exports[`select demo > renders placement correctly 1`] = `
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -4724,6 +4758,7 @@ exports[`select demo > renders render-panel correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -4811,6 +4846,7 @@ exports[`select demo > renders responsive correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -4885,6 +4921,7 @@ exports[`select demo > renders responsive correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -4967,6 +5004,7 @@ exports[`select demo > renders responsive correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -5031,6 +5069,7 @@ exports[`select demo > renders search correctly 1`] = `
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -5133,6 +5172,7 @@ exports[`select demo > renders search-filter-option correctly 1`] = `
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -5196,6 +5236,7 @@ exports[`select demo > renders search-sorts correctly 1`] = `
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -5271,6 +5312,7 @@ exports[`select demo > renders search-users correctly 1`] = `
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -5404,6 +5446,7 @@ exports[`select demo > renders size correctly 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -5553,6 +5596,7 @@ exports[`select demo > renders size correctly 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -5702,6 +5746,7 @@ exports[`select demo > renders size correctly 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -5773,6 +5818,7 @@ exports[`select demo > renders status correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -5835,6 +5881,7 @@ exports[`select demo > renders status correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -5924,6 +5971,7 @@ exports[`select demo > renders style-class correctly 1`] = `
       style="color: rgb(24, 144, 255);"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -6005,6 +6053,7 @@ exports[`select demo > renders style-class correctly 1`] = `
       style="color: rgb(114, 46, 209);"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -6073,6 +6122,7 @@ exports[`select demo > renders suffix correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -6333,6 +6383,7 @@ exports[`select demo > renders suffix correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -6597,6 +6648,7 @@ exports[`select demo > renders tags correctly 1`] = `
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -6666,6 +6718,7 @@ exports[`select demo > renders variant correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -6767,6 +6820,7 @@ exports[`select demo > renders variant correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -6830,6 +6884,7 @@ exports[`select demo > renders variant correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -6932,6 +6987,7 @@ exports[`select demo > renders variant correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -6995,6 +7051,7 @@ exports[`select demo > renders variant correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -7097,6 +7154,7 @@ exports[`select demo > renders variant correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -7160,6 +7218,7 @@ exports[`select demo > renders variant correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -7262,6 +7321,7 @@ exports[`select demo > renders variant correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"

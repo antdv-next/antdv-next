@@ -1083,6 +1083,7 @@ exports[`form demo > renders advanced-search correctly 1`] = `
                       class="ant-select-suffix"
                     >
                       <span
+                        aria-hidden="true"
                         aria-label="down"
                         class="anticon anticon-down"
                         role="img"
@@ -1324,6 +1325,7 @@ exports[`form demo > renders advanced-search correctly 1`] = `
                       class="ant-select-suffix"
                     >
                       <span
+                        aria-hidden="true"
                         aria-label="down"
                         class="anticon anticon-down"
                         role="img"
@@ -2187,6 +2189,7 @@ exports[`form demo > renders col-24-debug correctly 1`] = `
                   class="ant-select-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="down"
                     class="anticon anticon-down"
                     role="img"
@@ -2642,6 +2645,7 @@ exports[`form demo > renders col-24-debug correctly 1`] = `
                   class="ant-select-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="down"
                     class="anticon anticon-down"
                     role="img"
@@ -2905,6 +2909,7 @@ exports[`form demo > renders complex-form-control correctly 1`] = `
                   class="ant-select-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="down"
                     class="anticon anticon-down"
                     role="img"
@@ -3540,6 +3545,7 @@ exports[`form demo > renders control-hooks correctly 1`] = `
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -4235,6 +4241,7 @@ exports[`form demo > renders customized-form-controls correctly 1`] = `
                   class="ant-select-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="down"
                     class="anticon anticon-down"
                     role="img"
@@ -4668,6 +4675,7 @@ exports[`form demo > renders disabled correctly 1`] = `
                     class="ant-select-suffix"
                   >
                     <span
+                      aria-hidden="true"
                       aria-label="down"
                       class="anticon anticon-down"
                       role="img"
@@ -4992,6 +5000,7 @@ exports[`form demo > renders disabled-input-debug correctly 1`] = `
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -10855,6 +10864,7 @@ exports[`form demo > renders register correctly 1`] = `
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -10990,6 +11000,7 @@ exports[`form demo > renders register correctly 1`] = `
                   class="ant-select-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="down"
                     class="anticon anticon-down"
                     role="img"
@@ -11181,6 +11192,7 @@ exports[`form demo > renders register correctly 1`] = `
                   class="ant-select-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="down"
                     class="anticon anticon-down"
                     role="img"
@@ -11445,6 +11457,7 @@ exports[`form demo > renders register correctly 1`] = `
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -12340,6 +12353,7 @@ exports[`form demo > renders size correctly 1`] = `
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -14034,6 +14048,7 @@ exports[`form demo > renders use-form correctly 1`] = `
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -15341,6 +15356,7 @@ exports[`form demo > renders validate-other correctly 1`] = `
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -15460,6 +15476,7 @@ exports[`form demo > renders validate-other correctly 1`] = `
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -16856,6 +16873,7 @@ exports[`form demo > renders validate-scroll-to-field correctly 1`] = `
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -17653,6 +17671,7 @@ exports[`form demo > renders validate-static correctly 1`] = `
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"

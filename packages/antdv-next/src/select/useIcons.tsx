@@ -104,16 +104,16 @@ export default function useIcons({
   }
   else if (loading) {
     mergedSuffix = getSuffixNode(
-      getSlotPropsFnRun({}, { loadingIcon }, 'loadingIcon') ?? <LoadingOutlined spin />,
+      getSlotPropsFnRun({}, { loadingIcon }, 'loadingIcon') ?? <LoadingOutlined spin aria-hidden="true" />,
     )
   }
   else {
     mergedSuffix = (props: SelectSuffixRenderInfo) => {
       const { open, showSearch } = props
       if (open && showSearch) {
-        return getSuffixNode(<SearchOutlined />)
+        return getSuffixNode(<SearchOutlined aria-hidden="true" />)
       }
-      const fallbackSuffix = fallbackProp<any>(contextSuffix, <DownOutlined />)
+      const fallbackSuffix = fallbackProp<any>(contextSuffix, <DownOutlined aria-hidden="true" />)
       return getSuffixNode(isFunction(fallbackSuffix) ? fallbackSuffix(props) : fallbackSuffix)
     }
   }

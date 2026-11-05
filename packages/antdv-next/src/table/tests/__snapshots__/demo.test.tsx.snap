@@ -9469,6 +9469,7 @@ exports[`table demo > renders edit-row correctly 1`] = `
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -15719,6 +15720,7 @@ exports[`table demo > renders fixed-columns-header correctly 1`] = `
               class="ant-select-suffix"
             >
               <span
+                aria-hidden="true"
                 aria-label="down"
                 class="anticon anticon-down"
                 role="img"
@@ -18244,6 +18246,7 @@ exports[`table demo > renders fixed-header correctly 1`] = `
               class="ant-select-suffix"
             >
               <span
+                aria-hidden="true"
                 aria-label="down"
                 class="anticon anticon-down"
                 role="img"
@@ -19649,6 +19652,7 @@ exports[`table demo > renders grouping-columns correctly 1`] = `
               class="ant-select-suffix"
             >
               <span
+                aria-hidden="true"
                 aria-label="down"
                 class="anticon anticon-down"
                 role="img"
@@ -22389,6 +22393,7 @@ exports[`table demo > renders narrow correctly 1`] = `
                 class="ant-select-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="down"
                   class="anticon anticon-down"
                   role="img"
@@ -31330,6 +31335,7 @@ exports[`table demo > renders sticky correctly 1`] = `
               class="ant-select-suffix"
             >
               <span
+                aria-hidden="true"
                 aria-label="down"
                 class="anticon anticon-down"
                 role="img"

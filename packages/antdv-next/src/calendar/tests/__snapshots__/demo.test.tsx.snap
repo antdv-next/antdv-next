@@ -48,6 +48,7 @@ exports[`calendar demo > renders _semantic correctly 1`] = `
               class="ant-select-suffix"
             >
               <span
+                aria-hidden="true"
                 aria-label="down"
                 class="anticon anticon-down"
                 role="img"
@@ -101,6 +102,7 @@ exports[`calendar demo > renders _semantic correctly 1`] = `
               class="ant-select-suffix"
             >
               <span
+                aria-hidden="true"
                 aria-label="down"
                 class="anticon anticon-down"
                 role="img"
@@ -1855,6 +1857,7 @@ exports[`calendar demo > renders basic correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -1908,6 +1911,7 @@ exports[`calendar demo > renders basic correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -2875,6 +2879,7 @@ exports[`calendar demo > renders card correctly 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -2929,6 +2934,7 @@ exports[`calendar demo > renders card correctly 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -3961,6 +3967,7 @@ exports[`calendar demo > renders customize-header correctly 1`] = `
             class="ant-select-suffix"
           >
             <span
+              aria-hidden="true"
               aria-label="down"
               class="anticon anticon-down"
               role="img"
@@ -4015,6 +4022,7 @@ exports[`calendar demo > renders customize-header correctly 1`] = `
             class="ant-select-suffix"
           >
             <span
+              aria-hidden="true"
               aria-label="down"
               class="anticon anticon-down"
               role="img"
@@ -4948,6 +4956,7 @@ exports[`calendar demo > renders lunar correctly 1`] = `
             class="ant-select-suffix"
           >
             <span
+              aria-hidden="true"
               aria-label="down"
               class="anticon anticon-down"
               role="img"
@@ -5008,6 +5017,7 @@ exports[`calendar demo > renders lunar correctly 1`] = `
             class="ant-select-suffix"
           >
             <span
+              aria-hidden="true"
               aria-label="down"
               class="anticon anticon-down"
               role="img"
@@ -6317,6 +6327,7 @@ exports[`calendar demo > renders notice-calendar correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -6370,6 +6381,7 @@ exports[`calendar demo > renders notice-calendar correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -7679,6 +7691,7 @@ exports[`calendar demo > renders select correctly 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -7732,6 +7745,7 @@ exports[`calendar demo > renders select correctly 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -8701,6 +8715,7 @@ exports[`calendar demo > renders style-class correctly 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -8755,6 +8770,7 @@ exports[`calendar demo > renders style-class correctly 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -9715,6 +9731,7 @@ exports[`calendar demo > renders style-class correctly 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -9768,6 +9785,7 @@ exports[`calendar demo > renders style-class correctly 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -10733,6 +10751,7 @@ exports[`calendar demo > renders week correctly 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -10786,6 +10805,7 @@ exports[`calendar demo > renders week correctly 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -11807,6 +11827,7 @@ exports[`calendar demo > renders week correctly 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"
@@ -11861,6 +11882,7 @@ exports[`calendar demo > renders week correctly 1`] = `
           class="ant-select-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="down"
             class="anticon anticon-down"
             role="img"

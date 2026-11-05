@@ -118,6 +118,22 @@ describe('select suffix', () => {
     expect(getSuffix(wrapper).text()).toBe('bamboo')
   })
 
+  // https://github.com/ant-design/ant-design/pull/59709
+  it('should hide the default decorative icons from assistive technologies', async () => {
+    const props = ref<Record<string, any>>({})
+    const wrapper = mount(defineComponent(() => () => <Select {...props.value} />), { attachTo: document.body })
+    expect(wrapper.find('.anticon-down').attributes('aria-hidden')).toBe('true')
+
+    props.value = { loading: true }
+    await nextTick()
+    expect(wrapper.find('.anticon-loading').attributes('aria-hidden')).toBe('true')
+
+    props.value = { showSearch: true, open: true }
+    await nextTick()
+    expect(wrapper.find('.anticon-search').attributes('aria-hidden')).toBe('true')
+    wrapper.unmount()
+  })
+
   it('should warn when using deprecated suffixIcon prop', () => {
     resetWarned()
     const errSpy = vi.spyOn(console, 'error').mockImplementation(() => {})

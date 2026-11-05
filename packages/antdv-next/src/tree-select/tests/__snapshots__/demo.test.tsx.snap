@@ -100,6 +100,7 @@ exports[`tree-select demo > renders _semantic correctly 1`] = `
             class="ant-select-suffix semantic-mark-suffix"
           >
             <span
+              aria-hidden="true"
               aria-label="search"
               class="anticon anticon-search"
               role="img"
@@ -1283,6 +1284,7 @@ exports[`tree-select demo > renders async correctly 1`] = `
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -1347,6 +1349,7 @@ exports[`tree-select demo > renders basic correctly 1`] = `
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -1456,6 +1459,7 @@ exports[`tree-select demo > renders checkable correctly 1`] = `
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -1722,6 +1726,7 @@ exports[`tree-select demo > renders multiple correctly 1`] = `
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -1867,6 +1872,7 @@ exports[`tree-select demo > renders placement correctly 1`] = `
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -1935,6 +1941,7 @@ exports[`tree-select demo > renders status correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -2009,6 +2016,7 @@ exports[`tree-select demo > renders status correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -2075,6 +2083,7 @@ exports[`tree-select demo > renders style-class correctly 1`] = `
       style="color: rgb(24, 144, 255);"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -2132,6 +2141,7 @@ exports[`tree-select demo > renders style-class correctly 1`] = `
       style="color: rgb(114, 46, 209);"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -2257,6 +2267,7 @@ exports[`tree-select demo > renders suffix correctly 1`] = `
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -2321,6 +2332,7 @@ exports[`tree-select demo > renders treeData correctly 1`] = `
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -2484,6 +2496,7 @@ exports[`tree-select demo > renders treeLine correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"
@@ -2550,6 +2563,7 @@ exports[`tree-select demo > renders variant correctly 1`] = `
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -2607,6 +2621,7 @@ exports[`tree-select demo > renders variant correctly 1`] = `
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -2664,6 +2679,7 @@ exports[`tree-select demo > renders variant correctly 1`] = `
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
@@ -2721,6 +2737,7 @@ exports[`tree-select demo > renders variant correctly 1`] = `
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"

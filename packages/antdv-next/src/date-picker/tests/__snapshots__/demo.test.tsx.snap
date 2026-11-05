@@ -7482,6 +7482,7 @@ exports[`date-picker demo > renders switchable correctly 1`] = `
         class="ant-select-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="down"
           class="anticon anticon-down"
           role="img"

@@ -1901,6 +1901,7 @@ exports[`collapse demo > renders extra correctly 1`] = `
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"

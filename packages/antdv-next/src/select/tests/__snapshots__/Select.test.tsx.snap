@@ -36,6 +36,7 @@ exports[`select > rtl render > component should be rendered correctly in RTL dir
       class="ant-select-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="down"
         class="anticon anticon-down"
         role="img"
