@@ -2,6 +2,30 @@
 title: 组件更新日志
 ---
 
+## V1.8.1
+
+发布日期：2026-11-06
+
+本次是补丁版本。DatePicker / TimePicker 底部的“今天／此刻”和确认按钮改为原生按钮，可以用键盘聚焦，放在表单里点击也不会提交表单；新增 `components.nowButton` 和 `components.okButton`，可分别自定义这两个按钮。同时修复了 Table 在小号、中号尺寸下“展开全部”图标没有和行展开图标对齐的问题，并升级一批 `@v-c/*` 基础组件，改进 Menu、Collapse、Table 的键盘操作和无障碍表现。从这个版本起，antdv-next 由 GitHub Actions 通过 npm trusted publishing 自动发布，发布的包带有 provenance 签名。
+
+**✨ 新功能 Features**
+
+* feat(date-picker, time-picker)：底部的“今天／此刻”按钮和确认按钮改为 `type="button"` 的原生按钮，可以通过键盘聚焦，在表单中点击不会触发提交；当天不可选时，“今天”按钮使用 `disabled` 禁用。新增 `components.nowButton`、`components.okButton`；`components.button` 废弃，仅作为 `okButton` 的回退，同时配置时 `okButton` 优先（#59778）。注意底部的 DOM 结构有变化：`ul.ant-picker-ranges > li` 改为 `div.ant-picker-ranges`，按钮直接放在其中；`.ant-picker-now-btn` 不再存在，`.ant-picker-now`、`.ant-picker-ok` 直接加在按钮上。自定义了这部分样式的项目需要调整选择器
+
+**🐞 问题修复 Fixes**
+
+* fix(table)：小号和中号尺寸下，表头的“展开全部”图标与行展开图标对齐（#59795）
+
+**📖 文档 Documentation**
+
+* docs(date-picker, time-picker)：新增 Components 说明，介绍 `nowButton`、`okButton` 以及自定义按钮需要透传的属性
+* fix(site)：组件总览页的搜索框吸顶时，边框不再闪烁（[#1081](https://github.com/antdv-next/antdv-next/pull/1081)）
+
+**🧰 基础设施与依赖 Infrastructure & Dependencies**
+
+* chore(deps)：升级 `@v-c/picker` 1.7.0（即上面的底部按钮改动）；`@v-c/menu` 1.4.6，非内联模式下在菜单根节点按 Esc 会关闭所有展开的子菜单，子菜单内按 Esc 不再冒泡到外层；`@v-c/collapse` 1.0.3，面板标题支持用空格键展开 / 收起，展开时通过 `aria-controls` 关联内容区域，标题内部交互元素的键盘事件不再触发折叠；`@v-c/table` 1.3.7，用于测量列宽的隐藏行设为不可见并加上 `inert`，其中的控件不再进入 Tab 顺序；`@v-c/virtual-list` 1.1.5，触摸被中断（`touchcancel`）后正确重置触摸状态
+* ci：新增 Release 工作流，推送版本 tag 后由 GitHub Actions 通过 npm trusted publishing 自动发布 antdv-next 和 @antdv-next/cssinjs
+
 ## V1.8.0
 
 发布日期：2026-11-05

@@ -2,6 +2,30 @@
 title: Component Changelog
 ---
 
+## V1.8.1
+
+Release Date: 2026-11-06
+
+This is a patch release. The Today / Now and OK buttons in the DatePicker / TimePicker footer are now native buttons: they can be focused with the keyboard, and clicking them inside a form no longer submits it. The new `components.nowButton` and `components.okButton` customize each of them. It also fixes the Table expand-all icon not lining up with the row expand icons in the small and medium sizes, and upgrades a batch of `@v-c/*` packages that improve keyboard and accessibility behavior in Menu, Collapse and Table. Starting with this version, antdv-next is published automatically by GitHub Actions through npm trusted publishing, with provenance.
+
+**✨ Features**
+
+* feat(date-picker, time-picker): the Today / Now and OK footer buttons are native `type="button"` buttons that can be focused with the keyboard and no longer submit a surrounding form; the Today button is `disabled` when today cannot be selected. Add `components.nowButton` and `components.okButton`; `components.button` is deprecated and only kept as a fallback for `okButton`, which takes precedence when both are set (#59778). Note that the footer DOM changes: `ul.ant-picker-ranges > li` becomes `div.ant-picker-ranges` with the buttons directly inside, `.ant-picker-now-btn` is gone, and `.ant-picker-now` / `.ant-picker-ok` are on the buttons themselves. Projects that restyle the footer need to update their selectors
+
+**🐞 Fixes**
+
+* fix(table): the header expand-all icon lines up with the row expand icons in the small and medium sizes (#59795)
+
+**📖 Documentation**
+
+* docs(date-picker, time-picker): add a Components section covering `nowButton`, `okButton` and which props a custom button should pass through
+* fix(site): the border no longer flashes when the search box on the component overview page becomes affixed ([#1081](https://github.com/antdv-next/antdv-next/pull/1081))
+
+**🧰 Infrastructure & Dependencies**
+
+* chore(deps): upgrade `@v-c/picker` 1.7.0 (the footer change above); `@v-c/menu` 1.4.6, where Escape on the menu root closes every open submenu outside inline mode, and Escape inside a submenu no longer bubbles to outer handlers; `@v-c/collapse` 1.0.3, where the Space key toggles a panel header, an expanded header points at its content with `aria-controls`, and keyboard events from interactive elements inside the header no longer toggle the panel; `@v-c/table` 1.3.7, where the hidden row used to measure column widths is invisible and `inert`, so its controls stay out of the tab order; `@v-c/virtual-list` 1.1.5, which resets the touch state when a touch is interrupted (`touchcancel`)
+* ci: add a Release workflow; pushing a version tag publishes antdv-next and @antdv-next/cssinjs from GitHub Actions through npm trusted publishing
+
 ## V1.8.0
 
 Release Date: 2026-11-05
