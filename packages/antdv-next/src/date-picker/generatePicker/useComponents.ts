@@ -4,9 +4,9 @@ import PickerButton from '../PickerButton'
 
 export default function useComponents(components?: Components): Components {
   return {
-    // `Components['button']` from @v-c/picker is typed as the bare `DefineComponent`,
-    // which a typed setup-function component is not assignable to (library typing gap).
-    button: PickerButton as unknown as DefineComponent,
     ...(components ?? {}),
+    // `Components['okButton']` from @v-c/picker is typed as the bare `DefineComponent`,
+    // which a typed setup-function component is not assignable to (library typing gap).
+    okButton: components?.okButton ?? components?.button ?? (PickerButton as unknown as DefineComponent),
   }
 }

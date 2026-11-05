@@ -91,7 +91,7 @@ dayjs.locale('zh-cn')
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | - | ✓ |
 | dateRender | 自定义日期单元格的内容，已弃用，请使用 `cellRender` 替代 | function(currentDate: dayjs, today: dayjs) => VueNode | - | - | × |
 | cellRender | 自定义单元格的内容 | (current: dayjs, info: { originNode: VueNode, today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => VueNode | - | - | × |
-| components | 自定义面板。自定义面板组件请设置 `inheritAttrs: false`，否则 DatePicker 注入的 `prefixCls` 等会透传到根节点，导致子组件（如 Flex）以错误前缀生成样式并破坏面板布局 | Record<Panel \| 'input', Component> | - | - | × |
+| components | 自定义面板、输入框和底部按钮。自定义面板组件请设置 `inheritAttrs: false`，否则 DatePicker 注入的 `prefixCls` 等会透传到根节点，导致子组件（如 Flex）以错误前缀生成样式并破坏面板布局 | [Components](#components) | - | - | × |
 | defaultOpen | 是否默认展开控制弹层 | boolean | - | - | × |
 | disabled | 禁用 | boolean | false | - | × |
 | disabledDate | 不可选择的日期 | (currentDate: dayjs, info: { from?: dayjs, type: Picker }) => boolean | - | - | × |
@@ -128,6 +128,19 @@ dayjs.locale('zh-cn')
 | superPrevIcon | 自定义 `<<` 切换图标 | VueNode | - | - | × |
 | clearIcon | （仅支持全局配置）自定义清除图标 | VueNode | - | - | ✓ |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - | ✓ |
+
+### Components {#components}
+
+`components` 支持按面板类型自定义面板组件，以及通过 `input` 自定义输入框组件，还支持以下底部按钮。这些配置同样适用于 RangePicker、TimePicker 和 TimePicker.RangePicker。
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| nowButton | 自定义“今天／此刻”按钮 | Component \| string | `button` | 1.9.0 | × |
+| okButton | 自定义确认按钮 | Component \| string | 小号主按钮 | 1.9.0 | × |
+
+自定义按钮组件应将 `class`、`disabled`、`onClick` 和默认插槽传给实际渲染的按钮，并使用 `type="button"` 避免提交表单。
+
+`components.button` 已废弃，仍作为 `components.okButton` 的兼容回退；同时配置时，`components.okButton` 优先。`components.button` 不会自定义“今天／此刻”按钮。
 
 ### AllowClearConfig {#allowclearconfig}
 

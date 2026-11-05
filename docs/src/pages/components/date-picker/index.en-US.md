@@ -89,7 +89,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | classes | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | - | ✓ |
 | dateRender | Custom rendering function for date cells, Deprecated. Please use `cellRender` instead. | function(currentDate: dayjs, today: dayjs) => VueNode | - | - | × |
 | cellRender | Custom rendering function for picker cells | (current: dayjs, info: { originNode: VueNode, today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => VueNode | - | - | × |
-| components | Custom panels. A custom panel component should set `inheritAttrs: false`; otherwise the picker-injected props (e.g. `prefixCls`) fall through to its root node, causing child components (such as Flex) to emit styles under the wrong prefix and break the panel layout | Record<Panel \| 'input', Component> | - | - | × |
+| components | Custom panels, input, and footer buttons. A custom panel component should set `inheritAttrs: false`; otherwise the picker-injected props (e.g. `prefixCls`) fall through to its root node, causing child components (such as Flex) to emit styles under the wrong prefix and break the panel layout | [Components](#components) | - | - | × |
 | defaultOpen | Initial open state of picker | boolean | - | - | × |
 | disabled | Determine whether the DatePicker is disabled | boolean | false | - | × |
 | disabledDate | Specify the date that cannot be selected | (currentDate: dayjs, info: { from?: dayjs, type: Picker }) => boolean | - | - | × |
@@ -126,6 +126,19 @@ The following APIs are shared by DatePicker, RangePicker.
 | superPrevIcon | The custom super prev icon | VueNode | - | - | × |
 | clearIcon | (Only supports global configuration) Custom clear icon | VueNode | - | - | ✓ |
 | variant | Variants of picker | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | - | ✓ |
+
+### Components {#components}
+
+`components` supports custom panel components keyed by panel type and an `input` component, as well as the following footer buttons. These options also apply to RangePicker, TimePicker, and TimePicker.RangePicker.
+
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| nowButton | Custom Today/Now button | Component \| string | `button` | 1.9.0 | × |
+| okButton | Custom confirmation button | Component \| string | Small primary Button | 1.9.0 | × |
+
+Custom button components should pass `class`, `disabled`, `onClick`, and the default slot through to the rendered button, and use `type="button"` to avoid submitting a form.
+
+`components.button` is deprecated. It remains supported as a fallback for `components.okButton`, which takes precedence when both are provided. It does not customize the Today/Now button.
 
 ### AllowClearConfig {#allowclearconfig}
 

@@ -47,6 +47,7 @@ demo:
 | ~~addon~~ | TimePicker 面板底部的附加内容渲染函数，请使用 `renderExtraFooter` 替代 | () => VueNode | - | - | × |
 | cellRender | 自定义单元格的内容 | (current: number, info: \{ originNode: VueNode, today: dayjs, range?: 'start' \| 'end', subType: 'hour' \| 'minute' \| 'second' \| 'meridiem' \}) => VueNode | - | - | × |
 | changeOnScroll | 在滚动时改变选择值 | boolean | false | - | × |
+| components | 自定义面板、输入框和底部按钮，详见 [DatePicker Components](/components/date-picker-cn#components) | [Components](/components/date-picker-cn#components) | - | `nowButton` 和 `okButton`：1.9.0 | × |
 | classes | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: \{ props \})=> Record<[SemanticDOM](#semantic-dom), string> | - |  | ✓ |
 | defaultValue | 默认时间 | [dayjs](http://day.js.org/) | - |  | × |
 | disabled | 禁用全部操作 | boolean | false |  | × |

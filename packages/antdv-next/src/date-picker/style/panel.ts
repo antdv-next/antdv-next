@@ -4,6 +4,7 @@ import type { PickerToken, SharedPickerToken } from './token'
 
 import { FastColor } from '@ant-design/fast-color'
 import { unit } from '@antdv-next/cssinjs'
+import { genLinkStyle } from '../../style'
 
 const genPickerCellInnerStyle: GenerateStyle<SharedPickerToken, CSSObject> = (token) => {
   const {
@@ -662,19 +663,21 @@ const genPickerPanelStyle: GenerateStyle<PickerToken, CSSObject> = (token) => {
         paddingInline: unit(paddingSM),
         overflow: 'hidden',
         textAlign: 'start',
-        listStyle: 'none',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
 
-        '> li': {
+        [`${componentCls}-now`]: {
+          ...(genLinkStyle(token).a as CSSObject),
+          padding: 0,
+          border: 0,
+          font: 'inherit',
           lineHeight: unit(token.calc(textHeight).sub(token.calc(lineWidth).mul(2)).equal()),
-          display: 'inline-block',
-        },
 
-        [`${componentCls}-now-btn-disabled`]: {
-          pointerEvents: 'none',
-          color: token.colorTextDisabled,
+          '&:disabled': {
+            pointerEvents: 'none',
+            color: token.colorTextDisabled,
+          },
         },
 
         // https://github.com/ant-design/ant-design/issues/23687
@@ -686,7 +689,13 @@ const genPickerPanelStyle: GenerateStyle<PickerToken, CSSObject> = (token) => {
         },
 
         [`${componentCls}-ok`]: {
-          paddingBlock: token.calc(lineWidth).mul(2).equal(),
+          // Preserve the footer height without the list-item wrapper.
+          marginBlock: token
+            .calc(textHeight)
+            .sub(token.controlHeightSM)
+            .div(2)
+            .add(lineWidth)
+            .equal(),
           marginInlineStart: 'auto',
         },
       },
