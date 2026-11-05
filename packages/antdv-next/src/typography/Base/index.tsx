@@ -572,6 +572,7 @@ const Base = defineComponent<
               aria-busy={enableShimmer.value ? !props.disabled : undefined}
               aria-disabled={enableShimmer.value && props.disabled ? true : undefined}
               rootClass={props.rootClass}
+              {...{ id: props.id } as any}
               {...restAttrs}
             >
               <Ellipsis
