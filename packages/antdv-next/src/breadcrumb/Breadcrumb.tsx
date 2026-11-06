@@ -303,7 +303,7 @@ const Breadcrumb = defineComponent<
       const breadcrumbClassName = clsx(
         prefixCls.value,
         contextClassName.value,
-        { [`${prefixCls}-rtl`]: direction.value === 'rtl' },
+        { [`${prefixCls.value}-rtl`]: direction.value === 'rtl' },
         className,
         rootClass,
         mergedClassNames.value?.root,
