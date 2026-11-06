@@ -5,7 +5,7 @@ exports[`breadcrumb > rtl render > component should be rendered correctly in RTL
   data-v-app=""
 >
   <nav
-    class="ant-breadcrumb [object Object]-rtl css-var-root"
+    class="ant-breadcrumb ant-breadcrumb-rtl css-var-root"
   >
     <ol>
       <li
