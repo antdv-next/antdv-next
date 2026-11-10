@@ -584,13 +584,14 @@ export const genPanelStyle: GenerateStyle<SharedPickerToken, CSSObject> = (token
               marginInline: marginXXS,
               [`${componentCls}-time-panel-cell-inner`]: {
                 display: 'block',
-                width: token.calc(timeColumnWidth).sub(token.calc(marginXXS).mul(2)).equal(),
+                // Follow the column's visible width so a space-taking scrollbar
+                // neither clips the cell nor pushes the text off-center.
+                width: 'auto',
                 height: timeCellHeight,
                 margin: 0,
-                paddingBlock: 0,
-                paddingInlineEnd: 0,
-                paddingInlineStart: token.calc(timeColumnWidth).sub(timeCellHeight).div(2).equal(),
+                padding: 0,
                 color: colorText,
+                textAlign: 'center',
                 lineHeight: unit(timeCellHeight),
                 borderRadius: borderRadiusSM,
                 cursor: 'pointer',
