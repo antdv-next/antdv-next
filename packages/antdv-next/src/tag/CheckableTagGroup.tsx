@@ -40,7 +40,6 @@ export type CheckableTagGroupProps<CheckableTagValue = CheckableTagDefaultValue>
   styles?: SemanticStyles<SemanticName>
   options?: (CheckableTagOption<CheckableTagValue> | CheckableTagValue)[]
   id?: string
-  role?: string
   disabled?: boolean
 } & (CheckableTagGroupSingleProps<CheckableTagValue> | CheckableTagGroupMultipleProps<CheckableTagValue>)
 
