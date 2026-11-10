@@ -960,6 +960,19 @@ describe('checkable-tag-group', () => {
 
   // ===================== id / role =====================
 
+  it('should pass role through to the group root', () => {
+    const wrapper = mount(CheckableTagGroup, {
+      attrs: {
+        role: 'group',
+        'aria-label': 'Tags',
+      },
+      props: { options },
+    })
+    const root = wrapper.find(`.${prefixCls}-checkable-group`)
+    expect(root.attributes('role')).toBe('group')
+    expect(root.attributes('aria-label')).toBe('Tags')
+  })
+
   it('should apply id prop', () => {
     const wrapper = mount(CheckableTagGroup, {
       props: { options, id: 'tag-group-1' },
