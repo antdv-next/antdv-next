@@ -60,7 +60,7 @@ demo:
 
 | 插槽 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
-| closeIcon | 自定义关闭按钮。设置为 `null` 或 `false` 时隐藏关闭按钮 | () =&gt; VueNode | - |
+| closeIcon | 自定义关闭按钮 | () =&gt; VueNode | - |
 | icon | 设置图标 | () =&gt; VueNode | - |
 
 ### Tag.CheckableTag

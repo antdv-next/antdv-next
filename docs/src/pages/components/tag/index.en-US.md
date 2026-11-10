@@ -59,7 +59,7 @@ Common props ref：[Common props](/docs/vue/common-props)
 
 | Slot | Description | Type | Version |
 | --- | --- | --- | --- |
-| closeIcon | Custom close icon. Setting to `null` or `false` hides the close button | () =&gt; VueNode | - |
+| closeIcon | Custom close icon | () =&gt; VueNode | - |
 | icon | Set the icon of tag | () =&gt; VueNode | - |
 
 ### Tag.CheckableTag
