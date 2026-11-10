@@ -432,4 +432,90 @@ describe('otp a11y', () => {
       expect(input.attributes('aria-invalid')).toBeUndefined()
     })
   })
+
+  describe('IME composition', () => {
+    async function compositionEnd(input: any, value: string) {
+      ;(input.element as HTMLInputElement).value = value
+      await input.trigger('compositionend')
+    }
+
+    it('should ignore IME composition text before commit', async () => {
+      const onInput = vi.fn()
+      const wrapper = mount(OTP, { props: { length: 4, onInput } })
+      const input = wrapper.find('input')
+
+      await input.trigger('compositionstart')
+      await input.setValue('ni')
+      expect(onInput).not.toHaveBeenCalled()
+
+      await compositionEnd(input, '你')
+      await nextTick()
+
+      expect(getText(wrapper)).toBe('你')
+      expect(onInput).toHaveBeenCalledTimes(1)
+      expect(onInput).toHaveBeenCalledWith(['你'])
+    })
+
+    it('should not commit twice when input fires right after compositionend', async () => {
+      const onInput = vi.fn()
+      const wrapper = mount(OTP, { props: { length: 4, onInput } })
+      const input = wrapper.find('input')
+
+      await input.trigger('compositionstart')
+      await compositionEnd(input, '你')
+      await input.setValue('你')
+      await nextTick()
+
+      expect(getText(wrapper)).toBe('你')
+      expect(onInput).toHaveBeenCalledTimes(1)
+      expect(onInput).toHaveBeenCalledWith(['你'])
+    })
+
+    it('should still trigger input after composition dedupe', async () => {
+      const onInput = vi.fn()
+      const wrapper = mount(OTP, { props: { length: 4, onInput } })
+      const input = wrapper.find('input')
+
+      await input.trigger('compositionstart')
+      await compositionEnd(input, '你')
+      await input.setValue('a')
+      await nextTick()
+
+      expect(getText(wrapper)).toBe('a')
+      expect(onInput).toHaveBeenCalledTimes(2)
+      expect(onInput).toHaveBeenLastCalledWith(['a'])
+    })
+
+    it('should fill multiple cells when composition commits multiple characters', async () => {
+      const onInput = vi.fn()
+      const onChange = vi.fn()
+      const wrapper = mount(OTP, { props: { length: 2, onChange, onInput } })
+      const input = wrapper.find('input')
+
+      await input.trigger('compositionstart')
+      await input.setValue('nihao')
+      await compositionEnd(input, '你好')
+      await nextTick()
+
+      expect(getText(wrapper)).toBe('你好')
+      expect(onInput).toHaveBeenCalledTimes(1)
+      expect(onInput).toHaveBeenCalledWith(['你', '好'])
+      expect(onChange).toHaveBeenCalledTimes(1)
+      expect(onChange).toHaveBeenCalledWith('你好')
+    })
+
+    it('should not trigger callback when composition is cancelled without change', async () => {
+      const onInput = vi.fn()
+      const wrapper = mount(OTP, { props: { length: 4, onInput } })
+      const input = wrapper.find('input')
+
+      await input.trigger('compositionstart')
+      await compositionEnd(input, '')
+      await input.setValue('')
+      await nextTick()
+
+      expect(getText(wrapper)).toBe('')
+      expect(onInput).not.toHaveBeenCalled()
+    })
+  })
 })
