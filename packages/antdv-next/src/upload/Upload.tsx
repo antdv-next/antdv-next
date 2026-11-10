@@ -16,6 +16,7 @@ import { clsx } from '@v-c/util'
 import { filterEmpty } from '@v-c/util/dist/props-util'
 import { omit } from 'es-toolkit'
 import { computed, defineComponent, nextTick, shallowRef, watch } from 'vue'
+import fallbackProp from '../_util/fallbackProp'
 import { getAttrStyleAndClass, useMergeSemantic, useSemanticRootStyle, useToArr, useToProps } from '../_util/hooks'
 import { toPropsRefs } from '../_util/tools'
 import { devUseWarning, isDev } from '../_util/warning'
@@ -48,7 +49,6 @@ const defaults = {
   type: 'select',
   data: {},
   multiple: false,
-  accept: '',
   hasControlInside: true,
   action: '',
   supportServerRender: true,
@@ -81,7 +81,8 @@ const InternalUpload = defineComponent<
       styles: contextStyles,
       customRequest: contextCustomRequest,
       progress: contextProgress,
-    } = useComponentBaseConfig('upload', props, ['customRequest', 'progress'])
+      accept: contextAccept,
+    } = useComponentBaseConfig('upload', props, ['customRequest', 'progress', 'accept'])
 
     const {
       disabled: customDisabled,
@@ -101,6 +102,7 @@ const InternalUpload = defineComponent<
         ? { ...contextProgress.value, ...props.progress }
         : undefined,
     )
+    const mergedAccept = computed(() => fallbackProp(props.accept, contextAccept.value, ''))
 
     const internalFileList = shallowRef(props?.fileList ?? props?.defaultFileList ?? [])
     watch(
@@ -477,7 +479,6 @@ const InternalUpload = defineComponent<
         type,
         multiple,
         action,
-        accept,
         supportServerRender,
         hasControlInside,
         openFileDialogOnClick,
@@ -501,7 +502,7 @@ const InternalUpload = defineComponent<
         data: props.data ?? {},
         multiple: multiple ?? false,
         action: action ?? '',
-        accept: accept ?? '',
+        accept: mergedAccept.value,
         supportServerRender: supportServerRender ?? true,
         prefixCls: prefixCls.value,
         disabled: mergedDisabled.value,
