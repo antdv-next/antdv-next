@@ -354,8 +354,8 @@ catalogs:
       specifier: ^1.1.6
       version: 1.1.6
     '@v-c/checkbox':
-      specifier: ^1.0.2
-      version: 1.0.2
+      specifier: ^1.0.3
+      version: 1.0.3
     '@v-c/collapse':
       specifier: ^1.0.3
       version: 1.0.3
@@ -845,7 +845,7 @@ importers:
         version: 1.1.6(vue@3.5.42(typescript@5.9.3))
       '@v-c/checkbox':
         specifier: catalog:vc
-        version: 1.0.2(vue@3.5.42(typescript@5.9.3))
+        version: 1.0.3(vue@3.5.42(typescript@5.9.3))
       '@v-c/collapse':
         specifier: catalog:vc
         version: 1.0.3(vue@3.5.42(typescript@5.9.3))
@@ -3226,13 +3226,13 @@ packages:
     peerDependencies:
       vue: ^3.0.0
 
-  '@v-c/collapse@1.0.3':
-    resolution: {integrity: sha512-44dPkvNS5lM9e3TOdxkH5fDg1yUygbVTirVIdb2gSVx4gXMfNfaX6gEXJkJrvBdn7keE4fYrci1ucQfANK8KeQ==}
+  '@v-c/checkbox@1.0.3':
+    resolution: {integrity: sha512-Wob3LXSt5UqFVVJIOYinCyyq4utzELV1VeCgx+wWWljJYprk5bP22tYFyw29JugYDj+3SRbcMAjB8opMmjqSmQ==}
     peerDependencies:
       vue: ^3.0.0
 
-  '@v-c/color-picker@1.0.8':
-    resolution: {integrity: sha512-bm9Zx8FF2kwJB5y87CIiPiQX39Ise9WYJaxkIowEZYRVQzkCvCp3TENtRW10m4A83mcDUU79RrZojn+agi5Bew==}
+  '@v-c/collapse@1.0.3':
+    resolution: {integrity: sha512-44dPkvNS5lM9e3TOdxkH5fDg1yUygbVTirVIdb2gSVx4gXMfNfaX6gEXJkJrvBdn7keE4fYrci1ucQfANK8KeQ==}
     peerDependencies:
       vue: ^3.0.0
 
@@ -9279,14 +9279,13 @@ snapshots:
       '@v-c/util': 1.4.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
-  '@v-c/collapse@1.0.3(vue@3.5.42(typescript@5.9.3))':
+  '@v-c/checkbox@1.0.3(vue@3.5.42(typescript@5.9.3))':
     dependencies:
       '@v-c/util': 1.4.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
-  '@v-c/color-picker@1.0.8(vue@3.5.42(typescript@5.9.3))':
+  '@v-c/collapse@1.0.3(vue@3.5.42(typescript@5.9.3))':
     dependencies:
-      '@ant-design/fast-color': 3.0.1
       '@v-c/util': 1.4.1(vue@3.5.42(typescript@5.9.3))
       vue: 3.5.42(typescript@5.9.3)
 
@@ -9953,7 +9952,7 @@ snapshots:
       '@v-c/cascader': 1.1.6(vue@3.5.42(typescript@5.9.3))
       '@v-c/checkbox': 1.0.2(vue@3.5.42(typescript@5.9.3))
       '@v-c/collapse': 1.0.3(vue@3.5.42(typescript@5.9.3))
-      '@v-c/color-picker': 1.0.8(vue@3.5.42(typescript@5.9.3))
+      '@v-c/color-picker': 1.0.9(vue@3.5.42(typescript@5.9.3))
       '@v-c/dialog': 1.2.1(vue@3.5.42(typescript@5.9.3))
       '@v-c/drawer': 1.0.8(vue@3.5.42(typescript@5.9.3))
       '@v-c/dropdown': 1.1.1(vue@3.5.42(typescript@5.9.3))
