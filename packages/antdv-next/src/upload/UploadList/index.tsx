@@ -139,6 +139,8 @@ const UploadList = defineComponent<
       }
 
       if (isVNode(customIcon)) {
+        const clonedIcon = cloneVNode(customIcon)
+        clonedIcon.props = { ...clonedIcon.props, onClick: undefined }
         return (
           <Button
             type="text"
@@ -152,7 +154,7 @@ const UploadList = defineComponent<
             class={`${actionPrefixCls}-list-item-action`}
             disabled={mergedDisabled}
             onClick={handleClick}
-            icon={cloneVNode(customIcon, { onClick: undefined })}
+            icon={clonedIcon}
           />
         )
       }

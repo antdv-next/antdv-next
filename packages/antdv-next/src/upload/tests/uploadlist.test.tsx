@@ -1,5 +1,6 @@
 import type { UploadEmits, UploadFile, UploadProps } from '../interface'
 
+import { StarOutlined } from '@antdv-next/icons'
 import { mount } from '@vue/test-utils'
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 import { nextTick } from 'vue'
@@ -187,6 +188,32 @@ describe('upload List', () => {
     await nextTick()
 
     expect(wrapper.findAll('.ant-upload-list-item-container')).toHaveLength(1)
+  })
+
+  it('custom action icon with onClick should be invoked exactly once per click', async () => {
+    const onIconClick = vi.fn()
+    const onRemove = vi.fn()
+    const wrapper = mount({
+      render: () => (
+        <Upload
+          defaultFileList={[
+            { uid: '1', name: 'xxx.png', status: 'done' },
+          ] as UploadProps['defaultFileList']}
+          showUploadList={{ removeIcon: <StarOutlined onClick={onIconClick} /> }}
+          onRemove={onRemove}
+        >
+          <button type="button">upload</button>
+        </Upload>
+      ),
+    })
+
+    const removeBtn = wrapper.find('.ant-upload-list-item-action')
+    expect(removeBtn.exists()).toBe(true)
+    vi.advanceTimersByTime(1)
+    removeBtn.element.querySelector('svg')?.dispatchEvent(new MouseEvent('click', { bubbles: true }))
+
+    expect(onIconClick).toHaveBeenCalledTimes(1)
+    expect(onRemove).toHaveBeenCalledTimes(1)
   })
 
   it('should be uploading when upload a file', async () => {
