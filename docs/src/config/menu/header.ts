@@ -24,10 +24,20 @@ export const headerItems: MenuItemType[] = [
     label: '/playground',
   },
   {
+    key: '/mobile',
+    label: '/mobile',
+  },
+  {
     key: '/sponsor',
     label: '/sponsor',
   },
 ]
+
+// Header items that open an external site instead of an in-app route
+export const headerExternalLinks: Record<string, string> = {
+  '/playground': 'https://play.antdv-next.com',
+  '/mobile': 'https://m.antdv-next.com',
+}
 
 // Helper to flatten nested header locales
 function flattenHeaderLocales(nestedLocales: typeof locales['zh-CN']['menu']['header']) {
@@ -38,6 +48,7 @@ function flattenHeaderLocales(nestedLocales: typeof locales['zh-CN']['menu']['he
     '/docs/resources': nestedLocales.resources,
     '/sponsor': nestedLocales.sponsor,
     '/playground': nestedLocales.playground,
+    '/mobile': nestedLocales.mobile,
   }
 }
 

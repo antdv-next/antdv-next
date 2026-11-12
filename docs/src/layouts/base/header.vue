@@ -12,7 +12,7 @@ import SponsorsNav from '@/components/sponsor/SponsorsNav.vue'
 import { useMobile } from '@/composables/mobile'
 import { useCommercialSponsors } from '@/composables/sponsors'
 import { useLocale } from '@/composables/use-locale'
-import { headerItems, headerLocales } from '@/config/menu/header'
+import { headerExternalLinks, headerItems, headerLocales } from '@/config/menu/header'
 import SwitchBtn from '@/layouts/base/components/switch-btn.vue'
 import ThemeBtn from '@/layouts/base/components/theme-btn.vue'
 import { useAppStore } from '@/stores/app.ts'
@@ -49,8 +49,9 @@ const handleSiderChange: MenuEmits['click'] = (info) => {
 
 const handleHeaderChange: MenuEmits['click'] = (info) => {
   const key = info.key
-  if (key === '/playground') {
-    window.open('https://play.antdv-next.com', '_blank')
+  const externalUrl = headerExternalLinks[key]
+  if (externalUrl) {
+    window.open(externalUrl, '_blank')
     return
   }
   router.push(key)
@@ -133,9 +134,7 @@ function changeDirection(value: 1 | 2) {
 }
 
 function getHeaderMenuUrl(key: string) {
-  if (key === '/playground')
-    return 'https://play.antdv-next.com'
-  return key
+  return headerExternalLinks[key] ?? key
 }
 
 function isExternalUrl(url: string) {
