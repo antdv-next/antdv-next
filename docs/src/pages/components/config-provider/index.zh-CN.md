@@ -195,6 +195,7 @@ const { componentDisabled, componentSize } = config.value
 - `treeSelect`：[TreeSelect](/components/tree-select-cn#api)
 - `typography`：[Typography](/components/typography-cn#api)
 - `upload`：[Upload](/components/upload-cn#api)
+- `watermark`：[Watermark](/components/watermark-cn#api)
 - `wave`：[WaveConfig](#api)
 
 ## FAQ

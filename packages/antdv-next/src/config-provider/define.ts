@@ -188,6 +188,7 @@ export interface ConfigProviderProps {
   tooltip?: TooltipConfig
   popover?: PopoverConfig
   popconfirm?: PopconfirmConfig
+  watermark?: ComponentStyleConfig
 }
 
 export interface ConfigProviderSlots {

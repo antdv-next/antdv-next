@@ -194,6 +194,7 @@ The following config keys set common props for corresponding components or globa
 - `treeSelect`: [TreeSelect](/components/tree-select#api)
 - `typography`: [Typography](/components/typography#api)
 - `upload`: [Upload](/components/upload#api)
+- `watermark`: [Watermark](/components/watermark#api)
 - `wave`: [WaveConfig](#api)
 
 ## FAQ
