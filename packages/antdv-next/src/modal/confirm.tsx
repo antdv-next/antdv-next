@@ -39,6 +39,14 @@ export default function confirm(config: ModalFuncProps) {
   const container = document.createElement('div')
   document.body.appendChild(container)
   let currentConfig = { ...config, close, open: true } as ModalFuncProps & { close: any }
+  let vnode: VNode | null = null
+
+  const stopThemeWatch = watch(
+    () => global.theme.value,
+    () => {
+      vnode?.component?.update?.()
+    },
+  )
 
   function destroy(...args: any[]) {
     const triggerCancel = args.some(param => param?.triggerCancel)
@@ -49,6 +57,8 @@ export default function confirm(config: ModalFuncProps) {
     if (index !== -1) {
       destroyFns.splice(index, 1)
     }
+    stopThemeWatch()
+    vnode = null
     render(null, container)
     container.parentNode?.removeChild(container)
   }
@@ -78,15 +88,10 @@ export default function confirm(config: ModalFuncProps) {
         default: () => holderNode,
       },
     )
-    const vnode = (global.holderRender ? global.holderRender(configHolderNode) : configHolderNode) as VNode
-    vnode.appContext = appContext
-    watch(
-      () => global.theme.value,
-      () => {
-        vnode.component?.update?.()
-      },
-    )
-    render(vnode, container)
+    const nextVnode = (global.holderRender ? global.holderRender(configHolderNode) : configHolderNode) as VNode
+    nextVnode.appContext = appContext
+    vnode = nextVnode
+    render(nextVnode, container)
   }
 
   function close(...args: any[]) {
