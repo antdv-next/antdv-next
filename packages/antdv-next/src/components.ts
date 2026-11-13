@@ -293,4 +293,4 @@ export type {
 export { default as Upload, UploadDragger } from './upload'
 export type { UploadChangeParam, DraggerProps as UploadDraggerProps, UploadEmits, UploadFile, UploadProps, UploadRef, UploadSlots } from './upload'
 export { default as Watermark } from './watermark'
-export type { WatermarkProps, WatermarkRef } from './watermark'
+export type { WatermarkEmits, WatermarkProps, WatermarkRef, WatermarkSlots } from './watermark'
