@@ -6,7 +6,7 @@ import type { TypographySemanticClassNames, TypographySemanticStyles } from './i
 import { EnterOutlined } from '@antdv-next/icons'
 import { clsx } from '@v-c/util'
 import KeyCode from '@v-c/util/dist/KeyCode'
-import { defineComponent, onMounted, shallowRef, watch } from 'vue'
+import { defineComponent, onBeforeUnmount, onMounted, shallowRef, watch } from 'vue'
 import { normalizeStyle } from '../_util/styleUtils'
 import { toPropsRefs } from '../_util/tools.ts'
 import { cloneElement } from '../_util/vueNode'
@@ -48,6 +48,11 @@ const Editable = defineComponent<
     const { prefixCls, direction, maxLength, autoSize } = toPropsRefs(props, 'prefixCls', 'direction', 'maxLength', 'autoSize')
 
     const ref = shallowRef<TextAreaRef>()
+
+    let isUnmounting = false
+    onBeforeUnmount(() => {
+      isUnmounting = true
+    })
 
     const inComposition = shallowRef(false)
     const lastKeyCode = shallowRef<number | null>(null)
@@ -114,7 +119,9 @@ const Editable = defineComponent<
     }
 
     const onBlur: any = () => {
-      confirmChange()
+      // Removing a focused textarea can emit blur while it is being unmounted.
+      if (!isUnmounting)
+        confirmChange()
     }
 
     const [hashId, cssVarCls] = useStyle(prefixCls)

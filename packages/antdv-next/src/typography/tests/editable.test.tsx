@@ -1,4 +1,5 @@
 import { afterAll, afterEach, beforeAll, describe, expect, it, vi } from 'vitest'
+import { nextTick } from 'vue'
 import Base from '../Base'
 import Paragraph from '../Paragraph'
 import { mount } from '/@tests/utils'
@@ -189,6 +190,61 @@ describe('typography.Editable', () => {
     expect(onClick).toHaveBeenCalledTimes(1)
     expect(wrapper.find('textarea').exists()).toBe(false)
   })
+
+  it.each(['Escape', 'Enter', 'controlled close'])(
+    'should ignore removal blur after %s',
+    async (action) => {
+      const onChange = vi.fn()
+      const onCancel = vi.fn()
+      const onEnd = vi.fn()
+      const editable = { editing: true, onChange, onCancel, onEnd }
+      const wrapper = mount(Paragraph, {
+        attachTo: document.body,
+        props: { editable },
+        slots: { default: () => 'Bamboo' },
+      })
+      const textarea = wrapper.find('textarea')
+      await textarea.setValue('Unsaved draft')
+      expect(document.activeElement).toBe(textarea.element)
+
+      const content = wrapper.find('.ant-typography-edit-content').element
+      const parent = content.parentNode!
+      const removeChild = parent.removeChild.bind(parent)
+      let removalBlurs = 0
+      // Chromium blurs a focused textarea during DOM removal; jsdom does not.
+      const removeSpy = vi.spyOn(parent, 'removeChild').mockImplementation(<T extends Node>(child: T): T => {
+        if (child.contains(textarea.element) && document.activeElement === textarea.element) {
+          removalBlurs += 1
+          textarea.element.blur()
+        }
+        return removeChild(child)
+      })
+
+      try {
+        if (action === 'controlled close') {
+          await wrapper.setProps({ editable: { ...editable, editing: false } })
+        }
+        else {
+          const keyCode = action === 'Escape' ? 27 : 13
+          await textarea.trigger('keydown', { keyCode })
+          await textarea.trigger('keyup', { keyCode })
+        }
+        await nextTick()
+
+        expect(removalBlurs).toBe(1)
+        expect(onChange).toHaveBeenCalledTimes(action === 'Enter' ? 1 : 0)
+        expect(onCancel).toHaveBeenCalledTimes(action === 'Escape' ? 1 : 0)
+        expect(onEnd).toHaveBeenCalledTimes(action === 'Enter' ? 1 : 0)
+        if (action === 'Enter')
+          expect(onChange).toHaveBeenCalledWith('Unsaved draft')
+        expect(document.activeElement).toBe(wrapper.find('.ant-typography-edit').element)
+      }
+      finally {
+        removeSpy.mockRestore()
+        wrapper.unmount()
+      }
+    },
+  )
 
   it('should trigger onChange', async () => {
     const onChange = vi.fn()
