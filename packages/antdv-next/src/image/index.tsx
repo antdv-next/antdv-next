@@ -263,8 +263,8 @@ const Image = defineComponent<
           emit('click', e as MouseEvent)
         },
       } as Pick<VcImageProps, 'onError' | 'onClick'>
-      // Merge slots into a copy: `mergedPreviewConfig` is `null` when preview is
-      // disabled, and recomputing it would drop any in-place writes.
+      // Merge slots into a copy instead of mutating the computed value, which is
+      // `null` when preview is disabled.
       const mergedPreviewConfigValue = mergedPreviewConfig.value
       const mergedPreviewConfigWithSlots = mergedPreviewConfigValue
         ? {
